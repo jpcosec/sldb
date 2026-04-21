@@ -28,6 +28,8 @@ It exists to parse Markdown into a StructuredNLDoc model and render the same mod
 
 A StructuredNLDoc model owns a Markdown contract in __template__. Stable prose stays literal, variable spans become markers, SLDB parses the Markdown structurally, fills model fields, and can render the model back to Markdown.
 
+Field descriptions should explain each model field in plain language so both humans and LLMs can infer document intent from the schema.
+
 Model reference shape: package.module:ModelName
 
 Python path hint: Use --pythonpath when the model lives in another local project.
@@ -39,7 +41,8 @@ Python path hint: Use --pythonpath when the model lives in another local project
 3. Use clear field names that reflect document meaning.
 4. Let headings and sections anchor the structure.
 5. Choose field types that match the Markdown block shape.
-6. Validate roundtrips whenever the model or template changes.
+6. Add a meaningful Field(description="...") to every model field.
+7. Validate roundtrips whenever the model or template changes.
 
 ## How to extend this library
 
@@ -90,6 +93,14 @@ note: Use validate to confirm idempotent roundtrips.
 
 ```bash
 sldb validate myapp.docs:RecipeDoc --input recipe.md --pythonpath /path/to/project
+```
+
+```python
+from pydantic import Field
+
+class RecipeDoc(StructuredNLDoc):
+    __template__ = "# ⸢rev•title⸥"
+    title: str = Field(description="Recipe title shown in the H1 heading.")
 ```
 
 ## Closing note

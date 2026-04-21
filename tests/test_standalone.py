@@ -6,6 +6,7 @@ import sys
 import yaml
 from importlib.resources import files
 from pathlib import Path
+from pydantic import Field
 from sldb import (
     StructuredNLDoc,
     DataExtractor,
@@ -36,9 +37,9 @@ class SimpleDoc(StructuredNLDoc):
 
 * ⸢rev,list•items⸥
 """.strip()
-    title: str
-    meta: dict
-    items: list
+    title: str = Field(description="Document title heading.")
+    meta: dict = Field(description="Metadata YAML block.")
+    items: list = Field(description="Bullet list items.")
 
 
 class AdvancedMarkersDoc(StructuredNLDoc):
@@ -57,17 +58,20 @@ Jinja greeting: Hello {{ title }}!
 ⸢optrev,dict•meta⸥
 ```
 """.strip()
-    title: str
-    subtitle: str | None = None
-    slug: str | None = None
-    items: list
-    meta: dict | None = None
+    title: str = Field(description="Main document title.")
+    subtitle: str | None = Field(default=None, description="Optional subtitle block.")
+    slug: str | None = Field(default=None, description="Render-only slug value.")
+    items: list = Field(description="Repeated bullet list entries.")
+    meta: dict | None = Field(
+        default=None, description="Optional metadata mapping block."
+    )
 
 
 def _write_model_module(base_path: Path) -> str:
     module_path = base_path / "external_models.py"
     module_path.write_text(
-        '''from sldb import StructuredNLDoc
+        '''from pydantic import Field
+from sldb import StructuredNLDoc
 
 
 class SimpleDoc(StructuredNLDoc):
@@ -81,9 +85,9 @@ class SimpleDoc(StructuredNLDoc):
 
 * ⸢rev,list•items⸥
 """.strip()
-    title: str
-    meta: dict
-    items: list
+    title: str = Field(description="Document title heading.")
+    meta: dict = Field(description="Metadata YAML block.")
+    items: list = Field(description="Bullet list items.")
 ''',
         encoding="utf-8",
     )
@@ -439,7 +443,7 @@ def test_python_markers_can_be_filtered_in_unsafe_mode():
 
     class FilteredDoc(StructuredNLDoc):
         __template__ = "Allowed: ⸢py•title.upper()⸥\nBlocked: ⸢py•title.lower()⸥"
-        title: str
+        title: str = Field(description="Title used by python markers.")
 
     try:
         rendered = render_model_markdown(FilteredDoc, {"title": "Hello"})
@@ -466,3 +470,14 @@ def test_legacy_python_m_nldb_shows_migration_message():
 
     assert result.returncode != 0
     assert "renamed to 'sldb'" in result.stderr
+
+
+def test_structured_nl_doc_requires_field_descriptions():
+    with pytest.raises(
+        TypeError,
+        match="fields must define a non-empty description: title",
+    ):
+
+        class MissingDescriptionDoc(StructuredNLDoc):
+            __template__ = "# ⸢rev•title⸥"
+            title: str

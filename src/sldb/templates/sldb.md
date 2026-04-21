@@ -15,6 +15,10 @@ What it does
 - Extracts data from Markdown with a model
 - Renders Markdown from data with a model
 - Validates model roundtrip behavior
+- Keeps field-level descriptions present so the model is self-explanatory to humans and LLMs
+
+Model rule
+- Every `StructuredNLDoc` field must use `Field(description="...")` with a non-empty description
 
 Commands
 - `sldb extract <model-ref> <input-markdown> <output-json-or-yaml>`
@@ -29,4 +33,5 @@ Python marker modes
 - Unsafe mode enables `py` marker evaluation for trusted templates only
 
 Rule
+- Every `StructuredNLDoc` field must have a meaningful description.
 - For every StructuredNLDoc workflow, run `sldb validate` before finishing.

@@ -22,6 +22,8 @@ The package now ships with a small `sldb` command.
 
 The CLI is model-first: it operates on a `StructuredNLDoc` reference in the form `package.module:ModelName`. If the model lives in your current project rather than the installed `sldb` package, pass `--pythonpath /path/to/project`.
 
+Every `StructuredNLDoc` field must define a non-empty Pydantic `description`. Treat those descriptions as part of the model contract: they act as cues for humans reading the schema and for LLMs generating or editing documents around it.
+
 Extract data from a Markdown document using a model:
 
 ```bash
@@ -40,6 +42,16 @@ The CLI uses positional file arguments so it can be scripted more easily:
 - `render <model-ref> <input-data> <output-markdown>`
 
 Use `-` as the output path to write to stdout.
+
+The generated example bundle and CLI help both show the preferred field pattern:
+
+```python
+from pydantic import Field
+
+class RecipeDoc(StructuredNLDoc):
+    __template__ = "# ⸢rev•title⸥"
+    title: str = Field(description="Recipe title shown in the H1 heading.")
+```
 
 Validate model idempotency against a sample Markdown document:
 
@@ -78,12 +90,14 @@ This creates `./sldb_example` with a sample model, sample Markdown input, and sa
 ## Basic Usage
 
 ```python
+from pydantic import Field
+
 from sldb import StructuredNLDoc, DataExtractor, AST_Handler, TemplateExtractor
 
 class MyModel(StructuredNLDoc):
     __template__ = "# ⸢rev•title⸥\n\n⸢rev•content⸥"
-    title: str
-    content: str
+    title: str = Field(description="Primary document heading.")
+    content: str = Field(description="Main document body content.")
 
 # Parsing
 ast = AST_Handler()
@@ -96,6 +110,8 @@ payload = data.extract_values(ast.split_nodes("# Hello\n\nWorld"), recipes)
 model = MyModel(**payload)
 print(model.title) # "Hello"
 ```
+
+Every `StructuredNLDoc` field must define a non-empty Pydantic `description` so the model carries usage cues for humans and LLMs.
 
 ## Testing
 

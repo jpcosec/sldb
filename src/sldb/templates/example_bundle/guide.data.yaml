@@ -20,6 +20,7 @@ model_rules:
   - Use clear field names that reflect document meaning.
   - Let headings and sections anchor the structure.
   - Choose field types that match the Markdown block shape.
+  - Add a meaningful Field(description="...") to every model field.
   - Validate roundtrips whenever the model or template changes.
 extension_steps:
   - Add or refine a node handler in the extraction/rendering pipeline when a Markdown structure is not covered yet.

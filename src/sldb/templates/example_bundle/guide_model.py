@@ -1,3 +1,5 @@
+from pydantic import Field
+
 from sldb import StructuredNLDoc
 
 
@@ -78,16 +80,26 @@ sldb validate myapp.docs:RecipeDoc --input recipe.md --pythonpath /path/to/proje
 ⸢rev•closing_note⸥
 """.strip()
 
-    frontmatter: dict
-    title: str
-    intro: str
-    why_it_exists: str
-    benefits: list
-    how_it_works: str
-    model_ref_shape: str
-    pythonpath_hint: str
-    model_rules: list
-    extension_steps: list
-    metadata: dict
-    commands: dict
-    closing_note: str
+    frontmatter: dict = Field(description="Top-level YAML frontmatter for the guide.")
+    title: str = Field(description="Primary document title shown as the H1 heading.")
+    intro: str = Field(description="Opening introduction after the quote block.")
+    why_it_exists: str = Field(description="Explanation of the repo's purpose.")
+    benefits: list = Field(
+        description="Bullet list of benefits for structured documents."
+    )
+    how_it_works: str = Field(
+        description="Overview of the SLDB extraction and rendering flow."
+    )
+    model_ref_shape: str = Field(
+        description="Example shape for a StructuredNLDoc model reference."
+    )
+    pythonpath_hint: str = Field(
+        description="Guidance on when to use the --pythonpath option."
+    )
+    model_rules: list = Field(description="Numbered rules for designing a good model.")
+    extension_steps: list = Field(description="Action list for extending the library.")
+    metadata: dict = Field(
+        description="Example YAML metadata block embedded in the guide."
+    )
+    commands: dict = Field(description="Command reference rows keyed by command entry.")
+    closing_note: str = Field(description="Final closing note at the end of the guide.")

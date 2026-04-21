@@ -101,10 +101,13 @@ def build_parser() -> argparse.ArgumentParser:
             "SLDB treats Markdown documents as structured, typed, reversible data. "
             "It exists so a document can be parsed into a StructuredNLDoc/Pydantic model "
             "and rendered back to Markdown while preserving its intended structure.\n\n"
+            "Model rule: every StructuredNLDoc field must define a non-empty Pydantic description "
+            "so humans and LLMs can read the model as a guided document contract.\n\n"
             "Benefits: human-readable source of truth, machine-extractable typed data, "
             "one artifact for both writing and parsing, easier validation/automation/diffing, "
             "and safer roundtrips.\n\n"
             "Basics: define a StructuredNLDoc model, put the Markdown contract in __template__, "
+            "declare fields with Field(description=...), "
             "and mark variable regions with markers such as ⸢rev•title⸥, ⸢optrev•subtitle⸥, ⸢rev,list•items⸥, "
             "⸢rev,dict•meta⸥, ⸢render•slug⸥, ⸢py•title.upper()⸥, or Jinja2 expressions like {{ title }}. rev markers "
             "are reversible and required, optrev markers are reversible but optional, rev,list markers map repeated "
@@ -117,7 +120,8 @@ def build_parser() -> argparse.ArgumentParser:
             "to Markdown, and validates idempotent roundtrips.\n\n"
             "To create a good StructuredNLDoc model: start from a real document shape, keep stable prose fixed, "
             "mark only variable parts, use clear field names, let headings and sections anchor the structure, "
-            "choose field types that match the block shape, and validate roundtrips early."
+            "choose field types that match the block shape, write meaningful field descriptions, and validate "
+            "roundtrips early."
         ),
         formatter_class=argparse.RawTextHelpFormatter,
     )
@@ -126,6 +130,7 @@ def build_parser() -> argparse.ArgumentParser:
     extract_parser = subparsers.add_parser(
         "extract",
         help="Extract model data from a Markdown document.",
+        description="Load a StructuredNLDoc model with described fields and extract typed data from Markdown.",
     )
     extract_parser.add_argument(
         "model", help="Model reference, like package.module:DocModel."
@@ -148,6 +153,7 @@ def build_parser() -> argparse.ArgumentParser:
     render_parser = subparsers.add_parser(
         "render",
         help="Render Markdown from model data.",
+        description="Load a StructuredNLDoc model with described fields and render Markdown from JSON or YAML data.",
     )
     render_parser.add_argument(
         "model", help="Model reference, like package.module:DocModel."
@@ -164,6 +170,7 @@ def build_parser() -> argparse.ArgumentParser:
     validate_parser = subparsers.add_parser(
         "validate",
         help="Validate idempotency for a StructuredNLDoc model.",
+        description="Validate that a described StructuredNLDoc model roundtrips cleanly between Markdown and typed data.",
     )
     validate_parser.add_argument(
         "model", help="Model reference, like package.module:DocModel."
@@ -190,6 +197,7 @@ def build_parser() -> argparse.ArgumentParser:
     init_parser = subparsers.add_parser(
         "init",
         help="Write a minimal SLDB skill file into .skills/sldb/SKILL.md.",
+        description="Write a reusable SLDB skill file that reminds agents to keep StructuredNLDoc fields documented and validated.",
     )
     init_parser.add_argument(
         "path",
@@ -206,6 +214,7 @@ def build_parser() -> argparse.ArgumentParser:
     example_parser = subparsers.add_parser(
         "example",
         help="Create a comprehensive sldb example in an sldb_example folder.",
+        description="Create a working example bundle with Field(description=...) usage, Markdown input, YAML data, and docs.",
     )
     example_parser.add_argument(
         "path",
@@ -297,6 +306,9 @@ def main(argv: Any = None) -> int:
         sys.stdout.write(f"To test it, run:\n")
         sys.stdout.write(
             f"  sldb validate guide_model:SLDBGuide --input guide.input.md --pythonpath .\n"
+        )
+        sys.stdout.write(
+            "  Review `guide_model.py` for the required Field(description=...) pattern.\n"
         )
         sys.stdout.write(f"  (from within the {target_root} directory)\n")
         return 0
