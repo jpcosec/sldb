@@ -16,4 +16,4 @@ What it demonstrates:
 - YAML fenced metadata
 - table extraction/rendering
 
-It is designed to be the bundle that a future `nldb example` command can unpack.
+It is the bundle that `nldb example` unpacks into a local `nldb_example` directory.

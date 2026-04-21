@@ -67,6 +67,14 @@ nldb init .
 
 This writes `.skills/nldb/SKILL.md` from a bundled template with a short explanation of what nlDB is, when to use it, and the available commands.
 
+Generate a working example project bundle:
+
+```bash
+nldb example .
+```
+
+This creates `./nldb_example` with a sample model, sample Markdown input, and sample YAML data so you can try `extract`, `render`, and `validate` against a known-good reference.
+
 ## Basic Usage
 
 ```python
