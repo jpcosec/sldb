@@ -1,0 +1,52 @@
+frontmatter:
+  example: true
+  audience: maintainers
+  validated: true
+title: SLDB Example Guide
+intro: SLDB lets one Markdown document act as both a human-friendly source of truth and a machine-readable contract.
+why_it_exists: It exists to parse Markdown into a StructuredNLDoc model and render the same model back into stable Markdown without losing document intent.
+benefits:
+  - Human-readable source of truth.
+  - Machine-extractable typed data.
+  - One artifact for authoring and parsing.
+  - Easier validation, automation, and diffing.
+  - Safer roundtrips for evolving document workflows.
+how_it_works: A StructuredNLDoc model owns a Markdown contract in __template__. Stable prose stays literal, variable spans become markers, SLDB parses the Markdown structurally, fills model fields, and can render the model back to Markdown.
+model_ref_shape: package.module:ModelName
+pythonpath_hint: Use --pythonpath when the model lives in another local project.
+model_rules:
+  - Start from a real document shape, not an abstract schema.
+  - Keep stable prose literal and mark only changing spans.
+  - Use clear field names that reflect document meaning.
+  - Let headings and sections anchor the structure.
+  - Choose field types that match the Markdown block shape.
+  - Validate roundtrips whenever the model or template changes.
+extension_steps:
+  - Add or refine a node handler in the extraction/rendering pipeline when a Markdown structure is not covered yet.
+  - Start from a real example document and write a failing roundtrip test for the new artifact.
+  - Teach the handler how to compile template recipes and extract values from parsed nodes.
+  - Update rendering so the same structure can be emitted back into stable Markdown.
+  - Add the new artifact to the bundled guide example so the feature stays documented and tested.
+metadata:
+  install: pip install sldb
+  supports:
+    - headings
+    - paragraphs
+    - lists
+    - tables
+    - yaml
+  note: Use validate to confirm idempotent roundtrips.
+commands:
+  0:
+    commands: sldb extract
+    purpose: Parse Markdown into model-shaped data.
+    example: sldb extract myapp.docs:RecipeDoc recipe.md recipe.json
+  1:
+    commands: sldb render
+    purpose: Render Markdown from JSON or YAML input.
+    example: sldb render myapp.docs:RecipeDoc recipe.yaml recipe.md
+  2:
+    commands: sldb validate
+    purpose: Check document and model roundtrip idempotency.
+    example: sldb validate myapp.docs:RecipeDoc --input recipe.md
+closing_note: Use this bundle as the baseline example, then adapt the model to the real document you want to make reversible.

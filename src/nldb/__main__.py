@@ -1,5 +1,3 @@
-from nldb.cli import main
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())
+raise SystemExit(
+    "The 'nldb' CLI/package has been renamed to 'sldb'. Use 'python -m sldb' or the 'sldb' command."
+)
