@@ -223,6 +223,34 @@ def build_parser() -> argparse.ArgumentParser:
         help="Directory where the example folder will be created. Defaults to current directory.",
     )
 
+    store_parser = subparsers.add_parser(
+        "store",
+        help="Manage the SLDB store.",
+        description="Initialize stores, register models and documents, and check integrity.",
+    )
+    store_sub = store_parser.add_subparsers(dest="store_command", required=True)
+
+    _store_init = store_sub.add_parser("init", help="Initialize an SLDB store.")
+    _store_init.add_argument("--path", default=".", help="Project root directory.")
+    _store_init.add_argument("--force", action="store_true", help="Overwrite existing store.")
+
+    _store_add = store_sub.add_parser("add", help="Register a model in the store.")
+    _store_add.add_argument("model", help="Model reference, e.g. myapp.models:Book.")
+    _store_add.add_argument("--store", default=None, help="Path to .sldb directory.")
+    _store_add.add_argument("--pythonpath", default=None)
+
+    _store_track = store_sub.add_parser("track", help="Register a document instance.")
+    _store_track.add_argument("model", help="Model reference.")
+    _store_track.add_argument("document", help="Path to the .md document.")
+    _store_track.add_argument("--name", default=None, help="Logical name. Defaults to file stem.")
+    _store_track.add_argument("--store", default=None, help="Path to .sldb directory.")
+    _store_track.add_argument("--pythonpath", default=None)
+
+    _store_check = store_sub.add_parser("check", help="Run integrity diagnostics.")
+    _store_check.add_argument("--store", default=None, help="Path to .sldb directory.")
+    _store_check.add_argument("--format", choices=("text", "json", "yaml"), default="text")
+    _store_check.add_argument("--pythonpath", default=None)
+
     return parser
 
 
@@ -312,6 +340,150 @@ def main(argv: Any = None) -> int:
         )
         sys.stdout.write(f"  (from within the {target_root} directory)\n")
         return 0
+
+    if args.command == "store":
+        import dataclasses
+        import inspect
+        from sldb.store.io import (
+            load_store_index, save_store_index,
+            load_models_index, save_models_index,
+            load_documents_index, save_documents_index,
+        )
+        from sldb.store.models import StoreIndex, ModelEntry, ModelsIndex, DocumentsIndex, DocumentEntry
+        from sldb.store.hashing import hash_documents_index, hash_models_layer, hash_text, hash_fields
+        from sldb.store.resolver import find_local_store
+
+        def _resolve_store(store_arg: str | None) -> Path:
+            if store_arg:
+                return Path(store_arg).resolve()
+            found = find_local_store()
+            if not found:
+                raise SystemExit("No .sldb store found. Run 'sldb store init' first.")
+            return found
+
+        if args.store_command == "init":
+            project_root = Path(args.path).resolve()
+            store_path = project_root / ".sldb"
+            if (store_path / "store_index.yaml").exists() and not args.force:
+                raise SystemExit(f"Store already exists at {store_path}. Use --force to overwrite.")
+            save_store_index(store_path, StoreIndex())
+            sys.stdout.write(f"Initialized store at {store_path}\n")
+            return 0
+
+        if args.store_command == "add":
+            store_path = _resolve_store(args.store)
+            project_root = store_path.parent
+            model_type = _resolve_model_ref(args.model, args.pythonpath)
+            store_index = load_store_index(store_path)
+
+            if any(m.name == model_type.__name__ for m in store_index.models):
+                raise SystemExit(f"Model '{model_type.__name__}' is already registered.")
+
+            model_file = Path(inspect.getfile(model_type))
+            try:
+                model_path = str(model_file.relative_to(project_root))
+            except ValueError:
+                model_path = str(model_file)
+
+            models_index_rel = f".sldb/models/{model_type.__name__}.yaml"
+            docs_index_rel = f".sldb/documents/{model_type.__name__}.yaml"
+
+            docs_index = DocumentsIndex()
+            save_documents_index(project_root / docs_index_rel, docs_index)
+
+            models_idx = ModelsIndex(
+                name=model_type.__name__,
+                model_ref=args.model,
+                path=model_path,
+                documents_index=docs_index_rel,
+                hash_b=hash_documents_index(docs_index),
+            )
+            save_models_index(project_root / models_index_rel, models_idx)
+
+            store_index.models.append(ModelEntry(
+                name=model_type.__name__,
+                model_ref=args.model,
+                path=model_path,
+                models_index=models_index_rel,
+            ))
+            all_indices = [load_models_index(project_root / m.models_index) for m in store_index.models]
+            store_index.hash_a = hash_models_layer(all_indices)
+            save_store_index(store_path, store_index)
+
+            sys.stdout.write(f"Registered model '{model_type.__name__}' in {store_path}\n")
+            return 0
+
+        if args.store_command == "track":
+            store_path = _resolve_store(args.store)
+            project_root = store_path.parent
+            model_type = _resolve_model_ref(args.model, args.pythonpath)
+            store_index = load_store_index(store_path)
+
+            model_entry = next((m for m in store_index.models if m.name == model_type.__name__), None)
+            if model_entry is None:
+                raise SystemExit(f"Model '{model_type.__name__}' is not registered. Run 'sldb store add' first.")
+
+            doc_path = Path(args.document).resolve()
+            try:
+                doc_rel = str(doc_path.relative_to(project_root))
+            except ValueError:
+                doc_rel = str(doc_path)
+
+            doc_name = args.name or doc_path.stem
+            models_idx = load_models_index(project_root / model_entry.models_index)
+            docs_idx = load_documents_index(project_root / models_idx.documents_index)
+
+            if any(d.name == doc_name for d in docs_idx.documents):
+                raise SystemExit(f"Document '{doc_name}' is already tracked under '{model_type.__name__}'.")
+
+            text = doc_path.read_text(encoding="utf-8")
+            docs_idx.documents.append(DocumentEntry(
+                name=doc_name,
+                path=doc_rel,
+                hash_c=hash_text(text),
+                hash_d=hash_fields(model_type, text),
+            ))
+            save_documents_index(project_root / models_idx.documents_index, docs_idx)
+
+            models_idx.hash_b = hash_documents_index(docs_idx)
+            save_models_index(project_root / model_entry.models_index, models_idx)
+
+            all_indices = [load_models_index(project_root / m.models_index) for m in store_index.models]
+            store_index.hash_a = hash_models_layer(all_indices)
+            save_store_index(store_path, store_index)
+
+            sys.stdout.write(f"Tracked document '{doc_name}' under '{model_type.__name__}'\n")
+            return 0
+
+        if args.store_command == "check":
+            from sldb.store.diagnostics import diagnose_store, DiagnosisNote
+
+            store_path = _resolve_store(args.store)
+            project_root = store_path.parent
+            result = diagnose_store(store_path, project_root, pythonpath=args.pythonpath)
+
+            if args.format == "text":
+                status = "PASS" if result.is_valid else "FAIL"
+                sys.stdout.write(f"{status}: store integrity check\n")
+                for m in result.models:
+                    b = "ok" if m.hash_b_ok else "FAIL(hash_b)"
+                    sys.stdout.write(f"  model {m.name}: {b}\n")
+                    for d in m.documents:
+                        sys.stdout.write(f"    doc {d.name} [{d.path}]: {d.note.value}\n")
+            else:
+                def _ser(obj):
+                    if dataclasses.is_dataclass(obj) and not isinstance(obj, type):
+                        return {f.name: _ser(getattr(obj, f.name)) for f in dataclasses.fields(obj)}
+                    if isinstance(obj, list):
+                        return [_ser(i) for i in obj]
+                    if isinstance(obj, DiagnosisNote):
+                        return obj.value
+                    return obj
+
+                payload = {"valid": result.is_valid, "hash_a_ok": result.hash_a_ok, "models": _ser(result.models)}
+                sys.stdout.write(_serialize_structured_output(payload, args.format))
+
+            return 0 if result.is_valid else 1
 
     parser.error("Unknown command")
     return 2
