@@ -9,6 +9,7 @@ A structurally aware Markdown extraction and template mapping library based on `
 - **Stateful Sequential Extraction:** Robustly handles multiple identical blocks via cursor mapping.
 - **Rich GFM Support:** Native handlers for Lists, Tables, YAML Metadata, and standard text blocks.
 - **Marker-Based Templates:** Define extraction logic directly in Pydantic models using `__template__`.
+- **Store System:** A `.sldb/` pointer database that tracks model contracts and document instances via a Merkle-style hash cascade, with integrity diagnostics and federation support.
 
 ## Installation
 
@@ -145,6 +146,89 @@ configure(
 ```
 
 Set `SLDB_PYTHON_EXECUTION_MODE=unsafe` to change the default process-wide mode.
+
+## Store System
+
+The store is a `.sldb/` pointer database that decouples physical file locations from logical model identity. It tracks model contracts and their document instances without moving or owning any files. A global store at `~/.sldb/` can be shared across projects; a local `.sldb/` in the project root takes precedence.
+
+### How it works
+
+The store maintains a three-level YAML index cascade:
+
+```
+store_index.yaml          ← master router; owns hash_a
+  └─ .sldb/models/<Name>.yaml   ← per-model inventory; owns hash_b
+       └─ .sldb/documents/<Name>.yaml  ← per-document hashes
+            ├─ hash_c  ← sha256 of raw .md text
+            └─ hash_d  ← sha256 of extracted Pydantic field values
+```
+
+The four hashes form a Merkle chain. `sldb store check` walks the chain and reports fractures without modifying anything:
+
+| Observation | Meaning |
+|-------------|---------|
+| hash_c changed, hash_d stable | Benign text mutation (e.g. a rendered date). No action needed. |
+| hash_d changed | Field values were edited manually. |
+| Path missing | Document was moved or deleted. |
+| hash_b changed | Document inventory altered (added/removed). |
+| hash_a invalidated | Model contract changed (fields or template). |
+
+### Typical workflow
+
+```bash
+# 1. Initialize the store in your project root
+sldb store init
+
+# 2. Register a model contract
+sldb model add myapp.models:Book
+
+# 3a. Create a new document from data and track it
+sldb doc add --model Book -o docs/my-book.md '{"title": "My Book"}'
+# or from a YAML/JSON file
+sldb doc add --model Book -o docs/my-book.md data.yaml
+
+# 3b. Or track an existing document (validates idempotency first)
+sldb doc track docs/existing.md --model Book
+
+# 4. Check integrity
+sldb store check
+
+# 5. Update a tracked document with new data
+sldb doc update my-book --model Book '{"title": "Updated Title"}'
+
+# 6. After editing a model's Pydantic contract, re-index it
+sldb model update Book
+
+# 7. Full store reindex (after bulk changes)
+sldb store update
+```
+
+### Federation
+
+Stores can reference each other. The local store always wins on name collisions.
+
+```bash
+# Link a shared ontology store
+sldb store add ~/.sldb/shared-ontology --name shared
+```
+
+### Relationship semantics
+
+Model relationships (`inherits`, `has_many`) are **not** stored in the index — they are derived at query time from the Python class hierarchy and field types. The YAML index stores only physical pointers; the Pydantic class is the single source of truth for schema and semantics.
+
+### CLI reference
+
+| Command | Description |
+|---------|-------------|
+| `sldb store init [--path .]` | Initialize a `.sldb/` store |
+| `sldb store add <path>` | Link a federated store |
+| `sldb store check [--format text\|json\|yaml]` | Run integrity diagnostics |
+| `sldb store update` | Recompute all hashes from current file states |
+| `sldb model add <model-ref>` | Register a model contract |
+| `sldb model update <name>` | Re-index a model after contract changes |
+| `sldb doc add --model <name> -o <path> <payload>` | Create and track a new document |
+| `sldb doc track <path> --model <name>` | Validate and track an existing document |
+| `sldb doc update <name> --model <name> <payload>` | Re-render a tracked document with new data |
 
 ## License
 
