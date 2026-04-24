@@ -1,0 +1,80 @@
+id: sldb.current.store_lifecycle
+title: SLDB Store Lifecycle
+type: activity
+version: "0.1"
+
+data:
+  start: init_store
+
+  steps:
+    init_store:
+      label: sldb store init
+      next: add_model
+
+    add_model:
+      label: sldb model add
+      next: choose_doc_flow
+
+    choose_doc_flow:
+      label: Create new doc or track existing?
+      kind: decision
+      branches:
+        create: doc_add
+        track: doc_track
+
+    doc_add:
+      label: Render from payload and validate roundtrip
+      next: track_doc
+
+    doc_track:
+      label: Validate existing markdown idempotency
+      next: check_track_validity
+
+    check_track_validity:
+      label: Did idempotency pass?
+      kind: decision
+      branches:
+        "yes": track_doc
+        "no": force_or_fail
+
+    force_or_fail:
+      label: Force tracking?
+      kind: decision
+      branches:
+        "yes": track_doc
+        "no": abort_track
+
+    abort_track:
+      label: Abort tracking
+      next: end
+
+    track_doc:
+      label: Save document hashes and update indexes
+      next: check_store
+
+    check_store:
+      label: sldb store check
+      next: mutate_contract_or_doc
+
+    mutate_contract_or_doc:
+      label: Did model contract or doc content change?
+      kind: decision
+      branches:
+        model: model_update
+        doc: doc_update
+        bulk: store_update
+        none: end
+
+    model_update:
+      label: Reindex model documents and cascade hashes
+      next: end
+
+    doc_update:
+      label: Re-render tracked doc and cascade hashes
+      next: end
+
+    store_update:
+      label: Full store reindex
+      next: end
+
+  end: end

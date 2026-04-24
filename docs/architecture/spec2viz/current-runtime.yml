@@ -1,0 +1,73 @@
+id: sldb.current.runtime
+title: SLDB Current Runtime View
+type: deployment
+version: "0.1"
+
+data:
+  nodes:
+    user_shell:
+      label: Developer Shell
+      kind: client
+      contains:
+        - sldb_cli
+    project_repo:
+      label: Project Repository
+      kind: server
+      contains:
+        - project_models
+        - markdown_docs
+        - local_store
+    python_runtime:
+      label: Python Runtime
+      kind: server
+      contains:
+        - sldb_library
+        - markdown_stack
+    home_space:
+      label: Home Directory
+      kind: storage
+      contains:
+        - global_store
+
+  artifacts:
+    sldb_cli:
+      label: sldb CLI entrypoint
+      kind: backend
+    sldb_library:
+      label: sldb package
+      kind: backend
+    markdown_stack:
+      label: parser + renderer helpers
+      kind: backend
+    project_models:
+      label: StructuredNLDoc models
+      kind: backend
+    markdown_docs:
+      label: tracked markdown docs
+      kind: backend
+    local_store:
+      label: .sldb local store
+      kind: database
+    global_store:
+      label: ~/.sldb store path
+      kind: database
+
+  connections:
+    - from: sldb_cli
+      to: sldb_library
+      protocol: Python import
+    - from: sldb_library
+      to: markdown_stack
+      protocol: internal API
+    - from: sldb_library
+      to: project_models
+      protocol: dynamic import
+    - from: sldb_cli
+      to: markdown_docs
+      protocol: filesystem
+    - from: sldb_cli
+      to: local_store
+      protocol: filesystem
+    - from: sldb_cli
+      to: global_store
+      protocol: filesystem

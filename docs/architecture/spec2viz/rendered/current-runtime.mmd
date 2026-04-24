@@ -1,0 +1,22 @@
+graph TD
+    subgraph user_shell ["Developer Shell"]
+        sldb_cli["sldb CLI entrypoint"]
+    end
+    subgraph project_repo ["Project Repository"]
+        project_models["StructuredNLDoc models"]
+        markdown_docs["tracked markdown docs"]
+        local_store[".sldb local store"]
+    end
+    subgraph python_runtime ["Python Runtime"]
+        sldb_library["sldb package"]
+        markdown_stack["parser + renderer helpers"]
+    end
+    subgraph home_space ["Home Directory"]
+        global_store["~/.sldb store path"]
+    end
+    sldb_cli -->|Python import| sldb_library
+    sldb_library -->|internal API| markdown_stack
+    sldb_library -->|dynamic import| project_models
+    sldb_cli -->|filesystem| markdown_docs
+    sldb_cli -->|filesystem| local_store
+    sldb_cli -->|filesystem| global_store

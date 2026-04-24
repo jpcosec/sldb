@@ -1,0 +1,184 @@
+id: sldb.current.components
+title: SLDB Current System Components
+type: component
+version: "0.1"
+
+data:
+  nodes:
+    SLDBCLI:
+      label: sldb CLI
+      kind: core
+      contains:
+        - DirectCommands
+        - StoreCommands
+
+    DirectCommands:
+      label: Direct Commands
+      kind: core
+      contains:
+        - ExtractRenderValidate
+        - InitExample
+
+    ExtractRenderValidate:
+      label: extract / render / validate
+      kind: core
+
+    InitExample:
+      label: init / example
+      kind: core
+
+    StoreCommands:
+      label: store / model / doc Commands
+      kind: core
+      contains:
+        - StoreRegistryOps
+        - ModelRegistryOps
+        - DocumentTrackingOps
+
+    StoreRegistryOps:
+      label: store init/add/check/update
+      kind: core
+
+    ModelRegistryOps:
+      label: model add/update
+      kind: core
+
+    DocumentTrackingOps:
+      label: doc add/track/update
+      kind: core
+
+    ModelContract:
+      label: StructuredNLDoc Models
+      kind: core
+      contains:
+        - StructuredNLDocBase
+        - ValidationLayer
+
+    StructuredNLDocBase:
+      label: StructuredNLDoc base
+      kind: core
+
+    ValidationLayer:
+      label: validation helpers
+      kind: core
+
+    MarkdownEngine:
+      label: Markdown Engine
+      kind: core
+      contains:
+        - ASTHandler
+        - TemplateExtractor
+        - DataExtractor
+        - Renderer
+
+    ASTHandler:
+      label: ast_handler
+      kind: core
+
+    TemplateExtractor:
+      label: template_extractor
+      kind: core
+
+    DataExtractor:
+      label: data_extractor
+      kind: core
+
+    Renderer:
+      label: renderer
+      kind: core
+
+    StoreSubsystem:
+      label: Store Subsystem
+      kind: core
+      contains:
+        - StoreModels
+        - StoreIO
+        - StoreHashing
+        - StoreDiagnostics
+        - StoreResolver
+
+    StoreModels:
+      label: store.models
+      kind: core
+
+    StoreIO:
+      label: store.io
+      kind: core
+
+    StoreHashing:
+      label: store.hashing
+      kind: core
+
+    StoreDiagnostics:
+      label: store.diagnostics
+      kind: core
+
+    StoreResolver:
+      label: store.resolver
+      kind: core
+
+    Filesystem:
+      label: Filesystem
+      kind: boundary
+      contains:
+        - MarkdownDocs
+        - StoreFiles
+        - Templates
+
+    MarkdownDocs:
+      label: Markdown docs
+      kind: boundary
+
+    StoreFiles:
+      label: .sldb YAML indexes
+      kind: database
+
+    Templates:
+      label: bundled templates/examples
+      kind: boundary
+
+  edges:
+    - from: SLDBCLI
+      to: ModelContract
+      relation: uses
+      label: import models
+
+    - from: SLDBCLI
+      to: ValidationLayer
+      relation: uses
+      label: roundtrip/extract/render
+
+    - from: ValidationLayer
+      to: MarkdownEngine
+      relation: uses
+      label: parse and render
+
+    - from: StoreCommands
+      to: StoreSubsystem
+      relation: uses
+      label: manage store
+
+    - from: StoreDiagnostics
+      to: ValidationLayer
+      relation: uses
+      label: hash_d from extracted fields
+
+    - from: StoreHashing
+      to: ValidationLayer
+      relation: uses
+      label: field hashing
+
+    - from: StoreSubsystem
+      to: StoreFiles
+      relation: persists
+      label: YAML indexes
+
+    - from: SLDBCLI
+      to: MarkdownDocs
+      relation: reads_writes
+      label: documents and outputs
+
+    - from: InitExample
+      to: Templates
+      relation: reads
+      label: SKILL/example bundle

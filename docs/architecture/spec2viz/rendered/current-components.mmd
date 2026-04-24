@@ -1,0 +1,57 @@
+graph TD
+    SLDBCLI["sldb CLI"]
+    SLDBCLI --> DirectCommands
+    SLDBCLI --> StoreCommands
+    DirectCommands["Direct Commands"]
+    DirectCommands --> ExtractRenderValidate
+    DirectCommands --> InitExample
+    ExtractRenderValidate["extract / render / validate"]
+    InitExample["init / example"]
+    StoreCommands["store / model / doc Commands"]
+    StoreCommands --> StoreRegistryOps
+    StoreCommands --> ModelRegistryOps
+    StoreCommands --> DocumentTrackingOps
+    StoreRegistryOps["store init/add/check/update"]
+    ModelRegistryOps["model add/update"]
+    DocumentTrackingOps["doc add/track/update"]
+    ModelContract["StructuredNLDoc Models"]
+    ModelContract --> StructuredNLDocBase
+    ModelContract --> ValidationLayer
+    StructuredNLDocBase["StructuredNLDoc base"]
+    ValidationLayer["validation helpers"]
+    MarkdownEngine["Markdown Engine"]
+    MarkdownEngine --> ASTHandler
+    MarkdownEngine --> TemplateExtractor
+    MarkdownEngine --> DataExtractor
+    MarkdownEngine --> Renderer
+    ASTHandler["ast_handler"]
+    TemplateExtractor["template_extractor"]
+    DataExtractor["data_extractor"]
+    Renderer["renderer"]
+    StoreSubsystem["Store Subsystem"]
+    StoreSubsystem --> StoreModels
+    StoreSubsystem --> StoreIO
+    StoreSubsystem --> StoreHashing
+    StoreSubsystem --> StoreDiagnostics
+    StoreSubsystem --> StoreResolver
+    StoreModels["store.models"]
+    StoreIO["store.io"]
+    StoreHashing["store.hashing"]
+    StoreDiagnostics["store.diagnostics"]
+    StoreResolver["store.resolver"]
+    Filesystem["Filesystem"]
+    Filesystem --> MarkdownDocs
+    Filesystem --> StoreFiles
+    Filesystem --> Templates
+    MarkdownDocs["Markdown docs"]
+    StoreFiles[".sldb YAML indexes"]
+    Templates["bundled templates/examples"]
+    SLDBCLI -->|import models| ModelContract
+    SLDBCLI -->|roundtrip/extract/render| ValidationLayer
+    ValidationLayer -->|parse and render| MarkdownEngine
+    StoreCommands -->|manage store| StoreSubsystem
+    StoreDiagnostics -->|hash_d from extracted fields| ValidationLayer
+    StoreHashing -->|field hashing| ValidationLayer
+    StoreSubsystem -->|YAML indexes| StoreFiles
+    SLDBCLI -->|documents and outputs| MarkdownDocs
+    InitExample -->|SKILL/example bundle| Templates

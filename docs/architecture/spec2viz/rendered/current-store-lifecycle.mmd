@@ -1,0 +1,38 @@
+flowchart TD
+    __start([Start])
+    init_store["sldb store init"]
+    add_model["sldb model add"]
+    choose_doc_flow{"Create new doc or track existing?"}
+    doc_add["Render from payload and validate roundtrip"]
+    doc_track["Validate existing markdown idempotency"]
+    check_track_validity{"Did idempotency pass?"}
+    force_or_fail{"Force tracking?"}
+    abort_track["Abort tracking"]
+    track_doc["Save document hashes and update indexes"]
+    check_store["sldb store check"]
+    mutate_contract_or_doc{"Did model contract or doc content change?"}
+    model_update["Reindex model documents and cascade hashes"]
+    doc_update["Re-render tracked doc and cascade hashes"]
+    store_update["Full store reindex"]
+    __end([End])
+    __start --> init_store
+    init_store --> add_model
+    add_model --> choose_doc_flow
+    choose_doc_flow -->|create| doc_add
+    choose_doc_flow -->|track| doc_track
+    doc_add --> track_doc
+    doc_track --> check_track_validity
+    check_track_validity -->|yes| track_doc
+    check_track_validity -->|no| force_or_fail
+    force_or_fail -->|yes| track_doc
+    force_or_fail -->|no| abort_track
+    abort_track --> __end
+    track_doc --> check_store
+    check_store --> mutate_contract_or_doc
+    mutate_contract_or_doc -->|model| model_update
+    mutate_contract_or_doc -->|doc| doc_update
+    mutate_contract_or_doc -->|bulk| store_update
+    mutate_contract_or_doc -->|none| __end
+    model_update --> __end
+    doc_update --> __end
+    store_update --> __end
