@@ -17,7 +17,7 @@ from sldb import (
     reset_config,
 )
 from sldb.cli import main as cli_main
-from sldb.templates.example_bundle.guide_model import SLDBGuide
+from sldb.examples.reference_bundle.guide_model import SLDBGuide
 from sldb.validation import (
     extract_model_data,
     render_model_markdown,
@@ -353,7 +353,7 @@ def test_cli_init_force_overwrites(tmp_path):
 
 
 def test_example_bundle_roundtrips():
-    bundle = files("sldb.templates.example_bundle")
+    bundle = files("sldb.examples.reference_bundle")
     input_markdown = bundle.joinpath("guide.input.md").read_text(encoding="utf-8")
     input_data = yaml.safe_load(
         bundle.joinpath("guide.data.yaml").read_text(encoding="utf-8")
@@ -379,7 +379,7 @@ def test_example_bundle_roundtrips():
 
 
 def test_example_bundle_self_idempotency():
-    bundle = files("sldb.templates.example_bundle")
+    bundle = files("sldb.examples.reference_bundle")
     input_markdown = bundle.joinpath("guide.input.md").read_text(encoding="utf-8")
 
     first_payload = extract_model_data(SLDBGuide, input_markdown)

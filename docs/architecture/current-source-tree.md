@@ -8,7 +8,6 @@ src/
 │   ├── __init__.py
 │   ├── __main__.py
 │   ├── ast_handler.py
-│   ├── cli.py
 │   ├── config.py
 │   ├── data_extractor.py
 │   ├── node_handler.py
@@ -16,6 +15,23 @@ src/
 │   ├── structuredNLDoc.py
 │   ├── template_extractor.py
 │   ├── validation.py
+│   ├── cli/
+│   │   ├── __init__.py
+│   │   └── main.py
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── ast.py
+│   │   ├── data_extractor.py
+│   │   ├── node_handler.py
+│   │   ├── renderer.py
+│   │   └── template_extractor.py
+│   ├── models/
+│   │   ├── __init__.py
+│   │   └── structured_doc.py
+│   ├── runtime/
+│   │   ├── __init__.py
+│   │   ├── config.py
+│   │   └── validation.py
 │   ├── store/
 │   │   ├── __init__.py
 │   │   ├── diagnostics.py
@@ -23,10 +39,14 @@ src/
 │   │   ├── io.py
 │   │   ├── models.py
 │   │   └── resolver.py
-│   └── templates/
+│   ├── assets/
+│   │   ├── __init__.py
+│   │   └── skills/
+│   │       ├── __init__.py
+│   │       └── sldb.md
+│   └── examples/
 │       ├── __init__.py
-│       ├── sldb.md
-│       └── example_bundle/
+│       └── reference_bundle/
 │           ├── __init__.py
 │           ├── README.md
 │           ├── guide.data.yaml
@@ -39,12 +59,14 @@ src/
 
 ## Module Roles
 
-- `src/sldb/structuredNLDoc.py`: base model contract and field-description enforcement
-- `src/sldb/validation.py`: extract/render/roundtrip helpers used by the CLI and store hashing
-- `src/sldb/cli.py`: top-level command parser and execution flow
-- `src/sldb/ast_handler.py`, `src/sldb/template_extractor.py`, `src/sldb/data_extractor.py`, `src/sldb/renderer.py`: core Markdown processing pipeline
+- `src/sldb/core/`: core Markdown parsing, extraction, node handling, and rendering pipeline
+- `src/sldb/models/structured_doc.py`: base model contract and field-description enforcement
+- `src/sldb/runtime/`: config and extract/render/roundtrip helpers used by the CLI and store hashing
+- `src/sldb/cli/main.py`: top-level command parser and execution flow
 - `src/sldb/store/`: YAML-backed store layer for indexes, hashing, diagnostics, and store lookup
-- `src/sldb/templates/`: bundled skill/template assets and example bundle
+- `src/sldb/assets/skills/`: bundled skill-file assets for `sldb init`
+- `src/sldb/examples/reference_bundle/`: bundled reference example for `sldb example`
+- compatibility re-export modules remain at `src/sldb/*.py` for older import paths
 - `src/nldb/`: rename shim that tells users to use `sldb`
 
 ## Test Distribution

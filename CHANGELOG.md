@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.2 - 2026-04-24
+
+- Reorganize the package into `core`, `models`, `runtime`, `cli`, `assets`, and `examples` subpackages while keeping compatibility re-exports
+- Add explicit link recovery and transclusion composition with `recover` and `compose`
+- Add structural store queries under `st` with `ls`, `get`, `glob`, and `find --where`
+- Add store-local semantic indexing under `se` and explicit federated semantic navigation under `gse`
+- Add model semantic metadata, canonical model registration, semantic equivalence mapping, and bundled tests for the new workflows
+
 ## 0.1.1 - 2026-04-24
 
 - Add current-system architecture docs and diagrams under `docs/architecture/`

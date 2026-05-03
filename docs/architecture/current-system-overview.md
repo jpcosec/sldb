@@ -5,18 +5,20 @@ This document captures how SLDB works today, not the proposed future features in
 ## What Exists Now
 
 - A Python library for reversible Markdown <-> Pydantic model workflows
-- A CLI with direct commands: `extract`, `render`, `validate`, `init`, `example`
-- A store subsystem under `.sldb/` for model registration, document tracking, and hash-based integrity checks
-- Local store discovery, with a placeholder global store path concept via `~/.sldb/`
-- No implemented tree indexing (`st`), semantic indexing (`se`), `recover`, or `compose` yet
+- A CLI with direct commands for extract/render/validate, link recovery/composition, and store navigation
+- A store subsystem under `.sldb/` for model registration, document tracking, hash-based integrity checks, semantic indexes, and linked-store federation
+- Structural store navigation rooted at `st`
+- Store-local semantic navigation rooted at `se`
+- Federated semantic navigation rooted at `gse`
+- Explicit Markdown links with `[[...]]` and transclusions with `![[...]]`
 
 ## Core Runtime Layers
 
 1. `StructuredNLDoc` models define the document contract and enforce per-field descriptions.
 2. The Markdown engine parses templates and Markdown, extracts typed values, and renders Markdown back.
 3. Validation helpers perform roundtrip/idempotency checks.
-4. The CLI exposes library and store workflows.
-5. The store subsystem writes YAML indexes and Merkle-style hashes.
+4. The CLI exposes library, store, link, and query workflows.
+5. The store subsystem writes YAML indexes, semantic artifacts, and Merkle-style hashes.
 
 ## Store Shape Today
 
@@ -25,6 +27,8 @@ This document captures how SLDB works today, not the proposed future features in
   store_index.yaml
   models/<Model>.yaml
   documents/<Model>.yaml
+  semantic_dag.yaml
+  semantic_index.yaml
 ```
 
 Hash chain:
@@ -34,13 +38,20 @@ Hash chain:
 - `hash_b`: per-model documents index hash
 - `hash_a`: top-level store models layer hash
 
+Semantic artifacts:
+
+- `semantic_dag.yaml`: store-local semantic node graph plus explicit equivalence mappings
+- `semantic_index.yaml`: document-to-semantic-tag materialization
+
 ## Current Constraints
 
 - Model fields must have non-empty Pydantic descriptions
 - Registered models are identified by import ref and class name
 - Tracked documents are grouped by registered model
 - Diagnostics treat missing documents and changed extracted payloads as failures
-- Federation today is only linked-store registration in `store_index.yaml`; there is no global store-of-stores implementation yet
+- Global semantic federation remains explicit through linked stores and semantic equivalence mappings
+- Structural queries are intentionally small-surface: `ls`, `get`, `glob`, and `find --where`
+- Semantic tags are explicit model/document metadata, not inferred from prose
 
 ## Diagrams
 

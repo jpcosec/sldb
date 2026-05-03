@@ -4,12 +4,12 @@ import sys
 from importlib import import_module
 from importlib.resources import files
 from pathlib import Path
-from typing import Any, Dict, Type
+from typing import Any
 
 import yaml
 
-from sldb.structuredNLDoc import StructuredNLDoc
-from sldb.validation import (
+from sldb.models.structured_doc import StructuredNLDoc
+from sldb.runtime.validation import (
     extract_model_data,
     render_model_markdown,
     validate_model_data_roundtrip,
@@ -23,7 +23,7 @@ def _read_text(path: str) -> str:
     return Path(path).read_text(encoding="utf-8")
 
 
-def _read_mapping(path: str) -> Dict[str, Any]:
+def _read_mapping(path: str) -> dict[str, Any]:
     raw = _read_text(path)
     try:
         data = yaml.safe_load(raw)
@@ -43,19 +43,19 @@ def _write_text(path: str, content: str) -> None:
     Path(path).write_text(content, encoding="utf-8")
 
 
-def _serialize_structured_output(data: Dict[str, Any], output_format: str) -> str:
+def _serialize_structured_output(data: dict[str, Any], output_format: str) -> str:
     if output_format == "yaml":
         return yaml.safe_dump(data, sort_keys=False)
     return json.dumps(data, indent=2, ensure_ascii=False) + "\n"
 
 
 def _skills_markdown() -> str:
-    return files("sldb.templates").joinpath("sldb.md").read_text(encoding="utf-8")
+    return files("sldb.assets.skills").joinpath("sldb.md").read_text(encoding="utf-8")
 
 
 def _resolve_model_ref(
     model_ref: str, pythonpath: str | None = None
-) -> Type[StructuredNLDoc]:
+) -> type[StructuredNLDoc]:
     if ":" not in model_ref:
         raise SystemExit("Model reference must use the form 'module:ClassName'.")
 
@@ -114,8 +114,7 @@ def build_parser() -> argparse.ArgumentParser:
             "Markdown list items, rev/optrev dict markers map YAML-like mapping blocks, table cells can use reversible "
             "markers inside the template row, and render/py/Jinja2 are non-reversible render-only paths. Python markers "
             "stay literal in safe mode and only evaluate in unsafe mode. The stable "
-            "Markdown stays literal; only the "
-            "changing spans become markers. "
+            "Markdown stays literal; only the changing spans become markers. "
             "sldb then parses Markdown structurally, extracts values into model fields, renders the model back "
             "to Markdown, and validates idempotent roundtrips.\n\n"
             "To create a good StructuredNLDoc model: start from a real document shape, keep stable prose fixed, "
@@ -223,13 +222,70 @@ def build_parser() -> argparse.ArgumentParser:
         help="Directory where the example folder will be created. Defaults to current directory.",
     )
 
-    # ── store ────────────────────────────────────────────────────────────────
+    recover_parser = subparsers.add_parser(
+        "recover",
+        help="Resolve explicit document links into a structured context bundle.",
+    )
+    recover_parser.add_argument(
+        "doc", help="Tracked document name or Markdown file path."
+    )
+    recover_parser.add_argument(
+        "--store", default=None, help="Path to .sldb directory."
+    )
+    recover_parser.add_argument("--depth", type=int, default=1)
+    recover_parser.add_argument(
+        "--format", choices=("text", "json", "yaml"), default="text"
+    )
+    recover_parser.add_argument("--links-only", action="store_true")
+    recover_parser.add_argument("--include-transclusions", action="store_true")
+
+    compose_parser = subparsers.add_parser(
+        "compose",
+        help="Materialize transclusion links deterministically.",
+    )
+    compose_parser.add_argument(
+        "doc", help="Tracked document name or Markdown file path."
+    )
+    compose_parser.add_argument(
+        "--store", default=None, help="Path to .sldb directory."
+    )
+    compose_parser.add_argument("-o", "--output", default="-")
+    compose_parser.add_argument(
+        "--format", choices=("markdown", "json", "yaml"), default="markdown"
+    )
+
+    ls_parser = subparsers.add_parser("ls", help="List store tree or semantic nodes.")
+    ls_parser.add_argument("address", help="Address rooted at st, se, or gse.")
+    ls_parser.add_argument("--store", default=None, help="Path to .sldb directory.")
+    ls_parser.add_argument("--pythonpath", default=None)
+
+    get_parser = subparsers.add_parser("get", help="Resolve a single address.")
+    get_parser.add_argument("address", help="Address rooted at st, se, or gse.")
+    get_parser.add_argument("--store", default=None, help="Path to .sldb directory.")
+    get_parser.add_argument("--pythonpath", default=None)
+    get_parser.add_argument(
+        "--format", choices=("json", "yaml", "text"), default="json"
+    )
+
+    glob_parser = subparsers.add_parser("glob", help="Expand wildcard addresses.")
+    glob_parser.add_argument("pattern", help="Pattern rooted at st or se.")
+    glob_parser.add_argument("--store", default=None, help="Path to .sldb directory.")
+    glob_parser.add_argument("--pythonpath", default=None)
+
+    find_parser = subparsers.add_parser(
+        "find", help="Filter structural or semantic results with a typed predicate."
+    )
+    find_parser.add_argument("address", help="Address rooted at st or se.")
+    find_parser.add_argument("--where", required=True, help="Typed filter expression.")
+    find_parser.add_argument("--store", default=None, help="Path to .sldb directory.")
+    find_parser.add_argument("--pythonpath", default=None)
+
     store_parser = subparsers.add_parser(
         "store",
         help="Store-level operations: init, federation, integrity check, full reindex.",
         description=(
             "Manages the .sldb/ pointer database. The store is a three-level YAML index cascade "
-            "(store_index → models_index → documents_index) that tracks model contracts and "
+            "(store_index -> models_index -> documents_index) that tracks model contracts and "
             "their document instances via a Merkle-style hash chain (hash_a/hash_b/hash_c/hash_d).\n\n"
             "Typical workflow:\n"
             "  sldb store init                   # create .sldb/ in project root\n"
@@ -246,7 +302,9 @@ def build_parser() -> argparse.ArgumentParser:
         help="Initialize a .sldb/ store in a project directory.",
         description="Creates .sldb/store_index.yaml with empty stores/models arrays.",
     )
-    _si.add_argument("--path", default=".", help="Project root. Defaults to current directory.")
+    _si.add_argument(
+        "--path", default=".", help="Project root. Defaults to current directory."
+    )
     _si.add_argument("--force", action="store_true", help="Overwrite existing store.")
 
     _sa = store_sub.add_parser(
@@ -258,8 +316,24 @@ def build_parser() -> argparse.ArgumentParser:
         ),
     )
     _sa.add_argument("path", help="Path to the other store's .sldb directory.")
-    _sa.add_argument("--name", default=None, help="Name for the linked store. Defaults to its parent directory name.")
+    _sa.add_argument(
+        "--name",
+        default=None,
+        help="Name for the linked store. Defaults to its parent directory name.",
+    )
     _sa.add_argument("--store", default=None, help="Path to the local .sldb directory.")
+
+    _sm = store_sub.add_parser(
+        "semantic-map",
+        help="Map a local semantic node to a global semantic node explicitly.",
+    )
+    _sm.add_argument(
+        "local_tag", help="Local semantic tag, e.g. type.documentation.Readme"
+    )
+    _sm.add_argument(
+        "global_tag", help="Global semantic tag, e.g. type.documentation.Readme"
+    )
+    _sm.add_argument("--store", default=None, help="Path to the local .sldb directory.")
 
     _sc = store_sub.add_parser(
         "check",
@@ -273,7 +347,9 @@ def build_parser() -> argparse.ArgumentParser:
     )
     _sc.add_argument("--store", default=None, help="Path to .sldb directory.")
     _sc.add_argument("--format", choices=("text", "json", "yaml"), default="text")
-    _sc.add_argument("--pythonpath", default=None, help="Path to prepend when importing models.")
+    _sc.add_argument(
+        "--pythonpath", default=None, help="Path to prepend when importing models."
+    )
 
     _su = store_sub.add_parser(
         "update",
@@ -286,7 +362,6 @@ def build_parser() -> argparse.ArgumentParser:
     _su.add_argument("--store", default=None, help="Path to .sldb directory.")
     _su.add_argument("--pythonpath", default=None)
 
-    # ── model ────────────────────────────────────────────────────────────────
     model_parser = subparsers.add_parser(
         "model",
         help="Register and manage model contracts in the store.",
@@ -308,6 +383,11 @@ def build_parser() -> argparse.ArgumentParser:
     _ma.add_argument("model", help="Model reference, e.g. myapp.models:Book.")
     _ma.add_argument("--store", default=None, help="Path to .sldb directory.")
     _ma.add_argument("--pythonpath", default=None)
+    _ma.add_argument(
+        "--canonical",
+        action="store_true",
+        help="Register the model as canonical for semantic federation.",
+    )
 
     _mu = model_sub.add_parser(
         "update",
@@ -322,7 +402,6 @@ def build_parser() -> argparse.ArgumentParser:
     _mu.add_argument("--store", default=None, help="Path to .sldb directory.")
     _mu.add_argument("--pythonpath", default=None)
 
-    # ── doc ──────────────────────────────────────────────────────────────────
     doc_parser = subparsers.add_parser(
         "doc",
         help="Create and manage document instances in the store.",
@@ -344,8 +423,14 @@ def build_parser() -> argparse.ArgumentParser:
     )
     _da.add_argument("--model", required=True, help="Registered model name, e.g. Book.")
     _da.add_argument("-o", "--output", required=True, help="Output .md file path.")
-    _da.add_argument("payload", help="JSON/YAML data: a file path or an inline JSON/YAML string.")
-    _da.add_argument("--name", default=None, help="Logical document name. Defaults to output file stem.")
+    _da.add_argument(
+        "payload", help="JSON/YAML data: a file path or an inline JSON/YAML string."
+    )
+    _da.add_argument(
+        "--name",
+        default=None,
+        help="Logical document name. Defaults to output file stem.",
+    )
     _da.add_argument("--store", default=None, help="Path to .sldb directory.")
     _da.add_argument("--pythonpath", default=None)
 
@@ -353,16 +438,20 @@ def build_parser() -> argparse.ArgumentParser:
         "track",
         help="Validate and track an existing document in the store.",
         description=(
-            "Runs an idempotency check (extract → render → extract) on the document before tracking. "
+            "Runs an idempotency check (extract -> render -> extract) on the document before tracking. "
             "Fails if the document does not roundtrip cleanly. Use --force to track anyway."
         ),
     )
     _dt.add_argument("path", help="Path to the existing .md document.")
     _dt.add_argument("--model", required=True, help="Registered model name.")
-    _dt.add_argument("--name", default=None, help="Logical document name. Defaults to file stem.")
+    _dt.add_argument(
+        "--name", default=None, help="Logical document name. Defaults to file stem."
+    )
     _dt.add_argument("--store", default=None, help="Path to .sldb directory.")
     _dt.add_argument("--pythonpath", default=None)
-    _dt.add_argument("--force", action="store_true", help="Track even if idempotency check fails.")
+    _dt.add_argument(
+        "--force", action="store_true", help="Track even if idempotency check fails."
+    )
 
     _dU = doc_sub.add_parser(
         "update",
@@ -374,7 +463,9 @@ def build_parser() -> argparse.ArgumentParser:
     )
     _dU.add_argument("name", help="Document name as registered in the store.")
     _dU.add_argument("--model", required=True, help="Registered model name.")
-    _dU.add_argument("payload", help="New JSON/YAML data: a file path or an inline JSON/YAML string.")
+    _dU.add_argument(
+        "payload", help="New JSON/YAML data: a file path or an inline JSON/YAML string."
+    )
     _dU.add_argument("--store", default=None, help="Path to .sldb directory.")
     _dU.add_argument("--pythonpath", default=None)
 
@@ -444,7 +535,7 @@ def main(argv: Any = None) -> int:
         target_root = Path(args.path) / "sldb_example"
         target_root.mkdir(parents=True, exist_ok=True)
 
-        bundle_path = files("sldb.templates").joinpath("example_bundle")
+        bundle_path = files("sldb.examples.reference_bundle")
         for item in bundle_path.iterdir():
             if (
                 item.is_file()
@@ -458,9 +549,9 @@ def main(argv: Any = None) -> int:
                 sys.stdout.write(f"Wrote {target_file}\n")
 
         sys.stdout.write(f"\nCreated comprehensive example in {target_root}\n")
-        sys.stdout.write(f"To test it, run:\n")
+        sys.stdout.write("To test it, run:\n")
         sys.stdout.write(
-            f"  sldb validate guide_model:SLDBGuide --input guide.input.md --pythonpath .\n"
+            "  sldb validate guide_model:SLDBGuide --input guide.input.md --pythonpath .\n"
         )
         sys.stdout.write(
             "  Review `guide_model.py` for the required Field(description=...) pattern.\n"
@@ -468,16 +559,25 @@ def main(argv: Any = None) -> int:
         sys.stdout.write(f"  (from within the {target_root} directory)\n")
         return 0
 
-    if args.command in ("store", "model", "doc"):
-        import dataclasses
-        import inspect
+    if args.command in ("recover", "compose", "ls", "get", "glob", "find"):
+        from sldb.links import compose_document, recover_links
         from sldb.store.io import (
-            load_store_index, save_store_index,
-            load_models_index, save_models_index,
-            load_documents_index, save_documents_index,
+            load_documents_index,
+            load_models_index,
+            load_store_index,
         )
-        from sldb.store.models import StoreIndex, StoreEntry, ModelEntry, ModelsIndex, DocumentsIndex, DocumentEntry
-        from sldb.store.hashing import hash_documents_index, hash_models_layer, hash_text, hash_fields
+        from sldb.store.query import (
+            find_semantic,
+            find_structural,
+            get_global_semantic,
+            get_semantic,
+            get_structural,
+            glob_semantic,
+            glob_structural,
+            list_global_semantic,
+            list_semantic,
+            list_structural,
+        )
         from sldb.store.resolver import find_local_store
 
         def _resolve_store(store_arg: str | None) -> Path:
@@ -488,10 +588,205 @@ def main(argv: Any = None) -> int:
                 raise SystemExit("No .sldb store found. Run 'sldb store init' first.")
             return found
 
-        def _parse_payload(payload_arg: str) -> Dict[str, Any]:
-            p = Path(payload_arg)
-            if p.exists():
-                return _read_mapping(str(p))
+        def _resolve_doc_path(doc_arg: str, store_path: Path | None) -> Path:
+            candidate = Path(doc_arg)
+            if candidate.exists():
+                return candidate.resolve()
+            if store_path is not None:
+                project_root = store_path.parent
+                store_index = load_store_index(store_path)
+                for model_entry in store_index.models:
+                    models_idx = load_models_index(
+                        project_root / model_entry.models_index
+                    )
+                    docs_idx = load_documents_index(
+                        project_root / models_idx.documents_index
+                    )
+                    doc_entry = next(
+                        (doc for doc in docs_idx.documents if doc.name == doc_arg), None
+                    )
+                    if doc_entry is not None:
+                        return (project_root / doc_entry.path).resolve()
+            raise SystemExit(f"Document not found: {doc_arg}")
+
+        if args.command == "recover":
+            store_path = (
+                _resolve_store(args.store) if args.store or find_local_store() else None
+            )
+            doc_path = (
+                _resolve_doc_path(args.doc, store_path)
+                if store_path
+                else Path(args.doc).resolve()
+            )
+            payload = recover_links(
+                doc_path,
+                store_path,
+                include_transclusions=args.include_transclusions,
+            )
+            if args.links_only:
+                payload = {"root": payload["root"], "links": payload["links"]}
+            if args.format == "text":
+                for link in payload.get("links", []):
+                    status = "ok" if link["resolved"] else "unresolved"
+                    sys.stdout.write(f"{link['kind']}: {link['target']} [{status}]\n")
+            else:
+                sys.stdout.write(_serialize_structured_output(payload, args.format))
+            return 0 if not payload.get("unresolved") else 1
+
+        if args.command == "compose":
+            store_path = (
+                _resolve_store(args.store) if args.store or find_local_store() else None
+            )
+            doc_path = (
+                _resolve_doc_path(args.doc, store_path)
+                if store_path
+                else Path(args.doc).resolve()
+            )
+            payload = compose_document(doc_path, store_path)
+            if args.format == "markdown":
+                _write_text(
+                    args.output,
+                    payload["markdown"]
+                    + ("\n" if not payload["markdown"].endswith("\n") else ""),
+                )
+            else:
+                _write_text(
+                    args.output, _serialize_structured_output(payload, args.format)
+                )
+            return 0 if not payload["unresolved"] else 1
+
+        store_path = _resolve_store(args.store)
+        if args.command == "ls":
+            if args.address.startswith("st"):
+                results = list_structural(
+                    store_path, args.address, _resolve_model_ref, args.pythonpath
+                )
+            elif args.address.startswith("se"):
+                results = list_semantic(
+                    store_path, args.address, _resolve_model_ref, args.pythonpath
+                )
+            elif args.address.startswith("gse"):
+                results = list_global_semantic(
+                    store_path, args.address, _resolve_model_ref, args.pythonpath
+                )
+            else:
+                raise SystemExit(f"Unsupported address root: {args.address}")
+            for item in results:
+                sys.stdout.write(f"{item}\n")
+            return 0
+
+        if args.command == "get":
+            if args.address.startswith("st"):
+                result = get_structural(
+                    store_path, args.address, _resolve_model_ref, args.pythonpath
+                )
+            elif args.address.startswith("se"):
+                result = get_semantic(
+                    store_path, args.address, _resolve_model_ref, args.pythonpath
+                )
+            elif args.address.startswith("gse"):
+                result = get_global_semantic(
+                    store_path, args.address, _resolve_model_ref, args.pythonpath
+                )
+            else:
+                raise SystemExit(f"Unsupported address root: {args.address}")
+            if args.format == "text":
+                if isinstance(result, list):
+                    for item in result:
+                        sys.stdout.write(f"{item}\n")
+                else:
+                    sys.stdout.write(f"{result}\n")
+            else:
+                sys.stdout.write(
+                    _serialize_structured_output({"result": result}, args.format)
+                )
+            return 0 if result is not None else 1
+
+        if args.command == "glob":
+            if args.pattern.startswith("st"):
+                results = glob_structural(
+                    store_path, args.pattern, _resolve_model_ref, args.pythonpath
+                )
+            elif args.pattern.startswith("se"):
+                results = glob_semantic(
+                    store_path, args.pattern, _resolve_model_ref, args.pythonpath
+                )
+            else:
+                raise SystemExit(f"Unsupported pattern root: {args.pattern}")
+            for item in results:
+                sys.stdout.write(f"{item}\n")
+            return 0
+
+        if args.command == "find":
+            if args.address.startswith("st"):
+                results = find_structural(
+                    store_path,
+                    args.address,
+                    args.where,
+                    _resolve_model_ref,
+                    args.pythonpath,
+                )
+            elif args.address.startswith("se"):
+                results = find_semantic(
+                    store_path,
+                    args.address,
+                    args.where,
+                    _resolve_model_ref,
+                    args.pythonpath,
+                )
+            else:
+                raise SystemExit(f"Unsupported address root: {args.address}")
+            for item in results:
+                sys.stdout.write(f"{item}\n")
+            return 0
+
+    if args.command in ("store", "model", "doc"):
+        import dataclasses
+        import inspect
+
+        from sldb.store.hashing import (
+            hash_documents_index,
+            hash_fields,
+            hash_models_layer,
+            hash_text,
+        )
+        from sldb.store.io import (
+            load_documents_index,
+            load_models_index,
+            load_semantic_dag,
+            load_store_index,
+            save_documents_index,
+            save_models_index,
+            save_semantic_dag,
+            save_store_index,
+        )
+        from sldb.store.models import (
+            DocumentEntry,
+            DocumentsIndex,
+            ModelEntry,
+            ModelsIndex,
+            StoreEntry,
+            StoreIndex,
+        )
+        from sldb.store.resolver import find_local_store
+        from sldb.store.semantic import (
+            add_semantic_equivalence,
+            flatten_model_semantics,
+            rebuild_semantic_indexes,
+        )
+
+        def _resolve_store(store_arg: str | None) -> Path:
+            if store_arg:
+                return Path(store_arg).resolve()
+            found = find_local_store()
+            if not found:
+                raise SystemExit("No .sldb store found. Run 'sldb store init' first.")
+            return found
+
+        def _parse_payload(payload_arg: str) -> dict[str, Any]:
+            payload_path = Path(payload_arg)
+            if payload_path.exists():
+                return _read_mapping(str(payload_path))
             try:
                 data = yaml.safe_load(payload_arg)
             except yaml.YAMLError as exc:
@@ -500,44 +795,72 @@ def main(argv: Any = None) -> int:
                 raise SystemExit("Payload must be a JSON/YAML object.")
             return data
 
-        def _registered_model(store_path: Path, model_name: str, pythonpath: str | None):
+        def _registered_model(
+            store_path: Path, model_name: str, pythonpath: str | None
+        ):
             store_index = load_store_index(store_path)
             entry = next((m for m in store_index.models if m.name == model_name), None)
             if entry is None:
-                raise SystemExit(f"Model '{model_name}' not registered. Run 'sldb model add' first.")
+                raise SystemExit(
+                    f"Model '{model_name}' not registered. Run 'sldb model add' first."
+                )
             model_type = _resolve_model_ref(entry.model_ref, pythonpath)
             return model_type, entry, store_index
 
-        def _track_document(store_path, project_root, store_index, model_type, model_entry, doc_path, doc_name):
+        def _track_document(
+            store_path,
+            project_root,
+            store_index,
+            model_type,
+            model_entry,
+            doc_path,
+            doc_name,
+        ):
             models_idx = load_models_index(project_root / model_entry.models_index)
             docs_idx = load_documents_index(project_root / models_idx.documents_index)
             if any(d.name == doc_name for d in docs_idx.documents):
-                raise SystemExit(f"Document '{doc_name}' is already tracked under '{model_type.__name__}'.")
+                raise SystemExit(
+                    f"Document '{doc_name}' is already tracked under '{model_type.__name__}'."
+                )
             try:
                 doc_rel = str(doc_path.relative_to(project_root))
             except ValueError:
                 doc_rel = str(doc_path)
             text = doc_path.read_text(encoding="utf-8")
             try:
-                h_d = hash_fields(model_type, text)
+                hash_d = hash_fields(model_type, text)
             except Exception:
-                h_d = ""
-            docs_idx.documents.append(DocumentEntry(
-                name=doc_name, path=doc_rel,
-                hash_c=hash_text(text),
-                hash_d=h_d,
-            ))
+                hash_d = ""
+            docs_idx.documents.append(
+                DocumentEntry(
+                    name=doc_name,
+                    path=doc_rel,
+                    hash_c=hash_text(text),
+                    hash_d=hash_d,
+                )
+            )
             save_documents_index(project_root / models_idx.documents_index, docs_idx)
             models_idx.hash_b = hash_documents_index(docs_idx)
             save_models_index(project_root / model_entry.models_index, models_idx)
+            rebuild_semantic_indexes(
+                store_path,
+                project_root,
+                _resolve_model_ref,
+                getattr(args, "pythonpath", None),
+            )
             _cascade_hash_a(store_path, project_root, store_index)
 
         def _cascade_hash_a(store_path, project_root, store_index):
-            all_indices = [load_models_index(project_root / m.models_index) for m in store_index.models]
+            all_indices = [
+                load_models_index(project_root / model.models_index)
+                for model in store_index.models
+            ]
             store_index.hash_a = hash_models_layer(all_indices)
             save_store_index(store_path, store_index)
 
-        def _reindex_model_docs(store_path, project_root, store_index, model_entry, model_type):
+        def _reindex_model_docs(
+            store_path, project_root, store_index, model_entry, model_type
+        ):
             models_idx = load_models_index(project_root / model_entry.models_index)
             docs_idx = load_documents_index(project_root / models_idx.documents_index)
             for doc in docs_idx.documents:
@@ -549,15 +872,23 @@ def main(argv: Any = None) -> int:
             save_documents_index(project_root / models_idx.documents_index, docs_idx)
             models_idx.hash_b = hash_documents_index(docs_idx)
             save_models_index(project_root / model_entry.models_index, models_idx)
+            rebuild_semantic_indexes(
+                store_path,
+                project_root,
+                _resolve_model_ref,
+                getattr(args, "pythonpath", None),
+            )
 
-        # ── store ─────────────────────────────────────────────────────────────
         if args.command == "store":
             if args.store_command == "init":
                 project_root = Path(args.path).resolve()
                 store_path = project_root / ".sldb"
                 if (store_path / "store_index.yaml").exists() and not args.force:
-                    raise SystemExit(f"Store already exists at {store_path}. Use --force to overwrite.")
+                    raise SystemExit(
+                        f"Store already exists at {store_path}. Use --force to overwrite."
+                    )
                 save_store_index(store_path, StoreIndex())
+                save_semantic_dag(store_path, load_semantic_dag(store_path))
                 sys.stdout.write(f"Initialized store at {store_path}\n")
                 return 0
 
@@ -569,7 +900,7 @@ def main(argv: Any = None) -> int:
                     raise SystemExit(f"No valid store found at {other}")
                 store_index = load_store_index(store_path)
                 name = args.name or other.parent.name
-                if any(s.name == name for s in store_index.stores):
+                if any(store.name == name for store in store_index.stores):
                     raise SystemExit(f"Store '{name}' is already linked.")
                 try:
                     rel = str(other.relative_to(project_root))
@@ -580,27 +911,53 @@ def main(argv: Any = None) -> int:
                 sys.stdout.write(f"Linked store '{name}' at {rel}\n")
                 return 0
 
+            if args.store_command == "semantic-map":
+                store_path = _resolve_store(args.store)
+                add_semantic_equivalence(store_path, args.local_tag, args.global_tag)
+                sys.stdout.write(
+                    f"Mapped local semantic '{args.local_tag}' to global '{args.global_tag}'\n"
+                )
+                return 0
+
             if args.store_command == "check":
-                from sldb.store.diagnostics import diagnose_store, DiagnosisNote
+                from sldb.store.diagnostics import DiagnosisNote, diagnose_store
+
                 store_path = _resolve_store(args.store)
                 project_root = store_path.parent
-                result = diagnose_store(store_path, project_root, pythonpath=args.pythonpath)
+                result = diagnose_store(
+                    store_path, project_root, pythonpath=args.pythonpath
+                )
                 if args.format == "text":
-                    sys.stdout.write(f"{'PASS' if result.is_valid else 'FAIL'}: store integrity check\n")
-                    for m in result.models:
-                        sys.stdout.write(f"  model {m.name}: {'ok' if m.hash_b_ok else 'FAIL(hash_b)'}\n")
-                        for d in m.documents:
-                            sys.stdout.write(f"    doc {d.name} [{d.path}]: {d.note.value}\n")
+                    sys.stdout.write(
+                        f"{'PASS' if result.is_valid else 'FAIL'}: store integrity check\n"
+                    )
+                    for model in result.models:
+                        sys.stdout.write(
+                            f"  model {model.name}: {'ok' if model.hash_b_ok else 'FAIL(hash_b)'}\n"
+                        )
+                        for doc in model.documents:
+                            sys.stdout.write(
+                                f"    doc {doc.name} [{doc.path}]: {doc.note.value}\n"
+                            )
                 else:
+
                     def _ser(obj):
                         if dataclasses.is_dataclass(obj) and not isinstance(obj, type):
-                            return {f.name: _ser(getattr(obj, f.name)) for f in dataclasses.fields(obj)}
+                            return {
+                                field.name: _ser(getattr(obj, field.name))
+                                for field in dataclasses.fields(obj)
+                            }
                         if isinstance(obj, list):
-                            return [_ser(i) for i in obj]
+                            return [_ser(item) for item in obj]
                         if isinstance(obj, DiagnosisNote):
                             return obj.value
                         return obj
-                    payload = {"valid": result.is_valid, "hash_a_ok": result.hash_a_ok, "models": _ser(result.models)}
+
+                    payload = {
+                        "valid": result.is_valid,
+                        "hash_a_ok": result.hash_a_ok,
+                        "models": _ser(result.models),
+                    }
                     sys.stdout.write(_serialize_structured_output(payload, args.format))
                 return 0 if result.is_valid else 1
 
@@ -610,24 +967,38 @@ def main(argv: Any = None) -> int:
                 store_index = load_store_index(store_path)
                 for model_entry in store_index.models:
                     try:
-                        model_type = _resolve_model_ref(model_entry.model_ref, args.pythonpath)
+                        model_type = _resolve_model_ref(
+                            model_entry.model_ref, args.pythonpath
+                        )
                     except SystemExit:
                         model_type = None
                     if model_type:
-                        _reindex_model_docs(store_path, project_root, store_index, model_entry, model_type)
+                        _reindex_model_docs(
+                            store_path,
+                            project_root,
+                            store_index,
+                            model_entry,
+                            model_type,
+                        )
+                rebuild_semantic_indexes(
+                    store_path, project_root, _resolve_model_ref, args.pythonpath
+                )
                 _cascade_hash_a(store_path, project_root, store_index)
                 sys.stdout.write(f"Store reindexed at {store_path}\n")
                 return 0
 
-        # ── model ─────────────────────────────────────────────────────────────
         if args.command == "model":
             if args.model_command == "add":
                 store_path = _resolve_store(args.store)
                 project_root = store_path.parent
                 model_type = _resolve_model_ref(args.model, args.pythonpath)
                 store_index = load_store_index(store_path)
-                if any(m.name == model_type.__name__ for m in store_index.models):
-                    raise SystemExit(f"Model '{model_type.__name__}' is already registered.")
+                if any(
+                    model.name == model_type.__name__ for model in store_index.models
+                ):
+                    raise SystemExit(
+                        f"Model '{model_type.__name__}' is already registered."
+                    )
                 model_file = Path(inspect.getfile(model_type))
                 try:
                     model_path = str(model_file.relative_to(project_root))
@@ -638,14 +1009,36 @@ def main(argv: Any = None) -> int:
                 docs_index = DocumentsIndex()
                 save_documents_index(project_root / docs_index_rel, docs_index)
                 models_idx = ModelsIndex(
-                    name=model_type.__name__, model_ref=args.model, path=model_path,
-                    documents_index=docs_index_rel, hash_b=hash_documents_index(docs_index),
+                    name=model_type.__name__,
+                    model_ref=args.model,
+                    path=model_path,
+                    documents_index=docs_index_rel,
+                    hash_b=hash_documents_index(docs_index),
+                    canonical=args.canonical,
+                    family=getattr(model_type, "__family__", None),
+                    semantics=flatten_model_semantics(model_type),
+                    base_models=[
+                        base.__name__
+                        for base in model_type.__mro__[1:]
+                        if issubclass(base, StructuredNLDoc)
+                        and base is not StructuredNLDoc
+                    ],
                 )
                 save_models_index(project_root / models_index_rel, models_idx)
-                store_index.models.append(ModelEntry(
-                    name=model_type.__name__, model_ref=args.model,
-                    path=model_path, models_index=models_index_rel,
-                ))
+                store_index.models.append(
+                    ModelEntry(
+                        name=model_type.__name__,
+                        model_ref=args.model,
+                        path=model_path,
+                        models_index=models_index_rel,
+                        canonical=args.canonical,
+                        family=getattr(model_type, "__family__", None),
+                        semantics=flatten_model_semantics(model_type),
+                    )
+                )
+                rebuild_semantic_indexes(
+                    store_path, project_root, _resolve_model_ref, args.pythonpath
+                )
                 _cascade_hash_a(store_path, project_root, store_index)
                 sys.stdout.write(f"Registered model '{model_type.__name__}'\n")
                 return 0
@@ -653,24 +1046,32 @@ def main(argv: Any = None) -> int:
             if args.model_command == "update":
                 store_path = _resolve_store(args.store)
                 project_root = store_path.parent
-                model_type, model_entry, store_index = _registered_model(store_path, args.name, args.pythonpath)
-                _reindex_model_docs(store_path, project_root, store_index, model_entry, model_type)
+                model_type, model_entry, store_index = _registered_model(
+                    store_path, args.name, args.pythonpath
+                )
+                _reindex_model_docs(
+                    store_path, project_root, store_index, model_entry, model_type
+                )
+                rebuild_semantic_indexes(
+                    store_path, project_root, _resolve_model_ref, args.pythonpath
+                )
                 _cascade_hash_a(store_path, project_root, store_index)
                 sys.stdout.write(f"Reindexed model '{args.name}'\n")
                 return 0
 
-        # ── doc ───────────────────────────────────────────────────────────────
         if args.command == "doc":
             if args.doc_command == "add":
                 store_path = _resolve_store(args.store)
                 project_root = store_path.parent
-                model_type, model_entry, store_index = _registered_model(store_path, args.model, args.pythonpath)
+                model_type, model_entry, store_index = _registered_model(
+                    store_path, args.model, args.pythonpath
+                )
                 data = _parse_payload(args.payload)
                 rendered = render_model_markdown(model_type, data)
                 is_valid, details = validate_model_input_roundtrip(model_type, rendered)
                 if not is_valid:
                     raise SystemExit(
-                        f"Rendered document is not idempotent.\n"
+                        "Rendered document is not idempotent.\n"
                         f"First payload:  {details['first_payload']}\n"
                         f"Second payload: {details['second_payload']}"
                     )
@@ -678,14 +1079,24 @@ def main(argv: Any = None) -> int:
                 out_path.parent.mkdir(parents=True, exist_ok=True)
                 out_path.write_text(rendered + "\n", encoding="utf-8")
                 doc_name = args.name or out_path.stem
-                _track_document(store_path, project_root, store_index, model_type, model_entry, out_path, doc_name)
+                _track_document(
+                    store_path,
+                    project_root,
+                    store_index,
+                    model_type,
+                    model_entry,
+                    out_path,
+                    doc_name,
+                )
                 sys.stdout.write(f"Created and tracked '{doc_name}' at {out_path}\n")
                 return 0
 
             if args.doc_command == "track":
                 store_path = _resolve_store(args.store)
                 project_root = store_path.parent
-                model_type, model_entry, store_index = _registered_model(store_path, args.model, args.pythonpath)
+                model_type, model_entry, store_index = _registered_model(
+                    store_path, args.model, args.pythonpath
+                )
                 doc_path = Path(args.path).resolve()
                 if not doc_path.exists():
                     raise SystemExit(f"Document not found: {doc_path}")
@@ -694,28 +1105,46 @@ def main(argv: Any = None) -> int:
                     is_valid, details = validate_model_input_roundtrip(model_type, text)
                 except Exception as exc:
                     if not args.force:
-                        raise SystemExit(f"Document failed idempotency check: {exc}\nUse --force to track anyway.")
+                        raise SystemExit(
+                            f"Document failed idempotency check: {exc}\nUse --force to track anyway."
+                        )
                     is_valid = False
                 if not is_valid and not args.force:
                     raise SystemExit(
-                        f"Document failed idempotency check. Use --force to track anyway.\n"
+                        "Document failed idempotency check. Use --force to track anyway.\n"
                         f"First payload:  {details['first_payload']}\n"
                         f"Second payload: {details['second_payload']}"
                     )
                 doc_name = args.name or doc_path.stem
-                _track_document(store_path, project_root, store_index, model_type, model_entry, doc_path, doc_name)
+                _track_document(
+                    store_path,
+                    project_root,
+                    store_index,
+                    model_type,
+                    model_entry,
+                    doc_path,
+                    doc_name,
+                )
                 sys.stdout.write(f"Tracked '{doc_name}' under '{args.model}'\n")
                 return 0
 
             if args.doc_command == "update":
                 store_path = _resolve_store(args.store)
                 project_root = store_path.parent
-                model_type, model_entry, store_index = _registered_model(store_path, args.model, args.pythonpath)
+                model_type, model_entry, store_index = _registered_model(
+                    store_path, args.model, args.pythonpath
+                )
                 models_idx = load_models_index(project_root / model_entry.models_index)
-                docs_idx = load_documents_index(project_root / models_idx.documents_index)
-                doc_entry = next((d for d in docs_idx.documents if d.name == args.name), None)
+                docs_idx = load_documents_index(
+                    project_root / models_idx.documents_index
+                )
+                doc_entry = next(
+                    (doc for doc in docs_idx.documents if doc.name == args.name), None
+                )
                 if doc_entry is None:
-                    raise SystemExit(f"Document '{args.name}' not found under '{args.model}'.")
+                    raise SystemExit(
+                        f"Document '{args.name}' not found under '{args.model}'."
+                    )
                 new_data = _parse_payload(args.payload)
                 rendered = render_model_markdown(model_type, new_data)
                 doc_path = project_root / doc_entry.path
@@ -723,9 +1152,14 @@ def main(argv: Any = None) -> int:
                 text = doc_path.read_text(encoding="utf-8")
                 doc_entry.hash_c = hash_text(text)
                 doc_entry.hash_d = hash_fields(model_type, text)
-                save_documents_index(project_root / models_idx.documents_index, docs_idx)
+                save_documents_index(
+                    project_root / models_idx.documents_index, docs_idx
+                )
                 models_idx.hash_b = hash_documents_index(docs_idx)
                 save_models_index(project_root / model_entry.models_index, models_idx)
+                rebuild_semantic_indexes(
+                    store_path, project_root, _resolve_model_ref, args.pythonpath
+                )
                 _cascade_hash_a(store_path, project_root, store_index)
                 sys.stdout.write(f"Updated '{args.name}'\n")
                 return 0

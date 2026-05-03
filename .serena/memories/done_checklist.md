@@ -1,0 +1,1 @@
+After code changes, run relevant tests with `pytest` (full suite or targeted files such as `pytest tests/store`). If CLI behavior changed, verify with `python -m sldb --help` or the affected command. Mention any untracked files or untouched dirty-worktree changes in the final response. Do not commit unless the user explicitly asks.

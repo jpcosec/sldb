@@ -2,11 +2,8 @@
 
 Temporary implementation workspace for the current task.
 
-## Task List
+## Task Status
 
-- `task-01-link-recovery-compose.md`
-- `task-02-store-tree-indexing.md`
-- `task-03-semantic-indexing-dag.md`
-- `task-04-canonical-models-and-global-local-semantics.md`
+The current desk task files were completed and cleared from the active workspace.
 
-These task files are working notes for implementation planning and execution.
+Use `desk/tasks/Board.md` as the current record of task closure state.

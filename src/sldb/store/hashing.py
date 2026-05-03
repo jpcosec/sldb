@@ -2,8 +2,8 @@ import hashlib
 import json
 from typing import Type
 
-from sldb.structuredNLDoc import StructuredNLDoc
-from sldb.validation import extract_payload
+from sldb.models.structured_doc import StructuredNLDoc
+from sldb.runtime.validation import extract_payload
 from sldb.store.models import DocumentsIndex, ModelsIndex
 
 
@@ -19,8 +19,10 @@ def hash_fields(model_type: Type[StructuredNLDoc], markdown_text: str) -> str:
 
 def hash_documents_index(documents_index: DocumentsIndex) -> str:
     state = json.dumps(
-        [{"path": d.path, "hash_c": d.hash_c, "hash_d": d.hash_d}
-         for d in documents_index.documents],
+        [
+            {"path": d.path, "hash_c": d.hash_c, "hash_d": d.hash_d}
+            for d in documents_index.documents
+        ],
         sort_keys=True,
     )
     return hashlib.sha256(state.encode("utf-8")).hexdigest()
