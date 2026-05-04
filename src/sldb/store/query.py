@@ -121,7 +121,18 @@ def list_structural(
     if doc_name is None:
         return sorted(doc.name for doc in docs)
     target = next((doc for doc in docs if doc.name == doc_name), None)
-    return sorted(target.payload.keys()) if target else []
+    if not target:
+        return []
+        
+    results = []
+    for key in sorted(target.payload.keys()):
+        field = target.model_type.model_fields.get(key)
+        description = field.description if field and field.description else ""
+        if description:
+            results.append(f"{key}: {description}")
+        else:
+            results.append(key)
+    return results
 
 
 def get_structural(

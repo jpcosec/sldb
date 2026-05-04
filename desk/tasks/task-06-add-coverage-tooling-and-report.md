@@ -1,7 +1,7 @@
 ---
 id: task-06
 domain: ''
-status: open
+status: done
 priority: p2
 depends_on: []
 created: '2026-04-25'

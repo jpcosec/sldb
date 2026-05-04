@@ -18,7 +18,7 @@ from sldb import (
 )
 from sldb.cli import main as cli_main
 from sldb.examples.reference_bundle.guide_model import SLDBGuide
-from sldb.validation import (
+from sldb.runtime.validation import (
     extract_model_data,
     render_model_markdown,
     validate_model_data_roundtrip,
