@@ -1,20 +1,19 @@
 from typing import Any
 
-from markdown_it.tree import SyntaxTreeNode
-
+from sldb.core.node import SLDBNode
 from sldb.core.node_handler import SharedNodeHandler
 
 
 class DataExtractor:
     """
-    Applies compiled template recipes to parsed Markdown blocks.
+    Applies compiled template recipes to parsed SLDBNodes.
     """
 
     def __init__(self):
         self.node_handler = SharedNodeHandler()
 
     def extract_values(
-        self, data_blocks: list[SyntaxTreeNode], recipes: list[dict[str, Any]]
+        self, data_blocks: list[SLDBNode], recipes: list[dict[str, Any]]
     ) -> dict[str, Any]:
         extracted_data = {}
         search_index = 0
@@ -37,22 +36,22 @@ class DataExtractor:
                     break
 
                 block = data_blocks[block_idx]
-                if getattr(block, "type", "") != target_type:
+                if block.type != target_type:
                     continue
 
                 is_anchor = recipe.get("anchor", False)
-                if not is_anchor and getattr(block, "tag", "") != target_tag:
+                if not is_anchor and block.tag != target_tag:
                     continue
 
                 current_node = block
                 if handler_key == "text":
 
-                    def find_leaf(node):
-                        if getattr(node, "type", "") == "text":
+                    def find_leaf(node: SLDBNode):
+                        if node.type == "text":
                             return node
-                        if getattr(node, "content", None):
+                        if node.content:
                             return node
-                        for child in getattr(node, "children", []):
+                        for child in node.children:
                             result = find_leaf(child)
                             if result:
                                 return result

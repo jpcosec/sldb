@@ -95,13 +95,27 @@ def recover_links(
     doc_path: Path,
     store_path: Path | None,
     include_transclusions: bool = False,
+    depth: int = 1,
+    seen: set[Path] | None = None,
 ) -> dict:
+    """
+    Recover links from a document, optionally recursing to a specified depth.
+    """
     doc_path = doc_path.resolve()
+    seen = seen or set()
+    if doc_path in seen or depth < 1:
+        return {
+            "root": doc_path.stem,
+            "path": str(doc_path),
+            "links": [],
+            "unresolved": [],
+        }
+    seen.add(doc_path)
+
     markdown = doc_path.read_text(encoding="utf-8")
     recovered = []
     for link in parse_links(markdown):
         if link.kind == "transclusion" and not include_transclusions:
-            resolved = ResolvedLink(link.raw, link.target, link.kind, False)
             resolved_result = resolve_link_target(link.target, doc_path, store_path)
             resolved_result.kind = link.kind
             resolved_result.raw = link.raw
@@ -112,20 +126,40 @@ def recover_links(
         resolved.raw = link.raw
         recovered.append(resolved)
 
+    links = [
+        {
+            "target": entry.target,
+            "kind": entry.kind,
+            "resolved": entry.resolved,
+            "path": entry.path,
+            "source": entry.source,
+        }
+        for entry in recovered
+    ]
+
+    # Recursive step
+    if depth > 1:
+        for entry in recovered:
+            if entry.resolved and entry.path:
+                nested = recover_links(
+                    Path(entry.path), store_path, include_transclusions, depth - 1, seen
+                )
+                links.extend(nested["links"])
+
+    # Deduplicate links by target and kind
+    unique_links = []
+    seen_links = set()
+    for item in links:
+        key = (item["target"], item["kind"])
+        if key not in seen_links:
+            unique_links.append(item)
+            seen_links.add(key)
+
     return {
         "root": doc_path.stem,
         "path": str(doc_path),
-        "links": [
-            {
-                "target": entry.target,
-                "kind": entry.kind,
-                "resolved": entry.resolved,
-                "path": entry.path,
-                "source": entry.source,
-            }
-            for entry in recovered
-        ],
-        "unresolved": [entry.target for entry in recovered if not entry.resolved],
+        "links": unique_links,
+        "unresolved": [item["target"] for item in unique_links if not item["resolved"]],
     }
 
 

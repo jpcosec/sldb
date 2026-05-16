@@ -1,5 +1,5 @@
 import json
-
+import pytest
 from pathlib import Path
 
 from sldb.cli import main as cli_main
@@ -23,7 +23,7 @@ Coverage: ⸢rev•coverage⸥
 
 ## Abstract
 
-⸢optrev•abstract⸥
+⸢rev•abstract⸥
 
 ## Semantic Tags
 
@@ -283,6 +283,7 @@ def test_structural_semantic_and_global_queries(tmp_path, capsys):
     assert (
         cli_main(
             [
+                "legacy",
                 "find",
                 "st.{ReadmeDoc}",
                 "--where",

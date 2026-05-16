@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SLDB Document Payload",
+  "type": "object",
+  "properties": {
+    "node_id": {"type": "string"},
+    "body": {"type": "string"},
+    "metadata": {"type": "object"}
+  },
+  "required": ["node_id", "body"]
+}

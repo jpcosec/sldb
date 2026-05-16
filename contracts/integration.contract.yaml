@@ -1,0 +1,21 @@
+name: sldb
+version: 0.1.0
+exports:
+  - name: sldb_document_payload
+    schema: contracts/schemas/sldb_document_payload.schema.json
+consumes: []
+compatibility:
+  requires: {}
+export_surface:
+  package_name: sldb
+  version: 0.1.0
+  commands: {}
+  aliases: {}
+  contracts:
+    sldb_document_payload:
+      name: sldb_document_payload
+      description: Structured document payload emitted from markdown persistence.
+      schema_ref: contracts/schemas/sldb_document_payload.schema.json
+      version: 0.1.0
+  procedures: {}
+  surfaces: {}

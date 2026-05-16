@@ -19,8 +19,30 @@ def _make_store(tmp_path):
     doc = tmp_path / "doc.md"
     doc.write_text("# Hello\n", encoding="utf-8")
     cli_main(["store", "init", "--path", str(tmp_path)])
-    cli_main(["model", "add", _MODULE_REF, "--store", str(tmp_path / ".sldb"), "--pythonpath", _PYTHONPATH])
-    cli_main(["doc", "track", str(doc), "--model", CheckDoc.__name__, "--store", str(tmp_path / ".sldb"), "--pythonpath", _PYTHONPATH])
+    cli_main(
+        [
+            "model",
+            "add",
+            _MODULE_REF,
+            "--store",
+            str(tmp_path / ".sldb"),
+            "--pythonpath",
+            _PYTHONPATH,
+        ]
+    )
+    cli_main(
+        [
+            "doc",
+            "track",
+            str(doc),
+            "--model",
+            CheckDoc.__name__,
+            "--store",
+            str(tmp_path / ".sldb"),
+            "--pythonpath",
+            _PYTHONPATH,
+        ]
+    )
     return tmp_path
 
 

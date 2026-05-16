@@ -2,6 +2,8 @@
 
 A structurally aware Markdown extraction and template mapping library based on `mdast` principles. SLDB allows you to treat Markdown files as a structured persistence layer, mapping them directly to Pydantic models.
 
+Within the `wikipu-ecosystem`, SLDB is the human-readable rendering and navigation layer over canonical `specYaml` semantics. It may author, extract, and render structured markdown, but it should not compete with `specyaml/` as the semantic source-of-truth contract.
+
 ## Features
 
 - **Structural Synchronicity:** Bi-directional mapping between Markdown and Pydantic.
@@ -19,32 +21,84 @@ pip install sldb
 
 ## CLI
 
-The package now ships with a small `sldb` command.
+The package ships with a graph-first `sldb` CLI.
 
-The CLI is model-first: it operates on a `StructuredNLDoc` reference in the form `package.module:ModelName`. If the model lives in your current project rather than the installed `sldb` package, pass `--pythonpath /path/to/project`.
+Start with curated help:
+
+```bash
+sldb help
+sldb help find
+sldb help fields
+sldb help ast
+```
+
+The public workflow is now organized around `stores`, `models`, `docs`, `fields`, `sections`, `find`, and `ast`.
+The older raw address/query surface still exists under `sldb legacy ...`, but it is no longer the primary interface.
+
+> **Deprecation notice (v0.5):** The singular command aliases (`store`, `model`, `doc`, `ls`, `get`, `glob`, `raw-find`, `recover`, `compose`) are deprecated and will be removed in **v0.6**. Use the plural surfaces (`stores`, `models`, `docs`) or `sldb legacy ...` instead. Set `SLDB_SUPPRESS_DEPRECATION=1` or pass `-W ignore` to silence deprecation warnings in automation.
+
+The CLI is still model-first: it operates on a `StructuredNLDoc` reference in the form `package.module:ModelName`. If the model lives in your current project rather than the installed `sldb` package, pass `--pythonpath /path/to/project`.
 
 Every `StructuredNLDoc` field must define a non-empty Pydantic `description`. Treat those descriptions as part of the model contract: they act as cues for humans reading the schema and for LLMs generating or editing documents around it.
 
-Extract data from a Markdown document using a model:
+Core authoring and runtime commands remain available:
 
 ```bash
 sldb extract myapp.docs:RecipeDoc document.md output.json
+sldb render myapp.docs:RecipeDoc data.yaml rendered.md
+sldb validate myapp.docs:RecipeDoc --input document.md
 ```
 
-Render Markdown from YAML/JSON data using a model:
+Store, model, and doc lifecycle:
 
 ```bash
-sldb render myapp.docs:RecipeDoc data.yaml rendered.md
+sldb stores init --path .
+sldb models add myapp.docs:RecipeDoc --store .sldb --pythonpath src
+sldb docs create --model RecipeDoc -o docs/recipe.md data.yaml --store .sldb --pythonpath src
 ```
 
-The CLI uses positional file arguments so it can be scripted more easily:
+Exploration and graph inspection:
 
-- `extract <model-ref> <input-markdown> <output-json-or-yaml>`
-- `render <model-ref> <input-data> <output-markdown>`
+```bash
+sldb find docs --in physical --store .sldb --pythonpath src
+sldb find type.documentation.Readme --in semantic --global --store .sldb --pythonpath src
+sldb ast show docs/recipe --store .sldb --pythonpath src
+```
 
-Use `-` as the output path to write to stdout.
+Section context and navigation:
 
-The generated example bundle and CLI help both show the preferred field pattern:
+```bash
+sldb sections show docs/recipe --store .sldb --pythonpath src
+sldb sections find tasks --in semantic --store .sldb --pythonpath src
+sldb sections find "" --where '"Roadmap" in breadcrumbs' --store .sldb --pythonpath src
+sldb sections fields docs/recipe/overview --store .sldb --pythonpath src
+```
+
+Field queries now expose the owning section:
+
+```bash
+sldb fields query title --store .sldb --pythonpath src
+# Results include "owning_section": "overview"
+```
+
+Field-level CRUD and collection operations:
+
+```bash
+sldb fields show docs/recipe/title --store .sldb --pythonpath src
+sldb fields update docs/recipe/title '"Updated title"' --store .sldb --pythonpath src
+sldb fields append docs/recipe/tags '"dessert"' --store .sldb --pythonpath src
+sldb fields clean docs/recipe/tags --dedupe --store .sldb --pythonpath src
+```
+
+Generate a model from a template plus field spec:
+
+```bash
+sldb models create RecipeDoc --template recipe.template.md --fields recipe.fields.yaml --output myapp/models.py
+```
+
+Use `-` as an output path to write to stdout when a command supports it.
+
+The generated example bundle and model generator both follow the preferred field pattern:
 
 ```python
 from pydantic import Field
@@ -163,7 +217,7 @@ store_index.yaml          ← master router; owns hash_a
             └─ hash_d  ← sha256 of extracted Pydantic field values
 ```
 
-The four hashes form a Merkle chain. `sldb store check` walks the chain and reports fractures without modifying anything:
+The four hashes form a Merkle chain. `sldb stores check` walks the chain and reports fractures without modifying anything:
 
 | Observation | Meaning |
 |-------------|---------|
@@ -177,30 +231,30 @@ The four hashes form a Merkle chain. `sldb store check` walks the chain and repo
 
 ```bash
 # 1. Initialize the store in your project root
-sldb store init
+sldb stores init
 
 # 2. Register a model contract
-sldb model add myapp.models:Book
+sldb models add myapp.models:Book
 
 # 3a. Create a new document from data and track it
-sldb doc add --model Book -o docs/my-book.md '{"title": "My Book"}'
+sldb docs create --model Book -o docs/my-book.md '{"title": "My Book"}'
 # or from a YAML/JSON file
-sldb doc add --model Book -o docs/my-book.md data.yaml
+sldb docs create --model Book -o docs/my-book.md data.yaml
 
 # 3b. Or track an existing document (validates idempotency first)
-sldb doc track docs/existing.md --model Book
+sldb docs track docs/existing.md --model Book
 
 # 4. Check integrity
-sldb store check
+sldb stores check
 
 # 5. Update a tracked document with new data
-sldb doc update my-book --model Book '{"title": "Updated Title"}'
+sldb docs update my-book '{"title": "Updated Title"}'
 
 # 6. After editing a model's Pydantic contract, re-index it
-sldb model update Book
+sldb models update Book
 
 # 7. Full store reindex (after bulk changes)
-sldb store update
+sldb stores update
 ```
 
 ### Federation
@@ -209,7 +263,7 @@ Stores can reference each other. The local store always wins on name collisions.
 
 ```bash
 # Link a shared ontology store
-sldb store add ~/.sldb/shared-ontology --name shared
+sldb stores add ~/.sldb/shared-ontology --name shared
 ```
 
 ### Relationship semantics
@@ -220,15 +274,17 @@ Model relationships (`inherits`, `has_many`) are **not** stored in the index —
 
 | Command | Description |
 |---------|-------------|
-| `sldb store init [--path .]` | Initialize a `.sldb/` store |
-| `sldb store add <path>` | Link a federated store |
-| `sldb store check [--format text\|json\|yaml]` | Run integrity diagnostics |
-| `sldb store update` | Recompute all hashes from current file states |
-| `sldb model add <model-ref>` | Register a model contract |
-| `sldb model update <name>` | Re-index a model after contract changes |
-| `sldb doc add --model <name> -o <path> <payload>` | Create and track a new document |
-| `sldb doc track <path> --model <name>` | Validate and track an existing document |
-| `sldb doc update <name> --model <name> <payload>` | Re-render a tracked document with new data |
+| `sldb stores init [--path .]` | Initialize a `.sldb/` store |
+| `sldb stores add <path>` | Link a federated store |
+| `sldb stores check [--format text\|json\|yaml]` | Run integrity diagnostics |
+| `sldb stores update [--wait] [--verbose]` | Recompute all hashes from current file states |
+| `sldb models add <model-ref>` | Register a model contract |
+| `sldb models update <name>` | Re-index a model after contract changes |
+| `sldb docs create --model <name> -o <path> <payload>` | Create and track a new document |
+| `sldb docs track <path> --model <name>` | Validate and track an existing document |
+| `sldb docs update <name> <payload>` | Re-render a tracked document with new data |
+
+Note: `stores update` now prints a rebuild summary (docs processed, missing, empty sections, unparseable headings). Pass `--wait` to block if the store is locked by another process, and `--verbose` to see individual skip details.
 
 ## License
 

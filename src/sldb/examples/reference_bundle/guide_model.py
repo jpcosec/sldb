@@ -101,5 +101,5 @@ sldb validate myapp.docs:RecipeDoc --input recipe.md --pythonpath /path/to/proje
     metadata: dict = Field(
         description="Example YAML metadata block embedded in the guide."
     )
-    commands: dict = Field(description="Command reference rows keyed by command entry.")
+    commands: list = Field(description="Command reference rows keyed by command entry.")
     closing_note: str = Field(description="Final closing note at the end of the guide.")

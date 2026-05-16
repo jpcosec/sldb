@@ -38,16 +38,13 @@ metadata:
     - yaml
   note: Use validate to confirm idempotent roundtrips.
 commands:
-  0:
-    commands: sldb extract
+  - commands: sldb extract
     purpose: Parse Markdown into model-shaped data.
     example: sldb extract myapp.docs:RecipeDoc recipe.md recipe.json
-  1:
-    commands: sldb render
+  - commands: sldb render
     purpose: Render Markdown from JSON or YAML input.
     example: sldb render myapp.docs:RecipeDoc recipe.yaml recipe.md
-  2:
-    commands: sldb validate
+  - commands: sldb validate
     purpose: Check document and model roundtrip idempotency.
     example: sldb validate myapp.docs:RecipeDoc --input recipe.md
 closing_note: Use this bundle as the baseline example, then adapt the model to the real document you want to make reversible.
