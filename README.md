@@ -4,6 +4,8 @@ A structurally aware Markdown extraction and template mapping library based on `
 
 Within the `wikipu-ecosystem`, SLDB is the human-readable rendering and navigation layer over canonical `specYaml` semantics. It may author, extract, and render structured markdown, but it should not compete with `specyaml/` as the semantic source-of-truth contract.
 
+This repo's own operating system lives in `desk/` as the **opsys** workflow-domain layer — see `docs/workspaces.md` for the three-layer architecture (sldb infra / specyaml semantics / opsys workflow domain).
+
 ## Features
 
 - **Structural Synchronicity:** Bi-directional mapping between Markdown and Pydantic.
@@ -123,12 +125,10 @@ The project documentation workspace under `docs/` is now modelled in `docs/model
 - `ArchitectureNarrativeDoc` covers `docs/architecture/*.md`
 - `PackagingDoc` covers `docs/packaging instructions.md`
 - `RequestDoc` covers `docs/requests/*.md`
-- `PlanDoc` covers `docs/superpowers/plans/*.md`
-- `SpecDoc` covers `docs/superpowers/specs/*.md`
 
 See `docs/README.md` for the current tracking workflow, semantic query examples, and the authoring rule for generic `title + body` docs.
 
-See `docs/workspaces.md` for the workspace pattern behind `docs/`, `desk/`, and `drawer/`.
+See `docs/workspaces.md` for the workspace pattern behind `docs/`, `desk/`, and `desk/drawer/`.
 
 ## Structured Composition
 

@@ -1,11 +1,14 @@
-# Desk
+# Desk (opsys)
 
-Temporary execution workspace for SLDB-driven task routine.
+Operational workspace for the SLDB-driven routine.
 
-`desk/` exists for two things only:
+`desk/` is the entrypoint for the **opsys** workflow-domain layer — the repo's operating system around work.
 
-1. Typed temporary documents that represent active tasks and active task context.
-2. Rituals for changing code, testing, documenting, and keeping the repo and git state clean.
+It contains:
+
+1. active execution surfaces
+2. deferred surfaces kept inside the same operational system
+3. rituals for changing code, testing, documenting, and keeping the repo and git state clean
 
 Nothing in `desk/` is durable project history. Stable knowledge must end up in code, tests, docs, or git history.
 
@@ -17,6 +20,7 @@ Nothing in `desk/` is durable project history. Stable knowledge must end up in c
 - `desk/contexts/` - active context documents only.
 - `desk/contexts/pills.md` - pill conventions and current base shape.
 - `desk/rituals/` - structured ritual documents for execution, testing, and closeout.
+- `desk/drawer/` - deferred work kept inside the desk system until it becomes active execution.
 
 ## Models
 
@@ -33,5 +37,4 @@ They live in `desk/models/` and use the current SLDB pattern: `StructuredNLDoc` 
 
 - No resolved tasks.
 - No historical reports.
-- No durable feature proposals.
 - No duplicate project documentation.
