@@ -5,6 +5,13 @@ from sldb import StructuredNLDoc
 
 class BoardDoc(StructuredNLDoc):
     __semantics__ = {"type": ["workflow", "board"], "workspace": ["desk"]}
+    __compositions__ = {
+        "task_summaries": {
+            "source_field": "tasks",
+            "model": "desk.models:TaskDoc",
+            "template": "- {title} [{status}] - {goal}",
+        }
+    }
     __template__ = """
 # ⸢rev•title⸥
 
@@ -30,6 +37,10 @@ Scope: ⸢rev•scope⸥
 ## Notes
 
 ⸢rev•notes⸥
+
+## Task Details
+
+⸢render•task_summaries⸥
 
 ## Tags
 

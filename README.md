@@ -130,6 +130,12 @@ See `docs/README.md` for the current tracking workflow, semantic query examples,
 
 See `docs/workspaces.md` for the workspace pattern behind `docs/`, `desk/`, and `drawer/`.
 
+## Structured Composition
+
+`StructuredNLDoc` models can declare render-time compositions through `__compositions__` and expose them with `render` markers in the template.
+
+This supports explicit expansion of referenced child documents during rendering while leaving other references untouched. In this repo, `desk/models/board.py` composes task summaries from referenced task docs, while `desk/models/ritual.py` can compose structured step details from `StepDoc` references.
+
 The generated example bundle and model generator both follow the preferred field pattern:
 
 ```python

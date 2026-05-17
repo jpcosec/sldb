@@ -26,7 +26,7 @@ class SLDBRenderer:
     def render(self, model: StructuredNLDoc) -> str:
         """Renders the model to a Markdown string."""
         template = model.__template__
-        data = model.model_dump(mode="json")
+        data = model.render_payload()
         blocks = self.ast_handler.split_nodes(template)
         template_lines = template.splitlines()
 
@@ -40,7 +40,9 @@ class SLDBRenderer:
             handler_key = self.node_handler.get_handler_for_node(block)
 
             if handler_key in ("list", "bullet_list", "ordered_list"):
-                rendered = self.list_renderer.render(block, block_text, data, start_line)
+                rendered = self.list_renderer.render(
+                    block, block_text, data, start_line
+                )
             elif handler_key in ("table", "table_cell"):
                 rendered = self.table_renderer.render(block, block_text, data)
             elif handler_key in ("yaml", "fence", "front_matter"):

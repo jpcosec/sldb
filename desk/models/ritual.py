@@ -5,6 +5,13 @@ from sldb import StructuredNLDoc
 
 class RitualDoc(StructuredNLDoc):
     __semantics__ = {"type": ["workflow", "ritual"], "workspace": ["desk"]}
+    __compositions__ = {
+        "step_details": {
+            "source_field": "steps",
+            "model": "desk.models:StepDoc",
+            "template": "1. {title}: {action} -> {outcome}",
+        }
+    }
     __template__ = """
 # ⸢rev•title⸥
 
@@ -37,6 +44,10 @@ ID: ⸢rev•id⸥
 ## Completion
 
 ⸢rev•completion⸥
+
+## Step Details
+
+⸢render•step_details⸥
 
 ## Tags
 
