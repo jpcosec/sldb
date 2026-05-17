@@ -98,6 +98,18 @@ sldb models create RecipeDoc --template recipe.template.md --fields recipe.field
 
 Use `-` as an output path to write to stdout when a command supports it.
 
+## Tracking This Repo's Docs
+
+The project documentation workspace under `docs/` is now modelled in `docs/models.py`.
+
+- `ArchitectureNarrativeDoc` covers `docs/architecture/*.md`
+- `PackagingDoc` covers `docs/packaging instructions.md`
+- `RequestDoc` covers `docs/requests/*.md`
+- `PlanDoc` covers `docs/superpowers/plans/*.md`
+- `SpecDoc` covers `docs/superpowers/specs/*.md`
+
+See `docs/README.md` for the current tracking workflow, semantic query examples, and the authoring rule for generic `title + body` docs.
+
 The generated example bundle and model generator both follow the preferred field pattern:
 
 ```python

@@ -1,5 +1,7 @@
 # Current Source Tree
 
+This snapshot captures the current repository layout and the role of each major source area.
+
 ## Repository Distribution
 
 ```text

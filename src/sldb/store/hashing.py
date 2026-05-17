@@ -3,7 +3,7 @@ import json
 from typing import Type
 
 from sldb.models.structured_doc import StructuredNLDoc
-from sldb.runtime.validation import extract_payload
+from sldb.runtime.validation import extract_model_data
 from sldb.store.models import DocumentsIndex, ModelsIndex
 
 
@@ -12,7 +12,7 @@ def hash_text(text: str) -> str:
 
 
 def hash_fields(model_type: Type[StructuredNLDoc], markdown_text: str) -> str:
-    payload = extract_payload(model_type.__template__, markdown_text)
+    payload = extract_model_data(model_type, markdown_text)
     normalized = json.dumps(payload, sort_keys=True, ensure_ascii=False)
     return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
 

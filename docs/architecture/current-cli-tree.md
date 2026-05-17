@@ -1,5 +1,7 @@
 # Current CLI Tree
 
+This snapshot captures the currently exposed CLI tree and the major command groups.
+
 ```text
 sldb
 ├── extract <model-ref> <input-md> <output-json|yaml> [--format json|yaml] [--pythonpath PATH]

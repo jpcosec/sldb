@@ -14,6 +14,21 @@ class TitleDoc(StructuredNLDoc):
     title: str = Field(description="Document title.")
 
 
+class FrontmatterDoc(StructuredNLDoc):
+    __template__ = """
+---
+⸢rev,dict•frontmatter⸥
+---
+
+# ⸢rev•title⸥
+
+⸢rev•body⸥
+""".strip()
+    frontmatter: dict = Field(description="Frontmatter mapping.")
+    title: str = Field(description="Document title.")
+    body: str = Field(description="Body text.")
+
+
 def test_hash_text_deterministic():
     assert hash_text("hello") == hash_text("hello")
 
@@ -40,6 +55,18 @@ def test_hash_fields_ignores_non_field_content():
 
 def test_hash_fields_differs_on_data_change():
     assert hash_fields(TitleDoc, "# Hello") != hash_fields(TitleDoc, "# World")
+
+
+def test_hash_fields_normalizes_frontmatter_date_values():
+    markdown = """---
+created: 2026-04-22
+---
+
+# Request
+
+Body text.
+"""
+    assert hash_fields(FrontmatterDoc, markdown)
 
 
 def test_hash_documents_index_deterministic():
