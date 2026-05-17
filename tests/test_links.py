@@ -159,3 +159,137 @@ def test_recover_and_compose_links(tmp_path, capsys):
     assert "See [[concept]] for background." in composed
     assert "# Constraints" in composed
     assert "Always validate first." in composed
+
+
+def test_docs_recover_and_compose_accept_tracked_doc_names_and_yaml(tmp_path, capsys):
+    pythonpath = _write_models(tmp_path)
+    store = tmp_path / ".sldb"
+
+    assert cli_main(["stores", "init", "--path", str(tmp_path)]) == 0
+    assert (
+        cli_main(
+            [
+                "models",
+                "add",
+                "link_models:NoteDoc",
+                "--store",
+                str(store),
+                "--pythonpath",
+                pythonpath,
+            ]
+        )
+        == 0
+    )
+    assert (
+        cli_main(
+            [
+                "models",
+                "add",
+                "link_models:RootDoc",
+                "--store",
+                str(store),
+                "--pythonpath",
+                pythonpath,
+            ]
+        )
+        == 0
+    )
+
+    concept = tmp_path / "concept.md"
+    concept.write_text("# Concept\n\nBackground info.\n", encoding="utf-8")
+    constraints = tmp_path / "constraints.md"
+    constraints.write_text(
+        "# Constraints\n\nAlways validate first.\n", encoding="utf-8"
+    )
+    root = tmp_path / "root.md"
+    root.write_text(
+        "# Root\n\nSee [[concept]] for background.\n\n![[constraints]]\n",
+        encoding="utf-8",
+    )
+
+    assert (
+        cli_main(
+            [
+                "docs",
+                "track",
+                str(concept),
+                "--model",
+                "NoteDoc",
+                "--store",
+                str(store),
+                "--pythonpath",
+                pythonpath,
+            ]
+        )
+        == 0
+    )
+    assert (
+        cli_main(
+            [
+                "docs",
+                "track",
+                str(constraints),
+                "--model",
+                "NoteDoc",
+                "--store",
+                str(store),
+                "--pythonpath",
+                pythonpath,
+            ]
+        )
+        == 0
+    )
+    assert (
+        cli_main(
+            [
+                "docs",
+                "track",
+                str(root),
+                "--model",
+                "RootDoc",
+                "--name",
+                "root-doc",
+                "--store",
+                str(store),
+                "--pythonpath",
+                pythonpath,
+            ]
+        )
+        == 0
+    )
+
+    capsys.readouterr()
+    rc = cli_main(
+        [
+            "docs",
+            "recover",
+            "root-doc",
+            "--store",
+            str(store),
+            "--format",
+            "json",
+            "--include-transclusions",
+        ]
+    )
+    recovered = json.loads(capsys.readouterr().out)
+    assert rc == 0
+    assert {link["target"] for link in recovered["links"]} == {"concept", "constraints"}
+
+    capsys.readouterr()
+    rc = cli_main(
+        [
+            "docs",
+            "compose",
+            "root-doc",
+            "--store",
+            str(store),
+            "--format",
+            "yaml",
+            "-o",
+            "-",
+        ]
+    )
+    out = capsys.readouterr().out
+    assert rc == 0
+    assert out.lstrip().startswith("root: root")
+    assert "transclusions:" in out

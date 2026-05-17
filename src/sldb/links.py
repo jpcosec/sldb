@@ -51,6 +51,17 @@ def _tracked_documents(store_path: Path) -> dict[str, str]:
     return tracked
 
 
+def resolve_document_input(doc_ref: str, store_path: Path | None) -> Path:
+    candidate = Path(doc_ref)
+    if candidate.exists():
+        return candidate.resolve()
+    if store_path:
+        tracked = _tracked_documents(store_path)
+        if doc_ref in tracked:
+            return Path(tracked[doc_ref]).resolve()
+    return candidate.resolve()
+
+
 def resolve_link_target(
     target: str, current_doc: Path, store_path: Path | None
 ) -> ResolvedLink:
