@@ -4,6 +4,7 @@ from sldb import StructuredNLDoc
 
 
 class BoardDoc(StructuredNLDoc):
+    __semantics__ = {"type": ["workflow", "board"], "workspace": ["desk"]}
     __template__ = """
 # ⸢rev•title⸥
 

@@ -4,6 +4,7 @@ from sldb import StructuredNLDoc
 
 
 class PillDoc(StructuredNLDoc):
+    __semantics__ = {"type": ["workflow", "pill"], "workspace": ["desk"]}
     __template__ = """
 # ⸢rev•title⸥
 

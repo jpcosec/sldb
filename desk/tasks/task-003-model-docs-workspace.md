@@ -19,12 +19,13 @@ In scope: all of `docs/`, model selection or creation, document tracking, and do
 
 ## Dependencies
 
-- task-002
+- none
 
 ## Pills
 
 - pill-001
 - pill-002
+- pill-003
 
 ## Files
 

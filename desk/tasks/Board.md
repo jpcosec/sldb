@@ -9,13 +9,17 @@ Route the active desk execution set: tasks, pills, and the ritual documents that
 
 ## Tasks
 
-- `desk/tasks/task-002-sldb-capability-audit.md`
 - `desk/tasks/task-003-model-docs-workspace.md`
+- `desk/tasks/task-005-structure-desk-ritual-docs.md`
+- `desk/tasks/task-006-extend-routine-to-drawer.md`
+- `desk/tasks/task-007-fix-empty-list-updates.md`
+- `desk/tasks/task-008-add-untrack-flow.md`
 
 ## Pills
 
 - `desk/contexts/pill-001-task-closure-commit.md`
 - `desk/contexts/pill-002-test-real-cli-surfaces.md`
+- `desk/contexts/pill-003-capture-cli-gaps.md`
 
 ## Rituals
 

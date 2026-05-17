@@ -4,6 +4,7 @@ from sldb import StructuredNLDoc
 
 
 class RitualDoc(StructuredNLDoc):
+    __semantics__ = {"type": ["workflow", "ritual"], "workspace": ["desk"]}
     __template__ = """
 # ⸢rev•title⸥
 
