@@ -22,6 +22,7 @@ class DocCLI:
             "add": self.add,
             "track": self.track,
             "update": self.update,
+            "untrack": self.untrack,
         }
         handler = cmd_map.get(args.doc_command)
         if not handler:
@@ -144,4 +145,51 @@ class DocCLI:
             rebuild_semantic_indexes(sp, root, resolve_model_ref, args.pythonpath)
             cascade_hash_a(sp, root, idx)
         print(f"Updated '{doc.name}'")
+        return 0
+
+    def untrack(self, args: Any) -> int:
+        sp, root = get_store_context(args.store)
+        from sldb.store.io import (
+            load_documents_index,
+            load_models_index,
+            load_store_index,
+            save_documents_index,
+            save_models_index,
+            store_lock,
+        )
+        from sldb.store.hashing import hash_documents_index
+        from sldb.store.ops import cascade_hash_a
+        from sldb.store.semantic import (
+            rebuild_sections_indexes,
+            rebuild_semantic_indexes,
+        )
+
+        idx = load_store_index(sp)
+        doc_ref = args.doc
+        found = None
+        for m_entry in idx.models:
+            m_idx = load_models_index(root / m_entry.models_index)
+            d_idx = load_documents_index(root / m_idx.documents_index)
+            doc = next(
+                (d for d in d_idx.documents if d.name == doc_ref or d.path == doc_ref),
+                None,
+            )
+            if doc is not None:
+                found = (m_entry, m_idx, d_idx, doc)
+                break
+
+        if not found:
+            raise SLDBError(f"Doc '{doc_ref}' not found.")
+
+        m_entry, m_idx, d_idx, doc = found
+        d_idx.documents = [entry for entry in d_idx.documents if entry.name != doc.name]
+
+        with store_lock(sp):
+            save_documents_index(root / m_idx.documents_index, d_idx)
+            m_idx.hash_b = hash_documents_index(d_idx)
+            save_models_index(root / m_entry.models_index, m_idx)
+            rebuild_semantic_indexes(sp, root, resolve_model_ref, args.pythonpath)
+            rebuild_sections_indexes(sp, root, resolve_model_ref, args.pythonpath)
+            cascade_hash_a(sp, root, idx)
+        print(f"Untracked '{doc.name}'")
         return 0

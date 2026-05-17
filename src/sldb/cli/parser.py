@@ -163,6 +163,11 @@ def _add_docs_group(
     u.add_argument("--store", help="Store path")
     u.add_argument("--pythonpath", help="Project path")
 
+    rm = s.add_parser("untrack", help="Remove a tracked doc from the store.")
+    rm.add_argument("doc", help="Doc name or tracked path")
+    rm.add_argument("--store", help="Store path")
+    rm.add_argument("--pythonpath", help="Project path")
+
     show = s.add_parser("show", help="Show document AST and payload.")
     show.add_argument("doc", help="Doc name or Model/DocName or tracked path")
     show.add_argument("--store", help="Store path")
@@ -417,6 +422,10 @@ def _add_hidden_doc_group(
     u.add_argument("payload")
     u.add_argument("--store")
     u.add_argument("--pythonpath")
+    r = s.add_parser("untrack", help="Remove a tracked doc from the store.")
+    r.add_argument("doc")
+    r.add_argument("--store")
+    r.add_argument("--pythonpath")
 
 
 def _add_hidden_raw_query_commands(

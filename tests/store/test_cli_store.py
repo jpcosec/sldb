@@ -16,8 +16,10 @@ class SimpleBook(StructuredNLDoc):
 
 _REF = f"{SimpleBook.__module__}:{SimpleBook.__name__}"
 
+
 def _STORE_ARGS(tmp):
     return ["--store", str(tmp / ".sldb")]
+
 
 _PY_ARGS = ["--pythonpath", _SRC]
 
@@ -132,7 +134,9 @@ def test_store_check_json_format(tmp_path, capsys):
     _model_add(tmp_path)
     capsys.readouterr()
     with pytest.raises(SystemExit) as exc:
-        cli_main(["store", "check", "--format", "json"] + _STORE_ARGS(tmp_path) + _PY_ARGS)
+        cli_main(
+            ["store", "check", "--format", "json"] + _STORE_ARGS(tmp_path) + _PY_ARGS
+        )
     assert exc.value.code == 1
     data = json.loads(capsys.readouterr().out)
     assert "valid" in data and "models" in data
@@ -404,3 +408,20 @@ def test_doc_update_fails_unknown_doc(tmp_path):
             + _PY_ARGS
         )
 
+
+def test_doc_untrack_removes_document_from_store(tmp_path):
+    _init(tmp_path)
+    _model_add(tmp_path)
+    doc = tmp_path / "book.md"
+    doc.write_text("# My Book\n", encoding="utf-8")
+    _doc_track(tmp_path, doc)
+
+    assert cli_main(["docs", "untrack", "book"] + _STORE_ARGS(tmp_path) + _PY_ARGS) == 0
+
+    entry = next(
+        m for m in load_store_index(tmp_path / ".sldb").models if m.name == "SimpleBook"
+    )
+    docs_idx = load_documents_index(
+        tmp_path / load_models_index(tmp_path / entry.models_index).documents_index
+    )
+    assert docs_idx.documents == []

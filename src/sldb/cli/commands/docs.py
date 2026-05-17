@@ -19,10 +19,13 @@ class DocsCLI:
 
     def run(self, args: Any) -> int:
         command = args.docs_command
-        if command in {"create", "track", "update"}:
-            args.doc_command = {"create": "add", "track": "track", "update": "update"}[
-                command
-            ]
+        if command in {"create", "track", "update", "untrack"}:
+            args.doc_command = {
+                "create": "add",
+                "track": "track",
+                "update": "update",
+                "untrack": "untrack",
+            }[command]
             return self._doc.run(args)
         if command == "show":
             payload = ast_for_target(args.store, args.pythonpath, f"docs/{args.doc}")
