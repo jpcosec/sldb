@@ -9,7 +9,7 @@ Route the active desk execution set: tasks, pills, and the ritual documents that
 
 ## Tasks
 
-- `desk/tasks/task-006-extend-routine-to-drawer.md`
+*No active desk tasks.*
 
 ## Pills
 
