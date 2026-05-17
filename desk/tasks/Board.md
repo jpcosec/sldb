@@ -9,19 +9,20 @@ Route the active desk execution set: tasks, pills, and the ritual documents that
 
 ## Tasks
 
-*No active desk tasks.*
+- desk/tasks/task-011-extend-model-cli-field-editing.md
+- desk/tasks/task-012-support-structured-model-composition.md
 
 ## Pills
 
-- `desk/contexts/pill-001-task-closure-commit.md`
-- `desk/contexts/pill-002-test-real-cli-surfaces.md`
-- `desk/contexts/pill-003-capture-cli-gaps.md`
+- desk/contexts/pill-001-task-closure-commit.md
+- desk/contexts/pill-002-test-real-cli-surfaces.md
+- desk/contexts/pill-003-capture-cli-gaps.md
 
 ## Rituals
 
-- `desk/rituals/execution.md`
-- `desk/rituals/closeout.md`
-- `desk/rituals/testing.md`
+- desk/rituals/execution.md
+- desk/rituals/closeout.md
+- desk/rituals/testing.md
 
 ## Notes
 

@@ -127,6 +127,38 @@ def _add_models_group(
     show.add_argument("--store", help="Store path")
     show.add_argument("--pythonpath", help="Project path")
 
+    validate = s.add_parser("validate", help="Validate a registered model or draft.")
+    validate.add_argument("model", help="Model name")
+    validate.add_argument("--store", help="Store path")
+    validate.add_argument("--pythonpath", help="Project path")
+    validate.add_argument(
+        "--promote",
+        action="store_true",
+        help="Promote a valid draft into the active model and reindex it",
+    )
+    validate.add_argument("--format", choices=("text", "json", "yaml"), default="text")
+
+    template = s.add_parser(
+        "template", help="Inspect or edit a registered model template."
+    )
+    ts = template.add_subparsers(dest="template_command", required=True)
+
+    tshow = ts.add_parser("show", help="Show the active or draft template.")
+    tshow.add_argument("model", help="Model name")
+    tshow.add_argument("--store", help="Store path")
+    tshow.add_argument("--pythonpath", help="Project path")
+    tshow.add_argument(
+        "--draft",
+        action="store_true",
+        help="Show the draft template instead of the active one",
+    )
+
+    tedit = ts.add_parser("edit", help="Write a template draft for a registered model.")
+    tedit.add_argument("model", help="Model name")
+    tedit.add_argument("--input", required=True, help="Template markdown path")
+    tedit.add_argument("--store", help="Store path")
+    tedit.add_argument("--pythonpath", help="Project path")
+
     create = s.add_parser("create", help="Generate a StructuredNLDoc model.")
     create.add_argument("name", help="Class name")
     create.add_argument("--template", required=True, help="Template markdown path")

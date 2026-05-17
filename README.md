@@ -54,10 +54,15 @@ Store, model, and doc lifecycle:
 ```bash
 sldb stores init --path .
 sldb models add myapp.docs:RecipeDoc --store .sldb --pythonpath src
+sldb models template edit RecipeDoc --input next.template.md --store .sldb --pythonpath src
+sldb models validate RecipeDoc --store .sldb --pythonpath src
+sldb models validate RecipeDoc --promote --store .sldb --pythonpath src
 sldb docs create --model RecipeDoc -o docs/recipe.md data.yaml --store .sldb --pythonpath src
 sldb docs track docs/existing.md --model RecipeDoc --store .sldb --pythonpath src
 sldb docs untrack recipe --store .sldb --pythonpath src
 ```
+
+Model template edits are draft-first: `models template edit` writes a `*.py.temp` draft beside the registered model source. The active model contract stays unchanged until `models validate --promote` succeeds, at which point the draft replaces the active template and the store reindexes the model.
 
 Exploration and graph inspection:
 

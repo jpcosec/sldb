@@ -10,6 +10,18 @@ class SLDBModelError(SLDBError):
     pass
 
 
+class SLDBModelDraftError(SLDBModelError):
+    """Raised when there is an issue with a temporary draft of a model contract."""
+
+    pass
+
+
+class SLDBModelEditError(SLDBModelError):
+    """Raised when a CLI model edit cannot be applied safely."""
+
+    pass
+
+
 class SLDBValidationError(SLDBError):
     """Raised when document validation or idempotency checks fail."""
 

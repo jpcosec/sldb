@@ -2,11 +2,15 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import sys
+
+import pytest
 
 from sldb.cli import main as cli_main
 
 
 def _write_models(base: Path) -> str:
+    sys.modules.pop("cli_v2_models", None)
     module = base / "cli_v2_models.py"
     module.write_text(
         '''from pydantic import Field
@@ -83,6 +87,11 @@ def _setup_store(tmp_path: Path) -> tuple[Path, str]:
         == 0
     )
     return store, pythonpath
+
+
+def _write_template(path: Path, content: str) -> Path:
+    path.write_text(content, encoding="utf-8")
+    return path
 
 
 def test_help_topics(capsys):
@@ -205,28 +214,128 @@ def test_find_supports_physical_and_semantic(tmp_path, capsys):
         "type.documentation.Readme",
     ]
 
+
+def test_models_template_edit_writes_draft_without_mutating_active_source(tmp_path):
+    store, pythonpath = _setup_store(tmp_path)
+    module_path = Path(pythonpath) / "cli_v2_models.py"
+    original = module_path.read_text(encoding="utf-8")
+    template_path = _write_template(
+        tmp_path / "updated.template.md",
+        "# ⸢rev•title⸥\n\nSummary: active draft\n\nStatus: ⸢rev•status⸥\n\n## Tasks\n\n- ⸢rev,list•tasks⸥\n\n## Semantic Tags\n\n- ⸢rev,list•semantic_tags⸥\n",
+    )
+
     assert (
         cli_main(
             [
-                "find",
-                "tasks",
-                "--in",
-                "semantic",
-                "--type",
-                "section",
+                "models",
+                "template",
+                "edit",
+                "RoadmapDoc",
+                "--input",
+                str(template_path),
                 "--store",
                 str(store),
                 "--pythonpath",
                 pythonpath,
-                "--format",
-                "json",
             ]
         )
         == 0
     )
-    section = json.loads(capsys.readouterr().out)["results"]
-    assert section[0]["title"] == "Tasks"
-    assert "Tasks" in section[0]["about"]
+
+    draft_path = module_path.with_name(module_path.name + ".temp")
+    assert draft_path.exists()
+    assert "Summary: active draft" in draft_path.read_text(encoding="utf-8")
+    assert module_path.read_text(encoding="utf-8") == original
+
+
+def test_models_validate_promotes_valid_template_draft_and_reindexes(tmp_path, capsys):
+    store, pythonpath = _setup_store(tmp_path)
+    module_path = Path(pythonpath) / "cli_v2_models.py"
+    template_path = _write_template(
+        tmp_path / "promote.template.md",
+        "# ⸢rev•title⸥\n\nStatus: ⸢rev•status⸥\n\n## Tasks\n\n- ⸢rev,list•tasks⸥\n\n## Semantic Tags\n\n- ⸢rev,list•semantic_tags⸥\n\n## Review\n\nReady for validation.\n",
+    )
+    assert (
+        cli_main(
+            [
+                "models",
+                "template",
+                "edit",
+                "RoadmapDoc",
+                "--input",
+                str(template_path),
+                "--store",
+                str(store),
+                "--pythonpath",
+                pythonpath,
+            ]
+        )
+        == 0
+    )
+
+    capsys.readouterr()
+    assert (
+        cli_main(
+            [
+                "models",
+                "validate",
+                "RoadmapDoc",
+                "--promote",
+                "--store",
+                str(store),
+                "--pythonpath",
+                pythonpath,
+            ]
+        )
+        == 0
+    )
+    assert "validated draft" in capsys.readouterr().out
+    assert "## Review" in module_path.read_text(encoding="utf-8")
+    assert not module_path.with_name(module_path.name + ".temp").exists()
+
+    capsys.readouterr()
+    assert (
+        cli_main(["stores", "check", "--store", str(store), "--pythonpath", pythonpath])
+        == 0
+    )
+
+
+def test_models_validate_rejects_draft_with_unknown_field_reference(tmp_path):
+    store, pythonpath = _setup_store(tmp_path)
+    template_path = _write_template(
+        tmp_path / "invalid.template.md",
+        "# ⸢rev•title⸥\n\nMissing: ⸢rev•missing_field⸥\n",
+    )
+    assert (
+        cli_main(
+            [
+                "models",
+                "template",
+                "edit",
+                "RoadmapDoc",
+                "--input",
+                str(template_path),
+                "--store",
+                str(store),
+                "--pythonpath",
+                pythonpath,
+            ]
+        )
+        == 0
+    )
+
+    with pytest.raises(SystemExit, match="references unknown fields: missing_field"):
+        cli_main(
+            [
+                "models",
+                "validate",
+                "RoadmapDoc",
+                "--store",
+                str(store),
+                "--pythonpath",
+                pythonpath,
+            ]
+        )
 
 
 def test_find_section_where_predicates(tmp_path, capsys):
