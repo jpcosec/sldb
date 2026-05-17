@@ -11,7 +11,9 @@ class ListRenderer(BaseRenderer):
     Handles rendering of list blocks.
     """
 
-    def render(self, node, block_text: str, data: dict[str, Any], block_start_line: int) -> str:
+    def render(
+        self, node, block_text: str, data: dict[str, Any], block_start_line: int
+    ) -> str:
         if not node.children:
             return self.replace_markers(block_text, data)
 
@@ -28,6 +30,8 @@ class ListRenderer(BaseRenderer):
         list_items_data = data.get(root_prop, [])
         if not isinstance(list_items_data, list):
             return ""
+        if not list_items_data:
+            return self.replace_markers(item_text, {root_prop: ""})
 
         rendered_items = []
         for item_data in list_items_data:

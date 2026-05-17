@@ -454,6 +454,43 @@ def test_fields_update_append_and_clean(tmp_path, capsys):
     assert tasks == ["Ship CLI", "Write docs"]
 
 
+def test_fields_update_can_clear_list_field(tmp_path, capsys):
+    store, pythonpath = _setup_store(tmp_path)
+    capsys.readouterr()
+    assert (
+        cli_main(
+            [
+                "fields",
+                "update",
+                "docs/roadmap/tasks",
+                "[]",
+                "--store",
+                str(store),
+                "--pythonpath",
+                pythonpath,
+            ]
+        )
+        == 0
+    )
+    capsys.readouterr()
+    assert (
+        cli_main(
+            [
+                "fields",
+                "show",
+                "docs/roadmap/tasks",
+                "--store",
+                str(store),
+                "--pythonpath",
+                pythonpath,
+            ]
+        )
+        == 0
+    )
+    value = json.loads(capsys.readouterr().out)
+    assert value["value"] == []
+
+
 def test_models_create_stdout(tmp_path, capsys):
     template = tmp_path / "template.md"
     template.write_text("# ⸢rev•title⸥\n", encoding="utf-8")

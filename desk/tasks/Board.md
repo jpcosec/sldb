@@ -12,7 +12,6 @@ Route the active desk execution set: tasks, pills, and the ritual documents that
 - `desk/tasks/task-003-model-docs-workspace.md`
 - `desk/tasks/task-005-structure-desk-ritual-docs.md`
 - `desk/tasks/task-006-extend-routine-to-drawer.md`
-- `desk/tasks/task-007-fix-empty-list-updates.md`
 - `desk/tasks/task-008-add-untrack-flow.md`
 
 ## Pills

@@ -43,5 +43,7 @@ class ListNodeHandler(BaseNodeHandler):
         for item in items:
             self.router.get_handler_for_node(item)
             text = self.router.handlers["text"].get_text(item).strip()
+            if text == "":
+                continue
             values.append(text)
         return {recipe["name"]: values}
