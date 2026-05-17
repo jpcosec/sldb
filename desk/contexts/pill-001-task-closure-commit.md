@@ -16,7 +16,7 @@ Apply this pill whenever a task is being finished, deleted from `desk/tasks/`, o
 
 ## Where
 
-Applies to `desk/RITUALS.md`, `desk/IMPLEMENTATION-WORKFLOW.md`, task closeout, and any future workspace that reuses this routine.
+Applies to `desk/rituals/closeout.md`, `desk/rituals/testing.md`, task closeout, and any future workspace that reuses this routine.
 
 ## How
 

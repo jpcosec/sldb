@@ -10,7 +10,6 @@ Route the active desk execution set: tasks, pills, and the ritual documents that
 ## Tasks
 
 - `desk/tasks/task-003-model-docs-workspace.md`
-- `desk/tasks/task-005-structure-desk-ritual-docs.md`
 - `desk/tasks/task-006-extend-routine-to-drawer.md`
 
 ## Pills
@@ -21,9 +20,9 @@ Route the active desk execution set: tasks, pills, and the ritual documents that
 
 ## Rituals
 
-- `desk/RITUALS.md`
-- `desk/IMPLEMENTATION-WORKFLOW.md`
-- `desk/TESTING.md`
+- `desk/rituals/execution.md`
+- `desk/rituals/closeout.md`
+- `desk/rituals/testing.md`
 
 ## Notes
 

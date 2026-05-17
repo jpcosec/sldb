@@ -16,9 +16,7 @@ Nothing in `desk/` is durable project history. Stable knowledge must end up in c
 - `desk/tasks/Board.md` - active routing board.
 - `desk/contexts/` - active context documents only.
 - `desk/contexts/pills.md` - pill conventions and current base shape.
-- `desk/RITUALS.md` - operational rules for creating, executing, and closing work.
-- `desk/IMPLEMENTATION-WORKFLOW.md` - ordered lifecycle for active work.
-- `desk/TESTING.md` - testing and validation gates.
+- `desk/rituals/` - structured ritual documents for execution, testing, and closeout.
 
 ## Models
 
