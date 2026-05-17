@@ -24,7 +24,7 @@ For every active implementation task:
 
 ## Completion Gate
 
-Before deleting a task file or calling work complete, verify:
+Before deleting a task file, deleting bound context docs, or calling work complete, verify:
 
 1. The intended behavior is covered by tests.
 2. The relevant tests pass.

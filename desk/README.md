@@ -1,9 +1,39 @@
 # Desk
 
-Temporary implementation workspace for the current task.
+Temporary execution workspace for SLDB-driven task routine.
 
-## Task Status
+`desk/` exists for two things only:
 
-The desk now contains an active task set for the section/context indexing follow-up.
+1. Typed temporary documents that represent active tasks and active task context.
+2. Rituals for changing code, testing, documenting, and keeping the repo and git state clean.
 
-Use `desk/tasks/Board.md` as the current record of task closure state.
+Nothing in `desk/` is durable project history. Stable knowledge must end up in code, tests, docs, or git history.
+
+## Structure
+
+- `desk/models/` - SLDB models for desk documents.
+- `desk/tasks/` - active task documents only.
+- `desk/tasks/Board.md` - active routing board.
+- `desk/contexts/` - active context documents only.
+- `desk/contexts/pills.md` - pill conventions and current base shape.
+- `desk/RITUALS.md` - operational rules for creating, executing, and closing work.
+- `desk/IMPLEMENTATION-WORKFLOW.md` - ordered lifecycle for active work.
+- `desk/TESTING.md` - testing and validation gates.
+
+## Models
+
+The current base desk models are:
+
+- `BoardDoc`
+- `TaskDoc`
+- `PillDoc`
+- `RitualDoc`
+
+They live in `desk/models/` and use the current SLDB pattern: `StructuredNLDoc` plus inline `__template__` definitions.
+
+## Exclusions
+
+- No resolved tasks.
+- No historical reports.
+- No durable feature proposals.
+- No duplicate project documentation.
