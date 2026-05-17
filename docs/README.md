@@ -47,6 +47,12 @@ python -m sldb docs track docs/architecture/current-system-overview.md --model A
 python -m sldb stores update --store .sldb --pythonpath .
 ```
 
+If a tracked docs document should leave the active store, remove it explicitly before deleting or moving it:
+
+```bash
+python -m sldb docs untrack arch-current-system-overview --store .sldb --pythonpath .
+```
+
 Query the tracked docs:
 
 ```bash
@@ -54,3 +60,9 @@ python -m sldb find type.documentation.architecture --in semantic --store .sldb 
 python -m sldb sections show arch-current-system-overview --store .sldb --pythonpath . --format yaml
 python -m sldb docs show req-ontology-feature-request --store .sldb --pythonpath . --format yaml
 ```
+
+## Current Limits
+
+- The current docs models are intentionally coarse and family-level.
+- Deep heading navigation comes from `sections` and semantic indexes more than from many fine-grained document fields.
+- Generic `title + body` models work best when the document starts with a short lead paragraph before jumping into dense fenced blocks.

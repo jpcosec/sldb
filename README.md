@@ -55,6 +55,8 @@ Store, model, and doc lifecycle:
 sldb stores init --path .
 sldb models add myapp.docs:RecipeDoc --store .sldb --pythonpath src
 sldb docs create --model RecipeDoc -o docs/recipe.md data.yaml --store .sldb --pythonpath src
+sldb docs track docs/existing.md --model RecipeDoc --store .sldb --pythonpath src
+sldb docs untrack recipe --store .sldb --pythonpath src
 ```
 
 Exploration and graph inspection:
@@ -90,6 +92,13 @@ sldb fields append docs/recipe/tags '"dessert"' --store .sldb --pythonpath src
 sldb fields clean docs/recipe/tags --dedupe --store .sldb --pythonpath src
 ```
 
+Link recovery and composition work with either a tracked doc name or a file path:
+
+```bash
+sldb docs recover recipe --store .sldb --format yaml
+sldb docs compose recipe --store .sldb --format yaml -o -
+```
+
 Generate a model from a template plus field spec:
 
 ```bash
@@ -109,6 +118,8 @@ The project documentation workspace under `docs/` is now modelled in `docs/model
 - `SpecDoc` covers `docs/superpowers/specs/*.md`
 
 See `docs/README.md` for the current tracking workflow, semantic query examples, and the authoring rule for generic `title + body` docs.
+
+See `docs/workspaces.md` for the workspace pattern behind `docs/`, `desk/`, and `drawer/`.
 
 The generated example bundle and model generator both follow the preferred field pattern:
 
