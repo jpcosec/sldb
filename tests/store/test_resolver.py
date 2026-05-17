@@ -1,5 +1,6 @@
 from pathlib import Path
 from sldb.store.resolver import global_store_path, find_local_store
+from sldb.store.layout import store_index_path
 
 
 def test_global_store_path():
@@ -20,6 +21,14 @@ def test_find_local_store_in_parent(tmp_path):
     nested = tmp_path / "src" / "models"
     nested.mkdir(parents=True)
     assert find_local_store(nested) == store
+
+
+def test_find_local_store_with_core_layout(tmp_path):
+    store = tmp_path / ".sldb"
+    store.mkdir()
+    store_index_path(store).parent.mkdir(parents=True, exist_ok=True)
+    store_index_path(store).write_text("stores: []\nmodels: []\nhash_a: ''\n")
+    assert find_local_store(tmp_path) == store
 
 
 def test_find_local_store_returns_none_when_missing(tmp_path):

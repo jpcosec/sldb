@@ -4,7 +4,7 @@ A structurally aware Markdown extraction and template mapping library based on `
 
 Within the `wikipu-ecosystem`, SLDB is the human-readable rendering and navigation layer over canonical `specYaml` semantics. It may author, extract, and render structured markdown, but it should not compete with `specyaml/` as the semantic source-of-truth contract.
 
-This repo's own operating system lives in `desk/` as the **opsys** workflow-domain layer — see `docs/workspaces.md` for the three-layer architecture (sldb infra / specyaml semantics / opsys workflow domain).
+The workflow-domain example layer now lives in the sibling `opsys` repo, not inside `sldb` itself. See `docs/workspaces.md` for the boundary between reusable SLDB infrastructure and downstream workflow-domain consumers.
 
 ## Features
 
@@ -128,13 +128,13 @@ The project documentation workspace under `docs/` is now modelled in `docs/model
 
 See `docs/README.md` for the current tracking workflow, semantic query examples, and the authoring rule for generic `title + body` docs.
 
-See `docs/workspaces.md` for the workspace pattern behind `docs/`, `desk/`, and `desk/drawer/`.
+See `docs/workspaces.md` for the workspace pattern behind durable docs in this repo and downstream workflow-domain consumers such as the sibling `opsys` repo.
 
 ## Structured Composition
 
 `StructuredNLDoc` models can declare render-time compositions through `__compositions__` and expose them with `render` markers in the template.
 
-This supports explicit expansion of referenced child documents during rendering while leaving other references untouched. In this repo, `desk/models/board.py` composes task summaries from referenced task docs, while `desk/models/ritual.py` can compose structured step details from `StepDoc` references.
+This supports explicit expansion of referenced child documents during rendering while leaving other references untouched. Downstream repos can use this to compose workflow documents, checklists, and other structured views from tracked child docs.
 
 The generated example bundle and model generator both follow the preferred field pattern:
 

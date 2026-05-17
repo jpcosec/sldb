@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from sldb.runtime.validation import extract_model_data
+from sldb.store.layout import project_root, store_exists
 from sldb.store.io import (
     load_documents_index,
     load_models_index,
@@ -28,15 +29,15 @@ def load_runtime_documents(
     """
 
     def _load_one(current_store_path: Path, store_name: str) -> list[RuntimeDocument]:
-        project_root = current_store_path.parent
+        root = project_root(current_store_path)
         store_index = load_store_index(current_store_path)
         runtime_docs: list[RuntimeDocument] = []
         for model_entry in store_index.models:
             model_type = resolve_model_ref(model_entry.model_ref, pythonpath)
-            models_idx = load_models_index(project_root / model_entry.models_index)
-            docs_idx = load_documents_index(project_root / models_idx.documents_index)
+            models_idx = load_models_index(root / model_entry.models_index)
+            docs_idx = load_documents_index(root / models_idx.documents_index)
             for doc in docs_idx.documents:
-                doc_path = project_root / doc.path
+                doc_path = root / doc.path
                 if not doc_path.exists():
                     continue
                 payload = extract_model_data(
@@ -60,8 +61,8 @@ def load_runtime_documents(
     if include_linked:
         store_index = load_store_index(store_path)
         for linked in store_index.stores:
-            linked_store = _resolve_path(store_path.parent, linked.path)
-            if (linked_store / "store_index.yaml").exists():
+            linked_store = _resolve_path(project_root(store_path), linked.path)
+            if store_exists(linked_store):
                 docs.extend(_load_one(linked_store, linked.name))
     return docs
 

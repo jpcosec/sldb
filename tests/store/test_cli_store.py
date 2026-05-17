@@ -4,7 +4,13 @@ from pathlib import Path
 from pydantic import Field
 from sldb import StructuredNLDoc
 from sldb.cli import main as cli_main
+from sldb.cli.utils import get_store_context
 from sldb.store.io import load_store_index, load_models_index, load_documents_index
+from sldb.store.layout import (
+    semantic_dag_path,
+    semantic_index_path,
+    store_index_path,
+)
 
 _SRC = str(Path(__file__).parent.parent.parent / "src")
 
@@ -50,6 +56,9 @@ def test_store_init_creates_index(tmp_path):
     assert cli_main(["store", "init", "--path", str(tmp_path)]) == 0
     index = load_store_index(tmp_path / ".sldb")
     assert index.stores == [] and index.models == []
+    assert store_index_path(tmp_path / ".sldb").exists()
+    assert semantic_index_path(tmp_path / ".sldb").exists()
+    assert semantic_dag_path(tmp_path / ".sldb").exists()
 
 
 def test_store_init_fails_if_exists(tmp_path):
@@ -176,10 +185,29 @@ def test_model_add_creates_index_files(tmp_path):
     _model_add(tmp_path)
     store_index = load_store_index(tmp_path / ".sldb")
     entry = next(m for m in store_index.models if m.name == "SimpleBook")
+    assert entry.models_index == ".sldb/core/models/SimpleBook.yaml"
     models_idx = load_models_index(tmp_path / entry.models_index)
     docs_idx = load_documents_index(tmp_path / models_idx.documents_index)
     assert models_idx.name == "SimpleBook"
+    assert models_idx.documents_index == ".sldb/core/documents/SimpleBook.yaml"
     assert docs_idx.documents == []
+
+
+def test_get_store_context_migrates_legacy_paths(tmp_path):
+    _init(tmp_path)
+    legacy_store = tmp_path / ".sldb"
+    (legacy_store / "store_index.yaml").write_text(
+        (legacy_store / "core" / "store_index.yaml").read_text(encoding="utf-8"),
+        encoding="utf-8",
+    )
+    (legacy_store / "core" / "store_index.yaml").unlink()
+
+    _model_add(tmp_path)
+    store_path, root = get_store_context(str(legacy_store))
+
+    assert store_path == legacy_store
+    assert root == tmp_path
+    assert (legacy_store / "core" / "store_index.yaml").exists()
 
 
 def test_model_add_sets_hash_a(tmp_path):

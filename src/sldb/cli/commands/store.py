@@ -19,6 +19,7 @@ from sldb.store.io import (
     save_store_index,
     store_lock,
 )
+from sldb.store.layout import store_exists
 from sldb.store.models import SemanticDAG, StoreEntry, StoreIndex
 from sldb.store.models import SemanticIndex
 from sldb.store.ops import cascade_hash_a
@@ -49,7 +50,7 @@ class StoreCLI:
     def init(self, args: Any) -> int:
         root = Path(args.path).resolve()
         sp = root / ".sldb"
-        if (sp / "store_index.yaml").exists() and not args.force:
+        if store_exists(sp) and not args.force:
             raise SLDBStoreError(f"Store exists at {sp}.")
         save_store_index(sp, StoreIndex())
         save_semantic_dag(sp, SemanticDAG(equivalences={}))
@@ -60,7 +61,7 @@ class StoreCLI:
     def add(self, args: Any) -> int:
         sp, root = get_store_context(args.store)
         other = Path(args.path).resolve()
-        if not (other / "store_index.yaml").exists():
+        if not store_exists(other):
             raise SLDBStoreError(f"No store at {other}")
 
         idx = load_store_index(sp)

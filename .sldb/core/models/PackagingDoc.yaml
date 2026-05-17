@@ -1,0 +1,13 @@
+name: PackagingDoc
+model_ref: docs.models:PackagingDoc
+path: docs/models.py
+documents_index: .sldb/core/documents/PackagingDoc.yaml
+sections_index: .sldb/runtime/sections/PackagingDoc.yaml
+hash_b: 486a8b384cf8cb199e1781d1db6c86345c540937dd6cd474746eca6b461f0685
+version: 1
+canonical: false
+family: null
+semantics:
+- type.documentation.packaging
+- workspace.docs.packaging
+base_models: []

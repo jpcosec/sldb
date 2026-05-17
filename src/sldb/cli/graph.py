@@ -11,6 +11,7 @@ from typing import Any
 logger = logging.getLogger(__name__)
 
 from sldb.cli.utils import get_store_context, resolve_model_ref
+from sldb.store.layout import project_root
 from sldb.core.ast import AST_Handler
 from sldb.core.contracts import MARKER_PATTERN, parse_marker
 from sldb.core.ir import (
@@ -325,7 +326,7 @@ def query_field_records(
                     doc_template, doc_sections.sections
                 )
             else:
-                doc_path = doc.store_path.parent / doc.path
+                doc_path = project_root(doc.store_path) / doc.path
                 if doc_path.exists():
                     markdown = doc_path.read_text(encoding="utf-8")
                     sections = extract_sections(markdown)
@@ -431,7 +432,7 @@ def iter_search_records(
             )
         )
 
-        doc_path = Path(doc.store_path.parent / doc.path)
+        doc_path = Path(project_root(doc.store_path) / doc.path)
         if doc_path.exists():
             doc_template: str | None = getattr(doc.model_type, "__template__", None)
 

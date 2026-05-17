@@ -1,0 +1,13 @@
+name: RequestDoc
+model_ref: docs.models:RequestDoc
+path: docs/models.py
+documents_index: .sldb/core/documents/RequestDoc.yaml
+sections_index: .sldb/runtime/sections/RequestDoc.yaml
+hash_b: ee5043281388df7f528b5ebdde8b859b7e0a1585de0d70df0a9de4eb529274fe
+version: 1
+canonical: false
+family: null
+semantics:
+- type.documentation.request
+- workspace.docs.requests
+base_models: []

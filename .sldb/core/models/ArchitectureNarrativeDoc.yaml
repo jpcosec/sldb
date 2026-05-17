@@ -1,0 +1,13 @@
+name: ArchitectureNarrativeDoc
+model_ref: docs.models:ArchitectureNarrativeDoc
+path: docs/models.py
+documents_index: .sldb/core/documents/ArchitectureNarrativeDoc.yaml
+sections_index: .sldb/runtime/sections/ArchitectureNarrativeDoc.yaml
+hash_b: 4e5fba00139a027b64439c4905978c300379f11bdf92d767dfa2f0a2b06b7470
+version: 1
+canonical: false
+family: null
+semantics:
+- type.documentation.architecture
+- workspace.docs.architecture
+base_models: []

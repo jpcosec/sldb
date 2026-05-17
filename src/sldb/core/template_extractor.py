@@ -49,6 +49,19 @@ class TemplateExtractor:
                     )
                     if literal_recipes:
                         for recipe in literal_recipes:
+                            block_text = (
+                                self.node_handler.handlers["text"]
+                                .get_text(node)
+                                .strip()
+                            )
+                            if (
+                                outer_type == "paragraph"
+                                and len(recipe.get("props_info", [])) == 1
+                                and block_text.startswith("⸢")
+                                and block_text.endswith("⸥")
+                                and recipe.get("regex") == "^(.*?)$"
+                            ):
+                                recipe["capture_mode"] = "section_body"
                             recipe.update(
                                 {
                                     "outer_index": outer_index,
@@ -59,7 +72,7 @@ class TemplateExtractor:
                             )
                             extracted_recipes.append(recipe)
                             found_recipe_in_block = True
-                        return # STOP DIVING
+                        return  # STOP DIVING
 
                 for child_idx, child in enumerate(node.children):
                     dive(child, current_path + [child_idx])
@@ -109,11 +122,15 @@ class TemplateExtractor:
         # Check for multiple revs
         for name, count in rev_counts.items():
             if count > 1:
-                raise SLDBASTError(f"Multiple canonical 'rev' markers found for field '{name}'.")
+                raise SLDBASTError(
+                    f"Multiple canonical 'rev' markers found for field '{name}'."
+                )
             if name in optrev_orphans:
                 optrev_orphans.remove(name)
 
         # Check for orphans
         if optrev_orphans:
             orphan_list = ", ".join(sorted(optrev_orphans))
-            raise SLDBASTError(f"Optional 'optrev' markers found for fields without a canonical 'rev' source: {orphan_list}")
+            raise SLDBASTError(
+                f"Optional 'optrev' markers found for fields without a canonical 'rev' source: {orphan_list}"
+            )

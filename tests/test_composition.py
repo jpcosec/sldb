@@ -1,52 +1,98 @@
 from __future__ import annotations
 
+import importlib
 from pathlib import Path
 import sys
+
+from pydantic import Field
 
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from desk.models import BoardDoc, RitualDoc, StepDoc, TaskDoc
+from sldb import StructuredNLDoc
 from sldb.runtime.validation import render_model_markdown
 
 
+class ComposedBoardDoc(StructuredNLDoc):
+    __compositions__ = {
+        "task_summaries": {
+            "source_field": "tasks",
+            "model": "composition_models:ComposedTaskDoc",
+            "template": "- {title} [{status}] - {goal}",
+        }
+    }
+    __template__ = """
+# ⸢rev•title⸥
+
+## Tasks
+
+- ⸢rev,list•tasks⸥
+
+## Task Details
+
+⸢render•task_summaries⸥
+""".strip()
+
+    title: str = Field(description="Board title.")
+    tasks: list[str] = Field(default_factory=list, description="Task refs.")
+
+
+class ComposedRitualDoc(StructuredNLDoc):
+    __compositions__ = {
+        "step_details": {
+            "source_field": "steps",
+            "model": "composition_models:ComposedStepDoc",
+            "template": "1. {title}: {action} -> {outcome}",
+        }
+    }
+    __template__ = """
+# ⸢rev•title⸥
+
+## Steps
+
+1. ⸢rev,list•steps⸥
+
+## Step Details
+
+⸢render•step_details⸥
+""".strip()
+
+    title: str = Field(description="Ritual title.")
+    steps: list[str] = Field(default_factory=list, description="Step refs.")
+
+
+def _load_composition_models(tmp_path: Path):
+    module_path = tmp_path / "composition_models.py"
+    module_path.write_text(
+        """from pydantic import Field\nfrom sldb import StructuredNLDoc\n\n\nclass ComposedTaskDoc(StructuredNLDoc):\n    __template__ = \"# ⸢rev•title⸥\\n\\nStatus: ⸢rev•status⸥\\n\\n## Goal\\n\\n⸢rev•goal⸥\"\n    title: str = Field(description=\"Task title.\")\n    status: str = Field(description=\"Task status.\")\n    goal: str = Field(description=\"Task goal.\")\n\n\nclass ComposedStepDoc(StructuredNLDoc):\n    __template__ = \"# ⸢rev•title⸥\\n\\n## Action\\n\\n⸢rev•action⸥\\n\\n## Outcome\\n\\n⸢rev•outcome⸥\"\n    title: str = Field(description=\"Step title.\")\n    action: str = Field(description=\"Step action.\")\n    outcome: str = Field(description=\"Step outcome.\")\n""",
+        encoding="utf-8",
+    )
+    if str(tmp_path) not in sys.path:
+        sys.path.insert(0, str(tmp_path))
+    return importlib.import_module("composition_models")
+
+
 def test_board_doc_renders_composed_task_summaries(tmp_path: Path):
+    models = _load_composition_models(tmp_path)
     task_path = tmp_path / "task-a.md"
     task_path.write_text(
         render_model_markdown(
-            TaskDoc,
+            models.ComposedTaskDoc,
             {
                 "title": "Improve model editing",
-                "id": "task-a",
                 "status": "active",
                 "goal": "Support safer contract editing from the CLI.",
-                "scope": "CLI model workflow only.",
-                "references": [],
-                "depends_on": [],
-                "pills": [],
-                "files": ["src/sldb/cli/commands/models.py"],
-                "implementation_path": "Add draft-first mutations and validate before promotion.",
-                "validation": ["targeted pytest"],
-                "done_when": "The model edit workflow is safe.",
-                "tags": ["system:sldb"],
             },
         ),
         encoding="utf-8",
     )
 
     rendered = render_model_markdown(
-        BoardDoc,
+        ComposedBoardDoc,
         {
-            "title": "Desk Board",
-            "id": "board-001",
-            "scope": "desk",
-            "purpose": "Route active execution.",
+            "title": "Composition Board",
             "tasks": [str(task_path)],
-            "pills": ["desk/contexts/pill-001-task-closure-commit.md"],
-            "rituals": ["desk/rituals/execution.md"],
-            "notes": "No additional notes.",
-            "tags": ["system:sldb"],
         },
     )
 
@@ -55,38 +101,28 @@ def test_board_doc_renders_composed_task_summaries(tmp_path: Path):
         "- Improve model editing [active] - Support safer contract editing from the CLI."
         in rendered
     )
-    assert "desk/contexts/pill-001-task-closure-commit.md" in rendered
 
 
 def test_ritual_doc_renders_composed_step_details(tmp_path: Path):
+    models = _load_composition_models(tmp_path)
     step_path = tmp_path / "step-a.md"
     step_path.write_text(
         render_model_markdown(
-            StepDoc,
+            models.ComposedStepDoc,
             {
                 "title": "Validate draft",
-                "id": "step-a",
                 "action": "Run model validation against tracked docs.",
                 "outcome": "A promotable contract draft.",
-                "tags": ["topic:validation"],
             },
         ),
         encoding="utf-8",
     )
 
     rendered = render_model_markdown(
-        RitualDoc,
+        ComposedRitualDoc,
         {
-            "title": "Promotion ritual",
-            "id": "ritual-promotion",
-            "purpose": "Promote safe drafts only.",
-            "trigger": "A model draft is ready.",
-            "preconditions": ["A draft exists."],
+            "title": "Composition Ritual",
             "steps": [str(step_path)],
-            "validation": ["Tracked docs still pass."],
-            "failure_modes": ["Promoting an invalid draft."],
-            "completion": "The active model has been updated safely.",
-            "tags": ["system:sldb"],
         },
     )
 

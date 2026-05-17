@@ -7,8 +7,7 @@ This directory can now be worked through SLDB models and the project-local store
 - `docs.models:ArchitectureNarrativeDoc` - `docs/architecture/*.md`
 - `docs.models:PackagingDoc` - `docs/packaging instructions.md`
 - `docs.models:RequestDoc` - `docs/requests/*.md`
-- `docs.models:PlanDoc` - `docs/superpowers/plans/*.md`
-- `docs.models:SpecDoc` - `docs/superpowers/specs/*.md`
+- `docs.models:StoreReadmeDoc` - `.sldb/README.md`
 
 ## Why These Models Are Shallow
 
@@ -36,14 +35,14 @@ Register the models:
 python -m sldb models add docs.models:ArchitectureNarrativeDoc --store .sldb --pythonpath .
 python -m sldb models add docs.models:PackagingDoc --store .sldb --pythonpath .
 python -m sldb models add docs.models:RequestDoc --store .sldb --pythonpath .
-python -m sldb models add docs.models:PlanDoc --store .sldb --pythonpath .
-python -m sldb models add docs.models:SpecDoc --store .sldb --pythonpath .
+python -m sldb models add docs.models:StoreReadmeDoc --store .sldb --pythonpath .
 ```
 
 Track the documents, then rebuild indexes:
 
 ```bash
 python -m sldb docs track docs/architecture/current-system-overview.md --model ArchitectureNarrativeDoc --name arch-current-system-overview --store .sldb --pythonpath .
+python -m sldb docs track .sldb/README.md --model StoreReadmeDoc --name sldb-readme --store .sldb --pythonpath .
 python -m sldb stores update --store .sldb --pythonpath .
 ```
 
@@ -57,6 +56,7 @@ Query the tracked docs:
 
 ```bash
 python -m sldb find type.documentation.architecture --in semantic --store .sldb --pythonpath .
+python -m sldb docs show sldb-readme --store .sldb --pythonpath . --format yaml
 python -m sldb sections show arch-current-system-overview --store .sldb --pythonpath . --format yaml
 python -m sldb docs show req-ontology-feature-request --store .sldb --pythonpath . --format yaml
 ```

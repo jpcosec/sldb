@@ -29,7 +29,9 @@ class Validator:
     def extract(self, markdown: str) -> dict[str, Any]:
         """Extracts and validates data from markdown."""
         payload = self.data_extractor.extract_values(
-            self.ast_handler.split_nodes(markdown), self._get_recipes()
+            self.ast_handler.split_nodes(markdown),
+            self._get_recipes(),
+            raw_markdown=markdown,
         )
         # Normalize through Pydantic
         return self.model_type(**payload).model_dump(mode="json")
@@ -124,7 +126,9 @@ def extract_payload(template: str, markdown: str) -> dict[str, Any]:
 
     ast = AST_Handler()
     recipes = TemplateExtractor().extract_nodes(ast.split_nodes(template))
-    return DataExtractor().extract_values(ast.split_nodes(markdown), recipes)
+    return DataExtractor().extract_values(
+        ast.split_nodes(markdown), recipes, raw_markdown=markdown
+    )
 
 
 def render_markdown(template: str, data: dict[str, Any]) -> str:

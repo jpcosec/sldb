@@ -4,6 +4,7 @@ import re
 from pathlib import Path
 from typing import Any
 
+from sldb.store.layout import project_root
 from sldb.store.io import load_semantic_index
 from sldb.store.query import load_runtime_documents
 from sldb.store.query_engine.models import RuntimeDocument
@@ -39,6 +40,12 @@ def _local_semantic_docs(
     semantic_index = load_semantic_index(store_path)
     if not semantic_index.documents:
         from sldb.store.semantic import rebuild_semantic_indexes
-        rebuild_semantic_indexes(store_path, store_path.parent, resolve_model_ref, pythonpath)
+
+        rebuild_semantic_indexes(
+            store_path,
+            project_root(store_path),
+            resolve_model_ref,
+            pythonpath,
+        )
         semantic_index = load_semantic_index(store_path)
     return docs, semantic_index

@@ -1,0 +1,8 @@
+documents:
+- name: sldb-readme
+  path: .sldb/README.md
+  hash_c: f78c12f007c1af03a03d8320eea582a85c79d138dfd913d4dadaf16965a98bfc
+  hash_d: c6eaca823d5fb502ac3b668c5ae3d93b52dff6be129d175ab880dad1c7f4074f
+  semantic_tags:
+  - type.documentation.store
+  - workspace.sldb.store

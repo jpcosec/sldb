@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Optional, Type
 
 from sldb.models.structured_doc import StructuredNLDoc
+from sldb.store.layout import project_root as store_project_root
 from sldb.store.hashing import (
     hash_documents_index,
     hash_fields,
@@ -38,8 +39,12 @@ def _diagnose_doc(
     doc_path = root / doc.path
     if not doc_path.exists():
         return DocumentDiagnosis(
-            name=doc.name, path=doc.path, hash_c_ok=False, hash_d_ok=False,
-            path_exists=False, note=DiagnosisNote.MISSING,
+            name=doc.name,
+            path=doc.path,
+            hash_c_ok=False,
+            hash_d_ok=False,
+            path_exists=False,
+            note=DiagnosisNote.MISSING,
         )
 
     text = doc_path.read_text(encoding="utf-8")
@@ -54,8 +59,12 @@ def _diagnose_doc(
         note = DiagnosisNote.DATA_MUTATION
 
     return DocumentDiagnosis(
-        name=doc.name, path=doc.path, hash_c_ok=hash_c_ok,
-        hash_d_ok=hash_d_ok, path_exists=True, note=note,
+        name=doc.name,
+        path=doc.path,
+        hash_c_ok=hash_c_ok,
+        hash_d_ok=hash_d_ok,
+        path_exists=True,
+        note=note,
     )
 
 
@@ -65,7 +74,7 @@ def diagnose_store(
     pythonpath: Optional[str] = None,
 ) -> StoreDiagnosis:
     """Diagnoses the integrity of the entire store."""
-    root = project_root or store_path.parent
+    root = project_root or store_project_root(store_path)
     store_index = load_store_index(store_path)
 
     model_diagnoses: list[ModelDiagnosis] = []

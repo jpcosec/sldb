@@ -1,6 +1,6 @@
 # Current System Overview
 
-This document captures how SLDB works today, not the proposed future features in the temporary `desk/` notes.
+This document captures how SLDB works today, not the downstream workflow-domain proposals that now live in the sibling `opsys` repo.
 
 ## What Exists Now
 

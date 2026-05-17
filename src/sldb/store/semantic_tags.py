@@ -16,7 +16,9 @@ def flatten_model_semantics(model_type: type) -> list[str]:
         elif isinstance(value, dict):
             for child_key, child_value in value.items():
                 if isinstance(child_value, (list, tuple)):
-                    tags.append(".".join([key, child_key, *[str(p) for p in child_value]]))
+                    tags.append(
+                        ".".join([key, child_key, *[str(p) for p in child_value]])
+                    )
                 else:
                     tags.append(f"{key}.{child_key}.{child_value}")
     return sorted(set(tag for tag in tags if tag))
@@ -27,11 +29,12 @@ def collect_document_semantic_tags(model_type: type, payload: dict) -> list[str]
     Collects both model-level and document-level semantic tags.
     """
     tags = set(flatten_model_semantics(model_type))
-    payload_tags = payload.get("semantic_tags") or []
-    if isinstance(payload_tags, list):
-        for tag in payload_tags:
-            if isinstance(tag, str) and tag.strip():
-                tags.add(tag.strip())
+    for field_name in ("semantic_tags", "tags"):
+        payload_tags = payload.get(field_name) or []
+        if isinstance(payload_tags, list):
+            for tag in payload_tags:
+                if isinstance(tag, str) and tag.strip():
+                    tags.add(tag.strip())
     return sorted(tags)
 
 

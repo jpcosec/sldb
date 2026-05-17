@@ -1,0 +1,8 @@
+documents:
+- name: packaging-instructions
+  path: docs/packaging instructions.md
+  hash_c: 2f9d6111f7edbe6765877f491456ab49b7c8ddfa62d16abcf6330129729cb2bc
+  hash_d: f2365d1cbcda88de60e3cbc50f00b2074aa8ec5fa5fa01db6658bd481c60fbdc
+  semantic_tags:
+  - type.documentation.packaging
+  - workspace.docs.packaging

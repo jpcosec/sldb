@@ -14,6 +14,7 @@ from sldb.store.io import (
     save_models_index,
     store_lock,
 )
+from sldb.store.layout import documents_index_relpath, models_index_relpath
 from sldb.store.models import DocumentsIndex, ModelEntry, ModelsIndex
 from sldb.store.ops import cascade_hash_a
 from sldb.store.semantic import rebuild_semantic_indexes
@@ -50,8 +51,8 @@ class ModelCLI:
             raise SLDBModelError(f"Model '{model_type.__name__}' exists.")
 
         m_path = self._get_rel_path(Path(inspect.getfile(model_type)), root)
-        mi_rel = f".sldb/models/{model_type.__name__}.yaml"
-        di_rel = f".sldb/documents/{model_type.__name__}.yaml"
+        mi_rel = models_index_relpath(model_type.__name__)
+        di_rel = documents_index_relpath(model_type.__name__)
 
         with store_lock(sp):
             save_documents_index(root / di_rel, DocumentsIndex())

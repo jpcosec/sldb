@@ -206,3 +206,78 @@ class RequestDoc(StructuredNLDoc):
     body: str = Field(
         description="Full request body after the H1, including proposal sections, examples, tables, and code blocks."
     )
+
+
+class StoreReadmeDoc(StructuredNLDoc):
+    __semantics__ = {
+        "type": ["documentation", "store"],
+        "workspace": ["sldb", "store"],
+    }
+    __template__ = """
+# ⸢rev•title⸥
+
+## Purpose
+
+⸢rev•purpose⸥
+
+## Layout Summary
+
+⸢rev•layout_summary⸥
+
+## Durable Core (`.sldb/core`)
+
+⸢rev•core_contract⸥
+
+## Runtime State (`.sldb/runtime`)
+
+⸢rev•runtime_contract⸥
+
+## Local Config (`.sldb/.config`)
+
+⸢rev•local_config_contract⸥
+
+## Promotion Rules
+
+⸢rev•promotion_rules⸥
+
+## Git Policy
+
+⸢rev•git_policy⸥
+
+## Command Map
+
+⸢rev•command_map⸥
+
+## Migration Status
+
+⸢rev•migration_status⸥
+""".strip()
+
+    title: str = Field(description="Primary H1 heading for the store README.")
+    purpose: str = Field(
+        description="Why the store exists and how it should be used as the project-local SLDB workspace."
+    )
+    layout_summary: str = Field(
+        description="Concrete overview of the intended store layout, including subtree responsibilities and examples."
+    )
+    core_contract: str = Field(
+        description="Durable contract for what belongs under .sldb/core and what must stay out of it."
+    )
+    runtime_contract: str = Field(
+        description="Operational contract for ephemeral runtime state under .sldb/runtime, including rebuild and cleanup expectations."
+    )
+    local_config_contract: str = Field(
+        description="Local-machine contract for .sldb/.config, including override rules and non-shared state."
+    )
+    promotion_rules: str = Field(
+        description="Rules for promoting drafts or generated state into durable tracked artifacts."
+    )
+    git_policy: str = Field(
+        description="Commit and ignore policy across .sldb/core, .sldb/runtime, and .sldb/.config."
+    )
+    command_map: str = Field(
+        description="Command-oriented guidance for common store operations and index rebuild flows."
+    )
+    migration_status: str = Field(
+        description="Current migration posture, including transitional notes while the flat store implementation is still being refactored."
+    )

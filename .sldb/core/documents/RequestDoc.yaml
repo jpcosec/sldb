@@ -1,0 +1,15 @@
+documents:
+- name: req-knowledge-graph-integration
+  path: docs/requests/sldb-knowledge-graph-integration.md
+  hash_c: 19cfe7ea5d9952fecb4f0ac520623f5ef7887bf26c0f6612ebb4a552b9e08d59
+  hash_d: 551f864c985150dfb92fa3827f4b3f24c0acd7ff54d64a436723aacc05d5d253
+  semantic_tags:
+  - type.documentation.request
+  - workspace.docs.requests
+- name: req-ontology-feature-request
+  path: docs/requests/sldb-ontology-feature-request.md
+  hash_c: 03e2e09b81b1e9cd804fbe0247b3882bb7e7ea0ad8c6d669d6b069a9e079e7ed
+  hash_d: 5c6e96e1c2c650beebac25bf237fa3ac363f0cd344db915f565620aa507494a3
+  semantic_tags:
+  - type.documentation.request
+  - workspace.docs.requests

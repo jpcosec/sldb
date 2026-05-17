@@ -75,7 +75,13 @@ def get_store_context(store_arg: str | None) -> tuple[Path, Path]:
         if not found:
             raise SLDBStoreError("No store found. Run 'sldb store init'.")
         sp = found
-    return sp, sp.parent
+    from sldb.store.layout import project_root, store_exists
+    from sldb.store.migration import migrate_store_layout
+
+    root = project_root(sp)
+    if store_exists(sp):
+        migrate_store_layout(sp, root)
+    return sp, root
 
 
 def registered_model(

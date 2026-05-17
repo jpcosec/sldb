@@ -19,6 +19,7 @@ from sldb.store.io import (
     save_semantic_dag,
     save_semantic_index,
 )
+from sldb.store.layout import sections_index_relpath
 from sldb.store.models import (
     DocSections,
     SectionContextRecord,
@@ -220,12 +221,12 @@ def rebuild_sections_indexes(
             )
 
         if doc_sections_list:
-            sections_dir = Path(model_entry.models_index).parent
-            sections_path = project_root / sections_dir / "sections_index.yaml"
+            sections_rel = sections_index_relpath(model_entry.name)
+            sections_path = project_root / sections_rel
             save_sections_index(
                 sections_path, SectionsIndex(documents=doc_sections_list)
             )
-            models_idx.sections_index = str(sections_dir / "sections_index.yaml")
+            models_idx.sections_index = sections_rel
             save_models_index(project_root / model_entry.models_index, models_idx)
 
     return report

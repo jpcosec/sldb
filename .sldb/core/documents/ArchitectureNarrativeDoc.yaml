@@ -1,0 +1,43 @@
+documents:
+- name: arch-current-cli-tree
+  path: docs/architecture/current-cli-tree.md
+  hash_c: 5076edb35527de5b7768803c42a0e0dfe562b9e0bd1c72e633c380f7797c0961
+  hash_d: 0614e0081558124137f3efd435dc4be7f894b6da942fc3bfff2f0f110df0a7e0
+  semantic_tags:
+  - type.documentation.architecture
+  - workspace.docs.architecture
+- name: arch-current-source-tree
+  path: docs/architecture/current-source-tree.md
+  hash_c: fce660583cbcdf414d11d39b0f1d435ff577d5a25cb8e7351f63d77aa22bce6a
+  hash_d: 48fb66ef407bc9d47f700efab03332d01abbc43293b47bc1052e564069907f8b
+  semantic_tags:
+  - type.documentation.architecture
+  - workspace.docs.architecture
+- name: arch-current-system-overview
+  path: docs/architecture/current-system-overview.md
+  hash_c: 84d5ab5280d6627e343b1a13c77866000639853e8158b16d32638634867642f8
+  hash_d: 3226ead9ff9dcb099afac351a06fc6c9403adff7f547128da2a43e3661184709
+  semantic_tags:
+  - type.documentation.architecture
+  - workspace.docs.architecture
+- name: arch-database-component-diagram
+  path: docs/architecture/database_component_diagram.md
+  hash_c: b176f8dd8aa388d1001ca7a3c7485cc41189467da3e0d758ad5507be9945e5b0
+  hash_d: 347d7bed709291842acb3b660ef9dd0bbe5e9b44c7aa8ca07affb1e9d60704c5
+  semantic_tags:
+  - type.documentation.architecture
+  - workspace.docs.architecture
+- name: arch-refactored-components
+  path: docs/architecture/refactored_components.md
+  hash_c: e1d6e794890b48ecf89bdfe3d4af0ad3e21e6dbe1b57b9b1b7df9146394ba093
+  hash_d: 3c129034033e5468ec1d1d7c2770a56b4582e111be5c663365b300afd83e962e
+  semantic_tags:
+  - type.documentation.architecture
+  - workspace.docs.architecture
+- name: arch-smg-ir
+  path: docs/architecture/smg-ir.md
+  hash_c: 52e25d37532238685e91f52a16a5d9c0a1a9791db6d09e08e59486e99e00cd75
+  hash_d: 10395644a91c231555a0b91b9fb6646b47602466b47cbfafa9a4b966d7c7c7b2
+  semantic_tags:
+  - type.documentation.architecture
+  - workspace.docs.architecture

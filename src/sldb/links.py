@@ -4,6 +4,7 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
+from sldb.store.layout import project_root
 from sldb.store.io import load_documents_index, load_models_index, load_store_index
 
 LINK_PATTERN = re.compile(r"(!)?\[\[([^\]]+)\]\]")
@@ -40,14 +41,14 @@ def parse_links(markdown: str) -> list[ParsedLink]:
 
 
 def _tracked_documents(store_path: Path) -> dict[str, str]:
-    project_root = store_path.parent
+    root = project_root(store_path)
     store_index = load_store_index(store_path)
     tracked: dict[str, str] = {}
     for model_entry in store_index.models:
-        models_idx = load_models_index(project_root / model_entry.models_index)
-        docs_idx = load_documents_index(project_root / models_idx.documents_index)
+        models_idx = load_models_index(root / model_entry.models_index)
+        docs_idx = load_documents_index(root / models_idx.documents_index)
         for doc in docs_idx.documents:
-            tracked[doc.name] = str((project_root / doc.path).resolve())
+            tracked[doc.name] = str((root / doc.path).resolve())
     return tracked
 
 
