@@ -162,6 +162,7 @@ def build_store_ast(
                 "name": entry.name,
                 "model_ref": entry.model_ref,
                 "path": entry.path,
+                "version": getattr(models_index, "version", 1),
                 "canonical": getattr(models_index, "canonical", False),
                 "family": getattr(models_index, "family", None),
                 "semantics": list(getattr(models_index, "semantics", [])),
@@ -751,7 +752,9 @@ def build_document_ir(
         )
 
     known = set(name for name, _ in flatten_payload(runtime_doc["payload"]))
-    field_section_map = _map_fields_to_sections(template or markdown, sections, known_fields=known)
+    field_section_map = _map_fields_to_sections(
+        template or markdown, sections, known_fields=known
+    )
     field_nodes = [
         MeaningNode(
             kind="field",

@@ -7,6 +7,7 @@ import sys
 import pytest
 
 from sldb.cli import main as cli_main
+from sldb.store.io import load_models_index, load_store_index
 
 
 def _write_models(base: Path) -> str:
@@ -92,6 +93,11 @@ def _setup_store(tmp_path: Path) -> tuple[Path, str]:
 def _write_template(path: Path, content: str) -> Path:
     path.write_text(content, encoding="utf-8")
     return path
+
+
+def _model_index_path(store: Path, model_name: str) -> Path:
+    entry = next(m for m in load_store_index(store).models if m.name == model_name)
+    return store.parent / entry.models_index
 
 
 def test_help_topics(capsys):
@@ -336,6 +342,179 @@ def test_models_validate_rejects_draft_with_unknown_field_reference(tmp_path):
                 pythonpath,
             ]
         )
+
+
+def test_models_fields_add_and_promote_bumps_model_version(tmp_path, capsys):
+    store, pythonpath = _setup_store(tmp_path)
+    module_path = Path(pythonpath) / "cli_v2_models.py"
+    before = load_models_index(_model_index_path(store, "RoadmapDoc")).version
+
+    assert (
+        cli_main(
+            [
+                "models",
+                "fields",
+                "add",
+                "RoadmapDoc",
+                "summary",
+                "--type",
+                "str",
+                "--description",
+                "Short summary.",
+                "--default",
+                '"Pending review"',
+                "--store",
+                str(store),
+                "--pythonpath",
+                pythonpath,
+            ]
+        )
+        == 0
+    )
+
+    template_path = _write_template(
+        tmp_path / "field-add.template.md",
+        "# ⸢rev•title⸥\n\nSummary: ⸢rev•summary⸥\n\nStatus: ⸢rev•status⸥\n\n## Tasks\n\n- ⸢rev,list•tasks⸥\n\n## Semantic Tags\n\n- ⸢rev,list•semantic_tags⸥\n",
+    )
+    assert (
+        cli_main(
+            [
+                "models",
+                "template",
+                "edit",
+                "RoadmapDoc",
+                "--input",
+                str(template_path),
+                "--store",
+                str(store),
+                "--pythonpath",
+                pythonpath,
+            ]
+        )
+        == 0
+    )
+
+    capsys.readouterr()
+    assert (
+        cli_main(
+            [
+                "models",
+                "validate",
+                "RoadmapDoc",
+                "--promote",
+                "--store",
+                str(store),
+                "--pythonpath",
+                pythonpath,
+            ]
+        )
+        == 0
+    )
+    after = load_models_index(_model_index_path(store, "RoadmapDoc")).version
+    assert after == before + 1
+    active_source = module_path.read_text(encoding="utf-8")
+    assert (
+        "summary: str = Field(default='Pending review', description='Short summary.')"
+        in active_source
+    )
+    capsys.readouterr()
+    assert (
+        cli_main(
+            [
+                "models",
+                "show",
+                "RoadmapDoc",
+                "--store",
+                str(store),
+                "--pythonpath",
+                pythonpath,
+            ]
+        )
+        == 0
+    )
+    assert f"version: {after}" in capsys.readouterr().out
+
+
+def test_models_fields_remove_requires_existing_field_and_bumps_version(
+    tmp_path, capsys
+):
+    store, pythonpath = _setup_store(tmp_path)
+    module_path = Path(pythonpath) / "cli_v2_models.py"
+
+    with pytest.raises(SystemExit, match="Field 'missing' does not exist"):
+        cli_main(
+            [
+                "models",
+                "fields",
+                "remove",
+                "RoadmapDoc",
+                "missing",
+                "--store",
+                str(store),
+                "--pythonpath",
+                pythonpath,
+            ]
+        )
+
+    before = load_models_index(_model_index_path(store, "RoadmapDoc")).version
+    assert (
+        cli_main(
+            [
+                "models",
+                "fields",
+                "remove",
+                "RoadmapDoc",
+                "semantic_tags",
+                "--store",
+                str(store),
+                "--pythonpath",
+                pythonpath,
+            ]
+        )
+        == 0
+    )
+    template_path = _write_template(
+        tmp_path / "field-remove.template.md",
+        "# ⸢rev•title⸥\n\nStatus: ⸢rev•status⸥\n\n## Tasks\n\n- ⸢rev,list•tasks⸥\n",
+    )
+    assert (
+        cli_main(
+            [
+                "models",
+                "template",
+                "edit",
+                "RoadmapDoc",
+                "--input",
+                str(template_path),
+                "--store",
+                str(store),
+                "--pythonpath",
+                pythonpath,
+            ]
+        )
+        == 0
+    )
+
+    capsys.readouterr()
+    assert (
+        cli_main(
+            [
+                "models",
+                "validate",
+                "RoadmapDoc",
+                "--promote",
+                "--store",
+                str(store),
+                "--pythonpath",
+                pythonpath,
+            ]
+        )
+        == 0
+    )
+    after = load_models_index(_model_index_path(store, "RoadmapDoc")).version
+    assert after == before + 1
+    active_source = module_path.read_text(encoding="utf-8")
+    assert "semantic_tags:" not in active_source
 
 
 def test_find_section_where_predicates(tmp_path, capsys):

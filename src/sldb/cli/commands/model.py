@@ -61,13 +61,18 @@ class ModelCLI:
                 path=m_path,
                 documents_index=di_rel,
                 hash_b="",
+                version=1,
                 canonical=args.canonical,
                 semantics=flatten_model_semantics(model_type),
             )
             save_models_index(root / mi_rel, mi)
             idx.models.append(
                 ModelEntry(
-                    name=mi.name, model_ref=args.model, path=m_path, models_index=mi_rel
+                    name=mi.name,
+                    model_ref=args.model,
+                    path=m_path,
+                    models_index=mi_rel,
+                    version=1,
                 )
             )
 
@@ -98,6 +103,9 @@ class ModelCLI:
 
         with store_lock(sp):
             save_documents_index(root / m_idx.documents_index, d_idx)
+            if getattr(args, "bump_version", False):
+                m_idx.version += 1
+                m_entry.version = m_idx.version
             m_idx.hash_b = hash_documents_index(d_idx)
             save_models_index(root / m_entry.models_index, m_idx)
 

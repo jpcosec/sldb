@@ -9,7 +9,6 @@ Route the active desk execution set: tasks, pills, and the ritual documents that
 
 ## Tasks
 
-- desk/tasks/task-011-extend-model-cli-field-editing.md
 - desk/tasks/task-012-support-structured-model-composition.md
 
 ## Pills
@@ -27,6 +26,10 @@ Route the active desk execution set: tasks, pills, and the ritual documents that
 ## Notes
 
 Every closed task must end in its own closing commit. Any missing SLDB capability discovered during execution must become a new active desk task.
+
+## Task Details
+
+- Support structured model composition at render time [active] - Allow SLDB models to compose structured child models at render time so boards, tasks, rituals, and future step models can render richer views from references.
 
 ## Tags
 

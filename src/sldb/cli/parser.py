@@ -159,6 +159,26 @@ def _add_models_group(
     tedit.add_argument("--store", help="Store path")
     tedit.add_argument("--pythonpath", help="Project path")
 
+    fields = s.add_parser("fields", help="Edit registered model fields through drafts.")
+    fs = fields.add_subparsers(dest="fields_command", required=True)
+
+    fadd = fs.add_parser("add", help="Add a field to the model draft.")
+    fadd.add_argument("model", help="Model name")
+    fadd.add_argument("field", help="Field name")
+    fadd.add_argument(
+        "--type", dest="field_type", required=True, help="Python type annotation"
+    )
+    fadd.add_argument("--description", required=True, help="Field description")
+    fadd.add_argument("--default", help="Inline YAML/JSON default value")
+    fadd.add_argument("--store", help="Store path")
+    fadd.add_argument("--pythonpath", help="Project path")
+
+    frm = fs.add_parser("remove", help="Remove a field from the model draft.")
+    frm.add_argument("model", help="Model name")
+    frm.add_argument("field", help="Field name")
+    frm.add_argument("--store", help="Store path")
+    frm.add_argument("--pythonpath", help="Project path")
+
     create = s.add_parser("create", help="Generate a StructuredNLDoc model.")
     create.add_argument("name", help="Class name")
     create.add_argument("--template", required=True, help="Template markdown path")
