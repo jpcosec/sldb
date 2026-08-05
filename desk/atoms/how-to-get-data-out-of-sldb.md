@@ -5,8 +5,8 @@ title: How to get data out of SLDB
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:surfaces.cli.inputs-outputs
-provenance: /home/jp/proyectos/hum-ecosystem/tools/sldb/docs/faq.md
+- domain:surfaces-cli-inputs-outputs
+provenance: source docs/sldb-v1/faq.md
 ---
 
 # How to get data out of SLDB

@@ -5,8 +5,8 @@ title: Projection
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:runtime.projections
-provenance: reasoning.md
+- domain:runtime-projections
+provenance: source docs/core/reasoning.md
 ---
 
 # Projection

@@ -5,8 +5,8 @@ title: Node
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:model.ast-core
-provenance: core_README.md
+- domain:model-ast-core
+provenance: source docs/core/core_README.md
 ---
 
 # Node

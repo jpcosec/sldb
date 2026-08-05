@@ -1,0 +1,29 @@
+flowchart TD
+  subgraph Local["Máquina local"]
+    CLI["CLI"]
+    UI["Desktop UI"]
+    Agent["Agent Process"]
+    subgraph KP["Kernel Process"]
+      KAPI["Kernel API"]
+      KLisp["Lisp Runtime"]
+      KTx["Transaction Engine"]
+      KQuery["Query Engine"]
+      KHooks["Hook Engine"]
+    end
+    DB[("redb / RocksDB")]
+    Content[/"Content Store"/]
+    Files[/"Indexed Files"/]
+    Sandbox[["WASM Sandbox"]]
+  end
+
+  Git{{"Git Remote"}}
+  Models{{"LLM / Embedding API"}}
+  APIs{{"External APIs"}}
+
+  CLI -- "IPC / embedded" --> KAPI
+  UI -- "IPC / HTTP" --> KAPI
+  Agent -- "IPC / gRPC" --> KAPI
+  KAPI --> DB & Content & Files
+  KHooks --> Sandbox
+  Sandbox --> Git & APIs
+  KQuery --> Models

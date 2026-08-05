@@ -5,8 +5,8 @@ title: Git orchestration in Python
 five_wh_one_plus: why
 tags:
 - system:sldb
-- domain:implementation.python-cli
-provenance: docs/architecture/target-system-overview.md
+- domain:implementation-python-cli
+provenance: source docs/architecture/target-system-overview.md
 ---
 
 # Git orchestration in Python

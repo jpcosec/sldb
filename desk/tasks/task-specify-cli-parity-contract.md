@@ -6,7 +6,9 @@ tags:
 - workspace:desk
 - artifact:task
 - system:sldb
-history: ["2026-07-29: closed with high-fidelity contract artifact."]
+history:
+- "2026-07-29: closed with high-fidelity contract artifact."
+- "2026-08-01: replaced stale `sldb_cli` artifact reference with the `cli_client` artifact defined in target-runtime.yml."
 references:
 - desk/atoms/cli-workflow-surface.md
 - desk/atoms/docs-command-group.md
@@ -61,7 +63,7 @@ Define the exact command-group surface and mandatory flags. Ensure that the Pyth
 
 - Does the contract match the `CommandGroups` list in `target-components.yml`?
 - Does it require mandatory JSON output support?
-- Does it align with the `sldb_cli` artifact in `target-runtime.yml`?
+- Does it align with the `cli_client` artifact in `target-runtime.yml`?
 
 ## Done When
 

@@ -5,8 +5,8 @@ title: Threat model
 five_wh_one_plus: why
 tags:
 - system:sldb
-- domain:security.capabilities
-provenance: also_core.md
+- domain:security-capabilities
+provenance: source docs/core/also_core.md
 ---
 
 # Threat model

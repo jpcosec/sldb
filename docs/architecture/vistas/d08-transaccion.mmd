@@ -1,0 +1,35 @@
+sequenceDiagram
+  actor Client
+  participant Lisp as Lisp Runtime
+  participant API as Kernel API
+  participant Tx as Transaction Engine
+  participant Types as Type Registry
+  participant Graph as Graph Repository
+  participant Merkle as Merkle Engine
+  participant Log as Transaction Log
+  participant Revisions as Revision Store
+  participant Events as Event Bus
+
+  Client->>Lisp: expresión Lisp
+  Lisp->>Lisp: leer y expandir macros
+  Lisp->>Lisp: compilar a TransactionPlan
+  Lisp->>API: submit(plan)
+  API->>Tx: execute(plan)
+  Tx->>Types: validar tipos e invariantes
+  Types-->>Tx: resultado
+  Tx->>Graph: cargar base_revision
+  Graph-->>Tx: snapshot
+  Tx->>Tx: aplicar operaciones en staging
+  Tx->>Merkle: invalidar nodos afectados
+  Merkle-->>Tx: dirty roots
+  Tx->>Log: append(transaction)
+  Log-->>Tx: transaction_id
+  Tx->>Merkle: calcular root hash si es requerido
+  Merkle-->>Tx: root_hash
+  Tx->>Revisions: put(new revision)
+  Tx->>Graph: compare-and-swap head
+  Graph-->>Tx: committed
+  Tx->>Events: publish(TransactionCommitted)
+  Tx-->>API: RevisionId
+  API-->>Lisp: resultado
+  Lisp-->>Client: nueva revisión

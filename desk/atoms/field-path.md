@@ -5,8 +5,8 @@ title: Field Path
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:model.fields-schemas
-provenance: desk/drawer/features/feature-sldb-explicit-target-architecture.md
+- domain:model-fields-schemas
+provenance: source docs/drawer-features/feature-sldb-explicit-target-architecture.md
 ---
 
 # Field Path

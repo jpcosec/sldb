@@ -14,8 +14,6 @@ references:
 - desk/atoms/decision-graph-store-over-yaml-indexes.md
 - desk/atoms/decision-links-and-anchors-are-canonical.md
 - docs/architecture/target-system-overview.md
-- docs/architecture/phase-1-resolution-pack.md
-- docs/architecture/phase-1-macro-implementation-plan.md
 pills:
 - desk/contexts/pill-planning-contracts.md
 files:

@@ -5,9 +5,9 @@ title: Content-addressed store
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:store.persistence
-- domain:store.hashing
-provenance: diagramas_core.md
+- domain:store-persistence
+- domain:store-hashing
+provenance: source docs/core/diagramas_core.md
 ---
 
 # Content-addressed store

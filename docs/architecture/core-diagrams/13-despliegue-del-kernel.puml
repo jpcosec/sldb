@@ -1,3 +1,6 @@
+' --- trazabilidad (diagram-traceability-contract) ---
+' vista: d15
+' governed-by: sldb.target.runtime
 @startuml
 title Despliegue del kernel
 

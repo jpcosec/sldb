@@ -5,8 +5,8 @@ title: Identity stability rules
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:model.identity
-provenance: also_core.md
+- domain:model-identity
+provenance: source docs/core/also_core.md
 ---
 
 # Identity stability rules

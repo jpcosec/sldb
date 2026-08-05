@@ -5,8 +5,8 @@ title: Decision blake3 hashing
 five_wh_one_plus: why
 tags:
 - system:sldb
-- domain:architecture.decisions
-provenance: desk/drawer/features/feature-rust-library-stack.md
+- domain:architecture-decisions
+provenance: source docs/drawer-features/feature-rust-library-stack.md
 ---
 
 # Decision blake3 hashing

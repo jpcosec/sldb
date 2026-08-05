@@ -5,8 +5,8 @@ title: Graph store
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:store.graph
-provenance: reasoning.md
+- domain:store-graph
+provenance: source docs/core/reasoning.md
 ---
 
 # Graph store

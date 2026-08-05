@@ -5,8 +5,8 @@ title: Hook runtime
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:runtime.hooks
-provenance: reasoning.md
+- domain:runtime-hooks
+provenance: source docs/core/reasoning.md
 ---
 
 # Hook runtime

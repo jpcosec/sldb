@@ -1,0 +1,99 @@
+classDiagram
+  class Document {
+    +DocumentId id
+    +DocumentType type
+    +SourceRef source
+    +RevisionId current_revision
+  }
+  class Revision {
+    +RevisionId id
+    +List~RevisionId~ parents
+    +TransactionId transaction
+    +ContentHash root_hash
+    +Timestamp created_at
+  }
+  class Node {
+    +NodeId id
+    +TypeId type
+    +PayloadRef payload
+    +Map metadata
+  }
+  class Edge {
+    +EdgeId id
+    +NodeId source
+    +NodeId target
+    +EdgeType type
+    +EdgeSemantics semantics
+    +Map metadata
+  }
+  class EdgeSemantics {
+    &lt;&lt;enumeration&gt;&gt;
+    Ownership
+    Reference
+    Semantic
+    Derived
+  }
+  class Transaction {
+    +TransactionId id
+    +RevisionId base_revision
+    +ActorId actor
+    +List~Operation~ operations
+    +CapabilitySet capabilities
+  }
+  class Operation {
+    &lt;&lt;abstract&gt;&gt;
+    +OperationId id
+  }
+  class PutNode
+  class RemoveNode
+  class PutEdge
+  class RemoveEdge
+  class SetDocumentRoot
+  class AttachArtifact
+  class EmitDomainEvent
+  class Artifact {
+    +ArtifactId id
+    +ArtifactType type
+    +ContentHash source_hash
+    +EngineVersion engine_version
+    +PayloadRef payload
+  }
+  class HookDefinition {
+    +HookId id
+    +Trigger trigger
+    +Predicate condition
+    +ActionPlan action
+    +CapabilitySet required_capabilities
+  }
+  class ProjectionSpec {
+    +ProjectionId id
+    +RevisionId revision
+    +ProjectionType type
+    +Map parameters
+  }
+  class ProjectionResult {
+    +ProjectionId id
+    +ContentHash source_hash
+    +ContentHash result_hash
+    +PayloadRef payload
+  }
+
+  Operation <|-- PutNode
+  Operation <|-- RemoveNode
+  Operation <|-- PutEdge
+  Operation <|-- RemoveEdge
+  Operation <|-- SetDocumentRoot
+  Operation <|-- AttachArtifact
+  Operation <|-- EmitDomainEvent
+  Document --> Revision : current
+  Revision --> Revision : parent
+  Revision --> Transaction : produced by
+  Transaction "1" o-- "*" Operation
+  Document "1" --> "*" Node
+  Document "1" --> "*" Edge
+  Edge --> EdgeSemantics
+  Node --> Artifact
+  HookDefinition --> Transaction : can request
+  ProjectionSpec --> ProjectionResult
+
+  note for Edge "Solo las aristas Ownership forman la estructura Merkle. Reference y Semantic no deben introducir ciclos en el hash recursivo."

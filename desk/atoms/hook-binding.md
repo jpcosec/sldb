@@ -5,8 +5,8 @@ title: Hook Binding
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:runtime.hooks
-provenance: desk/drawer/features/feature-canonical-ast-design-current-state.md
+- domain:runtime-hooks
+provenance: source docs/drawer-features/feature-canonical-ast-design-current-state.md
 ---
 
 # Hook Binding

@@ -5,8 +5,8 @@ title: Reference edge
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:model.relations
-provenance: reasoning.md
+- domain:model-relations
+provenance: source docs/core/reasoning.md
 ---
 
 # Reference edge

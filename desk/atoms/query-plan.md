@@ -5,8 +5,8 @@ title: Query plan
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:architecture.boundaries
-provenance: core_README.md
+- domain:architecture-boundaries
+provenance: source docs/core/core_README.md
 ---
 
 # Query plan

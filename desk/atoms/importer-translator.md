@@ -5,8 +5,8 @@ title: Importer / translator
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:pipeline.importers
-provenance: desk/drawer/features/feature-sldb-explicit-target-architecture.md
+- domain:pipeline-importers
+provenance: source docs/drawer-features/feature-sldb-explicit-target-architecture.md
 ---
 
 # Importer / translator

@@ -1,0 +1,38 @@
+[
+  {
+    "vista": "d01",
+    "label": "Evaluar reglas lógicashechos derivados",
+    "comentario": "La evaluación en si no es materia del kernel, si tenemos que decidir que interfaz hay entre ambos.",
+    "ts": "2026-08-05T00:14:32-0400"
+  },
+  {
+    "vista": "d01",
+    "label": "Evaluar reglas lógicashechos derivados",
+    "comentario": "Dejemos un servicio de lógica externo, evitemos cargarle responsabilidades extra",
+    "ts": "2026-08-05T00:15:27-0400"
+  },
+  {
+    "vista": "d03",
+    "label": "KD",
+    "comentario": "Hoy en dia tenemos un modelo de documentos en pydantic. Eso deberiamos migrarlo a lisp.",
+    "ts": "2026-08-05T00:18:08-0400"
+  },
+  {
+    "vista": "d05",
+    "label": "StructuredNLDoc",
+    "comentario": "El tipo de documento no siempre va a ser markdown, es importante que nos quitemos eso de la cabeza. SLDB V1 va a poder correr aca, pero en nucleo va a ser mucho mas general.",
+    "ts": "2026-08-05T00:19:57-0400"
+  },
+  {
+    "vista": "d06",
+    "label": "Authoring",
+    "comentario": "Dejemos muy claro que markdown es uno de los formatos que deberiamos poder usar, la idea es ampliarlo eventualmente.",
+    "ts": "2026-08-05T00:20:54-0400"
+  },
+  {
+    "vista": "d16",
+    "label": "Lisp / DSL",
+    "comentario": "Creo que no está quedando tan claro el rol de lisp aca.  Puede ser que nos falta dibujar  \"anillos\" de esto.",
+    "ts": "2026-08-05T00:25:01-0400"
+  }
+]

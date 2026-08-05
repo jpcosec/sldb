@@ -5,8 +5,8 @@ title: Markdown text surface
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:model.text-structure
-provenance: core_README.md
+- domain:model-text-structure
+provenance: source docs/core/core_README.md
 ---
 
 # Markdown text surface

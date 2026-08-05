@@ -5,8 +5,8 @@ title: Node reconciliation
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:pipeline.importers
-provenance: also_core.md
+- domain:pipeline-importers
+provenance: source docs/core/also_core.md
 ---
 
 # Node reconciliation

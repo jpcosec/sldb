@@ -5,8 +5,8 @@ title: Degraded mode
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:quality.reliability
-provenance: also_core.md
+- domain:quality-reliability
+provenance: source docs/core/also_core.md
 ---
 
 # Degraded mode

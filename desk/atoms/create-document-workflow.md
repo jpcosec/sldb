@@ -5,8 +5,8 @@ title: Create document workflow
 five_wh_one_plus: when
 tags:
 - system:sldb
-- domain:surfaces.cli.workflows
-provenance: /home/jp/proyectos/hum-ecosystem/tools/sldb/docs/faq.md
+- domain:surfaces-cli-workflows
+provenance: source docs/sldb-v1/faq.md
 ---
 
 # Create document workflow

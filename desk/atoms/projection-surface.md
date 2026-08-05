@@ -5,8 +5,8 @@ title: Projection surface
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:runtime.projections
-provenance: core_README.md
+- domain:runtime-projections
+provenance: source docs/core/core_README.md
 ---
 
 # Projection surface

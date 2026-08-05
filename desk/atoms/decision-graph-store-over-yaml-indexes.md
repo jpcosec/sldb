@@ -5,8 +5,8 @@ title: "Decision: graph store over YAML indexes"
 five_wh_one_plus: why
 tags:
 - system:sldb
-- domain:architecture.decisions
-provenance: docs/architecture/target-system-overview.md
+- domain:architecture-decisions
+provenance: source docs/architecture/target-system-overview.md
 ---
 
 # Decision: graph store over YAML indexes

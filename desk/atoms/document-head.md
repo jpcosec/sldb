@@ -5,9 +5,9 @@ title: Document head
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:store.graph
-- domain:runtime.revisions
-provenance: diagramas_core.md
+- domain:store-graph
+- domain:runtime-revisions
+provenance: source docs/core/diagramas_core.md
 ---
 
 # Document head

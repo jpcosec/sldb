@@ -1,0 +1,35 @@
+flowchart TD
+  subgraph Surfaces["Superficies (adaptadores, no autoridad)"]
+    CLI["CLI plural-first<br/>docs · ast · fields · sections · stores · models · find"]
+    LispS["Lisp DSL<br/>QueryPlan / TransactionPlan"]
+    Agents["Agentes / MCP<br/>Agent Harness"]
+    Desktop["Desktop / Visual UX<br/>proyecciones inspectables"]
+  end
+
+  subgraph Kernel["Kernel Rust (autoridad canónica)"]
+    API["Kernel API + Capability Gate"]
+    Tx["Transaction Engine<br/>único productor de revisiones"]
+    Qry["Query Engine<br/>índices derivados"]
+    Proj["Projection Engine<br/>AST · semántica · render · embeddings"]
+    Hooks["Hook Engine + Effect Outbox"]
+    Models["Document Models<br/>StructuredNLDoc · familias reversibles"]
+  end
+
+  subgraph Store["Grafo revisionado inmutable (.sldb)"]
+    Log[("Transaction Log<br/>append-only")]
+    Rev[("Revision Store<br/>root_hash Merkle")]
+    CAS[("Content Addressed Store<br/>Blake3")]
+    Idx[("Índices / caches<br/>reconstruibles")]
+  end
+
+  External{{"Git · Filesystem · APIs externas"}}
+  LLM{{"LLM / Embeddings"}}
+
+  CLI & LispS & Agents & Desktop --> API
+  API --> Tx & Qry & Proj & Hooks & Models
+  Models -- "gobierna parse/validate/render" --> Tx
+  Tx --> Log & Rev & CAS
+  Qry & Proj --> Idx
+  Idx -. "reconstruible desde" .-> Log
+  Hooks --> External
+  Proj --> LLM

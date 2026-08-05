@@ -1,3 +1,6 @@
+' --- trazabilidad (diagram-traceability-contract) ---
+' vista: d11
+' governed-by: sldb.target.components
 @startuml
 title Construcción de una proyección
 

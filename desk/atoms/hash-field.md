@@ -5,8 +5,8 @@ title: Hash field
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:store.hashing
-provenance: docs/architecture/target-system-overview.md
+- domain:store-hashing
+provenance: source docs/architecture/target-system-overview.md
 ---
 
 # Hash field

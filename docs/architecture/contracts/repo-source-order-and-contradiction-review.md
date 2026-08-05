@@ -13,8 +13,6 @@ Governing atoms:
 
 Target architecture docs:
 - `docs/architecture/target-system-overview.md`
-- `docs/architecture/phase-1-resolution-pack.md`
-- `docs/architecture/phase-1-macro-implementation-plan.md`
 - `docs/architecture/spec2viz/target-components.yml`
 - `docs/architecture/spec2viz/target-runtime.yml`
 

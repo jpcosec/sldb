@@ -5,8 +5,8 @@ title: Provenance Record
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:runtime.provenance
-provenance: desk/drawer/features/feature-canonical-ast-design-current-state.md
+- domain:runtime-provenance
+provenance: source docs/drawer-features/feature-canonical-ast-design-current-state.md
 ---
 
 # Provenance Record

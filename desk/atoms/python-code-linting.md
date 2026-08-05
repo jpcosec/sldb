@@ -5,8 +5,8 @@ title: Python code linting
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:quality.clean-code.python
-provenance: desk/drawer/features/feature-sldb-product-principles-and-cli-continuity.md
+- domain:quality-clean-code-python
+provenance: source docs/drawer-features/feature-sldb-product-principles-and-cli-continuity.md
 ---
 
 # Python code linting

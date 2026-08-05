@@ -1,0 +1,15 @@
+flowchart TD
+  Start([Recibir ProjectionSpec]) --> Resolve[Resolver revisión]
+  Resolve --> CacheQ{¿Existe cache válida?}
+  CacheQ -- sí --> Cached[Retornar proyección cacheada]
+  Cached --> End1([fin])
+  CacheQ -- no --> Sub[Obtener subgrafo canónico]
+  Sub --> TypeQ{Tipo de proyección}
+  TypeQ -- "AST estructural" --> S1[Proyectar ownership edges] --> S1b[Preservar orden y nodos sintácticos] --> Hash
+  TypeQ -- "AST semántico" --> S2[Aplicar reglas semánticas] --> S2b[Resolver referencias] --> S2c[Construir conceptos y relaciones] --> Hash
+  TypeQ -- "Render" --> S3[Obtener AST estructural] --> S3b[Aplicar renderer determinista del modelo] --> Hash
+  TypeQ -- "Embeddings" --> S4[Seleccionar unidades semánticas] --> S4b[Calcular o recuperar embeddings] --> Hash
+  TypeQ -- "Lógica" --> S5[Materializar hechos y relaciones] --> S5b[Evaluar reglas booleanas] --> Hash
+  Hash[Calcular source_hash] --> Save[Guardar resultado derivado]
+  Save --> Ret[Retornar ProjectionResult]
+  Ret --> End2([fin])

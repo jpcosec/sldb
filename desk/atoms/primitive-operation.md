@@ -5,8 +5,8 @@ title: Primitive operation
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:runtime.transactions
-provenance: core_README.md
+- domain:runtime-transactions
+provenance: source docs/core/core_README.md
 ---
 
 # Primitive operation

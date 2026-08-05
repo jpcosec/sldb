@@ -5,8 +5,8 @@ title: Python testing
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:quality.testing.python
-provenance: desk/rituals/testing.md
+- domain:quality-testing-python
+provenance: source docs/architecture/ritual-testing.md
 ---
 
 # Python testing

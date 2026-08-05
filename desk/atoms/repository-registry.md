@@ -5,8 +5,8 @@ title: Repository registry
 five_wh_one_plus: where
 tags:
 - system:sldb
-- domain:store.graph
-provenance: /home/jp/proyectos/hum-ecosystem/tools/sldb/docs/workspaces.md
+- domain:store-graph
+provenance: source docs/sldb-v1/workspaces.md
 ---
 
 # Repository registry

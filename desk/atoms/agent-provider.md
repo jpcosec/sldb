@@ -5,9 +5,9 @@ title: Agent provider
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:architecture.integration
-- domain:runtime.effects
-provenance: interfaces.md
+- domain:architecture-integration
+- domain:runtime-effects
+provenance: source docs/core/interfaces.md
 ---
 
 # Agent provider

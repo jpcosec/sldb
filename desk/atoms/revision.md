@@ -5,9 +5,9 @@ title: Revision
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:model.documents
-- domain:runtime.revisions
-provenance: core_README.md
+- domain:model-documents
+- domain:runtime-revisions
+provenance: source docs/core/core_README.md
 ---
 
 # Revision

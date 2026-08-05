@@ -1,3 +1,6 @@
+' --- trazabilidad (diagram-traceability-contract) ---
+' vista: d08
+' governed-by: sldb.target.components, sldb.target.runtime
 @startuml
 title Secuencia de una transacción
 

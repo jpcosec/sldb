@@ -5,8 +5,8 @@ title: Node hash
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:store.hashing
-provenance: diagramas_core.md
+- domain:store-hashing
+provenance: source docs/core/diagramas_core.md
 ---
 
 # Node hash

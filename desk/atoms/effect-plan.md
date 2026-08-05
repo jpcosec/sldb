@@ -5,9 +5,9 @@ title: Effect plan
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:architecture.boundaries
-- domain:runtime.hooks
-provenance: core_README.md
+- domain:architecture-boundaries
+- domain:runtime-hooks
+provenance: source docs/core/core_README.md
 ---
 
 # Effect plan

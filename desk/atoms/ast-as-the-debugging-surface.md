@@ -5,8 +5,8 @@ title: AST as the debugging surface
 five_wh_one_plus: where
 tags:
 - system:sldb
-- domain:runtime.query
-provenance: /home/jp/proyectos/hum-ecosystem/tools/sldb/docs/faq.md
+- domain:runtime-query
+provenance: source docs/sldb-v1/faq.md
 ---
 
 # AST as the debugging surface

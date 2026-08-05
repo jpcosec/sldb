@@ -5,8 +5,8 @@ title: find command group
 five_wh_one_plus: where
 tags:
 - system:sldb
-- domain:surfaces.cli.command-groups
-provenance: /home/jp/proyectos/hum-ecosystem/tools/sldb/README.md
+- domain:surfaces-cli-command-groups
+provenance: source docs/sldb-v1/README.md
 ---
 
 # `find` command group

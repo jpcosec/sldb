@@ -5,8 +5,8 @@ title: Semantic exporter
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:runtime.projections
-provenance: /home/jp/proyectos/hum-ecosystem/tools/sldb/README.md
+- domain:runtime-projections
+provenance: source docs/sldb-v1/README.md
 ---
 
 # Semantic exporter

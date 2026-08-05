@@ -1,13 +1,19 @@
 id: sldb.target.store_graph
 title: Knowledge Kernel Store Graph
 type: component
-version: "0.2"
+version: "0.3"
+views:
+  - d04
+  - d07
+  - d09
 
 data:
   nodes:
     KernelRepository:
       label: Kernel Repository
       kind: database
+      atoms:
+        - graph-store
       contains:
         - Documents
         - Revisions
@@ -26,24 +32,34 @@ data:
     Documents:
       label: documents
       kind: core
+      atoms:
+        - document
 
     Revisions:
       label: immutable revisions
       kind: core
+      atoms:
+        - revision
 
     Transactions:
       label: committed transactions
       kind: core
+      atoms:
+        - transaction
       contains:
         - PrimitiveOperations
 
     PrimitiveOperations:
       label: primitive operations
       kind: core
+      atoms:
+        - primitive-operation
 
     Nodes:
       label: canonical nodes
       kind: core
+      atoms:
+        - node
 
     Edges:
       label: canonical edges
@@ -57,50 +73,74 @@ data:
     OwnershipEdges:
       label: ownership edges
       kind: core
+      atoms:
+        - ownership-edge
 
     ReferenceEdges:
       label: reference edges
       kind: core
+      atoms:
+        - reference-edge
 
     SemanticEdges:
       label: semantic edges
       kind: core
+      atoms:
+        - semantic-edge
 
     DerivedEdges:
       label: derived edges
       kind: core
+      atoms:
+        - derived-edge
 
     Artifacts:
       label: artifacts / derived payloads
       kind: core
+      atoms:
+        - artifact
 
     TransactionLog:
       label: append-only transaction log
       kind: database
+      atoms:
+        - transaction-log
 
     ContentStore:
       label: content-addressed store
       kind: database
+      atoms:
+        - content-addressed-store
 
     HeadStore:
       label: document heads
       kind: database
+      atoms:
+        - document-head
 
     CompatibilityMetadata:
       label: compatibility metadata
       kind: database
+      atoms:
+        - compatibility-surface
 
     BackupExports:
       label: backup / export artifacts
       kind: database
+      atoms:
+        - backup-export
 
     RetentionRoots:
       label: retention roots / pins
       kind: database
+      atoms:
+        - retention-policy
 
     RebuildableState:
       label: rebuildable indexes / caches
       kind: database
+      atoms:
+        - derived-index
       contains:
         - HashCache
         - SearchIndex
@@ -121,6 +161,8 @@ data:
     HashCache:
       label: hash cache
       kind: database
+      atoms:
+        - cache
 
     SearchIndex:
       label: lexical search index
@@ -137,6 +179,8 @@ data:
     PetgraphView:
       label: petgraph materialization
       kind: database
+      atoms:
+        - graph-projection
 
   edges:
     - from: KernelRepository

@@ -1,0 +1,71 @@
+classDiagram
+  class StorageBackend {
+    &lt;&lt;interface&gt;&gt;
+    +append_transaction(tx)
+    +read_transaction(id)
+    +put_content(hash, bytes)
+    +get_content(hash)
+    +put_revision(revision)
+    +get_revision(id)
+    +compare_and_swap_head(document, expected, next)
+  }
+  class KernelRepository {
+    +commit(transaction)
+    +checkout(revision)
+    +get_document(id)
+    +get_subgraph(root)
+  }
+  class TransactionLog {
+    &lt;&lt;Source of truth&gt;&gt;
+    +append(transaction)
+    +iterate(from)
+  }
+  class RevisionStore {
+    &lt;&lt;Source of truth&gt;&gt;
+    +put(revision)
+    +get(id)
+  }
+  class ContentAddressedStore {
+    &lt;&lt;Source of truth&gt;&gt;
+    +put(hash, content)
+    +get(hash)
+  }
+  class HeadStore {
+    +get(document)
+    +compare_and_swap(document, old, new)
+  }
+  class MaterializedIndex {
+    &lt;&lt;Rebuildable&gt;&gt;
+    +index_node(node)
+    +find_by_type(type)
+    +find_incoming_edges(node)
+  }
+  class HashCache {
+    &lt;&lt;Rebuildable&gt;&gt;
+    +get(node, revision)
+    +put(node, revision, hash)
+    +invalidate(node)
+  }
+  class ProjectionCache {
+    &lt;&lt;Rebuildable&gt;&gt;
+    +get(spec, source_hash)
+    +put(spec, result)
+  }
+  class RedbBackend
+  class MemoryBackend
+  class RocksDbBackend
+
+  StorageBackend <|.. RedbBackend
+  StorageBackend <|.. MemoryBackend
+  StorageBackend <|.. RocksDbBackend
+  KernelRepository --> StorageBackend
+  StorageBackend --> TransactionLog
+  StorageBackend --> RevisionStore
+  StorageBackend --> ContentAddressedStore
+  StorageBackend --> HeadStore
+  StorageBackend --> MaterializedIndex
+  StorageBackend --> HashCache
+  StorageBackend --> ProjectionCache
+
+  note for TransactionLog "Append-only. Nunca se modifica una transacción pasada."
+  note for MaterializedIndex "Puede eliminarse y reconstruirse desde el log y las revisiones."

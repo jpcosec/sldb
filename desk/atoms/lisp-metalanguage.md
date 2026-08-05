@@ -5,9 +5,9 @@ title: Lisp metalanguage
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:architecture.boundaries
-- domain:architecture.integration
-provenance: reasoning.md
+- domain:architecture-boundaries
+- domain:architecture-integration
+provenance: source docs/core/reasoning.md
 ---
 
 # Lisp metalanguage

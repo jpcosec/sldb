@@ -5,8 +5,8 @@ title: help command group
 five_wh_one_plus: where
 tags:
 - system:sldb
-- domain:surfaces.cli.onboarding
-provenance: /home/jp/proyectos/hum-ecosystem/tools/sldb/README.md
+- domain:surfaces-cli-onboarding
+provenance: source docs/sldb-v1/README.md
 ---
 
 # `help` command group

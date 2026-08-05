@@ -1,3 +1,6 @@
+' --- trazabilidad (diagram-traceability-contract) ---
+' vista: d02
+' governed-by: sldb.target.components
 @startuml
 title Arquitectura de componentes
 

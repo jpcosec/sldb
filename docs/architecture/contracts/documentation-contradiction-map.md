@@ -199,52 +199,50 @@ Resolution wording:
 
 ### Phase 1 parity contract is narrower than the macro plan and resolution pack
 
-Status: **phase/scope difference**
+Status: **Resolved by removal (2026-07-31)**
 
 Evidence:
 
-- `docs/architecture/phase-1-resolution-pack.md`
-- `docs/architecture/phase-1-macro-implementation-plan.md`
 - `docs/architecture/contracts/phase-1-parity-contract.md`
+- `desk/atoms/decision-v1-parity-before-scope-expansion.md`
 
 Problem:
 
-- the resolution pack and macro plan describe a broader closure surface including store lifecycle/integrity and store-backed inspection/query surfaces
-- the parity contract names a narrower closure floor centered on the initial parity slice
+- older deleted planning packs described a broader closure surface including store lifecycle/integrity and store-backed inspection/query surfaces
+- the live parity contract names the narrower closure floor centered on the initial parity slice
 
 Adjudication:
 
-- this is better read as a phase/scope distinction than as a hard contradiction
-- it still needs clearer wording so readers do not confuse the first closure slice with the broader Phase 1 envelope
+- the deleted planning packs no longer participate in live KB authority
+- parity wording is now governed by the frozen contracts and `desk/atoms/decision-v1-parity-before-scope-expansion.md`
 
 Resolution wording:
 
-> Distinguish the initial parity slice from the broader Phase 1 workflow envelope explicitly, so command-surface expectations are phase-scoped rather than contradictory.
+> Resolved by removal (2026-07-31): the packs were deleted from the live KB and survive only in Git history; parity wording is governed by the frozen contracts and `desk/atoms/decision-v1-parity-before-scope-expansion.md`.
 
 ### Phase 1 acceptance bar mixes exact rendered equality with source-byte equivalence
 
-Status: **phase/scope difference**
+Status: **Resolved by removal (2026-07-31)**
 
 Evidence:
 
 - `README.md`
-- `docs/architecture/phase-1-resolution-pack.md`
-- `docs/architecture/phase-1-macro-implementation-plan.md`
 - `docs/architecture/contracts/phase-1-parity-contract.md`
+- `desk/atoms/decision-v1-parity-before-scope-expansion.md`
 
 Problem:
 
-- most docs summarize the bar as exact rendered Markdown equality for reversible families
-- the parity contract sharpens that to byte-level behavior for the initial Markdown-only family
+- older deleted planning packs had mixed broader exact-render wording with a sharper byte-level acceptance bar for the initial Markdown-only family
+- the live parity contract remains the authoritative acceptance bar for the initial reversible family
 
 Adjudication:
 
-- this is acceptable once the Markdown-only starting scope is made explicit
-- the stricter byte-level bar should be described as the initial Markdown-family acceptance rule, not as a generic all-format rule
+- the deleted planning packs no longer participate in live KB authority
+- parity wording is now governed by the frozen contracts and `desk/atoms/decision-v1-parity-before-scope-expansion.md`
 
 Resolution wording:
 
-> For the initial Markdown-only reversible family, the acceptance bar is byte-level round-trip behavior. Broader exact-render wording should remain clearly tied to that same family until other families exist.
+> Resolved by removal (2026-07-31): the packs were deleted from the live KB and survive only in Git history; parity wording is governed by the frozen contracts and `desk/atoms/decision-v1-parity-before-scope-expansion.md`.
 
 ## Terminology issue resolved by glossary freeze
 

@@ -5,8 +5,8 @@ title: Reference behavior
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:quality.testing
-provenance: also_core.md
+- domain:quality-testing
+provenance: source docs/core/also_core.md
 ---
 
 # Reference behavior

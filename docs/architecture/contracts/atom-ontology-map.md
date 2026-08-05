@@ -118,14 +118,14 @@ These atoms receive the most incoming links and act as ontology spines.
 
 The domain leaf is the main partition of the atom space.
 
-### `domain:architecture.boundaries` (10)
+### `domain:architecture-boundaries` (10)
 
 - `core`: `text-layer-vs-graph-layer`
 
 - `shared`: `capability-model`, `effect-plan`, `kernel-api`, `lisp-metalanguage`, `ports-and-adapters`, `projection-plan`, `query-plan`, `semantic-export-boundary`, `transaction-plan`
 
 
-### `domain:architecture.decisions` (12)
+### `domain:architecture-decisions` (12)
 
 - `core`: `decision-blake3-hashing`, `decision-canonical-ast-over-markdown`, `decision-pyo3-ffi`, `decision-rayon-parallelism`, `decision-relation-ast-extensibility`, `decision-rowan-ast`, `decision-rust-core-with-minimal-python`
 
@@ -134,31 +134,31 @@ The domain leaf is the main partition of the atom space.
 - `store`: `decision-graph-store-over-yaml-indexes`, `decision-rusqlite-store`, `decision-search-index-library`
 
 
-### `domain:architecture.integration` (3)
+### `domain:architecture-integration` (3)
 
 - `shared`: `document-source`
 
 - `shell`: `agent-provider`, `semantic-provider`
 
 
-### `domain:architecture.migration-strategy` (4)
+### `domain:architecture-migration-strategy` (4)
 
 - `shared`: `compatibility-surface`, `migration-unit`
 
 - `shell`: `decision-v1-parity-before-scope-expansion`, `phase-1-v1-replication`
 
 
-### `domain:implementation.python-cli` (2)
+### `domain:implementation-python-cli` (2)
 
 - `shell`: `git-orchestration-in-python`, `python-cli-orchestration-layer`
 
 
-### `domain:implementation.rust-core` (2)
+### `domain:implementation-rust-core` (2)
 
 - `core`: `relation-ast-extensibility`, `rust-core`
 
 
-### `domain:model.addressability` (7)
+### `domain:model-addressability` (7)
 
 - `core`: `local-anchor`
 
@@ -167,7 +167,7 @@ The domain leaf is the main partition of the atom space.
 - `shell`: `alias`
 
 
-### `domain:model.anchors` (14)
+### `domain:model-anchors` (14)
 
 - `core`: `anchor-sample`, `ast-anchor`, `ast-locator`, `dom-locator`, `page-locator`, `source-locator`, `syntax-locator`, `text-locator`
 
@@ -176,36 +176,36 @@ The domain leaf is the main partition of the atom space.
 - `shell`: `anchor-comment`, `external-anchor`, `text-anchor`
 
 
-### `domain:model.artifacts` (1)
+### `domain:model-artifacts` (1)
 
 - `shared`: `artifact`
 
 
-### `domain:model.ast-core` (5)
+### `domain:model-ast-core` (5)
 
 - `core`: `canonical-ast`, `tree-spine`
 
 - `shared`: `canonical-existence`, `canonical-identity`, `node`
 
 
-### `domain:model.documents` (5)
+### `domain:model-documents` (5)
 
 - `core`: `non-reversible-document-family`, `reversible-document-family`
 
 - `shared`: `document`, `revision`, `structurednldoc-contract`
 
 
-### `domain:model.fields-schemas` (4)
+### `domain:model-fields-schemas` (4)
 
 - `shared`: `field-binding`, `field-path`, `schema-binding`, `type-contract`
 
 
-### `domain:model.identity` (1)
+### `domain:model-identity` (1)
 
 - `core`: `identity-stability-rules`
 
 
-### `domain:model.relations` (11)
+### `domain:model-relations` (11)
 
 - `core`: `dependency-edge`, `link-edge`, `link-reference`, `projection-edge`, `relation-ast`, `transclusion-reference`
 
@@ -216,56 +216,56 @@ The domain leaf is the main partition of the atom space.
 - `store`: `store-edge`
 
 
-### `domain:model.text-structure` (4)
+### `domain:model-text-structure` (4)
 
 - `shared`: `lead-paragraph-anchor-rule`, `shallow-title-plus-body-default`
 
 - `shell`: `structured-text`, `text-as-graph`
 
 
-### `domain:pipeline.emitters` (4)
+### `domain:pipeline-emitters` (4)
 
 - `core`: `document-materializer`, `emitter-compiler`, `markdown-emitter`, `renderer`
 
 
-### `domain:pipeline.importers` (6)
+### `domain:pipeline-importers` (6)
 
 - `core`: `canonicalizer`, `importer-translator`, `markdown-importer`, `parser`
 
 - `shell`: `node-reconciliation`, `source-manager`
 
 
-### `domain:quality.clean-code.generic` (1)
+### `domain:quality-clean-code-generic` (1)
 
 - `shell`: `code-linting`
 
 
-### `domain:quality.clean-code.python` (1)
+### `domain:quality-clean-code-python` (1)
 
 - `shell`: `python-code-linting`
 
 
-### `domain:quality.clean-code.rust` (1)
+### `domain:quality-clean-code-rust` (1)
 
 - `core`: `rust-code-linting`
 
 
-### `domain:quality.patterns.generic` (1)
+### `domain:quality-patterns-generic` (1)
 
 - `shell`: `patterns`
 
 
-### `domain:quality.patterns.python` (1)
+### `domain:quality-patterns-python` (1)
 
 - `shell`: `python-patterns`
 
 
-### `domain:quality.patterns.rust` (1)
+### `domain:quality-patterns-rust` (1)
 
 - `core`: `rust-patterns`
 
 
-### `domain:quality.reliability` (4)
+### `domain:quality-reliability` (4)
 
 - `runtime`: `degraded-mode`
 
@@ -274,65 +274,65 @@ The domain leaf is the main partition of the atom space.
 - `store`: `corruption-state`
 
 
-### `domain:quality.testing` (3)
+### `domain:quality-testing` (3)
 
 - `shared`: `conformance-suite`, `golden-fixture`, `reference-behavior`
 
 
-### `domain:quality.testing.generic` (1)
+### `domain:quality-testing-generic` (1)
 
 - `shell`: `testing`
 
 
-### `domain:quality.testing.python` (1)
+### `domain:quality-testing-python` (1)
 
 - `shell`: `python-testing`
 
 
-### `domain:quality.testing.rust` (1)
+### `domain:quality-testing-rust` (1)
 
 - `core`: `rust-testing`
 
 
-### `domain:runtime.adapters` (3)
+### `domain:runtime-adapters` (3)
 
 - `core`: `matrix-adapter`, `prosemirror-adapter`, `tree-sitter-adapter`
 
 
-### `domain:runtime.hooks` (4)
+### `domain:runtime-hooks` (4)
 
 - `shared`: `hook-binding`
 
 - `shell`: `effect-outbox`, `event-bus`, `hook-runtime`
 
 
-### `domain:runtime.projections` (4)
+### `domain:runtime-projections` (4)
 
 - `core`: `projection`, `projection-spec`, `semantic-exporter`
 
 - `shell`: `graph-projection`
 
 
-### `domain:runtime.provenance` (2)
+### `domain:runtime-provenance` (2)
 
 - `shared`: `provenance-record`
 
 - `shell`: `authorship-state`
 
 
-### `domain:runtime.query` (2)
+### `domain:runtime-query` (2)
 
 - `core`: `query-engine`
 
 - `shell`: `ast-as-the-debugging-surface`
 
 
-### `domain:runtime.resolvers` (2)
+### `domain:runtime-resolvers` (2)
 
 - `shell`: `external-anchor-resolver`, `local-anchor-resolver`
 
 
-### `domain:runtime.semantic` (7)
+### `domain:runtime-semantic` (7)
 
 - `shared`: `concept-binding`, `semantic-query-hint`, `semantic-reference`, `semantic-role`, `semantic-tag`
 
@@ -341,17 +341,17 @@ The domain leaf is the main partition of the atom space.
 - `store`: `semantic-indexing`
 
 
-### `domain:runtime.transactions` (2)
+### `domain:runtime-transactions` (2)
 
 - `core`: `primitive-operation`, `transaction`
 
 
-### `domain:security.capabilities` (1)
+### `domain:security-capabilities` (1)
 
 - `shared`: `threat-model`
 
 
-### `domain:store.graph` (12)
+### `domain:store-graph` (12)
 
 - `core`: `ast-persistence`
 
@@ -360,7 +360,7 @@ The domain leaf is the main partition of the atom space.
 - `store`: `backup-export`, `document-head`, `garbage-collection`, `graph-store`, `immutable-append-only-database`, `local-vs-global-store-precedence`, `retention-policy`, `store-infrastructure`, `store-recovery`, `what-a-store-is`
 
 
-### `domain:store.hashing` (4)
+### `domain:store-hashing` (4)
 
 - `core`: `cache`, `node-hash`
 
@@ -369,21 +369,21 @@ The domain leaf is the main partition of the atom space.
 - `store`: `merkle-index`
 
 
-### `domain:store.history` (4)
+### `domain:store-history` (4)
 
 - `core`: `temporal-layer`
 
 - `store`: `append-only-event-log`, `snapshots`, `transaction-log`
 
 
-### `domain:store.indexes` (5)
+### `domain:store-indexes` (5)
 
 - `core`: `search-projection`
 
 - `store`: `dependency-index`, `derived-index`, `field-index`, `section-index`
 
 
-### `domain:store.integrity` (3)
+### `domain:store-integrity` (3)
 
 - `shared`: `tracked-document-identity`
 
@@ -392,36 +392,36 @@ The domain leaf is the main partition of the atom space.
 - `store`: `store-integrity-checks`
 
 
-### `domain:store.persistence` (2)
+### `domain:store-persistence` (2)
 
 - `store`: `content-addressed-store`, `storage-backend`
 
 
-### `domain:surfaces.cli.command-groups` (10)
+### `domain:surfaces-cli-command-groups` (10)
 
 - `shell`: `ast-command-group`, `cli-workflow-surface`, `docs-command-group`, `fields-command-group`, `find-command-group`, `legacy-cli-aliases`, `models-command-group`, `plural-first-cli-surface`, `sections-command-group`, `stores-command-group`
 
 
-### `domain:surfaces.cli.inputs-outputs` (4)
+### `domain:surfaces-cli-inputs-outputs` (4)
 
 - `shared`: `model-reference-format`
 
 - `shell`: `cli-invocation-contract`, `how-to-get-data-out-of-sldb`, `payload-input-forms`
 
 
-### `domain:surfaces.cli.onboarding` (2)
+### `domain:surfaces-cli-onboarding` (2)
 
 - `shell`: `faq-command-group`, `help-command-group`
 
 
-### `domain:surfaces.cli.workflows` (11)
+### `domain:surfaces-cli-workflows` (11)
 
 - `shared`: `semantic-search`
 
 - `shell`: `compose-rendered-document-view`, `create-document-workflow`, `direct-mode`, `draft-first-model-edits`, `field-and-section-navigation`, `physical-search`, `recover-link-resolution`, `store-backed-mode`, `track-existing-document-workflow`, `update-tracked-document-workflow`
 
 
-### `domain:surfaces.visual.inspectors` (6)
+### `domain:surfaces-visual-inspectors` (6)
 
 - `shell`: `highlighting-engine`, `link-editor`, `model-browser`, `template-browser`, `visual-graph-explorer`, `visual-ux-surface`
 

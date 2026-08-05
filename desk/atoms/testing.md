@@ -5,8 +5,8 @@ title: Testing
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:quality.testing.generic
-provenance: desk/rituals/testing.md
+- domain:quality-testing-generic
+provenance: source docs/architecture/ritual-testing.md
 ---
 
 # Testing

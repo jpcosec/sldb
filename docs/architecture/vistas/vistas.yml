@@ -1,0 +1,165 @@
+id: sldb.vistas
+title: Registry de vistas UML del Knowledge Kernel
+type: view-registry
+version: "1.0"
+
+# Gobernado por docs/architecture/contracts/diagram-traceability-contract.md
+# El HTML es un artefacto GENERADO: scripts/generate_vistas_html.py
+# No editar sldb_Kernel_Vistas_UML.html a mano.
+
+template: vistas/template.html
+html_artifact: sldb_Kernel_Vistas_UML.html
+
+vistas:
+  - id: d00
+    nav: "00 · Visión general"
+    lbl: "Vista 00 · Panorama"
+    title: "Visión general del sistema"
+    desc: "La película completa: superficies plural-first (CLI, Lisp DSL, agentes, desktop) sobre un kernel Rust cuya verdad canónica es un grafo revisionado inmutable; los modelos de documentos (StructuredNLDoc) gobiernan cómo el Markdown autorado entra, se valida y se re-renderiza."
+    mmd: vistas/d00-vision-general.mmd
+    puml: null
+    specs: [sldb.target.components]
+
+  - id: d01
+    nav: "01 · Casos de uso"
+    lbl: "Vista 01 · Casos de uso"
+    title: "Casos de uso del kernel, por componente"
+    desc: "Quién usa qué capacidad y con qué payload: cada caso de uso cuelga del componente del kernel que lo atiende, y los edges declaran qué información viaja."
+    mmd: vistas/d01-casos-de-uso.mmd
+    puml: 01-casos-de-uso-del-kernel.puml
+    specs: [sldb.target.components]
+
+  - id: d02
+    nav: "02 · Componentes"
+    lbl: "Vista 02 · Componentes"
+    title: "Arquitectura de componentes"
+    desc: "Mapa de componentes del kernel y sus paquetes: Core, Documents, Semantics, Automation y Persistence, con las superficies cliente y servicios externos."
+    mmd: vistas/d02-componentes.mmd
+    puml: 02-arquitectura-de-componentes.puml
+    specs: [sldb.target.components]
+
+  - id: d03
+    nav: "03 · Crates"
+    lbl: "Vista 03 · Crates"
+    title: "Organización propuesta de crates"
+    desc: "Partición del kernel en crates Rust y sus dependencias. La dirección de las flechas marca dependencia de compilación."
+    mmd: vistas/d03-crates.mmd
+    puml: 03-organizacion-propuesta-de-crates.puml
+    specs: []
+
+  - id: d04
+    nav: "04 · Dominio"
+    lbl: "Vista 04 · Dominio"
+    title: "Modelo de dominio central"
+    desc: "Entidades centrales del grafo revisionado inmutable: documentos, revisiones, nodos, aristas, transacciones, operaciones, artefactos, hooks y proyecciones."
+    mmd: vistas/d04-dominio.mmd
+    puml: 04-modelo-de-dominio-central.puml
+    specs: [sldb.target.store_graph]
+
+  - id: d05
+    nav: "05 · Modelos de documentos"
+    lbl: "Vista 05 · Modelos de documentos"
+    title: "Modelos de documentos · StructuredNLDoc"
+    desc: "El contrato central cara al usuario, heredado de sldb v1 y generalizado por el refactor: un modelo define template Markdown, campos tipados, descripciones obligatorias y semántica opcional. La familia del documento decide qué garantía de round-trip aplica."
+    mmd: vistas/d05-modelos-documentos.mmd
+    puml: null
+    specs: []
+
+  - id: d06
+    nav: "06 · Pipeline modelo→render"
+    lbl: "Vista 06 · Pipeline"
+    title: "Pipeline modelo → documento → render"
+    desc: "El recorrido que ya funciona en sldb v1 y que el kernel preserva: Markdown autorado entra por el importer, se valida contra el modelo, vive como revisiones canónicas y sale por el emitter con igualdad de render estricta para familias reversibles."
+    mmd: vistas/d06-pipeline-render.mmd
+    puml: null
+    specs: []
+
+  - id: d07
+    nav: "07 · Persistencia"
+    lbl: "Vista 07 · Persistencia"
+    title: "Persistencia del kernel"
+    desc: "Frontera StorageBackend: log de transacciones, revisiones y CAS como fuentes de verdad; índices, caches de hash y proyecciones como reconstruibles."
+    mmd: vistas/d07-persistencia.mmd
+    puml: 05-persistencia-del-kernel.puml
+    specs: [sldb.target.store_graph]
+
+  - id: d08
+    nav: "08 · Transacción"
+    lbl: "Vista 08 · Secuencia"
+    title: "Secuencia de una transacción"
+    desc: "Del texto Lisp al commit: validación de tipos, staging, append al log, cálculo Merkle, compare-and-swap del head y publicación del evento."
+    mmd: vistas/d08-transaccion.mmd
+    puml: 06-secuencia-de-una-transaccion.puml
+    specs: [sldb.target.components, sldb.target.runtime]
+
+  - id: d09
+    nav: "09 · Merkle perezoso"
+    lbl: "Vista 09 · Secuencia"
+    title: "Cálculo Merkle perezoso"
+    desc: "Resolución perezosa de hashes de subárbol con cache: solo los hijos ownership entran al hash y los miss recalculan de forma recursiva."
+    mmd: vistas/d09-merkle-perezoso.mmd
+    puml: 07-calculo-merkle-perezoso.puml
+    specs: [sldb.target.store_graph]
+
+  - id: d10
+    nav: "10 · Sync externo"
+    lbl: "Vista 10 · Secuencia"
+    title: "Sincronización de archivo externo"
+    desc: "Detección bajo demanda de cambios en la fuente: fingerprint, re-parseo, canonicalización, reconciliación de grafo y commit."
+    mmd: vistas/d10-sync-externo.mmd
+    puml: 08-sincronizacion-de-archivo-externo.puml
+    specs: [sldb.target.components]
+
+  - id: d11
+    nav: "11 · Proyección"
+    lbl: "Vista 11 · Actividad"
+    title: "Construcción de una proyección"
+    desc: "Flujo de resolución de una ProjectionSpec: cache, subgrafo canónico y variantes (AST estructural, AST semántico, render, embeddings, lógica)."
+    mmd: vistas/d11-proyeccion.mmd
+    puml: 09-construccion-de-una-proyeccion.puml
+    specs: [sldb.target.components]
+
+  - id: d12
+    nav: "12 · Hooks"
+    lbl: "Vista 12 · Secuencia"
+    title: "Ejecución segura de hooks"
+    desc: "Pipeline de automatización: evento de commit, evaluación de condición, validación de capabilities, outbox de efectos y registro del resultado."
+    mmd: vistas/d12-hooks.mmd
+    puml: 10-ejecucion-segura-de-hooks.puml
+    specs: [sldb.target.components, sldb.target.runtime]
+
+  - id: d13
+    nav: "13 · Estados"
+    lbl: "Vista 13 · Estados"
+    title: "Estados de un documento"
+    desc: "Ciclo de vida de un documento trackeado: registro, parseo, canonicalización, indexación, cambios externos, conflictos e invalidez."
+    mmd: vistas/d13-estados.mmd
+    puml: 11-estados-de-un-documento.puml
+    specs: [sldb.target.components]
+
+  - id: d14
+    nav: "14 · Parse-render-parse"
+    lbl: "Vista 14 · Secuencia"
+    title: "Contrato parse-render-parse"
+    desc: "La garantía de reversibilidad se define sobre el AST canónico, no sobre igualdad byte a byte del fuente."
+    mmd: vistas/d14-parse-render-parse.mmd
+    puml: 12-contrato-parse-render-parse.puml
+    specs: [sldb.target.anchoring]
+
+  - id: d15
+    nav: "15 · Despliegue"
+    lbl: "Vista 15 · Despliegue"
+    title: "Despliegue del kernel"
+    desc: "Topología de ejecución local: superficies cliente, proceso kernel, persistencia embebida y sandbox WASM para efectos externos."
+    mmd: vistas/d15-despliegue.mmd
+    puml: 13-despliegue-del-kernel.puml
+    specs: [sldb.target.runtime]
+
+  - id: d16
+    nav: "16 · Autoridad"
+    lbl: "Vista 16 · Dependencias"
+    title: "Dependencias y dirección de autoridad"
+    desc: "Toda autoridad fluye hacia el Kernel Core: único componente autorizado para producir nuevas revisiones. Las superficies son adaptadores."
+    mmd: vistas/d16-autoridad.mmd
+    puml: 14-dependencias-y-direccion-de-autoridad.puml
+    specs: [sldb.target.components]

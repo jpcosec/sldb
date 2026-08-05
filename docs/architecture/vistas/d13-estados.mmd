@@ -1,0 +1,18 @@
+stateDiagram-v2
+  [*] --> Registered
+  Registered --> MetadataKnown : registrar fuente
+  MetadataKnown --> Parsed : parsear
+  Parsed --> Canonical : normalizar
+  Canonical --> Indexed : persistir e indexar
+  Indexed --> Ready : construir proyecciones mínimas
+  Ready --> Ready : transacción interna
+  Ready --> ExternalChangeSuspected : metadata externa cambió
+  ExternalChangeSuspected --> Ready : contenido equivalente
+  ExternalChangeSuspected --> Parsed : contenido diferente
+  Ready --> Conflict : cambio externo y cambio interno incompatibles
+  Conflict --> Ready : reconciliar
+  Ready --> Archived : archivar
+  Archived --> Ready : restaurar
+  Parsed --> Invalid : error sintáctico
+  Canonical --> Invalid : violación de esquema
+  Invalid --> Parsed : corregir fuente

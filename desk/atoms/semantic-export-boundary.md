@@ -5,8 +5,8 @@ title: Semantic export boundary
 five_wh_one_plus: why
 tags:
 - system:sldb
-- domain:architecture.boundaries
-provenance: /home/jp/proyectos/hum-ecosystem/tools/sldb/README.md
+- domain:architecture-boundaries
+provenance: source docs/sldb-v1/README.md
 ---
 
 # Semantic export boundary

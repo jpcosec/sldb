@@ -5,8 +5,8 @@ title: Semantic reference
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:runtime.semantic
-provenance: desk/drawer/features/feature-canonical-ast-design-current-state.md
+- domain:runtime-semantic
+provenance: source docs/drawer-features/feature-canonical-ast-design-current-state.md
 ---
 
 # Semantic reference

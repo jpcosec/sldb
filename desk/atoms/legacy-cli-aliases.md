@@ -5,8 +5,8 @@ title: Legacy CLI aliases
 five_wh_one_plus: when
 tags:
 - system:sldb
-- domain:surfaces.cli.command-groups
-provenance: /home/jp/proyectos/hum-ecosystem/tools/sldb/README.md
+- domain:surfaces-cli-command-groups
+provenance: source docs/sldb-v1/README.md
 ---
 
 # Legacy CLI aliases

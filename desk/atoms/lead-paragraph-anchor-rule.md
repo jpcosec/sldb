@@ -5,8 +5,8 @@ title: Lead paragraph anchor rule
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:model.text-structure
-provenance: /home/jp/proyectos/hum-ecosystem/tools/sldb/docs/README.md
+- domain:model-text-structure
+provenance: source docs/sldb-v1/docs-README.md
 ---
 
 # Lead paragraph anchor rule

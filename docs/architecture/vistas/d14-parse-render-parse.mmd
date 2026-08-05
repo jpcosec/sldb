@@ -1,0 +1,23 @@
+sequenceDiagram
+  actor Client
+  participant Parser
+  participant Canonicalizer
+  participant Kernel
+  participant Renderer
+  participant Validator
+
+  Client->>Parser: parse(source)
+  Parser-->>Client: syntax AST A
+  Client->>Canonicalizer: canonicalize(A)
+  Canonicalizer-->>Client: canonical AST C1
+  Client->>Kernel: persist(C1)
+  Kernel-->>Client: revision R
+  Client->>Renderer: render(R)
+  Renderer-->>Client: source S2
+  Client->>Parser: parse(S2)
+  Parser-->>Client: syntax AST A2
+  Client->>Canonicalizer: canonicalize(A2)
+  Canonicalizer-->>Client: canonical AST C2
+  Client->>Validator: compare(C1, C2)
+  Validator-->>Client: C1 == C2
+  Note over Validator: La garantía importante es canonicalize(parse(render(C))) == C. No necesariamente render(parse(source)) == source.

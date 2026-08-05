@@ -1,3 +1,6 @@
+' --- trazabilidad (diagram-traceability-contract) ---
+' vista: d10
+' governed-by: sldb.target.components
 @startuml
 title Sincronización de archivo externo
 

@@ -5,8 +5,8 @@ title: Compatibility surface
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:architecture.migration-strategy
-provenance: also_core.md
+- domain:architecture-migration-strategy
+provenance: source docs/core/also_core.md
 ---
 
 # Compatibility surface

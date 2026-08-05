@@ -5,8 +5,8 @@ title: Canonical Existence
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:model.ast-core
-provenance: desk/drawer/features/feature-sldb-product-principles-and-cli-continuity.md
+- domain:model-ast-core
+provenance: source docs/drawer-features/feature-sldb-product-principles-and-cli-continuity.md
 ---
 
 # Canonical Existence

@@ -5,9 +5,9 @@ title: Derived edge
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:model.relations
-- domain:runtime.projections
-provenance: reasoning.md
+- domain:model-relations
+- domain:runtime-projections
+provenance: source docs/core/reasoning.md
 ---
 
 # Derived edge

@@ -5,9 +5,9 @@ title: Corruption state
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:quality.reliability
-- domain:store.graph
-provenance: also_core.md
+- domain:quality-reliability
+- domain:store-graph
+provenance: source docs/core/also_core.md
 ---
 
 # Corruption state

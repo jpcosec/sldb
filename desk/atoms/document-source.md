@@ -5,9 +5,9 @@ title: Document source
 five_wh_one_plus: where
 tags:
 - system:sldb
-- domain:architecture.integration
-- domain:pipeline.importers
-provenance: interfaces.md
+- domain:architecture-integration
+- domain:pipeline-importers
+provenance: source docs/core/interfaces.md
 ---
 
 # Document source

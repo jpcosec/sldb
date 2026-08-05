@@ -1,15 +1,1 @@
-documents:
-- name: 20260729-015720-unclear-deskops-next-task-arg-parsing
-  path: desk/inbox/20260729-015720-unclear-deskops-next-task-arg-parsing.md
-  hash_c: 2e184e5fe6e585122bef76d9fb98ad5216aa7f117425c00fe7f121f992a80605
-  hash_d: 98b0f7f7f10cc9abe9a992bc1c40896186cb66d1afd08f0211953ff4615f8e30
-  semantic_tags:
-  - type.desk.inbox-note
-  - workspace.desk.inbox
-- name: 20260729-015729-unclear-deskops-atom-tracking-fails
-  path: desk/inbox/20260729-015729-unclear-deskops-atom-tracking-fails.md
-  hash_c: 87fdef31e06b14594abfe56fdf235d1536ca0c014f7080f5c97686c7e929afe0
-  hash_d: 50688fbd1096f28e3a22a68703e70fae0a557c646b59c64fecc0bebaa3273ead
-  semantic_tags:
-  - type.desk.inbox-note
-  - workspace.desk.inbox
+documents: []

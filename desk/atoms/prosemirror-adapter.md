@@ -5,8 +5,8 @@ title: ProseMirror adapter
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:runtime.adapters
-provenance: desk/drawer/features/feature-canonical-ast-design-current-state.md
+- domain:runtime-adapters
+provenance: source docs/drawer-features/feature-canonical-ast-design-current-state.md
 ---
 
 # ProseMirror adapter

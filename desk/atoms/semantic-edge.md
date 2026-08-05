@@ -5,9 +5,9 @@ title: Semantic edge
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:model.relations
-- domain:runtime.semantic
-provenance: reasoning.md
+- domain:model-relations
+- domain:runtime-semantic
+provenance: source docs/core/reasoning.md
 ---
 
 # Semantic edge

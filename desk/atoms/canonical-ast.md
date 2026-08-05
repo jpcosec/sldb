@@ -5,8 +5,8 @@ title: Canonical AST
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:model.ast-core
-provenance: desk/drawer/features/feature-sldb-explicit-target-architecture.md
+- domain:model-ast-core
+provenance: source docs/drawer-features/feature-sldb-explicit-target-architecture.md
 ---
 
 # Canonical AST

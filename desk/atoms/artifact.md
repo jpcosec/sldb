@@ -5,8 +5,8 @@ title: Artifact
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:model.artifacts
-provenance: core_README.md
+- domain:model-artifacts
+provenance: source docs/core/core_README.md
 ---
 
 # Artifact

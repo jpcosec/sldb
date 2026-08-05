@@ -5,15 +5,15 @@ title: StructuredNLDoc contract
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:model.documents
-provenance: /home/jp/proyectos/hum-ecosystem/tools/sldb/docs/faq.md
+- domain:model-documents
+provenance: source docs/sldb-v1/faq.md
 ---
 
 # StructuredNLDoc contract
 
 ## Answer
 
-A `StructuredNLDoc` defines the Markdown template, typed Pydantic fields, field descriptions, and optional semantics that make Markdown-to-payload-to-Markdown workflows possible.
+A `StructuredNLDoc` defines the structured text template, typed Lisp schema fields, field descriptions, and optional semantics that make text-to-payload-to-text workflows possible.
 
 ## Supporting points
 

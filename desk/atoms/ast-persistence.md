@@ -5,8 +5,8 @@ title: AST persistence
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:store.graph
-provenance: docs/architecture/target-system-overview.md
+- domain:store-graph
+provenance: source docs/architecture/target-system-overview.md
 ---
 
 # AST persistence

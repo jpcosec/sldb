@@ -5,8 +5,8 @@ title: Query engine
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:runtime.query
-provenance: interfaces.md
+- domain:runtime-query
+provenance: source docs/core/interfaces.md
 ---
 
 # Query engine

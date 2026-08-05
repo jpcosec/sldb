@@ -5,8 +5,8 @@ title: Dependency edge
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:model.relations
-provenance: desk/drawer/features/feature-canonical-ast-design-current-state.md
+- domain:model-relations
+provenance: source docs/drawer-features/feature-canonical-ast-design-current-state.md
 ---
 
 # Dependency edge

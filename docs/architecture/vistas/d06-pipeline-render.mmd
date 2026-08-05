@@ -1,0 +1,33 @@
+flowchart LR
+  subgraph Authoring["Autoría (humano)"]
+    Src["Markdown + frontmatter<br/>secciones · comentarios id ocultos"]
+  end
+
+  subgraph Import["Import"]
+    Parser["Markdown Importer<br/>eventos lossless"]
+    Canon["Canonicalizer<br/>normalización determinista"]
+  end
+
+  subgraph Canonical["Estado canónico"]
+    AST["CanonicalAST<br/>secciones · fields · anchors"]
+    Valid{"¿Payload válido<br/>contra el modelo?"}
+  end
+
+  subgraph Store["Persistencia"]
+    Rev["Nueva revisión<br/>root_hash + parents"]
+  end
+
+  subgraph Render["Render"]
+    Payload["extract → payload tipado"]
+    Emit["Markdown Emitter<br/>renderer determinista"]
+    Out["Markdown re-renderizado"]
+  end
+
+  Src --> Parser --> Canon --> AST --> Valid
+  Valid -- "sí" --> Rev
+  Valid -- "no" --> Invalid["Estado Invalid auditable<br/>nunca se pierde el input"]
+  Rev --> Payload --> Emit --> Out
+  Out -. "re-parse + canonicalize" .-> AST
+
+  InvNote["Invariante (familias reversibles): canonicalize(parse(render(C))) == C. V1 además exigía preservación byte-equivalente en ciclos sin modificación."]
+  Emit -.-> InvNote

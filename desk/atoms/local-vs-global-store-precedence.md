@@ -5,8 +5,8 @@ title: Local vs global store precedence
 five_wh_one_plus: where
 tags:
 - system:sldb
-- domain:store.graph
-provenance: /home/jp/proyectos/hum-ecosystem/tools/sldb/docs/faq.md
+- domain:store-graph
+provenance: source docs/sldb-v1/faq.md
 ---
 
 # Local vs global store precedence

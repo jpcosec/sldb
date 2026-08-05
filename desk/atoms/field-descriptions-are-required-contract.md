@@ -5,15 +5,15 @@ title: Field descriptions are required contract
 five_wh_one_plus: why
 tags:
 - system:sldb
-- domain:architecture.decisions
-provenance: /home/jp/proyectos/hum-ecosystem/tools/sldb/README.md
+- domain:architecture-decisions
+provenance: source docs/sldb-v1/README.md
 ---
 
 # Field descriptions are required contract
 
 ## Answer
 
-Every `StructuredNLDoc` field must have a non-empty Pydantic `description`, and that description is part of the public model contract.
+Every `StructuredNLDoc` field must have a non-empty Lisp schema `description`, and that description is part of the public model contract.
 
 ## Supporting points
 

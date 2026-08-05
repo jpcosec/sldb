@@ -1,7 +1,17 @@
 id: sldb.target.components
 title: Knowledge Kernel Components
 type: component
-version: "0.2"
+version: "0.3"
+views:
+  - d00
+  - d01
+  - d02
+  - d08
+  - d10
+  - d11
+  - d12
+  - d13
+  - d16
 
 data:
   nodes:
@@ -47,6 +57,8 @@ data:
     CapabilityGate:
       label: capability gate
       kind: core
+      atoms:
+        - capability-model
 
     PlanCompiler:
       label: plan compiler
@@ -60,26 +72,38 @@ data:
     TransactionPlan:
       label: transaction plan
       kind: core
+      atoms:
+        - transaction-plan
 
     QueryPlan:
       label: query plan
       kind: core
+      atoms:
+        - query-plan
 
     ProjectionPlan:
       label: projection plan
       kind: core
+      atoms:
+        - projection-plan
 
     EffectPlan:
       label: effect plan
       kind: core
+      atoms:
+        - effect-plan
 
     KernelAPI:
       label: Kernel API
       kind: core
+      atoms:
+        - kernel-api
 
     LispRuntime:
       label: Lisp schema / macro surface
       kind: core
+      atoms:
+        - lisp-macro-language
 
     CoreKernel:
       label: Core Kernel
@@ -105,46 +129,68 @@ data:
     RecoveryManager:
       label: recovery manager
       kind: core
+      atoms:
+        - store-recovery
 
     MigrationManager:
       label: migration manager
       kind: core
+      atoms:
+        - migration-unit
 
     Observability:
       label: observability surface
       kind: core
+      atoms:
+        - observability-surface
 
     ConformanceHarness:
       label: conformance harness
       kind: core
+      atoms:
+        - conformance-suite
 
     TransactionEngine:
       label: transaction engine
       kind: core
+      atoms:
+        - transaction
 
     GraphRepository:
       label: graph repository
       kind: core
+      atoms:
+        - graph-store
 
     TypeRegistry:
       label: type registry
       kind: core
+      atoms:
+        - type-contract
 
     QueryEngine:
       label: query engine
       kind: core
+      atoms:
+        - query-engine
 
     ProjectionEngine:
       label: projection engine
       kind: core
+      atoms:
+        - projection
 
     MerkleEngine:
       label: merkle engine
       kind: core
+      atoms:
+        - merkle-index
 
     EventBus:
       label: event bus
       kind: core
+      atoms:
+        - event-bus
 
     Documents:
       label: Document Adapters
@@ -158,18 +204,26 @@ data:
     ParserRegistry:
       label: parser registry
       kind: core
+      atoms:
+        - parser
 
     Canonicalizer:
       label: canonicalizer
       kind: core
+      atoms:
+        - canonicalizer
 
     RendererRegistry:
       label: renderer registry
       kind: core
+      atoms:
+        - renderer
 
     SourceManager:
       label: external source manager
       kind: core
+      atoms:
+        - source-manager
 
     Semantics:
       label: Semantics
@@ -178,7 +232,6 @@ data:
         - StructuralProjection
         - SemanticProjection
         - EmbeddingIndex
-        - LogicEngine
 
     StructuralProjection:
       label: structural AST projection
@@ -191,10 +244,12 @@ data:
     EmbeddingIndex:
       label: embedding index (deferred after first slice)
       kind: core
+      atoms:
+        - embeddings
 
     LogicEngine:
-      label: boolean / rule engine
-      kind: core
+      label: external logic / rule engine
+      kind: boundary
 
     Automation:
       label: Automation
@@ -208,10 +263,14 @@ data:
     HookEngine:
       label: hook engine
       kind: core
+      atoms:
+        - hook-runtime
 
     EffectOutbox:
       label: effect outbox
       kind: core
+      atoms:
+        - effect-outbox
 
     EffectRunner:
       label: effect runner
@@ -220,6 +279,8 @@ data:
     AgentHarness:
       label: agent harness
       kind: core
+      atoms:
+        - agent-provider
 
     Persistence:
       label: Persistence
@@ -239,34 +300,50 @@ data:
     CompatibilityMetadata:
       label: compatibility metadata
       kind: database
+      atoms:
+        - compatibility-surface
 
     BackupExportStore:
       label: backup / export artifacts
       kind: database
+      atoms:
+        - backup-export
 
     GarbageCollector:
       label: garbage collector
       kind: database
+      atoms:
+        - garbage-collection
 
     RetentionPolicy:
       label: retention policy
       kind: database
+      atoms:
+        - retention-policy
 
     TransactionLog:
       label: transaction log
       kind: database
+      atoms:
+        - transaction-log
 
     ContentStore:
       label: content-addressed store
       kind: database
+      atoms:
+        - content-addressed-store
 
     RevisionStore:
       label: revision store
       kind: database
+      atoms:
+        - revision
 
     HeadStore:
       label: document heads
       kind: database
+      atoms:
+        - document-head
 
     IndexesCaches:
       label: indexes / caches
@@ -275,6 +352,8 @@ data:
     StorageBackend:
       label: storage backend
       kind: database
+      atoms:
+        - storage-backend
 
     ExternalSystems:
       label: External Systems
@@ -282,6 +361,7 @@ data:
       contains:
         - FilesystemGitAPIs
         - Models
+        - LogicEngine
 
     FilesystemGitAPIs:
       label: Git / filesystem / external tools

@@ -1,0 +1,63 @@
+flowchart LR
+  Usuario([Usuario])
+  Agente([Agente])
+  ExternalFile([Archivo externo])
+  Tool(["Herramienta externa<br/>Git / FS / APIs"])
+  SemanticService(["Servicio semántico<br/>LLM / embeddings"])
+
+  subgraph Docs["kernel.docs"]
+    Import["Importar documento<br/>parse → canonicalize"]
+    Detect["Detectar cambio externo<br/>fingerprint bajo demanda"]
+    ModelUC["Gestionar modelos<br/>StructuredNLDoc lifecycle"]
+  end
+
+  subgraph TxB["kernel.tx"]
+    Transform["Aplicar transformación<br/>staging → commit"]
+    Integrity["Verificar integridad<br/>Merkle + log append-only"]
+    History["Consultar historial<br/>revision lineage"]
+  end
+
+  subgraph QueryB["kernel.query"]
+    Query["Consultar estructura<br/>índices derivados"]
+  end
+
+  subgraph ProjB["kernel.proj"]
+    Projection["Crear proyección<br/>AST · semántica · render"]
+    Render["Render modelo→markdown<br/>roundtrip estricto"]
+  end
+
+  subgraph SemB["kernel.semantics"]
+    Logic["Evaluar reglas lógicas<br/>hechos derivados"]
+    Embeddings["Buscar por embeddings"]
+  end
+
+  subgraph HooksB["kernel.hooks"]
+    Hook["Ejecutar hook<br/>condición + capabilities"]
+    Effect["Ejecutar efecto externo<br/>via Effect Outbox"]
+  end
+
+  Usuario -- "markdown + frontmatter" --> Import
+  Usuario -- "template + typed fields" --> ModelUC
+  Usuario -- "find text / links / refs" --> Query
+  Usuario -- "operations tipadas" --> Transform
+  Usuario -- "ProjectionSpec" --> Projection
+  Usuario -- "revision range" --> History
+
+  Agente -- "expresión Lisp → QueryPlan" --> Query
+  Agente -- "expresión Lisp → TransactionPlan" --> Transform
+  Agente -- "reglas booleanas" --> Logic
+  Agente -- "unidades semánticas" --> Embeddings
+  Agente -- "HookDefinition" --> Hook
+
+  ExternalFile -- "stat: size / mtime / file_id" --> Detect
+  Detect -- "contenido cambiado → re-import" --> Import
+
+  Hook -- "ActionPlan validado" --> Effect
+  Effect -- "efecto con capability" --> Tool
+
+  SemanticService -- "vectores" --> Embeddings
+
+  Query -. "incluye" .-> Integrity
+  Transform -. "incluye" .-> Integrity
+  ModelUC -- "gobierna" --> Render
+  Import -- "alimenta" --> Transform

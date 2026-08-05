@@ -5,8 +5,8 @@ title: "Decision: links and anchors are canonical"
 five_wh_one_plus: why
 tags:
 - system:sldb
-- domain:architecture.decisions
-provenance: desk/drawer/features/feature-canonical-ast-design-current-state.md
+- domain:architecture-decisions
+provenance: source docs/drawer-features/feature-canonical-ast-design-current-state.md
 ---
 
 # Decision: links and anchors are canonical

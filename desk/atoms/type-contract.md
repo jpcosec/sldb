@@ -5,8 +5,8 @@ title: Type Contract
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:model.fields-schemas
-provenance: desk/drawer/features/feature-canonical-ast-design-current-state.md
+- domain:model-fields-schemas
+provenance: source docs/drawer-features/feature-canonical-ast-design-current-state.md
 ---
 
 # Type Contract

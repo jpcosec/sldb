@@ -1,0 +1,232 @@
+{
+  "nodes": [
+    {
+      "kind": "List",
+      "value": "List(len=4)"
+    },
+    {
+      "kind": "Symbol",
+      "value": "begin"
+    },
+    {
+      "kind": "List",
+      "value": "List(len=3)"
+    },
+    {
+      "kind": "Symbol",
+      "value": "define"
+    },
+    {
+      "kind": "Symbol",
+      "value": "foo"
+    },
+    {
+      "kind": "List",
+      "value": "List(len=3)"
+    },
+    {
+      "kind": "Symbol",
+      "value": "+"
+    },
+    {
+      "kind": "Number",
+      "value": "10"
+    },
+    {
+      "kind": "Number",
+      "value": "20"
+    },
+    {
+      "kind": "List",
+      "value": "List(len=3)"
+    },
+    {
+      "kind": "Symbol",
+      "value": "define"
+    },
+    {
+      "kind": "Symbol",
+      "value": "bar"
+    },
+    {
+      "kind": "List",
+      "value": "List(len=4)"
+    },
+    {
+      "kind": "Symbol",
+      "value": "if"
+    },
+    {
+      "kind": "Symbol",
+      "value": "foo"
+    },
+    {
+      "kind": "String",
+      "value": "verdadero"
+    },
+    {
+      "kind": "String",
+      "value": "falso"
+    },
+    {
+      "kind": "List",
+      "value": "List(len=3)"
+    },
+    {
+      "kind": "Symbol",
+      "value": "concat"
+    },
+    {
+      "kind": "String",
+      "value": "Resultado: "
+    },
+    {
+      "kind": "Symbol",
+      "value": "bar"
+    }
+  ],
+  "node_holes": [],
+  "edge_property": "directed",
+  "edges": [
+    [
+      0,
+      1,
+      {
+        "relation": "child_0"
+      }
+    ],
+    [
+      2,
+      3,
+      {
+        "relation": "child_0"
+      }
+    ],
+    [
+      2,
+      4,
+      {
+        "relation": "child_1"
+      }
+    ],
+    [
+      5,
+      6,
+      {
+        "relation": "child_0"
+      }
+    ],
+    [
+      5,
+      7,
+      {
+        "relation": "child_1"
+      }
+    ],
+    [
+      5,
+      8,
+      {
+        "relation": "child_2"
+      }
+    ],
+    [
+      2,
+      5,
+      {
+        "relation": "child_2"
+      }
+    ],
+    [
+      0,
+      2,
+      {
+        "relation": "child_1"
+      }
+    ],
+    [
+      9,
+      10,
+      {
+        "relation": "child_0"
+      }
+    ],
+    [
+      9,
+      11,
+      {
+        "relation": "child_1"
+      }
+    ],
+    [
+      12,
+      13,
+      {
+        "relation": "child_0"
+      }
+    ],
+    [
+      12,
+      14,
+      {
+        "relation": "child_1"
+      }
+    ],
+    [
+      12,
+      15,
+      {
+        "relation": "child_2"
+      }
+    ],
+    [
+      12,
+      16,
+      {
+        "relation": "child_3"
+      }
+    ],
+    [
+      9,
+      12,
+      {
+        "relation": "child_2"
+      }
+    ],
+    [
+      0,
+      9,
+      {
+        "relation": "child_2"
+      }
+    ],
+    [
+      17,
+      18,
+      {
+        "relation": "child_0"
+      }
+    ],
+    [
+      17,
+      19,
+      {
+        "relation": "child_1"
+      }
+    ],
+    [
+      17,
+      20,
+      {
+        "relation": "child_2"
+      }
+    ],
+    [
+      0,
+      17,
+      {
+        "relation": "child_3"
+      }
+    ]
+  ]
+}

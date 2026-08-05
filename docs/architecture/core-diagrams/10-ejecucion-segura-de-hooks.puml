@@ -1,3 +1,6 @@
+' --- trazabilidad (diagram-traceability-contract) ---
+' vista: d12
+' governed-by: sldb.target.components, sldb.target.runtime
 @startuml
 title Ejecución segura de hooks
 

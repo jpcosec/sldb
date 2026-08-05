@@ -1,0 +1,49 @@
+classDiagram
+  class StructuredNLDoc {
+    +ModelId id
+    +MarkdownTemplate template
+    +List~FieldDefinition~ typed_fields
+    +Map field_descriptions
+    +Optional semantics
+    +DocumentFamily family
+  }
+  class MarkdownTemplate {
+    +frontmatter schema
+    +section layout
+    +hidden id comments
+    +lead paragraph rule
+  }
+  class FieldDefinition {
+    +name
+    +type
+    +description (required)
+    +required flag
+  }
+  class DocumentFamily {
+    &lt;&lt;enumeration&gt;&gt;
+    Reversible
+    NonReversible
+  }
+  class ModelRegistry {
+    +register(module:ClassName)
+    +list / show / validate
+    +draft-first edits
+    +promote
+  }
+  class TypeContract {
+    +validate(payload)
+    +coerce(payload)
+  }
+  class ShallowModel {
+    title + body default
+  }
+
+  StructuredNLDoc *-- MarkdownTemplate
+  StructuredNLDoc *-- FieldDefinition
+  StructuredNLDoc --> DocumentFamily
+  StructuredNLDoc --> TypeContract : valida payloads
+  ModelRegistry --> StructuredNLDoc : lifecycle CLI `models`
+  StructuredNLDoc <|-- ShallowModel : default title + body
+
+  note for FieldDefinition "Las descripciones de campo son contrato obligatorio (v1)."
+  note for DocumentFamily "Reversible: invariante canonicalize(parse(render(C))) == C. NonReversible: artifacts externos, sin garantía de round-trip."

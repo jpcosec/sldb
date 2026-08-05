@@ -5,8 +5,8 @@ title: Projection spec
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:runtime.projections
-provenance: diagramas_core.md
+- domain:runtime-projections
+provenance: source docs/core/diagramas_core.md
 ---
 
 # Projection spec

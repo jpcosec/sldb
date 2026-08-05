@@ -5,8 +5,8 @@ title: Garbage collection
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:store.graph
-provenance: also_core.md
+- domain:store-graph
+provenance: source docs/core/also_core.md
 ---
 
 # Garbage collection

@@ -1,0 +1,166 @@
+{
+  "nodes": [
+    {
+      "kind": "List",
+      "value": "List(len=3)"
+    },
+    {
+      "kind": "Symbol",
+      "value": "do"
+    },
+    {
+      "kind": "List",
+      "value": "List(len=3)"
+    },
+    {
+      "kind": "Symbol",
+      "value": "def"
+    },
+    {
+      "kind": "Symbol",
+      "value": "doc-1"
+    },
+    {
+      "kind": "Map",
+      "value": "Map(entries=3)"
+    },
+    {
+      "kind": "Keyword",
+      "value": ":id"
+    },
+    {
+      "kind": "String",
+      "value": "doc-001"
+    },
+    {
+      "kind": "Keyword",
+      "value": ":title"
+    },
+    {
+      "kind": "String",
+      "value": "Arquitectura SLDB"
+    },
+    {
+      "kind": "Keyword",
+      "value": ":tags"
+    },
+    {
+      "kind": "Vector",
+      "value": "Vector(len=2)"
+    },
+    {
+      "kind": "Keyword",
+      "value": ":system"
+    },
+    {
+      "kind": "Keyword",
+      "value": ":architecture"
+    },
+    {
+      "kind": "Symbol",
+      "value": "doc-1"
+    }
+  ],
+  "node_holes": [],
+  "edge_property": "directed",
+  "edges": [
+    [
+      0,
+      1,
+      {
+        "relation": "child_0"
+      }
+    ],
+    [
+      2,
+      3,
+      {
+        "relation": "child_0"
+      }
+    ],
+    [
+      2,
+      4,
+      {
+        "relation": "child_1"
+      }
+    ],
+    [
+      5,
+      6,
+      {
+        "relation": "entry_0_key"
+      }
+    ],
+    [
+      5,
+      7,
+      {
+        "relation": "entry_0_value"
+      }
+    ],
+    [
+      5,
+      8,
+      {
+        "relation": "entry_1_key"
+      }
+    ],
+    [
+      5,
+      9,
+      {
+        "relation": "entry_1_value"
+      }
+    ],
+    [
+      11,
+      12,
+      {
+        "relation": "index_0"
+      }
+    ],
+    [
+      11,
+      13,
+      {
+        "relation": "index_1"
+      }
+    ],
+    [
+      5,
+      10,
+      {
+        "relation": "entry_2_key"
+      }
+    ],
+    [
+      5,
+      11,
+      {
+        "relation": "entry_2_value"
+      }
+    ],
+    [
+      2,
+      5,
+      {
+        "relation": "child_2"
+      }
+    ],
+    [
+      0,
+      2,
+      {
+        "relation": "child_1"
+      }
+    ],
+    [
+      0,
+      14,
+      {
+        "relation": "child_2"
+      }
+    ]
+  ]
+}

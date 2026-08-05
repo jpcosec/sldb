@@ -1,0 +1,48 @@
+flowchart TD
+  subgraph KC["kernel-core"]
+    Node & Edge & Transaction & Operation & Revision & KernelError
+  end
+  subgraph KS["kernel-storage"]
+    StorageBackend[["StorageBackend"]]
+    RedbBackend & MemoryBackend & ContentStore & TransactionLog
+  end
+  subgraph KG["kernel-graph"]
+    GraphRepository & GraphSnapshot & GraphIndex & PetgraphProjection
+  end
+  subgraph KM["kernel-merkle"]
+    HashEngine & HashCache & DirtySet
+  end
+  subgraph KQ["kernel-query"]
+    QueryEngine & QueryPlan & QueryResult
+  end
+  subgraph KD["kernel-document"]
+    Parser[["Parser"]]
+    Renderer[["Renderer"]]
+    Canonicalizer & SourceManager
+  end
+  subgraph KP["kernel-projection"]
+    Projection[["Projection"]]
+    StructuralAstProjection & SemanticProjection
+  end
+  subgraph KSE["kernel-semantics"]
+    EmbeddingIndex & LogicEngine & DerivedArtifact
+  end
+  subgraph KL["kernel-lisp"]
+    Reader & MacroExpander & Compiler & LispRuntime
+  end
+  subgraph KH["kernel-hooks"]
+    HookEngine & EffectOutbox & EffectRunner
+  end
+  subgraph KA["kernel-api"]
+    Kernel & Session
+  end
+
+  KA --> KC & KQ & KP & KH
+  KG --> KC & KS
+  KM --> KC & KS
+  KQ --> KG & KSE
+  KD --> KC & KP
+  KP --> KG
+  KSE --> KP
+  KL --> KC & KQ
+  KH --> KC & KA

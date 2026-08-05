@@ -5,9 +5,9 @@ title: Kernel API
 five_wh_one_plus: where
 tags:
 - system:sldb
-- domain:architecture.boundaries
-- domain:architecture.integration
-provenance: interfaces.md
+- domain:architecture-boundaries
+- domain:architecture-integration
+provenance: source docs/core/interfaces.md
 ---
 
 # Kernel API

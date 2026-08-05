@@ -5,8 +5,8 @@ title: Semantic query hint
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:runtime.semantic
-provenance: desk/drawer/features/feature-canonical-ast-design-current-state.md
+- domain:runtime-semantic
+provenance: source docs/drawer-features/feature-canonical-ast-design-current-state.md
 ---
 
 # Semantic query hint

@@ -5,8 +5,8 @@ title: Visual UX Surface
 five_wh_one_plus: where
 tags:
 - system:sldb
-- domain:surfaces.visual.inspectors
-provenance: desk/drawer/features/feature-sldb-product-principles-and-cli-continuity.md
+- domain:surfaces-visual-inspectors
+provenance: source docs/drawer-features/feature-sldb-product-principles-and-cli-continuity.md
 ---
 
 # Visual UX Surface

@@ -1,0 +1,72 @@
+flowchart TD
+  Usuario([Usuario])
+  Agente([Agente])
+
+  Clients["CLI / UI / API"]
+  Lisp["Lisp Runtime"]
+  API["Kernel API"]
+
+  subgraph Core["Core Kernel"]
+    Tx["Transaction Engine"]
+    Graph["Graph Repository"]
+    Types["Type Registry"]
+    Query["Query Engine"]
+    Projection["Projection Engine"]
+    Merkle["Merkle Engine"]
+    Events["Event Bus"]
+  end
+
+  subgraph Documents["Documents"]
+    Parsers["Parser Registry"]
+    Canonicalizer["Canonicalizer"]
+    Renderers["Renderer Registry"]
+    Sources["External Source Manager"]
+  end
+
+  subgraph Semantics["Semantics"]
+    Structural["Structural AST Projection"]
+    Semantic["Semantic Graph Projection"]
+    Embeddings["Embedding Index"]
+    Logic["Boolean Logic Engine"]
+  end
+
+  subgraph Automation["Automation"]
+    Hooks["Hook Engine"]
+    Outbox["Effect Outbox"]
+    Runner["Effect Runner"]
+    Harness["Agent Harness"]
+  end
+
+  subgraph Persistence["Persistence"]
+    TxLog[("Transaction Log")]
+    CAS[("Content Addressed Store")]
+    Indexes[("Indexes / Caches")]
+    Store["Storage Backend"]
+  end
+
+  ExternalTools{{"Git / Filesystem / APIs"}}
+  Models{{"Embedding / LLM Services"}}
+
+  Usuario --> Clients
+  Agente --> Harness
+  Clients --> API
+  Harness --> API
+  Lisp -- "QueryPlan / TransactionPlan" --> API
+
+  API --> Tx & Query & Projection
+  Tx --> Types & Graph & Merkle & TxLog & Events
+  Graph --> Store & CAS & Indexes
+  Query --> Graph & Logic & Embeddings
+  Projection --> Structural & Semantic & Renderers
+  Parsers --> Canonicalizer
+  Canonicalizer --> Tx
+  Sources --> Parsers & Merkle
+  Events --> Hooks
+  Hooks --> Outbox
+  Outbox --> Runner
+  Runner --> ExternalTools & Harness
+  Embeddings --> Models
+  Store --> TxLog & CAS & Indexes
+
+  PetgraphNote["Nota: petgraph puede usarse como vista materializada en memoria, no como persistencia primaria."]
+  Graph -.-> PetgraphNote

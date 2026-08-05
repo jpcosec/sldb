@@ -5,9 +5,9 @@ title: Store recovery
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:store.graph
-- domain:quality.reliability
-provenance: also_core.md
+- domain:store-graph
+- domain:quality-reliability
+provenance: source docs/core/also_core.md
 ---
 
 # Store recovery

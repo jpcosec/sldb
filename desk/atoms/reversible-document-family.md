@@ -5,8 +5,8 @@ title: Reversible document family
 five_wh_one_plus: when
 tags:
 - system:sldb
-- domain:model.documents
-provenance: reasoning.md
+- domain:model-documents
+provenance: source docs/core/reasoning.md
 ---
 
 # Reversible document family

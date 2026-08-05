@@ -5,8 +5,8 @@ title: Tracked document identity
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:store.integrity
-provenance: /home/jp/proyectos/hum-ecosystem/tools/sldb/docs/faq.md
+- domain:store-integrity
+provenance: source docs/sldb-v1/faq.md
 ---
 
 # Tracked document identity

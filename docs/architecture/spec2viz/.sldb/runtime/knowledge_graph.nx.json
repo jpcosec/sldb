@@ -1,0 +1,467 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "type": "atom",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "atom:atom-reference-edge",
+          "node_type": "atom"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "atom-reference-edge",
+          "identity": "atom-reference-edge",
+          "label": "Atom reference edge",
+          "path": "desk/atoms/atom-reference-edge.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/atoms/atom-reference-edge.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "atom:atom-reference-edge"
+    },
+    {
+      "type": "atom",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "atom:coverage-warning",
+          "node_type": "atom"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "coverage-warning",
+          "identity": "coverage-warning",
+          "label": "Coverage warning",
+          "path": "desk/atoms/atom-coverage-warning.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/atoms/atom-coverage-warning.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "atom:coverage-warning"
+    },
+    {
+      "type": "atom",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "atom:diagram-as-projection",
+          "node_type": "atom"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "diagram-as-projection",
+          "identity": "diagram-as-projection",
+          "label": "Diagram as projection",
+          "path": "desk/atoms/atom-diagram-as-projection.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/atoms/atom-diagram-as-projection.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "atom:diagram-as-projection"
+    },
+    {
+      "type": "atom",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "atom:generated-artifact-drift",
+          "node_type": "atom"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "generated-artifact-drift",
+          "identity": "generated-artifact-drift",
+          "label": "Generated artifact drift",
+          "path": "desk/atoms/atom-generated-artifact-drift.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/atoms/atom-generated-artifact-drift.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "atom:generated-artifact-drift"
+    },
+    {
+      "type": "atom",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "atom:specyaml-nexus",
+          "node_type": "atom"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "specyaml-nexus",
+          "identity": "specyaml-nexus",
+          "label": "SpecYAML nexus",
+          "path": "desk/atoms/atom-specyaml-nexus.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/atoms/atom-specyaml-nexus.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "atom:specyaml-nexus"
+    },
+    {
+      "type": "atom",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "atom:traceability-symmetry",
+          "node_type": "atom"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "traceability-symmetry",
+          "identity": "traceability-symmetry",
+          "label": "Traceability symmetry",
+          "path": "desk/atoms/atom-traceability-symmetry.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/atoms/atom-traceability-symmetry.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "atom:traceability-symmetry"
+    },
+    {
+      "type": "config_file",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "config_file:desk/atoms/tag-namespaces.yaml",
+          "node_type": "config_file"
+        },
+        "edges": [],
+        "semantics": {
+          "file_kind": "config",
+          "identity": "desk/atoms/tag-namespaces.yaml",
+          "path": "desk/atoms/tag-namespaces.yaml"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_source_file_nodes_v1",
+              "path": "desk/atoms/tag-namespaces.yaml",
+              "source_kind": "path_rule"
+            }
+          ]
+        }
+      },
+      "id": "config_file:desk/atoms/tag-namespaces.yaml"
+    },
+    {
+      "type": "config_file",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "config_file:desk/config.json",
+          "node_type": "config_file"
+        },
+        "edges": [],
+        "semantics": {
+          "file_kind": "config",
+          "identity": "desk/config.json",
+          "path": "desk/config.json"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_source_file_nodes_v1",
+              "path": "desk/config.json",
+              "source_kind": "path_rule"
+            }
+          ]
+        }
+      },
+      "id": "config_file:desk/config.json"
+    },
+    {
+      "type": "pill",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "pill:contexts-pills",
+          "node_type": "pill"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "contexts-pills",
+          "identity": "contexts-pills",
+          "label": "Pills",
+          "path": "desk/contexts/pills.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/contexts/pills.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "pill:contexts-pills"
+    },
+    {
+      "type": "pill",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "pill:pill-traceability-workflow",
+          "node_type": "pill"
+        },
+        "edges": [],
+        "semantics": {
+          "document_id": "pill-traceability-workflow",
+          "identity": "pill-traceability-workflow",
+          "label": "Pill: Traceability Workflow",
+          "path": "desk/contexts/pill-traceability-workflow.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/contexts/pill-traceability-workflow.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "pill:pill-traceability-workflow"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-specify-sldb-target-crates-spec",
+          "node_type": "task"
+        },
+        "edges": [
+          {
+            "target_id": "pill:pill-traceability-workflow",
+            "relation_type": "references",
+            "metadata": {
+              "confidence": "high",
+              "extractor": "desk_declared_edges_v1",
+              "provenance_locator": "line:16:source-file-reference",
+              "provenance_path": "desk/tasks/task-specify-sldb-target-crates-spec.md",
+              "role": "references",
+              "source_kind": "declared"
+            }
+          }
+        ],
+        "semantics": {
+          "document_id": "task-specify-sldb-target-crates-spec",
+          "identity": "task-specify-sldb-target-crates-spec",
+          "label": "Specify sldb.target.crates spec",
+          "path": "desk/tasks/task-specify-sldb-target-crates-spec.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-specify-sldb-target-crates-spec.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-specify-sldb-target-crates-spec"
+    },
+    {
+      "type": "task",
+      "status": "unknown",
+      "schema": {
+        "identity": {
+          "node_id": "task:task-specify-sldb-target-documents-spec",
+          "node_type": "task"
+        },
+        "edges": [
+          {
+            "target_id": "pill:pill-traceability-workflow",
+            "relation_type": "references",
+            "metadata": {
+              "confidence": "high",
+              "extractor": "desk_declared_edges_v1",
+              "provenance_locator": "line:16:source-file-reference",
+              "provenance_path": "desk/tasks/task-specify-sldb-target-documents-spec.md",
+              "role": "references",
+              "source_kind": "declared"
+            }
+          }
+        ],
+        "semantics": {
+          "document_id": "task-specify-sldb-target-documents-spec",
+          "identity": "task-specify-sldb-target-documents-spec",
+          "label": "Specify sldb.target.documents spec",
+          "path": "desk/tasks/task-specify-sldb-target-documents-spec.md"
+        },
+        "ast": null,
+        "io_ports": [],
+        "compliance": null,
+        "adr": null,
+        "test_map": null,
+        "git": null,
+        "source": {
+          "extractor": "deskops_kgdb_snapshot_v1",
+          "provenance": [
+            {
+              "extractor": "desk_doc_nodes_v1",
+              "path": "desk/tasks/task-specify-sldb-target-documents-spec.md",
+              "source_kind": "file_metadata"
+            }
+          ]
+        }
+      },
+      "id": "task:task-specify-sldb-target-documents-spec"
+    }
+  ],
+  "links": [
+    {
+      "relation": "references",
+      "metadata": {
+        "confidence": "high",
+        "extractor": "desk_declared_edges_v1",
+        "provenance_locator": "line:16:source-file-reference",
+        "provenance_path": "desk/tasks/task-specify-sldb-target-crates-spec.md",
+        "role": "references",
+        "source_kind": "declared"
+      },
+      "source": "task:task-specify-sldb-target-crates-spec",
+      "target": "pill:pill-traceability-workflow"
+    },
+    {
+      "relation": "references",
+      "metadata": {
+        "confidence": "high",
+        "extractor": "desk_declared_edges_v1",
+        "provenance_locator": "line:16:source-file-reference",
+        "provenance_path": "desk/tasks/task-specify-sldb-target-documents-spec.md",
+        "role": "references",
+        "source_kind": "declared"
+      },
+      "source": "task:task-specify-sldb-target-documents-spec",
+      "target": "pill:pill-traceability-workflow"
+    }
+  ]
+}

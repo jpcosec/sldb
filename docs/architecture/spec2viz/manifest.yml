@@ -1,0 +1,32 @@
+id: sldb.spec2viz.manifest
+title: Spec2Viz Manifest
+type: registry
+version: "1.0"
+
+# Punto de entrada machine-readable del nexo spec ↔ atoms ↔ vistas.
+# Gobernado por:
+#   - docs/architecture/contracts/specyaml-schema-contract.md
+#   - docs/architecture/contracts/diagram-traceability-contract.md
+
+specs:
+  - id: sldb.target.components
+    file: target-components.yml
+  - id: sldb.target.store_graph
+    file: target-store-graph.yml
+  - id: sldb.target.runtime
+    file: target-runtime.yml
+  - id: sldb.target.anchoring
+    file: target-anchoring.yml
+
+desk: desk
+agents: AGENTS.md
+views_registry: ../vistas/vistas.yml
+puml_dir: ../core-diagrams
+html_artifact: ../sldb_Kernel_Vistas_UML.html
+atoms_dir: ../../../desk/atoms
+
+tooling:
+  generator: ../../../scripts/generate_vistas_html.py
+  validator: ../../../scripts/validate_spec_traceability.py
+  annotator: ../../../scripts/annotate_server.py
+  annotations: ../../../desk/contexts/vistas-uml.annotations.json

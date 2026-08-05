@@ -5,8 +5,8 @@ title: Shallow `title + body` default
 five_wh_one_plus: when
 tags:
 - system:sldb
-- domain:model.text-structure
-provenance: /home/jp/proyectos/hum-ecosystem/tools/sldb/docs/faq.md
+- domain:model-text-structure
+provenance: source docs/sldb-v1/faq.md
 ---
 
 # Shallow `title + body` default

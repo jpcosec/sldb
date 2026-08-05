@@ -1,0 +1,23 @@
+{
+  "nodes": [
+    {
+      "label": "Concept",
+      "content": "El concepto de persistencia"
+    },
+    {
+      "label": "Action",
+      "content": "Evaluar código Lisp en runtime"
+    }
+  ],
+  "node_holes": [],
+  "edge_property": "directed",
+  "edges": [
+    [
+      0,
+      1,
+      {
+        "relation": "requires"
+      }
+    ]
+  ]
+}

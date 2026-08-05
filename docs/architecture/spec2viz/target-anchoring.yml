@@ -1,13 +1,17 @@
 id: sldb.target.anchoring
 title: Knowledge Kernel Anchoring Model
 type: component
-version: "0.2"
+version: "0.3"
+views:
+  - d14
 
 data:
   nodes:
     AnchorNode:
       label: Anchor node
       kind: core
+      atoms:
+        - ast-anchor
       contains:
         - DocumentPath
         - SourceHash
@@ -19,14 +23,20 @@ data:
     DocumentPath:
       label: source document path
       kind: core
+      atoms:
+        - document-path
 
     SourceHash:
       label: source hash / source fingerprint
       kind: core
+      atoms:
+        - source-document-hash
 
     StableSelector:
       label: stable selector
       kind: core
+      atoms:
+        - stable-selector
       contains:
         - StructuralLocator
         - TextLocator
@@ -35,10 +45,14 @@ data:
     StructuralLocator:
       label: structural / AST locator
       kind: core
+      atoms:
+        - ast-locator
 
     TextLocator:
       label: text locator
       kind: core
+      atoms:
+        - text-locator
 
     FamilySpecificLocator:
       label: family-specific locator
@@ -51,22 +65,32 @@ data:
     PDFLocator:
       label: page / XML locator
       kind: boundary
+      atoms:
+        - page-locator
 
     HTMLLocator:
       label: DOM / element locator
       kind: boundary
+      atoms:
+        - dom-locator
 
     CodeLocator:
       label: syntax / tree-sitter locator
       kind: boundary
+      atoms:
+        - syntax-locator
 
     SampleText:
       label: quoted text sample
       kind: core
+      atoms:
+        - anchor-sample
 
     Comments:
       label: anchor comments
       kind: core
+      atoms:
+        - anchor-comment
 
     AnchorKind:
       label: AST / text / external anchor kind
@@ -75,6 +99,8 @@ data:
     ReversibleFamilies:
       label: reversible document families
       kind: boundary
+      atoms:
+        - reversible-document-family
 
   edges:
     - from: AnchorNode

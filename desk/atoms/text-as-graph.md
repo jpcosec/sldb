@@ -5,8 +5,8 @@ title: Text as graph
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:model.text-structure
-provenance: desk/drawer/features/feature-canonical-ast-design-current-state.md
+- domain:model-text-structure
+provenance: source docs/drawer-features/feature-canonical-ast-design-current-state.md
 ---
 
 # Text as graph

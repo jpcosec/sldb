@@ -5,9 +5,9 @@ title: Ports and adapters
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:architecture.boundaries
-- domain:architecture.integration
-provenance: interfaces.md
+- domain:architecture-boundaries
+- domain:architecture-integration
+provenance: source docs/core/interfaces.md
 ---
 
 # Ports and adapters

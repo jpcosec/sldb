@@ -5,8 +5,8 @@ title: "Decision: v1 parity before scope expansion"
 five_wh_one_plus: why
 tags:
 - system:sldb
-- domain:architecture.migration-strategy
-provenance: desk/drawer/features/feature-sldb-product-principles-and-cli-continuity.md
+- domain:architecture-migration-strategy
+provenance: source docs/drawer-features/feature-sldb-product-principles-and-cli-continuity.md
 ---
 
 # Decision: v1 parity before scope expansion

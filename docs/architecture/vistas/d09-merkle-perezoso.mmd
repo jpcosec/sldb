@@ -1,0 +1,28 @@
+sequenceDiagram
+  actor Client
+  participant Query as Query Engine
+  participant Merkle as Merkle Engine
+  participant Cache as Hash Cache
+  participant Graph as Graph Repository
+  participant CAS as Content Store
+
+  Client->>Query: subtree_hash(node, revision)
+  Query->>Merkle: get_hash(node, revision)
+  Merkle->>Cache: lookup(node, revision)
+  alt hash válido
+    Cache-->>Merkle: cached hash
+  else ausente o dirty
+    Cache-->>Merkle: miss
+    Merkle->>Graph: get_owned_children(node, revision)
+    Graph-->>Merkle: children
+    loop por cada hijo
+      Merkle->>Merkle: get_hash(child, revision)
+    end
+    Merkle->>Graph: get_canonical_node(node)
+    Graph-->>Merkle: type + payload + metadata
+    Merkle->>CAS: hash(canonical data + child hashes)
+    CAS-->>Merkle: ContentHash
+    Merkle->>Cache: put(node, revision, hash)
+  end
+  Merkle-->>Query: ContentHash
+  Query-->>Client: ContentHash

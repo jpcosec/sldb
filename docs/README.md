@@ -10,8 +10,8 @@ This directory keeps planning and architecture material for the current kernel/c
 - `architecture/spec2viz/target-runtime.yml`
 - `architecture/spec2viz/target-store-graph.yml`
 - `architecture/spec2viz/target-anchoring.yml`
-- `architecture/phase-1-resolution-pack.md`
-- `architecture/phase-1-macro-implementation-plan.md`
+
+Historical planning packs (`phase-1-resolution-pack.md`, `phase-1-macro-implementation-plan.md`) were removed from the live KB on 2026-07-31; they are retained in Git history.
 
 ## Authority note
 

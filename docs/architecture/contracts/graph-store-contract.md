@@ -10,6 +10,12 @@ Governing sources:
 - `desk/atoms/append-only-event-log.md`
 - `desk/atoms/store-infrastructure.md`
 - `desk/atoms/store-integrity-checks.md`
+- `desk/atoms/storage-backend.md`
+- `desk/atoms/decision-rusqlite-store.md`
+- `desk/atoms/decision-search-index-library.md`
+- `core_README.md` (Persistencia)
+- `interfaces.md` (`StorageBackend`)
+- `libraries_core.md`
 - `docs/architecture/spec2viz/target-store-graph.yml`
 
 ## Storage Architecture
@@ -20,11 +26,13 @@ Governing sources:
 
 ### 2. Local Infrastructure (`.sldb`)
 - **Location**: A hidden directory `.sldb` at the project root.
-- **Components**:
-  - `nodes.db`: Storage of serialized AST segments (hash-addressed).
-  - `edges.db`: Storage of links and structural relations.
-  - `indices.db`: SQLite/FTS5 indexes for fast structural and full-text retrieval.
-  - `blobs/`: Storage of non-structural attachments (if any).
+- **Authoritative components** (the source of truth, per `core_README.md`):
+  - `Transaction Log`: append-only record of all transactions; a committed transaction is never modified.
+  - `Revision Store`: immutable revisions with parents, producing transaction, and root hash.
+  - `Content-Addressed Store`: `hash -> content` payloads, enabling deduplication and integrity verification.
+  - `Document Heads`: per-document pointer to the current revision, updated via compare-and-swap.
+- **Derived, rebuildable components** (never authoritative): structural, field, and search indexes, caches, and projections.
+- **Backend**: all persistence sits behind the kernel-owned `StorageBackend` interface (`desk/atoms/storage-backend.md`, `desk/atoms/decision-rusqlite-store.md`). `redb` is the default embedded backend and `CozoDB` a valid alternative (`libraries_core.md`, `interfaces.md`). No specific engine — including SQLite/FTS5 — is mandated; index technology is replaceable (`desk/atoms/decision-search-index-library.md`).
 
 ## Data Integrity
 

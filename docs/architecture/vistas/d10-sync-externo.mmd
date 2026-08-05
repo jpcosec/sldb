@@ -1,0 +1,31 @@
+sequenceDiagram
+  actor Client
+  participant Source as Source Manager
+  participant FS as Filesystem Adapter
+  participant Merkle as Merkle Engine
+  participant Parser as Parser Registry
+  participant Canonical as Canonicalizer
+  participant Reconciler as Graph Reconciler
+  participant Tx as Transaction Engine
+
+  Client->>Source: open(document)
+  Source->>FS: stat(source_path)
+  FS-->>Source: size, modified_at, file_id
+  Source->>Merkle: compare_source_fingerprint(document)
+  alt fuente no cambió
+    Merkle-->>Source: unchanged
+    Source-->>Client: current revision
+  else posiblemente cambió
+    Merkle-->>Source: unknown or changed
+    Source->>FS: read affected content
+    FS-->>Source: bytes
+    Source->>Parser: parse(bytes)
+    Parser-->>Source: syntax AST
+    Source->>Canonical: normalize(AST)
+    Canonical-->>Source: canonical AST
+    Source->>Reconciler: diff(current graph, canonical AST)
+    Reconciler-->>Source: operations
+    Source->>Tx: commit(operations)
+    Tx-->>Source: new revision
+    Source-->>Client: new revision
+  end

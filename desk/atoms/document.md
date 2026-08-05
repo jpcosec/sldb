@@ -5,8 +5,8 @@ title: Document
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:model.documents
-provenance: core_README.md
+- domain:model-documents
+provenance: source docs/core/core_README.md
 ---
 
 # Document

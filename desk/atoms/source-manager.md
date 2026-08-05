@@ -5,9 +5,9 @@ title: Source manager
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:pipeline.importers
-- domain:surfaces.cli.workflows
-provenance: diagramas_core.md
+- domain:pipeline-importers
+- domain:surfaces-cli-workflows
+provenance: source docs/core/diagramas_core.md
 ---
 
 # Source manager

@@ -5,8 +5,8 @@ title: Python CLI orchestration layer
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:implementation.python-cli
-provenance: interfaces.md
+- domain:implementation-python-cli
+provenance: source docs/core/interfaces.md
 ---
 
 # Python CLI orchestration layer

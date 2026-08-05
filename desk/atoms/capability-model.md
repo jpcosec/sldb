@@ -5,9 +5,9 @@ title: Capability model
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:architecture.boundaries
-- domain:security.capabilities
-provenance: core_README.md
+- domain:architecture-boundaries
+- domain:security-capabilities
+provenance: source docs/core/core_README.md
 ---
 
 # Capability model

@@ -5,9 +5,9 @@ title: Semantic provider
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:architecture.integration
-- domain:runtime.semantic
-provenance: interfaces.md
+- domain:architecture-integration
+- domain:runtime-semantic
+provenance: source docs/core/interfaces.md
 ---
 
 # Semantic provider

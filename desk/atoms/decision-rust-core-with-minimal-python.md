@@ -5,8 +5,8 @@ title: Decision kernel authority stays in Rust
 five_wh_one_plus: why
 tags:
 - system:sldb
-- domain:architecture.decisions
-provenance: core_README.md
+- domain:architecture-decisions
+provenance: source docs/core/core_README.md
 ---
 
 # Decision kernel authority stays in Rust

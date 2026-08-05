@@ -19,7 +19,7 @@ Governing sources:
 - **Links**: Indexing of all cross-references (internal and external).
 
 ### 2. Full-Text Search (FTS)
-- **Engine**: SQLite FTS5 (or Tantivy if justified).
+- **Engine**: replaceable, behind a kernel-owned search interface (`desk/atoms/decision-search-index-library.md`); no fixed engine is mandated. Candidates per `libraries_core.md`: redb-backed custom indexes, CozoDB query facilities, or an embedded FTS engine chosen at implementation time.
 - **Scope**: Indexing of all text content, mapped back to Canonical AST nodes.
 
 ## Query Capabilities

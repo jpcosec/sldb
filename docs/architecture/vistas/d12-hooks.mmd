@@ -1,0 +1,27 @@
+sequenceDiagram
+  participant Events as Event Bus
+  participant Hooks as Hook Engine
+  participant Logic as Logic Engine
+  participant Caps as Capability Manager
+  participant Outbox as Effect Outbox
+  participant Runner as Effect Runner
+  participant Tool as Git / Tool / Agent
+  participant Tx as Transaction Engine
+
+  Events->>Hooks: TransactionCommitted(event)
+  Hooks->>Hooks: buscar hooks aplicables
+  Hooks->>Logic: evaluar condición
+  Logic-->>Hooks: true / false
+  alt condición verdadera
+    Hooks->>Caps: validar ActionPlan
+    Caps-->>Hooks: permitido
+    Hooks->>Outbox: enqueue(effect)
+    Outbox-->>Hooks: effect_id
+    Runner->>Outbox: claim(effect)
+    Runner->>Tool: ejecutar acción
+    Tool-->>Runner: resultado
+    Runner->>Tx: registrar EffectResult
+    Tx-->>Runner: nueva revisión
+  else condición falsa
+    Hooks->>Hooks: no action
+  end

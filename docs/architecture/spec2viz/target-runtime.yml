@@ -1,7 +1,11 @@
 id: sldb.target.runtime
 title: Knowledge Kernel Runtime View
 type: deployment
-version: "0.2"
+version: "0.3"
+views:
+  - d08
+  - d12
+  - d15
 
 data:
   nodes:
@@ -74,6 +78,7 @@ data:
         - git_remote
         - llm_services
         - external_apis
+        - logic_services
 
   artifacts:
     cli_client:
@@ -97,63 +102,97 @@ data:
     kernel_api:
       label: Kernel API boundary
       kind: backend
+      atoms:
+        - kernel-api
     capability_gate:
       label: capability gate
       kind: backend
+      atoms:
+        - capability-model
     plan_compiler:
       label: plan compiler
       kind: backend
     lisp_runtime:
       label: Lisp runtime
       kind: backend
+      atoms:
+        - lisp-macro-language
     transaction_engine:
       label: Transaction engine
       kind: backend
+      atoms:
+        - transaction
     query_engine:
       label: Query engine
       kind: backend
+      atoms:
+        - query-engine
     projection_engine:
       label: Projection engine
       kind: backend
+      atoms:
+        - projection
     hook_engine:
       label: Hook engine
       kind: backend
+      atoms:
+        - hook-runtime
     observability_surface:
       label: observability surface
       kind: backend
+      atoms:
+        - observability-surface
     failure_classifier:
       label: failure classifier
       kind: backend
     recovery_manager:
       label: recovery manager
       kind: backend
+      atoms:
+        - store-recovery
     migration_manager:
       label: migration manager
       kind: backend
+      atoms:
+        - migration-unit
     conformance_runner:
       label: conformance runner
       kind: backend
+      atoms:
+        - conformance-suite
     local_database:
       label: redb / Cozo / memory backend
       kind: database
+      atoms:
+        - storage-backend
     content_store:
       label: content-addressed payload store
       kind: database
+      atoms:
+        - content-addressed-store
     tracked_files:
       label: tracked source files
       kind: backend
     compatibility_metadata:
       label: compatibility metadata
       kind: database
+      atoms:
+        - compatibility-surface
     backup_exports:
       label: backup / export artifacts
       kind: database
+      atoms:
+        - backup-export
     retention_runtime:
       label: retention policy runtime
       kind: backend
+      atoms:
+        - retention-policy
     garbage_collector:
       label: garbage collector
       kind: backend
+      atoms:
+        - garbage-collection
     verify_recover_tools:
       label: verify / recover tools
       kind: backend
@@ -165,6 +204,9 @@ data:
       kind: boundary
     llm_services:
       label: embedding / LLM services (deferred after first slice)
+      kind: boundary
+    logic_services:
+      label: external logic / rule service
       kind: boundary
     external_apis:
       label: external tools / APIs
@@ -255,6 +297,9 @@ data:
     - from: query_engine
       to: llm_services
       protocol: deferred semantic provider API
+    - from: query_engine
+      to: logic_services
+      protocol: external logic provider API
     - from: recovery_manager
       to: local_database
       protocol: verify / replay / rebuild

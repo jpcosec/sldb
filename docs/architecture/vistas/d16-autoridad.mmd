@@ -1,0 +1,22 @@
+flowchart TD
+  Lisp["Lisp / DSL"]
+  Clients["CLI / UI / Agents"]
+  Projections["Projections"]
+  Semantics["Semantics"]
+  Effects["Hooks and Effects"]
+  Core["Kernel Core"]
+  Storage["Storage Traits"]
+  Backend["Storage Implementation"]
+
+  Lisp -- "compila a operaciones" --> Core
+  Clients -- "comandos y consultas" --> Core
+  Projections -- "leen revisiones" --> Core
+  Semantics -- "datos derivados" --> Projections
+  Effects -- "registran resultados" --> Core
+  Core --> Storage
+  Storage --> Backend
+
+  CoreNote["Único componente autorizado para producir nuevas revisiones."]
+  LispNote["Extensible, pero no controla directamente la persistencia."]
+  Core -.-> CoreNote
+  Lisp -.-> LispNote

@@ -5,9 +5,9 @@ title: Effect outbox
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:runtime.hooks
-- domain:runtime.effects
-provenance: diagramas_core.md
+- domain:runtime-hooks
+- domain:runtime-effects
+provenance: source docs/core/diagramas_core.md
 ---
 
 # Effect outbox

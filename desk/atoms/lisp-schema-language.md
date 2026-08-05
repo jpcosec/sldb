@@ -5,8 +5,8 @@ title: Lisp schema language
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:model.fields-schemas
-provenance: core_README.md
+- domain:model-fields-schemas
+provenance: source docs/core/core_README.md
 ---
 
 # Lisp schema language

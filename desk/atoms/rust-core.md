@@ -5,8 +5,8 @@ title: Rust core
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:implementation.rust-core
-provenance: core_README.md
+- domain:implementation-rust-core
+provenance: source docs/core/core_README.md
 ---
 
 # Rust core

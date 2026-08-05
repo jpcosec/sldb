@@ -5,8 +5,8 @@ title: Canonical address
 five_wh_one_plus: what
 tags:
 - system:sldb
-- domain:model.addressability
-provenance: desk/drawer/features/feature-canonical-ast-design-current-state.md
+- domain:model-addressability
+provenance: source docs/drawer-features/feature-canonical-ast-design-current-state.md
 ---
 
 # Canonical address

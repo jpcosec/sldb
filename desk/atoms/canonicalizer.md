@@ -5,9 +5,9 @@ title: Canonicalizer
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:pipeline.importers
-- domain:model.ast-core
-provenance: diagramas_core.md
+- domain:pipeline-importers
+- domain:model-ast-core
+provenance: source docs/core/diagramas_core.md
 ---
 
 # Canonicalizer

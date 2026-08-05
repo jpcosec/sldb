@@ -5,9 +5,9 @@ title: Storage backend
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:store.persistence
-- domain:architecture.integration
-provenance: interfaces.md
+- domain:store-persistence
+- domain:architecture-integration
+provenance: source docs/core/interfaces.md
 ---
 
 # Storage backend

@@ -5,8 +5,8 @@ title: Graph projection
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:runtime.projections
-provenance: desk/drawer/features/feature-sldb-explicit-target-architecture.md
+- domain:runtime-projections
+provenance: source docs/drawer-features/feature-sldb-explicit-target-architecture.md
 ---
 
 # Graph projection

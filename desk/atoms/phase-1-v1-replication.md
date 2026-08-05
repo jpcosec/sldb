@@ -5,8 +5,8 @@ title: Phase 1 v1 replication
 five_wh_one_plus: when
 tags:
 - system:sldb
-- domain:architecture.migration-strategy
-provenance: docs/architecture/target-system-overview.md
+- domain:architecture-migration-strategy
+provenance: source docs/architecture/target-system-overview.md
 ---
 
 # Phase 1 v1 replication

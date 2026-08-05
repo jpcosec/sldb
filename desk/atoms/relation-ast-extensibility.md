@@ -5,8 +5,8 @@ title: RelationAST and extensibility
 five_wh_one_plus: how
 tags:
 - system:sldb
-- domain:implementation.rust-core
-provenance: docs/architecture/target-system-overview.md
+- domain:implementation-rust-core
+provenance: source docs/architecture/target-system-overview.md
 ---
 
 # RelationAST and extensibility

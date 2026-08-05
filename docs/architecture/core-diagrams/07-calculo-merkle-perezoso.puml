@@ -1,3 +1,6 @@
+' --- trazabilidad (diagram-traceability-contract) ---
+' vista: d09
+' governed-by: sldb.target.store_graph
 @startuml
 title Cálculo Merkle perezoso
 

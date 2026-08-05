@@ -6,7 +6,9 @@ tags:
 - workspace:desk
 - artifact:task
 - system:sldb
-history: ["2026-07-29: closed with high-fidelity contract artifact."]
+history:
+- "2026-07-29: closed with high-fidelity contract artifact."
+- "2026-08-01: removed legacy SQLite FTS5 engine mandate from Scope and Validation; the delivered contract already reflects the replaceable search-interface decision."
 references:
 - desk/atoms/query-engine.md
 - desk/atoms/semantic-indexing.md
@@ -37,7 +39,7 @@ Define the Phase 1 retrieval surface and mandatory indexes. Ensure that `stores 
 
 - **In-Scope**: 
   - `SectionIndex`, `FieldIndex`, and `SemanticIndex` (tag-based).
-  - `SearchIndex` projection using `SQLite FTS5`.
+  - `SearchIndex` projection behind a kernel-owned, replaceable search interface.
   - Structural joins across `RelationEdges`.
 - **Out-of-Scope**: 
   - `VisualUX` graph explorer queries.
@@ -52,10 +54,14 @@ Define the Phase 1 retrieval surface and mandatory indexes. Ensure that `stores 
 
 ## Validation
 
-- Does the contract mandate `SQLite FTS5`?
+- Does the contract keep the search engine replaceable behind a kernel-owned interface?
 - Does it cover all 4 derived index types from `target-store_graph.yml`?
 - Does it align with the `find` command group in `target-components.yml`?
 
 ## Done When
 
 The high-fidelity `query-and-index-parity-contract.md` is committed and approved.
+
+## Normalization note (2026-08-01)
+
+The legacy SQLite FTS5 mandate was removed from this task's body. Per `desk/atoms/decision-search-index-library.md` and `libraries_core.md`, search/index engines are derived, replaceable services behind kernel-owned interfaces. The delivered contract was amended accordingly on 2026-07-31.
