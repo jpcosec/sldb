@@ -3,7 +3,7 @@ from __future__ import annotations
 from enum import Enum
 from pathlib import Path
 from types import UnionType
-from typing import Any, Union, get_args, get_origin
+from typing import Any, Literal, Union, get_args, get_origin
 
 from sldb.cli.model_utils import resolve_model_ref
 from sldb.store.io import load_store_index
@@ -65,6 +65,8 @@ def scalar_kind(annotation: Any) -> str:
 
 
 def enum_values(annotation: Any) -> list[Any] | None:
+    if get_origin(annotation) is Literal:
+        return list(get_args(annotation))
     if not isinstance(annotation, type):
         return None
     if not issubclass(annotation, Enum):
