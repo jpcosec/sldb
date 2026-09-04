@@ -1,7 +1,7 @@
 documents:
 - name: edge-task-define-sldb-addressability-model-activate-to-testing
   path: desk/primitives/edges/edge-task-define-sldb-addressability-model-activate-to-testing.md
-  hash_c: c8f56091928d369d1ebf9d484700d40b13ae06df6c6dbed26fe63af5f1d58df6
+  hash_c: 6110c70176b349c9aa304ff712d86facec68efc97f23747cf998131755a60e0b
   hash_d: 874ceca374ce7ee2d0f32713ba749014426635366f4a87fbb243a37808b49268
   semantic_tags:
   - primitive:edge
@@ -9,7 +9,7 @@ documents:
   - workspace.desk.primitives
 - name: edge-task-define-sldb-addressability-model-close-to-complete
   path: desk/primitives/edges/edge-task-define-sldb-addressability-model-close-to-complete.md
-  hash_c: 502060cf3c4aa98ba4cbb986a9711f578955f9079c98675a99b37d33bb427328
+  hash_c: cbc558fa78559c9b3dbd7c2418d89c38ac0d432d188f48e82817dbe0b160971b
   hash_d: 85c16ba29d671df748cb9f4fc9ada6ea4a8fca61f07169750e16fa3d67781dda
   semantic_tags:
   - primitive:edge
@@ -17,7 +17,7 @@ documents:
   - workspace.desk.primitives
 - name: edge-task-define-sldb-addressability-model-closeout-to-close
   path: desk/primitives/edges/edge-task-define-sldb-addressability-model-closeout-to-close.md
-  hash_c: acaafcc0084ab32b8843b13461b785fd0bd885444fc740ae53ac28fdbdbde12d
+  hash_c: 40e475058c8ebdd973e3ab04971603baffa1fa477f3872d9ab3371b5be81bdfa
   hash_d: 95de43a3ba710b712d3ba0d14436e243117be06b8999340b7e537d0443ae70ed
   semantic_tags:
   - primitive:edge
@@ -25,7 +25,7 @@ documents:
   - workspace.desk.primitives
 - name: edge-task-define-sldb-addressability-model-execution-to-activate
   path: desk/primitives/edges/edge-task-define-sldb-addressability-model-execution-to-activate.md
-  hash_c: 28657cbc3506f2e44c786c44ffdd400d062b0112a2a5b15488c532e53b1306eb
+  hash_c: dac24dc51ac062b3d4d164fc1bbc41893a0fd296123f87619fb4f1df8b0f40cb
   hash_d: b307faa996fe15ac345f9647fe765c736f2ebebf395ba8bc72d5dd08694584b3
   semantic_tags:
   - primitive:edge
@@ -33,7 +33,7 @@ documents:
   - workspace.desk.primitives
 - name: edge-task-define-sldb-addressability-model-ready-to-closeout
   path: desk/primitives/edges/edge-task-define-sldb-addressability-model-ready-to-closeout.md
-  hash_c: 95ae4872d627f9a49cbe3e82cc6e01a745d5845e42ab3313937692a370c36a95
+  hash_c: 4acd01bdf25435fb28799e2a42fe9524a13e1ddf70c5817e8423b525c86c2353
   hash_d: 80d53aa31c596c471144a30a4e9330599e7822e917b14d07b039979af71f8010
   semantic_tags:
   - primitive:edge
@@ -41,7 +41,7 @@ documents:
   - workspace.desk.primitives
 - name: edge-task-define-sldb-addressability-model-testing-to-ready
   path: desk/primitives/edges/edge-task-define-sldb-addressability-model-testing-to-ready.md
-  hash_c: eab793d683ac911135547a329f0ee147a951e7550c542f5efd2433c9d1ef506a
+  hash_c: ad88fe481c15e0abd0ea1328e32862e9cf47b4936597ceb910155434e4318052
   hash_d: 4f10933729efefb76cf2749d2802e6b29c0b4c592f86d3ad16358d6974492e57
   semantic_tags:
   - primitive:edge
@@ -97,7 +97,7 @@ documents:
   - workspace.desk.primitives
 - name: edge-task-design-sldb-ast-query-primitives-activate-to-testing
   path: desk/primitives/edges/edge-task-design-sldb-ast-query-primitives-activate-to-testing.md
-  hash_c: b8f693b1a400ddfdc89b9f09c28c07da537e57f6b4bedaee47a13524ebc0f4c1
+  hash_c: 614f9bb4822add80f91e64e2122133603098d4b4d2a845d7f077d7947e8bdff8
   hash_d: 1281f1fc7c5e74d98922c3414726d079a77080c660481ea77e5065c4f03b1397
   semantic_tags:
   - primitive:edge
@@ -105,7 +105,7 @@ documents:
   - workspace.desk.primitives
 - name: edge-task-design-sldb-ast-query-primitives-close-to-complete
   path: desk/primitives/edges/edge-task-design-sldb-ast-query-primitives-close-to-complete.md
-  hash_c: 1d4eba72c9f4f2a477bf3aca3ffe9f4f1232bb1c8fa18f8bf369ebc45f4ddb91
+  hash_c: 941edb9b7319d062eac4102b144823d127bf809275d0dcc32f4bc17f66137625
   hash_d: dc9c31503fb584eab3c31c9afe1bbe64c1249b38a4c55be75efc3fa51375f90e
   semantic_tags:
   - primitive:edge
@@ -113,7 +113,7 @@ documents:
   - workspace.desk.primitives
 - name: edge-task-design-sldb-ast-query-primitives-closeout-to-close
   path: desk/primitives/edges/edge-task-design-sldb-ast-query-primitives-closeout-to-close.md
-  hash_c: 48eeda3e8f6fd379d0c8d194a662906a0885b48f60a9ecf967caafab698f00b7
+  hash_c: 48b1c74629da03715971501b1dc7333d37c7877c0950440f9d5fa2e309c48e88
   hash_d: 797e8bde3446e7578fc1849a8fe176d6d4fd064e2b9ab778a5cc650dfd9ba19d
   semantic_tags:
   - primitive:edge
@@ -121,7 +121,7 @@ documents:
   - workspace.desk.primitives
 - name: edge-task-design-sldb-ast-query-primitives-execution-to-activate
   path: desk/primitives/edges/edge-task-design-sldb-ast-query-primitives-execution-to-activate.md
-  hash_c: a4f1ad8f9789a8303e3c3ea1f3e66586271d761ea6b197748c4e5ed1a96733b1
+  hash_c: 8698c39a384b9c88aa4ce755f98a956831a288fac4409b3b7d7ba718ebc6598d
   hash_d: c9b4414147a724eceb3b24a1d9a837e3e810b5893259424f4e8261fc00a53482
   semantic_tags:
   - primitive:edge
@@ -129,7 +129,7 @@ documents:
   - workspace.desk.primitives
 - name: edge-task-design-sldb-ast-query-primitives-ready-to-closeout
   path: desk/primitives/edges/edge-task-design-sldb-ast-query-primitives-ready-to-closeout.md
-  hash_c: e4e2b361c643447a1bb6c28e97dd5ed2660adf8555ad016c6cf61f0b95de6718
+  hash_c: c016cf6437526e733d9c228ffbbf392f40d9cdc0ea8300b984eef60476a6ddca
   hash_d: 9f52bcb84725e95a379155352465720a14cba7803653d1b4fd3df6c56b08fe18
   semantic_tags:
   - primitive:edge
@@ -137,7 +137,7 @@ documents:
   - workspace.desk.primitives
 - name: edge-task-design-sldb-ast-query-primitives-testing-to-ready
   path: desk/primitives/edges/edge-task-design-sldb-ast-query-primitives-testing-to-ready.md
-  hash_c: 62ae959f80fef7c7a314c008cb69e09530beb127efe95d82995a96731b7bd01b
+  hash_c: 95d07f036d30fc9afb134553ea6a166ae5187d1060c63bf0b070049be7a7e98b
   hash_d: cf9ce3e8e86a55df0ec231f6abc9d8a53e74c90485dcfa41ca96e22d95c79e3f
   semantic_tags:
   - primitive:edge
@@ -247,7 +247,7 @@ documents:
   - workspace.desk.primitives
 - name: edge-task-expand-sldb-composition-modes-activate-to-testing
   path: desk/primitives/edges/edge-task-expand-sldb-composition-modes-activate-to-testing.md
-  hash_c: 4b6e725d8181983c0fbfd065d2f2294c3ffc7d7a59fe587b7c93f246ac38c049
+  hash_c: ba1848eba04581008214d4f4f194a3d4796273a2546955fc20c63b90179cd805
   hash_d: 7ad2215e280c1003c3b3750cc3f4ad8d3555f390c2901916d95b274cd5a93ed0
   semantic_tags:
   - primitive:edge
@@ -255,7 +255,7 @@ documents:
   - workspace.desk.primitives
 - name: edge-task-expand-sldb-composition-modes-close-to-complete
   path: desk/primitives/edges/edge-task-expand-sldb-composition-modes-close-to-complete.md
-  hash_c: b56ec1795d77092612100cec78cdfe482e56324fb4785935181756b883d788e3
+  hash_c: 62010dba09975cc58fbdf83c1462190c7298c09046a1bc2614e58d305283a5e5
   hash_d: ec43293ac311285d257b767c5ad8645887f537370eb25f00d0bcfa73ac87369f
   semantic_tags:
   - primitive:edge
@@ -263,7 +263,7 @@ documents:
   - workspace.desk.primitives
 - name: edge-task-expand-sldb-composition-modes-closeout-to-close
   path: desk/primitives/edges/edge-task-expand-sldb-composition-modes-closeout-to-close.md
-  hash_c: 62f99cc58f9e97b5de052b4cd337dc4de5ef337f7ad3c5b4cd9886ad94e34497
+  hash_c: 4fd9c4997b1f5d30a8a0a3d18d4e164c3af1efa6d44bb38771e1cb5295e3daca
   hash_d: 2fe9b32e553221e800ede66d5bf0b5049523fcfeb2c1e59fcacab21ecd62330b
   semantic_tags:
   - primitive:edge
@@ -271,7 +271,7 @@ documents:
   - workspace.desk.primitives
 - name: edge-task-expand-sldb-composition-modes-execution-to-activate
   path: desk/primitives/edges/edge-task-expand-sldb-composition-modes-execution-to-activate.md
-  hash_c: fe3dc4e8b33d67e080066e02dda7bef08e5cf06cf2e88d9a14e3a63d4d08e7fa
+  hash_c: 5d73c017d289af14b5b8be6ea91afe0d2dcc0119c9bebfcb58e64f6ba2adfeee
   hash_d: 0cb05eac69bf2628ffd12cd8c628848e0cebe1e7925c61a860b5b3b804902033
   semantic_tags:
   - primitive:edge
@@ -279,7 +279,7 @@ documents:
   - workspace.desk.primitives
 - name: edge-task-expand-sldb-composition-modes-ready-to-closeout
   path: desk/primitives/edges/edge-task-expand-sldb-composition-modes-ready-to-closeout.md
-  hash_c: cfd3e2b2817dacec4a15ee2939f3e5e331b9b22ad8fbbe0a1381cfb753fc5b83
+  hash_c: e040ddcb6bec6b691e6994001eee08f7c14aa7e5a67bf4b1cea7a3f8334c2336
   hash_d: 683f1a014707657fb8e99683e757c88947825feeb24e2cf137af4028274009c6
   semantic_tags:
   - primitive:edge
@@ -287,7 +287,7 @@ documents:
   - workspace.desk.primitives
 - name: edge-task-expand-sldb-composition-modes-testing-to-ready
   path: desk/primitives/edges/edge-task-expand-sldb-composition-modes-testing-to-ready.md
-  hash_c: b34d53819d4959b2a2b3fc23d29fff2468cdcbbd964b3206731376927f40804e
+  hash_c: 3e48cb86aa086137f53b3e64053cb2e6f12f544f89e6b6f0c1065160a0b62d8e
   hash_d: ca26dab6d0ab5b06545a4d58bbc77c6b91ede8342f6db2ae8d9bbaede66bb900
   semantic_tags:
   - primitive:edge
@@ -343,7 +343,7 @@ documents:
   - workspace.desk.primitives
 - name: edge-task-tighten-semantic-export-provenance-contract-activate-to-testing
   path: desk/primitives/edges/edge-task-tighten-semantic-export-provenance-contract-activate-to-testing.md
-  hash_c: 0fbb077beff7d7330e8fd389d7dd011bf6d401a88b480e64388212f69c409fbb
+  hash_c: afbf623a5b2be2f95ad97bacfa7d5a3166bf8dbc824e9d62a09622f1a3400cf8
   hash_d: adf3588a6aa86335c51f5760c02844ce8a5f9561be84116b8a58bfc37b901e6f
   semantic_tags:
   - primitive:edge
@@ -351,7 +351,7 @@ documents:
   - workspace.desk.primitives
 - name: edge-task-tighten-semantic-export-provenance-contract-close-to-complete
   path: desk/primitives/edges/edge-task-tighten-semantic-export-provenance-contract-close-to-complete.md
-  hash_c: ac83988db743c9381259d8ca1d7bdc5a02a9b81733e23d63a5a9656d789900a8
+  hash_c: f40088074d7c7c178a49e0d996256cf5f916b875188fd2baf708a2963b3db0c4
   hash_d: a00d731714d494ec179cba52cab52f6270b67caeacf1f8b4291bcc08d2cbe1fc
   semantic_tags:
   - primitive:edge
@@ -359,7 +359,7 @@ documents:
   - workspace.desk.primitives
 - name: edge-task-tighten-semantic-export-provenance-contract-closeout-to-close
   path: desk/primitives/edges/edge-task-tighten-semantic-export-provenance-contract-closeout-to-close.md
-  hash_c: b4bd3cbe3c800fe52572dc974f9e5adb0ce4d83ab0dd8db680aaa50d220c449c
+  hash_c: 840065fd721d307172c53bffbd64959109665a1644d1a49d37f5866de54795e9
   hash_d: 3b7cdee614bfe4011d16cc4e3160a3ad4a00c174194e6b993e0a8c6f2f1dcab8
   semantic_tags:
   - primitive:edge
@@ -367,7 +367,7 @@ documents:
   - workspace.desk.primitives
 - name: edge-task-tighten-semantic-export-provenance-contract-execution-to-activate
   path: desk/primitives/edges/edge-task-tighten-semantic-export-provenance-contract-execution-to-activate.md
-  hash_c: c0f9d9f81e0caae5d07a3498fbb95fe62bc9799987fac7775b4219f1459d0ab5
+  hash_c: ee1d875dffb5ae9347dfbcb18dd43b368ce89308fab7c18b1e975af5426ec47e
   hash_d: b2448dd282f2e362985a2983c511843bb2ad2c5b19bb91b043d187c2895bca8b
   semantic_tags:
   - primitive:edge
@@ -375,7 +375,7 @@ documents:
   - workspace.desk.primitives
 - name: edge-task-tighten-semantic-export-provenance-contract-ready-to-closeout
   path: desk/primitives/edges/edge-task-tighten-semantic-export-provenance-contract-ready-to-closeout.md
-  hash_c: 6bf2ee805a8af97cd4c8f2499e0ef8564578d0819fde8109edb2ec1286f83ba4
+  hash_c: 967df1ab2bace5df8751c145cc9d48b783c6a249b646c7fcddf09718d7edf1cb
   hash_d: ca03784dcab0f3be2ee588616373bff0cd8041cdd1132df35cc1a31c6fb3930b
   semantic_tags:
   - primitive:edge
@@ -383,7 +383,7 @@ documents:
   - workspace.desk.primitives
 - name: edge-task-tighten-semantic-export-provenance-contract-testing-to-ready
   path: desk/primitives/edges/edge-task-tighten-semantic-export-provenance-contract-testing-to-ready.md
-  hash_c: 1a4dfc007df850e323244ffbd65d72a3cce4b40fdd85c346ecdd4ac11412014d
+  hash_c: d7f6a44ed0d40af78f494062596cd0367ecd9f5af63362eac1a58dc619a3fda7
   hash_d: 73ba5cb3586ae8ba0d69ac14e7531abc3d9071e45b16d3a793f4e1ad50fe9e49
   semantic_tags:
   - primitive:edge

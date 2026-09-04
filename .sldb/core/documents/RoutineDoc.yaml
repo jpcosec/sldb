@@ -1,7 +1,7 @@
 documents:
 - name: routine-task-define-sldb-addressability-model
   path: desk/routines/routine-task-define-sldb-addressability-model.md
-  hash_c: d8043ff683ffd04c84c905cfec96cf12a91c77fd3dc6290b0b777681b684cb76
+  hash_c: 5c6ad449247cc981004998f4932429f151c4d0e62c2cabee2684a17bfdeedf8a
   hash_d: 1be1439275474f0da50d5c29d85a77185b8fc6a927d01d50a6a1430872332700
   semantic_tags:
   - primitive:routine
@@ -19,7 +19,7 @@ documents:
   - workspace:desk
 - name: routine-task-design-sldb-ast-query-primitives
   path: desk/routines/routine-task-design-sldb-ast-query-primitives.md
-  hash_c: 54da44021685c32987e4461d57a0b1ff87449ed97a0a1881b5baa43268312f8b
+  hash_c: d19ca13065014e0ad9ec6596ec0f4b20e4be1c45fa2b52e7d4ea49a46ed28c51
   hash_d: c89be760ca06dcdea710ef6ea3f5f10534b27f2175bae20c75d831ab67629a7e
   semantic_tags:
   - primitive:routine
@@ -47,7 +47,7 @@ documents:
   - workspace:desk
 - name: routine-task-expand-sldb-composition-modes
   path: desk/routines/routine-task-expand-sldb-composition-modes.md
-  hash_c: e290f288d26dec79ecb2dfca381d78fcfed9cdaa4cf05f44fd41de725a53e204
+  hash_c: 6d7a531dfe8c374a4a268bf2285404894d71dcc714f112c399506c7b622a10d8
   hash_d: 12d7d8f6466e4fc9c70a5a3291708e30f68276cd08a2eb5ef7dab3976bdda55f
   semantic_tags:
   - primitive:routine
@@ -65,7 +65,7 @@ documents:
   - workspace:desk
 - name: routine-task-tighten-semantic-export-provenance-contract
   path: desk/routines/routine-task-tighten-semantic-export-provenance-contract.md
-  hash_c: c996214c942c1b2e69bae792bab5de14759f8f01339fc4f10459b26c7c3a848b
+  hash_c: 37e066adae748dcf7a610b69b31b5136f8a8ab9a1d8c25eb6b15e420879e25e9
   hash_d: c485f55bc80618f8c8bd79a4de2e052f992e4f4ae3c912e135beb1f038faaaa4
   semantic_tags:
   - primitive:routine

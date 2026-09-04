@@ -1,7 +1,7 @@
 documents:
 - name: condition-task-define-sldb-addressability-model-has-implementation-path
   path: desk/primitives/conditions/condition-task-define-sldb-addressability-model-has-implementation-path.md
-  hash_c: 167d88460e9aa83ef0dafb84db92d1462f14a73feb9f1bd2a05a809704930d99
+  hash_c: 0db91d64bd6c8f56cc807152a594b57634455ae31fac3fffde9c4aa5e5b4ec86
   hash_d: 87ee45b88e257edac268a9a4c151bec0208a2215466e295e16d18b8fff61f914
   semantic_tags:
   - primitive:condition
@@ -17,7 +17,7 @@ documents:
   - workspace.desk.primitives
 - name: condition-task-define-sldb-addressability-model-has-validation
   path: desk/primitives/conditions/condition-task-define-sldb-addressability-model-has-validation.md
-  hash_c: 8658f8c6807f386343fd7f010dd7f05f427d0d412e76c540e7f1819e34e25fe2
+  hash_c: 4a503c31763b356f9cda7fa31a1154ac66bf8235ac41fc64049ccff48b822a38
   hash_d: 3379ffb05038a33af6a2b4b92fdf5150cd58e9c90ed3a1ecbc795d45b0493d6f
   semantic_tags:
   - primitive:condition
@@ -25,7 +25,7 @@ documents:
   - workspace.desk.primitives
 - name: condition-task-define-sldb-addressability-model-ready-for-closeout
   path: desk/primitives/conditions/condition-task-define-sldb-addressability-model-ready-for-closeout.md
-  hash_c: 26a39d0bf6c49618073ebfe3852a7ede86a0ba039eb8ca65f582ecd0d5210664
+  hash_c: e2826326f7748528b85364469e7db6e92580efbbd13c8a0fba16fc0bc291ee14
   hash_d: a07a6d72cc70471cbc714dc7b8d3de7e7fee1b449b9419c6619f9a4e195e8ce7
   semantic_tags:
   - primitive:condition
@@ -65,7 +65,7 @@ documents:
   - workspace.desk.primitives
 - name: condition-task-design-sldb-ast-query-primitives-has-implementation-path
   path: desk/primitives/conditions/condition-task-design-sldb-ast-query-primitives-has-implementation-path.md
-  hash_c: 998c5350380d0fce54964a7d7201a056873b24f80f0b5c4c475e97e17a675fb4
+  hash_c: 1b41f73d27829ccc548ccff34e90e6885fc85b809cf1d506e8666ee2efc9cbee
   hash_d: 95b62bbc5883f0cdf6e2a2deafa86f5a4839ddb48be86aa5ed2941f412aa2fea
   semantic_tags:
   - primitive:condition
@@ -81,7 +81,7 @@ documents:
   - workspace.desk.primitives
 - name: condition-task-design-sldb-ast-query-primitives-has-validation
   path: desk/primitives/conditions/condition-task-design-sldb-ast-query-primitives-has-validation.md
-  hash_c: b778b91f4bf8b4e2eb7f7ba1967324f0a89df0e67c1a59263bc0d9d56811e712
+  hash_c: 6deb499570fa4c0ee868fd69c3ef70b26faa39a18f5758ca23e3e9be10dc8a3d
   hash_d: 6ad71ab6be6f43d716e59fdb0f415ca8151dbe997c5a8065b0318571e611a005
   semantic_tags:
   - primitive:condition
@@ -89,7 +89,7 @@ documents:
   - workspace.desk.primitives
 - name: condition-task-design-sldb-ast-query-primitives-ready-for-closeout
   path: desk/primitives/conditions/condition-task-design-sldb-ast-query-primitives-ready-for-closeout.md
-  hash_c: 07efdfcba0210355232bae176ea6838c7d9abf1a4e2d413a080d861b2b56fb59
+  hash_c: b1822b75f9b211e4f203b7741bf8ccf43ac99676ba64b1e659fb2a3bf5e74043
   hash_d: 7ebc30bdfcd9c8a5fb257a785ea3abf667ff22abe6c8e55bb8909fc8af534724
   semantic_tags:
   - primitive:condition
@@ -173,7 +173,7 @@ documents:
   - workspace.desk.primitives
 - name: condition-task-expand-sldb-composition-modes-has-implementation-path
   path: desk/primitives/conditions/condition-task-expand-sldb-composition-modes-has-implementation-path.md
-  hash_c: 47d0c1aeb0d4223c271b06736a22392489fd5c7f768845db24f59fedcaff7629
+  hash_c: 0d08786cc3f125d84e9a82d3f9382bb8c8535bc07acceee310033bc3d8209442
   hash_d: 1383bd23876a3ed5dade9bd7d0173e80cf1906abff39a9ae48c70897dba5682f
   semantic_tags:
   - primitive:condition
@@ -189,7 +189,7 @@ documents:
   - workspace.desk.primitives
 - name: condition-task-expand-sldb-composition-modes-has-validation
   path: desk/primitives/conditions/condition-task-expand-sldb-composition-modes-has-validation.md
-  hash_c: 5a9dd63657feb7efd75060bc7c417c3b8ada81388a03389602f1f12ce8091341
+  hash_c: 9651e3e69cbc1d405f8cffcf557c56b1cbb7885fbaf2c83c6c818b5fced31fd7
   hash_d: ae977579d4ebf216ea12f6f98c02c17b9b43598e0701abdc38e749e4fc330ce1
   semantic_tags:
   - primitive:condition
@@ -197,7 +197,7 @@ documents:
   - workspace.desk.primitives
 - name: condition-task-expand-sldb-composition-modes-ready-for-closeout
   path: desk/primitives/conditions/condition-task-expand-sldb-composition-modes-ready-for-closeout.md
-  hash_c: 04f6d81f00234e9af89a9d29caadd430ff52944ae0f2d4227d243d552e22b33e
+  hash_c: 24d5487db9adce2db725aeeebd58cbc354bd92d0e6c1eebf733a3e99faa4ee80
   hash_d: a73e863ac758bce2d32fd67591ed91875b57084e7d320a4ea51bc08d82c008be
   semantic_tags:
   - primitive:condition
@@ -237,7 +237,7 @@ documents:
   - workspace.desk.primitives
 - name: condition-task-tighten-semantic-export-provenance-contract-has-implementation-path
   path: desk/primitives/conditions/condition-task-tighten-semantic-export-provenance-contract-has-implementation-path.md
-  hash_c: 3d0d7f8b20fb67221f9d9d7bf2a7eeb2314303e1e4750b8d4a1024107f78cbbd
+  hash_c: a30dafab95489a7df68af3fde7b5e08c7d2f5659b8212103a7adeb0c525c47c4
   hash_d: d4582c772eecd98ecfc1a4b1bf6b035c5974ee98ccae6138d207dd746c326bd5
   semantic_tags:
   - primitive:condition
@@ -253,7 +253,7 @@ documents:
   - workspace.desk.primitives
 - name: condition-task-tighten-semantic-export-provenance-contract-has-validation
   path: desk/primitives/conditions/condition-task-tighten-semantic-export-provenance-contract-has-validation.md
-  hash_c: bca4be08e9de3f001aff864c758e20159d53eb05a4984c2df6bc330212782488
+  hash_c: 1638575d91650c85e397c90ee53d6d32fa47507548b99dcc56c7f1b9ab410e40
   hash_d: 8055dc18ad30f40b595507c72a6da078d20fe89a07438dbfe0eda7fbd6adfa4f
   semantic_tags:
   - primitive:condition
@@ -261,7 +261,7 @@ documents:
   - workspace.desk.primitives
 - name: condition-task-tighten-semantic-export-provenance-contract-ready-for-closeout
   path: desk/primitives/conditions/condition-task-tighten-semantic-export-provenance-contract-ready-for-closeout.md
-  hash_c: 0f0ee871ae1786d3b0fa698092fe562ef373e2437788fa9792089c4e86361799
+  hash_c: 2eb195b7245ec0b2efefa217d709cdaa28a8f9c616af413e5d0d6bd94405cf53
   hash_d: dc5c6415cba05aa7a4439ed12c4f42e9ed2df3c6dca48912ebf98e31070203eb
   semantic_tags:
   - primitive:condition

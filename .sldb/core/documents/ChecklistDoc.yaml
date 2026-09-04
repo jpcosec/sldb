@@ -1,15 +1,15 @@
 documents:
 - name: checklist-task-define-sldb-addressability-model-closeout-ready
   path: desk/primitives/checklists/checklist-task-define-sldb-addressability-model-closeout-ready.md
-  hash_c: 41e8c0fd54a4ad52e1d66f4c3c259851aee31df02717f11e8c296c9d60ddc95d
-  hash_d: 056c5b79d80ba4788e6f6af377fa6475dbb89aba7a8b2e32fb9c33c2e6a7e979
+  hash_c: fb5f4ce9b038ddbd71d803ebf0eda314d8ba5bd01f2664e533453cf90e11abea
+  hash_d: 4d4e6c072d76a928467799403b11c632f6db8464ac9c3d509ac06351783149ce
   semantic_tags:
   - primitive:checklist
   - type.workflow.checklist
   - workspace.desk.primitives
 - name: checklist-task-define-sldb-addressability-model-execution-ready
   path: desk/primitives/checklists/checklist-task-define-sldb-addressability-model-execution-ready.md
-  hash_c: 593ee8194053e895f326cf8e41e056cc1a7d0a701a8d7ab191f57ce2279384d4
+  hash_c: 6a09448909764fc400b00c0ee4d21b25e18102c6a1f924ec67a2673e79c0b615
   hash_d: 7808e8aaa35af301de324e84f251b9e9a95900338d21952edb24c863c9407a21
   semantic_tags:
   - primitive:checklist
@@ -17,7 +17,7 @@ documents:
   - workspace.desk.primitives
 - name: checklist-task-define-sldb-addressability-model-testing-ready
   path: desk/primitives/checklists/checklist-task-define-sldb-addressability-model-testing-ready.md
-  hash_c: a449a4b58655384f8810dfc20a039c5afb2b5d82d30304564b992d799d8440e1
+  hash_c: 766a97e623eb5cb52c66ff86627c68a0986edcb92bfb7f580eed0cfd980c2ca6
   hash_d: 92ee49b7742c2c64f52f44b4951f431ce22c37da524ee31acc94f651b49702d8
   semantic_tags:
   - primitive:checklist
@@ -49,15 +49,15 @@ documents:
   - workspace.desk.primitives
 - name: checklist-task-design-sldb-ast-query-primitives-closeout-ready
   path: desk/primitives/checklists/checklist-task-design-sldb-ast-query-primitives-closeout-ready.md
-  hash_c: 1796b654b3b0f1f445fcb0024d9cf333d934fa1571ad301e5f3abbb9314ed53b
-  hash_d: 86e1181e4a18e542b24efd7a8b6f67de0310e632f0aecd95f70271a8615aaf5f
+  hash_c: faedee42c271e5ea43bb40c32ab5fef5ad37cb305048af3b9ba79cf1003dd136
+  hash_d: 2c51245bd74552573d11ae245fff14e7268151197dc7f4179725b17b89b9c47b
   semantic_tags:
   - primitive:checklist
   - type.workflow.checklist
   - workspace.desk.primitives
 - name: checklist-task-design-sldb-ast-query-primitives-execution-ready
   path: desk/primitives/checklists/checklist-task-design-sldb-ast-query-primitives-execution-ready.md
-  hash_c: 788534fc126dc25034f526feeed8b1f6001257f313474eee2f9647d9ede5f413
+  hash_c: 05e75dd0e4d39fa8ca9e7001f71a702d246ce068f45aa66ba5ac2e8043bbeb37
   hash_d: c8f65f6f9f2c769896819db9328e5ec7d502e0887026e29bcf24a2c22a4907bb
   semantic_tags:
   - primitive:checklist
@@ -65,7 +65,7 @@ documents:
   - workspace.desk.primitives
 - name: checklist-task-design-sldb-ast-query-primitives-testing-ready
   path: desk/primitives/checklists/checklist-task-design-sldb-ast-query-primitives-testing-ready.md
-  hash_c: 10759d1129070e7401ec07a0296025ca9ab6d2e04a66a6ce90bfac805ecb33ea
+  hash_c: e0b220a0d85a6bb570ec77fdf6b1de8ba2d21d63a77843f04164ce6524446ed1
   hash_d: c615a6b09062b5765772c29cbf53c6bc899d320f3589c9ccc87d5760d004b0c8
   semantic_tags:
   - primitive:checklist
@@ -130,15 +130,15 @@ documents:
   - workspace.desk.primitives
 - name: checklist-task-expand-sldb-composition-modes-closeout-ready
   path: desk/primitives/checklists/checklist-task-expand-sldb-composition-modes-closeout-ready.md
-  hash_c: 272df62ff449a06f3bee5aa2f790056179508dff07eb7716eea34091516c5ee7
-  hash_d: eeb177b545c451c16fefc5e4c721b9f4334829cf25971aa03a88790851b641a6
+  hash_c: a95afdf45ad07ba68675b57435be55e8c0e6a07d8a21340c1b3241f56a41f2ac
+  hash_d: 6475b5a0d01158677d7d628d69a7dd02331d87e96ccdb8f5aecc6b4fc278bf5b
   semantic_tags:
   - primitive:checklist
   - type.workflow.checklist
   - workspace.desk.primitives
 - name: checklist-task-expand-sldb-composition-modes-execution-ready
   path: desk/primitives/checklists/checklist-task-expand-sldb-composition-modes-execution-ready.md
-  hash_c: fed7e3d45a1371692e4357bcd405f6e0029177ae836225561f9af76eb10e32c6
+  hash_c: 27a9cb736b3c878b2db80e6fdb5942213efaef396d8e9b979307a175b1aa60d2
   hash_d: 71aa9153f45d7ded72d2743ed0be5257e19886002fb8db40418a43f364e7952b
   semantic_tags:
   - primitive:checklist
@@ -146,7 +146,7 @@ documents:
   - workspace.desk.primitives
 - name: checklist-task-expand-sldb-composition-modes-testing-ready
   path: desk/primitives/checklists/checklist-task-expand-sldb-composition-modes-testing-ready.md
-  hash_c: 690e696c6d12d31f69719b5302bdf2d18c5f8796f257e027622578e8b83f1ad8
+  hash_c: bcf71750b3e12ccd07d0d40c0972d883f2e88296d1897d26b661cf4f51ac22cd
   hash_d: 98862d15736248d47a1bfcdc2adfca55e93ea34c3f3ba06db8a79d54e7bee00f
   semantic_tags:
   - primitive:checklist
@@ -178,15 +178,15 @@ documents:
   - workspace.desk.primitives
 - name: checklist-task-tighten-semantic-export-provenance-contract-closeout-ready
   path: desk/primitives/checklists/checklist-task-tighten-semantic-export-provenance-contract-closeout-ready.md
-  hash_c: 3f8e2046103a4e5fb63875d3567b3982358903f80dd80410bcfa7e6f272a0686
-  hash_d: c8fd4de1ca295fb2dc7dd441b5e353ddbb0afd5df57a58a9be34fae9ff5500bb
+  hash_c: 02de5bcb6a30d22e7d073042c85c749ba2f49cc9ba0f5a3aeda5cc6efdd6d88d
+  hash_d: e9df52a04337d314107bd7456497119f5bf7887f67d917ca680f73982d572699
   semantic_tags:
   - primitive:checklist
   - type.workflow.checklist
   - workspace.desk.primitives
 - name: checklist-task-tighten-semantic-export-provenance-contract-execution-ready
   path: desk/primitives/checklists/checklist-task-tighten-semantic-export-provenance-contract-execution-ready.md
-  hash_c: 8013043c1673a78ff1e9803f631d19ecbf72ea3482777521752d56000b9619db
+  hash_c: 30b3696d9b0ee1164f98d247df4fb492011a906d3ab78270bdb5bddc8d853da9
   hash_d: 3d3ccc1714039671d9266c021b29aa655a09c05548432ae6892acf71ee84e2fe
   semantic_tags:
   - primitive:checklist
@@ -194,7 +194,7 @@ documents:
   - workspace.desk.primitives
 - name: checklist-task-tighten-semantic-export-provenance-contract-testing-ready
   path: desk/primitives/checklists/checklist-task-tighten-semantic-export-provenance-contract-testing-ready.md
-  hash_c: 5a7249d2d7414562f9b6d904ee579cd5809cde2bee286bac2849a3e2514eea6a
+  hash_c: 651d7fa1544faf005090a936375ce241248ee38217bdc1ace4a3cb0ff3240993
   hash_d: 50e68832526220f70c339e3146e5adbdf29cf1fabebf1e5f8f8aac45f523685c
   semantic_tags:
   - primitive:checklist

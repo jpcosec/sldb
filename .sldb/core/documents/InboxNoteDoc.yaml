@@ -2,42 +2,42 @@ documents:
 - name: 20260614-000000-suggestion-stabilize-stores-init-failures
   path: desk/inbox/20260614-000000-suggestion-stabilize-stores-init-failures.md
   hash_c: 50a99c7c5579ac3777fc5f42042b1d80bd41008b141073551eb477eb9d8fded8
-  hash_d: b07c5e7cc0baf305046646778308d6fece874fa36987645f70819cf5059ab198
+  hash_d: 7a09a23488f33730825928bef94794b8f1055dc9e1bd3f8030af845a11825a67
   semantic_tags:
   - type.desk.inbox-note
   - workspace.desk.inbox
 - name: 20260614-000001-suggestion-stabilize-models-add-error-output
   path: desk/inbox/20260614-000001-suggestion-stabilize-models-add-error-output.md
   hash_c: 47a1be7b21dfefdc01afd4e971e4a5dd7fedb490256caaccff6ffea614b15885
-  hash_d: f1e0528595374687a6c694a4d26c8c23fb32c1a2be48c28f7f38c345ebe72bf7
+  hash_d: 4af9519c5b11a6479428f179d3197aee5070309c7d83b63f4cbc11a586936b84
   semantic_tags:
   - type.desk.inbox-note
   - workspace.desk.inbox
 - name: 20260614-000002-suggestion-add-store-health-check-api
   path: desk/inbox/20260614-000002-suggestion-add-store-health-check-api.md
   hash_c: eb94a58b7a8da2614805bb943b4f1b77732201a8c9ba57b8d63b467ed28c3efa
-  hash_d: 6ddfc5353dd472e82095a1cbf76a14adfa32c29d7b60a44fda8adc1f127b19f5
+  hash_d: e162283348f823ffd1d41aa00ba228f613f5802fcc0bd64d1660cbac6a69134f
   semantic_tags:
   - type.desk.inbox-note
   - workspace.desk.inbox
 - name: 20260614-000003-suggestion-add-model-registration-query-api
   path: desk/inbox/20260614-000003-suggestion-add-model-registration-query-api.md
   hash_c: 774d1a8499f09073c66211bfef70c48665d961ec6671fcc91ad707194fb477a2
-  hash_d: 79a8254899cb2224040224b6393425928a5e67255e7721525ef102937a7f9fa9
+  hash_d: 3c70e387ad1ad5df412face822cd1a6d83af74e004a35a44ff210e2c221157e8
   semantic_tags:
   - type.desk.inbox-note
   - workspace.desk.inbox
 - name: 20260625-120000-suggestion-redesign-primitives-via-ast-and-nested-templates
   path: desk/inbox/20260625-120000-suggestion-redesign-primitives-via-ast-and-nested-templates.md
   hash_c: bacd9eefe58bfc832e53411f6efaf9486e493ff671f236ed299306948018410a
-  hash_d: 292188dc7116bcf61b28722bc3abe0fdaf4d8b801eb12a93d22ff1dba3b76dd6
+  hash_d: de7914be93ddfd62510d3caeaa0663c50042dc8761ac17a73040da2ca0bc1805
   semantic_tags:
   - type.desk.inbox-note
   - workspace.desk.inbox
 - name: 20260811-011208-suggestion-doctor-confunde-superficies-no-modeladas-con-untracked-en-sldb
   path: /home/jp/proyectos/hum-ecosystem/tools/deskops/desk/inbox/20260811-011208-suggestion-doctor-confunde-superficies-no-modeladas-con-untracked-en-sldb.md
   hash_c: 9ca05f7878cde54511690718522d6533ccb633cc38c178d17cbc822bd0662716
-  hash_d: a09c8b9eb694d0313455d9c3b29a2ad493ad94633efca3074ce8d0be53415956
+  hash_d: 0477ac6592079061efb45df4d338efa6722f93c01295215f8884965efaa3a538
   semantic_tags:
   - type.desk.inbox-note
   - workspace.desk.inbox

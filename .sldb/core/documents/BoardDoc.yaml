@@ -1,8 +1,8 @@
 documents:
 - name: desk-board
   path: desk/tasks/Board.md
-  hash_c: 8754889c0f0b27b709592f8338022da58f00563e62ec80a3e64146269031df95
-  hash_d: cee3d497df68280bbfc63f916a152529f37e3d3732f2606ccd54f35a018b6fbd
+  hash_c: 60866062de12378485fbe340e75ecdc96d252e8b9c89f95a4b4b1dbafc2f49c6
+  hash_d: c0e7edce892a225d2cfe755635d15192bc6eb6e4e05d84d868d5e7063e1e4ab8
   semantic_tags:
   - system:deskops
   - system:sldb
@@ -12,8 +12,8 @@ documents:
   - workspace:desk
 - name: Board
   path: desk/tasks/Board.md
-  hash_c: 8754889c0f0b27b709592f8338022da58f00563e62ec80a3e64146269031df95
-  hash_d: cee3d497df68280bbfc63f916a152529f37e3d3732f2606ccd54f35a018b6fbd
+  hash_c: 60866062de12378485fbe340e75ecdc96d252e8b9c89f95a4b4b1dbafc2f49c6
+  hash_d: c0e7edce892a225d2cfe755635d15192bc6eb6e4e05d84d868d5e7063e1e4ab8
   semantic_tags:
   - system:deskops
   - system:sldb

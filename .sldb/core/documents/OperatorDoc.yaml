@@ -1,7 +1,7 @@
 documents:
 - name: operator-task-define-sldb-addressability-model-activate
   path: desk/primitives/operators/operator-task-define-sldb-addressability-model-activate.md
-  hash_c: acef64471d6deaea4f85e1d6f37e37c926b31b65310f8f09259b634aad28d0bc
+  hash_c: 9d51e8ac21614fade988e789e430069e17a789f858d31637a62b390dbfbaa70e
   hash_d: e622cbe70bfb468d5c9f89a011482a1e230dcd981a5f999d50f51d56c1c595d1
   semantic_tags:
   - primitive:operator
@@ -9,7 +9,7 @@ documents:
   - workspace.desk.primitives
 - name: operator-task-define-sldb-addressability-model-close
   path: desk/primitives/operators/operator-task-define-sldb-addressability-model-close.md
-  hash_c: 0ee6ce4079926032c49484504c77b028f41543b98ef1cf3f989cab9daa144b7e
+  hash_c: 78989c88ec8232ff65e94d349759fae5be096c61438e4833835ed2fa00c4b326
   hash_d: 9457fbd8ee9824e36992e491dea3993d57e51653c31b4d9828a80665126eff7a
   semantic_tags:
   - primitive:operator
@@ -17,7 +17,7 @@ documents:
   - workspace.desk.primitives
 - name: operator-task-define-sldb-addressability-model-ready-for-testing
   path: desk/primitives/operators/operator-task-define-sldb-addressability-model-ready-for-testing.md
-  hash_c: 8a254440c4c0a52d397c6e3aafcfb115277e160c88102df41ff884fc60af2aff
+  hash_c: 6de4b3ab389fed9d3b57b802c088702c314cd4659f839c5701a82795f05c687d
   hash_d: 1cdf020e3e1b6d45fe43241e043bb27d8b2715f59dfd310ba0e664731b15d4a6
   semantic_tags:
   - primitive:operator
@@ -49,7 +49,7 @@ documents:
   - workspace.desk.primitives
 - name: operator-task-design-sldb-ast-query-primitives-activate
   path: desk/primitives/operators/operator-task-design-sldb-ast-query-primitives-activate.md
-  hash_c: 80ac0a08d446fda2c742dad1c7b2074b7da9e2b0ede1f5369de8e0d8102363f0
+  hash_c: 2bb20231b9cd3febb2b8c0a10581901931812d50626bfa2612b29a778482f2b4
   hash_d: 67ea8b866a8b4381a0783a169cdb751cc532568a7efdb7931380fb6cf5284142
   semantic_tags:
   - primitive:operator
@@ -57,7 +57,7 @@ documents:
   - workspace.desk.primitives
 - name: operator-task-design-sldb-ast-query-primitives-close
   path: desk/primitives/operators/operator-task-design-sldb-ast-query-primitives-close.md
-  hash_c: 5086f10658cc8d77a0bdf4c4fdc242a392a269d462a034ee806baae41605d81a
+  hash_c: 4d05348c26fad0150479a5f78438337110249f157db4dc1ce9c2546cdcc3adba
   hash_d: 994ce813248c131d3b21be9d79a147be2963e494fe03526ad4ad32475da8f97e
   semantic_tags:
   - primitive:operator
@@ -65,7 +65,7 @@ documents:
   - workspace.desk.primitives
 - name: operator-task-design-sldb-ast-query-primitives-ready-for-testing
   path: desk/primitives/operators/operator-task-design-sldb-ast-query-primitives-ready-for-testing.md
-  hash_c: c4771f0d7ab60d5b2d264de830ed28df736f099dc092218920293158cee750c5
+  hash_c: 20c3da17d4a38d73c581d7f9699ea76c614d7ac25a329c3e87ab7b06dbba37b2
   hash_d: d7c76bd7208651428e73d1f6c8c30685956fe6bb4d908565f926c867872ff31d
   semantic_tags:
   - primitive:operator
@@ -127,7 +127,7 @@ documents:
   - workspace.desk.primitives
 - name: operator-task-expand-sldb-composition-modes-activate
   path: desk/primitives/operators/operator-task-expand-sldb-composition-modes-activate.md
-  hash_c: 8541c79c00b0bc4c4cce5fc1c00be9fe8070b4fd3978f7929cb47b718be4e749
+  hash_c: f31391f27764dc6ffd390e325f8ceb28c4e791a2b7e0bb40789c4e5ece313b58
   hash_d: 45cde3f15b560f3699609de81038af3eba027c67213d6a945f5fb991721a29a1
   semantic_tags:
   - primitive:operator
@@ -135,7 +135,7 @@ documents:
   - workspace.desk.primitives
 - name: operator-task-expand-sldb-composition-modes-close
   path: desk/primitives/operators/operator-task-expand-sldb-composition-modes-close.md
-  hash_c: 6370c7e9596e97184f337c9532a9115c018322a134b74a41620ab169ce89bd20
+  hash_c: 4864dd3c567c423391505d0db7b21b53a118073e7cfb072ee25973666ea80ecf
   hash_d: 20821d006c3ea1484a1c9f7198becba5e8cb2ff41a31483dbf5990a8da84abf3
   semantic_tags:
   - primitive:operator
@@ -143,7 +143,7 @@ documents:
   - workspace.desk.primitives
 - name: operator-task-expand-sldb-composition-modes-ready-for-testing
   path: desk/primitives/operators/operator-task-expand-sldb-composition-modes-ready-for-testing.md
-  hash_c: c190d4aa634169c9d93aa6f5fd7d68d11d2d05edf67f872cfeb1b58be93a55a5
+  hash_c: 309aac73fd6fc801c82ff0f6756885baed32b30941cfaa0c54807ccd0c4b4751
   hash_d: 8c0131cbb1d9a8b10595b42021525b77bc7bcba9e75d66418fdcd74b65ad86bf
   semantic_tags:
   - primitive:operator
@@ -175,7 +175,7 @@ documents:
   - workspace.desk.primitives
 - name: operator-task-tighten-semantic-export-provenance-contract-activate
   path: desk/primitives/operators/operator-task-tighten-semantic-export-provenance-contract-activate.md
-  hash_c: 53f1372dcda40d955477917aaeab5875d57eb3938ad31ce5e222118c09d3b798
+  hash_c: d53815da7d324323f31ce7bd3617bb9eb8e0787e5f27405a2f6cca8a3bc00d66
   hash_d: 1e0dd1e4d9e02697bf726f9afddb32021b48acd16e14284d360dd08d4c8c0c2c
   semantic_tags:
   - primitive:operator
@@ -183,7 +183,7 @@ documents:
   - workspace.desk.primitives
 - name: operator-task-tighten-semantic-export-provenance-contract-close
   path: desk/primitives/operators/operator-task-tighten-semantic-export-provenance-contract-close.md
-  hash_c: 0a4682a488b6ecf27707904e6aa4061923d4fd7321ddf037538e9cb585338993
+  hash_c: f10817fe758ae18a9d0b4314671d633df61399b47c996235fb22463672530201
   hash_d: 16331618cc80ed66d238d5e15cf4cc0db17d283b3565757e2bfc3607a03184e6
   semantic_tags:
   - primitive:operator
@@ -191,7 +191,7 @@ documents:
   - workspace.desk.primitives
 - name: operator-task-tighten-semantic-export-provenance-contract-ready-for-testing
   path: desk/primitives/operators/operator-task-tighten-semantic-export-provenance-contract-ready-for-testing.md
-  hash_c: f02f931884949af90665ab9878a724f2f4c47a1bc53e54de01be8f9b3e36788a
+  hash_c: 46c59f49569b2076f17934740959c64ef19db889d786f6c7b25308767e3c62af
   hash_d: 9422a4f2a52e4ba0451f7783d367179f40291c88871f2c05400dcb0c52b1b25b
   semantic_tags:
   - primitive:operator
