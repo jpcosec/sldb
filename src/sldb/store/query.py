@@ -24,11 +24,28 @@ def _load_doc(doc, root, model_type, m_entry, s_name, s_path, codec: StoreCodec 
         return None
     return RuntimeDocument(store_name=s_name, store_path=s_path, model_name=m_entry.name, model_type=model_type, name=doc.name, path=doc.path, payload=codec.extract(model_type, d_path.read_text(encoding="utf-8")), semantic_tags=list(doc.semantic_tags))
 
+def _resolve_model_type(resolver, model_ref: str, p_path, store_root: Path):
+    """Resolve a model, trying the store's own project root before giving up.
+
+    Linked stores register model_refs (e.g. ``docs.models:X``) that resolve
+    relative to that store's repo root, not the caller's pythonpath. We try the
+    caller path first, then the store root, and return None if neither works so a
+    single unresolvable model does not abort a federated query.
+    """
+    for candidate in (p_path, str(store_root)):
+        try:
+            return resolver(model_ref, candidate)
+        except Exception:  # noqa: BLE001 - graceful degradation across repos
+            continue
+    return None
+
 def _load_one(s_path: Path, s_name: str, resolver, p_path, codec: StoreCodec = default_codec) -> list[RuntimeDocument]:
     root = project_root(s_path)
     docs = []
     for m in load_store_index(s_path).models:
-        m_type = resolver(m.model_ref, p_path)
+        m_type = _resolve_model_type(resolver, m.model_ref, p_path, root)
+        if m_type is None:
+            continue
         d_idx = load_documents_index(root / load_models_index(root / m.models_index).documents_index)
         docs.extend([d for doc in d_idx.documents if (d := _load_doc(doc, root, m_type, m, s_name, s_path, codec))])
     return docs
