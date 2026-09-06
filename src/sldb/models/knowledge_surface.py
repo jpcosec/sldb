@@ -202,12 +202,12 @@ provenance: ⸢optrev•provenance⸥
         description="The grammar symbol this anchor defines (e.g. user, check, preferences)."
     )
     kind: str = Field(
-        pattern=r"^(model|doc|relation|operation|projection)$",
-        description="What class of referent the symbol names: model | doc | relation | operation | projection.",
+        pattern=r"^(model|doc|relation|operation|projection|expr)$",
+        description="What class of referent the symbol names: model | doc | relation | operation | projection | expr (a derived relation: an s-expression template with _ holes).",
     )
     ref: str = Field(
-        pattern=r"^(model:[A-Za-z_][A-Za-z0-9_]*|doc:[a-z0-9-]+|edge:[a-z_]+(:(in|out))?|op:[a-z_]+|fields:[a-z_,]+|view:[a-z_]+)$",
-        description="Typed referent string: model:<Name> | doc:<name> | edge:<rel>[:dir] | op:<fn> | fields:<f1,f2> | view:<name>.",
+        pattern=r"^(model:[A-Za-z_][A-Za-z0-9_]*|doc:[a-z0-9-]+|edge:[a-z_]+(:(in|out))?|op:[a-z_]+|fields:[a-z_,]+|view:[a-z_]+|expr:[(].+[)])$",
+        description="Typed referent: model:<Name> | doc:<name> | edge:<rel>[:dir] | op:<fn> | fields:<f1,f2> | view:<name> | expr:(<s-expression with _ holes>).",
     )
     motive: str = Field(
         description="Natural-language meaning of the symbol: what it refers to and why, legible to humans."
