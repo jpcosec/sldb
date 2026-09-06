@@ -26,25 +26,6 @@ documents:
   - type.workflow.routine
   - workspace.desk.routines
   - workspace:desk
-- name: "routine-task-dise\xF1ar-estrategia-de-extracci\xF3n-y-modularizaci\xF3n"
-  path: "desk/routines/routine-task-dise\xF1ar-estrategia-de-extracci\xF3n-y-modularizaci\xF3\
-    n.md"
-  hash_c: 68efc8428dbcb2f45eb7cb31b6352ce99de43473e4f45f728e83469075cff0fc
-  hash_d: ec46b7f71870ac01de947ebe29401ef2e296843fee57849cf557db698a41a798
-  semantic_tags:
-  - primitive:routine
-  - type.workflow.routine
-  - workspace.desk.routines
-  - workspace:desk
-- name: "routine-task-ejecutar-refactor-base-del-n\xFAcleo-sldb"
-  path: "desk/routines/routine-task-ejecutar-refactor-base-del-n\xFAcleo-sldb.md"
-  hash_c: d38ee835e64c34d9028a26691b34aeb1124734b7a970110d7b48070daa58070d
-  hash_d: a6a082c3718bfe28b1bddb645ddd186ef654cf07b4dce4803b9d7c921b2d3f55
-  semantic_tags:
-  - primitive:routine
-  - type.workflow.routine
-  - workspace.desk.routines
-  - workspace:desk
 - name: routine-task-expand-sldb-composition-modes
   path: desk/routines/routine-task-expand-sldb-composition-modes.md
   hash_c: 6d7a531dfe8c374a4a268bf2285404894d71dcc714f112c399506c7b622a10d8

@@ -160,5 +160,21 @@ models:
   canonical: false
   family: null
   semantics: []
+- name: SurfaceDoc
+  model_ref: sldb.models.knowledge_surface:SurfaceDoc
+  path: src/sldb/models/knowledge_surface.py
+  models_index: .sldb/core/models/SurfaceDoc.yaml
+  version: 1
+  canonical: false
+  family: null
+  semantics: []
+- name: CliCommandDoc
+  model_ref: sldb.models.knowledge_surface:CliCommandDoc
+  path: src/sldb/models/knowledge_surface.py
+  models_index: .sldb/core/models/CliCommandDoc.yaml
+  version: 1
+  canonical: false
+  family: null
+  semantics: []
 predicates: []
-hash_a: 9c45c828812837deb97ece446a2f2176802b239501302dab7aa98891e03bd98e
+hash_a: dcfacb4114af87ad13c6419bb117d755006218ef889ecad08cd0aacf6ee0237a

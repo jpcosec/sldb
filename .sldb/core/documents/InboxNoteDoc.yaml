@@ -34,10 +34,3 @@ documents:
   semantic_tags:
   - type.desk.inbox-note
   - workspace.desk.inbox
-- name: 20260811-011208-suggestion-doctor-confunde-superficies-no-modeladas-con-untracked-en-sldb
-  path: /home/jp/proyectos/hum-ecosystem/tools/deskops/desk/inbox/20260811-011208-suggestion-doctor-confunde-superficies-no-modeladas-con-untracked-en-sldb.md
-  hash_c: 9ca05f7878cde54511690718522d6533ccb633cc38c178d17cbc822bd0662716
-  hash_d: 0477ac6592079061efb45df4d338efa6722f93c01295215f8884965efaa3a538
-  semantic_tags:
-  - type.desk.inbox-note
-  - workspace.desk.inbox

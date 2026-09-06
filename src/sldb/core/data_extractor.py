@@ -35,6 +35,7 @@ class DataExtractor:
 
     def _current_block_matches_future_recipe(self, data_blocks: list[SLDBNode], recipes: list[dict[str, Any]], recipe_idx: int, block_idx: int) -> bool:
         for future_recipe in recipes[recipe_idx + 1 :]:
+            if not future_recipe.get("anchor", False): continue
             if self.matcher.block_matches_recipe_for_position(data_blocks[block_idx], future_recipe): return True
         return False
 

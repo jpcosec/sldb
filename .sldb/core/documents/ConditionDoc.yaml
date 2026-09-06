@@ -7,14 +7,6 @@ documents:
   - primitive:condition
   - type.workflow.condition
   - workspace.desk.primitives
-- name: condition-task-define-sldb-addressability-model-has-testing-evidence
-  path: desk/primitives/conditions/condition-task-define-sldb-addressability-model-has-testing-evidence.md
-  hash_c: e91b11e70213c21199c790616b9efb5d3a3f8ee5cc7dacf0512adab0e89b30ac
-  hash_d: 7079bdb1ca5d88e09acd6303ca079545f921da3006a314d69326885c653056cd
-  semantic_tags:
-  - primitive:condition
-  - type.workflow.condition
-  - workspace.desk.primitives
 - name: condition-task-define-sldb-addressability-model-has-validation
   path: desk/primitives/conditions/condition-task-define-sldb-addressability-model-has-validation.md
   hash_c: 4a503c31763b356f9cda7fa31a1154ac66bf8235ac41fc64049ccff48b822a38
@@ -71,14 +63,6 @@ documents:
   - primitive:condition
   - type.workflow.condition
   - workspace.desk.primitives
-- name: condition-task-design-sldb-ast-query-primitives-has-testing-evidence
-  path: desk/primitives/conditions/condition-task-design-sldb-ast-query-primitives-has-testing-evidence.md
-  hash_c: 90777522f4b999e907775c2ab36233e6d7f54d591a42a15ce807f7628c7963a2
-  hash_d: f621a969519033337516c4e55029ab651f2f308fec8b01f249a1bff1626c3345
-  semantic_tags:
-  - primitive:condition
-  - type.workflow.condition
-  - workspace.desk.primitives
 - name: condition-task-design-sldb-ast-query-primitives-has-validation
   path: desk/primitives/conditions/condition-task-design-sldb-ast-query-primitives-has-validation.md
   hash_c: 6deb499570fa4c0ee868fd69c3ef70b26faa39a18f5758ca23e3e9be10dc8a3d
@@ -95,94 +79,10 @@ documents:
   - primitive:condition
   - type.workflow.condition
   - workspace.desk.primitives
-- name: "condition-task-dise\xF1ar-estrategia-de-extracci\xF3n-y-modularizaci\xF3\
-    n-has-closeout-evidence"
-  path: "desk/primitives/conditions/condition-task-dise\xF1ar-estrategia-de-extracci\xF3\
-    n-y-modularizaci\xF3n-has-closeout-evidence.md"
-  hash_c: 86a2260853b032f2cebf26dc6f97910ddc0b0bc27716357638ab4b154a0d11cf
-  hash_d: 25d4f5e68c4d867f8425c7deca56d55f4292035f349083dd36698ce01069628f
-  semantic_tags:
-  - primitive:condition
-  - type.workflow.condition
-  - workspace.desk.primitives
-- name: "condition-task-dise\xF1ar-estrategia-de-extracci\xF3n-y-modularizaci\xF3\
-    n-has-implementation-path"
-  path: "desk/primitives/conditions/condition-task-dise\xF1ar-estrategia-de-extracci\xF3\
-    n-y-modularizaci\xF3n-has-implementation-path.md"
-  hash_c: ef08bc35f462732081ed87ab874683c69299313a3b0b946302ebd919fc30c24e
-  hash_d: 89cae0ada514fc7aed7daba002c3322c60d198e75357a017f22e549e762e1b4a
-  semantic_tags:
-  - primitive:condition
-  - type.workflow.condition
-  - workspace.desk.primitives
-- name: "condition-task-dise\xF1ar-estrategia-de-extracci\xF3n-y-modularizaci\xF3\
-    n-has-validation"
-  path: "desk/primitives/conditions/condition-task-dise\xF1ar-estrategia-de-extracci\xF3\
-    n-y-modularizaci\xF3n-has-validation.md"
-  hash_c: 437f37cdbd936d727e1ec65b5e2a39113dc9ba486144e896c81e0db1de08b39e
-  hash_d: a8e703892e9cb227e32ef70a9bd1bd35dd22d62c15d605aa56cf0741dbf33d2c
-  semantic_tags:
-  - primitive:condition
-  - type.workflow.condition
-  - workspace.desk.primitives
-- name: "condition-task-dise\xF1ar-estrategia-de-extracci\xF3n-y-modularizaci\xF3\
-    n-ready-for-closeout"
-  path: "desk/primitives/conditions/condition-task-dise\xF1ar-estrategia-de-extracci\xF3\
-    n-y-modularizaci\xF3n-ready-for-closeout.md"
-  hash_c: e1db26e06a9910b11bc0449b77b17c93794d08d046b28b4e01d02f9d9b8c4777
-  hash_d: 1ff05e7182b3a5d01812165433881ea7ca2ea41ede0dc654f82525c5b3e1c6b8
-  semantic_tags:
-  - primitive:condition
-  - type.workflow.condition
-  - workspace.desk.primitives
-- name: "condition-task-ejecutar-refactor-base-del-n\xFAcleo-sldb-has-closeout-evidence"
-  path: "desk/primitives/conditions/condition-task-ejecutar-refactor-base-del-n\xFA\
-    cleo-sldb-has-closeout-evidence.md"
-  hash_c: 8b52c83b25e94c858b4d625991c3738a1220fc94f5ed0ffd6ce8aec79103132a
-  hash_d: b99d3421914e1a21279e828c460ecf94bde79da6d9146a2bfd4f03ccd10e1f0d
-  semantic_tags:
-  - primitive:condition
-  - type.workflow.condition
-  - workspace.desk.primitives
-- name: "condition-task-ejecutar-refactor-base-del-n\xFAcleo-sldb-has-implementation-path"
-  path: "desk/primitives/conditions/condition-task-ejecutar-refactor-base-del-n\xFA\
-    cleo-sldb-has-implementation-path.md"
-  hash_c: bd1110878a543fa34c2679ef55bd14bfbf6d91b64c0e1d274ba966a5e7fb246a
-  hash_d: 49f891d809a36d382eb33090ca00bb8c023706ace0ae9e1c1826ef0df05dd426
-  semantic_tags:
-  - primitive:condition
-  - type.workflow.condition
-  - workspace.desk.primitives
-- name: "condition-task-ejecutar-refactor-base-del-n\xFAcleo-sldb-has-validation"
-  path: "desk/primitives/conditions/condition-task-ejecutar-refactor-base-del-n\xFA\
-    cleo-sldb-has-validation.md"
-  hash_c: f9007c66900864232bc321265897d521bd5c408c3d2172b283a0b5aba0e32f99
-  hash_d: 36dc7e20c12782be612bb630ec18532db8a627509503074dd9b0f62cb4d50b24
-  semantic_tags:
-  - primitive:condition
-  - type.workflow.condition
-  - workspace.desk.primitives
-- name: "condition-task-ejecutar-refactor-base-del-n\xFAcleo-sldb-ready-for-closeout"
-  path: "desk/primitives/conditions/condition-task-ejecutar-refactor-base-del-n\xFA\
-    cleo-sldb-ready-for-closeout.md"
-  hash_c: fece1edb79a9b3885412fe8cc2c8be33cb45649be6f1e6a3b518e27a61f5df31
-  hash_d: c0788c4a5d721d1debc3b67751ed3183a78fedc9c6868fea8a21ca8f947c9080
-  semantic_tags:
-  - primitive:condition
-  - type.workflow.condition
-  - workspace.desk.primitives
 - name: condition-task-expand-sldb-composition-modes-has-implementation-path
   path: desk/primitives/conditions/condition-task-expand-sldb-composition-modes-has-implementation-path.md
   hash_c: 0d08786cc3f125d84e9a82d3f9382bb8c8535bc07acceee310033bc3d8209442
   hash_d: 1383bd23876a3ed5dade9bd7d0173e80cf1906abff39a9ae48c70897dba5682f
-  semantic_tags:
-  - primitive:condition
-  - type.workflow.condition
-  - workspace.desk.primitives
-- name: condition-task-expand-sldb-composition-modes-has-testing-evidence
-  path: desk/primitives/conditions/condition-task-expand-sldb-composition-modes-has-testing-evidence.md
-  hash_c: 06c39c890e92a3b9b3bd6d5b381de06cbab0190c67f3da120e87d13aedac941e
-  hash_d: b16dcbe4c733645438ddeffa21ac2c55778e5dd9261cc7112818e644cd3dd59e
   semantic_tags:
   - primitive:condition
   - type.workflow.condition
@@ -239,14 +139,6 @@ documents:
   path: desk/primitives/conditions/condition-task-tighten-semantic-export-provenance-contract-has-implementation-path.md
   hash_c: a30dafab95489a7df68af3fde7b5e08c7d2f5659b8212103a7adeb0c525c47c4
   hash_d: d4582c772eecd98ecfc1a4b1bf6b035c5974ee98ccae6138d207dd746c326bd5
-  semantic_tags:
-  - primitive:condition
-  - type.workflow.condition
-  - workspace.desk.primitives
-- name: condition-task-tighten-semantic-export-provenance-contract-has-testing-evidence
-  path: desk/primitives/conditions/condition-task-tighten-semantic-export-provenance-contract-has-testing-evidence.md
-  hash_c: 1bed5e7c2b6697e10ea82b92007cad04016fa87437cb277173e4cb96b92896ac
-  hash_d: b9637f67232f38f0d7c2234d4e9bb81b9912c64d494ad4ca82b4f8454040b308
   semantic_tags:
   - primitive:condition
   - type.workflow.condition

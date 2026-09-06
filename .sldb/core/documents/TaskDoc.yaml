@@ -49,25 +49,6 @@ documents:
   - type.workflow.task
   - workspace.desk
   - workspace:desk
-- name: "task-dise\xF1ar-estrategia-de-extracci\xF3n-y-modularizaci\xF3n"
-  path: "desk/tasks/task-dise\xF1ar-estrategia-de-extracci\xF3n-y-modularizaci\xF3\
-    n.md"
-  hash_c: dc17fffcfd27dd8ab5dd5d91d68bddf163d88f6d06db9631375113e64f224bb9
-  hash_d: 9334dd6570da1dd2648d79b15d2b4046afd78479c957f9f29e63df435c9dd3ed
-  semantic_tags:
-  - artifact:task
-  - type.workflow.task
-  - workspace.desk
-  - workspace:desk
-- name: "task-ejecutar-refactor-base-del-n\xFAcleo-sldb"
-  path: "desk/tasks/task-ejecutar-refactor-base-del-n\xFAcleo-sldb.md"
-  hash_c: 6e41f484f9287854f036b312dbf95cf2fc75467786418b504681bbc2693ec75a
-  hash_d: c8bde9b3bc9cf6ec6e5446f9996a1c739e588ea271c47a7433ef1d7e4992a8eb
-  semantic_tags:
-  - artifact:task
-  - type.workflow.task
-  - workspace.desk
-  - workspace:desk
 - name: task-mapear-arquitectura-real-de-sldb
   path: desk/tasks/task-mapear-arquitectura-real-de-sldb.md
   hash_c: 3c72c4bfaa8fbd25aecba2b70d86bccc929426ecbb65325aca47569eca1e733f
