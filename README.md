@@ -1,3 +1,5 @@
+> **Frozen (2026-09-07).** `sldb` v1 is superseded by [`knowledge`](https://github.com/jpcosec/knowledge) (SLDB v2 kernel + models + anchored evaluator, one product). This repo receives no features; tag `v1-frozen` marks this state and `v2-seed-2026-09` the branch `refactor-target` that seeded `knowledge`. Existing installs (`iso-lab/worktrees/sldb`) keep working until milestone S6 migrates deskops.
+
 # SLDB (Structured Language Database)
 
 A structurally aware Markdown extraction and template mapping library based on `mdast` principles. SLDB allows you to treat Markdown files as a structured persistence layer, mapping them directly to Pydantic models.
