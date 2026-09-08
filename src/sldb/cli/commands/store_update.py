@@ -3,7 +3,7 @@ from pathlib import Path
 from typing import Any
 from sldb.cli.store_context import get_store_context
 from sldb.cli.model_utils import resolve_model_ref
-from sldb.store.hashing import hash_documents_index, hash_fields, hash_text
+from sldb.store.hashing import hash_documents_index, hash_fields, hash_payload, hash_text
 from sldb.store.io import load_documents_index, load_models_index, load_store_index, save_documents_index, save_models_index, store_lock
 from sldb.store.models import StoreIndex
 from sldb.store.ops import cascade_hash_a
@@ -32,22 +32,24 @@ def _process_model(m_entry: Any, mtype: Any, root: Path, skipped_docs: list[str]
     m_idx = load_models_index(root / m_entry.models_index)
     d_idx = load_documents_index(root / m_idx.documents_index)
     for doc in d_idx.documents:
-        _process_doc(doc, mtype, root, skipped_docs)
+        _process_doc(doc, mtype, m_entry.name, root, skipped_docs)
     pending.append((m_entry, m_idx, d_idx))
 
-def _process_doc(doc: Any, mtype: Any, root: Path, skipped_docs: list[str]) -> None:
+def _process_doc(doc: Any, mtype: Any, m_name: str, root: Path, skipped_docs: list[str]) -> None:
+    """hash_c from the text; hash_d from the fields, always: the model can change without the
+    text changing. The extraction comes from the runtime cache when it already holds it."""
     doc_path = root / doc.path
     if not doc_path.exists():
         return skipped_docs.append(doc.name)
     text = doc_path.read_text(encoding="utf-8")
-    hash_c = hash_text(text)
-    if hash_c == doc.hash_c and doc.hash_d:
-        return None   # the text did not change since the last update: its field hash stands
-    doc.hash_c, doc.hash_d = hash_c, _field_hash(mtype, text)
+    doc.hash_c = hash_text(text)
+    doc.hash_d = _field_hash(mtype, m_name, doc, text)
 
-def _field_hash(mtype: Any, text: str) -> str:
+def _field_hash(mtype: Any, m_name: str, doc: Any, text: str) -> str:
+    from sldb.store.runtime_cache import payload_of
+    payload = payload_of(doc.path, doc.hash_c, m_name)
     try:
-        return hash_fields(mtype, text)
+        return hash_payload(payload) if payload is not None else hash_fields(mtype, text)
     except Exception:
         return ""
 

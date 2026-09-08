@@ -10,10 +10,14 @@ def hash_text(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
-def hash_fields(model_type: Any, markdown_text: str, codec: StoreCodec = default_codec) -> str:
-    payload = codec.extract(model_type, markdown_text)
+def hash_payload(payload: Any) -> str:
+    """hash_d of an already extracted payload."""
     normalized = json.dumps(payload, sort_keys=True, ensure_ascii=False)
     return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
+
+
+def hash_fields(model_type: Any, markdown_text: str, codec: StoreCodec = default_codec) -> str:
+    return hash_payload(codec.extract(model_type, markdown_text))
 
 
 def hash_documents_index(documents_index: DocumentsIndex) -> str:
