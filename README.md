@@ -49,6 +49,8 @@ The raw address surface (`st.{Model}.doc.field`, `se.tag`, `gse.tag`) lives unde
 
 The store is a database of addressable fields over Markdown. Every field of every tracked document has an address, and every read, filter or update goes through that address. SLDB re-renders the file; you do not edit it by hand.
 
+A linked store is reached by prefix: `b:st.{Model+}.doc.field` for the store linked as `b` (`sldb stores add`), with results carrying the prefix back; see `docs/addressability_model.md`.
+
 ```bash
 # one value, or a subfield: a key of a dict field, an item of a list field, a table row
 sldb fields show docs/recipe/title --store .sldb --pythonpath src

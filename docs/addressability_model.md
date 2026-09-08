@@ -43,6 +43,10 @@ Wildcards: `glob` accepts shell patterns on the document and field segments, e.g
 
 Tags come from the model's `__semantics__` plus the document's `tags`/`semantic_tags` field, flattened to dotted form (`type.knowledge.anchor`). Dotted prefixes become the semantic DAG (`type → type.knowledge → type.knowledge.anchor`).
 
+### `<store>:st.` — structural, in a linked store
+
+Every `st.` form takes a store prefix: `b:st.{Model+}.doc.field` reads the store linked as `b` in `store_index.yaml` exactly as `st.…` reads the local one (`local:` names the local store and may be omitted). `ls`, `get`, `glob` and `find` accept it, and the addresses they return from a linked store carry the same prefix, the way `gse.` results do. The linked store's models resolve from the caller's pythonpath first, then from that store's own root.
+
 ### `gse.` — global semantic (across linked stores)
 
 | Address | Means |

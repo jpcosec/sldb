@@ -6,6 +6,7 @@ from pathlib import Path
 
 from sldb.store.query_engine.structural import _model_scope_docs
 from sldb.store.query_engine.filter import _where_matches
+from sldb.store.query_engine.store_prefix import split_store, with_store
 
 
 def glob_structural(
@@ -28,12 +29,13 @@ class StructuralQueryEngine:
         cls, store_path: Path, pattern: str, resolve_model_ref, pythonpath: str | None = None
     ) -> list[str]:
         """Matches structural addresses against a glob pattern."""
+        store, pattern = split_store(pattern)
         match = re.fullmatch(r"st\.\{([^{}+]+)(\+)?\}\.([^.]+)(?:\.(.+))?", pattern)
         if not match:
             return []
         model_name, recursive_flag, doc_pattern, field_pattern = match.groups()
-        docs = _model_scope_docs(store_path, model_name, bool(recursive_flag), resolve_model_ref, pythonpath)
-        base_scope = f"st.{{{model_name}{'+' if recursive_flag else ''}}}"
+        docs = _model_scope_docs(store_path, model_name, bool(recursive_flag), resolve_model_ref, pythonpath, store)
+        base_scope = with_store(store, f"st.{{{model_name}{'+' if recursive_flag else ''}}}")
         return cls._glob_docs(docs, doc_pattern, field_pattern, base_scope)
 
     @classmethod
@@ -59,16 +61,17 @@ class StructuralQueryEngine:
         cls, store_path: Path, address: str, where: str, resolve_model_ref, pythonpath: str | None = None,
     ) -> list[str]:
         """Finds documents matching a structural scope and filter."""
+        store, address = split_store(address)
         match = re.fullmatch(r"st\.\{([^{}+]+)(\+)?\}", address)
         if not match:
             return []
-        return cls._find_docs(match, store_path, where, resolve_model_ref, pythonpath)
+        return cls._find_docs(match, store_path, where, resolve_model_ref, pythonpath, store)
 
     @classmethod
-    def _find_docs(cls, match, store_path: Path, where: str, resolve_model_ref, pythonpath: str | None) -> list[str]:
+    def _find_docs(cls, match, store_path: Path, where: str, resolve_model_ref, pythonpath: str | None, store: str | None = None) -> list[str]:
         model_name, recursive_flag = match.groups()
-        docs = _model_scope_docs(store_path, model_name, bool(recursive_flag), resolve_model_ref, pythonpath)
-        base_scope = f"st.{{{model_name}{'+' if recursive_flag else ''}}}"
+        docs = _model_scope_docs(store_path, model_name, bool(recursive_flag), resolve_model_ref, pythonpath, store)
+        base_scope = with_store(store, f"st.{{{model_name}{'+' if recursive_flag else ''}}}")
         return sorted(
             f"{base_scope}.{doc.name}"
             for doc in docs

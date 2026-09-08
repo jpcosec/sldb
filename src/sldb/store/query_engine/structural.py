@@ -7,8 +7,8 @@ from typing import Any
 from sldb.store.io import load_store_index
 
 
-def _model_scope_docs(store_path: Path, scope: str, recursive: bool, resolve_model_ref, pythonpath: str | None = None) -> list[Any]:
-    return StructuralEngine.model_scope_docs(store_path, scope, recursive, resolve_model_ref, pythonpath)
+def _model_scope_docs(store_path: Path, scope: str, recursive: bool, resolve_model_ref, pythonpath: str | None = None, store: str | None = None) -> list[Any]:
+    return StructuralEngine.model_scope_docs(store_path, scope, recursive, resolve_model_ref, pythonpath, store)
 def list_structural(store_path: Path, address: str, resolve_model_ref, pythonpath: str | None = None) -> list[str]:
     return StructuralEngine.list_structural(store_path, address, resolve_model_ref, pythonpath)
 def get_structural(store_path: Path, address: str, resolve_model_ref, pythonpath: str | None = None) -> Any:
@@ -23,13 +23,13 @@ def model_in_family(model_type: type, base_name: str) -> bool:
 class StructuralEngine:
     """Engine for processing structural queries."""
     @classmethod
-    def model_scope_docs(cls, store_path: Path, scope: str, recursive: bool, resolve_model_ref, pythonpath: str | None = None) -> list[Any]:
+    def model_scope_docs(cls, store_path: Path, scope: str, recursive: bool, resolve_model_ref, pythonpath: str | None = None, store: str | None = None) -> list[Any]:
         """Documents in scope `{Model}` (exact model) or `{Model+}` (the model and every
-        subclass). The family check walks each document's model MRO by class name, so a
-        base that is not itself registered (an abstract `PrimitiveDoc`) still names a
-        family."""
-        from sldb.store.query import load_runtime_documents
-        docs = load_runtime_documents(store_path, resolve_model_ref, pythonpath)
+        subclass), of the local store or of the linked store named `store`. The family
+        check walks each document's model MRO by class name, so a base that is not itself
+        registered (an abstract `PrimitiveDoc`) still names a family."""
+        from sldb.store.query_engine.store_prefix import scoped_docs
+        docs = scoped_docs(store_path, store, resolve_model_ref, pythonpath)
         if scope == "*": return docs
         if not recursive: return [doc for doc in docs if doc.model_name == scope]
         return [doc for doc in docs if model_in_family(doc.model_type, scope)]
@@ -37,14 +37,16 @@ class StructuralEngine:
 
     @classmethod
     def list_structural(cls, store_path: Path, address: str, resolve_model_ref, pythonpath: str | None = None) -> list[str]:
+        from sldb.store.query_engine.store_prefix import split_store
+        store, address = split_store(address)
         if address == "st": return sorted(f"st.{{{e.name}}}" for e in load_store_index(store_path).models)
         match = re.fullmatch(r"st\.\{([^{}+]+)(\+)?\}(?:\.([^.]+))?", address)
-        return cls._list_match(match, store_path, resolve_model_ref, pythonpath) if match else []
+        return cls._list_match(match, store_path, resolve_model_ref, pythonpath, store) if match else []
 
     @classmethod
-    def _list_match(cls, match, store_path: Path, resolve_model_ref, pythonpath: str | None) -> list[str]:
+    def _list_match(cls, match, store_path: Path, resolve_model_ref, pythonpath: str | None, store: str | None = None) -> list[str]:
         m_name, r_flag, d_name = match.groups()
-        docs = cls.model_scope_docs(store_path, m_name, bool(r_flag), resolve_model_ref, pythonpath)
+        docs = cls.model_scope_docs(store_path, m_name, bool(r_flag), resolve_model_ref, pythonpath, store)
         if d_name is None: return sorted(doc.name for doc in docs)
         target = next((doc for doc in docs if doc.name == d_name), None)
         return cls._list_target_fields(target) if target else []
@@ -60,13 +62,15 @@ class StructuralEngine:
 
     @classmethod
     def get_structural(cls, store_path: Path, address: str, resolve_model_ref, pythonpath: str | None = None) -> Any:
+        from sldb.store.query_engine.store_prefix import split_store
+        store, address = split_store(address)
         match = re.fullmatch(r"st\.\{([^{}+]+)(\+)?\}\.([^.]+)(?:\.(.+))?", address)
-        return cls._get_match(match, store_path, resolve_model_ref, pythonpath) if match else None
+        return cls._get_match(match, store_path, resolve_model_ref, pythonpath, store) if match else None
 
     @classmethod
-    def _get_match(cls, match, store_path: Path, resolve_model_ref, pythonpath: str | None) -> Any:
+    def _get_match(cls, match, store_path: Path, resolve_model_ref, pythonpath: str | None, store: str | None = None) -> Any:
         m_name, r_flag, d_name, f_name = match.groups()
-        docs = cls.model_scope_docs(store_path, m_name, bool(r_flag), resolve_model_ref, pythonpath)
+        docs = cls.model_scope_docs(store_path, m_name, bool(r_flag), resolve_model_ref, pythonpath, store)
         target = next((doc for doc in docs if doc.name == d_name), None)
         if target is None: return None
         return cls._get_field(target, f_name) if f_name else target.payload

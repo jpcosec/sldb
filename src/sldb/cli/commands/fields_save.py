@@ -14,12 +14,20 @@ def save_payload(runtime_doc: Any, payload: dict[str, Any], store_arg: str | Non
     sp, root = get_store_context(store_arg)
     idx, m_entry, m_idx = _load_model_indices(sp, root, runtime_doc.model_name)
     d_idx, doc_entry = _load_doc_indices(root, m_idx, runtime_doc.name)
-    model_type = resolve_model_ref(m_entry.model_ref, pythonpath)
+    model_type = _model(m_entry.model_ref, pythonpath, root)
     rendered = _render_and_validate(model_type, payload)
     _update_doc_entry(root, doc_entry, model_type, rendered)
     _save_indices(sp, root, idx, m_idx, m_entry, d_idx, pythonpath)
     print(f"Updated field payload for '{runtime_doc.name}'")
     return 0
+
+def _model(model_ref: str, pythonpath: str | None, root: Any) -> type:
+    """The caller's pythonpath first, then the store's own root: a linked store's models
+    import from where that store lives."""
+    try:
+        return resolve_model_ref(model_ref, pythonpath)
+    except Exception:  # noqa: BLE001
+        return resolve_model_ref(model_ref, str(root))
 
 def _load_model_indices(sp: Any, root: Any, model_name: str) -> tuple[Any, Any, Any]:
     idx = load_store_index(sp)
