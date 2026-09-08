@@ -310,6 +310,25 @@ The four hashes form a Merkle chain. `sldb stores check` walks the chain and rep
 | hash_b changed | Document inventory altered (added/removed). |
 | hash_a invalidated | Model contract changed (fields or template). |
 
+### Caches
+
+Reading a store means extracting every tracked document, and every query asks for that.
+Three caches keep it to once, all validated by the state of the files they depend on
+(path, mtime, size), so any write through sldb, which touches an index or a document, is
+seen by the next read:
+
+| Cache | Where | What |
+|-------|-------|------|
+| Index cache | memory (`sldb.store.io`) | Each yaml index parsed once; loads return deep copies, saves that change nothing do not touch the file. |
+| Runtime documents | memory (`sldb.store.runtime_cache`) | The extracted documents of a store, whole-store and per document: a reload after one write extracts one document. |
+| Extracted payloads | `.sldb/runtime/cache/extracted.json` | The payloads by document signature, so a new process does not extract a store it has already seen. Derived; delete freely; add `.sldb/runtime/cache/` to `.gitignore`. |
+
+The semantic and sections rebuilds remember each document's result the same way, and
+`sldb stores update` recomputes field hashes only for documents whose text changed. A store
+layout that is already canonical is not rewritten when a command opens it. Use
+`invalidate_runtime_cache()` from `sldb.store.runtime_cache` in a long-lived process that
+edits files behind sldb's back and needs the next read to be exact.
+
 ### Typical workflow
 
 ```bash

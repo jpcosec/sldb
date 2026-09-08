@@ -36,9 +36,28 @@ def _extract_sections(markdown: str) -> list[dict]:
         if sec: sections.append(sec); stack.append(sec)
     return sections
 
+_DOC_SECTIONS: dict[tuple, list[dict]] = {}   # (path, mtime, size) -> headings; a rebuild only parses what changed
+
+
+def _file_signature(path: Path) -> tuple:
+    try:
+        st = path.stat()
+        return (st.st_mtime_ns, st.st_size)
+    except OSError:
+        return (0, 0)
+
+
+def _sections_of(d_path: Path) -> list[dict]:
+    key = (str(d_path), *_file_signature(d_path))
+    secs = _DOC_SECTIONS.get(key)
+    if secs is None:
+        secs = _DOC_SECTIONS[key] = _extract_sections(d_path.read_text(encoding="utf-8"))
+    return secs
+
+
 def _process_doc_sections(doc, d_path, report):
     report.docs_processed += 1
-    if not (secs := _extract_sections(d_path.read_text(encoding="utf-8"))): report.docs_empty_sections += 1
+    if not (secs := _sections_of(d_path)): report.docs_empty_sections += 1
     tags, records, stack = list(doc.semantic_tags or []), [], []
     for s in secs:
         while stack and stack[-1][0] >= s["level"]: stack.pop()

@@ -10,6 +10,7 @@ from sldb.store.io import (
     load_store_index,
 )
 from sldb.store.query_engine.models import RuntimeDocument
+from sldb.store.runtime_cache import cached_document, cached_store, invalidate_runtime_cache  # noqa: F401
 
 
 def _resolve_path(base: Path, maybe_relative: str) -> Path:
@@ -18,11 +19,19 @@ def _resolve_path(base: Path, maybe_relative: str) -> Path:
     return path if path.is_absolute() else (base / path).resolve()
 
 
-def _load_doc(doc, root, model_type, m_entry, s_name, s_path, codec: StoreCodec = default_codec) -> RuntimeDocument | None:
+def _extract_doc(doc, root, model_type, m_entry, s_name, s_path, codec: StoreCodec) -> RuntimeDocument | None:
     d_path = root / doc.path
     if not d_path.exists():
         return None
     return RuntimeDocument(store_name=s_name, store_path=s_path, model_name=m_entry.name, model_type=model_type, name=doc.name, path=doc.path, payload=codec.extract(model_type, d_path.read_text(encoding="utf-8")), semantic_tags=list(doc.semantic_tags))
+
+
+def _load_doc(doc, root, model_type, m_entry, s_name, s_path, codec: StoreCodec = default_codec) -> RuntimeDocument | None:
+    """One document, from the per-document cache when the default codec is in use."""
+    if codec is not default_codec:
+        return _extract_doc(doc, root, model_type, m_entry, s_name, s_path, codec)
+    return cached_document(root / doc.path, s_path, s_name, m_entry.name, doc, model_type, lambda: _extract_doc(doc, root, model_type, m_entry, s_name, s_path, codec))
+
 
 def _resolve_model_type(resolver, model_ref: str, p_path, store_root: Path):
     """Resolve a model, trying the store's own project root before giving up.
@@ -39,6 +48,7 @@ def _resolve_model_type(resolver, model_ref: str, p_path, store_root: Path):
             continue
     return None
 
+
 def _load_one(s_path: Path, s_name: str, resolver, p_path, codec: StoreCodec = default_codec) -> list[RuntimeDocument]:
     root = project_root(s_path)
     docs = []
@@ -50,12 +60,20 @@ def _load_one(s_path: Path, s_name: str, resolver, p_path, codec: StoreCodec = d
         docs.extend([d for doc in d_idx.documents if (d := _load_doc(doc, root, m_type, m, s_name, s_path, codec))])
     return docs
 
+
 def load_runtime_documents(store_path: Path, resolve_model_ref, pythonpath: str | None = None, include_linked: bool = False, codec: StoreCodec = default_codec) -> list[RuntimeDocument]:
-    docs = _load_one(store_path, "local", resolve_model_ref, pythonpath, codec)
+    """The tracked documents of a store, extracted. With the default codec the load is cached
+    by the state of the files it comes from (sldb.store.runtime_cache), so repeated queries
+    do not read the store again. The list is fresh per call; the documents are shared."""
+    def one(path: Path, name: str) -> list[RuntimeDocument]:
+        loader = lambda: _load_one(path, name, resolve_model_ref, pythonpath, codec)  # noqa: E731
+        return cached_store(path, name, pythonpath, loader) if codec is default_codec else loader()
+
+    docs = list(one(store_path, "local"))
     if include_linked:
         for linked in load_store_index(store_path).stores:
             if store_exists(linked_store := _resolve_path(project_root(store_path), linked.path)):
-                docs.extend(_load_one(linked_store, linked.name, resolve_model_ref, pythonpath, codec))
+                docs.extend(one(linked_store, linked.name))
     return docs
 
 

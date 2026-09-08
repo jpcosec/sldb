@@ -36,8 +36,24 @@ def _migrate_model(m_entry, p_root) -> bool:
     m_entry.models_index = n_m_rel
     return changed
 
+def _model_canonical(m_entry, p_root: Path) -> bool:
+    if m_entry.models_index != models_index_relpath(m_entry.name) or not (p_root / m_entry.models_index).exists():
+        return False
+    m_idx = load_models_index(p_root / m_entry.models_index)
+    if m_idx.documents_index != documents_index_relpath(m_entry.name) or not (p_root / m_idx.documents_index).exists():
+        return False
+    return not m_idx.sections_index or (m_idx.sections_index == sections_index_relpath(m_entry.name) and (p_root / m_idx.sections_index).exists())
+
+def _already_canonical(store_index, p_root: Path) -> bool:
+    """True when every model index already sits at its canonical path and points at canonical
+    document and section indexes: nothing to migrate, and nothing to rewrite."""
+    return all(_model_canonical(m_entry, p_root) for m_entry in store_index.models)
+
+
 def migrate_store_layout(store_path: Path, project_root: Path) -> bool:
     store_index = load_store_index(store_path)
+    if store_index_path(store_path).exists() and _already_canonical(store_index, project_root):
+        return False   # the common case: an up-to-date store is not rewritten on every context
     changed = not store_index_path(store_path).exists()
     for m_entry in store_index.models:
         if _migrate_model(m_entry, project_root): changed = True

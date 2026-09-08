@@ -45,12 +45,40 @@ class RebuildReport:
     verbose: list[str] = field(default_factory=list)
 
 
+_DOC_TAGS: dict[tuple, list[str]] = {}   # (path, mtime, size, model) -> semantic tags; a rebuild only extracts what changed
+
+
+def _file_signature(path: Path) -> tuple:
+    try:
+        st = path.stat()
+        return (st.st_mtime_ns, st.st_size)
+    except OSError:
+        return (0, 0)
+
+
+def _extract_tags(doc_path: Path, model_type, m_name: str, codec: StoreCodec) -> list[str]:
+    from sldb.store.runtime_cache import payload_of
+    payload = payload_of(doc_path, m_name) if codec is default_codec else None
+    if payload is None:
+        try: payload = codec.extract(model_type, doc_path.read_text(encoding="utf-8"))
+        except Exception: payload = {}
+    return collect_document_semantic_tags(model_type, payload)
+
+
+def _tags_of(doc_path: Path, model_type, m_name: str, codec: StoreCodec) -> list[str]:
+    key = (str(doc_path), *_file_signature(doc_path), m_name)
+    tags = _DOC_TAGS.get(key) if codec is default_codec else None
+    if tags is None:
+        tags = _extract_tags(doc_path, model_type, m_name, codec)
+        if codec is default_codec: _DOC_TAGS[key] = tags
+    return tags
+
+
 def _process_doc(doc, doc_path, model_type, m_name, report, codec: StoreCodec = default_codec):
     report.docs_processed += 1
-    try: payload = codec.extract(model_type, doc_path.read_text(encoding="utf-8"))
-    except Exception: payload = {}
-    doc.semantic_tags = collect_document_semantic_tags(model_type, payload)
+    doc.semantic_tags = list(_tags_of(doc_path, model_type, m_name, codec))
     return SemanticDocumentRecord(model=m_name, path=doc.path, tags=doc.semantic_tags)
+
 
 def _process_model_semantics(m_entry, root, resolver, py_path, report, docs_dict, t_to_d, p_by_n):
     m_idx = load_models_index(root / m_entry.models_index)

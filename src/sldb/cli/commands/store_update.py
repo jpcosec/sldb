@@ -40,11 +40,16 @@ def _process_doc(doc: Any, mtype: Any, root: Path, skipped_docs: list[str]) -> N
     if not doc_path.exists():
         return skipped_docs.append(doc.name)
     text = doc_path.read_text(encoding="utf-8")
-    doc.hash_c = hash_text(text)
+    hash_c = hash_text(text)
+    if hash_c == doc.hash_c and doc.hash_d:
+        return None   # the text did not change since the last update: its field hash stands
+    doc.hash_c, doc.hash_d = hash_c, _field_hash(mtype, text)
+
+def _field_hash(mtype: Any, text: str) -> str:
     try:
-        doc.hash_d = hash_fields(mtype, text)
+        return hash_fields(mtype, text)
     except Exception:
-        doc.hash_d = ""
+        return ""
 
 def _commit_updates(args: Any, sp: Path, root: Path, idx: StoreIndex, pending: list[tuple[Any, Any, Any]]) -> tuple[RebuildReport, RebuildReport]:
     wait = getattr(args, "wait", False)
