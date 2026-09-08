@@ -67,7 +67,7 @@ def _add_doc_record(doc, records):
         kind="doc", store_name=doc.store_name, name=doc.name,
         physical=[doc.name, doc.path, f"{doc.model_name}/{doc.name}"],
         semantic=list(doc.semantic_tags), payload=doc.payload,
-        model_name=doc.model_name, doc_name=doc.name, path=doc.path,
+        model_name=doc.model_name, doc_name=doc.name, path=doc.path, model_type=doc.model_type,
     ))
 
 def _process_doc_details(doc, model_sections, records):

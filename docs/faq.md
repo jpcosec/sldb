@@ -234,6 +234,32 @@ sldb stores semantic-export --store .sldb --pythonpath src --format kgdb --encod
 
 `stores semantic-export` differs from semantic search: it exports SLDB's semantic document truth in bulk for a graph consumer, while `find --in semantic` answers a specific retrieval query. The export does not add source-file dependency edges or workflow-specific relations; those belong to downstream graph adapters.
 
+## How do I read one field without opening the Markdown?
+
+Name it by address. The store knows the document's path and model, the model's template knows where the field lives, and SLDB returns the value.
+
+```bash
+sldb fields show docs/my-book/title --store .sldb
+sldb legacy get 'st.{Book}.my-book.title' --format text --store .sldb
+sldb legacy ls 'st.{Book}.my-book' --store .sldb          # fields with their descriptions
+```
+
+`docs/<doc>/<field>` and `st.{Model}.<doc>.<field>` are two spellings of the same address. Dotted field paths reach into dict fields (`metadata.author`).
+
+See the [Address Space atom](atoms/address-space.atom.md) and [`addressability_model.md`](addressability_model.md).
+
+## How do I get every document of a family where a field has some value?
+
+One command, scoped to the family and filtered by one predicate:
+
+```bash
+sldb legacy find 'st.{Note+}' --where 'status = "open"' --store .sldb
+sldb find "" --in physical --type doc --where 'model <= Note' --store .sldb
+sldb fields query status --global --store .sldb              # the value of one field everywhere
+```
+
+`{Note+}` means `Note` and every subclass; the base does not need to be registered or have documents of its own. The predicate grammar is `has(f)`, `"x" in f`, `f ~ "regex"`, `f = "v"`, `f != "v"`, `f >= n`, `f <= n`, `model <= Base`, one per `--where`.
+
 ## How do I update data in tracked docs?
 
 Use the smallest command that matches the change you want:
@@ -251,6 +277,8 @@ sldb docs update my-book '{"title":"Updated Title"}' --store .sldb
 sldb fields update docs/my-book/title '"Updated Title"' --store .sldb
 sldb fields append docs/my-book/tags '"dessert"' --store .sldb
 ```
+
+You never edit the Markdown for these. SLDB re-renders the whole document from the updated payload, checks that it extracts back to the same payload, writes the file, updates `hash_c` and `hash_d`, rebuilds the semantic index and cascades `hash_a`. A write that would break the roundtrip is refused.
 
 ## When should I use `compose` vs `recover`?
 

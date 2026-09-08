@@ -43,7 +43,31 @@ sldb explore store
 ```
 
 The public workflow is now organized around `stores`, `models`, `docs`, `fields`, `sections`, `find`, and `ast`.
-The older raw address/query surface still exists under `sldb legacy ...`, but it is no longer the primary interface.
+The raw address surface (`st.{Model}.doc.field`, `se.tag`, `gse.tag`) lives under `sldb legacy ls|get|glob|find`; it is the same engine spelled as addresses.
+
+### Read and write by address, never by opening Markdown
+
+The store is a database of addressable fields over Markdown. Every field of every tracked document has an address, and every read, filter or update goes through that address. SLDB re-renders the file; you do not edit it by hand.
+
+```bash
+# one value, or a subfield: a key of a dict field, an item of a list field, a table row
+sldb fields show docs/recipe/title --store .sldb --pythonpath src
+sldb fields show docs/recipe/steps/0/title --store .sldb --pythonpath src
+sldb legacy get 'st.{RecipeDoc}.recipe.metadata.author' --format text --store .sldb --pythonpath src
+
+# one field across every document (and linked stores)
+sldb fields query status --global --store .sldb --pythonpath src
+
+# every document of a family where a field has a value — one command
+sldb legacy find 'st.{RecipeDoc+}' --where 'status = "draft"' --store .sldb --pythonpath src
+sldb find "" --in physical --type doc --where 'model <= RecipeDoc' --store .sldb --pythonpath src
+
+# change the value; SLDB rewrites the Markdown, validates the roundtrip, updates hashes and indexes
+sldb fields update docs/recipe/status '"published"' --store .sldb --pythonpath src
+sldb fields append docs/recipe/tags '"dessert"' --store .sldb --pythonpath src
+```
+
+`{Model+}` is the family form: the model and every subclass, whether or not the base is registered. `--where` takes one predicate: `has(f)`, `"x" in f`, `f ~ "regex"`, `f = "v"`, `f != "v"`, `f >= n`, `model <= Base`. The full address model, the predicate grammar and the mapping between `legacy` addresses and the `fields`/`find` surface are in [`docs/addressability_model.md`](docs/addressability_model.md).
 
 To inspect what one store already knows, use `sldb models list --store .sldb`.
 

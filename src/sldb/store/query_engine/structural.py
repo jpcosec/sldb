@@ -14,17 +14,26 @@ def list_structural(store_path: Path, address: str, resolve_model_ref, pythonpat
 def get_structural(store_path: Path, address: str, resolve_model_ref, pythonpath: str | None = None) -> Any:
     return StructuralEngine.get_structural(store_path, address, resolve_model_ref, pythonpath)
 
+
+def model_in_family(model_type: type, base_name: str) -> bool:
+    """True when `base_name` names `model_type` or one of its bases."""
+    return any(base.__name__ == base_name for base in getattr(model_type, "__mro__", ()))
+
+
 class StructuralEngine:
     """Engine for processing structural queries."""
     @classmethod
     def model_scope_docs(cls, store_path: Path, scope: str, recursive: bool, resolve_model_ref, pythonpath: str | None = None) -> list[Any]:
+        """Documents in scope `{Model}` (exact model) or `{Model+}` (the model and every
+        subclass). The family check walks each document's model MRO by class name, so a
+        base that is not itself registered (an abstract `PrimitiveDoc`) still names a
+        family."""
         from sldb.store.query import load_runtime_documents
         docs = load_runtime_documents(store_path, resolve_model_ref, pythonpath)
         if scope == "*": return docs
-        base_doc = next((doc for doc in docs if doc.model_name == scope), None)
-        if not base_doc: return []
         if not recursive: return [doc for doc in docs if doc.model_name == scope]
-        return [doc for doc in docs if issubclass(doc.model_type, base_doc.model_type)]
+        return [doc for doc in docs if model_in_family(doc.model_type, scope)]
+
 
     @classmethod
     def list_structural(cls, store_path: Path, address: str, resolve_model_ref, pythonpath: str | None = None) -> list[str]:
@@ -64,8 +73,11 @@ class StructuralEngine:
 
     @classmethod
     def _get_field(cls, target, field_name: str) -> Any:
+        """Walk a dotted field path: keys into dict subfields, integers into list items
+        (`tasks.0.title`). Same traversal as `fields show docs/<doc>/tasks/0/title`."""
         value: Any = target.payload
         for part in field_name.split("."):
             if isinstance(value, dict) and part in value: value = value[part]
+            elif isinstance(value, list) and part.isdigit() and int(part) < len(value): value = value[int(part)]
             else: return None
         return value

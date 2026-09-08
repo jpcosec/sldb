@@ -21,14 +21,30 @@ Flags:
   --regex                       Treat the term as a regex
   --fuzzy                       Use fuzzy matching
   --type                        Restrict to store|model|doc|section|field
-  --where                       Filter docs/fields/sections using a predicate
+  --where                       Filter docs/fields/sections using one predicate
 
-Section --where predicates:
+Document --where predicates (--type doc):
+  has(field)                    Field present and not empty
+  "x" in field                  Item of a list field, or substring of a string field
+  field ~ "regex"               Regex on the value; doc ~ "regex" matches the doc name
+  field = "v" | field != "v"    String equality
+  field >= n | field <= n       Numeric comparison
+  model <= Base                 Model is Base or a subclass (family filter)
+
+Field --where predicates (--type field):
+  value = "v" | value != "v"    The field's value
+  doc = "name" | model = "M"    Owner document / model
+  has(value)                    Non-empty value
+
+Section --where predicates (--type section):
   title ~ "pattern"             Regex match on section title
   "term" in about               Term in derived about vocabulary
   "term" in breadcrumbs         Term in hierarchical breadcrumbs
   "tag" in semantic_tags        Tag in document-level semantic tags
   path = "..."                  Exact section path match
+
+One predicate per --where. To read or write a single field by address, see
+`sldb help fields` and `sldb help legacy` (docs/addressability_model.md).
 """
 
 AST_HELP = """sldb ast
@@ -66,4 +82,8 @@ Target forms:
   models/<Model>/<field.path>
   docs/<DocName>/<field.path>
   docs/<Model>/<DocName>/<field.path>
+
+Field paths reach into subfields: a key of a dict field (`docs/book/metadata/author`)
+or a list item / table row by position (`docs/book/tasks/0/status`). `update` and
+`show` accept any depth; `append` and `clean` target the list itself.
 """

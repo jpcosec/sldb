@@ -10,6 +10,11 @@ artifacts without owning the Markdown files themselves. `physical` search means 
 paths, sections, and field addresses. `semantic` search means explicit tags and derived
 document/section meaning.
 
+The store is addressable: every field, subfield and list item of every tracked doc has
+an address (`st.{Model}.doc.field.sub`, or `docs/doc/field/sub` on the `fields`
+surface) and you read, filter and update it by that address. You never open the
+Markdown by hand; SLDB re-renders it. See `sldb help legacy` and docs/addressability_model.md.
+
 Common workflows:
   sldb stores init --path .
   sldb models add myapp.docs:Book --store .sldb --pythonpath src
@@ -25,6 +30,11 @@ Common workflows:
   sldb inbox "The meaning of semantic vs physical is still unclear" --kind unclear
   sldb inbox --list
   sldb fields append docs/book/tasks '{"title":"Ship CLI","status":"open"}'
+  sldb fields show docs/book/tasks/0/title
+  sldb fields query status --global
+  sldb find "" --type doc --where 'status = "open"'
+  sldb legacy get 'st.{Book}.book.title' --format text
+  sldb legacy find 'st.{Book+}' --where 'status = "open"'
 
 Primary surfaces:
   help      Curated first-use guidance
@@ -41,7 +51,7 @@ Primary surfaces:
   explore   Deep markdown docs and docstring search
 
 Advanced:
-  legacy    Raw query and link commands from the pre-redesign CLI
+  legacy    Raw address surface: ls/get/glob/find over st.{Model}.doc.field, se.tag, gse.tag
 
 Use `sldb help <topic>` for focused help on: stores, models, predicates, docs, fields, sections, ast, find, faq, inbox, explore, legacy.
 """
@@ -74,7 +84,7 @@ Primary surfaces:
 Other commands:
   extract, render, validate   Direct model-first operations without a store
   init, example               Bootstrapping helpers
-  legacy                      Compatibility surface for older raw commands
+  legacy                      Address surface: ls/get/glob/find over st.{Model}.doc.field
 
 Use `sldb help` for the full onboarding help, `sldb find --help` for query examples,
 and `sldb docs --help` for document lifecycle details.

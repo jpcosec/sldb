@@ -20,6 +20,7 @@ from sldb.store.models import DocumentsIndex, ModelEntry, ModelsIndex
 from sldb.store.ops import cascade_hash_a
 from sldb.store.semantic import rebuild_semantic_indexes
 from sldb.store.semantic_tags import flatten_model_semantics
+from sldb.cli.commands.model_add import model_base_names, model_family
 from sldb.core.exceptions import SLDBModelError, SLDBError
 
 
@@ -46,9 +47,10 @@ class ModelCLI:
     def _save_new_model(self, sp: Any, root: Path, idx: Any, args: Any, model_type: Any, m_path: str, mi_rel: str, di_rel: str) -> None:
         with store_lock(sp):
             save_documents_index(root / di_rel, DocumentsIndex())
-            mi = ModelsIndex(name=model_type.__name__, model_ref=args.model, path=m_path, documents_index=di_rel, hash_b="", version=1, canonical=args.canonical, semantics=flatten_model_semantics(model_type))
+            family, bases = model_family(model_type), model_base_names(model_type)
+            mi = ModelsIndex(name=model_type.__name__, model_ref=args.model, path=m_path, documents_index=di_rel, hash_b="", version=1, canonical=args.canonical, family=family, semantics=flatten_model_semantics(model_type), base_models=bases)
             save_models_index(root / mi_rel, mi)
-            idx.models.append(ModelEntry(name=mi.name, model_ref=args.model, path=m_path, models_index=mi_rel, version=1))
+            idx.models.append(ModelEntry(name=mi.name, model_ref=args.model, path=m_path, models_index=mi_rel, version=1, family=family, semantics=mi.semantics))
             rebuild_semantic_indexes(sp, root, resolve_model_ref, args.pythonpath)
             cascade_hash_a(sp, root, idx)
 

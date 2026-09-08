@@ -89,7 +89,7 @@ class ChildDoc(BaseDoc):
     child_field: str = Field(description="Child field")
 
 
-def test_model_inheritance_query(tmp_path):
+def test_model_inheritance_query(tmp_path, monkeypatch):
     # Setup a store with a base and child model
     project_root = tmp_path
     store_path = project_root / ".sldb"
@@ -125,13 +125,11 @@ def test_model_inheritance_query(tmp_path):
         semantic_tags=["type.child"],
     )
 
-    # We need to monkeypatch load_runtime_documents or just test functions that take docs if they existed
-    # Since we can't easily monkeypatch in this tool, let's focus on unit testing where we can.
-
     import sldb.store.query
 
-    # Manual injection for testing internal logic
-    sldb.store.query.load_runtime_documents = lambda *args, **kwargs: [doc1, doc2]
+    # Inject the two documents for this test only; a bare assignment here leaked into
+    # every later test that loads runtime documents.
+    monkeypatch.setattr(sldb.store.query, "load_runtime_documents", lambda *args, **kwargs: [doc1, doc2])
 
     # Test recursive listing (st.{BaseDoc+})
     res = list_structural(store_path, "st.{BaseDoc+}", lambda *a: BaseDoc)

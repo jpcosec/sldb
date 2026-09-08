@@ -637,8 +637,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-find
   path: knowledge/commands/cmd-sldb-find.md
-  hash_c: fbeffa69378a33fcc39a6af2700630dcc98ce91a9df9632b3245663673c92a54
-  hash_d: e5d0ebb9867f94b5bd6f270691b3bd1f8c9ff97e065bb622c235f9f6b95d5a56
+  hash_c: f40998897d61a6eced2d8062ff34c63b7672c795b1e9d215b3bbf1d1bf49e822
+  hash_d: 99912cda5c42af52f0f0dd0c057bf8c141d0b9fc3b735c39f8a39d794d3e665d
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -651,6 +651,54 @@ documents:
   path: knowledge/commands/cmd-sldb-serve.md
   hash_c: 515e392cd23f0e2e8199d5523ec76638e616dc0871e4c448c170c83ed03ca2cf
   hash_d: 5757712fba241ee7ddd78a62faf2a787d12bd99e951c811f9bdf11da983517fb
+  semantic_tags:
+  - domain:retrieval
+  - entity:cli_command
+  - impl:external
+  - kind:software
+  - system:sldb
+  - type.knowledge.cli_command
+  - workspace.knowledge.commands
+- name: cmd-sldb-legacy-ls
+  path: knowledge/commands/cmd-sldb-legacy-ls.md
+  hash_c: 276cc000afd5608362ff88bbe5934a0809551b2475d71ba0890282e8f509409f
+  hash_d: 2f658a91097cf7a5e93a692a3e624d24ac549ed5d3c3bfd7e53bf94db602a550
+  semantic_tags:
+  - domain:retrieval
+  - entity:cli_command
+  - impl:external
+  - kind:software
+  - system:sldb
+  - type.knowledge.cli_command
+  - workspace.knowledge.commands
+- name: cmd-sldb-legacy-get
+  path: knowledge/commands/cmd-sldb-legacy-get.md
+  hash_c: f8994cd8b5409d7774a7762e87dd160b203cde59d037a3e017f3257068a5dcc7
+  hash_d: f3f730db5316cd1a628721c3d287a3d29e59a3dc4f2578c89833608076fd3c71
+  semantic_tags:
+  - domain:retrieval
+  - entity:cli_command
+  - impl:external
+  - kind:software
+  - system:sldb
+  - type.knowledge.cli_command
+  - workspace.knowledge.commands
+- name: cmd-sldb-legacy-glob
+  path: knowledge/commands/cmd-sldb-legacy-glob.md
+  hash_c: 0da89f0cc538e07f7ae14af630713f31843dfa300b7689f67472c2d286344556
+  hash_d: 16de1d4a8cc1f5174863669e49d5f14ab360bcfb9b6d8ad7a8b13e04f21bd260
+  semantic_tags:
+  - domain:retrieval
+  - entity:cli_command
+  - impl:external
+  - kind:software
+  - system:sldb
+  - type.knowledge.cli_command
+  - workspace.knowledge.commands
+- name: cmd-sldb-legacy-find
+  path: knowledge/commands/cmd-sldb-legacy-find.md
+  hash_c: 5f2d33d17d4b33ab4f0b6ff17f4db0d25423cc80deca41a9ad3829ad22b5434e
+  hash_d: 6d9dd22d4b968f170f020b256653db57d1666c969464997249ed811e3ddb96d1
   semantic_tags:
   - domain:retrieval
   - entity:cli_command

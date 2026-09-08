@@ -58,7 +58,10 @@ class QueryCLI:
         return 0
 
     def find(self, args: Any) -> int:
-        res = self._route(args, find_structural, find_semantic, where=args.where)
+        store, ref, p = self._resolve_store(args), resolve_model_ref, args.pythonpath
+        if args.address.startswith("st"): res = find_structural(store, args.address, args.where, ref, p)
+        elif args.address.startswith("se"): res = find_semantic(store, args.address, args.where, ref, p)
+        else: raise SLDBStoreError(f"Bad root: {args.address}")
         for item in res:
             print(item)
         return 0

@@ -53,13 +53,30 @@ def _create_models_index(args: Any, model_type: type, path: str, di_rel: str) ->
     return ModelsIndex(
         name=model_type.__name__, model_ref=args.model, path=path,
         documents_index=di_rel, hash_b="", version=1, canonical=args.canonical,
-        semantics=flatten_model_semantics(model_type)
+        family=model_family(model_type), semantics=flatten_model_semantics(model_type),
+        base_models=model_base_names(model_type),
     )
 
 def _create_model_entry(args: Any, name: str, path: str, mi_rel: str) -> ModelEntry:
     return ModelEntry(
         name=name, model_ref=args.model, path=path, models_index=mi_rel, version=1
     )
+
+def model_family(model_type: type) -> str | None:
+    """The model's declared `__family__`, the root branch it belongs to."""
+    value = getattr(model_type, "__family__", None)
+    return str(value) if value else None
+
+def model_base_names(model_type: type) -> list[str]:
+    """Names of the StructuredNLDoc bases above this model, nearest first.
+
+    Recorded so `st.{Base+}` families and `model <= Base` filters are legible from the
+    store index without importing the class."""
+    from sldb.models.structured_doc import StructuredNLDoc
+    return [
+        base.__name__ for base in model_type.__mro__[1:]
+        if isinstance(base, type) and issubclass(base, StructuredNLDoc) and base is not StructuredNLDoc
+    ]
 
 def _finalize_store_update(sp: Path, root: Path, idx: Any, pythonpath: str) -> None:
     rebuild_semantic_indexes(sp, root, resolve_model_ref, pythonpath)

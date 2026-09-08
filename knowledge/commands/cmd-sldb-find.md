@@ -28,18 +28,18 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'find'. It pa
 
 ## Arguments
 
-term | required | Resource term, semantic tag, or physical token
---in | optional | Use `physical` for names, paths, section titles, and field addresses
---global | optional | 
---regex | optional | 
---fuzzy | optional | 
---rebuild | optional | 
---type | optional | 
+term | required | Resource term, semantic tag, or physical token (use "" to match everything)
+--in | optional | semantic, physical or both (default both)
+--global | optional | Include linked stores
+--regex | optional | Treat the term as a regex
+--fuzzy | optional | Use fuzzy matching
+--rebuild | optional | Rebuild the section indexes before searching
+--type | optional | Restrict to store, model, doc, section or field
 --select | optional | Comma-separated projection fields
---where | optional | Filter expression
+--where | optional | One predicate. Docs: has(f), "x" in f, f ~ "re", f = "v", f != "v", f >= n, f <= n, model <= Base. Fields: value = "v", doc = "d", model = "M", has(value). Sections: title ~ "re", "x" in about|breadcrumbs|semantic_tags, path = "p"
 --store | optional | Store path
 --pythonpath | optional | Project path
---format | optional | 
+--format | optional | text, json or yaml
 
 ## Usage
 

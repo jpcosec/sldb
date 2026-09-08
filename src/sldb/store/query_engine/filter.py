@@ -59,9 +59,8 @@ class DocumentFilter:
         model_match = re.fullmatch(r"model\s*<=\s*([A-Za-z_][\w]*)", expression)
         if not model_match:
             return False
-        base_name = model_match.group(1)
-        base_type = resolve_model_ref(f"{doc.model_type.__module__}:{base_name}", pythonpath)
-        return issubclass(doc.model_type, base_type)
+        from sldb.store.query_engine.structural import model_in_family
+        return model_in_family(doc.model_type, model_match.group(1))
 
     @classmethod
     def _eval_compare(cls, doc: RuntimeDocument, expression: str) -> bool:

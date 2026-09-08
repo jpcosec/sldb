@@ -38,6 +38,28 @@ class CLI:
         from sldb.cli.commands.lint import lint_cli
         self.handlers.update({"fields": FieldsCLI().run, "sections": SectionsCLI().run})
         self.handlers.update({"serve": ServeCLI().run, "lint": lint_cli})
+        self._load_addresses()
+
+    def _load_addresses(self):
+        """The raw address surface: `legacy ls|get|glob|find|recover|compose`.
+
+        Addresses are `st.{Model}.doc.field` (structural), `se.tag` (semantic) and
+        `gse.tag` (global semantic). The singular top-level aliases (`ls`, `get`,
+        `glob`, `raw-find`, `recover`, `compose`) are the pre-redesign spelling and
+        route to the same handler.
+        """
+        from sldb.cli.commands.legacy import LegacyCLI
+        legacy = LegacyCLI()
+        self.handlers["legacy"] = legacy.run
+        for alias in ("ls", "get", "glob", "raw-find", "recover", "compose"):
+            self.handlers[alias] = self._alias_to_legacy(legacy, "find" if alias == "raw-find" else alias)
+
+    @staticmethod
+    def _alias_to_legacy(legacy, name: str):
+        def _run(args):
+            args.legacy_command = name
+            return legacy.run(args)
+        return _run
 
     def run(self, argv: Any = None) -> int:
         if self._check_help(argv): return 0

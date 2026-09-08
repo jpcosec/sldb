@@ -20,7 +20,7 @@ class FindFilters:
 
     def _match_doc(self, record: SearchRecord, expression: str) -> bool:
         name = record.doc_name or record.name
-        doc = RuntimeDocProxy(record.payload, name, self._model_proxy(record))
+        doc = RuntimeDocProxy(record.payload, name, record.model_type or self._model_proxy(record))
         return _core_where_matches(doc, expression, self._resolve_model_ref, self.pythonpath) # type: ignore[arg-type]
 
     def _match_field(self, record: SearchRecord, expression: str) -> bool:

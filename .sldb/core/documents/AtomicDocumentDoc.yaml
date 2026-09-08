@@ -62,3 +62,10 @@ documents:
   semantic_tags:
   - type.documentation.atom
   - workspace.docs.atoms
+- name: atom-address-space
+  path: docs/atoms/address-space.atom.md
+  hash_c: 6a5ef55e5a802ab5dfe3e4f1dcb0127fc8473b084388180e99e5530edeccde7a
+  hash_d: 0451c966f62f39c07f554ff56a49be16ac42e526e75a62a5fc7442bfae61149a
+  semantic_tags:
+  - type.documentation.atom
+  - workspace.docs.atoms
