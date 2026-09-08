@@ -36,10 +36,7 @@ def test_repeated_loads_share_documents_and_a_write_reloads_one(tmp_path: Path):
     second = load_runtime_documents(root / ".sldb", resolve_model_ref, str(root))
     assert [id(d) for d in first] == [id(d) for d in second]
     (root / "one.md").write_text("# one\n\nbody of one, changed\n")
-    stale = {d.name: d for d in load_runtime_documents(root / ".sldb", resolve_model_ref, str(root))}
-    assert stale["one"].payload["body"] == "body of one"   # the chain has not moved: an edit behind sldb's back waits for stores update
-    assert sldb_main(["stores", "update", "--store", str(root / ".sldb"), "--pythonpath", str(root)]) == 0
-    third = load_runtime_documents(root / ".sldb", resolve_model_ref, str(root))
+    third = load_runtime_documents(root / ".sldb", resolve_model_ref, str(root))   # a hand edit is seen: the leaf is stat-ed
     by_name = {d.name: d for d in third}
     assert by_name["one"].payload["body"] == "body of one, changed"
     assert id(by_name["two"]) == id({d.name: d for d in first}["two"])
@@ -55,3 +52,16 @@ def test_a_save_that_changes_nothing_leaves_the_file_alone(tmp_path: Path):
     stamp = os.stat(d_path).st_mtime_ns
     save_documents_index(d_path, load_documents_index(d_path))
     assert os.stat(d_path).st_mtime_ns == stamp
+
+
+def test_a_trusted_chain_skips_the_leaf_sweep(tmp_path: Path, monkeypatch):
+    root = _world(tmp_path)
+    invalidate_runtime_cache()
+    monkeypatch.setenv("SLDB_TRUST_CHAIN", "1")
+    load_runtime_documents(root / ".sldb", resolve_model_ref, str(root))
+    (root / "one.md").write_text("# one\n\nbody of one, edited by hand\n")
+    stale = {d.name: d for d in load_runtime_documents(root / ".sldb", resolve_model_ref, str(root))}
+    assert stale["one"].payload["body"] == "body of one"   # the chain did not move, and it is trusted
+    assert sldb_main(["stores", "update", "--store", str(root / ".sldb"), "--pythonpath", str(root)]) == 0
+    fresh = {d.name: d for d in load_runtime_documents(root / ".sldb", resolve_model_ref, str(root))}
+    assert fresh["one"].payload["body"] == "body of one, edited by hand"

@@ -314,22 +314,25 @@ The four hashes form a Merkle chain. `sldb stores check` walks the chain and rep
 
 The hash chain is a Merkle tree, and the caches use it as one: `hash_a` says whether
 anything changed, each model's `hash_b` whether that model did, each document's `hash_c`
-whether that document did. A read descends only where a hash moved and never stats or
-reads documents to find out.
+whether that document did. A read descends only where a hash moved. One concession to
+Markdown edited by hand: the leaves are also stat-ed (mtime and size, microseconds per
+file, no reads), so an edit made behind sldb's back is seen before `stores update` moves
+its hash. A store that is only written through sldb can set `SLDB_TRUST_CHAIN=1` and
+skip that sweep.
 
 | Cache | Where | Key |
 |-------|-------|-----|
 | Index cache | memory (`sldb.store.io`) | each yaml index by its file's mtime and size; loads return copies; saves that change nothing do not touch the file |
-| Runtime documents | memory (`sldb.store.runtime_cache`) | the store by `hash_a` + every `hash_b`; each extracted document by `(path, hash_c, model)` |
-| Extracted payloads | `.sldb/runtime/cache/extracted.json` | the payloads by `(path, hash_c, model)`, so a new process does not extract what it has already seen |
+| Runtime documents | memory (`sldb.store.runtime_cache`) | the store by `hash_a` + every `hash_b` (+ the leaf stats); each extracted document by `(path, hash_c[, mtime, size], model)` |
+| Extracted payloads | `.sldb/runtime/cache/extracted.json` | the payloads by the same leaf key, so a new process does not extract what it has already seen |
 | Built per model | `.sldb/runtime/cache/built.json` | the semantic contribution and the sections of each model by `hash_b`; a rebuild walks only models whose documents moved |
 
 `sldb stores update` rehashes every document's text (that is its job: to see edits made
 behind sldb's back and move the chain) but recomputes field hashes only where the text
 changed. A store layout that is already canonical is not rewritten when a command opens
-it. A document edited without going through sldb is not seen by readers until
-`stores update` moves its `hash_c`: that is the contract of the chain. The two cache
-files are derived; delete them freely and add `.sldb/runtime/cache/` to `.gitignore`.
+it. The rebuilds keyed by `hash_b` do not see a hand edit until `stores update` moves
+its `hash_c`; readers do, through the leaf sweep. The two cache files are derived; delete
+them freely and add `.sldb/runtime/cache/` to `.gitignore`.
 
 ### Typical workflow
 

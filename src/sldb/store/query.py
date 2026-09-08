@@ -30,7 +30,7 @@ def _load_doc(doc, root, model_type, m_entry, s_name, s_path, codec: StoreCodec 
     """One document, from the per-document cache when the default codec is in use."""
     if codec is not default_codec:
         return _extract_doc(doc, root, model_type, m_entry, s_name, s_path, codec)
-    return cached_document(doc, s_path, s_name, m_entry.name, model_type, lambda: _extract_doc(doc, root, model_type, m_entry, s_name, s_path, codec))
+    return cached_document(doc, root, s_path, s_name, m_entry.name, model_type, lambda: _extract_doc(doc, root, model_type, m_entry, s_name, s_path, codec))
 
 
 def _resolve_model_type(resolver, model_ref: str, p_path, store_root: Path):

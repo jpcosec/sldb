@@ -1,5 +1,5 @@
 """The cache file of extracted payloads, `.sldb/runtime/cache/extracted.json`: what a
-process extracted, keyed by document path, hash_c and model, so the next process
+process extracted, keyed by the document's leaf key (path, hash_c and, unless the chain is trusted, mtime and size) and model, so the next process
 does not extract a store it has already seen. Derived and safe to delete; a store's
 .gitignore should list `.sldb/runtime/cache/`."""
 
@@ -17,8 +17,8 @@ def cache_file(s_path: Path) -> Path:
     return s_path / "runtime" / "cache" / "extracted.json"
 
 
-def disk_key(rel_path: str, hash_c: str, m_name: str) -> str:
-    return f"{rel_path}|{hash_c}|{m_name}"
+def disk_key(leaf: tuple, m_name: str) -> str:
+    return "|".join(str(x) for x in leaf) + f"|{m_name}"
 
 
 def entries(s_path: Path) -> dict:
@@ -35,10 +35,10 @@ def mark_dirty(s_path: Path) -> None:
     _DIRTY.add(str(s_path))
 
 
-def from_disk(s_path: Path, s_name: str, m_name: str, entry: Any, model_type: type) -> Any:
+def from_disk(s_path: Path, s_name: str, m_name: str, entry: Any, leaf: tuple, model_type: type) -> Any:
     """A document whose payload the cache file already holds: no extraction."""
     from sldb.store.query_engine.models import RuntimeDocument
-    hit = entries(s_path).get(disk_key(entry.path, entry.hash_c, m_name))
+    hit = entries(s_path).get(disk_key(leaf, m_name))
     if hit is None:
         return None
     return RuntimeDocument(store_name=s_name, store_path=s_path, model_name=m_name, model_type=model_type, name=entry.name, path=entry.path, payload=hit["payload"], semantic_tags=list(entry.semantic_tags))
@@ -50,7 +50,7 @@ def flush(s_path: Path, docs: dict[tuple, Any]) -> None:
     if str(s_path) not in _DIRTY:
         return
     _DIRTY.discard(str(s_path))
-    fresh = {disk_key(d.path, k[1], d.model_name): {"payload": d.payload} for k, d in docs.items() if str(d.store_path) == str(s_path)}
+    fresh = {disk_key(k[:-2], d.model_name): {"payload": d.payload} for k, d in docs.items() if str(d.store_path) == str(s_path)}
     _write(s_path, fresh)
 
 
