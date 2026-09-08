@@ -2,7 +2,7 @@ from typing import Any
 from sldb.cli.store_context import get_store_context
 from sldb.cli.model_utils import resolve_model_ref
 from sldb.runtime.validation import render_model_markdown, validate_model_input_roundtrip
-from sldb.store.hashing import hash_fields, hash_text
+from sldb.store.hashing import hash_documents_index, hash_fields, hash_text
 from sldb.store.io import (
     load_documents_index, load_models_index, load_store_index,
     save_documents_index, save_models_index, store_lock
@@ -49,6 +49,9 @@ def _update_doc_entry(root: Any, doc_entry: Any, model_type: type, rendered: str
 def _save_indices(sp: Any, root: Any, idx: Any, m_idx: Any, m_entry: Any, d_idx: Any, pythonpath: str | None) -> None:
     with store_lock(sp):
         save_documents_index(root / m_idx.documents_index, d_idx)
+        # the model's hash_b covers its documents' hashes: a field write must move it,
+        # or `stores check` fails and consumers keyed on hash_b never see the change
+        m_idx.hash_b = hash_documents_index(d_idx)
         save_models_index(root / m_entry.models_index, m_idx)
         rebuild_semantic_indexes(sp, root, resolve_model_ref, pythonpath)
         cascade_hash_a(sp, root, idx)

@@ -113,3 +113,13 @@ def test_field_update_is_visible_at_the_address(tmp_path, capsys):
     assert cli_main(["legacy", "find", "st.{BaseNote+}", "--where", 'status = "open"', *common]) == 0
     assert capsys.readouterr().out.split() == ["st.{BaseNote+}.memo1", "st.{BaseNote+}.memo2"]
     assert "Status: open" in (store.parent / "memo2.md").read_text(encoding="utf-8")
+
+
+def test_field_update_moves_the_model_hash_and_keeps_integrity(tmp_path, capsys):
+    """A field write must recompute the model's hash_b, or `stores check` fails afterwards."""
+    store, common = _setup(tmp_path, capsys)
+    before = load_models_index(store.parent / next(m for m in load_store_index(store).models if m.name == "MemoDoc").models_index).hash_b
+    assert cli_main(["fields", "update", "docs/memo1/status", '"done"', *common]) == 0
+    after = load_models_index(store.parent / next(m for m in load_store_index(store).models if m.name == "MemoDoc").models_index).hash_b
+    assert after != before
+    assert cli_main(["stores", "check", *common]) == 0
