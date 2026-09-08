@@ -312,22 +312,24 @@ The four hashes form a Merkle chain. `sldb stores check` walks the chain and rep
 
 ### Caches
 
-Reading a store means extracting every tracked document, and every query asks for that.
-Three caches keep it to once, all validated by the state of the files they depend on
-(path, mtime, size), so any write through sldb, which touches an index or a document, is
-seen by the next read:
+The hash chain is a Merkle tree, and the caches use it as one: `hash_a` says whether
+anything changed, each model's `hash_b` whether that model did, each document's `hash_c`
+whether that document did. A read descends only where a hash moved and never stats or
+reads documents to find out.
 
-| Cache | Where | What |
-|-------|-------|------|
-| Index cache | memory (`sldb.store.io`) | Each yaml index parsed once; loads return deep copies, saves that change nothing do not touch the file. |
-| Runtime documents | memory (`sldb.store.runtime_cache`) | The extracted documents of a store, whole-store and per document: a reload after one write extracts one document. |
-| Extracted payloads | `.sldb/runtime/cache/extracted.json` | The payloads by document signature, so a new process does not extract a store it has already seen. Derived; delete freely; add `.sldb/runtime/cache/` to `.gitignore`. |
+| Cache | Where | Key |
+|-------|-------|-----|
+| Index cache | memory (`sldb.store.io`) | each yaml index by its file's mtime and size; loads return copies; saves that change nothing do not touch the file |
+| Runtime documents | memory (`sldb.store.runtime_cache`) | the store by `hash_a` + every `hash_b`; each extracted document by `(path, hash_c, model)` |
+| Extracted payloads | `.sldb/runtime/cache/extracted.json` | the payloads by `(path, hash_c, model)`, so a new process does not extract what it has already seen |
+| Built per model | `.sldb/runtime/cache/built.json` | the semantic contribution and the sections of each model by `hash_b`; a rebuild walks only models whose documents moved |
 
-The semantic and sections rebuilds remember each document's result the same way, and
-`sldb stores update` recomputes field hashes only for documents whose text changed. A store
-layout that is already canonical is not rewritten when a command opens it. Use
-`invalidate_runtime_cache()` from `sldb.store.runtime_cache` in a long-lived process that
-edits files behind sldb's back and needs the next read to be exact.
+`sldb stores update` rehashes every document's text (that is its job: to see edits made
+behind sldb's back and move the chain) but recomputes field hashes only where the text
+changed. A store layout that is already canonical is not rewritten when a command opens
+it. A document edited without going through sldb is not seen by readers until
+`stores update` moves its `hash_c`: that is the contract of the chain. The two cache
+files are derived; delete them freely and add `.sldb/runtime/cache/` to `.gitignore`.
 
 ### Typical workflow
 

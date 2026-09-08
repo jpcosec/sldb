@@ -36,6 +36,9 @@ def test_repeated_loads_share_documents_and_a_write_reloads_one(tmp_path: Path):
     second = load_runtime_documents(root / ".sldb", resolve_model_ref, str(root))
     assert [id(d) for d in first] == [id(d) for d in second]
     (root / "one.md").write_text("# one\n\nbody of one, changed\n")
+    stale = {d.name: d for d in load_runtime_documents(root / ".sldb", resolve_model_ref, str(root))}
+    assert stale["one"].payload["body"] == "body of one"   # the chain has not moved: an edit behind sldb's back waits for stores update
+    assert sldb_main(["stores", "update", "--store", str(root / ".sldb"), "--pythonpath", str(root)]) == 0
     third = load_runtime_documents(root / ".sldb", resolve_model_ref, str(root))
     by_name = {d.name: d for d in third}
     assert by_name["one"].payload["body"] == "body of one, changed"

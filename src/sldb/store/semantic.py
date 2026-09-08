@@ -29,7 +29,8 @@ from sldb.store.models import (
     SemanticIndex,
     SemanticNode,
 )
-from sldb.store.semantic_tags import collect_document_semantic_tags, _prefix_edges
+from sldb.store.semantic_doc_tags import tags_of as _tags_of
+from sldb.store.semantic_tags import _prefix_edges
 import re
 def _slugify(text: str) -> str: return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
 
@@ -45,57 +46,54 @@ class RebuildReport:
     verbose: list[str] = field(default_factory=list)
 
 
-_DOC_TAGS: dict[tuple, list[str]] = {}   # (path, mtime, size, model) -> semantic tags; a rebuild only extracts what changed
-
-
-def _file_signature(path: Path) -> tuple:
-    try:
-        st = path.stat()
-        return (st.st_mtime_ns, st.st_size)
-    except OSError:
-        return (0, 0)
-
-
-def _extract_tags(doc_path: Path, model_type, m_name: str, codec: StoreCodec) -> list[str]:
-    from sldb.store.runtime_cache import payload_of
-    payload = payload_of(doc_path, m_name) if codec is default_codec else None
-    if payload is None:
-        try: payload = codec.extract(model_type, doc_path.read_text(encoding="utf-8"))
-        except Exception: payload = {}
-    return collect_document_semantic_tags(model_type, payload)
-
-
-def _tags_of(doc_path: Path, model_type, m_name: str, codec: StoreCodec) -> list[str]:
-    key = (str(doc_path), *_file_signature(doc_path), m_name)
-    tags = _DOC_TAGS.get(key) if codec is default_codec else None
-    if tags is None:
-        tags = _extract_tags(doc_path, model_type, m_name, codec)
-        if codec is default_codec: _DOC_TAGS[key] = tags
-    return tags
-
-
 def _process_doc(doc, doc_path, model_type, m_name, report, codec: StoreCodec = default_codec):
     report.docs_processed += 1
-    doc.semantic_tags = list(_tags_of(doc_path, model_type, m_name, codec))
+    doc.semantic_tags = list(_tags_of(doc, doc_path, model_type, m_name, codec))
     return SemanticDocumentRecord(model=m_name, path=doc.path, tags=doc.semantic_tags)
 
 
-def _process_model_semantics(m_entry, root, resolver, py_path, report, docs_dict, t_to_d, p_by_n):
-    m_idx = load_models_index(root / m_entry.models_index)
+def _walk_model(m_entry, m_idx, root, resolver, py_path, report) -> dict:
+    """The model's contribution to the semantic indexes, walking its documents."""
     d_idx = load_documents_index(root / m_idx.documents_index)
+    docs, tags, prefix = {}, defaultdict(list), set()
     for doc in d_idx.documents:
         if not (d_path := root / doc.path).exists():
             report.docs_skipped_missing += 1; continue
-        docs_dict[doc.name] = _process_doc(doc, d_path, resolver(m_entry.model_ref, py_path), m_entry.name, report)
-        for tag in doc.semantic_tags:
-            t_to_d[tag].append(doc.name)
-            for p, c in _prefix_edges(tag): p_by_n[c].add(p); p_by_n.setdefault(p, set())
+        rec = _process_doc(doc, d_path, resolver(m_entry.model_ref, py_path), m_entry.name, report)
+        docs[doc.name] = {"model": rec.model, "path": rec.path, "tags": rec.tags}
+        _note_tags(doc, tags, prefix)
     save_documents_index(root / m_idx.documents_index, d_idx)
+    return {"docs": docs, "tags": dict(tags), "prefix": sorted(prefix)}
+
+
+def _note_tags(doc, tags, prefix) -> None:
+    for tag in doc.semantic_tags:
+        tags[tag].append(doc.name); prefix.update(_prefix_edges(tag))
+
+
+def _model_contribution(s_path, m_entry, root, resolver, py_path, report) -> dict:
+    """From the built cache when the model's hash_b did not move, else walked and recorded."""
+    from sldb.store import built_cache
+    m_idx = load_models_index(root / m_entry.models_index)
+    key = built_cache.model_key(m_idx)
+    hit = built_cache.get(s_path, "semantic", m_entry.name, key)
+    if hit is not None:
+        report.docs_processed += len(hit["docs"]); return hit
+    value = _walk_model(m_entry, m_idx, root, resolver, py_path, report)
+    built_cache.put(s_path, "semantic", m_entry.name, key, value)
+    return value
+
+
+def _merge(c: dict, docs_dict, t_to_d, p_by_n) -> None:
+    for name, rec in c["docs"].items(): docs_dict[name] = SemanticDocumentRecord(**rec)
+    for tag, names in c["tags"].items(): t_to_d[tag].extend(names)
+    for p, child in c["prefix"]: p_by_n[child].add(p); p_by_n.setdefault(p, set())
+
 
 def rebuild_semantic_indexes(store_path: Path, project_root: Path, resolve_model_ref, pythonpath: str | None = None, report: RebuildReport | None = None) -> RebuildReport:
     report = report or RebuildReport()
     d_dict, t_to_d, p_by_n, existing = {}, defaultdict(list), defaultdict(set), load_semantic_dag(store_path)
-    for m in load_store_index(store_path).models: _process_model_semantics(m, project_root, resolve_model_ref, pythonpath, report, d_dict, t_to_d, p_by_n)
+    for m in load_store_index(store_path).models: _merge(_model_contribution(store_path, m, project_root, resolve_model_ref, pythonpath, report), d_dict, t_to_d, p_by_n)
     for c, parents in existing.equivalences.items():
         p_by_n.setdefault(c, set())
         for p in parents: p_by_n[c].add(p); p_by_n.setdefault(p, set())

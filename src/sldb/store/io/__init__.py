@@ -38,6 +38,7 @@ def _cached(path: Path, loader):
     if hit is None or hit[0] != sig:
         hit = (sig, loader())
         _INDEXES[key] = hit
+        _SAVED[key] = (sig, _digest(hit[1]))
     return hit[1].model_copy(deep=True)
 
 
