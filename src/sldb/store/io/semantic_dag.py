@@ -23,7 +23,7 @@ from sldb.store.models import (
 
 _LOCK_TIMEOUT = 10
 
-from sldb.store.io.utils import StoreIOUtils
+from sldb.store.io.utils import StoreIOUtils, yaml_dump, yaml_load
 
 class SemanticDAGIO:
     @staticmethod
@@ -31,13 +31,13 @@ class SemanticDAGIO:
         dag_file = semantic_dag_path(store_path)
         if not dag_file.exists():
             return SemanticDAG()
-        data = yaml.safe_load(dag_file.read_text(encoding="utf-8")) or {}
+        data = yaml_load(dag_file.read_text(encoding="utf-8")) or {}
         return SemanticDAG(**data)
 
     @staticmethod
     def save(store_path: Path, dag: SemanticDAG) -> None:
         StoreIOUtils._atomic_write(
             semantic_dag_path(store_path),
-            yaml.safe_dump(dag.model_dump(), sort_keys=False),
+            yaml_dump(dag.model_dump()),
         )
 

@@ -23,18 +23,18 @@ from sldb.store.models import (
 
 _LOCK_TIMEOUT = 10
 
-from sldb.store.io.utils import StoreIOUtils
+from sldb.store.io.utils import StoreIOUtils, yaml_dump, yaml_load
 
 class ModelsIndexIO:
     @staticmethod
     def load(path: Path) -> ModelsIndex:
-        data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        data = yaml_load(path.read_text(encoding="utf-8")) or {}
         return ModelsIndex(**data)
 
     @staticmethod
     def save(path: Path, index: ModelsIndex) -> None:
         StoreIOUtils._atomic_write(
             path,
-            yaml.safe_dump(index.model_dump(), sort_keys=False),
+            yaml_dump(index.model_dump()),
         )
 

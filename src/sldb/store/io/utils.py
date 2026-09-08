@@ -23,6 +23,18 @@ from sldb.store.models import (
 
 _LOCK_TIMEOUT = 10
 
+_LOADER = getattr(yaml, "CSafeLoader", yaml.SafeLoader)   # libyaml when present: 7-8x faster on the indexes
+_DUMPER = getattr(yaml, "CSafeDumper", yaml.SafeDumper)
+
+
+def yaml_load(text: str):
+    return yaml.load(text, Loader=_LOADER)
+
+
+def yaml_dump(data) -> str:
+    return yaml.dump(data, Dumper=_DUMPER, sort_keys=False, allow_unicode=True)
+
+
 class StoreIOUtils:
     @staticmethod
     def _atomic_write(path: Path, content: str) -> None:

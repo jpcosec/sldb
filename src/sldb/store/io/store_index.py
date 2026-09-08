@@ -23,7 +23,7 @@ from sldb.store.models import (
 
 _LOCK_TIMEOUT = 10
 
-from sldb.store.io.utils import StoreIOUtils
+from sldb.store.io.utils import StoreIOUtils, yaml_dump, yaml_load
 
 class StoreIndexIO:
     @staticmethod
@@ -31,12 +31,12 @@ class StoreIndexIO:
         index_file = store_index_path(store_path)
         if not index_file.exists():
             raise FileNotFoundError(f"No store_index.yaml at {store_path}")
-        data = yaml.safe_load(index_file.read_text(encoding="utf-8")) or {}
+        data = yaml_load(index_file.read_text(encoding="utf-8")) or {}
         return StoreIndex(**data)
 
     @staticmethod
     def save(store_path: Path, index: StoreIndex) -> None:
         StoreIOUtils._atomic_write(
             store_index_path(store_path),
-            yaml.safe_dump(index.model_dump(), sort_keys=False),
+            yaml_dump(index.model_dump()),
         )
