@@ -70,11 +70,15 @@ def remove_node_block(source: str, node: ast.AST) -> str:
     return "".join(lines)
 
 def replace_rhs_expression(source: str, node: ast.AST, replacement: str) -> str:
+    # ast col_offset/end_col_offset son offsets en BYTES utf-8; las líneas se
+    # parten por bytes para que el corte no se corra con caracteres multibyte.
     lines = source.splitlines(keepends=True)
     s_line, e_line = node.lineno - 1, node.end_lineno - 1
     s_col, e_col = node.col_offset, node.end_col_offset
     if s_line == e_line:
-        lines[s_line] = lines[s_line][:s_col] + replacement + lines[s_line][e_col:]
+        raw = lines[s_line].encode('utf-8')
+        lines[s_line] = (raw[:s_col] + replacement.encode('utf-8') + raw[e_col:]).decode('utf-8')
     else:
-        lines[s_line : e_line + 1] = [lines[s_line][:s_col] + replacement + lines[e_line][e_col:]]
+        s_raw, e_raw = lines[s_line].encode('utf-8'), lines[e_line].encode('utf-8')
+        lines[s_line : e_line + 1] = [(s_raw[:s_col] + replacement.encode('utf-8') + e_raw[e_col:]).decode('utf-8')]
     return "".join(lines)
