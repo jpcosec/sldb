@@ -5,7 +5,7 @@ import re
 from pathlib import Path
 
 from sldb.store.query_engine.structural import _model_scope_docs
-from sldb.store.query_engine.filter import _where_matches
+from sldb.store.query_engine.where_parse import compile_where
 from sldb.store.query_engine.store_prefix import split_store, with_store
 
 
@@ -72,8 +72,9 @@ class StructuralQueryEngine:
         model_name, recursive_flag = match.groups()
         docs = _model_scope_docs(store_path, model_name, bool(recursive_flag), resolve_model_ref, pythonpath, store)
         base_scope = with_store(store, f"st.{{{model_name}{'+' if recursive_flag else ''}}}")
+        predicate = compile_where(where)  # once per query; unparseable predicates raise
         return sorted(
             f"{base_scope}.{doc.name}"
             for doc in docs
-            if _where_matches(doc, where, resolve_model_ref, pythonpath)
+            if predicate(doc, resolve_model_ref, pythonpath)
         )
