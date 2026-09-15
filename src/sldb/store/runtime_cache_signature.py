@@ -8,7 +8,15 @@ one stat per tracked document, every time — 7 calls in one pron turn measured 
 1500 documents). A hand edit made mid-operation is not required to be seen until the next
 one — `stores update`/`stores check` give the same guarantee unconditionally regardless (they
 always re-read and re-hash every file directly, untouched by any of this). A store that is
-only written through sldb can set SLDB_TRUST_CHAIN=1 and skip the sweep entirely."""
+only written through sldb can set SLDB_TRUST_CHAIN=1 and skip the sweep entirely.
+
+`leaf()` is also what `runtime_cache.cached_document` calls once per document on every
+reload it does (a reload is triggered whenever hash_a moved — every write): without its own
+per-path stat cache, a store with several writes in one operation (each forcing at least one
+reload of the whole document list, to find the one or two documents that actually changed)
+would still re-stat every tracked document once per reload, several times over in one
+operation. `_STAT_CACHE` makes that one stat per path per operation too, regardless of which
+of the two callers (the sweep, or a reload's per-document lookup) asks first."""
 
 from __future__ import annotations
 
@@ -21,6 +29,7 @@ from sldb.store.layout import project_root
 
 _FORCE_SWEEP: set[str] = set()          # store paths whose next signature() re-stats every leaf
 _LAST_LEAVES: dict[str, tuple] = {}     # store path -> leaves signature() last actually swept
+_STAT_CACHE: dict[str, tuple[int, int]] = {}   # absolute doc path -> (mtime_ns, size), this operation
 
 
 def trust_chain() -> bool:
@@ -28,29 +37,43 @@ def trust_chain() -> bool:
 
 
 def new_operation(s_path: Path) -> None:
-    """The start of a top-level operation on this store: the next `signature()` call re-stats
-    every tracked document once; calls within the same operation reuse that sweep."""
+    """The start of a top-level operation on this store: the next `signature()`/`leaf()` call
+    re-stats every tracked document once; calls within the same operation reuse those stats."""
     _FORCE_SWEEP.add(str(s_path))
+    _STAT_CACHE.clear()
 
 
 def forget(s_path: Path | None) -> None:
     """Drop the remembered sweep so the next signature() redoes it (invalidate_runtime_cache)."""
     if s_path is None:
-        _LAST_LEAVES.clear(); _FORCE_SWEEP.clear()
+        _LAST_LEAVES.clear(); _FORCE_SWEEP.clear(); _STAT_CACHE.clear()
         return
     _LAST_LEAVES.pop(str(s_path), None)
     _FORCE_SWEEP.add(str(s_path))
+    _STAT_CACHE.clear()
+
+
+def _stat(path: Path) -> tuple[int, int]:
+    key = str(path)
+    hit = _STAT_CACHE.get(key)
+    if hit is None:
+        try:
+            st = path.stat()
+            hit = (st.st_mtime_ns, st.st_size)
+        except OSError:
+            hit = (0, 0)
+        _STAT_CACHE[key] = hit
+    return hit
 
 
 def leaf(root: Path, entry: Any) -> tuple:
-    """A document's place in the chain, plus its file state unless the chain is trusted."""
+    """A document's place in the chain, plus its file state unless the chain is trusted —
+    stat-ed at most once per path per operation (both the sweep below and a reload's own
+    per-document lookup, sldb.store.runtime_cache.cached_document, call this)."""
     if trust_chain():
         return (entry.path, entry.hash_c)
-    try:
-        st = (root / entry.path).stat()
-        return (entry.path, entry.hash_c, st.st_mtime_ns, st.st_size)
-    except OSError:
-        return (entry.path, entry.hash_c, 0, 0)
+    mtime, size = _stat(root / entry.path)
+    return (entry.path, entry.hash_c, mtime, size)
 
 
 def _leaves(s_path: Path, root: Path, idx) -> tuple:
