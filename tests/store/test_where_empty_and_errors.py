@@ -15,7 +15,7 @@ from sldb.cli import main as cli_main
 from sldb.store.query import find_structural
 from sldb.store.query_engine.filter import DocumentFilter
 from sldb.store.query_engine.models import RuntimeDocument
-from sldb.store.query_engine.where_parse import WherePredicateError
+from sldb.store.query_engine.where_parse import WherePredicateError, compile_where
 
 
 def _ref(model_ref, pythonpath=None):
@@ -50,6 +50,41 @@ def test_unparseable_predicate_raises_from_the_per_document_filter():
         DocumentFilter.where_matches(_doc({"status": ""}), "status ===", _ref, None)
 
 
+QUOTED = 'doesn\'t exist " here'
+ESCAPED = 'title = "doesn\'t exist \\" here"'  # the predicate carries \" for the quote
+
+
+@pytest.mark.parametrize(
+    "predicate,payload,expected",
+    [
+        (ESCAPED, {"title": QUOTED}, True),  # the escaped literal matches exactly
+        (ESCAPED, {"title": "doesn't exist here"}, False),  # without the quote: no
+        (ESCAPED, {"title": QUOTED + " extra"}, False),  # not a prefix/partial match
+        (ESCAPED, {"status": QUOTED}, False),  # an absent field matches neither
+        ('"say \\"hi\\"" in title', {"title": 'say "hi" aloud'}, True),
+        ('"say \\"hi\\"" in title', {"title": "say hi aloud"}, False),
+        ('title ~ "exist \\" here"', {"title": QUOTED}, True),
+        ('title ~ "exist \\" here"', {"title": "exist here"}, False),
+    ],
+)
+def test_backslash_escapes_in_string_literals(predicate, payload, expected):
+    assert DocumentFilter.where_matches(_doc(payload), predicate, _ref, None) is expected
+
+
+@pytest.mark.parametrize(
+    "predicate",
+    [
+        'title = "unterminated',
+        'title = "escaped quote eats the closing \\"',  # \" is an escape, not the end
+        '"unterminated in title',
+        'title ~ "unterminated',
+    ],
+)
+def test_an_unterminated_literal_is_still_an_error(predicate):
+    with pytest.raises(WherePredicateError):
+        compile_where(predicate)
+
+
 @pytest.fixture
 def setup(tmp_path):
     (tmp_path / "where_models.py").write_text(
@@ -80,6 +115,21 @@ def test_find_empty_literal_matches_only_the_present_empty_document(setup):
     store, common = setup
     found = find_structural(store, "st.{MemoDoc}", 'status = ""', _ref, common[3])
     assert found == ["st.{MemoDoc}.empty"]
+
+
+def test_find_matches_the_escaped_title_and_only_it(setup):
+    store, common = setup
+    root = store.parent
+    payload = json.dumps({"title": QUOTED, "status": "open"})
+    assert (
+        cli_main(
+            ["docs", "create", "--model", "MemoDoc", "-o", str(root / "quoted.md"), payload, *common]
+        )
+        == 0
+    )
+    assert find_structural(store, "st.{MemoDoc}", ESCAPED, _ref, common[3]) == [
+        "st.{MemoDoc}.quoted"
+    ]
 
 
 def test_unparseable_predicate_raises_from_the_engine(setup):

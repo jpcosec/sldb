@@ -41,7 +41,7 @@ def _build_has(m: re.Match) -> Predicate:
 
 
 def _build_contains(m: re.Match) -> Predicate:
-    needle, field = m.group(1), m.group(2)
+    needle, field = _unquote(m.group(1)), m.group(2)
 
     def check(doc: Any, resolve_model_ref: Any, pythonpath: Any) -> bool:
         value = doc.payload.get(field)
@@ -51,7 +51,7 @@ def _build_contains(m: re.Match) -> Predicate:
 
 
 def _build_regex(m: re.Match) -> Predicate:
-    field, pattern = m.group(1), m.group(2)
+    field, pattern = m.group(1), _unquote(m.group(2))
 
     def check(doc: Any, resolve_model_ref: Any, pythonpath: Any) -> bool:
         target = doc.name if field == "doc" else str(doc.payload.get(field, ""))
@@ -73,7 +73,7 @@ def _build_model(m: re.Match) -> Predicate:
 
 def _build_compare(m: re.Match) -> Predicate:
     field, op, raw = m.group(1), m.group(2), m.group(3)
-    expected: Any = raw[1:-1] if raw.startswith('"') else float(raw)
+    expected: Any = _unquote(raw) if raw.startswith('"') else float(raw)
 
     def check(doc: Any, resolve_model_ref: Any, pythonpath: Any) -> bool:
         if raw.startswith('"') and field not in doc.payload:
@@ -91,11 +91,34 @@ def _apply_op(value: Any, op: str, expected: Any) -> bool:
     return False
 
 
+# A string literal: '"', then non-quote/non-backslash chars or a backslash escaping
+# any char, then '"'. The value unquotes \" -> " and \\ -> \.
+_LITERAL = r'"(?:[^"\\]|\\.)*"'
+_LITERAL_NONEMPTY = r'("(?:[^"\\]|\\.)+")'
+
+
+def _unquote(raw: str) -> str:
+    """The literal's value: the quotes off, the two escapes resolved; any other
+    backslash survives verbatim."""
+    body, out, i = raw[1:-1], [], 0
+    while i < len(body):
+        if body[i] == "\\" and i + 1 < len(body) and body[i + 1] in ('"', "\\"):
+            out.append(body[i + 1])
+            i += 2
+        else:
+            out.append(body[i])
+            i += 1
+    return "".join(out)
+
+
 # same order the old evaluator tried them: has, in, regex, model family, comparison
 _EVALUATORS = [
     (re.compile(r"has\(([^)]+)\)"), _build_has),
-    (re.compile(r'"([^"]+)"\s+in\s+([A-Za-z_][\w]*)'), _build_contains),
-    (re.compile(r'([A-Za-z_][\w]*)\s*~\s*"([^"]+)"'), _build_regex),
+    (re.compile(_LITERAL_NONEMPTY + r"\s+in\s+([A-Za-z_][\w]*)"), _build_contains),
+    (re.compile(r'([A-Za-z_][\w]*)\s*~\s*' + _LITERAL_NONEMPTY), _build_regex),
     (re.compile(r"model\s*<=\s*([A-Za-z_][\w]*)"), _build_model),
-    (re.compile(r'([A-Za-z_][\w]*)\s*(=|!=|>=|<=)\s*("[^"]*"|\d+(?:\.\d+)?)'), _build_compare),
+    (
+        re.compile(r'([A-Za-z_][\w]*)\s*(=|!=|>=|<=)\s*(' + _LITERAL + r'|\d+(?:\.\d+)?)'),
+        _build_compare,
+    ),
 ]
