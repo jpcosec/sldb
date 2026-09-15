@@ -1,0 +1,12 @@
+name: cmd-sldb-extract
+path: knowledge/commands/cmd-sldb-extract.md
+hash_c: 9d26a2b66afe2b160d2612448b868d4731544bfa61d84ae6d2ecc1bb42f8b7dc
+hash_d: 254ef79eed8d5dbf768c30cd8ed0d587b186666b0a6c9c238bd2d35c5de05ab3
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

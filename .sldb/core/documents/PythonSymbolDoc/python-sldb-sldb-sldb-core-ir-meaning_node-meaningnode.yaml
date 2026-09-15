@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ir-meaning_node-meaningnode
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ir-meaning_node-meaningnode.md
+hash_c: af87361718fdde2100696668892d09d7f7564818ec40de4ab13c6ffe8d0c9b12
+hash_d: 65546fd54325ebfcd6e42298bc1af3858a782b3ecbfa85ba52e095893a2ca355
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

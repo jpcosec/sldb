@@ -1,0 +1,11 @@
+name: pill-001-sldb-vs-deskops-boundary
+path: desk/pills/pill-001-sldb-vs-deskops-boundary.md
+hash_c: 2a1e75548ab207acf9e2323479052d47114ba761d94ff6062a9b33e5700aa996
+hash_d: 72a04f0f31506b41da612689cf32801e451ebef1a0e46cc9250c5229d24a78bc
+semantic_tags:
+- system:deskops
+- system:sldb
+- topic:boundary
+- type.workflow.pill
+- workspace.desk
+- workspace:desk

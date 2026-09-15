@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-extractor-recipe_matcher-recipematcher-_find_leaf_text_node
+path: knowledge/symbols/python-sldb-sldb-sldb-core-extractor-recipe_matcher-recipematcher-_find_leaf_text_node.md
+hash_c: 0c0a23b777857c1b5bdd7750683de8b64e659670ed847798acaf63ced3126a2a
+hash_d: 3da9c40e56b581dc67e912f8f92dce6933eb9ed12a14846c3eb69dbf24f56ab5
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

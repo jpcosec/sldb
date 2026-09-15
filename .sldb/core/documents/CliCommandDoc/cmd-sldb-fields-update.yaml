@@ -1,0 +1,12 @@
+name: cmd-sldb-fields-update
+path: knowledge/commands/cmd-sldb-fields-update.md
+hash_c: c25f4861e6628b697126697151ec105ff15ce4c2596a700e53dd407f9ce96f6a
+hash_d: 12fd9741d85606571bdaee0c75dd4d44336197008eeb87d3cbad6a58108da529
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

@@ -1,0 +1,12 @@
+name: surface-sldb-ast
+path: knowledge/surfaces/surface-sldb-ast.md
+hash_c: c8ef554f8004e4908ed7e1fea1f7f804dba3ea3a9853943aadef822fb3964d54
+hash_d: cc37a279a397cb2289a7746498d9c62b88b56d81e2a9a8f95a1e49fbab93cbe1
+semantic_tags:
+- domain:retrieval
+- entity:cli_surface
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.surface
+- workspace.knowledge.surfaces

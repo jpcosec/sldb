@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-serve-schema-add_enum_values
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-serve-schema-add_enum_values.md
+hash_c: 36166ce3baabb67c73d93b9b1799bca4779720ae62b0c510bc73158fe57d2085
+hash_d: 3c4738dc180cf6ea030241ccef0c6ff61361557f3e1cf3b18bf6862d0235a5df
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

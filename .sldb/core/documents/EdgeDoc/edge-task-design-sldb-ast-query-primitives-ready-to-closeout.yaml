@@ -1,0 +1,8 @@
+name: edge-task-design-sldb-ast-query-primitives-ready-to-closeout
+path: desk/primitives/edges/edge-task-design-sldb-ast-query-primitives-ready-to-closeout.md
+hash_c: c016cf6437526e733d9c228ffbbf392f40d9cdc0ea8300b984eef60476a6ddca
+hash_d: 9f52bcb84725e95a379155352465720a14cba7803653d1b4fd3df6c56b08fe18
+semantic_tags:
+- primitive:edge
+- type.workflow.edge
+- workspace.desk.primitives

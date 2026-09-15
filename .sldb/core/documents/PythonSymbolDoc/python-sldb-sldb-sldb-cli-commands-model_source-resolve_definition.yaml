@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-model_source-resolve_definition
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-model_source-resolve_definition.md
+hash_c: bd88bdf5c8595e8cd5693f88f1bd3e0ef1db90740e7f56b6538010cda8cfbe07
+hash_d: c38636a91426b2286b22a78ac68794cce8864de5c3e79e512ba026e0526a55b6
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

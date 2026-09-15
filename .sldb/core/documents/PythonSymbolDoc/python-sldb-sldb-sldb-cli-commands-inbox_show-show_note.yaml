@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-inbox_show-show_note
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-inbox_show-show_note.md
+hash_c: 09040693b9f38136ccb1db7e015740b675aeafba667f85f175f1bd4759143969
+hash_d: e51e6eced493a5615307fedf16b430a3163dc9b1fd85dee845cf128fc143f44a
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

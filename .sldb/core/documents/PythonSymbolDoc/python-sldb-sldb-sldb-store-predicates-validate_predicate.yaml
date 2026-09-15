@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-predicates-validate_predicate
+path: knowledge/symbols/python-sldb-sldb-sldb-store-predicates-validate_predicate.md
+hash_c: e3f6d40c7dd2cf5dfd20bf9921c11336b8515e3960bcceab841a4e41f215453b
+hash_d: 2e17f4b2e3f8d042b937fcc82f4ce2cd4021af7837e36d488ad236a751529ecb
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

@@ -1,0 +1,8 @@
+name: operator-task-mapear-arquitectura-real-de-sldb-ready-for-testing
+path: desk/primitives/operators/operator-task-mapear-arquitectura-real-de-sldb-ready-for-testing.md
+hash_c: bb5a7743ca35a37cee33441ec89446d78581d04bda034f1ce34bfa302e64cd5e
+hash_d: 6a773c747130bbd6425aba3eb387a5c633b455e4a9c83840b395973dee7e9768
+semantic_tags:
+- primitive:operator
+- type.workflow.operator
+- workspace.desk.primitives

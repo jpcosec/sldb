@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-graph_ops-extract-_process_node
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-graph_ops-extract-_process_node.md
+hash_c: 11ed1c5bdacadf78430c865fb27a080002bcaa22f2be5d4a7481ebbbe89b32bd
+hash_d: 6232593b0eb0d215e7eebfeb7c3e1fb9ee2f62f1be38f88432889f00938ca597
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

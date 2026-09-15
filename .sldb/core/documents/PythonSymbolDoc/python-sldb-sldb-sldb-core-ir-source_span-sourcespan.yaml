@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ir-source_span-sourcespan
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ir-source_span-sourcespan.md
+hash_c: d9bac2ffb12334cd6ba8a3da35c516f6311b2452cf8b18c726d70e80dd599b25
+hash_d: 0bc546414de3d24852247bbb8c36580603965bb4da85c42d772ffd7c366a532f
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

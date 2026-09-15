@@ -1,0 +1,12 @@
+name: cmd-sldb-predicates-remove
+path: knowledge/commands/cmd-sldb-predicates-remove.md
+hash_c: fc9c973fa03dc973cc688a06c6e90c6636f3106b34e81acb94163e6d24f1b3f7
+hash_d: db46b06312d6cc0e03c6e98f8c03b821394e2191ae913e9ba3a0e4656e0d927d
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

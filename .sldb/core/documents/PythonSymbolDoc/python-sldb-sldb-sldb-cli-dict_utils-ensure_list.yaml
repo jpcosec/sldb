@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-dict_utils-ensure_list
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-dict_utils-ensure_list.md
+hash_c: 8257cf1a9afd3b89d2d792b05ef4f759a14b2b6ca807704cde1deaafdc996c22
+hash_d: 35bfea73e291efe11a1c11e4b34f184da5c06a1e99ca3828587a88ce6d6f7ae7
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-doc_helpers-parse_payload
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-doc_helpers-parse_payload.md
+hash_c: 418b3a1147afec8bab0ab6e5a447592b6a60c631bf5ffae09cd4bf1a5683ae62
+hash_d: 75a157b56bc4cf398028ffeb1181209c1f048733f3e70fefa3dbc14614043383
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-stores-storescli-semantic_export
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-stores-storescli-semantic_export.md
+hash_c: 98ec52b7ff3c18b8f308a858b1651d117e3cbc5499abc2596c13cd6924dba61e
+hash_d: 95799143bc64eb4fb6b90684161149919b444d0314ea244ab150e278f2bca29d
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

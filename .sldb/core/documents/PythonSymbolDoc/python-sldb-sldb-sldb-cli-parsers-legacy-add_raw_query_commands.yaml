@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-parsers-legacy-add_raw_query_commands
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-parsers-legacy-add_raw_query_commands.md
+hash_c: 3857a10eec10fdcaeca40211f7fb11b2f950cc21d0d864aa568e71c315d63091
+hash_d: 4d391733660608d721fd2a1ba829772a191b0bcc2dd5f1ae1e73b6372d15806b
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

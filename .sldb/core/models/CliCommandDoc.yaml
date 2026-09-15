@@ -4,6 +4,7 @@ path: src/sldb/models/cli_command_doc.py
 documents_index: .sldb/core/documents/CliCommandDoc.yaml
 sections_index: .sldb/runtime/sections/CliCommandDoc.yaml
 hash_b: c1f25a2ed684552b2f5fea4571c2366a4d3626cff614ac676df30ccc8976f9a5
+documents_count: 68
 version: 1
 canonical: false
 family: null

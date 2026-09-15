@@ -1,0 +1,8 @@
+name: checklist-task-tighten-semantic-export-provenance-contract-closeout-ready
+path: desk/primitives/checklists/checklist-task-tighten-semantic-export-provenance-contract-closeout-ready.md
+hash_c: 02de5bcb6a30d22e7d073042c85c749ba2f49cc9ba0f5a3aeda5cc6efdd6d88d
+hash_d: e9df52a04337d314107bd7456497119f5bf7887f67d917ca680f73982d572699
+semantic_tags:
+- primitive:checklist
+- type.workflow.checklist
+- workspace.desk.primitives

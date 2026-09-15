@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-models-anchor_doc-anchordoc
+path: knowledge/symbols/python-sldb-sldb-sldb-models-anchor_doc-anchordoc.md
+hash_c: 1ff61b730cd89af92eebfc4ba35255a7cb4e1233af5f619adb45a8ccca1b321e
+hash_d: c81de78466b5ee934caedc3cca371967d3f3abb430cacbb17d36c0cdb7216d30
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

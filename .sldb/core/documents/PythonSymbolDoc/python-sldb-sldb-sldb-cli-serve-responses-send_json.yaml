@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-serve-responses-send_json
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-serve-responses-send_json.md
+hash_c: 96c1974932c1b72c5e74856321e8248aa58866ba99fd0b9649e62c2b5329ec6d
+hash_d: 35f2a275364a51805cd45d4db24161a05e1fd3212847b5662637b127401080e2
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

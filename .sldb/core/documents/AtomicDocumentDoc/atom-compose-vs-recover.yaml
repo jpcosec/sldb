@@ -1,0 +1,7 @@
+name: atom-compose-vs-recover
+path: docs/atoms/compose-vs-recover.atom.md
+hash_c: 14d06954489a6f8ffa1a29753026920d6cdc96b5fa49737c6920c6b8d805068b
+hash_d: 485f196a914acc16fee25723dcb61d53cb07b090bef138f98e13a716b5413de1
+semantic_tags:
+- type.documentation.atom
+- workspace.docs.atoms

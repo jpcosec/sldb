@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-serve-schema-unwrap_annotation
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-serve-schema-unwrap_annotation.md
+hash_c: 1f1d8a165c517c9677947cde7cb7931fe36ad44f977e674ec55d140a7f546879
+hash_d: 96d4cedfec9f4f7c114ee4f8e356d92f35aefc04c252bd7747ffd2d0ff4be6b8
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

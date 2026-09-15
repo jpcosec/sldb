@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-semantic-rebuild_semantic_indexes
+path: knowledge/symbols/python-sldb-sldb-sldb-store-semantic-rebuild_semantic_indexes.md
+hash_c: cefaa0cccbafd6516e40ad765657a494053ec338a234f4c6734beb7c9292e8eb
+hash_d: 95642352c16c5bb6a49e2b274bcafae1a260e67fb5799e0f77ca89adbef0a5e1
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

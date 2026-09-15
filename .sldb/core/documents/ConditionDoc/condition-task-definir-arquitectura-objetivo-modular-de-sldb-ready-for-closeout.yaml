@@ -1,0 +1,8 @@
+name: condition-task-definir-arquitectura-objetivo-modular-de-sldb-ready-for-closeout
+path: desk/primitives/conditions/condition-task-definir-arquitectura-objetivo-modular-de-sldb-ready-for-closeout.md
+hash_c: a1d0f1e7fd2be60ff5f3b8808866fc4ba70e36ecf710bb1bfa33ab96628bb6b5
+hash_d: dd509d46959ffc6215c72e4a7c56da5bbce1107d2721ace8d958a14774da5683
+semantic_tags:
+- primitive:condition
+- type.workflow.condition
+- workspace.desk.primitives

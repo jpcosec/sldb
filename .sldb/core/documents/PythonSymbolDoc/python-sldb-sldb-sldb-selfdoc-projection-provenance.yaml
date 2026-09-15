@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-selfdoc-projection-provenance
+path: knowledge/symbols/python-sldb-sldb-sldb-selfdoc-projection-provenance.md
+hash_c: 1ba1cd7a2696c39143ca74ebd0d2a1d36b09366afc7a59b2ed0c736770dc8ebc
+hash_d: e66f38908e4075a3bc8f4317c6b5c9ef956032167752766c99069078fe56a9dd
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

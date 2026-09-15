@@ -1,0 +1,12 @@
+name: cmd-sldb-docs-create
+path: knowledge/commands/cmd-sldb-docs-create.md
+hash_c: fef130654b00f1434f00cb0e6558bb3cc796df9d540ebf07c451d01983711483
+hash_d: 29665fae02e447c0a425f25184c09b4e9fa60353ae456efba37e636cc27d9213
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

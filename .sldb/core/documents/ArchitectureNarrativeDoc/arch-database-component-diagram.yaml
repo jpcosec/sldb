@@ -1,0 +1,9 @@
+name: arch-database-component-diagram
+path: docs/architecture/database_component_diagram.md
+hash_c: b176f8dd8aa388d1001ca7a3c7485cc41189467da3e0d758ad5507be9945e5b0
+hash_d: 347d7bed709291842acb3b660ef9dd0bbe5e9b44c7aa8ca07affb1e9d60704c5
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.documentation.architecture
+- workspace.docs.architecture

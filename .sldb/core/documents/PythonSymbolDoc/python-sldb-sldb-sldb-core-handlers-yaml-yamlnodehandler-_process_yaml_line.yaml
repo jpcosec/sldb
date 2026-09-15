@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-handlers-yaml-yamlnodehandler-_process_yaml_line
+path: knowledge/symbols/python-sldb-sldb-sldb-core-handlers-yaml-yamlnodehandler-_process_yaml_line.md
+hash_c: 6e4698f631ca8e0b38caa0c00b6a3343c41a8f0565adf8f36be5ac5e65f76f28
+hash_d: c96f8efa236a281a7170673629488ca766a0c2c8329588e2dc3f6f7db6ca1d43
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

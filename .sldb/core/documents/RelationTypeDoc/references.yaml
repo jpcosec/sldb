@@ -1,0 +1,9 @@
+name: references
+path: kgdb/relation_types/references.md
+hash_c: fb58869c0a64f561785db14c9b812eb7770282aa98ceaa77d0f6b7fe2ee44831
+hash_d: 8c971186a0de1c77b5a9a2967ee762331f49e47ec062afcb97b8d3b6634533b6
+semantic_tags:
+- layer.topology
+- representation.markdown
+- source.document.markdown
+- type.relation.type

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-runtime_cache_disk-mark_dirty
+path: knowledge/symbols/python-sldb-sldb-sldb-store-runtime_cache_disk-mark_dirty.md
+hash_c: c59ed4bd17a275146d945103e7db8da20535a77c57bc63ff68902b6e125ea666
+hash_d: 67298592d5e0557226c62df51b5389f1d13d09c4bdc935fe78c6c7194c9d7a60
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-template_extractor-templateextractor-_add_anchor_recipe
+path: knowledge/symbols/python-sldb-sldb-sldb-core-template_extractor-templateextractor-_add_anchor_recipe.md
+hash_c: 35fcc2dcf3ed6b5bfda2af5680370ae0908b9f3315a00e50bdf5bd3b0f203452
+hash_d: 551d476783cc335124ce70339abc1f28da282b5fcce62da8f282ba2d67c4d8a2
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

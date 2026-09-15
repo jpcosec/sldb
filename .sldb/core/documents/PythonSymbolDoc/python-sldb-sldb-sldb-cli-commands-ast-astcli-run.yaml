@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-ast-astcli-run
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-ast-astcli-run.md
+hash_c: 8d5a4eacebbc7d2095d4f6252f7a7fbdf5fe696cc138d593c6b16c670f55bea4
+hash_d: d7d07de85613d62b3640ee67e4adfdfaec4c3ec9e2ce10e13d240b4a64291edb
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

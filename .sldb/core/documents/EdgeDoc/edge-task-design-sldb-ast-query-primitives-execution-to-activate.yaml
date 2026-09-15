@@ -1,0 +1,8 @@
+name: edge-task-design-sldb-ast-query-primitives-execution-to-activate
+path: desk/primitives/edges/edge-task-design-sldb-ast-query-primitives-execution-to-activate.md
+hash_c: 8698c39a384b9c88aa4ce755f98a956831a288fac4409b3b7d7ba718ebc6598d
+hash_d: c9b4414147a724eceb3b24a1d9a837e3e810b5893259424f4e8261fc00a53482
+semantic_tags:
+- primitive:edge
+- type.workflow.edge
+- workspace.desk.primitives

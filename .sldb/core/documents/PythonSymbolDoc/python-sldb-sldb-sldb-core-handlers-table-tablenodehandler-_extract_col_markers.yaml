@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-handlers-table-tablenodehandler-_extract_col_markers
+path: knowledge/symbols/python-sldb-sldb-sldb-core-handlers-table-tablenodehandler-_extract_col_markers.md
+hash_c: 03e4bb8ad957d251a6acfb0ca405d9c49219ae1f3fb1f2ca1e9d710a0a7d13bd
+hash_d: eb61416005a24f814949c2683b88a1bbb1d9b9291c86c35e2a31bb33b1b448f5
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

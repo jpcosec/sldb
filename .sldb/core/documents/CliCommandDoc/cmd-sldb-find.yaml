@@ -1,0 +1,12 @@
+name: cmd-sldb-find
+path: knowledge/commands/cmd-sldb-find.md
+hash_c: 6f8abe957eb2e54fd8335111f175f375339187ac25bff54398a63561a60f5bec
+hash_d: 51ae9b4189b8e30d2285110a86b1dd0c0137f283115b90eed3be7aa7c0d1ab32
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

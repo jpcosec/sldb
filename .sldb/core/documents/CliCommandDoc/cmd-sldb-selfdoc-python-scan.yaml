@@ -1,0 +1,7 @@
+name: cmd-sldb-selfdoc-python-scan
+path: knowledge/commands/cmd-sldb-selfdoc-python-scan.md
+hash_c: bc78276049d96c9c60c0680253438646f0c478552c21d67b0453f0167297a597
+hash_d: cc01c4ebe43a4bbc6290f221e16fb3ffea0f60a85aa7e60162dd65ab2c5ddb66
+semantic_tags:
+- type.knowledge.cli_command
+- workspace.knowledge.commands

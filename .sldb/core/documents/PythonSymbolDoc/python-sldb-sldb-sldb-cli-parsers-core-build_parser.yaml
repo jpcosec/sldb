@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-parsers-core-build_parser
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-parsers-core-build_parser.md
+hash_c: 70a69ce3ec45c91677a3312152f95c86ca5f2d4905c5621ce351a5d04b7edb1e
+hash_d: dac730eb3e7507613b7e74620f0091b3954065798f6d0182a79aee5d5ee3810f
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

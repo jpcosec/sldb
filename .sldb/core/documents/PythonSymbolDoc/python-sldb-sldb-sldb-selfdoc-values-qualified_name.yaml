@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-selfdoc-values-qualified_name
+path: knowledge/symbols/python-sldb-sldb-sldb-selfdoc-values-qualified_name.md
+hash_c: 99ffd4405f983085bec59235c2c53a644d09275b65055afcec3bd3a1815e99ed
+hash_d: b0b24cfbc3262fde8281bb64232eb4683e6740f27109381cc03bc65a8c5917c1
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

@@ -1,0 +1,7 @@
+name: cmd-sldb-selfdoc-python-check
+path: knowledge/commands/cmd-sldb-selfdoc-python-check.md
+hash_c: 1a8945a849c465b67658c7fcab7b439b603acc35f496bc06fb527aa3f1369742
+hash_d: 5d2fd0883b6a5b7aefff942a70cb1157785bb4a679119bd996f56c864eb10390
+semantic_tags:
+- type.knowledge.cli_command
+- workspace.knowledge.commands

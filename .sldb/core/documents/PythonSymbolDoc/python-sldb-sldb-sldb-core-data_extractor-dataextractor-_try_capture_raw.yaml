@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-data_extractor-dataextractor-_try_capture_raw
+path: knowledge/symbols/python-sldb-sldb-sldb-core-data_extractor-dataextractor-_try_capture_raw.md
+hash_c: 87e796154ac1876b7b93d1c551d245caa0905a8605ef0c31cc98eec55951b612
+hash_d: fa03752422594ab30755152824645cf61dfb61b130c98a396db22573aee92acd
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

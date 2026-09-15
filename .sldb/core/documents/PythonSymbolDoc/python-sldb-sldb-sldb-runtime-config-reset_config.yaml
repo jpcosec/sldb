@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-runtime-config-reset_config
+path: knowledge/symbols/python-sldb-sldb-sldb-runtime-config-reset_config.md
+hash_c: e34a5ddbc530e51e79c3e29757eaac23f431b948994e7f70f7d3a98d7b81176b
+hash_d: e7c81d1274214049b0f68796cdd788aafea1d07d972ce2e1846419fb0bffd0f0
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

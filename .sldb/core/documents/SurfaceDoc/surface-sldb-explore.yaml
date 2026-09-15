@@ -1,0 +1,12 @@
+name: surface-sldb-explore
+path: knowledge/surfaces/surface-sldb-explore.md
+hash_c: 1b6f773404bcbf4eda7a615ac971a26f50baa43f8dea97acc418613f9b97414b
+hash_d: 49a9e208b62bb1718e9c7b8cf53ef48772ad2d4fdeb6ec21fc5c212b3735238a
+semantic_tags:
+- domain:retrieval
+- entity:cli_surface
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.surface
+- workspace.knowledge.surfaces

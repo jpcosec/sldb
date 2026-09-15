@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-selfdoc_inspect-rename_candidates
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-selfdoc_inspect-rename_candidates.md
+hash_c: 733ed71169dafc95326a651a5b0fb9819c7bd32e64fc96ac22b5665890c7b066
+hash_d: 0da7a8e101c7c51d697d563b9b6c60b044560bacf12d500034a0f3d220b51477
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

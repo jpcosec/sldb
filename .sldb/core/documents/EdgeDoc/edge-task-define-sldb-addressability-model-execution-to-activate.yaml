@@ -1,0 +1,8 @@
+name: edge-task-define-sldb-addressability-model-execution-to-activate
+path: desk/primitives/edges/edge-task-define-sldb-addressability-model-execution-to-activate.md
+hash_c: dac24dc51ac062b3d4d164fc1bbc41893a0fd296123f87619fb4f1df8b0f40cb
+hash_d: b307faa996fe15ac345f9647fe765c736f2ebebf395ba8bc72d5dd08694584b3
+semantic_tags:
+- primitive:edge
+- type.workflow.edge
+- workspace.desk.primitives

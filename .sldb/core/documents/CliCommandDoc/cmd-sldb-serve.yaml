@@ -1,0 +1,12 @@
+name: cmd-sldb-serve
+path: knowledge/commands/cmd-sldb-serve.md
+hash_c: a36d8fe0896a5e849fe85de41f2f7adac7891d3540e5f91270c0326b651f2c58
+hash_d: 780aecd6ed0fea6760859f0f708bb53cda1dcd510b27eb23aef4c31b187891d2
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

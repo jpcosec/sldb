@@ -1,0 +1,12 @@
+name: surface-sldb-render
+path: knowledge/surfaces/surface-sldb-render.md
+hash_c: 0a0041920641b9a7820907459a783772001d48a14f26e9edbae5e9afd58d4e46
+hash_d: c509f4d7d32780433b6f7246b307aafdb428d8ac4936c68101610870cf72b565
+semantic_tags:
+- domain:retrieval
+- entity:cli_surface
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.surface
+- workspace.knowledge.surfaces

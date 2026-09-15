@@ -1,0 +1,12 @@
+name: surface-sldb-sections
+path: knowledge/surfaces/surface-sldb-sections.md
+hash_c: 128c813a09bb1d29ae95db8c8908cb5c399199d59439d975867a19b2fc1cce32
+hash_d: 8044d2b2df0f452325846533e825faaf34b5ed9d259421068249a503a0e81738
+semantic_tags:
+- domain:retrieval
+- entity:cli_surface
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.surface
+- workspace.knowledge.surfaces

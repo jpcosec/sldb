@@ -1,0 +1,12 @@
+name: cmd-sldb-models-update
+path: knowledge/commands/cmd-sldb-models-update.md
+hash_c: 4779eea839f653fe83a974e86045286d10abf430bc25791697c440a9526586de
+hash_d: 3faab95cdc57f8638c9d44cda0c67873af9fbf13867f6bc21af68359930b6680
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

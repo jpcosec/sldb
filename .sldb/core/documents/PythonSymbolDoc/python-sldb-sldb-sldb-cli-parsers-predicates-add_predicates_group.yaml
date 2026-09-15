@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-parsers-predicates-add_predicates_group
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-parsers-predicates-add_predicates_group.md
+hash_c: 33bc84fb1b04f0c0377b8c9f153a51906a272ff257464319452b5d25c6cbb304
+hash_d: 6840e0d0085b98c20f7f6f928fa80bcb7f5e50768141750571e7d222730ac9a7
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

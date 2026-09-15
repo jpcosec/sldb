@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-predicates_format-print_show_payload
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-predicates_format-print_show_payload.md
+hash_c: 60e15289432b0bea809649195f7d1aef352191f42ce8d8428080f5c91c8442d5
+hash_d: 53ea7b997e87586beb6a06e5232a651b4dc441dc35ef7245fdd100e595250d50
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

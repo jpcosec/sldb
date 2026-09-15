@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-search_record-searchrecord-as_dict
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-search_record-searchrecord-as_dict.md
+hash_c: db82e6e61a64194f6594d228a727954752bce5aa3e0a0a624d32793e621e60a2
+hash_d: 5863af5d7533641a88fb0e66bf5249e8fb637c92ecf7b60babf4d512641ec523
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

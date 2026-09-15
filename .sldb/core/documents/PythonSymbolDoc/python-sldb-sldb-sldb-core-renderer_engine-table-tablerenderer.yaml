@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-renderer_engine-table-tablerenderer
+path: knowledge/symbols/python-sldb-sldb-sldb-core-renderer_engine-table-tablerenderer.md
+hash_c: e08988bc11167554025986c0ccbca8d351ce7dc4cb88cc7d48da595c5082b0ab
+hash_d: a60859699e76984f389fcc8ef0d5791449ef4b1a7590f540b99bd25e48f35071
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

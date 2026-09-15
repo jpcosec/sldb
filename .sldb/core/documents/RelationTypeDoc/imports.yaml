@@ -1,0 +1,9 @@
+name: imports
+path: kgdb/relation_types/imports.md
+hash_c: 18dc9729b9337e5fee6fb35daee946b3d1df50237786a7f670ed12ed595616a5
+hash_d: 2c42e598e9ea581d17c4441a0a4ee6a9b5cb4f929bb4d9c0939f7e2bd1ed8af3
+semantic_tags:
+- layer.topology
+- representation.markdown
+- source.document.markdown
+- type.relation.type

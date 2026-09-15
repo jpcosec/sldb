@@ -1,0 +1,12 @@
+name: surface-sldb-models
+path: knowledge/surfaces/surface-sldb-models.md
+hash_c: 2f8375edfb550e944432759da8d4bc592a30eb86706c169377251cc1ed9517c7
+hash_d: 24c25165dba87e6120d3c6671b50e118cebb56715232fb77d63abbbfc44fdfa2
+semantic_tags:
+- domain:retrieval
+- entity:cli_surface
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.surface
+- workspace.knowledge.surfaces

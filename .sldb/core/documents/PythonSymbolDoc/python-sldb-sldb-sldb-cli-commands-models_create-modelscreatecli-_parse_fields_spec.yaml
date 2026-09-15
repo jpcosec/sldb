@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-models_create-modelscreatecli-_parse_fields_spec
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-models_create-modelscreatecli-_parse_fields_spec.md
+hash_c: 0be90ed7e7ae01e8ae652983855dce69e71b8baa801108dfc5711f9cec2c5811
+hash_d: d14c8043d44b4b3d08aa9f00a7e2dfd290ca2efb50c70db8f92fd7003432d5f8
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-models_utils-replace_rhs_expression
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-models_utils-replace_rhs_expression.md
+hash_c: bd8556008ed1659f01f043e318bf0d47ba7564255c980c52e474ee5b78764675
+hash_d: 33dfa31fc31f667e89548077c4be5382f338592ccabc8d8b83458fe6b500af11
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

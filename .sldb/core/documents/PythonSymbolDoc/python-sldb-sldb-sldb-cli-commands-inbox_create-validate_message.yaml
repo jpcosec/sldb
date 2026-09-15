@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-inbox_create-validate_message
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-inbox_create-validate_message.md
+hash_c: 277cf537a061c10c298b53d3f444b8ac51b96266944b7345ee45c4f4cabaf0ca
+hash_d: 0cc188270e79bc2947d1ba70bc1b37c2e3c7dcdbbf379a290c8a86af99a55d91
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

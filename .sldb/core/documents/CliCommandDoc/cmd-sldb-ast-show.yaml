@@ -1,0 +1,12 @@
+name: cmd-sldb-ast-show
+path: knowledge/commands/cmd-sldb-ast-show.md
+hash_c: a7e0917e142dc2a688691a9edd3be6a98f3100631be89717c791a9ef542cb999
+hash_d: 11f730b35e599aa48a3bb68b5c7f278453d1262c35959b885efdb517e6c32a13
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

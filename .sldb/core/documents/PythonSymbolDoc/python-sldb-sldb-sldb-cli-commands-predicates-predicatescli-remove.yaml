@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-predicates-predicatescli-remove
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-predicates-predicatescli-remove.md
+hash_c: 29b05c1607f052265e61df3b208b27d3225fa545a0b9a77b513c11cd455e32d1
+hash_d: e0399bd378f27aa4ccc0d1b9a3c505217a251480c474721f30aec6194dfb0f44
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

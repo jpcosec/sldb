@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ingest-scanner-load_wikiignore_rules
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ingest-scanner-load_wikiignore_rules.md
+hash_c: 28a9691f5c9bd655b903f5d1eb542f6abec7711728074dffda3a0fd44bce1e72
+hash_d: 3a8ba5f44a44e30e5e05fb6bac1c36ab672ce53d366e92d01d358ff2b0c1de32
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

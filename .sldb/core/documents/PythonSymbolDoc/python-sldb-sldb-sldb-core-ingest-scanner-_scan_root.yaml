@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ingest-scanner-_scan_root
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ingest-scanner-_scan_root.md
+hash_c: abb5ac7bdd61b40896859bd17440541c494bc3a70735620a6d30af034fbf36af
+hash_d: 2058e4165ee52ee13aa439b95e64339a527d37ea620a85466ac2facfb0628c11
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

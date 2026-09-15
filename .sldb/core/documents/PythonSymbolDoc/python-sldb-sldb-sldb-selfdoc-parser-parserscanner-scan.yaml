@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-selfdoc-parser-parserscanner-scan
+path: knowledge/symbols/python-sldb-sldb-sldb-selfdoc-parser-parserscanner-scan.md
+hash_c: 6d1c96802859ff554fa9ba4f330412bceb182a8c9aacd0b206d9477f799f5fdb
+hash_d: 0b032d66eaf32711711e1830d31bf5a12e9fabcdee58ed042feb8a8020e0072f
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

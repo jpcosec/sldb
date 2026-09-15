@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-query_engine-structural-model_in_family
+path: knowledge/symbols/python-sldb-sldb-sldb-store-query_engine-structural-model_in_family.md
+hash_c: 5938167854dffe84a6da4917c413cc54525e5d248238e49fe9512bf6f9d0334c
+hash_d: 4f664041bedaa34530d118743e4991fed67aa890d4cf341ce1082bc16eceb252
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

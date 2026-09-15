@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-section_rebuild-_parse_md_nodes
+path: knowledge/symbols/python-sldb-sldb-sldb-store-section_rebuild-_parse_md_nodes.md
+hash_c: e01759a546eb629e856a1e5b3620392b7f4a0dede170dced65339dabac480ee4
+hash_d: 996d96872820c1bba17a0e2f99044f262587fb2ad15a9b564ab992d76d7a3777
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

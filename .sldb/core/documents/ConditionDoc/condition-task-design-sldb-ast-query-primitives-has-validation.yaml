@@ -1,0 +1,8 @@
+name: condition-task-design-sldb-ast-query-primitives-has-validation
+path: desk/primitives/conditions/condition-task-design-sldb-ast-query-primitives-has-validation.md
+hash_c: 6deb499570fa4c0ee868fd69c3ef70b26faa39a18f5758ca23e3e9be10dc8a3d
+hash_d: 6ad71ab6be6f43d716e59fdb0f415ca8151dbe997c5a8065b0318571e611a005
+semantic_tags:
+- primitive:condition
+- type.workflow.condition
+- workspace.desk.primitives

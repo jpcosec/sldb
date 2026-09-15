@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-section_rebuild-_file_signature
+path: knowledge/symbols/python-sldb-sldb-sldb-store-section_rebuild-_file_signature.md
+hash_c: c3aa2bbe1d602bd96de9375f6bd823408f3bfd6a8a465982c16614a5467c2b89
+hash_d: fdaabb9749db7d6bbc8af60d8eb8db01023f60bf845d0b3bcf1ba941a55b8082
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

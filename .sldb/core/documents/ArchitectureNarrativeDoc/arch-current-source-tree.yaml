@@ -1,0 +1,9 @@
+name: arch-current-source-tree
+path: docs/architecture/current-source-tree.md
+hash_c: 66c5372829b14a010e44cca230f38cc1cf895c26761bad8e5c55812b7e7e8278
+hash_d: 6b1e1adf0bcaa2b02cad5c2f018d9b3674a8792393654ba65fb516a1797d1b1c
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.documentation.architecture
+- workspace.docs.architecture

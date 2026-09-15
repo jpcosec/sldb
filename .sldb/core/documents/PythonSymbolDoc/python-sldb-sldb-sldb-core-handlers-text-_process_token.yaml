@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-handlers-text-_process_token
+path: knowledge/symbols/python-sldb-sldb-sldb-core-handlers-text-_process_token.md
+hash_c: ab36a23636e6f46862f560b7f08467b666fa09e1ae7ec74df859b1c77aa304eb
+hash_d: 5588ac28e976873c0e651b5ae790727d3eec8b18e067b191786cbbd38e3d6837
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

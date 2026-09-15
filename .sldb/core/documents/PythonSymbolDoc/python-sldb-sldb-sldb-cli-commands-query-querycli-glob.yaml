@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-query-querycli-glob
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-query-querycli-glob.md
+hash_c: 217cd4abf5252d7a56e3a39889581854adc37b150a1dfb9645632305b8f5255e
+hash_d: d882a01da5ec92e69f7abec68a7486cba6d56634e417040e62b37ede08e9812d
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

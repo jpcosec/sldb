@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-resolver-find_local_store
+path: knowledge/symbols/python-sldb-sldb-sldb-store-resolver-find_local_store.md
+hash_c: 6c2fdd802a283dbb0cb43e4b85f55e82451a2e77471c94e2f36886d6018d4fe0
+hash_d: c1a0524dc41c60b64c604dbef0ff9dbeb6bcd2d11c86ec8f88ebd823c6fb438b
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

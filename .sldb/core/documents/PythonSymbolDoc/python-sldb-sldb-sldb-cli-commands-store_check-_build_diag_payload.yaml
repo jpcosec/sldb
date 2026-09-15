@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-store_check-_build_diag_payload
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-store_check-_build_diag_payload.md
+hash_c: 6d2561fd4ca018b2d5efbe29b90b793ef4a77026918f05e09c337e54982707cb
+hash_d: 7bcb7a28e90a7c3eecefa846acb6d391ef1c6ae614e98e65ee356b02aa00e3dc
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

@@ -1,0 +1,12 @@
+name: surface-sldb-docs
+path: knowledge/surfaces/surface-sldb-docs.md
+hash_c: 1b9c2ed308193bc206cd567f80ceb30952135bfda8d6dd9efd93913492bf1be4
+hash_d: f719e412d9ee5ca12b39460732025a0e36ff44b22e2ab01989fefaeac8af2dd3
+semantic_tags:
+- domain:retrieval
+- entity:cli_surface
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.surface
+- workspace.knowledge.surfaces

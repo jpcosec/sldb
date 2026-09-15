@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-federated_utils-_append_federated_entry
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-federated_utils-_append_federated_entry.md
+hash_c: dfb39a07de98739d0d1128d59d3cb8bd9160ac443adeb5821dea8b3e763467c1
+hash_d: 8a888f9bc44552f470bb42591857bd73e439d5d7ea3c1462cca043f2f18305d9
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

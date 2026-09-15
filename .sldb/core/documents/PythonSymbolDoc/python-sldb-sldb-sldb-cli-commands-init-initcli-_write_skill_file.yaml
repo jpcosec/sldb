@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-init-initcli-_write_skill_file
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-init-initcli-_write_skill_file.md
+hash_c: e71650e0bfc4cc284c701b0aa95d36210da7edf2ed2897baa8b9cabcc4c1ec98
+hash_d: 2d5580db3e79adad68066f16e892d5de16bff1ac4d93f2407f6c8b5b449b3b09
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

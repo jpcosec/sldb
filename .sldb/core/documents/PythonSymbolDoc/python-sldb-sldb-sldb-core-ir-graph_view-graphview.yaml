@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ir-graph_view-graphview
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ir-graph_view-graphview.md
+hash_c: bc6d4ec112aab174ba9c5db3b453ecf2414823b2e144b1a214148f5c7cfa235d
+hash_d: f9a48983daf15881cf35e17e4489f9a0aaf060b98a4f99ab9578b179581a6171
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

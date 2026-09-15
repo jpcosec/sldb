@@ -1,0 +1,9 @@
+name: arch-refactored-components
+path: docs/architecture/refactored_components.md
+hash_c: e1d6e794890b48ecf89bdfe3d4af0ad3e21e6dbe1b57b9b1b7df9146394ba093
+hash_d: 3c129034033e5468ec1d1d7c2770a56b4582e111be5c663365b300afd83e962e
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.documentation.architecture
+- workspace.docs.architecture

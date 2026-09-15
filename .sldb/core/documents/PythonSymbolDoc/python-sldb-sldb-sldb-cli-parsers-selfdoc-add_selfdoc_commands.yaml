@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-parsers-selfdoc-add_selfdoc_commands
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-parsers-selfdoc-add_selfdoc_commands.md
+hash_c: e749b3d78cec19999034a7c115b62c95927b1f39c79822ba38c9d5220a1623f7
+hash_d: f325d2c5cbdda5f97a6053919a98efcebc835978ad562de46e3659ce97599533
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

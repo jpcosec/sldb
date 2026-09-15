@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-doc_helpers-resolve_doc_path
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-doc_helpers-resolve_doc_path.md
+hash_c: 37720019f33871ba46c641cf7a4346c28432fa90687ff021a00c35448ca8c8ed
+hash_d: 363febe6c25078c301f9a2601353a1e87f6c3ceee7e5ab357cf3c17f95fe726c
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

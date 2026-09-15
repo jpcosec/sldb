@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-query-_load_federated_documents
+path: knowledge/symbols/python-sldb-sldb-sldb-store-query-_load_federated_documents.md
+hash_c: c75d3e600b049cc1e7db355e08cba628ae3f614271a8ddeac6a00f559fd3de99
+hash_d: 5525920ddf7c4a3283ea9c42e87a00daf76be00df32bc5e680a2820d26f21f6a
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

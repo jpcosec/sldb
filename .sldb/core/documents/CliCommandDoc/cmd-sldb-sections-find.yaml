@@ -1,0 +1,12 @@
+name: cmd-sldb-sections-find
+path: knowledge/commands/cmd-sldb-sections-find.md
+hash_c: d04c61455302d2f19a080d8b461e7949653851d8b27febf139843c6378a1e079
+hash_d: 364f80fc5378e03bc6207884f961cf5e7a9f845b14dcd6c6e233adb92e1c532b
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

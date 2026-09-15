@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-model-modelcli-_update_doc_hashes
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-model-modelcli-_update_doc_hashes.md
+hash_c: 73bfce27a797818854e6e58bcb48373fe50dd4a5286fac2f2875002fe0ba7497
+hash_d: d4c7a844436482d15f5dfbc9a9388ec2a0fa6da69099b5c6eed91472a0b9d0d9
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

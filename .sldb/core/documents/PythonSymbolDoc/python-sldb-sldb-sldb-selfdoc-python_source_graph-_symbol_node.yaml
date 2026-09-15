@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-selfdoc-python_source_graph-_symbol_node
+path: knowledge/symbols/python-sldb-sldb-sldb-selfdoc-python_source_graph-_symbol_node.md
+hash_c: 98074c02e91fc690203469d038b360871e318d029a21e8c45c6a8821ad085f05
+hash_d: ca27f746ea7ab6a607c3e0f4ea7cd24793b6a88465d41698a5497c08d50c4e9d
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

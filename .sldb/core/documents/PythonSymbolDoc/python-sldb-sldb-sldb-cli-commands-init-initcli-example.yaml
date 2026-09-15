@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-init-initcli-example
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-init-initcli-example.md
+hash_c: eb9eec374cdc6ef72657503e818bef96d99828f0cdd6a77bb7c91d313a9f1ef4
+hash_d: ffafea82bfa9d41aa356fe88f231f905c8322c0afde45943f13c413e6972105d
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

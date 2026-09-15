@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-fields-fieldscli-show
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-fields-fieldscli-show.md
+hash_c: edd8f4d7dea1fa317b161e215ed3658124b71035c880dfc8c006b03db4d5a55b
+hash_d: be153b7afafb15f83f69a102ef75e765fcb4d58bd33ea1aa579b962a1b1f1ed0
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

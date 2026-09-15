@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-handlers-yaml-yamlnodehandler-_normalize_yaml_value
+path: knowledge/symbols/python-sldb-sldb-sldb-core-handlers-yaml-yamlnodehandler-_normalize_yaml_value.md
+hash_c: 6a543ced142f249153fb5c2b0a0109e4b547cb8d769c44aa0f997a35515d9f2c
+hash_d: 06e14f876a20b5346b52a77ba0bc19076aa0cf5566f77cf5465ed92fb8870624
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

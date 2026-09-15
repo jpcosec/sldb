@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-selfdoc-python_scanner-pythonscanner-_symbol
+path: knowledge/symbols/python-sldb-sldb-sldb-selfdoc-python_scanner-pythonscanner-_symbol.md
+hash_c: 52fe8c8f300afa8c823b3192fcb373e7acb2891f4b7d96e5148910b02699bc0e
+hash_d: 4294ca0b7d52a503350f851e54395a9ac647704bbfc817988d3bc5cf990d8ef5
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

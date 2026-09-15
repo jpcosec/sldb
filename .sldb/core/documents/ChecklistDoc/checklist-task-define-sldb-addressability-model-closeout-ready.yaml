@@ -1,0 +1,8 @@
+name: checklist-task-define-sldb-addressability-model-closeout-ready
+path: desk/primitives/checklists/checklist-task-define-sldb-addressability-model-closeout-ready.md
+hash_c: fb5f4ce9b038ddbd71d803ebf0eda314d8ba5bd01f2664e533453cf90e11abea
+hash_d: 4d4e6c072d76a928467799403b11c632f6db8464ac9c3d509ac06351783149ce
+semantic_tags:
+- primitive:checklist
+- type.workflow.checklist
+- workspace.desk.primitives

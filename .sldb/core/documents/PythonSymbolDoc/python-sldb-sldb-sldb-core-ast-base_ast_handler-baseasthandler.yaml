@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ast-base_ast_handler-baseasthandler
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ast-base_ast_handler-baseasthandler.md
+hash_c: 0fc6db9b8e2eecb250be44732b88b824a5e87b9346ac0c2966fed6c33c29a90d
+hash_d: 589f0e2b696955a543b12d088e4cfc11125b77fe58d2ca5c06bd423d63276740
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

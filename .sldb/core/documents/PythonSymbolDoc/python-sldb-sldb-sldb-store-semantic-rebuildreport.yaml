@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-semantic-rebuildreport
+path: knowledge/symbols/python-sldb-sldb-sldb-store-semantic-rebuildreport.md
+hash_c: eb2691456ad1e16bf7134cb6e45d4a97ba350f4ebbe417ddb0e82dca29e5017a
+hash_d: 77d4299c3d627d4aaa2f5becfea3f2760d5084ab022a680cb827466c3bb4a61c
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

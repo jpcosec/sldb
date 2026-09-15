@@ -1,0 +1,8 @@
+name: edge-task-mapear-arquitectura-real-de-sldb-ready-to-closeout
+path: desk/primitives/edges/edge-task-mapear-arquitectura-real-de-sldb-ready-to-closeout.md
+hash_c: dd5feb220816d3bd69881802249aed21945ab57b85635c467cb24986873e5dbe
+hash_d: fdefa6a46a817081cf2c8fc08421d4512a0df80a8c43bb9183adf14321081a22
+semantic_tags:
+- primitive:edge
+- type.workflow.edge
+- workspace.desk.primitives

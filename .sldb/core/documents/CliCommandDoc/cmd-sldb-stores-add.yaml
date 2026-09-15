@@ -1,0 +1,12 @@
+name: cmd-sldb-stores-add
+path: knowledge/commands/cmd-sldb-stores-add.md
+hash_c: a4dd5933dc68a9b81316e5a20f18e99caa248c3a16e6a93ada0d39701c8f41f5
+hash_d: cc373f69f13bbae76c616b88d06de55dd02d2671182364239c42f0ac97533609
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

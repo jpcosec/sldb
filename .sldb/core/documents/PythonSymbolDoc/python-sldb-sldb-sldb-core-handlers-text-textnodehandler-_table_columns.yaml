@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-handlers-text-textnodehandler-_table_columns
+path: knowledge/symbols/python-sldb-sldb-sldb-core-handlers-text-textnodehandler-_table_columns.md
+hash_c: 1c2d9f2006ec7ec5851b85618b7dafa8c220a12fe7f8f6edc34f518e07796f11
+hash_d: 9904d3c2c3b1f0bae329c5e4989fafff1393240dcc2df498702cdcf6b1e59da0
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

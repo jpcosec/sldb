@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-models_utils-remove_node_block
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-models_utils-remove_node_block.md
+hash_c: 2358aa66e06c6725adf8a0c08ba3a963d633f623224801f8a14461f210edef2c
+hash_d: ebd684c9e19e0aabd510c287d5fbe5a7c147ecc9691445b07ca9e652af25101d
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

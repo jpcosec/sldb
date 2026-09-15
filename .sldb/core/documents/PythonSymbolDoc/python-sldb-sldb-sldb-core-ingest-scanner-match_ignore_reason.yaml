@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ingest-scanner-match_ignore_reason
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ingest-scanner-match_ignore_reason.md
+hash_c: 7f70667983b80619b018c2f0730d26e907b9dcc0ea6cd40cc56ce1bd2d6238be
+hash_d: 62ec614d57b1704c1e378aa832c4a9750ad2585208ec481f20459c44b8c8a878
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

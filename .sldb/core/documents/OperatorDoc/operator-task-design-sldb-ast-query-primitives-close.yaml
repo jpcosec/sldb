@@ -1,0 +1,8 @@
+name: operator-task-design-sldb-ast-query-primitives-close
+path: desk/primitives/operators/operator-task-design-sldb-ast-query-primitives-close.md
+hash_c: 4d05348c26fad0150479a5f78438337110249f157db4dc1ce9c2546cdcc3adba
+hash_d: 994ce813248c131d3b21be9d79a147be2963e494fe03526ad4ad32475da8f97e
+semantic_tags:
+- primitive:operator
+- type.workflow.operator
+- workspace.desk.primitives

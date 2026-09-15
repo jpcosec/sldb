@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-parsers-find-add_find_commands
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-parsers-find-add_find_commands.md
+hash_c: 20a8a0ea2d0716d2727e8ca1ff93a422141ef505539f9e499ad8d02c38ebc253
+hash_d: cc916cf05970a261131485e24071cd3186f46d875895308a75b7f04b7683f7d5
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

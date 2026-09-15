@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-export-semanticexporter-export
+path: knowledge/symbols/python-sldb-sldb-sldb-store-export-semanticexporter-export.md
+hash_c: 67cff98f68d79610b8c01b8981387a80967aa87a9408e530f9aafccbdefcbb92
+hash_d: c34128e3af644437379a07254107bd80149ca07e1d99cb77feda4cdbbd34d6af
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

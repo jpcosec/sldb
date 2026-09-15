@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-node-sldbnode
+path: knowledge/symbols/python-sldb-sldb-sldb-core-node-sldbnode.md
+hash_c: 5f8f8d705cbbc109f1d68bb70a6582166c30758474d8e40e1bec46abe4b81fd5
+hash_d: 05b2daa07750d917f442ce10b8bb26ad47ebd08dccab8c606bc261ea90d54f5a
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

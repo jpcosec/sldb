@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-utils-parse_data_value
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-utils-parse_data_value.md
+hash_c: 1a64bf997493c86ea43c25ece45e2e648c7a04edc3e5e0bcf8415bf4ce771a47
+hash_d: be49857b417677cbe1150fbe48b509a0eb87d92471b2f060de285cf3613735c3
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

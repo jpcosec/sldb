@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-graph_ops-fields-_get_owning_section_map
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-graph_ops-fields-_get_owning_section_map.md
+hash_c: 34f4cfd1fafc60ceae99a69ef744c9c3e6e3fd26c7677d5e687c5bd81c3329cc
+hash_d: e20fdd679750591cdc943db0c95ffbfadc8d6b9435a3bf3263f2cc1cb2a2b06c
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

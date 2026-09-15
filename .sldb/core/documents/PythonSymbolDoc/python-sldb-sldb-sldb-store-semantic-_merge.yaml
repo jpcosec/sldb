@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-semantic-_merge
+path: knowledge/symbols/python-sldb-sldb-sldb-store-semantic-_merge.md
+hash_c: 467de63696b69697f13c2598c5bc761b103fe4d7286b6f50968b37ae7c45ec64
+hash_d: ab6aeac0053b48d9393f82d468abc4d6141566fb501c32612e2f984cf369b324
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

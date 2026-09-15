@@ -1,0 +1,12 @@
+name: cmd-sldb-ast-schema
+path: knowledge/commands/cmd-sldb-ast-schema.md
+hash_c: 0744647e26a0a9bff7a27e208fc71970c5c79b63f262eb20d56600e4d3c8dc4c
+hash_d: 8b018b771ee2429fcc40ea38bdc5d7f63c04139c1f4f9adb0fd9c2df6ab39d0a
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

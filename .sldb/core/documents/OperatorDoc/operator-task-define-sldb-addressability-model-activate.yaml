@@ -1,0 +1,8 @@
+name: operator-task-define-sldb-addressability-model-activate
+path: desk/primitives/operators/operator-task-define-sldb-addressability-model-activate.md
+hash_c: 9d51e8ac21614fade988e789e430069e17a789f858d31637a62b390dbfbaa70e
+hash_d: e622cbe70bfb468d5c9f89a011482a1e230dcd981a5f999d50f51d56c1c595d1
+semantic_tags:
+- primitive:operator
+- type.workflow.operator
+- workspace.desk.primitives

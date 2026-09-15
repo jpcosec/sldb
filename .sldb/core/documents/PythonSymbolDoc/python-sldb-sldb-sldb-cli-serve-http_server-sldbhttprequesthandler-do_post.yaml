@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-serve-http_server-sldbhttprequesthandler-do_post
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-serve-http_server-sldbhttprequesthandler-do_post.md
+hash_c: 3ab44f0b92d3c25531317f2d6c2e62b3cd5f66bbfdd2a64bc2c5089f9389c493
+hash_d: 5b8a397951bb0cf042ac9b6c8267f7bb99f2f670785e9766f7ffaa3ecdbb45ea
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

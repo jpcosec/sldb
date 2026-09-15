@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-inbox_create-prepare_inbox_dir
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-inbox_create-prepare_inbox_dir.md
+hash_c: 784ef41d86958bc1fdbb2cb942add36e504b933e2e58058a43110b5b41b359f2
+hash_d: a8860ffb62351a474aeb16e09113ccbabd339a5c644627bdf2e97d5c3c66382e
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

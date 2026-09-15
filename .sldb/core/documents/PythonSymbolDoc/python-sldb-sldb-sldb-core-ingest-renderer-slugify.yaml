@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ingest-renderer-slugify
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ingest-renderer-slugify.md
+hash_c: cd9fce3e518126429529ae199c11d635977bf154539c9e8494e2695b22179c64
+hash_d: dae6c5fc6db3ff1b361f4456a5e0d4d2bf6d20635581b9058259638d09549d20
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

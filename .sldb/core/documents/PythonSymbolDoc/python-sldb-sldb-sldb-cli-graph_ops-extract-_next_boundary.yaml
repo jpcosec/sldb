@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-graph_ops-extract-_next_boundary
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-graph_ops-extract-_next_boundary.md
+hash_c: 8c13e6c9056a3fc460f60c00a7d20cc3e2cb9be33f4e9cd03576ef9a0f46e1f2
+hash_d: 8af6d63186dc78eefdf3c4ca8ec450fa1fdbe87b13d6684a8fd075ad29c62948
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

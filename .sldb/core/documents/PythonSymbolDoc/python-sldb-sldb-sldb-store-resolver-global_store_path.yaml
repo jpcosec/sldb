@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-resolver-global_store_path
+path: knowledge/symbols/python-sldb-sldb-sldb-store-resolver-global_store_path.md
+hash_c: ce93dcd757f9ce19724e4d7ef383de7ff0992c605e20144464c0ad3624a0efda
+hash_d: 0da55432ec47b3ab674004443201aaf295eb28505fdee90cae34acc01b65c16a
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

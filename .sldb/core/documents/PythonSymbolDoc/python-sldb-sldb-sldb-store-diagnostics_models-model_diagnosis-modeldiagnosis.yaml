@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-diagnostics_models-model_diagnosis-modeldiagnosis
+path: knowledge/symbols/python-sldb-sldb-sldb-store-diagnostics_models-model_diagnosis-modeldiagnosis.md
+hash_c: 123d64012e81cf4404b2108fc7c78723ea8ce7d438bd6c031612da6380ae4699
+hash_d: 86e12983c86da4f4c4e447c229f69cdd4eddfec0933a4944b60a5099df7ead8e
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

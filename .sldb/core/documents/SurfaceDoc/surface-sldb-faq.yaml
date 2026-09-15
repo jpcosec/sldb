@@ -1,0 +1,12 @@
+name: surface-sldb-faq
+path: knowledge/surfaces/surface-sldb-faq.md
+hash_c: 851677155b7738be93c5f2cad2a7a81ca9e699ecd10bda388d505c2012ba9f71
+hash_d: 67d314790b08e05965b5ca5682dfec1fb08363fd6e5d4118c214c043666eaf2e
+semantic_tags:
+- domain:retrieval
+- entity:cli_surface
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.surface
+- workspace.knowledge.surfaces

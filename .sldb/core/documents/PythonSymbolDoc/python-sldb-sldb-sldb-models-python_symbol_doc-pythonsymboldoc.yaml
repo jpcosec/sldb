@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-models-python_symbol_doc-pythonsymboldoc
+path: knowledge/symbols/python-sldb-sldb-sldb-models-python_symbol_doc-pythonsymboldoc.md
+hash_c: 31052046fe850a7a74d4dd59c63929117d8e6ec346fcabb4974ab737a7670473
+hash_d: 7e7f677655a5adb1e909582a7c796cb98b5548868c1406755d2ba03d7fd1176a
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

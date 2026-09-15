@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-section_rebuild-rebuild_sections_indexes
+path: knowledge/symbols/python-sldb-sldb-sldb-store-section_rebuild-rebuild_sections_indexes.md
+hash_c: 265e17e86df80dca4a8c08b565d71cfdb6d5bb3f0b5bfce30549e5bb5bdd8bfc
+hash_d: 85335697db65da51f0fe4555e30713d44f3ba6d5bcff5de4c71be4bc4514ce96
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

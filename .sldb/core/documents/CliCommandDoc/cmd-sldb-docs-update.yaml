@@ -1,0 +1,12 @@
+name: cmd-sldb-docs-update
+path: knowledge/commands/cmd-sldb-docs-update.md
+hash_c: d66df44675878cf2942b504694b3aac06ea7ce8c722a2aad9e66f10b4b832f4d
+hash_d: a85d03a3177edafcc80fbe8405cdd770a064d6d26bf121a63d57a28a284bba14
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

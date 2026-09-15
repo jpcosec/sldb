@@ -1,0 +1,10 @@
+name: pill-011-addressability-task-execution-context
+path: desk/pills/pill-011-addressability-task-execution-context.md
+hash_c: 79310558b69c88cef8c9aadc8ea736252128c95f0e2b7d40cff3712eb3265b51
+hash_d: 4216272deb3b756c20e72c327673337f95ce1fb63152b25fb209656ad9ecd15d
+semantic_tags:
+- system:sldb
+- topic:addressability
+- topic:execution
+- type.workflow.pill
+- workspace.desk

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-fields_save-save_payload
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-fields_save-save_payload.md
+hash_c: 41d26fb2ba3643b6c51d696b7622d61a2466198f22e817343beab54f245ec770
+hash_d: 9162e6bbe84a5c6dceeddadcfad7c93ff6b0f2f3bff71f8f5b2a01b2b75106fa
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

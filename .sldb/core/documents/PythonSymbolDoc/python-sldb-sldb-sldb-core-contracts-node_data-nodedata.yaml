@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-contracts-node_data-nodedata
+path: knowledge/symbols/python-sldb-sldb-sldb-core-contracts-node_data-nodedata.md
+hash_c: 4c3031785c0abb7b9b021a8982f3aaba922e3fd6bb99f4061875f2edf48ac6b9
+hash_d: 0b7194680ea9892d7d0ef06a9a45d0bb6d631e98ee42ad782e2aa52a797a150a
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-resolver-ancestor_stores
+path: knowledge/symbols/python-sldb-sldb-sldb-store-resolver-ancestor_stores.md
+hash_c: b650bad30d08d5173dcac23fddcc6f8502d71e40cff458666791d51fd5d86b17
+hash_d: 9bf3ea660ba9bfa1fd9aee005f0605d69d785b04d74ffee8f2d14e754510ca30
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

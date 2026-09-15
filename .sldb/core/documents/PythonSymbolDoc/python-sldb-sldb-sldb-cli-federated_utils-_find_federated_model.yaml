@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-federated_utils-_find_federated_model
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-federated_utils-_find_federated_model.md
+hash_c: 24798e7ff32d62a4782ac176f5708b161cc1da9154c9cc51ea47fa991e6d1370
+hash_d: 80bd08d83d1657e8c889415ade48a52088335f44902835898dcdb07f3dc11ff6
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

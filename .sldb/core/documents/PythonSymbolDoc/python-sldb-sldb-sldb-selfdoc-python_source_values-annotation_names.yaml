@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-selfdoc-python_source_values-annotation_names
+path: knowledge/symbols/python-sldb-sldb-sldb-selfdoc-python_source_values-annotation_names.md
+hash_c: 684b7817952053ffaa9fb78ca71a82d20e7bd65483275030b57fc37532f74f83
+hash_d: b940a11ecb7c95cb1af6df57b925c221349a10735cb00b3bc095f494a04a3bec
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

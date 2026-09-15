@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-graph_ops-matches-search_records
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-graph_ops-matches-search_records.md
+hash_c: 49faf2aea960c226551bbc29cd0621c186dbf17f408e60b9da4aa4463052afa2
+hash_d: 78d9043d3afdb3406710c89483394a502218f61e6add9e6520f839449504a9d5
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

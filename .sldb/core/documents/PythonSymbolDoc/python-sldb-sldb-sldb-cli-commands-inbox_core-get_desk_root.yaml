@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-inbox_core-get_desk_root
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-inbox_core-get_desk_root.md
+hash_c: 6c5e7e715d7c7b7020254070c1c24b6485a564ff9d693e344fee3df8c065eb70
+hash_d: b25e6bb10c77df36b236cdeb12b1081ca983c83b6e91474002d50a2ec2eeecf3
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

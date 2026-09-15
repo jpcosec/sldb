@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-models_validate-modelsvalidatecli
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-models_validate-modelsvalidatecli.md
+hash_c: b15bc605ba8a1807860e57816bf580d1602b8be83d7e952b9ba37fa450be6a08
+hash_d: 8a7f6c646e8876e6199bedd3758abcaa68a9f303652424eaa26f51d0d199af16
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

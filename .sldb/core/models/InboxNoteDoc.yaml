@@ -4,6 +4,7 @@ path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/inbox.py
 documents_index: .sldb/core/documents/InboxNoteDoc.yaml
 sections_index: .sldb/runtime/sections/InboxNoteDoc.yaml
 hash_b: 4a5a2622ed9a78fb87e1cb092ba5fc435de2a991b7fffbf7473275b529dc3bc1
+documents_count: 5
 version: 1
 canonical: false
 family: null

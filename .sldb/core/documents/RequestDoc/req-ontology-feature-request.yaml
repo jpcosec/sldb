@@ -1,0 +1,7 @@
+name: req-ontology-feature-request
+path: docs/requests/sldb-ontology-feature-request.md
+hash_c: a7e016558b52d17432075e2021218fe5cc7a115a377484491727cb7f5e538bae
+hash_d: c5c515e620a6df1af4bf9103643dc6e6cb3dfccc63474b20574f855024949a71
+semantic_tags:
+- type.documentation.request
+- workspace.docs.requests

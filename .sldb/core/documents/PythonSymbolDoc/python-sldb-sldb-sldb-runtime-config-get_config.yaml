@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-runtime-config-get_config
+path: knowledge/symbols/python-sldb-sldb-sldb-runtime-config-get_config.md
+hash_c: 0ef84f833e72e6d3e7815fe21719220b9e58c804c263249dffb802b8f4316d40
+hash_d: a13a40ebf3d275c2e79eb807df30b256a5a575b738e4507b5401705fa7b048f4
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-io-store_index-storeindexio-load
+path: knowledge/symbols/python-sldb-sldb-sldb-store-io-store_index-storeindexio-load.md
+hash_c: b43eab981fcccaa217960880d26d9ffe9536c2c578b616cdec962c79eb58eb87
+hash_d: 20e90d70c98b7df24d90a105654349707530761f14f05b3610c295bc5239e53b
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

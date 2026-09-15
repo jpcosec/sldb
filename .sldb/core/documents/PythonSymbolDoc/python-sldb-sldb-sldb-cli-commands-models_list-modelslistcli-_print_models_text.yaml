@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-models_list-modelslistcli-_print_models_text
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-models_list-modelslistcli-_print_models_text.md
+hash_c: 19339cbd696071d259f0cf858d251ffbd9c62465bcfa83397c2ad2c023f2d712
+hash_d: 9d95e03b6e80030f3ae135c6a844a2ec9aa3288832c48e178576a80341ddee43
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

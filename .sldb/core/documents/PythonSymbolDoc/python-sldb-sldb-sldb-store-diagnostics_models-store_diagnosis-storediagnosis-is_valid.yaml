@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-diagnostics_models-store_diagnosis-storediagnosis-is_valid
+path: knowledge/symbols/python-sldb-sldb-sldb-store-diagnostics_models-store_diagnosis-storediagnosis-is_valid.md
+hash_c: bdcb2235d4ae686e29f53f95e23090f4f4fa03e2f915b2c144d3510f31e8e8c9
+hash_d: 5857e342a91262eec3e4a87ec0215ba1ba96cdd92645e1098cea134061b79fb4
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

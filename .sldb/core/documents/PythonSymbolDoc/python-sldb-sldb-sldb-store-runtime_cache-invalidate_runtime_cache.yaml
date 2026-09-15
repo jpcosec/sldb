@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-runtime_cache-invalidate_runtime_cache
+path: knowledge/symbols/python-sldb-sldb-sldb-store-runtime_cache-invalidate_runtime_cache.md
+hash_c: 0d3acde1728910238382073faa23f37e484fdc980098a3b1c9b2ac5e8fc567c7
+hash_d: 5b57601d75769c296d7f09c41f63e8233834faac44dfdfd4add43b2ffe4e30da
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

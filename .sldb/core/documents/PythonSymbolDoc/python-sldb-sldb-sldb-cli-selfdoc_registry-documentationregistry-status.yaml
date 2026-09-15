@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-selfdoc_registry-documentationregistry-status
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-selfdoc_registry-documentationregistry-status.md
+hash_c: 0059dcb570b89f255272e00ab559a25689af9e259a3bb663bca509569547d775
+hash_d: 45c1cd2e0eb33c767d098a76dbf3facbe82cce8f5df01b1478f96a52a4fb642d
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

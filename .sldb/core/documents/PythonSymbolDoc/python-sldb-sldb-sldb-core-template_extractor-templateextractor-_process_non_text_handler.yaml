@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-template_extractor-templateextractor-_process_non_text_handler
+path: knowledge/symbols/python-sldb-sldb-sldb-core-template_extractor-templateextractor-_process_non_text_handler.md
+hash_c: eb297b110e562563e7a87c9bc267e3a0d08b23ac896282cf692a8c07c7e18640
+hash_d: 8a0996b28b69d443123ea57496e01e48b1facbb8fbf87f60a2ba474dfa37cc95
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

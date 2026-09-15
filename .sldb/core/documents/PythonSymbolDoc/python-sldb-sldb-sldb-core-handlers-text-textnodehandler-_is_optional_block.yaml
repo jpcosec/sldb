@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-handlers-text-textnodehandler-_is_optional_block
+path: knowledge/symbols/python-sldb-sldb-sldb-core-handlers-text-textnodehandler-_is_optional_block.md
+hash_c: e92730a9de4d72671892134de6a3584cc3e42c9d3f968c80feda0d4c262c78df
+hash_d: 642c0d8b4e6d7f0c31d5fa43bf3a55f19fb322c7ca256f840ae7b5ca040736c5
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

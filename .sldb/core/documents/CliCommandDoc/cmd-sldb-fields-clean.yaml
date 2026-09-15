@@ -1,0 +1,12 @@
+name: cmd-sldb-fields-clean
+path: knowledge/commands/cmd-sldb-fields-clean.md
+hash_c: 5f3a8c8c5d3bb8010a21a2519b5468257ac091ab4b429a6e4371ee270a5e7c1a
+hash_d: 8ac97e7788c5053bfa182be7de4a83aed79a1e239954aebf75be63c903a47f8c
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

@@ -1,0 +1,12 @@
+name: surface-sldb-predicates
+path: knowledge/surfaces/surface-sldb-predicates.md
+hash_c: d0367c6a8820f6bffa7f1ad3d062ad67dfdb7aa1a04c9e3a0fd2930a127b5ff1
+hash_d: 57cbc56c0404a5ac7313cc572f4f9bceab72906f5e2af39cd1ace895f19f61e6
+semantic_tags:
+- domain:retrieval
+- entity:cli_surface
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.surface
+- workspace.knowledge.surfaces

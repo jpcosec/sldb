@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-serve-http_server-build_handler
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-serve-http_server-build_handler.md
+hash_c: 4293d6952f82326f5e653dbb859c78f5b9f4b3c33d016c6ad9db59ea12d8f632
+hash_d: 5755d264979fbf874949d1a518edaccf6cd36e4628bdd1d5371cac190ef08522
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

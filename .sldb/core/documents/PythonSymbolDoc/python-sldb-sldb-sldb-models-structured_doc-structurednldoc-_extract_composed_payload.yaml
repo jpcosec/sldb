@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-models-structured_doc-structurednldoc-_extract_composed_payload
+path: knowledge/symbols/python-sldb-sldb-sldb-models-structured_doc-structurednldoc-_extract_composed_payload.md
+hash_c: 17d135e328e7c6eea0c96aaa5422eb04c1c030f83e64a4b9f0147333193616f7
+hash_d: fe02fb3396c873c70749e3cac5dc2178377ee24a75ad7ca0aa1beedac0c473fd
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

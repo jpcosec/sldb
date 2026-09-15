@@ -1,0 +1,12 @@
+name: cmd-sldb-stores-update
+path: knowledge/commands/cmd-sldb-stores-update.md
+hash_c: 9a12598609f2986019fec90862033f57ed0ef965f55b20344676f860884090da
+hash_d: a064d1945fd3dafb0c3132c88e7968341b663a50ce44dbeaeef5a1149645a949
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

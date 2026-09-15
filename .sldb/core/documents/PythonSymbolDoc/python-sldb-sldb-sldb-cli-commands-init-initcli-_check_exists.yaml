@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-init-initcli-_check_exists
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-init-initcli-_check_exists.md
+hash_c: 680b686ca5e77d8101810a12978119b0b50bd9c3a5dba60c030237ba93e30c6a
+hash_d: 8b5d2bf18f4763756fdb20a2d91c2373ef06d19186548adcbd4663096bbb5308
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

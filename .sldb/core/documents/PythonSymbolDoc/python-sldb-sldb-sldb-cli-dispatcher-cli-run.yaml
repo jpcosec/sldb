@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-dispatcher-cli-run
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-dispatcher-cli-run.md
+hash_c: 7891d8577fb6b192e6497eff9953fc0baf787c964b26bc3bbca991e61864ee18
+hash_d: dfdad4bbb9c3e532fa636519b54be6f877fb0e866e200f7106eb263014b7d921
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

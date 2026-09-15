@@ -1,8 +1,0 @@
-documents:
-- name: faq
-  path: docs/faq.md
-  hash_c: fc5c35880fe99b3607bda48becbb879845b827c5ce8754a3ff4cc674f9018262
-  hash_d: 7aea0ca664029baab1175132eb85a80846396f9b89985bac2cad8d6d13a52f01
-  semantic_tags:
-  - type.documentation.faq
-  - workspace.docs.faq

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-sections_common-load_persisted_sections
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-sections_common-load_persisted_sections.md
+hash_c: 0b0df4d71fca2f72a26bb1a5000a17d25c1884f3ee77706c08fe92d74318ae4b
+hash_d: d43e642eb95943b39e4b2de74d9fda23674f552690fba627666882d0c39822d1
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

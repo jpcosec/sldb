@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ingest-source_parser-summarize_source
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ingest-source_parser-summarize_source.md
+hash_c: ee42c1c5c593bcd13619a3cf4c9403b41d52f6d30a67b3a8ecff5525d1fc4bf5
+hash_d: 063047e04283d7a4ef769d2425c0d5667df76cecc80c0d87e43b2122a79e764b
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

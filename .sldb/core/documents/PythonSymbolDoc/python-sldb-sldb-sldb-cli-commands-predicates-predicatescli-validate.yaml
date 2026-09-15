@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-predicates-predicatescli-validate
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-predicates-predicatescli-validate.md
+hash_c: ed227cac461b03580ca54aa8026966e0a109a0fedf2a3fa210bcb3bcf0c780a9
+hash_d: 49009cb5629814e46ea9a545c98ae4292bd603167213490b3a9efabea36a4e98
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

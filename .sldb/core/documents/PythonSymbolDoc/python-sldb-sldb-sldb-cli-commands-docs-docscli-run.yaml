@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-docs-docscli-run
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-docs-docscli-run.md
+hash_c: 2e80d0796e19b8505bb0b1294ae575504645c64dd3b83b91f5567b1aa639ded6
+hash_d: ee1eb8a5ccb5dc51da5e012f7c0d2b286b78b43cada357228d999cd26717deee
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

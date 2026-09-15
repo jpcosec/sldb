@@ -1,0 +1,10 @@
+name: task-define-sldb-addressability-model
+path: desk/tasks/task-define-sldb-addressability-model.md
+hash_c: 0aa7e6fda3bd6761337c06917f6a8580d6abfefd3d33b4dca1c7f15761b2af8d
+hash_d: a788af2fd507c5709bd750ac2bfe076a7a657717f1e6a841065375af61a23176
+semantic_tags:
+- artifact:task
+- source:drawer
+- type.workflow.task
+- workspace.desk
+- workspace:desk

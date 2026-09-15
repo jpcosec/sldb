@@ -1,0 +1,12 @@
+name: surface-sldb-example
+path: knowledge/surfaces/surface-sldb-example.md
+hash_c: d7cacc70d86dea077a08a6ea9f85ffa778c0163a9094dab611727794262ef853
+hash_d: cbd77e549e6e21f255fe980627685e13a5a7b618f305f636d961032d08128b38
+semantic_tags:
+- domain:retrieval
+- entity:cli_surface
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.surface
+- workspace.knowledge.surfaces

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-selfdoc-python_source_facts-pythonsourcefacts-visit_asyncfunctiondef
+path: knowledge/symbols/python-sldb-sldb-sldb-selfdoc-python_source_facts-pythonsourcefacts-visit_asyncfunctiondef.md
+hash_c: 267e9b928e6e92951a497c60b1d64acf79f2d22bd495ba8a3db800c663e5a175
+hash_d: 40b45dfdbf6563bf0ce1ea33156e29ad5e4fc885b771bd7add90451d22f0383c
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

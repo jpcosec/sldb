@@ -1,0 +1,12 @@
+name: cmd-sldb-sections-fields
+path: knowledge/commands/cmd-sldb-sections-fields.md
+hash_c: 710b55a8182f4d33aade3b002b97daa89ae67f36f30348321c7c01823e2a1dd7
+hash_d: ec8b5dca7c50457f36d401471a8f630695ebf51de99f5ea688d2522287b8a9c9
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

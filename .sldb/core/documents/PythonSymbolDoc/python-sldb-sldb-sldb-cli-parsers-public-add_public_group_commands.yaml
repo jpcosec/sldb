@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-parsers-public-add_public_group_commands
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-parsers-public-add_public_group_commands.md
+hash_c: 42222b8aeae069595c9cabb5dfd06fa4a8ab952a26ceb93c75e411e051369a19
+hash_d: 5cd88ad4677e25aa6f5c8a76b52e872be06268f9a357e994ff84142e9d0fe4da
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

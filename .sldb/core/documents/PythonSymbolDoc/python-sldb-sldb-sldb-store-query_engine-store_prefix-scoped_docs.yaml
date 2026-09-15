@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-query_engine-store_prefix-scoped_docs
+path: knowledge/symbols/python-sldb-sldb-sldb-store-query_engine-store_prefix-scoped_docs.md
+hash_c: fa8c47f4c272e108b0f381bd4b0c1a2281a9ee785b458c8d9ac8bbb05ac90440
+hash_d: 33c79b21cd1eda64bbdf627779f38ada3045bac5d0bb260a39c618c337064358
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

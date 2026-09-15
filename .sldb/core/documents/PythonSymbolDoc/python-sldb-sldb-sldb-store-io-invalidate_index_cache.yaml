@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-io-invalidate_index_cache
+path: knowledge/symbols/python-sldb-sldb-sldb-store-io-invalidate_index_cache.md
+hash_c: c815e888b2044d271b30268bb813a006b42564656ffe02b0920ee8adf1b0b673
+hash_d: 54fb64e1fc9dc80dd62fdcb5a7835fb2686ce83fc18ce8117fafef88924930f9
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

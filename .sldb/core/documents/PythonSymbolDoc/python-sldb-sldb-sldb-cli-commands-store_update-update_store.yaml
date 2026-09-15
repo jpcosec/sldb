@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-store_update-update_store
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-store_update-update_store.md
+hash_c: 7ca2c0a6c510b64d0b3b3abfa20add1f8a539a01f292e25eee6ee2bd70671382
+hash_d: d6e690d3bade4e072d7022ae50d9f79ce2ec0222ee6ece6105d2a3491eea1314
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

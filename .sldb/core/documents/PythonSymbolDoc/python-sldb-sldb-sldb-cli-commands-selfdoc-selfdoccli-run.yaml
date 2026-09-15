@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-selfdoc-selfdoccli-run
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-selfdoc-selfdoccli-run.md
+hash_c: 07810ab838cf7621139791f33cfc49f7dd7d9f403292151c27b40ab3b47f12e3
+hash_d: 8d168ae7a32a23825cfeb13510107a79203bf6a517713c3bfca686ec93d174d6
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

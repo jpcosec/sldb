@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-models-structured_doc-structurednldoc-compose_field
+path: knowledge/symbols/python-sldb-sldb-sldb-models-structured_doc-structurednldoc-compose_field.md
+hash_c: 2658ed3f635b2d782d5132e7bc7959be0d5a40bc0a956582db5836b52750ab3b
+hash_d: 28de3aea87ef31b32831e65ee94001e220d721558eb1f556ec3067aa45f997dc
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

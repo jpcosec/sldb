@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-graph-sections-extract_sections
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-graph-sections-extract_sections.md
+hash_c: d11116c214900c1bbd2e023cf774ff95f159287df6203ab39d4dc55958ebaeac
+hash_d: ed5592cc98a4080218de5eb3dbab5aae47a92fd3f71bae9f85b1cc609a68cf42
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

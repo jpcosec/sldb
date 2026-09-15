@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-lint-_check_canonical_prefix
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-lint-_check_canonical_prefix.md
+hash_c: 41abfa63800acd722dbd6b45319d3c2fde88c7fafea4b46588dbed60e4d617d7
+hash_d: bfab4191e73932a3f62f4659554b1645671b0ff1d6e22c9967a11945a85d1e46
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

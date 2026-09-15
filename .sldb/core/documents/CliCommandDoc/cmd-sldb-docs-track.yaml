@@ -1,0 +1,12 @@
+name: cmd-sldb-docs-track
+path: knowledge/commands/cmd-sldb-docs-track.md
+hash_c: 9a000bbdafb89a4a3e612f9499059a60d62b9f7c441070e181d040ab9c78549c
+hash_d: ff351603feef01cc175b8b615a1431172f949163f816684f4ff0e8d867e79e4d
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

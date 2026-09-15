@@ -1,0 +1,12 @@
+name: cmd-sldb-docs-compose
+path: knowledge/commands/cmd-sldb-docs-compose.md
+hash_c: 3dbabe1f13fe37e4aed6e9195ca6a4a7c56b04cc1f3a9e609d5bbc112b7aaf21
+hash_d: 7179d0845f8887f148cd17a46254a3dd4600ba6b04f07ebfb26befe4f6ba45ce
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

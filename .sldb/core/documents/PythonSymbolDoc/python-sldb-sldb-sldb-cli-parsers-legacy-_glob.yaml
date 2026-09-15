@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-parsers-legacy-_glob
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-parsers-legacy-_glob.md
+hash_c: 345e9132083e1d989f68f1442e6f41ed69ba772a6e01d752a866c46e0409c9a4
+hash_d: 168112ca04ef0dbf8cda8a1532b75d4777dca9ebc7c35b9ebbb03d3f604cb70e
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

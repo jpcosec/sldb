@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-doc_helpers-validate_path
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-doc_helpers-validate_path.md
+hash_c: f77c1c2fe98d2e404efd0eb165ef002f8c6f3f99f17e825669cd1a214c050fdf
+hash_d: b0a40a0fecbfbc2bcbecf31ddd3003899ee0ed96dca7aabe1ca33a02ec11360a
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

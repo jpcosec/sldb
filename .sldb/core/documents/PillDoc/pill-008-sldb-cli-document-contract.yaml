@@ -1,0 +1,11 @@
+name: pill-008-sldb-cli-document-contract
+path: desk/pills/pill-008-sldb-cli-document-contract.md
+hash_c: f921404647c505bd2ffef3f8d2d12a2ea5b9bd9bddd70d00221bdb8b6832684f
+hash_d: 99fe61e83beef82b5958761485b3c05dcc3c685a280cca3ba11542ee397f069e
+semantic_tags:
+- language:python
+- system:sldb
+- topic:cli
+- topic:documents
+- type.workflow.pill
+- workspace.desk

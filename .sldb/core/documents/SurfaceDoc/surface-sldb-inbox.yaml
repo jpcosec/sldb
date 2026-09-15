@@ -1,0 +1,12 @@
+name: surface-sldb-inbox
+path: knowledge/surfaces/surface-sldb-inbox.md
+hash_c: 2e0e2fc1add05cd4d7d0b7bfea887fa4f6ee133331bf50078c2c1896386bfd2a
+hash_d: be5dc344cce9736de1c1b2db4316e6bda3dd61f78999e6a9d33a4eaf4c93e06d
+semantic_tags:
+- domain:retrieval
+- entity:cli_surface
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.surface
+- workspace.knowledge.surfaces

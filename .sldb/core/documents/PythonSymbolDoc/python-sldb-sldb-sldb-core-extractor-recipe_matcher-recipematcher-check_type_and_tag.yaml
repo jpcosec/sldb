@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-extractor-recipe_matcher-recipematcher-check_type_and_tag
+path: knowledge/symbols/python-sldb-sldb-sldb-core-extractor-recipe_matcher-recipematcher-check_type_and_tag.md
+hash_c: 160f3ae8c9fec6d14c161f6ddb096052694cb5cc7393f8274424f6356f20a01c
+hash_d: ef9ee26354f78ad21b91523038b9edd1a992b18a9c5823fabd9f64150dd97ca2
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

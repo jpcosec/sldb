@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-semantic_tags-flatten_model_semantics
+path: knowledge/symbols/python-sldb-sldb-sldb-store-semantic_tags-flatten_model_semantics.md
+hash_c: 44d8cf85c93e048d24df23546ebb2cb833b4dce72336de87398cfdc91d52b332
+hash_d: 9f0b354e0228f8eb3d00781534dc6b6fc9efe2bd75d81e55b26fcdd716a31f3b
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

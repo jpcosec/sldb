@@ -1,0 +1,12 @@
+name: cmd-sldb-predicates-validate
+path: knowledge/commands/cmd-sldb-predicates-validate.md
+hash_c: b8c1b81830f8db9247b8459d93a74a2f97b60a86e5ebd8dfb5ded1f6386253d1
+hash_d: fcf31a0074d896a81b6034d7e5252c22610b27920ebb1ca545ae6cd49330e223
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

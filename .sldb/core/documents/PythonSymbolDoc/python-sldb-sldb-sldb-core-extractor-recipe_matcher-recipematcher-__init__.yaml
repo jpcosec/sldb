@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-extractor-recipe_matcher-recipematcher-__init__
+path: knowledge/symbols/python-sldb-sldb-sldb-core-extractor-recipe_matcher-recipematcher-__init__.md
+hash_c: 83c8f78c4869c27719551b47fcb0520a9a8af766cd85e84ff23b6a53fbf572f9
+hash_d: 3324cc2aa73b376e7bd8ee206518780c77dd7442c65a8f29b14889f84bf5b60d
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

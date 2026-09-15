@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-serve-schema-field_kind
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-serve-schema-field_kind.md
+hash_c: 8e21e30380894202aea8d058579f5c68be9224d82f641440cc70629b173a1fd5
+hash_d: a4f08437349609b112343f919be82dc42f6868970d14455d8c4d3096357d3839
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-inbox-inboxcli
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-inbox-inboxcli.md
+hash_c: 0b81d5e7510d277b14e3473e576c54f0230a8dedcafcc389e73ed22e800c698e
+hash_d: ea659edbd468d17da50c3c91fe2fa0734aee2c81472610bb9bf2a76b64cc0e7e
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

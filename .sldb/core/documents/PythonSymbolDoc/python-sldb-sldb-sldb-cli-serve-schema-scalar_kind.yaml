@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-serve-schema-scalar_kind
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-serve-schema-scalar_kind.md
+hash_c: 01b02d807f3e9c2f90a97858a2d33df56abc0b028c680adc417bf04dce51441e
+hash_d: e55b10d3ece39d222e2d5903569f37e3b8cd2625e08aa9e030740ed612cdccfb
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

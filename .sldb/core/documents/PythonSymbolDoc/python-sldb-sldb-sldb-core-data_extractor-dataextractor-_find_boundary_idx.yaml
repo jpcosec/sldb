@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-data_extractor-dataextractor-_find_boundary_idx
+path: knowledge/symbols/python-sldb-sldb-sldb-core-data_extractor-dataextractor-_find_boundary_idx.md
+hash_c: b4490285830d97a486db44511dc1bafe177eac0fe4a2880330c3859c8503ba00
+hash_d: e47c95fcb9e0b197490309b1ef2c2ad1602bb82a9c8c65d5625fceb040f517c9
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

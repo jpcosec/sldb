@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-predicates_format-print_validate_text
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-predicates_format-print_validate_text.md
+hash_c: 0fec088bd94ef2869df7833e334e22293f8a646fb21fd53986cabaea5ec7263d
+hash_d: fd57dad1ddaede61bcf0b49c598af091728d09e369339a11e8f21edfac383550
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

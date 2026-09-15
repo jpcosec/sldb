@@ -1,0 +1,10 @@
+name: pill-012-query-task-execution-context
+path: desk/pills/pill-012-query-task-execution-context.md
+hash_c: 361b99bc8b657c439d73b097686156022b8c2d3ac27edcc41f1ef14df84a81bb
+hash_d: d38989ed3c38a2d41c0700eb16e5511388f3d05cd09bb4f9423a6fd03e8fb1fb
+semantic_tags:
+- system:sldb
+- topic:execution
+- topic:query
+- type.workflow.pill
+- workspace.desk

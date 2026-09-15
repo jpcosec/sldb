@@ -4,6 +4,7 @@ path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/routine.py
 documents_index: .sldb/core/documents/RoutineDoc.yaml
 sections_index: .sldb/runtime/sections/RoutineDoc.yaml
 hash_b: e31a71b01dcf82e49cf8472f0e4f653f864464125ee07cb47fef7050949b7922
+documents_count: 6
 version: 1
 canonical: false
 family: null

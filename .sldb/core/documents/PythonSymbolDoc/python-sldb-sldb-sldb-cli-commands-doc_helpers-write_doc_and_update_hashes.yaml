@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-doc_helpers-write_doc_and_update_hashes
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-doc_helpers-write_doc_and_update_hashes.md
+hash_c: cc1dd7227fd2c915e8c0fc0c83f7229a6245d1e48aaf06431d5a3c7191cd2964
+hash_d: 39bb8711df22ee892a2110d7d91fad4444b1f01c8321606753fbec863238a65f
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

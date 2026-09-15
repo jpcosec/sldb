@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-serve-responses-handle_cors_headers
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-serve-responses-handle_cors_headers.md
+hash_c: fee2cae23deebbd9bb315ef647e86e2e5e940dddf552f39ad6531527d3bd6cac
+hash_d: 049e7eeb6c60a7a95478c80d4d9840321cc7f89fb17cf1a7b058e0f40bc61535
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

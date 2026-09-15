@@ -1,0 +1,12 @@
+name: cmd-sldb-inbox
+path: knowledge/commands/cmd-sldb-inbox.md
+hash_c: c6a429a01b5ac545c69ffff2e27bdde54adfe8e38e8109473ea5a73a7bfcfd3d
+hash_d: 061a9d8acf72ed34adeab9e6a83860a381cd97ec3791cfb6caea17433d12f207
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

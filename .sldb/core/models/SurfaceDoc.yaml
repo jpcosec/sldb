@@ -4,6 +4,7 @@ path: src/sldb/models/surface_doc.py
 documents_index: .sldb/core/documents/SurfaceDoc.yaml
 sections_index: .sldb/runtime/sections/SurfaceDoc.yaml
 hash_b: 0335baed2c455f659bd9e720a7dc9ff96e2b086748c323db3237a83faefe0053
+documents_count: 21
 version: 1
 canonical: false
 family: null

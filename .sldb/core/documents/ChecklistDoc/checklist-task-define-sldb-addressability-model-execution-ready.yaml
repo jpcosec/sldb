@@ -1,0 +1,8 @@
+name: checklist-task-define-sldb-addressability-model-execution-ready
+path: desk/primitives/checklists/checklist-task-define-sldb-addressability-model-execution-ready.md
+hash_c: 6a09448909764fc400b00c0ee4d21b25e18102c6a1f924ec67a2673e79c0b615
+hash_d: 7808e8aaa35af301de324e84f251b9e9a95900338d21952edb24c863c9407a21
+semantic_tags:
+- primitive:checklist
+- type.workflow.checklist
+- workspace.desk.primitives

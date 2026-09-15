@@ -1,0 +1,11 @@
+name: desk-board
+path: desk/tasks/Board.md
+hash_c: 62007870496daeb06fa27c14fabd280a552ffe04e2275ddead9e3a5d46a9beaa
+hash_d: a73410c8c4a3cd003add864158f8dec553b1cb6be120e125cb9c0145fc991fb2
+semantic_tags:
+- system:deskops
+- system:sldb
+- topic:routing
+- type.workflow.board
+- workspace.desk
+- workspace:desk

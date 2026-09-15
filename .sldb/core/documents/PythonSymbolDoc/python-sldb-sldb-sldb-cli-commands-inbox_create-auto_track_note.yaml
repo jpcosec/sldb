@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-inbox_create-auto_track_note
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-inbox_create-auto_track_note.md
+hash_c: 79f21ec417c22b60036d80c27e61663c9afdd746355e1c4d6f0a62129a9ee738
+hash_d: 6e148eb3bf64c7ccdcf0b735cbfaf39a582e6f09e0fe827b6e08d9faff4d7e31
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

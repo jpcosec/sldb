@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-data_extractor-dataextractor-_current_block_matches_future_recipe
+path: knowledge/symbols/python-sldb-sldb-sldb-core-data_extractor-dataextractor-_current_block_matches_future_recipe.md
+hash_c: 53a19c6053307c2e3c10e62bf708d3f60805335dfdcc5ffc3eade50776719ed4
+hash_d: 9f9b0643cbfc8a7145d130632b1bae881848fe5e22d2cd5a8d781b41cf3020af
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

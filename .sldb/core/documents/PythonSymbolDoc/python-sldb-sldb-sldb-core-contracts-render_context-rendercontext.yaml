@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-contracts-render_context-rendercontext
+path: knowledge/symbols/python-sldb-sldb-sldb-core-contracts-render_context-rendercontext.md
+hash_c: 12d00e8b04ae23a10ee850bf680574dd987690e3a1a79dc8adba39231af26331
+hash_d: b135a384d8ddd0da36c8b7b27584f31d2d8d132b0fc86538437adaecc552d6f0
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

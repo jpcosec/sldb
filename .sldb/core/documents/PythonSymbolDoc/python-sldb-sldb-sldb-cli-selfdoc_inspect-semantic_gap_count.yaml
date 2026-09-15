@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-selfdoc_inspect-semantic_gap_count
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-selfdoc_inspect-semantic_gap_count.md
+hash_c: c38480f5a743d5b504fdcb092f7b015d10c4dd56644baccb1c4cf6708d9e26d1
+hash_d: c905f384da541d384fb1e25333bdd60e87959a393b6b52c87dfaffa181169692
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

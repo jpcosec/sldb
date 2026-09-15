@@ -1,0 +1,12 @@
+name: cmd-sldb-init
+path: knowledge/commands/cmd-sldb-init.md
+hash_c: ab9890cb78c2a8a8d6863cef38140192aac2b1be429620e3d71e1dee65ee296d
+hash_d: 132201d1b8aba57979f7b095748aa030dd9cce23ea927dbe4920f57c6cbcc785
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

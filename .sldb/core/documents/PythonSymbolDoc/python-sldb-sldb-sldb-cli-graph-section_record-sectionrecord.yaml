@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-graph-section_record-sectionrecord
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-graph-section_record-sectionrecord.md
+hash_c: 64706ae27ec12d0f5a62122a7387692774b6e6ef52da8d7b6228350fb6a525e0
+hash_d: ce7ecfa46ef684f93fbba556e633762af2bdcf1e9e2b9e9a5e24c9d75ca6d16d
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

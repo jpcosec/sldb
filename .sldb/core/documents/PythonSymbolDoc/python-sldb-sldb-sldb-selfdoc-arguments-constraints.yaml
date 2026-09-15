@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-selfdoc-arguments-constraints
+path: knowledge/symbols/python-sldb-sldb-sldb-selfdoc-arguments-constraints.md
+hash_c: 6c843b1dc256e9cb4e7d663f080528a884c16df4603879855c023339d333f646
+hash_d: 6ee449c55e80e85a250f7642a3ee5d0e70b8b86c9dd420012d2a54665a17e51c
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

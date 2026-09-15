@@ -1,0 +1,12 @@
+name: surface-sldb-find
+path: knowledge/surfaces/surface-sldb-find.md
+hash_c: f4db999dc21fa5c9949cbc167703a332de10b36bd81cbaf0706030c55dd56a3c
+hash_d: 96e0839f7e964ccc7c9b8ffa6be731040c1f3a6ed29dd844db4ef0334323432a
+semantic_tags:
+- domain:retrieval
+- entity:cli_surface
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.surface
+- workspace.knowledge.surfaces

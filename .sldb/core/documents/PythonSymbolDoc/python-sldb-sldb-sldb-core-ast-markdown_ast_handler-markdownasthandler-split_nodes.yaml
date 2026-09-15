@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ast-markdown_ast_handler-markdownasthandler-split_nodes
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ast-markdown_ast_handler-markdownasthandler-split_nodes.md
+hash_c: df4ad3793de97d5c9716f50a0c08fd8a01bfe9f6f626c01f956c5dc4207a482d
+hash_d: 0c6f25ee87af181b3d775bbc60fe84029e6999b9b8f998cccddc3314af99a27b
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

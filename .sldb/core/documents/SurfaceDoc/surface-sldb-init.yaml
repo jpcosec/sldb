@@ -1,0 +1,12 @@
+name: surface-sldb-init
+path: knowledge/surfaces/surface-sldb-init.md
+hash_c: 3c07908e54c0f5e31cb6d713abff240a4c14389871656c64fdd6959a6387fbea
+hash_d: 1d5d898ba79465e02ddf5aebac18c530fe010d9450592b6d66b5d7fc47cbec26
+semantic_tags:
+- domain:retrieval
+- entity:cli_surface
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.surface
+- workspace.knowledge.surfaces

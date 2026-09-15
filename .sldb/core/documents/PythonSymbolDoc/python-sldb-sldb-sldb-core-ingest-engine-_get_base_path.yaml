@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ingest-engine-_get_base_path
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ingest-engine-_get_base_path.md
+hash_c: 8c949b05cf50fe937b16cbd67874431a48ea7c90ac57a58452adf9f6540b5913
+hash_d: 0e60af7e55cbe83f9f947040d6b03dcecb03ace385796f5d68f8518acb79066d
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

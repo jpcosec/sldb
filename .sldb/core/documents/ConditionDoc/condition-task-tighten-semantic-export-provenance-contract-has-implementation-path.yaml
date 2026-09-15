@@ -1,0 +1,8 @@
+name: condition-task-tighten-semantic-export-provenance-contract-has-implementation-path
+path: desk/primitives/conditions/condition-task-tighten-semantic-export-provenance-contract-has-implementation-path.md
+hash_c: a30dafab95489a7df68af3fde7b5e08c7d2f5659b8212103a7adeb0c525c47c4
+hash_d: d4582c772eecd98ecfc1a4b1bf6b035c5974ee98ccae6138d207dd746c326bd5
+semantic_tags:
+- primitive:condition
+- type.workflow.condition
+- workspace.desk.primitives

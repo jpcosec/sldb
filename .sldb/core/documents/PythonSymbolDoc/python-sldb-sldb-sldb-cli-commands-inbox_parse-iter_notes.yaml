@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-inbox_parse-iter_notes
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-inbox_parse-iter_notes.md
+hash_c: 5a7bf6f5d13a3db620fe06baee24b232618d24ad1927a6e7a61a13d33a188605
+hash_d: 0f3c711b539f1cfb00d5f03e7ee60c7e16d7625321326930a8c15b40eedc314f
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

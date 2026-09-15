@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-lint-_check_legacy_prefix
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-lint-_check_legacy_prefix.md
+hash_c: ff1fe1c668949ee76c343d57fdb030b73445813d36e1257a264a958e050b170b
+hash_d: b9b08cec79c9fadf8e0ec3448a43016de2c56224c091e8baab96d96699580f0b
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

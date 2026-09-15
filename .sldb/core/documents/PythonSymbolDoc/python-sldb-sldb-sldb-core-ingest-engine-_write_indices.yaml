@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ingest-engine-_write_indices
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ingest-engine-_write_indices.md
+hash_c: dcb09943cb39f8ceb681be921e365eb8bba387e0992f5933911cb651e00b763b
+hash_d: 3e246c5e18520a6148b6618a24a9b901050e30555f7f828c3eb81e73e59208c8
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

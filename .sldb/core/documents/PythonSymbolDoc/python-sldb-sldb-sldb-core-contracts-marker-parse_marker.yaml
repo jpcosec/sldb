@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-contracts-marker-parse_marker
+path: knowledge/symbols/python-sldb-sldb-sldb-core-contracts-marker-parse_marker.md
+hash_c: 445969c588e3adb0db5d9ee97fbb2fe6d23a02e9b8db0b20ff018533b9053b95
+hash_d: 1e828dd830b01c3e7bd39ecddfceff8f0035e199a3b34c1bc18d596fff437ae4
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

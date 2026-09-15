@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-selfdoc-python_symbol-pythonsymbol
+path: knowledge/symbols/python-sldb-sldb-sldb-selfdoc-python_symbol-pythonsymbol.md
+hash_c: cd78e43af886ae1f5ebcfb3b5bbb30b6a51ac9ee863ca5486c6f242cbd2fd66a
+hash_d: c05484f41c942687e3928d3026f17456f903549619a8e5c8245c597435e1aa3e
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-graph_ops-map_fields-_map_fields_to_sections
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-graph_ops-map_fields-_map_fields_to_sections.md
+hash_c: c23a5a37c48d99108b0fe97d89d7497de3204aaa1694e138b79c4fc763dea3cc
+hash_d: c67f18b711ab63b9495a40659e1ed3db96f50584e330ab639bd7a9afe193ff34
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

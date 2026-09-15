@@ -1,0 +1,8 @@
+name: edge-task-tighten-semantic-export-provenance-contract-activate-to-testing
+path: desk/primitives/edges/edge-task-tighten-semantic-export-provenance-contract-activate-to-testing.md
+hash_c: afbf623a5b2be2f95ad97bacfa7d5a3166bf8dbc824e9d62a09622f1a3400cf8
+hash_d: adf3588a6aa86335c51f5760c02844ce8a5f9561be84116b8a58bfc37b901e6f
+semantic_tags:
+- primitive:edge
+- type.workflow.edge
+- workspace.desk.primitives

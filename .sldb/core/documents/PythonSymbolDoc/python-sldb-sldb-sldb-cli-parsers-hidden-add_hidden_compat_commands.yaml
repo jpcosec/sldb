@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-parsers-hidden-add_hidden_compat_commands
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-parsers-hidden-add_hidden_compat_commands.md
+hash_c: 791882dc4054bbff4cee32373041a7560498c62083f52c5bf4ae213efac72800
+hash_d: cd0400b9fe7910064fd09986f56d6876d7418c45430aa95529c746bd867f240a
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

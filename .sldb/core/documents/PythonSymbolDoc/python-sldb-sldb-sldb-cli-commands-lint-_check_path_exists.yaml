@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-lint-_check_path_exists
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-lint-_check_path_exists.md
+hash_c: 6a2395823c7d7d48e30c9c82376f772a1706109c8d93017b424dfe2d32bb75c2
+hash_d: 73d41b990435c182c936987de369f08cfe31d6dd755c2b4493bc8f1b67e72cab
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

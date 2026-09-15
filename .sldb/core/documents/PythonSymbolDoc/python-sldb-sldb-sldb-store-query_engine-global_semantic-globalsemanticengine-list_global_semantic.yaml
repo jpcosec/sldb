@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-query_engine-global_semantic-globalsemanticengine-list_global_semantic
+path: knowledge/symbols/python-sldb-sldb-sldb-store-query_engine-global_semantic-globalsemanticengine-list_global_semantic.md
+hash_c: eb67efc6e7065fd71c11299b9b9cecce22aace6ecd98ef777f13f83d97d52611
+hash_d: 6df2861db936320b8f1dfc3fb7090c71d8f39d38a2fca7602d0583f55ad514f8
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

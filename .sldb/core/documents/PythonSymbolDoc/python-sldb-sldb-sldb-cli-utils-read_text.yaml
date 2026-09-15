@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-utils-read_text
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-utils-read_text.md
+hash_c: 88d54063ab716afae139130362beffed847aefa58df9f09207070c95192cbe4f
+hash_d: fec361aa38b28e3ff7dbc058884343c56bfba474f4c98e2512a24d8537bf0242
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

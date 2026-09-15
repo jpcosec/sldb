@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-selfdoc_inspect-_new_symbol_ids
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-selfdoc_inspect-_new_symbol_ids.md
+hash_c: b2cc8b392ed2a9660633d63c7ff5eb71325b1a0187be31af1920cd06f51092ed
+hash_d: 0d3a2179a2f11c0071f2a1b30ba7fd3998f146634cef80dc4c825b1f81c37fde
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

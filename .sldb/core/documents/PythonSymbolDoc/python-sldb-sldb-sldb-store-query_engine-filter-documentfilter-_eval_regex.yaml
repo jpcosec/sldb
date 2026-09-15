@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-query_engine-filter-documentfilter-_eval_regex
+path: knowledge/symbols/python-sldb-sldb-sldb-store-query_engine-filter-documentfilter-_eval_regex.md
+hash_c: 37d496f0c8e2a86215368bd90a9629c9aaa943ea4aeb5af4bb17c54616f536c6
+hash_d: 7c6e7eb973cdb34507be48c3b67952c7a0ed6f896af4de4078536f93ee6e6242
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

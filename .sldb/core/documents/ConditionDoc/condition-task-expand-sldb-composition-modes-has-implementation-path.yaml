@@ -1,0 +1,8 @@
+name: condition-task-expand-sldb-composition-modes-has-implementation-path
+path: desk/primitives/conditions/condition-task-expand-sldb-composition-modes-has-implementation-path.md
+hash_c: 0d08786cc3f125d84e9a82d3f9382bb8c8535bc07acceee310033bc3d8209442
+hash_d: 1383bd23876a3ed5dade9bd7d0173e80cf1906abff39a9ae48c70897dba5682f
+semantic_tags:
+- primitive:condition
+- type.workflow.condition
+- workspace.desk.primitives

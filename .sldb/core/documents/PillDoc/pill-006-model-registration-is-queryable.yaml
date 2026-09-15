@@ -1,0 +1,11 @@
+name: pill-006-model-registration-is-queryable
+path: desk/pills/pill-006-model-registration-is-queryable.md
+hash_c: d309ff6372200530b438cefed77df19b6487b060ebdeb0981f5dd6af9b1aa177
+hash_d: a27030b5daf8735eb91610191a997f76e27d5ea06381903737cde01edb008f72
+semantic_tags:
+- system:deskops
+- system:sldb
+- topic:models
+- topic:query
+- type.workflow.pill
+- workspace.desk

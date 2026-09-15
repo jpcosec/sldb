@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ast-markdown_ast_handler-markdownasthandler-__init__
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ast-markdown_ast_handler-markdownasthandler-__init__.md
+hash_c: afb38654ded240ad9688951d1c3bee1794cdffcaf8512f3d8feddfd138b6ce7c
+hash_d: 4d8dedcb1c4d5940e1ad69207aa50f0a0cd6cedd0c7a56cdce4450a6293ec20d
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

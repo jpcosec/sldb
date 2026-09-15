@@ -1,0 +1,9 @@
+name: routine-task-design-sldb-ast-query-primitives
+path: desk/routines/routine-task-design-sldb-ast-query-primitives.md
+hash_c: d19ca13065014e0ad9ec6596ec0f4b20e4be1c45fa2b52e7d4ea49a46ed28c51
+hash_d: c89be760ca06dcdea710ef6ea3f5f10534b27f2175bae20c75d831ab67629a7e
+semantic_tags:
+- primitive:routine
+- type.workflow.routine
+- workspace.desk.routines
+- workspace:desk

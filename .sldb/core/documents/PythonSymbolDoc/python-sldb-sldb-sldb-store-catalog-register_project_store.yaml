@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-catalog-register_project_store
+path: knowledge/symbols/python-sldb-sldb-sldb-store-catalog-register_project_store.md
+hash_c: 5e07d791aebf9c7b9c260446297dbb58eabd30662714086715abdda1d56cf80e
+hash_d: 62cc007a83592e4a053c21077caf5143b82ac7cf57c8cdf8907b933bb9c8ecef
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

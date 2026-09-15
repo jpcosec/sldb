@@ -1,0 +1,8 @@
+name: condition-task-define-sldb-addressability-model-has-implementation-path
+path: desk/primitives/conditions/condition-task-define-sldb-addressability-model-has-implementation-path.md
+hash_c: 0db91d64bd6c8f56cc807152a594b57634455ae31fac3fffde9c4aa5e5b4ec86
+hash_d: 87ee45b88e257edac268a9a4c151bec0208a2215466e295e16d18b8fff61f914
+semantic_tags:
+- primitive:condition
+- type.workflow.condition
+- workspace.desk.primitives

@@ -1,0 +1,7 @@
+name: surface-sldb-legacy
+path: knowledge/surfaces/surface-sldb-legacy.md
+hash_c: bd6823d913aa7589d7a7de0f8f62d0a7cd0e012d68c2694ea25c71579e9a590f
+hash_d: 7316c69e65aa0904d55be7cc03bcca3f83aeca76f0535562f0a7d5d939f4edb0
+semantic_tags:
+- type.knowledge.surface
+- workspace.knowledge.surfaces

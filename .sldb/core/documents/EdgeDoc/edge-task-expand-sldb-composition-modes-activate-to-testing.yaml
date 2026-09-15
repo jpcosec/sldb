@@ -1,0 +1,8 @@
+name: edge-task-expand-sldb-composition-modes-activate-to-testing
+path: desk/primitives/edges/edge-task-expand-sldb-composition-modes-activate-to-testing.md
+hash_c: ba1848eba04581008214d4f4f194a3d4796273a2546955fc20c63b90179cd805
+hash_d: 7ad2215e280c1003c3b3750cc3f4ad8d3555f390c2901916d95b274cd5a93ed0
+semantic_tags:
+- primitive:edge
+- type.workflow.edge
+- workspace.desk.primitives

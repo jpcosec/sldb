@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ingest-manifest-_update_or_add
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ingest-manifest-_update_or_add.md
+hash_c: fff484ab7a5aadaa66986958af25104ae6c23cb43ebff3a0a9210e8dabc32050
+hash_d: d8ef5186a0f9fda1d107b5c7bf16ef55fbc1e146ac6a04050a5c48863af0e978
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

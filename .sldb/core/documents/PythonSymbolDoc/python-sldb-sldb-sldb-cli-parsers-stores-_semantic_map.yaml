@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-parsers-stores-_semantic_map
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-parsers-stores-_semantic_map.md
+hash_c: 0a4aa03b0be5005639ec7bc6a163d144cc3e6fa7f0ef1b9cc3dfaddd8116d858
+hash_d: 84b9ed5f2c72dfb70ddd4c631ccbfa4846c25be45e8f85384f0d0d05f6add328
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

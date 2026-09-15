@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-runtime_cache_disk-clear
+path: knowledge/symbols/python-sldb-sldb-sldb-store-runtime_cache_disk-clear.md
+hash_c: 1ad8235b2f5cb10d570a58f1d453a94834c26d4ef63961c0b45a1fdbb7b4d67c
+hash_d: f68cf516b1f442bbbf640072926423cd66e3409b1b8b114172e77800debfdda5
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

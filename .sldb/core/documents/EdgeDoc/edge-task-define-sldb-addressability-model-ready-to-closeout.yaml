@@ -1,0 +1,8 @@
+name: edge-task-define-sldb-addressability-model-ready-to-closeout
+path: desk/primitives/edges/edge-task-define-sldb-addressability-model-ready-to-closeout.md
+hash_c: 4acd01bdf25435fb28799e2a42fe9524a13e1ddf70c5817e8423b525c86c2353
+hash_d: 80d53aa31c596c471144a30a4e9330599e7822e917b14d07b039979af71f8010
+semantic_tags:
+- primitive:edge
+- type.workflow.edge
+- workspace.desk.primitives

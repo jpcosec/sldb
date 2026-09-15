@@ -1,0 +1,12 @@
+name: cmd-sldb-models-validate
+path: knowledge/commands/cmd-sldb-models-validate.md
+hash_c: a04f1cb5b91afd4e7a1ba76576e880c4fbcb23c557d68c199ecc2f138c4e43d5
+hash_d: 6a840850efa762d166782cdeac4ad72f9cfc25d7d74ee519fa8069e5f655e5af
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

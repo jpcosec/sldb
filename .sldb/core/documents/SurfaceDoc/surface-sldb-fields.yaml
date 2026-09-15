@@ -1,0 +1,12 @@
+name: surface-sldb-fields
+path: knowledge/surfaces/surface-sldb-fields.md
+hash_c: 3c3521cdba6b1170105d4da6b12980c0b01222baa758aef93ccdaf4760603f28
+hash_d: fa20fb891368e800467440f08d5a145b222103ae94d2511e4ed36f9fb5b70aa2
+semantic_tags:
+- domain:retrieval
+- entity:cli_surface
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.surface
+- workspace.knowledge.surfaces

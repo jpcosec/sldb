@@ -1,0 +1,12 @@
+name: cmd-sldb-models-fields-remove
+path: knowledge/commands/cmd-sldb-models-fields-remove.md
+hash_c: a1de5ca245f2f1248a32a70ffbe6d2343d3bdcaa5c120f4700bc69213cb4eacc
+hash_d: a3908e9d14cd1fbdcac3423458482ec33d88c82ed88f3a4f2c821d2d037a6b7d
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

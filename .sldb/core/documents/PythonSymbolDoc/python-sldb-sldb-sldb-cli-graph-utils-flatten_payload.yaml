@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-graph-utils-flatten_payload
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-graph-utils-flatten_payload.md
+hash_c: facdc022ce5dd44367da1c8b79ea8e551c2ed7ef28167532fd15b637171702f6
+hash_d: 377a2724a03db0e5e953034b249f096e19fa016ff6d19ed3a10a2ee2d1f906c1
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

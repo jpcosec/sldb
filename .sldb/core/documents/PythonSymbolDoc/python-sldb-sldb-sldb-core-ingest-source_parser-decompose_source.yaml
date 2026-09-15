@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ingest-source_parser-decompose_source
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ingest-source_parser-decompose_source.md
+hash_c: 1e7cd4af595c5d2d4b8b0eee299d32e515f989f31f70f26bcd37ca7c91b4cb52
+hash_d: 96325b45672b57907630deb568dd304f9c6b80cc0456cdb645e595da484e8c0e
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

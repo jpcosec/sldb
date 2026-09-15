@@ -1,0 +1,12 @@
+name: surface-sldb-serve
+path: knowledge/surfaces/surface-sldb-serve.md
+hash_c: 251b00504dffedaf8ea985366d1d85a0fb5b0ea8aaa3ce74cf8f5ec42a64268f
+hash_d: 25694078706df9920ffe7335733ac7b7a1309b9bfdaa83be66897ef6f6eb36f2
+semantic_tags:
+- domain:retrieval
+- entity:cli_surface
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.surface
+- workspace.knowledge.surfaces

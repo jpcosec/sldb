@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-store_semantic_map-_add_equivalence
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-store_semantic_map-_add_equivalence.md
+hash_c: 17652c05ce2f1be51ab81f59f804ebbba57035e1dbe726df0c2a42dee3abbc85
+hash_d: ae7f8bcf59932214f6e8ba0b1dd901a7bb515bc4efd48e571f6f15909a4c2245
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

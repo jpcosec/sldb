@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-template_extractor-templateextractor-_dive
+path: knowledge/symbols/python-sldb-sldb-sldb-core-template_extractor-templateextractor-_dive.md
+hash_c: 09e142329d23e58a536f648e26acc924d42a2b9fb009d5acdc310d79db7e9dc8
+hash_d: 6ae78546b385aa279f1595bd85247a46fd622b3cda569e9f4626e098bc7383ca
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

@@ -1,0 +1,12 @@
+name: surface-sldb-stores
+path: knowledge/surfaces/surface-sldb-stores.md
+hash_c: 3b1ed98758309be950524a3e5563db544523aa93289d1dfea7ad71f301a4fd56
+hash_d: 12fb28457cbffaf8c6e972d828dadeeba4cc861f68f71e22773a4ffc2dce3058
+semantic_tags:
+- domain:retrieval
+- entity:cli_surface
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.surface
+- workspace.knowledge.surfaces

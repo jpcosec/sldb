@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-io-semantic_dag-semanticdagio
+path: knowledge/symbols/python-sldb-sldb-sldb-store-io-semantic_dag-semanticdagio.md
+hash_c: 4d4254097305bd88694667ba3d2f94630fa758c2fca8196889c0ff92bc134a4f
+hash_d: fe4b8483c6a02bd8f3eb0a9eb03a981c4b4c0db15a8ec52dede61ff31194882c
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

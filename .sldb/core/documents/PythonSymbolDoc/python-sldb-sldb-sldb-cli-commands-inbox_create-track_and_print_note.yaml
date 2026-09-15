@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-inbox_create-track_and_print_note
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-inbox_create-track_and_print_note.md
+hash_c: a710cb6ccf84dd3c77361f91287f26b75af645ffdb3fb59f8bc080a0648567f9
+hash_d: 7477d4950b5c0fca83b63564b4487598716e2af6c3e1330f707d83630a772977
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

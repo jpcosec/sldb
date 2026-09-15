@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-doc_helpers-find_doc_in_store
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-doc_helpers-find_doc_in_store.md
+hash_c: 09f37d95055af4bdab772bbeca3014303d3c24c5f775ef1d6353852fc7a868b6
+hash_d: f53807228152e61c78879e3c273e4aafeaff863aae3857c6f365e7a1ac410505
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

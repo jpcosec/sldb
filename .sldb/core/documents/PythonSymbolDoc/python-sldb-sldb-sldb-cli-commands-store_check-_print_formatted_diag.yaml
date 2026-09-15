@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-store_check-_print_formatted_diag
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-store_check-_print_formatted_diag.md
+hash_c: 83822ccdeca904714c57b1565ea0860cd42268cd37ea8d314352630ea8d7499a
+hash_d: 598a2e8027fe147434633b1ee2d29d6e1216f62ee582895c663533deb1de6a68
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

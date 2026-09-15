@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-find_format-findformatter-format_output
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-find_format-findformatter-format_output.md
+hash_c: 74b9585a7050fc443d1396aa75cec844e05732fe150a305724bdab29d50d9fcf
+hash_d: 7bbe5cdb7082ea5244a717879cac92ff7b4df4eba187023d1dcc1e3fcd15846a
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

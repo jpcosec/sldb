@@ -1,0 +1,12 @@
+name: cmd-sldb-fields-create
+path: knowledge/commands/cmd-sldb-fields-create.md
+hash_c: 825b31c08303a2a2c0b1c81b049c8bf1359414472909165836218ebe31765a25
+hash_d: 45a822349fcdc42638add57675b0b507476bfa2f2c0c0b65949fb847468b0dea
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

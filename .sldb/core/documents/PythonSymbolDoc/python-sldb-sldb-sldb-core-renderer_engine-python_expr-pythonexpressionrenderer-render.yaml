@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-renderer_engine-python_expr-pythonexpressionrenderer-render
+path: knowledge/symbols/python-sldb-sldb-sldb-core-renderer_engine-python_expr-pythonexpressionrenderer-render.md
+hash_c: 7933c85df8703cc581e86148ca930b7366ab6c4fb2a126d67c58dc84401136d4
+hash_d: 0d883c89ed6c40d6cacfed75b635ec2d4dd91e6cd60a160d185045f0e38f108d
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

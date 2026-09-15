@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-selfdoc-arguments-argument_record
+path: knowledge/symbols/python-sldb-sldb-sldb-selfdoc-arguments-argument_record.md
+hash_c: 832c249e854a0f02fc60ff6ef1ca06c3e7b2a164f86145a96629072cca3576f6
+hash_d: 6b554832dff275cf2195c131a8d57b7f7f8e495a50064bd2fc642fe3f6d4ffc4
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

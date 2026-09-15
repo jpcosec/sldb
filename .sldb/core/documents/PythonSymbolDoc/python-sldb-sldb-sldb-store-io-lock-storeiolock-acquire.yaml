@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-io-lock-storeiolock-acquire
+path: knowledge/symbols/python-sldb-sldb-sldb-store-io-lock-storeiolock-acquire.md
+hash_c: 90d5077edaf251cca3d42df977123998dffa143ba93155e5ea4afb47820a53e2
+hash_d: 3fc7f1c5cc9069a3b2291943101841f33c48d760ed0478ddf2749079e61d90fd
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

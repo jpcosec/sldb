@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-selfdoc-python_relation_registry-registered_source_relations
+path: knowledge/symbols/python-sldb-sldb-sldb-selfdoc-python_relation_registry-registered_source_relations.md
+hash_c: a85cb6e0e746350f745a18956a4df4f50d633c010c3c24fca553632c99fe66f6
+hash_d: bf676dd0b154867bd1d8f907d161c338774ac472fa25a2328d1bc92d311a529e
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

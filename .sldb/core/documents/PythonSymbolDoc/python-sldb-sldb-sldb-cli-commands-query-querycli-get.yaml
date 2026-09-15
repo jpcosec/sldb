@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-query-querycli-get
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-query-querycli-get.md
+hash_c: 77103c2202a856ff40af575ede43a932d550414ed824bda3b8c9e78b090c709c
+hash_d: 684f4a493d1470d6a1c9bdb913ac97f6106c943a156e8793046e018444726888
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

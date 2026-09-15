@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-data_extractor-dataextractor-_capture_markdown_slice
+path: knowledge/symbols/python-sldb-sldb-sldb-core-data_extractor-dataextractor-_capture_markdown_slice.md
+hash_c: b1d4d5521af68815cb45c7a047c92b3d2e10fde1ac512efdd54a8d2e97b9ef65
+hash_d: 72535d1e973e2e5ba31682630c17ccd804a2bb020453d83e73d745d94610f1c0
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

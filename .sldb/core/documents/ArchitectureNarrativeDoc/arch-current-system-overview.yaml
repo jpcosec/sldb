@@ -1,0 +1,9 @@
+name: arch-current-system-overview
+path: docs/architecture/current-system-overview.md
+hash_c: 8dc9b3606abf9ee6b2002949b45331159906e53a6f09a98a534953e1f7b6ce0d
+hash_d: edc7b7b792c095c84aebbbb60aeeefdfca6c4c4cb0167cd57489665cd58a7389
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.documentation.architecture
+- workspace.docs.architecture

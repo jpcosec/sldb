@@ -1,0 +1,12 @@
+name: cmd-sldb-stores-init
+path: knowledge/commands/cmd-sldb-stores-init.md
+hash_c: 1575004eb734f52418310fa2733b4385f5868a3e25aa6b4be22e9ea528d09176
+hash_d: 0c59f37ff29c5ee901a1c6025d269b73badceeb3fa2acafaa4ecf52e6c28c2e1
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

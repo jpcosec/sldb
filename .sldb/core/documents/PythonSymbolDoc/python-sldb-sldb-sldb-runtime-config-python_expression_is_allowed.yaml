@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-runtime-config-python_expression_is_allowed
+path: knowledge/symbols/python-sldb-sldb-sldb-runtime-config-python_expression_is_allowed.md
+hash_c: 649f11854db0346caf794499e1ed43156c3d363341fbac3c34a5636781bbb3e4
+hash_d: 00062449f8b0a786acf34f1c17892b1c5e55cd14c0e773deae05e3112df34da5
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

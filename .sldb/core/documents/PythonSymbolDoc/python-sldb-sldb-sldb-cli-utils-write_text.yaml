@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-utils-write_text
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-utils-write_text.md
+hash_c: 0d31d82afb72185266a55540340ce8f131aca474a4be9c070fdef5d9955bd919
+hash_d: bd83ca049b6b9be2eab2320c2442b125b2846616802a97b2ded9dbf28b23b8e2
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

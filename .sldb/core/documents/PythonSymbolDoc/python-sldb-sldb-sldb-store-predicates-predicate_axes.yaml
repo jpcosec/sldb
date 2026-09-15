@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-predicates-predicate_axes
+path: knowledge/symbols/python-sldb-sldb-sldb-store-predicates-predicate_axes.md
+hash_c: c63b0aac3f1f9f70ed82bb2417f82446b54a1f28cc26da292a6e3b4827817de4
+hash_d: 78dda55a79d7567b7641f74f2f669a4b12bf799713d6d18fbcbb5d8f76c43a69
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

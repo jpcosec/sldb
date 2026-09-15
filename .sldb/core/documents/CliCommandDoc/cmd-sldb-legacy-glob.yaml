@@ -1,0 +1,12 @@
+name: cmd-sldb-legacy-glob
+path: knowledge/commands/cmd-sldb-legacy-glob.md
+hash_c: d3e47958b1afef6a56adff4e309a0bd07635eeb115a61999c294815f634209fc
+hash_d: e98bd21849c448db9341bac9c1c07c9dfde72b42af4ac17b4616259263f791ae
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

@@ -1,0 +1,9 @@
+name: arch-deskops-boundary-proposal
+path: docs/architecture/deskops-boundary-proposal.md
+hash_c: 9b6185c04c14c83d72e21d1eaf0cb1912f5006ec81aeaf444a43bdc7c325ed52
+hash_d: 1c495519a119a29bf2ae3c87411f0a5733dd39b1c9585d4acd191a40b8ef6e27
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.documentation.architecture
+- workspace.docs.architecture

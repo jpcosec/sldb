@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-store_check-check_store
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-store_check-check_store.md
+hash_c: a9f48dcc235679371fc7332a8b284ce7e77cae2977d27ea30ec8a2c64b70f19a
+hash_d: c20948eed8788346cfd6c79814d1de848b20318d1b7a66465db0fa9b20278f35
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

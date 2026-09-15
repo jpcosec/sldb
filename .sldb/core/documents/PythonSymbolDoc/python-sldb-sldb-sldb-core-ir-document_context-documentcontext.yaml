@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ir-document_context-documentcontext
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ir-document_context-documentcontext.md
+hash_c: d7cd20b03560d7b8b0d64ae0eaaed1941a2d1914e71cad12f69904e330528426
+hash_d: 7386b56c22910594445b423e48f63421b6e8fd085f119d1e8fc558e765b7f61d
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

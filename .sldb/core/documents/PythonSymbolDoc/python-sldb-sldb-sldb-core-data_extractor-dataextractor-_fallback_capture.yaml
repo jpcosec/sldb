@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-data_extractor-dataextractor-_fallback_capture
+path: knowledge/symbols/python-sldb-sldb-sldb-core-data_extractor-dataextractor-_fallback_capture.md
+hash_c: 33586b91f7049aed71f0302798c7281f834b3d401a0b587e0cf7c758328455f8
+hash_d: 2e618aafe966276864c8827eaf30fb444847091a506a862e52201be51060aac5
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

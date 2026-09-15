@@ -4,6 +4,7 @@ path: docs/models.py
 documents_index: .sldb/core/documents/StoreReadmeDoc.yaml
 sections_index: .sldb/runtime/sections/StoreReadmeDoc.yaml
 hash_b: 43ef56894d7fa41146a5ad600920954674b6b58f68e632d2798f35f9dec3073f
+documents_count: 1
 version: 1
 canonical: false
 family: null

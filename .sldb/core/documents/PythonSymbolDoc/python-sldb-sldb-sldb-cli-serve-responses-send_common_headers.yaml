@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-serve-responses-send_common_headers
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-serve-responses-send_common_headers.md
+hash_c: 12c1f460247afe73c39d7bcf99b2e24e5d24ae0192153120a6a212da45069455
+hash_d: a9a2eb881c287252d095b0eabff5f253d61ccc57d492e0e647ea057cddc17d43
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

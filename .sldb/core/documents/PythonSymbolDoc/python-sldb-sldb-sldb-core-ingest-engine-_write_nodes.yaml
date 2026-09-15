@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ingest-engine-_write_nodes
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ingest-engine-_write_nodes.md
+hash_c: 6cb195d9e0f5e336f19a1b579e0ae45155f2b7feb7e9a679b55389ba7ec2b348
+hash_d: 9ddff58b302159fc06660de1ff92324f5d171463aa4a7fbb6b59ab2f50338129
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

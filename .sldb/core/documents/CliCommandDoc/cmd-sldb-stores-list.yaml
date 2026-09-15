@@ -1,0 +1,12 @@
+name: cmd-sldb-stores-list
+path: knowledge/commands/cmd-sldb-stores-list.md
+hash_c: 7d33b88e0abd3b2c0afe9698bf6e84f12eb0da96f08a9cdbebf7f06e9c493028
+hash_d: 025eadbd09da683a644b836f3886aa21ac2bd9f23213a9503abe8b9d5ec2e7bf
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

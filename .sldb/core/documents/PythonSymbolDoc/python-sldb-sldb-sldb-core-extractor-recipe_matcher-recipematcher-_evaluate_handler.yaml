@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-extractor-recipe_matcher-recipematcher-_evaluate_handler
+path: knowledge/symbols/python-sldb-sldb-sldb-core-extractor-recipe_matcher-recipematcher-_evaluate_handler.md
+hash_c: e6bdc08a736a1c03827f7e3ab21b93213022f5a8108cd308907a134b413cfef5
+hash_d: e35676b39b06b5cfe80a906d4c73426fbf782ddf7723a667b24bed77c163560c
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

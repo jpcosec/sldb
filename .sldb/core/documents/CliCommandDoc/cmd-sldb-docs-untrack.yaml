@@ -1,0 +1,12 @@
+name: cmd-sldb-docs-untrack
+path: knowledge/commands/cmd-sldb-docs-untrack.md
+hash_c: 43d29aae32b62631e20d668c8d6fe92ca7005095aa14f0d231da6b80659c4832
+hash_d: 6c89f69e1966658ae2a37bd9a638a38e3f1e43fdfb59384d6bbbcb6e5d775f25
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

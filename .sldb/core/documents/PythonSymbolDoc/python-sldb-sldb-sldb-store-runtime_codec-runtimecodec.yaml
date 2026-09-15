@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-runtime_codec-runtimecodec
+path: knowledge/symbols/python-sldb-sldb-sldb-store-runtime_codec-runtimecodec.md
+hash_c: e3ed40293eb324945a5bbf1103dafa627f380a1ebf57fa480adf6a86ee441a08
+hash_d: cc1ef05ec1657e728ba04b46ffd7793cc6b59c074a2b61f1ed9dcf30f01f4945
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

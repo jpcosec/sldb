@@ -1,0 +1,12 @@
+name: surface-sldb-lint
+path: knowledge/surfaces/surface-sldb-lint.md
+hash_c: c7bcb4ea049d01e7abd74b92d04dc82752fac6f16306d1da8caab3978bf24bb5
+hash_d: e9138f93104660b851e2324589bccee7beef51e9713404385bd3ae36785abcf9
+semantic_tags:
+- domain:retrieval
+- entity:cli_surface
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.surface
+- workspace.knowledge.surfaces

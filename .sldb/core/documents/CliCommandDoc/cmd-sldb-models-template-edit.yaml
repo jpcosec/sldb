@@ -1,0 +1,12 @@
+name: cmd-sldb-models-template-edit
+path: knowledge/commands/cmd-sldb-models-template-edit.md
+hash_c: 9d9245c6bb06fb5defd78c5a76d0a975156059b0d792f72e823f9cf84206b51c
+hash_d: fe0e65445297da286af1a13a353caad4a83832310172da1cd2501d118204dac7
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

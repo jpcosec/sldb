@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-semantic-_model_contribution
+path: knowledge/symbols/python-sldb-sldb-sldb-store-semantic-_model_contribution.md
+hash_c: 8db5612347d0fae6bb703d8a0e233831df100dcb63b88672a4d1d75af71298ee
+hash_d: 74e5bc119805424b70fc5896d2a587704766c5bcd951e9811eb36c3cbbd8853b
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

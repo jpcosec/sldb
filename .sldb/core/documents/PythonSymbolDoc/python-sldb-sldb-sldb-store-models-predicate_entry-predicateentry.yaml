@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-models-predicate_entry-predicateentry
+path: knowledge/symbols/python-sldb-sldb-sldb-store-models-predicate_entry-predicateentry.md
+hash_c: c528a27bc5c6452598e5aff7e30a97e4bccc9eeb4053c1fea62cd150f59ebb35
+hash_d: 6fd224748a34a66c7d4fffedd87b40931fd9deb2a6f1550e5278071b2c0590b5
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

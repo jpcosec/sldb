@@ -1,0 +1,11 @@
+name: pill-005-store-health-is-sldb-owned
+path: desk/pills/pill-005-store-health-is-sldb-owned.md
+hash_c: 260a96661374f3ec58d5ba5cb3caa8469d26ec15f1a547f72509bc5610438afc
+hash_d: 1e2779cdf2c4d93d57793670222105d9faea27c846bfa23c8cc6b856c98a01c6
+semantic_tags:
+- system:deskops
+- system:sldb
+- topic:health
+- topic:store
+- type.workflow.pill
+- workspace.desk

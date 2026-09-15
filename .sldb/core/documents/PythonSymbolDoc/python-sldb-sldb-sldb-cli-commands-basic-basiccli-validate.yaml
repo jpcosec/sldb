@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-basic-basiccli-validate
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-basic-basiccli-validate.md
+hash_c: 086e109f84fd076e542b6984ab8e884dcc6c254e16986233de288f286e095b45
+hash_d: 269d7e471216be9fa03cae7f238b91ec493a7220d5ccf99c18c1e28b9c2488bb
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

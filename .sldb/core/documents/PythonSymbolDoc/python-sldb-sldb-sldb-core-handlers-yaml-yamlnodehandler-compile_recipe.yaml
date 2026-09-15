@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-handlers-yaml-yamlnodehandler-compile_recipe
+path: knowledge/symbols/python-sldb-sldb-sldb-core-handlers-yaml-yamlnodehandler-compile_recipe.md
+hash_c: 25d40dcca39551ca4acbb91fb076597e7370cbe21627aa7ff0e8764d68d8b279
+hash_d: c6f5dc9927aca378dad2a9560c62b5e4893fa29eb775cb7966146b270c103799
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

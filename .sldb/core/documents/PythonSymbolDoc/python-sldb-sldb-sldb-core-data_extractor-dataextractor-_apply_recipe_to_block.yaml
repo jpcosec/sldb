@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-data_extractor-dataextractor-_apply_recipe_to_block
+path: knowledge/symbols/python-sldb-sldb-sldb-core-data_extractor-dataextractor-_apply_recipe_to_block.md
+hash_c: 7bb693acb4f2b31bb2f58e293cda93487b86ab0e1c68328c74ae8de151662270
+hash_d: e382b9f01b2d64a760c35ab5a07200ca43d8c97c450e8810fc4d4325193b2f2f
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

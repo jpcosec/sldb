@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-renderer_engine-base-baserenderer
+path: knowledge/symbols/python-sldb-sldb-sldb-core-renderer_engine-base-baserenderer.md
+hash_c: 4120271f2f90d95f08faac72333259bb31cc3f432a52119f997f684b245c3cfe
+hash_d: f43c13b3fb03da39a3646635d122843e48699401d8ae1213f04da47441b01df1
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

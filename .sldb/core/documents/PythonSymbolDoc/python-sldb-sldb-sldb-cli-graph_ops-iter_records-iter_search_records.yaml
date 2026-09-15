@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-graph_ops-iter_records-iter_search_records
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-graph_ops-iter_records-iter_search_records.md
+hash_c: cb30e2e9611f839ba51a8ead1c1d38cff7fe38dc6c6926b0ea73fb83a909c489
+hash_d: 99e23bdc79adb396e10ca0dd492edd6e7da1dfe78d91c884b0675ebf509b46e4
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

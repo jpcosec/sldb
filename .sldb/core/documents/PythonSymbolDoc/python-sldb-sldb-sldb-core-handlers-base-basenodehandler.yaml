@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-handlers-base-basenodehandler
+path: knowledge/symbols/python-sldb-sldb-sldb-core-handlers-base-basenodehandler.md
+hash_c: ce38d4d8f571b99cfb6e8da345e0dd545a27a8640eb34f833d695c3f73493cfe
+hash_d: 10bab9f9dd73ff35082c2bbd46054f5185b5c418aac26c2ebccd5acff29d2f9a
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

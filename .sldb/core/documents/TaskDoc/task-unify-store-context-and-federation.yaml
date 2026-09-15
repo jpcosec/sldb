@@ -1,0 +1,10 @@
+name: task-unify-store-context-and-federation
+path: desk/tasks/task-unify-store-context-and-federation.md
+hash_c: b92fb9988ec63757cc0b71dd3a07c13ca4e731c6550808fb0995b173219f5bde
+hash_d: 3b0be290055c98f3be3a153cc7b60427f5c8fd0b91c4f14a52f198448b324b7d
+semantic_tags:
+- system:sldb
+- topic:stores
+- type.workflow.task
+- workspace.desk
+- workspace:desk

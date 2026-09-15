@@ -1,0 +1,12 @@
+name: cmd-sldb-models-create
+path: knowledge/commands/cmd-sldb-models-create.md
+hash_c: 2a17320e887dd980b84a894f52dc6636a665442910489845c6fc80ba35355f44
+hash_d: aadb11280d671e9b42a048b241357c3f3d0f6e6ef68b9874fcb9339853c86850
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-exceptions-sldb_error-sldberror
+path: knowledge/symbols/python-sldb-sldb-sldb-core-exceptions-sldb_error-sldberror.md
+hash_c: d6f327bbb5feca72b79503463386e1998a36e2d0482b76ae6bf12d80b4f3f0cc
+hash_d: d94d3ca709282fe2c7c0554632a5eb43d3dd47952b20ae7899af649574037d86
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

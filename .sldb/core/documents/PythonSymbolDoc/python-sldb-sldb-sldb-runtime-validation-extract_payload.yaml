@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-runtime-validation-extract_payload
+path: knowledge/symbols/python-sldb-sldb-sldb-runtime-validation-extract_payload.md
+hash_c: 297cd0aad4ef2149e53e6a21b354e8cac925c0d42a44a1b103550c5522c7fced
+hash_d: 60bfa59cbdc0fd7924e3a37ba0d47069e8365afe4ea509f35924030aaac4ad8c
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

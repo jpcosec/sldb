@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-models_utils-extract_attr
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-models_utils-extract_attr.md
+hash_c: 4718d7a723f210c71f7858729605eccc5ee8b411bfc1541836b40b985c9289ac
+hash_d: 33f2a6415fdcf7449b68438f85758ef6a807d75639bc34c5c5761a70b8161e5d
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

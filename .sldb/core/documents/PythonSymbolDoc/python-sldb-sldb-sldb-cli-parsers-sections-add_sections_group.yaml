@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-parsers-sections-add_sections_group
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-parsers-sections-add_sections_group.md
+hash_c: d6f31b16ff23d3dbad0657e1cc1314ef95edaa0ae629628e66e2647ed0ec2b81
+hash_d: c0a59b36ded001fde8c9997290238746a33ef50d0e1e88183c5b5678e2b06d8c
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

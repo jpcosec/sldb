@@ -1,0 +1,9 @@
+name: routine-task-expand-sldb-composition-modes
+path: desk/routines/routine-task-expand-sldb-composition-modes.md
+hash_c: 6d7a531dfe8c374a4a268bf2285404894d71dcc714f112c399506c7b622a10d8
+hash_d: 12d7d8f6466e4fc9c70a5a3291708e30f68276cd08a2eb5ef7dab3976bdda55f
+semantic_tags:
+- primitive:routine
+- type.workflow.routine
+- workspace.desk.routines
+- workspace:desk

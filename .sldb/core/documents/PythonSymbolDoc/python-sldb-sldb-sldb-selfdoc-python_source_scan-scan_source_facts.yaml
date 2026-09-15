@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-selfdoc-python_source_scan-scan_source_facts
+path: knowledge/symbols/python-sldb-sldb-sldb-selfdoc-python_source_scan-scan_source_facts.md
+hash_c: a369b5674621062972c23657017f845d7bf6c8add39bb5baf3b5971c8a5562e7
+hash_d: 5db79181981b239db61bd515d817072f7e8ce7bf6a76aea578cf91110fa8ad2f
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

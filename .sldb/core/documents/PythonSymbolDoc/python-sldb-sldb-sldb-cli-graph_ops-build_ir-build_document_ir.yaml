@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-graph_ops-build_ir-build_document_ir
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-graph_ops-build_ir-build_document_ir.md
+hash_c: 99eabf9a29fb957cd20f9e5a030f498744c0b0e1a05bdf1b99620fa1177f45df
+hash_d: ce409cd6065f87b030d437b3dd5e60adb000ad5da36dfba5f857e74c690cf728
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

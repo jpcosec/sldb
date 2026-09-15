@@ -1,0 +1,12 @@
+name: cmd-sldb-stores-check
+path: knowledge/commands/cmd-sldb-stores-check.md
+hash_c: 9916b32b4ba53fb950d2a4540b22a47e95066ade6f0fedcae01bdc5af040a188
+hash_d: b1df6702c91ed5c1b2ed387b18c85936b19a7b67d404337483c44b25d2f7ed45
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

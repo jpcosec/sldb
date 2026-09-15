@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-graph_ops-build_ir-_create_context_entry
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-graph_ops-build_ir-_create_context_entry.md
+hash_c: b1c41f16f7fca8f25388b0daae0f33312df352faa7394795b5f12a9e1489c6b1
+hash_d: 7e156faa007e4475a6964437e0c63810a126a0dd1c57ccb5f82fc7ee9cbb788d
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

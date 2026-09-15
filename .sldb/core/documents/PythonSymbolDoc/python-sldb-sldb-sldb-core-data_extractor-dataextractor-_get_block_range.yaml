@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-data_extractor-dataextractor-_get_block_range
+path: knowledge/symbols/python-sldb-sldb-sldb-core-data_extractor-dataextractor-_get_block_range.md
+hash_c: 4e2a51a19318a2ae6b99f81d64b58568d9ff147b215bb5a4fff95d5ee9eb7990
+hash_d: f891c9aaa8ab7e62db4b34e57cc4eaefaf5ef35944ea213d7de49f34a5557911
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

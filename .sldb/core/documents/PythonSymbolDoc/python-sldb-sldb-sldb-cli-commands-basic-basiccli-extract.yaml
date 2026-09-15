@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-basic-basiccli-extract
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-basic-basiccli-extract.md
+hash_c: 6fc0cb2589e8e126955ea769a112600a49c016955a1425d2a074fde1c713bb52
+hash_d: 6eeed6f539272a615ee596c1ca686a02b1b01db0cbe13a0e9fed575384a60925
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

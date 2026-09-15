@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-model_utils-_import_module_attr
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-model_utils-_import_module_attr.md
+hash_c: e57858364be12497927e60805fc901d5124e2c23bb4e1140366a13e29886c793
+hash_d: 464170ba324cea340de8da7e99c78dcca2c3a6d51f4c4724c76b598bdd7730f3
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

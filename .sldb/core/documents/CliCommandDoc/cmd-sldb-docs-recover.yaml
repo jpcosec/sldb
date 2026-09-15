@@ -1,0 +1,12 @@
+name: cmd-sldb-docs-recover
+path: knowledge/commands/cmd-sldb-docs-recover.md
+hash_c: 671f9018c7800a7a18827fbe236c5f41842e28c5cae002aa6e15ac0df1edd59e
+hash_d: 8877606de5b19fec7d3bf11e385421ba36a1dfbb1473f9739503730b5e782f33
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

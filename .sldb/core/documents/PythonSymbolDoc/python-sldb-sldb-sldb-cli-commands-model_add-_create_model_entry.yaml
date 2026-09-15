@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-model_add-_create_model_entry
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-model_add-_create_model_entry.md
+hash_c: 6d7b66dae34d2d13abfdfde3ec7cb7b4321d66b0be084432260a1b7df8ead983
+hash_d: 706dfe2592b0aaf76ed7d7b240e106733f705f24facaae144867c9b1f91d9def
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

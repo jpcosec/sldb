@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-semantic-_walk_model
+path: knowledge/symbols/python-sldb-sldb-sldb-store-semantic-_walk_model.md
+hash_c: b4d58cb478a2652f192aae0be57f4189dd52cc7c659554de0dbcdfe60c5f55a3
+hash_d: a70e06fad660b9283cad7ca3c1b9c63c6fa90c0e6ebde8860b4fd92ccd8a1f14
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

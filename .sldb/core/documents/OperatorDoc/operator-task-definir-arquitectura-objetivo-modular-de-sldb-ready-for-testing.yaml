@@ -1,0 +1,8 @@
+name: operator-task-definir-arquitectura-objetivo-modular-de-sldb-ready-for-testing
+path: desk/primitives/operators/operator-task-definir-arquitectura-objetivo-modular-de-sldb-ready-for-testing.md
+hash_c: 9402f2e76b0e825b185bd6990465d225f27c759e8705d608ec3a2634b44acb86
+hash_d: 6f5f9bdf71791d381c75bf958c0746e3be3587fdb9bbcf951274ad8a4c5ef98c
+semantic_tags:
+- primitive:operator
+- type.workflow.operator
+- workspace.desk.primitives

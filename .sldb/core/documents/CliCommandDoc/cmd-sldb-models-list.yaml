@@ -1,0 +1,12 @@
+name: cmd-sldb-models-list
+path: knowledge/commands/cmd-sldb-models-list.md
+hash_c: cce927756baf55a9901718731900143b1a403b8e4ab6705489e3beb55115f99c
+hash_d: 37ca16a6ae5e9f27bba5d85a7749fa49f03a9e1c39a7de36c4d69b3f9f2b45ae
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

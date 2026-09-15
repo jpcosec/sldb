@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-selfdoc-command-commandrecord
+path: knowledge/symbols/python-sldb-sldb-sldb-selfdoc-command-commandrecord.md
+hash_c: f36fc335ea73d72f513873f536789a9b9bcce95bd292e81714532a587960094e
+hash_d: beb63eb1810954a813d592e60ce68806a9c025b1b9f09e6f010bdd10b5bfe91d
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

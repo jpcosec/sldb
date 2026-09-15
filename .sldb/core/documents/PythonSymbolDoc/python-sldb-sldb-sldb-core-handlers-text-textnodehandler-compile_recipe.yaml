@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-handlers-text-textnodehandler-compile_recipe
+path: knowledge/symbols/python-sldb-sldb-sldb-core-handlers-text-textnodehandler-compile_recipe.md
+hash_c: 37b8a7031bca86bd955e46bba5f61448fe36ae34e2e158450ed4b9494314dd3b
+hash_d: 8c5a62b1b9ca27d2a3aa5fae710ec5cd988ed2bc153ef59b1be098242f0a1e4e
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

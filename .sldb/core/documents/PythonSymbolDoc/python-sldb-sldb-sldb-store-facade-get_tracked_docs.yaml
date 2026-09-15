@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-facade-get_tracked_docs
+path: knowledge/symbols/python-sldb-sldb-sldb-store-facade-get_tracked_docs.md
+hash_c: c06799e219c56dd8bad872ff9ab352291f71787fd7626e862616c628a356da7a
+hash_d: d72e61465a78b2d204e5113c370286b2f26f910d19509475632a0d417c3567b3
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

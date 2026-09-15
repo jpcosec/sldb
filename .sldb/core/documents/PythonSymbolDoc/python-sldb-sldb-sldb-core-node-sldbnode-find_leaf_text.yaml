@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-node-sldbnode-find_leaf_text
+path: knowledge/symbols/python-sldb-sldb-sldb-core-node-sldbnode-find_leaf_text.md
+hash_c: 042948712699989f7b5e22984211cd7a775e99d45d6e862b1e5dc076f22826b4
+hash_d: 791e50e9f301f3bbc1b99a8c46651786ea9cdaba38dc7df0fa672f03259ea792
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

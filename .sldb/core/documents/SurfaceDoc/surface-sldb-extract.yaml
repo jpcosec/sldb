@@ -1,0 +1,12 @@
+name: surface-sldb-extract
+path: knowledge/surfaces/surface-sldb-extract.md
+hash_c: bf00a13e2ed7471a2046582875ded57dc93f6596fbac4b603c7cad769541cec7
+hash_d: ff70f4e1fc5a2da87789aa72936562f8b6a82c86fd0d0172ebfbdd6e607ed036
+semantic_tags:
+- domain:retrieval
+- entity:cli_surface
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.surface
+- workspace.knowledge.surfaces

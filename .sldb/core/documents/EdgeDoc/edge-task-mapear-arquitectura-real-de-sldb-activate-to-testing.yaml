@@ -1,0 +1,8 @@
+name: edge-task-mapear-arquitectura-real-de-sldb-activate-to-testing
+path: desk/primitives/edges/edge-task-mapear-arquitectura-real-de-sldb-activate-to-testing.md
+hash_c: c5b838d541101fc307dbda0a9a2c7d785595d5ec4609f3adbb0787f6e1e4c60c
+hash_d: d8382d67c45947f35b59b866ee53632e571968dce8f57e5741d67a58ee24f161
+semantic_tags:
+- primitive:edge
+- type.workflow.edge
+- workspace.desk.primitives

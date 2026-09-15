@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-graph_ops-build_ast-build_store_ast
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-graph_ops-build_ast-build_store_ast.md
+hash_c: a7d7e96352c8b9274a4db8ceece269f41a72510d2bbbdfdd6b60cf2a077bf52c
+hash_d: 8ec4e68c7977ec869ec845de339b16e62adfa5219e2c0ac370315e028655d208
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

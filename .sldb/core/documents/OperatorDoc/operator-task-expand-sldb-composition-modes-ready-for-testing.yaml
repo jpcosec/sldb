@@ -1,0 +1,8 @@
+name: operator-task-expand-sldb-composition-modes-ready-for-testing
+path: desk/primitives/operators/operator-task-expand-sldb-composition-modes-ready-for-testing.md
+hash_c: 309aac73fd6fc801c82ff0f6756885baed32b30941cfaa0c54807ccd0c4b4751
+hash_d: 8c0131cbb1d9a8b10595b42021525b77bc7bcba9e75d66418fdcd74b65ad86bf
+semantic_tags:
+- primitive:operator
+- type.workflow.operator
+- workspace.desk.primitives

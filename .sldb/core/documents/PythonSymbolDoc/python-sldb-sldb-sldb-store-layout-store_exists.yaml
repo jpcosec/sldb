@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-layout-store_exists
+path: knowledge/symbols/python-sldb-sldb-sldb-store-layout-store_exists.md
+hash_c: bc16872d31d80183adb2d3dc9663fbe0bd54b02e1f3b5c15eb3c7c65910d8cee
+hash_d: 087481e3966a57799edcc97b19b731b9b493574ebf143fd417673360a0e1e753
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

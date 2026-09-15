@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-sections_common-load_model_sections
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-sections_common-load_model_sections.md
+hash_c: a4e8e93ab02a26e7e7a1f08297e679d4ae5ab6979edfa008e052c4c3390a9899
+hash_d: cb0fc6be6429616e18c98755d805202b9efbc77f3fdff7c3c446b41f7cb4ca6f
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

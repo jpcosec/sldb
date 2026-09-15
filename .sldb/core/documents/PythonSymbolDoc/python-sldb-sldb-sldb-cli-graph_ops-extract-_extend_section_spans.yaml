@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-graph_ops-extract-_extend_section_spans
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-graph_ops-extract-_extend_section_spans.md
+hash_c: 9ad3db068c510af37f6691c0a77bfc4bef224eb02fa0eeab9a0db1ce5af2a157
+hash_d: 04587608c4c75760c02bbe7c1e849aefc35a6c2be48fb4146669f2a8a67182b0
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

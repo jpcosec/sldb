@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-handlers-list-listnodehandler-extract_data
+path: knowledge/symbols/python-sldb-sldb-sldb-core-handlers-list-listnodehandler-extract_data.md
+hash_c: a85df55d38c556fb33f69c9825b3be79bd75963ba354d0f3f4c0b41092406c82
+hash_d: 7c40b71ca6762a35fb2adfac957b00670b696e0f4498caefb16f5a6f681edfbd
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

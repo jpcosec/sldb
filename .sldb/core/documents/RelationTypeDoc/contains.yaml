@@ -1,0 +1,9 @@
+name: contains
+path: kgdb/relation_types/contains.md
+hash_c: b6848c7ef37a23d81628240bc4d26e7083f16de91bc0e7b437958973c508a9cd
+hash_d: fadb7e9d9480073d6151bce3d06d3ffb17b567b67ae64588ea50fbc37abc4d95
+semantic_tags:
+- layer.topology
+- representation.markdown
+- source.document.markdown
+- type.relation.type

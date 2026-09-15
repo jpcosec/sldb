@@ -1,0 +1,8 @@
+name: condition-task-mapear-arquitectura-real-de-sldb-has-validation
+path: desk/primitives/conditions/condition-task-mapear-arquitectura-real-de-sldb-has-validation.md
+hash_c: a411a0fd3b93742649fe84c601ae777417c0e2d588bc6faf2a38040f08f8ecf8
+hash_d: 7eefebddefdffbccaa6cd603ac004da1ce4dfd75b416faf92cc7be3b577f7e88
+semantic_tags:
+- primitive:condition
+- type.workflow.condition
+- workspace.desk.primitives

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-selfdoc-python_relation_registry-_validate_cardinality
+path: knowledge/symbols/python-sldb-sldb-sldb-selfdoc-python_relation_registry-_validate_cardinality.md
+hash_c: 079b320fd028d5ac91d9a5d150d4b16b609c77b03fd637d5b93af4561be05653
+hash_d: 80f9525dd9bf7d2f34164ae33a54eb944388f76dab95292bcc1809b44efd00b0
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

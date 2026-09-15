@@ -1,0 +1,8 @@
+name: operator-task-tighten-semantic-export-provenance-contract-activate
+path: desk/primitives/operators/operator-task-tighten-semantic-export-provenance-contract-activate.md
+hash_c: d53815da7d324323f31ce7bd3617bb9eb8e0787e5f27405a2f6cca8a3bc00d66
+hash_d: 1e0dd1e4d9e02697bf726f9afddb32021b48acd16e14284d360dd08d4c8c0c2c
+semantic_tags:
+- primitive:operator
+- type.workflow.operator
+- workspace.desk.primitives

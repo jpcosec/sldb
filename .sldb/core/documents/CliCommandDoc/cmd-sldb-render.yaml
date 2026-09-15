@@ -1,0 +1,12 @@
+name: cmd-sldb-render
+path: knowledge/commands/cmd-sldb-render.md
+hash_c: 96a598b86a6d1681733208ce20ebcf24410d156886b2f4d5b6dc0aa7e6c9c57d
+hash_d: 4f3bc7323bad88ef230c3f1caee7fcd673042bd38ba09f86913ae61e06aa7dca
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

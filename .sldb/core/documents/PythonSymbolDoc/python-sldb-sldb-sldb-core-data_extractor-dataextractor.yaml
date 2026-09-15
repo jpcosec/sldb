@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-data_extractor-dataextractor
+path: knowledge/symbols/python-sldb-sldb-sldb-core-data_extractor-dataextractor.md
+hash_c: 25729bf3d3dc373ebaed55e694d8f816fc2efd011adda2d5069187a9a2d50feb
+hash_d: 60ff6e9a43a11f9b1d8687db264f7793bde8a6a548435259992d7e2d6c37ea4a
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

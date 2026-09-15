@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-fields-fieldscli-remove
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-fields-fieldscli-remove.md
+hash_c: 4206f792b999b31935e6a9be7669d57e0eb92307e31a2314a8f6128e82f343b5
+hash_d: e494eb093e3e37478bb3d7a16ef312c5283149899175e9836945d3cda45dae0f
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

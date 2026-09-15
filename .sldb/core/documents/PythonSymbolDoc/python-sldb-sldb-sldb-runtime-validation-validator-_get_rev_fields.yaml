@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-runtime-validation-validator-_get_rev_fields
+path: knowledge/symbols/python-sldb-sldb-sldb-runtime-validation-validator-_get_rev_fields.md
+hash_c: 2a4f68efd1a707ff43d7ee66dc179bbc8c4c6604c4f4fd87ae65f7d750cfb682
+hash_d: def99d2fc31f950c310b7a094221cdb5357b2bace4b213358193cef00f1e990b
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

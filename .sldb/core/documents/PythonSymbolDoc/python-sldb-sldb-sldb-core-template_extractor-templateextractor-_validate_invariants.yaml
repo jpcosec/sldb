@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-template_extractor-templateextractor-_validate_invariants
+path: knowledge/symbols/python-sldb-sldb-sldb-core-template_extractor-templateextractor-_validate_invariants.md
+hash_c: a4223a51cb298affb33b93eecba46435d96ca63f57308094a881970d8b4e8f3c
+hash_d: 854a68a4674733c836ac5b3cd93354830cba8a3767c7d57bf01aa4f6c5a51fb1
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

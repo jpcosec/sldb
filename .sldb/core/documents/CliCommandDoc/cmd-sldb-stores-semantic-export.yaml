@@ -1,0 +1,12 @@
+name: cmd-sldb-stores-semantic-export
+path: knowledge/commands/cmd-sldb-stores-semantic-export.md
+hash_c: ac3195ae1367f744d844fdbdf74e4b1db60811d6f3d759d9a2115fa4820e5aba
+hash_d: 3b0d776bf8fcf85b0581882c55418d22986dba5b34401cb43fbffd5778364d20
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

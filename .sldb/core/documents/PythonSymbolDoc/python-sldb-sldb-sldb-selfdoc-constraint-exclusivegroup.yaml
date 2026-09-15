@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-selfdoc-constraint-exclusivegroup
+path: knowledge/symbols/python-sldb-sldb-sldb-selfdoc-constraint-exclusivegroup.md
+hash_c: 4a23e74fdc1de6573577c9f6c7fe47ff96c16f1355b4a6043de58ce9bf7fdc8c
+hash_d: 213cbf68580386a0767717ee2ff6b11321b94ba9a8e0044bfb8739e7731e27ce
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ingest-renderer-_build_draft_content
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ingest-renderer-_build_draft_content.md
+hash_c: 58b0197b1eb97eb6334d676353e20985f2198d63f1c6694ea84de18e9b7929d7
+hash_d: 214470b0b434e24459c41f27ef52801abf3b2afe94b7cbec5ff0e2be149b50fa
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

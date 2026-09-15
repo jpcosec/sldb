@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ingest-typescript_scanner-typescriptscanner
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ingest-typescript_scanner-typescriptscanner.md
+hash_c: 54407fa29eb511934b033fe7a0d89bd561292ac49d45e8e35341c5a06b9c475d
+hash_d: 9923f1c75ece61ef1cba09035372659ab3472b1dc5845a8e7dd139c32fa6ff6e
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

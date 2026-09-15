@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-selfdoc-python_relation_registry-validate_source_snapshot
+path: knowledge/symbols/python-sldb-sldb-sldb-selfdoc-python_relation_registry-validate_source_snapshot.md
+hash_c: d0d01d858b6d8efe318c7e282376888c7b6c9f4f3f6a37540f57d72f446fd5f9
+hash_d: 09ff69daac10ef3fe0d1f543197ec2d39913ea241b664f4e33cb9118997a6065
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

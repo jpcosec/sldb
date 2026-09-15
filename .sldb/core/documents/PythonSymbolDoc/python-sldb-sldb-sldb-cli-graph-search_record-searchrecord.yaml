@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-graph-search_record-searchrecord
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-graph-search_record-searchrecord.md
+hash_c: 9b41ff8fb4cb68dfee0bd972d5005827cbb39898021bd03e8f87a5f86a5c226f
+hash_d: 17f0de928f76c6a1bb897ac9b826287e0336aa1f1b112bff10a78f50ca6e4a9a
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

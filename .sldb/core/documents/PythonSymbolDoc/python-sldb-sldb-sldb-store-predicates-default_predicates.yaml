@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-predicates-default_predicates
+path: knowledge/symbols/python-sldb-sldb-sldb-store-predicates-default_predicates.md
+hash_c: 855413cee5401b6f3c9ea1d87824e9cb3f686d8d4b060976d9a357c4a4f6fc1f
+hash_d: fc07fa8635608c9719ff77de257100194ecec8e8695d44f4d6aa407b94697069
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-query_engine-structural_queries-structuralqueryengine
+path: knowledge/symbols/python-sldb-sldb-sldb-store-query_engine-structural_queries-structuralqueryengine.md
+hash_c: cfa86d80f79f915ba7a5c1b700877277e5a50f273e8a37ce85d6fd2e8d4bcf30
+hash_d: 924b99a5bec0f8f571d13fcc89f4e19941059f90f2a08da1abea423c2fe71cb8
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

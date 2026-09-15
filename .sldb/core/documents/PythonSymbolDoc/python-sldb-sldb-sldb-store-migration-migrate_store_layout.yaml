@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-migration-migrate_store_layout
+path: knowledge/symbols/python-sldb-sldb-sldb-store-migration-migrate_store_layout.md
+hash_c: 22d8eb6079118f6111f49b2a40849062103506372412e5f1aaaf4490a7f3ef47
+hash_d: af706eacf417606f6449b41587a314c285f361f3fd84b50f17939550e7229143
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

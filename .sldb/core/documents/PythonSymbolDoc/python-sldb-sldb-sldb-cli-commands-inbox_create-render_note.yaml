@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-inbox_create-render_note
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-inbox_create-render_note.md
+hash_c: 947a9c04ae296d4b836d72438a5db4cb422e528c248bafe66e34cf3846dbcec8
+hash_d: f8bb33206b099922c3c9462d87cb2d832dba68bc4d56a32583eba2f4301f6f30
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

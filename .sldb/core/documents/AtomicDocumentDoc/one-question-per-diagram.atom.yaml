@@ -1,0 +1,7 @@
+name: one-question-per-diagram.atom
+path: docs/atoms/one-question-per-diagram.atom.md
+hash_c: f609bd3f1e1921303952b87cf4575944e6face5d82c5ba0931957cf7343ce6bb
+hash_d: e1684b4089ac732d7450f6862b25776a0411fefe017f542be9cc12da4c598b9c
+semantic_tags:
+- type.documentation.atom
+- workspace.docs.atoms

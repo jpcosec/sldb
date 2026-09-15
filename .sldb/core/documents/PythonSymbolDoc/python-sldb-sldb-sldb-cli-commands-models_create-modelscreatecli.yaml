@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-models_create-modelscreatecli
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-models_create-modelscreatecli.md
+hash_c: bbedf0d49fba17bf6c768e80a680f19eb4c6b7de3cc06bb22faa405a6b760a06
+hash_d: 3bde4c9761689176c41663b22cbc14c9a22c5fb2b7a40a2883c5b8e3b13910f2
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

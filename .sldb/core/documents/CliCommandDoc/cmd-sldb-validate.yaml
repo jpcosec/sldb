@@ -1,0 +1,12 @@
+name: cmd-sldb-validate
+path: knowledge/commands/cmd-sldb-validate.md
+hash_c: 258c6306538e1d92b25269f022197c1e778ea7db40dab8ddad4054c09a47f93f
+hash_d: 8b87304c359dbeee2d86193040817814b6930a92c67aacaec267f97269a41592
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

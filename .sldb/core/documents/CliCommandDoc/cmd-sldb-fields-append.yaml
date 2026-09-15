@@ -1,0 +1,12 @@
+name: cmd-sldb-fields-append
+path: knowledge/commands/cmd-sldb-fields-append.md
+hash_c: 06dd9212e0137a8f9311f48d5c5e1d0e7b5bab60f01d6623e5a425b1b12ae24b
+hash_d: 664a10679aa71bbb881faf9e0b9772069aad4e38ab7bf9ea7e06f78e44f72dd7
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

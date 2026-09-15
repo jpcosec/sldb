@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-io-utils-storeioutils-_mkstemp
+path: knowledge/symbols/python-sldb-sldb-sldb-store-io-utils-storeioutils-_mkstemp.md
+hash_c: a4ba0a64b2c21113d8cb8eada53f2fbd633910751581e1e3e5fa455ef6e88d51
+hash_d: ded2dc15c2c614aff160b621e5a788909b1fcc3de47ca1c6e1e034b684fbed50
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

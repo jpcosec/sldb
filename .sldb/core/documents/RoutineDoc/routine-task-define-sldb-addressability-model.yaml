@@ -1,0 +1,9 @@
+name: routine-task-define-sldb-addressability-model
+path: desk/routines/routine-task-define-sldb-addressability-model.md
+hash_c: 5c6ad449247cc981004998f4932429f151c4d0e62c2cabee2684a17bfdeedf8a
+hash_d: 1be1439275474f0da50d5c29d85a77185b8fc6a927d01d50a6a1430872332700
+semantic_tags:
+- primitive:routine
+- type.workflow.routine
+- workspace.desk.routines
+- workspace:desk

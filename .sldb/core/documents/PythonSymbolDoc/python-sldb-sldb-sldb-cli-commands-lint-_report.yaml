@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-lint-_report
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-lint-_report.md
+hash_c: 2d36b7c057c724cd6743691fc0eb5bda5e32125e00b34050c858092bd886c66f
+hash_d: 19494062d8f46388d2621499f914205bebc9f7137fcb75f4f107ff6a9b7bf26e
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

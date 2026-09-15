@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-semantic-add_semantic_equivalence
+path: knowledge/symbols/python-sldb-sldb-sldb-store-semantic-add_semantic_equivalence.md
+hash_c: 33ca497a499923a12bc2d18832c1d62e54dae392ea841be52e4b97571ddbc9c0
+hash_d: a86b167404945f1b630af75c3637ea2b91c8bcbbb3e7c0862b8da1dff7199315
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

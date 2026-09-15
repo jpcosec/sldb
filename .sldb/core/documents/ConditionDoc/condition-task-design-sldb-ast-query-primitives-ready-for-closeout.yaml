@@ -1,0 +1,8 @@
+name: condition-task-design-sldb-ast-query-primitives-ready-for-closeout
+path: desk/primitives/conditions/condition-task-design-sldb-ast-query-primitives-ready-for-closeout.md
+hash_c: b1822b75f9b211e4f203b7741bf8ccf43ac99676ba64b1e659fb2a3bf5e74043
+hash_d: 7ebc30bdfcd9c8a5fb257a785ea3abf667ff22abe6c8e55bb8909fc8af534724
+semantic_tags:
+- primitive:condition
+- type.workflow.condition
+- workspace.desk.primitives

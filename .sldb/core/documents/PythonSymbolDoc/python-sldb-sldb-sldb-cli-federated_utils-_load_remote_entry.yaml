@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-federated_utils-_load_remote_entry
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-federated_utils-_load_remote_entry.md
+hash_c: 2359f534fa4505a933f98d0d38a65dde35688325ae10cb316c57a0c293a95f2b
+hash_d: 43889cf1688ba265112f3e31f43d01a55bdc57a04402f85cc19765bd696f738e
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

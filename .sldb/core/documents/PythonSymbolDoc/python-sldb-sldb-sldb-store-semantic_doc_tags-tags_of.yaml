@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-semantic_doc_tags-tags_of
+path: knowledge/symbols/python-sldb-sldb-sldb-store-semantic_doc_tags-tags_of.md
+hash_c: 6a14945c4269a2bf9174f08296d597c1c84f7cb0214aa34836d30ff15c59ec89
+hash_d: 4a7bf50b17ce726805ef995e2ba57d795a1adcf39f947b3c50e8afaa20851018
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

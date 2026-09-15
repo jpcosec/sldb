@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-renderer_engine-base-baserenderer-replace_markers
+path: knowledge/symbols/python-sldb-sldb-sldb-core-renderer_engine-base-baserenderer-replace_markers.md
+hash_c: feff8bfb988306925c490024e680812cbdeaa30bf36a233550e6d996a5e62191
+hash_d: 2d0af85bd5666983888965631921bce66e32fad4b3433e9890588a7174cf5025
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

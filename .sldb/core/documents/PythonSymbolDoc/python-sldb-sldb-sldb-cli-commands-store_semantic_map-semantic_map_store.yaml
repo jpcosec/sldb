@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-store_semantic_map-semantic_map_store
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-store_semantic_map-semantic_map_store.md
+hash_c: 91835197dbbeddd484acec73e998f17ccbc153e76168cf1f261d04a3f77f6a6f
+hash_d: 870cb5cd3b86becf70c6774cfd97388db50d756c7e83f757c7849380a3c2e9a6
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

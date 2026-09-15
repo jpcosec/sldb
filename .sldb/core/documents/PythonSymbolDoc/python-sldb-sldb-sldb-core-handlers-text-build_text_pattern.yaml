@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-handlers-text-build_text_pattern
+path: knowledge/symbols/python-sldb-sldb-sldb-core-handlers-text-build_text_pattern.md
+hash_c: 24255a069bbdba88b3ba84202aca6acb0c54d56b2c8fee41efb2d9824f9fcede
+hash_d: 5484e2a3f98d7de249e435e857fec3e41fa2f99540bbe38681bf360ea5092be1
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

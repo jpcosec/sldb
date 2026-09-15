@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ingest-scanner-build_ignored_file_node
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ingest-scanner-build_ignored_file_node.md
+hash_c: a612f5f5ab5d23c2785074f294b079de5669aaa664b11e22effc9af246370df0
+hash_d: ee064639a6ad370ad24eea53e7122e601cdf468606c8b60885f57a4aa1842048
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

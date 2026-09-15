@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-models-structured_doc-structurednldoc-render_payload
+path: knowledge/symbols/python-sldb-sldb-sldb-models-structured_doc-structurednldoc-render_payload.md
+hash_c: 4f0caeecfd685b325517d0b10b7440415c45e8430dd087eb7371b05af45ca841
+hash_d: 593eac98056e50f00f90e4d070f80e498391a902f76334e6c289fe59ca263068
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

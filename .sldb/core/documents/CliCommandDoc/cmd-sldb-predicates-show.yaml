@@ -1,0 +1,12 @@
+name: cmd-sldb-predicates-show
+path: knowledge/commands/cmd-sldb-predicates-show.md
+hash_c: 25f51fd275b1a5bc18b4dd7ab447313a90bb4ad46fe71862166bd36592f65557
+hash_d: 5a582395042ef87460805733d6f342aef529152eca424a328a3056807ee2649e
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-models_template-modelstemplatecli-_read_template_literal
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-models_template-modelstemplatecli-_read_template_literal.md
+hash_c: ead460d1d5bdfa80140c42aba737183a3eaf265d191f5e323e57b08c3abd1c8b
+hash_d: 15f9d675f9e6575b3c70fa80fb662de70730d984dd993fda6cbfef18a0b4572f
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

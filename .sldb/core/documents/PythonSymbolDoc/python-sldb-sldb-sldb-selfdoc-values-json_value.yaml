@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-selfdoc-values-json_value
+path: knowledge/symbols/python-sldb-sldb-sldb-selfdoc-values-json_value.md
+hash_c: bbeedcf457e8c61276836dcff8eb54d1c6d918cb3daa9451e3cdb3a78414e246
+hash_d: d37c20e0c99c587ec22b5757f22ea37134c3be8417c8d3b9c67a87a3ee3c8e8e
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

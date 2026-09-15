@@ -1,0 +1,8 @@
+name: condition-task-expand-sldb-composition-modes-has-validation
+path: desk/primitives/conditions/condition-task-expand-sldb-composition-modes-has-validation.md
+hash_c: 9651e3e69cbc1d405f8cffcf557c56b1cbb7885fbaf2c83c6c818b5fced31fd7
+hash_d: ae977579d4ebf216ea12f6f98c02c17b9b43598e0701abdc38e749e4fc330ce1
+semantic_tags:
+- primitive:condition
+- type.workflow.condition
+- workspace.desk.primitives

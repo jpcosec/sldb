@@ -1,0 +1,12 @@
+name: cmd-sldb-faq
+path: knowledge/commands/cmd-sldb-faq.md
+hash_c: 92fcffeead96541cd7477ffcfefd4f62d43fcfe0fadcc850bdd3e08936daefab
+hash_d: c78a3a37367d6375fb0dbd6c1bc3eea90f552b1680c8f1c056d480e15aa9a081
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

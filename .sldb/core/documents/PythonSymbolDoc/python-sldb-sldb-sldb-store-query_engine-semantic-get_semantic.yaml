@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-query_engine-semantic-get_semantic
+path: knowledge/symbols/python-sldb-sldb-sldb-store-query_engine-semantic-get_semantic.md
+hash_c: 2cbe8afb221137649efd371f73f062b7d2ca0b8ece4328e75032997fb582adfa
+hash_d: bd89fde6de9fc2649c2dde1493c1f312f38a034e3360db9d6936be14515510a4
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

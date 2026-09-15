@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-model_add-model_base_names
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-model_add-model_base_names.md
+hash_c: f4ea3efe0f92a8930c06e404ca8c201d28602bbb4db9a103e496be9d2d618f70
+hash_d: c521ead5d8acb9a61d27212238b7b7f98327f217dd2fefbc7ab94a2a935e7468
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

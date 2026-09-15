@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-inbox_create-raise_validation_error
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-inbox_create-raise_validation_error.md
+hash_c: e299dd90fc51098d87efde9a4443ce64303126e7755560a72b3689460b860732
+hash_d: fd111a0a4ff91ee4bee80a0c773fd4f5ef0aeb8209354703ba293f2f487ebd05
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

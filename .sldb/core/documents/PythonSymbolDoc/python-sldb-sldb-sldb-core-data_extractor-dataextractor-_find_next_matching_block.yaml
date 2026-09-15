@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-data_extractor-dataextractor-_find_next_matching_block
+path: knowledge/symbols/python-sldb-sldb-sldb-core-data_extractor-dataextractor-_find_next_matching_block.md
+hash_c: b77c67c2df27e5716d05ad46c86afeefee51c6ad65ba1beaa747e9e33d754005
+hash_d: 11fb1f3ae0612c683d8bb7737b12fe4b49e1fec0320a8fb6307a5a82ffc8a80c
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

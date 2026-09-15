@@ -1,0 +1,11 @@
+name: pill-003-template-marker-roundtrip-contract
+path: desk/pills/pill-003-template-marker-roundtrip-contract.md
+hash_c: 8ba2b92d8f1613e90643c18596d8a487bfdb52a84f27d4ca201e8244451e6d50
+hash_d: d6e65da43be0fda211769af59e13a43e2fea0fc56449434d1dc91bf03788c0c7
+semantic_tags:
+- language:python
+- system:sldb
+- topic:roundtrip
+- topic:templates
+- type.workflow.pill
+- workspace.desk

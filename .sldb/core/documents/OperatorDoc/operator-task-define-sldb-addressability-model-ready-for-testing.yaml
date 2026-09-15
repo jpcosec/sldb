@@ -1,0 +1,8 @@
+name: operator-task-define-sldb-addressability-model-ready-for-testing
+path: desk/primitives/operators/operator-task-define-sldb-addressability-model-ready-for-testing.md
+hash_c: 6de4b3ab389fed9d3b57b802c088702c314cd4659f839c5701a82795f05c687d
+hash_d: 1cdf020e3e1b6d45fe43241e043bb27d8b2715f59dfd310ba0e664731b15d4a6
+semantic_tags:
+- primitive:operator
+- type.workflow.operator
+- workspace.desk.primitives

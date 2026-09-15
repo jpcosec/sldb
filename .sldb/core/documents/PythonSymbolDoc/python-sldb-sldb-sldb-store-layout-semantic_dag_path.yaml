@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-layout-semantic_dag_path
+path: knowledge/symbols/python-sldb-sldb-sldb-store-layout-semantic_dag_path.md
+hash_c: ec1586992058203e3e4fd009cbdef170ea5923fdcab7d53be888124f9db5abeb
+hash_d: e8e6742a140cc8b8e77f3f6bd9bc01f3b69244c01b137da675ac985874a73e27
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

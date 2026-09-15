@@ -1,0 +1,12 @@
+name: cmd-sldb-lint
+path: knowledge/commands/cmd-sldb-lint.md
+hash_c: d9fe2e9cd21c0f26871e7d9b18daa7f0cc25a8c8fea3f450ba6737ebff3fc594
+hash_d: c7cc9e6cab7cc438b14a5a4b13d6e0cdc7a7c5dfed1e1965ed6351aca2bdb77e
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

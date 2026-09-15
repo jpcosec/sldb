@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-selfdoc_context-load_parser
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-selfdoc_context-load_parser.md
+hash_c: b60a32e39f3832347f7fb703d588874f47e842cadc10a6541a3da2843c658316
+hash_d: c2dec3c8aa1740fede663ab126515d4d9ca87b12f43e4a52fef8b4764d9f41d7
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

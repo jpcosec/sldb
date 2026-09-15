@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-parsers-misc-_lint
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-parsers-misc-_lint.md
+hash_c: ae644719e03488e86ee6066c0ac196f90aa68e5d65679cce3eea01b5b5409e91
+hash_d: d63512e57cd36c1b11ff0a53d4f0df1dceeb5b70d39b008d8e3518f9a4e3b2fa
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

@@ -4,6 +4,7 @@ path: docs/models.py
 documents_index: .sldb/core/documents/RequestDoc.yaml
 sections_index: .sldb/runtime/sections/RequestDoc.yaml
 hash_b: 1e5ed1514a35d6e8ac17ff226e41216078b621213a8f7a41b45e36e51fb2824a
+documents_count: 2
 version: 1
 canonical: false
 family: null

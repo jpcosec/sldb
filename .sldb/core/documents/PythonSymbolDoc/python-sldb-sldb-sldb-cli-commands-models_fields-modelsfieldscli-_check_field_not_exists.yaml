@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-models_fields-modelsfieldscli-_check_field_not_exists
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-models_fields-modelsfieldscli-_check_field_not_exists.md
+hash_c: 71fd192120fb1e46d74f4a2de3f64f37d67aa27b2e0e7e5eb480b18bc28776dc
+hash_d: 608635d2292651365576c3d884b299b4bd69d8bc557b3d43eff358580e63b776
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

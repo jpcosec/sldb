@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-runtime-validation-validator
+path: knowledge/symbols/python-sldb-sldb-sldb-runtime-validation-validator.md
+hash_c: 63ecd250499671011e5a548932e4195caf652ab63f68b90805dc3e1cd1f9d38a
+hash_d: 838f7fe9bcc218fc21beda01e515015828e040a70ec7a3cbee6cb64a42d630e5
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

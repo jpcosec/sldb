@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-fields_target-parse_model_target
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-fields_target-parse_model_target.md
+hash_c: 6d54e384c745f60a5896231aa9f86d7985d9bc39a6d0f385343800da0e9af090
+hash_d: 73b777bdf6f9b415471d59d94c3c78107fe4253ff8ab447725d6f97079f78371
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

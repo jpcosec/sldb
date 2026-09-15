@@ -1,0 +1,8 @@
+name: checklist-task-design-sldb-ast-query-primitives-closeout-ready
+path: desk/primitives/checklists/checklist-task-design-sldb-ast-query-primitives-closeout-ready.md
+hash_c: faedee42c271e5ea43bb40c32ab5fef5ad37cb305048af3b9ba79cf1003dd136
+hash_d: 2c51245bd74552573d11ae245fff14e7268151197dc7f4179725b17b89b9c47b
+semantic_tags:
+- primitive:checklist
+- type.workflow.checklist
+- workspace.desk.primitives

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ir-graph_edge-graphedge
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ir-graph_edge-graphedge.md
+hash_c: 763db8f1ed55cf295cc79ef8e4ab9ff498b777528ba8b98206d998427d3ea392
+hash_d: b93e5e6f03b289b8069856210da3afb4e8b169274c0080d7dd90974e7d1dbd5f
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

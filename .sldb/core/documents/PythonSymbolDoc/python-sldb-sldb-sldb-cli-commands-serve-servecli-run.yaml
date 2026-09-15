@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-serve-servecli-run
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-serve-servecli-run.md
+hash_c: 47d80629aa359a00875a6615ffcc1f3b7758c68e84efa9855f5e41355f0f34d2
+hash_d: 31db9883878bfe514de7f30613e6c2d12311856b22e7d3632b6a4f37e5a5e321
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

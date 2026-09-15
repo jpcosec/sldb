@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-find_filter-where_matches
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-find_filter-where_matches.md
+hash_c: 81c7270f6ad8e074f10e13c8bedbdb85094024b60be1bd0bbda545d3d728130e
+hash_d: b16cf63c0c4ab7569c1741434145b71d0ca10f8424958732ca1b710fd8e28ae0
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-handlers-utils-parse_marker
+path: knowledge/symbols/python-sldb-sldb-sldb-core-handlers-utils-parse_marker.md
+hash_c: 41fba3dada97728d96bc7cd87ab1f037d333f0ff96478c869732964771eb0bbc
+hash_d: 3d0ecad5db1b93228f15070a9d8aec6225b637468f69adc60ef18c17ba5d281b
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

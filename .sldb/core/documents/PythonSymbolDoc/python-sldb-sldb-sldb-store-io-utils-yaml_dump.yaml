@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-io-utils-yaml_dump
+path: knowledge/symbols/python-sldb-sldb-sldb-store-io-utils-yaml_dump.md
+hash_c: 4a4445918ad68b60060f0d0c42d1a5bde3396bd6907fd645eb54d07ee9e93c3c
+hash_d: ee87eba0a5b5b32b638fd60f59c8c0ebf0b784456b0eceed01bc148946b26cad
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

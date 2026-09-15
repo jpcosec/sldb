@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-handlers-yaml-yamlnodehandler-_extract_yaml_key
+path: knowledge/symbols/python-sldb-sldb-sldb-core-handlers-yaml-yamlnodehandler-_extract_yaml_key.md
+hash_c: f74f62fd8d5abbf34782abf7bc31907fd7de548d5d532b5bd2679e43703471b5
+hash_d: e4d379163df893cb6e18a9a6806156fdd291e88eb561e6d3dbcfb58684f92d5a
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

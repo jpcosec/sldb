@@ -1,0 +1,12 @@
+name: cmd-sldb-stores-semantic-map
+path: knowledge/commands/cmd-sldb-stores-semantic-map.md
+hash_c: 2e51c55d8302bb2ab8a7d66f5327a3cd781d31d6e207d725715f40dd7b4b47a2
+hash_d: 6220b75c5dad845313e2b1b64fc6efd02d9c2d06d145dd56c3fb9e844e106535
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

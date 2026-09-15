@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ir-section_context_entry-sectioncontextentry
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ir-section_context_entry-sectioncontextentry.md
+hash_c: a43ce95a10043c7db97c52e605a6cf167db1d8cc9a9864138b639bf4fb39339f
+hash_d: 7a5a4416e85691ad30c64af36aa292a016433ad1ab55c0fabf5d15dec298e050
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ingest-ignore_rule-ignorerule
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ingest-ignore_rule-ignorerule.md
+hash_c: 08ffc595d7ed69dcad49bf247b7ffdbaee86ef83b2e58ac0eec456f8017f6c08
+hash_d: 0944de0c40b00e2eba1fc9320a970acb91fa5ed0a7631dff41b55294788201da
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

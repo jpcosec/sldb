@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-template_extractor-templateextractor-_update_and_append_recipe
+path: knowledge/symbols/python-sldb-sldb-sldb-core-template_extractor-templateextractor-_update_and_append_recipe.md
+hash_c: 0fb493f2cadac0952f06ce8002a872fd56494647682b22e0a7e85ad6f6b446d2
+hash_d: 632b4aec324def80dacf51088279e835e3180d3aa3ac44d3eb18ceec3a936647
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-find-findcli-run
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-find-findcli-run.md
+hash_c: 07b18df744b01ca21d7de63aebaa3fb6af6f83f291675cd73c840a494a579afe
+hash_d: 32be1f11e85de98b3c0badd45c87fee1b6eb2dfde77e33c88347d810f6e3da23
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

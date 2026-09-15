@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-models-surface_doc-surfacedoc
+path: knowledge/symbols/python-sldb-sldb-sldb-models-surface_doc-surfacedoc.md
+hash_c: a6f25da78e966510b94c76d1e490d20154483ce6a0584d74cbe8950867a14fc3
+hash_d: 8152d9baf3d943d89b283d853f7de60cccd9a6cd75bb8fc76d25cb917a18b8c5
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

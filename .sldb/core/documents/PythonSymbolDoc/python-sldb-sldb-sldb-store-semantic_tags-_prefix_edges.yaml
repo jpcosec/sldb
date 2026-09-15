@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-semantic_tags-_prefix_edges
+path: knowledge/symbols/python-sldb-sldb-sldb-store-semantic_tags-_prefix_edges.md
+hash_c: 869c259352f099f86c1ce37e09c853cf33a7e5f8e66585cac504b0b3c434a3ce
+hash_d: 4c2f6dddcde77657f54c943b0d1fc0845a2010a3d9e9313e55176e35a1d435af
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-renderer_engine-yaml-yamlrenderer
+path: knowledge/symbols/python-sldb-sldb-sldb-core-renderer_engine-yaml-yamlrenderer.md
+hash_c: ff1d9faad8e4c2975f08dee493668e5e09eb988eb7c07a2a850641e90d86c2ab
+hash_d: 146b7bf51a5cae82bd5f9a72e32309abe84385c43a22254b2b3c31f391e2c29c
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

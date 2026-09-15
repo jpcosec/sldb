@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-handlers-table-tablenodehandler-extract_data
+path: knowledge/symbols/python-sldb-sldb-sldb-core-handlers-table-tablenodehandler-extract_data.md
+hash_c: 8d5814046308a72cb21d7f16c0145d1a006ecc705cff3a2565e4ee8a1459b280
+hash_d: 6ca68e46084db40b27f09619b86369c748b9950e9e673a40ef0189f25dfede87
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

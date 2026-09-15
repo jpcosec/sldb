@@ -1,0 +1,12 @@
+name: cmd-sldb-fields-query
+path: knowledge/commands/cmd-sldb-fields-query.md
+hash_c: 0c783e5f4ede698735d72f3d0f1e21c2e40346a2caec1c25ec7192f92dd93a56
+hash_d: 0bd5f78940db74182063cd04dd4e18bd261c700fdb699df12243633c17836f2a
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

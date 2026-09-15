@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-parsers-fields-add_fields_group
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-parsers-fields-add_fields_group.md
+hash_c: 9691200a7aa395f76ce7bbc2afa70218ea559a3117039b2849c6be276eece124
+hash_d: d6bb310b9c7985a784cb7bd9b0705971c445365cb02d9cbb963792c714a9438e
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

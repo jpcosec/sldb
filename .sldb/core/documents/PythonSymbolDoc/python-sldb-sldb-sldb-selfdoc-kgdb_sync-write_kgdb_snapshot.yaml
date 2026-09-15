@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-selfdoc-kgdb_sync-write_kgdb_snapshot
+path: knowledge/symbols/python-sldb-sldb-sldb-selfdoc-kgdb_sync-write_kgdb_snapshot.md
+hash_c: 724fc1acd114d4b78468346f8d525e0d0d51a6bc11129fdf670d314687cfbb20
+hash_d: f27f4b935c2fa23fece2b0d3c2fd95f8f26d84cd681a2c700cd111bfbac2df88
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

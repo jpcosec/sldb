@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ingest-source_parser-_clean_stem
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ingest-source_parser-_clean_stem.md
+hash_c: d775b6dfd7d3cb4914f58949804cc6607684550f23265b63ee5f9b6ae3449151
+hash_d: 25365e0563eaa1a7b31a6c12a00a7b1f1533f24f67e60335e777931ea4c1b152
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ir-surface_node-surfacenode
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ir-surface_node-surfacenode.md
+hash_c: 2a827deb5a4419c41263e860e14f310d609778254af0289c483e11688e5f923f
+hash_d: bee9ccc3be457a312476182f3fea2c94d9ffb40540ae5ecbc216118e45093074
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-find_filters-findfilters
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-find_filters-findfilters.md
+hash_c: a991355f79380524e85014fa83d7f80421584ec57f0b8cc995d65c975487c673
+hash_d: ffca77eb19def8aded0e221cd842f372064bff46ad89be849203576e7658e0e3
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

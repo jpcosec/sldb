@@ -1,0 +1,8 @@
+name: edge-task-definir-arquitectura-objetivo-modular-de-sldb-activate-to-testing
+path: desk/primitives/edges/edge-task-definir-arquitectura-objetivo-modular-de-sldb-activate-to-testing.md
+hash_c: fe524538a727ec28b9d6831529b3b40aac25393fd0e31c92281a369d66b193f5
+hash_d: 8e6d61e1365201d4a07d05c18a0e9ca833c5847bac6a1aa6bdb37b61e33c3055
+semantic_tags:
+- primitive:edge
+- type.workflow.edge
+- workspace.desk.primitives

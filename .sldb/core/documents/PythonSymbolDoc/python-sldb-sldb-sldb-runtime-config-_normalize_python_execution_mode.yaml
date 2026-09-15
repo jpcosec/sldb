@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-runtime-config-_normalize_python_execution_mode
+path: knowledge/symbols/python-sldb-sldb-sldb-runtime-config-_normalize_python_execution_mode.md
+hash_c: f3ad4efd488743d83a8020f5498e2f955648064e8f0132457adb7ff3601bcd46
+hash_d: a4bb18ddf72a8f0ba344299756a78c4760975c79abf197a2e4b4b65e40004737
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

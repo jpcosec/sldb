@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-links-resolver-resolve_link_target
+path: knowledge/symbols/python-sldb-sldb-sldb-links-resolver-resolve_link_target.md
+hash_c: f728b140280f3702dfbf9f24554ec6d0100591d7495ee2ecb126b3775054efcb
+hash_d: 4a19eb94a1edcb844035f4e982c7e41d41fba8a7c0c91489e171fdcbafe8e8a4
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

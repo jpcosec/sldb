@@ -1,0 +1,8 @@
+name: edge-task-tighten-semantic-export-provenance-contract-closeout-to-close
+path: desk/primitives/edges/edge-task-tighten-semantic-export-provenance-contract-closeout-to-close.md
+hash_c: 840065fd721d307172c53bffbd64959109665a1644d1a49d37f5866de54795e9
+hash_d: 3b7cdee614bfe4011d16cc4e3160a3ad4a00c174194e6b993e0a8c6f2f1dcab8
+semantic_tags:
+- primitive:edge
+- type.workflow.edge
+- workspace.desk.primitives

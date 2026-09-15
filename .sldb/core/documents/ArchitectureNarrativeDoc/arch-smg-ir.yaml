@@ -1,0 +1,9 @@
+name: arch-smg-ir
+path: docs/architecture/smg-ir.md
+hash_c: 08b86c15339e6a00dc7f964246934e9e2dd0839db6fd2c29e56aae911e9aee7f
+hash_d: 061d85773d7eca3a20792dc793658f3fccb4dbb1477d99c6c076b9b7a9633238
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.documentation.architecture
+- workspace.docs.architecture

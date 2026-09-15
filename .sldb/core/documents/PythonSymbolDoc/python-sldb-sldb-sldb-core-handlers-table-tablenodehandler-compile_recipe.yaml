@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-handlers-table-tablenodehandler-compile_recipe
+path: knowledge/symbols/python-sldb-sldb-sldb-core-handlers-table-tablenodehandler-compile_recipe.md
+hash_c: e590c38a33f46491f0b18cddf771524fefc4c2ed69d7a988804ca638c95431b2
+hash_d: 9bf679ad8e78d7ab9ef7e68750bfcf086bd6e6c3c44e4604a4b3bcf283028766
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

@@ -1,0 +1,9 @@
+name: routine-task-mapear-arquitectura-real-de-sldb
+path: desk/routines/routine-task-mapear-arquitectura-real-de-sldb.md
+hash_c: 0c2f1e116aa31a61709b5bff875b382c396bdcf82cfc450b82380ed14ba35193
+hash_d: 0c670d4f3df55e8bb274fed0c9ad543d91563da659020dbe8ad85d586bef7912
+semantic_tags:
+- primitive:routine
+- type.workflow.routine
+- workspace.desk.routines
+- workspace:desk

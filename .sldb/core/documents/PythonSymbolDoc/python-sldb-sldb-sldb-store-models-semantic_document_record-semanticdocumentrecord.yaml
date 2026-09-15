@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-models-semantic_document_record-semanticdocumentrecord
+path: knowledge/symbols/python-sldb-sldb-sldb-store-models-semantic_document_record-semanticdocumentrecord.md
+hash_c: 28cfba4afcabd9e63373b83a4c204ac1bcec00c03171a69c952e85b2605abc30
+hash_d: f0e5c8060f6698689cee98c7cd7a6e86aa4eade403a00432237c7d255b75fb06
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

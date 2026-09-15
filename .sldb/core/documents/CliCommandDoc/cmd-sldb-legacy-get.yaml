@@ -1,0 +1,12 @@
+name: cmd-sldb-legacy-get
+path: knowledge/commands/cmd-sldb-legacy-get.md
+hash_c: 311d92c83089c1f6d9bb6698ada1057793953b79326bfeffbb14c0c471a692d7
+hash_d: 0f098c58fc8947b7790567fcc074d2e3d0b5ee4cc0a6fc8f6020821bd6f75ea5
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

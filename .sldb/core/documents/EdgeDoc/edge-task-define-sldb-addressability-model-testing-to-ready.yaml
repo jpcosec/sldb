@@ -1,0 +1,8 @@
+name: edge-task-define-sldb-addressability-model-testing-to-ready
+path: desk/primitives/edges/edge-task-define-sldb-addressability-model-testing-to-ready.md
+hash_c: ad88fe481c15e0abd0ea1328e32862e9cf47b4936597ceb910155434e4318052
+hash_d: 4f10933729efefb76cf2749d2802e6b29c0b4c592f86d3ad16358d6974492e57
+semantic_tags:
+- primitive:edge
+- type.workflow.edge
+- workspace.desk.primitives

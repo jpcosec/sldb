@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-store-query_engine-filter-documentfilter-where_matches
+path: knowledge/symbols/python-sldb-sldb-sldb-store-query_engine-filter-documentfilter-where_matches.md
+hash_c: a28a5094269139daf466bd8fa15b59fd0c515f1576a78b0096126e9cf77f7272
+hash_d: 73701760b4392a7c842dd04e0d9f21b347411c7cad704c03b778164785106a97
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

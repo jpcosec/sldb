@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-models_utils-find_class_node
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-models_utils-find_class_node.md
+hash_c: e9e7bf83303341d2ae55f005397699901993c83908df5624592e366f5c23d071
+hash_d: 51b835d5f2caf14809930b32fd93f83baa7dd359c1a8dd4608fbbef8e1b7bbc6
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

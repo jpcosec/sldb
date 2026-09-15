@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-core-ingest-source_parser-_parse_section
+path: knowledge/symbols/python-sldb-sldb-sldb-core-ingest-source_parser-_parse_section.md
+hash_c: a1f64f4e7a5bbd369818e394f7555ec28f105dedec0bcd095669b872268f70fe
+hash_d: da3581721d99bc68f0a19b5a63654c9452a1fe66c960262e99a32660d1785662
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

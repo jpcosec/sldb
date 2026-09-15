@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-doc-doccli-untrack
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-doc-doccli-untrack.md
+hash_c: 0630ff472c6186b3147ad350e8e537e91d3552a8affe040540572e367ec51ad6
+hash_d: 0e3b2b87232e0f2c91326094ac96f547f38a9debb6d63d58fe6288f95fa7b7e9
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

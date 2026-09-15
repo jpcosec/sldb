@@ -1,0 +1,12 @@
+name: surface-sldb-validate
+path: knowledge/surfaces/surface-sldb-validate.md
+hash_c: 17935a173e0aa5422750d65f5917537159e53f0edf12aa91f42b2195b896c239
+hash_d: 4547697bbf822540ccd5cb4abdb69cf06049a39e6fdbe95173606dbee1f6c085
+semantic_tags:
+- domain:retrieval
+- entity:cli_surface
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.surface
+- workspace.knowledge.surfaces

@@ -1,0 +1,12 @@
+name: cmd-sldb-example
+path: knowledge/commands/cmd-sldb-example.md
+hash_c: afd8068639b0fd74104d072867aed970f21fa3fca7408fe67ba91dc18f105729
+hash_d: 516e1aac6471cc1deab384b55e1b86bd216cbad81f1608fdbb0b4f602608afe4
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands

@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-runtime-validation-validate_model_input_roundtrip
+path: knowledge/symbols/python-sldb-sldb-sldb-runtime-validation-validate_model_input_roundtrip.md
+hash_c: cf6fa7f338848f5651707fb6c807700ba18a5af141aba0d43b7095f982c14a76
+hash_d: 1dc862da86f8469fdbe4e6c322c912e172bf01253d5a3c6c8078738b539be205
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

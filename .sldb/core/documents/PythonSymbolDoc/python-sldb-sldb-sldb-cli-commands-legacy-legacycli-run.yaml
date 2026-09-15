@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-legacy-legacycli-run
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-legacy-legacycli-run.md
+hash_c: c5113fad037338a4fafc4b740a4e663791a533550aa74d076c83f4b7194dddbb
+hash_d: fecf7ab22a816fc96266b8a10dc3c5694934c1425e1b341dd3166ef988d45c58
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

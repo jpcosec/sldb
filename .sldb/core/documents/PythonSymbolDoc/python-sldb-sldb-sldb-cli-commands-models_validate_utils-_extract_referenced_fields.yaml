@@ -1,0 +1,9 @@
+name: python-sldb-sldb-sldb-cli-commands-models_validate_utils-_extract_referenced_fields
+path: knowledge/symbols/python-sldb-sldb-sldb-cli-commands-models_validate_utils-_extract_referenced_fields.md
+hash_c: 1551dba1fbc9802a733d76b84e3a9932d147460572942a2288261f2d8b898b49
+hash_d: d7a807d1cf14a29414c4bb3fae505c764a21d0122d2559c7594096a9b7bd3411
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

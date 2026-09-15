@@ -1,0 +1,12 @@
+name: cmd-sldb-docs-list
+path: knowledge/commands/cmd-sldb-docs-list.md
+hash_c: 88ac35dadf76ae5b5e8c6e5106a06f1b9608bab48d0ca137b81f07078f13b0ff
+hash_d: 2392dfbf209cc143b66a2b9c5162834ec28a95cb57c74c38d080be9228e4e96c
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands
