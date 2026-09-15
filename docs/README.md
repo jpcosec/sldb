@@ -1,6 +1,12 @@
 # Docs Workspace
 
+The [CLI self-documentation workflow](self-documentation.md) now regenerates tracked command references from the parser and checks freshness. The [task board](../desk/tasks/Board.md) separates self-documentation, store federation, and AST correctness work.
+
+The [Python docstring indexing spec](architecture/code-docstring-indexing.spec.md) defines the next slice: source metadata, AST-derived structure, selective tag inheritance, and KGDB/spec2viz integration. Two source examples are annotated; consuming this convention is still pending. The [continuation handoff](architecture/code-docstring-indexing-handoff.md) bounds the next annotation batch and lists implementation gaps.
+
 This directory can now be worked through SLDB models and the project-local store.
+
+For behavior verified on 2026-09-13, start with the [CLI tree](architecture/current-cli-tree.md), [source map](architecture/current-source-tree.md), [AST queries](ast_query_primitives.md), and [composition modes](composition_modes.md). The [review findings](documentation-review.md) collect remaining defects, missing contracts, and incomplete coverage. Target architecture and migration plans are historical proposals for this frozen v1 repository.
 
 ## Current Model Mapping
 

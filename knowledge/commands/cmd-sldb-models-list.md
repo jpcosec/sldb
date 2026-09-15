@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#models list; contract-sha256:5493a70a38daad13364babb8c47c6d3d0c78e8d801a7d6eb01e216f82afeb69e
 ---
 
 # models list
@@ -28,8 +28,43 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'list'. It pa
 
 ## Arguments
 
---store | optional | Store path
---format | optional | 
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "--store"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Store path"
+    },
+    {
+      "names": [
+        "--format"
+      ],
+      "required": false,
+      "default": "\"text\"",
+      "choices": [
+        "\"text\"",
+        "\"json\"",
+        "\"yaml\""
+      ],
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": ""
+    }
+  ],
+  "exclusive_groups": []
+}
+```
 
 ## Usage
 

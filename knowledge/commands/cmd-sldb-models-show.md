@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#models show; contract-sha256:8295bcb4936fbf14b192d61ab99bfd699448cbbf71bb8a49786fd62cba3ce069
 ---
 
 # models show
@@ -28,9 +28,52 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'show'. It pa
 
 ## Arguments
 
-model | required | Model name
---store | optional | Store path
---pythonpath | optional | Project path
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "model"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Model name"
+    },
+    {
+      "names": [
+        "--store"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Store path"
+    },
+    {
+      "names": [
+        "--pythonpath"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Project path"
+    }
+  ],
+  "exclusive_groups": []
+}
+```
 
 ## Usage
 

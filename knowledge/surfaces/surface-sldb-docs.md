@@ -8,7 +8,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#docs; contract-sha256:25b67a7665ddc2e3c6f88ea280f36c23d46bd2e99823c7346a9c6e149be97edb
 ---
 
 # docs
@@ -23,12 +23,12 @@ Registered under src/sldb/cli/parsers/ as the 'docs' subparser. Each command dis
 
 ## Commands
 
-docs create
-docs track
-docs update
-docs untrack
-docs show
-docs recover
-docs list
-docs compose
-docs explore
+- sldb docs compose
+- sldb docs create
+- sldb docs explore
+- sldb docs list
+- sldb docs recover
+- sldb docs show
+- sldb docs track
+- sldb docs untrack
+- sldb docs update

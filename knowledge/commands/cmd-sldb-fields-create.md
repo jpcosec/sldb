@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#fields create; contract-sha256:f16e020a25aa686c92d9beda66e41b536b8f9c223627b1309bd38dad0d5713f5
 ---
 
 # fields create
@@ -28,10 +28,65 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'create'. It 
 
 ## Arguments
 
-target | required | docs/<Doc>/<field> or docs/<Model>/<Doc>/<field>
-value | required | Inline YAML/JSON value
---store | optional | Store path
---pythonpath | optional | Project path
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "target"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "docs/<Doc>/<field> or docs/<Model>/<Doc>/<field>"
+    },
+    {
+      "names": [
+        "value"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Inline YAML/JSON value"
+    },
+    {
+      "names": [
+        "--store"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Store path"
+    },
+    {
+      "names": [
+        "--pythonpath"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Project path"
+    }
+  ],
+  "exclusive_groups": []
+}
+```
 
 ## Usage
 

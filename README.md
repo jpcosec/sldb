@@ -1,6 +1,8 @@
-> **Frozen (2026-09-07).** `sldb` v1 is superseded by [`knowledge`](https://github.com/jpcosec/knowledge) (SLDB v2 kernel + models + anchored evaluator, one product). This repo receives no features; tag `v1-frozen` marks this state and `v2-seed-2026-09` the branch `refactor-target` that seeded `knowledge`. Existing installs (`iso-lab/worktrees/sldb`) keep working until milestone S6 migrates deskops.
+> **Historical freeze (2026-09-07).** `sldb` v1 is superseded by [`knowledge`](https://github.com/jpcosec/knowledge) (SLDB v2 kernel + models + anchored evaluator, one product). Tag `v1-frozen` marks that state and `v2-seed-2026-09` the branch `refactor-target` that seeded `knowledge`. Subsequent local work includes the explicitly authorized self-documentation slice described below; it does not establish a new release or replace the successor project.
 
 # SLDB (Structured Language Database)
+
+Documentation checked against the working tree on 2026-09-13: see [current CLI](docs/architecture/current-cli-tree.md), [AST queries](docs/ast_query_primitives.md), and [remaining gaps](docs/documentation-review.md). “v1” denotes the product generation; this checkout declares package version `0.1.0`. Historical changelog headings do not establish the version installed locally or published to a registry.
 
 A structurally aware Markdown extraction and template mapping library based on `mdast` principles. SLDB allows you to treat Markdown files as a structured persistence layer, mapping them directly to Pydantic models.
 
@@ -25,6 +27,16 @@ pip install sldb
 
 ## CLI
 
+This repository can generate and check its own tracked CLI reference:
+
+```bash
+sldb selfdoc scan
+sldb selfdoc sync
+sldb selfdoc check
+```
+
+See [self-documentation](docs/self-documentation.md) for store anchoring, generated/authored field ownership, and use with other argparse applications.
+
 The package ships with a graph-first `sldb` CLI.
 
 Run commands as `sldb ...` or `python -m sldb ...`, not `bash sldb ...`.
@@ -41,6 +53,8 @@ sldb faq
 sldb faq store
 sldb explore store
 ```
+
+`faq` reads `docs/faq.md` relative to the current directory; it does not resolve a store. Outside this checkout, pass `--faq-path /absolute/path/to/sldb/docs/faq.md`. Likewise, `explore` uses `--docs-root` and `--code-root`, not the store root. See the [anchoring gap](docs/documentation-review.md#faq-and-explore-do-not-use-the-store).
 
 The public workflow is now organized around `stores`, `models`, `docs`, `fields`, `sections`, `find`, and `ast`.
 The raw address surface (`st.{Model}.doc.field`, `se.tag`, `gse.tag`) lives under `sldb legacy ls|get|glob|find`; it is the same engine spelled as addresses.
@@ -80,7 +94,7 @@ You can also browse those answers directly from the CLI with `sldb faq`, and log
 To revisit those notes later, use `sldb inbox --list` and `sldb inbox --show <id>`.
 If the project store already has `InboxNoteDoc` registered, new inbox notes auto-track into the store too.
 
-> **Deprecation notice (v0.5):** The singular command aliases (`store`, `model`, `doc`, `ls`, `get`, `glob`, `raw-find`, `recover`, `compose`) are deprecated and will be removed in **v0.6**. Use the plural surfaces (`stores`, `models`, `docs`) or `sldb legacy ...` instead. Set `SLDB_SUPPRESS_DEPRECATION=1` or pass `-W ignore` to silence deprecation warnings in automation.
+> **Compatibility:** Singular aliases (`store`, `model`, `doc`, `ls`, `get`, `glob`, `raw-find`, `recover`, `compose`) are deprecated. Use plural surfaces (`stores`, `models`, `docs`) or `sldb legacy ...`. The former v0.6 removal target was a historical plan, not a confirmed release commitment for this frozen checkout. Set `SLDB_SUPPRESS_DEPRECATION=1` to suppress deprecation warnings.
 
 The CLI is still model-first: it operates on a `StructuredNLDoc` reference in the form `package.module:ModelName`. If the model lives in your current project rather than the installed `sldb` package, pass `--pythonpath /path/to/project`.
 
@@ -295,9 +309,9 @@ The store is a `.sldb/` pointer database that decouples physical file locations 
 The store maintains a three-level YAML index cascade:
 
 ```
-store_index.yaml          ← master router; owns hash_a
-  └─ .sldb/models/<Name>.yaml   ← per-model inventory; owns hash_b
-       └─ .sldb/documents/<Name>.yaml  ← per-document hashes
+.sldb/core/store_index.yaml          ← master router; owns hash_a
+  └─ .sldb/core/models/<Name>.yaml   ← per-model inventory; owns hash_b
+       └─ .sldb/core/documents/<Name>.yaml  ← per-document hashes
             ├─ hash_c  ← sha256 of raw .md text
             └─ hash_d  ← sha256 of extracted Pydantic field values
 ```

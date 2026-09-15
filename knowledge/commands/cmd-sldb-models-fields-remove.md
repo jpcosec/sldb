@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#models fields remove; contract-sha256:3212604624c67ac657873f37676e710c0035c88d7eeea06b0772db1c9818ec89
 ---
 
 # models fields remove
@@ -28,10 +28,65 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'remove'. It 
 
 ## Arguments
 
-model | required | Model name
-field | required | Field name
---store | optional | Store path
---pythonpath | optional | Project path
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "model"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Model name"
+    },
+    {
+      "names": [
+        "field"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Field name"
+    },
+    {
+      "names": [
+        "--store"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Store path"
+    },
+    {
+      "names": [
+        "--pythonpath"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Project path"
+    }
+  ],
+  "exclusive_groups": []
+}
+```
 
 ## Usage
 

@@ -1,0 +1,5269 @@
+id: sldb-python-ast
+title: SLDB Python AST structure
+type: component
+version: '1.0'
+data:
+  nodes:
+    module_sldb___main__:
+      label: sldb.__main__
+      kind: module
+    module_sldb_cli_commands_ast:
+      label: sldb.cli.commands.ast
+      kind: module
+    class_sldb_cli_commands_ast_ASTCLI:
+      label: ASTCLI
+      kind: class
+    module_sldb_cli_commands_basic:
+      label: sldb.cli.commands.basic
+      kind: module
+    class_sldb_cli_commands_basic_BasicCLI:
+      label: BasicCLI
+      kind: class
+    module_sldb_cli_commands_doc:
+      label: sldb.cli.commands.doc
+      kind: module
+    class_sldb_cli_commands_doc_DocCLI:
+      label: DocCLI
+      kind: class
+    module_sldb_cli_commands_doc_helpers:
+      label: sldb.cli.commands.doc_helpers
+      kind: module
+    module_sldb_cli_commands_docs:
+      label: sldb.cli.commands.docs
+      kind: module
+    class_sldb_cli_commands_docs_DocsCLI:
+      label: DocsCLI
+      kind: class
+    module_sldb_cli_commands_explore:
+      label: sldb.cli.commands.explore
+      kind: module
+    class_sldb_cli_commands_explore_ExploreCLI:
+      label: ExploreCLI
+      kind: class
+    module_sldb_cli_commands_explore_code:
+      label: sldb.cli.commands.explore_code
+      kind: module
+    class_sldb_cli_commands_explore_code_ExploreCode:
+      label: ExploreCode
+      kind: class
+    module_sldb_cli_commands_explore_docs:
+      label: sldb.cli.commands.explore_docs
+      kind: module
+    class_sldb_cli_commands_explore_docs_ExploreDocs:
+      label: ExploreDocs
+      kind: class
+    module_sldb_cli_commands_explore_hit:
+      label: sldb.cli.commands.explore_hit
+      kind: module
+    class_sldb_cli_commands_explore_hit_ExploreHit:
+      label: ExploreHit
+      kind: class
+    module_sldb_cli_commands_faq:
+      label: sldb.cli.commands.faq
+      kind: module
+    class_sldb_cli_commands_faq_FAQCLI:
+      label: FAQCLI
+      kind: class
+    module_sldb_cli_commands_faq_entry:
+      label: sldb.cli.commands.faq_entry
+      kind: module
+    class_sldb_cli_commands_faq_entry_FAQEntry:
+      label: FAQEntry
+      kind: class
+    module_sldb_cli_commands_fields:
+      label: sldb.cli.commands.fields
+      kind: module
+    class_sldb_cli_commands_fields_FieldsCLI:
+      label: FieldsCLI
+      kind: class
+    module_sldb_cli_commands_fields_mutate:
+      label: sldb.cli.commands.fields_mutate
+      kind: module
+    module_sldb_cli_commands_fields_save:
+      label: sldb.cli.commands.fields_save
+      kind: module
+    module_sldb_cli_commands_fields_show:
+      label: sldb.cli.commands.fields_show
+      kind: module
+    module_sldb_cli_commands_fields_target:
+      label: sldb.cli.commands.fields_target
+      kind: module
+    module_sldb_cli_commands_find:
+      label: sldb.cli.commands.find
+      kind: module
+    class_sldb_cli_commands_find_FindCLI:
+      label: FindCLI
+      kind: class
+    module_sldb_cli_commands_find_filter:
+      label: sldb.cli.commands.find_filter
+      kind: module
+    module_sldb_cli_commands_find_filters:
+      label: sldb.cli.commands.find_filters
+      kind: module
+    class_sldb_cli_commands_find_filters_FindFilters:
+      label: FindFilters
+      kind: class
+    module_sldb_cli_commands_find_format:
+      label: sldb.cli.commands.find_format
+      kind: module
+    class_sldb_cli_commands_find_format_FindFormatter:
+      label: FindFormatter
+      kind: class
+    module_sldb_cli_commands_find_proxy:
+      label: sldb.cli.commands.find_proxy
+      kind: module
+    class_sldb_cli_commands_find_proxy__RuntimeDocProxy:
+      label: _RuntimeDocProxy
+      kind: class
+    module_sldb_cli_commands_find_utils:
+      label: sldb.cli.commands.find_utils
+      kind: module
+    class_sldb_cli_commands_find_utils_RuntimeDocProxy:
+      label: RuntimeDocProxy
+      kind: class
+    module_sldb_cli_commands_help:
+      label: sldb.cli.commands.help
+      kind: module
+    class_sldb_cli_commands_help_HelpCLI:
+      label: HelpCLI
+      kind: class
+    module_sldb_cli_commands_help_texts:
+      label: sldb.cli.commands.help_texts
+      kind: module
+    module_sldb_cli_commands_help_texts_core:
+      label: sldb.cli.commands.help_texts_core
+      kind: module
+    module_sldb_cli_commands_help_texts_docs:
+      label: sldb.cli.commands.help_texts_docs
+      kind: module
+    module_sldb_cli_commands_help_texts_find:
+      label: sldb.cli.commands.help_texts_find
+      kind: module
+    module_sldb_cli_commands_help_texts_other:
+      label: sldb.cli.commands.help_texts_other
+      kind: module
+    module_sldb_cli_commands_help_texts_other2:
+      label: sldb.cli.commands.help_texts_other2
+      kind: module
+    module_sldb_cli_commands_help_texts_selfdoc:
+      label: sldb.cli.commands.help_texts_selfdoc
+      kind: module
+    module_sldb_cli_commands_inbox:
+      label: sldb.cli.commands.inbox
+      kind: module
+    class_sldb_cli_commands_inbox_InboxCLI:
+      label: InboxCLI
+      kind: class
+    module_sldb_cli_commands_inbox_core:
+      label: sldb.cli.commands.inbox_core
+      kind: module
+    module_sldb_cli_commands_inbox_create:
+      label: sldb.cli.commands.inbox_create
+      kind: module
+    module_sldb_cli_commands_inbox_list:
+      label: sldb.cli.commands.inbox_list
+      kind: module
+    module_sldb_cli_commands_inbox_parse:
+      label: sldb.cli.commands.inbox_parse
+      kind: module
+    module_sldb_cli_commands_inbox_show:
+      label: sldb.cli.commands.inbox_show
+      kind: module
+    module_sldb_cli_commands_init:
+      label: sldb.cli.commands.init
+      kind: module
+    class_sldb_cli_commands_init_InitCLI:
+      label: InitCLI
+      kind: class
+    module_sldb_cli_commands_legacy:
+      label: sldb.cli.commands.legacy
+      kind: module
+    class_sldb_cli_commands_legacy_LegacyCLI:
+      label: LegacyCLI
+      kind: class
+    module_sldb_cli_commands_links:
+      label: sldb.cli.commands.links
+      kind: module
+    class_sldb_cli_commands_links_LinkCLI:
+      label: LinkCLI
+      kind: class
+    module_sldb_cli_commands_lint:
+      label: sldb.cli.commands.lint
+      kind: module
+    module_sldb_cli_commands_model:
+      label: sldb.cli.commands.model
+      kind: module
+    class_sldb_cli_commands_model_ModelCLI:
+      label: ModelCLI
+      kind: class
+    module_sldb_cli_commands_model_add:
+      label: sldb.cli.commands.model_add
+      kind: module
+    module_sldb_cli_commands_model_source:
+      label: sldb.cli.commands.model_source
+      kind: module
+    module_sldb_cli_commands_model_update:
+      label: sldb.cli.commands.model_update
+      kind: module
+    module_sldb_cli_commands_models:
+      label: sldb.cli.commands.models
+      kind: module
+    class_sldb_cli_commands_models_ModelsCLI:
+      label: ModelsCLI
+      kind: class
+    module_sldb_cli_commands_models_create:
+      label: sldb.cli.commands.models_create
+      kind: module
+    class_sldb_cli_commands_models_create_ModelsCreateCLI:
+      label: ModelsCreateCLI
+      kind: class
+    module_sldb_cli_commands_models_fields:
+      label: sldb.cli.commands.models_fields
+      kind: module
+    class_sldb_cli_commands_models_fields_ModelsFieldsCLI:
+      label: ModelsFieldsCLI
+      kind: class
+    module_sldb_cli_commands_models_list:
+      label: sldb.cli.commands.models_list
+      kind: module
+    class_sldb_cli_commands_models_list_ModelsListCLI:
+      label: ModelsListCLI
+      kind: class
+    module_sldb_cli_commands_models_template:
+      label: sldb.cli.commands.models_template
+      kind: module
+    class_sldb_cli_commands_models_template_ModelsTemplateCLI:
+      label: ModelsTemplateCLI
+      kind: class
+    module_sldb_cli_commands_models_utils:
+      label: sldb.cli.commands.models_utils
+      kind: module
+    module_sldb_cli_commands_models_validate:
+      label: sldb.cli.commands.models_validate
+      kind: module
+    class_sldb_cli_commands_models_validate_ModelsValidateCLI:
+      label: ModelsValidateCLI
+      kind: class
+    module_sldb_cli_commands_models_validate_utils:
+      label: sldb.cli.commands.models_validate_utils
+      kind: module
+    module_sldb_cli_commands_predicates:
+      label: sldb.cli.commands.predicates
+      kind: module
+    class_sldb_cli_commands_predicates_PredicatesCLI:
+      label: PredicatesCLI
+      kind: class
+    module_sldb_cli_commands_predicates_format:
+      label: sldb.cli.commands.predicates_format
+      kind: module
+    module_sldb_cli_commands_query:
+      label: sldb.cli.commands.query
+      kind: module
+    class_sldb_cli_commands_query_QueryCLI:
+      label: QueryCLI
+      kind: class
+    module_sldb_cli_commands_sections:
+      label: sldb.cli.commands.sections
+      kind: module
+    class_sldb_cli_commands_sections_SectionsCLI:
+      label: SectionsCLI
+      kind: class
+    module_sldb_cli_commands_sections_common:
+      label: sldb.cli.commands.sections_common
+      kind: module
+    module_sldb_cli_commands_sections_fields:
+      label: sldb.cli.commands.sections_fields
+      kind: module
+    class_sldb_cli_commands_sections_fields_FieldsSectionsCLI:
+      label: FieldsSectionsCLI
+      kind: class
+    module_sldb_cli_commands_sections_find:
+      label: sldb.cli.commands.sections_find
+      kind: module
+    class_sldb_cli_commands_sections_find_FindSectionsCLI:
+      label: FindSectionsCLI
+      kind: class
+    module_sldb_cli_commands_sections_show:
+      label: sldb.cli.commands.sections_show
+      kind: module
+    class_sldb_cli_commands_sections_show_ShowSectionsCLI:
+      label: ShowSectionsCLI
+      kind: class
+    module_sldb_cli_commands_selfdoc:
+      label: sldb.cli.commands.selfdoc
+      kind: module
+    class_sldb_cli_commands_selfdoc_SelfdocCLI:
+      label: SelfdocCLI
+      kind: class
+    module_sldb_cli_commands_serve:
+      label: sldb.cli.commands.serve
+      kind: module
+    class_sldb_cli_commands_serve_ServeCLI:
+      label: ServeCLI
+      kind: class
+    module_sldb_cli_commands_store:
+      label: sldb.cli.commands.store
+      kind: module
+    class_sldb_cli_commands_store_StoreCLI:
+      label: StoreCLI
+      kind: class
+    module_sldb_cli_commands_store_add:
+      label: sldb.cli.commands.store_add
+      kind: module
+    module_sldb_cli_commands_store_check:
+      label: sldb.cli.commands.store_check
+      kind: module
+    module_sldb_cli_commands_store_init:
+      label: sldb.cli.commands.store_init
+      kind: module
+    module_sldb_cli_commands_store_semantic_map:
+      label: sldb.cli.commands.store_semantic_map
+      kind: module
+    module_sldb_cli_commands_store_update:
+      label: sldb.cli.commands.store_update
+      kind: module
+    module_sldb_cli_commands_stores:
+      label: sldb.cli.commands.stores
+      kind: module
+    class_sldb_cli_commands_stores_StoresCLI:
+      label: StoresCLI
+      kind: class
+    module_sldb_cli_dict_utils:
+      label: sldb.cli.dict_utils
+      kind: module
+    module_sldb_cli_dispatcher:
+      label: sldb.cli.dispatcher
+      kind: module
+    class_sldb_cli_dispatcher_CLI:
+      label: CLI
+      kind: class
+    module_sldb_cli_federated_utils:
+      label: sldb.cli.federated_utils
+      kind: module
+    module_sldb_cli_graph_models_section:
+      label: sldb.cli.graph.models_section
+      kind: module
+    class_sldb_cli_graph_models_section_SectionRecord:
+      label: SectionRecord
+      kind: class
+    module_sldb_cli_graph_search_record:
+      label: sldb.cli.graph.search_record
+      kind: module
+    class_sldb_cli_graph_search_record_SearchRecord:
+      label: SearchRecord
+      kind: class
+    module_sldb_cli_graph_section_record:
+      label: sldb.cli.graph.section_record
+      kind: module
+    class_sldb_cli_graph_section_record_SectionRecord:
+      label: SectionRecord
+      kind: class
+    module_sldb_cli_graph_sections:
+      label: sldb.cli.graph.sections
+      kind: module
+    module_sldb_cli_graph_store_ast:
+      label: sldb.cli.graph.store_ast
+      kind: module
+    module_sldb_cli_graph_utils:
+      label: sldb.cli.graph.utils
+      kind: module
+    module_sldb_cli_graph_old_search_record:
+      label: sldb.cli.graph_old.search_record
+      kind: module
+    class_sldb_cli_graph_old_search_record_SearchRecord:
+      label: SearchRecord
+      kind: class
+    module_sldb_cli_graph_old_section_record:
+      label: sldb.cli.graph_old.section_record
+      kind: module
+    class_sldb_cli_graph_old_section_record_SectionRecord:
+      label: SectionRecord
+      kind: class
+    module_sldb_cli_graph_old_utils:
+      label: sldb.cli.graph_old.utils
+      kind: module
+    module_sldb_cli_graph_ops_ast_target:
+      label: sldb.cli.graph_ops.ast_target
+      kind: module
+    module_sldb_cli_graph_ops_build_ast:
+      label: sldb.cli.graph_ops.build_ast
+      kind: module
+    module_sldb_cli_graph_ops_build_ir:
+      label: sldb.cli.graph_ops.build_ir
+      kind: module
+    module_sldb_cli_graph_ops_extract:
+      label: sldb.cli.graph_ops.extract
+      kind: module
+    module_sldb_cli_graph_ops_fields:
+      label: sldb.cli.graph_ops.fields
+      kind: module
+    module_sldb_cli_graph_ops_flatten:
+      label: sldb.cli.graph_ops.flatten
+      kind: module
+    module_sldb_cli_graph_ops_iter_records:
+      label: sldb.cli.graph_ops.iter_records
+      kind: module
+    module_sldb_cli_graph_ops_iter_records_docs:
+      label: sldb.cli.graph_ops.iter_records_docs
+      kind: module
+    module_sldb_cli_graph_ops_iter_records_helpers:
+      label: sldb.cli.graph_ops.iter_records_helpers
+      kind: module
+    module_sldb_cli_graph_ops_map_fields:
+      label: sldb.cli.graph_ops.map_fields
+      kind: module
+    module_sldb_cli_graph_ops_matches:
+      label: sldb.cli.graph_ops.matches
+      kind: module
+    module_sldb_cli_graph_ops_resolve:
+      label: sldb.cli.graph_ops.resolve
+      kind: module
+    module_sldb_cli_graph_ops_utils:
+      label: sldb.cli.graph_ops.utils
+      kind: module
+    module_sldb_cli_main:
+      label: sldb.cli.main
+      kind: module
+    module_sldb_cli_model_utils:
+      label: sldb.cli.model_utils
+      kind: module
+    module_sldb_cli_parser:
+      label: sldb.cli.parser
+      kind: module
+    module_sldb_cli_parsers_basic:
+      label: sldb.cli.parsers.basic
+      kind: module
+    module_sldb_cli_parsers_core:
+      label: sldb.cli.parsers.core
+      kind: module
+    module_sldb_cli_parsers_docs1:
+      label: sldb.cli.parsers.docs1
+      kind: module
+    module_sldb_cli_parsers_docs2:
+      label: sldb.cli.parsers.docs2
+      kind: module
+    module_sldb_cli_parsers_fields:
+      label: sldb.cli.parsers.fields
+      kind: module
+    module_sldb_cli_parsers_find:
+      label: sldb.cli.parsers.find
+      kind: module
+    module_sldb_cli_parsers_hidden:
+      label: sldb.cli.parsers.hidden
+      kind: module
+    module_sldb_cli_parsers_legacy:
+      label: sldb.cli.parsers.legacy
+      kind: module
+    module_sldb_cli_parsers_misc:
+      label: sldb.cli.parsers.misc
+      kind: module
+    module_sldb_cli_parsers_models1:
+      label: sldb.cli.parsers.models1
+      kind: module
+    module_sldb_cli_parsers_models2:
+      label: sldb.cli.parsers.models2
+      kind: module
+    module_sldb_cli_parsers_predicates:
+      label: sldb.cli.parsers.predicates
+      kind: module
+    module_sldb_cli_parsers_project:
+      label: sldb.cli.parsers.project
+      kind: module
+    module_sldb_cli_parsers_public:
+      label: sldb.cli.parsers.public
+      kind: module
+    module_sldb_cli_parsers_sections:
+      label: sldb.cli.parsers.sections
+      kind: module
+    module_sldb_cli_parsers_selfdoc:
+      label: sldb.cli.parsers.selfdoc
+      kind: module
+    module_sldb_cli_parsers_serve:
+      label: sldb.cli.parsers.serve
+      kind: module
+    module_sldb_cli_parsers_stores:
+      label: sldb.cli.parsers.stores
+      kind: module
+    module_sldb_cli_search_record:
+      label: sldb.cli.search_record
+      kind: module
+    class_sldb_cli_search_record_SearchRecord:
+      label: SearchRecord
+      kind: class
+    module_sldb_cli_section_record_cls:
+      label: sldb.cli.section_record_cls
+      kind: module
+    class_sldb_cli_section_record_cls_SectionRecord:
+      label: SectionRecord
+      kind: class
+    module_sldb_cli_selfdoc_context:
+      label: sldb.cli.selfdoc_context
+      kind: module
+    module_sldb_cli_selfdoc_inspect:
+      label: sldb.cli.selfdoc_inspect
+      kind: module
+    module_sldb_cli_selfdoc_registry:
+      label: sldb.cli.selfdoc_registry
+      kind: module
+    class_sldb_cli_selfdoc_registry_DocumentationRegistry:
+      label: DocumentationRegistry
+      kind: class
+    module_sldb_cli_selfdoc_write:
+      label: sldb.cli.selfdoc_write
+      kind: module
+    module_sldb_cli_serve_http_server:
+      label: sldb.cli.serve.http_server
+      kind: module
+    class_sldb_cli_serve_http_server_SLDBHTTPRequestHandler:
+      label: SLDBHTTPRequestHandler
+      kind: class
+    module_sldb_cli_serve_responses:
+      label: sldb.cli.serve.responses
+      kind: module
+    module_sldb_cli_serve_routes:
+      label: sldb.cli.serve.routes
+      kind: module
+    module_sldb_cli_serve_schema:
+      label: sldb.cli.serve.schema
+      kind: module
+    module_sldb_cli_store_context:
+      label: sldb.cli.store_context
+      kind: module
+    module_sldb_cli_utils:
+      label: sldb.cli.utils
+      kind: module
+    module_sldb_core_ast_base_ast_handler:
+      label: sldb.core.ast.base_ast_handler
+      kind: module
+    class_sldb_core_ast_base_ast_handler_BaseASTHandler:
+      label: BaseASTHandler
+      kind: class
+    module_sldb_core_ast_markdown_ast_handler:
+      label: sldb.core.ast.markdown_ast_handler
+      kind: module
+    class_sldb_core_ast_markdown_ast_handler_MarkdownASTHandler:
+      label: MarkdownASTHandler
+      kind: class
+    module_sldb_core_contracts_marker:
+      label: sldb.core.contracts.marker
+      kind: module
+    class_sldb_core_contracts_marker_Marker:
+      label: Marker
+      kind: class
+    module_sldb_core_contracts_node_data:
+      label: sldb.core.contracts.node_data
+      kind: module
+    class_sldb_core_contracts_node_data_NodeData:
+      label: NodeData
+      kind: class
+    module_sldb_core_contracts_render_context:
+      label: sldb.core.contracts.render_context
+      kind: module
+    class_sldb_core_contracts_render_context_RenderContext:
+      label: RenderContext
+      kind: class
+    module_sldb_core_data_extractor:
+      label: sldb.core.data_extractor
+      kind: module
+    class_sldb_core_data_extractor_DataExtractor:
+      label: DataExtractor
+      kind: class
+    module_sldb_core_exceptions_sldb_ast_error:
+      label: sldb.core.exceptions.sldb_ast_error
+      kind: module
+    class_sldb_core_exceptions_sldb_ast_error_SLDBASTError:
+      label: SLDBASTError
+      kind: class
+    module_sldb_core_exceptions_sldb_error:
+      label: sldb.core.exceptions.sldb_error
+      kind: module
+    class_sldb_core_exceptions_sldb_error_SLDBError:
+      label: SLDBError
+      kind: class
+    module_sldb_core_exceptions_sldb_link_error:
+      label: sldb.core.exceptions.sldb_link_error
+      kind: module
+    class_sldb_core_exceptions_sldb_link_error_SLDBLinkError:
+      label: SLDBLinkError
+      kind: class
+    module_sldb_core_exceptions_sldb_model_draft_error:
+      label: sldb.core.exceptions.sldb_model_draft_error
+      kind: module
+    class_sldb_core_exceptions_sldb_model_draft_error_SLDBModelDraftError:
+      label: SLDBModelDraftError
+      kind: class
+    module_sldb_core_exceptions_sldb_model_edit_error:
+      label: sldb.core.exceptions.sldb_model_edit_error
+      kind: module
+    class_sldb_core_exceptions_sldb_model_edit_error_SLDBModelEditError:
+      label: SLDBModelEditError
+      kind: class
+    module_sldb_core_exceptions_sldb_model_error:
+      label: sldb.core.exceptions.sldb_model_error
+      kind: module
+    class_sldb_core_exceptions_sldb_model_error_SLDBModelError:
+      label: SLDBModelError
+      kind: class
+    module_sldb_core_exceptions_sldb_store_error:
+      label: sldb.core.exceptions.sldb_store_error
+      kind: module
+    class_sldb_core_exceptions_sldb_store_error_SLDBStoreError:
+      label: SLDBStoreError
+      kind: class
+    module_sldb_core_exceptions_sldb_validation_error:
+      label: sldb.core.exceptions.sldb_validation_error
+      kind: module
+    class_sldb_core_exceptions_sldb_validation_error_SLDBValidationError:
+      label: SLDBValidationError
+      kind: class
+    module_sldb_core_extractor_recipe_matcher:
+      label: sldb.core.extractor.recipe_matcher
+      kind: module
+    class_sldb_core_extractor_recipe_matcher_RecipeMatcher:
+      label: RecipeMatcher
+      kind: class
+    module_sldb_core_handlers_base:
+      label: sldb.core.handlers.base
+      kind: module
+    class_sldb_core_handlers_base_BaseNodeHandler:
+      label: BaseNodeHandler
+      kind: class
+    module_sldb_core_handlers_list:
+      label: sldb.core.handlers.list
+      kind: module
+    class_sldb_core_handlers_list_ListNodeHandler:
+      label: ListNodeHandler
+      kind: class
+    module_sldb_core_handlers_router:
+      label: sldb.core.handlers.router
+      kind: module
+    class_sldb_core_handlers_router_SharedNodeHandler:
+      label: SharedNodeHandler
+      kind: class
+    module_sldb_core_handlers_table:
+      label: sldb.core.handlers.table
+      kind: module
+    class_sldb_core_handlers_table_TableNodeHandler:
+      label: TableNodeHandler
+      kind: class
+    module_sldb_core_handlers_text:
+      label: sldb.core.handlers.text
+      kind: module
+    class_sldb_core_handlers_text_TextNodeHandler:
+      label: TextNodeHandler
+      kind: class
+    module_sldb_core_handlers_utils:
+      label: sldb.core.handlers.utils
+      kind: module
+    module_sldb_core_handlers_yaml:
+      label: sldb.core.handlers.yaml
+      kind: module
+    class_sldb_core_handlers_yaml_YamlNodeHandler:
+      label: YamlNodeHandler
+      kind: class
+    module_sldb_core_ingest_engine:
+      label: sldb.core.ingest.engine
+      kind: module
+    module_sldb_core_ingest_ignore_rule:
+      label: sldb.core.ingest.ignore_rule
+      kind: module
+    class_sldb_core_ingest_ignore_rule_IgnoreRule:
+      label: IgnoreRule
+      kind: class
+    module_sldb_core_ingest_manifest:
+      label: sldb.core.ingest.manifest
+      kind: module
+    module_sldb_core_ingest_python_scanner:
+      label: sldb.core.ingest.python_scanner
+      kind: module
+    class_sldb_core_ingest_python_scanner_PythonScanner:
+      label: PythonScanner
+      kind: class
+    module_sldb_core_ingest_renderer:
+      label: sldb.core.ingest.renderer
+      kind: module
+    module_sldb_core_ingest_scanner:
+      label: sldb.core.ingest.scanner
+      kind: module
+    module_sldb_core_ingest_source_parser:
+      label: sldb.core.ingest.source_parser
+      kind: module
+    module_sldb_core_ingest_typescript_scanner:
+      label: sldb.core.ingest.typescript_scanner
+      kind: module
+    class_sldb_core_ingest_typescript_scanner_TypeScriptScanner:
+      label: TypeScriptScanner
+      kind: class
+    module_sldb_core_ir_document_context:
+      label: sldb.core.ir.document_context
+      kind: module
+    class_sldb_core_ir_document_context_DocumentContext:
+      label: DocumentContext
+      kind: class
+    module_sldb_core_ir_document_ir:
+      label: sldb.core.ir.document_ir
+      kind: module
+    class_sldb_core_ir_document_ir_DocumentIR:
+      label: DocumentIR
+      kind: class
+    module_sldb_core_ir_graph_edge:
+      label: sldb.core.ir.graph_edge
+      kind: module
+    class_sldb_core_ir_graph_edge_GraphEdge:
+      label: GraphEdge
+      kind: class
+    module_sldb_core_ir_graph_view:
+      label: sldb.core.ir.graph_view
+      kind: module
+    class_sldb_core_ir_graph_view_GraphView:
+      label: GraphView
+      kind: class
+    module_sldb_core_ir_meaning_node:
+      label: sldb.core.ir.meaning_node
+      kind: module
+    class_sldb_core_ir_meaning_node_MeaningNode:
+      label: MeaningNode
+      kind: class
+    module_sldb_core_ir_section_context_entry:
+      label: sldb.core.ir.section_context_entry
+      kind: module
+    class_sldb_core_ir_section_context_entry_SectionContextEntry:
+      label: SectionContextEntry
+      kind: class
+    module_sldb_core_ir_source_span:
+      label: sldb.core.ir.source_span
+      kind: module
+    class_sldb_core_ir_source_span_SourceSpan:
+      label: SourceSpan
+      kind: class
+    module_sldb_core_ir_surface_node:
+      label: sldb.core.ir.surface_node
+      kind: module
+    class_sldb_core_ir_surface_node_SurfaceNode:
+      label: SurfaceNode
+      kind: class
+    module_sldb_core_node:
+      label: sldb.core.node
+      kind: module
+    class_sldb_core_node_SLDBNode:
+      label: SLDBNode
+      kind: class
+    module_sldb_core_node_handler:
+      label: sldb.core.node_handler
+      kind: module
+    module_sldb_core_renderer:
+      label: sldb.core.renderer
+      kind: module
+    class_sldb_core_renderer_SLDBRenderer:
+      label: SLDBRenderer
+      kind: class
+    module_sldb_core_renderer_engine_base:
+      label: sldb.core.renderer_engine.base
+      kind: module
+    class_sldb_core_renderer_engine_base_BaseRenderer:
+      label: BaseRenderer
+      kind: class
+    module_sldb_core_renderer_engine_list:
+      label: sldb.core.renderer_engine.list
+      kind: module
+    class_sldb_core_renderer_engine_list_ListRenderer:
+      label: ListRenderer
+      kind: class
+    module_sldb_core_renderer_engine_python_expr:
+      label: sldb.core.renderer_engine.python_expr
+      kind: module
+    class_sldb_core_renderer_engine_python_expr_PythonExpressionRenderer:
+      label: PythonExpressionRenderer
+      kind: class
+    module_sldb_core_renderer_engine_table:
+      label: sldb.core.renderer_engine.table
+      kind: module
+    class_sldb_core_renderer_engine_table_TableRenderer:
+      label: TableRenderer
+      kind: class
+    module_sldb_core_renderer_engine_yaml:
+      label: sldb.core.renderer_engine.yaml
+      kind: module
+    class_sldb_core_renderer_engine_yaml_YamlRenderer:
+      label: YamlRenderer
+      kind: class
+    module_sldb_core_template_extractor:
+      label: sldb.core.template_extractor
+      kind: module
+    class_sldb_core_template_extractor_TemplateExtractor:
+      label: TemplateExtractor
+      kind: class
+    module_sldb_examples_pandoc_cv_cv_model:
+      label: sldb.examples.pandoc_cv.cv_model
+      kind: module
+    class_sldb_examples_pandoc_cv_cv_model_PandocCVDoc:
+      label: PandocCVDoc
+      kind: class
+    module_sldb_examples_reference_bundle_guide_model:
+      label: sldb.examples.reference_bundle.guide_model
+      kind: module
+    class_sldb_examples_reference_bundle_guide_model_SLDBGuide:
+      label: SLDBGuide
+      kind: class
+    module_sldb_links_composer:
+      label: sldb.links.composer
+      kind: module
+    module_sldb_links_parsed_link:
+      label: sldb.links.parsed_link
+      kind: module
+    class_sldb_links_parsed_link_ParsedLink:
+      label: ParsedLink
+      kind: class
+    module_sldb_links_parser:
+      label: sldb.links.parser
+      kind: module
+    module_sldb_links_recovery:
+      label: sldb.links.recovery
+      kind: module
+    module_sldb_links_resolved_link:
+      label: sldb.links.resolved_link
+      kind: module
+    class_sldb_links_resolved_link_ResolvedLink:
+      label: ResolvedLink
+      kind: class
+    module_sldb_links_resolver:
+      label: sldb.links.resolver
+      kind: module
+    module_sldb_models_anchor_doc:
+      label: sldb.models.anchor_doc
+      kind: module
+    class_sldb_models_anchor_doc_AnchorDoc:
+      label: AnchorDoc
+      kind: class
+    module_sldb_models_cli_command_doc:
+      label: sldb.models.cli_command_doc
+      kind: module
+    class_sldb_models_cli_command_doc_CliCommandDoc:
+      label: CliCommandDoc
+      kind: class
+    module_sldb_models_knowledge_surface:
+      label: sldb.models.knowledge_surface
+      kind: module
+    module_sldb_models_knowledge_tag:
+      label: sldb.models.knowledge_tag
+      kind: module
+    module_sldb_models_python_symbol_doc:
+      label: sldb.models.python_symbol_doc
+      kind: module
+    class_sldb_models_python_symbol_doc_PythonSymbolDoc:
+      label: PythonSymbolDoc
+      kind: class
+    module_sldb_models_structured_doc:
+      label: sldb.models.structured_doc
+      kind: module
+    class_sldb_models_structured_doc_StructuredNLDoc:
+      label: StructuredNLDoc
+      kind: class
+    module_sldb_models_surface_doc:
+      label: sldb.models.surface_doc
+      kind: module
+    class_sldb_models_surface_doc_SurfaceDoc:
+      label: SurfaceDoc
+      kind: class
+    module_sldb_runtime_config:
+      label: sldb.runtime.config
+      kind: module
+    class_sldb_runtime_config_SLDBConfig:
+      label: SLDBConfig
+      kind: class
+    module_sldb_runtime_validation:
+      label: sldb.runtime.validation
+      kind: module
+    class_sldb_runtime_validation_Validator:
+      label: Validator
+      kind: class
+    module_sldb_selfdoc_argument:
+      label: sldb.selfdoc.argument
+      kind: module
+    class_sldb_selfdoc_argument_ArgumentRecord:
+      label: ArgumentRecord
+      kind: class
+    module_sldb_selfdoc_arguments:
+      label: sldb.selfdoc.arguments
+      kind: module
+    module_sldb_selfdoc_command:
+      label: sldb.selfdoc.command
+      kind: module
+    class_sldb_selfdoc_command_CommandRecord:
+      label: CommandRecord
+      kind: class
+    module_sldb_selfdoc_constraint:
+      label: sldb.selfdoc.constraint
+      kind: module
+    class_sldb_selfdoc_constraint_ExclusiveGroup:
+      label: ExclusiveGroup
+      kind: class
+    module_sldb_selfdoc_materialize:
+      label: sldb.selfdoc.materialize
+      kind: module
+    module_sldb_selfdoc_parser:
+      label: sldb.selfdoc.parser
+      kind: module
+    class_sldb_selfdoc_parser_ParserScanner:
+      label: ParserScanner
+      kind: class
+    module_sldb_selfdoc_planned_document:
+      label: sldb.selfdoc.planned_document
+      kind: module
+    class_sldb_selfdoc_planned_document_PlannedDocument:
+      label: PlannedDocument
+      kind: class
+    module_sldb_selfdoc_projection:
+      label: sldb.selfdoc.projection
+      kind: module
+    module_sldb_selfdoc_python_materialize:
+      label: sldb.selfdoc.python_materialize
+      kind: module
+    module_sldb_selfdoc_python_scanner:
+      label: sldb.selfdoc.python_scanner
+      kind: module
+    class_sldb_selfdoc_python_scanner_PythonScanner:
+      label: PythonScanner
+      kind: class
+    module_sldb_selfdoc_python_symbol:
+      label: sldb.selfdoc.python_symbol
+      kind: module
+    class_sldb_selfdoc_python_symbol_PythonSymbol:
+      label: PythonSymbol
+      kind: class
+    module_sldb_selfdoc_report:
+      label: sldb.selfdoc.report
+      kind: module
+    class_sldb_selfdoc_report_DocumentationReport:
+      label: DocumentationReport
+      kind: class
+    module_sldb_selfdoc_values:
+      label: sldb.selfdoc.values
+      kind: module
+    module_sldb_store_built_cache:
+      label: sldb.store.built_cache
+      kind: module
+    module_sldb_store_catalog:
+      label: sldb.store.catalog
+      kind: module
+    module_sldb_store_codec:
+      label: sldb.store.codec
+      kind: module
+    class_sldb_store_codec_StoreCodec:
+      label: StoreCodec
+      kind: class
+    module_sldb_store_diagnostics:
+      label: sldb.store.diagnostics
+      kind: module
+    module_sldb_store_diagnostics_models_diagnosis_note:
+      label: sldb.store.diagnostics_models.diagnosis_note
+      kind: module
+    class_sldb_store_diagnostics_models_diagnosis_note_DiagnosisNote:
+      label: DiagnosisNote
+      kind: class
+    module_sldb_store_diagnostics_models_document_diagnosis:
+      label: sldb.store.diagnostics_models.document_diagnosis
+      kind: module
+    class_sldb_store_diagnostics_models_document_diagnosis_DocumentDiagnosis:
+      label: DocumentDiagnosis
+      kind: class
+    module_sldb_store_diagnostics_models_model_diagnosis:
+      label: sldb.store.diagnostics_models.model_diagnosis
+      kind: module
+    class_sldb_store_diagnostics_models_model_diagnosis_ModelDiagnosis:
+      label: ModelDiagnosis
+      kind: class
+    module_sldb_store_diagnostics_models_store_diagnosis:
+      label: sldb.store.diagnostics_models.store_diagnosis
+      kind: module
+    class_sldb_store_diagnostics_models_store_diagnosis_StoreDiagnosis:
+      label: StoreDiagnosis
+      kind: class
+    module_sldb_store_exceptions:
+      label: sldb.store.exceptions
+      kind: module
+    class_sldb_store_exceptions_StoreError:
+      label: StoreError
+      kind: class
+    module_sldb_store_export:
+      label: sldb.store.export
+      kind: module
+    class_sldb_store_export_SemanticExporter:
+      label: SemanticExporter
+      kind: class
+    module_sldb_store_facade:
+      label: sldb.store.facade
+      kind: module
+    module_sldb_store_hashing:
+      label: sldb.store.hashing
+      kind: module
+    module_sldb_store_io_documents_index:
+      label: sldb.store.io.documents_index
+      kind: module
+    class_sldb_store_io_documents_index_DocumentsIndexIO:
+      label: DocumentsIndexIO
+      kind: class
+    module_sldb_store_io_lock:
+      label: sldb.store.io.lock
+      kind: module
+    class_sldb_store_io_lock_StoreIOLock:
+      label: StoreIOLock
+      kind: class
+    module_sldb_store_io_models_index:
+      label: sldb.store.io.models_index
+      kind: module
+    class_sldb_store_io_models_index_ModelsIndexIO:
+      label: ModelsIndexIO
+      kind: class
+    module_sldb_store_io_sections_index:
+      label: sldb.store.io.sections_index
+      kind: module
+    class_sldb_store_io_sections_index_SectionsIndexIO:
+      label: SectionsIndexIO
+      kind: class
+    module_sldb_store_io_semantic_dag:
+      label: sldb.store.io.semantic_dag
+      kind: module
+    class_sldb_store_io_semantic_dag_SemanticDAGIO:
+      label: SemanticDAGIO
+      kind: class
+    module_sldb_store_io_semantic_index:
+      label: sldb.store.io.semantic_index
+      kind: module
+    class_sldb_store_io_semantic_index_SemanticIndexIO:
+      label: SemanticIndexIO
+      kind: class
+    module_sldb_store_io_store_index:
+      label: sldb.store.io.store_index
+      kind: module
+    class_sldb_store_io_store_index_StoreIndexIO:
+      label: StoreIndexIO
+      kind: class
+    module_sldb_store_io_utils:
+      label: sldb.store.io.utils
+      kind: module
+    class_sldb_store_io_utils_StoreIOUtils:
+      label: StoreIOUtils
+      kind: class
+    module_sldb_store_layout:
+      label: sldb.store.layout
+      kind: module
+    module_sldb_store_migration:
+      label: sldb.store.migration
+      kind: module
+    module_sldb_store_models_doc_sections:
+      label: sldb.store.models.doc_sections
+      kind: module
+    class_sldb_store_models_doc_sections_DocSections:
+      label: DocSections
+      kind: class
+    module_sldb_store_models_document_entry:
+      label: sldb.store.models.document_entry
+      kind: module
+    class_sldb_store_models_document_entry_DocumentEntry:
+      label: DocumentEntry
+      kind: class
+    module_sldb_store_models_documents_index:
+      label: sldb.store.models.documents_index
+      kind: module
+    class_sldb_store_models_documents_index_DocumentsIndex:
+      label: DocumentsIndex
+      kind: class
+    module_sldb_store_models_model_entry:
+      label: sldb.store.models.model_entry
+      kind: module
+    class_sldb_store_models_model_entry_ModelEntry:
+      label: ModelEntry
+      kind: class
+    module_sldb_store_models_models_index:
+      label: sldb.store.models.models_index
+      kind: module
+    class_sldb_store_models_models_index_ModelsIndex:
+      label: ModelsIndex
+      kind: class
+    module_sldb_store_models_predicate_entry:
+      label: sldb.store.models.predicate_entry
+      kind: module
+    class_sldb_store_models_predicate_entry_PredicateEntry:
+      label: PredicateEntry
+      kind: class
+    module_sldb_store_models_section_context_record:
+      label: sldb.store.models.section_context_record
+      kind: module
+    class_sldb_store_models_section_context_record_SectionContextRecord:
+      label: SectionContextRecord
+      kind: class
+    module_sldb_store_models_sections_index:
+      label: sldb.store.models.sections_index
+      kind: module
+    class_sldb_store_models_sections_index_SectionsIndex:
+      label: SectionsIndex
+      kind: class
+    module_sldb_store_models_semantic_d_a_g:
+      label: sldb.store.models.semantic_d_a_g
+      kind: module
+    class_sldb_store_models_semantic_d_a_g_SemanticDAG:
+      label: SemanticDAG
+      kind: class
+    module_sldb_store_models_semantic_document_record:
+      label: sldb.store.models.semantic_document_record
+      kind: module
+    class_sldb_store_models_semantic_document_record_SemanticDocumentRecord:
+      label: SemanticDocumentRecord
+      kind: class
+    module_sldb_store_models_semantic_index:
+      label: sldb.store.models.semantic_index
+      kind: module
+    class_sldb_store_models_semantic_index_SemanticIndex:
+      label: SemanticIndex
+      kind: class
+    module_sldb_store_models_semantic_node:
+      label: sldb.store.models.semantic_node
+      kind: module
+    class_sldb_store_models_semantic_node_SemanticNode:
+      label: SemanticNode
+      kind: class
+    module_sldb_store_models_store_entry:
+      label: sldb.store.models.store_entry
+      kind: module
+    class_sldb_store_models_store_entry_StoreEntry:
+      label: StoreEntry
+      kind: class
+    module_sldb_store_models_store_index:
+      label: sldb.store.models.store_index
+      kind: module
+    class_sldb_store_models_store_index_StoreIndex:
+      label: StoreIndex
+      kind: class
+    module_sldb_store_ops:
+      label: sldb.store.ops
+      kind: module
+    class_sldb_store_ops_StoreOperations:
+      label: StoreOperations
+      kind: class
+    module_sldb_store_predicates:
+      label: sldb.store.predicates
+      kind: module
+    module_sldb_store_query:
+      label: sldb.store.query
+      kind: module
+    module_sldb_store_query_engine_filter:
+      label: sldb.store.query_engine.filter
+      kind: module
+    class_sldb_store_query_engine_filter_DocumentFilter:
+      label: DocumentFilter
+      kind: class
+    module_sldb_store_query_engine_global_semantic:
+      label: sldb.store.query_engine.global_semantic
+      kind: module
+    class_sldb_store_query_engine_global_semantic_GlobalSemanticEngine:
+      label: GlobalSemanticEngine
+      kind: class
+    module_sldb_store_query_engine_models:
+      label: sldb.store.query_engine.models
+      kind: module
+    class_sldb_store_query_engine_models_RuntimeDocument:
+      label: RuntimeDocument
+      kind: class
+    module_sldb_store_query_engine_semantic:
+      label: sldb.store.query_engine.semantic
+      kind: module
+    class_sldb_store_query_engine_semantic_SemanticEngine:
+      label: SemanticEngine
+      kind: class
+    module_sldb_store_query_engine_semantic_utils:
+      label: sldb.store.query_engine.semantic_utils
+      kind: module
+    class_sldb_store_query_engine_semantic_utils_SemanticUtils:
+      label: SemanticUtils
+      kind: class
+    module_sldb_store_query_engine_store_prefix:
+      label: sldb.store.query_engine.store_prefix
+      kind: module
+    module_sldb_store_query_engine_structural:
+      label: sldb.store.query_engine.structural
+      kind: module
+    class_sldb_store_query_engine_structural_StructuralEngine:
+      label: StructuralEngine
+      kind: class
+    module_sldb_store_query_engine_structural_queries:
+      label: sldb.store.query_engine.structural_queries
+      kind: module
+    class_sldb_store_query_engine_structural_queries_StructuralQueryEngine:
+      label: StructuralQueryEngine
+      kind: class
+    module_sldb_store_resolver:
+      label: sldb.store.resolver
+      kind: module
+    module_sldb_store_runtime_cache:
+      label: sldb.store.runtime_cache
+      kind: module
+    module_sldb_store_runtime_cache_disk:
+      label: sldb.store.runtime_cache_disk
+      kind: module
+    module_sldb_store_runtime_codec:
+      label: sldb.store.runtime_codec
+      kind: module
+    class_sldb_store_runtime_codec_RuntimeCodec:
+      label: RuntimeCodec
+      kind: class
+    module_sldb_store_section_rebuild:
+      label: sldb.store.section_rebuild
+      kind: module
+    module_sldb_store_semantic:
+      label: sldb.store.semantic
+      kind: module
+    class_sldb_store_semantic_RebuildReport:
+      label: RebuildReport
+      kind: class
+    module_sldb_store_semantic_doc_tags:
+      label: sldb.store.semantic_doc_tags
+      kind: module
+    module_sldb_store_semantic_tags:
+      label: sldb.store.semantic_tags
+      kind: module
+    module_sldb_cli:
+      label: cli
+      kind: external
+    module___future__:
+      label: ''
+      kind: external
+    module_typing:
+      label: typing
+      kind: external
+    module_sldb_cli_graph_ops:
+      label: ops
+      kind: external
+    module_pathlib:
+      label: pathlib
+      kind: external
+    module_sldb_store_io:
+      label: io
+      kind: external
+    module_sldb_core_exceptions:
+      label: exceptions
+      kind: external
+    module_dataclasses:
+      label: dataclasses
+      kind: external
+    module_explore_hit:
+      label: hit
+      kind: external
+    module_help_texts_core:
+      label: core
+      kind: external
+    module_help_texts_find:
+      label: find
+      kind: external
+    module_help_texts_docs:
+      label: docs
+      kind: external
+    module_help_texts_other:
+      label: other
+      kind: external
+    module_help_texts_other2:
+      label: other2
+      kind: external
+    module_help_texts_selfdoc:
+      label: selfdoc
+      kind: external
+    module_datetime:
+      label: datetime
+      kind: external
+    module_importlib_resources:
+      label: resources
+      kind: external
+    module_sldb_links:
+      label: links
+      kind: external
+    module_sldb_store_models:
+      label: models
+      kind: external
+    module_importlib_machinery:
+      label: machinery
+      kind: external
+    module_contextlib:
+      label: contextlib
+      kind: external
+    module_http_server:
+      label: server
+      kind: external
+    module_sldb_core_ast:
+      label: ast
+      kind: external
+    module_sldb_core_contracts:
+      label: contracts
+      kind: external
+    module_section_record:
+      label: record
+      kind: external
+    module_utils:
+      label: utils
+      kind: external
+    module_search_record:
+      label: record
+      kind: external
+    module_build_ast:
+      label: ast
+      kind: external
+    module_resolve:
+      label: resolve
+      kind: external
+    module_build_ir:
+      label: ir
+      kind: external
+    module_extract:
+      label: extract
+      kind: external
+    module_fields:
+      label: fields
+      kind: external
+    module_sldb_core_ir:
+      label: ir
+      kind: external
+    module_flatten:
+      label: flatten
+      kind: external
+    module_map_fields:
+      label: fields
+      kind: external
+    module_iter_records_helpers:
+      label: helpers
+      kind: external
+    module_iter_records_docs:
+      label: docs
+      kind: external
+    module_importlib:
+      label: importlib
+      kind: external
+    module_basic:
+      label: basic
+      kind: external
+    module_project:
+      label: project
+      kind: external
+    module_public:
+      label: public
+      kind: external
+    module_misc:
+      label: misc
+      kind: external
+    module_find:
+      label: find
+      kind: external
+    module_legacy:
+      label: legacy
+      kind: external
+    module_serve:
+      label: serve
+      kind: external
+    module_selfdoc:
+      label: selfdoc
+      kind: external
+    module_hidden:
+      label: hidden
+      kind: external
+    module_docs2:
+      label: docs2
+      kind: external
+    module_models2:
+      label: models2
+      kind: external
+    module_stores:
+      label: stores
+      kind: external
+    module_models1:
+      label: models1
+      kind: external
+    module_predicates:
+      label: predicates
+      kind: external
+    module_docs1:
+      label: docs1
+      kind: external
+    module_sections:
+      label: sections
+      kind: external
+    module_selfdoc_registry:
+      label: registry
+      kind: external
+    module_types:
+      label: types
+      kind: external
+    module_urllib_parse:
+      label: parse
+      kind: external
+    module_enum:
+      label: enum
+      kind: external
+    module_abc:
+      label: abc
+      kind: external
+    module_markdown_it:
+      label: it
+      kind: external
+    module_markdown_it_tree:
+      label: tree
+      kind: external
+    module_base_ast_handler:
+      label: handler
+      kind: external
+    module_mdit_py_plugins_front_matter:
+      label: matter
+      kind: external
+    module_pydantic:
+      label: pydantic
+      kind: external
+    module_marker:
+      label: marker
+      kind: external
+    module_sldb_error:
+      label: error
+      kind: external
+    module_sldb_model_error:
+      label: error
+      kind: external
+    module_scanner:
+      label: scanner
+      kind: external
+    module_manifest:
+      label: manifest
+      kind: external
+    module_source_parser:
+      label: parser
+      kind: external
+    module_renderer:
+      label: renderer
+      kind: external
+    module_wiki_compiler_contracts:
+      label: contracts
+      kind: external
+    module_wiki_compiler_adapters_ontology_facets:
+      label: facets
+      kind: external
+    module_kgdb_contracts_node:
+      label: node
+      kind: external
+    module_ontology_contracts_facets:
+      label: facets
+      kind: external
+    module_kgdb_contracts_base:
+      label: base
+      kind: external
+    module_ignore_rule:
+      label: rule
+      kind: external
+    module_python_scanner:
+      label: scanner
+      kind: external
+    module_typescript_scanner:
+      label: scanner
+      kind: external
+    module_wiki_compiler_protocols:
+      label: protocols
+      kind: external
+    module_document_context:
+      label: context
+      kind: external
+    module_meaning_node:
+      label: node
+      kind: external
+    module_surface_node:
+      label: node
+      kind: external
+    module_graph_view:
+      label: view
+      kind: external
+    module_section_context_entry:
+      label: entry
+      kind: external
+    module_graph_edge:
+      label: edge
+      kind: external
+    module_source_span:
+      label: span
+      kind: external
+    module_jinja2:
+      label: jinja2
+      kind: external
+    module_sldb:
+      label: sldb
+      kind: external
+    module_parser:
+      label: parser
+      kind: external
+    module_resolver:
+      label: resolver
+      kind: external
+    module_collections_abc:
+      label: abc
+      kind: external
+    module_parsed_link:
+      label: link
+      kind: external
+    module_resolved_link:
+      label: link
+      kind: external
+    module_knowledge_tag:
+      label: tag
+      kind: external
+    module_anchor_doc:
+      label: doc
+      kind: external
+    module_cli_command_doc:
+      label: doc
+      kind: external
+    module_surface_doc:
+      label: doc
+      kind: external
+    module_python_symbol_doc:
+      label: doc
+      kind: external
+    module_structured_doc:
+      label: doc
+      kind: external
+    module_argument:
+      label: argument
+      kind: external
+    module_constraint:
+      label: constraint
+      kind: external
+    module_values:
+      label: values
+      kind: external
+    module_command:
+      label: command
+      kind: external
+    module_planned_document:
+      label: document
+      kind: external
+    module_projection:
+      label: projection
+      kind: external
+    module_arguments:
+      label: arguments
+      kind: external
+    module_python_symbol:
+      label: symbol
+      kind: external
+    module_sldb_store_diagnostics_models:
+      label: models
+      kind: external
+    module_importlib_metadata:
+      label: metadata
+      kind: external
+    module_sldb_store:
+      label: store
+      kind: external
+    module_collections:
+      label: collections
+      kind: external
+  edges:
+  - from: module_sldb___main__
+    to: module_sldb_cli
+    relation: imports
+  - from: module_sldb_cli_commands_ast
+    to: class_sldb_cli_commands_ast_ASTCLI
+    relation: defines
+  - from: module_sldb_cli_commands_ast
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_ast
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_ast
+    to: module_sldb_cli_graph_ops
+    relation: imports
+  - from: module_sldb_cli_commands_basic
+    to: class_sldb_cli_commands_basic_BasicCLI
+    relation: defines
+  - from: module_sldb_cli_commands_basic
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_basic
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_basic
+    to: module_sldb_cli_utils
+    relation: imports
+  - from: module_sldb_cli_commands_basic
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_commands_basic
+    to: module_sldb_runtime_validation
+    relation: imports
+  - from: module_sldb_cli_commands_doc
+    to: class_sldb_cli_commands_doc_DocCLI
+    relation: defines
+  - from: module_sldb_cli_commands_doc
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_doc
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_doc
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_doc
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_doc
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_commands_doc
+    to: module_sldb_runtime_validation
+    relation: imports
+  - from: module_sldb_cli_commands_doc
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_commands_doc
+    to: module_sldb_store_hashing
+    relation: imports
+  - from: module_sldb_cli_commands_doc
+    to: module_sldb_store_section_rebuild
+    relation: imports
+  - from: module_sldb_cli_commands_doc
+    to: module_sldb_store_semantic
+    relation: imports
+  - from: module_sldb_cli_commands_doc
+    to: module_sldb_store_ops
+    relation: imports
+  - from: module_sldb_cli_commands_doc
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_cli_commands_doc_helpers
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_doc_helpers
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_doc_helpers
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_doc_helpers
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_doc_helpers
+    to: module_sldb_runtime_validation
+    relation: imports
+  - from: module_sldb_cli_commands_doc_helpers
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_cli_commands_doc_helpers
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_commands_doc_helpers
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_commands_doc_helpers
+    to: module_sldb_store_section_rebuild
+    relation: imports
+  - from: module_sldb_cli_commands_doc_helpers
+    to: module_sldb_store_ops
+    relation: imports
+  - from: module_sldb_cli_commands_doc_helpers
+    to: module_sldb_store_hashing
+    relation: imports
+  - from: module_sldb_cli_commands_doc_helpers
+    to: module_sldb_store_section_rebuild
+    relation: imports
+  - from: module_sldb_cli_commands_doc_helpers
+    to: module_sldb_store_section_rebuild
+    relation: imports
+  - from: module_sldb_cli_commands_docs
+    to: class_sldb_cli_commands_docs_DocsCLI
+    relation: defines
+  - from: module_sldb_cli_commands_docs
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_docs
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_docs
+    to: module_sldb_cli_commands_doc
+    relation: imports
+  - from: module_sldb_cli_commands_docs
+    to: module_sldb_cli_commands_explore
+    relation: imports
+  - from: module_sldb_cli_commands_docs
+    to: module_sldb_cli_commands_links
+    relation: imports
+  - from: module_sldb_cli_commands_docs
+    to: module_sldb_cli_graph_ops
+    relation: imports
+  - from: module_sldb_cli_commands_docs
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_docs
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_commands_explore
+    to: class_sldb_cli_commands_explore_ExploreCLI
+    relation: defines
+  - from: module_sldb_cli_commands_explore
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_explore
+    to: module_dataclasses
+    relation: imports
+  - from: module_sldb_cli_commands_explore
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_explore
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_explore
+    to: module_sldb_cli_commands_explore_hit
+    relation: imports
+  - from: module_sldb_cli_commands_explore
+    to: module_sldb_cli_commands_explore_docs
+    relation: imports
+  - from: module_sldb_cli_commands_explore
+    to: module_sldb_cli_commands_explore_code
+    relation: imports
+  - from: module_sldb_cli_commands_explore
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_explore_code
+    to: class_sldb_cli_commands_explore_code_ExploreCode
+    relation: defines
+  - from: module_sldb_cli_commands_explore_code
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_explore_code
+    to: module_explore_hit
+    relation: imports
+  - from: module_sldb_cli_commands_explore_docs
+    to: class_sldb_cli_commands_explore_docs_ExploreDocs
+    relation: defines
+  - from: module_sldb_cli_commands_explore_docs
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_explore_docs
+    to: module_explore_hit
+    relation: imports
+  - from: module_sldb_cli_commands_explore_hit
+    to: class_sldb_cli_commands_explore_hit_ExploreHit
+    relation: defines
+  - from: module_sldb_cli_commands_explore_hit
+    to: module_dataclasses
+    relation: imports
+  - from: module_sldb_cli_commands_faq
+    to: class_sldb_cli_commands_faq_FAQCLI
+    relation: defines
+  - from: module_sldb_cli_commands_faq
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_faq
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_faq
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_faq
+    to: module_sldb_cli_commands_faq_entry
+    relation: imports
+  - from: module_sldb_cli_commands_faq
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_faq_entry
+    to: class_sldb_cli_commands_faq_entry_FAQEntry
+    relation: defines
+  - from: module_sldb_cli_commands_faq_entry
+    to: module_dataclasses
+    relation: imports
+  - from: module_sldb_cli_commands_fields
+    to: class_sldb_cli_commands_fields_FieldsCLI
+    relation: defines
+  - from: module_sldb_cli_commands_fields
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_fields
+    to: module_sldb_cli_commands_fields_show
+    relation: imports
+  - from: module_sldb_cli_commands_fields
+    to: module_sldb_cli_commands_fields_mutate
+    relation: imports
+  - from: module_sldb_cli_commands_fields_mutate
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_fields_mutate
+    to: module_sldb_cli_dict_utils
+    relation: imports
+  - from: module_sldb_cli_commands_fields_mutate
+    to: module_sldb_cli_utils
+    relation: imports
+  - from: module_sldb_cli_commands_fields_mutate
+    to: module_sldb_cli_commands_fields_target
+    relation: imports
+  - from: module_sldb_cli_commands_fields_mutate
+    to: module_sldb_cli_commands_fields_save
+    relation: imports
+  - from: module_sldb_cli_commands_fields_save
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_fields_save
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_fields_save
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_commands_fields_save
+    to: module_sldb_runtime_validation
+    relation: imports
+  - from: module_sldb_cli_commands_fields_save
+    to: module_sldb_store_hashing
+    relation: imports
+  - from: module_sldb_cli_commands_fields_save
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_commands_fields_save
+    to: module_sldb_store_ops
+    relation: imports
+  - from: module_sldb_cli_commands_fields_save
+    to: module_sldb_store_semantic
+    relation: imports
+  - from: module_sldb_cli_commands_fields_show
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_fields_show
+    to: module_sldb_cli_dict_utils
+    relation: imports
+  - from: module_sldb_cli_commands_fields_show
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_fields_show
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_commands_fields_show
+    to: module_sldb_cli_commands_fields_target
+    relation: imports
+  - from: module_sldb_cli_commands_fields_show
+    to: module_sldb_cli_graph_ops
+    relation: imports
+  - from: module_sldb_cli_commands_fields_target
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_fields_target
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_fields_target
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_commands_fields_target
+    to: module_sldb_store_query
+    relation: imports
+  - from: module_sldb_cli_commands_find
+    to: class_sldb_cli_commands_find_FindCLI
+    relation: defines
+  - from: module_sldb_cli_commands_find
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_find
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_find
+    to: module_sldb_cli_graph_ops
+    relation: imports
+  - from: module_sldb_cli_commands_find
+    to: module_sldb_cli_commands_find_filters
+    relation: imports
+  - from: module_sldb_cli_commands_find
+    to: module_sldb_cli_commands_find_format
+    relation: imports
+  - from: module_sldb_cli_commands_find_filter
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_find_filter
+    to: module_sldb_cli_commands_find_proxy
+    relation: imports
+  - from: module_sldb_cli_commands_find_filter
+    to: module_sldb_cli_graph_ops
+    relation: imports
+  - from: module_sldb_cli_commands_find_filter
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_commands_find_filter
+    to: module_sldb_store_query_engine_filter
+    relation: imports
+  - from: module_sldb_cli_commands_find_filters
+    to: class_sldb_cli_commands_find_filters_FindFilters
+    relation: defines
+  - from: module_sldb_cli_commands_find_filters
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_find_filters
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_find_filters
+    to: module_sldb_cli_graph_ops
+    relation: imports
+  - from: module_sldb_cli_commands_find_filters
+    to: module_sldb_store_query_engine_filter
+    relation: imports
+  - from: module_sldb_cli_commands_find_filters
+    to: module_sldb_cli_commands_find_utils
+    relation: imports
+  - from: module_sldb_cli_commands_find_filters
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_commands_find_format
+    to: class_sldb_cli_commands_find_format_FindFormatter
+    relation: defines
+  - from: module_sldb_cli_commands_find_format
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_find_format
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_find_format
+    to: module_sldb_cli_graph_ops
+    relation: imports
+  - from: module_sldb_cli_commands_find_proxy
+    to: class_sldb_cli_commands_find_proxy__RuntimeDocProxy
+    relation: defines
+  - from: module_sldb_cli_commands_find_proxy
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_find_utils
+    to: class_sldb_cli_commands_find_utils_RuntimeDocProxy
+    relation: defines
+  - from: module_sldb_cli_commands_find_utils
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_find_utils
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_help
+    to: class_sldb_cli_commands_help_HelpCLI
+    relation: defines
+  - from: module_sldb_cli_commands_help
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_help
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_help
+    to: module_sldb_cli_commands_help_texts
+    relation: imports
+  - from: module_sldb_cli_commands_help_texts
+    to: module_help_texts_core
+    relation: imports
+  - from: module_sldb_cli_commands_help_texts
+    to: module_help_texts_find
+    relation: imports
+  - from: module_sldb_cli_commands_help_texts
+    to: module_help_texts_docs
+    relation: imports
+  - from: module_sldb_cli_commands_help_texts
+    to: module_help_texts_other
+    relation: imports
+  - from: module_sldb_cli_commands_help_texts
+    to: module_help_texts_other2
+    relation: imports
+  - from: module_sldb_cli_commands_help_texts
+    to: module_help_texts_selfdoc
+    relation: imports
+  - from: module_sldb_cli_commands_inbox
+    to: class_sldb_cli_commands_inbox_InboxCLI
+    relation: defines
+  - from: module_sldb_cli_commands_inbox
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_inbox
+    to: module_sldb_cli_commands_inbox_list
+    relation: imports
+  - from: module_sldb_cli_commands_inbox
+    to: module_sldb_cli_commands_inbox_show
+    relation: imports
+  - from: module_sldb_cli_commands_inbox
+    to: module_sldb_cli_commands_inbox_create
+    relation: imports
+  - from: module_sldb_cli_commands_inbox_core
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_inbox_core
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_inbox_core
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_inbox_core
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_cli_commands_inbox_core
+    to: module_sldb_store_resolver
+    relation: imports
+  - from: module_sldb_cli_commands_inbox_create
+    to: module_datetime
+    relation: imports
+  - from: module_sldb_cli_commands_inbox_create
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_inbox_create
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_inbox_create
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_cli_commands_inbox_create
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_commands_inbox_create
+    to: module_sldb_runtime_validation
+    relation: imports
+  - from: module_sldb_cli_commands_inbox_create
+    to: module_sldb_store_ops
+    relation: imports
+  - from: module_sldb_cli_commands_inbox_create
+    to: module_sldb_cli_commands_inbox_core
+    relation: imports
+  - from: module_sldb_cli_commands_inbox_list
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_inbox_list
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_inbox_list
+    to: module_sldb_cli_commands_inbox_core
+    relation: imports
+  - from: module_sldb_cli_commands_inbox_list
+    to: module_sldb_cli_commands_inbox_parse
+    relation: imports
+  - from: module_sldb_cli_commands_inbox_parse
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_inbox_show
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_inbox_show
+    to: module_sldb_cli_commands_inbox_core
+    relation: imports
+  - from: module_sldb_cli_commands_inbox_show
+    to: module_sldb_cli_commands_inbox_parse
+    relation: imports
+  - from: module_sldb_cli_commands_init
+    to: class_sldb_cli_commands_init_InitCLI
+    relation: defines
+  - from: module_sldb_cli_commands_init
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_init
+    to: module_importlib_resources
+    relation: imports
+  - from: module_sldb_cli_commands_init
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_init
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_init
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_cli_commands_legacy
+    to: class_sldb_cli_commands_legacy_LegacyCLI
+    relation: defines
+  - from: module_sldb_cli_commands_legacy
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_legacy
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_legacy
+    to: module_sldb_cli_commands_links
+    relation: imports
+  - from: module_sldb_cli_commands_legacy
+    to: module_sldb_cli_commands_query
+    relation: imports
+  - from: module_sldb_cli_commands_links
+    to: class_sldb_cli_commands_links_LinkCLI
+    relation: defines
+  - from: module_sldb_cli_commands_links
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_links
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_links
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_links
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_links
+    to: module_sldb_cli_utils
+    relation: imports
+  - from: module_sldb_cli_commands_links
+    to: module_sldb_links
+    relation: imports
+  - from: module_sldb_cli_commands_lint
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_lint
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_lint
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_model
+    to: class_sldb_cli_commands_model_ModelCLI
+    relation: defines
+  - from: module_sldb_cli_commands_model
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_model
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_model
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_model
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_model
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_commands_model
+    to: module_sldb_store_hashing
+    relation: imports
+  - from: module_sldb_cli_commands_model
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_commands_model
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_cli_commands_model
+    to: module_sldb_store_models
+    relation: imports
+  - from: module_sldb_cli_commands_model
+    to: module_sldb_store_ops
+    relation: imports
+  - from: module_sldb_cli_commands_model
+    to: module_sldb_store_semantic
+    relation: imports
+  - from: module_sldb_cli_commands_model
+    to: module_sldb_store_semantic_tags
+    relation: imports
+  - from: module_sldb_cli_commands_model
+    to: module_sldb_cli_commands_model_add
+    relation: imports
+  - from: module_sldb_cli_commands_model
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_cli_commands_model_add
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_model_add
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_model_add
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_model_add
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_model_add
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_commands_model_add
+    to: module_sldb_store_hashing
+    relation: imports
+  - from: module_sldb_cli_commands_model_add
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_commands_model_add
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_cli_commands_model_add
+    to: module_sldb_store_models
+    relation: imports
+  - from: module_sldb_cli_commands_model_add
+    to: module_sldb_store_ops
+    relation: imports
+  - from: module_sldb_cli_commands_model_add
+    to: module_sldb_store_semantic
+    relation: imports
+  - from: module_sldb_cli_commands_model_add
+    to: module_sldb_store_semantic_tags
+    relation: imports
+  - from: module_sldb_cli_commands_model_add
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_cli_commands_model_add
+    to: module_sldb_models_structured_doc
+    relation: imports
+  - from: module_sldb_cli_commands_model_source
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_model_source
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_model_source
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_commands_model_update
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_model_update
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_model_update
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_model_update
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_model_update
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_commands_model_update
+    to: module_sldb_store_hashing
+    relation: imports
+  - from: module_sldb_cli_commands_model_update
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_commands_model_update
+    to: module_sldb_store_ops
+    relation: imports
+  - from: module_sldb_cli_commands_model_update
+    to: module_sldb_store_semantic
+    relation: imports
+  - from: module_sldb_cli_commands_model_update
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_cli_commands_models
+    to: class_sldb_cli_commands_models_ModelsCLI
+    relation: defines
+  - from: module_sldb_cli_commands_models
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_models
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_models
+    to: module_sldb_cli_commands_model
+    relation: imports
+  - from: module_sldb_cli_commands_models
+    to: module_sldb_cli_graph_ops
+    relation: imports
+  - from: module_sldb_cli_commands_models
+    to: module_sldb_cli_commands_models_list
+    relation: imports
+  - from: module_sldb_cli_commands_models
+    to: module_sldb_cli_commands_models_create
+    relation: imports
+  - from: module_sldb_cli_commands_models
+    to: module_sldb_cli_commands_models_validate
+    relation: imports
+  - from: module_sldb_cli_commands_models
+    to: module_sldb_cli_commands_models_template
+    relation: imports
+  - from: module_sldb_cli_commands_models
+    to: module_sldb_cli_commands_models_fields
+    relation: imports
+  - from: module_sldb_cli_commands_models_create
+    to: class_sldb_cli_commands_models_create_ModelsCreateCLI
+    relation: defines
+  - from: module_sldb_cli_commands_models_create
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_models_create
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_models_create
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_models_create
+    to: module_sldb_cli_utils
+    relation: imports
+  - from: module_sldb_cli_commands_models_fields
+    to: class_sldb_cli_commands_models_fields_ModelsFieldsCLI
+    relation: defines
+  - from: module_sldb_cli_commands_models_fields
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_models_fields
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_models_fields
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_models_fields
+    to: module_sldb_cli_utils
+    relation: imports
+  - from: module_sldb_cli_commands_models_fields
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_cli_commands_models_fields
+    to: module_sldb_cli_commands_models_utils
+    relation: imports
+  - from: module_sldb_cli_commands_models_list
+    to: class_sldb_cli_commands_models_list_ModelsListCLI
+    relation: defines
+  - from: module_sldb_cli_commands_models_list
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_models_list
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_models_list
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_models_list
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_commands_models_template
+    to: class_sldb_cli_commands_models_template_ModelsTemplateCLI
+    relation: defines
+  - from: module_sldb_cli_commands_models_template
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_models_template
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_models_template
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_models_template
+    to: module_sldb_cli_utils
+    relation: imports
+  - from: module_sldb_cli_commands_models_template
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_cli_commands_models_template
+    to: module_sldb_cli_commands_models_utils
+    relation: imports
+  - from: module_sldb_cli_commands_models_utils
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_models_utils
+    to: module_importlib_machinery
+    relation: imports
+  - from: module_sldb_cli_commands_models_utils
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_models_utils
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_models_utils
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_models_utils
+    to: module_sldb_cli_utils
+    relation: imports
+  - from: module_sldb_cli_commands_models_utils
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_cli_commands_models_utils
+    to: module_sldb_runtime_validation
+    relation: imports
+  - from: module_sldb_cli_commands_models_utils
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_commands_models_utils
+    to: module_sldb_cli_commands_model_source
+    relation: imports
+  - from: module_sldb_cli_commands_models_utils
+    to: module_sldb_store_facade
+    relation: imports
+  - from: module_sldb_cli_commands_models_validate
+    to: class_sldb_cli_commands_models_validate_ModelsValidateCLI
+    relation: defines
+  - from: module_sldb_cli_commands_models_validate
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_models_validate
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_models_validate
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_models_validate
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_cli_commands_models_validate
+    to: module_sldb_runtime_validation
+    relation: imports
+  - from: module_sldb_cli_commands_models_validate
+    to: module_sldb_cli_commands_models_utils
+    relation: imports
+  - from: module_sldb_cli_commands_models_validate
+    to: module_sldb_cli_commands_models_validate_utils
+    relation: imports
+  - from: module_sldb_cli_commands_models_validate_utils
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_models_validate_utils
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_models_validate_utils
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_models_validate_utils
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_models_validate_utils
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_cli_commands_models_validate_utils
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_cli_commands_models_validate_utils
+    to: module_sldb_runtime_validation
+    relation: imports
+  - from: module_sldb_cli_commands_predicates
+    to: class_sldb_cli_commands_predicates_PredicatesCLI
+    relation: defines
+  - from: module_sldb_cli_commands_predicates
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_predicates
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_predicates
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_predicates
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_cli_commands_predicates
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_commands_predicates
+    to: module_sldb_store_models
+    relation: imports
+  - from: module_sldb_cli_commands_predicates
+    to: module_sldb_store_predicates
+    relation: imports
+  - from: module_sldb_cli_commands_predicates_format
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_query
+    to: class_sldb_cli_commands_query_QueryCLI
+    relation: defines
+  - from: module_sldb_cli_commands_query
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_query
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_query
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_query
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_commands_query
+    to: module_sldb_store_query
+    relation: imports
+  - from: module_sldb_cli_commands_query
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_cli_commands_sections
+    to: class_sldb_cli_commands_sections_SectionsCLI
+    relation: defines
+  - from: module_sldb_cli_commands_sections
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_sections
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_sections
+    to: module_sldb_cli_commands_sections_show
+    relation: imports
+  - from: module_sldb_cli_commands_sections
+    to: module_sldb_cli_commands_sections_find
+    relation: imports
+  - from: module_sldb_cli_commands_sections
+    to: module_sldb_cli_commands_sections_fields
+    relation: imports
+  - from: module_sldb_cli_commands_sections_common
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_sections_common
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_commands_sections_common
+    to: module_sldb_store_models
+    relation: imports
+  - from: module_sldb_cli_commands_sections_fields
+    to: class_sldb_cli_commands_sections_fields_FieldsSectionsCLI
+    relation: defines
+  - from: module_sldb_cli_commands_sections_fields
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_sections_fields
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_sections_fields
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_sections_fields
+    to: module_sldb_cli_graph_ops
+    relation: imports
+  - from: module_sldb_cli_commands_sections_fields
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_sections_fields
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_commands_sections_fields
+    to: module_sldb_cli_commands_sections_common
+    relation: imports
+  - from: module_sldb_cli_commands_sections_find
+    to: class_sldb_cli_commands_sections_find_FindSectionsCLI
+    relation: defines
+  - from: module_sldb_cli_commands_sections_find
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_sections_find
+    to: module_sldb_cli_commands_find_filter
+    relation: imports
+  - from: module_sldb_cli_commands_sections_find
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_sections_find
+    to: module_sldb_cli_graph_ops
+    relation: imports
+  - from: module_sldb_cli_commands_sections_find
+    to: module_sldb_cli_commands_find
+    relation: imports
+  - from: module_sldb_cli_commands_sections_show
+    to: class_sldb_cli_commands_sections_show_ShowSectionsCLI
+    relation: defines
+  - from: module_sldb_cli_commands_sections_show
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_sections_show
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_sections_show
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_sections_show
+    to: module_sldb_cli_graph_ops
+    relation: imports
+  - from: module_sldb_cli_commands_sections_show
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_sections_show
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_commands_sections_show
+    to: module_sldb_cli_commands_sections_common
+    relation: imports
+  - from: module_sldb_cli_commands_selfdoc
+    to: class_sldb_cli_commands_selfdoc_SelfdocCLI
+    relation: defines
+  - from: module_sldb_cli_commands_selfdoc
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_selfdoc
+    to: module_contextlib
+    relation: imports
+  - from: module_sldb_cli_commands_selfdoc
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_selfdoc
+    to: module_sldb_cli_selfdoc_context
+    relation: imports
+  - from: module_sldb_cli_commands_selfdoc
+    to: module_sldb_cli_selfdoc_inspect
+    relation: imports
+  - from: module_sldb_cli_commands_selfdoc
+    to: module_sldb_cli_selfdoc_write
+    relation: imports
+  - from: module_sldb_cli_commands_selfdoc
+    to: module_sldb_selfdoc_materialize
+    relation: imports
+  - from: module_sldb_cli_commands_selfdoc
+    to: module_sldb_selfdoc_parser
+    relation: imports
+  - from: module_sldb_cli_commands_selfdoc
+    to: module_sldb_store_resolver
+    relation: imports
+  - from: module_sldb_cli_commands_selfdoc
+    to: module_sldb_selfdoc_python_scanner
+    relation: imports
+  - from: module_sldb_cli_commands_selfdoc
+    to: module_sldb_selfdoc_python_materialize
+    relation: imports
+  - from: module_sldb_cli_commands_serve
+    to: class_sldb_cli_commands_serve_ServeCLI
+    relation: defines
+  - from: module_sldb_cli_commands_serve
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_serve
+    to: module_http_server
+    relation: imports
+  - from: module_sldb_cli_commands_serve
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_serve
+    to: module_sldb_cli_serve_http_server
+    relation: imports
+  - from: module_sldb_cli_commands_store
+    to: class_sldb_cli_commands_store_StoreCLI
+    relation: defines
+  - from: module_sldb_cli_commands_store
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_store
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_store
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_cli_commands_store
+    to: module_sldb_cli_commands_store_init
+    relation: imports
+  - from: module_sldb_cli_commands_store
+    to: module_sldb_cli_commands_store_add
+    relation: imports
+  - from: module_sldb_cli_commands_store
+    to: module_sldb_cli_commands_store_check
+    relation: imports
+  - from: module_sldb_cli_commands_store
+    to: module_sldb_cli_commands_store_update
+    relation: imports
+  - from: module_sldb_cli_commands_store
+    to: module_sldb_cli_commands_store_semantic_map
+    relation: imports
+  - from: module_sldb_cli_commands_store_add
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_store_add
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_store_add
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_store_add
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_store_add
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_cli_commands_store_add
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_commands_store_add
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_cli_commands_store_add
+    to: module_sldb_store_models
+    relation: imports
+  - from: module_sldb_cli_commands_store_check
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_store_check
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_store_check
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_store_check
+    to: module_sldb_store_diagnostics
+    relation: imports
+  - from: module_sldb_cli_commands_store_check
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_commands_store_init
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_store_init
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_store_init
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_store_init
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_commands_store_init
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_cli_commands_store_init
+    to: module_sldb_store_models
+    relation: imports
+  - from: module_sldb_cli_commands_store_init
+    to: module_sldb_store_predicates
+    relation: imports
+  - from: module_sldb_cli_commands_store_init
+    to: module_sldb_store_catalog
+    relation: imports
+  - from: module_sldb_cli_commands_store_init
+    to: module_sldb_store_resolver
+    relation: imports
+  - from: module_sldb_cli_commands_store_semantic_map
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_store_semantic_map
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_store_semantic_map
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_store_semantic_map
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_commands_store_semantic_map
+    to: module_sldb_store_models
+    relation: imports
+  - from: module_sldb_cli_commands_store_update
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_store_update
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_commands_store_update
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_store_update
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_store_update
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_commands_store_update
+    to: module_sldb_store_hashing
+    relation: imports
+  - from: module_sldb_cli_commands_store_update
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_commands_store_update
+    to: module_sldb_store_models
+    relation: imports
+  - from: module_sldb_cli_commands_store_update
+    to: module_sldb_store_ops
+    relation: imports
+  - from: module_sldb_cli_commands_store_update
+    to: module_sldb_store_section_rebuild
+    relation: imports
+  - from: module_sldb_cli_commands_store_update
+    to: module_sldb_store_semantic
+    relation: imports
+  - from: module_sldb_cli_commands_store_update
+    to: module_sldb_store_runtime_cache
+    relation: imports
+  - from: module_sldb_cli_commands_stores
+    to: class_sldb_cli_commands_stores_StoresCLI
+    relation: defines
+  - from: module_sldb_cli_commands_stores
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_commands_stores
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_commands_stores
+    to: module_sldb_cli_commands_store
+    relation: imports
+  - from: module_sldb_cli_commands_stores
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_commands_stores
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_commands_stores
+    to: module_sldb_cli_utils
+    relation: imports
+  - from: module_sldb_cli_commands_stores
+    to: module_sldb_store_export
+    relation: imports
+  - from: module_sldb_cli_commands_stores
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_dict_utils
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_dispatcher
+    to: class_sldb_cli_dispatcher_CLI
+    relation: defines
+  - from: module_sldb_cli_dispatcher
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_dispatcher
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_dispatcher
+    to: module_sldb_cli_parser
+    relation: imports
+  - from: module_sldb_cli_dispatcher
+    to: module_sldb_cli_commands_help_texts
+    relation: imports
+  - from: module_sldb_cli_dispatcher
+    to: module_sldb_cli_commands_basic
+    relation: imports
+  - from: module_sldb_cli_dispatcher
+    to: module_sldb_cli_commands_init
+    relation: imports
+  - from: module_sldb_cli_dispatcher
+    to: module_sldb_cli_commands_help
+    relation: imports
+  - from: module_sldb_cli_dispatcher
+    to: module_sldb_cli_commands_faq
+    relation: imports
+  - from: module_sldb_cli_dispatcher
+    to: module_sldb_cli_commands_inbox
+    relation: imports
+  - from: module_sldb_cli_dispatcher
+    to: module_sldb_cli_commands_explore
+    relation: imports
+  - from: module_sldb_cli_dispatcher
+    to: module_sldb_cli_commands_ast
+    relation: imports
+  - from: module_sldb_cli_dispatcher
+    to: module_sldb_cli_commands_find
+    relation: imports
+  - from: module_sldb_cli_dispatcher
+    to: module_sldb_cli_commands_stores
+    relation: imports
+  - from: module_sldb_cli_dispatcher
+    to: module_sldb_cli_commands_models
+    relation: imports
+  - from: module_sldb_cli_dispatcher
+    to: module_sldb_cli_commands_predicates
+    relation: imports
+  - from: module_sldb_cli_dispatcher
+    to: module_sldb_cli_commands_docs
+    relation: imports
+  - from: module_sldb_cli_dispatcher
+    to: module_sldb_cli_commands_selfdoc
+    relation: imports
+  - from: module_sldb_cli_dispatcher
+    to: module_sldb_cli_commands_fields
+    relation: imports
+  - from: module_sldb_cli_dispatcher
+    to: module_sldb_cli_commands_sections
+    relation: imports
+  - from: module_sldb_cli_dispatcher
+    to: module_sldb_cli_commands_serve
+    relation: imports
+  - from: module_sldb_cli_dispatcher
+    to: module_sldb_cli_commands_lint
+    relation: imports
+  - from: module_sldb_cli_dispatcher
+    to: module_sldb_cli_commands_legacy
+    relation: imports
+  - from: module_sldb_cli_federated_utils
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_federated_utils
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_federated_utils
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_federated_utils
+    to: module_sldb_models_structured_doc
+    relation: imports
+  - from: module_sldb_cli_federated_utils
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_cli_federated_utils
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_federated_utils
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_federated_utils
+    to: module_sldb_store_resolver
+    relation: imports
+  - from: module_sldb_cli_federated_utils
+    to: module_sldb_store_models
+    relation: imports
+  - from: module_sldb_cli_federated_utils
+    to: module_sldb_store_semantic_tags
+    relation: imports
+  - from: module_sldb_cli_federated_utils
+    to: module_sldb_store_ops
+    relation: imports
+  - from: module_sldb_cli_graph_models_section
+    to: class_sldb_cli_graph_models_section_SectionRecord
+    relation: defines
+  - from: module_sldb_cli_graph_models_section
+    to: module_dataclasses
+    relation: imports
+  - from: module_sldb_cli_graph_search_record
+    to: class_sldb_cli_graph_search_record_SearchRecord
+    relation: defines
+  - from: module_sldb_cli_graph_search_record
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_graph_search_record
+    to: module_dataclasses
+    relation: imports
+  - from: module_sldb_cli_graph_section_record
+    to: class_sldb_cli_graph_section_record_SectionRecord
+    relation: defines
+  - from: module_sldb_cli_graph_section_record
+    to: module_dataclasses
+    relation: imports
+  - from: module_sldb_cli_graph_sections
+    to: module_sldb_core_ast
+    relation: imports
+  - from: module_sldb_cli_graph_sections
+    to: module_sldb_core_contracts
+    relation: imports
+  - from: module_sldb_cli_graph_sections
+    to: module_section_record
+    relation: imports
+  - from: module_sldb_cli_graph_sections
+    to: module_utils
+    relation: imports
+  - from: module_sldb_cli_graph_store_ast
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_graph_store_ast
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_graph_store_ast
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_graph_store_ast
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_graph_store_ast
+    to: module_sldb_store_query
+    relation: imports
+  - from: module_sldb_cli_graph_store_ast
+    to: module_utils
+    relation: imports
+  - from: module_sldb_cli_graph_utils
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_graph_utils
+    to: module_search_record
+    relation: imports
+  - from: module_sldb_cli_graph_old_search_record
+    to: class_sldb_cli_graph_old_search_record_SearchRecord
+    relation: defines
+  - from: module_sldb_cli_graph_old_search_record
+    to: module_dataclasses
+    relation: imports
+  - from: module_sldb_cli_graph_old_search_record
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_graph_old_section_record
+    to: class_sldb_cli_graph_old_section_record_SectionRecord
+    relation: defines
+  - from: module_sldb_cli_graph_old_section_record
+    to: module_dataclasses
+    relation: imports
+  - from: module_sldb_cli_graph_old_utils
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_graph_ops_ast_target
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_graph_ops_ast_target
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_graph_ops_ast_target
+    to: module_build_ast
+    relation: imports
+  - from: module_sldb_cli_graph_ops_ast_target
+    to: module_resolve
+    relation: imports
+  - from: module_sldb_cli_graph_ops_ast_target
+    to: module_build_ir
+    relation: imports
+  - from: module_sldb_cli_graph_ops_ast_target
+    to: module_extract
+    relation: imports
+  - from: module_sldb_cli_graph_ops_ast_target
+    to: module_fields
+    relation: imports
+  - from: module_sldb_cli_graph_ops_build_ast
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_graph_ops_build_ast
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_graph_ops_build_ast
+    to: module_sldb_store_query
+    relation: imports
+  - from: module_sldb_cli_graph_ops_build_ast
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_graph_ops_build_ast
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_graph_ops_build_ast
+    to: module_utils
+    relation: imports
+  - from: module_sldb_cli_graph_ops_build_ir
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_graph_ops_build_ir
+    to: module_sldb_core_ir
+    relation: imports
+  - from: module_sldb_cli_graph_ops_build_ir
+    to: module_sldb_core_ast
+    relation: imports
+  - from: module_sldb_cli_graph_ops_build_ir
+    to: module_extract
+    relation: imports
+  - from: module_sldb_cli_graph_ops_build_ir
+    to: module_utils
+    relation: imports
+  - from: module_sldb_cli_graph_ops_build_ir
+    to: module_flatten
+    relation: imports
+  - from: module_sldb_cli_graph_ops_build_ir
+    to: module_map_fields
+    relation: imports
+  - from: module_sldb_cli_graph_ops_extract
+    to: module_sldb_core_ast
+    relation: imports
+  - from: module_sldb_cli_graph_ops_extract
+    to: module_sldb_cli_section_record_cls
+    relation: imports
+  - from: module_sldb_cli_graph_ops_extract
+    to: module_utils
+    relation: imports
+  - from: module_sldb_cli_graph_ops_fields
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_graph_ops_fields
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_graph_ops_fields
+    to: module_sldb_store_query
+    relation: imports
+  - from: module_sldb_cli_graph_ops_fields
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_cli_graph_ops_fields
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_graph_ops_fields
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_graph_ops_fields
+    to: module_flatten
+    relation: imports
+  - from: module_sldb_cli_graph_ops_fields
+    to: module_map_fields
+    relation: imports
+  - from: module_sldb_cli_graph_ops_fields
+    to: module_extract
+    relation: imports
+  - from: module_sldb_cli_graph_ops_flatten
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_graph_ops_iter_records
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_graph_ops_iter_records
+    to: module_sldb_store_query
+    relation: imports
+  - from: module_sldb_cli_graph_ops_iter_records
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_graph_ops_iter_records
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_graph_ops_iter_records
+    to: module_sldb_cli_search_record
+    relation: imports
+  - from: module_sldb_cli_graph_ops_iter_records
+    to: module_iter_records_helpers
+    relation: imports
+  - from: module_sldb_cli_graph_ops_iter_records_docs
+    to: module_sldb_cli_search_record
+    relation: imports
+  - from: module_sldb_cli_graph_ops_iter_records_docs
+    to: module_flatten
+    relation: imports
+  - from: module_sldb_cli_graph_ops_iter_records_docs
+    to: module_map_fields
+    relation: imports
+  - from: module_sldb_cli_graph_ops_iter_records_docs
+    to: module_utils
+    relation: imports
+  - from: module_sldb_cli_graph_ops_iter_records_docs
+    to: module_build_ir
+    relation: imports
+  - from: module_sldb_cli_graph_ops_iter_records_docs
+    to: module_extract
+    relation: imports
+  - from: module_sldb_cli_graph_ops_iter_records_helpers
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_graph_ops_iter_records_helpers
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_graph_ops_iter_records_helpers
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_cli_graph_ops_iter_records_helpers
+    to: module_sldb_cli_search_record
+    relation: imports
+  - from: module_sldb_cli_graph_ops_iter_records_helpers
+    to: module_flatten
+    relation: imports
+  - from: module_sldb_cli_graph_ops_iter_records_helpers
+    to: module_map_fields
+    relation: imports
+  - from: module_sldb_cli_graph_ops_iter_records_helpers
+    to: module_utils
+    relation: imports
+  - from: module_sldb_cli_graph_ops_iter_records_helpers
+    to: module_build_ir
+    relation: imports
+  - from: module_sldb_cli_graph_ops_iter_records_helpers
+    to: module_extract
+    relation: imports
+  - from: module_sldb_cli_graph_ops_iter_records_helpers
+    to: module_iter_records_docs
+    relation: imports
+  - from: module_sldb_cli_graph_ops_iter_records_helpers
+    to: module_iter_records_docs
+    relation: imports
+  - from: module_sldb_cli_graph_ops_map_fields
+    to: module_sldb_core_contracts
+    relation: imports
+  - from: module_sldb_cli_graph_ops_map_fields
+    to: module_extract
+    relation: imports
+  - from: module_sldb_cli_graph_ops_matches
+    to: module_sldb_cli_search_record
+    relation: imports
+  - from: module_sldb_cli_graph_ops_resolve
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_graph_ops_resolve
+    to: module_sldb_store_query
+    relation: imports
+  - from: module_sldb_cli_graph_ops_resolve
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_graph_ops_resolve
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_graph_ops_utils
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_graph_ops_utils
+    to: module_sldb_core_ir
+    relation: imports
+  - from: module_sldb_cli_main
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_main
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_main
+    to: module_sldb_cli_commands_help_texts
+    relation: imports
+  - from: module_sldb_cli_main
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_cli_main
+    to: module_sldb_cli_dispatcher
+    relation: imports
+  - from: module_sldb_cli_model_utils
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_model_utils
+    to: module_importlib
+    relation: imports
+  - from: module_sldb_cli_model_utils
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_model_utils
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_model_utils
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_cli_model_utils
+    to: module_sldb_models_structured_doc
+    relation: imports
+  - from: module_sldb_cli_model_utils
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_model_utils
+    to: module_sldb_cli_federated_utils
+    relation: imports
+  - from: module_sldb_cli_parser
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_parser
+    to: module_sldb_cli_parsers_core
+    relation: imports
+  - from: module_sldb_cli_parsers_basic
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_parsers_core
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_parsers_core
+    to: module_basic
+    relation: imports
+  - from: module_sldb_cli_parsers_core
+    to: module_project
+    relation: imports
+  - from: module_sldb_cli_parsers_core
+    to: module_public
+    relation: imports
+  - from: module_sldb_cli_parsers_core
+    to: module_misc
+    relation: imports
+  - from: module_sldb_cli_parsers_core
+    to: module_find
+    relation: imports
+  - from: module_sldb_cli_parsers_core
+    to: module_legacy
+    relation: imports
+  - from: module_sldb_cli_parsers_core
+    to: module_serve
+    relation: imports
+  - from: module_sldb_cli_parsers_core
+    to: module_selfdoc
+    relation: imports
+  - from: module_sldb_cli_parsers_core
+    to: module_hidden
+    relation: imports
+  - from: module_sldb_cli_parsers_docs1
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_parsers_docs1
+    to: module_docs2
+    relation: imports
+  - from: module_sldb_cli_parsers_docs2
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_parsers_fields
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_parsers_find
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_parsers_hidden
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_parsers_hidden
+    to: module_legacy
+    relation: imports
+  - from: module_sldb_cli_parsers_legacy
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_parsers_misc
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_parsers_models1
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_parsers_models1
+    to: module_models2
+    relation: imports
+  - from: module_sldb_cli_parsers_models2
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_parsers_predicates
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_parsers_project
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_parsers_public
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_parsers_public
+    to: module_stores
+    relation: imports
+  - from: module_sldb_cli_parsers_public
+    to: module_models1
+    relation: imports
+  - from: module_sldb_cli_parsers_public
+    to: module_predicates
+    relation: imports
+  - from: module_sldb_cli_parsers_public
+    to: module_docs1
+    relation: imports
+  - from: module_sldb_cli_parsers_public
+    to: module_fields
+    relation: imports
+  - from: module_sldb_cli_parsers_public
+    to: module_sections
+    relation: imports
+  - from: module_sldb_cli_parsers_sections
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_parsers_selfdoc
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_parsers_serve
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_parsers_stores
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_search_record
+    to: class_sldb_cli_search_record_SearchRecord
+    relation: defines
+  - from: module_sldb_cli_search_record
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_search_record
+    to: module_dataclasses
+    relation: imports
+  - from: module_sldb_cli_search_record
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_section_record_cls
+    to: class_sldb_cli_section_record_cls_SectionRecord
+    relation: defines
+  - from: module_sldb_cli_section_record_cls
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_section_record_cls
+    to: module_dataclasses
+    relation: imports
+  - from: module_sldb_cli_selfdoc_context
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_selfdoc_context
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_selfdoc_context
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_selfdoc_context
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_cli_selfdoc_inspect
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_selfdoc_inspect
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_selfdoc_inspect
+    to: module_sldb_selfdoc_planned_document
+    relation: imports
+  - from: module_sldb_cli_selfdoc_inspect
+    to: module_sldb_selfdoc_report
+    relation: imports
+  - from: module_sldb_cli_selfdoc_inspect
+    to: module_selfdoc_registry
+    relation: imports
+  - from: module_sldb_cli_selfdoc_registry
+    to: class_sldb_cli_selfdoc_registry_DocumentationRegistry
+    relation: defines
+  - from: module_sldb_cli_selfdoc_registry
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_selfdoc_registry
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_selfdoc_registry
+    to: module_sldb_selfdoc_planned_document
+    relation: imports
+  - from: module_sldb_cli_selfdoc_registry
+    to: module_sldb_store_hashing
+    relation: imports
+  - from: module_sldb_cli_selfdoc_registry
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_selfdoc_write
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_selfdoc_write
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_selfdoc_write
+    to: module_types
+    relation: imports
+  - from: module_sldb_cli_selfdoc_write
+    to: module_sldb_cli_commands_model_add
+    relation: imports
+  - from: module_sldb_cli_selfdoc_write
+    to: module_sldb_cli_commands_fields_save
+    relation: imports
+  - from: module_sldb_cli_selfdoc_write
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_selfdoc_write
+    to: module_sldb_selfdoc_planned_document
+    relation: imports
+  - from: module_sldb_cli_selfdoc_write
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_selfdoc_write
+    to: module_sldb_store_io_utils
+    relation: imports
+  - from: module_sldb_cli_selfdoc_write
+    to: module_sldb_store_ops
+    relation: imports
+  - from: module_sldb_cli_selfdoc_write
+    to: module_sldb_store_section_rebuild
+    relation: imports
+  - from: module_sldb_cli_selfdoc_write
+    to: module_selfdoc_registry
+    relation: imports
+  - from: module_sldb_cli_serve_http_server
+    to: class_sldb_cli_serve_http_server_SLDBHTTPRequestHandler
+    relation: defines
+  - from: module_sldb_cli_serve_http_server
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_serve_http_server
+    to: module_http_server
+    relation: imports
+  - from: module_sldb_cli_serve_http_server
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_serve_http_server
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_serve_http_server
+    to: module_sldb_cli_store_context
+    relation: imports
+  - from: module_sldb_cli_serve_http_server
+    to: module_sldb_cli_serve_responses
+    relation: imports
+  - from: module_sldb_cli_serve_http_server
+    to: module_sldb_cli_serve_routes
+    relation: imports
+  - from: module_sldb_cli_serve_responses
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_serve_responses
+    to: module_http_server
+    relation: imports
+  - from: module_sldb_cli_serve_responses
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_serve_routes
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_serve_routes
+    to: module_http_server
+    relation: imports
+  - from: module_sldb_cli_serve_routes
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_serve_routes
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_serve_routes
+    to: module_urllib_parse
+    relation: imports
+  - from: module_sldb_cli_serve_routes
+    to: module_sldb_cli_commands_fields_save
+    relation: imports
+  - from: module_sldb_cli_serve_routes
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_serve_routes
+    to: module_sldb_cli_serve_responses
+    relation: imports
+  - from: module_sldb_cli_serve_routes
+    to: module_sldb_cli_serve_schema
+    relation: imports
+  - from: module_sldb_cli_serve_routes
+    to: module_sldb_store_export
+    relation: imports
+  - from: module_sldb_cli_serve_routes
+    to: module_sldb_store_query
+    relation: imports
+  - from: module_sldb_cli_serve_schema
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_serve_schema
+    to: module_enum
+    relation: imports
+  - from: module_sldb_cli_serve_schema
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_serve_schema
+    to: module_types
+    relation: imports
+  - from: module_sldb_cli_serve_schema
+    to: module_typing
+    relation: imports
+  - from: module_sldb_cli_serve_schema
+    to: module_sldb_cli_model_utils
+    relation: imports
+  - from: module_sldb_cli_serve_schema
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_store_context
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_store_context
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_store_context
+    to: module_sldb_store_resolver
+    relation: imports
+  - from: module_sldb_cli_store_context
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_cli_store_context
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_cli_store_context
+    to: module_sldb_store_migration
+    relation: imports
+  - from: module_sldb_cli_store_context
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_cli_utils
+    to: module___future__
+    relation: imports
+  - from: module_sldb_cli_utils
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_cli_utils
+    to: module_typing
+    relation: imports
+  - from: module_sldb_core_ast_base_ast_handler
+    to: class_sldb_core_ast_base_ast_handler_BaseASTHandler
+    relation: defines
+  - from: module_sldb_core_ast_base_ast_handler
+    to: module_abc
+    relation: imports
+  - from: module_sldb_core_ast_base_ast_handler
+    to: module_typing
+    relation: imports
+  - from: module_sldb_core_ast_base_ast_handler
+    to: module_sldb_core_node
+    relation: imports
+  - from: module_sldb_core_ast_markdown_ast_handler
+    to: class_sldb_core_ast_markdown_ast_handler_MarkdownASTHandler
+    relation: defines
+  - from: module_sldb_core_ast_markdown_ast_handler
+    to: module_typing
+    relation: imports
+  - from: module_sldb_core_ast_markdown_ast_handler
+    to: module_markdown_it
+    relation: imports
+  - from: module_sldb_core_ast_markdown_ast_handler
+    to: module_markdown_it_tree
+    relation: imports
+  - from: module_sldb_core_ast_markdown_ast_handler
+    to: module_sldb_core_node
+    relation: imports
+  - from: module_sldb_core_ast_markdown_ast_handler
+    to: module_base_ast_handler
+    relation: imports
+  - from: module_sldb_core_ast_markdown_ast_handler
+    to: module_mdit_py_plugins_front_matter
+    relation: imports
+  - from: module_sldb_core_contracts_marker
+    to: class_sldb_core_contracts_marker_Marker
+    relation: defines
+  - from: module_sldb_core_contracts_marker
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_core_contracts_node_data
+    to: class_sldb_core_contracts_node_data_NodeData
+    relation: defines
+  - from: module_sldb_core_contracts_node_data
+    to: module_typing
+    relation: imports
+  - from: module_sldb_core_contracts_node_data
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_core_contracts_node_data
+    to: module_marker
+    relation: imports
+  - from: module_sldb_core_contracts_render_context
+    to: class_sldb_core_contracts_render_context_RenderContext
+    relation: defines
+  - from: module_sldb_core_contracts_render_context
+    to: module_typing
+    relation: imports
+  - from: module_sldb_core_contracts_render_context
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_core_data_extractor
+    to: class_sldb_core_data_extractor_DataExtractor
+    relation: defines
+  - from: module_sldb_core_data_extractor
+    to: module_typing
+    relation: imports
+  - from: module_sldb_core_data_extractor
+    to: module_sldb_core_node
+    relation: imports
+  - from: module_sldb_core_data_extractor
+    to: module_sldb_core_extractor_recipe_matcher
+    relation: imports
+  - from: module_sldb_core_data_extractor
+    to: module_sldb_core_node_handler
+    relation: imports
+  - from: module_sldb_core_exceptions_sldb_ast_error
+    to: class_sldb_core_exceptions_sldb_ast_error_SLDBASTError
+    relation: defines
+  - from: module_sldb_core_exceptions_sldb_ast_error
+    to: module_sldb_error
+    relation: imports
+  - from: module_sldb_core_exceptions_sldb_error
+    to: class_sldb_core_exceptions_sldb_error_SLDBError
+    relation: defines
+  - from: module_sldb_core_exceptions_sldb_link_error
+    to: class_sldb_core_exceptions_sldb_link_error_SLDBLinkError
+    relation: defines
+  - from: module_sldb_core_exceptions_sldb_link_error
+    to: module_sldb_error
+    relation: imports
+  - from: module_sldb_core_exceptions_sldb_model_draft_error
+    to: class_sldb_core_exceptions_sldb_model_draft_error_SLDBModelDraftError
+    relation: defines
+  - from: module_sldb_core_exceptions_sldb_model_draft_error
+    to: module_sldb_model_error
+    relation: imports
+  - from: module_sldb_core_exceptions_sldb_model_edit_error
+    to: class_sldb_core_exceptions_sldb_model_edit_error_SLDBModelEditError
+    relation: defines
+  - from: module_sldb_core_exceptions_sldb_model_edit_error
+    to: module_sldb_model_error
+    relation: imports
+  - from: module_sldb_core_exceptions_sldb_model_error
+    to: class_sldb_core_exceptions_sldb_model_error_SLDBModelError
+    relation: defines
+  - from: module_sldb_core_exceptions_sldb_model_error
+    to: module_sldb_error
+    relation: imports
+  - from: module_sldb_core_exceptions_sldb_store_error
+    to: class_sldb_core_exceptions_sldb_store_error_SLDBStoreError
+    relation: defines
+  - from: module_sldb_core_exceptions_sldb_store_error
+    to: module_sldb_error
+    relation: imports
+  - from: module_sldb_core_exceptions_sldb_store_error
+    to: module_sldb_store_exceptions
+    relation: imports
+  - from: module_sldb_core_exceptions_sldb_validation_error
+    to: class_sldb_core_exceptions_sldb_validation_error_SLDBValidationError
+    relation: defines
+  - from: module_sldb_core_exceptions_sldb_validation_error
+    to: module_sldb_error
+    relation: imports
+  - from: module_sldb_core_extractor_recipe_matcher
+    to: class_sldb_core_extractor_recipe_matcher_RecipeMatcher
+    relation: defines
+  - from: module_sldb_core_extractor_recipe_matcher
+    to: module_typing
+    relation: imports
+  - from: module_sldb_core_extractor_recipe_matcher
+    to: module_sldb_core_node
+    relation: imports
+  - from: module_sldb_core_extractor_recipe_matcher
+    to: module_sldb_core_node_handler
+    relation: imports
+  - from: module_sldb_core_handlers_base
+    to: class_sldb_core_handlers_base_BaseNodeHandler
+    relation: defines
+  - from: module_sldb_core_handlers_base
+    to: module___future__
+    relation: imports
+  - from: module_sldb_core_handlers_base
+    to: module_abc
+    relation: imports
+  - from: module_sldb_core_handlers_base
+    to: module_typing
+    relation: imports
+  - from: module_sldb_core_handlers_base
+    to: module_sldb_core_node
+    relation: imports
+  - from: module_sldb_core_handlers_list
+    to: class_sldb_core_handlers_list_ListNodeHandler
+    relation: defines
+  - from: module_sldb_core_handlers_list
+    to: module___future__
+    relation: imports
+  - from: module_sldb_core_handlers_list
+    to: module_typing
+    relation: imports
+  - from: module_sldb_core_handlers_list
+    to: module_sldb_core_handlers_base
+    relation: imports
+  - from: module_sldb_core_handlers_list
+    to: module_sldb_core_handlers_utils
+    relation: imports
+  - from: module_sldb_core_handlers_list
+    to: module_sldb_core_node
+    relation: imports
+  - from: module_sldb_core_handlers_router
+    to: class_sldb_core_handlers_router_SharedNodeHandler
+    relation: defines
+  - from: module_sldb_core_handlers_router
+    to: module___future__
+    relation: imports
+  - from: module_sldb_core_handlers_router
+    to: module_sldb_core_handlers_list
+    relation: imports
+  - from: module_sldb_core_handlers_router
+    to: module_sldb_core_handlers_table
+    relation: imports
+  - from: module_sldb_core_handlers_router
+    to: module_sldb_core_handlers_text
+    relation: imports
+  - from: module_sldb_core_handlers_router
+    to: module_sldb_core_handlers_yaml
+    relation: imports
+  - from: module_sldb_core_handlers_router
+    to: module_sldb_core_node
+    relation: imports
+  - from: module_sldb_core_handlers_table
+    to: class_sldb_core_handlers_table_TableNodeHandler
+    relation: defines
+  - from: module_sldb_core_handlers_table
+    to: module___future__
+    relation: imports
+  - from: module_sldb_core_handlers_table
+    to: module_typing
+    relation: imports
+  - from: module_sldb_core_handlers_table
+    to: module_sldb_core_handlers_base
+    relation: imports
+  - from: module_sldb_core_handlers_table
+    to: module_sldb_core_handlers_utils
+    relation: imports
+  - from: module_sldb_core_handlers_table
+    to: module_sldb_core_node
+    relation: imports
+  - from: module_sldb_core_handlers_table
+    to: module_sldb_core_handlers_text
+    relation: imports
+  - from: module_sldb_core_handlers_text
+    to: class_sldb_core_handlers_text_TextNodeHandler
+    relation: defines
+  - from: module_sldb_core_handlers_text
+    to: module___future__
+    relation: imports
+  - from: module_sldb_core_handlers_text
+    to: module_typing
+    relation: imports
+  - from: module_sldb_core_handlers_text
+    to: module_sldb_core_handlers_base
+    relation: imports
+  - from: module_sldb_core_handlers_text
+    to: module_sldb_core_handlers_utils
+    relation: imports
+  - from: module_sldb_core_handlers_text
+    to: module_sldb_core_node
+    relation: imports
+  - from: module_sldb_core_handlers_utils
+    to: module___future__
+    relation: imports
+  - from: module_sldb_core_handlers_utils
+    to: module_sldb_core_contracts
+    relation: imports
+  - from: module_sldb_core_handlers_yaml
+    to: class_sldb_core_handlers_yaml_YamlNodeHandler
+    relation: defines
+  - from: module_sldb_core_handlers_yaml
+    to: module___future__
+    relation: imports
+  - from: module_sldb_core_handlers_yaml
+    to: module_datetime
+    relation: imports
+  - from: module_sldb_core_handlers_yaml
+    to: module_typing
+    relation: imports
+  - from: module_sldb_core_handlers_yaml
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_core_handlers_yaml
+    to: module_sldb_core_handlers_base
+    relation: imports
+  - from: module_sldb_core_handlers_yaml
+    to: module_sldb_core_handlers_utils
+    relation: imports
+  - from: module_sldb_core_handlers_yaml
+    to: module_sldb_core_node
+    relation: imports
+  - from: module_sldb_core_ingest_engine
+    to: module___future__
+    relation: imports
+  - from: module_sldb_core_ingest_engine
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_core_ingest_engine
+    to: module_scanner
+    relation: imports
+  - from: module_sldb_core_ingest_engine
+    to: module_manifest
+    relation: imports
+  - from: module_sldb_core_ingest_engine
+    to: module_source_parser
+    relation: imports
+  - from: module_sldb_core_ingest_engine
+    to: module_renderer
+    relation: imports
+  - from: module_sldb_core_ingest_ignore_rule
+    to: class_sldb_core_ingest_ignore_rule_IgnoreRule
+    relation: defines
+  - from: module_sldb_core_ingest_ignore_rule
+    to: module___future__
+    relation: imports
+  - from: module_sldb_core_ingest_ignore_rule
+    to: module_dataclasses
+    relation: imports
+  - from: module_sldb_core_ingest_manifest
+    to: module___future__
+    relation: imports
+  - from: module_sldb_core_ingest_manifest
+    to: module_datetime
+    relation: imports
+  - from: module_sldb_core_ingest_manifest
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_core_ingest_manifest
+    to: module_wiki_compiler_contracts
+    relation: imports
+  - from: module_sldb_core_ingest_python_scanner
+    to: class_sldb_core_ingest_python_scanner_PythonScanner
+    relation: defines
+  - from: module_sldb_core_ingest_python_scanner
+    to: module___future__
+    relation: imports
+  - from: module_sldb_core_ingest_python_scanner
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_core_ingest_python_scanner
+    to: module_wiki_compiler_adapters_ontology_facets
+    relation: imports
+  - from: module_sldb_core_ingest_python_scanner
+    to: module_kgdb_contracts_node
+    relation: imports
+  - from: module_sldb_core_ingest_renderer
+    to: module___future__
+    relation: imports
+  - from: module_sldb_core_ingest_renderer
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_core_ingest_renderer
+    to: module_datetime
+    relation: imports
+  - from: module_sldb_core_ingest_scanner
+    to: module___future__
+    relation: imports
+  - from: module_sldb_core_ingest_scanner
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_core_ingest_scanner
+    to: module_ontology_contracts_facets
+    relation: imports
+  - from: module_sldb_core_ingest_scanner
+    to: module_kgdb_contracts_node
+    relation: imports
+  - from: module_sldb_core_ingest_scanner
+    to: module_kgdb_contracts_base
+    relation: imports
+  - from: module_sldb_core_ingest_scanner
+    to: module_ignore_rule
+    relation: imports
+  - from: module_sldb_core_ingest_scanner
+    to: module_python_scanner
+    relation: imports
+  - from: module_sldb_core_ingest_scanner
+    to: module_typescript_scanner
+    relation: imports
+  - from: module_sldb_core_ingest_scanner
+    to: module_wiki_compiler_protocols
+    relation: imports
+  - from: module_sldb_core_ingest_source_parser
+    to: module___future__
+    relation: imports
+  - from: module_sldb_core_ingest_source_parser
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_core_ingest_typescript_scanner
+    to: class_sldb_core_ingest_typescript_scanner_TypeScriptScanner
+    relation: defines
+  - from: module_sldb_core_ingest_typescript_scanner
+    to: module___future__
+    relation: imports
+  - from: module_sldb_core_ingest_typescript_scanner
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_core_ingest_typescript_scanner
+    to: module_kgdb_contracts_node
+    relation: imports
+  - from: module_sldb_core_ingest_typescript_scanner
+    to: module_kgdb_contracts_base
+    relation: imports
+  - from: module_sldb_core_ingest_typescript_scanner
+    to: module_ontology_contracts_facets
+    relation: imports
+  - from: module_sldb_core_ir_document_context
+    to: class_sldb_core_ir_document_context_DocumentContext
+    relation: defines
+  - from: module_sldb_core_ir_document_context
+    to: module_typing
+    relation: imports
+  - from: module_sldb_core_ir_document_context
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_core_ir_document_ir
+    to: class_sldb_core_ir_document_ir_DocumentIR
+    relation: defines
+  - from: module_sldb_core_ir_document_ir
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_core_ir_document_ir
+    to: module_document_context
+    relation: imports
+  - from: module_sldb_core_ir_document_ir
+    to: module_meaning_node
+    relation: imports
+  - from: module_sldb_core_ir_document_ir
+    to: module_surface_node
+    relation: imports
+  - from: module_sldb_core_ir_document_ir
+    to: module_graph_view
+    relation: imports
+  - from: module_sldb_core_ir_document_ir
+    to: module_section_context_entry
+    relation: imports
+  - from: module_sldb_core_ir_graph_edge
+    to: class_sldb_core_ir_graph_edge_GraphEdge
+    relation: defines
+  - from: module_sldb_core_ir_graph_edge
+    to: module_typing
+    relation: imports
+  - from: module_sldb_core_ir_graph_edge
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_core_ir_graph_view
+    to: class_sldb_core_ir_graph_view_GraphView
+    relation: defines
+  - from: module_sldb_core_ir_graph_view
+    to: module_typing
+    relation: imports
+  - from: module_sldb_core_ir_graph_view
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_core_ir_graph_view
+    to: module_graph_edge
+    relation: imports
+  - from: module_sldb_core_ir_meaning_node
+    to: class_sldb_core_ir_meaning_node_MeaningNode
+    relation: defines
+  - from: module_sldb_core_ir_meaning_node
+    to: module_typing
+    relation: imports
+  - from: module_sldb_core_ir_meaning_node
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_core_ir_meaning_node
+    to: module_source_span
+    relation: imports
+  - from: module_sldb_core_ir_section_context_entry
+    to: class_sldb_core_ir_section_context_entry_SectionContextEntry
+    relation: defines
+  - from: module_sldb_core_ir_section_context_entry
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_core_ir_section_context_entry
+    to: module_source_span
+    relation: imports
+  - from: module_sldb_core_ir_source_span
+    to: class_sldb_core_ir_source_span_SourceSpan
+    relation: defines
+  - from: module_sldb_core_ir_source_span
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_core_ir_surface_node
+    to: class_sldb_core_ir_surface_node_SurfaceNode
+    relation: defines
+  - from: module_sldb_core_ir_surface_node
+    to: module_typing
+    relation: imports
+  - from: module_sldb_core_ir_surface_node
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_core_ir_surface_node
+    to: module_source_span
+    relation: imports
+  - from: module_sldb_core_node
+    to: class_sldb_core_node_SLDBNode
+    relation: defines
+  - from: module_sldb_core_node
+    to: module___future__
+    relation: imports
+  - from: module_sldb_core_node
+    to: module_dataclasses
+    relation: imports
+  - from: module_sldb_core_node
+    to: module_typing
+    relation: imports
+  - from: module_sldb_core_node_handler
+    to: module___future__
+    relation: imports
+  - from: module_sldb_core_node_handler
+    to: module_sldb_core_handlers_router
+    relation: imports
+  - from: module_sldb_core_renderer
+    to: class_sldb_core_renderer_SLDBRenderer
+    relation: defines
+  - from: module_sldb_core_renderer
+    to: module___future__
+    relation: imports
+  - from: module_sldb_core_renderer
+    to: module_jinja2
+    relation: imports
+  - from: module_sldb_core_renderer
+    to: module_sldb_core_ast
+    relation: imports
+  - from: module_sldb_core_renderer
+    to: module_sldb_core_handlers_router
+    relation: imports
+  - from: module_sldb_core_renderer
+    to: module_sldb_core_renderer_engine_list
+    relation: imports
+  - from: module_sldb_core_renderer
+    to: module_sldb_core_renderer_engine_table
+    relation: imports
+  - from: module_sldb_core_renderer
+    to: module_sldb_core_renderer_engine_yaml
+    relation: imports
+  - from: module_sldb_core_renderer
+    to: module_sldb_models_structured_doc
+    relation: imports
+  - from: module_sldb_core_renderer
+    to: module_sldb_core_node
+    relation: imports
+  - from: module_sldb_core_renderer_engine_base
+    to: class_sldb_core_renderer_engine_base_BaseRenderer
+    relation: defines
+  - from: module_sldb_core_renderer_engine_base
+    to: module___future__
+    relation: imports
+  - from: module_sldb_core_renderer_engine_base
+    to: module_typing
+    relation: imports
+  - from: module_sldb_core_renderer_engine_base
+    to: module_jinja2
+    relation: imports
+  - from: module_sldb_core_renderer_engine_base
+    to: module_sldb_core_handlers_utils
+    relation: imports
+  - from: module_sldb_core_renderer_engine_base
+    to: module_sldb_core_renderer_engine_python_expr
+    relation: imports
+  - from: module_sldb_core_renderer_engine_list
+    to: class_sldb_core_renderer_engine_list_ListRenderer
+    relation: defines
+  - from: module_sldb_core_renderer_engine_list
+    to: module___future__
+    relation: imports
+  - from: module_sldb_core_renderer_engine_list
+    to: module_typing
+    relation: imports
+  - from: module_sldb_core_renderer_engine_list
+    to: module_sldb_core_renderer_engine_base
+    relation: imports
+  - from: module_sldb_core_renderer_engine_python_expr
+    to: class_sldb_core_renderer_engine_python_expr_PythonExpressionRenderer
+    relation: defines
+  - from: module_sldb_core_renderer_engine_python_expr
+    to: module___future__
+    relation: imports
+  - from: module_sldb_core_renderer_engine_python_expr
+    to: module_typing
+    relation: imports
+  - from: module_sldb_core_renderer_engine_python_expr
+    to: module_sldb_runtime_config
+    relation: imports
+  - from: module_sldb_core_renderer_engine_table
+    to: class_sldb_core_renderer_engine_table_TableRenderer
+    relation: defines
+  - from: module_sldb_core_renderer_engine_table
+    to: module___future__
+    relation: imports
+  - from: module_sldb_core_renderer_engine_table
+    to: module_typing
+    relation: imports
+  - from: module_sldb_core_renderer_engine_table
+    to: module_sldb_core_renderer_engine_base
+    relation: imports
+  - from: module_sldb_core_renderer_engine_yaml
+    to: class_sldb_core_renderer_engine_yaml_YamlRenderer
+    relation: defines
+  - from: module_sldb_core_renderer_engine_yaml
+    to: module___future__
+    relation: imports
+  - from: module_sldb_core_renderer_engine_yaml
+    to: module_typing
+    relation: imports
+  - from: module_sldb_core_renderer_engine_yaml
+    to: module_sldb_core_renderer_engine_base
+    relation: imports
+  - from: module_sldb_core_renderer_engine_yaml
+    to: module_sldb_core_handlers_utils
+    relation: imports
+  - from: module_sldb_core_template_extractor
+    to: class_sldb_core_template_extractor_TemplateExtractor
+    relation: defines
+  - from: module_sldb_core_template_extractor
+    to: module_typing
+    relation: imports
+  - from: module_sldb_core_template_extractor
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_core_template_extractor
+    to: module_sldb_core_node
+    relation: imports
+  - from: module_sldb_core_template_extractor
+    to: module_sldb_core_node_handler
+    relation: imports
+  - from: module_sldb_examples_pandoc_cv_cv_model
+    to: class_sldb_examples_pandoc_cv_cv_model_PandocCVDoc
+    relation: defines
+  - from: module_sldb_examples_pandoc_cv_cv_model
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_examples_pandoc_cv_cv_model
+    to: module_sldb
+    relation: imports
+  - from: module_sldb_examples_reference_bundle_guide_model
+    to: class_sldb_examples_reference_bundle_guide_model_SLDBGuide
+    relation: defines
+  - from: module_sldb_examples_reference_bundle_guide_model
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_examples_reference_bundle_guide_model
+    to: module_sldb
+    relation: imports
+  - from: module_sldb_links_composer
+    to: module___future__
+    relation: imports
+  - from: module_sldb_links_composer
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_links_composer
+    to: module_parser
+    relation: imports
+  - from: module_sldb_links_composer
+    to: module_resolver
+    relation: imports
+  - from: module_sldb_links_parsed_link
+    to: class_sldb_links_parsed_link_ParsedLink
+    relation: defines
+  - from: module_sldb_links_parsed_link
+    to: module_dataclasses
+    relation: imports
+  - from: module_sldb_links_parser
+    to: module___future__
+    relation: imports
+  - from: module_sldb_links_parser
+    to: module_collections_abc
+    relation: imports
+  - from: module_sldb_links_parser
+    to: module_parsed_link
+    relation: imports
+  - from: module_sldb_links_recovery
+    to: module___future__
+    relation: imports
+  - from: module_sldb_links_recovery
+    to: module_collections_abc
+    relation: imports
+  - from: module_sldb_links_recovery
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_links_recovery
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_links_recovery
+    to: module_sldb_store_predicates
+    relation: imports
+  - from: module_sldb_links_recovery
+    to: module_parser
+    relation: imports
+  - from: module_sldb_links_recovery
+    to: module_resolver
+    relation: imports
+  - from: module_sldb_links_resolved_link
+    to: class_sldb_links_resolved_link_ResolvedLink
+    relation: defines
+  - from: module_sldb_links_resolved_link
+    to: module_dataclasses
+    relation: imports
+  - from: module_sldb_links_resolver
+    to: module___future__
+    relation: imports
+  - from: module_sldb_links_resolver
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_links_resolver
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_links_resolver
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_links_resolver
+    to: module_resolved_link
+    relation: imports
+  - from: module_sldb_models_anchor_doc
+    to: class_sldb_models_anchor_doc_AnchorDoc
+    relation: defines
+  - from: module_sldb_models_anchor_doc
+    to: module___future__
+    relation: imports
+  - from: module_sldb_models_anchor_doc
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_models_anchor_doc
+    to: module_sldb_models_structured_doc
+    relation: imports
+  - from: module_sldb_models_anchor_doc
+    to: module_knowledge_tag
+    relation: imports
+  - from: module_sldb_models_cli_command_doc
+    to: class_sldb_models_cli_command_doc_CliCommandDoc
+    relation: defines
+  - from: module_sldb_models_cli_command_doc
+    to: module___future__
+    relation: imports
+  - from: module_sldb_models_cli_command_doc
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_models_cli_command_doc
+    to: module_sldb_models_structured_doc
+    relation: imports
+  - from: module_sldb_models_cli_command_doc
+    to: module_knowledge_tag
+    relation: imports
+  - from: module_sldb_models_knowledge_surface
+    to: module___future__
+    relation: imports
+  - from: module_sldb_models_knowledge_surface
+    to: module_anchor_doc
+    relation: imports
+  - from: module_sldb_models_knowledge_surface
+    to: module_cli_command_doc
+    relation: imports
+  - from: module_sldb_models_knowledge_surface
+    to: module_knowledge_tag
+    relation: imports
+  - from: module_sldb_models_knowledge_surface
+    to: module_surface_doc
+    relation: imports
+  - from: module_sldb_models_knowledge_surface
+    to: module_python_symbol_doc
+    relation: imports
+  - from: module_sldb_models_knowledge_tag
+    to: module___future__
+    relation: imports
+  - from: module_sldb_models_knowledge_tag
+    to: module_typing
+    relation: imports
+  - from: module_sldb_models_knowledge_tag
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_models_python_symbol_doc
+    to: class_sldb_models_python_symbol_doc_PythonSymbolDoc
+    relation: defines
+  - from: module_sldb_models_python_symbol_doc
+    to: module___future__
+    relation: imports
+  - from: module_sldb_models_python_symbol_doc
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_models_python_symbol_doc
+    to: module_knowledge_tag
+    relation: imports
+  - from: module_sldb_models_python_symbol_doc
+    to: module_structured_doc
+    relation: imports
+  - from: module_sldb_models_structured_doc
+    to: class_sldb_models_structured_doc_StructuredNLDoc
+    relation: defines
+  - from: module_sldb_models_structured_doc
+    to: module___future__
+    relation: imports
+  - from: module_sldb_models_structured_doc
+    to: module_importlib
+    relation: imports
+  - from: module_sldb_models_structured_doc
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_models_structured_doc
+    to: module_typing
+    relation: imports
+  - from: module_sldb_models_structured_doc
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_models_structured_doc
+    to: module_sldb_runtime_validation
+    relation: imports
+  - from: module_sldb_models_surface_doc
+    to: class_sldb_models_surface_doc_SurfaceDoc
+    relation: defines
+  - from: module_sldb_models_surface_doc
+    to: module___future__
+    relation: imports
+  - from: module_sldb_models_surface_doc
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_models_surface_doc
+    to: module_sldb_models_structured_doc
+    relation: imports
+  - from: module_sldb_models_surface_doc
+    to: module_knowledge_tag
+    relation: imports
+  - from: module_sldb_runtime_config
+    to: class_sldb_runtime_config_SLDBConfig
+    relation: defines
+  - from: module_sldb_runtime_config
+    to: module_dataclasses
+    relation: imports
+  - from: module_sldb_runtime_config
+    to: module_typing
+    relation: imports
+  - from: module_sldb_runtime_validation
+    to: class_sldb_runtime_validation_Validator
+    relation: defines
+  - from: module_sldb_runtime_validation
+    to: module___future__
+    relation: imports
+  - from: module_sldb_runtime_validation
+    to: module_typing
+    relation: imports
+  - from: module_sldb_runtime_validation
+    to: module_sldb_core_ast
+    relation: imports
+  - from: module_sldb_runtime_validation
+    to: module_sldb_core_data_extractor
+    relation: imports
+  - from: module_sldb_runtime_validation
+    to: module_sldb_core_renderer
+    relation: imports
+  - from: module_sldb_runtime_validation
+    to: module_sldb_core_template_extractor
+    relation: imports
+  - from: module_sldb_runtime_validation
+    to: module_sldb_models_structured_doc
+    relation: imports
+  - from: module_sldb_selfdoc_argument
+    to: class_sldb_selfdoc_argument_ArgumentRecord
+    relation: defines
+  - from: module_sldb_selfdoc_argument
+    to: module___future__
+    relation: imports
+  - from: module_sldb_selfdoc_argument
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_selfdoc_arguments
+    to: module___future__
+    relation: imports
+  - from: module_sldb_selfdoc_arguments
+    to: module_argument
+    relation: imports
+  - from: module_sldb_selfdoc_arguments
+    to: module_constraint
+    relation: imports
+  - from: module_sldb_selfdoc_arguments
+    to: module_values
+    relation: imports
+  - from: module_sldb_selfdoc_command
+    to: class_sldb_selfdoc_command_CommandRecord
+    relation: defines
+  - from: module_sldb_selfdoc_command
+    to: module___future__
+    relation: imports
+  - from: module_sldb_selfdoc_command
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_selfdoc_command
+    to: module_argument
+    relation: imports
+  - from: module_sldb_selfdoc_command
+    to: module_constraint
+    relation: imports
+  - from: module_sldb_selfdoc_constraint
+    to: class_sldb_selfdoc_constraint_ExclusiveGroup
+    relation: defines
+  - from: module_sldb_selfdoc_constraint
+    to: module___future__
+    relation: imports
+  - from: module_sldb_selfdoc_constraint
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_selfdoc_materialize
+    to: module___future__
+    relation: imports
+  - from: module_sldb_selfdoc_materialize
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_selfdoc_materialize
+    to: module_sldb_models_knowledge_surface
+    relation: imports
+  - from: module_sldb_selfdoc_materialize
+    to: module_sldb_runtime_validation
+    relation: imports
+  - from: module_sldb_selfdoc_materialize
+    to: module_command
+    relation: imports
+  - from: module_sldb_selfdoc_materialize
+    to: module_planned_document
+    relation: imports
+  - from: module_sldb_selfdoc_materialize
+    to: module_projection
+    relation: imports
+  - from: module_sldb_selfdoc_parser
+    to: class_sldb_selfdoc_parser_ParserScanner
+    relation: defines
+  - from: module_sldb_selfdoc_parser
+    to: module___future__
+    relation: imports
+  - from: module_sldb_selfdoc_parser
+    to: module_arguments
+    relation: imports
+  - from: module_sldb_selfdoc_parser
+    to: module_command
+    relation: imports
+  - from: module_sldb_selfdoc_planned_document
+    to: class_sldb_selfdoc_planned_document_PlannedDocument
+    relation: defines
+  - from: module_sldb_selfdoc_planned_document
+    to: module___future__
+    relation: imports
+  - from: module_sldb_selfdoc_planned_document
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_selfdoc_planned_document
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_selfdoc_planned_document
+    to: module_sldb_models_knowledge_surface
+    relation: imports
+  - from: module_sldb_selfdoc_projection
+    to: module___future__
+    relation: imports
+  - from: module_sldb_selfdoc_projection
+    to: module_command
+    relation: imports
+  - from: module_sldb_selfdoc_python_materialize
+    to: module___future__
+    relation: imports
+  - from: module_sldb_selfdoc_python_materialize
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_selfdoc_python_materialize
+    to: module_sldb_models_knowledge_surface
+    relation: imports
+  - from: module_sldb_selfdoc_python_materialize
+    to: module_sldb_runtime_validation
+    relation: imports
+  - from: module_sldb_selfdoc_python_materialize
+    to: module_planned_document
+    relation: imports
+  - from: module_sldb_selfdoc_python_materialize
+    to: module_python_symbol
+    relation: imports
+  - from: module_sldb_selfdoc_python_scanner
+    to: class_sldb_selfdoc_python_scanner_PythonScanner
+    relation: defines
+  - from: module_sldb_selfdoc_python_scanner
+    to: module___future__
+    relation: imports
+  - from: module_sldb_selfdoc_python_scanner
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_selfdoc_python_scanner
+    to: module_python_symbol
+    relation: imports
+  - from: module_sldb_selfdoc_python_symbol
+    to: class_sldb_selfdoc_python_symbol_PythonSymbol
+    relation: defines
+  - from: module_sldb_selfdoc_python_symbol
+    to: module___future__
+    relation: imports
+  - from: module_sldb_selfdoc_python_symbol
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_selfdoc_report
+    to: class_sldb_selfdoc_report_DocumentationReport
+    relation: defines
+  - from: module_sldb_selfdoc_report
+    to: module___future__
+    relation: imports
+  - from: module_sldb_selfdoc_report
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_selfdoc_values
+    to: module___future__
+    relation: imports
+  - from: module_sldb_selfdoc_values
+    to: module_enum
+    relation: imports
+  - from: module_sldb_selfdoc_values
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_selfdoc_values
+    to: module_typing
+    relation: imports
+  - from: module_sldb_store_built_cache
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_built_cache
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_built_cache
+    to: module_typing
+    relation: imports
+  - from: module_sldb_store_catalog
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_catalog
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_catalog
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_store_catalog
+    to: module_sldb_store_models
+    relation: imports
+  - from: module_sldb_store_catalog
+    to: module_sldb_store_resolver
+    relation: imports
+  - from: module_sldb_store_codec
+    to: class_sldb_store_codec_StoreCodec
+    relation: defines
+  - from: module_sldb_store_codec
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_codec
+    to: module_typing
+    relation: imports
+  - from: module_sldb_store_codec
+    to: module_sldb_store_runtime_codec
+    relation: imports
+  - from: module_sldb_store_diagnostics
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_diagnostics
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_diagnostics
+    to: module_typing
+    relation: imports
+  - from: module_sldb_store_diagnostics
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_store_diagnostics
+    to: module_sldb_store_hashing
+    relation: imports
+  - from: module_sldb_store_diagnostics
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_store_diagnostics
+    to: module_sldb_store_models
+    relation: imports
+  - from: module_sldb_store_diagnostics
+    to: module_sldb_store_diagnostics_models
+    relation: imports
+  - from: module_sldb_store_diagnostics_models_diagnosis_note
+    to: class_sldb_store_diagnostics_models_diagnosis_note_DiagnosisNote
+    relation: defines
+  - from: module_sldb_store_diagnostics_models_diagnosis_note
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_diagnostics_models_diagnosis_note
+    to: module_dataclasses
+    relation: imports
+  - from: module_sldb_store_diagnostics_models_diagnosis_note
+    to: module_enum
+    relation: imports
+  - from: module_sldb_store_diagnostics_models_document_diagnosis
+    to: class_sldb_store_diagnostics_models_document_diagnosis_DocumentDiagnosis
+    relation: defines
+  - from: module_sldb_store_diagnostics_models_document_diagnosis
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_diagnostics_models_document_diagnosis
+    to: module_dataclasses
+    relation: imports
+  - from: module_sldb_store_diagnostics_models_document_diagnosis
+    to: module_enum
+    relation: imports
+  - from: module_sldb_store_diagnostics_models_document_diagnosis
+    to: module_sldb_store_diagnostics_models_diagnosis_note
+    relation: imports
+  - from: module_sldb_store_diagnostics_models_model_diagnosis
+    to: class_sldb_store_diagnostics_models_model_diagnosis_ModelDiagnosis
+    relation: defines
+  - from: module_sldb_store_diagnostics_models_model_diagnosis
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_diagnostics_models_model_diagnosis
+    to: module_dataclasses
+    relation: imports
+  - from: module_sldb_store_diagnostics_models_model_diagnosis
+    to: module_enum
+    relation: imports
+  - from: module_sldb_store_diagnostics_models_model_diagnosis
+    to: module_sldb_store_diagnostics_models_document_diagnosis
+    relation: imports
+  - from: module_sldb_store_diagnostics_models_store_diagnosis
+    to: class_sldb_store_diagnostics_models_store_diagnosis_StoreDiagnosis
+    relation: defines
+  - from: module_sldb_store_diagnostics_models_store_diagnosis
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_diagnostics_models_store_diagnosis
+    to: module_dataclasses
+    relation: imports
+  - from: module_sldb_store_diagnostics_models_store_diagnosis
+    to: module_enum
+    relation: imports
+  - from: module_sldb_store_diagnostics_models_store_diagnosis
+    to: module_sldb_store_diagnostics_models_model_diagnosis
+    relation: imports
+  - from: module_sldb_store_diagnostics_models_store_diagnosis
+    to: module_sldb_store_diagnostics_models_diagnosis_note
+    relation: imports
+  - from: module_sldb_store_exceptions
+    to: class_sldb_store_exceptions_StoreError
+    relation: defines
+  - from: module_sldb_store_export
+    to: class_sldb_store_export_SemanticExporter
+    relation: defines
+  - from: module_sldb_store_export
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_export
+    to: module_datetime
+    relation: imports
+  - from: module_sldb_store_export
+    to: module_importlib_metadata
+    relation: imports
+  - from: module_sldb_store_export
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_export
+    to: module_typing
+    relation: imports
+  - from: module_sldb_store_export
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_store_export
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_store_export
+    to: module_sldb_store_section_rebuild
+    relation: imports
+  - from: module_sldb_store_export
+    to: module_sldb_store_semantic
+    relation: imports
+  - from: module_sldb_store_facade
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_facade
+    to: module_typing
+    relation: imports
+  - from: module_sldb_store_facade
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_store_facade
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_store_hashing
+    to: module_typing
+    relation: imports
+  - from: module_sldb_store_hashing
+    to: module_sldb_store_codec
+    relation: imports
+  - from: module_sldb_store_hashing
+    to: module_sldb_store_models
+    relation: imports
+  - from: module_sldb_store_io_documents_index
+    to: class_sldb_store_io_documents_index_DocumentsIndexIO
+    relation: defines
+  - from: module_sldb_store_io_documents_index
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_io_documents_index
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_store_io_documents_index
+    to: module_sldb_store_models
+    relation: imports
+  - from: module_sldb_store_io_documents_index
+    to: module_sldb_store_io_utils
+    relation: imports
+  - from: module_sldb_store_io_lock
+    to: class_sldb_store_io_lock_StoreIOLock
+    relation: defines
+  - from: module_sldb_store_io_lock
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_io_lock
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_store_io_lock
+    to: module_sldb_store_models
+    relation: imports
+  - from: module_sldb_store_io_lock
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_store_io_models_index
+    to: class_sldb_store_io_models_index_ModelsIndexIO
+    relation: defines
+  - from: module_sldb_store_io_models_index
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_io_models_index
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_store_io_models_index
+    to: module_sldb_store_models
+    relation: imports
+  - from: module_sldb_store_io_models_index
+    to: module_sldb_store_io_utils
+    relation: imports
+  - from: module_sldb_store_io_sections_index
+    to: class_sldb_store_io_sections_index_SectionsIndexIO
+    relation: defines
+  - from: module_sldb_store_io_sections_index
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_io_sections_index
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_store_io_sections_index
+    to: module_sldb_store_models
+    relation: imports
+  - from: module_sldb_store_io_sections_index
+    to: module_sldb_store_io_utils
+    relation: imports
+  - from: module_sldb_store_io_semantic_dag
+    to: class_sldb_store_io_semantic_dag_SemanticDAGIO
+    relation: defines
+  - from: module_sldb_store_io_semantic_dag
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_io_semantic_dag
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_store_io_semantic_dag
+    to: module_sldb_store_models
+    relation: imports
+  - from: module_sldb_store_io_semantic_dag
+    to: module_sldb_store_io_utils
+    relation: imports
+  - from: module_sldb_store_io_semantic_index
+    to: class_sldb_store_io_semantic_index_SemanticIndexIO
+    relation: defines
+  - from: module_sldb_store_io_semantic_index
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_io_semantic_index
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_store_io_semantic_index
+    to: module_sldb_store_models
+    relation: imports
+  - from: module_sldb_store_io_semantic_index
+    to: module_sldb_store_io_utils
+    relation: imports
+  - from: module_sldb_store_io_store_index
+    to: class_sldb_store_io_store_index_StoreIndexIO
+    relation: defines
+  - from: module_sldb_store_io_store_index
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_io_store_index
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_store_io_store_index
+    to: module_sldb_store_models
+    relation: imports
+  - from: module_sldb_store_io_store_index
+    to: module_sldb_store_io_utils
+    relation: imports
+  - from: module_sldb_store_io_utils
+    to: class_sldb_store_io_utils_StoreIOUtils
+    relation: defines
+  - from: module_sldb_store_io_utils
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_io_utils
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_store_io_utils
+    to: module_sldb_store_models
+    relation: imports
+  - from: module_sldb_store_layout
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_layout
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_migration
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_migration
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_migration
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_store_migration
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_store_models_doc_sections
+    to: class_sldb_store_models_doc_sections_DocSections
+    relation: defines
+  - from: module_sldb_store_models_doc_sections
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_store_models_doc_sections
+    to: module_sldb_store_models_section_context_record
+    relation: imports
+  - from: module_sldb_store_models_document_entry
+    to: class_sldb_store_models_document_entry_DocumentEntry
+    relation: defines
+  - from: module_sldb_store_models_document_entry
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_store_models_documents_index
+    to: class_sldb_store_models_documents_index_DocumentsIndex
+    relation: defines
+  - from: module_sldb_store_models_documents_index
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_store_models_documents_index
+    to: module_sldb_store_models_document_entry
+    relation: imports
+  - from: module_sldb_store_models_model_entry
+    to: class_sldb_store_models_model_entry_ModelEntry
+    relation: defines
+  - from: module_sldb_store_models_model_entry
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_store_models_models_index
+    to: class_sldb_store_models_models_index_ModelsIndex
+    relation: defines
+  - from: module_sldb_store_models_models_index
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_store_models_predicate_entry
+    to: class_sldb_store_models_predicate_entry_PredicateEntry
+    relation: defines
+  - from: module_sldb_store_models_predicate_entry
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_store_models_section_context_record
+    to: class_sldb_store_models_section_context_record_SectionContextRecord
+    relation: defines
+  - from: module_sldb_store_models_section_context_record
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_store_models_sections_index
+    to: class_sldb_store_models_sections_index_SectionsIndex
+    relation: defines
+  - from: module_sldb_store_models_sections_index
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_store_models_sections_index
+    to: module_sldb_store_models_doc_sections
+    relation: imports
+  - from: module_sldb_store_models_semantic_d_a_g
+    to: class_sldb_store_models_semantic_d_a_g_SemanticDAG
+    relation: defines
+  - from: module_sldb_store_models_semantic_d_a_g
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_store_models_semantic_d_a_g
+    to: module_sldb_store_models_semantic_node
+    relation: imports
+  - from: module_sldb_store_models_semantic_document_record
+    to: class_sldb_store_models_semantic_document_record_SemanticDocumentRecord
+    relation: defines
+  - from: module_sldb_store_models_semantic_document_record
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_store_models_semantic_index
+    to: class_sldb_store_models_semantic_index_SemanticIndex
+    relation: defines
+  - from: module_sldb_store_models_semantic_index
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_store_models_semantic_index
+    to: module_sldb_store_models_semantic_document_record
+    relation: imports
+  - from: module_sldb_store_models_semantic_node
+    to: class_sldb_store_models_semantic_node_SemanticNode
+    relation: defines
+  - from: module_sldb_store_models_semantic_node
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_store_models_store_entry
+    to: class_sldb_store_models_store_entry_StoreEntry
+    relation: defines
+  - from: module_sldb_store_models_store_entry
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_store_models_store_index
+    to: class_sldb_store_models_store_index_StoreIndex
+    relation: defines
+  - from: module_sldb_store_models_store_index
+    to: module_pydantic
+    relation: imports
+  - from: module_sldb_store_models_store_index
+    to: module_sldb_store_models_model_entry
+    relation: imports
+  - from: module_sldb_store_models_store_index
+    to: module_sldb_store_models_store_entry
+    relation: imports
+  - from: module_sldb_store_models_store_index
+    to: module_sldb_store_models_predicate_entry
+    relation: imports
+  - from: module_sldb_store_ops
+    to: class_sldb_store_ops_StoreOperations
+    relation: defines
+  - from: module_sldb_store_ops
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_ops
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_ops
+    to: module_typing
+    relation: imports
+  - from: module_sldb_store_ops
+    to: module_sldb_store_hashing
+    relation: imports
+  - from: module_sldb_store_ops
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_store_ops
+    to: module_sldb_store_models
+    relation: imports
+  - from: module_sldb_store_ops
+    to: module_sldb_store_semantic
+    relation: imports
+  - from: module_sldb_store_ops
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_store_ops
+    to: module_sldb_core_exceptions
+    relation: imports
+  - from: module_sldb_store_predicates
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_predicates
+    to: module_collections_abc
+    relation: imports
+  - from: module_sldb_store_predicates
+    to: module_sldb_store_models
+    relation: imports
+  - from: module_sldb_store_query
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_query
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_query
+    to: module_sldb_store_codec
+    relation: imports
+  - from: module_sldb_store_query
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_store_query
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_store_query
+    to: module_sldb_store_query_engine_models
+    relation: imports
+  - from: module_sldb_store_query
+    to: module_sldb_store_runtime_cache
+    relation: imports
+  - from: module_sldb_store_query
+    to: module_sldb_store_query_engine_structural
+    relation: imports
+  - from: module_sldb_store_query
+    to: module_sldb_store_query_engine_structural_queries
+    relation: imports
+  - from: module_sldb_store_query
+    to: module_sldb_store_query_engine_semantic
+    relation: imports
+  - from: module_sldb_store_query
+    to: module_sldb_store_query_engine_global_semantic
+    relation: imports
+  - from: module_sldb_store_query_engine_filter
+    to: class_sldb_store_query_engine_filter_DocumentFilter
+    relation: defines
+  - from: module_sldb_store_query_engine_filter
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_query_engine_filter
+    to: module_typing
+    relation: imports
+  - from: module_sldb_store_query_engine_filter
+    to: module_sldb_store_query_engine_models
+    relation: imports
+  - from: module_sldb_store_query_engine_filter
+    to: module_sldb_store_query_engine_structural
+    relation: imports
+  - from: module_sldb_store_query_engine_global_semantic
+    to: class_sldb_store_query_engine_global_semantic_GlobalSemanticEngine
+    relation: defines
+  - from: module_sldb_store_query_engine_global_semantic
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_query_engine_global_semantic
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_query_engine_global_semantic
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_store_query_engine_global_semantic
+    to: module_sldb_store_query
+    relation: imports
+  - from: module_sldb_store_query_engine_models
+    to: class_sldb_store_query_engine_models_RuntimeDocument
+    relation: defines
+  - from: module_sldb_store_query_engine_models
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_query_engine_models
+    to: module_dataclasses
+    relation: imports
+  - from: module_sldb_store_query_engine_models
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_query_engine_models
+    to: module_typing
+    relation: imports
+  - from: module_sldb_store_query_engine_semantic
+    to: class_sldb_store_query_engine_semantic_SemanticEngine
+    relation: defines
+  - from: module_sldb_store_query_engine_semantic
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_query_engine_semantic
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_query_engine_semantic
+    to: module_sldb_store_query_engine_semantic_utils
+    relation: imports
+  - from: module_sldb_store_query_engine_semantic
+    to: module_sldb_store_query_engine_filter
+    relation: imports
+  - from: module_sldb_store_query_engine_semantic_utils
+    to: class_sldb_store_query_engine_semantic_utils_SemanticUtils
+    relation: defines
+  - from: module_sldb_store_query_engine_semantic_utils
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_query_engine_semantic_utils
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_query_engine_semantic_utils
+    to: module_typing
+    relation: imports
+  - from: module_sldb_store_query_engine_semantic_utils
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_store_query_engine_semantic_utils
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_store_query_engine_semantic_utils
+    to: module_sldb_store_query
+    relation: imports
+  - from: module_sldb_store_query_engine_semantic_utils
+    to: module_sldb_store_query_engine_models
+    relation: imports
+  - from: module_sldb_store_query_engine_semantic_utils
+    to: module_sldb_store_semantic
+    relation: imports
+  - from: module_sldb_store_query_engine_store_prefix
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_query_engine_store_prefix
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_query_engine_store_prefix
+    to: module_typing
+    relation: imports
+  - from: module_sldb_store_query_engine_store_prefix
+    to: module_sldb_store_query
+    relation: imports
+  - from: module_sldb_store_query_engine_structural
+    to: class_sldb_store_query_engine_structural_StructuralEngine
+    relation: defines
+  - from: module_sldb_store_query_engine_structural
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_query_engine_structural
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_query_engine_structural
+    to: module_typing
+    relation: imports
+  - from: module_sldb_store_query_engine_structural
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_store_query_engine_structural
+    to: module_sldb_store_query_engine_store_prefix
+    relation: imports
+  - from: module_sldb_store_query_engine_structural
+    to: module_sldb_store_query_engine_store_prefix
+    relation: imports
+  - from: module_sldb_store_query_engine_structural
+    to: module_sldb_store_query_engine_store_prefix
+    relation: imports
+  - from: module_sldb_store_query_engine_structural_queries
+    to: class_sldb_store_query_engine_structural_queries_StructuralQueryEngine
+    relation: defines
+  - from: module_sldb_store_query_engine_structural_queries
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_query_engine_structural_queries
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_query_engine_structural_queries
+    to: module_sldb_store_query_engine_structural
+    relation: imports
+  - from: module_sldb_store_query_engine_structural_queries
+    to: module_sldb_store_query_engine_filter
+    relation: imports
+  - from: module_sldb_store_query_engine_structural_queries
+    to: module_sldb_store_query_engine_store_prefix
+    relation: imports
+  - from: module_sldb_store_resolver
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_resolver
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_store_runtime_cache
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_runtime_cache
+    to: module_dataclasses
+    relation: imports
+  - from: module_sldb_store_runtime_cache
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_runtime_cache
+    to: module_typing
+    relation: imports
+  - from: module_sldb_store_runtime_cache
+    to: module_sldb_store
+    relation: imports
+  - from: module_sldb_store_runtime_cache
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_store_runtime_cache
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_store_runtime_cache_disk
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_runtime_cache_disk
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_runtime_cache_disk
+    to: module_typing
+    relation: imports
+  - from: module_sldb_store_runtime_cache_disk
+    to: module_sldb_store_query_engine_models
+    relation: imports
+  - from: module_sldb_store_runtime_codec
+    to: class_sldb_store_runtime_codec_RuntimeCodec
+    relation: defines
+  - from: module_sldb_store_runtime_codec
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_runtime_codec
+    to: module_typing
+    relation: imports
+  - from: module_sldb_store_runtime_codec
+    to: module_sldb_runtime_validation
+    relation: imports
+  - from: module_sldb_store_section_rebuild
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_section_rebuild
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_section_rebuild
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_store_section_rebuild
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_store_section_rebuild
+    to: module_sldb_store_models
+    relation: imports
+  - from: module_sldb_store_section_rebuild
+    to: module_sldb_store_semantic
+    relation: imports
+  - from: module_sldb_store_section_rebuild
+    to: module_markdown_it
+    relation: imports
+  - from: module_sldb_store_section_rebuild
+    to: module_markdown_it_tree
+    relation: imports
+  - from: module_sldb_store_section_rebuild
+    to: module_sldb_store
+    relation: imports
+  - from: module_sldb_store_section_rebuild
+    to: module_sldb_store
+    relation: imports
+  - from: module_sldb_store_semantic
+    to: class_sldb_store_semantic_RebuildReport
+    relation: defines
+  - from: module_sldb_store_semantic
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_semantic
+    to: module_collections
+    relation: imports
+  - from: module_sldb_store_semantic
+    to: module_dataclasses
+    relation: imports
+  - from: module_sldb_store_semantic
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_semantic
+    to: module_sldb_store_codec
+    relation: imports
+  - from: module_sldb_store_semantic
+    to: module_sldb_store_io
+    relation: imports
+  - from: module_sldb_store_semantic
+    to: module_sldb_store_layout
+    relation: imports
+  - from: module_sldb_store_semantic
+    to: module_sldb_store_models
+    relation: imports
+  - from: module_sldb_store_semantic
+    to: module_sldb_store_semantic_doc_tags
+    relation: imports
+  - from: module_sldb_store_semantic
+    to: module_sldb_store_semantic_tags
+    relation: imports
+  - from: module_sldb_store_semantic
+    to: module_sldb_store
+    relation: imports
+  - from: module_sldb_store_semantic_doc_tags
+    to: module___future__
+    relation: imports
+  - from: module_sldb_store_semantic_doc_tags
+    to: module_pathlib
+    relation: imports
+  - from: module_sldb_store_semantic_doc_tags
+    to: module_sldb_store_codec
+    relation: imports
+  - from: module_sldb_store_semantic_doc_tags
+    to: module_sldb_store_semantic_tags
+    relation: imports
+  - from: module_sldb_store_semantic_doc_tags
+    to: module_sldb_store_runtime_cache
+    relation: imports
+  - from: module_sldb_store_semantic_tags
+    to: module___future__
+    relation: imports

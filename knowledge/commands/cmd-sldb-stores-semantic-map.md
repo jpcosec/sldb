@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#stores semantic-map; contract-sha256:6adb6e5b0bc4868e2029e8ed4aa25f627a52c2ad567eb5e8772068c18c5972ab
 ---
 
 # stores semantic-map
@@ -28,9 +28,52 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'semantic-map
 
 ## Arguments
 
-concept_a | required | First concept
-concept_b | required | Second concept
---store | optional | Store path
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "concept_a"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "First concept"
+    },
+    {
+      "names": [
+        "concept_b"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Second concept"
+    },
+    {
+      "names": [
+        "--store"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Store path"
+    }
+  ],
+  "exclusive_groups": []
+}
+```
 
 ## Usage
 

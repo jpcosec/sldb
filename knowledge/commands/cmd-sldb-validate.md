@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#validate; contract-sha256:2c4c5cdfd763fd6eb1bb6644ea715f8d0296549ab46bd6073f9637a4b8d2974d
 ---
 
 # validate
@@ -28,11 +28,90 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'validate'. I
 
 ## Arguments
 
-model | required | Model ref: module:Class
---input | optional | Markdown file
---data | optional | Data file
---format | optional | 
---pythonpath | optional | Project path
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "model"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Model ref: module:Class"
+    },
+    {
+      "names": [
+        "--input"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Markdown file"
+    },
+    {
+      "names": [
+        "--data"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Data file"
+    },
+    {
+      "names": [
+        "--format"
+      ],
+      "required": false,
+      "default": "\"text\"",
+      "choices": [
+        "\"text\"",
+        "\"json\"",
+        "\"yaml\""
+      ],
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": ""
+    },
+    {
+      "names": [
+        "--pythonpath"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Project path"
+    }
+  ],
+  "exclusive_groups": [
+    {
+      "required": true,
+      "arguments": [
+        "input",
+        "data"
+      ]
+    }
+  ]
+}
+```
 
 ## Usage
 

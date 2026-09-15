@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#help; contract-sha256:3a232bac71000b48414029113e6c0651e15a539fe9609d760f282d62fb6e89a7
 ---
 
 # help
@@ -28,7 +28,26 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'help'. It pa
 
 ## Arguments
 
-topic | optional | stores, models, predicates, docs, fields, sections, ast, find, faq, inbox, explore, legacy
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "topic"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": "?",
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "stores, models, predicates, docs, fields, sections, ast, find, faq, inbox, explore, selfdoc, legacy"
+    }
+  ],
+  "exclusive_groups": []
+}
+```
 
 ## Usage
 

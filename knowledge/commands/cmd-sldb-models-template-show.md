@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#models template show; contract-sha256:8a3f72775c491b2c32f7f4c1e93095f93a9d6762b0ea188e4362e7b9e755765e
 ---
 
 # models template show
@@ -28,10 +28,65 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'show'. It pa
 
 ## Arguments
 
-model | required | Model name
---store | optional | Store path
---pythonpath | optional | Project path
---draft | optional | Show the draft template
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "model"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Model name"
+    },
+    {
+      "names": [
+        "--store"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Store path"
+    },
+    {
+      "names": [
+        "--pythonpath"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Project path"
+    },
+    {
+      "names": [
+        "--draft"
+      ],
+      "required": false,
+      "default": "false",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "argparse._StoreTrueAction",
+      "const": "true",
+      "help": "Show the draft template"
+    }
+  ],
+  "exclusive_groups": []
+}
+```
 
 ## Usage
 

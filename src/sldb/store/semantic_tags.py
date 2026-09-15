@@ -2,8 +2,17 @@ from __future__ import annotations
 
 
 def flatten_model_semantics(model_type: type) -> list[str]:
+    """Combine base and model-local semantics.
+
+    StructuredNLDoc supplies the representation/source defaults. A concrete
+    model replaces a key such as source instead of having to repeat the
+    representation declaration.
+    """
+    semantics = {}
+    for base in reversed(model_type.__mro__):
+        semantics.update(base.__dict__.get("__semantics__", {}) or {})
     tags = []
-    for k, v in (getattr(model_type, "__semantics__", {}) or {}).items():
+    for k, v in semantics.items():
         if isinstance(v, str): tags.append(f"{k}.{v}")
         elif isinstance(v, (list, tuple)): tags.extend([".".join([k, *[str(p) for p in v]])] if v else [])
         elif isinstance(v, dict): tags.extend([".".join([k, ck, *([str(p) for p in cv] if isinstance(cv, (list, tuple)) else [str(cv)])]) for ck, cv in v.items()])

@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#extract; contract-sha256:8360e64bc232e35fbd51c401ac68c69939596417a52cc3972fcaa81dc59ee8f2
 ---
 
 # extract
@@ -28,11 +28,81 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'extract'. It
 
 ## Arguments
 
-model | required | Model ref: module:Class
-input | required | Markdown file
-output | required | Output JSON/YAML
---format | optional | 
---pythonpath | optional | Project path
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "model"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Model ref: module:Class"
+    },
+    {
+      "names": [
+        "input"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Markdown file"
+    },
+    {
+      "names": [
+        "output"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Output JSON/YAML"
+    },
+    {
+      "names": [
+        "--format"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": [
+        "\"json\"",
+        "\"yaml\""
+      ],
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": ""
+    },
+    {
+      "names": [
+        "--pythonpath"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Project path"
+    }
+  ],
+  "exclusive_groups": []
+}
+```
 
 ## Usage
 

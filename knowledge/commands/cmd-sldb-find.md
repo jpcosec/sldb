@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#find; contract-sha256:e0bfe85dcee0770390b76e464421537d2ef4afbf9d7d25e9ef214e5ff15bc22f
 ---
 
 # find
@@ -28,18 +28,184 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'find'. It pa
 
 ## Arguments
 
-term | required | Resource term, semantic tag, or physical token (use "" to match everything)
---in | optional | semantic, physical or both (default both)
---global | optional | Include linked stores
---regex | optional | Treat the term as a regex
---fuzzy | optional | Use fuzzy matching
---rebuild | optional | Rebuild the section indexes before searching
---type | optional | Restrict to store, model, doc, section or field
---select | optional | Comma-separated projection fields
---where | optional | One predicate. Docs: has(f), "x" in f, f ~ "re", f = "v", f != "v", f >= n, f <= n, model <= Base. Fields: value = "v", doc = "d", model = "M", has(value). Sections: title ~ "re", "x" in about|breadcrumbs|semantic_tags, path = "p"
---store | optional | Store path
---pythonpath | optional | Project path
---format | optional | text, json or yaml
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "term"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Resource term, semantic tag, or physical token"
+    },
+    {
+      "names": [
+        "--in"
+      ],
+      "required": false,
+      "default": "\"both\"",
+      "choices": [
+        "\"semantic\"",
+        "\"physical\"",
+        "\"both\""
+      ],
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Use `physical` for names, paths, section titles, and field addresses"
+    },
+    {
+      "names": [
+        "--global"
+      ],
+      "required": false,
+      "default": "false",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "argparse._StoreTrueAction",
+      "const": "true",
+      "help": ""
+    },
+    {
+      "names": [
+        "--regex"
+      ],
+      "required": false,
+      "default": "false",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "argparse._StoreTrueAction",
+      "const": "true",
+      "help": ""
+    },
+    {
+      "names": [
+        "--fuzzy"
+      ],
+      "required": false,
+      "default": "false",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "argparse._StoreTrueAction",
+      "const": "true",
+      "help": ""
+    },
+    {
+      "names": [
+        "--rebuild"
+      ],
+      "required": false,
+      "default": "false",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "argparse._StoreTrueAction",
+      "const": "true",
+      "help": ""
+    },
+    {
+      "names": [
+        "--type"
+      ],
+      "required": false,
+      "default": "\"all\"",
+      "choices": [
+        "\"all\"",
+        "\"store\"",
+        "\"model\"",
+        "\"doc\"",
+        "\"section\"",
+        "\"field\""
+      ],
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": ""
+    },
+    {
+      "names": [
+        "--select"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Comma-separated projection fields"
+    },
+    {
+      "names": [
+        "--where"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Filter expression"
+    },
+    {
+      "names": [
+        "--store"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Store path"
+    },
+    {
+      "names": [
+        "--pythonpath"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Project path"
+    },
+    {
+      "names": [
+        "--format"
+      ],
+      "required": false,
+      "default": "\"text\"",
+      "choices": [
+        "\"text\"",
+        "\"json\"",
+        "\"yaml\""
+      ],
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": ""
+    }
+  ],
+  "exclusive_groups": []
+}
+```
 
 ## Usage
 

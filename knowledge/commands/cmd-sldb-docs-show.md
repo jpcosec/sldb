@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#docs show; contract-sha256:1e005600e28dc037ed95c4787893851f988029cce1cad088d869d8496007dcc8
 ---
 
 # docs show
@@ -28,10 +28,68 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'show'. It pa
 
 ## Arguments
 
-doc | required | Doc name or Model/DocName or tracked path
---store | optional | Store path
---pythonpath | optional | Project path
---format | optional | 
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "doc"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Doc name or Model/DocName or tracked path"
+    },
+    {
+      "names": [
+        "--store"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Store path"
+    },
+    {
+      "names": [
+        "--pythonpath"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Project path"
+    },
+    {
+      "names": [
+        "--format"
+      ],
+      "required": false,
+      "default": "\"json\"",
+      "choices": [
+        "\"json\"",
+        "\"yaml\""
+      ],
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": ""
+    }
+  ],
+  "exclusive_groups": []
+}
+```
 
 ## Usage
 

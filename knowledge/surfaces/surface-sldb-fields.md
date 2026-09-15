@@ -8,7 +8,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#fields; contract-sha256:8748c1d008f374e5692b73fd8189b12c0eac20a8a5c46ffed67c95c7524ad132
 ---
 
 # fields
@@ -23,10 +23,10 @@ Registered under src/sldb/cli/parsers/ as the 'fields' subparser. Each command d
 
 ## Commands
 
-fields show
-fields query
-fields create
-fields update
-fields remove
-fields append
-fields clean
+- sldb fields append
+- sldb fields clean
+- sldb fields create
+- sldb fields query
+- sldb fields remove
+- sldb fields show
+- sldb fields update

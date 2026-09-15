@@ -8,7 +8,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#stores; contract-sha256:f69d5af091f96a41b632dbbdf690f23ddcf94ab1e3aa23ecf9049050b242a292
 ---
 
 # stores
@@ -23,10 +23,11 @@ Registered under src/sldb/cli/parsers/ as the 'stores' subparser. Each command d
 
 ## Commands
 
-stores init
-stores add
-stores check
-stores update
-stores semantic-map
-stores semantic-export
-stores list
+- sldb stores add
+- sldb stores check
+- sldb stores init
+- sldb stores list
+- sldb stores reconcile
+- sldb stores semantic-export
+- sldb stores semantic-map
+- sldb stores update

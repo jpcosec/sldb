@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#fields update; contract-sha256:1f3d30180f6fbe542970dc9f2bf428ee28ba2c5eeff93288ee54e5d12d944cb9
 ---
 
 # fields update
@@ -28,10 +28,65 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'update'. It 
 
 ## Arguments
 
-target | required | docs/<Doc>/<field> or docs/<Model>/<Doc>/<field>
-value | required | Inline YAML/JSON value
---store | optional | Store path
---pythonpath | optional | Project path
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "target"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "docs/<Doc>/<field> or docs/<Model>/<Doc>/<field>"
+    },
+    {
+      "names": [
+        "value"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Inline YAML/JSON value"
+    },
+    {
+      "names": [
+        "--store"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Store path"
+    },
+    {
+      "names": [
+        "--pythonpath"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Project path"
+    }
+  ],
+  "exclusive_groups": []
+}
+```
 
 ## Usage
 

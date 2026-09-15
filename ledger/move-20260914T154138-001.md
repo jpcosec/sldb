@@ -1,0 +1,54 @@
+---
+id: move-20260914T154138-001
+at: '2026-09-14T15:41:38+00:00'
+speaker: ''
+outcome: unico
+state_before: libre
+state_after: libre
+hash_before: 48b7771c29e37a8bc1a3b612f33aa49388ce718921967900740eef41cdbf0cae
+hash_after: 48b7771c29e37a8bc1a3b612f33aa49388ce718921967900740eef41cdbf0cae
+refers_to: ''
+---
+
+# move-20260914T154138-001
+
+## Sentence
+
+what python symbols does sldb.sldb.selfdoc.command contain
+
+## Record
+
+```yaml
+queries:
+- pron graph python_symbol name = sldb.sldb.selfdoc.command → 1
+- kgdb edges_from(python:sldb.sldb.selfdoc.command, contains) → 1
+writes: []
+edges:
+- source: python:sldb.sldb.selfdoc.command
+  target: python:sldb.sldb.selfdoc.command:CommandRecord
+  relation: contains
+  metadata:
+    origin: python_ast
+    path: sldb/selfdoc/command.py
+    sha256: bb7952aa96d78cb7a9f0d1c2953b8f341de9bc54f98843a001f95753d63ea532
+    line_start: 9
+    line_end: 19
+interpretation:
+  forma: read
+  items:
+  - wh('what')
+  - word('python symbols'→source_model:PythonSymbol)
+  - wh('does')
+  - unknown('sldb.sldb.selfdoc.command')
+  - word('contain'→source_relation:contains)
+  parts:
+  - 'read · source_relation:contains · subject=the PythonSymbol [] sldb.sldb.selfdoc.command
+    · object=all PythonSymbol [] · payload={''asked'': ''object''}'
+  unknown: []
+  notes: []
+reads: []
+trace:
+- 'interpretation: read'
+- pron graph python_symbol name = sldb.sldb.selfdoc.command → 1
+- kgdb edges_from(python:sldb.sldb.selfdoc.command, contains) → 1
+```

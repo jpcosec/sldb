@@ -1,9 +1,9 @@
 name: CliCommandDoc
 model_ref: sldb.models.knowledge_surface:CliCommandDoc
-path: src/sldb/models/knowledge_surface.py
+path: src/sldb/models/cli_command_doc.py
 documents_index: .sldb/core/documents/CliCommandDoc.yaml
 sections_index: .sldb/runtime/sections/CliCommandDoc.yaml
-hash_b: 92423034e301c0b244294c805b64c5ad7e7d13993e91cbd62e2645c8db947d93
+hash_b: c1f25a2ed684552b2f5fea4571c2366a4d3626cff614ac676df30ccc8976f9a5
 version: 1
 canonical: false
 family: null

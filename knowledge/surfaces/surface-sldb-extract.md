@@ -8,7 +8,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#extract; contract-sha256:8360e64bc232e35fbd51c401ac68c69939596417a52cc3972fcaa81dc59ee8f2
 ---
 
 # extract
@@ -23,4 +23,4 @@ Registered under src/sldb/cli/parsers/ as the 'extract' subparser. Each command 
 
 ## Commands
 
-extract
+- sldb extract

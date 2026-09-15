@@ -12,6 +12,7 @@ from sldb.cli.utils import parse_data_value
 from sldb.core.exceptions import SLDBModelDraftError, SLDBModelEditError, SLDBModelError
 from sldb.runtime.validation import Validator
 from sldb.store.io import load_store_index
+from sldb.cli.commands.model_source import resolve_definition
 
 def registered_model_source(args: Any) -> tuple[Path, str, str]:
     sp, root = get_store_context(args.store)
@@ -23,7 +24,7 @@ def registered_model_source(args: Any) -> tuple[Path, str, str]:
     if not model_path.is_absolute():
         model_path = root / model_path
     mod, attr = m_entry.model_ref.split(":", 1)
-    return model_path.resolve(), mod, attr
+    return resolve_definition(model_path, mod, attr, getattr(args, "pythonpath", None) or str(root))
 
 def draft_path(path: Path) -> Path:
     return path.with_name(path.name + ".temp")

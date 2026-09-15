@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#faq; contract-sha256:3142bc75631c1825e49076fe0fe8f0a9c54e3bb6c26ae705a0f7f516809242f9
 ---
 
 # faq
@@ -28,9 +28,69 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'faq'. It par
 
 ## Arguments
 
-question | optional | Question index, slug, or text fragment.
---format | optional | 
---faq-path | optional | FAQ markdown path
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "question"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": "?",
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Question index, slug, or text fragment."
+    },
+    {
+      "names": [
+        "--format"
+      ],
+      "required": false,
+      "default": "\"text\"",
+      "choices": [
+        "\"text\"",
+        "\"json\"",
+        "\"yaml\""
+      ],
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": ""
+    },
+    {
+      "names": [
+        "--faq-path"
+      ],
+      "required": false,
+      "default": "\"docs/faq.md\"",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "FAQ markdown path"
+    },
+    {
+      "names": [
+        "--store"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Store used to anchor a relative FAQ path"
+    }
+  ],
+  "exclusive_groups": []
+}
+```
 
 ## Usage
 

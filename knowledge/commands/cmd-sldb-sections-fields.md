@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#sections fields; contract-sha256:b9dbce9c27e0d6dbbd172dd69a503626c8d80ec9a902694ab3e44d51b75a82bc
 ---
 
 # sections fields
@@ -28,10 +28,69 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'fields'. It 
 
 ## Arguments
 
-target | required | docs/<Doc> or docs/<Doc>/<section_path>
---store | optional | Store path
---pythonpath | optional | Project path
---format | optional | 
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "target"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "docs/<Doc> or docs/<Doc>/<section_path>"
+    },
+    {
+      "names": [
+        "--store"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Store path"
+    },
+    {
+      "names": [
+        "--pythonpath"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Project path"
+    },
+    {
+      "names": [
+        "--format"
+      ],
+      "required": false,
+      "default": "\"json\"",
+      "choices": [
+        "\"json\"",
+        "\"yaml\"",
+        "\"text\""
+      ],
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": ""
+    }
+  ],
+  "exclusive_groups": []
+}
+```
 
 ## Usage
 

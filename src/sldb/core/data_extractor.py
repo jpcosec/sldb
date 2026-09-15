@@ -55,10 +55,18 @@ class DataExtractor:
             state["curr_block"] = -1
 
     def _handle_section_body(self, data_blocks: list[SLDBNode], recipes: list[dict[str, Any]], r_idx: int, raw_markdown: str | None, state: dict[str, Any]) -> None:
+        """Capture the blocks up to the next recipe's boundary.
+
+        curr_block is boundary_idx - 1, never max(search, boundary_idx - 1):
+        an empty section has boundary_idx == search, and claiming search as
+        consumed would skip the boundary block itself -- which belongs to the
+        NEXT recipe. That made one empty section shift every later section up
+        by one and silently destroy content. For a non-empty capture both
+        expressions agree, since boundary_idx - 1 >= search."""
         boundary_idx = self._find_boundary_idx(data_blocks, recipes, r_idx, state["search"])
         val = self._capture_markdown_slice(data_blocks, state["search"], boundary_idx, raw_markdown)
         state["extracted"][recipes[r_idx]["props"][0]] = val
-        state["curr_block"] = max(state["search"], boundary_idx - 1)
+        state["curr_block"] = boundary_idx - 1
 
     def _find_boundary_idx(self, data_blocks: list[SLDBNode], recipes: list[dict[str, Any]], r_idx: int, search_index: int) -> int:
         for future_recipe in recipes[r_idx + 1 :]:

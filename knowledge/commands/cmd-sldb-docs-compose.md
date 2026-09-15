@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#docs compose; contract-sha256:58356de5b808e28368e8565dc5e39d1c463ba6ef3fba1a0184d592ced47e5511
 ---
 
 # docs compose
@@ -28,10 +28,70 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'compose'. It
 
 ## Arguments
 
-doc | required | Doc name or path
---store | optional | Store path
--o | optional | Output path or - for stdout
---format | optional | 
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "doc"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Doc name or path"
+    },
+    {
+      "names": [
+        "--store"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Store path"
+    },
+    {
+      "names": [
+        "-o",
+        "--output"
+      ],
+      "required": false,
+      "default": "\"-\"",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Output path or - for stdout"
+    },
+    {
+      "names": [
+        "--format"
+      ],
+      "required": false,
+      "default": "\"markdown\"",
+      "choices": [
+        "\"markdown\"",
+        "\"json\"",
+        "\"yaml\""
+      ],
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": ""
+    }
+  ],
+  "exclusive_groups": []
+}
+```
 
 ## Usage
 

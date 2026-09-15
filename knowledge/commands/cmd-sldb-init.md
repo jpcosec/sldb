@@ -2,21 +2,21 @@
 id: cmd-sldb-init
 system: sldb
 command_path: init
-synopsis: ==SUPPRESS==
+synopsis: Create a repository-local SLDB skill file.
 tags:
 - system:sldb
 - domain:retrieval
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#init; contract-sha256:74e0986dc3590370dc5c67a46bcef8cbe79f47792cb014b23d185c592e281d6f
 ---
 
 # init
 
 ## Synopsis
 
-==SUPPRESS==
+Create a repository-local SLDB skill file.
 
 ## Purpose
 
@@ -28,8 +28,39 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'init'. It pa
 
 ## Arguments
 
-path | optional | 
---force | optional | 
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "path"
+      ],
+      "required": false,
+      "default": "\".\"",
+      "choices": null,
+      "nargs": "?",
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": ""
+    },
+    {
+      "names": [
+        "--force"
+      ],
+      "required": false,
+      "default": "false",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "argparse._StoreTrueAction",
+      "const": "true",
+      "help": ""
+    }
+  ],
+  "exclusive_groups": []
+}
+```
 
 ## Usage
 

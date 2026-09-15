@@ -1,23 +1,29 @@
 documents:
 - name: arch-current-cli-tree
   path: docs/architecture/current-cli-tree.md
-  hash_c: e88352b0dfc002d6ea83378f813297f2dc90b8e9d53088ca044d202dd411598e
-  hash_d: 4a81bb7b4f854c8b0f4a9bcb210ba6e2d09e767b80b8632725a1e6dc4d9fe55c
+  hash_c: 513e736cfff0cf12d178fb5c8a3974dfcbe12c841fb9b8c266e1cd6436ec6d0d
+  hash_d: 00aca4df8f928bc444e6722569141c24e4100bcd0a97a0400a04c9ebfee7e4a4
   semantic_tags:
+  - representation.markdown
+  - source.document.markdown
   - type.documentation.architecture
   - workspace.docs.architecture
 - name: arch-current-source-tree
   path: docs/architecture/current-source-tree.md
-  hash_c: 7b09ba3634721ac2797dddbfae144cd61d531e8d65bb099f74744ab26c039015
-  hash_d: 4bbc26dffd7a064293e66a35f41ca6269f867feaa65a2f74450b0e5773d503b8
+  hash_c: 66c5372829b14a010e44cca230f38cc1cf895c26761bad8e5c55812b7e7e8278
+  hash_d: 6b1e1adf0bcaa2b02cad5c2f018d9b3674a8792393654ba65fb516a1797d1b1c
   semantic_tags:
+  - representation.markdown
+  - source.document.markdown
   - type.documentation.architecture
   - workspace.docs.architecture
 - name: arch-current-system-overview
   path: docs/architecture/current-system-overview.md
-  hash_c: 9c10475223b6697c0f679ab07606e32ac0778b05021332e1dfd4828d6d84f3cb
-  hash_d: 36f1d4bf5719c01cfa4f24d14cd2022f22dd699c8cabd9e6e4e2ad9961a0a7cb
+  hash_c: 8dc9b3606abf9ee6b2002949b45331159906e53a6f09a98a534953e1f7b6ce0d
+  hash_d: edc7b7b792c095c84aebbbb60aeeefdfca6c4c4cb0167cd57489665cd58a7389
   semantic_tags:
+  - representation.markdown
+  - source.document.markdown
   - type.documentation.architecture
   - workspace.docs.architecture
 - name: arch-database-component-diagram
@@ -25,6 +31,8 @@ documents:
   hash_c: b176f8dd8aa388d1001ca7a3c7485cc41189467da3e0d758ad5507be9945e5b0
   hash_d: 347d7bed709291842acb3b660ef9dd0bbe5e9b44c7aa8ca07affb1e9d60704c5
   semantic_tags:
+  - representation.markdown
+  - source.document.markdown
   - type.documentation.architecture
   - workspace.docs.architecture
 - name: arch-refactored-components
@@ -32,13 +40,17 @@ documents:
   hash_c: e1d6e794890b48ecf89bdfe3d4af0ad3e21e6dbe1b57b9b1b7df9146394ba093
   hash_d: 3c129034033e5468ec1d1d7c2770a56b4582e111be5c663365b300afd83e962e
   semantic_tags:
+  - representation.markdown
+  - source.document.markdown
   - type.documentation.architecture
   - workspace.docs.architecture
 - name: arch-smg-ir
   path: docs/architecture/smg-ir.md
-  hash_c: 52e25d37532238685e91f52a16a5d9c0a1a9791db6d09e08e59486e99e00cd75
-  hash_d: 10395644a91c231555a0b91b9fb6646b47602466b47cbfafa9a4b966d7c7c7b2
+  hash_c: 08b86c15339e6a00dc7f964246934e9e2dd0839db6fd2c29e56aae911e9aee7f
+  hash_d: 061d85773d7eca3a20792dc793658f3fccb4dbb1477d99c6c076b9b7a9633238
   semantic_tags:
+  - representation.markdown
+  - source.document.markdown
   - type.documentation.architecture
   - workspace.docs.architecture
 - name: arch-deskops-boundary-proposal
@@ -46,5 +58,25 @@ documents:
   hash_c: 9b6185c04c14c83d72e21d1eaf0cb1912f5006ec81aeaf444a43bdc7c325ed52
   hash_d: 1c495519a119a29bf2ae3c87411f0a5733dd39b1c9585d4acd191a40b8ef6e27
   semantic_tags:
+  - representation.markdown
+  - source.document.markdown
+  - type.documentation.architecture
+  - workspace.docs.architecture
+- name: arch-code-docstring-indexing
+  path: docs/architecture/code-docstring-indexing.spec.md
+  hash_c: f138b95ff05d19df6c955972f9905cbd3c5a9f8e4c08276f35f829c9c2c433ff
+  hash_d: c9f014ba947050ebed196b4f40eb466bdfa7d508aa85e191b71f71ce80fbe0a2
+  semantic_tags:
+  - representation.markdown
+  - source.document.markdown
+  - type.documentation.architecture
+  - workspace.docs.architecture
+- name: arch-code-docstring-indexing-handoff
+  path: docs/architecture/code-docstring-indexing-handoff.md
+  hash_c: 8921d13a2e6c8294daba36d6e89327092c0505a4c62abf9362073b3daf27dc65
+  hash_d: 01282d517ade4b615700da11209b9ce10ef441d13ab4968233c039f47a782b52
+  semantic_tags:
+  - representation.markdown
+  - source.document.markdown
   - type.documentation.architecture
   - workspace.docs.architecture

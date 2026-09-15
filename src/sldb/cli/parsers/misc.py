@@ -6,13 +6,14 @@ def add_misc_commands(s: argparse._SubParsersAction) -> None:
 
 def _help(s):
     p = s.add_parser("help", help="Curated CLI help.")
-    p.add_argument("topic", nargs="?", help="stores, models, predicates, docs, fields, sections, ast, find, faq, inbox, explore, legacy")
+    p.add_argument("topic", nargs="?", help="stores, models, predicates, docs, fields, sections, ast, find, faq, inbox, explore, selfdoc, legacy")
 
 def _faq(s):
     p = s.add_parser("faq", help="Browse the first-use FAQ by question.")
     p.add_argument("question", nargs="?", help="Question index, slug, or text fragment.")
     p.add_argument("--format", choices=("text", "json", "yaml"), default="text")
     p.add_argument("--faq-path", default="docs/faq.md", help="FAQ markdown path")
+    p.add_argument("--store", help="Store used to anchor a relative FAQ path")
 
 def _inbox(s):
     p = s.add_parser("inbox", help="Log unclear points or suggestions into the repo desk.")
@@ -40,6 +41,7 @@ def _explore(s):
     p.add_argument("--code-root", default="src", help="Python source directory to scan")
     p.add_argument("--max-results", type=int, default=20)
     p.add_argument("--format", choices=("text", "json", "yaml"), default="text")
+    p.add_argument("--store", help="Store used to anchor relative source roots")
 
 def _ast(s):
     p = s.add_parser("ast", help="Inspect the normalized SLDB graph.")

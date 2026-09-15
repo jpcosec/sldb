@@ -1,9 +1,9 @@
 name: SurfaceDoc
 model_ref: sldb.models.knowledge_surface:SurfaceDoc
-path: src/sldb/models/knowledge_surface.py
+path: src/sldb/models/surface_doc.py
 documents_index: .sldb/core/documents/SurfaceDoc.yaml
 sections_index: .sldb/runtime/sections/SurfaceDoc.yaml
-hash_b: 6a6a2dc20626e9fba0ac8de11ce6cfb4b000c380a5a8c2eb42d84e136cd57eb2
+hash_b: 0335baed2c455f659bd9e720a7dc9ff96e2b086748c323db3237a83faefe0053
 version: 1
 canonical: false
 family: null

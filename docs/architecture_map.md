@@ -1,5 +1,7 @@
 # SLDB Architecture Map
 
+Historical dependency snapshot. Entries such as `nldb.__main__` and `sldb.cli.graph` refer to an earlier source tree; this file is not a current import map. See the [verified source map](architecture/current-source-tree.md). Regenerating the exhaustive dependency map remains a [documentation gap](documentation-review.md).
+
 ## Modules
 
 ### `nldb.__main__`
@@ -714,4 +716,3 @@ No internal dependencies.
 
 ## Mapa Inicial para spec2viz
 This map will serve as the baseline for the future `spec2viz` modularization, decoupling the query engine from the core store io operations, and lifting the CLI into its own well-defined layer.
-

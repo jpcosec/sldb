@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 from typing import Any
 
 import yaml
@@ -11,6 +12,8 @@ from sldb.cli.model_utils import resolve_model_ref
 from sldb.cli.utils import write_text
 from sldb.store.export import export_kgdb_semantic_payload
 from sldb.store.io import load_store_index
+from sldb.store.catalog_reconcile import reconcile_catalog
+from sldb.store.resolver import global_store_path
 
 
 class StoresCLI:
@@ -24,8 +27,24 @@ class StoresCLI:
             return self.list(args)
         if args.stores_command == "semantic-export":
             return self.semantic_export(args)
+        if args.stores_command == "reconcile":
+            return self.reconcile(args)
         args.store_command = args.stores_command
         return self._store.run(args)
+
+    def reconcile(self, args: Any) -> int:
+        catalog = Path(args.catalog).resolve() if args.catalog else global_store_path().resolve()
+        if not catalog.exists():
+            raise ValueError(f"Catalog store does not exist at {catalog}")
+        report = reconcile_catalog(catalog, Path(args.path).resolve(), args.apply)
+        self._print_reconcile(report, args.format)
+        return 0
+
+    def _print_reconcile(self, report: dict, encoding: str) -> None:
+        if encoding == "text":
+            print(f"discovered={len(report['discovered'])} missing={len(report['missing'])} stale={len(report['stale'])}")
+            return
+        print(self._format_payload(report, encoding).strip())
 
     def semantic_export(self, args: Any) -> int:
         sp, root = get_store_context(args.store, mode="readonly")

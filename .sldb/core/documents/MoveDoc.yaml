@@ -1,0 +1,260 @@
+documents:
+- name: move-20260914T144534-001
+  path: ledger/move-20260914T144534-001.md
+  hash_c: 95b84a3c0440cba327259f46c33025c4dfdd1b8e19fa6103d58fdb488ed05a28
+  hash_d: b4180e4d691ba2b192a61ca172e37f4b6ddee4c5d9b3dfa278cb62376ddacdae
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T144608-001
+  path: ledger/move-20260914T144608-001.md
+  hash_c: 1193c0df1942df7780dced2004ac0b00ff8baf237e9a4dce5db38796e6b14ce4
+  hash_d: 36fe68ec45cf244288bee11bd153c7993914474e551e9e0a1385d2908ec2bec2
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T144736-001
+  path: ledger/move-20260914T144736-001.md
+  hash_c: ce37d43ceb526b899e0a7378f31cb96d77efff2367486a83f497de7ea54cc9e4
+  hash_d: 009ff9576ba1afaee347c0aaecb0d1f0c0efecdb16fc311477b0d9ce538d81d9
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T144748-001
+  path: ledger/move-20260914T144748-001.md
+  hash_c: c090213bf1fc2c264bf1befbedeefcda237238d3e94793db278a19d019131846
+  hash_d: bda8b6c5c5bdffba5c6767b1498c5104e2227054a76e3b2813c71c030e74aa3c
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T144807-001
+  path: ledger/move-20260914T144807-001.md
+  hash_c: eb20b7528e8a0ea3d34ebd7a26210f182e759d09ea08124e4bffbf4f230dd2cd
+  hash_d: aec2ce6e09e7d9f46c0b30a24efba8d983b0e050359585471438c913184b8871
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T144859-001
+  path: ledger/move-20260914T144859-001.md
+  hash_c: 52f3d5f4f90f1333180f5f7744b35cedfe3804f8816e9b451a189832cf365bc6
+  hash_d: acfea48ec28aa51a09c499c0e70cc4f9a0bd6d7415123c6a41da7362fdae242e
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T145246-001
+  path: ledger/move-20260914T145246-001.md
+  hash_c: b9b3fec2312990c4369b97062d431f6aa0a7fe697dff3e056ed4e6039f86acfb
+  hash_d: 35e63800159f878dc859ffe64ca161a536d81cc1d6dda5e90596b1d46e4e42fc
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T152342-001
+  path: ledger/move-20260914T152342-001.md
+  hash_c: 2ef6f269286edf87557d5ae098cf681ec36e8bd11f7b3a0b2bc59cf00140b0b4
+  hash_d: ea86fd281cc34a2e6d339334ebbe3293fd0db989a567022012d63bd453a3c377
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T152757-001
+  path: ledger/move-20260914T152757-001.md
+  hash_c: 398ddf543d4cf957f4d1a7f18d7e1ae02979ccd1a05287a0c69623f60d2dcc96
+  hash_d: 8d27b3e47fc173f21a6a77c6ea28d0c2c0ed0044caa5fc143bd144ba733002e9
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T152800-001
+  path: ledger/move-20260914T152800-001.md
+  hash_c: 496f7c61eb6cac68cafac59208a4b36b8fef0fe66d146e208f46cd53d01836eb
+  hash_d: e3212b258c17a6254d95caee2c4fc2f469ffc0c3bd8eb22c42db6bd1713120ba
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T152804-001
+  path: ledger/move-20260914T152804-001.md
+  hash_c: fa34178aae47a6410835841844231fab14ef0ecd2925747394ec4de42dc164a5
+  hash_d: b69f167fe1edef9e540ec2d96a422f07a4524f1767400b0d89d1bf12e696a289
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T152809-001
+  path: ledger/move-20260914T152809-001.md
+  hash_c: b56ca217d2596484120b4f71e75b24529d8bc1014748341f2f01bab1e3547077
+  hash_d: c71a8729c1fec0e95cc3ff18a724b62264cd2f86fe5cfbc97c715ffea44cf2c4
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T153318-001
+  path: ledger/move-20260914T153318-001.md
+  hash_c: cb7dabb7f4bef862153c29f288b39c6f62c41f4134863988062ef419698949cf
+  hash_d: 23eb412f73d122da4b90821179e17002d5e7dfb2de6c7b6bdba002c837f3bcfa
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T153323-001
+  path: ledger/move-20260914T153323-001.md
+  hash_c: 03abe69ac358bad58024d0793e7fef395620db70aaf7d612daa8a58e2ff183a5
+  hash_d: 3042af3d946888aa0858eae28d23017f11d91fb195e97808ea15070dd581d47f
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T153326-001
+  path: ledger/move-20260914T153326-001.md
+  hash_c: 6acb2db58ab0b23c005924cb2bad9e0f0513ebea05ac61825a33ee1223069549
+  hash_d: fb29d2e6b30ac37502a0bd68feb02b89bf3e46a7fda87e10d352c8f9fff68f31
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T153331-001
+  path: ledger/move-20260914T153331-001.md
+  hash_c: 079a4d507166629c1a0412df996a3c3e01f9fda5ac445a61b6e89e9c16ebdb55
+  hash_d: ef4d1b1f50bbd42b2d277dcf26bd7c21f091314502648072da884f474783846a
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T153436-001
+  path: ledger/move-20260914T153436-001.md
+  hash_c: 04fbf7303ae8def1484f5d6662b19d653df5f13d383ad35a0c5bfc1f6cba7d23
+  hash_d: c8093ab0d6fcd12fb1c3299be3e998a84e05785ec42207e022de7304c2c480b3
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T153442-001
+  path: ledger/move-20260914T153442-001.md
+  hash_c: 314d60ba1ca1c8251f10e7e84eb458562b5646ee1949167d872c9ee9f58f4f12
+  hash_d: 63f7fb0415744f0a1968d0c9a38083566b6c21f42170b0bbfe0c4f88d21bb40f
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T153445-001
+  path: ledger/move-20260914T153445-001.md
+  hash_c: 2d844ac5f32b7890a05fd3919fed76d11741df17ece65a9409c2a1d322946fe0
+  hash_d: 3001584991e8816440ccfe1816d84aca3c358552f985cd1201923951ed43b5d6
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T153450-001
+  path: ledger/move-20260914T153450-001.md
+  hash_c: 5d1b0b8c89e64c84db7fce063e3f9b20321f4899ad670b39720db493d36d1cfb
+  hash_d: 27cafac5cd2db067367d6b78a0cd1652cbfd0a914749c0c043199bdc38e88816
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T153734-001
+  path: ledger/move-20260914T153734-001.md
+  hash_c: 83c0368bffe05898efd78f65edac214b0151a225ad284c719cf1a6b1a3e40537
+  hash_d: 575d74b580c92ff9d962955e428564f0688a7111827ba0bcda22660c4c7c0a65
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T153742-001
+  path: ledger/move-20260914T153742-001.md
+  hash_c: ffc18d194942654530d204723697f5744d4005fe089a9987c900cb755c4c16bd
+  hash_d: 6ae021cba6e90aec519d03cc8369f2acc2072aa115d0d9e80db1c8070f3a7ca7
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T153744-001
+  path: ledger/move-20260914T153744-001.md
+  hash_c: 6164f59a7745f24bcffa6847023e4d1dd82025a12da5e977845c7e8bf94d2bda
+  hash_d: 39fd477277df375de367d273960e0d6a5a27b104a5cc40311fe120b96c9b950e
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T153748-001
+  path: ledger/move-20260914T153748-001.md
+  hash_c: 115082292d759978ea11bf73293eac067bd2726fa88bad8a82fb4004b162c526
+  hash_d: e1574e502880faade1e0c7f61f71d873ea5dfcbb599898b5dd89aee6bc96d232
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T154029-001
+  path: ledger/move-20260914T154029-001.md
+  hash_c: f721bc88df934973bf64d33dd01134c17367bdb916714f6bb11c1f7746a056c0
+  hash_d: abcbe09a4db9bd6fc4367c8d2fc7f81d5c97d20d4e56b530d3e8c049ea9708b5
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T154031-001
+  path: ledger/move-20260914T154031-001.md
+  hash_c: c55ed8c355342ae070984da6be392df3a2f5871a8098327120b78dc961ef8a4d
+  hash_d: 7bfcab64ebac14df879c28fb7f5d3c6bfef118c51d4452bd46881f43d21d8266
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T154035-001
+  path: ledger/move-20260914T154035-001.md
+  hash_c: 11beaaf86350df8759e48821cf8d63b1a2311962f94f0910c04e1ad7cc7c82e3
+  hash_d: 6a567e76be1f07754c7d426879f227573e1582cad014d1af72926953f3f91345
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T154041-001
+  path: ledger/move-20260914T154041-001.md
+  hash_c: 6e8833b97c5827cbf182eb7d66d039f3ce33810cad9e480d90fbdef3c3f94f31
+  hash_d: 7c5fc29353352f56487a15c7abeda4ab20c13ad7fb6b4acd5266c97384c05791
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T154127-001
+  path: ledger/move-20260914T154127-001.md
+  hash_c: cb5bf80d47a5cafeb67f48cecd17fdd5a836598a3e3262d3da3f314372bb19a0
+  hash_d: ede9d6c65653278fd0fa5c664bcd280a7f625960b679685bb1bcb920d45bdd58
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T154138-001
+  path: ledger/move-20260914T154138-001.md
+  hash_c: bb62c93d355e5c552ff8b2c381b6996e0516db84fbe37920bbeb871ce9a601ef
+  hash_d: 5c23f8a8c9aa1d7afc6f6fbd156c1c738d6ae1532237b3e9ee2533c1820ab9ad
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T154142-001
+  path: ledger/move-20260914T154142-001.md
+  hash_c: 095d4fae2789ee0c31589508de532a3749504932ceefe85dea79623f88bf18c6
+  hash_d: 4e61601e2a209f73e0876f7766a84dd8934dd0097f510bcb588fbb443b7ee250
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T154147-001
+  path: ledger/move-20260914T154147-001.md
+  hash_c: 1316022f95fa52d3c031508f241c413d700d72608c08b6a245f9b59897a4d279
+  hash_d: 65755f2c5dfe49f7209aef54f07ce25746423f9b296be1cd4882af001d81fa26
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T154153-001
+  path: ledger/move-20260914T154153-001.md
+  hash_c: 9bb7d0d60ad09d1ebf4c1eb600c266b50ca3df36bfbb057bfb4e32dc08d4ed69
+  hash_d: 5e7dd8e5691601a1bd501281d2f4c7579375758dfc5626225ebf566e933c663d
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T155944-001
+  path: ledger/move-20260914T155944-001.md
+  hash_c: 78bc1e393e44de756fd351ddd3bf66735a78aad6b2306f6efd78f555f406aaf3
+  hash_d: 4e869b65c1fcdf9ba88538437b1a631f51c62178d344e2d75bde89ecd37c338f
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T155959-001
+  path: ledger/move-20260914T155959-001.md
+  hash_c: eee41b085e00a15e29238aa6f221cbd9f1833cab66739710e6857b554bd5ea48
+  hash_d: bfef1edba0cb5bcec7febd7fad975d4eabb76534a21f0ab0c40abc9df9170a75
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T160006-001
+  path: ledger/move-20260914T160006-001.md
+  hash_c: 36e093e592a07db85ca5ff005ebd1485fa887f21cb6a1313cb6e68cfbdeb115b
+  hash_d: 4ff4daa79d8a36508147d0770ac0b09777af2971b03b88f2634645c3f550677f
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger
+- name: move-20260914T160012-001
+  path: ledger/move-20260914T160012-001.md
+  hash_c: 98f89e6a4dcff60a199a2ea57f4fd3e36cf653b2b2b53ecf6800c22b1e61dd6e
+  hash_d: 8b404f4c75823d4bee04e3854a8b1cdc9f7f5707bcf433872da5c1cb9384a792
+  semantic_tags:
+  - type.pron.move
+  - workspace.knowledge.ledger

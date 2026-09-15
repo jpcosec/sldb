@@ -1,0 +1,42 @@
+---
+id: move-20260914T144748-001
+at: '2026-09-14T14:47:48+00:00'
+speaker: ''
+outcome: unico
+state_before: libre
+state_after: libre
+hash_before: 28ffb2d24d7afe126249cdfb4e4ca20719f88e5c31f67f5c34182199e3853f6e
+hash_after: 28ffb2d24d7afe126249cdfb4e4ca20719f88e5c31f67f5c34182199e3853f6e
+refers_to: ''
+---
+
+# move-20260914T144748-001
+
+## Sentence
+
+the python symbol CommandRecord references what python symbols
+
+## Record
+
+```yaml
+queries: []
+writes: []
+edges: []
+interpretation:
+  forma: read
+  items:
+  - det('the')
+  - word('python symbol'→source_model:PythonSymbol)
+  - unknown('CommandRecord')
+  - word('references'→field:TaskDoc.references,source_relation:references)
+  - wh('what')
+  - word('python symbols'→source_model:PythonSymbol)
+  parts:
+  - 'read · source_relation:references · subject=all PythonSymbol [] · payload={''asked'':
+    ''subject''}'
+  unknown:
+  - CommandRecord
+  notes: []
+trace:
+- 'interpretation: read'
+```

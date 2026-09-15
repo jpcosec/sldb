@@ -20,5 +20,6 @@ dist/
 
 .sldb/runtime/
 .sldb/.config/
+.kgdb/
 
 .DS_Store

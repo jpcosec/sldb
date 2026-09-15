@@ -32,12 +32,14 @@ class CLI:
         self.handlers.update({"models": ModelsCLI().run, "predicates": PredicatesCLI().run, "docs": DocsCLI().run})
 
     def _load_3(self):
+        from sldb.cli.commands.selfdoc import SelfdocCLI
         from sldb.cli.commands.fields import FieldsCLI
         from sldb.cli.commands.sections import SectionsCLI
         from sldb.cli.commands.serve import ServeCLI
         from sldb.cli.commands.lint import lint_cli
         self.handlers.update({"fields": FieldsCLI().run, "sections": SectionsCLI().run})
         self.handlers.update({"serve": ServeCLI().run, "lint": lint_cli})
+        self.handlers["selfdoc"] = SelfdocCLI().run
         self._load_addresses()
 
     def _load_addresses(self):

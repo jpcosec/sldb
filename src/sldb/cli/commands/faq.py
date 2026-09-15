@@ -7,16 +7,24 @@ from typing import Any
 import yaml
 
 from sldb.cli.commands.faq_entry import FAQEntry
+from sldb.cli.store_context import get_store_context
 
 class FAQCLI:
     """Question-oriented FAQ browser."""
 
     def run(self, args: Any) -> int:
-        entries = self._load_entries(Path(args.faq_path))
+        entries = self._load_entries(self._faq_path(args))
         question = (args.question or "").strip()
         if not question:
             return self._handle_no_question(args, entries)
         return self._handle_question(args, entries, question)
+
+    def _faq_path(self, args: Any) -> Path:
+        path = Path(args.faq_path)
+        if path.is_absolute():
+            return path
+        _store, root = get_store_context(args.store, mode="readonly")
+        return root / path
 
     def _handle_no_question(self, args: Any, entries: list[FAQEntry]) -> int:
         payload = [{"index": e.index, "slug": e.slug, "title": e.title} for e in entries]

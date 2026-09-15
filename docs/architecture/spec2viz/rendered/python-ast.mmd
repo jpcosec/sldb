@@ -1,0 +1,1755 @@
+graph TD
+    module_sldb___main__["sldb.__main__"]
+    module_sldb_cli_commands_ast["sldb.cli.commands.ast"]
+    class_sldb_cli_commands_ast_ASTCLI["ASTCLI"]
+    module_sldb_cli_commands_basic["sldb.cli.commands.basic"]
+    class_sldb_cli_commands_basic_BasicCLI["BasicCLI"]
+    module_sldb_cli_commands_doc["sldb.cli.commands.doc"]
+    class_sldb_cli_commands_doc_DocCLI["DocCLI"]
+    module_sldb_cli_commands_doc_helpers["sldb.cli.commands.doc_helpers"]
+    module_sldb_cli_commands_docs["sldb.cli.commands.docs"]
+    class_sldb_cli_commands_docs_DocsCLI["DocsCLI"]
+    module_sldb_cli_commands_explore["sldb.cli.commands.explore"]
+    class_sldb_cli_commands_explore_ExploreCLI["ExploreCLI"]
+    module_sldb_cli_commands_explore_code["sldb.cli.commands.explore_code"]
+    class_sldb_cli_commands_explore_code_ExploreCode["ExploreCode"]
+    module_sldb_cli_commands_explore_docs["sldb.cli.commands.explore_docs"]
+    class_sldb_cli_commands_explore_docs_ExploreDocs["ExploreDocs"]
+    module_sldb_cli_commands_explore_hit["sldb.cli.commands.explore_hit"]
+    class_sldb_cli_commands_explore_hit_ExploreHit["ExploreHit"]
+    module_sldb_cli_commands_faq["sldb.cli.commands.faq"]
+    class_sldb_cli_commands_faq_FAQCLI["FAQCLI"]
+    module_sldb_cli_commands_faq_entry["sldb.cli.commands.faq_entry"]
+    class_sldb_cli_commands_faq_entry_FAQEntry["FAQEntry"]
+    module_sldb_cli_commands_fields["sldb.cli.commands.fields"]
+    class_sldb_cli_commands_fields_FieldsCLI["FieldsCLI"]
+    module_sldb_cli_commands_fields_mutate["sldb.cli.commands.fields_mutate"]
+    module_sldb_cli_commands_fields_save["sldb.cli.commands.fields_save"]
+    module_sldb_cli_commands_fields_show["sldb.cli.commands.fields_show"]
+    module_sldb_cli_commands_fields_target["sldb.cli.commands.fields_target"]
+    module_sldb_cli_commands_find["sldb.cli.commands.find"]
+    class_sldb_cli_commands_find_FindCLI["FindCLI"]
+    module_sldb_cli_commands_find_filter["sldb.cli.commands.find_filter"]
+    module_sldb_cli_commands_find_filters["sldb.cli.commands.find_filters"]
+    class_sldb_cli_commands_find_filters_FindFilters["FindFilters"]
+    module_sldb_cli_commands_find_format["sldb.cli.commands.find_format"]
+    class_sldb_cli_commands_find_format_FindFormatter["FindFormatter"]
+    module_sldb_cli_commands_find_proxy["sldb.cli.commands.find_proxy"]
+    class_sldb_cli_commands_find_proxy__RuntimeDocProxy["_RuntimeDocProxy"]
+    module_sldb_cli_commands_find_utils["sldb.cli.commands.find_utils"]
+    class_sldb_cli_commands_find_utils_RuntimeDocProxy["RuntimeDocProxy"]
+    module_sldb_cli_commands_help["sldb.cli.commands.help"]
+    class_sldb_cli_commands_help_HelpCLI["HelpCLI"]
+    module_sldb_cli_commands_help_texts["sldb.cli.commands.help_texts"]
+    module_sldb_cli_commands_help_texts_core["sldb.cli.commands.help_texts_core"]
+    module_sldb_cli_commands_help_texts_docs["sldb.cli.commands.help_texts_docs"]
+    module_sldb_cli_commands_help_texts_find["sldb.cli.commands.help_texts_find"]
+    module_sldb_cli_commands_help_texts_other["sldb.cli.commands.help_texts_other"]
+    module_sldb_cli_commands_help_texts_other2["sldb.cli.commands.help_texts_other2"]
+    module_sldb_cli_commands_help_texts_selfdoc["sldb.cli.commands.help_texts_selfdoc"]
+    module_sldb_cli_commands_inbox["sldb.cli.commands.inbox"]
+    class_sldb_cli_commands_inbox_InboxCLI["InboxCLI"]
+    module_sldb_cli_commands_inbox_core["sldb.cli.commands.inbox_core"]
+    module_sldb_cli_commands_inbox_create["sldb.cli.commands.inbox_create"]
+    module_sldb_cli_commands_inbox_list["sldb.cli.commands.inbox_list"]
+    module_sldb_cli_commands_inbox_parse["sldb.cli.commands.inbox_parse"]
+    module_sldb_cli_commands_inbox_show["sldb.cli.commands.inbox_show"]
+    module_sldb_cli_commands_init["sldb.cli.commands.init"]
+    class_sldb_cli_commands_init_InitCLI["InitCLI"]
+    module_sldb_cli_commands_legacy["sldb.cli.commands.legacy"]
+    class_sldb_cli_commands_legacy_LegacyCLI["LegacyCLI"]
+    module_sldb_cli_commands_links["sldb.cli.commands.links"]
+    class_sldb_cli_commands_links_LinkCLI["LinkCLI"]
+    module_sldb_cli_commands_lint["sldb.cli.commands.lint"]
+    module_sldb_cli_commands_model["sldb.cli.commands.model"]
+    class_sldb_cli_commands_model_ModelCLI["ModelCLI"]
+    module_sldb_cli_commands_model_add["sldb.cli.commands.model_add"]
+    module_sldb_cli_commands_model_source["sldb.cli.commands.model_source"]
+    module_sldb_cli_commands_model_update["sldb.cli.commands.model_update"]
+    module_sldb_cli_commands_models["sldb.cli.commands.models"]
+    class_sldb_cli_commands_models_ModelsCLI["ModelsCLI"]
+    module_sldb_cli_commands_models_create["sldb.cli.commands.models_create"]
+    class_sldb_cli_commands_models_create_ModelsCreateCLI["ModelsCreateCLI"]
+    module_sldb_cli_commands_models_fields["sldb.cli.commands.models_fields"]
+    class_sldb_cli_commands_models_fields_ModelsFieldsCLI["ModelsFieldsCLI"]
+    module_sldb_cli_commands_models_list["sldb.cli.commands.models_list"]
+    class_sldb_cli_commands_models_list_ModelsListCLI["ModelsListCLI"]
+    module_sldb_cli_commands_models_template["sldb.cli.commands.models_template"]
+    class_sldb_cli_commands_models_template_ModelsTemplateCLI["ModelsTemplateCLI"]
+    module_sldb_cli_commands_models_utils["sldb.cli.commands.models_utils"]
+    module_sldb_cli_commands_models_validate["sldb.cli.commands.models_validate"]
+    class_sldb_cli_commands_models_validate_ModelsValidateCLI["ModelsValidateCLI"]
+    module_sldb_cli_commands_models_validate_utils["sldb.cli.commands.models_validate_utils"]
+    module_sldb_cli_commands_predicates["sldb.cli.commands.predicates"]
+    class_sldb_cli_commands_predicates_PredicatesCLI["PredicatesCLI"]
+    module_sldb_cli_commands_predicates_format["sldb.cli.commands.predicates_format"]
+    module_sldb_cli_commands_query["sldb.cli.commands.query"]
+    class_sldb_cli_commands_query_QueryCLI["QueryCLI"]
+    module_sldb_cli_commands_sections["sldb.cli.commands.sections"]
+    class_sldb_cli_commands_sections_SectionsCLI["SectionsCLI"]
+    module_sldb_cli_commands_sections_common["sldb.cli.commands.sections_common"]
+    module_sldb_cli_commands_sections_fields["sldb.cli.commands.sections_fields"]
+    class_sldb_cli_commands_sections_fields_FieldsSectionsCLI["FieldsSectionsCLI"]
+    module_sldb_cli_commands_sections_find["sldb.cli.commands.sections_find"]
+    class_sldb_cli_commands_sections_find_FindSectionsCLI["FindSectionsCLI"]
+    module_sldb_cli_commands_sections_show["sldb.cli.commands.sections_show"]
+    class_sldb_cli_commands_sections_show_ShowSectionsCLI["ShowSectionsCLI"]
+    module_sldb_cli_commands_selfdoc["sldb.cli.commands.selfdoc"]
+    class_sldb_cli_commands_selfdoc_SelfdocCLI["SelfdocCLI"]
+    module_sldb_cli_commands_serve["sldb.cli.commands.serve"]
+    class_sldb_cli_commands_serve_ServeCLI["ServeCLI"]
+    module_sldb_cli_commands_store["sldb.cli.commands.store"]
+    class_sldb_cli_commands_store_StoreCLI["StoreCLI"]
+    module_sldb_cli_commands_store_add["sldb.cli.commands.store_add"]
+    module_sldb_cli_commands_store_check["sldb.cli.commands.store_check"]
+    module_sldb_cli_commands_store_init["sldb.cli.commands.store_init"]
+    module_sldb_cli_commands_store_semantic_map["sldb.cli.commands.store_semantic_map"]
+    module_sldb_cli_commands_store_update["sldb.cli.commands.store_update"]
+    module_sldb_cli_commands_stores["sldb.cli.commands.stores"]
+    class_sldb_cli_commands_stores_StoresCLI["StoresCLI"]
+    module_sldb_cli_dict_utils["sldb.cli.dict_utils"]
+    module_sldb_cli_dispatcher["sldb.cli.dispatcher"]
+    class_sldb_cli_dispatcher_CLI["CLI"]
+    module_sldb_cli_federated_utils["sldb.cli.federated_utils"]
+    module_sldb_cli_graph_models_section["sldb.cli.graph.models_section"]
+    class_sldb_cli_graph_models_section_SectionRecord["SectionRecord"]
+    module_sldb_cli_graph_search_record["sldb.cli.graph.search_record"]
+    class_sldb_cli_graph_search_record_SearchRecord["SearchRecord"]
+    module_sldb_cli_graph_section_record["sldb.cli.graph.section_record"]
+    class_sldb_cli_graph_section_record_SectionRecord["SectionRecord"]
+    module_sldb_cli_graph_sections["sldb.cli.graph.sections"]
+    module_sldb_cli_graph_store_ast["sldb.cli.graph.store_ast"]
+    module_sldb_cli_graph_utils["sldb.cli.graph.utils"]
+    module_sldb_cli_graph_old_search_record["sldb.cli.graph_old.search_record"]
+    class_sldb_cli_graph_old_search_record_SearchRecord["SearchRecord"]
+    module_sldb_cli_graph_old_section_record["sldb.cli.graph_old.section_record"]
+    class_sldb_cli_graph_old_section_record_SectionRecord["SectionRecord"]
+    module_sldb_cli_graph_old_utils["sldb.cli.graph_old.utils"]
+    module_sldb_cli_graph_ops_ast_target["sldb.cli.graph_ops.ast_target"]
+    module_sldb_cli_graph_ops_build_ast["sldb.cli.graph_ops.build_ast"]
+    module_sldb_cli_graph_ops_build_ir["sldb.cli.graph_ops.build_ir"]
+    module_sldb_cli_graph_ops_extract["sldb.cli.graph_ops.extract"]
+    module_sldb_cli_graph_ops_fields["sldb.cli.graph_ops.fields"]
+    module_sldb_cli_graph_ops_flatten["sldb.cli.graph_ops.flatten"]
+    module_sldb_cli_graph_ops_iter_records["sldb.cli.graph_ops.iter_records"]
+    module_sldb_cli_graph_ops_iter_records_docs["sldb.cli.graph_ops.iter_records_docs"]
+    module_sldb_cli_graph_ops_iter_records_helpers["sldb.cli.graph_ops.iter_records_helpers"]
+    module_sldb_cli_graph_ops_map_fields["sldb.cli.graph_ops.map_fields"]
+    module_sldb_cli_graph_ops_matches["sldb.cli.graph_ops.matches"]
+    module_sldb_cli_graph_ops_resolve["sldb.cli.graph_ops.resolve"]
+    module_sldb_cli_graph_ops_utils["sldb.cli.graph_ops.utils"]
+    module_sldb_cli_main["sldb.cli.main"]
+    module_sldb_cli_model_utils["sldb.cli.model_utils"]
+    module_sldb_cli_parser["sldb.cli.parser"]
+    module_sldb_cli_parsers_basic["sldb.cli.parsers.basic"]
+    module_sldb_cli_parsers_core["sldb.cli.parsers.core"]
+    module_sldb_cli_parsers_docs1["sldb.cli.parsers.docs1"]
+    module_sldb_cli_parsers_docs2["sldb.cli.parsers.docs2"]
+    module_sldb_cli_parsers_fields["sldb.cli.parsers.fields"]
+    module_sldb_cli_parsers_find["sldb.cli.parsers.find"]
+    module_sldb_cli_parsers_hidden["sldb.cli.parsers.hidden"]
+    module_sldb_cli_parsers_legacy["sldb.cli.parsers.legacy"]
+    module_sldb_cli_parsers_misc["sldb.cli.parsers.misc"]
+    module_sldb_cli_parsers_models1["sldb.cli.parsers.models1"]
+    module_sldb_cli_parsers_models2["sldb.cli.parsers.models2"]
+    module_sldb_cli_parsers_predicates["sldb.cli.parsers.predicates"]
+    module_sldb_cli_parsers_project["sldb.cli.parsers.project"]
+    module_sldb_cli_parsers_public["sldb.cli.parsers.public"]
+    module_sldb_cli_parsers_sections["sldb.cli.parsers.sections"]
+    module_sldb_cli_parsers_selfdoc["sldb.cli.parsers.selfdoc"]
+    module_sldb_cli_parsers_serve["sldb.cli.parsers.serve"]
+    module_sldb_cli_parsers_stores["sldb.cli.parsers.stores"]
+    module_sldb_cli_search_record["sldb.cli.search_record"]
+    class_sldb_cli_search_record_SearchRecord["SearchRecord"]
+    module_sldb_cli_section_record_cls["sldb.cli.section_record_cls"]
+    class_sldb_cli_section_record_cls_SectionRecord["SectionRecord"]
+    module_sldb_cli_selfdoc_context["sldb.cli.selfdoc_context"]
+    module_sldb_cli_selfdoc_inspect["sldb.cli.selfdoc_inspect"]
+    module_sldb_cli_selfdoc_registry["sldb.cli.selfdoc_registry"]
+    class_sldb_cli_selfdoc_registry_DocumentationRegistry["DocumentationRegistry"]
+    module_sldb_cli_selfdoc_write["sldb.cli.selfdoc_write"]
+    module_sldb_cli_serve_http_server["sldb.cli.serve.http_server"]
+    class_sldb_cli_serve_http_server_SLDBHTTPRequestHandler["SLDBHTTPRequestHandler"]
+    module_sldb_cli_serve_responses["sldb.cli.serve.responses"]
+    module_sldb_cli_serve_routes["sldb.cli.serve.routes"]
+    module_sldb_cli_serve_schema["sldb.cli.serve.schema"]
+    module_sldb_cli_store_context["sldb.cli.store_context"]
+    module_sldb_cli_utils["sldb.cli.utils"]
+    module_sldb_core_ast_base_ast_handler["sldb.core.ast.base_ast_handler"]
+    class_sldb_core_ast_base_ast_handler_BaseASTHandler["BaseASTHandler"]
+    module_sldb_core_ast_markdown_ast_handler["sldb.core.ast.markdown_ast_handler"]
+    class_sldb_core_ast_markdown_ast_handler_MarkdownASTHandler["MarkdownASTHandler"]
+    module_sldb_core_contracts_marker["sldb.core.contracts.marker"]
+    class_sldb_core_contracts_marker_Marker["Marker"]
+    module_sldb_core_contracts_node_data["sldb.core.contracts.node_data"]
+    class_sldb_core_contracts_node_data_NodeData["NodeData"]
+    module_sldb_core_contracts_render_context["sldb.core.contracts.render_context"]
+    class_sldb_core_contracts_render_context_RenderContext["RenderContext"]
+    module_sldb_core_data_extractor["sldb.core.data_extractor"]
+    class_sldb_core_data_extractor_DataExtractor["DataExtractor"]
+    module_sldb_core_exceptions_sldb_ast_error["sldb.core.exceptions.sldb_ast_error"]
+    class_sldb_core_exceptions_sldb_ast_error_SLDBASTError["SLDBASTError"]
+    module_sldb_core_exceptions_sldb_error["sldb.core.exceptions.sldb_error"]
+    class_sldb_core_exceptions_sldb_error_SLDBError["SLDBError"]
+    module_sldb_core_exceptions_sldb_link_error["sldb.core.exceptions.sldb_link_error"]
+    class_sldb_core_exceptions_sldb_link_error_SLDBLinkError["SLDBLinkError"]
+    module_sldb_core_exceptions_sldb_model_draft_error["sldb.core.exceptions.sldb_model_draft_error"]
+    class_sldb_core_exceptions_sldb_model_draft_error_SLDBModelDraftError["SLDBModelDraftError"]
+    module_sldb_core_exceptions_sldb_model_edit_error["sldb.core.exceptions.sldb_model_edit_error"]
+    class_sldb_core_exceptions_sldb_model_edit_error_SLDBModelEditError["SLDBModelEditError"]
+    module_sldb_core_exceptions_sldb_model_error["sldb.core.exceptions.sldb_model_error"]
+    class_sldb_core_exceptions_sldb_model_error_SLDBModelError["SLDBModelError"]
+    module_sldb_core_exceptions_sldb_store_error["sldb.core.exceptions.sldb_store_error"]
+    class_sldb_core_exceptions_sldb_store_error_SLDBStoreError["SLDBStoreError"]
+    module_sldb_core_exceptions_sldb_validation_error["sldb.core.exceptions.sldb_validation_error"]
+    class_sldb_core_exceptions_sldb_validation_error_SLDBValidationError["SLDBValidationError"]
+    module_sldb_core_extractor_recipe_matcher["sldb.core.extractor.recipe_matcher"]
+    class_sldb_core_extractor_recipe_matcher_RecipeMatcher["RecipeMatcher"]
+    module_sldb_core_handlers_base["sldb.core.handlers.base"]
+    class_sldb_core_handlers_base_BaseNodeHandler["BaseNodeHandler"]
+    module_sldb_core_handlers_list["sldb.core.handlers.list"]
+    class_sldb_core_handlers_list_ListNodeHandler["ListNodeHandler"]
+    module_sldb_core_handlers_router["sldb.core.handlers.router"]
+    class_sldb_core_handlers_router_SharedNodeHandler["SharedNodeHandler"]
+    module_sldb_core_handlers_table["sldb.core.handlers.table"]
+    class_sldb_core_handlers_table_TableNodeHandler["TableNodeHandler"]
+    module_sldb_core_handlers_text["sldb.core.handlers.text"]
+    class_sldb_core_handlers_text_TextNodeHandler["TextNodeHandler"]
+    module_sldb_core_handlers_utils["sldb.core.handlers.utils"]
+    module_sldb_core_handlers_yaml["sldb.core.handlers.yaml"]
+    class_sldb_core_handlers_yaml_YamlNodeHandler["YamlNodeHandler"]
+    module_sldb_core_ingest_engine["sldb.core.ingest.engine"]
+    module_sldb_core_ingest_ignore_rule["sldb.core.ingest.ignore_rule"]
+    class_sldb_core_ingest_ignore_rule_IgnoreRule["IgnoreRule"]
+    module_sldb_core_ingest_manifest["sldb.core.ingest.manifest"]
+    module_sldb_core_ingest_python_scanner["sldb.core.ingest.python_scanner"]
+    class_sldb_core_ingest_python_scanner_PythonScanner["PythonScanner"]
+    module_sldb_core_ingest_renderer["sldb.core.ingest.renderer"]
+    module_sldb_core_ingest_scanner["sldb.core.ingest.scanner"]
+    module_sldb_core_ingest_source_parser["sldb.core.ingest.source_parser"]
+    module_sldb_core_ingest_typescript_scanner["sldb.core.ingest.typescript_scanner"]
+    class_sldb_core_ingest_typescript_scanner_TypeScriptScanner["TypeScriptScanner"]
+    module_sldb_core_ir_document_context["sldb.core.ir.document_context"]
+    class_sldb_core_ir_document_context_DocumentContext["DocumentContext"]
+    module_sldb_core_ir_document_ir["sldb.core.ir.document_ir"]
+    class_sldb_core_ir_document_ir_DocumentIR["DocumentIR"]
+    module_sldb_core_ir_graph_edge["sldb.core.ir.graph_edge"]
+    class_sldb_core_ir_graph_edge_GraphEdge["GraphEdge"]
+    module_sldb_core_ir_graph_view["sldb.core.ir.graph_view"]
+    class_sldb_core_ir_graph_view_GraphView["GraphView"]
+    module_sldb_core_ir_meaning_node["sldb.core.ir.meaning_node"]
+    class_sldb_core_ir_meaning_node_MeaningNode["MeaningNode"]
+    module_sldb_core_ir_section_context_entry["sldb.core.ir.section_context_entry"]
+    class_sldb_core_ir_section_context_entry_SectionContextEntry["SectionContextEntry"]
+    module_sldb_core_ir_source_span["sldb.core.ir.source_span"]
+    class_sldb_core_ir_source_span_SourceSpan["SourceSpan"]
+    module_sldb_core_ir_surface_node["sldb.core.ir.surface_node"]
+    class_sldb_core_ir_surface_node_SurfaceNode["SurfaceNode"]
+    module_sldb_core_node["sldb.core.node"]
+    class_sldb_core_node_SLDBNode["SLDBNode"]
+    module_sldb_core_node_handler["sldb.core.node_handler"]
+    module_sldb_core_renderer["sldb.core.renderer"]
+    class_sldb_core_renderer_SLDBRenderer["SLDBRenderer"]
+    module_sldb_core_renderer_engine_base["sldb.core.renderer_engine.base"]
+    class_sldb_core_renderer_engine_base_BaseRenderer["BaseRenderer"]
+    module_sldb_core_renderer_engine_list["sldb.core.renderer_engine.list"]
+    class_sldb_core_renderer_engine_list_ListRenderer["ListRenderer"]
+    module_sldb_core_renderer_engine_python_expr["sldb.core.renderer_engine.python_expr"]
+    class_sldb_core_renderer_engine_python_expr_PythonExpressionRenderer["PythonExpressionRenderer"]
+    module_sldb_core_renderer_engine_table["sldb.core.renderer_engine.table"]
+    class_sldb_core_renderer_engine_table_TableRenderer["TableRenderer"]
+    module_sldb_core_renderer_engine_yaml["sldb.core.renderer_engine.yaml"]
+    class_sldb_core_renderer_engine_yaml_YamlRenderer["YamlRenderer"]
+    module_sldb_core_template_extractor["sldb.core.template_extractor"]
+    class_sldb_core_template_extractor_TemplateExtractor["TemplateExtractor"]
+    module_sldb_examples_pandoc_cv_cv_model["sldb.examples.pandoc_cv.cv_model"]
+    class_sldb_examples_pandoc_cv_cv_model_PandocCVDoc["PandocCVDoc"]
+    module_sldb_examples_reference_bundle_guide_model["sldb.examples.reference_bundle.guide_model"]
+    class_sldb_examples_reference_bundle_guide_model_SLDBGuide["SLDBGuide"]
+    module_sldb_links_composer["sldb.links.composer"]
+    module_sldb_links_parsed_link["sldb.links.parsed_link"]
+    class_sldb_links_parsed_link_ParsedLink["ParsedLink"]
+    module_sldb_links_parser["sldb.links.parser"]
+    module_sldb_links_recovery["sldb.links.recovery"]
+    module_sldb_links_resolved_link["sldb.links.resolved_link"]
+    class_sldb_links_resolved_link_ResolvedLink["ResolvedLink"]
+    module_sldb_links_resolver["sldb.links.resolver"]
+    module_sldb_models_anchor_doc["sldb.models.anchor_doc"]
+    class_sldb_models_anchor_doc_AnchorDoc["AnchorDoc"]
+    module_sldb_models_cli_command_doc["sldb.models.cli_command_doc"]
+    class_sldb_models_cli_command_doc_CliCommandDoc["CliCommandDoc"]
+    module_sldb_models_knowledge_surface["sldb.models.knowledge_surface"]
+    module_sldb_models_knowledge_tag["sldb.models.knowledge_tag"]
+    module_sldb_models_python_symbol_doc["sldb.models.python_symbol_doc"]
+    class_sldb_models_python_symbol_doc_PythonSymbolDoc["PythonSymbolDoc"]
+    module_sldb_models_structured_doc["sldb.models.structured_doc"]
+    class_sldb_models_structured_doc_StructuredNLDoc["StructuredNLDoc"]
+    module_sldb_models_surface_doc["sldb.models.surface_doc"]
+    class_sldb_models_surface_doc_SurfaceDoc["SurfaceDoc"]
+    module_sldb_runtime_config["sldb.runtime.config"]
+    class_sldb_runtime_config_SLDBConfig["SLDBConfig"]
+    module_sldb_runtime_validation["sldb.runtime.validation"]
+    class_sldb_runtime_validation_Validator["Validator"]
+    module_sldb_selfdoc_argument["sldb.selfdoc.argument"]
+    class_sldb_selfdoc_argument_ArgumentRecord["ArgumentRecord"]
+    module_sldb_selfdoc_arguments["sldb.selfdoc.arguments"]
+    module_sldb_selfdoc_command["sldb.selfdoc.command"]
+    class_sldb_selfdoc_command_CommandRecord["CommandRecord"]
+    module_sldb_selfdoc_constraint["sldb.selfdoc.constraint"]
+    class_sldb_selfdoc_constraint_ExclusiveGroup["ExclusiveGroup"]
+    module_sldb_selfdoc_materialize["sldb.selfdoc.materialize"]
+    module_sldb_selfdoc_parser["sldb.selfdoc.parser"]
+    class_sldb_selfdoc_parser_ParserScanner["ParserScanner"]
+    module_sldb_selfdoc_planned_document["sldb.selfdoc.planned_document"]
+    class_sldb_selfdoc_planned_document_PlannedDocument["PlannedDocument"]
+    module_sldb_selfdoc_projection["sldb.selfdoc.projection"]
+    module_sldb_selfdoc_python_materialize["sldb.selfdoc.python_materialize"]
+    module_sldb_selfdoc_python_scanner["sldb.selfdoc.python_scanner"]
+    class_sldb_selfdoc_python_scanner_PythonScanner["PythonScanner"]
+    module_sldb_selfdoc_python_symbol["sldb.selfdoc.python_symbol"]
+    class_sldb_selfdoc_python_symbol_PythonSymbol["PythonSymbol"]
+    module_sldb_selfdoc_report["sldb.selfdoc.report"]
+    class_sldb_selfdoc_report_DocumentationReport["DocumentationReport"]
+    module_sldb_selfdoc_values["sldb.selfdoc.values"]
+    module_sldb_store_built_cache["sldb.store.built_cache"]
+    module_sldb_store_catalog["sldb.store.catalog"]
+    module_sldb_store_codec["sldb.store.codec"]
+    class_sldb_store_codec_StoreCodec["StoreCodec"]
+    module_sldb_store_diagnostics["sldb.store.diagnostics"]
+    module_sldb_store_diagnostics_models_diagnosis_note["sldb.store.diagnostics_models.diagnosis_note"]
+    class_sldb_store_diagnostics_models_diagnosis_note_DiagnosisNote["DiagnosisNote"]
+    module_sldb_store_diagnostics_models_document_diagnosis["sldb.store.diagnostics_models.document_diagnosis"]
+    class_sldb_store_diagnostics_models_document_diagnosis_DocumentDiagnosis["DocumentDiagnosis"]
+    module_sldb_store_diagnostics_models_model_diagnosis["sldb.store.diagnostics_models.model_diagnosis"]
+    class_sldb_store_diagnostics_models_model_diagnosis_ModelDiagnosis["ModelDiagnosis"]
+    module_sldb_store_diagnostics_models_store_diagnosis["sldb.store.diagnostics_models.store_diagnosis"]
+    class_sldb_store_diagnostics_models_store_diagnosis_StoreDiagnosis["StoreDiagnosis"]
+    module_sldb_store_exceptions["sldb.store.exceptions"]
+    class_sldb_store_exceptions_StoreError["StoreError"]
+    module_sldb_store_export["sldb.store.export"]
+    class_sldb_store_export_SemanticExporter["SemanticExporter"]
+    module_sldb_store_facade["sldb.store.facade"]
+    module_sldb_store_hashing["sldb.store.hashing"]
+    module_sldb_store_io_documents_index["sldb.store.io.documents_index"]
+    class_sldb_store_io_documents_index_DocumentsIndexIO["DocumentsIndexIO"]
+    module_sldb_store_io_lock["sldb.store.io.lock"]
+    class_sldb_store_io_lock_StoreIOLock["StoreIOLock"]
+    module_sldb_store_io_models_index["sldb.store.io.models_index"]
+    class_sldb_store_io_models_index_ModelsIndexIO["ModelsIndexIO"]
+    module_sldb_store_io_sections_index["sldb.store.io.sections_index"]
+    class_sldb_store_io_sections_index_SectionsIndexIO["SectionsIndexIO"]
+    module_sldb_store_io_semantic_dag["sldb.store.io.semantic_dag"]
+    class_sldb_store_io_semantic_dag_SemanticDAGIO["SemanticDAGIO"]
+    module_sldb_store_io_semantic_index["sldb.store.io.semantic_index"]
+    class_sldb_store_io_semantic_index_SemanticIndexIO["SemanticIndexIO"]
+    module_sldb_store_io_store_index["sldb.store.io.store_index"]
+    class_sldb_store_io_store_index_StoreIndexIO["StoreIndexIO"]
+    module_sldb_store_io_utils["sldb.store.io.utils"]
+    class_sldb_store_io_utils_StoreIOUtils["StoreIOUtils"]
+    module_sldb_store_layout["sldb.store.layout"]
+    module_sldb_store_migration["sldb.store.migration"]
+    module_sldb_store_models_doc_sections["sldb.store.models.doc_sections"]
+    class_sldb_store_models_doc_sections_DocSections["DocSections"]
+    module_sldb_store_models_document_entry["sldb.store.models.document_entry"]
+    class_sldb_store_models_document_entry_DocumentEntry["DocumentEntry"]
+    module_sldb_store_models_documents_index["sldb.store.models.documents_index"]
+    class_sldb_store_models_documents_index_DocumentsIndex["DocumentsIndex"]
+    module_sldb_store_models_model_entry["sldb.store.models.model_entry"]
+    class_sldb_store_models_model_entry_ModelEntry["ModelEntry"]
+    module_sldb_store_models_models_index["sldb.store.models.models_index"]
+    class_sldb_store_models_models_index_ModelsIndex["ModelsIndex"]
+    module_sldb_store_models_predicate_entry["sldb.store.models.predicate_entry"]
+    class_sldb_store_models_predicate_entry_PredicateEntry["PredicateEntry"]
+    module_sldb_store_models_section_context_record["sldb.store.models.section_context_record"]
+    class_sldb_store_models_section_context_record_SectionContextRecord["SectionContextRecord"]
+    module_sldb_store_models_sections_index["sldb.store.models.sections_index"]
+    class_sldb_store_models_sections_index_SectionsIndex["SectionsIndex"]
+    module_sldb_store_models_semantic_d_a_g["sldb.store.models.semantic_d_a_g"]
+    class_sldb_store_models_semantic_d_a_g_SemanticDAG["SemanticDAG"]
+    module_sldb_store_models_semantic_document_record["sldb.store.models.semantic_document_record"]
+    class_sldb_store_models_semantic_document_record_SemanticDocumentRecord["SemanticDocumentRecord"]
+    module_sldb_store_models_semantic_index["sldb.store.models.semantic_index"]
+    class_sldb_store_models_semantic_index_SemanticIndex["SemanticIndex"]
+    module_sldb_store_models_semantic_node["sldb.store.models.semantic_node"]
+    class_sldb_store_models_semantic_node_SemanticNode["SemanticNode"]
+    module_sldb_store_models_store_entry["sldb.store.models.store_entry"]
+    class_sldb_store_models_store_entry_StoreEntry["StoreEntry"]
+    module_sldb_store_models_store_index["sldb.store.models.store_index"]
+    class_sldb_store_models_store_index_StoreIndex["StoreIndex"]
+    module_sldb_store_ops["sldb.store.ops"]
+    class_sldb_store_ops_StoreOperations["StoreOperations"]
+    module_sldb_store_predicates["sldb.store.predicates"]
+    module_sldb_store_query["sldb.store.query"]
+    module_sldb_store_query_engine_filter["sldb.store.query_engine.filter"]
+    class_sldb_store_query_engine_filter_DocumentFilter["DocumentFilter"]
+    module_sldb_store_query_engine_global_semantic["sldb.store.query_engine.global_semantic"]
+    class_sldb_store_query_engine_global_semantic_GlobalSemanticEngine["GlobalSemanticEngine"]
+    module_sldb_store_query_engine_models["sldb.store.query_engine.models"]
+    class_sldb_store_query_engine_models_RuntimeDocument["RuntimeDocument"]
+    module_sldb_store_query_engine_semantic["sldb.store.query_engine.semantic"]
+    class_sldb_store_query_engine_semantic_SemanticEngine["SemanticEngine"]
+    module_sldb_store_query_engine_semantic_utils["sldb.store.query_engine.semantic_utils"]
+    class_sldb_store_query_engine_semantic_utils_SemanticUtils["SemanticUtils"]
+    module_sldb_store_query_engine_store_prefix["sldb.store.query_engine.store_prefix"]
+    module_sldb_store_query_engine_structural["sldb.store.query_engine.structural"]
+    class_sldb_store_query_engine_structural_StructuralEngine["StructuralEngine"]
+    module_sldb_store_query_engine_structural_queries["sldb.store.query_engine.structural_queries"]
+    class_sldb_store_query_engine_structural_queries_StructuralQueryEngine["StructuralQueryEngine"]
+    module_sldb_store_resolver["sldb.store.resolver"]
+    module_sldb_store_runtime_cache["sldb.store.runtime_cache"]
+    module_sldb_store_runtime_cache_disk["sldb.store.runtime_cache_disk"]
+    module_sldb_store_runtime_codec["sldb.store.runtime_codec"]
+    class_sldb_store_runtime_codec_RuntimeCodec["RuntimeCodec"]
+    module_sldb_store_section_rebuild["sldb.store.section_rebuild"]
+    module_sldb_store_semantic["sldb.store.semantic"]
+    class_sldb_store_semantic_RebuildReport["RebuildReport"]
+    module_sldb_store_semantic_doc_tags["sldb.store.semantic_doc_tags"]
+    module_sldb_store_semantic_tags["sldb.store.semantic_tags"]
+    module_sldb_cli["cli"]
+    module___future__["module___future__"]
+    module_typing["typing"]
+    module_sldb_cli_graph_ops["ops"]
+    module_pathlib["pathlib"]
+    module_sldb_store_io["io"]
+    module_sldb_core_exceptions["exceptions"]
+    module_dataclasses["dataclasses"]
+    module_explore_hit["hit"]
+    module_help_texts_core["core"]
+    module_help_texts_find["find"]
+    module_help_texts_docs["docs"]
+    module_help_texts_other["other"]
+    module_help_texts_other2["other2"]
+    module_help_texts_selfdoc["selfdoc"]
+    module_datetime["datetime"]
+    module_importlib_resources["resources"]
+    module_sldb_links["links"]
+    module_sldb_store_models["models"]
+    module_importlib_machinery["machinery"]
+    module_contextlib["contextlib"]
+    module_http_server["server"]
+    module_sldb_core_ast["ast"]
+    module_sldb_core_contracts["contracts"]
+    module_section_record["record"]
+    module_utils["utils"]
+    module_search_record["record"]
+    module_build_ast["ast"]
+    module_resolve["resolve"]
+    module_build_ir["ir"]
+    module_extract["extract"]
+    module_fields["fields"]
+    module_sldb_core_ir["ir"]
+    module_flatten["flatten"]
+    module_map_fields["fields"]
+    module_iter_records_helpers["helpers"]
+    module_iter_records_docs["docs"]
+    module_importlib["importlib"]
+    module_basic["basic"]
+    module_project["project"]
+    module_public["public"]
+    module_misc["misc"]
+    module_find["find"]
+    module_legacy["legacy"]
+    module_serve["serve"]
+    module_selfdoc["selfdoc"]
+    module_hidden["hidden"]
+    module_docs2["docs2"]
+    module_models2["models2"]
+    module_stores["stores"]
+    module_models1["models1"]
+    module_predicates["predicates"]
+    module_docs1["docs1"]
+    module_sections["sections"]
+    module_selfdoc_registry["registry"]
+    module_types["types"]
+    module_urllib_parse["parse"]
+    module_enum["enum"]
+    module_abc["abc"]
+    module_markdown_it["it"]
+    module_markdown_it_tree["tree"]
+    module_base_ast_handler["handler"]
+    module_mdit_py_plugins_front_matter["matter"]
+    module_pydantic["pydantic"]
+    module_marker["marker"]
+    module_sldb_error["error"]
+    module_sldb_model_error["error"]
+    module_scanner["scanner"]
+    module_manifest["manifest"]
+    module_source_parser["parser"]
+    module_renderer["renderer"]
+    module_wiki_compiler_contracts["contracts"]
+    module_wiki_compiler_adapters_ontology_facets["facets"]
+    module_kgdb_contracts_node["node"]
+    module_ontology_contracts_facets["facets"]
+    module_kgdb_contracts_base["base"]
+    module_ignore_rule["rule"]
+    module_python_scanner["scanner"]
+    module_typescript_scanner["scanner"]
+    module_wiki_compiler_protocols["protocols"]
+    module_document_context["context"]
+    module_meaning_node["node"]
+    module_surface_node["node"]
+    module_graph_view["view"]
+    module_section_context_entry["entry"]
+    module_graph_edge["edge"]
+    module_source_span["span"]
+    module_jinja2["jinja2"]
+    module_sldb["sldb"]
+    module_parser["parser"]
+    module_resolver["resolver"]
+    module_collections_abc["abc"]
+    module_parsed_link["link"]
+    module_resolved_link["link"]
+    module_knowledge_tag["tag"]
+    module_anchor_doc["doc"]
+    module_cli_command_doc["doc"]
+    module_surface_doc["doc"]
+    module_python_symbol_doc["doc"]
+    module_structured_doc["doc"]
+    module_argument["argument"]
+    module_constraint["constraint"]
+    module_values["values"]
+    module_command["command"]
+    module_planned_document["document"]
+    module_projection["projection"]
+    module_arguments["arguments"]
+    module_python_symbol["symbol"]
+    module_sldb_store_diagnostics_models["models"]
+    module_importlib_metadata["metadata"]
+    module_sldb_store["store"]
+    module_collections["collections"]
+    module_sldb___main__ -->|"imports"| module_sldb_cli
+    module_sldb_cli_commands_ast -->|"defines"| class_sldb_cli_commands_ast_ASTCLI
+    module_sldb_cli_commands_ast -->|"imports"| module___future__
+    module_sldb_cli_commands_ast -->|"imports"| module_typing
+    module_sldb_cli_commands_ast -->|"imports"| module_sldb_cli_graph_ops
+    module_sldb_cli_commands_basic -->|"defines"| class_sldb_cli_commands_basic_BasicCLI
+    module_sldb_cli_commands_basic -->|"imports"| module___future__
+    module_sldb_cli_commands_basic -->|"imports"| module_typing
+    module_sldb_cli_commands_basic -->|"imports"| module_sldb_cli_utils
+    module_sldb_cli_commands_basic -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_commands_basic -->|"imports"| module_sldb_runtime_validation
+    module_sldb_cli_commands_doc -->|"defines"| class_sldb_cli_commands_doc_DocCLI
+    module_sldb_cli_commands_doc -->|"imports"| module___future__
+    module_sldb_cli_commands_doc -->|"imports"| module_pathlib
+    module_sldb_cli_commands_doc -->|"imports"| module_typing
+    module_sldb_cli_commands_doc -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_doc -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_commands_doc -->|"imports"| module_sldb_runtime_validation
+    module_sldb_cli_commands_doc -->|"imports"| module_sldb_store_io
+    module_sldb_cli_commands_doc -->|"imports"| module_sldb_store_hashing
+    module_sldb_cli_commands_doc -->|"imports"| module_sldb_store_section_rebuild
+    module_sldb_cli_commands_doc -->|"imports"| module_sldb_store_semantic
+    module_sldb_cli_commands_doc -->|"imports"| module_sldb_store_ops
+    module_sldb_cli_commands_doc -->|"imports"| module_sldb_core_exceptions
+    module_sldb_cli_commands_doc_helpers -->|"imports"| module___future__
+    module_sldb_cli_commands_doc_helpers -->|"imports"| module_pathlib
+    module_sldb_cli_commands_doc_helpers -->|"imports"| module_typing
+    module_sldb_cli_commands_doc_helpers -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_doc_helpers -->|"imports"| module_sldb_runtime_validation
+    module_sldb_cli_commands_doc_helpers -->|"imports"| module_sldb_core_exceptions
+    module_sldb_cli_commands_doc_helpers -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_commands_doc_helpers -->|"imports"| module_sldb_store_io
+    module_sldb_cli_commands_doc_helpers -->|"imports"| module_sldb_store_section_rebuild
+    module_sldb_cli_commands_doc_helpers -->|"imports"| module_sldb_store_ops
+    module_sldb_cli_commands_doc_helpers -->|"imports"| module_sldb_store_hashing
+    module_sldb_cli_commands_doc_helpers -->|"imports"| module_sldb_store_section_rebuild
+    module_sldb_cli_commands_doc_helpers -->|"imports"| module_sldb_store_section_rebuild
+    module_sldb_cli_commands_docs -->|"defines"| class_sldb_cli_commands_docs_DocsCLI
+    module_sldb_cli_commands_docs -->|"imports"| module___future__
+    module_sldb_cli_commands_docs -->|"imports"| module_typing
+    module_sldb_cli_commands_docs -->|"imports"| module_sldb_cli_commands_doc
+    module_sldb_cli_commands_docs -->|"imports"| module_sldb_cli_commands_explore
+    module_sldb_cli_commands_docs -->|"imports"| module_sldb_cli_commands_links
+    module_sldb_cli_commands_docs -->|"imports"| module_sldb_cli_graph_ops
+    module_sldb_cli_commands_docs -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_docs -->|"imports"| module_sldb_store_io
+    module_sldb_cli_commands_explore -->|"defines"| class_sldb_cli_commands_explore_ExploreCLI
+    module_sldb_cli_commands_explore -->|"imports"| module___future__
+    module_sldb_cli_commands_explore -->|"imports"| module_dataclasses
+    module_sldb_cli_commands_explore -->|"imports"| module_pathlib
+    module_sldb_cli_commands_explore -->|"imports"| module_typing
+    module_sldb_cli_commands_explore -->|"imports"| module_sldb_cli_commands_explore_hit
+    module_sldb_cli_commands_explore -->|"imports"| module_sldb_cli_commands_explore_docs
+    module_sldb_cli_commands_explore -->|"imports"| module_sldb_cli_commands_explore_code
+    module_sldb_cli_commands_explore -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_explore_code -->|"defines"| class_sldb_cli_commands_explore_code_ExploreCode
+    module_sldb_cli_commands_explore_code -->|"imports"| module_pathlib
+    module_sldb_cli_commands_explore_code -->|"imports"| module_explore_hit
+    module_sldb_cli_commands_explore_docs -->|"defines"| class_sldb_cli_commands_explore_docs_ExploreDocs
+    module_sldb_cli_commands_explore_docs -->|"imports"| module_pathlib
+    module_sldb_cli_commands_explore_docs -->|"imports"| module_explore_hit
+    module_sldb_cli_commands_explore_hit -->|"defines"| class_sldb_cli_commands_explore_hit_ExploreHit
+    module_sldb_cli_commands_explore_hit -->|"imports"| module_dataclasses
+    module_sldb_cli_commands_faq -->|"defines"| class_sldb_cli_commands_faq_FAQCLI
+    module_sldb_cli_commands_faq -->|"imports"| module___future__
+    module_sldb_cli_commands_faq -->|"imports"| module_pathlib
+    module_sldb_cli_commands_faq -->|"imports"| module_typing
+    module_sldb_cli_commands_faq -->|"imports"| module_sldb_cli_commands_faq_entry
+    module_sldb_cli_commands_faq -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_faq_entry -->|"defines"| class_sldb_cli_commands_faq_entry_FAQEntry
+    module_sldb_cli_commands_faq_entry -->|"imports"| module_dataclasses
+    module_sldb_cli_commands_fields -->|"defines"| class_sldb_cli_commands_fields_FieldsCLI
+    module_sldb_cli_commands_fields -->|"imports"| module_typing
+    module_sldb_cli_commands_fields -->|"imports"| module_sldb_cli_commands_fields_show
+    module_sldb_cli_commands_fields -->|"imports"| module_sldb_cli_commands_fields_mutate
+    module_sldb_cli_commands_fields_mutate -->|"imports"| module_typing
+    module_sldb_cli_commands_fields_mutate -->|"imports"| module_sldb_cli_dict_utils
+    module_sldb_cli_commands_fields_mutate -->|"imports"| module_sldb_cli_utils
+    module_sldb_cli_commands_fields_mutate -->|"imports"| module_sldb_cli_commands_fields_target
+    module_sldb_cli_commands_fields_mutate -->|"imports"| module_sldb_cli_commands_fields_save
+    module_sldb_cli_commands_fields_save -->|"imports"| module_typing
+    module_sldb_cli_commands_fields_save -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_fields_save -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_commands_fields_save -->|"imports"| module_sldb_runtime_validation
+    module_sldb_cli_commands_fields_save -->|"imports"| module_sldb_store_hashing
+    module_sldb_cli_commands_fields_save -->|"imports"| module_sldb_store_io
+    module_sldb_cli_commands_fields_save -->|"imports"| module_sldb_store_ops
+    module_sldb_cli_commands_fields_save -->|"imports"| module_sldb_store_semantic
+    module_sldb_cli_commands_fields_show -->|"imports"| module_typing
+    module_sldb_cli_commands_fields_show -->|"imports"| module_sldb_cli_dict_utils
+    module_sldb_cli_commands_fields_show -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_fields_show -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_commands_fields_show -->|"imports"| module_sldb_cli_commands_fields_target
+    module_sldb_cli_commands_fields_show -->|"imports"| module_sldb_cli_graph_ops
+    module_sldb_cli_commands_fields_target -->|"imports"| module_typing
+    module_sldb_cli_commands_fields_target -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_fields_target -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_commands_fields_target -->|"imports"| module_sldb_store_query
+    module_sldb_cli_commands_find -->|"defines"| class_sldb_cli_commands_find_FindCLI
+    module_sldb_cli_commands_find -->|"imports"| module___future__
+    module_sldb_cli_commands_find -->|"imports"| module_typing
+    module_sldb_cli_commands_find -->|"imports"| module_sldb_cli_graph_ops
+    module_sldb_cli_commands_find -->|"imports"| module_sldb_cli_commands_find_filters
+    module_sldb_cli_commands_find -->|"imports"| module_sldb_cli_commands_find_format
+    module_sldb_cli_commands_find_filter -->|"imports"| module_typing
+    module_sldb_cli_commands_find_filter -->|"imports"| module_sldb_cli_commands_find_proxy
+    module_sldb_cli_commands_find_filter -->|"imports"| module_sldb_cli_graph_ops
+    module_sldb_cli_commands_find_filter -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_commands_find_filter -->|"imports"| module_sldb_store_query_engine_filter
+    module_sldb_cli_commands_find_filters -->|"defines"| class_sldb_cli_commands_find_filters_FindFilters
+    module_sldb_cli_commands_find_filters -->|"imports"| module___future__
+    module_sldb_cli_commands_find_filters -->|"imports"| module_typing
+    module_sldb_cli_commands_find_filters -->|"imports"| module_sldb_cli_graph_ops
+    module_sldb_cli_commands_find_filters -->|"imports"| module_sldb_store_query_engine_filter
+    module_sldb_cli_commands_find_filters -->|"imports"| module_sldb_cli_commands_find_utils
+    module_sldb_cli_commands_find_filters -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_commands_find_format -->|"defines"| class_sldb_cli_commands_find_format_FindFormatter
+    module_sldb_cli_commands_find_format -->|"imports"| module___future__
+    module_sldb_cli_commands_find_format -->|"imports"| module_typing
+    module_sldb_cli_commands_find_format -->|"imports"| module_sldb_cli_graph_ops
+    module_sldb_cli_commands_find_proxy -->|"defines"| class_sldb_cli_commands_find_proxy__RuntimeDocProxy
+    module_sldb_cli_commands_find_proxy -->|"imports"| module_typing
+    module_sldb_cli_commands_find_utils -->|"defines"| class_sldb_cli_commands_find_utils_RuntimeDocProxy
+    module_sldb_cli_commands_find_utils -->|"imports"| module___future__
+    module_sldb_cli_commands_find_utils -->|"imports"| module_typing
+    module_sldb_cli_commands_help -->|"defines"| class_sldb_cli_commands_help_HelpCLI
+    module_sldb_cli_commands_help -->|"imports"| module___future__
+    module_sldb_cli_commands_help -->|"imports"| module_typing
+    module_sldb_cli_commands_help -->|"imports"| module_sldb_cli_commands_help_texts
+    module_sldb_cli_commands_help_texts -->|"imports"| module_help_texts_core
+    module_sldb_cli_commands_help_texts -->|"imports"| module_help_texts_find
+    module_sldb_cli_commands_help_texts -->|"imports"| module_help_texts_docs
+    module_sldb_cli_commands_help_texts -->|"imports"| module_help_texts_other
+    module_sldb_cli_commands_help_texts -->|"imports"| module_help_texts_other2
+    module_sldb_cli_commands_help_texts -->|"imports"| module_help_texts_selfdoc
+    module_sldb_cli_commands_inbox -->|"defines"| class_sldb_cli_commands_inbox_InboxCLI
+    module_sldb_cli_commands_inbox -->|"imports"| module_typing
+    module_sldb_cli_commands_inbox -->|"imports"| module_sldb_cli_commands_inbox_list
+    module_sldb_cli_commands_inbox -->|"imports"| module_sldb_cli_commands_inbox_show
+    module_sldb_cli_commands_inbox -->|"imports"| module_sldb_cli_commands_inbox_create
+    module_sldb_cli_commands_inbox_core -->|"imports"| module_pathlib
+    module_sldb_cli_commands_inbox_core -->|"imports"| module_typing
+    module_sldb_cli_commands_inbox_core -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_inbox_core -->|"imports"| module_sldb_store_layout
+    module_sldb_cli_commands_inbox_core -->|"imports"| module_sldb_store_resolver
+    module_sldb_cli_commands_inbox_create -->|"imports"| module_datetime
+    module_sldb_cli_commands_inbox_create -->|"imports"| module_pathlib
+    module_sldb_cli_commands_inbox_create -->|"imports"| module_typing
+    module_sldb_cli_commands_inbox_create -->|"imports"| module_sldb_core_exceptions
+    module_sldb_cli_commands_inbox_create -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_commands_inbox_create -->|"imports"| module_sldb_runtime_validation
+    module_sldb_cli_commands_inbox_create -->|"imports"| module_sldb_store_ops
+    module_sldb_cli_commands_inbox_create -->|"imports"| module_sldb_cli_commands_inbox_core
+    module_sldb_cli_commands_inbox_list -->|"imports"| module_typing
+    module_sldb_cli_commands_inbox_list -->|"imports"| module_pathlib
+    module_sldb_cli_commands_inbox_list -->|"imports"| module_sldb_cli_commands_inbox_core
+    module_sldb_cli_commands_inbox_list -->|"imports"| module_sldb_cli_commands_inbox_parse
+    module_sldb_cli_commands_inbox_parse -->|"imports"| module_pathlib
+    module_sldb_cli_commands_inbox_show -->|"imports"| module_typing
+    module_sldb_cli_commands_inbox_show -->|"imports"| module_sldb_cli_commands_inbox_core
+    module_sldb_cli_commands_inbox_show -->|"imports"| module_sldb_cli_commands_inbox_parse
+    module_sldb_cli_commands_init -->|"defines"| class_sldb_cli_commands_init_InitCLI
+    module_sldb_cli_commands_init -->|"imports"| module___future__
+    module_sldb_cli_commands_init -->|"imports"| module_importlib_resources
+    module_sldb_cli_commands_init -->|"imports"| module_pathlib
+    module_sldb_cli_commands_init -->|"imports"| module_typing
+    module_sldb_cli_commands_init -->|"imports"| module_sldb_core_exceptions
+    module_sldb_cli_commands_legacy -->|"defines"| class_sldb_cli_commands_legacy_LegacyCLI
+    module_sldb_cli_commands_legacy -->|"imports"| module___future__
+    module_sldb_cli_commands_legacy -->|"imports"| module_typing
+    module_sldb_cli_commands_legacy -->|"imports"| module_sldb_cli_commands_links
+    module_sldb_cli_commands_legacy -->|"imports"| module_sldb_cli_commands_query
+    module_sldb_cli_commands_links -->|"defines"| class_sldb_cli_commands_links_LinkCLI
+    module_sldb_cli_commands_links -->|"imports"| module___future__
+    module_sldb_cli_commands_links -->|"imports"| module_pathlib
+    module_sldb_cli_commands_links -->|"imports"| module_typing
+    module_sldb_cli_commands_links -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_links -->|"imports"| module_sldb_cli_utils
+    module_sldb_cli_commands_links -->|"imports"| module_sldb_links
+    module_sldb_cli_commands_lint -->|"imports"| module___future__
+    module_sldb_cli_commands_lint -->|"imports"| module_pathlib
+    module_sldb_cli_commands_lint -->|"imports"| module_typing
+    module_sldb_cli_commands_model -->|"defines"| class_sldb_cli_commands_model_ModelCLI
+    module_sldb_cli_commands_model -->|"imports"| module___future__
+    module_sldb_cli_commands_model -->|"imports"| module_pathlib
+    module_sldb_cli_commands_model -->|"imports"| module_typing
+    module_sldb_cli_commands_model -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_model -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_commands_model -->|"imports"| module_sldb_store_hashing
+    module_sldb_cli_commands_model -->|"imports"| module_sldb_store_io
+    module_sldb_cli_commands_model -->|"imports"| module_sldb_store_layout
+    module_sldb_cli_commands_model -->|"imports"| module_sldb_store_models
+    module_sldb_cli_commands_model -->|"imports"| module_sldb_store_ops
+    module_sldb_cli_commands_model -->|"imports"| module_sldb_store_semantic
+    module_sldb_cli_commands_model -->|"imports"| module_sldb_store_semantic_tags
+    module_sldb_cli_commands_model -->|"imports"| module_sldb_cli_commands_model_add
+    module_sldb_cli_commands_model -->|"imports"| module_sldb_core_exceptions
+    module_sldb_cli_commands_model_add -->|"imports"| module___future__
+    module_sldb_cli_commands_model_add -->|"imports"| module_pathlib
+    module_sldb_cli_commands_model_add -->|"imports"| module_typing
+    module_sldb_cli_commands_model_add -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_model_add -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_commands_model_add -->|"imports"| module_sldb_store_hashing
+    module_sldb_cli_commands_model_add -->|"imports"| module_sldb_store_io
+    module_sldb_cli_commands_model_add -->|"imports"| module_sldb_store_layout
+    module_sldb_cli_commands_model_add -->|"imports"| module_sldb_store_models
+    module_sldb_cli_commands_model_add -->|"imports"| module_sldb_store_ops
+    module_sldb_cli_commands_model_add -->|"imports"| module_sldb_store_semantic
+    module_sldb_cli_commands_model_add -->|"imports"| module_sldb_store_semantic_tags
+    module_sldb_cli_commands_model_add -->|"imports"| module_sldb_core_exceptions
+    module_sldb_cli_commands_model_add -->|"imports"| module_sldb_models_structured_doc
+    module_sldb_cli_commands_model_source -->|"imports"| module___future__
+    module_sldb_cli_commands_model_source -->|"imports"| module_pathlib
+    module_sldb_cli_commands_model_source -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_commands_model_update -->|"imports"| module___future__
+    module_sldb_cli_commands_model_update -->|"imports"| module_pathlib
+    module_sldb_cli_commands_model_update -->|"imports"| module_typing
+    module_sldb_cli_commands_model_update -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_model_update -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_commands_model_update -->|"imports"| module_sldb_store_hashing
+    module_sldb_cli_commands_model_update -->|"imports"| module_sldb_store_io
+    module_sldb_cli_commands_model_update -->|"imports"| module_sldb_store_ops
+    module_sldb_cli_commands_model_update -->|"imports"| module_sldb_store_semantic
+    module_sldb_cli_commands_model_update -->|"imports"| module_sldb_core_exceptions
+    module_sldb_cli_commands_models -->|"defines"| class_sldb_cli_commands_models_ModelsCLI
+    module_sldb_cli_commands_models -->|"imports"| module___future__
+    module_sldb_cli_commands_models -->|"imports"| module_typing
+    module_sldb_cli_commands_models -->|"imports"| module_sldb_cli_commands_model
+    module_sldb_cli_commands_models -->|"imports"| module_sldb_cli_graph_ops
+    module_sldb_cli_commands_models -->|"imports"| module_sldb_cli_commands_models_list
+    module_sldb_cli_commands_models -->|"imports"| module_sldb_cli_commands_models_create
+    module_sldb_cli_commands_models -->|"imports"| module_sldb_cli_commands_models_validate
+    module_sldb_cli_commands_models -->|"imports"| module_sldb_cli_commands_models_template
+    module_sldb_cli_commands_models -->|"imports"| module_sldb_cli_commands_models_fields
+    module_sldb_cli_commands_models_create -->|"defines"| class_sldb_cli_commands_models_create_ModelsCreateCLI
+    module_sldb_cli_commands_models_create -->|"imports"| module___future__
+    module_sldb_cli_commands_models_create -->|"imports"| module_pathlib
+    module_sldb_cli_commands_models_create -->|"imports"| module_typing
+    module_sldb_cli_commands_models_create -->|"imports"| module_sldb_cli_utils
+    module_sldb_cli_commands_models_fields -->|"defines"| class_sldb_cli_commands_models_fields_ModelsFieldsCLI
+    module_sldb_cli_commands_models_fields -->|"imports"| module___future__
+    module_sldb_cli_commands_models_fields -->|"imports"| module_pathlib
+    module_sldb_cli_commands_models_fields -->|"imports"| module_typing
+    module_sldb_cli_commands_models_fields -->|"imports"| module_sldb_cli_utils
+    module_sldb_cli_commands_models_fields -->|"imports"| module_sldb_core_exceptions
+    module_sldb_cli_commands_models_fields -->|"imports"| module_sldb_cli_commands_models_utils
+    module_sldb_cli_commands_models_list -->|"defines"| class_sldb_cli_commands_models_list_ModelsListCLI
+    module_sldb_cli_commands_models_list -->|"imports"| module___future__
+    module_sldb_cli_commands_models_list -->|"imports"| module_typing
+    module_sldb_cli_commands_models_list -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_models_list -->|"imports"| module_sldb_store_io
+    module_sldb_cli_commands_models_template -->|"defines"| class_sldb_cli_commands_models_template_ModelsTemplateCLI
+    module_sldb_cli_commands_models_template -->|"imports"| module___future__
+    module_sldb_cli_commands_models_template -->|"imports"| module_pathlib
+    module_sldb_cli_commands_models_template -->|"imports"| module_typing
+    module_sldb_cli_commands_models_template -->|"imports"| module_sldb_cli_utils
+    module_sldb_cli_commands_models_template -->|"imports"| module_sldb_core_exceptions
+    module_sldb_cli_commands_models_template -->|"imports"| module_sldb_cli_commands_models_utils
+    module_sldb_cli_commands_models_utils -->|"imports"| module___future__
+    module_sldb_cli_commands_models_utils -->|"imports"| module_importlib_machinery
+    module_sldb_cli_commands_models_utils -->|"imports"| module_pathlib
+    module_sldb_cli_commands_models_utils -->|"imports"| module_typing
+    module_sldb_cli_commands_models_utils -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_models_utils -->|"imports"| module_sldb_cli_utils
+    module_sldb_cli_commands_models_utils -->|"imports"| module_sldb_core_exceptions
+    module_sldb_cli_commands_models_utils -->|"imports"| module_sldb_runtime_validation
+    module_sldb_cli_commands_models_utils -->|"imports"| module_sldb_store_io
+    module_sldb_cli_commands_models_utils -->|"imports"| module_sldb_cli_commands_model_source
+    module_sldb_cli_commands_models_utils -->|"imports"| module_sldb_store_facade
+    module_sldb_cli_commands_models_validate -->|"defines"| class_sldb_cli_commands_models_validate_ModelsValidateCLI
+    module_sldb_cli_commands_models_validate -->|"imports"| module___future__
+    module_sldb_cli_commands_models_validate -->|"imports"| module_pathlib
+    module_sldb_cli_commands_models_validate -->|"imports"| module_typing
+    module_sldb_cli_commands_models_validate -->|"imports"| module_sldb_core_exceptions
+    module_sldb_cli_commands_models_validate -->|"imports"| module_sldb_runtime_validation
+    module_sldb_cli_commands_models_validate -->|"imports"| module_sldb_cli_commands_models_utils
+    module_sldb_cli_commands_models_validate -->|"imports"| module_sldb_cli_commands_models_validate_utils
+    module_sldb_cli_commands_models_validate_utils -->|"imports"| module___future__
+    module_sldb_cli_commands_models_validate_utils -->|"imports"| module_pathlib
+    module_sldb_cli_commands_models_validate_utils -->|"imports"| module_typing
+    module_sldb_cli_commands_models_validate_utils -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_models_validate_utils -->|"imports"| module_sldb_store_layout
+    module_sldb_cli_commands_models_validate_utils -->|"imports"| module_sldb_core_exceptions
+    module_sldb_cli_commands_models_validate_utils -->|"imports"| module_sldb_runtime_validation
+    module_sldb_cli_commands_predicates -->|"defines"| class_sldb_cli_commands_predicates_PredicatesCLI
+    module_sldb_cli_commands_predicates -->|"imports"| module___future__
+    module_sldb_cli_commands_predicates -->|"imports"| module_typing
+    module_sldb_cli_commands_predicates -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_predicates -->|"imports"| module_sldb_core_exceptions
+    module_sldb_cli_commands_predicates -->|"imports"| module_sldb_store_io
+    module_sldb_cli_commands_predicates -->|"imports"| module_sldb_store_models
+    module_sldb_cli_commands_predicates -->|"imports"| module_sldb_store_predicates
+    module_sldb_cli_commands_predicates_format -->|"imports"| module_typing
+    module_sldb_cli_commands_query -->|"defines"| class_sldb_cli_commands_query_QueryCLI
+    module_sldb_cli_commands_query -->|"imports"| module___future__
+    module_sldb_cli_commands_query -->|"imports"| module_typing
+    module_sldb_cli_commands_query -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_query -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_commands_query -->|"imports"| module_sldb_store_query
+    module_sldb_cli_commands_query -->|"imports"| module_sldb_core_exceptions
+    module_sldb_cli_commands_sections -->|"defines"| class_sldb_cli_commands_sections_SectionsCLI
+    module_sldb_cli_commands_sections -->|"imports"| module___future__
+    module_sldb_cli_commands_sections -->|"imports"| module_typing
+    module_sldb_cli_commands_sections -->|"imports"| module_sldb_cli_commands_sections_show
+    module_sldb_cli_commands_sections -->|"imports"| module_sldb_cli_commands_sections_find
+    module_sldb_cli_commands_sections -->|"imports"| module_sldb_cli_commands_sections_fields
+    module_sldb_cli_commands_sections_common -->|"imports"| module___future__
+    module_sldb_cli_commands_sections_common -->|"imports"| module_sldb_store_io
+    module_sldb_cli_commands_sections_common -->|"imports"| module_sldb_store_models
+    module_sldb_cli_commands_sections_fields -->|"defines"| class_sldb_cli_commands_sections_fields_FieldsSectionsCLI
+    module_sldb_cli_commands_sections_fields -->|"imports"| module___future__
+    module_sldb_cli_commands_sections_fields -->|"imports"| module_pathlib
+    module_sldb_cli_commands_sections_fields -->|"imports"| module_typing
+    module_sldb_cli_commands_sections_fields -->|"imports"| module_sldb_cli_graph_ops
+    module_sldb_cli_commands_sections_fields -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_sections_fields -->|"imports"| module_sldb_store_io
+    module_sldb_cli_commands_sections_fields -->|"imports"| module_sldb_cli_commands_sections_common
+    module_sldb_cli_commands_sections_find -->|"defines"| class_sldb_cli_commands_sections_find_FindSectionsCLI
+    module_sldb_cli_commands_sections_find -->|"imports"| module___future__
+    module_sldb_cli_commands_sections_find -->|"imports"| module_sldb_cli_commands_find_filter
+    module_sldb_cli_commands_sections_find -->|"imports"| module_typing
+    module_sldb_cli_commands_sections_find -->|"imports"| module_sldb_cli_graph_ops
+    module_sldb_cli_commands_sections_find -->|"imports"| module_sldb_cli_commands_find
+    module_sldb_cli_commands_sections_show -->|"defines"| class_sldb_cli_commands_sections_show_ShowSectionsCLI
+    module_sldb_cli_commands_sections_show -->|"imports"| module___future__
+    module_sldb_cli_commands_sections_show -->|"imports"| module_pathlib
+    module_sldb_cli_commands_sections_show -->|"imports"| module_typing
+    module_sldb_cli_commands_sections_show -->|"imports"| module_sldb_cli_graph_ops
+    module_sldb_cli_commands_sections_show -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_sections_show -->|"imports"| module_sldb_store_io
+    module_sldb_cli_commands_sections_show -->|"imports"| module_sldb_cli_commands_sections_common
+    module_sldb_cli_commands_selfdoc -->|"defines"| class_sldb_cli_commands_selfdoc_SelfdocCLI
+    module_sldb_cli_commands_selfdoc -->|"imports"| module___future__
+    module_sldb_cli_commands_selfdoc -->|"imports"| module_contextlib
+    module_sldb_cli_commands_selfdoc -->|"imports"| module_pathlib
+    module_sldb_cli_commands_selfdoc -->|"imports"| module_sldb_cli_selfdoc_context
+    module_sldb_cli_commands_selfdoc -->|"imports"| module_sldb_cli_selfdoc_inspect
+    module_sldb_cli_commands_selfdoc -->|"imports"| module_sldb_cli_selfdoc_write
+    module_sldb_cli_commands_selfdoc -->|"imports"| module_sldb_selfdoc_materialize
+    module_sldb_cli_commands_selfdoc -->|"imports"| module_sldb_selfdoc_parser
+    module_sldb_cli_commands_selfdoc -->|"imports"| module_sldb_store_resolver
+    module_sldb_cli_commands_selfdoc -->|"imports"| module_sldb_selfdoc_python_scanner
+    module_sldb_cli_commands_selfdoc -->|"imports"| module_sldb_selfdoc_python_materialize
+    module_sldb_cli_commands_serve -->|"defines"| class_sldb_cli_commands_serve_ServeCLI
+    module_sldb_cli_commands_serve -->|"imports"| module___future__
+    module_sldb_cli_commands_serve -->|"imports"| module_http_server
+    module_sldb_cli_commands_serve -->|"imports"| module_typing
+    module_sldb_cli_commands_serve -->|"imports"| module_sldb_cli_serve_http_server
+    module_sldb_cli_commands_store -->|"defines"| class_sldb_cli_commands_store_StoreCLI
+    module_sldb_cli_commands_store -->|"imports"| module___future__
+    module_sldb_cli_commands_store -->|"imports"| module_typing
+    module_sldb_cli_commands_store -->|"imports"| module_sldb_core_exceptions
+    module_sldb_cli_commands_store -->|"imports"| module_sldb_cli_commands_store_init
+    module_sldb_cli_commands_store -->|"imports"| module_sldb_cli_commands_store_add
+    module_sldb_cli_commands_store -->|"imports"| module_sldb_cli_commands_store_check
+    module_sldb_cli_commands_store -->|"imports"| module_sldb_cli_commands_store_update
+    module_sldb_cli_commands_store -->|"imports"| module_sldb_cli_commands_store_semantic_map
+    module_sldb_cli_commands_store_add -->|"imports"| module___future__
+    module_sldb_cli_commands_store_add -->|"imports"| module_pathlib
+    module_sldb_cli_commands_store_add -->|"imports"| module_typing
+    module_sldb_cli_commands_store_add -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_store_add -->|"imports"| module_sldb_core_exceptions
+    module_sldb_cli_commands_store_add -->|"imports"| module_sldb_store_io
+    module_sldb_cli_commands_store_add -->|"imports"| module_sldb_store_layout
+    module_sldb_cli_commands_store_add -->|"imports"| module_sldb_store_models
+    module_sldb_cli_commands_store_check -->|"imports"| module___future__
+    module_sldb_cli_commands_store_check -->|"imports"| module_typing
+    module_sldb_cli_commands_store_check -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_store_check -->|"imports"| module_sldb_store_diagnostics
+    module_sldb_cli_commands_store_check -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_commands_store_init -->|"imports"| module___future__
+    module_sldb_cli_commands_store_init -->|"imports"| module_pathlib
+    module_sldb_cli_commands_store_init -->|"imports"| module_typing
+    module_sldb_cli_commands_store_init -->|"imports"| module_sldb_store_io
+    module_sldb_cli_commands_store_init -->|"imports"| module_sldb_store_layout
+    module_sldb_cli_commands_store_init -->|"imports"| module_sldb_store_models
+    module_sldb_cli_commands_store_init -->|"imports"| module_sldb_store_predicates
+    module_sldb_cli_commands_store_init -->|"imports"| module_sldb_store_catalog
+    module_sldb_cli_commands_store_init -->|"imports"| module_sldb_store_resolver
+    module_sldb_cli_commands_store_semantic_map -->|"imports"| module___future__
+    module_sldb_cli_commands_store_semantic_map -->|"imports"| module_typing
+    module_sldb_cli_commands_store_semantic_map -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_store_semantic_map -->|"imports"| module_sldb_store_io
+    module_sldb_cli_commands_store_semantic_map -->|"imports"| module_sldb_store_models
+    module_sldb_cli_commands_store_update -->|"imports"| module___future__
+    module_sldb_cli_commands_store_update -->|"imports"| module_pathlib
+    module_sldb_cli_commands_store_update -->|"imports"| module_typing
+    module_sldb_cli_commands_store_update -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_store_update -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_commands_store_update -->|"imports"| module_sldb_store_hashing
+    module_sldb_cli_commands_store_update -->|"imports"| module_sldb_store_io
+    module_sldb_cli_commands_store_update -->|"imports"| module_sldb_store_models
+    module_sldb_cli_commands_store_update -->|"imports"| module_sldb_store_ops
+    module_sldb_cli_commands_store_update -->|"imports"| module_sldb_store_section_rebuild
+    module_sldb_cli_commands_store_update -->|"imports"| module_sldb_store_semantic
+    module_sldb_cli_commands_store_update -->|"imports"| module_sldb_store_runtime_cache
+    module_sldb_cli_commands_stores -->|"defines"| class_sldb_cli_commands_stores_StoresCLI
+    module_sldb_cli_commands_stores -->|"imports"| module___future__
+    module_sldb_cli_commands_stores -->|"imports"| module_typing
+    module_sldb_cli_commands_stores -->|"imports"| module_sldb_cli_commands_store
+    module_sldb_cli_commands_stores -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_commands_stores -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_commands_stores -->|"imports"| module_sldb_cli_utils
+    module_sldb_cli_commands_stores -->|"imports"| module_sldb_store_export
+    module_sldb_cli_commands_stores -->|"imports"| module_sldb_store_io
+    module_sldb_cli_dict_utils -->|"imports"| module_typing
+    module_sldb_cli_dispatcher -->|"defines"| class_sldb_cli_dispatcher_CLI
+    module_sldb_cli_dispatcher -->|"imports"| module___future__
+    module_sldb_cli_dispatcher -->|"imports"| module_typing
+    module_sldb_cli_dispatcher -->|"imports"| module_sldb_cli_parser
+    module_sldb_cli_dispatcher -->|"imports"| module_sldb_cli_commands_help_texts
+    module_sldb_cli_dispatcher -->|"imports"| module_sldb_cli_commands_basic
+    module_sldb_cli_dispatcher -->|"imports"| module_sldb_cli_commands_init
+    module_sldb_cli_dispatcher -->|"imports"| module_sldb_cli_commands_help
+    module_sldb_cli_dispatcher -->|"imports"| module_sldb_cli_commands_faq
+    module_sldb_cli_dispatcher -->|"imports"| module_sldb_cli_commands_inbox
+    module_sldb_cli_dispatcher -->|"imports"| module_sldb_cli_commands_explore
+    module_sldb_cli_dispatcher -->|"imports"| module_sldb_cli_commands_ast
+    module_sldb_cli_dispatcher -->|"imports"| module_sldb_cli_commands_find
+    module_sldb_cli_dispatcher -->|"imports"| module_sldb_cli_commands_stores
+    module_sldb_cli_dispatcher -->|"imports"| module_sldb_cli_commands_models
+    module_sldb_cli_dispatcher -->|"imports"| module_sldb_cli_commands_predicates
+    module_sldb_cli_dispatcher -->|"imports"| module_sldb_cli_commands_docs
+    module_sldb_cli_dispatcher -->|"imports"| module_sldb_cli_commands_selfdoc
+    module_sldb_cli_dispatcher -->|"imports"| module_sldb_cli_commands_fields
+    module_sldb_cli_dispatcher -->|"imports"| module_sldb_cli_commands_sections
+    module_sldb_cli_dispatcher -->|"imports"| module_sldb_cli_commands_serve
+    module_sldb_cli_dispatcher -->|"imports"| module_sldb_cli_commands_lint
+    module_sldb_cli_dispatcher -->|"imports"| module_sldb_cli_commands_legacy
+    module_sldb_cli_federated_utils -->|"imports"| module___future__
+    module_sldb_cli_federated_utils -->|"imports"| module_pathlib
+    module_sldb_cli_federated_utils -->|"imports"| module_typing
+    module_sldb_cli_federated_utils -->|"imports"| module_sldb_models_structured_doc
+    module_sldb_cli_federated_utils -->|"imports"| module_sldb_store_layout
+    module_sldb_cli_federated_utils -->|"imports"| module_sldb_store_io
+    module_sldb_cli_federated_utils -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_federated_utils -->|"imports"| module_sldb_store_resolver
+    module_sldb_cli_federated_utils -->|"imports"| module_sldb_store_models
+    module_sldb_cli_federated_utils -->|"imports"| module_sldb_store_semantic_tags
+    module_sldb_cli_federated_utils -->|"imports"| module_sldb_store_ops
+    module_sldb_cli_graph_models_section -->|"defines"| class_sldb_cli_graph_models_section_SectionRecord
+    module_sldb_cli_graph_models_section -->|"imports"| module_dataclasses
+    module_sldb_cli_graph_search_record -->|"defines"| class_sldb_cli_graph_search_record_SearchRecord
+    module_sldb_cli_graph_search_record -->|"imports"| module_typing
+    module_sldb_cli_graph_search_record -->|"imports"| module_dataclasses
+    module_sldb_cli_graph_section_record -->|"defines"| class_sldb_cli_graph_section_record_SectionRecord
+    module_sldb_cli_graph_section_record -->|"imports"| module_dataclasses
+    module_sldb_cli_graph_sections -->|"imports"| module_sldb_core_ast
+    module_sldb_cli_graph_sections -->|"imports"| module_sldb_core_contracts
+    module_sldb_cli_graph_sections -->|"imports"| module_section_record
+    module_sldb_cli_graph_sections -->|"imports"| module_utils
+    module_sldb_cli_graph_store_ast -->|"imports"| module_typing
+    module_sldb_cli_graph_store_ast -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_graph_store_ast -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_graph_store_ast -->|"imports"| module_sldb_store_io
+    module_sldb_cli_graph_store_ast -->|"imports"| module_sldb_store_query
+    module_sldb_cli_graph_store_ast -->|"imports"| module_utils
+    module_sldb_cli_graph_utils -->|"imports"| module_typing
+    module_sldb_cli_graph_utils -->|"imports"| module_search_record
+    module_sldb_cli_graph_old_search_record -->|"defines"| class_sldb_cli_graph_old_search_record_SearchRecord
+    module_sldb_cli_graph_old_search_record -->|"imports"| module_dataclasses
+    module_sldb_cli_graph_old_search_record -->|"imports"| module_typing
+    module_sldb_cli_graph_old_section_record -->|"defines"| class_sldb_cli_graph_old_section_record_SectionRecord
+    module_sldb_cli_graph_old_section_record -->|"imports"| module_dataclasses
+    module_sldb_cli_graph_old_utils -->|"imports"| module_typing
+    module_sldb_cli_graph_ops_ast_target -->|"imports"| module_pathlib
+    module_sldb_cli_graph_ops_ast_target -->|"imports"| module_typing
+    module_sldb_cli_graph_ops_ast_target -->|"imports"| module_build_ast
+    module_sldb_cli_graph_ops_ast_target -->|"imports"| module_resolve
+    module_sldb_cli_graph_ops_ast_target -->|"imports"| module_build_ir
+    module_sldb_cli_graph_ops_ast_target -->|"imports"| module_extract
+    module_sldb_cli_graph_ops_ast_target -->|"imports"| module_fields
+    module_sldb_cli_graph_ops_build_ast -->|"imports"| module_typing
+    module_sldb_cli_graph_ops_build_ast -->|"imports"| module_sldb_store_io
+    module_sldb_cli_graph_ops_build_ast -->|"imports"| module_sldb_store_query
+    module_sldb_cli_graph_ops_build_ast -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_graph_ops_build_ast -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_graph_ops_build_ast -->|"imports"| module_utils
+    module_sldb_cli_graph_ops_build_ir -->|"imports"| module_typing
+    module_sldb_cli_graph_ops_build_ir -->|"imports"| module_sldb_core_ir
+    module_sldb_cli_graph_ops_build_ir -->|"imports"| module_sldb_core_ast
+    module_sldb_cli_graph_ops_build_ir -->|"imports"| module_extract
+    module_sldb_cli_graph_ops_build_ir -->|"imports"| module_utils
+    module_sldb_cli_graph_ops_build_ir -->|"imports"| module_flatten
+    module_sldb_cli_graph_ops_build_ir -->|"imports"| module_map_fields
+    module_sldb_cli_graph_ops_extract -->|"imports"| module_sldb_core_ast
+    module_sldb_cli_graph_ops_extract -->|"imports"| module_sldb_cli_section_record_cls
+    module_sldb_cli_graph_ops_extract -->|"imports"| module_utils
+    module_sldb_cli_graph_ops_fields -->|"imports"| module_typing
+    module_sldb_cli_graph_ops_fields -->|"imports"| module_sldb_store_io
+    module_sldb_cli_graph_ops_fields -->|"imports"| module_sldb_store_query
+    module_sldb_cli_graph_ops_fields -->|"imports"| module_sldb_store_layout
+    module_sldb_cli_graph_ops_fields -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_graph_ops_fields -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_graph_ops_fields -->|"imports"| module_flatten
+    module_sldb_cli_graph_ops_fields -->|"imports"| module_map_fields
+    module_sldb_cli_graph_ops_fields -->|"imports"| module_extract
+    module_sldb_cli_graph_ops_flatten -->|"imports"| module_typing
+    module_sldb_cli_graph_ops_iter_records -->|"imports"| module_sldb_store_io
+    module_sldb_cli_graph_ops_iter_records -->|"imports"| module_sldb_store_query
+    module_sldb_cli_graph_ops_iter_records -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_graph_ops_iter_records -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_graph_ops_iter_records -->|"imports"| module_sldb_cli_search_record
+    module_sldb_cli_graph_ops_iter_records -->|"imports"| module_iter_records_helpers
+    module_sldb_cli_graph_ops_iter_records_docs -->|"imports"| module_sldb_cli_search_record
+    module_sldb_cli_graph_ops_iter_records_docs -->|"imports"| module_flatten
+    module_sldb_cli_graph_ops_iter_records_docs -->|"imports"| module_map_fields
+    module_sldb_cli_graph_ops_iter_records_docs -->|"imports"| module_utils
+    module_sldb_cli_graph_ops_iter_records_docs -->|"imports"| module_build_ir
+    module_sldb_cli_graph_ops_iter_records_docs -->|"imports"| module_extract
+    module_sldb_cli_graph_ops_iter_records_helpers -->|"imports"| module_pathlib
+    module_sldb_cli_graph_ops_iter_records_helpers -->|"imports"| module_sldb_store_io
+    module_sldb_cli_graph_ops_iter_records_helpers -->|"imports"| module_sldb_store_layout
+    module_sldb_cli_graph_ops_iter_records_helpers -->|"imports"| module_sldb_cli_search_record
+    module_sldb_cli_graph_ops_iter_records_helpers -->|"imports"| module_flatten
+    module_sldb_cli_graph_ops_iter_records_helpers -->|"imports"| module_map_fields
+    module_sldb_cli_graph_ops_iter_records_helpers -->|"imports"| module_utils
+    module_sldb_cli_graph_ops_iter_records_helpers -->|"imports"| module_build_ir
+    module_sldb_cli_graph_ops_iter_records_helpers -->|"imports"| module_extract
+    module_sldb_cli_graph_ops_iter_records_helpers -->|"imports"| module_iter_records_docs
+    module_sldb_cli_graph_ops_iter_records_helpers -->|"imports"| module_iter_records_docs
+    module_sldb_cli_graph_ops_map_fields -->|"imports"| module_sldb_core_contracts
+    module_sldb_cli_graph_ops_map_fields -->|"imports"| module_extract
+    module_sldb_cli_graph_ops_matches -->|"imports"| module_sldb_cli_search_record
+    module_sldb_cli_graph_ops_resolve -->|"imports"| module_typing
+    module_sldb_cli_graph_ops_resolve -->|"imports"| module_sldb_store_query
+    module_sldb_cli_graph_ops_resolve -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_graph_ops_resolve -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_graph_ops_utils -->|"imports"| module_typing
+    module_sldb_cli_graph_ops_utils -->|"imports"| module_sldb_core_ir
+    module_sldb_cli_main -->|"imports"| module___future__
+    module_sldb_cli_main -->|"imports"| module_typing
+    module_sldb_cli_main -->|"imports"| module_sldb_cli_commands_help_texts
+    module_sldb_cli_main -->|"imports"| module_sldb_core_exceptions
+    module_sldb_cli_main -->|"imports"| module_sldb_cli_dispatcher
+    module_sldb_cli_model_utils -->|"imports"| module___future__
+    module_sldb_cli_model_utils -->|"imports"| module_importlib
+    module_sldb_cli_model_utils -->|"imports"| module_pathlib
+    module_sldb_cli_model_utils -->|"imports"| module_typing
+    module_sldb_cli_model_utils -->|"imports"| module_sldb_core_exceptions
+    module_sldb_cli_model_utils -->|"imports"| module_sldb_models_structured_doc
+    module_sldb_cli_model_utils -->|"imports"| module_sldb_store_io
+    module_sldb_cli_model_utils -->|"imports"| module_sldb_cli_federated_utils
+    module_sldb_cli_parser -->|"imports"| module___future__
+    module_sldb_cli_parser -->|"imports"| module_sldb_cli_parsers_core
+    module_sldb_cli_parsers_basic -->|"imports"| module___future__
+    module_sldb_cli_parsers_core -->|"imports"| module___future__
+    module_sldb_cli_parsers_core -->|"imports"| module_basic
+    module_sldb_cli_parsers_core -->|"imports"| module_project
+    module_sldb_cli_parsers_core -->|"imports"| module_public
+    module_sldb_cli_parsers_core -->|"imports"| module_misc
+    module_sldb_cli_parsers_core -->|"imports"| module_find
+    module_sldb_cli_parsers_core -->|"imports"| module_legacy
+    module_sldb_cli_parsers_core -->|"imports"| module_serve
+    module_sldb_cli_parsers_core -->|"imports"| module_selfdoc
+    module_sldb_cli_parsers_core -->|"imports"| module_hidden
+    module_sldb_cli_parsers_docs1 -->|"imports"| module___future__
+    module_sldb_cli_parsers_docs1 -->|"imports"| module_docs2
+    module_sldb_cli_parsers_docs2 -->|"imports"| module___future__
+    module_sldb_cli_parsers_fields -->|"imports"| module___future__
+    module_sldb_cli_parsers_find -->|"imports"| module___future__
+    module_sldb_cli_parsers_hidden -->|"imports"| module___future__
+    module_sldb_cli_parsers_hidden -->|"imports"| module_legacy
+    module_sldb_cli_parsers_legacy -->|"imports"| module___future__
+    module_sldb_cli_parsers_misc -->|"imports"| module___future__
+    module_sldb_cli_parsers_models1 -->|"imports"| module___future__
+    module_sldb_cli_parsers_models1 -->|"imports"| module_models2
+    module_sldb_cli_parsers_models2 -->|"imports"| module___future__
+    module_sldb_cli_parsers_predicates -->|"imports"| module___future__
+    module_sldb_cli_parsers_project -->|"imports"| module___future__
+    module_sldb_cli_parsers_public -->|"imports"| module___future__
+    module_sldb_cli_parsers_public -->|"imports"| module_stores
+    module_sldb_cli_parsers_public -->|"imports"| module_models1
+    module_sldb_cli_parsers_public -->|"imports"| module_predicates
+    module_sldb_cli_parsers_public -->|"imports"| module_docs1
+    module_sldb_cli_parsers_public -->|"imports"| module_fields
+    module_sldb_cli_parsers_public -->|"imports"| module_sections
+    module_sldb_cli_parsers_sections -->|"imports"| module___future__
+    module_sldb_cli_parsers_selfdoc -->|"imports"| module___future__
+    module_sldb_cli_parsers_serve -->|"imports"| module___future__
+    module_sldb_cli_parsers_stores -->|"imports"| module___future__
+    module_sldb_cli_search_record -->|"defines"| class_sldb_cli_search_record_SearchRecord
+    module_sldb_cli_search_record -->|"imports"| module___future__
+    module_sldb_cli_search_record -->|"imports"| module_dataclasses
+    module_sldb_cli_search_record -->|"imports"| module_typing
+    module_sldb_cli_section_record_cls -->|"defines"| class_sldb_cli_section_record_cls_SectionRecord
+    module_sldb_cli_section_record_cls -->|"imports"| module___future__
+    module_sldb_cli_section_record_cls -->|"imports"| module_dataclasses
+    module_sldb_cli_selfdoc_context -->|"imports"| module___future__
+    module_sldb_cli_selfdoc_context -->|"imports"| module_pathlib
+    module_sldb_cli_selfdoc_context -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_selfdoc_context -->|"imports"| module_sldb_store_layout
+    module_sldb_cli_selfdoc_inspect -->|"imports"| module___future__
+    module_sldb_cli_selfdoc_inspect -->|"imports"| module_pathlib
+    module_sldb_cli_selfdoc_inspect -->|"imports"| module_sldb_selfdoc_planned_document
+    module_sldb_cli_selfdoc_inspect -->|"imports"| module_sldb_selfdoc_report
+    module_sldb_cli_selfdoc_inspect -->|"imports"| module_selfdoc_registry
+    module_sldb_cli_selfdoc_registry -->|"defines"| class_sldb_cli_selfdoc_registry_DocumentationRegistry
+    module_sldb_cli_selfdoc_registry -->|"imports"| module___future__
+    module_sldb_cli_selfdoc_registry -->|"imports"| module_pathlib
+    module_sldb_cli_selfdoc_registry -->|"imports"| module_sldb_selfdoc_planned_document
+    module_sldb_cli_selfdoc_registry -->|"imports"| module_sldb_store_hashing
+    module_sldb_cli_selfdoc_registry -->|"imports"| module_sldb_store_io
+    module_sldb_cli_selfdoc_write -->|"imports"| module___future__
+    module_sldb_cli_selfdoc_write -->|"imports"| module_pathlib
+    module_sldb_cli_selfdoc_write -->|"imports"| module_types
+    module_sldb_cli_selfdoc_write -->|"imports"| module_sldb_cli_commands_model_add
+    module_sldb_cli_selfdoc_write -->|"imports"| module_sldb_cli_commands_fields_save
+    module_sldb_cli_selfdoc_write -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_selfdoc_write -->|"imports"| module_sldb_selfdoc_planned_document
+    module_sldb_cli_selfdoc_write -->|"imports"| module_sldb_store_io
+    module_sldb_cli_selfdoc_write -->|"imports"| module_sldb_store_io_utils
+    module_sldb_cli_selfdoc_write -->|"imports"| module_sldb_store_ops
+    module_sldb_cli_selfdoc_write -->|"imports"| module_sldb_store_section_rebuild
+    module_sldb_cli_selfdoc_write -->|"imports"| module_selfdoc_registry
+    module_sldb_cli_serve_http_server -->|"defines"| class_sldb_cli_serve_http_server_SLDBHTTPRequestHandler
+    module_sldb_cli_serve_http_server -->|"imports"| module___future__
+    module_sldb_cli_serve_http_server -->|"imports"| module_http_server
+    module_sldb_cli_serve_http_server -->|"imports"| module_pathlib
+    module_sldb_cli_serve_http_server -->|"imports"| module_typing
+    module_sldb_cli_serve_http_server -->|"imports"| module_sldb_cli_store_context
+    module_sldb_cli_serve_http_server -->|"imports"| module_sldb_cli_serve_responses
+    module_sldb_cli_serve_http_server -->|"imports"| module_sldb_cli_serve_routes
+    module_sldb_cli_serve_responses -->|"imports"| module___future__
+    module_sldb_cli_serve_responses -->|"imports"| module_http_server
+    module_sldb_cli_serve_responses -->|"imports"| module_typing
+    module_sldb_cli_serve_routes -->|"imports"| module___future__
+    module_sldb_cli_serve_routes -->|"imports"| module_http_server
+    module_sldb_cli_serve_routes -->|"imports"| module_pathlib
+    module_sldb_cli_serve_routes -->|"imports"| module_typing
+    module_sldb_cli_serve_routes -->|"imports"| module_urllib_parse
+    module_sldb_cli_serve_routes -->|"imports"| module_sldb_cli_commands_fields_save
+    module_sldb_cli_serve_routes -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_serve_routes -->|"imports"| module_sldb_cli_serve_responses
+    module_sldb_cli_serve_routes -->|"imports"| module_sldb_cli_serve_schema
+    module_sldb_cli_serve_routes -->|"imports"| module_sldb_store_export
+    module_sldb_cli_serve_routes -->|"imports"| module_sldb_store_query
+    module_sldb_cli_serve_schema -->|"imports"| module___future__
+    module_sldb_cli_serve_schema -->|"imports"| module_enum
+    module_sldb_cli_serve_schema -->|"imports"| module_pathlib
+    module_sldb_cli_serve_schema -->|"imports"| module_types
+    module_sldb_cli_serve_schema -->|"imports"| module_typing
+    module_sldb_cli_serve_schema -->|"imports"| module_sldb_cli_model_utils
+    module_sldb_cli_serve_schema -->|"imports"| module_sldb_store_io
+    module_sldb_cli_store_context -->|"imports"| module___future__
+    module_sldb_cli_store_context -->|"imports"| module_pathlib
+    module_sldb_cli_store_context -->|"imports"| module_sldb_store_resolver
+    module_sldb_cli_store_context -->|"imports"| module_sldb_core_exceptions
+    module_sldb_cli_store_context -->|"imports"| module_sldb_store_layout
+    module_sldb_cli_store_context -->|"imports"| module_sldb_store_migration
+    module_sldb_cli_store_context -->|"imports"| module_sldb_store_io
+    module_sldb_cli_utils -->|"imports"| module___future__
+    module_sldb_cli_utils -->|"imports"| module_pathlib
+    module_sldb_cli_utils -->|"imports"| module_typing
+    module_sldb_core_ast_base_ast_handler -->|"defines"| class_sldb_core_ast_base_ast_handler_BaseASTHandler
+    module_sldb_core_ast_base_ast_handler -->|"imports"| module_abc
+    module_sldb_core_ast_base_ast_handler -->|"imports"| module_typing
+    module_sldb_core_ast_base_ast_handler -->|"imports"| module_sldb_core_node
+    module_sldb_core_ast_markdown_ast_handler -->|"defines"| class_sldb_core_ast_markdown_ast_handler_MarkdownASTHandler
+    module_sldb_core_ast_markdown_ast_handler -->|"imports"| module_typing
+    module_sldb_core_ast_markdown_ast_handler -->|"imports"| module_markdown_it
+    module_sldb_core_ast_markdown_ast_handler -->|"imports"| module_markdown_it_tree
+    module_sldb_core_ast_markdown_ast_handler -->|"imports"| module_sldb_core_node
+    module_sldb_core_ast_markdown_ast_handler -->|"imports"| module_base_ast_handler
+    module_sldb_core_ast_markdown_ast_handler -->|"imports"| module_mdit_py_plugins_front_matter
+    module_sldb_core_contracts_marker -->|"defines"| class_sldb_core_contracts_marker_Marker
+    module_sldb_core_contracts_marker -->|"imports"| module_pydantic
+    module_sldb_core_contracts_node_data -->|"defines"| class_sldb_core_contracts_node_data_NodeData
+    module_sldb_core_contracts_node_data -->|"imports"| module_typing
+    module_sldb_core_contracts_node_data -->|"imports"| module_pydantic
+    module_sldb_core_contracts_node_data -->|"imports"| module_marker
+    module_sldb_core_contracts_render_context -->|"defines"| class_sldb_core_contracts_render_context_RenderContext
+    module_sldb_core_contracts_render_context -->|"imports"| module_typing
+    module_sldb_core_contracts_render_context -->|"imports"| module_pydantic
+    module_sldb_core_data_extractor -->|"defines"| class_sldb_core_data_extractor_DataExtractor
+    module_sldb_core_data_extractor -->|"imports"| module_typing
+    module_sldb_core_data_extractor -->|"imports"| module_sldb_core_node
+    module_sldb_core_data_extractor -->|"imports"| module_sldb_core_extractor_recipe_matcher
+    module_sldb_core_data_extractor -->|"imports"| module_sldb_core_node_handler
+    module_sldb_core_exceptions_sldb_ast_error -->|"defines"| class_sldb_core_exceptions_sldb_ast_error_SLDBASTError
+    module_sldb_core_exceptions_sldb_ast_error -->|"imports"| module_sldb_error
+    module_sldb_core_exceptions_sldb_error -->|"defines"| class_sldb_core_exceptions_sldb_error_SLDBError
+    module_sldb_core_exceptions_sldb_link_error -->|"defines"| class_sldb_core_exceptions_sldb_link_error_SLDBLinkError
+    module_sldb_core_exceptions_sldb_link_error -->|"imports"| module_sldb_error
+    module_sldb_core_exceptions_sldb_model_draft_error -->|"defines"| class_sldb_core_exceptions_sldb_model_draft_error_SLDBModelDraftError
+    module_sldb_core_exceptions_sldb_model_draft_error -->|"imports"| module_sldb_model_error
+    module_sldb_core_exceptions_sldb_model_edit_error -->|"defines"| class_sldb_core_exceptions_sldb_model_edit_error_SLDBModelEditError
+    module_sldb_core_exceptions_sldb_model_edit_error -->|"imports"| module_sldb_model_error
+    module_sldb_core_exceptions_sldb_model_error -->|"defines"| class_sldb_core_exceptions_sldb_model_error_SLDBModelError
+    module_sldb_core_exceptions_sldb_model_error -->|"imports"| module_sldb_error
+    module_sldb_core_exceptions_sldb_store_error -->|"defines"| class_sldb_core_exceptions_sldb_store_error_SLDBStoreError
+    module_sldb_core_exceptions_sldb_store_error -->|"imports"| module_sldb_error
+    module_sldb_core_exceptions_sldb_store_error -->|"imports"| module_sldb_store_exceptions
+    module_sldb_core_exceptions_sldb_validation_error -->|"defines"| class_sldb_core_exceptions_sldb_validation_error_SLDBValidationError
+    module_sldb_core_exceptions_sldb_validation_error -->|"imports"| module_sldb_error
+    module_sldb_core_extractor_recipe_matcher -->|"defines"| class_sldb_core_extractor_recipe_matcher_RecipeMatcher
+    module_sldb_core_extractor_recipe_matcher -->|"imports"| module_typing
+    module_sldb_core_extractor_recipe_matcher -->|"imports"| module_sldb_core_node
+    module_sldb_core_extractor_recipe_matcher -->|"imports"| module_sldb_core_node_handler
+    module_sldb_core_handlers_base -->|"defines"| class_sldb_core_handlers_base_BaseNodeHandler
+    module_sldb_core_handlers_base -->|"imports"| module___future__
+    module_sldb_core_handlers_base -->|"imports"| module_abc
+    module_sldb_core_handlers_base -->|"imports"| module_typing
+    module_sldb_core_handlers_base -->|"imports"| module_sldb_core_node
+    module_sldb_core_handlers_list -->|"defines"| class_sldb_core_handlers_list_ListNodeHandler
+    module_sldb_core_handlers_list -->|"imports"| module___future__
+    module_sldb_core_handlers_list -->|"imports"| module_typing
+    module_sldb_core_handlers_list -->|"imports"| module_sldb_core_handlers_base
+    module_sldb_core_handlers_list -->|"imports"| module_sldb_core_handlers_utils
+    module_sldb_core_handlers_list -->|"imports"| module_sldb_core_node
+    module_sldb_core_handlers_router -->|"defines"| class_sldb_core_handlers_router_SharedNodeHandler
+    module_sldb_core_handlers_router -->|"imports"| module___future__
+    module_sldb_core_handlers_router -->|"imports"| module_sldb_core_handlers_list
+    module_sldb_core_handlers_router -->|"imports"| module_sldb_core_handlers_table
+    module_sldb_core_handlers_router -->|"imports"| module_sldb_core_handlers_text
+    module_sldb_core_handlers_router -->|"imports"| module_sldb_core_handlers_yaml
+    module_sldb_core_handlers_router -->|"imports"| module_sldb_core_node
+    module_sldb_core_handlers_table -->|"defines"| class_sldb_core_handlers_table_TableNodeHandler
+    module_sldb_core_handlers_table -->|"imports"| module___future__
+    module_sldb_core_handlers_table -->|"imports"| module_typing
+    module_sldb_core_handlers_table -->|"imports"| module_sldb_core_handlers_base
+    module_sldb_core_handlers_table -->|"imports"| module_sldb_core_handlers_utils
+    module_sldb_core_handlers_table -->|"imports"| module_sldb_core_node
+    module_sldb_core_handlers_table -->|"imports"| module_sldb_core_handlers_text
+    module_sldb_core_handlers_text -->|"defines"| class_sldb_core_handlers_text_TextNodeHandler
+    module_sldb_core_handlers_text -->|"imports"| module___future__
+    module_sldb_core_handlers_text -->|"imports"| module_typing
+    module_sldb_core_handlers_text -->|"imports"| module_sldb_core_handlers_base
+    module_sldb_core_handlers_text -->|"imports"| module_sldb_core_handlers_utils
+    module_sldb_core_handlers_text -->|"imports"| module_sldb_core_node
+    module_sldb_core_handlers_utils -->|"imports"| module___future__
+    module_sldb_core_handlers_utils -->|"imports"| module_sldb_core_contracts
+    module_sldb_core_handlers_yaml -->|"defines"| class_sldb_core_handlers_yaml_YamlNodeHandler
+    module_sldb_core_handlers_yaml -->|"imports"| module___future__
+    module_sldb_core_handlers_yaml -->|"imports"| module_datetime
+    module_sldb_core_handlers_yaml -->|"imports"| module_typing
+    module_sldb_core_handlers_yaml -->|"imports"| module_sldb_core_exceptions
+    module_sldb_core_handlers_yaml -->|"imports"| module_sldb_core_handlers_base
+    module_sldb_core_handlers_yaml -->|"imports"| module_sldb_core_handlers_utils
+    module_sldb_core_handlers_yaml -->|"imports"| module_sldb_core_node
+    module_sldb_core_ingest_engine -->|"imports"| module___future__
+    module_sldb_core_ingest_engine -->|"imports"| module_pathlib
+    module_sldb_core_ingest_engine -->|"imports"| module_scanner
+    module_sldb_core_ingest_engine -->|"imports"| module_manifest
+    module_sldb_core_ingest_engine -->|"imports"| module_source_parser
+    module_sldb_core_ingest_engine -->|"imports"| module_renderer
+    module_sldb_core_ingest_ignore_rule -->|"defines"| class_sldb_core_ingest_ignore_rule_IgnoreRule
+    module_sldb_core_ingest_ignore_rule -->|"imports"| module___future__
+    module_sldb_core_ingest_ignore_rule -->|"imports"| module_dataclasses
+    module_sldb_core_ingest_manifest -->|"imports"| module___future__
+    module_sldb_core_ingest_manifest -->|"imports"| module_datetime
+    module_sldb_core_ingest_manifest -->|"imports"| module_pathlib
+    module_sldb_core_ingest_manifest -->|"imports"| module_wiki_compiler_contracts
+    module_sldb_core_ingest_python_scanner -->|"defines"| class_sldb_core_ingest_python_scanner_PythonScanner
+    module_sldb_core_ingest_python_scanner -->|"imports"| module___future__
+    module_sldb_core_ingest_python_scanner -->|"imports"| module_pathlib
+    module_sldb_core_ingest_python_scanner -->|"imports"| module_wiki_compiler_adapters_ontology_facets
+    module_sldb_core_ingest_python_scanner -->|"imports"| module_kgdb_contracts_node
+    module_sldb_core_ingest_renderer -->|"imports"| module___future__
+    module_sldb_core_ingest_renderer -->|"imports"| module_pathlib
+    module_sldb_core_ingest_renderer -->|"imports"| module_datetime
+    module_sldb_core_ingest_scanner -->|"imports"| module___future__
+    module_sldb_core_ingest_scanner -->|"imports"| module_pathlib
+    module_sldb_core_ingest_scanner -->|"imports"| module_ontology_contracts_facets
+    module_sldb_core_ingest_scanner -->|"imports"| module_kgdb_contracts_node
+    module_sldb_core_ingest_scanner -->|"imports"| module_kgdb_contracts_base
+    module_sldb_core_ingest_scanner -->|"imports"| module_ignore_rule
+    module_sldb_core_ingest_scanner -->|"imports"| module_python_scanner
+    module_sldb_core_ingest_scanner -->|"imports"| module_typescript_scanner
+    module_sldb_core_ingest_scanner -->|"imports"| module_wiki_compiler_protocols
+    module_sldb_core_ingest_source_parser -->|"imports"| module___future__
+    module_sldb_core_ingest_source_parser -->|"imports"| module_pathlib
+    module_sldb_core_ingest_typescript_scanner -->|"defines"| class_sldb_core_ingest_typescript_scanner_TypeScriptScanner
+    module_sldb_core_ingest_typescript_scanner -->|"imports"| module___future__
+    module_sldb_core_ingest_typescript_scanner -->|"imports"| module_pathlib
+    module_sldb_core_ingest_typescript_scanner -->|"imports"| module_kgdb_contracts_node
+    module_sldb_core_ingest_typescript_scanner -->|"imports"| module_kgdb_contracts_base
+    module_sldb_core_ingest_typescript_scanner -->|"imports"| module_ontology_contracts_facets
+    module_sldb_core_ir_document_context -->|"defines"| class_sldb_core_ir_document_context_DocumentContext
+    module_sldb_core_ir_document_context -->|"imports"| module_typing
+    module_sldb_core_ir_document_context -->|"imports"| module_pydantic
+    module_sldb_core_ir_document_ir -->|"defines"| class_sldb_core_ir_document_ir_DocumentIR
+    module_sldb_core_ir_document_ir -->|"imports"| module_pydantic
+    module_sldb_core_ir_document_ir -->|"imports"| module_document_context
+    module_sldb_core_ir_document_ir -->|"imports"| module_meaning_node
+    module_sldb_core_ir_document_ir -->|"imports"| module_surface_node
+    module_sldb_core_ir_document_ir -->|"imports"| module_graph_view
+    module_sldb_core_ir_document_ir -->|"imports"| module_section_context_entry
+    module_sldb_core_ir_graph_edge -->|"defines"| class_sldb_core_ir_graph_edge_GraphEdge
+    module_sldb_core_ir_graph_edge -->|"imports"| module_typing
+    module_sldb_core_ir_graph_edge -->|"imports"| module_pydantic
+    module_sldb_core_ir_graph_view -->|"defines"| class_sldb_core_ir_graph_view_GraphView
+    module_sldb_core_ir_graph_view -->|"imports"| module_typing
+    module_sldb_core_ir_graph_view -->|"imports"| module_pydantic
+    module_sldb_core_ir_graph_view -->|"imports"| module_graph_edge
+    module_sldb_core_ir_meaning_node -->|"defines"| class_sldb_core_ir_meaning_node_MeaningNode
+    module_sldb_core_ir_meaning_node -->|"imports"| module_typing
+    module_sldb_core_ir_meaning_node -->|"imports"| module_pydantic
+    module_sldb_core_ir_meaning_node -->|"imports"| module_source_span
+    module_sldb_core_ir_section_context_entry -->|"defines"| class_sldb_core_ir_section_context_entry_SectionContextEntry
+    module_sldb_core_ir_section_context_entry -->|"imports"| module_pydantic
+    module_sldb_core_ir_section_context_entry -->|"imports"| module_source_span
+    module_sldb_core_ir_source_span -->|"defines"| class_sldb_core_ir_source_span_SourceSpan
+    module_sldb_core_ir_source_span -->|"imports"| module_pydantic
+    module_sldb_core_ir_surface_node -->|"defines"| class_sldb_core_ir_surface_node_SurfaceNode
+    module_sldb_core_ir_surface_node -->|"imports"| module_typing
+    module_sldb_core_ir_surface_node -->|"imports"| module_pydantic
+    module_sldb_core_ir_surface_node -->|"imports"| module_source_span
+    module_sldb_core_node -->|"defines"| class_sldb_core_node_SLDBNode
+    module_sldb_core_node -->|"imports"| module___future__
+    module_sldb_core_node -->|"imports"| module_dataclasses
+    module_sldb_core_node -->|"imports"| module_typing
+    module_sldb_core_node_handler -->|"imports"| module___future__
+    module_sldb_core_node_handler -->|"imports"| module_sldb_core_handlers_router
+    module_sldb_core_renderer -->|"defines"| class_sldb_core_renderer_SLDBRenderer
+    module_sldb_core_renderer -->|"imports"| module___future__
+    module_sldb_core_renderer -->|"imports"| module_jinja2
+    module_sldb_core_renderer -->|"imports"| module_sldb_core_ast
+    module_sldb_core_renderer -->|"imports"| module_sldb_core_handlers_router
+    module_sldb_core_renderer -->|"imports"| module_sldb_core_renderer_engine_list
+    module_sldb_core_renderer -->|"imports"| module_sldb_core_renderer_engine_table
+    module_sldb_core_renderer -->|"imports"| module_sldb_core_renderer_engine_yaml
+    module_sldb_core_renderer -->|"imports"| module_sldb_models_structured_doc
+    module_sldb_core_renderer -->|"imports"| module_sldb_core_node
+    module_sldb_core_renderer_engine_base -->|"defines"| class_sldb_core_renderer_engine_base_BaseRenderer
+    module_sldb_core_renderer_engine_base -->|"imports"| module___future__
+    module_sldb_core_renderer_engine_base -->|"imports"| module_typing
+    module_sldb_core_renderer_engine_base -->|"imports"| module_jinja2
+    module_sldb_core_renderer_engine_base -->|"imports"| module_sldb_core_handlers_utils
+    module_sldb_core_renderer_engine_base -->|"imports"| module_sldb_core_renderer_engine_python_expr
+    module_sldb_core_renderer_engine_list -->|"defines"| class_sldb_core_renderer_engine_list_ListRenderer
+    module_sldb_core_renderer_engine_list -->|"imports"| module___future__
+    module_sldb_core_renderer_engine_list -->|"imports"| module_typing
+    module_sldb_core_renderer_engine_list -->|"imports"| module_sldb_core_renderer_engine_base
+    module_sldb_core_renderer_engine_python_expr -->|"defines"| class_sldb_core_renderer_engine_python_expr_PythonExpressionRenderer
+    module_sldb_core_renderer_engine_python_expr -->|"imports"| module___future__
+    module_sldb_core_renderer_engine_python_expr -->|"imports"| module_typing
+    module_sldb_core_renderer_engine_python_expr -->|"imports"| module_sldb_runtime_config
+    module_sldb_core_renderer_engine_table -->|"defines"| class_sldb_core_renderer_engine_table_TableRenderer
+    module_sldb_core_renderer_engine_table -->|"imports"| module___future__
+    module_sldb_core_renderer_engine_table -->|"imports"| module_typing
+    module_sldb_core_renderer_engine_table -->|"imports"| module_sldb_core_renderer_engine_base
+    module_sldb_core_renderer_engine_yaml -->|"defines"| class_sldb_core_renderer_engine_yaml_YamlRenderer
+    module_sldb_core_renderer_engine_yaml -->|"imports"| module___future__
+    module_sldb_core_renderer_engine_yaml -->|"imports"| module_typing
+    module_sldb_core_renderer_engine_yaml -->|"imports"| module_sldb_core_renderer_engine_base
+    module_sldb_core_renderer_engine_yaml -->|"imports"| module_sldb_core_handlers_utils
+    module_sldb_core_template_extractor -->|"defines"| class_sldb_core_template_extractor_TemplateExtractor
+    module_sldb_core_template_extractor -->|"imports"| module_typing
+    module_sldb_core_template_extractor -->|"imports"| module_sldb_core_exceptions
+    module_sldb_core_template_extractor -->|"imports"| module_sldb_core_node
+    module_sldb_core_template_extractor -->|"imports"| module_sldb_core_node_handler
+    module_sldb_examples_pandoc_cv_cv_model -->|"defines"| class_sldb_examples_pandoc_cv_cv_model_PandocCVDoc
+    module_sldb_examples_pandoc_cv_cv_model -->|"imports"| module_pydantic
+    module_sldb_examples_pandoc_cv_cv_model -->|"imports"| module_sldb
+    module_sldb_examples_reference_bundle_guide_model -->|"defines"| class_sldb_examples_reference_bundle_guide_model_SLDBGuide
+    module_sldb_examples_reference_bundle_guide_model -->|"imports"| module_pydantic
+    module_sldb_examples_reference_bundle_guide_model -->|"imports"| module_sldb
+    module_sldb_links_composer -->|"imports"| module___future__
+    module_sldb_links_composer -->|"imports"| module_pathlib
+    module_sldb_links_composer -->|"imports"| module_parser
+    module_sldb_links_composer -->|"imports"| module_resolver
+    module_sldb_links_parsed_link -->|"defines"| class_sldb_links_parsed_link_ParsedLink
+    module_sldb_links_parsed_link -->|"imports"| module_dataclasses
+    module_sldb_links_parser -->|"imports"| module___future__
+    module_sldb_links_parser -->|"imports"| module_collections_abc
+    module_sldb_links_parser -->|"imports"| module_parsed_link
+    module_sldb_links_recovery -->|"imports"| module___future__
+    module_sldb_links_recovery -->|"imports"| module_collections_abc
+    module_sldb_links_recovery -->|"imports"| module_pathlib
+    module_sldb_links_recovery -->|"imports"| module_sldb_store_io
+    module_sldb_links_recovery -->|"imports"| module_sldb_store_predicates
+    module_sldb_links_recovery -->|"imports"| module_parser
+    module_sldb_links_recovery -->|"imports"| module_resolver
+    module_sldb_links_resolved_link -->|"defines"| class_sldb_links_resolved_link_ResolvedLink
+    module_sldb_links_resolved_link -->|"imports"| module_dataclasses
+    module_sldb_links_resolver -->|"imports"| module___future__
+    module_sldb_links_resolver -->|"imports"| module_pathlib
+    module_sldb_links_resolver -->|"imports"| module_sldb_store_layout
+    module_sldb_links_resolver -->|"imports"| module_sldb_store_io
+    module_sldb_links_resolver -->|"imports"| module_resolved_link
+    module_sldb_models_anchor_doc -->|"defines"| class_sldb_models_anchor_doc_AnchorDoc
+    module_sldb_models_anchor_doc -->|"imports"| module___future__
+    module_sldb_models_anchor_doc -->|"imports"| module_pydantic
+    module_sldb_models_anchor_doc -->|"imports"| module_sldb_models_structured_doc
+    module_sldb_models_anchor_doc -->|"imports"| module_knowledge_tag
+    module_sldb_models_cli_command_doc -->|"defines"| class_sldb_models_cli_command_doc_CliCommandDoc
+    module_sldb_models_cli_command_doc -->|"imports"| module___future__
+    module_sldb_models_cli_command_doc -->|"imports"| module_pydantic
+    module_sldb_models_cli_command_doc -->|"imports"| module_sldb_models_structured_doc
+    module_sldb_models_cli_command_doc -->|"imports"| module_knowledge_tag
+    module_sldb_models_knowledge_surface -->|"imports"| module___future__
+    module_sldb_models_knowledge_surface -->|"imports"| module_anchor_doc
+    module_sldb_models_knowledge_surface -->|"imports"| module_cli_command_doc
+    module_sldb_models_knowledge_surface -->|"imports"| module_knowledge_tag
+    module_sldb_models_knowledge_surface -->|"imports"| module_surface_doc
+    module_sldb_models_knowledge_surface -->|"imports"| module_python_symbol_doc
+    module_sldb_models_knowledge_tag -->|"imports"| module___future__
+    module_sldb_models_knowledge_tag -->|"imports"| module_typing
+    module_sldb_models_knowledge_tag -->|"imports"| module_pydantic
+    module_sldb_models_python_symbol_doc -->|"defines"| class_sldb_models_python_symbol_doc_PythonSymbolDoc
+    module_sldb_models_python_symbol_doc -->|"imports"| module___future__
+    module_sldb_models_python_symbol_doc -->|"imports"| module_pydantic
+    module_sldb_models_python_symbol_doc -->|"imports"| module_knowledge_tag
+    module_sldb_models_python_symbol_doc -->|"imports"| module_structured_doc
+    module_sldb_models_structured_doc -->|"defines"| class_sldb_models_structured_doc_StructuredNLDoc
+    module_sldb_models_structured_doc -->|"imports"| module___future__
+    module_sldb_models_structured_doc -->|"imports"| module_importlib
+    module_sldb_models_structured_doc -->|"imports"| module_pathlib
+    module_sldb_models_structured_doc -->|"imports"| module_typing
+    module_sldb_models_structured_doc -->|"imports"| module_pydantic
+    module_sldb_models_structured_doc -->|"imports"| module_sldb_runtime_validation
+    module_sldb_models_surface_doc -->|"defines"| class_sldb_models_surface_doc_SurfaceDoc
+    module_sldb_models_surface_doc -->|"imports"| module___future__
+    module_sldb_models_surface_doc -->|"imports"| module_pydantic
+    module_sldb_models_surface_doc -->|"imports"| module_sldb_models_structured_doc
+    module_sldb_models_surface_doc -->|"imports"| module_knowledge_tag
+    module_sldb_runtime_config -->|"defines"| class_sldb_runtime_config_SLDBConfig
+    module_sldb_runtime_config -->|"imports"| module_dataclasses
+    module_sldb_runtime_config -->|"imports"| module_typing
+    module_sldb_runtime_validation -->|"defines"| class_sldb_runtime_validation_Validator
+    module_sldb_runtime_validation -->|"imports"| module___future__
+    module_sldb_runtime_validation -->|"imports"| module_typing
+    module_sldb_runtime_validation -->|"imports"| module_sldb_core_ast
+    module_sldb_runtime_validation -->|"imports"| module_sldb_core_data_extractor
+    module_sldb_runtime_validation -->|"imports"| module_sldb_core_renderer
+    module_sldb_runtime_validation -->|"imports"| module_sldb_core_template_extractor
+    module_sldb_runtime_validation -->|"imports"| module_sldb_models_structured_doc
+    module_sldb_selfdoc_argument -->|"defines"| class_sldb_selfdoc_argument_ArgumentRecord
+    module_sldb_selfdoc_argument -->|"imports"| module___future__
+    module_sldb_selfdoc_argument -->|"imports"| module_pydantic
+    module_sldb_selfdoc_arguments -->|"imports"| module___future__
+    module_sldb_selfdoc_arguments -->|"imports"| module_argument
+    module_sldb_selfdoc_arguments -->|"imports"| module_constraint
+    module_sldb_selfdoc_arguments -->|"imports"| module_values
+    module_sldb_selfdoc_command -->|"defines"| class_sldb_selfdoc_command_CommandRecord
+    module_sldb_selfdoc_command -->|"imports"| module___future__
+    module_sldb_selfdoc_command -->|"imports"| module_pydantic
+    module_sldb_selfdoc_command -->|"imports"| module_argument
+    module_sldb_selfdoc_command -->|"imports"| module_constraint
+    module_sldb_selfdoc_constraint -->|"defines"| class_sldb_selfdoc_constraint_ExclusiveGroup
+    module_sldb_selfdoc_constraint -->|"imports"| module___future__
+    module_sldb_selfdoc_constraint -->|"imports"| module_pydantic
+    module_sldb_selfdoc_materialize -->|"imports"| module___future__
+    module_sldb_selfdoc_materialize -->|"imports"| module_pathlib
+    module_sldb_selfdoc_materialize -->|"imports"| module_sldb_models_knowledge_surface
+    module_sldb_selfdoc_materialize -->|"imports"| module_sldb_runtime_validation
+    module_sldb_selfdoc_materialize -->|"imports"| module_command
+    module_sldb_selfdoc_materialize -->|"imports"| module_planned_document
+    module_sldb_selfdoc_materialize -->|"imports"| module_projection
+    module_sldb_selfdoc_parser -->|"defines"| class_sldb_selfdoc_parser_ParserScanner
+    module_sldb_selfdoc_parser -->|"imports"| module___future__
+    module_sldb_selfdoc_parser -->|"imports"| module_arguments
+    module_sldb_selfdoc_parser -->|"imports"| module_command
+    module_sldb_selfdoc_planned_document -->|"defines"| class_sldb_selfdoc_planned_document_PlannedDocument
+    module_sldb_selfdoc_planned_document -->|"imports"| module___future__
+    module_sldb_selfdoc_planned_document -->|"imports"| module_pathlib
+    module_sldb_selfdoc_planned_document -->|"imports"| module_pydantic
+    module_sldb_selfdoc_planned_document -->|"imports"| module_sldb_models_knowledge_surface
+    module_sldb_selfdoc_projection -->|"imports"| module___future__
+    module_sldb_selfdoc_projection -->|"imports"| module_command
+    module_sldb_selfdoc_python_materialize -->|"imports"| module___future__
+    module_sldb_selfdoc_python_materialize -->|"imports"| module_pathlib
+    module_sldb_selfdoc_python_materialize -->|"imports"| module_sldb_models_knowledge_surface
+    module_sldb_selfdoc_python_materialize -->|"imports"| module_sldb_runtime_validation
+    module_sldb_selfdoc_python_materialize -->|"imports"| module_planned_document
+    module_sldb_selfdoc_python_materialize -->|"imports"| module_python_symbol
+    module_sldb_selfdoc_python_scanner -->|"defines"| class_sldb_selfdoc_python_scanner_PythonScanner
+    module_sldb_selfdoc_python_scanner -->|"imports"| module___future__
+    module_sldb_selfdoc_python_scanner -->|"imports"| module_pathlib
+    module_sldb_selfdoc_python_scanner -->|"imports"| module_python_symbol
+    module_sldb_selfdoc_python_symbol -->|"defines"| class_sldb_selfdoc_python_symbol_PythonSymbol
+    module_sldb_selfdoc_python_symbol -->|"imports"| module___future__
+    module_sldb_selfdoc_python_symbol -->|"imports"| module_pydantic
+    module_sldb_selfdoc_report -->|"defines"| class_sldb_selfdoc_report_DocumentationReport
+    module_sldb_selfdoc_report -->|"imports"| module___future__
+    module_sldb_selfdoc_report -->|"imports"| module_pydantic
+    module_sldb_selfdoc_values -->|"imports"| module___future__
+    module_sldb_selfdoc_values -->|"imports"| module_enum
+    module_sldb_selfdoc_values -->|"imports"| module_pathlib
+    module_sldb_selfdoc_values -->|"imports"| module_typing
+    module_sldb_store_built_cache -->|"imports"| module___future__
+    module_sldb_store_built_cache -->|"imports"| module_pathlib
+    module_sldb_store_built_cache -->|"imports"| module_typing
+    module_sldb_store_catalog -->|"imports"| module___future__
+    module_sldb_store_catalog -->|"imports"| module_pathlib
+    module_sldb_store_catalog -->|"imports"| module_sldb_store_io
+    module_sldb_store_catalog -->|"imports"| module_sldb_store_models
+    module_sldb_store_catalog -->|"imports"| module_sldb_store_resolver
+    module_sldb_store_codec -->|"defines"| class_sldb_store_codec_StoreCodec
+    module_sldb_store_codec -->|"imports"| module___future__
+    module_sldb_store_codec -->|"imports"| module_typing
+    module_sldb_store_codec -->|"imports"| module_sldb_store_runtime_codec
+    module_sldb_store_diagnostics -->|"imports"| module___future__
+    module_sldb_store_diagnostics -->|"imports"| module_pathlib
+    module_sldb_store_diagnostics -->|"imports"| module_typing
+    module_sldb_store_diagnostics -->|"imports"| module_sldb_store_layout
+    module_sldb_store_diagnostics -->|"imports"| module_sldb_store_hashing
+    module_sldb_store_diagnostics -->|"imports"| module_sldb_store_io
+    module_sldb_store_diagnostics -->|"imports"| module_sldb_store_models
+    module_sldb_store_diagnostics -->|"imports"| module_sldb_store_diagnostics_models
+    module_sldb_store_diagnostics_models_diagnosis_note -->|"defines"| class_sldb_store_diagnostics_models_diagnosis_note_DiagnosisNote
+    module_sldb_store_diagnostics_models_diagnosis_note -->|"imports"| module___future__
+    module_sldb_store_diagnostics_models_diagnosis_note -->|"imports"| module_dataclasses
+    module_sldb_store_diagnostics_models_diagnosis_note -->|"imports"| module_enum
+    module_sldb_store_diagnostics_models_document_diagnosis -->|"defines"| class_sldb_store_diagnostics_models_document_diagnosis_DocumentDiagnosis
+    module_sldb_store_diagnostics_models_document_diagnosis -->|"imports"| module___future__
+    module_sldb_store_diagnostics_models_document_diagnosis -->|"imports"| module_dataclasses
+    module_sldb_store_diagnostics_models_document_diagnosis -->|"imports"| module_enum
+    module_sldb_store_diagnostics_models_document_diagnosis -->|"imports"| module_sldb_store_diagnostics_models_diagnosis_note
+    module_sldb_store_diagnostics_models_model_diagnosis -->|"defines"| class_sldb_store_diagnostics_models_model_diagnosis_ModelDiagnosis
+    module_sldb_store_diagnostics_models_model_diagnosis -->|"imports"| module___future__
+    module_sldb_store_diagnostics_models_model_diagnosis -->|"imports"| module_dataclasses
+    module_sldb_store_diagnostics_models_model_diagnosis -->|"imports"| module_enum
+    module_sldb_store_diagnostics_models_model_diagnosis -->|"imports"| module_sldb_store_diagnostics_models_document_diagnosis
+    module_sldb_store_diagnostics_models_store_diagnosis -->|"defines"| class_sldb_store_diagnostics_models_store_diagnosis_StoreDiagnosis
+    module_sldb_store_diagnostics_models_store_diagnosis -->|"imports"| module___future__
+    module_sldb_store_diagnostics_models_store_diagnosis -->|"imports"| module_dataclasses
+    module_sldb_store_diagnostics_models_store_diagnosis -->|"imports"| module_enum
+    module_sldb_store_diagnostics_models_store_diagnosis -->|"imports"| module_sldb_store_diagnostics_models_model_diagnosis
+    module_sldb_store_diagnostics_models_store_diagnosis -->|"imports"| module_sldb_store_diagnostics_models_diagnosis_note
+    module_sldb_store_exceptions -->|"defines"| class_sldb_store_exceptions_StoreError
+    module_sldb_store_export -->|"defines"| class_sldb_store_export_SemanticExporter
+    module_sldb_store_export -->|"imports"| module___future__
+    module_sldb_store_export -->|"imports"| module_datetime
+    module_sldb_store_export -->|"imports"| module_importlib_metadata
+    module_sldb_store_export -->|"imports"| module_pathlib
+    module_sldb_store_export -->|"imports"| module_typing
+    module_sldb_store_export -->|"imports"| module_sldb_store_io
+    module_sldb_store_export -->|"imports"| module_sldb_store_layout
+    module_sldb_store_export -->|"imports"| module_sldb_store_section_rebuild
+    module_sldb_store_export -->|"imports"| module_sldb_store_semantic
+    module_sldb_store_facade -->|"imports"| module_pathlib
+    module_sldb_store_facade -->|"imports"| module_typing
+    module_sldb_store_facade -->|"imports"| module_sldb_store_io
+    module_sldb_store_facade -->|"imports"| module_sldb_core_exceptions
+    module_sldb_store_hashing -->|"imports"| module_typing
+    module_sldb_store_hashing -->|"imports"| module_sldb_store_codec
+    module_sldb_store_hashing -->|"imports"| module_sldb_store_models
+    module_sldb_store_io_documents_index -->|"defines"| class_sldb_store_io_documents_index_DocumentsIndexIO
+    module_sldb_store_io_documents_index -->|"imports"| module_pathlib
+    module_sldb_store_io_documents_index -->|"imports"| module_sldb_store_layout
+    module_sldb_store_io_documents_index -->|"imports"| module_sldb_store_models
+    module_sldb_store_io_documents_index -->|"imports"| module_sldb_store_io_utils
+    module_sldb_store_io_lock -->|"defines"| class_sldb_store_io_lock_StoreIOLock
+    module_sldb_store_io_lock -->|"imports"| module_pathlib
+    module_sldb_store_io_lock -->|"imports"| module_sldb_store_layout
+    module_sldb_store_io_lock -->|"imports"| module_sldb_store_models
+    module_sldb_store_io_lock -->|"imports"| module_sldb_core_exceptions
+    module_sldb_store_io_models_index -->|"defines"| class_sldb_store_io_models_index_ModelsIndexIO
+    module_sldb_store_io_models_index -->|"imports"| module_pathlib
+    module_sldb_store_io_models_index -->|"imports"| module_sldb_store_layout
+    module_sldb_store_io_models_index -->|"imports"| module_sldb_store_models
+    module_sldb_store_io_models_index -->|"imports"| module_sldb_store_io_utils
+    module_sldb_store_io_sections_index -->|"defines"| class_sldb_store_io_sections_index_SectionsIndexIO
+    module_sldb_store_io_sections_index -->|"imports"| module_pathlib
+    module_sldb_store_io_sections_index -->|"imports"| module_sldb_store_layout
+    module_sldb_store_io_sections_index -->|"imports"| module_sldb_store_models
+    module_sldb_store_io_sections_index -->|"imports"| module_sldb_store_io_utils
+    module_sldb_store_io_semantic_dag -->|"defines"| class_sldb_store_io_semantic_dag_SemanticDAGIO
+    module_sldb_store_io_semantic_dag -->|"imports"| module_pathlib
+    module_sldb_store_io_semantic_dag -->|"imports"| module_sldb_store_layout
+    module_sldb_store_io_semantic_dag -->|"imports"| module_sldb_store_models
+    module_sldb_store_io_semantic_dag -->|"imports"| module_sldb_store_io_utils
+    module_sldb_store_io_semantic_index -->|"defines"| class_sldb_store_io_semantic_index_SemanticIndexIO
+    module_sldb_store_io_semantic_index -->|"imports"| module_pathlib
+    module_sldb_store_io_semantic_index -->|"imports"| module_sldb_store_layout
+    module_sldb_store_io_semantic_index -->|"imports"| module_sldb_store_models
+    module_sldb_store_io_semantic_index -->|"imports"| module_sldb_store_io_utils
+    module_sldb_store_io_store_index -->|"defines"| class_sldb_store_io_store_index_StoreIndexIO
+    module_sldb_store_io_store_index -->|"imports"| module_pathlib
+    module_sldb_store_io_store_index -->|"imports"| module_sldb_store_layout
+    module_sldb_store_io_store_index -->|"imports"| module_sldb_store_models
+    module_sldb_store_io_store_index -->|"imports"| module_sldb_store_io_utils
+    module_sldb_store_io_utils -->|"defines"| class_sldb_store_io_utils_StoreIOUtils
+    module_sldb_store_io_utils -->|"imports"| module_pathlib
+    module_sldb_store_io_utils -->|"imports"| module_sldb_store_layout
+    module_sldb_store_io_utils -->|"imports"| module_sldb_store_models
+    module_sldb_store_layout -->|"imports"| module___future__
+    module_sldb_store_layout -->|"imports"| module_pathlib
+    module_sldb_store_migration -->|"imports"| module___future__
+    module_sldb_store_migration -->|"imports"| module_pathlib
+    module_sldb_store_migration -->|"imports"| module_sldb_store_io
+    module_sldb_store_migration -->|"imports"| module_sldb_store_layout
+    module_sldb_store_models_doc_sections -->|"defines"| class_sldb_store_models_doc_sections_DocSections
+    module_sldb_store_models_doc_sections -->|"imports"| module_pydantic
+    module_sldb_store_models_doc_sections -->|"imports"| module_sldb_store_models_section_context_record
+    module_sldb_store_models_document_entry -->|"defines"| class_sldb_store_models_document_entry_DocumentEntry
+    module_sldb_store_models_document_entry -->|"imports"| module_pydantic
+    module_sldb_store_models_documents_index -->|"defines"| class_sldb_store_models_documents_index_DocumentsIndex
+    module_sldb_store_models_documents_index -->|"imports"| module_pydantic
+    module_sldb_store_models_documents_index -->|"imports"| module_sldb_store_models_document_entry
+    module_sldb_store_models_model_entry -->|"defines"| class_sldb_store_models_model_entry_ModelEntry
+    module_sldb_store_models_model_entry -->|"imports"| module_pydantic
+    module_sldb_store_models_models_index -->|"defines"| class_sldb_store_models_models_index_ModelsIndex
+    module_sldb_store_models_models_index -->|"imports"| module_pydantic
+    module_sldb_store_models_predicate_entry -->|"defines"| class_sldb_store_models_predicate_entry_PredicateEntry
+    module_sldb_store_models_predicate_entry -->|"imports"| module_pydantic
+    module_sldb_store_models_section_context_record -->|"defines"| class_sldb_store_models_section_context_record_SectionContextRecord
+    module_sldb_store_models_section_context_record -->|"imports"| module_pydantic
+    module_sldb_store_models_sections_index -->|"defines"| class_sldb_store_models_sections_index_SectionsIndex
+    module_sldb_store_models_sections_index -->|"imports"| module_pydantic
+    module_sldb_store_models_sections_index -->|"imports"| module_sldb_store_models_doc_sections
+    module_sldb_store_models_semantic_d_a_g -->|"defines"| class_sldb_store_models_semantic_d_a_g_SemanticDAG
+    module_sldb_store_models_semantic_d_a_g -->|"imports"| module_pydantic
+    module_sldb_store_models_semantic_d_a_g -->|"imports"| module_sldb_store_models_semantic_node
+    module_sldb_store_models_semantic_document_record -->|"defines"| class_sldb_store_models_semantic_document_record_SemanticDocumentRecord
+    module_sldb_store_models_semantic_document_record -->|"imports"| module_pydantic
+    module_sldb_store_models_semantic_index -->|"defines"| class_sldb_store_models_semantic_index_SemanticIndex
+    module_sldb_store_models_semantic_index -->|"imports"| module_pydantic
+    module_sldb_store_models_semantic_index -->|"imports"| module_sldb_store_models_semantic_document_record
+    module_sldb_store_models_semantic_node -->|"defines"| class_sldb_store_models_semantic_node_SemanticNode
+    module_sldb_store_models_semantic_node -->|"imports"| module_pydantic
+    module_sldb_store_models_store_entry -->|"defines"| class_sldb_store_models_store_entry_StoreEntry
+    module_sldb_store_models_store_entry -->|"imports"| module_pydantic
+    module_sldb_store_models_store_index -->|"defines"| class_sldb_store_models_store_index_StoreIndex
+    module_sldb_store_models_store_index -->|"imports"| module_pydantic
+    module_sldb_store_models_store_index -->|"imports"| module_sldb_store_models_model_entry
+    module_sldb_store_models_store_index -->|"imports"| module_sldb_store_models_store_entry
+    module_sldb_store_models_store_index -->|"imports"| module_sldb_store_models_predicate_entry
+    module_sldb_store_ops -->|"defines"| class_sldb_store_ops_StoreOperations
+    module_sldb_store_ops -->|"imports"| module___future__
+    module_sldb_store_ops -->|"imports"| module_pathlib
+    module_sldb_store_ops -->|"imports"| module_typing
+    module_sldb_store_ops -->|"imports"| module_sldb_store_hashing
+    module_sldb_store_ops -->|"imports"| module_sldb_store_io
+    module_sldb_store_ops -->|"imports"| module_sldb_store_models
+    module_sldb_store_ops -->|"imports"| module_sldb_store_semantic
+    module_sldb_store_ops -->|"imports"| module_sldb_core_exceptions
+    module_sldb_store_ops -->|"imports"| module_sldb_core_exceptions
+    module_sldb_store_predicates -->|"imports"| module___future__
+    module_sldb_store_predicates -->|"imports"| module_collections_abc
+    module_sldb_store_predicates -->|"imports"| module_sldb_store_models
+    module_sldb_store_query -->|"imports"| module___future__
+    module_sldb_store_query -->|"imports"| module_pathlib
+    module_sldb_store_query -->|"imports"| module_sldb_store_codec
+    module_sldb_store_query -->|"imports"| module_sldb_store_layout
+    module_sldb_store_query -->|"imports"| module_sldb_store_io
+    module_sldb_store_query -->|"imports"| module_sldb_store_query_engine_models
+    module_sldb_store_query -->|"imports"| module_sldb_store_runtime_cache
+    module_sldb_store_query -->|"imports"| module_sldb_store_query_engine_structural
+    module_sldb_store_query -->|"imports"| module_sldb_store_query_engine_structural_queries
+    module_sldb_store_query -->|"imports"| module_sldb_store_query_engine_semantic
+    module_sldb_store_query -->|"imports"| module_sldb_store_query_engine_global_semantic
+    module_sldb_store_query_engine_filter -->|"defines"| class_sldb_store_query_engine_filter_DocumentFilter
+    module_sldb_store_query_engine_filter -->|"imports"| module___future__
+    module_sldb_store_query_engine_filter -->|"imports"| module_typing
+    module_sldb_store_query_engine_filter -->|"imports"| module_sldb_store_query_engine_models
+    module_sldb_store_query_engine_filter -->|"imports"| module_sldb_store_query_engine_structural
+    module_sldb_store_query_engine_global_semantic -->|"defines"| class_sldb_store_query_engine_global_semantic_GlobalSemanticEngine
+    module_sldb_store_query_engine_global_semantic -->|"imports"| module___future__
+    module_sldb_store_query_engine_global_semantic -->|"imports"| module_pathlib
+    module_sldb_store_query_engine_global_semantic -->|"imports"| module_sldb_store_io
+    module_sldb_store_query_engine_global_semantic -->|"imports"| module_sldb_store_query
+    module_sldb_store_query_engine_models -->|"defines"| class_sldb_store_query_engine_models_RuntimeDocument
+    module_sldb_store_query_engine_models -->|"imports"| module___future__
+    module_sldb_store_query_engine_models -->|"imports"| module_dataclasses
+    module_sldb_store_query_engine_models -->|"imports"| module_pathlib
+    module_sldb_store_query_engine_models -->|"imports"| module_typing
+    module_sldb_store_query_engine_semantic -->|"defines"| class_sldb_store_query_engine_semantic_SemanticEngine
+    module_sldb_store_query_engine_semantic -->|"imports"| module___future__
+    module_sldb_store_query_engine_semantic -->|"imports"| module_pathlib
+    module_sldb_store_query_engine_semantic -->|"imports"| module_sldb_store_query_engine_semantic_utils
+    module_sldb_store_query_engine_semantic -->|"imports"| module_sldb_store_query_engine_filter
+    module_sldb_store_query_engine_semantic_utils -->|"defines"| class_sldb_store_query_engine_semantic_utils_SemanticUtils
+    module_sldb_store_query_engine_semantic_utils -->|"imports"| module___future__
+    module_sldb_store_query_engine_semantic_utils -->|"imports"| module_pathlib
+    module_sldb_store_query_engine_semantic_utils -->|"imports"| module_typing
+    module_sldb_store_query_engine_semantic_utils -->|"imports"| module_sldb_store_layout
+    module_sldb_store_query_engine_semantic_utils -->|"imports"| module_sldb_store_io
+    module_sldb_store_query_engine_semantic_utils -->|"imports"| module_sldb_store_query
+    module_sldb_store_query_engine_semantic_utils -->|"imports"| module_sldb_store_query_engine_models
+    module_sldb_store_query_engine_semantic_utils -->|"imports"| module_sldb_store_semantic
+    module_sldb_store_query_engine_store_prefix -->|"imports"| module___future__
+    module_sldb_store_query_engine_store_prefix -->|"imports"| module_pathlib
+    module_sldb_store_query_engine_store_prefix -->|"imports"| module_typing
+    module_sldb_store_query_engine_store_prefix -->|"imports"| module_sldb_store_query
+    module_sldb_store_query_engine_structural -->|"defines"| class_sldb_store_query_engine_structural_StructuralEngine
+    module_sldb_store_query_engine_structural -->|"imports"| module___future__
+    module_sldb_store_query_engine_structural -->|"imports"| module_pathlib
+    module_sldb_store_query_engine_structural -->|"imports"| module_typing
+    module_sldb_store_query_engine_structural -->|"imports"| module_sldb_store_io
+    module_sldb_store_query_engine_structural -->|"imports"| module_sldb_store_query_engine_store_prefix
+    module_sldb_store_query_engine_structural -->|"imports"| module_sldb_store_query_engine_store_prefix
+    module_sldb_store_query_engine_structural -->|"imports"| module_sldb_store_query_engine_store_prefix
+    module_sldb_store_query_engine_structural_queries -->|"defines"| class_sldb_store_query_engine_structural_queries_StructuralQueryEngine
+    module_sldb_store_query_engine_structural_queries -->|"imports"| module___future__
+    module_sldb_store_query_engine_structural_queries -->|"imports"| module_pathlib
+    module_sldb_store_query_engine_structural_queries -->|"imports"| module_sldb_store_query_engine_structural
+    module_sldb_store_query_engine_structural_queries -->|"imports"| module_sldb_store_query_engine_filter
+    module_sldb_store_query_engine_structural_queries -->|"imports"| module_sldb_store_query_engine_store_prefix
+    module_sldb_store_resolver -->|"imports"| module_pathlib
+    module_sldb_store_resolver -->|"imports"| module_sldb_store_layout
+    module_sldb_store_runtime_cache -->|"imports"| module___future__
+    module_sldb_store_runtime_cache -->|"imports"| module_dataclasses
+    module_sldb_store_runtime_cache -->|"imports"| module_pathlib
+    module_sldb_store_runtime_cache -->|"imports"| module_typing
+    module_sldb_store_runtime_cache -->|"imports"| module_sldb_store
+    module_sldb_store_runtime_cache -->|"imports"| module_sldb_store_io
+    module_sldb_store_runtime_cache -->|"imports"| module_sldb_store_layout
+    module_sldb_store_runtime_cache_disk -->|"imports"| module___future__
+    module_sldb_store_runtime_cache_disk -->|"imports"| module_pathlib
+    module_sldb_store_runtime_cache_disk -->|"imports"| module_typing
+    module_sldb_store_runtime_cache_disk -->|"imports"| module_sldb_store_query_engine_models
+    module_sldb_store_runtime_codec -->|"defines"| class_sldb_store_runtime_codec_RuntimeCodec
+    module_sldb_store_runtime_codec -->|"imports"| module___future__
+    module_sldb_store_runtime_codec -->|"imports"| module_typing
+    module_sldb_store_runtime_codec -->|"imports"| module_sldb_runtime_validation
+    module_sldb_store_section_rebuild -->|"imports"| module___future__
+    module_sldb_store_section_rebuild -->|"imports"| module_pathlib
+    module_sldb_store_section_rebuild -->|"imports"| module_sldb_store_io
+    module_sldb_store_section_rebuild -->|"imports"| module_sldb_store_layout
+    module_sldb_store_section_rebuild -->|"imports"| module_sldb_store_models
+    module_sldb_store_section_rebuild -->|"imports"| module_sldb_store_semantic
+    module_sldb_store_section_rebuild -->|"imports"| module_markdown_it
+    module_sldb_store_section_rebuild -->|"imports"| module_markdown_it_tree
+    module_sldb_store_section_rebuild -->|"imports"| module_sldb_store
+    module_sldb_store_section_rebuild -->|"imports"| module_sldb_store
+    module_sldb_store_semantic -->|"defines"| class_sldb_store_semantic_RebuildReport
+    module_sldb_store_semantic -->|"imports"| module___future__
+    module_sldb_store_semantic -->|"imports"| module_collections
+    module_sldb_store_semantic -->|"imports"| module_dataclasses
+    module_sldb_store_semantic -->|"imports"| module_pathlib
+    module_sldb_store_semantic -->|"imports"| module_sldb_store_codec
+    module_sldb_store_semantic -->|"imports"| module_sldb_store_io
+    module_sldb_store_semantic -->|"imports"| module_sldb_store_layout
+    module_sldb_store_semantic -->|"imports"| module_sldb_store_models
+    module_sldb_store_semantic -->|"imports"| module_sldb_store_semantic_doc_tags
+    module_sldb_store_semantic -->|"imports"| module_sldb_store_semantic_tags
+    module_sldb_store_semantic -->|"imports"| module_sldb_store
+    module_sldb_store_semantic_doc_tags -->|"imports"| module___future__
+    module_sldb_store_semantic_doc_tags -->|"imports"| module_pathlib
+    module_sldb_store_semantic_doc_tags -->|"imports"| module_sldb_store_codec
+    module_sldb_store_semantic_doc_tags -->|"imports"| module_sldb_store_semantic_tags
+    module_sldb_store_semantic_doc_tags -->|"imports"| module_sldb_store_runtime_cache
+    module_sldb_store_semantic_tags -->|"imports"| module___future__

@@ -2,22 +2,21 @@
 id: cmd-sldb-legacy-find
 system: sldb
 command_path: legacy find
-synopsis: Filter the documents of a model, a family or a tag scope with one predicate;
-  prints their addresses.
+synopsis: Filter raw query results.
 tags:
 - system:sldb
 - domain:retrieval
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/commands/query.py
+provenance: parser:sldb.cli.parser:build_parser#legacy find; contract-sha256:14bf4b4483d5d27f1d5f42a16ea9029e958a8044bba075fb7fd8fb1592dfb755
 ---
 
 # legacy find
 
 ## Synopsis
 
-Filter the documents of a model, a family or a tag scope with one predicate; prints their addresses.
+Filter raw query results.
 
 ## Purpose
 
@@ -29,10 +28,65 @@ Implemented under src/sldb/cli/parsers/legacy.py (parser) and src/sldb/cli/comma
 
 ## Arguments
 
-address | required | st.{Model} | st.{Model+} | se.<pattern>
---where | required | One predicate: has(f) | "x" in f | f ~ "re" | f = "v" | f != "v" | f >= n | f <= n | model <= Base
---store | optional | Store path
---pythonpath | optional | Project path
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "address"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Address scope"
+    },
+    {
+      "names": [
+        "--where"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Predicate expression"
+    },
+    {
+      "names": [
+        "--store"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Store path"
+    },
+    {
+      "names": [
+        "--pythonpath"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Project path"
+    }
+  ],
+  "exclusive_groups": []
+}
+```
 
 ## Usage
 

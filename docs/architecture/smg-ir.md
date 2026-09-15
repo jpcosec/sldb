@@ -20,12 +20,12 @@ Where `T` is the original document text and `R(T)` is the operable document repr
 
 ### Surface
 
-The surface layer preserves the original document as a reversible syntax tree.
+The surface layer projects parsed Markdown into syntax nodes. The source file remains the text reference; the JSON projection is not a lossless serialization of every Markdown token and attribute.
 
 It contains:
 
 - block/node kind
-- original text content
+- parser-provided node content (container nodes may have empty text)
 - source span
 - syntax metadata such as markdown tag/type
 
@@ -80,7 +80,7 @@ Each entry is section-oriented and carries:
 
 This gives the AST a lightweight section/context index without requiring a separate reasoning library.
 
-Field nodes in `DocumentIR.nodes` carry an `owning_section` field that identifies the section that owns each field via heading-based inference (the nearest preceding heading in the template).
+Field nodes in `DocumentIR.nodes` carry an `owning_section` value derived from marker and heading positions. The current implementation compares template marker lines with rendered heading lines, which can assign the wrong section when rendering changes line counts. Section spans currently cover heading tokens, not whole bodies. See the [reproduced defects and contract gaps](../documentation-review.md#field-ownership-and-section-spans).
 
 Section context indexes are now persisted in store artifacts during `stores update`, allowing queries to access section context without reparsing markdown.
 
@@ -88,7 +88,7 @@ The current `ast show docs/<doc>` output now includes an `ir` payload that expos
 
 ## Why This Matters
 
-- We do not lose original Markdown text.
+- The original Markdown remains in the source file; inspect `surface` for its parsed projection.
 - We do not stay trapped in plain text.
 - Sections become first-class citizens.
 - Query and mutation can target more than whole-document payload dumps.

@@ -45,10 +45,13 @@ class ModelCLI:
             return str(path.resolve())
 
     def _save_new_model(self, sp: Any, root: Path, idx: Any, args: Any, model_type: Any, m_path: str, mi_rel: str, di_rel: str) -> None:
+        """hash_b starts as hash_documents_index of the empty index, not "" --
+        an unhashed empty string fails `stores check` until `models update` runs."""
         with store_lock(sp):
-            save_documents_index(root / di_rel, DocumentsIndex())
+            empty_documents = DocumentsIndex()
+            save_documents_index(root / di_rel, empty_documents)
             family, bases = model_family(model_type), model_base_names(model_type)
-            mi = ModelsIndex(name=model_type.__name__, model_ref=args.model, path=m_path, documents_index=di_rel, hash_b="", version=1, canonical=args.canonical, family=family, semantics=flatten_model_semantics(model_type), base_models=bases)
+            mi = ModelsIndex(name=model_type.__name__, model_ref=args.model, path=m_path, documents_index=di_rel, hash_b=hash_documents_index(empty_documents), version=1, canonical=args.canonical, family=family, semantics=flatten_model_semantics(model_type), base_models=bases)
             save_models_index(root / mi_rel, mi)
             idx.models.append(ModelEntry(name=mi.name, model_ref=args.model, path=m_path, models_index=mi_rel, version=1, family=family, semantics=mi.semantics))
             rebuild_semantic_indexes(sp, root, resolve_model_ref, args.pythonpath)

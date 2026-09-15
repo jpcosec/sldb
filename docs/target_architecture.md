@@ -1,5 +1,7 @@
 # SLDB Target Modular Architecture
 
+Historical design proposal, predating the 2026-09-07 v1 freeze. Package boundaries below are candidates, not separately shipped components in this checkout. Use the [current source map](architecture/current-source-tree.md) for implemented structure.
+
 ## Bounded Contexts
 
 Based on the current monolithic structure of SLDB, we propose splitting it into the following bounded contexts:

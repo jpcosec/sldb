@@ -101,7 +101,7 @@ documents:
 - name: pill-010-active-board-slice-execution-map
   path: desk/pills/pill-010-active-board-slice-execution-map.md
   hash_c: 95bddc53d384ba82ffb340d0b4329ccb40c32926bd24e2ff35a1b7234531afc5
-  hash_d: b9852aa9cb14aca53df8475a44e9489519088b511d9a2b3caeb472dde6cc2439
+  hash_d: f4b7372dc03a737c5f7afff169b0e1bd85d6088a9dba2fb1d762f3ec8272fa89
   semantic_tags:
   - system:sldb
   - topic:design
@@ -112,7 +112,7 @@ documents:
 - name: pill-011-addressability-task-execution-context
   path: desk/pills/pill-011-addressability-task-execution-context.md
   hash_c: 79310558b69c88cef8c9aadc8ea736252128c95f0e2b7d40cff3712eb3265b51
-  hash_d: 2e9f165163a76920beb6ab2fce1cfa51e963c7032ff9dc35052c0fcc376cc75e
+  hash_d: 4216272deb3b756c20e72c327673337f95ce1fb63152b25fb209656ad9ecd15d
   semantic_tags:
   - system:sldb
   - topic:addressability
@@ -122,7 +122,7 @@ documents:
 - name: pill-012-query-task-execution-context
   path: desk/pills/pill-012-query-task-execution-context.md
   hash_c: 361b99bc8b657c439d73b097686156022b8c2d3ac27edcc41f1ef14df84a81bb
-  hash_d: fa045632e881f714c2d1eb99e0ebe858e20457727c0f8d0c54626921e36361f5
+  hash_d: d38989ed3c38a2d41c0700eb16e5511388f3d05cd09bb4f9423a6fd03e8fb1fb
   semantic_tags:
   - system:sldb
   - topic:execution
@@ -132,7 +132,7 @@ documents:
 - name: pill-013-composition-task-execution-context
   path: desk/pills/pill-013-composition-task-execution-context.md
   hash_c: 8cf5d05ee427f3df3e876084d7421b8d30d4ac142d29a99e6871b384bee9f62b
-  hash_d: b72e3ce9075b329f24e8cba5b26a683afec73539bb2d724aeff0d9801fc06a3e
+  hash_d: d06da540c43097d671ef7a2f285b1d0b3e0ce56dd4eed9e7ca3280528483672b
   semantic_tags:
   - system:sldb
   - topic:composition
@@ -142,11 +142,21 @@ documents:
 - name: pill-014-semantic-export-task-execution-context
   path: desk/pills/pill-014-semantic-export-task-execution-context.md
   hash_c: f27e58ceee5bce1903892a800f24414514ed7bbdb3fd143abb99b1099d6f4cbd
-  hash_d: 7bcd16e8ede62407a5d5ea667bf26bb76b9fed85e021c1008a09a21437d66c92
+  hash_d: d151cb033559c23c1548cce6ea4212973740e0fccaac36fb74d4ce8c5cfab5e4
   semantic_tags:
   - system:kgdb
   - system:sldb
   - topic:execution
   - topic:semantic-export
+  - type.workflow.pill
+  - workspace.desk
+- name: pill-015-self-documentation-boundaries
+  path: desk/pills/pill-015-self-documentation-boundaries.md
+  hash_c: f29ac3dc7cf85a9d3476e39a779ca2f456a82204dfab5b9c8e56a727cecb1e69
+  hash_d: 59452a5db2d51628c6b242c05324a727f1de49a2d931719f34be6da92b791100
+  semantic_tags:
+  - system:sldb
+  - topic:execution
+  - topic:selfdoc
   - type.workflow.pill
   - workspace.desk

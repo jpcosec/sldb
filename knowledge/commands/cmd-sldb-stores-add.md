@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#stores add; contract-sha256:420e56e3c941638193aae484468577ca5eee1c6a17a48719fb71478655770543
 ---
 
 # stores add
@@ -28,9 +28,52 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'add'. It par
 
 ## Arguments
 
-path | required | Store path
---name | optional | Store name
---store | optional | Local store path
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "path"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Store path"
+    },
+    {
+      "names": [
+        "--name"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Store name"
+    },
+    {
+      "names": [
+        "--store"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Local store path"
+    }
+  ],
+  "exclusive_groups": []
+}
+```
 
 ## Usage
 

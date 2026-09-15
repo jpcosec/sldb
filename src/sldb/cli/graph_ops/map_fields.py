@@ -1,6 +1,7 @@
 import logging
 import re
 from sldb.core.contracts import MARKER_PATTERN, parse_marker
+from .extract import extract_sections
 
 logger = logging.getLogger(__name__)
 
@@ -20,14 +21,30 @@ def _process_marker(match, line_no, known_fields, field_lines):
 
 def _map_fields_to_sections(template: str, sections: list, known_fields: set[str] | None = None) -> dict[str, str]:
     field_lines = _field_template_line_map(template, known_fields=known_fields)
-    heading_lines = sorted((s.line_start, s.path) for s in sections if s.line_start is not None)
-    result: dict[str, str] = {}
+    template_sections = extract_sections(template)
+    owners = _template_field_owners(field_lines, template_sections)
+    return _rendered_owner_paths(owners, template_sections, sections)
+
+
+def _template_field_owners(field_lines: dict[str, int], sections: list) -> dict[str, int]:
+    heading_lines = [(section.line_start, index) for index, section in enumerate(sections)]
+    result: dict[str, int] = {}
     for field_path, line_no in field_lines.items():
-        _assign_owning(field_path, line_no, heading_lines, result)
+        owner = _previous_heading(line_no, heading_lines)
+        if owner is not None:
+            result[field_path] = owner
     return result
 
-def _assign_owning(field_path, line_no, heading_lines, result):
-    owning = None
-    for heading_line, section_path in heading_lines:
-        if heading_line <= line_no: owning = section_path
-    if owning is not None: result[field_path] = owning
+
+def _previous_heading(line_no: int, heading_lines: list[tuple[int | None, int]]) -> int | None:
+    return next((index for heading_line, index in reversed(heading_lines) if heading_line is not None and heading_line <= line_no), None)
+
+
+def _rendered_owner_paths(owners: dict[str, int], template_sections: list, rendered_sections: list) -> dict[str, str]:
+    if len(template_sections) != len(rendered_sections):
+        logger.warning("Cannot map template fields: template has %s headings but rendered document has %s", len(template_sections), len(rendered_sections))
+        return {}
+    return {
+        field_path: rendered_sections[section_index].path
+        for field_path, section_index in owners.items()
+    }

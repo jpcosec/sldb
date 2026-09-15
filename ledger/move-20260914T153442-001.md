@@ -1,0 +1,49 @@
+---
+id: move-20260914T153442-001
+at: '2026-09-14T15:34:42+00:00'
+speaker: ''
+outcome: unico
+state_before: libre
+state_after: libre
+hash_before: 48b7771c29e37a8bc1a3b612f33aa49388ce718921967900740eef41cdbf0cae
+hash_after: 48b7771c29e37a8bc1a3b612f33aa49388ce718921967900740eef41cdbf0cae
+refers_to: ''
+---
+
+# move-20260914T153442-001
+
+## Sentence
+
+what python symbols does ArgumentRecord have references to
+
+## Record
+
+```yaml
+queries:
+- pron graph python_symbol → 1
+- kgdb edges_from(python:sldb.sldb.selfdoc.argument:ArgumentRecord, references) →
+  0
+writes: []
+edges: []
+interpretation:
+  forma: read
+  items:
+  - wh('what')
+  - word('python symbols'→source_model:PythonSymbol)
+  - wh('does')
+  - unknown('ArgumentRecord')
+  - unknown('have')
+  - word('references'→field:TaskDoc.references,source_relation:references)
+  - unknown('to')
+  parts:
+  - 'read · source_relation:references · subject=the PythonSymbol [] ArgumentRecord
+    · object=all PythonSymbol [] · payload={''asked'': ''object''}'
+  unknown: []
+  notes: []
+reads: []
+trace:
+- 'interpretation: read'
+- pron graph python_symbol → 1
+- kgdb edges_from(python:sldb.sldb.selfdoc.argument:ArgumentRecord, references) →
+  0
+```

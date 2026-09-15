@@ -2,22 +2,21 @@
 id: cmd-sldb-legacy-ls
 system: sldb
 command_path: legacy ls
-synopsis: 'List the children of an address: models of the store, docs of a model,
-  fields of a doc, child tags of a tag.'
+synopsis: List raw nodes.
 tags:
 - system:sldb
 - domain:retrieval
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/commands/query.py
+provenance: parser:sldb.cli.parser:build_parser#legacy ls; contract-sha256:63daf0faff2bd65b3cfaccdff67236b194aeaf887b449ea566fb2f21268c910a
 ---
 
 # legacy ls
 
 ## Synopsis
 
-List the children of an address: models of the store, docs of a model, fields of a doc, child tags of a tag.
+List raw nodes.
 
 ## Purpose
 
@@ -29,9 +28,52 @@ Implemented under src/sldb/cli/parsers/legacy.py (parser) and src/sldb/cli/comma
 
 ## Arguments
 
-address | required | st | st.{Model} | st.{Model+} | st.{Model}.<doc> | se | se.<prefix> | gse.<tag>
---store | optional | Store path
---pythonpath | optional | Project path
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "address"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Address (st.*, se.*)"
+    },
+    {
+      "names": [
+        "--store"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Store path"
+    },
+    {
+      "names": [
+        "--pythonpath"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Project path"
+    }
+  ],
+  "exclusive_groups": []
+}
+```
 
 ## Usage
 

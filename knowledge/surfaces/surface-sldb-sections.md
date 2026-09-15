@@ -8,7 +8,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#sections; contract-sha256:d5376952526324801076d5cd834650c453fcfdae72fc4079118589ab8f1e9aea
 ---
 
 # sections
@@ -23,6 +23,6 @@ Registered under src/sldb/cli/parsers/ as the 'sections' subparser. Each command
 
 ## Commands
 
-sections show
-sections find
-sections fields
+- sldb sections fields
+- sldb sections find
+- sldb sections show

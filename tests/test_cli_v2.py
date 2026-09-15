@@ -1627,3 +1627,60 @@ def test_find_field_shows_owning_section(tmp_path, capsys):
     )
     results = json.loads(capsys.readouterr().out)["results"]
     assert results[0]["owning_section"] == "roadmap"
+
+
+def _add_summary_draft(store: Path, pythonpath: str) -> None:
+    assert (
+        cli_main(
+            [
+                "models", "fields", "add", "RoadmapDoc", "summary",
+                "--type", "str", "--description", "Short summary.", "--default", '"Pending review"',
+                "--store", str(store), "--pythonpath", pythonpath,
+            ]
+        )
+        == 0
+    )
+
+
+@pytest.mark.parametrize("failing", ["resolve_model_ref", "cascade_hash_a"])
+def test_models_promote_failure_restores_model_draft_and_indexes(tmp_path, monkeypatch, failing):
+    """A promote whose reindex fails leaves the store as it was: active model, draft and indexes intact."""
+    store, pythonpath = _setup_store(tmp_path)
+    module_path = Path(pythonpath) / "cli_v2_models.py"
+    draft_path = module_path.with_name(module_path.name + ".temp")
+    _add_summary_draft(store, pythonpath)
+    original, draft = module_path.read_text(encoding="utf-8"), draft_path.read_text(encoding="utf-8")
+    before = load_models_index(_model_index_path(store, "RoadmapDoc")).version
+
+    def boom(*args, **kwargs):
+        raise RuntimeError("reindex failed")
+
+    # resolve_model_ref fails before any index write; cascade_hash_a after the model indexes are saved.
+    monkeypatch.setattr(f"sldb.cli.commands.model.{failing}", boom)
+    monkeypatch.setattr(f"sldb.cli.commands.model_update.{failing}", boom)
+    with pytest.raises((SystemExit, RuntimeError)):
+        cli_main(["models", "validate", "RoadmapDoc", "--promote", "--store", str(store), "--pythonpath", pythonpath])
+    monkeypatch.undo()
+
+    assert module_path.read_text(encoding="utf-8") == original
+    assert draft_path.read_text(encoding="utf-8") == draft
+    assert load_models_index(_model_index_path(store, "RoadmapDoc")).version == before
+    assert cli_main(["stores", "check", "--store", str(store), "--pythonpath", pythonpath]) == 0
+
+
+def test_models_promote_json_output_is_pure_json(tmp_path, capsys):
+    """--format json keeps stdout parseable: update's progress line must not precede the report."""
+    store, pythonpath = _setup_store(tmp_path)
+    _add_summary_draft(store, pythonpath)
+    capsys.readouterr()
+    assert (
+        cli_main(
+            [
+                "models", "validate", "RoadmapDoc", "--promote", "--format", "json",
+                "--store", str(store), "--pythonpath", pythonpath,
+            ]
+        )
+        == 0
+    )
+    report = json.loads(capsys.readouterr().out)
+    assert report["promoted"] is True and report["draft"] is True

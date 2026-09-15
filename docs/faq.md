@@ -15,6 +15,8 @@ sldb help
 python -m sldb help docs
 ```
 
+The `faq` command itself currently reads `docs/faq.md` relative to the working directory. It does not discover the store or accept `--store`. From another directory, use `sldb faq --faq-path /absolute/path/to/sldb/docs/faq.md`. `explore` and `docs explore` similarly need explicit `--docs-root`/`--code-root` outside the intended project root. This is a known anchoring gap, not a requirement for store-backed queries; see [review findings](documentation-review.md#faq-and-explore-do-not-use-the-store).
+
 ## What exactly is a store?
 
 A store is SLDB's metadata workspace for model registrations, tracked document indexes, integrity hashes, semantic artifacts, and section indexes. It does not replace your Markdown files and it does not become the canonical source-of-truth for the document text.

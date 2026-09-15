@@ -1,0 +1,182 @@
+---
+id: move-20260914T152809-001
+at: '2026-09-14T15:28:09+00:00'
+speaker: ''
+outcome: ambiguo
+state_before: libre
+state_after: pendiente
+hash_before: 48b7771c29e37a8bc1a3b612f33aa49388ce718921967900740eef41cdbf0cae
+hash_after: 48b7771c29e37a8bc1a3b612f33aa49388ce718921967900740eef41cdbf0cae
+refers_to: ''
+---
+
+# move-20260914T152809-001
+
+## Sentence
+
+what python symbols does sldb.sldb.selfdoc.command import
+
+## Record
+
+```yaml
+queries:
+- pron graph python_symbol → 132
+writes: []
+edges: []
+interpretation:
+  forma: read
+  items:
+  - wh('what')
+  - word('python symbols'→source_model:PythonSymbol)
+  - wh('does')
+  - word('sldb'→value:CliCommandDoc.system=sldb,value:PythonSymbolDoc.system=sldb,value:SurfaceDoc.system=sldb)
+  - punct('.')
+  - word('sldb'→value:CliCommandDoc.system=sldb,value:PythonSymbolDoc.system=sldb,value:SurfaceDoc.system=sldb)
+  - punct('.')
+  - unknown('selfdoc')
+  - punct('.')
+  - unknown('command')
+  - word('import'→source_relation:imports)
+  parts:
+  - 'read · source_relation:imports · subject=all PythonSymbol [] · object=the PythonSymbol
+    [] selfdoc · payload={''asked'': ''subject''}'
+  unknown: []
+  notes: []
+reads: []
+candidates:
+- python:sldb.sldb.cli.commands.selfdoc:SelfdocCLI
+- python:sldb.sldb.cli.commands.selfdoc:SelfdocCLI._architecture_spec_path
+- python:sldb.sldb.cli.commands.selfdoc:SelfdocCLI._documentation_output
+- python:sldb.sldb.cli.commands.selfdoc:SelfdocCLI._operate
+- python:sldb.sldb.cli.commands.selfdoc:SelfdocCLI._print_python_records
+- python:sldb.sldb.cli.commands.selfdoc:SelfdocCLI._python_graph
+- python:sldb.sldb.cli.commands.selfdoc:SelfdocCLI._python_operate
+- python:sldb.sldb.cli.commands.selfdoc:SelfdocCLI._python_report
+- python:sldb.sldb.cli.commands.selfdoc:SelfdocCLI._records
+- python:sldb.sldb.cli.commands.selfdoc:SelfdocCLI._scan
+- python:sldb.sldb.cli.commands.selfdoc:SelfdocCLI._sync_python_documents
+- python:sldb.sldb.cli.commands.selfdoc:SelfdocCLI._write_python_graph
+- python:sldb.sldb.cli.commands.selfdoc:SelfdocCLI._write_python_plans
+- python:sldb.sldb.cli.commands.selfdoc:SelfdocCLI.run
+- python:sldb.sldb.cli.parsers.selfdoc:_options
+- python:sldb.sldb.cli.parsers.selfdoc:_output_options
+- python:sldb.sldb.cli.parsers.selfdoc:_parser_options
+- python:sldb.sldb.cli.parsers.selfdoc:_python_options
+- python:sldb.sldb.cli.parsers.selfdoc:add_selfdoc_commands
+- python:sldb.sldb.cli.selfdoc_context:_build_parser
+- python:sldb.sldb.cli.selfdoc_context:documentation_store
+- python:sldb.sldb.cli.selfdoc_context:load_parser
+- python:sldb.sldb.cli.selfdoc_inspect:_has_semantic_gap
+- python:sldb.sldb.cli.selfdoc_inspect:_inspect_plan
+- python:sldb.sldb.cli.selfdoc_inspect:_managed_files
+- python:sldb.sldb.cli.selfdoc_inspect:_new_symbol_ids
+- python:sldb.sldb.cli.selfdoc_inspect:_rename_candidate
+- python:sldb.sldb.cli.selfdoc_inspect:_symbol_key
+- python:sldb.sldb.cli.selfdoc_inspect:inspect_documents
+- python:sldb.sldb.cli.selfdoc_inspect:removed_documents
+- python:sldb.sldb.cli.selfdoc_inspect:rename_candidates
+- python:sldb.sldb.cli.selfdoc_inspect:semantic_gap_count
+- python:sldb.sldb.cli.selfdoc_registry:DocumentationRegistry
+- python:sldb.sldb.cli.selfdoc_registry:DocumentationRegistry.__init__
+- python:sldb.sldb.cli.selfdoc_registry:DocumentationRegistry._document_maps
+- python:sldb.sldb.cli.selfdoc_registry:DocumentationRegistry._document_status
+- python:sldb.sldb.cli.selfdoc_registry:DocumentationRegistry._managed_models
+- python:sldb.sldb.cli.selfdoc_registry:DocumentationRegistry._model_paths
+- python:sldb.sldb.cli.selfdoc_registry:DocumentationRegistry._validate_model
+- python:sldb.sldb.cli.selfdoc_registry:DocumentationRegistry.managed_paths
+- python:sldb.sldb.cli.selfdoc_registry:DocumentationRegistry.status
+- python:sldb.sldb.cli.selfdoc_write:_check_before_images
+- python:sldb.sldb.cli.selfdoc_write:_register_models
+- python:sldb.sldb.cli.selfdoc_write:_save_document
+- python:sldb.sldb.cli.selfdoc_write:_write_changed
+- python:sldb.sldb.cli.selfdoc_write:write_documents
+- python:sldb.sldb.selfdoc.argument:ArgumentRecord
+- python:sldb.sldb.selfdoc.arguments:argument_record
+- python:sldb.sldb.selfdoc.arguments:arguments
+- python:sldb.sldb.selfdoc.arguments:constraints
+- python:sldb.sldb.selfdoc.command:CommandRecord
+- python:sldb.sldb.selfdoc.constraint:ExclusiveGroup
+- python:sldb.sldb.selfdoc.kgdb_sync:_ingest
+- python:sldb.sldb.selfdoc.kgdb_sync:_pron
+- python:sldb.sldb.selfdoc.kgdb_sync:_same_source
+- python:sldb.sldb.selfdoc.kgdb_sync:_snapshot_file
+- python:sldb.sldb.selfdoc.kgdb_sync:graph_is_current
+- python:sldb.sldb.selfdoc.kgdb_sync:refresh_pron_world
+- python:sldb.sldb.selfdoc.kgdb_sync:write_kgdb_snapshot
+- python:sldb.sldb.selfdoc.materialize:_command
+- python:sldb.sldb.selfdoc.materialize:_prepare
+- python:sldb.sldb.selfdoc.materialize:_surface
+- python:sldb.sldb.selfdoc.materialize:_validate_destinations
+- python:sldb.sldb.selfdoc.materialize:plan_documents
+- python:sldb.sldb.selfdoc.parser:ParserScanner
+- python:sldb.sldb.selfdoc.parser:ParserScanner.__init__
+- python:sldb.sldb.selfdoc.parser:ParserScanner._children
+- python:sldb.sldb.selfdoc.parser:ParserScanner._walk
+- python:sldb.sldb.selfdoc.parser:ParserScanner.scan
+- python:sldb.sldb.selfdoc.planned_document:PlannedDocument.model_name
+- python:sldb.sldb.selfdoc.projection:command_fields
+- python:sldb.sldb.selfdoc.projection:provenance
+- python:sldb.sldb.selfdoc.projection:surface_fields
+- python:sldb.sldb.selfdoc.pron_publish:publish_python_graph
+- python:sldb.sldb.selfdoc.python_materialize:_architecture_spec
+- python:sldb.sldb.selfdoc.python_materialize:_defaults
+- python:sldb.sldb.selfdoc.python_materialize:_fields
+- python:sldb.sldb.selfdoc.python_materialize:_plan
+- python:sldb.sldb.selfdoc.python_materialize:_planned
+- python:sldb.sldb.selfdoc.python_materialize:_validate_paths
+- python:sldb.sldb.selfdoc.python_materialize:_validate_system
+- python:sldb.sldb.selfdoc.python_materialize:plan_python_documents
+- python:sldb.sldb.selfdoc.python_scanner:PythonScanner
+- python:sldb.sldb.selfdoc.python_scanner:PythonScanner._file_symbols
+- python:sldb.sldb.selfdoc.python_scanner:PythonScanner._import_name
+- python:sldb.sldb.selfdoc.python_scanner:PythonScanner._imports
+- python:sldb.sldb.selfdoc.python_scanner:PythonScanner._module_name
+- python:sldb.sldb.selfdoc.python_scanner:PythonScanner._signature
+- python:sldb.sldb.selfdoc.python_scanner:PythonScanner._symbol
+- python:sldb.sldb.selfdoc.python_scanner:PythonScanner._symbols
+- python:sldb.sldb.selfdoc.python_scanner:PythonScanner._walk
+- python:sldb.sldb.selfdoc.python_scanner:PythonScanner.scan
+- python:sldb.sldb.selfdoc.python_source_facts:PythonSourceFacts
+- python:sldb.sldb.selfdoc.python_source_facts:PythonSourceFacts.__init__
+- python:sldb.sldb.selfdoc.python_source_facts:PythonSourceFacts._binding
+- python:sldb.sldb.selfdoc.python_source_facts:PythonSourceFacts._declaration
+- python:sldb.sldb.selfdoc.python_source_facts:PythonSourceFacts._references
+- python:sldb.sldb.selfdoc.python_source_facts:PythonSourceFacts._symbol
+- python:sldb.sldb.selfdoc.python_source_facts:PythonSourceFacts.visit_AnnAssign
+- python:sldb.sldb.selfdoc.python_source_facts:PythonSourceFacts.visit_AsyncFunctionDef
+- python:sldb.sldb.selfdoc.python_source_facts:PythonSourceFacts.visit_ClassDef
+- python:sldb.sldb.selfdoc.python_source_facts:PythonSourceFacts.visit_FunctionDef
+- python:sldb.sldb.selfdoc.python_source_facts:PythonSourceFacts.visit_Import
+- python:sldb.sldb.selfdoc.python_source_facts:PythonSourceFacts.visit_ImportFrom
+- python:sldb.sldb.selfdoc.python_source_graph:_binding_targets
+- python:sldb.sldb.selfdoc.python_source_graph:_edge
+- python:sldb.sldb.selfdoc.python_source_graph:_edges
+- python:sldb.sldb.selfdoc.python_source_graph:_evidence
+- python:sldb.sldb.selfdoc.python_source_graph:_metadata
+- python:sldb.sldb.selfdoc.python_source_graph:_module_node
+- python:sldb.sldb.selfdoc.python_source_graph:_node
+- python:sldb.sldb.selfdoc.python_source_graph:_now
+- python:sldb.sldb.selfdoc.python_source_graph:_reference_target
+- python:sldb.sldb.selfdoc.python_source_graph:_symbol_node
+- python:sldb.sldb.selfdoc.python_source_graph:_target
+- python:sldb.sldb.selfdoc.python_source_graph:source_snapshot
+- python:sldb.sldb.selfdoc.python_source_scan:_file_fact
+- python:sldb.sldb.selfdoc.python_source_scan:_scan_file
+- python:sldb.sldb.selfdoc.python_source_scan:scan_source_facts
+- python:sldb.sldb.selfdoc.python_source_values:annotation_names
+- python:sldb.sldb.selfdoc.python_source_values:declared_id
+- python:sldb.sldb.selfdoc.python_source_values:frontmatter
+- python:sldb.sldb.selfdoc.python_source_values:module_name
+- python:sldb.sldb.selfdoc.python_source_values:relative_module
+- python:sldb.sldb.selfdoc.python_source_values:source_hash
+- python:sldb.sldb.selfdoc.report:DocumentationReport.ok
+- python:sldb.sldb.selfdoc.values:_json_default
+- python:sldb.sldb.selfdoc.values:json_value
+- python:sldb.sldb.selfdoc.values:qualified_name
+- sldb.selfdoc.planned_document.PlannedDocument
+- sldb.selfdoc.python_symbol.PythonSymbol
+- sldb.selfdoc.report.DocumentationReport
+trace:
+- 'interpretation: read'
+- pron graph python_symbol → 132
+```

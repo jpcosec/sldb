@@ -8,7 +8,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#init; contract-sha256:74e0986dc3590370dc5c67a46bcef8cbe79f47792cb014b23d185c592e281d6f
 ---
 
 # init
@@ -23,4 +23,4 @@ Registered under src/sldb/cli/parsers/ as the 'init' subparser. Each command dis
 
 ## Commands
 
-init
+- sldb init

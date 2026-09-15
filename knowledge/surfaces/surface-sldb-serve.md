@@ -8,7 +8,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#serve; contract-sha256:8870c19f460bf1dd636e7c56d19b084013febc33b8efc31c81c0641fcc6b6b1d
 ---
 
 # serve
@@ -23,4 +23,4 @@ Registered under src/sldb/cli/parsers/ as the 'serve' subparser. Each command di
 
 ## Commands
 
-serve
+- sldb serve

@@ -8,7 +8,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#validate; contract-sha256:2c4c5cdfd763fd6eb1bb6644ea715f8d0296549ab46bd6073f9637a4b8d2974d
 ---
 
 # validate
@@ -23,4 +23,4 @@ Registered under src/sldb/cli/parsers/ as the 'validate' subparser. Each command
 
 ## Commands
 
-validate
+- sldb validate

@@ -1,8 +1,8 @@
 documents:
 - name: cmd-sldb-extract
   path: knowledge/commands/cmd-sldb-extract.md
-  hash_c: 096306e00faccd4b4c7243e6a0349accc6563824f35d504645f7ec2f89f25294
-  hash_d: 139522b322c8d45f5884b57255549c870acf4f04e38bfa2cacae509e9d8d2625
+  hash_c: 9d26a2b66afe2b160d2612448b868d4731544bfa61d84ae6d2ecc1bb42f8b7dc
+  hash_d: 254ef79eed8d5dbf768c30cd8ed0d587b186666b0a6c9c238bd2d35c5de05ab3
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -13,8 +13,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-render
   path: knowledge/commands/cmd-sldb-render.md
-  hash_c: 9573d94c03a0fb5ed3c34739524e3592ef20cf9438377e9b709ca61aefbcd722
-  hash_d: 53282f417f3529bd902f9d82fbb3efc1cc44a5d31e6b27910096632a3aeb5e3a
+  hash_c: 96a598b86a6d1681733208ce20ebcf24410d156886b2f4d5b6dc0aa7e6c9c57d
+  hash_d: 4f3bc7323bad88ef230c3f1caee7fcd673042bd38ba09f86913ae61e06aa7dca
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -25,8 +25,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-validate
   path: knowledge/commands/cmd-sldb-validate.md
-  hash_c: e47675fcdb6ce5ba636fea6b1aba951e94417a20908134b99e62fa68f4f7deb0
-  hash_d: b22281077f8e56a269573053eaf936b1cf3c729c2f86f3ae16d881147624c278
+  hash_c: 258c6306538e1d92b25269f022197c1e778ea7db40dab8ddad4054c09a47f93f
+  hash_d: 8b87304c359dbeee2d86193040817814b6930a92c67aacaec267f97269a41592
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -37,8 +37,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-init
   path: knowledge/commands/cmd-sldb-init.md
-  hash_c: 5439baaf8a04af55ef8cc89bc814d4f058db613f4cce55a4ca660cdd7d8c4d14
-  hash_d: e55efdac07b52e0ab9f008a027e878db4bbae6afc66cbb56f15cddcf38302353
+  hash_c: ab9890cb78c2a8a8d6863cef38140192aac2b1be429620e3d71e1dee65ee296d
+  hash_d: 132201d1b8aba57979f7b095748aa030dd9cce23ea927dbe4920f57c6cbcc785
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -49,8 +49,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-example
   path: knowledge/commands/cmd-sldb-example.md
-  hash_c: 82d9f6afb5df50e7f5b2e8f05c0bdd2acb3c73323c43c097c3999c76a8c4c76c
-  hash_d: b5d57350486b753a4e2e4e87b6414aa79db3287497de7d9859322f55f0229d0e
+  hash_c: afd8068639b0fd74104d072867aed970f21fa3fca7408fe67ba91dc18f105729
+  hash_d: 516e1aac6471cc1deab384b55e1b86bd216cbad81f1608fdbb0b4f602608afe4
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -61,8 +61,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-stores-init
   path: knowledge/commands/cmd-sldb-stores-init.md
-  hash_c: 70d9fced28dc2a2fa0b814743e2aa148297312a4ce6abd90ca8861028f9de57f
-  hash_d: d23d5935d77eaa9536d862c2747460281142b63620cab2e81ba77047489337bb
+  hash_c: 1575004eb734f52418310fa2733b4385f5868a3e25aa6b4be22e9ea528d09176
+  hash_d: 0c59f37ff29c5ee901a1c6025d269b73badceeb3fa2acafaa4ecf52e6c28c2e1
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -73,8 +73,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-stores-add
   path: knowledge/commands/cmd-sldb-stores-add.md
-  hash_c: 72397b4464e091bd20346de0389cc2ea4d390f266e7d7e83742e9a90e8478c59
-  hash_d: e7cee225db1b436be252b3982d314c389fb4b9a78cd8ff564961b1bc7f52dbaa
+  hash_c: a4dd5933dc68a9b81316e5a20f18e99caa248c3a16e6a93ada0d39701c8f41f5
+  hash_d: cc373f69f13bbae76c616b88d06de55dd02d2671182364239c42f0ac97533609
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -85,8 +85,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-stores-check
   path: knowledge/commands/cmd-sldb-stores-check.md
-  hash_c: af82afe9dd2f359000febbff1455f05d787f7b2136caa02994e94a1280507b04
-  hash_d: 6c922be6e54f3a063c7793cbd441973812d21048b38551c648ddad60dcafef6c
+  hash_c: 9916b32b4ba53fb950d2a4540b22a47e95066ade6f0fedcae01bdc5af040a188
+  hash_d: b1df6702c91ed5c1b2ed387b18c85936b19a7b67d404337483c44b25d2f7ed45
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -97,8 +97,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-stores-update
   path: knowledge/commands/cmd-sldb-stores-update.md
-  hash_c: 9629b5afecd513b60c9fc18ca15c66184ad54c8580e03a79b1ad4601e6682f1f
-  hash_d: 05583d82e8f51f69aedc2bad19fefbb20b0a292608f5d047173c9605bc79a100
+  hash_c: 9a12598609f2986019fec90862033f57ed0ef965f55b20344676f860884090da
+  hash_d: a064d1945fd3dafb0c3132c88e7968341b663a50ce44dbeaeef5a1149645a949
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -109,8 +109,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-stores-semantic-map
   path: knowledge/commands/cmd-sldb-stores-semantic-map.md
-  hash_c: 02f973c34b90f5d7365006ce941b4ac1a18ba2cd829510eda05a4de44fe4b50b
-  hash_d: 1435bbed106b41b35f20d7c91c9d44a3ffe39a9e8bb8d7b262e5f55b8067b2a7
+  hash_c: 2e51c55d8302bb2ab8a7d66f5327a3cd781d31d6e207d725715f40dd7b4b47a2
+  hash_d: 6220b75c5dad845313e2b1b64fc6efd02d9c2d06d145dd56c3fb9e844e106535
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -121,8 +121,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-stores-semantic-export
   path: knowledge/commands/cmd-sldb-stores-semantic-export.md
-  hash_c: 8b04013637d9fe96b9d3e3432298280233e2f362aa9828f0551fae4e73d329a4
-  hash_d: 06d4d85f9ad0c5d6b20c1b2a24e497baa1182b617fdaad7970844c345227c9bf
+  hash_c: ac3195ae1367f744d844fdbdf74e4b1db60811d6f3d759d9a2115fa4820e5aba
+  hash_d: 3b0d776bf8fcf85b0581882c55418d22986dba5b34401cb43fbffd5778364d20
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -133,8 +133,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-stores-list
   path: knowledge/commands/cmd-sldb-stores-list.md
-  hash_c: 2f94f1bf9e49e166c3e12c92ec1c33347416dccfdbb977383fe661c353638e2f
-  hash_d: c1e2fd3a17cf78d52db87579a22d506b83bec3902157ee41e8a9daa1d0babf21
+  hash_c: 7d33b88e0abd3b2c0afe9698bf6e84f12eb0da96f08a9cdbebf7f06e9c493028
+  hash_d: 025eadbd09da683a644b836f3886aa21ac2bd9f23213a9503abe8b9d5ec2e7bf
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -145,8 +145,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-models-add
   path: knowledge/commands/cmd-sldb-models-add.md
-  hash_c: ce176970a7c3f816f5efff4f742e64bf7be99d4b639b6c8928c374553ab587a3
-  hash_d: 7b8359f6e55bd9feaa425ed711ad2f82b0044c0db199a1107d9d66ec86ad1f8b
+  hash_c: 85058e03155bbe7aec212379b9a246fa6cfd04e2071ac5086d756fcd9304e997
+  hash_d: 252d3d35aded7028c294b769062894b060f4dd7e721d0ff480ab9cbe35b14841
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -157,8 +157,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-models-update
   path: knowledge/commands/cmd-sldb-models-update.md
-  hash_c: 36c02152aed4d840e5b22b491381039d50f33b327f32596db1260a257d2a17a5
-  hash_d: 6211bbd3f920befe8ea9a0e420721db9cbb0845e120431193a9df43601b784e9
+  hash_c: 4779eea839f653fe83a974e86045286d10abf430bc25791697c440a9526586de
+  hash_d: 3faab95cdc57f8638c9d44cda0c67873af9fbf13867f6bc21af68359930b6680
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -169,8 +169,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-models-list
   path: knowledge/commands/cmd-sldb-models-list.md
-  hash_c: 9d3ca6baab6b659b02286b90abf8385ae3ca4f05a5857cdb5fa6b5cf42248302
-  hash_d: 2ce4ed72d872575b1045395eb3afe555d00b1d538a9d5852724edd09feaa28b3
+  hash_c: cce927756baf55a9901718731900143b1a403b8e4ab6705489e3beb55115f99c
+  hash_d: 37ca16a6ae5e9f27bba5d85a7749fa49f03a9e1c39a7de36c4d69b3f9f2b45ae
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -181,8 +181,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-models-show
   path: knowledge/commands/cmd-sldb-models-show.md
-  hash_c: 49c3fcafbdaf6f334c2207ce8373ff41aebe27a5c0b7ae5dd70916b044ae3507
-  hash_d: 2f85de8f0bc1498241b85e41522b73542a3cb3b91af18cd1ccb26c7af1ef5576
+  hash_c: 0dd48701138a51427a37ac10df4d1796cf4cfb56a19cead3f8cebafae1b10bac
+  hash_d: befdd360165e78f5c083a48ac7f21cd35f4031413fcd4afb3dcd9459421aa42d
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -193,8 +193,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-models-validate
   path: knowledge/commands/cmd-sldb-models-validate.md
-  hash_c: d6c512c0ea33be1dbcbe846878ccd90d550f98ac32a6e4c906e1dc248f80a199
-  hash_d: 08ffdde00b397cc5ffef651b15b16bf84809fea32d0e442a168d7612e8ee094b
+  hash_c: a04f1cb5b91afd4e7a1ba76576e880c4fbcb23c557d68c199ecc2f138c4e43d5
+  hash_d: 6a840850efa762d166782cdeac4ad72f9cfc25d7d74ee519fa8069e5f655e5af
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -205,8 +205,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-models-template-show
   path: knowledge/commands/cmd-sldb-models-template-show.md
-  hash_c: 23ef55b09b70e85a4e72dbc9ad01f669ef38d5971438b65ca22e4d78e976d497
-  hash_d: a9645e3c52c2ce7b33c7d432df2ef78c296380a14f1ca45de6b96249a0d9af02
+  hash_c: f2e549424b17bd5107674538a613a478a5d854747b3366e072a7397ce71ca9b7
+  hash_d: 757ced5f37300f36e2aba6bf76add2ced35aa21bc2260e43ea315aeb57fe389d
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -217,8 +217,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-models-template-edit
   path: knowledge/commands/cmd-sldb-models-template-edit.md
-  hash_c: 9c7b9b2cc8c9bb60e26487ab7fa04436659deea31d03b1178f84c66d597df292
-  hash_d: 8692b924ec115dd36d35589a618e82a9218ff72e11e5005075ae87d5f6a58abe
+  hash_c: 9d9245c6bb06fb5defd78c5a76d0a975156059b0d792f72e823f9cf84206b51c
+  hash_d: fe0e65445297da286af1a13a353caad4a83832310172da1cd2501d118204dac7
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -229,8 +229,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-models-fields-add
   path: knowledge/commands/cmd-sldb-models-fields-add.md
-  hash_c: 56186e9ad4a5390350950f3dc618708baef5feaa6c72cb1fd84d3db3337be6fc
-  hash_d: bc67eec24b86e67b31cdcd25647d6057ba26a7b0aa2c7c01ee17bf9783df03d3
+  hash_c: 4c1689d735b31e7b3cb4ed6fbb9d7b01d8a8ea61c2654fb48777fa17575d571f
+  hash_d: 191ba5fb59d1727f54311715b34edd6b78f83b3dfd561e70922323b94926f448
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -241,8 +241,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-models-fields-remove
   path: knowledge/commands/cmd-sldb-models-fields-remove.md
-  hash_c: e69590a4b9f5ff74c17cfc75000f5c19442ff0495a3e1cbd99d2220f4c3ff4f8
-  hash_d: 48a9da81bb44c21b2f85998a78860903d7e63f921ca860d6024b93820e31a2ea
+  hash_c: a1de5ca245f2f1248a32a70ffbe6d2343d3bdcaa5c120f4700bc69213cb4eacc
+  hash_d: a3908e9d14cd1fbdcac3423458482ec33d88c82ed88f3a4f2c821d2d037a6b7d
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -253,8 +253,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-models-create
   path: knowledge/commands/cmd-sldb-models-create.md
-  hash_c: 3daa07bf19579ce739f5d07557ffe0e6fc71b0b3c797c53b20d68defe4f9d410
-  hash_d: 358369025365deb9b5e3cc2ec9b1d7fadb66f2f66904ce439786331c8818539a
+  hash_c: 2a17320e887dd980b84a894f52dc6636a665442910489845c6fc80ba35355f44
+  hash_d: aadb11280d671e9b42a048b241357c3f3d0f6e6ef68b9874fcb9339853c86850
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -265,8 +265,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-predicates-add
   path: knowledge/commands/cmd-sldb-predicates-add.md
-  hash_c: a5f522bbfdf157e265b15dcba235ce4b6227bc2e941de84ed0a4fb6ee86a755b
-  hash_d: 2cd777f86cb5c1a1e1c5132066d1f3917c503d71c9f64cea3f4556b1169f4916
+  hash_c: 5a0d31b24ec1c3bf4e82ecc7509ecc6d4a5cb21901049412965dfd3054d888b3
+  hash_d: 926c9d4543fd62641d007892395695e4833b66d848cbfd3613387972a53c6975
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -277,8 +277,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-predicates-list
   path: knowledge/commands/cmd-sldb-predicates-list.md
-  hash_c: a0a5f449de082a6491f39de4ab7efded327db34653b13272f2ceac2852b8e928
-  hash_d: db7793b2b2fb6121437d0e36d870d279f38cf545ad456b877627c962466b7f59
+  hash_c: 44ac8bb6d1b94ec314046e18ac36c6bb2112344c6a5fdcc0b29fc6a44ad9b460
+  hash_d: 46f9be28a92f3bd017bd6b1233acd1e416fe7ce3f04b33f17eed7870638dd860
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -289,8 +289,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-predicates-show
   path: knowledge/commands/cmd-sldb-predicates-show.md
-  hash_c: 26c69b3eafe6592cd3943f9fe86ebded48bf622285d9b47ca2a0b3cab6c8b3e7
-  hash_d: a24df9cc84b6082aa0593d9671be76f810fce22cc30a9e4742274f0101ce78e2
+  hash_c: 25f51fd275b1a5bc18b4dd7ab447313a90bb4ad46fe71862166bd36592f65557
+  hash_d: 5a582395042ef87460805733d6f342aef529152eca424a328a3056807ee2649e
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -301,8 +301,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-predicates-validate
   path: knowledge/commands/cmd-sldb-predicates-validate.md
-  hash_c: 7c03c33ada683adc3e60a2b9a27b71f2ac527a23d352975a1fde69cc12f19e67
-  hash_d: 24d9187de2e86bdd63d60b85c086a4adca587a391c1df0a414eab1135e346813
+  hash_c: b8c1b81830f8db9247b8459d93a74a2f97b60a86e5ebd8dfb5ded1f6386253d1
+  hash_d: fcf31a0074d896a81b6034d7e5252c22610b27920ebb1ca545ae6cd49330e223
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -313,8 +313,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-predicates-remove
   path: knowledge/commands/cmd-sldb-predicates-remove.md
-  hash_c: 570eea8171937dd59921568cc6a28a6bfc11eb427954e0ab136b2399332b316d
-  hash_d: c443253194af0ae117a65da2ffc79771c9118d359fcb0306c8217438ad93ff5b
+  hash_c: fc9c973fa03dc973cc688a06c6e90c6636f3106b34e81acb94163e6d24f1b3f7
+  hash_d: db46b06312d6cc0e03c6e98f8c03b821394e2191ae913e9ba3a0e4656e0d927d
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -325,8 +325,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-docs-create
   path: knowledge/commands/cmd-sldb-docs-create.md
-  hash_c: 80ec620e3d7777a49b27f9a50a99cb4a8dd210ee3a5235276882f99dc525c3d4
-  hash_d: 2c10f6ec8944a3659f8ad488c635e6b91ed65e87cfcf5d204c46fc8188c6bf59
+  hash_c: fef130654b00f1434f00cb0e6558bb3cc796df9d540ebf07c451d01983711483
+  hash_d: 29665fae02e447c0a425f25184c09b4e9fa60353ae456efba37e636cc27d9213
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -337,8 +337,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-docs-track
   path: knowledge/commands/cmd-sldb-docs-track.md
-  hash_c: 88e1748f3c58bc1176fd9aa37ea2d2e1ab809f7cf4770c47faae93724cbe8620
-  hash_d: 604aaac6e718c5665326c6f6f5c2dc11a22f1ea047ceb1839802b4dfb23e95a4
+  hash_c: 9a000bbdafb89a4a3e612f9499059a60d62b9f7c441070e181d040ab9c78549c
+  hash_d: ff351603feef01cc175b8b615a1431172f949163f816684f4ff0e8d867e79e4d
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -349,8 +349,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-docs-update
   path: knowledge/commands/cmd-sldb-docs-update.md
-  hash_c: b7161e1e06e30731d1c93bd11600c15c21c5fbe20f1ae3d50b92d5aba3d7d635
-  hash_d: 4ac4cac6d0e72e021aae0fcb0a0fab4e7122e9c22fb44c16bf79e0027e7ba2ac
+  hash_c: d66df44675878cf2942b504694b3aac06ea7ce8c722a2aad9e66f10b4b832f4d
+  hash_d: a85d03a3177edafcc80fbe8405cdd770a064d6d26bf121a63d57a28a284bba14
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -361,8 +361,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-docs-untrack
   path: knowledge/commands/cmd-sldb-docs-untrack.md
-  hash_c: 1bc13f52b5ce35a6770479216f9f6e08fccaef936b9aaecfb1e7f70f774a2e69
-  hash_d: b41c272d4da802d18944e9fc535cca49ab6944556f8a305811ea9cca213ef42a
+  hash_c: 43d29aae32b62631e20d668c8d6fe92ca7005095aa14f0d231da6b80659c4832
+  hash_d: 6c89f69e1966658ae2a37bd9a638a38e3f1e43fdfb59384d6bbbcb6e5d775f25
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -373,8 +373,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-docs-show
   path: knowledge/commands/cmd-sldb-docs-show.md
-  hash_c: 3f9b4e9b15f93ab1360a80cdd3e1442873ad106c21145554721aa19b7a786b67
-  hash_d: cfc4e3b6169b8d770c6c6006cfb80c2a4d15ac97343a838df5f1f122192cdd6d
+  hash_c: 02e51dc4b7e069c3797e55b2b42c635ef2b314eb7cd3bc76501b2804bce2c059
+  hash_d: 70c138f9d87442826cf3995f65153dbd3fc23f3d6a9e79e76b789836b024cc4f
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -385,8 +385,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-docs-recover
   path: knowledge/commands/cmd-sldb-docs-recover.md
-  hash_c: 11ebf34f50db2f67f01d48dc7dd1b7a2629124f9beec7e4dff494f8b619efea9
-  hash_d: 05cec7d23ea63139d5efffbd4037b30e3f59217881d92e7e5f89c55eab38be12
+  hash_c: 671f9018c7800a7a18827fbe236c5f41842e28c5cae002aa6e15ac0df1edd59e
+  hash_d: 8877606de5b19fec7d3bf11e385421ba36a1dfbb1473f9739503730b5e782f33
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -397,8 +397,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-docs-list
   path: knowledge/commands/cmd-sldb-docs-list.md
-  hash_c: 320e9395dd42dfab0a9b025f1a1f60957cc66b04d570a5e12abf92f33c758c7e
-  hash_d: 4228c6614f1a9f1e06c4e992d8f435043de3b07fc50ae1016aa141a7789e81d2
+  hash_c: 88ac35dadf76ae5b5e8c6e5106a06f1b9608bab48d0ca137b81f07078f13b0ff
+  hash_d: 2392dfbf209cc143b66a2b9c5162834ec28a95cb57c74c38d080be9228e4e96c
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -409,8 +409,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-docs-compose
   path: knowledge/commands/cmd-sldb-docs-compose.md
-  hash_c: 824e59f6a5dab8946f799809b5889ca52d788fe91709bbdc5477a3767485d53e
-  hash_d: df9b92fde464b71c3becbf6eec85528205e2e25904c90e8b24a78d53eaa07e31
+  hash_c: 3dbabe1f13fe37e4aed6e9195ca6a4a7c56b04cc1f3a9e609d5bbc112b7aaf21
+  hash_d: 7179d0845f8887f148cd17a46254a3dd4600ba6b04f07ebfb26befe4f6ba45ce
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -421,8 +421,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-docs-explore
   path: knowledge/commands/cmd-sldb-docs-explore.md
-  hash_c: e411db777e279d19e91c56451eae27aefb183316ae615986b959bc39904b73f9
-  hash_d: 462497cececa1b680cb06aa98b46b3852712da03509fdb772664804077b5cbeb
+  hash_c: 27144b64919c7d49b0d6fb6bd053f29fc0e89ff70a8e423b0b2ee8a046f55552
+  hash_d: 848160ab08a520394d8b4df369a76fd6a6e782e9af5cab591043017ccf3a4c7f
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -433,8 +433,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-fields-show
   path: knowledge/commands/cmd-sldb-fields-show.md
-  hash_c: 097eca95044af4e901f1e688dce86c6a6c2765cd911406b5dec86f812a2d7d0f
-  hash_d: 3547163c0cfe0732e9bebc626c0b57bd4438364931c06e19e92f28ee74c6e83c
+  hash_c: 6e4daf47c94d652069ac0548d89090a160bcc342aa17241a330a5bf2ad9a0531
+  hash_d: 2c305a0a0b0af396710d6fff43bf1071dd755bde7f625df30ec81ec632dc0ec7
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -445,8 +445,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-fields-query
   path: knowledge/commands/cmd-sldb-fields-query.md
-  hash_c: 4cd0c84e29ff9e1eefff94a85248180142a17c5e866772c96820306c39e9e55b
-  hash_d: 9a779cadea489e08081eb56f27a99edf85ad0471a969a0a394fcd469cbd177a2
+  hash_c: 0c783e5f4ede698735d72f3d0f1e21c2e40346a2caec1c25ec7192f92dd93a56
+  hash_d: 0bd5f78940db74182063cd04dd4e18bd261c700fdb699df12243633c17836f2a
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -457,8 +457,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-fields-create
   path: knowledge/commands/cmd-sldb-fields-create.md
-  hash_c: 43b42c87b51dbc0f7817c2294bee4f2f8b9380150d971984896c2f353713220f
-  hash_d: 4338413f1ceb77a3aaecc94e3af9d12f58d74ebf03838a0d902d8ad612e490df
+  hash_c: 825b31c08303a2a2c0b1c81b049c8bf1359414472909165836218ebe31765a25
+  hash_d: 45a822349fcdc42638add57675b0b507476bfa2f2c0c0b65949fb847468b0dea
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -469,8 +469,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-fields-update
   path: knowledge/commands/cmd-sldb-fields-update.md
-  hash_c: c966d1d42e9a9b01bcb12b5a6be219b76fc3c6c9e09e75d8998e6de78ba1722e
-  hash_d: 793256cdfa6c5bb1d6b45762cb4101b01d824c35c52612fde718273bc319f01d
+  hash_c: c25f4861e6628b697126697151ec105ff15ce4c2596a700e53dd407f9ce96f6a
+  hash_d: 12fd9741d85606571bdaee0c75dd4d44336197008eeb87d3cbad6a58108da529
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -481,8 +481,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-fields-remove
   path: knowledge/commands/cmd-sldb-fields-remove.md
-  hash_c: 964ce42669c49e5e1e07531e15a3df452f6788559b577131d2746011119de0bb
-  hash_d: c0441aaf86d57b809eb8e64739d7414d06addb0c9823522e584278fef8ad14df
+  hash_c: 6c607393a4e45ca5af9d66b3589ea1c016360e3cb97357995c64f779a750cd20
+  hash_d: 5a171cdb8f0bcce6e401aeed4151ae0cd005ff67bf22594c2198a11b4619a687
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -493,8 +493,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-fields-append
   path: knowledge/commands/cmd-sldb-fields-append.md
-  hash_c: 6e2c2f2e4134c125de6f6440ff84113aa8a021f3ac2caed912f692966e394dc8
-  hash_d: 7584e9dd7f110501cd50fc42212ad1447983405ca5fb9b194e72dfb29771c3ea
+  hash_c: 06dd9212e0137a8f9311f48d5c5e1d0e7b5bab60f01d6623e5a425b1b12ae24b
+  hash_d: 664a10679aa71bbb881faf9e0b9772069aad4e38ab7bf9ea7e06f78e44f72dd7
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -505,8 +505,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-fields-clean
   path: knowledge/commands/cmd-sldb-fields-clean.md
-  hash_c: d0022570f16a37d9e0c818e703b125e720b792d7e5a95fb011129e86977629c4
-  hash_d: ff17c63f45bab3fefb67524b7b38904d91b734b87772bf644e82bf3805d150c4
+  hash_c: 5f3a8c8c5d3bb8010a21a2519b5468257ac091ab4b429a6e4371ee270a5e7c1a
+  hash_d: 8ac97e7788c5053bfa182be7de4a83aed79a1e239954aebf75be63c903a47f8c
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -517,8 +517,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-sections-show
   path: knowledge/commands/cmd-sldb-sections-show.md
-  hash_c: 51ef632ba475fc3d81701ab85ac075a05265782a26df2781b58ee1d76b03f068
-  hash_d: 3dc94f4a9f9bf91b3d23ecb9d9e6d9937883518289066d8c444f0395df04d6aa
+  hash_c: d2d5710812c958cff177172a9dd4e57c5875fb51647930d1473cc65e4948b1b9
+  hash_d: 882dd577ff25934c7d75bcd15637b771a564075df4002e65ded9e2f809991936
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -529,8 +529,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-sections-find
   path: knowledge/commands/cmd-sldb-sections-find.md
-  hash_c: 295ebf94198158cfe48731f1404b867f6200fd41041558467bffcdfc76ed998a
-  hash_d: 79b0bac3a13e5207ba2f05c8b8cd74914d9472f6c56c54df57f9532988a6737e
+  hash_c: d04c61455302d2f19a080d8b461e7949653851d8b27febf139843c6378a1e079
+  hash_d: 364f80fc5378e03bc6207884f961cf5e7a9f845b14dcd6c6e233adb92e1c532b
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -541,8 +541,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-sections-fields
   path: knowledge/commands/cmd-sldb-sections-fields.md
-  hash_c: 520499148217ace37de291d79cd41b48893729538063081409226000628f35d4
-  hash_d: d42ea40ab56ed6104ce8542e2131e894f451ae583ad957c2da1b689e2e1a9dc9
+  hash_c: 710b55a8182f4d33aade3b002b97daa89ae67f36f30348321c7c01823e2a1dd7
+  hash_d: ec8b5dca7c50457f36d401471a8f630695ebf51de99f5ea688d2522287b8a9c9
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -553,8 +553,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-help
   path: knowledge/commands/cmd-sldb-help.md
-  hash_c: dc126a71deda4661f97020c75454e7e7954f839114db1edd63b061a898f24e7e
-  hash_d: ad8b93d50a90b03ed0b241d7fd76cdbc09fa1a7b9de5ac518e98a1608a87216a
+  hash_c: 303b5c318b9e1efedae04f15a468b7ab42add081d2bd92573eb3583e308adecb
+  hash_d: d9f3c479bc6c41f054ac0cadb08be41cd3dc6a67a54cfc7fc570ebff47a04e72
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -565,8 +565,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-faq
   path: knowledge/commands/cmd-sldb-faq.md
-  hash_c: 2e5be35cca928342d6541e24c0caf5008ed6ce74071d02e69eb97b5975945de0
-  hash_d: 0420d83b25924b08ae9212983d37757ef1dd05312de94f397132cb47b9a836ae
+  hash_c: 92fcffeead96541cd7477ffcfefd4f62d43fcfe0fadcc850bdd3e08936daefab
+  hash_d: c78a3a37367d6375fb0dbd6c1bc3eea90f552b1680c8f1c056d480e15aa9a081
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -577,8 +577,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-inbox
   path: knowledge/commands/cmd-sldb-inbox.md
-  hash_c: d6a4cdb0a8a30d34f2ae9b4e7557626e14b0ca61c362d0f7fb1b9d86f36ff014
-  hash_d: ed83a477e8489476ebed32e15f1ddbee80ee4743fa74236325439e9ca588643b
+  hash_c: c6a429a01b5ac545c69ffff2e27bdde54adfe8e38e8109473ea5a73a7bfcfd3d
+  hash_d: 061a9d8acf72ed34adeab9e6a83860a381cd97ec3791cfb6caea17433d12f207
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -589,8 +589,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-explore
   path: knowledge/commands/cmd-sldb-explore.md
-  hash_c: 742618dc548ed9ca490c94d1823881f65287302e442bb9f04a4cc8b76e2a7d81
-  hash_d: 909cf1f99a38324db15cd15caa00e4e527a6c1dadcfbd31f0c078f4050ba2d53
+  hash_c: 94c194ce935ed60defcc43be01681d67abcceb7d7ae92bf7fb882c058eda64cc
+  hash_d: f937a7652927724a441244c62f4423f6cc42081ca0b49c52419f5ad6ba4d9027
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -601,8 +601,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-ast-show
   path: knowledge/commands/cmd-sldb-ast-show.md
-  hash_c: e68f1e7b4e52ac23577f1e92f6d9b454f4f19357fd823d1b84bd4be14e6af044
-  hash_d: 5c8006ca984f9a9edb2acc33d400740e05176a266d1a6e5894adba84de97009b
+  hash_c: a7e0917e142dc2a688691a9edd3be6a98f3100631be89717c791a9ef542cb999
+  hash_d: 11f730b35e599aa48a3bb68b5c7f278453d1262c35959b885efdb517e6c32a13
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -613,8 +613,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-ast-schema
   path: knowledge/commands/cmd-sldb-ast-schema.md
-  hash_c: 750a303151a39c7999f0cdd3048ca7786a0d4d3c8f410754d0b7ee00eb240871
-  hash_d: b7e57f7f76defc0b48332a435c9708a72220eb888536e97d3dd0df39e4872ebc
+  hash_c: 0744647e26a0a9bff7a27e208fc71970c5c79b63f262eb20d56600e4d3c8dc4c
+  hash_d: 8b018b771ee2429fcc40ea38bdc5d7f63c04139c1f4f9adb0fd9c2df6ab39d0a
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -625,8 +625,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-lint
   path: knowledge/commands/cmd-sldb-lint.md
-  hash_c: b5d971c1444a791ee297d2c74551177cda125910ff99bb0564f6aeab8e4eb037
-  hash_d: 0c33fff29e43ce64e8360fb078e709a9c8057015e636e229ddcae105e788b16f
+  hash_c: d9fe2e9cd21c0f26871e7d9b18daa7f0cc25a8c8fea3f450ba6737ebff3fc594
+  hash_d: c7cc9e6cab7cc438b14a5a4b13d6e0cdc7a7c5dfed1e1965ed6351aca2bdb77e
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -637,8 +637,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-find
   path: knowledge/commands/cmd-sldb-find.md
-  hash_c: f40998897d61a6eced2d8062ff34c63b7672c795b1e9d215b3bbf1d1bf49e822
-  hash_d: 99912cda5c42af52f0f0dd0c057bf8c141d0b9fc3b735c39f8a39d794d3e665d
+  hash_c: 6f8abe957eb2e54fd8335111f175f375339187ac25bff54398a63561a60f5bec
+  hash_d: 51ae9b4189b8e30d2285110a86b1dd0c0137f283115b90eed3be7aa7c0d1ab32
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -649,8 +649,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-serve
   path: knowledge/commands/cmd-sldb-serve.md
-  hash_c: 515e392cd23f0e2e8199d5523ec76638e616dc0871e4c448c170c83ed03ca2cf
-  hash_d: 5757712fba241ee7ddd78a62faf2a787d12bd99e951c811f9bdf11da983517fb
+  hash_c: a36d8fe0896a5e849fe85de41f2f7adac7891d3540e5f91270c0326b651f2c58
+  hash_d: 780aecd6ed0fea6760859f0f708bb53cda1dcd510b27eb23aef4c31b187891d2
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -661,8 +661,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-legacy-ls
   path: knowledge/commands/cmd-sldb-legacy-ls.md
-  hash_c: 276cc000afd5608362ff88bbe5934a0809551b2475d71ba0890282e8f509409f
-  hash_d: 2f658a91097cf7a5e93a692a3e624d24ac549ed5d3c3bfd7e53bf94db602a550
+  hash_c: f916d2f889833c085a8f8c74b7c933cf615e5ad87f8279e3097bcdec4dfa548f
+  hash_d: 3b416a3a3de976d4a57eeaf7b2a7745873c466822c55a5f933329e13547cd195
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -673,8 +673,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-legacy-get
   path: knowledge/commands/cmd-sldb-legacy-get.md
-  hash_c: f8994cd8b5409d7774a7762e87dd160b203cde59d037a3e017f3257068a5dcc7
-  hash_d: f3f730db5316cd1a628721c3d287a3d29e59a3dc4f2578c89833608076fd3c71
+  hash_c: 311d92c83089c1f6d9bb6698ada1057793953b79326bfeffbb14c0c471a692d7
+  hash_d: 0f098c58fc8947b7790567fcc074d2e3d0b5ee4cc0a6fc8f6020821bd6f75ea5
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -685,8 +685,8 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-legacy-glob
   path: knowledge/commands/cmd-sldb-legacy-glob.md
-  hash_c: 0da89f0cc538e07f7ae14af630713f31843dfa300b7689f67472c2d286344556
-  hash_d: 16de1d4a8cc1f5174863669e49d5f14ab360bcfb9b6d8ad7a8b13e04f21bd260
+  hash_c: d3e47958b1afef6a56adff4e309a0bd07635eeb115a61999c294815f634209fc
+  hash_d: e98bd21849c448db9341bac9c1c07c9dfde72b42af4ac17b4616259263f791ae
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
@@ -697,13 +697,76 @@ documents:
   - workspace.knowledge.commands
 - name: cmd-sldb-legacy-find
   path: knowledge/commands/cmd-sldb-legacy-find.md
-  hash_c: 5f2d33d17d4b33ab4f0b6ff17f4db0d25423cc80deca41a9ad3829ad22b5434e
-  hash_d: 6d9dd22d4b968f170f020b256653db57d1666c969464997249ed811e3ddb96d1
+  hash_c: 94dcdb83cb9726839ac80db7e175caba351d56d7f19bc4f9e7b93c0825b94ce3
+  hash_d: 9dfcb91b1457372d4c0c4cd8469faf10e24058b356d4a3ed1f99aed85ad8ed93
   semantic_tags:
   - domain:retrieval
   - entity:cli_command
   - impl:external
   - kind:software
   - system:sldb
+  - type.knowledge.cli_command
+  - workspace.knowledge.commands
+- name: cmd-sldb-legacy-compose
+  path: knowledge/commands/cmd-sldb-legacy-compose.md
+  hash_c: 903337c39ec8fa4d75e125ae6cf6d79c3bdcefea80c82f0911e3fa0804c6975e
+  hash_d: 2fd6e5932a6d956c0d8b50098ac03c296e0f21c095e559b6136d27d415dd330a
+  semantic_tags:
+  - type.knowledge.cli_command
+  - workspace.knowledge.commands
+- name: cmd-sldb-legacy-recover
+  path: knowledge/commands/cmd-sldb-legacy-recover.md
+  hash_c: 019e4ff6e1e86f445c1fa52b227003c24a92625133fce7d347e55eae3e3eabdf
+  hash_d: 0f673527fe1fce9e116574d3074609af1b5a6a82940736716d2138bfffc4001b
+  semantic_tags:
+  - type.knowledge.cli_command
+  - workspace.knowledge.commands
+- name: cmd-sldb-selfdoc-check
+  path: knowledge/commands/cmd-sldb-selfdoc-check.md
+  hash_c: ca111409957f9a2089caba4da3d3f9f37fc5a2bf636c3b5cb84673e6a57626b9
+  hash_d: 5822a07d9ef91137f67cf71af315b6dcc6e1998a9bfd5ca8199adaafbb9173ed
+  semantic_tags:
+  - type.knowledge.cli_command
+  - workspace.knowledge.commands
+- name: cmd-sldb-selfdoc-scan
+  path: knowledge/commands/cmd-sldb-selfdoc-scan.md
+  hash_c: 5bab81788506c826c2736e46babc1158ec2892ea66d2f581acdbdf857304dedb
+  hash_d: 89df03185312c5df36a68f99f36c25ff66e9bf0713976454c8a939dc3ab5bad6
+  semantic_tags:
+  - type.knowledge.cli_command
+  - workspace.knowledge.commands
+- name: cmd-sldb-selfdoc-sync
+  path: knowledge/commands/cmd-sldb-selfdoc-sync.md
+  hash_c: af2a36b3fed346e028698042e34881c9932f7c34735d9217aabbe9493c92164a
+  hash_d: 72df95ca8e5c2da6397a2939efd892aa7cfa6be2f30894f8c6215e7cac7bb966
+  semantic_tags:
+  - type.knowledge.cli_command
+  - workspace.knowledge.commands
+- name: cmd-sldb-selfdoc-python-scan
+  path: knowledge/commands/cmd-sldb-selfdoc-python-scan.md
+  hash_c: bc78276049d96c9c60c0680253438646f0c478552c21d67b0453f0167297a597
+  hash_d: cc01c4ebe43a4bbc6290f221e16fb3ffea0f60a85aa7e60162dd65ab2c5ddb66
+  semantic_tags:
+  - type.knowledge.cli_command
+  - workspace.knowledge.commands
+- name: cmd-sldb-selfdoc-python-check
+  path: knowledge/commands/cmd-sldb-selfdoc-python-check.md
+  hash_c: 1a8945a849c465b67658c7fcab7b439b603acc35f496bc06fb527aa3f1369742
+  hash_d: 5d2fd0883b6a5b7aefff942a70cb1157785bb4a679119bd996f56c864eb10390
+  semantic_tags:
+  - type.knowledge.cli_command
+  - workspace.knowledge.commands
+- name: cmd-sldb-selfdoc-python-sync
+  path: knowledge/commands/cmd-sldb-selfdoc-python-sync.md
+  hash_c: 221410c2eb9c45918b8707f221fe7cf034982182f0c7e9c788ceff21030af9ff
+  hash_d: 64972ebef79a7272ed6ffc6ae8bd315f8933008b0f95580e5cf90c297dd9fdcf
+  semantic_tags:
+  - type.knowledge.cli_command
+  - workspace.knowledge.commands
+- name: cmd-sldb-stores-reconcile
+  path: knowledge/commands/cmd-sldb-stores-reconcile.md
+  hash_c: 41e4d4b12e1968527646b0e467721b9745bd3fd395d5a24e3cb9f95dc24c0688
+  hash_d: d456b570c7eb4139990a7b19cee85fe3057791a29b16d1d2813d5da1a4c09858
+  semantic_tags:
   - type.knowledge.cli_command
   - workspace.knowledge.commands

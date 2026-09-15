@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#predicates list; contract-sha256:eba2369fe797ac654ce43be60ff39ee334891110e25f0a3479f1205e40bafbec
 ---
 
 # predicates list
@@ -28,8 +28,43 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'list'. It pa
 
 ## Arguments
 
---store | optional | Store path
---format | optional | 
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "--store"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Store path"
+    },
+    {
+      "names": [
+        "--format"
+      ],
+      "required": false,
+      "default": "\"text\"",
+      "choices": [
+        "\"text\"",
+        "\"json\"",
+        "\"yaml\""
+      ],
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": ""
+    }
+  ],
+  "exclusive_groups": []
+}
+```
 
 ## Usage
 

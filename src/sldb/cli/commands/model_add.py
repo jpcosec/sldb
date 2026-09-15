@@ -6,6 +6,7 @@ from typing import Any
 
 from sldb.cli.store_context import get_store_context
 from sldb.cli.model_utils import resolve_model_ref
+from sldb.store.hashing import hash_documents_index
 from sldb.store.io import load_store_index, save_documents_index, save_models_index, store_lock
 from sldb.store.layout import documents_index_relpath, models_index_relpath
 from sldb.store.models import DocumentsIndex, ModelEntry, ModelsIndex
@@ -44,15 +45,22 @@ def _write_model_indexes(args: Any, root: Path, idx: Any, model_type: type) -> N
     m_path = _get_rel_path(Path(inspect.getfile(model_type)), root)
     mi_rel = models_index_relpath(model_type.__name__)
     di_rel = documents_index_relpath(model_type.__name__)
-    save_documents_index(root / di_rel, DocumentsIndex())
-    mi = _create_models_index(args, model_type, m_path, di_rel)
+    empty_documents = DocumentsIndex()
+    save_documents_index(root / di_rel, empty_documents)
+    mi = _create_models_index(args, model_type, m_path, di_rel, empty_documents)
     save_models_index(root / mi_rel, mi)
     idx.models.append(_create_model_entry(args, mi.name, m_path, mi_rel))
 
-def _create_models_index(args: Any, model_type: type, path: str, di_rel: str) -> ModelsIndex:
+def _create_models_index(args: Any, model_type: type, path: str, di_rel: str, documents_index: DocumentsIndex) -> ModelsIndex:
+    # hash_b must match hash_documents_index(documents_index) from the start, even
+    # for a freshly registered model with zero documents -- otherwise `stores
+    # check` reports a false DATA_MUTATION-shaped failure (hash_b_ok=False)
+    # against a store that was never actually mutated, until someone happens to
+    # run `models update` once. See hash_documents_index(DocumentsIndex()) for
+    # what an empty index's real hash looks like; it is not the empty string.
     return ModelsIndex(
         name=model_type.__name__, model_ref=args.model, path=path,
-        documents_index=di_rel, hash_b="", version=1, canonical=args.canonical,
+        documents_index=di_rel, hash_b=hash_documents_index(documents_index), version=1, canonical=args.canonical,
         family=model_family(model_type), semantics=flatten_model_semantics(model_type),
         base_models=model_base_names(model_type),
     )

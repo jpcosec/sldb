@@ -69,12 +69,35 @@ def load_runtime_documents(store_path: Path, resolve_model_ref, pythonpath: str 
         loader = lambda: _load_one(path, name, resolve_model_ref, pythonpath, codec)  # noqa: E731
         return cached_store(path, name, pythonpath, loader) if codec is default_codec else loader()
 
-    docs = list(one(store_path, "local"))
-    if include_linked:
-        for linked in load_store_index(store_path).stores:
-            if store_exists(linked_store := _resolve_path(project_root(store_path), linked.path)):
-                docs.extend(one(linked_store, linked.name))
-    return docs
+    return _load_federated_documents(store_path, one) if include_linked else list(one(store_path, "local"))
+
+
+def _load_federated_documents(store_path: Path, load_one) -> list[RuntimeDocument]:
+    """Traverse explicit links once per canonical store, safely across cycles."""
+    documents: list[RuntimeDocument] = []
+    pending: list[tuple[Path, str]] = [(store_path.resolve(), "local")]
+    visited: set[Path] = set()
+    while pending:
+        _visit_federated_store(pending.pop(0), pending, visited, documents, load_one)
+    return documents
+
+
+def _visit_federated_store(item, pending, visited, documents, load_one) -> None:
+    current, name = item
+    if current in visited or not store_exists(current):
+        return
+    visited.add(current)
+    documents.extend(load_one(current, name))
+    pending.extend(_linked_stores(current))
+
+
+def _linked_stores(store_path: Path) -> list[tuple[Path, str]]:
+    root = project_root(store_path)
+    return [
+        (_resolve_path(root, entry.path).resolve(), entry.name)
+        for entry in load_store_index(store_path).stores
+        if store_exists(_resolve_path(root, entry.path))
+    ]
 
 
 from sldb.store.query_engine.structural import (  # noqa: E402

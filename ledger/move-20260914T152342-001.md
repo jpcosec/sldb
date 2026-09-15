@@ -1,0 +1,59 @@
+---
+id: move-20260914T152342-001
+at: '2026-09-14T15:23:42+00:00'
+speaker: ''
+outcome: unico
+state_before: libre
+state_after: libre
+hash_before: 48b7771c29e37a8bc1a3b612f33aa49388ce718921967900740eef41cdbf0cae
+hash_after: 48b7771c29e37a8bc1a3b612f33aa49388ce718921967900740eef41cdbf0cae
+refers_to: ''
+---
+
+# move-20260914T152342-001
+
+## Sentence
+
+what python symbols references ArgumentRecord
+
+## Record
+
+```yaml
+queries:
+- pron graph python_symbol → 1
+- kgdb edges_to(python:sldb.sldb.selfdoc.argument:ArgumentRecord, references) → 1
+writes: []
+edges:
+- source: python:sldb.sldb.selfdoc.command:CommandRecord
+  target: python:sldb.sldb.selfdoc.argument:ArgumentRecord
+  relation: references
+  metadata:
+    owner: python:sldb.sldb.selfdoc.command:CommandRecord
+    site: arguments
+    name: ArgumentRecord
+    expression: list[ArgumentRecord]
+    line: 18
+    end: 18
+    origin: python_ast
+    path: sldb/selfdoc/command.py
+    sha256: bb7952aa96d78cb7a9f0d1c2953b8f341de9bc54f98843a001f95753d63ea532
+    line_start: 18
+    line_end: 18
+interpretation:
+  forma: read
+  items:
+  - wh('what')
+  - word('python symbols'→source_model:PythonSymbol)
+  - word('references'→field:TaskDoc.references,source_relation:references)
+  - unknown('ArgumentRecord')
+  parts:
+  - 'read · source_relation:references · subject=all PythonSymbol [] · object=the
+    PythonSymbol [] ArgumentRecord · payload={''asked'': ''subject''}'
+  unknown: []
+  notes: []
+reads: []
+trace:
+- 'interpretation: read'
+- pron graph python_symbol → 1
+- kgdb edges_to(python:sldb.sldb.selfdoc.argument:ArgumentRecord, references) → 1
+```

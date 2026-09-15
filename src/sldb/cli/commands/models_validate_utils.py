@@ -1,6 +1,10 @@
 from __future__ import annotations
 
-from typing import Any
+import contextlib
+from pathlib import Path
+from typing import Any, Iterator
+from sldb.cli.store_context import get_store_context
+from sldb.store.layout import core_dir, semantic_dag_path, semantic_index_path
 from sldb.core.exceptions import SLDBModelEditError
 from sldb.runtime.validation import Validator
 
@@ -31,3 +35,25 @@ def _add_marker_names(markers: list[Any], referenced: set[str]) -> None:
             name = marker.get("name")
         if name:
             referenced.add(name)
+
+def store_index_files(store: Any) -> list[Path]:
+    """Every file a model reindex may rewrite: the store core indexes and the semantic runtime indexes."""
+    sp, _root = get_store_context(store)
+    return [*(p for p in core_dir(sp).rglob("*") if p.is_file()), semantic_index_path(sp), semantic_dag_path(sp)]
+
+@contextlib.contextmanager
+def restored_on_failure(paths: list[Path]) -> Iterator[None]:
+    """Snapshot ``paths``; if the block raises, write them back and re-raise."""
+    snapshot = {p: p.read_bytes() if p.exists() else None for p in paths}
+    try:
+        yield
+    except BaseException:
+        _restore(snapshot)
+        raise
+
+def _restore(snapshot: dict[Path, bytes | None]) -> None:
+    for p, content in snapshot.items():
+        if content is None:
+            p.unlink(missing_ok=True)
+        else:
+            p.write_bytes(content)

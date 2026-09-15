@@ -2,6 +2,8 @@
 
 This document captures how SLDB works today, not the downstream workflow-domain proposals that now live in the sibling `opsys` repo.
 
+Store layout checked on 2026-09-13. See the [current CLI tree](current-cli-tree.md) and [review findings](../documentation-review.md) for verified surfaces and known limits.
+
 ## What Exists Now
 
 - A Python library for reversible Markdown <-> Pydantic model workflows
@@ -24,11 +26,16 @@ This document captures how SLDB works today, not the downstream workflow-domain 
 
 ```text
 .sldb/
-  store_index.yaml
-  models/<Model>.yaml
-  documents/<Model>.yaml
-  semantic_dag.yaml
-  semantic_index.yaml
+  core/
+    store_index.yaml
+    models/<Model>.yaml
+    documents/<Model>.yaml
+  runtime/
+    semantic_dag.yaml
+    semantic_index.yaml
+    sections/<Model>.yaml
+    cache/
+    locks/
 ```
 
 Hash chain:
@@ -50,7 +57,7 @@ Semantic artifacts:
 - Tracked documents are grouped by registered model
 - Diagnostics treat missing documents and changed extracted payloads as failures
 - Global semantic federation remains explicit through linked stores and semantic equivalence mappings
-- Structural queries are intentionally small-surface: `ls`, `get`, `glob`, and `find --where`
+- Public navigation uses `fields`, `sections`, `find`, and `ast`; raw addresses use `legacy ls|get|glob|find`.
 - Semantic tags are explicit model/document metadata, not inferred from prose
 
 ## Diagrams

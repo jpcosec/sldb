@@ -34,3 +34,4 @@ def _explore(s):
     e.add_argument("--code-root", default="src", help="Python source directory to scan")
     e.add_argument("--max-results", type=int, default=20)
     e.add_argument("--format", choices=("text", "json", "yaml"), default="text")
+    e.add_argument("--store", help="Store used to anchor relative source roots")

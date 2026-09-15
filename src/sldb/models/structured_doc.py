@@ -5,8 +5,20 @@ from typing import Any, TypeVar
 from pydantic import BaseModel
 
 class StructuredNLDoc(BaseModel):
+    # Every tracked record is rendered as Markdown, but its subject can come from another
+    # adapter. Subclasses override source when they describe code, data, or another
+    # non-Markdown source format. Store semantic indexes expose both dimensions.
+    __semantics__: dict[str, Any] = {
+        "representation": ["markdown"],
+        "source": ["document", "markdown"],
+    }
     __template__: str = ""
     __compositions__: dict[str, dict[str, Any]] = {}
+    # Declarative graph metadata: which fields hold document ids.
+    # __containment__ maps field -> allowed target models (visual containment).
+    # __references__ lists fields holding doc ids that are not containment.
+    __containment__: dict[str, list[str]] = {}
+    __references__: list[str] = []
 
     @classmethod
     def __pydantic_init_subclass__(cls, **kwargs):

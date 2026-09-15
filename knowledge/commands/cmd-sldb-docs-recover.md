@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#docs recover; contract-sha256:e8c45f1f6a80651b330f8906ec752af52759afa51bd42a1b157ab71ab14a5de0
 ---
 
 # docs recover
@@ -28,12 +28,95 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'recover'. It
 
 ## Arguments
 
-doc | required | Doc name or path
---store | optional | Store path
---format | optional | 
---depth | optional | 
---links-only | optional | 
---include-transclusions | optional | 
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "doc"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Doc name or path"
+    },
+    {
+      "names": [
+        "--store"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Store path"
+    },
+    {
+      "names": [
+        "--format"
+      ],
+      "required": false,
+      "default": "\"text\"",
+      "choices": [
+        "\"text\"",
+        "\"json\"",
+        "\"yaml\""
+      ],
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": ""
+    },
+    {
+      "names": [
+        "--depth"
+      ],
+      "required": false,
+      "default": "1",
+      "choices": null,
+      "nargs": null,
+      "value_type": "builtins.int",
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": ""
+    },
+    {
+      "names": [
+        "--links-only"
+      ],
+      "required": false,
+      "default": "false",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "argparse._StoreTrueAction",
+      "const": "true",
+      "help": ""
+    },
+    {
+      "names": [
+        "--include-transclusions"
+      ],
+      "required": false,
+      "default": "false",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "argparse._StoreTrueAction",
+      "const": "true",
+      "help": ""
+    }
+  ],
+  "exclusive_groups": []
+}
+```
 
 ## Usage
 

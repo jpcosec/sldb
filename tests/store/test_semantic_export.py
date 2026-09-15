@@ -103,7 +103,12 @@ def test_stores_semantic_export_kgdb_json_from_tracked_store(tmp_path, capsys):
             "version": 1,
             "canonical": True,
             "family": None,
-            "semantics": ["domain.workflow.task", "system.desk"],
+            "semantics": [
+                "domain.workflow.task",
+                "representation.markdown",
+                "source.document.markdown",
+                "system.desk",
+            ],
             "base_models": [],
             "hash_b": payload["models"][0]["hash_b"],
         }
@@ -111,6 +116,8 @@ def test_stores_semantic_export_kgdb_json_from_tracked_store(tmp_path, capsys):
     assert payload["documents"][0]["id"] == "TaskDoc:task"
     assert payload["documents"][0]["semantic_tags"] == [
         "domain.workflow.task",
+        "representation.markdown",
+        "source.document.markdown",
         "system.desk",
     ]
     assert [section["path"] for section in payload["sections"]] == [

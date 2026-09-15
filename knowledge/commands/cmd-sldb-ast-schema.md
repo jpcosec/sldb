@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#ast schema; contract-sha256:f36bb2571f3b2ad66865dfd3fb5e2d1b34dd4f3f5cb009623984737a41cd1054
 ---
 
 # ast schema
@@ -28,7 +28,30 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'schema'. It 
 
 ## Arguments
 
---format | optional | 
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "--format"
+      ],
+      "required": false,
+      "default": "\"json\"",
+      "choices": [
+        "\"json\"",
+        "\"yaml\"",
+        "\"text\""
+      ],
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": ""
+    }
+  ],
+  "exclusive_groups": []
+}
+```
 
 ## Usage
 

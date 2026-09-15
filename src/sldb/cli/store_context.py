@@ -1,7 +1,7 @@
 from __future__ import annotations
 import sys
 from pathlib import Path
-from sldb.store.resolver import global_store_path, find_local_store
+from sldb.store.resolver import ancestor_stores, global_store_path, find_project_store
 from sldb.core.exceptions import SLDBStoreError
 from sldb.store.layout import project_root, store_exists
 from sldb.store.migration import migrate_store_layout
@@ -16,7 +16,7 @@ def _handle_global_store(global_store: Path, mode: str, cwd: Path) -> Path:
     raise SLDBStoreError(f"No local .sldb store found from {cwd}. A global store exists at {global_store}. Pass --store {global_store} to use it, or run 'sldb stores init --path .' to create a local store.")
 
 def _find_default_store(mode: str) -> Path:
-    found = find_local_store()
+    found = find_project_store()
     if found:
         return found
     cwd = Path.cwd().resolve()
@@ -30,22 +30,29 @@ def _resolve_linked_path(linked_path: Path, local_root: Path, store_arg: str) ->
         raise SLDBStoreError(f"Linked store '{store_arg}' does not exist at {resolved}.")
     return resolved
 
-def _get_linked_store(local_store: Path, store_arg: str, candidate: Path) -> Path:
-    local_root = project_root(local_store)
-    store_index = load_store_index(local_store)
-    linked = next((entry for entry in store_index.stores if entry.name == store_arg), None)
+def _get_linked_store(registry_store: Path, store_arg: str) -> Path | None:
+    linked = next((entry for entry in load_store_index(registry_store).stores if entry.name == store_arg), None)
     if linked is None:
-        return candidate
-    return _resolve_linked_path(Path(linked.path), local_root, store_arg)
+        return None
+    return _resolve_linked_path(Path(linked.path), project_root(registry_store), store_arg)
+
+
+def _alias_registries() -> list[Path]:
+    global_store = global_store_path().resolve()
+    registries = [store for store in ancestor_stores() if store != global_store]
+    if store_exists(global_store):
+        registries.append(global_store)
+    return registries
 
 def _resolve_store_arg(store_arg: str) -> Path:
     candidate = Path(store_arg).resolve()
     if store_exists(candidate):
         return candidate
-    local_store = find_local_store()
-    if local_store is None:
-        return candidate
-    return _get_linked_store(local_store, store_arg, candidate)
+    for registry_store in _alias_registries():
+        linked = _get_linked_store(registry_store, store_arg)
+        if linked is not None:
+            return linked
+    return candidate
 
 def get_store_context(store_arg: str | None, mode: str = "default") -> tuple[Path, Path]:
     sp = _resolve_store_arg(store_arg) if store_arg else _find_default_store(mode)

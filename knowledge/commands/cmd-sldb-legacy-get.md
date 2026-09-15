@@ -2,22 +2,21 @@
 id: cmd-sldb-legacy-get
 system: sldb
 command_path: legacy get
-synopsis: Read a document payload, a field, a subfield or a list item by address;
-  or the docs carrying a tag.
+synopsis: Get raw node data.
 tags:
 - system:sldb
 - domain:retrieval
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/commands/query.py
+provenance: parser:sldb.cli.parser:build_parser#legacy get; contract-sha256:7204a9a6d46e3b7771f2da62627ca6ec76519bdeef25383bcb08f5c8d591b0fb
 ---
 
 # legacy get
 
 ## Synopsis
 
-Read a document payload, a field, a subfield or a list item by address; or the docs carrying a tag.
+Get raw node data.
 
 ## Purpose
 
@@ -29,10 +28,69 @@ Implemented under src/sldb/cli/parsers/legacy.py (parser) and src/sldb/cli/comma
 
 ## Arguments
 
-address | required | st.{Model}.<doc>[.<field>[.<sub>|.<i>]...] | se.<tag> | gse.<tag>
---format | optional | json (default), yaml or text
---store | optional | Store path
---pythonpath | optional | Project path
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "address"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Address"
+    },
+    {
+      "names": [
+        "--store"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Store path"
+    },
+    {
+      "names": [
+        "--format"
+      ],
+      "required": false,
+      "default": "\"json\"",
+      "choices": [
+        "\"json\"",
+        "\"yaml\"",
+        "\"text\""
+      ],
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": ""
+    },
+    {
+      "names": [
+        "--pythonpath"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Project path"
+    }
+  ],
+  "exclusive_groups": []
+}
+```
 
 ## Usage
 

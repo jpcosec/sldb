@@ -1,0 +1,46 @@
+---
+id: move-20260914T154029-001
+at: '2026-09-14T15:40:29+00:00'
+speaker: ''
+outcome: ambiguo
+state_before: libre
+state_after: pendiente
+hash_before: 48b7771c29e37a8bc1a3b612f33aa49388ce718921967900740eef41cdbf0cae
+hash_after: 48b7771c29e37a8bc1a3b612f33aa49388ce718921967900740eef41cdbf0cae
+refers_to: ''
+---
+
+# move-20260914T154029-001
+
+## Sentence
+
+what python symbols does sldb.sldb.selfdoc.command import
+
+## Record
+
+```yaml
+queries:
+- pron graph python_symbol name = sldb.sldb.selfdoc.command → 2
+writes: []
+edges: []
+interpretation:
+  forma: read
+  items:
+  - wh('what')
+  - word('python symbols'→source_model:PythonSymbol)
+  - wh('does')
+  - unknown('sldb.sldb.selfdoc.command')
+  - word('import'→source_relation:imports)
+  parts:
+  - 'read · source_relation:imports · subject=the PythonSymbol [] sldb.sldb.selfdoc.command
+    · object=all PythonSymbol [] · payload={''asked'': ''object''}'
+  unknown: []
+  notes: []
+reads: []
+candidates:
+- python:sldb.sldb.selfdoc.command:CommandRecord
+- python:sldb.sldb.selfdoc.command
+trace:
+- 'interpretation: read'
+- pron graph python_symbol name = sldb.sldb.selfdoc.command → 2
+```

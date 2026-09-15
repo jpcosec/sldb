@@ -98,6 +98,8 @@ The raw address commands and the public `fields`/`find` commands reach the same 
 
 Sections live in the runtime sections index with their heading path (`overview/roadmap`), breadcrumbs, derived `about` terms and line range. Reach them with `sections show <doc>`, `sections find`, `sections fields <doc>/<section>`, or `find --type section`. A field's owning section is exposed by `fields query` and `ast show`.
 
+Current limits: the line range covers the heading token, not the entire section body, and `owning_section` can be incorrect when template and rendered line positions diverge. See [verified AST operations](ast_query_primitives.md) and [the reproduced ownership defect](documentation-review.md#field-ownership-and-section-spans).
+
 ## Stability
 
 - **Document and field addresses are the stable ones.** A doc name is fixed at `track`/`create`; field names come from the model template.

@@ -1,91 +1,51 @@
 # Current Source Tree
 
-This snapshot captures the current repository layout and the role of each major source area.
+Verified against the working tree on 2026-09-13. This is a map of responsibilities, not an exhaustive file inventory.
 
 ## Repository Distribution
 
 ```text
-src/
-├── sldb/
-│   ├── __init__.py
-│   ├── __main__.py
-│   ├── ast_handler.py
-│   ├── config.py
-│   ├── data_extractor.py
-│   ├── node_handler.py
-│   ├── renderer.py
-│   ├── structuredNLDoc.py
-│   ├── template_extractor.py
-│   ├── validation.py
-│   ├── cli/
-│   │   ├── __init__.py
-│   │   ├── commands/
-│   │   └── main.py
-│   ├── core/
-│   │   ├── __init__.py
-│   │   ├── ast.py
-│   │   ├── data_extractor.py
-│   │   ├── node_handler.py
-│   │   ├── renderer.py
-│   │   └── template_extractor.py
-│   ├── models/
-│   │   ├── __init__.py
-│   │   └── structured_doc.py
-│   ├── runtime/
-│   │   ├── __init__.py
-│   │   ├── config.py
-│   │   └── validation.py
-│   ├── store/
-│   │   ├── __init__.py
-│   │   ├── diagnostics.py
-│   │   ├── hashing.py
-│   │   ├── io.py
-│   │   ├── models.py
-│   │   └── resolver.py
-│   ├── assets/
-│   │   ├── __init__.py
-│   │   └── skills/
-│   │       ├── __init__.py
-│   │       └── sldb.md
-│   └── examples/
-│       ├── __init__.py
-│       └── reference_bundle/
-│           ├── __init__.py
-│           ├── README.md
-│           ├── guide.data.yaml
-│           ├── guide.input.md
-│           └── guide_model.py
-└── nldb/
-    ├── __init__.py
-    └── __main__.py
+src/sldb/
+├── __init__.py             public library exports
+├── __main__.py             module entry point
+├── core/
+│   ├── ast/                Markdown parser and node conversion
+│   ├── contracts/          marker and render contracts
+│   ├── ir/                 document, surface, meaning, graph models
+│   ├── extractor/          template recipe matching
+│   ├── handlers/           block value extraction
+│   ├── renderer_engine/    rendering handlers
+│   ├── ingest/             source ingestion utilities
+│   └── exceptions/         domain errors
+├── models/                 StructuredNLDoc and knowledge models
+├── runtime/                configuration and roundtrip validation
+├── links/                  explicit links, recovery, transclusion
+├── store/
+│   ├── io/                 index persistence and locks
+│   ├── models/             index schemas
+│   ├── ops.py              document tracking and hash cascade
+│   ├── query_engine/       structural and semantic queries
+│   └── export.py           semantic handoff
+├── cli/
+│   ├── main.py             entry point and error reporting
+│   ├── dispatcher.py       command routing
+│   ├── parsers/            argument definitions
+│   ├── commands/           handlers
+│   ├── graph_ops/          AST/IR construction and navigation
+│   └── serve/              HTTP routes and serialization
+├── assets/skills/          sldb init asset
+└── examples/               reference bundle and Pandoc example
 ```
 
-## Module Roles
+Store layout, hashing, diagnostics, migration, and caches also have modules directly under `store/`. Consult the source for the exhaustive inventory.
 
-- `src/sldb/core/`: core Markdown parsing, extraction, node handling, and rendering pipeline
-- `src/sldb/models/structured_doc.py`: base model contract and field-description enforcement
-- `src/sldb/runtime/`: config and extract/render/roundtrip helpers used by the CLI and store hashing
-- `src/sldb/cli/main.py`: top-level command parser and execution flow
-- `src/sldb/cli/commands/faq.py`: question-oriented entry point into the repo FAQ markdown
-- `src/sldb/cli/commands/inbox.py`: desk note writer for unclear points and suggestions
-- `src/sldb/cli/commands/explore.py`: deep search over markdown docs and Python docstrings
-- `src/sldb/store/`: YAML-backed store layer for indexes, hashing, diagnostics, and store lookup
-- `src/sldb/assets/skills/`: bundled skill-file assets for `sldb init`
-- `src/sldb/examples/reference_bundle/`: bundled reference example for `sldb example`
-- compatibility re-export modules remain at `src/sldb/*.py` for older import paths
-- `src/nldb/`: rename shim that tells users to use `sldb`
-- `docs/atoms/`: atom-sized SSOT concept docs used by the FAQ and other higher-level guidance
+## Other Working Surfaces
 
-## Test Distribution
+- `docs/`: explanations, reference documents, and historical designs.
+- `knowledge/`: command and surface records; coverage does not imply every record is complete.
+- `desk/`: project operational records.
+- `contracts/`: external integration contracts.
+- `tests/`: library, CLI, markers, links, composition, addressability, HTTP, caching, and store tests.
+- `.github/workflows/ci.yml`: tests and distribution build.
 
-```text
-tests/
-├── test_standalone.py
-└── store/
-    ├── __init__.py
-    ├── test_cli_store.py
-    ├── test_diagnostics.py
-    ├── test_hashing.py
-    ├── test_models_io.py
-    └── test_resolver.py
-```
+The old `src/nldb/` shim and top-level compatibility modules such as `sldb/structuredNLDoc.py` are absent. Public imports such as `from sldb import StructuredNLDoc` remain available through `src/sldb/__init__.py`.

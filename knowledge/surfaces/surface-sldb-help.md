@@ -8,7 +8,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#help; contract-sha256:3a232bac71000b48414029113e6c0651e15a539fe9609d760f282d62fb6e89a7
 ---
 
 # help
@@ -23,4 +23,4 @@ Registered under src/sldb/cli/parsers/ as the 'help' subparser. Each command dis
 
 ## Commands
 
-help
+- sldb help

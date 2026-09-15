@@ -2,21 +2,21 @@
 id: cmd-sldb-legacy-glob
 system: sldb
 command_path: legacy glob
-synopsis: Expand a wildcard address into the concrete doc or field addresses it matches.
+synopsis: Expand wildcard addresses.
 tags:
 - system:sldb
 - domain:retrieval
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/commands/query.py
+provenance: parser:sldb.cli.parser:build_parser#legacy glob; contract-sha256:0bf5b38142a6a39eaeda1a1f1ea922ee0fe0ae33f8891d998976d17096a14cc6
 ---
 
 # legacy glob
 
 ## Synopsis
 
-Expand a wildcard address into the concrete doc or field addresses it matches.
+Expand wildcard addresses.
 
 ## Purpose
 
@@ -28,9 +28,52 @@ Implemented under src/sldb/cli/parsers/legacy.py (parser) and src/sldb/cli/comma
 
 ## Arguments
 
-address | required | st.{Model}.<docpattern>[.<fieldpattern>] | se.<tagpattern>
---store | optional | Store path
---pythonpath | optional | Project path
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "address"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Wildcard address"
+    },
+    {
+      "names": [
+        "--store"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Store path"
+    },
+    {
+      "names": [
+        "--pythonpath"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Project path"
+    }
+  ],
+  "exclusive_groups": []
+}
+```
 
 ## Usage
 

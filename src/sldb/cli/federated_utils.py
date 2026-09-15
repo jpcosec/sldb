@@ -5,7 +5,7 @@ from sldb.models.structured_doc import StructuredNLDoc
 from sldb.store.layout import project_root, store_exists, documents_index_relpath, models_index_relpath
 from sldb.store.io import load_store_index, save_documents_index, save_models_index, store_lock
 from sldb.cli.model_utils import resolve_model_ref
-from sldb.store.resolver import find_local_store
+from sldb.store.resolver import ancestor_stores
 from sldb.store.models import DocumentsIndex, ModelsIndex, ModelEntry
 from sldb.store.semantic_tags import flatten_model_semantics
 from sldb.store.ops import cascade_hash_a
@@ -27,7 +27,8 @@ def _get_linked_store_candidate(registry_store: Path, store_alias: str) -> Path 
     return candidate if store_exists(candidate) else None
 
 def _resolve_linked_store(destination_store: Path, store_alias: str) -> Path | None:
-    for registry_store in _model_registry_stores(destination_store, find_local_store()):
+    registries = _model_registry_stores(destination_store, next(iter(ancestor_stores()), None))
+    for registry_store in registries:
         candidate = _get_linked_store_candidate(registry_store, store_alias)
         if candidate is not None:
             return candidate

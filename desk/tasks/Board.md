@@ -5,6 +5,9 @@ id: board-sldb-desk
 scope: sldb-local-desk
 # List of task-xxx paths
 tasks:
+- desk/tasks/task-build-code-self-documentation.md
+- desk/tasks/task-unify-store-context-and-federation.md
+- desk/tasks/task-correct-ast-ownership-and-section-contracts.md
 - desk/tasks/task-mapear-arquitectura-real-de-sldb.md
 - desk/tasks/task-definir-arquitectura-objetivo-modular-de-sldb.md
 - desk/tasks/task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n.md
@@ -15,6 +18,7 @@ tasks:
 - desk/tasks/task-tighten-semantic-export-provenance-contract.md
 # List of pill-xxx paths
 pills:
+- desk/pills/pill-015-self-documentation-boundaries.md
 - desk/pills/pill-001-sldb-vs-deskops-boundary.md
 - desk/pills/pill-002-onboarding-surface-before-depth.md
 - desk/pills/pill-003-template-marker-roundtrip-contract.md
@@ -54,12 +58,17 @@ _Explain what this board routes and why it exists._
 
 _Add short operational notes about the current routed set._
 
+Current review follow-up: CLI self-documentation is active; shared store context/federation and AST ownership/section contracts are separate open tasks. Their task files define scope and validation. Historical rows below have not been reclassified.
+
 - Mapear arquitectura real de SLDB [active] - _Describe the concrete result this task must produce._
 
 ## Task Details
 
 _Generated from the task references above._
 
+- Build code-derived self-documentation [active] - Provide repeatable scan, materialization, tracking, and freshness checks for code documentation.
+- Unify store context and federation [open] - Resolve project operations from the nearest enclosing store and make known stores discoverable through a maintained global catalog.
+- Correct AST ownership and section contracts [open] - Make field ownership and section boundaries reliable enough for structural queries and documentation provenance.
 - Mapear arquitectura real de SLDB [active] - _Describe the concrete result this task must produce._
 
 Producir un relevamiento estructural del sistema actual usando AST, dependencias, hubs y flujos reales.

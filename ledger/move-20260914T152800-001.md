@@ -1,0 +1,44 @@
+---
+id: move-20260914T152800-001
+at: '2026-09-14T15:28:00+00:00'
+speaker: ''
+outcome: unico
+state_before: libre
+state_after: libre
+hash_before: 48b7771c29e37a8bc1a3b612f33aa49388ce718921967900740eef41cdbf0cae
+hash_after: 48b7771c29e37a8bc1a3b612f33aa49388ce718921967900740eef41cdbf0cae
+refers_to: ''
+---
+
+# move-20260914T152800-001
+
+## Sentence
+
+what python symbols reference CommandRecord
+
+## Record
+
+```yaml
+queries:
+- pron graph python_symbol → 1
+- kgdb edges_to(python:sldb.sldb.selfdoc.command:CommandRecord, references) → 0
+writes: []
+edges: []
+interpretation:
+  forma: read
+  items:
+  - wh('what')
+  - word('python symbols'→source_model:PythonSymbol)
+  - word('reference'→source_relation:references)
+  - unknown('CommandRecord')
+  parts:
+  - 'read · source_relation:references · subject=all PythonSymbol [] · object=the
+    PythonSymbol [] CommandRecord · payload={''asked'': ''subject''}'
+  unknown: []
+  notes: []
+reads: []
+trace:
+- 'interpretation: read'
+- pron graph python_symbol → 1
+- kgdb edges_to(python:sldb.sldb.selfdoc.command:CommandRecord, references) → 0
+```

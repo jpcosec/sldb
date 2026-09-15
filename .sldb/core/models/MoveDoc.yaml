@@ -1,0 +1,13 @@
+name: MoveDoc
+model_ref: pron.models:MoveDoc
+path: /home/jp/proyectos/pron/src/pron/models/move.py
+documents_index: .sldb/core/documents/MoveDoc.yaml
+sections_index: .sldb/runtime/sections/MoveDoc.yaml
+hash_b: 37f3c2e05181d5c4ff572d590f352fada9d2a3e4d69c6e2368c37d8f65fe5566
+version: 1
+canonical: false
+family: ledger
+semantics:
+- type.pron.move
+- workspace.knowledge.ledger
+base_models: []

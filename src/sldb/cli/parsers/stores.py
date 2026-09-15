@@ -4,7 +4,7 @@ import argparse
 def add_stores_group(s: argparse._SubParsersAction) -> None:
     p = s.add_parser("stores", help="Store lifecycle and federation.")
     sub = p.add_subparsers(dest="stores_command", required=True)
-    _init(sub); _add(sub); _check(sub); _update(sub)
+    _init(sub); _add(sub); _check(sub); _update(sub); _reconcile(sub)
     _semantic_map(sub); _semantic_export(sub); _list(sub)
 
 def _init(s):
@@ -30,6 +30,13 @@ def _update(s):
     u.add_argument("--verbose", action="store_true", help="Print individual skip details")
     u.add_argument("--store", help="Store path")
     u.add_argument("--pythonpath", help="Project path")
+
+def _reconcile(s):
+    r = s.add_parser("reconcile", help="Explicitly reconcile a catalog against a subtree.")
+    r.add_argument("--path", default=".", help="Subtree to discover")
+    r.add_argument("--catalog", help="Catalog store path; defaults to ~/.sldb")
+    r.add_argument("--apply", action="store_true", help="Replace catalog entries with discovered stores")
+    r.add_argument("--format", choices=("text", "json", "yaml"), default="text")
 
 def _semantic_map(s):
     m = s.add_parser("semantic-map", help="Map equivalent semantic concepts.")

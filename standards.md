@@ -55,9 +55,11 @@ The project uses the following tools for enforcement:
 
 ## Compliance Status
 
+Historical assessment, not a current audit. The old `main.py` size finding no longer describes the checkout; a fresh standards audit is still needed.
+
 | Component | Status | Note |
 |---|---|---|
 | sldb.core | Partial | Requires docstring audit and line-length check. |
 | sldb.store | Partial | Requires docstring audit. |
-| sldb.cli | **FAIL** | `main.py` is oversized (~1165 lines) and violates modularity rules. High priority refactor. |
+| sldb.cli | Not reassessed | The former large `main.py` has been split into parsers, dispatcher, and command handlers. |
 | sldb.models | Pass | |

@@ -67,6 +67,18 @@ def test_store_init_fails_if_exists(tmp_path):
     assert rc == 0
 
 
+def test_store_init_registers_project_in_global_catalog(tmp_path, monkeypatch):
+    home = tmp_path / "home"
+    project = home / "project"
+    project.mkdir(parents=True)
+    monkeypatch.setenv("HOME", str(home))
+    assert cli_main(["stores", "init", "--path", str(project)]) == 0
+    global_index = load_store_index(home / ".sldb")
+    assert [(entry.name, entry.path) for entry in global_index.stores] == [
+        ("project", str(project / ".sldb")),
+    ]
+
+
 def test_store_init_force_overwrites(tmp_path):
     _init(tmp_path)
     assert cli_main(["stores", "init", "--path", str(tmp_path), "--force"]) == 0
@@ -139,8 +151,17 @@ def test_store_check_data_mutation_fails(tmp_path, capsys):
 
 
 def test_store_check_json_format(tmp_path, capsys):
+    """Deliberately produces an invalid store (data mutation after tracking,
+    the same pattern as test_store_check_data_mutation_fails) rather than
+    relying on a fresh _model_add() with zero documents to be invalid --
+    that used to be true only because of a hash_b registration bug, now
+    fixed; a freshly registered model with no documents is a valid store."""
     _init(tmp_path)
     _model_add(tmp_path)
+    doc = tmp_path / "book.md"
+    doc.write_text("# My Book\n", encoding="utf-8")
+    _doc_track(tmp_path, doc)
+    doc.write_text("# Changed Title\n", encoding="utf-8")
     capsys.readouterr()
     with pytest.raises(SystemExit) as exc:
         cli_main(
@@ -149,6 +170,7 @@ def test_store_check_json_format(tmp_path, capsys):
     assert exc.value.code == 1
     data = json.loads(capsys.readouterr().out)
     assert "valid" in data and "models" in data
+    assert data["valid"] is False
 
 
 # ── store update ──────────────────────────────────────────────────────────────
@@ -221,6 +243,25 @@ def test_get_store_context_readonly_falls_back_to_global(tmp_path, monkeypatch):
     assert result == 0
 
 
+def test_store_alias_is_resolved_from_an_ancestor_registry(tmp_path, monkeypatch):
+    from sldb.cli.store_context import get_store_context
+
+    parent = tmp_path / "parent"
+    child = parent / "child"
+    remote = tmp_path / "remote"
+    child.mkdir(parents=True)
+    remote.mkdir()
+    _init(parent)
+    _init(child)
+    _init(remote)
+    cli_main(["stores", "add", str(remote / ".sldb"), "--name", "remote"] + _STORE_ARGS(parent))
+    source = child / "src"
+    source.mkdir()
+    monkeypatch.chdir(source)
+    store, _root = get_store_context("remote", mode="readonly")
+    assert store == remote / ".sldb"
+
+
 def test_model_add_sets_hash_a(tmp_path):
     _init(tmp_path)
     _model_add(tmp_path)
@@ -232,6 +273,45 @@ def test_model_add_fails_if_already_registered(tmp_path):
     _model_add(tmp_path)
     with pytest.raises(SystemExit):
         _model_add(tmp_path)
+
+
+def test_model_add_sets_correct_hash_b_for_zero_documents(tmp_path):
+    """Regression: a freshly registered model with no documents yet must not
+    need a follow-up `models update` just to pass `stores check`.
+
+    hash_b used to be hardcoded to "" at registration time, which does not
+    match hash_documents_index() of the empty DocumentsIndex it was
+    registered with -- stores check then reported a false hash_b_ok=False
+    for a store that was never actually mutated.
+    """
+    from sldb.store.hashing import hash_documents_index
+    from sldb.store.models import DocumentsIndex
+
+    _init(tmp_path)
+    _model_add(tmp_path)
+
+    store_index = load_store_index(tmp_path / ".sldb")
+    entry = next(m for m in store_index.models if m.name == "SimpleBook")
+    models_idx = load_models_index(tmp_path / entry.models_index)
+
+    assert models_idx.hash_b == hash_documents_index(DocumentsIndex())
+    assert models_idx.hash_b != ""
+
+
+def test_model_add_passes_stores_check_immediately_with_no_documents(tmp_path):
+    """The end-to-end shape of the regression: `stores check` must PASS
+    right after `models add`, with no `models update` in between."""
+    from sldb.cli.model_utils import resolve_model_ref
+    from sldb.store.diagnostics import diagnose_store
+
+    _init(tmp_path)
+    _model_add(tmp_path)
+
+    result = diagnose_store(tmp_path / ".sldb", resolve_model_ref, tmp_path, pythonpath=_SRC)
+
+    assert result.hash_a_ok
+    book_diagnosis = next(m for m in result.models if m.name == "SimpleBook")
+    assert book_diagnosis.hash_b_ok
 
 
 # ── model update ──────────────────────────────────────────────────────────────

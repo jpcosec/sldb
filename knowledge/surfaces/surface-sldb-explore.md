@@ -8,7 +8,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#explore; contract-sha256:a613761e9381bfba81be759c3d73d96bc020a8bc3adc8211be387b3b949bd905
 ---
 
 # explore
@@ -23,4 +23,4 @@ Registered under src/sldb/cli/parsers/ as the 'explore' subparser. Each command 
 
 ## Commands
 
-explore
+- sldb explore

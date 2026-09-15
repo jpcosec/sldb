@@ -1,54 +1,49 @@
 # Current CLI Tree
 
-This snapshot captures the currently exposed CLI tree and the major command groups.
+Verified from `src/sldb/cli/parsers/` on 2026-09-13. This lists public command paths; use `sldb <command> --help` for arguments and defaults.
 
 ```text
 sldb
-├── extract <model-ref> <input-md> <output-json|yaml> [--format json|yaml] [--pythonpath PATH]
-├── render <model-ref> <input-data> <output-md> [--pythonpath PATH]
-├── validate <model-ref> (--input FILE | --data FILE) [--format text|json|yaml] [--pythonpath PATH]
-├── init [path] [--force]
-├── example [path]
-├── faq [question] [--format text|json|yaml] [--faq-path PATH]
-├── inbox [<message>] [--kind unclear|suggestion] [--title TEXT] [--desk-root PATH] [--author TEXT] [--list] [--show ID] [--limit N] [--format text|json|yaml]
-├── explore <term> [--source all|docs|docstrings] [--regex] [--docs-root PATH] [--code-root PATH] [--max-results N] [--format text|json|yaml]
-├── recover <doc> [--store PATH] [--depth N] [--format text|json|yaml] [--links-only] [--include-transclusions]
-├── compose <doc> [-o PATH] [--store PATH] [--format markdown|json|yaml]
-├── ls <address> [--store PATH] [--pythonpath PATH]
-├── get <address> [--store PATH] [--pythonpath PATH] [--format text|json|yaml]
-├── glob <pattern> [--store PATH] [--pythonpath PATH]
-├── find <address> --where EXPR [--store PATH] [--pythonpath PATH]
-├── store
-│   ├── init [--path PATH] [--force]
-│   ├── add <path> [--name NAME] [--store PATH]
-│   ├── semantic-map <local-tag> <global-tag> [--store PATH]
-│   ├── check [--store PATH] [--format text|json|yaml] [--pythonpath PATH]
-│   └── update [--store PATH] [--pythonpath PATH]
+├── help [topic]
+├── faq [question]
+├── extract / render / validate
+├── init / example
 ├── stores
-│   ├── init [--path PATH] [--force]
-│   ├── semantic-map <local-tag> <global-tag> [--store PATH]
-│   ├── check [--store PATH] [--format text|json|yaml] [--pythonpath PATH]
-│   ├── update [--store PATH] [--pythonpath PATH]
-│   ├── semantic-export [--store PATH] [--pythonpath PATH] [--format kgdb] [--encoding json|yaml] [-o PATH|-] [--rebuild]
-│   └── list [--store PATH] [--format text|json|yaml]
-├── model
-│   ├── add <model-ref> [--canonical] [--store PATH] [--pythonpath PATH]
-│   ├── list [--store PATH] [--format text|json|yaml]
-│   └── update <name> [--store PATH] [--pythonpath PATH]
-└── doc
-    ├── add --model NAME -o PATH <payload> [--name NAME] [--store PATH] [--pythonpath PATH]
-    ├── track <path> --model NAME [--name NAME] [--store PATH] [--pythonpath PATH] [--force]
-    ├── update <name> --model NAME <payload> [--store PATH] [--pythonpath PATH]
-    └── explore <term> [--source all|docs|docstrings] [--regex] [--docs-root PATH] [--code-root PATH] [--max-results N] [--format text|json|yaml]
+│   └── init / add / check / update / semantic-map / semantic-export / list
+├── models
+│   ├── add / update / list / show / validate / create
+│   ├── template show / edit
+│   └── fields add / remove
+├── predicates
+│   └── add / list / show / validate / remove
+├── docs
+│   └── create / track / update / untrack / show / recover / list / compose / explore
+├── fields
+│   └── show / query / create / update / remove / append / clean
+├── sections
+│   └── show / find / fields
+├── find
+├── ast
+│   └── show / schema
+├── explore / inbox / lint
+├── serve
+├── selfdoc
+│   └── scan / sync / check
+└── legacy
+    └── ls / get / glob / find
 ```
 
 ## Command Groups
 
-- direct document workflows: `extract`, `render`, `validate`, `recover`, `compose`
-- entry-level onboarding: `faq`
-- feedback capture into repo desk: `inbox`
-- deep written guidance search: `explore` and `docs explore`
-- project bootstrapping: `init`, `example`
-- store registry, indexing, and semantic export workflows: `stores ...`, `store ...`, `ls`, `get`, `glob`, `find`
-- model contract workflows: `model ...`
-- document instance workflows: `doc ...`
+- Direct model workflows: `extract`, `render`, `validate`; no store required.
+- Store workflows: `stores`, `models`, `predicates`, `docs`, `fields`, `sections`, `find`, `ast show`.
+- Structural inspection: [AST/IR CLI queries](../ast_query_primitives.md).
+- HTTP access: `serve --store PATH --pythonpath PATH`, default `127.0.0.1:8787`; optional `--cors`.
+- Onboarding and source search: `help`, `faq`, `explore`. FAQ and explore paths are working-directory-relative, not store-anchored.
+- Bootstrap and maintenance: `init`, `example`, `inbox`, `lint`.
+- Code-derived CLI reference: `selfdoc scan|sync|check`; see [self-documentation](../self-documentation.md).
+- Raw address queries: `legacy`; see [addressability](../addressability_model.md).
+
+Singular aliases and old top-level address commands remain compatibility entry points. They are not the recommended surface, and there is no confirmed future removal release for this frozen checkout.
+
+The HTTP implementation exposes `GET /health`, `/schema`, `/graph`, `/kgdb/snapshot`, and `POST /save`; it does not expose every CLI command as an HTTP route.

@@ -7,6 +7,7 @@ from sldb.store.io import load_documents_index, load_models_index, save_sections
 from sldb.store.layout import sections_index_relpath
 from sldb.store.models import DocSections, SectionContextRecord, SectionsIndex
 from sldb.store.semantic import RebuildReport, _about_terms
+from sldb.store.section_paths import section_cache_key, section_path, unique_slug
 
 logger = logging.getLogger(__name__)
 
@@ -33,8 +34,19 @@ def _extract_sections(markdown: str) -> list[dict]:
     for node in _parse_md_nodes(markdown):
         if not re.fullmatch(r"h[1-6]", node.get("tag") or ""): continue
         sec = _build_section(node, stack)
+        if sec:
+            sec["slug"] = unique_slug(sec["slug"], sec["path"], sections)
+            sec["path"] = section_path(stack, sec["slug"])
         if sec: sections.append(sec); stack.append(sec)
+    _extend_section_spans(sections, len(markdown.splitlines()))
     return sections
+
+
+
+def _extend_section_spans(sections: list[dict], last_line: int) -> None:
+    for index, section in enumerate(sections):
+        boundary = next((item.get("line_start") for item in sections[index + 1 :] if item["level"] <= section["level"] and item.get("line_start") is not None), None)
+        section["line_end"] = boundary - 1 if boundary is not None else last_line
 
 _DOC_SECTIONS: dict[tuple, list[dict]] = {}   # (path, mtime, size) -> headings; a rebuild only parses what changed
 
@@ -70,7 +82,7 @@ def _process_doc_sections(doc, d_path, report):
 def _process_model_sections(m_entry, root, report, store_path: Path | None = None):
     from sldb.store import built_cache
     m_idx = load_models_index(root / m_entry.models_index)
-    s_rel, key = sections_index_relpath(m_entry.name), built_cache.model_key(m_idx)
+    s_rel, key = sections_index_relpath(m_entry.name), section_cache_key(m_idx)
     done = built_cache.get(store_path, "sections", m_entry.name, key) if store_path else None
     if done is not None and (root / s_rel).exists() and m_idx.sections_index == s_rel:
         report.docs_processed += done["docs"]; report.docs_empty_sections += done["empty"]; return
@@ -82,6 +94,7 @@ def _save_sections(m_entry, m_idx, root, s_rel, d_sections, store_path, key):
     save_sections_index(root / s_rel, SectionsIndex(documents=d_sections))
     m_idx.sections_index = s_rel; save_models_index(root / m_entry.models_index, m_idx)
     if store_path: built_cache.put(store_path, "sections", m_entry.name, key, {"docs": len(d_sections), "empty": sum(1 for d in d_sections if not d.sections)})
+
 
 def _walk_sections(m_entry, m_idx, root, report) -> list:
     d_sections = []
@@ -95,4 +108,3 @@ def rebuild_sections_indexes(store_path: Path, project_root: Path, resolve_model
     report = report or RebuildReport()
     for m in load_store_index(store_path).models: _process_model_sections(m, project_root, report, store_path)
     return report
-

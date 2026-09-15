@@ -49,6 +49,7 @@ Primary surfaces:
   ast       Normalized store/model/document graph
   find      Unified semantic + physical retrieval
   explore   Deep markdown docs and docstring search
+  selfdoc   Generate and check tracked CLI documentation from a parser
 
 Advanced:
   legacy    Raw address surface: ls/get/glob/find over st.{Model}.doc.field, se.tag, gse.tag
@@ -84,6 +85,7 @@ Primary surfaces:
 Other commands:
   extract, render, validate   Direct model-first operations without a store
   init, example               Bootstrapping helpers
+  selfdoc                     Scan, sync, and check code-derived CLI reference
   legacy                      Address surface: ls/get/glob/find over st.{Model}.doc.field
 
 Use `sldb help` for the full onboarding help, `sldb find --help` for query examples,

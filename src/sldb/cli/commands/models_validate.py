@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import contextlib
 import json
+import sys
 from pathlib import Path
 from typing import Any
 import yaml
@@ -8,7 +10,7 @@ import yaml
 from sldb.core.exceptions import SLDBModelDraftError, SLDBModelEditError, SLDBModelError, SLDBValidationError
 from sldb.runtime.validation import validate_model_input_roundtrip
 from sldb.cli.commands.models_utils import registered_model_source, draft_path as get_draft_path, load_model_from_path, tracked_docs_for_model
-from sldb.cli.commands.models_validate_utils import validate_template_contract
+from sldb.cli.commands.models_validate_utils import restored_on_failure, store_index_files, validate_template_contract
 
 class ModelsValidateCLI:
     def validate(self, args: Any, model_cli: Any) -> int:
@@ -47,14 +49,22 @@ class ModelsValidateCLI:
             details["promoted"] = False
 
     def _promote_draft(self, args: Any, path: Path, draft_path: Path, details: dict[str, Any], model_cli: Any) -> None:
+        """Install the draft and reindex. If the reindex fails, the active model, the draft and the
+        indexes are put back, so the store stays consistent and the promote can be retried."""
         if not draft_path.exists():
             raise SLDBModelDraftError(f"No draft template for '{args.model}' to promote.")
-        path.write_text(draft_path.read_text(encoding="utf-8"), encoding="utf-8")
+        with restored_on_failure([path, draft_path, *store_index_files(args.store)]):
+            path.write_text(draft_path.read_text(encoding="utf-8"), encoding="utf-8")
+            self._reindex(args, model_cli)
         draft_path.unlink()
+        details["promoted"] = True
+
+    def _reindex(self, args: Any, model_cli: Any) -> None:
         args.model_command = "update"
         args.bump_version = True
-        model_cli.update(args)
-        details["promoted"] = True
+        # --format json/yaml promises a parseable stdout: update's progress line goes to stderr.
+        with contextlib.redirect_stdout(sys.stderr) if args.format != "text" else contextlib.nullcontext():
+            model_cli.update(args)
 
     def _output_validate(self, args: Any, details: dict[str, Any]) -> int:
         if args.format == "text":
@@ -72,3 +82,4 @@ class ModelsValidateCLI:
         d_label = "draft" if details["draft"] else "active model"
         print(f"{status}: validated {d_label} for '{args.model}'")
         return 0
+

@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#predicates add; contract-sha256:4c58c0121ac9193c1128e8bc9a88f5fe83f7559cded1ea8d05a5a24b508c4c2d
 ---
 
 # predicates add
@@ -28,10 +28,65 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'add'. It par
 
 ## Arguments
 
-name | required | Predicate name used in [name:: [[target]]].
---axis | required | Semantic axis, for example HOW.
---description | optional | Predicate description.
---store | optional | Store path
+```json
+{
+  "arguments": [
+    {
+      "names": [
+        "name"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Predicate name used in [name:: [[target]]]."
+    },
+    {
+      "names": [
+        "--axis"
+      ],
+      "required": true,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Semantic axis, for example HOW."
+    },
+    {
+      "names": [
+        "--description"
+      ],
+      "required": false,
+      "default": "\"\"",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Predicate description."
+    },
+    {
+      "names": [
+        "--store"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Store path"
+    }
+  ],
+  "exclusive_groups": []
+}
+```
 
 ## Usage
 

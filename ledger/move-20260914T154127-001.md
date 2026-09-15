@@ -1,0 +1,135 @@
+---
+id: move-20260914T154127-001
+at: '2026-09-14T15:41:27+00:00'
+speaker: ''
+outcome: unico
+state_before: libre
+state_after: libre
+hash_before: 48b7771c29e37a8bc1a3b612f33aa49388ce718921967900740eef41cdbf0cae
+hash_after: 48b7771c29e37a8bc1a3b612f33aa49388ce718921967900740eef41cdbf0cae
+refers_to: ''
+---
+
+# move-20260914T154127-001
+
+## Sentence
+
+what python symbols does sldb.sldb.selfdoc.command import
+
+## Record
+
+```yaml
+queries:
+- pron graph python_symbol name = sldb.sldb.selfdoc.command → 1
+- kgdb edges_from(python:sldb.sldb.selfdoc.command, imports) → 5
+writes: []
+edges:
+- source: python:sldb.sldb.selfdoc.command
+  target: python:external:__future__:annotations
+  relation: imports
+  metadata:
+    owner: python:sldb.sldb.selfdoc.command
+    module: __future__
+    name: annotations
+    alias: null
+    local: annotations
+    level: 0
+    line: 2
+    end: 2
+    target: python:external:__future__:annotations
+    origin: python_ast
+    path: sldb/selfdoc/command.py
+    sha256: bb7952aa96d78cb7a9f0d1c2953b8f341de9bc54f98843a001f95753d63ea532
+    line_start: 2
+    line_end: 2
+- source: python:sldb.sldb.selfdoc.command
+  target: python:external:pydantic:BaseModel
+  relation: imports
+  metadata:
+    owner: python:sldb.sldb.selfdoc.command
+    module: pydantic
+    name: BaseModel
+    alias: null
+    local: BaseModel
+    level: 0
+    line: 4
+    end: 4
+    target: python:external:pydantic:BaseModel
+    origin: python_ast
+    path: sldb/selfdoc/command.py
+    sha256: bb7952aa96d78cb7a9f0d1c2953b8f341de9bc54f98843a001f95753d63ea532
+    line_start: 4
+    line_end: 4
+- source: python:sldb.sldb.selfdoc.command
+  target: python:external:pydantic:Field
+  relation: imports
+  metadata:
+    owner: python:sldb.sldb.selfdoc.command
+    module: pydantic
+    name: Field
+    alias: null
+    local: Field
+    level: 0
+    line: 4
+    end: 4
+    target: python:external:pydantic:Field
+    origin: python_ast
+    path: sldb/selfdoc/command.py
+    sha256: bb7952aa96d78cb7a9f0d1c2953b8f341de9bc54f98843a001f95753d63ea532
+    line_start: 4
+    line_end: 4
+- source: python:sldb.sldb.selfdoc.command
+  target: python:sldb.sldb.selfdoc.argument:ArgumentRecord
+  relation: imports
+  metadata:
+    owner: python:sldb.sldb.selfdoc.command
+    module: sldb.sldb.selfdoc.argument
+    name: ArgumentRecord
+    alias: null
+    local: ArgumentRecord
+    level: 1
+    line: 5
+    end: 5
+    target: python:sldb.sldb.selfdoc.argument:ArgumentRecord
+    origin: python_ast
+    path: sldb/selfdoc/command.py
+    sha256: bb7952aa96d78cb7a9f0d1c2953b8f341de9bc54f98843a001f95753d63ea532
+    line_start: 5
+    line_end: 5
+- source: python:sldb.sldb.selfdoc.command
+  target: python:sldb.sldb.selfdoc.constraint:ExclusiveGroup
+  relation: imports
+  metadata:
+    owner: python:sldb.sldb.selfdoc.command
+    module: sldb.sldb.selfdoc.constraint
+    name: ExclusiveGroup
+    alias: null
+    local: ExclusiveGroup
+    level: 1
+    line: 6
+    end: 6
+    target: python:sldb.sldb.selfdoc.constraint:ExclusiveGroup
+    origin: python_ast
+    path: sldb/selfdoc/command.py
+    sha256: bb7952aa96d78cb7a9f0d1c2953b8f341de9bc54f98843a001f95753d63ea532
+    line_start: 6
+    line_end: 6
+interpretation:
+  forma: read
+  items:
+  - wh('what')
+  - word('python symbols'→source_model:PythonSymbol)
+  - wh('does')
+  - unknown('sldb.sldb.selfdoc.command')
+  - word('import'→source_relation:imports)
+  parts:
+  - 'read · source_relation:imports · subject=the PythonSymbol [] sldb.sldb.selfdoc.command
+    · object=all PythonSymbol [] · payload={''asked'': ''object''}'
+  unknown: []
+  notes: []
+reads: []
+trace:
+- 'interpretation: read'
+- pron graph python_symbol name = sldb.sldb.selfdoc.command → 1
+- kgdb edges_from(python:sldb.sldb.selfdoc.command, imports) → 5
+```

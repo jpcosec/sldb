@@ -8,7 +8,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: src/sldb/cli/parsers/
+provenance: parser:sldb.cli.parser:build_parser#lint; contract-sha256:3e592c55f7905f39606c20f99f4056182a64aeecafa22acd438c662442d52939
 ---
 
 # lint
@@ -23,4 +23,4 @@ Registered under src/sldb/cli/parsers/ as the 'lint' subparser. Each command dis
 
 ## Commands
 
-lint
+- sldb lint
