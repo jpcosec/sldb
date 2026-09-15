@@ -67,9 +67,11 @@ On documents (`legacy find 'st.{…}'`, `legacy find 'se.…'`, `find --type doc
 | `has(field)` | the field is present and not empty |
 | `"x" in field` | `x` is an item of a list field or a substring of a string field |
 | `field ~ "regex"` | the field value matches; `doc ~ "regex"` matches the doc name |
-| `field = "v"` / `field != "v"` | string equality |
+| `field = "v"` / `field != "v"` | string equality over a field that is present; `"v"` may be `""`, so `field = ""` is a field present and empty and `field != ""` is present and not empty — an absent field matches neither (`has(field)` asks presence) |
 | `field >= n` / `field <= n` | numeric comparison |
 | `model <= Base` | the document's model is `Base` or a subclass |
+
+A predicate no evaluator parses is an error (`WherePredicateError`), never an empty result: the query stops with a message naming the predicate.
 
 On fields (`find --type field`): `value = "…"`, `value != "…"`, `doc = "…"`, `model = "…"`, `field = "…"`, `has(value)`.
 

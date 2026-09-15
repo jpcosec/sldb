@@ -3,12 +3,14 @@ from typing import Any
 from sldb.cli.graph_ops import iter_search_records, search_records, SearchRecord
 from sldb.cli.commands.find_filters import FindFilters
 from sldb.cli.commands.find_format import FindFormatter
+from sldb.store.query_engine.where_parse import compile_where
 
 class FindCLI:
     """Unified semantic + physical retrieval."""
 
     def run(self, args: Any) -> int:
         """Run the find command."""
+        if args.where: compile_where(args.where)  # once per query: unparseable predicates raise
         matched = self._get_matches(args)
         if args.where:
             matched = self._apply_filters(matched, args)

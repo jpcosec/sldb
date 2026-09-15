@@ -83,7 +83,7 @@ sldb fields update docs/recipe/status '"published"' --store .sldb --pythonpath s
 sldb fields append docs/recipe/tags '"dessert"' --store .sldb --pythonpath src
 ```
 
-`{Model+}` is the family form: the model and every subclass, whether or not the base is registered. `--where` takes one predicate: `has(f)`, `"x" in f`, `f ~ "regex"`, `f = "v"`, `f != "v"`, `f >= n`, `model <= Base`. The full address model, the predicate grammar and the mapping between `legacy` addresses and the `fields`/`find` surface are in [`docs/addressability_model.md`](docs/addressability_model.md).
+`{Model+}` is the family form: the model and every subclass, whether or not the base is registered. `--where` takes one predicate: `has(f)`, `"x" in f`, `f ~ "regex"`, `f = "v"`, `f != "v"`, `f >= n`, `model <= Base`; `"v"` may be the empty string (`f = ""` is a field present and empty; `f != ""` is present and not empty; an absent field matches neither — `has(f)` asks presence). A predicate no evaluator parses is an error, not an empty result. The full address model, the predicate grammar and the mapping between `legacy` addresses and the `fields`/`find` surface are in [`docs/addressability_model.md`](docs/addressability_model.md).
 
 To inspect what one store already knows, use `sldb models list --store .sldb`.
 
