@@ -9,7 +9,8 @@ from __future__ import annotations
 import logging
 from pathlib import Path
 
-from sldb.store.io import load_documents_index, load_models_index, save_models_index
+from sldb.store import documents_hash
+from sldb.store.io import load_models_index, save_models_index
 from sldb.store.io.shards import prune_shards
 from sldb.store.layout import sections_index_relpath, sections_shards_dir
 from sldb.store.section_doc_contribution import sync_doc_shard
@@ -38,21 +39,27 @@ def _mark_has_sections(m_entry, m_idx, root, current: set[str]) -> None:
 
 
 def _sync_model_sections(store_path, m_entry, m_idx, root, report, process_doc_sections) -> set[str]:
-    current: set[str] = set()
-    for doc in load_documents_index(root / m_idx.documents_index).documents:
-        if _sync_one_section(store_path, doc, m_entry, root, report, process_doc_sections):
-            current.add(doc.name)
+    """PLAN 15 capa 8: `entries` is this operation's own cache (composed from shards at most
+    once); every document's file is still cheaply checked to exist (as before, for pruning
+    correctness), but only one in the dirty set (or every one, with no trustworthy baseline)
+    is actually opened and re-synced — an untouched document's sections shard is never read
+    just to confirm it agrees with a hash_c that has not moved."""
+    entries = {e.name: e for e in documents_hash.entries_of(store_path, m_entry.name)}
+    dirty = documents_hash.dirty_names(store_path, m_entry.name, "sections")
+    current = {doc.name for doc in entries.values() if _sync_one_section(store_path, doc, m_entry, root, report, process_doc_sections, dirty is None or doc.name in dirty)}
     if store_path:
         prune_shards(sections_shards_dir(store_path, m_entry.name), current)
+    documents_hash.clear_dirty(store_path, m_entry.name, "sections")
     return current
 
 
-def _sync_one_section(store_path, doc, m_entry, root, report, process_doc_sections) -> bool:
+def _sync_one_section(store_path, doc, m_entry, root, report, process_doc_sections, do_sync: bool) -> bool:
     d_path = root / doc.path
     if not d_path.exists():
         _missing_doc(doc, d_path, report)
         return False
-    sync_doc_shard(store_path, doc, d_path, m_entry, report, process_doc_sections)
+    if do_sync:
+        sync_doc_shard(store_path, doc, d_path, m_entry, report, process_doc_sections)
     return True
 
 

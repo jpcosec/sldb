@@ -71,8 +71,11 @@ def test_adding_one_document_extracts_only_that_document(tmp_path: Path, monkeyp
 
     new_doc = root / "note-20.md"
     new_doc.write_text("# Note 20\n\n## Body\n\nBody of note 20\n", encoding="utf-8")
+    # PLAN 15 capa 8: `docs track` itself now keeps semantic/sections current for the document
+    # it just tracked (so pron's own write path no longer needs a follow-up `stores update`
+    # for that) — the extraction happens once, here; the update below finds nothing left to do.
     assert cli_main(["docs", "track", str(new_doc), "--model", "NoteDoc", "--name", "note-20", "--store", str(store), "--pythonpath", str(root)]) == 0
-    update_store(_Args(store, root))  # the sections half of a real turn's refresh (pron.world.World.refresh)
+    update_store(_Args(store, root))
 
     assert calls["semantic"] == 1, calls
     assert calls["sections"] == 1, calls

@@ -72,10 +72,13 @@ class DocCLI:
     def _save_updated(self, sp: Any, root: Path, idx: Any, m_entry: Any, m_idx: Any, doc: Any, args: Any) -> None:
         with store_lock(sp):
             save_document_shard(documents_shard_path(sp, m_entry.name, doc.name), doc)
-            documents_hash.note(sp, m_entry.name, doc.name, doc.hash_c, doc.hash_d)
-            m_idx.hash_b = ""   # left blank here, same as before capa 7; the next rebuild fills it
+            documents_hash.note(sp, m_entry.name, doc)
+            # PLAN 15 capa 8: hash_b correct right away, not blanked for a later rebuild to fill in
+            m_idx.hash_b = documents_hash.hash_b_of(sp, m_entry.name)
+            m_idx.documents_count = documents_hash.count_of(sp, m_entry.name)
             save_models_index(root / m_entry.models_index, m_idx)
             rebuild_semantic_indexes(sp, root, resolve_model_ref, args.pythonpath)
+            rebuild_sections_indexes(sp, root, resolve_model_ref, args.pythonpath)
             cascade_hash_a(sp, root, idx)
 
     def _save_untracked(self, sp: Any, root: Path, idx: Any, args: Any, m_entry: Any, m_idx: Any, doc: Any) -> None:

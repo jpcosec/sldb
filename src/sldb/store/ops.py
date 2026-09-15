@@ -11,6 +11,7 @@ from sldb.store.io import (
 from sldb.store.io.shards import save_document_shard
 from sldb.store.layout import documents_shard_path
 from sldb.store.models import DocumentEntry, StoreIndex
+from sldb.store.section_rebuild import rebuild_sections_indexes
 from sldb.store.semantic import rebuild_semantic_indexes
 
 
@@ -36,9 +37,10 @@ class StoreOperations:
         StoreOperations._pre_check(store_path, root, m_entry, d_name)
         entry = DocumentEntry(name=d_name, path=rel_path, hash_c=hash_text(text), hash_d=_safe_hash(m_type, text))
         save_document_shard(documents_shard_path(store_path, m_entry.name, d_name), entry)
-        documents_hash.note(store_path, m_entry.name, d_name, entry.hash_c, entry.hash_d)
+        documents_hash.note(store_path, m_entry.name, entry)
         _update_model_summary(store_path, root, m_entry)
         rebuild_semantic_indexes(store_path, root, res_ref, py_path)
+        rebuild_sections_indexes(store_path, root, res_ref, py_path)
         cascade_hash_a(store_path, root, st_idx)
 
 

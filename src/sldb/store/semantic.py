@@ -4,8 +4,8 @@ import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from sldb.store import documents_hash
 from sldb.store.io import (
-    load_documents_index,
     load_models_index,
     load_semantic_dag,
     load_store_index,
@@ -47,13 +47,17 @@ def _sync_model(store_path, m_entry, root, resolver, py_path, report, new_tags: 
 def _sync_model_docs(store_path, m_entry, m_idx, root, resolver, py_path, report, new_tags: set) -> None:
     """PLAN 15 capa 7: a document's own shard (name, path, hash_c, hash_d, semantic_tags) is
     rewritten only when its semantic_tags actually changed by this sync — not the whole
-    model's documents index, and not every document's shard just because one changed."""
-    d_idx = load_documents_index(root / m_idx.documents_index)
-    current: set[str] = set()
-    for doc in d_idx.documents:
-        current.add(doc.name)
+    model's documents index, and not every document's shard just because one changed. PLAN
+    15 capa 8: with a trustworthy dirty set (this operation's own writes, or a prior sync's
+    clean baseline), only those documents are even opened — an untouched one's semantic
+    shard is never read just to confirm it agrees with a hash_c that has not moved."""
+    entries = {e.name: e for e in documents_hash.entries_of(store_path, m_entry.name)}
+    dirty = documents_hash.dirty_names(store_path, m_entry.name, "semantic")
+    to_sync = entries.values() if dirty is None else (entries[n] for n in dirty if n in entries)
+    for doc in to_sync:
         _sync_one(store_path, doc, m_entry, root, resolver, py_path, report, new_tags)
-    prune_shards(semantic_shards_dir(store_path, m_entry.name), current)
+    prune_shards(semantic_shards_dir(store_path, m_entry.name), set(entries))
+    documents_hash.clear_dirty(store_path, m_entry.name, "semantic")
 
 
 def _sync_one(store_path, doc, m_entry, root, resolver, py_path, report, new_tags: set) -> None:
@@ -65,6 +69,7 @@ def _sync_one(store_path, doc, m_entry, root, resolver, py_path, report, new_tag
     new_tags.update(rec.tags)
     if doc.semantic_tags != before:
         save_document_shard(documents_shard_path(store_path, m_entry.name, doc.name), doc)
+        documents_hash.note(store_path, m_entry.name, doc)
 
 
 def rebuild_semantic_indexes(store_path: Path, project_root: Path, resolve_model_ref, pythonpath: str | None = None, report: RebuildReport | None = None) -> RebuildReport:

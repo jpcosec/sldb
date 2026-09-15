@@ -7,6 +7,7 @@ from sldb.store.io import load_models_index, load_store_index, save_models_index
 from sldb.store.io.shards import save_document_shard
 from sldb.store.layout import documents_shard_path
 from sldb.store.ops import cascade_hash_a
+from sldb.store.section_rebuild import rebuild_sections_indexes
 from sldb.store.semantic import rebuild_semantic_indexes
 from sldb.store import documents_hash
 
@@ -57,12 +58,16 @@ def _update_doc_entry(root: Any, doc_entry: Any, model_type: type, rendered: str
 
 def _save_indices(sp: Any, root: Any, idx: Any, m_idx: Any, m_entry: Any, doc_entry: Any, pythonpath: str | None) -> None:
     with store_lock(sp):
-        save_document_shard(documents_shard_path(sp, m_entry.name, doc_entry.name), doc_entry)
-        documents_hash.note(sp, m_entry.name, doc_entry.name, doc_entry.hash_c, doc_entry.hash_d)
-        # the model's hash_b covers its documents' hashes: a field write must move it,
-        # or `stores check` fails and consumers keyed on hash_b never see the change
-        m_idx.hash_b = documents_hash.hash_b_of(sp, m_entry.name)
-        m_idx.documents_count = documents_hash.count_of(sp, m_entry.name)
-        save_models_index(root / m_entry.models_index, m_idx)
+        _save_model_summary(sp, root, m_entry, m_idx, doc_entry)
         rebuild_semantic_indexes(sp, root, resolve_model_ref, pythonpath)
+        rebuild_sections_indexes(sp, root, resolve_model_ref, pythonpath)
         cascade_hash_a(sp, root, idx)
+
+def _save_model_summary(sp: Any, root: Any, m_entry: Any, m_idx: Any, doc_entry: Any) -> None:
+    save_document_shard(documents_shard_path(sp, m_entry.name, doc_entry.name), doc_entry)
+    documents_hash.note(sp, m_entry.name, doc_entry)
+    # the model's hash_b covers its documents' hashes: a field write must move it, or
+    # `stores check` fails and consumers keyed on hash_b never see the change
+    m_idx.hash_b = documents_hash.hash_b_of(sp, m_entry.name)
+    m_idx.documents_count = documents_hash.count_of(sp, m_entry.name)
+    save_models_index(root / m_entry.models_index, m_idx)

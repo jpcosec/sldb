@@ -32,12 +32,13 @@ class DocumentsIndexIO:
 
     @staticmethod
     def load(path: Path) -> DocumentsIndex:
-        from sldb.store.io.shard_compose import compose_documents_entries
+        # PLAN 15 capa 8: `entries_of` is this operation's own cache — composed from shards
+        # at most once, reused across operations too while the model's hash_b says nothing moved.
+        from sldb.store import documents_hash
         from sldb.store.layout import documents_shards_dir, model_name_of_documents_path
-
         store_path, model_name = path.parent.parent.parent, model_name_of_documents_path(path)
         if documents_shards_dir(store_path, model_name).is_dir():
-            return DocumentsIndex(documents=compose_documents_entries(store_path, model_name))
+            return DocumentsIndex(documents=documents_hash.entries_of(store_path, model_name))
         if not path.exists():
             return DocumentsIndex()
         data = yaml_load(path.read_text(encoding="utf-8")) or {}

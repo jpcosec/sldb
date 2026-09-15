@@ -1,60 +1,117 @@
 """A model's hash_b, kept without re-reading every document shard on every write (PLAN 15
-capa 7): the child-hash map (name -> (hash_c, hash_d)) for a model is built once per
-operation (the same "operation" `new_operation` already scopes for runtime_cache_signature
-— once per Store/World opened, once per sldb CLI command), by reading every one of that
-model's document shards once; from there, this module's own `note`/`forget` update the map
-in memory as this operation's own writes touch shards, and `hash_b_of`/`count_of` recompute
-from the map — no further shard reads until the next operation. Values match
-`hashing.hash_document_entries` — the same a full scan (stores update) would give for the
-same set of documents."""
+capa 7), extended in capa 8 to also serve the composed entries themselves and to persist
+across operations: the cache is keyed by the model's own hash_b (read cheaply from its small
+models_index file, not from the shards), so a fresh operation that finds nothing moved reuses
+it verbatim — never recomposing all shards just because a new Store/World/CLI command
+started. `note`/`forget` update it in place as this operation's own writes touch shards; a
+mismatch against the on-disk hash_b (a hand edit, or `stores update`'s own full rescan)
+recomposes once. `entries_of` hands out copies — a caller mutating one of its own is not
+mutating this cache's.
+
+Dirty tracking per namespace (one consumer's catch-up must not erase what another still
+needs) lives in `documents_dirty`, called from here so `note`/`forget` stay each caller's
+only touch point: `dirty_names`/`clear_dirty` below just forward to it."""
 
 from __future__ import annotations
 
 from pathlib import Path
 
+from sldb.store import documents_dirty
 from sldb.store.hashing import hash_document_entries
-from sldb.store.io.shard_compose import compose_documents_entries
+from sldb.store.models import DocumentEntry
 
-_MAPS: dict[tuple[str, str], dict[str, tuple[str, str]]] = {}
+_ENTRIES: dict[tuple[str, str], tuple[str, dict[str, DocumentEntry], int]] = {}
+_GEN: dict[str, int] = {}
 
 
 def new_operation(s_path: Path | None = None) -> None:
-    """Drop every remembered map so the next use rebuilds it from the shards on disk."""
+    """Bumps this store's operation generation (or, with no store, drops everything): a cache
+    entry from a prior generation is re-validated against the model's on-disk hash_b before
+    its next use in this one — reused untouched if nothing moved it, recomposed otherwise."""
     if s_path is None:
-        _MAPS.clear()
+        _ENTRIES.clear()
+        _GEN.clear()
+        documents_dirty.clear_all()
         return
-    prefix = str(s_path)
-    for key in [k for k in _MAPS if k[0] == prefix]:
-        del _MAPS[key]
+    _GEN[str(s_path)] = _GEN.get(str(s_path), 0) + 1
 
 
 def invalidate(s_path: Path, model_name: str) -> None:
-    """Drop one model's remembered map (sldb.cli.commands.store_update recomputes hash_b by
-    a full scan of every document's actual file content — a hand edit can change hash_c/
-    hash_d there without going through `note`/`forget`; the next use rebuilds from shards)."""
-    _MAPS.pop((str(s_path), model_name), None)
+    """Drop one model's cache and every namespace's dirty baseline outright: something moved
+    hash_c/hash_d (or might have) outside `note`/`forget`, so both are rebuilt (and a full
+    comparison, not a partial dirty set) the next time either is used."""
+    _ENTRIES.pop((str(s_path), model_name), None)
+    documents_dirty.invalidate(s_path, model_name)
 
 
-def _map_for(s_path: Path, model_name: str) -> dict[str, tuple[str, str]]:
-    key = (str(s_path), model_name)
-    if key not in _MAPS:
-        _MAPS[key] = {e.name: (e.hash_c, e.hash_d) for e in compose_documents_entries(s_path, model_name)}
-    return _MAPS[key]
+def _on_disk_hash_b(s_path: Path, model_name: str) -> str | None:
+    from sldb.store.io import load_models_index, load_store_index
+    from sldb.store.layout import project_root
+
+    entry = next((m for m in load_store_index(s_path).models if m.name == model_name), None)
+    return None if entry is None else load_models_index(project_root(s_path) / entry.models_index).hash_b
 
 
-def note(s_path: Path, model_name: str, doc_name: str, hash_c: str, hash_d: str) -> None:
-    """This document's shard was just written with these hashes."""
-    _map_for(s_path, model_name)[doc_name] = (hash_c, hash_d)
+def _compose(s_path: Path, model_name: str) -> dict[str, DocumentEntry]:
+    from sldb.store.io.shard_compose import compose_documents_entries
+
+    return {e.name: e for e in compose_documents_entries(s_path, model_name)}
+
+
+def _hash_b(entries: dict[str, DocumentEntry]) -> str:
+    return hash_document_entries((e.name, e.hash_c, e.hash_d) for e in entries.values())
+
+
+def _get(s_path: Path, model_name: str) -> tuple[str, dict[str, DocumentEntry]]:
+    key, gen = (str(s_path), model_name), _GEN.get(str(s_path), 0)
+    cached = _ENTRIES.get(key)
+    if cached is not None and (cached[2] == gen or cached[0] == _on_disk_hash_b(s_path, model_name)):
+        _ENTRIES[key] = (cached[0], cached[1], gen)
+        return cached[0], cached[1]
+    entries = _compose(s_path, model_name)
+    _ENTRIES[key] = (_hash_b(entries), entries, gen)
+    return _ENTRIES[key][0], entries
+
+
+def _restamp(s_path: Path, model_name: str, entries: dict[str, DocumentEntry]) -> None:
+    _ENTRIES[(str(s_path), model_name)] = (_hash_b(entries), entries, _GEN.get(str(s_path), 0))
+
+
+def note(s_path: Path, model_name: str, entry: DocumentEntry) -> None:
+    """This document's shard was just written as `entry`."""
+    _, entries = _get(s_path, model_name)
+    entries[entry.name] = entry
+    _restamp(s_path, model_name, entries)
+    documents_dirty.mark(s_path, model_name, entry.name)
 
 
 def forget(s_path: Path, model_name: str, doc_name: str) -> None:
     """This document's shard was just deleted."""
-    _map_for(s_path, model_name).pop(doc_name, None)
+    _, entries = _get(s_path, model_name)
+    entries.pop(doc_name, None)
+    _restamp(s_path, model_name, entries)
+    documents_dirty.mark(s_path, model_name, doc_name)
 
 
 def hash_b_of(s_path: Path, model_name: str) -> str:
-    return hash_document_entries((n, hc, hd) for n, (hc, hd) in _map_for(s_path, model_name).items())
+    return _get(s_path, model_name)[0]
 
 
 def count_of(s_path: Path, model_name: str) -> int:
-    return len(_map_for(s_path, model_name))
+    return len(_get(s_path, model_name)[1])
+
+
+def entries_of(s_path: Path, model_name: str) -> list[DocumentEntry]:
+    return [e.model_copy() for e in _get(s_path, model_name)[1].values()]
+
+
+def dirty_names(s_path: Path, model_name: str, namespace: str) -> set[str] | None:
+    """Names noted/forgotten in `namespace` ("semantic", "sections", ...) since its last
+    `clear_dirty` — or None with no baseline to trust: the caller's cue to compare every
+    document once instead."""
+    return documents_dirty.names(s_path, model_name, namespace)
+
+
+def clear_dirty(s_path: Path, model_name: str, namespace: str) -> None:
+    """This namespace's consumer just brought every one of this model's documents current."""
+    documents_dirty.clear(s_path, model_name, namespace)
