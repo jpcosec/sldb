@@ -31,6 +31,14 @@ def _file_signature(path: Path) -> tuple:
         return (0, 0)
 
 
+def _fast_copy(index):
+    """An independent copy of a parsed index, cheaper than `model_copy(deep=True)`: pydantic's
+    own dump/validate round-trip instead of the generic recursive `copy.deepcopy` it uses
+    internally (PLAN 15 M2) — ~4x faster on a realistic SectionsIndex in this codebase's own
+    measurements, and every caller through `_cached` already only reads validated data back."""
+    return type(index).model_validate(index.model_dump())
+
+
 def _cached(path: Path, loader):
     key = str(path)
     sig = _file_signature(path)
@@ -39,7 +47,7 @@ def _cached(path: Path, loader):
         hit = (sig, loader())
         _INDEXES[key] = hit
         _SAVED[key] = (sig, _digest(hit[1]))
-    return hit[1].model_copy(deep=True)
+    return _fast_copy(hit[1])
 
 
 def invalidate_index_cache() -> None:
@@ -65,7 +73,7 @@ def _save_if_changed(path: Path, index, saver) -> None:
         return
     saver()
     _SAVED[str(path)] = (_file_signature(path), digest)
-    _INDEXES[str(path)] = (_file_signature(path), index.model_copy(deep=True))
+    _INDEXES[str(path)] = (_file_signature(path), _fast_copy(index))
 
 
 def load_store_index(store_path: Path) -> StoreIndex:

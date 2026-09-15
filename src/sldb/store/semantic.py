@@ -6,7 +6,6 @@ from collections import defaultdict
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from sldb.store.codec import StoreCodec, default_codec
 from sldb.store.io import (
     load_documents_index,
     load_models_index,
@@ -29,7 +28,7 @@ from sldb.store.models import (
     SemanticIndex,
     SemanticNode,
 )
-from sldb.store.semantic_doc_tags import tags_of as _tags_of
+from sldb.store.semantic_doc_contribution import doc_contribution as _doc_contribution
 from sldb.store.semantic_tags import _prefix_edges
 import re
 def _slugify(text: str) -> str: return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
@@ -46,21 +45,17 @@ class RebuildReport:
     verbose: list[str] = field(default_factory=list)
 
 
-def _process_doc(doc, doc_path, model_type, m_name, report, codec: StoreCodec = default_codec):
-    report.docs_processed += 1
-    doc.semantic_tags = list(_tags_of(doc, doc_path, model_type, m_name, codec))
-    return SemanticDocumentRecord(model=m_name, path=doc.path, tags=doc.semantic_tags)
-
-
-def _walk_model(m_entry, m_idx, root, resolver, py_path, report) -> dict:
-    """The model's contribution to the semantic indexes, walking its documents."""
+def _walk_model(m_entry, m_idx, root, resolver, py_path, report, stale: dict | None = None) -> dict:
+    """The model's contribution to the semantic indexes: a document whose `hash_c` matches
+    what `stale` (the model's last cached contribution, key or no key) recorded it as comes
+    back unprocessed — extracted (and tagged) only when its text moved (PLAN 15 M2)."""
     d_idx = load_documents_index(root / m_idx.documents_index)
+    stale_docs = (stale or {}).get("docs", {})
     docs, tags, prefix = {}, defaultdict(list), set()
     for doc in d_idx.documents:
         if not (d_path := root / doc.path).exists():
             report.docs_skipped_missing += 1; continue
-        rec = _process_doc(doc, d_path, resolver(m_entry.model_ref, py_path), m_entry.name, report)
-        docs[doc.name] = {"model": rec.model, "path": rec.path, "tags": rec.tags}
+        docs[doc.name] = _doc_contribution(doc, d_path, stale_docs.get(doc.name), m_entry, resolver, py_path, report)
         _note_tags(doc, tags, prefix)
     save_documents_index(root / m_idx.documents_index, d_idx)
     return {"docs": docs, "tags": dict(tags), "prefix": sorted(prefix)}
@@ -72,20 +67,23 @@ def _note_tags(doc, tags, prefix) -> None:
 
 
 def _model_contribution(s_path, m_entry, root, resolver, py_path, report) -> dict:
-    """From the built cache when the model's hash_b did not move, else walked and recorded."""
+    """From the built cache when the model's hash_b did not move; otherwise walked, reusing
+    (from the same cache, key mismatch and all) the per-document work of every document
+    whose own hash_c is unchanged — only a new or edited document is actually extracted."""
     from sldb.store import built_cache
     m_idx = load_models_index(root / m_entry.models_index)
     key = built_cache.model_key(m_idx)
     hit = built_cache.get(s_path, "semantic", m_entry.name, key)
     if hit is not None:
         report.docs_processed += len(hit["docs"]); return hit
-    value = _walk_model(m_entry, m_idx, root, resolver, py_path, report)
+    stale = built_cache.get_stale(s_path, "semantic", m_entry.name)
+    value = _walk_model(m_entry, m_idx, root, resolver, py_path, report, stale=stale)
     built_cache.put(s_path, "semantic", m_entry.name, key, value)
     return value
 
 
 def _merge(c: dict, docs_dict, t_to_d, p_by_n) -> None:
-    for name, rec in c["docs"].items(): docs_dict[name] = SemanticDocumentRecord(**rec)
+    for name, rec in c["docs"].items(): docs_dict[name] = SemanticDocumentRecord(model=rec["model"], path=rec["path"], tags=rec["tags"])
     for tag, names in c["tags"].items(): t_to_d[tag].extend(names)
     for p, child in c["prefix"]: p_by_n[child].add(p); p_by_n.setdefault(p, set())
 
