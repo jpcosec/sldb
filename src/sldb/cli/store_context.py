@@ -6,6 +6,8 @@ from sldb.core.exceptions import SLDBStoreError
 from sldb.store.layout import project_root, store_exists
 from sldb.store.migration import migrate_store_layout
 from sldb.store.io import load_store_index
+from sldb.store.runtime_cache import new_operation
+from sldb.store.documents_hash import new_operation as new_documents_hash_operation
 
 def _handle_global_store(global_store: Path, mode: str, cwd: Path) -> Path:
     if not global_store.exists():
@@ -55,8 +57,13 @@ def _resolve_store_arg(store_arg: str) -> Path:
     return candidate
 
 def get_store_context(store_arg: str | None, mode: str = "default") -> tuple[Path, Path]:
+    """Resolves once per Store/World opened (pron: once per session) or per sldb CLI command
+    — the natural "start of an operation" a fresh document-leaf sweep belongs to (PLAN 15
+    capa 6: `new_operation` schedules that sweep for the next `runtime_cache.signature`)."""
     sp = _resolve_store_arg(store_arg) if store_arg else _find_default_store(mode)
     root = project_root(sp)
     if store_exists(sp):
         migrate_store_layout(sp, root)
+    new_operation(sp)
+    new_documents_hash_operation(sp)
     return sp, root

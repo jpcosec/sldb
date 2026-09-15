@@ -1,56 +1,27 @@
-"""Caches for the runtime documents of a store, keyed by the store's hash chain. hash_a
-covers the models layer, each model's hash_b covers its documents, each document's hash_c
-covers its text; every write through sldb moves the chain from the leaf up. So a query
-descends only where a hash moved: the store index (one stat), the model indexes, and the
-documents whose hash_c changed. One concession to Markdown edited by hand: the leaves are
-also stat-ed (mtime and size, microseconds per file, no reads) so an edit made behind
-sldb's back is seen before `stores update` moves its hash. A store that is only written
-through sldb can set SLDB_TRUST_CHAIN=1 and skip that sweep. Two levels in memory, the
-whole store and each document; a third on disk (runtime_cache_disk) spares a new process
-the extraction. Cached documents are shared objects: a caller that mutates a payload
-copies it first."""
+"""Caches for the runtime documents of a store, keyed by its signature (sldb.store.
+runtime_cache_signature: hash_a, every model's hash_b, and the current operation's document
+leaf sweep — see that module for the hand-edit guarantee PLAN 15 capa 6 changed). Two levels
+in memory, the whole store and each document; a third on disk (runtime_cache_disk) spares a
+new process the extraction. Cached documents are shared objects: a caller that mutates a
+payload copies it first."""
 
 from __future__ import annotations
 
-import os
 from dataclasses import replace
 from pathlib import Path
 from typing import Any, Callable
 
 from sldb.store import runtime_cache_disk as disk
-from sldb.store.io import load_documents_index, load_models_index, load_store_index
-from sldb.store.layout import project_root
+from sldb.store.runtime_cache_signature import (
+    forget as _forget_signature,
+    leaf as _leaf,
+    new_operation,  # noqa: F401 - re-exported: get_store_context calls this
+    signature,
+    trust_chain,  # noqa: F401 - re-exported: tests set SLDB_TRUST_CHAIN and check this
+)
 
 _STORES: dict[tuple, tuple[tuple, list]] = {}
 _DOCS: dict[tuple, Any] = {}
-
-
-def trust_chain() -> bool:
-    return os.environ.get("SLDB_TRUST_CHAIN", "") not in ("", "0")
-
-
-def _leaf(root: Path, entry: Any) -> tuple:
-    """A document's place in the chain, plus its file state unless the chain is trusted."""
-    if trust_chain():
-        return (entry.path, entry.hash_c)
-    try:
-        st = (root / entry.path).stat()
-        return (entry.path, entry.hash_c, st.st_mtime_ns, st.st_size)
-    except OSError:
-        return (entry.path, entry.hash_c, 0, 0)
-
-
-def signature(s_path: Path) -> tuple:
-    """hash_a, every model's hash_b, and (unless trusted) the state of every document file."""
-    root = project_root(s_path)
-    idx = load_store_index(s_path)
-    parts: list = [idx.hash_a]
-    for m in idx.models:
-        m_idx = load_models_index(root / m.models_index)
-        parts.append((m.name, m_idx.hash_b))
-        if not trust_chain():
-            parts.extend(_leaf(root, d) for d in load_documents_index(root / m_idx.documents_index).documents)
-    return tuple(parts)
 
 
 def cached_store(s_path: Path, s_name: str, pythonpath: str | None, loader: Callable[[], list]) -> list:
@@ -102,9 +73,11 @@ def payload_of(rel_path: str, hash_c: str, m_name: str) -> dict | None:
 
 
 def invalidate_runtime_cache(store_path: Path | None = None) -> None:
-    """Drop the cached documents of one store, or of every store."""
+    """Drop the cached documents of one store, or of every store; either way, a call to
+    signature() for that store sweeps document leaves fresh again next time too."""
     if store_path is None:
-        _STORES.clear(); _DOCS.clear(); disk.clear()
+        _STORES.clear(); _DOCS.clear(); disk.clear(); _forget_signature(None)
         return
     for key in [k for k in _STORES if k[0] == str(store_path)]:
         del _STORES[key]
+    _forget_signature(store_path)

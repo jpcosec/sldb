@@ -1,15 +1,12 @@
 from __future__ import annotations
-import logging
 import re
 from pathlib import Path
 
-from sldb.store.io import load_documents_index, load_models_index, save_sections_index, save_models_index, load_store_index
-from sldb.store.layout import sections_index_relpath
-from sldb.store.models import DocSections, SectionContextRecord, SectionsIndex
+from sldb.store.io import load_store_index
+from sldb.store.models import DocSections, SectionContextRecord
+from sldb.store.section_sync import process_model_sections
 from sldb.store.semantic import RebuildReport, _about_terms
-from sldb.store.section_paths import section_cache_key, section_path, unique_slug
-
-logger = logging.getLogger(__name__)
+from sldb.store.section_paths import section_path, unique_slug
 
 def _slugify(text: str) -> str:
     slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
@@ -40,7 +37,6 @@ def _extract_sections(markdown: str) -> list[dict]:
         if sec: sections.append(sec); stack.append(sec)
     _extend_section_spans(sections, len(markdown.splitlines()))
     return sections
-
 
 
 def _extend_section_spans(sections: list[dict], last_line: int) -> None:
@@ -79,32 +75,9 @@ def _process_doc_sections(doc, d_path, report):
         records.append(SectionContextRecord(path=s["path"], title=s["title"], breadcrumbs=b_crumbs, about=_about_terms(b_crumbs, tags), semantic_tags=tags, slug=s["slug"], level=s["level"], line_start=s.get("line_start"), line_end=s.get("line_end")))
     return DocSections(doc_name=doc.name, sections=records)
 
-def _process_model_sections(m_entry, root, report, store_path: Path | None = None):
-    from sldb.store import built_cache
-    m_idx = load_models_index(root / m_entry.models_index)
-    s_rel, key = sections_index_relpath(m_entry.name), section_cache_key(m_idx)
-    done = built_cache.get(store_path, "sections", m_entry.name, key) if store_path else None
-    if done is not None and (root / s_rel).exists() and m_idx.sections_index == s_rel:
-        report.docs_processed += done["docs"]; report.docs_empty_sections += done["empty"]; return
-    _save_sections(m_entry, m_idx, root, s_rel, _walk_sections(m_entry, m_idx, root, report), store_path, key)
-
-def _save_sections(m_entry, m_idx, root, s_rel, d_sections, store_path, key):
-    from sldb.store import built_cache
-    if not d_sections: return
-    save_sections_index(root / s_rel, SectionsIndex(documents=d_sections))
-    m_idx.sections_index = s_rel; save_models_index(root / m_entry.models_index, m_idx)
-    if store_path: built_cache.put(store_path, "sections", m_entry.name, key, {"docs": len(d_sections), "empty": sum(1 for d in d_sections if not d.sections)})
-
-
-def _walk_sections(m_entry, m_idx, root, report) -> list:
-    d_sections = []
-    for doc in load_documents_index(root / m_idx.documents_index).documents:
-        d_path = root / doc.path
-        if not d_path.exists(): report.docs_skipped_missing += 1; report.verbose.append(f"sections: {doc.name} — missing file {d_path}"); logger.warning(f"Sections rebuild: doc '{doc.name}' missing at {d_path}"); continue
-        d_sections.append(_process_doc_sections(doc, d_path, report))
-    return d_sections
 
 def rebuild_sections_indexes(store_path: Path, project_root: Path, resolve_model_ref, pythonpath: str | None = None, report: RebuildReport | None = None) -> RebuildReport:
     report = report or RebuildReport()
-    for m in load_store_index(store_path).models: _process_model_sections(m, project_root, report, store_path)
+    for m in load_store_index(store_path).models:
+        process_model_sections(m, project_root, report, store_path, _process_doc_sections)
     return report

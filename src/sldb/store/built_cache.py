@@ -36,6 +36,14 @@ def get(s_path: Path, kind: str, model: str, key: str) -> Any:
     return entry["value"] if entry is not None and entry.get("key") == key else None
 
 
+def get_stale(s_path: Path, kind: str, model: str) -> Any:
+    """The last value cached for `model`, regardless of whether its key still matches: a
+    rebuild whose key moved (one document's hash_c changed the model's hash_b) still finds
+    here the per-document work it does not need to redo (PLAN 15 M2)."""
+    entry = _all(s_path).get(kind, {}).get(model)
+    return entry["value"] if entry is not None else None
+
+
 def put(s_path: Path, kind: str, model: str, key: str, value: Any) -> None:
     _all(s_path).setdefault(kind, {})[model] = {"key": key, "value": value}
     try:

@@ -84,9 +84,12 @@ def test_load_store_index_missing_raises(tmp_path):
 
 
 def test_save_creates_parent_dirs(tmp_path):
+    # PLAN 15 capa 7: an empty index shards out nothing, so nothing is created for it any
+    # more (there is no document to have a shard) — a non-empty one still needs its shard's
+    # own parent directories made.
     path = tmp_path / "a" / "b" / "docs.yaml"
-    save_documents_index(path, DocumentsIndex())
-    assert path.exists()
+    save_documents_index(path, DocumentsIndex(documents=[DocumentEntry(name="en", path="content/en.md", hash_c="aaa", hash_d="bbb")]))
+    assert load_documents_index(path).documents[0].name == "en"
 
 
 def test_sections_index_roundtrip(tmp_path):

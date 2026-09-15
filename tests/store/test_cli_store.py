@@ -4,10 +4,9 @@ from pathlib import Path
 from pydantic import Field
 from sldb import StructuredNLDoc
 from sldb.cli import main as cli_main
-from sldb.store.io import load_store_index, load_models_index, load_documents_index
+from sldb.store.io import load_semantic_index, load_store_index, load_models_index, load_documents_index
 from sldb.store.layout import (
     semantic_dag_path,
-    semantic_index_path,
     store_index_path,
 )
 
@@ -56,7 +55,9 @@ def test_store_init_creates_index(tmp_path):
     index = load_store_index(tmp_path / ".sldb")
     assert index.stores == [] and index.models == []
     assert store_index_path(tmp_path / ".sldb").exists()
-    assert semantic_index_path(tmp_path / ".sldb").exists()
+    # PLAN 15 capa 5: the semantic index is per-document shards, none yet for an empty store —
+    # not one store-wide file — so it composes empty rather than existing on disk.
+    assert load_semantic_index(tmp_path / ".sldb").documents == {}
     assert semantic_dag_path(tmp_path / ".sldb").exists()
 
 

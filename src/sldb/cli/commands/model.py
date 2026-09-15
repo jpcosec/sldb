@@ -21,6 +21,7 @@ from sldb.store.ops import cascade_hash_a
 from sldb.store.semantic import rebuild_semantic_indexes
 from sldb.store.semantic_tags import flatten_model_semantics
 from sldb.cli.commands.model_add import model_base_names, model_family
+from sldb.store import documents_hash
 from sldb.core.exceptions import SLDBModelError, SLDBError
 
 
@@ -80,7 +81,9 @@ class ModelCLI:
             if getattr(args, "bump_version", False):
                 m_idx.version += 1; m_entry.version = m_idx.version
             m_idx.hash_b = hash_documents_index(d_idx)
+            m_idx.documents_count = len(d_idx.documents)
             save_models_index(root / m_entry.models_index, m_idx)
+            documents_hash.invalidate(sp, m_entry.name)  # a full scan just moved hash_c/hash_d
             rebuild_semantic_indexes(sp, root, resolve_model_ref, args.pythonpath)
             cascade_hash_a(sp, root, idx)
 
