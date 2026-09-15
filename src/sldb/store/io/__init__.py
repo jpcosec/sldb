@@ -18,7 +18,7 @@ def store_lock(store_path: Path, wait: bool = False):
 # a deep copy so a caller that mutates and saves it never changes the cached object; the save
 # changes the file, and the next load sees a new signature.
 
-from sldb.store.layout import semantic_dag_path as _semantic_dag_path, semantic_index_path as _semantic_index_path, store_index_path as _store_index_path
+from sldb.store.layout import semantic_dag_path as _semantic_dag_path, store_index_path as _store_index_path
 
 _INDEXES: dict[str, tuple[tuple, object]] = {}
 
@@ -95,10 +95,14 @@ def save_documents_index(path: Path, index: DocumentsIndex) -> None:
     _save_if_changed(path, index, lambda: DocumentsIndexIO.save(path, index))
 
 def load_sections_index(path: Path) -> SectionsIndex:
-    return _cached(path, lambda: SectionsIndexIO.load(path))
+    # PLAN 15 capa 5: composed from per-document shards, not one file at `path` (which may not
+    # exist at all once sharded) — the (path, mtime/size) cache above would freeze on its first
+    # ever call for this path (signature (0, 0), forever, once there is no file there). Shards
+    # already cache themselves, per shard, in sldb.store.io.shards.
+    return SectionsIndexIO.load(path)
 
 def save_sections_index(path: Path, index: SectionsIndex) -> None:
-    _save_if_changed(path, index, lambda: SectionsIndexIO.save(path, index))
+    SectionsIndexIO.save(path, index)
 
 def load_semantic_dag(store_path: Path) -> SemanticDAG:
     return _cached(_semantic_dag_path(store_path), lambda: SemanticDAGIO.load(store_path))
@@ -107,7 +111,9 @@ def save_semantic_dag(store_path: Path, dag: SemanticDAG) -> None:
     _save_if_changed(_semantic_dag_path(store_path), dag, lambda: SemanticDAGIO.save(store_path, dag))
 
 def load_semantic_index(store_path: Path) -> SemanticIndex:
-    return _cached(_semantic_index_path(store_path), lambda: SemanticIndexIO.load(store_path))
+    # PLAN 15 capa 5: composed from per-document shards, not the one (now legacy) file this
+    # cache is keyed on — see load_sections_index for why that cache cannot be reused here.
+    return SemanticIndexIO.load(store_path)
 
 def save_semantic_index(store_path: Path, index: SemanticIndex) -> None:
-    _save_if_changed(_semantic_index_path(store_path), index, lambda: SemanticIndexIO.save(store_path, index))
+    SemanticIndexIO.save(store_path, index)

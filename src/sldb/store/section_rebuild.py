@@ -1,15 +1,11 @@
 from __future__ import annotations
-import logging
 import re
 from pathlib import Path
 
-from sldb.store.io import load_models_index, load_store_index
-from sldb.store.layout import sections_index_relpath
+from sldb.store.io import load_store_index
 from sldb.store.models import DocSections, SectionContextRecord
-from sldb.store.section_doc_contribution import save_sections as _save_sections, walk_sections as _walk_sections
+from sldb.store.section_sync import process_model_sections
 from sldb.store.semantic import RebuildReport, _about_terms
-
-logger = logging.getLogger(__name__)
 
 def _slugify(text: str) -> str:
     slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
@@ -68,19 +64,9 @@ def _process_doc_sections(doc, d_path, report):
         records.append(SectionContextRecord(path=s["path"], title=s["title"], breadcrumbs=b_crumbs, about=_about_terms(b_crumbs, tags), semantic_tags=tags, slug=s["slug"], level=s["level"], line_start=s.get("line_start"), line_end=s.get("line_end")))
     return DocSections(doc_name=doc.name, sections=records)
 
-def _process_model_sections(m_entry, root, report, store_path: Path | None = None):
-    from sldb.store import built_cache
-    m_idx = load_models_index(root / m_entry.models_index)
-    s_rel, key = sections_index_relpath(m_entry.name), built_cache.model_key(m_idx)
-    done = built_cache.get(store_path, "sections", m_entry.name, key) if store_path else None
-    if done is not None and (root / s_rel).exists() and m_idx.sections_index == s_rel:
-        report.docs_processed += done["docs"]; report.docs_empty_sections += done["empty"]; return
-    stale = built_cache.get_stale(store_path, "sections", m_entry.name) if store_path else None
-    entries = _walk_sections(m_entry, m_idx, root, report, _process_doc_sections, stale=stale)
-    _save_sections(m_entry, m_idx, root, s_rel, entries, store_path, key)
 
 def rebuild_sections_indexes(store_path: Path, project_root: Path, resolve_model_ref, pythonpath: str | None = None, report: RebuildReport | None = None) -> RebuildReport:
     report = report or RebuildReport()
-    for m in load_store_index(store_path).models: _process_model_sections(m, project_root, report, store_path)
+    for m in load_store_index(store_path).models:
+        process_model_sections(m, project_root, report, store_path, _process_doc_sections)
     return report
-

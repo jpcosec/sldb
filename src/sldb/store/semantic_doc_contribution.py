@@ -1,26 +1,31 @@
-"""One model document's contribution to the semantic index, remembered by `hash_c` so a
-rebuild only extracts a document whose text moved (PLAN 15 M2): `doc_contribution` is what
-`_walk_model` (semantic.py) calls per document, reusing the entry a previous walk recorded
-for it — from the built cache, key mismatch and all — when its `hash_c` still matches."""
+"""One document's semantic shard (PLAN 15 capa 5): the shard itself, keyed by `hash_c`, is
+now the cache — a document whose `hash_c` matches what its shard already says is left
+untouched; a new or changed one is extracted and its shard (re)written, on its own, no other
+document's shard is read or rewritten."""
 
 from __future__ import annotations
 
 from sldb.store.codec import StoreCodec, default_codec
+from sldb.store.io.shards import load_semantic_shard, save_semantic_shard
+from sldb.store.layout import semantic_shard_path
 from sldb.store.models import SemanticDocumentRecord
 from sldb.store.semantic_doc_tags import tags_of as _tags_of
 
 
-def process_doc(doc, doc_path, model_type, m_name, report, codec: StoreCodec = default_codec):
+def process_doc(doc, doc_path, model_type, m_name, report, codec: StoreCodec = default_codec) -> SemanticDocumentRecord:
     report.docs_processed += 1
     doc.semantic_tags = list(_tags_of(doc, doc_path, model_type, m_name, codec))
-    return SemanticDocumentRecord(model=m_name, path=doc.path, tags=doc.semantic_tags)
+    return SemanticDocumentRecord(model=m_name, path=doc.path, tags=doc.semantic_tags, hash_c=doc.hash_c)
 
 
-def doc_contribution(doc, d_path, cached, m_entry, resolver, py_path, report) -> dict:
-    """One document's semantic entry: `cached` (from a previous walk) reused as-is when its
-    `hash_c` still matches, otherwise extracted fresh."""
-    if cached is not None and cached.get("hash_c") == doc.hash_c:
-        doc.semantic_tags = list(cached["tags"])
-        return dict(cached)
+def sync_doc_shard(store_path, doc, d_path, m_entry, resolver, py_path, report) -> SemanticDocumentRecord:
+    """This document's semantic shard, current: reused untouched when its `hash_c` already
+    matches what the shard on disk carries, (re)extracted and (re)written otherwise."""
+    path = semantic_shard_path(store_path, m_entry.name, doc.name)
+    cached = load_semantic_shard(path)
+    if cached is not None and cached.hash_c == doc.hash_c:
+        doc.semantic_tags = list(cached.tags)
+        return cached
     rec = process_doc(doc, d_path, resolver(m_entry.model_ref, py_path), m_entry.name, report)
-    return {"model": rec.model, "path": rec.path, "tags": rec.tags, "hash_c": doc.hash_c}
+    save_semantic_shard(path, rec)
+    return rec

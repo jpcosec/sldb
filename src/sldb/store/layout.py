@@ -59,6 +59,31 @@ def sections_index_relpath(model_name: str) -> str:
     return f".sldb/runtime/sections/{model_name}.yaml"
 
 
+def semantic_shards_dir(store_path: Path, model_name: str) -> Path:
+    """One document's semantic contribution per file (PLAN 15 capa 5): a write touches only
+    its own shard, never the whole store's."""
+    return runtime_dir(store_path) / "semantic" / model_name
+
+
+def semantic_shard_path(store_path: Path, model_name: str, doc_name: str) -> Path:
+    return semantic_shards_dir(store_path, model_name) / f"{doc_name}.yaml"
+
+
+def sections_shards_dir(store_path: Path, model_name: str) -> Path:
+    """One document's sections per file (PLAN 15 capa 5), keyed by the same model name the
+    legacy per-model `sections_index_relpath` file used."""
+    return runtime_dir(store_path) / "sections" / model_name
+
+
+def sections_shard_path(store_path: Path, model_name: str, doc_name: str) -> Path:
+    return sections_shards_dir(store_path, model_name) / f"{doc_name}.yaml"
+
+
+def model_name_of_sections_path(path: Path) -> str:
+    """The model name a (legacy-shaped, still used as a key) per-model sections path names."""
+    return path.stem
+
+
 def store_exists(store_path: Path) -> bool:
     return (
         store_index_path(store_path).exists()
