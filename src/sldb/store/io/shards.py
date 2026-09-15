@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Any, Callable, TypeVar
 
 from sldb.store.io.utils import StoreIOUtils, yaml_dump, yaml_load
-from sldb.store.models import DocSections, SemanticDocumentRecord
+from sldb.store.models import DocSections, DocumentEntry, SemanticDocumentRecord
 
 T = TypeVar("T")
 
@@ -43,6 +43,17 @@ def invalidate_shard_cache() -> None:
     _SHARDS.clear()
 
 
+def _save_shard(path: Path, value: Any, loader: Callable[[], T]) -> None:
+    """Write only when the content differs from the shard already there (the same "leave the
+    file alone" guarantee the single-file indexes always gave): a rebuild or a re-save of the
+    same value costs a read of the cached/on-disk shard, not a write."""
+    if path.exists() and _cached_shard(path, loader) == value:
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    StoreIOUtils._atomic_write(path, yaml_dump(value.model_dump()))
+    _SHARDS[str(path)] = (_signature(path), value)
+
+
 def load_semantic_shard(path: Path) -> SemanticDocumentRecord | None:
     if not path.exists():
         _forget_shard(path)
@@ -51,9 +62,7 @@ def load_semantic_shard(path: Path) -> SemanticDocumentRecord | None:
 
 
 def save_semantic_shard(path: Path, record: SemanticDocumentRecord) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    StoreIOUtils._atomic_write(path, yaml_dump(record.model_dump()))
-    _SHARDS[str(path)] = (_signature(path), record)
+    _save_shard(path, record, lambda: SemanticDocumentRecord(**(yaml_load(path.read_text(encoding="utf-8")) or {})))
 
 
 def load_sections_shard(path: Path) -> DocSections | None:
@@ -64,9 +73,18 @@ def load_sections_shard(path: Path) -> DocSections | None:
 
 
 def save_sections_shard(path: Path, doc_sections: DocSections) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    StoreIOUtils._atomic_write(path, yaml_dump(doc_sections.model_dump()))
-    _SHARDS[str(path)] = (_signature(path), doc_sections)
+    _save_shard(path, doc_sections, lambda: DocSections(**(yaml_load(path.read_text(encoding="utf-8")) or {})))
+
+
+def load_document_shard(path: Path) -> DocumentEntry | None:
+    if not path.exists():
+        _forget_shard(path)
+        return None
+    return _cached_shard(path, lambda: DocumentEntry(**(yaml_load(path.read_text(encoding="utf-8")) or {})))
+
+
+def save_document_shard(path: Path, entry: DocumentEntry) -> None:
+    _save_shard(path, entry, lambda: DocumentEntry(**(yaml_load(path.read_text(encoding="utf-8")) or {})))
 
 
 def delete_shard(path: Path) -> None:

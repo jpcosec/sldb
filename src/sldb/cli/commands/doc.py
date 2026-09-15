@@ -6,12 +6,16 @@ import yaml
 
 from sldb.cli.store_context import get_store_context
 from sldb.cli.model_utils import registered_model, resolve_model_ref
+from sldb.cli.commands.doc_lookup import find_doc
 from sldb.runtime.validation import render_model_markdown, validate_model_input_roundtrip
-from sldb.store.io import load_store_index, load_models_index, load_documents_index, save_documents_index, save_models_index, store_lock
-from sldb.store.hashing import hash_text, hash_fields, hash_documents_index
+from sldb.store.io import load_store_index, save_models_index, store_lock
+from sldb.store.io.shards import delete_shard, save_document_shard
+from sldb.store.hashing import hash_text, hash_fields
+from sldb.store.layout import documents_shard_path
 from sldb.store.section_rebuild import rebuild_sections_indexes
 from sldb.store.semantic import rebuild_semantic_indexes
 from sldb.store.ops import cascade_hash_a, track_document
+from sldb.store import documents_hash
 from sldb.core.exceptions import SLDBValidationError, SLDBASTError, SLDBError
 
 class DocCLI:
@@ -53,36 +57,33 @@ class DocCLI:
         print(f"Tracked '{args.name or path.stem}'")
         return 0
 
-    def _find_doc(self, root: Path, idx: Any, doc_ref: str) -> tuple[Any, Any, Any, Any]:
-        for m_entry in idx.models:
-            m_idx, d_idx = load_models_index(root / m_entry.models_index), load_documents_index(root / load_models_index(root / m_entry.models_index).documents_index)
-            if doc := next((d for d in d_idx.documents if d.name == doc_ref or d.path == doc_ref), None): return m_entry, m_idx, d_idx, doc
-        raise SLDBError(f"Doc '{doc_ref}' not found.")
-
     def update(self, args: Any) -> int:
         sp, root = get_store_context(args.store)
-        m_entry, m_idx, d_idx, doc = self._find_doc(root, load_store_index(sp), args.doc)
+        m_entry, m_idx, doc = find_doc(sp, root, load_store_index(sp), args.doc)
         model_type = resolve_model_ref(m_entry.model_ref, args.pythonpath)
         rendered = render_model_markdown(model_type, self._parse_payload(args.payload))
         if not validate_model_input_roundtrip(model_type, rendered)[0]: raise SLDBValidationError("Update fail", validate_model_input_roundtrip(model_type, rendered)[1])
         (root / doc.path).write_text(rendered + "\n", encoding="utf-8")
         doc.hash_c, doc.hash_d = hash_text(rendered + "\n"), hash_fields(model_type, rendered + "\n")
-        self._save_updated(sp, root, load_store_index(sp), m_entry, m_idx, d_idx, args)
+        self._save_updated(sp, root, load_store_index(sp), m_entry, m_idx, doc, args)
         print(f"Updated '{doc.name}'")
         return 0
 
-    def _save_updated(self, sp: Any, root: Path, idx: Any, m_entry: Any, m_idx: Any, d_idx: Any, args: Any) -> None:
+    def _save_updated(self, sp: Any, root: Path, idx: Any, m_entry: Any, m_idx: Any, doc: Any, args: Any) -> None:
         with store_lock(sp):
-            save_documents_index(root / m_idx.documents_index, d_idx)
-            m_idx.hash_b = ""
+            save_document_shard(documents_shard_path(sp, m_entry.name, doc.name), doc)
+            documents_hash.note(sp, m_entry.name, doc.name, doc.hash_c, doc.hash_d)
+            m_idx.hash_b = ""   # left blank here, same as before capa 7; the next rebuild fills it
             save_models_index(root / m_entry.models_index, m_idx)
             rebuild_semantic_indexes(sp, root, resolve_model_ref, args.pythonpath)
             cascade_hash_a(sp, root, idx)
 
-    def _save_untracked(self, sp: Any, root: Path, idx: Any, args: Any, m_entry: Any, m_idx: Any, d_idx: Any) -> None:
+    def _save_untracked(self, sp: Any, root: Path, idx: Any, args: Any, m_entry: Any, m_idx: Any, doc: Any) -> None:
         with store_lock(sp):
-            save_documents_index(root / m_idx.documents_index, d_idx)
-            m_idx.hash_b = hash_documents_index(d_idx)
+            delete_shard(documents_shard_path(sp, m_entry.name, doc.name))
+            documents_hash.forget(sp, m_entry.name, doc.name)
+            m_idx.hash_b = documents_hash.hash_b_of(sp, m_entry.name)
+            m_idx.documents_count = documents_hash.count_of(sp, m_entry.name)
             save_models_index(root / m_entry.models_index, m_idx)
             rebuild_semantic_indexes(sp, root, resolve_model_ref, args.pythonpath)
             rebuild_sections_indexes(sp, root, resolve_model_ref, args.pythonpath)
@@ -91,9 +92,8 @@ class DocCLI:
     def untrack(self, args: Any) -> int:
         sp, root = get_store_context(args.store)
         idx = load_store_index(sp)
-        m_entry, m_idx, d_idx, doc = self._find_doc(root, idx, args.doc)
-        d_idx.documents = [e for e in d_idx.documents if e.name != doc.name]
-        self._save_untracked(sp, root, idx, args, m_entry, m_idx, d_idx)
+        m_entry, m_idx, doc = find_doc(sp, root, idx, args.doc)
+        self._save_untracked(sp, root, idx, args, m_entry, m_idx, doc)
         print(f"Untracked '{doc.name}'")
         return 0
 

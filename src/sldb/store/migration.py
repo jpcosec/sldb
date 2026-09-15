@@ -27,23 +27,31 @@ from sldb.store.layout import (
 
 def _migrate_model(m_entry, p_root) -> bool:
     m_idx = load_models_index(p_root / m_entry.models_index)
-    n_m_rel, n_d_rel, n_s_rel = models_index_relpath(m_entry.name), documents_index_relpath(m_entry.name), sections_index_relpath(m_entry.name)
-    save_documents_index(p_root / n_d_rel, load_documents_index(p_root / m_idx.documents_index))
-    if m_idx.sections_index:
-        save_sections_index(p_root / n_s_rel, load_sections_index(p_root / m_idx.sections_index))
-    changed = m_idx.documents_index != n_d_rel or m_entry.models_index != n_m_rel
-    m_idx.documents_index, m_idx.sections_index = n_d_rel, n_s_rel if m_idx.sections_index else ""
-    save_models_index(p_root / n_m_rel, m_idx)
-    m_entry.models_index = n_m_rel
+    rels = (models_index_relpath(m_entry.name), documents_index_relpath(m_entry.name), sections_index_relpath(m_entry.name))
+    changed = m_idx.documents_index != rels[1] or m_entry.models_index != rels[0]
+    _migrate_model_indexes(m_idx, p_root, rels)
+    save_models_index(p_root / rels[0], m_idx)
+    m_entry.models_index = rels[0]
     return changed
 
+
+def _migrate_model_indexes(m_idx, p_root, rels: tuple[str, str, str]) -> None:
+    n_m_rel, n_d_rel, n_s_rel = rels
+    documents = load_documents_index(p_root / m_idx.documents_index)
+    save_documents_index(p_root / n_d_rel, documents)
+    if m_idx.sections_index:
+        save_sections_index(p_root / n_s_rel, load_sections_index(p_root / m_idx.sections_index))
+    m_idx.documents_index, m_idx.sections_index = n_d_rel, n_s_rel if m_idx.sections_index else ""
+    m_idx.documents_count = len(documents.documents)
+
 def _model_canonical(m_entry, p_root: Path) -> bool:
-    """PLAN 15 capa 5: a model's sections are canonical once its old single per-model file is
-    gone (sharded into `.sldb/runtime/sections/<model>/`, or it never had one)."""
+    """PLAN 15 capa 5/7: a model's sections and documents are canonical once their old single
+    per-model files are gone (sharded into `.sldb/{runtime/sections,core/documents}/<model>/`,
+    or a section-less model that never had one)."""
     if m_entry.models_index != models_index_relpath(m_entry.name) or not (p_root / m_entry.models_index).exists():
         return False
     m_idx = load_models_index(p_root / m_entry.models_index)
-    if m_idx.documents_index != documents_index_relpath(m_entry.name) or not (p_root / m_idx.documents_index).exists():
+    if m_idx.documents_index != documents_index_relpath(m_entry.name) or (p_root / m_idx.documents_index).exists():
         return False
     if m_idx.sections_index and m_idx.sections_index != sections_index_relpath(m_entry.name):
         return False

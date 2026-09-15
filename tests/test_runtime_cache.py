@@ -21,6 +21,7 @@ from sldb.cli import main as sldb_main
 from sldb.cli.model_utils import resolve_model_ref
 from sldb.cli.store_context import get_store_context
 from sldb.store.io import load_documents_index, load_models_index, load_store_index, save_documents_index
+from sldb.store.layout import documents_shard_path
 from sldb.store.query import load_runtime_documents
 from sldb.store.runtime_cache import invalidate_runtime_cache, new_operation
 
@@ -102,15 +103,18 @@ def test_a_hand_edit_is_always_seen_by_stores_update(tmp_path: Path):
 
 
 def test_a_save_that_changes_nothing_leaves_the_file_alone(tmp_path: Path):
+    """PLAN 15 capa 7: the documents index is per-document shards now — the file the
+    guarantee is about is one document's shard, not one file for the whole model."""
     root = _world(tmp_path)
     m = next(m for m in load_store_index(root / ".sldb").models if m.name == "NoteDoc")
     d_path = root / load_models_index(root / m.models_index).documents_index
+    shard = documents_shard_path(root / ".sldb", "NoteDoc", "one")
     idx = load_documents_index(d_path)
     save_documents_index(d_path, idx)
     save_documents_index(d_path, idx)
-    stamp = os.stat(d_path).st_mtime_ns
+    stamp = os.stat(shard).st_mtime_ns
     save_documents_index(d_path, load_documents_index(d_path))
-    assert os.stat(d_path).st_mtime_ns == stamp
+    assert os.stat(shard).st_mtime_ns == stamp
 
 
 def test_a_trusted_chain_skips_the_leaf_sweep(tmp_path: Path, monkeypatch):

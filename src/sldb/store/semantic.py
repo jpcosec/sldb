@@ -9,11 +9,10 @@ from sldb.store.io import (
     load_models_index,
     load_semantic_dag,
     load_store_index,
-    save_documents_index,
     save_semantic_dag,
 )
-from sldb.store.io.shards import prune_shards
-from sldb.store.layout import semantic_shards_dir
+from sldb.store.io.shards import prune_shards, save_document_shard
+from sldb.store.layout import documents_shard_path, semantic_shards_dir
 from sldb.store.semantic_dag_sync import sync_semantic_dag
 from sldb.store.semantic_doc_contribution import sync_doc_shard
 
@@ -46,12 +45,14 @@ def _sync_model(store_path, m_entry, root, resolver, py_path, report, new_tags: 
 
 
 def _sync_model_docs(store_path, m_entry, m_idx, root, resolver, py_path, report, new_tags: set) -> None:
+    """PLAN 15 capa 7: a document's own shard (name, path, hash_c, hash_d, semantic_tags) is
+    rewritten only when its semantic_tags actually changed by this sync — not the whole
+    model's documents index, and not every document's shard just because one changed."""
     d_idx = load_documents_index(root / m_idx.documents_index)
     current: set[str] = set()
     for doc in d_idx.documents:
         current.add(doc.name)
         _sync_one(store_path, doc, m_entry, root, resolver, py_path, report, new_tags)
-    save_documents_index(root / m_idx.documents_index, d_idx)
     prune_shards(semantic_shards_dir(store_path, m_entry.name), current)
 
 
@@ -59,8 +60,11 @@ def _sync_one(store_path, doc, m_entry, root, resolver, py_path, report, new_tag
     if not (d_path := root / doc.path).exists():
         report.docs_skipped_missing += 1
         return
+    before = list(doc.semantic_tags)
     rec = sync_doc_shard(store_path, doc, d_path, m_entry, resolver, py_path, report)
     new_tags.update(rec.tags)
+    if doc.semantic_tags != before:
+        save_document_shard(documents_shard_path(store_path, m_entry.name, doc.name), doc)
 
 
 def rebuild_semantic_indexes(store_path: Path, project_root: Path, resolve_model_ref, pythonpath: str | None = None, report: RebuildReport | None = None) -> RebuildReport:

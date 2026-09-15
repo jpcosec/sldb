@@ -89,10 +89,13 @@ def save_models_index(path: Path, index: ModelsIndex) -> None:
     _save_if_changed(path, index, lambda: ModelsIndexIO.save(path, index))
 
 def load_documents_index(path: Path) -> DocumentsIndex:
-    return _cached(path, lambda: DocumentsIndexIO.load(path))
+    # PLAN 15 capa 7: composed from per-document shards, not one file at `path` (which may not
+    # exist at all once sharded) — see load_sections_index for why the (path, mtime/size)
+    # cache above cannot be reused here.
+    return DocumentsIndexIO.load(path)
 
 def save_documents_index(path: Path, index: DocumentsIndex) -> None:
-    _save_if_changed(path, index, lambda: DocumentsIndexIO.save(path, index))
+    DocumentsIndexIO.save(path, index)
 
 def load_sections_index(path: Path) -> SectionsIndex:
     # PLAN 15 capa 5: composed from per-document shards, not one file at `path` (which may not

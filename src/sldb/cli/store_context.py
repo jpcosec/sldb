@@ -7,6 +7,7 @@ from sldb.store.layout import project_root, store_exists
 from sldb.store.migration import migrate_store_layout
 from sldb.store.io import load_store_index
 from sldb.store.runtime_cache import new_operation
+from sldb.store.documents_hash import new_operation as new_documents_hash_operation
 
 def _handle_global_store(global_store: Path, mode: str, cwd: Path) -> Path:
     if not global_store.exists():
@@ -57,4 +58,5 @@ def get_store_context(store_arg: str | None, mode: str = "default") -> tuple[Pat
     if store_exists(sp):
         migrate_store_layout(sp, root)
     new_operation(sp)
+    new_documents_hash_operation(sp)
     return sp, root

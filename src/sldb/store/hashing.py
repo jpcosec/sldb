@@ -21,11 +21,18 @@ def hash_fields(model_type: Any, markdown_text: str, codec: StoreCodec = default
 
 
 def hash_documents_index(documents_index: DocumentsIndex) -> str:
+    """PLAN 15 capa 7: keyed by `name` and sorted — order-independent (documents_index.
+    documents used to be insertion-ordered, so hash_b used to depend on write order too; a
+    store's Merkle root should depend only on content). The same value however documents
+    were gathered: a full scan (stores update) or the incremental per-document child-hash
+    map (sldb.store.documents_hash — a write's own hot path)."""
+    return hash_document_entries((d.name, d.hash_c, d.hash_d) for d in documents_index.documents)
+
+
+def hash_document_entries(entries) -> str:
+    """`entries`: iterable of (name, hash_c, hash_d) triples, any order."""
     state = json.dumps(
-        [
-            {"path": d.path, "hash_c": d.hash_c, "hash_d": d.hash_d}
-            for d in documents_index.documents
-        ],
+        sorted([{"name": n, "hash_c": hc, "hash_d": hd} for n, hc, hd in entries], key=lambda d: d["name"]),
         sort_keys=True,
     )
     return hashlib.sha256(state.encode("utf-8")).hexdigest()

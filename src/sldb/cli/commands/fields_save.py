@@ -2,22 +2,22 @@ from typing import Any
 from sldb.cli.store_context import get_store_context
 from sldb.cli.model_utils import resolve_model_ref
 from sldb.runtime.validation import render_model_markdown, validate_model_input_roundtrip
-from sldb.store.hashing import hash_documents_index, hash_fields, hash_text
-from sldb.store.io import (
-    load_documents_index, load_models_index, load_store_index,
-    save_documents_index, save_models_index, store_lock
-)
+from sldb.store.hashing import hash_fields, hash_text
+from sldb.store.io import load_models_index, load_store_index, save_models_index, store_lock
+from sldb.store.io.shards import save_document_shard
+from sldb.store.layout import documents_shard_path
 from sldb.store.ops import cascade_hash_a
 from sldb.store.semantic import rebuild_semantic_indexes
+from sldb.store import documents_hash
 
 def save_payload(runtime_doc: Any, payload: dict[str, Any], store_arg: str | None, pythonpath: str | None) -> int:
     sp, root = get_store_context(store_arg)
     idx, m_entry, m_idx = _load_model_indices(sp, root, runtime_doc.model_name)
-    d_idx, doc_entry = _load_doc_indices(root, m_idx, runtime_doc.name)
+    doc_entry = _load_doc_entry(sp, m_entry.name, runtime_doc.name)
     model_type = _model(m_entry.model_ref, pythonpath, root)
     rendered = _render_and_validate(model_type, payload)
     _update_doc_entry(root, doc_entry, model_type, rendered)
-    _save_indices(sp, root, idx, m_idx, m_entry, d_idx, pythonpath)
+    _save_indices(sp, root, idx, m_idx, m_entry, doc_entry, pythonpath)
     print(f"Updated field payload for '{runtime_doc.name}'")
     return 0
 
@@ -36,11 +36,12 @@ def _load_model_indices(sp: Any, root: Any, model_name: str) -> tuple[Any, Any, 
     m_idx = load_models_index(root / m_entry.models_index)
     return idx, m_entry, m_idx
 
-def _load_doc_indices(root: Any, m_idx: Any, doc_name: str) -> tuple[Any, Any]:
-    d_idx = load_documents_index(root / m_idx.documents_index)
-    doc_entry = next((d for d in d_idx.documents if d.name == doc_name), None)
+def _load_doc_entry(sp: Any, model_name: str, doc_name: str) -> Any:
+    from sldb.store.io.shards import load_document_shard
+
+    doc_entry = load_document_shard(documents_shard_path(sp, model_name, doc_name))
     if doc_entry is None: raise SystemExit(f"Doc '{doc_name}' not registered.")
-    return d_idx, doc_entry
+    return doc_entry
 
 def _render_and_validate(model_type: type, payload: dict[str, Any]) -> str:
     rendered = render_model_markdown(model_type, payload)
@@ -54,12 +55,14 @@ def _update_doc_entry(root: Any, doc_entry: Any, model_type: type, rendered: str
     doc_entry.hash_c = hash_text(rendered + "\n")
     doc_entry.hash_d = hash_fields(model_type, rendered + "\n")
 
-def _save_indices(sp: Any, root: Any, idx: Any, m_idx: Any, m_entry: Any, d_idx: Any, pythonpath: str | None) -> None:
+def _save_indices(sp: Any, root: Any, idx: Any, m_idx: Any, m_entry: Any, doc_entry: Any, pythonpath: str | None) -> None:
     with store_lock(sp):
-        save_documents_index(root / m_idx.documents_index, d_idx)
+        save_document_shard(documents_shard_path(sp, m_entry.name, doc_entry.name), doc_entry)
+        documents_hash.note(sp, m_entry.name, doc_entry.name, doc_entry.hash_c, doc_entry.hash_d)
         # the model's hash_b covers its documents' hashes: a field write must move it,
         # or `stores check` fails and consumers keyed on hash_b never see the change
-        m_idx.hash_b = hash_documents_index(d_idx)
+        m_idx.hash_b = documents_hash.hash_b_of(sp, m_entry.name)
+        m_idx.documents_count = documents_hash.count_of(sp, m_entry.name)
         save_models_index(root / m_entry.models_index, m_idx)
         rebuild_semantic_indexes(sp, root, resolve_model_ref, pythonpath)
         cascade_hash_a(sp, root, idx)

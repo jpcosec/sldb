@@ -9,6 +9,7 @@ from sldb.store.models import StoreIndex
 from sldb.store.ops import cascade_hash_a
 from sldb.store.section_rebuild import rebuild_sections_indexes
 from sldb.store.semantic import RebuildReport, rebuild_semantic_indexes
+from sldb.store import documents_hash
 
 def update_store(args: Any) -> int:
     sp, root = get_store_context(args.store)
@@ -59,7 +60,9 @@ def _commit_updates(args: Any, sp: Path, root: Path, idx: StoreIndex, pending: l
         for m_entry, m_idx, d_idx in pending:
             save_documents_index(root / m_idx.documents_index, d_idx)
             m_idx.hash_b = hash_documents_index(d_idx)
+            m_idx.documents_count = len(d_idx.documents)
             save_models_index(root / m_entry.models_index, m_idx)
+            documents_hash.invalidate(sp, m_entry.name)  # a full scan just moved hash_c/hash_d
         return _rebuild_indexes(sp, root, idx, args.pythonpath)
 
 def _rebuild_indexes(sp: Path, root: Path, idx: StoreIndex, pypath: str) -> tuple[RebuildReport, RebuildReport]:

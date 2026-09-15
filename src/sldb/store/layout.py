@@ -84,6 +84,21 @@ def model_name_of_sections_path(path: Path) -> str:
     return path.stem
 
 
+def documents_shards_dir(store_path: Path, model_name: str) -> Path:
+    """One document's index entry per file (PLAN 15 capa 7) — the Merkle tree's own leaf
+    level, next to the (now legacy-shaped, still used as a key) per-model documents_index."""
+    return core_dir(store_path) / "documents" / model_name
+
+
+def documents_shard_path(store_path: Path, model_name: str, doc_name: str) -> Path:
+    return documents_shards_dir(store_path, model_name) / f"{doc_name}.yaml"
+
+
+def model_name_of_documents_path(path: Path) -> str:
+    """The model name a (legacy-shaped, still used as a key) per-model documents path names."""
+    return path.stem
+
+
 def store_exists(store_path: Path) -> bool:
     return (
         store_index_path(store_path).exists()
