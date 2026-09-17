@@ -11,6 +11,7 @@ from sldb.store.io import (
 from sldb.store.io.shards import save_document_shard
 from sldb.store.layout import documents_shard_path
 from sldb.store.models import DocumentEntry, StoreIndex
+from sldb.store.edge_rebuild import rebuild_edges_indexes
 from sldb.store.section_rebuild import rebuild_sections_indexes
 from sldb.store.semantic import rebuild_semantic_indexes
 
@@ -41,6 +42,7 @@ class StoreOperations:
         _update_model_summary(store_path, root, m_entry)
         rebuild_semantic_indexes(store_path, root, res_ref, py_path)
         rebuild_sections_indexes(store_path, root, res_ref, py_path)
+        rebuild_edges_indexes(store_path, root, res_ref, py_path)
         cascade_hash_a(store_path, root, st_idx)
 
 

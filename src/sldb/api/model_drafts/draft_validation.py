@@ -12,7 +12,9 @@ from sldb.api.model_drafts.draft_validation_report import DraftValidationReport
 from sldb.api.model_drafts.model_source import ModelSource
 from sldb.api.model_drafts.source_location import locate_model_source
 from sldb.api.model_registry.reindex_model import reindex_model
+from sldb.api.stores.open_store import open_store
 from sldb.core.exceptions import SLDBModelDraftError
+from sldb.store.io import load_store_index
 
 
 def validate_model_draft(store: str | Path | None, model_name: str, pythonpath: str | None = None) -> DraftValidationReport:
@@ -38,8 +40,9 @@ def promote_model_draft(store: str | Path | None, model_name: str, pythonpath: s
     """Validate the draft, install it over the active model, reindex and bump the version.
 
     If the reindex fails, the active model, the draft and the store indexes are put back.
-    The promoted model's modules (defining and registered) are dropped from `sys.modules`, so the next
-    `resolve_model_ref` in this process imports the new contract.
+    The promoted model's modules (defining and registered) are dropped from `sys.modules` before
+    the reindex and again after it, so the reindex and the next `resolve_model_ref` in this
+    process both import the contract that is on disk.
 
     Args:
         store: The store registering the model (path, alias, or None to discover it).
@@ -73,10 +76,28 @@ def _install_draft(store: str | Path | None, model_name: str, source: ModelSourc
     """Copy the draft over the active source and reindex, restoring everything on failure; returns the new version."""
     if not source.draft_path.exists():
         raise SLDBModelDraftError(f"No draft template for '{model_name}' to promote.")
+    modules = _model_modules(store, model_name, source)
+    try:
+        version = _install_and_reindex(store, model_name, source, pythonpath, modules)
+    finally:
+        _drop_modules(modules)  # promoted or restored, the next import reads what is on disk now
+    source.draft_path.unlink()
+    return version
+
+
+def _install_and_reindex(store: str | Path | None, model_name: str, source: ModelSource, pythonpath: str | None, modules: set[str]) -> int:
     with restored_on_failure([source.path, source.draft_path, *store_index_files(store)]):
         source.path.write_text(source.draft_path.read_text(encoding="utf-8"), encoding="utf-8")
-        registration = reindex_model(store, model_name, pythonpath, bump_version=True)
-    source.draft_path.unlink()
-    for module_name in {source.module_name, registration.model_ref.split(":", 1)[0]}:
+        _drop_modules(modules)  # the reindex (document hashes, the edge index's field nodes) reads the new contract
+        return reindex_model(store, model_name, pythonpath, bump_version=True).version
+
+
+def _model_modules(store: str | Path | None, model_name: str, source: ModelSource) -> set[str]:
+    """The modules the model is imported through: the defining one and the registered one."""
+    entry = next((m for m in load_store_index(open_store(store).store_path).models if m.name == model_name), None)
+    return {source.module_name} | ({entry.model_ref.split(":", 1)[0]} if entry else set())
+
+
+def _drop_modules(modules: set[str]) -> None:
+    for module_name in modules:
         sys.modules.pop(module_name, None)
-    return registration.version

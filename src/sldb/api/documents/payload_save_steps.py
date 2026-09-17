@@ -18,6 +18,7 @@ from sldb.store.models.model_entry import ModelEntry
 from sldb.store.models.models_index import ModelsIndex
 from sldb.store.models.store_index import StoreIndex
 from sldb.store.ops import cascade_hash_a
+from sldb.store.edge_rebuild import rebuild_edges_indexes
 from sldb.store.section_rebuild import rebuild_sections_indexes
 from sldb.store.semantic import rebuild_semantic_indexes
 
@@ -80,4 +81,5 @@ def save_document_indexes(sp: Path, root: Path, idx: StoreIndex, m_idx: ModelsIn
         save_models_index(root / m_entry.models_index, m_idx)
         rebuild_semantic_indexes(sp, root, resolve_model_ref, pythonpath)
         rebuild_sections_indexes(sp, root, resolve_model_ref, pythonpath)
+        rebuild_edges_indexes(sp, root, resolve_model_ref, pythonpath)
         cascade_hash_a(sp, root, idx)

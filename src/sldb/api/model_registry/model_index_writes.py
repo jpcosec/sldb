@@ -13,7 +13,7 @@ from sldb.store.models.model_entry import ModelEntry
 from sldb.store.models.models_index import ModelsIndex
 from sldb.store.models.store_index import StoreIndex
 from sldb.store.ops import cascade_hash_a
-from sldb.store.semantic import rebuild_semantic_indexes
+from sldb.store.derived_rebuild import rebuild_derived_indexes
 from sldb.store.semantic_tags import flatten_model_semantics
 
 
@@ -38,7 +38,7 @@ def write_new_model_indexes(sp: Path, root: Path, idx: StoreIndex, model_type: t
         mi = ModelsIndex(name=model_type.__name__, model_ref=model_ref, path=m_path, documents_index=di_rel, hash_b=hash_documents_index(empty_documents), version=1, canonical=canonical, family=family, semantics=flatten_model_semantics(model_type), base_models=bases)
         save_models_index(root / mi_rel, mi)
         idx.models.append(ModelEntry(name=mi.name, model_ref=model_ref, path=m_path, models_index=mi_rel, version=1, family=family, semantics=mi.semantics))
-        rebuild_semantic_indexes(sp, root, resolve_model_ref, pythonpath)
+        rebuild_derived_indexes(sp, root, resolve_model_ref, pythonpath)
         cascade_hash_a(sp, root, idx)
     return mi
 
@@ -68,7 +68,7 @@ def save_reindexed_model(sp: Path, root: Path, idx: StoreIndex, m_entry: ModelEn
         m_idx.documents_count = len(d_idx.documents)
         save_models_index(root / m_entry.models_index, m_idx)
         documents_hash.invalidate(sp, m_entry.name)  # a full scan just moved hash_c/hash_d
-        rebuild_semantic_indexes(sp, root, resolve_model_ref, pythonpath)
+        rebuild_derived_indexes(sp, root, resolve_model_ref, pythonpath)
         cascade_hash_a(sp, root, idx)
 
 

@@ -10,6 +10,7 @@ from typing import Any
 
 from sldb.api.model_registry.model_reference import resolve_model_ref
 from sldb.store import documents_hash
+from sldb.store.edge_rebuild import rebuild_edges_indexes
 from sldb.store.io import save_documents_index, save_models_index, store_lock
 from sldb.store.models.store_index import StoreIndex
 from sldb.store.ops import cascade_hash_a
@@ -44,8 +45,9 @@ def commit_index_updates(sp: Path, root: Path, idx: StoreIndex, pending: list[tu
 
 
 def _rebuild_indexes(sp: Path, root: Path, idx: StoreIndex, pypath: str | None) -> tuple[RebuildReport, RebuildReport]:
-    """Rebuild the semantic and section indexes and cascade the store hash."""
+    """Rebuild the semantic, section and edge indexes and cascade the store hash."""
     sem_report = rebuild_semantic_indexes(sp, root, resolve_model_ref, pypath)
     sec_report = rebuild_sections_indexes(sp, root, resolve_model_ref, pypath)
+    rebuild_edges_indexes(sp, root, resolve_model_ref, pypath)
     cascade_hash_a(sp, root, idx)
     return sem_report, sec_report

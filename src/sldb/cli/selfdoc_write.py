@@ -10,6 +10,7 @@ from sldb.selfdoc.planned_document import PlannedDocument
 from sldb.store.io import load_store_index
 from sldb.store.io.utils import StoreIOUtils
 from sldb.store.ops import track_document
+from sldb.store.edge_rebuild import rebuild_edges_indexes
 from sldb.store.section_rebuild import rebuild_sections_indexes
 from .selfdoc_registry import DocumentationRegistry
 
@@ -21,6 +22,7 @@ def write_documents(plans: list[PlannedDocument], store: Path, root: Path) -> in
     written = _write_changed(plans, store, root)
     if written:
         rebuild_sections_indexes(store, root, resolve_model_ref, str(root))
+        rebuild_edges_indexes(store, root, resolve_model_ref, str(root))
     return written
 
 

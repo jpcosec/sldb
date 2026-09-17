@@ -11,7 +11,7 @@ from sldb.store.io import load_store_index, save_documents_index, save_models_in
 from sldb.store.layout import documents_index_relpath, models_index_relpath
 from sldb.store.models import DocumentsIndex, ModelEntry, ModelsIndex
 from sldb.store.ops import cascade_hash_a
-from sldb.store.semantic import rebuild_semantic_indexes
+from sldb.store.derived_rebuild import rebuild_derived_indexes
 from sldb.store.semantic_tags import flatten_model_semantics
 from sldb.core.exceptions import SLDBModelError
 from sldb.api.model_registry.model_lineage import model_base_names, model_family  # moved to sldb.api.model_registry; re-exported
@@ -72,5 +72,5 @@ def _create_model_entry(args: Any, name: str, path: str, mi_rel: str) -> ModelEn
     )
 
 def _finalize_store_update(sp: Path, root: Path, idx: Any, pythonpath: str) -> None:
-    rebuild_semantic_indexes(sp, root, resolve_model_ref, pythonpath)
+    rebuild_derived_indexes(sp, root, resolve_model_ref, pythonpath)
     cascade_hash_a(sp, root, idx)

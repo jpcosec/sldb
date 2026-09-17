@@ -10,6 +10,7 @@ from sldb.store.io import (
     load_semantic_dag, load_store_index, store_lock,
 )
 from sldb.store.layout import semantic_dag_path, semantic_index_path, store_index_path
+from sldb.store.edge_rebuild import rebuild_edges_indexes
 from sldb.store.section_rebuild import rebuild_sections_indexes
 from sldb.store.semantic import rebuild_semantic_indexes
 
@@ -33,6 +34,7 @@ class SemanticExporter:
         with store_lock(self.store_path):
             rebuild_semantic_indexes(self.store_path, self.project_root, resolve_ref, pythonpath)
             rebuild_sections_indexes(self.store_path, self.project_root, resolve_ref, pythonpath)
+            rebuild_edges_indexes(self.store_path, self.project_root, resolve_ref, pythonpath)
 
     def _build_payload(self, command) -> dict[str, Any]:
         st_idx = load_store_index(self.store_path)

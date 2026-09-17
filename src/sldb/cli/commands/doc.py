@@ -15,8 +15,7 @@ from sldb.store.io import load_store_index, save_models_index, store_lock
 from sldb.store.io.shards import save_document_shard
 from sldb.store.hashing import hash_text, hash_fields
 from sldb.store.layout import documents_shard_path
-from sldb.store.section_rebuild import rebuild_sections_indexes
-from sldb.store.semantic import rebuild_semantic_indexes
+from sldb.store.derived_rebuild import rebuild_derived_indexes
 from sldb.store.ops import cascade_hash_a
 from sldb.store import documents_hash
 from sldb.core.exceptions import SLDBValidationError, SLDBASTError, SLDBError
@@ -68,8 +67,7 @@ class DocCLI:
             m_idx.hash_b = documents_hash.hash_b_of(sp, m_entry.name)
             m_idx.documents_count = documents_hash.count_of(sp, m_entry.name)
             save_models_index(root / m_entry.models_index, m_idx)
-            rebuild_semantic_indexes(sp, root, resolve_model_ref, args.pythonpath)
-            rebuild_sections_indexes(sp, root, resolve_model_ref, args.pythonpath)
+            rebuild_derived_indexes(sp, root, resolve_model_ref, args.pythonpath)  # semantic, sections, edges
             cascade_hash_a(sp, root, idx)
 
     def _save_untracked(self, sp: Any, root: Path, idx: Any, args: Any, m_entry: Any, m_idx: Any, doc: Any) -> None:

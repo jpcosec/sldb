@@ -15,7 +15,7 @@ from sldb.store.io import (
     store_lock,
 )
 from sldb.store.ops import cascade_hash_a
-from sldb.store.semantic import rebuild_semantic_indexes
+from sldb.store.derived_rebuild import rebuild_derived_indexes
 from sldb.core.exceptions import SLDBModelError
 
 
@@ -63,5 +63,5 @@ def _save_updated_indexes(args: Any, root: Path, m_entry: Any, m_idx: Any, d_idx
     save_models_index(root / m_entry.models_index, m_idx)
 
 def _finalize_store_update(sp: Path, root: Path, idx: Any, pythonpath: str) -> None:
-    rebuild_semantic_indexes(sp, root, resolve_model_ref, pythonpath)
+    rebuild_derived_indexes(sp, root, resolve_model_ref, pythonpath)
     cascade_hash_a(sp, root, idx)

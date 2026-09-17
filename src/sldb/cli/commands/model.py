@@ -17,7 +17,7 @@ from sldb.store.io import (
     store_lock,
 )
 from sldb.store.ops import cascade_hash_a
-from sldb.store.semantic import rebuild_semantic_indexes
+from sldb.store.derived_rebuild import rebuild_derived_indexes
 from sldb.store import documents_hash
 from sldb.core.exceptions import SLDBModelError, SLDBError
 
@@ -61,7 +61,7 @@ class ModelCLI:
             m_idx.documents_count = len(d_idx.documents)
             save_models_index(root / m_entry.models_index, m_idx)
             documents_hash.invalidate(sp, m_entry.name)  # a full scan just moved hash_c/hash_d
-            rebuild_semantic_indexes(sp, root, resolve_model_ref, args.pythonpath)
+            rebuild_derived_indexes(sp, root, resolve_model_ref, args.pythonpath)
             cascade_hash_a(sp, root, idx)
 
     def update(self, args: Any) -> int:
