@@ -53,3 +53,27 @@ Writes go through `sldb fields update|create|append|clean docs/<doc>/<field>`; S
 re-renders the Markdown, validates the roundtrip and updates the hash cascade.
 The singular aliases (`ls`, `get`, `glob`, `raw-find`) are deprecated spellings of the same commands.
 """
+
+EDGES_HELP = """sldb edges
+
+Typed nodes and edges of the store: the edge index.
+
+Every sldb write keeps one shard per document under `.sldb/runtime/edges/<Model>/<doc>.yaml`,
+stamped with the document's hash_c. Documents, sections, models, fields and tags are nodes;
+a RelationDoc is an edge typed by a RelationTypeDoc; an anchor document names what its ref
+points at. Reading composes the shards (and the linked stores'); nothing is rebuilt on read.
+
+Examples:
+  sldb edges init
+  sldb edges show Reservation:res-1
+  sldb edges show sldb://model/Table --relation has_document
+  sldb edges show Table:table-12 --to --relation assigned_to
+  sldb edges check --exclude-tag type.pron.move
+  sldb edges rebuild
+
+Subcommands:
+  init     Register RelationTypeDoc/RelationDoc and track the builtin relation types
+  show     Edges from (or --to) a document or node, as JSON
+  check    Validate every edge against its relation type; exit 1 on errors or stale shards
+  rebuild  Bring the index current; only shards whose document moved are rewritten
+"""

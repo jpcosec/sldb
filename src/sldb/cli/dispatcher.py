@@ -9,6 +9,7 @@ class CLI:
         self._load_1()
         self._load_2()
         self._load_3()
+        self._load_edges()
 
     def _load_1(self):
         from sldb.cli.commands.basic import BasicCLI
@@ -41,6 +42,10 @@ class CLI:
         self.handlers.update({"serve": ServeCLI().run, "lint": lint_cli})
         self.handlers["selfdoc"] = SelfdocCLI().run
         self._load_addresses()
+
+    def _load_edges(self):
+        from sldb.cli.commands.edges import EdgesCLI
+        self.handlers["edges"] = EdgesCLI().run
 
     def _load_addresses(self):
         """The raw address surface: `legacy ls|get|glob|find|recover|compose`.

@@ -54,7 +54,7 @@ Primary surfaces:
 Advanced:
   legacy    Raw address surface: ls/get/glob/find over st.{Model}.doc.field, se.tag, gse.tag
 
-Use `sldb help <topic>` for focused help on: stores, models, predicates, docs, fields, sections, ast, find, faq, inbox, explore, legacy.
+Use `sldb help <topic>` for focused help on: stores, models, predicates, docs, fields, sections, edges, ast, find, faq, inbox, explore, legacy.
 """
 
 SHORT_ARGPARSE_HELP = """SLDB CLI

@@ -16,6 +16,12 @@ from sldb.api.documents.payload_path_writing import deep_delete, deep_set
 from sldb.api.documents.payload_save import save_document_payload
 from sldb.api.documents.track_document_file import track_document_file
 from sldb.api.documents.untrack_document import untrack_document
+from sldb.api.edges.check_edges import check_edges
+from sldb.api.edges.edge_check_report import EdgeCheckReport
+from sldb.api.edges.edge_reading import edge_node, edge_nodes_of_type, edges_from, edges_to, load_edge_index
+from sldb.api.edges.init_relations import init_relations
+from sldb.api.edges.rebuild_edges import rebuild_edges
+from sldb.api.edges.relations_init_report import RelationsInitReport
 from sldb.api.model_drafts.draft_document_check import DraftDocumentCheck
 from sldb.api.model_drafts.draft_validation import promote_model_draft, validate_model_draft
 from sldb.api.model_drafts.draft_validation_report import DraftValidationReport
@@ -43,11 +49,21 @@ from sldb.api.stores.open_store import open_store
 from sldb.api.stores.store_location import StoreLocation
 from sldb.api.stores.store_update_report import StoreUpdateReport
 from sldb.api.stores.update_store_indexes import update_store_indexes
+from sldb.store.edge_index.edge_index import EdgeIndex
+from sldb.store.edge_index.edge_rebuild_report import EdgeRebuildReport
+from sldb.store.edge_index.node_ids import anchor_node_id, doc_node_id, field_node_id, model_node_id, relation_type_node_id, section_node_id, tag_node_id
+from sldb.store.models.edge_node_record import EdgeNodeRecord
+from sldb.store.models.edge_record import EdgeRecord
 
 __all__ = [
     "DocumentReference",
     "DraftDocumentCheck",
     "DraftValidationReport",
+    "EdgeCheckReport",
+    "EdgeIndex",
+    "EdgeNodeRecord",
+    "EdgeRebuildReport",
+    "EdgeRecord",
     "FieldDescription",
     "LinkedStore",
     "ModelDescription",
@@ -57,10 +73,13 @@ __all__ = [
     "ModelRegistration",
     "ModelSource",
     "RegisteredModel",
+    "RelationsInitReport",
     "StoreLocation",
     "StoreUpdateReport",
     "add_model",
     "add_model_field",
+    "anchor_node_id",
+    "check_edges",
     "create_document",
     "deep_delete",
     "deep_get",
@@ -68,18 +87,31 @@ __all__ = [
     "describe_field",
     "describe_model",
     "describe_model_fields",
+    "doc_node_id",
+    "edge_node",
+    "edge_nodes_of_type",
+    "edges_from",
+    "edges_to",
     "edit_model_template",
     "ensure_list",
+    "field_node_id",
+    "init_relations",
     "init_store",
     "link_store",
+    "load_edge_index",
     "load_registered_model",
     "locate_model_source",
+    "model_node_id",
     "open_store",
     "promote_model_draft",
+    "rebuild_edges",
     "reindex_model",
+    "relation_type_node_id",
     "remove_model_field",
     "resolve_model_ref",
     "save_document_payload",
+    "section_node_id",
+    "tag_node_id",
     "track_document_file",
     "untrack_document",
     "update_store_indexes",
