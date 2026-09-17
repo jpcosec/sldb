@@ -1,5 +1,5 @@
-"""Per-document shards for the semantic and sections indexes (PLAN 15 capa 5): one small file
-per document under `.sldb/runtime/{semantic,sections}/<Model>/<doc>.yaml` instead of one file
+"""Per-document shards for the semantic, sections and edges indexes (PLAN 15 capa 5): one small file
+per document under `.sldb/runtime/{semantic,sections,edges}/<Model>/<doc>.yaml` instead of one file
 for the whole store, so a write touches only its own shard. Each shard carries the `hash_c`
 it was built from. Loads are cached by (path, mtime, size) — its own small cache, not
 `sldb.store.io`'s (that module imports this one; importing back would be circular)."""
@@ -10,9 +10,10 @@ from pathlib import Path
 from typing import Any, Callable, TypeVar
 
 from sldb.store.io.utils import StoreIOUtils, yaml_dump, yaml_load
-from sldb.store.models import DocSections, DocumentEntry, SemanticDocumentRecord
+from sldb.store.models import DocSections, DocumentEntry, EdgeContribution, SemanticDocumentRecord
 
 T = TypeVar("T")
+E = TypeVar("E", bound=EdgeContribution)
 
 _SHARDS: dict[str, tuple[tuple, Any]] = {}
 
@@ -74,6 +75,18 @@ def load_sections_shard(path: Path) -> DocSections | None:
 
 def save_sections_shard(path: Path, doc_sections: DocSections) -> None:
     _save_shard(path, doc_sections, lambda: DocSections(**(yaml_load(path.read_text(encoding="utf-8")) or {})))
+
+
+def load_edges_shard(path: Path, shard_type: type[E]) -> E | None:
+    """An edges shard of the given shape: DocEdges, ModelEdges, or the store's EdgeContribution."""
+    if not path.exists():
+        _forget_shard(path)
+        return None
+    return _cached_shard(path, lambda: shard_type(**(yaml_load(path.read_text(encoding="utf-8")) or {})))
+
+
+def save_edges_shard(path: Path, shard: EdgeContribution) -> None:
+    _save_shard(path, shard, lambda: type(shard)(**(yaml_load(path.read_text(encoding="utf-8")) or {})))
 
 
 def load_document_shard(path: Path) -> DocumentEntry | None:

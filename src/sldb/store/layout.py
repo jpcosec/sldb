@@ -79,6 +79,29 @@ def sections_shard_path(store_path: Path, model_name: str, doc_name: str) -> Pat
     return sections_shards_dir(store_path, model_name) / f"{doc_name}.yaml"
 
 
+def edges_store_shard_path(store_path: Path) -> Path:
+    """The store's own contribution to the edge index (store node, semantic DAG edges)."""
+    return runtime_dir(store_path) / "edges.yaml"
+
+
+def edges_shards_root(store_path: Path) -> Path:
+    return runtime_dir(store_path) / "edges"
+
+
+def edges_model_shard_path(store_path: Path, model_name: str) -> Path:
+    """One model's contribution (model node, fields, extends), next to its documents' dir."""
+    return edges_shards_root(store_path) / f"{model_name}.yaml"
+
+
+def edges_shards_dir(store_path: Path, model_name: str) -> Path:
+    """One document's edges per file, the same per-document pattern as sections."""
+    return edges_shards_root(store_path) / model_name
+
+
+def edges_shard_path(store_path: Path, model_name: str, doc_name: str) -> Path:
+    return edges_shards_dir(store_path, model_name) / f"{doc_name}.yaml"
+
+
 def model_name_of_sections_path(path: Path) -> str:
     """The model name a (legacy-shaped, still used as a key) per-model sections path names."""
     return path.stem

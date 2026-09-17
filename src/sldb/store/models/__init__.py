@@ -12,3 +12,8 @@ from sldb.store.models.sections_index import SectionsIndex
 from sldb.store.models.semantic_d_a_g import SemanticDAG
 from sldb.store.models.semantic_document_record import SemanticDocumentRecord
 from sldb.store.models.semantic_index import SemanticIndex
+from sldb.store.models.edge_node_record import EdgeNodeRecord
+from sldb.store.models.edge_record import EdgeRecord
+from sldb.store.models.edge_contribution import EdgeContribution
+from sldb.store.models.doc_edges import DocEdges
+from sldb.store.models.model_edges import ModelEdges

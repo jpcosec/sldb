@@ -8,7 +8,7 @@ from __future__ import annotations
 from pathlib import Path
 
 _DIRTY: dict[tuple[str, str, str], set[str]] = {}
-_NAMESPACES = ("semantic", "sections")
+_NAMESPACES = ("semantic", "sections", "edges")
 
 
 def mark(s_path: Path, model_name: str, name: str) -> None:
