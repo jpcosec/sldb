@@ -5,11 +5,13 @@ from typing import Any
 import yaml
 
 from sldb.cli.store_context import get_store_context
+from sldb.api.documents.track_document_file import track_document_file
+from sldb.api.documents.untrack_document import forget_document, untrack_document
 from sldb.cli.model_utils import registered_model, resolve_model_ref
 from sldb.cli.commands.doc_lookup import find_doc
 from sldb.runtime.validation import render_model_markdown, validate_model_input_roundtrip
 from sldb.store.io import load_store_index, save_models_index, store_lock
-from sldb.store.io.shards import delete_shard, save_document_shard
+from sldb.store.io.shards import save_document_shard
 from sldb.store.hashing import hash_text, hash_fields
 from sldb.store.layout import documents_shard_path
 from sldb.store.section_rebuild import rebuild_sections_indexes
@@ -48,13 +50,8 @@ class DocCLI:
         return 0
 
     def track(self, args: Any) -> int:
-        sp, root = get_store_context(args.store)
-        model_type, entry, idx = registered_model(sp, args.model, args.pythonpath)
-        path = self._resolve_doc_path(args.path, root)
-        if not args.force and not validate_model_input_roundtrip(model_type, path.read_text(encoding="utf-8"))[0]:
-            raise SLDBValidationError("Idempotency fail", validate_model_input_roundtrip(model_type, path.read_text(encoding="utf-8"))[1])
-        track_document(sp, root, idx, model_type, entry, path, args.name or path.stem, resolve_model_ref, args.pythonpath)
-        print(f"Tracked '{args.name or path.stem}'")
+        tracked = track_document_file(args.store, args.model, args.path, args.name, args.pythonpath, args.force)
+        print(f"Tracked '{tracked.name}'")
         return 0
 
     def update(self, args: Any) -> int:
@@ -82,22 +79,11 @@ class DocCLI:
             cascade_hash_a(sp, root, idx)
 
     def _save_untracked(self, sp: Any, root: Path, idx: Any, args: Any, m_entry: Any, m_idx: Any, doc: Any) -> None:
-        with store_lock(sp):
-            delete_shard(documents_shard_path(sp, m_entry.name, doc.name))
-            documents_hash.forget(sp, m_entry.name, doc.name)
-            m_idx.hash_b = documents_hash.hash_b_of(sp, m_entry.name)
-            m_idx.documents_count = documents_hash.count_of(sp, m_entry.name)
-            save_models_index(root / m_entry.models_index, m_idx)
-            rebuild_semantic_indexes(sp, root, resolve_model_ref, args.pythonpath)
-            rebuild_sections_indexes(sp, root, resolve_model_ref, args.pythonpath)
-            cascade_hash_a(sp, root, idx)
+        forget_document(sp, root, idx, m_entry, m_idx, doc, args.pythonpath)
 
     def untrack(self, args: Any) -> int:
-        sp, root = get_store_context(args.store)
-        idx = load_store_index(sp)
-        m_entry, m_idx, doc = find_doc(sp, root, idx, args.doc)
-        self._save_untracked(sp, root, idx, args, m_entry, m_idx, doc)
-        print(f"Untracked '{doc.name}'")
+        untracked = untrack_document(args.store, args.doc, args.pythonpath)
+        print(f"Untracked '{untracked.name}'")
         return 0
 
     def _resolve_doc_path(self, raw_path: str, root: Path) -> Path:

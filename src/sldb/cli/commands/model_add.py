@@ -14,6 +14,7 @@ from sldb.store.ops import cascade_hash_a
 from sldb.store.semantic import rebuild_semantic_indexes
 from sldb.store.semantic_tags import flatten_model_semantics
 from sldb.core.exceptions import SLDBModelError
+from sldb.api.model_registry.model_lineage import model_base_names, model_family  # moved to sldb.api.model_registry; re-exported
 
 
 def add_model(args: Any) -> int:
@@ -69,22 +70,6 @@ def _create_model_entry(args: Any, name: str, path: str, mi_rel: str) -> ModelEn
     return ModelEntry(
         name=name, model_ref=args.model, path=path, models_index=mi_rel, version=1
     )
-
-def model_family(model_type: type) -> str | None:
-    """The model's declared `__family__`, the root branch it belongs to."""
-    value = getattr(model_type, "__family__", None)
-    return str(value) if value else None
-
-def model_base_names(model_type: type) -> list[str]:
-    """Names of the StructuredNLDoc bases above this model, nearest first.
-
-    Recorded so `st.{Base+}` families and `model <= Base` filters are legible from the
-    store index without importing the class."""
-    from sldb.models.structured_doc import StructuredNLDoc
-    return [
-        base.__name__ for base in model_type.__mro__[1:]
-        if isinstance(base, type) and issubclass(base, StructuredNLDoc) and base is not StructuredNLDoc
-    ]
 
 def _finalize_store_update(sp: Path, root: Path, idx: Any, pythonpath: str) -> None:
     rebuild_semantic_indexes(sp, root, resolve_model_ref, pythonpath)

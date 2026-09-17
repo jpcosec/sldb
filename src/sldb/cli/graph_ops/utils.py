@@ -1,15 +1,11 @@
 import re
 from typing import Any
 from sldb.core.ir import SourceSpan, SurfaceNode
+from sldb.api.schema.field_kinds import annotation_name as _annotation_name  # noqa: F401 - moved to sldb.api.schema
 
 def _slugify(text: str) -> str:
     slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
     return slug or "section"
-
-def _annotation_name(annotation: Any) -> str:
-    if annotation is None: return "Any"
-    if isinstance(annotation, str): return annotation
-    return getattr(annotation, "__name__", repr(annotation))
 
 def _to_surface_node(node: Any) -> SurfaceNode:
     return SurfaceNode(

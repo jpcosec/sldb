@@ -4,11 +4,16 @@ import ast
 from pathlib import Path
 from typing import Any
 
+from sldb.api.model_drafts.model_source import ModelSource
+from sldb.api.model_drafts.template_drafts import write_template_draft
+from sldb.api.model_drafts.template_literals import read_template_literal, replace_template_literal, template_assign_node, template_literal
 from sldb.cli.utils import read_text
-from sldb.core.exceptions import SLDBModelDraftError, SLDBModelEditError
-from sldb.cli.commands.models_utils import registered_model_source, draft_path as get_draft_path, find_class_node, replace_rhs_expression
+from sldb.core.exceptions import SLDBModelDraftError
+from sldb.cli.commands.models_utils import registered_model_source, draft_path as get_draft_path
 
 class ModelsTemplateCLI:
+    """`sldb models template show|edit`: thin CLI adapters over `sldb.api` template drafts."""
+
     def template(self, args: Any) -> int:
         if args.template_command == "show":
             return self._show_template(args)
@@ -26,38 +31,20 @@ class ModelsTemplateCLI:
         return 0
 
     def edit_template(self, args: Any) -> int:
-        path, _, attr = registered_model_source(args)
-        template = read_text(args.input).rstrip("\n")
-        d_path = get_draft_path(path)
-        s_path = d_path if d_path.exists() else path
-        updated = self._replace_template_literal(s_path, attr.split(".")[-1], template)
-        d_path.write_text(updated, encoding="utf-8")
+        path, module_name, attr = registered_model_source(args)
+        template = read_text(args.input)
+        d_path = write_template_draft(ModelSource(path=path, module_name=module_name, attr_path=attr), template)
         print(f"Wrote draft template for '{args.model}' to {d_path}")
         return 0
 
     def _replace_template_literal(self, path: Path, class_name: str, template: str) -> str:
-        source = path.read_text(encoding="utf-8")
-        tree = ast.parse(source)
-        class_node = find_class_node(tree, class_name, path)
-        assign_node = self._get_template_assign_node(class_node, class_name)
-        return replace_rhs_expression(source, assign_node.value, self._template_literal(template))
+        return replace_template_literal(path, class_name, template)
 
     def _get_template_assign_node(self, class_node: ast.ClassDef, class_name: str) -> ast.Assign:
-        for node in class_node.body:
-            if isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id == "__template__" for t in node.targets):
-                return node
-        raise SLDBModelEditError(f"Class '{class_name}' has no __template__ assignment.")
+        return template_assign_node(class_node, class_name)
 
     def _template_literal(self, template: str) -> str:
-        escaped = template.replace('"""', '\"\"\"')
-        return f'"""{escaped}""".strip()'
+        return template_literal(template)
 
     def _read_template_literal(self, path: Path, class_name: str) -> str:
-        source = path.read_text(encoding="utf-8")
-        tree = ast.parse(source)
-        class_node = find_class_node(tree, class_name, path)
-        assign_node = self._get_template_assign_node(class_node, class_name)
-        value_node = assign_node.value
-        if isinstance(value_node, ast.Call):
-            return ast.literal_eval(value_node.func.value)
-        return ast.literal_eval(value_node)
+        return read_template_literal(path, class_name)

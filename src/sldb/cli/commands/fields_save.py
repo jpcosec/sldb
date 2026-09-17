@@ -1,73 +1,14 @@
+"""CLI adapter over `sldb.api.save_document_payload`: prints progress and exits on a failed save."""
 from typing import Any
-from sldb.cli.store_context import get_store_context
-from sldb.cli.model_utils import resolve_model_ref
-from sldb.runtime.validation import render_model_markdown, validate_model_input_roundtrip
-from sldb.store.hashing import hash_fields, hash_text
-from sldb.store.io import load_models_index, load_store_index, save_models_index, store_lock
-from sldb.store.io.shards import save_document_shard
-from sldb.store.layout import documents_shard_path
-from sldb.store.ops import cascade_hash_a
-from sldb.store.section_rebuild import rebuild_sections_indexes
-from sldb.store.semantic import rebuild_semantic_indexes
-from sldb.store import documents_hash
+from sldb.api.documents.payload_save import save_document_payload
+from sldb.core.exceptions import SLDBPayloadSaveError
 
 def save_payload(runtime_doc: Any, payload: dict[str, Any], store_arg: str | None, pythonpath: str | None) -> int:
-    sp, root = get_store_context(store_arg)
-    idx, m_entry, m_idx = _load_model_indices(sp, root, runtime_doc.model_name)
-    doc_entry = _load_doc_entry(sp, m_entry.name, runtime_doc.name)
-    model_type = _model(m_entry.model_ref, pythonpath, root)
-    rendered = _render_and_validate(model_type, payload)
-    _update_doc_entry(root, doc_entry, model_type, rendered)
-    _save_indices(sp, root, idx, m_idx, m_entry, doc_entry, pythonpath)
+    """Save a runtime document's new payload; an unregistered model/document or a broken
+    round-trip exits with the error message, as the `fields` commands always have."""
+    try:
+        save_document_payload(store_arg, runtime_doc.model_name, runtime_doc.name, payload, pythonpath)
+    except SLDBPayloadSaveError as exc:
+        raise SystemExit(str(exc)) from exc
     print(f"Updated field payload for '{runtime_doc.name}'")
     return 0
-
-def _model(model_ref: str, pythonpath: str | None, root: Any) -> type:
-    """The caller's pythonpath first, then the store's own root: a linked store's models
-    import from where that store lives."""
-    try:
-        return resolve_model_ref(model_ref, pythonpath)
-    except Exception:  # noqa: BLE001
-        return resolve_model_ref(model_ref, str(root))
-
-def _load_model_indices(sp: Any, root: Any, model_name: str) -> tuple[Any, Any, Any]:
-    idx = load_store_index(sp)
-    m_entry = next((m for m in idx.models if m.name == model_name), None)
-    if m_entry is None: raise SystemExit(f"Model '{model_name}' not registered.")
-    m_idx = load_models_index(root / m_entry.models_index)
-    return idx, m_entry, m_idx
-
-def _load_doc_entry(sp: Any, model_name: str, doc_name: str) -> Any:
-    from sldb.store.io.shards import load_document_shard
-
-    doc_entry = load_document_shard(documents_shard_path(sp, model_name, doc_name))
-    if doc_entry is None: raise SystemExit(f"Doc '{doc_name}' not registered.")
-    return doc_entry
-
-def _render_and_validate(model_type: type, payload: dict[str, Any]) -> str:
-    rendered = render_model_markdown(model_type, payload)
-    valid, details = validate_model_input_roundtrip(model_type, rendered)
-    if not valid: raise SystemExit(f"Field mutation broke idempotency: {details}")
-    return rendered
-
-def _update_doc_entry(root: Any, doc_entry: Any, model_type: type, rendered: str) -> None:
-    doc_path = root / doc_entry.path
-    doc_path.write_text(rendered + "\n", encoding="utf-8")
-    doc_entry.hash_c = hash_text(rendered + "\n")
-    doc_entry.hash_d = hash_fields(model_type, rendered + "\n")
-
-def _save_indices(sp: Any, root: Any, idx: Any, m_idx: Any, m_entry: Any, doc_entry: Any, pythonpath: str | None) -> None:
-    with store_lock(sp):
-        _save_model_summary(sp, root, m_entry, m_idx, doc_entry)
-        rebuild_semantic_indexes(sp, root, resolve_model_ref, pythonpath)
-        rebuild_sections_indexes(sp, root, resolve_model_ref, pythonpath)
-        cascade_hash_a(sp, root, idx)
-
-def _save_model_summary(sp: Any, root: Any, m_entry: Any, m_idx: Any, doc_entry: Any) -> None:
-    save_document_shard(documents_shard_path(sp, m_entry.name, doc_entry.name), doc_entry)
-    documents_hash.note(sp, m_entry.name, doc_entry)
-    # the model's hash_b covers its documents' hashes: a field write must move it, or
-    # `stores check` fails and consumers keyed on hash_b never see the change
-    m_idx.hash_b = documents_hash.hash_b_of(sp, m_entry.name)
-    m_idx.documents_count = documents_hash.count_of(sp, m_entry.name)
-    save_models_index(root / m_entry.models_index, m_idx)
