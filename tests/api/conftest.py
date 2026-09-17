@@ -7,8 +7,7 @@ from pathlib import Path
 
 import pytest
 
-from sldb.api import add_model, resolve_model_ref, track_document_file
-from sldb.cli import main as cli_main
+from sldb.api import add_model, init_store, resolve_model_ref, track_document_file
 from sldb.runtime.validation import render_model_markdown
 
 MODULE = "sldb_api_test_models"
@@ -57,7 +56,7 @@ def api_store(tmp_path: Path) -> ApiStore:
     (tmp_path / f"{MODULE}.py").write_text(MODELS_SOURCE, encoding="utf-8")
     root = tmp_path / "repo"
     root.mkdir()
-    assert cli_main(["stores", "init", "--path", str(root)]) == 0
+    init_store(root)
     store = ApiStore(root, str(tmp_path))
     add_model(store.store, f"{MODULE}:TicketDoc", store.pythonpath)
     track_document_file(store.store, "TicketDoc", store.write_document("login", PAYLOAD), "login", store.pythonpath)

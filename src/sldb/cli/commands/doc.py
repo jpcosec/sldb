@@ -5,9 +5,10 @@ from typing import Any
 import yaml
 
 from sldb.cli.store_context import get_store_context
+from sldb.api.documents.create_document import create_document
 from sldb.api.documents.track_document_file import track_document_file
 from sldb.api.documents.untrack_document import forget_document, untrack_document
-from sldb.cli.model_utils import registered_model, resolve_model_ref
+from sldb.cli.model_utils import resolve_model_ref
 from sldb.cli.commands.doc_lookup import find_doc
 from sldb.runtime.validation import render_model_markdown, validate_model_input_roundtrip
 from sldb.store.io import load_store_index, save_models_index, store_lock
@@ -16,7 +17,7 @@ from sldb.store.hashing import hash_text, hash_fields
 from sldb.store.layout import documents_shard_path
 from sldb.store.section_rebuild import rebuild_sections_indexes
 from sldb.store.semantic import rebuild_semantic_indexes
-from sldb.store.ops import cascade_hash_a, track_document
+from sldb.store.ops import cascade_hash_a
 from sldb.store import documents_hash
 from sldb.core.exceptions import SLDBValidationError, SLDBASTError, SLDBError
 
@@ -38,15 +39,8 @@ class DocCLI:
         except yaml.YAMLError as e: raise SLDBASTError(f"Parse error: {e}")
 
     def add(self, args: Any) -> int:
-        sp, root = get_store_context(args.store)
-        model_type, entry, idx = registered_model(sp, args.model, args.pythonpath)
-        rendered = render_model_markdown(model_type, self._parse_payload(args.payload))
-        if not validate_model_input_roundtrip(model_type, rendered)[0]: raise SLDBValidationError("Idempotency fail", validate_model_input_roundtrip(model_type, rendered)[1])
-        out = self._resolve_doc_path(args.output, root)
-        out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(rendered + "\n", encoding="utf-8")
-        track_document(sp, root, idx, model_type, entry, out, args.name or out.stem, resolve_model_ref, args.pythonpath)
-        print(f"Created and tracked '{args.name or out.stem}'")
+        created = create_document(args.store, args.model, args.output, self._parse_payload(args.payload), args.name, args.pythonpath)
+        print(f"Created and tracked '{created.name}'")
         return 0
 
     def track(self, args: Any) -> int:
@@ -85,6 +79,3 @@ class DocCLI:
         untracked = untrack_document(args.store, args.doc, args.pythonpath)
         print(f"Untracked '{untracked.name}'")
         return 0
-
-    def _resolve_doc_path(self, raw_path: str, root: Path) -> Path:
-        return Path(raw_path).resolve() if Path(raw_path).is_absolute() else (root / Path(raw_path)).resolve()
