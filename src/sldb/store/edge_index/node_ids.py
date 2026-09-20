@@ -49,3 +49,19 @@ def as_node_id(node_or_export_id: str) -> str:
     if node_or_export_id.startswith("sldb://"):
         return node_or_export_id
     return doc_node_id(node_or_export_id)
+
+
+def kind(node_id: str) -> str | None:
+    """The `<kind>` of an `sldb://<kind>/...` id (document, model, semantic_tag, ...)."""
+    if node_id.startswith("sldb://"):
+        rest = node_id[len("sldb://") :]
+        return rest.split("/", 1)[0] if "/" in rest else None
+    return None
+
+
+def bare(node_id: str) -> str:
+    """The id without its `sldb://<kind>/` prefix; one without a prefix passes through."""
+    if node_id.startswith("sldb://"):
+        rest = node_id[len("sldb://") :]
+        return rest.split("/", 1)[1] if "/" in rest else rest
+    return node_id

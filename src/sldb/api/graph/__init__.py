@@ -3,6 +3,18 @@
 from sldb.api.graph.execute import execute_query, graph_get, graph_list
 from sldb.api.graph.neighborhood import collect_neighborhood, collect_neighborhood_by_direction
 from sldb.api.graph.snapshot import ingest_sldb, snapshot_load, snapshot_save
+from sldb.api.graph.traverse import (
+    bare,
+    children,
+    descendants,
+    exists,
+    kind,
+    neighbors_via,
+    parent,
+    roots,
+    sources,
+    targets,
+)
 from sldb.store.graph.convert import index_from_snapshot, snapshot_from_index
 from sldb.store.graph.graph_io import load_graph, save_graph
 from sldb.store.graph.ingest_sldb import sldb_semantic_export_to_snapshot

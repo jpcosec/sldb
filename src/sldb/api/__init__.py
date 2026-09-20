@@ -52,7 +52,7 @@ from sldb.api.stores.store_update_report import StoreUpdateReport
 from sldb.api.stores.update_store_indexes import update_store_indexes
 from sldb.store.edge_index.edge_index import EdgeIndex
 from sldb.store.edge_index.edge_rebuild_report import EdgeRebuildReport
-from sldb.store.edge_index.node_ids import anchor_node_id, doc_node_id, field_node_id, model_node_id, relation_type_node_id, section_node_id, tag_node_id
+from sldb.store.edge_index.node_ids import anchor_node_id, bare, doc_node_id, field_node_id, kind, model_node_id, relation_type_node_id, section_node_id, tag_node_id
 from sldb.store.journal import JournalEntry, JournalVerifyReport
 from sldb.store.models.edge_node_record import EdgeNodeRecord
 from sldb.store.models.edge_record import EdgeRecord
@@ -83,6 +83,7 @@ __all__ = [
     "add_model",
     "add_model_field",
     "anchor_node_id",
+    "bare",
     "check_edges",
     "create_document",
     "deep_delete",
@@ -102,6 +103,7 @@ __all__ = [
     "init_relations",
     "init_store",
     "journal",
+    "kind",
     "link_store",
     "load_edge_index",
     "load_registered_model",
