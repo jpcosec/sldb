@@ -12,8 +12,8 @@ class JournalEntry(BaseModel):
     """A single write, with what changed and the hashes that link it into the chain."""
 
     operation: str = Field(
-        description="The api operation that wrote: create_document, save_document_payload, "
-        "track_document_file, untrack_document, add_model, reindex_model or promote_model_draft."
+        description="The api operation that wrote, e.g. create_document, save_document_payload, "
+        "add_model, create_model, promote_model_draft, add_model_field, backfill_document, ..."
     )
     address: str = Field(
         description="What was written: `Model:doc` for documents, the model name for model operations."

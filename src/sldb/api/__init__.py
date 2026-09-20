@@ -31,6 +31,9 @@ from sldb.api.model_drafts.model_draft import ModelDraft
 from sldb.api.model_drafts.model_source import ModelSource
 from sldb.api.model_drafts.source_location import locate_model_source
 from sldb.api.model_drafts.template_drafts import edit_model_template
+from sldb.api.model_create.create_model import create_model
+from sldb.api.model_create.field_decl import FieldDecl
+from sldb.api.model_create.model_check import ModelCheck
 from sldb.api.model_registry.add_model import add_model
 from sldb.api.model_registry.describe_model import describe_model
 from sldb.api.model_registry.load_registered_model import load_registered_model
@@ -66,10 +69,12 @@ __all__ = [
     "EdgeNodeRecord",
     "EdgeRebuildReport",
     "EdgeRecord",
+    "FieldDecl",
     "FieldDescription",
     "JournalEntry",
     "JournalVerifyReport",
     "LinkedStore",
+    "ModelCheck",
     "ModelDescription",
     "ModelDocumentSummary",
     "ModelDraft",
@@ -82,6 +87,7 @@ __all__ = [
     "StoreUpdateReport",
     "add_model",
     "add_model_field",
+    "create_model",
     "anchor_node_id",
     "bare",
     "check_edges",

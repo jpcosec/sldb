@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from sldb.api.documents.document_reference import DocumentReference
+from sldb.api.documents.payload_diff import field_label
 from sldb.api.documents.payload_save_steps import load_document_entry, load_model_indexes, model_class, render_checked, save_document_indexes, write_rendered_document
 from sldb.api.journal import doc_address, record, store_hash
 from sldb.api.stores.open_store import open_store
@@ -45,7 +46,7 @@ def _save_and_record(location, idx, m_idx, m_entry, doc_entry, model_type, paylo
     hash_c_before, hash_d_before = doc_entry.hash_c, doc_entry.hash_d
     write_rendered_document(location.project_root, doc_entry, model_type, render_checked(model_type, payload))
     save_document_indexes(location.store_path, location.project_root, idx, m_idx, m_entry, doc_entry, pythonpath)
-    record(location.store_path, {"operation": "save_document_payload", "address": doc_address(m_entry.name, doc_entry.name), "previous_value": previous, "new_value": payload, "hash_c_before": hash_c_before, "hash_c_after": doc_entry.hash_c, "hash_d_before": hash_d_before, "hash_d_after": doc_entry.hash_d, "hash_a_before": before_a, "hash_a_after": store_hash(location.store_path), "actor": actor})
+    record(location.store_path, {"operation": "save_document_payload", "address": doc_address(m_entry.name, doc_entry.name), "field": field_label(previous, payload), "previous_value": previous, "new_value": payload, "hash_c_before": hash_c_before, "hash_c_after": doc_entry.hash_c, "hash_d_before": hash_d_before, "hash_d_after": doc_entry.hash_d, "hash_a_before": before_a, "hash_a_after": store_hash(location.store_path), "actor": actor})
 
 
 def _old_payload(root: Path, doc_entry, model_type: type) -> Any | None:

@@ -34,3 +34,8 @@ def describe_model_fields(model_type: type[Any]) -> list[FieldDescription]:
         One description per field.
     """
     return [describe_field(name, field) for name, field in model_type.model_fields.items()]
+
+
+def schema_snapshot(model_type: type[Any], version: int) -> dict[str, Any]:
+    """A journal-ready snapshot of a model's contract: its version and every field."""
+    return {"version": version, "fields": [f.model_dump() for f in describe_model_fields(model_type)]}

@@ -55,3 +55,11 @@ def remove_field_block(path: Path, class_name: str, field_name: str) -> str:
     source = path.read_text(encoding="utf-8")
     class_node = find_class_node(ast.parse(source), class_name, path)
     return remove_node_block(source, field_node(class_node, class_name, field_name))
+
+
+def field_block_source(path: Path, class_name: str, field_name: str) -> str:
+    """The source lines declaring `field_name`, for the journal of a field removal."""
+    source = path.read_text(encoding="utf-8")
+    class_node = find_class_node(ast.parse(source), class_name, path)
+    node = field_node(class_node, class_name, field_name)
+    return "".join(source.splitlines(keepends=True)[node.lineno - 1 : node.end_lineno])

@@ -8,6 +8,7 @@ from sldb.api.journal import record, store_hash
 from sldb.api.model_registry.model_index_writes import rehash_documents, save_reindexed_model
 from sldb.api.model_registry.model_reference import resolve_model_ref
 from sldb.api.model_registry.model_registration import ModelRegistration
+from sldb.api.schema.describe_field import schema_snapshot
 from sldb.api.stores.open_store import open_store
 from sldb.core.exceptions import SLDBModelError
 from sldb.store.io import load_documents_index, load_models_index, load_store_index
@@ -42,9 +43,15 @@ def reindex_model(store: str | Path | None, model_name: str, pythonpath: str | N
 
 def _rehash_and_record(location, idx: StoreIndex, m_entry: ModelEntry, m_idx, d_idx, pythonpath: str | None, bump_version: bool, actor: str | None) -> None:
     before = store_hash(location.store_path)
-    rehash_documents(location.project_root, d_idx, resolve_model_ref(m_entry.model_ref, pythonpath))
+    model_type = resolve_model_ref(m_entry.model_ref, pythonpath)
+    before_version = m_idx.version
+    rehash_documents(location.project_root, d_idx, model_type)
     save_reindexed_model(location.store_path, location.project_root, idx, m_entry, m_idx, d_idx, bump_version, pythonpath)
-    record(location.store_path, {"operation": "reindex_model", "address": m_entry.name, "hash_a_before": before, "hash_a_after": store_hash(location.store_path), "actor": actor})
+    _record_entry(location.store_path, m_entry, model_type, before_version, m_idx.version, before, actor)
+
+
+def _record_entry(sp: Path, m_entry: ModelEntry, model_type: type, before_version: int, after_version: int, before: str, actor: str | None) -> None:
+    record(sp, {"operation": "reindex_model", "address": m_entry.name, "previous_value": schema_snapshot(model_type, before_version), "new_value": schema_snapshot(model_type, after_version), "hash_a_before": before, "hash_a_after": store_hash(sp), "actor": actor})
 
 
 def _model_entry(idx: StoreIndex, model_name: str) -> ModelEntry:
