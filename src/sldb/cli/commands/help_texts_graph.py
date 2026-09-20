@@ -48,10 +48,11 @@ Subcommands:
   ingest-sldb   Convert an sldb_kgdb_semantic_export file into node-link JSON
 
 --type filters different things on purpose
-  For `components` it restricts the graph: "which specs hang together" is a question about the
-  subgraph the specs induce. For `central` and `similar` it filters the answer, because there
-  the rest of the graph is what produces the number — drop the tags and nothing resembles
-  anything.
+  For `components --islands` it restricts the graph: "which specs hang together" is a question
+  about the subgraph the specs induce. For `components --isolated`, `central` and `similar` it
+  filters the answer, because there the rest of the graph is what produces it — a spec every
+  surface implements is not isolated just because no other spec points at it, and dropping the
+  tags leaves nothing for two documents to resemble each other through.
 
 PageRank needs scipy, which sldb does not require: `pip install 'sldb[graph]'`. Every other
 analysis is pure networkx.

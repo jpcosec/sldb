@@ -155,11 +155,14 @@ structure (`has_document`, `has_section`, `tagged_as`...) with what someone asse
 path or a ranking over the derived spine is a truism. An analysis that is not told which relations
 to walk walks the authored ones. This is the single most important thing about the layer.
 
-**`node_types` means two different things, on purpose.** For `components` it restricts the graph:
-"which specs hang together" is a question about the subgraph the specs induce. For `central` and
-`similar` it filters the answer, because there the rest of the graph is what produces the number —
-restricting the view first deletes the tags two documents resemble each other through, and the
-answer comes back empty. This was found by a test, not by design.
+**`node_types` means two different things, on purpose.** For `components` and `islands` it
+restricts the graph: "which specs hang together" is a question about the subgraph the specs induce.
+For `isolated`, `central` and `similar` it filters the answer, because there the rest of the graph
+is what produces it. Both halves of this were found by using the thing, not by design: restricting
+the view first made `similar` come back empty, because it deleted the tags two documents resemble
+each other through; and the first real run of `components --isolated --type SpecDoc` listed specs
+that were also in the top five by PageRank, because no spec implements another spec — every
+`implements` edge comes from a surface.
 
 ### The dependency, precisely
 
