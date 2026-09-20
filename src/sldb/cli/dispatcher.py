@@ -46,6 +46,11 @@ class CLI:
     def _load_edges(self):
         from sldb.cli.commands.edges import EdgesCLI
         self.handlers["edges"] = EdgesCLI().run
+        self._load_graph()
+
+    def _load_graph(self):
+        from sldb.cli.commands.graph import GraphCLI
+        self.handlers["graph"] = GraphCLI().run
 
     def _load_addresses(self):
         """The raw address surface: `legacy ls|get|glob|find|recover|compose`.
