@@ -6,6 +6,7 @@ from sldb.store.query_engine.semantic_utils import (
     _local_semantic_docs,
     _semantic_children,
     _match_semantic_pattern,
+    tag_scope,
 )
 from sldb.store.query_engine.where_parse import compile_where
 
@@ -55,8 +56,8 @@ class SemanticEngine:
     ) -> list[str]:
         """Gets documents associated with a semantic tag."""
         docs, _ = _local_semantic_docs(store_path, resolve_model_ref, pythonpath)
-        tag = address.removeprefix("se.")
-        return sorted(f"st.{{{doc.model_name}}}.{doc.name}" for doc in docs if tag in doc.semantic_tags)
+        wanted = tag_scope(store_path, address.removeprefix("se."))
+        return sorted(f"st.{{{doc.model_name}}}.{doc.name}" for doc in docs if wanted & set(doc.semantic_tags))
 
     @classmethod
     def glob_semantic(
@@ -74,6 +75,13 @@ class SemanticEngine:
         """Finds documents matching a semantic scope and filter."""
         docs, _ = _local_semantic_docs(store_path, resolve_model_ref, pythonpath)
         semantic_pattern = address.removeprefix("se.")
-        matching = [doc for doc in docs if any(_match_semantic_pattern(tag, semantic_pattern) for tag in doc.semantic_tags)]
+        matching = [doc for doc in docs if cls._in_scope(store_path, semantic_pattern, doc)]
         predicate = compile_where(where)  # once per query; unparseable predicates raise
         return sorted(f"st.{{{doc.model_name}}}.{doc.name}" for doc in matching if predicate(doc, resolve_model_ref, pythonpath))
+
+    @classmethod
+    def _in_scope(cls, store_path: Path, pattern: str, doc) -> bool:
+        """A glob still matches tag by tag; a plain tag names its whole subtree."""
+        if "*" in pattern:
+            return any(_match_semantic_pattern(tag, pattern) for tag in doc.semantic_tags)
+        return bool(tag_scope(store_path, pattern) & set(doc.semantic_tags))

@@ -35,6 +35,23 @@ def under(dag, tag: str) -> list[str]:
     return sorted(nx.ancestors(graph, tag)) if tag in graph else []
 
 
+def above(dag, tag: str) -> list[str]:
+    """Every tag `tag` hangs from, at any depth. Edges point at parents, so this is
+    `descendants`."""
+    graph = dag_graph(dag)
+    return sorted(nx.descendants(graph, tag)) if tag in graph else []
+
+
+def scope(dag, tag: str) -> set[str]:
+    """What naming `tag` reaches: itself and everything below it."""
+    return {tag, *under(dag, tag)}
+
+
+def reach(dag, tags) -> set[str]:
+    """What a document carrying `tags` can be found by: the tags and everything above them."""
+    return {t for tag in tags for t in (tag, *above(dag, tag))}
+
+
 def roots(dag) -> list[str]:
     """The tags with no parent: the tops of the DAG."""
     graph = dag_graph(dag)

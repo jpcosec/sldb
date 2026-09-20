@@ -4,6 +4,7 @@ import re
 from pathlib import Path
 
 from sldb.store.io import load_semantic_dag
+from sldb.store.semantic_dag_graph import reach
 from sldb.store.query import load_runtime_documents
 
 
@@ -37,11 +38,14 @@ class GlobalSemanticEngine:
 
     @classmethod
     def _has_global_tag(cls, doc, global_tag: str) -> bool:
+        """A document is reachable by its own tags, by what they hang from, and by the global
+        tags they are declared equivalent to."""
         dag = load_semantic_dag(doc.store_path)
-        mapped_tags = set(doc.semantic_tags if doc.store_name == "local" else [])
-        for local_tag in doc.semantic_tags:
-            mapped_tags.update(dag.equivalences.get(local_tag, []))
-        return global_tag in mapped_tags
+        local = reach(dag, doc.semantic_tags)
+        mapped = set(local if doc.store_name == "local" else [])
+        for local_tag in local:
+            mapped.update(dag.equivalences.get(local_tag, []))
+        return global_tag in mapped
 
     @classmethod
     def list_global_semantic(

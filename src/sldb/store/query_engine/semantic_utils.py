@@ -9,6 +9,7 @@ from sldb.store.io import load_semantic_dag, load_semantic_index
 from sldb.store.query import load_runtime_documents
 from sldb.store.semantic_dag_graph import children as dag_children
 from sldb.store.semantic_dag_graph import relative, roots as dag_roots
+from sldb.store.semantic_dag_graph import scope as dag_scope
 from sldb.store.query_engine.models import RuntimeDocument
 
 
@@ -20,6 +21,16 @@ def _match_semantic_pattern(tag: str, pattern: str) -> bool:
 def _semantic_children(store_path: Path, prefix: str) -> list[str]:
     """Retrieves child semantic nodes by walking the store's semantic DAG."""
     return SemanticUtils.semantic_children(store_path, prefix)
+
+
+def tag_scope(store_path: Path, tag: str) -> set[str]:
+    """The tag and every tag under it in the store's DAG: what naming it reaches.
+
+    Naming a parent used to reach nothing: `se.type.knowledge` answered `[]` while 29 documents
+    hung under it, because a document is tagged with the leaf and the edges to the parent had no
+    reader. Reading them is the whole point of the DAG being a graph.
+    """
+    return dag_scope(load_semantic_dag(store_path), tag)
 
 
 def _local_semantic_docs(

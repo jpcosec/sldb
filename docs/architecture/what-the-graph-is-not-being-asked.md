@@ -123,7 +123,11 @@ even though the tag existed. Leaves are navigable now.
 What phase 1 buys is the door: a parent declared by hand in the DAG file, which has always been
 possible to write and impossible to see, is now an edge like any other.
 
-Phase 2 — letting a tag declare a non-prefix parent through the API, deduplicating the fourteen
-nodes above, and deciding whether `se.type.knowledge` returns its subtree instead of `[]` — is
-not done. That last one changes the meaning of addresses already in use, and is the open
-question.
+**Closure, same day.** `se.<tag>` now reaches the tag's whole subtree: `se.type.knowledge`
+answers with the 29 documents instead of `[]`. A glob keeps its old reading, so `se.type.*`
+still matches tag by tag; only a plain tag names a subtree. `gse.` closes the same way — a
+document is reachable by its own tags, by what they hang from, and by the global tags those are
+declared equivalent to.
+
+What is left of phase 2: an authoring surface for a parent that is not a prefix, and the
+deduplication of the fourteen nodes.
