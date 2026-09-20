@@ -10,6 +10,7 @@ import pytest
 from sldb.core.exceptions import SLDBGraphCycleError
 from sldb.store.edge_index.edge_index import EdgeIndex
 from sldb.store.graph import analysis, sldb_semantic_export_to_snapshot
+from sldb.store.edge_index.acyclic import cycle_errors
 from sldb.store.graph.convert import index_from_snapshot
 from sldb.store.models import EdgeNodeRecord, EdgeRecord
 
@@ -139,3 +140,14 @@ def test_the_analyses_run_over_a_real_semantic_export():
     assert analysis.is_acyclic(index)
     assert len(analysis.topological_order(index)) == len(analysis.to_networkx(index).nodes)
     assert analysis.central(index, limit=1)[0][1] > 0
+
+
+def test_a_cycle_in_a_relation_that_must_be_a_dag_is_an_error_no_per_edge_check_can_see():
+    """`semantic_parent` and `extends` are invariants sldb relies on; only the whole graph sees them."""
+    healthy = index_of([("child", "semantic_parent", "parent")])
+    assert cycle_errors(healthy) == []
+    looped = index_of([("a", "semantic_parent", "b"), ("b", "semantic_parent", "a"), ("m", "extends", "m")])
+    reported = cycle_errors(looped)
+    assert len(reported) == 2
+    assert "Relation 'semantic_parent' has a cycle:" in reported[0]
+    assert "Relation 'extends' has a cycle: m -> m." in reported[1]

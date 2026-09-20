@@ -7,6 +7,7 @@ from typing import Iterable
 
 from sldb.api.edges.edge_check_report import EdgeCheckReport
 from sldb.api.edges.edge_reading import load_edge_index
+from sldb.store.edge_index.acyclic import cycle_errors
 from sldb.store.edge_index.validation import validate_edge_index
 
 
@@ -19,7 +20,9 @@ def check_edges(store: str | Path | None, include_linked: bool = True, exclude_t
         exclude_tags: Leave out the documents carrying one of these tags before validating.
 
     Returns:
-        The errors found (the same sentences TypedIngestError carried) and the stale documents.
+        The errors found (the same sentences TypedIngestError carried, plus a cycle in a
+        relation that must be acyclic) and the stale documents.
     """
     index = load_edge_index(store, include_linked, exclude_tags)
-    return EdgeCheckReport(errors=index.problems + validate_edge_index(index), stale=index.stale)
+    errors = index.problems + validate_edge_index(index) + cycle_errors(index)
+    return EdgeCheckReport(errors=errors, stale=index.stale)
