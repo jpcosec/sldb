@@ -5,8 +5,10 @@ from pathlib import Path
 from typing import Any
 
 from sldb.store.layout import project_root
-from sldb.store.io import load_semantic_index
+from sldb.store.io import load_semantic_dag, load_semantic_index
 from sldb.store.query import load_runtime_documents
+from sldb.store.semantic_dag_graph import children as dag_children
+from sldb.store.semantic_dag_graph import relative, roots as dag_roots
 from sldb.store.query_engine.models import RuntimeDocument
 
 
@@ -15,9 +17,9 @@ def _match_semantic_pattern(tag: str, pattern: str) -> bool:
     return SemanticUtils.match_semantic_pattern(tag, pattern)
 
 
-def _semantic_children(tags: list[str], prefix: str) -> list[str]:
-    """Retrieves child semantic nodes for a given prefix."""
-    return SemanticUtils.semantic_children(tags, prefix)
+def _semantic_children(store_path: Path, prefix: str) -> list[str]:
+    """Retrieves child semantic nodes by walking the store's semantic DAG."""
+    return SemanticUtils.semantic_children(store_path, prefix)
 
 
 def _local_semantic_docs(
@@ -39,21 +41,16 @@ class SemanticUtils:
         return re.fullmatch(escaped, tag) is not None
 
     @classmethod
-    def semantic_children(cls, tags: list[str], prefix: str) -> list[str]:
-        """Retrieves child semantic nodes for a given prefix."""
-        children = set()
-        prefix_dot = f"{prefix}." if prefix else ""
-        for tag in tags:
-            cls._add_child(children, tag, prefix_dot)
-        return sorted(children)
+    def semantic_children(cls, store_path: Path, prefix: str) -> list[str]:
+        """Child semantic nodes, read off the DAG's edges rather than matched as strings.
 
-    @classmethod
-    def _add_child(cls, children: set[str], tag: str, prefix_dot: str) -> None:
-        if not tag.startswith(prefix_dot):
-            return
-        remainder = tag[len(prefix_dot) :]
-        if remainder and "." in remainder:
-            children.add(remainder.split(".", 1)[0])
+        `se` lists the tags with no parent; `se.<tag>` lists the tags that declare it as one.
+        A child whose name is not the parent's name plus a segment comes back whole: that is
+        what a parent declared by hand, instead of derived from the dotted name, looks like.
+        """
+        dag = load_semantic_dag(store_path)
+        found = dag_roots(dag) if not prefix else dag_children(dag, prefix)
+        return sorted({relative(tag, prefix) for tag in found})
 
     @classmethod
     def local_semantic_docs(

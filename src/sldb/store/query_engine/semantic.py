@@ -42,12 +42,11 @@ class SemanticEngine:
         cls, store_path: Path, address: str, resolve_model_ref, pythonpath: str | None = None,
     ) -> list[str]:
         """Lists nodes in the semantic address space (se)."""
-        docs, semantic_index = _local_semantic_docs(store_path, resolve_model_ref, pythonpath)
-        tags = sorted(semantic_index.tags.keys())
+        docs, _ = _local_semantic_docs(store_path, resolve_model_ref, pythonpath)
         if address == "se":
-            return _semantic_children(tags, "")
+            return _semantic_children(store_path, "")
         prefix = address.removeprefix("se.")
-        children = _semantic_children(tags, prefix)
+        children = _semantic_children(store_path, prefix)
         return children if children else sorted(doc.name for doc in docs if prefix in doc.semantic_tags)
 
     @classmethod

@@ -35,10 +35,40 @@ Sixteen thousand edges, and the only questions asked were about one node at a ti
 - **`cycles --relation semantic_parent`** is now part of `sldb edges check`, so a corrupt DAG is
   a check failure instead of a silent wrong answer.
 
+## One correction: the first two are the same graph
+
+This review first listed the semantic DAG and `tagged_as` as two findings. They are one.
+
+A tag's dotted name **is** a path in a graph: `type.knowledge.anchor` serializes
+`type -> knowledge -> anchor`. `tagged_as` is the incidence relation of that same structure.
+sldb stores one graph as strings and then navigates the strings, next to a graph engine.
+
+The cost is visible in pron's own tag list. Because a dotted name gives a tag exactly one
+parent, a concept with two had to be duplicated into parallel trees:
+
+| what it is | where it lives |
+|---|---|
+| `type.knowledge.anchor` | `workspace.knowledge.anchors` |
+| `type.knowledge.surface` | `workspace.knowledge.surfaces` |
+| `type.knowledge.explanation` | `workspace.knowledge.explanations` |
+| `type.knowledge.projection` | `workspace.knowledge.projections` |
+| `type.knowledge.cli_command` | `workspace.knowledge.commands` |
+| `type.pron.move` | `workspace.knowledge.ledger` |
+| `type.knowledge.spec` | `workspace.source.spec` |
+
+Seven concepts, fourteen nodes, no edge between them. Plus five tags in a second syntax
+(`domain:system_architecture`, `entity:cli_command`, `impl:here`, `kind:software`,
+`system:pron`) that are isolated roots because they have no dots to hang from.
+
+Once it is one graph: closure is `under(tag)` plus the `tagged_as` sources; multiple parents
+collapse the fourteen nodes back into seven; document resemblance is the bipartite projection
+of the same graph; `semantic_equivalent` stops being a separate file and is another edge; and
+the colon tags stop being a second syntax.
+
 ## What is still not being asked, and should be
 
-Three things, in order of how much is being left on the table. None of them is done; all three
-are decisions, not just work.
+Three things, in order of how much is being left on the table. The first is now **half done** —
+see the phase note at the end. All three are decisions, not just work.
 
 ### 1. The "semantic DAG" is the dotted names re-encoded
 
@@ -80,3 +110,20 @@ The hand-rolled BFS in `store/graph/{traversal,neighborhood,executor}.py`. It wo
 tested, it has callers, and it is on the hot path of every `edges_from`. Rewriting it on
 networkx would buy nothing but risk. networkx is for the questions the adjacency maps cannot
 answer, not for the ones they answer well.
+
+
+## Phase 1, done 2026-09-20
+
+`se.` navigation now walks the DAG's edges (`sldb.store.semantic_dag_graph`) instead of matching
+tag strings. Every edge is still derived from a name, so the answers are the same and the suite
+proves it — except for one quirk the string matching had and nobody meant: it listed a child
+only when that child had children of its own, so `se.layer` could not reach `layer.topology`
+even though the tag existed. Leaves are navigable now.
+
+What phase 1 buys is the door: a parent declared by hand in the DAG file, which has always been
+possible to write and impossible to see, is now an edge like any other.
+
+Phase 2 — letting a tag declare a non-prefix parent through the API, deduplicating the fourteen
+nodes above, and deciding whether `se.type.knowledge` returns its subtree instead of `[]` — is
+not done. That last one changes the meaning of addresses already in use, and is the open
+question.
