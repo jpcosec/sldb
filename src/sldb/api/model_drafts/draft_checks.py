@@ -5,6 +5,9 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
+from pydantic import ValidationError
+
+from sldb.api.model_drafts.backfill import missing_fields, missing_message
 from sldb.api.model_drafts.draft_contract import validate_template_contract
 from sldb.api.model_drafts.draft_document_check import DraftDocumentCheck
 from sldb.api.stores.open_store import open_store
@@ -36,7 +39,11 @@ def check_documents(store: str | Path | None, model_name: str, model_type: Any) 
 
 def _check_document(model_name: str, name: str, path: Path, model_type: Any) -> DraftDocumentCheck:
     """Round-trip one document; a document that does not round-trip stops the validation."""
-    valid, details = validate_model_input_roundtrip(model_type, path.read_text(encoding="utf-8"))
+    try:
+        valid, details = validate_model_input_roundtrip(model_type, path.read_text(encoding="utf-8"))
+    except ValidationError as exc:
+        missing = missing_fields(exc)
+        raise SLDBValidationError(missing_message(model_name, name, missing), {"document": name, "missing": missing}) from exc
     if not valid:
         raise SLDBValidationError(f"Draft for '{model_name}' failed validation on '{name}'.", details)
     return DraftDocumentCheck(name=name, path=path, valid=valid)
