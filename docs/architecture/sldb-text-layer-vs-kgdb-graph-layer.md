@@ -1,6 +1,6 @@
 # ADR: Keep SLDB As The Structured Text Layer And KGDB As The Graph Layer
 
-- Status: Proposed
+- Status: Superseded by [SLDB Absorbs KGDB](sldb-absorbs-kgdb.md) (2026-09-20)
 - Date: 2026-06-19
 - Decision Makers: Local architecture discussion in the SLDB repo
 - Related Repos: `sldb`, `kgdb`, `deskops`
