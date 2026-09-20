@@ -7,6 +7,7 @@ from .docs1 import add_docs_group
 from .fields import add_fields_group
 from .sections import add_sections_group
 from .edges import add_edges_group
+from .journal import add_journal_group
 
 def add_public_group_commands(s: argparse._SubParsersAction) -> None:
     add_stores_group(s)
@@ -16,3 +17,4 @@ def add_public_group_commands(s: argparse._SubParsersAction) -> None:
     add_fields_group(s)
     add_sections_group(s)
     add_edges_group(s)
+    add_journal_group(s)
