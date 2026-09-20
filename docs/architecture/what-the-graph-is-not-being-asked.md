@@ -76,19 +76,20 @@ This is the big one, and it is about the part that was sldb long before kgdb.
 
 `sync_semantic_dag` builds the `semantic_parent` edges from `_prefix_edges(tag)` — purely from
 the dotted string. `type.knowledge.anchor` gets a parent `type.knowledge` because of its name,
-not because anyone said so. And `se.` navigation does not read those edges at all:
-`SemanticUtils.semantic_children` matches tags by `startswith`.
+not because anyone said so. Until 2026-09-20, `se.` navigation did not read those edges at all:
+`semantic_children` matched by `startswith` and `get_semantic` matched the tag exactly, so
+`se.type.knowledge` answered `[]` with 316 documents hanging under it. A graph of 26 edges and
+37 nodes, and deleting it changed no answer.
 
-So there is a graph, with 26 `semantic_parent` edges and 37 `semantic_tag` nodes, that carries
-no information the strings did not already carry, and that no reader consults. The only
-hand-authored part of the semantic layer is `semantic_equivalent`.
+**Half of this is now done** — the walk and the closure, see the phase note at the end. The two
+readers exist; the DAG has a consumer.
 
-What it costs: you cannot say `type.knowledge.anchor` is a kind of `layer.topology` unless you
-rename one of them. Meaning has to be smuggled into names.
-
-What it would take: let a tag declare parents that are not prefixes, and make the `se.` address
-space walk `semantic_parent` instead of matching strings. That changes what an address space
-means, so it is not a refactor — it is a decision.
+What is still true: the edges are still *derived from names*, so the graph still carries no
+information the strings did not carry. You cannot say `type.knowledge.anchor` is a kind of
+`layer.topology` unless you rename one of them, and meaning goes on being smuggled into names.
+Two things are missing for that — an authoring surface for a parent that is not a prefix (the
+DAG file can already hold one; nothing writes it), and deciding what a tag's identity is once
+it stops being a path.
 
 ### 2. `tagged_as` is 87% of the graph and was never a signal
 
@@ -124,7 +125,8 @@ What phase 1 buys is the door: a parent declared by hand in the DAG file, which 
 possible to write and impossible to see, is now an edge like any other.
 
 **Closure, same day.** `se.<tag>` now reaches the tag's whole subtree: `se.type.knowledge`
-answers with the 29 documents instead of `[]`. A glob keeps its old reading, so `se.type.*`
+answers with its 316 documents instead of `[]` (271 surfaces, 15 specs, 13 explanations, 10
+commands, 5 anchors, a projection and a readme). A glob keeps its old reading, so `se.type.*`
 still matches tag by tag; only a plain tag names a subtree. `gse.` closes the same way — a
 document is reachable by its own tags, by what they hang from, and by the global tags those are
 declared equivalent to.
