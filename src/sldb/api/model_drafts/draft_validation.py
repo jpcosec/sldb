@@ -5,6 +5,7 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
+from sldb.api.journal import record, store_hash
 from sldb.api.model_drafts.draft_checks import check_documents, current_version
 from sldb.api.model_drafts.draft_loading import load_model_from_path
 from sldb.api.model_drafts.draft_restore import restored_on_failure, store_index_files
@@ -36,7 +37,7 @@ def validate_model_draft(store: str | Path | None, model_name: str, pythonpath: 
     return _checked(store, model_name, pythonpath)[1]
 
 
-def promote_model_draft(store: str | Path | None, model_name: str, pythonpath: str | None = None) -> DraftValidationReport:
+def promote_model_draft(store: str | Path | None, model_name: str, pythonpath: str | None = None, actor: str | None = None) -> DraftValidationReport:
     """Validate the draft, install it over the active model, reindex and bump the version.
 
     If the reindex fails, the active model, the draft and the store indexes are put back.
@@ -48,6 +49,7 @@ def promote_model_draft(store: str | Path | None, model_name: str, pythonpath: s
         store: The store registering the model (path, alias, or None to discover it).
         model_name: Registered model name.
         pythonpath: Directory to import the model's modules from.
+        actor: Optional label recorded in the store journal for this write.
 
     Returns:
         The validation report, with `promoted` True and the bumped version.
@@ -59,7 +61,8 @@ def promote_model_draft(store: str | Path | None, model_name: str, pythonpath: s
         SLDBValidationError: When a tracked document does not round-trip under the draft.
     """
     source, report = _checked(store, model_name, pythonpath)
-    version = _install_draft(store, model_name, source, pythonpath)
+    before = store_hash(open_store(store).store_path)
+    version = _install_draft(store, model_name, source, pythonpath, actor, before)
     return report.model_copy(update={"promoted": True, "version": version})
 
 
@@ -72,7 +75,7 @@ def _checked(store: str | Path | None, model_name: str, pythonpath: str | None) 
     return source, DraftValidationReport(model=model_name, draft=draft, path=checked_path, documents=documents, promoted=False, version=current_version(store, model_name))
 
 
-def _install_draft(store: str | Path | None, model_name: str, source: ModelSource, pythonpath: str | None) -> int:
+def _install_draft(store: str | Path | None, model_name: str, source: ModelSource, pythonpath: str | None, actor: str | None, before: str) -> int:
     """Copy the draft over the active source and reindex, restoring everything on failure; returns the new version."""
     if not source.draft_path.exists():
         raise SLDBModelDraftError(f"No draft template for '{model_name}' to promote.")
@@ -82,6 +85,7 @@ def _install_draft(store: str | Path | None, model_name: str, source: ModelSourc
     finally:
         _drop_modules(modules)  # promoted or restored, the next import reads what is on disk now
     source.draft_path.unlink()
+    _record_promote(store, model_name, before, actor)
     return version
 
 
@@ -90,6 +94,11 @@ def _install_and_reindex(store: str | Path | None, model_name: str, source: Mode
         source.path.write_text(source.draft_path.read_text(encoding="utf-8"), encoding="utf-8")
         _drop_modules(modules)  # the reindex (document hashes, the edge index's field nodes) reads the new contract
         return reindex_model(store, model_name, pythonpath, bump_version=True).version
+
+
+def _record_promote(store: str | Path | None, model_name: str, before: str, actor: str | None) -> None:
+    sp = open_store(store).store_path
+    record(sp, {"operation": "promote_model_draft", "address": model_name, "hash_a_before": before, "hash_a_after": store_hash(sp), "actor": actor})
 
 
 def _model_modules(store: str | Path | None, model_name: str, source: ModelSource) -> set[str]:

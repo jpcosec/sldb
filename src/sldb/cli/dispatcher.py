@@ -29,8 +29,9 @@ class CLI:
         from sldb.cli.commands.models import ModelsCLI
         from sldb.cli.commands.predicates import PredicatesCLI
         from sldb.cli.commands.docs import DocsCLI
+        from sldb.cli.commands.journal import JournalCLI
         self.handlers.update({"ast": ASTCLI().run, "find": FindCLI().run, "stores": StoresCLI().run})
-        self.handlers.update({"models": ModelsCLI().run, "predicates": PredicatesCLI().run, "docs": DocsCLI().run})
+        self.handlers.update({"models": ModelsCLI().run, "predicates": PredicatesCLI().run, "docs": DocsCLI().run, "journal": JournalCLI().run})
 
     def _load_3(self):
         from sldb.cli.commands.selfdoc import SelfdocCLI

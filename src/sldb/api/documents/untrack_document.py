@@ -6,6 +6,7 @@ from pathlib import Path
 
 from sldb.api.documents.document_lookup import find_doc
 from sldb.api.documents.document_reference import DocumentReference
+from sldb.api.journal import doc_address, record, store_hash
 from sldb.api.model_registry.model_reference import resolve_model_ref
 from sldb.api.stores.open_store import open_store
 from sldb.store import documents_hash
@@ -22,13 +23,14 @@ from sldb.store.section_rebuild import rebuild_sections_indexes
 from sldb.store.semantic import rebuild_semantic_indexes
 
 
-def untrack_document(store: str | Path | None, document: str, pythonpath: str | None = None) -> DocumentReference:
+def untrack_document(store: str | Path | None, document: str, pythonpath: str | None = None, actor: str | None = None) -> DocumentReference:
     """Remove a tracked document from its model's index and rebuild the derived indexes.
 
     Args:
         store: The store tracking the document (path, alias, or None to discover it).
         document: Document name, or its path as recorded in the store.
         pythonpath: Directory to import the store's model modules from.
+        actor: Optional label recorded in the store journal for this write.
 
     Returns:
         The document that was untracked.
@@ -39,8 +41,15 @@ def untrack_document(store: str | Path | None, document: str, pythonpath: str | 
     location = open_store(store)
     idx = load_store_index(location.store_path)
     m_entry, m_idx, doc = find_doc(location.store_path, location.project_root, idx, document)
-    forget_document(location.store_path, location.project_root, idx, m_entry, m_idx, doc, pythonpath)
+    _forget_and_record(location.store_path, location.project_root, idx, m_entry, m_idx, doc, pythonpath, actor)
     return DocumentReference(model=m_entry.name, name=doc.name, path=location.project_root / doc.path)
+
+
+def _forget_and_record(sp: Path, root: Path, idx: StoreIndex, m_entry: ModelEntry, m_idx: ModelsIndex, doc: DocumentEntry, pythonpath: str | None, actor: str | None) -> None:
+    before_a = store_hash(sp)
+    hash_c, hash_d = doc.hash_c, doc.hash_d
+    forget_document(sp, root, idx, m_entry, m_idx, doc, pythonpath)
+    record(sp, {"operation": "untrack_document", "address": doc_address(m_entry.name, doc.name), "hash_c_before": hash_c, "hash_d_before": hash_d, "hash_a_before": before_a, "hash_a_after": store_hash(sp), "actor": actor})
 
 
 def forget_document(sp: Path, root: Path, idx: StoreIndex, m_entry: ModelEntry, m_idx: ModelsIndex, doc: DocumentEntry, pythonpath: str | None) -> None:
