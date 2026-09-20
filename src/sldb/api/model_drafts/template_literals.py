@@ -9,16 +9,54 @@ from sldb.api.model_drafts.source_editing import find_class_node, replace_rhs_ex
 from sldb.core.exceptions import SLDBModelEditError
 
 
+def find_template_assign(class_node: ast.ClassDef) -> ast.Assign | None:
+    """The class's `__template__ = ...` statement, or None when it inherits the template."""
+    for node in class_node.body:
+        if isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id == "__template__" for t in node.targets):
+            return node
+    return None
+
+
 def template_assign_node(class_node: ast.ClassDef, class_name: str) -> ast.Assign:
     """The class's `__template__ = ...` statement.
 
     Raises:
         SLDBModelEditError: When the class assigns no `__template__`.
     """
-    for node in class_node.body:
-        if isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id == "__template__" for t in node.targets):
-            return node
-    raise SLDBModelEditError(f"Class '{class_name}' has no __template__ assignment.")
+    assign = find_template_assign(class_node)
+    if assign is None:
+        raise SLDBModelEditError(f"Class '{class_name}' has no __template__ assignment.")
+    return assign
+
+
+def declares_template(path: Path, class_name: str) -> bool:
+    """Whether class `class_name` assigns its own `__template__` in the source at `path`."""
+    source = path.read_text(encoding="utf-8")
+    class_node = find_class_node(ast.parse(source), class_name, path)
+    return find_template_assign(class_node) is not None
+
+
+def insert_template_assignment(path: Path, class_name: str, template: str) -> str:
+    """The source of `path` with class `class_name` declaring its own `__template__`.
+
+    The new assignment is inserted at the top of the class body, after a docstring when
+    one leads the class, so the class stops inheriting its template.
+
+    Raises:
+        SLDBModelEditError: When the class is missing.
+    """
+    source = path.read_text(encoding="utf-8")
+    class_node = find_class_node(ast.parse(source), class_name, path)
+    lines = source.splitlines(keepends=True)
+    first = class_node.body[0]
+    insert_at = first.end_lineno if _is_docstring(first) else first.lineno - 1
+    indent = lines[first.lineno - 1][: len(lines[first.lineno - 1]) - len(lines[first.lineno - 1].lstrip())]
+    lines.insert(insert_at, f"{indent}__template__ = {template_literal(template)}\n")
+    return "".join(lines)
+
+
+def _is_docstring(node: ast.stmt) -> bool:
+    return isinstance(node, ast.Expr) and isinstance(node.value, ast.Constant) and isinstance(node.value.value, str)
 
 
 def template_literal(template: str) -> str:

@@ -18,8 +18,14 @@ from sldb.api.model_drafts.field_blocks import (
 )
 from sldb.api.model_drafts.model_draft import ModelDraft
 from sldb.api.model_drafts.source_location import locate_model_source
-from sldb.api.model_drafts.template_literals import read_template_literal, replace_template_literal
+from sldb.api.model_drafts.template_literals import (
+    declares_template,
+    insert_template_assignment,
+    read_template_literal,
+    replace_template_literal,
+)
 from sldb.api.model_drafts.template_sections import append_section, remove_field_section, section_for_field
+from sldb.api.model_registry.load_registered_model import load_registered_model
 from sldb.api.stores.open_store import open_store
 
 
@@ -49,7 +55,7 @@ def add_model_field(store: str | Path | None, model_name: str, field_name: str, 
     block = field_block(field_name, field_type, description, default is not None, default_value)
     updated = insert_field_block(source.editable_path, source.class_name, field_name, block)
     source.draft_path.write_text(updated, encoding="utf-8")
-    _append_template(source, field_name, field_type, default is not None)
+    _append_template(source, store, model_name, pythonpath, field_name, field_type, default is not None)
     _record(store, "add_model_field", model_name, field_name, None, block)
     return ModelDraft(model=model_name, draft_path=source.draft_path)
 
@@ -79,17 +85,25 @@ def remove_model_field(store: str | Path | None, model_name: str, field_name: st
     return ModelDraft(model=model_name, draft_path=source.draft_path)
 
 
-def _append_template(source, field_name: str, field_type: str, optional: bool) -> None:
-    template = read_template_literal(source.draft_path, source.class_name)
+def _append_template(source, store, model_name: str, pythonpath: str | None, field_name: str, field_type: str, optional: bool) -> None:
+    """Append the field's section to the draft's template, materializing it when inherited."""
     section = section_for_field(field_name, field_type, optional)
-    updated = replace_template_literal(source.draft_path, source.class_name, append_section(template, section))
-    source.draft_path.write_text(updated, encoding="utf-8")
+    path = source.draft_path
+    if declares_template(path, source.class_name):
+        template = append_section(read_template_literal(path, source.class_name), section)
+        path.write_text(replace_template_literal(path, source.class_name, template), encoding="utf-8")
+        return
+    inherited = load_registered_model(open_store(store).store_path, model_name, pythonpath).model_type.__template__
+    path.write_text(insert_template_assignment(path, source.class_name, append_section(inherited, section)), encoding="utf-8")
 
 
 def _remove_template(source, field_name: str) -> None:
-    template = read_template_literal(source.draft_path, source.class_name)
-    updated = replace_template_literal(source.draft_path, source.class_name, remove_field_section(template, field_name))
-    source.draft_path.write_text(updated, encoding="utf-8")
+    """Drop the field's section from the draft's own template; leave an inherited one alone."""
+    path = source.draft_path
+    if not declares_template(path, source.class_name):
+        return
+    template = remove_field_section(read_template_literal(path, source.class_name), field_name)
+    path.write_text(replace_template_literal(path, source.class_name, template), encoding="utf-8")
 
 
 def _default_value(default: str | None):
