@@ -12,6 +12,7 @@ from sldb.store.edge_index.federation import federated_stores, qualify
 from sldb.store.edge_index.resolve import resolve_edges
 from sldb.store.edge_index.shard_reading import read_store_contributions
 from sldb.store.edge_index.shard_signature import shards_signature
+from sldb.store.io import load_store_index
 from sldb.store.models import EdgeContribution, EdgeNodeRecord, EdgeRecord
 
 _COMPOSED: dict[tuple, tuple[tuple, EdgeIndex]] = {}
@@ -48,15 +49,27 @@ def _compose(stores: list[tuple[Path, str | None]], exclude_tags: frozenset[str]
     edges: list[EdgeRecord] = []
     stale: list[str] = []
     for path, name in stores:
-        parts, stale_here = read_store_contributions(path, exclude_tags)
-        stale += [f"{name}:{export_id}" if name else export_id for export_id in stale_here]
-        _merge((qualify(p, name) for p in parts), nodes, edges)
+        stale += _merge_store(path, name, exclude_tags, nodes, edges)
     kept, problems = resolve_edges(nodes, edges)
     return EdgeIndex(nodes=nodes, edges=kept, problems=problems, stale=stale)
 
 
-def _merge(parts: Iterable[EdgeContribution], nodes: dict[str, EdgeNodeRecord], edges: list[EdgeRecord]) -> None:
+def _merge_store(path: Path, name: str | None, exclude_tags: frozenset[str], nodes: dict, edges: list[EdgeRecord]) -> list[str]:
+    parts, stale_here = read_store_contributions(path, exclude_tags)
+    _merge((qualify(p, name) for p in parts), nodes, edges, _source(path))
+    return [f"{name}:{export_id}" if name else export_id for export_id in stale_here]
+
+
+def _merge(parts: Iterable[EdgeContribution], nodes: dict[str, EdgeNodeRecord], edges: list[EdgeRecord], source: dict) -> None:
     for part in parts:
         edges += part.edges
         for node in part.nodes:
-            nodes.setdefault(node.id, node)
+            nodes.setdefault(node.id, _stamped(node, source))
+
+
+def _stamped(node: EdgeNodeRecord, source: dict) -> EdgeNodeRecord:
+    return node.model_copy(update={"facets": {**node.facets, "source": source}})
+
+
+def _source(store_path: Path) -> dict:
+    return {"generated_from": "sldb.store.edge_index", "store_path": str(store_path), "hash_a": load_store_index(store_path).hash_a}
