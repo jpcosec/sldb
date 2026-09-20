@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from sldb.api.journal import record, store_hash
 from sldb.api.model_registry.model_index_writes import rehash_documents, save_reindexed_model
 from sldb.api.model_registry.model_reference import resolve_model_ref
 from sldb.api.model_registry.model_registration import ModelRegistration
@@ -14,7 +15,7 @@ from sldb.store.models.model_entry import ModelEntry
 from sldb.store.models.store_index import StoreIndex
 
 
-def reindex_model(store: str | Path | None, model_name: str, pythonpath: str | None = None, bump_version: bool = False) -> ModelRegistration:
+def reindex_model(store: str | Path | None, model_name: str, pythonpath: str | None = None, bump_version: bool = False, actor: str | None = None) -> ModelRegistration:
     """Rehash every document of a model and rebuild the store's derived indexes.
 
     Args:
@@ -22,6 +23,7 @@ def reindex_model(store: str | Path | None, model_name: str, pythonpath: str | N
         model_name: Registered model name.
         pythonpath: Directory to import the model module from.
         bump_version: Increase the model's contract version (done when a draft is promoted).
+        actor: Optional label recorded in the store journal for this write.
 
     Returns:
         The model's registry record after the reindex.
@@ -34,9 +36,15 @@ def reindex_model(store: str | Path | None, model_name: str, pythonpath: str | N
     m_entry = _model_entry(idx, model_name)
     m_idx = load_models_index(location.project_root / m_entry.models_index)
     d_idx = load_documents_index(location.project_root / m_idx.documents_index)
+    _rehash_and_record(location, idx, m_entry, m_idx, d_idx, pythonpath, bump_version, actor)
+    return ModelRegistration(name=m_entry.name, model_ref=m_entry.model_ref, path=m_entry.path, version=m_idx.version)
+
+
+def _rehash_and_record(location, idx: StoreIndex, m_entry: ModelEntry, m_idx, d_idx, pythonpath: str | None, bump_version: bool, actor: str | None) -> None:
+    before = store_hash(location.store_path)
     rehash_documents(location.project_root, d_idx, resolve_model_ref(m_entry.model_ref, pythonpath))
     save_reindexed_model(location.store_path, location.project_root, idx, m_entry, m_idx, d_idx, bump_version, pythonpath)
-    return ModelRegistration(name=m_entry.name, model_ref=m_entry.model_ref, path=m_entry.path, version=m_idx.version)
+    record(location.store_path, {"operation": "reindex_model", "address": m_entry.name, "hash_a_before": before, "hash_a_after": store_hash(location.store_path), "actor": actor})
 
 
 def _model_entry(idx: StoreIndex, model_name: str) -> ModelEntry:

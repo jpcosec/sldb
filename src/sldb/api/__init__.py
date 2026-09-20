@@ -22,6 +22,7 @@ from sldb.api.edges.edge_reading import edge_node, edge_nodes_of_type, edges_fro
 from sldb.api.edges.init_relations import init_relations
 from sldb.api.edges.rebuild_edges import rebuild_edges
 from sldb.api.edges.relations_init_report import RelationsInitReport
+from sldb.api.journal import journal, verify_journal
 from sldb.api.model_drafts.draft_document_check import DraftDocumentCheck
 from sldb.api.model_drafts.draft_validation import promote_model_draft, validate_model_draft
 from sldb.api.model_drafts.draft_validation_report import DraftValidationReport
@@ -52,6 +53,7 @@ from sldb.api.stores.update_store_indexes import update_store_indexes
 from sldb.store.edge_index.edge_index import EdgeIndex
 from sldb.store.edge_index.edge_rebuild_report import EdgeRebuildReport
 from sldb.store.edge_index.node_ids import anchor_node_id, doc_node_id, field_node_id, model_node_id, relation_type_node_id, section_node_id, tag_node_id
+from sldb.store.journal import JournalEntry, JournalVerifyReport
 from sldb.store.models.edge_node_record import EdgeNodeRecord
 from sldb.store.models.edge_record import EdgeRecord
 
@@ -65,6 +67,8 @@ __all__ = [
     "EdgeRebuildReport",
     "EdgeRecord",
     "FieldDescription",
+    "JournalEntry",
+    "JournalVerifyReport",
     "LinkedStore",
     "ModelDescription",
     "ModelDocumentSummary",
@@ -97,6 +101,7 @@ __all__ = [
     "field_node_id",
     "init_relations",
     "init_store",
+    "journal",
     "link_store",
     "load_edge_index",
     "load_registered_model",
@@ -116,4 +121,5 @@ __all__ = [
     "untrack_document",
     "update_store_indexes",
     "validate_model_draft",
+    "verify_journal",
 ]
