@@ -47,6 +47,9 @@ Primary surfaces:
   fields    Field inspection and mutation
   sections  Section context and navigation
   ast       Normalized store/model/document graph
+  edges     Typed relations: init, rebuild, show and check the edge index
+  graph     Query the graph: nodes, neighborhoods, structured queries, snapshots
+  journal   The store's write history: show and verify the hash chain
   find      Unified semantic + physical retrieval
   explore   Deep markdown docs and docstring search
   selfdoc   Generate and check tracked CLI documentation from a parser
@@ -54,40 +57,5 @@ Primary surfaces:
 Advanced:
   legacy    Raw address surface: ls/get/glob/find over st.{Model}.doc.field, se.tag, gse.tag
 
-Use `sldb help <topic>` for focused help on: stores, models, predicates, docs, fields, sections, edges, graph, ast, find, faq, inbox, explore, legacy.
-"""
-
-SHORT_ARGPARSE_HELP = """SLDB CLI
-
-Run commands as `sldb ...` or `python -m sldb ...`, not `bash sldb ...`.
-
-SLDB's main workflow is:
-  1. `stores init` to create a project workspace when you need tracked docs
-  2. `models add module:Class` to register a `StructuredNLDoc` contract
-  3. `models list` to inspect what the store already knows
-  4. `docs create` or `docs track` to bring Markdown into the store
-  5. `fields`, `sections`, `find`, and `ast` to inspect or mutate tracked data
-
-Primary surfaces:
-  help      Curated first-use guidance
-  faq       Question-oriented onboarding answers
-  stores    Store lifecycle and federation
-  models    Model contracts and code generation
-  predicates Store-backed semantic link predicates
-  docs      Tracked document workflows
-  fields    Field inspection and mutation
-  sections  Section context and navigation
-  find      Unified semantic + physical retrieval
-  ast       Normalized store/model/document graph
-  explore   Deep markdown docs and docstring search
-  inbox     Log unclear points or suggestions to desk/inbox/
-
-Other commands:
-  extract, render, validate   Direct model-first operations without a store
-  init, example               Bootstrapping helpers
-  selfdoc                     Scan, sync, and check code-derived CLI reference
-  legacy                      Address surface: ls/get/glob/find over st.{Model}.doc.field
-
-Use `sldb help` for the full onboarding help, `sldb find --help` for query examples,
-and `sldb docs --help` for document lifecycle details.
+Use `sldb help <topic>` for focused help on: stores, models, predicates, docs, fields, sections, edges, graph, journal, ast, find, faq, inbox, explore, legacy.
 """
