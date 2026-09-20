@@ -1,0 +1,17 @@
+{
+  "scope": {
+    "descendant_of": "sldb://semantic_tag/integration.kgdb"
+  },
+  "filters": [
+    {
+      "facet": "identity",
+      "conditions": [
+        {
+          "field": "node_type",
+          "op": "eq",
+          "value": "semantic_tag"
+        }
+      ]
+    }
+  ]
+}

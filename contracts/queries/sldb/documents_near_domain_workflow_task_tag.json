@@ -1,0 +1,17 @@
+{
+  "scope": {
+    "ancestor_of": "sldb://semantic_tag/domain.workflow.task"
+  },
+  "filters": [
+    {
+      "facet": "identity",
+      "conditions": [
+        {
+          "field": "node_type",
+          "op": "eq",
+          "value": "sldb_document"
+        }
+      ]
+    }
+  ]
+}
