@@ -1,9 +1,9 @@
-"""Fill new model fields into existing documents when a draft is promoted.
+"""Check every document under a draft and plan the backfill of new fields.
 
-Adding a field with a default to a model with tracked documents leaves those documents
-without the field's section. `plan_backfill` finds them; `apply_backfill` re-renders each
-one under the new contract and records its own journal entry. A new field without a
-default cannot be backfilled, so the plan raises an error that says what to do.
+A document written before a field existed lacks the field's section. `check_and_plan`
+extracts it under the old contract, adds the new fields' defaults, validates that the
+filled payload round-trips under the new contract, and reports which documents a backfill
+would rewrite. `apply_backfill` re-renders each one and records its own journal entry.
 """
 
 from __future__ import annotations
@@ -16,9 +16,11 @@ from pydantic import ValidationError
 
 from sldb.api.documents.payload_diff import field_label
 from sldb.api.journal import doc_address, doc_hashes, record
+from sldb.api.model_drafts.draft_contract import validate_template_contract
+from sldb.api.model_drafts.draft_document_check import DraftDocumentCheck
 from sldb.api.stores.open_store import open_store
-from sldb.core.exceptions import SLDBValidationError
-from sldb.runtime.validation import extract_model_data, render_model_markdown
+from sldb.core.exceptions import SLDBModelEditError, SLDBModelError, SLDBValidationError
+from sldb.runtime.validation import extract_model_data, render_model_markdown, validate_model_data_roundtrip
 from sldb.store.facade import get_tracked_docs
 from sldb.store.hashing import hash_fields, hash_text
 
@@ -34,25 +36,26 @@ class BackfillDoc:
     rendered: str
     hash_c_before: str | None
     hash_d_before: str | None
+    needs_write: bool = True
 
 
-def plan_backfill(store: str | Path | None, model_name: str, old_type: type, new_type: type) -> list[BackfillDoc]:
-    """Documents whose re-render under the new contract differs from what is on disk."""
+def check_and_plan(store: str | Path | None, model_name: str, old_type: type, new_type: type) -> tuple[list[DraftDocumentCheck], list[BackfillDoc]]:
+    """Check every document under the new contract and return the backfill plan."""
+    validate_template_contract(new_type)
     location = open_store(store)
     docs = get_tracked_docs(model_name, location.store_path, location.project_root)
-    return [b for b in (_plan_document(location, model_name, old_type, new_type, name, path) for name, path in docs) if b]
+    prepared = _prepare_all(location, model_name, old_type, new_type, docs)
+    checks = [DraftDocumentCheck(name=d.name, path=d.path, valid=True) for d in prepared]
+    return checks, [d for d in prepared if d.needs_write]
 
 
-def _plan_document(location, model_name: str, old_type: type, new_type: type, name: str, path_str: str) -> BackfillDoc | None:
-    path = Path(path_str)
-    text = path.read_text(encoding="utf-8")
-    previous = extract_model_data(old_type, text)
-    new = _fill_new_defaults(new_type, old_type, _extract(new_type, model_name, name, text))
-    rendered = render_model_markdown(new_type, new)
-    if rendered + "\n" == text:
-        return None
-    hc, hd = doc_hashes(location.store_path, model_name, name)
-    return BackfillDoc(name, path, previous, new, rendered, hc, hd)
+def _prepare_all(location, model_name: str, old_type: type, new_type: type, docs: list[tuple[str, str]]) -> list[BackfillDoc]:
+    try:
+        return [_prepare(location, model_name, old_type, new_type, name, path) for name, path in docs]
+    except (SLDBValidationError, SLDBModelError):
+        raise
+    except Exception as exc:  # noqa: BLE001 - a broken draft raises whatever it raises
+        raise SLDBModelEditError(f"Draft for '{model_name}' is invalid: {exc}") from exc
 
 
 def apply_backfill(store: str | Path | None, model_name: str, new_type: type, plan: list[BackfillDoc], actor: str | None) -> int:
@@ -65,27 +68,37 @@ def apply_backfill(store: str | Path | None, model_name: str, new_type: type, pl
     return len(plan)
 
 
+def _prepare(location, model_name: str, old_type: type, new_type: type, name: str, path_str: str) -> BackfillDoc:
+    path = Path(path_str)
+    text = path.read_text(encoding="utf-8")
+    previous = extract_model_data(old_type, text)
+    new = _add_new_defaults(new_type, old_type, previous, model_name, name)
+    _check_roundtrip(new_type, model_name, name, new)
+    rendered = render_model_markdown(new_type, new)
+    hc, hd = doc_hashes(location.store_path, model_name, name)
+    return BackfillDoc(name, path, previous, new, rendered, hc, hd, rendered + "\n" != text)
+
+
+def _add_new_defaults(new_type: type, old_type: type, payload: dict[str, Any], model_name: str, name: str) -> dict[str, Any]:
+    filled = dict(payload)
+    for field_name in new_type.model_fields:
+        if field_name in old_type.model_fields:
+            continue
+        field = new_type.model_fields[field_name]
+        if field.is_required():
+            raise SLDBValidationError(missing_message(model_name, name, [field_name]), {"document": name, "missing": [field_name]})
+        filled[field_name] = field.default
+    return filled
+
+
+def _check_roundtrip(new_type: type, model_name: str, name: str, payload: dict[str, Any]) -> None:
+    valid, details = validate_model_data_roundtrip(new_type, payload)
+    if not valid:
+        raise SLDBValidationError(f"Draft for '{model_name}' failed validation on '{name}'.", details)
+
+
 def _entry(sp: Path, model_name: str, new_type: type, doc: BackfillDoc, text: str, actor: str | None) -> dict[str, Any]:
     return {"operation": "backfill_document", "address": doc_address(model_name, doc.name), "field": field_label(doc.previous, doc.new), "previous_value": doc.previous, "new_value": doc.new, "hash_c_before": doc.hash_c_before, "hash_c_after": hash_text(text), "hash_d_before": doc.hash_d_before, "hash_d_after": hash_fields(new_type, text), "actor": actor}
-
-
-def _fill_new_defaults(new_type: type, old_type: type, payload: dict[str, Any]) -> dict[str, Any]:
-    """Replace a new field's empty extraction with its declared default, when it has one."""
-    for name in new_type.model_fields:
-        if name in old_type.model_fields:
-            continue
-        field = new_type.model_fields[name]
-        if not field.is_required():
-            payload[name] = field.default
-    return payload
-
-
-def _extract(model_type: type, model_name: str, name: str, text: str) -> dict[str, Any]:
-    try:
-        return extract_model_data(model_type, text)
-    except ValidationError as exc:
-        missing = missing_fields(exc)
-        raise SLDBValidationError(missing_message(model_name, name, missing), {"document": name, "missing": missing}) from exc
 
 
 def missing_fields(exc: ValidationError) -> list[str]:

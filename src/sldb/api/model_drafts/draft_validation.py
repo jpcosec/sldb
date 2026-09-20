@@ -6,8 +6,8 @@ import sys
 from pathlib import Path
 
 from sldb.api.journal import record, store_hash
-from sldb.api.model_drafts.backfill import BackfillDoc, apply_backfill, plan_backfill
-from sldb.api.model_drafts.draft_checks import check_documents, current_version
+from sldb.api.model_drafts.backfill import BackfillDoc, apply_backfill, check_and_plan
+from sldb.api.model_drafts.draft_checks import current_version
 from sldb.api.model_drafts.draft_loading import load_model_from_path
 from sldb.api.model_drafts.draft_restore import restored_on_failure, store_index_files
 from sldb.api.model_drafts.draft_validation_report import DraftValidationReport
@@ -53,9 +53,8 @@ def _checked(store: str | Path | None, model_name: str, pythonpath: str | None) 
     source = locate_model_source(store, model_name, pythonpath)
     checked_path, draft = source.editable_path, source.draft_path.exists()
     new_type = load_model_from_path(checked_path, source.module_name, source.attr_path, pythonpath)
-    documents = check_documents(store, model_name, new_type)
     old_type = load_model_from_path(source.path, source.module_name, source.attr_path, pythonpath) if draft else new_type
-    plan = plan_backfill(store, model_name, old_type, new_type) if draft else []
+    documents, plan = check_and_plan(store, model_name, old_type, new_type)
     report = DraftValidationReport(model=model_name, draft=draft, path=checked_path, documents=documents, backfill=[b.name for b in plan], promoted=False, version=current_version(store, model_name))
     return source, old_type, new_type, plan, report
 
