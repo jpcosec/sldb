@@ -1,15 +1,18 @@
-"""`sldb graph`: query, traverse and portable snapshots of the store's graph."""
+"""`sldb graph`: query, traverse, analyse and snapshot the store's graph."""
 
 from __future__ import annotations
 
 import argparse
 
+from sldb.cli.parsers.graph_analysis import add_analysis_commands
+
 
 def add_graph_group(s: argparse._SubParsersAction) -> None:
-    """Register `graph get|list|query|neighborhood|snapshot|ingest-sldb`."""
+    """Register `graph get|list|query|neighborhood|path|cycles|order|components|central|similar|snapshot|ingest-sldb`."""
     p = s.add_parser("graph", help="Query, traverse and snapshot the store's graph.")
     sub = p.add_subparsers(dest="graph_command", required=True)
     _add_read_commands(sub)
+    add_analysis_commands(sub)
     _add_snapshot(sub)
     _add_ingest(sub)
 

@@ -7,6 +7,7 @@ from .sldb_store_error import SLDBStoreError
 from .sldb_ast_error import SLDBASTError
 from .sldb_link_error import SLDBLinkError
 from .sldb_payload_save_error import SLDBPayloadSaveError
+from .sldb_graph_cycle_error import SLDBGraphCycleError
 
 __all__ = [
     "SLDBError",
@@ -18,4 +19,5 @@ __all__ = [
     "SLDBASTError",
     "SLDBLinkError",
     "SLDBPayloadSaveError",
+    "SLDBGraphCycleError",
 ]

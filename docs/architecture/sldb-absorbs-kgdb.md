@@ -58,6 +58,9 @@ nothing in the ecosystem asks for them yet, and because they would bring a graph
 that the current implementation deliberately avoids (no networkx; adjacency maps and iterative BFS
 over the composed index).
 
+> **Amended 2026-09-20 — see [the amendment](#amendment-2026-09-20--networkx-comes-in-after-all).**
+> Analytics are in, and networkx with them.
+
 ### The write journal belongs to the substrate
 
 Every write that goes through `sldb.api` is recorded by SLDB, in a per-store journal chained by hash.
@@ -92,7 +95,7 @@ wearing a pron hat.
 ## Consequences
 
 1. `sldb` grows a graph module with query, traversal and portable snapshots, ported from `kgdb` and
-   reimplemented without networkx.
+   reimplemented without networkx (amended the same week: networkx is now a dependency, see below).
 2. `sldb` grows a write journal, and `stores check` gains a chain verification.
 3. `kgdb` becomes a shim. Consumers outside this repo keep importing it until they migrate; that
    migration is not a precondition for this change.
@@ -115,3 +118,57 @@ wearing a pron hat.
 - **Downstream breakage is deferred, not avoided.** Live consumers (`AWS_Infra`, `TraderBot`,
   `deskops`, `graph_ui`, `legos`, `kb_agent`) import `kgdb` today. The shim buys time; it does not
   remove the work.
+
+
+## Amendment (2026-09-20) — networkx comes in after all
+
+Four days after the fusion, with the two layers actually in one repo, the analytics prohibition
+above was reversed. Recording why, because it reverses a clause of this same document.
+
+### What changed
+
+Two things, and neither is "we changed our minds".
+
+**The reason for the prohibition was the dependency, and the dependency arrived anyway.** The clause
+said analytics would "bring a graph engine dependency that the current implementation deliberately
+avoids". That was written when the graph layer was a port. It is now the same product as the text
+layer, and the consumers that still import `kgdb` do so precisely for its networkx view. The cost was
+already being paid, one repo over, by everyone.
+
+**"Nothing in the ecosystem asks for them yet" stopped being true the moment the index was
+trustworthy.** A store of 1812 nodes and 16013 edges can be asked which documents nothing reaches,
+what the rest leans on, whether the semantic DAG is really acyclic, and how two documents connect.
+Before the fusion those questions had no honest answer, because the graph could disagree with the
+store. Now they do, and nothing was reading them.
+
+### What was built
+
+`sldb.store.graph.analysis`, on networkx, exposed through `sldb.api.graph` and `sldb graph`:
+paths between two nodes, cycles, topological order and layers, connected components and isolated
+nodes, centrality (pagerank, betweenness, degree), and resemblance by shared targets.
+
+### Two decisions inside it that are not obvious
+
+**Derived relations are excluded by default.** The index mixes what sldb derives from the store's
+structure (`has_document`, `has_section`, `tagged_as`...) with what someone asserted in a
+`RelationDoc`. Every document of a model is two hops from every other through the model node, so a
+path or a ranking over the derived spine is a truism. An analysis that is not told which relations
+to walk walks the authored ones. This is the single most important thing about the layer.
+
+**`node_types` means two different things, on purpose.** For `components` it restricts the graph:
+"which specs hang together" is a question about the subgraph the specs induce. For `central` and
+`similar` it filters the answer, because there the rest of the graph is what produces the number —
+restricting the view first deletes the tags two documents resemble each other through, and the
+answer comes back empty. This was found by a test, not by design.
+
+### The dependency, precisely
+
+`networkx>=3.0` is a hard dependency: pure Python, no compiled extensions. PageRank is the one
+exception — networkx implements it on scipy — so it lives behind the `graph` extra and raises an
+error that names the fix. Every other analysis works on a bare install.
+
+### What this does not change
+
+The ADR boundary holds: SLDB still answers what the ecosystem's documents say and imply about each
+other. Analytics over the store's own graph is that question, asked of the whole graph instead of one
+hop. Nothing here makes sldb a graph database, and the snapshot format is unchanged.

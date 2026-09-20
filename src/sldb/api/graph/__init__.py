@@ -1,5 +1,17 @@
-"""The graph layer as a library: query, traverse, and the portable snapshot format."""
+"""The graph layer as a library: query, traverse, analyse, and the portable snapshot format."""
 
+from sldb.api.graph.analyze import (
+    graph_central,
+    graph_components,
+    graph_cycles,
+    graph_islands,
+    graph_isolated,
+    graph_layers,
+    graph_order,
+    graph_path,
+    graph_paths,
+    graph_similar,
+)
 from sldb.api.graph.execute import execute_query, graph_get, graph_list
 from sldb.api.graph.neighborhood import collect_neighborhood, collect_neighborhood_by_direction
 from sldb.api.graph.snapshot import ingest_sldb, snapshot_load, snapshot_save

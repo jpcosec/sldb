@@ -17,6 +17,7 @@ from sldb.api.graph import (
     snapshot_load,
     snapshot_save,
 )
+from sldb.cli.commands.graph_analysis import GraphAnalysisCLI
 from sldb.store.graph.language import StructuredQuery
 
 
@@ -32,7 +33,8 @@ class GraphCLI:
             "snapshot": self._snapshot,
             "ingest-sldb": self._ingest_sldb,
         }
-        return handlers[args.graph_command](args)
+        handler = handlers.get(args.graph_command)
+        return handler(args) if handler else GraphAnalysisCLI().run(args)
 
     def _get(self, args: Any) -> int:
         node = graph_get(args.store, args.node, not args.local, args.exclude_tag)

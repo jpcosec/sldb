@@ -33,6 +33,8 @@ Common workflows:
   sldb fields show docs/book/tasks/0/title
   sldb fields query status --global
   sldb find "" --type doc --where 'status = "open"'
+  sldb graph central --limit 10
+  sldb graph path Book:book Book:other
   sldb legacy get 'st.{Book}.book.title' --format text
   sldb legacy find 'st.{Book+}' --where 'status = "open"'
 
@@ -48,7 +50,7 @@ Primary surfaces:
   sections  Section context and navigation
   ast       Normalized store/model/document graph
   edges     Typed relations: init, rebuild, show and check the edge index
-  graph     Query the graph: nodes, neighborhoods, structured queries, snapshots
+  graph     The graph: nodes, neighborhoods, queries, paths, cycles, centrality, snapshots
   journal   The store's write history: show and verify the hash chain
   find      Unified semantic + physical retrieval
   explore   Deep markdown docs and docstring search
