@@ -9,6 +9,7 @@ from .sections import add_sections_group
 from .edges import add_edges_group
 from .graph import add_graph_group
 from .journal import add_journal_group
+from .semantic import add_semantic_group
 
 def add_public_group_commands(s: argparse._SubParsersAction) -> None:
     add_stores_group(s)
@@ -20,3 +21,4 @@ def add_public_group_commands(s: argparse._SubParsersAction) -> None:
     add_edges_group(s)
     add_graph_group(s)
     add_journal_group(s)
+    add_semantic_group(s)

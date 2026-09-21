@@ -39,7 +39,8 @@ class CLI:
         from sldb.cli.commands.sections import SectionsCLI
         from sldb.cli.commands.serve import ServeCLI
         from sldb.cli.commands.lint import lint_cli
-        self.handlers.update({"fields": FieldsCLI().run, "sections": SectionsCLI().run})
+        from sldb.cli.commands.semantic import SemanticCLI
+        self.handlers.update({"fields": FieldsCLI().run, "sections": SectionsCLI().run, "semantic": SemanticCLI().run})
         self.handlers.update({"serve": ServeCLI().run, "lint": lint_cli})
         self.handlers["selfdoc"] = SelfdocCLI().run
         self._load_addresses()

@@ -39,6 +39,12 @@ def rebuild_edges_indexes(store_path: Path, project_root: Path, resolve_model_re
     return report
 
 
+def refresh_store_edges(store_path: Path) -> None:
+    """Rewrite only the store's own shard: what a change to the semantic DAG moves, and nothing
+    else. A document's shard does not depend on the DAG, so there is nothing else to redo."""
+    _save_store_shard(store_path, load_store_index(store_path))
+
+
 def _save_store_shard(store_path: Path, st_idx) -> None:
     shard = build_store_edges(st_idx, load_semantic_dag(store_path)).model_copy(update={"edges_version": edge_shard_version()})
     save_edges_shard(edges_store_shard_path(store_path), shard)
