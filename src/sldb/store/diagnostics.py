@@ -35,9 +35,11 @@ def _diagnose_doc(doc, root: Path, model_type: Any) -> DocumentDiagnosis:
     if not doc_path.exists():
         return DocumentDiagnosis(name=doc.name, path=doc.path, hash_c_ok=False, hash_d_ok=False, path_exists=False, note=DiagnosisNote.MISSING)
     text = doc_path.read_text(encoding="utf-8")
-    hash_c_ok, hash_d_ok = hash_text(text) == doc.hash_c, (hash_fields(model_type, text) == doc.hash_d) if model_type else True
+    expected_c = hash_text(text)
+    expected_d = hash_fields(model_type, text) if model_type else ""
+    hash_c_ok, hash_d_ok = expected_c == doc.hash_c, expected_d == doc.hash_d
     note = DiagnosisNote.OK if hash_c_ok and hash_d_ok else DiagnosisNote.BENIGN_MUTATION if hash_d_ok else DiagnosisNote.DATA_MUTATION
-    return DocumentDiagnosis(name=doc.name, path=doc.path, hash_c_ok=hash_c_ok, hash_d_ok=hash_d_ok, path_exists=True, note=note)
+    return DocumentDiagnosis(name=doc.name, path=doc.path, hash_c_ok=hash_c_ok, hash_d_ok=hash_d_ok, path_exists=True, note=note, hash_c_expected=expected_c, hash_c_actual=doc.hash_c, hash_d_expected=expected_d, hash_d_actual=doc.hash_d)
 
 def _diagnose_model(model_entry, root, pythonpath, resolve_model_ref: Callable) -> tuple[ModelDiagnosis, ModelsIndex]:
     models_idx = load_models_index(root / model_entry.models_index)
