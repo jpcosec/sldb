@@ -11,6 +11,8 @@ from __future__ import annotations
 
 from sldb.api.documents.create_document import create_document
 from sldb.api.documents.document_reference import DocumentReference
+from sldb.api.documents.document_ir_serialization import build_document_ir_json
+from sldb.api.documents.document_serialization import serialize_document
 from sldb.api.documents.payload_path_reading import deep_get, ensure_list
 from sldb.api.documents.payload_path_writing import deep_delete, deep_set
 from sldb.api.documents.payload_save import save_document_payload
@@ -19,6 +21,7 @@ from sldb.api.documents.untrack_document import untrack_document
 from sldb.api.edges.check_edges import check_edges
 from sldb.api.edges.edge_check_report import EdgeCheckReport
 from sldb.api.edges.edge_reading import edge_node, edge_nodes_of_type, edges_from, edges_to, load_edge_index
+from sldb.api.edges.edge_serialization import serialize_edge_node_record, serialize_edge_node_records, serialize_edge_record, serialize_edge_records
 from sldb.api.edges.init_relations import init_relations
 from sldb.api.edges.rebuild_edges import rebuild_edges
 from sldb.api.edges.relations_init_report import RelationsInitReport
@@ -90,14 +93,14 @@ __all__ = [
     "create_model",
     "anchor_node_id",
     "bare",
+    "build_document_ir_json",
     "check_edges",
     "create_document",
     "deep_delete",
     "deep_get",
     "deep_set",
     "describe_field",
-    "describe_model",
-    "describe_model_fields",
+    "describe_model", "describe_model_fields",
     "doc_node_id",
     "edge_node",
     "edge_nodes_of_type",
@@ -124,6 +127,8 @@ __all__ = [
     "resolve_model_ref",
     "save_document_payload",
     "section_node_id",
+    "serialize_document", "serialize_edge_node_records",
+    "serialize_edge_records",
     "tag_node_id",
     "track_document_file",
     "untrack_document",
