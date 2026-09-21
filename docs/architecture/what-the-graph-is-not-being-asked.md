@@ -43,25 +43,32 @@ A tag's dotted name **is** a path in a graph: `type.knowledge.anchor` serializes
 `type -> knowledge -> anchor`. `tagged_as` is the incidence relation of that same structure.
 sldb stores one graph as strings and then navigates the strings, next to a graph engine.
 
-The cost is visible in pron's own tag list. Because a dotted name gives a tag exactly one
-parent, a concept with two had to be duplicated into parallel trees:
+**A claim this section used to make, and why it was wrong.** It said the cost was visible in
+pron's tag list: `type.knowledge.anchor` next to `workspace.knowledge.anchors`, seven such pairs,
+"seven concepts, fourteen nodes", duplicated because a name has room for one parent. That was
+read off the tag list without opening the models, and it does not survive opening them.
 
-| what it is | where it lives |
-|---|---|
-| `type.knowledge.anchor` | `workspace.knowledge.anchors` |
-| `type.knowledge.surface` | `workspace.knowledge.surfaces` |
-| `type.knowledge.explanation` | `workspace.knowledge.explanations` |
-| `type.knowledge.projection` | `workspace.knowledge.projections` |
-| `type.knowledge.cli_command` | `workspace.knowledge.commands` |
-| `type.pron.move` | `workspace.knowledge.ledger` |
-| `type.knowledge.spec` | `workspace.source.spec` |
+Both tags come from the model's own `__semantics__`, under two different keys:
 
-Seven concepts, fourteen nodes, no edge between them. Plus five tags in a second syntax
-(`domain:system_architecture`, `entity:cli_command`, `impl:here`, `kind:software`,
-`system:pron`) that are isolated roots because they have no dots to hang from.
+```python
+__semantics__ = {"type": ["knowledge", "anchor"], "workspace": ["knowledge", "anchors"]}
+```
 
-Once it is one graph: closure is `under(tag)` plus the `tagged_as` sources; multiple parents
-collapse the fourteen nodes back into seven; document resemblance is the bipartite projection
+`type` says what the document **is**; `workspace` says where it is **kept**. Two axes of a
+faceted classification, correlated one to one in pron and still different facts. Merging them
+— making `workspace.source` a parent of `type.knowledge.spec` — would have said a spec *is a
+kind of* folder, because `semantic_parent` means "is a kind of". Nothing to deduplicate.
+
+The five colon tags (`domain:system_architecture`, `kind:software`, `impl:here`,
+`system:pron`, `entity:*`) are not a second hierarchy either: pron's `docs_sync` stamps the
+same four on every surface and command it generates. Inside this store they tell nothing
+apart; that is pron's choice of labels, not a graph problem.
+
+What *is* real is narrower: a tag gets exactly one parent from its name, and until the
+`semantic` commands there was no way to give it another.
+
+Once it is one graph: closure is `under(tag)` plus the `tagged_as` sources; a tag can be a kind
+of more than one thing; document resemblance is the bipartite projection
 of the same graph; `semantic_equivalent` stops being a separate file and is another edge; and
 the colon tags stop being a second syntax.
 
@@ -87,9 +94,7 @@ readers exist; the DAG has a consumer.
 What is still true: the edges are still *derived from names*, so the graph still carries no
 information the strings did not carry. You cannot say `type.knowledge.anchor` is a kind of
 `layer.topology` unless you rename one of them, and meaning goes on being smuggled into names.
-Two things are missing for that — an authoring surface for a parent that is not a prefix (the
-DAG file can already hold one; nothing writes it), and deciding what a tag's identity is once
-it stops being a path.
+The authoring surface now exists (`sldb semantic parent add`); what is left is using it.
 
 ### 2. `tagged_as` is 87% of the graph and was never a signal
 
@@ -131,5 +136,6 @@ still matches tag by tag; only a plain tag names a subtree. `gse.` closes the sa
 document is reachable by its own tags, by what they hang from, and by the global tags those are
 declared equivalent to.
 
-What is left of phase 2: an authoring surface for a parent that is not a prefix, and the
-deduplication of the fourteen nodes.
+**Authoring, next day.** `sldb semantic parent add|remove`, `sldb semantic equivalent add` and
+`sldb semantic show` write the DAG, journaled, with the edge index current on return. The
+deduplication that was listed here is withdrawn: see the correction under "One correction".
