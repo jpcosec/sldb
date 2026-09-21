@@ -727,3 +727,79 @@ def test_docs_untrack_missing_doc_404(tmp_path: Path) -> None:
         assert body == {"ok": False, "error": "Doc 'ghost' not found."}
     finally:
         _stop(server, thread)
+
+
+def _build_relpkg_store(tmp_path: Path) -> tuple[Path, str]:
+    """Store con un modelo en un paquete donde un módulo importa de su hermano por import RELATIVO.
+
+    Es el patrón de AgentsKBs (kb_models/knowledge/rule.py -> from .index_proxies import ...):
+    si un endpoint resolviera el modelo por ruta de archivo (nombre de módulo derivado del
+    paquete padre), el import relativo rompe con 'No module named <parent>.sibling'.
+    """
+    from sldb.cli import main as cli_main
+
+    pkg = tmp_path / "kb_models_rel"
+    pkg.mkdir()
+    (pkg / "__init__.py").write_text("", encoding="utf-8")
+    (pkg / "sibling.py").write_text(
+        "from pydantic import Field\n"
+        "from sldb import StructuredNLDoc\n\n"
+        "class RelBase(StructuredNLDoc):\n"
+        '    __template__ = "# \u2e22rev\u2022title\u2e25"\n'
+        '    title: str = Field(description="Title.")\n',
+        encoding="utf-8",
+    )
+    (pkg / "relbook.py").write_text(
+        "from pydantic import Field\n"
+        "from .sibling import RelBase\n\n"
+        "class RelBook(RelBase):\n"
+        '    author: str = Field(default="", description="Author.")\n',
+        encoding="utf-8",
+    )
+    _init(tmp_path)
+    cli_main(["models", "add", "kb_models_rel.relbook:RelBook", "--store", str(tmp_path / ".sldb"), "--pythonpath", str(tmp_path)])
+    doc = tmp_path / "rel-book.md"
+    doc.write_text("# The Rel Book\n", encoding="utf-8")
+    cli_main(["docs", "track", str(doc), "--model", "RelBook", "--store", str(tmp_path / ".sldb"), "--pythonpath", str(tmp_path)])
+    return tmp_path / ".sldb", str(tmp_path)
+
+
+def test_models_endpoints_resolve_relative_imports_by_package_name(tmp_path: Path) -> None:
+    """Los cuatro endpoints resuelven el modelo EXACTAMENTE igual: por nombre de paquete.
+
+    Regresión del bug 'No module named kb_models.index_proxies': un loader por ruta de
+    archivo rompe `from .sibling import ...`; todos estos endpoints deben dar 200.
+    """
+    import sys
+
+    store, module_pythonpath = _build_relpkg_store(tmp_path)
+    for name in ("kb_models_rel", "kb_models_rel.sibling", "kb_models_rel.relbook"):
+        sys.modules.pop(name, None)
+    server, thread, base_url = _serve_with_pythonpath(store, module_pythonpath)
+    try:
+        status, catalog = _request_json(f"{base_url}/models")
+        assert status == 200
+        assert next(m for m in catalog["models"] if m["name"] == "RelBook")["model_ref"] == "kb_models_rel.relbook:RelBook"
+
+        status, detail = _request_json(f"{base_url}/models/detail?model=RelBook")
+        assert status == 200 and detail["ok"] is True
+        assert {f["name"] for f in detail["model"]["fields"]} == {"title", "author"}
+
+        status, schema = _request_json(f"{base_url}/schema")
+        assert status == 200
+        assert next(m for m in schema["models"] if m["id"] == "RelBook")["template"] == "# ⸢rev•title⸥"
+
+        status, graph = _request_json(f"{base_url}/graph")
+        assert status == 200
+        assert graph["documents"][0] == {
+            "id": "rel-book",
+            "model_name": "RelBook",
+            "path": "rel-book.md",
+            "version": _hash_d({"title": "The Rel Book", "author": ""}),
+            "payload": {"title": "The Rel Book", "author": ""},
+            "semantic_tags": ["representation.markdown", "source.document.markdown"],
+        }
+    finally:
+        _stop(server, thread)
+        for name in ("kb_models_rel", "kb_models_rel.sibling", "kb_models_rel.relbook"):
+            sys.modules.pop(name, None)
