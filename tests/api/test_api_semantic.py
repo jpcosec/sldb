@@ -1,5 +1,4 @@
-"""Writing the semantic DAG (model classes are prefixed `Sem`: sldb resolves a model by its
-class name, so a `Spec` here would collide with another test module's `Spec`): a parent beyond what the name says, an equivalence, and the guards.
+"""Writing the semantic DAG: a parent beyond what the name says, an equivalence, and the guards.
 
 The point is the round trip. A parent declared here has to show up everywhere the DAG is read:
 `se.` navigation and closure, `sldb graph`, the journal, and it must survive the rebuild that
@@ -25,13 +24,13 @@ MODELS = '''from pydantic import Field
 from sldb import StructuredNLDoc
 
 
-class SemSpec(StructuredNLDoc):
+class Spec(StructuredNLDoc):
     __semantics__ = {"type": ["knowledge", "spec"]}
     __template__ = "# ⸢rev•title⸥"
     title: str = Field(description="Title.")
 
 
-class SemTopology(StructuredNLDoc):
+class Topology(StructuredNLDoc):
     __semantics__ = {"layer": ["topology"]}
     __template__ = "# ⸢rev•title⸥"
     title: str = Field(description="Title.")
@@ -45,10 +44,10 @@ def world(tmp_path: Path) -> tuple[Path, str]:
     root, py = tmp_path / "world", str(tmp_path)
     root.mkdir()
     store = api.init_store(root).store_path
-    for model in ("SemSpec", "SemTopology"):
+    for model in ("Spec", "Topology"):
         api.add_model(store, f"{MODULE}:{model}", py)
-    api.create_document(store, "SemSpec", root / "s1.md", {"title": "S1"}, "s1", py)
-    api.create_document(store, "SemTopology", root / "t1.md", {"title": "T1"}, "t1", py)
+    api.create_document(store, "Spec", root / "s1.md", {"title": "S1"}, "s1", py)
+    api.create_document(store, "Topology", root / "t1.md", {"title": "T1"}, "t1", py)
     return store, py
 
 
@@ -58,9 +57,9 @@ def _resolve(py: str):
 
 def test_a_declared_parent_is_read_by_the_closure_by_the_graph_and_by_the_journal(world):
     store, py = world
-    assert get_semantic(store, "se.type.knowledge", _resolve(py)) == ["st.{SemSpec}.s1"]
+    assert get_semantic(store, "se.type.knowledge", _resolve(py)) == ["st.{Spec}.s1"]
     assert sem.add_semantic_parent(store, "layer.topology", "type.knowledge", actor="test") is True
-    assert get_semantic(store, "se.type.knowledge", _resolve(py)) == ["st.{SemSpec}.s1", "st.{SemTopology}.t1"]
+    assert get_semantic(store, "se.type.knowledge", _resolve(py)) == ["st.{Spec}.s1", "st.{Topology}.t1"]
     parents = [e.target for e in api.edges_from(store, "sldb://semantic_tag/layer.topology", "semantic_parent")]
     assert "sldb://semantic_tag/type.knowledge" in parents
     entry = api.journal(store, limit=1)[0]
@@ -78,7 +77,7 @@ def test_declaring_it_twice_changes_nothing_and_journals_nothing(world):
 def test_a_declared_parent_survives_the_rebuild_that_rederives_the_names(world):
     store, py = world
     sem.add_semantic_parent(store, "layer.topology", "type.knowledge")
-    api.create_document(store, "SemTopology", store.parent / "t2.md", {"title": "T2"}, "t2", py)
+    api.create_document(store, "Topology", store.parent / "t2.md", {"title": "T2"}, "t2", py)
     rebuild_semantic_indexes(store, store.parent, api.resolve_model_ref, py)
     assert sem.semantic_tag(store, "layer.topology")["parents"] == ["layer", "type.knowledge"]
 
@@ -101,7 +100,7 @@ def test_removing_a_declared_parent_takes_it_out_of_the_closure(world):
     store, py = world
     sem.add_semantic_parent(store, "layer.topology", "type.knowledge")
     assert sem.remove_semantic_parent(store, "layer.topology", "type.knowledge") is True
-    assert get_semantic(store, "se.type.knowledge", _resolve(py)) == ["st.{SemSpec}.s1"]
+    assert get_semantic(store, "se.type.knowledge", _resolve(py)) == ["st.{Spec}.s1"]
     assert sem.remove_semantic_parent(store, "layer.topology", "type.knowledge") is False
 
 

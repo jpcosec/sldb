@@ -50,7 +50,7 @@ def flush(s_path: Path, docs: dict[tuple, Any]) -> None:
     if str(s_path) not in _DIRTY:
         return
     _DIRTY.discard(str(s_path))
-    fresh = {disk_key(k[:-2], d.model_name): {"payload": d.payload} for k, d in docs.items() if str(d.store_path) == str(s_path)}
+    fresh = {disk_key(k[1:-2], d.model_name): {"payload": d.payload} for k, d in docs.items() if k[0] == str(s_path)}
     _write(s_path, fresh)
 
 

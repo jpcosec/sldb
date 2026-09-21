@@ -3,7 +3,13 @@ runtime_cache_signature: hash_a, every model's hash_b, and the current operation
 leaf sweep — see that module for the hand-edit guarantee PLAN 15 capa 6 changed). Two levels
 in memory, the whole store and each document; a third on disk (runtime_cache_disk) spares a
 new process the extraction. Cached documents are shared objects: a caller that mutates a
-payload copies it first."""
+payload copies it first.
+
+A document's key is `(store path, *leaf, store name, model name)`. The store path used to be
+missing: two stores holding the same relative path with the same text under the same model name
+shared one cached object — with the first store's `store_path` in it. `leaf_of` is where the
+leaf sits inside the key, for the disk cache, which is already one file per store.
+"""
 
 from __future__ import annotations
 
@@ -37,9 +43,9 @@ def cached_store(s_path: Path, s_name: str, pythonpath: str | None, loader: Call
 
 
 def cached_document(entry: Any, root: Path, s_path: Path, s_name: str, m_name: str, model_type: type, loader: Callable[[], Any]) -> Any:
-    """One document by its leaf key: (path, hash_c[, mtime, size])."""
+    """One document by its store and its leaf: (path, hash_c[, mtime, size])."""
     leaf = _leaf(root, entry)
-    key = (*leaf, s_name, m_name)
+    key = (str(s_path), *leaf, s_name, m_name)
     hit = _DOCS.get(key)
     if hit is None or hit.model_type is not model_type:
         hit = _remember(key, disk.from_disk(s_path, s_name, m_name, entry, leaf, model_type) or loader())
@@ -49,7 +55,7 @@ def cached_document(entry: Any, root: Path, s_path: Path, s_name: str, m_name: s
 def _remember(key: tuple, loaded: Any) -> Any:
     if loaded is not None:
         _DOCS[key] = loaded
-        if disk.disk_key(key[:-2], loaded.model_name) not in disk.entries(loaded.store_path):
+        if disk.disk_key(leaf_of(key), loaded.model_name) not in disk.entries(loaded.store_path):
             disk.mark_dirty(loaded.store_path)
     return loaded
 
@@ -64,10 +70,20 @@ def _with_entry(key: tuple, hit: Any, entry: Any) -> Any:
     return hit
 
 
-def payload_of(rel_path: str, hash_c: str, m_name: str) -> dict | None:
-    """The extracted payload of a document as the cache knows it now, or None."""
+def leaf_of(key: tuple) -> tuple:
+    """The document leaf inside a runtime cache key: what the disk cache keys on."""
+    return key[1:-2]
+
+
+def payload_of(rel_path: str, hash_c: str, model_type: type) -> dict | None:
+    """The extracted payload of this text under this model class, as the cache knows it now.
+
+    Matched on the class itself, not on its name: a payload is what a class extracts from a
+    text, and two classes called `Spec` in two modules extract different things. Matching the
+    name let `hash_d` — which is persisted — be computed from another class's payload.
+    """
     for key, doc in _DOCS.items():
-        if key[0] == rel_path and key[1] == hash_c and key[-1] == m_name:
+        if key[1:3] == (rel_path, hash_c) and doc.model_type is model_type:
             return doc.payload
     return None
 

@@ -55,12 +55,9 @@ def _store(tmp_path: Path, n: int) -> tuple[Path, Path]:
 
 
 def _create_doc(root: Path, store: Path, i: int) -> None:
-    # PLAN 15 capa 7: distinct content from test_merkle_shards.py's own "note-N" docs on
-    # purpose — sldb.store.semantic_doc_tags._DOC_TAGS caches by (doc.path, hash_c, model
-    # name) without the store's own path, so two stores with the same relative doc path,
-    # model name, and (since semantic_tags is not part of the rendered markdown) coincidentally
-    # identical hash_c would share a stale cache entry across this file and that one when both
-    # run in the same process. Pre-existing, out of scope for capa 7 — worked around here.
+    # The content used to be kept distinct from test_merkle_shards.py's on purpose, to dodge
+    # process-wide caches keyed on a model's name instead of its class. They are keyed on the
+    # class now (tests/store/test_cache_identity.py); the distinct content just stays.
     doc = root / f"note-{i}.md"
     payload = {"title": f"Shard Note {i}", "body": f"Body of shard note {i}"}
     assert cli_main(["docs", "create", "--model", "Note", "-o", str(doc), "--name", f"note-{i}", json.dumps(payload), "--store", str(store), "--pythonpath", str(root)]) == 0

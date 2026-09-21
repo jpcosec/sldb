@@ -60,7 +60,7 @@ def _process_doc(doc: Any, mtype: Any, m_name: str, root: Path, skipped_docs: li
 def _field_hash(mtype: Any, m_name: str, doc: Any, text: str) -> str:
     """Hash of the document's fields; empty when the Markdown no longer extracts (reported by `stores check`)."""
     from sldb.store.runtime_cache import payload_of
-    payload = payload_of(doc.path, doc.hash_c, m_name)
+    payload = payload_of(doc.path, doc.hash_c, mtype)
     try:
         return hash_payload(payload) if payload is not None else hash_fields(mtype, text)
     except Exception:
