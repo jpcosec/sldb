@@ -6,6 +6,7 @@ from http.server import ThreadingHTTPServer
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError
+from urllib.parse import quote
 from urllib.request import Request, urlopen
 
 from sldb.cli.serve import save_routes
@@ -937,5 +938,87 @@ def test_reader_routes_validate_params(tmp_path: Path) -> None:
 
         status, body = _request_json(f"{base_url}/render?doc=book&format=html")
         assert status == 200 and body["markdown"] == "# My Book"
+    finally:
+        _stop(server, thread)
+
+
+# ── GET /find: la búsqueda del CLI expuesta sobre HTTP ──────────────────────
+
+def test_find_physical_search(tmp_path: Path) -> None:
+    store = _build_chapter_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, body = _request_json(f"{base_url}/find?q=book&in=physical&type=doc")
+        assert status == 200
+        names = [result["name"] for result in body["results"]]
+        assert "book" in names
+        assert all(result["kind"] == "doc" for result in body["results"])
+    finally:
+        _stop(server, thread)
+
+
+def test_find_semantic_search(tmp_path: Path) -> None:
+    store = _build_chapter_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, body = _request_json(f"{base_url}/find?q=markdown&in=semantic&type=doc")
+        assert status == 200
+        names = [result["name"] for result in body["results"]]
+        assert "book" in names and "guide" in names
+    finally:
+        _stop(server, thread)
+
+
+def test_find_where_predicate_filters_and_invalid_where_is_400(tmp_path: Path) -> None:
+    store = _build_chapter_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        url = f"{base_url}/find?q=book&in=physical&type=doc&where={quote('has(title)')}"
+        status, body = _request_json(url)
+        assert status == 200
+        assert body["results"] and body["results"][0]["name"] == "book"
+
+        status, body = _request_json(f"{base_url}/find?q=book&in=physical&where=nonsense(missing", expected_error=400)
+        assert status == 400
+        assert "no evaluator understands" in body["error"]
+    finally:
+        _stop(server, thread)
+
+
+def test_find_limit_and_select(tmp_path: Path) -> None:
+    store = _build_chapter_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, body = _request_json(f"{base_url}/find?q=markdown&in=semantic&limit=2")
+        assert status == 200
+        assert len(body["results"]) == 2
+
+        status, body = _request_json(f"{base_url}/find?q=book&in=physical&type=doc&select=kind,name,doc")
+        assert status == 200
+        assert set(body["results"][0].keys()) == {"kind", "name", "doc"}
+    finally:
+        _stop(server, thread)
+
+
+def test_find_flags_and_param_validation(tmp_path: Path) -> None:
+    store = _build_chapter_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, body = _request_json(f"{base_url}/find?q=bok&in=physical&type=doc&fuzzy=1")
+        assert status == 200
+        names = [result["name"] for result in body["results"]]
+        assert "book" in names
+
+        status, body = _request_json(f"{base_url}/find?q=book&in=bogus", expected_error=400)
+        assert status == 400 and "Invalid parameter in" in body["error"]
+
+        status, body = _request_json(f"{base_url}/find?q=book&type=bogus", expected_error=400)
+        assert status == 400 and "Invalid parameter type" in body["error"]
+
+        status, body = _request_json(f"{base_url}/find?q=book&limit=abc", expected_error=400)
+        assert status == 400 and "Invalid parameter limit" in body["error"]
+
+        status, body = _request_json(f"{base_url}/find", expected_error=400)
+        assert status == 400 and "Missing parameter: q" in body["error"]
     finally:
         _stop(server, thread)

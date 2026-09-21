@@ -38,6 +38,7 @@ from sldb.api.model_create.create_model import create_model
 from sldb.api.model_create.field_decl import FieldDecl
 from sldb.api.model_create.model_check import ModelCheck
 from sldb.api.model_registry.add_model import add_model
+from sldb.api.search import search
 from sldb.api.model_registry.describe_model import describe_model
 from sldb.api.model_registry.load_registered_model import load_registered_model
 from sldb.api.model_registry.model_description import ModelDescription
@@ -126,7 +127,7 @@ __all__ = [
     "remove_model_field",
     "render_document_markdown", "render_model_template",
     "resolve_model_ref", "runtime_document",
-    "save_document_payload",
+    "save_document_payload", "search",
     "section_node_id",
     "serialize_document", "serialize_edge_node_records",
     "serialize_edge_records",
@@ -134,6 +135,5 @@ __all__ = [
     "track_document_file",
     "untrack_document",
     "update_store_indexes",
-    "validate_model_draft",
-    "verify_journal",
+    "validate_model_draft", "verify_journal",
 ]

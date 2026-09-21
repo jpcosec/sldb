@@ -10,6 +10,7 @@ from sldb.cli.model_utils import resolve_model_ref
 from sldb.cli.serve.edges_routes import dispatch_edge
 from sldb.cli.serve.document_routes import dispatch_document
 from sldb.cli.serve.docs_routes import dispatch_docs
+from sldb.cli.serve.find_routes import dispatch_find
 from sldb.cli.serve.graph_routes import dispatch_graph
 from sldb.cli.serve.lint_routes import dispatch_lint
 from sldb.cli.serve.models_routes import dispatch_models
@@ -76,6 +77,7 @@ def _dispatch_reader(route: str, handler: BaseHTTPRequestHandler, store_path: Pa
     if route == "/fields": return dispatch_fields(handler, store_path, project_root, pythonpath)
     if route == "/sections": return dispatch_sections(handler, store_path, project_root, pythonpath)
     if route == "/ast": return dispatch_ast(handler, store_path, project_root, pythonpath)
+    if route == "/find": return dispatch_find(handler, store_path, project_root, pythonpath)
     if route == "/extract" or route == "/render": return dispatch_render(handler, route, store_path, project_root, pythonpath)
     return {"ok": False, "error": f"Unknown route: {route}"}, 404
 
