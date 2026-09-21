@@ -10,6 +10,7 @@ from urllib.request import Request, urlopen
 
 from sldb.cli.serve import save_routes
 from sldb.cli.serve.http_server import build_handler
+from sldb.store.io import load_store_index
 from tests.store.test_cli_store import _PY_ARGS, _doc_track, _init, _model_add
 
 
@@ -803,3 +804,138 @@ def test_models_endpoints_resolve_relative_imports_by_package_name(tmp_path: Pat
         _stop(server, thread)
         for name in ("kb_models_rel", "kb_models_rel.sibling", "kb_models_rel.relbook"):
             sys.modules.pop(name, None)
+
+
+# ── Surfaces de lectura (V1 Store Explorer / V4 / V5 / V7 / V9) ─────────────
+
+def _build_chapter_store(tmp_path: Path) -> Path:
+    """Store con un segundo doc con secciones para los endpoints de lectura."""
+    store = _build_store(tmp_path)
+    doc = tmp_path / "guide.md"
+    doc.write_text("# My Book\n\n## Setup\n\nSet it up.\n", encoding="utf-8")
+    _doc_track(tmp_path, doc, name="guide")
+    return store
+
+
+def test_stores_describe_current_store(tmp_path: Path) -> None:
+    store = _build_chapter_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, body = _request_json(f"{base_url}/stores")
+        assert status == 200
+        assert body == {
+            "store": str(store),
+            "root": str(tmp_path),
+            "model_count": 1,
+            "doc_count": 2,
+            "hash_a": load_store_index(store).hash_a,
+            "stores": [],
+        }
+    finally:
+        _stop(server, thread)
+
+
+def test_stores_check_reports_mismatched_hash_c(tmp_path: Path) -> None:
+    store = _build_chapter_store(tmp_path)
+    guide = tmp_path / "guide.md"
+    guide.write_text("# My Book\n\n## Setup\n\nMutated.\n", encoding="utf-8")
+    server, thread, base_url = _serve(store)
+    try:
+        status, body = _request_json(f"{base_url}/stores/check")
+        assert status == 200
+        assert body["ok"] is False
+        assert body["checked"] == 2
+        entry = next(item for item in body["mismatched"] if item["doc"] == "guide")
+        assert entry["kind"] == "hash_c"
+        assert entry["expected"] != entry["actual"]
+        assert len(entry["actual"]) == 64
+    finally:
+        _stop(server, thread)
+
+
+def test_fields_list_and_single_path(tmp_path: Path) -> None:
+    store = _build_chapter_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, body = _request_json(f"{base_url}/fields?doc=book")
+        assert status == 200
+        assert body["doc"] == "book" and body["model"] == "SimpleBook"
+        title = next(f for f in body["fields"] if f["name"] == "title")
+        assert title["value"] == "My Book"
+        assert title["is_required"] and title["is_list"] is False
+
+        status, body = _request_json(f"{base_url}/fields?doc=book&path=title")
+        assert status == 200
+        assert body == {"doc": "book", "model": "SimpleBook", "path": "title", "value": "My Book", "type": "str", "is_list": False, "is_required": True, "is_reference": False}
+
+        status, body = _request_json(f"{base_url}/fields?doc=book&path=missing", expected_error=404)
+        assert status == 404 and body["ok"] is False
+    finally:
+        _stop(server, thread)
+
+
+def test_sections_from_ir_context_index(tmp_path: Path) -> None:
+    store = _build_chapter_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, body = _request_json(f"{base_url}/sections?doc=guide")
+        assert status == 200
+        assert body["doc"] == "guide"
+        setup = next(s for s in body["sections"] if s["title"] == "Setup")
+        assert setup["path"] == "my-book/setup"
+        assert isinstance(setup["field_paths"], list)
+    finally:
+        _stop(server, thread)
+
+
+def test_ast_exposes_full_ir_and_sections(tmp_path: Path) -> None:
+    store = _build_chapter_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, body = _request_json(f"{base_url}/ast?doc=guide")
+        assert status == 200
+        doc = body["document"]
+        assert doc["name"] == "guide" and doc["model"] == "SimpleBook"
+        assert doc["payload"] == {"title": "My Book"}
+        assert any(section["title"] == "Setup" for section in doc["sections"])
+        assert "structure" in doc["ir"] and "surface" in doc["ir"]
+    finally:
+        _stop(server, thread)
+
+
+def test_extract_and_render(tmp_path: Path) -> None:
+    store = _build_chapter_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, body = _request_json(f"{base_url}/extract?doc=book")
+        assert status == 200 and body == {"doc": "book", "payload": {"title": "My Book"}}
+
+        status, body = _request_json(f"{base_url}/render?doc=book")
+        assert status == 200 and body["markdown"] == "# My Book"
+
+        status, body = _request_json(f"{base_url}/render?model=SimpleBook")
+        assert status == 200 and body["template"] == "# ⸢rev•title⸥"
+    finally:
+        _stop(server, thread)
+
+
+def test_reader_routes_validate_params(tmp_path: Path) -> None:
+    store = _build_chapter_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, body = _request_json(f"{base_url}/fields", expected_error=400)
+        assert status == 400 and "doc" in body["error"]
+
+        status, body = _request_json(f"{base_url}/sections?doc=ghost", expected_error=404)
+        assert status == 404 and body["ok"] is False
+
+        status, body = _request_json(f"{base_url}/ast?doc=ghost", expected_error=404)
+        assert status == 404 and body["ok"] is False
+
+        status, body = _request_json(f"{base_url}/render?doc=ghost", expected_error=404)
+        assert status == 404 and body["ok"] is False
+
+        status, body = _request_json(f"{base_url}/render?doc=book&format=html")
+        assert status == 200 and body["markdown"] == "# My Book"
+    finally:
+        _stop(server, thread)

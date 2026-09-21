@@ -13,9 +13,14 @@ from sldb.cli.serve.docs_routes import dispatch_docs
 from sldb.cli.serve.graph_routes import dispatch_graph
 from sldb.cli.serve.lint_routes import dispatch_lint
 from sldb.cli.serve.models_routes import dispatch_models
+from sldb.cli.serve.ast_routes import dispatch_ast
+from sldb.cli.serve.fields_routes import dispatch_fields
+from sldb.cli.serve.render_routes import dispatch_render
 from sldb.cli.serve.responses import read_json_body, send_json, send_common_headers
 from sldb.cli.serve.save_routes import save_request
 from sldb.cli.serve.schema import schema_models
+from sldb.cli.serve.sections_routes import dispatch_sections
+from sldb.cli.serve.stores_routes import dispatch_stores
 from sldb.store.export import export_kgdb_semantic_payload
 from sldb.store.query import load_runtime_documents
 
@@ -63,6 +68,15 @@ def _nested_get(
         return dispatch_document(handler, route, store_path, project_root, pythonpath)
     if route == "/models" or route.startswith("/models/"): return dispatch_models(handler, "GET", route, store_path, project_root, pythonpath)
     if route == "/lint": return dispatch_lint(handler, store_path, project_root, pythonpath)
+    return _dispatch_reader(route, handler, store_path, project_root, pythonpath)
+
+
+def _dispatch_reader(route: str, handler: BaseHTTPRequestHandler, store_path: Path, project_root: Path, pythonpath: str) -> tuple[dict[str, Any], int]:
+    if route == "/stores" or route == "/stores/check": return dispatch_stores(handler, route, store_path, project_root, pythonpath)
+    if route == "/fields": return dispatch_fields(handler, store_path, project_root, pythonpath)
+    if route == "/sections": return dispatch_sections(handler, store_path, project_root, pythonpath)
+    if route == "/ast": return dispatch_ast(handler, store_path, project_root, pythonpath)
+    if route == "/extract" or route == "/render": return dispatch_render(handler, route, store_path, project_root, pythonpath)
     return {"ok": False, "error": f"Unknown route: {route}"}, 404
 
 

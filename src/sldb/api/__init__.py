@@ -10,8 +10,8 @@ CLI command does (`open_store`), returns a pydantic model instead of printing, a
 from __future__ import annotations
 
 from sldb.api.documents.create_document import create_document
+from sldb.api.documents import document_ast, build_document_ir_json, leaf_paths, runtime_document, extract_document_payload, render_document_markdown, render_model_template
 from sldb.api.documents.document_reference import DocumentReference
-from sldb.api.documents.document_ir_serialization import build_document_ir_json
 from sldb.api.documents.document_serialization import serialize_document
 from sldb.api.documents.payload_path_reading import deep_get, ensure_list
 from sldb.api.documents.payload_path_writing import deep_delete, deep_set
@@ -53,6 +53,7 @@ from sldb.api.stores.init_store import init_store
 from sldb.api.stores.link_store import link_store
 from sldb.api.stores.linked_store import LinkedStore
 from sldb.api.stores.open_store import open_store
+from sldb.api.stores.store_check import check_store
 from sldb.api.stores.store_location import StoreLocation
 from sldb.api.stores.store_update_report import StoreUpdateReport
 from sldb.api.stores.update_store_indexes import update_store_indexes
@@ -93,28 +94,27 @@ __all__ = [
     "create_model",
     "anchor_node_id",
     "bare",
-    "build_document_ir_json",
-    "check_edges",
+    "check_edges", "check_store",
     "create_document",
     "deep_delete",
     "deep_get",
     "deep_set",
     "describe_field",
     "describe_model", "describe_model_fields",
-    "doc_node_id",
+    "doc_node_id", "document_ast",
     "edge_node",
     "edge_nodes_of_type",
     "edges_from",
     "edges_to",
     "edit_model_template",
-    "ensure_list",
+    "ensure_list", "extract_document_payload",
     "field_node_id",
     "init_relations",
     "init_store",
     "journal",
     "kind",
     "link_store",
-    "load_edge_index",
+    "load_edge_index", "leaf_paths",
     "load_registered_model",
     "locate_model_source",
     "model_node_id",
@@ -124,7 +124,8 @@ __all__ = [
     "reindex_model",
     "relation_type_node_id",
     "remove_model_field",
-    "resolve_model_ref",
+    "render_document_markdown", "render_model_template",
+    "resolve_model_ref", "runtime_document",
     "save_document_payload",
     "section_node_id",
     "serialize_document", "serialize_edge_node_records",
