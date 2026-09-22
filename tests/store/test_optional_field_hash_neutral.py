@@ -98,11 +98,13 @@ def test_model_extension_is_neutral_for_document_that_does_not_use_field():
     so everything derived from the document (its extraction payload, its
     content hash, its future re-firm) is unchanged.
 
-    Why the render layer and not hash canonicalization: normalizing digests
-    (dropping top-level None) re-hashes every stored document whose payload
-    already carries None from OTHER optional fields -- verified against the
-    real knowledge_psp store: 0 -> 78 hash_d mismatches. The render fix is
-    the only one that leaves existing stores untouched (0 mismatches)."""
+    Why both layers: the render omits the line (hash_c stable) AND the
+    extractor drops absent-optional None keys (exclude_none), so the payload
+    is identical to a model that never declared the field (hash_d stable for
+    docs that never used it). Known, accepted one-time cost: documents whose
+    stored payload already carried None from OTHER optional fields re-hash on
+    re-firm (measured: 78/168 in the real knowledge_psp store) -- that is the
+    price of real hash-neutrality, paid once."""
     extracted = extract_model_data(NoteWithOptional, DOC_WITHOUT_FIELD)
     base_render = render_model_markdown(Note, {"title": "Hello", "body": "World body"})
     assert render_model_markdown(NoteWithOptional, extracted) == base_render
@@ -138,9 +140,26 @@ def test_render_is_byte_identical_to_model_without_the_field():
 
 
 def test_roundtrip_exact_with_optional_field_model():
+    """The extractor drops absent optional fields (exclude_none), so the
+    extract of a render whose optional field is None carries NO key for it.
+    This is the hash-neutral invariant: an absent field is indistinguishable
+    from a field that was never declared."""
     data = {"title": "Hello", "body": "World body", "summary_en": None}
     rendered = render_model_markdown(NoteWithOptional, data)
-    assert extract_model_data(NoteWithOptional, rendered) == data
+    assert extract_model_data(NoteWithOptional, rendered) == {
+        "title": "Hello",
+        "body": "World body",
+    }
+
+
+def test_extract_omits_absent_optional_field():
+    """The explicit hash-neutral invariant: extracting a document that does
+    not use an optional field yields a payload WITHOUT the absent key, so the
+    payload (and its hash_d) is identical to a model that never declared it."""
+    assert extract_model_data(NoteWithOptional, DOC_WITHOUT_FIELD) == {
+        "title": "Hello",
+        "body": "World body",
+    }
 
 
 def test_roundtrip_exact_with_optional_field_absent_from_disk():

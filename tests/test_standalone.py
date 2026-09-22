@@ -539,10 +539,10 @@ def test_advanced_marker_families_render_and_extract():
     assert "Python slug: ⸢py•title.lower().replace(' ', '-')⸥" in rendered
     assert "Jinja greeting: Hello Hello World!" in rendered
     assert extracted["title"] == "Hello World"
-    assert extracted["subtitle"] is None
-    assert extracted["slug"] is None
+    assert "subtitle" not in extracted  # absent optional field is dropped
+    assert "slug" not in extracted
     assert extracted["items"] == ["One", "Two"]
-    assert extracted["meta"] is None
+    assert "meta" not in extracted
 
 
 def test_python_markers_render_in_unsafe_mode():

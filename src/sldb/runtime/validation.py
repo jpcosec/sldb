@@ -14,14 +14,14 @@ class Validator:
         return self.template_extractor.extract_nodes(self.ast_handler.split_nodes(self.model_type.__template__))
 
     def extract(self, markdown: str) -> dict[str, Any]:
-        return self.model_type(**self.data_extractor.extract_values(self.ast_handler.split_nodes(markdown), self._get_recipes(), raw_markdown=markdown)).model_dump(mode="json")
+        return self.model_type(**self.data_extractor.extract_values(self.ast_handler.split_nodes(markdown), self._get_recipes(), raw_markdown=markdown)).model_dump(mode="json", exclude_none=True)
 
     def render(self, data: dict[str, Any]) -> str:
         return self.renderer.render(self.model_type(**data))
 
     def _get_input_data(self, markdown: str | None, data: dict[str, Any] | None) -> dict[str, Any]:
         if markdown is not None: return self.extract(markdown)
-        if data is not None: return self.model_type(**data).model_dump(mode="json")
+        if data is not None: return self.model_type(**data).model_dump(mode="json", exclude_none=True)
         raise ValueError("Either markdown or data must be provided for validation.")
 
     def _get_rev_fields(self) -> set[str]:
