@@ -5,6 +5,14 @@ extracted-payload and built-model caches sat at `<store>/runtime/cache/`). They 
 `$XDG_CACHE_HOME/sldb` (fallback `~/.cache/sldb`), one file per store keyed by a hash of the
 store path — same keying behavior as before, only the file's location changed. When the cache
 dir cannot be resolved or written, callers degrade silently: no cache, extraction still runs.
+
+DECISION ABIERTA (coordinacion, 2026-09-22): existen dos intentos mas del mismo arreglo en
+ramas hermanas — `fix/runtime-cache-outside-store` (`41a2979`: deja `built.json` dentro del
+store y no atrapa `RuntimeError` de `Path.home()`) y `fix/runtime-cache-detached` (`8da361b`:
+crashea con HOME raro). Esta rama es la recomendada a conservar; los otros dos worktrees y
+ramas se borran cuando el usuario lo autorice (no borrar aun: dos panes de otras sesiones
+tienen ese worktree como cwd). Handoff con la lista completa de pendientes:
+`AWS_Infra_worktrees/feature-ui:docs/handoff/handoff-2026-09-22-pendientes.md`.
 """
 
 from __future__ import annotations
