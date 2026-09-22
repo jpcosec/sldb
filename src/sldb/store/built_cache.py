@@ -1,7 +1,7 @@
 """Derived results per model, keyed by the model's place in the hash chain: hash_b covers
 the model's documents (path, hash_c, hash_d), so a model whose key is unchanged is not
-walked again by a rebuild. In memory and in `.sldb/runtime/cache/built.json`, so a new
-process skips the same models. Derived; safe to delete."""
+walked again by a rebuild. In memory and on disk under the user's cache dir
+(sldb.store.user_cache), so a new process skips the same models. Derived; safe to delete."""
 
 from __future__ import annotations
 
@@ -9,18 +9,21 @@ import json
 from pathlib import Path
 from typing import Any
 
+from sldb.store import user_cache
+
 _MEM: dict[str, dict] = {}
 
 
-def _file(s_path: Path) -> Path:
-    return s_path / "runtime" / "cache" / "built.json"
+def _file(s_path: Path) -> Path | None:
+    return user_cache.built_cache_file(s_path)
 
 
 def _all(s_path: Path) -> dict:
     key = str(s_path)
     if key not in _MEM:
         try:
-            _MEM[key] = json.loads(_file(s_path).read_text(encoding="utf-8"))
+            path = _file(s_path)
+            _MEM[key] = json.loads(path.read_text(encoding="utf-8")) if path else {}
         except (OSError, ValueError):
             _MEM[key] = {}
     return _MEM[key]
@@ -48,6 +51,8 @@ def put(s_path: Path, kind: str, model: str, key: str, value: Any) -> None:
     _all(s_path).setdefault(kind, {})[model] = {"key": key, "value": value}
     try:
         path = _file(s_path)
+        if path is None:
+            return
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(_all(s_path), ensure_ascii=False), encoding="utf-8")
     except (OSError, TypeError, ValueError):
