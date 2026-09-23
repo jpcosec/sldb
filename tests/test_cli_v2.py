@@ -807,8 +807,12 @@ def test_find_supports_physical_and_semantic(tmp_path, capsys):
         == 0
     )
     semantic = json.loads(capsys.readouterr().out)["results"]
+    # Semantic index exposes the full sorted tag set: model semantics (base
+    # representation/source defaults plus the declared type) union payload tags.
     assert semantic[0]["semantic_tags"] == [
         "project.sldb.database",
+        "representation.markdown",
+        "source.document.markdown",
         "type.documentation.Readme",
     ]
 

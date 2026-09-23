@@ -1,5 +1,6 @@
 """A bad existing document must not cause partial regeneration."""
 import argparse
+from pathlib import Path
 
 import pytest
 
@@ -7,6 +8,14 @@ from sldb.cli.main import main
 from sldb.cli.selfdoc_write import write_documents
 from sldb.selfdoc.materialize import plan_documents
 from sldb.selfdoc.parser import ParserScanner
+
+
+def project_files(root) -> dict:
+    return {p: p.read_bytes() for p in root.rglob("*") if p.is_file() and not _is_interpreter_cache(p)}
+
+
+def _is_interpreter_cache(path: Path) -> bool:
+    return "__pycache__" in path.parts or path.suffix == ".pyc"
 
 
 def records(*commands):
@@ -32,10 +41,10 @@ def test_invalid_existing_document_prevents_any_sync(project, invoke):
     output.mkdir(parents=True)
     bad = output / "cmd-widget-run.md"
     bad.write_text("# This is not a CliCommandDoc\n")
-    before = {p: p.read_bytes() for p in project.rglob("*") if p.is_file()}
+    before = project_files(project)
     with pytest.raises(SystemExit):
         invoke("sync")
-    assert {p: p.read_bytes() for p in project.rglob("*") if p.is_file()} == before
+    assert project_files(project) == before
 
 
 def test_before_image_guard_prevents_clobbering_concurrent_edits(tmp_path):
