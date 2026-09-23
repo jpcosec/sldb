@@ -27,14 +27,14 @@ def process_model_sections(m_entry, root, report, store_path: Path | None, proce
     if store_path and built_cache.get(store_path, "sections_shards", m_entry.name, key) is not None:
         return
     current = _sync_model_sections(store_path, m_entry, m_idx, root, report, process_doc_sections)
-    _mark_has_sections(m_entry, m_idx, root, current)
+    _mark_has_sections(store_path, m_entry, m_idx, root, current)
     if store_path:
         built_cache.put(store_path, "sections_shards", m_entry.name, key, True)
 
 
-def _mark_has_sections(m_entry, m_idx, root, current: set[str]) -> None:
+def _mark_has_sections(store_path: Path, m_entry, m_idx, root, current: set[str]) -> None:
     if current and not m_idx.sections_index:
-        m_idx.sections_index = sections_index_relpath(m_entry.name)
+        m_idx.sections_index = sections_index_relpath(store_path, m_entry.name)
         save_models_index(root / m_entry.models_index, m_idx)
 
 

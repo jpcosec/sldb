@@ -150,7 +150,7 @@ def test_migrates_a_legacy_single_file_store_into_shards(tmp_path: Path):
     legacy_semantic = {"tags": {}, "documents": {n: {"model": "Note", "path": f"note-{n.split('-')[1]}.md", "tags": t} for n, t in ref_tags.items()}}
     semantic_index_path(store).parent.mkdir(parents=True, exist_ok=True)
     semantic_index_path(store).write_text(yaml_dump(legacy_semantic), encoding="utf-8")
-    legacy_sections_path = root / sections_index_relpath("Note")
+    legacy_sections_path = root / sections_index_relpath(store, "Note")
     legacy_sections = {"documents": [{"doc_name": n, "sections": [{"path": t.lower(), "title": t, "breadcrumbs": [t], "semantic_tags": [], "slug": t.lower(), "level": 2} for t in titles]} for n, titles in ref_secs.items()]}
     legacy_sections_path.parent.mkdir(parents=True, exist_ok=True)
     legacy_sections_path.write_text(yaml_dump(legacy_sections), encoding="utf-8")

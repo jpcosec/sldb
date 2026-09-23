@@ -45,7 +45,7 @@ def add_model(store: str | Path | None, model_ref: str, pythonpath: str | None =
 
 def _write_indexes(sp: Path, root: Path, idx: StoreIndex, model_type: type, model_ref: str, canonical: bool, pythonpath: str | None):
     m_path = relative_model_path(Path(inspect.getfile(model_type)), root)
-    return write_new_model_indexes(sp, root, idx, model_type, model_ref, m_path, models_index_relpath(model_type.__name__), documents_index_relpath(model_type.__name__), canonical, pythonpath)
+    return write_new_model_indexes(sp, root, idx, model_type, model_ref, m_path, models_index_relpath(sp, model_type.__name__), documents_index_relpath(sp, model_type.__name__), canonical, pythonpath)
 
 
 def _refuse_duplicate(idx: StoreIndex, name: str) -> None:
