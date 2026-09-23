@@ -7,6 +7,7 @@ import yaml
 from sldb.cli.store_context import get_store_context
 from sldb.api.documents.create_document import create_document
 from sldb.api.documents.track_document_file import track_document_file
+from sldb.api.documents.delete_document import delete_document
 from sldb.api.documents.untrack_document import forget_document, untrack_document
 from sldb.cli.model_utils import resolve_model_ref
 from sldb.cli.commands.doc_lookup import find_doc
@@ -23,7 +24,7 @@ from sldb.core.exceptions import SLDBValidationError, SLDBASTError, SLDBError
 class DocCLI:
 
     def run(self, args: Any) -> int:
-        cmd_map = {"add": self.add, "track": self.track, "update": self.update, "untrack": self.untrack}
+        cmd_map = {"add": self.add, "track": self.track, "update": self.update, "untrack": self.untrack, "delete": self.delete}
         if args.doc_command not in cmd_map: raise SLDBError(f"Unknown doc command: {args.doc_command}")
         return cmd_map[args.doc_command](args)
 
@@ -77,3 +78,19 @@ class DocCLI:
         untracked = untrack_document(args.store, args.doc, args.pythonpath)
         print(f"Untracked '{untracked.name}'")
         return 0
+
+    def delete(self, args: Any) -> int:
+        """Untrack a document and delete its Markdown file, asking first unless --yes."""
+        if not getattr(args, "yes", False) and not self._confirm(args.doc):
+            print("Aborted.")
+            return 1
+        deleted = delete_document(args.store, args.doc, args.pythonpath)
+        print(f"Deleted '{deleted.name}' ({deleted.model}) and its file {deleted.path}")
+        return 0
+
+    def _confirm(self, doc: str) -> bool:
+        """Ask before deleting a file; a non-interactive stdin answers no."""
+        try:
+            return input(f"Delete '{doc}' and its Markdown file? [y/N] ").strip().lower() in {"y", "yes"}
+        except EOFError:
+            return False

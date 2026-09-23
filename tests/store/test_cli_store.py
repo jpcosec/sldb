@@ -545,3 +545,75 @@ def test_doc_untrack_removes_document_from_store(tmp_path):
         tmp_path / load_models_index(tmp_path / entry.models_index).documents_index
     )
     assert docs_idx.documents == []
+
+
+def test_doc_untrack_keeps_the_markdown_file(tmp_path):
+    """The half of the pair that leaves the file: untrack drops the store entry only."""
+    _init(tmp_path)
+    _model_add(tmp_path)
+    doc = tmp_path / "book.md"
+    doc.write_text("# My Book\n", encoding="utf-8")
+    _doc_track(tmp_path, doc)
+
+    assert cli_main(["docs", "untrack", "book"] + _STORE_ARGS(tmp_path) + _PY_ARGS) == 0
+    assert doc.exists()
+
+
+def test_doc_delete_removes_both_the_store_entry_and_the_file(tmp_path):
+    _init(tmp_path)
+    _model_add(tmp_path)
+    doc = tmp_path / "book.md"
+    doc.write_text("# My Book\n", encoding="utf-8")
+    _doc_track(tmp_path, doc)
+
+    rc = cli_main(["docs", "delete", "book", "--yes"] + _STORE_ARGS(tmp_path) + _PY_ARGS)
+
+    assert rc == 0
+    assert not doc.exists()
+    entry = next(
+        m for m in load_store_index(tmp_path / ".sldb").models if m.name == "SimpleBook"
+    )
+    docs_idx = load_documents_index(
+        tmp_path / load_models_index(tmp_path / entry.models_index).documents_index
+    )
+    assert docs_idx.documents == []
+
+
+def test_doc_delete_purges_the_extraction_cache_entry(tmp_path):
+    """A deleted document must not stay described in `runtime/cache/extracted.json`."""
+    from sldb.store import runtime_cache_disk
+
+    _init(tmp_path)
+    _model_add(tmp_path)
+    doc = tmp_path / "book.md"
+    doc.write_text("# My Book\n", encoding="utf-8")
+    _doc_track(tmp_path, doc)
+    store_path = tmp_path / ".sldb"
+    runtime_cache_disk.clear()
+    cli_main(["docs", "list"] + _STORE_ARGS(tmp_path) + _PY_ARGS)
+
+    cli_main(["docs", "delete", "book", "--yes"] + _STORE_ARGS(tmp_path) + _PY_ARGS)
+
+    runtime_cache_disk.clear()
+    assert not [k for k in runtime_cache_disk.entries(store_path) if "book.md" in k]
+
+
+def test_doc_delete_without_yes_aborts_and_touches_nothing(tmp_path, monkeypatch):
+    _init(tmp_path)
+    _model_add(tmp_path)
+    doc = tmp_path / "book.md"
+    doc.write_text("# My Book\n", encoding="utf-8")
+    _doc_track(tmp_path, doc)
+    monkeypatch.setattr("builtins.input", lambda _prompt: "n")
+
+    rc = cli_main(["docs", "delete", "book"] + _STORE_ARGS(tmp_path) + _PY_ARGS)
+
+    assert rc == 1
+    assert doc.exists()
+    entry = next(
+        m for m in load_store_index(tmp_path / ".sldb").models if m.name == "SimpleBook"
+    )
+    docs_idx = load_documents_index(
+        tmp_path / load_models_index(tmp_path / entry.models_index).documents_index
+    )
+    assert [d.name for d in docs_idx.documents] == ["book"]

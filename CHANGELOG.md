@@ -6,6 +6,18 @@ Version note (2026-09-13): this working tree declares package version `0.1.0` in
 
 - The README marks this generation frozen, with `knowledge` as its successor. Earlier modularization and v0.6 removal plans are historical and do not promise further v1 releases.
 
+## Working tree — `docs delete`
+
+- Add `docs delete` (and `sldb.api.delete_document`): untrack a document **and** remove
+  its Markdown file. `docs untrack` was the only way to drop a document, and it keeps
+  the file on purpose — so "delete this document" meant untrack, then `rm` by hand, then
+  remember that `runtime/cache/extracted.json` still describes the deleted path until
+  some later full load rewrites it. `delete` does the three.
+- Confirms before removing the file unless `--yes` is given; a non-interactive stdin
+  answers no.
+- Add `runtime_cache_disk.forget(store, predicate)` so cache entries can be dropped
+  without a full store load.
+
 ## Working tree — self-documentation follow-up
 
 - Add `selfdoc scan|sync|check` to derive CLI facts from argparse, preserve authored explanations, and synchronize tracked command/surface documents from the selected store root.

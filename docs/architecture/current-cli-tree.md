@@ -17,7 +17,7 @@ sldb
 ├── predicates
 │   └── add / list / show / validate / remove
 ├── docs
-│   └── create / track / update / untrack / show / recover / list / compose / explore
+│   └── create / track / update / untrack / delete / show / recover / list / compose / explore
 ├── fields
 │   └── show / query / create / update / remove / append / clean
 ├── sections

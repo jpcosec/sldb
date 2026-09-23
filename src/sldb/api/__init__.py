@@ -10,6 +10,7 @@ CLI command does (`open_store`), returns a pydantic model instead of printing, a
 from __future__ import annotations
 
 from sldb.api.documents.create_document import create_document
+from sldb.api.documents.delete_document import delete_document
 from sldb.api.documents import document_ast, build_document_ir_json, leaf_paths, runtime_document, extract_document_payload, render_document_markdown, render_model_template
 from sldb.api.documents.document_reference import DocumentReference
 from sldb.api.documents.document_serialization import serialize_document
@@ -100,6 +101,7 @@ __all__ = [
     "deep_delete",
     "deep_get",
     "deep_set",
+    "delete_document",
     "describe_field",
     "describe_model", "describe_model_fields",
     "doc_node_id", "document_ast",

@@ -26,7 +26,7 @@ class DocsCLI:
             int: Exit code.
         """
         cmd = args.docs_command
-        if cmd in {"create", "track", "update", "untrack"}:
+        if cmd in {"create", "track", "update", "untrack", "delete"}:
             args.doc_command = {"create": "add"}.get(cmd, cmd)
             return self._doc.run(args)
         return self._run_subcommand(cmd, args)

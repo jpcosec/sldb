@@ -64,6 +64,21 @@ def _write(s_path: Path, fresh: dict) -> None:
         pass
 
 
+def forget(s_path: Path, predicate: Any) -> int:
+    """Drop every cache entry whose key matches, and rewrite the file. Returns how many.
+
+    For deletions: a document that no longer exists keeps its entry here until some
+    process does a full load and `flush` rewrites the whole file.
+    """
+    current = entries(s_path)
+    stale = [key for key in current if predicate(key)]
+    if stale:
+        for key in stale:
+            current.pop(key)
+        _write(s_path, current)
+    return len(stale)
+
+
 def clear() -> None:
     _DISK.clear()
     _DIRTY.clear()
