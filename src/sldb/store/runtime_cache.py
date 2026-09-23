@@ -5,8 +5,12 @@ in memory, the whole store and each document; a third on disk (runtime_cache_dis
 new process the extraction. Cached documents are shared objects: a caller that mutates a
 payload copies it first.
 
-A document's key is `(store path, *leaf, store name, model name)`. The store path used to be
-missing: two stores holding the same relative path with the same text under the same model name
+A document's key is `(store path, *leaf, model's hash_b, store name, model name)`. The model's
+hash_b is the store's per-model record of its chain (kept by sldb.store.documents_hash, the
+value `signature()` signs the store with): a payload is what the current model contract
+extracts from the text, so when that chain moves the old payload must not win — even when the
+leaf, and the markdown with it, did not move. The store path used to be missing: two stores
+holding the same relative path with the same text under the same model name
 shared one cached object — with the first store's `store_path` in it. `leaf_of` is where the
 leaf sits inside the key, for the disk cache, which is already one file per store.
 """
@@ -17,6 +21,7 @@ from dataclasses import replace
 from pathlib import Path
 from typing import Any, Callable
 
+from sldb.store import documents_hash
 from sldb.store import runtime_cache_disk as disk
 from sldb.store.runtime_cache_signature import (
     forget as _forget_signature,
@@ -43,12 +48,14 @@ def cached_store(s_path: Path, s_name: str, pythonpath: str | None, loader: Call
 
 
 def cached_document(entry: Any, root: Path, s_path: Path, s_name: str, m_name: str, model_type: type, loader: Callable[[], Any]) -> Any:
-    """One document by its store and its leaf: (path, hash_c[, mtime, size])."""
+    """One document by its store, its leaf: (path, hash_c[, mtime, size]), and the model's
+    hash_b — the same value the store's signature signs with, so a contract that moved
+    invalidates the entry (in memory and on disk) even when the leaf did not."""
     leaf = _leaf(root, entry)
-    key = (str(s_path), *leaf, s_name, m_name)
+    key = (str(s_path), *leaf, documents_hash.hash_b_of(s_path, m_name), s_name, m_name)
     hit = _DOCS.get(key)
     if hit is None or hit.model_type is not model_type:
-        hit = _remember(key, disk.from_disk(s_path, s_name, m_name, entry, leaf, model_type) or loader())
+        hit = _remember(key, disk.from_disk(s_path, s_name, m_name, entry, leaf_of(key), model_type) or loader())
     return _with_entry(key, hit, entry) if hit is not None else None
 
 
@@ -71,7 +78,9 @@ def _with_entry(key: tuple, hit: Any, entry: Any) -> Any:
 
 
 def leaf_of(key: tuple) -> tuple:
-    """The document leaf inside a runtime cache key: what the disk cache keys on."""
+    """The document leaf inside a runtime cache key: what the disk cache keys on — the file
+    state (path, hash_c[, mtime, size]) plus the model's hash_b, so a contract that moved
+    misses the disk cache too."""
     return key[1:-2]
 
 

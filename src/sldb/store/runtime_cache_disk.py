@@ -1,7 +1,8 @@
 """The cache file of extracted payloads, `.sldb/runtime/cache/extracted.json`: what a
-process extracted, keyed by the document's leaf key (path, hash_c and, unless the chain is trusted, mtime and size) and model, so the next process
-does not extract a store it has already seen. Derived and safe to delete; a store's
-.gitignore should list `.sldb/runtime/cache/`."""
+process extracted, keyed by the document's leaf key (path, hash_c and, unless the chain is trusted, mtime and size) plus the
+model's hash_b, and the model name — so the next process does not extract a store it has
+already seen, and a payload extracted under a contract that has since moved is not reused.
+Derived and safe to delete; a store's .gitignore should list `.sldb/runtime/cache/`."""
 
 from __future__ import annotations
 
@@ -36,7 +37,9 @@ def mark_dirty(s_path: Path) -> None:
 
 
 def from_disk(s_path: Path, s_name: str, m_name: str, entry: Any, leaf: tuple, model_type: type) -> Any:
-    """A document whose payload the cache file already holds: no extraction."""
+    """A document whose payload the cache file already holds: no extraction. `leaf` is the
+    key material `runtime_cache.leaf_of` hands over — the document's file state plus the
+    model's hash_b — so a contract change misses here exactly like in memory."""
     from sldb.store.query_engine.models import RuntimeDocument
     hit = entries(s_path).get(disk_key(leaf, m_name))
     if hit is None:
