@@ -197,9 +197,10 @@ def test_store_update_recomputes_hashes(tmp_path):
 # ── model add ────────────────────────────────────────────────────────────────
 
 
-def test_model_add_registers_model(tmp_path):
+def test_model_add_registers_model(tmp_path, capsys):
     _init(tmp_path)
     assert cli_main(["models", "add", _REF] + _STORE_ARGS(tmp_path) + _PY_ARGS) == 0
+    assert "Registered" in capsys.readouterr().out
     names = [m.name for m in load_store_index(tmp_path / ".sldb").models]
     assert "SimpleBook" in names
 
@@ -269,11 +270,35 @@ def test_model_add_sets_hash_a(tmp_path):
     assert load_store_index(tmp_path / ".sldb").hash_a != ""
 
 
-def test_model_add_fails_if_already_registered(tmp_path):
+def test_model_add_invalid_ref_reports_not_found_and_lists_available(tmp_path, capsys):
     _init(tmp_path)
     _model_add(tmp_path)
-    with pytest.raises(SystemExit):
-        _model_add(tmp_path)
+    capsys.readouterr()
+    rc = cli_main(["models", "add", "sldb.models.structured_doc:FooBar"] + _STORE_ARGS(tmp_path) + _PY_ARGS)
+    captured = capsys.readouterr()
+    assert rc != 0
+    assert "Model 'FooBar' not found" in captured.err
+    assert "Available models" in captured.err
+    assert "SimpleBook" in captured.err
+
+
+def test_model_add_missing_store_reports_tried_path(tmp_path, capsys):
+    missing = tmp_path / "no-such-store" / ".sldb"
+    rc = cli_main(["models", "add", _REF, "--store", str(missing)] + _PY_ARGS)
+    captured = capsys.readouterr()
+    assert rc >= 2
+    assert str(missing) in captured.err
+
+
+def test_model_add_already_registered_is_noop(tmp_path, capsys):
+    _init(tmp_path)
+    _model_add(tmp_path)
+    capsys.readouterr()
+    rc = cli_main(["models", "add", _REF] + _STORE_ARGS(tmp_path) + _PY_ARGS)
+    captured = capsys.readouterr()
+    assert rc == 0
+    assert "already registered" in captured.out
+    assert len(load_store_index(tmp_path / ".sldb").models) == 1
 
 
 def test_model_add_sets_correct_hash_b_for_zero_documents(tmp_path):
