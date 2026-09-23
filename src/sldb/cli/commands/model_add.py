@@ -38,14 +38,14 @@ def _model_exists(idx: Any, name: str) -> bool:
 
 def _register_model(args: Any, sp: Path, root: Path, idx: Any, model_type: type) -> None:
     with store_lock(sp):
-        _write_model_indexes(args, root, idx, model_type)
+        _write_model_indexes(args, sp, root, idx, model_type)
         _finalize_store_update(sp, root, idx, args.pythonpath)
     print(f"Registered '{model_type.__name__}'")
 
-def _write_model_indexes(args: Any, root: Path, idx: Any, model_type: type) -> None:
+def _write_model_indexes(args: Any, sp: Path, root: Path, idx: Any, model_type: type) -> None:
     m_path = _get_rel_path(Path(inspect.getfile(model_type)), root)
-    mi_rel = models_index_relpath(model_type.__name__)
-    di_rel = documents_index_relpath(model_type.__name__)
+    mi_rel = models_index_relpath(sp, model_type.__name__)
+    di_rel = documents_index_relpath(sp, model_type.__name__)
     empty_documents = DocumentsIndex()
     save_documents_index(root / di_rel, empty_documents)
     mi = _create_models_index(args, model_type, m_path, di_rel, empty_documents)

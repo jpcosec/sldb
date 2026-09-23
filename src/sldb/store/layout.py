@@ -47,16 +47,25 @@ def lock_path(store_path: Path) -> Path:
     return runtime_dir(store_path) / "locks" / "store.lock"
 
 
-def models_index_relpath(model_name: str) -> str:
-    return f".sldb/core/models/{model_name}.yaml"
+def _index_relpath(store_path: Path, *parts: str) -> str:
+    """A store index's path relative to the project root, derived from the store's real
+    directory name: a store named `.sldb_custom` records `.sldb_custom/core/...` relpaths,
+    not a phantom `.sldb/core/...` nobody reads. The default name `.sldb` yields exactly the
+    paths stores have always persisted, so nothing migrates for them."""
+    root = project_root(store_path).resolve()
+    return str((store_path.resolve() / Path(*parts)).relative_to(root))
 
 
-def documents_index_relpath(model_name: str) -> str:
-    return f".sldb/core/documents/{model_name}.yaml"
+def models_index_relpath(store_path: Path, model_name: str) -> str:
+    return _index_relpath(store_path, "core", "models", f"{model_name}.yaml")
 
 
-def sections_index_relpath(model_name: str) -> str:
-    return f".sldb/runtime/sections/{model_name}.yaml"
+def documents_index_relpath(store_path: Path, model_name: str) -> str:
+    return _index_relpath(store_path, "core", "documents", f"{model_name}.yaml")
+
+
+def sections_index_relpath(store_path: Path, model_name: str) -> str:
+    return _index_relpath(store_path, "runtime", "sections", f"{model_name}.yaml")
 
 
 def semantic_shards_dir(store_path: Path, model_name: str) -> Path:

@@ -151,7 +151,7 @@ def test_migrates_a_legacy_single_file_documents_index_into_shards(tmp_path: Pat
 
     # Simulate a store still on the old single-file shape: write the legacy file by hand, and
     # remove the shards a real capa-7 store would already have.
-    legacy_path = root / documents_index_relpath("Note")
+    legacy_path = root / documents_index_relpath(store, "Note")
     legacy = {"documents": [{"name": n, "path": f"note-{n.split('-')[1]}.md", "hash_c": hc, "hash_d": hd} for n, (hc, hd) in ref.items()]}
     legacy_path.parent.mkdir(parents=True, exist_ok=True)
     legacy_path.write_text(yaml_dump(legacy), encoding="utf-8")
