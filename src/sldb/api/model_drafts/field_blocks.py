@@ -20,15 +20,29 @@ def field_block(field_name: str, field_type: str, description: str, default_supp
 def insert_field_block(path: Path, cls_name: str, f_name: str, f_block: str) -> str:
     """The source of `path` with `f_block` appended to the body of class `cls_name`.
 
+    The source is normalized to end in exactly one newline first
+    (`_ensure_final_newline`) so the inserted block never ends up concatenated
+    to the previous line. sldb writes model sources procedurally and owns the
+    canonical output form (LF + a single final newline); line endings of files
+    that were edited by hand are normalized rather than preserved.
+
     Raises:
         SLDBModelEditError: When the class is missing or already declares the field.
     """
     source = path.read_text(encoding="utf-8")
+    source = _ensure_final_newline(source)
     class_node = find_class_node(ast.parse(source), cls_name, path)
     check_field_absent(class_node, cls_name, f_name)
     lines = source.splitlines(keepends=True)
     lines.insert(class_node.body[-1].end_lineno or len(lines), f_block)
     return "".join(lines)
+
+
+def _ensure_final_newline(source: str) -> str:
+    """`source` guaranteed to end in exactly one trailing newline."""
+    if source.endswith("\n"):
+        return source
+    return source + "\n"
 
 
 def check_field_absent(class_node: ast.ClassDef, cls_name: str, f_name: str) -> None:
