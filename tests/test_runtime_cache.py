@@ -15,11 +15,14 @@ a row within the same operation, which is what the old, stricter test below used
 from __future__ import annotations
 
 import os
+import sys
 from pathlib import Path
 
+from sldb import api
 from sldb.cli import main as sldb_main
 from sldb.cli.model_utils import resolve_model_ref
 from sldb.cli.store_context import get_store_context
+from sldb.store.codec import default_codec
 from sldb.store.io import load_documents_index, load_models_index, load_store_index, save_documents_index
 from sldb.store.layout import documents_shard_path
 from sldb.store.query import load_runtime_documents
@@ -48,6 +51,51 @@ def test_repeated_loads_share_documents(tmp_path: Path):
     first = load_runtime_documents(root / ".sldb", resolve_model_ref, str(root))
     second = load_runtime_documents(root / ".sldb", resolve_model_ref, str(root))
     assert [id(d) for d in first] == [id(d) for d in second]
+
+
+def test_a_contract_change_invalidates_document_cache_entries_without_editing_the_markdown(tmp_path: Path):
+    """A payload is a function of (document, model contract), but the document cache used to
+    key only on the document's leaf: a contract that gained a field kept serving the old
+    payload forever, from `_DOCS` in memory and from `.sldb/runtime/cache/extracted.json`
+    on disk (queried before the loader). The key now carries the model's hash_b — the same
+    value `signature()` signs the store with — so a chain that moved misses both levels
+    even when the .md did not, while an entry whose hash_b did not move stays a hit."""
+    root = _world(tmp_path)
+    invalidate_runtime_cache()
+    first = {d.name: d for d in load_runtime_documents(root / ".sldb", resolve_model_ref, str(root))}
+    assert "status" not in first["one"].payload          # the old contract has no such field
+
+    # the contract gains a field; one.md/two.md are never touched again
+    sys.modules.pop("cachefix_models", None)              # what a fresh process would import
+    (root / "cachefix_models.py").write_text(
+        "from sldb.models import StructuredNLDoc\nfrom pydantic import Field\n\n"
+        "class NoteDoc(StructuredNLDoc):\n    __template__ = '# ⸢rev•title⸥\\n\\n⸢rev•body⸥\\n'\n"
+        "    title: str = Field(description='the title')\n    body: str = Field(description='the body')\n"
+        "    status: str = Field(default='open', description='the status')\n"
+    )
+    # a real store write moves the model's hash_b: track computes hash_d with the new contract
+    api.create_document(root / ".sldb", "NoteDoc", root / "three.md", {"title": "three", "body": "body of three"}, "three", str(root))
+    assert (root / "one.md").read_text(encoding="utf-8") == "# one\n\nbody of one\n"  # untouched
+
+    second = {d.name: d for d in load_runtime_documents(root / ".sldb", resolve_model_ref, str(root))}
+    # validated against the real contract: what the current class extracts from this text
+    contract = resolve_model_ref(MODEL, str(root))
+    expected = default_codec.extract(contract, (root / "one.md").read_text(encoding="utf-8"))
+    assert second["one"].payload == expected
+    assert second["one"].payload["status"] == contract.model_fields["status"].default
+
+    # hash_b has not moved again: the next load is still a cache hit (same shared objects)
+    third = {d.name: d for d in load_runtime_documents(root / ".sldb", resolve_model_ref, str(root))}
+    assert [id(third[n]) for n in ("one", "two", "three")] == [id(second[n]) for n in ("one", "two", "three")]
+
+    # a real reload with hash_b unmoved (a hand edit re-extracts only the edited document):
+    # the other entries hit the in-memory cache again, never recomputing
+    (root / "one.md").write_text("# one\n\nbody of one, edited\n")
+    new_operation(root / ".sldb")
+    after_edit = {d.name: d for d in load_runtime_documents(root / ".sldb", resolve_model_ref, str(root))}
+    assert after_edit["one"].payload["body"] == "body of one, edited"
+    assert after_edit["one"].payload["status"] == contract.model_fields["status"].default
+    assert id(after_edit["two"]) == id(second["two"]) and id(after_edit["three"]) == id(second["three"])
 
 
 def test_a_hand_edit_within_one_operation_is_not_required_to_be_seen(tmp_path: Path):
