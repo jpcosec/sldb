@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import inspect
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -8,7 +9,7 @@ from sldb.cli.store_context import get_store_context
 from sldb.cli.model_utils import resolve_model_ref
 from sldb.store.hashing import hash_documents_index
 from sldb.store.io import load_store_index, save_documents_index, save_models_index, store_lock
-from sldb.store.layout import documents_index_relpath, models_index_relpath
+from sldb.store.layout import documents_index_relpath, models_index_relpath, store_exists
 from sldb.store.models import DocumentsIndex, ModelEntry, ModelsIndex
 from sldb.store.ops import cascade_hash_a
 from sldb.store.derived_rebuild import rebuild_derived_indexes
@@ -18,14 +19,41 @@ from sldb.api.model_registry.model_lineage import model_base_names, model_family
 
 
 def add_model(args: Any) -> int:
-    sp, root = get_store_context(args.store)
-    model_type = resolve_model_ref(args.model, args.pythonpath)
+    sp, root, err = _store_or_error(args)
+    if err:
+        return err
     idx = load_store_index(sp)
+    model_type = _resolve_or_report(args.model, args.pythonpath, idx)
+    if model_type is None:
+        return 1
+    return _register_or_noop(args, sp, root, idx, model_type)
+
+def _store_or_error(args: Any) -> tuple[Any, Any, int]:
+    sp, root = get_store_context(args.store)
+    if store_exists(sp):
+        return sp, root, 0
+    print(f"Store not found at {sp}. Run 'sldb stores init --path .' to create one, or pass --store with an existing store path.", file=sys.stderr)
+    return sp, root, 2
+
+def _resolve_or_report(model_ref: str, pythonpath: str | None, idx: Any) -> type | None:
+    try:
+        return resolve_model_ref(model_ref, pythonpath)
+    except SLDBModelError:
+        _report_not_found(model_ref, idx)
+        return None
+
+def _register_or_noop(args: Any, sp: Any, root: Any, idx: Any, model_type: type) -> int:
     if _model_exists(idx, model_type.__name__):
         print(f"Model '{model_type.__name__}' already registered.")
         return 0
     _register_model(args, sp, root, idx, model_type)
+    print(f"Registered '{model_type.__name__}'")
     return 0
+
+def _report_not_found(model_ref: str, idx: Any) -> None:
+    names = sorted(m.name for m in idx.models)
+    listed = ", ".join(names) if names else "none"
+    print(f"Model '{model_ref.split(':', 1)[-1]}' not found. Available models: {listed}", file=sys.stderr)
 
 def _get_rel_path(path: Path, root: Path) -> str:
     try:
