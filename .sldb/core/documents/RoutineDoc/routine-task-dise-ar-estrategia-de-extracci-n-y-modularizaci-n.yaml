@@ -1,0 +1,11 @@
+name: routine-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n
+path: desk/routines/routine-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n.md
+hash_c: ade23f62416e3b4b4d5e9576339bbc5f00628f6fcc0e65e5560483485df011dd
+hash_d: 1d2f78d52723a5ea255ac7c26938c35f8d25dd15f881e35e5069cc6389885676
+semantic_tags:
+- primitive:routine
+- representation.markdown
+- source.document.markdown
+- type.workflow.routine
+- workspace.desk.routines
+- workspace:desk

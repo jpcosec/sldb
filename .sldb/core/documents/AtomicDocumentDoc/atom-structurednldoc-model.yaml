@@ -3,5 +3,7 @@ path: docs/atoms/structurednldoc-model.atom.md
 hash_c: a38efa289543321e1eb0d2707e364efdf701aaba4035077c453a9653e910aeb5
 hash_d: 911d8139957d5507826e2926213d1f697672df37aa339d3af0c316c1a66cca47
 semantic_tags:
+- representation.markdown
+- source.document.markdown
 - type.documentation.atom
 - workspace.docs.atoms

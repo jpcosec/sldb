@@ -3,5 +3,7 @@ path: docs/atoms/payload-inputs.atom.md
 hash_c: f4c3be4343ec61a519689940e533e2623c3eafb231b84170bfa6033bca9a2e39
 hash_d: 42de2196201ea802867b1642cf4089069a9827c956ca614356764e1656e17b22
 semantic_tags:
+- representation.markdown
+- source.document.markdown
 - type.documentation.atom
 - workspace.docs.atoms

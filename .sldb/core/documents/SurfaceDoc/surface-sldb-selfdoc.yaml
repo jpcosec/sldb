@@ -3,5 +3,7 @@ path: knowledge/surfaces/surface-sldb-selfdoc.md
 hash_c: 1ac98399b1fd3ee2a9e87ba119d0690e8c3bf51d0f1c7217e0af4ad462d3a167
 hash_d: d317872a5fa49155a728a53f7be047bde68a734efd634d5e0bf0fbd8b648d418
 semantic_tags:
+- representation.markdown
+- source.document.markdown
 - type.knowledge.surface
 - workspace.knowledge.surfaces

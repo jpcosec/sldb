@@ -3,6 +3,8 @@ path: desk/pills/pill-007-sldb-text-layer-vs-kgdb-graph-layer.md
 hash_c: 33d5a11026835a558a673420e22bc4341dd813d509db05fea4599b145317616f
 hash_d: e745b0695adba1a7a143cc073f092791be6a4fe9544f0c5c04d8ffc48adaf1e0
 semantic_tags:
+- representation.markdown
+- source.document.markdown
 - system:kgdb
 - system:sldb
 - topic:architecture

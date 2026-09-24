@@ -1,0 +1,10 @@
+name: checklist-task-ejecutar-refactor-base-del-n-cleo-sldb-closeout-ready
+path: desk/primitives/checklists/checklist-task-ejecutar-refactor-base-del-n-cleo-sldb-closeout-ready.md
+hash_c: cd14868c4a72020a1e65694531dcef990f7acd89cf962d485eeaedae07a88cdd
+hash_d: 6f3c0d1737469668d8cf2dcafdd8cd4d65d8362cec150f61d2efde5e7010715b
+semantic_tags:
+- primitive:checklist
+- representation.markdown
+- source.document.markdown
+- type.workflow.checklist
+- workspace.desk.primitives

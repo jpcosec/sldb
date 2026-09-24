@@ -3,5 +3,7 @@ path: knowledge/commands/cmd-sldb-legacy-recover.md
 hash_c: 019e4ff6e1e86f445c1fa52b227003c24a92625133fce7d347e55eae3e3eabdf
 hash_d: 0f673527fe1fce9e116574d3074609af1b5a6a82940736716d2138bfffc4001b
 semantic_tags:
+- representation.markdown
+- source.document.markdown
 - type.knowledge.cli_command
 - workspace.knowledge.commands

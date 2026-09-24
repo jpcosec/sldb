@@ -1,0 +1,10 @@
+name: edge-task-ejecutar-refactor-base-del-n-cleo-sldb-execution-to-activate
+path: desk/primitives/edges/edge-task-ejecutar-refactor-base-del-n-cleo-sldb-execution-to-activate.md
+hash_c: c4f41bcd95ff44a2ab231dd44a7d2f9741dac3d0bdb5944abf6d3251988341b6
+hash_d: 7de16f68a072a6450cdde0413591870791e1f3e957c1cc9d2cd3df5880c531f1
+semantic_tags:
+- primitive:edge
+- representation.markdown
+- source.document.markdown
+- type.workflow.edge
+- workspace.desk.primitives

@@ -1,0 +1,10 @@
+name: edge-task-ejecutar-refactor-base-del-n-cleo-sldb-ready-to-closeout
+path: desk/primitives/edges/edge-task-ejecutar-refactor-base-del-n-cleo-sldb-ready-to-closeout.md
+hash_c: 68b85607fe87370232868ae0d1aa8ef4895270c889a4a52d9329d483aca20f57
+hash_d: 0b55800438da5f041656d855b1b9895ee29d339b8d659a21849838e241919a4f
+semantic_tags:
+- primitive:edge
+- representation.markdown
+- source.document.markdown
+- type.workflow.edge
+- workspace.desk.primitives

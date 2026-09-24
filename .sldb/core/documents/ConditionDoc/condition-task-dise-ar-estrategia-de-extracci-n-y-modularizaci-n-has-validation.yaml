@@ -1,0 +1,10 @@
+name: condition-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-has-validation
+path: desk/primitives/conditions/condition-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-has-validation.md
+hash_c: aa18a329dc5fb5df2dd929f602ea30ee121b023bca7bc40fb348f8afab77dfbf
+hash_d: d395c4020d442e53f3516e5e9bc38e22410574e6041366d7f0379c81e863ee34
+semantic_tags:
+- primitive:condition
+- representation.markdown
+- source.document.markdown
+- type.workflow.condition
+- workspace.desk.primitives

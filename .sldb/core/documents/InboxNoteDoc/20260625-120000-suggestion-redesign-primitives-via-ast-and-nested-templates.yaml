@@ -3,5 +3,7 @@ path: desk/inbox/20260625-120000-suggestion-redesign-primitives-via-ast-and-nest
 hash_c: bacd9eefe58bfc832e53411f6efaf9486e493ff671f236ed299306948018410a
 hash_d: de7914be93ddfd62510d3caeaa0663c50042dc8761ac17a73040da2ca0bc1805
 semantic_tags:
+- representation.markdown
+- source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox

@@ -4,6 +4,8 @@ hash_c: 0ecea714940663cbb8d027c37b3ef29049cfb610525b8e5c4c1e5014585b1c77
 hash_d: dc8cd8a2a399daccd15ba0036af2e89805e3da7f84fa1faf6cd3db3d0e6698e3
 semantic_tags:
 - artifact:task
+- representation.markdown
+- source.document.markdown
 - source:drawer
 - type.workflow.task
 - workspace.desk

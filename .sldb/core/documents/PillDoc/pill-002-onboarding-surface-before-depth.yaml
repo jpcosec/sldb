@@ -3,6 +3,8 @@ path: desk/pills/pill-002-onboarding-surface-before-depth.md
 hash_c: 89895bf37f6826dcc966ccd679ab9cd6e6612c117378301cdccda089b2b02c72
 hash_d: e5ab00690c41a5bf6af6b73073a7c6f971bfb468f8b0536b8b23dc6acfbf4f68
 semantic_tags:
+- representation.markdown
+- source.document.markdown
 - system:sldb
 - topic:cli
 - topic:onboarding

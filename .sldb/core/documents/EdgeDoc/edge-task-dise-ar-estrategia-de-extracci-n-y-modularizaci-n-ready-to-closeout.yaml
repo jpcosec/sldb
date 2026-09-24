@@ -1,0 +1,10 @@
+name: edge-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-ready-to-closeout
+path: desk/primitives/edges/edge-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-ready-to-closeout.md
+hash_c: b16d4e8c1001f1133e527654208483f5066a7de40c13012692ffd3139de3fa6d
+hash_d: 9b3aa2202ba5a29276bb4ff0e3e907fd30455949c0fa1ab290d11abedd0ccb7b
+semantic_tags:
+- primitive:edge
+- representation.markdown
+- source.document.markdown
+- type.workflow.edge
+- workspace.desk.primitives

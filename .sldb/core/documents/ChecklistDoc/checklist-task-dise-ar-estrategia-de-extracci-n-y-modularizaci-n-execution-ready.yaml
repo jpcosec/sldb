@@ -1,0 +1,10 @@
+name: checklist-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-execution-ready
+path: desk/primitives/checklists/checklist-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-execution-ready.md
+hash_c: 30670ebd8af3790b962331d73c35897400c56ddbc307556307c7e8f3dd57aea4
+hash_d: 65ea46638d6395725a73b09ebc20ca2631b4470e2b868dd233c09d27cc81eb92
+semantic_tags:
+- primitive:checklist
+- representation.markdown
+- source.document.markdown
+- type.workflow.checklist
+- workspace.desk.primitives

@@ -3,6 +3,8 @@ path: desk/pills/pill-014-semantic-export-task-execution-context.md
 hash_c: f27e58ceee5bce1903892a800f24414514ed7bbdb3fd143abb99b1099d6f4cbd
 hash_d: d151cb033559c23c1548cce6ea4212973740e0fccaac36fb74d4ce8c5cfab5e4
 semantic_tags:
+- representation.markdown
+- source.document.markdown
 - system:kgdb
 - system:sldb
 - topic:execution

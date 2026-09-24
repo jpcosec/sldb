@@ -1,0 +1,10 @@
+name: condition-task-define-sldb-addressability-model-has-closeout-evidence
+path: desk/primitives/conditions/condition-task-define-sldb-addressability-model-has-closeout-evidence.md
+hash_c: 76bebe2d0fe3f7e60514ca492e33bf0f5a1bcc437b57790ca8463d33a6b93807
+hash_d: c48b6917155bb02e6e46a7c476ad879e2155a01e67da5b16401d77d4582a66b4
+semantic_tags:
+- primitive:condition
+- representation.markdown
+- source.document.markdown
+- type.workflow.condition
+- workspace.desk.primitives

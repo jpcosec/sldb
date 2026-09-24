@@ -3,6 +3,8 @@ path: desk/pills/pill-004-store-init-idempotency.md
 hash_c: 790b161c62e302fe3143d75dbb5b622c4f6017193ab481302b0bb8242a1cdbda
 hash_d: 5b3d9e0410bb8f74d31c059a52acc0fbe5755be81141ae1c8e304c651476f394
 semantic_tags:
+- representation.markdown
+- source.document.markdown
 - system:deskops
 - system:sldb
 - topic:idempotency

@@ -4,6 +4,8 @@ hash_c: c58b7f1443a858a14ef4e58f0d9abfcc0ab3070898b25d2dae7ef786ec4a7177
 hash_d: c7168fdb10b2a8828f2a716505917bb2cc5d2ae1c6faa5edaf507ca10749d363
 semantic_tags:
 - language:python
+- representation.markdown
+- source.document.markdown
 - system:sldb
 - topic:failure-mode
 - topic:serialization

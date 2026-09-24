@@ -3,5 +3,7 @@ path: knowledge/commands/cmd-sldb-legacy-compose.md
 hash_c: 903337c39ec8fa4d75e125ae6cf6d79c3bdcefea80c82f0911e3fa0804c6975e
 hash_d: 2fd6e5932a6d956c0d8b50098ac03c296e0f21c095e559b6136d27d415dd330a
 semantic_tags:
+- representation.markdown
+- source.document.markdown
 - type.knowledge.cli_command
 - workspace.knowledge.commands

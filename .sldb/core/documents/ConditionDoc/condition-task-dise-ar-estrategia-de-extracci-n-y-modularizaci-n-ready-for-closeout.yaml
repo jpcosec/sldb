@@ -1,0 +1,10 @@
+name: condition-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-ready-for-closeout
+path: desk/primitives/conditions/condition-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-ready-for-closeout.md
+hash_c: 189f8f8dc76fd1dfe888f74d84306a22268b1a5252703a56eafb5bf558e09200
+hash_d: 2ee8ae97d47892c8568b1d930cce00ffe95182510f9f875ea71883d0e64bb376
+semantic_tags:
+- primitive:condition
+- representation.markdown
+- source.document.markdown
+- type.workflow.condition
+- workspace.desk.primitives

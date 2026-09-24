@@ -1,0 +1,12 @@
+name: task-ejecutar-refactor-base-del-n-cleo-sldb
+path: desk/tasks/task-ejecutar-refactor-base-del-n-cleo-sldb.md
+hash_c: 9b4427ff0f370436c2b6d412f88806c3ae53d7547d9a10e75c649c4389e1f762
+hash_d: c896ddfee206880ec79a7800c2bb28294b6ddefaa38ceb91f096a909ea7d941a
+semantic_tags:
+- artifact:task
+- representation.markdown
+- source.document.markdown
+- source:drawer
+- type.workflow.task
+- workspace.desk
+- workspace:desk

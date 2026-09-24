@@ -3,6 +3,8 @@ path: desk/pills/pill-010-active-board-slice-execution-map.md
 hash_c: 95bddc53d384ba82ffb340d0b4329ccb40c32926bd24e2ff35a1b7234531afc5
 hash_d: f4b7372dc03a737c5f7afff169b0e1bd85d6088a9dba2fb1d762f3ec8272fa89
 semantic_tags:
+- representation.markdown
+- source.document.markdown
 - system:sldb
 - topic:design
 - topic:execution
