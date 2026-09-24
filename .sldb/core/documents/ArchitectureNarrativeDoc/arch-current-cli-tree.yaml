@@ -1,7 +1,7 @@
 name: arch-current-cli-tree
 path: docs/architecture/current-cli-tree.md
-hash_c: 513e736cfff0cf12d178fb5c8a3974dfcbe12c841fb9b8c266e1cd6436ec6d0d
-hash_d: 00aca4df8f928bc444e6722569141c24e4100bcd0a97a0400a04c9ebfee7e4a4
+hash_c: feee4c9ddc71ab0ec59321308fea72e02f43e66cf64c4b9b85aa378429d824cf
+hash_d: 6665f6bb92c54358c2fd63a4becffad586677060bbbcc4b33061768a921ff932
 semantic_tags:
 - representation.markdown
 - source.document.markdown

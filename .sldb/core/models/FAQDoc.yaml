@@ -3,7 +3,7 @@ model_ref: docs.models:FAQDoc
 path: docs/models.py
 documents_index: .sldb/core/documents/FAQDoc.yaml
 sections_index: .sldb/runtime/sections/FAQDoc.yaml
-hash_b: 4739719bf731f69a5f643db39d68fa55c21667251866b5e4c53c82be257a1ae9
+hash_b: 33382ecb3736ed911fda4638492a5e1d79c1b95f24215a1429586ac941bef1bf
 documents_count: 1
 version: 1
 canonical: false

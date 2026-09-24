@@ -3,7 +3,7 @@ model_ref: sldb.models.knowledge_surface:CliCommandDoc
 path: src/sldb/models/cli_command_doc.py
 documents_index: .sldb/core/documents/CliCommandDoc.yaml
 sections_index: .sldb/runtime/sections/CliCommandDoc.yaml
-hash_b: c1f25a2ed684552b2f5fea4571c2366a4d3626cff614ac676df30ccc8976f9a5
+hash_b: b1497e2c9e964a3a46c4dd74e6587c274ec62a4d4ea5bbbcdfc8f9f84da2e751
 documents_count: 68
 version: 1
 canonical: false

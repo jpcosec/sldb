@@ -3,7 +3,7 @@ model_ref: pron.models:MoveDoc
 path: /home/jp/proyectos/pron/src/pron/models/move.py
 documents_index: .sldb/core/documents/MoveDoc.yaml
 sections_index: .sldb/runtime/sections/MoveDoc.yaml
-hash_b: 37f3c2e05181d5c4ff572d590f352fada9d2a3e4d69c6e2368c37d8f65fe5566
+hash_b: ecf41d49dad08fffd99f3bccbb4f63217ff0b534692e932354ca8654ab0e6181
 documents_count: 37
 version: 1
 canonical: false
