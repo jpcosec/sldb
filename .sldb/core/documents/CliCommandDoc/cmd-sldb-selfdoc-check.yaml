@@ -3,5 +3,7 @@ path: knowledge/commands/cmd-sldb-selfdoc-check.md
 hash_c: ca111409957f9a2089caba4da3d3f9f37fc5a2bf636c3b5cb84673e6a57626b9
 hash_d: 5822a07d9ef91137f67cf71af315b6dcc6e1998a9bfd5ca8199adaafbb9173ed
 semantic_tags:
+- representation.markdown
+- source.document.markdown
 - type.knowledge.cli_command
 - workspace.knowledge.commands

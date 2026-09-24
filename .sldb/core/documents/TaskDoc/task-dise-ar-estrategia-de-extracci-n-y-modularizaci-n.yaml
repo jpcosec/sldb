@@ -1,0 +1,12 @@
+name: task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n
+path: desk/tasks/task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n.md
+hash_c: ff11915e016157bcddcdd3e28cc1c8e6f9ad99aadf64471d80ca51a0d9eebbc4
+hash_d: 64cec961253865d4f8b281309c29b65836af3fbaf5a2fd86c79371915bdb751e
+semantic_tags:
+- artifact:task
+- representation.markdown
+- source.document.markdown
+- source:drawer
+- type.workflow.task
+- workspace.desk
+- workspace:desk

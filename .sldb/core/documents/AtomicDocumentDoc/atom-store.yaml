@@ -3,5 +3,7 @@ path: docs/atoms/store.atom.md
 hash_c: c21a90e18be3c6781b150cb7830f8b5ee85cb6bff2f2ad64c3ae3bbea4d41bf6
 hash_d: 81e9b7d49bed1c53c65dfad8a1f9f0c9de7279c15870e63fdf3c617bd7341a0e
 semantic_tags:
+- representation.markdown
+- source.document.markdown
 - type.documentation.atom
 - workspace.docs.atoms

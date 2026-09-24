@@ -1,0 +1,10 @@
+name: edge-task-ejecutar-refactor-base-del-n-cleo-sldb-testing-to-ready
+path: desk/primitives/edges/edge-task-ejecutar-refactor-base-del-n-cleo-sldb-testing-to-ready.md
+hash_c: f1557b32f92452daa267ee0baaa064483a03418bd4d80a58d99cda85e99ee7ab
+hash_d: be50272f23edbdbaaec2bb77ec1334b8c6d99a59ca7bfc9de51f74158dc60e53
+semantic_tags:
+- primitive:edge
+- representation.markdown
+- source.document.markdown
+- type.workflow.edge
+- workspace.desk.primitives

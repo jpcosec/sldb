@@ -3,5 +3,7 @@ path: docs/atoms/semantic-vs-physical.atom.md
 hash_c: fdf4df224a22ebe1378ce2b44128644c89c627460a7a2193e81b9f7b58573ed0
 hash_d: e6e839e27e8d083f5cd658ee1628edead251c4bd229493519542305384b0492e
 semantic_tags:
+- representation.markdown
+- source.document.markdown
 - type.documentation.atom
 - workspace.docs.atoms

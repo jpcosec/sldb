@@ -1,7 +1,9 @@
 name: 20260614-000000-suggestion-stabilize-stores-init-failures
 path: desk/inbox/20260614-000000-suggestion-stabilize-stores-init-failures.md
 hash_c: 50a99c7c5579ac3777fc5f42042b1d80bd41008b141073551eb477eb9d8fded8
-hash_d: 7a09a23488f33730825928bef94794b8f1055dc9e1bd3f8030af845a11825a67
+hash_d: b07c5e7cc0baf305046646778308d6fece874fa36987645f70819cf5059ab198
 semantic_tags:
+- representation.markdown
+- source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox

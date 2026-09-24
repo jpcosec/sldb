@@ -3,5 +3,7 @@ path: docs/atoms/tracked-document.atom.md
 hash_c: 3fede591135d32e8c61e0159b00161f1ab42f911f5f6ce35e37f42a03b0ebe7e
 hash_d: fe374ffb86272d2276f5b86893a1b214bd4595230b7a1143cc61fd1e03c0e81f
 semantic_tags:
+- representation.markdown
+- source.document.markdown
 - type.documentation.atom
 - workspace.docs.atoms

@@ -1,0 +1,10 @@
+name: condition-task-ejecutar-refactor-base-del-n-cleo-sldb-ready-for-closeout
+path: desk/primitives/conditions/condition-task-ejecutar-refactor-base-del-n-cleo-sldb-ready-for-closeout.md
+hash_c: cc542751e1e2d2d6a7e465c2d5826f5aef018ffc96489768632085a575631e99
+hash_d: 5ae2dcacb6e9c632c9fd5d63da38d71770588bd5806b713d6dd35496e6757bbb
+semantic_tags:
+- primitive:condition
+- representation.markdown
+- source.document.markdown
+- type.workflow.condition
+- workspace.desk.primitives

@@ -1,0 +1,10 @@
+name: condition-task-ejecutar-refactor-base-del-n-cleo-sldb-has-implementation-path
+path: desk/primitives/conditions/condition-task-ejecutar-refactor-base-del-n-cleo-sldb-has-implementation-path.md
+hash_c: 8121d2bafeee7ed2ff4a48965d49099f9ae98d48468d9c8c54dd97af09daf8cd
+hash_d: d9f8d506f174a3ef10f30af3ef8e40cd2f8ef22d1d7c5d5836fafccd4a388f0d
+semantic_tags:
+- primitive:condition
+- representation.markdown
+- source.document.markdown
+- type.workflow.condition
+- workspace.desk.primitives

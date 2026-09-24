@@ -1,0 +1,10 @@
+name: condition-task-expand-sldb-composition-modes-has-closeout-evidence
+path: desk/primitives/conditions/condition-task-expand-sldb-composition-modes-has-closeout-evidence.md
+hash_c: 2fb9b19f08b0d9735cc1819140df2e5ce55b91949e8875b1964463a591d1cbff
+hash_d: d0b37dae23b4f5909bb2cc424d325f216a456c86fe661f732ad538373b98120e
+semantic_tags:
+- primitive:condition
+- representation.markdown
+- source.document.markdown
+- type.workflow.condition
+- workspace.desk.primitives

@@ -1,0 +1,10 @@
+name: operator-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-activate
+path: desk/primitives/operators/operator-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-activate.md
+hash_c: 2ab341f75ac81d1da2ce1f09abc3fb4c06b637d38236bb2fb93ebd31d76922e2
+hash_d: 679d2e8d4ac9841a11b5ff71bf10479ee7de1bc31e70ba9d99643f29a92289d2
+semantic_tags:
+- primitive:operator
+- representation.markdown
+- source.document.markdown
+- type.workflow.operator
+- workspace.desk.primitives

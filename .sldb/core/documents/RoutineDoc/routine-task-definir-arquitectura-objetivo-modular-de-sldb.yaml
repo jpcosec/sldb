@@ -4,6 +4,8 @@ hash_c: 47fe3bf0e03f26d82b7a548420483abbab4ef7f389fbe514005c4b4c22e410e7
 hash_d: f43f5f7428a2f2ca01380726a9614cc575e69913e3a072f7a1c6f6cf915641fe
 semantic_tags:
 - primitive:routine
+- representation.markdown
+- source.document.markdown
 - type.workflow.routine
 - workspace.desk.routines
 - workspace:desk

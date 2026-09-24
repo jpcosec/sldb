@@ -3,6 +3,8 @@ path: desk/pills/pill-013-composition-task-execution-context.md
 hash_c: 8cf5d05ee427f3df3e876084d7421b8d30d4ac142d29a99e6871b384bee9f62b
 hash_d: d06da540c43097d671ef7a2f285b1d0b3e0ce56dd4eed9e7ca3280528483672b
 semantic_tags:
+- representation.markdown
+- source.document.markdown
 - system:sldb
 - topic:composition
 - topic:execution

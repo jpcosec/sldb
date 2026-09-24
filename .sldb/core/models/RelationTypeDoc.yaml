@@ -3,7 +3,7 @@ model_ref: kgdb.models:RelationTypeDoc
 path: /home/jp/proyectos/hum-ecosystem/tools/kgdb/src/kgdb/models/relation_type_doc.py
 documents_index: .sldb/core/documents/RelationTypeDoc.yaml
 sections_index: .sldb/runtime/sections/RelationTypeDoc.yaml
-hash_b: f963f1c4a61ff42978806f538af6bdae6228c764567d369444ec7c1cfd9bdf15
+hash_b: 0445f3ae6fdf1edf7adfba4e7d420e5b6fc55872c234f4d9718be9c9ffc78e5a
 documents_count: 14
 version: 1
 canonical: false

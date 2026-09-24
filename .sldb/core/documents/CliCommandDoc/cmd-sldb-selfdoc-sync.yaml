@@ -3,5 +3,7 @@ path: knowledge/commands/cmd-sldb-selfdoc-sync.md
 hash_c: af2a36b3fed346e028698042e34881c9932f7c34735d9217aabbe9493c92164a
 hash_d: 72df95ca8e5c2da6397a2939efd892aa7cfa6be2f30894f8c6215e7cac7bb966
 semantic_tags:
+- representation.markdown
+- source.document.markdown
 - type.knowledge.cli_command
 - workspace.knowledge.commands

@@ -1,0 +1,10 @@
+name: checklist-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-closeout-ready
+path: desk/primitives/checklists/checklist-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-closeout-ready.md
+hash_c: f2878d096d2ef04cb8fea416f02f2db928e2696dba945ed5af5e8c98ccf42b13
+hash_d: b6cd8194e3654dd6336c49cd293adfd018179059c8b7e29bf8e488ddee12b08d
+semantic_tags:
+- primitive:checklist
+- representation.markdown
+- source.document.markdown
+- type.workflow.checklist
+- workspace.desk.primitives

@@ -1,0 +1,10 @@
+name: condition-task-design-sldb-ast-query-primitives-has-closeout-evidence
+path: desk/primitives/conditions/condition-task-design-sldb-ast-query-primitives-has-closeout-evidence.md
+hash_c: d2e0b205db007079909fa8219942cf60238bde28f50f2a9f62742701afd45a20
+hash_d: ad2ea8c587e7bbc2fb11d50c0fa3beb54f4af8989e109dccc493f91b421227d1
+semantic_tags:
+- primitive:condition
+- representation.markdown
+- source.document.markdown
+- type.workflow.condition
+- workspace.desk.primitives

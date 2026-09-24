@@ -3,6 +3,8 @@ path: desk/pills/pill-015-self-documentation-boundaries.md
 hash_c: f29ac3dc7cf85a9d3476e39a779ca2f456a82204dfab5b9c8e56a727cecb1e69
 hash_d: 59452a5db2d51628c6b242c05324a727f1de49a2d931719f34be6da92b791100
 semantic_tags:
+- representation.markdown
+- source.document.markdown
 - system:sldb
 - topic:execution
 - topic:selfdoc

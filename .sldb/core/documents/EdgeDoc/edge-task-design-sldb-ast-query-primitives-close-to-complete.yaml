@@ -4,5 +4,7 @@ hash_c: 941edb9b7319d062eac4102b144823d127bf809275d0dcc32f4bc17f66137625
 hash_d: dc9c31503fb584eab3c31c9afe1bbe64c1249b38a4c55be75efc3fa51375f90e
 semantic_tags:
 - primitive:edge
+- representation.markdown
+- source.document.markdown
 - type.workflow.edge
 - workspace.desk.primitives

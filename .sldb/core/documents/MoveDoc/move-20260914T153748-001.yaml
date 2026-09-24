@@ -3,5 +3,7 @@ path: ledger/move-20260914T153748-001.md
 hash_c: 115082292d759978ea11bf73293eac067bd2726fa88bad8a82fb4004b162c526
 hash_d: e1574e502880faade1e0c7f61f71d873ea5dfcbb599898b5dd89aee6bc96d232
 semantic_tags:
+- representation.markdown
+- source.document.markdown
 - type.pron.move
 - workspace.knowledge.ledger

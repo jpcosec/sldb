@@ -3,5 +3,7 @@ path: knowledge/commands/cmd-sldb-stores-reconcile.md
 hash_c: 41e4d4b12e1968527646b0e467721b9745bd3fd395d5a24e3cb9f95dc24c0688
 hash_d: d456b570c7eb4139990a7b19cee85fe3057791a29b16d1d2813d5da1a4c09858
 semantic_tags:
+- representation.markdown
+- source.document.markdown
 - type.knowledge.cli_command
 - workspace.knowledge.commands

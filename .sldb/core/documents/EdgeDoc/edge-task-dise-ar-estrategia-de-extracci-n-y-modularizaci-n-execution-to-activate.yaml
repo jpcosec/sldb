@@ -1,0 +1,10 @@
+name: edge-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-execution-to-activate
+path: desk/primitives/edges/edge-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-execution-to-activate.md
+hash_c: 08c61ae6a3f452a5e8b2ed49c0d76948fa4a98384535e1617c1a754c39cb5def
+hash_d: 7699ec6adf831902eb46c5821c30f91400dba26ecb400c6d4a814327e81ec31a
+semantic_tags:
+- primitive:edge
+- representation.markdown
+- source.document.markdown
+- type.workflow.edge
+- workspace.desk.primitives

@@ -1,0 +1,10 @@
+name: operator-task-ejecutar-refactor-base-del-n-cleo-sldb-ready-for-testing
+path: desk/primitives/operators/operator-task-ejecutar-refactor-base-del-n-cleo-sldb-ready-for-testing.md
+hash_c: 903ad9bae3e3a2ee7d4191ecbe82a8200efb1d03467b695f8ad9f65c8c311bf8
+hash_d: e32c5af6fe3e72b994384d76e257e938991837ec9c4067f880f305167f7bfd49
+semantic_tags:
+- primitive:operator
+- representation.markdown
+- source.document.markdown
+- type.workflow.operator
+- workspace.desk.primitives

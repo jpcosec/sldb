@@ -3,5 +3,7 @@ path: docs/atoms/ast-view.atom.md
 hash_c: f6fece7555a5126c4c109367fc8991981726850c90acbfd29188b9b1bbc5258c
 hash_d: 7f2b6547f27dc3b75500692e85fda5b8999609e9e69eb6deeecc7ef5fdb53ff5
 semantic_tags:
+- representation.markdown
+- source.document.markdown
 - type.documentation.atom
 - workspace.docs.atoms

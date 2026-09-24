@@ -1,0 +1,10 @@
+name: condition-task-tighten-semantic-export-provenance-contract-has-closeout-evidence
+path: desk/primitives/conditions/condition-task-tighten-semantic-export-provenance-contract-has-closeout-evidence.md
+hash_c: d321d6c453aec259f729781604def98e25a311152e91257133b61c41ae3cce73
+hash_d: b1ca2d792461e79b09c2f5dd238d60b1f03820db517fca2468b9f3e4ab67e3b7
+semantic_tags:
+- primitive:condition
+- representation.markdown
+- source.document.markdown
+- type.workflow.condition
+- workspace.desk.primitives

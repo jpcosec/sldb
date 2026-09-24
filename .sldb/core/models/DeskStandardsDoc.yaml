@@ -3,7 +3,7 @@ model_ref: desk.models:DeskStandardsDoc
 path: desk/models.py
 documents_index: .sldb/core/documents/DeskStandardsDoc.yaml
 sections_index: .sldb/runtime/sections/DeskStandardsDoc.yaml
-hash_b: d6cffa357bd7174e22af034b98c126de810a0c64012c952e3044c27e3274fc16
+hash_b: e3958f87013633a75f0b83b99f88f8031bc2e32f710fbf5ab6561361db5c05ad
 documents_count: 1
 version: 1
 canonical: false

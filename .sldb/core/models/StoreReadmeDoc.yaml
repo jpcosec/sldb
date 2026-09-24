@@ -3,7 +3,7 @@ model_ref: docs.models:StoreReadmeDoc
 path: docs/models.py
 documents_index: .sldb/core/documents/StoreReadmeDoc.yaml
 sections_index: .sldb/runtime/sections/StoreReadmeDoc.yaml
-hash_b: 43ef56894d7fa41146a5ad600920954674b6b58f68e632d2798f35f9dec3073f
+hash_b: 2b2b37712a4ce08d7524f0ab62bb610abf17fc6c445830bfada494b52a77b6d2
 documents_count: 1
 version: 1
 canonical: false

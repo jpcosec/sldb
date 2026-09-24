@@ -1,0 +1,11 @@
+name: routine-task-ejecutar-refactor-base-del-n-cleo-sldb
+path: desk/routines/routine-task-ejecutar-refactor-base-del-n-cleo-sldb.md
+hash_c: 08e2d3e1dc3abe3d415c566039f4e3b9479394d316af1bef3938849dcc9bf19d
+hash_d: 7cde4669edeb99afbbd0ffe9718a0eb3e478537f7f82e00ad591889d654520ab
+semantic_tags:
+- primitive:routine
+- representation.markdown
+- source.document.markdown
+- type.workflow.routine
+- workspace.desk.routines
+- workspace:desk

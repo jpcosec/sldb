@@ -3,6 +3,8 @@ path: desk/tasks/task-build-code-self-documentation.md
 hash_c: 690eeca1f7ff98cad06d748492d5f657f46576930941ffb1c256785e2098ba50
 hash_d: 57a42a3bfcab66f3cce365396ea56c5b4287bd7c735ec8efa1c8978db69bdd4d
 semantic_tags:
+- representation.markdown
+- source.document.markdown
 - system:sldb
 - topic:selfdoc
 - type.workflow.task

@@ -1,0 +1,10 @@
+name: edge-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-testing-to-ready
+path: desk/primitives/edges/edge-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-testing-to-ready.md
+hash_c: 4814ad912fe88f980be589697d27e199026c43ee114f4404eeb9d573b67fa4bd
+hash_d: d86dd6478f8803e9bc673edc1cd19756cad4b81581e2a79c80c4bb6edae8f631
+semantic_tags:
+- primitive:edge
+- representation.markdown
+- source.document.markdown
+- type.workflow.edge
+- workspace.desk.primitives
