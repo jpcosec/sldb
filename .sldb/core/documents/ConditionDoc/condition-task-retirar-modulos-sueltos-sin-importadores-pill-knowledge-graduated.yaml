@@ -1,0 +1,10 @@
+name: condition-task-retirar-modulos-sueltos-sin-importadores-pill-knowledge-graduated
+path: desk/primitives/conditions/condition-task-retirar-modulos-sueltos-sin-importadores-pill-knowledge-graduated.md
+hash_c: 3d0ec92b39f2185a16271c51af4d17ed2605af6907e4bb3d6ad18ed78d0f3e78
+hash_d: f1f5c69090ea27302880c2e318b2fcb1092b24faae041bcbc1ac7ab95cbf481a
+semantic_tags:
+- primitive:condition
+- representation.markdown
+- source.document.markdown
+- type.workflow.condition
+- workspace.desk.primitives

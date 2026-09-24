@@ -1,0 +1,10 @@
+name: checklist-task-retirar-modulos-sueltos-sin-importadores-closeout-ready
+path: desk/primitives/checklists/checklist-task-retirar-modulos-sueltos-sin-importadores-closeout-ready.md
+hash_c: 3dbeb5a36f7b884d2b71d6454b0fa807a0a5d9c51edcc7b57a9057ea95db1e45
+hash_d: 3be6818588bfb92daabd5b7703514b1ec2686dece6bf56531578c507115dc87e
+semantic_tags:
+- primitive:checklist
+- representation.markdown
+- source.document.markdown
+- type.workflow.checklist
+- workspace.desk.primitives

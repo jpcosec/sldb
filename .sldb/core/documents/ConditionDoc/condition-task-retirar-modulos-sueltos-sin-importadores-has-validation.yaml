@@ -1,0 +1,10 @@
+name: condition-task-retirar-modulos-sueltos-sin-importadores-has-validation
+path: desk/primitives/conditions/condition-task-retirar-modulos-sueltos-sin-importadores-has-validation.md
+hash_c: a728cd27e40359ea54be7bfc7425b2c2faec2e4126daa50d434b16e40ee2a113
+hash_d: ec3787910f55541160ee87c5c543d2478943a7ffe33e6f43559f34b7154e2f06
+semantic_tags:
+- primitive:condition
+- representation.markdown
+- source.document.markdown
+- type.workflow.condition
+- workspace.desk.primitives

@@ -1,0 +1,10 @@
+name: condition-task-retirar-modulos-sueltos-sin-importadores-ready-for-closeout
+path: desk/primitives/conditions/condition-task-retirar-modulos-sueltos-sin-importadores-ready-for-closeout.md
+hash_c: d902cca6d57741f416c7f2fa51bdd252362898398581191d1067c9a3f84d7e96
+hash_d: 9ffc62d66298d397319cd8869649c958aadaa88f286f757f60100f386a6e3ab0
+semantic_tags:
+- primitive:condition
+- representation.markdown
+- source.document.markdown
+- type.workflow.condition
+- workspace.desk.primitives

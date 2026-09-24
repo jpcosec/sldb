@@ -1,0 +1,11 @@
+name: routine-task-retirar-modulos-sueltos-sin-importadores
+path: desk/routines/routine-task-retirar-modulos-sueltos-sin-importadores.md
+hash_c: 027521f3fccdc89899ac43c23ab99549ac21930c148dc55169d39301a2ddd356
+hash_d: da6097db2a05ad0f7a592b4e62aa6c8d8196f5095cf596e6e18345ebb93a6563
+semantic_tags:
+- primitive:routine
+- representation.markdown
+- source.document.markdown
+- type.workflow.routine
+- workspace.desk.routines
+- workspace:desk

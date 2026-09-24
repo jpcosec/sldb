@@ -1,0 +1,10 @@
+name: condition-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-ready-for-closeout
+path: desk/primitives/conditions/condition-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-ready-for-closeout.md
+hash_c: db9d865a7fcc42919374e1cc5cf9c907f9653e723b4c2c91bb0043c0710afa69
+hash_d: cf28356e99a33fbd39aa08fbb8a83072f987135a13f72e80002e0f5282ae41dd
+semantic_tags:
+- primitive:condition
+- representation.markdown
+- source.document.markdown
+- type.workflow.condition
+- workspace.desk.primitives

@@ -1,0 +1,10 @@
+name: operator-task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges-close
+path: desk/primitives/operators/operator-task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges-close.md
+hash_c: d55983d24cda1538b45ad72ddb2ff105c436e6e427fd26074aa51487fcc8a43c
+hash_d: c2c3d9fd98db588f2fbd1129cdbe7d7d728f6640b984b3a363fcd23baeb78611
+semantic_tags:
+- primitive:operator
+- representation.markdown
+- source.document.markdown
+- type.workflow.operator
+- workspace.desk.primitives

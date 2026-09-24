@@ -1,0 +1,10 @@
+name: edge-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-execution-to-activate
+path: desk/primitives/edges/edge-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-execution-to-activate.md
+hash_c: 015d47aa98f69c3f98199df2b5f5a0fc5db39f3ad83fd86c8e1201d11f1364d4
+hash_d: 5ca46f4718261af72f5fe58c0f2aef7a8265efa58882d7ce18d78109b302e6a1
+semantic_tags:
+- primitive:edge
+- representation.markdown
+- source.document.markdown
+- type.workflow.edge
+- workspace.desk.primitives

@@ -1,0 +1,11 @@
+name: task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges
+path: desk/tasks/task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges.md
+hash_c: 131766ba4bc778ddd1fe963feffbf9cf32ad7025101be7d857dd052fa4d1c879
+hash_d: 6c6702be5a000cce6daa088633450989260b5c7492ccd5b8d49d0d9a2861d5f6
+semantic_tags:
+- artifact:task
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk

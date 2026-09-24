@@ -1,0 +1,10 @@
+name: edge-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico-execution-to-activate
+path: desk/primitives/edges/edge-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico-execution-to-activate.md
+hash_c: a66997ae67741a62dd37329fcf4cdb9b05afef70e7f6dda4144d0b2d3bceddda
+hash_d: 1ced2ac5c4d82b4e7c569a801fbd4d62db6a09472c755ad6a252f993f0d1bf44
+semantic_tags:
+- primitive:edge
+- representation.markdown
+- source.document.markdown
+- type.workflow.edge
+- workspace.desk.primitives

@@ -1,0 +1,10 @@
+name: edge-task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges-activate-to-testing
+path: desk/primitives/edges/edge-task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges-activate-to-testing.md
+hash_c: bcaa4ba271aad1936e9c5c4fa36d369588b7da7b97bb1aa0efe1531ad7103602
+hash_d: 908ebb21e1dee80a6fea99c87223665ce41314c612cf7681d79a5b6511257188
+semantic_tags:
+- primitive:edge
+- representation.markdown
+- source.document.markdown
+- type.workflow.edge
+- workspace.desk.primitives

@@ -1,0 +1,10 @@
+name: condition-task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges-ready-for-closeout
+path: desk/primitives/conditions/condition-task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges-ready-for-closeout.md
+hash_c: c975b027cd42deab3fef9cf596b2bb8b400c4ea1739b2360b2e26d6bc6936968
+hash_d: 4b1b24c6ad7272e5a3584d85d0685942ea8ac071e75c8c7655e9bf6b916a29bd
+semantic_tags:
+- primitive:condition
+- representation.markdown
+- source.document.markdown
+- type.workflow.condition
+- workspace.desk.primitives

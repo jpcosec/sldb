@@ -1,0 +1,10 @@
+name: checklist-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-execution-ready
+path: desk/primitives/checklists/checklist-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-execution-ready.md
+hash_c: ab976c5e516f86b3e6e27326ffd7e12bdacdf3f0d7397807346eeee490ba075e
+hash_d: 40b67e0eef0a0b0398857462c68788ab25e35394e468d5408e73d028b185a19d
+semantic_tags:
+- primitive:checklist
+- representation.markdown
+- source.document.markdown
+- type.workflow.checklist
+- workspace.desk.primitives

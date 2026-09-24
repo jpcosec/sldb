@@ -1,0 +1,10 @@
+name: edge-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-close-to-complete
+path: desk/primitives/edges/edge-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-close-to-complete.md
+hash_c: 9b5774b61c765c04d5d6a555dce6ee711414a138ec184532b52e6bff6d0bf2d0
+hash_d: 19f056ad89a1c5f087b690b12804bb03145a3cdd221571cc99747ae35afdfb7c
+semantic_tags:
+- primitive:edge
+- representation.markdown
+- source.document.markdown
+- type.workflow.edge
+- workspace.desk.primitives

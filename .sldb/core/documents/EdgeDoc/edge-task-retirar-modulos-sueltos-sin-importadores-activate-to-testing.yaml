@@ -1,0 +1,10 @@
+name: edge-task-retirar-modulos-sueltos-sin-importadores-activate-to-testing
+path: desk/primitives/edges/edge-task-retirar-modulos-sueltos-sin-importadores-activate-to-testing.md
+hash_c: 9ee4af283d2d0e2cf85fc9ef943f086cdf4a3d015eb7bb6fc04f2fc90a56dd87
+hash_d: 9595b95304ab4aaccd4fe494c0df10879fc8cfba45d9f2917f3d53e65d9da442
+semantic_tags:
+- primitive:edge
+- representation.markdown
+- source.document.markdown
+- type.workflow.edge
+- workspace.desk.primitives

@@ -1,0 +1,10 @@
+name: operator-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-close
+path: desk/primitives/operators/operator-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-close.md
+hash_c: ccd2eaaeb3b4454f469b1df902bd2c2269b333f0dc34266882335f88e44df50f
+hash_d: a934d5be060a82ad00b2f4857980f0d6fb65ebdfc0eaaa14b42e1d82fe91be09
+semantic_tags:
+- primitive:operator
+- representation.markdown
+- source.document.markdown
+- type.workflow.operator
+- workspace.desk.primitives

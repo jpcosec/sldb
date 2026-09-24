@@ -1,0 +1,10 @@
+name: operator-task-retirar-modulos-sueltos-sin-importadores-activate
+path: desk/primitives/operators/operator-task-retirar-modulos-sueltos-sin-importadores-activate.md
+hash_c: 42d3ec2d69e2c624b73c7eb01a062dcf16c646911c0e3c9271add6291f230b13
+hash_d: a1111bddc76ba932efc4d3138359e522c54849026ae4493f11c57d9b386167b6
+semantic_tags:
+- primitive:operator
+- representation.markdown
+- source.document.markdown
+- type.workflow.operator
+- workspace.desk.primitives

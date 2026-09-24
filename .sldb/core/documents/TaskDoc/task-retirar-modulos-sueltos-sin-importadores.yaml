@@ -1,0 +1,11 @@
+name: task-retirar-modulos-sueltos-sin-importadores
+path: desk/tasks/task-retirar-modulos-sueltos-sin-importadores.md
+hash_c: 193fc0b7cf4a9804a5ab9c9b7ec546bc8b0e2c91b2e3087df855abf133a4d1d8
+hash_d: 0b51012662211069dcbd04a315c701b2d8ca4ed7b06b14799432e4365f8551fe
+semantic_tags:
+- artifact:task
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk

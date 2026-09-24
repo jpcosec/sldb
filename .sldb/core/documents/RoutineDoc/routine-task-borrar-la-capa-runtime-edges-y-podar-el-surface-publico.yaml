@@ -1,0 +1,11 @@
+name: routine-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico
+path: desk/routines/routine-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico.md
+hash_c: f439262d1afd6279c656ca46d99fe5df7ad4d4f16d1b77f56aa354acb0a27ce0
+hash_d: 18c26583f5efd87e61094dffcb1135d342cc15c4731a877574def282173ba85e
+semantic_tags:
+- primitive:routine
+- representation.markdown
+- source.document.markdown
+- type.workflow.routine
+- workspace.desk.routines
+- workspace:desk

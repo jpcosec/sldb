@@ -1,0 +1,11 @@
+name: task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico
+path: desk/tasks/task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico.md
+hash_c: c421ae17b9aa3185e33a5a4f452c27a7f82174deb2f0d7ead0a68dc9805ff255
+hash_d: 5b164e529e539902985d2f8b080ada55e721a19092026c0f1203ea776ca6cf74
+semantic_tags:
+- artifact:task
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk

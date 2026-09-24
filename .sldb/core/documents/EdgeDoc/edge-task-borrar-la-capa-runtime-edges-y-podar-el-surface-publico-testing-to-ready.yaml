@@ -1,0 +1,10 @@
+name: edge-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico-testing-to-ready
+path: desk/primitives/edges/edge-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico-testing-to-ready.md
+hash_c: f6253965177593e535e8e030cc68223d7b075f6312fa3110fdcfcaf69b2993a6
+hash_d: 39368ea73b4b5ff381834244b3408176509a145ddc63d25fcf314c717e4b7a72
+semantic_tags:
+- primitive:edge
+- representation.markdown
+- source.document.markdown
+- type.workflow.edge
+- workspace.desk.primitives

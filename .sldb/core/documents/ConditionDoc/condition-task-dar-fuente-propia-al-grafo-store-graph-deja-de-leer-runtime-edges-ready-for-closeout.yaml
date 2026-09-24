@@ -1,0 +1,10 @@
+name: condition-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-ready-for-closeout
+path: desk/primitives/conditions/condition-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-ready-for-closeout.md
+hash_c: 8e3c8fb4abe4b1354d6c4c492a771f2645608bb7cba202c8126592abe7db7808
+hash_d: 72cabd6b59d71a97dc541a6631ac4c274fcae47f9a2268d0b40186871a39f77c
+semantic_tags:
+- primitive:condition
+- representation.markdown
+- source.document.markdown
+- type.workflow.condition
+- workspace.desk.primitives

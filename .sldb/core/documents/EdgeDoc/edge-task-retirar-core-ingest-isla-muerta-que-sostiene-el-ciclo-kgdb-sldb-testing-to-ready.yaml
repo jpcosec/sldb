@@ -1,0 +1,10 @@
+name: edge-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-testing-to-ready
+path: desk/primitives/edges/edge-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-testing-to-ready.md
+hash_c: d677b6078d6d576c0704c9285c214abb58bc5cd083bce2a3ed677f324239786c
+hash_d: a9073f8de6d800582f510890047da4145ec8092af9b6e973bb55ca42101c9d40
+semantic_tags:
+- primitive:edge
+- representation.markdown
+- source.document.markdown
+- type.workflow.edge
+- workspace.desk.primitives

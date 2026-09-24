@@ -1,0 +1,11 @@
+name: routine-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb
+path: desk/routines/routine-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb.md
+hash_c: d3055a48ad12fbc71d95a9a9d6574c0c8169c0de5ab5b12125b1903c0a73b443
+hash_d: be8d04c1b4910d3aa7d217c99b1999eef82fa03e9230182b2316ee9a4510291f
+semantic_tags:
+- primitive:routine
+- representation.markdown
+- source.document.markdown
+- type.workflow.routine
+- workspace.desk.routines
+- workspace:desk

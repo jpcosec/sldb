@@ -1,0 +1,10 @@
+name: condition-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico-has-implementation-path
+path: desk/primitives/conditions/condition-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico-has-implementation-path.md
+hash_c: 704abc0dd33c0e81058b65aa56886a6858dd7d8ec66f8afb42e0b25a26235d4b
+hash_d: 8940a6ed8f19844f053c47a0f484d330ebfcabf55f5abff7add8ab53a9800a66
+semantic_tags:
+- primitive:condition
+- representation.markdown
+- source.document.markdown
+- type.workflow.condition
+- workspace.desk.primitives

@@ -1,0 +1,10 @@
+name: operator-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-activate
+path: desk/primitives/operators/operator-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-activate.md
+hash_c: 6f00c50efc41dffccd512c6bb19edc304a087cb667cdcf684afc2dacd7ee398a
+hash_d: 924ad954f7a9a01cfe46ccb89ab278875a67a5c5e1ee7f77a1e0a1ddec683a0e
+semantic_tags:
+- primitive:operator
+- representation.markdown
+- source.document.markdown
+- type.workflow.operator
+- workspace.desk.primitives

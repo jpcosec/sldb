@@ -1,0 +1,10 @@
+name: condition-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-pill-knowledge-graduated
+path: desk/primitives/conditions/condition-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-pill-knowledge-graduated.md
+hash_c: c24f5279ab0fc2a92297d59a4e13d74781a58ec611e53a67d8f1053fb729a478
+hash_d: 9315e4f95e1b9bbf054e5ac2796012c880abc502f1a83bd9602bd8acb7a0aaf7
+semantic_tags:
+- primitive:condition
+- representation.markdown
+- source.document.markdown
+- type.workflow.condition
+- workspace.desk.primitives

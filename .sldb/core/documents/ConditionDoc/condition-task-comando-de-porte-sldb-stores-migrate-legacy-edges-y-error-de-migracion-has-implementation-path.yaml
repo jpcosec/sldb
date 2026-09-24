@@ -1,0 +1,10 @@
+name: condition-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-has-implementation-path
+path: desk/primitives/conditions/condition-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-has-implementation-path.md
+hash_c: a7f108d61a850e0c1607083aeafaa4c2b60637fd5cf3fe4d5724b4f72ab07bca
+hash_d: a92ca9ed06163c3e2fc29ab31b56ce959b4a2854d2e6ed9a7eed2d8ad273a3f8
+semantic_tags:
+- primitive:condition
+- representation.markdown
+- source.document.markdown
+- type.workflow.condition
+- workspace.desk.primitives

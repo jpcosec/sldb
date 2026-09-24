@@ -1,0 +1,10 @@
+name: edge-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-closeout-to-close
+path: desk/primitives/edges/edge-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-closeout-to-close.md
+hash_c: d7f35ffe36dc00bae28b0f1ea6899b5d16cb69e76e4b865b3deacdc02d2221e9
+hash_d: 1cc6e9bd2624bf2ce0a337d7eb807b408cdb7730aa5143bdd0ac1964345ba734
+semantic_tags:
+- primitive:edge
+- representation.markdown
+- source.document.markdown
+- type.workflow.edge
+- workspace.desk.primitives

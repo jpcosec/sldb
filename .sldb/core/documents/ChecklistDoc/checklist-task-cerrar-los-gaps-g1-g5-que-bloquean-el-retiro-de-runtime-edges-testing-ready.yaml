@@ -1,0 +1,10 @@
+name: checklist-task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges-testing-ready
+path: desk/primitives/checklists/checklist-task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges-testing-ready.md
+hash_c: 3c8a334f793247af8d8ee0a3d87f5b1b0398f8ea207fb35bf56621d3644126fa
+hash_d: e29d31a4570b1b98dc8d09d51020ad7d62bac8dd13c05f7aa2b019b63f5b3beb
+semantic_tags:
+- primitive:checklist
+- representation.markdown
+- source.document.markdown
+- type.workflow.checklist
+- workspace.desk.primitives

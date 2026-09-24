@@ -1,0 +1,10 @@
+name: checklist-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-testing-ready
+path: desk/primitives/checklists/checklist-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-testing-ready.md
+hash_c: d22c313fdd16fe8b5ba354301b6b455a1b17ff8dac4b49ae657f4297bed3f7df
+hash_d: b41dee2c442a523488082996e6b949bba304a926e6a1a10a6492729882acfe23
+semantic_tags:
+- primitive:checklist
+- representation.markdown
+- source.document.markdown
+- type.workflow.checklist
+- workspace.desk.primitives

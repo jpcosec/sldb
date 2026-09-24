@@ -1,0 +1,10 @@
+name: condition-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-pill-knowledge-graduated
+path: desk/primitives/conditions/condition-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-pill-knowledge-graduated.md
+hash_c: c60cdd8c0a5e9377ea2788c3d87ef1a8c6d55a03db68f46183d12fac55e9dc27
+hash_d: b2f3f6a6f63c590c7e25a414f632136fd3e1516335fc7c70c22471a008362023
+semantic_tags:
+- primitive:condition
+- representation.markdown
+- source.document.markdown
+- type.workflow.condition
+- workspace.desk.primitives

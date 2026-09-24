@@ -1,0 +1,10 @@
+name: condition-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico-ready-for-closeout
+path: desk/primitives/conditions/condition-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico-ready-for-closeout.md
+hash_c: 3f788fd9746380a9bb5593b0692b17449fa5060f94d9fdb1c52048d506167923
+hash_d: 34ee6440ae27ad225a618c54fdf877b7bef811e61027ae7cab898391efa04aa9
+semantic_tags:
+- primitive:condition
+- representation.markdown
+- source.document.markdown
+- type.workflow.condition
+- workspace.desk.primitives

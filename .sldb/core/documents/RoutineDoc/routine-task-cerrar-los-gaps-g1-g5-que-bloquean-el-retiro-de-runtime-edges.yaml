@@ -1,0 +1,11 @@
+name: routine-task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges
+path: desk/routines/routine-task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges.md
+hash_c: e36d7c4eb27e0eb7b6124818a871bd39eafdefa8833ec2a6bee8c186e2bcaf9c
+hash_d: b08760fd449e9b491abe585c539a6cb43303b90090ae9df5546ad6a09395d4db
+semantic_tags:
+- primitive:routine
+- representation.markdown
+- source.document.markdown
+- type.workflow.routine
+- workspace.desk.routines
+- workspace:desk

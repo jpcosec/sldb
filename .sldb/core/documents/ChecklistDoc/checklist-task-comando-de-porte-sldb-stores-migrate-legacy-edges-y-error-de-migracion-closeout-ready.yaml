@@ -1,0 +1,10 @@
+name: checklist-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-closeout-ready
+path: desk/primitives/checklists/checklist-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-closeout-ready.md
+hash_c: f2b670b95974e2421ce8d8eb8e494926bdb3272780a3fc19f8be943b7f316981
+hash_d: 7d9e451edb3ce17c6b0ee632ebdbf8c015e71378826ebcd24db215143774a643
+semantic_tags:
+- primitive:checklist
+- representation.markdown
+- source.document.markdown
+- type.workflow.checklist
+- workspace.desk.primitives

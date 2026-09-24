@@ -1,0 +1,10 @@
+name: condition-task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges-pill-knowledge-graduated
+path: desk/primitives/conditions/condition-task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges-pill-knowledge-graduated.md
+hash_c: 2b4dddd0cb104568da4a4879895e5d68cf867c6232f8529fb6a3307f654a5b99
+hash_d: 1d534eddeba2a0a6b92c69600a1e8b80a3d7b67d85f6422881f6c26258b7887a
+semantic_tags:
+- primitive:condition
+- representation.markdown
+- source.document.markdown
+- type.workflow.condition
+- workspace.desk.primitives

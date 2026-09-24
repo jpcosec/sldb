@@ -1,0 +1,10 @@
+name: edge-task-retirar-modulos-sueltos-sin-importadores-close-to-complete
+path: desk/primitives/edges/edge-task-retirar-modulos-sueltos-sin-importadores-close-to-complete.md
+hash_c: 190b69dc6a114234d5c71faf16ea7b622199aa29053699b0a00b60e96c800a47
+hash_d: 399c45cb2801e017de8e293e335ddfff51f7e163bad2ff0a0bf90d3c6d84b1e1
+semantic_tags:
+- primitive:edge
+- representation.markdown
+- source.document.markdown
+- type.workflow.edge
+- workspace.desk.primitives

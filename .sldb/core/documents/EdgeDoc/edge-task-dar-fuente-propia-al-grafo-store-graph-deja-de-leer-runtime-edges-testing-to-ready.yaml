@@ -1,0 +1,10 @@
+name: edge-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-testing-to-ready
+path: desk/primitives/edges/edge-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-testing-to-ready.md
+hash_c: 08d46040e0e6201548c7e10c571754e3a3809683fafcdd53e5fb6d89f4c50875
+hash_d: 4fa2aab656c2fe3820279da445a6dc38136c3642605a150c9cc68056bd9af6d1
+semantic_tags:
+- primitive:edge
+- representation.markdown
+- source.document.markdown
+- type.workflow.edge
+- workspace.desk.primitives

@@ -1,0 +1,10 @@
+name: condition-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-has-closeout-evidence
+path: desk/primitives/conditions/condition-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-has-closeout-evidence.md
+hash_c: df8f20287e32b32637d22b7d67364ea66dd02673bd8d2d9545f05435fdf1e8e5
+hash_d: 22767044b1ed6a7dd4299ebab46aef46672fd257886a5a56e9527e198c36b21c
+semantic_tags:
+- primitive:condition
+- representation.markdown
+- source.document.markdown
+- type.workflow.condition
+- workspace.desk.primitives

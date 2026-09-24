@@ -1,0 +1,10 @@
+name: operator-task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido-ready-for-testing
+path: desk/primitives/operators/operator-task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido-ready-for-testing.md
+hash_c: d8634658c8f265c9fe6220ae2a2b49f05f5351eca32e1c9b7278783c36a4426a
+hash_d: c52999015415c5d0aa2d559168bf0279d592648ac3dc7d45a930a004346a0169
+semantic_tags:
+- primitive:operator
+- representation.markdown
+- source.document.markdown
+- type.workflow.operator
+- workspace.desk.primitives

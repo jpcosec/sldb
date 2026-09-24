@@ -1,0 +1,10 @@
+name: edge-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-closeout-to-close
+path: desk/primitives/edges/edge-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-closeout-to-close.md
+hash_c: 5ec2c05b695560bf254addbc28afbdeb83ce0bbe63c1c7669aa97706fdcc8d6b
+hash_d: 18e41d8f559af4cf249baeb6cfb3d3e356cebbd4877b1aa7bd10db881320b727
+semantic_tags:
+- primitive:edge
+- representation.markdown
+- source.document.markdown
+- type.workflow.edge
+- workspace.desk.primitives

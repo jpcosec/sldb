@@ -1,0 +1,10 @@
+name: operator-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico-close
+path: desk/primitives/operators/operator-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico-close.md
+hash_c: 6d9ef8cc896b9336fbf7ed15c60a52029c561ec213657b636282b333226b157e
+hash_d: 1a9a952cbe3dff75b0e012651c953630e683a9ea58c31180ab2c3dda1ed9d7c9
+semantic_tags:
+- primitive:operator
+- representation.markdown
+- source.document.markdown
+- type.workflow.operator
+- workspace.desk.primitives

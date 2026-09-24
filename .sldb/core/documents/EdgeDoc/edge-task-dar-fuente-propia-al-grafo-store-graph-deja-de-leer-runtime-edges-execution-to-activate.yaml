@@ -1,0 +1,10 @@
+name: edge-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-execution-to-activate
+path: desk/primitives/edges/edge-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-execution-to-activate.md
+hash_c: 83ce269b60d9de670660a4a04bb06fd0bf2ab22a5ae9a452ea5636bf5d6fd7f3
+hash_d: ae552cce40b9dba0acbb7402d62d77077229797691625a192919031754b01273
+semantic_tags:
+- primitive:edge
+- representation.markdown
+- source.document.markdown
+- type.workflow.edge
+- workspace.desk.primitives

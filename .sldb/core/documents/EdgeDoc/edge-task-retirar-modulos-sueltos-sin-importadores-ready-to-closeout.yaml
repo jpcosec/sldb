@@ -1,0 +1,10 @@
+name: edge-task-retirar-modulos-sueltos-sin-importadores-ready-to-closeout
+path: desk/primitives/edges/edge-task-retirar-modulos-sueltos-sin-importadores-ready-to-closeout.md
+hash_c: 184fe6bbcbcbf7ff1c650bb81de010c1e61cf5c9da1e8008071fd229483c6eff
+hash_d: 77270cf5386458b7283f36cc23802d4b727b97eac60637476159bcbdcf50eb56
+semantic_tags:
+- primitive:edge
+- representation.markdown
+- source.document.markdown
+- type.workflow.edge
+- workspace.desk.primitives

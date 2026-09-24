@@ -1,0 +1,10 @@
+name: checklist-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-testing-ready
+path: desk/primitives/checklists/checklist-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-testing-ready.md
+hash_c: 851c5e084b92847b15640ad309879c8f201869b29b31f7855417a95b91d91f11
+hash_d: 3889809893769af47c79e5daf77aad0097a50189f138267d0cf41681da96e3f0
+semantic_tags:
+- primitive:checklist
+- representation.markdown
+- source.document.markdown
+- type.workflow.checklist
+- workspace.desk.primitives

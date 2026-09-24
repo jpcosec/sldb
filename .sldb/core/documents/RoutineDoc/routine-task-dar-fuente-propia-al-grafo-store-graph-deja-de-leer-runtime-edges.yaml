@@ -1,0 +1,11 @@
+name: routine-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges
+path: desk/routines/routine-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges.md
+hash_c: aed7e82d456b342b698f8fe7ff647a0376952b9546f57cfa5215d2c968a8f491
+hash_d: f74ba6d18b9acf89b6d28dcc0f3d9ccd9e8389723332c7d77cfca737a91e3fe4
+semantic_tags:
+- primitive:routine
+- representation.markdown
+- source.document.markdown
+- type.workflow.routine
+- workspace.desk.routines
+- workspace:desk

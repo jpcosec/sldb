@@ -1,0 +1,10 @@
+name: operator-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-activate
+path: desk/primitives/operators/operator-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-activate.md
+hash_c: 2ac6045fc1332e7d67a3adf6e8f397c10282f422d81da00a9e7730078c28fcbe
+hash_d: 4d3104be630047ddd9957b5b70c523e66c8a7818051d9e2371d31c06b834cdb7
+semantic_tags:
+- primitive:operator
+- representation.markdown
+- source.document.markdown
+- type.workflow.operator
+- workspace.desk.primitives

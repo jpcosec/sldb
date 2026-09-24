@@ -1,0 +1,11 @@
+name: routine-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion
+path: desk/routines/routine-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion.md
+hash_c: dce62115ca1e53fbfacaea6a86d83b4222545c8ab28415f162e2ef2589d7cb2c
+hash_d: 995720347a791aef001f06598f0fedd86605b70907478960401ab2c6627be365
+semantic_tags:
+- primitive:routine
+- representation.markdown
+- source.document.markdown
+- type.workflow.routine
+- workspace.desk.routines
+- workspace:desk

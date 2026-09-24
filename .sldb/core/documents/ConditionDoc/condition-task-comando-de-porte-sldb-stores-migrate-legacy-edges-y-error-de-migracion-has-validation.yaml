@@ -1,0 +1,10 @@
+name: condition-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-has-validation
+path: desk/primitives/conditions/condition-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-has-validation.md
+hash_c: ca884635059b03458d9feec471246a1c6b5bf8c67396aea72de67e613591d927
+hash_d: e965410c6a6398a3760bb69ae3c2402d0123983c56712e5a76de04378e0b7566
+semantic_tags:
+- primitive:condition
+- representation.markdown
+- source.document.markdown
+- type.workflow.condition
+- workspace.desk.primitives
