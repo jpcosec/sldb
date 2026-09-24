@@ -8,11 +8,11 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-09-16T17:05:00'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
-acknowledged_by: ⸢rev•acknowledged_by⸥
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
-acknowledged_at: ⸢rev•acknowledged_at⸥
+acknowledged_at: 2026-09-23T19:30:00
 ---
 
 # cached_document no firma por hash_b: un campo nuevo del modelo queda invisible para siempre
@@ -62,3 +62,7 @@ entre `cached_store` y `cached_document` puede ser deliberada.
 
 Workaround verificado del lado KB: borrar `.sldb/runtime/{cache,sections,semantic}` y
 correr `sldb stores update --store .sldb --pythonpath <repo-con-kb_models>`.
+
+## Resolution
+
+Commit c7c5df1 "fix(store): el cache de documento firma por el hash_b del modelo (contrato), no solo por el leaf": la clave de `cached_document` en `src/sldb/store/runtime_cache.py` (y el cache en disco en `runtime_cache_disk.py`) incluye el `hash_b` del modelo, asi un contrato que gana un campo invalida el payload viejo aunque el markdown no cambie. Regresion en `tests/test_runtime_cache.py`.
