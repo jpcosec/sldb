@@ -1646,9 +1646,26 @@ def _add_summary_draft(store: Path, pythonpath: str) -> None:
     )
 
 
-@pytest.mark.parametrize("failing", ["resolve_model_ref", "cascade_hash_a"])
+@pytest.mark.parametrize(
+    "failing",
+    [
+        "resolve_model_ref",         # pre-write: model resolution
+        "rehash_documents",          # pre-write: document hash pass
+        "save_documents_index",      # mid-write: docs index written
+        "save_models_index",         # mid-write: models index written
+        "documents_hash.invalidate", # post-write: derived cache invalidation
+        "rebuild_derived_indexes",   # post-write: derived index rebuild
+        "cascade_hash_a",            # post-write: hash_a cascade
+    ],
+)
 def test_models_promote_failure_restores_model_draft_and_indexes(tmp_path, monkeypatch, failing):
-    """A promote whose reindex fails leaves the store as it was: active model, draft and indexes intact."""
+    """A promote whose reindex fails leaves the store as it was: active model, draft and indexes intact.
+
+    Promote dispatches to the real ``models update`` route (``ModelsCLI`` -> ``ModelCLI.update`` in
+    `sldb.cli.commands.model`), so the failure is injected on a module-level name that route actually
+    calls - never on `sldb.cli.commands.model_update`, which the route does not import. Each param is
+    a distinct stage of that route; all must land inside ``restored_on_failure``.
+    """
     store, pythonpath = _setup_store(tmp_path)
     module_path = Path(pythonpath) / "cli_v2_models.py"
     draft_path = module_path.with_name(module_path.name + ".temp")
@@ -1659,9 +1676,7 @@ def test_models_promote_failure_restores_model_draft_and_indexes(tmp_path, monke
     def boom(*args, **kwargs):
         raise RuntimeError("reindex failed")
 
-    # resolve_model_ref fails before any index write; cascade_hash_a after the model indexes are saved.
     monkeypatch.setattr(f"sldb.cli.commands.model.{failing}", boom)
-    monkeypatch.setattr(f"sldb.cli.commands.model_update.{failing}", boom)
     with pytest.raises((SystemExit, RuntimeError)):
         cli_main(["models", "validate", "RoadmapDoc", "--promote", "--store", str(store), "--pythonpath", pythonpath])
     monkeypatch.undo()
