@@ -1,8 +1,10 @@
-"""The cache file of extracted payloads, `.sldb/runtime/cache/extracted.json`: what a
-process extracted, keyed by the document's leaf key (path, hash_c and, unless the chain is trusted, mtime and size) plus the
-model's hash_b, and the model name — so the next process does not extract a store it has
-already seen, and a payload extracted under a contract that has since moved is not reused.
-Derived and safe to delete; a store's .gitignore should list `.sldb/runtime/cache/`."""
+"""The cache file of extracted payloads: what a process extracted, keyed by the document's
+leaf key (path, hash_c and, unless the chain is trusted, mtime and size) plus the model's
+hash_b, and the model name — so the next process does not extract a store it has already
+seen, and a payload extracted under a contract that has since moved is not reused.
+
+Derived and safe to delete. It lives in the user's cache dir (sldb.store.user_cache), never
+inside the store, so a read never writes into a store that may be tracked."""
 
 from __future__ import annotations
 
@@ -10,12 +12,14 @@ import json
 from pathlib import Path
 from typing import Any
 
+from sldb.store import user_cache
+
 _DISK: dict[str, dict] = {}
 _DIRTY: set[str] = set()
 
 
-def cache_file(s_path: Path) -> Path:
-    return s_path / "runtime" / "cache" / "extracted.json"
+def cache_file(s_path: Path) -> Path | None:
+    return user_cache.extracted_cache_file(s_path)
 
 
 def disk_key(leaf: tuple, m_name: str) -> str:
@@ -26,7 +30,8 @@ def entries(s_path: Path) -> dict:
     key = str(s_path)
     if key not in _DISK:
         try:
-            _DISK[key] = json.loads(cache_file(s_path).read_text(encoding="utf-8"))
+            path = cache_file(s_path)
+            _DISK[key] = json.loads(path.read_text(encoding="utf-8")) if path else {}
         except (OSError, ValueError):
             _DISK[key] = {}
     return _DISK[key]
@@ -60,6 +65,8 @@ def flush(s_path: Path, docs: dict[tuple, Any]) -> None:
 def _write(s_path: Path, fresh: dict) -> None:
     try:
         path = cache_file(s_path)
+        if path is None:
+            return
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(fresh, ensure_ascii=False), encoding="utf-8")
         _DISK[str(s_path)] = fresh
