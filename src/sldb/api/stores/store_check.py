@@ -19,7 +19,22 @@ def check_store(store_path: Path, project_root: Path, pythonpath: str | None = N
 
     diagnosis = diagnose_store(store_path, resolve_model_ref, project_root, pythonpath=pythonpath)
     summary = _summarize(diagnosis)
-    return {"ok": not summary["mismatched"], **summary}
+    return {"ok": not summary["mismatched"], **_classified(diagnosis), **summary}
+
+
+def _classified(diagnosis: Any) -> dict[str, Any]:
+    """The verdict split by category.
+
+    `mismatched` lists every hash that moved, including the expected ones (text moved,
+    fields held still). `damaged` is the subset that actually invalidates the store,
+    which is what `is_valid` reports.
+    """
+    return {
+        "valid": diagnosis.is_valid,
+        "damaged": [{"doc": d.name, "model": m, "note": d.note.value, "explain": d.explain()} for m, d in diagnosis.damaged_documents],
+        "reformatted": [d.name for _m, d in diagnosis.reformatted_documents],
+        "roster_only": [m.name for m in diagnosis.roster_only_models],
+    }
 
 
 def _summarize(diagnosis: Any) -> dict[str, Any]:
@@ -32,9 +47,10 @@ def _summarize(diagnosis: Any) -> dict[str, Any]:
     return {"checked": checked, "mismatched": mismatched}
 
 
+# (reported kind, ok flag, value on disk now, value the index recorded)
 _KINDS = (
-    ("hash_c", "hash_c_ok", "hash_c_expected", "hash_c_actual"),
-    ("hash_d", "hash_d_ok", "hash_d_expected", "hash_d_actual"),
+    ("hash_c", "content_ok", "content_on_disk", "content_in_index"),
+    ("hash_d", "fields_ok", "fields_on_disk", "fields_in_index"),
 )
 
 

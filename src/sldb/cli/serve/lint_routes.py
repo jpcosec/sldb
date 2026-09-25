@@ -38,11 +38,11 @@ def dispatch_lint(
 def _store_problems(store_path: Path, root: Path, pythonpath: str) -> list[JsonDict]:
     diagnosis = diagnose_store(store_path, resolve_model_ref, root, pythonpath)
     problems = []
-    if not diagnosis.hash_a_ok:
-        problems.append(_problem("store", "error", None, "Store index (hash_a) desactualizado."))
+    if not diagnosis.root_ok:
+        problems.append(_problem("store", "error", None, "Store index (raiz, hash_a) desactualizado."))
     for model in diagnosis.models:
-        if not model.hash_b_ok:
-            problems.append(_problem("store", "error", None, f"Index del modelo '{model.name}' (hash_b) desactualizado."))
+        if not model.roster_ok:
+            problems.append(_problem("store", "error", None, f"Index del modelo '{model.name}' (roster, hash_b): {model.explain()}"))
         for doc in model.documents:
             problems += _document_problems(model.name, doc)
     return problems
@@ -52,9 +52,9 @@ def _document_problems(model_name: str, doc: Any) -> list[JsonDict]:
     if not doc.path_exists:
         return [_problem("store", "warning", doc.name, f"{model_name}:{doc.name} no existe en disco ({doc.path}).")]
     if doc.note is DiagnosisNote.DATA_MUTATION:
-        return [_problem("store", "error", doc.name, f"{model_name}:{doc.name} mutó: hash_c/hash_d no coinciden.")]
+        return [_problem("store", "error", doc.name, f"{model_name}:{doc.name} cambiaron los campos (hash_d) bajo el contrato del modelo.")]
     if doc.note is DiagnosisNote.BENIGN_MUTATION:
-        return [_problem("store", "warning", doc.name, f"{model_name}:{doc.name} cambio benigno: hash_c no coincide, hash_d sí.")]
+        return [_problem("store", "warning", doc.name, f"{model_name}:{doc.name} mutacion esperable: cambio el texto (hash_c), los campos (hash_d) no.")]
     return []
 
 

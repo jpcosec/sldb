@@ -19,9 +19,10 @@ def _add(s):
     a.add_argument("--store", help="Local store path")
 
 def _check(s):
-    c = s.add_parser("check", help="Integrity check.")
+    c = s.add_parser("check", help="Integrity check: reports each finding and its category.")
     c.add_argument("--store", help="Store path")
     c.add_argument("--format", choices=("text", "json", "yaml"), default="text")
+    c.add_argument("--quiet", action="store_true", help="Only the PASS/FAIL line, without per-document findings")
     c.add_argument("--pythonpath", help="Project path")
 
 def _update(s):
