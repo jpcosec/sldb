@@ -42,6 +42,7 @@ class StoreIOUtils:
         fd, tmp_path = StoreIOUtils._mkstemp(path)
         try:
             StoreIOUtils._write_and_close(fd, content)
+            fd = -1  # the write already closed it; cleanup must not close it a second time
             os.replace(tmp_path, path)
         finally:
             StoreIOUtils._cleanup(fd, tmp_path)
@@ -60,9 +61,14 @@ class StoreIOUtils:
 
     @staticmethod
     def _cleanup(fd, tmp_path):
-        try:
-            os.close(fd)
-        except OSError:
-            pass
+        # A negative fd means `_write_and_close` already closed it. Closing the same number
+        # twice is a descriptor race: under concurrency the OS recycles the number into
+        # another thread between the two closes, and this close would then hit that thread's
+        # live descriptor (seen as `OSError: [Errno 9] Bad file descriptor` in Legos' suite).
+        if fd >= 0:
+            try:
+                os.close(fd)
+            except OSError:
+                pass
         if os.path.exists(tmp_path):
             os.unlink(tmp_path)
