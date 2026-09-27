@@ -1,3 +1,14 @@
+"""The `sldb_kgdb_semantic_export` payload, built from the persisted indexes.
+
+The hash keys are emitted under BOTH namings. The letters (`hash_a`/`hash_b`/`hash_c`/
+`hash_d`) are the v1 contract and stay exactly as they were — `contracts/fixtures/
+sldb_kgdb_semantic_export.v1.json` pins them, and dropping them would be a contract break, not
+a rename. The semantic names (`store_hash`, `model_hash`, `source_hash`, `content_hash`) carry
+the same values, plus the model node's two children (`roster_hash`, `contract_hash`) which the
+letters cannot express at all: v1 had one key where there are now two causes. Readers should
+move to the semantic names; the letters go when the contract's version does.
+"""
+
 from __future__ import annotations
 
 from datetime import datetime, timezone
@@ -52,14 +63,14 @@ class SemanticExporter:
         m_idx = load_models_index(self.project_root / m_entry.models_index)
         d_idx = load_documents_index(self.project_root / m_idx.documents_index)
         s_idx = load_sections_index(self.project_root / m_idx.sections_index) if m_idx.sections_index else None
-        mods.append({"name": m_idx.name, "model_ref": m_idx.model_ref, "path": m_idx.path, "models_index": m_entry.models_index, "documents_index": m_idx.documents_index, "sections_index": m_idx.sections_index, "version": m_idx.version, "canonical": m_idx.canonical, "family": m_idx.family, "semantics": sorted(set(m_idx.semantics)), "base_models": sorted(set(m_idx.base_models)), "hash_b": m_idx.hash_b})
+        mods.append({"name": m_idx.name, "model_ref": m_idx.model_ref, "path": m_idx.path, "models_index": m_entry.models_index, "documents_index": m_idx.documents_index, "sections_index": m_idx.sections_index, "version": m_idx.version, "canonical": m_idx.canonical, "family": m_idx.family, "semantics": sorted(set(m_idx.semantics)), "base_models": sorted(set(m_idx.base_models)), "hash_b": m_idx.model_hash, "model_hash": m_idx.model_hash, "roster_hash": m_idx.roster_hash, "contract_hash": m_idx.contract_hash})
         self._proc_docs(d_idx, m_idx, docs)
         if s_idx:
             self._proc_secs(s_idx, m_idx, secs)
 
     def _proc_docs(self, d_idx, m_idx, docs):
         for d in sorted(d_idx.documents, key=lambda i: i.name):
-            docs.append({"id": f"{m_idx.name}:{d.name}", "name": d.name, "model": m_idx.name, "path": d.path, "hash_c": d.hash_c, "hash_d": d.hash_d, "semantic_tags": sorted(set(d.semantic_tags))})
+            docs.append({"id": f"{m_idx.name}:{d.name}", "name": d.name, "model": m_idx.name, "path": d.path, "hash_c": d.source_hash, "hash_d": d.content_hash, "source_hash": d.source_hash, "content_hash": d.content_hash, "semantic_tags": sorted(set(d.semantic_tags))})
 
     def _proc_secs(self, s_idx, m_idx, secs):
         for d_s in sorted(s_idx.documents, key=lambda i: i.doc_name):
@@ -68,7 +79,7 @@ class SemanticExporter:
                 secs.append({"id": f"{d_id}#{s.path}", "document_id": d_id, "path": s.path, "title": s.title, "breadcrumbs": s.breadcrumbs, "about": s.about, "semantic_tags": s.semantic_tags, "slug": s.slug, "level": s.level, "line_start": s.line_start, "line_end": s.line_end})
 
     def _store_meta(self, st_idx, mods):
-        return {"root": str(self.project_root), "store_path": str(self.store_path), "hash_a": st_idx.hash_a, "runtime_sources": {"store_index": _disp(store_index_path(self.store_path), self.project_root), "semantic_index": _disp(semantic_index_path(self.store_path), self.project_root), "semantic_dag": _disp(semantic_dag_path(self.store_path), self.project_root), "sections_indexes": [m["sections_index"] for m in mods if m.get("sections_index")]}}
+        return {"root": str(self.project_root), "store_path": str(self.store_path), "hash_a": st_idx.store_hash, "store_hash": st_idx.store_hash, "runtime_sources": {"store_index": _disp(store_index_path(self.store_path), self.project_root), "semantic_index": _disp(semantic_index_path(self.store_path), self.project_root), "semantic_dag": _disp(semantic_dag_path(self.store_path), self.project_root), "sections_indexes": [m["sections_index"] for m in mods if m.get("sections_index")]}}
 
     def _dag_meta(self, dag):
         return {"nodes": [{"id": n.id, "parents": sorted(set(n.parents))} for n in sorted(dag.nodes, key=lambda i: i.id)], "equivalences": {k: sorted(set(v)) for k, v in sorted(dag.equivalences.items())}}

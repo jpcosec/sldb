@@ -110,9 +110,15 @@ def test_stores_semantic_export_kgdb_json_from_tracked_store(tmp_path, capsys):
                 "system.desk",
             ],
             "base_models": [],
+            # v1's single key, plus the semantic names and the model node's two children:
+            # `hash_b` could not say whether the roster or the contract moved the node.
             "hash_b": payload["models"][0]["hash_b"],
+            "model_hash": payload["models"][0]["hash_b"],
+            "roster_hash": payload["models"][0]["roster_hash"],
+            "contract_hash": payload["models"][0]["contract_hash"],
         }
     ]
+    assert payload["models"][0]["contract_hash"], "the contract is part of the exported node"
     assert payload["documents"][0]["id"] == "TaskDoc:task"
     assert payload["documents"][0]["semantic_tags"] == [
         "domain.workflow.task",
