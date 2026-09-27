@@ -84,7 +84,7 @@ def test_tampered_hash_b(tmp_path):
     store_index = load_store_index(tmp_path / ".sldb")
     entry = store_index.models[0]
     models_idx = load_models_index(tmp_path / entry.models_index)
-    models_idx.hash_b = "tampered"
+    models_idx.roster_hash = "tampered"
     save_models_index(tmp_path / entry.models_index, models_idx)
     result = diagnose_store(tmp_path / ".sldb", resolve_model_ref, tmp_path, pythonpath=_PYTHONPATH)
     assert not result.models[0].hash_b_ok
@@ -248,7 +248,7 @@ def test_report_explains_a_roster_only_failure_without_blaming_a_document(tmp_pa
     _make_store(tmp_path)
     store_index = load_store_index(tmp_path / ".sldb")
     models_idx = load_models_index(tmp_path / store_index.models[0].models_index)
-    models_idx.hash_b = "tampered"
+    models_idx.roster_hash = "tampered"
     save_models_index(tmp_path / store_index.models[0].models_index, models_idx)
     rc, out = _check_output(tmp_path, capsys)
 

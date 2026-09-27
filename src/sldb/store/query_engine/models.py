@@ -19,3 +19,5 @@ class RuntimeDocument:
     path: str
     payload: dict[str, Any]
     semantic_tags: list[str]
+    source_hash: str = ''
+    content_hash: str = ''

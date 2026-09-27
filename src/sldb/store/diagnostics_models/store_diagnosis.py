@@ -38,20 +38,25 @@ class StoreDiagnosis:
         return [m for m in self.models if m.roster_only_failure]
 
     @property
+    def moved_contracts(self) -> list[ModelDiagnosis]:
+        """Models whose class contract no longer matches the one the index recorded."""
+        return [m for m in self.models if not m.contract_ok]
+
+    @property
     def is_valid(self) -> bool:
         """Whether the store is in a valid state.
 
-        Verdict unchanged by the rename: a reformatted document (text moved, fields
-        identical) is still valid, a damaged one is not, and a disagreeing roster or
-        root hash is not. `roster_only_models` explains such a failure without
-        excusing it — classifying a failure is not the same as tolerating it.
+        A reformatted document (text moved, fields identical) is still valid, a damaged one is
+        not, and a disagreeing roster or root hash is not. A moved contract is not valid either:
+        the indexed payloads were extracted under a contract that no longer holds. Classifying
+        a failure is not the same as tolerating it.
         """
-        return self.root_ok and all(m.roster_ok for m in self.models) and not self.damaged_documents
+        return self.root_ok and all(m.roster_ok and m.contract_ok for m in self.models) and not self.damaged_documents
 
     @property
     def counts(self) -> list[str]:
         """The findings behind the verdict, as phrases; empty when all clean."""
-        pairs = ((len(self.damaged_documents), "damaged"), (len(self.reformatted_documents), "reformatted (ok)"), (len(self.roster_only_models), "roster-only"))
+        pairs = ((len(self.damaged_documents), "damaged"), (len(self.reformatted_documents), "reformatted (ok)"), (len(self.roster_only_models), "roster-only"), (len(self.moved_contracts), "contract moved"))
         return [f"{n} {label}" for n, label in pairs if n]
 
     def summary(self) -> str:

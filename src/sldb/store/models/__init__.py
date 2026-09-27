@@ -5,6 +5,8 @@ from sldb.store.models.store_index import StoreIndex
 from sldb.store.models.models_index import ModelsIndex
 from sldb.store.models.document_entry import DocumentEntry
 from sldb.store.models.documents_index import DocumentsIndex
+from sldb.store.models.document_hashes import DocumentHashes
+from sldb.store.models.store_fingerprint import StoreFingerprint
 from sldb.store.models.semantic_node import SemanticNode
 from sldb.store.models.section_context_record import SectionContextRecord
 from sldb.store.models.doc_sections import DocSections

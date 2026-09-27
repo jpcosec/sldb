@@ -115,14 +115,14 @@ def test_untrack_deletes_the_shard_not_just_the_aggregate_entry(tmp_path: Path):
 
 
 def test_hash_b_matches_a_full_scan_of_the_same_content(tmp_path: Path):
-    """hash_b, kept incrementally via documents_hash.note()/hash_b_of() on the hot write path,
-    equals what hashing every child directly (sorted, order-independent) gives for the same
-    content — the proof obligation for capa 7's new, order-independent hash_b definition."""
+    """The roster hash, kept incrementally via documents_hash.note()/roster_hash_of() on the hot
+    write path, equals what hashing every child directly (sorted, order-independent) gives for
+    the same content — the proof obligation for capa 7's order-independent roster definition."""
     store, root = _store(tmp_path, 6)
     m_idx = load_models_index(root / _model_entry(store).models_index)
     ref = _reference(root, store)
     expected = hash_document_entries((n, hc, hd) for n, (hc, hd) in ref.items())
-    assert m_idx.hash_b == expected
+    assert m_idx.roster_hash == expected
     assert m_idx.documents_count == len(ref)
 
 

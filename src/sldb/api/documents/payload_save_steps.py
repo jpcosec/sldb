@@ -17,6 +17,7 @@ from sldb.store.models.document_entry import DocumentEntry
 from sldb.store.models.model_entry import ModelEntry
 from sldb.store.models.models_index import ModelsIndex
 from sldb.store.models.store_index import StoreIndex
+from sldb.store.model_node import stamp_model_node
 from sldb.store.ops import cascade_hash_a
 from sldb.store.edge_rebuild import rebuild_edges_indexes
 from sldb.store.section_rebuild import rebuild_sections_indexes
@@ -61,22 +62,22 @@ def render_checked(model_type: type, payload: dict[str, Any]) -> str:
 
 
 def write_rendered_document(root: Path, doc_entry: DocumentEntry, model_type: type, rendered: str) -> None:
-    """Write the rendered Markdown (plus final newline) and record its content and field hashes."""
+    """Write the rendered Markdown (plus final newline) and record its source and content hashes."""
     (root / doc_entry.path).write_text(rendered + "\n", encoding="utf-8")
-    doc_entry.hash_c = hash_text(rendered + "\n")
-    doc_entry.hash_d = hash_fields(model_type, rendered + "\n")
+    doc_entry.source_hash = hash_text(rendered + "\n")
+    doc_entry.content_hash = hash_fields(model_type, rendered + "\n")
 
 
-def save_document_indexes(sp: Path, root: Path, idx: StoreIndex, m_idx: ModelsIndex, m_entry: ModelEntry, doc_entry: DocumentEntry, pythonpath: str | None) -> None:
+def save_document_indexes(sp: Path, root: Path, idx: StoreIndex, m_idx: ModelsIndex, m_entry: ModelEntry, doc_entry: DocumentEntry, pythonpath: str | None, model_type: type | None = None) -> None:
     """Save the document shard and model hashes, then rebuild derived indexes, under the store lock.
 
-    The model's hash_b covers its documents' hashes: a field write must move it, or
-    `stores check` fails and consumers keyed on hash_b never see the change.
+    The model's roster hash covers its documents' hashes: a field write must move it, or
+    `stores check` fails and consumers keyed on the model node never see the change.
     """
     with store_lock(sp):
         save_document_shard(documents_shard_path(sp, m_entry.name, doc_entry.name), doc_entry)
         documents_hash.note(sp, m_entry.name, doc_entry)
-        m_idx.hash_b = documents_hash.hash_b_of(sp, m_entry.name)
+        stamp_model_node(m_idx, documents_hash.roster_hash_of(sp, m_entry.name), model_type)
         m_idx.documents_count = documents_hash.count_of(sp, m_entry.name)
         save_models_index(root / m_entry.models_index, m_idx)
         rebuild_semantic_indexes(sp, root, resolve_model_ref, pythonpath)

@@ -17,6 +17,7 @@ from sldb.store.models.document_entry import DocumentEntry
 from sldb.store.models.model_entry import ModelEntry
 from sldb.store.models.models_index import ModelsIndex
 from sldb.store.models.store_index import StoreIndex
+from sldb.store.model_node import stamp_model_node
 from sldb.store.ops import cascade_hash_a
 from sldb.store.edge_rebuild import rebuild_edges_indexes
 from sldb.store.section_rebuild import rebuild_sections_indexes
@@ -52,12 +53,12 @@ def _forget_and_record(sp: Path, root: Path, idx: StoreIndex, m_entry: ModelEntr
     record(sp, {"operation": "untrack_document", "address": doc_address(m_entry.name, doc.name), "hash_c_before": hash_c, "hash_d_before": hash_d, "hash_a_before": before_a, "hash_a_after": store_hash(sp), "actor": actor})
 
 
-def forget_document(sp: Path, root: Path, idx: StoreIndex, m_entry: ModelEntry, m_idx: ModelsIndex, doc: DocumentEntry, pythonpath: str | None) -> None:
+def forget_document(sp: Path, root: Path, idx: StoreIndex, m_entry: ModelEntry, m_idx: ModelsIndex, doc: DocumentEntry, pythonpath: str | None, model_type: type | None = None) -> None:
     """Delete the document's shard and update model hashes and derived indexes under the store lock."""
     with store_lock(sp):
         delete_shard(documents_shard_path(sp, m_entry.name, doc.name))
         documents_hash.forget(sp, m_entry.name, doc.name)
-        m_idx.hash_b = documents_hash.hash_b_of(sp, m_entry.name)
+        stamp_model_node(m_idx, documents_hash.roster_hash_of(sp, m_entry.name), model_type)
         m_idx.documents_count = documents_hash.count_of(sp, m_entry.name)
         save_models_index(root / m_entry.models_index, m_idx)
         rebuild_semantic_indexes(sp, root, resolve_model_ref, pythonpath)

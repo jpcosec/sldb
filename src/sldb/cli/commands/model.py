@@ -9,6 +9,7 @@ from sldb.api.model_registry.model_index_writes import rehash_documents, relativ
 from sldb.cli.store_context import get_store_context
 from sldb.cli.model_utils import resolve_model_ref
 from sldb.store.hashing import hash_documents_index
+from sldb.store.model_node import stamp_model_node
 from sldb.store.io import (
     load_documents_index,
     load_models_index,
@@ -87,15 +88,12 @@ class ModelCLI:
         listed = ", ".join(names) if names else "none"
         print(f"Model '{model_ref.split(':', 1)[-1]}' not found. Available models: {listed}", file=sys.stderr)
 
-    def _update_doc_hashes(self, root: Path, d_idx: Any, model_type: Any) -> None:
-        rehash_documents(root, d_idx, model_type)
-
-    def _save_updated_model(self, sp: Any, root: Path, idx: Any, args: Any, m_entry: Any, m_idx: Any, d_idx: Any) -> None:
+    def _save_updated_model(self, sp: Any, root: Path, idx: Any, args: Any, m_entry: Any, m_idx: Any, d_idx: Any, model_type: Any = None) -> None:
         with store_lock(sp):
             save_documents_index(root / m_idx.documents_index, d_idx)
             if getattr(args, "bump_version", False):
                 m_idx.version += 1; m_entry.version = m_idx.version
-            m_idx.hash_b = hash_documents_index(d_idx)
+            stamp_model_node(m_idx, hash_documents_index(d_idx), model_type)
             m_idx.documents_count = len(d_idx.documents)
             save_models_index(root / m_entry.models_index, m_idx)
             documents_hash.invalidate(sp, m_entry.name)  # a full scan just moved hash_c/hash_d
@@ -108,8 +106,12 @@ class ModelCLI:
         m_entry = next((m for m in idx.models if m.name == args.model), None)
         if not m_entry: raise SLDBModelError(f"Model '{args.model}' not found.")
         m_idx = load_models_index(root / m_entry.models_index)
-        d_idx = load_documents_index(root / m_idx.documents_index)
-        self._update_doc_hashes(root, d_idx, resolve_model_ref(m_entry.model_ref, args.pythonpath))
-        self._save_updated_model(sp, root, idx, args, m_entry, m_idx, d_idx)
+        model_type = resolve_model_ref(m_entry.model_ref, args.pythonpath)
+        self._rehash_and_save(sp, root, idx, args, m_entry, m_idx, model_type)
         print(f"Updated '{args.model}'")
         return 0
+
+    def _rehash_and_save(self, sp: Any, root: Path, idx: Any, args: Any, m_entry: Any, m_idx: Any, model_type: Any) -> None:
+        d_idx = load_documents_index(root / m_idx.documents_index)
+        rehash_documents(root, d_idx, model_type)
+        self._save_updated_model(sp, root, idx, args, m_entry, m_idx, d_idx, model_type)

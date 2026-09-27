@@ -14,6 +14,10 @@ _EXPLANATIONS = {
         "fields changed under the model's contract (a real data change) — `stores "
         "update` accepts it, but confirm the change was intended first"
     ),
+    DiagnosisNote.CONTRACT_MUTATION: (
+        "fields differ because the MODEL's contract moved, not the document: the text on "
+        "disk is unchanged — `stores update` re-extracts it under the new contract"
+    ),
 }
 
 

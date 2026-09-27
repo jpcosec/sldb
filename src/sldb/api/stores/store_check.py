@@ -34,6 +34,7 @@ def _classified(diagnosis: Any) -> dict[str, Any]:
         "damaged": [{"doc": d.name, "model": m, "note": d.note.value, "explain": d.explain()} for m, d in diagnosis.damaged_documents],
         "reformatted": [d.name for _m, d in diagnosis.reformatted_documents],
         "roster_only": [m.name for m in diagnosis.roster_only_models],
+        "moved_contracts": [m.name for m in diagnosis.moved_contracts],
     }
 
 

@@ -8,4 +8,5 @@ class DiagnosisNote(str, Enum):
     OK = 'ok'
     BENIGN_MUTATION = 'benign_mutation'
     DATA_MUTATION = 'data_mutation'
+    CONTRACT_MUTATION = 'contract_mutation'
     MISSING = 'missing'

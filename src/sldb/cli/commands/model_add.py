@@ -11,6 +11,7 @@ from sldb.store.hashing import hash_documents_index
 from sldb.store.io import load_store_index, save_documents_index, save_models_index, store_lock
 from sldb.store.layout import documents_index_relpath, models_index_relpath, store_exists
 from sldb.store.models import DocumentsIndex, ModelEntry, ModelsIndex
+from sldb.store.model_node import stamp_model_node
 from sldb.store.ops import cascade_hash_a
 from sldb.store.derived_rebuild import rebuild_derived_indexes
 from sldb.store.semantic_tags import flatten_model_semantics
@@ -77,19 +78,20 @@ def _write_model_indexes(args: Any, sp: Path, root: Path, idx: Any, model_type: 
     empty_documents = DocumentsIndex()
     save_documents_index(root / di_rel, empty_documents)
     mi = _create_models_index(args, model_type, m_path, di_rel, empty_documents)
+    stamp_model_node(mi, hash_documents_index(empty_documents), model_type)
     save_models_index(root / mi_rel, mi)
     idx.models.append(_create_model_entry(args, mi.name, m_path, mi_rel))
 
 def _create_models_index(args: Any, model_type: type, path: str, di_rel: str, documents_index: DocumentsIndex) -> ModelsIndex:
-    # hash_b must match hash_documents_index(documents_index) from the start, even
-    # for a freshly registered model with zero documents -- otherwise `stores
-    # check` reports a false DATA_MUTATION-shaped failure (hash_b_ok=False)
-    # against a store that was never actually mutated, until someone happens to
-    # run `models update` once. See hash_documents_index(DocumentsIndex()) for
-    # what an empty index's real hash looks like; it is not the empty string.
+    # The roster hash must match hash_documents_index(documents_index) from the start, even
+    # for a freshly registered model with zero documents -- otherwise `stores check` reports a
+    # false DATA_MUTATION-shaped failure against a store that was never actually mutated,
+    # until someone happens to run `models update` once. See
+    # hash_documents_index(DocumentsIndex()) for what an empty index's real hash looks like;
+    # it is not the empty string. `stamp_model_node` fills the node and both children.
     return ModelsIndex(
         name=model_type.__name__, model_ref=args.model, path=path,
-        documents_index=di_rel, hash_b=hash_documents_index(documents_index), version=1, canonical=args.canonical,
+        documents_index=di_rel, version=1, canonical=args.canonical,
         family=model_family(model_type), semantics=flatten_model_semantics(model_type),
         base_models=model_base_names(model_type),
     )

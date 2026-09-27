@@ -68,11 +68,14 @@ def _remember(key: tuple, loaded: Any) -> Any:
 
 
 def _with_entry(key: tuple, hit: Any, entry: Any) -> Any:
-    """The name and the tags come from the index and can change without the text changing."""
+    """The name, the tags and the two index hashes come from the index and can change without
+    the text changing; the cached object is stamped with the entry's current values."""
     tags = list(entry.semantic_tags)
-    if hit.name == entry.name and hit.semantic_tags == tags:
+    current = (hit.name, hit.semantic_tags, hit.source_hash, hit.content_hash)
+    fresh = (entry.name, tags, entry.source_hash, entry.content_hash)
+    if current == fresh:
         return hit
-    hit = replace(hit, name=entry.name, semantic_tags=tags)
+    hit = replace(hit, name=entry.name, semantic_tags=tags, source_hash=entry.source_hash, content_hash=entry.content_hash)
     _DOCS[key] = hit
     return hit
 

@@ -34,15 +34,17 @@ def _print_formatted_diag(res: Any, fmt: str) -> None:
 def _build_diag_payload(res: Any) -> dict[str, Any]:
     # hash_a_ok/hash_b_ok/hash_c_ok/hash_d_ok stay in the payload: deskops reads this
     # shape (deskops/workspace.py) and the store's own persisted keys are letters.
+    verdict = {"valid": res.is_valid, "summary": res.summary(), "hash_a_ok": res.root_ok, "root_ok": res.root_ok}
+    return {**verdict, **_build_finding_counts(res), "models": [_build_model_payload(m) for m in res.models]}
+
+
+def _build_finding_counts(res: Any) -> dict[str, Any]:
+    """The findings behind the verdict, by category."""
     return {
-        "valid": res.is_valid,
-        "summary": res.summary(),
-        "hash_a_ok": res.root_ok,
-        "root_ok": res.root_ok,
         "damaged": len(res.damaged_documents),
         "reformatted": len(res.reformatted_documents),
         "roster_only": [m.name for m in res.roster_only_models],
-        "models": [_build_model_payload(m) for m in res.models],
+        "moved_contracts": [m.name for m in res.moved_contracts],
     }
 
 def _build_model_payload(model: Any) -> dict[str, Any]:
@@ -50,6 +52,7 @@ def _build_model_payload(model: Any) -> dict[str, Any]:
         "name": model.name,
         "hash_b_ok": model.roster_ok,
         "roster_ok": model.roster_ok,
+        "contract_ok": model.contract_ok,
         "roster_only_failure": model.roster_only_failure,
         "documents": [_build_doc_payload(d) for d in model.documents],
     }

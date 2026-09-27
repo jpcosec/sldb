@@ -17,10 +17,12 @@ _ROOT_STALE = (
 
 _LEGEND = (
     "\nwhat the categories mean:",
-    "  benign_mutation  text moved, fields identical — expected, does not fail the store",
-    "  data_mutation    a field's value changed under the model's contract",
-    "  missing          tracked in the index, absent from disk",
-    "  roster-only      the list disagrees although every document present is clean",
+    "  benign_mutation    text moved, fields identical — expected, does not fail the store",
+    "  data_mutation      a field's value changed under the model's contract",
+    "  contract_mutation  the MODEL moved, not the document: same text, different payload",
+    "  missing            tracked in the index, absent from disk",
+    "  roster-only        the list disagrees although every document present is clean",
+    "  contract moved     the class's fields or __template__ differ from the indexed ones",
 )
 
 
@@ -37,11 +39,13 @@ def print_report(res: Any) -> None:
 
 def _print_model(model: Any) -> None:
     findings = [d for d in model.documents if d.note is not DiagnosisNote.OK]
-    if model.roster_ok and not findings:
+    if model.roster_ok and model.contract_ok and not findings:
         return
     print(f"\n{model.name}: {len(model.documents)} documents")
-    if not model.roster_ok:
-        print(f"  roster (hash_b): {model.explain()}")
+    if not model.contract_ok:
+        print(f"  contract: {model.explain()}")
+    elif not model.roster_ok:
+        print(f"  roster: {model.explain()}")
     for doc in findings:
         _print_document(doc)
 

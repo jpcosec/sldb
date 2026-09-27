@@ -14,6 +14,7 @@ from sldb.store.layout import documents_index_relpath, models_index_relpath
 from sldb.store.models.documents_index import DocumentsIndex
 from sldb.store.models.model_entry import ModelEntry
 from sldb.store.models.models_index import ModelsIndex
+from sldb.store.model_node import stamp_model_node
 from sldb.store.ops import cascade_hash_a
 from sldb.store.semantic_tags import flatten_model_semantics
 
@@ -29,7 +30,9 @@ def _get_rel_model_path(model_path: Path, root: Path) -> str:
 def _save_federated_indexes(store_path: Path, root: Path, model_type: type, model_ref: str, rel_model_path: str, mi_rel: str, di_rel: str) -> None:
     """Write an empty documents index and a fresh models index for the federated model."""
     save_documents_index(root / di_rel, DocumentsIndex())
-    save_models_index(root / mi_rel, ModelsIndex(name=model_type.__name__, model_ref=model_ref, path=rel_model_path, documents_index=di_rel, hash_b="", version=1, canonical=False, semantics=flatten_model_semantics(model_type)))
+    mi = ModelsIndex(name=model_type.__name__, model_ref=model_ref, path=rel_model_path, documents_index=di_rel, version=1, canonical=False, semantics=flatten_model_semantics(model_type))
+    stamp_model_node(mi, "", model_type)   # roster left unhashed, as before; the contract is recorded
+    save_models_index(root / mi_rel, mi)
 
 
 def _append_federated_entry(store_path: Path, root: Path, latest_index: Any, model_type: type, model_ref: str, rel_model_path: str, mi_rel: str) -> Any:

@@ -16,6 +16,11 @@ _ROSTER_ONLY = (
     "recomputes it"
 )
 _ROSTER_AND_DOCS = "roster hash disagrees, and documents below are damaged too"
+_CONTRACT_MOVED = (
+    "the model's contract (field schema or __template__) changed since it was indexed: "
+    "extraction yields something else from the same text — `sldb stores update` re-extracts "
+    "this model's documents"
+)
 
 
 @dataclass
@@ -30,6 +35,7 @@ class ModelDiagnosis:
 
     name: str
     roster_ok: bool
+    contract_ok: bool = True
     documents: list[DocumentDiagnosis] = field(default_factory=list)
 
     @property
@@ -56,7 +62,9 @@ class ModelDiagnosis:
         return not self.roster_ok and self.documents_are_clean
 
     def explain(self) -> str:
-        """One line on the roster verdict, in terms of what it implies."""
+        """One line on the model verdict, in terms of which child moved the node."""
+        if not self.contract_ok:
+            return _CONTRACT_MOVED
         if self.roster_ok:
             return "ok"
         if not self.documents:

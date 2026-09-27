@@ -19,10 +19,14 @@ evidencia del código actual; no implementa el protocolo.
 
 | hash | firma | donde vive | cuando rota |
 |---|---|---|---|
-| `hash_a` | root de todo el store: SHA-256 de `[{name, hash_b}]` ordenado (`hash_models_layer`) | store index | cualquier write en cualquier modelo |
-| `hash_b` | por modelo: SHA-256 de `[{name, hash_c, hash_d}]` ordenado (`hash_document_entries`, order-independent) | models index | cualquier write de cualquier doc del modelo |
-| `hash_c` | contenido: SHA-256 del texto markdown (`hash_text`) | documento shard | cualquier reescritura del archivo |
-| `hash_d` | campos: SHA-256 del JSON del payload extraído, claves ordenadas (`hash_payload`/`hash_fields`) | documento shard | solo cuando cambian los campos |
+| `store_hash` (alias deprecado `hash_a`) | root de todo el store: SHA-256 de `[{name, model_hash}]` ordenado (`hash_models_layer`) | store index | cualquier write en cualquier modelo |
+| `model_hash` (alias deprecado `hash_b`) | por modelo: SHA-256 de `[{name, source_hash, content_hash}]` ordenado (`hash_document_entries`, order-independent) | models index | cualquier write de cualquier doc del modelo |
+| `source_hash` (alias deprecado `hash_c`) | contenido: SHA-256 del texto markdown (`hash_text`) | documento shard | cualquier reescritura del archivo |
+| `content_hash` (alias deprecado `hash_d`) | campos: SHA-256 del JSON del payload extraído, claves ordenadas (`hash_payload`/`hash_fields`) | documento shard | solo cuando cambian los campos |
+
+Los cuatro valores conservan su nombre viejo (`hash_a`..`hash_d`) como alias de lectura:
+un store viejo sigue cargando y la primera escritura, o `sldb stores migrate-hashes`,
+reescribe las claves nuevas. Los valores no cambian con el renombre.
 
 `hash_d` es **función pura del payload**: `hash_payload(codec.extract(model, markdown))`.
 Dos prints del mismo payload → mismo `hash_d`; un cambio de campo lo rota siempre. Se calcula en

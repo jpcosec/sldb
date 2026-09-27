@@ -17,6 +17,7 @@ from sldb.store.io.shards import save_document_shard
 from sldb.store.hashing import hash_text, hash_fields
 from sldb.store.layout import documents_shard_path
 from sldb.store.derived_rebuild import rebuild_derived_indexes
+from sldb.store.model_node import stamp_model_node
 from sldb.store.ops import cascade_hash_a
 from sldb.store import documents_hash
 from sldb.core.exceptions import SLDBValidationError, SLDBASTError, SLDBError
@@ -55,17 +56,17 @@ class DocCLI:
         rendered = render_model_markdown(model_type, self._parse_payload(args.payload))
         if not validate_model_input_roundtrip(model_type, rendered)[0]: raise SLDBValidationError("Update fail", validate_model_input_roundtrip(model_type, rendered)[1])
         (root / doc.path).write_text(rendered + "\n", encoding="utf-8")
-        doc.hash_c, doc.hash_d = hash_text(rendered + "\n"), hash_fields(model_type, rendered + "\n")
-        self._save_updated(sp, root, load_store_index(sp), m_entry, m_idx, doc, args)
+        doc.source_hash, doc.content_hash = hash_text(rendered + "\n"), hash_fields(model_type, rendered + "\n")
+        self._save_updated(sp, root, load_store_index(sp), m_entry, m_idx, doc, args, model_type)
         print(f"Updated '{doc.name}'")
         return 0
 
-    def _save_updated(self, sp: Any, root: Path, idx: Any, m_entry: Any, m_idx: Any, doc: Any, args: Any) -> None:
+    def _save_updated(self, sp: Any, root: Path, idx: Any, m_entry: Any, m_idx: Any, doc: Any, args: Any, model_type: Any = None) -> None:
         with store_lock(sp):
             save_document_shard(documents_shard_path(sp, m_entry.name, doc.name), doc)
             documents_hash.note(sp, m_entry.name, doc)
-            # PLAN 15 capa 8: hash_b correct right away, not blanked for a later rebuild to fill in
-            m_idx.hash_b = documents_hash.hash_b_of(sp, m_entry.name)
+            # PLAN 15 capa 8: the model node correct right away, not blanked for a later rebuild
+            stamp_model_node(m_idx, documents_hash.roster_hash_of(sp, m_entry.name), model_type)
             m_idx.documents_count = documents_hash.count_of(sp, m_entry.name)
             save_models_index(root / m_entry.models_index, m_idx)
             rebuild_derived_indexes(sp, root, resolve_model_ref, args.pythonpath)  # semantic, sections, edges

@@ -26,8 +26,8 @@ _GEN: dict[str, int] = {}
 
 def new_operation(s_path: Path | None = None) -> None:
     """Bumps this store's operation generation (or, with no store, drops everything): a cache
-    entry from a prior generation is re-validated against the model's on-disk hash_b before
-    its next use in this one — reused untouched if nothing moved it, recomposed otherwise."""
+    entry from a prior generation is re-validated against the on-disk roster hash before its
+    next use — reused untouched if nothing moved it, recomposed otherwise."""
     if s_path is None:
         _ENTRIES.clear()
         _GEN.clear()
@@ -37,19 +37,20 @@ def new_operation(s_path: Path | None = None) -> None:
 
 
 def invalidate(s_path: Path, model_name: str) -> None:
-    """Drop one model's cache and every namespace's dirty baseline outright: something moved
-    hash_c/hash_d (or might have) outside `note`/`forget`, so both are rebuilt (and a full
-    comparison, not a partial dirty set) the next time either is used."""
+    """Drop one model's cache and every namespace's dirty baseline: something moved a document's
+    hashes outside `note`/`forget`, so both rebuild (full comparison, not a dirty set) next."""
     _ENTRIES.pop((str(s_path), model_name), None)
     documents_dirty.invalidate(s_path, model_name)
 
 
 def _on_disk_hash_b(s_path: Path, model_name: str) -> str | None:
+    """The roster hash the index records — its own child, not the model node (which also folds
+    in the contract): this cache keys on the document list only."""
     from sldb.store.io import load_models_index, load_store_index
     from sldb.store.layout import project_root
 
     entry = next((m for m in load_store_index(s_path).models if m.name == model_name), None)
-    return None if entry is None else load_models_index(project_root(s_path) / entry.models_index).hash_b
+    return None if entry is None else load_models_index(project_root(s_path) / entry.models_index).roster_hash
 
 
 def _compose(s_path: Path, model_name: str) -> dict[str, DocumentEntry]:
@@ -93,8 +94,12 @@ def forget(s_path: Path, model_name: str, doc_name: str) -> None:
     documents_dirty.mark(s_path, model_name, doc_name)
 
 
-def hash_b_of(s_path: Path, model_name: str) -> str:
+def roster_hash_of(s_path: Path, model_name: str) -> str:
+    """This model's roster hash: the signature of its document list."""
     return _get(s_path, model_name)[0]
+
+
+hash_b_of = roster_hash_of   # deprecated alias
 
 
 def count_of(s_path: Path, model_name: str) -> int:

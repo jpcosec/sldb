@@ -5,7 +5,7 @@ def add_stores_group(s: argparse._SubParsersAction) -> None:
     p = s.add_parser("stores", help="Store lifecycle and federation.")
     sub = p.add_subparsers(dest="stores_command", required=True)
     _init(sub); _add(sub); _check(sub); _update(sub); _reconcile(sub)
-    _semantic_map(sub); _semantic_export(sub); _list(sub)
+    _semantic_map(sub); _semantic_export(sub); _list(sub); _migrate_hashes(sub)
 
 def _init(s):
     i = s.add_parser("init", help="Init .sldb store.")
@@ -31,6 +31,10 @@ def _update(s):
     u.add_argument("--verbose", action="store_true", help="Print individual skip details")
     u.add_argument("--store", help="Store path")
     u.add_argument("--pythonpath", help="Project path")
+
+def _migrate_hashes(s):
+    m = s.add_parser("migrate-hashes", help="Rename hash_a..hash_d to store/model/source/content.")
+    m.add_argument("--store", help="Store path")
 
 def _reconcile(s):
     r = s.add_parser("reconcile", help="Explicitly reconcile a catalog against a subtree.")

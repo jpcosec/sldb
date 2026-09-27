@@ -38,6 +38,24 @@ def hash_document_entries(entries) -> str:
     return hashlib.sha256(state.encode("utf-8")).hexdigest()
 
 
+def hash_model_contract(model_type: Any) -> str:
+    """The model's contract: the field schema a payload must satisfy, plus the template that
+    renders it. Two documents with identical field values render differently under different
+    templates, and a field added to the class changes what extraction yields from unchanged
+    text — both belong in the model's node, so both move it."""
+    fields = {name: [str(info.annotation), info.description or ""] for name, info in model_type.model_fields.items()}
+    return hash_payload({"fields": fields, "template": getattr(model_type, "__template__", "")})
+
+
+def hash_model_layer(roster_hash: str, contract_hash: str) -> str:
+    """A model node from its two children: the document roster and the model's contract.
+
+    Both are persisted next to it (`ModelsIndex.roster_hash`/`contract_hash`) so a node that
+    disagrees can be attributed to one child instead of reported as a bare mismatch.
+    """
+    return hash_payload({"contract_hash": contract_hash, "roster_hash": roster_hash})
+
+
 def hash_models_layer(models_indices: list[ModelsIndex]) -> str:
     state = json.dumps(
         [{"name": m.name, "hash_b": m.hash_b} for m in models_indices],

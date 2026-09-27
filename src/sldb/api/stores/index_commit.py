@@ -12,6 +12,7 @@ from sldb.api.model_registry.model_reference import resolve_model_ref
 from sldb.store import documents_hash
 from sldb.store.edge_rebuild import rebuild_edges_indexes
 from sldb.store.io import save_documents_index, save_models_index, store_lock
+from sldb.store.model_node import stamp_model_node
 from sldb.store.models.store_index import StoreIndex
 from sldb.store.ops import cascade_hash_a
 from sldb.store.section_rebuild import rebuild_sections_indexes
@@ -25,7 +26,7 @@ def commit_index_updates(sp: Path, root: Path, idx: StoreIndex, pending: list[tu
         sp: The store's `.sldb` directory.
         root: The store's project root.
         idx: The store index whose hash_a is recomputed at the end.
-        pending: (model entry, models index, documents index) triples to save.
+        pending: (model entry, models index, documents index, model class) tuples to save.
         changed: Documents whose hashes moved, by model name.
         pythonpath: Import root for the store's model modules.
         wait: Wait for the store lock instead of failing when it is held.
@@ -34,11 +35,11 @@ def commit_index_updates(sp: Path, root: Path, idx: StoreIndex, pending: list[tu
         The semantic and sections rebuild reports.
     """
     with store_lock(sp, wait=wait):
-        for m_entry, m_idx, d_idx in pending:
+        for m_entry, m_idx, d_idx, m_type in pending:
             save_documents_index(root / m_idx.documents_index, d_idx)
             for doc in changed.get(m_entry.name, []):
                 documents_hash.note(sp, m_entry.name, doc)  # the map now agrees with what was just saved
-            m_idx.hash_b = documents_hash.hash_b_of(sp, m_entry.name)
+            stamp_model_node(m_idx, documents_hash.roster_hash_of(sp, m_entry.name), m_type)
             m_idx.documents_count = documents_hash.count_of(sp, m_entry.name)
             save_models_index(root / m_entry.models_index, m_idx)
         return _rebuild_indexes(sp, root, idx, pythonpath)

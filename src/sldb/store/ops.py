@@ -5,6 +5,7 @@ from typing import Any, Callable
 
 from sldb.store import documents_hash
 from sldb.store.hashing import hash_fields, hash_models_layer, hash_text
+from sldb.store.model_node import stamp_model_node
 from sldb.store.io import (
     load_models_index, save_models_index, save_store_index, store_lock,
 )
@@ -39,18 +40,18 @@ class StoreOperations:
         entry = DocumentEntry(name=d_name, path=rel_path, hash_c=hash_text(text), hash_d=_safe_hash(m_type, text))
         save_document_shard(documents_shard_path(store_path, m_entry.name, d_name), entry)
         documents_hash.note(store_path, m_entry.name, entry)
-        _update_model_summary(store_path, root, m_entry)
+        _update_model_summary(store_path, root, m_entry, m_type)
         rebuild_semantic_indexes(store_path, root, res_ref, py_path)
         rebuild_sections_indexes(store_path, root, res_ref, py_path)
         rebuild_edges_indexes(store_path, root, res_ref, py_path)
         cascade_hash_a(store_path, root, st_idx)
 
 
-def _update_model_summary(store_path: Path, root: Path, m_entry: Any) -> None:
-    """hash_b and the document count, from the operation's own child-hash map — no re-read
+def _update_model_summary(store_path: Path, root: Path, m_entry: Any, model_type: Any = None) -> None:
+    """The model node and its children, from the operation's own child-hash map — no re-read
     of every document shard (PLAN 15 capa 7)."""
     m_idx = load_models_index(root / m_entry.models_index)
-    m_idx.hash_b = documents_hash.hash_b_of(store_path, m_entry.name)
+    stamp_model_node(m_idx, documents_hash.roster_hash_of(store_path, m_entry.name), model_type)
     m_idx.documents_count = documents_hash.count_of(store_path, m_entry.name)
     save_models_index(root / m_entry.models_index, m_idx)
 

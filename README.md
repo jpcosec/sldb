@@ -315,45 +315,49 @@ The store is a `.sldb/` pointer database that decouples physical file locations 
 The store maintains a three-level YAML index cascade:
 
 ```
-.sldb/core/store_index.yaml          ← master router; owns hash_a
-  └─ .sldb/core/models/<Name>.yaml   ← per-model inventory; owns hash_b
-       └─ .sldb/core/documents/<Name>.yaml  ← per-document hashes
-            ├─ hash_c  ← sha256 of raw .md text
-            └─ hash_d  ← sha256 of extracted Pydantic field values
+.sldb/core/store_index.yaml                  ← master router; owns store_hash
+  └─ .sldb/core/models/<Name>.yaml           ← per-model inventory; owns model_hash
+       └─ .sldb/core/documents/<Name>/*.yaml ← per-document shards
+            ├─ source_hash  ← sha256 of raw .md text      (deprecated alias: hash_c)
+            └─ content_hash ← sha256 of extracted fields  (deprecated alias: hash_d)
 ```
+
+Earlier stores persisted the same four values as `hash_a`..`hash_d`; the models still read
+them as deprecated aliases and write only the semantic names, so versioned KBs keep
+loading. Run `sldb stores migrate-hashes` to rewrite a store's `.sldb/core/` once.
 
 The four hashes form a Merkle chain. `sldb stores check` walks the chain and reports fractures without modifying anything:
 
 | Observation | Meaning |
 |-------------|---------|
-| hash_c changed, hash_d stable | Benign text mutation (e.g. a rendered date). No action needed. |
-| hash_d changed | Field values were edited manually. |
+| source_hash changed, content_hash stable | Benign text mutation (e.g. a rendered date). No action needed. |
+| content_hash changed | Field values were edited manually. |
 | Path missing | Document was moved or deleted. |
-| hash_b changed | Document inventory altered (added/removed). |
-| hash_a invalidated | Model contract changed (fields or template). |
+| model_hash changed | Document inventory altered (added/removed). |
+| store_hash changed | A model's chain moved, or the set of models changed. |
 
 ### Caches
 
-The hash chain is a Merkle tree, and the caches use it as one: `hash_a` says whether
-anything changed, each model's `hash_b` whether that model did, each document's `hash_c`
-whether that document did. A read descends only where a hash moved. One concession to
-Markdown edited by hand: the leaves are also stat-ed (mtime and size, microseconds per
-file, no reads), so an edit made behind sldb's back is seen before `stores update` moves
-its hash. A store that is only written through sldb can set `SLDB_TRUST_CHAIN=1` and
-skip that sweep.
+The hash chain is a Merkle tree, and the caches use it as one: `store_hash` says whether
+anything changed, each model's `model_hash` whether that model did, each document's
+`source_hash` whether that document did. A read descends only where a hash moved. One
+concession to Markdown edited by hand: the leaves are also stat-ed (mtime and size,
+microseconds per file, no reads), so an edit made behind sldb's back is seen before
+`stores update` moves its hash. A store that is only written through sldb can set
+`SLDB_TRUST_CHAIN=1` and skip that sweep.
 
 | Cache | Where | Key |
 |-------|-------|-----|
 | Index cache | memory (`sldb.store.io`) | each yaml index by its file's mtime and size; loads return copies; saves that change nothing do not touch the file |
-| Runtime documents | memory (`sldb.store.runtime_cache`) | the store by `hash_a` + every `hash_b` (+ the leaf stats); each extracted document by `(path, hash_c[, mtime, size], model)` |
+| Runtime documents | memory (`sldb.store.runtime_cache`) | the store by `store_hash` + every `model_hash` (+ the leaf stats); each extracted document by `(path, source_hash[, mtime, size], model)` |
 | Extracted payloads | `.sldb/runtime/cache/extracted.json` | the payloads by the same leaf key, so a new process does not extract what it has already seen |
-| Built per model | `.sldb/runtime/cache/built.json` | the semantic contribution and the sections of each model by `hash_b`; a rebuild walks only models whose documents moved |
+| Built per model | `.sldb/runtime/cache/built.json` | the semantic contribution and the sections of each model by `model_hash`; a rebuild walks only models whose documents moved |
 
 `sldb stores update` rehashes every document's text (that is its job: to see edits made
 behind sldb's back and move the chain) but recomputes field hashes only where the text
 changed. A store layout that is already canonical is not rewritten when a command opens
-it. The rebuilds keyed by `hash_b` do not see a hand edit until `stores update` moves
-its `hash_c`; readers do, through the leaf sweep. The two cache files are derived; delete
+it. The rebuilds keyed by `model_hash` do not see a hand edit until `stores update` moves
+its `source_hash`; readers do, through the leaf sweep. The two cache files are derived; delete
 them freely and add `.sldb/runtime/cache/` to `.gitignore`.
 
 ### Typical workflow

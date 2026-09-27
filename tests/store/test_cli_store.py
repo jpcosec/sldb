@@ -305,12 +305,13 @@ def test_model_add_sets_correct_hash_b_for_zero_documents(tmp_path):
     """Regression: a freshly registered model with no documents yet must not
     need a follow-up `models update` just to pass `stores check`.
 
-    hash_b used to be hardcoded to "" at registration time, which does not
-    match hash_documents_index() of the empty DocumentsIndex it was
-    registered with -- stores check then reported a false hash_b_ok=False
-    for a store that was never actually mutated.
+    The roster hash used to be hardcoded to "" at registration time, which does not
+    match hash_documents_index() of the empty DocumentsIndex it was registered with --
+    stores check then reported a false roster failure for a store that was never
+    actually mutated. The contract is recorded at the same moment, so the model node is
+    complete from registration too.
     """
-    from sldb.store.hashing import hash_documents_index
+    from sldb.store.hashing import hash_documents_index, hash_model_layer
     from sldb.store.models import DocumentsIndex
 
     _init(tmp_path)
@@ -320,8 +321,10 @@ def test_model_add_sets_correct_hash_b_for_zero_documents(tmp_path):
     entry = next(m for m in store_index.models if m.name == "SimpleBook")
     models_idx = load_models_index(tmp_path / entry.models_index)
 
-    assert models_idx.hash_b == hash_documents_index(DocumentsIndex())
-    assert models_idx.hash_b != ""
+    assert models_idx.roster_hash == hash_documents_index(DocumentsIndex())
+    assert models_idx.roster_hash != ""
+    assert models_idx.contract_hash, "the contract is recorded at registration"
+    assert models_idx.model_hash == hash_model_layer(models_idx.roster_hash, models_idx.contract_hash)
 
 
 def test_model_add_passes_stores_check_immediately_with_no_documents(tmp_path):
