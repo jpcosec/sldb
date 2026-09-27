@@ -22,7 +22,7 @@ def read_store_contributions(store_path: Path, exclude_tags: frozenset[str]) -> 
         parts += [p for p in [load_edges_shard(edges_model_shard_path(store_path, m.name), ModelEdges)] if p]
         shards = compose_edges_documents(store_path, m.name)
         parts += [_filtered(shard, exclude_tags) for shard in shards]
-        stale += _stale_documents(store_path, m.name, {s.doc_name: (s.hash_c, s.hash_d) for s in shards})
+        stale += _stale_documents(store_path, m.name, {s.doc_name: (s.source_hash, s.content_hash) for s in shards})
     return parts, stale
 
 
@@ -38,5 +38,5 @@ def _stale_documents(store_path: Path, model_name: str, shard_hashes: dict[str, 
 
     root = project_root(store_path)
     entries = documents_hash.entries_of(store_path, model_name)
-    moved = [e for e in entries if shard_hashes.get(e.name) != (e.hash_c, e.hash_d)]
+    moved = [e for e in entries if shard_hashes.get(e.name) != (e.source_hash, e.content_hash)]
     return [f"{model_name}:{e.name}" for e in moved if e.name in shard_hashes or (root / e.path).exists()]
