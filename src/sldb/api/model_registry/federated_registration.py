@@ -15,7 +15,7 @@ from sldb.store.models.documents_index import DocumentsIndex
 from sldb.store.models.model_entry import ModelEntry
 from sldb.store.models.models_index import ModelsIndex
 from sldb.store.model_node import stamp_model_node
-from sldb.store.ops import cascade_hash_a
+from sldb.store.ops import cascade_store_hash
 from sldb.store.semantic_tags import flatten_model_semantics
 
 
@@ -39,7 +39,7 @@ def _append_federated_entry(store_path: Path, root: Path, latest_index: Any, mod
     """Add the model entry to the store index and cascade the store hash."""
     entry = ModelEntry(name=model_type.__name__, model_ref=model_ref, path=rel_model_path, models_index=mi_rel, version=1)
     latest_index.models.append(entry)
-    cascade_hash_a(store_path, root, latest_index)
+    cascade_store_hash(store_path, root, latest_index)
     return entry
 
 

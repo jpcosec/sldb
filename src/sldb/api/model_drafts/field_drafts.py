@@ -116,7 +116,7 @@ def _default_value(default: str | None):
 
 
 def _record(store: str | Path | None, operation: str, model_name: str, field: str, previous, new) -> None:
-    """Record a draft edit; it writes only the `.py.temp`, so `hash_a` is unchanged."""
+    """Record a draft edit; it writes only the `.py.temp`, so `store_hash` is unchanged."""
     sp = open_store(store).store_path
     h = store_hash(sp)
     record(sp, {"operation": operation, "address": model_name, "field": field, "previous_value": previous, "new_value": new, "hash_a_before": h, "hash_a_after": h})

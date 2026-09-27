@@ -316,11 +316,17 @@ The store maintains a three-level YAML index cascade:
 
 ```
 .sldb/core/store_index.yaml                  ← master router; owns store_hash
-  └─ .sldb/core/models/<Name>.yaml           ← per-model inventory; owns model_hash
+  └─ .sldb/core/models/<Name>.yaml           ← per-model node; owns model_hash
+       ├─ roster_hash   ← sha256 of the document list      (the node's first child)
+       ├─ contract_hash ← sha256 of field schema + template (the node's second child)
        └─ .sldb/core/documents/<Name>/*.yaml ← per-document shards
             ├─ source_hash  ← sha256 of raw .md text      (deprecated alias: hash_c)
             └─ content_hash ← sha256 of extracted fields  (deprecated alias: hash_d)
 ```
+
+`model_hash` is derived: `sha256(roster_hash, contract_hash)`. Both children are persisted
+next to it so a node that disagrees can be attributed to one of them — a bare "the hash moved"
+cannot tell a document that was edited from a model whose contract changed under it.
 
 Earlier stores persisted the same four values as `hash_a`..`hash_d`; the models still read
 them as deprecated aliases and write only the semantic names, so versioned KBs keep
@@ -333,8 +339,13 @@ The four hashes form a Merkle chain. `sldb stores check` walks the chain and rep
 | source_hash changed, content_hash stable | Benign text mutation (e.g. a rendered date). No action needed. |
 | content_hash changed | Field values were edited manually. |
 | Path missing | Document was moved or deleted. |
-| model_hash changed | Document inventory altered (added/removed). |
-| store_hash changed | A model's chain moved, or the set of models changed. |
+| roster_hash changed | Document inventory altered (added/removed). |
+| contract_hash changed | The model's fields or `__template__` changed. `stores update` re-extracts that model's documents even though no `.md` moved. |
+| store_hash changed | A model node moved, or the set of models changed. |
+
+A contract change is reported as its own category (`contract_mutation`) rather than as a
+damaged document: the text on disk is exactly what it was, and the reader should be sent to
+the model, not to the file.
 
 ### Caches
 

@@ -1,6 +1,6 @@
 """Per-document shards for the semantic, sections and edges indexes (PLAN 15 capa 5): one small file
 per document under `.sldb/runtime/{semantic,sections,edges}/<Model>/<doc>.yaml` instead of one file
-for the whole store, so a write touches only its own shard. Each shard carries the `hash_c`
+for the whole store, so a write touches only its own shard. Each shard carries the `source_hash`
 it was built from. Loads are cached by (path, mtime, size) — its own small cache, not
 `sldb.store.io`'s (that module imports this one; importing back would be circular)."""
 

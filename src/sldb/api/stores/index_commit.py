@@ -14,7 +14,7 @@ from sldb.store.edge_rebuild import rebuild_edges_indexes
 from sldb.store.io import save_documents_index, save_models_index, store_lock
 from sldb.store.model_node import stamp_model_node
 from sldb.store.models.store_index import StoreIndex
-from sldb.store.ops import cascade_hash_a
+from sldb.store.ops import cascade_store_hash
 from sldb.store.section_rebuild import rebuild_sections_indexes
 from sldb.store.semantic import RebuildReport, rebuild_semantic_indexes
 
@@ -25,7 +25,7 @@ def commit_index_updates(sp: Path, root: Path, idx: StoreIndex, pending: list[tu
     Args:
         sp: The store's `.sldb` directory.
         root: The store's project root.
-        idx: The store index whose hash_a is recomputed at the end.
+        idx: The store index whose store_hash is recomputed at the end.
         pending: (model entry, models index, documents index, model class) tuples to save.
         changed: Documents whose hashes moved, by model name.
         pythonpath: Import root for the store's model modules.
@@ -50,5 +50,5 @@ def _rebuild_indexes(sp: Path, root: Path, idx: StoreIndex, pypath: str | None) 
     sem_report = rebuild_semantic_indexes(sp, root, resolve_model_ref, pypath)
     sec_report = rebuild_sections_indexes(sp, root, resolve_model_ref, pypath)
     rebuild_edges_indexes(sp, root, resolve_model_ref, pypath)
-    cascade_hash_a(sp, root, idx)
+    cascade_store_hash(sp, root, idx)
     return sem_report, sec_report

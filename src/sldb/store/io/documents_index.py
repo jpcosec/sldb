@@ -33,7 +33,7 @@ class DocumentsIndexIO:
     @staticmethod
     def load(path: Path) -> DocumentsIndex:
         # PLAN 15 capa 8: `entries_of` is this operation's own cache — composed from shards
-        # at most once, reused across operations too while the model's hash_b says nothing moved.
+        # at most once, reused across operations while the model's roster_hash says nothing moved.
         from sldb.store import documents_hash
         from sldb.store.layout import documents_shards_dir, model_name_of_documents_path
         store_path, model_name = path.parent.parent.parent, model_name_of_documents_path(path)

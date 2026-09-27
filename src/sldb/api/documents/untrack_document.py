@@ -18,7 +18,7 @@ from sldb.store.models.model_entry import ModelEntry
 from sldb.store.models.models_index import ModelsIndex
 from sldb.store.models.store_index import StoreIndex
 from sldb.store.model_node import stamp_model_node
-from sldb.store.ops import cascade_hash_a
+from sldb.store.ops import cascade_store_hash
 from sldb.store.edge_rebuild import rebuild_edges_indexes
 from sldb.store.section_rebuild import rebuild_sections_indexes
 from sldb.store.semantic import rebuild_semantic_indexes
@@ -64,4 +64,4 @@ def forget_document(sp: Path, root: Path, idx: StoreIndex, m_entry: ModelEntry, 
         rebuild_semantic_indexes(sp, root, resolve_model_ref, pythonpath)
         rebuild_sections_indexes(sp, root, resolve_model_ref, pythonpath)
         rebuild_edges_indexes(sp, root, resolve_model_ref, pythonpath)
-        cascade_hash_a(sp, root, idx)
+        cascade_store_hash(sp, root, idx)

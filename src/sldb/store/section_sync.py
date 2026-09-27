@@ -1,5 +1,5 @@
 """Bringing one model's sections shards current (PLAN 15 capa 5): skipped whole when the
-model's hash_b has not moved; otherwise every document's shard synced (`section_doc_
+model's model_hash has not moved; otherwise every document's shard synced (`section_doc_
 contribution.sync_doc_shard`) and shards of documents no longer tracked pruned. The
 markdown parsing itself stays in section_rebuild.py; this is the per-model plumbing around
 it, split out to keep both files under this project's own line-count rule."""
@@ -43,7 +43,7 @@ def _sync_model_sections(store_path, m_entry, m_idx, root, report, process_doc_s
     once); every document's file is still cheaply checked to exist (as before, for pruning
     correctness), but only one in the dirty set (or every one, with no trustworthy baseline)
     is actually opened and re-synced — an untouched document's sections shard is never read
-    just to confirm it agrees with a hash_c that has not moved."""
+    just to confirm it agrees with a source_hash that has not moved."""
     entries = {e.name: e for e in documents_hash.entries_of(store_path, m_entry.name)}
     dirty = documents_hash.dirty_names(store_path, m_entry.name, "sections")
     current = {doc.name for doc in entries.values() if _sync_one_section(store_path, doc, m_entry, root, report, process_doc_sections, dirty is None or doc.name in dirty)}

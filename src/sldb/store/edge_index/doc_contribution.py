@@ -22,7 +22,7 @@ def build_doc_edges(model_name: str, doc: DocumentEntry, sections: list[SectionC
         payload_of: Reads the document's field payload; only called for the special kinds.
 
     Returns:
-        The shard, not yet stamped with `hash_c` / `edges_version` (the caller's cache keys).
+        The shard, not yet stamped with `source_hash` / `edges_version` (the caller's cache keys).
     """
     part = special_contribution(model_name, doc, payload_of) or document_structure(model_name, doc, sections)
     tags = set(doc.semantic_tags).union(*(s.semantic_tags for s in sections))

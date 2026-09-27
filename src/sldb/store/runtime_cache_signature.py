@@ -1,4 +1,4 @@
-"""A store's signature (PLAN 15 capa 6): hash_a and every model's hash_b (a write through
+"""A store's signature (PLAN 15 capa 6): store_hash and every model's model_hash (a write through
 sldb always moves these — cheap, a handful of file stats, not one per document) plus the
 current operation's document leaf sweep. One concession to Markdown edited by hand: the
 leaves are also stat-ed (mtime and size) so an edit made behind sldb's back is seen — once
@@ -11,7 +11,7 @@ always re-read and re-hash every file directly, untouched by any of this). A sto
 only written through sldb can set SLDB_TRUST_CHAIN=1 and skip the sweep entirely.
 
 `leaf()` is also what `runtime_cache.cached_document` calls once per document on every
-reload it does (a reload is triggered whenever hash_a moved — every write): without its own
+reload it does (a reload is triggered whenever store_hash moved — every write): without its own
 per-path stat cache, a store with several writes in one operation (each forcing at least one
 reload of the whole document list, to find the one or two documents that actually changed)
 would still re-stat every tracked document once per reload, several times over in one
@@ -98,6 +98,6 @@ def signature(s_path: Path) -> tuple:
     root = project_root(s_path)
     idx = load_store_index(s_path)
     parts: list = [idx.hash_a]
-    parts.extend((m.name, load_models_index(root / m.models_index).hash_b) for m in idx.models)
+    parts.extend((m.name, load_models_index(root / m.models_index).model_hash) for m in idx.models)
     parts.append(_leaves(s_path, root, idx))
     return tuple(parts)

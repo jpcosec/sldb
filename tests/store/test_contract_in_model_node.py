@@ -125,6 +125,19 @@ def test_update_re_extracts_documents_whose_text_did_not_move(contract_store, tm
     assert after.documents["NoteDoc:note"].content_hash != before.documents["NoteDoc:note"].content_hash
 
 
+def test_a_moved_contract_invalidates_the_document_cache(contract_store, tmp_path):
+    """The cache keys promised "a contract that moved invalidates the entry" while keying on the
+    roster, which cannot see a contract change. The payload of an unmodified file must still
+    gain the new field — read through the cache, with no `stores update` in between."""
+    from sldb.api import load_runtime_documents
+
+    first = load_runtime_documents(contract_store.store, contract_store.pythonpath)
+    assert "status" not in first[0].payload
+    _write_module(tmp_path, _TWO_FIELDS)
+    again = load_runtime_documents(contract_store.store, contract_store.pythonpath)
+    assert "status" in again[0].payload, "the stale payload won: the contract change was invisible"
+
+
 def test_store_is_valid_again_after_update(contract_store, tmp_path):
     _write_module(tmp_path, _TWO_FIELDS)
     update_store_indexes(contract_store.store, contract_store.pythonpath)

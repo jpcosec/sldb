@@ -1,4 +1,4 @@
-"""What invalidates the edge index's caches, besides a document's own `hash_c`."""
+"""What invalidates the edge index's caches, besides a document's own `source_hash`."""
 
 from __future__ import annotations
 

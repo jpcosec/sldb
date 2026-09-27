@@ -8,8 +8,8 @@ from sldb.store.models import EdgeContribution, EdgeNodeRecord, SemanticDAG, Sto
 
 
 def build_store_edges(st_idx: StoreIndex, dag: SemanticDAG) -> EdgeContribution:
-    """The store's shard. The store node carries no path and no `hash_a`: a shard must read the
-    same wherever the project is checked out, and `hash_a` is already the store index's.
+    """The store's shard. The store node carries no path and no `store_hash`: a shard must read the
+    same wherever the project is checked out, and `store_hash` is already the store index's.
 
     Args:
         st_idx: The store index (its registered models).

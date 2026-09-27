@@ -32,7 +32,7 @@ class RebuildReport:
 
 def _sync_model(store_path, m_entry, root, resolver, py_path, report, new_tags: set) -> None:
     """Every document's semantic shard brought current; skipped whole when the model's
-    hash_b (covering every one of its documents) has not moved since the last sync — no
+    roster_hash (covering every one of its documents) has not moved since the last sync — no
     shard is even opened (PLAN 15 capa 5)."""
     from sldb.store import built_cache
 
@@ -45,12 +45,12 @@ def _sync_model(store_path, m_entry, root, resolver, py_path, report, new_tags: 
 
 
 def _sync_model_docs(store_path, m_entry, m_idx, root, resolver, py_path, report, new_tags: set) -> None:
-    """PLAN 15 capa 7: a document's own shard (name, path, hash_c, hash_d, semantic_tags) is
+    """PLAN 15 capa 7: a document's own shard (path, source_hash, content_hash, semantic_tags) is
     rewritten only when its semantic_tags actually changed by this sync — not the whole
     model's documents index, and not every document's shard just because one changed. PLAN
     15 capa 8: with a trustworthy dirty set (this operation's own writes, or a prior sync's
     clean baseline), only those documents are even opened — an untouched one's semantic
-    shard is never read just to confirm it agrees with a hash_c that has not moved."""
+    shard is never read just to confirm it agrees with a source_hash that has not moved."""
     entries = {e.name: e for e in documents_hash.entries_of(store_path, m_entry.name)}
     dirty = documents_hash.dirty_names(store_path, m_entry.name, "semantic")
     to_sync = entries.values() if dirty is None else (entries[n] for n in dirty if n in entries)

@@ -66,3 +66,30 @@ correr `sldb stores update --store .sldb --pythonpath <repo-con-kb_models>`.
 ## Resolution
 
 Commit c7c5df1 "fix(store): el cache de documento firma por el hash_b del modelo (contrato), no solo por el leaf": la clave de `cached_document` en `src/sldb/store/runtime_cache.py` (y el cache en disco en `runtime_cache_disk.py`) incluye el `hash_b` del modelo, asi un contrato que gana un campo invalida el payload viejo aunque el markdown no cambie. Regresion en `tests/test_runtime_cache.py`.
+
+### Reabierto y cerrado de verdad
+
+Ese fix no alcanzaba, y esta nota estuvo `closed` sobre un bug vivo. `hash_b` firmaba **solo
+la lista de documentos** (`(name, hash_c, hash_d)` de cada uno): el contrato del modelo no
+entraba en el arbol en ninguna parte, asi que "firmar por hash_b" no firmaba por el contrato.
+El caso de esta nota — campo nuevo en la clase, markdown intacto — seguia devolviendo el
+payload viejo indefinidamente.
+
+Dos causas encadenadas, ambas arregladas:
+
+1. El nodo del modelo ahora es `hash_model_layer(roster_hash, contract_hash)`, con los dos
+   hijos persistidos en `ModelsIndex`. Un cambio de plantilla o de campos mueve la raiz.
+2. `cached_document` ya no firma por ningun valor del indice, sino por
+   `hash_model_contract(model_type)` — el contrato de la clase que se esta usando ahora. El
+   indice solo se entera de un cambio de contrato cuando alguien escribe, y este caso es una
+   **lectura pura**: no hay write que mueva nada. Firmar por el indice reproducia el bug.
+
+Ademas `sldb stores update` re-extrae los documentos de un modelo cuyo contrato se movio,
+aunque `source_hash` no haya cambiado (antes: "0 processed"), y `sldb stores check` reporta
+`contract_mutation` / `contract_ok` en vez de acusar al documento o decir PASS.
+
+El workaround de borrar `.sldb/runtime/` ya no es necesario.
+
+Regresion: `tests/store/test_contract_in_model_node.py`, 7 tests. El decisivo es
+`test_a_moved_contract_invalidates_the_document_cache`, que reproduce esta nota: lee, cambia
+el contrato de la clase, vuelve a leer y exige el campo nuevo sin `stores update` en medio.

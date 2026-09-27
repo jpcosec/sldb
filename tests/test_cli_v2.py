@@ -1655,7 +1655,7 @@ def _add_summary_draft(store: Path, pythonpath: str) -> None:
         "save_models_index",         # mid-write: models index written
         "documents_hash.invalidate", # post-write: derived cache invalidation
         "rebuild_derived_indexes",   # post-write: derived index rebuild
-        "cascade_hash_a",            # post-write: hash_a cascade
+        "cascade_store_hash",            # post-write: hash_a cascade
     ],
 )
 def test_models_promote_failure_restores_model_draft_and_indexes(tmp_path, monkeypatch, failing):

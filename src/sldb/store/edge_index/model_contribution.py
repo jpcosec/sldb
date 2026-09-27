@@ -10,7 +10,7 @@ from sldb.store.models import EdgeNodeRecord, ModelEdges, ModelsIndex
 
 
 def build_model_edges(m_idx: ModelsIndex, model_type: Any | None) -> ModelEdges:
-    """The model's shard. `hash_b` is left out of the node on purpose: it moves with every
+    """The model's shard. `roster_hash` is left out of the node on purpose: it moves with every
     document write, and the documents' own shards already carry their hashes.
 
     Args:

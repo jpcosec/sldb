@@ -18,7 +18,7 @@ from sldb.store.io import (
     save_models_index,
     store_lock,
 )
-from sldb.store.ops import cascade_hash_a
+from sldb.store.ops import cascade_store_hash
 from sldb.store.derived_rebuild import rebuild_derived_indexes
 from sldb.store import documents_hash
 from sldb.store.layout import store_exists
@@ -43,7 +43,7 @@ class ModelCLI:
         return relative_model_path(path, root)
 
     def _save_new_model(self, sp: Any, root: Path, idx: Any, args: Any, model_type: Any, m_path: str, mi_rel: str, di_rel: str) -> None:
-        """hash_b starts as hash_documents_index of the empty index, not "" --
+        """roster_hash starts as hash_documents_index of the empty index, not "" --
         an unhashed empty string fails `stores check` until `models update` runs."""
         write_new_model_indexes(sp, root, idx, model_type, args.model, m_path, mi_rel, di_rel, args.canonical, args.pythonpath)
 
@@ -96,9 +96,9 @@ class ModelCLI:
             stamp_model_node(m_idx, hash_documents_index(d_idx), model_type)
             m_idx.documents_count = len(d_idx.documents)
             save_models_index(root / m_entry.models_index, m_idx)
-            documents_hash.invalidate(sp, m_entry.name)  # a full scan just moved hash_c/hash_d
+            documents_hash.invalidate(sp, m_entry.name)  # a full scan moved source/content hashes
             rebuild_derived_indexes(sp, root, resolve_model_ref, args.pythonpath)
-            cascade_hash_a(sp, root, idx)
+            cascade_store_hash(sp, root, idx)
 
     def update(self, args: Any) -> int:
         sp, root = get_store_context(args.store)

@@ -13,7 +13,7 @@ from sldb.store.models.documents_index import DocumentsIndex
 from sldb.store.models.model_entry import ModelEntry
 from sldb.store.models.models_index import ModelsIndex
 from sldb.store.models.store_index import StoreIndex
-from sldb.store.ops import cascade_hash_a
+from sldb.store.ops import cascade_store_hash
 from sldb.store.derived_rebuild import rebuild_derived_indexes
 from sldb.store.semantic_tags import flatten_model_semantics
 
@@ -38,7 +38,7 @@ def write_new_model_indexes(sp: Path, root: Path, idx: StoreIndex, model_type: t
         save_models_index(root / mi_rel, mi)
         idx.models.append(ModelEntry(name=mi.name, model_ref=model_ref, path=m_path, models_index=mi_rel, version=1, family=mi.family, semantics=mi.semantics))
         rebuild_derived_indexes(sp, root, resolve_model_ref, pythonpath)
-        cascade_hash_a(sp, root, idx)
+        cascade_store_hash(sp, root, idx)
     return mi
 
 
@@ -73,9 +73,9 @@ def save_reindexed_model(sp: Path, root: Path, idx: StoreIndex, m_entry: ModelEn
         stamp_model_node(m_idx, hash_documents_index(d_idx), model_type)
         m_idx.documents_count = len(d_idx.documents)
         save_models_index(root / m_entry.models_index, m_idx)
-        documents_hash.invalidate(sp, m_entry.name)  # a full scan just moved hash_c/hash_d
+        documents_hash.invalidate(sp, m_entry.name)  # a full scan moved source/content hashes
         rebuild_derived_indexes(sp, root, resolve_model_ref, pythonpath)
-        cascade_hash_a(sp, root, idx)
+        cascade_store_hash(sp, root, idx)
 
 
 def _bump_version(m_idx: ModelsIndex, m_entry: ModelEntry) -> None:

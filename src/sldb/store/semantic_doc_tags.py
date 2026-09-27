@@ -1,8 +1,8 @@
-"""The semantic tags of one document, remembered by (absolute path, hash_c, model class) so a
+"""The semantic tags of one document, remembered by (absolute path, source_hash, model class) so a
 rebuild only extracts documents whose text moved in the hash chain; the payload comes from the
 runtime document cache when it already holds it.
 
-The key used to be (relative path, hash_c, model *name*). Two stores with a `d.md` of the same
+The key used to be (relative path, source_hash, model *name*). Two stores with a `d.md` of the same
 text under two different classes named `Spec` got one entry, and the second store carried the
 first one's tags; so did a model whose `__semantics__` changed in a long-running process
 without its documents' text changing. Tags are what a class makes of a text: the class is the

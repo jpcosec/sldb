@@ -44,7 +44,7 @@ class StoreOperations:
         rebuild_semantic_indexes(store_path, root, res_ref, py_path)
         rebuild_sections_indexes(store_path, root, res_ref, py_path)
         rebuild_edges_indexes(store_path, root, res_ref, py_path)
-        cascade_hash_a(store_path, root, st_idx)
+        cascade_store_hash(store_path, root, st_idx)
 
 
 def _update_model_summary(store_path: Path, root: Path, m_entry: Any, model_type: Any = None) -> None:
@@ -60,11 +60,14 @@ def track_document(store_path: Path, project_root: Path, store_index: StoreIndex
     """Track a document in the store and update hashes."""
     StoreOperations.track(store_path, project_root, store_index, model_type, model_entry, doc_path, doc_name, resolve_model_ref, pythonpath)
 
-def cascade_hash_a(store_path: Path, project_root: Path, store_index: StoreIndex) -> None:
-    """Propagate hash updates up to the store level (hash_a)."""
+def cascade_store_hash(store_path: Path, project_root: Path, store_index: StoreIndex) -> None:
+    """Recompute the Merkle root from every model node and persist it."""
     indices = [load_models_index(project_root / m.models_index) for m in store_index.models]
-    store_index.hash_a = hash_models_layer(indices)
+    store_index.store_hash = hash_models_layer(indices)
     save_store_index(store_path, store_index)
+
+
+cascade_hash_a = cascade_store_hash   # deprecated alias
 
 def _get_rel(path: Path, root: Path) -> str:
     try:

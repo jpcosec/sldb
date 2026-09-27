@@ -1,10 +1,10 @@
-"""A model's hash_b, kept without re-reading every document shard on every write (PLAN 15
+"""A model's roster_hash, kept without re-reading every document shard on every write (PLAN 15
 capa 7), extended in capa 8 to also serve the composed entries themselves and to persist
-across operations: the cache is keyed by the model's own hash_b (read cheaply from its small
+across operations: the cache is keyed by the model's own roster_hash (read cheaply from its small
 models_index file, not from the shards), so a fresh operation that finds nothing moved reuses
 it verbatim — never recomposing all shards just because a new Store/World/CLI command
 started. `note`/`forget` update it in place as this operation's own writes touch shards; a
-mismatch against the on-disk hash_b (a hand edit, or `stores update`'s own full rescan)
+mismatch against the on-disk roster_hash (a hand edit, or `stores update`'s own full rescan)
 recomposes once. `entries_of` hands out copies — a caller mutating one of its own is not
 mutating this cache's.
 

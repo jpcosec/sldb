@@ -18,7 +18,7 @@ from sldb.store.hashing import hash_text, hash_fields
 from sldb.store.layout import documents_shard_path
 from sldb.store.derived_rebuild import rebuild_derived_indexes
 from sldb.store.model_node import stamp_model_node
-from sldb.store.ops import cascade_hash_a
+from sldb.store.ops import cascade_store_hash
 from sldb.store import documents_hash
 from sldb.core.exceptions import SLDBValidationError, SLDBASTError, SLDBError
 
@@ -70,7 +70,7 @@ class DocCLI:
             m_idx.documents_count = documents_hash.count_of(sp, m_entry.name)
             save_models_index(root / m_entry.models_index, m_idx)
             rebuild_derived_indexes(sp, root, resolve_model_ref, args.pythonpath)  # semantic, sections, edges
-            cascade_hash_a(sp, root, idx)
+            cascade_store_hash(sp, root, idx)
 
     def _save_untracked(self, sp: Any, root: Path, idx: Any, args: Any, m_entry: Any, m_idx: Any, doc: Any) -> None:
         forget_document(sp, root, idx, m_entry, m_idx, doc, args.pythonpath)

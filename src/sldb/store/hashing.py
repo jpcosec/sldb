@@ -11,7 +11,7 @@ def hash_text(text: str) -> str:
 
 
 def hash_payload(payload: Any) -> str:
-    """hash_d of an already extracted payload."""
+    """content_hash of an already extracted payload."""
     normalized = json.dumps(payload, sort_keys=True, ensure_ascii=False)
     return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
 
@@ -22,7 +22,7 @@ def hash_fields(model_type: Any, markdown_text: str, codec: StoreCodec = default
 
 def hash_documents_index(documents_index: DocumentsIndex) -> str:
     """PLAN 15 capa 7: keyed by `name` and sorted — order-independent (documents_index.
-    documents used to be insertion-ordered, so hash_b used to depend on write order too; a
+    documents used to be insertion-ordered, so roster_hash used to depend on write order too; a
     store's Merkle root should depend only on content). The same value however documents
     were gathered: a full scan (stores update) or the incremental per-document child-hash
     map (sldb.store.documents_hash — a write's own hot path)."""

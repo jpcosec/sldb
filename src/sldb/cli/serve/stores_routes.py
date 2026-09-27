@@ -1,10 +1,10 @@
 """GET /stores and GET /stores/check.
 
 `/stores` describes the store this server serves: root, model/document counts,
-hash_a and the linked stores — the view `sldb stores list` prints. `/stores/check`
+store_hash and the linked stores — the view `sldb stores list` prints. `/stores/check`
 runs the CLI's real integrity verification (`sldb.api.check_store` →
 ``diagnose_store``) and reports every document whose shard hash no longer matches
-its recorded hash_c/hash_d.
+its recorded source_hash/content_hash.
 """
 
 from __future__ import annotations

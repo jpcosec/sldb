@@ -54,7 +54,7 @@ def write_template_draft(source: ModelSource, template: str) -> Path:
 
 
 def _record(store: str | Path | None, model_name: str, previous: str, new: str) -> None:
-    """Record a template edit; it writes only the `.py.temp`, so `hash_a` is unchanged."""
+    """Record a template edit; it writes only the `.py.temp`, so `store_hash` is unchanged."""
     sp = open_store(store).store_path
     h = store_hash(sp)
     record(sp, {"operation": "edit_model_template", "address": model_name, "field": "__template__", "previous_value": previous, "new_value": new, "hash_a_before": h, "hash_a_after": h})

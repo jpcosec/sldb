@@ -12,7 +12,7 @@ from sldb.store.io import load_store_index, save_documents_index, save_models_in
 from sldb.store.layout import documents_index_relpath, models_index_relpath, store_exists
 from sldb.store.models import DocumentsIndex, ModelEntry, ModelsIndex
 from sldb.store.model_node import stamp_model_node
-from sldb.store.ops import cascade_hash_a
+from sldb.store.ops import cascade_store_hash
 from sldb.store.derived_rebuild import rebuild_derived_indexes
 from sldb.store.semantic_tags import flatten_model_semantics
 from sldb.core.exceptions import SLDBModelError
@@ -103,4 +103,4 @@ def _create_model_entry(args: Any, name: str, path: str, mi_rel: str) -> ModelEn
 
 def _finalize_store_update(sp: Path, root: Path, idx: Any, pythonpath: str) -> None:
     rebuild_derived_indexes(sp, root, resolve_model_ref, pythonpath)
-    cascade_hash_a(sp, root, idx)
+    cascade_store_hash(sp, root, idx)

@@ -17,7 +17,7 @@ from sldb.store.semantic import rebuild_semantic_indexes
 def rebuild_edges(store: str | Path | None, pythonpath: str | None = None, wait: bool = False) -> EdgeRebuildReport:
     """Rebuild what moved in the edge index (after the semantic and sections indexes it reads).
 
-    Only shards whose document `hash_c` moved are rewritten; on a current store this writes
+    Only shards whose document `source_hash` moved are rewritten; on a current store this writes
     nothing. When the index reports stale documents (a shard deleted by hand, a store that
     predates the index) every shard is compared instead of trusting the caches. It reads the hashes the store has recorded: for files edited outside sldb, run
     `update_store_indexes` instead (it rehashes, then rebuilds this index too).
