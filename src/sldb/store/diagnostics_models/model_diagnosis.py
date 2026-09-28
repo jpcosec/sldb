@@ -36,6 +36,7 @@ class ModelDiagnosis:
     name: str
     roster_ok: bool
     contract_ok: bool = True
+    source_path: str = ""   # the .py the contract is declared in: what to open when it moved
     documents: list[DocumentDiagnosis] = field(default_factory=list)
 
     @property
@@ -60,6 +61,12 @@ class ModelDiagnosis:
         the absent documents have no verdict at all.
         """
         return not self.roster_ok and self.documents_are_clean
+
+    def inspect(self) -> str:
+        """What the operator should open to judge this model's finding."""
+        if not self.contract_ok:
+            return self.source_path or f"the class registered as {self.name}"
+        return f"{len(self.documents)} documents tracked under {self.name}"
 
     def explain(self) -> str:
         """One line on the model verdict, in terms of which child moved the node."""

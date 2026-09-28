@@ -1,24 +1,8 @@
 from __future__ import annotations
 from dataclasses import dataclass
 from sldb.store.diagnostics_models.diagnosis_note import DiagnosisNote
+from sldb.store.diagnostics_models.document_verdicts import EXPLANATIONS, NEEDS_DECISION, REMEDIES
 
-# What each verdict means and what to do about it. Keyed by note so the wording
-# lives next to the category instead of inside a branch.
-_EXPLANATIONS = {
-    DiagnosisNote.OK: "ok",
-    DiagnosisNote.BENIGN_MUTATION: (
-        "text changed, fields identical (expected mutation: reformatting or marker "
-        "churn) — `stores update` refreshes the index"
-    ),
-    DiagnosisNote.DATA_MUTATION: (
-        "fields changed under the model's contract (a real data change) — `stores "
-        "update` accepts it, but confirm the change was intended first"
-    ),
-    DiagnosisNote.CONTRACT_MUTATION: (
-        "fields differ because the MODEL's contract moved, not the document: the text on "
-        "disk is unchanged — `stores update` re-extracts it under the new contract"
-    ),
-}
 
 
 @dataclass
@@ -91,4 +75,21 @@ class DocumentDiagnosis:
         """One line saying what is wrong and what to do about it."""
         if self.note is DiagnosisNote.MISSING:
             return f"missing: tracked at {self.path}, not on disk"
-        return _EXPLANATIONS[self.note]
+        return EXPLANATIONS[self.note]
+
+    @property
+    def needs_decision(self) -> bool:
+        """Whether a human must look before anything is run.
+
+        A field value that changed, or a document that vanished, is not something a command
+        should paper over: the index is the only record of what the value used to be.
+        """
+        return self.note in NEEDS_DECISION
+
+    def inspect(self) -> str:
+        """What to open to judge this finding — the document, or the model that reinterpreted it."""
+        return "the model's contract, not this file" if self.note is DiagnosisNote.CONTRACT_MUTATION else self.path
+
+    def remedy(self) -> str:
+        """The command that resolves this finding, or what to decide when none does."""
+        return REMEDIES[self.note]

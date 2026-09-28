@@ -36,7 +36,8 @@ def test_serve_endpoints_use_real_store(tmp_path: Path) -> None:
     try:
         health_status, health = _request_json(f"{base_url}/health")
         assert health_status == 200
-        assert health == {"status": "ok"}
+        # /health reports the store's verdict, not merely that the process answered
+        assert health == {"status": "ok", "findings": [], "action": None}
 
         schema_status, schema = _request_json(f"{base_url}/schema")
         assert schema_status == 200

@@ -230,7 +230,10 @@ def test_report_names_the_damaged_document_and_its_fix(tmp_path, capsys):
     assert "data_mutation: doc" in out, "the document is named, not just counted"
     assert "doc.md" in out, "and so is its path"
     assert "stores update" in out, "the fix is stated in the message"
-    assert "hash_d" in out and "on disk" in out and "in index" in out
+    assert "content_hash" in out and "on disk" in out and "in index" in out
+    # an edited field value is a decision, not something a command should paper over
+    assert "decide first" in out
+    assert "need a decision" in out
 
 
 def test_report_distinguishes_reformatting_from_damage(tmp_path, capsys):

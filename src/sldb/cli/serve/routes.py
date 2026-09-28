@@ -7,6 +7,7 @@ from urllib.parse import urlparse
 
 from sldb.api import serialize_document  # re-export: data contract moved to sldb.api; kept for backwards compatibility
 from sldb.cli.model_utils import resolve_model_ref
+from sldb.cli.serve.health import health_payload
 from sldb.cli.serve.edges_routes import dispatch_edge
 from sldb.cli.serve.document_routes import dispatch_document
 from sldb.cli.serve.docs_routes import dispatch_docs
@@ -48,7 +49,7 @@ def dispatch_get(
     project_root: Path,
     pythonpath: str,
 ) -> tuple[dict[str, Any], int]:
-    handlers = {"/health": health_payload, "/schema": lambda *_: {"models": schema_models(store_path, pythonpath)}, "/graph": lambda *_: {"documents": graph_documents(store_path, pythonpath)}, "/kgdb/snapshot": lambda *_: export_kgdb_semantic_payload(store_path, project_root, resolve_model_ref, pythonpath)}
+    handlers = {"/health": lambda *_: health_payload(store_path, project_root, pythonpath), "/schema": lambda *_: {"models": schema_models(store_path, pythonpath)}, "/graph": lambda *_: {"documents": graph_documents(store_path, pythonpath)}, "/kgdb/snapshot": lambda *_: export_kgdb_semantic_payload(store_path, project_root, resolve_model_ref, pythonpath)}
     if route in handlers:
         return handlers[route](route), 200
     return _nested_get(handler, route, store_path, project_root, pythonpath)
@@ -82,8 +83,7 @@ def _dispatch_reader(route: str, handler: BaseHTTPRequestHandler, store_path: Pa
     return {"ok": False, "error": f"Unknown route: {route}"}, 404
 
 
-def health_payload(_: str) -> dict[str, Any]:
-    return {"status": "ok"}
+
 
 
 def graph_documents(store_path: Path, pythonpath: str) -> list[dict[str, Any]]:

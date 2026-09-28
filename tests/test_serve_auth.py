@@ -55,7 +55,7 @@ def test_serve_without_token_stays_open(tmp_path: Path) -> None:
     store = _build_store(tmp_path)
     server, base_url = _serve(store, token=None)
     try:
-        assert _call(f"{base_url}/health") == (200, {"status": "ok"})
+        assert _call(f"{base_url}/health") == (200, {"status": "ok", "findings": [], "action": None})
         assert _call(f"{base_url}/stores")[0] == 200
         assert _call(f"{base_url}/save", method="POST", payload={"doc": "book", "payload": {"title": "Open"}})[0] == 200
     finally:
@@ -69,7 +69,7 @@ def test_serve_with_token_requires_the_bearer_token(tmp_path: Path) -> None:
     try:
         assert _call(f"{base_url}/health") == (401, NO_AUTH)
         assert _call(f"{base_url}/health", token="wrong") == (401, NO_AUTH)
-        assert _call(f"{base_url}/health", token=TOKEN) == (200, {"status": "ok"})
+        assert _call(f"{base_url}/health", token=TOKEN) == (200, {"status": "ok", "findings": [], "action": None})
         assert _call(f"{base_url}/stores", token=TOKEN)[0] == 200
     finally:
         server.shutdown()

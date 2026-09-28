@@ -55,12 +55,16 @@ def _note(content_ok: bool, fields_ok: bool, contract_ok: bool) -> DiagnosisNote
     Fields differing while the text stands still is not the document's doing when the model's
     contract moved: the same text extracts to something else now. Blaming the document there
     sent the reader to inspect a file nobody had edited.
+
+    The contract only excuses the document while its TEXT is intact (`content_ok`). A moved
+    contract on a file that was also edited is still a data mutation and still needs a human:
+    letting the contract absolve it would hide a hand edit behind a safe-to-run verdict.
     """
     if content_ok and fields_ok:
         return DiagnosisNote.OK
     if fields_ok:
         return DiagnosisNote.BENIGN_MUTATION
-    return DiagnosisNote.DATA_MUTATION if contract_ok else DiagnosisNote.CONTRACT_MUTATION
+    return DiagnosisNote.CONTRACT_MUTATION if not contract_ok and content_ok else DiagnosisNote.DATA_MUTATION
 
 def _diagnose_model(model_entry, root, pythonpath, resolve_model_ref: Callable) -> tuple[ModelDiagnosis, ModelsIndex]:
     """The model node, split into the two children that can move it: its document roster and
@@ -71,7 +75,7 @@ def _diagnose_model(model_entry, root, pythonpath, resolve_model_ref: Callable) 
     contract_ok = not contract_moved(models_idx, model_type)
     doc_diagnoses = [_diagnose_doc(d, root, model_type, contract_ok) for d in docs_idx.documents]
     roster_ok = hash_documents_index(docs_idx) == models_idx.roster_hash
-    return ModelDiagnosis(name=models_idx.name, roster_ok=roster_ok, contract_ok=contract_ok, documents=doc_diagnoses), models_idx
+    return ModelDiagnosis(name=models_idx.name, roster_ok=roster_ok, contract_ok=contract_ok, source_path=models_idx.path, documents=doc_diagnoses), models_idx
 
 def diagnose_store(store_path: Path, resolve_model_ref: Callable, project_root: Optional[Path] = None, pythonpath: Optional[str] = None) -> StoreDiagnosis:
     """Diagnoses the integrity of the entire store."""

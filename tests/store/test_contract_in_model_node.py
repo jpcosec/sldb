@@ -138,6 +138,60 @@ def test_a_moved_contract_invalidates_the_document_cache(contract_store, tmp_pat
     assert "status" in again[0].payload, "the stale payload won: the contract change was invisible"
 
 
+def test_a_moved_contract_does_not_excuse_an_edited_file(contract_store, tmp_path):
+    """The contract absolves the document only while its TEXT is intact. Both moving at once is
+    still a data mutation: excusing it would hide a hand edit behind a safe-to-run verdict."""
+    from sldb.store.diagnostics import diagnose_store
+
+    _write_module(tmp_path, _TWO_FIELDS)
+    (contract_store.root / "note.md").write_text("# Edited By Hand\n", encoding="utf-8")
+    diagnosis = diagnose_store(contract_store.store, resolve_model_ref, project_root(contract_store.store), pythonpath=contract_store.pythonpath)
+    doc = diagnosis.models[0].documents[0]
+    assert doc.note.value == "data_mutation", "an edited file must not be excused by the contract"
+    assert doc.needs_decision
+
+
+def test_health_names_what_to_look_at_and_what_to_run(contract_store, tmp_path):
+    """`/health` used to answer `{"status": "ok"}` unconditionally — the HTTP code already said
+    that. It must report the verdict, the subjects, and whether a command or a human is next."""
+    from sldb.cli.serve.routes import health_payload
+
+    root = project_root(contract_store.store)
+    assert health_payload(contract_store.store, root, contract_store.pythonpath)["status"] == "ok"
+    _write_module(tmp_path, _TWO_FIELDS)
+    degraded = health_payload(contract_store.store, root, contract_store.pythonpath)
+    assert degraded["status"] == "degraded"
+    assert degraded["findings"] == [{"kind": "contract_moved", "subject": "NoteDoc", "needs_decision": False}]
+    assert degraded["action"] == "run: sldb stores update"
+
+
+def test_health_demands_a_human_when_a_field_was_edited(contract_store, tmp_path):
+    """A changed field value is not something a command should paper over: the index holds the
+    only record of the previous value. The action must say inspect, not run."""
+    from sldb.cli.serve.routes import health_payload
+
+    (contract_store.root / "note.md").write_text("# Edited By Hand\n", encoding="utf-8")
+    report = health_payload(contract_store.store, project_root(contract_store.store), contract_store.pythonpath)
+    assert report["status"] == "degraded"
+    assert report["action"].startswith("inspect:")
+    assert any(f["needs_decision"] for f in report["findings"])
+
+
+def test_check_report_names_the_source_file_of_a_moved_contract(contract_store, tmp_path, capsys):
+    """The operator has to open something. For a moved contract that something is the .py the
+    class is declared in, not the document whose text nobody touched."""
+    from sldb.cli.commands.store_check_report import print_report
+    from sldb.store.diagnostics import diagnose_store
+
+    _write_module(tmp_path, _TWO_FIELDS)
+    diagnosis = diagnose_store(contract_store.store, resolve_model_ref, project_root(contract_store.store), pythonpath=contract_store.pythonpath)
+    print_report(diagnosis)
+    out = capsys.readouterr().out
+    assert f"{MODULE}.py" in out, "the report must name the file declaring the contract"
+    assert "inspect :" in out and "fix     :" in out
+    assert "next: sldb stores update" in out
+
+
 def test_store_is_valid_again_after_update(contract_store, tmp_path):
     _write_module(tmp_path, _TWO_FIELDS)
     update_store_indexes(contract_store.store, contract_store.pythonpath)
