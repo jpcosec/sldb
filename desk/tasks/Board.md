@@ -8,7 +8,6 @@ tasks:
 - desk/tasks/task-build-code-self-documentation.md
 - desk/tasks/task-unify-store-context-and-federation.md
 - desk/tasks/task-correct-ast-ownership-and-section-contracts.md
-- desk/tasks/task-definir-arquitectura-objetivo-modular-de-sldb.md
 - desk/tasks/task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n.md
 - desk/tasks/task-ejecutar-refactor-base-del-n-cleo-sldb.md
 - desk/tasks/task-define-sldb-addressability-model.md
@@ -71,9 +70,6 @@ _Generated from the task references above._
 - Build code-derived self-documentation [active] - Provide repeatable scan, materialization, tracking, and freshness checks for code documentation.
 - Unify store context and federation [open] - Resolve project operations from the nearest enclosing store and make known stores discoverable through a maintained global catalog.
 - Correct AST ownership and section contracts [open] - Make field ownership and section boundaries reliable enough for structural queries and documentation provenance.
-- Definir arquitectura objetivo modular de SLDB [active] - _Describe the concrete result this task must produce._
-
-Definir bounded contexts, contratos entre componentes y criterio de separación para una arquitectura más modular.
 - Diseñar estrategia de extracción y modularización [active] - _Describe the concrete result this task must produce._
 
 Definir slices de migración, paquetes candidatos y estrategia para sacar legacy del árbol activo y dejarlo sólo en git.
