@@ -26,8 +26,12 @@ class DocumentContext:
 
     def entry(self, name: str, text: str) -> FieldEntry:
         return FieldEntry(
-            id=field_id(self.document_id, name), document_id=self.document_id, field=name,
+            id=self.field_id(name), document_id=self.document_id, field=name,
             model=self.model, name=self.record.name, store=self.store, text=text,
             hash=self.hashes.get(name, ""), payload=self.record.payload or {},
             tags=tuple(self.record.semantic_tags or ()),
         )
+
+    def field_id(self, name: str) -> str:
+        """This field's address: `docs/<Model>/<doc>/<field>`, prefixed by store when linked."""
+        return field_id(self.model, self.record.name, name, self.store)

@@ -22,19 +22,29 @@ DEFAULT_EXCLUDED_FIELDS: frozenset[str] = frozenset(
 )
 
 
-def field_id(document_id: str, field: str) -> str:
-    """`Model:doc#field` — the document's export id, then the field it names.
+def field_id(model: str, doc: str, field_path: str, store: str | None = None) -> str:
+    """`docs/<Model>/<doc>/<field_path>` — the address `sldb fields` already takes.
 
-    Built from the export id, so a federated world keeps its store prefix and two stores
-    holding the same document name stay distinct.
+    One address space for fields, so an id from a ranked hit can be handed straight to
+    `fields update` without translation. A linked store prefixes its name (`<store>/docs/...`),
+    the way export ids do, because two stores of a federated world may hold the same
+    document name.
+
+    `field_path` is the field's path in payload space (`tags/0`, `steps/2/title`), so the id
+    addresses a nested value as precisely as a top-level one.
     """
-    return f"{document_id}#{field}"
+    address = f"docs/{model}/{doc}/{field_path}"
+    return f"{store}/{address}" if store else address
 
 
-def split_field_id(value: str) -> tuple[str, str | None]:
-    """A field id back into (document id, field), or (value, None) if it names a document."""
-    document_id, sep, field = value.rpartition("#")
-    return (document_id, field) if sep else (value, None)
+def split_field_id(value: str) -> tuple[str | None, str, str, str] | None:
+    """A field id back into (store, model, doc, field_path), or None if it is not one."""
+    store, _, rest = value.rpartition("/docs/")
+    body = rest if store else value.removeprefix("docs/")
+    if not value.startswith("docs/") and not store:
+        return None
+    parts = body.split("/", 2)
+    return (store or None, parts[0], parts[1], parts[2]) if len(parts) == 3 else None
 
 
 def default_field_text(value: Any) -> str:
