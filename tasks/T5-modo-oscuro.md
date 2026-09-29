@@ -1,6 +1,7 @@
 # T5 · Modo oscuro
 
 Estado: pendiente · Dificultad: trivial
+Worktree: `/home/jp/AntonIA/repos/AgentsKBs_worktrees/knowledge-surface/sldb-surface`
 
 ## Qué
 Todo el color vive en `:root` de `src/styles/app.css` como variables

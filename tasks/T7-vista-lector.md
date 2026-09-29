@@ -1,6 +1,7 @@
 # T7 · Vista LECTOR — anclar sobre texto crudo
 
 Estado: pendiente · Dificultad: alta · Es el tramo que falta del ciclo
+Worktree: `/home/jp/AntonIA/repos/AgentsKBs_worktrees/knowledge-surface/sldb-surface`
 
 ## Qué
 Superficie para declarar anchors sobre una selección de texto crudo.

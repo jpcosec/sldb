@@ -1,6 +1,7 @@
 # T4 · Vista BANDEJA
 
 Estado: pendiente · Dificultad: media · Depende de: T1
+Worktree: `/home/jp/AntonIA/repos/AgentsKBs_worktrees/knowledge-surface/sldb-surface`
 
 ## Qué
 Lo anotado sin ubicar: borradores que todavía no son atoms con lugar.

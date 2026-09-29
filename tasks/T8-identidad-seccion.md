@@ -1,6 +1,7 @@
 # T8 · Identidad de sección e id como hoja de ruta semántica
 
 Estado: pendiente · Dificultad: alta · Bloqueada por diseño
+Worktree: `/home/jp/proyectos/hum-ecosystem/tools/sldb`
 
 ## Dos caras del mismo problema
 - **H1**: las secciones se direccionan por slug jerárquico posicional; headings

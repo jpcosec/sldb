@@ -1,6 +1,7 @@
 # T2 · Parte A del handoff: `/document/segments` en SLDB
 
 Estado: en curso (worker `pi2`) · Worktree: `hum-ecosystem-worktrees/sldb-segments`
+Worktree: `/home/jp/proyectos/hum-ecosystem-worktrees/sldb-segments`
 
 ## Qué
 Render instrumentado con `SpanRecorder` como dependencia explícita, decodificador

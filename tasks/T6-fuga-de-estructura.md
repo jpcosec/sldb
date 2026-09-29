@@ -1,6 +1,7 @@
 # T6 · Fuga de estructura en documentos compuestos
 
 Estado: pendiente · Dificultad: media · Requiere decisión
+Worktree: `/home/jp/AntonIA/repos/AgentsKBs_worktrees/knowledge-surface`
 
 ## Síntoma
 `complete-systemprompt` salió con `## Domain Ref`, `## Entidades`, `## Consultas

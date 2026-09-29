@@ -1,6 +1,7 @@
 # T9 · Destilación: anchors → regularidad → modelo
 
 Estado: no existe · Dificultad: alta · El tramo abierto del ciclo
+Worktree: `/home/jp/proyectos/hum-ecosystem/tools/sldb`
 
 ## Qué
 Detectar anchors que se repiten con el mismo `kind`, proponerlos como campos,

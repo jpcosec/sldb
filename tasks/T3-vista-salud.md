@@ -1,6 +1,7 @@
 # T3 · Vista SALUD
 
 Estado: pendiente · Dificultad: baja · Depende de: T1
+Worktree: `/home/jp/AntonIA/repos/AgentsKBs_worktrees/knowledge-surface/sldb-surface`
 
 ## Qué
 Vista de lectura sobre datos que ya existen: divergencias (`stores check`),
