@@ -3,7 +3,9 @@ model_ref: docs.models:PackagingDoc
 path: docs/models.py
 documents_index: .sldb/core/documents/PackagingDoc.yaml
 sections_index: .sldb/runtime/sections/PackagingDoc.yaml
-hash_b: 53e40cd59aba3190fcf308849408c805ea4697ce3df82c0fa3ed43eeb3e44c9c
+model_hash: a561a902b7bfda16620300f5c76ae3890cb42217afc9f87df8727ef0390e85c8
+roster_hash: 53e40cd59aba3190fcf308849408c805ea4697ce3df82c0fa3ed43eeb3e44c9c
+contract_hash: bd416d40d821ec97790797447f4440c2a3e43300d499469355fa892b12c5effb
 documents_count: 1
 version: 1
 canonical: false

@@ -3,7 +3,10 @@ model_ref: pron.models:AnchorDoc
 path: /home/jp/proyectos/pron/src/pron/models/anchor.py
 documents_index: .sldb/core/documents/AnchorDoc.yaml
 sections_index: ''
-hash_b: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+model_hash: 3556a28bc5b8714d54eba2779d9652da87fda871a94ea8499a8114965c27d454
+roster_hash: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+contract_hash: bc3db891d3f36628799a026856b59ddeb218a28cc14914c2f102665d80c5aff4
+documents_count: 0
 version: 1
 canonical: false
 family: knowledge

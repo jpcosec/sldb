@@ -3,7 +3,9 @@ model_ref: desk.models:DeskSpecDoc
 path: desk/models.py
 documents_index: .sldb/core/documents/DeskSpecDoc.yaml
 sections_index: .sldb/runtime/sections/DeskSpecDoc.yaml
-hash_b: e117e70395cb89c6018ea3635a47423c975cd3cc5db13a3c2dc73a0f442ab3d0
+model_hash: e03d18d16a37fbfe4cfc2489e20b1ce7531e1d91a99b99b83085a53ef34f474b
+roster_hash: e117e70395cb89c6018ea3635a47423c975cd3cc5db13a3c2dc73a0f442ab3d0
+contract_hash: b681f1baf2195ec896f1357eaf7dbe3d2dce5155cda5811f89b8fc1784465922
 documents_count: 1
 version: 1
 canonical: false

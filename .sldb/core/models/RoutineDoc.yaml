@@ -3,7 +3,9 @@ model_ref: deskops.models:RoutineDoc
 path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/routine.py
 documents_index: .sldb/core/documents/RoutineDoc.yaml
 sections_index: .sldb/runtime/sections/RoutineDoc.yaml
-hash_b: 2e089a23a8104f620a4344435272990ed0a9331f51b9fb6883059fe08788d39f
+model_hash: ba300884a02d79fd9d8b0b6ca84de7c4e42a4d0a10a277bf0b922b03adc66122
+roster_hash: 2e089a23a8104f620a4344435272990ed0a9331f51b9fb6883059fe08788d39f
+contract_hash: f42ea8d4252442ff638117dee8363c72903ce3bbccad28d96653bb69b9c72ae6
 documents_count: 15
 version: 1
 canonical: false

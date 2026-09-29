@@ -3,7 +3,10 @@ model_ref: docs.models:ArchitectureDoc
 path: docs/models.py
 documents_index: .sldb/core/documents/ArchitectureDoc.yaml
 sections_index: ''
-hash_b: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+model_hash: c7df4aa611849f732a066e256ac5ed1f422d6ae12025a6b9e308dc9f6762e3f6
+roster_hash: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+contract_hash: 2758f7d459f8d50e25d56ca4a99cfd5a6f6cc19f465105124047e29b90593260
+documents_count: 0
 version: 1
 canonical: false
 family: null

@@ -3,7 +3,10 @@ model_ref: docs.models:PlanDoc
 path: docs/models.py
 documents_index: .sldb/core/documents/PlanDoc.yaml
 sections_index: .sldb/runtime/sections/PlanDoc.yaml
-hash_b: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+model_hash: b43b2d02b0552e7c87613d19a0504d82712befabb715341483d8fa6f4ce9294f
+roster_hash: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+contract_hash: 95dfe10279898f983520a7f1ceefafffe29130a16df3a3dffdbc13570c0c1bdf
+documents_count: 0
 version: 1
 canonical: false
 family: null

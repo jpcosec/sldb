@@ -234,6 +234,18 @@ models:
   semantics:
   - type.pron.move
   - workspace.knowledge.ledger
+- name: AtomDoc
+  model_ref: deskops.models:AtomDoc
+  path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/atom.py
+  models_index: .sldb/core/models/AtomDoc.yaml
+  version: 1
+  canonical: false
+  family: null
+  semantics:
+  - representation.markdown
+  - source.document.markdown
+  - type.knowledge.atom
+  - workspace.desk.atoms
 predicates:
 - name: has_model
   axis: WHAT
@@ -273,4 +285,4 @@ predicates:
   axis: WHAT
   description: The anchor (an alias word) names this model, field, relation type or
     document.
-hash_a: 322081dcae8d80b7c01492ed4d8cc4692b8ab60685af08220dab0d8fa62d57ee
+store_hash: 5c9ce74d463eec1f3da2fc7cc79a0c71cf734a8331b963a5788226cd5a7cea1b

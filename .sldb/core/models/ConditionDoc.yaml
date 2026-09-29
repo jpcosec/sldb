@@ -3,7 +3,9 @@ model_ref: deskops.models:ConditionDoc
 path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/condition.py
 documents_index: .sldb/core/documents/ConditionDoc.yaml
 sections_index: .sldb/runtime/sections/ConditionDoc.yaml
-hash_b: 5e2ce7f2daf1d461ae43c034e171c38bbdbd7f013c7102f5ff3325d6c13eab80
+model_hash: 11a69d769cb1a1e50a5e1055d819916a63a3863408dc8ba31798eecbba3b865d
+roster_hash: 5e2ce7f2daf1d461ae43c034e171c38bbdbd7f013c7102f5ff3325d6c13eab80
+contract_hash: 82e1557b368afb2e2163ec99cbf9c90493570a6d8ea65e7c397427b175f7f257
 documents_count: 67
 version: 1
 canonical: false
