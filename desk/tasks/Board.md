@@ -8,7 +8,6 @@ tasks:
 - desk/tasks/task-build-code-self-documentation.md
 - desk/tasks/task-unify-store-context-and-federation.md
 - desk/tasks/task-correct-ast-ownership-and-section-contracts.md
-- desk/tasks/task-ejecutar-refactor-base-del-n-cleo-sldb.md
 - desk/tasks/task-define-sldb-addressability-model.md
 - desk/tasks/task-design-sldb-ast-query-primitives.md
 - desk/tasks/task-tighten-semantic-export-provenance-contract.md
@@ -69,9 +68,6 @@ _Generated from the task references above._
 - Build code-derived self-documentation [active] - Provide repeatable scan, materialization, tracking, and freshness checks for code documentation.
 - Unify store context and federation [open] - Resolve project operations from the nearest enclosing store and make known stores discoverable through a maintained global catalog.
 - Correct AST ownership and section contracts [open] - Make field ownership and section boundaries reliable enough for structural queries and documentation provenance.
-- Ejecutar refactor base del núcleo SLDB [active] - _Describe the concrete result this task must produce._
-
-Implementar los primeros cortes estructurales: romper ciclos, extraer servicios de dominio y adelgazar el CLI.
 - Define SLDB addressability model [active] - _Describe the concrete result this task must produce._
 
 Define how meaningful document units in SLDB receive stable or derivable addresses so they can be queried, updated, composed, and exported with provenance.
