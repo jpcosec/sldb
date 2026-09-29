@@ -1,0 +1,18 @@
+task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico | draft | checklist-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico-execution-ready
+task-build-code-self-documentation | active | 
+task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges | draft | checklist-task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges-execution-ready
+task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion | draft | checklist-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-execution-ready
+task-correct-ast-ownership-and-section-contracts | open | 
+task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges | draft | checklist-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-execution-ready
+task-define-sldb-addressability-model | active | completed
+task-definir-arquitectura-objetivo-modular-de-sldb | active | completed
+task-design-sldb-ast-query-primitives | active | completed
+task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n | active | completed
+task-ejecutar-refactor-base-del-n-cleo-sldb | active | completed
+task-expand-sldb-composition-modes | active | completed
+task-mapear-arquitectura-real-de-sldb | active | completed
+task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido | draft | checklist-task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido-execution-ready
+task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb | draft | checklist-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-execution-ready
+task-retirar-modulos-sueltos-sin-importadores | draft | checklist-task-retirar-modulos-sueltos-sin-importadores-execution-ready
+task-tighten-semantic-export-provenance-contract | active | completed
+task-unify-store-context-and-federation | open | 

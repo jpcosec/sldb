@@ -1,0 +1,65 @@
+id: architecture.anchoring-surface
+title: Superficie de Edicion sobre SLDB
+type: component
+version: "0.1"
+
+data:
+  nodes:
+    TextoCrudo:
+      label: Texto crudo
+      kind: boundary
+
+    SuperficieEdicion:
+      label: Superficie de edicion
+      kind: core
+
+    AnchorDoc:
+      label: Anchor doc
+      kind: core
+
+    IndexProjection:
+      label: Proyeccion de indice
+      kind: core
+
+    DocumentoSLDB:
+      label: Documento SLDB
+      kind: core
+
+    GrafoDeCitas:
+      label: Grafo de citas
+      kind: core
+
+    StoreSLDB:
+      label: Store SLDB
+      kind: database
+
+  edges:
+    - from: TextoCrudo
+      to: SuperficieEdicion
+      relation: ingesta
+      label: entra
+
+    - from: SuperficieEdicion
+      to: AnchorDoc
+      relation: anchoring
+      label: ancla
+
+    - from: AnchorDoc
+      to: GrafoDeCitas
+      relation: referencia
+      label: node ids
+
+    - from: IndexProjection
+      to: DocumentoSLDB
+      relation: proyeccion
+      label: proyecta
+
+    - from: DocumentoSLDB
+      to: StoreSLDB
+      relation: persistencia
+      label: roundtrip
+
+    - from: GrafoDeCitas
+      to: DocumentoSLDB
+      relation: citacion
+      label: cita

@@ -1,0 +1,64 @@
+ M .deskops.log
+ M .sldb/core/documents/BoardDoc/desk-board.yaml
+ M .sldb/core/documents/PillDoc/pill-001-sldb-vs-deskops-boundary.yaml
+ M .sldb/core/documents/PillDoc/pill-002-onboarding-surface-before-depth.yaml
+ M .sldb/core/documents/PillDoc/pill-003-template-marker-roundtrip-contract.yaml
+ M .sldb/core/documents/PillDoc/pill-004-store-init-idempotency.yaml
+ M .sldb/core/documents/PillDoc/pill-005-store-health-is-sldb-owned.yaml
+ M .sldb/core/documents/PillDoc/pill-006-model-registration-is-queryable.yaml
+ M .sldb/core/documents/PillDoc/pill-007-sldb-text-layer-vs-kgdb-graph-layer.yaml
+ M .sldb/core/documents/PillDoc/pill-008-sldb-cli-document-contract.yaml
+ M .sldb/core/documents/PillDoc/pill-009-cli-error-and-serialization-failure-mode.yaml
+ M .sldb/core/documents/PillDoc/pill-010-active-board-slice-execution-map.yaml
+ M .sldb/core/documents/PillDoc/pill-011-addressability-task-execution-context.yaml
+ M .sldb/core/documents/PillDoc/pill-012-query-task-execution-context.yaml
+ M .sldb/core/documents/PillDoc/pill-013-composition-task-execution-context.yaml
+ M .sldb/core/documents/PillDoc/pill-014-semantic-export-task-execution-context.yaml
+ M .sldb/core/documents/PillDoc/pill-015-self-documentation-boundaries.yaml
+ M .sldb/core/documents/TaskDoc/task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico.yaml
+ M .sldb/core/documents/TaskDoc/task-build-code-self-documentation.yaml
+ M .sldb/core/documents/TaskDoc/task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges.yaml
+ M .sldb/core/documents/TaskDoc/task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion.yaml
+ M .sldb/core/documents/TaskDoc/task-correct-ast-ownership-and-section-contracts.yaml
+ M .sldb/core/documents/TaskDoc/task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges.yaml
+ M .sldb/core/documents/TaskDoc/task-define-sldb-addressability-model.yaml
+ M .sldb/core/documents/TaskDoc/task-definir-arquitectura-objetivo-modular-de-sldb.yaml
+ M .sldb/core/documents/TaskDoc/task-design-sldb-ast-query-primitives.yaml
+ M .sldb/core/documents/TaskDoc/task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n.yaml
+ M .sldb/core/documents/TaskDoc/task-ejecutar-refactor-base-del-n-cleo-sldb.yaml
+ M .sldb/core/documents/TaskDoc/task-expand-sldb-composition-modes.yaml
+ M .sldb/core/documents/TaskDoc/task-mapear-arquitectura-real-de-sldb.yaml
+ M .sldb/core/documents/TaskDoc/task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido.yaml
+ M .sldb/core/documents/TaskDoc/task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb.yaml
+ M .sldb/core/documents/TaskDoc/task-retirar-modulos-sueltos-sin-importadores.yaml
+ M .sldb/core/documents/TaskDoc/task-tighten-semantic-export-provenance-contract.yaml
+ M .sldb/core/documents/TaskDoc/task-unify-store-context-and-federation.yaml
+ M .sldb/core/models/BoardDoc.yaml
+ M .sldb/core/models/PillDoc.yaml
+ M .sldb/core/models/TaskDoc.yaml
+ M .sldb/core/store_index.yaml
+ M src/sldb/models/builtin_relation_types.py
+ M src/sldb/store/edge_index/doc_contribution.py
+ M src/sldb/store/edge_index/node_ids.py
+ M src/sldb/store/edge_rebuild.py
+?? .sldb/core/models/CrossroadDoc.yaml
+?? .sldb/core/models/ProtoAtomDoc.yaml
+?? .sldb/core/models/RepositoryDoc.yaml
+?? .sldb/core/models/RitualDoc.yaml
+?? .sldb/core/models/RoleDoc.yaml
+?? .sldb/core/models/StepDoc.yaml
+?? desk/issues/issue-sldb-cli-format-json-coverage-gaps.md
+?? desk/issues/issue-sldb-edges-show-silent-empty-on-document-name.md
+?? desk/issues/issue-sldb-embedding-index-not-field-granular.md
+?? desk/issues/issue-sldb-model-source-path-not-portable.md
+?? desk/issues/issue-sldb-one-way-composition-no-edit-through.md
+?? desk/issues/issue-sldb-redundant-markdown-reparse-in-validation-and-section-rebuild.md
+?? desk/issues/issue-sldb-sections-have-no-own-hash.md
+?? desk/issues/issue-sldb-stable-section-ids.md
+?? desk/issues/issue-sldb-user-manual-stale-sections-13-and-14.md
+?? docs/requests/anchoring-surface-proposal.md
+?? docs/requests/anchoring-surface.yml
+?? runs/subagents/index.jsonl
+?? runs/subagents/reconcile-legacy-retirement-20260929/
+?? src/sldb/store/edge_index/declared_references.py
+?? tests/api/test_declared_references.py
