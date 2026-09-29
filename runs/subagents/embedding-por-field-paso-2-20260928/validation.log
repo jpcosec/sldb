@@ -1,0 +1,20 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.4, pluggy-1.5.0 -- /home/jp/anaconda3/bin/python
+cachedir: .pytest_cache
+rootdir: /home/jp/proyectos/hum-ecosystem/tools/sldb
+configfile: pyproject.toml
+plugins: pyfakefs-6.1.6, archon-0.0.7, cov-7.1.0, anyio-4.13.0, asyncio-1.2.0, syrupy-6.1.1, langsmith-0.7.22, timeout-2.4.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=function, asyncio_default_test_loop_scope=function
+collecting ... collected 7 items
+
+tests/test_field_corpus.py::test_field_id_roundtrips_through_the_fields_address_space PASSED [ 14%]
+tests/test_field_corpus.py::test_projection_excludes_identity_fields_and_short_text PASSED [ 28%]
+tests/test_field_corpus.py::test_entries_carry_the_fields_own_hash PASSED [ 42%]
+tests/test_field_corpus.py::test_store_without_field_hashes_still_yields_hashes PASSED [ 57%]
+tests/test_field_corpus.py::test_refresh_reembeds_only_the_field_that_moved PASSED [ 71%]
+tests/test_field_corpus.py::test_rank_fields_returns_the_document_a_hit_belongs_to PASSED [ 85%]
+tests/test_field_corpus.py::test_audit_reports_drift_per_field_and_keeps_indexes_apart PASSED [100%]
+
+============================== 7 passed in 1.24s ===============================
+.....................................................................    [100%]
+1077 passed in 139.81s (0:02:19)
