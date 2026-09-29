@@ -14,7 +14,6 @@ tasks:
 - desk/tasks/task-ejecutar-refactor-base-del-n-cleo-sldb.md
 - desk/tasks/task-define-sldb-addressability-model.md
 - desk/tasks/task-design-sldb-ast-query-primitives.md
-- desk/tasks/task-expand-sldb-composition-modes.md
 - desk/tasks/task-tighten-semantic-export-provenance-contract.md
 - desk/tasks/task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges.md
 - desk/tasks/task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges.md
@@ -91,9 +90,6 @@ Define how meaningful document units in SLDB receive stable or derivable address
 - Design SLDB AST query primitives [active] - _Describe the concrete result this task must produce._
 
 Define the first public query primitives that should operate directly on SLDB document structure rather than on downstream graph semantics.
-- Expand SLDB composition modes [active] - _Describe the concrete result this task must produce._
-
-Design a broader composition model for SLDB so composition covers more than current transclusion and render-time child summarization.
 - Tighten semantic export provenance contract [active] - _Describe the concrete result this task must produce._
 
 Clarify what provenance and structure SLDB must preserve when exporting graph-ready knowledge to downstream systems such as KGDB.
