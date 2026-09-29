@@ -2,8 +2,8 @@
 
 | # | Tarea | Estado | Dificultad |
 |---|---|---|---|
-| [T1](T1-ordenar-espacio.md) | Ordenar el espacio de trabajo | pendiente | baja |
-| [T2](T2-parte-A-segments.md) | Parte A: `/document/segments` en SLDB | **en curso** (`pi2`) | media |
+| [T1](T1-ordenar-espacio.md) | Ordenar el espacio de trabajo | **hecho** | baja |
+| [T2](T2-parte-A-segments.md) | Parte A: `/document/segments` en SLDB | a medias (pasos 1-4 de 6) | media |
 | [T3](T3-vista-salud.md) | Vista SALUD | pendiente | baja |
 | [T4](T4-vista-bandeja.md) | Vista BANDEJA | pendiente | media |
 | [T5](T5-modo-oscuro.md) | Modo oscuro | pendiente | trivial |
