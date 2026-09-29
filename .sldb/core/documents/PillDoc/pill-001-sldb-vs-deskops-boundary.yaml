@@ -1,7 +1,17 @@
 name: pill-001-sldb-vs-deskops-boundary
 path: desk/pills/pill-001-sldb-vs-deskops-boundary.md
-hash_c: 2a1e75548ab207acf9e2323479052d47114ba761d94ff6062a9b33e5700aa996
-hash_d: 72a04f0f31506b41da612689cf32801e451ebef1a0e46cc9250c5229d24a78bc
+source_hash: 2a1e75548ab207acf9e2323479052d47114ba761d94ff6062a9b33e5700aa996
+content_hash: c3edc9b05e37ded12fac158862fac043e11a9e3b76bd25cc4e4b09e49e4e414f
+field_hashes:
+  title: 37d94d9ceecc4a27129feafda1eb0ad270725121b10ae87d07f69eeaed78a08f
+  id: 9890d941451589313c29ffa8850c6a0cec9efa4f984c709062666e90c5b256f4
+  tags: c58ab12238067225ecb97c2d055f52f111383e07606aa6424762cae37efd6c4c
+  what: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  why: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  when: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  where: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  how: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  how_not: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
 semantic_tags:
 - representation.markdown
 - source.document.markdown

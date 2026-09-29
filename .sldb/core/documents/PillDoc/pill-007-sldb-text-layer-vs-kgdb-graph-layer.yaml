@@ -1,7 +1,17 @@
 name: pill-007-sldb-text-layer-vs-kgdb-graph-layer
 path: desk/pills/pill-007-sldb-text-layer-vs-kgdb-graph-layer.md
-hash_c: 33d5a11026835a558a673420e22bc4341dd813d509db05fea4599b145317616f
-hash_d: e745b0695adba1a7a143cc073f092791be6a4fe9544f0c5c04d8ffc48adaf1e0
+source_hash: 33d5a11026835a558a673420e22bc4341dd813d509db05fea4599b145317616f
+content_hash: a3990506ce7574dc97087162f52fca56e0894a93dd07bebff883dfa01640773d
+field_hashes:
+  title: 2b1866b0662fa5397da5784453574d7726682c80ebb083e5a4bf162a204f5380
+  id: 8a4ba8e84f962e441c9c5956386b8397b23c31f58c7768e5a9baecfc9c105efd
+  tags: 2ccc6e210c994898bd7e74a0bffa12fd2bbb206a9542dff12cb9393795903555
+  what: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  why: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  when: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  where: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  how: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  how_not: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
 semantic_tags:
 - representation.markdown
 - source.document.markdown

@@ -1,7 +1,17 @@
 name: pill-008-sldb-cli-document-contract
 path: desk/pills/pill-008-sldb-cli-document-contract.md
-hash_c: f921404647c505bd2ffef3f8d2d12a2ea5b9bd9bddd70d00221bdb8b6832684f
-hash_d: 99fe61e83beef82b5958761485b3c05dcc3c685a280cca3ba11542ee397f069e
+source_hash: f921404647c505bd2ffef3f8d2d12a2ea5b9bd9bddd70d00221bdb8b6832684f
+content_hash: 1c9d37876aa0fdca1d39e0687f436b8335c6aed62f119ae010080917c18d24d3
+field_hashes:
+  title: 52366a5ea77c7225af664d2e9024111a23ddf81aa9ed28d3b71b7648abd8869f
+  id: 961f58a49a222e09c7da649b97d15ddb534fa449f5a09b0783ad9d2d87c6550a
+  tags: d18c8852d9ebda67cd0d2e37c6a6c127c85c9641f9f9d79ddf5c84c263186682
+  what: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  why: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  when: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  where: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  how: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  how_not: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
 semantic_tags:
 - language:python
 - representation.markdown

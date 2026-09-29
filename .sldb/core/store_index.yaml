@@ -246,6 +246,78 @@ models:
   - source.document.markdown
   - type.knowledge.atom
   - workspace.desk.atoms
+- name: RitualDoc
+  model_ref: deskops.models:RitualDoc
+  path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/ritual.py
+  models_index: .sldb/core/models/RitualDoc.yaml
+  version: 1
+  canonical: false
+  family: null
+  semantics:
+  - representation.markdown
+  - source.document.markdown
+  - type.workflow.ritual
+  - workspace.desk
+- name: RepositoryDoc
+  model_ref: deskops.models:RepositoryDoc
+  path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/repository.py
+  models_index: .sldb/core/models/RepositoryDoc.yaml
+  version: 1
+  canonical: false
+  family: null
+  semantics:
+  - representation.markdown
+  - source.document.markdown
+  - type.desk.repository
+  - workspace.desk.registry
+- name: RoleDoc
+  model_ref: deskops.models:RoleDoc
+  path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/role.py
+  models_index: .sldb/core/models/RoleDoc.yaml
+  version: 1
+  canonical: false
+  family: null
+  semantics:
+  - representation.markdown
+  - source.document.markdown
+  - type.workflow.role
+  - workspace.desk.roles
+- name: StepDoc
+  model_ref: deskops.models:StepDoc
+  path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/step.py
+  models_index: .sldb/core/models/StepDoc.yaml
+  version: 1
+  canonical: false
+  family: null
+  semantics:
+  - representation.markdown
+  - source.document.markdown
+  - type.workflow.step
+  - workspace.desk
+- name: ProtoAtomDoc
+  model_ref: deskops.models:ProtoAtomDoc
+  path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/protoatom.py
+  models_index: .sldb/core/models/ProtoAtomDoc.yaml
+  version: 1
+  canonical: false
+  family: null
+  semantics:
+  - representation.markdown
+  - source.document.markdown
+  - type.knowledge.protoatom
+  - workspace.desk.atoms
+- name: CrossroadDoc
+  model_ref: deskops.models:CrossroadDoc
+  path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/crossroad.py
+  models_index: .sldb/core/models/CrossroadDoc.yaml
+  version: 1
+  canonical: false
+  family: null
+  semantics:
+  - representation.markdown
+  - source.document.markdown
+  - type.knowledge.crossroad
+  - workspace.desk.atoms
 predicates:
 - name: has_model
   axis: WHAT
@@ -285,4 +357,4 @@ predicates:
   axis: WHAT
   description: The anchor (an alias word) names this model, field, relation type or
     document.
-store_hash: 5c9ce74d463eec1f3da2fc7cc79a0c71cf734a8331b963a5788226cd5a7cea1b
+store_hash: bef7d15e2241d687b32e54742f64fc8a6ecd81ac073e2ec36261599c731d6212

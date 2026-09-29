@@ -22,3 +22,153 @@
 2026-08-18 17:39:05,807 - deskops - INFO - Advanced task task-tighten-semantic-export-provenance-contract manually to testing-ready
 2026-08-18 17:39:06,078 - deskops - INFO - Advanced task task-tighten-semantic-export-provenance-contract manually to closeout-ready
 2026-08-18 17:39:06,348 - deskops - INFO - Advanced task task-tighten-semantic-export-provenance-contract manually to completed
+2026-09-28 22:29:49,331 - deskops - INFO - Advanced task task-hash-por-field to node checklist-task-hash-por-field-embedding-por-field-en-capa-derivada-testing-ready
+2026-09-28 22:34:28,400 - deskops - INFO - Advanced task task-hash-por-field to node checklist-task-hash-por-field-embedding-por-field-en-capa-derivada-closeout-ready
+2026-09-28 22:36:22,699 - deskops - INFO - Task task-hash-por-field is complete. Performing auto-commit and cleanup.
+2026-09-28 22:36:22,699 - deskops - DEBUG - Removing task task-hash-por-field-embedding-por-field-en-capa-derivada from Board.md
+2026-09-28 22:36:22,966 - deskops - DEBUG - Staging file: docs/user-manual.md
+2026-09-28 22:36:22,971 - deskops - DEBUG - Staging file: src/sldb/api/documents/payload_save_steps.py
+2026-09-28 22:36:22,976 - deskops - DEBUG - Staging file: src/sldb/api/model_registry/model_index_writes.py
+2026-09-28 22:36:22,981 - deskops - DEBUG - Staging file: src/sldb/api/stores/index_refresh.py
+2026-09-28 22:36:22,984 - deskops - DEBUG - Staging file: src/sldb/cli/commands/doc.py
+2026-09-28 22:36:22,988 - deskops - DEBUG - Staging file: src/sldb/store/__init__.py
+2026-09-28 22:36:22,992 - deskops - DEBUG - Staging file: src/sldb/store/diagnostics.py
+2026-09-28 22:36:22,997 - deskops - DEBUG - Staging file: src/sldb/store/diagnostics_models/document_diagnosis.py
+2026-09-28 22:36:23,001 - deskops - DEBUG - Staging file: src/sldb/store/hashing.py
+2026-09-28 22:36:23,006 - deskops - DEBUG - Staging file: src/sldb/store/models/document_entry.py
+2026-09-28 22:36:23,010 - deskops - DEBUG - Staging file: src/sldb/store/ops.py
+2026-09-28 22:36:23,088 - deskops - INFO - Committing closure for task-hash-por-field-embedding-por-field-en-capa-derivada: closeout: task-hash-por-field-embedding-por-field-en-capa-derivada
+
+Task-Id: task-hash-por-field-embedding-por-field-en-capa-derivada
+2026-09-28 22:36:38,431 - deskops - INFO - Task task-hash-por-field is complete. Performing auto-commit and cleanup.
+2026-09-28 22:36:38,431 - deskops - DEBUG - Removing task task-hash-por-field-embedding-por-field-en-capa-derivada from Board.md
+2026-09-28 22:36:38,722 - deskops - DEBUG - Staging file: docs/user-manual.md
+2026-09-28 22:36:38,725 - deskops - DEBUG - Staging file: src/sldb/api/documents/payload_save_steps.py
+2026-09-28 22:36:38,729 - deskops - DEBUG - Staging file: src/sldb/api/model_registry/model_index_writes.py
+2026-09-28 22:36:38,733 - deskops - DEBUG - Staging file: src/sldb/api/stores/index_refresh.py
+2026-09-28 22:36:38,738 - deskops - DEBUG - Staging file: src/sldb/cli/commands/doc.py
+2026-09-28 22:36:38,742 - deskops - DEBUG - Staging file: src/sldb/store/__init__.py
+2026-09-28 22:36:38,746 - deskops - DEBUG - Staging file: src/sldb/store/diagnostics.py
+2026-09-28 22:36:38,750 - deskops - DEBUG - Staging file: src/sldb/store/diagnostics_models/document_diagnosis.py
+2026-09-28 22:36:38,754 - deskops - DEBUG - Staging file: src/sldb/store/hashing.py
+2026-09-28 22:36:38,759 - deskops - DEBUG - Staging file: src/sldb/store/models/document_entry.py
+2026-09-28 22:36:38,763 - deskops - DEBUG - Staging file: src/sldb/store/ops.py
+2026-09-28 22:36:38,837 - deskops - INFO - Committing closure for task-hash-por-field-embedding-por-field-en-capa-derivada: closeout: task-hash-por-field-embedding-por-field-en-capa-derivada
+
+Task-Id: task-hash-por-field-embedding-por-field-en-capa-derivada
+2026-09-28 22:36:39,006 - deskops - WARNING - Failed to untrack /home/jp/proyectos/hum-ecosystem/tools/sldb/desk/tasks/task-hash-por-field-embedding-por-field-en-capa-derivada.md: Doc 'desk/tasks/task-hash-por-field-embedding-por-field-en-capa-derivada.md' not found.
+2026-09-28 22:36:39,006 - deskops - DEBUG - Removing file task-hash-por-field-embedding-por-field-en-capa-derivada.md
+2026-09-28 22:36:39,018 - deskops - WARNING - Failed to untrack /home/jp/proyectos/hum-ecosystem/tools/sldb/desk/routines/routine-task-hash-por-field-embedding-por-field-en-capa-derivada.md: Doc 'desk/routines/routine-task-hash-por-field-embedding-por-field-en-capa-derivada.md' not found.
+2026-09-28 22:36:39,018 - deskops - DEBUG - Removing file routine-task-hash-por-field-embedding-por-field-en-capa-derivada.md
+2026-09-28 22:36:39,031 - deskops - WARNING - Failed to untrack /home/jp/proyectos/hum-ecosystem/tools/sldb/desk/primitives/conditions/condition-task-hash-por-field-embedding-por-field-en-capa-derivada-has-validation.md: Doc 'desk/primitives/conditions/condition-task-hash-por-field-embedding-por-field-en-capa-derivada-has-validation.md' not found.
+2026-09-28 22:36:39,031 - deskops - DEBUG - Removing file condition-task-hash-por-field-embedding-por-field-en-capa-derivada-has-validation.md
+2026-09-28 22:36:39,047 - deskops - WARNING - Failed to untrack /home/jp/proyectos/hum-ecosystem/tools/sldb/desk/primitives/conditions/condition-task-hash-por-field-embedding-por-field-en-capa-derivada-has-closeout-evidence.md: Doc 'desk/primitives/conditions/condition-task-hash-por-field-embedding-por-field-en-capa-derivada-has-closeout-evidence.md' not found.
+2026-09-28 22:36:39,047 - deskops - DEBUG - Removing file condition-task-hash-por-field-embedding-por-field-en-capa-derivada-has-closeout-evidence.md
+2026-09-28 22:36:39,061 - deskops - WARNING - Failed to untrack /home/jp/proyectos/hum-ecosystem/tools/sldb/desk/primitives/conditions/condition-task-hash-por-field-embedding-por-field-en-capa-derivada-ready-for-closeout.md: Doc 'desk/primitives/conditions/condition-task-hash-por-field-embedding-por-field-en-capa-derivada-ready-for-closeout.md' not found.
+2026-09-28 22:36:39,061 - deskops - DEBUG - Removing file condition-task-hash-por-field-embedding-por-field-en-capa-derivada-ready-for-closeout.md
+2026-09-28 22:36:39,073 - deskops - WARNING - Failed to untrack /home/jp/proyectos/hum-ecosystem/tools/sldb/desk/primitives/conditions/condition-task-hash-por-field-embedding-por-field-en-capa-derivada-pill-knowledge-graduated.md: Doc 'desk/primitives/conditions/condition-task-hash-por-field-embedding-por-field-en-capa-derivada-pill-knowledge-graduated.md' not found.
+2026-09-28 22:36:39,073 - deskops - DEBUG - Removing file condition-task-hash-por-field-embedding-por-field-en-capa-derivada-pill-knowledge-graduated.md
+2026-09-28 22:36:39,086 - deskops - WARNING - Failed to untrack /home/jp/proyectos/hum-ecosystem/tools/sldb/desk/primitives/conditions/condition-task-hash-por-field-embedding-por-field-en-capa-derivada-has-implementation-path.md: Doc 'desk/primitives/conditions/condition-task-hash-por-field-embedding-por-field-en-capa-derivada-has-implementation-path.md' not found.
+2026-09-28 22:36:39,086 - deskops - DEBUG - Removing file condition-task-hash-por-field-embedding-por-field-en-capa-derivada-has-implementation-path.md
+2026-09-28 22:36:39,099 - deskops - WARNING - Failed to untrack /home/jp/proyectos/hum-ecosystem/tools/sldb/desk/primitives/checklists/checklist-task-hash-por-field-embedding-por-field-en-capa-derivada-testing-ready.md: Doc 'desk/primitives/checklists/checklist-task-hash-por-field-embedding-por-field-en-capa-derivada-testing-ready.md' not found.
+2026-09-28 22:36:39,100 - deskops - DEBUG - Removing file checklist-task-hash-por-field-embedding-por-field-en-capa-derivada-testing-ready.md
+2026-09-28 22:36:39,111 - deskops - WARNING - Failed to untrack /home/jp/proyectos/hum-ecosystem/tools/sldb/desk/primitives/checklists/checklist-task-hash-por-field-embedding-por-field-en-capa-derivada-closeout-ready.md: Doc 'desk/primitives/checklists/checklist-task-hash-por-field-embedding-por-field-en-capa-derivada-closeout-ready.md' not found.
+2026-09-28 22:36:39,112 - deskops - DEBUG - Removing file checklist-task-hash-por-field-embedding-por-field-en-capa-derivada-closeout-ready.md
+2026-09-28 22:36:39,124 - deskops - WARNING - Failed to untrack /home/jp/proyectos/hum-ecosystem/tools/sldb/desk/primitives/checklists/checklist-task-hash-por-field-embedding-por-field-en-capa-derivada-execution-ready.md: Doc 'desk/primitives/checklists/checklist-task-hash-por-field-embedding-por-field-en-capa-derivada-execution-ready.md' not found.
+2026-09-28 22:36:39,124 - deskops - DEBUG - Removing file checklist-task-hash-por-field-embedding-por-field-en-capa-derivada-execution-ready.md
+2026-09-28 22:36:39,136 - deskops - WARNING - Failed to untrack /home/jp/proyectos/hum-ecosystem/tools/sldb/desk/primitives/operators/operator-task-hash-por-field-embedding-por-field-en-capa-derivada-ready-for-testing.md: Doc 'desk/primitives/operators/operator-task-hash-por-field-embedding-por-field-en-capa-derivada-ready-for-testing.md' not found.
+2026-09-28 22:36:39,136 - deskops - DEBUG - Removing file operator-task-hash-por-field-embedding-por-field-en-capa-derivada-ready-for-testing.md
+2026-09-28 22:36:39,148 - deskops - WARNING - Failed to untrack /home/jp/proyectos/hum-ecosystem/tools/sldb/desk/primitives/operators/operator-task-hash-por-field-embedding-por-field-en-capa-derivada-close.md: Doc 'desk/primitives/operators/operator-task-hash-por-field-embedding-por-field-en-capa-derivada-close.md' not found.
+2026-09-28 22:36:39,148 - deskops - DEBUG - Removing file operator-task-hash-por-field-embedding-por-field-en-capa-derivada-close.md
+2026-09-28 22:36:39,159 - deskops - WARNING - Failed to untrack /home/jp/proyectos/hum-ecosystem/tools/sldb/desk/primitives/operators/operator-task-hash-por-field-embedding-por-field-en-capa-derivada-activate.md: Doc 'desk/primitives/operators/operator-task-hash-por-field-embedding-por-field-en-capa-derivada-activate.md' not found.
+2026-09-28 22:36:39,160 - deskops - DEBUG - Removing file operator-task-hash-por-field-embedding-por-field-en-capa-derivada-activate.md
+2026-09-28 22:36:39,172 - deskops - WARNING - Failed to untrack /home/jp/proyectos/hum-ecosystem/tools/sldb/desk/primitives/edges/edge-task-hash-por-field-embedding-por-field-en-capa-derivada-closeout-to-close.md: Doc 'desk/primitives/edges/edge-task-hash-por-field-embedding-por-field-en-capa-derivada-closeout-to-close.md' not found.
+2026-09-28 22:36:39,172 - deskops - DEBUG - Removing file edge-task-hash-por-field-embedding-por-field-en-capa-derivada-closeout-to-close.md
+2026-09-28 22:36:39,183 - deskops - WARNING - Failed to untrack /home/jp/proyectos/hum-ecosystem/tools/sldb/desk/primitives/edges/edge-task-hash-por-field-embedding-por-field-en-capa-derivada-execution-to-activate.md: Doc 'desk/primitives/edges/edge-task-hash-por-field-embedding-por-field-en-capa-derivada-execution-to-activate.md' not found.
+2026-09-28 22:36:39,183 - deskops - DEBUG - Removing file edge-task-hash-por-field-embedding-por-field-en-capa-derivada-execution-to-activate.md
+2026-09-28 22:36:39,195 - deskops - WARNING - Failed to untrack /home/jp/proyectos/hum-ecosystem/tools/sldb/desk/primitives/edges/edge-task-hash-por-field-embedding-por-field-en-capa-derivada-close-to-complete.md: Doc 'desk/primitives/edges/edge-task-hash-por-field-embedding-por-field-en-capa-derivada-close-to-complete.md' not found.
+2026-09-28 22:36:39,195 - deskops - DEBUG - Removing file edge-task-hash-por-field-embedding-por-field-en-capa-derivada-close-to-complete.md
+2026-09-28 22:36:39,207 - deskops - WARNING - Failed to untrack /home/jp/proyectos/hum-ecosystem/tools/sldb/desk/primitives/edges/edge-task-hash-por-field-embedding-por-field-en-capa-derivada-testing-to-ready.md: Doc 'desk/primitives/edges/edge-task-hash-por-field-embedding-por-field-en-capa-derivada-testing-to-ready.md' not found.
+2026-09-28 22:36:39,207 - deskops - DEBUG - Removing file edge-task-hash-por-field-embedding-por-field-en-capa-derivada-testing-to-ready.md
+2026-09-28 22:36:39,219 - deskops - WARNING - Failed to untrack /home/jp/proyectos/hum-ecosystem/tools/sldb/desk/primitives/edges/edge-task-hash-por-field-embedding-por-field-en-capa-derivada-activate-to-testing.md: Doc 'desk/primitives/edges/edge-task-hash-por-field-embedding-por-field-en-capa-derivada-activate-to-testing.md' not found.
+2026-09-28 22:36:39,220 - deskops - DEBUG - Removing file edge-task-hash-por-field-embedding-por-field-en-capa-derivada-activate-to-testing.md
+2026-09-28 22:36:39,231 - deskops - WARNING - Failed to untrack /home/jp/proyectos/hum-ecosystem/tools/sldb/desk/primitives/edges/edge-task-hash-por-field-embedding-por-field-en-capa-derivada-ready-to-closeout.md: Doc 'desk/primitives/edges/edge-task-hash-por-field-embedding-por-field-en-capa-derivada-ready-to-closeout.md' not found.
+2026-09-28 22:36:39,232 - deskops - DEBUG - Removing file edge-task-hash-por-field-embedding-por-field-en-capa-derivada-ready-to-closeout.md
+2026-09-29 06:10:43,465 - deskops - INFO - Advanced task task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb to node checklist-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-testing-ready
+2026-09-29 06:10:44,414 - deskops - INFO - Advanced task task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido to node checklist-task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido-testing-ready
+2026-09-29 06:10:45,394 - deskops - INFO - Advanced task task-retirar-modulos-sueltos-sin-importadores to node checklist-task-retirar-modulos-sueltos-sin-importadores-testing-ready
+2026-09-29 06:10:49,700 - deskops - INFO - Advanced task task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb to node checklist-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-closeout-ready
+2026-09-29 06:10:50,758 - deskops - INFO - Advanced task task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido to node checklist-task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido-closeout-ready
+2026-09-29 06:10:51,844 - deskops - INFO - Advanced task task-retirar-modulos-sueltos-sin-importadores to node checklist-task-retirar-modulos-sueltos-sin-importadores-closeout-ready
+2026-09-29 06:10:52,687 - deskops - INFO - Task task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb is complete. Performing auto-commit and cleanup.
+2026-09-29 06:10:52,687 - deskops - DEBUG - Removing task task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb from Board.md
+2026-09-29 06:10:53,123 - deskops - INFO - Committing closure for task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb: closeout: task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb
+
+Task-Id: task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb
+2026-09-29 06:10:53,256 - deskops - DEBUG - Removing file task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb.md
+2026-09-29 06:10:53,415 - deskops - DEBUG - Removing file routine-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb.md
+2026-09-29 06:10:53,724 - deskops - DEBUG - Removing file condition-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-ready-for-closeout.md
+2026-09-29 06:10:53,779 - deskops - DEBUG - Removing file condition-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-has-implementation-path.md
+2026-09-29 06:10:53,825 - deskops - DEBUG - Removing file condition-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-has-validation.md
+2026-09-29 06:10:53,871 - deskops - DEBUG - Removing file condition-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-pill-knowledge-graduated.md
+2026-09-29 06:10:53,919 - deskops - DEBUG - Removing file condition-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-has-closeout-evidence.md
+2026-09-29 06:10:54,193 - deskops - DEBUG - Removing file checklist-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-execution-ready.md
+2026-09-29 06:10:54,240 - deskops - DEBUG - Removing file checklist-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-testing-ready.md
+2026-09-29 06:10:54,284 - deskops - DEBUG - Removing file checklist-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-closeout-ready.md
+2026-09-29 06:10:54,486 - deskops - DEBUG - Removing file operator-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-activate.md
+2026-09-29 06:10:54,537 - deskops - DEBUG - Removing file operator-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-close.md
+2026-09-29 06:10:54,584 - deskops - DEBUG - Removing file operator-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-ready-for-testing.md
+2026-09-29 06:10:54,995 - deskops - DEBUG - Removing file edge-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-closeout-to-close.md
+2026-09-29 06:10:55,041 - deskops - DEBUG - Removing file edge-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-close-to-complete.md
+2026-09-29 06:10:55,084 - deskops - DEBUG - Removing file edge-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-testing-to-ready.md
+2026-09-29 06:10:55,123 - deskops - DEBUG - Removing file edge-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-activate-to-testing.md
+2026-09-29 06:10:55,171 - deskops - DEBUG - Removing file edge-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-ready-to-closeout.md
+2026-09-29 06:10:55,210 - deskops - DEBUG - Removing file edge-task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb-execution-to-activate.md
+2026-09-29 06:10:55,902 - deskops - INFO - Task task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido is complete. Performing auto-commit and cleanup.
+2026-09-29 06:10:55,902 - deskops - DEBUG - Removing task task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido from Board.md
+2026-09-29 06:10:56,280 - deskops - INFO - Committing closure for task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido: closeout: task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido
+
+Task-Id: task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido
+2026-09-29 06:10:56,403 - deskops - DEBUG - Removing file task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido.md
+2026-09-29 06:10:56,546 - deskops - DEBUG - Removing file routine-task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido.md
+2026-09-29 06:10:56,790 - deskops - DEBUG - Removing file condition-task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido-has-implementation-path.md
+2026-09-29 06:10:56,839 - deskops - DEBUG - Removing file condition-task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido-has-validation.md
+2026-09-29 06:10:56,886 - deskops - DEBUG - Removing file condition-task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido-pill-knowledge-graduated.md
+2026-09-29 06:10:56,929 - deskops - DEBUG - Removing file condition-task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido-ready-for-closeout.md
+2026-09-29 06:10:56,974 - deskops - DEBUG - Removing file condition-task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido-has-closeout-evidence.md
+2026-09-29 06:10:57,145 - deskops - DEBUG - Removing file checklist-task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido-execution-ready.md
+2026-09-29 06:10:57,188 - deskops - DEBUG - Removing file checklist-task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido-testing-ready.md
+2026-09-29 06:10:57,234 - deskops - DEBUG - Removing file checklist-task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido-closeout-ready.md
+2026-09-29 06:10:57,455 - deskops - DEBUG - Removing file operator-task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido-ready-for-testing.md
+2026-09-29 06:10:57,502 - deskops - DEBUG - Removing file operator-task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido-activate.md
+2026-09-29 06:10:57,540 - deskops - DEBUG - Removing file operator-task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido-close.md
+2026-09-29 06:10:57,822 - deskops - DEBUG - Removing file edge-task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido-closeout-to-close.md
+2026-09-29 06:10:57,868 - deskops - DEBUG - Removing file edge-task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido-testing-to-ready.md
+2026-09-29 06:10:57,911 - deskops - DEBUG - Removing file edge-task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido-activate-to-testing.md
+2026-09-29 06:10:57,955 - deskops - DEBUG - Removing file edge-task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido-ready-to-closeout.md
+2026-09-29 06:10:57,999 - deskops - DEBUG - Removing file edge-task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido-close-to-complete.md
+2026-09-29 06:10:58,044 - deskops - DEBUG - Removing file edge-task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido-execution-to-activate.md
+2026-09-29 06:10:58,730 - deskops - INFO - Task task-retirar-modulos-sueltos-sin-importadores is complete. Performing auto-commit and cleanup.
+2026-09-29 06:10:58,730 - deskops - DEBUG - Removing task task-retirar-modulos-sueltos-sin-importadores from Board.md
+2026-09-29 06:10:59,161 - deskops - INFO - Committing closure for task-retirar-modulos-sueltos-sin-importadores: closeout: task-retirar-modulos-sueltos-sin-importadores
+
+Task-Id: task-retirar-modulos-sueltos-sin-importadores
+2026-09-29 06:10:59,289 - deskops - DEBUG - Removing file task-retirar-modulos-sueltos-sin-importadores.md
+2026-09-29 06:10:59,424 - deskops - DEBUG - Removing file routine-task-retirar-modulos-sueltos-sin-importadores.md
+2026-09-29 06:10:59,657 - deskops - DEBUG - Removing file condition-task-retirar-modulos-sueltos-sin-importadores-ready-for-closeout.md
+2026-09-29 06:10:59,701 - deskops - DEBUG - Removing file condition-task-retirar-modulos-sueltos-sin-importadores-has-implementation-path.md
+2026-09-29 06:10:59,754 - deskops - DEBUG - Removing file condition-task-retirar-modulos-sueltos-sin-importadores-pill-knowledge-graduated.md
+2026-09-29 06:10:59,798 - deskops - DEBUG - Removing file condition-task-retirar-modulos-sueltos-sin-importadores-has-closeout-evidence.md
+2026-09-29 06:10:59,845 - deskops - DEBUG - Removing file condition-task-retirar-modulos-sueltos-sin-importadores-has-validation.md
+2026-09-29 06:11:00,016 - deskops - DEBUG - Removing file checklist-task-retirar-modulos-sueltos-sin-importadores-testing-ready.md
+2026-09-29 06:11:00,056 - deskops - DEBUG - Removing file checklist-task-retirar-modulos-sueltos-sin-importadores-closeout-ready.md
+2026-09-29 06:11:00,102 - deskops - DEBUG - Removing file checklist-task-retirar-modulos-sueltos-sin-importadores-execution-ready.md
+2026-09-29 06:11:00,303 - deskops - DEBUG - Removing file operator-task-retirar-modulos-sueltos-sin-importadores-close.md
+2026-09-29 06:11:00,355 - deskops - DEBUG - Removing file operator-task-retirar-modulos-sueltos-sin-importadores-activate.md
+2026-09-29 06:11:00,403 - deskops - DEBUG - Removing file operator-task-retirar-modulos-sueltos-sin-importadores-ready-for-testing.md
+2026-09-29 06:11:00,693 - deskops - DEBUG - Removing file edge-task-retirar-modulos-sueltos-sin-importadores-close-to-complete.md
+2026-09-29 06:11:00,733 - deskops - DEBUG - Removing file edge-task-retirar-modulos-sueltos-sin-importadores-testing-to-ready.md
+2026-09-29 06:11:00,776 - deskops - DEBUG - Removing file edge-task-retirar-modulos-sueltos-sin-importadores-closeout-to-close.md
+2026-09-29 06:11:00,818 - deskops - DEBUG - Removing file edge-task-retirar-modulos-sueltos-sin-importadores-ready-to-closeout.md
+2026-09-29 06:11:00,858 - deskops - DEBUG - Removing file edge-task-retirar-modulos-sueltos-sin-importadores-activate-to-testing.md
+2026-09-29 06:11:00,902 - deskops - DEBUG - Removing file edge-task-retirar-modulos-sueltos-sin-importadores-execution-to-activate.md

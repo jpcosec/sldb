@@ -1,7 +1,17 @@
 name: pill-013-composition-task-execution-context
 path: desk/pills/pill-013-composition-task-execution-context.md
-hash_c: 8cf5d05ee427f3df3e876084d7421b8d30d4ac142d29a99e6871b384bee9f62b
-hash_d: d06da540c43097d671ef7a2f285b1d0b3e0ce56dd4eed9e7ca3280528483672b
+source_hash: 8cf5d05ee427f3df3e876084d7421b8d30d4ac142d29a99e6871b384bee9f62b
+content_hash: 69c866c6bd81fd61ff3b3421e8cdea38fa7d8265b49daa63490d1faaa48cd312
+field_hashes:
+  title: 196cc31b338c714b741787cb5b479665dfff4d9565eb70199115ff974bb63a23
+  id: 83c7a14ee68997c3d9f6ebf1792e287c99a0c53a174ea1a171833813f8779f40
+  tags: a6502f5cbb372db711ca7dc6abba6844c460a41cd1c0bdad92ab0efcdf4e7d6e
+  what: 01a3e5fa4c12bcaa84f8784703d93ec009cc0d3fc20df13782b39acdeb18e814
+  why: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  when: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  where: f5654df1c79eda89f4751979ba314819a64b453af1f59357a3b343fba9fd48bc
+  how: d56facef27a3acafcc027e7f08ec460db4b0c0250ac466c228aa0752d7253471
+  how_not: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
 semantic_tags:
 - representation.markdown
 - source.document.markdown

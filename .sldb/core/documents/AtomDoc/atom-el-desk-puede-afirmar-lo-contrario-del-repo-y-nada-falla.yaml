@@ -1,0 +1,21 @@
+name: atom-el-desk-puede-afirmar-lo-contrario-del-repo-y-nada-falla
+path: desk/atoms/atom-el-desk-puede-afirmar-lo-contrario-del-repo-y-nada-falla.md
+source_hash: 4502a50419e358727ae535b1a12f0f28ccb80dcf1f1c95a9f95ddaca85815c30
+content_hash: 8f628bf535c33380f8346726f345a52c385a764bca556102020946944ade7493
+field_hashes:
+  id: 155f261dc0712bd72bf75724ea7226ddce74db261c2dda32ed9a7b80cee90b8e
+  title: 56c6c90716df0f90ea28eb3c290cea03d031e7c29d1b6eafc9b5c0b8e97dace8
+  five_wh_one_plus: c7d4bb6c4e85ef7f9bf7592aeecd1d09dd38adc39afd1ffb3908b19e689040ad
+  answer: d3330cadfdacd8693e57746ca15cd1b115c77cd3f5feb905c5b3d550482ea81e
+  tags: 605ee3c2357982b6b76054d51aef3a8cf48a84281d61a578525ec42d77971110
+  provenance: 3fd05cdcbd135798f030dc7729e480576d1d374ab2f383694c6cd7995e772c5c
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:deskops
+- system:sldb
+- topic:diagnostics
+- topic:drift
+- topic:self-documentation
+- type.knowledge.atom
+- workspace.desk.atoms

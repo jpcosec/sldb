@@ -1,7 +1,17 @@
 name: pill-014-semantic-export-task-execution-context
 path: desk/pills/pill-014-semantic-export-task-execution-context.md
-hash_c: f27e58ceee5bce1903892a800f24414514ed7bbdb3fd143abb99b1099d6f4cbd
-hash_d: d151cb033559c23c1548cce6ea4212973740e0fccaac36fb74d4ce8c5cfab5e4
+source_hash: f27e58ceee5bce1903892a800f24414514ed7bbdb3fd143abb99b1099d6f4cbd
+content_hash: 5021b20dc2b40c234998dd4a5350407565eac0403fa6be048a5685d02da5bf3a
+field_hashes:
+  title: 394c5bd2e0f81ca5a7ede9d68bea9b480dd1571da3a7ebb4a577d911e8b1aee6
+  id: 0922757bad277a8f09744bffa9307f514c6a30312a8442e6a61f4b6c6559f413
+  tags: 92b306d5d2ea7486bb554a9df4674e033814a33dc7074322cd1553bbb6f84ade
+  what: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  why: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  when: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  where: 044b569118fbeb164c60acecaf691bf9b059277debaeea378f991611a7160e14
+  how: 7c5d138a3f60081a8608d6227ef0fabc2bd8f1a420859e8ff5601384db96c61e
+  how_not: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
 semantic_tags:
 - representation.markdown
 - source.document.markdown

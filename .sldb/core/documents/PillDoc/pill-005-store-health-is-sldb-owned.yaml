@@ -1,7 +1,17 @@
 name: pill-005-store-health-is-sldb-owned
 path: desk/pills/pill-005-store-health-is-sldb-owned.md
-hash_c: 260a96661374f3ec58d5ba5cb3caa8469d26ec15f1a547f72509bc5610438afc
-hash_d: 1e2779cdf2c4d93d57793670222105d9faea27c846bfa23c8cc6b856c98a01c6
+source_hash: 260a96661374f3ec58d5ba5cb3caa8469d26ec15f1a547f72509bc5610438afc
+content_hash: 1611d10231a1c8458632ffa63f92b57b762dd685fc155dc62df3971d1bde38b7
+field_hashes:
+  title: 13b530fe68578b183f0c92c70e7e4d8bd4c8b33d2d2e22e556a20011080acb4b
+  id: 5be8d92c653579ecf73def6d4601d50c0bf10cc36f6ea91fc78b0051990f5728
+  tags: 3cdbea1144ffd3332a6349badbabf24c01b691acd4b36c176a83e9a4d4ffb3ab
+  what: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  why: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  when: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  where: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  how: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  how_not: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
 semantic_tags:
 - representation.markdown
 - source.document.markdown

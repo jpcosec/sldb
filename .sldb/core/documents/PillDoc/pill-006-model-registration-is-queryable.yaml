@@ -1,7 +1,17 @@
 name: pill-006-model-registration-is-queryable
 path: desk/pills/pill-006-model-registration-is-queryable.md
-hash_c: d309ff6372200530b438cefed77df19b6487b060ebdeb0981f5dd6af9b1aa177
-hash_d: a27030b5daf8735eb91610191a997f76e27d5ea06381903737cde01edb008f72
+source_hash: d309ff6372200530b438cefed77df19b6487b060ebdeb0981f5dd6af9b1aa177
+content_hash: ceabd51480351c81157eeed621475548628c33fcb11b71218b90a7ad3bcabb05
+field_hashes:
+  title: 048cdf0e39a641394c0507e0b58cdaad49fb73430f94a27709f74f147dc24234
+  id: 66c706909bbc0863dd706c6acc7ab2fab2530880fe8164a0d5a0e872adc42d3c
+  tags: 32495a3ed450cbed68d7cbba00ceda2a06a3edd3d6c5e8c5312b0b360c9431aa
+  what: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  why: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  when: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  where: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  how: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  how_not: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
 semantic_tags:
 - representation.markdown
 - source.document.markdown

@@ -1,7 +1,17 @@
 name: pill-010-active-board-slice-execution-map
 path: desk/pills/pill-010-active-board-slice-execution-map.md
-hash_c: 95bddc53d384ba82ffb340d0b4329ccb40c32926bd24e2ff35a1b7234531afc5
-hash_d: f4b7372dc03a737c5f7afff169b0e1bd85d6088a9dba2fb1d762f3ec8272fa89
+source_hash: 95bddc53d384ba82ffb340d0b4329ccb40c32926bd24e2ff35a1b7234531afc5
+content_hash: 143a367d70986b121646d7a1394f3eca02bdf77d21794bb65810f3b4f84c5bb0
+field_hashes:
+  title: 788cd54011e274b533f64253b9a81596ffbd37b7372d309cb4d0977c76a68a35
+  id: 1b14c242629e2eb501419bc03f138d64595e7c6e09c11f0e3096c59d043dc4a1
+  tags: ae5467b1bbbe2d334ac71c88e56a60122656495a3871651896c77cf404afda63
+  what: 3065c82b5dc592ce7eb11797ec95a38796c93e00ca249726f38c5f3b415de3d4
+  why: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  when: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  where: ac87975ee5954f5f15b71f17521b5468afe4a74f210d3fcf93eef722efa9022d
+  how: 880f557d16063dc0c52ffc9ac29eb67142d0a24e2c0be4b6aebd3ec735b9d0bb
+  how_not: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
 semantic_tags:
 - representation.markdown
 - source.document.markdown

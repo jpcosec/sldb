@@ -1,7 +1,17 @@
 name: pill-009-cli-error-and-serialization-failure-mode
 path: desk/pills/pill-009-cli-error-and-serialization-failure-mode.md
-hash_c: c58b7f1443a858a14ef4e58f0d9abfcc0ab3070898b25d2dae7ef786ec4a7177
-hash_d: c7168fdb10b2a8828f2a716505917bb2cc5d2ae1c6faa5edaf507ca10749d363
+source_hash: c58b7f1443a858a14ef4e58f0d9abfcc0ab3070898b25d2dae7ef786ec4a7177
+content_hash: c8b7a50ada3e6da7b0bf44c0d36d17bf2f1d898d90da098ec127d12dc46b895d
+field_hashes:
+  title: 2d45d0b81cb81e0e905fb5fe3191e6fa7cc014acd640c2fd6c189fd1c7c21b06
+  id: e9d43620cb32d297498b9e14cad5b558f344a6470e651d6dd757f899a47079a8
+  tags: 67f81eb180a7199ed11989b22b3c8ae1bedd5244d1511385566c04d84731497c
+  what: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  why: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  when: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  where: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  how: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  how_not: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
 semantic_tags:
 - language:python
 - representation.markdown

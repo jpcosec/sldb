@@ -1,7 +1,17 @@
 name: pill-002-onboarding-surface-before-depth
 path: desk/pills/pill-002-onboarding-surface-before-depth.md
-hash_c: 89895bf37f6826dcc966ccd679ab9cd6e6612c117378301cdccda089b2b02c72
-hash_d: e5ab00690c41a5bf6af6b73073a7c6f971bfb468f8b0536b8b23dc6acfbf4f68
+source_hash: 89895bf37f6826dcc966ccd679ab9cd6e6612c117378301cdccda089b2b02c72
+content_hash: e7cd08bded7b03f9393d922b3935d6d4e3c5bf596db196b220b4d2737f9317db
+field_hashes:
+  title: aa2f8ceb1ca69cc1d441744837e6b4e935686de420ee967cbe9818c639c8bd34
+  id: a33a2fb08ad71ecd45b65f636fe9f0e4d8088d722f02e032bc9d0759a6f0c2dd
+  tags: 2daf8415763a92b1e1d0b5cf094b028c5d83ccdcbce9f1b20df7f1c4ae1c842f
+  what: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  why: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  when: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  where: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  how: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  how_not: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
 semantic_tags:
 - representation.markdown
 - source.document.markdown

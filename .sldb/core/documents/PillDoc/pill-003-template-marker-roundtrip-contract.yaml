@@ -1,7 +1,17 @@
 name: pill-003-template-marker-roundtrip-contract
 path: desk/pills/pill-003-template-marker-roundtrip-contract.md
-hash_c: 8ba2b92d8f1613e90643c18596d8a487bfdb52a84f27d4ca201e8244451e6d50
-hash_d: d6e65da43be0fda211769af59e13a43e2fea0fc56449434d1dc91bf03788c0c7
+source_hash: 8ba2b92d8f1613e90643c18596d8a487bfdb52a84f27d4ca201e8244451e6d50
+content_hash: f0b8d6c72e3a62eff8f739c455962bbaaba764837a8f468de6fb9e54ad4c455d
+field_hashes:
+  title: b83ed57fc313bd692aa53c9d8f3c129044fdee4bd768318f6ea765f3801786c8
+  id: 188b90f59bcbbf1175fe05bbc29966cdfea91f92a8ea6a28f0673957ffa641f6
+  tags: bbf822781ba6ffc5035b728a660dd7d8107889eb7a1546f1fd12b96b5fed1a17
+  what: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  why: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  when: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  where: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  how: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  how_not: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
 semantic_tags:
 - language:python
 - representation.markdown
