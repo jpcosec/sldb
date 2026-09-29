@@ -14,7 +14,7 @@ from sldb.cli.commands.doc_lookup import find_doc
 from sldb.runtime.validation import render_model_markdown, validate_model_input_roundtrip
 from sldb.store.io import load_store_index, save_models_index, store_lock
 from sldb.store.io.shards import save_document_shard
-from sldb.store.hashing import hash_text, hash_fields
+from sldb.store.hashing import hash_text, hash_fields, hash_fields_with_map
 from sldb.store.layout import documents_shard_path
 from sldb.store.derived_rebuild import rebuild_derived_indexes
 from sldb.store.model_node import stamp_model_node
@@ -49,14 +49,21 @@ class DocCLI:
         print(f"Tracked '{tracked.name}'")
         return 0
 
+    @staticmethod
+    def _write_and_rehash(root: Any, doc: Any, model_type: Any, rendered: str) -> None:
+        """Write the rendered Markdown and record both hashes plus the per-field map."""
+        text = rendered + "\n"
+        (root / doc.path).write_text(text, encoding="utf-8")
+        doc.source_hash = hash_text(text)
+        doc.content_hash, doc.field_hashes = hash_fields_with_map(model_type, text)
+
     def update(self, args: Any) -> int:
         sp, root = get_store_context(args.store)
         m_entry, m_idx, doc = find_doc(sp, root, load_store_index(sp), args.doc)
         model_type = resolve_model_ref(m_entry.model_ref, args.pythonpath)
         rendered = render_model_markdown(model_type, self._parse_payload(args.payload))
         if not validate_model_input_roundtrip(model_type, rendered)[0]: raise SLDBValidationError("Update fail", validate_model_input_roundtrip(model_type, rendered)[1])
-        (root / doc.path).write_text(rendered + "\n", encoding="utf-8")
-        doc.source_hash, doc.content_hash = hash_text(rendered + "\n"), hash_fields(model_type, rendered + "\n")
+        self._write_and_rehash(root, doc, model_type, rendered)
         self._save_updated(sp, root, load_store_index(sp), m_entry, m_idx, doc, args, model_type)
         print(f"Updated '{doc.name}'")
         return 0

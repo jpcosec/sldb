@@ -9,7 +9,7 @@ from sldb.api.model_registry.model_reference import resolve_model_ref
 from sldb.core.exceptions import SLDBModelError, SLDBPayloadSaveError
 from sldb.runtime.validation import render_model_markdown, validate_model_input_roundtrip
 from sldb.store import documents_hash
-from sldb.store.hashing import hash_fields, hash_text
+from sldb.store.hashing import hash_fields_with_map, hash_text
 from sldb.store.io import load_models_index, load_store_index, save_models_index, store_lock
 from sldb.store.io.shards import load_document_shard, save_document_shard
 from sldb.store.layout import documents_shard_path
@@ -65,7 +65,7 @@ def write_rendered_document(root: Path, doc_entry: DocumentEntry, model_type: ty
     """Write the rendered Markdown (plus final newline) and record its source and content hashes."""
     (root / doc_entry.path).write_text(rendered + "\n", encoding="utf-8")
     doc_entry.source_hash = hash_text(rendered + "\n")
-    doc_entry.content_hash = hash_fields(model_type, rendered + "\n")
+    doc_entry.content_hash, doc_entry.field_hashes = hash_fields_with_map(model_type, rendered + "\n")
 
 
 def save_document_indexes(sp: Path, root: Path, idx: StoreIndex, m_idx: ModelsIndex, m_entry: ModelEntry, doc_entry: DocumentEntry, pythonpath: str | None, model_type: type | None = None) -> None:

@@ -6,7 +6,7 @@ from typing import Any, Callable, Optional
 from sldb.store.layout import project_root as store_project_root
 from sldb.store.hashing import (
     hash_documents_index,
-    hash_fields,
+    hash_fields_with_map,
     hash_models_layer,
     hash_text,
 )
@@ -43,10 +43,23 @@ def _diagnose_doc(doc, root: Path, model_type: Any, contract_ok: bool = True) ->
         return DocumentDiagnosis(name=doc.name, path=doc.path, content_ok=False, fields_ok=False, path_exists=False, note=DiagnosisNote.MISSING, content_in_index=doc.source_hash, fields_in_index=doc.content_hash)
     text = doc_path.read_text(encoding="utf-8")
     content_on_disk = hash_text(text)
-    fields_on_disk = hash_fields(model_type, text) if model_type else ""
+    fields_on_disk, map_on_disk = hash_fields_with_map(model_type, text) if model_type else ("", {})
     content_ok, fields_ok = content_on_disk == doc.source_hash, fields_on_disk == doc.content_hash
     note = _note(content_ok, fields_ok, contract_ok)
-    return DocumentDiagnosis(name=doc.name, path=doc.path, content_ok=content_ok, fields_ok=fields_ok, path_exists=True, note=note, content_on_disk=content_on_disk, content_in_index=doc.source_hash, fields_on_disk=fields_on_disk, fields_in_index=doc.content_hash)
+    changed = [] if fields_ok else _changed_fields(getattr(doc, "field_hashes", {}) or {}, map_on_disk)
+    return DocumentDiagnosis(name=doc.name, path=doc.path, content_ok=content_ok, fields_ok=fields_ok, path_exists=True, note=note, content_on_disk=content_on_disk, content_in_index=doc.source_hash, fields_on_disk=fields_on_disk, fields_in_index=doc.content_hash, changed_fields=changed)
+
+
+def _changed_fields(in_index: dict[str, str], on_disk: dict[str, str]) -> list[str]:
+    """The field names whose hashes disagree, plus those present on only one side.
+
+    Empty when either side has no map: a store written before `field_hashes` cannot be asked
+    which field moved, and saying "none" there would read as "nothing changed" when
+    `content_hash` already said otherwise.
+    """
+    if not in_index or not on_disk:
+        return []
+    return sorted(name for name in set(in_index) | set(on_disk) if in_index.get(name) != on_disk.get(name))
 
 
 def _note(content_ok: bool, fields_ok: bool, contract_ok: bool) -> DiagnosisNote:

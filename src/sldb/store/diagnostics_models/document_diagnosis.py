@@ -1,5 +1,5 @@
 from __future__ import annotations
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from sldb.store.diagnostics_models.diagnosis_note import DiagnosisNote
 from sldb.store.diagnostics_models.document_verdicts import EXPLANATIONS, NEEDS_DECISION, REMEDIES
 
@@ -40,6 +40,10 @@ class DocumentDiagnosis:
     content_in_index: str | None = None
     fields_on_disk: str | None = None
     fields_in_index: str | None = None
+    # Which fields moved, when both sides carry a per-field map. Empty means the question could
+    # not be asked (a store written before `field_hashes`, or a document that no longer
+    # extracts) — never that no field moved, which `fields_ok` already answers.
+    changed_fields: list[str] = field(default_factory=list)
 
     @property
     def hash_c_ok(self) -> bool:
@@ -75,7 +79,8 @@ class DocumentDiagnosis:
         """One line saying what is wrong and what to do about it."""
         if self.note is DiagnosisNote.MISSING:
             return f"missing: tracked at {self.path}, not on disk"
-        return EXPLANATIONS[self.note]
+        base = EXPLANATIONS[self.note]
+        return f"{base} [fields: {', '.join(self.changed_fields)}]" if self.changed_fields else base
 
     @property
     def needs_decision(self) -> bool:

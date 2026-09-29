@@ -8,6 +8,11 @@ class DocumentEntry(BaseModel):
     path: str
     source_hash: str = Field(default='', validation_alias=AliasChoices('source_hash', 'hash_c'))
     content_hash: str = Field(default='', validation_alias=AliasChoices('content_hash', 'hash_d'))
+    # `content_hash` per field: which fields moved, not just that some did. Empty on a store
+    # written before this existed (and on a document whose Markdown no longer extracts, exactly
+    # like `content_hash`) — absent is "unknown", never "no fields", so a consumer with nothing
+    # to compare against falls back to the whole document.
+    field_hashes: dict[str, str] = Field(default_factory=dict)
     semantic_tags: list[str] = Field(default_factory=list)
 
     @property

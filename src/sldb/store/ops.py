@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Any, Callable
 
 from sldb.store import documents_hash
-from sldb.store.hashing import hash_fields, hash_models_layer, hash_text
+from sldb.store.hashing import hash_fields_with_map, hash_models_layer, hash_text
 from sldb.store.model_node import stamp_model_node
 from sldb.store.io import (
     load_models_index, save_models_index, save_store_index, store_lock,
@@ -37,7 +37,8 @@ class StoreOperations:
     @staticmethod
     def _do_track(store_path, root, st_idx, m_type, m_entry, d_name, rel_path, text, res_ref, py_path):
         StoreOperations._pre_check(store_path, root, m_entry, d_name)
-        entry = DocumentEntry(name=d_name, path=rel_path, hash_c=hash_text(text), hash_d=_safe_hash(m_type, text))
+        content_hash, field_hashes = _safe_hashes(m_type, text)
+        entry = DocumentEntry(name=d_name, path=rel_path, hash_c=hash_text(text), hash_d=content_hash, field_hashes=field_hashes)
         save_document_shard(documents_shard_path(store_path, m_entry.name, d_name), entry)
         documents_hash.note(store_path, m_entry.name, entry)
         _update_model_summary(store_path, root, m_entry, m_type)
@@ -76,7 +77,16 @@ def _get_rel(path: Path, root: Path) -> str:
         return str(path)
 
 def _safe_hash(model_type: type, text: str) -> str:
+    return _safe_hashes(model_type, text)[0]
+
+
+def _safe_hashes(model_type: type, text: str) -> tuple[str, dict[str, str]]:
+    """A document's `content_hash` and per-field map, or empties when it no longer extracts.
+
+    An empty map means "could not be computed", never "no fields": a consumer comparing
+    against it has to fall back to the whole document.
+    """
     try:
-        return hash_fields(model_type, text)
+        return hash_fields_with_map(model_type, text)
     except Exception:
-        return ""
+        return "", {}

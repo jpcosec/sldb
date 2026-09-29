@@ -17,6 +17,9 @@ from sldb.store.io import (
 from sldb.store.hashing import (
     hash_text,
     hash_fields,
+    hash_field_map,
+    hash_field_map_of,
+    hash_fields_with_map,
     hash_documents_index,
     hash_models_layer,
 )
@@ -38,6 +41,9 @@ __all__ = [
     "save_documents_index",
     "hash_text",
     "hash_fields",
+    "hash_field_map",
+    "hash_field_map_of",
+    "hash_fields_with_map",
     "hash_documents_index",
     "hash_models_layer",
     "global_store_path",
