@@ -65,7 +65,7 @@ def _model_type(resolver, m_entry, pythonpath: str | None, root: Path, report: E
 def _doc_edges(store_path: Path, root: Path, m_entry, model_type: Any | None, doc):
     sections = load_sections_shard(sections_shard_path(store_path, m_entry.name, doc.name))
     read_payload = lambda: None if model_type is None else default_codec.extract(model_type, (root / doc.path).read_text(encoding="utf-8"))  # noqa: E731
-    return build_doc_edges(m_entry.name, doc, sections.sections if sections else [], read_payload)
+    return build_doc_edges(m_entry.name, doc, sections.sections if sections else [], read_payload, model_type)
 
 
 def _prune_models(store_path: Path, registered: set[str]) -> None:

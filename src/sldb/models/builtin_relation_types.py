@@ -24,6 +24,8 @@ _TABLE: list[tuple[str, str, str, list[str], list[str], str]] = [
     ("applies_to_source", "WHAT", "many_to_many", ["relation_type"], ["sldb_model"], "Instances of this model may be the source of edges of this relation type: the verbs a class can be subject of."),
     ("applies_to_target", "WHAT", "many_to_many", ["relation_type"], ["sldb_model"], "Instances of this model may be the target of edges of this relation type."),
     ("names", "WHAT", "many_to_many", ["anchor"], [], "The anchor (an alias word) names this model, field, relation type or document."),
+    ("references", "WHAT", "many_to_many", [], [], "A field the model declared in `__references__` holds this document's id; the edge carries the field name."),
+    ("contains", "WHERE", "one_to_many", [], [], "A field the model declared in `__containment__` holds this document as a child; the edge carries the field name and the models the declaration allows."),
 ]
 _KEYS = ("name", "axis", "cardinality", "source_types", "target_types", "description")
 

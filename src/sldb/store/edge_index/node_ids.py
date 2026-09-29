@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
-EDGE_INDEX_VERSION = "1"
+# 2: a model's declared reference fields (`__references__`, `__containment__`) contribute
+# `references` / `contains` edges, so shards built under version 1 are missing them.
+EDGE_INDEX_VERSION = "2"
 STORE_NODE_ID = "sldb://store"
 RELATION_TYPE_MODEL = "RelationTypeDoc"
 RELATION_MODEL = "RelationDoc"
