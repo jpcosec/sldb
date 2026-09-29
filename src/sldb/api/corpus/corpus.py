@@ -13,13 +13,15 @@ from typing import Any, Sequence
 
 from sldb.api.corpus.corpus_audit import CorpusAudit
 from sldb.api.corpus.corpus_entries import corpus_entries, select_hits
+from sldb.api.corpus.field_corpus import FieldCorpusMixin
+from sldb.api.corpus.field_projection import FieldProjection
 from sldb.api.corpus.hit import Hit
 from sldb.api.corpus.index_projection import IndexProjection
 from sldb.api.matching.document_index import DocumentIndex
 from sldb.api.matching.matcher import Matcher
 
 
-class Corpus:
+class Corpus(FieldCorpusMixin):
     """The documents of a store that can be retrieved by similarity, and their index."""
 
     def __init__(
@@ -30,25 +32,22 @@ class Corpus:
         projection: IndexProjection | None = None,
         embedder: Any | None = None,
         matcher: Matcher | None = None,
+        field_projection: FieldProjection | None = None,
     ) -> None:
         self.store = Path(store)
         self.pythonpath = pythonpath
         self.derived_dir = derived_dir
         self.projection = projection or IndexProjection()
+        self.field_projection = field_projection or FieldProjection()
         self.matcher = matcher or Matcher(embedder)
         self._index: DocumentIndex | None = None
+        self._field_index: DocumentIndex | None = None
 
     @property
     def index_path(self) -> Path:
         safe = self.matcher.id().replace("/", "_").replace(":", "_")
         name = f"docs.{safe}.json" if self.projection.text_id == "summary" else f"docs.{self.projection.text_id}.{safe}.json"
         return self.derived_dir / name
-
-    @property
-    def index(self) -> DocumentIndex:
-        if self._index is None:
-            self._index = DocumentIndex(self.matcher, self.index_path)
-        return self._index
 
     def entries(self):
         return corpus_entries(self)
@@ -82,3 +81,4 @@ class Corpus:
 
     def vectors(self) -> dict[str, list[float]]:
         return self.index.vectors()
+

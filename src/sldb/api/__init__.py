@@ -70,8 +70,21 @@ from sldb.store.models.edge_node_record import EdgeNodeRecord
 from sldb.store.models.edge_record import EdgeRecord
 from sldb.store.models.document_hashes import DocumentHashes
 from sldb.store.models.store_fingerprint import StoreFingerprint
+from sldb.api.corpus import (
+    Corpus,
+    CorpusEntry,
+    FieldEntry,
+    FieldHit,
+    FieldProjection,
+    Hit,
+    IndexProjection,
+    field_id,
+    split_field_id,
+)
 
 __all__ = [
+    "Corpus", "CorpusEntry", "FieldEntry", "FieldHit", "FieldProjection",
+    "Hit", "IndexProjection", "field_id", "split_field_id",
     "DocumentHashes", "DocumentReference", "DraftDocumentCheck", "DraftValidationReport",
     "EdgeCheckReport", "EdgeIndex", "EdgeNodeRecord", "EdgeRebuildReport",
     "EdgeRecord", "FieldDecl", "FieldDescription", "JournalEntry",

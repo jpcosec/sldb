@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
@@ -21,3 +21,8 @@ class RuntimeDocument:
     semantic_tags: list[str]
     source_hash: str = ''
     content_hash: str = ''
+    # Per-field `content_hash`, as the document's shard recorded it. Empty means "not computed"
+    # (a store written before `field_hashes`, or a document that no longer extracts), never
+    # "no fields": a per-field consumer with nothing to compare against indexes the whole
+    # document instead of concluding nothing moved.
+    field_hashes: dict[str, str] = field(default_factory=dict)
