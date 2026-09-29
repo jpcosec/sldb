@@ -16,7 +16,6 @@ tasks:
 - desk/tasks/task-design-sldb-ast-query-primitives.md
 - desk/tasks/task-expand-sldb-composition-modes.md
 - desk/tasks/task-tighten-semantic-export-provenance-contract.md
-- desk/tasks/task-retirar-core-ingest-isla-muerta-que-sostiene-el-ciclo-kgdb-sldb.md
 - desk/tasks/task-retirar-cli-graph-y-cli-graph-old-copias-fosiles-de-un-refactor-interrumpido.md
 - desk/tasks/task-retirar-modulos-sueltos-sin-importadores.md
 - desk/tasks/task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges.md
@@ -100,9 +99,8 @@ Design a broader composition model for SLDB so composition covers more than curr
 - Tighten semantic export provenance contract [active] - _Describe the concrete result this task must produce._
 
 Clarify what provenance and structure SLDB must preserve when exporting graph-ready knowledge to downstream systems such as KGDB.
-- Retirar core/ingest: isla muerta que sostiene el ciclo kgdb-sldb [draft] - Borrar src/sldb/core/ingest/ completo (9 modulos, 328 lineas) y con ello el ciclo de imports sldb->kgdb.
-- Retirar cli/graph y cli/graph_old: copias fosiles de un refactor interrumpido [draft] - Borrar src/sldb/cli/graph/ (6 modulos, 134 lineas) y src/sldb/cli/graph_old/ (4 modulos, 79 lineas), dejando cli/graph_ops/ como unico arbol.
-- Retirar modulos sueltos sin importadores [draft] - Borrar los 5 modulos (230 lineas) y limpiar el monkeypatch inerte del test.
+- Retirar cli/graph y cli/graph_old: copias fosiles de un refactor interrumpido [ready_for_testing] - Borrar src/sldb/cli/graph/ (6 modulos, 134 lineas) y src/sldb/cli/graph_old/ (4 modulos, 79 lineas), dejando cli/graph_ops/ como unico arbol.
+- Retirar modulos sueltos sin importadores [ready_for_testing] - Borrar los 5 modulos (230 lineas) y limpiar el monkeypatch inerte del test.
 - Dar fuente propia al grafo: store/graph deja de leer runtime/edges [draft] - Que store/graph/ construya su indice desde el snapshot portable (semantic export -> sldb_semantic_export_to_snapshot, graph/ingest_sldb.py:20) en vez de desde los shards de runtime/edges/.
 - Cerrar los gaps G1-G5 que bloquean el retiro de runtime/edges [draft] - Que cada capacidad de runtime/edges tenga equivalente demostrado sobre el snapshot networkx/KGDB.
 - Comando de porte sldb stores migrate-legacy-edges y error de migracion [draft] - Implementar 'sldb stores migrate-legacy-edges' y el error de apertura que lo referencia.
