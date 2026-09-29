@@ -35,6 +35,9 @@ Hoy tenés cinco documentos con el mismo párrafo copiado cinco veces. Con esto
 tenés una ficha que aparece en cinco documentos. La arreglás una vez y se arregló
 en todas partes, porque no hay copias.
 
+Eso es el medio del recorrido. El ciclo completo —de texto crudo a modelo— está
+en §16.
+
 ## 3. Lo que SLDB ya resuelve
 
 Esto no se construye desde cero. SLDB ya es el motor.
@@ -354,18 +357,8 @@ Todo camino llega al Atom. **Nadie edita un documento.**
 
 ## 10. Identidad del atom
 
-Hoy el id es descriptivo y editable: `atom-mepu-architecture-file-based-no-sap-connection`.
-
-Dos problemas: describe el contenido, así que cuando el hecho cambia el id miente;
-y si se corrige, rompe todo documento que lo citaba.
-
-**Propuesta:** el id es matrícula, no nombre. Opaco, inmutable, invisible para el
-usuario. El título es lo que se lee.
-
-**Costo:** el YAML del documento deja de ser legible a ojo. Se compensa mostrando
-títulos en la interfaz, pero es un cambio real.
-
-**Decisión pendiente.**
+Ver **§17**: el id no es un string plano sino la hoja de una ruta semántica, y la
+jerarquía sale del DAG de tags en vez de repetirse en el nombre.
 
 ## 11. Fases
 
@@ -376,12 +369,14 @@ títulos en la interfaz, pero es un cambio real.
 | 3 | Conflictos | dos pestañas → la segunda recibe 409 y lo muestra | — |
 | 4 | Compositor, modo lista | arrastrar reordena y reescribe la composición | — |
 | 5 | Lector | anclar un tramo crea un atom con provenance | — |
-| 6 | Compositor, modo consulta | una sección se llena por tag | **H2** |
-| 7 | Edit-through desde la página | editar un bloque compuesto baja al atom | **H1** |
-| 8 | Bandeja | promover un borrador a atom ubicado | 1, 4 |
-| 9 | Salud | divergencias, aislados, ciclos | — |
+| 6 | Edit-through desde la página | editar un bloque compuesto baja al atom | **H1** |
+| 7 | Bandeja | promover un borrador a atom ubicado | 1, 4 |
+| 8 | Salud | divergencias, aislados, ciclos | — |
+| 9 | Compositor, modo consulta | una sección se llena por tag, con congelamiento | **H2** |
 
-Las fases 1-5 y 9 **no requieren tocar SLDB**. Se pueden hacer hoy.
+Las fases 1-5 y 8 **no requieren tocar SLDB**. Se pueden hacer hoy.
+
+La composición se mantiene **determinista** en toda la primera vuelta (§18).
 
 ## 12. Dónde se monta
 
@@ -400,6 +395,8 @@ Comparten launcher y configuración. No se mezclan los códigos.
 - No promete que la composición por query sea determinista; expone el costo.
 - No incluye la vista Grafo: existe en graph-ui y no hay que duplicarla.
 - No propone un servicio wiki nuevo. La composición vive en SLDB.
+- No implementa la destilación de modelos desde anchors (§16.2): la declara como
+  el tramo que falta.
 
 ## 14. Estado del prototipo actual
 
@@ -418,3 +415,212 @@ Esta propuesta lo reorienta al atom como unidad. Se rescata el schema, el
 traductor y el criterio de editabilidad por template.
 
 Detalle en `sldb-ui/docs/PM-SURFACE-PENDIENTES.md`.
+
+---
+
+## 15. El anchor: un tipo de documento más
+
+### 15.1 · La corrección de encuadre
+
+Un anchor **no es una anotación** ni un metadato sobre otra cosa. Es un
+`StructuredNLDoc`, igual que un atom, con su contrato, su template, su lugar en el
+store y su nodo en el grafo.
+
+Lo mismo vale para el atom: `DomainAtom`, `RuleAtom`, `ConversationStep` son tipos
+de documento, no categorías especiales del sistema. SLDB no conoce "atoms" ni
+"anchors": conoce documentos gobernados por un contrato.
+
+Esto importa para la superficie: **no hay que construir un editor de anchors y
+otro de atoms**. Hay una superficie de documentos tipados, y el modelo decide qué
+se ve y qué se edita.
+
+### 15.2 · El contrato, tal como está hoy
+
+`sldb/models/anchor_doc.py`. Existe, está registrado y resuelve contra el grafo.
+
+~~~
+---
+id: ⸢rev•id⸥
+symbol: ⸢rev•symbol⸥
+kind: ⸢rev•kind⸥
+ref: ⸢rev•ref⸥
+tags: ⸢rev•tags⸥
+provenance: ⸢optrev•provenance⸥
+---
+
+# ⸢render•symbol⸥
+
+## Motive
+
+⸢rev•motive⸥
+~~~
+
+| Campo | Qué es | Validación |
+|---|---|---|
+| `symbol` | el símbolo de gramática que define | libre |
+| `kind` | qué clase de referente nombra | `model\|doc\|relation\|operation\|projection\|expr` |
+| `ref` | el referente tipado | patrón por esquema (abajo) |
+| `motive` | qué significa y por qué, en lenguaje natural | libre, obligatorio |
+| `tags` | tags namespaced | `namespace:valor` |
+| `provenance` | de dónde salió | opcional |
+
+El docstring del modelo lo resume: *"Binds a grammar symbol to a semantic motive
+and a resolvable referent."*
+
+**Un anchor es una entrada de diccionario.** Dice: esta palabra, en este corpus,
+significa esto, y acá está la razón.
+
+### 15.3 · Los esquemas de `ref`
+
+```
+model:<Nombre>              un modelo
+doc:<nombre>               un documento
+edge:<rel>[:in|:out]       un tipo de relación, con dirección
+op:<fn>                    una operación
+fields:<f1,f2>             un conjunto de campos
+view:<nombre>              una vista
+expr:(<s-expression>)      una relación derivada, con huecos `_`
+```
+
+`anchor_targets.py` los resuelve a node ids del grafo; `ref_form.py` lee la
+s-expression. Las dos piezas funcionan hoy.
+
+Lo relevante para el ciclo: **un anchor puede apuntar a un modelo**, no solo a un
+documento. Es lo que permite que la gramática hable de estructura, no solo de
+contenido.
+
+### 15.4 · El campo que sostiene todo: `motive`
+
+Es lenguaje natural obligatorio, y no es decorativo. El docstring dice que existe
+para *"keep the grammar legible and auditable"*.
+
+Sin `motive`, un anchor es una asociación opaca —alguien decidió que esta palabra
+apunta a este nodo, y no se sabe por qué—. Con `motive`, la gramática se puede
+revisar, discutir y corregir.
+
+Es la diferencia entre un índice y un diccionario.
+
+---
+
+## 16. El ciclo
+
+```
+  LENGUAJE NATURAL
+  no organizado · sin estructura
+        │
+        │  anchors / refs
+        ▼
+  KB GRÁFICA  (atoms)
+  organizado · sin estructura
+        │
+        │  composición   ──▶
+        ◀──   indexación
+        ▼
+  MARKDOWN COMPUESTO  (fields de documentos)
+  organizado · con estructura gobernada
+        │
+        │  azúcar sintáctico: anchors sobre el texto compuesto
+        ▼
+  TEXTO  ────────────▶  y los anchors acumulados
+                         declaran un MODELO
+```
+
+| Capa | Organizado | Estructurado | Qué la habita |
+|---|---|---|---|
+| Lenguaje natural | ✗ | ✗ | PDFs, correos, actas |
+| KB gráfica | ✓ | ✗ | atoms y sus relaciones |
+| Markdown compuesto | ✓ | ✓ | documentos con contrato |
+
+**Composición ↔ indexación es un par bidireccional**, no una flecha. Se baja
+componiendo y se sube indexando. Esa es la respuesta al problema de edit-through:
+no se trata de invertir el render, sino de indexar — operación que SLDB ya tiene.
+
+### 16.1 · La espiral
+
+El ciclo no vuelve al mismo punto. Cada vuelta deja un modelo que antes no
+existía, y el texto siguiente nace más gobernado:
+
+```
+   texto sin contrato ──▶ anchors ──▶ regularidad ──▶ MODELO
+                                                        │
+   el próximo texto nace bajo ese contrato  ◂───────────┘
+```
+
+Los anchors que se repiten con el mismo `kind` son candidatos a campo. Suficientes
+campos con posición estable son un `__template__`. Los anchors de `kind: relation`
+son `__references__` / `__containment__`.
+
+**El modelo no se escribe: se destila.** Y el `motive` de cada anchor es lo que
+hace auditable la destilación — no es inferencia estadística, es una razón escrita
+por alguien.
+
+### 16.2 · Estado de cada tramo
+
+| Tramo | Estado |
+|---|---|
+| Texto → anchors | contrato listo, **sin superficie** |
+| Anchor → nodo del grafo | **funciona** (`anchor_targets.py`) |
+| Atoms → composición | **funciona** (`__compositions__`) |
+| Composición → indexación | **funciona** parcialmente; falta procedencia (H1) |
+| Anchors → regularidad → modelo | **no existe** |
+
+`core/ingest/` se retiró el 24/09 (commit `d0df139`): 9 módulos del producto
+anterior, muertos e inimportables. No se perdió nada vivo, pero tampoco quedó nada
+que haga esta vuelta.
+
+---
+
+## 17. Identidad: el id como nombre-hoja
+
+### 17.1 · El problema real
+
+Hoy conviven dos jerarquías que dicen lo mismo:
+
+```
+archivo:  domain/domain-cobranza-canal.md
+tags:     domain:cobranza.canal
+```
+
+El prefijo `domain-cobranza-` del nombre **repite** lo que ya dicen la carpeta y el
+tag. El id carga la jerarquía adentro, en vez de tomarla de su posición.
+
+De ahí sale la contradicción aparente: si el id describe el contenido y el
+contenido cambia, el id miente; pero corregirlo rompe las citas.
+
+### 17.2 · La salida
+
+El id no es un string plano: es **la hoja de una ruta semántica**.
+
+| Capa | De dónde sale |
+|---|---|
+| Jerarquía | el DAG de tags (`domain:cobranza.canal`) |
+| Hoja | el título del documento |
+
+Si el contenido cambia, el título cambia, y la hoja cambia con él. No miente
+nunca, porque lo que da identidad es la **posición en el DAG**, no el string.
+
+SLDB ya tiene el DAG semántico y las direcciones `se.` para recorrerlo. La pieza
+que falta es que la organización en disco lo refleje en vez de duplicarlo.
+
+### 17.3 · Lo que queda abierto
+
+Si una hoja cambia de rama —se le corrige el tag—, ¿qué pasa con las citas que la
+nombraban por su ruta anterior?
+
+Es el mismo problema que **H3**, un nivel más arriba: direccionamiento estable
+frente a reubicación. Conviene resolverlos juntos, y mirar antes la rama
+`refactor-target` de SLDB (anchor states, reconciliación ante drift, stand-off).
+
+---
+
+## 18. Composición determinista
+
+**Decisión tomada: por ahora la composición es determinista.** Listas explícitas
+de atoms; el documento dice exactamente qué contiene.
+
+La composición por query (**H2**) queda fuera de la primera vuelta. Cuando se
+incorpore, debe traer congelamiento: resolver la consulta una vez, dejarla escrita
+y que no se mueva sola.
+
+Esto cambia el orden de las fases: la fase 6 (modo consulta) pasa al final, y el
+Compositor de la fase 4 arranca solo con listas.
