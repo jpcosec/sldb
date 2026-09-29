@@ -1,0 +1,7 @@
+node_modules/
+dist/
+*.tsbuildinfo
+dev/demo-store/.sldb/
+dev/demo-store/docs/
+dev/demo-store/data/
+__pycache__/

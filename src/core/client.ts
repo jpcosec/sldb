@@ -1,0 +1,74 @@
+/**
+ * Cliente HTTP de `sldb serve`. Framework-agnóstico: solo usa `fetch`.
+ * Toda escritura va por `/save` en modo batch con `expected` (control optimista).
+ */
+import type {
+  DocumentSegments,
+  ExtractionSegments,
+  GraphDocument,
+  SaveChange,
+  SaveResult,
+  SchemaResponse,
+  StoredDocument,
+} from "./contract";
+
+export class SldbHttpError extends Error {
+  constructor(
+    message: string,
+    readonly status: number,
+    readonly body: unknown,
+  ) {
+    super(message);
+    this.name = "SldbHttpError";
+  }
+}
+
+/** El documento cambió en SLDB desde que se leyó: la escritura se rechazó sin tocar nada. */
+export class SaveConflictError extends SldbHttpError {
+  constructor(message: string, body: unknown) {
+    super(message, 409, body);
+    this.name = "SaveConflictError";
+  }
+}
+
+export interface SldbClient {
+  schema(): Promise<SchemaResponse>;
+  documents(): Promise<GraphDocument[]>;
+  document(id: string): Promise<StoredDocument>;
+  segments(id: string): Promise<DocumentSegments>;
+  extract(model: string, markdown: string): Promise<ExtractionSegments>;
+  save(changes: SaveChange[]): Promise<SaveResult>;
+}
+
+type FetchLike = (input: string, init?: RequestInit) => Promise<Response>;
+
+function errorMessage(body: unknown, status: number): string {
+  if (body && typeof body === "object" && "error" in body && typeof body.error === "string") {
+    return body.error;
+  }
+  return `SLDB respondió ${status}`;
+}
+
+export function createHttpClient(baseUrl: string, fetchImpl: FetchLike = (i, init) => fetch(i, init)): SldbClient {
+  const root = baseUrl.replace(/\/$/, "");
+
+  async function request<T>(path: string, init?: RequestInit): Promise<T> {
+    const response = await fetchImpl(`${root}${path}`, init);
+    const body: unknown = await response.json().catch(() => null);
+    if (response.status === 409) throw new SaveConflictError(errorMessage(body, 409), body);
+    if (!response.ok) throw new SldbHttpError(errorMessage(body, response.status), response.status, body);
+    return body as T;
+  }
+
+  const post = <T>(path: string, body: unknown) =>
+    request<T>(path, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+
+  return {
+    schema: () => request<SchemaResponse>("/schema"),
+    documents: async () => (await request<{ documents: GraphDocument[] }>("/graph")).documents,
+    document: (id) => request<StoredDocument>(`/document?id=${encodeURIComponent(id)}`),
+    segments: (id) => request<DocumentSegments>(`/document/segments?id=${encodeURIComponent(id)}`),
+    extract: (model, markdown) => post<ExtractionSegments>("/extract/segments", { model, markdown }),
+    save: (changes) => post<SaveResult>("/save", { changes }),
+  };
+}
