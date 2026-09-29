@@ -1,0 +1,21 @@
+name: atom-una-task-de-diseno-entrega-un-documento-y-su-doc-puede-decir-que-lo-disenado-no-existe
+path: desk/atoms/atom-una-task-de-diseno-entrega-un-documento-y-su-doc-puede-decir-que-lo-disenado-no-existe.md
+source_hash: db3d21c0af3d3c0f0be3da7b4c9bfbb2b59aec3434dd8f69803b2ae477f5bd16
+content_hash: 1d354afb6912ce6899792de3dc32065227aa3839bfe2e74fcce9672359e8559a
+field_hashes:
+  id: 27ac9e064679f22e58e03a0293f67709ae6c73c1fe36d7c1795d5992f2a37c71
+  title: c4eb9fb8f133baefe809f3bad7aef8ed0facb76893153cb41d74129b03604c6b
+  five_wh_one_plus: c7d4bb6c4e85ef7f9bf7592aeecd1d09dd38adc39afd1ffb3908b19e689040ad
+  answer: fbf890406e3a4bab2010d941811cf2c2070d32ffc5d10841817c23733557a722
+  tags: b27d1eed3e66d6d16063e24598dfaf87cc7b5080e07b47ae1d81ee11bfa532dd
+  provenance: 3dbe8b373d5d0b3b1891cec20cc6f0236ee8ce9e674e9f646fd5ef90e5c297f7
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:deskops
+- system:sldb
+- topic:documentation
+- topic:drift
+- topic:workflow
+- type.knowledge.atom
+- workspace.desk.atoms

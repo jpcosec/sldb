@@ -3,10 +3,10 @@ model_ref: deskops.models:EdgeDoc
 path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/edge.py
 documents_index: .sldb/core/documents/EdgeDoc.yaml
 sections_index: .sldb/runtime/sections/EdgeDoc.yaml
-model_hash: 99b5bb226a21ec7e80bdd723af63237c149478a14b8d2ce82c005b20fe0c4b39
-roster_hash: 561f322315f667def35365bddd4b85c7bdee0b75784b7a44e47e711cc61afc18
+model_hash: bf34b80524ce8dfed4cbe6a7c7584049bd3611863a1505cb9145c5964c8bd0e4
+roster_hash: f365b27e7dbc640c0fffc34bd94097cbdc2efa134e5947e4ec06d446607deaa4
 contract_hash: 53c29096b8da97d8f40707a74e07d77d37b5139d0fa5e2dc8403c0a87a41cb19
-documents_count: 72
+documents_count: 24
 version: 1
 canonical: false
 family: null

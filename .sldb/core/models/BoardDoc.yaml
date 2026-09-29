@@ -3,8 +3,8 @@ model_ref: deskops.models:BoardDoc
 path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/board.py
 documents_index: .sldb/core/documents/BoardDoc.yaml
 sections_index: .sldb/runtime/sections/BoardDoc.yaml
-model_hash: 91189961028b9adb5d3b0e38d04b95e30b4fc94354427eecde6d6eafeebd3253
-roster_hash: 2f08eae2230cb32b619b049c83ea104600032b415dbd78577c79c5962f0402e1
+model_hash: 0e02a8320d2663d0c48e15eaae57a32d93ebcdafc96accdcf9dcb0cd83418a4e
+roster_hash: 89659038303401cb3ebb6e62e40f7dcfa4957306ee44bec1e948f1c766f6dacd
 contract_hash: a05f7a5f7f14a692f984b4952015a5867fffeb61b438fea720e9b631ed3eb77b
 documents_count: 2
 version: 1

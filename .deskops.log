@@ -172,3 +172,213 @@ Task-Id: task-retirar-modulos-sueltos-sin-importadores
 2026-09-29 06:11:00,818 - deskops - DEBUG - Removing file edge-task-retirar-modulos-sueltos-sin-importadores-ready-to-closeout.md
 2026-09-29 06:11:00,858 - deskops - DEBUG - Removing file edge-task-retirar-modulos-sueltos-sin-importadores-activate-to-testing.md
 2026-09-29 06:11:00,902 - deskops - DEBUG - Removing file edge-task-retirar-modulos-sueltos-sin-importadores-execution-to-activate.md
+2026-09-29 06:26:38,537 - deskops - INFO - Advanced task task-expand-sldb-composition-modes manually to checklist-task-expand-sldb-composition-modes-closeout-ready
+2026-09-29 06:26:42,423 - deskops - INFO - Advanced task task-expand-sldb-composition-modes to node checklist-task-expand-sldb-composition-modes-closeout-ready
+2026-09-29 06:26:55,146 - deskops - INFO - Advanced task task-expand-sldb-composition-modes manually to checklist-task-expand-sldb-composition-modes-execution-ready
+2026-09-29 06:26:57,071 - deskops - INFO - Advanced task task-expand-sldb-composition-modes to node checklist-task-expand-sldb-composition-modes-testing-ready
+2026-09-29 06:27:01,428 - deskops - INFO - Advanced task task-expand-sldb-composition-modes to node checklist-task-expand-sldb-composition-modes-closeout-ready
+2026-09-29 06:27:02,466 - deskops - INFO - Task task-expand-sldb-composition-modes is complete. Performing auto-commit and cleanup.
+2026-09-29 06:27:02,466 - deskops - DEBUG - Removing task task-expand-sldb-composition-modes from Board.md
+2026-09-29 06:27:03,265 - deskops - INFO - Committing closure for task-expand-sldb-composition-modes: closeout: task-expand-sldb-composition-modes
+
+Task-Id: task-expand-sldb-composition-modes
+2026-09-29 06:27:03,574 - deskops - DEBUG - Removing file task-expand-sldb-composition-modes.md
+2026-09-29 06:27:03,849 - deskops - DEBUG - Removing file routine-task-expand-sldb-composition-modes.md
+2026-09-29 06:27:04,310 - deskops - DEBUG - Removing file condition-task-expand-sldb-composition-modes-has-closeout-evidence.md
+2026-09-29 06:27:04,365 - deskops - DEBUG - Removing file condition-task-expand-sldb-composition-modes-has-validation.md
+2026-09-29 06:27:04,418 - deskops - DEBUG - Removing file condition-task-expand-sldb-composition-modes-has-implementation-path.md
+2026-09-29 06:27:04,474 - deskops - DEBUG - Removing file condition-task-expand-sldb-composition-modes-ready-for-closeout.md
+2026-09-29 06:27:04,711 - deskops - DEBUG - Removing file checklist-task-expand-sldb-composition-modes-testing-ready.md
+2026-09-29 06:27:04,768 - deskops - DEBUG - Removing file checklist-task-expand-sldb-composition-modes-closeout-ready.md
+2026-09-29 06:27:04,822 - deskops - DEBUG - Removing file checklist-task-expand-sldb-composition-modes-execution-ready.md
+2026-09-29 06:27:05,114 - deskops - DEBUG - Removing file operator-task-expand-sldb-composition-modes-ready-for-testing.md
+2026-09-29 06:27:05,157 - deskops - DEBUG - Removing file operator-task-expand-sldb-composition-modes-close.md
+2026-09-29 06:27:05,196 - deskops - DEBUG - Removing file operator-task-expand-sldb-composition-modes-activate.md
+2026-09-29 06:27:05,583 - deskops - DEBUG - Removing file edge-task-expand-sldb-composition-modes-close-to-complete.md
+2026-09-29 06:27:05,629 - deskops - DEBUG - Removing file edge-task-expand-sldb-composition-modes-activate-to-testing.md
+2026-09-29 06:27:05,671 - deskops - DEBUG - Removing file edge-task-expand-sldb-composition-modes-ready-to-closeout.md
+2026-09-29 06:27:05,721 - deskops - DEBUG - Removing file edge-task-expand-sldb-composition-modes-execution-to-activate.md
+2026-09-29 06:27:05,767 - deskops - DEBUG - Removing file edge-task-expand-sldb-composition-modes-closeout-to-close.md
+2026-09-29 06:27:05,816 - deskops - DEBUG - Removing file edge-task-expand-sldb-composition-modes-testing-to-ready.md
+2026-09-29 06:27:14,242 - deskops - INFO - Advanced task task-mapear-arquitectura-real-de-sldb manually to checklist-task-mapear-arquitectura-real-de-sldb-execution-ready
+2026-09-29 06:27:15,371 - deskops - INFO - Advanced task task-mapear-arquitectura-real-de-sldb to node checklist-task-mapear-arquitectura-real-de-sldb-testing-ready
+2026-09-29 06:27:16,300 - deskops - INFO - Advanced task task-mapear-arquitectura-real-de-sldb to node checklist-task-mapear-arquitectura-real-de-sldb-closeout-ready
+2026-09-29 06:27:17,464 - deskops - INFO - Task task-mapear-arquitectura-real-de-sldb is complete. Performing auto-commit and cleanup.
+2026-09-29 06:27:17,464 - deskops - DEBUG - Removing task task-mapear-arquitectura-real-de-sldb from Board.md
+2026-09-29 06:27:17,991 - deskops - INFO - Committing closure for task-mapear-arquitectura-real-de-sldb: closeout: task-mapear-arquitectura-real-de-sldb
+
+Task-Id: task-mapear-arquitectura-real-de-sldb
+2026-09-29 06:27:18,101 - deskops - DEBUG - Removing file task-mapear-arquitectura-real-de-sldb.md
+2026-09-29 06:27:18,231 - deskops - DEBUG - Removing file routine-task-mapear-arquitectura-real-de-sldb.md
+2026-09-29 06:27:18,456 - deskops - DEBUG - Removing file condition-task-mapear-arquitectura-real-de-sldb-has-closeout-evidence.md
+2026-09-29 06:27:18,494 - deskops - DEBUG - Removing file condition-task-mapear-arquitectura-real-de-sldb-has-validation.md
+2026-09-29 06:27:18,535 - deskops - DEBUG - Removing file condition-task-mapear-arquitectura-real-de-sldb-has-implementation-path.md
+2026-09-29 06:27:18,575 - deskops - DEBUG - Removing file condition-task-mapear-arquitectura-real-de-sldb-ready-for-closeout.md
+2026-09-29 06:27:18,728 - deskops - DEBUG - Removing file checklist-task-mapear-arquitectura-real-de-sldb-execution-ready.md
+2026-09-29 06:27:18,768 - deskops - DEBUG - Removing file checklist-task-mapear-arquitectura-real-de-sldb-testing-ready.md
+2026-09-29 06:27:18,814 - deskops - DEBUG - Removing file checklist-task-mapear-arquitectura-real-de-sldb-closeout-ready.md
+2026-09-29 06:27:18,974 - deskops - DEBUG - Removing file operator-task-mapear-arquitectura-real-de-sldb-activate.md
+2026-09-29 06:27:19,014 - deskops - DEBUG - Removing file operator-task-mapear-arquitectura-real-de-sldb-ready-for-testing.md
+2026-09-29 06:27:19,054 - deskops - DEBUG - Removing file operator-task-mapear-arquitectura-real-de-sldb-close.md
+2026-09-29 06:27:19,333 - deskops - DEBUG - Removing file edge-task-mapear-arquitectura-real-de-sldb-close-to-complete.md
+2026-09-29 06:27:19,371 - deskops - DEBUG - Removing file edge-task-mapear-arquitectura-real-de-sldb-execution-to-activate.md
+2026-09-29 06:27:19,416 - deskops - DEBUG - Removing file edge-task-mapear-arquitectura-real-de-sldb-ready-to-closeout.md
+2026-09-29 06:27:19,456 - deskops - DEBUG - Removing file edge-task-mapear-arquitectura-real-de-sldb-testing-to-ready.md
+2026-09-29 06:27:19,493 - deskops - DEBUG - Removing file edge-task-mapear-arquitectura-real-de-sldb-closeout-to-close.md
+2026-09-29 06:27:19,530 - deskops - DEBUG - Removing file edge-task-mapear-arquitectura-real-de-sldb-activate-to-testing.md
+2026-09-29 06:27:21,813 - deskops - INFO - Advanced task task-definir-arquitectura-objetivo-modular-de-sldb manually to checklist-task-definir-arquitectura-objetivo-modular-de-sldb-execution-ready
+2026-09-29 06:27:22,546 - deskops - INFO - Advanced task task-definir-arquitectura-objetivo-modular-de-sldb to node checklist-task-definir-arquitectura-objetivo-modular-de-sldb-testing-ready
+2026-09-29 06:27:23,260 - deskops - INFO - Advanced task task-definir-arquitectura-objetivo-modular-de-sldb to node checklist-task-definir-arquitectura-objetivo-modular-de-sldb-closeout-ready
+2026-09-29 06:27:23,789 - deskops - INFO - Task task-definir-arquitectura-objetivo-modular-de-sldb is complete. Performing auto-commit and cleanup.
+2026-09-29 06:27:23,790 - deskops - DEBUG - Removing task task-definir-arquitectura-objetivo-modular-de-sldb from Board.md
+2026-09-29 06:27:24,107 - deskops - INFO - Committing closure for task-definir-arquitectura-objetivo-modular-de-sldb: closeout: task-definir-arquitectura-objetivo-modular-de-sldb
+
+Task-Id: task-definir-arquitectura-objetivo-modular-de-sldb
+2026-09-29 06:27:24,201 - deskops - DEBUG - Removing file task-definir-arquitectura-objetivo-modular-de-sldb.md
+2026-09-29 06:27:24,278 - deskops - DEBUG - Removing file routine-task-definir-arquitectura-objetivo-modular-de-sldb.md
+2026-09-29 06:27:24,470 - deskops - DEBUG - Removing file condition-task-definir-arquitectura-objetivo-modular-de-sldb-has-validation.md
+2026-09-29 06:27:24,506 - deskops - DEBUG - Removing file condition-task-definir-arquitectura-objetivo-modular-de-sldb-has-implementation-path.md
+2026-09-29 06:27:24,544 - deskops - DEBUG - Removing file condition-task-definir-arquitectura-objetivo-modular-de-sldb-ready-for-closeout.md
+2026-09-29 06:27:24,581 - deskops - DEBUG - Removing file condition-task-definir-arquitectura-objetivo-modular-de-sldb-has-closeout-evidence.md
+2026-09-29 06:27:24,704 - deskops - DEBUG - Removing file checklist-task-definir-arquitectura-objetivo-modular-de-sldb-testing-ready.md
+2026-09-29 06:27:24,739 - deskops - DEBUG - Removing file checklist-task-definir-arquitectura-objetivo-modular-de-sldb-execution-ready.md
+2026-09-29 06:27:24,774 - deskops - DEBUG - Removing file checklist-task-definir-arquitectura-objetivo-modular-de-sldb-closeout-ready.md
+2026-09-29 06:27:24,896 - deskops - DEBUG - Removing file operator-task-definir-arquitectura-objetivo-modular-de-sldb-close.md
+2026-09-29 06:27:24,937 - deskops - DEBUG - Removing file operator-task-definir-arquitectura-objetivo-modular-de-sldb-activate.md
+2026-09-29 06:27:24,973 - deskops - DEBUG - Removing file operator-task-definir-arquitectura-objetivo-modular-de-sldb-ready-for-testing.md
+2026-09-29 06:27:25,215 - deskops - DEBUG - Removing file edge-task-definir-arquitectura-objetivo-modular-de-sldb-execution-to-activate.md
+2026-09-29 06:27:25,249 - deskops - DEBUG - Removing file edge-task-definir-arquitectura-objetivo-modular-de-sldb-closeout-to-close.md
+2026-09-29 06:27:25,285 - deskops - DEBUG - Removing file edge-task-definir-arquitectura-objetivo-modular-de-sldb-testing-to-ready.md
+2026-09-29 06:27:25,322 - deskops - DEBUG - Removing file edge-task-definir-arquitectura-objetivo-modular-de-sldb-ready-to-closeout.md
+2026-09-29 06:27:25,356 - deskops - DEBUG - Removing file edge-task-definir-arquitectura-objetivo-modular-de-sldb-activate-to-testing.md
+2026-09-29 06:27:25,390 - deskops - DEBUG - Removing file edge-task-definir-arquitectura-objetivo-modular-de-sldb-close-to-complete.md
+2026-09-29 06:27:27,763 - deskops - INFO - Advanced task task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n manually to checklist-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-execution-ready
+2026-09-29 06:27:28,486 - deskops - INFO - Advanced task task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n to node checklist-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-testing-ready
+2026-09-29 06:27:29,199 - deskops - INFO - Advanced task task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n to node checklist-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-closeout-ready
+2026-09-29 06:27:29,767 - deskops - INFO - Task task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n is complete. Performing auto-commit and cleanup.
+2026-09-29 06:27:29,767 - deskops - DEBUG - Removing task task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n from Board.md
+2026-09-29 06:27:30,074 - deskops - INFO - Committing closure for task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n: closeout: task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n
+
+Task-Id: task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n
+2026-09-29 06:27:30,154 - deskops - DEBUG - Removing file task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n.md
+2026-09-29 06:27:30,224 - deskops - DEBUG - Removing file routine-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n.md
+2026-09-29 06:27:30,383 - deskops - DEBUG - Removing file condition-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-ready-for-closeout.md
+2026-09-29 06:27:30,419 - deskops - DEBUG - Removing file condition-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-has-validation.md
+2026-09-29 06:27:30,456 - deskops - DEBUG - Removing file condition-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-has-implementation-path.md
+2026-09-29 06:27:30,493 - deskops - DEBUG - Removing file condition-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-has-closeout-evidence.md
+2026-09-29 06:27:30,601 - deskops - DEBUG - Removing file checklist-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-testing-ready.md
+2026-09-29 06:27:30,635 - deskops - DEBUG - Removing file checklist-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-execution-ready.md
+2026-09-29 06:27:30,668 - deskops - DEBUG - Removing file checklist-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-closeout-ready.md
+2026-09-29 06:27:30,773 - deskops - DEBUG - Removing file operator-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-close.md
+2026-09-29 06:27:30,807 - deskops - DEBUG - Removing file operator-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-ready-for-testing.md
+2026-09-29 06:27:30,841 - deskops - DEBUG - Removing file operator-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-activate.md
+2026-09-29 06:27:31,047 - deskops - DEBUG - Removing file edge-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-testing-to-ready.md
+2026-09-29 06:27:31,081 - deskops - DEBUG - Removing file edge-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-ready-to-closeout.md
+2026-09-29 06:27:31,115 - deskops - DEBUG - Removing file edge-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-closeout-to-close.md
+2026-09-29 06:27:31,149 - deskops - DEBUG - Removing file edge-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-activate-to-testing.md
+2026-09-29 06:27:31,184 - deskops - DEBUG - Removing file edge-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-execution-to-activate.md
+2026-09-29 06:27:31,220 - deskops - DEBUG - Removing file edge-task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n-close-to-complete.md
+2026-09-29 06:27:33,524 - deskops - INFO - Advanced task task-ejecutar-refactor-base-del-n-cleo-sldb manually to checklist-task-ejecutar-refactor-base-del-n-cleo-sldb-execution-ready
+2026-09-29 06:27:34,223 - deskops - INFO - Advanced task task-ejecutar-refactor-base-del-n-cleo-sldb to node checklist-task-ejecutar-refactor-base-del-n-cleo-sldb-testing-ready
+2026-09-29 06:27:34,973 - deskops - INFO - Advanced task task-ejecutar-refactor-base-del-n-cleo-sldb to node checklist-task-ejecutar-refactor-base-del-n-cleo-sldb-closeout-ready
+2026-09-29 06:27:35,561 - deskops - INFO - Task task-ejecutar-refactor-base-del-n-cleo-sldb is complete. Performing auto-commit and cleanup.
+2026-09-29 06:27:35,561 - deskops - DEBUG - Removing task task-ejecutar-refactor-base-del-n-cleo-sldb from Board.md
+2026-09-29 06:27:35,874 - deskops - INFO - Committing closure for task-ejecutar-refactor-base-del-n-cleo-sldb: closeout: task-ejecutar-refactor-base-del-n-cleo-sldb
+
+Task-Id: task-ejecutar-refactor-base-del-n-cleo-sldb
+2026-09-29 06:27:35,954 - deskops - DEBUG - Removing file task-ejecutar-refactor-base-del-n-cleo-sldb.md
+2026-09-29 06:27:36,020 - deskops - DEBUG - Removing file routine-task-ejecutar-refactor-base-del-n-cleo-sldb.md
+2026-09-29 06:27:36,185 - deskops - DEBUG - Removing file condition-task-ejecutar-refactor-base-del-n-cleo-sldb-has-implementation-path.md
+2026-09-29 06:27:36,221 - deskops - DEBUG - Removing file condition-task-ejecutar-refactor-base-del-n-cleo-sldb-has-closeout-evidence.md
+2026-09-29 06:27:36,256 - deskops - DEBUG - Removing file condition-task-ejecutar-refactor-base-del-n-cleo-sldb-has-validation.md
+2026-09-29 06:27:36,290 - deskops - DEBUG - Removing file condition-task-ejecutar-refactor-base-del-n-cleo-sldb-ready-for-closeout.md
+2026-09-29 06:27:36,393 - deskops - DEBUG - Removing file checklist-task-ejecutar-refactor-base-del-n-cleo-sldb-closeout-ready.md
+2026-09-29 06:27:36,435 - deskops - DEBUG - Removing file checklist-task-ejecutar-refactor-base-del-n-cleo-sldb-execution-ready.md
+2026-09-29 06:27:36,475 - deskops - DEBUG - Removing file checklist-task-ejecutar-refactor-base-del-n-cleo-sldb-testing-ready.md
+2026-09-29 06:27:36,575 - deskops - DEBUG - Removing file operator-task-ejecutar-refactor-base-del-n-cleo-sldb-ready-for-testing.md
+2026-09-29 06:27:36,610 - deskops - DEBUG - Removing file operator-task-ejecutar-refactor-base-del-n-cleo-sldb-close.md
+2026-09-29 06:27:36,645 - deskops - DEBUG - Removing file operator-task-ejecutar-refactor-base-del-n-cleo-sldb-activate.md
+2026-09-29 06:27:36,827 - deskops - DEBUG - Removing file edge-task-ejecutar-refactor-base-del-n-cleo-sldb-closeout-to-close.md
+2026-09-29 06:27:36,863 - deskops - DEBUG - Removing file edge-task-ejecutar-refactor-base-del-n-cleo-sldb-close-to-complete.md
+2026-09-29 06:27:36,900 - deskops - DEBUG - Removing file edge-task-ejecutar-refactor-base-del-n-cleo-sldb-testing-to-ready.md
+2026-09-29 06:27:36,937 - deskops - DEBUG - Removing file edge-task-ejecutar-refactor-base-del-n-cleo-sldb-ready-to-closeout.md
+2026-09-29 06:27:36,971 - deskops - DEBUG - Removing file edge-task-ejecutar-refactor-base-del-n-cleo-sldb-activate-to-testing.md
+2026-09-29 06:27:37,012 - deskops - DEBUG - Removing file edge-task-ejecutar-refactor-base-del-n-cleo-sldb-execution-to-activate.md
+2026-09-29 06:27:39,270 - deskops - INFO - Advanced task task-define-sldb-addressability-model manually to checklist-task-define-sldb-addressability-model-execution-ready
+2026-09-29 06:27:40,073 - deskops - INFO - Advanced task task-define-sldb-addressability-model to node checklist-task-define-sldb-addressability-model-testing-ready
+2026-09-29 06:27:40,777 - deskops - INFO - Advanced task task-define-sldb-addressability-model to node checklist-task-define-sldb-addressability-model-closeout-ready
+2026-09-29 06:27:41,325 - deskops - INFO - Task task-define-sldb-addressability-model is complete. Performing auto-commit and cleanup.
+2026-09-29 06:27:41,325 - deskops - DEBUG - Removing task task-define-sldb-addressability-model from Board.md
+2026-09-29 06:27:41,647 - deskops - INFO - Committing closure for task-define-sldb-addressability-model: closeout: task-define-sldb-addressability-model
+
+Task-Id: task-define-sldb-addressability-model
+2026-09-29 06:27:41,733 - deskops - DEBUG - Removing file task-define-sldb-addressability-model.md
+2026-09-29 06:27:41,800 - deskops - DEBUG - Removing file routine-task-define-sldb-addressability-model.md
+2026-09-29 06:27:41,952 - deskops - DEBUG - Removing file condition-task-define-sldb-addressability-model-has-implementation-path.md
+2026-09-29 06:27:41,988 - deskops - DEBUG - Removing file condition-task-define-sldb-addressability-model-has-closeout-evidence.md
+2026-09-29 06:27:42,025 - deskops - DEBUG - Removing file condition-task-define-sldb-addressability-model-ready-for-closeout.md
+2026-09-29 06:27:42,062 - deskops - DEBUG - Removing file condition-task-define-sldb-addressability-model-has-validation.md
+2026-09-29 06:27:42,172 - deskops - DEBUG - Removing file checklist-task-define-sldb-addressability-model-execution-ready.md
+2026-09-29 06:27:42,211 - deskops - DEBUG - Removing file checklist-task-define-sldb-addressability-model-testing-ready.md
+2026-09-29 06:27:42,251 - deskops - DEBUG - Removing file checklist-task-define-sldb-addressability-model-closeout-ready.md
+2026-09-29 06:27:42,355 - deskops - DEBUG - Removing file operator-task-define-sldb-addressability-model-activate.md
+2026-09-29 06:27:42,396 - deskops - DEBUG - Removing file operator-task-define-sldb-addressability-model-close.md
+2026-09-29 06:27:42,435 - deskops - DEBUG - Removing file operator-task-define-sldb-addressability-model-ready-for-testing.md
+2026-09-29 06:27:42,595 - deskops - DEBUG - Removing file edge-task-define-sldb-addressability-model-closeout-to-close.md
+2026-09-29 06:27:42,632 - deskops - DEBUG - Removing file edge-task-define-sldb-addressability-model-ready-to-closeout.md
+2026-09-29 06:27:42,667 - deskops - DEBUG - Removing file edge-task-define-sldb-addressability-model-testing-to-ready.md
+2026-09-29 06:27:42,702 - deskops - DEBUG - Removing file edge-task-define-sldb-addressability-model-activate-to-testing.md
+2026-09-29 06:27:42,738 - deskops - DEBUG - Removing file edge-task-define-sldb-addressability-model-close-to-complete.md
+2026-09-29 06:27:42,775 - deskops - DEBUG - Removing file edge-task-define-sldb-addressability-model-execution-to-activate.md
+2026-09-29 06:27:45,211 - deskops - INFO - Advanced task task-design-sldb-ast-query-primitives manually to checklist-task-design-sldb-ast-query-primitives-execution-ready
+2026-09-29 06:27:45,934 - deskops - INFO - Advanced task task-design-sldb-ast-query-primitives to node checklist-task-design-sldb-ast-query-primitives-testing-ready
+2026-09-29 06:27:46,700 - deskops - INFO - Advanced task task-design-sldb-ast-query-primitives to node checklist-task-design-sldb-ast-query-primitives-closeout-ready
+2026-09-29 06:27:47,298 - deskops - INFO - Task task-design-sldb-ast-query-primitives is complete. Performing auto-commit and cleanup.
+2026-09-29 06:27:47,298 - deskops - DEBUG - Removing task task-design-sldb-ast-query-primitives from Board.md
+2026-09-29 06:27:47,622 - deskops - INFO - Committing closure for task-design-sldb-ast-query-primitives: closeout: task-design-sldb-ast-query-primitives
+
+Task-Id: task-design-sldb-ast-query-primitives
+2026-09-29 06:27:47,698 - deskops - DEBUG - Removing file task-design-sldb-ast-query-primitives.md
+2026-09-29 06:27:47,760 - deskops - DEBUG - Removing file routine-task-design-sldb-ast-query-primitives.md
+2026-09-29 06:27:47,907 - deskops - DEBUG - Removing file condition-task-design-sldb-ast-query-primitives-has-implementation-path.md
+2026-09-29 06:27:47,950 - deskops - DEBUG - Removing file condition-task-design-sldb-ast-query-primitives-has-closeout-evidence.md
+2026-09-29 06:27:47,985 - deskops - DEBUG - Removing file condition-task-design-sldb-ast-query-primitives-ready-for-closeout.md
+2026-09-29 06:27:48,028 - deskops - DEBUG - Removing file condition-task-design-sldb-ast-query-primitives-has-validation.md
+2026-09-29 06:27:48,127 - deskops - DEBUG - Removing file checklist-task-design-sldb-ast-query-primitives-closeout-ready.md
+2026-09-29 06:27:48,163 - deskops - DEBUG - Removing file checklist-task-design-sldb-ast-query-primitives-execution-ready.md
+2026-09-29 06:27:48,207 - deskops - DEBUG - Removing file checklist-task-design-sldb-ast-query-primitives-testing-ready.md
+2026-09-29 06:27:48,289 - deskops - DEBUG - Removing file operator-task-design-sldb-ast-query-primitives-activate.md
+2026-09-29 06:27:48,325 - deskops - DEBUG - Removing file operator-task-design-sldb-ast-query-primitives-ready-for-testing.md
+2026-09-29 06:27:48,362 - deskops - DEBUG - Removing file operator-task-design-sldb-ast-query-primitives-close.md
+2026-09-29 06:27:48,493 - deskops - DEBUG - Removing file edge-task-design-sldb-ast-query-primitives-activate-to-testing.md
+2026-09-29 06:27:48,529 - deskops - DEBUG - Removing file edge-task-design-sldb-ast-query-primitives-close-to-complete.md
+2026-09-29 06:27:48,565 - deskops - DEBUG - Removing file edge-task-design-sldb-ast-query-primitives-ready-to-closeout.md
+2026-09-29 06:27:48,600 - deskops - DEBUG - Removing file edge-task-design-sldb-ast-query-primitives-execution-to-activate.md
+2026-09-29 06:27:48,635 - deskops - DEBUG - Removing file edge-task-design-sldb-ast-query-primitives-testing-to-ready.md
+2026-09-29 06:27:48,671 - deskops - DEBUG - Removing file edge-task-design-sldb-ast-query-primitives-closeout-to-close.md
+2026-09-29 06:27:51,072 - deskops - INFO - Advanced task task-tighten-semantic-export-provenance-contract manually to checklist-task-tighten-semantic-export-provenance-contract-execution-ready
+2026-09-29 06:27:51,823 - deskops - INFO - Advanced task task-tighten-semantic-export-provenance-contract to node checklist-task-tighten-semantic-export-provenance-contract-testing-ready
+2026-09-29 06:27:52,631 - deskops - INFO - Advanced task task-tighten-semantic-export-provenance-contract to node checklist-task-tighten-semantic-export-provenance-contract-closeout-ready
+2026-09-29 06:27:53,206 - deskops - INFO - Task task-tighten-semantic-export-provenance-contract is complete. Performing auto-commit and cleanup.
+2026-09-29 06:27:53,206 - deskops - DEBUG - Removing task task-tighten-semantic-export-provenance-contract from Board.md
+2026-09-29 06:27:53,512 - deskops - INFO - Committing closure for task-tighten-semantic-export-provenance-contract: closeout: task-tighten-semantic-export-provenance-contract
+
+Task-Id: task-tighten-semantic-export-provenance-contract
+2026-09-29 06:27:53,582 - deskops - DEBUG - Removing file task-tighten-semantic-export-provenance-contract.md
+2026-09-29 06:27:53,637 - deskops - DEBUG - Removing file routine-task-tighten-semantic-export-provenance-contract.md
+2026-09-29 06:27:53,770 - deskops - DEBUG - Removing file condition-task-tighten-semantic-export-provenance-contract-has-implementation-path.md
+2026-09-29 06:27:53,807 - deskops - DEBUG - Removing file condition-task-tighten-semantic-export-provenance-contract-has-validation.md
+2026-09-29 06:27:53,842 - deskops - DEBUG - Removing file condition-task-tighten-semantic-export-provenance-contract-ready-for-closeout.md
+2026-09-29 06:27:53,884 - deskops - DEBUG - Removing file condition-task-tighten-semantic-export-provenance-contract-has-closeout-evidence.md
+2026-09-29 06:27:53,964 - deskops - DEBUG - Removing file checklist-task-tighten-semantic-export-provenance-contract-closeout-ready.md
+2026-09-29 06:27:54,002 - deskops - DEBUG - Removing file checklist-task-tighten-semantic-export-provenance-contract-testing-ready.md
+2026-09-29 06:27:54,041 - deskops - DEBUG - Removing file checklist-task-tighten-semantic-export-provenance-contract-execution-ready.md
+2026-09-29 06:27:54,126 - deskops - DEBUG - Removing file operator-task-tighten-semantic-export-provenance-contract-close.md
+2026-09-29 06:27:54,163 - deskops - DEBUG - Removing file operator-task-tighten-semantic-export-provenance-contract-ready-for-testing.md
+2026-09-29 06:27:54,201 - deskops - DEBUG - Removing file operator-task-tighten-semantic-export-provenance-contract-activate.md
+2026-09-29 06:27:54,339 - deskops - DEBUG - Removing file edge-task-tighten-semantic-export-provenance-contract-closeout-to-close.md
+2026-09-29 06:27:54,381 - deskops - DEBUG - Removing file edge-task-tighten-semantic-export-provenance-contract-close-to-complete.md
+2026-09-29 06:27:54,419 - deskops - DEBUG - Removing file edge-task-tighten-semantic-export-provenance-contract-testing-to-ready.md
+2026-09-29 06:27:54,459 - deskops - DEBUG - Removing file edge-task-tighten-semantic-export-provenance-contract-ready-to-closeout.md
+2026-09-29 06:27:54,498 - deskops - DEBUG - Removing file edge-task-tighten-semantic-export-provenance-contract-activate-to-testing.md
+2026-09-29 06:27:54,538 - deskops - DEBUG - Removing file edge-task-tighten-semantic-export-provenance-contract-execution-to-activate.md

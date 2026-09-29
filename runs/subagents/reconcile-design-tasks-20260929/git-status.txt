@@ -1,0 +1,22 @@
+ M .sldb/core/documents/TaskDoc/task-define-sldb-addressability-model.yaml
+ M .sldb/core/documents/TaskDoc/task-definir-arquitectura-objetivo-modular-de-sldb.yaml
+ M .sldb/core/documents/TaskDoc/task-design-sldb-ast-query-primitives.yaml
+ M .sldb/core/documents/TaskDoc/task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n.yaml
+ M .sldb/core/documents/TaskDoc/task-ejecutar-refactor-base-del-n-cleo-sldb.yaml
+ M .sldb/core/documents/TaskDoc/task-expand-sldb-composition-modes.yaml
+ M .sldb/core/documents/TaskDoc/task-mapear-arquitectura-real-de-sldb.yaml
+ M .sldb/core/documents/TaskDoc/task-tighten-semantic-export-provenance-contract.yaml
+ M .sldb/core/models/AtomDoc.yaml
+ M .sldb/core/models/TaskDoc.yaml
+ M .sldb/core/store_index.yaml
+ M desk/tasks/task-define-sldb-addressability-model.md
+ M desk/tasks/task-definir-arquitectura-objetivo-modular-de-sldb.md
+ M desk/tasks/task-design-sldb-ast-query-primitives.md
+ M desk/tasks/task-dise-ar-estrategia-de-extracci-n-y-modularizaci-n.md
+ M desk/tasks/task-ejecutar-refactor-base-del-n-cleo-sldb.md
+ M desk/tasks/task-expand-sldb-composition-modes.md
+ M desk/tasks/task-mapear-arquitectura-real-de-sldb.md
+ M desk/tasks/task-tighten-semantic-export-provenance-contract.md
+?? .sldb/core/documents/AtomDoc/atom-una-task-de-diseno-entrega-un-documento-y-su-doc-puede-decir-que-lo-disenado-no-existe.yaml
+?? desk/atoms/atom-una-task-de-diseno-entrega-un-documento-y-su-doc-puede-decir-que-lo-disenado-no-existe.md
+?? runs/subagents/reconcile-design-tasks-20260929/
