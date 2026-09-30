@@ -9,7 +9,7 @@ from sldb.api import serialize_document  # re-export: data contract moved to sld
 from sldb.cli.model_utils import resolve_model_ref
 from sldb.cli.serve.health import health_payload
 from sldb.cli.serve.edges_routes import dispatch_edge
-from sldb.cli.serve.document_routes import dispatch_document
+from sldb.cli.serve.document_routes import DOCUMENT_ROUTES, dispatch_document
 from sldb.cli.serve.docs_routes import dispatch_docs
 from sldb.cli.serve.find_routes import dispatch_find
 from sldb.cli.serve.graph_routes import dispatch_graph
@@ -66,7 +66,7 @@ def _nested_get(
         return dispatch_edge(handler, store_path)
     if route.startswith("/graph/"):
         return dispatch_graph(handler, store_path)
-    if route == "/document" or route == "/document/ir":
+    if route in DOCUMENT_ROUTES:
         return dispatch_document(handler, route, store_path, project_root, pythonpath)
     if route == "/models" or route.startswith("/models/"): return dispatch_models(handler, "GET", route, store_path, project_root, pythonpath)
     if route == "/lint": return dispatch_lint(handler, store_path, project_root, pythonpath)

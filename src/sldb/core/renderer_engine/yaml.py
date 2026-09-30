@@ -48,6 +48,38 @@ class YamlRenderer(BaseRenderer):
         value = data.get(marker.name)
         if value is None and marker.is_optional:
             return None
-        if value is None and not (marker.is_optional or marker.kind == "render"):
+        if value is None and marker.kind != "render":
             return self.replace_markers(line, data)
-        return yaml.safe_dump({key: value}, allow_unicode=True, sort_keys=False).strip()
+        return self._dump_frontmatter_value(key, value, marker)
+
+    def _dump_frontmatter_value(self, key: str, value: Any, marker: Any) -> str:
+        """Dump one front-matter pair to YAML and record its value span.
+
+        Args:
+            key: The front-matter key.
+            value: The value to dump.
+            marker: The parsed marker that owns the value.
+
+        Returns:
+            The stripped ``key: value`` YAML line, sentinel-wrapped when recording.
+        """
+        dumped = yaml.safe_dump({key: value}, allow_unicode=True, sort_keys=False).strip()
+        return self._record_frontmatter_value(dumped, key, marker)
+
+    def _record_frontmatter_value(self, dumped: str, key: str, marker: Any) -> str:
+        """Wrap what follows ``key:`` in a dumped front-matter line, if recording.
+
+        Args:
+            dumped: The already-dumped ``key: value`` line (may be multi-line).
+            key: The front-matter key.
+            marker: The parsed marker that owns the value.
+
+        Returns:
+            The line with its value span recorded, or unchanged without a recorder.
+        """
+        if self.recorder is None:
+            return dumped
+        head = f"{key}:"
+        rest = dumped[len(head):]
+        lead = len(rest) - len(rest.lstrip(" "))
+        return head + rest[:lead] + self.recorder.wrap(rest[lead:], self.recorder.meta_for(marker))

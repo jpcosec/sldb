@@ -1023,3 +1023,75 @@ def test_find_flags_and_param_validation(tmp_path: Path) -> None:
         assert status == 400 and "Missing parameter: q" in body["error"]
     finally:
         _stop(server, thread)
+
+
+# ── GET /document/segments: el documento como literales + spans editables ────
+
+def test_document_segments_returns_literals_and_field_spans(tmp_path: Path) -> None:
+    store = _build_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, body = _request_json(f"{base_url}/document/segments?id=book")
+        assert status == 200
+        assert body["doc"] == "book" and body["model"] == "SimpleBook"
+        assert body["path"] == "book.md" and body["canonical"] is True
+        assert body["text"] == "# My Book"
+        assert body["payload"] == {"title": "My Book"}
+        # los segmentos recomponen el texto canónico exactamente
+        assert "".join(segment["text"] for segment in body["segments"]) == body["text"]
+        assert [segment["type"] for segment in body["segments"]] == ["literal", "field"]
+        field = body["segments"][1]
+        assert field["path"] == "title" and field["marker"] == "rev"
+        assert field["editable"] is True and field["kind"] == "string"
+        assert field["value"] == "My Book"
+        assert body["text"][field["start"]:field["end"]] == "My Book"
+    finally:
+        _stop(server, thread)
+
+
+def test_document_segments_unknown_doc_returns_404(tmp_path: Path) -> None:
+    store = _build_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, body = _request_json(f"{base_url}/document/segments?id=nope", expected_error=404)
+        assert status == 404
+        assert body == {"ok": False, "error": "Unknown doc: nope"}
+    finally:
+        _stop(server, thread)
+
+
+def test_document_segments_missing_id_returns_400(tmp_path: Path) -> None:
+    store = _build_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, body = _request_json(f"{base_url}/document/segments", expected_error=400)
+        assert status == 400
+        assert body == {"ok": False, "error": "Missing parameter: id"}
+    finally:
+        _stop(server, thread)
+
+
+def test_document_segments_unrenderable_doc_returns_422(tmp_path: Path) -> None:
+    """Un doc trackeado cuyo payload ya no instancia su modelo es 422, no un 500.
+
+    Hay que invalidar la caché runtime además de romper el archivo: el payload
+    indexado sigue siendo válido hasta que alguien lo relee, que es exactamente
+    lo que pasa al reiniciar el servidor.
+    """
+    from sldb.store.query import invalidate_runtime_cache
+
+    store = _build_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, _ = _request_json(f"{base_url}/document/segments?id=book")
+        assert status == 200
+        # el markdown ya no extrae el campo requerido: el payload no instancia el modelo
+        (tmp_path / "book.md").write_text("no longer a book\n", encoding="utf-8")
+        invalidate_runtime_cache()
+        status, body = _request_json(f"{base_url}/document/segments?id=book", expected_error=422)
+        assert status == 422
+        assert body["ok"] is False
+        assert "title" in body["error"]
+    finally:
+        invalidate_runtime_cache()
+        _stop(server, thread)

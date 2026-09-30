@@ -24,7 +24,24 @@ class ListRenderer(BaseRenderer):
         if not isinstance(list_items, list): return ""
         if not list_items: return self.replace_markers(item_text, {root_prop: ""})
         rendered_items = []
-        for item in list_items:
+        for index, item in enumerate(list_items):
             d = item if isinstance(item, dict) else {root_prop: item}
-            rendered_items.append(self.replace_markers(item_text, d))
+            rendered_items.append(self._render_item(item_text, d, f"{root_prop}/{index}", None if isinstance(item, dict) else root_prop))
         return "\n".join(rendered_items)
+
+    def _render_item(self, item_text: str, data: dict[str, Any], prefix: str, scalar_root: str | None) -> str:
+        """One list item, with every recorded path scoped under its index.
+
+        Args:
+            item_text: The template of a single item.
+            data: The item's payload mapping.
+            prefix: Path of the item, such as ``steps/2``.
+            scalar_root: Root property name when the item is a scalar, else None.
+
+        Returns:
+            The rendered item.
+        """
+        if self.recorder is None:
+            return self.replace_markers(item_text, data)
+        with self.recorder.item_scope(prefix, scalar_root):
+            return self.replace_markers(item_text, data)
