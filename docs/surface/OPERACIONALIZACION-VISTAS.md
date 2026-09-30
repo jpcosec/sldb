@@ -36,6 +36,17 @@ teclado (hoy solo con puntero). El informe publicado queda atado a los 4 slots f
 los strings del payload y diluye el parecido (una frase casi idéntica a la cita de un átomo daba
 0.55). Para "¿esto ya existe?" se usa el ranking por *campo* (`fields=1`), que da 1.00 en ese caso.
 
+### Caso Levira (maqueta 2)
+
+`SLDB_ caso Levira, de fuentes a respuesta.html` generaliza el modelo: varias **fuentes** (`FuenteDoc`:
+prompt, folleto, mensaje) en vez de un acta; tipos de átomo abiertos por caso (regla, criterio, logística,
+dato del paciente, pregunta); **bases** y subgrupos como tags con puntos (`programa.asistente`; el título de
+display va en el `GrupoDoc`); informes de cualquier modelo (`SalidaDoc`: los slots son las claves `<x>_query`,
+con `_titulo` y `_rotulo`); y la **respuesta** (`RespuestaDoc`: texto y, por frase, los átomos que la respaldan).
+La maqueta no calculaba nada de su consulta (los filtros eran chips); aquí `base` y `tag` se unen con O,
+`tipo`/`estado`/`relacion` con Y y `distancia:N` amplía con vecinos a N saltos por `RelationDoc`. Criterio de
+aceptación con los datos del caso: exactamente 1 átomo nuevo (`p4`, en Reglas), como muestra la maqueta.
+
 ## 1. Lo que SLDB ya da
 
 El mock parecía pedir tres piezas nuevas. SLDB ya trae casi todo con sus propios modelos.

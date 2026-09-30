@@ -18,17 +18,32 @@ Tres vistas sobre el mismo store:
 
 ## La maqueta (`maqueta.html`)
 
-La UI de átomos pedida es la de `SLDB_ extracción, grafo y compositor.html`: sin barra lateral, con
-su cabecera y sus tres pestañas (Extracción · Grafo · Compositor). Vive en una entrada propia,
-`maqueta.html` → `src/maqueta/`, con el CSS de la maqueta sin tocar (`maqueta.css`), sus librerías
-(`@xyflow/react`, `prosemirror-*`) y los componentes portados 1:1 de su código, conectados al
-`sldb serve` real. `src/maqueta/adapter.ts` traduce átomos y aristas reales a la forma que esperan.
-Ruta: `#/extraccion`, `#/grafo`, `#/compositor`, con `?atom=<id>` para enfocar un átomo.
+La UI de átomos pedida es la de `SLDB_ caso Levira, de fuentes a respuesta.html` (que evoluciona
+`SLDB_ extracción, grafo y compositor.html`): sin barra lateral, con su cabecera y sus cuatro pestañas
+(Extracción · Grafo · Compositor · Respuesta). Vive en una entrada propia, `maqueta.html` →
+`src/maqueta/`, con el CSS de la maqueta sin tocar (`maqueta.css`), sus librerías (`@xyflow/react`,
+`prosemirror-*`) y los componentes portados de su código, conectados al `sldb serve` real.
+`src/maqueta/adapter.ts` traduce átomos y aristas reales a la forma que esperan.
+Ruta: `#/extraccion`, `#/grafo`, `#/compositor`, `#/respuesta`, con `?atom=<id>` para enfocar un átomo.
+
+Dos stores demo (los dos sirven a la misma UI; sin `RespuestaDoc` la pestaña Respuesta no aparece):
+
+- `dev/levira-store/`: el caso completo (3 fuentes, 30 átomos, 2 bases con 9 subgrupos, 6 tipos de
+  relación, informe de 4 slots, respuesta del asistente). `README.md` ahí; los datos salen de la
+  maqueta evaluada con node (`extract-mock.cjs`).
+- `dev/atoms-store/`: el caso anterior (un acta, 12 átomos, informe de 4 slots fijos).
 
 ```bash
-# con el backend de abajo corriendo
-open http://127.0.0.1:5173/maqueta.html
+cd dev/levira-store && bash seed.sh   # ~2-3 min: cada `docs create` reindexa el store
+PYTHONPATH=../../../src:$PWD python -m sldb serve --store .sldb --pythonpath $PWD --port 8912 --cors
+# en otra terminal, desde surface/
+SLDB_TARGET=http://127.0.0.1:8912 npm run dev   # y abrir /maqueta.html
 ```
+
+Lo que la maqueta simulaba y aquí no existe queda visible pero honesto: 'Re-extraer' y 'Agregar sección'
+deshabilitados, la prosa es una vista previa unida (no hay modelo redactando) y 'Enviar' solo marca la
+respuesta como enviada en el store (no hay canal de entrega). Los filtros de la consulta del Compositor
+(base, tag, tipo, estado, relación, distancia) filtran de verdad; en la maqueta eran chips decorativos.
 
 La superficie genérica (`index.html`, con sidebar y las vistas Documento, Composición, Salud,
 Bandeja, Lector, Destilación) sigue igual; las vistas de átomos que tenía (`src/views/atoms/`)
