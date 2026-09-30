@@ -73,3 +73,28 @@ def test_section_span_covers_body_until_next_peer_or_parent():
 def test_repeated_sibling_titles_receive_distinct_deterministic_paths():
     sections = extract_sections("# Same\nfirst\n# Same\nsecond\n")
     assert [section.path for section in sections] == ["same", "same-2"]
+
+
+def test_single_section_template_keeps_ownership_when_a_field_value_has_headings():
+    """Un field con markdown adentro aporta headings que no son secciones del template.
+
+    Un template de una sola seccion tiene un unico dueno posible, asi que los headings
+    extra no pueden desplazarlo. Antes se descartaba el mapeo entero y el documento
+    perdia el owning_section de todos sus fields: 16 de los 1550 de este repo, 60 fields.
+    """
+    template = "# ⸢rev•title⸥\n\n⸢rev•body⸥"
+    rendered = "# A title\n\n## Section inside the body\n\nText.\n\n## Another one\n\nMore.\n"
+    owners = _map_fields_to_sections(template, extract_sections(rendered))
+    assert set(owners) == {"title", "body"}
+    assert set(owners.values()) == {"a-title"}
+
+
+def test_multiple_section_template_still_refuses_when_counts_differ():
+    """Con mas de una seccion un heading inyectado puede ocupar el lugar de uno del template.
+
+    Ahi el mapeo seria incorrecto en silencio, que es justo el defecto que el guard evita:
+    se prefiere no mapear antes que atribuir mal.
+    """
+    template = "# ⸢rev•title⸥\n\n## Goal\n\n⸢rev•goal⸥"
+    rendered = "# A title\n\n## Goal\n\nText.\n\n## Injected by a value\n\nMore.\n"
+    assert _map_fields_to_sections(template, extract_sections(rendered)) == {}
