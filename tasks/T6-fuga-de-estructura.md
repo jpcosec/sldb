@@ -1,7 +1,8 @@
 # T6 · Ruido estructural: bloquear al registrar
 
-Estado: despachado (`pi5`) · Worktree: `hum-ecosystem-worktrees/sldb-noise`
+Estado: **HECHO** · Worktree: `hum-ecosystem-worktrees/sldb-noise`
 Rama: `feat/structural-noise-detection`
+Commit: `9450ada` — "noise: rechazar ruido estructural al registrar, con error visible"
 Request: `sldb/docs/requests/structural-noise-detection.md`
 
 ## Reescrita
@@ -59,3 +60,9 @@ trabajo, solo avisa tarde y suave.
 
 El ruido estructural es la señal principal de la vista SALUD. La vista cubre los
 documentos que entraron antes de que el bloqueo exista.
+
+## Resultado
+`docs track` y `docs create` BLOQUEAN con un `SLDBValidationError` que nombra cada
+heading sobrante; `stores check` reporta sin bloquear. Suite: 1081 passed en su momento.
+
+Verificado contra `domain-cobranza-spec` (5 headings sin declarar).
