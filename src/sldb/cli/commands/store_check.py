@@ -38,6 +38,11 @@ def _build_diag_payload(res: Any) -> dict[str, Any]:
     return {**verdict, **_build_finding_counts(res), "models": [_build_model_payload(m) for m in res.models]}
 
 
+def diag_payload(res: Any) -> dict[str, Any]:
+    """The payload `sldb stores check --format json` prints, for callers outside the CLI (the server)."""
+    return _build_diag_payload(res)
+
+
 def _build_finding_counts(res: Any) -> dict[str, Any]:
     """The findings behind the verdict, by category."""
     return {

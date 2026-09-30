@@ -11,6 +11,7 @@ from sldb.cli.serve.health import health_payload
 from sldb.cli.serve.docs_create_route import dispatch_docs_or_create
 from sldb.cli.serve.edges_documents_routes import dispatch_edges
 from sldb.cli.serve.document_routes import DOCUMENT_ROUTES, dispatch_document
+from sldb.cli.serve.corpus_routes import corpus_rank
 from sldb.cli.serve.find_routes import dispatch_find
 from sldb.cli.serve.graph_routes import dispatch_graph
 from sldb.cli.serve.lint_routes import dispatch_lint
@@ -22,6 +23,7 @@ from sldb.cli.serve.responses import read_json_body, send_json, send_common_head
 from sldb.cli.serve.save_routes import save_request
 from sldb.cli.serve.schema import store_schema
 from sldb.cli.serve.sections_routes import dispatch_sections
+from sldb.cli.serve.similar_routes import similar_payload
 from sldb.cli.serve.segments_routes import extract_segments_response
 from sldb.cli.serve.graph_payload import graph_documents, graph_payload  # noqa: F401 - graph_documents re-exported
 from sldb.cli.serve.stores_routes import dispatch_stores
@@ -76,6 +78,8 @@ def _nested_get(
 
 def _dispatch_reader(route: str, handler: BaseHTTPRequestHandler, store_path: Path, project_root: Path, pythonpath: str) -> tuple[dict[str, Any], int]:
     if route == "/stores" or route == "/stores/check": return dispatch_stores(handler, route, store_path, project_root, pythonpath)
+    if route == "/corpus/rank": return corpus_rank(handler, store_path, pythonpath)
+    if route == "/similar": return similar_payload(handler, store_path)
     if route == "/fields": return dispatch_fields(handler, store_path, project_root, pythonpath)
     if route == "/sections": return dispatch_sections(handler, store_path, project_root, pythonpath)
     if route == "/ast": return dispatch_ast(handler, store_path, project_root, pythonpath)

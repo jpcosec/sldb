@@ -17,7 +17,11 @@ def check_store(store_path: Path, project_root: Path, pythonpath: str | None = N
     from sldb.api.model_registry.model_reference import resolve_model_ref
     from sldb.store.diagnostics import diagnose_store
 
-    diagnosis = diagnose_store(store_path, resolve_model_ref, project_root, pythonpath=pythonpath)
+    return check_report(diagnose_store(store_path, resolve_model_ref, project_root, pythonpath=pythonpath))
+
+
+def check_report(diagnosis: Any) -> dict[str, Any]:
+    """The compact `{ok, valid, damaged, ..., checked, mismatched}` view of one diagnosis."""
     summary = _summarize(diagnosis)
     return {"ok": not summary["mismatched"], **_classified(diagnosis), **summary}
 

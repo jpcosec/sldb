@@ -4,7 +4,8 @@
 store_hash and the linked stores — the view `sldb stores list` prints. `/stores/check`
 runs the CLI's real integrity verification (`sldb.api.check_store` →
 ``diagnose_store``) and reports every document whose shard hash no longer matches
-its recorded source_hash/content_hash.
+its recorded source_hash/content_hash. It also carries the CLI's per-model and per-document
+verdicts (`root_ok`, `summary`, `models[]`), so model-vs-file divergence shows up too.
 """
 
 from __future__ import annotations
@@ -13,7 +14,7 @@ from http.server import BaseHTTPRequestHandler
 from pathlib import Path
 from typing import Any
 
-from sldb.api import check_store
+from sldb.cli.serve.stores_check import check_with_models
 from sldb.core.exceptions import SLDBError
 from sldb.store.io import load_documents_index, load_models_index, load_store_index
 
@@ -52,6 +53,6 @@ def _doc_count(store_path: Path, root: Path, index: Any) -> int:
 
 def _check(store_path: Path, root: Path, pythonpath: str) -> tuple[dict[str, Any], int]:
     try:
-        return check_store(store_path, root, pythonpath), 200
+        return check_with_models(store_path, root, pythonpath), 200
     except SLDBError as exc:
         return {"ok": False, "error": str(exc)}, 400
