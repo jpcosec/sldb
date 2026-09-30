@@ -24,4 +24,8 @@ Verificado contra el store real:
 Se implementó instrumentando el renderer con centinelas, no parseando de nuevo.
 
 ## Paso que queda
-Borrar el monkey-patch externo (`dev/reference_server.py` / `segments_prototype.py`).
+~~Borrar el monkey-patch externo~~ **HECHO** (`f7daee7`): `dev/reference_server.py` y
+`dev/segments_prototype.py` fueron borrados. Suplían tres endpoints que SLDB no tenía y
+ahora tiene: `GET /document/segments` (`74285b5`), `POST /extract/segments` y la
+degradación por modelo en `/schema` y `/graph` (`250e228`). La superficie corre contra
+`sldb serve` real, sin parche.
