@@ -1,6 +1,20 @@
 import { describe, expect, it } from "vitest";
 import type { GraphDocument } from "./contract";
-import { collectAnchors, distill, parseRef, suggestTemplate, type AnchorEntry } from "./distill";
+import type { FieldRankHit } from "./contract";
+import {
+  AMONG_MAX_CHARS,
+  amongIds,
+  classifyMatches,
+  collectAnchors,
+  distill,
+  parseRef,
+  rankRequest,
+  SIMILAR_K,
+  SIMILAR_K_UNSCOPED,
+  similarityQuery,
+  suggestTemplate,
+  type AnchorEntry,
+} from "./distill";
 
 const anchor = (doc: string, symbol: string, ref: string, motive: string): AnchorEntry => ({ doc, symbol, ref, motive });
 
@@ -159,5 +173,53 @@ describe("collectAnchors", () => {
     const docs = [doc("anchor-1", "Alias", { ref: "(model M)" }), doc("x", "DomainAtom", { ref: "(model M)" })];
     expect(collectAnchors(docs, null)).toEqual([]);
     expect(collectAnchors([doc("anchor-1", "AnchorAlias", { ref: "(model M)" })], null)).toHaveLength(1);
+  });
+});
+
+const fieldHit = (name: string, field: string, score: number): FieldRankHit => ({
+  id: `docs/M/${name}/${field}`,
+  document_id: `M:${name}`,
+  field,
+  model: "M",
+  name,
+  score,
+  text: "t",
+  payload: {},
+  tags: [],
+});
+
+describe("deduplicación de campos propuestos", () => {
+  it("la consulta sale del motive, acotada; sin motive no hay consulta", () => {
+    expect(similarityQuery({ motive: "  el   cliente\nno quiere " })).toBe("el cliente no quiere");
+    expect(similarityQuery({ motive: "   " })).toBeNull();
+    expect(similarityQuery({ motive: "x".repeat(1000) })?.length).toBe(400);
+  });
+
+  it("among excluye los propios anchors y usa Model:name", () => {
+    const docs = [
+      { id: "anchor-a", model_name: "AnchorDoc", path: "", payload: {} },
+      { id: "acta", model_name: "ActaDoc", path: "", payload: {} },
+    ] as GraphDocument[];
+    expect(amongIds(docs, [anchor("anchor-a", "s", "(field M f)", "m")])).toEqual(["ActaDoc:acta"]);
+  });
+
+  it("rankRequest usa fields, k=2 y umbral; sin among si no entra o está vacío", () => {
+    expect(rankRequest("q", ["A:a"])).toMatchObject({ q: "q", fields: true, k: SIMILAR_K, among: ["A:a"], threshold: 0.35 });
+    const long = Array.from({ length: AMONG_MAX_CHARS }, (_, i) => `M:doc${i}`);
+    const wide = rankRequest("q", long);
+    expect(wide.among).toBeUndefined();
+    expect(wide.k).toBe(SIMILAR_K_UNSCOPED);
+    expect(rankRequest("q", []).among).toBeUndefined();
+  });
+
+  it("clasifica duplicado/parecido, ordena, descarta propios y bajos", () => {
+    const hits = [fieldHit("b", "f", 0.5), fieldHit("own", "motive", 1), fieldHit("a", "f", 0.9), fieldHit("c", "f", 0.2), fieldHit("d", "f", 0.4)];
+    const out = classifyMatches(hits, new Set(["own"]));
+    expect(out.map((m) => [m.hit.name, m.kind])).toEqual([
+      ["a", "duplicate"],
+      ["b", "similar"],
+    ]);
+    expect(classifyMatches([], new Set())).toEqual([]);
+    expect(classifyMatches([fieldHit("a", "f", 0.85)], new Set())[0]?.kind).toBe("duplicate");
   });
 });

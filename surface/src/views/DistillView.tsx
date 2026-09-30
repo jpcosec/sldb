@@ -5,20 +5,161 @@
  * NO escribe: no genera archivos ni hace `POST`. SLDB no tiene endpoint de escritura de
  * modelos y no se inventa uno; el modelo lo revisa y lo escribe una persona.
  *
+ * DEDUPLICACIÓN: cada campo propuesto se compara con los campos que ya existen
+ * (`GET /corpus/rank?fields=1`, de a uno, sin bloquear la vista) y se marca "Posible
+ * duplicado de …" o "Parecido a …" con su puntaje y el enlace al documento. Es solo un
+ * aviso: la vista no tiene aceptar/descartar campos, así que no se inventa ese flujo. Tres
+ * estados que no se confunden: ok (lista vacía = "Sin campos parecidos"), not_indexed
+ * (botón "Indexar ahora") y unavailable ("Similitud no disponible: <razón>"). Nunca hay una
+ * heurística de reemplazo ni un vacío que pase por resultado.
+ *
  * El tipo de un anchor no vive en un campo `kind` (este store no lo declara): está
  * dentro de `ref`, que es una s-expression tipada. Ver `core/distill.ts`.
  */
-import { useEffect, useMemo, useState } from "react";
-import { findAnchorModel } from "../core/anchors";
-import { collectAnchors, distill, type ModelDraft, type ProposedField } from "../core/distill";
-import { useDocuments, useSchema } from "../react/context";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { findAnchorModel, scorePercent } from "../core/anchors";
+import {
+  amongIds,
+  classifyMatches,
+  collectAnchors,
+  distill,
+  rankRequest,
+  similarityQuery,
+  type FieldMatch,
+  type ModelDraft,
+  type ProposedField,
+} from "../core/distill";
+import { fieldLabel, similarityNotice } from "../core/similarity";
+import { useDocuments, useSchema, useSldb } from "../react/context";
 import { hrefFor } from "./router";
+import "./distill-similarity.css";
 
 const ROLE_LABEL: Record<ProposedField["role"], string> = {
   field: "campo",
   reference: "referencia",
   predicate: "predicado",
 };
+
+
+type Phase = { status: "idle" | "running" | "indexing" | "not_indexed" } | { status: "unavailable"; reason: string };
+
+interface FieldSimilarity {
+  phase: Phase;
+  /** Coincidencias por texto consultado; sin entrada = todavía no se comparó. */
+  results: Record<string, FieldMatch[]>;
+  keyOf: (query: string) => string;
+  indexNow: () => void;
+}
+
+/**
+ * Compara los textos propuestos de a uno (secuencial: difflib es caro) y guarda cada
+ * resultado mientras dure la vista. No lanza: `rank` devuelve tres estados. Ante
+ * not_indexed/unavailable corta, porque el resto fallaría igual.
+ */
+function useFieldSimilarity(queries: string[], among: string[], ownDocs: ReadonlySet<string>): FieldSimilarity {
+  const { client } = useSldb();
+  const [results, setResults] = useState<Record<string, FieldMatch[]>>({});
+  const [phase, setPhase] = useState<Phase>({ status: "idle" });
+  const [nonce, setNonce] = useState(0);
+  const known = useRef(results);
+  known.current = results;
+  const alive = useRef(true);
+  useEffect(() => {
+    alive.current = true;
+    return () => {
+      alive.current = false;
+    };
+  }, []);
+
+  const scope = `${among.length}`;
+  const keyOf = useCallback((query: string) => `${scope}|${query}`, [scope]);
+  const queriesKey = queries.join("\u0001");
+  const amongKey = among.join(",");
+
+  useEffect(() => {
+    const pending = queries.filter((query) => !(keyOf(query) in known.current));
+    if (pending.length === 0) {
+      setPhase({ status: "idle" });
+      return;
+    }
+    let cancelled = false;
+    void (async () => {
+      setPhase({ status: "running" });
+      for (const query of pending) {
+        const result = await client.rank(rankRequest(query, among));
+        if (cancelled) return;
+        if (result.status !== "ok") {
+          setPhase(result.status === "not_indexed" ? { status: "not_indexed" } : { status: "unavailable", reason: result.reason });
+          return;
+        }
+        setResults((prev) => ({ ...prev, [keyOf(query)]: classifyMatches(result.hits, ownDocs) }));
+      }
+      setPhase({ status: "idle" });
+    })();
+    return () => {
+      cancelled = true;
+    };
+    // `queries`/`among` se resumen en sus claves: los arreglos se rehacen en cada render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [client, queriesKey, amongKey, nonce, keyOf, ownDocs]);
+
+  const indexNow = useCallback(() => {
+    const first = queries[0];
+    if (first === undefined) return;
+    setPhase({ status: "indexing" });
+    void client.rank({ ...rankRequest(first, among), refresh: true }).then((result) => {
+      if (!alive.current) return;
+      if (result.status === "ok") {
+        setResults((prev) => ({ ...prev, [keyOf(first)]: classifyMatches(result.hits, ownDocs) }));
+        setNonce((n) => n + 1); // el índice ya existe: el resto se lee sin refresh.
+      } else {
+        setPhase(result.status === "not_indexed" ? { status: "not_indexed" } : { status: "unavailable", reason: result.reason });
+      }
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [client, queriesKey, amongKey, keyOf, ownDocs]);
+
+  return { phase, results, keyOf, indexNow };
+}
+
+function SimilarityBanner({ similarity }: { similarity: FieldSimilarity }) {
+  const { phase } = similarity;
+  if (phase.status === "indexing") return <p className="distill-sim-note" role="status">Indexando el corpus…</p>;
+  if (phase.status === "running") return <p className="distill-sim-note" role="status">Comparando con los campos del store…</p>;
+  if (phase.status === "not_indexed") {
+    return (
+      <div className="distill-sim-box distill-sim-box--not-indexed" role="status">
+        <p>{similarityNotice({ status: "not_indexed" })}</p>
+        <button type="button" className="btn" onClick={similarity.indexNow}>
+          Indexar ahora
+        </button>
+      </div>
+    );
+  }
+  if (phase.status === "unavailable") {
+    return <p className="distill-sim-box distill-sim-box--unavailable" role="status">{similarityNotice({ status: "unavailable", reason: phase.reason })}</p>;
+  }
+  return null;
+}
+
+function FieldSimilarityNote({ proposal, similarity }: { proposal: ProposedField; similarity: FieldSimilarity }) {
+  const query = similarityQuery(proposal);
+  if (query === null) return null;
+  const matches = similarity.results[similarity.keyOf(query)];
+  if (!matches) return null; // pendiente o sin poder comparar: lo dice el aviso de la sección.
+  if (matches.length === 0) return <p className="distill-sim-note">Sin campos parecidos</p>;
+  return (
+    <ul className="distill-sim-list">
+      {matches.map(({ kind, hit }) => (
+        <li key={hit.id} className={kind === "duplicate" ? "distill-sim-hit distill-sim-hit--duplicate" : "distill-sim-hit"}>
+          <span className={kind === "duplicate" ? "distill-sim-hit__flag" : undefined}>{kind === "duplicate" ? "Posible duplicado de" : "Parecido a"}</span>
+          <a href={hrefFor({ view: "doc", id: hit.name, mode: "document" })}>{fieldLabel(hit)}</a>
+          <span className="distill-sim-hit__score">({scorePercent(hit.score)}%)</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export function DistillView() {
   const [documents, reload] = useDocuments();
@@ -35,6 +176,14 @@ export function DistillView() {
   const current: ModelDraft | null = result.models.find((model) => model.model === selected) ?? result.models[0] ?? null;
 
   useEffect(() => setCopied(false), [current?.model]);
+
+  const ownDocs = useMemo(() => new Set(anchors.map((anchor) => anchor.doc)), [anchors]);
+  const among = useMemo(() => (docs ? amongIds(docs, anchors) : []), [docs, anchors]);
+  const queries = useMemo(() => {
+    const texts = (current?.fields ?? []).map(similarityQuery).filter((text): text is string => text !== null);
+    return [...new Set(texts)];
+  }, [current]);
+  const similarity = useFieldSimilarity(queries, among, ownDocs);
 
   const loading = documents.status === "loading" || schema.status === "loading";
   const error = documents.status === "error" ? documents.error : schema.status === "error" ? schema.error : null;
@@ -146,7 +295,14 @@ export function DistillView() {
                   <h2 className="panel-title">
                     Borrador · {current.model}
                   </h2>
-                  <ProposalList title="Campos" role="field" proposals={current.fields} empty="Ningún anchor nombra un campo de este modelo." />
+                  {queries.length > 0 && <SimilarityBanner similarity={similarity} />}
+                  <ProposalList
+                    title="Campos"
+                    role="field"
+                    proposals={current.fields}
+                    empty="Ningún anchor nombra un campo de este modelo."
+                    similarity={similarity}
+                  />
                   <ProposalList title="Referencias" role="reference" proposals={current.references} empty="Ningún anchor nombra una relación de este modelo." />
                   <ProposalList title="Predicados (no son campos)" role="predicate" proposals={current.predicates} empty="Sin predicados." />
 
@@ -203,11 +359,14 @@ function ProposalList({
   role,
   proposals,
   empty,
+  similarity,
 }: {
   title: string;
   role: ProposedField["role"];
   proposals: ProposedField[];
   empty: string;
+  /** Solo los campos se comparan con el store; referencias y predicados no. */
+  similarity?: FieldSimilarity;
 }) {
   return (
     <section className="distill-proposals" aria-label={title}>
@@ -233,6 +392,7 @@ function ProposalList({
                   </a>
                 ))}
               </span>
+              {similarity && <FieldSimilarityNote proposal={proposal} similarity={similarity} />}
             </li>
           ))}
         </ul>

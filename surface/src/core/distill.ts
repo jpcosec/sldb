@@ -15,10 +15,18 @@
  * También se leen los refs viejos en string: `model:M`, `predicate:M:<pred>`,
  * `action:change M.f=v`, `compose`.
  *
+ * DEDUPLICACIÓN: cada campo propuesto se compara (`GET /corpus/rank?fields=1`) contra los
+ * campos que ya existen en el store. Acá vive la lógica pura (armar la consulta y el
+ * `among`, clasificar duplicado/parecido, excluir a los propios anchors); la vista hace la
+ * llamada y muestra los tres estados. Es informativo: no cambia lo que se propone. El
+ * texto que se compara es el `motive` (la razón escrita), único texto que trae la
+ * propuesta; el índice mide parecido de TEXTO (difflib), no de significado.
+ *
  * Regla dura: un campo sin `motive` no se propone. El motive es lo que hace auditable
  * la destilación; sin razón escrita, no hay campo.
  */
-import type { GraphDocument } from "./contract";
+import type { FieldRankHit, GraphDocument, RankParams } from "./contract";
+import { above, byScore, DUPLICATE_THRESHOLD, queryText, SUGGEST_THRESHOLD } from "./similarity";
 
 export type RefKind = "model" | "field" | "where" | "relation" | "doc" | "change" | "move" | "other";
 
@@ -273,3 +281,54 @@ export function distill(entries: AnchorEntry[]): DistillResult {
 
   return { models, unparsed, unbacked };
 }
+
+/** Vecinos que se piden por campo. */
+export const SIMILAR_K = 2;
+/** Si el `among` no entra en la URL se consulta sin él, pidiendo más para poder filtrar. */
+export const AMONG_MAX_CHARS = 3000;
+export const SIMILAR_K_UNSCOPED = 8;
+
+/** Texto a comparar de un campo propuesto; `null` si no tiene (no se consulta). */
+export function similarityQuery(proposal: Pick<ProposedField, "motive">): string | null {
+  return queryText(proposal.motive) || null;
+}
+
+/**
+ * Ids (`Model:name`, como pide `among`) de los documentos con los que comparar: todos menos
+ * los anchors que se están destilando, para que un campo no se marque duplicado de sí mismo.
+ */
+export function amongIds(docs: GraphDocument[], anchors: AnchorEntry[]): string[] {
+  const own = new Set(anchors.map((anchor) => anchor.doc));
+  return docs.filter((doc) => !own.has(doc.id)).map((doc) => `${doc.model_name}:${doc.id}`);
+}
+
+/** Parámetros de `rank` para una consulta; sin `among` si no entra o si no queda nada. */
+export function rankRequest(q: string, among: string[]): RankParams & { fields: true } {
+  const scoped = among.length > 0 && among.join(",").length <= AMONG_MAX_CHARS;
+  return {
+    q,
+    fields: true,
+    k: scoped ? SIMILAR_K : SIMILAR_K_UNSCOPED,
+    threshold: SUGGEST_THRESHOLD,
+    ...(scoped ? { among } : {}),
+  };
+}
+
+export interface FieldMatch {
+  kind: "duplicate" | "similar";
+  hit: FieldRankHit;
+}
+
+/**
+ * Hits de un campo propuesto: sin los propios anchors, con puntaje suficiente, mejores
+ * primero y a lo sumo `SIMILAR_K`. Lista vacía = "Sin campos parecidos".
+ */
+export function classifyMatches(hits: FieldRankHit[], ownDocs: ReadonlySet<string>): FieldMatch[] {
+  const foreign = hits.filter((hit) => !ownDocs.has(hit.name));
+  return above(byScore(foreign), SUGGEST_THRESHOLD)
+    .slice(0, SIMILAR_K)
+    .map((hit) => ({ kind: hit.score >= DUPLICATE_THRESHOLD ? "duplicate" : "similar", hit }));
+}
+
+/** Clave estable de un campo propuesto dentro de su modelo, para el estado y el caché. */
+export const proposalKey = (model: string, proposal: Pick<ProposedField, "name" | "role">): string => `${model}\u0000${proposal.role}\u0000${proposal.name}`;
