@@ -24,10 +24,13 @@ documento, con su evidencia:
 | Foco entre vistas | `?atom=<id>` en la ruta: "Ver en el texto", "Ver en el grafo" y "Origen" llevan el átomo enfocado |
 | Ranking por similitud por HTTP | `GET /corpus/rank` (documentos o `fields=1`) y `GET /similar` |
 | Divergencia modelo vs disco | `GET /stores/check` ampliado (`models[].documents[]`) |
+| Publicar: **[falta]** endpoint | no hace falta uno: publicar crea `<informe>-vN` (`PublicacionDoc`) con `POST /docs`, con el markdown real de `GET /render` partido en los 4 slots (un campo con headings se rechaza como ruido estructural, por eso no hay un solo `body`) |
+| Aristas heredadas por grupo: **[falta]** | un grupo es un documento (`GrupoDoc`, nombre = tag con guiones); una relación sobre un grupo es un `RelationDoc` con extremo `GrupoDoc:<slug>`; los tipos deben listar `GrupoDoc` o `edges check` la rechaza |
 
-Sigue en falta, y la UI lo dice en pantalla: publicar el informe, el extractor que propone
-átomos (`Re-extraer`), aristas heredadas por grupo (el servidor no expone el grupo como extremo),
-secciones dinámicas del informe, y prosa/tabla como salida real (solo vista previa).
+Sigue en falta, y la UI lo dice en pantalla: el extractor que propone átomos (`Re-extraer`: es un
+modelo de lenguaje y no hay uno cableado al servidor), secciones dinámicas del informe (no caben en
+`__compositions__`), prosa/tabla como salida real (solo vista previa), y crear relaciones con
+teclado (hoy solo con puntero). El informe publicado queda atado a los 4 slots fijos del tipo de informe.
 
 **Hallazgo sobre similitud:** el ranking por *documento* compara contra la concatenación de todos
 los strings del payload y diluye el parecido (una frase casi idéntica a la cita de un átomo daba
