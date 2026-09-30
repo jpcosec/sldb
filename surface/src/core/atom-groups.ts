@@ -72,5 +72,21 @@ export function groupsFromDocuments(docs: { id: string; model_name: string; payl
     .map((d) => ({ id: d.id, gid: `${GROUP_MODEL}:${d.id}`, tag: typeof d.payload.tag === "string" && d.payload.tag ? d.payload.tag : d.id }));
 }
 
+/** `GrupoDoc` con lo que la vista necesita para mostrarlo: además de `GroupDocRef`, título y descripción. */
+export interface GroupInfo extends GroupDocRef {
+  /** Título de DISPLAY del `GrupoDoc` (`Asistente`); `""` si no trae. */
+  title: string;
+  description: string;
+}
+
+/** Como `groupsFromDocuments` pero con `title` y `description` (`GroupInfo`). */
+export function groupInfosFromDocuments(docs: { id: string; model_name: string; payload: Record<string, unknown> }[]): GroupInfo[] {
+  const byId = new Map(docs.map((d) => [d.id, d]));
+  return groupsFromDocuments(docs).map((g) => {
+    const p = byId.get(g.id)?.payload ?? {};
+    return { ...g, title: typeof p.title === "string" ? p.title : "", description: typeof p.description === "string" ? p.description : "" };
+  });
+}
+
 /** ¿Un error de creación es «ya existe» (409)? */
 export const isAlreadyExists = (err: unknown): boolean => (err as { status?: number } | null)?.status === 409;

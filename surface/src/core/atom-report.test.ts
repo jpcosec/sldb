@@ -22,8 +22,8 @@ describe("parseQuery", () => {
   });
   it("valores inválidos no filtran pero se conservan como chip inactivo", () => {
     const p = parseQuery("tipo:foo estado:nada tag:a tag:b");
-    expect(p.filters).toEqual({ tag: "a" });
-    expect(p.tokens.map((t) => t.active)).toEqual([false, false, true, false]);
+    expect(p.filters).toEqual({ tag: ["a", "b"] });
+    expect(p.tokens.map((t) => t.active)).toEqual([false, false, true, true]);
   });
   it("consulta vacía y prefijo desconocido como texto", () => {
     expect(parseQuery("").filters).toEqual({});

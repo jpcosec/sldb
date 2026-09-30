@@ -1,7 +1,8 @@
 /**
  * ÁTOMOS · lógica pura de las vistas de átomos (OPERACIONALIZACION-VISTAS.md).
  *
- * Un átomo es un documento `AtomDoc` anclado a un tramo del campo `body` de un `ActaDoc`.
+ * Un átomo es un documento `AtomDoc` anclado a un tramo del campo `body` de una fuente
+ * (`FuenteDoc` del caso nuevo o `ActaDoc` del viejo).
  * Nada acá toca DOM ni red: recibe documentos/aristas ya leídos y devuelve valores nuevos.
  *
  * Identidad: `Atom.id` es el id de documento (`a3`, el de `/document` y `/save`);
@@ -18,15 +19,46 @@ import type {
   GraphDocument,
   Informe,
   InformeSlot,
+  InformeSlotEntry,
+  InformeSlotMap,
   Payload,
   RelationTypeSpec,
   SlotMode,
   SlotName,
 } from "./contract";
-import { GROUP_MODEL, groupGid } from "./atom-groups";
+import { GROUP_MODEL, groupGid, isGroupGid, tagOfGroupGid } from "./atom-groups";
 
 export const ATOM_MODEL = "AtomDoc";
+/** Los 5 tipos del caso viejo (`ActaDoc`). Los tipos ya no son fijos: ver `KIND_LABELS`. */
 export const ATOM_KINDS: AtomKind[] = ["entidad", "hecho", "decision", "pendiente", "riesgo"];
+/**
+ * Registro de tipos conocidos (clave -> etiqueta): los 5 del caso viejo y los 5 de Levira.
+ * Un tipo que no esté acá es válido igual: `kindLabel` cae a la clave capitalizada. El color
+ * por tipo lo decide la vista (CSS); el núcleo solo expone la clave.
+ */
+export const KIND_LABELS: Record<string, string> = {
+  entidad: "Entidad",
+  hecho: "Hecho",
+  decision: "Decisión",
+  pendiente: "Pendiente",
+  riesgo: "Riesgo",
+  regla: "Regla",
+  criterio: "Criterio",
+  logistica: "Logística",
+  paciente: "Dato del paciente",
+  pregunta: "Pregunta",
+};
+
+/** Primera letra en mayúscula; `_` y `-` pasan a espacio (`consulta_por` -> `Consulta por`). */
+export function capitalize(text: string): string {
+  const t = text.trim().replace(/[_-]+/g, " ");
+  return t ? t[0]!.toUpperCase() + t.slice(1) : "";
+}
+
+/** Etiqueta legible de un tipo de átomo; los desconocidos, la clave capitalizada. */
+export function kindLabel(kind: string): string {
+  return Object.prototype.hasOwnProperty.call(KIND_LABELS, kind) ? KIND_LABELS[kind]! : capitalize(kind);
+}
 export const ATOM_STATUSES: AtomStatus[] = ["propuesto", "confirmado", "descartado"];
 export const SLOT_NAMES: SlotName[] = ["resumen", "decisiones", "riesgos", "pendientes"];
 export const SLOT_MODES: SlotMode[] = ["viñetas", "prosa", "tabla"];
@@ -39,13 +71,16 @@ const strings = (v: unknown): string[] => (Array.isArray(v) ? v.filter((x): x is
 
 // ---------------------------------------------------------------- lectura de documentos
 
-/** Convierte los `AtomDoc` de `/graph`. Valores fuera de enum caen a `hecho` / `propuesto`. */
+/**
+ * Convierte los `AtomDoc` de `/graph`. `kind` se conserva tal cual (cualquier string; vacío o
+ * ausente cae a `hecho`); un `status` fuera de enum cae a `propuesto`.
+ */
 export function atomsFromDocuments(docs: GraphDocument[]): Atom[] {
   return docs
     .filter((d) => d.model_name === ATOM_MODEL)
     .map((d) => {
       const p = d.payload;
-      const kind = ATOM_KINDS.includes(p.kind as AtomKind) ? (p.kind as AtomKind) : "hecho";
+      const kind = str(p.kind).trim() || "hecho";
       const status = ATOM_STATUSES.includes(p.status as AtomStatus) ? (p.status as AtomStatus) : "propuesto";
       return {
         id: d.id,
@@ -92,7 +127,7 @@ export function actasFromDocuments(docs: GraphDocument[]): Acta[] {
     }));
 }
 
-export function slotFromPayload(payload: Payload, slot: SlotName): InformeSlot {
+export function slotFromPayload(payload: Payload, slot: string): InformeSlot {
   const modo = payload[`${slot}_modo`];
   return {
     atomos: strings(payload[slot]),
@@ -103,16 +138,46 @@ export function slotFromPayload(payload: Payload, slot: SlotName): InformeSlot {
   };
 }
 
+/** Títulos por defecto de los 4 slots del informe viejo. */
+const DEFAULT_SLOT_TITLES: Record<string, string> = { resumen: "Resumen", decisiones: "Decisiones", riesgos: "Riesgos", pendientes: "Pendientes" };
+
+/** Título por defecto de un slot sin `<slot>_titulo`: el del informe viejo o el nombre capitalizado. */
+export const defaultSlotTitle = (name: string): string => DEFAULT_SLOT_TITLES[name] ?? capitalize(name);
+
+/** Modelo del informe viejo, de slots fijos. */
+export const INFORME_MODEL = "InformeAvanceDoc";
+
+/**
+ * Nombres de slot de un payload: las claves `<x>_query`, en el orden de sus claves. El informe
+ * viejo (`InformeAvanceDoc`) siempre tiene los 4 fijos, aunque falten sus `_query`.
+ */
+export function slotNamesOf(model: string, payload: Payload): string[] {
+  if (model === INFORME_MODEL) return [...SLOT_NAMES];
+  const names: string[] = [];
+  for (const key of Object.keys(payload)) {
+    const m = /^(.+)_query$/.exec(key);
+    if (m && typeof payload[key] === "string" && !names.includes(m[1]!)) names.push(m[1]!);
+  }
+  return names;
+}
+
+/** Lee informes de CUALQUIER modelo con slots (`InformeAvanceDoc`, `SalidaDoc`, futuros). */
 export function informesFromDocuments(docs: GraphDocument[]): Informe[] {
-  return docs
-    .filter((d) => d.model_name === "InformeAvanceDoc")
-    .map((d) => ({
-      id: d.id,
-      path: d.path,
-      version: d.version,
-      payload: d.payload,
-      slots: Object.fromEntries(SLOT_NAMES.map((s) => [s, slotFromPayload(d.payload, s)])) as Informe["slots"],
+  const out: Informe[] = [];
+  for (const d of docs) {
+    const names = slotNamesOf(d.model_name, d.payload);
+    if (d.model_name !== INFORME_MODEL && names.length === 0) continue;
+    const slotList: InformeSlotEntry[] = names.map((name) => ({
+      ...slotFromPayload(d.payload, name),
+      name,
+      titulo: str(d.payload[`${name}_titulo`]) || defaultSlotTitle(name),
+      rotulo: str(d.payload[`${name}_rotulo`]),
     }));
+    // La vista por nombre lleva SOLO los campos de `InformeSlot` (sin name/titulo/rotulo).
+    const slots = Object.fromEntries(names.map((name) => [name, slotFromPayload(d.payload, name)])) as InformeSlotMap;
+    out.push({ id: d.id, path: d.path, version: d.version, modelName: d.model_name, payload: d.payload, slots, slotList });
+  }
+  return out;
 }
 
 // ---------------------------------------------------------------- ancla
@@ -348,29 +413,133 @@ export function unexcludeAtom(slot: InformeSlot, path: string): InformeSlot {
 export interface AtomFilters {
   kind?: AtomKind | AtomKind[];
   status?: AtomStatus | AtomStatus[];
-  /** Grupo por prefijo: `infra` incluye `infra.ingesta`. */
-  tag?: string;
+  /**
+   * Grupo: prefijo (`infra` incluye `infra.ingesta`) o, si no es prefijo, segmentos contiguos
+   * del tag (`asistente` calza `programa.asistente`). Sin distinguir mayúsculas.
+   */
+  tag?: string | string[];
+  /** Base = 1er segmento del tag (`paciente` en `paciente.situacion`). Sin distinguir mayúsculas. */
+  base?: string | string[];
+  /**
+   * Saltos por relaciones (entero >= 0). Ver `matchQuery`: amplía el resultado con los átomos a
+   * hasta N saltos de los que calzan el resto de los filtros. Necesita las aristas.
+   */
+  distancia?: number;
+  /** Tipos de relación: el átomo debe tener al menos una relación de alguno de estos tipos. */
+  relacion?: string[];
   /** Subcadena, sin distinguir mayúsculas, sobre `text`, `quote` y tags. */
   text?: string;
+}
+
+/** ¿El átomo está en el grupo `tag` (prefijo) o lo nombra por segmentos contiguos (`asistente`)? */
+export function atomHasTag(atom: Pick<Atom, "tags">, tag: string): boolean {
+  const want = tag.toLowerCase().split(".").filter(Boolean);
+  if (want.length === 0) return false;
+  return atom.tags.some((t) => {
+    const parts = t.toLowerCase().split(".").filter(Boolean);
+    for (let i = 0; i + want.length <= parts.length; i++) if (want.every((w, k) => parts[i + k] === w)) return true;
+    return false;
+  });
+}
+
+/** Base de un tag (1er segmento). Ver también `baseOf` en core/caso. */
+const firstSegment = (tag: string): string => tag.split(".").filter(Boolean)[0] ?? "";
+
+const isRelationEdge = (e: Edge): boolean => e.origin.startsWith("relation") || e.relationDoc !== null;
+
+/**
+ * Vecindad por relaciones entre átomos: `gid -> gids` adyacentes, SIN dirección. Solo aristas de
+ * relación (`RelationDoc`); las que nombran un grupo (`GrupoDoc:<slug>`) se proyectan a cada
+ * átomo miembro (como `inheritedEdges`). Aristas entre dos grupos o con extremos desconocidos
+ * se ignoran.
+ */
+export function relationAdjacency(atoms: Atom[], edges: Edge[]): Map<string, Set<string>> {
+  const byGid = new Set(atoms.map((a) => a.gid));
+  const tags = [...new Set(atoms.flatMap((a) => a.tags))];
+  const membersOf = (end: string): string[] => {
+    if (byGid.has(end)) return [end];
+    const tag = tagOfGroupGid(end, tags);
+    return tag ? atoms.filter((a) => inGroup(a, tag)).map((a) => a.gid) : [];
+  };
+  const adj = new Map<string, Set<string>>();
+  const link = (a: string, b: string) => {
+    if (a === b) return;
+    if (!adj.has(a)) adj.set(a, new Set());
+    adj.get(a)!.add(b);
+  };
+  for (const e of edges) {
+    if (!isRelationEdge(e)) continue;
+    const srcIsAtom = byGid.has(e.source);
+    const tgtIsAtom = byGid.has(e.target);
+    if (!srcIsAtom && !tgtIsAtom) continue;
+    if (!srcIsAtom && !isGroupGid(e.source)) continue;
+    if (!tgtIsAtom && !isGroupGid(e.target)) continue;
+    for (const s of membersOf(e.source)) for (const t of membersOf(e.target)) {
+      link(s, t);
+      link(t, s);
+    }
+  }
+  return adj;
 }
 
 /**
  * Resolvedor de consulta de v1, EN CLIENTE: la consulta por servidor (composición por query,
  * OPERACIONALIZACION §4 [falta]) no existe aún. Cuando exista, `refreshSlot` recibe sus
  * resultados en lugar de estos.
+ *
+ * `base` y `tag` (uno o varios valores) son PERTENENCIA A GRUPO y se combinan con O entre sí: el
+ * átomo pasa si está en alguna de las bases o de los tags dados (`base:paciente tag:asistente` =
+ * la base paciente MÁS el subgrupo asistente). Sobre ese resultado, `kind`, `status` y
+ * `relacion` se combinan con Y (los que faltan no filtran). `relacion`: el átomo tiene al menos una relación (origen o destino) de alguno de esos
+ * tipos. `text` (subcadena en text/quote/tags) solo filtra en ausencia de los demás filtros. `distancia: N` (con `edges`) es una AMPLIACIÓN: el resultado son los
+ * átomos que calzan todo lo demás (las semillas) MÁS los que están a N saltos o menos de
+ * alguna semilla por relaciones (no dirigidas, incluidas las heredadas de grupos; ver
+ * `relationAdjacency`). Los vecinos agregados NO tienen que calzar los otros filtros.
+ * `distancia` sola no genera nada (sin semillas; con solo texto, las semillas son las del texto).
+ * `distancia: 0` equivale a no ampliar. Sin `edges` no se amplía. El orden es el de `atoms`.
+ * (La maqueta solo MUESTRA el chip `Distancia: 1 salto`; no calcula nada: esta es la definición.)
  */
-export function matchQuery(atoms: Atom[], filters: AtomFilters): Atom[] {
+export function matchQuery(atoms: Atom[], filters: AtomFilters, edges: Edge[] = []): Atom[] {
   const list = <T,>(v: T | T[] | undefined): T[] | null => (v === undefined ? null : Array.isArray(v) ? v : [v]);
   const kinds = list(filters.kind);
   const statuses = list(filters.status);
   const needle = filters.text?.trim().toLowerCase();
-  return atoms.filter((a) => {
+  const asList = (v: string | string[] | undefined): string[] => (v === undefined ? [] : Array.isArray(v) ? v : [v]).map((x) => x.trim()).filter(Boolean);
+  const bases = asList(filters.base).map((b) => b.toLowerCase());
+  const tagList = asList(filters.tag);
+  const relTypes = filters.relacion?.length ? new Set(filters.relacion) : null;
+  const relatedGids = relTypes
+    ? new Set(edges.filter((e) => isRelationEdge(e) && relTypes.has(e.type)).flatMap((e) => [e.source, e.target]))
+    : null;
+  const structural = !!(kinds || statuses || tagList.length || bases.length || relTypes);
+  // El texto libre solo filtra cuando NO hay otros filtros: en una consulta con tokens es la
+  // descripción en prosa del slot (`tag:asistente reglas del asistente...`) y no debe vaciarla.
+  const textNeedle = structural ? undefined : needle;
+  // `distancia` sola (sin otros filtros ni texto) no tiene semillas: no genera nada.
+  if (!structural && filters.distancia !== undefined && !needle) return [];
+  const seeds = atoms.filter((a) => {
     if (kinds && !kinds.includes(a.kind)) return false;
     if (statuses && !statuses.includes(a.status)) return false;
-    if (filters.tag && !inGroup(a, filters.tag)) return false;
-    if (needle && !`${a.text} ${a.quote} ${a.tags.join(" ")}`.toLowerCase().includes(needle)) return false;
+    if (bases.length || tagList.length) {
+      const inGroups =
+        bases.some((b) => a.tags.some((t) => firstSegment(t).toLowerCase() === b)) || tagList.some((t) => atomHasTag(a, t));
+      if (!inGroups) return false;
+    }
+    if (relatedGids && !relatedGids.has(a.gid)) return false;
+    if (textNeedle && !`${a.text} ${a.quote} ${a.tags.join(" ")}`.toLowerCase().includes(textNeedle)) return false;
     return true;
   });
+  const hops = filters.distancia;
+  if (hops === undefined || !Number.isInteger(hops) || hops <= 0 || edges.length === 0) return seeds;
+  const adj = relationAdjacency(atoms, edges);
+  const reached = new Set(seeds.map((a) => a.gid));
+  let frontier = [...reached];
+  for (let d = 0; d < hops && frontier.length; d++) {
+    const next: string[] = [];
+    for (const g of frontier) for (const n of adj.get(g) ?? []) if (!reached.has(n)) (reached.add(n), next.push(n));
+    frontier = next;
+  }
+  return atoms.filter((a) => reached.has(a.gid));
 }
 
 // ---------------------------------------------------------------- creación

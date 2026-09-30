@@ -289,7 +289,11 @@ export interface GraphNodeRef {
  * Átomos, relaciones e informes (OPERACIONALIZACION-VISTAS). Un átomo es un documento
  * `AtomDoc`; sus relaciones son `RelationDoc`; los verbos permitidos, `RelationTypeDoc`.
  */
-export type AtomKind = "entidad" | "hecho" | "decision" | "pendiente" | "riesgo";
+/**
+ * Tipo de átomo: depende del caso, ya no es una unión cerrada. Los conocidos y sus etiquetas
+ * están en `KIND_LABELS` (core/atoms); un tipo desconocido se conserva tal cual.
+ */
+export type AtomKind = string;
 export type AtomStatus = "propuesto" | "confirmado" | "descartado";
 
 /** Estado del ancla de un átomo respecto del texto actual del acta: se calcula, no se guarda. */
@@ -305,7 +309,7 @@ export interface Atom {
   version?: string;
   kind: AtomKind;
   status: AtomStatus;
-  /** `ActaDoc:<name>`. */
+  /** `FuenteDoc:<name>` (caso nuevo) o `ActaDoc:<name>` (caso viejo). */
   source: string;
   source_field: string;
   start: number;
@@ -324,6 +328,25 @@ export interface Acta {
   path: string;
   version?: string;
   title: string;
+  body: string;
+}
+
+/**
+ * Fuente de texto de un caso: `FuenteDoc` (system prompt, folleto, mensaje…) o, por
+ * compatibilidad, un `ActaDoc` (tipo `acta`, base vacía). Ver `sourcesFromDocuments` (core/caso).
+ */
+export interface Fuente {
+  id: string;
+  /** `FuenteDoc:<id>` o `ActaDoc:<id>`, como la nombra `Atom.source`. */
+  gid: string;
+  path: string;
+  version?: string;
+  title: string;
+  /** `prompt` | `folleto` | `mensaje` | `acta` | lo que traiga el documento. */
+  tipo: string;
+  /** Base de conocimiento a la que alimenta (`Programa`, `Paciente`); `""` si no aplica. */
+  base: string;
+  descripcion: string;
   body: string;
 }
 
@@ -360,12 +383,55 @@ export interface InformeSlot {
   modo: SlotMode;
 }
 
+/** Slot con su nombre (clave de campos del payload), título de sección y rótulo. */
+export interface InformeSlotEntry extends InformeSlot {
+  /** Prefijo de los campos del payload: `resumen`, `respuesta`… */
+  name: string;
+  /** Título de la sección (`## <titulo>` en el render). */
+  titulo: string;
+  /** Rótulo corto bajo el título en el editor del slot; `""` si no hay. */
+  rotulo: string;
+}
+
+/**
+ * Slots por nombre. Los 4 del informe viejo están tipados (`slots.resumen`); para cualquier
+ * otro nombre el acceso puede ser `undefined`. En orden de inserción = orden del informe.
+ */
+export type InformeSlotMap = Record<SlotName, InformeSlot> & Record<string, InformeSlot | undefined>;
+
 export interface Informe {
   id: string;
   path: string;
   version?: string;
-  slots: Record<SlotName, InformeSlot>;
+  /** Modelo del documento: `InformeAvanceDoc`, `SalidaDoc`… */
+  modelName: string;
+  /** Slots por nombre (compatibilidad con las vistas viejas). */
+  slots: InformeSlotMap;
+  /** Los mismos slots, EN ORDEN, con nombre, título y rótulo. */
+  slotList: InformeSlotEntry[];
   payload: Payload;
+}
+
+export interface RespuestaFrase {
+  texto: string;
+  /** Ids de átomo (`c5`) que sostienen la frase. */
+  atomos: string[];
+}
+
+/** `RespuestaDoc`: la respuesta del asistente con su procedencia por frase. */
+export interface Respuesta {
+  id: string;
+  path: string;
+  title: string;
+  caso: string;
+  estado: string;
+  generadaPor: string;
+  /** Nombre del slot del informe del que se redactó. */
+  slot: string;
+  /** Id del `FuenteDoc` con el mensaje de la paciente. */
+  mensaje: string;
+  respuesta: string;
+  frases: RespuestaFrase[];
 }
 
 export interface CreateDocumentResult {

@@ -41,9 +41,9 @@ describe("lectura de documentos", () => {
     expect(inf.slots.pendientes).toMatchObject({ atomos: [], query: "", modo: "viñetas" });
   });
 
-  it("valores fuera de enum caen a defaults", () => {
+  it("el tipo desconocido se conserva; el estado fuera de enum cae a propuesto", () => {
     const [a] = atomsFromDocuments([{ id: "x", model_name: "AtomDoc", path: "p", payload: { kind: "??", status: "??" } } as GraphDocument]);
-    expect(a).toMatchObject({ kind: "hecho", status: "propuesto", conf: 1, source_field: "body" });
+    expect(a).toMatchObject({ kind: "??", status: "propuesto", conf: 1, source_field: "body" });
   });
 });
 

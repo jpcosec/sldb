@@ -5,7 +5,9 @@
  */
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { actasFromDocuments, atomsFromDocuments, informesFromDocuments, relationTypesFromDocuments } from "../../core/atoms";
-import type { Acta, Atom, CreateDocumentResult, Edge, GraphDocument, Informe, Payload, RelationTypeSpec, SaveResult } from "../../core/contract";
+import { respuestasFromDocuments, sourcesFromDocuments } from "../../core/caso";
+import { groupInfosFromDocuments, type GroupInfo } from "../../core/atom-groups";
+import type { Acta, Atom, Fuente, Respuesta, CreateDocumentResult, Edge, GraphDocument, Informe, Payload, RelationTypeSpec, SaveResult } from "../../core/contract";
 import { setAt } from "../../core/paths";
 import { useSldb } from "../../react/context";
 
@@ -17,6 +19,13 @@ export interface AtomStore {
   error: string | null;
   atoms: Atom[];
   actas: Acta[];
+  /** Fuentes de texto de ambos modelos (`FuenteDoc` y `ActaDoc`) con la misma forma. */
+  fuentes: Fuente[];
+  /** `GrupoDoc` (título de display de bases y subgrupos). */
+  grupos: GroupInfo[];
+  /** `RespuestaDoc` del caso. */
+  respuestas: Respuesta[];
+  /** Informes de cualquier modelo con slots (`InformeAvanceDoc`, `SalidaDoc`…). */
   informes: Informe[];
   relationTypes: RelationTypeSpec[];
   edges: Edge[];
@@ -58,6 +67,9 @@ export function useAtomStore(): AtomStore {
   const { documents } = state;
   const atoms = useMemo(() => atomsFromDocuments(documents), [documents]);
   const actas = useMemo(() => actasFromDocuments(documents), [documents]);
+  const fuentes = useMemo(() => sourcesFromDocuments(documents), [documents]);
+  const grupos = useMemo(() => groupInfosFromDocuments(documents), [documents]);
+  const respuestas = useMemo(() => respuestasFromDocuments(documents), [documents]);
   const informes = useMemo(() => informesFromDocuments(documents), [documents]);
   const relationTypes = useMemo(() => relationTypesFromDocuments(documents), [documents]);
 
@@ -84,5 +96,5 @@ export function useAtomStore(): AtomStore {
   );
   const createAtom = useCallback((name: string, payload: Payload) => createDocument("AtomDoc", name, payload), [createDocument]);
 
-  return { status: state.status, error: state.error, atoms, actas, informes, relationTypes, edges: state.edges, documents, reload, saveField, createAtom, createDocument };
+  return { status: state.status, error: state.error, atoms, actas, fuentes, grupos, respuestas, informes, relationTypes, edges: state.edges, documents, reload, saveField, createAtom, createDocument };
 }

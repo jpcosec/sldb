@@ -7,8 +7,10 @@
  * Nada acá toca DOM ni red.
  */
 import { linkKind } from "./atom-graph";
-import { ATOM_KINDS, ATOM_STATUSES, SLOT_NAMES, type AtomFilters } from "./atoms";
-import type { Atom, AtomKind, AtomStatus, Edge, GraphDocument, Informe, InformeSlot, Payload, SlotMode, SlotName } from "./contract";
+import { ATOM_STATUSES, capitalize, defaultSlotTitle, KIND_LABELS, kindLabel, SLOT_NAMES, type AtomFilters } from "./atoms";
+import type { GroupInfo } from "./atom-groups";
+import { groupTitle } from "./caso";
+import type { Atom, AtomKind, AtomStatus, Edge, GraphDocument, Informe, InformeSlot, InformeSlotEntry, Payload, SlotMode, SlotName } from "./contract";
 
 export const SLOT_LABELS: Record<SlotName, string> = {
   resumen: "Resumen",
@@ -19,7 +21,7 @@ export const SLOT_LABELS: Record<SlotName, string> = {
 
 // ---------------------------------------------------------------- consulta
 
-export type QueryTokenKind = "tipo" | "tag" | "estado" | "texto";
+export type QueryTokenKind = "tipo" | "tag" | "estado" | "base" | "distancia" | "relacion" | "texto";
 
 export interface QueryToken {
   kind: QueryTokenKind;
@@ -29,6 +31,8 @@ export interface QueryToken {
   value: string;
   /** `false` si el valor no es válido (`tipo:foo`) o el filtro no aplica (segundo `tag:`). */
   active: boolean;
+  /** Etiqueta legible del chip: `Base: Paciente`, `Distancia: 1 salto`, `Tag: Asistente`. */
+  label: string;
 }
 
 export interface ParsedQuery {
@@ -36,40 +40,105 @@ export interface ParsedQuery {
   filters: AtomFilters;
 }
 
-const PREFIXES: Record<string, Exclude<QueryTokenKind, "texto">> = { tipo: "tipo", tag: "tag", estado: "estado" };
+export interface ParseQueryOptions {
+  /** Tipos de átomo válidos para `tipo:`; por defecto los de `KIND_LABELS`. */
+  kinds?: string[];
+  /** `GrupoDoc` para los títulos de `tag:` y `base:` (si no hay, se capitaliza). */
+  grupos?: Pick<GroupInfo, "tag" | "title">[];
+}
 
-export function parseQuery(query: string): ParsedQuery {
+const PREFIXES: Record<string, Exclude<QueryTokenKind, "texto">> = {
+  tipo: "tipo",
+  tag: "tag",
+  estado: "estado",
+  base: "base",
+  distancia: "distancia",
+  relacion: "relacion",
+  relación: "relacion",
+};
+
+const CHIP_PREFIX: Record<Exclude<QueryTokenKind, "texto">, string> = {
+  tipo: "Tipo",
+  tag: "Tag",
+  estado: "Estado",
+  base: "Base",
+  distancia: "Distancia",
+  relacion: "Relación",
+};
+
+/** Etiqueta legible de un chip: `Distancia: 1 salto`, `Base: Paciente`… */
+export function chipLabel(kind: QueryTokenKind, value: string, grupos: ParseQueryOptions["grupos"] = []): string {
+  if (kind === "texto") return value;
+  const prefix = CHIP_PREFIX[kind];
+  switch (kind) {
+    case "tipo":
+      return `${prefix}: ${kindLabel(value)}`;
+    case "estado":
+      return `${prefix}: ${capitalize(value)}`;
+    case "tag":
+    case "base":
+      return `${prefix}: ${groupTitle(value, grupos)}`;
+    case "distancia":
+      return /^\d+$/.test(value) ? `${prefix}: ${Number(value)} ${Number(value) === 1 ? "salto" : "saltos"}` : `${prefix}: ${value}`;
+    case "relacion":
+      return `${prefix}: ${value.split(",").filter(Boolean).map((v) => v.replace(/_/g, " ")).join(", ")}`;
+  }
+}
+
+/**
+ * Consulta de slot: `tipo:regla estado:confirmado tag:asistente base:paciente distancia:1
+ * relacion:activa,detalla texto libre` -> tokens (chips) y `AtomFilters`. `tag` y `base`
+ * pueden repetirse (unión: ver `matchQuery`); `distancia` exige un entero >= 0 y solo aplica una
+ * vez (el segundo es un chip inactivo); `relacion` lleva tipos separados por coma.
+ */
+export function parseQuery(query: string, opts: ParseQueryOptions = {}): ParsedQuery {
+  const validKinds = opts.kinds ?? Object.keys(KIND_LABELS);
   const tokens: QueryToken[] = [];
   const kinds: AtomKind[] = [];
   const statuses: AtomStatus[] = [];
+  const relaciones: string[] = [];
   const texts: string[] = [];
-  let tag: string | undefined;
+  const tagsQ: string[] = [];
+  const basesQ: string[] = [];
+  let distancia: number | undefined;
   for (const raw of query.split(/\s+/).filter(Boolean)) {
-    const m = /^([a-z]+):(.+)$/i.exec(raw);
+    const m = /^([a-zá-ú]+):(.+)$/i.exec(raw);
     const kind = m ? PREFIXES[m[1]!.toLowerCase()] : undefined;
     if (!m || !kind) {
-      tokens.push({ kind: "texto", raw, value: raw, active: true });
+      tokens.push({ kind: "texto", raw, value: raw, active: true, label: raw });
       texts.push(raw);
       continue;
     }
     const value = m[2]!;
     let active = false;
-    if (kind === "tipo" && ATOM_KINDS.includes(value as AtomKind)) {
+    if (kind === "tipo" && validKinds.includes(value)) {
       active = true;
-      kinds.push(value as AtomKind);
+      kinds.push(value);
     } else if (kind === "estado" && ATOM_STATUSES.includes(value as AtomStatus)) {
       active = true;
       statuses.push(value as AtomStatus);
-    } else if (kind === "tag" && tag === undefined) {
+    } else if (kind === "tag") {
       active = true;
-      tag = value;
+      tagsQ.push(value);
+    } else if (kind === "base") {
+      active = true;
+      basesQ.push(value);
+    } else if (kind === "distancia" && distancia === undefined && /^\d+$/.test(value)) {
+      active = true;
+      distancia = Number(value);
+    } else if (kind === "relacion") {
+      active = true;
+      relaciones.push(...value.split(",").filter(Boolean));
     }
-    tokens.push({ kind, raw, value, active });
+    tokens.push({ kind, raw, value, active, label: chipLabel(kind, value, opts.grupos) });
   }
   const filters: AtomFilters = {};
   if (kinds.length) filters.kind = kinds.length === 1 ? kinds[0] : kinds;
   if (statuses.length) filters.status = statuses.length === 1 ? statuses[0] : statuses;
-  if (tag !== undefined) filters.tag = tag;
+  if (tagsQ.length) filters.tag = tagsQ.length === 1 ? tagsQ[0] : tagsQ;
+  if (basesQ.length) filters.base = basesQ.length === 1 ? basesQ[0] : basesQ;
+  if (distancia !== undefined) filters.distancia = distancia;
+  if (relaciones.length) filters.relacion = relaciones;
   if (texts.length) filters.text = texts.join(" ");
   return { tokens, filters };
 }
@@ -89,7 +158,7 @@ export function removeQueryToken(query: string, index: number): string {
 export type SlotListKey = "atomos" | "pins" | "excluidos";
 
 /** Nombre del campo del `InformeAvanceDoc` que guarda cada parte del slot. */
-export function slotField(slot: SlotName, key: SlotListKey | "query" | "modo"): string {
+export function slotField(slot: string, key: SlotListKey | "query" | "modo"): string {
   return key === "atomos" ? slot : `${slot}_${key}`;
 }
 
@@ -99,7 +168,7 @@ export interface FieldChange {
 }
 
 /** Campos de lista que cambian entre dos estados del slot: una entrada por campo. */
-export function slotChanges(slot: SlotName, before: InformeSlot, after: InformeSlot): FieldChange[] {
+export function slotChanges(slot: string, before: InformeSlot, after: InformeSlot): FieldChange[] {
   const out: FieldChange[] = [];
   for (const key of ["atomos", "pins", "excluidos"] as SlotListKey[]) {
     const a = before[key];
@@ -117,9 +186,9 @@ export interface ReviewGate {
   label: string;
 }
 
-/** Gate de publicación: la suma de `nuevos` sin revisar de todos los slots. */
-export function reviewGate(nuevos: Partial<Record<SlotName, string[]>>): ReviewGate {
-  const pending = SLOT_NAMES.reduce((n, s) => n + (nuevos[s]?.length ?? 0), 0);
+/** Gate de publicación: la suma de `nuevos` sin revisar de todos los slots (cualquier nombre). */
+export function reviewGate(nuevos: Partial<Record<string, string[]>>): ReviewGate {
+  const pending = Object.values(nuevos).reduce((n, list) => n + (list?.length ?? 0), 0);
   return {
     pending,
     ready: pending === 0,
@@ -137,11 +206,18 @@ export interface PreviewItem {
   atoms: Atom[];
   /** Solo en tablas: relación en `edges` o `Sin relación`. */
   relation: string;
+  /** Solo en tablas: evidencia estilo maqueta, `<texto del átomo relacionado> (<tipo>)` o `Sin relación`. */
+  evidence: string;
 }
 
 export interface PreviewSection {
-  slot: SlotName;
+  slot: string;
+  /** Título de la sección (`## <label>`). */
   label: string;
+  /** Rótulo del slot (`""` si no hay). */
+  rotulo: string;
+  /** Encabezados de la tabla: tipo del primer átomo (`Criterio`) y `Evidencia`. */
+  headers: [string, string];
   modo: SlotMode;
   empty: boolean;
   items: PreviewItem[];
@@ -168,11 +244,30 @@ export function relationLabel(atom: Atom, edges: Edge[], byGid: Map<string, Atom
   return parts.length ? parts.join("; ") : NO_RELATION;
 }
 
-export function buildPreview(slots: Informe["slots"], atoms: Atom[], edges: Edge[] = []): PreviewSection[] {
+/** Evidencia de una fila de tabla: el primer átomo relacionado por una relación, `texto (tipo)`. */
+export function evidenceLabel(atom: Atom, edges: Edge[], byGid: Map<string, Atom>): string {
+  for (const e of edges) {
+    if (linkKind(e) !== "relation") continue;
+    const other = e.source === atom.gid ? byGid.get(e.target) : e.target === atom.gid ? byGid.get(e.source) : undefined;
+    if (other) return `${other.text} (${e.type.replace(/_/g, " ")})`;
+  }
+  return NO_RELATION;
+}
+
+/** Slots del informe en orden, con título: acepta la lista ordenada o el mapa por nombre. */
+function slotEntries(slots: Informe["slots"] | InformeSlotEntry[]): { name: string; titulo: string; rotulo: string; slot: InformeSlot }[] {
+  if (Array.isArray(slots)) return slots.map((s) => ({ name: s.name, titulo: s.titulo, rotulo: s.rotulo, slot: s }));
+  return Object.entries(slots).flatMap(([name, slot]) => (slot ? [{ name, titulo: defaultSlotTitle(name), rotulo: "", slot }] : []));
+}
+
+/**
+ * Vista previa del documento final, una sección por slot. Con `informe.slotList` usa el título y
+ * rótulo de cada slot; con el mapa `informe.slots` (informe viejo) usa los títulos por defecto.
+ */
+export function buildPreview(slots: Informe["slots"] | InformeSlotEntry[], atoms: Atom[], edges: Edge[] = []): PreviewSection[] {
   const byPath = new Map(atoms.map((a) => [a.path, a]));
   const byGid = new Map(atoms.map((a) => [a.gid, a]));
-  return SLOT_NAMES.map((slot) => {
-    const s = slots[slot];
+  return slotEntries(slots).map(({ name, titulo, rotulo, slot: s }) => {
     const items: PreviewItem[] = [];
     const missing: string[] = [];
     for (const path of s.atomos) {
@@ -181,11 +276,21 @@ export function buildPreview(slots: Informe["slots"], atoms: Atom[], edges: Edge
         missing.push(path);
         continue;
       }
-      items.push({ key: `${slot}:${path}`, text: atom.text, kind: atom.kind, atoms: [atom], relation: s.modo === "tabla" ? relationLabel(atom, edges, byGid) : "" });
+      const tabla = s.modo === "tabla";
+      items.push({
+        key: `${name}:${path}`,
+        text: atom.text,
+        kind: atom.kind,
+        atoms: [atom],
+        relation: tabla ? relationLabel(atom, edges, byGid) : "",
+        evidence: tabla ? evidenceLabel(atom, edges, byGid) : "",
+      });
     }
     return {
-      slot,
-      label: SLOT_LABELS[slot],
+      slot: name,
+      label: titulo,
+      rotulo,
+      headers: [items[0] ? kindLabel(items[0].kind) : "Elemento", "Evidencia"] as [string, string],
       modo: s.modo,
       empty: items.length === 0,
       items,
@@ -233,24 +338,27 @@ export const nextVersion = (publications: Pick<Publication, "version">[]): numbe
 export const publicationName = (informeId: string, version: number): string => `${informeId}-v${version}`;
 
 /** Rutas de los átomos de la foto: unión de los slots, sin repetir y en orden de slot. */
-export function snapshotAtoms(slots: Record<SlotName, InformeSlot>): string[] {
+export function snapshotAtoms(slots: Partial<Record<string, Pick<InformeSlot, "atomos">>> | Pick<InformeSlot, "atomos">[]): string[] {
   const seen = new Set<string>();
-  for (const s of SLOT_NAMES) for (const p of slots[s].atomos) seen.add(p);
+  for (const s of Object.values(slots)) for (const p of s?.atomos ?? []) seen.add(p);
   return [...seen];
 }
 
-const SLOT_BY_LABEL = new Map(SLOT_NAMES.map((s) => [SLOT_LABELS[s], s]));
+const OLD_SLOTS: Pick<InformeSlotEntry, "name" | "titulo">[] = SLOT_NAMES.map((name) => ({ name, titulo: SLOT_LABELS[name] }));
 
 /**
  * Parte el markdown que renderiza SLDB (`GET /render`) en el título y una sección por slot.
- * Quita el frontmatter de configuración. Un `## X` que no sea un slot conocido es un error:
- * no se descarta contenido en silencio.
+ * Quita el frontmatter de configuración. `slots` da los `## <titulo>` conocidos (por defecto los
+ * 4 del informe viejo); las secciones salen con el NOMBRE del slot como clave. Un `## X` que no
+ * sea un slot conocido es un error: no se descarta contenido en silencio.
  */
-export function splitRendered(markdown: string): { title: string; sections: Record<SlotName, string> } {
+export function splitRendered(markdown: string, slots: Pick<InformeSlotEntry, "name" | "titulo">[] = OLD_SLOTS): { title: string; sections: Record<string, string> } {
   const text = markdown.replace(/\r\n/g, "\n").replace(/^---\n[\s\S]*?\n---\n+/, "");
-  const sections = Object.fromEntries(SLOT_NAMES.map((s) => [s, ""])) as Record<SlotName, string>;
+  const byTitle = new Map<string, string>();
+  for (const s of slots) if (!byTitle.has(s.titulo)) byTitle.set(s.titulo, s.name);
+  const sections: Record<string, string> = Object.fromEntries(slots.map((s) => [s.name, ""]));
   let title = "";
-  let current: SlotName | null = null;
+  let current: string | null = null;
   const buf: string[] = [];
   const flush = () => {
     if (current) sections[current] = buf.join("\n").trim();
@@ -260,7 +368,7 @@ export function splitRendered(markdown: string): { title: string; sections: Reco
     const h2 = /^## (.+?)\s*$/.exec(line);
     if (h2) {
       flush();
-      const slot = SLOT_BY_LABEL.get(h2[1]!);
+      const slot = byTitle.get(h2[1]!);
       if (!slot) throw new Error(`El informe renderizado trae la sección «${h2[1]}», que la publicación no conoce.`);
       current = slot;
       continue;
@@ -278,15 +386,16 @@ export function splitRendered(markdown: string): { title: string; sections: Reco
 
 /**
  * Payload de `PublicacionDoc` a partir del render real de SLDB. El modelo lleva una sección por slot
- * (SLDB rechaza headings dentro de un campo), así que el "cuerpo" es la suma de esas secciones.
+ * (campo con el NOMBRE del slot; SLDB rechaza headings dentro de un campo), así que el "cuerpo" es
+ * la suma de esas secciones. Parte por los `## <titulo>` de los slots del informe dado.
  */
 export function publicationPayload(input: { informe: Informe; version: number; markdown: string }): Payload {
-  const { title, sections } = splitRendered(input.markdown);
+  const { title, sections } = splitRendered(input.markdown, input.informe.slotList);
   const fallback = typeof input.informe.payload.title === "string" ? input.informe.payload.title : "";
   return {
     informe: input.informe.id,
     version: input.version,
-    atoms: snapshotAtoms(input.informe.slots),
+    atoms: snapshotAtoms(input.informe.slotList),
     title: title || fallback || input.informe.id,
     ...sections,
   };
