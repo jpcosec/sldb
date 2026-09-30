@@ -31,6 +31,12 @@
   --font-doc: "Source Serif 4", "Iowan Old Style", Georgia, serif;
   --font-ui: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
   --font-code: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  /*
+   * Marcadores ⸢ ⸥ (U+2E22/U+2E25): instrument-ui no los cubre, así que la cadena
+   * suma las mono del sistema que sí los tienen. El fallback es por glifo: las
+   * preferidas siguen mandando para ASCII y solo la esquina cae a DejaVu.
+   */
+  --font-marker: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
 
   --radius-s: 3px;
   --radius-m: 6px;
@@ -190,7 +196,7 @@ code, kbd, pre { font-family: var(--font-code); font-size: 0.86em; }
 .app { display: grid; grid-template-columns: 248px minmax(0, 1fr); height: 100%; background: var(--paper); }
 .app__main { min-width: 0; display: flex; flex-direction: column; height: 100%; overflow: hidden; }
 
-.doc-view, .extract-view, .reader-view { display: flex; flex-direction: column; height: 100%; }
+.doc-view, .extract-view, .reader-view, .distill-view { display: flex; flex-direction: column; height: 100%; }
 
 /*
  * Barra superior al modo Notion: sin fondo propio ni regla dura. Se despega del
@@ -344,7 +350,7 @@ code, kbd, pre { font-family: var(--font-code); font-size: 0.86em; }
 }
 .field--inline::before, .field--property::before,
 .field--inline::after, .field--property::after {
-  color: var(--f-ink); font-family: var(--font-ui); opacity: 0.7;
+  color: var(--f-ink); font-family: var(--font-marker); opacity: 0.7;
   font-size: 0.72em; line-height: 0; vertical-align: 0.1em;
   user-select: none; /* la marca es del chrome, no del valor: no se copia ni se selecciona */
 }
@@ -666,6 +672,42 @@ code, kbd, pre { font-family: var(--font-code); font-size: 0.86em; }
 .reader-anchor__id:hover { text-decoration: underline; text-underline-offset: 2px; }
 .reader-anchor__meta { color: var(--print); font-size: 11px; }
 .reader-anchor__quote { margin: 0; color: var(--ink); font-size: 12px; line-height: 1.5; }
+
+/* ---------- Destilación ---------- */
+
+.distill-empty { max-width: 62ch; display: flex; flex-direction: column; gap: 12px; }
+.distill-empty p { color: var(--ink); line-height: 1.6; }
+.distill-empty code { font-family: var(--font-code); font-size: 12px; background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius-s); padding: 0 4px; }
+
+.distill-candidates { list-style: none; margin: 0 0 28px; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.distill-candidate {
+  display: inline-flex; align-items: baseline; gap: 8px; cursor: pointer; padding: 5px 12px;
+  border: 1px solid var(--rule); border-radius: 999px; background: var(--paper); color: var(--print); font: 13px var(--font-ui);
+}
+.distill-candidate:hover { background: var(--hover); color: var(--ink); }
+.distill-candidate.is-active { background: var(--hover-strong); border-color: var(--rule-strong); color: var(--ink); font-weight: 500; }
+.distill-candidate__name { font-weight: 600; }
+.distill-candidate__meta { font-size: 12px; color: var(--print); }
+
+.distill-draft { display: flex; flex-direction: column; gap: 4px; }
+.distill-proposals { margin-bottom: 16px; }
+.distill-fields { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.distill-field {
+  display: flex; flex-direction: column; gap: 4px; padding: 10px 14px;
+  background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius-m);
+}
+.distill-field__head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.distill-field__name { font-weight: 600; color: var(--ink); }
+.distill-field__symbol { color: var(--print); font-size: 12px; font-family: var(--font-code); }
+.distill-role { border-radius: var(--radius-s); padding: 1px 8px; font-size: 11px; letter-spacing: 0.02em; white-space: nowrap; }
+.distill-role--field { background: var(--action-soft); border: 1px solid var(--rule-strong); color: var(--action); }
+.distill-role--reference { background: var(--hover-strong); border: 1px solid var(--rule-strong); color: var(--ink); }
+.distill-role--predicate { background: var(--warn-bg); border: 1px solid var(--rule); color: var(--ink); }
+.distill-field__motive { margin: 0; color: var(--ink); font-size: 14px; line-height: 1.55; }
+.distill-field__refs { display: flex; flex-wrap: wrap; gap: 8px; }
+.distill-source { color: var(--action); text-decoration: none; font-size: 11px; font-family: var(--font-code); }
+.distill-source:hover { text-decoration: underline; text-underline-offset: 2px; }
+.distill-template { max-height: none; margin-bottom: 8px; }
 
 @media (max-width: 760px) {
   .health-item { grid-template-columns: 1fr; }

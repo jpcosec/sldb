@@ -1,5 +1,6 @@
 /** Composición de la app: navegación + vista según la ruta. */
 import { DocumentView } from "./DocumentView";
+import { DistillView } from "./DistillView";
 import { ExtractionView } from "./ExtractionView";
 import { HealthView } from "./HealthView";
 import { ReaderView } from "./ReaderView";
@@ -15,6 +16,7 @@ export function App() {
       <div className="app__main">
         {route.view === "doc" && <DocumentView key={route.id} id={route.id} mode={route.mode} />}
         {route.view === "lector" && <ReaderView />}
+        {route.view === "destilacion" && <DistillView />}
         {route.view === "extract" && <ExtractionView />}
         {route.view === "salud" && <HealthView />}
         {route.view === "bandeja" && <TrayView />}

@@ -37,6 +37,9 @@ export function Sidebar({ route }: { route: Route }) {
       <a className={`sidebar__action${route.view === "extract" ? " is-active" : ""}`} href={hrefFor({ view: "extract" })}>
         Extraer desde texto
       </a>
+      <a className={`sidebar__action${route.view === "destilacion" ? " is-active" : ""}`} href={hrefFor({ view: "destilacion" })}>
+        Destilación
+      </a>
       <a className={`sidebar__action${route.view === "bandeja" ? " is-active" : ""}`} href={hrefFor({ view: "bandeja" })}>
         Bandeja
       </a>
