@@ -202,7 +202,38 @@ def test_batch_save_create_update_delete(tmp_path: Path) -> None:
         assert book["payload"] == {"title": "Batch Updated"}
         assert next(doc for doc in graph["documents"] if doc["id"] == "book2")["model_name"] == "SimpleBook"
         assert (tmp_path / "book2.md").read_text(encoding="utf-8") == "# Batch New\n"
-        assert (tmp_path / "other.md").read_text(encoding="utf-8") == "# Other Book\n"
+        # delete es la inversa de create: si create escribe el archivo, delete lo borra.
+        # Dejarlo en disco deja el grafo y el disco en desacuerdo, y el proximo track
+        # del directorio resucita el documento.
+        assert not (tmp_path / "other.md").exists()
+    finally:
+        _stop(server, thread)
+
+
+def test_batch_save_delete_removes_the_file_it_created(tmp_path: Path) -> None:
+    """Create then delete through /save leaves no residue on disk.
+
+    Regression: the batch delete used to untrack the document, so the graph lost it
+    while the `.md` stayed. The store said the document did not exist and the file
+    was still there, so re-tracking the directory resurrected it.
+    """
+    store = _build_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, _ = _request_json(f"{base_url}/save", method="POST", payload={"changes": [
+            {"id": "zz", "action": "create", "model": "SimpleBook", "payload": {"title": "Z"}},
+        ]})
+        assert status == 200
+        created = tmp_path / "zz.md"
+        assert created.exists()
+
+        status, body = _request_json(f"{base_url}/save", method="POST", payload={"changes": [
+            {"id": "zz", "action": "delete", "expected": {"title": "Z"}},
+        ]})
+        assert status == 200 and body == {"ok": True, "saved": ["zz"]}
+        assert not created.exists(), "delete reported ok but left the file on disk"
+        _, graph = _request_json(f"{base_url}/graph")
+        assert "zz" not in {doc["id"] for doc in graph["documents"]}
     finally:
         _stop(server, thread)
 

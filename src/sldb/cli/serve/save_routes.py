@@ -13,8 +13,8 @@ from pathlib import Path
 from typing import Any
 
 from sldb.api.documents.create_document import create_document
+from sldb.api.documents.delete_document import delete_document
 from sldb.api.documents.payload_save import save_document_payload
-from sldb.api.documents.untrack_document import untrack_document
 from sldb.cli.model_utils import resolve_model_ref
 from sldb.cli.serve.save_plan import bad, prevalidate
 from sldb.cli.serve.save_single import save_single
@@ -92,10 +92,16 @@ def sort_key(item: tuple[dict[str, Any], Any, Path | None]) -> int:
 
 
 def apply_change(change: dict[str, Any], current: Any, path: Path | None, store_path: Path, pythonpath: str) -> None:
+    """Apply one prevalidated change; `delete` is the inverse of `create`, file included.
+
+    `create` writes the Markdown file, so `delete` removes it. Untracking instead would
+    drop the document from the graph and leave the file on disk, where the next track or
+    rescan of the directory resurrects it.
+    """
     name, action = change["id"], change["action"]
     if action == "create":
         create_document(store_path, change["model"], path, change["payload"], name=name, pythonpath=pythonpath)
     elif action == "update":
         save_document_payload(store_path, current.model_name, name, change["payload"], pythonpath=pythonpath)
     else:
-        untrack_document(store_path, name, pythonpath=pythonpath)
+        delete_document(store_path, name, pythonpath=pythonpath)
