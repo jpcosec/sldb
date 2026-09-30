@@ -5,9 +5,27 @@
  */
 import { useMemo, useState } from "react";
 import { acceptAtom, anchorState, excludeAtom, matchQuery, pinAtom, refreshSlot, SLOT_MODES, SLOT_NAMES, unexcludeAtom, unpinAtom, type SlotRefresh } from "../../core/atoms";
-import { buildPreview, parseQuery, removeQueryToken, reviewGate, SLOT_LABELS, slotChanges, slotField, type PreviewItem, type PreviewSection } from "../../core/atom-report";
+import {
+  buildPreview,
+  nextVersion,
+  parseQuery,
+  publicationName,
+  publicationPayload,
+  publicationsOf,
+  PUBLICATION_MODEL,
+  publishState,
+  removeQueryToken,
+  reviewGate,
+  SLOT_LABELS,
+  slotChanges,
+  slotField,
+  snapshotAtoms,
+  type PreviewItem,
+  type PreviewSection,
+} from "../../core/atom-report";
 import { SaveConflictError } from "../../core/client";
 import type { Atom, InformeSlot, SlotMode, SlotName } from "../../core/contract";
+import { useSldb } from "../../react/context";
 import { hrefFor } from "../router";
 import { useAtomStore } from "./useAtomStore";
 import "./atomos-informe.css";
@@ -24,7 +42,8 @@ const textHref = (atom: Atom) => hrefFor({ view: "atomos-texto", id: atom.source
 
 export default function AtomosInformeView({ informeId }: { informeId: string }) {
   const store = useAtomStore();
-  const { status, atoms, actas, informes, edges, saveField, reload } = store;
+  const { client } = useSldb();
+  const { status, atoms, actas, informes, edges, documents, saveField, reload } = store;
   const informe = informes.find((i) => i.id === informeId);
 
   const [selected, setSelected] = useState<SlotName>("resumen");
@@ -34,6 +53,7 @@ export default function AtomosInformeView({ informeId }: { informeId: string }) 
   const [saved, setSaved] = useState(false);
   const [failure, setFailure] = useState<Failure | null>(null);
   const [provenance, setProvenance] = useState<PreviewItem | null>(null);
+  const [publishing, setPublishing] = useState(false);
 
   const byPath = useMemo(() => new Map(atoms.map((a) => [a.path, a])), [atoms]);
   const bodyOf = useMemo(() => new Map(actas.map((a) => [a.gid, a.body])), [actas]);
@@ -65,6 +85,8 @@ export default function AtomosInformeView({ informeId }: { informeId: string }) 
   const slot = informe.slots[selected];
   const queryText = drafts[selected] ?? slot.query;
   const parsed = parseQuery(queryText);
+  const publications = publicationsOf(documents, informe.id);
+  const publish = publishState({ gate, publications, atomCount: snapshotAtoms(informe.slots).length, publishing });
   const title = typeof informe.payload.title === "string" && informe.payload.title ? informe.payload.title : `Informe ${informe.id}`;
 
   /** Ejecuta escrituras; si el servidor las rechaza, no se aplica nada en pantalla (la vista sale del store) y se relee. */
@@ -121,6 +143,32 @@ export default function AtomosInformeView({ informeId }: { informeId: string }) 
   async function decideNuevo(path: string, fn: typeof acceptAtom) {
     const name = selected;
     if (await change(name, fn(informe!.slots[name], path))) dropNuevo(name, path);
+  }
+
+  /** Crea la foto inmutable: lee el render real y las versiones frescas del servidor; si otro publicó a la vez (409) reintenta una vez. */
+  async function publishNow() {
+    setPublishing(true);
+    setFailure(null);
+    setSaved(false);
+    const attempt = async () => {
+      const [docs, markdown] = await Promise.all([client.documents(), client.render(informe!.id)]);
+      const version = nextVersion(publicationsOf(docs, informe!.id));
+      return client.createDocument(PUBLICATION_MODEL, publicationName(informe!.id, version), publicationPayload({ informe: informe!, version, markdown }));
+    };
+    try {
+      try {
+        await attempt();
+      } catch (error) {
+        if (!(error instanceof SaveConflictError)) throw error;
+        await attempt();
+      }
+    } catch (error) {
+      const conflict = error instanceof SaveConflictError;
+      setFailure({ message: conflict ? "Otra publicación ganó de mano dos veces; vuelve a intentarlo." : `No se pudo publicar: ${(error as Error).message}`, conflict: false });
+    } finally {
+      await reload();
+      setPublishing(false);
+    }
   }
 
   const nuevos = refreshes[selected]?.nuevos ?? [];
@@ -185,11 +233,27 @@ export default function AtomosInformeView({ informeId }: { informeId: string }) 
         <span className={`inf-gate inf-gate--${gate.ready ? "ready" : "pending"}`} role="status">
           {gate.label}
         </span>
+        <span className={`inf-published${publications.length ? "" : " inf-published--none"}`}>{publish.published}</span>
+        {publications.length > 0 && (
+          <details className="inf-versions">
+            <summary>Versiones</summary>
+            <ul aria-label="Versiones publicadas">
+              {[...publications].reverse().map((p) => (
+                <li key={p.id}>
+                  <a className="link-btn" href={hrefFor({ view: "doc", id: p.id, mode: "document" })}>
+                    v{p.version}
+                  </a>{" "}
+                  <span className="inf-help">{p.atoms.length} {p.atoms.length === 1 ? "átomo" : "átomos"}</span>
+                </li>
+              ))}
+            </ul>
+          </details>
+        )}
         <span className="save-status" role="status" aria-live="polite">
-          {busy ? "Guardando…" : saved ? "Guardado" : ""}
+          {publishing ? "Publicando…" : busy ? "Guardando…" : saved ? "Guardado" : ""}
         </span>
-        <button type="button" className="btn btn--primary" disabled title="Falta el endpoint de publicación">
-          Publicar
+        <button type="button" className="btn btn--primary" disabled={!publish.enabled || busy} title={publish.reason || undefined} onClick={() => void publishNow()}>
+          {publish.label}
         </button>
       </header>
 

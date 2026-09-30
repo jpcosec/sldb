@@ -53,3 +53,10 @@
 .inf-prov ul { list-style: none; margin: 8px 0 0; padding: 0; }
 .inf-prov li p { margin: 0 0 4px; }
 .inf-prov blockquote { margin: 0 0 4px; padding-left: 10px; border-left: 3px solid var(--rule-strong); color: var(--print); font-size: 13px; }
+
+.inf-published { font-size: 13px; font-weight: 600; }
+.inf-published--none { font-weight: 400; color: var(--muted, #6b6b6b); }
+.inf-versions { position: relative; font-size: 13px; }
+.inf-versions summary { cursor: pointer; color: var(--muted, #6b6b6b); }
+.inf-versions ul { position: absolute; z-index: 5; right: 0; margin: 4px 0 0; padding: 8px 12px; list-style: none; min-width: 150px; background: var(--sheet); border: 1px solid var(--rule-strong); border-radius: 6px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12); }
+.inf-versions li { padding: 2px 0; }

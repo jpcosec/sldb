@@ -8,7 +8,7 @@
  */
 import { linkKind } from "./atom-graph";
 import { ATOM_KINDS, ATOM_STATUSES, SLOT_NAMES, type AtomFilters } from "./atoms";
-import type { Atom, AtomKind, AtomStatus, Edge, Informe, InformeSlot, SlotMode, SlotName } from "./contract";
+import type { Atom, AtomKind, AtomStatus, Edge, GraphDocument, Informe, InformeSlot, Payload, SlotMode, SlotName } from "./contract";
 
 export const SLOT_LABELS: Record<SlotName, string> = {
   resumen: "Resumen",
@@ -193,4 +193,126 @@ export function buildPreview(slots: Informe["slots"], atoms: Atom[], edges: Edge
       prose: s.modo === "prosa" ? items.map((i) => sentence(i.text)).join(" ") : "",
     };
   });
+}
+
+// ---------------------------------------------------------------- publicación
+
+/** Modelo de las fotos inmutables de un informe: un documento por versión. */
+export const PUBLICATION_MODEL = "PublicacionDoc";
+
+export interface Publication {
+  /** Id del documento (`<informe>-v<N>`). */
+  id: string;
+  informe: string;
+  version: number;
+  title: string;
+  atoms: string[];
+}
+
+/** Publicaciones de un informe, de la más antigua a la más nueva. Ignora documentos sin versión entera. */
+export function publicationsOf(documents: GraphDocument[], informeId: string): Publication[] {
+  const out: Publication[] = [];
+  for (const d of documents) {
+    if (d.model_name !== PUBLICATION_MODEL || d.payload.informe !== informeId) continue;
+    const version = Number(d.payload.version);
+    if (!Number.isInteger(version) || version < 1) continue;
+    const atoms = Array.isArray(d.payload.atoms) ? d.payload.atoms.filter((a): a is string => typeof a === "string") : [];
+    out.push({ id: d.id, informe: informeId, version, title: typeof d.payload.title === "string" ? d.payload.title : "", atoms });
+  }
+  return out.sort((a, b) => a.version - b.version);
+}
+
+/** Mayor versión publicada; `0` si no hay ninguna. */
+export function latestVersion(publications: Pick<Publication, "version">[]): number {
+  return publications.reduce((m, p) => Math.max(m, p.version), 0);
+}
+
+export const nextVersion = (publications: Pick<Publication, "version">[]): number => latestVersion(publications) + 1;
+
+/** Nombre del documento de una publicación: `<informe>-v<N>`. */
+export const publicationName = (informeId: string, version: number): string => `${informeId}-v${version}`;
+
+/** Rutas de los átomos de la foto: unión de los slots, sin repetir y en orden de slot. */
+export function snapshotAtoms(slots: Record<SlotName, InformeSlot>): string[] {
+  const seen = new Set<string>();
+  for (const s of SLOT_NAMES) for (const p of slots[s].atomos) seen.add(p);
+  return [...seen];
+}
+
+const SLOT_BY_LABEL = new Map(SLOT_NAMES.map((s) => [SLOT_LABELS[s], s]));
+
+/**
+ * Parte el markdown que renderiza SLDB (`GET /render`) en el título y una sección por slot.
+ * Quita el frontmatter de configuración. Un `## X` que no sea un slot conocido es un error:
+ * no se descarta contenido en silencio.
+ */
+export function splitRendered(markdown: string): { title: string; sections: Record<SlotName, string> } {
+  const text = markdown.replace(/\r\n/g, "\n").replace(/^---\n[\s\S]*?\n---\n+/, "");
+  const sections = Object.fromEntries(SLOT_NAMES.map((s) => [s, ""])) as Record<SlotName, string>;
+  let title = "";
+  let current: SlotName | null = null;
+  const buf: string[] = [];
+  const flush = () => {
+    if (current) sections[current] = buf.join("\n").trim();
+    buf.length = 0;
+  };
+  for (const line of text.split("\n")) {
+    const h2 = /^## (.+?)\s*$/.exec(line);
+    if (h2) {
+      flush();
+      const slot = SLOT_BY_LABEL.get(h2[1]!);
+      if (!slot) throw new Error(`El informe renderizado trae la sección «${h2[1]}», que la publicación no conoce.`);
+      current = slot;
+      continue;
+    }
+    const h1 = /^# (.+?)\s*$/.exec(line);
+    if (h1 && current === null && !title) {
+      title = h1[1]!;
+      continue;
+    }
+    if (current) buf.push(line);
+  }
+  flush();
+  return { title, sections };
+}
+
+/**
+ * Payload de `PublicacionDoc` a partir del render real de SLDB. El modelo lleva una sección por slot
+ * (SLDB rechaza headings dentro de un campo), así que el "cuerpo" es la suma de esas secciones.
+ */
+export function publicationPayload(input: { informe: Informe; version: number; markdown: string }): Payload {
+  const { title, sections } = splitRendered(input.markdown);
+  const fallback = typeof input.informe.payload.title === "string" ? input.informe.payload.title : "";
+  return {
+    informe: input.informe.id,
+    version: input.version,
+    atoms: snapshotAtoms(input.informe.slots),
+    title: title || fallback || input.informe.id,
+    ...sections,
+  };
+}
+
+export interface PublishState {
+  /** `Publicar v3`. */
+  label: string;
+  enabled: boolean;
+  /** Por qué está deshabilitado (para el `title` del botón); vacío si está habilitado. */
+  reason: string;
+  /** `Publicado como v2` o `Sin publicar`. */
+  published: string;
+}
+
+/** Estado del botón: habilitado si el gate está limpio, hay algo que publicar y no se está publicando. */
+export function publishState(input: { gate: ReviewGate; publications: Pick<Publication, "version">[]; atomCount: number; publishing: boolean }): PublishState {
+  const latest = latestVersion(input.publications);
+  const label = `Publicar v${latest + 1}`;
+  const published = latest > 0 ? `Publicado como v${latest}` : "Sin publicar";
+  const reason = input.publishing
+    ? "Publicando…"
+    : !input.gate.ready
+      ? "Revisa los átomos nuevos antes de republicar"
+      : input.atomCount === 0
+        ? "No hay átomos que publicar"
+        : "";
+  return { label, enabled: reason === "", reason, published };
 }

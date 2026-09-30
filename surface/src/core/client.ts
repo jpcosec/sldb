@@ -50,6 +50,8 @@ export interface SldbClient {
   save(changes: SaveChange[]): Promise<SaveResult>;
   /** Aristas del grafo; con `id` (`Model:name`) solo las que tocan ese documento. */
   getEdges(id?: string): Promise<Edge[]>;
+  /** `GET /render?doc=`: markdown del documento tal como lo renderiza SLDB (con su frontmatter). */
+  render(id: string): Promise<string>;
   /** Crea un documento nuevo (`POST /docs`). Errores 400/404/409/422 lanzan `SldbHttpError`. */
   createDocument(model: string, name: string, payload: Payload): Promise<CreateDocumentResult>;
   /** `GET /corpus/rank`. Devuelve un resultado de tres estados, nunca lanza por 409/404/red. */
@@ -120,6 +122,7 @@ export function createHttpClient(baseUrl: string, fetchImpl: FetchLike = (i, ini
     extract: (model, markdown) => post<ExtractionSegments>("/extract/segments", { model, markdown }),
     save: (changes) => post<SaveResult>("/save", { changes }),
     getEdges: async (id) => (await request<{ edges: Edge[] }>(id ? `/edges?id=${encodeURIComponent(id)}` : "/edges")).edges,
+    render: async (id) => (await request<{ markdown: string }>(`/render?doc=${encodeURIComponent(id)}`)).markdown,
     createDocument: (model, name, payload) => post<CreateDocumentResult>("/docs", { model, name, payload }),
     rank: ((p: RankParams) =>
       similarity(fetchImpl, `${root}/corpus/rank?${rankQuery(p)}`, (b) => ((b as { hits?: unknown[] })?.hits ?? null) as never)) as SldbClient["rank"],
