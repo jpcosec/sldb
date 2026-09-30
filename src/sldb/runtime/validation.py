@@ -1,4 +1,5 @@
 from __future__ import annotations
+from pathlib import Path
 from typing import Any, cast, Literal
 from sldb.core.ast import AST_Handler
 from sldb.core.data_extractor import DataExtractor
@@ -49,7 +50,11 @@ class Validator:
 def extract_model_data(m: type[StructuredNLDoc], md: str) -> dict[str, Any]: return Validator(m).extract(md)
 def validate_model_input_roundtrip(m: type[StructuredNLDoc], md: str) -> tuple[bool, dict[str, Any]]: return Validator(m).validate(markdown=md)
 def validate_model_data_roundtrip(m: type[StructuredNLDoc], d: dict[str, Any]) -> tuple[bool, dict[str, Any]]: return Validator(m).validate(data=d)
-def render_model_markdown(m: type[StructuredNLDoc], d: dict[str, Any]) -> str: return Validator(m).render(d)
+def render_model_markdown(m: type[StructuredNLDoc], d: dict[str, Any], *, root: Path | None = None) -> str:
+    model = m(**d)
+    if root is not None:
+        model._composition_root = Path(root)
+    return SLDBRenderer().render(model)
 
 def extract_payload(template: str, markdown: str) -> dict[str, Any]:
     ast = AST_Handler()

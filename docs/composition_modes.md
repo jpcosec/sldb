@@ -1,6 +1,6 @@
 # SLDB Composition Modes
 
-Verified against the working tree on 2026-09-13. Two composition mechanisms are implemented: model-driven summaries during rendering, and explicit document transclusions through the CLI.
+Verified against the working tree on 2026-09-28. Two composition mechanisms are implemented: model-driven summaries during rendering, and explicit document transclusions through the CLI.
 
 ## Render-Time Summaries
 
@@ -20,7 +20,15 @@ __compositions__ = {
 
 The `tasks` field supplies a list of file paths. The model is an import reference or a model class. Each child is extracted with that model; `template` formats its payload with Python string formatting, and `separator` joins the results. The defaults are `"- {title}"` and a newline.
 
-The option is `template`, not `line_template`. Relative child paths are currently resolved from the process working directory; this mechanism does not invoke the linked-store resolver. Missing paths and invalid child payloads can be skipped silently.
+The option is `template`, not `line_template`.
+
+### Path anchoring
+
+Relative child paths resolve against the document's project root — not the process working directory. The root is taken from, in order: the instance attribute `_composition_root` (set by renderers, set by `render_model_markdown(..., root=...)`), the class attribute `__composition_root__`, and finally the process cwd as a compatibility fallback when no root is available. Store-backed entry points (`sldb docs create/update`, the server's `/render`) always pass the store's project root, so composition output is independent of the server's cwd. Absolute child paths are used as-is.
+
+### Broken children are reported, not silent
+
+A missing child path, a child whose payload does not extract under the declared model, an empty payload, or a `template` formatting error leaves the rendered markdown unchanged — the summary line is skipped, exactly as before. The failure is not dropped: it is recorded on the instance and readable as `model.composition_issues`, a list of per-child diagnostics (`compose_field[<field>]: <reason> <ref> (<path>)`). An empty `composition_issues` is the only trustworthy sign of "no children compose".
 
 Use `sldb render` or a document render/create/update workflow to produce the summaries. Render-only markers are not extracted back into the parent payload. There is no implemented edit-through operation from a summary to its child document.
 

@@ -11,6 +11,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from sldb import StructuredNLDoc
+from sldb.core.renderer import SLDBRenderer
 from sldb.runtime.validation import render_model_markdown
 
 
@@ -148,3 +149,58 @@ def test_ritual_doc_renders_composed_step_details(tmp_path: Path):
         "1. Validate draft: Run model validation against tracked docs. -> A promotable contract draft."
         in rendered
     )
+
+
+def test_composition_anchors_relative_refs_to_project_root_not_cwd(tmp_path, monkeypatch):
+    """Defect 1 reproduction: a relative child ref must resolve against the
+    document's project root (_composition_root), not the process cwd."""
+    models = _load_composition_models(tmp_path)
+    task_dir = tmp_path / "nested"
+    task_dir.mkdir()
+    task_path = task_dir / "task-a.md"
+    task_path.write_text(
+        render_model_markdown(
+            models.ComposedTaskDoc,
+            {
+                "title": "Anchor me",
+                "status": "active",
+                "goal": "Resolve from the board's project root.",
+            },
+        ),
+        encoding="utf-8",
+    )
+
+    unrelated = tmp_path / "unrelated-cwd"
+    unrelated.mkdir()
+    monkeypatch.chdir(unrelated)
+
+    board = ComposedBoardDoc(title="Anchored Board", tasks=["nested/task-a.md"])
+    board._composition_root = tmp_path
+
+    rendered = SLDBRenderer().render(board)
+
+    assert (
+        "- Anchor me [active] - Resolve from the board's project root." in rendered
+    )
+
+
+def test_composition_reports_missing_and_invalid_children(tmp_path):
+    """Defect 2 reproduction: broken children (missing path, invalid payload)
+    must be reportable via composition_issues, without changing the rendered
+    markdown."""
+    _load_composition_models(tmp_path)
+    invalid_path = tmp_path / "task-invalid.md"
+    invalid_path.write_text(
+        "# Missing Status\n\n## Goal\n\nIncomplete.", encoding="utf-8"
+    )
+    missing_ref = str(tmp_path / "no-such-task.md")
+
+    board = ComposedBoardDoc(
+        title="Issue Board", tasks=[missing_ref, str(invalid_path)]
+    )
+    rendered = SLDBRenderer().render(board)
+
+    assert "## Task Details" in rendered
+    issues = board.composition_issues
+    assert any("no-such-task.md" in issue for issue in issues), issues
+    assert any("task-invalid.md" in issue for issue in issues), issues

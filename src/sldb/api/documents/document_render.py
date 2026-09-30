@@ -20,7 +20,7 @@ def render_document_markdown(store_path: Path, pythonpath: str | None, doc_ref: 
     from sldb.runtime.validation import render_model_markdown
 
     doc = runtime_document(store_path, pythonpath, doc_ref)
-    return render_model_markdown(doc.model_type, doc.payload)
+    return render_model_markdown(doc.model_type, doc.payload, root=store_path.parent)
 
 
 def render_model_template(store_path: Path, pythonpath: str | None, model_name: str) -> str:
