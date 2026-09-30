@@ -20,3 +20,14 @@ describe("router", () => {
     expect(parseRoute("#/atomos/otra")).toEqual({ view: "home" });
   });
 });
+
+describe("foco de átomo entre vistas", () => {
+  it("ida y vuelta de ?atom= en texto y grafo", () => {
+    const texto = { view: "atomos-texto", id: "acta-1", focus: "a3" } as const;
+    expect(hrefFor(texto)).toBe("#/atomos/texto/acta-1?atom=a3");
+    expect(parseRoute(hrefFor(texto))).toEqual(texto);
+    expect(parseRoute("#/atomos/grafo?atom=a12")).toEqual({ view: "atomos-grafo", focus: "a12" });
+    expect(hrefFor({ view: "atomos-grafo" })).toBe("#/atomos/grafo");
+    expect(parseRoute("#/atomos/texto/acta-1")).toEqual({ view: "atomos-texto", id: "acta-1" });
+  });
+});

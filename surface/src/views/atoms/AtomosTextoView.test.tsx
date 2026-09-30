@@ -177,7 +177,7 @@ describe("AtomosTextoView · acciones", () => {
     mount();
     await screen.findByText("5 átomos, 3 sin confirmar");
     fireEvent.click(within(card("a1")).getByRole("button", { name: "Ver en el grafo" }));
-    expect(window.location.hash).toBe("#/atomos/grafo");
+    expect(window.location.hash).toBe("#/atomos/grafo?atom=a1"); // lleva el átomo enfocado
   });
 });
 

@@ -10,6 +10,7 @@
  *
  * Zoom/pan: rueda para acercar, arrastrar el fondo para mover, "Ajustar" para encuadrar.
  */
+import { hrefFor } from "../router";
 import { useCallback, useEffect, useMemo, useRef, useState, type KeyboardEvent, type PointerEvent as ReactPointerEvent } from "react";
 import {
   IDENTITY_VIEW,
@@ -65,7 +66,7 @@ const clientPoint = (e: { clientX?: number; clientY?: number }): Point => ({
   y: Number.isFinite(e.clientY) ? (e.clientY as number) : 0,
 });
 
-export default function AtomosGrafoView() {
+export default function AtomosGrafoView({ focusId }: { focusId?: string } = {}) {
   const store = useAtomStore();
   const { status, error, atoms: allAtoms, actas, relationTypes, edges, documents, reload, createDocument } = store;
 
@@ -76,7 +77,7 @@ export default function AtomosGrafoView() {
   const [hiddenTypes, setHiddenTypes] = useState<ReadonlySet<string>>(new Set());
   const [showRefs, setShowRefs] = useState(true);
   const [tag, setTag] = useState<string | null>(null);
-  const [selection, setSelection] = useState<Selection>(null);
+  const [selection, setSelection] = useState<Selection>(focusId ? { type: "atom", id: focusId } : null);
   const [hoverEdge, setHoverEdge] = useState<string | null>(null);
   const [view, setView] = useState<View>(IDENTITY_VIEW);
   const [drag, setDrag] = useState<DragState | null>(null);
@@ -804,7 +805,7 @@ function AtomInspector({
         Ancla: {anchor ? ANCHOR_LABEL[anchor.state] : "acta no encontrada"}
         {anchor?.state === "drifted" && anchor.movedTo !== undefined && ` (ahora en ${anchor.movedTo})`}
       </p>
-      <button type="button" className="btn" onClick={() => (window.location.hash = `#/atomos/texto/${encodeURIComponent(actaId)}`)}>
+      <button type="button" className="btn" onClick={() => (window.location.hash = hrefFor({ view: "atomos-texto", id: actaId, focus: atom.id }))}>
         Ver en el texto
       </button>
     </div>

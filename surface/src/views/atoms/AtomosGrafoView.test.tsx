@@ -112,7 +112,7 @@ describe("AtomosGrafoView", () => {
     expect(within(insp).queryAllByLabelText("saliente")).toHaveLength(0);
     expect(within(insp).getByTestId("anchor-state")).toHaveTextContent(/intacta|movida|huérfana/);
     fireEvent.click(within(insp).getByRole("button", { name: "Ver en el texto" }));
-    expect(window.location.hash).toBe("#/atomos/texto/acta");
+    expect(window.location.hash).toBe("#/atomos/texto/acta?atom=a2"); // lleva el átomo enfocado
     fireEvent.keyDown(node("a2"), { key: "Escape" });
     expect(screen.queryByRole("complementary", { name: "Inspector" })).toBeNull();
   });

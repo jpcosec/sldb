@@ -20,7 +20,7 @@ interface Failure {
   conflict: boolean;
 }
 
-const textHref = (atom: Atom) => hrefFor({ view: "atomos-texto", id: atom.source.split(":").slice(1).join(":") || atom.source });
+const textHref = (atom: Atom) => hrefFor({ view: "atomos-texto", id: atom.source.split(":").slice(1).join(":") || atom.source, focus: atom.id });
 
 export default function AtomosInformeView({ informeId }: { informeId: string }) {
   const store = useAtomStore();

@@ -184,7 +184,7 @@ describe("AtomosInformeView", () => {
     fireEvent.click(within(doc).getAllByRole("button", { name: "Reunión del 14/09" })[0]!);
     const dialog = screen.getByRole("dialog", { name: "Procedencia" });
     expect(within(dialog).getByText("Viene de 1 átomo")).toBeInTheDocument();
-    expect(within(dialog).getByRole("link", { name: "Abrir en el texto" })).toHaveAttribute("href", "#/atomos/texto/acta");
+    expect(within(dialog).getByRole("link", { name: "Abrir en el texto" })).toHaveAttribute("href", expect.stringMatching(/^#\/atomos\/texto\/acta\?atom=\w+$/));
     expect(within(doc).getAllByText("Este slot todavía no tiene átomos.").length).toBeGreaterThan(0);
   });
 

@@ -174,7 +174,7 @@ function AtomCard({ atom, body, store, active, dim, onFocus, onHover }: CardProp
             <button type="button" className="btn btn--quiet" disabled={busy} onClick={() => { setDraft(atom.text); setEditing(true); }}>Editar texto</button>
           </>
         )}
-        <button type="button" className="btn btn--quiet" onClick={() => { window.location.hash = hrefFor({ view: "atomos-grafo" }); }}>Ver en el grafo</button>
+        <button type="button" className="btn btn--quiet" onClick={() => { window.location.hash = hrefFor({ view: "atomos-grafo", focus: atom.id }); }}>Ver en el grafo</button>
       </div>
     </article>
   );
@@ -219,11 +219,11 @@ interface Pending {
 
 // ---------------------------------------------------------------- vista
 
-function ActaAtoms({ acta, store }: { acta: Acta; store: AtomStore }) {
+function ActaAtoms({ acta, store, initialFocus }: { acta: Acta; store: AtomStore; initialFocus?: string }) {
   const { body } = acta;
   const [kinds, setKinds] = useState<AtomKind[]>([]);
   const [lowFirst, setLowFirst] = useState(false);
-  const [focusId, setFocusId] = useState<string | null>(null);
+  const [focusId, setFocusId] = useState<string | null>(initialFocus ?? null);
   const [hoverId, setHoverId] = useState<string | null>(null);
   const [pending, setPending] = useState<Pending | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
@@ -450,7 +450,7 @@ function ActaAtoms({ acta, store }: { acta: Acta; store: AtomStore }) {
   );
 }
 
-export default function AtomosTextoView({ actaId }: { actaId: string }) {
+export default function AtomosTextoView({ actaId, focusId }: { actaId: string; focusId?: string }) {
   const store = useAtomStore();
   const acta = store.actas.find((a) => a.id === actaId);
 
@@ -465,5 +465,5 @@ export default function AtomosTextoView({ actaId }: { actaId: string }) {
       );
     return <div className="empty-state">No existe el acta «{actaId}».</div>;
   }
-  return <ActaAtoms acta={acta} store={store} />;
+  return <ActaAtoms acta={acta} store={store} initialFocus={focusId} />;
 }
