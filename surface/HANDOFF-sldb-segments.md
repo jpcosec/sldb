@@ -1,8 +1,20 @@
 # HANDOFF · Segmentos de documento en SLDB
 
-Estado: listo para implementar. Fecha: 2026-09-29.
+Estado: **CUMPLIDO**. Fecha: 2026-09-29.
 Consumidor: `@sldb/surface` (esta UI). Contrato de tipos: `src/core/contract.ts`.
-Referencia ejecutable: `dev/segments_prototype.py` + `dev/reference_server.py`.
+
+Implementado en SLDB (rama `feat/document-segments`):
+
+- `GET /document/segments` — commit `74285b5`, instrumentando el render con centinelas.
+  Verificado: los segmentos concatenados reconstruyen el texto exacto y cada offset
+  coincide, incluido `complete-systemprompt`, que hacía reventar al prototipo.
+- `POST /extract/segments` y la degradación por modelo en `/schema` y `/graph` —
+  commit `250e228`. Un modelo irresoluble ya no tumba la respuesta entera: los demás
+  se sirven y el roto se declara en `unavailable` con su razón.
+
+El prototipo que servía de referencia ejecutable (`dev/segments_prototype.py` y
+`dev/reference_server.py`) fue **borrado**: existía solo mientras estos endpoints no
+eran reales. Este documento queda como registro del diseño, no como pendiente.
 
 ## Tesis
 

@@ -23,19 +23,19 @@ Requiere Python con `sldb` instalado y Node 20+.
 ```bash
 npm install
 
-# Tienda demo (libre, estructurado con frontmatter/lista/tabla, compuesto)
-cd dev/demo-store && bash seed.sh && cd ../..
-
-# Backend: sldb serve real + endpoints del HANDOFF vía prototipo
-(cd dev/demo-store && python ../reference_server.py --store .sldb --pythonpath . --port 8787)
+# Backend: sldb serve real. Sirve los tres endpoints que la superficie necesita
+# (GET /document/segments, POST /extract/segments, GET /schema).
+sldb serve --store <ruta>/.sldb --pythonpath <RUTA_ABSOLUTA_del_proyecto> --port 8787 --cors
 
 # UI (en otra terminal); /sldb se redirige a SLDB_TARGET
 SLDB_TARGET=http://127.0.0.1:8787 npm run dev
 ```
 
-Para otro store: correr `dev/reference_server.py` desde la raíz de ese proyecto. Cuando SLDB
-implemente `HANDOFF-sldb-segments.md`, se apaga el servidor de referencia y se apunta
-`SLDB_TARGET` a `sldb serve --cors`: el contrato es el mismo.
+El `--pythonpath` debe ser **absoluto**: `serve` hace `chdir` antes de resolverlo, y uno
+relativo deja modelos sin importar (se ven en `unavailable` de `/schema` y `/graph`).
+
+Ya no hay servidor de referencia: `dev/reference_server.py` y `dev/segments_prototype.py`
+existieron mientras esos endpoints no eran reales, y se borraron cuando lo fueron.
 
 ```bash
 npm test          # core + superficie, contra respuestas reales capturadas del servidor
