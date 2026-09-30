@@ -8,9 +8,9 @@ from urllib.parse import urlparse
 from sldb.api import serialize_document  # re-export: data contract moved to sldb.api; kept for backwards compatibility
 from sldb.cli.model_utils import resolve_model_ref
 from sldb.cli.serve.health import health_payload
-from sldb.cli.serve.edges_routes import dispatch_edge
+from sldb.cli.serve.docs_create_route import dispatch_docs_or_create
+from sldb.cli.serve.edges_documents_routes import dispatch_edges
 from sldb.cli.serve.document_routes import DOCUMENT_ROUTES, dispatch_document
-from sldb.cli.serve.docs_routes import dispatch_docs
 from sldb.cli.serve.find_routes import dispatch_find
 from sldb.cli.serve.graph_routes import dispatch_graph
 from sldb.cli.serve.lint_routes import dispatch_lint
@@ -64,7 +64,7 @@ def _nested_get(
     pythonpath: str,
 ) -> tuple[dict[str, Any], int]:
     if route == "/edges" or route.startswith("/edges/"):
-        return dispatch_edge(handler, store_path)
+        return dispatch_edges(handler, store_path, pythonpath)
     if route.startswith("/graph/"):
         return dispatch_graph(handler, store_path)
     if route in DOCUMENT_ROUTES:
@@ -96,8 +96,8 @@ def dispatch_post(
 ) -> tuple[dict[str, Any], int]:
     if route.startswith("/models/"):
         return dispatch_models(handler, "POST", route, store_path, project_root, pythonpath)
-    if route.startswith("/docs/"):
-        return dispatch_docs(handler, route, store_path, project_root, pythonpath)
+    if route == "/docs" or route.startswith("/docs/"):
+        return dispatch_docs_or_create(handler, route, store_path, project_root, pythonpath)
     if route == "/extract/segments":
         return extract_segments_response(read_json_body(handler), store_path, pythonpath)
     if route != "/save":
