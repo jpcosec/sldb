@@ -9,6 +9,30 @@ Qué se verificó y qué no está marcado en cada sección: **[ok]** corrió en 
 
 ---
 
+## Estado de implementación (2026-09-30)
+
+Las tres vistas están construidas y corren contra `sldb serve` real (`surface/src/views/atoms/`,
+store demo `surface/dev/atoms-store`). Lo que dejó de estar en falta desde que se escribió este
+documento, con su evidencia:
+
+| Antes | Ahora |
+|---|---|
+| Aristas por HTTP: **[falta]** | `GET /edges[?id=Model:name]` |
+| `/save` crea documentos: **[sin probar]** | `POST /docs` `{model,name,payload}` (409 si existe, 422 si no valida) |
+| Slots por consulta / lista resuelta | la lista de cada slot vive en el **frontmatter** (`<slot>`, `_pins`, `_excluidos`): un marcador `render` no se relee y la perdía |
+| Tipos de relación | solo se ofrecen los que nombran `AtomDoc` en ambos extremos; los 13 tipos internos del índice no |
+| Foco entre vistas | `?atom=<id>` en la ruta: "Ver en el texto", "Ver en el grafo" y "Origen" llevan el átomo enfocado |
+| Ranking por similitud por HTTP | `GET /corpus/rank` (documentos o `fields=1`) y `GET /similar` |
+| Divergencia modelo vs disco | `GET /stores/check` ampliado (`models[].documents[]`) |
+
+Sigue en falta, y la UI lo dice en pantalla: publicar el informe, el extractor que propone
+átomos (`Re-extraer`), aristas heredadas por grupo (el servidor no expone el grupo como extremo),
+secciones dinámicas del informe, y prosa/tabla como salida real (solo vista previa).
+
+**Hallazgo sobre similitud:** el ranking por *documento* compara contra la concatenación de todos
+los strings del payload y diluye el parecido (una frase casi idéntica a la cita de un átomo daba
+0.55). Para "¿esto ya existe?" se usa el ranking por *campo* (`fields=1`), que da 1.00 en ese caso.
+
 ## 1. Lo que SLDB ya da
 
 El mock parecía pedir tres piezas nuevas. SLDB ya trae casi todo con sus propios modelos.

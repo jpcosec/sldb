@@ -1,6 +1,6 @@
 # T9 · Destilación: anchors → regularidad → modelo
 
-Estado: **HECHO** (parcial, declarado) · Dificultad: alta · Ruta `#/destilacion`
+Estado: **HECHO** (parcial: falta escritura de modelos) · Dificultad: alta · Ruta `#/destilacion`
 Worktree: `/home/jp/proyectos/hum-ecosystem-worktrees/sldb-surface/surface`
 Commit: `2f9ea1a9`
 
@@ -34,6 +34,8 @@ relación. Los anchors de prueba se borraron; el store volvió a 114 documentos.
 ## NO implementado (declarado)
 - **Escritura de modelos**: no hay endpoint. Es solo propuesta y la vista lo dice.
 - **`__containment__`**: las formas de `ref` no lo distinguen de `__references__`.
-- **Dedup por similitud**: `Corpus.rank()` no está servido.
+- ~~Dedup por similitud~~: **hecho 2026-09-30**. Cada campo propuesto se compara con los campos
+  del store (`/corpus/rank?fields=1`) y se marca "Posible duplicado" o "Parecido a", con puntaje.
+  Solo informa: la vista no tiene aceptar/descartar campos.
 - **"Posición estable" real**: un anchor no guarda posición; se usa como proxy que el
   modelo tenga 2+ campos.

@@ -1,6 +1,6 @@
 # T7 · Vista LECTOR — anclar sobre texto crudo
 
-Estado: **HECHO** (parcial, declarado) · Dificultad: alta
+Estado: **HECHO** (parcial: falta SourcePicker) · Dificultad: alta
 Worktree: `/home/jp/proyectos/hum-ecosystem-worktrees/sldb-surface/surface`
 
 ## Qué
@@ -23,9 +23,14 @@ nunca manda un campo que el modelo no declara.
 - Texto → anchors: **esta vista**
 - Anchors → regularidad → modelo: no existe en ningún lado (T9)
 
+## DuplicateWarning (cerrado 2026-09-30)
+Al seleccionar un tramo se compara contra los CAMPOS del store (`/corpus/rank?fields=1`) y se
+avisa "Posible duplicado (NN%)" desde 0.85, o el parecido con su puntaje desde 0.35. Nunca
+bloquea guardar. Por campo y no por documento: el ranking por documento compara contra todos
+los strings del payload y diluye el parecido (una frase casi idéntica a una cita daba 0.55; por
+campo da 0.99). Tres estados distintos: sin parecidos, corpus no indexado ("Indexar ahora") y no disponible.
+
 ## NO implementado (declarado en la vista)
-- `DuplicateWarning` (§6.1): no hay endpoint de similitud; `/similar` y `/corpus/rank`
-  responden 404.
 - `SourcePicker` y la barra de % anclado: no hay fuentes en el store; el texto lo pega
   el usuario.
 

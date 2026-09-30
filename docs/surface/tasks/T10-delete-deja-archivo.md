@@ -1,6 +1,6 @@
 # T10 · `delete` deja el archivo en disco
 
-Estado: **HECHO** · Worktree: `hum-ecosystem-worktrees/sldb-noise`
+Estado: **HECHO** (integrado a `main` 2026-09-30) · Worktree: `hum-ecosystem-worktrees/sldb-noise`
 Commit: `975fbc1` — "save: delete borra el archivo, no solo lo destrackea"
 
 ## Qué
