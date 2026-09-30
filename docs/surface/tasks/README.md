@@ -23,3 +23,10 @@ Queda T8 (identidad de sección / id semántico).
 - Round-trip byte a byte contra la KB real
 - Edit-through: editar una pieza compuesta baja al documento de origen
 - Procedencia por pieza en el árbol de segmentos
+
+## Artefacto suelto
+
+`docs/surface/mockup-extraccion-grafo-compositor.html` es una maqueta de una sola pieza
+(React + react-flow, 581 KB, sin fuente en este repo) que entró en `f7daee7` en la raíz.
+No es el build de `surface/` — la superficie no usa react-flow. Se conserva como
+referencia de diseño; no se regenera desde acá.

@@ -16,7 +16,7 @@ archivo + purga la cache de extracción). El test afirmaba la conducta vieja.
 ## Resultado
 Se usa `delete_document`. Suite: 1090 passed.
 
-## OJO: falta integrar
-El repo principal `/home/jp/proyectos/hum-ecosystem/tools/sldb` TODAVÍA tiene el bug
-(`save_routes.py` sigue llamando `untrack_document`). El arreglo vive en la branch del
-worktree y falta integrarlo.
+## Integrado
+El fix estaba solo en la rama `feat/structural-noise-detection`. Traído a `feat/surface`
+como `5f6dc95` (cherry-pick de `975fbc1`); suite completa: 1139 passed. Queda entrar a
+`main` cuando la rama se mergee.
