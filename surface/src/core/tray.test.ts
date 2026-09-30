@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { GraphDocument, SchemaField, SchemaIndexLike } from "./contract";
-import { collectTray, groupByModel, isDraftTagged, lacksProvenance } from "./tray";
+import type { RankHit } from "./contract";
+import { collectTray, groupByModel, indexIdOf, isDraftTagged, lacksProvenance, pickSuggestions, placedIds, trayQuery } from "./tray";
 
 const doc = (id: string, model: string, payload: Record<string, unknown>): GraphDocument =>
   ({ id, model_name: model, path: `${model}/${id}.md`, version: "v", payload }) as GraphDocument;
@@ -83,5 +84,35 @@ describe("groupByModel", () => {
       ["DomainAtom", 2],
       ["RuleAtom", 1],
     ]);
+  });
+});
+
+describe("sugerencias de destino (lógica pura)", () => {
+  it("trayQuery junta título y strings del payload, aplana espacios y acota", () => {
+    const d = doc("d1", "M", { title: "Hola", body: "uno\n\n  dos", tags: ["a", 3, "b"], n: 5, nested: { x: "no" } });
+    expect(trayQuery(d)).toBe("Hola Hola uno dos a b");
+    expect(trayQuery(doc("d2", "M", { body: "x".repeat(1000) })).length).toBe(400);
+  });
+
+  it("placedIds excluye lo que está en la bandeja y nombra como Model:name", () => {
+    const docs = [doc("a", "AtomDoc", {}), doc("b", "AtomDoc", {}), doc("c", "ActaDoc", {})];
+    const entries = collectTray(docs, null).concat([{ doc: "b" } as never]);
+    expect(placedIds(docs, entries)).toEqual(["AtomDoc:a", "ActaDoc:c"]);
+    expect(indexIdOf(docs[2]!)).toBe("ActaDoc:c");
+  });
+
+  const hit = (name: string, score: number, title?: string): RankHit =>
+    ({ id: `M:${name}`, model: "M", name, score, payload: title ? { title } : {}, tags: [] }) as RankHit;
+
+  it("pickSuggestions ordena, aplica umbral y tope de 3, y no se sugiere a sí mismo", () => {
+    const hits = [hit("low", 0.1), hit("b", 0.5), hit("self", 0.99), hit("a", 0.62, "Título A"), hit("c", 0.4), hit("d", 0.36)];
+    const out = pickSuggestions(hits, "self");
+    expect(out.map((s) => s.name)).toEqual(["a", "b", "c"]);
+    expect(out[0]).toMatchObject({ title: "Título A", percent: 62, score: 0.62 });
+    expect(out[1]!.title).toBe("b");
+  });
+
+  it("sin hits que alcancen el umbral no hay sugerencias", () => {
+    expect(pickSuggestions([hit("x", 0.2)], "s")).toEqual([]);
   });
 });

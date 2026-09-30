@@ -1,13 +1,15 @@
 /**
  * BANDEJA · lo anotado sin ubicar (§6.4).
  *
- * La propuesta describe la bandeja con sugerencias por similitud (`Corpus.rank()`)
- * y destino por vecindad. `Corpus.rank()` NO está cableado al CLI ni servido por
- * HTTP (§5), y `/graph/neighborhood` devuelve solo el nodo consultado en este
- * store. Sin eso, la bandeja LISTA pero no SUGIERE — y eso se dice en la vista,
- * no se simula con una heurística inventada.
+ * La bandeja LISTA lo que no tiene lugar y SUGIERE destino: los documentos ya
+ * ubicados (los que no están en la bandeja) más parecidos, según `GET /corpus/rank`.
+ * El índice compara texto con difflib, así que el puntaje mide parecido de texto,
+ * no de significado, y se muestra siempre. Nada se aplica solo. Si el servidor no
+ * responde o el corpus no está indexado se dice; nunca se inventa un ranking.
+ * Aquí vive la lógica pura (consulta, universo `among`, orden y tope); el pedido
+ * HTTP está en la vista.
  *
- * Lo que sí es derivable hoy, de `/graph` y `/schema`:
+ * Lo que entra a la bandeja, derivable de `/graph` y `/schema`:
  *
  * - SIN PROCEDENCIA: el documento declara `provenance` en su modelo y lo tiene
  *   vacío. Regla 2 de la propuesta: "todo atom tiene origen; sin provenance no es
@@ -17,7 +19,8 @@
  * Un documento cuyo modelo NO declara `provenance` no es un borrador: es un tipo
  * de documento al que la procedencia no le aplica. Distinguirlo es el punto.
  */
-import type { GraphDocument, SchemaIndexLike } from "./contract";
+import type { GraphDocument, RankHit, SchemaIndexLike } from "./contract";
+import { above, queryText, SUGGEST_THRESHOLD } from "./similarity";
 
 /** Tags que marcan algo anotado y todavía sin ubicar. */
 const DRAFT_TAGS = new Set(["status:draft", "status:borrador", "draft", "borrador"]);
@@ -87,4 +90,52 @@ export function groupByModel(entries: TrayEntry[]): { model: string; entries: Tr
   return [...byModel.entries()]
     .map(([model, list]) => ({ model, entries: list }))
     .sort((a, b) => b.entries.length - a.entries.length || a.model.localeCompare(b.model));
+}
+
+/** Cuántas sugerencias se muestran por documento. */
+export const SUGGESTION_LIMIT = 3;
+
+/** Título más todos los strings del payload (y de listas de strings), acotado por `queryText`. */
+export function trayQuery(doc: GraphDocument): string {
+  const parts: string[] = [titleOf(doc)];
+  for (const value of Object.values(doc.payload)) {
+    if (typeof value === "string") parts.push(value);
+    else if (Array.isArray(value)) for (const item of value) if (typeof item === "string") parts.push(item);
+  }
+  return queryText(parts.join(" "));
+}
+
+/** Id con que el índice nombra un documento (`Model:name`), que es lo que acepta `among`. */
+export const indexIdOf = (doc: Pick<GraphDocument, "id" | "model_name">): string => `${doc.model_name}:${doc.id}`;
+
+/** Destinos posibles: los documentos que NO están en la bandeja. */
+export function placedIds(docs: GraphDocument[], entries: TrayEntry[]): string[] {
+  const inTray = new Set(entries.map((e) => e.doc));
+  return docs.filter((d) => !inTray.has(d.id)).map(indexIdOf);
+}
+
+export interface Suggestion {
+  /** Nombre del documento: el id de `#/doc/<name>`. */
+  name: string;
+  model: string;
+  title: string;
+  score: number;
+  /** Puntaje en porcentaje entero, p. ej. 62. */
+  percent: number;
+}
+
+/** Hasta `limit` hits que alcanzan el umbral, mejores primero, sin el propio documento. */
+export function pickSuggestions(hits: RankHit[], self: string, threshold = SUGGEST_THRESHOLD, limit = SUGGESTION_LIMIT): Suggestion[] {
+  return above(
+    hits.filter((h) => h.name !== self),
+    threshold,
+  )
+    .slice(0, limit)
+    .map((h) => ({
+      name: h.name,
+      model: h.model,
+      title: textOf(h.payload?.title) || h.name,
+      score: h.score,
+      percent: Math.round(h.score * 100),
+    }));
 }
