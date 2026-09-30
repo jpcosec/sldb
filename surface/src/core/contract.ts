@@ -333,3 +333,56 @@ export interface CreateDocumentResult {
   id: string;
   version: string;
 }
+
+// ---------------------------------------------------------------- similitud (`/corpus/rank`, `/similar`)
+
+/** Documento parecido a una consulta: `Hit` de `sldb.api.corpus`, tal cual. */
+export interface RankHit {
+  id: string;
+  model: string;
+  name: string;
+  score: number;
+  payload: Payload;
+  tags: string[];
+}
+
+/** Campo parecido a una consulta (`fields=1`): `FieldHit` de `sldb.api.corpus`. `id` es `docs/<Model>/<doc>/<field>`. */
+export interface FieldRankHit {
+  id: string;
+  document_id: string;
+  field: string;
+  model: string;
+  name: string;
+  score: number;
+  text: string;
+  payload: Payload;
+  tags: string[];
+}
+
+/**
+ * Resultado de pedir similitud. Los tres estados NO se mezclan: `ok` con `hits: []` significa
+ * "no hay parecidos"; `not_indexed` que el corpus nunca se indexó (hay que pedir `refresh`);
+ * `unavailable` que el servidor no respondió o no tiene la ruta. Una vista nunca muestra
+ * `not_indexed` ni `unavailable` como si fueran una lista vacía, ni inventa una heurística.
+ */
+export type SimilarityResult<T> =
+  | { status: "ok"; hits: T[] }
+  | { status: "not_indexed" }
+  | { status: "unavailable"; reason: string };
+
+export interface RankParams {
+  /** Texto a comparar contra el corpus. */
+  q: string;
+  k?: number;
+  /** Puntaje mínimo (0 a 1). */
+  threshold?: number;
+  /** Restringe a estos ids; con `fields`, nombrar un documento admite todos sus campos. */
+  among?: string[];
+  /** Rankea campos (`FieldRankHit`) en vez de documentos. */
+  fields?: boolean;
+  /** `true` construye/actualiza el índice (puede ser lento); `false` solo lee lo indexado. */
+  refresh?: boolean;
+}
+
+/** Vecino por grafo: `[node_id, cuántos destinos comparte]`, más compartidos primero. */
+export type SimilarNode = [string, number];

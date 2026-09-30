@@ -4,15 +4,20 @@
  */
 import type {
   CreateDocumentResult,
+  FieldRankHit,
   DocumentSegments,
   Edge,
   ExtractionSegments,
   GraphDocument,
   LintReport,
   Payload,
+  RankHit,
+  RankParams,
   SaveChange,
   SaveResult,
   SchemaResponse,
+  SimilarNode,
+  SimilarityResult,
   StoredDocument,
 } from "./contract";
 
@@ -46,6 +51,11 @@ export interface SldbClient {
   getEdges(id?: string): Promise<Edge[]>;
   /** Crea un documento nuevo (`POST /docs`). Errores 400/404/409/422 lanzan `SldbHttpError`. */
   createDocument(model: string, name: string, payload: Payload): Promise<CreateDocumentResult>;
+  /** `GET /corpus/rank`. Devuelve un resultado de tres estados, nunca lanza por 409/404/red. */
+  rank(params: RankParams & { fields?: false }): Promise<SimilarityResult<RankHit>>;
+  rank(params: RankParams & { fields: true }): Promise<SimilarityResult<FieldRankHit>>;
+  /** `GET /similar`: vecinos por grafo de un nodo (`Model:name`), con los mismos tres estados. */
+  similar(id: string, opts?: { relations?: string[]; limit?: number; types?: string[] }): Promise<SimilarityResult<SimilarNode>>;
   /** Análisis que SLDB ya sirve; no se deriva nada de esto en el cliente. */
   lint(): Promise<LintReport>;
   isolated(): Promise<string[]>;
@@ -59,6 +69,30 @@ function errorMessage(body: unknown, status: number): string {
     return body.error;
   }
   return `SLDB respondió ${status}`;
+}
+
+function rankQuery(p: RankParams): string {
+  const q = new URLSearchParams({ q: p.q });
+  if (p.k !== undefined) q.set("k", String(p.k));
+  if (p.threshold !== undefined) q.set("threshold", String(p.threshold));
+  if (p.among?.length) q.set("among", p.among.join(","));
+  if (p.fields) q.set("fields", "1");
+  if (p.refresh) q.set("refresh", "1");
+  return q.toString();
+}
+
+/** 200 → ok; 409 `not_indexed` → not_indexed; cualquier otra cosa (404, red, cuerpo raro) → unavailable. */
+async function similarity<T>(fetchImpl: FetchLike, url: string, pick: (body: unknown) => T[] | null): Promise<SimilarityResult<T>> {
+  try {
+    const response = await fetchImpl(url);
+    const body: unknown = await response.json().catch(() => null);
+    if (response.status === 409 && (body as { kind?: string } | null)?.kind === "not_indexed") return { status: "not_indexed" };
+    const hits = response.ok ? pick(body) : null;
+    if (hits) return { status: "ok", hits };
+    return { status: "unavailable", reason: errorMessage(body, response.status) };
+  } catch (error) {
+    return { status: "unavailable", reason: error instanceof Error ? error.message : "sin respuesta" };
+  }
 }
 
 export function createHttpClient(baseUrl: string, fetchImpl: FetchLike = (i, init) => fetch(i, init)): SldbClient {
@@ -84,6 +118,15 @@ export function createHttpClient(baseUrl: string, fetchImpl: FetchLike = (i, ini
     save: (changes) => post<SaveResult>("/save", { changes }),
     getEdges: async (id) => (await request<{ edges: Edge[] }>(id ? `/edges?id=${encodeURIComponent(id)}` : "/edges")).edges,
     createDocument: (model, name, payload) => post<CreateDocumentResult>("/docs", { model, name, payload }),
+    rank: ((p: RankParams) =>
+      similarity(fetchImpl, `${root}/corpus/rank?${rankQuery(p)}`, (b) => ((b as { hits?: unknown[] })?.hits ?? null) as never)) as SldbClient["rank"],
+    similar: (id, opts = {}) => {
+      const q = new URLSearchParams({ id });
+      if (opts.relations?.length) q.set("relations", opts.relations.join(","));
+      if (opts.limit !== undefined) q.set("limit", String(opts.limit));
+      if (opts.types?.length) q.set("types", opts.types.join(","));
+      return similarity<SimilarNode>(fetchImpl, `${root}/similar?${q}`, (b) => ((b as { similar?: SimilarNode[] })?.similar ?? null));
+    },
     lint: () => request<LintReport>("/lint"),
     isolated: async () => (await request<{ isolated: string[] }>("/graph/isolated")).isolated,
     cycles: async (limit = 20) => (await request<{ cycles: string[][] }>(`/graph/cycles?limit=${limit}`)).cycles,
