@@ -9,7 +9,7 @@ Render instrumentado con `SpanRecorder` como dependencia explícita, decodificad
 de centinelas, árbol de segmentos, `sldb.api.build_document_segments`, ruta
 `GET /document/segments`.
 
-Referencia: `sldb-surface/HANDOFF-sldb-segments.md` §Parte A.
+Referencia: `surface/HANDOFF-sldb-segments.md` §Parte A.
 
 ## Resultado
 Suite completa: 1099 passed.

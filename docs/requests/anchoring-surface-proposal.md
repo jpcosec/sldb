@@ -1,5 +1,5 @@
 ---
-status: draft
+status: superseded
 priority: p1
 created: 2026-09-28
 labels:
@@ -11,6 +11,9 @@ labels:
 ---
 
 # Propuesta: superficie de anclaje y proyección sobre SLDB
+
+> Superseded por `docs/surface/PROPUESTA-SUPERFICIE.md` (2026-09-28), escrita
+> despues de construir la superficie. Se conserva como registro historico.
 
 Una superficie donde el texto crudo entra sin contrato, se le anclan símbolos
 encima, y se proyecta a un documento SLDB estructurado cuyo grafo es la

@@ -1,7 +1,7 @@
 # T4 · Vista BANDEJA
 
 Estado: **HECHO** (parcial, declarado) · Dificultad: media · Depende de: T1
-Worktree: `/home/jp/AntonIA/repos/AgentsKBs_worktrees/knowledge-surface/sldb-surface`
+Worktree: `/home/jp/proyectos/hum-ecosystem-worktrees/sldb-surface/surface`
 
 ## Qué
 Lo anotado sin ubicar: borradores que todavía no son atoms con lugar. Ruta `#/bandeja`.

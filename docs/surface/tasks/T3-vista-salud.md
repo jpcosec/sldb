@@ -1,7 +1,7 @@
 # T3 · Vista SALUD
 
 Estado: **HECHO** · Dificultad: baja · Depende de: T1
-Worktree: `/home/jp/AntonIA/repos/AgentsKBs_worktrees/knowledge-surface/sldb-surface`
+Worktree: `/home/jp/proyectos/hum-ecosystem-worktrees/sldb-surface/surface`
 
 ## Qué
 Vista de lectura sobre datos que ya existen: lint, ciclos, nodos aislados,

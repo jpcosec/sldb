@@ -6,6 +6,8 @@ The [Python docstring indexing spec](architecture/code-docstring-indexing.spec.m
 
 This directory can now be worked through SLDB models and the project-local store.
 
+The web surface lives in [`surface/`](../surface/README.md); its design rationale and task history are in [`docs/surface/`](surface/PROPUESTA-SUPERFICIE.md). It talks to `sldb serve` over HTTP and never writes Markdown directly.
+
 For behavior verified on 2026-09-13, start with the [CLI tree](architecture/current-cli-tree.md), [source map](architecture/current-source-tree.md), [AST queries](ast_query_primitives.md), and [composition modes](composition_modes.md). The [review findings](documentation-review.md) collect remaining defects, missing contracts, and incomplete coverage. Target architecture and migration plans are historical proposals for this frozen v1 repository.
 
 ## Current Model Mapping

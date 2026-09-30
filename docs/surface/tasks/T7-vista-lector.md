@@ -1,7 +1,7 @@
 # T7 · Vista LECTOR — anclar sobre texto crudo
 
 Estado: **HECHO** (parcial, declarado) · Dificultad: alta
-Worktree: `/home/jp/AntonIA/repos/AgentsKBs_worktrees/knowledge-surface/sldb-surface`
+Worktree: `/home/jp/proyectos/hum-ecosystem-worktrees/sldb-surface/surface`
 
 ## Qué
 Superficie para declarar anchors sobre una selección de texto crudo. Ruta `#/lector`.

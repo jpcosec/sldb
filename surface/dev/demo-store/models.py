@@ -1,4 +1,4 @@
-"""Modelos de la tienda demo de sldb-surface: cubre libre, estructurado y composición."""
+"""Modelos de la tienda demo de la superficie: cubre libre, estructurado y composición."""
 
 from __future__ import annotations
 

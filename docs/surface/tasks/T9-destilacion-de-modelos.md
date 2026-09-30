@@ -1,7 +1,7 @@
 # T9 · Destilación: anchors → regularidad → modelo
 
 Estado: **HECHO** (parcial, declarado) · Dificultad: alta · Ruta `#/destilacion`
-Worktree: `/home/jp/AntonIA/repos/AgentsKBs_worktrees/knowledge-surface/sldb-surface`
+Worktree: `/home/jp/proyectos/hum-ecosystem-worktrees/sldb-surface/surface`
 Commit: `2f9ea1a9`
 
 ## Qué

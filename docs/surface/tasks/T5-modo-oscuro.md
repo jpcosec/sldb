@@ -1,7 +1,7 @@
 # T5 · Modo oscuro
 
 Estado: **HECHO** · Dificultad: trivial
-Worktree: `/home/jp/AntonIA/repos/AgentsKBs_worktrees/knowledge-surface/sldb-surface`
+Worktree: `/home/jp/proyectos/hum-ecosystem-worktrees/sldb-surface/surface`
 
 ## Qué
 Todo el color vive en `:root` de `src/styles/app.css` como variables
