@@ -3,6 +3,10 @@ import type { SchemaModel } from "./contract";
 import {
   anchorIdFor,
   buildPayload,
+  classifyHits,
+  duplicateQuery,
+  duplicateRankParams,
+  scorePercent,
   draftFromSelection,
   findAnchorModel,
   inputForField,
@@ -296,5 +300,34 @@ describe("shortenQuote", () => {
   it("aplana espacios y recorta", () => {
     expect(shortenQuote("  hola \n  mundo  ")).toBe("hola mundo");
     expect(shortenQuote("1234567", 5)).toBe("12345…");
+  });
+});
+
+describe("aviso de duplicados (puro)", () => {
+  const h = (name: string, score: number) => ({ id: name, document_id: name, field: "quote", model: "M", name, score, text: "", payload: {}, tags: [] });
+
+  it("no consulta con texto corto o vacío y acota/normaliza el largo", () => {
+    expect(duplicateQuery(null)).toBeNull();
+    expect(duplicateQuery("  corto  ")).toBeNull();
+    expect(duplicateQuery("una   frase\n con espacios de sobra")).toBe("una frase con espacios de sobra");
+    expect(duplicateQuery("x".repeat(1000))?.length).toBe(400);
+  });
+
+  it("arma los parámetros: k 3, umbral de sugerencia, refresh solo si se pide", () => {
+    expect(duplicateRankParams("q")).toEqual({ q: "q", k: 3, threshold: 0.35, fields: true, refresh: false });
+    expect(duplicateRankParams("q", true)).toMatchObject({ refresh: true, fields: true });
+  });
+
+  it("clasifica en duplicado y parecido, mejores primero, y descarta lo bajo el umbral", () => {
+    const { duplicates, similar } = classifyHits([h("a", 0.5), h("b", 0.9), h("c", 0.1), h("d", 0.85), h("e", 0.4)]);
+    expect(duplicates.map((x) => x.name)).toEqual(["b", "d"]);
+    expect(similar.map((x) => x.name)).toEqual(["a"]);
+    expect(classifyHits([h("a", 0.5), h("c", 0.1)]).similar.map((x) => x.name)).toEqual(["a"]);
+    expect(classifyHits([])).toEqual({ duplicates: [], similar: [] });
+  });
+
+  it("puntaje a porcentaje entero", () => {
+    expect(scorePercent(0.914)).toBe(91);
+    expect(scorePercent(1.2)).toBe(100);
   });
 });

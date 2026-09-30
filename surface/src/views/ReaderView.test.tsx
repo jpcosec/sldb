@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from "vitest";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import type { SldbClient } from "../core/client";
 import { SldbHttpError } from "../core/client";
-import type { SchemaModel } from "../core/contract";
+import type { FieldRankHit, SchemaModel, SimilarityResult } from "../core/contract";
 import { SldbProvider } from "../react/context";
 import { ReaderView } from "./ReaderView";
 
@@ -21,15 +21,21 @@ const anchorDoc: SchemaModel = {
 
 const TEXT = "el cliente manifiesta que no será\nposible una conexión directa a SAP.";
 
-function mount() {
+const hit = (name: string, score: number, field = "quote"): FieldRankHit => ({
+  id: `docs/M/${name}/${field}`, document_id: `docs/M/${name}`, field, model: "M", name, score, text: "", payload: {}, tags: [],
+});
+const ok = (...hits: FieldRankHit[]): SimilarityResult<FieldRankHit> => ({ status: "ok", hits });
+
+function mount(rankImpl: (p: { refresh?: boolean }) => SimilarityResult<FieldRankHit> = () => ok()) {
   const save = vi.fn(async () => ({ ok: true, saved: ["anchor-no-sera-posible-una"] }));
-  const client = { schema: async () => ({ models: [anchorDoc], errors: [] }), save } as unknown as SldbClient;
+  const rank = vi.fn(async (p: { refresh?: boolean }) => rankImpl(p));
+  const client = { schema: async () => ({ models: [anchorDoc], errors: [] }), save, rank } as unknown as SldbClient;
   render(
     <SldbProvider client={client}>
       <ReaderView />
     </SldbProvider>,
   );
-  return { save };
+  return { save, rank };
 }
 
 /** Pega texto y selecciona un tramo, como lo haría el usuario en el textarea. */
@@ -53,9 +59,63 @@ describe("ReaderView", () => {
     expect(screen.queryByRole("textbox", { name: /provenance/ })).toBeNull();
   });
 
-  it("dice que la sugerencia de duplicados no está disponible", async () => {
-    mount();
-    expect(await screen.findByText(/no disponible/i)).toBeInTheDocument();
+  const wait = { timeout: 3000 };
+  const pick = async () => {
+    const textarea = (await screen.findByLabelText("Texto crudo")) as HTMLTextAreaElement;
+    selectRange(textarea, 0, 40);
+  };
+
+  it("ok con hits: muestra parecidos con puntaje y destaca el duplicado", async () => {
+    const { rank } = mount(() => ok(hit("anchor-casi-igual", 0.91), hit("anchor-algo", 0.5)));
+    await pick();
+    const dup = await screen.findByText("Posible duplicado (91%)", {}, wait);
+    expect(dup).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "anchor-casi-igual/quote" })).toHaveAttribute("href", "#/doc/anchor-casi-igual");
+    expect(screen.getByRole("link", { name: "anchor-algo/quote" })).toHaveAttribute("href", "#/doc/anchor-algo");
+    expect(screen.getByText("50%")).toBeInTheDocument();
+    expect(rank).toHaveBeenCalledTimes(1);
+    expect(rank).toHaveBeenCalledWith(expect.objectContaining({ k: 3, threshold: 0.35, fields: true, refresh: false }));
+  });
+
+  it("ok vacío: dice que es nuevo", async () => {
+    mount(() => ok());
+    await pick();
+    expect(await screen.findByText("No hay nada parecido: es nuevo.", {}, wait)).toBeInTheDocument();
+  });
+
+  it("not_indexed: avisa y Indexar ahora reintenta con refresh", async () => {
+    const { rank } = mount((p) => (p.refresh ? ok(hit("anchor-x", 0.6)) : { status: "not_indexed" }));
+    await pick();
+    fireEvent.click(await screen.findByRole("button", { name: "Indexar ahora" }, wait));
+    expect(await screen.findByRole("link", { name: "anchor-x/quote" }, wait)).toBeInTheDocument();
+    expect(rank).toHaveBeenLastCalledWith(expect.objectContaining({ refresh: true, fields: true }));
+    expect(screen.queryByText("No hay nada parecido: es nuevo.")).toBeNull();
+  });
+
+  it("unavailable: dice no disponible con la razón, sin mostrarlo como vacío", async () => {
+    mount(() => ({ status: "unavailable", reason: "404" }));
+    await pick();
+    expect(await screen.findByText("Similitud no disponible: 404.", {}, wait)).toBeInTheDocument();
+    expect(screen.queryByText(/es nuevo/)).toBeNull();
+  });
+
+  it("no consulta con una selección demasiado corta", async () => {
+    const { rank } = mount();
+    const textarea = (await screen.findByLabelText("Texto crudo")) as HTMLTextAreaElement;
+    selectRange(textarea, 0, 3);
+    expect(await screen.findByText(/tramo más largo/)).toBeInTheDocument();
+    await new Promise((r) => setTimeout(r, 600));
+    expect(rank).not.toHaveBeenCalled();
+  });
+
+  it("crear el anchor sigue funcionando con el aviso de duplicado presente", async () => {
+    const { save } = mount(() => ok(hit("anchor-casi-igual", 0.95)));
+    await pick();
+    await screen.findByText("Posible duplicado (95%)", {}, wait);
+    fireEvent.change(screen.getByRole("textbox", { name: /^ref/ }), { target: { value: "(model X)" } });
+    fireEvent.change(screen.getByRole("textbox", { name: /^motive/ }), { target: { value: "porque sí" } });
+    fireEvent.click(screen.getByRole("button", { name: "Guardar anchor" }));
+    await waitFor(() => expect(save).toHaveBeenCalledTimes(1));
   });
 
   it("guarda con POST /save y enlaza al documento creado", async () => {

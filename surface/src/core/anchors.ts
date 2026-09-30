@@ -10,10 +10,13 @@
  * La validación de `ref` no inventa un patrón: si el schema declara `pattern` en el
  * field, se valida con ESE patrón. Sin `pattern` declarado, `ref` queda libre.
  *
- * `DuplicateWarning` (§6.1) NO se implementa: la similitud sale de `Corpus.rank()`,
- * que no está servido por HTTP (`/similar` y `/corpus/rank` responden 404).
+ * `DuplicateWarning` (§6.1): antes de crear un anchor se consulta `GET /corpus/rank` con
+ * el texto anclado. Acá vive la lógica pura (armar la consulta, decidir si consultar,
+ * clasificar hits de campo en duplicado/parecido); la vista hace la llamada y muestra los tres
+ * estados. El aviso es informativo: nunca bloquea ni cambia la creación.
  */
-import type { Payload, SchemaField, SchemaModel } from "./contract";
+import type { FieldRankHit, Payload, SchemaField, SchemaModel } from "./contract";
+import { above, DUPLICATE_THRESHOLD, queryText, SUGGEST_THRESHOLD } from "./similarity";
 
 /** Conteo de palabras que se toman de la selección para sugerir el símbolo. */
 export const SUGGESTED_SYMBOL_MAX_WORDS = 4;
@@ -267,4 +270,48 @@ export function lineLabel(selection: Pick<AnchorSelection, "startLine" | "endLin
   return selection.startLine === selection.endLine
     ? `línea ${selection.startLine}`
     : `líneas ${selection.startLine}–${selection.endLine}`;
+}
+
+/** Menos caracteres que esto no dan un parecido con sentido: no se consulta. */
+export const MIN_DUPLICATE_QUERY_CHARS = 12;
+/** Espera tras el último cambio de selección antes de consultar. */
+export const DUPLICATE_DEBOUNCE_MS = 400;
+/** Cuántos parecidos se piden y se muestran. */
+export const DUPLICATE_HITS = 3;
+
+/** Consulta para `rank` a partir de la cita anclada; `null` si es muy corta para consultar. */
+export function duplicateQuery(quote: string | null | undefined, min = MIN_DUPLICATE_QUERY_CHARS): string | null {
+  const q = queryText(quote ?? "");
+  return q.length >= min ? q : null;
+}
+
+/**
+ * Parámetros de `client.rank` para el aviso. Se compara contra CAMPOS (`fields: true`): el
+ * índice por documento diluye el parecido (concatena todos los strings del payload) y nunca
+ * llega al umbral de duplicado. `refresh` solo cuando el usuario pide indexar, y con el mismo
+ * modo `fields`, porque el índice de campos es distinto del de documentos.
+ */
+export function duplicateRankParams(q: string, refresh = false) {
+  return { q, k: DUPLICATE_HITS, threshold: SUGGEST_THRESHOLD, fields: true as const, refresh };
+}
+
+export interface ClassifiedHits {
+  /** Puntaje >= DUPLICATE_THRESHOLD: posible duplicado. */
+  duplicates: FieldRankHit[];
+  /** Puntaje entre SUGGEST_THRESHOLD y DUPLICATE_THRESHOLD: parecido. */
+  similar: FieldRankHit[];
+}
+
+/** Separa los hits en duplicados y parecidos (mejores primero); descarta lo bajo el umbral. */
+export function classifyHits(hits: FieldRankHit[]): ClassifiedHits {
+  const kept = above(hits, SUGGEST_THRESHOLD).slice(0, DUPLICATE_HITS);
+  return {
+    duplicates: kept.filter((hit) => hit.score >= DUPLICATE_THRESHOLD),
+    similar: kept.filter((hit) => hit.score < DUPLICATE_THRESHOLD),
+  };
+}
+
+/** Puntaje 0 a 1 como porcentaje entero para mostrar. */
+export function scorePercent(score: number): number {
+  return Math.round(Math.max(0, Math.min(1, score)) * 100);
 }

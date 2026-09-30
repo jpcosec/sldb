@@ -10,14 +10,22 @@
  * y el payload se derivan de lo declarado, así que las dos variantes funcionan y nunca
  * se manda un campo que el modelo no declara.
  *
- * `DuplicateWarning` (§6.1) NO se implementa: la similitud sale de `Corpus.rank()`, que
- * no está servido por HTTP (`/similar` y `/corpus/rank` responden 404). Se dice en la vista.
+ * `DuplicateWarning` (§6.1): con una selección de largo suficiente se consulta
+ * `GET /corpus/rank?fields=1` (contra campos, no documentos; con debounce, descartando respuestas viejas) y se muestran los
+ * parecidos con su puntaje. Los tres estados se ven distinto: ok (con lista o "es nuevo"),
+ * not_indexed (botón "Indexar ahora") y unavailable (con la razón). Es informativo: nunca
+ * bloquea ni altera el guardado, y sin respuesta NO se inventa ninguna heurística.
  */
-import { useEffect, useMemo, useState } from "react";
-import type { SchemaField } from "../core/contract";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import type { FieldRankHit, SchemaField, SimilarityResult } from "../core/contract";
 import {
   anchorIdFor,
   buildPayload,
+  classifyHits,
+  DUPLICATE_DEBOUNCE_MS,
+  duplicateQuery,
+  duplicateRankParams,
+  scorePercent,
   DOCUMENT_ID,
   draftFromSelection,
   findAnchorModel,
@@ -31,13 +39,113 @@ import {
 } from "../core/anchors";
 import { SldbHttpError } from "../core/client";
 import { useSchema, useSldb } from "../react/context";
+import { fieldLabel } from "../core/similarity";
 import { hrefFor } from "./router";
+import "./reader-similarity.css";
 
 type AnchorSaveState =
   | { status: "idle" }
   | { status: "saving" }
   | { status: "error"; message: string }
   | { status: "saved"; id: string };
+
+type DuplicateLookup =
+  | { status: "idle" }
+  | { status: "loading" }
+  | { status: "indexing" }
+  | { status: "done"; result: SimilarityResult<FieldRankHit> };
+
+/** Consulta parecidos de `quote`; una respuesta de una consulta anterior se descarta. */
+function useDuplicateLookup(quote: string | null) {
+  const { client } = useSldb();
+  const query = duplicateQuery(quote);
+  const [lookup, setLookup] = useState<DuplicateLookup>({ status: "idle" });
+  const latest = useRef<string | null>(null);
+
+  const run = useCallback(
+    async (q: string, refresh: boolean) => {
+      latest.current = q;
+      setLookup({ status: refresh ? "indexing" : "loading" });
+      let result: SimilarityResult<FieldRankHit>;
+      try {
+        result = await client.rank(duplicateRankParams(q, refresh));
+      } catch (error) {
+        result = { status: "unavailable", reason: error instanceof Error ? error.message : String(error) };
+      }
+      if (latest.current !== q) return;
+      setLookup({ status: "done", result });
+    },
+    [client],
+  );
+
+  useEffect(() => {
+    latest.current = query;
+    if (!query) {
+      setLookup({ status: "idle" });
+      return;
+    }
+    setLookup({ status: "loading" });
+    const timer = setTimeout(() => void run(query, false), DUPLICATE_DEBOUNCE_MS);
+    return () => clearTimeout(timer);
+  }, [query, run]);
+
+  const indexNow = useCallback(() => {
+    if (query) void run(query, true);
+  }, [query, run]);
+
+  return { lookup, query, indexNow };
+}
+
+function DuplicateWarning({ lookup, tooShort, indexNow }: { lookup: DuplicateLookup; tooShort: boolean; indexNow(): void }) {
+  if (lookup.status === "idle") {
+    return tooShort ? <p className="dup-note">Seleccioná un tramo más largo para buscar parecidos.</p> : null;
+  }
+  if (lookup.status === "loading") return <p className="dup-note" role="status">Buscando parecidos…</p>;
+  if (lookup.status === "indexing") return <p className="dup-note" role="status">Indexando el corpus…</p>;
+  const { result } = lookup;
+  if (result.status === "unavailable") {
+    return (
+      <p className="dup-box dup-box--unavailable" role="status">
+        Similitud no disponible: {result.reason}.
+      </p>
+    );
+  }
+  if (result.status === "not_indexed") {
+    return (
+      <div className="dup-box dup-box--not-indexed" role="status">
+        <p>El corpus todavía no está indexado: no se puede saber si esto ya existe.</p>
+        <button type="button" className="btn" onClick={indexNow}>
+          Indexar ahora
+        </button>
+      </div>
+    );
+  }
+  const { duplicates, similar } = classifyHits(result.hits);
+  if (duplicates.length + similar.length === 0) {
+    return (
+      <p className="dup-box dup-box--new" role="status">
+        No hay nada parecido: es nuevo.
+      </p>
+    );
+  }
+  return (
+    <div className="dup-box" role="status" aria-label="Parecidos">
+      <ul className="dup-list">
+        {[...duplicates, ...similar].map((hit) => {
+          const isDuplicate = duplicates.includes(hit);
+          return (
+            <li key={hit.id} className={isDuplicate ? "dup-hit dup-hit--duplicate" : "dup-hit"}>
+              {isDuplicate && <strong className="dup-hit__flag">Posible duplicado ({scorePercent(hit.score)}%)</strong>}
+              <a href={hrefFor({ view: "doc", id: hit.name, mode: "document" })}>{fieldLabel(hit)}</a>
+              {!isDuplicate && <span className="dup-hit__score">{scorePercent(hit.score)}%</span>}
+            </li>
+          );
+        })}
+      </ul>
+      <p className="dup-note">Parecido de texto, no de significado. Es solo un aviso: podés guardar igual.</p>
+    </div>
+  );
+}
 
 export function ReaderView() {
   const { client } = useSldb();
@@ -49,6 +157,7 @@ export function ReaderView() {
   const [draft, setDraft] = useState<Record<string, string>>({});
   const [save, setSave] = useState<AnchorSaveState>({ status: "idle" });
   const [anchors, setAnchors] = useState<SessionAnchor[]>([]);
+  const { lookup, query: dupQuery, indexNow } = useDuplicateLookup(selection?.quote ?? null);
 
   // Una selección nueva arma el formulario desde cero: símbolo sugerido, resto vacío.
   useEffect(() => {
@@ -163,10 +272,7 @@ export function ReaderView() {
             ) : (
               <p className="inspector__note">Seleccioná un tramo del texto para anclarlo.</p>
             )}
-            <p className="reader-unavailable">
-              Sugerencia de duplicados: <strong>no disponible</strong>. La similitud sale de <code>Corpus.rank()</code>, que no está servido por
-              HTTP (<code>/similar</code> responde 404). No se simula con una heurística inventada.
-            </p>
+            {selection && <DuplicateWarning lookup={lookup} tooShort={!dupQuery} indexNow={indexNow} />}
           </section>
 
           {model && selection && (
