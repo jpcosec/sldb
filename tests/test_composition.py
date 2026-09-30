@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib
 from pathlib import Path
+from typing import Any
 import sys
 
 from pydantic import Field
@@ -148,3 +149,32 @@ def test_ritual_doc_renders_composed_step_details(tmp_path: Path):
         "1. Validate draft: Run model validation against tracked docs. -> A promotable contract draft."
         in rendered
     )
+
+
+def test_composition_refs_resolve_against_the_root_not_the_cwd(tmp_path: Path, monkeypatch: Any):
+    """Una ref relativa se resuelve contra la raiz del proyecto, no contra donde corre el proceso.
+
+    El ref de una composicion es una ruta del proyecto (`docs/tasks/task-a.md`), no una ruta
+    relativa al directorio del proceso. Resolverlo contra el CWD hacia que el mismo documento
+    compusiera distinto segun desde donde se lo llamara, en silencio: una ref que no resuelve
+    se rinde como texto vacio.
+    """
+    models = _load_composition_models(tmp_path)
+    (tmp_path / "task-a.md").write_text(
+        render_model_markdown(models.ComposedTaskDoc, {
+            "title": "Improve model editing",
+            "status": "active",
+            "goal": "Support safer contract editing from the CLI.",
+        }),
+        encoding="utf-8",
+    )
+    elsewhere = tmp_path / "elsewhere"
+    elsewhere.mkdir()
+    monkeypatch.chdir(elsewhere)
+    payload = {"title": "Composition Board", "tasks": ["task-a.md"]}
+
+    from_root = render_model_markdown(ComposedBoardDoc, payload, ref_root=tmp_path)
+    from_cwd = render_model_markdown(ComposedBoardDoc, payload)
+
+    assert "Support safer contract editing from the CLI." in from_root
+    assert "- Improve model editing" not in from_cwd

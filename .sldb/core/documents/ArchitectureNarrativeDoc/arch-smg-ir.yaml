@@ -1,7 +1,10 @@
 name: arch-smg-ir
 path: docs/architecture/smg-ir.md
-hash_c: 08b86c15339e6a00dc7f964246934e9e2dd0839db6fd2c29e56aae911e9aee7f
-hash_d: 061d85773d7eca3a20792dc793658f3fccb4dbb1477d99c6c076b9b7a9633238
+source_hash: 3b26cb5596f6bb447ed6acf519699bf27e0c56a042e0bb2070c864cd3cbc5e44
+content_hash: 96a7a604fd10dbb48c8a9c88d1bb5b272ab589bfe05ef4387387b0200f817962
+field_hashes:
+  title: ee6ffa876e445ae626790a2d6de961f3923f37794601b768c0d132fa5c692fc5
+  body: b17550c6840345e51e2e5a628af9f2ff6fbaa726d1db0523b69d8e01356e3e4d
 semantic_tags:
 - representation.markdown
 - source.document.markdown

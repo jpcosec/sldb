@@ -576,6 +576,16 @@ Dos ideas distintas que conviene no mezclar.
 embedder does"*. Si cambiás qué parte del documento considerás "el texto", el
 índice queda inválido. Por eso una cita nunca queda huérfana.
 
+- **`FieldProjection`**: lo mismo, un piso más abajo — qué *fields* de cada
+documento se indexan (por defecto excluye identidad y bookkeeping: `id`, `name`,
+`slug`, `path`, `tags`, hashes) y cómo se lee el texto de uno.
+
+Cada field es una unidad de indexación propia: dirección
+`docs/<Modelo>/<doc>/<campo>` — la misma que acepta `sldb fields` — y hash de ese
+field (`DocumentEntry.field_hashes`), no el del documento entero. Es el mismo
+índice con clave más fina: editar un campo de un documento de cuarenta re-embebe
+uno.
+
 ### Composición — varios documentos en uno
 
 | Mecanismo | Qué hace | Vuelta atrás |
@@ -695,13 +705,16 @@ Cosas que cuestan tiempo la primera vez:
 - **`__containment__` / `__references__` no generan aristas.** Están declarados y
   expuestos por HTTP, pero el motor de aristas no los lee.
 - **Composición de una sola vía.** Sin edit-through, sin composición por query.
-- **`Corpus.rank()`** existe en `api/corpus/corpus.py` pero no está expuesto en
-  ningún comando del CLI **ni se exporta en `sldb.api`**: hoy no hay cliente
-  posible sin importarlo por ruta interna.
-- **El índice de embeddings es por documento, no por campo.**
-  `api/matching/document_index.py` keyea por `(documento, hash)`. Los
-  `field_hashes` ya permiten granularidad por campo (`Model/doc#field`), pero la
-  capa de matching todavía no la usa.
+- **`Corpus` sí se exporta en `sldb.api`**, con `rank_fields()` para rankear
+  campos. Lo que sigue sin cliente de CLI es el ranking: ni `rank()` (documento)
+  ni `rank_fields()` (campo) tienen comando. Se integran por Python.
+- **El índice de embeddings tiene dos granularidades.** La de documento
+  (`Corpus.index`, clave = documento + su `content_hash`) y la de campo
+  (`Corpus.field_index`, clave = `docs/<Modelo>/<doc>/<campo>` + el hash de ese
+  field). La de campo vive en su propio archivo derivado
+  (`fields.<text_id>.<embedder>.json`), nunca comparte con `docs.*`. Un field de
+  un documento de cuarenta se re-embebe solo: medido `embedded=1, reused=3`.
+  `api/matching/document_index.py` no cambió — ya keyeaba por hash.
 - **Las secciones no tienen hash propio.** `DocSections` se estampa con el
   `source_hash` del documento padre: es clave de caché, no un nivel del Merkle.
   Si el documento cambia, todas sus secciones se reprocesan.
@@ -738,11 +751,12 @@ Correcciones que salieron de esa auditoria:
 | 6 | tabla de 8 comandos de graph | son 12: faltaban `get`, `list`, `query`, `ingest-sldb` |
 | 6 | "`__containment__`/`__references__` se exponen por /schema y fields_routes" | `fields_routes` solo expone `__references__` |
 | 13 | "resuelve por el `path` absoluto" | el path suele ser relativo y se re-ancla al project root |
-| 14 | "`Corpus.rank()` no esta en el CLI" | ademas no se exporta en `sldb.api`: sin cliente posible |
+| 14 | "`Corpus.rank()` no esta en el CLI" | y no se exportaba en `sldb.api`. Ya se exporta, con `rank_fields()`; lo que falta es el comando de CLI, no el cliente |
+| 14 | "el indice de embeddings es por documento, no por campo" | tiene dos granularidades: `index` (documento) y `field_index` (`docs/<Modelo>/<doc>/<campo>`, con el hash del field) |
 | 4 | los 4 hashes como si `model_hash` fuera hoja | `model_hash` se compone de `contract_hash` + `roster_hash`, guardados por separado |
 | 4 | nada sobre granularidad por campo | `field_hashes` por documento, y que un mapa vacio es "no se pudo calcular" |
 | 13 | ninguna friccion de performance | los dos re-parseos evitables de `validation.py` y `section_rebuild.py` |
-| 14 | nada sobre los limites de indexacion | el indice de embeddings es por documento; las secciones no tienen hash propio |
+| 14 | nada sobre los limites de indexacion | el indice de embeddings tiene granularidad de documento y de campo; las secciones no tienen hash propio |
 
 Verificado en vivo y sin cambios: los 4 hashes y sus alias, `Field(description)`
 obligatorio, `render` no se extrae, los 11 relation types builtin, los campos de

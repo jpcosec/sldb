@@ -1,4 +1,5 @@
 from __future__ import annotations
+from pathlib import Path
 from typing import Any
 from jinja2 import Environment
 from sldb.core.segments.sentinel_decoder import decode_sentinels, strip_with_offsets
@@ -24,26 +25,27 @@ class SLDBRenderer:
         self.table_renderer = TableRenderer(self.jinja_env, recorder)
         self.yaml_renderer = YamlRenderer(self.jinja_env, recorder)
 
-    def render(self, model: StructuredNLDoc) -> str:
-        """Renders the model to a Markdown string."""
-        raw = self.render_raw(model)
+    def render(self, model: StructuredNLDoc, ref_root: Path | None = None) -> str:
+        """Renders the model to a Markdown string. `ref_root` resolves composition refs."""
+        raw = self.render_raw(model, ref_root)
         if self.recorder is None:
             return raw.strip()
         text, spans = decode_sentinels(raw)
         text, self.spans = strip_with_offsets(text, spans)
         return text
 
-    def render_raw(self, model: StructuredNLDoc) -> str:
+    def render_raw(self, model: StructuredNLDoc, ref_root: Path | None = None) -> str:
         """The joined blocks before stripping, sentinels included when recording.
 
         Args:
             model: The document instance to render.
+            ref_root: Directory composition refs resolve against, or None for the CWD.
 
         Returns:
             The rendered blocks joined by blank lines, not yet stripped.
         """
         template = model.__template__
-        data = render_payload_of(model, self.recorder)
+        data = render_payload_of(model, self.recorder, ref_root)
         blocks = self.ast_handler.split_nodes(template)
         return "\n\n".join(self._render_blocks(blocks, template.splitlines(), data))
 

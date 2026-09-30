@@ -16,6 +16,61 @@ R(T) = (S, M, G)
 
 Where `T` is the original document text and `R(T)` is the operable document representation.
 
+## Two Floors: Persisted And Derived
+
+`S`, `M` and `G` are all derived. They are not stored: they are rebuilt from the store
+every time something asks about a document. Only three floors are material.
+
+```text
+STORE  .sldb/                          <- identity: what exists
+ |- core/store_index.yaml
+ |- core/models/TaskDoc.yaml          MODEL     -> contract: template, fields, compositions
+ |                                                (how a document of this type is read and written)
+ \- core/documents/TaskDoc/
+     \- task-x.yaml                   DOCUMENT  -> payload + content_hash + field_hashes
+          |- payload: {title, steps, ...}   FIELD -> typed value + its own hash
+          \- field_hashes: {title: a1b2...}
+```
+
+Everything above that is derived from those floors, per query:
+
+```text
+                        .yaml raw text
+                              |  markdown-it-py
+                              v
+                       SLDBNode (AST)          <- blocks, with map=[line, line]
+                              |  build_ir.py
+                              v
+   +------------------ DocumentIR ------------------+
+   |  context    = store + model + path             |  <- the three floors, flattened
+   |  structure  = MeaningNode (sections)           |  <- from the template
+   |  nodes      = field -> section (heuristic!)    |  <- _map_fields_to_sections
+   |  surface    = SurfaceNode (line/line)          |  <- the text, as a tree
+   |  graph      = semantic edges                   |
+   +-------------------------------------------------+
+                              |
+              +---------------+----------------+
+              v               v                v
+        /document/ir      graph_ui        edge_index/KGDB
+```
+
+The AST is never persisted; it is reconstructed on demand (only an in-memory runtime
+cache, no on-disk projection). So `store > model > document > field` is the sole material
+layer, and the IR is a view of it.
+
+### The Open Seam
+
+`structure`/`nodes` (meaning) and `surface` (text) are two trees born from the same
+Markdown, and today they are joined by a heuristic: `_map_fields_to_sections` compares
+template marker lines with rendered heading lines, and returns an empty mapping when the
+counts differ. That is what makes `nodes -> section` wrong when rendering changes line
+counts, and it is why line spans cannot support inline editing: to edit a field on line 2,
+columns 4-42, a line range is not enough.
+
+Character offsets close it. They are exact by construction when the render is instrumented
+rather than re-parsed, because the render is the inverse of the extract. That work lands in
+this layer, not as a fourth structure beside the IR.
+
 ## Layers
 
 ### Surface

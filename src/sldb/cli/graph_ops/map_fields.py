@@ -41,10 +41,34 @@ def _previous_heading(line_no: int, heading_lines: list[tuple[int | None, int]])
 
 
 def _rendered_owner_paths(owners: dict[str, int], template_sections: list, rendered_sections: list) -> dict[str, str]:
-    if len(template_sections) != len(rendered_sections):
+    """Each template section's path in the rendered document, or {} when it cannot be told.
+
+    The counts legitimately differ: a field value can hold a whole markdown document, and
+    its headings are not template sections. Refusing outright lost the ownership of every
+    field in such a document (16 of this repo's 1550, 60 fields).
+    """
+    if not _correspond(template_sections, rendered_sections):
         logger.warning("Cannot map template fields: template has %s headings but rendered document has %s", len(template_sections), len(rendered_sections))
         return {}
     return {
         field_path: rendered_sections[section_index].path
         for field_path, section_index in owners.items()
     }
+
+
+def _correspond(template_sections: list, rendered_sections: list) -> bool:
+    """Whether the sections at the template's indices are the template's own sections.
+
+    With a single template section this is provable: there is one candidate owner, so
+    extra headings -- which can only come from a field value, rendered inside it -- cannot
+    displace it, and the only thing left to check is that the level is the right one.
+
+    With more sections it is not: a heading injected by a field value can take a template
+    slot and the mapping would be silently wrong, which is the defect this guard exists
+    for. There it keeps refusing instead of guessing.
+    """
+    if len(rendered_sections) < len(template_sections):
+        return False
+    if len(template_sections) == 1:
+        return template_sections[0].level == rendered_sections[0].level
+    return len(template_sections) == len(rendered_sections)

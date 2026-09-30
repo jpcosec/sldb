@@ -34,13 +34,6 @@ def store_schema(store_path: Path, pythonpath: str) -> StoreSchema:
     A model whose module does not import must not take the listing down: a store
     with twenty models and one broken has nineteen describable models and one
     reportable failure, not zero models.
-
-    Args:
-        store_path: An already resolved ``.sldb`` directory.
-        pythonpath: Directory to import the model modules from.
-
-    Returns:
-        The describable models and the unavailable ones with their reasons.
     """
     described: list[dict[str, Any]] = []
     unavailable: list[UnavailableModel] = []
@@ -50,14 +43,7 @@ def store_schema(store_path: Path, pythonpath: str) -> StoreSchema:
 
 
 def _describe_into(entry: Any, pythonpath: str, described: list[dict[str, Any]], unavailable: list[UnavailableModel]) -> None:
-    """Describe one model into ``described``, or record why it could not be.
-
-    Args:
-        entry: The store index entry of the model.
-        pythonpath: Directory to import the model module from.
-        described: Accumulator of successful descriptors, mutated in place.
-        unavailable: Accumulator of failures, mutated in place.
-    """
+    """Describe one model into ``described``, or record why it could not be."""
     try:
         described.append(schema_model(entry, pythonpath))
     except Exception as exc:  # noqa: BLE001 - one broken model must not hide the rest

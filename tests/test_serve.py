@@ -46,7 +46,7 @@ def test_serve_endpoints_use_real_store(tmp_path: Path) -> None:
                 "id": "SimpleBook",
                 "model_ref": "tests.store.test_cli_store:SimpleBook",
                 "fields": [
-                    {"name": "title", "kind": "string", "required": True}
+                    {"name": "title", "kind": "string", "required": True, "description": "Book title."}
                 ],
                 "containment": {},
                 "references": [],
@@ -202,38 +202,8 @@ def test_batch_save_create_update_delete(tmp_path: Path) -> None:
         assert book["payload"] == {"title": "Batch Updated"}
         assert next(doc for doc in graph["documents"] if doc["id"] == "book2")["model_name"] == "SimpleBook"
         assert (tmp_path / "book2.md").read_text(encoding="utf-8") == "# Batch New\n"
-        # delete es la inversa de create: si create escribe el archivo, delete lo borra.
-        # Dejarlo en disco deja el grafo y el disco en desacuerdo, y el proximo track
-        # del directorio resucita el documento.
+        # delete borra el archivo, no solo lo destrackea: si no, el proximo track resucita el documento
         assert not (tmp_path / "other.md").exists()
-    finally:
-        _stop(server, thread)
-
-
-def test_batch_save_delete_removes_the_file_it_created(tmp_path: Path) -> None:
-    """Create then delete through /save leaves no residue on disk.
-
-    Regression: the batch delete used to untrack the document, so the graph lost it
-    while the `.md` stayed. The store said the document did not exist and the file
-    was still there, so re-tracking the directory resurrected it.
-    """
-    store = _build_store(tmp_path)
-    server, thread, base_url = _serve(store)
-    try:
-        status, _ = _request_json(f"{base_url}/save", method="POST", payload={"changes": [
-            {"id": "zz", "action": "create", "model": "SimpleBook", "payload": {"title": "Z"}},
-        ]})
-        assert status == 200
-        created = tmp_path / "zz.md"
-        assert created.exists()
-
-        status, body = _request_json(f"{base_url}/save", method="POST", payload={"changes": [
-            {"id": "zz", "action": "delete", "expected": {"title": "Z"}},
-        ]})
-        assert status == 200 and body == {"ok": True, "saved": ["zz"]}
-        assert not created.exists(), "delete reported ok but left the file on disk"
-        _, graph = _request_json(f"{base_url}/graph")
-        assert "zz" not in {doc["id"] for doc in graph["documents"]}
     finally:
         _stop(server, thread)
 
@@ -1056,6 +1026,86 @@ def test_find_flags_and_param_validation(tmp_path: Path) -> None:
         _stop(server, thread)
 
 
+_BROKEN_MODEL = '''from pydantic import Field
+from sldb import StructuredNLDoc
+
+
+class BrokenDoc(StructuredNLDoc):
+    __template__ = "# ⸢rev•title⸥"
+    title: str = Field(description="Title.")
+'''
+
+
+def test_schema_declares_models_that_cannot_load(tmp_path: Path) -> None:
+    """Un modelo que no importa sale en `unavailable`; los demas se describen igual.
+
+    Antes, un solo modelo roto tumbaba la respuesta entera: un store con veinte
+    modelos y uno roto devolvia cero. Degradacion en silencio, invertida.
+    """
+    import sys
+
+    from sldb.cli import main as cli_main
+
+    store = _build_store(tmp_path)
+    module = tmp_path / "broken_models.py"
+    module.write_text(_BROKEN_MODEL, encoding="utf-8")
+    cli_main(["models", "add", "broken_models:BrokenDoc", "--store", str(store), "--pythonpath", str(tmp_path)])
+    module.unlink()
+    sys.modules.pop("broken_models", None)
+
+    server, thread, base_url = _serve(store)
+    try:
+        status, schema = _request_json(f"{base_url}/schema")
+        assert status == 200
+        assert [model["id"] for model in schema["models"]] == ["SimpleBook"]
+        broken = schema["unavailable"][0]
+        assert broken["model"] == "BrokenDoc"
+        assert broken["model_ref"] == "broken_models:BrokenDoc"
+        assert broken["error"]
+    finally:
+        _stop(server, thread)
+
+
+def test_schema_reports_no_unavailable_models_for_a_healthy_store(tmp_path: Path) -> None:
+    """La clave va siempre, y vacia cuando todo carga: contrato estable para la UI."""
+    store = _build_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, schema = _request_json(f"{base_url}/schema")
+        assert status == 200
+        assert schema["unavailable"] == []
+    finally:
+        _stop(server, thread)
+
+
+def test_batch_save_delete_removes_the_file_it_created(tmp_path: Path) -> None:
+    """Create then delete through /save leaves no residue on disk.
+
+    Regression: the batch delete used to untrack the document, so the graph lost it
+    while the `.md` stayed. The store said the document did not exist and the file
+    was still there, so re-tracking the directory resurrected it.
+    """
+    store = _build_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, _ = _request_json(f"{base_url}/save", method="POST", payload={"changes": [
+            {"id": "zz", "action": "create", "model": "SimpleBook", "payload": {"title": "Z"}},
+        ]})
+        assert status == 200
+        created = tmp_path / "zz.md"
+        assert created.exists()
+
+        status, body = _request_json(f"{base_url}/save", method="POST", payload={"changes": [
+            {"id": "zz", "action": "delete", "expected": {"title": "Z"}},
+        ]})
+        assert status == 200 and body == {"ok": True, "saved": ["zz"]}
+        assert not created.exists(), "delete reported ok but left the file on disk"
+        _, graph = _request_json(f"{base_url}/graph")
+        assert "zz" not in {doc["id"] for doc in graph["documents"]}
+    finally:
+        _stop(server, thread)
+
+
 # ── GET /document/segments: el documento como literales + spans editables ────
 
 def test_document_segments_returns_literals_and_field_spans(tmp_path: Path) -> None:
@@ -1275,19 +1325,6 @@ def test_schema_degrades_per_model_instead_of_losing_the_response(tmp_path: Path
         _stop(server, thread)
         for name in ("kb_ok", "kb_broken"):
             sys.modules.pop(name, None)
-
-
-def test_schema_reports_no_unavailable_models_for_a_healthy_store(tmp_path: Path) -> None:
-    """La clave existe siempre y va vacía cuando todo carga: contrato estable."""
-    store = _build_store(tmp_path)
-    server, thread, base_url = _serve(store)
-    try:
-        status, schema = _request_json(f"{base_url}/schema")
-        assert status == 200
-        assert schema["unavailable"] == []
-        assert [model["id"] for model in schema["models"]] == ["SimpleBook"]
-    finally:
-        _stop(server, thread)
 
 
 def test_graph_declares_models_whose_documents_are_missing(tmp_path: Path) -> None:

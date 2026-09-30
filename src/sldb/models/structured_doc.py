@@ -27,20 +27,33 @@ class StructuredNLDoc(BaseModel):
         missing_descriptions = sorted(name for name, info in cls.model_fields.items() if not info.description or not info.description.strip())
         if missing_descriptions: raise TypeError(f"{cls.__name__} fields must define a non-empty description: {', '.join(missing_descriptions)}")
 
-    def render_payload(self, recorder: Any = None) -> dict[str, Any]:
+    def render_payload(self, recorder: Any = None, ref_root: Path | None = None) -> dict[str, Any]:
         payload = self.model_dump(mode="json")
-        for name in self.__compositions__: payload[name] = self.compose_field(name, recorder=recorder)
+        for name in self.__compositions__: payload[name] = self.compose_field(name, recorder=recorder, ref_root=ref_root)
         return payload
 
-    def compose_field(self, name: str, recorder: Any = None) -> str:
+    def compose_field(self, name: str, recorder: Any = None, ref_root: Path | None = None) -> str:
+        """The composed field's text. `ref_root` resolves relative refs; the CWD is the fallback.
+
+        A composition ref is a path in the project (`docs/tasks/task-a.md`), not a path
+        relative to wherever the process happens to be running. Resolving it against the CWD
+        made the same document compose differently depending on the caller's directory —
+        silently, because a ref that does not resolve renders as empty text.
+        """
         spec = self.__compositions__.get(name, {})
         refs, model_type = getattr(self, spec.get("source_field") or "", []) or [], self._resolve_composition_model(spec.get("model"))
         if not spec.get("source_field") or not isinstance(refs, list) or model_type is None: return ""
         def _render(raw_ref):
-            if not (path := Path(str(raw_ref).strip().strip("`"))).exists(): return ""
+            if not (path := self._resolve_ref(raw_ref, ref_root)).exists(): return ""
             try: return spec.get("template", "- {title}").format(**p) if (p := self._extract_composed_payload(model_type, path)) else ""
             except Exception: return ""
         return spec.get("separator", "\n").join(filter(None, map(_render, refs)))
+
+    @staticmethod
+    def _resolve_ref(raw_ref: Any, ref_root: Path | None) -> Path:
+        """A composition ref as a path: absolute stays, relative joins `ref_root` when given."""
+        ref = Path(str(raw_ref).strip().strip("`"))
+        return ref if ref_root is None or ref.is_absolute() else ref_root / ref
 
     def _resolve_composition_model(self, value: Any):
         if value is None or isinstance(value, type): return value
