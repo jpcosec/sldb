@@ -17,13 +17,26 @@ def check_store(store_path: Path, project_root: Path, pythonpath: str | None = N
     from sldb.api.model_registry.model_reference import resolve_model_ref
     from sldb.store.diagnostics import diagnose_store
 
-    return check_report(diagnose_store(store_path, resolve_model_ref, project_root, pythonpath=pythonpath))
+    diagnosis = diagnose_store(store_path, resolve_model_ref, project_root, pythonpath=pythonpath)
+    return check_report(diagnosis, structural_noise(store_path, project_root, pythonpath))
 
 
-def check_report(diagnosis: Any) -> dict[str, Any]:
-    """The compact `{ok, valid, damaged, ..., checked, mismatched}` view of one diagnosis."""
+def check_report(diagnosis: Any, noise: list[dict[str, Any]]) -> dict[str, Any]:
+    """The compact `{ok, valid, damaged, ..., checked, mismatched, structural_noise}` view of one diagnosis.
+
+    Args:
+        diagnosis: The store diagnosis to project.
+        noise: The tracked documents with undeclared headings (see ``structural_noise``).
+    """
     summary = _summarize(diagnosis)
-    return {"ok": not summary["mismatched"], **_classified(diagnosis), **summary}
+    return {"ok": not summary["mismatched"], **_classified(diagnosis), **summary, "structural_noise": noise}
+
+
+def structural_noise(store_path: Path, project_root: Path, pythonpath: str | None) -> list[dict[str, Any]]:
+    """Tracked documents with undeclared headings: reported here, refused at write time."""
+    from sldb.api.stores.scan_structural_noise import scan_structural_noise
+
+    return [report.details() for report in scan_structural_noise(store_path, project_root, pythonpath)]
 
 
 def _classified(diagnosis: Any) -> dict[str, Any]:

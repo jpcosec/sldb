@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from sldb.api.model_registry.model_reference import resolve_model_ref
-from sldb.api.stores.store_check import check_report
+from sldb.api.stores.store_check import check_report, structural_noise
 from sldb.cli.commands.store_check import diag_payload
 from sldb.store.diagnostics import diagnose_store
 
@@ -23,4 +23,5 @@ def check_with_models(store_path: Path, root: Path, pythonpath: str | None) -> d
     """
     diagnosis = diagnose_store(store_path, resolve_model_ref, root, pythonpath=pythonpath)
     cli = diag_payload(diagnosis)
-    return {**check_report(diagnosis), **{key: cli[key] for key in _CLI_KEYS}}
+    noise = structural_noise(store_path, root, pythonpath)
+    return {**check_report(diagnosis, noise), **{key: cli[key] for key in _CLI_KEYS}}
