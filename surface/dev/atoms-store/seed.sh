@@ -240,6 +240,9 @@ for n in motiva responsable_de plazo_de menciona afecta propone_solucion_a condi
   sl docs create --model RelationTypeDoc -o docs/relation-types/$n.md data/rt-$n.yaml $S >/dev/null; done
 for i in 1 2 3 4 5 6 7 8 9; do sl docs create --model RelationDoc -o docs/relations/r$i.md data/r$i.yaml $S >/dev/null; done
 sl docs create --model InformeAvanceDoc -o docs/informe-avance.md data/informe.yaml $S >/dev/null
+# Extensiones: cada seed.d/*.sh registra sus propios modelos y datos (usa $S y sl); asi varias
+# piezas pueden agregar al store demo sin editar este archivo.
+for ext in "$HERE"/seed.d/*.sh; do [ -e "$ext" ] && . "$ext"; done
 sl edges rebuild --store .sldb >/dev/null
 sl edges check --store .sldb
 echo "store listo en $HERE/.sldb"
