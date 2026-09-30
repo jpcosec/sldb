@@ -5,3 +5,7 @@ dev/demo-store/.sldb/
 dev/demo-store/docs/
 dev/demo-store/data/
 __pycache__/
+dev/atoms-store/.sldb/
+dev/atoms-store/docs/
+dev/atoms-store/data/
+dev/atoms-store/sldb/

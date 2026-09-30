@@ -134,6 +134,7 @@ export interface GraphDocument {
   id: string;
   model_name: string;
   path: string;
+  version?: string;
   payload: Payload;
   semantic_tags?: string[];
 }
@@ -242,4 +243,93 @@ export interface GraphNodeRef {
   doc?: string;
   /** Texto corto para mostrar. */
   label: string;
+}
+
+/**
+ * Átomos, relaciones e informes (OPERACIONALIZACION-VISTAS). Un átomo es un documento
+ * `AtomDoc`; sus relaciones son `RelationDoc`; los verbos permitidos, `RelationTypeDoc`.
+ */
+export type AtomKind = "entidad" | "hecho" | "decision" | "pendiente" | "riesgo";
+export type AtomStatus = "propuesto" | "confirmado" | "descartado";
+
+/** Estado del ancla de un átomo respecto del texto actual del acta: se calcula, no se guarda. */
+export type AnchorState = "intact" | "drifted" | "orphan";
+
+export interface Atom {
+  /** Id del documento (el de `/graph`, `/document` y `/save`): `a3`. */
+  id: string;
+  /** Id de grafo `AtomDoc:a3`, el que usan `source`/`target` de las aristas. */
+  gid: string;
+  /** Ruta del archivo (`docs/atoms/a3.md`): es lo que las listas de un informe referencian. */
+  path: string;
+  version?: string;
+  kind: AtomKind;
+  status: AtomStatus;
+  /** `ActaDoc:<name>`. */
+  source: string;
+  source_field: string;
+  start: number;
+  end: number;
+  /** Tags con puntos: `infra.ingesta` es el grupo `infra` ⊃ `ingesta`. */
+  tags: string[];
+  text: string;
+  quote: string;
+  conf: number;
+}
+
+export interface Acta {
+  id: string;
+  /** `ActaDoc:<id>`, como la nombra `Atom.source`. */
+  gid: string;
+  path: string;
+  version?: string;
+  title: string;
+  body: string;
+}
+
+export interface RelationTypeSpec {
+  /** Id del documento `RelationTypeDoc`. */
+  id: string;
+  name: string;
+  source_types: string[];
+  target_types: string[];
+  cardinality: string;
+  description: string;
+}
+
+/** Arista tal como la sirve `GET /edges`. `source`/`target` son `Model:name`. */
+export interface Edge {
+  id: string;
+  source: string;
+  target: string;
+  type: string;
+  origin: string;
+  /** Id del `RelationDoc` que la respalda; `null` si es estructural (referencias, tags). */
+  relationDoc: string | null;
+}
+
+export type SlotName = "resumen" | "decisiones" | "riesgos" | "pendientes";
+export type SlotMode = "viñetas" | "prosa" | "tabla";
+
+/** Estado de un slot de informe. `atomos`, `pins` y `excluidos` son RUTAS de átomos. */
+export interface InformeSlot {
+  atomos: string[];
+  query: string;
+  pins: string[];
+  excluidos: string[];
+  modo: SlotMode;
+}
+
+export interface Informe {
+  id: string;
+  path: string;
+  version?: string;
+  slots: Record<SlotName, InformeSlot>;
+  payload: Payload;
+}
+
+export interface CreateDocumentResult {
+  ok: boolean;
+  id: string;
+  version: string;
 }

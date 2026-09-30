@@ -3,10 +3,13 @@
  * Toda escritura va por `/save` en modo batch con `expected` (control optimista).
  */
 import type {
+  CreateDocumentResult,
   DocumentSegments,
+  Edge,
   ExtractionSegments,
   GraphDocument,
   LintReport,
+  Payload,
   SaveChange,
   SaveResult,
   SchemaResponse,
@@ -39,6 +42,10 @@ export interface SldbClient {
   segments(id: string): Promise<DocumentSegments>;
   extract(model: string, markdown: string): Promise<ExtractionSegments>;
   save(changes: SaveChange[]): Promise<SaveResult>;
+  /** Aristas del grafo; con `id` (`Model:name`) solo las que tocan ese documento. */
+  getEdges(id?: string): Promise<Edge[]>;
+  /** Crea un documento nuevo (`POST /docs`). Errores 400/404/409/422 lanzan `SldbHttpError`. */
+  createDocument(model: string, name: string, payload: Payload): Promise<CreateDocumentResult>;
   /** Análisis que SLDB ya sirve; no se deriva nada de esto en el cliente. */
   lint(): Promise<LintReport>;
   isolated(): Promise<string[]>;
@@ -75,6 +82,8 @@ export function createHttpClient(baseUrl: string, fetchImpl: FetchLike = (i, ini
     segments: (id) => request<DocumentSegments>(`/document/segments?id=${encodeURIComponent(id)}`),
     extract: (model, markdown) => post<ExtractionSegments>("/extract/segments", { model, markdown }),
     save: (changes) => post<SaveResult>("/save", { changes }),
+    getEdges: async (id) => (await request<{ edges: Edge[] }>(id ? `/edges?id=${encodeURIComponent(id)}` : "/edges")).edges,
+    createDocument: (model, name, payload) => post<CreateDocumentResult>("/docs", { model, name, payload }),
     lint: () => request<LintReport>("/lint"),
     isolated: async () => (await request<{ isolated: string[] }>("/graph/isolated")).isolated,
     cycles: async (limit = 20) => (await request<{ cycles: string[][] }>(`/graph/cycles?limit=${limit}`)).cycles,

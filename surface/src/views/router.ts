@@ -1,4 +1,5 @@
-/** Rutas por hash: #/lector, #/destilacion, #/doc/<id>, #/doc/<id>/compose, #/extract, #/salud, #/bandeja. */
+/** Rutas por hash: #/lector, #/destilacion, #/doc/<id>, #/doc/<id>/compose, #/extract, #/salud, #/bandeja,
+ * #/atomos/texto/<actaId>, #/atomos/grafo, #/atomos/informe/<id>. */
 import { useEffect, useState } from "react";
 
 export type Route =
@@ -8,7 +9,10 @@ export type Route =
   | { view: "destilacion" }
   | { view: "extract" }
   | { view: "salud" }
-  | { view: "bandeja" };
+  | { view: "bandeja" }
+  | { view: "atomos-texto"; id: string }
+  | { view: "atomos-grafo" }
+  | { view: "atomos-informe"; id: string };
 
 export function parseRoute(hash: string): Route {
   const parts = hash.replace(/^#\/?/, "").split("/").map(decodeURIComponent);
@@ -18,6 +22,11 @@ export function parseRoute(hash: string): Route {
   if (parts[0] === "extract") return { view: "extract" };
   if (parts[0] === "salud") return { view: "salud" };
   if (parts[0] === "bandeja") return { view: "bandeja" };
+  if (parts[0] === "atomos") {
+    if (parts[1] === "texto" && parts[2]) return { view: "atomos-texto", id: parts[2] };
+    if (parts[1] === "grafo") return { view: "atomos-grafo" };
+    if (parts[1] === "informe" && parts[2]) return { view: "atomos-informe", id: parts[2] };
+  }
   return { view: "home" };
 }
 
@@ -28,6 +37,9 @@ export function hrefFor(route: Route): string {
   if (route.view === "extract") return "#/extract";
   if (route.view === "salud") return "#/salud";
   if (route.view === "bandeja") return "#/bandeja";
+  if (route.view === "atomos-texto") return `#/atomos/texto/${encodeURIComponent(route.id)}`;
+  if (route.view === "atomos-grafo") return "#/atomos/grafo";
+  if (route.view === "atomos-informe") return `#/atomos/informe/${encodeURIComponent(route.id)}`;
   return "#/";
 }
 

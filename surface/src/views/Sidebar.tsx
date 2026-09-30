@@ -24,6 +24,8 @@ export function Sidebar({ route }: { route: Route }) {
     return [...byModel.entries()].sort(([a], [b]) => a.localeCompare(b));
   }, [documents, query]);
   const activeId = route.view === "doc" ? route.id : null;
+  const firstActa = documents.status === "ready" ? documents.data.find((d) => d.model_name === "ActaDoc") : undefined;
+  const firstInforme = documents.status === "ready" ? documents.data.find((d) => d.model_name === "InformeAvanceDoc") : undefined;
 
   return (
     <nav className="sidebar" aria-label="Documentos">
@@ -46,6 +48,24 @@ export function Sidebar({ route }: { route: Route }) {
       <a className={`sidebar__action${route.view === "salud" ? " is-active" : ""}`} href={hrefFor({ view: "salud" })}>
         Salud del store
       </a>
+      <div className="sidebar__note">Átomos</div>
+      {firstActa ? (
+        <a className={`sidebar__action${route.view === "atomos-texto" ? " is-active" : ""}`} href={hrefFor({ view: "atomos-texto", id: firstActa.id })}>
+          Átomos en el texto
+        </a>
+      ) : (
+        <span className="sidebar__note">Átomos en el texto: sin actas</span>
+      )}
+      <a className={`sidebar__action${route.view === "atomos-grafo" ? " is-active" : ""}`} href={hrefFor({ view: "atomos-grafo" })}>
+        Grafo de átomos
+      </a>
+      {firstInforme ? (
+        <a className={`sidebar__action${route.view === "atomos-informe" ? " is-active" : ""}`} href={hrefFor({ view: "atomos-informe", id: firstInforme.id })}>
+          Informe
+        </a>
+      ) : (
+        <span className="sidebar__note">Informe: sin informes</span>
+      )}
       <input className="sidebar__search" type="search" placeholder="Buscar documento" aria-label="Buscar documento" value={query} onChange={(e) => setQuery(e.target.value)} />
       {documents.status === "loading" && <p className="sidebar__note">Cargando documentos…</p>}
       {documents.status === "error" && (

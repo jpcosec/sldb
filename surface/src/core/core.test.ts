@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 import type { DocumentSegments } from "./contract";
-import { createHttpClient, SaveConflictError } from "./client";
+import { createHttpClient, SaveConflictError, SldbHttpError } from "./client";
 import { FieldColors } from "./colors";
 import { fieldRoots, layoutSegments } from "./layout";
 import { getAt, insertAt, listItemOf, moveAt, removeAt, setAt } from "./paths";
@@ -78,5 +78,25 @@ describe("cliente", () => {
     const client = createHttpClient("/sldb", fetchImpl);
     await expect(client.save([])).rejects.toBeInstanceOf(SaveConflictError);
     expect(fetchImpl).toHaveBeenCalledWith("/sldb/save", expect.objectContaining({ method: "POST" }));
+  });
+
+  it("getEdges pide /edges con y sin id", async () => {
+    const fetchImpl = vi.fn(async () => new Response(JSON.stringify({ edges: [{ id: "e1" }] }), { status: 200 }));
+    const client = createHttpClient("/sldb", fetchImpl);
+    expect(await client.getEdges()).toEqual([{ id: "e1" }]);
+    await client.getEdges("AtomDoc:a1");
+    expect(fetchImpl).toHaveBeenNthCalledWith(1, "/sldb/edges", undefined);
+    expect(fetchImpl).toHaveBeenNthCalledWith(2, "/sldb/edges?id=AtomDoc%3Aa1", undefined);
+  });
+
+  it("createDocument hace POST /docs y traduce errores", async () => {
+    const ok = vi.fn(async () => new Response(JSON.stringify({ ok: true, id: "AtomDoc:a7", version: "v1" }), { status: 200 }));
+    const res = await createHttpClient("/sldb", ok).createDocument("AtomDoc", "a7", { kind: "hecho" });
+    expect(res).toEqual({ ok: true, id: "AtomDoc:a7", version: "v1" });
+    expect(ok).toHaveBeenCalledWith("/sldb/docs", expect.objectContaining({ method: "POST", body: JSON.stringify({ model: "AtomDoc", name: "a7", payload: { kind: "hecho" } }) }));
+    const bad = vi.fn(async () => new Response(JSON.stringify({ ok: false, error: "payload inválido" }), { status: 422 }));
+    await expect(createHttpClient("/sldb", bad).createDocument("AtomDoc", "a8", {})).rejects.toMatchObject({ message: "payload inválido", status: 422 });
+    const dup = vi.fn(async () => new Response(JSON.stringify({ ok: false, error: "ya existe" }), { status: 409 }));
+    await expect(createHttpClient("/sldb", dup).createDocument("AtomDoc", "a1", {})).rejects.toBeInstanceOf(SldbHttpError);
   });
 });
