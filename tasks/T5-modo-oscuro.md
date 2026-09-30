@@ -1,6 +1,6 @@
 # T5 · Modo oscuro
 
-Estado: pendiente · Dificultad: trivial
+Estado: **HECHO** · Dificultad: trivial
 Worktree: `/home/jp/AntonIA/repos/AgentsKBs_worktrees/knowledge-surface/sldb-surface`
 
 ## Qué
@@ -9,5 +9,10 @@ Todo el color vive en `:root` de `src/styles/app.css` como variables
 en componentes.
 
 ## Pasos
-- [ ] Bloque `@media (prefers-color-scheme: dark)` redefiniendo las variables
-- [ ] Toggle manual con `data-theme` en `<html>`
+- [x] Bloque `@media (prefers-color-scheme: dark)` redefiniendo las variables
+- [x] Toggle manual con `data-theme` en `<html>`
+
+## Resultado
+Además se repintó la paleta a un registro tipo Notion. Los fields ahora se marcan con
+la forma del marcador del template (⸢ ⸥) en vez de un bloque de color; `optrev` se marca
+más tenue que `rev` porque es un eco, no el sitio canónico de extracción.
