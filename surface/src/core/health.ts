@@ -17,6 +17,7 @@ import type {
   GraphDocument,
   GraphNodeRef,
   HealthReport,
+  StoresCheck,
   LintProblem,
   Segment,
   StructuralNoiseFinding,
@@ -63,6 +64,7 @@ export async function collectServedHealth(client: SldbClient): Promise<{
   lint: LintProblem[] | null;
   isolated: GraphNodeRef[] | null;
   cycles: GraphNodeRef[][] | null;
+  storeCheck: StoresCheck | null;
 }> {
   const attempt = async <T>(run: () => Promise<T> | undefined): Promise<T | null> => {
     try {
@@ -71,12 +73,13 @@ export async function collectServedHealth(client: SldbClient): Promise<{
       return null;
     }
   };
-  const [lint, isolated, cycles] = await Promise.all([
+  const [lint, isolated, cycles, storeCheck] = await Promise.all([
     attempt(() => client.lint?.().then((r) => r.problems)),
     attempt(() => client.isolated?.().then(isolatedDocuments)),
     attempt(() => client.cycles?.().then((cs) => cs.map(parseNodes))),
+    attempt(() => client.storesCheck?.()),
   ]);
-  return { lint, isolated, cycles };
+  return { lint, isolated, cycles, storeCheck };
 }
 
 /** Sondea `/document/segments` de cada documento del grafo y resume los hallazgos. */
@@ -108,4 +111,34 @@ export async function collectHealth(
   }
 
   return { structural, noncanonical, unreadable, modelErrors, checked: docs.length, ...served };
+}
+
+/** Una divergencia de `/stores/check`: qué se rompió, dónde y por qué (`explain` es del servidor). */
+export interface StoreDivergence {
+  scope: "store" | "model" | "document";
+  model?: string;
+  doc?: string;
+  path?: string;
+  kind: "raiz" | "contrato" | "roster" | "archivo-borrado" | "contenido" | "campos";
+  detail: string;
+}
+
+/**
+ * Lo que `/stores/check` reporta como roto, una entrada por causa. Un store sano da `[]`;
+ * eso vale solo cuando la ruta respondió (si no, `storeCheck` es `null` y no se llama acá).
+ */
+export function storeDivergences(check: StoresCheck): StoreDivergence[] {
+  const out: StoreDivergence[] = [];
+  if (!check.root_ok || !check.hash_a_ok) out.push({ scope: "store", kind: "raiz", detail: check.summary });
+  for (const model of check.models) {
+    if (!model.contract_ok) out.push({ scope: "model", model: model.name, kind: "contrato", detail: "El contrato del modelo no coincide con el registrado." });
+    if (!model.roster_ok) out.push({ scope: "model", model: model.name, kind: "roster", detail: "La lista de documentos del modelo no coincide con el índice." });
+    for (const d of model.documents) {
+      const where = { scope: "document" as const, model: model.name, doc: d.name, path: d.path };
+      if (!d.path_exists) out.push({ ...where, kind: "archivo-borrado", detail: d.explain || "El archivo ya no existe en disco." });
+      else if (!d.content_ok) out.push({ ...where, kind: "contenido", detail: d.explain || "El contenido del archivo cambió respecto de lo indexado." });
+      else if (!d.fields_ok) out.push({ ...where, kind: "campos", detail: d.explain || "Los campos extraídos no coinciden con lo indexado." });
+    }
+  }
+  return out;
 }

@@ -9,8 +9,8 @@
  * field son secciones que el modelo no declara. No es corrupción del documento.
  */
 import { useEffect, useState } from "react";
-import type { DocumentFinding, GraphNodeRef, HealthReport, LintProblem, StructuralNoiseFinding } from "../core/contract";
-import { collectHealth } from "../core/health";
+import type { DocumentFinding, GraphNodeRef, HealthReport, LintProblem, StoresCheck, StructuralNoiseFinding } from "../core/contract";
+import { collectHealth, storeDivergences } from "../core/health";
 import { useDocuments, useSchema, useSldb } from "../react/context";
 import { hrefFor } from "./router";
 
@@ -107,6 +107,7 @@ export function HealthView() {
               <LintSection problems={report.lint} />
               <CyclesSection cycles={report.cycles} />
               <IsolatedSection nodes={report.isolated} />
+              <IntegritySection check={report.storeCheck} />
               <StructuralSection findings={report.structural} unreadable={report.unreadable} />
               <FindingSection
                 title="Documentos no canónicos"
@@ -140,8 +141,8 @@ export function HealthView() {
             <strong>Derivado en el cliente:</strong> ruido estructural y documentos no canónicos, sondeando <code>/document/segments</code> uno por uno.
           </p>
           <p className="inspector__note">
-            Sigue sin endpoint la divergencia de <code>stores check</code> entre modelo y archivo en disco; solo se ve su parte derivable
-            (<code>canonical:false</code>).
+            <strong>Integridad:</strong> la divergencia entre modelo y archivo en disco sale de <code>/stores/check</code>, que trae a todos los
+            documentos; <code>canonical:false</code> es solo la parte derivable.
           </p>
         </aside>
       </div>
@@ -197,6 +198,38 @@ function LintSection({ problems }: { problems: LintProblem[] | null }) {
             <span className="health-item__doc">{problem.doc}</span>
             <span className="health-item__model">{problem.kind}</span>
             <span className={`health-item__detail${problem.severity === "error" ? " health-item__detail--warn" : ""}`}>{problem.detail}</span>
+          </li>
+        ))}
+      </ul>
+    </ServedSection>
+  );
+}
+
+const DIVERGENCE_LABEL = {
+  raiz: "raíz del store",
+  contrato: "contrato",
+  roster: "lista de documentos",
+  "archivo-borrado": "archivo borrado",
+  contenido: "editado fuera de SLDB",
+  campos: "campos distintos",
+} as const;
+
+function IntegritySection({ check }: { check: StoresCheck | null }) {
+  const divergences = check ? storeDivergences(check) : [];
+  return (
+    <ServedSection
+      title="Integridad del store"
+      help="Lo que SLDB reporta en GET /stores/check: divergencia entre lo indexado y el archivo en disco, documento por documento."
+      count={check ? divergences.length : null}
+      unavailable={check === null}
+      empty={check ? check.summary : ""}
+    >
+      <ul className="health-list">
+        {divergences.map((d, index) => (
+          <li key={`${d.model ?? ""}-${d.doc ?? ""}-${d.kind}-${index}`} className="health-item">
+            {d.doc ? <a className="health-item__doc" href={hrefFor({ view: "doc", id: d.doc, mode: "document" })}>{d.doc}</a> : <span className="health-item__doc">{d.model ?? "store"}</span>}
+            <span className="health-item__model">{DIVERGENCE_LABEL[d.kind]}</span>
+            <span className="health-item__detail health-item__detail--warn">{d.detail}</span>
           </li>
         ))}
       </ul>

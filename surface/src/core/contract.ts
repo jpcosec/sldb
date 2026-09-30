@@ -203,6 +203,46 @@ export interface HealthReport {
   isolated: GraphNodeRef[] | null;
   /** `/graph/cycles`. `null` si la ruta no respondió. */
   cycles: GraphNodeRef[][] | null;
+  /** `/stores/check`: integridad del store y divergencia modelo vs archivo. `null` si la ruta no respondió. */
+  storeCheck: StoresCheck | null;
+}
+
+/** Un documento en `/stores/check`: si su archivo existe y si su contenido y campos coinciden con lo indexado. */
+export interface StoresCheckDocument {
+  name: string;
+  path: string;
+  path_exists: boolean;
+  hash_c_ok: boolean;
+  hash_d_ok: boolean;
+  content_ok: boolean;
+  fields_ok: boolean;
+  note: string;
+  explain: string;
+}
+
+export interface StoresCheckModel {
+  name: string;
+  hash_b_ok: boolean;
+  roster_ok: boolean;
+  contract_ok: boolean;
+  roster_only_failure: boolean;
+  documents: StoresCheckDocument[];
+}
+
+/**
+ * `GET /stores/check`. Las claves `damaged` y `reformatted` son LISTAS por HTTP (el CLI las
+ * cuenta); `models[].documents[]` trae a TODOS los documentos, no solo a los dañados.
+ */
+export interface StoresCheck {
+  ok: boolean;
+  valid: boolean;
+  root_ok: boolean;
+  hash_a_ok: boolean;
+  summary: string;
+  checked: number;
+  damaged: unknown[];
+  reformatted: unknown[];
+  models: StoresCheckModel[];
 }
 
 /**

@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 import type { DocumentSegments, GraphDocument, Segment } from "./contract";
 import { SldbHttpError, type SldbClient } from "./client";
-import { collectHealth, undeclaredHeadings } from "./health";
+import { collectHealth, storeDivergences, undeclaredHeadings } from "./health";
 
 const doc: GraphDocument = { id: "spec", model_name: "DomainAtom", path: "domain/spec.md", payload: {} };
 
@@ -74,5 +74,30 @@ describe("collectHealth", () => {
     const report = await collectHealth(client, [doc]);
     expect(report.structural).toEqual([]);
     expect(report.unreadable).toEqual([{ doc: "spec", model: "DomainAtom", path: "domain/spec.md", detail: "SLDB respondió 422" }]);
+  });
+});
+
+describe("storeDivergences (/stores/check)", () => {
+  const doc = { name: "a", path: "a.md", path_exists: true, hash_c_ok: true, hash_d_ok: true, content_ok: true, fields_ok: true, note: "ok", explain: "ok" };
+  const model = { name: "M", hash_b_ok: true, roster_ok: true, contract_ok: true, roster_only_failure: false, documents: [doc] };
+  const check = { ok: true, valid: true, root_ok: true, hash_a_ok: true, summary: "PASS", checked: 1, damaged: [], reformatted: [], models: [model] };
+
+  it("un store sano no tiene divergencias", () => {
+    expect(storeDivergences(check)).toEqual([]);
+  });
+
+  it("distingue archivo borrado, editado fuera de SLDB y campos distintos", () => {
+    const models = [{ ...model, documents: [
+      { ...doc, name: "borrado", path_exists: false, content_ok: false, explain: "missing" },
+      { ...doc, name: "editado", content_ok: false, explain: "changed" },
+      { ...doc, name: "campos", fields_ok: false, explain: "" },
+    ] }];
+    const kinds = storeDivergences({ ...check, ok: false, valid: false, models }).map((d) => [d.doc, d.kind]);
+    expect(kinds).toEqual([["borrado", "archivo-borrado"], ["editado", "contenido"], ["campos", "campos"]]);
+  });
+
+  it("contrato, roster y raíz son divergencias del modelo o del store, no de un documento", () => {
+    const bad = { ...check, root_ok: false, models: [{ ...model, contract_ok: false, roster_ok: false }] };
+    expect(storeDivergences(bad).map((d) => d.kind)).toEqual(["raiz", "contrato", "roster"]);
   });
 });
