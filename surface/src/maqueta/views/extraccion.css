@@ -1,0 +1,14 @@
+/* Lo que la maqueta no tiene en Extracción: avisos de ancla, errores de escritura, estados de guardado.
+   Usa las variables de maqueta.css; las clases de la maqueta no se tocan. */
+.ext-note { margin-top: 8px; display: flex; align-items: center; gap: 8px; font-size: 11.5px; color: var(--ink-2); }
+.ext-note strong { font-weight: 600; color: var(--t-pendiente); }
+.ext-note.is-orphan strong { color: var(--t-riesgo); }
+.ext-note button { color: var(--accent); font-weight: 600; }
+.ext-note button:hover { text-decoration: underline; }
+.ext-err { margin-top: 8px; display: flex; align-items: center; gap: 8px; border: 1px solid var(--t-riesgo); border-radius: 4px; padding: 3px 8px; font-size: 11.5px; color: var(--t-riesgo); background: var(--panel); }
+.ext-err button { margin-left: auto; color: var(--accent); font-weight: 600; text-decoration: underline; }
+article[aria-busy="true"] { opacity: .7; }
+article[aria-busy="true"] button, .ext-busy button { cursor: default; }
+.ext-msg { position: absolute; z-index: 10; max-width: 280px; border: 1px solid var(--t-riesgo); border-radius: 6px; background: var(--panel); color: var(--t-riesgo); padding: 6px 10px; font-size: 12.5px; box-shadow: 0 4px 14px -6px rgba(20,30,40,.35); }
+button.ext-disabled:disabled { opacity: .55; cursor: not-allowed; }
+button.ext-disabled:disabled:hover { background: transparent; }

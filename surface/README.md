@@ -16,6 +16,24 @@ Tres vistas sobre el mismo store:
 - **Extracción**: texto crudo + modelo → qué fields salen, dónde, con qué valor tipado,
   cuánto texto cubren y qué tramos no caben en el modelo. Se puede guardar como documento.
 
+## La maqueta (`maqueta.html`)
+
+La UI de átomos pedida es la de `SLDB_ extracción, grafo y compositor.html`: sin barra lateral, con
+su cabecera y sus tres pestañas (Extracción · Grafo · Compositor). Vive en una entrada propia,
+`maqueta.html` → `src/maqueta/`, con el CSS de la maqueta sin tocar (`maqueta.css`), sus librerías
+(`@xyflow/react`, `prosemirror-*`) y los componentes portados 1:1 de su código, conectados al
+`sldb serve` real. `src/maqueta/adapter.ts` traduce átomos y aristas reales a la forma que esperan.
+Ruta: `#/extraccion`, `#/grafo`, `#/compositor`, con `?atom=<id>` para enfocar un átomo.
+
+```bash
+# con el backend de abajo corriendo
+open http://127.0.0.1:5173/maqueta.html
+```
+
+La superficie genérica (`index.html`, con sidebar y las vistas Documento, Composición, Salud,
+Bandeja, Lector, Destilación) sigue igual; las vistas de átomos que tenía (`src/views/atoms/`)
+son la primera implementación, anterior a portar la maqueta.
+
 ## Correr
 
 Requiere Python con `sldb` instalado y Node 20+.
