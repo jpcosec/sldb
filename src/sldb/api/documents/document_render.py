@@ -13,14 +13,19 @@ from typing import Any
 
 from sldb.api.documents.document_payload import runtime_document
 from sldb.api.model_registry.load_registered_model import load_registered_model
+from sldb.store.layout import project_root
 
 
 def render_document_markdown(store_path: Path, pythonpath: str | None, doc_ref: str) -> str:
-    """The document rendered from its template, via the CLI's renderer."""
+    """The document rendered from its template, via the CLI's renderer.
+
+    Composition refs resolve against the project root, never the process CWD: a tracked
+    document composes the same from any directory, which is what a server needs.
+    """
     from sldb.runtime.validation import render_model_markdown
 
     doc = runtime_document(store_path, pythonpath, doc_ref)
-    return render_model_markdown(doc.model_type, doc.payload)
+    return render_model_markdown(doc.model_type, doc.payload, project_root(store_path))
 
 
 def render_model_template(store_path: Path, pythonpath: str | None, model_name: str) -> str:

@@ -1,4 +1,5 @@
 from __future__ import annotations
+from pathlib import Path
 from typing import Any, cast, Literal
 from sldb.core.ast import AST_Handler
 from sldb.core.data_extractor import DataExtractor
@@ -16,8 +17,8 @@ class Validator:
     def extract(self, markdown: str) -> dict[str, Any]:
         return self.model_type(**self.data_extractor.extract_values(self.ast_handler.split_nodes(markdown), self._get_recipes(), raw_markdown=markdown)).model_dump(mode="json", exclude_none=True)
 
-    def render(self, data: dict[str, Any]) -> str:
-        return self.renderer.render(self.model_type(**data))
+    def render(self, data: dict[str, Any], ref_root: Path | None = None) -> str:
+        return self.renderer.render(self.model_type(**data), ref_root)
 
     def _get_input_data(self, markdown: str | None, data: dict[str, Any] | None) -> dict[str, Any]:
         if markdown is not None: return self.extract(markdown)
@@ -49,7 +50,7 @@ class Validator:
 def extract_model_data(m: type[StructuredNLDoc], md: str) -> dict[str, Any]: return Validator(m).extract(md)
 def validate_model_input_roundtrip(m: type[StructuredNLDoc], md: str) -> tuple[bool, dict[str, Any]]: return Validator(m).validate(markdown=md)
 def validate_model_data_roundtrip(m: type[StructuredNLDoc], d: dict[str, Any]) -> tuple[bool, dict[str, Any]]: return Validator(m).validate(data=d)
-def render_model_markdown(m: type[StructuredNLDoc], d: dict[str, Any]) -> str: return Validator(m).render(d)
+def render_model_markdown(m: type[StructuredNLDoc], d: dict[str, Any], ref_root: Path | None = None) -> str: return Validator(m).render(d, ref_root)
 
 def extract_payload(template: str, markdown: str) -> dict[str, Any]:
     ast = AST_Handler()

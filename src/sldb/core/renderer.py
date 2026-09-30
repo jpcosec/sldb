@@ -1,4 +1,5 @@
 from __future__ import annotations
+from pathlib import Path
 from jinja2 import Environment
 from sldb.core.ast import AST_Handler
 from sldb.core.handlers.router import SharedNodeHandler
@@ -19,10 +20,10 @@ class SLDBRenderer:
         self.table_renderer = TableRenderer(self.jinja_env)
         self.yaml_renderer = YamlRenderer(self.jinja_env)
 
-    def render(self, model: StructuredNLDoc) -> str:
-        """Renders the model to a Markdown string."""
+    def render(self, model: StructuredNLDoc, ref_root: Path | None = None) -> str:
+        """Renders the model to a Markdown string. `ref_root` resolves composition refs."""
         template = model.__template__
-        data = model.render_payload()
+        data = model.render_payload(ref_root)
         blocks = self.ast_handler.split_nodes(template)
         template_lines = template.splitlines()
 
