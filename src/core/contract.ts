@@ -114,6 +114,8 @@ export interface SchemaField {
   enum?: unknown[];
   default?: unknown;
   description?: string;
+  /** Patrón declarado por el field, cuando el store lo expone. Se valida con ESE patrón. */
+  pattern?: string;
 }
 
 export interface SchemaModel {
@@ -158,4 +160,86 @@ export interface SaveResult {
   saved?: string[];
   error?: string;
   completed?: string[];
+}
+
+/**
+ * Hallazgos de salud derivados de los endpoints que existen hoy (`/graph`, `/schema`,
+ * `/document/segments`). No provienen de ningún endpoint de diagnóstico.
+ *
+ * `StructuralNoiseFinding` no es corrupción: es un contrato incompleto. Los headings
+ * que viven dentro del valor de un field son secciones que el modelo no declara.
+ */
+export interface StructuralNoiseFinding {
+  doc: string;
+  model: string;
+  path: string;
+  /** Títulos (sin `#`) de los headings que aparecen dentro de valores de field. */
+  headings: string[];
+}
+
+/** Documento que no se pudo leer, o cuyo archivo en disco no coincide con el render. */
+export interface DocumentFinding {
+  doc: string;
+  model: string;
+  path: string;
+  detail: string;
+}
+
+export interface HealthReport {
+  /** Ruido estructural: headings sin declarar dentro de fields. */
+  structural: StructuralNoiseFinding[];
+  /** `canonical:false`: el archivo en disco no coincide con el render del payload. */
+  noncanonical: DocumentFinding[];
+  /** `/document/segments` no respondió: no se pudo derivar nada de ese documento. */
+  unreadable: DocumentFinding[];
+  /** Modelos que `/schema` reportó como no importables. */
+  modelErrors: { model: string; error: string }[];
+  /** Documentos sondeados con `/document/segments`. */
+  checked: number;
+  /** `/lint` de SLDB. `null` si la ruta no respondió. */
+  lint: LintProblem[] | null;
+  /** `/graph/isolated`, solo documentos. `null` si la ruta no respondió. */
+  isolated: GraphNodeRef[] | null;
+  /** `/graph/cycles`. `null` si la ruta no respondió. */
+  cycles: GraphNodeRef[][] | null;
+}
+
+/**
+ * Análisis de grafo servido por SLDB. Estas rutas EXISTEN en `sldb serve`
+ * (`cli/serve/routes.py`) y `graph_ui` ya las consume; no hay que derivarlas
+ * en el cliente. Los ids vienen como URI `sldb://document/<Modelo>:<id>` o
+ * `sldb://field/<Modelo>.<campo>`.
+ */
+export interface LintProblem {
+  kind: string;
+  severity: string;
+  doc: string;
+  detail: string;
+}
+
+export interface LintReport {
+  problems: LintProblem[];
+  count: number;
+}
+
+/**
+ * Lo mínimo que la lógica pura necesita del schema: saber si un modelo declara un
+ * campo. Se declara acá para que `core/` no dependa de `react/context`.
+ */
+export interface SchemaIndexLike {
+  field(model: string, path: string): SchemaField | undefined;
+}
+
+/** Un nodo del grafo, tal como lo nombran los endpoints de análisis. */
+export interface GraphNodeRef {
+  /** La URI cruda que devolvió SLDB. */
+  uri: string;
+  /** `document` o `field`; otra cosa si SLDB agrega tipos. */
+  kind: string;
+  /** Modelo del nodo, cuando la URI lo nombra. */
+  model?: string;
+  /** Id del documento, solo para `kind === "document"`: sirve para enlazar. */
+  doc?: string;
+  /** Texto corto para mostrar. */
+  label: string;
 }

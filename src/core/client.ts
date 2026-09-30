@@ -6,6 +6,7 @@ import type {
   DocumentSegments,
   ExtractionSegments,
   GraphDocument,
+  LintReport,
   SaveChange,
   SaveResult,
   SchemaResponse,
@@ -38,6 +39,10 @@ export interface SldbClient {
   segments(id: string): Promise<DocumentSegments>;
   extract(model: string, markdown: string): Promise<ExtractionSegments>;
   save(changes: SaveChange[]): Promise<SaveResult>;
+  /** Análisis que SLDB ya sirve; no se deriva nada de esto en el cliente. */
+  lint(): Promise<LintReport>;
+  isolated(): Promise<string[]>;
+  cycles(limit?: number): Promise<string[][]>;
 }
 
 type FetchLike = (input: string, init?: RequestInit) => Promise<Response>;
@@ -70,5 +75,8 @@ export function createHttpClient(baseUrl: string, fetchImpl: FetchLike = (i, ini
     segments: (id) => request<DocumentSegments>(`/document/segments?id=${encodeURIComponent(id)}`),
     extract: (model, markdown) => post<ExtractionSegments>("/extract/segments", { model, markdown }),
     save: (changes) => post<SaveResult>("/save", { changes }),
+    lint: () => request<LintReport>("/lint"),
+    isolated: async () => (await request<{ isolated: string[] }>("/graph/isolated")).isolated,
+    cycles: async (limit = 20) => (await request<{ cycles: string[][] }>(`/graph/cycles?limit=${limit}`)).cycles,
   };
 }

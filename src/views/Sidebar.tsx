@@ -31,8 +31,17 @@ export function Sidebar({ route }: { route: Route }) {
         <div className="sidebar__brand">SLDB</div>
         <ThemeToggle />
       </div>
+      <a className={`sidebar__action${route.view === "lector" ? " is-active" : ""}`} href={hrefFor({ view: "lector" })}>
+        Lector
+      </a>
       <a className={`sidebar__action${route.view === "extract" ? " is-active" : ""}`} href={hrefFor({ view: "extract" })}>
         Extraer desde texto
+      </a>
+      <a className={`sidebar__action${route.view === "bandeja" ? " is-active" : ""}`} href={hrefFor({ view: "bandeja" })}>
+        Bandeja
+      </a>
+      <a className={`sidebar__action${route.view === "salud" ? " is-active" : ""}`} href={hrefFor({ view: "salud" })}>
+        Salud del store
       </a>
       <input className="sidebar__search" type="search" placeholder="Buscar documento" aria-label="Buscar documento" value={query} onChange={(e) => setQuery(e.target.value)} />
       {documents.status === "loading" && <p className="sidebar__note">Cargando documentos…</p>}
