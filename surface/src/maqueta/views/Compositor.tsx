@@ -5,30 +5,41 @@
  * "Agregar filtro" abre un desplegable, aviso de errores de guardado.
  */
 import { Fragment, useMemo, useState, type ReactNode } from "react";
-import { acceptAtom, ATOM_KINDS, ATOM_STATUSES, excludeAtom, pinAtom, SLOT_MODES, SLOT_NAMES, unexcludeAtom, unpinAtom } from "../../core/atoms";
+import { acceptAtom, excludeAtom, kindLabel, pinAtom, SLOT_MODES, unexcludeAtom, unpinAtom } from "../../core/atoms";
 import {
   nextVersion,
   publicationName,
   publicationPayload,
+  buildPreview,
   publicationsOf,
   PUBLICATION_MODEL,
   publishState,
-  relationLabel,
   removeQueryToken,
   reviewGate,
-  SLOT_LABELS,
   slotChanges,
   slotField,
   snapshotAtoms,
 } from "../../core/atom-report";
 import { SaveConflictError } from "../../core/client";
-import type { Atom, InformeSlot, SlotMode, SlotName } from "../../core/contract";
+import type { Atom, InformeSlot, SlotMode } from "../../core/contract";
 import { useSldb } from "../../react/context";
-import { addQueryFilter, filterChips, isIncluded, newBySlot, SLOT_TITLES, slotItems, STATE_LABELS, type CardState } from "../compositor-logic";
+import {
+  addQueryFilter,
+  filterChips,
+  filterOptions,
+  FILTER_KINDS,
+  isIncluded,
+  newBySlot,
+  OLD_SLOT_ROTULOS,
+  queryOptions,
+  slotItems,
+  STATE_LABELS,
+  type CardState,
+  type FilterKind,
+} from "../compositor-logic";
 import type { ViewProps } from "../ViewProps";
-import "../compositor.css";
+import "./compositor.css";
 
-const KIND_LABEL: Record<string, string> = { entidad: "Entidad", hecho: "Hecho", decision: "Decisión", pendiente: "Pendiente", riesgo: "Riesgo" };
 const MODE_LABEL: Record<SlotMode, string> = { viñetas: "viñetas", prosa: "prosa", tabla: "tabla" };
 
 const sentence = (text: string) => {
@@ -51,38 +62,47 @@ function Piece({ ids, selected, onOpen, children }: { ids: string[]; selected: s
   );
 }
 
-export default function Compositor({ store, go }: ViewProps) {
+export default function Compositor({ store, informe, go }: ViewProps) {
   const { client } = useSldb();
-  const { atoms, edges, documents, informes, saveField, reload } = store;
-  const informe = informes[0];
+  const { atoms, edges, documents, grupos, relationTypes, saveField, reload } = store;
 
-  const [sel, setSel] = useState<SlotName>("resumen");
+  const [selName, setSel] = useState<string | null>(null);
   const [origin, setOrigin] = useState<string[] | null>(null);
-  const [drafts, setDrafts] = useState<Partial<Record<SlotName, string>>>({});
-  const [adding, setAdding] = useState<{ kind: "tipo" | "tag" | "estado"; value: string } | null>(null);
+  const [drafts, setDrafts] = useState<Record<string, string | undefined>>({});
+  const [adding, setAdding] = useState<{ kind: FilterKind; value: string } | null>(null);
   const [busy, setBusy] = useState(false);
   const [publishing, setPublishing] = useState(false);
   const [failure, setFailure] = useState<string | null>(null);
 
   const byPath = useMemo(() => new Map(atoms.map((a) => [a.path, a])), [atoms]);
-  const byGid = useMemo(() => new Map(atoms.map((a) => [a.gid, a])), [atoms]);
-  const nuevosBySlot = useMemo(() => (informe ? newBySlot(informe, atoms) : null), [informe, atoms]);
-  const tags = useMemo(() => [...new Set(atoms.flatMap((a) => a.tags))].sort(), [atoms]);
+    const qopts = useMemo(() => queryOptions(atoms, grupos), [atoms, grupos]);
+  const nuevosBySlot = useMemo(() => (informe ? newBySlot(informe, atoms, edges, qopts) : null), [informe, atoms, edges, qopts]);
 
-  if (!informe || !nuevosBySlot) return <div className="mq-state">El store no tiene ningún informe de avance.</div>;
+  if (!informe || !nuevosBySlot || informe.slotList.length === 0) return <div className="mq-state">El store no tiene ningún informe con slots.</div>;
+  const slotList = informe.slotList;
+  const sel = slotList.some((s) => s.name === selName) ? selName! : slotList[0]!.name;
+  const entry = slotList.find((s) => s.name === sel)!;
+  const rotuloOf = (e: { name: string; rotulo: string }) => e.rotulo || OLD_SLOT_ROTULOS[e.name] || "";
 
   const title = typeof informe.payload.title === "string" && informe.payload.title ? informe.payload.title : `Informe ${informe.id}`;
-  const itemsOf = (name: SlotName) => slotItems(informe.slots[name], nuevosBySlot[name]);
-  const includedOf = (name: SlotName) => itemsOf(name).filter((i) => isIncluded(i.state)).flatMap((i) => (byPath.get(i.path) ? [byPath.get(i.path)!] : []));
+  const slotOf = (name: string) => slotList.find((s) => s.name === name)!;
+  const itemsOf = (name: string) => slotItems(slotOf(name), nuevosBySlot[name] ?? []);
+  const includedOf = (name: string) => itemsOf(name).filter((i) => isIncluded(i.state)).flatMap((i) => (byPath.get(i.path) ? [byPath.get(i.path)!] : []));
+  /** Tabla: encabezados y evidencia del núcleo, sobre lo que entra al documento. */
+  const previews = buildPreview(
+    slotList.map((s) => ({ ...s, atomos: includedOf(s.name).map((a) => a.path) })),
+    atoms,
+    edges,
+  );
   const gate = reviewGate(nuevosBySlot);
   const h = gate.pending;
   const publications = publicationsOf(documents, informe.id);
-  const publish = publishState({ gate, publications, atomCount: snapshotAtoms(informe.slots).length, publishing });
+  const publish = publishState({ gate, publications, atomCount: snapshotAtoms(slotList).length, publishing });
 
-  const slot = informe.slots[sel];
+  const slot: InformeSlot = entry;
   const items = itemsOf(sel);
   const queryText = drafts[sel] ?? slot.query;
-  const chips = filterChips(queryText);
+  const chips = filterChips(queryText, qopts);
   const openOrigin = (atom: Atom) => go("extraccion", atom.id);
 
   /** Ejecuta escrituras; si el servidor las rechaza se muestra el error y se relee. */
@@ -106,15 +126,15 @@ export default function Compositor({ store, go }: ViewProps) {
     if (!result.ok) throw new Error(result.error ?? "El servidor rechazó el cambio.");
   }
 
-  const change = (name: SlotName, next: InformeSlot) =>
+  const change = (name: string, next: InformeSlot) =>
     run(async () => {
-      for (const c of slotChanges(name, informe!.slots[name], next)) await write(c.field, c.value);
+      for (const c of slotChanges(name, slotOf(name), next)) await write(c.field, c.value);
     });
 
   const decide = (path: string, fn: (s: InformeSlot, p: string) => InformeSlot) => void change(sel, fn(slot, path));
 
-  async function saveQuery(name: SlotName, text: string) {
-    if (text === informe!.slots[name].query) {
+  async function saveQuery(name: string, text: string) {
+    if (text === slotOf(name).query) {
       setDrafts((d) => ({ ...d, [name]: undefined }));
       return;
     }
@@ -149,9 +169,9 @@ export default function Compositor({ store, go }: ViewProps) {
     }
   }
 
-  const addChoices = adding ? (adding.kind === "tipo" ? (ATOM_KINDS as string[]) : adding.kind === "estado" ? (ATOM_STATUSES as string[]) : tags) : [];
+  const choicesFor = (kind: FilterKind) => filterOptions(kind, { atoms, grupos, relationTypes });
 
-  const renderSection = (name: SlotName, mode: SlotMode) => {
+  const renderSection = (name: string, mode: SlotMode) => {
     const list = includedOf(name);
     if (!list.length) return <p className="text-[14px] italic text-ink2">Este slot todavía no tiene átomos.</p>;
     const piece = (ids: string[], text: string) => (
@@ -174,27 +194,29 @@ export default function Compositor({ store, go }: ViewProps) {
           </p>
         </div>
       );
-    if (mode === "tabla")
+    if (mode === "tabla") {
+      const pv = previews.find((x) => x.slot === name)!;
       return (
         <div className="overflow-x-auto">
           <table className="w-full text-left text-[14px]">
             <thead>
               <tr className="border-b border-line text-[12px] text-ink2">
-                <th className="py-1 pr-3 font-semibold">{KIND_LABEL[list[0]!.kind] ?? list[0]!.kind}</th>
-                <th className="py-1 font-semibold">Relación</th>
+                <th className="py-1 pr-3 font-semibold">{pv.headers[0]}</th>
+                <th className="py-1 font-semibold">{pv.headers[1]}</th>
               </tr>
             </thead>
             <tbody>
-              {list.map((a) => (
+              {list.map((a, i) => (
                 <tr key={a.path} className="border-b border-line/60 align-top">
                   <td className="py-1.5 pr-3">{piece([a.path], a.text)}</td>
-                  <td className="py-1.5 text-ink2">{relationLabel(a, edges, byGid)}</td>
+                  <td className="py-1.5 text-ink2">{pv.items[i]?.evidence}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       );
+    }
     return (
       <ul className="list-disc space-y-1 pl-5 text-[15px] leading-relaxed marker:text-ink2">
         {list.map((a) => (
@@ -235,9 +257,10 @@ export default function Compositor({ store, go }: ViewProps) {
         <nav className="shrink-0 border-b border-line bg-panel p-3 lg:w-56 lg:border-b-0 lg:border-r" aria-label="Esqueleto del documento">
           <h2 className="mb-2 text-[12px] font-semibold text-ink2">Esqueleto</h2>
           <ol className="flex gap-1 overflow-x-auto lg:block lg:space-y-0.5">
-            {SLOT_NAMES.map((name, idx) => {
+            {slotList.map((e, idx) => {
+              const name = e.name;
               const count = includedOf(name).length;
-              const hasNew = nuevosBySlot[name].length > 0;
+              const hasNew = (nuevosBySlot[name] ?? []).length > 0;
               return (
                 <li className="shrink-0" key={name}>
                   <button
@@ -246,8 +269,8 @@ export default function Compositor({ store, go }: ViewProps) {
                     className={`flex w-full items-center gap-2 rounded px-2 py-1.5 text-left text-[13.5px] ${sel === name ? "bg-panel2 font-semibold" : "hover:bg-panel2"}`}
                   >
                     <span className="tabular-nums text-ink2">{idx + 1}.</span>
-                    <span className="flex-1">{SLOT_LABELS[name]}</span>
-                    {hasNew && <span className="h-2 w-2 rounded-full bg-t-pendiente" title="Tiene átomos nuevos sin revisar" />}
+                    <span className="flex-1">{e.titulo}</span>
+                    {hasNew && <span className="h-2 w-2 rounded-full bg-t-pregunta" title="Tiene átomos nuevos sin revisar" />}
                     <span className="text-[11.5px] tabular-nums text-ink2">{count}</span>
                   </button>
                 </li>
@@ -263,15 +286,15 @@ export default function Compositor({ store, go }: ViewProps) {
           </button>
         </nav>
         <section className="lg:min-h-0 lg:overflow-auto border-b border-line bg-panel2 p-4 lg:basis-[42%] lg:border-b-0 lg:border-r" aria-label="Slot seleccionado">
-          <h2 className="text-[12px] font-semibold text-ink2">{SLOT_LABELS[sel]}</h2>
-          <p className="text-[16px] font-semibold">{SLOT_TITLES[sel]}</p>
+          <h2 className="text-[12px] font-semibold text-ink2">{entry.titulo}</h2>
+          <p className="text-[16px] font-semibold">{rotuloOf(entry)}</p>
           <label className="mt-3 block text-[12px] font-semibold text-ink2" htmlFor="q">
             Qué va en este slot
           </label>
           <input
             id="q"
             value={queryText}
-            placeholder="tipo:hecho tag:infra.ingesta estado:confirmado texto libre"
+            placeholder="base:paciente tag:asistente tipo:regla distancia:1 relacion:activa texto libre"
             onChange={(e) => setDrafts((d) => ({ ...d, [sel]: e.target.value }))}
             onBlur={(e) => void saveQuery(sel, e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && e.currentTarget.blur()}
@@ -280,14 +303,14 @@ export default function Compositor({ store, go }: ViewProps) {
           <div className="mt-2 flex flex-wrap gap-1.5 text-[12.5px]">
             {chips.map((c) => (
               <span
-                key={`${c.index}-${c.label}-${c.value}`}
+                key={`${c.index}-${c.label}`}
                 className={`flex items-center gap-1 rounded border border-line bg-panel px-2 py-0.5${c.active ? "" : " opacity-60"}`}
                 title={c.active ? undefined : "Este filtro no se aplica"}
               >
-                <span className="text-ink2">{c.label}:</span> {c.value}
+                <span className="text-ink2">{c.prefix}:</span> {c.value}
                 <button
                   className="ml-0.5 text-ink2 hover:text-ink"
-                  aria-label={`Quitar filtro ${c.label}`}
+                  aria-label={`Quitar filtro ${c.prefix}`}
                   onClick={() => {
                     const next = removeQueryToken(queryText, c.index);
                     setDrafts((d) => ({ ...d, [sel]: next }));
@@ -298,7 +321,7 @@ export default function Compositor({ store, go }: ViewProps) {
                 </button>
               </span>
             ))}
-            <button className="rounded border border-dashed border-line px-2 py-0.5 text-ink2 hover:text-ink" aria-expanded={!!adding} onClick={() => setAdding(adding ? null : { kind: "tipo", value: ATOM_KINDS[0]! })}>
+            <button className="rounded border border-dashed border-line px-2 py-0.5 text-ink2 hover:text-ink" aria-expanded={!!adding} onClick={() => setAdding(adding ? null : { kind: "tipo", value: choicesFor("tipo")[0]?.value ?? "" })}>
               Agregar filtro
             </button>
             {adding && (
@@ -307,18 +330,20 @@ export default function Compositor({ store, go }: ViewProps) {
                   aria-label="Filtrar por"
                   value={adding.kind}
                   onChange={(e) => {
-                    const kind = e.target.value as "tipo" | "tag" | "estado";
-                    setAdding({ kind, value: (kind === "tipo" ? ATOM_KINDS : kind === "estado" ? ATOM_STATUSES : tags)[0] ?? "" });
+                    const kind = e.target.value as FilterKind;
+                    setAdding({ kind, value: choicesFor(kind)[0]?.value ?? "" });
                   }}
                 >
-                  <option value="tipo">Tipo</option>
-                  <option value="tag">Tag</option>
-                  <option value="estado">Estado</option>
+                  {FILTER_KINDS.map((f) => (
+                    <option key={f.kind} value={f.kind}>
+                      {f.label}
+                    </option>
+                  ))}
                 </select>
                 <select aria-label="Valor del filtro" value={adding.value} onChange={(e) => setAdding({ ...adding, value: e.target.value })}>
-                  {addChoices.map((v) => (
-                    <option key={v} value={v}>
-                      {v}
+                  {choicesFor(adding.kind).map((o) => (
+                    <option key={o.value} value={o.value}>
+                      {o.label}
                     </option>
                   ))}
                 </select>
@@ -365,7 +390,7 @@ export default function Compositor({ store, go }: ViewProps) {
                       {state === "pin" ? "\u{1F4CC} " : ""}
                       {STATE_LABELS[state]}
                     </span>
-                    {g && <span className={`tx-t-${g.kind}`}>{KIND_LABEL[g.kind] ?? g.kind}</span>}
+                    {g && <span className={`tx-t-${g.kind}`}>{kindLabel(g.kind)}</span>}
                   </div>
                   <p className={`mt-0.5 text-[14px] leading-snug ${state === "excluido" ? "line-through" : ""}`}>{g ? g.text : `Átomo no encontrado: ${path}`}</p>
                   <div className="mt-1.5 flex gap-3 text-[12.5px]">
@@ -415,11 +440,11 @@ export default function Compositor({ store, go }: ViewProps) {
         <article className="lg:min-h-0 flex-1 lg:overflow-auto bg-panel px-6 py-6" aria-label="Documento final">
           <div className="mx-auto max-w-[62ch] font-doc">
             <h1 className="text-[26px] font-semibold leading-tight">{title}</h1>
-            {SLOT_NAMES.map((name) => (
+            {slotList.map((e) => e.name).map((name) => (
               <section key={name} onClick={() => setSel(name)} className={`mt-6 rounded-md transition-colors ${sel === name ? "outline outline-1 outline-offset-8 outline-line" : ""}`}>
-                <h2 className="mb-2 text-[18px] font-semibold">{SLOT_LABELS[name]}</h2>
-                {renderSection(name, informe.slots[name].modo)}
-                {nuevosBySlot[name].length > 0 && <p className="mt-2 font-ui text-[12px] text-ink2">Hay átomos nuevos que calzan con este slot. No entran hasta que los revises.</p>}
+                <h2 className="mb-2 text-[18px] font-semibold">{slotOf(name).titulo}</h2>
+                {renderSection(name, slotOf(name).modo)}
+                {(nuevosBySlot[name] ?? []).length > 0 && <p className="mt-2 font-ui text-[12px] text-ink2">Hay átomos nuevos que calzan con este slot. No entran hasta que los revises.</p>}
               </section>
             ))}
             <p className="mt-6 font-ui text-[12px] text-ink2">El documento guardado en disco siempre renderiza viñetas; prosa y tabla son solo vista previa.</p>

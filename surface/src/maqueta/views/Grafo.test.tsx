@@ -27,6 +27,7 @@ const relationTypes = [...relationTypesFromDocuments(docs), spec("afecta", ["Ato
 const edges: Edge[] = [
   { id: "e1", source: "AtomDoc:a5", target: "AtomDoc:a2", type: "motiva", origin: "relation_doc", relationDoc: "r1" },
   { id: "e3", source: "GrupoDoc:infra-ingesta", target: "AtomDoc:a4", type: "afecta", origin: "relation_doc", relationDoc: "r2" },
+  { id: "e4", source: "AtomDoc:a1", target: "AtomDoc:a3", type: "motiva", origin: "relation_doc", relationDoc: "r3" },
 ];
 const documents: GraphDocument[] = [
   ...docs,
@@ -50,7 +51,8 @@ function setup(over: Partial<ViewProps> = {}, storeOver: Partial<AtomStore> = {}
     createDocument,
     ...storeOver,
   } as unknown as AtomStore;
-  const props: ViewProps = { store, acta: store.actas[0]!, focusId: null, setFocusId: vi.fn(), go: vi.fn(), ...over };
+  const acta = store.actas[0]!;
+  const props: ViewProps = { store, acta, fuentes: [{ ...acta, tipo: "acta", base: "", descripcion: "" }], informe: undefined, respuesta: undefined, caso: null, focusId: null, setFocusId: vi.fn(), go: vi.fn(), ...over };
   const view = render(<Grafo {...props} />);
   return { props, createDocument, ...view };
 }
@@ -63,33 +65,54 @@ beforeEach(() => {
 afterEach(cleanup);
 
 describe("Grafo (maqueta)", () => {
-  it("nodos: regiones por grupo y átomos no descartados; aristas directas y heredadas", () => {
+  it("nodos: bases con sus subgrupos anidados y átomos (parentId/extent); aristas directas y heredadas", () => {
     setup();
-    expect(nodeIds().sort()).toEqual(["a1", "a2", "a3", "a4", "a5", "g:infra", "g:reuniones"]);
-    const region = rf.props.nodes.find((n: any) => n.id === "g:infra");
-    expect(region.type).toBe("region");
-    expect(region.selectable).toBe(false);
-    const atom = rf.props.nodes.find((n: any) => n.id === "a2");
-    expect(atom).toMatchObject({ type: "atom", parentId: "g:infra", extent: "parent" });
+    expect(nodeIds().sort()).toEqual(["a1", "a2", "a3", "a4", "a5", "g:infra", "g:infra.ingesta", "g:infra.proveedores", "g:reuniones"]);
+    const base = rf.props.nodes.find((n: any) => n.id === "g:infra");
+    expect(base).toMatchObject({ type: "region", selectable: false });
+    expect(base.data).toMatchObject({ level: "kb", label: "Base: Infra", cls: "infra" });
+    const sub = rf.props.nodes.find((n: any) => n.id === "g:infra.ingesta");
+    expect(sub).toMatchObject({ type: "region", parentId: "g:infra", extent: "parent", style: { width: 250 } });
+    expect(sub.data).toMatchObject({ level: "g", label: "Ingesta de datos" }); // título del GrupoDoc
+    expect(rf.props.nodes.find((n: any) => n.id === "a2")).toMatchObject({ type: "atom", parentId: "g:infra.ingesta", extent: "parent" });
+    expect(rf.props.nodes.find((n: any) => n.id === "a5")).toMatchObject({ parentId: "g:infra" }); // tag `infra`: directo a la base
     const ed = rf.props.edges as any[];
-    expect(ed.find((e) => e.id === "a5->a2").style.strokeDasharray).toBeUndefined();
+    const direct = ed.find((e) => e.id === "a5->a2");
+    expect(direct.style).toMatchObject({ stroke: "var(--ink-2)" });
+    expect(direct.style.strokeDasharray).toBeUndefined();
     const inh = ed.filter((e) => e.id.endsWith(":inh"));
     expect(inh.map((e) => `${e.source}>${e.target}`).sort()).toEqual(["a2>a4", "a3>a4"]);
     expect(inh[0].label).toBe("afecta (heredada)");
     expect(inh[0].style.strokeDasharray).toBe("5 4");
   });
 
-  it("barra Tags: etiqueta del GrupoDoc, conteos y texto de ayuda; los tipos salen del store", () => {
+  it("las aristas que cruzan de una base a otra salen azules", () => {
     setup();
-    const aside = screen.getByLabelText("Árbol de tags");
+    const cross = (rf.props.edges as any[]).find((e) => e.id === "a1->a3");
+    expect(cross.style.stroke).toBe("var(--accent)");
+    expect(cross.markerEnd.color).toBe("var(--accent)");
+  });
+
+  it("barra 'Bases de conocimiento': árbol base ▸ subgrupos con conteos, ayuda; los tipos salen del store", () => {
+    setup();
+    const aside = screen.getByLabelText("Bases y tags");
+    expect(within(aside).getByText("Bases de conocimiento")).toBeInTheDocument();
     expect(within(aside).getByText("Infra")).toBeInTheDocument();
     expect(within(aside).getByText("Ingesta de datos")).toBeInTheDocument(); // título del GrupoDoc
+    expect(within(aside).getByText("Proveedores")).toBeInTheDocument();
     expect(within(aside).getByText("Reuniones")).toBeInTheDocument();
-    expect(within(aside).getByText(/Clic en un tag resalta sus átomos/)).toBeInTheDocument();
+    expect(within(aside).getByText("4")).toBeInTheDocument(); // a2..a5 en Infra
+    expect(within(aside).getByText(/Las aristas azules cruzan de una base a otra\. Plegar una base o un tag lo reduce a un nodo y fusiona sus aristas\./)).toBeInTheDocument();
     const chips = screen.getAllByRole("button", { pressed: true }).map((b) => b.textContent);
-    expect(chips).toEqual(["motiva", "afecta", "plazo_de"]);
-    expect(screen.getByLabelText("Nueva relación")).toHaveValue("afecta"); // el tipo por defecto de la maqueta
-    expect(screen.getByText(/Arrastra desde el borde de un nodo a otro/)).toBeInTheDocument();
+    expect(chips).toEqual(["motiva", "afecta", "plazo de"]); // sin `_`
+    expect(screen.getByLabelText("Nueva relación")).toHaveValue("motiva"); // 'activa' no existe en este store: el primero
+    expect(screen.getByText(/Arrastra desde el borde de un nodo a otro para relacionarlos\. Si sueltas sobre un grupo o base, la relación la heredan todos sus átomos \(línea punteada\)\./)).toBeInTheDocument();
+  });
+
+  it("el tipo por defecto es 'activa' si el store lo tiene", () => {
+    const withActiva = [...relationTypes, spec("activa", ["AtomDoc"], ["AtomDoc"])];
+    setup({}, { relationTypes: withActiva } as any);
+    expect(screen.getByLabelText("Nueva relación")).toHaveValue("activa");
   });
 
   it("un chip oculta un tipo y lo muestra de nuevo", () => {
@@ -101,44 +124,57 @@ describe("Grafo (maqueta)", () => {
     expect((rf.props.edges as any[]).some((e) => e.id === "a5->a2")).toBe(true);
   });
 
-  it("clic en un tag atenúa los átomos que no son del grupo; otro clic lo quita", () => {
+  it("clic en una base o subgrupo atenúa los átomos ajenos; otro clic lo quita", () => {
     setup();
     const dim = () => (rf.props.nodes as any[]).filter((n) => n.type === "atom" && n.data.dimmed).map((n) => n.id);
-    fireEvent.click(within(screen.getByLabelText("Árbol de tags")).getByRole("button", { name: "Ingesta de datos" }));
+    const aside = () => within(screen.getByLabelText("Bases y tags"));
+    fireEvent.click(aside().getByRole("button", { name: "Ingesta de datos" }));
     expect(dim().sort()).toEqual(["a1", "a4", "a5"]);
-    fireEvent.click(within(screen.getByLabelText("Árbol de tags")).getByRole("button", { name: "Ingesta de datos" }));
+    fireEvent.click(aside().getByRole("button", { name: "Ingesta de datos" }));
     expect(dim()).toEqual([]);
+    fireEvent.click(aside().getByRole("button", { name: "Infra" }));
+    expect(dim()).toEqual(["a1"]);
   });
 
-  it("el triángulo pliega el grupo en un nodo y fusiona sus aristas; desplegar lo restaura", () => {
+  it("el triángulo de una base la pliega en un nodo y fusiona sus aristas; desplegar lo restaura", () => {
     setup();
-    fireEvent.click(screen.getAllByTitle("Plegar")[0]!);
+    fireEvent.click(screen.getAllByTitle("Plegar")[1]!); // orden de lectura: reuniones, infra
     expect(nodeIds().sort()).toEqual(["a1", "g:infra", "g:reuniones"]);
     const folded = rf.props.nodes.find((n: any) => n.id === "g:infra");
     expect(folded.type).toBe("folded");
-    expect(folded.data.counts).toEqual({ decision: 1, hecho: 1, riesgo: 1, pendiente: 1 });
-    expect(folded.data.internal).toBe(1);
-    // las heredadas a2>a4 y a3>a4 quedan dentro del grupo plegado: ninguna arista sale de él
-    expect(rf.props.edges).toEqual([]);
+    expect(folded.data).toMatchObject({ level: "kb", label: "Base: Infra", counts: { decision: 1, hecho: 1, riesgo: 1, pendiente: 1 }, internal: 1 });
+    // las heredadas a2>a4 y a3>a4 quedan dentro del nodo plegado; solo sale la que va a a1
+    expect((rf.props.edges as any[]).map((e) => `${e.source}>${e.target}`)).toEqual(["a1>g:infra"]);
     act(() => folded.data.onUnfold());
     expect(nodeIds()).toContain("a2");
   });
 
-  it("el botón Plegar de la región pliega ese grupo", () => {
+  it("plegar un subgrupo lo reduce a un nodo dentro de su base", () => {
+    setup();
+    const region = rf.props.nodes.find((n: any) => n.id === "g:infra.ingesta");
+    act(() => region.data.onFold());
+    const folded = rf.props.nodes.find((n: any) => n.id === "g:infra.ingesta");
+    expect(folded).toMatchObject({ type: "folded", parentId: "g:infra", extent: "parent" });
+    expect(folded.data).toMatchObject({ level: "g", label: "Ingesta de datos", counts: { decision: 1, hecho: 1 } });
+    expect(nodeIds()).not.toContain("a2");
+    expect((rf.props.edges as any[]).map((e) => e.id)).toContain("g:infra.ingesta->a4:inh");
+  });
+
+  it("el botón Plegar de la base pliega esa base", () => {
     setup();
     const region = rf.props.nodes.find((n: any) => n.id === "g:reuniones");
     act(() => region.data.onFold());
     expect(rf.props.nodes.find((n: any) => n.id === "g:reuniones").type).toBe("folded");
   });
 
-  it("focusId abre el inspector de ese átomo: tipo, texto, tags, relaciones →/←, ancla y dirección real", () => {
+  it("focusId abre el inspector: tipo, texto, base/tag/fuente, relaciones →/←, ancla y dirección AtomDoc:<id>", () => {
     const { props } = setup({ focusId: "a2" });
     const insp = screen.getByLabelText("Inspector");
     expect(within(insp).getByText("Decisión")).toBeInTheDocument();
     expect(within(insp).getByText("Reemplazar el lote por una cola")).toBeInTheDocument();
-    expect(within(insp).getByText("infra.ingesta")).toBeInTheDocument();
+    expect(within(insp).getByText(/Base Infra, tag Ingesta de datos\. Fuente:/)).toBeInTheDocument();
     expect(within(insp).getByText("← motiva")).toBeInTheDocument(); // a5 motiva a2
-    expect(within(insp).getByText("→ afecta (heredada)")).toBeInTheDocument(); // grupo ingesta afecta a4
+    expect(within(insp).getByText("→ afecta (heredada del grupo)")).toBeInTheDocument(); // grupo ingesta afecta a4
     expect(within(insp).getByText("Definir esquema de eventos")).toBeInTheDocument();
     expect(within(insp).getByText("Proveedor no soporta el volumen")).toBeInTheDocument();
     expect(within(insp).getByText("“Decidimos reemplazar el lote nocturno por una cola de eventos”")).toBeInTheDocument();
@@ -147,6 +183,24 @@ describe("Grafo (maqueta)", () => {
     expect(props.go).toHaveBeenCalledWith("extraccion", "a2");
     fireEvent.click(within(insp).getByRole("button", { name: "Cerrar inspector" }));
     expect(props.setFocusId).toHaveBeenCalledWith(null);
+  });
+
+  it("un átomo sin relaciones lo dice", () => {
+    setup({ focusId: "a5" });
+    expect(within(screen.getByLabelText("Inspector")).getByText(/motiva/)).toBeInTheDocument();
+    cleanup();
+    setup({ focusId: "a4" }, { edges: [] } as any);
+    expect(within(screen.getByLabelText("Inspector")).getByText("Sin relaciones todavía.")).toBeInTheDocument();
+  });
+
+  it("focusId despliega la base y el subgrupo plegados que contienen al átomo", () => {
+    const { props, rerender } = setup();
+    act(() => rf.props.nodes.find((n: any) => n.id === "g:infra.ingesta").data.onFold());
+    act(() => rf.props.nodes.find((n: any) => n.id === "g:reuniones").data.onFold());
+    expect(nodeIds()).not.toContain("a2");
+    rerender(<Grafo {...props} focusId="a2" />);
+    expect(nodeIds()).toContain("a2");
+    expect(rf.props.nodes.find((n: any) => n.id === "g:reuniones").type).toBe("folded"); // el resto sigue plegado
   });
 
   it("clic en un nodo enfoca el átomo; clic en el lienzo lo suelta; la región no se selecciona", () => {
@@ -159,31 +213,31 @@ describe("Grafo (maqueta)", () => {
     expect(props.setFocusId).toHaveBeenLastCalledWith(null);
   });
 
-  it("un grupo plegado seleccionado abre el inspector con sus átomos", () => {
+  it("un subgrupo plegado seleccionado abre el inspector con sus átomos; clic en uno lo despliega", () => {
     const { props } = setup();
-    fireEvent.click(screen.getAllByTitle("Plegar")[0]!);
-    act(() => rf.props.onNodeClick({}, { id: "g:infra", type: "folded" }));
+    act(() => rf.props.nodes.find((n: any) => n.id === "g:infra.ingesta").data.onFold());
+    act(() => rf.props.onNodeClick({}, { id: "g:infra.ingesta", type: "folded" }));
     const insp = screen.getByLabelText("Inspector");
-    expect(within(insp).getByText("Infra")).toBeInTheDocument();
-    fireEvent.click(within(insp).getByRole("button", { name: "Definir esquema de eventos" }));
-    expect(props.setFocusId).toHaveBeenLastCalledWith("a5");
-    expect(nodeIds()).toContain("a5"); // se desplegó
+    expect(within(insp).getByText("grupo Ingesta de datos")).toBeInTheDocument();
+    fireEvent.click(within(insp).getByRole("button", { name: "Tomás responsable de la ingesta" }));
+    expect(props.setFocusId).toHaveBeenLastCalledWith("a3");
+    expect(nodeIds()).toContain("a3"); // se desplegó
   });
 
   describe("crear relación", () => {
     it("átomo → átomo válido: crea el RelationDoc con rel-<n>", async () => {
       const { createDocument } = setup();
       fireEvent.change(screen.getByLabelText("Nueva relación"), { target: { value: "motiva" } });
-      await act(async () => rf.props.onConnect({ source: "a1", target: "a3" }));
+      await act(async () => rf.props.onConnect({ source: "a1", target: "a4" }));
       expect(createDocument).toHaveBeenCalledTimes(1);
-      expect(createDocument).toHaveBeenCalledWith("RelationDoc", "rel-1", expect.objectContaining({ source_id: "AtomDoc:a1", target_id: "AtomDoc:a3", relation_type: "motiva" }));
+      expect(createDocument).toHaveBeenCalledWith("RelationDoc", "rel-1", expect.objectContaining({ source_id: "AtomDoc:a1", target_id: "AtomDoc:a4", relation_type: "motiva" }));
       expect(screen.getByText(/Relación rel-1 creada/)).toBeInTheDocument();
     });
 
-    it("usa el tipo elegido en 'Nueva relación'", async () => {
+    it("usa el tipo elegido en 'Nueva relación' (con su nombre real, no el de pantalla)", async () => {
       const { createDocument } = setup();
       fireEvent.change(screen.getByLabelText("Nueva relación"), { target: { value: "plazo_de" } });
-      await act(async () => rf.props.onConnect({ source: "a1", target: "a3" }));
+      await act(async () => rf.props.onConnect({ source: "a1", target: "a4" }));
       expect(createDocument).toHaveBeenCalledWith("RelationDoc", expect.any(String), expect.objectContaining({ relation_type: "plazo_de" }));
     });
 
@@ -195,22 +249,42 @@ describe("Grafo (maqueta)", () => {
       expect(screen.getByRole("alert")).toHaveTextContent(/Ya existe «motiva»/);
     });
 
-    it("tipo no válido entre extremos (grupo → átomo con plazo_de): aviso, nada creado", async () => {
+    it("tipo que no admite grupo (plazo_de) soltado sobre un subgrupo: aviso claro, nada creado", async () => {
       const { createDocument } = setup();
       fireEvent.change(screen.getByLabelText("Nueva relación"), { target: { value: "plazo_de" } });
-      await act(async () => rf.props.onConnect({ source: "g:reuniones", target: "a3" }));
+      await act(async () => rf.props.onConnect({ source: "g:infra.proveedores", target: "a3" }));
       expect(createDocument).not.toHaveBeenCalled();
-      expect(screen.getByRole("alert")).toHaveTextContent(/«plazo_de» no es válido/);
+      expect(screen.getByRole("alert")).toHaveTextContent(/«plazo de» no admite un grupo o una base como extremo/);
     });
 
-    it("sobre un grupo sin GrupoDoc: crea el GrupoDoc y luego el RelationDoc con GrupoDoc:<slug>", async () => {
+    it("sobre un subgrupo sin GrupoDoc: crea el GrupoDoc (slug con guiones, título de display) y luego el RelationDoc con GrupoDoc:<slug>", async () => {
       const { createDocument } = setup();
+      fireEvent.change(screen.getByLabelText("Nueva relación"), { target: { value: "afecta" } });
+      await act(async () => rf.props.onConnect({ source: "a3", target: "g:infra.proveedores" }));
+      expect(createDocument.mock.calls.map((c: any[]) => [c[0], c[1]])).toEqual([
+        ["GrupoDoc", "infra-proveedores"],
+        ["RelationDoc", "rel-1"],
+      ]);
+      expect((createDocument.mock.calls[0] as unknown[])[2]).toEqual({ title: "Proveedores", tag: "infra.proveedores", description: "" });
+      expect((createDocument.mock.calls[1] as unknown[])[2]).toMatchObject({ source_id: "AtomDoc:a3", target_id: "GrupoDoc:infra-proveedores" });
+    });
+
+    it("sobre una base sin GrupoDoc: GrupoDoc con el slug de la base y la relación", async () => {
+      const { createDocument } = setup();
+      fireEvent.change(screen.getByLabelText("Nueva relación"), { target: { value: "afecta" } });
       await act(async () => rf.props.onConnect({ source: "a3", target: "g:reuniones" }));
       expect(createDocument.mock.calls.map((c: any[]) => [c[0], c[1]])).toEqual([
         ["GrupoDoc", "reuniones"],
         ["RelationDoc", "rel-1"],
       ]);
-      expect((createDocument.mock.calls[1] as unknown[])[2]).toMatchObject({ source_id: "AtomDoc:a3", target_id: "GrupoDoc:reuniones" });
+      expect((createDocument.mock.calls[1] as unknown[])[2]).toMatchObject({ target_id: "GrupoDoc:reuniones" });
+    });
+
+    it("sobre un subgrupo que ya tiene GrupoDoc: solo crea la relación", async () => {
+      const { createDocument } = setup();
+      fireEvent.change(screen.getByLabelText("Nueva relación"), { target: { value: "afecta" } });
+      await act(async () => rf.props.onConnect({ source: "a1", target: "g:infra.ingesta" }));
+      expect(createDocument.mock.calls.map((c: any[]) => c[0])).toEqual(["RelationDoc"]);
     });
 
     it("soltar sobre el cuerpo de una región (sin asa) crea la relación con el grupo; 409 del grupo se tolera", async () => {
@@ -219,12 +293,12 @@ describe("Grafo (maqueta)", () => {
         return { ok: true, id: "x", version: "v" };
       });
       setup({}, { createDocument } as any);
+      fireEvent.change(screen.getByLabelText("Nueva relación"), { target: { value: "afecta" } });
       const el = document.createElement("div");
       el.className = "react-flow__node";
       el.setAttribute("data-id", "g:reuniones");
       document.body.appendChild(el);
-      const spy = vi.fn(() => el);
-      (document as any).elementFromPoint = spy;
+      (document as any).elementFromPoint = vi.fn(() => el);
       await act(async () => rf.props.onConnectEnd({ clientX: 1, clientY: 1 }, { isValid: false, fromNode: { id: "a3" } }));
       delete (document as any).elementFromPoint;
       el.remove();
@@ -237,7 +311,8 @@ describe("Grafo (maqueta)", () => {
         throw Object.assign(new Error("payload inválido"), { status: 422 });
       });
       setup({}, { createDocument } as any);
-      fireEvent.click(screen.getAllByTitle("Plegar")[0]!);
+      fireEvent.click(screen.getAllByTitle("Plegar")[1]!);
+      fireEvent.change(screen.getByLabelText("Nueva relación"), { target: { value: "afecta" } });
       await act(async () => rf.props.onConnect({ source: "a1", target: "g:infra" }));
       expect(screen.getByRole("alert")).toHaveTextContent(/No se creó la relación: payload inválido/);
       expect(rf.props.nodes.find((n: any) => n.id === "g:infra").type).toBe("folded");

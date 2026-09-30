@@ -7,15 +7,14 @@
  * párrafo k empieza en `paragraphsOf(body)[k].start` (con los "\n\n" que se pierden al dividir).
  */
 import { paragraphsOf, type Paragraph } from "../core/atom-text";
-import { anchorState, repairAnchor } from "../core/atoms";
-import type { AtomKind } from "../core/contract";
+import { anchorState, KIND_LABELS, repairAnchor } from "../core/atoms";
 import type { MockAtom } from "./adapter";
 
 export type AnchorKind = "intact" | "drifted" | "orphan";
 
 export interface HighlightRange {
   id: string;
-  type: AtomKind;
+  type: string;
   /** Posiciones ProseMirror. */
   from: number;
   to: number;
@@ -110,10 +109,74 @@ export function anchorKinds(body: string, atoms: MockAtom[]): Map<string, Anchor
 }
 
 /** Tarjetas visibles: filtra por tipo y ordena por posición en el texto o por confianza ascendente. */
-export function orderAtoms(atoms: MockAtom[], ranges: HighlightRange[], kind: AtomKind | null, lowConfFirst: boolean): MockAtom[] {
+export function orderAtoms(atoms: MockAtom[], ranges: HighlightRange[], kind: string | null, lowConfFirst: boolean): MockAtom[] {
   const from = new Map(ranges.map((r) => [r.id, r.from]));
   const pos = (a: MockAtom) => from.get(a.id) ?? Number.POSITIVE_INFINITY;
   return atoms
     .filter((a) => !kind || a.type === kind)
     .sort((a, b) => (lowConfFirst ? a.conf - b.conf : pos(a) - pos(b)));
+}
+
+/** Tipos con color propio en `maqueta.css` (`--t-*`); el resto usa el neutro de `extraccion.css`. */
+const COLORED_KINDS = new Set(["regla", "criterio", "logistica", "paciente", "pregunta", "entidad", "hecho", "decision", "pendiente", "riesgo"]);
+/** Sufijo de las clases `t-<x>`, `bg-t-<x>`, `tx-t-<x>`, `bl-t-<x>`. */
+export const kindClass = (kind: string): string => (COLORED_KINDS.has(kind) ? kind : "otro");
+
+const CASO_KINDS = ["regla", "criterio", "logistica", "paciente", "pregunta"];
+const ACTA_KINDS = ["entidad", "hecho", "decision", "pendiente", "riesgo"];
+
+/**
+ * Tipos de átomo del caso: los presentes en los datos, completados con su familia (los del caso
+ * Levira o los del acta vieja, porque el modelo los restringe) y ordenados como `KIND_LABELS`.
+ */
+export function caseKinds(present: string[]): string[] {
+  const set = new Set(present);
+  if (CASO_KINDS.some((k) => set.has(k))) CASO_KINDS.forEach((k) => set.add(k));
+  if (ACTA_KINDS.some((k) => set.has(k))) ACTA_KINDS.forEach((k) => set.add(k));
+  const known = Object.keys(KIND_LABELS);
+  const rank = (k: string) => (known.indexOf(k) < 0 ? known.length : known.indexOf(k));
+  return [...set].sort((a, b) => rank(a) - rank(b) || a.localeCompare(b));
+}
+
+/** Tipo de un átomo nuevo: `regla` (caso), `hecho` (acta vieja) o el primero disponible. */
+export function defaultKind(kinds: string[]): string {
+  return kinds.includes("regla") ? "regla" : kinds.includes("hecho") ? "hecho" : (kinds[0] ?? "hecho");
+}
+
+/** Ícono de la pestaña de fuente, tal cual la maqueta (`lM`). */
+export function fuenteIcon(tipo: string): string {
+  if (tipo === "prompt") return "\u2699\uFE0F";
+  if (tipo === "mensaje" || tipo === "paciente") return "\u{1F4AC}";
+  return "\u{1F4C4}";
+}
+
+/** Clase de tipografía del texto (`src-prompt` monoespaciada, `src-paciente` sans; el resto serif). */
+export function fuenteFontClass(tipo: string): string {
+  if (tipo === "prompt") return "src-prompt";
+  if (tipo === "mensaje" || tipo === "paciente") return "src-paciente";
+  return "";
+}
+
+/**
+ * Id nuevo para un átomo creado desde el texto: prefijo por tipo de fuente (`p` prompt, `f` folleto,
+ * `c` mensaje del paciente; `a` en el resto) y el siguiente número libre de ese prefijo.
+ */
+export function nextAtomId(existing: string[], fuenteTipo: string): string {
+  const prefix = fuenteTipo === "prompt" ? "p" : fuenteTipo === "folleto" ? "f" : fuenteTipo === "mensaje" || fuenteTipo === "paciente" ? "c" : "a";
+  const used = new Set(existing);
+  let max = 0;
+  for (const id of existing) {
+    const m = new RegExp(`^${prefix}(\\d+)$`).exec(id);
+    if (m) max = Math.max(max, Number(m[1]));
+  }
+  let n = max + 1;
+  while (used.has(`${prefix}${n}`)) n++;
+  return `${prefix}${n}`;
+}
+
+const TIPO_RANK: Record<string, number> = { prompt: 0, folleto: 1, mensaje: 2, paciente: 2 };
+/** Orden de las pestañas como la maqueta (prompt, folleto, mensaje); el resto al final, en su orden. */
+export function orderFuentes<T extends { tipo: string }>(fuentes: T[]): T[] {
+  const rank = (f: T) => TIPO_RANK[f.tipo] ?? 3;
+  return fuentes.map((f, i) => [f, i] as const).sort((a, b) => rank(a[0]) - rank(b[0]) || a[1] - b[1]).map(([f]) => f);
 }

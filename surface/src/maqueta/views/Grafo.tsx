@@ -1,7 +1,8 @@
 /**
- * Vista Grafo de la maqueta (`SLDB_ extracción, grafo y compositor.html`, función `Xp`), portada a
- * TSX con el DOM, las clases y el comportamiento de la maqueta; los datos y las escrituras van al
- * `sldb serve` real (ver `../grafo-logic.ts` para lo que no depende de React).
+ * Vista Grafo de la maqueta (`SLDB_ caso Levira, de fuentes a respuesta.html`, función `om`), portada
+ * a TSX con el DOM, las clases y el comportamiento de la maqueta: bases de conocimiento con sus
+ * subgrupos anidados, plegado, aristas azules entre bases y creación de relaciones. Los datos y las
+ * escrituras van al `sldb serve` real (lo que no depende de React está en `../grafo-logic.ts`).
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
@@ -17,51 +18,46 @@ import {
   type Node as FlowNode,
   type NodeProps,
 } from "@xyflow/react";
-import { NO_GROUP } from "../../core/atom-graph";
-import { GROUP_MODEL, groupPayload, groupSlug, isAlreadyExists } from "../../core/atom-groups";
-import { atomRelationTypes, groupTree, inGroup, type GroupNode } from "../../core/atoms";
-import { nextRelationName, relationPayloadBetween } from "../../core/atom-graph";
+import { NO_GROUP, nextRelationName, relationPayloadBetween } from "../../core/atom-graph";
+import { GROUP_MODEL, groupInfosFromDocuments, groupSlug, isAlreadyExists } from "../../core/atom-groups";
+import { atomRelationTypes, inGroup, kindLabel } from "../../core/atoms";
+import { groupTitle } from "../../core/caso";
 import { toMockAtoms, toMockRelations, type MockAtom } from "../adapter";
 import {
-  KIND_LABEL,
-  capitalize,
+  cellTagOf,
   computeLayout,
   edgeSides,
   expandRelations,
-  foldedPosition,
+  foldedBasePosition,
+  foldedCellPosition,
   fuseEdges,
   groupNodeId,
   groupOf,
   isGroupNodeId,
   nodeCenter,
   planConnection,
+  readingOrder,
   regionClass,
   relationsOfAtom,
   tagOfNodeId,
+  typeLabel,
 } from "../grafo-logic";
 import type { ViewProps } from "../ViewProps";
-import "../grafo.css";
+import "./grafo.css";
+
+const SIDES = [
+  ["t", Position.Top],
+  ["r", Position.Right],
+  ["b", Position.Bottom],
+  ["l", Position.Left],
+] as const;
 
 const handles = (
   <>
-    {(
-      [
-        ["t", Position.Top],
-        ["r", Position.Right],
-        ["b", Position.Bottom],
-        ["l", Position.Left],
-      ] as const
-    ).map(([k, pos]) => (
+    {SIDES.map(([k, pos]) => (
       <Handle key={"s" + k} id={"s-" + k} type="source" position={pos} />
     ))}
-    {(
-      [
-        ["t", Position.Top],
-        ["r", Position.Right],
-        ["b", Position.Bottom],
-        ["l", Position.Left],
-      ] as const
-    ).map(([k, pos]) => (
+    {SIDES.map(([k, pos]) => (
       <Handle key={"t" + k} id={"t-" + k} type="target" position={pos} />
     ))}
   </>
@@ -74,12 +70,14 @@ interface AtomData {
   [k: string]: unknown;
 }
 interface RegionData {
+  level: "kb" | "g";
   label: string;
   cls: string | null;
   onFold(): void;
   [k: string]: unknown;
 }
 interface FoldedData {
+  level: "kb" | "g";
   label: string;
   cls: string | null;
   counts: Record<string, number>;
@@ -97,21 +95,22 @@ function AtomNode({ data }: NodeProps<FlowNode<AtomData>>) {
       ${data.dimmed ? "opacity-25" : ""} ${data.selected ? "ring-2 ring-accent" : ""}`}
     >
       {handles}
-      <div className={`text-[10.5px] font-semibold tx-t-${t.type}`}>{KIND_LABEL[t.type]}</div>
+      <div className={`text-[10.5px] font-semibold tx-t-${t.type}`}>{kindLabel(t.type)}</div>
       <div className="font-ui text-[12.5px] leading-snug text-ink line-clamp-2">{t.text}</div>
     </div>
   );
 }
 
 function RegionNode({ data }: NodeProps<FlowNode<RegionData>>) {
+  const kb = data.level === "kb";
   return (
     <div
-      className={`h-full w-full rounded-xl border border-line${data.cls ? "" : " mq-graf-region-neutro"}`}
-      style={data.cls ? { background: `var(--region-${data.cls})` } : undefined}
+      className={`h-full w-full ${kb ? "rounded-2xl border border-line" : "rounded-lg border border-dashed border-ink2/30"}${kb && !data.cls ? " mq-graf-region-neutro" : ""}`}
+      style={kb && data.cls ? { background: `var(--region-${data.cls})` } : {}}
     >
       {handles}
-      <div className="flex items-center justify-between px-3 pt-2 font-ui">
-        <span className="text-[13px] font-semibold text-ink">{data.label}</span>
+      <div className={`flex items-center justify-between font-ui ${kb ? "px-4 pt-2.5" : "px-2.5 pt-1.5"}`}>
+        <span className={kb ? "text-[15px] font-semibold text-ink" : "text-[12px] font-semibold text-ink2"}>{data.label}</span>
         <button
           onClick={(e) => {
             e.stopPropagation();
@@ -127,21 +126,20 @@ function RegionNode({ data }: NodeProps<FlowNode<RegionData>>) {
 }
 
 function FoldedNode({ data }: NodeProps<FlowNode<FoldedData>>) {
-  const counts = data.counts;
-  const total = Object.values(counts).reduce((a, b) => a + b, 0);
+  const total = Object.values(data.counts).reduce((a, b) => a + b, 0);
   return (
     <div
       onDoubleClick={data.onUnfold}
-      className={`w-[200px] rounded-xl border-2 border-ink/70 bg-panel px-3 py-2.5 font-ui shadow-md ${data.selected ? "ring-2 ring-accent" : ""}${data.cls ? "" : " mq-graf-folded-neutro"}`}
-      style={data.cls ? { backgroundImage: `linear-gradient(var(--region-${data.cls}),var(--region-${data.cls}))` } : undefined}
+      className={`w-[210px] rounded-xl bg-panel px-3 py-2.5 font-ui shadow-md ${data.level === "kb" ? "border-2 border-ink/70" : "border border-ink/40"} ${data.selected ? "ring-2 ring-accent" : ""}${data.cls ? "" : " mq-graf-folded-neutro"}`}
+      style={data.cls ? { backgroundImage: `linear-gradient(var(--region-${data.cls}),var(--region-${data.cls}))` } : {}}
     >
       {handles}
-      <div className="flex items-baseline justify-between">
+      <div className="flex items-baseline justify-between gap-2">
         <span className="text-[14px] font-semibold text-ink">{data.label}</span>
-        <span className="text-[12px] text-ink2 tabular-nums">{total} átomos</span>
+        <span className="text-[12px] text-ink2 tabular-nums">{total}</span>
       </div>
       <div className="mt-2 flex h-1.5 overflow-hidden rounded-full">
-        {Object.entries(counts).map(([k, n]) => (
+        {Object.entries(data.counts).map(([k, n]) => (
           <span key={k} className={`bg-t-${k}`} style={{ width: `${(n / total) * 100}%` }} />
         ))}
       </div>
@@ -152,96 +150,121 @@ function FoldedNode({ data }: NodeProps<FlowNode<FoldedData>>) {
 
 const nodeTypes = { atom: AtomNode, region: RegionNode, folded: FoldedNode };
 
+const countKinds = (list: MockAtom[]): Record<string, number> =>
+  list.reduce<Record<string, number>>((acc, a) => ({ ...acc, [a.type]: (acc[a.type] || 0) + 1 }), {});
+
 interface Notice {
   tone: "error" | "ok";
   text: string;
 }
 
 export default function Grafo(props: ViewProps) {
-  const { store, acta, focusId, setFocusId, go } = props;
+  const { store, fuentes, focusId, setFocusId, go } = props;
 
-  const atoms = useMemo(() => toMockAtoms(store.atoms.filter((a) => a.status !== "descartado"), acta), [store.atoms, acta]);
+  const atoms = useMemo(
+    () => readingOrder(toMockAtoms(store.atoms.filter((a) => a.status !== "descartado"), fuentes), fuentes),
+    [store.atoms, fuentes],
+  );
   const relations = useMemo(() => toMockRelations(store.edges, store.atoms), [store.edges, store.atoms]);
-  const types = useMemo(() => relationTypeNamesOf(store.relationTypes), [store.relationTypes]);
+  const types = useMemo(() => atomRelationTypes(store.relationTypes).map((t) => t.name), [store.relationTypes]);
+  const grupos = useMemo(() => groupInfosFromDocuments(store.documents), [store.documents]);
 
   const [folded, setFolded] = useState<Record<string, boolean>>({});
   const [hidden, setHidden] = useState<string[]>([]);
   const [tag, setTag] = useState<string | null>(null);
   const [selGroup, setSelGroup] = useState<string | null>(null);
   const [hoverEdge, setHoverEdge] = useState<string | null>(null);
-  const [chosen, setChosen] = useState("afecta");
+  const [chosen, setChosen] = useState("activa");
   const [notice, setNotice] = useState<Notice | null>(null);
   const busy = useRef(false);
   const dragFrom = useRef<string | null>(null);
 
   const newType = types.includes(chosen) ? chosen : (types[0] ?? chosen);
   const foldedSet = useMemo(() => new Set(Object.keys(folded).filter((k) => folded[k])), [folded]);
+  const toggle = (id: string, to?: boolean) => setFolded((m) => ({ ...m, [id]: to ?? !m[id] }));
 
   const layout = useMemo(() => computeLayout(atoms), [atoms]);
-  const tree = useMemo(() => groupTree(atoms.map((a) => a.atom)), [atoms]);
-  const untagged = atoms.filter((a) => groupOf(a) === NO_GROUP).length;
+  const byId = useMemo(() => new Map(atoms.map((a) => [a.id, a])), [atoms]);
 
-  const groupLabel = useCallback(
-    (t: string): string => {
-      const doc = store.documents.find(
-        (d) => d.model_name === GROUP_MODEL && (d.payload.tag === t || d.id === groupSlug(t)),
-      );
-      const title = typeof doc?.payload.title === "string" ? doc.payload.title.trim() : "";
-      if (title && title !== t) return title;
-      return capitalize(t.split(".").filter(Boolean).pop() ?? t);
-    },
-    [store.documents],
-  );
-  const labelOfRegion = (t: string) => (t === NO_GROUP ? "Sin grupo" : groupLabel(t));
+  /** Título de display de una base o subgrupo (el `GrupoDoc` si existe). */
+  const groupLabel = useCallback((t: string): string => (t === NO_GROUP ? "Sin grupo" : groupTitle(t, grupos)), [grupos]);
+
+  // El átomo enfocado despliega la base y el subgrupo plegados que lo contienen.
+  useEffect(() => {
+    const a = focusId ? byId.get(focusId) : undefined;
+    if (!a) return;
+    const base = groupOf(a);
+    const cell = cellTagOf(a);
+    setFolded((m) => (m[base] || (cell && m[cell]) ? { ...m, [base]: false, ...(cell ? { [cell]: false } : {}) } : m));
+  }, [focusId, byId]);
+
+  const flat = useMemo(() => expandRelations(relations, atoms), [relations, atoms]);
+  const internalOf = (ids: Set<string>) => flat.filter((f) => ids.has(f.source) && ids.has(f.target) && !f.inherited).length;
 
   const nodes = useMemo(() => {
     const out: FlowNode[] = [];
-    for (const region of layout.regions) {
-      const g = region.tag;
-      const cls = regionClass(g);
-      const inRegion = atoms.filter((a) => groupOf(a) === g);
-      const label = labelOfRegion(g);
+    layout.bases.forEach((base, bi) => {
+      const g = base.tag;
+      const cls = regionClass(g, bi);
+      const inBase = atoms.filter((a) => groupOf(a) === g);
+      const label = g === NO_GROUP ? "Sin grupo" : `Base: ${groupLabel(g)}`;
       if (folded[g]) {
-        const counts: Record<string, number> = {};
-        inRegion.forEach((a) => {
-          counts[a.type] = (counts[a.type] || 0) + 1;
-        });
-        const ids = new Set(inRegion.map((a) => a.id));
-        const internal = expandRelations(relations, atoms).filter((f) => ids.has(f.source) && ids.has(f.target) && !f.inherited).length;
         out.push({
           id: groupNodeId(g),
           type: "folded",
-          position: foldedPosition(region),
-          data: { label, cls, counts, internal, selected: selGroup === g, onUnfold: () => setFolded({ ...folded, [g]: false }) } satisfies FoldedData,
+          position: foldedBasePosition(base),
+          data: { level: "kb", label, cls, counts: countKinds(inBase), internal: internalOf(new Set(inBase.map((a) => a.id))), selected: selGroup === g, onUnfold: () => toggle(g, false) } satisfies FoldedData,
         });
-        continue;
+        return;
       }
       out.push({
         id: groupNodeId(g),
         type: "region",
-        position: { x: region.x, y: region.y },
-        style: { width: region.w, height: region.h },
+        position: { x: base.x, y: base.y },
+        style: { width: base.w, height: base.h },
         selectable: false,
-        data: { label, cls, onFold: () => setFolded({ ...folded, [g]: true }) } satisfies RegionData,
+        data: { level: "kb", label, cls, onFold: () => toggle(g, true) } satisfies RegionData,
       });
-      for (const a of inRegion) {
+      const atomNode = (a: MockAtom): FlowNode => {
         const p = layout.atoms[a.id]!;
         const dimmed = tag !== null && !(tag === NO_GROUP ? a.tags.length === 0 : inGroup(a, tag));
+        return { id: a.id, type: "atom", parentId: p.parent, extent: "parent", position: { x: p.x, y: p.y }, data: { atom: a, dimmed, selected: focusId === a.id } satisfies AtomData };
+      };
+      for (const cell of base.cells) {
+        if (cell.tag === null) {
+          cell.atomIds.forEach((id) => out.push(atomNode(byId.get(id)!)));
+          continue;
+        }
+        const ct = cell.tag;
+        const inCell = cell.atomIds.map((id) => byId.get(id)!);
+        if (folded[ct]) {
+          out.push({
+            id: groupNodeId(ct),
+            type: "folded",
+            parentId: groupNodeId(g),
+            extent: "parent",
+            position: foldedCellPosition(cell),
+            data: { level: "g", label: groupLabel(ct), cls: null, counts: countKinds(inCell), internal: internalOf(new Set(cell.atomIds)), selected: selGroup === ct, onUnfold: () => toggle(ct, false) } satisfies FoldedData,
+          });
+          continue;
+        }
         out.push({
-          id: a.id,
-          type: "atom",
+          id: groupNodeId(ct),
+          type: "region",
           parentId: groupNodeId(g),
           extent: "parent",
-          position: { x: p.x, y: p.y },
-          data: { atom: a, dimmed, selected: focusId === a.id } satisfies AtomData,
+          position: { x: cell.x, y: cell.y },
+          style: { width: 250, height: cell.h },
+          selectable: false,
+          data: { level: "g", label: groupLabel(ct), cls: null, onFold: () => toggle(ct, true) } satisfies RegionData,
         });
+        inCell.forEach((a) => out.push(atomNode(a)));
       }
-    }
+    });
     return out;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [atoms, layout, folded, tag, focusId, selGroup, relations, groupLabel]);
+  }, [atoms, layout, folded, tag, focusId, selGroup, flat, groupLabel, byId]);
 
-  const flat = useMemo(() => expandRelations(relations, atoms), [relations, atoms]);
   const edges = useMemo(() => {
     return fuseEdges(flat, atoms, foldedSet, hidden).flatMap((f): FlowEdge[] => {
       const a = nodeCenter(f.source, layout, foldedSet);
@@ -250,6 +273,7 @@ export default function Grafo(props: ViewProps) {
       const [sa, sb] = edgeSides(a, b);
       const n = f.list.length;
       const first = f.list[0]!;
+      const color = f.crossBase ? "var(--accent)" : "var(--ink-2)";
       const showLabel = hoverEdge === f.key || n > 1 || f.inherited;
       return [
         {
@@ -258,10 +282,10 @@ export default function Grafo(props: ViewProps) {
           target: f.target,
           sourceHandle: "s-" + sa,
           targetHandle: "t-" + sb,
-          type: "default",
-          label: showLabel ? (n > 1 ? `${n} relaciones` : first.type + (f.inherited ? " (heredada)" : "")) : undefined,
-          style: { strokeWidth: 1.2 + (n - 1) * 1.6, stroke: "var(--ink-2)", strokeDasharray: f.inherited ? "5 4" : undefined, opacity: tag ? 0.35 : 0.9 },
-          markerEnd: { type: MarkerType.ArrowClosed, width: 14, height: 14, color: "var(--ink-2)" },
+          zIndex: 5,
+          label: showLabel ? (n > 1 ? `${n} relaciones` : typeLabel(first.type) + (f.inherited ? " (heredada)" : "")) : undefined,
+          style: { strokeWidth: 1.3 + (n - 1) * 1.4, stroke: color, strokeDasharray: f.inherited ? "5 4" : undefined, opacity: tag ? 0.35 : 0.9 },
+          markerEnd: { type: MarkerType.ArrowClosed, width: 14, height: 14, color },
         },
       ];
     });
@@ -287,7 +311,7 @@ export default function Grafo(props: ViewProps) {
         for (const end of [plan.source, plan.target]) {
           if (!end.tag || store.documents.some((d) => d.model_name === GROUP_MODEL && `${GROUP_MODEL}:${d.id}` === end.gid)) continue;
           try {
-            const g = await store.createDocument(GROUP_MODEL, groupSlug(end.tag), groupPayload(end.tag));
+            const g = await store.createDocument(GROUP_MODEL, groupSlug(end.tag), { title: groupLabel(end.tag), tag: end.tag, description: "" });
             if (g && g.ok === false) throw new Error(`El servidor rechazó el grupo ${end.tag}.`);
           } catch (err) {
             if (!isAlreadyExists(err)) throw err;
@@ -296,7 +320,7 @@ export default function Grafo(props: ViewProps) {
         const name = nextRelationName(store.documents);
         const res = await store.createDocument("RelationDoc", name, relationPayloadBetween(plan.source, plan.target, plan.type));
         if (res && res.ok === false) throw new Error("El servidor rechazó la relación.");
-        say({ tone: "ok", text: `Relación ${name} creada: ${plan.type.name}.` });
+        say({ tone: "ok", text: `Relación ${name} creada: ${typeLabel(plan.type.name)}.` });
       } catch (err) {
         say({ tone: "error", text: `No se creó la relación: ${(err as Error).message}` });
       } finally {
@@ -328,79 +352,74 @@ export default function Grafo(props: ViewProps) {
   );
 
   // ------------------------------------------------------------ inspector
-  const v = atoms.find((a) => a.id === focusId);
+  const v = focusId ? byId.get(focusId) : undefined;
   const k = v ? relationsOfAtom(v, relations) : [];
-  const b = selGroup;
-  const E = (end: string) => (isGroupNodeId(end) ? `grupo ${groupLabel(tagOfNodeId(end))}` : atoms.find((a) => a.id === end)?.text);
+  const P = selGroup;
+  const D = (end: string) => {
+    if (!isGroupNodeId(end)) return byId.get(end)?.text;
+    const t = tagOfNodeId(end);
+    return `${t.includes(".") ? "grupo" : "base"} ${groupLabel(t)}`;
+  };
+  const inspected = P ? atoms.filter((a) => (P.includes(".") ? inGroup(a, P) : groupOf(a) === P)) : [];
+  const close = () => {
+    setSelGroup(null);
+    setFocusId(null);
+  };
 
-  const toggleFold = (g: string) => setFolded({ ...folded, [g]: !folded[g] });
-  const roots: GroupNode[] = tree;
+  const rows = layout.bases.map((box) => ({
+    id: box.tag,
+    label: box.tag === NO_GROUP ? "Sin grupo" : groupLabel(box.tag),
+    count: atoms.filter((a) => groupOf(a) === box.tag).length,
+    subs: box.cells.flatMap((c) => (c.tag === null ? [] : [{ tag: c.tag, title: groupLabel(c.tag) }])),
+  }));
 
-  const renderChildren = (list: GroupNode[]) =>
-    list.map((c) => (
-      <li key={c.id}>
-        <button
-          onClick={() => setTag(tag === c.id ? null : c.id)}
-          className="rounded px-1 text-ink2 hover:text-ink"
-          style={tag === c.id ? { background: "var(--hl)", color: "var(--ink)" } : {}}
-        >
-          {groupLabel(c.id)}
-        </button>
-        {c.children.length > 0 && <ul className="ml-6 mt-0.5">{renderChildren(c.children)}</ul>}
-      </li>
-    ));
-
-  const rows: { id: string; label: string; count: number; children: GroupNode[]; region: boolean }[] = [
-    ...[...roots]
-      .sort((a, b) => regionOrder(layout, a.id) - regionOrder(layout, b.id))
-      .map((r) => ({
-      id: r.id,
-      label: groupLabel(r.id),
-      count: atoms.filter((a) => groupOf(a) === r.id).length,
-      children: r.children,
-      region: layout.regions.some((x) => x.tag === r.id),
-    })),
-    ...(untagged ? [{ id: NO_GROUP, label: "Sin grupo", count: untagged, children: [], region: true }] : []),
-  ];
+  const Toggle = ({ id }: { id: string }) => (
+    <button onClick={() => toggle(id)} aria-expanded={!folded[id]} className="w-5 text-ink2 hover:text-ink" title={folded[id] ? "Desplegar" : "Plegar"}>
+      {folded[id] ? "▸" : "▾"}
+    </button>
+  );
+  const Name = ({ id, strong, children }: { id: string; strong?: boolean; children: string }) => (
+    <button
+      onClick={() => setTag(tag === id ? null : id)}
+      className={`rounded px-1 ${strong ? "font-semibold" : "text-ink2 hover:text-ink"}`}
+      style={tag === id ? { background: "var(--hl)", color: "var(--ink)" } : {}}
+    >
+      {children}
+    </button>
+  );
 
   return (
     <div className="flex h-full flex-col lg:flex-row">
-      <aside className="shrink-0 border-b border-line bg-panel p-3 text-[13px] lg:w-56 lg:border-b-0 lg:border-r" aria-label="Árbol de tags">
-        <h2 className="mb-2 text-[12px] font-semibold text-ink2">Tags</h2>
-        <ul className="flex flex-wrap gap-x-4 gap-y-1 lg:block">
+      <aside className="shrink-0 overflow-auto border-b border-line bg-panel p-3 text-[13px] lg:w-60 lg:border-b-0 lg:border-r" aria-label="Bases y tags">
+        <h2 className="mb-2 text-[12px] font-semibold text-ink2">Bases de conocimiento</h2>
+        <ul className="flex flex-wrap gap-x-6 gap-y-2 lg:block">
           {rows.map((S) => (
-            <li key={S.id} className="lg:mb-1.5">
+            <li key={S.id} className="lg:mb-3">
               <div className="flex items-center gap-1">
-                {S.region ? (
-                  <button
-                    onClick={() => toggleFold(S.id)}
-                    aria-expanded={!folded[S.id]}
-                    className="w-5 text-ink2 hover:text-ink"
-                    title={folded[S.id] ? "Desplegar" : "Plegar"}
-                  >
-                    {folded[S.id] ? "▸" : "▾"}
-                  </button>
-                ) : (
-                  <span className="w-5" />
-                )}
-                <button
-                  onClick={() => setTag(tag === S.id ? null : S.id)}
-                  className={`rounded px-1 ${tag === S.id ? "bg-hl font-semibold" : "hover:bg-panel2"}`}
-                  style={tag === S.id ? { background: "var(--hl)" } : {}}
-                >
+                <Toggle id={S.id} />
+                <Name id={S.id} strong>
                   {S.label}
-                </button>
-                <span className="ml-auto text-[11.5px] tabular-nums text-ink2">{S.count}</span>
+                </Name>
+                <span className="ml-auto pl-2 text-[11.5px] tabular-nums text-ink2">{S.count}</span>
               </div>
-              {!folded[S.id] && S.children.length > 0 && <ul className="ml-6 mt-0.5 hidden lg:block">{renderChildren(S.children)}</ul>}
+              {!folded[S.id] && S.subs.length > 0 && (
+                <ul className="ml-5 mt-0.5 flex flex-wrap gap-x-2 lg:block">
+                  {S.subs.map((O) => (
+                    <li key={O.tag} className="flex items-center gap-0.5">
+                      <Toggle id={O.tag} />
+                      <Name id={O.tag}>{O.title}</Name>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
           ))}
         </ul>
         <p className="mt-4 hidden text-[12px] leading-relaxed text-ink2 lg:block">
-          Clic en un tag resalta sus átomos. El triángulo pliega el grupo en un solo nodo y fusiona sus aristas.
+          Las aristas azules cruzan de una base a otra. Plegar una base o un tag lo reduce a un nodo y fusiona sus aristas.
         </p>
       </aside>
-      <section className="relative flex min-h-[420px] flex-1 flex-col" aria-label="Grafo">
+      <section className="relative flex min-h-[460px] flex-1 flex-col" aria-label="Grafo">
         <div className="flex flex-wrap items-center gap-2 border-b border-line bg-panel px-3 py-2 text-[12.5px]">
           <span className="text-ink2">Relaciones:</span>
           {types.map((S) => (
@@ -410,14 +429,16 @@ export default function Grafo(props: ViewProps) {
               onClick={() => setHidden(hidden.includes(S) ? hidden.filter((C) => C !== S) : [...hidden, S])}
               className={`rounded-full border px-2 py-0.5 ${hidden.includes(S) ? "border-line text-faint line-through" : "border-ink2/40 text-ink"}`}
             >
-              {S}
+              {typeLabel(S)}
             </button>
           ))}
           <label className="ml-auto flex items-center gap-1.5 text-ink2">
             Nueva relación
             <select value={newType} onChange={(e) => setChosen(e.target.value)} className="rounded border border-line bg-panel px-1 py-0.5 text-ink">
               {types.map((S) => (
-                <option key={S}>{S}</option>
+                <option key={S} value={S}>
+                  {typeLabel(S)}
+                </option>
               ))}
             </select>
           </label>
@@ -428,8 +449,8 @@ export default function Grafo(props: ViewProps) {
             edges={edges}
             nodeTypes={nodeTypes}
             fitView
-            fitViewOptions={{ padding: 0.12 }}
-            minZoom={0.3}
+            fitViewOptions={{ padding: 0.08 }}
+            minZoom={0.25}
             onConnect={onConnect}
             onConnectStart={(_, p) => {
               dragFrom.current = p.nodeId;
@@ -445,13 +466,11 @@ export default function Grafo(props: ViewProps) {
                 setFocusId(n.id);
               }
             }}
-            onPaneClick={() => {
-              setSelGroup(null);
-              setFocusId(null);
-            }}
+            onPaneClick={close}
             onEdgeMouseEnter={(_, e) => setHoverEdge(e.id)}
             onEdgeMouseLeave={() => setHoverEdge(null)}
             nodesConnectable
+            zoomOnDoubleClick={false}
             proOptions={{ hideAttribution: true }}
           >
             <Background gap={24} size={1} color="var(--line)" />
@@ -467,35 +486,25 @@ export default function Grafo(props: ViewProps) {
           </div>
         )}
         <p className="border-t border-line bg-panel px-3 py-1.5 text-[12px] text-ink2">
-          Arrastra desde el borde de un nodo a otro para relacionarlos. Si sueltas sobre un grupo, la relación la heredan todos sus átomos (línea punteada).
+          Arrastra desde el borde de un nodo a otro para relacionarlos. Si sueltas sobre un grupo o base, la relación la heredan todos sus átomos (línea punteada).
         </p>
       </section>
-      {(v || b) && (
+      {(v || P) && (
         <aside className="shrink-0 overflow-auto border-t border-line bg-panel p-4 text-[13.5px] lg:w-72 lg:border-l lg:border-t-0" aria-label="Inspector">
           <div className="flex items-start justify-between">
             <h2 className="text-[12px] font-semibold text-ink2">Inspector</h2>
-            <button
-              onClick={() => {
-                setSelGroup(null);
-                setFocusId(null);
-              }}
-              className="text-ink2 hover:text-ink"
-              aria-label="Cerrar inspector"
-            >
+            <button onClick={close} className="text-ink2 hover:text-ink" aria-label="Cerrar inspector">
               ✕
             </button>
           </div>
           {v ? (
             <>
-              <div className={`mt-2 text-[12px] font-semibold tx-t-${v.type}`}>{KIND_LABEL[v.type]}</div>
+              <div className={`mt-2 text-[12px] font-semibold tx-t-${v.type}`}>{kindLabel(v.type)}</div>
               <p className="mt-0.5 text-[15px] leading-snug">{v.text}</p>
-              <div className="mt-2 flex flex-wrap gap-1">
-                {v.tags.map((S) => (
-                  <span key={S} className="rounded border border-line bg-panel2 px-1.5 text-[11.5px] text-ink2">
-                    {S}
-                  </span>
-                ))}
-              </div>
+              <p className="mt-2 text-[12.5px] text-ink2">
+                {v.tags.length ? `Base ${groupLabel(groupOf(v))}${cellTagOf(v) ? `, tag ${groupLabel(cellTagOf(v)!)}` : ""}. ` : "Sin grupo. "}
+                Fuente: {fuentes.find((f) => f.gid === v.atom.source)?.title ?? v.sourceId}.
+              </p>
               <h3 className="mt-4 text-[12px] font-semibold text-ink2">Relaciones</h3>
               <ul className="mt-1 space-y-1.5">
                 {k.map((S) => {
@@ -503,14 +512,15 @@ export default function Grafo(props: ViewProps) {
                   return (
                     <li key={S.id} className="leading-snug">
                       <span className="text-ink2">
-                        {C ? "→" : "←"} {S.type}
-                        {S.inherited ? " (heredada)" : ""}
+                        {C ? "→" : "←"} {typeLabel(S.type)}
+                        {S.inherited ? " (heredada del grupo)" : ""}
                       </span>
                       <br />
-                      <span>{E(C ? S.target : S.source)}</span>
+                      <span>{D(C ? S.target : S.source)}</span>
                     </li>
                   );
                 })}
+                {!k.length && <li className="text-ink2">Sin relaciones todavía.</li>}
               </ul>
               <h3 className="mt-4 text-[12px] font-semibold text-ink2">Ancla en el texto</h3>
               <p className="mt-1 rounded bg-panel2 px-2 py-1.5 font-doc text-[13px] italic text-ink2">“{v.anchor[1]}”</p>
@@ -522,25 +532,23 @@ export default function Grafo(props: ViewProps) {
             </>
           ) : (
             <>
-              <p className="mt-2 text-[15px] font-semibold">{b ? labelOfRegion(b) : null}</p>
+              <p className="mt-2 text-[15px] font-semibold">{P ? D(groupNodeId(P)) : null}</p>
               <ul className="mt-2 space-y-1">
-                {atoms
-                  .filter((S) => groupOf(S) === b)
-                  .map((S) => (
-                    <li key={S.id} className="flex gap-2">
-                      <span className={`tdot mt-1.5 bg-t-${S.type}`} />
-                      <button
-                        className="text-left hover:underline"
-                        onClick={() => {
-                          setFolded({ ...folded, [b as string]: false });
-                          setSelGroup(null);
-                          setFocusId(S.id);
-                        }}
-                      >
-                        {S.text}
-                      </button>
-                    </li>
-                  ))}
+                {inspected.map((S) => (
+                  <li key={S.id} className="flex gap-2">
+                    <span className={`tdot mt-1.5 bg-t-${S.type}`} />
+                    <button
+                      className="text-left hover:underline"
+                      onClick={() => {
+                        setFolded((m) => ({ ...m, [groupOf(S)]: false, ...(cellTagOf(S) ? { [cellTagOf(S)!]: false } : {}) }));
+                        setSelGroup(null);
+                        setFocusId(S.id);
+                      }}
+                    >
+                      {S.text}
+                    </button>
+                  </li>
+                ))}
               </ul>
             </>
           )}
@@ -549,11 +557,3 @@ export default function Grafo(props: ViewProps) {
     </div>
   );
 }
-
-/** Posición de la región del grupo en el layout (las regiones van de mayor a menor); sin región, al final. */
-const regionOrder = (layout: ReturnType<typeof computeLayout>, tag: string): number => {
-  const i = layout.regions.findIndex((r) => r.tag === tag);
-  return i < 0 ? layout.regions.length : i;
-};
-
-const relationTypeNamesOf = (specs: ViewProps["store"]["relationTypes"]): string[] => atomRelationTypes(specs).map((t) => t.name);

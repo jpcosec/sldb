@@ -27,4 +27,13 @@ describe("adapter de la maqueta", () => {
     const ids = new Set(atoms.map((a) => a.id));
     expect(rel.every((r) => r.source.startsWith("g:") || ids.has(r.source))).toBe(true);
   });
+  it("cada átomo se ancla contra el body de SU fuente y trae base y sourceId", () => {
+    const fu = (id: string, body: string) => ({ id, gid: `FuenteDoc:${id}`, body });
+    const mk = (id: string, source: string, start: number, tags: string[]) => ({ ...atoms[0]!, id, gid: `AtomDoc:${id}`, source, start, tags, quote: "q" });
+    const mock = toMockAtoms(
+      [mk("a", "FuenteDoc:uno", 5, ["programa.asistente"]), mk("b", "FuenteDoc:dos", 5, ["paciente.perfil"]), mk("c", "FuenteDoc:otra", 0, [])],
+      [fu("uno", "xx\n\nyyyy"), fu("dos", "aaaaaaaaaaaa")],
+    );
+    expect(mock.map((m) => [m.anchor[0], m.base, m.sourceId])).toEqual([[1, "programa", "uno"], [0, "paciente", "dos"], [-1, "", "otra"]]);
+  });
 });

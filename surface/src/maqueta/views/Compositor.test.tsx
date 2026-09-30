@@ -20,10 +20,10 @@ function Host({ go }: { go: (tab: string, id?: string | null) => void }) {
   const store = useAtomStore();
   if (store.status !== "ok") return <div>cargando</div>;
   const acta = store.actas[0]!;
-  return <Compositor store={store} acta={acta} focusId={null} setFocusId={() => {}} go={go as never} />;
+  return <Compositor store={store} acta={acta} fuentes={[]} informe={store.informes[0]} respuesta={undefined} caso={null} focusId={null} setFocusId={() => {}} go={go as never} />;
 }
 
-function mount(opts: { published?: number[]; noInforme?: boolean; saveImpl?: (ops: any[]) => Promise<SaveResult>; createImpl?: (m: string, n: string, p: any, docs: GraphDocument[]) => Promise<any>; resumenQuery?: string } = {}) {
+function mount(opts: { published?: number[]; noInforme?: boolean; saveImpl?: (ops: any[]) => Promise<SaveResult>; createImpl?: (m: string, n: string, p: any, docs: GraphDocument[]) => Promise<any>; resumenQuery?: string; mutate?: (inf: GraphDocument) => void } = {}) {
   const docs = clone(fixture.documents) as unknown as GraphDocument[];
   const edges = clone(fixture.edges) as Edge[];
   const inf = docs.find((d) => d.id === "inf1")!;
@@ -31,6 +31,7 @@ function mount(opts: { published?: number[]; noInforme?: boolean; saveImpl?: (op
   inf.payload.riesgos_query = "tipo:riesgo";
   inf.payload.riesgos_modo = "tabla";
   inf.payload.title = "Informe de prueba";
+  opts.mutate?.(inf);
   if (opts.noInforme) docs.splice(docs.indexOf(inf), 1);
   for (const v of opts.published ?? []) docs.push(pubDoc(v));
   const save = vi.fn(
@@ -143,7 +144,7 @@ describe("Compositor (maqueta)", () => {
     expect(field(save, 1, "resumen_modo")).toBe("tabla");
     const doc = screen.getByLabelText("Documento final");
     expect(await within(doc).findByRole("columnheader", { name: "Entidad" })).toBeInTheDocument();
-    expect(within(doc).getByRole("columnheader", { name: "Relación" })).toBeInTheDocument();
+    expect(within(doc).getByRole("columnheader", { name: "Evidencia" })).toBeInTheDocument();
     expect(within(doc).getByText("Sin relación")).toBeInTheDocument();
     expect(within(doc).getByText(/El documento guardado en disco siempre renderiza viñetas/)).toBeInTheDocument();
   });
@@ -234,6 +235,23 @@ describe("Compositor (maqueta)", () => {
 
   it("sin informe: mensaje", async () => {
     mount({ noInforme: true });
-    expect(await screen.findByText("El store no tiene ningún informe de avance.")).toBeInTheDocument();
+    expect(await screen.findByText("El store no tiene ningún informe con slots.")).toBeInTheDocument();
+  });
+
+  it("informe con slots propios: títulos, rótulos y 'Agregar filtro' con todos los tipos", async () => {
+    mount({
+      mutate: (inf) => {
+        inf.model_name = "SalidaDoc";
+        inf.payload = { title: "Salida de prueba", uno: [], uno_titulo: "Primera sección", uno_rotulo: "Mensaje uno", uno_query: "base:infra distancia:1", uno_modo: "viñetas", uno_pins: [], uno_excluidos: [] };
+      },
+    });
+    expect((await screen.findAllByRole("heading", { name: "Primera sección" })).length).toBe(2);
+    expect(screen.getByText("Mensaje uno")).toBeInTheDocument();
+    expect(screen.getByText("Base:")).toBeInTheDocument();
+    expect(screen.getByText("Distancia:")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Agregar filtro" }));
+    const kinds = within(screen.getByRole("group", { name: "Nuevo filtro" })).getByLabelText("Filtrar por");
+    expect(within(kinds).getAllByRole("option").map((o) => o.textContent)).toEqual(["Tipo", "Estado", "Base", "Tag", "Distancia", "Relación"]);
+    expect(screen.getByRole("button", { name: "Agregar sección" })).toBeDisabled();
   });
 });

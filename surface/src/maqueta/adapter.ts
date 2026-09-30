@@ -8,7 +8,8 @@
 import { paragraphsOf } from "../core/atom-text";
 import { linkKind } from "../core/atom-graph";
 import { tagOfGroupGid } from "../core/atom-groups";
-import type { Acta, Atom, AtomKind, AtomStatus, Edge } from "../core/contract";
+import { baseOf } from "../core/caso";
+import type { Atom, AtomKind, AtomStatus, Edge } from "../core/contract";
 
 export interface MockAtom {
   id: string;
@@ -20,6 +21,10 @@ export interface MockAtom {
   anchor: [number, string];
   conf: number;
   status: AtomStatus;
+  /** Base de conocimiento: 1er segmento del primer tag (`paciente`); `""` sin tags. */
+  base: string;
+  /** Id de la fuente del átomo (`system-prompt`, o el acta), tomado de `atom.source`. */
+  sourceId: string;
   /** El átomo real, para persistir. */
   atom: Atom;
 }
@@ -41,17 +46,38 @@ export function paragraphIndexAt(body: string, start: number): number {
   return paragraphsOf(body).findIndex((p) => start >= p.start && start < p.end);
 }
 
-export function toMockAtoms(atoms: Atom[], acta: Acta | undefined): MockAtom[] {
-  return atoms.map((atom) => ({
-    id: atom.id,
-    type: atom.kind,
-    text: atom.text,
-    tags: atom.tags,
-    anchor: [acta ? paragraphIndexAt(acta.body, atom.start) : -1, atom.quote],
-    conf: atom.conf,
-    status: atom.status,
-    atom,
-  }));
+/** Lo mínimo de una fuente/acta para calcular anclas: `Fuente` y `Acta` calzan. */
+export interface BodySource {
+  id: string;
+  gid: string;
+  body: string;
+}
+
+/** Id de la fuente en `atom.source` (`FuenteDoc:folleto` -> `folleto`). */
+export const sourceIdOf = (source: string): string => source.slice(source.indexOf(":") + 1);
+
+/**
+ * `sources` puede ser UNA fuente/acta (se usa para todos los átomos: el caso viejo) o la lista
+ * de fuentes del caso: cada átomo se ancla contra el `body` de SU fuente (`atom.source`). Sin
+ * fuente, el párrafo es `-1`.
+ */
+export function toMockAtoms(atoms: Atom[], sources: BodySource | BodySource[] | undefined): MockAtom[] {
+  const list = sources === undefined ? [] : Array.isArray(sources) ? sources : [sources];
+  return atoms.map((atom) => {
+    const src = Array.isArray(sources) ? list.find((f) => f.gid === atom.source) : list[0];
+    return {
+      id: atom.id,
+      type: atom.kind,
+      text: atom.text,
+      tags: atom.tags,
+      anchor: [src ? paragraphIndexAt(src.body, atom.start) : -1, atom.quote],
+      conf: atom.conf,
+      status: atom.status,
+      base: baseOf(atom.tags[0] ?? ""),
+      sourceId: sourceIdOf(atom.source),
+      atom,
+    };
+  });
 }
 
 const atomIdOf = (end: string) => (end.startsWith("AtomDoc:") ? end.slice("AtomDoc:".length) : null);

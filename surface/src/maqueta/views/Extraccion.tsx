@@ -8,16 +8,28 @@ import { Plugin, PluginKey, EditorState } from "prosemirror-state";
 import { EditorView, Decoration, DecorationSet } from "prosemirror-view";
 import { Schema } from "prosemirror-model";
 import { paragraphsOf } from "../../core/atom-text";
-import { nextAtomName, repairAnchor, selectionToAtomPayload } from "../../core/atoms";
+import { kindLabel, repairAnchor, selectionToAtomPayload } from "../../core/atoms";
+import { groupTitle } from "../../core/caso";
 import { SaveConflictError } from "../../core/client";
-import type { AtomKind } from "../../core/contract";
+import type { AtomKind, Fuente } from "../../core/contract";
 import { toMockAtoms, type MockAtom } from "../adapter";
-import { anchorKinds, highlightRanges, orderAtoms, selectionToBodyRange, type AnchorKind, type HighlightRange } from "../extraccion-logic";
+import {
+  anchorKinds,
+  caseKinds,
+  defaultKind,
+  fuenteFontClass,
+  fuenteIcon,
+  highlightRanges,
+  kindClass,
+  nextAtomId,
+  orderAtoms,
+  orderFuentes,
+  selectionToBodyRange,
+  type AnchorKind,
+  type HighlightRange,
+} from "../extraccion-logic";
 import type { ViewProps } from "../ViewProps";
 import "./extraccion.css";
-
-/** Etiquetas de tipo (`gn` en la maqueta). */
-const KINDS: Record<AtomKind, string> = { entidad: "Entidad", hecho: "Hecho", decision: "Decisión", pendiente: "Pendiente", riesgo: "Riesgo" };
 
 const schema = new Schema({
   nodes: { doc: { content: "paragraph+" }, paragraph: { content: "text*", toDOM: () => ["p", 0] }, text: {} },
@@ -30,7 +42,7 @@ function decorationsFor(doc: Parameters<typeof DecorationSet.create>[0], ranges:
     doc,
     sorted.map((o) =>
       Decoration.inline(o.from, o.to, {
-        class: `anc t-${o.type}${o.draft ? " is-draft" : ""}${focus.includes(o.id) ? " is-focus" : ""}`,
+        class: `anc t-${kindClass(o.type)}${o.draft ? " is-draft" : ""}${focus.includes(o.id) ? " is-focus" : ""}`,
         style: `--layer:${o.layer}`,
         "data-atom": o.id,
       }),
@@ -43,9 +55,9 @@ function Confidence({ v }: { v: number }) {
   return (
     <span className="flex items-center gap-1.5" title={`Confianza del extractor: ${Math.round(v * 100)} %`}>
       <span className="relative h-1 w-10 rounded-full bg-line overflow-hidden">
-        <span className={`absolute inset-y-0 left-0 ${low ? "bg-t-pendiente" : "bg-ink2"}`} style={{ width: `${v * 100}%` }} />
+        <span className={`absolute inset-y-0 left-0 ${low ? "bg-t-pregunta" : "bg-ink2"}`} style={{ width: `${v * 100}%` }} />
       </span>
-      <span className={`text-[11px] tabular-nums ${low ? "tx-t-pendiente font-semibold" : "text-ink2"}`}>{Math.round(v * 100)}</span>
+      <span className={`text-[11px] tabular-nums ${low ? "tx-t-pregunta font-semibold" : "text-ink2"}`}>{Math.round(v * 100)}</span>
     </span>
   );
 }
@@ -59,6 +71,8 @@ interface CardProps {
   atom: MockAtom;
   anchor: AnchorKind;
   active: boolean;
+  kinds: string[];
+  tagTitle(tag: string): string;
   busy: boolean;
   error: WriteError | undefined;
   onHover(id: string | null): void;
@@ -69,7 +83,7 @@ interface CardProps {
   onReload(id: string): void;
 }
 
-function AtomCard({ atom: e, anchor, active, busy, error, onHover, onFocus, onUpdate, onDiscard, onRepair, onReload }: CardProps) {
+function AtomCard({ atom: e, anchor, active, kinds, tagTitle, busy, error, onHover, onFocus, onUpdate, onDiscard, onRepair, onReload }: CardProps) {
   const [open, setOpen] = useState(false);
   const low = e.conf < 0.7;
   return (
@@ -78,7 +92,7 @@ function AtomCard({ atom: e, anchor, active, busy, error, onHover, onFocus, onUp
       onMouseLeave={() => onHover(null)}
       onClick={() => onFocus(e.id)}
       aria-busy={busy || undefined}
-      className={`group relative rounded-md border-l-[3px] bl-t-${e.type} bg-panel border border-line px-3 pt-2.5 pb-2 cursor-pointer transition-shadow
+      className={`group relative rounded-md border-l-[3px] bl-t-${kindClass(e.type)} bg-panel border border-line px-3 pt-2.5 pb-2 cursor-pointer transition-shadow
         ${active ? "shadow-[0_6px_20px_-8px_rgba(20,30,40,.35)] ring-1 ring-accent/40" : ""} ${low ? "bg-fresh/40" : ""}`}
     >
       <div className="flex items-center justify-between gap-2 mb-1">
@@ -89,14 +103,14 @@ function AtomCard({ atom: e, anchor, active, busy, error, onHover, onFocus, onUp
               u.stopPropagation();
               setOpen(!open);
             }}
-            className={`text-[12px] font-semibold tx-t-${e.type} hover:underline`}
+            className={`text-[12px] font-semibold tx-t-${kindClass(e.type)} hover:underline`}
             aria-haspopup="menu"
           >
-            {KINDS[e.type]} ▾
+            {kindLabel(e.type)} ▾
           </button>
           {open && (
             <div role="menu" className="absolute z-20 mt-1 w-36 rounded-md border border-line bg-panel shadow-lg py-1">
-              {(Object.entries(KINDS) as [AtomKind, string][]).map(([u, c]) => (
+              {kinds.map((u) => (
                 <button
                   key={u}
                   role="menuitem"
@@ -107,8 +121,8 @@ function AtomCard({ atom: e, anchor, active, busy, error, onHover, onFocus, onUp
                   }}
                   className="flex w-full items-center gap-2 px-3 py-1.5 text-[13px] hover:bg-panel2"
                 >
-                  <span className={`tdot bg-t-${u}`} />
-                  {c}
+                  <span className={`tdot bg-t-${kindClass(u)}`} />
+                  {kindLabel(u)}
                 </button>
               ))}
             </div>
@@ -119,8 +133,8 @@ function AtomCard({ atom: e, anchor, active, busy, error, onHover, onFocus, onUp
       <p className="text-[14.5px] leading-snug text-ink">{e.text}</p>
       <div className="mt-2 flex flex-wrap gap-1">
         {e.tags.map((u) => (
-          <span key={u} className="rounded bg-panel2 border border-line px-1.5 py-px text-[11.5px] text-ink2">
-            {u}
+          <span key={u} title={u} className="rounded bg-panel2 border border-line px-1.5 py-px text-[11.5px] text-ink2">
+            {tagTitle(u)}
           </span>
         ))}
       </div>
@@ -145,7 +159,7 @@ function AtomCard({ atom: e, anchor, active, busy, error, onHover, onFocus, onUp
       {anchor === "orphan" && (
         <div className="ext-note is-orphan">
           <strong>El texto cambió</strong>
-          <span>la cita ya no está en el acta</span>
+          <span>la cita ya no está en el texto</span>
         </div>
       )}
       {error && (
@@ -202,22 +216,31 @@ interface Selection {
   left: number;
 }
 
-export default function Extraccion({ store, acta, focusId: o, setFocusId }: ViewProps) {
-  const body = acta.body;
+export default function Extraccion({ store, acta, fuentes, focusId: o, setFocusId }: ViewProps) {
+  const sources = useMemo<Fuente[]>(() => orderFuentes(fuentes.length ? fuentes : [{ ...acta, tipo: "acta", base: "", descripcion: "" }]), [fuentes, acta]);
+  const allMock = useMemo(() => toMockAtoms(store.atoms, sources), [store.atoms, sources]);
+  const [activeId, setActiveId] = useState<string | null>(() => {
+    const at = o ? allMock.find((x) => x.id === o) : undefined;
+    return at?.sourceId ?? null;
+  });
+  const fuente = sources.find((f) => f.id === activeId) ?? sources[0]!;
+  const body = fuente.body;
   const host = useRef<HTMLDivElement>(null);
   const view = useRef<EditorView | null>(null);
   const [a, setHover] = useState<string | null>(null);
   const [c, setSel] = useState<Selection | null>(null);
   const [selMsg, setSelMsg] = useState<string | null>(null);
   const [f, setLowFirst] = useState(false);
-  const [h, setFilter] = useState<AtomKind | null>(null);
+  const [h, setFilter] = useState<string | null>(null);
   const [busy, setBusy] = useState<Set<string>>(new Set());
   const [errors, setErrors] = useState<Record<string, WriteError>>({});
 
   const setFocusRef = useRef(setFocusId);
   setFocusRef.current = setFocusId;
 
-  const all = useMemo(() => toMockAtoms(store.atoms, acta), [store.atoms, acta]);
+  const all = useMemo(() => allMock.filter((x) => x.sourceId === fuente.id), [allMock, fuente.id]);
+  const kinds = useMemo(() => caseKinds(store.atoms.map((x) => x.kind)), [store.atoms]);
+  const tagTitle = useCallback((tag: string) => groupTitle(tag, store.grupos), [store.grupos]);
   const e = useMemo(() => all.filter((x) => x.status !== "descartado"), [all]);
   const n = useMemo(() => all.filter((x) => x.status === "descartado"), [all]);
   const w = useMemo(() => highlightRanges(body, e), [body, e]);
@@ -281,7 +304,14 @@ export default function Extraccion({ store, acta, focusId: o, setFocusId }: View
       b.destroy();
       view.current = null;
     };
-  }, [body]);
+  }, [body, fuente.id]);
+
+  // Foco sobre un átomo de otra fuente: cambia de pestaña (la maqueta: `y(w(N))` al cambiar `focusId`).
+  useEffect(() => {
+    const at = o ? allMock.find((x) => x.id === o) : undefined;
+    if (at && at.sourceId !== fuente.id) setActiveId(at.sourceId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [o, allMock]);
 
   useEffect(() => {
     const k = view.current;
@@ -289,7 +319,7 @@ export default function Extraccion({ store, acta, focusId: o, setFocusId }: View
     const E = w.filter((b) => !h || e.find((S) => S.id === b.id)!.type === h);
     k.dispatch(k.state.tr.setMeta(anchorsKey, { ranges: E, focus: m }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [w, a, o, h, body]);
+  }, [w, a, o, h, body, fuente.id]);
 
   useEffect(() => {
     if (!o || !view.current) return;
@@ -299,7 +329,7 @@ export default function Extraccion({ store, acta, focusId: o, setFocusId }: View
     ((E.nodeType === 3 ? E.parentElement : E) as HTMLElement | null)?.scrollIntoView?.({ block: "center", behavior: "smooth" });
     document.getElementById(`card-${o}`)?.scrollIntoView?.({ block: "nearest", behavior: "smooth" });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [o, body]);
+  }, [o, body, fuente.id]);
 
   /** Escribe campos de un átomo: deshabilita su tarjeta mientras guarda y muestra el fallo si lo hay. */
   const write = useCallback(
@@ -336,9 +366,9 @@ export default function Extraccion({ store, acta, focusId: o, setFocusId }: View
       return;
     }
     setSelMsg(null);
-    const name = nextAtomName(store.atoms.map((x) => x.id));
+    const name = nextAtomId(store.atoms.map((x) => x.id), fuente.tipo);
     try {
-      const res = await store.createAtom(name, selectionToAtomPayload(body, sel.from, sel.to, "hecho", acta.gid));
+      const res = await store.createAtom(name, selectionToAtomPayload(body, sel.from, sel.to, defaultKind(kinds), fuente.gid));
       setSel(null);
       setFocusId(res?.id ?? name);
     } catch (err) {
@@ -351,20 +381,44 @@ export default function Extraccion({ store, acta, focusId: o, setFocusId }: View
 
   return (
     <div className="flex h-full flex-col">
+      <div className="flex items-end gap-1 overflow-x-auto bg-panel2 px-3 pt-2" role="tablist" aria-label="Documentos fuente">
+        {sources.map((f) => {
+          const count = allMock.filter((x) => x.sourceId === f.id && x.status !== "descartado").length;
+          const on = f.id === fuente.id;
+          return (
+            <button
+              key={f.id}
+              role="tab"
+              aria-selected={on}
+              onClick={() => {
+                setActiveId(f.id);
+                setHover(null);
+                setSel(null);
+                setSelMsg(null);
+              }}
+              className={`-mb-px flex shrink-0 items-center gap-2 rounded-t-md border px-3.5 py-2 text-[13.5px] ${on ? "border-line border-b-panel bg-panel font-semibold text-ink" : "border-transparent text-ink2 hover:bg-panel/60 hover:text-ink"}`}
+            >
+              <span aria-hidden="true">{fuenteIcon(f.tipo)}</span>
+              {f.title}
+              <span className="rounded-full bg-panel2 px-1.5 text-[11.5px] font-normal tabular-nums text-ink2">{count}</span>
+            </button>
+          );
+        })}
+      </div>
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-line bg-panel px-4 py-2 text-[13px]">
         <span className="text-ink2">
-          {e.length} átomos, {v} sin confirmar
+          {e.length} átomos en este documento, {v} sin confirmar
         </span>
         <div className="flex flex-wrap gap-1" role="group" aria-label="Filtrar por tipo">
-          {(Object.entries(KINDS) as [AtomKind, string][]).map(([k, E]) => (
+          {kinds.map((k) => (
             <button
               key={k}
               onClick={() => setFilter(h === k ? null : k)}
               aria-pressed={h === k}
               className={`flex items-center gap-1.5 rounded px-2 py-0.5 border ${h === k ? "border-ink bg-panel2" : "border-transparent hover:bg-panel2"}`}
             >
-              <span className={`tdot bg-t-${k}`} />
-              {E}
+              <span className={`tdot bg-t-${kindClass(k)}`} />
+              {kindLabel(k)}
             </button>
           ))}
         </div>
@@ -381,8 +435,12 @@ export default function Extraccion({ store, acta, focusId: o, setFocusId }: View
         </button>
       </div>
       <div className="flex min-h-0 flex-1 flex-col overflow-auto lg:flex-row lg:overflow-hidden">
-        <section className={`relative lg:min-h-0 lg:overflow-auto px-5 py-6 sm:px-10 lg:basis-2/3 ${m.length ? "dim" : ""}`} aria-label="Texto fuente">
-          <div ref={host} className="relative">
+        <section className={`relative bg-panel lg:min-h-0 lg:overflow-auto px-5 py-6 sm:px-10 lg:basis-2/3 ${m.length ? "dim" : ""}`} aria-label="Texto fuente">
+          <header className="mb-5 max-w-[68ch]">
+            <h2 className="font-ui text-[18px] font-semibold">{fuente.title}</h2>
+            {fuente.descripcion && <p className="font-ui text-[13px] text-ink2">{fuente.descripcion}</p>}
+          </header>
+          <div ref={host} className={`relative ${fuenteFontClass(fuente.tipo)}`}>
             {c && !selMsg && (
               <button
                 onMouseDown={(k) => k.preventDefault()}
@@ -411,6 +469,8 @@ export default function Extraccion({ store, acta, focusId: o, setFocusId }: View
                   atom={k}
                   anchor={anchors.get(k.id) ?? "intact"}
                   active={m.includes(k.id)}
+                  kinds={kinds}
+                  tagTitle={tagTitle}
                   busy={busy.has(k.id)}
                   error={errors[k.id]}
                   onHover={setHover}

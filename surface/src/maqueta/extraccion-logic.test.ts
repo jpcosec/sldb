@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { toMockAtoms } from "./adapter";
 import type { Acta, Atom } from "../core/contract";
-import { anchorKinds, bodyToPm, highlightRanges, orderAtoms, pmToBody, selectionToBodyRange } from "./extraccion-logic";
+import { anchorKinds, bodyToPm, caseKinds, defaultKind, fuenteFontClass, fuenteIcon, kindClass, nextAtomId, orderFuentes, highlightRanges, orderAtoms, pmToBody, selectionToBodyRange } from "./extraccion-logic";
 import { paragraphsOf } from "../core/atom-text";
 
 const body = "Uno dos tres.\n\nCuatro cinco seis.\n\nSiete.";
@@ -59,4 +59,42 @@ describe("subrayados", () => {
     expect(orderAtoms(low, r, null, true).map((a) => a.id)).toEqual(["b2", "b1"]);
     expect(orderAtoms(low, r, "riesgo", false).map((a) => a.id)).toEqual(["b2"]);
   });
+});
+
+describe("tipos, fuentes e ids del caso", () => {
+  it("descubre los tipos presentes, completa su familia y los ordena", () => {
+    expect(caseKinds(["pregunta", "regla"])).toEqual(["regla", "criterio", "logistica", "paciente", "pregunta"]);
+    expect(caseKinds(["riesgo", "hecho"])).toEqual(["hecho", "decision", "riesgo", "entidad", "pendiente"].sort((a, b) => ["entidad", "hecho", "decision", "pendiente", "riesgo"].indexOf(a) - ["entidad", "hecho", "decision", "pendiente", "riesgo"].indexOf(b)));
+    expect(caseKinds(["zeta"])).toEqual(["zeta"]);
+    expect(caseKinds([])).toEqual([]);
+  });
+  it("tipo por defecto y clase de color", () => {
+    expect(defaultKind(["regla", "hecho"])).toBe("regla");
+    expect(defaultKind(["hecho", "riesgo"])).toBe("hecho");
+    expect(defaultKind(["zeta"])).toBe("zeta");
+    expect(defaultKind([])).toBe("hecho");
+    expect(kindClass("regla")).toBe("regla");
+    expect(kindClass("zeta")).toBe("otro");
+  });
+  it("ícono y tipografía por tipo de fuente", () => {
+    expect(fuenteIcon("prompt")).toBe("\u2699\uFE0F");
+    expect(fuenteIcon("folleto")).toBe("\u{1F4C4}");
+    expect(fuenteIcon("mensaje")).toBe("\u{1F4AC}");
+    expect(fuenteFontClass("prompt")).toBe("src-prompt");
+    expect(fuenteFontClass("mensaje")).toBe("src-paciente");
+    expect(fuenteFontClass("folleto")).toBe("");
+  });
+  it("ids nuevos por prefijo de fuente, sin colisión", () => {
+    const ids = ["p1", "p7", "f14", "c9", "a2", "pp3"];
+    expect(nextAtomId(ids, "prompt")).toBe("p8");
+    expect(nextAtomId(ids, "folleto")).toBe("f15");
+    expect(nextAtomId(ids, "mensaje")).toBe("c10");
+    expect(nextAtomId(ids, "acta")).toBe("a3");
+    expect(nextAtomId([], "prompt")).toBe("p1");
+  });
+});
+
+it("orderFuentes: prompt, folleto, mensaje; estable con el resto", () => {
+  const f = [{ tipo: "mensaje", n: 1 }, { tipo: "acta", n: 2 }, { tipo: "folleto", n: 3 }, { tipo: "prompt", n: 4 }, { tipo: "acta", n: 5 }];
+  expect(orderFuentes(f).map((x) => x.n)).toEqual([4, 3, 1, 2, 5]);
 });

@@ -13,13 +13,30 @@
   gap: 8px;
   max-width: min(640px, 90%);
   padding: 6px 10px;
-  border: 1px solid var(--t-riesgo);
+  border: 1px solid var(--t-paciente);
   border-radius: 6px;
   background: var(--panel);
-  color: var(--t-riesgo);
+  color: var(--t-paciente);
   font-size: 12.5px;
   line-height: 1.35;
   box-shadow: 0 4px 12px -6px rgba(20, 30, 40, 0.35);
 }
-.mq-graf-aviso.is-ok { border-color: var(--t-hecho); color: var(--t-hecho); }
+.mq-graf-aviso.is-ok { border-color: var(--t-criterio); color: var(--t-criterio); }
 .mq-graf-aviso button { color: var(--ink-2); }
+
+/* Tipos del store viejo (entidad, hecho…): maqueta.css solo trae los cinco del caso Levira. */
+.bl-t-entidad { border-left-color: var(--t-logistica); }
+.bl-t-hecho { border-left-color: var(--t-criterio); }
+.bl-t-decision { border-left-color: var(--t-regla); }
+.bl-t-pendiente { border-left-color: var(--t-pregunta); }
+.bl-t-riesgo { border-left-color: var(--t-paciente); }
+.tx-t-entidad { color: var(--t-logistica); }
+.tx-t-hecho { color: var(--t-criterio); }
+.tx-t-decision { color: var(--t-regla); }
+.tx-t-pendiente { color: var(--t-pregunta); }
+.tx-t-riesgo { color: var(--t-paciente); }
+.bg-t-entidad { background: var(--t-logistica); }
+.bg-t-hecho { background: var(--t-criterio); }
+.bg-t-decision { background: var(--t-regla); }
+.bg-t-pendiente { background: var(--t-pregunta); }
+.bg-t-riesgo { background: var(--t-paciente); }

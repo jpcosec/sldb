@@ -1,10 +1,11 @@
-/** Pestañas de la maqueta y su ruta por hash: `#/extraccion`, `#/grafo`, `#/compositor`, con `?atom=<id>`. */
-export type MaquetaTab = "extraccion" | "grafo" | "compositor";
+/** Pestañas de la maqueta y su ruta por hash: `#/extraccion`, `#/grafo`, `#/compositor`, `#/respuesta`, con `?atom=<id>`. */
+export type MaquetaTab = "extraccion" | "grafo" | "compositor" | "respuesta";
 
 export const TABS: [MaquetaTab, string][] = [
   ["extraccion", "Extracción"],
   ["grafo", "Grafo"],
   ["compositor", "Compositor"],
+  ["respuesta", "Respuesta"],
 ];
 
 export interface MaquetaRoute {

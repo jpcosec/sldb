@@ -1,9 +1,15 @@
 /* Lo que el Compositor de la maqueta no tiene: aviso de error y el desplegable de "Agregar filtro".
    Usa las variables de maqueta.css; maqueta.css no se toca. */
-.cmp-notice { display: flex; align-items: center; gap: 8px; margin: 8px 16px 0; padding: 6px 12px; border: 1px solid var(--t-riesgo); border-radius: 6px; background: var(--panel); color: var(--t-riesgo); font-size: 13px; }
+.cmp-notice { display: flex; align-items: center; gap: 8px; margin: 8px 16px 0; padding: 6px 12px; border: 1px solid var(--t-paciente); border-radius: 6px; background: var(--panel); color: var(--t-paciente); font-size: 13px; }
 .cmp-notice button { margin-left: auto; text-decoration: underline; }
 .cmp-pop { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px; padding: 2px 6px; border: 1px solid var(--line); border-radius: 4px; background: var(--panel); }
 .cmp-pop select { border: 1px solid var(--line); border-radius: 4px; background: var(--panel); padding: 1px 4px; color: var(--ink); }
 .cmp-pop button { padding: 0 6px; color: var(--ink-2); }
 .cmp-pop button:first-of-type { font-weight: 600; color: var(--accent); }
 .cmp-pop button:hover { text-decoration: underline; }
+/* Tipos del informe viejo (entidad, hecho, ...): la maqueta 2 solo trae los colores de Levira. */
+.bl-t-entidad { border-left-color: var(--t-logistica); } .tx-t-entidad { color: var(--t-logistica); }
+.bl-t-hecho { border-left-color: var(--t-criterio); } .tx-t-hecho { color: var(--t-criterio); }
+.bl-t-decision { border-left-color: var(--t-regla); } .tx-t-decision { color: var(--t-regla); }
+.bl-t-pendiente { border-left-color: var(--t-pregunta); } .tx-t-pendiente { color: var(--t-pregunta); }
+.bl-t-riesgo { border-left-color: var(--t-paciente); } .tx-t-riesgo { color: var(--t-paciente); }
