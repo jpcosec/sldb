@@ -27,12 +27,12 @@ class StructuredNLDoc(BaseModel):
         missing_descriptions = sorted(name for name, info in cls.model_fields.items() if not info.description or not info.description.strip())
         if missing_descriptions: raise TypeError(f"{cls.__name__} fields must define a non-empty description: {', '.join(missing_descriptions)}")
 
-    def render_payload(self) -> dict[str, Any]:
+    def render_payload(self, recorder: Any = None) -> dict[str, Any]:
         payload = self.model_dump(mode="json")
-        for name in self.__compositions__: payload[name] = self.compose_field(name)
+        for name in self.__compositions__: payload[name] = self.compose_field(name, recorder=recorder)
         return payload
 
-    def compose_field(self, name: str) -> str:
+    def compose_field(self, name: str, recorder: Any = None) -> str:
         spec = self.__compositions__.get(name, {})
         refs, model_type = getattr(self, spec.get("source_field") or "", []) or [], self._resolve_composition_model(spec.get("model"))
         if not spec.get("source_field") or not isinstance(refs, list) or model_type is None: return ""

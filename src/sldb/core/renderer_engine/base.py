@@ -7,7 +7,9 @@ import yaml
 from jinja2 import Environment
 
 from sldb.core.handlers.utils import parse_marker
+from sldb.core.renderer_engine.jinja_trailing import unshield_trailing_newline
 from sldb.core.renderer_engine.python_expr import PythonExpressionRenderer
+from sldb.core.renderer_engine.table_markdown import format_table_cell, is_table_marker, render_markdown_table, table_columns
 
 
 class BaseRenderer:
@@ -15,9 +17,10 @@ class BaseRenderer:
     Base class for rendering components.
     """
 
-    def __init__(self, jinja_env: Environment):
+    def __init__(self, jinja_env: Environment, recorder: Any = None):
         self.jinja_env = jinja_env
         self.py_renderer = PythonExpressionRenderer()
+        self.recorder = recorder
 
     def replace_markers(self, text: str, data: dict[str, Any]) -> str:
         lines = []
@@ -25,7 +28,10 @@ class BaseRenderer:
             if self._is_absent_optional_line(line, data):
                 continue
             lines.append(re.sub(r"⸢([^⸥]+)⸥", lambda m: self._sub_marker(m, data), line))
-        return self.jinja_env.from_string("\n".join(lines)).render(**data)
+        source = "\n".join(lines)
+        if self.recorder is not None:
+            source = unshield_trailing_newline(source)
+        return self.jinja_env.from_string(source).render(**data)
 
     def _is_absent_optional_line(self, line: str, data: dict[str, Any]) -> bool:
         """An optrev marker whose value is None leaves NO trace in the render:
@@ -56,10 +62,27 @@ class BaseRenderer:
 
     def _sub_marker(self, match: re.Match, data: dict[str, Any]) -> str:
         m = parse_marker(match.group(1))
+        out = self._resolve_marker(m, match, data)
+        if self.recorder is None or out == match.group(0):
+            return out
+        return self.recorder.wrap(out, self.recorder.meta_for(m))
+
+    def _resolve_marker(self, m: Any, match: re.Match, data: dict[str, Any]) -> str:
+        """The rendered surface of one marker, or the literal marker when unresolved.
+
+        Args:
+            m: The parsed marker.
+            match: The regex match of the marker in the template line.
+            data: The payload the marker reads from.
+
+        Returns:
+            The value's text, an empty string for an absent optional, or the
+            literal marker when the value is missing and required.
+        """
         if m.kind == "py": return self.py_renderer.render(m.name, data, match.group(0))
         val = data.get(m.name)
         if val is None: return "" if m.is_optional or m.kind == "render" else match.group(0)
-        if self._is_table_marker(m): return self._render_markdown_table(val, self._table_columns(m, val))
+        if is_table_marker(m): return render_markdown_table(val, table_columns(m, val))
         return self._format_value(val, m)
 
     def _format_value(self, val: Any, marker: Any) -> str:
@@ -68,30 +91,10 @@ class BaseRenderer:
             return yaml.dump(val, allow_unicode=True, sort_keys=False).strip()
         return str(val)
 
-    def _is_table_marker(self, marker: Any) -> bool:
-        return any(trait == "table" or trait.startswith("table[") for trait in marker.traits)
-
-    def _table_columns(self, marker: Any, value: Any) -> list[str]:
-        for trait in marker.traits:
-            if trait.startswith("table[") and trait.endswith("]"):
-                return [col.strip() for col in trait[6:-1].split(",") if col.strip()]
-        if isinstance(value, list) and value:
-            first = value[0].model_dump() if hasattr(value[0], "model_dump") else value[0]
-            if isinstance(first, dict): return [str(key) for key in first.keys()]
-        return []
-
-    def _render_markdown_table(self, value: Any, columns: list[str]) -> str:
-        if not columns: return "| |\n| --- |"
-        res = ["| " + " | ".join(columns) + " |", "| " + " | ".join("---" for _ in columns) + " |"]
-        for row in (value if isinstance(value, list) else []):
-            rd = row.model_dump() if hasattr(row, "model_dump") else row
-            res.append("| " + " | ".join([self._format_table_cell((rd if isinstance(rd, dict) else {}).get(c, "")) for c in columns]) + " |")
-        return "\n".join(res)
-
-    def _format_table_cell(self, value: Any) -> str:
-        if value is None:
-            return ""
-        return str(value).replace("\n", " ").replace("|", "\\|")
+    _is_table_marker = staticmethod(is_table_marker)
+    _table_columns = staticmethod(table_columns)
+    _render_markdown_table = staticmethod(render_markdown_table)
+    _format_table_cell = staticmethod(format_table_cell)
 
     def get_node_source(self, node, block_text: str, block_start_line: int) -> str:
         """Helper to get node source from block text."""

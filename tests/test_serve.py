@@ -1023,3 +1023,280 @@ def test_find_flags_and_param_validation(tmp_path: Path) -> None:
         assert status == 400 and "Missing parameter: q" in body["error"]
     finally:
         _stop(server, thread)
+
+
+# ── GET /document/segments: el documento como literales + spans editables ────
+
+def test_document_segments_returns_literals_and_field_spans(tmp_path: Path) -> None:
+    store = _build_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, body = _request_json(f"{base_url}/document/segments?id=book")
+        assert status == 200
+        assert body["doc"] == "book" and body["model"] == "SimpleBook"
+        assert body["path"] == "book.md" and body["canonical"] is True
+        assert body["text"] == "# My Book"
+        assert body["payload"] == {"title": "My Book"}
+        # los segmentos recomponen el texto canónico exactamente
+        assert "".join(segment["text"] for segment in body["segments"]) == body["text"]
+        assert [segment["type"] for segment in body["segments"]] == ["literal", "field"]
+        field = body["segments"][1]
+        assert field["path"] == "title" and field["marker"] == "rev"
+        assert field["editable"] is True and field["kind"] == "string"
+        assert field["value"] == "My Book"
+        assert body["text"][field["start"]:field["end"]] == "My Book"
+    finally:
+        _stop(server, thread)
+
+
+def test_document_segments_unknown_doc_returns_404(tmp_path: Path) -> None:
+    store = _build_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, body = _request_json(f"{base_url}/document/segments?id=nope", expected_error=404)
+        assert status == 404
+        assert body == {"ok": False, "error": "Unknown doc: nope"}
+    finally:
+        _stop(server, thread)
+
+
+def test_document_segments_missing_id_returns_400(tmp_path: Path) -> None:
+    store = _build_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, body = _request_json(f"{base_url}/document/segments", expected_error=400)
+        assert status == 400
+        assert body == {"ok": False, "error": "Missing parameter: id"}
+    finally:
+        _stop(server, thread)
+
+
+def test_document_segments_unrenderable_doc_returns_422(tmp_path: Path) -> None:
+    """Un doc trackeado cuyo payload ya no instancia su modelo es 422, no un 500.
+
+    Hay que invalidar la caché runtime además de romper el archivo: el payload
+    indexado sigue siendo válido hasta que alguien lo relee, que es exactamente
+    lo que pasa al reiniciar el servidor.
+    """
+    from sldb.store.query import invalidate_runtime_cache
+
+    store = _build_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, _ = _request_json(f"{base_url}/document/segments?id=book")
+        assert status == 200
+        # el markdown ya no extrae el campo requerido: el payload no instancia el modelo
+        (tmp_path / "book.md").write_text("no longer a book\n", encoding="utf-8")
+        invalidate_runtime_cache()
+        status, body = _request_json(f"{base_url}/document/segments?id=book", expected_error=422)
+        assert status == 422
+        assert body["ok"] is False
+        assert "title" in body["error"]
+    finally:
+        invalidate_runtime_cache()
+        _stop(server, thread)
+
+
+# ── POST /extract/segments: campos de un modelo sobre markdown crudo ────────
+
+def test_extract_segments_locates_fields_in_raw_markdown(tmp_path: Path) -> None:
+    store = _build_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, body = _request_json(
+            f"{base_url}/extract/segments", method="POST",
+            payload={"model": "SimpleBook", "markdown": "# Some Title"},
+        )
+        assert status == 200
+        assert body["model"] == "SimpleBook"
+        assert body["text"] == "# Some Title"
+        assert body["payload"] == {"title": "Some Title"}
+        assert body["canonical_text"] == "# Some Title"
+        assert [f["path"] for f in body["fields"]] == ["title"]
+        title = body["fields"][0]
+        assert title["alignment"] == "exact" and title["editable"] is True
+        # los offsets direccionan el markdown crudo, no el render canónico
+        assert body["text"][title["start"]:title["end"]] == title["text"] == "Some Title"
+        assert body["unmatched"] == []
+        assert 0.0 <= body["coverage"] <= 1.0
+    finally:
+        _stop(server, thread)
+
+
+def test_extract_segments_reports_text_the_template_does_not_explain(tmp_path: Path) -> None:
+    """Lo que sobra del markdown crudo se declara en ``unmatched``, recortado."""
+    store = _build_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, body = _request_json(
+            f"{base_url}/extract/segments", method="POST",
+            payload={"model": "SimpleBook", "markdown": "# T\n\nparrafo suelto"},
+        )
+        assert status == 200
+        assert [run["text"] for run in body["unmatched"]] == ["parrafo suelto"]
+        for run in body["unmatched"]:
+            assert body["text"][run["start"]:run["end"]] == run["text"]
+    finally:
+        _stop(server, thread)
+
+
+def test_extract_segments_rejects_a_malformed_body_with_400(tmp_path: Path) -> None:
+    store = _build_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        for payload in ({}, {"model": "SimpleBook"}, {"markdown": "# T"},
+                        {"model": 7, "markdown": "# T"}, {"model": "", "markdown": "# T"},
+                        {"model": "SimpleBook", "markdown": None}):
+            status, body = _request_json(
+                f"{base_url}/extract/segments", method="POST", payload=payload, expected_error=400
+            )
+            assert status == 400, payload
+            assert body == {"ok": False, "error": "Expected {model: str, markdown: str}."}
+    finally:
+        _stop(server, thread)
+
+
+def test_extract_segments_distinguishes_unknown_model_from_bad_markdown(tmp_path: Path) -> None:
+    """Un modelo que no existe (404) y un markdown que no extrae (422) son cosas distintas.
+
+    El parche externo metía ambas en un mismo ``except Exception``. Un cliente
+    tiene que poder diferenciar un typo en el nombre del modelo de un documento
+    que hay que arreglar.
+    """
+    store = _build_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, body = _request_json(
+            f"{base_url}/extract/segments", method="POST",
+            payload={"model": "NoSuchModel", "markdown": "# T"}, expected_error=404,
+        )
+        assert status == 404
+        assert body["kind"] == "model"
+        assert "NoSuchModel" in body["error"]
+
+        status, body = _request_json(
+            f"{base_url}/extract/segments", method="POST",
+            payload={"model": "SimpleBook", "markdown": "sin heading, no extrae"}, expected_error=422,
+        )
+        assert status == 422
+        assert body["kind"] == "extraction"
+        assert body["details"]["model"] == "SimpleBook"
+        # error legible, no un stacktrace
+        assert "does not extract as 'SimpleBook'" in body["error"]
+        assert "Traceback" not in body["error"]
+    finally:
+        _stop(server, thread)
+
+
+# ── GET /schema: un modelo roto no puede tumbar la respuesta entera ─────────
+
+def _build_broken_model_store(tmp_path: Path) -> tuple[Path, str]:
+    """Store con un modelo sano y otro cuyo módulo no importa."""
+    from sldb.cli import main as cli_main
+
+    (tmp_path / "kb_ok.py").write_text(
+        "from pydantic import Field\n"
+        "from sldb import StructuredNLDoc\n\n"
+        "class OkDoc(StructuredNLDoc):\n"
+        '    __template__ = "# \u2e22rev\u2022title\u2e25"\n'
+        '    title: str = Field(description="Title.")\n',
+        encoding="utf-8",
+    )
+    (tmp_path / "kb_broken.py").write_text(
+        "from pydantic import Field\n"
+        "from sldb import StructuredNLDoc\n\n"
+        "class BrokenDoc(StructuredNLDoc):\n"
+        '    __template__ = "# \u2e22rev\u2022title\u2e25"\n'
+        '    title: str = Field(description="Title.")\n',
+        encoding="utf-8",
+    )
+    _init(tmp_path)
+    store = str(tmp_path / ".sldb")
+    cli_main(["models", "add", "kb_ok:OkDoc", "--store", store, "--pythonpath", str(tmp_path)])
+    cli_main(["models", "add", "kb_broken:BrokenDoc", "--store", store, "--pythonpath", str(tmp_path)])
+    # el módulo deja de importar DESPUÉS de registrarse: es el caso real
+    (tmp_path / "kb_broken.py").write_text("import a_module_that_does_not_exist\n", encoding="utf-8")
+    return tmp_path / ".sldb", str(tmp_path)
+
+
+def test_schema_degrades_per_model_instead_of_losing_the_response(tmp_path: Path) -> None:
+    """Un store con un modelo irresoluble devuelve los que sí cargan, no cero.
+
+    Y declara el que falló: omitirlo en silencio dejaría al consumidor viendo
+    un store con menos modelos de los que tiene y sin forma de saberlo.
+    """
+    import sys
+
+    store, module_pythonpath = _build_broken_model_store(tmp_path)
+    server, thread, base_url = _serve_with_pythonpath(store, module_pythonpath)
+    for name in ("kb_ok", "kb_broken"):
+        sys.modules.pop(name, None)
+    try:
+        status, schema = _request_json(f"{base_url}/schema")
+        assert status == 200
+        assert [model["id"] for model in schema["models"]] == ["OkDoc"]
+        assert len(schema["unavailable"]) == 1
+        broken = schema["unavailable"][0]
+        assert broken["model"] == "BrokenDoc"
+        assert broken["model_ref"] == "kb_broken:BrokenDoc"
+        assert broken["error"]
+    finally:
+        _stop(server, thread)
+        for name in ("kb_ok", "kb_broken"):
+            sys.modules.pop(name, None)
+
+
+def test_schema_reports_no_unavailable_models_for_a_healthy_store(tmp_path: Path) -> None:
+    """La clave existe siempre y va vacía cuando todo carga: contrato estable."""
+    store = _build_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, schema = _request_json(f"{base_url}/schema")
+        assert status == 200
+        assert schema["unavailable"] == []
+        assert [model["id"] for model in schema["models"]] == ["SimpleBook"]
+    finally:
+        _stop(server, thread)
+
+
+def test_graph_declares_models_whose_documents_are_missing(tmp_path: Path) -> None:
+    """Un modelo irresoluble saca sus documentos de /graph; el modelo se declara.
+
+    ``sldb.store.query._load_one`` resuelve cada modelo y hace ``continue`` si no
+    puede: se lleva TODOS los documentos de ese modelo en silencio. Cambiar esa
+    función tocaría 21 call sites, así que la degradación se hace visible acá.
+    Sin esto, un store a medio romper se ve como un store chico.
+    """
+    import sys
+    from sldb.cli import main as cli_main
+
+    store, module_pythonpath = _build_broken_model_store(tmp_path)
+    doc = tmp_path / "ok-1.md"
+    doc.write_text("# Fine\n", encoding="utf-8")
+    cli_main(["docs", "track", str(doc), "--model", "OkDoc", "--store", str(store), "--pythonpath", module_pythonpath])
+    server, thread, base_url = _serve_with_pythonpath(store, module_pythonpath)
+    for name in ("kb_ok", "kb_broken"):
+        sys.modules.pop(name, None)
+    try:
+        status, body = _request_json(f"{base_url}/graph")
+        assert status == 200
+        assert [d["model_name"] for d in body["documents"]] == ["OkDoc"]
+        assert [u["model"] for u in body["unavailable"]] == ["BrokenDoc"]
+        assert body["unavailable"][0]["error"]
+    finally:
+        _stop(server, thread)
+        for name in ("kb_ok", "kb_broken"):
+            sys.modules.pop(name, None)
+
+
+def test_graph_reports_no_unavailable_models_for_a_healthy_store(tmp_path: Path) -> None:
+    """La clave existe siempre y va vacía cuando todo carga."""
+    store = _build_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, body = _request_json(f"{base_url}/graph")
+        assert status == 200
+        assert body["unavailable"] == []
+        assert len(body["documents"]) == 1
+    finally:
+        _stop(server, thread)

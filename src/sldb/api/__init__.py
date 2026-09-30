@@ -52,6 +52,7 @@ from sldb.api.model_registry.registered_model import RegisteredModel
 from sldb.api.model_registry.reindex_model import reindex_model
 from sldb.api.schema.describe_field import describe_field, describe_model_fields
 from sldb.api.schema.field_description import FieldDescription
+from sldb.api.segments import CompositionPiece, CompositionSpec, DocumentSegments, FieldSegment, LiteralSegment, Segment, SourceRef, build_document_segments
 from sldb.api.stores.init_store import init_store
 from sldb.api.stores.link_store import link_store
 from sldb.api.stores.linked_store import LinkedStore
@@ -85,6 +86,8 @@ from sldb.api.corpus import (
 __all__ = [
     "Corpus", "CorpusEntry", "FieldEntry", "FieldHit", "FieldProjection",
     "Hit", "IndexProjection", "field_id", "split_field_id",
+    "CompositionPiece", "CompositionSpec", "DocumentSegments", "FieldSegment",
+    "LiteralSegment", "Segment", "SourceRef", "build_document_segments",
     "DocumentHashes", "DocumentReference", "DraftDocumentCheck", "DraftValidationReport",
     "EdgeCheckReport", "EdgeIndex", "EdgeNodeRecord", "EdgeRebuildReport",
     "EdgeRecord", "FieldDecl", "FieldDescription", "JournalEntry",
