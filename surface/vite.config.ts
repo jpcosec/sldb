@@ -6,6 +6,8 @@ const target = process.env.SLDB_TARGET ?? "http://127.0.0.1:8787";
 
 export default defineConfig({
   plugins: [react()],
+  // Dos entradas: la superficie genérica (index.html) y la maqueta de átomos (maqueta.html).
+  build: { rollupOptions: { input: { main: "index.html", maqueta: "maqueta.html" } } },
   server: {
     proxy: {
       "/sldb": { target, changeOrigin: true, rewrite: (path) => path.replace(/^\/sldb/, "") },
