@@ -20,7 +20,7 @@ from sldb.cli.serve.fields_routes import dispatch_fields
 from sldb.cli.serve.render_routes import dispatch_render
 from sldb.cli.serve.responses import read_json_body, send_json, send_common_headers
 from sldb.cli.serve.save_routes import save_request
-from sldb.cli.serve.schema import schema_models
+from sldb.cli.serve.schema import store_schema
 from sldb.cli.serve.sections_routes import dispatch_sections
 from sldb.cli.serve.stores_routes import dispatch_stores
 from sldb.store.export import export_kgdb_semantic_payload
@@ -49,7 +49,7 @@ def dispatch_get(
     project_root: Path,
     pythonpath: str,
 ) -> tuple[dict[str, Any], int]:
-    handlers = {"/health": lambda *_: health_payload(store_path, project_root, pythonpath), "/schema": lambda *_: {"models": schema_models(store_path, pythonpath)}, "/graph": lambda *_: {"documents": graph_documents(store_path, pythonpath)}, "/kgdb/snapshot": lambda *_: export_kgdb_semantic_payload(store_path, project_root, resolve_model_ref, pythonpath)}
+    handlers = {"/health": lambda *_: health_payload(store_path, project_root, pythonpath), "/schema": lambda *_: store_schema(store_path, pythonpath).model_dump(mode="json"), "/graph": lambda *_: {"documents": graph_documents(store_path, pythonpath)}, "/kgdb/snapshot": lambda *_: export_kgdb_semantic_payload(store_path, project_root, resolve_model_ref, pythonpath)}
     if route in handlers:
         return handlers[route](route), 200
     return _nested_get(handler, route, store_path, project_root, pythonpath)

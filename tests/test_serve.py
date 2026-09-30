@@ -46,7 +46,7 @@ def test_serve_endpoints_use_real_store(tmp_path: Path) -> None:
                 "id": "SimpleBook",
                 "model_ref": "tests.store.test_cli_store:SimpleBook",
                 "fields": [
-                    {"name": "title", "kind": "string", "required": True}
+                    {"name": "title", "kind": "string", "required": True, "description": "Book title."}
                 ],
                 "containment": {},
                 "references": [],
@@ -1021,5 +1021,57 @@ def test_find_flags_and_param_validation(tmp_path: Path) -> None:
 
         status, body = _request_json(f"{base_url}/find", expected_error=400)
         assert status == 400 and "Missing parameter: q" in body["error"]
+    finally:
+        _stop(server, thread)
+
+
+_BROKEN_MODEL = '''from pydantic import Field
+from sldb import StructuredNLDoc
+
+
+class BrokenDoc(StructuredNLDoc):
+    __template__ = "# ⸢rev•title⸥"
+    title: str = Field(description="Title.")
+'''
+
+
+def test_schema_declares_models_that_cannot_load(tmp_path: Path) -> None:
+    """Un modelo que no importa sale en `unavailable`; los demas se describen igual.
+
+    Antes, un solo modelo roto tumbaba la respuesta entera: un store con veinte
+    modelos y uno roto devolvia cero. Degradacion en silencio, invertida.
+    """
+    import sys
+
+    from sldb.cli import main as cli_main
+
+    store = _build_store(tmp_path)
+    module = tmp_path / "broken_models.py"
+    module.write_text(_BROKEN_MODEL, encoding="utf-8")
+    cli_main(["models", "add", "broken_models:BrokenDoc", "--store", str(store), "--pythonpath", str(tmp_path)])
+    module.unlink()
+    sys.modules.pop("broken_models", None)
+
+    server, thread, base_url = _serve(store)
+    try:
+        status, schema = _request_json(f"{base_url}/schema")
+        assert status == 200
+        assert [model["id"] for model in schema["models"]] == ["SimpleBook"]
+        broken = schema["unavailable"][0]
+        assert broken["model"] == "BrokenDoc"
+        assert broken["model_ref"] == "broken_models:BrokenDoc"
+        assert broken["error"]
+    finally:
+        _stop(server, thread)
+
+
+def test_schema_reports_no_unavailable_models_for_a_healthy_store(tmp_path: Path) -> None:
+    """La clave va siempre, y vacia cuando todo carga: contrato estable para la UI."""
+    store = _build_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, schema = _request_json(f"{base_url}/schema")
+        assert status == 200
+        assert schema["unavailable"] == []
     finally:
         _stop(server, thread)

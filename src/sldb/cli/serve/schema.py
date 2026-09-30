@@ -16,6 +16,8 @@ from pydantic_core import PydanticUndefined
 
 from sldb.api.schema.field_descriptor import add_enum_values, field_descriptor  # noqa: F401 - moved to sldb.api.schema
 from sldb.api.schema.field_kinds import enum_values, field_kind, list_kind, scalar_kind, unwrap_annotation  # noqa: F401 - moved to sldb.api.schema
+from sldb.api.schema.store_schema import StoreSchema
+from sldb.api.schema.unavailable_model import UnavailableModel
 from sldb.cli.model_utils import resolve_model_ref
 from sldb.models.structured_doc import StructuredNLDoc
 from sldb.store.io import load_store_index
@@ -24,6 +26,28 @@ from sldb.store.io import load_store_index
 def schema_models(store_path: Path, pythonpath: str) -> list[dict[str, Any]]:
     store_index = load_store_index(store_path)
     return [schema_model(entry, pythonpath) for entry in store_index.models]
+
+
+def store_schema(store_path: Path, pythonpath: str) -> StoreSchema:
+    """Describe every registered model, declaring the ones that cannot load.
+
+    A model whose module does not import must not take the listing down: a store
+    with twenty models and one broken has nineteen describable models and one
+    reportable failure, not zero models.
+    """
+    described: list[dict[str, Any]] = []
+    unavailable: list[UnavailableModel] = []
+    for entry in load_store_index(store_path).models:
+        _describe_into(entry, pythonpath, described, unavailable)
+    return StoreSchema(models=described, unavailable=unavailable)
+
+
+def _describe_into(entry: Any, pythonpath: str, described: list[dict[str, Any]], unavailable: list[UnavailableModel]) -> None:
+    """Describe one model into ``described``, or record why it could not be."""
+    try:
+        described.append(schema_model(entry, pythonpath))
+    except Exception as exc:  # noqa: BLE001 - one broken model must not hide the rest
+        unavailable.append(UnavailableModel(model=entry.name, model_ref=entry.model_ref, error=str(exc)))
 
 
 def schema_model(entry: Any, pythonpath: str) -> dict[str, Any]:

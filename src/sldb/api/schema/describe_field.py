@@ -21,7 +21,7 @@ def describe_field(name: str, field: FieldInfo) -> FieldDescription:
         The field description.
     """
     annotation = getattr(field.annotation, "__name__", repr(field.annotation))
-    return FieldDescription(**field_descriptor(name, field), annotation=annotation, description=field.description or "")
+    return FieldDescription(**field_descriptor(name, field), annotation=annotation)
 
 
 def describe_model_fields(model_type: type[Any]) -> list[FieldDescription]:
