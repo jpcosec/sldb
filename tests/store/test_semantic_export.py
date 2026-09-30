@@ -16,7 +16,7 @@ def _write_model(project: Path) -> str:
         "from pydantic import Field\n"
         "from sldb import StructuredNLDoc\n\n"
         "class TaskDoc(StructuredNLDoc):\n"
-        "    __template__ = '# ⸢rev•title⸥\\n\\n⸢rev•body⸥'\n"
+        "    __template__ = '# ⸢rev•title⸥\\n\\n## Overview\\n\\n⸢rev•body⸥'\n"
         "    __semantics__ = {'domain': ['workflow', 'task'], 'system': 'desk'}\n"
         "    title: str = Field(description='Title')\n"
         "    body: str = Field(description='Body')\n",

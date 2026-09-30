@@ -18,7 +18,15 @@ class SimpleBook(StructuredNLDoc):
     title: str = Field(description="Book title.")
 
 
+class BookWithSetup(SimpleBook):
+    """SimpleBook plus the `## Setup` section, declared so it is not structural noise."""
+
+    __template__ = "# ⸢rev•title⸥\n\n## Setup\n\n⸢optrev•setup⸥"
+    setup: str = Field(default="", description="Setup section body.")
+
+
 _REF = f"{SimpleBook.__module__}:{SimpleBook.__name__}"
+_SETUP_REF = f"{BookWithSetup.__module__}:{BookWithSetup.__name__}"
 
 
 def _STORE_ARGS(tmp):

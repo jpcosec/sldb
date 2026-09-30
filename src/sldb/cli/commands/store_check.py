@@ -9,7 +9,31 @@ def check_store(args: Any) -> int:
     from sldb.cli.model_utils import resolve_model_ref
     sp, root = get_store_context(args.store, mode="readonly")
     res = diagnose_store(sp, resolve_model_ref, root, pythonpath=args.pythonpath)
-    return _handle_check_res(res, args.format, getattr(args, "quiet", False))
+    code = _handle_check_res(res, args.format, getattr(args, "quiet", False))
+    return _report_structural_noise(sp, root, args, code)
+
+
+def _report_structural_noise(sp: Any, root: Any, args: Any, code: int) -> int:
+    """List tracked documents with undeclared headings; diagnosis, so the code is unchanged."""
+    from sldb.api.stores.scan_structural_noise import scan_structural_noise
+
+    if args.format in ("json", "yaml"):
+        return code
+    reports = scan_structural_noise(sp, root, args.pythonpath)
+    _print_noise(reports)
+    return code
+
+
+def _print_noise(reports: list[Any]) -> None:
+    """Name every noisy document and the headings behind the verdict, never a count alone."""
+    if not reports:
+        return
+    print(f"\nruido estructural: {len(reports)} documento(s) trackeado(s) traen headings que su modelo no declara")
+    for report in reports:
+        print(f"  {report.document} ({report.model}): {len(report.undeclared)} heading(s) sin declarar")
+        for line in report.undeclared:
+            print(f"      {line}")
+    print("  fix     : creá un modelo que herede y declare esas secciones como campos optrev")
 
 def _handle_check_res(res: Any, fmt: str, quiet: bool = False) -> int:
     if fmt in ("json", "yaml"):

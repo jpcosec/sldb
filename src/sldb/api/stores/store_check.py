@@ -19,7 +19,15 @@ def check_store(store_path: Path, project_root: Path, pythonpath: str | None = N
 
     diagnosis = diagnose_store(store_path, resolve_model_ref, project_root, pythonpath=pythonpath)
     summary = _summarize(diagnosis)
-    return {"ok": not summary["mismatched"], **_classified(diagnosis), **summary}
+    noise = _structural_noise(store_path, project_root, pythonpath)
+    return {"ok": not summary["mismatched"], **_classified(diagnosis), **summary, "structural_noise": noise}
+
+
+def _structural_noise(store_path: Path, project_root: Path, pythonpath: str | None) -> list[dict[str, Any]]:
+    """Tracked documents with undeclared headings: reported here, refused at write time."""
+    from sldb.api.stores.scan_structural_noise import scan_structural_noise
+
+    return [report.details() for report in scan_structural_noise(store_path, project_root, pythonpath)]
 
 
 def _classified(diagnosis: Any) -> dict[str, Any]:

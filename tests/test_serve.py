@@ -12,7 +12,7 @@ from urllib.request import Request, urlopen
 from sldb.cli.serve import save_routes
 from sldb.cli.serve.http_server import build_handler
 from sldb.store.io import load_store_index
-from tests.store.test_cli_store import _PY_ARGS, _doc_track, _init, _model_add
+from tests.store.test_cli_store import _PY_ARGS, _SETUP_REF, _STORE_ARGS, _doc_track, _init, _model_add
 
 
 JSON_HEADERS = {"Content-Type": "application/json"}
@@ -811,11 +811,19 @@ def test_models_endpoints_resolve_relative_imports_by_package_name(tmp_path: Pat
 # ── Surfaces de lectura (V1 Store Explorer / V4 / V5 / V7 / V9) ─────────────
 
 def _build_chapter_store(tmp_path: Path) -> Path:
-    """Store con un segundo doc con secciones para los endpoints de lectura."""
+    """Store con un segundo doc con secciones para los endpoints de lectura.
+
+    `guide` trae `## Setup`, que `SimpleBook` no declara: se trackea bajo el modelo
+    hijo `BookWithSetup`, que la declara `optrev`. Bajo `SimpleBook` seria ruido
+    estructural y `docs track` lo rechaza.
+    """
     store = _build_store(tmp_path)
+    from sldb.cli import main as cli_main
+
+    cli_main(["models", "add", _SETUP_REF] + _STORE_ARGS(tmp_path) + _PY_ARGS)
     doc = tmp_path / "guide.md"
     doc.write_text("# My Book\n\n## Setup\n\nSet it up.\n", encoding="utf-8")
-    _doc_track(tmp_path, doc, name="guide")
+    cli_main(["docs", "track", str(doc), "--model", "BookWithSetup", "--name", "guide"] + _STORE_ARGS(tmp_path) + _PY_ARGS)
     return store
 
 
@@ -828,7 +836,7 @@ def test_stores_describe_current_store(tmp_path: Path) -> None:
         assert body == {
             "store": str(store),
             "root": str(tmp_path),
-            "model_count": 1,
+            "model_count": 2,
             "doc_count": 2,
             "hash_a": load_store_index(store).hash_a,
             "stores": [],
@@ -897,8 +905,10 @@ def test_ast_exposes_full_ir_and_sections(tmp_path: Path) -> None:
         status, body = _request_json(f"{base_url}/ast?doc=guide")
         assert status == 200
         doc = body["document"]
-        assert doc["name"] == "guide" and doc["model"] == "SimpleBook"
-        assert doc["payload"] == {"title": "My Book"}
+        assert doc["name"] == "guide" and doc["model"] == "BookWithSetup"
+        # `setup` esta en el payload porque el modelo declara la seccion: declararla es
+        # lo que rescata el texto que antes se perdia dentro del documento.
+        assert doc["payload"] == {"title": "My Book", "setup": "Set it up."}
         assert any(section["title"] == "Setup" for section in doc["sections"])
         assert "structure" in doc["ir"] and "surface" in doc["ir"]
     finally:
