@@ -5,7 +5,10 @@
  * Aristas: `relation` (RelationDoc) con flecha y etiqueta; `reference` (estructurales entre
  * átomos) tenues, sin etiqueta y con su propio filtro; `inherited` (extremo-grupo proyectado
  * sobre los miembros) punteadas. Arrastrar de un átomo a otro abre el menú de tipos válidos y
- * crea un `RelationDoc`. Toda la lógica (layout, plegado, fusión, geometría) está en
+ * crea un `RelationDoc`. También se arrastra DESDE o HASTA el encabezado de una región (o un
+ * grupo plegado): la relación es sobre un `GrupoDoc` (se crea si falta) y la heredan los átomos.
+ * Crear relaciones es solo con puntero (no hay alternativa de teclado para el arrastre, ni para
+ * átomos ni para grupos); el encabezado sí se alcanza con Tab y Enter lo pliega. Toda la lógica (layout, plegado, fusión, geometría) está en
  * `core/atom-graph`; acá solo hay estado de UI y SVG con pointer events.
  *
  * Zoom/pan: rueda para acercar, arrastrar el fondo para mover, "Ajustar" para encuadrar.
@@ -22,12 +25,13 @@ import {
   fitView,
   fuseLinks,
   groupOfKey,
+  GROUP_KEY_PREFIX,
   highlightKeys,
   isGroupKey,
   layoutRegions,
   nextRelationName,
   nodeAt,
-  relationPayload,
+  relationPayloadBetween,
   relationTypeNames,
   screenToWorld,
   truncate,
@@ -38,7 +42,8 @@ import {
   type Point,
   type View,
 } from "../../core/atom-graph";
-import { anchorState, groupTree, validRelationTypes } from "../../core/atoms";
+import { GROUP_MODEL, groupGid, groupPayload, groupSlug, groupsFromDocuments, isAlreadyExists, tagOfGroupGid } from "../../core/atom-groups";
+import { ATOM_MODEL, anchorState, groupTree, validRelationTypesBetween } from "../../core/atoms";
 import type { Atom, AtomKind, RelationTypeSpec } from "../../core/contract";
 import { useAtomStore } from "./useAtomStore";
 import "./atomos-grafo.css";
@@ -48,14 +53,21 @@ const KINDS = Object.keys(KIND_LABEL) as AtomKind[];
 const ANCHOR_LABEL = { intact: "intacta", drifted: "movida", orphan: "huérfana" } as const;
 
 type Selection = { type: "atom"; id: string } | { type: "edge"; key: string } | null;
+/** Extremo de una relación en curso: un átomo o un grupo (`tag` solo en grupos). */
+interface End {
+  gid: string;
+  model: string;
+  label: string;
+  tag?: string;
+}
 interface DragState {
+  /** Clave de nodo (`AtomDoc:a1`) o de grupo (`group:infra`). */
   sourceKey: string;
-  sourceGid: string;
   pointer: Point;
 }
 interface MenuState {
-  source: Atom;
-  target: Atom;
+  source: End;
+  target: End;
   left: number;
   top: number;
 }
@@ -107,13 +119,26 @@ export default function AtomosGrafoView({ focusId }: { focusId?: string } = {}) 
   const selectedEdge = selection?.type === "edge" ? fused.find((e) => e.key === selection.key) ?? null : null;
   const inspectorOpen = selectedAtom !== null || selectedEdge !== null;
 
+  const knownTags = useMemo(() => [...atoms.flatMap((a) => a.tags), ...groupsFromDocuments(documents).map((g) => g.tag)], [atoms, documents]);
   const labelOf = useCallback(
     (key: string): string => {
       if (isGroupKey(key)) return `Grupo ${groupOfKey(key)}`;
+      const tagOfGroup = tagOfGroupGid(key, knownTags);
+      if (tagOfGroup !== null) return `Grupo ${tagOfGroup}`;
       return byGid.get(key)?.text ?? key;
     },
-    [byGid],
+    [byGid, knownTags],
   );
+
+  /** Extremo de relación para una clave de nodo/grupo; `null` si no se puede relacionar (sin grupo, átomo ausente). */
+  const endOfKey = (key: string): End | null => {
+    if (isGroupKey(key)) {
+      const g = groupOfKey(key);
+      return g === NO_GROUP ? null : { gid: groupGid(g), model: GROUP_MODEL, label: `Grupo ${g}`, tag: g };
+    }
+    const a = byGid.get(key);
+    return a ? { gid: a.gid, model: ATOM_MODEL, label: a.text } : null;
+  };
 
   // ------------------------------------------------------------ zoom / pan
   const measure = () => {
@@ -178,10 +203,14 @@ export default function AtomosGrafoView({ focusId }: { focusId?: string } = {}) 
   }, [drag, endDrag]);
 
   const onNodePointerDown = (e: ReactPointerEvent, node: LayoutNode) => {
-    if (e.button > 0 || node.kind !== "atom") return;
+    if (e.button > 0) return;
+    beginDrag(e, node.key);
+  };
+
+  const beginDrag = (e: ReactPointerEvent, key: string) => {
     e.stopPropagation();
     setMenu(null);
-    const next = { sourceKey: node.key, sourceGid: node.key, pointer: toWorld(e) };
+    const next = { sourceKey: key, pointer: toWorld(e) };
     dragRef.current = next;
     setDrag(next);
   };
@@ -204,16 +233,20 @@ export default function AtomosGrafoView({ focusId }: { focusId?: string } = {}) 
     if (!d) return;
     endDrag();
     // El elemento bajo el puntero manda; el hit-test geométrico cubre entornos sin hit-testing nativo.
-    const el = (e.target as Element).closest?.("[data-node-key]");
-    const key = el?.getAttribute("data-node-key") ?? nodeAt(layout, toWorld(e));
+    const el = (e.target as Element).closest?.("[data-node-key],[data-group-head]");
+    const head = el?.getAttribute("data-group-head");
+    const key = head ? `${GROUP_KEY_PREFIX}${head}` : el?.getAttribute("data-node-key") ?? nodeAt(layout, toWorld(e));
     if (!key || key === d.sourceKey) return; // soltar sobre sí mismo = click
-    if (isGroupKey(key)) {
-      setNotice({ tone: "error", text: "Un grupo plegado no se relaciona directamente: despliégalo y suelta sobre un átomo." });
+    const source = endOfKey(d.sourceKey);
+    const target = endOfKey(key);
+    if (!source || !target) {
+      if (isGroupKey(key) || isGroupKey(d.sourceKey)) setNotice({ tone: "error", text: `El grupo ${NO_GROUP} no es un grupo real: no admite relaciones.` });
       return;
     }
-    const source = byGid.get(d.sourceGid);
-    const target = byGid.get(key);
-    if (!source || !target) return;
+    if (source.model === GROUP_MODEL && target.model === GROUP_MODEL) {
+      setNotice({ tone: "error", text: "No se relaciona un grupo con otro grupo: suelta sobre un átomo." });
+      return;
+    }
     const wrap = wrapRef.current?.getBoundingClientRect();
     const p = clientPoint(e);
     setNotice(null);
@@ -232,7 +265,17 @@ export default function AtomosGrafoView({ focusId }: { focusId?: string } = {}) 
     setBusy(true);
     const name = nextRelationName(documents);
     try {
-      const res = await createDocument("RelationDoc", name, relationPayload(source, target, type));
+      // Un grupo es un documento: se crea la primera vez que recibe una relación (409 = ya existe).
+      for (const end of [source, target]) {
+        if (!end.tag || documents.some((d) => d.model_name === GROUP_MODEL && `${GROUP_MODEL}:${d.id}` === end.gid)) continue;
+        try {
+          const g = await createDocument(GROUP_MODEL, groupSlug(end.tag), groupPayload(end.tag));
+          if (g && g.ok === false) throw new Error(`El servidor rechazó el grupo ${end.tag}.`);
+        } catch (err) {
+          if (!isAlreadyExists(err)) throw err;
+        }
+      }
+      const res = await createDocument("RelationDoc", name, relationPayloadBetween(source, target, type));
       if (res && res.ok === false) throw new Error("El servidor rechazó la relación.");
       setNotice({ tone: "ok", text: `Relación ${name} creada: ${type.name}.` });
       setMenu(null);
@@ -307,11 +350,19 @@ export default function AtomosGrafoView({ focusId }: { focusId?: string } = {}) 
     );
   }
 
+  /** Punto de partida de la goma: centro del nodo, o del encabezado de la región si el grupo está desplegado. */
+  const originOf = (key: string): Point | null => {
+    const n = layout.byKey[key];
+    if (n) return { x: n.x + n.w / 2, y: n.y + n.h / 2 };
+    const r = isGroupKey(key) ? layout.regions.find((x) => x.group === groupOfKey(key)) : undefined;
+    return r ? { x: r.x + r.w / 2, y: r.y + 15 } : null;
+  };
+
   const nodeEls = layout.nodes.map((node) => {
     const atom = node.kind === "atom" ? byGid.get(node.key) : undefined;
     const dim = tag !== null && !hot.has(node.key);
     const isSel = atom !== undefined && selectedAtom?.id === atom.id;
-    const isTarget = drag !== null && drag.sourceKey !== node.key && node.kind === "atom";
+    const isTarget = drag !== null && drag.sourceKey !== node.key && (node.kind === "atom" || !isGroupKey(drag.sourceKey));
     return (
       <NodeView
         key={node.key}
@@ -434,10 +485,15 @@ export default function AtomosGrafoView({ focusId }: { focusId?: string } = {}) 
                   <g key={r.group} className={`ag-region${tag !== null && !r.nodeKeys.some((k) => hot.has(k)) ? " is-dim" : ""}`}>
                     <rect className="ag-region__box" x={r.x} y={r.y} width={r.w} height={r.h} rx={8} />
                     <g
-                      className="ag-region__head"
+                      className={`ag-region__head${drag !== null && r.group !== NO_GROUP && drag.sourceKey !== `${GROUP_KEY_PREFIX}${r.group}` && !isGroupKey(drag.sourceKey) ? " is-droppable" : ""}`}
                       role="button"
                       tabIndex={0}
                       aria-label={`${r.collapsed ? "Desplegar" : "Plegar"} región ${r.group}`}
+                      data-group-head={r.group === NO_GROUP ? undefined : r.group}
+                      onPointerDown={(e) => {
+                        if (e.button > 0 || r.group === NO_GROUP) return;
+                        beginDrag(e, `${GROUP_KEY_PREFIX}${r.group}`);
+                      }}
                       onClick={() => toggleGroup(r.group)}
                       onKeyDown={(e) => {
                         if (e.key === "Enter" || e.key === " ") {
@@ -499,14 +555,8 @@ export default function AtomosGrafoView({ focusId }: { focusId?: string } = {}) 
 
                 {nodeEls}
 
-                {drag && layout.byKey[drag.sourceKey] && (
-                  <line
-                    className="ag-rubber"
-                    x1={layout.byKey[drag.sourceKey]!.x + layout.byKey[drag.sourceKey]!.w / 2}
-                    y1={layout.byKey[drag.sourceKey]!.y + layout.byKey[drag.sourceKey]!.h / 2}
-                    x2={drag.pointer.x}
-                    y2={drag.pointer.y}
-                  />
+                {drag && originOf(drag.sourceKey) && (
+                  <line className="ag-rubber" x1={originOf(drag.sourceKey)!.x} y1={originOf(drag.sourceKey)!.y} x2={drag.pointer.x} y2={drag.pointer.y} />
                 )}
               </g>
             </svg>
@@ -528,10 +578,15 @@ export default function AtomosGrafoView({ focusId }: { focusId?: string } = {}) 
               </span>
             </div>
 
+            <p className="ag-help">
+              Arrastra desde un átomo, o desde el encabezado de un grupo, hasta otro átomo para relacionarlos. Si sueltas sobre el encabezado de un grupo (o un grupo plegado), la
+              relación la heredan todos sus átomos (línea punteada). Crear relaciones requiere puntero.
+            </p>
+
             {menu && (
               <RelationMenu
                 menu={menu}
-                types={validRelationTypes(relationTypes, menu.source, menu.target, edges)}
+                types={validRelationTypesBetween(relationTypes, menu.source, menu.target, edges)}
                 anyTypes={relationTypes.length > 0}
                 busy={busy}
                 onPick={(t) => void create(t)}
@@ -715,12 +770,15 @@ function RelationMenu({
   return (
     <div className="ag-menu" role="menu" aria-label="Tipo de relación" style={{ left: menu.left, top: menu.top }}>
       <p className="ag-menu__title">
-        {truncate(menu.source.text, 28)} <span aria-hidden>→</span> {truncate(menu.target.text, 28)}
+        {truncate(menu.source.label, 28)} <span aria-hidden>→</span> {truncate(menu.target.label, 28)}
       </p>
+      {(menu.source.tag || menu.target.tag) && (
+        <p className="ag-menu__note">Sobre un grupo: la relación la heredan todos sus átomos (línea punteada).</p>
+      )}
       {types.length === 0 ? (
         <p className="ag-menu__empty" role="alert">
           {anyTypes
-            ? "No hay tipos de relación válidos entre estos dos átomos: los tipos no admiten átomos en estos extremos o la relación ya existe."
+            ? "No hay tipos de relación válidos entre estos dos extremos: los tipos no los admiten (un grupo solo lo admiten los tipos que listan GrupoDoc) o la relación ya existe."
             : "No hay tipos de relación definidos (RelationTypeDoc)."}
         </p>
       ) : (
@@ -793,7 +851,13 @@ function AtomInspector({
                 ) : (
                   l.edge.source
                 )}
-                {l.inherited && <span className="inspector__note"> (heredada de {l.via})</span>}
+                {l.inherited && (
+                  <span className="inspector__note">
+                    {" "}
+                    (heredada del grupo {l.via}
+                    {l.edge.relationDoc ? `, por ${l.edge.relationDoc}` : ""})
+                  </span>
+                )}
               </li>
             );
           })}
@@ -813,8 +877,10 @@ function AtomInspector({
 }
 
 function EdgeInspector({ edge, labelOf }: { edge: GraphEdge; labelOf(key: string): string }) {
+  const via = [...new Set(edge.links.map((l) => l.via).filter(Boolean))].join(", ");
+  const orig = edge.links[0]?.edge;
   const origin = edge.inherited
-    ? `Heredada de un grupo${edge.links[0]?.via ? ` (${edge.links[0].via})` : ""}; se calcula, no se guarda.`
+    ? `Heredada del grupo ${via || "?"}${edge.relationDocs.length ? ` por la relación ${edge.relationDocs.join(", ")}` : ""}${orig ? ` (${orig.source} → ${orig.target})` : ""}; se calcula, no se guarda.`
     : edge.kind === "reference"
       ? "Referencia estructural (no es un RelationDoc)."
       : "Relación explícita.";

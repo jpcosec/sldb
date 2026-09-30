@@ -20,6 +20,7 @@ import {
   nodeKeyOf,
   primaryGroup,
   relationPayload,
+  relationPayloadBetween,
   relationTypeNames,
   screenToWorld,
   wrapLines,
@@ -108,6 +109,21 @@ describe("aristas", () => {
     // semantic_tag/infra → a2 se proyecta sobre miembros de infra distintos de a2
     expect(inh.map((l) => l.source).sort()).toEqual(["AtomDoc:a3", "AtomDoc:a4"]);
     expect(inh.every((l) => l.target === "AtomDoc:a2" && l.via === "infra" && l.kind === "relation")).toBe(true);
+  });
+  it("un GrupoDoc como extremo ya no se ignora: se hereda punteado hacia/desde cada átomo del grupo", () => {
+    const g: Edge = { id: "r10", source: "GrupoDoc:infra-ingesta", target: "AtomDoc:a1", type: "condiciona", origin: "relation_doc", relationDoc: "r10" };
+    const inh = atomLinks([g], visible).filter((l) => l.inherited);
+    expect(inh.length).toBeGreaterThan(0);
+    expect(inh.every((l) => l.edge.id === "r10" && l.target === "AtomDoc:a1" && l.via === "infra.ingesta" && l.kind === "relation")).toBe(true);
+    const back: Edge = { id: "r11", source: "AtomDoc:a1", target: "GrupoDoc:infra", type: "afecta", origin: "relation_doc", relationDoc: "r11" };
+    const out = atomLinks([back], visible).filter((l) => l.inherited);
+    expect(out.every((l) => l.source === "AtomDoc:a1")).toBe(true);
+    // los miembros de un subgrupo también heredan la relación puesta sobre el padre
+    expect(new Set(out.map((l) => l.target))).toEqual(new Set(visible.filter((a) => a.tags.some((t) => t === "infra" || t.startsWith("infra."))).map((a) => a.gid).filter((x) => x !== "AtomDoc:a1")));
+  });
+  it("relationPayloadBetween arma el RelationDoc con un GrupoDoc de extremo", () => {
+    const p = relationPayloadBetween({ gid: "GrupoDoc:riesgos", label: "Grupo riesgos" }, { gid: "AtomDoc:a5", label: "Migración" }, { id: "c", name: "condiciona", source_types: [], target_types: [], cardinality: "", description: "" });
+    expect(p).toMatchObject({ source_id: "GrupoDoc:riesgos", target_id: "AtomDoc:a5", relation_type: "condiciona", title: "Grupo riesgos condiciona Migración" });
   });
   it("origin reference es tenue (kind reference)", () => {
     const e: Edge = { id: "z", source: "AtomDoc:a1", target: "AtomDoc:a2", type: "menciona", origin: "reference", relationDoc: null };

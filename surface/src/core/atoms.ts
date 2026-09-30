@@ -23,6 +23,7 @@ import type {
   SlotMode,
   SlotName,
 } from "./contract";
+import { GROUP_MODEL, groupGid } from "./atom-groups";
 
 export const ATOM_MODEL = "AtomDoc";
 export const ATOM_KINDS: AtomKind[] = ["entidad", "hecho", "decision", "pendiente", "riesgo"];
@@ -237,9 +238,35 @@ export interface InheritedEdge {
   inherited: true;
 }
 
-/** Cómo puede nombrar una arista al grupo `tag` en sus extremos. */
+/**
+ * Cómo puede nombrar una arista al grupo `tag` en sus extremos: `GrupoDoc:<slug>` (el formato
+ * actual, ver `atom-groups`) y, por compatibilidad, los formatos viejos (`tag`, `tag:x`,
+ * `Group:x`, `semantic_tag/x`).
+ */
 export function groupEndpoints(tag: string): string[] {
-  return [tag, `tag:${tag}`, `Group:${tag}`, `semantic_tag/${tag}`, `sldb://semantic_tag/${tag}`];
+  return [groupGid(tag), tag, `tag:${tag}`, `Group:${tag}`, `semantic_tag/${tag}`, `sldb://semantic_tag/${tag}`];
+}
+
+/** Extremo de una relación a crear: un átomo o un grupo (`GrupoDoc`). */
+export interface RelEnd {
+  gid: string;
+  model: string;
+}
+
+/**
+ * Como `validRelationTypes` pero con extremos átomo O grupo: el tipo debe admitir el modelo de
+ * cada extremo (`AtomDoc` / `GrupoDoc`) y la arista exacta no debe existir. Entre dos grupos no
+ * se ofrece nada (no hay producto cartesiano de grupos).
+ */
+export function validRelationTypesBetween(types: RelationTypeSpec[], source: RelEnd, target: RelEnd, edges: Edge[] = []): RelationTypeSpec[] {
+  if (source.gid === target.gid) return [];
+  if (source.model === GROUP_MODEL && target.model === GROUP_MODEL) return [];
+  return atomRelationTypes(types).filter(
+    (t) =>
+      admits(t.source_types, source.model) &&
+      admits(t.target_types, target.model) &&
+      !edges.some((e) => e.type === t.name && e.source === source.gid && e.target === target.gid),
+  );
 }
 
 /**

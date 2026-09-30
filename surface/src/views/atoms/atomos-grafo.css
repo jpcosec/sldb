@@ -117,3 +117,10 @@
   .ag-groups { border-right: 0; border-bottom: 1px solid var(--rule); max-height: 140px; }
 }
 .ag-insp__tags .tray-tag { background: var(--hover); border: 1px solid var(--rule-strong); }
+
+/* Relaciones sobre grupos: encabezado de región como destino/origen del arrastre + ayuda al pie. */
+.ag-region__head.is-droppable rect { fill: var(--action-soft); stroke: var(--action); stroke-width: 1.5; }
+.ag-region__head.is-droppable text { fill: var(--action-strong); }
+.ag-help { position: absolute; right: 12px; bottom: 12px; max-width: 34%; margin: 0; padding: 6px 10px; background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius-m); font-size: 12px; color: var(--print); }
+.ag-menu__note { margin: 0 0 4px; font-size: 12px; color: var(--print); }
+.ag-legend { max-width: 58%; }

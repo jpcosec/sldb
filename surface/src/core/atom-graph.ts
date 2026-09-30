@@ -183,9 +183,10 @@ export function linkKind(edge: Edge): LinkKind {
 }
 
 /**
- * Aristas átomo→átomo: las directas y las heredadas (extremo-grupo proyectado con
- * `inheritedEdges` sobre cada grupo del árbol). Extremos que no son átomos ni grupos
- * (actas, informes) se ignoran: no hay nodo donde dibujarlos.
+ * Aristas átomo→átomo: las directas y las heredadas (extremo-grupo, `GrupoDoc:<slug>` o formatos
+ * viejos, proyectado con `inheritedEdges` sobre cada grupo del árbol: cada átomo del grupo y de
+ * sus subgrupos la hereda). Extremos que no son átomos ni grupos (actas, informes) se ignoran:
+ * no hay nodo donde dibujarlos.
  */
 export function atomLinks(edges: Edge[], atoms: Atom[]): AtomLink[] {
   const gids = new Set(atoms.map((a) => a.gid));
@@ -404,16 +405,27 @@ export function nextRelationName(documents: Pick<GraphDocument, "id" | "model_na
 
 const clip = (s: string, n: number) => (s.length > n ? `${s.slice(0, n - 1)}…` : s);
 
-/** Payload del `RelationDoc` para `source → target` con el tipo elegido. */
-export function relationPayload(source: Atom, target: Atom, type: RelationTypeSpec): Payload {
+/** Extremo con su etiqueta legible, para armar el título del `RelationDoc`. */
+export interface PayloadEnd {
+  gid: string;
+  label: string;
+}
+
+/** Payload del `RelationDoc` para `source → target` (átomos o `GrupoDoc`) con el tipo elegido. */
+export function relationPayloadBetween(source: PayloadEnd, target: PayloadEnd, type: RelationTypeSpec): Payload {
   return {
-    title: `${clip(source.text, 30)} ${type.name} ${clip(target.text, 30)}`,
+    title: `${clip(source.label, 30)} ${type.name} ${clip(target.label, 30)}`,
     source_id: source.gid,
     target_id: target.gid,
     relation_type: type.name,
     condition: "",
     notes: "",
   };
+}
+
+/** Payload del `RelationDoc` para `source → target` con el tipo elegido. */
+export function relationPayload(source: Atom, target: Atom, type: RelationTypeSpec): Payload {
+  return relationPayloadBetween({ gid: source.gid, label: source.text }, { gid: target.gid, label: target.text }, type);
 }
 
 export const truncate = clip;

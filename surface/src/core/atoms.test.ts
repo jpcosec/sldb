@@ -6,6 +6,7 @@ import {
   anchorState,
   atomsFromDocuments,
   excludeAtom,
+  groupEndpoints,
   groupTree,
   informesFromDocuments,
   inheritedEdges,
@@ -18,6 +19,7 @@ import {
   selectionToAtomPayload,
   unpinAtom,
   validRelationTypes,
+  validRelationTypesBetween,
 } from "./atoms";
 import type { Edge, GraphDocument, InformeSlot } from "./contract";
 
@@ -119,6 +121,19 @@ describe("inheritedEdges", () => {
   it("un grupo sin aristas propias no hereda nada", () => {
     expect(inheritedEdges(edges, "infra.ingesta", atoms)).toEqual([]);
   });
+  it("reconoce GrupoDoc:<slug> como extremo de grupo (origen o destino) y conserva los formatos viejos", () => {
+    expect(groupEndpoints("infra.ingesta")).toEqual(expect.arrayContaining(["GrupoDoc:infra-ingesta", "infra.ingesta", "semantic_tag/infra.ingesta"]));
+    const asSource: Edge = { id: "g1", source: "GrupoDoc:infra", target: "AtomDoc:a1", type: "afecta", origin: "relation_doc", relationDoc: "r10" };
+    const out = inheritedEdges([asSource], "infra", atoms);
+    expect(out.map((e) => e.atomId)).toEqual(["a2", "a3", "a4", "a5", "a6"]); // subgrupos incluidos
+    expect(out.every((e) => e.source === e.atomGid && e.target === "AtomDoc:a1" && e.via === "infra")).toBe(true);
+    const asTarget: Edge = { id: "g2", source: "AtomDoc:a1", target: "GrupoDoc:infra-ingesta", type: "afecta", origin: "relation_doc", relationDoc: "r11" };
+    const inh = inheritedEdges([asTarget], "infra.ingesta", atoms);
+    expect(inh.length).toBeGreaterThan(0);
+    expect(inh.every((e) => e.source === "AtomDoc:a1" && e.target === e.atomGid)).toBe(true);
+    // el slug de un grupo no toca a otro
+    expect(inheritedEdges([asTarget], "infra.almacenamiento", atoms)).toEqual([]);
+  });
 });
 
 describe("slots de informe", () => {
@@ -179,5 +194,33 @@ describe("selectionToAtomPayload / nextAtomName", () => {
   it("nextAtomName toma el máximo aN + 1", () => {
     expect(nextAtomName([])).toBe("a1");
     expect(nextAtomName(["a1", "a10", "a3", "otro"])).toBe("a11");
+  });
+});
+
+describe("validRelationTypesBetween (extremos átomo o grupo)", () => {
+  const mk = (name: string, s: string[], t: string[]) => ({ id: name, name, source_types: s, target_types: t, cardinality: "", description: "" });
+  const T = [
+    mk("condiciona", ["AtomDoc", "GrupoDoc"], ["AtomDoc", "GrupoDoc"]),
+    mk("responsable_de", ["AtomDoc", "GrupoDoc"], ["AtomDoc"]),
+    mk("plazo_de", ["AtomDoc"], ["AtomDoc", "GrupoDoc"]),
+    mk("solo_atomos", ["AtomDoc"], ["AtomDoc"]),
+  ];
+  const A = { gid: "AtomDoc:a1", model: "AtomDoc" };
+  const B = { gid: "AtomDoc:a5", model: "AtomDoc" };
+  const G = { gid: "GrupoDoc:riesgos", model: "GrupoDoc" };
+  it("átomo -> grupo: solo tipos que admiten GrupoDoc como destino", () => {
+    expect(validRelationTypesBetween(T, A, G).map((t) => t.name)).toEqual(["condiciona", "plazo_de"]);
+  });
+  it("grupo -> átomo: solo tipos que admiten GrupoDoc como origen", () => {
+    expect(validRelationTypesBetween(T, G, B).map((t) => t.name)).toEqual(["condiciona", "responsable_de"]);
+  });
+  it("átomo -> átomo sigue ofreciendo todos", () => {
+    expect(validRelationTypesBetween(T, A, B).map((t) => t.name)).toEqual(["condiciona", "responsable_de", "plazo_de", "solo_atomos"]);
+  });
+  it("grupo -> grupo y consigo mismo: nada; una arista existente se descarta", () => {
+    expect(validRelationTypesBetween(T, G, { gid: "GrupoDoc:equipo", model: "GrupoDoc" })).toEqual([]);
+    expect(validRelationTypesBetween(T, G, G)).toEqual([]);
+    const e: Edge = { id: "x", source: "GrupoDoc:riesgos", target: "AtomDoc:a5", type: "condiciona", origin: "relation_doc", relationDoc: "r10" };
+    expect(validRelationTypesBetween(T, G, B, [e]).map((t) => t.name)).toEqual(["responsable_de"]);
   });
 });

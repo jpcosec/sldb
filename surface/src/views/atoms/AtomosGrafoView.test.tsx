@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import type { SldbClient } from "../../core/client";
 import type { Edge, GraphDocument } from "../../core/contract";
 import fixture from "../../core/__fixtures__/atoms.json";
@@ -186,5 +186,105 @@ describe("AtomosGrafoView", () => {
     fireEvent.click(screen.getByRole("menuitem"));
     await waitFor(() => expect(createDocument).toHaveBeenCalled());
     expect(createDocument.mock.calls[0]![1]).toBe("rel-5");
+  });
+
+  describe("relaciones sobre un grupo (GrupoDoc)", () => {
+    const rt = (id: string, source_types: string[], target_types: string[]) =>
+      ({ id, model_name: "RelationTypeDoc", path: `docs/rt/${id}.md`, payload: { name: id, source_types, target_types, cardinality: "many_to_many", description: `d ${id}` }, semantic_tags: [] }) as unknown as GraphDocument;
+    const grupoTypes = [rt("condiciona", ["AtomDoc", "GrupoDoc"], ["AtomDoc", "GrupoDoc"]), rt("responsable_de", ["AtomDoc", "GrupoDoc"], ["AtomDoc"])];
+    const withTypes = [...docs, ...grupoTypes];
+    const head = (g: string) => document.querySelector(`[data-group-head="${g}"]`) as SVGGElement;
+    const dropOnHead = (from: string, g: string) => {
+      fireEvent.pointerDown(node(from), { clientX: 10, clientY: 10, button: 0 });
+      fireEvent.pointerMove(screen.getByRole("group", { name: "Grafo de átomos" }), { clientX: 60, clientY: 60 });
+      expect(head(g).getAttribute("class")).toContain("is-droppable");
+      fireEvent.pointerUp(head(g), { clientX: 80, clientY: 80 });
+    };
+
+    it("una relación cuyo extremo es GrupoDoc se dibuja punteada hacia cada átomo del grupo y el inspector dice de dónde viene", async () => {
+      const groupEdge: Edge = { id: "e9", source: "GrupoDoc:infra-ingesta", target: "AtomDoc:a1", type: "condiciona", origin: "relation_doc", relationDoc: "r10" };
+      mount({ documents: async () => withTypes, getEdges: async () => [...edges, groupEdge] });
+      await screen.findByRole("group", { name: "Grafo de átomos" });
+      const heredadas = screen.getAllByRole("button", { name: /^Relación condiciona heredada/ });
+      expect(heredadas.length).toBeGreaterThan(0);
+      expect(heredadas.every((h) => h.classList.contains("is-inherited"))).toBe(true);
+      fireEvent.click(heredadas[0]!);
+      const insp = screen.getByRole("complementary", { name: "Inspector" });
+      expect(within(insp).getByText("r10")).toBeInTheDocument();
+      expect(within(insp).getByText(/Heredada del grupo infra\.ingesta por la relación r10 \(GrupoDoc:infra-ingesta → AtomDoc:a1\)/)).toBeInTheDocument();
+    });
+
+    it("soltar un átomo sobre el encabezado de un grupo ofrece solo los tipos que admiten GrupoDoc y crea el GrupoDoc y luego el RelationDoc", async () => {
+      const { createDocument } = mount({ documents: async () => withTypes });
+      await screen.findByRole("group", { name: "Grafo de átomos" });
+      dropOnHead("a1", "reuniones");
+      const menu = screen.getByRole("menu", { name: "Tipo de relación" });
+      expect(within(menu).getAllByRole("menuitem").map((b) => b.querySelector("strong")!.textContent)).toEqual(["condiciona"]);
+      expect(within(menu).getByText(/la relación la heredan todos sus átomos/)).toBeInTheDocument();
+      fireEvent.click(within(menu).getByRole("menuitem"));
+      await waitFor(() => expect(createDocument).toHaveBeenCalledTimes(2));
+      expect(createDocument.mock.calls[0]).toEqual(["GrupoDoc", "reuniones", { title: "reuniones", tag: "reuniones", description: "" }]);
+      expect(createDocument.mock.calls[1]![0]).toBe("RelationDoc");
+      expect(createDocument.mock.calls[1]![2]).toMatchObject({ source_id: "AtomDoc:a1", target_id: "GrupoDoc:reuniones", relation_type: "condiciona" });
+      expect(await screen.findByText(/Relación rel-1 creada/)).toBeInTheDocument();
+    });
+
+    it("desde el encabezado de un grupo hacia un átomo: el grupo es el origen; si el GrupoDoc ya existe no se vuelve a crear", async () => {
+      const g = { id: "infra", model_name: "GrupoDoc", path: "docs/grupos/infra.md", payload: { tag: "infra" }, semantic_tags: [] } as unknown as GraphDocument;
+      const { createDocument } = mount({ documents: async () => [...withTypes, g] });
+      await screen.findByRole("group", { name: "Grafo de átomos" });
+      fireEvent.pointerDown(head("infra"), { clientX: 10, clientY: 10, button: 0 });
+      fireEvent.pointerUp(node("a1"), { clientX: 80, clientY: 80 });
+      const menu = screen.getByRole("menu", { name: "Tipo de relación" });
+      expect(within(menu).getAllByRole("menuitem")).toHaveLength(2); // condiciona y responsable_de admiten grupo de origen
+      fireEvent.click(within(menu).getByRole("menuitem", { name: /responsable_de/ }));
+      await waitFor(() => expect(createDocument).toHaveBeenCalledTimes(1));
+      expect(createDocument.mock.calls[0]![0]).toBe("RelationDoc");
+      expect(createDocument.mock.calls[0]![2]).toMatchObject({ source_id: "GrupoDoc:infra", target_id: "AtomDoc:a1", relation_type: "responsable_de" });
+    });
+
+    it("soltar sobre un grupo plegado abre el mismo menú (ya no rechaza)", async () => {
+      mount({ documents: async () => withTypes });
+      await screen.findByRole("group", { name: "Grafo de átomos" });
+      fireEvent.click(screen.getByRole("button", { name: "Plegar grupo reuniones" }));
+      fireEvent.pointerDown(node("a2"), { clientX: 10, clientY: 10, button: 0 });
+      fireEvent.pointerUp(document.querySelector('[data-node-key="group:reuniones"]')!, { clientX: 80, clientY: 80 });
+      expect(screen.getByRole("menu", { name: "Tipo de relación" })).toBeInTheDocument();
+      expect(screen.queryByText(/despliégalo/)).toBeNull();
+    });
+
+    it("un 409 al crear el GrupoDoc se tolera y se crea la relación; otro error se muestra y no crea la relación", async () => {
+      const conflict = Object.assign(new Error("409"), { status: 409 });
+      const ok = vi.fn(async (model: string) => {
+        if (model === "GrupoDoc") throw conflict;
+        return { ok: true, id: "rel-1", version: "v" };
+      });
+      mount({ documents: async () => withTypes, createDocument: ok });
+      await screen.findByRole("group", { name: "Grafo de átomos" });
+      dropOnHead("a1", "reuniones");
+      fireEvent.click(screen.getByRole("menuitem"));
+      await waitFor(() => expect(ok).toHaveBeenCalledTimes(2));
+      cleanup();
+
+      const bad = vi.fn(async () => {
+        throw Object.assign(new Error("boom"), { status: 500 });
+      });
+      mount({ documents: async () => withTypes, createDocument: bad });
+      await screen.findByRole("group", { name: "Grafo de átomos" });
+      dropOnHead("a1", "reuniones");
+      fireEvent.click(screen.getByRole("menuitem"));
+      expect(await screen.findByText(/No se creó la relación: boom/)).toBeInTheDocument();
+      expect(bad).toHaveBeenCalledTimes(1);
+    });
+
+    it("no se relaciona un grupo con otro y el texto de ayuda ya no dice que no se puede", async () => {
+      mount({ documents: async () => withTypes });
+      await screen.findByRole("group", { name: "Grafo de átomos" });
+      expect(screen.getByText(/Si sueltas sobre el encabezado de un grupo/)).toBeInTheDocument();
+      fireEvent.pointerDown(head("infra"), { clientX: 10, clientY: 10, button: 0 });
+      fireEvent.pointerUp(head("reuniones"), { clientX: 80, clientY: 80 });
+      expect(screen.getByRole("alert")).toHaveTextContent(/No se relaciona un grupo con otro grupo/);
+      expect(screen.queryByRole("menu")).toBeNull();
+    });
   });
 });
