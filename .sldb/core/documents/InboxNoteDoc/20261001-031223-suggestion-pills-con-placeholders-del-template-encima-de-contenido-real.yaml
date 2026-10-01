@@ -1,0 +1,17 @@
+name: 20261001-031223-suggestion-pills-con-placeholders-del-template-encima-de-contenido-real
+path: desk/inbox/20261001-031223-suggestion-pills-con-placeholders-del-template-encima-de-contenido-real.md
+source_hash: e3248aa77e2633dea987239c0d5aad21783dd04be98b0fb596a8d9fa45c79d07
+content_hash: a0bb50087f6d733100eecefe42ef218479b7c175ae78838e87b81be49d16ccf8
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 02483a756f614e2d8673ed853d4ace9c9a215fa5ecd9cfe860179da45a0b7d26
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: 17ed366f3ee9099a2c9f2f07886e34dd2c23152341e465063849580604579b6a
+  body: 66b9a7160329574b86531d331c1521b92f5a7ababd396815a84d2f632bdb1cef
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
