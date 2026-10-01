@@ -2,6 +2,14 @@
 
 Version note (2026-09-13): this working tree declares package version `0.1.0` in `pyproject.toml`. Existing entries below are historical development records, not a verified registry release inventory. The product-generation label “v1” is separate from package versioning. No new package version or release is created by this documentation reconciliation.
 
+## 2026-10-01 — SLDB is the substrate again
+
+- The README no longer calls this generation frozen: the v2 seed (`knowledge`) was frozen in
+  turn and its evaluator moved to `pron`, so nothing supersedes this package. SLDB is the
+  store every surface (`surface/`, `tools/graph_ui`, `tools/sldb-ui`) is a view over.
+- New README section "Serving and surfaces": `sldb serve` routes grouped by what a UI needs,
+  and where the surfaces and their design docs live.
+
 ## 2026-09-07 — v1 frozen
 
 - The README marks this generation frozen, with `knowledge` as its successor. Earlier modularization and v0.6 removal plans are historical and do not promise further v1 releases.
