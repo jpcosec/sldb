@@ -7,6 +7,7 @@ from pathlib import Path
 import yaml
 
 from sldb.store.layout import (
+    legacy_store_index_path,
     lock_path,
     semantic_dag_path,
     semantic_index_path,
@@ -28,7 +29,10 @@ from sldb.store.io.utils import StoreIOUtils, yaml_dump, yaml_load
 class StoreIndexIO:
     @staticmethod
     def load(store_path: Path) -> StoreIndex:
+        """The store index; a store from before `core/` existed has it at the store root."""
         index_file = store_index_path(store_path)
+        if not index_file.exists():
+            index_file = legacy_store_index_path(store_path)
         if not index_file.exists():
             raise FileNotFoundError(f"No store_index.yaml at {store_path}")
         data = yaml_load(index_file.read_text(encoding="utf-8")) or {}
