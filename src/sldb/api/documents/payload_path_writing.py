@@ -8,13 +8,14 @@ from __future__ import annotations
 from typing import Any
 
 from sldb.api.documents.payload_path_reading import _split_path
+from sldb.core.exceptions import SLDBFieldPathError
 
 
 def _deep_set_dict(target: dict[str, Any], part: str, create: bool, path: str) -> Any:
     """Step into a dict key, creating an empty dict there when allowed."""
     if part not in target:
         if not create:
-            raise KeyError(path)
+            raise SLDBFieldPathError(f"No value at field path {path!r}.")
         target[part] = {}
     return target[part]
 
@@ -27,7 +28,7 @@ def _deep_set_traverse(target: Any, parts: list[str], create: bool, path: str) -
         elif isinstance(target, list):
             target = target[int(part)]
         else:
-            raise KeyError(path)
+            raise SLDBFieldPathError(f"No value at field path {path!r}.")
     return target
 
 
@@ -35,13 +36,13 @@ def _deep_set_leaf(target: Any, leaf: str, new_value: Any, create: bool, path: s
     """Assign the last segment in its container."""
     if isinstance(target, dict):
         if not create and leaf not in target:
-            raise KeyError(path)
+            raise SLDBFieldPathError(f"No value at field path {path!r}.")
         target[leaf] = new_value
         return
     if isinstance(target, list):
         target[int(leaf)] = new_value
         return
-    raise KeyError(path)
+    raise SLDBFieldPathError(f"No value at field path {path!r}.")
 
 
 def deep_set(payload: Any, path: str, new_value: Any, create: bool = False) -> Any:
@@ -57,7 +58,7 @@ def deep_set(payload: Any, path: str, new_value: Any, create: bool = False) -> A
         The same payload, mutated.
 
     Raises:
-        KeyError: When a key is missing and `create` is False.
+        SLDBFieldPathError: When a key is missing and `create` is False.
         IndexError: When a list index is out of range.
     """
     parts = _split_path(path)
@@ -73,7 +74,7 @@ def _delete_leaf(target: Any, leaf: str, path: str) -> None:
     elif isinstance(target, list):
         target.pop(int(leaf))
     else:
-        raise KeyError(path)
+        raise SLDBFieldPathError(f"No value at field path {path!r}.")
 
 
 def deep_delete(payload: Any, path: str) -> Any:
@@ -87,7 +88,7 @@ def deep_delete(payload: Any, path: str) -> Any:
         The same payload, mutated.
 
     Raises:
-        KeyError: When an intermediate key is missing.
+        SLDBFieldPathError: When an intermediate key is missing.
         IndexError: When a list index is out of range.
     """
     parts = _split_path(path)

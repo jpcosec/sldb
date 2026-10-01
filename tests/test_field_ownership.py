@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from sldb.cli.graph_ops.extract import extract_sections
-from sldb.cli.graph_ops.map_fields import _field_template_line_map, _map_fields_to_sections
+from sldb.api.records.extract import extract_sections
+from sldb.api.records.map_fields import _field_template_line_map, _map_fields_to_sections
 
 
 def test_normal_marker():

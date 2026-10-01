@@ -16,7 +16,7 @@ from sldb.api.documents.document_payload import runtime_document
 
 def document_ast(store_path: Path, project_root: Path, pythonpath: str | None, doc_ref: str) -> dict[str, Any]:
     """The CLI's `ast show docs/<doc>` payload: doc metadata, sections, full IR."""
-    from sldb.cli.graph_ops import extract_sections
+    from sldb.api.records import extract_sections
 
     doc = runtime_document(store_path, pythonpath, doc_ref)
     markdown = Path(project_root / doc.path).read_text(encoding="utf-8")

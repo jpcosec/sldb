@@ -5,6 +5,7 @@ from .resolve import resolve_runtime_doc
 from .build_ir import build_document_ir
 from .extract import extract_sections
 from .fields import query_field_records
+from sldb.core.exceptions import SLDBDocumentTargetError
 
 def ast_for_target(store_arg: str | None, pythonpath: str | None, target: str) -> dict[str, Any]:
     graph = build_store_ast(store_arg, pythonpath)
@@ -14,12 +15,12 @@ def ast_for_target(store_arg: str | None, pythonpath: str | None, target: str) -
     if target.startswith("models/"): return _ast_for_model(target, store)
     if target.startswith("docs/"): return _ast_for_doc(target, store_arg, pythonpath)
     if target.startswith("fields/"): return _ast_for_field(target, store_arg, pythonpath)
-    raise ValueError(f"Unknown ast target: {target}")
+    raise SLDBDocumentTargetError(f"Unknown ast target: {target}")
 
 def _ast_for_model(target, store):
     model_name = target.split("/", 1)[1]
     model = next((item for item in store["models"] if item["name"] == model_name), None)
-    if model is None: raise ValueError(f"Unknown model target: {target}")
+    if model is None: raise SLDBDocumentTargetError(f"Unknown model target: {target}")
     return {"model": model}
 
 def _ast_for_doc(target, store_arg, pythonpath):

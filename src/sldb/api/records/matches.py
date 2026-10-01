@@ -1,6 +1,6 @@
 import difflib
 import re
-from sldb.cli.search_record import SearchRecord
+from sldb.api.records.search_record import SearchRecord
 
 def search_records(records: list[SearchRecord], term: str, search_in: str, regex: bool = False, fuzzy: bool = False, kinds: set[str] | None = None) -> list[SearchRecord]:
     if term in {"stores", "models", "docs", "sections", "fields"}:

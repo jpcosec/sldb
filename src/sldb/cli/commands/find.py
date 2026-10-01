@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import Any
 from sldb.cli.graph_ops import iter_search_records, search_records, SearchRecord
-from sldb.cli.commands.find_filters import FindFilters
+from sldb.api.records.record_filters import RecordFilters
 from sldb.cli.commands.find_format import FindFormatter
 from sldb.store.query_engine.where_parse import compile_where
 
@@ -23,5 +23,5 @@ class FindCLI:
         return search_records(records, args.term, search_in=args.search_in, regex=args.regex, fuzzy=args.fuzzy, kinds=kinds)
 
     def _apply_filters(self, matched: list[SearchRecord], args: Any) -> list[SearchRecord]:
-        filters = FindFilters(args.pythonpath)
+        filters = RecordFilters(args.pythonpath)
         return [r for r in matched if filters.matches(r, args.where)]

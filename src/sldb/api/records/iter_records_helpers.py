@@ -2,7 +2,7 @@ import logging
 from pathlib import Path
 from sldb.store.io import load_models_index, load_sections_index
 from sldb.store.layout import project_root
-from sldb.cli.search_record import SearchRecord
+from sldb.api.records.search_record import SearchRecord
 from .flatten import flatten_payload
 from .map_fields import _map_fields_to_sections
 from .utils import _slugify

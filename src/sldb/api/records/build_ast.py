@@ -1,12 +1,13 @@
 from typing import Any
 from sldb.store.io import load_store_index, load_models_index, load_documents_index
 from sldb.store.query import load_runtime_documents
-from sldb.cli.store_context import get_store_context
-from sldb.cli.model_utils import resolve_model_ref
+from sldb.api.stores.open_store import open_store
+from sldb.api.model_registry.model_reference import resolve_model_ref
 from .utils import _annotation_name
 
 def build_store_ast(store_arg: str | None, pythonpath: str | None, include_linked: bool = False) -> dict[str, Any]:
-    store_path, root = get_store_context(store_arg)
+    location = open_store(store_arg)
+    store_path, root = location.store_path, location.project_root
     store_index = load_store_index(store_path)
     linked = [{"name": entry.name, "path": entry.path} for entry in sorted(store_index.stores, key=lambda item: item.name)]
     models = _build_models_ast(store_index, root, pythonpath)

@@ -1,5 +1,5 @@
 import logging
-from sldb.cli.search_record import SearchRecord
+from sldb.api.records.search_record import SearchRecord
 from .flatten import flatten_payload
 from .map_fields import _map_fields_to_sections
 from .utils import _slugify
