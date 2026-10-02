@@ -1,7 +1,16 @@
 name: condition-task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges-ready-for-closeout
 path: desk/primitives/conditions/condition-task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges-ready-for-closeout.md
-hash_c: c975b027cd42deab3fef9cf596b2bb8b400c4ea1739b2360b2e26d6bc6936968
-hash_d: 4b1b24c6ad7272e5a3584d85d0685942ea8ac071e75c8c7655e9bf6b916a29bd
+source_hash: c975b027cd42deab3fef9cf596b2bb8b400c4ea1739b2360b2e26d6bc6936968
+content_hash: 4b1b24c6ad7272e5a3584d85d0685942ea8ac071e75c8c7655e9bf6b916a29bd
+field_hashes:
+  title: 2507010ee654a7599fc7d2e0ecda35ca3f079283bcf61e6d34353c9f7ad2da54
+  id: 56abfb207f5d2ecad87cec90804d947f75eba38bfdfa7cc010fdc03a49ccf4f7
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: 77cf7972bd8cb9c73615eb42974c43c9fc15305de6a3a9631fedcf87660393ae
+  tags: 45204bcdcf0df6ce91df3fae4e174bbaa7a603d65e1780fc30f096aa06e30e01
+  subject: cfc31bcc34ed7f4cc7895026ae8a54f0494f73757e9f914d0f6ed90f9bc34f51
+  predicate: 7778bddbb55f31c22673bd665da79be68855b98aae7aa5d4b84a18319cf8d7dc
+  expected: bcd94c594cf5d9863f2b143c7e4c8c150564556c8b8fccd3f0e2ea8fe2b32a44
 semantic_tags:
 - primitive:condition
 - representation.markdown

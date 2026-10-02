@@ -1,7 +1,16 @@
 name: checklist-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-closeout-ready
 path: desk/primitives/checklists/checklist-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-closeout-ready.md
-hash_c: f14e861ffe90967ce1ab2ce1ced4c4c8bc1955880de761611e85e989ca28ddae
-hash_d: ccfd41a8fb14e86a7b68e31aa2ffe2f8dfa0c1818a6c019f46c5b99d12d50e23
+source_hash: f14e861ffe90967ce1ab2ce1ced4c4c8bc1955880de761611e85e989ca28ddae
+content_hash: ccfd41a8fb14e86a7b68e31aa2ffe2f8dfa0c1818a6c019f46c5b99d12d50e23
+field_hashes:
+  title: f9f518924fe553fd48c847cb4d2e4459078dac250ebbfeb516db04199ed4ee15
+  id: f1badf9f83b919c3ce03a6ecbc8855da7852044f9007e31fd91d44d4fb19f6c4
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: 6fa9966b6f6f96323278c6b97ceb8f78e2a6414d0439ed0cafd5fb6409833f1b
+  tags: 8325257b89e1ac7ba706788c8183d441db3116d28af0eb064be34dbc69e90f89
+  items: 9077a8c0ffb86df4877107bbf5dff24a2b83c748156f933631e53504da002929
+  condition_refs: fa9f233cfb6c7e99a2531b1c0873bfa543e8d06ab5974a3821f8b67dcd30dcbe
+  mode: 5cf7504d9781301d83347546cdabc01a03c9638ab5b36c0a9203911078a0d1a4
 semantic_tags:
 - primitive:checklist
 - representation.markdown

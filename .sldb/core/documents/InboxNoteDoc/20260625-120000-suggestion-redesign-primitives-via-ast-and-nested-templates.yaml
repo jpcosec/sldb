@@ -1,7 +1,14 @@
 name: 20260625-120000-suggestion-redesign-primitives-via-ast-and-nested-templates
 path: desk/inbox/20260625-120000-suggestion-redesign-primitives-via-ast-and-nested-templates.md
-hash_c: bacd9eefe58bfc832e53411f6efaf9486e493ff671f236ed299306948018410a
-hash_d: 292188dc7116bcf61b28722bc3abe0fdaf4d8b801eb12a93d22ff1dba3b76dd6
+source_hash: bacd9eefe58bfc832e53411f6efaf9486e493ff671f236ed299306948018410a
+content_hash: 292188dc7116bcf61b28722bc3abe0fdaf4d8b801eb12a93d22ff1dba3b76dd6
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  created_at: e7e051465c785e3feafb5c7bd40b212878f0e7830b585407607c7098c09c168b
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: bda64a72c88ab3bb45ff7e0b07e2d69b6fd69da902f10944b9603c9a7c3f0a3f
+  body: 56bfbaaa48f8b3db5560cea2b89de4d73ece30ca085986050f01e757661b96b8
 semantic_tags:
 - representation.markdown
 - source.document.markdown

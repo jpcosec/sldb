@@ -1,7 +1,12 @@
 name: desk-standards
 path: desk/STANDARDS.md
-hash_c: 182cfb49b192acddf7d4c268a80d1248665cbc016c557776ea6f93962841277a
-hash_d: 9f4c9f2842b7b9558cd07440fdcc8e8b2c54f9b701e6780b6ddeb976392d457b
+source_hash: 182cfb49b192acddf7d4c268a80d1248665cbc016c557776ea6f93962841277a
+content_hash: 9f4c9f2842b7b9558cd07440fdcc8e8b2c54f9b701e6780b6ddeb976392d457b
+field_hashes:
+  title: edd8ad15489c5d222471bd9a7f26bf3ab732faa5911d34bcfb8ad3da43fca1a7
+  purpose: 5e365c7e686aa58e7eaa8f174355416fcdd738e887274d59a285af2800711ac8
+  task_rules: 5b8bd3d470f4724ced065083a7f8cab837c096721d0943d86e4a2ddf474e8785
+  current_priority: 72b329c354ec58b8badca2d2d563ea5bf4a4105ca1969338decf7ee9423b3dc2
 semantic_tags:
 - representation.markdown
 - source.document.markdown

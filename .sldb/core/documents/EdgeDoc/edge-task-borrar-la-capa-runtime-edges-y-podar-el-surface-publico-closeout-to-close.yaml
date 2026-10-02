@@ -1,7 +1,16 @@
 name: edge-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico-closeout-to-close
 path: desk/primitives/edges/edge-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico-closeout-to-close.md
-hash_c: 9e14603322e6aa5053f173e000e9ef445e1b5b8467713d2fc4da2f4d37d60584
-hash_d: 883dd33388358f92670090f38277ab8e5a6fb154cca83f4e4a49820dfebc4c37
+source_hash: 9e14603322e6aa5053f173e000e9ef445e1b5b8467713d2fc4da2f4d37d60584
+content_hash: 883dd33388358f92670090f38277ab8e5a6fb154cca83f4e4a49820dfebc4c37
+field_hashes:
+  title: 5568fcc8869b381e6e149b8e8efa9f8c042d2184674413d370ef4c9614db81d7
+  id: ff5237fb89d2a3c212147f23d344fa7cf74073286b3a68d33d8e1ce526718b32
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: 6325227c9527c9b5f4f1ffd9122f462874da2df2e828f301eef9a359ff306046
+  tags: 7669a24af159d3197bc1f1cebef462364089cda6e7b0ffc228fcc2b7f2cb9eb6
+  source: 2ff33d72310ccfb80dde50c4241e01ff7a0349e4a7e79b4343991aa2a30ec7f8
+  target: 913aa3d975e882e8fafaeef19d841ba70bd7ad6a8642770662434a6b1168494d
+  condition_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
 semantic_tags:
 - primitive:edge
 - representation.markdown

@@ -1,7 +1,16 @@
 name: operator-task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges-close
 path: desk/primitives/operators/operator-task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges-close.md
-hash_c: d55983d24cda1538b45ad72ddb2ff105c436e6e427fd26074aa51487fcc8a43c
-hash_d: c2c3d9fd98db588f2fbd1129cdbe7d7d728f6640b984b3a363fcd23baeb78611
+source_hash: d55983d24cda1538b45ad72ddb2ff105c436e6e427fd26074aa51487fcc8a43c
+content_hash: c2c3d9fd98db588f2fbd1129cdbe7d7d728f6640b984b3a363fcd23baeb78611
+field_hashes:
+  title: 3475b4f5f58a51202b2e45845479c3b46e8c3196e9bffb77fe52f00c16887690
+  id: a20070c91c9b0f2886800636f1db07116805d0e1d68d22895f6edd87a0c5e134
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: 0e84486c53bf166c790605c71264b5b9f528ca66fa84cf6c718347cff002726a
+  tags: addd3623ce8edccd84747015525ca0bffc07240097d492329f4f1d2a069be349
+  action: 15fe2461fd90705d5e77632cb6d3d337f9cc7e750e8815781dcc4e92d6b89b85
+  target: cfc31bcc34ed7f4cc7895026ae8a54f0494f73757e9f914d0f6ed90f9bc34f51
+  value: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
 semantic_tags:
 - primitive:operator
 - representation.markdown

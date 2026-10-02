@@ -1,7 +1,16 @@
 name: checklist-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico-testing-ready
 path: desk/primitives/checklists/checklist-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico-testing-ready.md
-hash_c: 0baff6b574168b57dbe5921f1a15383c70c3f62e3da73bd5618cbdeee6f075d0
-hash_d: 9cf04d16f975229bb0dea07322fc603b05b2d5084c7d639e4b973cbba0083031
+source_hash: 0baff6b574168b57dbe5921f1a15383c70c3f62e3da73bd5618cbdeee6f075d0
+content_hash: 9cf04d16f975229bb0dea07322fc603b05b2d5084c7d639e4b973cbba0083031
+field_hashes:
+  title: c9efb55e767853133c783d24f8f4dd93e509da53fe61965feac0b0cd0b85ee27
+  id: 228d1220c431c6317789f0749a97d759f7df99961bca24607eb06f5982e7975b
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: da20981496ff58fa2766a31ba80d51047eb94d8ee27f19913c303e7f542d11a4
+  tags: 8325257b89e1ac7ba706788c8183d441db3116d28af0eb064be34dbc69e90f89
+  items: b0ee3b0c3625119a8e2ad8d714d070e34fcaff870cb893cd41aade892982eb22
+  condition_refs: 7a3c2d9839bd3ee384f00bdc24d6654b8759324aa4727b63b84e33a75635dcd9
+  mode: 5cf7504d9781301d83347546cdabc01a03c9638ab5b36c0a9203911078a0d1a4
 semantic_tags:
 - primitive:checklist
 - representation.markdown

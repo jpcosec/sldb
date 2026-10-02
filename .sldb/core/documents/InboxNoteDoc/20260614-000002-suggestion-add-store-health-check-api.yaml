@@ -1,7 +1,14 @@
 name: 20260614-000002-suggestion-add-store-health-check-api
 path: desk/inbox/20260614-000002-suggestion-add-store-health-check-api.md
-hash_c: eb94a58b7a8da2614805bb943b4f1b77732201a8c9ba57b8d63b467ed28c3efa
-hash_d: 6ddfc5353dd472e82095a1cbf76a14adfa32c29d7b60a44fda8adc1f127b19f5
+source_hash: eb94a58b7a8da2614805bb943b4f1b77732201a8c9ba57b8d63b467ed28c3efa
+content_hash: 6ddfc5353dd472e82095a1cbf76a14adfa32c29d7b60a44fda8adc1f127b19f5
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  created_at: ccb08480795a25ab421e269eeea729b36de161a7fecadc9e85e68abb3811ca07
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: aa3f9af6f7287e7706ed9b0df6cfe8439bdcd9ff0bdf0a8733493c93f5061af6
+  body: 0eb123ee26829a8605cb25a4819471daa4b7681834e01f25fc52dc2160b2d040
 semantic_tags:
 - representation.markdown
 - source.document.markdown

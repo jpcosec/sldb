@@ -1,7 +1,16 @@
 name: edge-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-activate-to-testing
 path: desk/primitives/edges/edge-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-activate-to-testing.md
-hash_c: ae59eb3679b9c88b0d7cfd03f64af9a914aa199f3942dcbdceabe1a7937eb9f2
-hash_d: d1abd0d17fc1f9ca211b3608eb96a2c7f4bc452eadce97f6a67a02ba00e68f69
+source_hash: ae59eb3679b9c88b0d7cfd03f64af9a914aa199f3942dcbdceabe1a7937eb9f2
+content_hash: d1abd0d17fc1f9ca211b3608eb96a2c7f4bc452eadce97f6a67a02ba00e68f69
+field_hashes:
+  title: a9fbfa8600317ae04336b6eb6936beccfdcf56114b343d9a8ea0e7218e7a3c4a
+  id: f3f8fa81ecdd3320350efe2a33bf074ed884baee9d6c9afdcec1562ac47f518d
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: 739e6722dd054294e3b466cb6f6b1fa19c06ce767c9b0dd040dff7553982bd0c
+  tags: 7669a24af159d3197bc1f1cebef462364089cda6e7b0ffc228fcc2b7f2cb9eb6
+  source: bcaf8c59a3e61c959320824eac5b7da9684f0d8ab02265bcef3d70680b16d2ac
+  target: 48bdae889c7004dc2648597e65419feed1f5ef2cf9ab539bc3be5b1bd2881d73
+  condition_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
 semantic_tags:
 - primitive:edge
 - representation.markdown

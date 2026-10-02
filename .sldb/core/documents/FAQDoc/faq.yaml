@@ -1,7 +1,10 @@
 name: faq
 path: docs/faq.md
-hash_c: fc5c35880fe99b3607bda48becbb879845b827c5ce8754a3ff4cc674f9018262
-hash_d: 7aea0ca664029baab1175132eb85a80846396f9b89985bac2cad8d6d13a52f01
+source_hash: fc5c35880fe99b3607bda48becbb879845b827c5ce8754a3ff4cc674f9018262
+content_hash: 7aea0ca664029baab1175132eb85a80846396f9b89985bac2cad8d6d13a52f01
+field_hashes:
+  title: db7be09dab5161c4fcda1cf9ee0cbc7fff9817b06c26c1b903c1925ee31e5cb6
+  body: ea4f4760c628a028c40bfb29f24874558cc254a702419c6a04236365626b6d34
 semantic_tags:
 - representation.markdown
 - source.document.markdown

@@ -1,7 +1,16 @@
 name: edge-task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges-activate-to-testing
 path: desk/primitives/edges/edge-task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges-activate-to-testing.md
-hash_c: bcaa4ba271aad1936e9c5c4fa36d369588b7da7b97bb1aa0efe1531ad7103602
-hash_d: 908ebb21e1dee80a6fea99c87223665ce41314c612cf7681d79a5b6511257188
+source_hash: bcaa4ba271aad1936e9c5c4fa36d369588b7da7b97bb1aa0efe1531ad7103602
+content_hash: 908ebb21e1dee80a6fea99c87223665ce41314c612cf7681d79a5b6511257188
+field_hashes:
+  title: a9fbfa8600317ae04336b6eb6936beccfdcf56114b343d9a8ea0e7218e7a3c4a
+  id: 8ecb9d67f7bee18c226af6812e3225897dcf68d713092a63aafcaaf841a41b32
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: 739e6722dd054294e3b466cb6f6b1fa19c06ce767c9b0dd040dff7553982bd0c
+  tags: 7669a24af159d3197bc1f1cebef462364089cda6e7b0ffc228fcc2b7f2cb9eb6
+  source: 688b429937385c5358fe9758e716a68a6e5c64fdb8c636ef9708fbb3e5c412c0
+  target: 5e1a158c231bf2cf8ad6c481940ffafd26a1c1011c402f3c5fd767e0bc277c43
+  condition_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
 semantic_tags:
 - primitive:edge
 - representation.markdown

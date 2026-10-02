@@ -1,7 +1,16 @@
 name: checklist-task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges-closeout-ready
 path: desk/primitives/checklists/checklist-task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges-closeout-ready.md
-hash_c: ac98c9f9ad8f51592ec563465f52ca872574cbd2a1c590a6ca7f22b42b7e71ac
-hash_d: dfbc0d9d6fc80c38e60fb84cae7ba23bc36674019585c2bc84fe9b404ac25014
+source_hash: ac98c9f9ad8f51592ec563465f52ca872574cbd2a1c590a6ca7f22b42b7e71ac
+content_hash: dfbc0d9d6fc80c38e60fb84cae7ba23bc36674019585c2bc84fe9b404ac25014
+field_hashes:
+  title: f9f518924fe553fd48c847cb4d2e4459078dac250ebbfeb516db04199ed4ee15
+  id: 3a6756557cc433eb6752f9b033bf0d7bab8ca46dcde55a1d16459159cffdbbe4
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: 6fa9966b6f6f96323278c6b97ceb8f78e2a6414d0439ed0cafd5fb6409833f1b
+  tags: 8325257b89e1ac7ba706788c8183d441db3116d28af0eb064be34dbc69e90f89
+  items: 9077a8c0ffb86df4877107bbf5dff24a2b83c748156f933631e53504da002929
+  condition_refs: aeb7811f54925bbd717d6469ee2ce18b7447731fbded2db2365a54e216e93f36
+  mode: 5cf7504d9781301d83347546cdabc01a03c9638ab5b36c0a9203911078a0d1a4
 semantic_tags:
 - primitive:checklist
 - representation.markdown

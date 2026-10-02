@@ -1,7 +1,10 @@
 name: packaging-instructions
 path: docs/packaging instructions.md
-hash_c: 2f9d6111f7edbe6765877f491456ab49b7c8ddfa62d16abcf6330129729cb2bc
-hash_d: f2365d1cbcda88de60e3cbc50f00b2074aa8ec5fa5fa01db6658bd481c60fbdc
+source_hash: 2f9d6111f7edbe6765877f491456ab49b7c8ddfa62d16abcf6330129729cb2bc
+content_hash: f2365d1cbcda88de60e3cbc50f00b2074aa8ec5fa5fa01db6658bd481c60fbdc
+field_hashes:
+  title: c9f823bb61bc73a18b814540b8695fa696770389cb5eb860a3d7daa943e6d2d2
+  body: b50dd800667a0aea2a330d32721fee3cb8631106c2d365ee66d2380338969c01
 semantic_tags:
 - representation.markdown
 - source.document.markdown
