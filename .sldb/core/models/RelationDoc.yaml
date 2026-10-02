@@ -1,6 +1,6 @@
 name: RelationDoc
-model_ref: kgdb.models:RelationDoc
-path: /home/jp/proyectos/hum-ecosystem/tools/kgdb/src/kgdb/models/relation_doc.py
+model_ref: sldb.models.relation_doc:RelationDoc
+path: src/sldb/models/relation_doc.py
 documents_index: .sldb/core/documents/RelationDoc.yaml
 sections_index: ''
 model_hash: c3b3bdc7bc0ab162a3c7bba7808c1ff0d862bbbe2204e52f3ec0236d64ea4d04

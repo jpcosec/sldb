@@ -4,7 +4,9 @@ from __future__ import annotations
 
 # 2: a model's declared reference fields (`__references__`, `__containment__`) contribute
 # `references` / `contains` edges, so shards built under version 1 are missing them.
-EDGE_INDEX_VERSION = "2"
+# 3: a model's `__compositions__` contribute `composes` edges, so shards built under 2 are
+# missing them; their target is resolved from a path when the index is composed.
+EDGE_INDEX_VERSION = "3"
 STORE_NODE_ID = "sldb://store"
 RELATION_TYPE_MODEL = "RelationTypeDoc"
 RELATION_MODEL = "RelationDoc"

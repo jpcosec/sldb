@@ -185,8 +185,8 @@ models:
   family: null
   semantics: []
 - name: RelationTypeDoc
-  model_ref: kgdb.models:RelationTypeDoc
-  path: /home/jp/proyectos/hum-ecosystem/tools/kgdb/src/kgdb/models/relation_type_doc.py
+  model_ref: sldb.models.relation_type_doc:RelationTypeDoc
+  path: src/sldb/models/relation_type_doc.py
   models_index: .sldb/core/models/RelationTypeDoc.yaml
   version: 1
   canonical: false
@@ -195,8 +195,8 @@ models:
   - layer.topology
   - type.relation.type
 - name: RelationDoc
-  model_ref: kgdb.models:RelationDoc
-  path: /home/jp/proyectos/hum-ecosystem/tools/kgdb/src/kgdb/models/relation_doc.py
+  model_ref: sldb.models.relation_doc:RelationDoc
+  path: src/sldb/models/relation_doc.py
   models_index: .sldb/core/models/RelationDoc.yaml
   version: 1
   canonical: false
@@ -357,4 +357,17 @@ predicates:
   axis: WHAT
   description: The anchor (an alias word) names this model, field, relation type or
     document.
-store_hash: 6a26cc573c95ed79dee7fb72d6157ff1077ff9b1355f2d9c8f5c1df706b58c78
+- name: references
+  axis: WHAT
+  description: A field the model declared in `__references__` holds this document's
+    id; the edge carries the field name.
+- name: contains
+  axis: WHERE
+  description: A field the model declared in `__containment__` holds this document
+    as a child; the edge carries the field name and the models the declaration allows.
+- name: composes
+  axis: WHAT
+  description: A composed field of the source (`__compositions__`) renders this document's
+    payload into the source's text; the edge carries the composed field, the field
+    holding the refs and the ref as authored.
+store_hash: 695f17b34aab0d39be8d15266587c55b0b2f169d727a8691a8326f22ae1567b3

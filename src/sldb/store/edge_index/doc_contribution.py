@@ -4,8 +4,10 @@ from __future__ import annotations
 
 from typing import Any, Callable
 
+from sldb.store.edge_index.composition_edges import composition_edges
 from sldb.store.edge_index.declared_references import declared_reference_edges
 from sldb.store.edge_index.doc_kinds import special_contribution
+from sldb.store.edge_index.node_ids import doc_node_id
 from sldb.store.edge_index.doc_structure import document_structure
 from sldb.store.edge_index.records import tag_nodes
 from sldb.store.models import DocEdges, DocumentEntry, SectionContextRecord
@@ -22,7 +24,7 @@ def build_doc_edges(model_name: str, doc: DocumentEntry, sections: list[SectionC
         doc: The document's index entry (name, path, hashes, tags).
         sections: The document's sections, from its sections shard.
         payload_of: Reads the document's field payload; called for the special kinds and for
-            any model that declares `__references__` or `__containment__`.
+            any model that declares `__references__`, `__containment__` or `__compositions__`.
         model_type: The imported model class, or None when it cannot be imported; without it
             no declared reference is read, as in `build_model_edges`.
 
@@ -46,6 +48,14 @@ def _declared_edges(model_name: str, doc: DocumentEntry, model_type: Any | None,
     """
     if is_special or model_type is None:
         return []
-    if not (getattr(model_type, "__references__", None) or getattr(model_type, "__containment__", None)):
+    if not _declares_links(model_type):
         return []
-    return declared_reference_edges(model_name, doc.name, model_type, payload_of())
+    payload = payload_of()
+    references = declared_reference_edges(model_name, doc.name, model_type, payload)
+    return references + composition_edges(doc_node_id(f"{model_name}:{doc.name}"), model_type, payload)
+
+
+def _declares_links(model_type: Any) -> bool:
+    """Whether the model names other documents at all: otherwise its payload is not read."""
+    dunders = ("__references__", "__containment__", "__compositions__")
+    return any(getattr(model_type, name, None) for name in dunders)

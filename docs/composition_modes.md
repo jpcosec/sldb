@@ -30,9 +30,20 @@ Two cases have no store to take a root from, so they still resolve against the w
 
 This mechanism does not invoke the linked-store resolver: a ref is resolved as a filesystem path under the root, never as a `alias:` address or a linked store's document.
 
-### The composition does not reach the graph
+### The composition in the graph
 
-A composed field is a `render` marker, which is display-only and never extracted, so the child does not become an edge of the parent and graph traversal (impact radius) does not follow the composition. To get that edge, declare the source field in `__references__` and store export ids (`Model:name`) rather than paths.
+Each ref a composed field reads contributes a `composes` edge from the composing document to the composed one, carrying the composed field, the field holding the refs, the ref as authored and the composed model:
+
+```bash
+sldb edges show "sldb://document/Board:board" --store .sldb        # what this board composes
+sldb graph neighbors "sldb://document/Task:task-a" --store .sldb   # which boards compose this task
+```
+
+The reverse direction is the point: changing a child is what makes a composed parent stale, and that is now a graph question rather than a grep.
+
+A ref is a project path, not an export id, so the target is resolved when the index is composed rather than inside a shard — which document owns a path is not something one document knows. `./sub/a.md` and `sub/a.md` resolve to the same document; a path no document owns leaves no edge, like any other `origin: "schema"` edge that dangles. A linked store's documents are not candidates: its paths are relative to its own root.
+
+What the edge does *not* give you is edit-through: the composed text is still a `render` marker and is never extracted back into the parent's payload.
 
 Use `sldb render` or a document render/create/update workflow to produce the summaries. Render-only markers are not extracted back into the parent payload. There is no implemented edit-through operation from a summary to its child document.
 
@@ -51,4 +62,4 @@ This is separate from `__compositions__`: it operates on document text and the l
 
 ## Historical Proposals
 
-Section-only transclusion, query-driven composition, and edits propagated from composed output to source documents were proposals. They are not advertised as supported operations in this checkout. Remaining contract and documentation gaps are listed in [the review findings](documentation-review.md).
+Section-only transclusion, query-driven composition, and edits propagated from composed output to source documents were proposals (the composition *edge* did land: see above). They are not advertised as supported operations in this checkout. Remaining contract and documentation gaps are listed in [the review findings](documentation-review.md).

@@ -26,6 +26,7 @@ _TABLE: list[tuple[str, str, str, list[str], list[str], str]] = [
     ("names", "WHAT", "many_to_many", ["anchor"], [], "The anchor (an alias word) names this model, field, relation type or document."),
     ("references", "WHAT", "many_to_many", [], [], "A field the model declared in `__references__` holds this document's id; the edge carries the field name."),
     ("contains", "WHERE", "one_to_many", [], [], "A field the model declared in `__containment__` holds this document as a child; the edge carries the field name and the models the declaration allows."),
+    ("composes", "WHAT", "many_to_many", [], [], "A composed field of the source (`__compositions__`) renders this document's payload into the source's text; the edge carries the composed field, the field holding the refs and the ref as authored."),
 ]
 _KEYS = ("name", "axis", "cardinality", "source_types", "target_types", "description")
 
