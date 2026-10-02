@@ -9,6 +9,7 @@ that knows where a value goes.
 
 from __future__ import annotations
 
+from pathlib import Path
 from typing import Any
 
 from sldb.api.segments.extraction_segments import ExtractionSegments
@@ -18,12 +19,13 @@ from sldb.core.segments.instrumented_render import render_with_spans
 from sldb.core.segments.unmatched_runs import unmatched_runs
 
 
-def build_extraction_segments(model_type: type, markdown: str) -> ExtractionSegments:
+def build_extraction_segments(model_type: type, markdown: str, ref_root: Path | None = None) -> ExtractionSegments:
     """The fields of ``model_type`` located in ``markdown``.
 
     Args:
         model_type: The ``StructuredNLDoc`` subclass to extract with.
         markdown: The raw markdown to read.
+        ref_root: Directory a composed field's refs resolve against, or None.
 
     Returns:
         The extracted payload, the canonical render, and every field's span over
@@ -36,7 +38,7 @@ def build_extraction_segments(model_type: type, markdown: str) -> ExtractionSegm
     from sldb.runtime.validation import extract_model_data
 
     payload = extract_model_data(model_type, markdown)
-    canonical, spans = render_with_spans(model_type, payload)
+    canonical, spans = render_with_spans(model_type, payload, ref_root)
     opcodes = align(canonical, markdown)
     fields = _located_fields(spans, canonical, markdown, opcodes, model_type, payload)
     return ExtractionSegments(

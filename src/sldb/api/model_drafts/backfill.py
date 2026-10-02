@@ -74,7 +74,7 @@ def _prepare(location, model_name: str, old_type: type, new_type: type, name: st
     previous = extract_model_data(old_type, text)
     new = _add_new_defaults(new_type, old_type, previous, model_name, name)
     _check_roundtrip(new_type, model_name, name, new)
-    rendered = render_model_markdown(new_type, new)
+    rendered = render_model_markdown(new_type, new, location.project_root)
     hc, hd = doc_hashes(location.store_path, model_name, name)
     return BackfillDoc(name, path, previous, new, rendered, hc, hd, rendered + "\n" != text)
 

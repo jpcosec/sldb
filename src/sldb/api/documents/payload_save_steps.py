@@ -52,9 +52,13 @@ def load_document_entry(sp: Path, model_name: str, doc_name: str) -> DocumentEnt
     return doc_entry
 
 
-def render_checked(model_type: type, payload: dict[str, Any]) -> str:
-    """The payload rendered to Markdown, refused unless it round-trips."""
-    rendered = render_model_markdown(model_type, payload)
+def render_checked(model_type: type, payload: dict[str, Any], ref_root: Path) -> str:
+    """The payload rendered to Markdown, refused unless it round-trips.
+
+    `ref_root` is the project root, so a composed field resolves its refs against the project
+    rather than against whatever directory the caller happens to run in.
+    """
+    rendered = render_model_markdown(model_type, payload, ref_root)
     valid, details = validate_model_input_roundtrip(model_type, rendered)
     if not valid:
         raise SLDBPayloadSaveError(f"Field mutation broke idempotency: {details}")

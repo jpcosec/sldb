@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 from typing import Any
 import yaml
 
@@ -31,9 +32,11 @@ class BasicCLI:
         return "yaml" if str(args.output).endswith((".yaml", ".yml")) else "json"
 
     def render(self, args: Any) -> int:
+        """Render a payload to Markdown. `--ref-root` is where a composed field's refs resolve."""
         model_type = resolve_model_ref(args.model, args.pythonpath)
         data = yaml.safe_load(read_text(args.input))
-        output = render_model_markdown(model_type, data)
+        ref_root = getattr(args, "ref_root", None)
+        output = render_model_markdown(model_type, data, Path(ref_root) if ref_root else None)
         write_text(args.output, output + "\n")
         return 0
 

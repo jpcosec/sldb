@@ -37,7 +37,7 @@ def extract_markdown_segments(store_path: Path, pythonpath: str | None, model: s
     """
     model_type = load_registered_model(store_path, model, pythonpath).model_type
     try:
-        return build_extraction_segments(model_type, markdown)
+        return build_extraction_segments(model_type, markdown, store_path.parent)
     except Exception as exc:
         raise SLDBValidationError(_reason(model, exc), {"model": model, "cause": type(exc).__name__}) from exc
 

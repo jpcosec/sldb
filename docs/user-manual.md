@@ -359,20 +359,34 @@ justamente lo que estás averiguando.
 
 ### Cómo se generan las aristas
 
-Tres fuentes, y **solo tres**:
+Cuatro fuentes, y **solo cuatro**:
 
 1. **Estructura** — todo documento aporta su nodo, sus secciones y sus tags
 2. **Documentos especiales** — `RelationTypeDoc`, `RelationDoc`, y documentos
    con tag de anchor
 3. **Modelos** — cada modelo aporta su nodo, un nodo por campo, `has_field`,
    `extends`
+4. **Referencias declaradas** — `__references__` aporta `references` y
+   `__containment__` aporta `contains`, una arista por id, con el nombre del
+   campo en la arista
 
-> **Cuidado:** `__containment__` y `__references__` están declarados en
-> `StructuredNLDoc`, pero el motor de aristas **no los lee**. Declararlos no crea
-> aristas.
+Las referencias declaradas son `origin: "schema"`, igual que `has_field` y
+`extends`: apuntar a un documento que no está trackeado se descarta en
+`resolve_edges` en vez de reportarse, porque el modelo declaró una forma y no una
+aserción autoral. Un documento especial no las aporta: sus campos de id ya son la
+arista que ese documento contribuye.
+
+> **Cuidado:** el id declarado se escribe `Modelo:nombre`. Un nombre pelado es
+> ambiguo entre modelos y se omite en vez de adivinarlo, así que un campo que
+> guarde rutas (`task-a.md`) no produce aristas.
 >
-> Solo se exponen por HTTP: `/schema` devuelve los dos; `fields_routes` expone
+> También se exponen por HTTP: `/schema` devuelve los dos; `fields_routes` expone
 > únicamente `__references__`, como `is_reference`.
+
+> **Cuidado:** `__compositions__` **no** alimenta el grafo. Un campo compuesto se
+> rinde como texto (marcador `render`, que no se extrae), así que el documento
+> hijo no aparece como arista del padre y el radio de impacto no recorre la
+> composición. Ver §14.
 
 ### Los nodos tienen tipo
 
@@ -702,9 +716,11 @@ Cosas que cuestan tiempo la primera vez:
 - **Sin id estable de sección.** Se direccionan por slug jerárquico; headings
   repetidos se desambiguan por orden de aparición. Mover una sección cambia su
   dirección.
-- **`__containment__` / `__references__` no generan aristas.** Están declarados y
-  expuestos por HTTP, pero el motor de aristas no los lee.
 - **Composición de una sola vía.** Sin edit-through, sin composición por query.
+- **La composición no llega al grafo.** `__compositions__` se rinde como texto y
+  el hijo no queda como arista del padre, así que el radio de impacto no recorre
+  la recursión. Si querés esa arista, declará el campo en `__references__` y
+  guardá ids `Modelo:nombre`, no rutas.
 - **`Corpus` sí se exporta en `sldb.api`**, con `rank_fields()` para rankear
   campos. Lo que sigue sin cliente de CLI es el ranking: ni `rank()` (documento)
   ni `rank_fields()` (campo) tienen comando. Se integran por Python.
@@ -750,6 +766,7 @@ Correcciones que salieron de esa auditoria:
 | 5 | salida de `stores check` cortada en varias lineas | una linea por campo, con `(see 'fix:' above)` |
 | 6 | tabla de 8 comandos de graph | son 12: faltaban `get`, `list`, `query`, `ingest-sldb` |
 | 6 | "`__containment__`/`__references__` se exponen por /schema y fields_routes" | `fields_routes` solo expone `__references__` |
+| 6, 14 | "`__containment__`/`__references__` no generan aristas" | sí las generan (`references`/`contains`, `origin: "schema"`); son la cuarta fuente del grafo. Lo que no llega al grafo es `__compositions__` |
 | 13 | "resuelve por el `path` absoluto" | el path suele ser relativo y se re-ancla al project root |
 | 14 | "`Corpus.rank()` no esta en el CLI" | y no se exportaba en `sldb.api`. Ya se exporta, con `rank_fields()`; lo que falta es el comando de CLI, no el cliente |
 | 14 | "el indice de embeddings es por documento, no por campo" | tiene dos granularidades: `index` (documento) y `field_index` (`docs/<Modelo>/<doc>/<campo>`, con el hash del field) |

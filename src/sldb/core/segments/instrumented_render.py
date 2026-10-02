@@ -10,6 +10,7 @@ removed before the final strip.
 
 from __future__ import annotations
 
+from pathlib import Path
 from typing import Any
 
 from sldb.core.renderer import SLDBRenderer
@@ -18,12 +19,15 @@ from sldb.core.renderer_engine.span_recorder import SpanRecorder
 SpanWithMeta = tuple[dict[str, Any], int, int]
 
 
-def render_with_spans(model_type: type, payload: dict[str, Any]) -> tuple[str, list[SpanWithMeta]]:
+def render_with_spans(model_type: type, payload: dict[str, Any], ref_root: Path | None = None) -> tuple[str, list[SpanWithMeta]]:
     """The canonical render of ``payload`` plus every value span in it.
 
     Args:
         model_type: The ``StructuredNLDoc`` subclass to render through.
         payload: The payload to instantiate the model with.
+        ref_root: Directory a composed field's refs resolve against — the project root.
+            Without it they resolve against the working directory, so the same document
+            segments differently depending on where the caller runs.
 
     Returns:
         A tuple of the canonical text and a list of ``(meta, start, end)``, where
@@ -32,7 +36,7 @@ def render_with_spans(model_type: type, payload: dict[str, Any]) -> tuple[str, l
     """
     recorder = SpanRecorder()
     renderer = SLDBRenderer(recorder=recorder)
-    text = renderer.render(model_type(**payload))
+    text = renderer.render(model_type(**payload), ref_root)
     return text, [(_meta(recorder, span_id), start, end) for span_id, start, end in renderer.spans]
 
 

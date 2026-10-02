@@ -75,7 +75,7 @@ def payload_error(change: dict[str, Any], name: str, store_path: Path, pythonpat
 def roundtrip_error(change: dict[str, Any], name: str, store_path: Path, pythonpath: str) -> tuple[dict[str, Any], int] | None:
     try:
         model_type = load_registered_model(store_path, change["model"], pythonpath).model_type
-        valid, details = validate_payload(model_type, change["payload"])
+        valid, details = validate_payload(model_type, change["payload"], store_path.parent)
         if not valid:
             raise ValueError(str(details))
     except (Exception, SystemExit) as exc:
@@ -83,5 +83,6 @@ def roundtrip_error(change: dict[str, Any], name: str, store_path: Path, pythonp
     return None
 
 
-def validate_payload(model_type: type, payload: dict[str, Any]) -> tuple[bool, Any]:
-    return validate_model_input_roundtrip(model_type, render_model_markdown(model_type, payload))
+def validate_payload(model_type: type, payload: dict[str, Any], ref_root: Path | None = None) -> tuple[bool, Any]:
+    """Round-trip the payload; `ref_root` is the project root a composed field resolves against."""
+    return validate_model_input_roundtrip(model_type, render_model_markdown(model_type, payload, ref_root))

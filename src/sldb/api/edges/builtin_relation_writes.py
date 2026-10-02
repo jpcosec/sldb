@@ -24,7 +24,7 @@ def write_builtin_relation_types(sp: Path, root: Path, pythonpath: str | None, r
     for spec in (s for s in BUILTIN_RELATION_TYPES if builtin_doc_name(s) not in tracked):
         path = root / BUILTIN_DIR / f"{spec['name']}.md"
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(render_model_markdown(registered.model_type, builtin_payload(spec)) + "\n", encoding="utf-8")
+        path.write_text(render_model_markdown(registered.model_type, builtin_payload(spec), root) + "\n", encoding="utf-8")
         track_document(sp, root, load_store_index(sp), registered.model_type, registered.entry, path, builtin_doc_name(spec), resolve_model_ref, pythonpath)
         report.types_written.append(spec["name"])
 

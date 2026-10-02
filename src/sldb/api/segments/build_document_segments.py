@@ -35,7 +35,7 @@ def build_document_segments(store_path: Path, pythonpath: str | None, doc: str) 
         ValueError: When the reference names no document or more than one.
     """
     record = runtime_document(store_path, pythonpath, doc)
-    text, spans = render_with_spans(record.model_type, record.payload)
+    text, spans = render_with_spans(record.model_type, record.payload, store_path.parent)
     nodes = [build_node(meta, start, end, text, record.model_type, record.payload) for meta, start, end in spans]
     return DocumentSegments(
         id=doc, doc=record.name, model=record.model_name, path=record.path, text=text,

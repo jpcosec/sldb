@@ -39,7 +39,7 @@ def create_document(store: str | Path | None, model_name: str, path: str | Path,
     """
     location = open_store(store)
     registered = load_registered_model(location.store_path, model_name, pythonpath)
-    rendered = _render_roundtrip(registered.model_type, payload)
+    rendered = _render_roundtrip(registered.model_type, payload, location.project_root)
     doc_path = _resolve_path(path, location.project_root)
     doc_name = name or doc_path.stem
     refuse_structural_noise(registered.model_type, rendered, doc_name)
@@ -61,9 +61,13 @@ def _track_and_record(sp: Path, root: Path, registered, doc_path: Path, doc_name
     record(sp, {"operation": "create_document", "address": doc_address(registered.entry.name, doc_name), "new_value": payload, "hash_c_after": hash_c, "hash_d_after": hash_d, "hash_a_before": before, "hash_a_after": store_hash(sp), "actor": actor})
 
 
-def _render_roundtrip(model_type: type, payload: dict[str, Any]) -> str:
-    """The payload rendered to Markdown, refused unless it extracts back identically."""
-    rendered = render_model_markdown(model_type, payload)
+def _render_roundtrip(model_type: type, payload: dict[str, Any], ref_root: Path) -> str:
+    """The payload rendered to Markdown, refused unless it extracts back identically.
+
+    `ref_root` is the project root, so a composed field resolves its refs the way the project
+    names them; without it they would resolve against whatever directory the caller runs in.
+    """
+    rendered = render_model_markdown(model_type, payload, ref_root)
     valid, details = validate_model_input_roundtrip(model_type, rendered)
     if not valid:
         raise SLDBValidationError("Idempotency fail", details)

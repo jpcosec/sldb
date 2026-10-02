@@ -61,7 +61,7 @@ class DocCLI:
         sp, root = get_store_context(args.store)
         m_entry, m_idx, doc = find_doc(sp, root, load_store_index(sp), args.doc)
         model_type = resolve_model_ref(m_entry.model_ref, args.pythonpath)
-        rendered = render_model_markdown(model_type, self._parse_payload(args.payload))
+        rendered = render_model_markdown(model_type, self._parse_payload(args.payload), root)
         if not validate_model_input_roundtrip(model_type, rendered)[0]: raise SLDBValidationError("Update fail", validate_model_input_roundtrip(model_type, rendered)[1])
         self._write_and_rehash(root, doc, model_type, rendered)
         self._save_updated(sp, root, load_store_index(sp), m_entry, m_idx, doc, args, model_type)
