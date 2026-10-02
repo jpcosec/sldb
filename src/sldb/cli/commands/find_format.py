@@ -2,15 +2,15 @@ from __future__ import annotations
 import json
 import yaml
 from typing import Any
-from sldb.cli.graph_ops import SearchRecord
+from sldb.api.records import SearchRecord, select_keys, serialize_record, serialize_records
 
 class FindFormatter:
-    """Formats search results."""
+    """Formats search results. Serialization itself lives in `sldb.api.records`."""
 
     def format_output(self, records: list[SearchRecord], args: Any) -> int:
         """Format and print the matching records."""
-        payload = [self._serialize(record) for record in records]
-        payload = self._apply_select(payload, args.select) if args.select else payload
+        payload = serialize_records(records)
+        payload = select_keys(payload, args.select) if args.select else payload
 
         if args.format == "text": self._print_text(payload)
         elif args.format == "yaml": self._print_yaml(payload)
@@ -19,14 +19,10 @@ class FindFormatter:
         return 0 if payload else 1
 
     def _serialize(self, record: SearchRecord) -> dict[str, Any]:
-        data = record.as_dict()
-        if record.kind == "doc":
-            data["semantic_tags"] = list(record.semantic)
-        return data
+        return serialize_record(record)
 
     def _apply_select(self, payload: list[dict[str, Any]], select: str) -> list[dict[str, Any]]:
-        fields = [part.strip() for part in select.split(",") if part.strip()]
-        return [{key: item.get(key) for key in fields} for item in payload]
+        return select_keys(payload, select)
 
     def _print_text(self, payload: list[dict[str, Any]]) -> None:
         for item in payload:

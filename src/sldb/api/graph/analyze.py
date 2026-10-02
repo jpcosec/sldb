@@ -10,6 +10,7 @@ from __future__ import annotations
 from typing import Iterable
 
 from sldb.api.edges.edge_reading import load_edge_index
+from sldb.core.exceptions import SLDBGraphArgumentError
 from sldb.store.graph import analysis
 
 
@@ -67,5 +68,5 @@ def _index(store, options: dict):
     linked: bool = options.pop("include_linked", True)
     tags: Iterable[str] = options.pop("exclude_tags", ())
     if options:
-        raise TypeError(f"Unexpected arguments: {', '.join(sorted(options))}")
+        raise SLDBGraphArgumentError(f"Unexpected arguments: {', '.join(sorted(options))}")
     return load_edge_index(store, linked, tags)

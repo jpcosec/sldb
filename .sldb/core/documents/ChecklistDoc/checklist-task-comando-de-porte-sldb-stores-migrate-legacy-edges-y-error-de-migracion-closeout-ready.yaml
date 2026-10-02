@@ -1,7 +1,16 @@
 name: checklist-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-closeout-ready
 path: desk/primitives/checklists/checklist-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-closeout-ready.md
-hash_c: f2b670b95974e2421ce8d8eb8e494926bdb3272780a3fc19f8be943b7f316981
-hash_d: 7d9e451edb3ce17c6b0ee632ebdbf8c015e71378826ebcd24db215143774a643
+source_hash: f2b670b95974e2421ce8d8eb8e494926bdb3272780a3fc19f8be943b7f316981
+content_hash: 7d9e451edb3ce17c6b0ee632ebdbf8c015e71378826ebcd24db215143774a643
+field_hashes:
+  title: f9f518924fe553fd48c847cb4d2e4459078dac250ebbfeb516db04199ed4ee15
+  id: 716d872faf5501ff28c0311a37baace918a022b1b0be356ceb2360a0962dc6a3
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: 6fa9966b6f6f96323278c6b97ceb8f78e2a6414d0439ed0cafd5fb6409833f1b
+  tags: 8325257b89e1ac7ba706788c8183d441db3116d28af0eb064be34dbc69e90f89
+  items: 9077a8c0ffb86df4877107bbf5dff24a2b83c748156f933631e53504da002929
+  condition_refs: 3bc9e9c5c6290a9aee1f74f7177a392a3341164f03184bc1854be0beae5c7cb3
+  mode: 5cf7504d9781301d83347546cdabc01a03c9638ab5b36c0a9203911078a0d1a4
 semantic_tags:
 - primitive:checklist
 - representation.markdown

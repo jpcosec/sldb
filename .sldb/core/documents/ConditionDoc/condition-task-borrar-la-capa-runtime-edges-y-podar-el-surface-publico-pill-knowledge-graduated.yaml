@@ -1,7 +1,16 @@
 name: condition-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico-pill-knowledge-graduated
 path: desk/primitives/conditions/condition-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico-pill-knowledge-graduated.md
-hash_c: 8b1c81f2b07d0f452f9496a06a70fcf16cf21fde4e6f82d0b79df048c62c6c49
-hash_d: 2b85648634204f259e9af75c99deeebec5f9ee25a14424b625d3dea4a4a21380
+source_hash: 8b1c81f2b07d0f452f9496a06a70fcf16cf21fde4e6f82d0b79df048c62c6c49
+content_hash: 2b85648634204f259e9af75c99deeebec5f9ee25a14424b625d3dea4a4a21380
+field_hashes:
+  title: 47d0746b86a7e091ed1e3765918efb70ffd030abd2aaf08b856556cabe6f9b4e
+  id: 75b879647ad550c9d274b39cfd867754c5f232f9d4d01e669043c1467772dc68
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: a68486d19a4eed57477038f80ceb6da484ca23725446b772e9e172c1551ecc26
+  tags: 45204bcdcf0df6ce91df3fae4e174bbaa7a603d65e1780fc30f096aa06e30e01
+  subject: d289c75214f55ca613dadab7d62795fb998d142473283f4d3fa954fb6d2c28fd
+  predicate: ea9c2bf382f398527e1a67c3b3b3772534cc96b6de4e7009feb25aca8fdca62a
+  expected: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
 semantic_tags:
 - primitive:condition
 - representation.markdown

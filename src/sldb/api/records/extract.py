@@ -1,6 +1,6 @@
 import re
 from sldb.core.ast import AST_Handler
-from sldb.cli.section_record_cls import SectionRecord
+from sldb.api.records.section_record import SectionRecord
 from .utils import _slugify
 
 def extract_sections(markdown: str) -> list[SectionRecord]:

@@ -1,11 +1,13 @@
 """Resolve a store argument (a path, a linked-store alias or nothing) to a `.sldb` directory.
 
 Moved here from `sldb.cli.store_context`, which re-exports these names for existing importers.
+The global-store fallback is reported through `logging`, not printed: this is library code,
+so the host application decides where the warning goes (the CLI leaves it on stderr).
 """
 
 from __future__ import annotations
 
-import sys
+import logging
 from pathlib import Path
 
 from sldb.core.exceptions import SLDBStoreError
@@ -13,13 +15,15 @@ from sldb.store.io import load_store_index
 from sldb.store.layout import project_root, store_exists
 from sldb.store.resolver import ancestor_stores, find_project_store, global_store_path
 
+logger = logging.getLogger(__name__)
+
 
 def _handle_global_store(global_store: Path, mode: str, cwd: Path) -> Path:
     """Fall back to the global store in readonly mode; otherwise explain how to get a store."""
     if not global_store.exists():
         raise SLDBStoreError(f"No local .sldb store found from {cwd}. No global store exists at {global_store}. Run 'sldb stores init --path .' to create one, or pass --store PATH.")
     if mode == "readonly":
-        print(f"[warning] No local .sldb store; falling back to global store at {global_store}", file=sys.stderr)
+        logger.warning("No local .sldb store; falling back to global store at %s", global_store)
         return global_store
     raise SLDBStoreError(f"No local .sldb store found from {cwd}. A global store exists at {global_store}. Pass --store {global_store} to use it, or run 'sldb stores init --path .' to create a local store.")
 

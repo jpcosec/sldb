@@ -1,7 +1,16 @@
 name: operator-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-close
 path: desk/primitives/operators/operator-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-close.md
-hash_c: d8c9312dc39a4b0163093c2c58c180559c82bb158ad21360ff3471af8b838b4a
-hash_d: ee62697908bdb613983355e3c7fbd15a80d6c887e96d8a929047d96a02205978
+source_hash: d8c9312dc39a4b0163093c2c58c180559c82bb158ad21360ff3471af8b838b4a
+content_hash: ee62697908bdb613983355e3c7fbd15a80d6c887e96d8a929047d96a02205978
+field_hashes:
+  title: 3475b4f5f58a51202b2e45845479c3b46e8c3196e9bffb77fe52f00c16887690
+  id: ee034a2e2882c84a3efacf8782024208b7b820560278eb0dc1a42ed03137b771
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: 0e84486c53bf166c790605c71264b5b9f528ca66fa84cf6c718347cff002726a
+  tags: addd3623ce8edccd84747015525ca0bffc07240097d492329f4f1d2a069be349
+  action: 15fe2461fd90705d5e77632cb6d3d337f9cc7e750e8815781dcc4e92d6b89b85
+  target: cfc31bcc34ed7f4cc7895026ae8a54f0494f73757e9f914d0f6ed90f9bc34f51
+  value: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
 semantic_tags:
 - primitive:operator
 - representation.markdown

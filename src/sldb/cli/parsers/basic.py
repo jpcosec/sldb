@@ -20,6 +20,7 @@ def _render(s):
     p.add_argument("input", help="Data file")
     p.add_argument("output", help="Output .md")
     p.add_argument("--pythonpath", help="Project path")
+    p.add_argument("--ref-root", default=None, help="Directory a composed field's refs resolve against (default: the working directory).")
 
 def _validate(s):
     p = s.add_parser("validate", help="Validate idempotency.")

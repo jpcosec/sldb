@@ -1,7 +1,16 @@
 name: operator-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico-ready-for-testing
 path: desk/primitives/operators/operator-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico-ready-for-testing.md
-hash_c: e3342ee996ec2c71128f48a519909bab992eac399c802379cb1b0a0e878f115a
-hash_d: 3bb76977b33332cba5ff169fc90e843f0bf0f0b30109d73a8fad3aa33a99888d
+source_hash: e3342ee996ec2c71128f48a519909bab992eac399c802379cb1b0a0e878f115a
+content_hash: 3bb76977b33332cba5ff169fc90e843f0bf0f0b30109d73a8fad3aa33a99888d
+field_hashes:
+  title: 368ade4b24616d3f585affb98b9450c63bd9ca50287a176baa30be0e657f3018
+  id: e5597f396f36a9d96d9f9aa2f956abecd748ec55bb3679e10d521306a4d9b65a
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: 293985de96d26af14d48ee983d83c2390476219d59a244bb1d056aa2090d1275
+  tags: addd3623ce8edccd84747015525ca0bffc07240097d492329f4f1d2a069be349
+  action: 15fe2461fd90705d5e77632cb6d3d337f9cc7e750e8815781dcc4e92d6b89b85
+  target: cfc31bcc34ed7f4cc7895026ae8a54f0494f73757e9f914d0f6ed90f9bc34f51
+  value: bcd94c594cf5d9863f2b143c7e4c8c150564556c8b8fccd3f0e2ea8fe2b32a44
 semantic_tags:
 - primitive:operator
 - representation.markdown

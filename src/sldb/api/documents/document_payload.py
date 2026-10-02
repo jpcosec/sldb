@@ -12,18 +12,19 @@ from pathlib import Path
 from typing import Any
 
 from sldb.api.model_registry.model_reference import resolve_model_ref
+from sldb.core.exceptions import SLDBDocumentTargetError
 from sldb.store.query import load_runtime_documents
 
 
 def runtime_document(store_path: Path, pythonpath: str | None, doc_ref: str) -> Any:
-    """The RuntimeDocument of one doc; unknown or ambiguous refs raise ValueError."""
+    """The RuntimeDocument of one doc; unknown or ambiguous refs raise SLDBDocumentTargetError."""
     docs = load_runtime_documents(store_path, resolve_model_ref, pythonpath)
     normalized = doc_ref.strip("/")
     candidates = [doc for doc in docs if normalized in (doc.name, doc.path, f"{doc.model_name}/{doc.name}")]
     if not candidates:
-        raise ValueError(f"Unknown document target: {doc_ref}")
+        raise SLDBDocumentTargetError(f"Unknown document target: {doc_ref}")
     if len(candidates) > 1:
-        raise ValueError(f"Ambiguous document target '{doc_ref}'. Use 'Model/DocName' or a tracked path.")
+        raise SLDBDocumentTargetError(f"Ambiguous document target '{doc_ref}'. Use 'Model/DocName' or a tracked path.")
     return candidates[0]
 
 

@@ -1,17 +1,26 @@
-"""HTTP-ready wrapper for the CLI's real find pipeline, exposed via sldb.api.
+"""`sldb find` as a library call: match records and serialize them.
 
-The matching itself is the CLI's machinery — ``iter_search_records``,
-``search_records``, ``FindFilters`` and the formatter's serializer — composed
-here in the exact order ``FindCLI.run`` composes it, so a serve response is the
-same shape as `sldb find --format json`. ``compile_where`` runs first, so an
-unparseable ``--where`` raises ``WherePredicateError`` (the parser's real
-message) before any matching happens.
+The matching pipeline — ``iter_search_records``, ``search_records``,
+``RecordFilters`` and the record serializer — all live in ``sldb.api.records`` and are
+composed here in the exact order ``FindCLI.run`` composes them, so a serve response is
+the same shape as `sldb find --format json`. ``compile_where`` runs first, so an
+unparseable ``--where`` raises ``WherePredicateError`` (the parser's real message)
+before any matching happens.
 """
 
 from __future__ import annotations
 
 from pathlib import Path
 from typing import Any
+
+from sldb.api.records import (
+    RecordFilters,
+    SearchRecord,
+    iter_search_records,
+    search_records,
+    select_keys,
+    serialize_records,
+)
 
 
 def search(
@@ -39,32 +48,23 @@ def search(
     return _serialize(matched, select, limit)
 
 
-def _records(store_path: Path, pythonpath: str | None, include_linked: bool) -> list[Any]:
-    from sldb.cli.graph_ops import iter_search_records
-
+def _records(store_path: Path, pythonpath: str | None, include_linked: bool) -> list[SearchRecord]:
     return iter_search_records(str(store_path), pythonpath, include_linked=include_linked)
 
 
-def _match(records: list[Any], term: str, search_in: str, regex: bool, fuzzy: bool, kinds: set[str] | None) -> list[Any]:
-    from sldb.cli.graph_ops import search_records
-
+def _match(records: list[SearchRecord], term: str, search_in: str, regex: bool, fuzzy: bool, kinds: set[str] | None) -> list[SearchRecord]:
     return search_records(records, term, search_in, regex, fuzzy, kinds)
 
 
-def _filtered(matched: list[Any], where: str, pythonpath: str | None) -> list[Any]:
-    from sldb.cli.commands.find_filters import FindFilters
-
-    filters = FindFilters(pythonpath)
+def _filtered(matched: list[SearchRecord], where: str, pythonpath: str | None) -> list[SearchRecord]:
+    filters = RecordFilters(pythonpath)
     return [record for record in matched if filters.matches(record, where)]
 
 
-def _serialize(matched: list[Any], select: str | None, limit: int | None) -> dict[str, Any]:
-    from sldb.cli.commands.find_format import FindFormatter
-
-    formatter = FindFormatter()
-    payload = [formatter._serialize(record) for record in matched]
+def _serialize(matched: list[SearchRecord], select: str | None, limit: int | None) -> dict[str, Any]:
+    payload = serialize_records(matched)
     if select:
-        payload = formatter._apply_select(payload, select)
+        payload = select_keys(payload, select)
     if limit is not None:
         payload = payload[:limit]
     return {"results": payload}

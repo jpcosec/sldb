@@ -1,11 +1,5 @@
-from __future__ import annotations
-from dataclasses import dataclass
+"""Compatibility bridge: `SectionRecord` now lives in `sldb.api.records`."""
 
-@dataclass
-class SectionRecord:
-    title: str
-    slug: str
-    level: int
-    path: str
-    line_start: int | None
-    line_end: int | None
+from sldb.api.records.section_record import SectionRecord  # noqa: F401
+
+__all__ = ["SectionRecord"]

@@ -1,7 +1,16 @@
 name: condition-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-has-validation
 path: desk/primitives/conditions/condition-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-has-validation.md
-hash_c: fd63f83cb3594016895c94a7e035d2588700526e4244ef9356fb6fbebf45b4ff
-hash_d: ea60326f2f59c16a88a53ae7ec3a3d62bd4305679d1af74f5908ed67916b2c5d
+source_hash: fd63f83cb3594016895c94a7e035d2588700526e4244ef9356fb6fbebf45b4ff
+content_hash: ea60326f2f59c16a88a53ae7ec3a3d62bd4305679d1af74f5908ed67916b2c5d
+field_hashes:
+  title: 4b5b929c0d478242df45633fad6c7a94e1b4940021a8f4556c5e53b2b4809572
+  id: 23a0212cde3ddc9109a8cdc8f2fb834eb092d0f84041ed0c2a04df6fa61c4a83
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: 01c735311a5c01c148cb0552d885d61788ae2cdee11da9b32931fb3e5085c6ae
+  tags: 45204bcdcf0df6ce91df3fae4e174bbaa7a603d65e1780fc30f096aa06e30e01
+  subject: 56a509f1644233a7ddf1c25ce1a1b39f1caeddc5e4de54d5c0abb29d5746a5a1
+  predicate: cfafe02ea20afc0e4a233966acd1f134d3b4c805b8744f148817921aa59a8f86
+  expected: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
 semantic_tags:
 - primitive:condition
 - representation.markdown

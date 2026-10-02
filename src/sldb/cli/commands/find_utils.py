@@ -1,13 +1,5 @@
-from __future__ import annotations
-from typing import Any
+"""Compatibility bridge: `RuntimeDocProxy` now lives in `sldb.api.records`."""
 
-class RuntimeDocProxy:
-    """Proxy object for runtime document evaluation."""
-    payload: dict[str, Any]
-    name: str
-    model_type: type
+from sldb.api.records.runtime_doc_proxy import RuntimeDocProxy  # noqa: F401
 
-    def __init__(self, payload: dict[str, Any], name: str, model_type: type) -> None:
-        self.payload = payload
-        self.name = name
-        self.model_type = model_type
+__all__ = ["RuntimeDocProxy"]

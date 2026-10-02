@@ -16,6 +16,7 @@ from sldb.store.io import (
     save_semantic_index,
     save_store_index,
 )
+from sldb.store.migration_legacy_layout import relocate_legacy_layout
 from sldb.store.layout import (
     documents_index_relpath,
     models_index_relpath,
@@ -44,6 +45,7 @@ def _migrate_model_indexes(m_idx, p_root, rels: tuple[str, str, str]) -> None:
     m_idx.documents_index, m_idx.sections_index = n_d_rel, n_s_rel if m_idx.sections_index else ""
     m_idx.documents_count = len(documents.documents)
 
+
 def _model_canonical(m_entry, store_path: Path, p_root: Path) -> bool:
     """PLAN 15 capa 5/7: a model's sections and documents are canonical once their old single
     per-model files are gone (sharded into `<store>/{runtime/sections,core/documents}/<model>/`,
@@ -57,6 +59,7 @@ def _model_canonical(m_entry, store_path: Path, p_root: Path) -> bool:
         return False
     return not m_idx.sections_index or not (p_root / m_idx.sections_index).exists()
 
+
 def _already_canonical(store_index, store_path: Path, p_root: Path) -> bool:
     """True when every model index already sits at its canonical path, points at canonical
     document and section indexes (capa 5: sections already sharded, the old file gone), and
@@ -67,13 +70,25 @@ def _already_canonical(store_index, store_path: Path, p_root: Path) -> bool:
 
 
 def migrate_store_layout(store_path: Path, project_root: Path) -> bool:
+    changed = relocate_legacy_layout(store_path, project_root)
     store_index = load_store_index(store_path)
     if store_index_path(store_path).exists() and _already_canonical(store_index, store_path, project_root):
-        return False   # the common case: an up-to-date store is not rewritten on every context
+        return changed   # the common case: an up-to-date store is not rewritten on every context
+    changed = _migrate_models(store_index, store_path, project_root) or changed
+    _migrate_derived_indexes(store_path)
+    if changed: save_store_index(store_path, store_index)
+    return changed
+
+
+def _migrate_models(store_index, store_path: Path, project_root: Path) -> bool:
+    """Every model's indexes to their canonical sharded paths; True when any of them moved."""
     changed = not store_index_path(store_path).exists()
     for m_entry in store_index.models:
         if _migrate_model(m_entry, store_path, project_root): changed = True
+    return changed
+
+
+def _migrate_derived_indexes(store_path: Path) -> None:
+    """Rewrite the semantic index and DAG from their old single files into their shards."""
     save_semantic_dag(store_path, load_semantic_dag(store_path))
     save_semantic_index(store_path, load_semantic_index(store_path))
-    if changed: save_store_index(store_path, store_index)
-    return changed

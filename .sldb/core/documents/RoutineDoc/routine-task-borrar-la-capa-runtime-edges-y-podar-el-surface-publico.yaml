@@ -1,7 +1,17 @@
 name: routine-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico
 path: desk/routines/routine-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico.md
-hash_c: f439262d1afd6279c656ca46d99fe5df7ad4d4f16d1b77f56aa354acb0a27ce0
-hash_d: 18c26583f5efd87e61094dffcb1135d342cc15c4731a877574def282173ba85e
+source_hash: f439262d1afd6279c656ca46d99fe5df7ad4d4f16d1b77f56aa354acb0a27ce0
+content_hash: 18c26583f5efd87e61094dffcb1135d342cc15c4731a877574def282173ba85e
+field_hashes:
+  title: 2348a4b6a42d6fb65ab246cd8d76d88e2d916bf9872af3cd37af59cea87346c9
+  id: d74393dc058ef8c5951755346441a48072134ac89779bb3eeed888c235738e9f
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: d40b4e84c3fafe87cbdb17425b7c45ffccd3efdbbb1cb6e4e0ed3cf7d9410001
+  tags: 682ad58c6b2fa3a80465c3d0fa4c9de759c3684e4c83c56f94a9b67d558ddd75
+  entrypoint: da41b4acd522ffe24c0dd7f7fd3170aba43831ac53c0f9be4f70d511922fe024
+  decomposition: 9eb07dc6223e3077843f948f7be4ce8206f0285d3bbda4ba6167728a0928dade
+  edges: 107859121e73d9d82bd0eea823a5f5538f7f1b0f119caa8e5e7b9fcc4d45a384
+  terminal_nodes: 8ace718207dd793346ef234f111009a7c60689ac5c9d016af36586b581ca42fd
 semantic_tags:
 - primitive:routine
 - representation.markdown

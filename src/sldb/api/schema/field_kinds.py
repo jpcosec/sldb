@@ -1,6 +1,6 @@
 """Classify a model field's annotation into the kinds forms and schemas present.
 
-Moved here from `sldb.cli.serve.schema` (and `annotation_name` from `sldb.cli.graph_ops.utils`),
+Moved here from `sldb.cli.serve.schema` (and `annotation_name` from `sldb.api.records.utils`),
 which re-export these names.
 """
 

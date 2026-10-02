@@ -9,7 +9,8 @@ from pathlib import Path
 from typing import Any
 
 from sldb.api.model_registry.model_reference import resolve_model_ref
-from sldb.store.hashing import hash_field_map_of, hash_fields, hash_payload, hash_text
+from sldb.api.stores.document_field_hashes import _field_hash, _field_hashes  # noqa: F401 - re-exported
+from sldb.store.hashing import hash_text
 from sldb.store.model_node import contract_moved
 from sldb.store.io import load_documents_index, load_models_index
 from sldb.store.models.store_index import StoreIndex
@@ -46,7 +47,7 @@ def _process_model(m_entry: Any, mtype: Any, root: Path, skipped_docs: list[str]
 
 
 def _process_doc(doc: Any, mtype: Any, m_name: str, root: Path, skipped_docs: list[str], force: bool = False) -> bool:
-    """Rehash one document when its Markdown changed; False when unchanged or missing.
+    """Rehash one document when its Markdown or its stored hashes say it needs it.
 
     A hand edit is only ever seen by re-reading the file (source_hash), unavoidably, for every
     tracked document — but PLAN 15 capa 8: the expensive part, extracting content_hash, only
@@ -59,40 +60,33 @@ def _process_doc(doc: Any, mtype: Any, m_name: str, root: Path, skipped_docs: li
         skipped_docs.append(doc.name)
         return False
     text = doc_path.read_text(encoding="utf-8")
-    if (fresh := hash_text(text)) == doc.source_hash and not force:
+    fresh = hash_text(text)
+    if _trusted(doc, fresh, force):
         return False
+    return _restamp(doc, mtype, m_name, text, fresh, force)
+
+
+def _trusted(doc: Any, fresh: str, force: bool) -> bool:
+    """Whether the stored hashes are enough to skip re-extraction for unchanged text.
+
+    A matching source_hash is not enough on its own: a shard written before per-field hashes
+    existed carries a content_hash nothing verified, and `migrate_hash_names` renames that key
+    without recomputing it, so trusting it kept a stale content_hash (and a permanent
+    `data_mutation` in `stores check`) forever, with the Markdown intact. A present field_hashes
+    map is the evidence that a content_hash came out of the current pipeline; its absence sends
+    the document through extraction once, which both validates the hash and backfills the map.
+    """
+    return not force and fresh == doc.source_hash and bool(doc.field_hashes)
+
+
+def _restamp(doc: Any, mtype: Any, m_name: str, text: str, fresh: str, force: bool) -> bool:
+    """Re-extract and store the hashes; False when they came back identical (nothing moved).
+
+    `doc.source_hash` is updated before extracting on purpose: the extraction cache is keyed
+    on the source hash the payload belongs to, so passing the old one here would read another
+    document's cached payload (the file's previous content) and sign a wrong content_hash.
+    """
+    previous = (doc.source_hash, doc.content_hash, doc.field_hashes)
     doc.source_hash = fresh
     doc.content_hash, doc.field_hashes = _field_hashes(mtype, m_name, doc, text, force)
-    return True
-
-
-def _extracted_payload(mtype: Any, doc: Any, text: str, force: bool) -> Any:
-    """The document's payload, from the runtime cache when it can be trusted.
-
-    The cached payload is skipped when the contract moved: it was extracted under the previous
-    contract, which is exactly what must not win here.
-    """
-    from sldb.store.runtime_cache import payload_of
-    from sldb.store.codec import default_codec
-    payload = None if force else payload_of(doc.path, doc.source_hash, mtype)
-    return payload if payload is not None else default_codec.extract(mtype, text)
-
-
-def _field_hashes(mtype: Any, m_name: str, doc: Any, text: str, force: bool = False) -> tuple[str, dict[str, str]]:
-    """The document's `content_hash` and its per-field map, from one extraction.
-
-    Both are empty when the Markdown no longer extracts (reported by `stores check`): an empty
-    map means "unknown", so a consumer comparing against it falls back to the whole document
-    rather than concluding no field moved.
-    """
-    try:
-        payload = _extracted_payload(mtype, doc, text, force)
-        field_map = hash_field_map_of(payload) if isinstance(payload, dict) else {}
-        return hash_payload(payload), field_map
-    except Exception:
-        return "", {}
-
-
-def _field_hash(mtype: Any, m_name: str, doc: Any, text: str, force: bool = False) -> str:
-    """`_field_hashes` without the per-field map. Kept for callers that only want `content_hash`."""
-    return _field_hashes(mtype, m_name, doc, text, force)[0]
+    return (doc.source_hash, doc.content_hash, doc.field_hashes) != previous

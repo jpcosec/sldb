@@ -8,9 +8,11 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-10-01T03:12:23'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-10-01T23:33:24'
 ---
 
 # Pills con placeholders del template encima de contenido real

@@ -2,14 +2,15 @@ from typing import Any
 from sldb.store.io import load_store_index, load_models_index, load_sections_index
 from sldb.store.query import load_runtime_documents
 from sldb.store.layout import project_root
-from sldb.cli.store_context import get_store_context
-from sldb.cli.model_utils import resolve_model_ref
+from sldb.api.stores.open_store import open_store
+from sldb.api.model_registry.model_reference import resolve_model_ref
 from .flatten import flatten_payload
 from .map_fields import _map_fields_to_sections
 from .extract import extract_sections
 
 def query_field_records(store_arg: str | None, pythonpath: str | None, field_ref: str, include_linked: bool = False) -> list[dict[str, Any]]:
-    store_path, root = get_store_context(store_arg)
+    location = open_store(store_arg)
+    store_path, root = location.store_path, location.project_root
     store_index = load_store_index(store_path)
     docs = load_runtime_documents(store_path, resolve_model_ref, pythonpath, include_linked=include_linked)
     model_sections = _load_model_sections(store_index, root)

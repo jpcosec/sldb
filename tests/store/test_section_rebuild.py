@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from sldb.cli.graph_ops.extract import extract_sections
+from sldb.api.records.extract import extract_sections
 from sldb.store.section_rebuild import _extract_sections
 
 
