@@ -10,9 +10,13 @@ tags:
 
 ## What
 
+_Define the context or guardrail this pill carries._
+
 This task defines how SLDB names meaningful textual units inside authored documents. The output is an addressability contract for document-local structure, not a graph identity system.
 
 ## Why
+
+_Explain why this context matters for safe execution._
 
 Three existing surfaces already need a stable notion of what textual unit is being referenced:
 
@@ -24,9 +28,13 @@ Without an explicit contract, each surface will invent its own selectors.
 
 ## When
 
+_Describe when an agent should apply this pill._
+
 Apply this pill when defining canonical versus derived addresses, deciding which document subunits are meaningfully addressable, or reasoning about edit stability and provenance.
 
 ## Where
+
+_Name the files, surfaces, or scope this pill applies to._
 
 Read these first:
 
@@ -51,6 +59,8 @@ Relevant unit types to evaluate:
 
 ## How
 
+_Describe the correct way to apply this guidance._
+
 Use existing repo behaviors as evidence, then define the missing contract. Prefer examples that show how the same unit would be referenced by a document author, a structural query, a composition feature, and a semantic export payload.
 
 At minimum, produce a durable contract that answers:
@@ -65,4 +75,7 @@ If implementation is still unsafe afterward, extract follow-up tasks instead of 
 
 ## How Not
 
+_Describe the shortcut or failure mode to avoid._
+
 Do not equate textual location with graph identity, and do not treat the existing `st.{Model}.doc.field` store query surface as automatically sufficient for AST-like document addressability.
+
