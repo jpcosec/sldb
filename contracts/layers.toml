@@ -1,0 +1,715 @@
+# Contrato de capas
+#
+# El orden de dependencia entre paquetes, declarado donde se puede leer sin abrir
+# código. `tools/check_layers.py` lo verifica y rechaza lo que lo viole.
+#
+# Regla: un paquete puede importar de su propia capa o de cualquiera MÁS BAJA.
+# Nunca hacia arriba. La capa 0 no importa nada del sistema, y por eso es la
+# única que se puede extraer y usar sola.
+#
+# El orden no es una preferencia de estilo: es lo que decide si una pieza se
+# puede probar aislada y si alguien puede entender una parte sin cargar el resto.
+
+[[layers]]
+level = 0
+name = "núcleo"
+packages = ["core", "models", "runtime"]
+rationale = """
+Convierte texto en estructura y estructura en texto, junto con los tipos de
+documento y la configuración que decide qué se permite al renderizar.
+
+Los tres están en la misma capa porque están entrelazados: el renderizador
+necesita el tipo base de documento, el tipo base necesita la extracción, y la
+extracción necesita el renderizador. Separarlos en capas distintas produciría
+tres ciclos en vez de describir el sistema.
+
+Declararlos juntos no disuelve el problema: lo nombra. Mientras esta capa tenga
+tres paquetes mutuamente dependientes, ninguno se puede extraer solo. Partirla
+es trabajo futuro con diseño propio, no una excepción que se tacha.
+"""
+
+[[layers]]
+level = 2
+name = "persistencia"
+packages = ["store", "links"]
+rationale = """
+Guarda, indexa y consulta. Conoce los contratos, no conoce la interfaz ni la
+forma en que un humano pide las cosas.
+"""
+
+[[layers]]
+level = 3
+name = "operaciones"
+packages = ["api"]
+rationale = """
+Las operaciones compuestas sobre el almacén: lo que un programa querría llamar.
+Es la frontera pública para quien integra sin pasar por la línea de comandos.
+"""
+
+# La capa de transporte traduce entre un humano o un proceso y las operaciones.
+# No debe contener lógica que un programa necesite: si algo ahí hace falta sin la
+# terminal, va en la capa 3.
+
+[[layers]]
+level = 4
+name = "transporte"
+packages = ["cli", "selfdoc"]
+rationale = """
+`selfdoc` está acá y no más arriba porque la interfaz lo importa en 14 sitios: no
+es un derivado del sistema, es parte de lo que el sistema expone. Clasificarlo
+como derivado fue el primer error que esta puerta encontró en su propio contrato.
+"""
+
+[[layers]]
+level = 5
+name = "derivados"
+packages = ["examples", "assets", "templates"]
+rationale = """
+Se derivan del sistema: ejemplos y plantillas. Pueden mirar todo porque nada
+depende de ellos.
+"""
+
+# ---------------------------------------------------------------------------
+# Excepciones vigentes
+#
+# Cada una es un import que viola el orden de arriba. Están acá para que la
+# puerta pase hoy y la deuda quede contada, no escondida: mientras esta lista
+# tenga entradas, el orden de capas es aspiracional, no bloqueable.
+#
+# Las cinco son la arista minoritaria de un ciclo. En cada caso la dirección
+# mayoritaria tiene decenas o cientos de aristas y la culpable tiene una sola,
+# así que el ciclo es un accidente reparable y no un diseño fusionado.
+#
+# Retirar una entrada de esta lista es el criterio de terminado de su reparación.
+# ---------------------------------------------------------------------------
+
+[allow]
+upward = [
+  ["store", "api"],        # R4
+  ["selfdoc", "cli"],      # R5
+]
+
+# R2 (core→store) se reparó: `StoreError` bajó a `core/exceptions/store_error.py`
+# y el almacén ahora la reexporta. Importar el núcleo pasó de 103 a 58 módulos.
+# La entrada sale de esta lista porque la puerta avisa de excepciones vencidas:
+# dejarla autorizaría algo que ya no ocurre.
+
+# R1 (core→runtime) y R3 (models→runtime) ya no figuran acá: al poner los tres
+# paquetes del núcleo en la misma capa dejaron de violar el orden. El ciclo
+# sigue existiendo y está declarado arriba como lo que impide extraer el núcleo.
+# Esto es la diferencia entre resolver y reclasificar, y conviene no confundirlas.
+
+[[pending]]
+id = "R1"
+edge = "core → runtime"
+at = "src/sldb/core/renderer_engine/python_expr.py#L5"
+imports = "runtime.config.python_expression_is_allowed"
+cycle_weight = "core→runtime: 1 arista · runtime→core: 4 aristas"
+repair = """
+El núcleo pregunta a la configuración si puede evaluar una expresión. Invertir:
+que quien llama pase el permiso como argumento. El núcleo no debe consultar
+estado global para decidir qué le está permitido.
+"""
+
+[[done]]
+id = "R2"
+edge = "core → store"
+at = "src/sldb/core/exceptions/sldb_store_error.py#L2"
+imports = "store.exceptions.StoreError"
+cycle_weight = "core→store: 1 arista · store→core: 8 aristas"
+repaired = """
+Hecho. `StoreError` vive en `core/exceptions/store_error.py` y
+`store/exceptions.py` la reexporta. Efecto medido: importar `core.renderer` pasó
+de 103 a 58 módulos y de 149 ms a 131 ms, y `tools/check.sh` tiene una puerta que
+rechaza la reaparición de la fuga.
+"""
+
+[[pending]]
+id = "R3"
+edge = "models → runtime"
+at = "src/sldb/models/structured_doc.py#L67"
+imports = "runtime.validation.extract_model_data"
+cycle_weight = "models→runtime: 1 arista diferida · runtime→models: 1 arista"
+repair = """
+Escrito dentro de un método para esquivar el ciclo en tiempo de importación.
+El import diferido es la evidencia: alguien ya sabía que el ciclo estaba ahí.
+Mover la extracción a la capa que ya depende de ambos, o inyectarla.
+"""
+
+[[pending]]
+id = "R4"
+edge = "store → api"
+at = "src/sldb/store/edge_index/model_contribution.py#L41"
+imports = "api.schema.describe_field.describe_field"
+cycle_weight = "store→api: 1 arista diferida · api→store: 195 aristas"
+repair = """
+El comentario en esa línea dice que se importa tarde para que el almacén nunca
+cargue las operaciones al importarse. Es un ciclo documentado en un comentario
+y en ningún otro lugar. La función importada no toca el almacén: bajarla a una
+capa que ambos puedan ver.
+"""
+
+[[pending]]
+id = "R5"
+edge = "selfdoc → cli"
+at = "src/sldb/selfdoc/python_relation_registry.py#L7"
+imports = "cli.model_utils.resolve_model_ref"
+cycle_weight = "selfdoc→cli: 1 arista · cli→selfdoc: 14 aristas"
+repair = """
+Resolver una referencia a un modelo no es trabajo de la interfaz: es una
+operación. Subirla a la capa 3 y que ambos la llamen desde ahí.
+"""
+
+# ---------------------------------------------------------------------------
+# Ejes de capacidad
+#
+# Las capas de arriba responden «¿quién puede importar a quién?». Esto responde
+# otra pregunta: «¿qué sabe hacer el sistema?».
+#
+# Son dimensiones ortogonales. Una capacidad puede repartirse entre capas, y dos
+# paquetes de la misma capa pueden no tener nada que ver. El mapa completo, con
+# el acoplamiento medido entre ejes, en propuesta/04-LOS-EJES.md.
+#
+# Cada eje declara su dependencia externa. Esa es la prueba más simple de que un
+# eje es real: si una biblioteca de terceros está confinada a un eje, el eje
+# tiene frontera.
+#
+# No todas se confinan. `pydantic` y `pyyaml` son transversales por diseño —el
+# sistema entero está hecho de modelos validados— y vigilar su confinamiento
+# produce decenas de falsos positivos que entierran los hallazgos reales. Se
+# declaran acá como transversales para que la puerta no las persiga.
+#
+# Las que SÍ se confinan son las interesantes: `markdown-it-py` en superficie,
+# `jinja2` en render, `networkx` en grafo y semántica. Cada una delimita un motor
+# reemplazable.
+
+[axis_external]
+pervasive = ["pydantic", "pyyaml"]
+confined = ["markdown-it-py", "jinja2", "networkx"]
+# ---------------------------------------------------------------------------
+
+[[axis]]
+id = "superficie"
+paths = ["core/ast", "core/segments", "core/handlers"]
+external = ["markdown-it-py"]
+does = "texto a árbol unificado; la puerta de entrada de cualquier superficie"
+identity = true
+
+[[axis]]
+id = "representacion"
+paths = ["core/ir", "core/contracts", "core/node.py", "core/node_handler.py"]
+external = ["pydantic"]
+does = "MeaningNode y SurfaceNode: significado y superficie como proyecciones ancladas"
+identity = true
+note = "es *la* idea del sistema; sin esto lo que queda es un conversor de formato"
+
+[[axis]]
+id = "render"
+paths = ["core/renderer_engine", "core/renderer.py", "core/extractor", "core/template_extractor.py", "core/data_extractor.py"]
+external = ["jinja2"]
+does = "árbol a texto reversible; sin esto la representación es un volcado, no un lugar donde trabajar"
+identity = true
+
+[[axis]]
+id = "contrato"
+paths = ["models"]
+external = ["pydantic"]
+does = "qué es un documento válido"
+identity = true
+
+[[axis]]
+id = "runtime"
+paths = ["runtime"]
+external = []
+does = "la configuración que decide qué se permite al renderizar, y la validación que une modelo con texto"
+identity = true
+note = """
+Pequeño y de identidad: `extract_model_data` es la operación que convierte texto
+en un modelo validado, que es la mitad del contrato del sistema. `config` decide
+si una expresión puede evaluarse. Tres archivos que ningún eje puede absorber sin
+volverse otra cosa.
+"""
+
+[[axis]]
+id = "persistencia"
+paths = ["store/io", "store/models", "store/layout.py"]
+external = []
+does = "guardar, indexar, fragmentar, hashear"
+identity = false
+
+[[axis]]
+id = "consulta"
+paths = ["store/query_engine", "api/search.py"]
+external = []
+does = "buscar y filtrar por campo"
+identity = false
+
+[[axis]]
+id = "grafo"
+paths = ["store/graph"]
+external = ["networkx"]
+does = "recorrer, ciclos, orden, centralidad, similitud estructural"
+identity = false
+extractable = false
+note = """
+Casi extraíble, y la puerta lo precisó mejor que yo.
+
+Afirmé que no importaba nada fuera de sí mismo. Falso: cinco archivos lo hacen
+—`convert.py`, `node_view.py`, `traversal.py`, `analysis/relations.py`— y traen
+`edge_index`, `store.models` y `contrato`. Mi comprobación había truncado las
+rutas y vi solo los imports internos.
+
+Lo que sí es cierto: 28 de 33 archivos son autónomos, y las cinco aristas se
+concentran en la conversión entre el formato del índice de aristas y el del
+motor. Eso es una frontera de adaptación, no una fusión — pero hay que cortarla
+antes de llamar al eje extraíble.
+
+Aparte: importarlo arrastra 125 módulos porque `store/__init__.py` se ejecuta
+antes. Mismo defecto que R2, otra escala.
+"""
+
+[[axis_boundary_debt]]
+axis = "grafo"
+files = ["store/graph/convert.py", "store/graph/node_view.py", "store/graph/traversal.py", "store/graph/analysis/relations.py"]
+imports = ["store/edge_index", "store/models", "models"]
+repair = """
+El motor debería recibir nodos y aristas en su propio formato. Hoy sabe leer el
+del índice. Mover la conversión al índice —que ya depende del motor— deja el
+motor sin dependencias y lo vuelve extraíble de verdad.
+"""
+
+[[axis]]
+id = "indice_de_aristas"
+paths = ["store/edge_index"]
+external = []
+does = "derivar aristas de documentos; el constructor, no el motor"
+identity = false
+note = "contado junto al grafo en el primer mapa, y es un error: el motor no sabe de documentos"
+
+[[axis]]
+id = "recuperacion"
+paths = ["api/matching", "api/corpus"]
+external = []
+does = "similitud aproximada por coseno, con caché de vectores y auditoría del índice"
+identity = false
+note = """
+Sin dependencia externa declarada porque es un PUERTO: la aplicación inyecta un
+`Embedder` y sin uno degrada a `difflib`. El eje mejor diseñado del sistema, e
+invisible desde las dependencias del proyecto — su diseño consiste en no tenerlas.
+"""
+
+[[axis]]
+id = "bitacora"
+paths = ["store/journal", "api/journal.py"]
+external = []
+does = "una entrada encadenada por hash por cada escritura, con verificación de la cadena"
+identity = false
+
+[[axis]]
+id = "adaptadores"
+paths = ["selfdoc"]
+external = ["ast", "argparse", "click"]
+does = "derivar documentos de código y de interfaces"
+identity = false
+note = "tres adaptadores derivados frente a una sola superficie autorada"
+
+[[axis]]
+id = "semantica"
+paths = ["store/semantic_parents.py", "store/semantic_dag_sync.py", "store/semantic_doc_contribution.py", "store/semantic_dag_graph.py", "store/semantic.py", "store/semantic_tags.py", "store/semantic_doc_tags.py", "api/semantic"]
+external = ["networkx"]
+does = "jerarquía de tipos como DAG"
+identity = false
+
+[[axis]]
+id = "enlaces"
+paths = ["links"]
+external = []
+does = "relaciones declaradas entre documentos"
+identity = false
+
+# ---------------------------------------------------------------------------
+# Deuda de ejes
+# ---------------------------------------------------------------------------
+
+# ---------------------------------------------------------------------------
+# Ejes de operación
+#
+# Los de arriba son motores: saben hacer una cosa con una técnica. Estos son las
+# operaciones compuestas que un programa llama, y sin ellos el mapa cubría el
+# 40% del sistema.
+#
+# Mi primer mapa los omitió porque excluí `api/` y `store/` enteros del recuento,
+# y ahí vive casi todo el código. Un mapa que ignora el 60% de lo que describe no
+# es un mapa.
+# ---------------------------------------------------------------------------
+
+[[axis]]
+id = "op_documentos"
+paths = ["api/documents", "api/segments", "store/section_doc_contribution.py", "store/section_paths.py", "store/section_rebuild.py", "store/section_sync.py", "store/documents_dirty.py"]
+external = ["markdown-it-py"]
+note = """
+`section_rebuild.py` usa `markdown-it-py` directamente, fuera del eje de
+superficie. Es la única fuga de esa dependencia y vale mirarla: reconstruir las
+secciones de un documento debería pedírselo al analizador, no reanalizar.
+"""
+does = "seguir, dejar de seguir, guardar y navegar documentos y sus tramos editables"
+identity = false
+
+[[axis]]
+id = "op_modelos"
+paths = ["api/model_drafts", "api/model_registry", "api/model_create", "api/schema"]
+external = ["ast"]
+note = """
+Usa `ast` igual que `adaptadores`, y para otra cosa: aquél LEE código para
+derivar documentos, éste lo EDITA para modificar un contrato en borrador.
+
+La puerta lo marcó como fuga y no lo es: es la misma herramienta en dos oficios.
+Vale declararlo porque la próxima lectura va a dudar igual.
+"""
+does = "resolver, registrar, describir y editar contratos de modelo en borrador"
+identity = false
+
+[[axis]]
+id = "op_almacen"
+paths = ["api/stores", "api/records", "store/ops.py", "store/export.py", "store/catalog_reconcile.py", "store/runtime_cache.py", "store/diagnostics_models", "store/diagnostics.py"]
+external = []
+does = "abrir, enlazar, refrescar índices, exportar y diagnosticar un almacén"
+identity = false
+
+[[axis]]
+id = "op_aristas"
+paths = ["api/edges", "api/graph", "store/edge_sync.py", "store/edge_rebuild.py", "store/edge_doc_contribution.py", "store/model_node.py"]
+external = []
+does = "leer, reconstruir y verificar el índice de aristas; ejecutar consultas de grafo"
+identity = false
+
+[[axis]]
+id = "cache"
+paths = ["store/built_cache.py", "store/runtime_cache.py", "store/runtime_cache_disk.py", "store/runtime_cache_signature.py", "store/user_cache.py", "store/derived_rebuild.py"]
+external = []
+does = "memorizar lo derivado y saber cuándo invalidarlo"
+identity = false
+
+[[axis]]
+id = "codec"
+paths = ["store/codec.py", "store/runtime_codec.py"]
+external = []
+does = "serializar y deserializar el estado del almacén"
+identity = false
+
+[[axis]]
+id = "migracion"
+paths = ["store/migration.py", "store/migration_hash_names.py", "store/migration_legacy_layout.py"]
+external = []
+does = "leer almacenes escritos por versiones anteriores"
+identity = false
+note = "aquí viven las decisiones que los diagnosticadores encontraron solo en comentarios"
+
+[[axis]]
+id = "federacion"
+paths = ["store/catalog.py", "store/resolver.py", "store/facade.py", "store/query.py", "store/predicates.py"]
+external = []
+does = "encontrar almacenes, resolver entre varios y ofrecer la fachada de consulta"
+identity = false
+
+[[axis]]
+id = "errores"
+paths = ["core/exceptions", "store/exceptions.py"]
+external = []
+does = "la jerarquía de excepciones del sistema"
+identity = false
+note = "la capa más baja que todas las demás necesitan nombrar; por eso R2 importaba"
+
+[[axis]]
+id = "identidad_y_hash"
+paths = ["store/hashing.py", "store/documents_hash.py"]
+external = []
+does = "calcular y comparar las huellas que detectan deriva"
+identity = true
+note = """
+De identidad porque es lo que hace que un documento derivado sea verificable
+contra su origen. Sin esto el sistema produce documentación; con esto produce
+proyecciones con detección de rancidez.
+"""
+
+[[axis_debt]]
+id = "dos-lenguajes-de-consulta"
+between = ["consulta", "grafo"]
+what = """
+`store/query_engine/where_parse.py` usa `=`, `!=`, `<=`, `>=`.
+`store/graph/language/field_condition.py` usa `eq`, `ne`, `lt`, `gt`, `contains`,
+`starts_with`, `is_null`, `is_not_null`.
+
+Dos vocabularios para filtrar por campo. No es código duplicado: son dos
+lenguajes que alguien tiene que aprender por separado para hacer lo mismo en dos
+ejes, y un cambio en uno no llega al otro.
+"""
+repair = "un solo lenguaje de condiciones, compartido por los dos ejes"
+
+[[axis_debt]]
+id = "adaptador-sin-uso"
+between = ["adaptadores"]
+what = """
+`selfdoc/click_scanner.py` está escrito completo y no se referencia desde `src/`
+ni desde `tests/`. Ningún documento del almacén viene de él.
+
+Y hay algo peor, verificado: **importa `click` en la línea 8, sin `try`, y `click`
+no está en las dependencias del proyecto.**
+
+No falla porque nadie lo carga: `sldb.selfdoc` se importa sin traer `click`, y
+`click` está en el entorno local por dependencias ajenas (typer, langgraph-cli).
+En un entorno limpio, cualquiera que importara este módulo obtendría
+`ModuleNotFoundError`.
+
+Es un fallo latente que solo existe porque el código está muerto. La prueba de
+que no se ejercita es que el defecto sobrevivió.
+"""
+repair = """
+Dos opciones honestas: declarar `click` como dependencia opcional y ejercitar el
+adaptador con un caso real, o retirarlo. Lo que no sirve es dejarlo: parece una
+capacidad y es un error de importación esperando.
+"""
+
+[[axis_debt]]
+id = "superficie-autorada-unica"
+between = ["superficie"]
+what = """
+`MarkdownASTHandler` es la única implementación concreta de `BaseASTHandler` tras
+317 commits. La abstracción está ejercitada por tres adaptadores derivados y por
+ninguna segunda superficie autorada.
+"""
+repair = """
+Una segunda superficie autorada — o la declaración de que la abstracción es para
+superficies derivadas y Markdown es la única autorada por diseño.
+"""
+
+# ---------------------------------------------------------------------------
+# Unidades viables
+#
+# Los niveles de arriba son orden de dependencia. Esto es otra cosa: qué partes
+# se pueden sostener por separado.
+#
+# La diferencia importa porque es el error natural al leer el grafo: los seis
+# niveles del DAG NO son las unidades. Una unidad viable absorbe su propia
+# variedad —cuando algo cambia dentro, se repara dentro— y un nivel no tiene por
+# qué.
+#
+# La prueba: ¿tiene esta pieza sus propias siete funciones? El razonamiento
+# completo en propuesta/06-NIVELES-NO-SON-UNIDADES.md.
+# ---------------------------------------------------------------------------
+
+[[unit]]
+id = "nucleo"
+axes = ["superficie", "representacion", "render", "contrato", "runtime", "identidad_y_hash", "errores"]
+needs = 2
+needed_by = 28
+indivisible = false
+why = """
+Los cinco ejes de identidad forman un nudo de 11 aristas internas. Lo declaré
+indivisible y es falso: el corte mínimo son 4 aristas de peso total 6, calculado
+por fuerza bruta sobre las 11.
+
+Primero afirmé que bastaba mover `runtime/validation.py`. Lo simulé y el nudo
+seguía: mover un archivo cambia de sitio el problema sin resolverlo.
+"""
+
+[nucleo_min_cut]
+edges = 4
+total_weight = 6
+cuts = [
+  { edge = "superficie → render", at = "core/segments/instrumented_render.py#L16", imports = "SLDBRenderer", weight = 3, note = "un render instrumentado dentro del eje de superficie: está del lado equivocado" },
+  { edge = "representacion → superficie", at = "core/node_handler.py#L3", imports = "SharedNodeHandler", weight = 1, note = "una pieza de representación que conoce al que la va a manejar" },
+  { edge = "render → runtime", at = "core/renderer_engine/python_expr.py#L5", imports = "python_expression_is_allowed", weight = 1, note = "es R1" },
+  { edge = "contrato → runtime", at = "models/structured_doc.py#L67", imports = "extract_model_data", weight = 1, note = "es R3; import diferido" },
+]
+
+[[unit]]
+id = "persistencia"
+axes = ["persistencia", "consulta", "federacion", "cache", "codec", "migracion", "bitacora", "semantica", "indice_de_aristas"]
+needs = 15
+needed_by = 30
+why = "el centro de gravedad del sistema: 110 aristas entran desde los ejes de operación"
+
+[[unit]]
+id = "grafo"
+axes = ["grafo"]
+needs = 4
+needed_by = 2
+extractable_today = false
+why = """
+Unidad propia: 33 archivos, 28 de ellos autónomos. Necesita 7 imports de cuatro
+ejes y lo necesitan 20 —casi todos de `op_aristas`—, así que produce mucho más de
+lo que consume.
+
+No extraíble hoy por la deuda `axis_boundary_debt`: cinco archivos convierten
+entre el formato del índice de aristas y el del motor. Cortar esa conversión
+—moviéndola al índice, que ya depende del motor— lo deja sin dependencias.
+"""
+
+[[unit]]
+id = "adaptadores"
+axes = ["adaptadores"]
+needs = 3
+needed_by = 0
+extractable_today = true
+why = "nadie depende de él; deriva documentos de Python, argparse y click"
+
+[adaptadores_recursion]
+answer = "R2 existe acá"
+evidence = """
+Dos ramas que no comparten código de extracción: 8 archivos `python_*` que leen
+el AST de Python, 7 que leen argparse y click. Lo único compartido es
+`planned_document`, el contrato de salida, cuya docstring dice: «Declare the
+planned-document contract shared by planning, persistence, and inspection. It
+does not write files, register models, or decide which documents need saving.»
+"""
+subunits = [
+  { id = "python-ast", files = 8, absorbs = "cambios en el AST de Python" },
+  { id = "interfaz", files = 7, absorbs = "cambios en argparse y click" },
+]
+contract = "planned_document"
+why_it_is_recursion = """
+Un adaptador nuevo —otro lenguaje— se repara DENTRO de `adaptadores`: implementa
+el contrato y nada más cambia. Eso es absorber su propia variedad, que es la
+definición de unidad viable.
+"""
+
+[[unit]]
+id = "recuperacion"
+axes = ["recuperacion"]
+needs = 4
+needed_by = 0
+extractable_today = true
+why = "nadie depende de él; puerto Embedder sin dependencia vectorial propia"
+
+# No son unidades, y conviene decir por qué:
+
+[[non_unit]]
+id = "operacion"
+axes = ["op_almacen", "op_documentos", "op_modelos", "op_aristas"]
+needs = 39
+needed_by = 9
+verdict = "fachada"
+why = """
+158 archivos, el grupo más grande, y el candidato más obvio por tamaño. Pero
+necesita 16 ejes de fuera y solo 6 lo necesitan: es un consumidor neto.
+
+Compone operaciones sobre lo que otras unidades producen y no produce nada que
+otras necesiten. Eso es legítimo —es transporte— pero no absorbe su propia
+variedad: cualquier cambio en las unidades de abajo la obliga a cambiar.
+"""
+
+[[non_unit]]
+id = "enlaces"
+axes = ["enlaces"]
+needs = 2
+needed_by = 0
+verdict = "capacidad sin superficie"
+why = """
+7 archivos que parsean, resuelven y recuperan referencias entre documentos, y
+componen un documento a partir de otros. Solo los usa la interfaz.
+
+Lo descarté primero por tamaño y era mal criterio: `compose_document` es una
+capacidad real que está construida y no expuesta. No es una sobra, es una
+superficie que falta.
+"""
+
+# ---------------------------------------------------------------------------
+# Lo que falta para que las unidades sean viables
+#
+# Las cuatro tienen ejecución —es lo que hacen— y les faltan las mismas dos
+# funciones, por la misma razón: están organizadas fuera de ellas.
+# ---------------------------------------------------------------------------
+
+[[unit_gap]]
+function = "auditoria"
+missing_in = ["nucleo", "persistencia", "grafo", "adaptadores", "recuperacion"]
+evidence = """
+`tests/` tiene 3 carpetas para 24 ejes y 26 archivos sueltos en la raíz.
+`tests/core/` no existe: el eje `representacion` —la idea central del sistema— no
+tiene ninguna prueba que lo ejercite directamente, igual que `bitacora`.
+"""
+criterion = """
+`tests/<unidad>/` corre sola y pasa, sin cargar las otras unidades. Hoy es
+imposible: las pruebas no están agrupadas por unidad.
+"""
+
+[[unit_gap]]
+function = "regulacion"
+missing_in = ["nucleo", "persistencia", "grafo", "adaptadores", "recuperacion"]
+evidence = """
+Las tres reglas mecanizadas viven en `tests/test_clean_code_rules.py` y recorren
+`src/` entero: una clase por archivo, diez líneas por función, ochenta por
+archivo. Ninguna unidad tiene una regla que le aplique solo a ella.
+"""
+criterion = "cada unidad declara sus reglas y algo las verifica solo contra ella"
+
+# ---------------------------------------------------------------------------
+# Los alfileres
+#
+# 32 imports de peso 1 o 2 sostienen los dos nudos. Mientras existan, cualquier
+# reorganización de carpetas es cosmética: el acoplamiento no está en la
+# estructura de directorios.
+#
+# Precedente medido: en la Fase 0, una arista de peso 1 costaba 46 módulos.
+# ---------------------------------------------------------------------------
+
+[pins]
+core_knot = 6
+operation_knot = 26
+note = """
+Ignorando las de peso ≤2 el nudo de 11 se parte en 3, el mayor de 4. Ese 4 es la
+fusión real; el resto es conveniencia acumulada.
+"""
+
+# ---------------------------------------------------------------------------
+# Lo que a `persistencia` le falta para absorber su variedad
+#
+# Hallazgo de propuesta/09-DUDAS-CERRADAS.md: no hay versionado del formato de
+# almacenamiento. La migración detecta versiones antiguas POR LA EXISTENCIA DE
+# ARCHIVOS:
+#
+#   # store/migration_legacy_layout.py:37
+#   if store_index_path(store_path).exists() or not legacy_store_index_path(...).exists():
+#       return False
+#
+#   «si existe el archivo nuevo, o no existe el viejo, no hay nada que migrar»
+#
+# Eso funciona y no escala: cada formato nuevo exige una función `legacy_*_path`
+# más, y que cada lector tolere ambas formas. Lo tercero escapa de la unidad, y
+# ahí es donde las reglas de compatibilidad terminan viviendo en comentarios.
+# ---------------------------------------------------------------------------
+
+[persistencia_gap]
+missing = "layout_version en el índice de almacén"
+detection_today = "por existencia de archivos"
+evidence_of_leak = """
+«tolerancia a almacenes escritos antes de `field_hashes`: absent is unknown,
+never no-fields» — una regla de compatibilidad de formato que vive en dos
+comentarios de código, encontrada por los diagnosticadores sin saber qué era.
+
+Con un número de versión sería una condición explícita en un solo lugar.
+"""
+consequence = """
+`persistencia` es una unidad —produce más de lo que consume— pero no absorbe
+cambios de formato: se propagan a cada lector. Es la única de las cinco unidades
+a la que le falta algo además de auditoría y regulación.
+"""
+
+# ---------------------------------------------------------------------------
+# Lo que falta como operación, no como diseño
+# ---------------------------------------------------------------------------
+
+[[missing_operation]]
+id = "lectura-de-indices"
+evidence = """
+deskops/deskops/operations.py:2801 encadena tres lecturas para recorrer un
+almacén: índice de almacén → índice de modelos → índice de documentos. Nadie
+debería conocer esa cadena.
+"""
+asymmetry = """
+La escritura SÍ existe como operación: `api/stores/update_store_indexes.py`.
+Hay operación para escribir los índices y no para leerlos, y por eso el
+consumidor bajó a `store/io`.
+"""
+repair = "una operación de lectura que oculte la cadena; entonces las tres funciones vuelven a ser internas"

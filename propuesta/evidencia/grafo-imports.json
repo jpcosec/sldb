@@ -1,0 +1,331 @@
+{
+  "paquetes": {
+    "<root>": [
+      "cli",
+      "core",
+      "models",
+      "runtime"
+    ],
+    "api": [
+      "core",
+      "models",
+      "runtime",
+      "store"
+    ],
+    "cli": [
+      "api",
+      "core",
+      "links",
+      "models",
+      "runtime",
+      "selfdoc",
+      "store"
+    ],
+    "core": [
+      "models",
+      "runtime",
+      "store"
+    ],
+    "links": [
+      "store"
+    ],
+    "models": [
+      "runtime"
+    ],
+    "runtime": [
+      "core",
+      "models"
+    ],
+    "selfdoc": [
+      "cli",
+      "models",
+      "runtime",
+      "store"
+    ],
+    "store": [
+      "api",
+      "core",
+      "models",
+      "runtime"
+    ]
+  },
+  "ciclos": [
+    {
+      "entre": [
+        "api",
+        "store"
+      ],
+      "api_importa_store": [
+        "src/sldb/api/journal.py:store.io -> load_store_index",
+        "src/sldb/api/journal.py:store.io.shards -> load_document_shard",
+        "src/sldb/api/journal.py:store.journal -> JournalEntry, JournalVerifyReport, append_entry, r",
+        "src/sldb/api/journal.py:store.layout -> documents_shard_path",
+        "src/sldb/api/__init__.py:store.edge_index.edge_index -> EdgeIndex",
+        "src/sldb/api/__init__.py:store.edge_index.edge_rebuild_report -> EdgeRebuildReport",
+        "src/sldb/api/__init__.py:store.edge_index.node_ids -> anchor_node_id, bare, doc_node_id, field_node_id, ",
+        "src/sldb/api/__init__.py:store.journal -> JournalEntry, JournalVerifyReport",
+        "src/sldb/api/__init__.py:store.models.edge_node_record -> EdgeNodeRecord",
+        "src/sldb/api/__init__.py:store.models.edge_record -> EdgeRecord",
+        "src/sldb/api/__init__.py:store.models.document_hashes -> DocumentHashes",
+        "src/sldb/api/__init__.py:store.models.store_fingerprint -> StoreFingerprint",
+        "src/sldb/api/search.py:store.query_engine.where_parse -> compile_where",
+        "src/sldb/api/graph/neighborhood.py:store.graph.neighborhood -> collect_neighborhood as _collect",
+        "src/sldb/api/graph/neighborhood.py:store.graph.neighborhood -> collect_neighborhood_by_direction as _collect_dire",
+        "src/sldb/api/graph/snapshot.py:store.edge_index.federation -> federated_stores",
+        "src/sldb/api/graph/snapshot.py:store.export -> export_kgdb_semantic_payload",
+        "src/sldb/api/graph/snapshot.py:store.graph.convert -> snapshot_from_index",
+        "src/sldb/api/graph/snapshot.py:store.graph.graph_io -> load_graph, save_graph",
+        "src/sldb/api/graph/snapshot.py:store.graph.ingest_sldb -> sldb_semantic_export_to_snapshot",
+        "src/sldb/api/graph/snapshot.py:store.graph.snapshot -> GraphSnapshot",
+        "src/sldb/api/graph/execute.py:store.graph.executor -> execute_query as _execute",
+        "src/sldb/api/graph/execute.py:store.graph.language -> StructuredQuery",
+        "src/sldb/api/graph/execute.py:store.graph.node_view -> GraphNode",
+        "src/sldb/api/graph/__init__.py:store.graph.convert -> index_from_snapshot, snapshot_from_index",
+        "src/sldb/api/graph/__init__.py:store.graph.graph_io -> load_graph, save_graph",
+        "src/sldb/api/graph/__init__.py:store.graph.ingest_sldb -> sldb_semantic_export_to_snapshot",
+        "src/sldb/api/graph/__init__.py:store.graph.language -> FacetFilter, FieldCondition, GraphScope, RelationF",
+        "src/sldb/api/graph/__init__.py:store.graph.node -> KnowledgeNode",
+        "src/sldb/api/graph/__init__.py:store.graph.node_view -> GraphNode",
+        "src/sldb/api/graph/__init__.py:store.graph.query_result -> QueryResult",
+        "src/sldb/api/graph/__init__.py:store.graph.snapshot -> GraphSnapshot",
+        "src/sldb/api/graph/analyze.py:store.graph -> analysis",
+        "src/sldb/api/graph/traverse.py:store.graph -> traversal as _t",
+        "src/sldb/api/graph/traverse.py:store.edge_index.node_ids -> bare, kind",
+        "src/sldb/api/edges/relation_models.py:store.io -> load_models_index, load_store_index, save_models_i",
+        "src/sldb/api/edges/rebuild_edges.py:store.edge_index.compose -> compose_edge_index",
+        "src/sldb/api/edges/rebuild_edges.py:store.edge_index.edge_rebuild_report -> EdgeRebuildReport",
+        "src/sldb/api/edges/rebuild_edges.py:store.edge_rebuild -> rebuild_edges_indexes",
+        "src/sldb/api/edges/rebuild_edges.py:store.io -> store_lock",
+        "src/sldb/api/edges/rebuild_edges.py:store.section_rebuild -> rebuild_sections_indexes",
+        "src/sldb/api/edges/rebuild_edges.py:store.semantic -> rebuild_semantic_indexes",
+        "src/sldb/api/edges/builtin_relation_writes.py:store -> documents_hash",
+        "src/sldb/api/edges/builtin_relation_writes.py:store.io -> load_store_index, save_store_index",
+        "src/sldb/api/edges/builtin_relation_writes.py:store.models -> PredicateEntry",
+        "src/sldb/api/edges/builtin_relation_writes.py:store.ops -> track_document",
+        "src/sldb/api/edges/check_edges.py:store.edge_index.acyclic -> cycle_errors",
+        "src/sldb/api/edges/check_edges.py:store.edge_index.validation -> validate_edge_index",
+        "src/sldb/api/edges/edge_serialization.py:store.models.edge_node_record -> EdgeNodeRecord",
+        "src/sldb/api/edges/edge_serialization.py:store.models.edge_record -> EdgeRecord",
+        "src/sldb/api/edges/document_edges.py:store.models.edge_record -> EdgeRecord",
+        "src/sldb/api/edges/edge_reading.py:store.edge_index.compose -> compose_edge_index",
+        "src/sldb/api/edges/edge_reading.py:store.edge_index.edge_index -> EdgeIndex",
+        "src/sldb/api/edges/edge_reading.py:store.models -> EdgeNodeRecord, EdgeRecord",
+        "src/sldb/api/model_drafts/backfill.py:store.facade -> get_tracked_docs",
+        "src/sldb/api/model_drafts/backfill.py:store.hashing -> hash_fields, hash_text",
+        "src/sldb/api/model_drafts/draft_checks.py:store.io -> load_models_index, load_store_index",
+        "src/sldb/api/model_drafts/source_location.py:store.io -> load_store_index",
+        "src/sldb/api/model_drafts/draft_validation.py:store.io -> load_store_index",
+        "src/sldb/api/model_drafts/draft_restore.py:store.layout -> core_dir, semantic_dag_path, semantic_index_path",
+        "src/sldb/api/corpus/field_entries.py:store.hashing -> hash_payload",
+        "src/sldb/api/corpus/field_entries.py:store.query -> load_runtime_documents",
+        "src/sldb/api/corpus/corpus_entries.py:store.query -> load_runtime_documents",
+        "src/sldb/api/model_registry/load_registered_model.py:store.io -> load_store_index",
+        "src/sldb/api/model_registry/add_model.py:store.io -> load_store_index",
+        "src/sldb/api/model_registry/add_model.py:store.layout -> documents_index_relpath, models_index_relpath",
+        "src/sldb/api/model_registry/add_model.py:store.models.store_index -> StoreIndex",
+        "src/sldb/api/model_registry/registered_model.py:store.models.model_entry -> ModelEntry",
+        "src/sldb/api/model_registry/registered_model.py:store.models.store_index -> StoreIndex",
+        "src/sldb/api/model_registry/reindex_model.py:store.io -> load_documents_index, load_models_index, load_stor",
+        "src/sldb/api/model_registry/reindex_model.py:store.models.model_entry -> ModelEntry",
+        "src/sldb/api/model_registry/reindex_model.py:store.models.store_index -> StoreIndex",
+        "src/sldb/api/model_registry/model_index_writes.py:store -> documents_hash",
+        "src/sldb/api/model_registry/model_index_writes.py:store.hashing -> hash_documents_index, hash_fields_with_map, hash_t",
+        "src/sldb/api/model_registry/model_index_writes.py:store.model_node -> stamp_model_node",
+        "src/sldb/api/model_registry/model_index_writes.py:store.io -> save_documents_index, save_models_index, store_loc",
+        "src/sldb/api/model_registry/model_index_writes.py:store.models.documents_index -> DocumentsIndex",
+        "src/sldb/api/model_registry/model_index_writes.py:store.models.model_entry -> ModelEntry",
+        "src/sldb/api/model_registry/model_index_writes.py:store.models.models_index -> ModelsIndex",
+        "src/sldb/api/model_registry/model_index_writes.py:store.models.store_index -> StoreIndex",
+        "src/sldb/api/model_registry/model_index_writes.py:store.ops -> cascade_store_hash",
+        "src/sldb/api/model_registry/model_index_writes.py:store.derived_rebuild -> rebuild_derived_indexes",
+        "src/sldb/api/model_registry/model_index_writes.py:store.semantic_tags -> flatten_model_semantics",
+        "src/sldb/api/model_registry/describe_model.py:store.io -> load_documents_index, load_models_index, load_stor",
+        "src/sldb/api/model_registry/describe_model.py:store.models.models_index -> ModelsIndex",
+        "src/sldb/api/model_registry/federated_lookup.py:store.io -> load_store_index",
+        "src/sldb/api/model_registry/federated_lookup.py:store.layout -> project_root, store_exists",
+        "src/sldb/api/model_registry/federated_lookup.py:store.resolver -> ancestor_stores",
+        "src/sldb/api/model_registry/federated_registration.py:store.io -> load_store_index, save_documents_index, save_model",
+        "src/sldb/api/model_registry/federated_registration.py:store.layout -> documents_index_relpath, models_index_relpath",
+        "src/sldb/api/model_registry/federated_registration.py:store.models.documents_index -> DocumentsIndex",
+        "src/sldb/api/model_registry/federated_registration.py:store.models.model_entry -> ModelEntry",
+        "src/sldb/api/model_registry/federated_registration.py:store.models.models_index -> ModelsIndex",
+        "src/sldb/api/model_registry/federated_registration.py:store.model_node -> stamp_model_node",
+        "src/sldb/api/model_registry/federated_registration.py:store.ops -> cascade_store_hash",
+        "src/sldb/api/model_registry/federated_registration.py:store.semantic_tags -> flatten_model_semantics",
+        "src/sldb/api/stores/store_check.py:store.diagnostics -> diagnose_store",
+        "src/sldb/api/stores/store_fingerprint.py:store.io -> load_documents_index, load_models_index, load_stor",
+        "src/sldb/api/stores/store_fingerprint.py:store.layout -> project_root",
+        "src/sldb/api/stores/store_fingerprint.py:store.models -> DocumentHashes, ModelsIndex, StoreFingerprint",
+        "src/sldb/api/stores/update_store_indexes.py:store.io -> load_store_index",
+        "src/sldb/api/stores/migrate_hash_names.py:store.migration_hash_names -> migrate_hash_names as _migrate_hash_names",
+        "src/sldb/api/stores/document_field_hashes.py:store.hashing -> hash_field_map_of, hash_payload",
+        "src/sldb/api/stores/document_field_hashes.py:store.runtime_cache -> payload_of",
+        "src/sldb/api/stores/document_field_hashes.py:store.codec -> default_codec",
+        "src/sldb/api/stores/index_refresh.py:store.hashing -> hash_text",
+        "src/sldb/api/stores/index_refresh.py:store.model_node -> contract_moved",
+        "src/sldb/api/stores/index_refresh.py:store.io -> load_documents_index, load_models_index",
+        "src/sldb/api/stores/index_refresh.py:store.models.store_index -> StoreIndex",
+        "src/sldb/api/stores/index_commit.py:store -> documents_hash",
+        "src/sldb/api/stores/index_commit.py:store.edge_rebuild -> rebuild_edges_indexes",
+        "src/sldb/api/stores/index_commit.py:store.io -> save_documents_index, save_models_index, store_loc",
+        "src/sldb/api/stores/index_commit.py:store.model_node -> stamp_model_node",
+        "src/sldb/api/stores/index_commit.py:store.models.store_index -> StoreIndex",
+        "src/sldb/api/stores/index_commit.py:store.ops -> cascade_store_hash",
+        "src/sldb/api/stores/index_commit.py:store.section_rebuild -> rebuild_sections_indexes",
+        "src/sldb/api/stores/index_commit.py:store.semantic -> RebuildReport, rebuild_semantic_indexes",
+        "src/sldb/api/stores/scan_structural_noise.py:store.query -> load_runtime_documents",
+        "src/sldb/api/stores/init_store.py:store.layout -> store_exists",
+        "src/sldb/api/stores/store_discovery.py:store.io -> load_store_index",
+        "src/sldb/api/stores/store_discovery.py:store.layout -> project_root, store_exists",
+        "src/sldb/api/stores/store_discovery.py:store.resolver -> ancestor_stores, find_project_store, global_store_",
+        "src/sldb/api/stores/store_skeleton.py:store.catalog -> register_project_store",
+        "src/sldb/api/stores/store_skeleton.py:store.io -> save_semantic_dag, save_semantic_index, save_store",
+        "src/sldb/api/stores/store_skeleton.py:store.models -> SemanticDAG, SemanticIndex, StoreIndex",
+        "src/sldb/api/stores/store_skeleton.py:store.predicates -> default_predicates",
+        "src/sldb/api/stores/store_skeleton.py:store.resolver -> global_store_path",
+        "src/sldb/api/stores/store_update_report.py:store.semantic -> RebuildReport",
+        "src/sldb/api/stores/open_store.py:store.documents_hash -> new_operation as new_documents_hash_operation",
+        "src/sldb/api/stores/open_store.py:store.layout -> project_root, store_exists",
+        "src/sldb/api/stores/open_store.py:store.migration -> migrate_store_layout",
+        "src/sldb/api/stores/open_store.py:store.runtime_cache_signature -> new_operation",
+        "src/sldb/api/stores/link_store.py:store.io -> load_store_index, save_store_index",
+        "src/sldb/api/stores/link_store.py:store.layout -> store_exists",
+        "src/sldb/api/stores/link_store.py:store.models.store_entry -> StoreEntry",
+        "src/sldb/api/stores/link_store.py:store.models.store_index -> StoreIndex",
+        "src/sldb/api/records/fields.py:store.io -> load_store_index, load_models_index, load_sections",
+        "src/sldb/api/records/fields.py:store.query -> load_runtime_documents",
+        "src/sldb/api/records/fields.py:store.layout -> project_root",
+        "src/sldb/api/records/build_ast.py:store.io -> load_store_index, load_models_index, load_document",
+        "src/sldb/api/records/build_ast.py:store.query -> load_runtime_documents",
+        "src/sldb/api/records/resolve.py:store.query -> load_runtime_documents",
+        "src/sldb/api/records/iter_records.py:store.io -> load_store_index",
+        "src/sldb/api/records/iter_records.py:store.query -> load_runtime_documents",
+        "src/sldb/api/records/iter_records_helpers.py:store.io -> load_models_index, load_sections_index",
+        "src/sldb/api/records/iter_records_helpers.py:store.layout -> project_root",
+        "src/sldb/api/records/record_filters.py:store.query_engine.filter -> _where_matches as _core_where_matches",
+        "src/sldb/api/semantic/dag_reads.py:store.io -> load_semantic_dag",
+        "src/sldb/api/semantic/dag_reads.py:store.semantic_dag_graph -> above, children, under",
+        "src/sldb/api/semantic/dag_writes.py:store -> semantic as store_semantic",
+        "src/sldb/api/semantic/dag_writes.py:store -> semantic_parents",
+        "src/sldb/api/semantic/dag_writes.py:store.edge_rebuild -> refresh_store_edges",
+        "src/sldb/api/semantic/dag_writes.py:store.io -> load_semantic_dag",
+        "src/sldb/api/documents/untrack_document.py:store -> documents_hash",
+        "src/sldb/api/documents/untrack_document.py:store.io -> load_store_index, save_models_index, store_lock",
+        "src/sldb/api/documents/untrack_document.py:store.io.shards -> delete_shard",
+        "src/sldb/api/documents/untrack_document.py:store.layout -> documents_shard_path",
+        "src/sldb/api/documents/untrack_document.py:store.models.document_entry -> DocumentEntry",
+        "src/sldb/api/documents/untrack_document.py:store.models.model_entry -> ModelEntry",
+        "src/sldb/api/documents/untrack_document.py:store.models.models_index -> ModelsIndex",
+        "src/sldb/api/documents/untrack_document.py:store.models.store_index -> StoreIndex",
+        "src/sldb/api/documents/untrack_document.py:store.model_node -> stamp_model_node",
+        "src/sldb/api/documents/untrack_document.py:store.ops -> cascade_store_hash",
+        "src/sldb/api/documents/untrack_document.py:store.edge_rebuild -> rebuild_edges_indexes",
+        "src/sldb/api/documents/untrack_document.py:store.section_rebuild -> rebuild_sections_indexes",
+        "src/sldb/api/documents/untrack_document.py:store.semantic -> rebuild_semantic_indexes",
+        "src/sldb/api/documents/payload_save.py:store.codec -> default_codec",
+        "src/sldb/api/documents/payload_save_steps.py:store -> documents_hash",
+        "src/sldb/api/documents/payload_save_steps.py:store.hashing -> hash_fields_with_map, hash_text",
+        "src/sldb/api/documents/payload_save_steps.py:store.io -> load_models_index, load_store_index, save_models_i",
+        "src/sldb/api/documents/payload_save_steps.py:store.io.shards -> load_document_shard, save_document_shard",
+        "src/sldb/api/documents/payload_save_steps.py:store.layout -> documents_shard_path",
+        "src/sldb/api/documents/payload_save_steps.py:store.models.document_entry -> DocumentEntry",
+        "src/sldb/api/documents/payload_save_steps.py:store.models.model_entry -> ModelEntry",
+        "src/sldb/api/documents/payload_save_steps.py:store.models.models_index -> ModelsIndex",
+        "src/sldb/api/documents/payload_save_steps.py:store.models.store_index -> StoreIndex",
+        "src/sldb/api/documents/payload_save_steps.py:store.model_node -> stamp_model_node",
+        "src/sldb/api/documents/payload_save_steps.py:store.ops -> cascade_store_hash",
+        "src/sldb/api/documents/payload_save_steps.py:store.edge_rebuild -> rebuild_edges_indexes",
+        "src/sldb/api/documents/payload_save_steps.py:store.section_rebuild -> rebuild_sections_indexes",
+        "src/sldb/api/documents/payload_save_steps.py:store.semantic -> rebuild_semantic_indexes",
+        "src/sldb/api/documents/runtime_documents.py:store.query -> load_runtime_documents as _load_runtime_documents",
+        "src/sldb/api/documents/document_lookup.py:store -> documents_hash",
+        "src/sldb/api/documents/document_lookup.py:store.io -> load_models_index",
+        "src/sldb/api/documents/document_lookup.py:store.io.shards -> load_document_shard",
+        "src/sldb/api/documents/document_lookup.py:store.layout -> documents_shard_path",
+        "src/sldb/api/documents/document_lookup.py:store.models.document_entry -> DocumentEntry",
+        "src/sldb/api/documents/document_lookup.py:store.models.model_entry -> ModelEntry",
+        "src/sldb/api/documents/document_lookup.py:store.models.models_index -> ModelsIndex",
+        "src/sldb/api/documents/document_lookup.py:store.models.store_index -> StoreIndex",
+        "src/sldb/api/documents/document_payload.py:store.query -> load_runtime_documents",
+        "src/sldb/api/documents/document_render.py:store.layout -> project_root",
+        "src/sldb/api/documents/track_document_file.py:store.ops -> track_document",
+        "src/sldb/api/documents/create_document.py:store.ops -> track_document",
+        "src/sldb/api/documents/delete_document.py:store -> runtime_cache_disk"
+      ],
+      "store_importa_api": [
+        "src/sldb/store/edge_index/model_contribution.py:api.schema.describe_field -> describe_field  # a pydantic-only leaf; imported l"
+      ]
+    },
+    {
+      "entre": [
+        "cli",
+        "selfdoc"
+      ],
+      "cli_importa_selfdoc": [
+        "src/sldb/cli/selfdoc_write.py:selfdoc.planned_document -> PlannedDocument",
+        "src/sldb/cli/selfdoc_inspect.py:selfdoc.planned_document -> PlannedDocument",
+        "src/sldb/cli/selfdoc_inspect.py:selfdoc.report -> DocumentationReport",
+        "src/sldb/cli/selfdoc_registry.py:selfdoc.planned_document -> PlannedDocument",
+        "src/sldb/cli/commands/selfdoc_python.py:selfdoc.kgdb_sync -> graph_is_current, write_kgdb_snapshot",
+        "src/sldb/cli/commands/selfdoc_python.py:selfdoc.python_materialize -> plan_python_documents",
+        "src/sldb/cli/commands/selfdoc_python.py:selfdoc.python_relation_registry -> (",
+        "src/sldb/cli/commands/selfdoc_python.py:selfdoc.python_scanner -> PythonScanner",
+        "src/sldb/cli/commands/selfdoc_python.py:selfdoc.python_source_graph -> source_snapshot",
+        "src/sldb/cli/commands/selfdoc_python.py:selfdoc.python_source_scan -> scan_source_facts",
+        "src/sldb/cli/commands/selfdoc.py:selfdoc.materialize -> plan_documents",
+        "src/sldb/cli/commands/selfdoc.py:selfdoc.parser -> ParserScanner",
+        "src/sldb/cli/commands/selfdoc.py:selfdoc.python_materialize -> plan_python_documents",
+        "src/sldb/cli/commands/selfdoc.py:selfdoc.python_scanner -> PythonScanner"
+      ],
+      "selfdoc_importa_cli": [
+        "src/sldb/selfdoc/python_relation_registry.py:cli.model_utils -> resolve_model_ref"
+      ]
+    },
+    {
+      "entre": [
+        "core",
+        "runtime"
+      ],
+      "core_importa_runtime": [
+        "src/sldb/core/renderer_engine/python_expr.py:runtime.config -> python_expression_is_allowed"
+      ],
+      "runtime_importa_core": [
+        "src/sldb/runtime/validation.py:core.ast -> AST_Handler",
+        "src/sldb/runtime/validation.py:core.data_extractor -> DataExtractor",
+        "src/sldb/runtime/validation.py:core.renderer -> SLDBRenderer",
+        "src/sldb/runtime/validation.py:core.template_extractor -> TemplateExtractor"
+      ]
+    },
+    {
+      "entre": [
+        "core",
+        "store"
+      ],
+      "core_importa_store": [
+        "src/sldb/core/exceptions/sldb_store_error.py:store.exceptions -> StoreError"
+      ],
+      "store_importa_core": [
+        "src/sldb/store/ops.py:core.exceptions -> SLDBStoreError",
+        "src/sldb/store/edge_rebuild.py:core.exceptions -> SLDBModelError",
+        "src/sldb/store/facade.py:core.exceptions -> SLDBError",
+        "src/sldb/store/semantic_parents.py:core.exceptions -> SLDBStoreError",
+        "src/sldb/store/query_engine/where_parse.py:core.exceptions -> SLDBError",
+        "src/sldb/store/io/lock.py:core.exceptions -> SLDBStoreError",
+        "src/sldb/store/graph/analysis/centrality.py:core.exceptions -> SLDBError",
+        "src/sldb/store/graph/analysis/order.py:core.exceptions -> SLDBGraphCycleError"
+      ]
+    },
+    {
+      "entre": [
+        "models",
+        "runtime"
+      ],
+      "models_importa_runtime": [
+        "src/sldb/models/structured_doc.py:runtime.validation -> extract_model_data"
+      ],
+      "runtime_importa_models": [
+        "src/sldb/runtime/validation.py:models.structured_doc -> StructuredNLDoc"
+      ]
+    }
+  ]
+}

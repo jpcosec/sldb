@@ -1,0 +1,375 @@
+# Contrato de identidad
+#
+# Qué es este repositorio, en términos que permitan rechazar.
+# `tools/check_identity.py` lo verifica.
+#
+# Existe porque el diagnóstico de S5 no pudo decidir si varios directorios
+# pertenecían. Faltaba la frontera: el repositorio es dos cosas, y sin nombrar
+# las dos, la mitad de su contenido parece acumulación.
+
+statement = """
+Un sistema para representar cualquier cosa con estructura derivable de forma
+determinista —documentos, código, interfaces de programa— como documentos
+direccionables, consultables, anclados a su origen y reversibles a su superficie.
+
+Markdown es la superficie autorada: la que un humano escribe. Los árboles
+sintácticos de código son la superficie derivada: la que una máquina extrae. El
+núcleo no distingue entre las dos, y esa indistinción es el producto.
+"""
+
+# Por qué no dice «biblioteca de Markdown», que es lo que decía antes:
+#
+# 1.368 de los 1.551 documentos del almacén no vienen de Markdown. Vienen de
+# `ast.parse()` sobre Python (1.279) y de introspección de argparse (89).
+#
+# `core/ir/` separa `MeaningNode` de `SurfaceNode`; `BaseASTHandler` es abstracto
+# y Markdown es una implementación; y la propia taxonomía del sistema pone
+# `source.code` y `source.document` como ramas paralelas.
+#
+# El razonamiento completo, con la evidencia, en propuesta/03-QUE-ES-REALMENTE.md.
+
+[surfaces]
+authored = ["markdown"]
+derived = ["python-ast", "argparse", "click"]
+note = """
+`MarkdownASTHandler` es la única implementación concreta de `BaseASTHandler` tras
+317 commits. La abstracción está ejercitada por tres adaptadores derivados, pero
+nunca por una segunda superficie autorada: es una capacidad declarada y no
+verificada.
+"""
+
+# ---------------------------------------------------------------------------
+# Grupo 1 · el producto
+#
+# Genérico. No sabe que este repositorio existe. Es lo que se instala.
+# ---------------------------------------------------------------------------
+
+[product]
+packages = ["core", "runtime", "store", "api", "selfdoc", "models", "cli"]
+rule = """
+Ningún paquete de acá puede nombrar nada específico de este repositorio: ni un
+modelo de autoaplicación, ni una ruta del árbol, ni un documento del almacén
+propio. Si lo hace, el producto deja de ser instalable por otro y pasa a
+describir su propia casa.
+"""
+
+# `models` y `cli` son producto, y la historia de esta entrada vale registrarla.
+#
+# Primero los declaré producto. La puerta los rechazó con 18 violaciones porque
+# seis modelos parecían ser de autoaplicación. Los reclasifiqué como mezclados.
+#
+# Era la conclusión equivocada a partir de evidencia correcta: los seis modelos
+# NO nombran este repositorio. `PythonSymbolDoc` describe cualquier símbolo de
+# Python; `CliCommandDoc`, cualquier interfaz de argparse o click. Son
+# adaptadores de superficie derivada, tan producto como `MarkdownASTHandler`.
+#
+# Lo que me confundió: los únicos documentos que existen hechos con esos modelos
+# describen este repositorio. Pero eso es una propiedad del contenido del
+# almacén, no de los contratos. Confundí el modelo con su única instancia.
+
+[product.models]
+base = ["structured_doc"]
+relations = ["relation_doc", "relation_type_doc", "builtin_relation_types"]
+derived_surfaces = ["python_symbol_doc", "cli_command_doc", "surface_doc"]
+vocabulary = ["knowledge_tag", "anchor_doc", "knowledge_surface"]
+
+# ---------------------------------------------------------------------------
+# Grupo 2 · la autoaplicación
+#
+# El repositorio usándose a sí mismo. 1.551 documentos, 77% del código descrito.
+# No es andamiaje ni demostración: es la instancia mayor que existe del producto,
+# y por eso vive versionada.
+# ---------------------------------------------------------------------------
+
+# `selfdoc` figura en [product] y no acá, corrigiendo la clasificación anterior.
+#
+# Sus seis modelos no nombran este repositorio: `PythonSymbolDoc` describe
+# cualquier símbolo de Python, `CliCommandDoc` cualquier interfaz de argparse o
+# click. Son adaptadores de dominio, no autoaplicación.
+#
+# Lo específico de este repositorio es el CONTENIDO del almacén, no los modelos
+# que lo estructuran. Esa es la frontera correcta, y la anterior confundía el
+# contrato con su instancia.
+
+[self_application]
+packages = []
+models = []
+directories = [".sldb", "knowledge", "desk", "ledger", "runs", "contracts"]
+rule = """
+Contenido, no código: los documentos que describen este repositorio en concreto.
+Ningún paquete del producto puede nombrar una ruta ni un documento de acá.
+"""
+
+[self_application.evidence]
+documents = 1551
+symbols_described = 1279
+symbols_total = 1665
+commands_described = 68
+models_registered = 23
+
+# ---------------------------------------------------------------------------
+# Grupo 3 · ajeno
+#
+# Vive acá y no pertenece a ninguno de los dos grupos. Declararlo es suficiente:
+# un directorio prestado y declarado es honesto, uno sin declarar hace que la
+# identidad del sistema sea indecidible.
+# ---------------------------------------------------------------------------
+
+[[foreign]]
+path = "surface"
+files = 140
+what = "aplicación web propia (`@sldb/surface`, Vite)"
+verdict = "no declarada en ninguna especificación; ni producto ni autoaplicación"
+
+[[foreign]]
+path = "kgdb"
+files = 14
+what = "tipos de relación de otro sistema del ecosistema"
+verdict = "prestado y declarado; se queda como referencia"
+
+[[foreign]]
+path = "sldb"
+files = 1
+what = "un directorio con el nombre del paquete, en la raíz, con un archivo"
+verdict = "duplica `kgdb/relation_types/`; solo genera ambigüedad"
+
+# ---------------------------------------------------------------------------
+# Lo que la identidad rechaza
+#
+# Una identidad que no rechaza nada no es identidad. Estas cuatro no son
+# todas mecanizables, y se marca cuáles sí.
+# ---------------------------------------------------------------------------
+
+[[rejects]]
+rule = "una función del producto que el propio repositorio no use"
+mechanized = false
+note = "exige juicio: decidir si una función es autoaplicable no es automatizable"
+
+[[rejects]]
+rule = "documentación escrita a mano sobre algo que `selfdoc` deriva"
+mechanized = false
+note = "parcialmente cubierto por tools/check_claims.py, que detecta cuando miente"
+
+[[rejects]]
+rule = "un modelo de autoaplicación importado desde un paquete del producto"
+mechanized = true
+note = "tools/check_identity.py — aplica a core, runtime, store y api; en models y cli la frontera corre por dentro y solo se cuenta la deuda"
+
+[[rejects]]
+rule = "un directorio de primer nivel versionado y sin clasificar en este archivo"
+mechanized = true
+note = "tools/check_identity.py"
+
+# ---------------------------------------------------------------------------
+# El congelamiento
+#
+# Una contradicción abierta. No se resuelve acá porque es una decisión del autor,
+# no un hallazgo: el README declara el proyecto congelado el 2026-09-07 y hubo
+# 223 commits después.
+#
+# Es coherente como intención —congelado como producto, activo como caso de uso—
+# pero hoy no está dicho así, y «freeze» sobre un árbol con 223 commits nuevos
+# entrena a leer el README como decorativo.
+# ---------------------------------------------------------------------------
+
+[freeze]
+declared = "2026-09-07"
+commits_after = 223
+status = "sin resolver"
+options = [
+  "congelado como producto, activo como autoaplicación: decirlo explícito y que una puerta rechace cambios no correctivos en los seis paquetes del producto",
+  "activo: levantar el congelamiento y declarar qué es el proyecto ahora",
+]
+
+# ---------------------------------------------------------------------------
+# Huérfanos en la raíz
+#
+# Archivos versionados que no son producto ni autoaplicación ni ajenos: son
+# restos. Están acá para que la puerta pase con la deuda contada, y cada entrada
+# dice qué hacer con ellos.
+#
+# Ninguno se borra en esta propuesta: borrar es una decisión del autor. Lo que la
+# puerta garantiza es que no aparezcan nuevos sin que alguien decida.
+# ---------------------------------------------------------------------------
+
+[[orphan]]
+path = "TASK-sldb-serve.md"
+what = "plan para `sldb serve`"
+status = "sin cierre; el comando se documenta en docs/ y no existe en la interfaz"
+action = "cerrar, archivar o borrar — un plan sin cierre en la raíz parece compromiso"
+
+[[orphan]]
+path = "TASK-store-generalize.md"
+what = "plan de generalización del almacén"
+status = "sin cierre"
+action = "cerrar, archivar o borrar"
+
+[[orphan]]
+path = "sldb.spec.yml"
+what = "especificación del sistema"
+status = "última edición 2026-08-19; cero referencias desde el código o la documentación"
+action = "derivar de `selfdoc` o borrar"
+
+[[orphan]]
+path = "sldb_architecture.spec.yaml"
+what = "especificación de arquitectura"
+status = "declara 7 nodos; hay 11 paquetes. 16 de sus 17 nombres ya no corresponden"
+action = "derivar del grafo de paquetes — `tools/check_layers.py --graph` ya lo produce"
+
+[[orphan]]
+path = "sldb_extraction_flow.spec.yaml"
+what = "especificación del flujo de extracción"
+status = "última edición 2026-08-18; cero referencias"
+action = "derivar o borrar"
+
+[[orphan]]
+path = "sldb_store_cascade.spec.yaml"
+what = "especificación de la cascada del almacén"
+status = "última edición 2026-08-18; cero referencias. Los diagnosticadores notaron que no cubre las invariantes de hash que el código sí tiene"
+action = "derivar o borrar"
+
+# ---------------------------------------------------------------------------
+# Cruces de frontera vigentes
+#
+# Código del producto que nombra contenido de este repositorio. Son dos, están
+# contados, y cada uno dice cómo se repara. Mientras existan, «el producto es
+# genérico» es aspiracional.
+# ---------------------------------------------------------------------------
+
+[[boundary_debt]]
+at = "src/sldb/cli/commands/lint.py#L8"
+names = "desk/"
+what = """
+`ALLOWED_PREFIXES` lista los prefijos de ruta que el verificador acepta, y entre
+ellos están `desk/`, `source_docs/`, `projects/` y `software/`: cuatro
+convenciones de este repositorio incrustadas en el producto.
+"""
+repair = """
+La lista va en configuración, no en código. Un prefijo permitido es una política
+del proyecto que usa la biblioteca, no de la biblioteca.
+"""
+
+[[boundary_debt]]
+at = "src/sldb/cli/selfdoc_inspect.py#L53"
+names = "knowledge/"
+what = """
+Detecta renombres comparando contra `knowledge/symbols/`, que es la carpeta de
+salida de este repositorio en concreto.
+"""
+repair = """
+La raíz de salida debe venir del contrato o de un argumento. `selfdoc` es
+producto —describe cualquier código Python— pero sabe dónde escribe *acá*.
+"""
+
+# ---------------------------------------------------------------------------
+# La superficie pública
+#
+# No se diseñó desde cero: se leyó de lo que los cinco consumidores del
+# ecosistema ya importan. 53 símbolos, medidos. El razonamiento en
+# propuesta/08-LA-SUPERFICIE.md.
+#
+# El dato que valida las unidades: los 53 se agrupan por unidad viable casi
+# perfectamente, sin que nadie coordinara las dos cosas.
+# ---------------------------------------------------------------------------
+
+[surface]
+consumers = ["deskops", "kgdb", "spec2viz", "hum-scrapper", "ontology"]
+symbols_requested = 53
+already_exported = 32
+note = """
+Los consumidores se reparan AL FINAL, por decisión del autor. Eso libera el plan:
+los pasos que solo agregan nombres públicos no rompen nada, y la ruptura se
+concentra en un paso único al separar unidades físicamente.
+"""
+
+# Los nueve con demanda múltiple: el centro de la superficie.
+[surface.multi_consumer]
+StructuredNLDoc = 4
+resolve_model_ref = 3
+load_store_index = 3
+load_models_index = 3
+store_exists = 2
+project_root = 2
+load_documents_index = 2
+find_local_store = 2
+extract_model_data = 2
+
+# Una puerta por unidad, que es lo que la agrupación de los 53 pide.
+[[surface.door]]
+module = "sldb"
+unit = "nucleo"
+symbols = 11
+examples = ["StructuredNLDoc", "extract_model_data", "RelationDoc", "SLDBValidationError"]
+
+[[surface.door]]
+module = "sldb.store"
+unit = "persistencia"
+symbols = 7
+examples = ["open_store", "store_exists", "project_root", "find_local_store", "load_store_index"]
+decision_pending = """
+Exponer las siete congela el formato de los índices. Mi lectura es que son
+superficie legítima —las preguntas básicas que se le hacen a un almacén— pero es
+una decisión, no un hallazgo.
+"""
+
+[[surface.door]]
+module = "sldb.graph"
+unit = "grafo"
+symbols = 13
+examples = ["GraphSnapshot", "KnowledgeNode", "StructuredQuery", "QueryResult", "FacetPayload"]
+decision_pending = "si el motor se publica aparte, su superficie es la del paquete y no una puerta de sldb"
+
+[[surface.door]]
+module = "sldb.api"
+unit = "operacion"
+symbols = 12
+examples = ["init_store", "track_document", "describe_field", "diagnose_store", "update_store_indexes"]
+
+[[surface.door]]
+module = "sldb.adapters"
+unit = "adaptadores"
+symbols = 0
+note = "ningún consumidor lo pide todavía; la puerta existiría por simetría"
+
+[[surface.door]]
+module = "sldb.retrieval"
+unit = "recuperacion"
+symbols = 0
+note = "ningún consumidor lo pide todavía"
+
+# ---------------------------------------------------------------------------
+# Deuda de superficie
+# ---------------------------------------------------------------------------
+
+[[surface_debt]]
+id = "privados-importados"
+what = "kgdb/src/kgdb/ingest/typed.py:42 importa `_base_provenance` y `_collect_semantic_tags` de `store/graph/ingest_sldb.py`"
+why_not_a_consumer_bug = """
+No es culpa de kgdb: necesitaba la capacidad y no había puerta. El guion bajo
+decía «interno» y nada podía hacerlo cumplir.
+"""
+repair = "nombrarlas y exponerlas, o dar la capacidad por otra vía"
+
+[[surface_debt]]
+id = "interfaz-como-libreria"
+what = """
+Seis funciones de `cli/` usadas por código de producción de deskops y spec2viz:
+`resolve_model_ref` (3 consumidores), `get_store_context`, `registered_model`,
+`parse_data_value`, más `ModelCLI` y `DocCLI` instanciadas directamente.
+
+El caso extremo: `deskops/bootstrap.py:148` construye `ModelCLI()` y le pasa
+argumentos simulados para registrar un modelo.
+"""
+why = "seis operaciones no existen como operaciones: existen envueltas en el transporte"
+repair = "subirlas a la capa de operaciones; el transporte las llama desde ahí"
+note = "distinto de `sldb.cli.main` invocado desde pruebas de deskops, que es legítimo"
+
+[[surface_debt]]
+id = "sin-nombre-publico"
+count = 21
+what = """
+De los 53 pedidos, 21 no están en ningún `__all__`: `extract_model_data` (37 usos
+en deskops), `project_root`, `store_exists`, `track_document`, `parse_data_value`,
+`render_model_markdown`, entre otros.
+"""
+repair = "declararlos en la puerta de su unidad"

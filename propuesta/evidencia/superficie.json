@@ -1,0 +1,417 @@
+{
+  "imports_diferidos": {
+    "n": 91,
+    "casos": [
+      {
+        "archivo": "src/sldb/api/corpus/corpus_audit.py#L10",
+        "linea": "from sldb.api.corpus.corpus import Corpus"
+      },
+      {
+        "archivo": "src/sldb/api/corpus/field_hit.py#L13",
+        "linea": "from sldb.api.corpus.field_entry import FieldEntry"
+      },
+      {
+        "archivo": "src/sldb/api/corpus/hit.py#L11",
+        "linea": "from sldb.api.corpus.corpus_entry import CorpusEntry"
+      },
+      {
+        "archivo": "src/sldb/api/documents/document_ast.py#L19",
+        "linea": "from sldb.api.records import extract_sections"
+      },
+      {
+        "archivo": "src/sldb/api/documents/document_ast.py#L30",
+        "linea": "from sldb.api import build_document_ir_json"
+      },
+      {
+        "archivo": "src/sldb/api/documents/document_ir_serialization.py#L19",
+        "linea": "from sldb.api.records.build_ir import build_document_ir"
+      },
+      {
+        "archivo": "src/sldb/api/documents/document_render.py#L25",
+        "linea": "from sldb.runtime.validation import render_model_markdown"
+      },
+      {
+        "archivo": "src/sldb/api/documents/document_serialization.py#L18",
+        "linea": "from sldb.api.journal import doc_hashes  # deferred: import-safe during package init"
+      },
+      {
+        "archivo": "src/sldb/api/documents/structural_noise.py#L50",
+        "linea": "from sldb.api.documents.heading_scan import format_heading"
+      },
+      {
+        "archivo": "src/sldb/api/model_create/model_check.py#L50",
+        "linea": "from sldb.runtime.validation import validate_model_data_roundtrip"
+      },
+      {
+        "archivo": "src/sldb/api/records/record_filters.py#L79",
+        "linea": "from sldb.api.model_registry.model_reference import resolve_model_ref"
+      },
+      {
+        "archivo": "src/sldb/api/search.py#L40",
+        "linea": "from sldb.store.query_engine.where_parse import compile_where"
+      },
+      {
+        "archivo": "src/sldb/api/segments/build_extraction_segments.py#L38",
+        "linea": "from sldb.runtime.validation import extract_model_data"
+      },
+      {
+        "archivo": "src/sldb/api/segments/composition_piece.py#L12",
+        "linea": "from sldb.api.segments.segment import Segment"
+      },
+      {
+        "archivo": "src/sldb/api/segments/field_segment.py#L13",
+        "linea": "from sldb.api.segments.segment import Segment"
+      },
+      {
+        "archivo": "src/sldb/api/stores/document_field_hashes.py#L20",
+        "linea": "from sldb.store.runtime_cache import payload_of"
+      },
+      {
+        "archivo": "src/sldb/api/stores/document_field_hashes.py#L21",
+        "linea": "from sldb.store.codec import default_codec"
+      },
+      {
+        "archivo": "src/sldb/api/stores/scan_structural_noise.py#L28",
+        "linea": "from sldb.api.model_registry.model_reference import resolve_model_ref"
+      },
+      {
+        "archivo": "src/sldb/api/stores/scan_structural_noise.py#L29",
+        "linea": "from sldb.store.query import load_runtime_documents"
+      },
+      {
+        "archivo": "src/sldb/api/stores/store_check.py#L17",
+        "linea": "from sldb.api.model_registry.model_reference import resolve_model_ref"
+      },
+      {
+        "archivo": "src/sldb/api/stores/store_check.py#L18",
+        "linea": "from sldb.store.diagnostics import diagnose_store"
+      },
+      {
+        "archivo": "src/sldb/api/stores/store_check.py#L37",
+        "linea": "from sldb.api.stores.scan_structural_noise import scan_structural_noise"
+      },
+      {
+        "archivo": "src/sldb/cli/commands/init.py#L31",
+        "linea": "from sldb.core.exceptions import SLDBError"
+      },
+      {
+        "archivo": "src/sldb/cli/commands/models_utils.py#L21",
+        "linea": "from sldb.store.facade import get_tracked_docs"
+      },
+      {
+        "archivo": "src/sldb/cli/commands/sections_find.py#L28",
+        "linea": "from sldb.cli.commands.find import FindCLI"
+      },
+      {
+        "archivo": "src/sldb/cli/commands/store_check.py#L8",
+        "linea": "from sldb.store.diagnostics import diagnose_store"
+      },
+      {
+        "archivo": "src/sldb/cli/commands/store_check.py#L9",
+        "linea": "from sldb.cli.model_utils import resolve_model_ref"
+      },
+      {
+        "archivo": "src/sldb/cli/commands/store_check.py#L18",
+        "linea": "from sldb.api.stores.scan_structural_noise import scan_structural_noise"
+      },
+      {
+        "archivo": "src/sldb/cli/dispatcher.py#L15",
+        "linea": "from sldb.cli.commands.basic import BasicCLI"
+      },
+      {
+        "archivo": "src/sldb/cli/dispatcher.py#L16",
+        "linea": "from sldb.cli.commands.init import InitCLI"
+      },
+      {
+        "archivo": "src/sldb/cli/dispatcher.py#L17",
+        "linea": "from sldb.cli.commands.help import HelpCLI"
+      },
+      {
+        "archivo": "src/sldb/cli/dispatcher.py#L18",
+        "linea": "from sldb.cli.commands.faq import FAQCLI"
+      },
+      {
+        "archivo": "src/sldb/cli/dispatcher.py#L19",
+        "linea": "from sldb.cli.commands.inbox import InboxCLI"
+      },
+      {
+        "archivo": "src/sldb/cli/dispatcher.py#L20",
+        "linea": "from sldb.cli.commands.explore import ExploreCLI"
+      },
+      {
+        "archivo": "src/sldb/cli/dispatcher.py#L26",
+        "linea": "from sldb.cli.commands.ast import ASTCLI"
+      },
+      {
+        "archivo": "src/sldb/cli/dispatcher.py#L27",
+        "linea": "from sldb.cli.commands.find import FindCLI"
+      },
+      {
+        "archivo": "src/sldb/cli/dispatcher.py#L28",
+        "linea": "from sldb.cli.commands.stores import StoresCLI"
+      },
+      {
+        "archivo": "src/sldb/cli/dispatcher.py#L29",
+        "linea": "from sldb.cli.commands.models import ModelsCLI"
+      },
+      {
+        "archivo": "src/sldb/cli/dispatcher.py#L30",
+        "linea": "from sldb.cli.commands.predicates import PredicatesCLI"
+      },
+      {
+        "archivo": "src/sldb/cli/dispatcher.py#L31",
+        "linea": "from sldb.cli.commands.docs import DocsCLI"
+      },
+      {
+        "archivo": "src/sldb/cli/dispatcher.py#L32",
+        "linea": "from sldb.cli.commands.journal import JournalCLI"
+      },
+      {
+        "archivo": "src/sldb/cli/dispatcher.py#L37",
+        "linea": "from sldb.cli.commands.selfdoc import SelfdocCLI"
+      },
+      {
+        "archivo": "src/sldb/cli/dispatcher.py#L38",
+        "linea": "from sldb.cli.commands.fields import FieldsCLI"
+      },
+      {
+        "archivo": "src/sldb/cli/dispatcher.py#L39",
+        "linea": "from sldb.cli.commands.sections import SectionsCLI"
+      },
+      {
+        "archivo": "src/sldb/cli/dispatcher.py#L40",
+        "linea": "from sldb.cli.commands.serve import ServeCLI"
+      },
+      {
+        "archivo": "src/sldb/cli/dispatcher.py#L41",
+        "linea": "from sldb.cli.commands.lint import lint_cli"
+      },
+      {
+        "archivo": "src/sldb/cli/dispatcher.py#L42",
+        "linea": "from sldb.cli.commands.semantic import SemanticCLI"
+      },
+      {
+        "archivo": "src/sldb/cli/dispatcher.py#L49",
+        "linea": "from sldb.cli.commands.edges import EdgesCLI"
+      },
+      {
+        "archivo": "src/sldb/cli/dispatcher.py#L54",
+        "linea": "from sldb.cli.commands.graph import GraphCLI"
+      },
+      {
+        "archivo": "src/sldb/cli/dispatcher.py#L65",
+        "linea": "from sldb.cli.commands.legacy import LegacyCLI"
+      },
+      {
+        "archivo": "src/sldb/cli/serve/health.py#L17",
+        "linea": "from sldb.api.stores.store_check import check_store"
+      },
+      {
+        "archivo": "src/sldb/core/handlers/table.py#L53",
+        "linea": "from sldb.core.handlers.text import build_text_pattern"
+      },
+      {
+        "archivo": "src/sldb/models/structured_doc.py#L67",
+        "linea": "from sldb.runtime.validation import extract_model_data"
+      },
+      {
+        "archivo": "src/sldb/store/documents_hash.py#L49",
+        "linea": "from sldb.store.io import load_models_index, load_store_index"
+      },
+      {
+        "archivo": "src/sldb/store/documents_hash.py#L50",
+        "linea": "from sldb.store.layout import project_root"
+      },
+      {
+        "archivo": "src/sldb/store/documents_hash.py#L57",
+        "linea": "from sldb.store.io.shard_compose import compose_documents_entries"
+      },
+      {
+        "archivo": "src/sldb/store/edge_index/cache_keys.py#L18",
+        "linea": "from sldb.store import built_cache"
+      },
+      {
+        "archivo": "src/sldb/store/edge_index/federation.py#L18",
+        "linea": "from sldb.store.query import _linked_stores"
+      },
+      {
+        "archivo": "src/sldb/store/edge_index/model_contribution.py#L41",
+        "linea": "from sldb.api.schema.describe_field import describe_field  # a pydantic-only leaf; imported late so sldb.store"
+      },
+      {
+        "archivo": "src/sldb/store/edge_index/shard_reading.py#L37",
+        "linea": "from sldb.store.layout import project_root"
+      },
+      {
+        "archivo": "src/sldb/store/facade.py#L11",
+        "linea": "from sldb.core.exceptions import SLDBError"
+      },
+      {
+        "archivo": "src/sldb/store/io/documents_index.py#L37",
+        "linea": "from sldb.store import documents_hash"
+      },
+      {
+        "archivo": "src/sldb/store/io/documents_index.py#L38",
+        "linea": "from sldb.store.layout import documents_shards_dir, model_name_of_documents_path"
+      },
+      {
+        "archivo": "src/sldb/store/io/documents_index.py#L49",
+        "linea": "from sldb.store.io.shards import save_document_shard"
+      },
+      {
+        "archivo": "src/sldb/store/io/documents_index.py#L50",
+        "linea": "from sldb.store.layout import documents_shard_path, model_name_of_documents_path"
+      },
+      {
+        "archivo": "src/sldb/store/io/lock.py#L50",
+        "linea": "from sldb.core.exceptions import SLDBStoreError"
+      },
+      {
+        "archivo": "src/sldb/store/io/sections_index.py#L35",
+        "linea": "from sldb.store.io.shard_compose import compose_sections_documents"
+      },
+      {
+        "archivo": "src/sldb/store/io/sections_index.py#L36",
+        "linea": "from sldb.store.layout import model_name_of_sections_path, sections_shards_dir"
+      },
+      {
+        "archivo": "src/sldb/store/io/sections_index.py#L48",
+        "linea": "from sldb.store.io.shards import save_sections_shard"
+      },
+      {
+        "archivo": "src/sldb/store/io/sections_index.py#L49",
+        "linea": "from sldb.store.layout import model_name_of_sections_path, sections_shard_path"
+      },
+      {
+        "archivo": "src/sldb/store/io/semantic_index.py#L48",
+        "linea": "from sldb.store.io.shard_compose import compose_semantic_documents"
+      },
+      {
+        "archivo": "src/sldb/store/io/semantic_index.py#L61",
+        "linea": "from sldb.store.io.shards import save_semantic_shard"
+      },
+      {
+        "archivo": "src/sldb/store/io/semantic_index.py#L62",
+        "linea": "from sldb.store.layout import semantic_shard_path"
+      },
+      {
+        "archivo": "src/sldb/store/io/shard_compose.py#L14",
+        "linea": "from sldb.store.layout import runtime_dir"
+      },
+      {
+        "archivo": "src/sldb/store/io/shard_compose.py#L31",
+        "linea": "from sldb.store.layout import sections_shards_dir"
+      },
+      {
+        "archivo": "src/sldb/store/io/shard_compose.py#L45",
+        "linea": "from sldb.store.layout import edges_shards_dir"
+      },
+      {
+        "archivo": "src/sldb/store/io/shard_compose.py#L55",
+        "linea": "from sldb.store.layout import documents_shards_dir"
+      },
+      {
+        "archivo": "src/sldb/store/migration_hash_names.py#L21",
+        "linea": "from sldb.store.layout import core_dir"
+      },
+      {
+        "archivo": "src/sldb/store/ops.py#L34",
+        "linea": "from sldb.core.exceptions import SLDBStoreError"
+      },
+      {
+        "archivo": "src/sldb/store/query_engine/semantic_utils.py#L79",
+        "linea": "from sldb.store.semantic import rebuild_semantic_indexes"
+      },
+      {
+        "archivo": "src/sldb/store/query_engine/store_prefix.py#L30",
+        "linea": "from sldb.store.query import load_runtime_documents"
+      },
+      {
+        "archivo": "src/sldb/store/query_engine/structural.py#L31",
+        "linea": "from sldb.store.query_engine.store_prefix import scoped_docs"
+      },
+      {
+        "archivo": "src/sldb/store/query_engine/structural.py#L40",
+        "linea": "from sldb.store.query_engine.store_prefix import split_store"
+      },
+      {
+        "archivo": "src/sldb/store/query_engine/structural.py#L65",
+        "linea": "from sldb.store.query_engine.store_prefix import split_store"
+      },
+      {
+        "archivo": "src/sldb/store/query_engine/where_parse.py#L67",
+        "linea": "from sldb.store.query_engine.structural import model_in_family"
+      },
+      {
+        "archivo": "src/sldb/store/runtime_cache_disk.py#L48",
+        "linea": "from sldb.store.query_engine.models import RuntimeDocument"
+      },
+      {
+        "archivo": "src/sldb/store/runtime_codec.py#L8",
+        "linea": "from sldb.runtime.validation import extract_model_data"
+      },
+      {
+        "archivo": "src/sldb/store/section_paths.py#L9",
+        "linea": "from sldb.store import built_cache"
+      },
+      {
+        "archivo": "src/sldb/store/section_sync.py#L23",
+        "linea": "from sldb.store import built_cache"
+      },
+      {
+        "archivo": "src/sldb/store/semantic.py#L37",
+        "linea": "from sldb.store import built_cache"
+      },
+      {
+        "archivo": "src/sldb/store/semantic_doc_tags.py#L22",
+        "linea": "from sldb.store.runtime_cache import payload_of"
+      }
+    ]
+  },
+  "superficie_por_paquete": {
+    "api": {
+      "declara___all__": true,
+      "definiciones_publicas": 253
+    },
+    "assets": {
+      "declara___all__": false,
+      "definiciones_publicas": 0
+    },
+    "cli": {
+      "declara___all__": true,
+      "definiciones_publicas": 234
+    },
+    "core": {
+      "declara___all__": false,
+      "definiciones_publicas": 67
+    },
+    "examples": {
+      "declara___all__": false,
+      "definiciones_publicas": 2
+    },
+    "links": {
+      "declara___all__": true,
+      "definiciones_publicas": 7
+    },
+    "models": {
+      "declara___all__": true,
+      "definiciones_publicas": 9
+    },
+    "runtime": {
+      "declara___all__": false,
+      "definiciones_publicas": 12
+    },
+    "selfdoc": {
+      "declara___all__": false,
+      "definiciones_publicas": 33
+    },
+    "store": {
+      "declara___all__": true,
+      "definiciones_publicas": 336
+    },
+    "templates": {
+      "declara___all__": false,
+      "definiciones_publicas": 0
+    }
+  }
+}

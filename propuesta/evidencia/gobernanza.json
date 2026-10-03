@@ -1,0 +1,159 @@
+{
+  "ci_existe": true,
+  "ci_pasos": [
+    {
+      "nombre": "Install package and test deps",
+      "comando": "python -m pip install --upgrade pip"
+    },
+    {
+      "nombre": "Run tests",
+      "comando": "pytest"
+    },
+    {
+      "nombre": "Check generated CLI reference",
+      "comando": "python -m sldb selfdoc check"
+    },
+    {
+      "nombre": "Build distribution",
+      "comando": "python -m build"
+    }
+  ],
+  "pre_commit_existe": false,
+  "linter_configurado": false,
+  "herramientas_propias": [
+    "scripts/map_architecture.py",
+    "tools/generate_vistas_html.py"
+  ],
+  "docs_markdown": {
+    "n": 70,
+    "rutas": [
+      "docs/README.md",
+      "docs/addressability_model.md",
+      "docs/architecture/code-docstring-indexing-handoff.md",
+      "docs/architecture/code-docstring-indexing.spec.md",
+      "docs/architecture/current-cli-tree.md",
+      "docs/architecture/current-source-tree.md",
+      "docs/architecture/current-system-overview.md",
+      "docs/architecture/database_component_diagram.md",
+      "docs/architecture/deskops-boundary-proposal.md",
+      "docs/architecture/edges-retirement-plan.md",
+      "docs/architecture/refactored_components.md",
+      "docs/architecture/semantic-export-boundary.md",
+      "docs/architecture/sldb-absorbs-kgdb.md",
+      "docs/architecture/sldb-text-layer-vs-kgdb-graph-layer.md",
+      "docs/architecture/smg-ir.md",
+      "docs/architecture/spec2viz/python-ast.md",
+      "docs/architecture/superseded-code-audit.md",
+      "docs/architecture/what-the-graph-is-not-being-asked.md",
+      "docs/architecture_map.md",
+      "docs/ast_query_primitives.md",
+      "docs/atoms/address-space.atom.md",
+      "docs/atoms/ast-view.atom.md",
+      "docs/atoms/compose-vs-recover.atom.md",
+      "docs/atoms/model-reference.atom.md",
+      "docs/atoms/one-question-per-diagram.atom.md",
+      "docs/atoms/payload-inputs.atom.md",
+      "docs/atoms/predicate-links.atom.md",
+      "docs/atoms/runtime-cache.atom.md",
+      "docs/atoms/semantic-vs-physical.atom.md",
+      "docs/atoms/store.atom.md",
+      "docs/atoms/structured-text.atom.md",
+      "docs/atoms/structurednldoc-model.atom.md",
+      "docs/atoms/text-layer-vs-graph-layer.atom.md",
+      "docs/atoms/tracked-document.atom.md",
+      "docs/composition_modes.md",
+      "docs/documentation-review.md",
+      "docs/export_provenance_contract.md",
+      "docs/faq.md",
+      "docs/migration_strategy.md",
+      "docs/opsys/bridge_primitives/README.md",
+      "docs/opsys/cli_grammar/README.md",
+      "docs/opsys/how_to_report/README.md",
+      "docs/opsys/how_to_test_ux_cli/README.md",
+      "docs/opsys/primitives/README.md",
+      "docs/packaging instructions.md",
+      "docs/requests/anchoring-surface-proposal.md",
+      "docs/requests/model-path-not-portable.md",
+      "docs/requests/sldb-knowledge-graph-integration.md",
+      "docs/requests/sldb-ontology-feature-request.md",
+      "docs/requests/sldb-pandoc-fenced-div-support.md",
+      "docs/requests/sldb-postulator-integration-guide.md",
+      "docs/requests/structural-noise-detection.md",
+      "docs/self-documentation.md",
+      "docs/surface/OPERACIONALIZACION-VISTAS.md",
+      "docs/surface/PROPUESTA-SUPERFICIE.md",
+      "docs/surface/tasks/README.md",
+      "docs/surface/tasks/T1-ordenar-espacio.md",
+      "docs/surface/tasks/T10-delete-deja-archivo.md",
+      "docs/surface/tasks/T2-parte-A-segments.md",
+      "docs/surface/tasks/T3-vista-salud.md",
+      "docs/surface/tasks/T4-vista-bandeja.md",
+      "docs/surface/tasks/T5-modo-oscuro.md",
+      "docs/surface/tasks/T6-fuga-de-estructura.md",
+      "docs/surface/tasks/T7-vista-lector.md",
+      "docs/surface/tasks/T8-identidad-seccion.md",
+      "docs/surface/tasks/T9-destilacion-de-modelos.md",
+      "docs/target_architecture.md",
+      "docs/user-manual.md",
+      "docs/versionado-y-colaboracion.md",
+      "docs/workspaces.md"
+    ]
+  },
+  "specs_en_raiz": [
+    "sldb.spec.yml",
+    "sldb_architecture.spec.yaml",
+    "sldb_extraction_flow.spec.yaml",
+    "sldb_store_cascade.spec.yaml"
+  ],
+  "markdown_en_raiz": [
+    "CHANGELOG.md",
+    "README.md",
+    "TASK-sldb-serve.md",
+    "TASK-store-generalize.md",
+    "standards.md"
+  ],
+  "spec_arquitectura": {
+    "nodos_declarados": [
+      "CLI",
+      "AST_Handler",
+      "TemplateExtractor",
+      "DataExtractor",
+      "SLDBRenderer",
+      "StoreManager",
+      "LinkManager"
+    ],
+    "paquetes_reales": [
+      "api",
+      "assets",
+      "cli",
+      "core",
+      "examples",
+      "links",
+      "models",
+      "runtime",
+      "selfdoc",
+      "store",
+      "templates"
+    ],
+    "declarados_que_no_existen": [
+      "AST_Handler",
+      "TemplateExtractor",
+      "DataExtractor",
+      "SLDBRenderer",
+      "StoreManager",
+      "LinkManager"
+    ],
+    "reales_que_no_se_declaran": [
+      "api",
+      "assets",
+      "core",
+      "examples",
+      "links",
+      "models",
+      "runtime",
+      "selfdoc",
+      "store",
+      "templates"
+    ]
+  }
+}

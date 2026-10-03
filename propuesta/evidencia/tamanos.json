@@ -1,0 +1,160 @@
+{
+  "total_archivos": 586,
+  "total_lineas": 25858,
+  "archivo_mas_grande": {
+    "archivo": "src/sldb/store/layout.py",
+    "lineas": 138
+  },
+  "por_paquete": {
+    "<root>": {
+      "archivos": 2,
+      "lineas": 23
+    },
+    "api": {
+      "archivos": 164,
+      "lineas": 7416
+    },
+    "assets": {
+      "archivos": 2,
+      "lineas": 0
+    },
+    "cli": {
+      "archivos": 151,
+      "lineas": 7403
+    },
+    "core": {
+      "archivos": 63,
+      "lineas": 2023
+    },
+    "examples": {
+      "archivos": 4,
+      "lineas": 121
+    },
+    "links": {
+      "archivos": 7,
+      "lineas": 128
+    },
+    "models": {
+      "archivos": 11,
+      "lineas": 561
+    },
+    "runtime": {
+      "archivos": 3,
+      "lineas": 127
+    },
+    "selfdoc": {
+      "archivos": 22,
+      "lineas": 961
+    },
+    "store": {
+      "archivos": 157,
+      "lineas": 7095
+    }
+  },
+  "archivos_de_15_lineas_o_menos": {
+    "n": 90,
+    "ejemplos": [
+      {
+        "archivo": "src/sldb/__main__.py",
+        "lineas": 5
+      },
+      {
+        "archivo": "src/sldb/api/documents/document_reference.py",
+        "lineas": 15
+      },
+      {
+        "archivo": "src/sldb/api/matching/embedder_protocol.py",
+        "lineas": 12
+      },
+      {
+        "archivo": "src/sldb/api/model_drafts/draft_checks.py",
+        "lineas": 15
+      },
+      {
+        "archivo": "src/sldb/api/model_drafts/draft_document_check.py",
+        "lineas": 15
+      },
+      {
+        "archivo": "src/sldb/api/model_drafts/model_draft.py",
+        "lineas": 14
+      },
+      {
+        "archivo": "src/sldb/api/model_registry/model_document_summary.py",
+        "lineas": 13
+      },
+      {
+        "archivo": "src/sldb/api/model_registry/model_field_summary.py",
+        "lineas": 13
+      },
+      {
+        "archivo": "src/sldb/api/model_registry/model_registration.py",
+        "lineas": 14
+      },
+      {
+        "archivo": "src/sldb/api/records/flatten.py",
+        "lineas": 10
+      },
+      {
+        "archivo": "src/sldb/api/records/runtime_doc_proxy.py",
+        "lineas": 13
+      },
+      {
+        "archivo": "src/sldb/api/records/section_record.py",
+        "lineas": 11
+      },
+      {
+        "archivo": "src/sldb/api/segments/source_ref.py",
+        "lineas": 13
+      },
+      {
+        "archivo": "src/sldb/api/segments/text_range.py",
+        "lineas": 13
+      },
+      {
+        "archivo": "src/sldb/api/stores/linked_store.py",
+        "lineas": 14
+      },
+      {
+        "archivo": "src/sldb/cli/commands/doc_lookup.py",
+        "lineas": 7
+      },
+      {
+        "archivo": "src/sldb/cli/commands/explore_hit.py",
+        "lineas": 10
+      },
+      {
+        "archivo": "src/sldb/cli/commands/faq_entry.py",
+        "lineas": 8
+      },
+      {
+        "archivo": "src/sldb/cli/commands/fields_save.py",
+        "lineas": 14
+      },
+      {
+        "archivo": "src/sldb/cli/commands/find_filters.py",
+        "lineas": 9
+      },
+      {
+        "archivo": "src/sldb/cli/commands/find_proxy.py",
+        "lineas": 11
+      },
+      {
+        "archivo": "src/sldb/cli/commands/find_utils.py",
+        "lineas": 5
+      },
+      {
+        "archivo": "src/sldb/cli/commands/models_validate_utils.py",
+        "lineas": 3
+      },
+      {
+        "archivo": "src/sldb/cli/commands/store_add.py",
+        "lineas": 14
+      },
+      {
+        "archivo": "src/sldb/cli/commands/store_init.py",
+        "lineas": 15
+      }
+    ]
+  },
+  "profundidad_max": 6
+}
