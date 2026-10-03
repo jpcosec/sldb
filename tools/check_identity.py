@@ -104,10 +104,10 @@ def main() -> int:
         print(f"  autoaplicación  {', '.join(self_app['packages'] + self_models)}")
         print(f"                  {', '.join(self_app['directories'])}")
         print(f"  ajeno           {', '.join(f['path'] for f in contract['foreign'])}")
-        if contract["freeze"]["status"] == "sin resolver":
-            print(f"\n  congelamiento sin resolver: declarado "
-                  f"{contract['freeze']['declared']}, "
-                  f"{contract['freeze']['commits_after']} commits después")
+        state = contract.get("status", {})
+        if state:
+            print(f"\n  estado: {state['state']} — {state['former_claim']} "
+                  f"no ocurrió ({state['commits_after_claim']} commits después)")
         return 0
 
     problems: list[str] = []
@@ -202,9 +202,10 @@ def main() -> int:
           f"{len(owned)} directorios de contenido vigilados")
     print(f"  nota   {manual} de {len(contract['rejects'])} reglas de rechazo "
           f"no son mecanizables y quedan para revisión humana")
-    if contract["freeze"]["status"] == "sin resolver":
-        print(f"  nota   congelamiento sin resolver: "
-              f"{contract['freeze']['commits_after']} commits tras declararlo")
+    state = contract.get("status", {})
+    if state.get("state") == "activo":
+        print(f"  nota   estado: activo (resuelto {state['resolved']}); "
+              f"el congelamiento declarado no ocurrió")
     print(f"{'FAIL' if problems else 'PASS'}: identidad — "
           f"{len(product)} paquetes de producto, "
           f"{len(declared_models)} modelos clasificados, "

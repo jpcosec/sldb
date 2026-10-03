@@ -230,9 +230,8 @@ Actualizado tras cerrar las dudas (`09-DUDAS-CERRADAS.md`):
 | **7** | los 32 alfileres + el corte de 4 del núcleo | trabajo | separación física |
 | **8** | clasificar las 22 reglas | **diseño** | S3 |
 | **9** | lenguaje de consulta único | **diseño** | separar persistencia de grafo |
-| **10** | decidir el congelamiento | **decisión** | que la identidad sea decidible |
-| **11** | decidir la superficie autorada | **decisión** | cerrar una hipótesis |
-| **12** | reparar deskops y kgdb | trabajo | al final, como se decidió |
+| **10** | decidir la superficie autorada | **decisión** | cerrar una hipótesis |
+| **11** | reparar deskops y kgdb | trabajo | al final, como se decidió |
 
 Cambios respecto de la primera versión:
 
@@ -246,8 +245,10 @@ Cambios respecto de la primera versión:
 - **«4 consumidores» → «2»**: la duda 3 midió que solo deskops y kgdb están
   acoplados; los otros tres usan la superficie estable
 
-Cinco de doce son diseño, cuatro son trabajo, dos son decisiones tuyas, uno está
+Cinco de once son diseño, cuatro son trabajo, **una** es decisión tuya, uno está
 hecho.
+
+El congelamiento salió de la lista: se resolvió declarando que no ocurrió.
 
 **Lo primero es lo más barato**: una línea en el integrador convierte cuatro
 puertas de adorno en gobierno. Hoy son lo que critican.

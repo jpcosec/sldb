@@ -249,11 +249,10 @@ Cada paquete declara su superficie, y cambiarla sin registrarlo falla.
 
 Dos contradicciones de identidad:
 
-**El congelamiento que no congeló.** El README declara el proyecto congelado el
-2026-09-07 y superseded. Hubo **223 commits después**. Hay que elegir: o el
-congelamiento se levanta y se dice qué es el proyecto ahora, o se respeta.
-Mantener las dos cosas significa que nadie puede decidir si un cambio
-corresponde.
+**El congelamiento que no congeló.** ~~Hay que elegir.~~ **Resuelto**: no
+ocurrió. 223 commits después de la fecha, 897 cambios bajo `src/`, subsistemas
+nuevos, y un sucesor que se congeló el mismo día. El README y
+`contracts/identity.toml` declaran el estado activo.
 
 **El sucesor dentro del antecesor.** `knowledge/` son 1.368 archivos del proyecto
 que, según el README, reemplaza a este. Más `desk/` (149), `surface/` (140),

@@ -1,6 +1,6 @@
 # SLDB Extraction and Modularization Strategy
 
-Historical proposal, predating the 2026-09-07 v1 freeze. These slices are not a statement of implemented packages or an active release commitment. The README names `knowledge` as successor; see [current source layout](architecture/current-source-tree.md) and [remaining gaps](documentation-review.md) for this checkout.
+Historical proposal, predating the 2026-09-07 freeze note. These slices are not a statement of implemented packages or an active release commitment. The README no longer names `knowledge` as successor: that handover never took place and the repository is declared active. For the current structure see the [source layout](architecture/current-source-tree.md), [remaining gaps](documentation-review.md), and the capability map in `contracts/layers.toml`.
 
 ## Overview
 This document defines the migration slices, candidate packages, and the strategy to decouple legacy systems from the active tree.

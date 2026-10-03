@@ -309,15 +309,40 @@ porque fallan si no**.
 
 ---
 
-## Lo único que queda abierto, y no es una duda
+## 8 · El congelamiento
 
-**La decisión del congelamiento.** El README declara el proyecto congelado el
-2026-09-07 y hubo 223 commits después. Las dos opciones están en
-`contracts/identity.toml`:
+**Resuelto: no ocurrió.**
 
-1. congelado como producto, activo como autoaplicación
-2. activo, y se declara qué es ahora
+No es un hallazgo nuevo —ya estaba medido— sino una decisión que se tomó. Y al
+tomarla aparecieron dos datos que no había buscado:
 
-No es una duda que se cierre midiendo: es tuya.
+| | |
+|---|---|
+| cambios bajo `src/` tras la fecha | **897** |
+| subsistemas nuevos | `serve`, `graph`, hashing merkle, merge |
+| estado del sucesor | **congelado el mismo día** |
+| destino de su evaluador | otro proyecto, activo, que **no importa `sldb`** |
 
-Y la de la superficie autorada (duda 6), que también es decisión.
+El commit final de `knowledge`:
+
+> *freeze: the evaluator and the KB moved to pron; only the July file-based CLI
+> stays*
+
+**El sucesor murió antes que el antecesor.** Eso explica por qué los 223 commits
+no son trabajo residual: no había a dónde relevar.
+
+Resolverlo cambia algo concreto. La identidad era indecidible mientras la
+contradicción siguiera en pie: no se puede responder «¿este cambio corresponde?»
+en un repositorio que se declara cerrado y recibe subsistemas nuevos. Ahora el
+README dice «activo» en su primera línea y `contracts/identity.toml` lo registra.
+
+---
+
+## Lo único que queda abierto
+
+**La superficie autorada** (duda 6). `BaseASTHandler` tiene una implementación, y
+las tres superficies derivadas que se agregaron después no la usaron. O Markdown
+es la única superficie reversible por diseño, o la abstracción quedó corta.
+
+Es diseño, no contradicción: se puede dejar abierta sin que nada se vuelva
+indecidible.

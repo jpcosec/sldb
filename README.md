@@ -1,10 +1,30 @@
-> **Historical freeze (2026-09-07).** `sldb` v1 is superseded by [`knowledge`](https://github.com/jpcosec/knowledge) (SLDB v2 kernel + models + anchored evaluator, one product). Tag `v1-frozen` marks that state and `v2-seed-2026-09` the branch `refactor-target` that seeded `knowledge`. Subsequent local work includes the explicitly authorized self-documentation slice described below; it does not establish a new release or replace the successor project.
+> **Active.** A 2026-09-07 note declared this repository frozen and superseded by
+> `knowledge`. That is not what happened: there were 223 commits afterwards,
+> including 897 file changes under `src/` and whole new subsystems (`serve`,
+> `graph`, merkle hashing, document merge). The successor froze the same day and
+> its evaluator moved elsewhere, so the handover never took place.
+>
+> What this repository is, and the boundary between the product and the
+> self-application that exercises it, is declared in
+> [`contracts/identity.toml`](contracts/identity.toml) and verified by
+> `tools/check_identity.py`. The tag `v1-frozen` still marks the September state.
 
 # SLDB (Structured Language Database)
 
 Documentation checked against the working tree on 2026-09-13: see [current CLI](docs/architecture/current-cli-tree.md), [AST queries](docs/ast_query_primitives.md), and [remaining gaps](docs/documentation-review.md). “v1” denotes the product generation; this checkout declares package version `0.1.0`. Historical changelog headings do not establish the version installed locally or published to a registry.
 
-A structurally aware Markdown extraction and template mapping library based on `mdast` principles. SLDB allows you to treat Markdown files as a structured persistence layer, mapping them directly to Pydantic models.
+A system for representing anything with deterministically derivable structure —
+documents, source code, program interfaces — as addressable, queryable documents
+anchored to their origin and reversible to their surface.
+
+Markdown is the *authored* surface: what a human writes. Code syntax trees are the
+*derived* surface: what a machine extracts. The core does not distinguish between
+them, and that indistinction is the product: of the 1,551 documents in this
+repository's own store, 1,368 come from syntax trees rather than Markdown.
+
+The capability map — 24 axes, five viable units, and which of them can be
+extracted today — is in [`contracts/layers.toml`](contracts/layers.toml); run
+`python tools/check_axes.py --units` to read it.
 
 Within the `hum-ecosystem`, SLDB is the human-readable rendering and navigation layer over canonical `specYaml` semantics. It may author, extract, and render structured markdown, but it should not compete with `specyaml/` as the semantic source-of-truth contract.
 

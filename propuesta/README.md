@@ -134,15 +134,17 @@ auditoría y regulación propias.
 
 ## Lo que queda abierto
 
-Dos decisiones, ninguna de ellas una duda:
-
-**El congelamiento.** El README declara el proyecto congelado el 2026-09-07 y hubo
-223 commits después. Las dos opciones están en `contracts/identity.toml`.
+**Una** decisión, y no es una duda:
 
 **La superficie autorada.** `BaseASTHandler` tiene una sola implementación, y las
 tres superficies derivadas que se agregaron después no la usaron: entraron por
 `selfdoc` en paralelo. O Markdown es la única superficie reversible por diseño, o
 la abstracción quedó corta.
+
+El congelamiento se resolvió: **no ocurrió**. 223 commits después de la fecha, 897
+cambios bajo `src/`, subsistemas nuevos completos, y un sucesor que se congeló el
+mismo día y cuyo evaluador se fue a un tercer proyecto que no importa `sldb`. El
+README lo declara activo en su primera línea.
 
 ## Lo que no cubre
 

@@ -1,6 +1,6 @@
 # SLDB Target Modular Architecture
 
-Historical design proposal, predating the 2026-09-07 v1 freeze. Package boundaries below are candidates, not separately shipped components in this checkout. Use the [current source map](architecture/current-source-tree.md) for implemented structure.
+Historical design proposal, predating the 2026-09-07 freeze note — a note that the 223 commits after it contradict; the repository is active. Package boundaries below are candidates, not separately shipped components in this checkout. Use the [current source map](architecture/current-source-tree.md) for implemented structure.
 
 ## Bounded Contexts
 

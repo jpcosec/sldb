@@ -129,10 +129,10 @@ contener.
 
 ---
 
-## El congelamiento
+## El congelamiento — resuelto
 
-Queda una contradicción que la identidad no resuelve, porque es una decisión y no
-un hallazgo.
+Era la contradicción que la identidad no podía resolver, porque era una decisión.
+Se tomó: **no ocurrió**.
 
 El README dice:
 
@@ -141,20 +141,23 @@ El README dice:
 Hubo **223 commits después de esa fecha**. Y el README añade que el trabajo
 posterior *«no establece una nueva versión ni reemplaza al proyecto sucesor»*.
 
-Eso es coherente como intención: el repositorio está congelado **como producto** y
-activo **como caso de uso**. Pero entonces conviene decirlo así, porque hoy la
-palabra «freeze» aplicada a un árbol con 223 commits nuevos entrena a leer el
-README como decorativo.
+Y no fue sólo autoaplicación: **897 de esos cambios están bajo `src/`**, con
+subsistemas nuevos completos —`serve`, `graph`, hashing merkle, merge de
+documentos—. Eso es desarrollo de producto, no trabajo residual.
 
-**Lo que hay que decidir** —no lo decido yo— es cuál de estas dos:
+El dato que lo cierra: **el sucesor se congeló el mismo día**. Su commit final
+dice que el evaluador y la base se movieron a un tercer proyecto, que está activo
+y **no importa `sldb`**.
 
-1. **Congelado como producto, activo como autoaplicación.** El README lo dice
-   explícito, y una puerta rechaza cambios en los seis paquetes genéricos que no
-   sean correcciones.
-2. **Activo.** Se levanta el congelamiento y se dice qué es ahora.
+El sucesor murió antes que el antecesor. El relevo nunca ocurrió.
 
-Lo que no funciona es la ambigüedad actual, porque hace que `selfdoc check` lleve
-semanas en rojo sin que nadie lo lea como un problema.
+**Estado declarado: activo.** El README lo dice en su primera línea y
+`contracts/identity.toml` lo registra con la evidencia. El tag `v1-frozen` queda
+marcando el estado de septiembre, que es lo único que esa fecha significa.
+
+Importaba porque la identidad era indecidible mientras la contradicción siguiera
+en pie: no se puede responder «¿este cambio corresponde?» en un repositorio que
+se declara cerrado y recibe subsistemas nuevos.
 
 ---
 

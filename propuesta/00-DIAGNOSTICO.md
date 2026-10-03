@@ -170,12 +170,17 @@ escritos; no los leí antes de juzgarlos.
 
 Lo que sigue es el hallazgo que sí se sostiene.
 
-El README declara:
+El README declaraba:
 
 > *Historical freeze (2026-09-07). `sldb` v1 is superseded by `knowledge`.*
 
-Hubo **223 commits después de esa fecha**. El congelamiento es una afirmación que
-el historial contradice.
+Hubo **223 commits después de esa fecha**, con 897 cambios bajo `src/` y
+subsistemas nuevos completos.
+
+**Resuelto**: no ocurrió. El sucesor se congeló el mismo día y su evaluador se
+movió a otro proyecto, que está activo y no importa `sldb`. El relevo nunca tuvo
+lugar, así que esto no es un proyecto cerrado con trabajo residual: es el
+proyecto vigente. El README lo dice ahora y `contracts/identity.toml` lo declara.
 
 Y los directorios versionados:
 

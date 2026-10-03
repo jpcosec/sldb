@@ -95,6 +95,15 @@ vocabulary = ["knowledge_tag", "anchor_doc", "knowledge_surface"]
 packages = []
 models = []
 directories = [".sldb", "knowledge", "desk", "ledger", "runs", "contracts"]
+name_collision = """
+`knowledge/` acá es la salida de `selfdoc` sobre este repositorio: 1.368
+documentos con `system: sldb` en su frontmatter. No tiene relación con el
+proyecto `knowledge` que el README declaraba como sucesor, más allá del nombre.
+
+La coincidencia es desafortunada y vale dejarla dicha: al leer «knowledge» en
+este árbol hay que saber de cuál se habla. Renombrarlo a `derived/` o
+`selfdoc-out/` eliminaría la ambigüedad.
+"""
 rule = """
 Contenido, no código: los documentos que describen este repositorio en concreto.
 Ningún paquete del producto puede nombrar una ruta ni un documento de acá.
@@ -161,25 +170,43 @@ mechanized = true
 note = "tools/check_identity.py"
 
 # ---------------------------------------------------------------------------
-# El congelamiento
+# El congelamiento: resuelto
 #
-# Una contradicción abierta. No se resuelve acá porque es una decisión del autor,
-# no un hallazgo: el README declara el proyecto congelado el 2026-09-07 y hubo
-# 223 commits después.
+# Una nota del README declaraba este repositorio congelado el 2026-09-07 y
+# superseded por `knowledge`. El historial dice otra cosa, y se decidió dejar de
+# tratarlo como una tensión abierta: no ocurrió.
 #
-# Es coherente como intención —congelado como producto, activo como caso de uso—
-# pero hoy no está dicho así, y «freeze» sobre un árbol con 223 commits nuevos
-# entrena a leer el README como decorativo.
+# La evidencia:
+#   223 commits después de la fecha
+#   897 cambios de archivo bajo src/
+#   subsistemas nuevos: serve, graph, hashing merkle, merge de documentos
+#   `knowledge` se congeló el mismo día — su propio commit final dice que el
+#   evaluador y la base se movieron a otro proyecto
+#   ese otro proyecto está activo y NO importa sldb
+#
+# El relevo nunca ocurrió. El sucesor murió antes que el antecesor, así que esto
+# no es un proyecto congelado con trabajo residual: es el proyecto vigente.
 # ---------------------------------------------------------------------------
 
+[status]
+state = "activo"
+resolved = "2026-10-03"
+former_claim = "congelado 2026-09-07, superseded por knowledge"
+commits_after_claim = 223
+src_changes_after_claim = 897
+successor_state = "congelado el mismo día; evaluador movido a otro proyecto que no usa sldb"
+tag_preserved = "v1-frozen marca el estado de septiembre"
+note = """
+Importa porque la identidad era indecidible mientras la contradicción siguiera en
+pie: no se podía responder «¿este cambio corresponde?» en un repositorio que se
+declaraba cerrado y recibía subsistemas nuevos.
+
+Con esto, la única pregunta de identidad que queda abierta es la de la superficie
+autorada, que es un asunto de diseño y no una contradicción.
+"""
+
 [freeze]
-declared = "2026-09-07"
-commits_after = 223
-status = "sin resolver"
-options = [
-  "congelado como producto, activo como autoaplicación: decirlo explícito y que una puerta rechace cambios no correctivos en los seis paquetes del producto",
-  "activo: levantar el congelamiento y declarar qué es el proyecto ahora",
-]
+status = "resuelto: no ocurrió"
 
 # ---------------------------------------------------------------------------
 # Huérfanos en la raíz

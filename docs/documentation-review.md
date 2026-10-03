@@ -91,7 +91,7 @@ The proof artifacts were generated under `/tmp/sldb-selfdoc-U4AUmW/`; this inspe
 
 The declared package version is `0.1.0`; “v1” is the product generation. The old changelog contains `0.1.1`, `0.1.2`, and `0.2.0` headings, and the README previously announced v0.5/v0.6 deprecations. These do not form a consistent release inventory.
 
-README and changelog now distinguish current metadata, historical development records, and the freeze. The v0.6 removal promise has been retired from current guidance. Target architecture and migration documents are explicitly historical.
+README and changelog now distinguish current metadata from historical development records. The freeze claim has been retired: the repository is declared active in `contracts/identity.toml`. The v0.6 removal promise has been retired from current guidance. Target architecture and migration documents are explicitly historical.
 
 Needed before any release: reconcile registry artifacts and Git tags with their source metadata. Registry publication was not checked in this local review. No version bump, tag, commit, or publication was performed.
 

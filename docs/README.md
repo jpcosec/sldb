@@ -8,7 +8,7 @@ This directory can now be worked through SLDB models and the project-local store
 
 The web surface lives in [`surface/`](../surface/README.md); its design rationale and task history are in [`docs/surface/`](surface/PROPUESTA-SUPERFICIE.md). It talks to `sldb serve` over HTTP and never writes Markdown directly.
 
-For behavior verified on 2026-09-13, start with the [CLI tree](architecture/current-cli-tree.md), [source map](architecture/current-source-tree.md), [AST queries](ast_query_primitives.md), and [composition modes](composition_modes.md). The [review findings](documentation-review.md) collect remaining defects, missing contracts, and incomplete coverage. Target architecture and migration plans are historical proposals for this frozen v1 repository.
+For behavior verified on 2026-09-13, start with the [CLI tree](architecture/current-cli-tree.md), [source map](architecture/current-source-tree.md), [AST queries](ast_query_primitives.md), and [composition modes](composition_modes.md). The [review findings](documentation-review.md) collect remaining defects, missing contracts, and incomplete coverage. Target architecture and migration plans are historical proposals that predate the 2026-09-07 freeze note. That note no longer describes this repository: see the [status declaration](../contracts/identity.toml) and the project README.
 
 ## Current Model Mapping
 
