@@ -545,6 +545,78 @@ def test_advanced_marker_families_render_and_extract():
     assert "meta" not in extracted
 
 
+class SectionMarkersDoc(StructuredNLDoc):
+    """A required and an optional field, each alone in its own section body."""
+
+    __template__ = """
+# ⸢rev•title⸥
+
+## Required
+
+⸢rev•required⸥
+
+## Optional
+
+⸢optrev•optional⸥
+""".strip()
+    title: str = Field(description="Document title heading.")
+    required: str = Field(description="Required section body.")
+    optional: str | None = Field(default=None, description="Optional section body.")
+
+
+@pytest.mark.parametrize(
+    "value,expected",
+    [
+        ("one line", "one line"),
+        ("first line\nsecond line", "first line\nsecond line"),
+        ("first paragraph\n\nsecond paragraph", "first paragraph\n\nsecond paragraph"),
+    ],
+)
+def test_optional_section_body_survives_line_breaks(value, expected):
+    """`optrev` captures its section body like `rev`, line breaks included.
+
+    `optrev` used to fall through to the regex path, where `^(.*?)$` runs without
+    `re.S`: anything past the first line break came back empty and the roundtrip
+    still reported PASS. A real document lost two filled sections that way.
+    """
+    reset_config()
+    payload = {"title": "T", "required": value, "optional": value}
+    rendered = render_model_markdown(SectionMarkersDoc, payload)
+    extracted = extract_model_data(SectionMarkersDoc, rendered)
+
+    assert extracted["required"] == expected
+    assert extracted["optional"] == expected, "optrev must capture what rev captures"
+
+
+@pytest.mark.parametrize("value", [None, "", "   "])
+def test_empty_optional_section_body_is_absent_not_empty(value):
+    """An empty optional section leaves the key out, so `exclude_none` drops it.
+
+    This is the other half of the contract: making `optrev` capture its section
+    body must not turn an absent field into an empty string, which is what the
+    regex path signalled by returning None.
+    """
+    reset_config()
+    payload = {"title": "T", "required": "r", "optional": value}
+    rendered = render_model_markdown(SectionMarkersDoc, payload)
+    extracted = extract_model_data(SectionMarkersDoc, rendered)
+
+    assert "optional" not in extracted
+    assert extracted["required"] == "r", "the required field keeps its value"
+
+
+def test_required_section_body_keeps_an_empty_value():
+    """A `rev` field stays in the payload when empty: absence is not allowed."""
+    reset_config()
+    rendered = render_model_markdown(
+        SectionMarkersDoc, {"title": "T", "required": "", "optional": "o"}
+    )
+    extracted = extract_model_data(SectionMarkersDoc, rendered)
+
+    assert extracted["required"] == ""
+    assert extracted["optional"] == "o"
+
+
 def test_python_markers_render_in_unsafe_mode():
     reset_config()
     configure(python_execution_mode="unsafe")

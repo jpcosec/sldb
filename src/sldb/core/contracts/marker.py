@@ -1,3 +1,4 @@
+from typing import Any
 from pydantic import BaseModel, Field
 
 def parse_marker(inner: str) -> "Marker":
@@ -45,3 +46,13 @@ class Marker(BaseModel):
     @property
     def is_optional(self) -> bool:
         return self.kind == "optrev"
+
+
+def recipe_is_optional(recipe: dict[str, Any]) -> bool:
+    """Whether the recipe's single field may be absent from the payload.
+
+    Lives beside `Marker` because it answers a question about the marker, not
+    about extraction: both capture paths ask it, and neither owns it.
+    """
+    props_info = recipe.get("props_info") or []
+    return bool(props_info) and props_info[0].is_optional

@@ -2,6 +2,7 @@ from typing import Any
 from sldb.core.node import SLDBNode
 from sldb.core.extractor.recipe_matcher import RecipeMatcher
 from sldb.core.node_handler import SharedNodeHandler
+from sldb.core.contracts.marker import recipe_is_optional
 
 class DataExtractor:
     """Applies compiled template recipes to parsed SLDBNodes."""
@@ -65,7 +66,11 @@ class DataExtractor:
         expressions agree, since boundary_idx - 1 >= search."""
         boundary_idx = self._find_boundary_idx(data_blocks, recipes, r_idx, state["search"])
         val = self._capture_markdown_slice(data_blocks, state["search"], boundary_idx, raw_markdown)
-        state["extracted"][recipes[r_idx]["props"][0]] = val
+        # An empty optional section is absent, not empty: the key is left out so
+        # `exclude_none` drops it, which is what the regex path signals by
+        # returning None. Both capture paths agree on what an absent `optrev` is.
+        if val or not recipe_is_optional(recipes[r_idx]):
+            state["extracted"][recipes[r_idx]["props"][0]] = val
         state["curr_block"] = boundary_idx - 1
 
     def _find_boundary_idx(self, data_blocks: list[SLDBNode], recipes: list[dict[str, Any]], r_idx: int, search_index: int) -> int:

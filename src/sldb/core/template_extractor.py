@@ -44,11 +44,19 @@ class TemplateExtractor:
         return True
 
     def _check_section_body(self, recipe: dict[str, Any], node: SLDBNode, state: dict[str, Any]) -> None:
+        """Mark a lone marker in its own paragraph as owning the section body.
+
+        `rev` and `optrev` both qualify. The condition used to read `is_reversible`
+        alone, and that made `optrev` fall through to the regex path, where
+        `re.fullmatch(r"^(.*?)$", ...)` runs without `re.S`: a soft line break did
+        not match and the field came back empty. The two markers differ in whether
+        the field may be absent, never in how its text is captured.
+        """
         block_text = self.node_handler.handlers["text"].get_text(node).strip()
         outer_type = state["node"].type
         if (outer_type == "paragraph" and len(recipe.get("props_info", [])) == 1
             and block_text.startswith("⸢") and block_text.endswith("⸥")
-            and recipe.get("regex") == "^(.*?)$" and recipe["props_info"][0].is_reversible):
+            and recipe.get("regex") == "^(.*?)$" and (recipe["props_info"][0].is_reversible or recipe["props_info"][0].is_optional)):
             recipe["capture_mode"] = "section_body"
 
     def _update_and_append_recipe(self, recipe: dict[str, Any], state: dict[str, Any], current_path: list[int]) -> None:
