@@ -71,8 +71,21 @@ class TextNodeHandler(BaseNodeHandler):
                 return [col.strip() for col in trait[6:-1].split(",") if col.strip()]
         return None
 
+    def match_text(self, text: str, recipe: dict[str, Any]) -> re.Match[str] | None:
+        """The single executor of the recipe regex, deliberately WITHOUT `re.S`.
+
+        This path is only for inline markers, which are single-line; a lone
+        marker never reaches it because it captures by block range instead.
+        `re.S` is absent on purpose: with DOTALL a lone `^(.*?)$` would swallow
+        the next section, which is worse than losing a field.
+        """
+        return re.fullmatch(recipe["regex"], text.strip())
+
+    def matches(self, text: str, recipe: dict[str, Any]) -> bool:
+        return self.match_text(text, recipe) is not None
+
     def extract_data(self, node: SLDBNode, recipe: dict[str, Any]) -> Any:
-        match = re.fullmatch(recipe["regex"], self.get_text(node).strip())
+        match = self.match_text(self.get_text(node), recipe)
         if not match:
             return None
         return {recipe["props_info"][idx].name: val for idx, val in enumerate(match.groups())}

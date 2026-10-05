@@ -13,6 +13,7 @@ from sldb import (
     configure,
     reset_config,
 )
+from sldb.core.exceptions import SLDBASTError
 from sldb.cli import main as cli_main
 from sldb.examples.reference_bundle.guide_model import SLDBGuide
 from sldb.runtime.validation import (
@@ -615,6 +616,20 @@ def test_required_section_body_keeps_an_empty_value():
 
     assert extracted["required"] == ""
     assert extracted["optional"] == "o"
+
+
+def test_lone_data_marker_in_unsupported_block_is_rejected():
+    """A lone data marker outside a paragraph/heading cannot capture safely.
+
+    Inversion of the old default: the regex path used to silently swallow these,
+    losing everything past the first line break. Now they raise at compile time
+    instead of mis-capturing.
+    """
+    reset_config()
+    template = "## T\n\n> ⸢rev•quoted⸥\n"
+    nodes = AST_Handler().split_nodes(template)
+    with pytest.raises(SLDBASTError, match="blockquote"):
+        TemplateExtractor().extract_nodes(nodes)
 
 
 def test_python_markers_render_in_unsafe_mode():

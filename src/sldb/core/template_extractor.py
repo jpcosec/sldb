@@ -44,20 +44,27 @@ class TemplateExtractor:
         return True
 
     def _check_section_body(self, recipe: dict[str, Any], node: SLDBNode, state: dict[str, Any]) -> None:
-        """Mark a lone marker in its own paragraph as owning the section body.
+        """Lone data marker: paragraph → block range, heading → regex, else error.
 
-        `rev` and `optrev` both qualify. The condition used to read `is_reversible`
-        alone, and that made `optrev` fall through to the regex path, where
-        `re.fullmatch(r"^(.*?)$", ...)` runs without `re.S`: a soft line break did
-        not match and the field came back empty. The two markers differ in whether
-        the field may be absent, never in how its text is captured.
+        A lone marker owns its section body; block range is the only capture that
+        keeps line breaks. Gating on `is_reversible` alone made `optrev` fall to
+        the regex path and lose everything past the first line break, silently.
         """
-        block_text = self.node_handler.handlers["text"].get_text(node).strip()
-        outer_type = state["node"].type
-        if (outer_type == "paragraph" and len(recipe.get("props_info", [])) == 1
-            and block_text.startswith("⸢") and block_text.endswith("⸥")
-            and recipe.get("regex") == "^(.*?)$" and (recipe["props_info"][0].is_reversible or recipe["props_info"][0].is_optional)):
+        props = recipe.get("props_info", [])
+        if not self._is_lone_data_marker(recipe, node, props):
+            return
+        if state["node"].type == "paragraph":
             recipe["capture_mode"] = "section_body"
+        elif state["node"].type != "heading":
+            self._reject_marker_block(props[0].name, state["node"].type)
+
+    def _is_lone_data_marker(self, recipe: dict[str, Any], node: SLDBNode, props: list[Any]) -> bool:
+        text = self.node_handler.handlers["text"].get_text(node).strip()
+        return (len(props) == 1 and text.startswith("⸢") and text.endswith("⸥")
+                and recipe.get("regex") == "^(.*?)$" and (props[0].is_reversible or props[0].is_optional))
+
+    def _reject_marker_block(self, name: str, block_type: str) -> None:
+        raise SLDBASTError(f"Field '{name}' is a lone marker in a '{block_type}' block; move it to its own paragraph.")
 
     def _update_and_append_recipe(self, recipe: dict[str, Any], state: dict[str, Any], current_path: list[int]) -> None:
         recipe.update({

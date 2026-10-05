@@ -1,5 +1,4 @@
 from typing import Any
-import re
 from sldb.core.node import SLDBNode
 from sldb.core.node_handler import SharedNodeHandler
 
@@ -34,6 +33,6 @@ class RecipeMatcher:
     def block_matches_recipe_for_position(self, block: SLDBNode, recipe: dict[str, Any]) -> bool:
         if not self.check_type_and_tag(block, recipe): return False
         if recipe.get("handler", "text") == "text":
-            content = self.node_handler.handlers["text"].get_text(block).strip()
-            return re.fullmatch(recipe["regex"], content) is not None
+            content = self.node_handler.handlers["text"].get_text(block)
+            return self.node_handler.handlers["text"].matches(content, recipe)
         return self.match_recipe_at_block(block, recipe)[0]
