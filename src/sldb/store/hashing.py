@@ -4,6 +4,7 @@ from typing import Any
 
 from sldb.store.codec import StoreCodec, default_codec
 from sldb.store.models import DocumentsIndex, ModelsIndex
+from sldb.store.semantic_tags import flatten_model_semantics
 
 
 def hash_text(text: str) -> str:
@@ -77,12 +78,25 @@ def hash_document_entries(entries) -> str:
 
 
 def hash_model_contract(model_type: Any) -> str:
-    """The model's contract: the field schema a payload must satisfy, plus the template that
-    renders it. Two documents with identical field values render differently under different
-    templates, and a field added to the class changes what extraction yields from unchanged
-    text — both belong in the model's node, so both move it."""
-    fields = {name: [str(info.annotation), info.description or ""] for name, info in model_type.model_fields.items()}
-    return hash_payload({"fields": fields, "template": getattr(model_type, "__template__", "")})
+    """A model's contract: fields, template, and the class metadata the store derives from."""
+    return hash_payload(_contract_parts(model_type))
+
+
+def _contract_parts(model_type: Any) -> dict[str, Any]:
+    return {"fields": _field_schema(model_type), "template": getattr(model_type, "__template__", ""),
+            "family": getattr(model_type, "__family__", None), "semantics": flatten_model_semantics(model_type),
+            "base_models": _base_names(model_type), "references": getattr(model_type, "__references__", None) or [],
+            "containment": getattr(model_type, "__containment__", None) or {}, "compositions": getattr(model_type, "__compositions__", None) or {}}
+
+
+def _field_schema(model_type: Any) -> dict[str, list[str]]:
+    return {name: [str(info.annotation), info.description or ""] for name, info in model_type.model_fields.items()}
+
+
+def _base_names(model_type: Any) -> list[str]:
+    from sldb.models.structured_doc import StructuredNLDoc
+    return [b.__name__ for b in model_type.__mro__[1:]
+            if isinstance(b, type) and issubclass(b, StructuredNLDoc) and b is not StructuredNLDoc]
 
 
 def hash_model_layer(roster_hash: str, contract_hash: str) -> str:

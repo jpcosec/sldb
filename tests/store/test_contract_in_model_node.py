@@ -46,6 +46,28 @@ Status: ⸢rev•status⸥""".strip()
     status: str = Field(default="open", description="Note state.")
 '''
 
+# Same fields, same template, same text on disk: only the class metadata moved.
+_FAMILY_A = '''from pydantic import Field
+from sldb import StructuredNLDoc
+
+
+class NoteDoc(StructuredNLDoc):
+    __family__ = "notes"
+    __semantics__ = {"type": ["knowledge", "note"]}
+    __template__ = """# ⸢rev•title⸥""".strip()
+    title: str = Field(description="Note title.")
+'''
+
+_FAMILY_B = '''from pydantic import Field
+from sldb import StructuredNLDoc
+
+
+class NoteDoc(StructuredNLDoc):
+    __family__ = "records"
+    __template__ = """# ⸢rev•title⸥""".strip()
+    title: str = Field(description="Note title.")
+'''
+
 
 class _Store:
     def __init__(self, root: Path, pythonpath: str) -> None:
@@ -90,6 +112,19 @@ def test_model_node_is_its_two_children(contract_store):
 def test_contract_hash_records_the_registered_class(contract_store):
     model_type = resolve_model_ref(f"{MODULE}:NoteDoc", contract_store.pythonpath)
     assert _model_index(contract_store).contract_hash == hash_model_contract(model_type)
+
+
+def test_contract_hash_covers_family_and_semantics(tmp_path):
+    """`__family__` and `__semantics__` moved out of the hash and froze in the store.
+
+    They drive the derived indexes, so a change to them must move the model's node —
+    otherwise `stores check` cannot see that the class and the store have diverged.
+    """
+    _write_module(tmp_path, _FAMILY_A)
+    hash_a = hash_model_contract(resolve_model_ref(f"{MODULE}:NoteDoc", str(tmp_path)))
+    _write_module(tmp_path, _FAMILY_B)
+    hash_b = hash_model_contract(resolve_model_ref(f"{MODULE}:NoteDoc", str(tmp_path)))
+    assert hash_a != hash_b
 
 
 def test_a_moved_contract_is_reported_as_its_own_category(contract_store, tmp_path):
