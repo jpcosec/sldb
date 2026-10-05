@@ -5,6 +5,7 @@ id: board-sldb-desk
 scope: sldb-local-desk
 # List of task-xxx paths
 tasks:
+- desk/tasks/task-congelar-journal-autoridad-arbol.md
 - desk/tasks/task-build-code-self-documentation.md
 - desk/tasks/task-unify-store-context-and-federation.md
 - desk/tasks/task-correct-ast-ownership-and-section-contracts.md
