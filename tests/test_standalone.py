@@ -21,6 +21,7 @@ from sldb.runtime.validation import (
     render_model_markdown,
     validate_model_data_roundtrip,
     validate_model_input_roundtrip,
+    Validator,
 )
 
 
@@ -630,6 +631,32 @@ def test_lone_data_marker_in_unsupported_block_is_rejected():
     nodes = AST_Handler().split_nodes(template)
     with pytest.raises(SLDBASTError, match="blockquote"):
         TemplateExtractor().extract_nodes(nodes)
+
+
+def test_render_validity_covers_optrev_when_present():
+    """`validate` compares `optrev` too: the "if present" contract.
+
+    It used to collect `rev` fields only, so an optrev field could lose content
+    and still report PASS. The field set that render_validity compares must
+    include the optional field.
+    """
+    reset_config()
+    assert "optional" in Validator(SectionMarkersDoc)._get_data_fields()
+    rendered = render_model_markdown(
+        SectionMarkersDoc, {"title": "T", "required": "r", "optional": "L1\nL2"}
+    )
+    ok, _ = validate_model_input_roundtrip(SectionMarkersDoc, rendered)
+    assert ok is True
+
+
+def test_render_validity_flags_missing_optrev_content():
+    """optrev present in input but missing after roundtrip is invalid."""
+    reset_config()
+    check = Validator(SectionMarkersDoc)._check_render_validity
+    assert check({"title": "T", "required": "r", "optional": "x"},
+                 {"title": "T", "required": "r"}) is False
+    assert check({"title": "T", "required": "r"},
+                 {"title": "T", "required": "r"}) is True
 
 
 def test_python_markers_render_in_unsafe_mode():

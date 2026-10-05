@@ -25,20 +25,27 @@ class Validator:
         if data is not None: return self.model_type(**data).model_dump(mode="json", exclude_none=True)
         raise ValueError("Either markdown or data must be provided for validation.")
 
-    def _get_rev_fields(self) -> set[str]:
-        recipes, rev_fields = self._get_recipes(), set()
+    def _get_data_fields(self) -> set[str]:
+        """The fields that must roundtrip: `rev` always, `optrev` when present.
+
+        `render`/`py` markers are display-only and stay out. The contract for
+        `optrev` ("if present, it should still extract and render symmetrically")
+        is what this set enforces: validate used to collect `rev` only, so an
+        `optrev` field could lose its content and still report PASS.
+        """
+        recipes, fields = self._get_recipes(), set()
         for r in recipes:
             markers = r.get("props_info", []) + ([r["marker"]] if "marker" in r else [])
             markers.extend(item["marker"] for item in r.get("markers", []))
             markers.extend(cm["marker"] for cm in r.get("col_markers", {}).values())
             for m in markers:
-                if getattr(m, "is_reversible", False): rev_fields.add(m.name)
-                elif isinstance(m, dict) and m.get("kind") == "rev": rev_fields.add(m.get("name"))
-        return rev_fields
+                if getattr(m, "is_reversible", False) or getattr(m, "is_optional", False): fields.add(m.name)
+                elif isinstance(m, dict) and m.get("kind") in ("rev", "optrev"): fields.add(m.get("name"))
+        return fields
 
     def _check_render_validity(self, input_data: dict[str, Any], extracted: dict[str, Any]) -> bool:
         def _norm(val): return val.strip() if isinstance(val, str) else val
-        return all(_norm(input_data.get(f)) == _norm(extracted.get(f)) for f in self._get_rev_fields())
+        return all(_norm(input_data.get(f)) == _norm(extracted.get(f)) for f in self._get_data_fields())
 
     def validate(self, markdown: str | None = None, data: dict[str, Any] | None = None, mode: Literal["render_validity", "strict_roundtrip"] = "render_validity") -> tuple[bool, dict[str, Any]]:
         input_data = self._get_input_data(markdown, data)
