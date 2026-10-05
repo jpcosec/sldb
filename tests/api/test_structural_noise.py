@@ -12,7 +12,14 @@ from pathlib import Path
 
 import pytest
 
+from pydantic import Field
+
+from sldb import StructuredNLDoc
 from sldb.api import add_model, check_store, init_store, track_document_file
+from sldb.api.documents.frontmatter_keys import (
+    refuse_undeclared_frontmatter,
+    undeclared_frontmatter_keys,
+)
 from sldb.api.stores.scan_structural_noise import scan_structural_noise
 from sldb.core.exceptions import SLDBValidationError
 
@@ -116,6 +123,27 @@ def test_the_noise_is_swallowed_into_a_field_value_under_the_parent(noise_store)
     child = resolve_model_ref(f"{MODULE}:NoteWithSections", noise_store.pythonpath)
     assert "## Entidades" in extract_model_data(parent, NOISY)["body"]
     assert extract_model_data(child, NOISY)["body"] == "Body text"
+
+
+def test_undeclared_frontmatter_key_is_refused():
+    """A frontmatter key the model never declares was silently dropped; now refused.
+
+    Symmetric with the heading refusal: `docs track` rejects a heading the model
+    never declares, but a frontmatter key it never declares used to vanish on the
+    first re-render. The same document, the same contract, the same refusal.
+    """
+
+    class CardDoc(StructuredNLDoc):
+        __template__ = "---\nid: ⸢rev•id⸥\ntitle: ⸢rev•title⸥\n---\n\n# ⸢rev•title⸥"
+        id: str = Field(description="Stable id.")
+        title: str = Field(description="Card title.")
+
+    clean = "---\nid: c1\ntitle: Card\n---\n\n# Card"
+    assert undeclared_frontmatter_keys(CardDoc, clean) == []
+    with_owner = clean.replace("---\nid:", "---\nowner: jp\nid:", 1)
+    assert undeclared_frontmatter_keys(CardDoc, with_owner) == ["owner"]
+    with pytest.raises(SLDBValidationError, match="owner"):
+        refuse_undeclared_frontmatter(CardDoc, with_owner, "card")
 
 
 def test_stores_check_reports_noise_already_tracked_without_blocking(noise_store):

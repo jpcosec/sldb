@@ -9,6 +9,7 @@ from sldb.api.documents.document_reference import DocumentReference
 from sldb.api.journal import doc_address, doc_hashes, record, store_hash
 from sldb.api.model_registry.load_registered_model import load_registered_model
 from sldb.api.documents.refuse_structural_noise import refuse_structural_noise
+from sldb.api.documents.frontmatter_keys import refuse_undeclared_frontmatter
 from sldb.api.model_registry.model_reference import resolve_model_ref
 from sldb.api.stores.open_store import open_store
 from sldb.core.exceptions import SLDBValidationError
@@ -42,11 +43,17 @@ def create_document(store: str | Path | None, model_name: str, path: str | Path,
     rendered = _render_roundtrip(registered.model_type, payload, location.project_root)
     doc_path = _resolve_path(path, location.project_root)
     doc_name = name or doc_path.stem
-    refuse_structural_noise(registered.model_type, rendered, doc_name)
+    refuse_noise(registered.model_type, rendered, doc_name)
     doc_path.parent.mkdir(parents=True, exist_ok=True)
     doc_path.write_text(rendered + "\n", encoding="utf-8")
     _track_and_record(location.store_path, location.project_root, registered, doc_path, doc_name, payload, pythonpath, actor)
     return DocumentReference(model=registered.entry.name, name=doc_name, path=doc_path)
+
+
+def refuse_noise(model_type: type, markdown: str, name: str) -> None:
+    """Refuse a document whose headings or frontmatter keys the model never declares."""
+    refuse_structural_noise(model_type, markdown, name)
+    refuse_undeclared_frontmatter(model_type, markdown, name)
 
 
 def _resolve_path(raw: str | Path, root: Path) -> Path:

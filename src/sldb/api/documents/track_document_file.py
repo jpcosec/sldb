@@ -8,6 +8,7 @@ from sldb.api.documents.document_reference import DocumentReference
 from sldb.api.journal import doc_address, doc_hashes, record, store_hash
 from sldb.api.model_registry.load_registered_model import load_registered_model
 from sldb.api.documents.refuse_structural_noise import refuse_structural_noise
+from sldb.api.documents.frontmatter_keys import refuse_undeclared_frontmatter
 from sldb.api.model_registry.model_reference import resolve_model_ref
 from sldb.api.stores.open_store import open_store
 from sldb.core.exceptions import SLDBValidationError
@@ -42,6 +43,7 @@ def track_document_file(store: str | Path | None, model_name: str, path: str | P
     if not force:
         _check_roundtrip(registered.model_type, doc_path)
         refuse_structural_noise(registered.model_type, doc_path.read_text(encoding="utf-8"), doc_name)
+        refuse_undeclared_frontmatter(registered.model_type, doc_path.read_text(encoding="utf-8"), doc_name)
     _track_and_record(location.store_path, location.project_root, registered, doc_path, doc_name, pythonpath, actor)
     return DocumentReference(model=registered.entry.name, name=doc_name, path=doc_path)
 
