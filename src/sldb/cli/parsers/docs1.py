@@ -19,7 +19,8 @@ def _create(s):
 
 def _track(s):
     t = s.add_parser("track", help="Track existing doc.")
-    t.add_argument("path", help="Document path")
+    t.add_argument("path", nargs="?", help="Document path")
+    t.add_argument("--glob", help="Track every file matching this pattern (already tracked ones are skipped), e.g. 'docs/**/*.md'")
     t.add_argument("--model", required=True)
     t.add_argument("--name", help="Doc name")
     t.add_argument("--store", help="Store path")

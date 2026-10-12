@@ -6,7 +6,10 @@ def _add_docs_part2(sub):
 
 def _recover(s):
     r = s.add_parser("recover", help="Resolve [[links]] and report their targets.", epilog="Example:\n  sldb docs recover roadmap --store .sldb")
-    r.add_argument("doc", help="Doc name or path")
+    r.add_argument("doc", nargs="?", help="Doc name or path")
+    r.add_argument("--all", action="store_true", help="Check every tracked document")
+    r.add_argument("--glob", help="Also check files matching this pattern, e.g. 'docs/**/*.md'")
+    r.add_argument("--fail-on-custom", action="store_true", help="With --all/--glob: exit 1 also for predicates missing from the store")
     r.add_argument("--store", help="Store path")
     r.add_argument("--format", choices=("text", "json", "yaml"), default="text")
     r.add_argument("--depth", type=int, default=1)
@@ -24,6 +27,7 @@ def _compose(s):
     c.add_argument("--store", help="Store path")
     c.add_argument("-o", "--output", default="-", help="Output path or - for stdout")
     c.add_argument("--format", choices=("markdown", "json", "yaml"), default="markdown")
+    c.add_argument("--render-links", action="store_true", help="Turn [[x]] into Markdown links relative to the output file")
 
 def _explore(s):
     e = s.add_parser("explore", help="Search tracked docs, repo docs, and docstrings.")

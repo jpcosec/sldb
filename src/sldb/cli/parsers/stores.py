@@ -29,6 +29,7 @@ def _update(s):
     u = s.add_parser("update", help="Recompute store hashes.")
     u.add_argument("--wait", action="store_true", help="Wait for store lock if busy")
     u.add_argument("--verbose", action="store_true", help="Print individual skip details")
+    u.add_argument("--prune-missing", action="store_true", help="Untrack documents whose file no longer exists (reports which)")
     u.add_argument("--store", help="Store path")
     u.add_argument("--pythonpath", help="Project path")
 

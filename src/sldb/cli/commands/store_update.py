@@ -8,10 +8,14 @@ from pathlib import Path
 from typing import Any
 from sldb.api.stores.index_commit import _rebuild_indexes  # noqa: F401
 from sldb.api.stores.index_refresh import _field_hash, _process_doc, _process_model, _process_models  # noqa: F401
+from sldb.cli.commands.docs_batch import prune_missing
 from sldb.api.stores.update_store_indexes import update_store_indexes
 from sldb.store.semantic import RebuildReport
 
 def update_store(args: Any) -> int:
+    if getattr(args, "prune_missing", False):
+        pruned = prune_missing(args)
+        print(f"Untracked {len(pruned)} missing documents: {', '.join(pruned) or '-'}")
     report = update_store_indexes(args.store, args.pythonpath, wait=getattr(args, "wait", False))
     v = getattr(args, "verbose", False)
     _print_update_result(report.store_path, report.skipped_models, report.skipped_documents, report.semantic_index, report.sections_index, v)

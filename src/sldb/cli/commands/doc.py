@@ -11,6 +11,7 @@ from sldb.api.documents.delete_document import delete_document
 from sldb.api.documents.untrack_document import forget_document, untrack_document
 from sldb.cli.model_utils import resolve_model_ref
 from sldb.cli.commands.doc_lookup import find_doc
+from sldb.cli.commands.docs_batch import track_glob
 from sldb.runtime.validation import render_model_markdown, validate_model_input_roundtrip
 from sldb.store.io import load_store_index, save_models_index, store_lock
 from sldb.store.io.shards import save_document_shard
@@ -45,6 +46,8 @@ class DocCLI:
         return 0
 
     def track(self, args: Any) -> int:
+        if getattr(args, "glob", None): return track_glob(args)
+        if not args.path: raise SLDBError("docs track needs a path or --glob.")
         tracked = track_document_file(args.store, args.model, args.path, args.name, args.pythonpath, args.force)
         print(f"Tracked '{tracked.name}'")
         return 0

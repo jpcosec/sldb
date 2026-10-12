@@ -7,6 +7,7 @@ from typing import Any
 import yaml
 
 from sldb.cli.store_context import get_store_context
+from sldb.cli.commands.links_all import batch_requested, recover_all
 from sldb.cli.utils import write_text
 from sldb.links import compose_document, recover_links, resolve_document_input
 
@@ -15,6 +16,7 @@ class LinkCLI:
     """Handles link recovery and document composition."""
 
     def recover(self, args: Any) -> int:
+        if batch_requested(args): return recover_all(args)
         sp, root = get_store_context(args.store)
         res = recover_links(
             resolve_document_input(args.doc, sp), sp,
@@ -50,9 +52,15 @@ class LinkCLI:
 
     def compose(self, args: Any) -> int:
         sp, root = get_store_context(args.store)
-        res = compose_document(resolve_document_input(args.doc, sp), sp)
+        doc = resolve_document_input(args.doc, sp)
+        res = compose_document(doc, sp, links_base=self._links_base(args, doc))
         self._write_composed(args, res)
         return 0 if not res["unresolved"] else 1
+
+    @staticmethod
+    def _links_base(args: Any, doc: Path) -> Path | None:
+        if not args.render_links: return None
+        return doc.parent if args.output == "-" else Path(args.output).resolve().parent
 
     def _write_composed(self, args: Any, res: dict) -> None:
         if args.format == "markdown":

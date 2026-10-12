@@ -15,10 +15,10 @@ from typing import Any
 
 from sldb.api import check_edges
 from sldb.cli.model_utils import resolve_model_ref
-from sldb.links.recovery import recover_links
+from sldb.links.audit import audit_links
+from sldb.links.tracked import tracked_documents
 from sldb.store.diagnostics import diagnose_store
 from sldb.store.diagnostics_models.diagnosis_note import DiagnosisNote
-from sldb.store.io import load_documents_index, load_models_index, load_store_index
 
 JsonDict = dict[str, Any]
 
@@ -66,23 +66,8 @@ def _edge_problems(store_path: Path) -> list[JsonDict]:
 
 
 def _link_problems(store_path: Path, root: Path) -> list[JsonDict]:
-    problems = []
-    for name, path in _tracked_documents(store_path, root):
-        if not path.exists():
-            continue
-        unresolved = recover_links(path, store_path, depth=1).get("unresolved", [])
-        problems += [_problem("link", "warning", name, f"Enlace [[{target}]] no resuelve.") for target in unresolved]
-    return problems
-
-
-def _tracked_documents(store_path: Path, root: Path) -> list[tuple[str, Path]]:
-    index = load_store_index(store_path)
-    docs = []
-    for model in index.models:
-        m_idx = load_models_index(root / model.models_index)
-        d_idx = load_documents_index(root / m_idx.documents_index)
-        docs += [(d.name, (root / d.path).resolve()) for d in d_idx.documents]
-    return docs
+    found = audit_links(store_path, tracked_documents(store_path, root))
+    return [_problem("link", "warning", p["doc"], f"Enlace [[{p['target']}]] no resuelve.") for p in found if p["kind"] == "unresolved"]
 
 
 def _problem(kind: str, severity: str, doc: str | None, detail: str) -> JsonDict:
