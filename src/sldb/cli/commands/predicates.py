@@ -8,6 +8,7 @@ import yaml
 from sldb.cli.store_context import get_store_context
 from sldb.core.exceptions import SLDBStoreError
 from sldb.store.io import load_store_index, save_store_index
+from sldb.cli.commands.predicates_file import export_command, sync_command
 from sldb.store.models import PredicateEntry
 from sldb.store.predicates import validate_predicate, validate_predicates
 
@@ -15,7 +16,7 @@ class PredicatesCLI:
     """Manage store-backed predicate definitions used by document links."""
 
     def run(self, args: Any) -> int:
-        cmds = {"add": self.add, "list": self.list, "show": self.show, "validate": self.validate, "remove": self.remove}
+        cmds = {"add": self.add, "list": self.list, "show": self.show, "validate": self.validate, "remove": self.remove, "sync": sync_command, "export": export_command}
         if args.predicates_command not in cmds:
             raise SLDBStoreError(f"Unknown command: {args.predicates_command}")
         return cmds[args.predicates_command](args)
