@@ -5,10 +5,13 @@ from sldb.store.io import load_store_index
 from sldb.store.predicates import predicate_axes
 from .parser import parse_links
 from .resolver import resolve_link_target
+from .sections import extract_section, split_anchor, strip_frontmatter
 
 def _process_link(link, doc_path, store_path, inc_trans):
     res = resolve_link_target(link.target, doc_path, store_path, link.predicate, link.w5h1_type)
     res.kind, res.raw = link.kind, link.raw
+    if res.resolved and res.path and (anchor := split_anchor(link.target)[1]) is not None:
+        res.resolved = extract_section(strip_frontmatter(Path(res.path).read_text("utf-8")), anchor) is not None
     return res
 
 def _dedup_links(links: list[dict]) -> list[dict]:

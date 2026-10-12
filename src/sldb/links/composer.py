@@ -3,14 +3,27 @@ import re
 from pathlib import Path
 from .parser import LINK_PATTERN
 from .resolver import resolve_link_target
+from .sections import extract_section, split_anchor, strip_frontmatter
 
-def compose_document(dp: Path, sp: Path | None, s: set[Path] | None = None) -> dict:
-    dp, s = dp.resolve(), s or set()
-    if dp in s: return {"markdown": dp.read_text("utf-8"), "transclusions": [], "unresolved": []}
-    s.add(dp); tr, un = [], []
-    def _r(m: re.Match[str]) -> str:
-        res = resolve_link_target(m.group(2).strip(), dp, sp) if m.group(1) else None
-        if not res or not res.path: un.append(m.group(2).strip()) if res else None; return m.group(0)
-        tr.append(m.group(2).strip()); n = compose_document(Path(res.path), sp, s)
-        un.extend(n["unresolved"]); tr.extend(n["transclusions"]); return n["markdown"].rstrip()
-    return {"root": dp.stem, "path": str(dp), "markdown": LINK_PATTERN.sub(_r, dp.read_text("utf-8")), "transclusions": sorted(dict.fromkeys(tr)), "unresolved": sorted(dict.fromkeys(un))}
+def _load(dp: Path, root: bool, section: str | None) -> str | None:
+    text = dp.read_text("utf-8")
+    text = text if root else strip_frontmatter(text)
+    return text if section is None else extract_section(text, section)
+
+def _expand(m: re.Match[str], dp: Path, sp: Path | None, s: tuple[Path, ...], tr: list, un: list) -> str:
+    raw = m.group(2).strip()
+    if not m.group(1): return m.group(0)
+    res = resolve_link_target(raw, dp, sp)
+    if not res.path: un.append(raw); return m.group(0)
+    n = compose_document(Path(res.path), sp, (*s, dp), False, split_anchor(raw)[1])
+    if n.get("missing_section"): un.append(raw); return m.group(0)
+    tr.append(raw); un.extend(n["unresolved"]); tr.extend(n["transclusions"]); return n["markdown"].rstrip()
+
+def compose_document(dp: Path, sp: Path | None, s: tuple[Path, ...] = (), _root: bool = True, section: str | None = None) -> dict:
+    """Expand `![[x]]` / `![[x#Section]]`. An included document loses its YAML frontmatter;
+    only the root keeps its own. `s` is the include chain (cycle guard), so a document may be included twice."""
+    dp, tr, un = dp.resolve(), [], []
+    if (text := _load(dp, _root, section)) is None: return {"markdown": "", "transclusions": [], "unresolved": [], "missing_section": True}
+    if dp in s: return {"markdown": text, "transclusions": [], "unresolved": []}
+    md = LINK_PATTERN.sub(lambda m: _expand(m, dp, sp, s, tr, un), text)
+    return {"root": dp.stem, "path": str(dp), "markdown": md, "transclusions": sorted(dict.fromkeys(tr)), "unresolved": sorted(dict.fromkeys(un))}
