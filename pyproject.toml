@@ -1,5 +1,5 @@
 [project]
-name = "sldb"
+name = "structuredLanguageDB"
 version = "0.1.0"
 description = "Structured Language Database - structured Markdown to Pydantic and back"
 readme = "README.md"
