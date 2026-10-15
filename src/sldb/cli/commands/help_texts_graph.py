@@ -54,6 +54,6 @@ Subcommands:
   surface implements is not isolated just because no other spec points at it, and dropping the
   tags leaves nothing for two documents to resemble each other through.
 
-PageRank needs scipy, which sldb does not require: `pip install 'sldb[graph]'`. Every other
+PageRank needs scipy, which sldb does not require: `pip install 'structuredLanguageDB[graph]'`. Every other
 analysis is pure networkx.
 """

@@ -50,7 +50,7 @@ def _pagerank(graph) -> dict:
     except ImportError as missing:
         raise SLDBError(
             "PageRank is networkx-on-scipy, and sldb does not require scipy: install it with "
-            "`pip install 'sldb[graph]'`, or ask for a centrality that does not need it "
+            "`pip install 'structuredLanguageDB[graph]'`, or ask for a centrality that does not need it "
             "(degree, in_degree, out_degree, betweenness)."
         ) from missing
 
