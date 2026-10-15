@@ -22,8 +22,11 @@ The workflow-domain example layer now lives in the sibling `opsys` repo, not ins
 ## Installation
 
 ```bash
-pip install sldb
+pip install structuredLanguageDB          # uv add structuredLanguageDB
+pip install 'structuredLanguageDB[graph]'  # PageRank (scipy)
 ```
+
+The PyPI name is `structuredLanguageDB`; the import and the CLI are still `sldb` (`import sldb`, `sldb --help`).
 
 ## CLI
 
