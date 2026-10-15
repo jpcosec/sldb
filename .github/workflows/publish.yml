@@ -1,0 +1,45 @@
+name: publish
+# Publica sldb en PyPI con trusted publishing (sin token): PyPI confía en este workflow y el environment `pypi`.
+# Un tag `vX.Y.Z` publica ese commit; a mano se puede publicar cualquier ref (p. ej. un tag viejo).
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "Tag o commit a publicar"
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref || github.ref }}
+      - uses: astral-sh/setup-uv@v6
+      - name: La versión del paquete coincide con el tag
+        run: |
+          version=$(sed -n 's/^version = "\(.*\)"/\1/p' pyproject.toml)
+          ref="${{ inputs.ref || github.ref_name }}"
+          case "$ref" in v*) [ "v$version" = "$ref" ] || { echo "::error::pyproject dice $version y el tag es $ref"; exit 1; };; esac
+      - run: uv build
+      - run: uvx twine check dist/*
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@release/v1
