@@ -5,7 +5,7 @@ from .models2 import _add_models_part2
 def add_models_group(s: argparse._SubParsersAction) -> None:
     p = s.add_parser("models", help="Model contracts and generation.")
     sub = p.add_subparsers(dest="models_command", required=True)
-    _add(sub); _update(sub); _list(sub); _show(sub)
+    _add(sub); _update(sub); _remove(sub); _list(sub); _show(sub)
     _add_models_part2(sub)
 
 def _add(s):
@@ -20,6 +20,12 @@ def _update(s):
     u.add_argument("model", help="Model name")
     u.add_argument("--store", help="Store path")
     u.add_argument("--pythonpath", help="Project path")
+
+def _remove(s):
+    r = s.add_parser("remove", help="Unregister a model that tracks no documents.")
+    r.add_argument("model", help="Model name")
+    r.add_argument("--store", help="Store path")
+    r.add_argument("--pythonpath", help="Project path")
 
 def _list(s):
     l = s.add_parser("list", help="List registered models.")

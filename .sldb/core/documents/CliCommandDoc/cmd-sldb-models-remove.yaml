@@ -1,0 +1,20 @@
+name: cmd-sldb-models-remove
+path: knowledge/commands/cmd-sldb-models-remove.md
+source_hash: 5d3bbe6a354d6be31732c5dc8a7cfb7c1f9cab20e566345ef43f6be61b6281d4
+content_hash: d70cec2fedc6486c8422b9a187ec98b7b21259ec612b811b4871cfa5f2af1d07
+field_hashes:
+  id: 7899b08b887a437157152b48a9b8a88ab898b7a29c8a69e153bd6ce3257d1812
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  command_path: 4b07833ab712a9ad8831dcc63e2a5f73f5056e78985953659ea448ff950797d5
+  synopsis: a122fae78dcc4e5825c8a2292da2526c027868e6522971e442b87250a14ecbbb
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  arguments: bbb640da289f878739b32162d40f0e865563fed3b3345f8399fb7f10a7f54f8b
+  usage: 9de3d74b6ce190ae19527b05968bf17a36d290fddef7a53f78db4f7900760f7f
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: fab9253da4c7ada704651b66f58d199cca72dc074e8936e8efab2d9e9190c5f6
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.cli_command
+- workspace.knowledge.commands

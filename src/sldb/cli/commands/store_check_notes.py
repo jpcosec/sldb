@@ -17,6 +17,14 @@ def print_unresolved_models(res: Any) -> None:
     if unresolved:
         print(f"\nnote: {len(unresolved)} model(s) could not be imported, so only their documents' text was checked: {', '.join(m.name for m in unresolved)}")
         print("    fix     : make the model importable (install its package, or pass --pythonpath) to check fields too")
+        _print_removable(unresolved)
+
+
+def _print_removable(unresolved: list[Any]) -> None:
+    """Unresolved models with no documents left: most likely deleted on purpose."""
+    empty = [m.name for m in unresolved if not m.documents]
+    if empty:
+        print(f"    or      : `sldb models remove <name>` unregisters one with no documents: {', '.join(empty)}")
 
 
 def print_legacy_contracts(res: Any) -> None:

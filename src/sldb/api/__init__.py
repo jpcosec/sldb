@@ -24,6 +24,7 @@ from sldb.api.edges.check_edges import check_edges
 from sldb.api.edges.edge_check_report import EdgeCheckReport
 from sldb.api.edges.edge_reading import edge_node, edge_nodes_of_type, edges_from, edges_to, load_edge_index
 from sldb.api.edges.edges_holding import edges_holding
+from sldb.api.model_registry.remove_model import remove_model
 from sldb.api.edges.edge_serialization import serialize_edge_node_record, serialize_edge_node_records, serialize_edge_record, serialize_edge_records
 from sldb.api.edges.init_relations import init_relations
 from sldb.api.edges.rebuild_edges import rebuild_edges
@@ -117,5 +118,5 @@ __all__ = [
     "serialize_edge_records", "tag_node_id", "track_document_file", "untrack_document",
     "update_store_indexes", "validate_model_draft", "verify_journal",
     "DocRefStatus", "doc_exists", "doc_status", "split_doc_ref", "store_links",
-    "WherePredicateError", "edges_holding", "where_matches",
+    "WherePredicateError", "edges_holding", "remove_model", "where_matches",
 ]

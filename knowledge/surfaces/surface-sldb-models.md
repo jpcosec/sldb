@@ -8,7 +8,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: parser:sldb.cli.parser:build_parser#models; contract-sha256:9f518e03a6236384d309f13dc6e8628de221b30cd0641da2dc13a77fb1d92b28
+provenance: parser:sldb.cli.parser:build_parser#models; contract-sha256:80c3e253fbaabdb9d49cc3b167b4a4b789e7e48cc416a0041a2adbb4bdda7ee7
 ---
 
 # models
@@ -28,6 +28,7 @@ Registered under src/sldb/cli/parsers/ as the 'models' subparser. Each command d
 - sldb models fields add
 - sldb models fields remove
 - sldb models list
+- sldb models remove
 - sldb models show
 - sldb models template edit
 - sldb models template show

@@ -483,6 +483,7 @@ Model relationships (`inherits`, `has_many`) are **not** stored in the index —
 | `sldb stores update [--wait] [--verbose]` | Recompute all hashes from current file states |
 | `sldb models add <model-ref>` | Register a model contract |
 | `sldb models update <name>` | Re-index a model after contract changes |
+| `sldb models remove <name>` | Unregister a model that tracks no documents (its class need not import) |
 | `sldb docs create --model <name> -o <path> <payload>` | Create and track a new document |
 | `sldb docs track <path> --model <name>` | Validate and track an existing document |
 | `sldb docs update <name> <payload>` | Re-render a tracked document with new data |

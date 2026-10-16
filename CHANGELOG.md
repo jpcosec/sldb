@@ -1,6 +1,14 @@
 # Changelog
 
-Version note (2026-09-13, updated 2026-10-16): `pyproject.toml` declares `0.1.6`; it was `0.1.0` while PyPI already had `0.1.1`. Existing entries below are historical development records, not a verified registry release inventory. The product-generation label “v1” is separate from package versioning. No new package version or release is created by this documentation reconciliation.
+Version note (2026-09-13, updated 2026-10-16): `pyproject.toml` declares `0.1.7`; it was `0.1.0` while PyPI already had `0.1.1`. Existing entries below are historical development records, not a verified registry release inventory. The product-generation label “v1” is separate from package versioning. No new package version or release is created by this documentation reconciliation.
+
+## 0.1.7 - 2026-10-16 — `models remove`
+
+- `sldb models remove <name>` / `sldb.api.remove_model(store, name)`: unregisters a model that
+  tracks no documents, with its indexes and shards; the class is never imported, so a model
+  whose code was deleted can go. A model that still tracks documents is refused (untrack them
+  first). `stores check` already passes with such a model registered (0.1.5); its note now
+  names the unimportable models with no documents as removable.
 
 ## 0.1.6 - 2026-10-16 — the graph as a state machine
 
