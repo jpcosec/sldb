@@ -10,21 +10,27 @@ inferred from a hash.
 
 from __future__ import annotations
 from typing import Any
+from sldb.cli.commands.store_check_notes import print_legacy_contracts
 from sldb.store.diagnostics_models import DiagnosisNote
 
 
 def print_report(res: Any) -> None:
     """The verdict, then every finding that produced it, then what to do."""
     print(res.summary())
+    print_legacy_contracts(res)
     if res.is_valid:
         return
+    _print_root(res)
+    for model in res.models:
+        _print_model(model)
+    _print_next_step(res)
+
+
+def _print_root(res: Any) -> None:
     if not res.root_ok:
         print("\nstore_hash stale: a model node moved, or the set of models changed")
         print("    inspect : nothing on disk — the root is derived from the model nodes below")
         print("    fix     : safe to run: sldb stores update")
-    for model in res.models:
-        _print_model(model)
-    _print_next_step(res)
 
 
 def _print_next_step(res: Any) -> None:

@@ -35,5 +35,7 @@ class EdgesCLI:
         report = check_edges(args.store, not args.local, args.exclude_tag)
         for line in [f"error: {e}" for e in report.errors] + [f"stale: {s}" for s in report.stale]:
             print(line)
+        if report.untracked_builtins:
+            print(f"note: builtin relation type(s) not tracked here, checked against sldb's own: {', '.join(report.untracked_builtins)} (`sldb edges init` tracks them)")
         print("Edges OK" if report.ok else f"{len(report.errors)} error(s), {len(report.stale)} stale")
         return 0 if report.ok else 1

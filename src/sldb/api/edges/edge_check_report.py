@@ -10,6 +10,7 @@ class EdgeCheckReport(BaseModel):
 
     errors: list[str] = Field(default_factory=list, description="Authored edges to documents that are not tracked, edges of unknown relation types, endpoint classes a type does not allow, cardinality violations.")
     stale: list[str] = Field(default_factory=list, description="Export ids of documents whose shard is not built from their current hash_c.")
+    untracked_builtins: list[str] = Field(default_factory=list, description="Builtin relation types sldb's derived edges use that the store does not track; validated against the shipped definition, not an error. `sldb edges init` tracks them.")
 
     @property
     def ok(self) -> bool:

@@ -1,6 +1,12 @@
 """Every edge checked against its relation type (kgdb's TypedIngestError, as a report): the
 type is a tracked RelationTypeDoc, the target exists, both endpoint classes are allowed (model
-names inherit through `base_models`), and cardinality holds."""
+names inherit through `base_models`), and cardinality holds.
+
+In a store that ran `edges init`, an edge sldb derives itself (structural, schema, alias)
+whose builtin type the store has not tracked is checked against the definition sldb ships: a
+builtin added after that init must not fail every existing store. A store that never ran
+`edges init` still fails, as before. `untracked_builtins` names those types so
+the gap is reported, not hidden; authored edges still need a tracked type."""
 
 from __future__ import annotations
 
@@ -9,18 +15,42 @@ from typing import Any
 
 from sldb.store.edge_index.edge_index import EdgeIndex
 from sldb.store.edge_index.resolve import relation_types_of
+from sldb.models.builtin_relation_types import BUILTIN_RELATION_TYPES, builtin_payload
 from sldb.store.models import EdgeNodeRecord, EdgeRecord
 
 _BUILTIN_ORIGINS = ("structural", "schema", "alias")
+_SHIPPED = {spec["name"]: builtin_payload(spec) for spec in BUILTIN_RELATION_TYPES}
 
 
 def validate_edge_index(index: EdgeIndex) -> list[str]:
     """The violations found, as sentences; empty when every edge is valid."""
-    relation_types = relation_types_of(index.nodes)
+    tracked = relation_types_of(index.nodes)
+    effective = _effective_types(tracked)
     errors: list[str] = []
     for e in index.edges:
-        errors += _edge_errors(index.nodes, e, relation_types.get(e.relation))
-    return errors + _cardinality_errors(index.edges, relation_types)
+        errors += _edge_errors(index.nodes, e, (effective if _derived(e) else tracked).get(e.relation))
+    return errors + _cardinality_errors(index.edges, effective)
+
+
+def untracked_builtins(index: EdgeIndex) -> list[str]:
+    """Builtin types newer than the store's `edges init` that its derived edges use (re-run init to track them)."""
+    tracked = relation_types_of(index.nodes)
+    if not _initialised(tracked):
+        return []
+    return sorted({e.relation for e in index.edges if e.relation not in tracked and e.relation in _SHIPPED and _derived(e)})
+
+
+def _effective_types(tracked: dict[str, dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    """The tracked types, completed with the shipped builtins once the store ran `edges init`."""
+    return {**_SHIPPED, **tracked} if _initialised(tracked) else tracked
+
+
+def _initialised(tracked: dict[str, dict[str, Any]]) -> bool:
+    return any(name in _SHIPPED for name in tracked)
+
+
+def _derived(e: EdgeRecord) -> bool:
+    return e.metadata.get("origin") in _BUILTIN_ORIGINS
 
 
 def _edge_errors(nodes: dict[str, EdgeNodeRecord], e: EdgeRecord, rt: dict[str, Any] | None) -> list[str]:

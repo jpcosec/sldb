@@ -11,6 +11,7 @@ from sldb.store.hashing import (
     hash_text,
 )
 from sldb.store.io import load_documents_index, load_models_index, load_store_index
+from sldb.store.legacy_contract import legacy_contract
 from sldb.store.model_node import contract_moved
 from sldb.store.models import ModelsIndex
 from sldb.store.diagnostics_models import (
@@ -85,10 +86,11 @@ def _diagnose_model(model_entry, root, pythonpath, resolve_model_ref: Callable) 
     models_idx = load_models_index(root / model_entry.models_index)
     docs_idx = load_documents_index(root / models_idx.documents_index)
     model_type = _try_resolve_model(model_entry.model_ref, pythonpath, resolve_model_ref)
-    contract_ok = not contract_moved(models_idx, model_type)
+    legacy = legacy_contract(models_idx, model_type)
+    contract_ok = legacy or not contract_moved(models_idx, model_type)
     doc_diagnoses = [_diagnose_doc(d, root, model_type, contract_ok) for d in docs_idx.documents]
     roster_ok = hash_documents_index(docs_idx) == models_idx.roster_hash
-    return ModelDiagnosis(name=models_idx.name, roster_ok=roster_ok, contract_ok=contract_ok, source_path=models_idx.path, documents=doc_diagnoses), models_idx
+    return ModelDiagnosis(name=models_idx.name, roster_ok=roster_ok, contract_ok=contract_ok, legacy_contract=legacy, source_path=models_idx.path, documents=doc_diagnoses), models_idx
 
 def diagnose_store(store_path: Path, resolve_model_ref: Callable, project_root: Optional[Path] = None, pythonpath: Optional[str] = None) -> StoreDiagnosis:
     """Diagnoses the integrity of the entire store."""

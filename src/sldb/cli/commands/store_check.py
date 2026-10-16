@@ -82,6 +82,7 @@ def _build_model_payload(model: Any) -> dict[str, Any]:
         "hash_b_ok": model.roster_ok,
         "roster_ok": model.roster_ok,
         "contract_ok": model.contract_ok,
+        "legacy_contract": model.legacy_contract,
         "roster_only_failure": model.roster_only_failure,
         "documents": [_build_doc_payload(d) for d in model.documents],
     }

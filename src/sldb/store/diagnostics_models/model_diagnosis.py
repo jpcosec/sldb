@@ -16,6 +16,11 @@ _ROSTER_ONLY = (
     "recomputes it"
 )
 _ROSTER_AND_DOCS = "roster hash disagrees, and documents below are damaged too"
+_LEGACY_CONTRACT = (
+    "contract hash from before sldb signed class metadata (cecd97b): fields and template are "
+    "the ones indexed, family/semantics/relations were never signed — `sldb stores update` "
+    "re-seals it under the current formula"
+)
 _CONTRACT_MOVED = (
     "the model's contract (field schema or __template__) changed since it was indexed: "
     "extraction yields something else from the same text — `sldb stores update` re-extracts "
@@ -36,6 +41,7 @@ class ModelDiagnosis:
     name: str
     roster_ok: bool
     contract_ok: bool = True
+    legacy_contract: bool = False   # contract_ok, but signed under the pre-cecd97b formula
     source_path: str = ""   # the .py the contract is declared in: what to open when it moved
     documents: list[DocumentDiagnosis] = field(default_factory=list)
 
@@ -73,7 +79,7 @@ class ModelDiagnosis:
         if not self.contract_ok:
             return _CONTRACT_MOVED
         if self.roster_ok:
-            return "ok"
+            return _LEGACY_CONTRACT if self.legacy_contract else "ok"
         if not self.documents:
             return _EMPTY_ROSTER
         if self.roster_only_failure:

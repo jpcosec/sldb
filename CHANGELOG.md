@@ -2,6 +2,20 @@
 
 Version note (2026-09-13, updated 2026-10-16): `pyproject.toml` declares `0.1.2`; it was `0.1.0` while PyPI already had `0.1.1`. Existing entries below are historical development records, not a verified registry release inventory. The product-generation label “v1” is separate from package versioning. No new package version or release is created by this documentation reconciliation.
 
+## 0.1.3 - 2026-10-16 — upgrading sldb no longer fails unchanged stores
+
+Found on Governance's `pulse`, which installs sldb from git: both checks failed on a store whose
+content had not changed.
+
+- `stores check`: a model whose stored contract hash equals the formula sldb used before
+  cecd97b (fields and template only) passes, with a note naming those models, instead of
+  "contract moved" on every model. A class that really changed still fails. `stores update`
+  re-seals the hash under the current formula. JSON: `models[].legacy_contract`.
+- `edges check`: in a store that ran `edges init`, an edge sldb derives itself whose builtin
+  type was added later (`composes`) is checked against the definition sldb ships and reported in
+  `untracked_builtins`, not as an error. A store that never ran `edges init` still fails;
+  authored edges still need a tracked type.
+
 ## 0.1.2 - 2026-10-16 — referencing documents of linked stores
 
 - `stores add` links were recorded but no document lookup read them: `docs show

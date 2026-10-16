@@ -8,7 +8,7 @@ from typing import Iterable
 from sldb.api.edges.edge_check_report import EdgeCheckReport
 from sldb.api.edges.edge_reading import load_edge_index
 from sldb.store.edge_index.acyclic import cycle_errors
-from sldb.store.edge_index.validation import validate_edge_index
+from sldb.store.edge_index.validation import untracked_builtins, validate_edge_index
 
 
 def check_edges(store: str | Path | None, include_linked: bool = True, exclude_tags: Iterable[str] = ()) -> EdgeCheckReport:
@@ -25,4 +25,4 @@ def check_edges(store: str | Path | None, include_linked: bool = True, exclude_t
     """
     index = load_edge_index(store, include_linked, exclude_tags)
     errors = index.problems + validate_edge_index(index) + cycle_errors(index)
-    return EdgeCheckReport(errors=errors, stale=index.stale)
+    return EdgeCheckReport(errors=errors, stale=index.stale, untracked_builtins=untracked_builtins(index))
