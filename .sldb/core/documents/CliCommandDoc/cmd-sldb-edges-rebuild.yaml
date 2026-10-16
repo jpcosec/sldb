@@ -1,0 +1,20 @@
+name: cmd-sldb-edges-rebuild
+path: knowledge/commands/cmd-sldb-edges-rebuild.md
+source_hash: 38d54d1ae47c4a2e2b6d283903c99288726525713bafd9407d54608c1338f981
+content_hash: e2672ec3a1a6993b2aaefb8e8ff5f96d27fbdb62767e86fb206ef7a83bc32a81
+field_hashes:
+  id: c055230bec4937fee7c9e4f78138954278f7f743d136b134a9e4fa6dada74ab7
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  command_path: a2d3ef52b71a0e9c4bfa3d4a063ec763d42bc4086b421b9f489541d23764075a
+  synopsis: fa6bc487d65921950fb24a06da34ef82455471b80abbf6d95045b22968a97cb1
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  arguments: 32054a73ea73532e7fcd4d04fa327a59a63c0e17a91243b448cf0c08c25e5fb8
+  usage: 95f10bc47780605fdfcf70d9b2d1e49d46ae98c1bf407dc6358db45f57294490
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: cbb86b7a33e32bc107292b679e6736e0d4d1e7707777a86a7aa1f392adbc54a6
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.cli_command
+- workspace.knowledge.commands

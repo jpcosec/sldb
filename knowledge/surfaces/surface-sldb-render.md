@@ -8,7 +8,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: parser:sldb.cli.parser:build_parser#render; contract-sha256:f291623e696b9043083c7c4aaa335ec1ac274015aae782062e2ff6cf6a096fb7
+provenance: parser:sldb.cli.parser:build_parser#render; contract-sha256:e04642ea74565f1edd927135c01b15befc97e4c91cb83b4a44e861720e075743
 ---
 
 # render

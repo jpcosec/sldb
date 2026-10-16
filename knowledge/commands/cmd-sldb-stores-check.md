@@ -2,21 +2,21 @@
 id: cmd-sldb-stores-check
 system: sldb
 command_path: stores check
-synopsis: Integrity check.
+synopsis: 'Integrity check: reports each finding and its category.'
 tags:
 - system:sldb
 - domain:retrieval
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#stores check; contract-sha256:6b9599583ebb33b4e7fc02b04836f40e0a5efd77a930dbbe7ff3206499315ef1
+provenance: parser:sldb.cli.parser:build_parser#stores check; contract-sha256:4b7b0dfbbfcc5baf149e9f8a167dabe8d5abc97ba00421a2e34b5220d1fe72b6
 ---
 
 # stores check
 
 ## Synopsis
 
-Integrity check.
+Integrity check: reports each finding and its category.
 
 ## Purpose
 
@@ -60,6 +60,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'check'. It p
       "action": "argparse._StoreAction",
       "const": "null",
       "help": ""
+    },
+    {
+      "names": [
+        "--quiet"
+      ],
+      "required": false,
+      "default": "false",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "argparse._StoreTrueAction",
+      "const": "true",
+      "help": "Only the PASS/FAIL line, without per-document findings"
     },
     {
       "names": [

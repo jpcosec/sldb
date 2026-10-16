@@ -3,9 +3,9 @@ model_ref: sldb.models.relation_type_doc:RelationTypeDoc
 path: src/sldb/models/relation_type_doc.py
 documents_index: .sldb/core/documents/RelationTypeDoc.yaml
 sections_index: .sldb/runtime/sections/RelationTypeDoc.yaml
-model_hash: 1f860de2ece670ec5bc28192fc8174e702121a47a9c062db33a9131a5f95a790
+model_hash: 762a4cb18cbca11f04210d2f7ff2520609780d14ef44a5ac385459ec1398fefb
 roster_hash: bd15cc953c727363fa2e3cf183f92c071f9624960574071996cdfb1d971f461a
-contract_hash: 3457266ae4098c166e1a9e97dd7c899823b29c63b279087fb69552555312ab00
+contract_hash: 57b63063959eb2f0b721697bc626d10bc4d960672ed03fa04f9d0a5e1f499699
 documents_count: 15
 version: 1
 canonical: false

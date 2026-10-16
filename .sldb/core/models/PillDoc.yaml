@@ -3,9 +3,9 @@ model_ref: deskops.models:PillDoc
 path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/pill.py
 documents_index: .sldb/core/documents/PillDoc.yaml
 sections_index: .sldb/runtime/sections/PillDoc.yaml
-model_hash: 874e8c08bf5d9619f5c832c112f1b9b930b0a240f3d6d25afbf2becccb506b91
+model_hash: d82df8828b41a12f7cf84e30263f5b4643dce36f0af9d16054e20bbe733c0356
 roster_hash: e538ee228ca445be26d94cf25bcaad8f56a1036fdefac4d84d20b178f2100488
-contract_hash: bce300e684bfc1aece40aed83d4fed364aa81a7d7d6a2ebaf5b375b50470e12f
+contract_hash: 3af89aeefdc3b4c22117844fbb45d5208a9cf4899432add7646f1dff1258e235
 documents_count: 15
 version: 1
 canonical: false

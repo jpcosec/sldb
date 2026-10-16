@@ -4,7 +4,7 @@ system: sldb
 command_path: selfdoc python-sync
 synopsis: Track static Python symbols as reference documents.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#selfdoc python-sync; contract-sha256:7250e6678a1d21d3a192b52d4dffc385ef3e86e40b19d0673ebf3d61ba1a43b6
+provenance: parser:sldb.cli.parser:build_parser#selfdoc python-sync; contract-sha256:04ef241980fe4b45bfb59f7b2f370f3c936b7b7beb578308ee7ff7d78bf7c326
 ---
 
 # selfdoc python-sync
@@ -77,6 +77,32 @@ Not documented.
       "action": "argparse._StoreAction",
       "const": "null",
       "help": "Explicit spec2viz YAML relative to store root"
+    },
+    {
+      "names": [
+        "--kgdb-output"
+      ],
+      "required": false,
+      "default": "\".kgdb/python-source.graph.json\"",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "KGDB graph relative to the store root"
+    },
+    {
+      "names": [
+        "--kgdb-command"
+      ],
+      "required": false,
+      "default": "\"kgdb\"",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "KGDB executable used by python-sync"
     },
     {
       "names": [

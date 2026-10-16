@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#stores update; contract-sha256:e1f589e3f7c056b21e31a7a28237fd1f8a0a64c97a1878621c80b1574c98b9f1
+provenance: parser:sldb.cli.parser:build_parser#stores update; contract-sha256:c998078345d5b2e78d24455a37e953425b72fe5e58b537d4eba264df074ed462
 ---
 
 # stores update
@@ -56,6 +56,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'update'. It 
       "action": "argparse._StoreTrueAction",
       "const": "true",
       "help": "Print individual skip details"
+    },
+    {
+      "names": [
+        "--prune-missing"
+      ],
+      "required": false,
+      "default": "false",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "argparse._StoreTrueAction",
+      "const": "true",
+      "help": "Untrack documents whose file no longer exists (reports which)"
     },
     {
       "names": [

@@ -1,0 +1,20 @@
+name: cmd-sldb-semantic-parent-remove
+path: knowledge/commands/cmd-sldb-semantic-parent-remove.md
+source_hash: 18aa3eab1e34269d4dc7ecff5cc6e109460450889074a25d9c9add3009ed5402
+content_hash: 3bbe96e92ae9b98b0d93a0a81465d13a2b3ab1bcdff9105fc230b5d8df84605d
+field_hashes:
+  id: 467dd18f25d642ba4e45b0f3c5a887e416c025278874951c7f38b663da1b482a
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  command_path: 0f0c91ad6d68bce9bc6540e475441865008640f74c413ff5d389fa6e65f9ec99
+  synopsis: 16bf9b80d59d40432c8a4988b46b4196175be80f7fae1212ed2c0539a40ca86a
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  arguments: 46f6a328c06cb6e382b57532681e162b6cad5f5273557b4269fd0fac5f6b24aa
+  usage: 37c26cf5e0fbed141b212e4cf81cddf7337a66391aa4ea7a71fe55b3af9f476d
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: 7c58f4d1bcabf045ed22e959f024298926cac5586a345a536f6843a17d1eab25
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.cli_command
+- workspace.knowledge.commands

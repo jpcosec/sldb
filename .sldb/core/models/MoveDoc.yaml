@@ -3,9 +3,9 @@ model_ref: pron.models:MoveDoc
 path: /home/jp/proyectos/pron/src/pron/models/move.py
 documents_index: .sldb/core/documents/MoveDoc.yaml
 sections_index: .sldb/runtime/sections/MoveDoc.yaml
-model_hash: 5bbd7e396cb470150d5b29117032172569a1493550f01a8c2c3121cb24aca365
+model_hash: b5c75498bd07fe1d9889e2a7325edcb16bd2145715d039af1c9cd61c41d18596
 roster_hash: ecf41d49dad08fffd99f3bccbb4f63217ff0b534692e932354ca8654ab0e6181
-contract_hash: 383cb6b3012c54415ff830153c0eb1c9c675ed17d2ee1f6a3e15dcf29a0f4a02
+contract_hash: 081fb2a77bd0713785922fb01978b1494ef3aa8c6cb6a10c18642a565d724a2b
 documents_count: 37
 version: 1
 canonical: false

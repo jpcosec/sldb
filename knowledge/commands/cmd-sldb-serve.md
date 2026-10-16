@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#serve; contract-sha256:8870c19f460bf1dd636e7c56d19b084013febc33b8efc31c81c0641fcc6b6b1d
+provenance: parser:sldb.cli.parser:build_parser#serve; contract-sha256:5e0a5281eea874003c108026b2a999676f80d85a74106e8e7fe0dc4b2fac8f69
 ---
 
 # serve
@@ -95,6 +95,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'serve'. It p
       "action": "argparse._StoreTrueAction",
       "const": "true",
       "help": "Send permissive CORS headers (for browser clients)"
+    },
+    {
+      "names": [
+        "--token"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Require 'Authorization: Bearer <TOKEN>' on every request (default: $SLDB_SERVE_TOKEN, or no auth)"
     }
   ],
   "exclusive_groups": []

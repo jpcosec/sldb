@@ -1,0 +1,20 @@
+name: cmd-sldb-semantic-equivalent-add
+path: knowledge/commands/cmd-sldb-semantic-equivalent-add.md
+source_hash: ae3ffbdde554a20031f5e708436d4dfa983c2ebe1a0400733dc0884a436748a7
+content_hash: 0dbb3b8688447921badc6cdac858bfc134df811386ddcdbe0bd20f8cdc38e675
+field_hashes:
+  id: 81a3f91f7edb8e5fa557c6b3c66579cdd56d70ddf035803d121c0286a9ce4975
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  command_path: fe110bd63bba3db424f275d88edb21655203d842ca2aa801d37ed93bfa6d1e74
+  synopsis: cc2eb504014c26097095cbbf5ab842793e0eed1a86ff224a659d0af2062c5a90
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  arguments: 526bed4568b3fec777055064eb4bf4f92ad34ef6b20dd25f7e782453ee8052be
+  usage: d416311759f471349891714f40b3d5ef93964368b03e452a4c9013c5c0f24ab6
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: f7b147a593813159b71dc9ff02a57ef18fb0f19a81e8336fdc046c689ba05a3d
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.cli_command
+- workspace.knowledge.commands

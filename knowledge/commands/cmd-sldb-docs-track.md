@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#docs track; contract-sha256:107c0ce06cd05295ce0c9075fadeb2fb7d339f56f092b59cac2860f80108a63d
+provenance: parser:sldb.cli.parser:build_parser#docs track; contract-sha256:ecd948ac4db5fbafd5456cf4f7f4c5e5f22198d0be7e91b73e38176e051f3922
 ---
 
 # docs track
@@ -35,14 +35,27 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'track'. It p
       "names": [
         "path"
       ],
-      "required": true,
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": "?",
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Document path"
+    },
+    {
+      "names": [
+        "--glob"
+      ],
+      "required": false,
       "default": "null",
       "choices": null,
       "nargs": null,
       "value_type": null,
       "action": "argparse._StoreAction",
       "const": "null",
-      "help": "Document path"
+      "help": "Track every file matching this pattern (already tracked ones are skipped), e.g. 'docs/**/*.md'"
     },
     {
       "names": [

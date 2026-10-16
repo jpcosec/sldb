@@ -144,8 +144,12 @@ def main() -> int:
             problems.append(f"`{symbol}` lo piden {', '.join(sorted(users))} "
                             f"y ninguna puerta lo declara")
 
+    # La cifra del contrato suma a todos los consumidores: con una vista parcial
+    # no se puede comparar, y exigirla haría fallar la puerta en cualquier máquina
+    # que no tenga los cinco repos al lado.
     total = surface["symbols_requested"]
-    if len(asked) != total:
+    partial = len(present) < len(consumers)
+    if len(asked) != total and not partial:
         problems.append(f"el contrato dice {total} símbolos pedidos; "
                         f"los consumidores piden {len(asked)}")
 
@@ -154,6 +158,9 @@ def main() -> int:
 
     print(f"  nota   {len(present)} de {len(consumers)} consumidores presentes: "
           f"{', '.join(present)}")
+    if partial:
+        print(f"  aviso  la cifra total ({total}) no se comprueba: faltan "
+              f"{', '.join(sorted(set(consumers) - set(present)))}")
     if private:
         print(f"  deuda  {len(private)} privados importados desde fuera: "
               f"{', '.join(private)}")

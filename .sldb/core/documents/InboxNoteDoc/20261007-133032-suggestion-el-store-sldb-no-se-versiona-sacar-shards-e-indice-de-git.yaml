@@ -1,0 +1,17 @@
+name: 20261007-133032-suggestion-el-store-sldb-no-se-versiona-sacar-shards-e-indice-de-git
+path: desk/inbox/20261007-133032-suggestion-el-store-sldb-no-se-versiona-sacar-shards-e-indice-de-git.md
+source_hash: 3d944470c9e57dfafcc528924eb08e3431673322f06c6338fce2bb1c5bdb1b54
+content_hash: 3cad96279304a1fe119a5785527b14421e9dcf445974a7454c8a8c017cb31a42
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 83ce0ef9c917def3d16f439f6ce102d04ef30bcae18a61a069a165afdebcf51e
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: cef5079fb0cb843c2a7ca2088f3418a7f66df576453367a4f923e61b42956219
+  body: 77b8eb21e3fa2a101bc3d11d8a1a61638f52ed0262176ddb9be630883af96e9e
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox

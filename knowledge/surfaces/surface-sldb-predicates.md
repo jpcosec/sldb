@@ -8,7 +8,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: parser:sldb.cli.parser:build_parser#predicates; contract-sha256:09dee550a8545677adbcc0316279ed272343293c37123c2ca6534f94d0241940
+provenance: parser:sldb.cli.parser:build_parser#predicates; contract-sha256:ad418d3431da794c9221921b7e8af339e1604bc404323efb5aa260284ad753bf
 ---
 
 # predicates
@@ -24,7 +24,9 @@ Registered under src/sldb/cli/parsers/ as the 'predicates' subparser. Each comma
 ## Commands
 
 - sldb predicates add
+- sldb predicates export
 - sldb predicates list
 - sldb predicates remove
 - sldb predicates show
+- sldb predicates sync
 - sldb predicates validate

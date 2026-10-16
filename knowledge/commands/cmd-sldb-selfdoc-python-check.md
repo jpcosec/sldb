@@ -4,7 +4,7 @@ system: sldb
 command_path: selfdoc python-check
 synopsis: Report static Python documentation drift without writing.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#selfdoc python-check; contract-sha256:b13f8d74546b183fab20a57d42424cea155f87b7fbdd1cddb72f40e7c36b5dfa
+provenance: parser:sldb.cli.parser:build_parser#selfdoc python-check; contract-sha256:e2839beb38b6830576bc61058a920a625f16043c7dd1ee37bd382e2dbca4f5b0
 ---
 
 # selfdoc python-check
@@ -77,6 +77,32 @@ Not documented.
       "action": "argparse._StoreAction",
       "const": "null",
       "help": "Explicit spec2viz YAML relative to store root"
+    },
+    {
+      "names": [
+        "--kgdb-output"
+      ],
+      "required": false,
+      "default": "\".kgdb/python-source.graph.json\"",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "KGDB graph relative to the store root"
+    },
+    {
+      "names": [
+        "--kgdb-command"
+      ],
+      "required": false,
+      "default": "\"kgdb\"",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "KGDB executable used by python-sync"
     },
     {
       "names": [

@@ -1,0 +1,20 @@
+name: cmd-sldb-predicates-export
+path: knowledge/commands/cmd-sldb-predicates-export.md
+source_hash: 48068cc1cf0b445871506594490e6bebdca7a9bd69b5f6080fbf3d8f8107f8be
+content_hash: d2b2ab333fe48d709da1c6a721e6feed16e38b6a443c50eb7ec15053370e1dd9
+field_hashes:
+  id: e1aa760d4b095aa14767aa6f2e78f4379e4224fa4d79d519d2a90a3effb65c48
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  command_path: ab582d5dbdc13712f819707019bbc8acb0f833d3ee3593ad4ed57daa10b77320
+  synopsis: 52f99627e74c16f18306da87b7089254671702e8cb8a97271a4a7e2a40ad6895
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  arguments: 7556d04d0de463205a7a73ccd233be34019db56495c1281a1949fd4df3dc3c55
+  usage: 9cd69170ddf9fcd3ff9231bc570c26addd775d760513843aeea42b8a7897a005
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: 2a799e212e037af87ee045085e5ba78a2962222c26261c6347b5cc407853baa1
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.cli_command
+- workspace.knowledge.commands

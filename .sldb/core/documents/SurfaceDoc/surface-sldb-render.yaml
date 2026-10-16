@@ -1,7 +1,7 @@
 name: surface-sldb-render
 path: knowledge/surfaces/surface-sldb-render.md
-source_hash: 0a0041920641b9a7820907459a783772001d48a14f26e9edbae5e9afd58d4e46
-content_hash: c509f4d7d32780433b6f7246b307aafdb428d8ac4936c68101610870cf72b565
+source_hash: 8df37c4a08a1e657a2f53412976057113c0d42ba92dcec6bbdad91aedf495e87
+content_hash: e3176418a99f032de5e3bbfabb178e0c1acbad45b80c8d89085f108826d1fb0f
 field_hashes:
   id: 86c3108faf50615a2bf5b93a86e6c2c64f4fa3dff052cad982cd2ff0ba920429
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -10,7 +10,7 @@ field_hashes:
   how_it_works: 30c1a372d8595b7223a06f5a158428748dfba940fe998ee023ed0df0d9b4ea74
   commands: b6ebc95b2a0058fe5c82a9a552addba2c8e7d53718e1044ed4c566123a8e50a1
   tags: 28e2d739923a919405b798242e5394dda38832570ee573367673daed32bb183f
-  provenance: 21c3dda7843187e218fb37a5dff7efab086341ab1a203c93878b470f5b0bbe5f
+  provenance: e18e9801025e8cc1e76fcec64dcada4bed485360bd7b00b7692a72a97a973e19
 semantic_tags:
 - domain:retrieval
 - entity:cli_surface

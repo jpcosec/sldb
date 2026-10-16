@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#docs compose; contract-sha256:58356de5b808e28368e8565dc5e39d1c463ba6ef3fba1a0184d592ced47e5511
+provenance: parser:sldb.cli.parser:build_parser#docs compose; contract-sha256:0a2f934e0913cf383209ade835624281091a95292c721cb36b0e15df8c7a33e8
 ---
 
 # docs compose
@@ -87,6 +87,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'compose'. It
       "action": "argparse._StoreAction",
       "const": "null",
       "help": ""
+    },
+    {
+      "names": [
+        "--render-links"
+      ],
+      "required": false,
+      "default": "false",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "argparse._StoreTrueAction",
+      "const": "true",
+      "help": "Turn [[x]] into Markdown links relative to the output file"
     }
   ],
   "exclusive_groups": []

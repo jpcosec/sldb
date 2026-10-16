@@ -1,0 +1,20 @@
+name: cmd-sldb-graph-central
+path: knowledge/commands/cmd-sldb-graph-central.md
+source_hash: fb14cb94a0737d5d7a1587498dac9c7259a3f45df62c017dc31b062c206dcd23
+content_hash: de853cf06053450129db661c1ca468ccec86110d6e19464aa4f3abbcc4683c40
+field_hashes:
+  id: 87d02bb1ec3ccce9f1a21d990b0d398c0396ac7116edab1f6e6149c849fcecf7
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  command_path: f290a28cae301dd6f89fd13a832d7a06eb2bf61ac3c7ce9f6c7f619861d0406c
+  synopsis: 7767be5345b51961a09359e1de5b2831814ffe0f823b81c6ade7375454c26d22
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  arguments: 3ead01bc29462c7ec288339e55d4c8d1169ee3c59e630234213499f9a49a87f8
+  usage: f32b621762aacbe3f33f2162a6bfa63c7bbed5a20289ec0522b9be68bc1a53be
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: 0cf6f6e7f5b3f70d37df08362d3cdd3cc82eb82373bd9558dad58acae4fcd06c
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.cli_command
+- workspace.knowledge.commands

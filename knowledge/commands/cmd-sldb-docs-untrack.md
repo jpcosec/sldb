@@ -2,21 +2,21 @@
 id: cmd-sldb-docs-untrack
 system: sldb
 command_path: docs untrack
-synopsis: Remove a tracked doc from the store.
+synopsis: Remove a tracked doc from the store, keeping its file.
 tags:
 - system:sldb
 - domain:retrieval
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#docs untrack; contract-sha256:48d4898f4305f8577a52df6af2f17dc55f26dea12df3af154140c84a86b346e5
+provenance: parser:sldb.cli.parser:build_parser#docs untrack; contract-sha256:3e476408df09ed3c9430516902c4746737a6c637cff3209e05c7c6287a299dba
 ---
 
 # docs untrack
 
 ## Synopsis
 
-Remove a tracked doc from the store.
+Remove a tracked doc from the store, keeping its file.
 
 ## Purpose
 

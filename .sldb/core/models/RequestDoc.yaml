@@ -3,9 +3,9 @@ model_ref: docs.models:RequestDoc
 path: docs/models.py
 documents_index: .sldb/core/documents/RequestDoc.yaml
 sections_index: .sldb/runtime/sections/RequestDoc.yaml
-model_hash: f07563166181ea4aa05ed3eec1915c5a70adb97882c73f9d73cc629c44ecfa10
+model_hash: bf7c7e7850750e00a457a10c9f7f8509eeb981d8cfc476ef88513cbe22604611
 roster_hash: 2900d99a5201ee497c64e10eaa2033d6da1d74f7e3ed6c08814fb44c93369cfb
-contract_hash: 9aa21384c6f528eb78853ec7f6fd259bbbf460d12e4ab1f1df72c6f128e842c9
+contract_hash: b44b10f967b95c90f5a5b8226f05f62a634a0d471567c050616ca2e8969ad53c
 documents_count: 2
 version: 1
 canonical: false

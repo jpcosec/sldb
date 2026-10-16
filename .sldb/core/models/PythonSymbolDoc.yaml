@@ -3,9 +3,9 @@ model_ref: sldb.models.knowledge_surface:PythonSymbolDoc
 path: src/sldb/models/python_symbol_doc.py
 documents_index: .sldb/core/documents/PythonSymbolDoc.yaml
 sections_index: .sldb/runtime/sections/PythonSymbolDoc.yaml
-model_hash: 5016b64839a4e26754ec978d0b9f074e5a2fc515c2288c36ec3ab42f77686a39
+model_hash: 01804da797bba2e2163300bb32b25e50b0813a63c400bf47fe5089d466d1932e
 roster_hash: 0a756c9a44fd9e3a16064dc59daa74e09e9b1191e94645526e06314e88bdb238
-contract_hash: 01c746c9ec8dc39bef600baaaf30b0fa4ef3b6da494bba780b7ef028481d4fef
+contract_hash: c3b15d84e6f87b9e3171fb2745e524dc4c6cbcfc315cff88e88368c4c3c6eeef
 documents_count: 1279
 version: 1
 canonical: false

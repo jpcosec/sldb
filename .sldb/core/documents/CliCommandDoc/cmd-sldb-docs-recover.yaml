@@ -1,7 +1,7 @@
 name: cmd-sldb-docs-recover
 path: knowledge/commands/cmd-sldb-docs-recover.md
-source_hash: 671f9018c7800a7a18827fbe236c5f41842e28c5cae002aa6e15ac0df1edd59e
-content_hash: 8877606de5b19fec7d3bf11e385421ba36a1dfbb1473f9739503730b5e782f33
+source_hash: e2f6a2d78b1852a380b74955faa7071c1fe8913c06e67ce55cf703236fc9f77a
+content_hash: 2b0dd34e3a02ed4969a3cf133676fd51c5dfc204d66dd4c62c0464c9858ab57b
 field_hashes:
   id: 97ecc220df6d96d071f56dc2f8389f1b031ac37072003b767dcc521a16965821
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,10 +9,10 @@ field_hashes:
   synopsis: 1fef499e61f1174225c10f57810910947cbe6042e7ee5f813a7be29f56f18dc2
   purpose: efb0dc5b9dd19021cdc9d8713395eddfb3628de6e770dfa65283a8442b013d0f
   how_it_works: fd688f6cd886c76b6a57dc3c1b705a379c0ab964e77c6397812fbed685683964
-  arguments: 8f02fc1d2e2f665d1798846fc47357f7048de35ed07ef031f2c87b8fc751155f
+  arguments: f12e6633e42e240e70bcadd2e4756f199a74a101008f0295f7332ea7245804ee
   usage: d322ef60b7fa12af257a8b1cd9cec287952b7a1ca3fda9dd7ca2437236b61dbe
   tags: 699c2cfd1a5b0cb746c8dfb0f4de3ed26435e62c74e179332ed04ad4f2591c91
-  provenance: 14ac0a9da571eb9296461dd8b38288a7512f8e5f3bfe49c9efadc947378e48ce
+  provenance: b668efbdbc45c93256f6c2d6fa1af073df21e6d3151e84a04ff5cf45ee01512a
 semantic_tags:
 - domain:retrieval
 - entity:cli_command

@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#docs show; contract-sha256:1e005600e28dc037ed95c4787893851f988029cce1cad088d869d8496007dcc8
+provenance: parser:sldb.cli.parser:build_parser#docs show; contract-sha256:4cb248fa827d7603f6faddde979b93c945c5a1d8889f738cb4990efc62b6a550
 ---
 
 # docs show
@@ -42,7 +42,7 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'show'. It pa
       "value_type": null,
       "action": "argparse._StoreAction",
       "const": "null",
-      "help": "Doc name or Model/DocName or tracked path"
+      "help": "Doc name or Model/DocName or tracked path; 'alias:ref' for a directly linked store"
     },
     {
       "names": [

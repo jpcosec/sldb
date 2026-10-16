@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#docs recover; contract-sha256:e8c45f1f6a80651b330f8906ec752af52759afa51bd42a1b157ab71ab14a5de0
+provenance: parser:sldb.cli.parser:build_parser#docs recover; contract-sha256:67c547efc5956295c51d33ebc2a14e20454cbead16808976b030499189e339f1
 ---
 
 # docs recover
@@ -35,14 +35,53 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'recover'. It
       "names": [
         "doc"
       ],
-      "required": true,
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": "?",
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Doc name or path"
+    },
+    {
+      "names": [
+        "--all"
+      ],
+      "required": false,
+      "default": "false",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "argparse._StoreTrueAction",
+      "const": "true",
+      "help": "Check every tracked document"
+    },
+    {
+      "names": [
+        "--glob"
+      ],
+      "required": false,
       "default": "null",
       "choices": null,
       "nargs": null,
       "value_type": null,
       "action": "argparse._StoreAction",
       "const": "null",
-      "help": "Doc name or path"
+      "help": "Also check files matching this pattern, e.g. 'docs/**/*.md'"
+    },
+    {
+      "names": [
+        "--fail-on-custom"
+      ],
+      "required": false,
+      "default": "false",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "argparse._StoreTrueAction",
+      "const": "true",
+      "help": "With --all/--glob: exit 1 also for predicates missing from the store"
     },
     {
       "names": [
