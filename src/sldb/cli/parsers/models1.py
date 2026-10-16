@@ -22,7 +22,8 @@ def _update(s):
     u.add_argument("--pythonpath", help="Project path")
 
 def _remove(s):
-    r = s.add_parser("remove", help="Unregister a model that tracks no documents.")
+    r = s.add_parser("remove", help="Unregister a model; refused while it tracks documents unless --with-documents.")
+    r.add_argument("--with-documents", action="store_true", help="Also untrack its documents (files stay); the class need not import")
     r.add_argument("model", help="Model name")
     r.add_argument("--store", help="Store path")
     r.add_argument("--pythonpath", help="Project path")

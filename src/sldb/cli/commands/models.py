@@ -48,7 +48,7 @@ class ModelsCLI:
     def _remove(self, args: Any) -> int:
         from sldb.api import remove_model
 
-        removed = remove_model(args.store, args.model, args.pythonpath)
+        removed = remove_model(args.store, args.model, args.pythonpath, untrack_documents=args.with_documents)
         print(f"Removed model: {removed.name} ({removed.model_ref})")
         return 0
 

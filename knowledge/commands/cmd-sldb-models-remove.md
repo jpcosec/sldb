@@ -2,16 +2,16 @@
 id: cmd-sldb-models-remove
 system: sldb
 command_path: models remove
-synopsis: Unregister a model that tracks no documents.
+synopsis: Unregister a model; refused while it tracks documents unless --with-documents.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#models remove; contract-sha256:a3b2a11fcbda5e3b2328f8a1ed007fbf84f38680b1b8afce8a7e70c9b4901b58
+provenance: parser:sldb.cli.parser:build_parser#models remove; contract-sha256:e8f4c6402be8397969f891adbafd1d00a4c5d32803db2f93e7367661185b23b5
 ---
 
 # models remove
 
 ## Synopsis
 
-Unregister a model that tracks no documents.
+Unregister a model; refused while it tracks documents unless --with-documents.
 
 ## Purpose
 
@@ -26,6 +26,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--with-documents"
+      ],
+      "required": false,
+      "default": "false",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "argparse._StoreTrueAction",
+      "const": "true",
+      "help": "Also untrack its documents (files stay); the class need not import"
+    },
     {
       "names": [
         "model"

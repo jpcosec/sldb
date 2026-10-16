@@ -1,6 +1,18 @@
 # Changelog
 
-Version note (2026-09-13, updated 2026-10-16): `pyproject.toml` declares `0.1.7`; it was `0.1.0` while PyPI already had `0.1.1`. Existing entries below are historical development records, not a verified registry release inventory. The product-generation label “v1” is separate from package versioning. No new package version or release is created by this documentation reconciliation.
+Version note (2026-09-13, updated 2026-10-16): `pyproject.toml` declares `0.1.8`; it was `0.1.0` while PyPI already had `0.1.1`. Existing entries below are historical development records, not a verified registry release inventory. The product-generation label “v1” is separate from package versioning. No new package version or release is created by this documentation reconciliation.
+
+## 0.1.8 - 2026-10-16 — a deleted model class no longer locks the store
+
+- Derived-index rebuilds skip a model whose class does not import instead of raising; the
+  semantic rebuild names it in `models_unresolved`, as the edge rebuild already did, and its
+  documents keep their last tags. `untrack_document` (and every write that rebuilds) works
+  while another registered model's class is gone.
+- `sldb models remove <name> --with-documents` / `remove_model(..., untrack_documents=True)`:
+  drops a model and its tracked documents without importing the class; the Markdown files stay.
+- A write that raises halfway leaves no trace: `untrack_document` puts the document's shard,
+  the models index and the store index back as they were; `remove_model` changes the registry
+  first and deletes the model's files only once every rebuild succeeded.
 
 ## 0.1.7 - 2026-10-16 — `models remove`
 

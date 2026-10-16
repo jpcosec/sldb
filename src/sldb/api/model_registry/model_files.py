@@ -19,6 +19,11 @@ def drop_model_files(sp: Path, root: Path, name: str, models_index: str, documen
         path.unlink(missing_ok=True)
     for shard_dir in _SHARD_DIRS:
         shutil.rmtree(shard_dir(sp, name), ignore_errors=True)
+    forget_store_caches(sp, name)
+
+
+def forget_store_caches(sp: Path, name: str) -> None:
+    """Drop every in-memory copy of the store's indexes and of one model's shards."""
     invalidate_shard_cache()
     invalidate_index_cache()
     documents_hash.invalidate(sp, name)

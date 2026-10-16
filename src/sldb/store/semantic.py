@@ -27,6 +27,7 @@ class RebuildReport:
     docs_skipped_missing: int = 0
     docs_empty_sections: int = 0
     headings_no_map: int = 0
+    models_unresolved: list[str] = field(default_factory=list)  # skipped: their class does not import
     verbose: list[str] = field(default_factory=list)
 
 

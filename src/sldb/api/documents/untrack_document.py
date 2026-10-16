@@ -12,7 +12,9 @@ from sldb.api.stores.open_store import open_store
 from sldb.store import documents_hash
 from sldb.store.io import load_store_index, save_models_index, store_lock
 from sldb.store.io.shards import delete_shard
-from sldb.store.layout import documents_shard_path
+from sldb.store.io.rollback import rollback_on_error
+from sldb.store.layout import documents_shard_path, store_index_path
+from sldb.api.model_registry.model_files import forget_store_caches
 from sldb.store.models.document_entry import DocumentEntry
 from sldb.store.models.model_entry import ModelEntry
 from sldb.store.models.models_index import ModelsIndex
@@ -54,8 +56,11 @@ def _forget_and_record(sp: Path, root: Path, idx: StoreIndex, m_entry: ModelEntr
 
 
 def forget_document(sp: Path, root: Path, idx: StoreIndex, m_entry: ModelEntry, m_idx: ModelsIndex, doc: DocumentEntry, pythonpath: str | None, model_type: type | None = None) -> None:
-    """Delete the document's shard and update model hashes and derived indexes under the store lock."""
-    with store_lock(sp):
+    """Delete the document's shard and update model hashes and derived indexes under the store lock.
+
+    If any step raises, the shard, the models index and the store index are put back as they were.
+    """
+    with store_lock(sp), rollback_on_error(_registry_files(sp, root, m_entry, doc), lambda: forget_store_caches(sp, m_entry.name)):
         delete_shard(documents_shard_path(sp, m_entry.name, doc.name))
         documents_hash.forget(sp, m_entry.name, doc.name)
         stamp_model_node(m_idx, documents_hash.roster_hash_of(sp, m_entry.name), model_type)
@@ -65,3 +70,8 @@ def forget_document(sp: Path, root: Path, idx: StoreIndex, m_entry: ModelEntry, 
         rebuild_sections_indexes(sp, root, resolve_model_ref, pythonpath)
         rebuild_edges_indexes(sp, root, resolve_model_ref, pythonpath)
         cascade_store_hash(sp, root, idx)
+
+
+def _registry_files(sp: Path, root: Path, m_entry: ModelEntry, doc: DocumentEntry) -> list[Path]:
+    """What an untrack rewrites besides derived indexes: put back if it fails halfway."""
+    return [documents_shard_path(sp, m_entry.name, doc.name), root / m_entry.models_index, store_index_path(sp)]
