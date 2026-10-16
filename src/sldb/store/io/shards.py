@@ -26,7 +26,13 @@ def _signature(path: Path) -> tuple:
         return (0, 0)
 
 
+# Loads hand out a copy, never the cached instance: a caller that edits what it loaded and saves
+# it back would otherwise be compared against its own edit, and `_save_shard` would skip the write.
 def _cached_shard(path: Path, loader: Callable[[], T]) -> T:
+    return _cached_instance(path, loader).model_copy(deep=True)
+
+
+def _cached_instance(path: Path, loader: Callable[[], T]) -> T:
     key = str(path)
     sig = _signature(path)
     hit = _SHARDS.get(key)
@@ -48,11 +54,11 @@ def _save_shard(path: Path, value: Any, loader: Callable[[], T]) -> None:
     """Write only when the content differs from the shard already there (the same "leave the
     file alone" guarantee the single-file indexes always gave): a rebuild or a re-save of the
     same value costs a read of the cached/on-disk shard, not a write."""
-    if path.exists() and _cached_shard(path, loader) == value:
+    if path.exists() and _cached_instance(path, loader) == value:
         return
     path.parent.mkdir(parents=True, exist_ok=True)
     StoreIOUtils._atomic_write(path, yaml_dump(value.model_dump()))
-    _SHARDS[str(path)] = (_signature(path), value)
+    _SHARDS[str(path)] = (_signature(path), value.model_copy(deep=True))
 
 
 def load_semantic_shard(path: Path) -> SemanticDocumentRecord | None:

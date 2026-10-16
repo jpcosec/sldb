@@ -2,6 +2,15 @@
 
 Version note (2026-09-13, updated 2026-10-16): `pyproject.toml` declares `0.1.2`; it was `0.1.0` while PyPI already had `0.1.1`. Existing entries below are historical development records, not a verified registry release inventory. The product-generation label “v1” is separate from package versioning. No new package version or release is created by this documentation reconciliation.
 
+## 0.1.4 - 2026-10-16 — `fields update` leaves the store passing
+
+- A field write (`fields update|append`, `sldb.api.save_document_payload`) rewrote the Markdown
+  and the model's roster but not the document's record, so `stores check` failed with a
+  `data_mutation` on the write sldb had just made. The shard cache handed out its own instance:
+  the caller edited it in place and the save, comparing against the cache, saw no change and
+  skipped the write. Loads now return a copy (`sldb.store.io.shards`), which also covers the
+  semantic, sections and edges shards.
+
 ## 0.1.3 - 2026-10-16 — upgrading sldb no longer fails unchanged stores
 
 Found on Governance's `pulse`, which installs sldb from git: both checks failed on a store whose
