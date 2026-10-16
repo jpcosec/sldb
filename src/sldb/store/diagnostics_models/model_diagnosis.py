@@ -42,6 +42,7 @@ class ModelDiagnosis:
     roster_ok: bool
     contract_ok: bool = True
     legacy_contract: bool = False   # contract_ok, but signed under the pre-cecd97b formula
+    resolved: bool = True   # False when the class cannot be imported: fields were not re-extracted
     source_path: str = ""   # the .py the contract is declared in: what to open when it moved
     documents: list[DocumentDiagnosis] = field(default_factory=list)
 

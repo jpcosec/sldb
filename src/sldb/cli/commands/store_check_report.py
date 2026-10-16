@@ -10,14 +10,14 @@ inferred from a hash.
 
 from __future__ import annotations
 from typing import Any
-from sldb.cli.commands.store_check_notes import print_legacy_contracts
+from sldb.cli.commands.store_check_notes import print_notes
 from sldb.store.diagnostics_models import DiagnosisNote
 
 
 def print_report(res: Any) -> None:
     """The verdict, then every finding that produced it, then what to do."""
     print(res.summary())
-    print_legacy_contracts(res)
+    print_notes(res)
     if res.is_valid:
         return
     _print_root(res)

@@ -5,6 +5,20 @@ from __future__ import annotations
 from typing import Any
 
 
+def print_notes(res: Any) -> None:
+    """Every note, in a fixed order."""
+    print_unresolved_models(res)
+    print_legacy_contracts(res)
+
+
+def print_unresolved_models(res: Any) -> None:
+    """Models whose class cannot be imported here: their fields were not re-extracted, only their text."""
+    unresolved = [m for m in res.models if not m.resolved]
+    if unresolved:
+        print(f"\nnote: {len(unresolved)} model(s) could not be imported, so only their documents' text was checked: {', '.join(m.name for m in unresolved)}")
+        print("    fix     : make the model importable (install its package, or pass --pythonpath) to check fields too")
+
+
 def print_legacy_contracts(res: Any) -> None:
     """Models signed under the contract formula sldb used before cecd97b (see `sldb.store.legacy_contract`)."""
     legacy = [m for m in res.models if m.legacy_contract and m.roster_ok]

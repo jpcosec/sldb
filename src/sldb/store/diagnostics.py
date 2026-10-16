@@ -38,17 +38,29 @@ def _diagnose_doc(doc, root: Path, model_type: Any, contract_ok: bool = True) ->
     `content` is the markdown text; `fields` is the payload extracted under the
     model's contract. Text moving while fields hold still is an expected mutation,
     so the two are reported separately rather than as one "mismatch".
+
+    A model that cannot be imported here (`model_type` None) cannot re-extract the fields; an
+    intact text then stands for intact fields, instead of reading as a data mutation that sends
+    the operator to restore a file nobody touched. The model is named as unresolved.
     """
     doc_path = root / doc.path
     if not doc_path.exists():
         return DocumentDiagnosis(name=doc.name, path=doc.path, content_ok=False, fields_ok=False, path_exists=False, note=DiagnosisNote.MISSING, content_in_index=doc.source_hash, fields_in_index=doc.content_hash)
     text = doc_path.read_text(encoding="utf-8")
     content_on_disk = hash_text(text)
-    fields_on_disk, map_on_disk = hash_fields_with_map(model_type, text) if model_type else ("", {})
-    content_ok, fields_ok = content_on_disk == doc.source_hash, fields_on_disk == doc.content_hash
+    content_ok = content_on_disk == doc.source_hash
+    fields_on_disk, map_on_disk, fields_ok = _fields_state(model_type, text, doc, content_ok)
     note = _note(content_ok, fields_ok, contract_ok)
     changed = [] if fields_ok else _changed_fields(getattr(doc, "field_hashes", {}) or {}, map_on_disk)
     return DocumentDiagnosis(name=doc.name, path=doc.path, content_ok=content_ok, fields_ok=fields_ok, path_exists=True, note=note, content_on_disk=content_on_disk, content_in_index=doc.source_hash, fields_on_disk=fields_on_disk, fields_in_index=doc.content_hash, changed_fields=changed)
+
+
+def _fields_state(model_type: Any, text: str, doc, content_ok: bool) -> tuple[str, dict[str, str], bool]:
+    """(fields hash on disk, per-field map, fields ok); without the class, intact text stands for intact fields."""
+    if model_type is None:
+        return "", {}, content_ok
+    fields_on_disk, map_on_disk = hash_fields_with_map(model_type, text)
+    return fields_on_disk, map_on_disk, fields_on_disk == doc.content_hash
 
 
 def _changed_fields(in_index: dict[str, str], on_disk: dict[str, str]) -> list[str]:
@@ -90,7 +102,7 @@ def _diagnose_model(model_entry, root, pythonpath, resolve_model_ref: Callable) 
     contract_ok = legacy or not contract_moved(models_idx, model_type)
     doc_diagnoses = [_diagnose_doc(d, root, model_type, contract_ok) for d in docs_idx.documents]
     roster_ok = hash_documents_index(docs_idx) == models_idx.roster_hash
-    return ModelDiagnosis(name=models_idx.name, roster_ok=roster_ok, contract_ok=contract_ok, legacy_contract=legacy, source_path=models_idx.path, documents=doc_diagnoses), models_idx
+    return ModelDiagnosis(name=models_idx.name, roster_ok=roster_ok, contract_ok=contract_ok, legacy_contract=legacy, resolved=model_type is not None, source_path=models_idx.path, documents=doc_diagnoses), models_idx
 
 def diagnose_store(store_path: Path, resolve_model_ref: Callable, project_root: Optional[Path] = None, pythonpath: Optional[str] = None) -> StoreDiagnosis:
     """Diagnoses the integrity of the entire store."""

@@ -2,6 +2,17 @@
 
 Version note (2026-09-13, updated 2026-10-16): `pyproject.toml` declares `0.1.2`; it was `0.1.0` while PyPI already had `0.1.1`. Existing entries below are historical development records, not a verified registry release inventory. The product-generation label “v1” is separate from package versioning. No new package version or release is created by this documentation reconciliation.
 
+## 0.1.5 - 2026-10-16 — an unimportable model is named, not blamed on its documents
+
+- `stores check`: when a model's class cannot be imported (a clean clone without the model's
+  package, a consumer's CI with another `sldb` first on PATH), its fields cannot be
+  re-extracted. Every document used to read as a `data_mutation` ("decide first", restore the
+  file). Intact text now stands for intact fields, and the report names the unresolved models;
+  changed text still fails. JSON: `models[].resolved`.
+- CI: the structural gates pass (`legacy_contract` mapped to the `migracion` axis, unit coupling
+  updated; the surface gate no longer compares the five-consumer total with a partial view),
+  and `selfdoc check` passes (knowledge/ synced with the CLI, the store committed with it).
+
 ## 0.1.4 - 2026-10-16 — `fields update` leaves the store passing
 
 - A field write (`fields update|append`, `sldb.api.save_document_payload`) rewrote the Markdown
