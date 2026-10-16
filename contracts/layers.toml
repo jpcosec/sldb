@@ -371,7 +371,7 @@ identity = false
 
 [[axis]]
 id = "op_almacen"
-paths = ["api/stores", "api/records", "store/ops.py", "store/export.py", "store/catalog_reconcile.py", "store/runtime_cache.py", "store/diagnostics_models", "store/diagnostics.py"]
+paths = ["api/stores", "api/records", "store/ops.py", "store/export.py", "store/catalog_reconcile.py", "store/runtime_cache.py", "store/diagnostics_models", "store/diagnostics.py", "store/field_set_drift.py"]
 external = []
 does = "abrir, enlazar, refrescar índices, exportar y diagnosticar un almacén"
 identity = false

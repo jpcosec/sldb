@@ -1,6 +1,15 @@
 # Changelog
 
-Version note (2026-09-13, updated 2026-10-16): `pyproject.toml` declares `0.1.8`; it was `0.1.0` while PyPI already had `0.1.1`. Existing entries below are historical development records, not a verified registry release inventory. The product-generation label “v1” is separate from package versioning. No new package version or release is created by this documentation reconciliation.
+Version note (2026-09-13, updated 2026-10-16): `pyproject.toml` declares `0.1.9`; it was `0.1.0` while PyPI already had `0.1.1`. Existing entries below are historical development records, not a verified registry release inventory. The product-generation label “v1” is separate from package versioning. No new package version or release is created by this documentation reconciliation.
+
+## 0.1.9 - 2026-10-16 — a dropped field is a contract move, and `stores update` fixes it
+
+- A document whose `field_hashes` name a field its model no longer declares was signed under
+  another contract. Any write of another document of the model re-stamps the model's contract,
+  so the model looked unmoved: `stores check` blamed the untouched document (`data_mutation`,
+  "confirm the change was intended") and `stores update` trusted its unchanged text and never
+  re-extracted it, so the check stayed red. Now the model reads as `contract moved` (safe to
+  run: `stores update`) and `stores update` re-extracts those documents.
 
 ## 0.1.8 - 2026-10-16 — a deleted model class no longer locks the store
 

@@ -1,6 +1,6 @@
 [project]
 name = "structuredLanguageDB"
-version = "0.1.8"
+version = "0.1.9"
 description = "Structured Language Database - structured Markdown to Pydantic and back"
 readme = "README.md"
 requires-python = ">=3.10"

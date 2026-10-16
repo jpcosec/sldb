@@ -11,6 +11,7 @@ from typing import Any
 from sldb.api.model_registry.model_reference import resolve_model_ref
 from sldb.api.stores.document_field_hashes import _field_hash, _field_hashes  # noqa: F401 - re-exported
 from sldb.store.hashing import hash_text
+from sldb.store.field_set_drift import signed_under_other_fields
 from sldb.store.model_node import contract_moved
 from sldb.store.io import load_documents_index, load_models_index
 from sldb.store.models.store_index import StoreIndex
@@ -61,6 +62,7 @@ def _process_doc(doc: Any, mtype: Any, m_name: str, root: Path, skipped_docs: li
         return False
     text = doc_path.read_text(encoding="utf-8")
     fresh = hash_text(text)
+    force = force or signed_under_other_fields(doc.field_hashes, mtype)  # see sldb.store.field_set_drift
     if _trusted(doc, fresh, force):
         return False
     return _restamp(doc, mtype, m_name, text, fresh, force)
