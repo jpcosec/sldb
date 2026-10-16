@@ -4,7 +4,7 @@ system: sldb
 command_path: edges show
 synopsis: Edges from (or --to) a document or node.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#edges show; contract-sha256:e1a325e7caecfa7e860d831c51a3259e680507cf9558ed090df942a25c0dda54
+provenance: parser:sldb.cli.parser:build_parser#edges show; contract-sha256:a250f178e14e26f628193f39ea69a784dcd80d0d4f2fd31b1f1c87f6c8856301
 ---
 
 # edges show
@@ -64,6 +64,32 @@ Not documented.
       "action": "argparse._StoreAction",
       "const": "null",
       "help": "Only edges of this relation type"
+    },
+    {
+      "names": [
+        "--holds-for"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Only edges whose condition holds on this document's fields (name, path or Model/name)"
+    },
+    {
+      "names": [
+        "--pythonpath"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Project path (to read the --holds-for document)"
     },
     {
       "names": [

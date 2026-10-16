@@ -12,10 +12,15 @@ def add_edges_group(s: argparse._SubParsersAction) -> None:
     _store_args(sub.add_parser("init", help="Register RelationTypeDoc/RelationDoc and track the builtin relation types."))
     _store_args(sub.add_parser("rebuild", help="Bring the edge index current; only what moved is rewritten."))
     _read_args(sub.add_parser("check", help="Validate every edge against its relation type."))
-    show = sub.add_parser("show", help="Edges from (or --to) a document or node.")
+    _show_args(sub.add_parser("show", help="Edges from (or --to) a document or node."))
+
+
+def _show_args(show: argparse.ArgumentParser) -> None:
     show.add_argument("node", help="Export id `Model:name`, or a node id `sldb://<kind>/...`")
     show.add_argument("--to", action="store_true", help="Edges pointing at the node instead of leaving it")
     show.add_argument("--relation", help="Only edges of this relation type")
+    show.add_argument("--holds-for", metavar="DOC", help="Only edges whose condition holds on this document's fields (name, path or Model/name)")
+    show.add_argument("--pythonpath", help="Project path (to read the --holds-for document)")
     _read_args(show)
 
 

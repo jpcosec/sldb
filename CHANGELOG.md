@@ -1,6 +1,18 @@
 # Changelog
 
-Version note (2026-09-13, updated 2026-10-16): `pyproject.toml` declares `0.1.2`; it was `0.1.0` while PyPI already had `0.1.1`. Existing entries below are historical development records, not a verified registry release inventory. The product-generation label “v1” is separate from package versioning. No new package version or release is created by this documentation reconciliation.
+Version note (2026-09-13, updated 2026-10-16): `pyproject.toml` declares `0.1.6`; it was `0.1.0` while PyPI already had `0.1.1`. Existing entries below are historical development records, not a verified registry release inventory. The product-generation label “v1” is separate from package versioning. No new package version or release is created by this documentation reconciliation.
+
+## 0.1.6 - 2026-10-16 — the graph as a state machine
+
+- `--where` joins predicates with ` and ` (outside literals; no `or`, no parentheses), and
+  `nonempty(f)` is `has(f)` that also rejects `[]` and `{}` (`has` keeps its meaning).
+- `sldb.api.where_matches(expression, payload, subject=None)`: a `--where` predicate on a plain
+  payload, tracked or not; `{field}` fills from `subject` (default: the payload). An unparseable
+  part raises `WherePredicateError`, now exported from `sldb.api`.
+- `sldb.api.edges_holding(store, node, subject, relation=None)`: the edges leaving a node whose
+  condition (the edge's, else its type's) holds on the subject; `sldb edges show <node>
+  --holds-for <doc>` is the same from the CLI. A self-loop is a valid edge (a terminal
+  transition).
 
 ## 0.1.5 - 2026-10-16 — an unimportable model is named, not blamed on its documents
 

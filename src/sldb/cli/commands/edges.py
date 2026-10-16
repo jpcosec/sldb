@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 from typing import Any
 
-from sldb.api import check_edges, edges_from, edges_to, init_relations, rebuild_edges
+from sldb.api import check_edges, edges_from, edges_holding, edges_to, extract_document_payload, init_relations, open_store, rebuild_edges
 
 
 class EdgesCLI:
@@ -26,8 +26,13 @@ class EdgesCLI:
         return 0
 
     def _show(self, args: Any) -> int:
-        read = edges_to if args.to else edges_from
-        edges = read(args.store, args.node, args.relation, not args.local, args.exclude_tag)
+        if args.holds_for and args.to:
+            raise SystemExit("--holds-for reads the edges leaving the node; it does not combine with --to")
+        if args.holds_for:
+            subject = extract_document_payload(open_store(args.store, mode="readonly").store_path, args.pythonpath, args.holds_for)
+            edges = edges_holding(args.store, args.node, subject, args.relation, not args.local, args.exclude_tag)
+        else:
+            edges = (edges_to if args.to else edges_from)(args.store, args.node, args.relation, not args.local, args.exclude_tag)
         print(json.dumps([e.model_dump() for e in edges], indent=2, ensure_ascii=False))
         return 0
 

@@ -260,7 +260,7 @@ sldb find "" --in physical --type doc --where 'model <= Note' --store .sldb
 sldb fields query status --global --store .sldb              # the value of one field everywhere
 ```
 
-`{Note+}` means `Note` and every subclass; the base does not need to be registered or have documents of its own. The predicate grammar is `has(f)`, `"x" in f`, `f ~ "regex"`, `f = "v"`, `f != "v"`, `f >= n`, `f <= n`, `model <= Base`, one per `--where`.
+`{Note+}` means `Note` and every subclass; the base does not need to be registered or have documents of its own. The predicate grammar is `has(f)`, `nonempty(f)`, `"x" in f`, `f ~ "regex"`, `f = "v"`, `f != "v"`, `f >= n`, `f <= n`, `model <= Base`, joined by ` and ` in one `--where`.
 
 ## How do I update data in tracked docs?
 

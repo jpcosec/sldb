@@ -58,13 +58,14 @@ Equivalences are declared with `stores semantic-map`.
 
 ## Predicates (`--where`)
 
-`find` takes one predicate per `--where`. There is no `and`/`or`; run two queries or narrow the address instead.
+`--where` takes one predicate, or several joined by ` and ` (all must hold; an `and` inside a quoted literal is text). There is no `or` and no parentheses; run two queries or narrow the address instead.
 
 On documents (`legacy find 'st.{…}'`, `legacy find 'se.…'`, `find --type doc`):
 
 | Predicate | Matches when |
 |---|---|
 | `has(field)` | the field is present and not empty |
+| `nonempty(field)` | as `has(field)`, and the value is not `[]` or `{}` either |
 | `"x" in field` | `x` is an item of a list field or a substring of a string field |
 | `field ~ "regex"` | the field value matches; `doc ~ "regex"` matches the doc name |
 | `field = "v"` / `field != "v"` | string equality over a field that is present; `"v"` may be `""`, so `field = ""` is a field present and empty and `field != ""` is present and not empty — an absent field matches neither (`has(field)` asks presence) |

@@ -21,10 +21,11 @@ Flags:
   --regex                       Treat the term as a regex
   --fuzzy                       Use fuzzy matching
   --type                        Restrict to store|model|doc|section|field
-  --where                       Filter docs/fields/sections using one predicate
+  --where                       Filter docs/fields/sections; predicates join with ' and '
 
 Document --where predicates (--type doc):
   has(field)                    Field present and not empty
+  nonempty(field)               As has(), and not [] or {} either
   "x" in field                  Item of a list field, or substring of a string field
   field ~ "regex"               Regex on the value; doc ~ "regex" matches the doc name
   field = "v" | field != "v"    String equality
