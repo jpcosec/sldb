@@ -10,5 +10,5 @@ class LinkedStore(BaseModel):
 
     name: str = Field(description="Alias the linking store uses to address the linked store's documents.")
     path: str = Field(
-        description="Linked `.sldb` path as recorded: relative to the linking project's root when inside it, else absolute."
+        description="Linked `.sldb` path as recorded, relative to the linking project's root (links written before 0.1.2 may be absolute)."
     )

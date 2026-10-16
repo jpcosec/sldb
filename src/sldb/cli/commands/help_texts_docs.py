@@ -7,13 +7,16 @@ or a YAML/JSON file, then tracks it. `docs track` validates and registers an exi
 Markdown file. `docs update` re-renders an already tracked doc with new payload data.
 `docs recover` resolves `[[links]]` and `[predicate:: [[links]]]`. Predicate axes come
 from definitions registered in the selected store. Unregistered predicates use `CUSTOM`.
-`docs compose` expands `![[transclusions]]`.
+`docs compose` expands `![[transclusions]]`. `docs show` and `docs exists` take `alias:ref`
+for a store linked directly as `alias` (`stores add --name`); `docs exists` reads indexes only
+and exits 0 ok, 1 missing, 2 ambiguous, 5 link-missing or link-broken.
 
 Examples:
   sldb docs create --model Book -o docs/book.md data.yaml
   sldb docs track docs/book.md --model Book
   sldb docs update my-book '{"title":"Updated"}'
   sldb docs show my-book
+  sldb docs exists deskops:task-x --format json
   sldb docs recover my-book --store .sldb --format json
   sldb docs compose my-book -o -
   sldb docs explore compose --source all

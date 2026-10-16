@@ -30,7 +30,7 @@ def test_link_store_records_link_and_refuses_duplicates(api_store, tmp_path):
     other.mkdir()
     assert cli_main(["stores", "init", "--path", str(other)]) == 0
     linked = link_store(api_store.store, other / ".sldb", "shared")
-    assert (linked.name, linked.path) == ("shared", str((other / ".sldb").resolve()))
+    assert (linked.name, linked.path) == ("shared", "../other/.sldb")
     assert [s.name for s in load_store_index(api_store.store).stores] == ["shared"]
     with pytest.raises(SLDBStoreError, match="already linked"):
         link_store(api_store.store, other / ".sldb", "shared")

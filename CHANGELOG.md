@@ -1,6 +1,27 @@
 # Changelog
 
-Version note (2026-09-13): this working tree declares package version `0.1.0` in `pyproject.toml`. Existing entries below are historical development records, not a verified registry release inventory. The product-generation label “v1” is separate from package versioning. No new package version or release is created by this documentation reconciliation.
+Version note (2026-09-13, updated 2026-10-16): `pyproject.toml` declares `0.1.2`; it was `0.1.0` while PyPI already had `0.1.1`. Existing entries below are historical development records, not a verified registry release inventory. The product-generation label “v1” is separate from package versioning. No new package version or release is created by this documentation reconciliation.
+
+## 0.1.2 - 2026-10-16 — referencing documents of linked stores
+
+- `stores add` links were recorded but no document lookup read them: `docs show
+  alias:doc` answered `Unknown document target`. `docs show` (and `sections show|fields`,
+  serve's document routes) now take `alias:ref` — name, `Model/name` or tracked path — and
+  read only the store linked directly as `alias`. A bare ref still reads only the local store;
+  a prefix that names no link leaves the ref whole, so existing refs resolve as before.
+- Add `docs exists <[alias:]ref>` and `sldb.api.doc_status|doc_exists`: whether a reference
+  resolves, from the indexes alone (no model import, nothing written). Exit 0 ok, 1 missing,
+  2 ambiguous, 5 `link-missing` / `link-broken`, so a missing document is told apart from a
+  sibling repo that is not there.
+- `stores list` (and `sldb.api.store_links`) report each link's state: `ok`, `missing` or
+  `not-a-store`; a broken link is reported, never raised.
+- `stores add` records the link relative to the project root (it was absolute outside it), and
+  refuses linking a store to itself, aliases outside `[A-Za-z0-9][A-Za-z0-9._-]*` and the
+  reserved `local`. Links already written are read as before.
+- `stores init` seals the root hash over the empty model layer: a new store, or one that
+  only links others, passes `stores check` without a `stores update`.
+- `docs show` of a linked doc reads its file from the linked project (`absolute_path` was
+  built from the local root).
 
 ## 2026-09-07 — v1 frozen
 

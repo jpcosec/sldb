@@ -6,12 +6,12 @@ from typing import Any
 
 import yaml
 
+from sldb.api.stores.store_links import store_links
 from sldb.cli.commands.store import StoreCLI
 from sldb.cli.store_context import get_store_context
 from sldb.cli.model_utils import resolve_model_ref
 from sldb.cli.utils import write_text
 from sldb.store.export import export_kgdb_semantic_payload
-from sldb.store.io import load_store_index
 from sldb.store.catalog_reconcile import reconcile_catalog
 from sldb.store.resolver import global_store_path
 
@@ -63,8 +63,7 @@ class StoresCLI:
 
     def list(self, args: Any) -> int:
         sp, _root = get_store_context(args.store, mode="readonly")
-        idx = load_store_index(sp)
-        stores = [{"name": e.name, "path": e.path} for e in sorted(idx.stores, key=lambda i: i.name)]
+        stores = store_links(sp)
         payload = {"store": str(sp), "stores": stores}
         
         if args.format in ("json", "yaml"):
@@ -79,5 +78,6 @@ class StoresCLI:
             return 0
         print(f"Federated stores in {sp}:")
         for item in stores:
-            print(f"- {item['name']} -> {item['path']}")
+            state = "" if item["status"] == "ok" else f"  [{item['status']}: {item['resolved']}]"
+            print(f"- {item['name']} -> {item['path']}{state}")
         return 0

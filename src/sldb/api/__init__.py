@@ -53,6 +53,9 @@ from sldb.api.model_registry.reindex_model import reindex_model
 from sldb.api.schema.describe_field import describe_field, describe_model_fields
 from sldb.api.schema.field_description import FieldDescription
 from sldb.api.segments import CompositionPiece, CompositionSpec, DocumentSegments, FieldSegment, LiteralSegment, Segment, SourceRef, build_document_segments
+from sldb.api.stores.doc_ref import split_doc_ref
+from sldb.api.stores.doc_ref_status import DocRefStatus
+from sldb.api.stores.doc_status import doc_exists, doc_status
 from sldb.api.stores.init_store import init_store
 from sldb.api.stores.link_store import link_store
 from sldb.api.stores.linked_store import LinkedStore
@@ -60,6 +63,7 @@ from sldb.api.stores.migrate_hash_names import migrate_store_hash_names
 from sldb.api.stores.open_store import open_store
 from sldb.api.stores.store_check import check_store
 from sldb.api.stores.store_fingerprint import store_fingerprint
+from sldb.api.stores.store_links import store_links
 from sldb.api.stores.store_location import StoreLocation
 from sldb.api.stores.store_update_report import StoreUpdateReport
 from sldb.api.stores.update_store_indexes import update_store_indexes
@@ -109,4 +113,5 @@ __all__ = [
     "section_node_id", "serialize_document", "serialize_edge_node_records",
     "serialize_edge_records", "tag_node_id", "track_document_file", "untrack_document",
     "update_store_indexes", "validate_model_draft", "verify_journal",
+    "DocRefStatus", "doc_exists", "doc_status", "split_doc_ref", "store_links",
 ]

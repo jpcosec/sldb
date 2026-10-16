@@ -61,15 +61,16 @@ def _load_one(s_path: Path, s_name: str, resolver, p_path, codec: StoreCodec = d
     return docs
 
 
-def load_runtime_documents(store_path: Path, resolve_model_ref, pythonpath: str | None = None, include_linked: bool = False, codec: StoreCodec = default_codec) -> list[RuntimeDocument]:
+def load_runtime_documents(store_path: Path, resolve_model_ref, pythonpath: str | None = None, include_linked: bool = False, codec: StoreCodec = default_codec, store_name: str = "local") -> list[RuntimeDocument]:
     """The tracked documents of a store, extracted. With the default codec the load is cached
     by the state of the files it comes from (sldb.store.runtime_cache), so repeated queries
-    do not read the store again. The list is fresh per call; the documents are shared."""
+    do not read the store again. The list is fresh per call; the documents are shared.
+    `store_name` is the name the documents carry: the alias when a linked store is read alone."""
     def one(path: Path, name: str) -> list[RuntimeDocument]:
         loader = lambda: _load_one(path, name, resolve_model_ref, pythonpath, codec)  # noqa: E731
         return cached_store(path, name, pythonpath, loader) if codec is default_codec else loader()
 
-    return _load_federated_documents(store_path, one) if include_linked else list(one(store_path, "local"))
+    return _load_federated_documents(store_path, one) if include_linked else list(one(store_path, store_name))
 
 
 def _load_federated_documents(store_path: Path, load_one) -> list[RuntimeDocument]:

@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
+from sldb.api.stores.doc_ref import LINK_NAME, LOCAL
 from sldb.api.stores.linked_store import LinkedStore
 from sldb.api.stores.open_store import open_store
 from sldb.core.exceptions import SLDBStoreError
@@ -25,12 +27,15 @@ def link_store(store: str | Path | None, other_store: str | Path, name: str | No
         The link as recorded in the store index.
 
     Raises:
-        SLDBStoreError: When `other_store` is not a store or the name is already linked.
+        SLDBStoreError: When `other_store` is not a store or is the linking store itself, or
+            the name is invalid, reserved (`local`) or already linked.
     """
     location = open_store(store)
     other = Path(other_store).resolve()
     _check_other_exists(other)
+    _check_not_self(location.store_path, other)
     link_name = name or other.parent.name
+    _check_link_name(link_name)
     path = record_store_link(location.store_path, location.project_root, other, link_name)
     return LinkedStore(name=link_name, path=path)
 
@@ -39,6 +44,18 @@ def _check_other_exists(other: Path) -> None:
     """Refuse to link a directory that holds no store."""
     if not store_exists(other):
         raise SLDBStoreError(f"No store at {other}")
+
+
+def _check_not_self(store_path: Path, other: Path) -> None:
+    """Refuse to link a store into itself."""
+    if store_path.resolve() == other:
+        raise SLDBStoreError(f"A store cannot link to itself: {other}")
+
+
+def _check_link_name(name: str) -> None:
+    """Refuse an alias `alias:doc` references could not name, and the reserved `local`."""
+    if not LINK_NAME.match(name) or name == LOCAL:
+        raise SLDBStoreError(f"Invalid link name '{name}': use letters, digits, '.', '_' or '-' (starting with a letter or digit), not 'local'. Pass --name.")
 
 
 def _check_store_linked(idx: StoreIndex, name: str) -> None:
@@ -57,14 +74,15 @@ def record_store_link(sp: Path, root: Path, other: Path, name: str) -> str:
         name: Alias for the link.
 
     Returns:
-        The path recorded for the link.
+        The path recorded for the link, always relative to `root` so the link survives a
+        checkout of both repos at another location.
 
     Raises:
         SLDBStoreError: When the name is already linked.
     """
     idx = load_store_index(sp)
     _check_store_linked(idx, name)
-    rel = str(other.relative_to(root)) if other.is_relative_to(root) else str(other)
+    rel = os.path.relpath(other, root)
     idx.stores.append(StoreEntry(name=name, path=rel))
     save_store_index(sp, idx)
     return rel

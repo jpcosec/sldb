@@ -431,7 +431,24 @@ Stores can reference each other. The local store always wins on name collisions.
 ```bash
 # Link a shared ontology store
 sldb stores add ~/.sldb/shared-ontology --name shared
+sldb stores list            # each link with its state: ok, or [missing|not-a-store: <path>]
 ```
+
+The link is recorded relative to the project root, so two repos checked out side by side keep
+it on another machine. The alias must be letters, digits, `.`, `_` or `-`; `local` is reserved.
+
+Referencing a document of a linked store does not track it here: `docs list` and the root hash
+stay local. `alias:ref` reads the store linked **directly** as `alias` (links of links are not
+followed); a bare ref never leaves the local store.
+
+```bash
+sldb docs show shared:my-book                 # also shared:Book/my-book or shared:<tracked path>
+sldb docs exists shared:my-book --format json # from the indexes only, no model import
+```
+
+`docs exists` answers with its exit code: `0` ok, `1` missing, `2` ambiguous, `5` the alias is
+not linked (`link-missing`) or its target is gone (`link-broken`). From Python:
+`sldb.api.doc_status(store, "shared:my-book").status`.
 
 Linked store aliases can be used as generic document destinations from the current project. Relative output paths are resolved against the destination store's project root:
 
@@ -460,7 +477,8 @@ Model relationships (`inherits`, `has_many`) are **not** stored in the index —
 | Command | Description |
 |---------|-------------|
 | `sldb stores init [--path .]` | Initialize a `.sldb/` store |
-| `sldb stores add <path>` | Link a federated store |
+| `sldb stores add <path> [--name alias]` | Link a federated store |
+| `sldb stores list` | List links with their state |
 | `sldb stores check [--format text\|json\|yaml]` | Run integrity diagnostics |
 | `sldb stores update [--wait] [--verbose]` | Recompute all hashes from current file states |
 | `sldb models add <model-ref>` | Register a model contract |
@@ -468,6 +486,7 @@ Model relationships (`inherits`, `has_many`) are **not** stored in the index —
 | `sldb docs create --model <name> -o <path> <payload>` | Create and track a new document |
 | `sldb docs track <path> --model <name>` | Validate and track an existing document |
 | `sldb docs update <name> <payload>` | Re-render a tracked document with new data |
+| `sldb docs exists <[alias:]ref>` | Check that a reference resolves (exit 0/1/2/5) |
 
 Note: `stores update` now prints a rebuild summary (docs processed, missing, empty sections, unparseable headings). Pass `--wait` to block if the store is locked by another process, and `--verbose` to see individual skip details.
 

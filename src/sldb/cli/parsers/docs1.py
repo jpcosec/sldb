@@ -5,7 +5,7 @@ from .docs2 import _add_docs_part2
 def add_docs_group(s: argparse._SubParsersAction) -> None:
     p = s.add_parser("docs", help="Tracked document workflows.", epilog="Note: `recover` and `compose` work on explicit Markdown links and transclusions.")
     sub = p.add_subparsers(dest="docs_command", required=True)
-    _create(sub); _track(sub); _update(sub); _untrack(sub); _delete(sub); _show(sub)
+    _create(sub); _track(sub); _update(sub); _untrack(sub); _delete(sub); _show(sub); _exists(sub)
     _add_docs_part2(sub)
 
 def _create(s):
@@ -49,7 +49,14 @@ def _delete(s):
 
 def _show(s):
     sh = s.add_parser("show", help="Show document AST and payload.")
-    sh.add_argument("doc", help="Doc name or Model/DocName or tracked path")
+    sh.add_argument("doc", help="Doc name or Model/DocName or tracked path; 'alias:ref' for a directly linked store")
     sh.add_argument("--store", help="Store path")
     sh.add_argument("--pythonpath", help="Project path")
     sh.add_argument("--format", choices=("json", "yaml"), default="json")
+
+def _exists(s):
+    e = s.add_parser("exists", help="Check that a doc reference resolves, here or in a linked store, without importing it.",
+                     epilog="Exit codes: 0 ok, 1 missing, 2 ambiguous, 5 link-missing or link-broken.")
+    e.add_argument("ref", help="Doc name, Model/DocName or tracked path; 'alias:ref' for a directly linked store")
+    e.add_argument("--store", help="Store path")
+    e.add_argument("--format", choices=("text", "json"), default="text")

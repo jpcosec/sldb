@@ -9,12 +9,11 @@ def test_store_check_yaml_format(tmp_path, capsys):
     root.mkdir()
     cli_main(["stores", "init", "--path", str(root)])
     
-    # Store check raises SystemExit if invalid (empty store has invalid hash_a by default)
-    with pytest.raises(SystemExit):
-        cli_main(["stores", "check", "--store", str(root / ".sldb"), "--format", "yaml"])
+    # A new, empty store is sealed at init, so it checks valid
+    assert cli_main(["stores", "check", "--store", str(root / ".sldb"), "--format", "yaml"]) == 0
     
     captured = capsys.readouterr()
-    assert "hash_a_ok:" in captured.out
+    assert "hash_a_ok: true" in captured.out
     assert "models:" in captured.out
 
 def test_recover_links_only(tmp_path, capsys):
