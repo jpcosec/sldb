@@ -49,7 +49,8 @@ class MachineEditorWorld:
             "RelationTypeDoc",
             "RelationDoc",
         ):
-            api.add_model(self.store, f"{"sldb.models.relation_doc" if model == "RelationDoc" else "sldb.models.relation_type_doc" if model == "RelationTypeDoc" else MODULE}:{model}", self.py)
+            module = {"RelationDoc": "sldb.models.relation_doc", "RelationTypeDoc": "sldb.models.relation_type_doc"}.get(model, MODULE)
+            api.add_model(self.store, f"{module}:{model}", self.py)
         api.init_relations(self.store, self.py)
         self.store_path = api.open_store(self.store).store_path
 
