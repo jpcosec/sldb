@@ -11,7 +11,7 @@
 
 # SLDB (Structured Language Database)
 
-Documentation checked against the working tree on 2026-09-13: see [current CLI](docs/architecture/current-cli-tree.md), [AST queries](docs/ast_query_primitives.md), and [remaining gaps](docs/documentation-review.md). “v1” denotes the product generation; this checkout declares package version `0.1.0`. Historical changelog headings do not establish the version installed locally or published to a registry.
+Documentation checked against the working tree on 2026-09-13: see [current CLI](docs/architecture/current-cli-tree.md), [AST queries](docs/ast_query_primitives.md), and [remaining gaps](docs/documentation-review.md). This checkout declares package version `0.1.0`; historical changelog headings do not establish the version installed locally or published to a registry.
 
 A system for representing anything with deterministically derivable structure —
 documents, source code, program interfaces — as addressable, queryable documents
@@ -207,6 +207,36 @@ sldb models create RecipeDoc --template recipe.template.md --fields recipe.field
 ```
 
 Use `-` as an output path to write to stdout when a command supports it.
+
+## Serving and surfaces
+
+`sldb serve` exposes the store over HTTP so that UIs never touch Markdown directly: they read
+documents, fields, segments and edges, and write by payload (`/save` with `expected`, `POST /docs`
+to create). SLDB re-renders the Markdown and verifies the round-trip.
+
+```bash
+sldb serve --store .sldb --pythonpath . --port 8787 --cors
+```
+
+Routes, grouped by what a surface needs:
+
+- read: `GET /document`, `/document/ir`, `/document/segments?id=` (literals and fields with
+  character offsets, provenance per composed piece), `/graph`, `/edges[?id=Model:name]`,
+  `/schema` (degrades per model, with field descriptions), `/models`, `/fields`, `/sections`,
+  `/ast`, `/find`, `/render`, `/stores`, `/stores/check`
+- write: `POST /save`, `POST /docs` (409 if it exists, 422 if it does not validate)
+- extraction: `POST /extract`, `POST /extract/segments` (raw text + model → typed fields,
+  alignment to the raw text, unmatched spans, coverage)
+- similarity: `GET /corpus/rank` (documents, or `fields=1`), `GET /similar`
+- diagnostics: `GET /health`, `/lint`, `/kgdb/snapshot`
+
+The surfaces in this repo live in `surface/` (`@sldb/surface`): a generic document UI (Documento,
+Composición, Extracción, Salud, Bandeja, Lector, Destilación) and `maqueta.html`, the atoms UI
+(Extracción · Grafo · Compositor · Respuesta) built on `AtomDoc`, `RelationDoc`, `GrupoDoc` and
+report models. Design and status: `docs/surface/PROPUESTA-SUPERFICIE.md`,
+`docs/surface/OPERACIONALIZACION-VISTAS.md`, tasks in `docs/surface/tasks/`. Sibling UIs
+(`tools/graph_ui`, `tools/sldb-ui`, launched together by `tools/kbsurfaces`) are views over the
+same server.
 
 ## Tracking This Repo's Docs
 

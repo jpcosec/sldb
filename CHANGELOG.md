@@ -98,6 +98,14 @@ content had not changed.
 - `docs show` of a linked doc reads its file from the linked project (`absolute_path` was
   built from the local root).
 
+## 2026-10-01 — SLDB is the substrate again
+
+- The README no longer calls this generation frozen: the v2 seed (`knowledge`) was frozen in
+  turn and its evaluator moved to `pron`, so nothing supersedes this package. SLDB is the
+  store every surface (`surface/`, `tools/graph_ui`, `tools/sldb-ui`) is a view over.
+- New README section "Serving and surfaces": `sldb serve` routes grouped by what a UI needs,
+  and where the surfaces and their design docs live.
+
 ## 2026-09-07 — v1 frozen
 
 - The README marks this generation frozen, with `knowledge` as its successor. Earlier modularization and v0.6 removal plans are historical and do not promise further v1 releases.
