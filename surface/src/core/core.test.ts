@@ -99,4 +99,52 @@ describe("cliente", () => {
     const dup = vi.fn(async () => new Response(JSON.stringify({ ok: false, error: "ya existe" }), { status: 409 }));
     await expect(createHttpClient("/sldb", dup).createDocument("AtomDoc", "a1", {})).rejects.toBeInstanceOf(SldbHttpError);
   });
+
+  it("edicion de MachineDoc: manda expected (cerrojo optimista) y traduce 409 a SaveConflictError", async () => {
+    const base = {
+      title: "Consentimiento",
+      domain_ref: null,
+      triggers: [],
+      states: ["solicitado", "otorgado"],
+      initial_state: "solicitado",
+      owner: "subject:ana",
+    };
+    // guarda con `expected` = payload base (reversible, control optimista)
+    const ok = vi.fn(async (url: string, init?: RequestInit) => {
+      void url;
+      void init;
+      return new Response(JSON.stringify({ ok: true }), { status: 200 });
+    });
+    const client = createHttpClient("/sldb", ok);
+    await client.save([
+      {
+        id: "MachineDoc:consentimiento",
+        action: "update",
+        model: "MachineDoc",
+        payload: { ...base, title: "Consentimiento v2" },
+        expected: base,
+      },
+    ]);
+    const first = ok.mock.calls[0] || [];
+    const init = (first.length > 1 ? (first[1] as { body?: string }) : {});
+    const body = init.body || "";
+    expect(body).toContain("\"expected\":");
+    expect(body).toContain("MachineDoc:consentimiento");
+
+    // un expected obsoleto (otro ya guardó) => 409 => SaveConflictError
+    const stale = vi.fn(async () =>
+      new Response(JSON.stringify({ ok: false, error: "conflicto de edición" }), { status: 409 }),
+    );
+    await expect(
+      createHttpClient("/sldb", stale).save([
+        {
+          id: "MachineDoc:consentimiento",
+          action: "update",
+          model: "MachineDoc",
+          payload: base,
+          expected: { ...base, title: "Consentimiento OBSOLETO" },
+        },
+      ]),
+    ).rejects.toBeInstanceOf(SaveConflictError);
+  });
 });
