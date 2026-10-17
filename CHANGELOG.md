@@ -1,6 +1,18 @@
 # Changelog
 
-Version note (2026-09-13, updated 2026-10-16): `pyproject.toml` declares `0.1.9`; it was `0.1.0` while PyPI already had `0.1.1`. Existing entries below are historical development records, not a verified registry release inventory. The product-generation label “v1” is separate from package versioning. No new package version or release is created by this documentation reconciliation.
+Version note (2026-09-13, updated 2026-10-17): `pyproject.toml` declares `0.1.10`; it was `0.1.0` while PyPI already had `0.1.1`. Existing entries below are historical development records, not a verified registry release inventory. The product-generation label “v1” is separate from package versioning. No new package version or release is created by this documentation reconciliation.
+
+## 0.1.10 - 2026-10-17 — references to a relation type reach it; a document by absolute path
+
+- A `__references__` field that points at `RelationTypeDoc:<doc>` now lands on the
+  `sldb://relation_type/<name>` node. The index stores relation types under that node, so the
+  schema edge used to point at a document node that does not exist and was dropped silently
+  while `doc_exists` said yes. `resolve_edges` moves that end to the relation-type node.
+- `find_doc` (behind untrack and delete) accepts a document's absolute path as well as the path
+  relative to the project root.
+- Design notes for the surface in `docs/surface/`, with tests for the MachineDoc editor and an
+  optimistic-lock client. The editor test compiles on Python 3.10/3.11 (no nested PEP 701
+  f-string).
 
 ## 0.1.9 - 2026-10-16 — a dropped field is a contract move, and `stores update` fixes it
 
