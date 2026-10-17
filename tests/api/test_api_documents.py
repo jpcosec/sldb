@@ -63,6 +63,15 @@ def test_untrack_document_drops_it_from_the_store(api_store):
         api.untrack_document(api_store.store, "signup", api_store.pythonpath)
 
 
+def test_a_document_can_be_named_by_its_absolute_path(api_store):
+    """The store records paths relative to the project root; an absolute one used to miss."""
+    path = (api_store.root / "signup.md").resolve()
+    api.track_document_file(api_store.store, "TicketDoc", api_store.write_document("signup", PAYLOAD), pythonpath=api_store.pythonpath)
+    deleted = api.delete_document(api_store.store, str(path), api_store.pythonpath)
+    assert (deleted.model, deleted.name) == ("TicketDoc", "signup")
+    assert not path.exists()
+
+
 def test_payload_paths_are_the_cli_helpers():
     assert dict_utils.deep_get is api.deep_get and dict_utils.deep_set is api.deep_set
     payload = {"items": [{"name": "a"}]}

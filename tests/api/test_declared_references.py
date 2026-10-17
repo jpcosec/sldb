@@ -117,3 +117,12 @@ def test_a_relation_document_does_not_assert_its_own_ends_twice(world: World) ->
     api.rebuild_edges(world.store, world.py)
     assert api.edges_from(world.store, "RelationDoc:r1", "references") == []
     assert api.check_edges(world.store).ok
+
+
+def test_a_reference_to_a_relation_type_document_reaches_its_relation_type_node(world: World) -> None:
+    """A RelationTypeDoc is indexed as a `relation_type` node, not a document node; a reference
+    written as its export id used to dangle and be dropped while `doc_exists` said it was there."""
+    world.create("RelationTypeDoc", "rt-x", {"title": "x", "name": "x", "direction": "directed", "cardinality": "many_to_many", "axis": "WHAT", "source_types": [], "target_types": [], "condition": "", "description": "x."})
+    world.link("l1", about="RelationTypeDoc:rt-x")
+    assert ("sldb://relation_type/x", "references", "about") in _pairs(world.edges_of("l1"))
+    assert api.check_edges(world.store).ok
