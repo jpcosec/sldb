@@ -121,7 +121,7 @@ Depending on the command, SLDB may accept one of these forms:
 
 - the tracked doc name, such as `roadmap`
 - the qualified form, such as `RoadmapDoc/roadmap`
-- the physical path, such as `docs/roadmap.md`
+- the physical path, such as `docs/roadmap.md` <!-- gone -->
 
 The key distinction is:
 

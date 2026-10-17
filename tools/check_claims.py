@@ -65,6 +65,8 @@ SKIP = {"build", "dist", "__pycache__", ".git", "node_modules", "runs"}
 #: ejemplo de defecto — volviendo imposible documentar un hallazgo.
 #:
 #:     `src/nldb/` <!-- gone -->
+#:
+#: Un bloque cercado se marca entero con `<!-- gone -->` sola en la línea anterior.
 GONE = re.compile(r"<!--\s*gone\s*-->")
 
 
@@ -77,6 +79,17 @@ def marked_gone(text: str, position: int) -> bool:
     line_end = text.find("\n", position)
     line_start = text.rfind("\n", 0, position) + 1
     return bool(GONE.search(text[line_start:line_end if line_end != -1 else len(text)]))
+
+
+def block_marked_gone(text: str, position: int) -> bool:
+    """Si el bloque cercado que abre en `position` lleva la marca en la línea anterior.
+
+    La marca no cabe en la línea de apertura sin romper el cercado, y una propuesta
+    cita comandos que todavía no existen en bloques enteros.
+    """
+    line_start = text.rfind("\n", 0, position) + 1
+    previous = text[text.rfind("\n", 0, max(line_start - 1, 0)) + 1:line_start]
+    return marked_gone(text, position) or bool(GONE.fullmatch(previous.strip()))
 
 
 def subcommands() -> set[tuple[str, ...]]:
@@ -184,12 +197,12 @@ def main() -> int:
             # búsqueda, no un subcomando.
             leaves = {c for c in tops if not any(
                 len(p) > 1 and p[0] == c for p in known_cmds)}
-            spans = [(m.group(1), m.start()) for m in CODE_SPAN.finditer(text)]
-            spans += [(m.group(1), m.start()) for m in CODE_BLOCK.finditer(text)]
-            for snippet, at in spans:
+            spans = [(m.group(1), m.start(), marked_gone) for m in CODE_SPAN.finditer(text)]
+            spans += [(m.group(1), m.start(), block_marked_gone) for m in CODE_BLOCK.finditer(text)]
+            for snippet, at, gone in spans:
                 for cmd, sub in set(COMMAND.findall(snippet)):
                     counted += 1
-                    if marked_gone(text, at):
+                    if gone(text, at):
                         continue
                     if cmd not in tops:
                         problems.append(

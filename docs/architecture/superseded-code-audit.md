@@ -4,7 +4,7 @@ Inventario con evidencia, sin refactor y sin borrar nada. Complementa y extiende
 [`edges-retirement-plan.md`](edges-retirement-plan.md): este documento cubre lo que el plan de
 edges no tocó (kgdb↔sldb, islas muertas, compat bridges, derivados sections/semantic/cache).
 
-- Base: `1d232ae`, rama `docs/superseded-audit`.
+- Base: `1d232ae`, rama `docs/superseded-audit`. <!-- gone -->
 - Línea base de tests: `PYTHONPATH=src python -m pytest -q` → **1015 passed** (2026-09-24).
 - Método: censo AST de importadores sobre `src/` + `tests/` (script propio, incluye imports
   relativos), greps dirigidos para cada símbolo sospechoso, diff entre pares duplicados.

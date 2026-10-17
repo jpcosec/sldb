@@ -1,10 +1,10 @@
 name: arch-deskops-boundary-proposal
 path: docs/architecture/deskops-boundary-proposal.md
-source_hash: 9b6185c04c14c83d72e21d1eaf0cb1912f5006ec81aeaf444a43bdc7c325ed52
-content_hash: 1c495519a119a29bf2ae3c87411f0a5733dd39b1c9585d4acd191a40b8ef6e27
+source_hash: 2ebf195efafbc464857efce27d134d4ccd151d1db5aaafe346df1a096541a249
+content_hash: ae96c1e852ff76898aaf0b51a0e529883469d5f20be54e4f9c2e17220e704722
 field_hashes:
   title: d582aa06fc0c45195b3f6b58d60aa535bf420283ccd8e92c27223c23733ce3ea
-  body: 954ebea63c1dec56712a2f846c669f1459279d9be96c96bf29cb2a411f246fc2
+  body: 6cf0d6649aed2253773fc545c0e9297acea17f30d09da011d46d8d4566d22e1d
 semantic_tags:
 - representation.markdown
 - source.document.markdown

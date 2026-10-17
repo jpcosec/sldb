@@ -80,7 +80,7 @@ These belong to kg_db.
 
 ### 1. Graph Traversal for Cross-Doc Relationships
 
-**Current in wiki_compiler:** `src/wiki_compiler/query_executor.py`
+**Current in wiki_compiler:** `src/wiki_compiler/query_executor.py` <!-- gone -->
 
 Documents are nodes in a directed graph with typed edges:
 
@@ -113,12 +113,13 @@ relationships:
 ```
 
 **Reference implementation:**
-- `src/wiki_compiler/contracts.py:Edge` — typed edge model
-- `src/wiki_compiler/graph_utils.py:add_knowledge_node()` — add edges to graph
-- `src/wiki_compiler/query_language.py` — query DSL for graph traversal
+- `src/wiki_compiler/contracts.py:Edge` — typed edge model <!-- gone -->
+- `src/wiki_compiler/graph_utils.py:add_knowledge_node()` — add edges to graph <!-- gone -->
+- `src/wiki_compiler/query_language.py` — query DSL for graph traversal <!-- gone -->
 
 **Command:**
 
+<!-- gone -->
 ```bash
 sldb doc link --from foo.md --to bar.md --relation documents
 sldb doc links foo.md --relation documents
@@ -132,7 +133,7 @@ sldb doc tree --from foo.md --depth 2
 
 ### 2. Facets: Multi-Dimensional Doc Metadata
 
-**Current in wiki_compiler:** `src/wiki_compiler/contracts.py:KnowledgeNode`
+**Current in wiki_compiler:** `src/wiki_compiler/contracts.py:KnowledgeNode` <!-- gone -->
 
 Every node has optional facets:
 
@@ -171,16 +172,16 @@ facets:
 ```
 
 **Reference implementation:**
-- `src/wiki_compiler/contracts.py:ComplianceFacet` — implementation status
-- `src/wiki_compiler/contracts.py:GitFacet` — git tracking
-- `src/wiki_compiler/contracts.py:SourceFacet` — provenance
-- `src/wiki_compiler/facet_injectors.py` — how facets are populated
+- `src/wiki_compiler/contracts.py:ComplianceFacet` — implementation status <!-- gone -->
+- `src/wiki_compiler/contracts.py:GitFacet` — git tracking <!-- gone -->
+- `src/wiki_compiler/contracts.py:SourceFacet` — provenance <!-- gone -->
+- `src/wiki_compiler/facet_injectors.py` — how facets are populated <!-- gone -->
 
 ---
 
 ### 3. OWL Reasoning: Implicit Relationships
 
-**Current in wiki_compiler:** `src/wiki_compiler/owl_reasoner.py`
+**Current in wiki_compiler:** `src/wiki_compiler/owl_reasoner.py` <!-- gone -->
 
 OWL ontology reasoner infers implicit relationships:
 
@@ -199,6 +200,7 @@ sync_reasoner(graph)
 
 **What sldb needs:**
 
+<!-- gone -->
 ```bash
 # Model inheritance as OWL axioms
 sldb model owl ConceptDoc --output concept.owl
@@ -214,12 +216,13 @@ sldb model owl ConceptDoc --output concept.owl
 ```
 
 **Reference implementation:**
-- `src/wiki_compiler/owl_reasoner.py` — owlready2 integration
-- `src/wiki_compiler/owl_backend/owl_reasoner.py:run_owl_reasoner()`
-- `src/wiki_compiler/shacl/validator.py` — SHACL shape validation
+- `src/wiki_compiler/owl_reasoner.py` — owlready2 integration <!-- gone -->
+- `src/wiki_compiler/owl_backend/owl_reasoner.py:run_owl_reasoner()` <!-- gone -->
+- `src/wiki_compiler/shacl/validator.py` — SHACL shape validation <!-- gone -->
 
 **Command:**
 
+<!-- gone -->
 ```bash
 sldb model subclasses ConceptDoc
 # Returns: HowToDoc, ReferenceDoc, IndexDoc, ...
@@ -235,7 +238,7 @@ sldb doc infer-links foo.md
 
 ### 4. Energy Audit: Systemic Health
 
-**Current in wiki_compiler:** `src/wiki_compiler/energy.py`
+**Current in wiki_compiler:** `src/wiki_compiler/energy.py` <!-- gone -->
 
 Systemic energy measures health of the entire knowledge base:
 
@@ -261,6 +264,7 @@ perturbation_energy = git_drift()          # Uncommitted changes
 
 **What sldb needs:**
 
+<!-- gone -->
 ```bash
 sldb store energy --report
 ```
@@ -278,15 +282,15 @@ boilerplate_ratio: 0.23
 ```
 
 **Reference implementation:**
-- `src/wiki_compiler/energy.py:run_energy_audit()` — full energy calculation
-- `src/wiki_compiler/energy.py:calculate_redundancy()` — Jaccard similarity
-- `src/wiki_compiler/perception.py:build_status_report()` — zone status
+- `src/wiki_compiler/energy.py:run_energy_audit()` — full energy calculation <!-- gone -->
+- `src/wiki_compiler/energy.py:calculate_redundancy()` — Jaccard similarity <!-- gone -->
+- `src/wiki_compiler/perception.py:build_status_report()` — zone status <!-- gone -->
 
 ---
 
 ### 5. Context Routing: Relevant Docs for a Task
 
-**Current in wiki_compiler:** `src/wiki_compiler/context.py`
+**Current in wiki_compiler:** `src/wiki_compiler/context.py` <!-- gone -->
 
 Given a task, retrieve relevant docs:
 
@@ -307,6 +311,7 @@ class ContextBundle(BaseModel):
 
 **What sldb needs:**
 
+<!-- gone -->
 ```bash
 sldb context "review architecture decision"
 # Returns: relevant ADRs, their models, related concepts, ...
@@ -318,15 +323,15 @@ sldb context "audit sldb store"
 ```
 
 **Reference implementation:**
-- `src/wiki_compiler/context.py:build_context_bundle()` — context routing
-- `src/wiki_compiler/query_executor.py:StructuredQuery` — structured queries
-- `src/wiki_compiler/registry.py` — facet registry
+- `src/wiki_compiler/context.py:build_context_bundle()` — context routing <!-- gone -->
+- `src/wiki_compiler/query_executor.py:StructuredQuery` — structured queries <!-- gone -->
+- `src/wiki_compiler/registry.py` — facet registry <!-- gone -->
 
 ---
 
 ### 6. Cleansing: Structural Optimization
 
-**Current in wiki_compiler:** `src/wiki_compiler/cleanser.py`
+**Current in wiki_compiler:** `src/wiki_compiler/cleanser.py` <!-- gone -->
 
 Proposals to optimize the graph:
 
@@ -340,6 +345,7 @@ class CleansingProposal(BaseModel):
 
 **What sldb needs:**
 
+<!-- gone -->
 ```bash
 sldb cleanse --dry-run
 # Proposes:
@@ -351,6 +357,7 @@ sldb cleanse --dry-run
 
 **With sldb validation:**
 
+<!-- gone -->
 ```bash
 sldb cleanse --apply --proposal merge
 # sldb validate roundtrips the merged doc
@@ -359,9 +366,9 @@ sldb cleanse --apply --proposal merge
 ```
 
 **Reference implementation:**
-- `src/wiki_compiler/cleanser.py:detect_cleansing_candidates()`
-- `src/wiki_compiler/cleanser.py:apply_proposal()`
-- `src/wiki_compiler/validation.py:validate_model_input_roundtrip()` — sldb can use this directly
+- `src/wiki_compiler/cleanser.py:detect_cleansing_candidates()` <!-- gone -->
+- `src/wiki_compiler/cleanser.py:apply_proposal()` <!-- gone -->
+- `src/wiki_compiler/validation.py:validate_model_input_roundtrip()` — sldb can use this directly <!-- gone -->
 
 ---
 
@@ -396,6 +403,7 @@ sldb cleanse --apply --proposal merge
 
 ### Edge Model (copy directly)
 
+<!-- gone -->
 ```
 src/wiki_compiler/contracts.py:12-29
 ```
@@ -413,6 +421,7 @@ class Edge(BaseModel):
 
 ### Facet Models (adapt)
 
+<!-- gone -->
 ```
 src/wiki_compiler/contracts.py:145-205
 ```
@@ -421,6 +430,7 @@ Compliance, Git, Source, Semantic, AST, I/O, Test, ADR facets.
 
 ### OWL Reasoner (adapt)
 
+<!-- gone -->
 ```
 src/wiki_compiler/owl_reasoner.py:32-45
 src/wiki_compiler/shacl/shapes.py:40-55
@@ -430,6 +440,7 @@ Uses owlready2 + SHACL shapes.
 
 ### Energy Audit (adapt)
 
+<!-- gone -->
 ```
 src/wiki_compiler/energy.py:150-250
 ```
@@ -438,6 +449,7 @@ Calculates structural, abstraction, violation, perturbation energy.
 
 ### Context Routing (adapt)
 
+<!-- gone -->
 ```
 src/wiki_compiler/context.py:75-120
 ```

@@ -48,4 +48,4 @@ Store layout, hashing, diagnostics, migration, and caches also have modules dire
 - `tests/`: library, CLI, markers, links, composition, addressability, HTTP, caching, and store tests.
 - `.github/workflows/ci.yml`: tests and distribution build.
 
-The old `src/nldb/` shim and top-level compatibility modules such as `sldb/structuredNLDoc.py` are absent. Public imports such as `from sldb import StructuredNLDoc` remain available through `src/sldb/__init__.py`.
+The old `src/nldb/` shim and top-level compatibility modules such as `sldb/structuredNLDoc.py` are absent. Public imports such as `from sldb import StructuredNLDoc` remain available through `src/sldb/__init__.py`. <!-- gone -->

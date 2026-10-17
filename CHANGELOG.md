@@ -123,7 +123,7 @@ content had not changed.
 
 - The README no longer calls this generation frozen: the v2 seed (`knowledge`) was frozen in
   turn and its evaluator moved to `pron`, so nothing supersedes this package. SLDB is the
-  store every surface (`surface/`, `tools/graph_ui`, `tools/sldb-ui`) is a view over.
+  store every surface (`surface/`, `tools/graph_ui`, `tools/sldb-ui`) is a view over. <!-- gone -->
 - New README section "Serving and surfaces": `sldb serve` routes grouped by what a UI needs,
   and where the surfaces and their design docs live.
 

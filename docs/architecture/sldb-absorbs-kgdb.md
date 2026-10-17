@@ -89,7 +89,7 @@ What does not belong to pron, and moves here: addressing and reading documents, 
 ranked retrieval, the low-level CLI, and the agent-facing MCP surface for reads. `graph_ui` is a
 graphical UI over SLDB, not a surface over pron.
 
-This is a subtraction for pron, and it is the point: roughly a third of `src/pron` was substrate
+This is a subtraction for pron, and it is the point: roughly a third of `src/pron` was substrate <!-- gone -->
 wearing a pron hat.
 
 ## Consequences

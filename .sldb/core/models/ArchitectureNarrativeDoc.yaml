@@ -3,8 +3,8 @@ model_ref: docs.models:ArchitectureNarrativeDoc
 path: docs/models.py
 documents_index: .sldb/core/documents/ArchitectureNarrativeDoc.yaml
 sections_index: .sldb/runtime/sections/ArchitectureNarrativeDoc.yaml
-model_hash: 03f9b66b1fdbdabfdeaa8e9795cd8ced62706606ce96276a3b8e74056e12f42a
-roster_hash: 21696c3add424e3fa3acce063723828727b3592a06a6e3a703cede05d4ca17f1
+model_hash: c0793e2f91f1e12b8345006af45a305b973a5adf654f73b569b06b052b4ff86f
+roster_hash: fb1ab59f2d5ae608327feffe0b0572dfcb2f5a6c58612792cdfdc924e2d4e100
 contract_hash: 739d60a5e2c8b7c30ecdd7ecfce0411603d9f477ce7091fa2f7e5f5b25b0fbd6
 documents_count: 9
 version: 1

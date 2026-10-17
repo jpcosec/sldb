@@ -13,7 +13,7 @@ Propuesta §6.5.
 El enunciado original decía que no existen endpoints de salud y que había que derivar
 todo en el cliente. Es falso. SLDB sí sirve `GET /lint`, `GET /graph/cycles` y
 `GET /graph/isolated`: los tres responden 200 contra el backend y están declarados en
-`tools/sldb/src/sldb/cli/serve/routes.py`. `graph_ui` ya los consumía desde antes. La
+`src/sldb/cli/serve/routes.py`. `graph_ui` ya los consumía desde antes. La
 vista `#/salud` los consume tal cual y solo deriva lo que no está servido.
 
 En `knowledge_antonia-cobranza`:

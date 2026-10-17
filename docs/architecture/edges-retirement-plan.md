@@ -124,8 +124,9 @@ Especificación (no implementación). Encaja con el estilo existente: grupo noun
 subcomandos con guion bajo `stores` (`semantic-map`, `semantic-export`, `ingest-sldb` en
 `graph`). Es una operación de ciclo de vida del store → vive en `stores`.
 
-### `sldb stores migrate-legacy-edges`
+### `sldb stores migrate-legacy-edges` <!-- gone -->
 
+<!-- gone -->
 ```
 sldb stores migrate-legacy-edges [--store PATH] [--pythonpath DIR]
                                  [--graph-dir REL] [--kgdb-command CMD]
@@ -189,6 +190,7 @@ de diagnóstico + comando exacto entre comillas simples).
 
 Texto literal:
 
+<!-- gone -->
 ```
 SLDBStoreError: The store at <store_path> still uses the retired edge layer
 (runtime/edges/). The graph is now read from the portable snapshots under
@@ -213,7 +215,7 @@ fase final del retiro (PR 5, §5): durante la transición los stores tienen amba
 | PR | Contenido | Gate (main verde en cada paso) |
 |---|---|---|
 | **0** (este) | El presente plan en `docs/architecture/edges-retirement-plan.md` | 1015 passed |
-| **1** | Comando `stores migrate-legacy-edges` (sin borrado efectivo todavía: escribe snapshot + `--dry-run`; el borrado de `runtime/edges` se activa con flag interno `--purge` en PR 4, o se omite) | Suite verde; sobre una KB real: el `.nx.json` generado sin leer shards tiene los mismos nodos/relaciones que `graph snapshot save` actual para las capacidades 1-3 y 13 (`ingest_sldb_nodes`) |
+| **1** | Comando `stores migrate-legacy-edges` (sin borrado efectivo todavía: escribe snapshot + `--dry-run`; el borrado de `runtime/edges` se activa con flag interno `--purge` en PR 4, o se omite) | Suite verde; sobre una KB real: el `.nx.json` generado sin leer shards tiene los mismos nodos/relaciones que `graph snapshot save` actual para las capacidades 1-3 y 13 (`ingest_sldb_nodes`) | <!-- gone -->
 | **2** | Cerrar **G1+G2** en el generador de snapshot (nodos field/relation_type/anchor, edges `has_field`/`extends`/authored/alias, con `--pythonpath`) y **G3** (reglas de `resolve.py` aplicadas al generar, no al componer) | Comparación idéntica de nodos+edges entre el snapshot nuevo y `compose_edge_index` en la KB real y en los fixtures de `tests/api/test_api_edges.py`; suite verde |
 | **3** | Cerrar **G4+G5+G6** (validación de edges + ciclos sobre el snapshot; federación por merge de snapshots; `exclude_tags` en `index_from_snapshot`); reescribir `api/edges/edge_reading.py` y `check_edges.py` para leer snapshot con `load_graph`+`index_from_snapshot` en vez de shards | `sldb graph path/cycles/order/components/central/similar`, `/graph/*`, `/lint` y `api.graph.*` pasan contra un store migrado **sin** `runtime/edges/`; `tests/store/test_graph_*.py` y `tests/api/test_api_edges.py` reescritos sobre fixtures de snapshot |
 | **4** | Reapuntar los writes (clase B): `payload_save_steps`, `untrack_document`, `index_commit`, `dag_writes`, `selfdoc_write`, `derived_rebuild`, `export`, `ops`, `doc` → regenerar snapshot en vez de `rebuild_edges_indexes`/`refresh_store_edges`; `models/__init__` deja de importar `DocEdges`/`EdgeContribution` | Cada write regenera el snapshot y `graph_is_current` es verdadero después; los tests de invariantes por-write (hash chain) pasan sin `runtime/edges/` |

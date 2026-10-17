@@ -23,7 +23,7 @@ hum-core/README.md    → ConceptDoc → {title, abstract, purpose}
 analyzer/README.md  → ConceptDoc → {title, overview, setup, api}
 ```
 
-Same document type, same name, **different fields**. `sldb doc track` fails. Sync is meaningless without field mapping.
+Same document type, same name, **different fields**. `sldb doc track` fails. Sync is meaningless without field mapping. <!-- gone -->
 
 ## Current State
 
@@ -105,8 +105,9 @@ models:
 
 Models stay clean. Ontology is external but versioned.
 
-## Feature: `sldb model diff`
+## Feature: `sldb model diff` <!-- gone -->
 
+<!-- gone -->
 ```bash
 sldb model diff hum:ConceptDoc analyzer:ConceptDoc
 ```
@@ -139,8 +140,9 @@ summary:
   orphan_analyzer: 2 fields
 ```
 
-## Feature: `sldb ontology`
+## Feature: `sldb ontology` <!-- gone -->
 
+<!-- gone -->
 ```bash
 sldb ontology init          # create .sldb/ontology.yaml
 sldb ontology register    # register model field meanings
@@ -149,8 +151,9 @@ sldb ontology check      # validate compatibility
 sldb ontology tree       # show field hierarchy as tree
 ```
 
-### `sldb ontology tree`
+### `sldb ontology tree` <!-- gone -->
 
+<!-- gone -->
 ```bash
 $ sldb ontology tree hum:ConceptDoc
 
@@ -162,8 +165,9 @@ ConceptDoc (v2.1.0)
 └── related_concepts (concept: links-to: ConceptDoc)
 ```
 
-## Feature: `sldb sync --semantic`
+## Feature: `sldb sync --semantic` <!-- gone -->
 
+<!-- gone -->
 ```bash
 $ sldb sync analyzer/ --semantic
 
@@ -186,8 +190,9 @@ setup:
 ✓ Sync complete: 1 field synced, 2 skipped
 ```
 
-## Feature: `sldb model validate --cross-repo`
+## Feature: `sldb model validate --cross-repo` <!-- gone -->
 
+<!-- gone -->
 ```bash
 $ sldb model validate analyzer:ConceptDoc --cross-repo hum:ConceptDoc
 
@@ -250,6 +255,7 @@ Canonical model changes. Extensions see:
 
 ### 3. Semantic Search
 
+<!-- gone -->
 ```bash
 sldb search "what-it-is" --field-semantics
 # Finds: ConceptDoc.abstract, ADRDoc.context, ReferenceDoc.signature
@@ -266,10 +272,10 @@ sldb search "what-it-is" --field-semantics
 ## Priority
 
 1. **Field metadata in Field()** (Option A or B)
-2. **sldb model diff --semantic**
-3. **sldb ontology tree**
-4. **sldb sync --semantic**
-5. **sldb ontology init/register/map/check**
+2. **sldb model diff --semantic** <!-- gone -->
+3. **sldb ontology tree** <!-- gone -->
+4. **sldb sync --semantic** <!-- gone -->
+5. **sldb ontology init/register/map/check** <!-- gone -->
 
 ## Questions for the Team
 

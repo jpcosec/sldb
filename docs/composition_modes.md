@@ -24,7 +24,7 @@ The option is `template`, not `line_template`. Missing paths and invalid child p
 
 ### Where a relative child path resolves
 
-A child ref is a path in the project (`docs/tasks/task-a.md`), not a path relative to the directory the process happens to run in. Every store-aware path passes the project root: `create_document`, `save_document_payload`, `docs update`, model backfill, `sldb render` on a tracked document, and the segment views (`/document/segments`, `/extract/segments`). The renderer takes it as `ref_root`.
+A child ref is a path in the project (`docs/tasks/task-a.md`), not a path relative to the directory the process happens to run in. Every store-aware path passes the project root: `create_document`, `save_document_payload`, `docs update`, model backfill, `sldb render` on a tracked document, and the segment views (`/document/segments`, `/extract/segments`). The renderer takes it as `ref_root`. <!-- gone -->
 
 Two cases have no store to take a root from, so they still resolve against the working directory: `render_model_markdown` called directly as a library function with no `ref_root`, and the store-less `sldb render MODEL INPUT OUTPUT` — which accepts `--ref-root DIR` to say so explicitly.
 
@@ -36,7 +36,7 @@ Each ref a composed field reads contributes a `composes` edge from the composing
 
 ```bash
 sldb edges show "sldb://document/Board:board" --store .sldb        # what this board composes
-sldb graph neighbors "sldb://document/Task:task-a" --store .sldb   # which boards compose this task
+sldb graph neighborhood "sldb://document/Task:task-a" --store .sldb   # which boards compose this task
 ```
 
 The reverse direction is the point: changing a child is what makes a composed parent stale, and that is now a graph question rather than a grep.

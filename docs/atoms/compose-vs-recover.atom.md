@@ -24,7 +24,7 @@ You encounter these commands when a tracked or local Markdown document reference
 
 ## Where It Lives
 
-The links live in Markdown content. The resolution logic lives in `src/sldb/links.py` and the CLI surfaces it through `docs recover` and `docs compose`.
+The links live in Markdown content. The resolution logic lives in `src/sldb/links/` and the CLI surfaces it through `docs recover` and `docs compose`.
 
 ## Who Uses It
 

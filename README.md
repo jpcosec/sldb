@@ -235,7 +235,7 @@ Composición, Extracción, Salud, Bandeja, Lector, Destilación) and `maqueta.ht
 (Extracción · Grafo · Compositor · Respuesta) built on `AtomDoc`, `RelationDoc`, `GrupoDoc` and
 report models. Design and status: `docs/surface/PROPUESTA-SUPERFICIE.md`,
 `docs/surface/OPERACIONALIZACION-VISTAS.md`, tasks in `docs/surface/tasks/`. Sibling UIs
-(`tools/graph_ui`, `tools/sldb-ui`, launched together by `tools/kbsurfaces`) are views over the
+(the `graph_ui` and `sldb-ui` repos, launched together by the `kbsurfaces` repo) are views over the
 same server.
 
 ## Tracking This Repo's Docs

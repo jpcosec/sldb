@@ -4,7 +4,7 @@ Estado: **HECHO** · Dificultad: trivial
 Worktree: `/home/jp/proyectos/hum-ecosystem-worktrees/sldb-surface/surface`
 
 ## Qué
-Todo el color vive en `:root` de `src/styles/app.css` como variables
+Todo el color vive en `:root` de `surface/src/styles/app.css` como variables
 (`--paper`, `--sheet`, `--ink`, `--rule`, `--action`). No hay colores sueltos
 en componentes.
 

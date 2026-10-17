@@ -24,7 +24,7 @@ You encounter model refs when registering a model, validating a model directly, 
 
 ## Where It Lives
 
-The string lives in CLI input and in store metadata. The class itself lives in Python code such as `docs/models.py` or `src/myapp/docs.py`.
+The string lives in CLI input and in store metadata. The class itself lives in Python code such as `docs/models.py` or `src/myapp/docs.py`. <!-- gone -->
 
 ## Who Uses It
 

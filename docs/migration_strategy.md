@@ -24,7 +24,7 @@ This document defines the migration slices, candidate packages, and the strategy
 
 ### Slice 4: CLI Decoupling
 - **Objective:** Ensure the CLI is a pure presentation layer.
-- **Action:** Extract the remaining `argparse` definitions in `sldb.cli` into a separate package (`sldb-cli`). The CLI should invoke facade services exposed by `sldb.core` and `sldb.query`, rather than calling `load_store_index()` or dealing with IO directly.
+- **Action:** Extract the remaining `argparse` definitions in `sldb.cli` into a separate package (`sldb-cli`). The CLI should invoke facade services exposed by `sldb.core` and `sldb.query`, rather than calling `load_store_index()` or dealing with IO directly. <!-- gone -->
 
 ## Legacy Handling Strategy
 - Remove deprecated features from the active repository tree.

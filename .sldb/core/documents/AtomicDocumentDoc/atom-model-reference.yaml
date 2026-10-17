@@ -1,7 +1,7 @@
 name: atom-model-reference
 path: docs/atoms/model-reference.atom.md
-source_hash: efa54e38c71d24b98c60f57976829b05d28d89b6911bdffdd6caafb250dd60ed
-content_hash: 479f0c8804f99524c5493ac9d709022379912e6c8d60692f181a58bfa9143055
+source_hash: f5872b73ca57b4ecb9a9d4f7fd8f3790aaf6a1ae09798439a6cdb32867cb1aa2
+content_hash: 06770c64a7b72e91618ff22dd8c334b3e8af9b8fd4913b84e9d19976ac35045d
 field_hashes:
   title: b1efc0822958d5746327989eb23c464091f3f239111f7c6538942f707d96120b
   related_concepts: 3c443b68926e6c043fbe264b3af4b7bb4cbaa0ec279242b0be29e9697a016ec6
@@ -9,7 +9,7 @@ field_hashes:
   why_it_matters: 1ddae3fb370f8dd8ab215cde1566bf4bf3ec939036b2035168abde7bef0968ee
   how_it_works: 601edf844f01aebe059d99c845e634e8cd0f58d019099a316a634f372e70ef3f
   when_it_shows_up: 38784c85be06038d793a66da18566c632ff47cac5829feec48610e7edfd97bed
-  where_it_lives: dd9bdaf13811ccab8cd38ad2b19aaec44a3bf3890d5756d89357e7162f456ae5
+  where_it_lives: 428f086623477d4cee8ff4a4c0ad0877a5e485ab36668dc96ac4557298bf9f14
   who_uses_it: 26703fd70024fab17694c637b3827bef991dbfa6c363b1e09a33beab1438fed3
 semantic_tags:
 - representation.markdown

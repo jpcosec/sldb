@@ -1,11 +1,11 @@
 name: req-knowledge-graph-integration
 path: docs/requests/sldb-knowledge-graph-integration.md
-source_hash: 72781730eea877ed167b895c8b72abe7340f2029f4f3bbdce38b50314d219bf2
-content_hash: d0fcfcf17787db8ff3ee51385a332de56e388f8ab86a22498305b404e375c321
+source_hash: b3aed6513ff972957750f9fbef7808a416842280fff654cab03aaf4b2e7ed122
+content_hash: 15581a215dac9b3386b095caa1f0550d59623b7a13fb466ae49f9e2c2a7fb2e1
 field_hashes:
   frontmatter: 6ee17d79cddb36880c6bc1caa8a3d5cea816ff92ab987fbeaa984d92bf87390d
   title: 11685efa1ab273e12b03476669fcf9796f0bae86e022295afc5e6c54bc792fd0
-  body: db3044b2b914884b69e12195be27bea42b935ddce6b2353c8b1aa354530b37c0
+  body: 6899bcf83a334a292f5244fba9281cdfd90f929f23882c99c5862cb3767c1eca
 semantic_tags:
 - representation.markdown
 - source.document.markdown

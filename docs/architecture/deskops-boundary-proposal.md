@@ -40,7 +40,7 @@ The ecosystem inventory already defines several desk-oriented document models an
 - `DeskSpecDoc`
 - `DeskProfile`
 
-These live under `docs/ecosystem_inventory/models/desk/` in the wider ecosystem checkout and show that the desk surface is already partially implemented as structured documents.
+These live under `docs/ecosystem_inventory/models/desk/` in the wider ecosystem checkout and show that the desk surface is already partially implemented as structured documents. <!-- gone -->
 
 So the real gap is less about inventing desk structures and more about:
 
@@ -52,12 +52,12 @@ So the real gap is less about inventing desk structures and more about:
 ## New Diagrams
 
 - `docs/architecture/spec2viz/current-onboarding-surface.yml`
-- `docs/architecture/spec2viz/proposed-deskops-components.yml`
+- `docs/architecture/spec2viz/proposed-deskops-components.yml` <!-- gone -->
 
 Rendered Mermaid outputs:
 
 - `docs/architecture/spec2viz/rendered/current-onboarding-surface.mmd`
-- `docs/architecture/spec2viz/rendered/proposed-deskops-components.mmd`
+- `docs/architecture/spec2viz/rendered/proposed-deskops-components.mmd` <!-- gone -->
 
 ## Why This Boundary Helps
 

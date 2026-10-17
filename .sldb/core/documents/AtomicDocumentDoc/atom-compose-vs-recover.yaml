@@ -1,7 +1,7 @@
 name: atom-compose-vs-recover
 path: docs/atoms/compose-vs-recover.atom.md
-source_hash: 14d06954489a6f8ffa1a29753026920d6cdc96b5fa49737c6920c6b8d805068b
-content_hash: 485f196a914acc16fee25723dcb61d53cb07b090bef138f98e13a716b5413de1
+source_hash: 0520f3566b16746270d133404cf8d50e2ac0d7e608b2ed38846ffcf9f3577713
+content_hash: b70b8e927dd39c75cb00ab74f9a9bebd68767524cdf5c9b7e026553d2367ce59
 field_hashes:
   title: 384cdd37a2fb13852f100f384d2116c883b08e4935dcd1f71cb41da394332c74
   related_concepts: fc2f5cc236ceddb3c4aa997fd880806cf190c57bf0db894a72431d5cdc31a7fb
@@ -9,7 +9,7 @@ field_hashes:
   why_it_matters: 7e12c55768850eb45546a49ba29f2dc9c69877d86fa44191820bf3009b098102
   how_it_works: 69842bf74a919128d40114104cb39acd46ff4672dc76b69f6485bf6c9c8a6dc1
   when_it_shows_up: 636195c286da49455d3bad3c2a2c41997f2817ab03a359d513ac9972c5651271
-  where_it_lives: f79e90056a823a888680145da87f763c043a0eb53ce851738502f024fa506104
+  where_it_lives: aca50260908be440dc627dab9f132d21122aa08f9822d2961e65235cd9e9d1d9
   who_uses_it: 097fc58e41a48270d49de449b0eb4a2180a2e3e6aa235e8d573ad66024370d35
 semantic_tags:
 - representation.markdown
