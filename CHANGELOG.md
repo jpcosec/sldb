@@ -2,6 +2,15 @@
 
 Version note (2026-09-13, updated 2026-10-17): `pyproject.toml` declares `0.1.10`; it was `0.1.0` while PyPI already had `0.1.1`. Existing entries below are historical development records, not a verified registry release inventory. The product-generation label “v1” is separate from package versioning. No new package version or release is created by this documentation reconciliation.
 
+## Unreleased
+
+- `stores update` re-signs the roster of a model whose class does not import. It used to skip
+  the model whole, so a stale roster (a merge that brought its shards in, say) stayed
+  `roster stale` in `stores check`. Its documents are still not rehashed, it is still reported
+  as skipped, and it keeps the contract it signed.
+- `tools/check_identity.py` reads `git ls-files -z`: a quoted non-ASCII path no longer shows
+  up as a top-level entry named `"docs`.
+
 ## 0.1.10 - 2026-10-17 — references to a relation type reach it; a document by absolute path
 
 - A `__references__` field that points at `RelationTypeDoc:<doc>` now lands on the

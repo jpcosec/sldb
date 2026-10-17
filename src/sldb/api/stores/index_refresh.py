@@ -21,7 +21,8 @@ def _process_models(idx: StoreIndex, root: Path, pypath: str | None, skipped_mod
     """Rehash every model's documents; a model whose class fails to import is recorded as skipped.
 
     The broad catch isolates one broken model module (it may raise anything on import)
-    from the rest of the store, and records it in `skipped_models` for the report.
+    from the rest of the store, and records it in `skipped_models` for the report. Its
+    documents are not rehashed, but its roster still is: see `_queue_roster_only`.
     """
     for m_entry in idx.models:
         try:
@@ -29,6 +30,23 @@ def _process_models(idx: StoreIndex, root: Path, pypath: str | None, skipped_mod
             _process_model(m_entry, mtype, root, skipped_docs, pending, changed)
         except Exception:
             skipped_models.append(m_entry.name)
+            changed.pop(m_entry.name, None)
+            _queue_roster_only(m_entry, root, pending)
+
+
+def _queue_roster_only(m_entry: Any, root: Path, pending: list[tuple[Any, Any, Any, Any]]) -> None:
+    """Queue a skipped model with no class, so the commit re-signs its roster and count.
+
+    Skipping the model whole left a stale roster as `roster stale` in `stores check` for
+    good. The indexes are reloaded, dropping anything a failed pass half changed;
+    `stamp_model_node` with no class keeps the contract the model signed.
+    """
+    try:
+        m_idx = load_models_index(root / m_entry.models_index)
+        d_idx = load_documents_index(root / m_idx.documents_index)
+    except Exception:
+        return
+    pending.append((m_entry, m_idx, d_idx, None))
 
 
 def _process_model(m_entry: Any, mtype: Any, root: Path, skipped_docs: list[str], pending: list[tuple[Any, Any, Any, Any]], changed: dict[str, list[Any]]) -> None:

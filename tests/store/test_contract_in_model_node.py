@@ -232,3 +232,31 @@ def test_store_is_valid_again_after_update(contract_store, tmp_path):
     update_store_indexes(contract_store.store, contract_store.pythonpath)
     report = check_store(contract_store.store, project_root(contract_store.store), contract_store.pythonpath)
     assert report["valid"], report
+
+
+def test_update_restamps_the_roster_of_a_model_that_does_not_import(contract_store, tmp_path):
+    """A model whose class is gone still has a document list, and `stores update` must sign it.
+
+    It used to skip the whole model as broken, so a stale roster (here, written by hand; in the
+    wild, a merge that brought shards in) stayed `roster stale` in `stores check` until someone
+    called `stamp_model_node(..., None)` and `cascade_store_hash` by hand.
+    """
+    from sldb.store.io import save_models_index
+
+    m_entry = load_store_index(contract_store.store).models[0]
+    m_idx = _model_index(contract_store)
+    contract = m_idx.contract_hash
+    m_idx.roster_hash = "0" * len(m_idx.roster_hash)
+    m_idx.model_hash = hash_model_layer(m_idx.roster_hash, m_idx.contract_hash)
+    save_models_index(contract_store.root / m_entry.models_index, m_idx)
+    _write_module(tmp_path, 'raise ImportError("the class is gone")\n')
+    assert check_store(contract_store.store, contract_store.root, contract_store.pythonpath)["roster_only"] == ["NoteDoc"]
+
+    report = update_store_indexes(contract_store.store, contract_store.pythonpath)
+
+    assert report.skipped_models == ["NoteDoc"], "its documents still could not be rehashed"
+    after = check_store(contract_store.store, contract_store.root, contract_store.pythonpath)
+    assert after["roster_only"] == [] and after["valid"]
+    m_idx = _model_index(contract_store)
+    assert m_idx.contract_hash == contract, "an unimportable class keeps the contract it signed"
+    assert m_idx.model_hash == hash_model_layer(m_idx.roster_hash, contract)
