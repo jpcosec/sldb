@@ -84,10 +84,14 @@ def executable_source(path: Path) -> str:
 
 
 def versioned_top_level() -> set[str]:
-    """Lo que está bajo control de versiones, en el primer nivel."""
-    done = subprocess.run(["git", "ls-files"], cwd=ROOT,
-                          capture_output=True, text=True)
-    return {line.split("/")[0] for line in done.stdout.splitlines() if line}
+    """Lo que está bajo control de versiones, en el primer nivel.
+
+    `-z` da las rutas crudas: sin él, `core.quotepath` cita las que tienen caracteres no
+    ASCII (`"docs/...\\303\\251..."`) y el primer componente salía como `"docs`.
+    """
+    done = subprocess.run(["git", "ls-files", "-z"], cwd=ROOT,
+                          capture_output=True, text=True, encoding="utf-8")
+    return {path.split("/")[0] for path in done.stdout.split("\0") if path}
 
 
 def main() -> int:
