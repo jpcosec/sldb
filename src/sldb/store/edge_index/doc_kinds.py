@@ -42,6 +42,8 @@ def _relation(doc: DocumentEntry, p: Payload) -> EdgeContribution:
     """The authored edge, with its own condition; the type's condition, axis and direction are
     another document's and are applied when the index is composed."""
     metadata = {"relation_doc": doc.name, "condition": p.get("condition") or "", "axis": ""}
+    if p.get("attributes"):
+        metadata["attributes"] = dict(p["attributes"])  # an edge without them keeps its old shard
     authored = edge(doc_node_id(p["source_id"]), doc_node_id(p["target_id"]), p["relation_type"], "relation_doc", **metadata)
     return EdgeContribution(edges=[authored])
 

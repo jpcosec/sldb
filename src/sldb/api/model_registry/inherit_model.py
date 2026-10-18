@@ -6,7 +6,7 @@ from pathlib import Path
 
 from sldb.api.journal import record, store_hash
 from sldb.api.model_registry.federated_registration import _do_ensure_federated_model
-from sldb.api.model_registry.model_reference import add_import_roots, resolve_model_ref
+from sldb.api.model_registry.model_reference import add_import_roots, resolve_model_ref, same_model_class
 from sldb.api.model_registry.model_registration import ModelRegistration
 from sldb.api.stores.open_store import open_store
 from sldb.core.exceptions import SLDBModelError, SLDBStoreError
@@ -86,21 +86,22 @@ def _inherit(sp: Path, root: Path, alias: str, theirs):
     if mine.origin == alias:
         return mine
     _refuse_non_copy(mine, theirs)
-    return _convert_copy(sp, root, idx, mine, alias)
+    return _convert_copy(sp, root, idx, mine, alias, theirs)
 
 
 def _refuse_non_copy(mine, theirs) -> None:
     if mine.origin:
         raise SLDBModelError(f"'{mine.name}' already inherits from the store linked as '{mine.origin}'.")
-    if mine.model_ref != theirs.model_ref:
+    if not same_model_class(mine.model_ref, theirs.model_ref):
         raise SLDBModelError(f"'{mine.name}' here is another class ({mine.model_ref}, theirs {theirs.model_ref}): an override. Give it a name of its own that extends theirs, or remove it first.")
 
 
-def _convert_copy(sp: Path, root: Path, idx, mine, alias: str):
-    """The copy keeps its documents, roster and signed contract; only its source path goes."""
-    mine.origin, mine.path = alias, ""
+def _convert_copy(sp: Path, root: Path, idx, mine, alias: str, theirs):
+    """The copy keeps its documents, roster and signed contract; its source path goes, and it
+    names the class with the owner's reference."""
+    mine.origin, mine.path, mine.model_ref = alias, "", theirs.model_ref
     m_idx = load_models_index(root / mine.models_index)
-    m_idx.path = ""
+    m_idx.path, m_idx.model_ref = "", theirs.model_ref
     save_models_index(root / mine.models_index, m_idx)
     save_store_index(sp, idx)
     return mine

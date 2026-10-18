@@ -159,3 +159,15 @@ def test_edges_init_rewrites_an_outdated_builtin_and_leaves_an_authored_namesake
     assert report.types_updated == ["has_model"] and "many_to_many" in has_model.read_text(encoding="utf-8")
     assert init_relations(sp).types_updated == []
     assert check_store(sp, local)["valid"]
+
+
+def test_a_copy_registered_by_a_reexporting_module_is_still_a_copy(stores):
+    """graph_ui registered `deskops.models.atom:AtomDoc`; deskops owns `deskops.models:AtomDoc`,
+    which re-exports the same class. Comparing strings called it an override."""
+    owner, local, sp = stores
+    (owner / "sldb_inherit_reexport.py").write_text(f"from {MODULE} import NoteDoc  # noqa: F401\n", encoding="utf-8")
+    add_model(sp, "sldb_inherit_reexport:NoteDoc", str(owner))
+    assert shadowed_models(sp, lambda a, b: a == b)[0]["copy"] is False
+    inherit_model(sp, "deskops:NoteDoc")
+    assert _entry(sp).origin == "deskops" and _entry(sp).model_ref == f"{MODULE}:NoteDoc"
+    sys.modules.pop("sldb_inherit_reexport", None)

@@ -27,3 +27,11 @@ def graph_get(store, node_id: str, include_linked: bool = True, exclude_tags: It
 def graph_list(store, include_linked: bool = True, exclude_tags: Iterable[str] = ()) -> list[str]:
     """All node ids of the store's edge index, sorted."""
     return sorted(load_edge_index(store, include_linked, exclude_tags).nodes)
+
+
+def query_snapshot(snapshot, query: StructuredQuery) -> list[GraphNode]:
+    """Execute a StructuredQuery over a GraphSnapshot held in memory (e.g. from `snapshot_load`),
+    no store needed; the same matching as `execute_query`."""
+    from sldb.store.graph.convert import index_from_snapshot
+
+    return _execute(index_from_snapshot(snapshot), query)

@@ -73,3 +73,14 @@ def resolve_model_ref(model_ref: str, pythonpath: str | None = None) -> type[Str
     if not isinstance(obj, type) or not issubclass(obj, StructuredNLDoc):
         raise SLDBModelError(f"'{model_ref}' is not a StructuredNLDoc subclass.")
     return obj
+
+
+def same_model_class(ref_a: str, ref_b: str, pythonpath: str | None = None) -> bool:
+    """Whether two references name one class: equal strings, or both import to the same object
+    (`deskops.models.atom:AtomDoc` is `deskops.models:AtomDoc` when the package re-exports it)."""
+    if ref_a == ref_b:
+        return True
+    try:
+        return resolve_model_ref(ref_a, pythonpath) is resolve_model_ref(ref_b, pythonpath)
+    except SLDBModelError:
+        return False

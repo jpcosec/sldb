@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
-from pydantic import Field
+from typing import Any
+
+from pydantic import Field, field_validator
 
 from sldb.models.structured_doc import StructuredNLDoc
 
@@ -29,6 +31,7 @@ source_id: ⸢rev•source_id⸥
 target_id: ⸢rev•target_id⸥
 relation_type: ⸢rev•relation_type⸥
 condition: ⸢rev•condition⸥
+attributes: ⸢rev,dict•attributes⸥
 ---
 
 # ⸢rev•title⸥
@@ -56,3 +59,13 @@ condition: ⸢rev•condition⸥
         default="",
         description="Optional markdown notes about this specific authored edge.",
     )
+    attributes: dict[str, Any] = Field(
+        default_factory=dict,
+        description="Free attributes of this edge (a multiplicity, a role, a transition's action); copied to the index edge's metadata as `attributes`.",
+    )
+
+    @field_validator("attributes", mode="before")
+    @classmethod
+    def _absent_is_empty(cls, value: Any) -> Any:
+        """A RelationDoc written before `attributes` existed has no such key: it has none."""
+        return {} if value is None else value

@@ -17,10 +17,11 @@ def check_store(store_path: Path, project_root: Path, pythonpath: str | None = N
     from sldb.api.model_registry.model_reference import resolve_model_ref
     from sldb.store.diagnostics import diagnose_store
 
+    from sldb.api.model_registry.model_reference import same_model_class
     from sldb.store.model_origin import shadowed_models
 
     diagnosis = diagnose_store(store_path, resolve_model_ref, project_root, pythonpath=pythonpath)
-    return {**check_report(diagnosis, structural_noise(store_path, project_root, pythonpath)), "shadowed_models": shadowed_models(store_path)}
+    return {**check_report(diagnosis, structural_noise(store_path, project_root, pythonpath)), "shadowed_models": shadowed_models(store_path, lambda a, b: same_model_class(a, b, pythonpath))}
 
 
 def check_report(diagnosis: Any, noise: list[dict[str, Any]]) -> dict[str, Any]:

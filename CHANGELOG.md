@@ -4,6 +4,16 @@ Version note (2026-09-13, updated 2026-10-17): `pyproject.toml` declares `0.1.10
 
 ## Unreleased
 
+- `RelationDoc.attributes`: a free dict of the edge's own attributes (a multiplicity, a role, a
+  transition's action), written in the frontmatter and copied to the index edge as
+  `metadata["attributes"]`. A RelationDoc written before has none. Its contract moved: run
+  `sldb stores update` in a store that tracks RelationDoc documents.
+- `sldb.api.StructuredNLDoc`: the base class of models, from the public surface.
+- `sldb.api.graph.query_snapshot(snapshot, query)`: a StructuredQuery over a GraphSnapshot held
+  in memory, no store needed. `sldb.api.graph` also exports `Edge` and `SystemIdentity`.
+- `models inherit` and the `stores check` note tell a copy by its class, not by the reference
+  string: `deskops.models.atom:AtomDoc` is a copy of `deskops.models:AtomDoc` when the package
+  re-exports it. A converted copy takes the owner's `model_ref`.
 - `edges check` over linked stores: one edge that two stores both emit (a shared model's
   `has_field`) counts once for cardinality; `has_model` is many-to-many, since stores share a
   model they inherit; `links_to` is a builtin relation type. `sldb edges init` now also

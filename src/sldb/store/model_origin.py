@@ -58,25 +58,26 @@ def add_owner_import_roots(store_path: Path) -> None:
             sys.path.insert(0, root)
 
 
-def shadowed_models(store_path: Path) -> list[dict[str, Any]]:
+def shadowed_models(store_path: Path, same_class=lambda a, b: a == b) -> list[dict[str, Any]]:
     """Models this store owns under a name a linked store also owns.
 
     The graph has one node per model name, so two classes behind one name merge there. A
-    copy (same `model_ref`) can become inherited; a different class is an override that
+    copy (the same class, compared by `same_class`; by reference string unless the caller can
+    import) can become inherited; a different class is an override that
     should extend the owner's under a name of its own. Reported, never refused; sldb's own
     models are left out.
     """
     idx = load_store_index(store_path)
-    return [found for link in idx.stores for found in _shadowed_by(store_path, idx, link.name)]
+    return [found for link in idx.stores for found in _shadowed_by(store_path, idx, link.name, same_class)]
 
 
-def _shadowed_by(store_path: Path, idx: Any, alias: str) -> list[dict[str, Any]]:
+def _shadowed_by(store_path: Path, idx: Any, alias: str, same_class) -> list[dict[str, Any]]:
     """The models this store owns that the store linked as `alias` owns too."""
     other = linked_store(store_path, alias)
     if other is None:
         return []
     theirs = {m.name: m for m in load_store_index(other).models if not m.origin}
-    return [{"model": m.name, "store": alias, "copy": m.model_ref == theirs[m.name].model_ref} for m in idx.models if not m.origin and m.name in theirs and not _builtin(m)]
+    return [{"model": m.name, "store": alias, "copy": same_class(m.model_ref, theirs[m.name].model_ref)} for m in idx.models if not m.origin and m.name in theirs and not _builtin(m)]
 
 
 def _builtin(entry: Any) -> bool:

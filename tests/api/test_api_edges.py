@@ -68,8 +68,8 @@ class EdgeWorld:
         payload = {"title": name, "name": name, "direction": "directed", "cardinality": "many_to_many", "axis": "WHERE", "source_types": source, "target_types": target, "condition": "", "description": f"{name}."}
         self.create("RelationTypeDoc", f"rt-{name}", {**payload, **extra})
 
-    def relation(self, name: str, src: str, tgt: str, rtype: str, condition: str = "") -> None:
-        self.create("RelationDoc", name, {"title": name, "source_id": src, "target_id": tgt, "relation_type": rtype, "condition": condition, "notes": ""})
+    def relation(self, name: str, src: str, tgt: str, rtype: str, condition: str = "", **extra) -> None:
+        self.create("RelationDoc", name, {"title": name, "source_id": src, "target_id": tgt, "relation_type": rtype, "condition": condition, "notes": "", **extra})
 
 
 @pytest.fixture
@@ -222,3 +222,23 @@ def test_a_wiped_index_reads_as_stale_and_rebuild_brings_it_back(world: EdgeWorl
     assert api.load_edge_index(world.store).stale == ["Table:t14"]
     assert api.rebuild_edges(world.store, world.py).docs_written == 1
     assert api.load_edge_index(world.store).nodes == before.nodes
+
+
+def test_a_relation_carries_free_attributes_to_its_edge(world: EdgeWorld):
+    """spec2viz loses a class relation's multiplicities and roles, a transition's action."""
+    world.create("Booking", "b2", {"title": "Luis", "party_size": 2})
+    world.relation("b2-t14", "Booking:b2", "Table:t14", "assigned_to", attributes={"multiplicity": "1..*", "role": "guest"})
+    edge = next(e for e in api.load_edge_index(world.store).edges_from("sldb://document/Booking:b2", "assigned_to"))
+    assert edge.metadata["attributes"] == {"multiplicity": "1..*", "role": "guest"}
+    plain = next(e for e in api.load_edge_index(world.store).edges_from("sldb://document/Booking:b1", "assigned_to"))
+    assert "attributes" not in plain.metadata, "an edge without attributes keeps its shard"
+
+
+def test_query_snapshot_runs_a_query_without_a_store(world: EdgeWorld, tmp_path: Path):
+    from sldb.api import graph as graph_api
+
+    output = tmp_path / "snap.json"
+    graph_api.snapshot_save(world.store, output, include_linked=False)
+    query = graph_api.StructuredQuery(scope=graph_api.GraphScope(node_id_prefix="sldb://document/Table:"))
+    assert sorted(n.id for n in graph_api.query_snapshot(graph_api.snapshot_load(output), query)) == sorted(n.id for n in graph_api.execute_query(world.store, query, include_linked=False))
+    assert graph_api.Edge and graph_api.SystemIdentity
