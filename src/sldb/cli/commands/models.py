@@ -7,6 +7,7 @@ import yaml
 from sldb.cli.commands.model import ModelCLI
 from sldb.cli.graph_ops import ast_for_target
 from sldb.cli.output_format import emit
+from sldb.cli.commands.models_check import check_models
 from sldb.cli.commands.models_list import ModelsListCLI
 from sldb.cli.commands.models_create import ModelsCreateCLI
 from sldb.cli.commands.models_validate import ModelsValidateCLI
@@ -41,7 +42,7 @@ class ModelsCLI:
         return self._run_subcommand(cmd, args)
 
     def _run_subcommand(self, cmd: str, args: Any) -> int:
-        handlers = {"remove": self._remove, "inherit": self._inherit, "list": self._list_cli.list, "show": self._show, "create": self._create_cli.create, "validate": self._run_validate, "template": self._template_cli.template, "fields": self._fields_cli.fields}
+        handlers = {"remove": self._remove, "inherit": self._inherit, "list": self._list_cli.list, "show": self._show, "create": self._create_cli.create, "validate": self._run_validate, "template": self._template_cli.template, "fields": self._fields_cli.fields, "check": check_models}
         if cmd in handlers:
             return handlers[cmd](args)
         raise SystemExit(f"Unknown models command: {cmd}")

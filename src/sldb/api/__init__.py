@@ -67,6 +67,7 @@ from sldb.api.stores.doc_status import doc_exists, doc_status
 from sldb.api.stores.init_store import init_store
 from sldb.api.stores.link_store import link_store
 from sldb.api.stores.unlink_store import unlink_store
+from sldb.api.model_registry.registration_query import is_model_registered, registered_models
 from sldb.api.stores.linked_store import LinkedStore
 from sldb.api.stores.migrate_hash_names import migrate_store_hash_names
 from sldb.api.stores.open_store import open_store
@@ -123,6 +124,6 @@ __all__ = [
     "serialize_edge_records", "tag_node_id", "track_document_file", "untrack_document",
     "update_store_indexes", "validate_model_draft", "verify_journal",
     "DocRefStatus", "doc_exists", "doc_status", "split_doc_ref", "store_links",
-    "WherePredicateError", "edges_holding", "remove_model", "where_matches", "inherit_model",
+    "WherePredicateError", "edges_holding", "remove_model", "where_matches", "inherit_model", "is_model_registered", "registered_models",
     "StructuredNLDoc", "UnresolvedReference", "unresolved_references",
 ]

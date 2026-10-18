@@ -6,7 +6,7 @@ from .models2 import _add_models_part2
 def add_models_group(s: argparse._SubParsersAction) -> None:
     p = s.add_parser("models", help="Model contracts and generation.")
     sub = p.add_subparsers(dest="models_command", required=True)
-    _add(sub); _update(sub); _remove(sub); _inherit(sub); _list(sub); _show(sub)
+    _add(sub); _update(sub); _remove(sub); _inherit(sub); _list(sub); _show(sub); _check(sub)
     _add_models_part2(sub)
 
 def _add(s):
@@ -46,3 +46,9 @@ def _show(s):
     sh.add_argument("--store", help="Store path")
     sh.add_argument("--pythonpath", help="Project path")
     add_format(sh, default="yaml")
+
+def _check(s):
+    c = s.add_parser("check", help="Report each model as registered or missing; exit 1 if any is missing.")
+    c.add_argument("models", nargs="+", help="Model names or refs (module:Class or module.Class)")
+    c.add_argument("--store", help="Store path")
+    add_format(c)
