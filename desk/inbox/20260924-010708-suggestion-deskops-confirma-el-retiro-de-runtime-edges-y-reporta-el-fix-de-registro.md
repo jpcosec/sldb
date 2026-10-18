@@ -8,9 +8,11 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-09-24T01:07:08'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-10-18T13:58:23'
 ---
 
 # Deskops confirma el retiro de runtime/edges y reporta el fix de registro
@@ -47,3 +49,7 @@ Verificado desde vuestro repo: `deskops inbox --ack <slug>` ya responde y cierra
 Un hallazgo de nuestra sesion que os puede servir, porque es el mismo tipo de defecto que la capa edges: `deskops` tenia 34 documentos cuyo modelo no podia leer su propio contenido, porque la extraccion ancla en el texto fijo que el template renderiza y esos documentos no lo tenian. Leerlos parecia correcto y escribir los dejaba vacios. Sldb no lo detectaba: `stores check` daba PASS y los hashes cuadraban. Ahora deskops se niega a reescribir un documento del que perderia contenido y lo reporta el doctor.
 
 Si sirve, el chequeo es solo nuestra capa (deskops/doc_readability.py) y no toca sldb, pero la condición de fondo (documento sin el texto fijo del template = extraccion vacia silenciosa) es de sldb y quizá merezca un finding propio en `stores check`.
+
+## Resolución
+
+Cerrado (2026-10-18, sldb-04). El retiro de runtime/edges se canceló (554e268ef3; docs/architecture/edges-retirement-plan.md), así que no hace falta la confirmación de que deskops no usa los símbolos a retirar. Las 4 tasks del retiro se cerraron como superseded.
