@@ -4,7 +4,7 @@ system: sldb
 command_path: selfdoc python-scan
 synopsis: Inspect static Python symbols without importing code.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#selfdoc python-scan; contract-sha256:127d055a8194143889cffc8e7304f0b570113b95f51a29b5ae0ae56bba510470
+provenance: parser:sldb.cli.parser:build_parser#selfdoc python-scan; contract-sha256:cfbd9a9cade04cc82a13b49a5c236196d52fa959a87905931014ff7a741e2357
 ---
 
 # selfdoc python-scan
@@ -80,29 +80,16 @@ Not documented.
     },
     {
       "names": [
-        "--kgdb-output"
+        "--graph-output"
       ],
       "required": false,
-      "default": "\".kgdb/python-source.graph.json\"",
+      "default": "\".sldb/runtime/graphs/python-source.graph.json\"",
       "choices": null,
       "nargs": null,
       "value_type": null,
       "action": "argparse._StoreAction",
       "const": "null",
-      "help": "KGDB graph relative to the store root"
-    },
-    {
-      "names": [
-        "--kgdb-command"
-      ],
-      "required": false,
-      "default": "\"kgdb\"",
-      "choices": null,
-      "nargs": null,
-      "value_type": null,
-      "action": "argparse._StoreAction",
-      "const": "null",
-      "help": "KGDB executable used by python-sync"
+      "help": "Source graph (node-link JSON) relative to the store root"
     }
   ],
   "exclusive_groups": []

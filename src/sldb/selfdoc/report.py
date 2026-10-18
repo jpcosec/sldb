@@ -40,10 +40,10 @@ class DocumentationReport(BaseModel):
     removed: list[str] = Field(default_factory=list, description="Retained documents absent from the parser.")
     renamed: list[dict[str, str]] = Field(default_factory=list, description="Unverified rename hints without a uniqueness guarantee.")
     semantic_gaps: int = Field(default=0, description="Symbols whose authored purpose or architecture remains undeclared.")
-    kgdb_stale: list[str] = Field(default_factory=list, description="KGDB source graphs missing or stale against the scanned AST.")
+    graph_stale: list[str] = Field(default_factory=list, description="Source graphs missing or stale against the scanned AST.")
     written: int = Field(default=0, description="Markdown documents written by sync.")
 
     @property
     def ok(self) -> bool:
         """Whether all expected records and indexes are current."""
-        return not any((self.missing, self.changed, self.untracked, self.stale_indexes, self.removed, self.renamed, self.kgdb_stale))
+        return not any((self.missing, self.changed, self.untracked, self.stale_indexes, self.removed, self.renamed, self.graph_stale))

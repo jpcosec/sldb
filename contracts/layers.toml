@@ -533,7 +533,7 @@ why = "el centro de gravedad del sistema: 110 aristas entran desde los ejes de o
 id = "grafo"
 axes = ["grafo"]
 needs = 4
-needed_by = 2
+needed_by = 3
 extractable_today = false
 why = """
 Unidad propia: 33 archivos, 28 de ellos autónomos. Necesita 7 imports de cuatro
@@ -548,7 +548,7 @@ entre el formato del índice de aristas y el del motor. Cortar esa conversión
 [[unit]]
 id = "adaptadores"
 axes = ["adaptadores"]
-needs = 3
+needs = 4
 needed_by = 0
 extractable_today = true
 why = "nadie depende de él; deriva documentos de Python, argparse y click"

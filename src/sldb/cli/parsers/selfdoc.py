@@ -17,6 +17,14 @@ def add_selfdoc_commands(subparsers: argparse._SubParsersAction) -> None:
         _options(commands.add_parser(name, help=help_text), name)
 
 
+class _RemovedKgdbFlag(argparse.Action):
+    """`--kgdb-command` and `--kgdb-output` served an external kgdb; kgdb is part of sldb now."""
+
+    def __call__(self, parser, namespace, values, option_string=None):
+        hint = "use --graph-output" if option_string == "--kgdb-output" else "drop the flag"
+        parser.error(f"{option_string} was removed: kgdb is part of sldb and the source graph is written by sldb itself; {hint}")
+
+
 def _options(parser: argparse.ArgumentParser, command: str) -> None:
     if command.startswith("python-"):
         _python_options(parser)
@@ -33,8 +41,9 @@ def _python_options(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--package", help="Optional package prefix for stable IDs")
     parser.add_argument("--store", help="Store used to anchor source root")
     parser.add_argument("--architecture-spec", help="Explicit spec2viz YAML relative to store root")
-    parser.add_argument("--kgdb-output", default=".kgdb/python-source.graph.json", help="KGDB graph relative to the store root")
-    parser.add_argument("--kgdb-command", default="kgdb", help="KGDB executable used by python-sync")
+    parser.add_argument("--graph-output", default=".sldb/runtime/graphs/python-source.graph.json", help="Source graph (node-link JSON) relative to the store root")
+    parser.add_argument("--kgdb-output", action=_RemovedKgdbFlag, help=argparse.SUPPRESS)
+    parser.add_argument("--kgdb-command", action=_RemovedKgdbFlag, help=argparse.SUPPRESS)
 
 
 def _parser_options(parser: argparse.ArgumentParser) -> None:

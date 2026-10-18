@@ -51,7 +51,7 @@ class SelfdocCLI:
         report = selfdoc_python.python_report(plans, graph, graph_output, store, root, output, args.system)
         if args.selfdoc_command == "python-sync":
             written = selfdoc_python.write_python_plans(plans, records, args, store, root, output, spec)
-            selfdoc_python.write_python_graph(graph, graph_output, args.kgdb_command)
+            selfdoc_python.write_python_graph(graph, graph_output)
             report = selfdoc_python.python_report(plans, graph, graph_output, store, root, output, args.system)
             report.written = written.written
         print(json.dumps({"ok": report.ok, **report.model_dump()}, indent=2)); return report

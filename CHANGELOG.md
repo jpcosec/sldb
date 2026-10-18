@@ -87,6 +87,18 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   or `selfdoc`, and `tests/test_store_seams.py` keeps it so. `describe_field` and the field
   kinds moved to `sldb.models.field_schema` (still importable from `sldb.api.schema`), which
   closes the store → api edge R4 in `contracts/layers.toml`.
+- `selfdoc python-check` and `python-sync` work again: a property with a setter (or an
+  `@overload`) was two symbols with one document id, and both commands failed with "Python
+  symbols collide". A name redefined in its scope is now one symbol.
+- kgdb is part of sldb, and nothing invokes an external `kgdb` any more. `selfdoc python-sync`
+  writes the source graph with sldb's own graph IO instead of running `kgdb ingest` (it failed
+  once the separate package was gone). `--kgdb-command` and `--kgdb-output` were removed and
+  are refused with a clear error; the graph goes to `--graph-output`, by default
+  `.sldb/runtime/graphs/python-source.graph.json` (it was `.kgdb/python-source.graph.json`).
+  `sldb.selfdoc.kgdb_sync` is now `sldb.selfdoc.source_graph_file` (`write_source_graph`), and
+  the selfdoc report's `kgdb_stale` is `graph_stale`. The data contract
+  `sldb_kgdb_semantic_export`, `stores semantic-export --format kgdb` and the HTTP route
+  `/kgdb/snapshot` (graph_ui reads it) keep their names.
 - `stores init` fails cleanly: what a failed init wrote is removed, the message says where it
   failed and what to check (instead of `Unexpected: [Errno 13] ...`), and the exit code tells
   a caller what happened: 0 created or already there, 2 the place refused it (permissions),

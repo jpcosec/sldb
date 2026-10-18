@@ -1,4 +1,4 @@
-"""The graph layer as a library, and its parity with kgdb over the same graph."""
+"""The graph layer as a library: the store's graph, queried and saved."""
 
 from __future__ import annotations
 
@@ -10,11 +10,8 @@ import pytest
 
 from sldb import api
 from sldb.api import graph as graph_api
-from sldb.store.graph import StructuredQuery, execute_query, sldb_semantic_export_to_snapshot
-from sldb.store.graph.convert import index_from_snapshot
+from sldb.store.graph import StructuredQuery, execute_query
 
-FIXTURE = Path(__file__).resolve().parents[2] / "contracts" / "fixtures" / "sldb_kgdb_semantic_export.v1.json"
-QUERY_DIR = Path(__file__).resolve().parents[2] / "contracts" / "queries" / "sldb"
 
 MODULE = "sldb_graph_test_models"
 MODELS = '''from pydantic import Field
@@ -27,27 +24,6 @@ class TaskDoc(StructuredNLDoc):
     title: str = Field(description="Title.")
     body: str = Field(description="Body.")
 '''
-
-
-def test_executor_matches_kgdb_on_the_five_example_queries():
-    """The gate: same ids as kgdb over the same semantic export graph, for all five queries."""
-    networkx = pytest.importorskip("networkx")
-    kgdb_execute = pytest.importorskip("kgdb.query").execute_query
-    kgdb_ingest = pytest.importorskip("kgdb.ingest").sldb_semantic_export_to_snapshot
-    add_knowledge_node = pytest.importorskip("kgdb.graph.utils").add_knowledge_node
-    kgdb_query = pytest.importorskip("kgdb.query.language").StructuredQuery
-
-    payload = json.loads(FIXTURE.read_text(encoding="utf-8"))
-    index = index_from_snapshot(sldb_semantic_export_to_snapshot(payload))
-    graph = networkx.DiGraph()
-    for node in kgdb_ingest(payload).nodes:
-        add_knowledge_node(graph, node)
-
-    for path in sorted(QUERY_DIR.glob("*.json")):
-        data = json.loads(path.read_text(encoding="utf-8"))
-        mine = [n.id for n in execute_query(index, StructuredQuery.model_validate(data))]
-        theirs = [n.identity.node_id for n in kgdb_execute(graph, kgdb_query.model_validate(data))]
-        assert sorted(mine) == sorted(theirs), path.name
 
 
 @pytest.fixture
@@ -70,27 +46,6 @@ def test_graph_reads_the_store_edge_index(world):
     assert node.node_type == "TaskDoc"
     query = StructuredQuery.model_validate({"scope": {"descendant_of": "sldb://model/TaskDoc"}, "filters": [{"facet": "identity", "conditions": [{"field": "node_type", "op": "eq", "value": "TaskDoc"}]}]})
     assert [n.id for n in graph_api.execute_query(store, query)] == ["sldb://document/TaskDoc:task"]
-
-
-def test_store_typed_graph_matches_kgdb(world):
-    """Parity over a real store: the edge index vs kgdb's typed snapshot, same ids."""
-    networkx = pytest.importorskip("networkx")
-    build_typed_snapshot = pytest.importorskip("kgdb.ingest.typed").build_typed_snapshot
-    kgdb_execute = pytest.importorskip("kgdb.query").execute_query
-    add_knowledge_node = pytest.importorskip("kgdb.graph.utils").add_knowledge_node
-    kgdb_query = pytest.importorskip("kgdb.query.language").StructuredQuery
-
-    root, store, py = world
-    api.create_document(store, "TaskDoc", root / "task.md", {"title": "Alpha", "body": "Body"}, "task", py)
-    data = {"scope": {"descendant_of": "sldb://model/TaskDoc"}, "filters": [{"facet": "identity", "conditions": [{"field": "node_type", "op": "eq", "value": "TaskDoc"}]}]}
-
-    mine = [n.id for n in graph_api.execute_query(store, StructuredQuery.model_validate(data), include_linked=False)]
-    snapshot, _ = build_typed_snapshot(store, py)
-    graph = networkx.DiGraph()
-    for node in snapshot.nodes:
-        add_knowledge_node(graph, node)
-    theirs = [n.identity.node_id for n in kgdb_execute(graph, kgdb_query.model_validate(data))]
-    assert sorted(mine) == sorted(theirs)
 
 
 def test_snapshot_round_trip_and_cli(world, tmp_path, capsys):
