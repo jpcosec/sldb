@@ -6,10 +6,10 @@ qualname: StoresCLI
 kind: ClassDef
 source_path: sldb/cli/commands/stores.py
 source_span: 19:83
-source_sha256: 6e04276d84743902688859069adc2a27dae10368badb5271f2e9e5cf389b96ec
+source_sha256: 61ab4411322f8fd9c2756b6fe6cfc257dd1794247b121b1289aab4810995fc1e
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.cli.commands.stores:StoresCLI; contract-sha256:eef1408c09ed50d4c8d21ca6eeb7b86df08d38a490c6764a2fad6c874e0a29a6
+provenance: python-ast:python:sldb.cli.commands.stores:StoresCLI; contract-sha256:5b6ff87a04cc68281f2523f0060defa26170231798327957c9458af409115cad
 ---
 
 # StoresCLI

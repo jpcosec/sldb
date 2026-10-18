@@ -5,11 +5,11 @@ module: sldb.store.graph.ingest_sldb
 qualname: _validate_contract
 kind: FunctionDef
 source_path: sldb/store/graph/ingest_sldb.py
-source_span: '28:31'
-source_sha256: a9791e2807235bb02b58ac98dcacbe302ae07d4c36684a456063e910c91bc7ac
+source_span: '33:36'
+source_sha256: 5c290ba296f44a411efaec78bafb57fa3263b19a960ade02286bd4fde83cd10c
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.store.graph.ingest_sldb:_validate_contract; contract-sha256:740437ee25e7e9a2160496aeeae65df220cdafc35706e3cdf7789f7296ded433
+provenance: python-ast:python:sldb.store.graph.ingest_sldb:_validate_contract; contract-sha256:761584f5d8c6c3fcbd5b5b032c7b8c413a4dfd275a70226e7be656e52b57f7aa
 ---
 
 # _validate_contract

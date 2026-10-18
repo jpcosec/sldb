@@ -6,10 +6,10 @@ qualname: _about_terms
 kind: FunctionDef
 source_path: sldb/store/semantic.py
 source_span: 85:92
-source_sha256: 51c6b9afc86175d457240d8d9da3b5a7591c9439bc7f46489db64c49a1b4cee3
+source_sha256: 2d75ff87dad55e74a774aebc76689fffb1c45b8a725db3179db76b763fd35215
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.store.semantic:_about_terms; contract-sha256:faff200db456493b1885ad65a1f4453797558336d920d86478347341de9a6428
+provenance: python-ast:python:sldb.store.semantic:_about_terms; contract-sha256:40504b450d804d1d4e33230dc7c9b5d43a5ef6f2d1b9e47a1d74b6eb94645ac5
 ---
 
 # _about_terms

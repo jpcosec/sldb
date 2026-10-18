@@ -6,10 +6,10 @@ qualname: ingest_sldb
 kind: FunctionDef
 source_path: sldb/api/graph/snapshot.py
 source_span: '43:45'
-source_sha256: 402d98485e3ade293c0cdd73f867446d89fee1281ec2658a1442f5498bd641d8
+source_sha256: b6e270110f9a653d8829398407f7fb772e5e89185df06dfbc3feb8f6415ca4bd
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.api.graph.snapshot:ingest_sldb; contract-sha256:d6354aaf52a8bb7b79f7f3945db49885ee5e5315373726efddcca53128dac012
+provenance: python-ast:python:sldb.api.graph.snapshot:ingest_sldb; contract-sha256:c321e30bebecf9999993cbdc07ce9b43773de2944bb5a4167d83bfde3986165f
 ---
 
 # ingest_sldb
@@ -20,7 +20,7 @@ ingest_sldb(payload: dict[str, Any])
 
 ## Docstring
 
-Convert an `sldb_kgdb_semantic_export` v1 payload into a GraphSnapshot.
+Convert an `sldb_semantic_export` v1 payload (or one written under its old name) into a GraphSnapshot.
 
 ## Imports
 
@@ -28,7 +28,7 @@ Convert an `sldb_kgdb_semantic_export` v1 payload into a GraphSnapshot.
 
 ## Purpose
 
-Convert an `sldb_kgdb_semantic_export` v1 payload into a GraphSnapshot.
+Convert an `sldb_semantic_export` v1 payload (or one written under its old name) into a GraphSnapshot.
 
 ## Architecture
 

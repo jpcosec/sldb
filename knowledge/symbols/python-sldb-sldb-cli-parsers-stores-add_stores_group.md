@@ -6,10 +6,10 @@ qualname: add_stores_group
 kind: FunctionDef
 source_path: sldb/cli/parsers/stores.py
 source_span: '4:8'
-source_sha256: e8f11549e16801c30db08b41731e56f04808254777f69c5891c4ce366a410439
+source_sha256: 405f406f98c9ce4e28b5fc4d8c70c1e88d7169e818b23166c20178d48aff32ec
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.cli.parsers.stores:add_stores_group; contract-sha256:52ae8b4591f4addd02e20d2e0f287fe06bc57fa7fdeda16aa4161e6cf0110f72
+provenance: python-ast:python:sldb.cli.parsers.stores:add_stores_group; contract-sha256:a85d1a02dfa820cd382f6b5f454f6b45d49aaff232c5d0276418d690636d00b6
 ---
 
 # add_stores_group

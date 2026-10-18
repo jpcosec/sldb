@@ -6,10 +6,10 @@ qualname: _remove
 kind: FunctionDef
 source_path: sldb/cli/parsers/stores.py
 source_span: '22:25'
-source_sha256: e8f11549e16801c30db08b41731e56f04808254777f69c5891c4ce366a410439
+source_sha256: 405f406f98c9ce4e28b5fc4d8c70c1e88d7169e818b23166c20178d48aff32ec
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.cli.parsers.stores:_remove; contract-sha256:13db26de12156d0bef5f9e8b5d2a3403232f25bad5419b36f9603897090f198e
+provenance: python-ast:python:sldb.cli.parsers.stores:_remove; contract-sha256:42536d38fa266ae3dd59eeeda11e94e8baa9adf6462bfc9686176b0307503020
 ---
 
 # _remove

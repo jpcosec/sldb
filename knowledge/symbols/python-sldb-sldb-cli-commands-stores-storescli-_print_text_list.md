@@ -6,11 +6,11 @@ qualname: StoresCLI._print_text_list
 kind: FunctionDef
 source_path: sldb/cli/commands/stores.py
 source_span: 75:83
-source_sha256: 6e04276d84743902688859069adc2a27dae10368badb5271f2e9e5cf389b96ec
+source_sha256: 61ab4411322f8fd9c2756b6fe6cfc257dd1794247b121b1289aab4810995fc1e
 architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.cli.commands.stores:StoresCLI._print_text_list;
-  contract-sha256:c60e4890c747f8c5e337ccf7ac1e2a7d3cbd68040a1d0a63c9f0b82d167de0fe
+  contract-sha256:09029322aa3b2a4c9e71b45af0f0c853f7b509a280d972c9dc872a7b83fad55e
 ---
 
 # StoresCLI._print_text_list

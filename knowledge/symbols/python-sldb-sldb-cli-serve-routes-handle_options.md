@@ -6,10 +6,10 @@ qualname: handle_options
 kind: FunctionDef
 source_path: sldb/cli/serve/routes.py
 source_span: 112:118
-source_sha256: cd894d14825f6f73ae1fdb5186ab699c561a401ab7f8cb04ab74c916ec884743
+source_sha256: c3a4a742e5dad60346b058ff43fce5a58cc3624edc1ac67d1bef636f40e58dcd
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.cli.serve.routes:handle_options; contract-sha256:4a113ca6e71eee44b0352e40d9ace3fe1ec77e6a956cc0ec65dbbd624a4ba0d7
+provenance: python-ast:python:sldb.cli.serve.routes:handle_options; contract-sha256:2166d4d347a9e700fe83b4ac1b525fe30537bcbfa4ea6e4b625797cbd696fe20
 ---
 
 # handle_options

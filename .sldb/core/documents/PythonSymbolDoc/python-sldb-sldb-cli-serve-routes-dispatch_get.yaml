@@ -1,7 +1,7 @@
 name: python-sldb-sldb-cli-serve-routes-dispatch_get
 path: knowledge/symbols/python-sldb-sldb-cli-serve-routes-dispatch_get.md
-source_hash: cbf4e24ff5ea0cf7cd1f6cd3e19e706c3f8ce00d19bc8e5d8fd140631e40772b
-content_hash: 13eddcad487f3c4a289d3126637e7223edceab0f68a20217eabd196aa58656cc
+source_hash: 0663c29e16ad4b22b3a0cf80ee2b8557b2d971c9a1cd1d22919a4d1a50e9b2d0
+content_hash: e5bede6c95e93e0df56303affe2cf33c42e9ba08f7c2a394c5b0b3609262217d
 field_hashes:
   id: 6cf8623343142c9209522820e15b8838779df5af4fb2254caf4824a59f254102
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -10,7 +10,7 @@ field_hashes:
   kind: efc8bf12721ebca0b78886cfac3be3af9d29c6da34d05be1060d1c27006bfeb1
   source_path: 5c13744c5d2491b03f1c4516f5ab6b2875be4c538829a9d057f7502b1e228701
   source_span: b0811cdf9b63f698e267b8fb630966ab2b18a9507d2151446c99b88b5a9fef4e
-  source_sha256: cd90b0c97aa8e7cc2bf6650f3a958d563be8553b671f4f2f5fd3e255f6b4de48
+  source_sha256: 22bd360649e29569257538561416d970e893339f3e47231965b335a643a90ab1
   architecture_spec: 5cd590bfa2ba9d5178c129689491b293135803a05e573e4128be7f612061300c
   signature: b3c8a8ae33ed456ba72496d7c46a996f4e5f8ffdd3afeb4391be350567c728ce
   docstring: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
@@ -18,7 +18,7 @@ field_hashes:
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: fbb21a5d8a55c26775b30252cbc1585cafbe436ba18d611cdaa0c21d4a028e8c
+  provenance: 494253c27856ad287bb19204c1670891902e0fd251cacf797cf0cf81282564f2
 semantic_tags:
 - representation.markdown
 - source.code.python

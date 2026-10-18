@@ -6,10 +6,10 @@ qualname: dispatch_post
 kind: FunctionDef
 source_path: sldb/cli/serve/routes.py
 source_span: 94:109
-source_sha256: cd894d14825f6f73ae1fdb5186ab699c561a401ab7f8cb04ab74c916ec884743
+source_sha256: c3a4a742e5dad60346b058ff43fce5a58cc3624edc1ac67d1bef636f40e58dcd
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.cli.serve.routes:dispatch_post; contract-sha256:8b7696c15f5eeb728ee0f819897383e7a4fdc2ba6da52769b2c9d60f994eb4ca
+provenance: python-ast:python:sldb.cli.serve.routes:dispatch_post; contract-sha256:fc644e10b4aee62fe5df06498dcd0c3a75a89e14d9ba7d110f379f8c5493b530
 ---
 
 # dispatch_post

@@ -6,10 +6,10 @@ qualname: _sync_model_docs
 kind: FunctionDef
 source_path: sldb/store/semantic.py
 source_span: 48:61
-source_sha256: 51c6b9afc86175d457240d8d9da3b5a7591c9439bc7f46489db64c49a1b4cee3
+source_sha256: 2d75ff87dad55e74a774aebc76689fffb1c45b8a725db3179db76b763fd35215
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.store.semantic:_sync_model_docs; contract-sha256:36948bff17eeb1b9424c5af258544459e73258f4ca43dc351af993ff54214eb3
+provenance: python-ast:python:sldb.store.semantic:_sync_model_docs; contract-sha256:625a9a3195860f2f998cbbef3bcd0d1f778ac859f5d125f3c3879bae107e2aaf
 ---
 
 # _sync_model_docs

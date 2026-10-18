@@ -6,10 +6,10 @@ qualname: _missing_doc
 kind: FunctionDef
 source_path: sldb/store/section_sync.py
 source_span: 66:69
-source_sha256: 7e586d1a7df88b4d407b8f0b5e5814800eb4e934bffe4a2d6a158da09d42220e
+source_sha256: 34a5d402dcd44758faba73ddc8862f6ceac89270c742a4e46f87f99ae956794d
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.store.section_sync:_missing_doc; contract-sha256:e2880d78ff93ea521f7ab411d10be2370279acce4fac25e5f82daaa5686dc6b8
+provenance: python-ast:python:sldb.store.section_sync:_missing_doc; contract-sha256:0e5368813b115ebe037dda01c059f2ec6dc9532bdfd6ddec47473a16aa5f7c10
 ---
 
 # _missing_doc

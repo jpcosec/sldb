@@ -6,11 +6,11 @@ qualname: RelationDoc._absent_is_empty
 kind: FunctionDef
 source_path: sldb/models/relation_doc.py
 source_span: 69:71
-source_sha256: 09c8b0358963a32620cf8ff01a7f7e42322dbabe6afaea62d2c15d586d9e49e8
+source_sha256: d5a32d8b5a9343b45ccfd8ff1accc04dc7578d892e753b84047335c74acb13a1
 architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.models.relation_doc:RelationDoc._absent_is_empty;
-  contract-sha256:da0a002f9969deb569e830a75bfc31bc782efab1da85f9e8f99d12fee59ac21a
+  contract-sha256:622daaac22a937dc5f1c61564186953ac79debb37156641a7fe92260f845bace
 ---
 
 # RelationDoc._absent_is_empty

@@ -6,10 +6,10 @@ qualname: process_model_sections
 kind: FunctionDef
 source_path: sldb/store/section_sync.py
 source_span: '22:32'
-source_sha256: 7e586d1a7df88b4d407b8f0b5e5814800eb4e934bffe4a2d6a158da09d42220e
+source_sha256: 34a5d402dcd44758faba73ddc8862f6ceac89270c742a4e46f87f99ae956794d
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.store.section_sync:process_model_sections; contract-sha256:cc6a2c394211a5dbd1bc7acf1728712b8c5db166f4ed0da8c34942f7e8bb497c
+provenance: python-ast:python:sldb.store.section_sync:process_model_sections; contract-sha256:fafc3b42a8a77e30c98cf6ed408c8b6b20e49699207e86dc6f9c19a1270324c2
 ---
 
 # process_model_sections

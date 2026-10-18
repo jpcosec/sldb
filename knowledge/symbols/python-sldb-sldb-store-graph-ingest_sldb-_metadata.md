@@ -5,11 +5,11 @@ module: sldb.store.graph.ingest_sldb
 qualname: _metadata
 kind: FunctionDef
 source_path: sldb/store/graph/ingest_sldb.py
-source_span: 82:83
-source_sha256: a9791e2807235bb02b58ac98dcacbe302ae07d4c36684a456063e910c91bc7ac
+source_span: 87:88
+source_sha256: 5c290ba296f44a411efaec78bafb57fa3263b19a960ade02286bd4fde83cd10c
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.store.graph.ingest_sldb:_metadata; contract-sha256:27777336a2f0ffb155d30ba35052633d2473812f1b37c3fe22f1d6850276a80e
+provenance: python-ast:python:sldb.store.graph.ingest_sldb:_metadata; contract-sha256:8cc2a90aaab6598ded3c3fbb0079d0318fbfeec7f541569af3654f03c60c5f15
 ---
 
 # _metadata

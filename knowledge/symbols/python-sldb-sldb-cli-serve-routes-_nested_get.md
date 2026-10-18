@@ -6,10 +6,10 @@ qualname: _nested_get
 kind: FunctionDef
 source_path: sldb/cli/serve/routes.py
 source_span: 61:76
-source_sha256: cd894d14825f6f73ae1fdb5186ab699c561a401ab7f8cb04ab74c916ec884743
+source_sha256: c3a4a742e5dad60346b058ff43fce5a58cc3624edc1ac67d1bef636f40e58dcd
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.cli.serve.routes:_nested_get; contract-sha256:4f536c163fb0a57cb0665ad49d53443ad1e7fefe61854e9daf4d7954c32ae399
+provenance: python-ast:python:sldb.cli.serve.routes:_nested_get; contract-sha256:d560a2d9fd8f3be2e1feecd4e76b1108063281b88d9263a004b7277c7051b066
 ---
 
 # _nested_get

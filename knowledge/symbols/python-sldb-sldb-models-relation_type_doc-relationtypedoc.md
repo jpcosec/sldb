@@ -6,10 +6,10 @@ qualname: RelationTypeDoc
 kind: ClassDef
 source_path: sldb/models/relation_type_doc.py
 source_span: 12:75
-source_sha256: 473af22f56bae5c6ca75891afe43a8ea3a5d5f99ed9ec72b07e4276319db14d3
+source_sha256: f99ab9c832caebf6816133f6848f77f9a533126f75a07ff8fae52cf9ce734d02
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.models.relation_type_doc:RelationTypeDoc; contract-sha256:515cb8041c25bac892c19586bbef1676483c0033245bb9be974048c480e7b9f9
+provenance: python-ast:python:sldb.models.relation_type_doc:RelationTypeDoc; contract-sha256:d0643e605240da8c5034775bc93277d71696bb62aea4103d812b1da631aa695c
 ---
 
 # RelationTypeDoc

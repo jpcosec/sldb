@@ -1,7 +1,7 @@
 name: python-sldb-sldb-cli-parsers-graph-_add_ingest
 path: knowledge/symbols/python-sldb-sldb-cli-parsers-graph-_add_ingest.md
-source_hash: c2cb01be51d27b5a0f2765f32e4d1fbd4093412d891054b6f6acf7353ad2590d
-content_hash: afafe108f695fe0d6a23839e4d04e061ba6b9d79aecd32fe373620a95332a227
+source_hash: 8cd775a0b1b0db2d82dcc6d46263da9a0435398ee6e9082df2218bb314992afe
+content_hash: eba787123d1d1d5b21d43b437348605ac21806abb17186d5cea830fc96076196
 field_hashes:
   id: 75bf11721cd84dc0347c2e7154026a40eab3816cb1cc54ab881a98377380afd6
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -10,7 +10,7 @@ field_hashes:
   kind: efc8bf12721ebca0b78886cfac3be3af9d29c6da34d05be1060d1c27006bfeb1
   source_path: c36849585dfab492550ee430df1685b3c8d86bae554b6100f048c3c564d76db8
   source_span: 8a3b0720c388fb6bf486fa7c17666b703c3f22b2d9409cafcc5487c09dcb6017
-  source_sha256: e63cd09632ffc6fca851a1958cfb472070d696f8f43e5e3006c2350430097d7c
+  source_sha256: 2f55ca72e515acf6b3b0165d34ef593ecd8adb4d5ba515ad2ff62a75c74f85d7
   architecture_spec: 5cd590bfa2ba9d5178c129689491b293135803a05e573e4128be7f612061300c
   signature: df01e02bf9a45ed4b3ea71b55e16dca1813af2eb82d2d7e854c82503994bb6bd
   docstring: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
@@ -18,7 +18,7 @@ field_hashes:
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 2fcf286d145d7e51fc86dd012ff7455e79877ec9124d229b71aba63194d4dcf1
+  provenance: f70e2b90deae03cee796b2bca199cb1fa537630df05617a9a3904d9d3882493f
 semantic_tags:
 - representation.markdown
 - source.code.python

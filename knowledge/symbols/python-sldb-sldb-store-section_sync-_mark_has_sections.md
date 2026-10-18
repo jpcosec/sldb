@@ -6,10 +6,10 @@ qualname: _mark_has_sections
 kind: FunctionDef
 source_path: sldb/store/section_sync.py
 source_span: '35:38'
-source_sha256: 7e586d1a7df88b4d407b8f0b5e5814800eb4e934bffe4a2d6a158da09d42220e
+source_sha256: 34a5d402dcd44758faba73ddc8862f6ceac89270c742a4e46f87f99ae956794d
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.store.section_sync:_mark_has_sections; contract-sha256:7f97e15ae975212f574a151dde537b3961f3dbd8a97c985362e8449cec277bb8
+provenance: python-ast:python:sldb.store.section_sync:_mark_has_sections; contract-sha256:737db29d82f974539167edfb6adbc7a29a917a772ec61178bcb7b7fdc1447414
 ---
 
 # _mark_has_sections

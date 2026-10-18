@@ -6,10 +6,10 @@ qualname: _utc_now
 kind: FunctionDef
 source_path: sldb/store/export.py
 source_span: 97:98
-source_sha256: 308e0be06700f6b413840f94fb84d8df1eaccde97954944749e339a62cd5dbe7
+source_sha256: fe78991a46bf0d7d5f5f00cda9a2598fbdc212cf89ef327c727174f30cd8a1e0
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.store.export:_utc_now; contract-sha256:1a2a677e28c18605826af48d9bf878f93beb43746cea9b93fb6de43edf75d82a
+provenance: python-ast:python:sldb.store.export:_utc_now; contract-sha256:0fa6247217cc2b5ddacc65a08c13875070f36ffbfecb54555cf3b891fed3937f
 ---
 
 # _utc_now

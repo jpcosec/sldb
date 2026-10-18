@@ -6,10 +6,10 @@ qualname: SemanticExporter.export
 kind: FunctionDef
 source_path: sldb/store/export.py
 source_span: '36:40'
-source_sha256: 308e0be06700f6b413840f94fb84d8df1eaccde97954944749e339a62cd5dbe7
+source_sha256: fe78991a46bf0d7d5f5f00cda9a2598fbdc212cf89ef327c727174f30cd8a1e0
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.store.export:SemanticExporter.export; contract-sha256:9f344dd289d731a90dc8f779d3cb55781b5529ae9df3d422f5a986bad0e3810f
+provenance: python-ast:python:sldb.store.export:SemanticExporter.export; contract-sha256:a59ed293bc52ceaa3a8039ae5620a71601bbad20cbe2bb803f104b23e7308bef
 ---
 
 # SemanticExporter.export

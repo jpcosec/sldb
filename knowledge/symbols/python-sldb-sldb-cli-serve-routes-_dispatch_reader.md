@@ -6,10 +6,10 @@ qualname: _dispatch_reader
 kind: FunctionDef
 source_path: sldb/cli/serve/routes.py
 source_span: 79:88
-source_sha256: cd894d14825f6f73ae1fdb5186ab699c561a401ab7f8cb04ab74c916ec884743
+source_sha256: c3a4a742e5dad60346b058ff43fce5a58cc3624edc1ac67d1bef636f40e58dcd
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.cli.serve.routes:_dispatch_reader; contract-sha256:f72c5cc2540cacf0ab40d6dc3c0f750388ff97f8dbbcfdaa9e04ebd4242d90f0
+provenance: python-ast:python:sldb.cli.serve.routes:_dispatch_reader; contract-sha256:f510a6bc35e3b94f3c9a08fbc82b036d431a8ca78242fb06749076082bfc8a1a
 ---
 
 # _dispatch_reader

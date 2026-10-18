@@ -5,11 +5,11 @@ module: sldb.store.graph.ingest_sldb
 qualname: _sections_of
 kind: FunctionDef
 source_path: sldb/store/graph/ingest_sldb.py
-source_span: 78:79
-source_sha256: a9791e2807235bb02b58ac98dcacbe302ae07d4c36684a456063e910c91bc7ac
+source_span: 83:84
+source_sha256: 5c290ba296f44a411efaec78bafb57fa3263b19a960ade02286bd4fde83cd10c
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.store.graph.ingest_sldb:_sections_of; contract-sha256:5a022332fa8b7ea2bd9b4a00f143a215d9780e55b4ef9f44e237759a96d0eaab
+provenance: python-ast:python:sldb.store.graph.ingest_sldb:_sections_of; contract-sha256:2031043e40c6cc3d7982e03ea3fbc4e12e8665f2014bda62bacdec861d818626
 ---
 
 # _sections_of

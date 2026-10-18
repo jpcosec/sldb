@@ -6,10 +6,10 @@ qualname: snapshot_load
 kind: FunctionDef
 source_path: sldb/api/graph/snapshot.py
 source_span: '38:40'
-source_sha256: 402d98485e3ade293c0cdd73f867446d89fee1281ec2658a1442f5498bd641d8
+source_sha256: b6e270110f9a653d8829398407f7fb772e5e89185df06dfbc3feb8f6415ca4bd
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.api.graph.snapshot:snapshot_load; contract-sha256:20bc6a77bbe8d1fb08b1eec7354d661a3a94d4acef975db0bc19ba7750d8edbd
+provenance: python-ast:python:sldb.api.graph.snapshot:snapshot_load; contract-sha256:374a22aa0df9729a98d9bdecdfc182853f81df18370f93e3f29d0a8cf1918421
 ---
 
 # snapshot_load

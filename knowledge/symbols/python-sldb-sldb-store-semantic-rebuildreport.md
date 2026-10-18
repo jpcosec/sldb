@@ -6,10 +6,10 @@ qualname: RebuildReport
 kind: ClassDef
 source_path: sldb/store/semantic.py
 source_span: '25:31'
-source_sha256: 51c6b9afc86175d457240d8d9da3b5a7591c9439bc7f46489db64c49a1b4cee3
+source_sha256: 2d75ff87dad55e74a774aebc76689fffb1c45b8a725db3179db76b763fd35215
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.store.semantic:RebuildReport; contract-sha256:db05ee778bf1ab86b92ea356bf5fe29ddc21fb7ce52f8c7821feeee87566ee9e
+provenance: python-ast:python:sldb.store.semantic:RebuildReport; contract-sha256:da72613e32dc959725c4c27ef4ac06e6327d3df544e60f2952154ee6724979d9
 ---
 
 # RebuildReport
