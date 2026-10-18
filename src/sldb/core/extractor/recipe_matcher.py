@@ -26,9 +26,19 @@ class RecipeMatcher:
         handler_key = recipe.get("handler", "text")
         current_node = self._find_leaf_text_node(block) if handler_key == "text" else block
         is_anchor = recipe.get("anchor", False)
+        if is_anchor and not self._literal_paragraph_matches(block, recipe): return False, None
         if not current_node: return (True, {}) if is_anchor else (False, None)
         values = self.node_handler.handlers[handler_key].extract_data(current_node, recipe)
         return (True, values) if is_anchor or values else (False, None)
+
+    def _literal_paragraph_matches(self, block: SLDBNode, recipe: dict[str, Any]) -> bool:
+        """A template's literal paragraph (`_Describe the message._`) anchors only a paragraph
+        with that text. Matching any paragraph by position swallowed the first real paragraph
+        of a document that lacked the literal, and every rewrite then deleted it."""
+        if recipe.get("outer_type") != "paragraph" or recipe.get("handler", "text") != "text":
+            return True
+        text = self.node_handler.handlers["text"]
+        return text.matches(text.get_text(block), recipe)
 
     def block_matches_recipe_for_position(self, block: SLDBNode, recipe: dict[str, Any]) -> bool:
         if not self.check_type_and_tag(block, recipe): return False

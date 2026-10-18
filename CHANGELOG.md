@@ -53,6 +53,13 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   `model_ref` when the recorded path is not a file here: a store copied without its models,
   an absolute path from another machine, or an inherited model, whose path is empty and
   failed with `Is a directory`. When neither works, the error names the model and the store.
+- A template's literal paragraph (deskops' `_Describe the incoming message..._`) anchors only a
+  paragraph with that text. A document written without the placeholder had its first real
+  paragraph taken for it and dropped on extract, so any rewrite deleted it (the first
+  paragraph of inbox notes; `why`, `goal` and `done_when` of a task). Documents that lacked
+  the placeholder now extract more: `stores check` reports them as `data_mutation` until
+  `sldb models update <Model>` re-extracts the model (`stores update` trusts a document whose
+  text did not move). Headings still anchor by position.
 
 ## 0.1.12 - 2026-10-18 — declared references resolve bare ids and paths, and report what names nothing
 
