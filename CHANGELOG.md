@@ -1,8 +1,8 @@
 # Changelog
 
-Version note (2026-09-13, updated 2026-10-17): `pyproject.toml` declares `0.1.10`; it was `0.1.0` while PyPI already had `0.1.1`. Existing entries below are historical development records, not a verified registry release inventory. The product-generation label “v1” is separate from package versioning. No new package version or release is created by this documentation reconciliation.
+Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.11`; it was `0.1.0` while PyPI already had `0.1.1`. Existing entries below are historical development records, not a verified registry release inventory. The product-generation label “v1” is separate from package versioning. No new package version or release is created by this documentation reconciliation.
 
-## Unreleased
+## 0.1.11 - 2026-10-18 — models are defined once and inherited; a free `attributes` on relations
 
 - `RelationDoc.attributes`: a free dict of the edge's own attributes (a multiplicity, a role, a
   transition's action), written in the frontmatter and copied to the index edge as
