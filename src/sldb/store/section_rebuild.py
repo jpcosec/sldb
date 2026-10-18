@@ -12,10 +12,20 @@ def _slugify(text: str) -> str:
     slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
     return slug or "section"
 
+_PARSER = None
+
+
+def _parser():
+    """One markdown-it instance for the process: building one per document cost more than parsing it."""
+    global _PARSER
+    if _PARSER is None:
+        from markdown_it import MarkdownIt
+        _PARSER = MarkdownIt("gfm-like")
+    return _PARSER
+
 def _parse_md_nodes(markdown: str):
-    from markdown_it import MarkdownIt
     from markdown_it.tree import SyntaxTreeNode
-    return [{"type": c.type, "tag": c.tag, "content": (c.children[0].content if c.children else c.content) or "", "map": list(c.map) if c.map else None} for c in SyntaxTreeNode(MarkdownIt("gfm-like").parse(markdown)).children]
+    return [{"type": c.type, "tag": c.tag, "content": (c.children[0].content if c.children else c.content) or "", "map": list(c.map) if c.map else None} for c in SyntaxTreeNode(_parser().parse(markdown)).children]
 
 def _build_section(node, stack):
     title = (node.get("content") or "").strip()

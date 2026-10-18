@@ -22,5 +22,15 @@ class MarkdownASTHandler(BaseASTHandler):
             content=node.content,
             map=list(node.map) if node.map else None,
             children=[self._convert(c) for c in node.children],
+            metadata=_token_metadata(node),
             _raw=node,
         )
+
+
+def _token_metadata(node: SyntaxTreeNode) -> dict:
+    """What the token carries beyond its text: a fence's language (`info`), the markup that
+    opened it (`markup`: ``` or ~~~, `-` or `*`) and its attributes; only what is present."""
+    token = node.token or node.nester_tokens.opening if not node.is_root else None
+    found = {"info": getattr(token, "info", ""), "markup": getattr(token, "markup", ""), "attrs": dict(getattr(token, "attrs", None) or {})}
+    return {key: value for key, value in found.items() if value}
+

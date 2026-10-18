@@ -1,4 +1,5 @@
 from __future__ import annotations
+from functools import lru_cache
 from pathlib import Path
 from typing import Any, cast, Literal
 from sldb.core.ast import AST_Handler
@@ -12,7 +13,7 @@ class Validator:
         self.model_type, self.ast_handler, self.template_extractor, self.data_extractor, self.renderer = model_type, AST_Handler(), TemplateExtractor(), DataExtractor(), SLDBRenderer()
 
     def _get_recipes(self) -> list[dict[str, Any]]:
-        return self.template_extractor.extract_nodes(self.ast_handler.split_nodes(self.model_type.__template__))
+        return _recipes(self.model_type.__template__)
 
     def extract(self, markdown: str) -> dict[str, Any]:
         return self.model_type(**self.data_extractor.extract_values(self.ast_handler.split_nodes(markdown), self._get_recipes(), raw_markdown=markdown)).model_dump(mode="json", exclude_none=True)
@@ -49,10 +50,17 @@ class Validator:
 
     def validate(self, markdown: str | None = None, data: dict[str, Any] | None = None, mode: Literal["render_validity", "strict_roundtrip"] = "render_validity") -> tuple[bool, dict[str, Any]]:
         input_data = self._get_input_data(markdown, data)
-        rendered, extracted = self.render(input_data), self.extract(self.render(input_data))
+        rendered = self.render(input_data)
+        extracted = self.extract(rendered)
         is_valid = input_data == extracted if mode == "strict_roundtrip" else self._check_render_validity(input_data, extracted)
         details = {"mode": "input" if markdown is not None else "data", "validation_mode": mode, "model": f"{self.model_type.__module__}:{self.model_type.__name__}", "input_data": input_data, "rendered_markdown": rendered, "extracted_payload": extracted}
         return is_valid, details
+
+@lru_cache(maxsize=512)
+def _recipes(template: str) -> list[dict[str, Any]]:
+    """A template's extraction recipes: the template is stable per model, so it is split once
+    (it used to be re-parsed on every extract and every validate)."""
+    return TemplateExtractor().extract_nodes(AST_Handler().split_nodes(template))
 
 def extract_model_data(m: type[StructuredNLDoc], md: str) -> dict[str, Any]: return Validator(m).extract(md)
 def validate_model_input_roundtrip(m: type[StructuredNLDoc], md: str) -> tuple[bool, dict[str, Any]]: return Validator(m).validate(markdown=md)
