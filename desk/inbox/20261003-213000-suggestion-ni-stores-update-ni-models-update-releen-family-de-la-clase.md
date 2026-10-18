@@ -8,9 +8,11 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-10-03T21:30:00'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-10-18T13:44:56'
 ---
 
 # Ni `stores update` ni `models update` releen `__family__` de la clase
@@ -103,3 +105,7 @@ Ninguno nos convence. Las opciones son:
 
 Preferimos la segunda si confirman que es el camino previsto. Si hay un tercero
 que no vimos, mejor.
+
+## Resolución
+
+Resuelto (2026-10-18, sldb-04). 7280701a94: stamp_model_node (src/sldb/store/model_node.py) relee `__family__` de la clase cada vez que firma el modelo con la clase importada, y la copia a la entrada del store_index; `stores update` y `models update` pasan por ahí. Test: tests/store/test_family_follows_the_class.py. Task: task-releer-family-de-la-clase-en-stores-update-y-models-update.
