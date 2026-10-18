@@ -60,6 +60,20 @@ en vez de reimplementar persistencia+hash+query (repopackage hoy reinventa un
 store pobre sobre YAML crudo). GUARDRAIL: nada de mocks; si una dependencia real
 no está disponible, detenerse y reportar, no parchear.
 
+## Progress
+
+Traído de la rama `iso-lab/sldb` (b731803, 2026-09-01) al borrarla; estado
+re-verificado contra main el 2026-10-18.
+
+- [x] Pieza 1 (spike): inversión store->cli mergeada (ee37525, marcado done en cde9628).
+- [x] Pieza 2 (parcial): Codec protocol + StoreError propios mergeados (49b9d49, promoted
+  9502ad8); `store/runtime_codec.py` inyecta el codec por import local.
+- [ ] Pieza 2 (resto): 9 módulos de `src/sldb/store` aún importan `sldb.core.exceptions`
+  (facade, ops, edge_rebuild, io/lock, semantic_doc_contribution, semantic_parents,
+  query_engine/where_parse, graph/analysis/centrality y order).
+- [ ] `store/hashing.py:102` todavía importa `StructuredNLDoc` (busca las bases del
+  modelo para el contrato).
+
 ## Source
 
 - `desk/inbox/20260828-220321-suggestion-extract-store-to-generic-typed-document-engine.md`
