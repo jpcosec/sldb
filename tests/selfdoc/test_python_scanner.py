@@ -5,7 +5,7 @@ from sldb.cli.selfdoc_inspect import rename_candidates
 from sldb.cli.commands.selfdoc import SelfdocCLI
 from sldb.selfdoc.python_source_graph import source_snapshot
 from sldb.selfdoc.python_source_scan import scan_source_facts
-from sldb.selfdoc.kgdb_sync import graph_is_current
+from sldb.selfdoc.source_graph_file import graph_is_current
 from sldb.selfdoc.python_relation_registry import validate_source_snapshot
 from sldb.models.python_symbol_doc import PythonSymbolDoc
 from sldb.runtime.validation import render_model_markdown
@@ -75,7 +75,7 @@ def test_source_graph_rejects_an_endpoint_outside_registered_relation_types():
         validate_source_snapshot(snapshot, registry)
 
 
-def test_kgdb_graph_check_rejects_missing_or_stale_source_nodes(tmp_path):
+def test_source_graph_check_rejects_missing_or_stale_source_nodes(tmp_path):
     snapshot = {"nodes": [{"identity": {"node_id": "node", "node_type": "python_symbol"}, "source": {"sha256": "a"}, "ast": {"line": 1}}]}
     output = tmp_path / "graph.json"
     assert not graph_is_current(snapshot, output)
@@ -85,3 +85,16 @@ def test_kgdb_graph_check_rejects_missing_or_stale_source_nodes(tmp_path):
     assert graph_is_current(snapshot, output)
     output.write_text('{"nodes": [{"id": "node", "schema": {"source": {"sha256": "a"}, "ast": {"line": 1}}}, {"id": "stale", "schema": {}}]}', encoding="utf-8")
     assert not graph_is_current(snapshot, output)
+
+
+def test_a_property_with_a_setter_is_one_symbol(tmp_path):
+    """`@x.setter` (or `@overload`) rebinds the name: two records for one name collided as one
+    document id, and `selfdoc python-check` failed on `DocumentEntry.hash_c`."""
+    from sldb.selfdoc.python_scanner import PythonScanner
+
+    (tmp_path / "m.py").write_text(
+        "class C:\n    @property\n    def x(self):\n        \"\"\"The x.\"\"\"\n        return 1\n\n    @x.setter\n    def x(self, value):\n        pass\n",
+        encoding="utf-8",
+    )
+    symbols = [s for s in PythonScanner().scan(tmp_path) if s.qualname == "C.x"]
+    assert len(symbols) == 1 and symbols[0].docstring == "The x." and symbols[0].line_end == 9

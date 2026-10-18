@@ -35,7 +35,7 @@ class PythonScanner:
             if isinstance(node, (ast.ClassDef, ast.FunctionDef, ast.AsyncFunctionDef)):
                 records.append(self._symbol(node, path, root, module, digest, imports, parents))
                 records.extend(self._walk(node.body, path, root, module, digest, imports, [*parents, node.name]))
-        return records
+        return _one_per_name(records)
 
     def _symbol(self, node, path, root, module, digest, imports, parents) -> PythonSymbol:
         qualname = ".".join([*parents, node.name])
@@ -53,3 +53,16 @@ class PythonScanner:
     def _import_name(self, node) -> str:
         if isinstance(node, ast.Import): return ",".join(alias.name for alias in node.names)
         return f"{'.' * node.level}{node.module or ''}"
+
+
+def _one_per_name(records: list[PythonSymbol]) -> list[PythonSymbol]:
+    """One symbol per name bound in a scope: a property's setter (`@x.setter`) or an
+    `@overload` redefines the name, and two records for one name collided as one document id
+    (`selfdoc python-check` failed on `DocumentEntry.hash_c`). The first definition, which
+    carries the docstring, stands for the name and spans to the last."""
+    first: dict[str, PythonSymbol] = {}
+    for record in records:
+        kept = first.setdefault(record.qualname, record)
+        if kept is not record:
+            first[record.qualname] = kept.model_copy(update={"line_end": max(kept.line_end or 0, record.line_end or 0)})
+    return list(first.values())
