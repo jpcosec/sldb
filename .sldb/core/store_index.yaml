@@ -318,6 +318,15 @@ models:
   family: null
   semantics: []
   origin: deskops
+- name: DeskFAQDoc
+  model_ref: deskops.models:DeskFAQDoc
+  path: ''
+  models_index: .sldb/core/models/DeskFAQDoc.yaml
+  version: 1
+  canonical: false
+  family: null
+  semantics: []
+  origin: deskops
 predicates:
 - name: has_model
   axis: WHAT
@@ -374,4 +383,4 @@ predicates:
   axis: WHERE
   description: 'The store links that store under an alias (`stores add`): it reads
     its documents and inherits its models.'
-store_hash: 7307ffb39bd8b6456b28e3932328595db9d4eafa76c6ff831c372fb31526b3c0
+store_hash: e41b21f9b93e38cb6a512e7c59a65561cabacb62594661fbc574d55e0ddf04a8
