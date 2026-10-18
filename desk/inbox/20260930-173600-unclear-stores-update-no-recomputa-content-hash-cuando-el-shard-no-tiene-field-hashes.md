@@ -8,9 +8,11 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-09-30T17:36:00'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-10-18T13:10:55'
 ---
 
 # stores update no recomputa content_hash cuando el shard no tiene field_hashes
@@ -34,3 +36,7 @@ Reparando 37 desks del ecosistema aparecieron dos fallas de sldb que bloquean la
    FileNotFoundError: No store_index.yaml. El migrador muere antes de migrar.
    Repro: hum-ecosystem-worktrees/pm-surface, sldb-ui, hum-ecosystem/hum-core.
    Esos tres stores quedaron sin tocar esperando esta decision.
+
+## Resolución
+
+Resuelto (2026-10-18, sldb-04). a4d63253 'fix(store): recomputar content_hash rancio y migrar stores con layout legacy': `stores update` recalcula un content_hash que no tiene field_hashes en vez de respetarlo, y `migration.py` llama a `relocate_legacy_layout` antes de `load_store_index`.

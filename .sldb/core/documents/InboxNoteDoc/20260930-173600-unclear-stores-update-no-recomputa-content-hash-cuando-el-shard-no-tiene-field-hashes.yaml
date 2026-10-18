@@ -1,0 +1,19 @@
+name: 20260930-173600-unclear-stores-update-no-recomputa-content-hash-cuando-el-shard-no-tiene-field-hashes
+path: desk/inbox/20260930-173600-unclear-stores-update-no-recomputa-content-hash-cuando-el-shard-no-tiene-field-hashes.md
+source_hash: c176466b7a2e7d18048e80fc45dc66627b759a84b1b36a581ca534659eac8e61
+content_hash: e528190f8e549a0b7d834b2b86d2fbd483432e207296c2dd187c8d9c82d37e6c
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 16fae6a4d2534787a36d65155210ca400f0ab0a1fd33575ce68a465d13811c31
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: cf267d76e00f22901ffe91047928c333e4ad6fa003d3431dcbeeb59b0e91407b
+  title: 3c441199a12755687bb6833f6b51569e0ca93de4ef13f9ed8fbe8ed1d425c085
+  body: c41c3c76790faec863123afbfc3a9d4b79dc7dc571d9717602e5af87d6ea0d6c
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
