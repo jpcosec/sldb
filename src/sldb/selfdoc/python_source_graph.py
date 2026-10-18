@@ -4,6 +4,7 @@ from __future__ import annotations
 from datetime import datetime, timezone
 
 from .python_source_values import relative_module
+from .python_tag_inheritance import apply_effective_tags
 
 
 def source_snapshot(files: list[dict], system: str) -> dict:
@@ -12,6 +13,7 @@ def source_snapshot(files: list[dict], system: str) -> dict:
     modules = {file["module"]: file["id"] for file in files}
     nodes = {file["id"]: _module_node(file, system) for file in files}
     nodes.update({symbol["id"]: _symbol_node(file, symbol, system) for file in files for symbol in file["symbols"]})
+    apply_effective_tags(files, nodes)
     for file in files:
         _edges(file, nodes, modules, symbols)
     return {"version": "1.0", "created_at": _now(), "nodes": list(nodes.values()), "metadata": _metadata(files, system)}

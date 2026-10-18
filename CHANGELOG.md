@@ -105,6 +105,12 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   deduplicated). Malformed metadata and an id declared twice are reported as `path:line:
   problem` in the selfdoc report's `metadata_errors`, and `selfdoc python-sync` writes nothing
   while any remain; they were silently ignored and the declaration lost its identity.
+- The source graph gives every module and symbol node its `local_tags` and `effective_tags`,
+  inherited along the lexical chain package -> module -> class/function -> nested declaration
+  within the scan (spec section 3): `system:*` and `workspace:*` from the nearest declaration,
+  `topic:*` as a union, any other tag local only; nothing through imports, base classes or
+  siblings. Each effective tag names the declaration and `path:line` it comes from. Two
+  `system:` (or `workspace:`) tags on one declaration are a metadata error.
 - `stores init` fails cleanly: what a failed init wrote is removed, the message says where it
   failed and what to check (instead of `Unexpected: [Errno 13] ...`), and the exit code tells
   a caller what happened: 0 created or already there, 2 the place refused it (permissions),

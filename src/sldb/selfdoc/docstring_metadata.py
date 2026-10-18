@@ -59,6 +59,7 @@ def _validated(loaded: dict) -> tuple[dict, list[str]]:
     if "kind" in loaded and (not isinstance(loaded["kind"], str) or not loaded["kind"].strip()):
         errors.append("metadata 'kind' must be a nonempty string")
     tags, tag_errors = _tags(loaded.get("tags", []))
+    tag_errors += _one_per_nearest_namespace(tags)
     values = {key: loaded[key] for key in ("id", "kind") if key in loaded} | {"tags": tags}
     return values, errors + tag_errors
 
@@ -68,3 +69,11 @@ def _tags(raw) -> tuple[list[str], list[str]]:
         return [], ["metadata 'tags' must be a list"]
     bad = [str(t) for t in raw if not isinstance(t, str) or not _TAG.match(t)]
     return list(dict.fromkeys(t for t in raw if isinstance(t, str) and _TAG.match(t))), [f"tag '{t}' is not namespace:value" for t in bad]
+
+
+def _one_per_nearest_namespace(tags: list[str]) -> list[str]:
+    """`system:*` and `workspace:*` are inherited by nearest declaration: two local values in
+    one of them would have no nearest value (spec section 3)."""
+    return [f"more than one '{space}:' tag: {', '.join(t for t in tags if t.startswith(space + ':'))}"
+            for space in ("system", "workspace") if sum(t.startswith(space + ":") for t in tags) > 1]
+
