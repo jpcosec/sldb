@@ -1,0 +1,33 @@
+name: task-stores-check-escala-mal-con-el-inventario-de-símbolos-python
+path: desk/tasks/task-stores-check-escala-mal-con-el-inventario-de-símbolos-python.md
+source_hash: c80769bddf72d739c7618d8d490d7f3ba59d0ecbe2879162b9f23239e7cea7fc
+content_hash: bd671252eb9d5614176aa06e4363ffcf50de5459709d235f2c6c828689988773
+field_hashes:
+  title: 11115c0bc0aa6e771f9942ebe4ebeaf936e91cc685aebda003b1e5efe86248c8
+  id: 0f371945f5d564bee1a7f67e3b7abd79123c8958f4378ae03b77c7a4e1b3943c
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 479c1b0ea8ab18c81448844fd4a1096b0898e0f6f8e513a3dbd04cb98d72d64c
+  goal: 6730234520767d5cfbe57df991af30f7630647f3b53c84c20daf1ea7d35a2e95
+  scope: 86f3324b7424b41ebef2724035e05fed0c2a47e57cea7fcce3f463c233a17ae8
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  implementation_path: 68a3ca22a031afe3fe570d7290caa1bbf788c90ace7536b5dfb187c046f1746f
+  validation: 55a243172860277782cf67f7d9bee986fa58133b6c8fa8a58e301e4604a9efad
+  done_when: 3f48d4f3ca2062c7e111665bcefdb8cd664b8acbbe4e89cf53cd19ed9beb7696
+  task_type: 2ad47ffa2c44e63f601770d25d4ca879bf9edef3a1ead64bcf60f905f33496f0
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- artifact:task
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
