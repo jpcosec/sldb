@@ -409,3 +409,6 @@ Task-Id: task-tighten-semantic-export-provenance-contract
 2026-10-18 13:33:41,804 - deskops - INFO - Advanced task task-un-modelo-que-no-importa-no-tumba-el-ast-del-store to node ritual-testing
 2026-10-18 13:33:49,852 - deskops - INFO - Advanced task task-un-modelo-que-no-importa-no-tumba-el-ast-del-store to node ritual-closeout
 2026-10-18 13:33:59,382 - deskops - INFO - Task task-un-modelo-que-no-importa-no-tumba-el-ast-del-store reached the closure gate; deferring to closeout commit.
+2026-10-18 13:34:24,981 - deskops - INFO - Advanced task task-la-fuente-de-un-modelo-se-encuentra-por-model-ref-si-el-path-guardado-no-sirve to node ritual-testing
+2026-10-18 13:34:33,274 - deskops - INFO - Advanced task task-la-fuente-de-un-modelo-se-encuentra-por-model-ref-si-el-path-guardado-no-sirve to node ritual-closeout
+2026-10-18 13:34:42,476 - deskops - INFO - Task task-la-fuente-de-un-modelo-se-encuentra-por-model-ref-si-el-path-guardado-no-sirve reached the closure gate; deferring to closeout commit.
