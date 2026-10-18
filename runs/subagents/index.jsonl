@@ -8,3 +8,7 @@
 {"task_id": "task-stores-check-verifica-el-split-core-runtime-en-gitignore", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "ad9fd4f5c6f943f64b87d3fcf72246ae5853197a"}
 {"task_id": "task-un-modelo-que-no-importa-no-tumba-el-ast-del-store", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "8c71b3265d71b5f4e2678fdba04943ff227ca7fc"}
 {"task_id": "task-la-fuente-de-un-modelo-se-encuentra-por-model-ref-si-el-path-guardado-no-sirve", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "7d41de5b06e29154854cbe291e4bdf11afa8d710"}
+{"task_id": "task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "422873b0edf8efea0b4521904a6e4735bf0d6848"}
+{"task_id": "task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "4c6c143347ee81a59ff0c141fe868e1a15d5f6c9"}
+{"task_id": "task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "b8ff5f0af24cc363c42f3919db80b08775fa27ed"}
+{"task_id": "task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "e54bc0724ef88df67e3cc41fa082628eb8d8a173"}
