@@ -26,6 +26,18 @@ history:
   Siguiente: el resto del handoff (parsear la metadata de los docstrings y validar
   su frontmatter, herencia de tags, re-exports y shadowing, tipos de relación registrados,
   proyección a spec2viz, federación de símbolos).'
+- '2026-10-18 tandas A, B y C (sldb-04). A, c815d18c: la metadata de los docstrings
+  se lee estricta y los errores y los ids duplicados salen como path:line en metadata_errors;
+  python-sync no escribe nada mientras haya alguno. B, 23ed7359: herencia léxica de
+  tags (system/workspace del más cercano, topic como unión, el resto local) con su
+  origen en el grafo; el piloto del spec da su tabla. C, 774f3d4f: los imports siguen
+  las cadenas de re-export hasta la definición (490 en sldb, con via), y se corrige
+  el import relativo en un __init__. El inventario quedó al día en 70d64121.'
+- '2026-10-18 tanda D (sldb-04): la proyección a spec2viz la implementa spec2viz en
+  from-graph (label desde ast.name o ast.module, kind desde semantics.kind o la clase
+  AST, --module-prefix sin nodos ni aristas colgando, relaciones tal cual), según
+  la nota en su desk. La validación es ''spec2viz diagram validate''. Pendiente: confirmar
+  con su commit que la salida valida.'
 references:
 - docs/documentation-review.md
 - docs/architecture/code-docstring-indexing.spec.md
