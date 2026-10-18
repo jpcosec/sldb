@@ -16,6 +16,16 @@ history:
   está desactualizado (1502 símbolos faltan, 980 cambiaron, 299 sobran); un python-sync
   lo pone al día. La migración de ids sldb.sldb.* a sldb.* queda como tanda propia,
   porque cambia todas las identidades generadas.'
+- '2026-10-18 tanda 2 (sldb-04): inventario de símbolos al día con python-sync (4d1126b2):
+  2482 símbolos, 1502 nuevos, 980 actualizados y 299 obsoletos quitados, ninguno con
+  contenido escrito a mano. stores check pasó de 25 s a 43 s y quedó como task-stores-check-escala-mal-con-el-inventario-de-símbolos-python
+  (1bd2cfc2).'
+- '2026-10-18 tanda 3 (sldb-04): migración de ids sldb.sldb.* a sldb.* en un commit
+  propio (97c98036): git mv de los 2482 documentos, prune de los nombres viejos y
+  python-sync sin --package. python-check en ok y ningún id ni nodo con sldb.sldb.
+  Siguiente: el resto del handoff (parsear la metadata de los docstrings y validar
+  su frontmatter, herencia de tags, re-exports y shadowing, tipos de relación registrados,
+  proyección a spec2viz, federación de símbolos).'
 references:
 - docs/documentation-review.md
 - docs/architecture/code-docstring-indexing.spec.md
