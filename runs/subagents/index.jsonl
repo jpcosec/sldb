@@ -6,3 +6,4 @@
 {"task_id": "task-releer-family-de-la-clase-en-stores-update-y-models-update", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "29990606c097cd85e697c7b4b2edc124a2d19a49"}
 {"task_id": "task-consultar-qu\u00e9-modelos-registra-un-store", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "80280743281f99240aa79fa7e476d7de6826c55d"}
 {"task_id": "task-stores-check-verifica-el-split-core-runtime-en-gitignore", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "ad9fd4f5c6f943f64b87d3fcf72246ae5853197a"}
+{"task_id": "task-un-modelo-que-no-importa-no-tumba-el-ast-del-store", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "8c71b3265d71b5f4e2678fdba04943ff227ca7fc"}
