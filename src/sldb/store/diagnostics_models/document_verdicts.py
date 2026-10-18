@@ -42,3 +42,12 @@ REMEDIES = {
 
 # Verdicts a command must not paper over: a human decides before anything runs.
 NEEDS_DECISION = (DiagnosisNote.DATA_MUTATION, DiagnosisNote.MISSING)
+
+# A data mutation over untouched text, under an unchanged contract: the file is what it was and
+# so is the model; what reads it changed (an sldb upgrade that extracts more). `stores update`
+# trusts unchanged text, so it never re-reads it; `models update` does.
+REREAD_EXPLANATION = (
+    "fields differ but neither the text on disk nor the model's contract moved: what extracts "
+    "it changed (an sldb upgrade) — `sldb models update <Model>` re-extracts the model's documents"
+)
+REREAD_REMEDY = "safe to run: sldb models update <Model>   (stores update trusts text that did not move)"

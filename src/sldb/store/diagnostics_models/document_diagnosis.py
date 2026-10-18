@@ -1,7 +1,7 @@
 from __future__ import annotations
 from dataclasses import dataclass, field
 from sldb.store.diagnostics_models.diagnosis_note import DiagnosisNote
-from sldb.store.diagnostics_models.document_verdicts import EXPLANATIONS, NEEDS_DECISION, REMEDIES
+from sldb.store.diagnostics_models.document_verdicts import EXPLANATIONS, NEEDS_DECISION, REMEDIES, REREAD_EXPLANATION, REREAD_REMEDY
 
 
 
@@ -79,7 +79,7 @@ class DocumentDiagnosis:
         """One line saying what is wrong and what to do about it."""
         if self.note is DiagnosisNote.MISSING:
             return f"missing: tracked at {self.path}, not on disk"
-        base = EXPLANATIONS[self.note]
+        base = REREAD_EXPLANATION if self._reread else EXPLANATIONS[self.note]
         return f"{base} [fields: {', '.join(self.changed_fields)}]" if self.changed_fields else base
 
     @property
@@ -89,7 +89,12 @@ class DocumentDiagnosis:
         A field value that changed, or a document that vanished, is not something a command
         should paper over: the index is the only record of what the value used to be.
         """
-        return self.note in NEEDS_DECISION
+        return self.note in NEEDS_DECISION and not self._reread
+
+    @property
+    def _reread(self) -> bool:
+        """A data mutation over untouched text: sldb reads the same file differently now."""
+        return self.note is DiagnosisNote.DATA_MUTATION and self.content_ok
 
     def inspect(self) -> str:
         """What to open to judge this finding — the document, or the model that reinterpreted it."""
@@ -97,4 +102,4 @@ class DocumentDiagnosis:
 
     def remedy(self) -> str:
         """The command that resolves this finding, or what to decide when none does."""
-        return REMEDIES[self.note]
+        return REREAD_REMEDY if self._reread else REMEDIES[self.note]

@@ -72,6 +72,10 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   regenerated and not counted. `check_store` returns it as `rewrite_loss`.
 - `stores check --quiet` prints the PASS/FAIL line alone, as documented: it printed the
   per-document notes too, and now also skips the scans behind them.
+- A `data_mutation` over text that did not move (and an unchanged contract) is explained as
+  what it is, sldb reading the same file differently after an upgrade, and points to
+  `sldb models update <Model>`: `stores check` said `stores update` would accept it, but
+  `stores update` trusts unchanged text and did nothing. It no longer asks for a decision.
 - `stores init` fails cleanly: what a failed init wrote is removed, the message says where it
   failed and what to check (instead of `Unexpected: [Errno 13] ...`), and the exit code tells
   a caller what happened: 0 created or already there, 2 the place refused it (permissions),
