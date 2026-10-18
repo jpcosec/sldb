@@ -26,31 +26,37 @@ def process_model_edges(m_entry, root: Path, report: EdgeRebuildReport, store_pa
     compares every document's shard whatever the caches say."""
     m_idx = load_models_index(root / m_entry.models_index)
     key, model_shard = edge_cache_key(m_idx), edges_model_shard_path(store_path, m_entry.name)
-    wiped = full or not model_shard.exists()  # no shards to trust: neither the cache key nor the dirty set
+    wiped = full or _untrusted(store_path, m_entry.name, m_idx.contract_hash, model_shard)
     if not wiped and built_cache.get(store_path, "edges_shards", m_entry.name, key) is not None:
         return
     report.models_walked += 1
     resolved = model_type()
     save_edges_shard(model_shard, build_model_edges(m_idx, resolved).model_copy(update={"edges_version": edge_shard_version()}))
-    _sync_model_docs(store_path, m_entry, root, report, lambda doc: build_doc_edges(m_entry, resolved, doc), wiped)
-    built_cache.put(store_path, "edges_shards", m_entry.name, key, True)
+    _sync_model_docs(store_path, m_entry, root, report, lambda doc: build_doc_edges(m_entry, resolved, doc), wiped, m_idx.contract_hash)
+    built_cache.put(store_path, "edges_shards", m_entry.name, key, m_idx.contract_hash)
 
 
-def _sync_model_docs(store_path: Path, m_entry, root: Path, report: EdgeRebuildReport, build_one, every: bool) -> None:
+def _untrusted(store_path: Path, model: str, contract: str, model_shard: Path) -> bool:
+    """No shards to trust (neither the cache key nor the dirty set): none were written, or they
+    were under another contract, which moves every document's edges without moving its hashes."""
+    return not model_shard.exists() or built_cache.get_stale(store_path, "edges_shards", model) != contract
+
+
+def _sync_model_docs(store_path: Path, m_entry, root: Path, report: EdgeRebuildReport, build_one, every: bool, contract: str = "") -> None:
     """PLAN 15 capa 8, as sections does it: every document's file is cheaply checked to exist,
     but only one in the dirty set (or every one, with no trustworthy baseline) has its shard
     opened and compared."""
     entries = documents_hash.entries_of(store_path, m_entry.name)
     dirty = None if every else documents_hash.dirty_names(store_path, m_entry.name, "edges")
-    current = {doc.name for doc in entries if _sync_one(store_path, doc, m_entry, root, report, build_one, dirty is None or doc.name in dirty)}
+    current = {doc.name for doc in entries if _sync_one(store_path, doc, m_entry, root, report, build_one, dirty is None or doc.name in dirty, contract)}
     prune_shards(edges_shards_dir(store_path, m_entry.name), current)
     documents_hash.clear_dirty(store_path, m_entry.name, "edges")
 
 
-def _sync_one(store_path: Path, doc, m_entry, root: Path, report: EdgeRebuildReport, build_one, do_sync: bool) -> bool:
+def _sync_one(store_path: Path, doc, m_entry, root: Path, report: EdgeRebuildReport, build_one, do_sync: bool, contract: str) -> bool:
     if not (root / doc.path).exists():
         report.docs_skipped_missing += 1
         return False
     if do_sync:
-        sync_doc_shard(store_path, doc, m_entry, report, build_one)
+        sync_doc_shard(store_path, doc, m_entry, report, build_one, contract)
     return True

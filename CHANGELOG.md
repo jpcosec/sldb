@@ -8,6 +8,11 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   were parsed (and listed by `sldb doc --help`) but had no handler, so `sldb doc untrack`
   answered `Unknown command: doc`. The plural groups (`stores`, `models`, `docs`) remain the
   documented spelling.
+- A change to a model's contract now rebuilds the edges of its documents. Adding
+  `__reference_models__` to a model and running `stores update` used to reuse every document's
+  edges shard (its hashes had not moved), so the new references never reached the index and
+  `edges rebuild` walked nothing until the shards were deleted by hand. Each shard now records
+  the contract it was built under; the first rebuild after upgrading rewrites every shard once.
 
 ## 0.1.12 - 2026-10-18 — declared references resolve bare ids and paths, and report what names nothing
 
