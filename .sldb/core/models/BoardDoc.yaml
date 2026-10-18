@@ -1,11 +1,11 @@
 name: BoardDoc
 model_ref: deskops.models:BoardDoc
-path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/board.py
+path: ''
 documents_index: .sldb/core/documents/BoardDoc.yaml
 sections_index: .sldb/runtime/sections/BoardDoc.yaml
-model_hash: d649fbe9229695d021d3e6c1468ea03dcee5f00fad0dd7b3edff8186ff4c5e21
-roster_hash: f19570e3bb0453b7b2fbe07fb84164e4f11dd6231cec114269864faf265dd6cf
-contract_hash: e641c6fbc76169038741087ca2bfb23e0fcf87e2d98a6ad4973ea85a4ea9b4b8
+model_hash: d207dcae4c649bfa42a94b4bea1521fb73ed00bd37f8c0257922e450fc9d5b9a
+roster_hash: 390dc90362ab231b052e1a0c4f270e47153a89292c1991cbd45c28bb892856af
+contract_hash: efc79456a8b75fb3ece9476ec5c84df977f7ab5a4491a40cfcb1398a12f085cc
 documents_count: 2
 version: 1
 canonical: false

@@ -1,4 +1,6 @@
-stores: []
+stores:
+- name: deskops
+  path: ../deskops/.sldb
 models:
 - name: ArchitectureDoc
   model_ref: docs.models:ArchitectureDoc
@@ -90,36 +92,40 @@ models:
   semantics: []
 - name: InboxNoteDoc
   model_ref: deskops.models:InboxNoteDoc
-  path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/inbox.py
+  path: ''
   models_index: .sldb/core/models/InboxNoteDoc.yaml
   version: 1
   canonical: false
   family: null
   semantics: []
+  origin: deskops
 - name: TaskDoc
   model_ref: deskops.models:TaskDoc
-  path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/task.py
+  path: ''
   models_index: .sldb/core/models/TaskDoc.yaml
   version: 1
   canonical: false
   family: null
   semantics: []
+  origin: deskops
 - name: BoardDoc
   model_ref: deskops.models:BoardDoc
-  path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/board.py
+  path: ''
   models_index: .sldb/core/models/BoardDoc.yaml
   version: 1
   canonical: false
   family: null
   semantics: []
+  origin: deskops
 - name: PillDoc
   model_ref: deskops.models:PillDoc
-  path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/pill.py
+  path: ''
   models_index: .sldb/core/models/PillDoc.yaml
   version: 1
   canonical: false
   family: null
   semantics: []
+  origin: deskops
 - name: EdgeDoc
   model_ref: deskops.models:EdgeDoc
   path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/edge.py
@@ -236,7 +242,7 @@ models:
   - workspace.knowledge.ledger
 - name: AtomDoc
   model_ref: deskops.models:AtomDoc
-  path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/atom.py
+  path: ''
   models_index: .sldb/core/models/AtomDoc.yaml
   version: 1
   canonical: false
@@ -246,9 +252,10 @@ models:
   - source.document.markdown
   - type.knowledge.atom
   - workspace.desk.atoms
+  origin: deskops
 - name: RitualDoc
   model_ref: deskops.models:RitualDoc
-  path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/ritual.py
+  path: ''
   models_index: .sldb/core/models/RitualDoc.yaml
   version: 1
   canonical: false
@@ -258,9 +265,10 @@ models:
   - source.document.markdown
   - type.workflow.ritual
   - workspace.desk
+  origin: deskops
 - name: RepositoryDoc
   model_ref: deskops.models:RepositoryDoc
-  path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/repository.py
+  path: ''
   models_index: .sldb/core/models/RepositoryDoc.yaml
   version: 1
   canonical: false
@@ -270,9 +278,10 @@ models:
   - source.document.markdown
   - type.desk.repository
   - workspace.desk.registry
+  origin: deskops
 - name: RoleDoc
   model_ref: deskops.models:RoleDoc
-  path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/role.py
+  path: ''
   models_index: .sldb/core/models/RoleDoc.yaml
   version: 1
   canonical: false
@@ -282,9 +291,10 @@ models:
   - source.document.markdown
   - type.workflow.role
   - workspace.desk.roles
+  origin: deskops
 - name: StepDoc
   model_ref: deskops.models:StepDoc
-  path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/step.py
+  path: ''
   models_index: .sldb/core/models/StepDoc.yaml
   version: 1
   canonical: false
@@ -294,9 +304,10 @@ models:
   - source.document.markdown
   - type.workflow.step
   - workspace.desk
+  origin: deskops
 - name: ProtoAtomDoc
   model_ref: deskops.models:ProtoAtomDoc
-  path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/protoatom.py
+  path: ''
   models_index: .sldb/core/models/ProtoAtomDoc.yaml
   version: 1
   canonical: false
@@ -306,9 +317,10 @@ models:
   - source.document.markdown
   - type.knowledge.protoatom
   - workspace.desk.atoms
+  origin: deskops
 - name: CrossroadDoc
   model_ref: deskops.models:CrossroadDoc
-  path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/crossroad.py
+  path: ''
   models_index: .sldb/core/models/CrossroadDoc.yaml
   version: 1
   canonical: false
@@ -318,6 +330,7 @@ models:
   - source.document.markdown
   - type.knowledge.crossroad
   - workspace.desk.atoms
+  origin: deskops
 predicates:
 - name: has_model
   axis: WHAT
@@ -370,4 +383,8 @@ predicates:
   description: A composed field of the source (`__compositions__`) renders this document's
     payload into the source's text; the edge carries the composed field, the field
     holding the refs and the ref as authored.
-store_hash: 293da6bbf45de60671a5dd729290b3d21afd37f48e4880b6e9a222f00d3df475
+- name: links_to
+  axis: WHERE
+  description: 'The store links that store under an alias (`stores add`): it reads
+    its documents and inherits its models.'
+store_hash: 7acfc11a4ef5077b77a9d748c22ce6b8566a2fdfda37f700715cfaf6becc632e
