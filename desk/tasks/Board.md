@@ -63,6 +63,7 @@ Current review follow-up: CLI self-documentation is active; shared store context
 
 _Generated from the task references above._
 
+- Congelar el journal y rediseñar la autoridad: el árbol guarda, el journal es una vista [draft] - 
 - Build code-derived self-documentation [active] - Provide repeatable scan, materialization, tracking, and freshness checks for code documentation.
 - Unify store context and federation [open] - Resolve project operations from the nearest enclosing store and make known stores discoverable through a maintained global catalog.
 - Correct AST ownership and section contracts [open] - Make field ownership and section boundaries reliable enough for structural queries and documentation provenance.
