@@ -18,6 +18,13 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   Removing a link a model here is inherited from is refused (replace it instead). A link to a
   directory that is gone was only fixable by editing `store_index.yaml`; `stores check` now
   notes it (`broken_links` in `check_store`).
+- A scalar list item reads back as written. An item whose text markdown reads as block syntax
+  was lost or mangled on extract: `validation: ["```bash", "pytest", "```"]` came back as
+  `["pytest"]` (so any rewrite of the document deleted the fence lines), and `# x`, `> x`,
+  `- x`, `1. x`, `***`, `<b>` or a leading space lost their syntax. Such an item is now rendered
+  with one leading backslash (a CommonMark escape) and extracted without it; only a value that
+  opens its item (`- ⸢rev,list•x⸥`) is escaped. A hand-written item that already began with
+  `\` before such syntax now reads without that backslash.
 
 ## 0.1.12 - 2026-10-18 — declared references resolve bare ids and paths, and report what names nothing
 

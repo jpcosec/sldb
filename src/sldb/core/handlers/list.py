@@ -2,6 +2,7 @@ from __future__ import annotations
 import re
 from typing import Any
 from sldb.core.handlers.base import BaseNodeHandler
+from sldb.core.handlers.list_escape import unescape_item
 from sldb.core.handlers.utils import parse_marker
 from sldb.core.node import SLDBNode
 
@@ -24,10 +25,10 @@ class ListNodeHandler(BaseNodeHandler):
 
     def extract_data(self, node: SLDBNode, recipe: dict[str, Any]) -> Any:
         items = [child for child in node.children if child.type == "list_item"]
-        values = []
+        values, bare = [], recipe.get("item_template", "").startswith("⸢")
         for item in items:
             if text := self._extract_text_from_item(item):
-                values.append(text)
+                values.append(unescape_item(text) if bare else text)
         return {recipe["name"]: values}
 
     def _extract_text_from_item(self, item: SLDBNode) -> str:

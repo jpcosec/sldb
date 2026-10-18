@@ -3,6 +3,7 @@ from __future__ import annotations
 import re
 from typing import Any
 
+from sldb.core.handlers.list_escape import escape_item
 from sldb.core.renderer_engine.base import BaseRenderer
 
 
@@ -23,9 +24,9 @@ class ListRenderer(BaseRenderer):
     def _render_items(self, item_text: str, list_items: Any, root_prop: str) -> str:
         if not isinstance(list_items, list): return ""
         if not list_items: return self.replace_markers(item_text, {root_prop: ""})
-        rendered_items = []
+        rendered_items, bare = [], _value_opens_item(item_text)
         for index, item in enumerate(list_items):
-            d = item if isinstance(item, dict) else {root_prop: item}
+            d = item if isinstance(item, dict) else {root_prop: escape_item(item) if bare and isinstance(item, str) else item}
             rendered_items.append(self._render_item(item_text, d, f"{root_prop}/{index}", None if isinstance(item, dict) else root_prop))
         return "\n".join(rendered_items)
 
@@ -45,3 +46,8 @@ class ListRenderer(BaseRenderer):
             return self.replace_markers(item_text, data)
         with self.recorder.item_scope(prefix, scalar_root):
             return self.replace_markers(item_text, data)
+
+
+def _value_opens_item(item_text: str) -> bool:
+    """`- ⸢rev,list•x⸥`: the value is the item's whole text, so block syntax in it would be read."""
+    return re.sub(r"^\s*([-+*]|\d+[.)])\s+", "", item_text).startswith("⸢")
