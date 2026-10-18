@@ -1,6 +1,6 @@
 ---
 id: issue-sldb-cli-format-json-coverage-gaps
-status: open
+status: closed
 tags:
 - system:sldb
 - topic:cli
@@ -84,3 +84,9 @@ The three affected commands (`models show`, `models template show`, `docs update
 
 - `desk/pills/pill-008-sldb-cli-document-contract.md` — CLI output must present document-model state faithfully, not invent presentation-layer semantics
 - `desk/pills/pill-009-cli-error-and-serialization-failure-mode.md` — machine-readable outputs stay intact; errors stay actionable
+
+## Resolution
+
+Closed: 2026-10-18
+Reason: Resuelto: models show, models template show y docs update aceptan --format text|json|yaml (definido una vez en cli/output_format.py), y un flag desconocido se reporta con el uso del subcomando que lo rechazó.
+Refs: b128e279, tests/test_cli_format_coverage.py, task-opción-format-en-models-show-models-template-show-y-docs-update
