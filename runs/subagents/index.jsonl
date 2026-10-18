@@ -3,3 +3,4 @@
 {"task_id": "task-edges-show-rechaza-lo-que-no-es-un-nodo", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "9da46f260f14a05a7a87c379ee76d7c9fd10f761"}
 {"task_id": "task-quitar-del-manual-las-fricciones-que-ya-no-existen", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "0a164cbc05daec25cacfb6b3a55bf9befdb1b8ff"}
 {"task_id": "task-opci\u00f3n-format-en-models-show-models-template-show-y-docs-update", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "87f50473559ad0b82dff088a890df3f59babf86b"}
+{"task_id": "task-releer-family-de-la-clase-en-stores-update-y-models-update", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "29990606c097cd85e697c7b4b2edc124a2d19a49"}
