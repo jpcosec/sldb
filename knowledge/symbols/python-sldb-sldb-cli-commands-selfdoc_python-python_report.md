@@ -5,11 +5,11 @@ module: sldb.cli.commands.selfdoc_python
 qualname: python_report
 kind: FunctionDef
 source_path: sldb/cli/commands/selfdoc_python.py
-source_span: '26:30'
-source_sha256: cf3e0903fbbfbe6cc2ca9c3f734a6b692f10a3eb9cbbc36dbd45dc21ca6c5fc7
+source_span: '26:31'
+source_sha256: d2614221ec7e74d211d9079a1a19bf73686cce2eba2541faf22cca99507846d5
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.cli.commands.selfdoc_python:python_report; contract-sha256:01601cd68e14da322a3f5cb817a06e183dd98ebfd033a8f07ed1ca1e15dc7db6
+provenance: python-ast:python:sldb.cli.commands.selfdoc_python:python_report; contract-sha256:c27ef7240026d2f8c7cff9aeca29865385914c5ce6aa76b6283ab94f539bd225
 ---
 
 # python_report

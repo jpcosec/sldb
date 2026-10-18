@@ -6,10 +6,10 @@ qualname: SelfdocCLI._operate
 kind: FunctionDef
 source_path: sldb/cli/commands/selfdoc.py
 source_span: 69:79
-source_sha256: 66ebb6697343c88faba1a8f890ce8c3483b277229c60704849d86ef00e8c2552
+source_sha256: af595fe0ab09514783624a05bd861bddd52d9624ed05a129fc451704b0d7a5af
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.cli.commands.selfdoc:SelfdocCLI._operate; contract-sha256:74481c634b85ec42b5d1e603d496732fd973b7fef57ab534f96b1e8a2a6191b2
+provenance: python-ast:python:sldb.cli.commands.selfdoc:SelfdocCLI._operate; contract-sha256:af975bafa9b5f2742a414f1711dacea4cbbb97b469a6f7d68dc19d53d3464783
 ---
 
 # SelfdocCLI._operate

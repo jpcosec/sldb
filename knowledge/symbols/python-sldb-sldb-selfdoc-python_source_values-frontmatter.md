@@ -5,11 +5,11 @@ module: sldb.selfdoc.python_source_values
 qualname: frontmatter
 kind: FunctionDef
 source_path: sldb/selfdoc/python_source_values.py
-source_span: '15:24'
-source_sha256: eca6f3b5aa757a98d2e5b809ceed763ba93e9b5559d552658e10152472458002
+source_span: '20:24'
+source_sha256: 756b4c05996cac9991c316dfb353e52a8a72764a65ebee535404fb0c0dda92e1
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.selfdoc.python_source_values:frontmatter; contract-sha256:aa202ccba3bbdcc892ad4f0d319c38c5a8f9804db0d3c53ea8ef70e2d8743844
+provenance: python-ast:python:sldb.selfdoc.python_source_values:frontmatter; contract-sha256:614aef6dab5ae575569ed360d68622e4b9aa8a9f94a7d533203e40172f05922a
 ---
 
 # frontmatter
@@ -20,11 +20,12 @@ frontmatter(node: ast.AST)
 
 ## Docstring
 
-Read only valid leading YAML metadata from one docstring.
+The declared metadata of one docstring; empty when it declares none or is invalid
+(invalid metadata is reported as a diagnostic by the scan, never used).
 
 ## Imports
 
-["__future__", "ast", "hashlib", "yaml"]
+["__future__", "ast", "hashlib"]
 
 ## Purpose
 

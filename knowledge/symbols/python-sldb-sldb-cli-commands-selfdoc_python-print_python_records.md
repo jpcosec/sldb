@@ -6,11 +6,11 @@ qualname: print_python_records
 kind: FunctionDef
 source_path: sldb/cli/commands/selfdoc_python.py
 source_span: '22:23'
-source_sha256: cf3e0903fbbfbe6cc2ca9c3f734a6b692f10a3eb9cbbc36dbd45dc21ca6c5fc7
+source_sha256: d2614221ec7e74d211d9079a1a19bf73686cce2eba2541faf22cca99507846d5
 architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.cli.commands.selfdoc_python:print_python_records;
-  contract-sha256:5609d9bcb1bcbb66d09201bc9629c55534a121488f2f9112f030ceab2edef886
+  contract-sha256:15d15d7ef096fb265f27dd79f5aece4a97fc83546ea3d3b37b1de2d76906fb30
 ---
 
 # print_python_records

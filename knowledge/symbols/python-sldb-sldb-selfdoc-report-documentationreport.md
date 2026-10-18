@@ -5,11 +5,11 @@ module: sldb.selfdoc.report
 qualname: DocumentationReport
 kind: ClassDef
 source_path: sldb/selfdoc/report.py
-source_span: '17:49'
-source_sha256: de02f24e9af7f6087fc62441c20ddc2346f536fd82b859fd51c26518c5873b89
+source_span: '17:50'
+source_sha256: 5e38a8833913c59f78b7c4623a6642d7c1362582b5f128050fccd513449aaca3
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.selfdoc.report:DocumentationReport; contract-sha256:eb2517eacb61804480430537c0c40beca7b42f70286a1082bda1190dd50048e0
+provenance: python-ast:python:sldb.selfdoc.report:DocumentationReport; contract-sha256:4d9ba8b2704fd2dab16ef37bae6af4dd5fa7872dc84db368a77b42ab582dd5f6
 ---
 
 # DocumentationReport

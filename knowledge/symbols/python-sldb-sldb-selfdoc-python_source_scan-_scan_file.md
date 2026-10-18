@@ -5,11 +5,11 @@ module: sldb.selfdoc.python_source_scan
 qualname: _scan_file
 kind: FunctionDef
 source_path: sldb/selfdoc/python_source_scan.py
-source_span: '16:21'
-source_sha256: 7fe77fc30a853893f4125faa616cf7370f7adb97a70ace52c28df620f8c3c7ad
+source_span: '40:45'
+source_sha256: 276ffca99f9f6d9cca9a337562d0b56525339e449dce96ce8f0b53e6f16cf590
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.selfdoc.python_source_scan:_scan_file; contract-sha256:edd282d745af6362147c3fb89ad2ae47364ba0a4b3befddf2d844e73b9b7c0ce
+provenance: python-ast:python:sldb.selfdoc.python_source_scan:_scan_file; contract-sha256:ed897e2e932d1e48a885d3cfb951097e351dfee352fa2bb137ad4257222e6c1b
 ---
 
 # _scan_file

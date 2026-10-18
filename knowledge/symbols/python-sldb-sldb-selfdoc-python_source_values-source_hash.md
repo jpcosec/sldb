@@ -5,11 +5,11 @@ module: sldb.selfdoc.python_source_values
 qualname: source_hash
 kind: FunctionDef
 source_path: sldb/selfdoc/python_source_values.py
-source_span: '10:12'
-source_sha256: eca6f3b5aa757a98d2e5b809ceed763ba93e9b5559d552658e10152472458002
+source_span: '8:10'
+source_sha256: 756b4c05996cac9991c316dfb353e52a8a72764a65ebee535404fb0c0dda92e1
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.selfdoc.python_source_values:source_hash; contract-sha256:a57839b96ccbed9594225bd41684b319cf03606fb05a66fb82b6b14c7244e6cb
+provenance: python-ast:python:sldb.selfdoc.python_source_values:source_hash; contract-sha256:af9d140bf0af5b6740d0a304bb1d203caacafa04f10da92fe465dd9b7eb323f9
 ---
 
 # source_hash
@@ -24,7 +24,7 @@ Return the containing file's content hash.
 
 ## Imports
 
-["__future__", "ast", "hashlib", "yaml"]
+["__future__", "ast", "hashlib"]
 
 ## Purpose
 

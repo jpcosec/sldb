@@ -5,12 +5,12 @@ module: sldb.cli.commands.selfdoc_python
 qualname: write_python_plans
 kind: FunctionDef
 source_path: sldb/cli/commands/selfdoc_python.py
-source_span: '54:59'
-source_sha256: cf3e0903fbbfbe6cc2ca9c3f734a6b692f10a3eb9cbbc36dbd45dc21ca6c5fc7
+source_span: 57:62
+source_sha256: d2614221ec7e74d211d9079a1a19bf73686cce2eba2541faf22cca99507846d5
 architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.cli.commands.selfdoc_python:write_python_plans;
-  contract-sha256:54f51728f78dfc1a1fabe3683874284ab1d875e0a126b2f524da2d80f928bc6a
+  contract-sha256:9e252ddef9fd1a1eb8705807bc6e7085d484507287223fbb0865702638c1cfc2
 ---
 
 # write_python_plans

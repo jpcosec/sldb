@@ -6,11 +6,11 @@ qualname: annotation_names
 kind: FunctionDef
 source_path: sldb/selfdoc/python_source_values.py
 source_span: '33:35'
-source_sha256: eca6f3b5aa757a98d2e5b809ceed763ba93e9b5559d552658e10152472458002
+source_sha256: 756b4c05996cac9991c316dfb353e52a8a72764a65ebee535404fb0c0dda92e1
 architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.selfdoc.python_source_values:annotation_names;
-  contract-sha256:6492c87d6604ffd7d283e82b7cc7f6b631b4fadc80081bcb77127dc24014b30c
+  contract-sha256:0cc82ef1b05c6354ae816b1e698af965b8efeb98f256f2d74ff5e80c65056b60
 ---
 
 # annotation_names
@@ -25,7 +25,7 @@ Return lexical names used by one annotation expression.
 
 ## Imports
 
-["__future__", "ast", "hashlib", "yaml"]
+["__future__", "ast", "hashlib"]
 
 ## Purpose
 

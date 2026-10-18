@@ -5,12 +5,12 @@ module: sldb.cli.commands.selfdoc_python
 qualname: architecture_spec_path
 kind: FunctionDef
 source_path: sldb/cli/commands/selfdoc_python.py
-source_span: 62:63
-source_sha256: cf3e0903fbbfbe6cc2ca9c3f734a6b692f10a3eb9cbbc36dbd45dc21ca6c5fc7
+source_span: 65:66
+source_sha256: d2614221ec7e74d211d9079a1a19bf73686cce2eba2541faf22cca99507846d5
 architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.cli.commands.selfdoc_python:architecture_spec_path;
-  contract-sha256:d357d591fe7de635f5f1b699e4b29e131eac9aa2d5acde40003586e6c85a7cf0
+  contract-sha256:f077887ac9093506ec8a665cdd6a9b733428c8e1f8c65450bfe0131b9d6cac34
 ---
 
 # architecture_spec_path

@@ -5,11 +5,11 @@ module: sldb.cli.commands.selfdoc_python
 qualname: python_graph
 kind: FunctionDef
 source_path: sldb/cli/commands/selfdoc_python.py
-source_span: '33:40'
-source_sha256: cf3e0903fbbfbe6cc2ca9c3f734a6b692f10a3eb9cbbc36dbd45dc21ca6c5fc7
+source_span: '34:43'
+source_sha256: d2614221ec7e74d211d9079a1a19bf73686cce2eba2541faf22cca99507846d5
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.cli.commands.selfdoc_python:python_graph; contract-sha256:00d151f199f1b253830b424e8db0f201e9d6402e3358ffdfe1ba4ed1aecf2f11
+provenance: python-ast:python:sldb.cli.commands.selfdoc_python:python_graph; contract-sha256:cad028a8f8ed6d868f42d747f71cfdd130c79981648baff41c1a66dbee0a4077
 ---
 
 # python_graph

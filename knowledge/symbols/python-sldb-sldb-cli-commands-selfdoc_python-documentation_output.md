@@ -5,12 +5,12 @@ module: sldb.cli.commands.selfdoc_python
 qualname: documentation_output
 kind: FunctionDef
 source_path: sldb/cli/commands/selfdoc_python.py
-source_span: '47:51'
-source_sha256: cf3e0903fbbfbe6cc2ca9c3f734a6b692f10a3eb9cbbc36dbd45dc21ca6c5fc7
+source_span: '50:54'
+source_sha256: d2614221ec7e74d211d9079a1a19bf73686cce2eba2541faf22cca99507846d5
 architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.cli.commands.selfdoc_python:documentation_output;
-  contract-sha256:92c36e05164a0e8d4980e6187e785d39f525f6e21e631f9ac8611725f17d1fe6
+  contract-sha256:b64d4f38b8bc9545c2e416076daf6e13b9e3e1910b240da099be4db266411eea
 ---
 
 # documentation_output
