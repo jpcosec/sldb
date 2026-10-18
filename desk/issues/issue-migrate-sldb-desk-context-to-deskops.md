@@ -1,7 +1,7 @@
 # Migrate SLDB desk context to deskops
 
 ID: issue-migrate-sldb-desk-context-to-deskops
-Status: open
+Status: closed
 
 ## What
 
@@ -29,3 +29,9 @@ SLDB has repo-local `desk/` context and Python model files that duplicate or ove
 - system:sldb
 - system:deskops
 - topic:boundary
+
+## Resolution
+
+Closed: 2026-10-18
+Reason: Resuelto: el desk de sldb lo opera deskops desde su migración de ciclo de vida (6fbb47b6); los modelos de deskops se heredan del store de deskops en vez de copiarse; desk/models.py queda solo con los dos modelos propios del desk de sldb (DeskSpecDoc, DeskStandardsDoc) y el InboxNoteDoc local pasó a ser un fixture de tests. Las pills de desk/pills son conocimiento propio de sldb y se quedan.
+Refs: 6fbb47b6, b83ba53076, docs/architecture/model-federation-on-the-graph.md
