@@ -1,9 +1,33 @@
 ---
 id: task-build-code-self-documentation
 status: active
-tags: [system:sldb, workspace:desk, topic:selfdoc]
-references: [docs/documentation-review.md, docs/architecture/code-docstring-indexing.spec.md, docs/architecture/code-docstring-indexing-handoff.md]
-pills: [desk/pills/pill-015-self-documentation-boundaries.md]
+summary: ''
+tags:
+- system:sldb
+- workspace:desk
+- topic:selfdoc
+current_node: ''
+history:
+- '2026-10-18 tanda 1 (sldb-04): selfdoc python-check y python-sync vuelven a correr.
+  Una propiedad con setter (o un @overload) era dos símbolos con un mismo id de documento
+  (31a3a5d634). python-sync ya no depende de un kgdb externo: escribe el grafo con
+  sldb.store.graph, y --kgdb-command y --kgdb-output se quitaron (ab78747c). Siguiente
+  tanda: con la configuración documentada (--source-root src --package sldb), el inventario
+  está desactualizado (1502 símbolos faltan, 980 cambiaron, 299 sobran); un python-sync
+  lo pone al día. La migración de ids sldb.sldb.* a sldb.* queda como tanda propia,
+  porque cambia todas las identidades generadas.'
+references:
+- docs/documentation-review.md
+- docs/architecture/code-docstring-indexing.spec.md
+- docs/architecture/code-docstring-indexing-handoff.md
+depends_on: []
+pills:
+- desk/pills/pill-015-self-documentation-boundaries.md
+files: []
+task_type: ''
+inherits_from: []
+inherit_acceptance_context: false
+atoms: []
 ---
 
 # Build code-derived self-documentation
