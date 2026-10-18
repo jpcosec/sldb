@@ -1,0 +1,36 @@
+---
+id: python-sldb-sldb-cli-commands-explore_docs-exploredocs-_scan_markdown_file
+system: sldb
+module: sldb.cli.commands.explore_docs
+qualname: ExploreDocs._scan_markdown_file
+kind: FunctionDef
+source_path: sldb/cli/commands/explore_docs.py
+source_span: '30:38'
+source_sha256: 194c81eb54a8ac2f8154c8f34b92f6b4ccf8d836a38d5756b61c984f6eadd8fe
+architecture_spec: Not declared.
+tags: []
+provenance: python-ast:python:sldb.cli.commands.explore_docs:ExploreDocs._scan_markdown_file;
+  contract-sha256:70e52bf8cc3adff6c960cf6249710be02525df77fad0f242eb29208d386b09b0
+---
+
+# ExploreDocs._scan_markdown_file
+
+## Signature
+
+_scan_markdown_file(self, path: Path, term: str, regex: bool)
+
+## Docstring
+
+Not documented.
+
+## Imports
+
+[".explore_hit", "pathlib", "re"]
+
+## Purpose
+
+Not documented.
+
+## Architecture
+
+Not documented.

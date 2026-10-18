@@ -1,0 +1,35 @@
+---
+id: python-sldb-sldb-cli-commands-fields_mutate-_apply_clean
+system: sldb
+module: sldb.cli.commands.fields_mutate
+qualname: _apply_clean
+kind: FunctionDef
+source_path: sldb/cli/commands/fields_mutate.py
+source_span: '21:24'
+source_sha256: 6ce9ecc229027b9de19dc03c04c67aa1889b99e877a749643ac1f39bf3ffe00c
+architecture_spec: Not declared.
+tags: []
+provenance: python-ast:python:sldb.cli.commands.fields_mutate:_apply_clean; contract-sha256:39ed62943d5c856abeed4ed009547f07b8b40a9b8cd2beb1b30b418f29004c53
+---
+
+# _apply_clean
+
+## Signature
+
+_apply_clean(payload: dict[str, Any], field_path: str, args: Any)
+
+## Docstring
+
+Not documented.
+
+## Imports
+
+["json", "sldb.cli.commands.fields_save", "sldb.cli.commands.fields_target", "sldb.cli.dict_utils", "sldb.cli.utils", "typing"]
+
+## Purpose
+
+Not documented.
+
+## Architecture
+
+Not documented.

@@ -1,0 +1,35 @@
+---
+id: python-sldb-sldb-cli-commands-inbox_show-show_note
+system: sldb
+module: sldb.cli.commands.inbox_show
+qualname: show_note
+kind: FunctionDef
+source_path: sldb/cli/commands/inbox_show.py
+source_span: '6:15'
+source_sha256: 392a78ca4da70d88e04bce2056e8bd7d94c7b1ecfd85fd48f1b2851aeb1b1992
+architecture_spec: Not declared.
+tags: []
+provenance: python-ast:python:sldb.cli.commands.inbox_show:show_note; contract-sha256:833d81bba19c09fc5af970aa9b06ab0896925a87ef45a15342cd3aaeabbd0894
+---
+
+# show_note
+
+## Signature
+
+show_note(args: Any)
+
+## Docstring
+
+Not documented.
+
+## Imports
+
+["sldb.cli.commands.inbox_core", "sldb.cli.commands.inbox_parse", "typing"]
+
+## Purpose
+
+Not documented.
+
+## Architecture
+
+Not documented.

@@ -1,0 +1,26 @@
+name: python-sldb-sldb-cli-commands-faq-faqcli-run
+path: knowledge/symbols/python-sldb-sldb-cli-commands-faq-faqcli-run.md
+source_hash: 9c9012fd6da50ccddff1855f5d7c079e7106b55b4f9119c0e5af42850c4b75dd
+content_hash: b7c45995bc82c96d3f7940781d3eebaa61659af065924b036b4ef8c8f2b0d370
+field_hashes:
+  id: 6539838aef86453becf2781f146b1f7af4d1f38c7e6b87227815eb7438655e0c
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  module: 46c6b77983e853dae74e4595b876e8dbb74510acaf856637441c27e43e87c089
+  qualname: ee8983dc4e557875e8ff1d1950994d4f99b8594712bc5f97711e8aae2a13c896
+  kind: efc8bf12721ebca0b78886cfac3be3af9d29c6da34d05be1060d1c27006bfeb1
+  source_path: 15a9194ec2f5580e71fdbe73fef11dd9b8ca0827ab7e80c112a87ee85e42a466
+  source_span: 90b4871c9be915ef48872b2669499a4dd71e4bb97a7ff230841ef1a97a12faf5
+  source_sha256: df5477f2ef150dc0902c31e942cfe7c68c4ad4ad70db1f792303d4fd1c647494
+  architecture_spec: 5cd590bfa2ba9d5178c129689491b293135803a05e573e4128be7f612061300c
+  signature: 07447a83631ed4b2dbe859faf32852dd0e8d398f09acd53166bafbf92e145d86
+  docstring: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  imports: 253973f40f1698acfe7bd23a5e35d9880604577cb41375651260f100e5cd0a2a
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: e407925518de8a9c9ea8ae30f950c8ccdbe04b0c0670949cad149b4d14e86c60
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols

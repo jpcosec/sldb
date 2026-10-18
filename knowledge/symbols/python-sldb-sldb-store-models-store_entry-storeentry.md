@@ -1,0 +1,35 @@
+---
+id: python-sldb-sldb-store-models-store_entry-storeentry
+system: sldb
+module: sldb.store.models.store_entry
+qualname: StoreEntry
+kind: ClassDef
+source_path: sldb/store/models/store_entry.py
+source_span: '4:6'
+source_sha256: ec14137c17c60888e32e1ada9fbb5338467f9c9c4370491023a423c31339149d
+architecture_spec: Not declared.
+tags: []
+provenance: python-ast:python:sldb.store.models.store_entry:StoreEntry; contract-sha256:43f4abde629a5293e5c58dc2df85c6f4f64bf03e0b503769dd253c4a460fafed
+---
+
+# StoreEntry
+
+## Signature
+
+Not applicable.
+
+## Docstring
+
+Not documented.
+
+## Imports
+
+["pydantic"]
+
+## Purpose
+
+Not documented.
+
+## Architecture
+
+Not documented.

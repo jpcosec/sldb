@@ -1,0 +1,36 @@
+---
+id: python-sldb-sldb-selfdoc-python_source_facts-pythonsourcefacts-visit_import
+system: sldb
+module: sldb.selfdoc.python_source_facts
+qualname: PythonSourceFacts.visit_Import
+kind: FunctionDef
+source_path: sldb/selfdoc/python_source_facts.py
+source_span: '36:38'
+source_sha256: acfb4b747242ce6236dc7a3f826524f0b39c13c3e6847aafd9a19593ec84de4f
+architecture_spec: Not declared.
+tags: []
+provenance: python-ast:python:sldb.selfdoc.python_source_facts:PythonSourceFacts.visit_Import;
+  contract-sha256:b4deb3197924b87d287d44e13bb0dcb74d8707a5619f0117beedd0f60b9c8929
+---
+
+# PythonSourceFacts.visit_Import
+
+## Signature
+
+visit_Import(self, node: ast.Import)
+
+## Docstring
+
+Not documented.
+
+## Imports
+
+[".python_source_values", "__future__", "ast"]
+
+## Purpose
+
+Not documented.
+
+## Architecture
+
+Not documented.

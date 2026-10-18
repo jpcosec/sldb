@@ -1,0 +1,35 @@
+---
+id: python-sldb-sldb-cli-selfdoc_context-load_parser
+system: sldb
+module: sldb.cli.selfdoc_context
+qualname: load_parser
+kind: FunctionDef
+source_path: sldb/cli/selfdoc_context.py
+source_span: '20:30'
+source_sha256: 777a008dd28fa6aa259bdbf812be27035912892ff0d9516c60b39adf217d0b34
+architecture_spec: Not declared.
+tags: []
+provenance: python-ast:python:sldb.cli.selfdoc_context:load_parser; contract-sha256:e2670ad60288e2c1e7121381a8cfda940ced29e2a65490ea67150c4257e9bca4
+---
+
+# load_parser
+
+## Signature
+
+load_parser(factory_ref: str, root: Path, pythonpath: str | None)
+
+## Docstring
+
+Load a trusted parser factory and build its tree without dispatching handlers.
+
+## Imports
+
+["__future__", "argparse", "importlib", "pathlib", "sldb.cli.store_context", "sldb.store.layout", "sys"]
+
+## Purpose
+
+Not documented.
+
+## Architecture
+
+Not documented.

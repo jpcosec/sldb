@@ -1,0 +1,36 @@
+---
+id: python-sldb-sldb-cli-commands-sections_find-findsectionscli-_get_find_matches
+system: sldb
+module: sldb.cli.commands.sections_find
+qualname: FindSectionsCLI._get_find_matches
+kind: FunctionDef
+source_path: sldb/cli/commands/sections_find.py
+source_span: '14:23'
+source_sha256: 0d8c84a37a601ec02d328328727e58d2d887bc5433b26dc34f3b4e5fd59216df
+architecture_spec: Not declared.
+tags: []
+provenance: python-ast:python:sldb.cli.commands.sections_find:FindSectionsCLI._get_find_matches;
+  contract-sha256:6ceb51549fb7c0583ba48ec1d9c701753dbd99c38c5d1909223fa27a2c714d3c
+---
+
+# FindSectionsCLI._get_find_matches
+
+## Signature
+
+_get_find_matches(self, args: Any)
+
+## Docstring
+
+Not documented.
+
+## Imports
+
+["__future__", "json", "sldb.cli.commands.find_filter", "sldb.cli.graph_ops", "typing", "yaml"]
+
+## Purpose
+
+Not documented.
+
+## Architecture
+
+Not documented.

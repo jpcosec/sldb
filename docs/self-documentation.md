@@ -2,7 +2,7 @@
 
 The first self-documentation slice derives CLI reference records from an assembled argparse parser and tracks them with SLDB's existing `CliCommandDoc` and `SurfaceDoc` models.
 
-`sldb selfdoc python-scan --source-root src --package sldb` is the read-only Python inventory. `python-sync` materializes it under `knowledge/symbols/` and persists the regenerable source facts through sldb's graph layer; `python-check` reports documentation or source-graph drift without writing. They use the standard-library AST and never import scanned modules. Each record has a qualified `python:<module>:<qualname>` identity (not stable across moves or renames), source span, syntactic signature, declared docstring, module imports, and a file hash. Regeneration owns those facts and preserves authored `purpose`, `architecture`, and tags. Roles, architecture boundaries, rename equivalence, and spec2viz grouping still require declared or reviewed metadata.
+`sldb selfdoc python-scan --source-root src` is the read-only Python inventory. `python-sync` materializes it under `knowledge/symbols/` and persists the regenerable source facts through sldb's graph layer; `python-check` reports documentation or source-graph drift without writing. They use the standard-library AST and never import scanned modules. Each record has a qualified `python:<module>:<qualname>` identity (not stable across moves or renames), source span, syntactic signature, declared docstring, module imports, and a file hash. Regeneration owns those facts and preserves authored `purpose`, `architecture`, and tags. Roles, architecture boundaries, rename equivalence, and spec2viz grouping still require declared or reviewed metadata.
 
 The [docstring indexing contract](architecture/code-docstring-indexing.spec.md) specifies source-owned metadata and explanations, AST-derived relationships, selective tag inheritance, and graph-backed projections. `python-sync` now projects module/symbol containment, import bindings, and resolvable annotation references, with source span and hash evidence. These are store facts for any consumer; the adapter does not prescribe a consumer query language or read the artifact back through another runtime. It does not yet apply inherited tags or migrate the legacy document IDs.
 
@@ -11,9 +11,9 @@ All tracked records are rendered as Markdown, but the semantic index distinguish
 For this repository, bind records to the current structural evidence:
 
 ```bash
-sldb selfdoc python-sync --source-root src --package sldb --system sldb \
+sldb selfdoc python-sync --source-root src --system sldb \
   --architecture-spec docs/architecture/spec2viz/python-ast.yml
-sldb selfdoc python-check --source-root src --package sldb --system sldb \
+sldb selfdoc python-check --source-root src --system sldb \
   --architecture-spec docs/architecture/spec2viz/python-ast.yml
 ```
 
@@ -21,7 +21,7 @@ sldb selfdoc python-check --source-root src --package sldb --system sldb \
 
 For example, the graph distinguishes `command` **containing** `CommandRecord`, the module **importing** `ArgumentRecord`, and the field annotation **referencing** it. The projection proves containment, imports, and annotation references — not runtime calls, re-export chains, star imports, or shadowing. Consumers query the published store facts through their own supported sldb integration; an agent does not treat the generated graph file as an ad-hoc source of truth. The consumer boundary is specified in [the docstring indexing contract, section 4.3](architecture/code-docstring-indexing.spec.md).
 
-The `architecture_spec` field stores that relative path and its SHA-256. It identifies the referenced artifact; it does not prove review, source freshness, symbol-to-node membership, or semantic roles. These commands retain this checkout's existing scan configuration: `src --package sldb` currently duplicates the `sldb` module prefix. Do not change it during annotation-only work, as that would change generated document identities.
+The `architecture_spec` field stores that relative path and its SHA-256. It identifies the referenced artifact; it does not prove review, source freshness, symbol-to-node membership, or semantic roles. Module names come from the path under `--source-root`: `src/sldb/cli/main.py` is `sldb.cli.main`. `--package` prefixes them, so it is for a source root that is the package itself (`--source-root src/sldb --package sldb`); with `--source-root src` it doubled the prefix into `sldb.sldb.*`, the identities this repository's inventory carried until the migration of 2026-10-18.
 
 When a source inventory no longer contains a tracked Python symbol, `python-check` reports removed records without deleting them. A rename candidate now appears only for one unique fact match; an actual rename may change its signature, docstring, or source file hash and therefore produce no candidate. Candidates remain review hints, and SLDB never rewrites a symbol ID or authored context automatically. Complete-source removal and nondefault output paths need additional coverage.
 

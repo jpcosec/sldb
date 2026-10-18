@@ -33,7 +33,7 @@ The pilot delivery created the behavior spec first, then annotated one module an
 | Literal rendering | Compact frontmatter becomes a Markdown setext heading; `docstring` extracts as `---` and later fields shift | Safe literal-content representation; regression cases for compact frontmatter, headings, and fences |
 | Context | Source graph emits module/symbol nodes and lexical containment; generated symbol inventory remains class/function-oriented | Package identity, selective inherited tags and provenance |
 | Identity | Scan ID is qualified; materializer constructs a different normalized document ID | Explicit declared-ID mapping with collision checks and reviewed legacy migration |
-| Existing scan config | `--source-root src --package sldb` yields `sldb.sldb.*` module names here | Fix configuration/identity together in a separate migration; preserve it for this batch |
+| Existing scan config | Fixed 2026-10-18: the inventory uses `--source-root src` (no `--package`) and module names `sldb.*`; the `sldb.sldb.*` identities were migrated by renaming every symbol document | — |
 | Relationships | Source graph emits `contains`, `imports`, and resolvable annotation `references` through KGDB; semantic export v1 remains unchanged | Registered typed relation vocabulary, re-exports/star imports/shadowing/type-checking resolution, spec2viz projection |
 | Architecture | Optional spec path/hash only; no symbol-to-node association | KGDB identity-backed projection to the existing spec2viz component schema |
 | Explanations | Generated `purpose`/`architecture` placeholders are preserved, not derived from prose | Source-owned extraction with explicit conflict handling for existing authored text |
@@ -58,7 +58,7 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m pytest -q tests/selfdoc tests/test
 ```bash
 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/home/jp/proyectos/hum-ecosystem/tools/deskops \
   .venv/bin/python -m sldb selfdoc python-sync --store .sldb \
-  --source-root src --package sldb --system sldb --output knowledge \
+  --source-root src --system sldb --output knowledge \
   --architecture-spec docs/architecture/spec2viz/python-ast.yml
 ```
 

@@ -1,0 +1,36 @@
+---
+id: python-sldb-sldb-core-handlers-yaml-yamlnodehandler-_compile_field_markers
+system: sldb
+module: sldb.core.handlers.yaml
+qualname: YamlNodeHandler._compile_field_markers
+kind: FunctionDef
+source_path: sldb/core/handlers/yaml.py
+source_span: '30:34'
+source_sha256: bf607754117ca55dd104427eebc26b9ff8c0ea9469e76e6d1e22dbd8bcf5bebc
+architecture_spec: Not declared.
+tags: []
+provenance: python-ast:python:sldb.core.handlers.yaml:YamlNodeHandler._compile_field_markers;
+  contract-sha256:da3bc7174f44b97f4819cb0adecae7e6c2fb80dd7ccca93d0937aa7040fe1e05
+---
+
+# YamlNodeHandler._compile_field_markers
+
+## Signature
+
+_compile_field_markers(self, content: str)
+
+## Docstring
+
+Not documented.
+
+## Imports
+
+["__future__", "datetime", "re", "sldb.core.exceptions", "sldb.core.handlers.base", "sldb.core.handlers.utils", "sldb.core.node", "typing", "yaml"]
+
+## Purpose
+
+Not documented.
+
+## Architecture
+
+Not documented.

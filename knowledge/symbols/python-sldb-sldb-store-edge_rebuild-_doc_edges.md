@@ -1,0 +1,35 @@
+---
+id: python-sldb-sldb-store-edge_rebuild-_doc_edges
+system: sldb
+module: sldb.store.edge_rebuild
+qualname: _doc_edges
+kind: FunctionDef
+source_path: sldb/store/edge_rebuild.py
+source_span: 65:68
+source_sha256: 7f2cc97ef06264e2fd1d5e896d4869aa7123ad7334505b0744f0e3fa53108880
+architecture_spec: Not declared.
+tags: []
+provenance: python-ast:python:sldb.store.edge_rebuild:_doc_edges; contract-sha256:413123d526168b1f50f1b256e90c2b1dc2333f04787f5769c622f1271945868f
+---
+
+# _doc_edges
+
+## Signature
+
+_doc_edges(store_path: Path, root: Path, m_entry, model_type: Any | None, doc)
+
+## Docstring
+
+Not documented.
+
+## Imports
+
+["__future__", "logging", "pathlib", "sldb.store.codec", "sldb.store.edge_index.cache_keys", "sldb.store.edge_index.doc_contribution", "sldb.store.edge_index.edge_rebuild_report", "sldb.store.edge_index.shard_signature", "sldb.store.edge_index.store_contribution", "sldb.store.edge_sync", "sldb.store.exceptions", "sldb.store.io", "sldb.store.io.shards", "sldb.store.layout", "typing"]
+
+## Purpose
+
+Not documented.
+
+## Architecture
+
+Not documented.

@@ -1,0 +1,35 @@
+---
+id: python-sldb-sldb-cli-serve-responses-handle_cors_headers
+system: sldb
+module: sldb.cli.serve.responses
+qualname: handle_cors_headers
+kind: FunctionDef
+source_path: sldb/cli/serve/responses.py
+source_span: '11:14'
+source_sha256: 72b96bcd9b17f7c1a2db67a946713ae13e6d69df9da77ef5d2b304cedfac844d
+architecture_spec: Not declared.
+tags: []
+provenance: python-ast:python:sldb.cli.serve.responses:handle_cors_headers; contract-sha256:2854ac7d3e85b6dbc97b8d95ad07d36c23751e926d1d4a4b329292c4969eee3f
+---
+
+# handle_cors_headers
+
+## Signature
+
+handle_cors_headers(handler: BaseHTTPRequestHandler)
+
+## Docstring
+
+Not documented.
+
+## Imports
+
+["__future__", "http.server", "json", "typing"]
+
+## Purpose
+
+Not documented.
+
+## Architecture
+
+Not documented.

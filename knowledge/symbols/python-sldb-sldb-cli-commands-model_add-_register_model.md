@@ -1,0 +1,35 @@
+---
+id: python-sldb-sldb-cli-commands-model_add-_register_model
+system: sldb
+module: sldb.cli.commands.model_add
+qualname: _register_model
+kind: FunctionDef
+source_path: sldb/cli/commands/model_add.py
+source_span: 68:72
+source_sha256: 5174865542928cac097a33fc6e7089416422da1ac9c873231e8909558c04c850
+architecture_spec: Not declared.
+tags: []
+provenance: python-ast:python:sldb.cli.commands.model_add:_register_model; contract-sha256:7909e140e9f8e03ef089aa7bf52c082fd266209bf402b036184f65db8014b6c5
+---
+
+# _register_model
+
+## Signature
+
+_register_model(args: Any, sp: Path, root: Path, idx: Any, model_type: type)
+
+## Docstring
+
+Not documented.
+
+## Imports
+
+["__future__", "inspect", "pathlib", "sldb.api.model_registry.model_lineage", "sldb.cli.model_utils", "sldb.cli.store_context", "sldb.core.exceptions", "sldb.store.derived_rebuild", "sldb.store.hashing", "sldb.store.io", "sldb.store.layout", "sldb.store.model_node", "sldb.store.models", "sldb.store.ops", "sldb.store.semantic_tags", "sys", "typing"]
+
+## Purpose
+
+Not documented.
+
+## Architecture
+
+Not documented.

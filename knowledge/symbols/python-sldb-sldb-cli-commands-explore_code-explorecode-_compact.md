@@ -1,0 +1,36 @@
+---
+id: python-sldb-sldb-cli-commands-explore_code-explorecode-_compact
+system: sldb
+module: sldb.cli.commands.explore_code
+qualname: ExploreCode._compact
+kind: FunctionDef
+source_path: sldb/cli/commands/explore_code.py
+source_span: 69:70
+source_sha256: c39f76924395aa49d16f6e7abc2e1c270a5fd745c3d49f76d1d021ad8ae6fe3f
+architecture_spec: Not declared.
+tags: []
+provenance: python-ast:python:sldb.cli.commands.explore_code:ExploreCode._compact;
+  contract-sha256:6c3d7769323f568a553bead005288bcb7094acade4f9c600ea3060f67f842d7f
+---
+
+# ExploreCode._compact
+
+## Signature
+
+_compact(self, text: str)
+
+## Docstring
+
+Not documented.
+
+## Imports
+
+[".explore_hit", "ast", "pathlib", "re"]
+
+## Purpose
+
+Not documented.
+
+## Architecture
+
+Not documented.

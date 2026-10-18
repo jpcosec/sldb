@@ -1,0 +1,35 @@
+---
+id: python-sldb-sldb-cli-commands-fields_show-_print_result
+system: sldb
+module: sldb.cli.commands.fields_show
+qualname: _print_result
+kind: FunctionDef
+source_path: sldb/cli/commands/fields_show.py
+source_span: '51:53'
+source_sha256: 3aa6a90340aa4f3df5564353c3b8123e83e06aa127a493a3c0a67cee62658f71
+architecture_spec: Not declared.
+tags: []
+provenance: python-ast:python:sldb.cli.commands.fields_show:_print_result; contract-sha256:4b76db71f940c3a370e81c8acf6c515884d97d459abdb95559004182b952cff9
+---
+
+# _print_result
+
+## Signature
+
+_print_result(data: dict[str, Any], fmt: str)
+
+## Docstring
+
+Not documented.
+
+## Imports
+
+["json", "sldb.cli.commands.fields_target", "sldb.cli.dict_utils", "sldb.cli.graph_ops", "sldb.cli.model_utils", "sldb.cli.store_context", "typing", "yaml"]
+
+## Purpose
+
+Not documented.
+
+## Architecture
+
+Not documented.
