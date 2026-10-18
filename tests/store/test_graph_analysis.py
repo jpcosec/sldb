@@ -14,7 +14,7 @@ from sldb.store.edge_index.acyclic import cycle_errors
 from sldb.store.graph.convert import index_from_snapshot
 from sldb.store.models import EdgeNodeRecord, EdgeRecord
 
-FIXTURE = Path(__file__).resolve().parents[2] / "contracts" / "fixtures" / "sldb_kgdb_semantic_export.v1.json"
+FIXTURE = Path(__file__).resolve().parents[2] / "contracts" / "fixtures" / "sldb_semantic_export.v1.json"
 
 
 def index_of(edges: list[tuple[str, str, str]], types: dict[str, str] | None = None) -> EdgeIndex:

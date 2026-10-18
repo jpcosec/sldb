@@ -6,7 +6,7 @@ evidencia del código actual; no implementa el protocolo.
 
 ## 0. Estado del transporte hoy (2026-09-21, rama main)
 
-- Lectura: `GET /health /schema /graph /document?id= /document/ir?id= /edges/* /graph/* /models /lint /kgdb/snapshot`.
+- Lectura: `GET /health /schema /graph /document?id= /document/ir?id= /edges/* /graph/* /models /lint /semantic-export`.
 - Escritura (todos bajo `SAVE_LOCK`, optimistic-lock por payload): `POST /save` (single + batch),
   `POST /docs/create|track|untrack`.
 - `/save` usa control optimista por `expected`: el cliente manda el payload que cree que hay

@@ -4,7 +4,7 @@ system: sldb
 command_path: graph ingest-sldb
 synopsis: Convert an sldb semantic export into node-link JSON.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#graph ingest-sldb; contract-sha256:522269e66ac777403d15f9e816700875ec483d8f7bbe93d96b807739ff292d6f
+provenance: parser:sldb.cli.parser:build_parser#graph ingest-sldb; contract-sha256:55542eae4a3756a0507e3c4ecae9c4da716f1f16c7241e050dab81418cc51019
 ---
 
 # graph ingest-sldb
@@ -37,7 +37,7 @@ Not documented.
       "value_type": null,
       "action": "argparse._StoreAction",
       "const": "null",
-      "help": "The sldb_kgdb_semantic_export JSON file."
+      "help": "The sldb_semantic_export JSON file."
     },
     {
       "names": [

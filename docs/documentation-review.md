@@ -99,7 +99,7 @@ Needed before any release: reconcile registry artifacts and Git tags with their 
 
 | Surface | Evidence in code | Missing or fragmented guidance |
 |---|---|---|
-| HTTP store server | `cli/serve/routes.py`, `tests/test_serve.py` | Request/response/error examples for `/health`, `/schema`, `/graph`, `/kgdb/snapshot`, `/save`; current knowledge record lists flags but not route contracts |
+| HTTP store server | `cli/serve/routes.py`, `tests/test_serve.py` | Request/response/error examples for `/health`, `/schema`, `/graph`, `/semantic-export`, `/save`; current knowledge record lists flags but not route contracts |
 | AST/IR | `cli/graph_ops/`, `core/ir/` | Shape stability, source-span semantics, parser attributes lost in projection, ownership failure modes |
 | Model drafts | `cli/commands/models_validate*.py`, existing local edits | Validate active versus draft contracts, promotion failure behavior, empty/invalid tracked-document cases |
 | Source ingestion | `core/ingest/` | Supported entry point and operational status; no `ingest` command in the public parser tree |

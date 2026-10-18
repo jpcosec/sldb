@@ -60,7 +60,7 @@ def _semantic_export(s):
     e = s.add_parser("semantic-export", help="Export semantic payloads.")
     e.add_argument("--store", help="Store path")
     e.add_argument("--pythonpath", help="Project path")
-    e.add_argument("--format", choices=("kgdb",), default="kgdb")
+    e.add_argument("--format", choices=("sldb",), default="sldb", help="Payload contract: sldb_semantic_export v1")
     e.add_argument("--encoding", choices=("json", "yaml"), default="json")
     e.add_argument("--output", "-o", default="-", help="Output path or -")
     e.add_argument("--rebuild", action="store_true", help="Refresh semantic and section indexes")

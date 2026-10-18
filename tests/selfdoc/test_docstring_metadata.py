@@ -56,7 +56,7 @@ def _project(tmp_path, source: str):
     add_model(sp, "sldb.models.relation_type_doc:RelationTypeDoc")
     (tmp_path / "types").mkdir()
     for name in ("contains", "imports", "references"):   # the vocabulary python-sync validates against
-        shutil.copy(REPO / "kgdb" / "relation_types" / f"{name}.md", tmp_path / "types" / f"{name}.md")
+        shutil.copy(REPO / "sldb" / "relation_types" / f"{name}.md", tmp_path / "types" / f"{name}.md")
         track_document_file(sp, "RelationTypeDoc", tmp_path / "types" / f"{name}.md", name)
     return sp
 

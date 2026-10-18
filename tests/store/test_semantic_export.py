@@ -5,7 +5,7 @@ from pathlib import Path
 
 from sldb.cli import main as cli_main
 from sldb.cli.model_utils import resolve_model_ref
-from sldb.store.export import export_kgdb_semantic_payload
+from sldb.store.export import export_semantic_payload
 
 
 def _write_model(project: Path) -> str:
@@ -67,7 +67,7 @@ def _build_tracked_store(tmp_path: Path, capsys) -> tuple[Path, Path]:
     return store, tmp_path
 
 
-def test_stores_semantic_export_kgdb_json_from_tracked_store(tmp_path, capsys):
+def test_stores_semantic_export_json_from_tracked_store(tmp_path, capsys):
     store, root = _build_tracked_store(tmp_path, capsys)
 
     rc = cli_main(
@@ -79,14 +79,14 @@ def test_stores_semantic_export_kgdb_json_from_tracked_store(tmp_path, capsys):
             "--pythonpath",
             str(root),
             "--format",
-            "kgdb",
+            "sldb",
             "--rebuild",
         ]
     )
 
     assert rc == 0
     payload = json.loads(capsys.readouterr().out)
-    assert payload["contract"]["name"] == "sldb_kgdb_semantic_export"
+    assert payload["contract"]["name"] == "sldb_semantic_export"
     assert payload["contract"]["version"] == 1
     assert payload["producer"]["name"] == "sldb"
     assert payload["store"]["root"] == str(root)
@@ -135,10 +135,10 @@ def test_stores_semantic_export_kgdb_json_from_tracked_store(tmp_path, capsys):
     }
 
 
-def test_export_kgdb_semantic_payload_api(tmp_path, capsys):
+def test_export_semantic_payload_api(tmp_path, capsys):
     store, root = _build_tracked_store(tmp_path, capsys)
 
-    payload = export_kgdb_semantic_payload(
+    payload = export_semantic_payload(
         store,
         root,
         resolve_model_ref,
@@ -159,3 +159,22 @@ def test_producer_version_matches_pyproject():
 
     text = (Path(__file__).resolve().parents[2] / "pyproject.toml").read_text(encoding="utf-8")
     assert _version() == re.search(r'^version\s*=\s*"([^"]+)"', text, re.M).group(1)
+
+
+def test_a_payload_written_under_the_old_contract_name_is_still_read():
+    """sldb writes `sldb_semantic_export`; an export written as `sldb_kgdb_semantic_export`
+    before kgdb merged into sldb is read, never written."""
+    import json
+    from pathlib import Path
+
+    import pytest
+
+    from sldb.store.graph.ingest_sldb import sldb_semantic_export_to_snapshot
+
+    payload = json.loads((Path(__file__).resolve().parents[2] / "contracts" / "fixtures" / "sldb_semantic_export.v1.json").read_text(encoding="utf-8"))
+    new_nodes = len(sldb_semantic_export_to_snapshot(payload).nodes)
+    payload["contract"]["name"] = "sldb_kgdb_semantic_export"
+    assert len(sldb_semantic_export_to_snapshot(payload).nodes) == new_nodes
+    payload["contract"]["name"] = "something_else"
+    with pytest.raises(ValueError, match="sldb_semantic_export"):
+        sldb_semantic_export_to_snapshot(payload)

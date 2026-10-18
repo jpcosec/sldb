@@ -1,5 +1,5 @@
 name: reltype-applies_to_source
-path: kgdb/relation_types/applies_to_source.md
+path: sldb/relation_types/applies_to_source.md
 source_hash: 710d071df8cc9867fdc007ce1b1506e02085669b5d548b812e750119e4b3877b
 content_hash: 76163cb41f82534a41d3abd15493f3330acdb83c361611797177367803ae2283
 field_hashes:

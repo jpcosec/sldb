@@ -3,8 +3,8 @@ version: 0.1.0
 exports:
   - name: sldb_document_payload
     schema: contracts/schemas/sldb_document_payload.schema.json
-  - name: sldb_kgdb_semantic_export
-    schema: contracts/schemas/sldb_kgdb_semantic_export.schema.json
+  - name: sldb_semantic_export
+    schema: contracts/schemas/sldb_semantic_export.schema.json
 consumes: []
 compatibility:
   requires: {}
@@ -19,11 +19,11 @@ export_surface:
       description: Structured document payload emitted from markdown persistence.
       schema_ref: contracts/schemas/sldb_document_payload.schema.json
       version: 0.1.0
-    sldb_kgdb_semantic_export:
-      name: sldb_kgdb_semantic_export
-      description: Versioned semantic store payload for KGDB ingestion without scraping .sldb/runtime internals.
-      schema_ref: contracts/schemas/sldb_kgdb_semantic_export.schema.json
-      fixture_ref: contracts/fixtures/sldb_kgdb_semantic_export.v1.json
+    sldb_semantic_export:
+      name: sldb_semantic_export
+      description: Versioned semantic store payload for the graph layer, without scraping .sldb/runtime internals.
+      schema_ref: contracts/schemas/sldb_semantic_export.schema.json
+      fixture_ref: contracts/fixtures/sldb_semantic_export.v1.json
       version: 1
   procedures: {}
   surfaces: {}

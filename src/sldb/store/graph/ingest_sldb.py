@@ -1,4 +1,8 @@
-"""`sldb_kgdb_semantic_export` v1 -> GraphSnapshot, the kgdb `ingest/sldb.py` route."""
+"""`sldb_semantic_export` v1 -> GraphSnapshot.
+
+The contract was named `sldb_kgdb_semantic_export` while kgdb was a separate package. sldb
+writes only the new name; a payload already written under the old one is still read.
+"""
 
 from __future__ import annotations
 
@@ -13,12 +17,13 @@ from sldb.store.graph.ingest_sldb_nodes import (
 )
 from sldb.store.graph.snapshot import GraphSnapshot
 
-CONTRACT_NAME = "sldb_kgdb_semantic_export"
+CONTRACT_NAME = "sldb_semantic_export"
+LEGACY_CONTRACT_NAMES = ("sldb_kgdb_semantic_export",)  # read, never written
 CONTRACT_VERSION = 1
 
 
 def sldb_semantic_export_to_snapshot(payload: dict[str, Any]) -> GraphSnapshot:
-    """Convert an SLDB semantic export payload into a KGDB graph snapshot."""
+    """Convert an SLDB semantic export payload into a graph snapshot."""
     _validate_contract(payload)
     provenance = _base_provenance(payload)
     tag_ids = _collect_semantic_tags(payload)
@@ -27,7 +32,7 @@ def sldb_semantic_export_to_snapshot(payload: dict[str, Any]) -> GraphSnapshot:
 
 def _validate_contract(payload: dict[str, Any]) -> None:
     contract = payload.get("contract", {})
-    if contract.get("name") != CONTRACT_NAME or contract.get("version") != CONTRACT_VERSION:
+    if contract.get("name") not in (CONTRACT_NAME, *LEGACY_CONTRACT_NAMES) or contract.get("version") != CONTRACT_VERSION:
         raise ValueError(f"Expected {CONTRACT_NAME} version {CONTRACT_VERSION}")
 
 

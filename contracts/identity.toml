@@ -131,16 +131,10 @@ what = "aplicación web propia (`@sldb/surface`, Vite)"
 verdict = "no declarada en ninguna especificación; ni producto ni autoaplicación"
 
 [[foreign]]
-path = "kgdb"
-files = 14
-what = "tipos de relación de otro sistema del ecosistema"
-verdict = "prestado y declarado; se queda como referencia"
-
-[[foreign]]
 path = "sldb"
-files = 1
-what = "un directorio con el nombre del paquete, en la raíz, con un archivo"
-verdict = "duplica `kgdb/relation_types/`; solo genera ambigüedad"
+files = 16
+what = "los RelationTypeDoc trackeados del store (`sldb/relation_types/`), los que `edges init` escribe"
+verdict = "datos del store, no código; estaban partidos entre `kgdb/relation_types/` y este directorio hasta 2026-10-18"
 
 # ---------------------------------------------------------------------------
 # Lo que la identidad rechaza
@@ -300,7 +294,7 @@ producto —describe cualquier código Python— pero sabe dónde escribe *acá*
 # ---------------------------------------------------------------------------
 
 [surface]
-consumers = ["deskops", "kgdb", "spec2viz", "hum-scrapper", "ontology"]
+consumers = ["deskops", "spec2viz", "hum-scrapper", "ontology"]
 symbols_requested = 53
 already_exported = 32
 note = """
@@ -367,15 +361,6 @@ note = "ningún consumidor lo pide todavía"
 # ---------------------------------------------------------------------------
 # Deuda de superficie
 # ---------------------------------------------------------------------------
-
-[[surface_debt]]
-id = "privados-importados"
-what = "kgdb/src/kgdb/ingest/typed.py:42 importa `_base_provenance` y `_collect_semantic_tags` de `store/graph/ingest_sldb.py`"
-why_not_a_consumer_bug = """
-No es culpa de kgdb: necesitaba la capacidad y no había puerta. El guion bajo
-decía «interno» y nada podía hacerlo cumplir.
-"""
-repair = "nombrarlas y exponerlas, o dar la capacidad por otra vía"
 
 [[surface_debt]]
 id = "interfaz-como-libreria"

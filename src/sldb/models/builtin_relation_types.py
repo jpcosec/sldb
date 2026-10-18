@@ -1,5 +1,5 @@
 """The relation types the edge index itself produces, shipped as RelationTypeDoc payloads
-(moved here from kgdb.models.builtin).
+(sldb's own vocabulary).
 
 `sldb.api.init_relations` writes each of these as a tracked document in the store so that
 every structural edge of the index has a type, like any authored edge. Node classes here

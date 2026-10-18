@@ -261,7 +261,7 @@ Dependencies:
 - sldb.cli.utils.get_store_context
 - sldb.cli.utils.resolve_model_ref
 - sldb.cli.utils.write_text
-- sldb.store.export.export_kgdb_semantic_payload
+- sldb.store.export.export_semantic_payload
 - sldb.store.io.load_store_index
 
 ### `sldb.cli.graph`

@@ -1,5 +1,5 @@
 name: reltype-has_model
-path: kgdb/relation_types/has_model.md
+path: sldb/relation_types/has_model.md
 source_hash: 4328c87c677e931ca471d2b90044f37086b3d355d579f914a1876eb6054e3c5e
 content_hash: cb45dae688729e363430a040db46b0377bd69265cfbd95b3e965c414adee0ab5
 field_hashes:

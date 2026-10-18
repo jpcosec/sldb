@@ -1,6 +1,6 @@
 # Handoff: Continue Source Docstring Annotations
 
-> Note (2026-10-18): KGDB was merged into sldb and is now its graph layer (`sldb.store.graph`, CLI `sldb graph ...`). Where this document says KGDB it means that layer; no external `kgdb` package or executable exists any more. The `sldb_kgdb_semantic_export` contract name is kept as a data contract.
+> Note (2026-10-18): KGDB was merged into sldb and is now its graph layer (`sldb.store.graph`, CLI `sldb graph ...`). Where this document says KGDB it means that layer; no external `kgdb` package or executable exists any more. The `sldb_semantic_export` contract name is kept as a data contract.
 
 Continue the [docstring indexing specification](code-docstring-indexing.spec.md) in a small annotation-only batch. The specification is the authority; the two [PythonSymbol pilot declarations](../../src/sldb/selfdoc/python_symbol.py) demonstrate its syntax. The source-fact adapter now writes a regenerable KGDB graph, but strict docstring metadata interpretation and tag inheritance are not implemented. Do not report annotations as complete semantic classification.
 

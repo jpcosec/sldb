@@ -1,5 +1,5 @@
 name: reltype-has_document
-path: kgdb/relation_types/has_document.md
+path: sldb/relation_types/has_document.md
 source_hash: 310eead53c52dd80f006fd4e3c36fab7dca71aefa06f355dc943a76fee957723
 content_hash: 2fc92ed4f313315b5806aceb98a4f0bd99dc4d01f1868cce7b8068161b683761
 field_hashes:

@@ -27,7 +27,7 @@ from sldb.cli.serve.similar_routes import similar_payload
 from sldb.cli.serve.segments_routes import extract_segments_response
 from sldb.cli.serve.graph_payload import graph_documents, graph_payload  # noqa: F401 - graph_documents re-exported
 from sldb.cli.serve.stores_routes import dispatch_stores
-from sldb.store.export import export_kgdb_semantic_payload
+from sldb.store.export import export_semantic_payload
 
 
 def dispatch(
@@ -52,7 +52,7 @@ def dispatch_get(
     project_root: Path,
     pythonpath: str,
 ) -> tuple[dict[str, Any], int]:
-    handlers = {"/health": lambda *_: health_payload(store_path, project_root, pythonpath), "/schema": lambda *_: store_schema(store_path, pythonpath).model_dump(mode="json"), "/graph": lambda *_: graph_payload(store_path, pythonpath), "/kgdb/snapshot": lambda *_: export_kgdb_semantic_payload(store_path, project_root, resolve_model_ref, pythonpath)}
+    handlers = {"/health": lambda *_: health_payload(store_path, project_root, pythonpath), "/schema": lambda *_: store_schema(store_path, pythonpath).model_dump(mode="json"), "/graph": lambda *_: graph_payload(store_path, pythonpath), "/semantic-export": lambda *_: export_semantic_payload(store_path, project_root, resolve_model_ref, pythonpath)}
     if route in handlers:
         return handlers[route](route), 200
     return _nested_get(handler, route, store_path, project_root, pythonpath)

@@ -46,4 +46,4 @@ sldb
 
 Singular aliases and old top-level address commands remain compatibility entry points. They are not the recommended surface, and there is no confirmed future removal release for this frozen checkout.
 
-The HTTP implementation exposes `GET /health`, `/schema`, `/graph`, `/kgdb/snapshot`, and `POST /save`; it does not expose every CLI command as an HTTP route.
+The HTTP implementation exposes `GET /health`, `/schema`, `/graph`, `/semantic-export`, and `POST /save`; it does not expose every CLI command as an HTTP route.

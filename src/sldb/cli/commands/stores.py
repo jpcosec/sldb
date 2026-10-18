@@ -11,7 +11,7 @@ from sldb.cli.commands.store import StoreCLI
 from sldb.cli.store_context import get_store_context
 from sldb.cli.model_utils import resolve_model_ref
 from sldb.cli.utils import write_text
-from sldb.store.export import export_kgdb_semantic_payload
+from sldb.store.export import export_semantic_payload
 from sldb.store.catalog_reconcile import reconcile_catalog
 from sldb.store.resolver import global_store_path
 
@@ -48,7 +48,7 @@ class StoresCLI:
 
     def semantic_export(self, args: Any) -> int:
         sp, root = get_store_context(args.store, mode="readonly")
-        payload = export_kgdb_semantic_payload(
+        payload = export_semantic_payload(
             sp, root, resolve_model_ref, args.pythonpath, rebuild=args.rebuild,
             command=["sldb", "stores", "semantic-export", "--format", args.format],
         )

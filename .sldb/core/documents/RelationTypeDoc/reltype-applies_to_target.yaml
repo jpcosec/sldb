@@ -1,5 +1,5 @@
 name: reltype-applies_to_target
-path: kgdb/relation_types/applies_to_target.md
+path: sldb/relation_types/applies_to_target.md
 source_hash: 30a85970a383ecb55f95bed4ce2f3d4cb7e7569fef3309b5d2e5ba4334fa64cc
 content_hash: d4d63693b589103d6cbfc445f52e11a3698b3ba50fb573be0b0d93c45b2a68c0
 field_hashes:

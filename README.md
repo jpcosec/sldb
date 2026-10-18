@@ -163,7 +163,7 @@ Exploration and graph inspection:
 sldb find docs --in physical --store .sldb --pythonpath src
 sldb find type.documentation.Readme --in semantic --global --store .sldb --pythonpath src
 sldb ast show docs/recipe --store .sldb --pythonpath src
-sldb stores semantic-export --store .sldb --pythonpath src --format kgdb --encoding json --rebuild -o semantic.json
+sldb stores semantic-export --store .sldb --pythonpath src --format sldb --encoding json --rebuild -o semantic.json
 ```
 
 `sldb stores semantic-export` is the SLDB-owned semantic handoff for KGDB. It exports graph-ready model, document, section, semantic tag, semantic DAG, equivalence, and store provenance data; source-file relations and workflow-specific graph edges are added downstream. See `docs/architecture/semantic-export-boundary.md` for the full boundary.
@@ -228,7 +228,7 @@ Routes, grouped by what a surface needs:
 - extraction: `POST /extract`, `POST /extract/segments` (raw text + model → typed fields,
   alignment to the raw text, unmatched spans, coverage)
 - similarity: `GET /corpus/rank` (documents, or `fields=1`), `GET /similar`
-- diagnostics: `GET /health`, `/lint`, `/kgdb/snapshot`
+- diagnostics: `GET /health`, `/lint`, `/semantic-export`
 
 The surfaces in this repo live in `surface/` (`@sldb/surface`): a generic document UI (Documento,
 Composición, Extracción, Salud, Bandeja, Lector, Destilación) and `maqueta.html`, the atoms UI

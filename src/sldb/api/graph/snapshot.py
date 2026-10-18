@@ -7,7 +7,7 @@ from typing import Any, Iterable
 from sldb.api.edges.edge_reading import load_edge_index
 from sldb.api.stores.open_store import open_store
 from sldb.store.edge_index.federation import federated_stores
-from sldb.store.export import export_kgdb_semantic_payload
+from sldb.store.export import export_semantic_payload
 from sldb.store.graph.convert import snapshot_from_index
 from sldb.store.graph.graph_io import load_graph, save_graph
 from sldb.store.graph.ingest_sldb import sldb_semantic_export_to_snapshot
@@ -31,7 +31,7 @@ def snapshot_save(store, path, include_linked: bool = True, exclude_tags: Iterab
         # indexes yet; keep the legacy shard-composed behaviour for exactly these cases.
         save_graph(snapshot_from_index(load_edge_index(location.store_path, include_linked, excluded)), path)
         return
-    payload = export_kgdb_semantic_payload(location.store_path, location.project_root, command=["graph", "snapshot", "save"])
+    payload = export_semantic_payload(location.store_path, location.project_root, command=["graph", "snapshot", "save"])
     save_graph(sldb_semantic_export_to_snapshot(payload), path)
 
 
@@ -41,5 +41,5 @@ def snapshot_load(path) -> GraphSnapshot:
 
 
 def ingest_sldb(payload: dict[str, Any]) -> GraphSnapshot:
-    """Convert an `sldb_kgdb_semantic_export` v1 payload into a GraphSnapshot."""
+    """Convert an `sldb_semantic_export` v1 payload (or one written under its old name) into a GraphSnapshot."""
     return sldb_semantic_export_to_snapshot(payload)

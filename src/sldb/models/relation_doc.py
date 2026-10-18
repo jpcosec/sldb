@@ -1,4 +1,4 @@
-"""One authored edge, declared as an sldb document (moved here from kgdb.models)."""
+"""One authored edge, declared as an sldb document."""
 
 from __future__ import annotations
 

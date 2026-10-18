@@ -22,7 +22,7 @@ import pytest
 from sldb import api
 from sldb.api.edges.edge_reading import load_edge_index
 from sldb.api.graph import snapshot_load, snapshot_save
-from sldb.store.export import export_kgdb_semantic_payload
+from sldb.store.export import export_semantic_payload
 from sldb.store.graph.convert import snapshot_from_index
 from sldb.store.graph.ingest_sldb import sldb_semantic_export_to_snapshot
 
@@ -93,7 +93,7 @@ class GraphWorld:
 
     def new_snapshot(self):
         """The ported route: source indexes -> semantic export -> GraphSnapshot."""
-        return sldb_semantic_export_to_snapshot(export_kgdb_semantic_payload(self.store, self.root, command=["graph", "snapshot", "save"]))
+        return sldb_semantic_export_to_snapshot(export_semantic_payload(self.store, self.root, command=["graph", "snapshot", "save"]))
 
 
 @pytest.fixture

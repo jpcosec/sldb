@@ -137,6 +137,16 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   user cache (`~/.cache/sldb/runtime-cache-built/`) and the in-process dirty set vouched for
   shards that were gone, so a rebuild wrote only the edges and a graph snapshot lost
   `has_section` and `semantic_parent` (reported by graph-ui).
+- The last kgdb names in sldb's public surface are sldb's now (kgdb merged into sldb):
+  - `sldb.store.export.export_kgdb_semantic_payload` is `export_semantic_payload`;
+  - the semantic export contract `sldb_kgdb_semantic_export` is `sldb_semantic_export` (schema
+    `contracts/schemas/sldb_semantic_export.schema.json`, fixture
+    `contracts/fixtures/sldb_semantic_export.v1.json`); a payload written under the old name is
+    still read by `graph ingest-sldb` and `sldb_semantic_export_to_snapshot`, never written;
+  - `stores semantic-export --format kgdb` is `--format sldb`;
+  - the `sldb serve` route `/kgdb/snapshot` is `/semantic-export`;
+  - the store's tracked relation types moved from `kgdb/relation_types/` to
+    `sldb/relation_types/`, where `edges init` already wrote the new ones.
 - `stores init` fails cleanly: what a failed init wrote is removed, the message says where it
   failed and what to check (instead of `Unexpected: [Errno 13] ...`), and the exit code tells
   a caller what happened: 0 created or already there, 2 the place refused it (permissions),

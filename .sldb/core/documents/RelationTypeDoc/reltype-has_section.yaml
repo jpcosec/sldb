@@ -1,5 +1,5 @@
 name: reltype-has_section
-path: kgdb/relation_types/has_section.md
+path: sldb/relation_types/has_section.md
 source_hash: c982b6ad78924ee59157c388069451f5631f82d81b2568eb28d80b60e51c8e0c
 content_hash: 449bb563fb84964ea6318b2ee4f8baa5de1b1f841544c0ef0ee13d91263632e5
 field_hashes:
