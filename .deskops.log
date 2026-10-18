@@ -391,3 +391,6 @@ Task-Id: task-tighten-semantic-export-provenance-contract
 2026-10-18 13:02:02,988 - deskops - INFO - Advanced task task-edges-show-rechaza-lo-que-no-es-un-nodo to node ritual-testing
 2026-10-18 13:02:10,432 - deskops - INFO - Advanced task task-edges-show-rechaza-lo-que-no-es-un-nodo to node ritual-closeout
 2026-10-18 13:02:17,638 - deskops - INFO - Task task-edges-show-rechaza-lo-que-no-es-un-nodo reached the closure gate; deferring to closeout commit.
+2026-10-18 13:02:51,415 - deskops - INFO - Advanced task task-quitar-del-manual-las-fricciones-que-ya-no-existen to node ritual-testing
+2026-10-18 13:02:58,815 - deskops - INFO - Advanced task task-quitar-del-manual-las-fricciones-que-ya-no-existen to node ritual-closeout
+2026-10-18 13:03:05,705 - deskops - INFO - Task task-quitar-del-manual-las-fricciones-que-ya-no-existen reached the closure gate; deferring to closeout commit.
