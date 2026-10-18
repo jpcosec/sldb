@@ -403,3 +403,6 @@ Task-Id: task-tighten-semantic-export-provenance-contract
 2026-10-18 13:32:14,002 - deskops - INFO - Advanced task task-consultar-qué-modelos-registra-un-store to node ritual-testing
 2026-10-18 13:32:22,651 - deskops - INFO - Advanced task task-consultar-qué-modelos-registra-un-store to node ritual-closeout
 2026-10-18 13:32:32,296 - deskops - INFO - Task task-consultar-qué-modelos-registra-un-store reached the closure gate; deferring to closeout commit.
+2026-10-18 13:32:55,543 - deskops - INFO - Advanced task task-stores-check-verifica-el-split-core-runtime-en-gitignore to node ritual-testing
+2026-10-18 13:33:08,338 - deskops - INFO - Advanced task task-stores-check-verifica-el-split-core-runtime-en-gitignore to node ritual-closeout
+2026-10-18 13:33:17,787 - deskops - INFO - Task task-stores-check-verifica-el-split-core-runtime-en-gitignore reached the closure gate; deferring to closeout commit.
