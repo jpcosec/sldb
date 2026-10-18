@@ -1,4 +1,5 @@
 from __future__ import annotations
+from sldb.cli.output_format import emit
 
 from pathlib import Path
 from typing import Any
@@ -68,7 +69,7 @@ class DocCLI:
         if not validate_model_input_roundtrip(model_type, rendered)[0]: raise SLDBValidationError("Update fail", validate_model_input_roundtrip(model_type, rendered)[1])
         self._write_and_rehash(root, doc, model_type, rendered)
         self._save_updated(sp, root, load_store_index(sp), m_entry, m_idx, doc, args, model_type)
-        print(f"Updated '{doc.name}'")
+        emit({"updated": doc.name, "model": m_entry.name, "path": doc.path}, getattr(args, "format", "text"), f"Updated '{doc.name}'")
         return 0
 
     def _save_updated(self, sp: Any, root: Path, idx: Any, m_entry: Any, m_idx: Any, doc: Any, args: Any, model_type: Any = None) -> None:

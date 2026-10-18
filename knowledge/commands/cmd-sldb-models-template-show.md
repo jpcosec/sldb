@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#models template show; contract-sha256:8a3f72775c491b2c32f7f4c1e93095f93a9d6762b0ea188e4362e7b9e755765e
+provenance: parser:sldb.cli.parser:build_parser#models template show; contract-sha256:6c56a60ad1fc58f4b337bd7d56eceee144b91397ba51acec3419d9809b3ab8df
 ---
 
 # models template show
@@ -82,6 +82,23 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'show'. It pa
       "action": "argparse._StoreTrueAction",
       "const": "true",
       "help": "Show the draft template"
+    },
+    {
+      "names": [
+        "--format"
+      ],
+      "required": false,
+      "default": "\"text\"",
+      "choices": [
+        "\"text\"",
+        "\"json\"",
+        "\"yaml\""
+      ],
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Output format (default text)"
     }
   ],
   "exclusive_groups": []

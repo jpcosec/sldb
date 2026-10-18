@@ -1,7 +1,7 @@
 name: cmd-sldb-models-show
 path: knowledge/commands/cmd-sldb-models-show.md
-source_hash: 0dd48701138a51427a37ac10df4d1796cf4cfb56a19cead3f8cebafae1b10bac
-content_hash: befdd360165e78f5c083a48ac7f21cd35f4031413fcd4afb3dcd9459421aa42d
+source_hash: 861b2460b5f4326fee9127999d128abf602f803a8f5e69f427ad9f83d7a5cc10
+content_hash: e54ed347c2fd5055f9e716209c37c7b52edaee1c8df56a28613c7ee250dc97a6
 field_hashes:
   id: 48c4d416f63ec8b055c08287a79ceb882fa3426a5466f9f567b25f68682d6016
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,10 +9,10 @@ field_hashes:
   synopsis: 59f75bf283d5951627efb24386d22cbeb7ef2145e43ce82be119ed9307721ced
   purpose: a8c702699bed85624b470bddf57dad4821c23928ae9adc5982514b66c432f327
   how_it_works: 5ae6c81922691e5b147993db9317f75591d7f6de58d68a2bed3d23944e1dec66
-  arguments: bbb640da289f878739b32162d40f0e865563fed3b3345f8399fb7f10a7f54f8b
+  arguments: 2dbea8d285aabd49520a81fdba3e73dce489b304c1aa8df0b593e6ff4f7feea2
   usage: db9cae9786d8a66c5cea0fc76a825e1d5b8904d18f8395f5d662cbdb4f133e48
   tags: 699c2cfd1a5b0cb746c8dfb0f4de3ed26435e62c74e179332ed04ad4f2591c91
-  provenance: 9a41b6d18ecfa50c07aa77dab4119ad676f75d480c9951743dec65e9e705943a
+  provenance: 1d494c6a7c5275d34db72fd7090e6649018d3c43c1b47fe4700e264b1c4d05c0
 semantic_tags:
 - domain:retrieval
 - entity:cli_command

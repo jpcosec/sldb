@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#docs update; contract-sha256:3ec1f7d060ffede4f924547b9dc6a9d29914dbfbdc0dbe2846c31ad35acf176c
+provenance: parser:sldb.cli.parser:build_parser#docs update; contract-sha256:cd6be9adc3f355ff3fcdf2e753a419a1714664880102c82b958f4b1c95ad7d75
 ---
 
 # docs update
@@ -82,6 +82,23 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'update'. It 
       "action": "argparse._StoreAction",
       "const": "null",
       "help": "Project path"
+    },
+    {
+      "names": [
+        "--format"
+      ],
+      "required": false,
+      "default": "\"text\"",
+      "choices": [
+        "\"text\"",
+        "\"json\"",
+        "\"yaml\""
+      ],
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Output format (default text)"
     }
   ],
   "exclusive_groups": []

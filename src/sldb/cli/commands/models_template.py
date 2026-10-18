@@ -7,6 +7,7 @@ from typing import Any
 from sldb.api.model_drafts.model_source import ModelSource
 from sldb.api.model_drafts.template_drafts import write_template_draft
 from sldb.api.model_drafts.template_literals import read_template_literal, replace_template_literal, template_assign_node, template_literal
+from sldb.cli.output_format import emit
 from sldb.cli.utils import read_text
 from sldb.core.exceptions import SLDBModelDraftError
 from sldb.cli.commands.models_utils import registered_model_source, draft_path as get_draft_path
@@ -27,7 +28,7 @@ class ModelsTemplateCLI:
         if args.draft and not src_path.exists():
             raise SLDBModelDraftError(f"No draft template for '{args.model}'.")
         template = self._read_template_literal(src_path, attr.split(".")[-1])
-        print(template)
+        emit({"model": args.model, "draft": bool(args.draft), "path": str(src_path), "template": template}, getattr(args, "format", "text"), template)
         return 0
 
     def edit_template(self, args: Any) -> int:

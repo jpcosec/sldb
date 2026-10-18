@@ -1,5 +1,6 @@
 from __future__ import annotations
 import argparse
+from sldb.cli.output_format import add_format
 
 def _add_models_part2(sub):
     _validate(sub); _template(sub); _fields(sub); _create(sub)
@@ -24,6 +25,7 @@ def _tshow(ts):
     tshow.add_argument("--store", help="Store path")
     tshow.add_argument("--pythonpath", help="Project path")
     tshow.add_argument("--draft", action="store_true", help="Show the draft template")
+    add_format(tshow)
 
 def _tedit(ts):
     tedit = ts.add_parser("edit", help="Write a template draft for a registered model.")

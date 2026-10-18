@@ -1,5 +1,6 @@
 from __future__ import annotations
 import argparse
+from sldb.cli.output_format import add_format
 from .models2 import _add_models_part2
 
 def add_models_group(s: argparse._SubParsersAction) -> None:
@@ -44,3 +45,4 @@ def _show(s):
     sh.add_argument("model", help="Model name")
     sh.add_argument("--store", help="Store path")
     sh.add_argument("--pythonpath", help="Project path")
+    add_format(sh, default="yaml")

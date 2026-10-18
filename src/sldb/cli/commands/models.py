@@ -6,6 +6,7 @@ import yaml
 
 from sldb.cli.commands.model import ModelCLI
 from sldb.cli.graph_ops import ast_for_target
+from sldb.cli.output_format import emit
 from sldb.cli.commands.models_list import ModelsListCLI
 from sldb.cli.commands.models_create import ModelsCreateCLI
 from sldb.cli.commands.models_validate import ModelsValidateCLI
@@ -64,5 +65,5 @@ class ModelsCLI:
 
     def _show(self, args: Any) -> int:
         payload = ast_for_target(args.store, args.pythonpath, f"models/{args.model}")
-        print(yaml.safe_dump(payload, sort_keys=False, allow_unicode=True))
+        emit(payload, getattr(args, "format", "yaml"), yaml.safe_dump(payload, sort_keys=False, allow_unicode=True))
         return 0

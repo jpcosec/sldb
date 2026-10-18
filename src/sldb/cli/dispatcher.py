@@ -3,6 +3,7 @@ from typing import Any
 from sldb.cli.parser import build_parser
 from sldb.cli.commands.help_texts import SHORT_ARGPARSE_HELP
 from sldb.cli.singular_handlers import singular_handlers
+from sldb.cli.subcommand_errors import parse_reporting_subcommand
 
 class CLI:
     def __init__(self):
@@ -89,7 +90,7 @@ class CLI:
 
     def _parse_args(self, argv: Any) -> Any:
         parser = build_parser()
-        try: return parser.parse_args(argv)
+        try: return parse_reporting_subcommand(parser, argv)
         except SystemExit as e: return e.code if isinstance(e.code, int) else (0 if e.code is None else 1)
 
     def _dispatch(self, args: Any) -> int:

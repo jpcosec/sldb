@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#models show; contract-sha256:8295bcb4936fbf14b192d61ab99bfd699448cbbf71bb8a49786fd62cba3ce069
+provenance: parser:sldb.cli.parser:build_parser#models show; contract-sha256:97965fed49e9eb9aeecf66104b6e58438a0c0e4cc18e584bcef8349b20d457fa
 ---
 
 # models show
@@ -69,6 +69,23 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'show'. It pa
       "action": "argparse._StoreAction",
       "const": "null",
       "help": "Project path"
+    },
+    {
+      "names": [
+        "--format"
+      ],
+      "required": false,
+      "default": "\"yaml\"",
+      "choices": [
+        "\"text\"",
+        "\"json\"",
+        "\"yaml\""
+      ],
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Output format (default yaml)"
     }
   ],
   "exclusive_groups": []

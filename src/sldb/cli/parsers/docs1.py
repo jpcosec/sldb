@@ -1,5 +1,6 @@
 from __future__ import annotations
 import argparse
+from sldb.cli.output_format import add_format
 from .docs2 import _add_docs_part2
 
 def add_docs_group(s: argparse._SubParsersAction) -> None:
@@ -33,6 +34,7 @@ def _update(s):
     u.add_argument("payload", help="Data file or inline YAML/JSON")
     u.add_argument("--store", help="Store path")
     u.add_argument("--pythonpath", help="Project path")
+    add_format(u)
 
 def _untrack(s):
     rm = s.add_parser("untrack", help="Remove a tracked doc from the store, keeping its file.")
