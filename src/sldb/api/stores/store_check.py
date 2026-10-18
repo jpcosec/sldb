@@ -21,7 +21,7 @@ def check_store(store_path: Path, project_root: Path, pythonpath: str | None = N
     from sldb.store.model_origin import shadowed_models
 
     diagnosis = diagnose_store(store_path, resolve_model_ref, project_root, pythonpath=pythonpath)
-    return {**check_report(diagnosis, structural_noise(store_path, project_root, pythonpath)), "shadowed_models": shadowed_models(store_path, lambda a, b: same_model_class(a, b, pythonpath)), "broken_links": _broken_links(store_path), "gitignore_policy": _gitignore(store_path)}
+    return {**check_report(diagnosis, structural_noise(store_path, project_root, pythonpath)), "shadowed_models": shadowed_models(store_path, lambda a, b: same_model_class(a, b, pythonpath)), "broken_links": _broken_links(store_path), "gitignore_policy": _gitignore(store_path), "rewrite_loss": _rewrite_loss(store_path, project_root, pythonpath)}
 
 
 def _broken_links(store_path: Path) -> list[dict[str, str]]:
@@ -35,6 +35,12 @@ def _gitignore(store_path: Path) -> dict[str, bool] | None:
     from sldb.api.stores.gitignore_policy import gitignore_policy
 
     return gitignore_policy(store_path)
+
+
+def _rewrite_loss(store_path: Path, project_root: Path, pythonpath: str | None) -> list[dict[str, Any]]:
+    from sldb.api.stores.scan_rewrite_loss import scan_rewrite_loss
+
+    return scan_rewrite_loss(store_path, project_root, pythonpath)
 
 
 def check_report(diagnosis: Any, noise: list[dict[str, Any]]) -> dict[str, Any]:

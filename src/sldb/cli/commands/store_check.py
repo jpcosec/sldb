@@ -3,6 +3,7 @@ import json
 from typing import Any
 from sldb.cli.store_context import get_store_context
 from sldb.cli.commands.store_check_report import print_link_notes, print_report
+from sldb.cli.commands.store_check_content_notes import print_content_notes
 
 def check_store(args: Any) -> int:
     from sldb.store.diagnostics import diagnose_store
@@ -14,26 +15,13 @@ def check_store(args: Any) -> int:
 
 
 def _report_structural_noise(sp: Any, root: Any, args: Any, code: int) -> int:
-    """List tracked documents with undeclared headings; diagnosis, so the code is unchanged."""
-    from sldb.api.stores.scan_structural_noise import scan_structural_noise
-
-    if args.format in ("json", "yaml"):
-        return code
-    _print_noise(scan_structural_noise(sp, root, args.pythonpath))
+    """The content and link notes; diagnosis, so the code is unchanged."""
+    if args.format in ("json", "yaml") or getattr(args, "quiet", False):
+        return code  # --quiet is the PASS/FAIL line alone, and skips the scans behind the notes
+    print_content_notes(sp, root, args.pythonpath)
     print_link_notes(sp)
     return code
 
-
-def _print_noise(reports: list[Any]) -> None:
-    """Name every noisy document and the headings behind the verdict, never a count alone."""
-    if not reports:
-        return
-    print(f"\nruido estructural: {len(reports)} documento(s) trackeado(s) traen headings que su modelo no declara")
-    for report in reports:
-        print(f"  {report.document} ({report.model}): {len(report.undeclared)} heading(s) sin declarar")
-        for line in report.undeclared:
-            print(f"      {line}")
-    print("  fix     : creá un modelo que herede y declare esas secciones como campos optrev")
 
 def _handle_check_res(res: Any, fmt: str, quiet: bool = False) -> int:
     if fmt in ("json", "yaml"):

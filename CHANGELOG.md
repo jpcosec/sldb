@@ -65,6 +65,13 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   claims the last section's paragraph, which came out empty and was erased by any rewrite.
   Past a missing heading, only later headings end a section. The `purpose` of three of
   sldb's rituals came back (`models update RitualDoc`).
+- `stores check` names the documents a rewrite would lose content from: blocks of the file
+  that do not survive `render(extract(text))`, because the model does not read them (written
+  by hand, or by an older template). Their hashes are consistent over the poor extraction, so
+  nothing else showed it. Sections the template fills only with `render`/`py` markers are
+  regenerated and not counted. `check_store` returns it as `rewrite_loss`.
+- `stores check --quiet` prints the PASS/FAIL line alone, as documented: it printed the
+  per-document notes too, and now also skips the scans behind them.
 - `stores init` fails cleanly: what a failed init wrote is removed, the message says where it
   failed and what to check (instead of `Unexpected: [Errno 13] ...`), and the exit code tells
   a caller what happened: 0 created or already there, 2 the place refused it (permissions),
