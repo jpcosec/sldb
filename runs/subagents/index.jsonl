@@ -12,3 +12,4 @@
 {"task_id": "task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "4c6c143347ee81a59ff0c141fe868e1a15d5f6c9"}
 {"task_id": "task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "b8ff5f0af24cc363c42f3919db80b08775fa27ed"}
 {"task_id": "task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "e54bc0724ef88df67e3cc41fa082628eb8d8a173"}
+{"task_id": "task-stores-init-falla-limpio-y-con-un-c\u00f3digo-de-salida-por-caso", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "cb4da2e22d809b84e33bf22902bb46937edd856c"}
