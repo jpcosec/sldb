@@ -1,6 +1,6 @@
 ---
 id: issue-sldb-edges-show-silent-empty-on-document-name
-status: open
+status: closed
 tags:
 - system:sldb
 - topic:cli
@@ -83,3 +83,9 @@ Carry the requirement forward, do not patch the doomed file. The replacement gra
 
 - `desk/pills/pill-009-cli-error-and-serialization-failure-mode.md` — user-input failures must become actionable diagnostics, not silent empty output
 - `desk/pills/pill-007-sldb-text-layer-vs-kgdb-graph-layer.md` — document names live in the text layer, node ids in the graph layer
+
+## Resolution
+
+Closed: 2026-10-18
+Reason: Resuelto: edges show con algo que no es un nodo del índice falla con código 1 y sugiere el export id (Did you mean PillDoc:...?); un nodo real sin aristas sigue dando [].
+Refs: 5d6debe7, tests/api/test_edges_show_unknown_node.py, task-edges-show-rechaza-lo-que-no-es-un-nodo
