@@ -1,5 +1,7 @@
 # Python Docstring Indexing Contract
 
+> Note (2026-10-18): KGDB was merged into sldb and is now its graph layer (`sldb.store.graph`, CLI `sldb graph ...`). Where this document says KGDB it means that layer; no external `kgdb` package or executable exists any more. The `sldb_kgdb_semantic_export` contract name is kept as a data contract.
+
 This specification records the agreed target behavior for code self-documentation: SLDB indexes declarations in source docstrings, the Python AST supplies structural evidence, KGDB owns persisted relationships, and spec2viz renders graph projections. It is a contract for implementation, not a claim that the current scanner already supports it.
 
 Status: the source-fact adapter is implemented for lexical containment, imports, and annotation references, and `python-sync` materializes the corresponding SLDB documents and a regenerable KGDB snapshot. Strict metadata validation, inherited tags, legacy-ID migration, typed relation registration, and spec2viz projection remain pending. Consumers may use the published store facts through their own normal interfaces; no consumer-specific vocabulary belongs in this adapter. Continue through the [handoff](code-docstring-indexing-handoff.md) and [active task](../../desk/tasks/task-build-code-self-documentation.md).
@@ -85,7 +87,7 @@ Persist through the supported KGDB ingestion boundary. Reconciliation replaces o
 
 Explicit source IDs, current generated Markdown document IDs, and KGDB node IDs are different address spaces. Maintain an explicit mapping from `(store identity, declared source id)` to the tracked SLDB export address and then to its KGDB address. Reuse KGDB's store-qualified addressing, not machine-local absolute paths or a second global-ID convention. Never silently rename existing tracked documents to match new source IDs.
 
-The current `sldb_kgdb_semantic_export` v1 excludes source-code edges and raw bodies. The implemented source adapter therefore writes a separate regenerable KGDB GraphSnapshot through `kgdb ingest`, by default `.kgdb/python-source.graph.json`; it does not mutate v1. Its `contains`, `imports`, and `references` edge tokens are source-fact projection vocabulary with `origin: python_ast`, not authored `RelationDoc` edges. The JSON artifact is a producer detail behind SLDB's publishing boundary, not a second source of truth. A later typed-relation integration must register/validate the vocabulary without altering this provenance boundary.
+The current `sldb_kgdb_semantic_export` v1 excludes source-code edges and raw bodies. The implemented source adapter therefore writes a separate regenerable graph snapshot with sldb's own graph IO (`write_source_graph`; formerly via `kgdb ingest`), by default `.sldb/runtime/graphs/python-source.graph.json`; it does not mutate v1. Its `contains`, `imports`, and `references` edge tokens are source-fact projection vocabulary with `origin: python_ast`, not authored `RelationDoc` edges. The JSON artifact is a producer detail behind SLDB's publishing boundary, not a second source of truth. A later typed-relation integration must register/validate the vocabulary without altering this provenance boundary.
 
 ### 4.1. Import bindings and reference sites
 
@@ -127,7 +129,7 @@ The legacy `PythonScanner` still stores a simplified import string in generated 
 
 The adapter publishes store-owned facts, not a conversational language or a consumer-specific graph view. `PythonSymbolDoc` documents are ordinary tracked SLDB records; the KGDB snapshot carries the derived structural facts and their AST provenance. Consumers—including Pron, spec2viz, an agent, or another UI—must consume those published records and relations through their normal SLDB/KGDB integration boundary. They must not depend on private artifact paths, add adapter-specific model names to their own runtime, or re-derive AST meaning from source.
 
-`python-check` is the authority for source-to-publication freshness: it reports `kgdb_stale` when the persisted snapshot no longer represents the selected source root. The facts are static as of the last successful `python-sync`; they certify lexical containment, import bindings, and resolvable annotation references only, not runtime calls, re-export chains, star imports, or shadow-resolved names (section 4.1).
+`python-check` is the authority for source-to-publication freshness: it reports `graph_stale` when the persisted snapshot no longer represents the selected source root. The facts are static as of the last successful `python-sync`; they certify lexical containment, import bindings, and resolvable annotation references only, not runtime calls, re-export chains, star imports, or shadow-resolved names (section 4.1).
 
 A consumer may add its own display aliases or query syntax only as ordinary consumer configuration over registered store identities and relation types. Such configuration is not part of the Python adapter and must not change or duplicate the KGDB facts.
 

@@ -29,4 +29,4 @@ The engine is `sldb.store.query` (`get_structural`, `list_structural`, `glob_str
 
 ## Who Uses It
 
-Anyone reading or changing a value in a tracked document, and any tool built over the store (kgdb ingest, pron, deskops materializers) that wants a field or a family of documents without parsing Markdown itself.
+Anyone reading or changing a value in a tracked document, and any tool built over the store (the graph layer, pron, deskops materializers) that wants a field or a family of documents without parsing Markdown itself.

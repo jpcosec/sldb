@@ -1,5 +1,7 @@
 # Handoff: Continue Source Docstring Annotations
 
+> Note (2026-10-18): KGDB was merged into sldb and is now its graph layer (`sldb.store.graph`, CLI `sldb graph ...`). Where this document says KGDB it means that layer; no external `kgdb` package or executable exists any more. The `sldb_kgdb_semantic_export` contract name is kept as a data contract.
+
 Continue the [docstring indexing specification](code-docstring-indexing.spec.md) in a small annotation-only batch. The specification is the authority; the two [PythonSymbol pilot declarations](../../src/sldb/selfdoc/python_symbol.py) demonstrate its syntax. The source-fact adapter now writes a regenerable KGDB graph, but strict docstring metadata interpretation and tag inheritance are not implemented. Do not report annotations as complete semantic classification.
 
 ## Assignment for the next agent
@@ -71,7 +73,7 @@ Do not add redundant docstring-only test files. The later implementation slice n
 
 SLDB: `selfdoc/python_scanner.py`, `selfdoc/python_symbol.py`, `selfdoc/python_materialize.py`, `models/python_symbol_doc.py`, `models/knowledge_tag.py`, `store/semantic_tags.py`, `store/export.py`, and `cli/selfdoc_inspect.py` (all under `src/sldb`).
 
-KGDB contracts: sibling `kgdb/src/kgdb/models/relation_doc.py`, `relation_type_doc.py`, and `builtin.py`. Python containment is not a currently shipped builtin; reuse the registry mechanism, not model-only `extends` for code classes.
+Graph-layer contracts (formerly the sibling kgdb package): `relation_doc.py`, `relation_type_doc.py`, and `builtin.py` under `src/sldb`. Python containment is not a currently shipped builtin; reuse the registry mechanism, not model-only `extends` for code classes.
 
 spec2viz: run `spec2viz diagram schema --type component`. The local sibling source is `spec2viz/spec2viz/models/component.py`; existing curated examples are in `docs/architecture/spec2viz/`. Preserve node/edge meanings through an adapter; do not create a parallel semantic taxonomy or match curated nodes by fuzzy labels.
 
@@ -115,7 +117,7 @@ Review validation: 305 focused tests passed with the same two warnings; all six 
 
 ### Source-fact implementation checkpoint (2026-09-14)
 
-`python-sync` now writes `.kgdb/python-source.graph.json` through KGDB's public ingest command. It replaces only this generated graph and carries producer/source hashes, spans, lexical containment, import binding metadata, local/external targets, and annotation-reference evidence. `python-check` compares the expected AST projection with the saved graph and exposes `kgdb_stale`; a missing/stale graph is a nonzero check result. It does not mutate SLDB semantic export v1 or human-authored KGDB relations.
+`python-sync` now writes `.sldb/runtime/graphs/python-source.graph.json` with sldb's own graph IO (originally, 2026-09-14, via KGDB's public ingest command; the external kgdb was removed 2026-10-18). It replaces only this generated graph and carries producer/source hashes, spans, lexical containment, import binding metadata, local/external targets, and annotation-reference evidence. `python-check` compares the expected AST projection with the saved graph and exposes `graph_stale`; a missing/stale graph is a nonzero check result. It does not mutate SLDB semantic export v1 or human-authored KGDB relations.
 
 The Python exit-status and ambiguous-rename bugs are fixed. Full validation: 518 tests passed (two existing pytest warnings); a repository sync reported 1,273 documents and no findings, and the next check reported zero writes. The generated graph was queried with KGDB: `CommandRecord.arguments` has a `references` edge to `ArgumentRecord`, distinct from its module's `imports` and `contains` edges.
 

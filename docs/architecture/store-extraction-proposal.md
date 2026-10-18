@@ -143,7 +143,7 @@ siguientes son la **generalización** (sacar tipo y formato del core). El
 - **repopackage** = store + plugin `{IntegrationContract, YAML}` → deja de
   reimplementar YAML + `sha256(json.dumps)` + solver ad-hoc sobre archivos
   sueltos (hoy tiene su propia persistencia paralela; ver §7).
-- **kgdb** = consume el store para ensamblar el grafo, agnóstico del codec.
+- **kgdb** (hoy la capa de grafo de sldb, `sldb.store.graph`) = consume el store para ensamblar el grafo, agnóstico del codec.
 - **deskops / spec2viz / knowledge** = store + sus tipos.
 
 El store se vuelve la infraestructura común que `PROJECTION_LAYERING_SPEC.md §7`

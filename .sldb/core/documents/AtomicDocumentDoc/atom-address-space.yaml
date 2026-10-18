@@ -1,7 +1,7 @@
 name: atom-address-space
 path: docs/atoms/address-space.atom.md
-source_hash: 6a5ef55e5a802ab5dfe3e4f1dcb0127fc8473b084388180e99e5530edeccde7a
-content_hash: 0451c966f62f39c07f554ff56a49be16ac42e526e75a62a5fc7442bfae61149a
+source_hash: 9d53073f4f169896a9a06e5e697381c2b2ed0a856da5a6a59cc9dd4b08e154df
+content_hash: 3c3843e104e8fb8577704026170ee3e9fbfb1a841c3133629afd8a8dea97f587
 field_hashes:
   title: fdcb922e8d3c21838971ee4a3a24961ffa716506ce4439fbb479b20737fad319
   related_concepts: 1bec3389f99d81a3d03fa538e6207aa4823d4a0a7fe77187162d145effcdc18f
@@ -10,7 +10,7 @@ field_hashes:
   how_it_works: 711f663c5473059d19ada6382e08f19cfb0271f80c8693f6edb8e652f9822532
   when_it_shows_up: 5923f8db7753b32a6ea7eb6a234e3eb9d524a82d0ad5c9ecabfd7495a8af06ca
   where_it_lives: 0ea15ae3a67e95c6beceaf57627d3548c583a9031f13cc77a4c574834e87971c
-  who_uses_it: 5810ad99d5bc607b3ebd09bbed81c4e96e2509ee0f13bf3a0301746481072e06
+  who_uses_it: 22e6809d021f77e2d4dcc0d8dc963c2271c48a45e4e4a3351d402a727acaad58
 semantic_tags:
 - representation.markdown
 - source.document.markdown

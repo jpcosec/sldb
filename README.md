@@ -163,7 +163,7 @@ Exploration and graph inspection:
 sldb find docs --in physical --store .sldb --pythonpath src
 sldb find type.documentation.Readme --in semantic --global --store .sldb --pythonpath src
 sldb ast show docs/recipe --store .sldb --pythonpath src
-sldb stores semantic-export --store .sldb --pythonpath src --format kgdb --encoding json --rebuild -o kgdb.semantic.json
+sldb stores semantic-export --store .sldb --pythonpath src --format kgdb --encoding json --rebuild -o semantic.json
 ```
 
 `sldb stores semantic-export` is the SLDB-owned semantic handoff for KGDB. It exports graph-ready model, document, section, semantic tag, semantic DAG, equivalence, and store provenance data; source-file relations and workflow-specific graph edges are added downstream. See `docs/architecture/semantic-export-boundary.md` for the full boundary.

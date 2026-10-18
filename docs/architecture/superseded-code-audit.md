@@ -4,6 +4,8 @@ Inventario con evidencia, sin refactor y sin borrar nada. Complementa y extiende
 [`edges-retirement-plan.md`](edges-retirement-plan.md): este documento cubre lo que el plan de
 edges no tocó (kgdb↔sldb, islas muertas, compat bridges, derivados sections/semantic/cache).
 
+> Nota 2026-10-18: el paquete externo `kgdb` ya no existe (fusionado en sldb, ver [sldb-absorbs-kgdb.md](sldb-absorbs-kgdb.md)). Las referencias a `kgdb` de este documento describen el estado al 2026-09-24; los tests de paridad contra kgdb se retiraron y sus ids esperados quedaron fijados en `tests/store/test_example_queries.py`. <!-- gone -->
+
 - Base: `1d232ae`, rama `docs/superseded-audit`. <!-- gone -->
 - Línea base de tests: `PYTHONPATH=src python -m pytest -q` → **1015 passed** (2026-09-24).
 - Método: censo AST de importadores sobre `src/` + `tests/` (script propio, incluye imports

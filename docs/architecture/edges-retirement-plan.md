@@ -133,6 +133,8 @@ Especificación (no implementación). Encaja con el estilo existente: grupo noun
 subcomandos con guion bajo `stores` (`semantic-map`, `semantic-export`, `ingest-sldb` en
 `graph`). Es una operación de ciclo de vida del store → vive en `stores`.
 
+> Nota 2026-10-18: este plan es histórico. `--kgdb-command`, `kgdb_sync.write_kgdb_snapshot` y `kgdb --command ingest` ya no existen: el selfdoc escribe el grafo con el IO de grafo de sldb (`sldb.selfdoc.source_graph_file.write_source_graph`, flag `--graph-output`, sin ejecutable externo). <!-- gone -->
+
 ### `sldb stores migrate-legacy-edges` <!-- gone -->
 
 <!-- gone -->
@@ -274,7 +276,7 @@ No son gaps (retiro intencional): rebuild incremental por-shard (8), staleness (
    re-punteo del input de toda la capa graph, no borrar 10 archivos (§0).
 2. **`cli/serve/lint_routes.py`** — fuera de la lista de retiro, pero consume `check_edges` en
    `/lint` (`lint_routes.py:62`) y queda huérfano: hay que reescribirlo sí o sí.
-3. **`api/__init__.py` es contrato público** ("Consumers (pron, kgdb, deskops...)"),
+3. **`api/__init__.py` es contrato público** ("Consumers (pron, kgdb, deskops...)" (nota 2026-10-18: kgdb ya es la capa de grafo de sldb, no un consumidor externo)),
    `api/__init__.py:3-7`. Retirar la capa toca la API de librería (≈20 símbolos de edges), no
    solo el CLI.
 4. **`ast.py:21` y `build_ir.py:82-88`** mencionan "edges" y son falsos positivos (literales del

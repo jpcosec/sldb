@@ -3,8 +3,8 @@ model_ref: docs.models:FAQDoc
 path: docs/models.py
 documents_index: .sldb/core/documents/FAQDoc.yaml
 sections_index: .sldb/runtime/sections/FAQDoc.yaml
-model_hash: 1caead5a06389392259255fe0b44413d4defef004a9c61522b1247c56efb4cb7
-roster_hash: 977bd29424440159c66afa7a28480602fe275557817b018e3bf7943121d3d295
+model_hash: 903cd693f09756dfcde23ad777f62d8da1f21e0a80abb94941cf48812923c697
+roster_hash: 061378c47e6a0b57a1c4026c77b42856031b84d0bc5736b47cfab0c2497c44d3
 contract_hash: 4ce9e0eb824edff06dd0f682b29e04cfb05c0b1d42c1b42f638b8e57736702b7
 documents_count: 1
 version: 1

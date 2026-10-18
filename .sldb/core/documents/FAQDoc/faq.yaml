@@ -1,10 +1,10 @@
 name: faq
 path: docs/faq.md
-source_hash: 28f44ef5203c3819d9c3d76f8a3cf7d02b337c9a7ab8926e69ba68553b2c1016
-content_hash: 835708328d8d27c8acd1c1b09dc9c751fc3a409e71ec1a682fce0416e5b4990d
+source_hash: 279c57e80ca0d18e82b94aee3b5db9dbb5802c406fc519eff2972ba1c57177e3
+content_hash: 6364b1bceb605e579d942121a33ece6999f6a139b214342c988a081dd5b1cc04
 field_hashes:
   title: db7be09dab5161c4fcda1cf9ee0cbc7fff9817b06c26c1b903c1925ee31e5cb6
-  body: 1276a8dd857d8ac050d61bf7a4296f6dd1fe50e5aef06f6a4b32d6708d1c6710
+  body: 76a70e2c3eb1cb513c1a13bddcc8e57b941906513c90afa6096bd2aae410dd2b
 semantic_tags:
 - representation.markdown
 - source.document.markdown

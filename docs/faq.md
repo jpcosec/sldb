@@ -231,7 +231,7 @@ Examples:
 sldb extract myapp.docs:Book docs/book.md output.yaml
 sldb docs show my-book --store .sldb --format yaml
 sldb fields query title --store .sldb --format yaml
-sldb stores semantic-export --store .sldb --pythonpath src --format kgdb --encoding json -o kgdb.semantic.json
+sldb stores semantic-export --store .sldb --pythonpath src --format kgdb --encoding json -o semantic.json
 ```
 
 `stores semantic-export` differs from semantic search: it exports SLDB's semantic document truth in bulk for a graph consumer, while `find --in semantic` answers a specific retrieval query. The export does not add source-file dependency edges or workflow-specific relations; those belong to downstream graph adapters.

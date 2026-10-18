@@ -9,7 +9,7 @@ it is its own content-blind model authored in sldb. Two levels:
   an sldb document, validated against its type.
 
 Both are plain ``StructuredNLDoc`` subclasses. sldb stays the single authoring
-layer; kgdb becomes a pure assembler that consumes these instead of re-parsing
+layer; the graph layer (``sldb.store.graph``, formerly kgdb) becomes a pure assembler that consumes these instead of re-parsing
 text fields on content models.
 """
 

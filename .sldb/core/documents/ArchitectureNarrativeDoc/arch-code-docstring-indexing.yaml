@@ -1,10 +1,10 @@
 name: arch-code-docstring-indexing
 path: docs/architecture/code-docstring-indexing.spec.md
-source_hash: f138b95ff05d19df6c955972f9905cbd3c5a9f8e4c08276f35f829c9c2c433ff
-content_hash: c9f014ba947050ebed196b4f40eb466bdfa7d508aa85e191b71f71ce80fbe0a2
+source_hash: 726de91fa8c0cea87d2cbd9e1e70171edce78e322ebfa1696cec42ab8e91abc2
+content_hash: 472c5765320d318bef62c133f78fa9b3902752a5fb5b15d9dada90f55288139f
 field_hashes:
   title: d32c7227917d3d24f5fc1dd1e75c6b4ec0da1533a188a797d2f2877a88c43c43
-  body: 954c97dc82ece60751388255f66102f3427947c599ddffa1d20db419e5ca1a1e
+  body: 6a042e61ba426a90a2b9406c1cec6f0a4cae7f5a47d2b5f15255cb1b4b7249ea
 semantic_tags:
 - representation.markdown
 - source.document.markdown
