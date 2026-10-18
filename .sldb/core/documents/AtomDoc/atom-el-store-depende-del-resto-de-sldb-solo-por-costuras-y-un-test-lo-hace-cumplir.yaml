@@ -1,0 +1,16 @@
+name: atom-el-store-depende-del-resto-de-sldb-solo-por-costuras-y-un-test-lo-hace-cumplir
+path: desk/atoms/atom-el-store-depende-del-resto-de-sldb-solo-por-costuras-y-un-test-lo-hace-cumplir.md
+source_hash: 6f1b8ad400eaf17580d0f2523091cb4e3d05e35abad93a0fb102d505b6931210
+content_hash: 177f145d1fb9e019cd420dea0f4cf3dcfbb1cdf21fc6ed10601c81e9c0d51551
+field_hashes:
+  id: d00496c9649c0f69b31bfbfa8eb70f62dcb00c7ef77eb77047b20c6eefd2b088
+  title: d6b1de180b182a16772e89ff65eec5186f56b079ad9c3950acc4fe4948f790d9
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 5203eac4a0fd467d691dbec624b5a7a96c6ef16521bfc6a9cce179d76f8f7555
+  tags: e3e5d8aaa8a9a23873bbdf4cc73680289c881d0b8cc78c763f4294e8ca97a4b4
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- type.knowledge.atom
+- workspace.desk.atoms
