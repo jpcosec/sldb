@@ -1,0 +1,17 @@
+name: 20261017-233235-suggestion-auditor-a-de-empaquetado-2026-10-17-0-1-10-sin-tag-dist-duplicado-sldb-structuredlanguagedb-click-no-declarado
+path: desk/inbox/20261017-233235-suggestion-auditor-a-de-empaquetado-2026-10-17-0-1-10-sin-tag-dist-duplicado-sldb-structuredlanguagedb-click-no-declarado.md
+source_hash: ee3e5d89e8103d9375cb8a80c842616c85c193d38be2158f23b93d842ada63ae
+content_hash: f0b5440d789e7dd50345cf7776266ee8a89bedac279802c418258ea88428f8cf
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 1c5e03043dc0fa13c716518304dd11b6a257b97793b10d5955218c6fc8a22859
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: b335bf12e7fe36f1c49f039c1c8145a3ea6b1c03d4b5e0c67063b0b0a9c8b2af
+  body: 052e2773e8586a39d19ce6853cd1a2393ed57e7f0363f44fb5c097e1b7d6c482
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
