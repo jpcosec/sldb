@@ -2,6 +2,13 @@
 
 Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12`; it was `0.1.0` while PyPI already had `0.1.1`. Existing entries below are historical development records, not a verified registry release inventory. The product-generation label “v1” is separate from package versioning. No new package version or release is created by this documentation reconciliation.
 
+## Unreleased
+
+- The pre-redesign singular groups `sldb store`, `sldb model` and `sldb doc` run again: they
+  were parsed (and listed by `sldb doc --help`) but had no handler, so `sldb doc untrack`
+  answered `Unknown command: doc`. The plural groups (`stores`, `models`, `docs`) remain the
+  documented spelling.
+
 ## 0.1.12 - 2026-10-18 — declared references resolve bare ids and paths, and report what names nothing
 
 - Declared references resolve bare ids and paths. A value of a `__references__` or

@@ -2,6 +2,7 @@ from __future__ import annotations
 from typing import Any
 from sldb.cli.parser import build_parser
 from sldb.cli.commands.help_texts import SHORT_ARGPARSE_HELP
+from sldb.cli.singular_handlers import singular_handlers
 
 class CLI:
     def __init__(self):
@@ -10,6 +11,7 @@ class CLI:
         self._load_2()
         self._load_3()
         self._load_edges()
+        self.handlers.update(singular_handlers())
 
     def _load_1(self):
         from sldb.cli.commands.basic import BasicCLI
