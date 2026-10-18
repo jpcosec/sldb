@@ -8,9 +8,11 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-09-24T01:14:11'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-10-18T14:18:00'
 ---
 
 # save_document_payload deja hash_d que stores check marca como data_mutation
@@ -66,3 +68,7 @@ write path se niega a reescribir perdiendo contenido y el doctor lo reporta),
 pero la condición de fondo es de sldb: podría ser un finding propio de
 `stores check`, algo como "el modelo no lee este documento" separado de los
 hashes, porque un hash consistente sobre una extracción vacía no lo delata.
+
+## Resolución
+
+Resuelto (2026-10-18, sldb-04). (1) save_document_payload ya no deja data_mutation: arreglado en 0.1.4 (CHANGELOG). (2) 0651650972: `stores check` nombra cada documento que una reescritura dejaría sin contenido, con los bloques que su modelo no lee, y `check_store` lo devuelve en `rewrite_loss`; las secciones que el template regenera no cuentan. Además, 9dcabd9a y d31180e4 arreglan las dos causas de fondo que encontramos (un párrafo placeholder que se tragaba el primer párrafo real, y la última sección de un documento más corto que su template): en los stores de sldb y de deskops no queda ningún documento con pérdida.

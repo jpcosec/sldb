@@ -1,0 +1,19 @@
+name: 20260924-011411-suggestion-save-document-payload-deja-hash-d-que-stores-check-marca-como-data-mutation
+path: desk/inbox/20260924-011411-suggestion-save-document-payload-deja-hash-d-que-stores-check-marca-como-data-mutation.md
+source_hash: b58824bfefa4a803201701e09a6cae3a21e75e862f6c34d1a1861a7d2e82af00
+content_hash: 484382349011d6ffb903c84d6e4ae2f47ee579314a4ebca731387abc2d0e223d
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: b892a324054b0d8d90b688676c73b975866ced29fe21cb8603f055a7762abef5
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: cd6b5ee7d47730b44a2e4263e3538090d640b9c01eaf6b7ed22ed08e9bd14fc3
+  title: 785f966a30ebcd668499fbe79fe414d401c59b4adea3049cf74df88d8a3c9152
+  body: cf7ad556c53a830b929d3d0b6a02caaffcfe138ef25317bb4b1133e5e67769e9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
