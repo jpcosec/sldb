@@ -93,7 +93,7 @@ class ModelCLI:
             save_documents_index(root / m_idx.documents_index, d_idx)
             if getattr(args, "bump_version", False):
                 m_idx.version += 1; m_entry.version = m_idx.version
-            stamp_model_node(m_idx, hash_documents_index(d_idx), model_type)
+            stamp_model_node(m_idx, hash_documents_index(d_idx), model_type, m_entry)
             m_idx.documents_count = len(d_idx.documents)
             save_models_index(root / m_entry.models_index, m_idx)
             documents_hash.invalidate(sp, m_entry.name)  # a full scan moved source/content hashes

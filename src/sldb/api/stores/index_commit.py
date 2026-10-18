@@ -39,7 +39,7 @@ def commit_index_updates(sp: Path, root: Path, idx: StoreIndex, pending: list[tu
             save_documents_index(root / m_idx.documents_index, d_idx)
             for doc in changed.get(m_entry.name, []):
                 documents_hash.note(sp, m_entry.name, doc)  # the map now agrees with what was just saved
-            stamp_model_node(m_idx, documents_hash.roster_hash_of(sp, m_entry.name), m_type)
+            stamp_model_node(m_idx, documents_hash.roster_hash_of(sp, m_entry.name), m_type, m_entry)
             m_idx.documents_count = documents_hash.count_of(sp, m_entry.name)
             save_models_index(root / m_entry.models_index, m_idx)
         return _rebuild_indexes(sp, root, idx, pythonpath)
