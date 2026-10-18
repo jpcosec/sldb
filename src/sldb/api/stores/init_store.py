@@ -22,13 +22,14 @@ def init_store(path: str | Path = ".", force: bool = False) -> StoreLocation:
         The new store's `.sldb` directory and project root.
 
     Raises:
-        SLDBStoreError: When a store already exists at `path` and `force` is False.
+        SLDBStoreError: When a store already exists at `path` and `force` is False, or the
+            store cannot be written there (`StoreInitError`; nothing is left behind).
     """
     root = Path(path).resolve()
     store_path = root / ".sldb"
     if store_exists(store_path):
         _replace_existing(store_path, force)
-    write_empty_store(store_path)
+    _write_or_undo(store_path)
     register_in_global_catalog(store_path)
     return StoreLocation(store_path=store_path, project_root=root)
 
@@ -38,3 +39,25 @@ def _replace_existing(store_path: Path, force: bool) -> None:
     if not force:
         raise SLDBStoreError(f"Store already exists at {store_path}. Use --force to reinitialize.")
     shutil.rmtree(store_path)
+
+
+class StoreInitError(SLDBStoreError):
+    """The store could not be written; `precondition` when the place itself refused it
+    (permissions, a file in the way), not a failure half-way through."""
+
+    def __init__(self, message: str, precondition: bool):
+        super().__init__(message)
+        self.precondition = precondition
+
+
+def _write_or_undo(store_path: Path) -> None:
+    """Write the empty store, or remove what was written and say why: a failed init used to
+    leave a partial `.sldb/` and a bare `Unexpected: [Errno 13]` (deskops, inbox 20260614-000000)."""
+    existed = store_path.exists()
+    try:
+        write_empty_store(store_path)
+    except OSError as exc:
+        if not existed:
+            shutil.rmtree(store_path, ignore_errors=True)
+        precondition = isinstance(exc, (PermissionError, FileExistsError, NotADirectoryError))
+        raise StoreInitError(f"Cannot create the store at {store_path}: {exc.strerror or exc}. Check that {store_path.parent} exists and is writable.", precondition) from exc

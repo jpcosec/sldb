@@ -60,6 +60,10 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   the placeholder now extract more: `stores check` reports them as `data_mutation` until
   `sldb models update <Model>` re-extracts the model (`stores update` trusts a document whose
   text did not move). Headings still anchor by position.
+- `stores init` fails cleanly: what a failed init wrote is removed, the message says where it
+  failed and what to check (instead of `Unexpected: [Errno 13] ...`), and the exit code tells
+  a caller what happened: 0 created or already there, 2 the place refused it (permissions),
+  1 failed half-way. `init_store` raises `StoreInitError` (an `SLDBStoreError`).
 
 ## 0.1.12 - 2026-10-18 — declared references resolve bare ids and paths, and report what names nothing
 
