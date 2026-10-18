@@ -8,9 +8,11 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-09-24T01:09:29'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-10-18T14:30:22'
 ---
 
 # stores check colapsa stale y corrupto en el mismo FAIL: git puede separarlos
@@ -58,3 +60,7 @@ El caso (3) es el unico que merece alarma, y hoy se confunde con los otros tres.
 ## Nota de alcance
 
 Esto NO es pedir que sldb dependa de git para funcionar. Es usar git como fuente de evidencia CUANDO esta disponible, para clasificar un fallo que hoy no se clasifica. Sin git, el comando debe seguir funcionando exactamente igual que hoy, solo que diciendo "no puedo determinar si es stale o corrupto" en vez de fingir un veredicto unico.
+
+## Resolución
+
+Resuelto (2026-10-18, sldb-04). stores check ya nombraba cada documento con su categoría (benign/data/contract mutation, missing) y su fix. f0d3978fb9 agrega, para cada documento cuyo texto no coincide con el índice, dónde está el texto indexado en la historia de git: `stale` (una versión commiteada anterior, con el commit: basta `stores update`), `unmatched` (ningún commit lo tiene: una edición indexada sin commitear, o daño), `orphan` (el archivo ya no está), `undetermined` fuera de git; con el comando `git log --follow -p -- <path>`. El JSON lo lleva en `history`, para que `deskops doctor` lo consuma. No se llama 'corrupto' con certeza: un índice escrito desde un working tree sin commit tampoco está en la historia.
