@@ -606,13 +606,13 @@ def test_inbox_auto_tracks_when_model_registered(tmp_path, capsys, monkeypatch):
     assert cli_main(["stores", "init", "--path", str(project)]) == 0
     capsys.readouterr()
 
-    repo_pythonpath = str(Path(__file__).resolve().parents[1])
+    repo_pythonpath = str(Path(__file__).resolve().parent)
     assert (
         cli_main(
             [
                 "models",
                 "add",
-                "desk.models:InboxNoteDoc",
+                "inbox_note_fixture_models:InboxNoteDoc",
                 "--store",
                 str(project / ".sldb"),
                 "--pythonpath",
