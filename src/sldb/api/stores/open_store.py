@@ -9,6 +9,7 @@ from sldb.api.stores.store_location import StoreLocation
 from sldb.store.documents_hash import new_operation as new_documents_hash_operation
 from sldb.store.layout import project_root, store_exists
 from sldb.store.migration import migrate_store_layout
+from sldb.store.model_origin import add_owner_import_roots
 from sldb.store.runtime_cache_signature import new_operation
 
 
@@ -35,6 +36,7 @@ def open_store(store: str | Path | None = None, mode: str = "default") -> StoreL
     root = project_root(store_path)
     if store_exists(store_path):
         migrate_store_layout(store_path, root)
+        add_owner_import_roots(store_path)  # inherited models import from their owner
     new_operation(store_path)
     new_documents_hash_operation(store_path)
     return StoreLocation(store_path=store_path, project_root=root)

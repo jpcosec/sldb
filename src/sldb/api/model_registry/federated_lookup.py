@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from sldb.api.model_registry.federated_registration import _ensure_federated_model_entry
-from sldb.api.model_registry.model_reference import resolve_model_ref
+from sldb.api.model_registry.model_reference import add_import_roots, resolve_model_ref
 from sldb.store.io import load_store_index
 from sldb.store.layout import project_root, store_exists
 from sldb.store.resolver import ancestor_stores
@@ -48,13 +48,14 @@ def _resolve_linked_store(destination_store: Path, store_alias: str) -> Path | N
 def _load_remote_entry(linked_store: Path, remote_model_name: str) -> Any:
     """The linked store's registry entry for a model name, if registered there."""
     linked_index = load_store_index(linked_store)
-    return next((e for e in linked_index.models if e.name == remote_model_name), None)
+    return next((e for e in linked_index.models if e.name == remote_model_name and not e.origin), None)
 
 
-def _build_federated_entry(destination_store: Path, linked_store: Path, remote_entry: Any, pythonpath: str | None) -> tuple[type, Any, Any]:
-    """Import the remote model and make sure the destination store registers it too."""
+def _build_federated_entry(destination_store: Path, linked_store: Path, remote_entry: Any, pythonpath: str | None, store_alias: str | None = None) -> tuple[type, Any, Any]:
+    """Import the remote model from where its owner lives and register it here as inherited."""
+    add_import_roots([project_root(linked_store)])
     model_type = resolve_model_ref(remote_entry.model_ref, pythonpath)
-    local_entry = _ensure_federated_model_entry(destination_store, project_root(destination_store), load_store_index(destination_store), model_type, remote_entry.model_ref, project_root(linked_store) / remote_entry.path)
+    local_entry = _ensure_federated_model_entry(destination_store, project_root(destination_store), load_store_index(destination_store), model_type, remote_entry.model_ref, project_root(linked_store) / remote_entry.path, store_alias)
     return model_type, local_entry, load_store_index(destination_store)
 
 
@@ -69,4 +70,4 @@ def _find_federated_model(destination_store: Path, model_name: str, pythonpath: 
     remote_entry = _load_remote_entry(linked_store, remote_model_name)
     if remote_entry is None:
         return None
-    return _build_federated_entry(destination_store, linked_store, remote_entry, pythonpath)
+    return _build_federated_entry(destination_store, linked_store, remote_entry, pythonpath, store_alias)

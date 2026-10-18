@@ -4,6 +4,16 @@ Version note (2026-09-13, updated 2026-10-17): `pyproject.toml` declares `0.1.10
 
 ## Unreleased
 
+- Models are defined once, in the store that owns them, and inherited by the others.
+  `sldb models inherit alias:Model` / `sldb.api.inherit_model` registers an inherited entry
+  (`origin: <alias>`, no source path) or converts a local copy in place, keeping its documents,
+  roster and signed contract. Using `alias:Model` as a model name now inherits instead of
+  copying. An inherited model imports from the owner's project root, so no `--pythonpath` is
+  needed and a moved owner is one link to update; with the owner unreachable the store keeps
+  working on its own signature. `stores check` notes a local model under a name a linked store
+  owns (a convertible copy, or an override to rename). The graph gains `links_to` between
+  stores and `origin_store` on `has_model`. A store with no inherited models writes no
+  `origin` key, so existing indexes do not change.
 - `stores update` re-signs the roster of a model whose class does not import. It used to skip
   the model whole, so a stale roster (a merge that brought its shards in, say) stayed
   `roster stale` in `stores check`. Its documents are still not rehashed, it is still reported
@@ -16,6 +26,12 @@ Version note (2026-09-13, updated 2026-10-17): `pyproject.toml` declares `0.1.10
 - A template whose frontmatter is one `dict` placeholder (`⸢rev,dict•frontmatter⸥`) declares
   every key: `docs track` and `docs create` no longer refuse a document's extra keys, which that
   dict carries back on re-render.
+- `producer.version` in a semantic export is the real package version: read from the source
+  checkout's `pyproject.toml`, else from the installed `structuredLanguageDB` metadata. It
+  asked for a distribution named `sldb`, which never exists, and always fell back to `0.1.0`.
+- `click` is an optional extra (`pip install structuredLanguageDB[click]`), imported only when
+  `ClickScanner` is used; it was imported unconditionally without being declared.
+- `sldb.examples.pandoc_cv` ships in the wheel, with its Markdown files.
 - `tools/check_identity.py` reads `git ls-files -z`: a quoted non-ASCII path no longer shows
   up as a top-level entry named `"docs`.
 

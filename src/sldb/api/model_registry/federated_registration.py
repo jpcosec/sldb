@@ -35,30 +35,35 @@ def _save_federated_indexes(store_path: Path, root: Path, model_type: type, mode
     save_models_index(root / mi_rel, mi)
 
 
-def _append_federated_entry(store_path: Path, root: Path, latest_index: Any, model_type: type, model_ref: str, rel_model_path: str, mi_rel: str) -> Any:
+def _append_federated_entry(store_path: Path, root: Path, latest_index: Any, model_type: type, model_ref: str, rel_model_path: str, mi_rel: str, origin: str | None = None) -> Any:
     """Add the model entry to the store index and cascade the store hash."""
-    entry = ModelEntry(name=model_type.__name__, model_ref=model_ref, path=rel_model_path, models_index=mi_rel, version=1)
+    entry = ModelEntry(name=model_type.__name__, model_ref=model_ref, path=rel_model_path, models_index=mi_rel, version=1, origin=origin)
     latest_index.models.append(entry)
     cascade_store_hash(store_path, root, latest_index)
     return entry
 
 
-def _do_ensure_federated_model(store_path: Path, root: Path, model_type: type[StructuredNLDoc], model_ref: str, rel_model_path: str) -> Any:
-    """Register the model unless a concurrent writer already did (checked under the lock)."""
+def _do_ensure_federated_model(store_path: Path, root: Path, model_type: type[StructuredNLDoc], model_ref: str, rel_model_path: str, origin: str | None = None) -> Any:
+    """Register the model unless a concurrent writer already did (checked under the lock).
+
+    With `origin` the entry is inherited from the store linked under that alias: no source
+    path of its own (see sldb.store.model_origin)."""
+    if origin:
+        rel_model_path = ""
     mi_rel, di_rel = models_index_relpath(store_path, model_type.__name__), documents_index_relpath(store_path, model_type.__name__)
     latest_index = load_store_index(store_path)
     existing = next((e for e in latest_index.models if e.name == model_type.__name__), None)
     if existing is not None:
         return existing
     _save_federated_indexes(store_path, root, model_type, model_ref, rel_model_path, mi_rel, di_rel)
-    return _append_federated_entry(store_path, root, latest_index, model_type, model_ref, rel_model_path, mi_rel)
+    return _append_federated_entry(store_path, root, latest_index, model_type, model_ref, rel_model_path, mi_rel, origin)
 
 
-def _ensure_federated_model_entry(store_path: Path, root: Path, store_index: Any, model_type: type[StructuredNLDoc], model_ref: str, model_path: Path) -> Any:
+def _ensure_federated_model_entry(store_path: Path, root: Path, store_index: Any, model_type: type[StructuredNLDoc], model_ref: str, model_path: Path, origin: str | None = None) -> Any:
     """The destination store's entry for the model, registering it first when missing."""
     existing = next((e for e in store_index.models if e.name == model_type.__name__), None)
     if existing is not None:
         return existing
     rel_model_path = _get_rel_model_path(model_path, root)
     with store_lock(store_path):
-        return _do_ensure_federated_model(store_path, root, model_type, model_ref, rel_model_path)
+        return _do_ensure_federated_model(store_path, root, model_type, model_ref, rel_model_path, origin)

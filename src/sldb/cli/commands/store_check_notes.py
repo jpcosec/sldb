@@ -33,3 +33,17 @@ def print_legacy_contracts(res: Any) -> None:
     if legacy:
         print(f"\nnote: {len(legacy)} model(s) carry a legacy contract hash: {', '.join(m.name for m in legacy)}")
         print(f"    what    : {legacy[0].explain()}")
+
+
+def print_shadowed(sp: Any) -> None:
+    """Models this store owns under a name a linked store owns too: a note, never a failure."""
+    from sldb.store.model_origin import shadowed_models
+
+    for found in shadowed_models(sp):
+        if found["copy"]:
+            print(f"\nnote: {found['model']} is a copy of the model the store linked as '{found['store']}' owns")
+            print(f"    fix     : sldb models inherit {found['store']}:{found['model']}   (keeps its documents; imports from the owner)")
+        else:
+            print(f"\nnote: {found['model']} is another class under the name of a model '{found['store']}' owns; the graph merges both in one node")
+            print(f"    fix     : give the override a name of its own and extend {found['model']}")
+

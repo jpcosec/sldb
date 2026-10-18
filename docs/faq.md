@@ -336,6 +336,23 @@ If you are evaluating SLDB for the first time:
 
 If you want deeper written guidance from the CLI, use `sldb explore <term>`.
 
+## How do several repos share the same models?
+
+Register the models once, in the store that owns them, and **inherit** them everywhere else.
+Each repo's store tracks its own documents; it registers a model of its own only for something
+new, or to override one of the owner's by extending it under another name.
+
+```bash
+sldb stores add ../deskops/.sldb --name deskops
+sldb models inherit deskops:TaskDoc
+```
+
+An inherited model imports from the owner's project root, so no `--pythonpath` is needed and a
+move of the owner is one link to update. The store keeps the roster of its documents and the
+contract it last signed, so it keeps working while the owner is away; `stores check` names a
+local copy of an owned model as convertible with `models inherit`. See *Federation* in the
+README.
+
 ## Is there a CLI command for browsing the FAQ one question at a time?
 
 Yes. Use `sldb faq`.

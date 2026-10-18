@@ -2,7 +2,7 @@ from __future__ import annotations
 import json
 from typing import Any
 from sldb.cli.store_context import get_store_context
-from sldb.cli.commands.store_check_report import print_report
+from sldb.cli.commands.store_check_report import print_report, print_shadowed
 
 def check_store(args: Any) -> int:
     from sldb.store.diagnostics import diagnose_store
@@ -19,8 +19,8 @@ def _report_structural_noise(sp: Any, root: Any, args: Any, code: int) -> int:
 
     if args.format in ("json", "yaml"):
         return code
-    reports = scan_structural_noise(sp, root, args.pythonpath)
-    _print_noise(reports)
+    _print_noise(scan_structural_noise(sp, root, args.pythonpath))
+    print_shadowed(sp)
     return code
 
 

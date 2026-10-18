@@ -14,6 +14,7 @@ from sldb.store.hashing import (
 from sldb.store.io import load_documents_index, load_models_index, load_store_index
 from sldb.store.legacy_contract import legacy_contract
 from sldb.store.model_node import contract_moved
+from sldb.store.model_origin import add_owner_import_roots
 from sldb.store.models import ModelsIndex
 from sldb.store.diagnostics_models import (
     DiagnosisNote,
@@ -109,6 +110,7 @@ def _diagnose_model(model_entry, root, pythonpath, resolve_model_ref: Callable) 
 def diagnose_store(store_path: Path, resolve_model_ref: Callable, project_root: Optional[Path] = None, pythonpath: Optional[str] = None) -> StoreDiagnosis:
     """Diagnoses the integrity of the entire store."""
     root = project_root or store_project_root(store_path)
+    add_owner_import_roots(store_path)  # inherited models import from their owner
     store_index = load_store_index(store_path)
     diagnoses = [_diagnose_model(m, root, pythonpath, resolve_model_ref) for m in store_index.models]
     model_diagnoses = [d[0] for d in diagnoses]

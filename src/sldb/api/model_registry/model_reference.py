@@ -24,6 +24,14 @@ def _setup_sys_path(pythonpath: str | None) -> None:
             sys.path.insert(0, path)
 
 
+def add_import_roots(roots: list[Path]) -> None:
+    """Put each project root on `sys.path`, once each, so an inherited model imports from the
+    repo that owns it without a `--pythonpath`. A path given explicitly still goes in front."""
+    for root in reversed([str(r.resolve()) for r in roots]):
+        if root not in sys.path:
+            sys.path.insert(0, root)
+
+
 def _get_module(module_name: str) -> Any:
     """Import a module, reporting an import failure as a model error."""
     try:

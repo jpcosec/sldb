@@ -456,7 +456,8 @@ sldb stores update
 
 ### Federation
 
-Stores can reference each other. The local store always wins on name collisions.
+Stores can reference each other. A bare name always resolves in the local store; a model is
+defined once, in the store that owns it, and inherited by the others (below).
 
 ```bash
 # Link a shared ontology store
@@ -486,15 +487,40 @@ Linked store aliases can be used as generic document destinations from the curre
 sldb docs create --store shared --model Book -o docs/book.md data.yaml
 ```
 
-Models can also be resolved from a linked store namespace and registered into the destination store as a document index when first used:
+#### Models from the store that owns them
+
+A model is defined once, in the store that owns it (deskops' models live in the deskops repo's
+store). A store that tracks documents of that model **inherits** it instead of keeping a copy:
 
 ```bash
-sldb docs create \
-  --store target-project \
-  --model deskops:InboxRequestDoc \
-  -o desk/inbox/request-123.md \
-  request.yaml
+sldb stores add ../deskops/.sldb --name deskops   # link the owner
+sldb models inherit deskops:TaskDoc               # inherit (or convert a copy registered here)
+sldb docs track desk/tasks/T1.md --model TaskDoc  # then use it by its plain name
 ```
+
+Using `deskops:TaskDoc` as a model name (`docs create --model deskops:TaskDoc`, `docs track`)
+inherits it on first use, the same way.
+
+- **No source path, no `--pythonpath`.** An inherited entry records only where it comes from
+  (`origin: deskops` in `store_index.yaml`); the class imports from the owner's project root.
+  If the owner moves, update the one link (`stores add` again), not every store.
+- **What stays local is the store's own:** the roster of its documents of that model and the
+  contract it last signed. If the owner is unreachable the store keeps working as with any
+  model that does not import: `stores check` passes on the text, and the documents keep their
+  tags. When the owner's class changes, the store sees `contract moved` against its own
+  signature and catches up with `stores update`.
+- **Override by extending, under a name of your own.** The graph has one node per model name
+  (`sldb://model/TaskDoc` is the same node in every store), so a local class under the owner's
+  name would merge with it there. Subclass the owner's model under another name instead, which
+  the graph records as `extends`. `stores check` notes a local model that shares a name with
+  one a linked store owns: a copy (same `model_ref`) can become inherited with
+  `models inherit`; another class is an override to rename.
+- **New models are local as always:** `models add` registers a model this store owns.
+- **In the graph:** the store links its owners (`sldb://store` `links_to`
+  `sldb://store/deskops`), and `has_model` of an inherited model carries
+  `origin_store: deskops`.
+
+Links of links are not followed: inherit from the store that owns the model.
 
 SLDB treats this as a generic stores/models/docs operation. Workflow tools such as `deskops` should own higher-level semantics like inbox routing, sender/recipient fields, request lifecycle, and assignment, and call SLDB only to resolve stores, render, validate, write, and track structured Markdown documents.
 
@@ -514,6 +540,7 @@ Model relationships (`inherits`, `has_many`) are **not** stored in the index —
 | `sldb models add <model-ref>` | Register a model contract |
 | `sldb models update <name>` | Re-index a model after contract changes |
 | `sldb models remove <name> [--with-documents]` | Unregister a model, its documents too with the flag (its class need not import) |
+| `sldb models inherit <alias:Model>` | Inherit a model from the linked store that owns it; converts a local copy in place |
 | `sldb docs create --model <name> -o <path> <payload>` | Create and track a new document |
 | `sldb docs track <path> --model <name>` | Validate and track an existing document |
 | `sldb docs update <name> <payload>` | Re-render a tracked document with new data |

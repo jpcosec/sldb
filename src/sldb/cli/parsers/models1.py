@@ -5,7 +5,7 @@ from .models2 import _add_models_part2
 def add_models_group(s: argparse._SubParsersAction) -> None:
     p = s.add_parser("models", help="Model contracts and generation.")
     sub = p.add_subparsers(dest="models_command", required=True)
-    _add(sub); _update(sub); _remove(sub); _list(sub); _show(sub)
+    _add(sub); _update(sub); _remove(sub); _inherit(sub); _list(sub); _show(sub)
     _add_models_part2(sub)
 
 def _add(s):
@@ -27,6 +27,12 @@ def _remove(s):
     r.add_argument("model", help="Model name")
     r.add_argument("--store", help="Store path")
     r.add_argument("--pythonpath", help="Project path")
+
+def _inherit(s):
+    i = s.add_parser("inherit", help="Inherit a model from the linked store that owns it (converts a local copy).")
+    i.add_argument("model", help="alias:ModelName, the alias linked with `stores add`")
+    i.add_argument("--store", help="Store path")
+    i.add_argument("--pythonpath", help="Project path")
 
 def _list(s):
     l = s.add_parser("list", help="List registered models.")
