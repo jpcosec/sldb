@@ -13,6 +13,8 @@ class PythonSourceFacts(ast.NodeVisitor):
         self.module, self.path, self.digest = module, path, digest
         self.module_id = declared_id(tree, f"python:{module}")
         self.owners, self.symbols, self.imports, self.references = [self.module_id], [], [], []
+        self.contexts: list[str] = []  # enclosing `if TYPE_CHECKING` / `if` / `try`, innermost last
+        self.rebinds: list[dict] = []   # names assigned in a scope, to tell a shadowed import
 
     def visit_ClassDef(self, node: ast.ClassDef) -> None:
         self._declaration(node, "ClassDef")
@@ -44,7 +46,24 @@ class PythonSourceFacts(ast.NodeVisitor):
     def _binding(self, node, module, name, alias, level) -> None:
         local = alias or (name or module.split(".")[0])
         self.imports.append({"owner": self.owners[-1], "module": module, "name": name, "alias": alias,
-                             "local": local, "level": level, "line": node.lineno, "end": node.end_lineno})
+                             "local": local, "level": level, "line": node.lineno, "end": node.end_lineno,
+                             **({"context": list(self.contexts)} if self.contexts else {})})
+
+    def visit_If(self, node: ast.If) -> None:
+        """An import under a condition is evidence that it may run, not that it does."""
+        test = ast.unparse(node.test)
+        self._within("type_checking" if test in ("TYPE_CHECKING", "typing.TYPE_CHECKING") else "conditional", node)
+
+    def visit_Try(self, node: ast.Try) -> None:
+        self._within("try", node)
+
+    def _within(self, context: str, node: ast.AST) -> None:
+        self.contexts.append(context); self.generic_visit(node); self.contexts.pop()
+
+    def visit_Assign(self, node: ast.Assign) -> None:
+        for target in node.targets:
+            self.rebinds += [{"owner": self.owners[-1], "name": n.id, "line": node.lineno} for n in ast.walk(target) if isinstance(n, ast.Name)]
+        self.generic_visit(node)
 
     def visit_AnnAssign(self, node: ast.AnnAssign) -> None:
         if isinstance(node.target, ast.Name):

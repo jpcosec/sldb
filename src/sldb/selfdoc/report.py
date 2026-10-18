@@ -41,6 +41,10 @@ class DocumentationReport(BaseModel):
     renamed: list[dict[str, str]] = Field(default_factory=list, description="Unverified rename hints without a uniqueness guarantee.")
     semantic_gaps: int = Field(default=0, description="Symbols whose authored purpose or architecture remains undeclared.")
     graph_stale: list[str] = Field(default_factory=list, description="Source graphs missing or stale against the scanned AST.")
+    undeclared: int = Field(default=0, description="Declarations (modules, classes, functions) whose docstring declares no metadata.")
+    unexplained: list[str] = Field(default_factory=list, description="Declarations with metadata but no explanation in their docstring, as path:line.")
+    unresolved_references: list[str] = Field(default_factory=list, description="Annotation references no import or definition resolves, as path:line: name.")
+    purpose_conflicts: list[str] = Field(default_factory=list, description="Symbol documents whose authored purpose differs from their docstring's first paragraph; kept until reconciled by hand.")
     metadata_errors: list[str] = Field(default_factory=list, description="Malformed docstring metadata and duplicate declared ids, as path:line: problem; python-sync writes nothing while any remain.")
     written: int = Field(default=0, description="Markdown documents written by sync.")
 

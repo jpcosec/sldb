@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 
 from .python_source_values import relative_module
 from .python_reexports import module_bindings, resolve_import
+from .python_shadowing import active, mark_shadowed
 from .python_tag_inheritance import apply_effective_tags
 
 
@@ -17,6 +18,7 @@ def source_snapshot(files: list[dict], system: str) -> dict:
     apply_effective_tags(files, nodes)
     reexports = module_bindings(files)
     for file in files:
+        mark_shadowed(file)
         _edges(file, nodes, modules, symbols, reexports)
     return {"version": "1.0", "created_at": _now(), "nodes": list(nodes.values()), "metadata": _metadata(files, system)}
 
@@ -43,17 +45,23 @@ def _edges(file, nodes, modules, symbols, reexports) -> None:
     bindings = _binding_targets(file, modules, symbols, reexports)
     for binding in bindings:
         _edge(nodes, binding["owner"], binding["target"], "imports", binding)
-    parents = {symbol["id"]: symbol["parent"] for symbol in file["symbols"]}
+    _reference_edges(file, nodes, bindings, {symbol["id"]: symbol["parent"] for symbol in file["symbols"]})
+
+
+def _reference_edges(file, nodes, bindings, parents) -> None:
+    """One `references` edge per resolved annotation reference; the rest listed as unresolved."""
     for reference in file["references"]:
         target = _reference_target(reference, bindings, parents)
         if target:
             _edge(nodes, reference["owner"], target, "references", {**reference, **_evidence(file, reference)})
+        else:
+            file.setdefault("unresolved_references", []).append(f"{file['path']}:{reference['line']}: {reference['name']}")
 
 
 def _reference_target(reference, bindings, parents) -> str | None:
     owner = reference["owner"]
     while owner:
-        target = next((item["target"] for item in bindings if item["owner"] == owner and item["local"] == reference["name"]), None)
+        target = next((item["target"] for item in bindings if item["owner"] == owner and item["local"] == reference["name"] and active(item, reference["line"])), None)
         if target:
             return target
         owner = parents.get(owner)
@@ -81,7 +89,8 @@ def _evidence(file, fact) -> dict:
 
 
 def _metadata(files: list[dict], system: str) -> dict:
-    return {"generated_from": "sldb_python_ast", "system": system, "files": len(files), "extractor_version": 1}
+    unresolved = [entry for file in files for entry in file.get("unresolved_references", [])]
+    return {"generated_from": "sldb_python_ast", "system": system, "files": len(files), "extractor_version": 1, "unresolved_references": unresolved}
 
 
 def _now() -> str:

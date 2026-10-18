@@ -16,7 +16,8 @@ from sldb.selfdoc.python_relation_registry import (
 )
 from sldb.selfdoc.python_scanner import PythonScanner
 from sldb.selfdoc.python_source_graph import source_snapshot
-from sldb.selfdoc.python_source_scan import metadata_diagnostics, scan_source_facts
+from sldb.selfdoc.python_purpose import purpose_conflict
+from sldb.selfdoc.python_source_scan import docstring_survey, metadata_diagnostics, scan_source_facts
 
 
 def print_python_records(source, root, records) -> None:
@@ -28,7 +29,16 @@ def python_report(plans, graph, graph_output, store, root, output, system):
     if not graph_is_current(graph, graph_output):
         report.graph_stale.append(str(graph_output.relative_to(root)))
     report.metadata_errors = list(graph["metadata"].get("diagnostics", []))
+    report.purpose_conflicts = [str(p.path.relative_to(root)) for p in plans if purpose_conflict(p.payload.purpose, p.payload.docstring)]
+    _survey(report, graph["metadata"])
     return report
+
+
+def _survey(report, metadata: dict) -> None:
+    """What the source declares and resolves, apart from errors (informational)."""
+    survey = metadata.get("survey", {})
+    report.undeclared, report.unexplained = len(survey.get("undeclared", [])), list(survey.get("unexplained", []))
+    report.unresolved_references = list(metadata.get("unresolved_references", []))
 
 
 def python_graph(args, store, root):
@@ -39,6 +49,7 @@ def python_graph(args, store, root):
     files = scan_source_facts(source, args.package)
     graph = source_snapshot(files, args.system)
     graph["metadata"]["diagnostics"] = metadata_diagnostics(source, files)
+    graph["metadata"]["survey"] = docstring_survey(source)
     validate_source_snapshot(graph, registered_source_relations(store, root))
     return graph, output
 

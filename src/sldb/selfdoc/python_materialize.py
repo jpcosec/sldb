@@ -8,6 +8,7 @@ from pathlib import Path
 
 from sldb.models.knowledge_surface import PythonSymbolDoc
 from sldb.runtime.validation import extract_model_data, render_model_markdown
+from .python_purpose import merged_purpose
 
 from .planned_document import PlannedDocument
 from .python_symbol import PythonSymbol
@@ -31,6 +32,7 @@ def _plan(record: PythonSymbol, system: str, output: Path, spec: str) -> Planned
     path = (output / "symbols" / f"{fields['id']}.md").resolve()
     previous = path.read_text(encoding="utf-8") if path.exists() else None
     existing = extract_model_data(PythonSymbolDoc, previous) if previous else _defaults(record)
+    fields["purpose"] = merged_purpose(existing.get("purpose"), existing.get("docstring"), record.docstring)
     payload = PythonSymbolDoc.model_validate({**existing, **fields})
     return _planned(path, previous, existing, fields, payload)
 

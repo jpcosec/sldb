@@ -46,3 +46,14 @@ def test_nothing_is_inherited_through_an_import(tmp_path):
 
 def test_two_values_of_a_nearest_namespace_are_an_error():
     assert any("more than one 'system:' tag" in e for e in parse_docstring("---\nid: x\ntags: [system:a, system:b]\n---").errors)
+
+
+def test_tags_do_not_cross_into_another_store_with_the_same_package(tmp_path):
+    """Store isolation: two checkouts carry `pkg`; scanning one inherits nothing from the other."""
+    a, b = tmp_path / "a", tmp_path / "b"
+    for root in (a, b):
+        (root / "pkg").mkdir(parents=True)
+    (b / "pkg" / "__init__.py").write_text(_meta("pkg", "system:other, topic:theirs"), encoding="utf-8")
+    (a / "pkg" / "__init__.py").write_text('"""Plain package."""\n', encoding="utf-8")
+    (a / "pkg" / "m.py").write_text(_meta("pkg.m", "topic:mine"), encoding="utf-8")
+    assert _effective(a)["pkg.m"] == [("topic:mine", "pkg.m")]

@@ -122,6 +122,17 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   the user's cache directory; the rewrite-loss scan also reuses the extraction the check
   already has instead of extracting again. On sldb's store (2775 documents) a full check went
   from 43 s to 23 s cold and 7 s warm, with the same findings.
+- The source graph keeps the condition an import lives under (`context`: `type_checking`,
+  `conditional`, `try`), and marks an import a later same-scope binding shadows
+  (`shadowed_at`); a reference after the shadowing no longer resolves to the import.
+- `selfdoc python-check` reports, apart from errors and drift, the declarations without
+  metadata (`undeclared`), the declared ones without an explanation (`unexplained`) and the
+  annotation references nothing resolves (`unresolved_references`, which were dropped).
+- A symbol document's `purpose` is generated from the first paragraph of its docstring when it
+  is a placeholder or was generated before; an authored purpose is kept and listed in
+  `purpose_conflicts` for a decision.
+- `selfdoc python-sync` reports on what is on disk after writing: it reported the plans made
+  before writing, so a sync that wrote everything returned 1.
 - `stores init` fails cleanly: what a failed init wrote is removed, the message says where it
   failed and what to check (instead of `Unexpected: [Errno 13] ...`), and the exit code tells
   a caller what happened: 0 created or already there, 2 the place refused it (permissions),

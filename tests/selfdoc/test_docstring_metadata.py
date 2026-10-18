@@ -75,3 +75,18 @@ def test_python_sync_writes_nothing_while_metadata_is_malformed(tmp_path, monkey
     report = json.loads(capsys.readouterr().out)
     assert report["metadata_errors"] and report["written"] == 0
     assert not (tmp_path / "knowledge").exists() and not (sp / "runtime" / "graphs").exists()
+
+
+def test_a_failed_sync_leaves_the_previous_graph_and_documents_as_they_were(tmp_path, monkeypatch, capsys):
+    """Producer-scoped reconciliation (spec section 4): only a successful scan replaces what
+    this extractor published; a scan stopped by malformed metadata removes nothing."""
+    sp = _project(tmp_path, '"""---\nid: demo.m\n---\nModule."""\n\n\ndef kept():\n    """Kept."""\n')
+    monkeypatch.chdir(tmp_path)
+    argv = ["selfdoc", "python-sync", "--store", str(sp), "--source-root", "src", "--system", "demo"]
+    assert main(argv) == 0
+    graph = sp / "runtime" / "graphs" / "python-source.graph.json"
+    before = (graph.read_text(encoding="utf-8"), sorted(p.name for p in (tmp_path / "knowledge" / "symbols").iterdir()))
+    (tmp_path / "src" / "demo" / "m.py").write_text('"""---\nid: demo.m\nbogus: 1\n---\nModule."""\n\n\ndef added():\n    pass\n', encoding="utf-8")
+    capsys.readouterr()
+    assert main(argv) == 1
+    assert (graph.read_text(encoding="utf-8"), sorted(p.name for p in (tmp_path / "knowledge" / "symbols").iterdir())) == before

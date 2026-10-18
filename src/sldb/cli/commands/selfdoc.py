@@ -50,11 +50,18 @@ class SelfdocCLI:
         graph, graph_output = selfdoc_python.python_graph(args, store, root); plans = plan_python_documents(records, args.system, output, spec)
         report = selfdoc_python.python_report(plans, graph, graph_output, store, root, output, args.system)
         if args.selfdoc_command == "python-sync" and not report.metadata_errors:
-            written = selfdoc_python.write_python_plans(plans, records, args, store, root, output, spec)
-            selfdoc_python.write_python_graph(graph, graph_output)
-            report = selfdoc_python.python_report(plans, graph, graph_output, store, root, output, args.system)
-            report.written = written.written
+            report = self._write_python(args, records, (store, root, output, spec), plans, graph, graph_output)
         print(json.dumps({"ok": report.ok, **report.model_dump()}, indent=2)); return report
+
+    def _write_python(self, args, records, where, plans, graph, graph_output):
+        """Write the documents and the graph, then report on what is on disk now (the plans made
+        before writing still said `missing`, so a first sync always returned 1)."""
+        store, root, output, spec = where
+        written = selfdoc_python.write_python_plans(plans, records, args, store, root, output, spec)
+        selfdoc_python.write_python_graph(graph, graph_output)
+        report = selfdoc_python.python_report(plan_python_documents(records, args.system, output, spec), graph, graph_output, store, root, output, args.system)
+        report.written = written.written
+        return report
 
     def _records(self, args, root):
         return ParserScanner(args.include_hidden).scan(load_parser(args.factory, root, args.pythonpath))
