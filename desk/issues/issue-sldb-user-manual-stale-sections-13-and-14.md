@@ -1,6 +1,6 @@
 ---
 id: issue-sldb-user-manual-stale-sections-13-and-14
-status: open
+status: closed
 tags:
 - system:sldb
 - topic:documentation
@@ -91,3 +91,9 @@ python -c "import sldb.api as a; print(hasattr(a,'Corpus'), hasattr(a.Corpus,'ra
 
 - `desk/pills/pill-015-self-documentation-boundaries.md` — what the repo is allowed to assert about itself
 - `desk/pills/pill-002-onboarding-surface-before-depth.md` — the manual is the onboarding surface; stale known-limits text is a direct cost
+
+## Resolution
+
+Closed: 2026-10-18
+Reason: Resuelto: §13 ya no lista fricciones resueltas (ast show con warnings, --format rechazado, edges show silencioso, los re-parseos, models template show) y §16 registra las correcciones; §14 ya estaba corregido.
+Refs: f5541c04, 99e6cae93e, task-quitar-del-manual-las-fricciones-que-ya-no-existen
