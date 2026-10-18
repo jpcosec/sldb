@@ -60,6 +60,20 @@ def print_broken_links(sp: Any) -> None:
 
 
 def print_link_notes(sp: Any) -> None:
-    """What the store's links say: models shadowing an owner's, links to nothing."""
+    """What the store's surroundings say: models shadowing an owner's, links to nothing, ignore rules."""
     print_shadowed(sp)
     print_broken_links(sp)
+    print_gitignore_policy(sp)
+
+
+def print_gitignore_policy(sp: Any) -> None:
+    """`.sldb/core` must stay versionable and `.sldb/runtime` ignored; noted when not."""
+    from pathlib import Path
+
+    from sldb.api.stores.gitignore_policy import gitignore_policy
+
+    policy = gitignore_policy(Path(sp))
+    if policy is not None and not policy["ok"]:
+        what = [w for w, bad in (("`.sldb/core` is ignored", policy["core_ignored"]), ("`.sldb/runtime` is not ignored", not policy["runtime_ignored"])) if bad]
+        print(f"\nnote: the repository's ignore rules break the store's split: {'; '.join(what)}")
+        print("    fix     : ignore `.sldb/runtime/` and keep `.sldb/core/` versionable in .gitignore")
