@@ -10,9 +10,7 @@ created_at: '2026-09-23T13:03:22'
 # open | closed
 status: open
 # project identity that acknowledged the note
-acknowledged_by: ⸢rev•acknowledged_by⸥
 # ISO 8601 timestamp, set when acknowledged
-acknowledged_at: ⸢rev•acknowledged_at⸥
 ---
 
 # Documentar el patron de modelo repo-local, cerrar el reporte de hash_b y definir la familia de modelos de evidencia
@@ -135,3 +133,7 @@ deskops inbox "<cuerpo>" --repo sldb --kind suggestion \
 ```
 
 Este archivo queda sin trackear en el store, igual que las dos notas agregadas en 258c1be.
+
+## Avance
+
+2026-10-18, sldb-04. (1) Hecho en 56b8f74371: README ('Models declared in your own repo') y .pi/skills/use-sldb/SKILL.md ('Models that live in your repo', con un ejemplo que no es de deskops, más models inherit y models check). (2) Confirmado corregido en 1b04515e: un modelo registrado sin documentos firma el roster vacío; además, desde 0463a9b6 un modelo heredado sin documentos también. Se le avisó a deskops para que cierre el reporte en su feature doc. (3) Queda abierto: la convención para la jerarquía de modelos de evidencia (__family__ o herencia de clases) es una decisión del dueño, escalada al coordinador el 2026-10-18.
