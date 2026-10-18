@@ -25,6 +25,20 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   with one leading backslash (a CommonMark escape) and extracted without it; only a value that
   opens its item (`- ⸢rev,list•x⸥`) is escaped. A hand-written item that already began with
   `\` before such syntax now reads without that backslash.
+- Extracting and validating no longer re-parse the model's template each time: a template's
+  recipes are computed once per template, `validate` renders once instead of twice, and the
+  sections index reuses one markdown-it parser. On sldb's own store, extracting 153 documents
+  went from ~420 ms to ~275 ms and their sections from ~205 ms to ~175 ms.
+- The markdown AST keeps what a token carries beyond its text, in `SLDBNode.metadata`: a
+  fence's language (`info`), its opening markup (`markup`) and its attributes.
+- `sldb edges show <name>` with something that is no node of the index fails, and suggests the
+  document's export id (`Did you mean PillDoc:pill-008?`), instead of printing `[]` as for a
+  real node without edges.
+- `models show`, `models template show` and `docs update` take `--format text|json|yaml`
+  (`models show` keeps YAML as its default; the template comes wrapped as
+  `{model, draft, path, template}`; `docs update` reports `{updated, model, path}`). An
+  argument a subcommand does not know is reported with that subcommand's usage, not the
+  root's.
 
 ## 0.1.12 - 2026-10-18 — declared references resolve bare ids and paths, and report what names nothing
 

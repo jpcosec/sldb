@@ -698,19 +698,8 @@ existentes que tienen que seguir cumpliéndolo.
 Cosas que cuestan tiempo la primera vez:
 
 - **`--store` quiere la ruta a `.sldb`**, no el directorio que lo contiene
-- **Varios subcomandos rechazan `--format json`**: `models show`,
-  `models template show`, `docs update`. Para integrar, usá `sldb.api` en vez del
-  CLI.
-- **`edges show` espera un node id**, no un nombre de documento. Con el nombre
-  devuelve `[]` sin error.
-- **`ast show` imprime warnings antes del JSON.** Filtrá desde `^{`.
 - **`edges rebuild` dice `0 shard(s) written` cuando ya está todo hecho.** Es
   caché, no falla: revisá `.sldb/runtime/edges/`.
-- **Dos re-parseos evitables si integrás por `sldb.api`:** `runtime/validation.py`
-  parsea markdown y template por separado en cada validación (el template es
-  estable por modelo), y `store/section_rebuild.py` instancia un `MarkdownIt`
-  nuevo en cada llamada en vez de reusarlo. Sobre un corpus de 200 documentos el
-  parseo domina el pipeline: ~483 ms de 561 ms.
 - **`models template show` resuelve el fuente del modelo por el `path` del store,
   re-anclado al project root actual.** El path suele guardarse relativo, así que
   copiar el store completo funciona; falla con `No such file or directory` cuando
@@ -781,6 +770,7 @@ Correcciones que salieron de esa auditoria:
 | 4 | los 4 hashes como si `model_hash` fuera hoja | `model_hash` se compone de `contract_hash` + `roster_hash`, guardados por separado |
 | 4 | nada sobre granularidad por campo | `field_hashes` por documento, y que un mapa vacio es "no se pudo calcular" |
 | 13 | ninguna friccion de performance | los dos re-parseos evitables de `validation.py` y `section_rebuild.py` |
+| 13 | `ast show` con warnings antes del JSON; `--format json` rechazado por `models show`, `models template show` y `docs update`; `edges show` con un nombre de documento devolvía `[]`; los dos re-parseos | resueltos (2026-10-18): stdout limpio, `--format` en los tres (y un flag desconocido muestra el uso del subcomando), `edges show` rechaza lo que no es un nodo y sugiere el export id, template memoizado y un solo `MarkdownIt` |
 | 14 | nada sobre los limites de indexacion | el indice de embeddings tiene granularidad de documento y de campo; las secciones no tienen hash propio |
 
 Verificado en vivo y sin cambios: los 4 hashes y sus alias, `Field(description)`
