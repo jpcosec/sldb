@@ -150,3 +150,12 @@ def test_export_kgdb_semantic_payload_api(tmp_path, capsys):
     assert payload["producer"]["command"] == ["test"]
     assert payload["documents"][0]["id"] == "TaskDoc:task"
     assert payload["sections"][0]["id"] == "TaskDoc:task#alpha"
+
+
+def test_producer_version_matches_pyproject():
+    import re
+    from pathlib import Path
+    from sldb.store.package_version import package_version as _version
+
+    text = (Path(__file__).resolve().parents[2] / "pyproject.toml").read_text(encoding="utf-8")
+    assert _version() == re.search(r'^version\s*=\s*"([^"]+)"', text, re.M).group(1)

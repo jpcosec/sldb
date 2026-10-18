@@ -5,11 +5,25 @@ CLI can feed the same materialize path.
 
 from __future__ import annotations
 
-import click
+from typing import TYPE_CHECKING
 
 from sldb.selfdoc.argument import ArgumentRecord
 from sldb.selfdoc.command import CommandRecord
 from sldb.selfdoc.values import json_value
+
+if TYPE_CHECKING:
+    import click
+
+
+def _click():
+    """Import click on use: it is an optional extra (`pip install structuredLanguageDB[click]`)."""
+    try:
+        import click
+    except ImportError as exc:
+        raise ImportError(
+            "ClickScanner needs click; install it with `pip install structuredLanguageDB[click]`"
+        ) from exc
+    return click
 
 
 def _synopsis(command: click.Command) -> str:
@@ -27,7 +41,7 @@ def _arguments(command: click.Command) -> list[ArgumentRecord]:
 def _argument(param: click.Parameter) -> ArgumentRecord:
     return ArgumentRecord(
         names=param.opts or [param.name],
-        required=bool(param.required or isinstance(param, click.Argument)),
+        required=bool(param.required or isinstance(param, _click().Argument)),
         default=_default(param), choices=_choices(param),
         nargs=None, value_type=_value_type(param),
         action=type(param).__name__, const="", help=param.help or "",
@@ -36,7 +50,7 @@ def _argument(param: click.Parameter) -> ArgumentRecord:
 
 def _default(param: click.Parameter) -> str:
     """The JSON default, or SUPPRESS when the option declares none."""
-    if param.default is None or param.default is click.core.UNSET:
+    if param.default is None or param.default is _click().core.UNSET:
         return "SUPPRESS"
     return json_value(param.default)
 
@@ -62,7 +76,7 @@ class ClickScanner:
         return [
             self._record(name, command)
             for name, command in sorted(group.commands.items())
-            if not isinstance(command, click.Group)
+            if not isinstance(command, _click().Group)
         ]
 
     def _record(self, name: str, command: click.Command) -> CommandRecord:

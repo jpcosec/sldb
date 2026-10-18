@@ -357,7 +357,7 @@ identity = false
 
 [[axis]]
 id = "op_modelos"
-paths = ["api/model_drafts", "api/model_registry", "api/model_create", "api/schema"]
+paths = ["api/model_drafts", "api/model_registry", "api/model_create", "api/schema", "store/model_origin.py"]
 external = ["ast"]
 note = """
 Usa `ast` igual que `adaptadores`, y para otra cosa: aquél LEE código para
@@ -371,7 +371,7 @@ identity = false
 
 [[axis]]
 id = "op_almacen"
-paths = ["api/stores", "api/records", "store/ops.py", "store/export.py", "store/catalog_reconcile.py", "store/runtime_cache.py", "store/diagnostics_models", "store/diagnostics.py", "store/field_set_drift.py"]
+paths = ["api/stores", "api/records", "store/ops.py", "store/export.py", "store/package_version.py", "store/catalog_reconcile.py", "store/runtime_cache.py", "store/diagnostics_models", "store/diagnostics.py", "store/field_set_drift.py"]
 external = []
 does = "abrir, enlazar, refrescar índices, exportar y diagnosticar un almacén"
 identity = false

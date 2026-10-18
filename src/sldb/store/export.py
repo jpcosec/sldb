@@ -12,10 +12,10 @@ move to the semantic names; the letters go when the contract's version does.
 from __future__ import annotations
 
 from datetime import datetime, timezone
-from importlib.metadata import PackageNotFoundError, version
 from pathlib import Path
 from typing import Any, Callable
 
+from sldb.store.package_version import package_version as _version
 from sldb.store.io import (
     load_documents_index, load_models_index, load_sections_index,
     load_semantic_dag, load_store_index, store_lock,
@@ -93,12 +93,6 @@ def _disp(path: Path, root: Path) -> str:
         return str(path.relative_to(root))
     except ValueError:
         return str(path)
-
-def _version() -> str:
-    try:
-        return version("sldb")
-    except PackageNotFoundError:
-        return "0.1.0"
 
 def _utc_now() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
