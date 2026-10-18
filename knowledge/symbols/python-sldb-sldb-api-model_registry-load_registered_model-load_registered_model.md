@@ -42,7 +42,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Resolve a registered model name to its class and registry entry.
 
 ## Architecture
 

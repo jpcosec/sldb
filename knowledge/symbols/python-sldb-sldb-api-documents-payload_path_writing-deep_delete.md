@@ -40,7 +40,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Remove the value at a dotted path, in place.
 
 ## Architecture
 

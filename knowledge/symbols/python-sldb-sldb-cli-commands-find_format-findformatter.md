@@ -28,7 +28,7 @@ Formats search results. Serialization itself lives in `sldb.api.records`.
 
 ## Purpose
 
-Not documented.
+Formats search results. Serialization itself lives in `sldb.api.records`.
 
 ## Architecture
 

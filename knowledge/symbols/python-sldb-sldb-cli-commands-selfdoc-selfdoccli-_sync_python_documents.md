@@ -5,12 +5,12 @@ module: sldb.cli.commands.selfdoc
 qualname: SelfdocCLI._sync_python_documents
 kind: FunctionDef
 source_path: sldb/cli/commands/selfdoc.py
-source_span: '47:57'
-source_sha256: af595fe0ab09514783624a05bd861bddd52d9624ed05a129fc451704b0d7a5af
+source_span: '47:54'
+source_sha256: 28b865edc3806d41c2531206bae0f74b45affeaf16cd648fcc59b34b60fbff7d
 architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.cli.commands.selfdoc:SelfdocCLI._sync_python_documents;
-  contract-sha256:3605cd74c141d4a7213ca4a1979f589e18f63f398e1cacb6f0ffd64179dcc490
+  contract-sha256:caa65edccba5c44deefe5ef5190b70c5af4c33b0a5fade4208d416c21b5493e2
 ---
 
 # SelfdocCLI._sync_python_documents

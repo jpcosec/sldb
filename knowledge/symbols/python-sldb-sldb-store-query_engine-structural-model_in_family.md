@@ -29,7 +29,7 @@ True when `base_name` names `model_type` or one of its bases.
 
 ## Purpose
 
-Not documented.
+True when `base_name` names `model_type` or one of its bases.
 
 ## Architecture
 

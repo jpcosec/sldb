@@ -29,7 +29,7 @@ Collect nodes within `depth` hops and `direction` from the starting nodes.
 
 ## Purpose
 
-Not documented.
+Collect nodes within `depth` hops and `direction` from the starting nodes.
 
 ## Architecture
 

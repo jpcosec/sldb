@@ -28,7 +28,7 @@ Extracts deterministic search recipes from template block nodes.
 
 ## Purpose
 
-Not documented.
+Extracts deterministic search recipes from template block nodes.
 
 ## Architecture
 

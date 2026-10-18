@@ -29,7 +29,7 @@ A registered model's class together with the registry records that name it.
 
 ## Purpose
 
-Not documented.
+A registered model's class together with the registry records that name it.
 
 ## Architecture
 

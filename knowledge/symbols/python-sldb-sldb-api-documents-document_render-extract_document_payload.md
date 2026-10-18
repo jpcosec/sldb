@@ -29,7 +29,7 @@ The extracted payload only, no markdown — the runtime payload as extracted.
 
 ## Purpose
 
-Not documented.
+The extracted payload only, no markdown — the runtime payload as extracted.
 
 ## Architecture
 

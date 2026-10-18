@@ -28,7 +28,7 @@ Ranks candidates for a query with an Embedder when given, difflib otherwise.
 
 ## Purpose
 
-Not documented.
+Ranks candidates for a query with an Embedder when given, difflib otherwise.
 
 ## Architecture
 

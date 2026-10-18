@@ -29,7 +29,7 @@ Convert an SLDB semantic export payload into a KGDB graph snapshot.
 
 ## Purpose
 
-Not documented.
+Convert an SLDB semantic export payload into a KGDB graph snapshot.
 
 ## Architecture
 

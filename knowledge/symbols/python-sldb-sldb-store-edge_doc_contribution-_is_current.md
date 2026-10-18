@@ -29,7 +29,7 @@ the document's text (and so its `source_hash`) moving.
 
 ## Purpose
 
-Not documented.
+`content_hash`, the tags and the model's contract are compared too: each can move without the document's text (and so its `source_hash`) moving.
 
 ## Architecture
 

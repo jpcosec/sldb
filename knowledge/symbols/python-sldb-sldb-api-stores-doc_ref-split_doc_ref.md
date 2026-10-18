@@ -32,7 +32,7 @@ Args:
 
 ## Purpose
 
-Not documented.
+(link alias, reference inside that store); the alias is None for the local store.
 
 ## Architecture
 

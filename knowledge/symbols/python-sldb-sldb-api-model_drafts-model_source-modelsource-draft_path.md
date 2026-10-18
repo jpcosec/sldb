@@ -29,7 +29,7 @@ The `.py.temp` sibling where edits accumulate until the draft is promoted.
 
 ## Purpose
 
-Not documented.
+The `.py.temp` sibling where edits accumulate until the draft is promoted.
 
 ## Architecture
 

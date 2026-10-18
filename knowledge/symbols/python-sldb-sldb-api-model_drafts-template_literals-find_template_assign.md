@@ -29,7 +29,7 @@ The class's `__template__ = ...` statement, or None when it inherits the templat
 
 ## Purpose
 
-Not documented.
+The class's `__template__ = ...` statement, or None when it inherits the template.
 
 ## Architecture
 

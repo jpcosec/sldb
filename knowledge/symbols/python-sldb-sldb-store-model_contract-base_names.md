@@ -28,7 +28,7 @@ Names of the document-model bases above this model, nearest first (not the root 
 
 ## Purpose
 
-Not documented.
+Names of the document-model bases above this model, nearest first (not the root class).
 
 ## Architecture
 

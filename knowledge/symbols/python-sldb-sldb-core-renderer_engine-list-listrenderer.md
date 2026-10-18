@@ -28,7 +28,7 @@ Handles rendering of list blocks.
 
 ## Purpose
 
-Not documented.
+Handles rendering of list blocks.
 
 ## Architecture
 

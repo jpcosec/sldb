@@ -38,7 +38,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+The cross-document validation of the edge index, as a report.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ The store treats model_type as opaque; the codec knows how to decode it.
 
 ## Purpose
 
-Not documented.
+Turns a document's raw text into a field payload for a given model type. The store treats model_type as opaque; the codec knows how to decode it.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ Drop every in-memory copy of the store's indexes and of one model's shards.
 
 ## Purpose
 
-Not documented.
+Drop every in-memory copy of the store's indexes and of one model's shards.
 
 ## Architecture
 

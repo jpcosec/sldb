@@ -28,7 +28,7 @@ The literal's value: the quotes off, the two escapes resolved; any other backsla
 
 ## Purpose
 
-Not documented.
+The literal's value: the quotes off, the two escapes resolved; any other backslash survives verbatim.
 
 ## Architecture
 

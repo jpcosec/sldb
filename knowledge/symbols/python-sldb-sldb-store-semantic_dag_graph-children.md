@@ -28,7 +28,7 @@ The tags that declare `tag` as a parent, sorted.
 
 ## Purpose
 
-Not documented.
+The tags that declare `tag` as a parent, sorted.
 
 ## Architecture
 

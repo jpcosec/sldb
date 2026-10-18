@@ -28,7 +28,7 @@ Safe YAML that refuses a key given twice (plain safe_load keeps the last one).
 
 ## Purpose
 
-Not documented.
+Safe YAML that refuses a key given twice (plain safe_load keeps the last one).
 
 ## Architecture
 

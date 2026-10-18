@@ -28,7 +28,7 @@ Write and read the semantic DAG.
 
 ## Purpose
 
-Not documented.
+Write and read the semantic DAG.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ The draft when one exists, else the active source: where the next edit starts fr
 
 ## Purpose
 
-Not documented.
+The draft when one exists, else the active source: where the next edit starts from.
 
 ## Architecture
 

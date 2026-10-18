@@ -28,7 +28,7 @@ The single non-None member of an Optional annotation; any other annotation as is
 
 ## Purpose
 
-Not documented.
+The single non-None member of an Optional annotation; any other annotation as is.
 
 ## Architecture
 

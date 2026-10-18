@@ -39,7 +39,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Move a sentinel-shielded trailing newline outside the sentinel group.
 
 ## Architecture
 

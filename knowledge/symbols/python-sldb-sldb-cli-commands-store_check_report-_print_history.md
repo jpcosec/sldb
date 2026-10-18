@@ -29,7 +29,7 @@ Where the indexed text sits in git: fell behind, matches nothing, or file gone.
 
 ## Purpose
 
-Not documented.
+Where the indexed text sits in git: fell behind, matches nothing, or file gone.
 
 ## Architecture
 

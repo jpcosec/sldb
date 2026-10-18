@@ -28,7 +28,7 @@ The CLI flag wins over the env var; empty or missing means no auth.
 
 ## Purpose
 
-Not documented.
+The CLI flag wins over the env var; empty or missing means no auth.
 
 ## Architecture
 

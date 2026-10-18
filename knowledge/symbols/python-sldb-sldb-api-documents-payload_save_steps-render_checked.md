@@ -32,7 +32,7 @@ rather than against whatever directory the caller happens to run in.
 
 ## Purpose
 
-Not documented.
+The payload rendered to Markdown, refused unless it round-trips.
 
 ## Architecture
 

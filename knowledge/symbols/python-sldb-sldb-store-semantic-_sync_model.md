@@ -30,7 +30,7 @@ shard is even opened (PLAN 15 capa 5).
 
 ## Purpose
 
-Not documented.
+Every document's semantic shard brought current; skipped whole when the model's roster_hash (covering every one of its documents) has not moved since the last sync — no shard is even opened (PLAN 15 capa 5).
 
 ## Architecture
 

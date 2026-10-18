@@ -28,7 +28,7 @@ Handles basic SLDB operations: extract, render, validate.
 
 ## Purpose
 
-Not documented.
+Handles basic SLDB operations: extract, render, validate.
 
 ## Architecture
 

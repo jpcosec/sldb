@@ -42,7 +42,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Rehash every document of a model and rebuild the store's derived indexes.
 
 ## Architecture
 

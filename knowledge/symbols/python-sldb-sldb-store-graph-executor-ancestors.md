@@ -28,7 +28,7 @@ Nodes that reach `root` following incoming edges, excluding `root` itself.
 
 ## Purpose
 
-Not documented.
+Nodes that reach `root` following incoming edges, excluding `root` itself.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ The shortest chain of nodes connecting two nodes, or None.
 
 ## Purpose
 
-Not documented.
+The shortest chain of nodes connecting two nodes, or None.
 
 ## Architecture
 

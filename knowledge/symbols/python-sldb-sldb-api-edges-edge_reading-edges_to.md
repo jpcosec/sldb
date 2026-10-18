@@ -28,7 +28,7 @@ Edges pointing at a document or node; arguments and result as in `edges_from`.
 
 ## Purpose
 
-Not documented.
+Edges pointing at a document or node; arguments and result as in `edges_from`.
 
 ## Architecture
 

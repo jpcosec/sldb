@@ -28,7 +28,7 @@ The refs held by a composed field's source field, normalized as `compose_field` 
 
 ## Purpose
 
-Not documented.
+The refs held by a composed field's source field, normalized as `compose_field` reads them.
 
 ## Architecture
 

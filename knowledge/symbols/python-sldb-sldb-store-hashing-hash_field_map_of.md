@@ -39,7 +39,7 @@ optimistic-concurrency token `/save` compares against `expected`.
 
 ## Purpose
 
-Not documented.
+One hash per field of an already extracted payload.
 
 ## Architecture
 

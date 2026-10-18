@@ -28,7 +28,7 @@ The node of each tag, so every `tagged_as` target exists whoever contributed it.
 
 ## Purpose
 
-Not documented.
+The node of each tag, so every `tagged_as` target exists whoever contributed it.
 
 ## Architecture
 

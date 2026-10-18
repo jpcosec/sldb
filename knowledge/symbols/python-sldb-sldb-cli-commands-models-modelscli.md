@@ -28,7 +28,7 @@ Plural model surface for the redesigned CLI.
 
 ## Purpose
 
-Not documented.
+Plural model surface for the redesigned CLI.
 
 ## Architecture
 

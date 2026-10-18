@@ -28,7 +28,7 @@ The edge between `source` and `target`, or None.
 
 ## Purpose
 
-Not documented.
+The edge between `source` and `target`, or None.
 
 ## Architecture
 

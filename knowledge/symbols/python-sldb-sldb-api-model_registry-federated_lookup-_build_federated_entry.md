@@ -29,7 +29,7 @@ Import the remote model from where its owner lives and register it here as inher
 
 ## Purpose
 
-Not documented.
+Import the remote model from where its owner lives and register it here as inherited.
 
 ## Architecture
 

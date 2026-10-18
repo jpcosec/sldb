@@ -35,7 +35,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Whether ``outer`` spans over ``inner``.
 
 ## Architecture
 

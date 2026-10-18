@@ -28,7 +28,7 @@ Diagnoses the integrity of the entire store.
 
 ## Purpose
 
-Not documented.
+Diagnoses the integrity of the entire store.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ A mutually exclusive group, including its required-selection rule.
 
 ## Purpose
 
-Not documented.
+A mutually exclusive group, including its required-selection rule.
 
 ## Architecture
 

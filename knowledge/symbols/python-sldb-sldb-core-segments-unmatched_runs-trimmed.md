@@ -36,7 +36,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+A range with its surrounding whitespace excluded from the offsets.
 
 ## Architecture
 

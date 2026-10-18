@@ -28,7 +28,7 @@ Helper to find the first leaf node with content.
 
 ## Purpose
 
-Not documented.
+Helper to find the first leaf node with content.
 
 ## Architecture
 

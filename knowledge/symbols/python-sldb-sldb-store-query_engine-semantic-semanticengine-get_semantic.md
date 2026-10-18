@@ -29,7 +29,7 @@ Gets documents associated with a semantic tag.
 
 ## Purpose
 
-Not documented.
+Gets documents associated with a semantic tag.
 
 ## Architecture
 

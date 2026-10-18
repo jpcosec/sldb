@@ -29,7 +29,7 @@ What the operator should open to judge this model's finding.
 
 ## Purpose
 
-Not documented.
+What the operator should open to judge this model's finding.
 
 ## Architecture
 

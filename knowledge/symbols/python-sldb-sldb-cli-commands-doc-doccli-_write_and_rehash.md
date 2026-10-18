@@ -28,7 +28,7 @@ Write the rendered Markdown and record both hashes plus the per-field map.
 
 ## Purpose
 
-Not documented.
+Write the rendered Markdown and record both hashes plus the per-field map.
 
 ## Architecture
 

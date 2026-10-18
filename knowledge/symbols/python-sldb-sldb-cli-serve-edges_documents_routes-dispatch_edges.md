@@ -29,7 +29,7 @@ Serve `/edges` bare or with `id` as the document view; `from`/`to`/`/edges/*` as
 
 ## Purpose
 
-Not documented.
+Serve `/edges` bare or with `id` as the document view; `from`/`to`/`/edges/*` as before.
 
 ## Architecture
 

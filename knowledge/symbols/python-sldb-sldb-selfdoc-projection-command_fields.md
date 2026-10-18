@@ -28,7 +28,7 @@ Fields owned by the assembled parser.
 
 ## Purpose
 
-Not documented.
+Fields owned by the assembled parser.
 
 ## Architecture
 

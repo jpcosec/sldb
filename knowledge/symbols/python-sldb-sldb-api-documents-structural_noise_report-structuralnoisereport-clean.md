@@ -29,7 +29,7 @@ Whether every heading in the document is declared by the model.
 
 ## Purpose
 
-Not documented.
+Whether every heading in the document is declared by the model.
 
 ## Architecture
 

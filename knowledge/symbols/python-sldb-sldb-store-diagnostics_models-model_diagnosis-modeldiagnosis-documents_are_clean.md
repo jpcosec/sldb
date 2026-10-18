@@ -29,7 +29,7 @@ Whether every document present is individually fine.
 
 ## Purpose
 
-Not documented.
+Whether every document present is individually fine.
 
 ## Architecture
 

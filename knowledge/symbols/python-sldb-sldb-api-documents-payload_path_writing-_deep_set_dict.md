@@ -29,7 +29,7 @@ Step into a dict key, creating an empty dict there when allowed.
 
 ## Purpose
 
-Not documented.
+Step into a dict key, creating an empty dict there when allowed.
 
 ## Architecture
 

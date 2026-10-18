@@ -32,7 +32,7 @@ Args:
 
 ## Purpose
 
-Not documented.
+The state of `ref` read from `store`: `ok`, `missing`, `ambiguous`, `link-missing` or `link-broken`.
 
 ## Architecture
 

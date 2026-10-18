@@ -36,7 +36,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Compare a file's stripped contents with ``text``.
 
 ## Architecture
 

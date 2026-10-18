@@ -28,7 +28,7 @@ Dispatch `edges init|rebuild|show|check|unresolved`; 0 on success, 1 when a chec
 
 ## Purpose
 
-Not documented.
+Dispatch `edges init|rebuild|show|check|unresolved`; 0 on success, 1 when a check fails.
 
 ## Architecture
 

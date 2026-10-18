@@ -29,7 +29,7 @@ store's models import from there); None, and reported, when neither works.
 
 ## Purpose
 
-Not documented.
+The model class, tried from the caller's path and then the store's own root (a linked store's models import from there); None, and reported, when neither works.
 
 ## Architecture
 

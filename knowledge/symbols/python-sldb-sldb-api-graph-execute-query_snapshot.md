@@ -29,7 +29,7 @@ no store needed; the same matching as `execute_query`.
 
 ## Purpose
 
-Not documented.
+Execute a StructuredQuery over a GraphSnapshot held in memory (e.g. from `snapshot_load`), no store needed; the same matching as `execute_query`.
 
 ## Architecture
 

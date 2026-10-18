@@ -33,7 +33,7 @@ route to the same handler.
 
 ## Purpose
 
-Not documented.
+The raw address surface: `legacy ls|get|glob|find|recover|compose`.
 
 ## Architecture
 

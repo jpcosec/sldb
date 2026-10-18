@@ -30,7 +30,7 @@ store's are single files: `layout.edges_model_shard_path` / `edges_store_shard_p
 
 ## Purpose
 
-Not documented.
+Every edges shard of one model's documents, by name (the model's own shard and the store's are single files: `layout.edges_model_shard_path` / `edges_store_shard_path`).
 
 ## Architecture
 

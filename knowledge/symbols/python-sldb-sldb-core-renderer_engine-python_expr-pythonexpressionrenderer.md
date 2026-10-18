@@ -29,7 +29,7 @@ Handles rendering of ⸢py•expression⸥ markers.
 
 ## Purpose
 
-Not documented.
+Handles rendering of ⸢py•expression⸥ markers.
 
 ## Architecture
 

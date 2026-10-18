@@ -33,7 +33,7 @@ not only the damaged ones.
 
 ## Purpose
 
-Not documented.
+One diagnosis, two views: the existing keys untouched, and `root_ok`, `hash_a_ok`, `summary` and `models[]` exactly as `sldb stores check --format json` prints them.
 
 ## Architecture
 

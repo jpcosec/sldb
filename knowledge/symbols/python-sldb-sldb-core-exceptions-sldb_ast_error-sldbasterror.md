@@ -28,7 +28,7 @@ Raised when there is an issue parsing or processing the AST.
 
 ## Purpose
 
-Not documented.
+Raised when there is an issue parsing or processing the AST.
 
 ## Architecture
 

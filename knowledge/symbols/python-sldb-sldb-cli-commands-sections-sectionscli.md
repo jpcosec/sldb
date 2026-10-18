@@ -28,7 +28,7 @@ Noun-first section inspection surface.
 
 ## Purpose
 
-Not documented.
+Noun-first section inspection surface.
 
 ## Architecture
 

@@ -37,7 +37,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+The keys every recorded segment carries, whatever its type.
 
 ## Architecture
 

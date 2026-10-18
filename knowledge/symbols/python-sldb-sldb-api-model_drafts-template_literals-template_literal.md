@@ -29,7 +29,7 @@ Source text of a stripped triple-quoted literal holding the template.
 
 ## Purpose
 
-Not documented.
+Source text of a stripped triple-quoted literal holding the template.
 
 ## Architecture
 

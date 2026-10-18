@@ -28,7 +28,7 @@ Rewrite the semantic index and DAG from their old single files into their shards
 
 ## Purpose
 
-Not documented.
+Rewrite the semantic index and DAG from their old single files into their shards.
 
 ## Architecture
 

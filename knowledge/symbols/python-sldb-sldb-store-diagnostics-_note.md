@@ -36,7 +36,7 @@ letting the contract absolve it would hide a hand edit behind a safe-to-run verd
 
 ## Purpose
 
-Not documented.
+Which verdict the two hashes earn — and who to blame when the fields disagree.
 
 ## Architecture
 

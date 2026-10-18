@@ -29,7 +29,7 @@ resolve_edges_reporting(nodes: dict[str, EdgeNodeRecord], edges: list[EdgeRecord
 
 ## Purpose
 
-Not documented.
+`resolve_edges`, plus the declared references that name no document (`declared_resolution`).
 
 ## Architecture
 

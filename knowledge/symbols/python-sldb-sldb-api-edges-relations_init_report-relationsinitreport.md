@@ -29,7 +29,7 @@ What `init_relations` had to do; all empty on a store that was already prepared.
 
 ## Purpose
 
-Not documented.
+What `init_relations` had to do; all empty on a store that was already prepared.
 
 ## Architecture
 

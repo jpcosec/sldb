@@ -29,7 +29,7 @@ Raised when links cannot be recovered or composed.
 
 ## Purpose
 
-Not documented.
+Raised when links cannot be recovered or composed.
 
 ## Architecture
 

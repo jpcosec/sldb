@@ -29,7 +29,7 @@ One edge per value in `field` that can name a document; the field may hold one o
 
 ## Purpose
 
-Not documented.
+One edge per value in `field` that can name a document; the field may hold one or a list.
 
 ## Architecture
 

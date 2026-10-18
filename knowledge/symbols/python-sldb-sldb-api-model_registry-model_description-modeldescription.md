@@ -29,7 +29,7 @@ Everything the store knows about one model; `model_dump()` equals the `models sh
 
 ## Purpose
 
-Not documented.
+Everything the store knows about one model; `model_dump()` equals the `models show` AST entry.
 
 ## Architecture
 

@@ -1,7 +1,7 @@
 name: python-sldb-sldb-cli-commands-find-findcli
 path: knowledge/symbols/python-sldb-sldb-cli-commands-find-findcli.md
-source_hash: 5e1b9e2b5bd7ecdef58b209a89aa1b2073425b5bf3880a6dc4c3d693bb07797e
-content_hash: c9184006c1a0c89f26c2a43dd4e96d09447e401823bd51d49dfe4ff984c1cde1
+source_hash: 6e907b317c73b6855f54a7ea76c272188fbfe6669d421fb07f5da82d87c0cf14
+content_hash: 2a1be9fdb4d9aa504a79ebe282aef5c460a542283c022acc5b86d4b73f0966ec
 field_hashes:
   id: de1e2e1d566a4f190b20948a8a95d2cf2c26a3066d5ccab10dcbb68d29a0360a
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -15,7 +15,7 @@ field_hashes:
   signature: c1d77853d224098dd451050ed6e1528ff0380068f7307292ab8a0764b7e378b1
   docstring: 5582e24fbd0f35cab328c0cb1d3bc7c4e9454079a483c4171ebad74dbd3d4c08
   imports: bda9d9f395ed23dae352798db0af2f297c54498cc3d3365a433687d6c937dbd3
-  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  purpose: 5582e24fbd0f35cab328c0cb1d3bc7c4e9454079a483c4171ebad74dbd3d4c08
   architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   provenance: 2fa0405463be1de0cbcca90b4c510be9986c9d9b3b412c7ffd2635b688c7625e

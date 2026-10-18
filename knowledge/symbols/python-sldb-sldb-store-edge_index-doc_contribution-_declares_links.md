@@ -29,7 +29,7 @@ Whether the model names other documents at all: otherwise its payload is not rea
 
 ## Purpose
 
-Not documented.
+Whether the model names other documents at all: otherwise its payload is not read.
 
 ## Architecture
 

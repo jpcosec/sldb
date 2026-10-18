@@ -39,7 +39,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+The store's edge index composed from its shards (and its linked stores').
 
 ## Architecture
 

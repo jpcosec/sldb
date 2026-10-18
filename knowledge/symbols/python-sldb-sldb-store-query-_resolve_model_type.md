@@ -33,7 +33,7 @@ single unresolvable model does not abort a federated query.
 
 ## Purpose
 
-Not documented.
+Resolve a model, trying the store's own project root before giving up.
 
 ## Architecture
 

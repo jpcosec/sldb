@@ -30,7 +30,7 @@ still read as two states.
 
 ## Purpose
 
-Not documented.
+This process just rewrote shards of that store: two writes inside one mtime tick must still read as two states.
 
 ## Architecture
 

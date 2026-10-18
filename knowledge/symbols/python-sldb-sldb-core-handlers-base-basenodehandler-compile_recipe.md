@@ -29,7 +29,7 @@ Compiles a list of extraction recipes for the given node.
 
 ## Purpose
 
-Not documented.
+Compiles a list of extraction recipes for the given node.
 
 ## Architecture
 

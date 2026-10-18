@@ -28,7 +28,7 @@ The default representative text: the document's summary.
 
 ## Purpose
 
-Not documented.
+The default representative text: the document's summary.
 
 ## Architecture
 

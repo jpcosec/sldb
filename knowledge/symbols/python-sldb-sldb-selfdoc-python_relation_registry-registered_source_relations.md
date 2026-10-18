@@ -29,7 +29,7 @@ Load the registered KGDB relation types, never a private adapter copy.
 
 ## Purpose
 
-Not documented.
+Load the registered KGDB relation types, never a private adapter copy.
 
 ## Architecture
 

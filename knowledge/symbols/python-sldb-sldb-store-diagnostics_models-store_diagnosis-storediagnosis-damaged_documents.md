@@ -29,7 +29,7 @@ damaged_documents(self)
 
 ## Purpose
 
-Not documented.
+(model, diagnosis) per document that is damaged, not merely reformatted.
 
 ## Architecture
 

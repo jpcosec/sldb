@@ -28,7 +28,7 @@ The portable capture used for persistence, backups and inter-module transfers.
 
 ## Purpose
 
-Not documented.
+The portable capture used for persistence, backups and inter-module transfers.
 
 ## Architecture
 

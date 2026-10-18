@@ -28,7 +28,7 @@ Nodes sharing the most targets with this one: what resembles it, and how much.
 
 ## Purpose
 
-Not documented.
+Nodes sharing the most targets with this one: what resembles it, and how much.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Expose scan, sync, and read-only freshness checks.
 
 ## Purpose
 
-Not documented.
+Expose scan, sync, and read-only freshness checks.
 
 ## Architecture
 

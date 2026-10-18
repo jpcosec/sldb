@@ -32,7 +32,7 @@ document composes the same from any directory, which is what a server needs.
 
 ## Purpose
 
-Not documented.
+The document rendered from its template, via the CLI's renderer.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ CLI entry point with error handling.
 
 ## Purpose
 
-Not documented.
+CLI entry point with error handling.
 
 ## Architecture
 

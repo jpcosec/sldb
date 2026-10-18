@@ -28,7 +28,7 @@ Narrow each mapping to the comma-separated keys in `select`, missing keys as Non
 
 ## Purpose
 
-Not documented.
+Narrow each mapping to the comma-separated keys in `select`, missing keys as None.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ One document, from the per-document cache when the default codec is in use.
 
 ## Purpose
 
-Not documented.
+One document, from the per-document cache when the default codec is in use.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Kind of a scalar annotation: string, boolean, integer, number, object or unknown
 
 ## Purpose
 
-Not documented.
+Kind of a scalar annotation: string, boolean, integer, number, object or unknown.
 
 ## Architecture
 

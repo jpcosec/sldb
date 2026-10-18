@@ -29,7 +29,7 @@ Resolve `alias:ModelName` through a linked store; None when it names no such mod
 
 ## Purpose
 
-Not documented.
+Resolve `alias:ModelName` through a linked store; None when it names no such model.
 
 ## Architecture
 

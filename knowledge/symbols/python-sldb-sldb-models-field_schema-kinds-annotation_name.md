@@ -28,7 +28,7 @@ Readable name of a type annotation ("Any" when absent).
 
 ## Purpose
 
-Not documented.
+Readable name of a type annotation ("Any" when absent).
 
 ## Architecture
 

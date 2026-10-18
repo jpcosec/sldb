@@ -37,7 +37,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Dump one front-matter pair to YAML and record its value span.
 
 ## Architecture
 

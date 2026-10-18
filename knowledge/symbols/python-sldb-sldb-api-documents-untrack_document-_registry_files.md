@@ -29,7 +29,7 @@ What an untrack rewrites besides derived indexes: put back if it fails halfway.
 
 ## Purpose
 
-Not documented.
+What an untrack rewrites besides derived indexes: put back if it fails halfway.
 
 ## Architecture
 

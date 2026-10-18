@@ -29,7 +29,7 @@ A ref and a tracked path compared the way the renderer resolves them, under the 
 
 ## Purpose
 
-Not documented.
+A ref and a tracked path compared the way the renderer resolves them, under the root.
 
 ## Architecture
 

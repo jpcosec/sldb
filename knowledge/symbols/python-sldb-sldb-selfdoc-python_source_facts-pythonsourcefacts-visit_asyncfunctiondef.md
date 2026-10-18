@@ -5,12 +5,12 @@ module: sldb.selfdoc.python_source_facts
 qualname: PythonSourceFacts.visit_AsyncFunctionDef
 kind: FunctionDef
 source_path: sldb/selfdoc/python_source_facts.py
-source_span: '23:24'
-source_sha256: acfb4b747242ce6236dc7a3f826524f0b39c13c3e6847aafd9a19593ec84de4f
+source_span: '25:26'
+source_sha256: 6750d4ca6e017de596d8f89dfff25dd6c0c45490b4f0ad2d64637a5fd4cc03b5
 architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.selfdoc.python_source_facts:PythonSourceFacts.visit_AsyncFunctionDef;
-  contract-sha256:5924a01ed3edf085820c33443f8f34fa9d33664c5cd5f0ab63aacd05f58acd23
+  contract-sha256:9cc1ad19d1b7f3f3980749feb4245cd2be1b375ff1b22798fc71b326aa1e42de
 ---
 
 # PythonSourceFacts.visit_AsyncFunctionDef

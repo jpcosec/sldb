@@ -29,7 +29,7 @@ Deprecated alias for `fields_ok`.
 
 ## Purpose
 
-Not documented.
+Deprecated alias for `fields_ok`.
 
 ## Architecture
 

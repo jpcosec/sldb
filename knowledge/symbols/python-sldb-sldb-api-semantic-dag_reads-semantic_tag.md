@@ -31,7 +31,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+The tag's parents, children, everything above and below it, and its equivalents.
 
 ## Architecture
 

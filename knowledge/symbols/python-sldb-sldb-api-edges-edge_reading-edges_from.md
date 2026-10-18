@@ -38,7 +38,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Edges leaving a document (`Model:name`) or any node (`sldb://<kind>/...`).
 
 ## Architecture
 

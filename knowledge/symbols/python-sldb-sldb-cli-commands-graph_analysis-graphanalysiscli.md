@@ -28,7 +28,7 @@ The whole-graph questions, as commands.
 
 ## Purpose
 
-Not documented.
+The whole-graph questions, as commands.
 
 ## Architecture
 

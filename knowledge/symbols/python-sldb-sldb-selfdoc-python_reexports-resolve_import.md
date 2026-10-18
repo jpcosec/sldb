@@ -28,7 +28,7 @@ resolve_import(module: str, name: str | None, modules: dict, symbols: dict, bind
 
 ## Purpose
 
-Not documented.
+(target node id, modules re-exporting it on the way).
 
 ## Architecture
 

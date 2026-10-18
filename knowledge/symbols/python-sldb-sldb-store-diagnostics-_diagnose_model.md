@@ -29,7 +29,7 @@ its contract. Attributing the node to one of them is the whole point of storing 
 
 ## Purpose
 
-Not documented.
+The model node, split into the two children that can move it: its document roster and its contract. Attributing the node to one of them is the whole point of storing both.
 
 ## Architecture
 

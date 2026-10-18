@@ -29,7 +29,7 @@ The neighborhood including the seed nodes.
 
 ## Purpose
 
-Not documented.
+The neighborhood including the seed nodes.
 
 ## Architecture
 

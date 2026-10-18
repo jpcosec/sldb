@@ -29,7 +29,7 @@ Fields located in raw markdown, plus the coverage of that placement.
 
 ## Purpose
 
-Not documented.
+Fields located in raw markdown, plus the coverage of that placement.
 
 ## Architecture
 

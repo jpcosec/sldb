@@ -28,7 +28,7 @@ The field's line in the class body.
 
 ## Purpose
 
-Not documented.
+The field's line in the class body.
 
 ## Architecture
 

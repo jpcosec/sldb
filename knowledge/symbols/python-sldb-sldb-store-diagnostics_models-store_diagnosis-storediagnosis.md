@@ -32,7 +32,7 @@ registered model, so it is the Merkle root of the whole store.
 
 ## Purpose
 
-Not documented.
+Full diagnostic state for the entire store.
 
 ## Architecture
 

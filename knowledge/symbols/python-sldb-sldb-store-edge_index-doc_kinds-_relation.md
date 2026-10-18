@@ -29,7 +29,7 @@ another document's and are applied when the index is composed.
 
 ## Purpose
 
-Not documented.
+The authored edge, with its own condition; the type's condition, axis and direction are another document's and are applied when the index is composed.
 
 ## Architecture
 

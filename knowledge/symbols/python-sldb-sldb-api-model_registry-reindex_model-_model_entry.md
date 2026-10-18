@@ -29,7 +29,7 @@ The registry entry of a model name.
 
 ## Purpose
 
-Not documented.
+The registry entry of a model name.
 
 ## Architecture
 

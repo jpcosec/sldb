@@ -29,7 +29,7 @@ One refresh pass: accumulates skipped models/documents and the indexes to save.
 
 ## Purpose
 
-Not documented.
+One refresh pass: accumulates skipped models/documents and the indexes to save.
 
 ## Architecture
 

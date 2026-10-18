@@ -29,7 +29,7 @@ Where the class is defined, found by importing `model_ref`.
 
 ## Purpose
 
-Not documented.
+Where the class is defined, found by importing `model_ref`.
 
 ## Architecture
 

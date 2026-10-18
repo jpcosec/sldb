@@ -33,7 +33,7 @@ gets the family too: both record it.
 
 ## Purpose
 
-Not documented.
+Record this model's roster, its contract and the node the two make up.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ The field's indexable text, or empty when it is excluded by length.
 
 ## Purpose
 
-Not documented.
+The field's indexable text, or empty when it is excluded by length.
 
 ## Architecture
 

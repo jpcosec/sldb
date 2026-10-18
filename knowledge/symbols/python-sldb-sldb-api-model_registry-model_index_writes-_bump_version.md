@@ -29,7 +29,7 @@ Increase the model's contract version in both its models index and its store ent
 
 ## Purpose
 
-Not documented.
+Increase the model's contract version in both its models index and its store entry.
 
 ## Architecture
 

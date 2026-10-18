@@ -30,7 +30,7 @@ Walk a dotted field path: keys into dict subfields, integers into list items
 
 ## Purpose
 
-Not documented.
+Walk a dotted field path: keys into dict subfields, integers into list items (`tasks.0.title`). Same traversal as `fields show docs/<doc>/tasks/0/title`.
 
 ## Architecture
 

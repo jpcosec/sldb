@@ -29,7 +29,7 @@ find_boundary_idx(find_next: Callable[[dict[str, Any], int], int | None], recipe
 
 ## Purpose
 
-Not documented.
+`find_next(recipe, start)` is the extractor's own block search; `end` the block count.
 
 ## Architecture
 

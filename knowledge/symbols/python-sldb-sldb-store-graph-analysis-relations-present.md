@@ -28,7 +28,7 @@ Every relation that actually has an edge in this index.
 
 ## Purpose
 
-Not documented.
+Every relation that actually has an edge in this index.
 
 ## Architecture
 

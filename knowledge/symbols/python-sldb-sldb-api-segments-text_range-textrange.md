@@ -28,7 +28,7 @@ Raw-text content that no field and no template literal explains.
 
 ## Purpose
 
-Not documented.
+Raw-text content that no field and no template literal explains.
 
 ## Architecture
 

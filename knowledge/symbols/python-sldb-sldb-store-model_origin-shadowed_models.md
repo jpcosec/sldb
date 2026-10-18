@@ -34,7 +34,7 @@ models are left out.
 
 ## Purpose
 
-Not documented.
+Models this store owns under a name a linked store also owns.
 
 ## Architecture
 

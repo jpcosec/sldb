@@ -30,7 +30,7 @@ capa 6: `new_operation` schedules that sweep for the next `runtime_cache.signatu
 
 ## Purpose
 
-Not documented.
+Resolves once per Store/World opened (pron: once per session) or per sldb CLI command — the natural "start of an operation" a fresh document-leaf sweep belongs to (PLAN 15 capa 6: `new_operation` schedules that sweep for the next `runtime_cache.signature`).
 
 ## Architecture
 

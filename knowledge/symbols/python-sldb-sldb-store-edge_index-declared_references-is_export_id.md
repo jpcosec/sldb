@@ -29,7 +29,7 @@ is_export_id(value: str)
 
 ## Purpose
 
-Not documented.
+`Model:name` (or `store:Model:name`); a URL is not one.
 
 ## Architecture
 

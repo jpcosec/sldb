@@ -29,7 +29,7 @@ The template text class `class_name` declares in the source at `path`.
 
 ## Purpose
 
-Not documented.
+The template text class `class_name` declares in the source at `path`.
 
 ## Architecture
 

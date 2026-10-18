@@ -31,7 +31,7 @@ something instead of nothing on a store that has only its structure.
 
 ## Purpose
 
-Not documented.
+The relations to walk: the ones asked for, else the authored ones, else everything.
 
 ## Architecture
 

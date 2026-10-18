@@ -29,7 +29,7 @@ Models signed under the contract formula sldb used before cecd97b (see `sldb.sto
 
 ## Purpose
 
-Not documented.
+Models signed under the contract formula sldb used before cecd97b (see `sldb.store.legacy_contract`).
 
 ## Architecture
 

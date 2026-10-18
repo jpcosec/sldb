@@ -28,7 +28,7 @@ Render a payload to Markdown. `--ref-root` is where a composed field's refs reso
 
 ## Purpose
 
-Not documented.
+Render a payload to Markdown. `--ref-root` is where a composed field's refs resolve.
 
 ## Architecture
 

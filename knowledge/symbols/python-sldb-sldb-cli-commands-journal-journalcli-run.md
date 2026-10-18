@@ -28,7 +28,7 @@ Dispatch `journal show|verify`; verify exits 1 when the chain is broken.
 
 ## Purpose
 
-Not documented.
+Dispatch `journal show|verify`; verify exits 1 when the chain is broken.
 
 ## Architecture
 

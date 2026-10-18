@@ -28,7 +28,7 @@ The node with that id (or that export id), None when the index has none.
 
 ## Purpose
 
-Not documented.
+The node with that id (or that export id), None when the index has none.
 
 ## Architecture
 

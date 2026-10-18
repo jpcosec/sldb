@@ -28,7 +28,7 @@ Run the find command.
 
 ## Purpose
 
-Not documented.
+Run the find command.
 
 ## Architecture
 

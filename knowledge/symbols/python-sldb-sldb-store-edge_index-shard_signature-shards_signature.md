@@ -29,7 +29,7 @@ shards_signature(store_path: Path)
 
 ## Purpose
 
-Not documented.
+(rebuilds seen here, store index, store shard, edges root, every model shard and dir).
 
 ## Architecture
 

@@ -31,7 +31,7 @@ of a document that lacked the literal, and every rewrite then deleted it.
 
 ## Purpose
 
-Not documented.
+A template's literal paragraph (`_Describe the message._`) anchors only a paragraph with that text. Matching any paragraph by position swallowed the first real paragraph of a document that lacked the literal, and every rewrite then deleted it.
 
 ## Architecture
 

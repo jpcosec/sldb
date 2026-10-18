@@ -29,7 +29,7 @@ Name the builtin relation type is tracked under.
 
 ## Purpose
 
-Not documented.
+Name the builtin relation type is tracked under.
 
 ## Architecture
 

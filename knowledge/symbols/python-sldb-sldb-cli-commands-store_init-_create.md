@@ -28,7 +28,7 @@ _create(root: Path, force: bool)
 
 ## Purpose
 
-Not documented.
+0 created; 2 the place refused it (permissions); 1 failed half-way. Nothing is left behind.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Whether one facet field value satisfies one FieldCondition.
 
 ## Purpose
 
-Not documented.
+Whether one facet field value satisfies one FieldCondition.
 
 ## Architecture
 

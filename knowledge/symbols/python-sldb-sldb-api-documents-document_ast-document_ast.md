@@ -28,7 +28,7 @@ The CLI's `ast show docs/<doc>` payload: doc metadata, sections, full IR.
 
 ## Purpose
 
-Not documented.
+The CLI's `ast show docs/<doc>` payload: doc metadata, sections, full IR.
 
 ## Architecture
 

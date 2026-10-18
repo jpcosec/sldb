@@ -34,7 +34,7 @@ on every refresh.
 
 ## Purpose
 
-Not documented.
+The record's per-field hashes, recomputed when the store never recorded them.
 
 ## Architecture
 

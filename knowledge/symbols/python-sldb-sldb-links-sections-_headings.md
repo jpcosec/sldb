@@ -28,7 +28,7 @@ _headings(lines: list[str])
 
 ## Purpose
 
-Not documented.
+(index, level, title) of every heading outside code fences.
 
 ## Architecture
 

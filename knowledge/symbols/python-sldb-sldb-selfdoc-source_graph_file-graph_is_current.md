@@ -28,7 +28,7 @@ Check that the written graph holds every expected node with its source hash.
 
 ## Purpose
 
-Not documented.
+Check that the written graph holds every expected node with its source hash.
 
 ## Architecture
 

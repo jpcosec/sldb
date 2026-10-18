@@ -30,7 +30,7 @@ tags they are declared equivalent to.
 
 ## Purpose
 
-Not documented.
+A document is reachable by its own tags, by what they hang from, and by the global tags they are declared equivalent to.
 
 ## Architecture
 

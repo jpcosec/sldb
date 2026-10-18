@@ -28,7 +28,7 @@ Run the help command.
 
 ## Purpose
 
-Not documented.
+Run the help command.
 
 ## Architecture
 

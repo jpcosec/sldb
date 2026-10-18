@@ -42,7 +42,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+The fields of ``model_type`` located in ``markdown``.
 
 ## Architecture
 

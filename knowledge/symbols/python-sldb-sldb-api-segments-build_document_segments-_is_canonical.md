@@ -37,7 +37,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Whether the document file on disk already holds the canonical text.
 
 ## Architecture
 

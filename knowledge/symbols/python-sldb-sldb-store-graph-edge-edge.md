@@ -28,7 +28,7 @@ A universal connection from a node to a target node.
 
 ## Purpose
 
-Not documented.
+A universal connection from a node to a target node.
 
 ## Architecture
 

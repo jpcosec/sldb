@@ -29,7 +29,7 @@ True when no model and no document had to be skipped.
 
 ## Purpose
 
-Not documented.
+True when no model and no document had to be skipped.
 
 ## Architecture
 

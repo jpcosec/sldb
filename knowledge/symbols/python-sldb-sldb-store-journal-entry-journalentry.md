@@ -28,7 +28,7 @@ A single write, with what changed and the hashes that link it into the chain.
 
 ## Purpose
 
-Not documented.
+A single write, with what changed and the hashes that link it into the chain.
 
 ## Architecture
 

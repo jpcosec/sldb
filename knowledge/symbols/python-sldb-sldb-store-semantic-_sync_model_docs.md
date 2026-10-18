@@ -33,7 +33,7 @@ shard is never read just to confirm it agrees with a source_hash that has not mo
 
 ## Purpose
 
-Not documented.
+PLAN 15 capa 7: a document's own shard (path, source_hash, content_hash, semantic_tags) is rewritten only when its semantic_tags actually changed by this sync — not the whole model's documents index, and not every document's shard just because one changed. PLAN 15 capa 8: with a trustworthy dirty set (this operation's own writes, or a prior sync's clean baseline), only those documents are even opened — an untouched one's semantic shard is never read just to confirm it agrees with a source_hash that has not moved.
 
 ## Architecture
 

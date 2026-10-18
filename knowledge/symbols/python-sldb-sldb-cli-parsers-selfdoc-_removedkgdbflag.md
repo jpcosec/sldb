@@ -28,7 +28,7 @@ Not applicable.
 
 ## Purpose
 
-Not documented.
+`--kgdb-command` and `--kgdb-output` served an external kgdb; kgdb is part of sldb now.
 
 ## Architecture
 

@@ -32,7 +32,7 @@ names them; without it they would resolve against whatever directory the caller 
 
 ## Purpose
 
-Not documented.
+The payload rendered to Markdown, refused unless it extracts back identically.
 
 ## Architecture
 

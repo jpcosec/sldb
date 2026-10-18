@@ -29,7 +29,7 @@ Deprecated alias for `content_on_disk`.
 
 ## Purpose
 
-Not documented.
+Deprecated alias for `content_on_disk`.
 
 ## Architecture
 

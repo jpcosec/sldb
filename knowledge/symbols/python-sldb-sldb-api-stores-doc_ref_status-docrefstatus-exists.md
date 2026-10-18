@@ -29,7 +29,7 @@ True only when the reference names exactly one document.
 
 ## Purpose
 
-Not documented.
+True only when the reference names exactly one document.
 
 ## Architecture
 

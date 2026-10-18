@@ -29,7 +29,7 @@ Models whose class contract no longer matches the one the index recorded.
 
 ## Purpose
 
-Not documented.
+Models whose class contract no longer matches the one the index recorded.
 
 ## Architecture
 

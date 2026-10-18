@@ -29,7 +29,7 @@ reformatted_documents(self)
 
 ## Purpose
 
-Not documented.
+(model, diagnosis) per document whose text moved but whose fields held still.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ The directory holding a store's journal entries.
 
 ## Purpose
 
-Not documented.
+The directory holding a store's journal entries.
 
 ## Architecture
 

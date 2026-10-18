@@ -5,11 +5,11 @@ module: sldb.selfdoc.python_source_graph
 qualname: source_snapshot
 kind: FunctionDef
 source_path: sldb/selfdoc/python_source_graph.py
-source_span: '11:21'
-source_sha256: 2ca7c2be0a20b3fc1f7f2174cb1eb7be64c34720e47686dd305dca6ab0dd23e2
+source_span: '12:23'
+source_sha256: d4993684ffb6ac80c43b4b99ff0483095464b7697bff0085b5b5b493663f00dd
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.selfdoc.python_source_graph:source_snapshot; contract-sha256:2a896d8015bdfaed41eeaa89f97e72714bd0568b265020bd6d6fcd7e78e2bd07
+provenance: python-ast:python:sldb.selfdoc.python_source_graph:source_snapshot; contract-sha256:34f5d34bb31fef37b2868e1efe26b270827a45401fbd49e3c483f44d5b7587cd
 ---
 
 # source_snapshot
@@ -24,11 +24,11 @@ Build a self-contained, regenerable source graph snapshot.
 
 ## Imports
 
-[".python_reexports", ".python_source_values", ".python_tag_inheritance", "__future__", "datetime"]
+[".python_reexports", ".python_shadowing", ".python_source_values", ".python_tag_inheritance", "__future__", "datetime"]
 
 ## Purpose
 
-Not documented.
+Build a self-contained, regenerable source graph snapshot.
 
 ## Architecture
 

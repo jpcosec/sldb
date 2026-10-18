@@ -28,7 +28,7 @@ Count authored semantic fields intentionally left for review.
 
 ## Purpose
 
-Not documented.
+Count authored semantic fields intentionally left for review.
 
 ## Architecture
 

@@ -35,7 +35,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Keep an offset inside the stripped text.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ Whether a ``render_payload`` implementation takes a ``recorder`` argument.
 
 ## Purpose
 
-Not documented.
+Whether a ``render_payload`` implementation takes a ``recorder`` argument.
 
 ## Architecture
 

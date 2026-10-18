@@ -28,7 +28,7 @@ Base class for all node handlers.
 
 ## Purpose
 
-Not documented.
+Base class for all node handlers.
 
 ## Architecture
 

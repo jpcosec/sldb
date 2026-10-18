@@ -34,7 +34,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Nest overlapping segments by containment.
 
 ## Architecture
 

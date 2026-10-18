@@ -28,7 +28,7 @@ The `.sldb` directory above a document path, if there is one.
 
 ## Purpose
 
-Not documented.
+The `.sldb` directory above a document path, if there is one.
 
 ## Architecture
 

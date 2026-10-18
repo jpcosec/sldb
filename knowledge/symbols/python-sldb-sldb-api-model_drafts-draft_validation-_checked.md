@@ -28,7 +28,7 @@ Locate the model, load both contracts, check every document and plan the backfil
 
 ## Purpose
 
-Not documented.
+Locate the model, load both contracts, check every document and plan the backfill.
 
 ## Architecture
 

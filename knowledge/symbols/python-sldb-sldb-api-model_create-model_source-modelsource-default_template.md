@@ -29,7 +29,7 @@ One section per field under `head` (the model's name, or its base's template).
 
 ## Purpose
 
-Not documented.
+One section per field under `head` (the model's name, or its base's template).
 
 ## Architecture
 

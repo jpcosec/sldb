@@ -29,7 +29,7 @@ Stores whose links may name the alias: the destination, then the local project s
 
 ## Purpose
 
-Not documented.
+Stores whose links may name the alias: the destination, then the local project store.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Step into a dict key or a list index.
 
 ## Purpose
 
-Not documented.
+Step into a dict key or a list index.
 
 ## Architecture
 

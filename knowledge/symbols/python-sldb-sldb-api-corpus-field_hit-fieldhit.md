@@ -28,7 +28,7 @@ A ranked field of a document. `payload` is the whole document as sldb extracted 
 
 ## Purpose
 
-Not documented.
+A ranked field of a document. `payload` is the whole document as sldb extracted it.
 
 ## Architecture
 

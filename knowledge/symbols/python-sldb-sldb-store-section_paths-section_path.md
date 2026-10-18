@@ -28,7 +28,7 @@ Build a hierarchical path from current ancestor slugs.
 
 ## Purpose
 
-Not documented.
+Build a hierarchical path from current ancestor slugs.
 
 ## Architecture
 

@@ -32,7 +32,7 @@ back (this module is the one section_rebuild imports).
 
 ## Purpose
 
-Not documented.
+This document's sections shard, current: reused untouched when its `source_hash` already matches what the shard on disk carries, (re)parsed and (re)written otherwise. `process_doc_sections` is section_rebuild's own parser, passed in rather than imported back (this module is the one section_rebuild imports).
 
 ## Architecture
 

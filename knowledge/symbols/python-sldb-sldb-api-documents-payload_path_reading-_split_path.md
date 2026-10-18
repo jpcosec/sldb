@@ -29,7 +29,7 @@ The non-empty segments of a dotted path; an empty path is a missing key.
 
 ## Purpose
 
-Not documented.
+The non-empty segments of a dotted path; an empty path is a missing key.
 
 ## Architecture
 

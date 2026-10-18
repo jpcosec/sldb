@@ -33,7 +33,7 @@ None keeps the historical `null` dump.
 
 ## Purpose
 
-Not documented.
+One front-matter line. An unused optrev field omits the whole line, so the front matter reads exactly as if the field were never declared: a None mapping/list VALUE means absent, while `{}`/`[]` are present and still dump below. kind == 'render' markers are display-only, so their None keeps the historical `null` dump.
 
 ## Architecture
 

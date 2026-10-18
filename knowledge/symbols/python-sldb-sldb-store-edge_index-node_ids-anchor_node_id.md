@@ -28,7 +28,7 @@ Node id of an anchor (an alias word).
 
 ## Purpose
 
-Not documented.
+Node id of an anchor (an alias word).
 
 ## Architecture
 

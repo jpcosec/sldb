@@ -29,7 +29,7 @@ One record as its JSON mapping; doc records also carry their semantic tags.
 
 ## Purpose
 
-Not documented.
+One record as its JSON mapping; doc records also carry their semantic tags.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Rewrite each planned document and record its own journal entry; returns the coun
 
 ## Purpose
 
-Not documented.
+Rewrite each planned document and record its own journal entry; returns the count.
 
 ## Architecture
 

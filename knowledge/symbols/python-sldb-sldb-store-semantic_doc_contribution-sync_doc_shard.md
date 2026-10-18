@@ -30,7 +30,7 @@ matches what the shard on disk carries, (re)extracted and (re)written otherwise.
 
 ## Purpose
 
-Not documented.
+This document's semantic shard, current: reused untouched when its `source_hash` already matches what the shard on disk carries, (re)extracted and (re)written otherwise.
 
 ## Architecture
 

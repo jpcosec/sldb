@@ -39,7 +39,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+The value at a dotted path; numeric segments index into lists.
 
 ## Architecture
 

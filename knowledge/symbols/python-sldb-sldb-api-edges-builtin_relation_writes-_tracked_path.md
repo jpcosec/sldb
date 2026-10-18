@@ -30,7 +30,7 @@ type under its bare name (selfdoc's `contains`), which a builtin must not duplic
 
 ## Purpose
 
-Not documented.
+Where the relation type is tracked: as the builtin `reltype-<name>`, or as an authored type under its bare name (selfdoc's `contains`), which a builtin must not duplicate.
 
 ## Architecture
 

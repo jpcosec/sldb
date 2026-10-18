@@ -35,7 +35,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Whether a marker asks for a Markdown table.
 
 ## Architecture
 

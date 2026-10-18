@@ -28,7 +28,7 @@ Rebuild the semantic, section and edge indexes and cascade the store hash.
 
 ## Purpose
 
-Not documented.
+Rebuild the semantic, section and edge indexes and cascade the store hash.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ The same view as one edge per ordered pair: what the weighted algorithms need.
 
 ## Purpose
 
-Not documented.
+The same view as one edge per ordered pair: what the weighted algorithms need.
 
 ## Architecture
 

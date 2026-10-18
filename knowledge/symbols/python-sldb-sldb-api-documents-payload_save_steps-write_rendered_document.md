@@ -29,7 +29,7 @@ Write the rendered Markdown (plus final newline) and record its source and conte
 
 ## Purpose
 
-Not documented.
+Write the rendered Markdown (plus final newline) and record its source and content hashes.
 
 ## Architecture
 

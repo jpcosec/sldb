@@ -29,7 +29,7 @@ scalar_literal(value: Any)
 
 ## Purpose
 
-Not documented.
+`value` written in the grammar: a quoted string or a number; None for anything else.
 
 ## Architecture
 

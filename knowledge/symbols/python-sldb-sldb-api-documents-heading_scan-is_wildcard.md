@@ -28,7 +28,7 @@ Whether a template heading is a marker slot (`⸢rev•title⸥`) and not a lite
 
 ## Purpose
 
-Not documented.
+Whether a template heading is a marker slot (`⸢rev•title⸥`) and not a literal.
 
 ## Architecture
 

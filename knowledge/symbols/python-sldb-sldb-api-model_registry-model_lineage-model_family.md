@@ -35,7 +35,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+The model's declared `__family__`, the root branch it belongs to.
 
 ## Architecture
 

@@ -32,7 +32,7 @@ path of its own (see sldb.store.model_origin).
 
 ## Purpose
 
-Not documented.
+Register the model unless a concurrent writer already did (checked under the lock).
 
 ## Architecture
 

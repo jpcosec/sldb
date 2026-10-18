@@ -33,7 +33,7 @@ and be dropped in silence while `doc_exists` said the target was there.
 
 ## Purpose
 
-Not documented.
+Edges whose end is a RelationTypeDoc's export id, pointed at its `relation_type` node.
 
 ## Architecture
 

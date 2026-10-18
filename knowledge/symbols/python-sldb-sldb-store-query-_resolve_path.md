@@ -28,7 +28,7 @@ Resolves a potentially relative path against a base path.
 
 ## Purpose
 
-Not documented.
+Resolves a potentially relative path against a base path.
 
 ## Architecture
 

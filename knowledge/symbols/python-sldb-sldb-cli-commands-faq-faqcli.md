@@ -28,7 +28,7 @@ Question-oriented FAQ browser.
 
 ## Purpose
 
-Not documented.
+Question-oriented FAQ browser.
 
 ## Architecture
 

@@ -1,7 +1,7 @@
 name: python-sldb-sldb-cli-commands-journal-journalcli-run
 path: knowledge/symbols/python-sldb-sldb-cli-commands-journal-journalcli-run.md
-source_hash: d86da653ad0a7e0a7d7f4e2c58860d39a75b4e8f491103b0df267a01a966eb25
-content_hash: a58af085b11e2e031af3762e5f7fceb706478e4f2e83f8295a084a79073f11d0
+source_hash: 28c90fb49eb4a926929c03b84749f4a951c423a17da1d8733ac0ede79bbb6bd3
+content_hash: b8df645e130d2baabf49220b1c5eec41869553bcba9388a50b487b03bc212f61
 field_hashes:
   id: 989afa82abe37072c300e8b15841965a813877e66047eb4c6d59582460fc2da1
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -15,7 +15,7 @@ field_hashes:
   signature: 07447a83631ed4b2dbe859faf32852dd0e8d398f09acd53166bafbf92e145d86
   docstring: b0bd37cf06c081c2ed7b963c5db6cdf74b37347ec319aba8208baddf1f74c638
   imports: fb0c49116e65e9488c7a3a8df8d748cdae5afcc1553ae80c5706b3cb00bb7136
-  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  purpose: b0bd37cf06c081c2ed7b963c5db6cdf74b37347ec319aba8208baddf1f74c638
   architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   provenance: 064a91f419bf8652d5ab233bb5f5aca3c71399896444e1d3fa71689a97b006a4

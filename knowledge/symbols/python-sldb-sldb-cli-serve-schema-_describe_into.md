@@ -28,7 +28,7 @@ Describe one model into ``described``, or record why it could not be.
 
 ## Purpose
 
-Not documented.
+Describe one model into ``described``, or record why it could not be.
 
 ## Architecture
 

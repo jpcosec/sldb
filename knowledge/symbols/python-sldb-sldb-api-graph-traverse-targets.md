@@ -28,7 +28,7 @@ The unique ids an outgoing edge of `relation` points at, sorted.
 
 ## Purpose
 
-Not documented.
+The unique ids an outgoing edge of `relation` points at, sorted.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ The node ids the scope admits, sorted for determinism.
 
 ## Purpose
 
-Not documented.
+The node ids the scope admits, sorted for determinism.
 
 ## Architecture
 

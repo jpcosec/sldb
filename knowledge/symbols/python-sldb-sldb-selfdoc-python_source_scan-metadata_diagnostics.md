@@ -5,12 +5,12 @@ module: sldb.selfdoc.python_source_scan
 qualname: metadata_diagnostics
 kind: FunctionDef
 source_path: sldb/selfdoc/python_source_scan.py
-source_span: '16:26'
-source_sha256: 276ffca99f9f6d9cca9a337562d0b56525339e449dce96ce8f0b53e6f16cf590
+source_span: '26:32'
+source_sha256: f78a9614869eb2878a757a84ac30a15b907e36f8f87670f59c61549cfccfab85
 architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.selfdoc.python_source_scan:metadata_diagnostics;
-  contract-sha256:141b79d45ad14a3ca322910c3c4c686c4da075e93e9bc1c91afc904cd7ddc383
+  contract-sha256:6203a3296896bd3287927aac10dbf526d0e507da43483e4256a6f33d4c6ea3b2
 ---
 
 # metadata_diagnostics
@@ -30,7 +30,7 @@ to two declarations: reported before anything is written (spec section 2).
 
 ## Purpose
 
-Not documented.
+`path:line: problem` for every malformed docstring metadata and every declared id given to two declarations: reported before anything is written (spec section 2).
 
 ## Architecture
 

@@ -29,7 +29,7 @@ Raised when a CLI model edit cannot be applied safely.
 
 ## Purpose
 
-Not documented.
+Raised when a CLI model edit cannot be applied safely.
 
 ## Architecture
 

@@ -30,7 +30,7 @@ This document's edges shard, current: reused untouched when it was built from th
 
 ## Purpose
 
-Not documented.
+This document's edges shard, current: reused untouched when it was built from this `source_hash` (and these tags, under these rules), rebuilt and rewritten otherwise. `build_doc_edges` is edge_rebuild's own builder, passed in rather than imported back.
 
 ## Architecture
 

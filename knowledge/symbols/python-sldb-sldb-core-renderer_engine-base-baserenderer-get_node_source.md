@@ -29,7 +29,7 @@ Helper to get node source from block text.
 
 ## Purpose
 
-Not documented.
+Helper to get node source from block text.
 
 ## Architecture
 

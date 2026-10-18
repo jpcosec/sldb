@@ -29,7 +29,7 @@ A linked store's contribution with every id qualified and every edge marked `fro
 
 ## Purpose
 
-Not documented.
+A linked store's contribution with every id qualified and every edge marked `from_store` (so a check of this store tells its own edges from its links'); the local store's, untouched.
 
 ## Architecture
 

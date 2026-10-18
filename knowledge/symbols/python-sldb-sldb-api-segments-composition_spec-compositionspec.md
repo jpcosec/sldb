@@ -29,7 +29,7 @@ How a composed field builds its text out of other documents or fields.
 
 ## Purpose
 
-Not documented.
+How a composed field builds its text out of other documents or fields.
 
 ## Architecture
 

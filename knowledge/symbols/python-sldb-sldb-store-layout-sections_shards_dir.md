@@ -29,7 +29,7 @@ legacy per-model `sections_index_relpath` file used.
 
 ## Purpose
 
-Not documented.
+One document's sections per file (PLAN 15 capa 5), keyed by the same model name the legacy per-model `sections_index_relpath` file used.
 
 ## Architecture
 

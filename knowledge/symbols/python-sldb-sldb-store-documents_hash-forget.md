@@ -28,7 +28,7 @@ This document's shard was just deleted.
 
 ## Purpose
 
-Not documented.
+This document's shard was just deleted.
 
 ## Architecture
 

@@ -36,7 +36,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+The segments of a tracked document, or a 422 when it does not render.
 
 ## Architecture
 

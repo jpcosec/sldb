@@ -29,7 +29,7 @@ installed here) used to abort the whole store's AST, so `models show` of any oth
 
 ## Purpose
 
-Not documented.
+The model's fields, or none and why: one model that does not import (its package is not installed here) used to abort the whole store's AST, so `models show` of any other failed.
 
 ## Architecture
 

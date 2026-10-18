@@ -39,7 +39,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+The segment dict for one recorded span.
 
 ## Architecture
 

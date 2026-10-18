@@ -45,7 +45,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Replace a tracked document's content with the Markdown rendered from `payload`.
 
 ## Architecture
 

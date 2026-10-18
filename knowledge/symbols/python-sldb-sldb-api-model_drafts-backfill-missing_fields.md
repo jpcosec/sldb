@@ -28,7 +28,7 @@ The field names a pydantic ValidationError reports as missing.
 
 ## Purpose
 
-Not documented.
+The field names a pydantic ValidationError reports as missing.
 
 ## Architecture
 

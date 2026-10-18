@@ -32,7 +32,7 @@ family; a missing section then falls back to the default instead of failing to p
 
 ## Purpose
 
-Not documented.
+The `## Title` section a field renders from, with its marker.
 
 ## Architecture
 

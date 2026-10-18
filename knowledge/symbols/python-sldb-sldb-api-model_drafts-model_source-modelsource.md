@@ -28,7 +28,7 @@ The source file and import path of the class that defines a registered model.
 
 ## Purpose
 
-Not documented.
+The source file and import path of the class that defines a registered model.
 
 ## Architecture
 

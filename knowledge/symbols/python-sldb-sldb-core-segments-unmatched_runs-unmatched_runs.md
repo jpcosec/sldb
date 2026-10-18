@@ -35,7 +35,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Every run of ``raw`` the canonical render does not account for.
 
 ## Architecture
 

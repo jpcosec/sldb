@@ -37,7 +37,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Parse JSON/YAML scalars or objects from a string.
 
 ## Architecture
 

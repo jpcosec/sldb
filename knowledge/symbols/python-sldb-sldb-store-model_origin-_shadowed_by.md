@@ -28,7 +28,7 @@ The models this store owns that the store linked as `alias` owns too.
 
 ## Purpose
 
-Not documented.
+The models this store owns that the store linked as `alias` owns too.
 
 ## Architecture
 

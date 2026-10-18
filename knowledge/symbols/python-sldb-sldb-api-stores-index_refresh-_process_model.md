@@ -32,7 +32,7 @@ the same text yield a different payload, and no `source_hash` moves to say so.
 
 ## Purpose
 
-Not documented.
+Rehash one model's documents and queue its indexes to be saved.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ Every record as its JSON mapping, order preserved.
 
 ## Purpose
 
-Not documented.
+Every record as its JSON mapping, order preserved.
 
 ## Architecture
 

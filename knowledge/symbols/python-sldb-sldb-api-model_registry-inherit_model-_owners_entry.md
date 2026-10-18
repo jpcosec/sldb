@@ -29,7 +29,7 @@ The owner's entry for the model, with the owner's root put on the import path.
 
 ## Purpose
 
-Not documented.
+The owner's entry for the model, with the owner's root put on the import path.
 
 ## Architecture
 

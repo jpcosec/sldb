@@ -42,7 +42,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Remove a field's declaration and template section from the model's draft.
 
 ## Architecture
 

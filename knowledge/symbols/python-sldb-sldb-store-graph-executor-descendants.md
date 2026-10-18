@@ -28,7 +28,7 @@ Nodes reachable from `root` following outgoing edges, excluding `root` itself.
 
 ## Purpose
 
-Not documented.
+Nodes reachable from `root` following outgoing edges, excluding `root` itself.
 
 ## Architecture
 

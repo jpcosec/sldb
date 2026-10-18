@@ -29,7 +29,7 @@ The source lines declaring `field_name`, for the journal of a field removal.
 
 ## Purpose
 
-Not documented.
+The source lines declaring `field_name`, for the journal of a field removal.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Recompute the Merkle root from every model node and persist it.
 
 ## Purpose
 
-Not documented.
+Recompute the Merkle root from every model node and persist it.
 
 ## Architecture
 

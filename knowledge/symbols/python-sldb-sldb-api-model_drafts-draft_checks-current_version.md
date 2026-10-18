@@ -29,7 +29,7 @@ The contract version the store's models index records for a model (1 when unregi
 
 ## Purpose
 
-Not documented.
+The contract version the store's models index records for a model (1 when unregistered).
 
 ## Architecture
 

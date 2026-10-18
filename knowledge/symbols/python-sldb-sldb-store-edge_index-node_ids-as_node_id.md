@@ -28,7 +28,7 @@ A node id as given; a bare export id (`Model:name`) read as its document's node 
 
 ## Purpose
 
-Not documented.
+A node id as given; a bare export id (`Model:name`) read as its document's node id.
 
 ## Architecture
 

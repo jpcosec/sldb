@@ -28,7 +28,7 @@ The zero-padded file of one journal entry, whose name is its chain position.
 
 ## Purpose
 
-Not documented.
+The zero-padded file of one journal entry, whose name is its chain position.
 
 ## Architecture
 

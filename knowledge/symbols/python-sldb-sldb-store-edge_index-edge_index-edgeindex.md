@@ -29,7 +29,7 @@ What the shards say, composed: the one door for reading edges. Ids are node ids
 
 ## Purpose
 
-Not documented.
+What the shards say, composed: the one door for reading edges. Ids are node ids (`sldb://document/Model:name`...); a bare export id `Model:name` is read as its document's.
 
 ## Architecture
 

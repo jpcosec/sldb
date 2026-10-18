@@ -28,7 +28,7 @@ Shards of a model that is no longer registered go with it: its file and its dire
 
 ## Purpose
 
-Not documented.
+Shards of a model that is no longer registered go with it: its file and its directory.
 
 ## Architecture
 

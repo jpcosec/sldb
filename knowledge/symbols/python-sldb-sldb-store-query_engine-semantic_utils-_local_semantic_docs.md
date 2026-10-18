@@ -29,7 +29,7 @@ Loads docs and the semantic index, rebuilding if necessary.
 
 ## Purpose
 
-Not documented.
+Loads docs and the semantic index, rebuilding if necessary.
 
 ## Architecture
 

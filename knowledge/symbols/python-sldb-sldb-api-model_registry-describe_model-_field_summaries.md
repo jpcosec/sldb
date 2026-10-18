@@ -29,7 +29,7 @@ Name, annotation and description of every field, in declaration order.
 
 ## Purpose
 
-Not documented.
+Name, annotation and description of every field, in declaration order.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ The linked store's registry entry for a model name, if registered there.
 
 ## Purpose
 
-Not documented.
+The linked store's registry entry for a model name, if registered there.
 
 ## Architecture
 

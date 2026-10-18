@@ -30,7 +30,7 @@ The contribution of a relation type, relation or anchor document; None for a pla
 
 ## Purpose
 
-Not documented.
+The contribution of a relation type, relation or anchor document; None for a plain one (or one whose payload cannot be read: it stays a plain document).
 
 ## Architecture
 

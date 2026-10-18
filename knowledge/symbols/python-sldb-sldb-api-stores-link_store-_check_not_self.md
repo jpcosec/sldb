@@ -28,7 +28,7 @@ Refuse to link a store into itself.
 
 ## Purpose
 
-Not documented.
+Refuse to link a store into itself.
 
 ## Architecture
 

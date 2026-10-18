@@ -28,7 +28,7 @@ One document a backfill promote would rewrite: what it had and what it becomes.
 
 ## Purpose
 
-Not documented.
+One document a backfill promote would rewrite: what it had and what it becomes.
 
 ## Architecture
 

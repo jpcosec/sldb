@@ -28,7 +28,7 @@ What one docstring declares: its metadata (empty when it declares none) and its 
 
 ## Purpose
 
-Not documented.
+What one docstring declares: its metadata (empty when it declares none) and its body.
 
 ## Architecture
 

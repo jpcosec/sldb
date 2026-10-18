@@ -32,7 +32,7 @@ rescan of the directory resurrects it.
 
 ## Purpose
 
-Not documented.
+Apply one prevalidated change; `delete` is the inverse of `create`, file included.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ Report absent tracking or stale hashes, rejecting identity collisions.
 
 ## Purpose
 
-Not documented.
+Report absent tracking or stale hashes, rejecting identity collisions.
 
 ## Architecture
 

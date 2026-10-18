@@ -28,7 +28,7 @@ Under the store lock: the entry, then the derived indexes and the root hash.
 
 ## Purpose
 
-Not documented.
+Under the store lock: the entry, then the derived indexes and the root hash.
 
 ## Architecture
 

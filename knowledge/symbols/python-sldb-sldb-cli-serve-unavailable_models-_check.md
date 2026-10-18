@@ -35,7 +35,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Try to import one registered model.
 
 ## Architecture
 

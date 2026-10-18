@@ -29,7 +29,7 @@ Name of the class statement to edit in the source file.
 
 ## Purpose
 
-Not documented.
+Name of the class statement to edit in the source file.
 
 ## Architecture
 

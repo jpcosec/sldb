@@ -32,7 +32,7 @@ representation declaration.
 
 ## Purpose
 
-Not documented.
+Combine base and model-local semantics.
 
 ## Architecture
 

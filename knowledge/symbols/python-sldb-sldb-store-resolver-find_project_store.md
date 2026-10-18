@@ -28,7 +28,7 @@ Find the closest project store, reserving the home store for fallback.
 
 ## Purpose
 
-Not documented.
+Find the closest project store, reserving the home store for fallback.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ The store prefix `ref` is written with (`deskops` for `deskops:x`), linked or no
 
 ## Purpose
 
-Not documented.
+The store prefix `ref` is written with (`deskops` for `deskops:x`), linked or not.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ Move the store-wide legacy files next to their canonical paths and drop the old 
 
 ## Purpose
 
-Not documented.
+Move the store-wide legacy files next to their canonical paths and drop the old dirs.
 
 ## Architecture
 

@@ -37,7 +37,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Whether an opcode's canonical range contains ``position``.
 
 ## Architecture
 

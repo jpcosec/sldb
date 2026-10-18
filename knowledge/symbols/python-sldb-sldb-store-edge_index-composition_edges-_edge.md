@@ -28,7 +28,7 @@ One `composes` edge, carrying which field composed it and the ref as authored.
 
 ## Purpose
 
-Not documented.
+One `composes` edge, carrying which field composed it and the ref as authored.
 
 ## Architecture
 

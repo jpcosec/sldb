@@ -40,7 +40,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Import the StructuredNLDoc subclass a model reference names.
 
 ## Architecture
 

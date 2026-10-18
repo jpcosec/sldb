@@ -28,7 +28,7 @@ Drop the remembered sweep so the next signature() redoes it (invalidate_runtime_
 
 ## Purpose
 
-Not documented.
+Drop the remembered sweep so the next signature() redoes it (invalidate_runtime_cache).
 
 ## Architecture
 

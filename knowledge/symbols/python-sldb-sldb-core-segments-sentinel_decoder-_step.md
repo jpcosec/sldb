@@ -38,7 +38,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Consume one character (or one opening sentinel) and return the next index.
 
 ## Architecture
 

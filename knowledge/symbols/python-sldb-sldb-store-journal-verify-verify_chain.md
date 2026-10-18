@@ -28,7 +28,7 @@ Walk the journal oldest-first, checking each entry's hash and link to the previo
 
 ## Purpose
 
-Not documented.
+Walk the journal oldest-first, checking each entry's hash and link to the previous.
 
 ## Architecture
 

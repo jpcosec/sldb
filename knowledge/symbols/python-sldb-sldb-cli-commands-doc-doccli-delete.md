@@ -28,7 +28,7 @@ Untrack a document and delete its Markdown file, asking first unless --yes.
 
 ## Purpose
 
-Not documented.
+Untrack a document and delete its Markdown file, asking first unless --yes.
 
 ## Architecture
 

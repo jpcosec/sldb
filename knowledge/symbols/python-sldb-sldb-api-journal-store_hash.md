@@ -28,7 +28,7 @@ The store's current root hash (`hash_a`).
 
 ## Purpose
 
-Not documented.
+The store's current root hash (`hash_a`).
 
 ## Architecture
 

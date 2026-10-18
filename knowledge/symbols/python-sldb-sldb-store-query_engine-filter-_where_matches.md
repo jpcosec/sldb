@@ -28,7 +28,7 @@ Evaluates a --where filter expression against a document.
 
 ## Purpose
 
-Not documented.
+Evaluates a --where filter expression against a document.
 
 ## Architecture
 

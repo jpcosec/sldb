@@ -29,7 +29,7 @@ Name every noisy document and the headings behind the verdict, never a count alo
 
 ## Purpose
 
-Not documented.
+Name every noisy document and the headings behind the verdict, never a count alone.
 
 ## Architecture
 

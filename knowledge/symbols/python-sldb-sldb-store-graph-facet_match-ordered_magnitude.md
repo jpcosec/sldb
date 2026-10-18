@@ -28,7 +28,7 @@ Evaluate the greater-than and less-than operators.
 
 ## Purpose
 
-Not documented.
+Evaluate the greater-than and less-than operators.
 
 ## Architecture
 

@@ -35,7 +35,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+The joined blocks before stripping, sentinels included when recording.
 
 ## Architecture
 

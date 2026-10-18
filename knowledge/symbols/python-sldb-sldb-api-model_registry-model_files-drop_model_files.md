@@ -29,7 +29,7 @@ Delete the model's indexes and shard directories; the caller holds the store loc
 
 ## Purpose
 
-Not documented.
+Delete the model's indexes and shard directories; the caller holds the store lock.
 
 ## Architecture
 

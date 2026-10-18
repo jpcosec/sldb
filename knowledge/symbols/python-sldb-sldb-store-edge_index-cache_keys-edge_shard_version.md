@@ -30,7 +30,7 @@ document's section nodes are read from its sections shard).
 
 ## Purpose
 
-Not documented.
+Stamp of the rules a shard was built under: the index's own and the sections' (a document's section nodes are read from its sections shard).
 
 ## Architecture
 

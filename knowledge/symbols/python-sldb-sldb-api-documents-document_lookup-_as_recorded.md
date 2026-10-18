@@ -28,7 +28,7 @@ _as_recorded(root: Path, doc_ref: str)
 
 ## Purpose
 
-Not documented.
+`doc_ref` as the store records a path: relative to the project root, when it is under it.
 
 ## Architecture
 

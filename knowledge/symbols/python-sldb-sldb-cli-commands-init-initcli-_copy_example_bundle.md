@@ -29,7 +29,7 @@ Copy the example bundle to the target directory.
 
 ## Purpose
 
-Not documented.
+Copy the example bundle to the target directory.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Build the KGDB semantic export payload from persisted SLDB indexes.
 
 ## Purpose
 
-Not documented.
+Build the KGDB semantic export payload from persisted SLDB indexes.
 
 ## Architecture
 

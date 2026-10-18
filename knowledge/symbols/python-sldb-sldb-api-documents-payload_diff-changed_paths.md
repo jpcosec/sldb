@@ -32,7 +32,7 @@ yield the empty string, which the caller turns into the root key.
 
 ## Purpose
 
-Not documented.
+Dotted paths whose values differ between `before` and `after`.
 
 ## Architecture
 

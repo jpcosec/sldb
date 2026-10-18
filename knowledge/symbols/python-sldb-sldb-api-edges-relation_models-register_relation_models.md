@@ -29,7 +29,7 @@ RelationTypeDoc and RelationDoc registered from `sldb.models`, whatever was ther
 
 ## Purpose
 
-Not documented.
+RelationTypeDoc and RelationDoc registered from `sldb.models`, whatever was there.
 
 ## Architecture
 

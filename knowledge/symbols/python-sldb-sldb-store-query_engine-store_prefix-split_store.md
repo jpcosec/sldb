@@ -28,7 +28,7 @@ split_store(address: str)
 
 ## Purpose
 
-Not documented.
+('B', 'st.{M}.doc') for 'B:st.{M}.doc'; (None, address) for a local address.
 
 ## Architecture
 

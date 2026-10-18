@@ -5,12 +5,12 @@ module: sldb.api.stores.scan_rewrite_loss
 qualname: scan_rewrite_loss
 kind: FunctionDef
 source_path: sldb/api/stores/scan_rewrite_loss.py
-source_span: '13:24'
-source_sha256: 53105ddd579a8513326479e3bad2363d5415e770835c4114e542aaa6f96d7dd2
+source_span: '13:23'
+source_sha256: f91e2ec63e830ffd81b4b171b98abc4a31617e4f73c0e487357b674699b0da37
 architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.api.stores.scan_rewrite_loss:scan_rewrite_loss;
-  contract-sha256:5cb630bf19f26f9ddacb51a25e159feab775241571afb4c34e4372b8853bb1cc
+  contract-sha256:5dec22bdb95622bbb0acbb3e436a4a82e739219d5f2364aa53475e109a5a09fe
 ---
 
 # scan_rewrite_loss
@@ -29,7 +29,7 @@ One `{document, model, path, lost}` per document whose rewrite would drop blocks
 
 ## Purpose
 
-Not documented.
+One `{document, model, path, lost}` per document whose rewrite would drop blocks.
 
 ## Architecture
 

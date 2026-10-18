@@ -29,7 +29,7 @@ Each builtin relation name as an sldb predicate, so prose links share the vocabu
 
 ## Purpose
 
-Not documented.
+Each builtin relation name as an sldb predicate, so prose links share the vocabulary.
 
 ## Architecture
 

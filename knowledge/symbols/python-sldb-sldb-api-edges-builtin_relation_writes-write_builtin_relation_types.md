@@ -29,7 +29,7 @@ One RelationTypeDoc per builtin relation that is not tracked yet, under `sldb/re
 
 ## Purpose
 
-Not documented.
+One RelationTypeDoc per builtin relation that is not tracked yet, under `sldb/relation_types/`.
 
 ## Architecture
 

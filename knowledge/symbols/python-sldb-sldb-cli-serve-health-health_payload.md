@@ -28,7 +28,7 @@ The store's verdict, its findings, and the single action they imply.
 
 ## Purpose
 
-Not documented.
+The store's verdict, its findings, and the single action they imply.
 
 ## Architecture
 

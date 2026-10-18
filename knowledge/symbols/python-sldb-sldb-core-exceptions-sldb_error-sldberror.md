@@ -28,7 +28,7 @@ Base exception for all SLDB errors.
 
 ## Purpose
 
-Not documented.
+Base exception for all SLDB errors.
 
 ## Architecture
 

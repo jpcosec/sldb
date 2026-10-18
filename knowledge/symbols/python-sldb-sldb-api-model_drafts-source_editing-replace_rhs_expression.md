@@ -29,7 +29,7 @@ The source with an expression's text replaced (AST column offsets are UTF-8 byte
 
 ## Purpose
 
-Not documented.
+The source with an expression's text replaced (AST column offsets are UTF-8 byte offsets).
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Default codec wrapping the runtime's extract_model_data (local import).
 
 ## Purpose
 
-Not documented.
+Default codec wrapping the runtime's extract_model_data (local import).
 
 ## Architecture
 

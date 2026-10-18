@@ -29,7 +29,7 @@ The declared metadata of one docstring; empty when it declares none or is invali
 
 ## Purpose
 
-Not documented.
+The declared metadata of one docstring; empty when it declares none or is invalid (invalid metadata is reported as a diagnostic by the scan, never used).
 
 ## Architecture
 

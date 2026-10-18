@@ -28,7 +28,7 @@ Write every snapshotted file back, deleting the ones that did not exist.
 
 ## Purpose
 
-Not documented.
+Write every snapshotted file back, deleting the ones that did not exist.
 
 ## Architecture
 

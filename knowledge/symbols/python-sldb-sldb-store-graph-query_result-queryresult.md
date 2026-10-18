@@ -28,7 +28,7 @@ Primary matches plus optionally their structural neighborhood.
 
 ## Purpose
 
-Not documented.
+Primary matches plus optionally their structural neighborhood.
 
 ## Architecture
 

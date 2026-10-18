@@ -28,7 +28,7 @@ Scan Python files into deterministic, qualified symbol facts.
 
 ## Purpose
 
-Not documented.
+Scan Python files into deterministic, qualified symbol facts.
 
 ## Architecture
 

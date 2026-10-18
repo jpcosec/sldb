@@ -28,7 +28,7 @@ Allowed values of a Literal or Enum annotation; None for any other annotation.
 
 ## Purpose
 
-Not documented.
+Allowed values of a Literal or Enum annotation; None for any other annotation.
 
 ## Architecture
 

@@ -36,7 +36,7 @@ part of the derived file's name, so two projections never share one file.
 
 ## Purpose
 
-Not documented.
+Which fields of which models a consumer indexes, and how it reads one.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ Node id of a relation type (the `name` of a tracked RelationTypeDoc).
 
 ## Purpose
 
-Not documented.
+Node id of a relation type (the `name` of a tracked RelationTypeDoc).
 
 ## Architecture
 

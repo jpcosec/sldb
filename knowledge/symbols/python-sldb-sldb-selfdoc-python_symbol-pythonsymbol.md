@@ -41,7 +41,7 @@ node, independently of the semantic ``kind`` in this docstring's metadata.
 
 ## Purpose
 
-Not documented.
+Validate and carry the static facts extracted from one Python declaration.
 
 ## Architecture
 

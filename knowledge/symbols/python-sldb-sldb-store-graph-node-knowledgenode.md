@@ -28,7 +28,7 @@ Any element of the system, from a store to a section to a function.
 
 ## Purpose
 
-Not documented.
+Any element of the system, from a store to a section to a function.
 
 ## Architecture
 

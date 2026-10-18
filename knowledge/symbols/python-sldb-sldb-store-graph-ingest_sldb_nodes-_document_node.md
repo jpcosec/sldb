@@ -28,7 +28,7 @@ A document node, with `has_section` and `tagged_as` edges.
 
 ## Purpose
 
-Not documented.
+A document node, with `has_section` and `tagged_as` edges.
 
 ## Architecture
 

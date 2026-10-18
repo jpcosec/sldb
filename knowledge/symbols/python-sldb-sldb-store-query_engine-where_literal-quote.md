@@ -28,7 +28,7 @@ The literal whose value is `value` (the inverse of `unquote`).
 
 ## Purpose
 
-Not documented.
+The literal whose value is `value` (the inverse of `unquote`).
 
 ## Architecture
 

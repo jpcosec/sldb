@@ -28,7 +28,7 @@ The origin document of a composed piece, as the store knows it.
 
 ## Purpose
 
-Not documented.
+The origin document of a composed piece, as the store knows it.
 
 ## Architecture
 

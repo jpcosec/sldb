@@ -29,7 +29,7 @@ Absolute path of a linked store entry, which must exist.
 
 ## Purpose
 
-Not documented.
+Absolute path of a linked store entry, which must exist.
 
 ## Architecture
 

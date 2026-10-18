@@ -29,7 +29,7 @@ Edges pointing at `node_id`, of one relation or of all.
 
 ## Purpose
 
-Not documented.
+Edges pointing at `node_id`, of one relation or of all.
 
 ## Architecture
 

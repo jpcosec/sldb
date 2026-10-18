@@ -29,7 +29,7 @@ print_gitignore_policy(sp: Any)
 
 ## Purpose
 
-Not documented.
+`.sldb/core` must stay versionable and `.sldb/runtime` ignored; noted when not.
 
 ## Architecture
 

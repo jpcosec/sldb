@@ -38,7 +38,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Whether a `--where` predicate holds on `payload` (the grammar of `sldb find --where`).
 
 ## Architecture
 

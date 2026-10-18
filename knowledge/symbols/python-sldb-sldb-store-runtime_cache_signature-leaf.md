@@ -30,7 +30,7 @@ per-document lookup, sldb.store.runtime_cache.cached_document, call this).
 
 ## Purpose
 
-Not documented.
+A document's place in the chain, plus its file state unless the chain is trusted — stat-ed at most once per path per operation (both the sweep below and a reload's own per-document lookup, sldb.store.runtime_cache.cached_document, call this).
 
 ## Architecture
 

@@ -29,7 +29,7 @@ Move a root-level legacy layout to the canonical paths; False when there is none
 
 ## Purpose
 
-Not documented.
+Move a root-level legacy layout to the canonical paths; False when there is none.
 
 ## Architecture
 

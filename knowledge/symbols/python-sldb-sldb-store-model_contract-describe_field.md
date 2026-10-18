@@ -28,7 +28,7 @@ How one field is described for the field nodes of the edge index.
 
 ## Purpose
 
-Not documented.
+How one field is described for the field nodes of the edge index.
 
 ## Architecture
 

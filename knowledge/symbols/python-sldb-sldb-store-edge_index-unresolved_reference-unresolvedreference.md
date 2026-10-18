@@ -33,7 +33,7 @@ reports its unqualified values only when they look like a path.
 
 ## Purpose
 
-Not documented.
+One value of a declared reference or containment field that resolves to no document.
 
 ## Architecture
 

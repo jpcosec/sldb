@@ -28,7 +28,7 @@ Round-trip the payload; `ref_root` is the project root a composed field resolves
 
 ## Purpose
 
-Not documented.
+Round-trip the payload; `ref_root` is the project root a composed field resolves against.
 
 ## Architecture
 

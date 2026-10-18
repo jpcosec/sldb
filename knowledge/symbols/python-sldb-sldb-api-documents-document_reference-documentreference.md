@@ -29,7 +29,7 @@ Which document an operation tracked, untracked or saved, and where its Markdown 
 
 ## Purpose
 
-Not documented.
+Which document an operation tracked, untracked or saved, and where its Markdown lives.
 
 ## Architecture
 

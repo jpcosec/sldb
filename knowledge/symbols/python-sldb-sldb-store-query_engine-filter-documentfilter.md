@@ -28,7 +28,7 @@ Filter engine for matching documents against query expressions.
 
 ## Purpose
 
-Not documented.
+Filter engine for matching documents against query expressions.
 
 ## Architecture
 

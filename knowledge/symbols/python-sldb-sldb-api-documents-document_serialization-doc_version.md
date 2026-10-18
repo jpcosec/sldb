@@ -32,7 +32,7 @@ equality the optimistic lock in /save uses, and rotates on every field write.
 
 ## Purpose
 
-Not documented.
+The document's field hash (`content_hash`): the version token a client echoes back on save.
 
 ## Architecture
 

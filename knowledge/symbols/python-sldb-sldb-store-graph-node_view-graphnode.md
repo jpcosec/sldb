@@ -28,7 +28,7 @@ A node as query results see it: its record and the edges that passed the relatio
 
 ## Purpose
 
-Not documented.
+A node as query results see it: its record and the edges that passed the relation filters.
 
 ## Architecture
 

@@ -31,7 +31,7 @@ against it has to fall back to the whole document.
 
 ## Purpose
 
-Not documented.
+A document's `content_hash` and per-field map, or empties when it no longer extracts.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ What a registered model contributes: its node, its field nodes, `has_field`, `ex
 
 ## Purpose
 
-Not documented.
+What a registered model contributes: its node, its field nodes, `has_field`, `extends`.
 
 ## Architecture
 

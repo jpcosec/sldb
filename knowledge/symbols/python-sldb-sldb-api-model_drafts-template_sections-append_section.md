@@ -29,7 +29,7 @@ The template with `section` appended, separated by a blank line.
 
 ## Purpose
 
-Not documented.
+The template with `section` appended, separated by a blank line.
 
 ## Architecture
 

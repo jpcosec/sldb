@@ -28,7 +28,7 @@ One sentence per cyclic relation, naming the cycle; empty when every one is a DA
 
 ## Purpose
 
-Not documented.
+One sentence per cyclic relation, naming the cycle; empty when every one is a DAG.
 
 ## Architecture
 

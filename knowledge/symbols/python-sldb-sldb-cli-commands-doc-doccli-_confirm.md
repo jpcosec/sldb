@@ -28,7 +28,7 @@ Ask before deleting a file; a non-interactive stdin answers no.
 
 ## Purpose
 
-Not documented.
+Ask before deleting a file; a non-interactive stdin answers no.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Whether the index holds the old-formula hash of this very class: unchanged, not 
 
 ## Purpose
 
-Not documented.
+Whether the index holds the old-formula hash of this very class: unchanged, not yet re-sealed.
 
 ## Architecture
 

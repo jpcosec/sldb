@@ -28,7 +28,7 @@ What every field of one document shares, so building one entry stays a two-liner
 
 ## Purpose
 
-Not documented.
+What every field of one document shares, so building one entry stays a two-liner.
 
 ## Architecture
 

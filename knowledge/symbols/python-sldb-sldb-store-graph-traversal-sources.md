@@ -28,7 +28,7 @@ The unique ids pointing at `node_id` through `relation`, sorted.
 
 ## Purpose
 
-Not documented.
+The unique ids pointing at `node_id` through `relation`, sorted.
 
 ## Architecture
 

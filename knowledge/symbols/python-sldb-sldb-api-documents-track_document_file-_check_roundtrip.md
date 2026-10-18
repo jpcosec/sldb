@@ -29,7 +29,7 @@ Refuse a file that does not extract and re-render identically under the model.
 
 ## Purpose
 
-Not documented.
+Refuse a file that does not extract and re-render identically under the model.
 
 ## Architecture
 

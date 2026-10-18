@@ -29,7 +29,7 @@ Model source path relative to the project root when inside it, else absolute.
 
 ## Purpose
 
-Not documented.
+Model source path relative to the project root when inside it, else absolute.
 
 ## Architecture
 

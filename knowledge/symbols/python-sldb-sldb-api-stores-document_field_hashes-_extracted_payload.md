@@ -32,7 +32,7 @@ contract, which is exactly what must not win here.
 
 ## Purpose
 
-Not documented.
+The document's payload, from the runtime cache when it can be trusted.
 
 ## Architecture
 

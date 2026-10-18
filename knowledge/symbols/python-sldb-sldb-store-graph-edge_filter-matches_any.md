@@ -28,7 +28,7 @@ Whether one edge passes any of the filters, given its side relative to the node.
 
 ## Purpose
 
-Not documented.
+Whether one edge passes any of the filters, given its side relative to the node.
 
 ## Architecture
 

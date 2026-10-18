@@ -28,7 +28,7 @@ Match records exactly as `sldb find` matches, serialized as its JSON results.
 
 ## Purpose
 
-Not documented.
+Match records exactly as `sldb find` matches, serialized as its JSON results.
 
 ## Architecture
 

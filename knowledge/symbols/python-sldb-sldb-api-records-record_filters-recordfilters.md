@@ -28,7 +28,7 @@ Filters search records based on where expressions.
 
 ## Purpose
 
-Not documented.
+Filters search records based on where expressions.
 
 ## Architecture
 

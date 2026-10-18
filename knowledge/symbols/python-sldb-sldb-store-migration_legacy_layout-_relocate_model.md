@@ -29,7 +29,7 @@ Move one model's index files to their canonical paths, rewriting the links it ho
 
 ## Purpose
 
-Not documented.
+Move one model's index files to their canonical paths, rewriting the links it holds.
 
 ## Architecture
 

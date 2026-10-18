@@ -28,7 +28,7 @@ _field_hash(mtype: Any, m_name: str, doc: Any, text: str, force: bool=False)
 
 ## Purpose
 
-Not documented.
+`_field_hashes` without the per-field map. Kept for callers that only want `content_hash`.
 
 ## Architecture
 

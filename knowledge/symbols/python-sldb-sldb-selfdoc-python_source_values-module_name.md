@@ -28,7 +28,7 @@ Match the current scanner's qualified module naming behavior.
 
 ## Purpose
 
-Not documented.
+Match the current scanner's qualified module naming behavior.
 
 ## Architecture
 

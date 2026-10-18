@@ -29,7 +29,7 @@ The command that resolves this finding, or what to decide when none does.
 
 ## Purpose
 
-Not documented.
+The command that resolves this finding, or what to decide when none does.
 
 ## Architecture
 

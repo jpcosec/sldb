@@ -30,7 +30,7 @@ DocumentsIndex.documents list always had (PLAN 15 capa 7).
 
 ## Purpose
 
-Not documented.
+Every document shard of one model, by name — the same shape a per-model DocumentsIndex.documents list always had (PLAN 15 capa 7).
 
 ## Architecture
 

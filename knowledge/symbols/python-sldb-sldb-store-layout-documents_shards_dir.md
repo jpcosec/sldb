@@ -29,7 +29,7 @@ level, next to the (now legacy-shaped, still used as a key) per-model documents_
 
 ## Purpose
 
-Not documented.
+One document's index entry per file (PLAN 15 capa 7) — the Merkle tree's own leaf level, next to the (now legacy-shaped, still used as a key) per-model documents_index.
 
 ## Architecture
 

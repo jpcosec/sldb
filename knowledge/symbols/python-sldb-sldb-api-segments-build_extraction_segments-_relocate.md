@@ -38,7 +38,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Re-address one canonical segment against the raw text.
 
 ## Architecture
 

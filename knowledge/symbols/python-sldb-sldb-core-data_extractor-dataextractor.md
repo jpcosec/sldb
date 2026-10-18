@@ -28,7 +28,7 @@ Applies compiled template recipes to parsed SLDBNodes.
 
 ## Purpose
 
-Not documented.
+Applies compiled template recipes to parsed SLDBNodes.
 
 ## Architecture
 

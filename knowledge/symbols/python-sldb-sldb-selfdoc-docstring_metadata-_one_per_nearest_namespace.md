@@ -30,7 +30,7 @@ one of them would have no nearest value (spec section 3).
 
 ## Purpose
 
-Not documented.
+`system:*` and `workspace:*` are inherited by nearest declaration: two local values in one of them would have no nearest value (spec section 3).
 
 ## Architecture
 

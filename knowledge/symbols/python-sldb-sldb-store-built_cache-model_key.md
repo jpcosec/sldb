@@ -31,7 +31,7 @@ under another, and the contract is exactly what the roster alone cannot see.
 
 ## Purpose
 
-Not documented.
+model_hash plus what the models index records about the class: version and semantics.
 
 ## Architecture
 

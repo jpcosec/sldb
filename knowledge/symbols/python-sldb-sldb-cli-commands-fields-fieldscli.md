@@ -28,7 +28,7 @@ Field CRUD and query surface.
 
 ## Purpose
 
-Not documented.
+Field CRUD and query surface.
 
 ## Architecture
 

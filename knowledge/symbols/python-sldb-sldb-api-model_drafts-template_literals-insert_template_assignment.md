@@ -35,7 +35,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+The source of `path` with class `class_name` declaring its own `__template__`.
 
 ## Architecture
 

@@ -44,7 +44,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Generate, check, write and register a model declared as JSON fields.
 
 ## Architecture
 

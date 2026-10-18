@@ -31,7 +31,7 @@ paths stores have always persisted, so nothing migrates for them.
 
 ## Purpose
 
-Not documented.
+A store index's path relative to the project root, derived from the store's real directory name: a store named `.sldb_custom` records `.sldb_custom/core/...` relpaths, not a phantom `.sldb/core/...` nobody reads. The default name `.sldb` yields exactly the paths stores have always persisted, so nothing migrates for them.
 
 ## Architecture
 

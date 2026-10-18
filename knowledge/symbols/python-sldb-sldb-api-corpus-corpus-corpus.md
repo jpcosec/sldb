@@ -28,7 +28,7 @@ The documents of a store that can be retrieved by similarity, and their index.
 
 ## Purpose
 
-Not documented.
+The documents of a store that can be retrieved by similarity, and their index.
 
 ## Architecture
 

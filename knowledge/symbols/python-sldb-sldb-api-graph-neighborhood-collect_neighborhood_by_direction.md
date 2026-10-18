@@ -29,7 +29,7 @@ The nodes within `depth` hops on one direction, seeds excluded.
 
 ## Purpose
 
-Not documented.
+The nodes within `depth` hops on one direction, seeds excluded.
 
 ## Architecture
 

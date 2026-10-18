@@ -28,7 +28,7 @@ Evaluate the value-comparing operators that are not the null ones.
 
 ## Purpose
 
-Not documented.
+Evaluate the value-comparing operators that are not the null ones.
 
 ## Architecture
 

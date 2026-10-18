@@ -28,7 +28,7 @@ Declare `tag` a kind of `parent`; False when it already was.
 
 ## Purpose
 
-Not documented.
+Declare `tag` a kind of `parent`; False when it already was.
 
 ## Architecture
 

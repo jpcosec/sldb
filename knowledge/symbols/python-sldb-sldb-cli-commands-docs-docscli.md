@@ -28,7 +28,7 @@ Plural docs surface for the redesigned CLI.
 
 ## Purpose
 
-Not documented.
+Plural docs surface for the redesigned CLI.
 
 ## Architecture
 

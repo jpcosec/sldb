@@ -5,11 +5,11 @@ module: sldb.selfdoc.python_source_scan
 qualname: _node_diagnostics
 kind: FunctionDef
 source_path: sldb/selfdoc/python_source_scan.py
-source_span: '29:37'
-source_sha256: 276ffca99f9f6d9cca9a337562d0b56525339e449dce96ce8f0b53e6f16cf590
+source_span: '46:54'
+source_sha256: f78a9614869eb2878a757a84ac30a15b907e36f8f87670f59c61549cfccfab85
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.selfdoc.python_source_scan:_node_diagnostics; contract-sha256:fbdc1db95f563761031d352384ba59b37f0ca325b18896f86466b14be9e4b8b7
+provenance: python-ast:python:sldb.selfdoc.python_source_scan:_node_diagnostics; contract-sha256:9474efb7efa96bdabd530b52f2b7cfa0e7c8305d967d76e666af3437c37d8f1c
 ---
 
 # _node_diagnostics

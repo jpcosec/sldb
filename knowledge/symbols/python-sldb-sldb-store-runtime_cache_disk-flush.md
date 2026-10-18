@@ -29,7 +29,7 @@ so that is the whole store, and stale signatures fall away.
 
 ## Purpose
 
-Not documented.
+Write the file from every document of this store in memory: a full load just happened, so that is the whole store, and stale signatures fall away.
 
 ## Architecture
 

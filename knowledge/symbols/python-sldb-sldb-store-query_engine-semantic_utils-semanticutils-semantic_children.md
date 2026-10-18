@@ -33,7 +33,7 @@ what a parent declared by hand, instead of derived from the dotted name, looks l
 
 ## Purpose
 
-Not documented.
+Child semantic nodes, read off the DAG's edges rather than matched as strings.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Whether `- value` would not read back as `value`: block syntax, or an escape of 
 
 ## Purpose
 
-Not documented.
+Whether `- value` would not read back as `value`: block syntax, or an escape of one.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ A module's source and its class name, checked in a scratch directory.
 
 ## Purpose
 
-Not documented.
+A module's source and its class name, checked in a scratch directory.
 
 ## Architecture
 

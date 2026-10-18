@@ -28,7 +28,7 @@ Verify a store journal's hash chain; an absent journal is valid (no history).
 
 ## Purpose
 
-Not documented.
+Verify a store journal's hash chain; an absent journal is valid (no history).
 
 ## Architecture
 

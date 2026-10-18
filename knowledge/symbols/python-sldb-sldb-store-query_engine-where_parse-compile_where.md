@@ -29,7 +29,7 @@ WherePredicateError naming the first part no evaluator parses.
 
 ## Purpose
 
-Not documented.
+Parses one --where predicate, or several joined by ` and ` (all must hold); raises WherePredicateError naming the first part no evaluator parses.
 
 ## Architecture
 

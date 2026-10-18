@@ -35,7 +35,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Describe one pydantic field: kind, requiredness, enum values, annotation and description.
 
 ## Architecture
 

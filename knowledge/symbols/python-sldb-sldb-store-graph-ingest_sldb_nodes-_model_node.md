@@ -28,7 +28,7 @@ A model node, with `has_document` and `tagged_as` edges.
 
 ## Purpose
 
-Not documented.
+A model node, with `has_document` and `tagged_as` edges.
 
 ## Architecture
 

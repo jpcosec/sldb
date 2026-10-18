@@ -29,7 +29,7 @@ Rewrite every `.sldb/core/**.yaml` still carrying a letter key; return the chang
 
 ## Purpose
 
-Not documented.
+Rewrite every `.sldb/core/**.yaml` still carrying a letter key; return the changed files.
 
 ## Architecture
 

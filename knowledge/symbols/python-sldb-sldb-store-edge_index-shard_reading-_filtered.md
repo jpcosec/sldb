@@ -28,7 +28,7 @@ The index holds everything; leaving a tag out (pron's ledger) is the reader's ch
 
 ## Purpose
 
-Not documented.
+The index holds everything; leaving a tag out (pron's ledger) is the reader's choice.
 
 ## Architecture
 

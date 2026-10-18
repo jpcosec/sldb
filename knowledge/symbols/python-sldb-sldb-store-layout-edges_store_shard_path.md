@@ -28,7 +28,7 @@ The store's own contribution to the edge index (store node, semantic DAG edges).
 
 ## Purpose
 
-Not documented.
+The store's own contribution to the edge index (store node, semantic DAG edges).
 
 ## Architecture
 

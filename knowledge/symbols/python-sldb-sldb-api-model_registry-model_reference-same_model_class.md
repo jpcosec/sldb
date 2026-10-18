@@ -30,7 +30,7 @@ Whether two references name one class: equal strings, or both import to the same
 
 ## Purpose
 
-Not documented.
+Whether two references name one class: equal strings, or both import to the same object (`deskops.models.atom:AtomDoc` is `deskops.models:AtomDoc` when the package re-exports it).
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Check if file exists and raise error if not forced.
 
 ## Purpose
 
-Not documented.
+Check if file exists and raise error if not forced.
 
 ## Architecture
 

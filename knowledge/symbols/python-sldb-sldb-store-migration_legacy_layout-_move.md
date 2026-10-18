@@ -28,7 +28,7 @@ Relocate a legacy index file that exists; a missing source is a store without it
 
 ## Purpose
 
-Not documented.
+Relocate a legacy index file that exists; a missing source is a store without it.
 
 ## Architecture
 

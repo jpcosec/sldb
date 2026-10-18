@@ -28,7 +28,7 @@ Atomically replace one source graph file (node-link JSON).
 
 ## Purpose
 
-Not documented.
+Atomically replace one source graph file (node-link JSON).
 
 ## Architecture
 

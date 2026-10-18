@@ -29,7 +29,7 @@ Every runtime document of `store_path`, extracted, with its two index hashes.
 
 ## Purpose
 
-Not documented.
+Every runtime document of `store_path`, extracted, with its two index hashes.
 
 ## Architecture
 

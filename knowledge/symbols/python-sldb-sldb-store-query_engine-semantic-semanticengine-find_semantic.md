@@ -29,7 +29,7 @@ Finds documents matching a semantic scope and filter.
 
 ## Purpose
 
-Not documented.
+Finds documents matching a semantic scope and filter.
 
 ## Architecture
 

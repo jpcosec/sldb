@@ -29,7 +29,7 @@ Where the missing declarations belong: a child model, fields as optrev.
 
 ## Purpose
 
-Not documented.
+Where the missing declarations belong: a child model, fields as optrev.
 
 ## Architecture
 

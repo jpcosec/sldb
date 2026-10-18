@@ -29,7 +29,7 @@ Engine for processing global semantic queries.
 
 ## Purpose
 
-Not documented.
+Engine for processing global semantic queries.
 
 ## Architecture
 

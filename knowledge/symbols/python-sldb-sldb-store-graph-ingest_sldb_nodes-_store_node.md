@@ -28,7 +28,7 @@ The store node, with `has_model` edges to every model.
 
 ## Purpose
 
-Not documented.
+The store node, with `has_model` edges to every model.
 
 ## Architecture
 

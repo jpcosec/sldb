@@ -29,7 +29,7 @@ True when this store's part of the index is current and every one of its edges i
 
 ## Purpose
 
-Not documented.
+True when this store's part of the index is current and every one of its edges is valid.
 
 ## Architecture
 

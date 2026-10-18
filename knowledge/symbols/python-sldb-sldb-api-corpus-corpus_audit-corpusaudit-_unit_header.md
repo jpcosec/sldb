@@ -29,7 +29,7 @@ What produced this index: the embedder, the unit indexed and the text mapping.
 
 ## Purpose
 
-Not documented.
+What produced this index: the embedder, the unit indexed and the text mapping.
 
 ## Architecture
 

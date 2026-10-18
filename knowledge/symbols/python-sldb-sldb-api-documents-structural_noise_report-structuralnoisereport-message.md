@@ -29,7 +29,7 @@ The refusal: what was found, then the model change that admits it.
 
 ## Purpose
 
-Not documented.
+The refusal: what was found, then the model change that admits it.
 
 ## Architecture
 

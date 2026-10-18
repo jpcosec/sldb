@@ -32,7 +32,7 @@ and motive keeps the grammar legible and auditable.
 
 ## Purpose
 
-Not documented.
+Binds a grammar symbol to a semantic motive and a resolvable referent.
 
 ## Architecture
 

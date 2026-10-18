@@ -28,7 +28,7 @@ One value per field, from its annotation.
 
 ## Purpose
 
-Not documented.
+One value per field, from its annotation.
 
 ## Architecture
 

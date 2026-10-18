@@ -28,7 +28,7 @@ One store linked into another under a name.
 
 ## Purpose
 
-Not documented.
+One store linked into another under a name.
 
 ## Architecture
 

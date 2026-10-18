@@ -32,7 +32,7 @@ which field moved, and saying "none" there would read as "nothing changed" when
 
 ## Purpose
 
-Not documented.
+The field names whose hashes disagree, plus those present on only one side.
 
 ## Architecture
 

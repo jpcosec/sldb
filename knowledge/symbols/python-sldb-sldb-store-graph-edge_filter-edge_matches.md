@@ -28,7 +28,7 @@ Whether one edge passes one filter: relation type allow-list and direction.
 
 ## Purpose
 
-Not documented.
+Whether one edge passes one filter: relation type allow-list and direction.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ in the contract): this cache keys on the document list only.
 
 ## Purpose
 
-Not documented.
+The roster hash the index records — its own child, not the model node (which also folds in the contract): this cache keys on the document list only.
 
 ## Architecture
 

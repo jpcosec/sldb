@@ -29,7 +29,7 @@ of every document shard (PLAN 15 capa 7).
 
 ## Purpose
 
-Not documented.
+The model node and its children, from the operation's own child-hash map — no re-read of every document shard (PLAN 15 capa 7).
 
 ## Architecture
 

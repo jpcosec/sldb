@@ -39,7 +39,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Answer ``POST /extract/segments`` with ``{model, markdown}``.
 
 ## Architecture
 

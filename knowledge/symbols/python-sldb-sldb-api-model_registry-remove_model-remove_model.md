@@ -43,7 +43,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Unregister a model: its entry, indexes and shards go; its class is never imported.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ An export id points at its document now; anything else waits for the composed in
 
 ## Purpose
 
-Not documented.
+An export id points at its document now; anything else waits for the composed index.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ A data mutation over untouched text: sldb reads the same file differently now.
 
 ## Purpose
 
-Not documented.
+A data mutation over untouched text: sldb reads the same file differently now.
 
 ## Architecture
 

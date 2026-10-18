@@ -29,7 +29,7 @@ Give every module and symbol node its `local_tags` and `effective_tags`, outermo
 
 ## Purpose
 
-Not documented.
+Give every module and symbol node its `local_tags` and `effective_tags`, outermost first.
 
 ## Architecture
 

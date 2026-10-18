@@ -29,7 +29,7 @@ leave a partial `.sldb/` and a bare `Unexpected: [Errno 13]` (deskops, inbox 202
 
 ## Purpose
 
-Not documented.
+Write the empty store, or remove what was written and say why: a failed init used to leave a partial `.sldb/` and a bare `Unexpected: [Errno 13]` (deskops, inbox 20260614-000000).
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Contract for data extracted from a Markdown node.
 
 ## Purpose
 
-Not documented.
+Contract for data extracted from a Markdown node.
 
 ## Architecture
 

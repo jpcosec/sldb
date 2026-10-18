@@ -29,7 +29,7 @@ Handles parsing markdown strictly into high-level SLDBNode block nodes.
 
 ## Purpose
 
-Not documented.
+Handles parsing markdown strictly into high-level SLDBNode block nodes.
 
 ## Architecture
 

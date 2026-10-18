@@ -29,7 +29,7 @@ The diagnosis, with `history` when its text disagrees with the index (or it is g
 
 ## Purpose
 
-Not documented.
+The diagnosis, with `history` when its text disagrees with the index (or it is gone).
 
 ## Architecture
 

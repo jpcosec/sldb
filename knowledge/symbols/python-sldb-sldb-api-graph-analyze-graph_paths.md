@@ -28,7 +28,7 @@ Up to `limit` distinct chains between two nodes, shortest first.
 
 ## Purpose
 
-Not documented.
+Up to `limit` distinct chains between two nodes, shortest first.
 
 ## Architecture
 

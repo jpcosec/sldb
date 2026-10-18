@@ -35,7 +35,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Drop the ordering key of ``node`` and fill its children with literals.
 
 ## Architecture
 

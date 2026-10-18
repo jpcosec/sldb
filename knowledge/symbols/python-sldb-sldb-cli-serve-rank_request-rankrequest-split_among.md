@@ -29,7 +29,7 @@ split_among(cls, value: Any)
 
 ## Purpose
 
-Not documented.
+`a,b` becomes `["a", "b"]`; blank items are dropped and an empty list means no filter.
 
 ## Architecture
 

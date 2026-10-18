@@ -29,7 +29,7 @@ Import a module, reporting an import failure as a model error.
 
 ## Purpose
 
-Not documented.
+Import a module, reporting an import failure as a model error.
 
 ## Architecture
 

@@ -35,7 +35,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+The documents of the store together with any unavailable models.
 
 ## Architecture
 

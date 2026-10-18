@@ -29,7 +29,7 @@ The source of `path` with class `class_name`'s template replaced by `template`.
 
 ## Purpose
 
-Not documented.
+The source of `path` with class `class_name`'s template replaced by `template`.
 
 ## Architecture
 

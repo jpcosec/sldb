@@ -29,7 +29,7 @@ Fall back to the global store in readonly mode; otherwise explain how to get a s
 
 ## Purpose
 
-Not documented.
+Fall back to the global store in readonly mode; otherwise explain how to get a store.
 
 ## Architecture
 

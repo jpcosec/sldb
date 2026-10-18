@@ -29,7 +29,7 @@ Rehash, commit under the store lock (waiting for it if asked) and report.
 
 ## Purpose
 
-Not documented.
+Rehash, commit under the store lock (waiting for it if asked) and report.
 
 ## Architecture
 

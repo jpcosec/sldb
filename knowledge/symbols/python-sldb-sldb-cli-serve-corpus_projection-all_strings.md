@@ -28,7 +28,7 @@ The non-empty string values of the payload, one per line, in field order.
 
 ## Purpose
 
-Not documented.
+The non-empty string values of the payload, one per line, in field order.
 
 ## Architecture
 

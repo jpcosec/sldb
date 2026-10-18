@@ -29,7 +29,7 @@ Collects both model-level and document-level semantic tags.
 
 ## Purpose
 
-Not documented.
+Collects both model-level and document-level semantic tags.
 
 ## Architecture
 

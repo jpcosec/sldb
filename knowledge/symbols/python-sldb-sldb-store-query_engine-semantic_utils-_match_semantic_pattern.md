@@ -29,7 +29,7 @@ Matches a semantic tag against a glob-like pattern (** or *).
 
 ## Purpose
 
-Not documented.
+Matches a semantic tag against a glob-like pattern (** or *).
 
 ## Architecture
 

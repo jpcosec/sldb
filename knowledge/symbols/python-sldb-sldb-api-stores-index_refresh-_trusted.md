@@ -35,7 +35,7 @@ the document through extraction once, which both validates the hash and backfill
 
 ## Purpose
 
-Not documented.
+Whether the stored hashes are enough to skip re-extraction for unchanged text.
 
 ## Architecture
 

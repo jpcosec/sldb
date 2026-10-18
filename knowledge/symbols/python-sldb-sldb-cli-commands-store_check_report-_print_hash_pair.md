@@ -30,7 +30,7 @@ it says a hash moved, which is what the lines above already explained in words.
 
 ## Purpose
 
-Not documented.
+Both sides of a disagreement, labelled by where each was read. Evidence, listed last: it says a hash moved, which is what the lines above already explained in words.
 
 ## Architecture
 

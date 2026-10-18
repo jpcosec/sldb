@@ -41,7 +41,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Register the model class a reference names, with an empty documents index.
 
 ## Architecture
 

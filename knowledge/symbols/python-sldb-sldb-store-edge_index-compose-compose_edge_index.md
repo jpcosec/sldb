@@ -37,7 +37,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+The store's edge index, read from its shards (never rebuilt here).
 
 ## Architecture
 

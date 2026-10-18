@@ -28,7 +28,7 @@ A field id back into (store, model, doc, field_path), or None if it is not one.
 
 ## Purpose
 
-Not documented.
+A field id back into (store, model, doc, field_path), or None if it is not one.
 
 ## Architecture
 

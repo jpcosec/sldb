@@ -33,7 +33,7 @@ of the index.
 
 ## Purpose
 
-Not documented.
+One authored edge source -> target of a given relation type.
 
 ## Architecture
 

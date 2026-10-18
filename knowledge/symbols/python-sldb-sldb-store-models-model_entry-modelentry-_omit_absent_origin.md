@@ -29,7 +29,7 @@ A model the store owns writes no `origin` key, so no existing store index change
 
 ## Purpose
 
-Not documented.
+A model the store owns writes no `origin` key, so no existing store index changes.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Keep the vectors in a derived file. Only with an Embedder; difflib has nothing t
 
 ## Purpose
 
-Not documented.
+Keep the vectors in a derived file. Only with an Embedder; difflib has nothing to cache.
 
 ## Architecture
 

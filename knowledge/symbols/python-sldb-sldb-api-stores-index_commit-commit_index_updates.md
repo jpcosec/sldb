@@ -40,7 +40,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Persist every queued model's indexes, then rebuild semantic and section indexes.
 
 ## Architecture
 

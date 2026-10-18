@@ -29,7 +29,7 @@ The source of `path` without the declaration of `field_name` in class `class_nam
 
 ## Purpose
 
-Not documented.
+The source of `path` without the declaration of `field_name` in class `class_name`.
 
 ## Architecture
 

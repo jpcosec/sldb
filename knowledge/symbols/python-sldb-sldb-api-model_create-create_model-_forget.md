@@ -28,7 +28,7 @@ Drop the generated package from the import cache so the new module is found.
 
 ## Purpose
 
-Not documented.
+Drop the generated package from the import cache so the new module is found.
 
 ## Architecture
 

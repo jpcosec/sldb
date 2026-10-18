@@ -28,7 +28,7 @@ Node ids of the models, fields, relation types and documents a form names.
 
 ## Purpose
 
-Not documented.
+Node ids of the models, fields, relation types and documents a form names.
 
 ## Architecture
 

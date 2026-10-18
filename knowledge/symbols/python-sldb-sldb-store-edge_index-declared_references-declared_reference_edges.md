@@ -40,7 +40,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+The edges the model's `__references__` and `__containment__` declare for this document.
 
 ## Architecture
 

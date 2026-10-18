@@ -28,7 +28,7 @@ Hold the journal lock while the caller appends, so the chain never interleaves.
 
 ## Purpose
 
-Not documented.
+Hold the journal lock while the caller appends, so the chain never interleaves.
 
 ## Architecture
 

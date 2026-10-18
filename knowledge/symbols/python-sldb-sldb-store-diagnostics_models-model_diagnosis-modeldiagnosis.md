@@ -34,7 +34,7 @@ why it can fail while every document present is individually fine.
 
 ## Purpose
 
-Not documented.
+Diagnostic state for a model and its documents.
 
 ## Architecture
 

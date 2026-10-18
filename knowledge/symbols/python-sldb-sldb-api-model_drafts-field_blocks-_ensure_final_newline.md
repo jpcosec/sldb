@@ -29,7 +29,7 @@ _ensure_final_newline(source: str)
 
 ## Purpose
 
-Not documented.
+`source` guaranteed to end in exactly one trailing newline.
 
 ## Architecture
 

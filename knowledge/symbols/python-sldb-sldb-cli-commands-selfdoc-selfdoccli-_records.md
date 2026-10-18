@@ -5,11 +5,11 @@ module: sldb.cli.commands.selfdoc
 qualname: SelfdocCLI._records
 kind: FunctionDef
 source_path: sldb/cli/commands/selfdoc.py
-source_span: 59:60
-source_sha256: af595fe0ab09514783624a05bd861bddd52d9624ed05a129fc451704b0d7a5af
+source_span: 66:67
+source_sha256: 28b865edc3806d41c2531206bae0f74b45affeaf16cd648fcc59b34b60fbff7d
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.cli.commands.selfdoc:SelfdocCLI._records; contract-sha256:9bb47d5588c255e65db7f292c20a2a829184a90ffb3c1e9b75b161fe7bd3eebf
+provenance: python-ast:python:sldb.cli.commands.selfdoc:SelfdocCLI._records; contract-sha256:82a1812c913eda48cd688501a449a7e8dcbc068968317c566e3e8e70f8531fdb
 ---
 
 # SelfdocCLI._records

@@ -34,7 +34,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Every heading in `markdown`, in document order.
 
 ## Architecture
 

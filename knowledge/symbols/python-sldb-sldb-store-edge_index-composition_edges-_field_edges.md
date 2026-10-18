@@ -29,7 +29,7 @@ The edges one composed field declares, read from the field its spec composes.
 
 ## Purpose
 
-Not documented.
+The edges one composed field declares, read from the field its spec composes.
 
 ## Architecture
 

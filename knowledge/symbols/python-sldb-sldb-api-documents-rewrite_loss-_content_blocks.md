@@ -5,11 +5,11 @@ module: sldb.api.documents.rewrite_loss
 qualname: _content_blocks
 kind: FunctionDef
 source_path: sldb/api/documents/rewrite_loss.py
-source_span: '29:39'
-source_sha256: fe70161a0e156c855026642bd0634177053c11d6d06c94a4dc53137562d2d900
+source_span: '30:40'
+source_sha256: 936c08fb605d4b09ab923c9e6ed51f25178bd66526dc1c9d71a99dc48c1aa2bd
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.api.documents.rewrite_loss:_content_blocks; contract-sha256:f5a4b62e57c74cb49df8d3c20c2dadda480089ab0eb78bc0c1d01e22cca641c3
+provenance: python-ast:python:sldb.api.documents.rewrite_loss:_content_blocks; contract-sha256:afba472ad61f8340a57ae6615170980cc40e3fb9b4a94d35cb989b0203ba858b
 ---
 
 # _content_blocks
@@ -28,7 +28,7 @@ The source of each content block, except those under a heading the template deri
 
 ## Purpose
 
-Not documented.
+The source of each content block, except those under a heading the template derives.
 
 ## Architecture
 

@@ -30,7 +30,7 @@ the model name, and that is enough to find or make `<store>/runtime/sections/<mo
 
 ## Purpose
 
-Not documented.
+`path` is `<store>/runtime/sections/<model>.yaml` — no longer written to (PLAN 15 capa 5), still the key every caller already has: three parents up is the store, the stem is the model name, and that is enough to find or make `<store>/runtime/sections/<model>/`.
 
 ## Architecture
 

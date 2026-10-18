@@ -28,7 +28,7 @@ Every note, in a fixed order.
 
 ## Purpose
 
-Not documented.
+Every note, in a fixed order.
 
 ## Architecture
 

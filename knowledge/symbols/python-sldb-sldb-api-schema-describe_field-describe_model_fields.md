@@ -35,7 +35,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Describe every field of a pydantic model class, in declaration order.
 
 ## Architecture
 

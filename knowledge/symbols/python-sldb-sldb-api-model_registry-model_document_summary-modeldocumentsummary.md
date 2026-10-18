@@ -29,7 +29,7 @@ Where a tracked document lives and how it is tagged.
 
 ## Purpose
 
-Not documented.
+Where a tracked document lives and how it is tagged.
 
 ## Architecture
 

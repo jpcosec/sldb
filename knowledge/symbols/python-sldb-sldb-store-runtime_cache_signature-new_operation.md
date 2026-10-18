@@ -29,7 +29,7 @@ re-stats every tracked document once; calls within the same operation reuse thos
 
 ## Purpose
 
-Not documented.
+The start of a top-level operation on this store: the next `signature()`/`leaf()` call re-stats every tracked document once; calls within the same operation reuse those stats.
 
 ## Architecture
 

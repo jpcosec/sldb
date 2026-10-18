@@ -28,7 +28,7 @@ Write next to `output`, then rename over it: a reader never sees half a graph.
 
 ## Purpose
 
-Not documented.
+Write next to `output`, then rename over it: a reader never sees half a graph.
 
 ## Architecture
 

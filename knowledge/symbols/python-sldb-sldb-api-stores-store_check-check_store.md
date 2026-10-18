@@ -28,7 +28,7 @@ Run the CLI's store integrity check and summarize it.
 
 ## Purpose
 
-Not documented.
+Run the CLI's store integrity check and summarize it.
 
 ## Architecture
 

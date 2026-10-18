@@ -28,7 +28,7 @@ Router for dispatching nodes to their appropriate handlers.
 
 ## Purpose
 
-Not documented.
+Router for dispatching nodes to their appropriate handlers.
 
 ## Architecture
 

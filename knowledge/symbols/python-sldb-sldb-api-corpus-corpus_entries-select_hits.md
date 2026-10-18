@@ -28,7 +28,7 @@ The ranked entries still in the corpus (and among the allowed ones), at most k.
 
 ## Purpose
 
-Not documented.
+The ranked entries still in the corpus (and among the allowed ones), at most k.
 
 ## Architecture
 

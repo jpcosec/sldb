@@ -30,7 +30,7 @@ shards yet (no shards, the legacy file still there) reads that file instead —
 
 ## Purpose
 
-Not documented.
+Composed from per-document shards (PLAN 15 capa 5); a store not migrated to shards yet (no shards, the legacy file still there) reads that file instead — `migrate_store_layout` is what shards it, on the next call that touches this store.
 
 ## Architecture
 

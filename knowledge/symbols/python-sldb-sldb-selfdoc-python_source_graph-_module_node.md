@@ -5,11 +5,11 @@ module: sldb.selfdoc.python_source_graph
 qualname: _module_node
 kind: FunctionDef
 source_path: sldb/selfdoc/python_source_graph.py
-source_span: '24:25'
-source_sha256: 2ca7c2be0a20b3fc1f7f2174cb1eb7be64c34720e47686dd305dca6ab0dd23e2
+source_span: '26:27'
+source_sha256: d4993684ffb6ac80c43b4b99ff0483095464b7697bff0085b5b5b493663f00dd
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.selfdoc.python_source_graph:_module_node; contract-sha256:1c6b9ee257eec2f621d3963038d2bc7254aa40f730f131d7cf370620bc25ea59
+provenance: python-ast:python:sldb.selfdoc.python_source_graph:_module_node; contract-sha256:4b1caa941770c6f4ee13180f4c4d2ef8db31370759403a983f60ad5024c154c7
 ---
 
 # _module_node
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-[".python_reexports", ".python_source_values", ".python_tag_inheritance", "__future__", "datetime"]
+[".python_reexports", ".python_shadowing", ".python_source_values", ".python_tag_inheritance", "__future__", "datetime"]
 
 ## Purpose
 

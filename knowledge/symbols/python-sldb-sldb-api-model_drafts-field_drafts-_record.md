@@ -28,7 +28,7 @@ Record a draft edit; it writes only the `.py.temp`, so `store_hash` is unchanged
 
 ## Purpose
 
-Not documented.
+Record a draft edit; it writes only the `.py.temp`, so `store_hash` is unchanged.
 
 ## Architecture
 

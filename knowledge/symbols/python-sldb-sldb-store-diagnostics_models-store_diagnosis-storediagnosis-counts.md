@@ -29,7 +29,7 @@ The findings behind the verdict, as phrases; empty when all clean.
 
 ## Purpose
 
-Not documented.
+The findings behind the verdict, as phrases; empty when all clean.
 
 ## Architecture
 

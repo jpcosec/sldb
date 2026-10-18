@@ -33,7 +33,7 @@ rather than concluding no field moved.
 
 ## Purpose
 
-Not documented.
+The document's `content_hash` and its per-field map, from one extraction.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Convert the local copy, or register a new inherited entry; a no-op when already 
 
 ## Purpose
 
-Not documented.
+Convert the local copy, or register a new inherited entry; a no-op when already inherited.
 
 ## Architecture
 

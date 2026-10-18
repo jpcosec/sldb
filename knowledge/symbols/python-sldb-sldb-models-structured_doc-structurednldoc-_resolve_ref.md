@@ -29,7 +29,7 @@ A composition ref as a path: absolute stays, relative joins `ref_root` when give
 
 ## Purpose
 
-Not documented.
+A composition ref as a path: absolute stays, relative joins `ref_root` when given.
 
 ## Architecture
 

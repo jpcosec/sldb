@@ -29,7 +29,7 @@ Every field name the template's recipes mark, including table column markers.
 
 ## Purpose
 
-Not documented.
+Every field name the template's recipes mark, including table column markers.
 
 ## Architecture
 

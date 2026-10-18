@@ -28,7 +28,7 @@ Create an example project bundle.
 
 ## Purpose
 
-Not documented.
+Create an example project bundle.
 
 ## Architecture
 

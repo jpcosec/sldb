@@ -28,7 +28,7 @@ Restrict the query to a subgraph region.
 
 ## Purpose
 
-Not documented.
+Restrict the query to a subgraph region.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Register `edges init|rebuild|show|check|unresolved`.
 
 ## Purpose
 
-Not documented.
+Register `edges init|rebuild|show|check|unresolved`.
 
 ## Architecture
 

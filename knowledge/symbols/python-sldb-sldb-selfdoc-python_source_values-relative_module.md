@@ -30,7 +30,7 @@ Resolve an ImportFrom module spelling against its importer's package: a package'
 
 ## Purpose
 
-Not documented.
+Resolve an ImportFrom module spelling against its importer's package: a package's `__init__` is its own package (`from .impl import X` in `pkg/inner/__init__.py` names `pkg.inner.impl`, which was resolved as `pkg.impl`).
 
 ## Architecture
 

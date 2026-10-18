@@ -28,7 +28,7 @@ Whether the relations walked form a DAG.
 
 ## Purpose
 
-Not documented.
+Whether the relations walked form a DAG.
 
 ## Architecture
 

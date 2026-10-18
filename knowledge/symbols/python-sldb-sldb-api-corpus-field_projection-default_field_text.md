@@ -32,7 +32,7 @@ separately would need ids the store cannot address.
 
 ## Purpose
 
-Not documented.
+The indexable text of a field value, or empty when there is nothing to rank.
 
 ## Architecture
 

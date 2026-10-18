@@ -28,7 +28,7 @@ Find obsolete records without deleting or untracking them.
 
 ## Purpose
 
-Not documented.
+Find obsolete records without deleting or untracking them.
 
 ## Architecture
 

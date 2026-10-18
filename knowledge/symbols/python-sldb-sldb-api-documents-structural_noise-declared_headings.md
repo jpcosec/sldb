@@ -36,7 +36,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+The literal heading slots a template declares, and the levels it leaves open.
 
 ## Architecture
 

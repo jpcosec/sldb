@@ -28,7 +28,7 @@ In-memory representation of a tracked document and its payload.
 
 ## Purpose
 
-Not documented.
+In-memory representation of a tracked document and its payload.
 
 ## Architecture
 

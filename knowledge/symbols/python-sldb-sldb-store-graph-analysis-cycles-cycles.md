@@ -28,7 +28,7 @@ Up to `limit` cycles in the relations walked, shortest first; empty when it is a
 
 ## Purpose
 
-Not documented.
+Up to `limit` cycles in the relations walked, shortest first; empty when it is a DAG.
 
 ## Architecture
 

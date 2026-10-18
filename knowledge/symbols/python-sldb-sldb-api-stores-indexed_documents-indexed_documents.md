@@ -32,7 +32,7 @@ Args:
 
 ## Purpose
 
-Not documented.
+`{name, model, path}` of every tracked document, models in name order.
 
 ## Architecture
 

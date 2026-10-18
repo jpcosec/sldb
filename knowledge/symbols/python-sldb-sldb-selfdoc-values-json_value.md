@@ -28,7 +28,7 @@ Represent a parser default/choice deterministically or reject it.
 
 ## Purpose
 
-Not documented.
+Represent a parser default/choice deterministically or reject it.
 
 ## Architecture
 

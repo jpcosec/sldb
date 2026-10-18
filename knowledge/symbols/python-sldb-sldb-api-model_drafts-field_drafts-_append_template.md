@@ -29,7 +29,7 @@ Append the field's section to the draft's template, materializing it when inheri
 
 ## Purpose
 
-Not documented.
+Append the field's section to the draft's template, materializing it when inherited.
 
 ## Architecture
 

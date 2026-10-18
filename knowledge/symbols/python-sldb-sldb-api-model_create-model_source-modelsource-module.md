@@ -29,7 +29,7 @@ The whole module, as text; `head` opens the default template.
 
 ## Purpose
 
-Not documented.
+The whole module, as text; `head` opens the default template.
 
 ## Architecture
 

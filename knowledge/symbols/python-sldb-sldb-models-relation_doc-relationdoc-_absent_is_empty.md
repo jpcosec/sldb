@@ -29,7 +29,7 @@ A RelationDoc written before `attributes` existed has no such key: it has none.
 
 ## Purpose
 
-Not documented.
+A RelationDoc written before `attributes` existed has no such key: it has none.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ Start an empty recorder with no list-item path prefix.
 
 ## Purpose
 
-Not documented.
+Start an empty recorder with no list-item path prefix.
 
 ## Architecture
 

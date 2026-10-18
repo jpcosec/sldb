@@ -29,7 +29,7 @@ Undeclare it; False when it was not declared. A parent the name implies cannot g
 
 ## Purpose
 
-Not documented.
+Undeclare it; False when it was not declared. A parent the name implies cannot go.
 
 ## Architecture
 

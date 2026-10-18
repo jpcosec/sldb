@@ -28,7 +28,7 @@ Produce deterministic records for every selected command path.
 
 ## Purpose
 
-Not documented.
+Produce deterministic records for every selected command path.
 
 ## Architecture
 

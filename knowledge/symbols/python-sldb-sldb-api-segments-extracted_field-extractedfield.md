@@ -28,7 +28,7 @@ A field's span in the raw text, carried over from the canonical render.
 
 ## Purpose
 
-Not documented.
+A field's span in the raw text, carried over from the canonical render.
 
 ## Architecture
 

@@ -30,7 +30,7 @@ Undirected by default: `a implements b` connects the two whichever end you start
 
 ## Purpose
 
-Not documented.
+The shortest chain of nodes from `source` to `target`, or None when there is none.
 
 ## Architecture
 

@@ -31,7 +31,7 @@ carries the docstring, stands for the name and spans to the last.
 
 ## Purpose
 
-Not documented.
+One symbol per name bound in a scope: a property's setter (`@x.setter`) or an `@overload` redefines the name, and two records for one name collided as one document id (`selfdoc python-check` failed on `DocumentEntry.hash_c`). The first definition, which carries the docstring, stands for the name and spans to the last.
 
 ## Architecture
 

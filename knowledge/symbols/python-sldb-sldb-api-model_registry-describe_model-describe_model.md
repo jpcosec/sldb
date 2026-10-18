@@ -42,7 +42,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Read a registered model's contract and documents.
 
 ## Architecture
 

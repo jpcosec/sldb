@@ -30,7 +30,7 @@ model's model_hash — so a contract change misses here exactly like in memory.
 
 ## Purpose
 
-Not documented.
+A document whose payload the cache file already holds: no extraction. `leaf` is the key material `runtime_cache.leaf_of` hands over — the document's file state plus the model's model_hash — so a contract change misses here exactly like in memory.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Prepare every file before sync writes any of them.
 
 ## Purpose
 
-Not documented.
+Prepare every file before sync writes any of them.
 
 ## Architecture
 

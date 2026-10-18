@@ -28,7 +28,7 @@ The node's neighbors on the requested side.
 
 ## Purpose
 
-Not documented.
+The node's neighbors on the requested side.
 
 ## Architecture
 

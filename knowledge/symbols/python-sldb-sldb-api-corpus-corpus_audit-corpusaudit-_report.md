@@ -28,7 +28,7 @@ The audit summary, with the counts and the three drift lists.
 
 ## Purpose
 
-Not documented.
+The audit summary, with the counts and the three drift lists.
 
 ## Architecture
 

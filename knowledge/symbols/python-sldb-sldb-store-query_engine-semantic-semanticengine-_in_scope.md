@@ -29,7 +29,7 @@ A glob still matches tag by tag; a plain tag names its whole subtree.
 
 ## Purpose
 
-Not documented.
+A glob still matches tag by tag; a plain tag names its whole subtree.
 
 ## Architecture
 

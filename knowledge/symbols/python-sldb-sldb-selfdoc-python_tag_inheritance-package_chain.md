@@ -28,7 +28,7 @@ Node ids of the module's ancestor packages present in the scan, outermost first.
 
 ## Purpose
 
-Not documented.
+Node ids of the module's ancestor packages present in the scan, outermost first.
 
 ## Architecture
 

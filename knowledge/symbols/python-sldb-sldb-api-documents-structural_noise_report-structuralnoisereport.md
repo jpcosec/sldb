@@ -34,7 +34,7 @@ Attributes:
 
 ## Purpose
 
-Not documented.
+Headings a document carries that its model's template never declares.
 
 ## Architecture
 

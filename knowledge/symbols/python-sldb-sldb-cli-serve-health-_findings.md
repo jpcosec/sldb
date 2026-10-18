@@ -31,7 +31,7 @@ of the value a reindex would overwrite, so it must not be offered as the next st
 
 ## Purpose
 
-Not documented.
+The findings and the action — empty when the store is clean.
 
 ## Architecture
 

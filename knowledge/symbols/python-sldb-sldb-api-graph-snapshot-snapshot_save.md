@@ -34,7 +34,7 @@ filter yet) and `include_linked` with linked stores (GAP G5: no snapshot federat
 
 ## Purpose
 
-Not documented.
+Save the store's graph as portable node-link JSON, generated from the source indexes.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ module_bindings(files: list[dict])
 
 ## Purpose
 
-Not documented.
+`(module, local name) -> (imported module, imported name)` for every module-level import.
 
 ## Architecture
 

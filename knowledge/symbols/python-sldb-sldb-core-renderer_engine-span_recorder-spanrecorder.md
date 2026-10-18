@@ -29,7 +29,7 @@ Collects marker metadata and wraps rendered values in sentinels.
 
 ## Purpose
 
-Not documented.
+Collects marker metadata and wraps rendered values in sentinels.
 
 ## Architecture
 

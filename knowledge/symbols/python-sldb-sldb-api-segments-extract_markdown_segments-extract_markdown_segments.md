@@ -44,7 +44,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Locate the fields of a registered model inside raw markdown.
 
 ## Architecture
 

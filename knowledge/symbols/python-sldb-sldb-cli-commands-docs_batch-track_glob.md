@@ -28,7 +28,7 @@ Track every file matching `args.glob`; the ones already tracked are skipped.
 
 ## Purpose
 
-Not documented.
+Track every file matching `args.glob`; the ones already tracked are skipped.
 
 ## Architecture
 

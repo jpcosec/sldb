@@ -5,12 +5,12 @@ module: sldb.selfdoc.python_materialize
 qualname: _architecture_spec
 kind: FunctionDef
 source_path: sldb/selfdoc/python_materialize.py
-source_span: '49:55'
-source_sha256: 0b7a47eda31a2dd66c292231d723ab75919a6aa48b9102156805f94468645834
+source_span: '51:57'
+source_sha256: 589653e1494d5e98f5f266c2584cac3fe9f611ef625f4996228f48f2fd3f9cc2
 architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.selfdoc.python_materialize:_architecture_spec;
-  contract-sha256:872f62417be3b016be5cf23501b27f02fd1da77c1e95dd06848cf73b79bdd63d
+  contract-sha256:3a28c1203f6800b56de9baeedc3515960781e3b53589d9e0280066e03db79ed3
 ---
 
 # _architecture_spec
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-[".planned_document", ".python_symbol", "__future__", "hashlib", "json", "pathlib", "re", "sldb.models.knowledge_surface", "sldb.runtime.validation"]
+[".planned_document", ".python_purpose", ".python_symbol", "__future__", "hashlib", "json", "pathlib", "re", "sldb.models.knowledge_surface", "sldb.runtime.validation"]
 
 ## Purpose
 

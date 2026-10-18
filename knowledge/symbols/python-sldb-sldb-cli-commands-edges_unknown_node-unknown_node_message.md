@@ -29,7 +29,7 @@ None when `args.node` is a node of the index; else the error, naming candidates.
 
 ## Purpose
 
-Not documented.
+None when `args.node` is a node of the index; else the error, naming candidates.
 
 ## Architecture
 

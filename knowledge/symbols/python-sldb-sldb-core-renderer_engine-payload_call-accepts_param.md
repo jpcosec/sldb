@@ -36,7 +36,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Whether a ``render_payload`` implementation takes the argument ``name``.
 
 ## Architecture
 

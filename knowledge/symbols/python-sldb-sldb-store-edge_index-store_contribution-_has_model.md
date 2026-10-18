@@ -29,7 +29,7 @@ _has_model(m)
 
 ## Purpose
 
-Not documented.
+`has_model`, naming the linked store an inherited model comes from (sldb.store.model_origin).
 
 ## Architecture
 

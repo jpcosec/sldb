@@ -28,7 +28,7 @@ hash_document_entries(entries)
 
 ## Purpose
 
-Not documented.
+`entries`: iterable of (name, hash_c, hash_d) triples, any order.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ The per-field surface of a corpus. Mixed into `Corpus`, never used on its own.
 
 ## Purpose
 
-Not documented.
+The per-field surface of a corpus. Mixed into `Corpus`, never used on its own.
 
 ## Architecture
 

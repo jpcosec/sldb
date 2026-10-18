@@ -36,7 +36,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Every registered model whose class cannot be imported right now.
 
 ## Architecture
 

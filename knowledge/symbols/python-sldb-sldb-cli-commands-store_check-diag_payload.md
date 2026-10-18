@@ -28,7 +28,7 @@ The payload `sldb stores check --format json` prints, for callers outside the CL
 
 ## Purpose
 
-Not documented.
+The payload `sldb stores check --format json` prints, for callers outside the CLI (the server).
 
 ## Architecture
 

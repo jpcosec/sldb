@@ -29,7 +29,7 @@ read_store_contributions(store_path: Path, exclude_tags: frozenset[str])
 
 ## Purpose
 
-Not documented.
+(contributions in a stable order, export ids of the documents whose shard is stale).
 
 ## Architecture
 

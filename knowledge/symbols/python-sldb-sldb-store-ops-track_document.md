@@ -28,7 +28,7 @@ Track a document in the store and update hashes.
 
 ## Purpose
 
-Not documented.
+Track a document in the store and update hashes.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ The content and link notes; diagnosis, so the code is unchanged.
 
 ## Purpose
 
-Not documented.
+The content and link notes; diagnosis, so the code is unchanged.
 
 ## Architecture
 

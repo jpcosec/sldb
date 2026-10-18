@@ -41,7 +41,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Append a link entry to the store index without checking that `other` exists.
 
 ## Architecture
 

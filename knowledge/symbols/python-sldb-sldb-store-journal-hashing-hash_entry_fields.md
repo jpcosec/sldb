@@ -28,7 +28,7 @@ The SHA-256 of an entry's fields, everything except `entry_hash` itself.
 
 ## Purpose
 
-Not documented.
+The SHA-256 of an entry's fields, everything except `entry_hash` itself.
 
 ## Architecture
 

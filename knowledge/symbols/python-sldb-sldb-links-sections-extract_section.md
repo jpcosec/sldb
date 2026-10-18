@@ -29,7 +29,7 @@ next heading of the same or a higher level. None if absent.
 
 ## Purpose
 
-Not documented.
+Text of the section titled `heading` (case-insensitive): its heading line down to the next heading of the same or a higher level. None if absent.
 
 ## Architecture
 

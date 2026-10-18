@@ -28,7 +28,7 @@ Register models and apply only changed or untracked records.
 
 ## Purpose
 
-Not documented.
+Register models and apply only changed or untracked records.
 
 ## Architecture
 

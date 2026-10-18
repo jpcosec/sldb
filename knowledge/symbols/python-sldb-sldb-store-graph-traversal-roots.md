@@ -28,7 +28,7 @@ Nodes of a class with no outgoing edge of `relation` (the tops of a DAG).
 
 ## Purpose
 
-Not documented.
+Nodes of a class with no outgoing edge of `relation` (the tops of a DAG).
 
 ## Architecture
 

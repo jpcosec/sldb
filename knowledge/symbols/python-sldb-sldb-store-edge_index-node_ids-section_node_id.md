@@ -28,7 +28,7 @@ Node id of one section of the document `export_id`.
 
 ## Purpose
 
-Not documented.
+Node id of one section of the document `export_id`.
 
 ## Architecture
 

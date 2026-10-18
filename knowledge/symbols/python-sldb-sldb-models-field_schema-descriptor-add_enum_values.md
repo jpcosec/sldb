@@ -29,7 +29,7 @@ Add the allowed `enum` values to a descriptor when the annotation has them.
 
 ## Purpose
 
-Not documented.
+Add the allowed `enum` values to a descriptor when the annotation has them.
 
 ## Architecture
 

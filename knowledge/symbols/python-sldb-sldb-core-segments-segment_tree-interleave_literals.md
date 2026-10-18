@@ -38,7 +38,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Insert literal segments for the text not covered by ``nodes``.
 
 ## Architecture
 

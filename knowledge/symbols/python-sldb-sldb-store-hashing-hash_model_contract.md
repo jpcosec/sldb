@@ -28,7 +28,7 @@ A model's contract: fields, template, and the class metadata the store derives f
 
 ## Purpose
 
-Not documented.
+A model's contract: fields, template, and the class metadata the store derives from.
 
 ## Architecture
 

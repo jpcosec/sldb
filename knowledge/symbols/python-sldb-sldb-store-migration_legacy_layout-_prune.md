@@ -28,7 +28,7 @@ Remove a legacy directory once each file it held has been relocated.
 
 ## Purpose
 
-Not documented.
+Remove a legacy directory once each file it held has been relocated.
 
 ## Architecture
 

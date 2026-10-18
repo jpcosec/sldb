@@ -1,7 +1,7 @@
 name: python-sldb-sldb-cli-commands-model-modelcli-run
 path: knowledge/symbols/python-sldb-sldb-cli-commands-model-modelcli-run.md
-source_hash: 0231f965e07fad4e4db9a276f0144b80a5121eaec7ee2136e8efe06d9fd33668
-content_hash: f06d0bfe47a44352555fc104439ce737e6cb63d91fc5cffbdac22bf7cdb5544e
+source_hash: ca90afbb7fe79a7beb4d576e5af94585727f3d3eaacee2c65a6ee791842d2584
+content_hash: 3c769470851eb3d4945b9eb3f17069260bce62c92b5a1b5d87ac56fb5e19c9c7
 field_hashes:
   id: 5af7a4d59ccebc520bb60271cd56be2b3b0e8d5de202fe05103643aba9f24b73
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -15,7 +15,7 @@ field_hashes:
   signature: 07447a83631ed4b2dbe859faf32852dd0e8d398f09acd53166bafbf92e145d86
   docstring: b8dfbd44ff5941563c9e5997d177608dbdbe72f0a8f00d7e0f23f68a8dac95d2
   imports: d076f983cd2deb0c0d755916f336ed3aac65e76c2aa462d611fc617c67fdbc98
-  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  purpose: b8dfbd44ff5941563c9e5997d177608dbdbe72f0a8f00d7e0f23f68a8dac95d2
   architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   provenance: 0804fe1994870c1e6613a56cd455e831c541bbd8aa724ac41652c59a2fd8b387

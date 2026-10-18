@@ -29,7 +29,7 @@ Deprecated alias for `fields_in_index`.
 
 ## Purpose
 
-Not documented.
+Deprecated alias for `fields_in_index`.
 
 ## Architecture
 

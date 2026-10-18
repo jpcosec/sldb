@@ -31,7 +31,7 @@ picks which entries and which index are compared rather than duplicating the aud
 
 ## Purpose
 
-Not documented.
+One audit of one corpus, of its documents or of its fields.
 
 ## Architecture
 

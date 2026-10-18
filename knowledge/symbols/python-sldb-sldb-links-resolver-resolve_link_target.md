@@ -28,7 +28,7 @@ Resolve `doc` or `doc#Section`; the section itself is checked by recovery/compos
 
 ## Purpose
 
-Not documented.
+Resolve `doc` or `doc#Section`; the section itself is checked by recovery/compose.
 
 ## Architecture
 

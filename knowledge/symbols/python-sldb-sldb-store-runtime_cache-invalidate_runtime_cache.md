@@ -29,7 +29,7 @@ signature() for that store sweeps document leaves fresh again next time too.
 
 ## Purpose
 
-Not documented.
+Drop the cached documents of one store, or of every store; either way, a call to signature() for that store sweeps document leaves fresh again next time too.
 
 ## Architecture
 

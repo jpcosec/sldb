@@ -28,7 +28,7 @@ Newest-first entries; `since` and `address` narrow the result before `limit` cut
 
 ## Purpose
 
-Not documented.
+Newest-first entries; `since` and `address` narrow the result before `limit` cuts it.
 
 ## Architecture
 

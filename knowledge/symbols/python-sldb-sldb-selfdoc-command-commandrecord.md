@@ -28,7 +28,7 @@ Parser-derived facts, distinct from authored documentation prose.
 
 ## Purpose
 
-Not documented.
+Parser-derived facts, distinct from authored documentation prose.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ A ranked document. `payload` is the document as sldb extracted it.
 
 ## Purpose
 
-Not documented.
+A ranked document. `payload` is the document as sldb extracted it.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ Registered model that owns this document.
 
 ## Purpose
 
-Not documented.
+Registered model that owns this document.
 
 ## Architecture
 

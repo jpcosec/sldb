@@ -28,7 +28,7 @@ The JSON default, or SUPPRESS when the option declares none.
 
 ## Purpose
 
-Not documented.
+The JSON default, or SUPPRESS when the option declares none.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ The `<kind>` of an `sldb://<kind>/...` id (document, model, semantic_tag, ...).
 
 ## Purpose
 
-Not documented.
+The `<kind>` of an `sldb://<kind>/...` id (document, model, semantic_tag, ...).
 
 ## Architecture
 

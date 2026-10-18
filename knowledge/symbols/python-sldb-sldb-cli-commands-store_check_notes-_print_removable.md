@@ -29,7 +29,7 @@ Unresolved models with no documents left: most likely deleted on purpose.
 
 ## Purpose
 
-Not documented.
+Unresolved models with no documents left: most likely deleted on purpose.
 
 ## Architecture
 

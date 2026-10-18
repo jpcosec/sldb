@@ -28,7 +28,7 @@ SLDBModelError when the declaration does not make a field.
 
 ## Purpose
 
-Not documented.
+SLDBModelError when the declaration does not make a field.
 
 ## Architecture
 

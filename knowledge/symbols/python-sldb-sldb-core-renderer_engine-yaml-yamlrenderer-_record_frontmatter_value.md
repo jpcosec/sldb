@@ -37,7 +37,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Wrap what follows ``key:`` in a dumped front-matter line, if recording.
 
 ## Architecture
 

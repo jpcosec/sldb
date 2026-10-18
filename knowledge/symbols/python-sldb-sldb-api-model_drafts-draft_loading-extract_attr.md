@@ -28,7 +28,7 @@ Follow a dotted attribute path from an object.
 
 ## Purpose
 
-Not documented.
+Follow a dotted attribute path from an object.
 
 ## Architecture
 

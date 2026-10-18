@@ -35,7 +35,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Every tracked document of the store, serialized for the graph surface.
 
 ## Architecture
 

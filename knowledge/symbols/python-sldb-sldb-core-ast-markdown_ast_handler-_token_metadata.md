@@ -30,7 +30,7 @@ opened it (`markup`: ``` or ~~~, `-` or `*`) and its attributes; only what is pr
 
 ## Purpose
 
-Not documented.
+What the token carries beyond its text: a fence's language (`info`), the markup that opened it (`markup`: ``` or ~~~, `-` or `*`) and its attributes; only what is present.
 
 ## Architecture
 

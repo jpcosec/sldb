@@ -28,7 +28,7 @@ Documents of a store ranked by similarity to a query.
 
 ## Purpose
 
-Not documented.
+Documents of a store ranked by similarity to a query.
 
 ## Architecture
 

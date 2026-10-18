@@ -29,7 +29,7 @@ The IR of one runtime document, as the JSON the transport returns.
 
 ## Purpose
 
-Not documented.
+The IR of one runtime document, as the JSON the transport returns.
 
 ## Architecture
 

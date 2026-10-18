@@ -28,7 +28,7 @@ Node id of a registered model.
 
 ## Purpose
 
-Not documented.
+Node id of a registered model.
 
 ## Architecture
 

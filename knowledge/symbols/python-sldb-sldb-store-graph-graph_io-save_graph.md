@@ -28,7 +28,7 @@ Write a snapshot as node-link JSON (networkx's format, which external consumers 
 
 ## Purpose
 
-Not documented.
+Write a snapshot as node-link JSON (networkx's format, which external consumers read).
 
 ## Architecture
 

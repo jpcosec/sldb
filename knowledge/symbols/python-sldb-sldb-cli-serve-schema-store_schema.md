@@ -32,7 +32,7 @@ reportable failure, not zero models.
 
 ## Purpose
 
-Not documented.
+Describe every registered model, declaring the ones that cannot load.
 
 ## Architecture
 

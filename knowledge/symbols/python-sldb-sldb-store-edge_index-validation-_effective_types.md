@@ -30,7 +30,7 @@ under a builtin's name (selfdoc's code `contains`); it applies to authored edges
 
 ## Purpose
 
-Not documented.
+The types a derived edge is checked against once the store ran `edges init`: sldb's own definition of a builtin wins, since sldb produces those edges. A store may author a type under a builtin's name (selfdoc's code `contains`); it applies to authored edges only.
 
 ## Architecture
 

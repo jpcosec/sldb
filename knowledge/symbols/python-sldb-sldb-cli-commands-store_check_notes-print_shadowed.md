@@ -29,7 +29,7 @@ Models this store owns under a name a linked store owns too: a note, never a fai
 
 ## Purpose
 
-Not documented.
+Models this store owns under a name a linked store owns too: a note, never a failure.
 
 ## Architecture
 

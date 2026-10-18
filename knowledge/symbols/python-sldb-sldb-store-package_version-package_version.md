@@ -28,7 +28,7 @@ Real package version: the source checkout's pyproject, else installed metadata.
 
 ## Purpose
 
-Not documented.
+Real package version: the source checkout's pyproject, else installed metadata.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ Persist a reindexed model's indexes (bumping its version if asked) and rebuild d
 
 ## Purpose
 
-Not documented.
+Persist a reindexed model's indexes (bumping its version if asked) and rebuild derived indexes.
 
 ## Architecture
 

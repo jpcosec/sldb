@@ -28,7 +28,7 @@ Import click on use: it is an optional extra (`pip install structuredLanguageDB[
 
 ## Purpose
 
-Not documented.
+Import click on use: it is an optional extra (`pip install structuredLanguageDB[click]`).
 
 ## Architecture
 

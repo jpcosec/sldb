@@ -28,7 +28,7 @@ The parsed default: an explicit empty string stays "", anything else parses as J
 
 ## Purpose
 
-Not documented.
+The parsed default: an explicit empty string stays "", anything else parses as JSON/YAML.
 
 ## Architecture
 

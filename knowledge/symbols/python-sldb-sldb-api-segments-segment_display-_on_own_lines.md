@@ -36,7 +36,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Whether the span starts at a line start and ends at a line end.
 
 ## Architecture
 

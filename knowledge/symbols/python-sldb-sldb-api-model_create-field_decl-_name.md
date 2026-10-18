@@ -28,7 +28,7 @@ The declared field's name: a public identifier.
 
 ## Purpose
 
-Not documented.
+The declared field's name: a public identifier.
 
 ## Architecture
 

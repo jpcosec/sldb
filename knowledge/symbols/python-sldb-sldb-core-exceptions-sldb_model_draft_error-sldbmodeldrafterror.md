@@ -29,7 +29,7 @@ Raised when there is an issue with a temporary draft of a model contract.
 
 ## Purpose
 
-Not documented.
+Raised when there is an issue with a temporary draft of a model contract.
 
 ## Architecture
 

@@ -30,7 +30,7 @@ The document node (typed by its model), one node per section, and `has_document`
 
 ## Purpose
 
-Not documented.
+The document node (typed by its model), one node per section, and `has_document`, `has_section`, `tagged_as`.
 
 ## Architecture
 

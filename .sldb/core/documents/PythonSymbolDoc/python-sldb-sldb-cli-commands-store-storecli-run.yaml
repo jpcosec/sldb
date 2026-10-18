@@ -1,7 +1,7 @@
 name: python-sldb-sldb-cli-commands-store-storecli-run
 path: knowledge/symbols/python-sldb-sldb-cli-commands-store-storecli-run.md
-source_hash: 8fa946a40c1c57b0e9621dd84adb299a185ff62da0a0bdf51c85fad426d61530
-content_hash: f1cb42b7f5041d9a749d13e2feeaea62376c7481ba17766ebaa2fe7e4f224dd7
+source_hash: c6dae7cee0b37eaea43ac104ac9b2c1dfc9bfb072697a710225674828cd94429
+content_hash: e908390f259ef4ddb8362c464095fd535a570c4aaf0bd48f9251b89738b25aac
 field_hashes:
   id: 92426ae07595378c7d23224b513e604bddf459044bfda8d0315e3fc7276b688f
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -15,7 +15,7 @@ field_hashes:
   signature: 07447a83631ed4b2dbe859faf32852dd0e8d398f09acd53166bafbf92e145d86
   docstring: e3f5c40e9d8ca674b7585cc5677c15716bda4d46f4e9efac671eca9e7b8a3615
   imports: 08a33cd35aac1270b93cba56f0461a186a2064849446d662ed059e93300107c8
-  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  purpose: e3f5c40e9d8ca674b7585cc5677c15716bda4d46f4e9efac671eca9e7b8a3615
   architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   provenance: bc99b747db0bdc16ca9bb146e772e467264df5dc2ee2410712f56508748d0575

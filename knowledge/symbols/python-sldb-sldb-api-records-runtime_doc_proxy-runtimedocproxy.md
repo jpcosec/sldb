@@ -29,7 +29,7 @@ Proxy object for runtime document evaluation.
 
 ## Purpose
 
-Not documented.
+Proxy object for runtime document evaluation.
 
 ## Architecture
 

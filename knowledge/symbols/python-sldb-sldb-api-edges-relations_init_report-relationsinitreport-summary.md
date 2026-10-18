@@ -29,7 +29,7 @@ One line for a CLI or a log.
 
 ## Purpose
 
-Not documented.
+One line for a CLI or a log.
 
 ## Architecture
 

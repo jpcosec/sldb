@@ -28,7 +28,7 @@ The first node `node_id` points at through `relation`, or None.
 
 ## Purpose
 
-Not documented.
+The first node `node_id` points at through `relation`, or None.
 
 ## Architecture
 

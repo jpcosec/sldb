@@ -29,7 +29,7 @@ What an index refresh did and what it had to skip.
 
 ## Purpose
 
-Not documented.
+What an index refresh did and what it had to skip.
 
 ## Architecture
 

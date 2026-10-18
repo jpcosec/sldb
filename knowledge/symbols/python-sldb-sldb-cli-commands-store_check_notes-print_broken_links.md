@@ -29,7 +29,7 @@ Links whose target is gone or holds no store: what is read through them is missi
 
 ## Purpose
 
-Not documented.
+Links whose target is gone or holds no store: what is read through them is missing.
 
 ## Architecture
 

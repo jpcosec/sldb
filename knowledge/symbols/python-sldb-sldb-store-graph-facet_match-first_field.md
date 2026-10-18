@@ -28,7 +28,7 @@ The first non-null field value across a list payload.
 
 ## Purpose
 
-Not documented.
+The first non-null field value across a list payload.
 
 ## Architecture
 

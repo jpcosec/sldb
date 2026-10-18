@@ -40,7 +40,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Every field span carried from the canonical text over to the raw text.
 
 ## Architecture
 

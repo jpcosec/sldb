@@ -29,7 +29,7 @@ The store index, the model's entry and its models index.
 
 ## Purpose
 
-Not documented.
+The store index, the model's entry and its models index.
 
 ## Architecture
 

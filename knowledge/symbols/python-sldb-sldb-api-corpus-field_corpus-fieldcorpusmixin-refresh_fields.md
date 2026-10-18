@@ -29,7 +29,7 @@ Embed the fields whose own hash moved; reuse the rest.
 
 ## Purpose
 
-Not documented.
+Embed the fields whose own hash moved; reuse the rest.
 
 ## Architecture
 

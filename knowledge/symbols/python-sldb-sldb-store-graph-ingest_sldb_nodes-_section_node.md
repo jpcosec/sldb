@@ -28,7 +28,7 @@ A section node, with `tagged_as` edges.
 
 ## Purpose
 
-Not documented.
+A section node, with `tagged_as` edges.
 
 ## Architecture
 

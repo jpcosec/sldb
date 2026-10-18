@@ -28,7 +28,7 @@ The default of an optional field: the one given, else its type's empty value.
 
 ## Purpose
 
-Not documented.
+The default of an optional field: the one given, else its type's empty value.
 
 ## Architecture
 

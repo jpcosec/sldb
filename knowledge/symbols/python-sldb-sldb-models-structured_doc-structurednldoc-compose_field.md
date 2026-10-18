@@ -34,7 +34,7 @@ silently, because a ref that does not resolve renders as empty text.
 
 ## Purpose
 
-Not documented.
+The composed field's text. `ref_root` resolves relative refs; the CWD is the fallback.
 
 ## Architecture
 

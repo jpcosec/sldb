@@ -31,7 +31,7 @@ extract the same text twice.
 
 ## Purpose
 
-Not documented.
+A document's `content_hash` and its per-field map, from a single extraction.
 
 ## Architecture
 

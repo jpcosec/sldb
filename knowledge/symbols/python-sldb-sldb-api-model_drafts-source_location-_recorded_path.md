@@ -30,7 +30,7 @@ models, an absolute path from another machine, or an inherited model (no path) i
 
 ## Purpose
 
-Not documented.
+The source file the store recorded, when it is one here: a store copied without its models, an absolute path from another machine, or an inherited model (no path) is not.
 
 ## Architecture
 

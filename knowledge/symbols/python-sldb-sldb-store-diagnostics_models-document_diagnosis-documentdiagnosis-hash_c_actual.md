@@ -29,7 +29,7 @@ Deprecated alias for `content_in_index`.
 
 ## Purpose
 
-Not documented.
+Deprecated alias for `content_in_index`.
 
 ## Architecture
 

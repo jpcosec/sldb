@@ -28,7 +28,7 @@ One field's surface in the render, with its address and typed value.
 
 ## Purpose
 
-Not documented.
+One field's surface in the render, with its address and typed value.
 
 ## Architecture
 

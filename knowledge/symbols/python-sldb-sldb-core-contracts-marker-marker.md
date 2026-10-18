@@ -28,7 +28,7 @@ First-class representation of an SLDB marker.
 
 ## Purpose
 
-Not documented.
+First-class representation of an SLDB marker.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ The destination store's entry for the model, registering it first when missing.
 
 ## Purpose
 
-Not documented.
+The destination store's entry for the model, registering it first when missing.
 
 ## Architecture
 

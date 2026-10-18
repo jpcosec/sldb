@@ -28,7 +28,7 @@ Whether a node matches every condition of one facet filter.
 
 ## Purpose
 
-Not documented.
+Whether a node matches every condition of one facet filter.
 
 ## Architecture
 

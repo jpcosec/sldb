@@ -28,7 +28,7 @@ Return valid stores from the current project outward, without mutation.
 
 ## Purpose
 
-Not documented.
+Return valid stores from the current project outward, without mutation.
 
 ## Architecture
 

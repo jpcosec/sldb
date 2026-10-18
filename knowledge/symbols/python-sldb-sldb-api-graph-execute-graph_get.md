@@ -28,7 +28,7 @@ One node by id, with its edges; None when the index has no such node.
 
 ## Purpose
 
-Not documented.
+One node by id, with its edges; None when the index has no such node.
 
 ## Architecture
 

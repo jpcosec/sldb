@@ -28,7 +28,7 @@ A kernel write `(change (it of Model) field ...)` names the field it writes.
 
 ## Purpose
 
-Not documented.
+A kernel write `(change (it of Model) field ...)` names the field it writes.
 
 ## Architecture
 

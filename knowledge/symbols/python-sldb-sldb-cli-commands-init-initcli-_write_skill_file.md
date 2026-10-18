@@ -28,7 +28,7 @@ Write the skill file to the given path.
 
 ## Purpose
 
-Not documented.
+Write the skill file to the given path.
 
 ## Architecture
 

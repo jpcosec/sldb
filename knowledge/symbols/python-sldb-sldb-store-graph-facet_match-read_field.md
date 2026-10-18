@@ -28,7 +28,7 @@ Read one field from a dict or attribute-addressable object.
 
 ## Purpose
 
-Not documented.
+Read one field from a dict or attribute-addressable object.
 
 ## Architecture
 

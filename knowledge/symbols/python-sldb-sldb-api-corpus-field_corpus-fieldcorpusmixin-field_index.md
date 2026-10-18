@@ -29,7 +29,7 @@ The same index, keyed by `Model:doc#field` instead of by document.
 
 ## Purpose
 
-Not documented.
+The same index, keyed by `Model:doc#field` instead of by document.
 
 ## Architecture
 

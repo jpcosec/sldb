@@ -28,7 +28,7 @@ Node id of a document, from its export id `Model:name` (`store:Model:name` if li
 
 ## Purpose
 
-Not documented.
+Node id of a document, from its export id `Model:name` (`store:Model:name` if linked).
 
 ## Architecture
 

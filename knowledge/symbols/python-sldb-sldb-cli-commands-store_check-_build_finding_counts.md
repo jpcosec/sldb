@@ -29,7 +29,7 @@ The findings behind the verdict, by category.
 
 ## Purpose
 
-Not documented.
+The findings behind the verdict, by category.
 
 ## Architecture
 

@@ -37,7 +37,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+The store's shard. The store node carries no path and no `store_hash`: a shard must read the same wherever the project is checked out, and `store_hash` is already the store index's.
 
 ## Architecture
 

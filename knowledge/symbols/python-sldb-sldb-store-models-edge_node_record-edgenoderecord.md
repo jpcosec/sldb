@@ -28,7 +28,7 @@ A node a shard contributes to the edge index (document, section, model, field, t
 
 ## Purpose
 
-Not documented.
+A node a shard contributes to the edge index (document, section, model, field, tag...).
 
 ## Architecture
 

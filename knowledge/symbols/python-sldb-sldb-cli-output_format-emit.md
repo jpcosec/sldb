@@ -28,7 +28,7 @@ emit(payload: Any, fmt: str, text: str)
 
 ## Purpose
 
-Not documented.
+`payload` as JSON or YAML; `text` (the human form) otherwise.
 
 ## Architecture
 

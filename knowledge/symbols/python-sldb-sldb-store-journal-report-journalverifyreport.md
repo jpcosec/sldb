@@ -28,7 +28,7 @@ Whether a store's journal chain verifies, and where it breaks if it does not.
 
 ## Purpose
 
-Not documented.
+Whether a store's journal chain verifies, and where it breaks if it does not.
 
 ## Architecture
 

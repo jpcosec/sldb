@@ -38,7 +38,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+The rendered surface of one marker, or the literal marker when unresolved.
 
 ## Architecture
 

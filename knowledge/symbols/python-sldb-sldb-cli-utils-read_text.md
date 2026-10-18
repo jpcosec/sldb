@@ -28,7 +28,7 @@ Read text from a file or stdin.
 
 ## Purpose
 
-Not documented.
+Read text from a file or stdin.
 
 ## Architecture
 

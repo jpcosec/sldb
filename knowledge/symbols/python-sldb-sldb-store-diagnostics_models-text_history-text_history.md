@@ -29,7 +29,7 @@ text_history(root: Path, rel_path: str, indexed_hash: str | None, exists: bool)
 
 ## Purpose
 
-Not documented.
+`{verdict, commit?, command}` for a document whose text disagrees with its index.
 
 ## Architecture
 

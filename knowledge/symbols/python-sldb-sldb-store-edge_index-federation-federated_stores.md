@@ -29,7 +29,7 @@ each, of every store reachable through links.
 
 ## Purpose
 
-Not documented.
+(store path, link name) of the store itself (name None) and, breadth first and once each, of every store reachable through links.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ The describable models of a store plus the ones that failed to load.
 
 ## Purpose
 
-Not documented.
+The describable models of a store plus the ones that failed to load.
 
 ## Architecture
 

@@ -48,7 +48,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Untrack a document and delete the Markdown file it was tracking.
 
 ## Architecture
 

@@ -32,7 +32,7 @@ contributes that this store also contributes (a shared model's fields) is this s
 
 ## Purpose
 
-Not documented.
+(violations of this store's own edges, those only a linked store's edges commit).
 
 ## Architecture
 

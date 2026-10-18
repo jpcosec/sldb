@@ -29,7 +29,7 @@ The existing store a registry links under `store_alias`, if any.
 
 ## Purpose
 
-Not documented.
+The existing store a registry links under `store_alias`, if any.
 
 ## Architecture
 

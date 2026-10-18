@@ -29,7 +29,7 @@ hashes outside `note`/`forget`, so both rebuild (full comparison, not a dirty se
 
 ## Purpose
 
-Not documented.
+Drop one model's cache and every namespace's dirty baseline: something moved a document's hashes outside `note`/`forget`, so both rebuild (full comparison, not a dirty set) next.
 
 ## Architecture
 

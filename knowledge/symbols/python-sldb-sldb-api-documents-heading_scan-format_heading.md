@@ -28,7 +28,7 @@ A heading rendered back to its Markdown line, for error messages.
 
 ## Purpose
 
-Not documented.
+A heading rendered back to its Markdown line, for error messages.
 
 ## Architecture
 

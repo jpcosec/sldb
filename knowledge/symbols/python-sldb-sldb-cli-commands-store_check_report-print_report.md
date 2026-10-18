@@ -28,7 +28,7 @@ The verdict, then every finding that produced it, then what to do.
 
 ## Purpose
 
-Not documented.
+The verdict, then every finding that produced it, then what to do.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Suffix a repeated sibling slug without changing its parent path.
 
 ## Purpose
 
-Not documented.
+Suffix a repeated sibling slug without changing its parent path.
 
 ## Architecture
 

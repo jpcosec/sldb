@@ -38,7 +38,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+The source of `path` with `f_block` appended to the body of class `cls_name`.
 
 ## Architecture
 

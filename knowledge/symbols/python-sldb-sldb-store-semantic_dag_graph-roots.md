@@ -28,7 +28,7 @@ The tags with no parent: the tops of the DAG.
 
 ## Purpose
 
-Not documented.
+The tags with no parent: the tops of the DAG.
 
 ## Architecture
 

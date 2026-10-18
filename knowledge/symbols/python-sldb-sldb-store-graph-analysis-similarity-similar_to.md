@@ -30,7 +30,7 @@ Defaults to `tagged_as`: what else is tagged the way this is. Ties break by node
 
 ## Purpose
 
-Not documented.
+Nodes sharing the most targets with `node_id`, most shared first.
 
 ## Architecture
 

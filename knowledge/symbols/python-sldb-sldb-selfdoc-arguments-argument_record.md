@@ -28,7 +28,7 @@ Keep parser constraints, defaults, and help in a typed record.
 
 ## Purpose
 
-Not documented.
+Keep parser constraints, defaults, and help in a typed record.
 
 ## Architecture
 

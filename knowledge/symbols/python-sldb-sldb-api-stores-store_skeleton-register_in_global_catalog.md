@@ -35,7 +35,7 @@ Args:
 
 ## Purpose
 
-Not documented.
+Record a project store in the global store, creating the global store when missing.
 
 ## Architecture
 

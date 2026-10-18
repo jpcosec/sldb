@@ -32,7 +32,7 @@ or name), 404 (model not registered), 409 (name taken) or 422 (invalid payload).
 
 ## Purpose
 
-Not documented.
+Create `{model, name, payload}` under the same lock /save uses.
 
 ## Architecture
 

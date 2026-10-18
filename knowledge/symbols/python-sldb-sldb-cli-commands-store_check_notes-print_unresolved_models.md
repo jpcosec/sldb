@@ -29,7 +29,7 @@ Models whose class cannot be imported here: their fields were not re-extracted, 
 
 ## Purpose
 
-Not documented.
+Models whose class cannot be imported here: their fields were not re-extracted, only their text.
 
 ## Architecture
 

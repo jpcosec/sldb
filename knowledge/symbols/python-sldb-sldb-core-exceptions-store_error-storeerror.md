@@ -35,7 +35,7 @@ An exception hierarchy belongs to the lowest layer that mentions it.
 
 ## Purpose
 
-Not documented.
+Base error for anything owned by the store layer.
 
 ## Architecture
 

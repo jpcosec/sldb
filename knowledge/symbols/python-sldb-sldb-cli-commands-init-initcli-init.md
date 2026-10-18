@@ -28,7 +28,7 @@ Initialize the project with the sldb skill file.
 
 ## Purpose
 
-Not documented.
+Initialize the project with the sldb skill file.
 
 ## Architecture
 

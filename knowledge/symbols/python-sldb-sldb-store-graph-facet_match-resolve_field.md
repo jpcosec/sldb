@@ -28,7 +28,7 @@ Read a field from a facet payload: dict, list, or attribute-addressable object.
 
 ## Purpose
 
-Not documented.
+Read a field from a facet payload: dict, list, or attribute-addressable object.
 
 ## Architecture
 

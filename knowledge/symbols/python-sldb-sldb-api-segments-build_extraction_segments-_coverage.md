@@ -36,7 +36,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Fraction of the raw text's meaningful length that fields cover.
 
 ## Architecture
 

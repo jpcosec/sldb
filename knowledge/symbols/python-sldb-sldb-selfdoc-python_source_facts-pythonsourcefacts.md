@@ -5,12 +5,12 @@ module: sldb.selfdoc.python_source_facts
 qualname: PythonSourceFacts
 kind: ClassDef
 source_path: sldb/selfdoc/python_source_facts.py
-source_span: '9:57'
-source_sha256: acfb4b747242ce6236dc7a3f826524f0b39c13c3e6847aafd9a19593ec84de4f
+source_span: 9:76
+source_sha256: 6750d4ca6e017de596d8f89dfff25dd6c0c45490b4f0ad2d64637a5fd4cc03b5
 architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.selfdoc.python_source_facts:PythonSourceFacts;
-  contract-sha256:2ba91f6d12d0dc899f214aaca24ccaaa062d4167b5daed6b3e574e24db288d87
+  contract-sha256:208c98224f608125691153d0575c8881443677de38ab3da50cf1c1fbe381e0c6
 ---
 
 # PythonSourceFacts
@@ -29,7 +29,7 @@ Visit one module and retain source-located static facts.
 
 ## Purpose
 
-Not documented.
+Visit one module and retain source-located static facts.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ The container that holds the path's last segment.
 
 ## Purpose
 
-Not documented.
+The container that holds the path's last segment.
 
 ## Architecture
 

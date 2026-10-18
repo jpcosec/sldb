@@ -32,7 +32,7 @@ good. The indexes are reloaded, dropping anything a failed pass half changed;
 
 ## Purpose
 
-Not documented.
+Queue a skipped model with no class, so the commit re-signs its roster and count.
 
 ## Architecture
 

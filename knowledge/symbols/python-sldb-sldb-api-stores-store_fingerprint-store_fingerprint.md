@@ -29,7 +29,7 @@ The whole tree: the root, every model hash, and every document's two hashes.
 
 ## Purpose
 
-Not documented.
+The whole tree: the root, every model hash, and every document's two hashes.
 
 ## Architecture
 

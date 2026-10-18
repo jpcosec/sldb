@@ -28,7 +28,7 @@ The nodes that share a target of `out_relation` with `node_id`, read back by `ba
 
 ## Purpose
 
-Not documented.
+The nodes that share a target of `out_relation` with `node_id`, read back by `back`.
 
 ## Architecture
 

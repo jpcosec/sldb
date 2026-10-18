@@ -28,7 +28,7 @@ A typed, directed edge between two node ids.
 
 ## Purpose
 
-Not documented.
+A typed, directed edge between two node ids.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Refuse to link a directory that holds no store.
 
 ## Purpose
 
-Not documented.
+Refuse to link a directory that holds no store.
 
 ## Architecture
 

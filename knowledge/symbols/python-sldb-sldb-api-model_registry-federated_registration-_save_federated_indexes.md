@@ -29,7 +29,7 @@ Write an empty documents index and a fresh models index for the federated model.
 
 ## Purpose
 
-Not documented.
+Write an empty documents index and a fresh models index for the federated model.
 
 ## Architecture
 

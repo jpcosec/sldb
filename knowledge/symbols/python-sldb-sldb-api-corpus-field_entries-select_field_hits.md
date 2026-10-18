@@ -31,7 +31,7 @@ means every field of it, which is what a caller filtering by document intends.
 
 ## Purpose
 
-Not documented.
+The ranked fields still in the corpus (and among the allowed ones), at most k.
 
 ## Architecture
 

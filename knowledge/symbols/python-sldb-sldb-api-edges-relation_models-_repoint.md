@@ -28,7 +28,7 @@ The same class under its new home: only `model_ref` and `path` move (neither is 
 
 ## Purpose
 
-Not documented.
+The same class under its new home: only `model_ref` and `path` move (neither is hashed).
 
 ## Architecture
 

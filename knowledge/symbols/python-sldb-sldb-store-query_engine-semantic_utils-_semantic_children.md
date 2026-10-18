@@ -29,7 +29,7 @@ Retrieves child semantic nodes by walking the store's semantic DAG.
 
 ## Purpose
 
-Not documented.
+Retrieves child semantic nodes by walking the store's semantic DAG.
 
 ## Architecture
 

@@ -47,7 +47,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Declare a new field in the model's draft, plus its template section.
 
 ## Architecture
 

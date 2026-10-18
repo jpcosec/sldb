@@ -30,7 +30,7 @@ or a section-less model that never had one).
 
 ## Purpose
 
-Not documented.
+PLAN 15 capa 5/7: a model's sections and documents are canonical once their old single per-model files are gone (sharded into `<store>/{runtime/sections,core/documents}/<model>/`, or a section-less model that never had one).
 
 ## Architecture
 

@@ -29,7 +29,7 @@ One line on the model verdict, in terms of which child moved the node.
 
 ## Purpose
 
-Not documented.
+One line on the model verdict, in terms of which child moved the node.
 
 ## Architecture
 

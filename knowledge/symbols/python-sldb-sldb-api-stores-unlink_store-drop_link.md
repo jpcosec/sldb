@@ -28,7 +28,7 @@ Remove the entry `name` from the store index; refused when there is none.
 
 ## Purpose
 
-Not documented.
+Remove the entry `name` from the store index; refused when there is none.
 
 ## Architecture
 

@@ -41,7 +41,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+The canonical render of ``payload`` plus every value span in it.
 
 ## Architecture
 

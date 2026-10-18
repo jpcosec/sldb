@@ -30,7 +30,7 @@ next use — reused untouched if nothing moved it, recomposed otherwise.
 
 ## Purpose
 
-Not documented.
+Bumps this store's operation generation (or, with no store, drops everything): a cache entry from a prior generation is re-validated against the on-disk roster hash before its next use — reused untouched if nothing moved it, recomposed otherwise.
 
 ## Architecture
 

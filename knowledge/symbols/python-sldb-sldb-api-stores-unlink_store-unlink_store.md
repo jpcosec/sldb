@@ -39,7 +39,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Forget the store linked as `name`; its own store is not touched.
 
 ## Architecture
 

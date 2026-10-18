@@ -28,7 +28,7 @@ Read only the indexes for models involved in self-documentation.
 
 ## Purpose
 
-Not documented.
+Read only the indexes for models involved in self-documentation.
 
 ## Architecture
 

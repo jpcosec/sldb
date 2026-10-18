@@ -37,7 +37,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Carry one canonical offset over to the raw text.
 
 ## Architecture
 

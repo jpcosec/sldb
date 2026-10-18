@@ -34,7 +34,7 @@ the same way a change of embedder does.
 
 ## Purpose
 
-Not documented.
+What a consumer declares about its corpus: which documents it admits and how it reads the text of one.
 
 ## Architecture
 

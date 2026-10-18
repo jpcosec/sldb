@@ -29,7 +29,7 @@ else. A document's shard does not depend on the DAG, so there is nothing else to
 
 ## Purpose
 
-Not documented.
+Rewrite only the store's own shard: what a change to the semantic DAG moves, and nothing else. A document's shard does not depend on the DAG, so there is nothing else to redo.
 
 ## Architecture
 

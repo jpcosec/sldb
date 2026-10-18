@@ -28,7 +28,7 @@ The same order as levels: everything in a level depends only on earlier levels.
 
 ## Purpose
 
-Not documented.
+The same order as levels: everything in a level depends only on earlier levels.
 
 ## Architecture
 

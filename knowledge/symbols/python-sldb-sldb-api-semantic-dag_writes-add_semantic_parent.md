@@ -31,7 +31,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Declare `tag` a kind of `parent`. True when the DAG changed, False when it already said so.
 
 ## Architecture
 

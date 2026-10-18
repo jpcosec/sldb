@@ -29,7 +29,7 @@ document_edges_payload(handler: BaseHTTPRequestHandler, store_path: Path, python
 
 ## Purpose
 
-Not documented.
+`{edges: [{id, source, target, type, origin, relationDoc}]}`, optionally for `?id=Model:name`.
 
 ## Architecture
 

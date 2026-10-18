@@ -28,7 +28,7 @@ Contract for the data passed to the renderer.
 
 ## Purpose
 
-Not documented.
+Contract for the data passed to the renderer.
 
 ## Architecture
 

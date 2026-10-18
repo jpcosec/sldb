@@ -28,7 +28,7 @@ tagged_as(source: str, tags: Iterable[str])
 
 ## Purpose
 
-Not documented.
+`tagged_as` edges from `source` to each tag, in the order given.
 
 ## Architecture
 

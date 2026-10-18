@@ -5,12 +5,12 @@ module: sldb.api.stores.scan_structural_noise
 qualname: scan_structural_noise
 kind: FunctionDef
 source_path: sldb/api/stores/scan_structural_noise.py
-source_span: '17:33'
-source_sha256: 4fb76c8d1a457f198fca131fd919507328ceee7eedd4cdb1bc0d39179d13b2d2
+source_span: '17:37'
+source_sha256: c74b37a6c0124e40b4033277d492ecf173b51e9a2d53f7927388c7b5fac2af42
 architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.api.stores.scan_structural_noise:scan_structural_noise;
-  contract-sha256:260771f17ecd0044d068272fc02448ccea5b6aeac2b773e6ae4c69e2335fe0df
+  contract-sha256:ae0e7131a809ba8d557b3f3286baa60cb7bd5cbaf0485d5e256f47e6ff2a974d
 ---
 
 # scan_structural_noise
@@ -37,7 +37,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Every tracked document carrying headings its model does not declare.
 
 ## Architecture
 

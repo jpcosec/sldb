@@ -28,7 +28,7 @@ Every runtime document the corpus's projection admits, as an entry.
 
 ## Purpose
 
-Not documented.
+Every runtime document the corpus's projection admits, as an entry.
 
 ## Architecture
 

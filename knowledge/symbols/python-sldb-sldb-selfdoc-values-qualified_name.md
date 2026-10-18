@@ -28,7 +28,7 @@ Name a callable or type without memory-address-dependent repr output.
 
 ## Purpose
 
-Not documented.
+Name a callable or type without memory-address-dependent repr output.
 
 ## Architecture
 

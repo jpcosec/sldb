@@ -28,7 +28,7 @@ candidates are (key, text). Returns [(key, score)] best first, above threshold.
 
 ## Purpose
 
-Not documented.
+candidates are (key, text). Returns [(key, score)] best first, above threshold.
 
 ## Architecture
 

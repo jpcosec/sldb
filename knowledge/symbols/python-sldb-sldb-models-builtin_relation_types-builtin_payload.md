@@ -29,7 +29,7 @@ Full RelationTypeDoc payload for one builtin spec.
 
 ## Purpose
 
-Not documented.
+Full RelationTypeDoc payload for one builtin spec.
 
 ## Architecture
 

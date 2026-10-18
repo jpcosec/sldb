@@ -29,7 +29,7 @@ What to open to judge this finding — the document, or the model that reinterpr
 
 ## Purpose
 
-Not documented.
+What to open to judge this finding — the document, or the model that reinterpreted it.
 
 ## Architecture
 

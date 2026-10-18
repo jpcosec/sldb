@@ -29,7 +29,7 @@ One line: the verdict and the counts behind it.
 
 ## Purpose
 
-Not documented.
+One line: the verdict and the counts behind it.
 
 ## Architecture
 

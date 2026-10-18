@@ -30,7 +30,7 @@ A brace that cannot be filled becomes a placeholder literal, so the expression s
 
 ## Purpose
 
-Not documented.
+`expression` with every `{field}` replaced by the subject's value, and whether all were.
 
 ## Architecture
 

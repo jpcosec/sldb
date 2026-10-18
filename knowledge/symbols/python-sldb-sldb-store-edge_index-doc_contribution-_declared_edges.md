@@ -34,7 +34,7 @@ reading them again would assert a second, untyped edge beside it.
 
 ## Purpose
 
-Not documented.
+The model's declared references, read only when it declares any: the payload is a file read per document, and most models declare none.
 
 ## Architecture
 

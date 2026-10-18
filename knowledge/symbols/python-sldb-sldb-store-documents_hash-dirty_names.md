@@ -30,7 +30,7 @@ document once instead.
 
 ## Purpose
 
-Not documented.
+Names noted/forgotten in `namespace` ("semantic", "sections", ...) since its last `clear_dirty` — or None with no baseline to trust: the caller's cue to compare every document once instead.
 
 ## Architecture
 

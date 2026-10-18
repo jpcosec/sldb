@@ -29,7 +29,7 @@ Raised when a payload save names an unregistered model or document, or breaks id
 
 ## Purpose
 
-Not documented.
+Raised when a payload save names an unregistered model or document, or breaks idempotency.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Kind of a list annotation from its item type: stringlist, enumlist or list.
 
 ## Purpose
 
-Not documented.
+Kind of a list annotation from its item type: stringlist, enumlist or list.
 
 ## Architecture
 

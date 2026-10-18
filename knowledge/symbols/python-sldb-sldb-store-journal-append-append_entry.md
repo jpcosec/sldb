@@ -28,7 +28,7 @@ Record one write, chained to the journal's previous entry, under the journal loc
 
 ## Purpose
 
-Not documented.
+Record one write, chained to the journal's previous entry, under the journal lock.
 
 ## Architecture
 

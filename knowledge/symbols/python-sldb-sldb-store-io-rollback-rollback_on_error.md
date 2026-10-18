@@ -29,7 +29,7 @@ Snapshot `paths`; if the block raises, restore their bytes (or absence), call
 
 ## Purpose
 
-Not documented.
+Snapshot `paths`; if the block raises, restore their bytes (or absence), call `forget_caches` so no in-memory copy outlives the restore, and re-raise.
 
 ## Architecture
 

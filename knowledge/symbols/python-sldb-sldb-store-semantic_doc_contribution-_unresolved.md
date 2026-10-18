@@ -28,7 +28,7 @@ The document's last known tags, unchanged and unwritten; the model named once.
 
 ## Purpose
 
-Not documented.
+The document's last known tags, unchanged and unwritten; the model named once.
 
 ## Architecture
 

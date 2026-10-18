@@ -29,7 +29,7 @@ An example payload rendered to markdown and read back, as sldb validates it.
 
 ## Purpose
 
-Not documented.
+An example payload rendered to markdown and read back, as sldb validates it.
 
 ## Architecture
 

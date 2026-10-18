@@ -49,7 +49,7 @@ still `hash_c`/`hash_d`: renaming those would invalidate every store on disk.
 
 ## Purpose
 
-Not documented.
+Diagnostic state for a single document.
 
 ## Architecture
 

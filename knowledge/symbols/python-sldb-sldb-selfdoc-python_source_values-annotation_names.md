@@ -29,7 +29,7 @@ Return lexical names used by one annotation expression.
 
 ## Purpose
 
-Not documented.
+Return lexical names used by one annotation expression.
 
 ## Architecture
 

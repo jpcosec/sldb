@@ -29,7 +29,7 @@ without a `--pythonpath`; a path given explicitly is inserted in front of them l
 
 ## Purpose
 
-Not documented.
+Put the owners' project roots on `sys.path`, once each, so inherited models import without a `--pythonpath`; a path given explicitly is inserted in front of them later.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ All node ids of the store's edge index, sorted.
 
 ## Purpose
 
-Not documented.
+All node ids of the store's edge index, sorted.
 
 ## Architecture
 

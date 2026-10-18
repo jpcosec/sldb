@@ -29,7 +29,7 @@ Check if a record matches a where expression.
 
 ## Purpose
 
-Not documented.
+Check if a record matches a where expression.
 
 ## Architecture
 

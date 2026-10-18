@@ -1,7 +1,7 @@
 name: python-sldb-sldb-api-graph-traverse-roots
 path: knowledge/symbols/python-sldb-sldb-api-graph-traverse-roots.md
-source_hash: 24f611adde5281caf8e7a9db8e673c06590b8ec17e1db3b8ccd72c5f1e34da9a
-content_hash: 4014b943f9a2d241b85329d1e6db914a544f083f62d4b4ed036f308d77218f61
+source_hash: 19a11bba1ef32cabcd1324c51802f51347d2434e002f30fc1fc81e2fc7a78237
+content_hash: b6d140a6af35d41ebe3986095e4699243e81fece70357b680f917a4415679cea
 field_hashes:
   id: a5dec2b8ca9d7487c89aa62a5fc6610d378bc568a3757bf713b23024a4cadfad
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -15,7 +15,7 @@ field_hashes:
   signature: 36ff39bf2e213801949ac611b7105a5f9667c561302bbd9ed364509f2e82af41
   docstring: e2b93351771a49b01f7c04988bbc2b85a895aa2cf29d48d1b4c4ffba3e045203
   imports: f893804c2f59b67d8c49043ca6952e1f35ee405638782c52600010ea5bd53a6f
-  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  purpose: e2b93351771a49b01f7c04988bbc2b85a895aa2cf29d48d1b4c4ffba3e045203
   architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   provenance: d86978bfd62f6e5f2f65690468ab6a801813b9ca140ccaa4ccd6987b16ae12ca

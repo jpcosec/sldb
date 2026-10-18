@@ -1,7 +1,7 @@
 name: python-sldb-sldb-cli-commands-ast-astcli
 path: knowledge/symbols/python-sldb-sldb-cli-commands-ast-astcli.md
-source_hash: 52ac03544e429241530e070ade074d895b3db0be5d8314039ca923adfad8b6a4
-content_hash: dfc9fbe2986933984f1080adc1718620c166ccb30cb0ec0218d43f444b17fa82
+source_hash: 7622f9c16b4721923833f21129404e41d2c7efc429d254f8cd4c3da3df02b33b
+content_hash: 6a27f44f02b03ec2cbb6baeb4aa1cbfac76c6779b863819d1e479d9028cb176b
 field_hashes:
   id: e79464bfcd41e87d47ee6254c9b3d53eb67993ca0ce7d7aff0445faffb458214
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -15,7 +15,7 @@ field_hashes:
   signature: c1d77853d224098dd451050ed6e1528ff0380068f7307292ab8a0764b7e378b1
   docstring: 922cbebbc9ab03e253a84d7702a2739f31908e168e9e4ec697a5b1cffa35e069
   imports: 60331030ded1fad08c5b0186ddfef594ba31379a6edd6caf16a4bad3d4ea87bd
-  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  purpose: 922cbebbc9ab03e253a84d7702a2739f31908e168e9e4ec697a5b1cffa35e069
   architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   provenance: 42ead0ee9c0d86566463ff0827c40849ab7658169a26585648bc33e06cbea595

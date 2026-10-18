@@ -29,7 +29,7 @@ A newly registered model's index, its node already stamped from both children.
 
 ## Purpose
 
-Not documented.
+A newly registered model's index, its node already stamped from both children.
 
 ## Architecture
 

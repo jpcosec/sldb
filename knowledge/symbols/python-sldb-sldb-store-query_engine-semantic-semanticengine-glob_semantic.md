@@ -29,7 +29,7 @@ Globs semantic tags.
 
 ## Purpose
 
-Not documented.
+Globs semantic tags.
 
 ## Architecture
 

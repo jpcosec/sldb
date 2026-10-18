@@ -28,7 +28,7 @@ Send WARNING and above from the `sldb` logger to stderr, once per process.
 
 ## Purpose
 
-Not documented.
+Send WARNING and above from the `sldb` logger to stderr, once per process.
 
 ## Architecture
 

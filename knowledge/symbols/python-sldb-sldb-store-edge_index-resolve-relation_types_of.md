@@ -28,7 +28,7 @@ Relation type name -> the payload of the RelationTypeDoc that declares it.
 
 ## Purpose
 
-Not documented.
+Relation type name -> the payload of the RelationTypeDoc that declares it.
 
 ## Architecture
 

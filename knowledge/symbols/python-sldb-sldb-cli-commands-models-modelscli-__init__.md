@@ -28,7 +28,7 @@ Initialize ModelsCLI with all sub-command handlers.
 
 ## Purpose
 
-Not documented.
+Initialize ModelsCLI with all sub-command handlers.
 
 ## Architecture
 

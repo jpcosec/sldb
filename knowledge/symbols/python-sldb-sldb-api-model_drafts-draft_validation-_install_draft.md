@@ -29,7 +29,7 @@ Install the draft, backfill if asked, reindex, and drop the draft; returns the v
 
 ## Purpose
 
-Not documented.
+Install the draft, backfill if asked, reindex, and drop the draft; returns the version.
 
 ## Architecture
 

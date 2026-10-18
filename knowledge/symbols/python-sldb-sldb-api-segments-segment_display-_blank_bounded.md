@@ -36,7 +36,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Whether a blank line or a document border sits on both sides.
 
 ## Architecture
 

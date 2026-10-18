@@ -28,7 +28,7 @@ What naming `tag` reaches: itself and everything below it.
 
 ## Purpose
 
-Not documented.
+What naming `tag` reaches: itself and everything below it.
 
 ## Architecture
 

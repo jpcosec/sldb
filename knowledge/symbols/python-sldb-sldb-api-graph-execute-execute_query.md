@@ -28,7 +28,7 @@ Execute a StructuredQuery over the store's edge index; returns matching nodes.
 
 ## Purpose
 
-Not documented.
+Execute a StructuredQuery over the store's edge index; returns matching nodes.
 
 ## Architecture
 

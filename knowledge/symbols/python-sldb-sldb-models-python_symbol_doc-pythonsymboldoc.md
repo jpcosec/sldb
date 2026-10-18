@@ -28,7 +28,7 @@ Static Python facts with explicitly authored semantic context.
 
 ## Purpose
 
-Not documented.
+Static Python facts with explicitly authored semantic context.
 
 ## Architecture
 

@@ -32,7 +32,7 @@ empty string fails `stores check` until `models update` runs.
 
 ## Purpose
 
-Not documented.
+Register a model: empty documents index, models index, store entry, semantic rebuild.
 
 ## Architecture
 

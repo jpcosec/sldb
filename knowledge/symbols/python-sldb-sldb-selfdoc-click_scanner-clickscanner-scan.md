@@ -28,7 +28,7 @@ One record per leaf command of the group, sorted by name.
 
 ## Purpose
 
-Not documented.
+One record per leaf command of the group, sorted by name.
 
 ## Architecture
 

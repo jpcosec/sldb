@@ -41,7 +41,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Rebuild what moved in the edge index (after the semantic and sections indexes it reads).
 
 ## Architecture
 

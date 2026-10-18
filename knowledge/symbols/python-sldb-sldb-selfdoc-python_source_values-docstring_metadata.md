@@ -29,7 +29,7 @@ The node's docstring metadata, parsed strictly (see `docstring_metadata`).
 
 ## Purpose
 
-Not documented.
+The node's docstring metadata, parsed strictly (see `docstring_metadata`).
 
 ## Architecture
 

@@ -29,7 +29,7 @@ Nodes of one class, sorted by id; a document's class is its model's name.
 
 ## Purpose
 
-Not documented.
+Nodes of one class, sorted by id; a document's class is its model's name.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Everything reachable following `relation` backwards, at most `depth` levels.
 
 ## Purpose
 
-Not documented.
+Everything reachable following `relation` backwards, at most `depth` levels.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ A typed query: facet filters (intersection), a scope, and relation filters.
 
 ## Purpose
 
-Not documented.
+A typed query: facet filters (intersection), a scope, and relation filters.
 
 ## Architecture
 

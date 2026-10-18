@@ -36,7 +36,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+A message saying the markdown, not the model, is what failed.
 
 ## Architecture
 

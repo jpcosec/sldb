@@ -35,7 +35,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+The value ``path`` addresses inside ``payload``, or None when absent.
 
 ## Architecture
 

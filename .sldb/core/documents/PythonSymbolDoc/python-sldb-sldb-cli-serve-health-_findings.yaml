@@ -1,7 +1,7 @@
 name: python-sldb-sldb-cli-serve-health-_findings
 path: knowledge/symbols/python-sldb-sldb-cli-serve-health-_findings.md
-source_hash: 3fe5373a4d288a181d5eb31cad5a4080ffbecd4b4cbb22b09b28ec952a748d5c
-content_hash: ba8a97d582ae2c49c1b9d94fede688b47cbcf989144f8295816331836dbfc3b2
+source_hash: 111b43f5b65e288681299297c6a344762e918142d8b48a7339e49757cafd1154
+content_hash: 603230aadc2d992265a03bfb22dc5a2bd7f534b1f5d23fce40b903397e52463d
 field_hashes:
   id: 207883444f303bd7f04b9b69c5d8e8a32e5d7f1ff42f2ddfa954473c31f73095
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -15,7 +15,7 @@ field_hashes:
   signature: 81eb821d8b4aa9095a2554778383bee8dc2ad44297eaf98630a8d2569ab377dc
   docstring: ffef4161e59562b4e3564c0ec97343bc4695ff2f0bd7d61c754fc17189d3254a
   imports: 6e80967add0ba259ede222d604973640739db7b4d07a24edd6ab7ee5a9565ca6
-  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  purpose: c0456b87640722b9148c4f2d51fadcfd2b36ab861de034ba5c2128331733d404
   architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   provenance: f223f81b39d76bec0d4b093cd04bcfdad8071c7c19db612a65f8e69bc8ccd447

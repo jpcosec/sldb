@@ -28,7 +28,7 @@ The distinct chapter numbers a docstring cites (`spec 06`, `spec 11 §2`), sorte
 
 ## Purpose
 
-Not documented.
+The distinct chapter numbers a docstring cites (`spec 06`, `spec 11 §2`), sorted.
 
 ## Architecture
 

@@ -34,7 +34,7 @@ moved, so the payload can change with the text standing still.
 
 ## Purpose
 
-Not documented.
+Rehash one document when its Markdown or its stored hashes say it needs it.
 
 ## Architecture
 

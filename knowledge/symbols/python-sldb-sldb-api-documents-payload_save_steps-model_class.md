@@ -30,7 +30,7 @@ A linked store's models import from where that store lives.
 
 ## Purpose
 
-Not documented.
+The model class, imported with the caller's pythonpath first, then the store's own root.
 
 ## Architecture
 

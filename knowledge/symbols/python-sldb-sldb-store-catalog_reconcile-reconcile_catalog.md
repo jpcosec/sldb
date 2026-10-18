@@ -28,7 +28,7 @@ Compare an explicit subtree with a catalog; mutate only with apply.
 
 ## Purpose
 
-Not documented.
+Compare an explicit subtree with a catalog; mutate only with apply.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ True when no token is configured, or the request presents it.
 
 ## Purpose
 
-Not documented.
+True when no token is configured, or the request presents it.
 
 ## Architecture
 

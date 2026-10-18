@@ -29,7 +29,7 @@ Extracts data from the node using the provided recipe.
 
 ## Purpose
 
-Not documented.
+Extracts data from the node using the provided recipe.
 
 ## Architecture
 

@@ -37,7 +37,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+One edge per ref held by a composed field's source field, in declaration order.
 
 ## Architecture
 

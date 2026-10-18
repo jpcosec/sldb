@@ -28,7 +28,7 @@ The class's `__family__`, the root branch it belongs to; None when it declares n
 
 ## Purpose
 
-Not documented.
+The class's `__family__`, the root branch it belongs to; None when it declares none.
 
 ## Architecture
 

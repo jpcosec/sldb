@@ -29,7 +29,7 @@ an unhashed empty string fails `stores check` until `models update` runs.
 
 ## Purpose
 
-Not documented.
+roster_hash starts as hash_documents_index of the empty index, not "" -- an unhashed empty string fails `stores check` until `models update` runs.
 
 ## Architecture
 

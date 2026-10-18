@@ -29,7 +29,7 @@ Refuse to add a field the class already declares.
 
 ## Purpose
 
-Not documented.
+Refuse to add a field the class already declares.
 
 ## Architecture
 

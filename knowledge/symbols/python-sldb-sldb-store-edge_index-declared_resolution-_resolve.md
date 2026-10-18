@@ -29,7 +29,7 @@ _resolve(e: EdgeRecord, nodes: dict, owners: dict[str, str])
 
 ## Purpose
 
-Not documented.
+(target node id or None, why not, the export id the value names when known).
 
 ## Architecture
 

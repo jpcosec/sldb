@@ -29,7 +29,7 @@ Raised when a path's value is not the kind of value the operation needs.
 
 ## Purpose
 
-Not documented.
+Raised when a path's value is not the kind of value the operation needs.
 
 ## Architecture
 

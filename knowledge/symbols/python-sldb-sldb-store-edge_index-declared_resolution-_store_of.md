@@ -29,7 +29,7 @@ The link name of a linked store's document (`sldb://document/store:Model:name`).
 
 ## Purpose
 
-Not documented.
+The link name of a linked store's document (`sldb://document/store:Model:name`).
 
 ## Architecture
 

@@ -34,7 +34,7 @@ a failure is not the same as tolerating it.
 
 ## Purpose
 
-Not documented.
+Whether the store is in a valid state.
 
 ## Architecture
 

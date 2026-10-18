@@ -30,7 +30,7 @@ Raises `SLDBGraphCycleError` with the offending cycle when the relation is not a
 
 ## Purpose
 
-Not documented.
+Every node ordered so a node comes after everything it points at.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Keep only the scores of nodes of those classes; all of them when none is asked f
 
 ## Purpose
 
-Not documented.
+Keep only the scores of nodes of those classes; all of them when none is asked for.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ Whether class `class_name` assigns its own `__template__` in the source at `path
 
 ## Purpose
 
-Not documented.
+Whether class `class_name` assigns its own `__template__` in the source at `path`.
 
 ## Architecture
 

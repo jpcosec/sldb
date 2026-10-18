@@ -28,7 +28,7 @@ Node id of a semantic tag.
 
 ## Purpose
 
-Not documented.
+Node id of a semantic tag.
 
 ## Architecture
 

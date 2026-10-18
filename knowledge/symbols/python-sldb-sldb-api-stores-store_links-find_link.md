@@ -28,7 +28,7 @@ The direct link recorded under `name`, with its state, or None when there is non
 
 ## Purpose
 
-Not documented.
+The direct link recorded under `name`, with its state, or None when there is none.
 
 ## Architecture
 

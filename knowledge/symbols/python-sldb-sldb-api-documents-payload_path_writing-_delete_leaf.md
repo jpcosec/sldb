@@ -29,7 +29,7 @@ Remove the last segment from its container (a missing dict key is ignored).
 
 ## Purpose
 
-Not documented.
+Remove the last segment from its container (a missing dict key is ignored).
 
 ## Architecture
 

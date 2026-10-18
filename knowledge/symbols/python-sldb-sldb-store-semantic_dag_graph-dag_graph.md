@@ -28,7 +28,7 @@ The DAG as `child -> parent` edges, the direction the tags declare.
 
 ## Purpose
 
-Not documented.
+The DAG as `child -> parent` edges, the direction the tags declare.
 
 ## Architecture
 

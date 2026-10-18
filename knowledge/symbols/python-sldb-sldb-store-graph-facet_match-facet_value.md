@@ -28,7 +28,7 @@ The facet payload a filter reads: identity, semantics, or a carried facet.
 
 ## Purpose
 
-Not documented.
+The facet payload a filter reads: identity, semantics, or a carried facet.
 
 ## Architecture
 

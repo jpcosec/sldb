@@ -29,7 +29,7 @@ Matches structural addresses against a glob pattern.
 
 ## Purpose
 
-Not documented.
+Matches structural addresses against a glob pattern.
 
 ## Architecture
 

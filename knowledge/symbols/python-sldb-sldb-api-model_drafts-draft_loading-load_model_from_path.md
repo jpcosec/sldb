@@ -32,7 +32,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Execute a model source file as a `<module>__draft__` module and return the class.
 
 ## Architecture
 

@@ -40,7 +40,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Find the file and class that define a registered model.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ Snapshot ``paths``; if the block raises, write them back and re-raise.
 
 ## Purpose
 
-Not documented.
+Snapshot ``paths``; if the block raises, write them back and re-raise.
 
 ## Architecture
 

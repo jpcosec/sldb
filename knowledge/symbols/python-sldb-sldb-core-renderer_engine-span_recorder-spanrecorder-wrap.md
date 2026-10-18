@@ -36,7 +36,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Register ``meta`` and return ``text`` wrapped in sentinels.
 
 ## Architecture
 

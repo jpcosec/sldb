@@ -28,7 +28,7 @@ This model's roster hash: the signature of its document list.
 
 ## Purpose
 
-Not documented.
+This model's roster hash: the signature of its document list.
 
 ## Architecture
 

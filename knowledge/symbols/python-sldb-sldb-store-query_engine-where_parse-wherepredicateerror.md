@@ -29,7 +29,7 @@ A --where predicate that no evaluator can parse.
 
 ## Purpose
 
-Not documented.
+A --where predicate that no evaluator can parse.
 
 ## Architecture
 

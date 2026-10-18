@@ -31,7 +31,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+The annotated assignment declaring a field.
 
 ## Architecture
 

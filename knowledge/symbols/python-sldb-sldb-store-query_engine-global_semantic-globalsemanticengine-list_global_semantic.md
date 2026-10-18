@@ -29,7 +29,7 @@ Lists nodes in the global semantic address space (gse).
 
 ## Purpose
 
-Not documented.
+Lists nodes in the global semantic address space (gse).
 
 ## Architecture
 

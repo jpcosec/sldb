@@ -47,7 +47,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Write the Markdown a model renders from `payload` and start tracking it.
 
 ## Architecture
 

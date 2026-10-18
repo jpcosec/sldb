@@ -28,7 +28,7 @@ A journal-ready snapshot of a model's contract: its version and every field.
 
 ## Purpose
 
-Not documented.
+A journal-ready snapshot of a model's contract: its version and every field.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ The edge index's validation errors, reported instead of raised: the index is sti
 
 ## Purpose
 
-Not documented.
+The edge index's validation errors, reported instead of raised: the index is still readable.
 
 ## Architecture
 

@@ -5,12 +5,12 @@ module: sldb.selfdoc.python_source_facts
 qualname: PythonSourceFacts.visit_Import
 kind: FunctionDef
 source_path: sldb/selfdoc/python_source_facts.py
-source_span: '36:38'
-source_sha256: acfb4b747242ce6236dc7a3f826524f0b39c13c3e6847aafd9a19593ec84de4f
+source_span: '38:40'
+source_sha256: 6750d4ca6e017de596d8f89dfff25dd6c0c45490b4f0ad2d64637a5fd4cc03b5
 architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.selfdoc.python_source_facts:PythonSourceFacts.visit_Import;
-  contract-sha256:b4deb3197924b87d287d44e13bb0dcb74d8707a5619f0117beedd0f60b9c8929
+  contract-sha256:740c67602ed0463bb61e8f2954291a2d9513f9c827d53404182ff04eba72b9f8
 ---
 
 # PythonSourceFacts.visit_Import

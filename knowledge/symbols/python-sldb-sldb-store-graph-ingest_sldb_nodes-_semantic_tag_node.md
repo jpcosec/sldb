@@ -29,7 +29,7 @@ A semantic tag node, with `semantic_parent` and `semantic_equivalent` edges.
 
 ## Purpose
 
-Not documented.
+A semantic tag node, with `semantic_parent` and `semantic_equivalent` edges.
 
 ## Architecture
 

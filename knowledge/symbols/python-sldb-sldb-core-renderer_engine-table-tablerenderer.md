@@ -28,7 +28,7 @@ Handles rendering of table blocks.
 
 ## Purpose
 
-Not documented.
+Handles rendering of table blocks.
 
 ## Architecture
 

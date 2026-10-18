@@ -29,7 +29,7 @@ A template's extraction recipes: the template is stable per model, so it is spli
 
 ## Purpose
 
-Not documented.
+A template's extraction recipes: the template is stable per model, so it is split once (it used to be re-parsed on every extract and every validate).
 
 ## Architecture
 

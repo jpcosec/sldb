@@ -30,7 +30,7 @@ same value costs a read of the cached/on-disk shard, not a write.
 
 ## Purpose
 
-Not documented.
+Write only when the content differs from the shard already there (the same "leave the file alone" guarantee the single-file indexes always gave): a rebuild or a re-save of the same value costs a read of the cached/on-disk shard, not a write.
 
 ## Architecture
 

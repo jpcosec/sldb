@@ -28,7 +28,7 @@ Every group but the largest: what never reaches the main body of the store.
 
 ## Purpose
 
-Not documented.
+Every group but the largest: what never reaches the main body of the store.
 
 ## Architecture
 

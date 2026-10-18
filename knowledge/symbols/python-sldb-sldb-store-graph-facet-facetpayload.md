@@ -28,7 +28,7 @@ Extra facet fields, addressable by attribute with lazy defaults.
 
 ## Purpose
 
-Not documented.
+Extra facet fields, addressable by attribute with lazy defaults.
 
 ## Architecture
 

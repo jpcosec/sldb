@@ -28,7 +28,7 @@ Renders the model to a Markdown string. `ref_root` resolves composition refs.
 
 ## Purpose
 
-Not documented.
+Renders the model to a Markdown string. `ref_root` resolves composition refs.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ One document of the corpus, identified as the store exports it.
 
 ## Purpose
 
-Not documented.
+One document of the corpus, identified as the store exports it.
 
 ## Architecture
 

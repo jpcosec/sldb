@@ -32,7 +32,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+The class's `__template__ = ...` statement.
 
 ## Architecture
 

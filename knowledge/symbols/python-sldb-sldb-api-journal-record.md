@@ -28,7 +28,7 @@ Append one entry to the store's journal.
 
 ## Purpose
 
-Not documented.
+Append one entry to the store's journal.
 
 ## Architecture
 

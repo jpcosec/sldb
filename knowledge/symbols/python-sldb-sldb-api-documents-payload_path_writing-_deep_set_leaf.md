@@ -29,7 +29,7 @@ Assign the last segment in its container.
 
 ## Purpose
 
-Not documented.
+Assign the last segment in its container.
 
 ## Architecture
 

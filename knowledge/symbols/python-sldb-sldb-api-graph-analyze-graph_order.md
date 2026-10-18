@@ -28,7 +28,7 @@ Every node in dependency order; raises `SLDBGraphCycleError` when not a DAG.
 
 ## Purpose
 
-Not documented.
+Every node in dependency order; raises `SLDBGraphCycleError` when not a DAG.
 
 ## Architecture
 

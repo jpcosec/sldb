@@ -29,7 +29,7 @@ Raised when a doc ref resolves to zero documents or is ambiguous between several
 
 ## Purpose
 
-Not documented.
+Raised when a doc ref resolves to zero documents or is ambiguous between several.
 
 ## Architecture
 

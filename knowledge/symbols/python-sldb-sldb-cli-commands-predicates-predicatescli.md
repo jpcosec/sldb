@@ -28,7 +28,7 @@ Manage store-backed predicate definitions used by document links.
 
 ## Purpose
 
-Not documented.
+Manage store-backed predicate definitions used by document links.
 
 ## Architecture
 

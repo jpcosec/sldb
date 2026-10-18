@@ -36,7 +36,7 @@ Yields:
 
 ## Purpose
 
-Not documented.
+Scope every path recorded inside to one list item.
 
 ## Architecture
 

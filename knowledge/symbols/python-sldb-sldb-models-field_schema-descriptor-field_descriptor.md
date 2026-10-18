@@ -40,7 +40,7 @@ endpoint the one place a consumer could not read what the contract guarantees.
 
 ## Purpose
 
-Not documented.
+JSON-ready descriptor `{name, kind, required, description[, enum]}`.
 
 ## Architecture
 

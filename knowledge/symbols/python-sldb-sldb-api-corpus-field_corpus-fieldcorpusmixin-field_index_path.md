@@ -29,7 +29,7 @@ The per-field index's own derived file, never shared with the document index.
 
 ## Purpose
 
-Not documented.
+The per-field index's own derived file, never shared with the document index.
 
 ## Architecture
 

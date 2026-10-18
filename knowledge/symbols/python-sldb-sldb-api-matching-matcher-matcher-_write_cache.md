@@ -28,7 +28,7 @@ Persist the vectors, best effort: a missing cache file never breaks ranking.
 
 ## Purpose
 
-Not documented.
+Persist the vectors, best effort: a missing cache file never breaks ranking.
 
 ## Architecture
 

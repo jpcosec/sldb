@@ -30,7 +30,7 @@ or make `<store>/core/documents/<model>/`.
 
 ## Purpose
 
-Not documented.
+`path` is `<store>/core/documents/<model>.yaml` — no longer written to (PLAN 15 capa 7), still the key every caller already has: the stem is the model name, enough to find or make `<store>/core/documents/<model>/`.
 
 ## Architecture
 

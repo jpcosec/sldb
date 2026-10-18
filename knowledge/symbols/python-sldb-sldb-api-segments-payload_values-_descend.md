@@ -35,7 +35,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+One step of a path walk into a mapping or a sequence.
 
 ## Architecture
 

@@ -32,7 +32,7 @@ should paper over: the index is the only record of what the value used to be.
 
 ## Purpose
 
-Not documented.
+Whether a human must look before anything is run.
 
 ## Architecture
 

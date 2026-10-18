@@ -36,7 +36,7 @@ the operator to restore a file nobody touched. The model is named as unresolved.
 
 ## Purpose
 
-Not documented.
+Compare the document on disk against what the store recorded for it.
 
 ## Architecture
 

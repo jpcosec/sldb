@@ -29,7 +29,7 @@ Register the six analysis subcommands under `sldb graph`.
 
 ## Purpose
 
-Not documented.
+Register the six analysis subcommands under `sldb graph`.
 
 ## Architecture
 

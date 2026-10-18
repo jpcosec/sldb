@@ -30,7 +30,7 @@ from one the current class no longer produces.
 
 ## Purpose
 
-Not documented.
+Whether a tracked document was signed under another field set. Only a document whose map names an undeclared field is re-extracted, to tell an `extra="allow"` key it still yields from one the current class no longer produces.
 
 ## Architecture
 

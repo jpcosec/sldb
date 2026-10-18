@@ -28,7 +28,7 @@ Search repo docs and Python docstrings.
 
 ## Purpose
 
-Not documented.
+Search repo docs and Python docstrings.
 
 ## Architecture
 

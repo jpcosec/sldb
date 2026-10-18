@@ -29,7 +29,7 @@ unreachable or no longer registers the model.
 
 ## Purpose
 
-Not documented.
+(owner store, the owner's entry) of an inherited entry; None when the owner is unreachable or no longer registers the model.
 
 ## Architecture
 

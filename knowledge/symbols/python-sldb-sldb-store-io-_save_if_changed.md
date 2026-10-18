@@ -29,7 +29,7 @@ changes nothing leaves the file, its mtime and every cache keyed on it alone.
 
 ## Purpose
 
-Not documented.
+Write only when the content differs from what the file already holds: a rebuild that changes nothing leaves the file, its mtime and every cache keyed on it alone.
 
 ## Architecture
 

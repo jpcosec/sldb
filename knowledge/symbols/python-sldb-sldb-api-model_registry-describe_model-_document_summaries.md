@@ -29,7 +29,7 @@ The model's tracked documents, sorted by name.
 
 ## Purpose
 
-Not documented.
+The model's tracked documents, sorted by name.
 
 ## Architecture
 

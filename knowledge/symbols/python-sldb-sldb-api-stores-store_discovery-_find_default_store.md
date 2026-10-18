@@ -29,7 +29,7 @@ The nearest project store above the working directory, else the global store rul
 
 ## Purpose
 
-Not documented.
+The nearest project store above the working directory, else the global store rules.
 
 ## Architecture
 

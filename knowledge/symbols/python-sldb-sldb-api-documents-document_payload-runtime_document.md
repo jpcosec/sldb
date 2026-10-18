@@ -32,7 +32,7 @@ a bare ref reads only the local store.
 
 ## Purpose
 
-Not documented.
+The RuntimeDocument of one doc; unknown or ambiguous refs raise SLDBDocumentTargetError.
 
 ## Architecture
 

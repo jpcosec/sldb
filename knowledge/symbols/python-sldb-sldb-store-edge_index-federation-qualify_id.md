@@ -30,7 +30,7 @@ and anchors are one vocabulary across stores and stay as they are.
 
 ## Purpose
 
-Not documented.
+The id as read from a linked store's shard, made absolute: documents and sections get the store's name unless they already name a store; models, fields, tags, relation types and anchors are one vocabulary across stores and stay as they are.
 
 ## Architecture
 

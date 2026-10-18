@@ -32,7 +32,7 @@ document's cached payload (the file's previous content) and sign a wrong content
 
 ## Purpose
 
-Not documented.
+Re-extract and store the hashes; False when they came back identical (nothing moved).
 
 ## Architecture
 

@@ -36,7 +36,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Check the draft (or the active model when there is no draft) without installing it.
 
 ## Architecture
 

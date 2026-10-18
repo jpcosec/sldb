@@ -29,7 +29,7 @@ Deprecated alias for `root_ok`.
 
 ## Purpose
 
-Not documented.
+Deprecated alias for `root_ok`.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Not applicable.
 
 ## Purpose
 
-Not documented.
+`q` plus the optional knobs; `among` arrives as a comma-separated string.
 
 ## Architecture
 

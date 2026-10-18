@@ -28,7 +28,7 @@ Compatibility surface for the raw pre-redesign commands.
 
 ## Purpose
 
-Not documented.
+Compatibility surface for the raw pre-redesign commands.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ Targets of an anchor's `ref`, written as a form (`(model Table)`) or as `kind:re
 
 ## Purpose
 
-Not documented.
+Targets of an anchor's `ref`, written as a form (`(model Table)`) or as `kind:rest`.
 
 ## Architecture
 

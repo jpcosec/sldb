@@ -28,7 +28,7 @@ Report heuristic Python fact matches without guaranteeing uniqueness.
 
 ## Purpose
 
-Not documented.
+Report heuristic Python fact matches without guaranteeing uniqueness.
 
 ## Architecture
 

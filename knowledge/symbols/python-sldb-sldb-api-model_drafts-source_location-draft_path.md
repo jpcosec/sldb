@@ -28,7 +28,7 @@ The `.temp` sibling of a model source file where its draft lives.
 
 ## Purpose
 
-Not documented.
+The `.temp` sibling of a model source file where its draft lives.
 
 ## Architecture
 

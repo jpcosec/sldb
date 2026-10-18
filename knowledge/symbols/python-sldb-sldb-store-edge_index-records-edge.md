@@ -28,7 +28,7 @@ One edge whose metadata starts with where it came from (`origin`).
 
 ## Purpose
 
-Not documented.
+One edge whose metadata starts with where it came from (`origin`).
 
 ## Architecture
 

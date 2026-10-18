@@ -32,7 +32,7 @@ field in such a document (16 of this repo's 1550, 60 fields).
 
 ## Purpose
 
-Not documented.
+Each template section's path in the rendered document, or {} when it cannot be told.
 
 ## Architecture
 

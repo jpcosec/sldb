@@ -45,7 +45,7 @@ a line is omitted.
 
 ## Purpose
 
-Not documented.
+An optrev marker whose value is None leaves NO trace in the render: its whole line is dropped, so the document reads byte-for-byte as if the field were never declared (contract: 'It MAY BE ABSENT in the document'). Only two shapes qualify: `key: ⸢optrev•key⸥` or `⸢optrev•key⸥` alone on the line (leading whitespace allowed).
 
 ## Architecture
 

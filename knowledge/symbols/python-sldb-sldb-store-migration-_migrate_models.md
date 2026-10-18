@@ -28,7 +28,7 @@ Every model's indexes to their canonical sharded paths; True when any of them mo
 
 ## Purpose
 
-Not documented.
+Every model's indexes to their canonical sharded paths; True when any of them moved.
 
 ## Architecture
 

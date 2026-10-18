@@ -29,7 +29,7 @@ model's files were never touched.
 
 ## Purpose
 
-Not documented.
+Registry first, files last: if a rebuild raises, the store index is put back and the model's files were never touched.
 
 ## Architecture
 

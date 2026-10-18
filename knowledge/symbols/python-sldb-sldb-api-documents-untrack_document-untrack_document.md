@@ -41,7 +41,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Remove a tracked document from its model's index and rebuild the derived indexes.
 
 ## Architecture
 

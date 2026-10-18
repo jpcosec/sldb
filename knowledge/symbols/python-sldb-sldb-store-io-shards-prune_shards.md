@@ -30,7 +30,7 @@ in an aggregate that happens to get rebuilt without it).
 
 ## Purpose
 
-Not documented.
+Delete every shard whose document is no longer tracked (PLAN 15 capa 5: a document untracked or deleted loses its semantic/sections shard right away, not just its entry in an aggregate that happens to get rebuilt without it).
 
 ## Architecture
 

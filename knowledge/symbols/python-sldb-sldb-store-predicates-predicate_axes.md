@@ -28,7 +28,7 @@ Build the parser lookup from persisted predicate definitions.
 
 ## Purpose
 
-Not documented.
+Build the parser lookup from persisted predicate definitions.
 
 ## Architecture
 

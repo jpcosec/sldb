@@ -28,7 +28,7 @@ Drop a leading YAML frontmatter block (and the blank lines after it).
 
 ## Purpose
 
-Not documented.
+Drop a leading YAML frontmatter block (and the blank lines after it).
 
 ## Architecture
 

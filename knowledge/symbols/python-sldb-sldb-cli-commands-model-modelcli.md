@@ -28,7 +28,7 @@ Handles model contract registration and indexing.
 
 ## Purpose
 
-Not documented.
+Handles model contract registration and indexing.
 
 ## Architecture
 

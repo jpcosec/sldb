@@ -28,7 +28,7 @@ Template text between two field spans; never editable.
 
 ## Purpose
 
-Not documented.
+Template text between two field spans; never editable.
 
 ## Architecture
 

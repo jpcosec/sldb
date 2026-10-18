@@ -35,7 +35,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Span metadata for a parsed marker at the current prefix.
 
 ## Architecture
 

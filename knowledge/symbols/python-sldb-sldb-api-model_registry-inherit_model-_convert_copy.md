@@ -30,7 +30,7 @@ names the class with the owner's reference.
 
 ## Purpose
 
-Not documented.
+The copy keeps its documents, roster and signed contract; its source path goes, and it names the class with the owner's reference.
 
 ## Architecture
 

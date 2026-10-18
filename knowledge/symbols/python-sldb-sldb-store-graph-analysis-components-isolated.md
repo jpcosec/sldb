@@ -31,7 +31,7 @@ not isolated.
 
 ## Purpose
 
-Not documented.
+Nodes that no edge of the relations walked touches, of those classes if given.
 
 ## Architecture
 

@@ -37,7 +37,7 @@ is not a sign of another contract when the current class still produces it; with
 
 ## Purpose
 
-Not documented.
+True when the stored field map names a field `model_type` does not declare.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ compares every document's shard instead of trusting the per-model cache and dirt
 
 ## Purpose
 
-Not documented.
+Every shard of the store's edge index, current; only what moved is rewritten. `full` compares every document's shard instead of trusting the per-model cache and dirty set.
 
 ## Architecture
 

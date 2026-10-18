@@ -28,7 +28,7 @@ The shared identity of a document's fields, or None when the corpus excludes it.
 
 ## Purpose
 
-Not documented.
+The shared identity of a document's fields, or None when the corpus excludes it.
 
 ## Architecture
 

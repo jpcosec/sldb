@@ -30,7 +30,7 @@ writes one shard directly instead of building a whole SemanticIndex for this.
 
 ## Purpose
 
-Not documented.
+Shards out every document `index` carries (store_init's empty index, migration's one-time conversion of an old store); the fast write path (semantic_doc_contribution) writes one shard directly instead of building a whole SemanticIndex for this.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Expose the normalized SLDB graph.
 
 ## Purpose
 
-Not documented.
+Expose the normalized SLDB graph.
 
 ## Architecture
 

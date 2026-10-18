@@ -28,7 +28,7 @@ Not applicable.
 
 ## Purpose
 
-Not documented.
+`sldb models fields add|remove`: thin CLI adapters over `sldb.api` draft field edits.
 
 ## Architecture
 

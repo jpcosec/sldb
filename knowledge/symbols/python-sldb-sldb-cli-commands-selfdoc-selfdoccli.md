@@ -5,11 +5,11 @@ module: sldb.cli.commands.selfdoc
 qualname: SelfdocCLI
 kind: ClassDef
 source_path: sldb/cli/commands/selfdoc.py
-source_span: 19:79
-source_sha256: af595fe0ab09514783624a05bd861bddd52d9624ed05a129fc451704b0d7a5af
+source_span: 19:86
+source_sha256: 28b865edc3806d41c2531206bae0f74b45affeaf16cd648fcc59b34b60fbff7d
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.cli.commands.selfdoc:SelfdocCLI; contract-sha256:ae8e6d0719a9508582fc6b0e706d8bf1d0685a1ba72b1cf67ba3e0c89c03ce16
+provenance: python-ast:python:sldb.cli.commands.selfdoc:SelfdocCLI; contract-sha256:341bbfc2006e2cb354e946dfd5208cc33c0df162dc6cef2b09aad5f7f3595654
 ---
 
 # SelfdocCLI
@@ -28,7 +28,7 @@ Scan parser facts, synchronize tracked documents, or check freshness.
 
 ## Purpose
 
-Not documented.
+Scan parser facts, synchronize tracked documents, or check freshness.
 
 ## Architecture
 

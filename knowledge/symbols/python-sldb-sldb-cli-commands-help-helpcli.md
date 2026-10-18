@@ -28,7 +28,7 @@ Curated help for the redesigned CLI surface.
 
 ## Purpose
 
-Not documented.
+Curated help for the redesigned CLI surface.
 
 ## Architecture
 

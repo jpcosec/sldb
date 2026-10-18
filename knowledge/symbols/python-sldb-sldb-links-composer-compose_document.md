@@ -29,7 +29,7 @@ only the root keeps its own. `s` is the include chain (cycle guard), so a docume
 
 ## Purpose
 
-Not documented.
+Expand `![[x]]` / `![[x#Section]]`. An included document loses its YAML frontmatter; only the root keeps its own. `s` is the include chain (cycle guard), so a document may be included twice.
 
 ## Architecture
 

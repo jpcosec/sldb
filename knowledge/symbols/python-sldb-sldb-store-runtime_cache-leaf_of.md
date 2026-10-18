@@ -30,7 +30,7 @@ misses the disk cache too.
 
 ## Purpose
 
-Not documented.
+The document leaf inside a runtime cache key: what the disk cache keys on — the file state (path, source_hash[, mtime, size]) plus the model's model_hash, so a contract that moved misses the disk cache too.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Cycles in the relations walked; empty when they form a DAG.
 
 ## Purpose
 
-Not documented.
+Cycles in the relations walked; empty when they form a DAG.
 
 ## Architecture
 

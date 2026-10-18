@@ -29,7 +29,7 @@ Utilities for semantic query processing.
 
 ## Purpose
 
-Not documented.
+Utilities for semantic query processing.
 
 ## Architecture
 

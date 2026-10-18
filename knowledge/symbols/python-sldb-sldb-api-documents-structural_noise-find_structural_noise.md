@@ -37,7 +37,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+The document's headings that the model does not declare.
 
 ## Architecture
 

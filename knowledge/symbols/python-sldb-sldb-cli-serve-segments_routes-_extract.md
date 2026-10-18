@@ -37,7 +37,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Run the extraction, mapping each kind of failure to its own status.
 
 ## Architecture
 

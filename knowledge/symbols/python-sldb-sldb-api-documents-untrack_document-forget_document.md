@@ -31,7 +31,7 @@ If any step raises, the shard, the models index and the store index are put back
 
 ## Purpose
 
-Not documented.
+Delete the document's shard and update model hashes and derived indexes under the store lock.
 
 ## Architecture
 

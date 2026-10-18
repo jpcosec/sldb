@@ -28,7 +28,7 @@ A top-level surface lists its executable descendant commands.
 
 ## Purpose
 
-Not documented.
+A top-level surface lists its executable descendant commands.
 
 ## Architecture
 

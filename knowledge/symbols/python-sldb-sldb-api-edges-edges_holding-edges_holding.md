@@ -42,7 +42,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+The edges leaving `export_id` whose condition holds on `subject`.
 
 ## Architecture
 

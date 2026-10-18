@@ -29,7 +29,7 @@ a prefix of the child — which is what a parent declared by hand looks like.
 
 ## Purpose
 
-Not documented.
+How a child reads under its parent: the trailing segment, or the whole id when it is not a prefix of the child — which is what a parent declared by hand looks like.
 
 ## Architecture
 

@@ -31,7 +31,7 @@ disagrees can be attributed to one child instead of reported as a bare mismatch.
 
 ## Purpose
 
-Not documented.
+A model node from its two children: the document roster and the model's contract.
 
 ## Architecture
 

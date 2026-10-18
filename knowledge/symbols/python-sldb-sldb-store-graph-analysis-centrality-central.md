@@ -30,7 +30,7 @@ The `limit` most central nodes with their score, highest first.
 
 ## Purpose
 
-Not documented.
+The `limit` most central nodes with their score, highest first.
 
 ## Architecture
 

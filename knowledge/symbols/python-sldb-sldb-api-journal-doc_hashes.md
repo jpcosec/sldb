@@ -28,7 +28,7 @@ The tracked document's content and field hashes, or (None, None) if untracked.
 
 ## Purpose
 
-Not documented.
+The tracked document's content and field hashes, or (None, None) if untracked.
 
 ## Architecture
 

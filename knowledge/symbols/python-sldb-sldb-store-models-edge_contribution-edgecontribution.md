@@ -29,7 +29,7 @@ Nodes and edges of one contributor; also the store-level shard's own shape.
 
 ## Purpose
 
-Not documented.
+Nodes and edges of one contributor; also the store-level shard's own shape.
 
 ## Architecture
 

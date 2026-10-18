@@ -29,7 +29,7 @@ Deprecated alias for `content_ok`.
 
 ## Purpose
 
-Not documented.
+Deprecated alias for `content_ok`.
 
 ## Architecture
 

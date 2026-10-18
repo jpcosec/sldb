@@ -34,7 +34,7 @@ in a file that is read as a description of the store.
 
 ## Purpose
 
-Not documented.
+Drop the cache entries whose leaf key names the deleted file.
 
 ## Architecture
 

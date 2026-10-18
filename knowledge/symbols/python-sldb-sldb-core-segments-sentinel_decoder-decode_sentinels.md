@@ -36,7 +36,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Remove sentinels from ``raw`` and report where each span landed.
 
 ## Architecture
 

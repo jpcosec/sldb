@@ -28,7 +28,7 @@ Check every document under the new contract and return the backfill plan.
 
 ## Purpose
 
-Not documented.
+Check every document under the new contract and return the backfill plan.
 
 ## Architecture
 

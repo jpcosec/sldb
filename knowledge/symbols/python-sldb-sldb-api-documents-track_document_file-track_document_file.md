@@ -46,7 +46,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Index a Markdown file as a document of a model.
 
 ## Architecture
 

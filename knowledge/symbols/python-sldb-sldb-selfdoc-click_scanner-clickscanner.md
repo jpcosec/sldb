@@ -28,7 +28,7 @@ Walk a click Group's leaf commands into `CommandRecord` facts.
 
 ## Purpose
 
-Not documented.
+Walk a click Group's leaf commands into `CommandRecord` facts.
 
 ## Architecture
 

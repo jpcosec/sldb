@@ -29,7 +29,7 @@ round-trip exits with the error message, as the `fields` commands always have.
 
 ## Purpose
 
-Not documented.
+Save a runtime document's new payload; an unregistered model/document or a broken round-trip exits with the error message, as the `fields` commands always have.
 
 ## Architecture
 

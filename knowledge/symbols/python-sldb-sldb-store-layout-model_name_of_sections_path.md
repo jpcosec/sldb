@@ -28,7 +28,7 @@ The model name a (legacy-shaped, still used as a key) per-model sections path na
 
 ## Purpose
 
-Not documented.
+The model name a (legacy-shaped, still used as a key) per-model sections path names.
 
 ## Architecture
 

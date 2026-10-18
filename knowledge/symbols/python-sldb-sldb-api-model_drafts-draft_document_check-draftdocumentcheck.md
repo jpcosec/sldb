@@ -29,7 +29,7 @@ Whether one tracked document still round-trips under the checked contract.
 
 ## Purpose
 
-Not documented.
+Whether one tracked document still round-trips under the checked contract.
 
 ## Architecture
 

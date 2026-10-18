@@ -36,7 +36,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Every direct link of the store, sorted by name.
 
 ## Architecture
 

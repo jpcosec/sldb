@@ -29,7 +29,7 @@ Deprecated alias for `fields_on_disk`.
 
 ## Purpose
 
-Not documented.
+Deprecated alias for `fields_on_disk`.
 
 ## Architecture
 

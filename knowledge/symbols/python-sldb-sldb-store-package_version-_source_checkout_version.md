@@ -29,7 +29,7 @@ Version in the pyproject.toml above `src/`, when running from a source tree.
 
 ## Purpose
 
-Not documented.
+Version in the pyproject.toml above `src/`, when running from a source tree.
 
 ## Architecture
 

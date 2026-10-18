@@ -31,7 +31,7 @@ do not read the store again. The list is fresh per call; the documents are share
 
 ## Purpose
 
-Not documented.
+The tracked documents of a store, extracted. With the default codec the load is cached by the state of the files it comes from (sldb.store.runtime_cache), so repeated queries do not read the store again. The list is fresh per call; the documents are shared. `store_name` is the name the documents carry: the alias when a linked store is read alone.
 
 ## Architecture
 

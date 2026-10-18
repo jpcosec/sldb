@@ -28,7 +28,7 @@ Refuse a link name the store index already uses.
 
 ## Purpose
 
-Not documented.
+Refuse a link name the store index already uses.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ One document as a dict, by name, path, `Model/name` or `alias:ref` (see `runtime
 
 ## Purpose
 
-Not documented.
+One document as a dict, by name, path, `Model/name` or `alias:ref` (see `runtime_document`).
 
 ## Architecture
 

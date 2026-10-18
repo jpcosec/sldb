@@ -42,7 +42,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Every value of a declared reference or containment field that names no document.
 
 ## Architecture
 

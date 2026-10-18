@@ -28,7 +28,7 @@ The nodes the rest of the store leans on, with their score.
 
 ## Purpose
 
-Not documented.
+The nodes the rest of the store leans on, with their score.
 
 ## Architecture
 

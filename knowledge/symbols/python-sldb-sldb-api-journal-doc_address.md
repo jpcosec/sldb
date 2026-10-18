@@ -28,7 +28,7 @@ The `Model:doc` address a document journal entry is keyed by.
 
 ## Purpose
 
-Not documented.
+The `Model:doc` address a document journal entry is keyed by.
 
 ## Architecture
 

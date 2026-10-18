@@ -34,7 +34,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Semantic, sections and edges indexes brought current; used where a model (not one document) changed — registered, reindexed, promoted — so its node, fields and every document hash that moved reach the edge index in the same operation.
 
 ## Architecture
 

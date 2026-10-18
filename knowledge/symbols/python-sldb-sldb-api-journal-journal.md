@@ -37,7 +37,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Read a store's write journal, newest entry first.
 
 ## Architecture
 

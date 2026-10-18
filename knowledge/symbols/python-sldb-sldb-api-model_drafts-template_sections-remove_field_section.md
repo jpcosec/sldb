@@ -29,7 +29,7 @@ The template without the field's section (heading + marker, up to the next headi
 
 ## Purpose
 
-Not documented.
+The template without the field's section (heading + marker, up to the next heading).
 
 ## Architecture
 

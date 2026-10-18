@@ -28,7 +28,7 @@ Read a node-link JSON (or native snapshot) file back into a GraphSnapshot.
 
 ## Purpose
 
-Not documented.
+Read a node-link JSON (or native snapshot) file back into a GraphSnapshot.
 
 ## Architecture
 

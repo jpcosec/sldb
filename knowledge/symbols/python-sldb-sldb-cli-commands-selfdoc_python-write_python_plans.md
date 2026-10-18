@@ -5,12 +5,12 @@ module: sldb.cli.commands.selfdoc_python
 qualname: write_python_plans
 kind: FunctionDef
 source_path: sldb/cli/commands/selfdoc_python.py
-source_span: 57:62
-source_sha256: d2614221ec7e74d211d9079a1a19bf73686cce2eba2541faf22cca99507846d5
+source_span: 68:73
+source_sha256: 78eba3cfb55822c91a05b982986e809d47f4aadf594ecf4da8790220b0576adb
 architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.cli.commands.selfdoc_python:write_python_plans;
-  contract-sha256:9e252ddef9fd1a1eb8705807bc6e7085d484507287223fbb0865702638c1cfc2
+  contract-sha256:3897a0111e4657bc436bfc7076898de10a6cbcd5d2495e4173543d80e623d30b
 ---
 
 # write_python_plans
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "contextlib", "json", "pathlib", "sldb.cli.selfdoc_context", "sldb.cli.selfdoc_inspect", "sldb.cli.selfdoc_write", "sldb.selfdoc.python_materialize", "sldb.selfdoc.python_relation_registry", "sldb.selfdoc.python_scanner", "sldb.selfdoc.python_source_graph", "sldb.selfdoc.python_source_scan", "sldb.selfdoc.source_graph_file", "sys"]
+["__future__", "contextlib", "json", "pathlib", "sldb.cli.selfdoc_context", "sldb.cli.selfdoc_inspect", "sldb.cli.selfdoc_write", "sldb.selfdoc.python_materialize", "sldb.selfdoc.python_purpose", "sldb.selfdoc.python_relation_registry", "sldb.selfdoc.python_scanner", "sldb.selfdoc.python_source_graph", "sldb.selfdoc.python_source_scan", "sldb.selfdoc.source_graph_file", "sys"]
 
 ## Purpose
 

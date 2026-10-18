@@ -28,7 +28,7 @@ Exports the KGDB semantic payload from persisted SLDB indexes.
 
 ## Purpose
 
-Not documented.
+Exports the KGDB semantic payload from persisted SLDB indexes.
 
 ## Architecture
 

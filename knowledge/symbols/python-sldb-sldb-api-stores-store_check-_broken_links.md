@@ -28,7 +28,7 @@ Links whose target is gone or holds no store: a note, never a failure.
 
 ## Purpose
 
-Not documented.
+Links whose target is gone or holds no store: a note, never a failure.
 
 ## Architecture
 

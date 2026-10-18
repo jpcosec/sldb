@@ -28,7 +28,7 @@ Register a store under HOME in the global catalog, once per path.
 
 ## Purpose
 
-Not documented.
+Register a store under HOME in the global catalog, once per path.
 
 ## Architecture
 

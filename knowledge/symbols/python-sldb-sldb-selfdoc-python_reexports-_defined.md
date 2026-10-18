@@ -28,7 +28,7 @@ The symbol `module` defines as `name`, or the submodule `module.name` (`from pkg
 
 ## Purpose
 
-Not documented.
+The symbol `module` defines as `name`, or the submodule `module.name` (`from pkg import sub`).
 
 ## Architecture
 

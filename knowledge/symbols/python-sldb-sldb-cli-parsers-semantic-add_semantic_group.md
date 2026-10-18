@@ -28,7 +28,7 @@ Register `semantic`: write and read the semantic DAG.
 
 ## Purpose
 
-Not documented.
+Register `semantic`: write and read the semantic DAG.
 
 ## Architecture
 

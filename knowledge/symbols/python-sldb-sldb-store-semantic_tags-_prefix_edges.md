@@ -28,7 +28,7 @@ Generates parent-child edges for a dotted semantic tag.
 
 ## Purpose
 
-Not documented.
+Generates parent-child edges for a dotted semantic tag.
 
 ## Architecture
 

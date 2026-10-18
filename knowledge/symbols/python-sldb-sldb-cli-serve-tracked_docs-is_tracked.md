@@ -36,7 +36,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Whether any model in the store tracks a document called ``name``.
 
 ## Architecture
 

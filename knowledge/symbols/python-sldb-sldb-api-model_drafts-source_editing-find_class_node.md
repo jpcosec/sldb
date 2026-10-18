@@ -32,7 +32,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+The top-level class statement named `class_name`.
 
 ## Architecture
 

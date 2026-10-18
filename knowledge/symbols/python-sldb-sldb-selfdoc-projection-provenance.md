@@ -28,7 +28,7 @@ Fingerprint the command contract, not the handler's implementation.
 
 ## Purpose
 
-Not documented.
+Fingerprint the command contract, not the handler's implementation.
 
 ## Architecture
 

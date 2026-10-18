@@ -34,7 +34,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Run the appropriate models subcommand.
 
 ## Architecture
 

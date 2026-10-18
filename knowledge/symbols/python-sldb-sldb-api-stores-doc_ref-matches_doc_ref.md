@@ -28,7 +28,7 @@ Whether `ref` (already unqualified) names the document by name, path or `Model/n
 
 ## Purpose
 
-Not documented.
+Whether `ref` (already unqualified) names the document by name, path or `Model/name`.
 
 ## Architecture
 

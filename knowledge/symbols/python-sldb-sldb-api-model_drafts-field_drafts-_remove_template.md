@@ -29,7 +29,7 @@ Drop the field's section from the draft's own template; leave an inherited one a
 
 ## Purpose
 
-Not documented.
+Drop the field's section from the draft's own template; leave an inherited one alone.
 
 ## Architecture
 

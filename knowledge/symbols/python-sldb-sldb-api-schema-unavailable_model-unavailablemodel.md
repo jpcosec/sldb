@@ -29,7 +29,7 @@ A model registered in the store whose class could not be loaded.
 
 ## Purpose
 
-Not documented.
+A model registered in the store whose class could not be loaded.
 
 ## Architecture
 

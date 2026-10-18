@@ -28,7 +28,7 @@ Where a store lives once a store argument (path, alias or nothing) has been reso
 
 ## Purpose
 
-Not documented.
+Where a store lives once a store argument (path, alias or nothing) has been resolved.
 
 ## Architecture
 

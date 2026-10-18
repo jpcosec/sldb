@@ -28,7 +28,7 @@ One entry per thing to look at: what moved, whose it is, whether a command fixes
 
 ## Purpose
 
-Not documented.
+One entry per thing to look at: what moved, whose it is, whether a command fixes it.
 
 ## Architecture
 

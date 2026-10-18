@@ -28,7 +28,7 @@ gitignore_policy(store_path: Path)
 
 ## Purpose
 
-Not documented.
+`{core_ignored, runtime_ignored, ok}` for the store's repository; None outside a git work tree.
 
 ## Architecture
 

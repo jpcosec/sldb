@@ -28,7 +28,7 @@ Base class for rendering components.
 
 ## Purpose
 
-Not documented.
+Base class for rendering components.
 
 ## Architecture
 

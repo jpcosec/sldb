@@ -39,7 +39,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Register RelationTypeDoc and RelationDoc, track the builtin relation types as documents, and register each relation name as a predicate. Idempotent.
 
 ## Architecture
 

@@ -32,7 +32,7 @@ key through extraction and back on re-render, so nothing is lost (deskops' TaskD
 
 ## Purpose
 
-Not documented.
+The document's top-level frontmatter keys the model's template never declares.
 
 ## Architecture
 

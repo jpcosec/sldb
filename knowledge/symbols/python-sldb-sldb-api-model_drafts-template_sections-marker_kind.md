@@ -29,7 +29,7 @@ Which reversible marker a field's annotation needs: rev, list, dict or table.
 
 ## Purpose
 
-Not documented.
+Which reversible marker a field's annotation needs: rev, list, dict or table.
 
 ## Architecture
 

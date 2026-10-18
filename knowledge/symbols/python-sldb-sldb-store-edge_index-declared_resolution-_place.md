@@ -28,7 +28,7 @@ The declared edge, pointed at its document; or its report; or nothing (a free fi
 
 ## Purpose
 
-Not documented.
+The declared edge, pointed at its document; or its report; or nothing (a free field's value).
 
 ## Architecture
 

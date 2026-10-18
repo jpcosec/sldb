@@ -28,7 +28,7 @@ This document's shard was just written as `entry`.
 
 ## Purpose
 
-Not documented.
+This document's shard was just written as `entry`.
 
 ## Architecture
 

@@ -36,7 +36,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Whether ``text[start:end]`` is a block of its own or sits inline.
 
 ## Architecture
 

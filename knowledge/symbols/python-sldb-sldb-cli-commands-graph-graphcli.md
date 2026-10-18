@@ -28,7 +28,7 @@ Noun-first surface of the graph layer.
 
 ## Purpose
 
-Not documented.
+Noun-first surface of the graph layer.
 
 ## Architecture
 

@@ -32,7 +32,7 @@ enum defaults serialize as their value.
 
 ## Purpose
 
-Not documented.
+Field descriptor plus the declared default when the field has one.
 
 ## Architecture
 

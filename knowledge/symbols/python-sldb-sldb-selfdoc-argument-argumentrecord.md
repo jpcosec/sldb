@@ -28,7 +28,7 @@ Describe a positional argument or option without executing it.
 
 ## Purpose
 
-Not documented.
+Describe a positional argument or option without executing it.
 
 ## Architecture
 

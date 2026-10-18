@@ -5,11 +5,11 @@ module: sldb.api.documents.rewrite_loss
 qualname: _flat
 kind: FunctionDef
 source_path: sldb/api/documents/rewrite_loss.py
-source_span: '57:58'
-source_sha256: fe70161a0e156c855026642bd0634177053c11d6d06c94a4dc53137562d2d900
+source_span: '58:59'
+source_sha256: 936c08fb605d4b09ab923c9e6ed51f25178bd66526dc1c9d71a99dc48c1aa2bd
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.api.documents.rewrite_loss:_flat; contract-sha256:06f99c5b1a0ad599705513aa4a2d953dc568d2d14094a2a1379e33951b1ba10a
+provenance: python-ast:python:sldb.api.documents.rewrite_loss:_flat; contract-sha256:1393d6f4e45e426a473a15e7c59a93b6b828643f29f077b17f3a93e51c3b886d
 ---
 
 # _flat

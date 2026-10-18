@@ -28,7 +28,7 @@ Walk nested parser definitions, including inherited argument metadata.
 
 ## Purpose
 
-Not documented.
+Walk nested parser definitions, including inherited argument metadata.
 
 ## Architecture
 

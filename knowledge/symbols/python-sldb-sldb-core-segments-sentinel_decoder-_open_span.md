@@ -37,7 +37,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Push the span opening at ``index`` and return the index after its header.
 
 ## Architecture
 

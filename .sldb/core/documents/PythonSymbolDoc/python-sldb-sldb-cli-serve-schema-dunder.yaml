@@ -1,7 +1,7 @@
 name: python-sldb-sldb-cli-serve-schema-dunder
 path: knowledge/symbols/python-sldb-sldb-cli-serve-schema-dunder.md
-source_hash: 3307dbf0e32d064fc7f352dbccad255f98272f0eb1c5e3b3714379ff075a4ddc
-content_hash: c3eeea1c1490e213f07ca892d773eedfd73122a15a565f9e818532cfcbffcfc7
+source_hash: 542c112de01349317f682dec0fff7a9e212e70f21c964074d28e81d562ab868c
+content_hash: 56a2b11ec45ff2b036ecbdcd1f26e4ebe05b03a5ff308ba189751f75ec7cacb0
 field_hashes:
   id: ee283295b36416981827434ad9786e9c6ee6a573af88731759146dd20db10fce
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -15,7 +15,7 @@ field_hashes:
   signature: 0cfbcf73e3e8bff2aa9b63edd71b91c6b5e27660b0481112f1a3d2d33f3e76bd
   docstring: 048d06ebd2757932f04229ea00fc1ed4b877f8cf4a6b404ac2413ecc59329019
   imports: 9fcc424601cb81df3c0ac3b788d62405e814ae126823ed53e20b883c90b94209
-  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  purpose: 048d06ebd2757932f04229ea00fc1ed4b877f8cf4a6b404ac2413ecc59329019
   architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   provenance: b28af0b4e3886f223bd4a71fa1728ebcf5e129f70352710e7f902fd5fe18b657

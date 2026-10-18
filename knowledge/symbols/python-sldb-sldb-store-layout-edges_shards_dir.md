@@ -28,7 +28,7 @@ One document's edges per file, the same per-document pattern as sections.
 
 ## Purpose
 
-Not documented.
+One document's edges per file, the same per-document pattern as sections.
 
 ## Architecture
 

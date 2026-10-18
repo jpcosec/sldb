@@ -32,7 +32,7 @@ documents are not rehashed, but its roster still is: see `_queue_roster_only`.
 
 ## Purpose
 
-Not documented.
+Rehash every model's documents; a model whose class fails to import is recorded as skipped.
 
 ## Architecture
 

@@ -5,11 +5,11 @@ module: sldb.selfdoc.python_source_graph
 qualname: _edges
 kind: FunctionDef
 source_path: sldb/selfdoc/python_source_graph.py
-source_span: '40:50'
-source_sha256: 2ca7c2be0a20b3fc1f7f2174cb1eb7be64c34720e47686dd305dca6ab0dd23e2
+source_span: '42:48'
+source_sha256: d4993684ffb6ac80c43b4b99ff0483095464b7697bff0085b5b5b493663f00dd
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.selfdoc.python_source_graph:_edges; contract-sha256:9e17582c18fa3ff66b17385f248744122cb97472e2443587471de7eebb7df458
+provenance: python-ast:python:sldb.selfdoc.python_source_graph:_edges; contract-sha256:d672792168797c430e928632e0acffce09a0ddc9846affe6f47b58d87b87612d
 ---
 
 # _edges
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-[".python_reexports", ".python_source_values", ".python_tag_inheritance", "__future__", "datetime"]
+[".python_reexports", ".python_shadowing", ".python_source_values", ".python_tag_inheritance", "__future__", "datetime"]
 
 ## Purpose
 

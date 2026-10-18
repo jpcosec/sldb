@@ -30,7 +30,7 @@ opened and compared.
 
 ## Purpose
 
-Not documented.
+PLAN 15 capa 8, as sections does it: every document's file is cheaply checked to exist, but only one in the dirty set (or every one, with no trustworthy baseline) has its shard opened and compared.
 
 ## Architecture
 

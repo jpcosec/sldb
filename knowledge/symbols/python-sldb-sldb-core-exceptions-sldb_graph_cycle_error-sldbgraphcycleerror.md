@@ -29,7 +29,7 @@ A relation asked to be ordered is not a DAG: the cycle is in `cycle`.
 
 ## Purpose
 
-Not documented.
+A relation asked to be ordered is not a DAG: the cycle is in `cycle`.
 
 ## Architecture
 

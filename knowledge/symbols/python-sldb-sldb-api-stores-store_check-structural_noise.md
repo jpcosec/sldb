@@ -28,7 +28,7 @@ Tracked documents with undeclared headings: reported here, refused at write time
 
 ## Purpose
 
-Not documented.
+Tracked documents with undeclared headings: reported here, refused at write time.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ dispatch_docs_or_create(handler: Any, route: str, store_path: Path, project_root
 
 ## Purpose
 
-Not documented.
+`POST /docs` is the compact create; `/docs/create|track|untrack` keep their contract.
 
 ## Architecture
 

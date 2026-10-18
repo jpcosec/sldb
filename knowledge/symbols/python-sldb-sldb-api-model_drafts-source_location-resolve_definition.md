@@ -29,7 +29,7 @@ Keep local definitions; follow import references only for re-export modules.
 
 ## Purpose
 
-Not documented.
+Keep local definitions; follow import references only for re-export modules.
 
 ## Architecture
 

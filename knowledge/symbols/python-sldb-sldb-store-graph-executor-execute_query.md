@@ -28,7 +28,7 @@ Run a StructuredQuery against an edge index; returns matching nodes.
 
 ## Purpose
 
-Not documented.
+Run a StructuredQuery against an edge index; returns matching nodes.
 
 ## Architecture
 

@@ -36,7 +36,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+A literal segment over ``text[start:end]``.
 
 ## Architecture
 

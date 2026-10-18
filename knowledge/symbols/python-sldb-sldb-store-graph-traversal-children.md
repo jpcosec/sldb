@@ -28,7 +28,7 @@ The nodes pointing at `node_id` through `relation`.
 
 ## Purpose
 
-Not documented.
+The nodes pointing at `node_id` through `relation`.
 
 ## Architecture
 

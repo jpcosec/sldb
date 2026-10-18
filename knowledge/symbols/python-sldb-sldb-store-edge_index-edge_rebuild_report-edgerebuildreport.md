@@ -29,7 +29,7 @@ Counts of one `rebuild_edges_indexes` pass; a warm pass reports nothing written.
 
 ## Purpose
 
-Not documented.
+Counts of one `rebuild_edges_indexes` pass; a warm pass reports nothing written.
 
 ## Architecture
 

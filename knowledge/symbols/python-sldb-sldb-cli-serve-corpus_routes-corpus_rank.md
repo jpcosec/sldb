@@ -37,7 +37,7 @@ drifted, so the call that does it can be slow. An empty `hits` always means "no 
 
 ## Purpose
 
-Not documented.
+Serve `?q=&k=&threshold=&among=&fields=&refresh=`.
 
 ## Architecture
 

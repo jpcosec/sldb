@@ -29,7 +29,7 @@ The document's index entry, from its shard.
 
 ## Purpose
 
-Not documented.
+The document's index entry, from its shard.
 
 ## Architecture
 

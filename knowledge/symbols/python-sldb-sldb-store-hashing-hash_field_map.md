@@ -31,7 +31,7 @@ it): extraction is the expensive half, and this would pay it twice.
 
 ## Purpose
 
-Not documented.
+`hash_field_map_of` for text that has not been extracted yet.
 
 ## Architecture
 

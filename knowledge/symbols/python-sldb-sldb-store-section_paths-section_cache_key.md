@@ -28,7 +28,7 @@ Invalidate persisted headings when section identity rules change.
 
 ## Purpose
 
-Not documented.
+Invalidate persisted headings when section identity rules change.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ This field's address: `docs/<Model>/<doc>/<field>`, prefixed by store when linke
 
 ## Purpose
 
-Not documented.
+This field's address: `docs/<Model>/<doc>/<field>`, prefixed by store when linked.
 
 ## Architecture
 

@@ -32,7 +32,7 @@ same path can name a document in each store and a ref means the composing store'
 
 ## Purpose
 
-Not documented.
+Project-relative path -> node id of the document tracked at it.
 
 ## Architecture
 

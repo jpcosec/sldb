@@ -28,7 +28,7 @@ Dispatch model subcommands.
 
 ## Purpose
 
-Not documented.
+Dispatch model subcommands.
 
 ## Architecture
 

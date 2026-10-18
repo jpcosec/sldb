@@ -1,7 +1,7 @@
 name: python-sldb-sldb-api-matching-matcher-matcher-rank
 path: knowledge/symbols/python-sldb-sldb-api-matching-matcher-matcher-rank.md
-source_hash: d14bba2e5a8d2cab9e0da86f9a24612723a6a5e1e03d3fdebaaed229469e13f3
-content_hash: 649502b94c5832b118b7bb720e9f248133f9c7aa756c16ce0ea33ea346c102fd
+source_hash: 294607e0ca100a1582a7f965eba1553e0e3f7fa5afe3b89ddd64c8de51b088a2
+content_hash: f814c47db31d48e3f7e7067320b08b3aa89c795d342324cd9c23fab997d1cd61
 field_hashes:
   id: 1fee263032923b03dfdcab22156ccfda4975276e1edab6554832342c1483d7b8
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -15,7 +15,7 @@ field_hashes:
   signature: c6b01e9f5a19eff90f2016f3596023ac56819244fc2da3d69aafc489b88b30b1
   docstring: cf2da66ac33ad5767e715414f9c66c41bd1fe9fc515c7595dbe5151b8b465256
   imports: 9f8821eac12477e32f794b745f2ae034921cee7cb3784e31a37422b68e6fc018
-  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  purpose: cf2da66ac33ad5767e715414f9c66c41bd1fe9fc515c7595dbe5151b8b465256
   architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   provenance: 9895515a6812eca5a012f60ef0bf6f69e7529882537cd15aae624ed46c1b5f48

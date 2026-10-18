@@ -29,7 +29,7 @@ Filter edges by relation_type membership and direction.
 
 ## Purpose
 
-Not documented.
+Filter edges by relation_type membership and direction.
 
 ## Architecture
 

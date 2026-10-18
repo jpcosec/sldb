@@ -41,7 +41,7 @@ the write path re-verifies the file before saving.
 
 ## Purpose
 
-Not documented.
+Carry one validated documentation change and its before-image to execution.
 
 ## Architecture
 

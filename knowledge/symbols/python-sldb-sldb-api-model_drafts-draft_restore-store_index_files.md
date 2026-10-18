@@ -29,7 +29,7 @@ Every file a model reindex may rewrite: the store core indexes and the semantic 
 
 ## Purpose
 
-Not documented.
+Every file a model reindex may rewrite: the store core indexes and the semantic runtime indexes.
 
 ## Architecture
 

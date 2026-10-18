@@ -36,7 +36,7 @@ for. There it keeps refusing instead of guessing.
 
 ## Purpose
 
-Not documented.
+Whether the sections at the template's indices are the template's own sections.
 
 ## Architecture
 

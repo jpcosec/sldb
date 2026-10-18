@@ -28,7 +28,7 @@ Triple quotes when the text allows them, as the hand-written models; repr otherw
 
 ## Purpose
 
-Not documented.
+Triple quotes when the text allows them, as the hand-written models; repr otherwise.
 
 ## Architecture
 

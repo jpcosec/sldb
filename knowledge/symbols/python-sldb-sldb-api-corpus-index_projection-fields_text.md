@@ -28,7 +28,7 @@ The first of those fields with a non-empty string, in order.
 
 ## Purpose
 
-Not documented.
+The first of those fields with a non-empty string, in order.
 
 ## Architecture
 

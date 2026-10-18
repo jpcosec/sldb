@@ -32,7 +32,7 @@ just to confirm it agrees with a source_hash that has not moved.
 
 ## Purpose
 
-Not documented.
+PLAN 15 capa 8: `entries` is this operation's own cache (composed from shards at most once); every document's file is still cheaply checked to exist (as before, for pruning correctness), but only one in the dirty set (or every one, with no trustworthy baseline) is actually opened and re-synced — an untouched document's sections shard is never read just to confirm it agrees with a source_hash that has not moved.
 
 ## Architecture
 

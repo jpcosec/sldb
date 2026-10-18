@@ -28,7 +28,7 @@ The runtime documents of one store: the local one, or a linked one by name.
 
 ## Purpose
 
-Not documented.
+The runtime documents of one store: the local one, or a linked one by name.
 
 ## Architecture
 

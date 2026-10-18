@@ -30,7 +30,7 @@ ones; `origin` is `{origin: <declaring node id>, at: <path:line>}`.
 
 ## Purpose
 
-Not documented.
+`[{tag, origin, at}]`: the inherited ones the local tags do not override, then the local ones; `origin` is `{origin: <declaring node id>, at: <path:line>}`.
 
 ## Architecture
 

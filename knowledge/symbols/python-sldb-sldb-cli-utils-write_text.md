@@ -28,7 +28,7 @@ Write text to a file or stdout.
 
 ## Purpose
 
-Not documented.
+Write text to a file or stdout.
 
 ## Architecture
 

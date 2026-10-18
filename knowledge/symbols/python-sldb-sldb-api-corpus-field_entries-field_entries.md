@@ -28,7 +28,7 @@ Every field of every admitted document that the field projection admits.
 
 ## Purpose
 
-Not documented.
+Every field of every admitted document that the field projection admits.
 
 ## Architecture
 

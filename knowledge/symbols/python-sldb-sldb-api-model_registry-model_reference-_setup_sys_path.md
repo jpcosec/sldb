@@ -29,7 +29,7 @@ Put `pythonpath` (then the working directory) at the front of `sys.path`, once e
 
 ## Purpose
 
-Not documented.
+Put `pythonpath` (then the working directory) at the front of `sys.path`, once each.
 
 ## Architecture
 

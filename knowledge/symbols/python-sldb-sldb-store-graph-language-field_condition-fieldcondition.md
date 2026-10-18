@@ -29,7 +29,7 @@ A single comparison condition on a facet field.
 
 ## Purpose
 
-Not documented.
+A single comparison condition on a facet field.
 
 ## Architecture
 

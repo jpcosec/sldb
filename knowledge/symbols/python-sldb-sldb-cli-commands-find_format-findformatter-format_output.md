@@ -29,7 +29,7 @@ Format and print the matching records.
 
 ## Purpose
 
-Not documented.
+Format and print the matching records.
 
 ## Architecture
 

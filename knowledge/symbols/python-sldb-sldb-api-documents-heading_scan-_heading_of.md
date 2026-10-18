@@ -28,7 +28,7 @@ The `(level, title)` of a heading node, or None when it is not a heading.
 
 ## Purpose
 
-Not documented.
+The `(level, title)` of a heading node, or None when it is not a heading.
 
 ## Architecture
 

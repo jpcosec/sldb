@@ -31,7 +31,7 @@ measurements, and every caller through `_cached` already only reads validated da
 
 ## Purpose
 
-Not documented.
+An independent copy of a parsed index, cheaper than `model_copy(deep=True)`: pydantic's own dump/validate round-trip instead of the generic recursive `copy.deepcopy` it uses internally (PLAN 15 M2) — ~4x faster on a realistic SectionsIndex in this codebase's own measurements, and every caller through `_cached` already only reads validated data back.
 
 ## Architecture
 

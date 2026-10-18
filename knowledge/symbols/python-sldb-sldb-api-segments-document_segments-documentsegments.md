@@ -29,7 +29,7 @@ The canonical render of one tracked document, segmented by origin.
 
 ## Purpose
 
-Not documented.
+The canonical render of one tracked document, segmented by origin.
 
 ## Architecture
 

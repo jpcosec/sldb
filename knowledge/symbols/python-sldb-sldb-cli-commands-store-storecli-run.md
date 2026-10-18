@@ -28,7 +28,7 @@ Dispatch store subcommands.
 
 ## Purpose
 
-Not documented.
+Dispatch store subcommands.
 
 ## Architecture
 

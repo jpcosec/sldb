@@ -28,7 +28,7 @@ Build an EdgeIndex from a snapshot: every node and edge as the shards would hold
 
 ## Purpose
 
-Not documented.
+Build an EdgeIndex from a snapshot: every node and edge as the shards would hold them.
 
 ## Architecture
 

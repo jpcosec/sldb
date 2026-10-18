@@ -28,7 +28,7 @@ A bare symbol read from a form (`model`, `Table`), as opposed to a "quoted strin
 
 ## Purpose
 
-Not documented.
+A bare symbol read from a form (`model`, `Table`), as opposed to a "quoted string".
 
 ## Architecture
 

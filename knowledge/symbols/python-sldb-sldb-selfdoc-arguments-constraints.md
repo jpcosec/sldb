@@ -28,7 +28,7 @@ Retain required mutually exclusive selections.
 
 ## Purpose
 
-Not documented.
+Retain required mutually exclusive selections.
 
 ## Architecture
 

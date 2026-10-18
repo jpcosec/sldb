@@ -35,7 +35,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+One cell's text, with newlines flattened and pipes escaped.
 
 ## Architecture
 

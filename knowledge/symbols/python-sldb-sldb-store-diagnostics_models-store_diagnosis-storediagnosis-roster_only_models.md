@@ -29,7 +29,7 @@ Models whose roster hash disagrees although no document present is damaged.
 
 ## Purpose
 
-Not documented.
+Models whose roster hash disagrees although no document present is damaged.
 
 ## Architecture
 

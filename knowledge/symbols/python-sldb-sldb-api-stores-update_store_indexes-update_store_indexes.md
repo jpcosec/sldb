@@ -37,7 +37,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Rehash changed documents, save model indexes and rebuild the derived indexes.
 
 ## Architecture
 

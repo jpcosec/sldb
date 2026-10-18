@@ -28,7 +28,7 @@ The id without its `sldb://<kind>/` prefix; one without a prefix passes through.
 
 ## Purpose
 
-Not documented.
+The id without its `sldb://<kind>/` prefix; one without a prefix passes through.
 
 ## Architecture
 

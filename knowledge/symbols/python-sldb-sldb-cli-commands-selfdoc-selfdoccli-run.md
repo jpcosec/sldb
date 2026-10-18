@@ -6,10 +6,10 @@ qualname: SelfdocCLI.run
 kind: FunctionDef
 source_path: sldb/cli/commands/selfdoc.py
 source_span: '22:33'
-source_sha256: af595fe0ab09514783624a05bd861bddd52d9624ed05a129fc451704b0d7a5af
+source_sha256: 28b865edc3806d41c2531206bae0f74b45affeaf16cd648fcc59b34b60fbff7d
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.cli.commands.selfdoc:SelfdocCLI.run; contract-sha256:a3d2c0221a7fe9dc6995f6b16a2fb6847b6b59622bad3830501b2e64340e1674
+provenance: python-ast:python:sldb.cli.commands.selfdoc:SelfdocCLI.run; contract-sha256:10ed3325b42184fa87111ee2e47d9f638d12b35043a0fdd4e703950fca6ce895
 ---
 
 # SelfdocCLI.run
@@ -28,7 +28,7 @@ Use JSON stdout; existing lifecycle messages go to stderr.
 
 ## Purpose
 
-Not documented.
+Use JSON stdout; existing lifecycle messages go to stderr.
 
 ## Architecture
 

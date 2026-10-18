@@ -29,7 +29,7 @@ The first registry link that resolves `store_alias` to an existing store.
 
 ## Purpose
 
-Not documented.
+The first registry link that resolves `store_alias` to an existing store.
 
 ## Architecture
 

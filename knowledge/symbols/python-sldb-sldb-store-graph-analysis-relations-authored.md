@@ -28,7 +28,7 @@ The relations somebody asserted: what is present, minus what sldb derives.
 
 ## Purpose
 
-Not documented.
+The relations somebody asserted: what is present, minus what sldb derives.
 
 ## Architecture
 

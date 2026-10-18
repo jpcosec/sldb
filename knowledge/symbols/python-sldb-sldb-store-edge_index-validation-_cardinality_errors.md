@@ -29,7 +29,7 @@ _cardinality_errors(edges: list[EdgeRecord], relation_types: dict[str, dict[str,
 
 ## Purpose
 
-Not documented.
+(violation, whether an edge of this store is behind it).
 
 ## Architecture
 

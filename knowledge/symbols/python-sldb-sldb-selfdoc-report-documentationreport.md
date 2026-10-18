@@ -5,11 +5,11 @@ module: sldb.selfdoc.report
 qualname: DocumentationReport
 kind: ClassDef
 source_path: sldb/selfdoc/report.py
-source_span: '17:50'
-source_sha256: 5e38a8833913c59f78b7c4623a6642d7c1362582b5f128050fccd513449aaca3
+source_span: '17:54'
+source_sha256: eae33ef265d0d143767e30db35cf9ca0fcecaee519a93ae001af8591a70d15b3
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.selfdoc.report:DocumentationReport; contract-sha256:4d9ba8b2704fd2dab16ef37bae6af4dd5fa7872dc84db368a77b42ab582dd5f6
+provenance: python-ast:python:sldb.selfdoc.report:DocumentationReport; contract-sha256:039d101228847073aad2dc19de78b9cfb84d2d4bb0398eb55a6d13eeaba9975a
 ---
 
 # DocumentationReport
@@ -42,7 +42,7 @@ semantic completeness, docstring quality, or complete removal detection.
 
 ## Purpose
 
-Not documented.
+Report drift between parser-derived plans, files, and store tracking.
 
 ## Architecture
 

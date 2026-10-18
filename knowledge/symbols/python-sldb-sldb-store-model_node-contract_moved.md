@@ -28,7 +28,7 @@ Whether the class's contract now differs from the one the index recorded.
 
 ## Purpose
 
-Not documented.
+Whether the class's contract now differs from the one the index recorded.
 
 ## Architecture
 

@@ -32,7 +32,7 @@ admits every one of its fields, which is what a caller narrowing to a document m
 
 ## Purpose
 
-Not documented.
+The fields closest to `query`, best first.
 
 ## Architecture
 

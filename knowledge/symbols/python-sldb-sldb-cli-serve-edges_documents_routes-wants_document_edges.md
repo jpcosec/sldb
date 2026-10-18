@@ -29,7 +29,7 @@ True when the query names neither `from` nor `to`, even blank (those keep the ra
 
 ## Purpose
 
-Not documented.
+True when the query names neither `from` nor `to`, even blank (those keep the raw edge reader).
 
 ## Architecture
 

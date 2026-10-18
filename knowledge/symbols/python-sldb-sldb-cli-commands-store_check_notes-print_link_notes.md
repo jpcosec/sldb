@@ -29,7 +29,7 @@ What the store's surroundings say: models shadowing an owner's, links to nothing
 
 ## Purpose
 
-Not documented.
+What the store's surroundings say: models shadowing an owner's, links to nothing, ignore rules.
 
 ## Architecture
 

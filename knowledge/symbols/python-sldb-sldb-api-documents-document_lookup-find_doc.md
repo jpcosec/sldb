@@ -36,7 +36,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+The model entry, models index and document entry of a tracked document.
 
 ## Architecture
 

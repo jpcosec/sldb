@@ -28,7 +28,7 @@ The nodes sharing an `out_relation` target with `node_id`, same kind by default.
 
 ## Purpose
 
-Not documented.
+The nodes sharing an `out_relation` target with `node_id`, same kind by default.
 
 ## Architecture
 

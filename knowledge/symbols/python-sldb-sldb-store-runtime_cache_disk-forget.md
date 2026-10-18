@@ -31,7 +31,7 @@ process does a full load and `flush` rewrites the whole file.
 
 ## Purpose
 
-Not documented.
+Drop every cache entry whose key matches, and rewrite the file. Returns how many.
 
 ## Architecture
 

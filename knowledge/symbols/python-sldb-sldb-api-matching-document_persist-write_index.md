@@ -28,7 +28,7 @@ Write the derived index file: the embedder id and the entries.
 
 ## Purpose
 
-Not documented.
+Write the derived index file: the embedder id and the entries.
 
 ## Architecture
 

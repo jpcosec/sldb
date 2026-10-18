@@ -29,7 +29,7 @@ whose `source_hash` still matches is never processed again.
 
 ## Purpose
 
-Not documented.
+What a document contributes, stamped with the `source_hash` it was built from: a document whose `source_hash` still matches is never processed again.
 
 ## Architecture
 

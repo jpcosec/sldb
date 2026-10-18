@@ -35,7 +35,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Field path of ``name`` under the active list-item prefix.
 
 ## Architecture
 

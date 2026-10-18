@@ -28,7 +28,7 @@ Return ordinary arguments, excluding subparser dispatch and built-in help.
 
 ## Purpose
 
-Not documented.
+Return ordinary arguments, excluding subparser dispatch and built-in help.
 
 ## Architecture
 

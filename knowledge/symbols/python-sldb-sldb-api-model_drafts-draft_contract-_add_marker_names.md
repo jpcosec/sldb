@@ -29,7 +29,7 @@ Collect the names of markers given as objects or dicts.
 
 ## Purpose
 
-Not documented.
+Collect the names of markers given as objects or dicts.
 
 ## Architecture
 

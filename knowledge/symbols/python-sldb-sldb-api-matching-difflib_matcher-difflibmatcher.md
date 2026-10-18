@@ -29,7 +29,7 @@ candidate string or any of its words.
 
 ## Purpose
 
-Not documented.
+Fallback similarity: the best SequenceMatcher ratio between the query and the candidate string or any of its words.
 
 ## Architecture
 

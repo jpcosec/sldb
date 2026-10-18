@@ -28,7 +28,7 @@ export_id(store_name: str, model: str, name: str)
 
 ## Purpose
 
-Not documented.
+`Model:name` for a local document, `store:Model:name` for a linked one.
 
 ## Architecture
 

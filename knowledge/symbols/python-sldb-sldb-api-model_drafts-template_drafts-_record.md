@@ -28,7 +28,7 @@ Record a template edit; it writes only the `.py.temp`, so `store_hash` is unchan
 
 ## Purpose
 
-Not documented.
+Record a template edit; it writes only the `.py.temp`, so `store_hash` is unchanged.
 
 ## Architecture
 

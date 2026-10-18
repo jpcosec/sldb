@@ -29,7 +29,7 @@ Raised when there is an issue with a StructuredNLDoc model definition.
 
 ## Purpose
 
-Not documented.
+Raised when there is an issue with a StructuredNLDoc model definition.
 
 ## Architecture
 

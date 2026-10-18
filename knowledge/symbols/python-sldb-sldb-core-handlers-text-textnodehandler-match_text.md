@@ -34,7 +34,7 @@ the next section, which is worse than losing a field.
 
 ## Purpose
 
-Not documented.
+The single executor of the recipe regex, deliberately WITHOUT `re.S`.
 
 ## Architecture
 

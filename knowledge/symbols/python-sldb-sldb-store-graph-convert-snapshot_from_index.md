@@ -28,7 +28,7 @@ Build a GraphSnapshot from an edge index: every node, its outgoing edges.
 
 ## Purpose
 
-Not documented.
+Build a GraphSnapshot from an edge index: every node, its outgoing edges.
 
 ## Architecture
 

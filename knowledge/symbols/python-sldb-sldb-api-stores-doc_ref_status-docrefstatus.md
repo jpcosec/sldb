@@ -28,7 +28,7 @@ The state of one reference, computed when asked and never stored.
 
 ## Purpose
 
-Not documented.
+The state of one reference, computed when asked and never stored.
 
 ## Architecture
 

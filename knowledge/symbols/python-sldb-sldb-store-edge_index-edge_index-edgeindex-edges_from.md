@@ -29,7 +29,7 @@ Edges leaving `node_id`, of one relation or of all.
 
 ## Purpose
 
-Not documented.
+Edges leaving `node_id`, of one relation or of all.
 
 ## Architecture
 

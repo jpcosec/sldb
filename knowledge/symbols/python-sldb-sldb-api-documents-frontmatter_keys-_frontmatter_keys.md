@@ -29,7 +29,7 @@ Top-level keys of a Markdown frontmatter block; see `undeclared_frontmatter_keys
 
 ## Purpose
 
-Not documented.
+Top-level keys of a Markdown frontmatter block; see `undeclared_frontmatter_keys`.
 
 ## Architecture
 

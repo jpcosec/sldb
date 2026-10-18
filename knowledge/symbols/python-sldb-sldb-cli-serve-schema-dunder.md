@@ -28,7 +28,7 @@ Class-level dunder of the model, or the StructuredNLDoc default.
 
 ## Purpose
 
-Not documented.
+Class-level dunder of the model, or the StructuredNLDoc default.
 
 ## Architecture
 

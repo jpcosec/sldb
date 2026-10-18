@@ -37,7 +37,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+The model's render payload, passing only the arguments the model accepts.
 
 ## Architecture
 

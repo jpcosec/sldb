@@ -28,7 +28,7 @@ The contract hash as sldb wrote it before cecd97b: field schema and template onl
 
 ## Purpose
 
-Not documented.
+The contract hash as sldb wrote it before cecd97b: field schema and template only.
 
 ## Architecture
 

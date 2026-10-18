@@ -33,7 +33,7 @@ from option names. This contract does not itself populate argparse help.
 
 ## Purpose
 
-Not documented.
+A single leaf CLI command as a self-describing knowledge entity.
 
 ## Architecture
 

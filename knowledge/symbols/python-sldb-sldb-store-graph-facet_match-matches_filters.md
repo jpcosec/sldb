@@ -28,7 +28,7 @@ Whether a node matches every facet filter of a query.
 
 ## Purpose
 
-Not documented.
+Whether a node matches every facet filter of a query.
 
 ## Architecture
 

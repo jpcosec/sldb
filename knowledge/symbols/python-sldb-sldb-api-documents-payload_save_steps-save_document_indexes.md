@@ -32,7 +32,7 @@ The model's roster hash covers its documents' hashes: a field write must move it
 
 ## Purpose
 
-Not documented.
+Save the document shard and model hashes, then rebuild derived indexes, under the store lock.
 
 ## Architecture
 

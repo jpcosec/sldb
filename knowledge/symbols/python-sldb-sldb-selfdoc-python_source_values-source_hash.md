@@ -28,7 +28,7 @@ Return the containing file's content hash.
 
 ## Purpose
 
-Not documented.
+Return the containing file's content hash.
 
 ## Architecture
 

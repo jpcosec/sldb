@@ -28,7 +28,7 @@ The children of a frontier not seen yet (and never the origin).
 
 ## Purpose
 
-Not documented.
+The children of a frontier not seen yet (and never the origin).
 
 ## Architecture
 

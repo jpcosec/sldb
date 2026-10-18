@@ -28,7 +28,7 @@ The advisory lock serializing journal appends, separate from the store index loc
 
 ## Purpose
 
-Not documented.
+The advisory lock serializing journal appends, separate from the store index lock.
 
 ## Architecture
 

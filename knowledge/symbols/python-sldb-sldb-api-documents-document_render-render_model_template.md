@@ -29,7 +29,7 @@ The model's rendering recipe: its ``__template__``, as sample text.
 
 ## Purpose
 
-Not documented.
+The model's rendering recipe: its ``__template__``, as sample text.
 
 ## Architecture
 

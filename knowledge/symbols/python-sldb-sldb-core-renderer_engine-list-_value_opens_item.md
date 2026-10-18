@@ -28,7 +28,7 @@ _value_opens_item(item_text: str)
 
 ## Purpose
 
-Not documented.
+`- ⸢rev,list•x⸥`: the value is the item's whole text, so block syntax in it would be read.
 
 ## Architecture
 

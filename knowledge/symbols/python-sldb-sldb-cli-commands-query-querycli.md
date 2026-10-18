@@ -28,7 +28,7 @@ Handles store-based queries and exploration.
 
 ## Purpose
 
-Not documented.
+Handles store-based queries and exploration.
 
 ## Architecture
 

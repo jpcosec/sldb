@@ -29,7 +29,7 @@ register them, and no store owns them.
 
 ## Purpose
 
-Not documented.
+sldb's own models (RelationDoc, ...) are the library's vocabulary: every store may register them, and no store owns them.
 
 ## Architecture
 

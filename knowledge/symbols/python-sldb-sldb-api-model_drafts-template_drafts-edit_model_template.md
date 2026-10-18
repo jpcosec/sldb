@@ -42,7 +42,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Write `template` as the draft template of a registered model.
 
 ## Architecture
 

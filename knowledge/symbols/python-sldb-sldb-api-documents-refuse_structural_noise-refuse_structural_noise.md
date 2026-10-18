@@ -38,7 +38,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Raise unless every heading in `markdown` is declared by the model's template.
 
 ## Architecture
 

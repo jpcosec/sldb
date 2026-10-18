@@ -28,7 +28,7 @@ A CLI surface / subsystem: the README-equivalent for a command group.
 
 ## Purpose
 
-Not documented.
+A CLI surface / subsystem: the README-equivalent for a command group.
 
 ## Architecture
 

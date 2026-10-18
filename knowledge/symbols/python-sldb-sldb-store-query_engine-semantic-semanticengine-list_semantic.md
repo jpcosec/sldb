@@ -29,7 +29,7 @@ Lists nodes in the semantic address space (se).
 
 ## Purpose
 
-Not documented.
+Lists nodes in the semantic address space (se).
 
 ## Architecture
 

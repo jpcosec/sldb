@@ -29,7 +29,7 @@ The edge pointing at the document that owns its `ref_path`, or left unresolved t
 
 ## Purpose
 
-Not documented.
+The edge pointing at the document that owns its `ref_path`, or left unresolved to be dropped.
 
 ## Architecture
 

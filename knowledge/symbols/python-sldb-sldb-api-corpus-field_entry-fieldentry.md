@@ -28,7 +28,7 @@ One field of one document of the corpus, identified as `Model:doc#field`.
 
 ## Purpose
 
-Not documented.
+One field of one document of the corpus, identified as `Model:doc#field`.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ The last subparser `args` went through: follow each chosen subcommand down.
 
 ## Purpose
 
-Not documented.
+The last subparser `args` went through: follow each chosen subcommand down.
 
 ## Architecture
 

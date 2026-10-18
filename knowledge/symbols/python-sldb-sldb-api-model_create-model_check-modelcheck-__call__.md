@@ -29,7 +29,7 @@ __call__(self)
 
 ## Purpose
 
-Not documented.
+{ok, payload, errors}; never raises for a module that fails.
 
 ## Architecture
 

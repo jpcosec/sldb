@@ -28,7 +28,7 @@ content_hash of an already extracted payload.
 
 ## Purpose
 
-Not documented.
+content_hash of an already extracted payload.
 
 ## Architecture
 

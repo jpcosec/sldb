@@ -28,7 +28,7 @@ Prefer a declared source identity over the legacy fallback.
 
 ## Purpose
 
-Not documented.
+Prefer a declared source identity over the legacy fallback.
 
 ## Architecture
 

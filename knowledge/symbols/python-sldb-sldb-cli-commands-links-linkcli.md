@@ -28,7 +28,7 @@ Handles link recovery and document composition.
 
 ## Purpose
 
-Not documented.
+Handles link recovery and document composition.
 
 ## Architecture
 

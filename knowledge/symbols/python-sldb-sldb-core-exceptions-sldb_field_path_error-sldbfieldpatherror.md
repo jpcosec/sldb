@@ -29,7 +29,7 @@ Raised when a field path is empty, names a missing key, or steps into a scalar.
 
 ## Purpose
 
-Not documented.
+Raised when a field path is empty, names a missing key, or steps into a scalar.
 
 ## Architecture
 

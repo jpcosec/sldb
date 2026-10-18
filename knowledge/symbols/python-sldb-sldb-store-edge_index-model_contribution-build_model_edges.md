@@ -38,7 +38,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+The model's shard. `roster_hash` is left out of the node on purpose: it moves with every document write, and the documents' own shards already carry their hashes.
 
 ## Architecture
 

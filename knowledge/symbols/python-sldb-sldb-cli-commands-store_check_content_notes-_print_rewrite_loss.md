@@ -29,7 +29,7 @@ Name each document and the blocks its own rewrite would drop.
 
 ## Purpose
 
-Not documented.
+Name each document and the blocks its own rewrite would drop.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Retrieves the text content of a node, preferring raw content to preserve markup.
 
 ## Purpose
 
-Not documented.
+Retrieves the text content of a node, preferring raw content to preserve markup.
 
 ## Architecture
 

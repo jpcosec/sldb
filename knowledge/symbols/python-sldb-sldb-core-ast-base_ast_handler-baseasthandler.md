@@ -28,7 +28,7 @@ Abstract base class for parsing content into a unified SLDBNode tree.
 
 ## Purpose
 
-Not documented.
+Abstract base class for parsing content into a unified SLDBNode tree.
 
 ## Architecture
 

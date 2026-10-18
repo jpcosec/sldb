@@ -28,7 +28,7 @@ The store index; a store from before `core/` existed has it at the store root.
 
 ## Purpose
 
-Not documented.
+The store index; a store from before `core/` existed has it at the store root.
 
 ## Architecture
 

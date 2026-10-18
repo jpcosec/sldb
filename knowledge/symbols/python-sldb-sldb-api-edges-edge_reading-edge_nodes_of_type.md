@@ -28,7 +28,7 @@ Nodes of one class (`sldb_model`, `semantic_tag`, `relation_type`, a model name.
 
 ## Purpose
 
-Not documented.
+Nodes of one class (`sldb_model`, `semantic_tag`, `relation_type`, a model name...), by id.
 
 ## Architecture
 

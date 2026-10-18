@@ -29,7 +29,7 @@ Close with the one thing to do next, not a glossary of every category.
 
 ## Purpose
 
-Not documented.
+Close with the one thing to do next, not a glossary of every category.
 
 ## Architecture
 

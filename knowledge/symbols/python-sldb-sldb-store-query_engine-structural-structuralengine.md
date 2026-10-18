@@ -29,7 +29,7 @@ Engine for processing structural queries.
 
 ## Purpose
 
-Not documented.
+Engine for processing structural queries.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Find a canonical store; check and scan must not migrate it implicitly.
 
 ## Purpose
 
-Not documented.
+Find a canonical store; check and scan must not migrate it implicitly.
 
 ## Architecture
 

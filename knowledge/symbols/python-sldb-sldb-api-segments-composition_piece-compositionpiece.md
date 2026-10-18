@@ -29,7 +29,7 @@ The text a single reference contributed to a composed field.
 
 ## Purpose
 
-Not documented.
+The text a single reference contributed to a composed field.
 
 ## Architecture
 

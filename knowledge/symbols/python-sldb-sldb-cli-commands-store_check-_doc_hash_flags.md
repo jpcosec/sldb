@@ -29,7 +29,7 @@ names for new ones.
 
 ## Purpose
 
-Not documented.
+Both namings of the same two booleans: letters for existing readers, semantic names for new ones.
 
 ## Architecture
 

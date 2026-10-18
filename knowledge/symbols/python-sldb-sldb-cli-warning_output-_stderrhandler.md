@@ -28,7 +28,7 @@ A stream handler that looks up `sys.stderr` at emit time, not at construction.
 
 ## Purpose
 
-Not documented.
+A stream handler that looks up `sys.stderr` at emit time, not at construction.
 
 ## Architecture
 

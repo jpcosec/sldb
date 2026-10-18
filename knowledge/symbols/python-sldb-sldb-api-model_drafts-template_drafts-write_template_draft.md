@@ -39,7 +39,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Write `template` into the draft of an already located model source.
 
 ## Architecture
 

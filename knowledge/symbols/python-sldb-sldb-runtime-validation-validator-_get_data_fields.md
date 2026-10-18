@@ -34,7 +34,7 @@ is what this set enforces: validate used to collect `rev` only, so an
 
 ## Purpose
 
-Not documented.
+The fields that must roundtrip: `rev` always, `optrev` when present.
 
 ## Architecture
 

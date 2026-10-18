@@ -29,7 +29,7 @@ Filter nodes by conditions on a specific facet's fields.
 
 ## Purpose
 
-Not documented.
+Filter nodes by conditions on a specific facet's fields.
 
 ## Architecture
 

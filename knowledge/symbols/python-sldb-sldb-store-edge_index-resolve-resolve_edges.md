@@ -28,7 +28,7 @@ resolve_edges(nodes: dict[str, EdgeNodeRecord], edges: list[EdgeRecord])
 
 ## Purpose
 
-Not documented.
+(the edges that hold, the problems found with authored ones).
 
 ## Architecture
 

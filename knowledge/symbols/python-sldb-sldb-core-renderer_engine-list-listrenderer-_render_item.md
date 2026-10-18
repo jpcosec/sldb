@@ -38,7 +38,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+One list item, with every recorded path scoped under its index.
 
 ## Architecture
 

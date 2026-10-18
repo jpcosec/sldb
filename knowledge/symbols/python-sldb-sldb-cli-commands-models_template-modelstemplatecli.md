@@ -29,7 +29,7 @@ Not applicable.
 
 ## Purpose
 
-Not documented.
+`sldb models template show|edit`: thin CLI adapters over `sldb.api` template drafts.
 
 ## Architecture
 

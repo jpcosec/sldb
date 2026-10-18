@@ -28,7 +28,7 @@ Return fresh predicate definitions for a newly initialized store.
 
 ## Purpose
 
-Not documented.
+Return fresh predicate definitions for a newly initialized store.
 
 ## Architecture
 

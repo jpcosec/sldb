@@ -28,7 +28,7 @@ The existing store this store links under `alias`, if any.
 
 ## Purpose
 
-Not documented.
+The existing store this store links under `alias`, if any.
 
 ## Architecture
 

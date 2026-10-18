@@ -28,7 +28,7 @@ The values of a `Literal[…]` type, or none.
 
 ## Purpose
 
-Not documented.
+The values of a `Literal[…]` type, or none.
 
 ## Architecture
 

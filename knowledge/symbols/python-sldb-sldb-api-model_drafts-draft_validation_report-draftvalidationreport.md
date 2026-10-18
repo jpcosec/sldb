@@ -32,7 +32,7 @@ always True; it is kept so the report reads like `sldb models validate --format 
 
 ## Purpose
 
-Not documented.
+What was validated, against which documents, and whether it was installed.
 
 ## Architecture
 

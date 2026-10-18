@@ -29,7 +29,7 @@ Move the file `index[key]` names to `canonical_rel`, then point the key at the n
 
 ## Purpose
 
-Not documented.
+Move the file `index[key]` names to `canonical_rel`, then point the key at the new path.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ split_outside_literals(text: str, separator: str)
 
 ## Purpose
 
-Not documented.
+`text` cut at every match of the `separator` regex that is not inside a literal.
 
 ## Architecture
 

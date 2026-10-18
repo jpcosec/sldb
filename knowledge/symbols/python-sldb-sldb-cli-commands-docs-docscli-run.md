@@ -32,7 +32,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Run appropriate docs subcommand. Args: args (Any): CLI args. Returns: int: Exit code.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ Every tag `tag` hangs from, at any depth. Edges point at parents, so this is
 
 ## Purpose
 
-Not documented.
+Every tag `tag` hangs from, at any depth. Edges point at parents, so this is `descendants`.
 
 ## Architecture
 

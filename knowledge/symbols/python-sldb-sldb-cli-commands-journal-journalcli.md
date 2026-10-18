@@ -28,7 +28,7 @@ The write journal surface: show entries and verify the chain.
 
 ## Purpose
 
-Not documented.
+The write journal surface: show entries and verify the chain.
 
 ## Architecture
 

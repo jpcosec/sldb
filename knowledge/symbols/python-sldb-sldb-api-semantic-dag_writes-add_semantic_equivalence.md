@@ -30,7 +30,7 @@ changed. The store function this wraps existed for a long time with no caller at
 
 ## Purpose
 
-Not documented.
+Map a local tag to a global one, for `gse.` across linked stores. True when the DAG changed. The store function this wraps existed for a long time with no caller at all.
 
 ## Architecture
 

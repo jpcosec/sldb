@@ -28,7 +28,7 @@ Renders a StructuredNLDoc back into Markdown using its template.
 
 ## Purpose
 
-Not documented.
+Renders a StructuredNLDoc back into Markdown using its template.
 
 ## Architecture
 

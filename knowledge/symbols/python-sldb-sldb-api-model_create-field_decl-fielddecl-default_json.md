@@ -29,7 +29,7 @@ The default as sldb's draft edit takes it (JSON text), None when required.
 
 ## Purpose
 
-Not documented.
+The default as sldb's draft edit takes it (JSON text), None when required.
 
 ## Architecture
 

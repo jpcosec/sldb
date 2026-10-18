@@ -29,7 +29,7 @@ the text changing; the cached object is stamped with the entry's current values.
 
 ## Purpose
 
-Not documented.
+The name, the tags and the two index hashes come from the index and can change without the text changing; the cached object is stamped with the entry's current values.
 
 ## Architecture
 

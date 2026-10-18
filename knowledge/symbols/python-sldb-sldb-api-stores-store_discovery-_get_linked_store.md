@@ -28,7 +28,7 @@ The store a registry links under the alias `store_arg`, if any.
 
 ## Purpose
 
-Not documented.
+The store a registry links under the alias `store_arg`, if any.
 
 ## Architecture
 

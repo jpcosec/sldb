@@ -28,7 +28,7 @@ A report, not a check: 0 whatever it finds.
 
 ## Purpose
 
-Not documented.
+A report, not a check: 0 whatever it finds.
 
 ## Architecture
 

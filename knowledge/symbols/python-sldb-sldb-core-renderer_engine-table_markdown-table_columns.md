@@ -36,7 +36,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Column names for a table marker, declared or inferred from the first row.
 
 ## Architecture
 

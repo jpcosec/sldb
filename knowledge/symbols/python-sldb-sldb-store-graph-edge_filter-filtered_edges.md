@@ -28,7 +28,7 @@ The node's edges that pass the relation filters; outgoing only when no filter is
 
 ## Purpose
 
-Not documented.
+The node's edges that pass the relation filters; outgoing only when no filter is given.
 
 ## Architecture
 

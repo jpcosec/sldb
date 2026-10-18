@@ -28,7 +28,7 @@ Every tag below `tag`, at any depth. Edges point at parents, so this is `ancesto
 
 ## Purpose
 
-Not documented.
+Every tag below `tag`, at any depth. Edges point at parents, so this is `ancestors`.
 
 ## Architecture
 

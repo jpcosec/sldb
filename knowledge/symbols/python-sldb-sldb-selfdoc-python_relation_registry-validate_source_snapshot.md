@@ -29,7 +29,7 @@ Require every AST edge to use its registered endpoint and cardinality rules.
 
 ## Purpose
 
-Not documented.
+Require every AST edge to use its registered endpoint and cardinality rules.
 
 ## Architecture
 

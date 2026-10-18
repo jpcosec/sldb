@@ -29,7 +29,7 @@ Rename hash_a..hash_d to store/model/source/content across `.sldb/core/`; return
 
 ## Purpose
 
-Not documented.
+Rename hash_a..hash_d to store/model/source/content across `.sldb/core/`; return changed files.
 
 ## Architecture
 

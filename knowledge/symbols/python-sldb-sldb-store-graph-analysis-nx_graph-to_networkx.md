@@ -28,7 +28,7 @@ The index as a `MultiDiGraph`, restricted to some relations and node classes.
 
 ## Purpose
 
-Not documented.
+The index as a `MultiDiGraph`, restricted to some relations and node classes.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Noun-first surface of the edge index.
 
 ## Purpose
 
-Not documented.
+Noun-first surface of the edge index.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ Raised when document validation or idempotency checks fail.
 
 ## Purpose
 
-Not documented.
+Raised when document validation or idempotency checks fail.
 
 ## Architecture
 

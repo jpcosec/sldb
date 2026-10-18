@@ -28,7 +28,7 @@ This namespace's consumer just brought every one of this model's documents curre
 
 ## Purpose
 
-Not documented.
+This namespace's consumer just brought every one of this model's documents current.
 
 ## Architecture
 

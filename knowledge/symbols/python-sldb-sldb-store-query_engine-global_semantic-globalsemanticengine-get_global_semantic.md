@@ -29,7 +29,7 @@ Gets documents across all linked stores for a global semantic tag.
 
 ## Purpose
 
-Not documented.
+Gets documents across all linked stores for a global semantic tag.
 
 ## Architecture
 

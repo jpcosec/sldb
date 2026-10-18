@@ -28,7 +28,7 @@ True when `ref` names exactly one document (see `doc_status` for why it may not)
 
 ## Purpose
 
-Not documented.
+True when `ref` names exactly one document (see `doc_status` for why it may not).
 
 ## Architecture
 

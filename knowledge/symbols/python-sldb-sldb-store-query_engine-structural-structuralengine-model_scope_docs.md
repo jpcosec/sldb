@@ -32,7 +32,7 @@ registered (an abstract `PrimitiveDoc`) still names a family.
 
 ## Purpose
 
-Not documented.
+Documents in scope `{Model}` (exact model) or `{Model+}` (the model and every subclass), of the local store or of the linked store named `store`. The family check walks each document's model MRO by class name, so a base that is not itself registered (an abstract `PrimitiveDoc`) still names a family.
 
 ## Architecture
 

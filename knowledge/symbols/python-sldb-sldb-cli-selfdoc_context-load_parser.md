@@ -28,7 +28,7 @@ Load a trusted parser factory and build its tree without dispatching handlers.
 
 ## Purpose
 
-Not documented.
+Load a trusted parser factory and build its tree without dispatching handlers.
 
 ## Architecture
 

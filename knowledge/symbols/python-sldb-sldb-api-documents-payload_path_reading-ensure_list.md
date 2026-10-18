@@ -33,7 +33,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+The list at a dotted path.
 
 ## Architecture
 

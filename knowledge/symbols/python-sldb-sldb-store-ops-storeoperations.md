@@ -28,7 +28,7 @@ Operations for the SLDB store.
 
 ## Purpose
 
-Not documented.
+Operations for the SLDB store.
 
 ## Architecture
 

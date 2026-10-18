@@ -31,7 +31,7 @@ on the payload, so a builtin that only reads differently is left alone.
 
 ## Purpose
 
-Not documented.
+Rewrite a tracked builtin whose spec moved (`has_model` became many-to-many when stores began sharing models): the index produces those edges, so sldb owns their type. Compared on the payload, so a builtin that only reads differently is left alone.
 
 ## Architecture
 

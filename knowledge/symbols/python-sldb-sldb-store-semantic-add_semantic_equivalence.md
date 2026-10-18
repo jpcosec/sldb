@@ -28,7 +28,7 @@ Adds a semantic equivalence mapping to the store DAG.
 
 ## Purpose
 
-Not documented.
+Adds a semantic equivalence mapping to the store DAG.
 
 ## Architecture
 

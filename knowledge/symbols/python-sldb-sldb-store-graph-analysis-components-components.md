@@ -28,7 +28,7 @@ The weakly connected components, largest first, each sorted; isolated nodes incl
 
 ## Purpose
 
-Not documented.
+The weakly connected components, largest first, each sorted; isolated nodes included.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ A store path when one exists there, else an alias linked by an ancestor or globa
 
 ## Purpose
 
-Not documented.
+A store path when one exists there, else an alias linked by an ancestor or global store.
 
 ## Architecture
 

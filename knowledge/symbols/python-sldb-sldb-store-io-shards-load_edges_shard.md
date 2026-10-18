@@ -28,7 +28,7 @@ An edges shard of the given shape: DocEdges, ModelEdges, or the store's EdgeCont
 
 ## Purpose
 
-Not documented.
+An edges shard of the given shape: DocEdges, ModelEdges, or the store's EdgeContribution.
 
 ## Architecture
 

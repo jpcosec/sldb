@@ -35,7 +35,7 @@ graph is described entirely by documents.
 
 ## Purpose
 
-Not documented.
+Declares one relation type: its name, which node classes it connects, its direction and cardinality, the predicate axis it answers, and a default condition every edge of this type inherits.
 
 ## Architecture
 

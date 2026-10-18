@@ -29,7 +29,7 @@ family changed in the class never reached the store (AgentsKBs, 2026-10-03).
 
 ## Purpose
 
-Not documented.
+The class's `__family__` as it is now: it used to be read only at `models add`, so a family changed in the class never reached the store (AgentsKBs, 2026-10-03).
 
 ## Architecture
 

@@ -29,7 +29,7 @@ Matches one document; a predicate no evaluator parses raises WherePredicateError
 
 ## Purpose
 
-Not documented.
+Matches one document; a predicate no evaluator parses raises WherePredicateError.
 
 ## Architecture
 

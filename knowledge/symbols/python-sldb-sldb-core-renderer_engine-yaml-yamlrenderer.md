@@ -28,7 +28,7 @@ Handles rendering of YAML, front-matter, and fence blocks.
 
 ## Purpose
 
-Not documented.
+Handles rendering of YAML, front-matter, and fence blocks.
 
 ## Architecture
 

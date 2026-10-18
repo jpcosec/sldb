@@ -28,7 +28,7 @@ The nodes within `depth` hops of the starting nodes, seeds included.
 
 ## Purpose
 
-Not documented.
+The nodes within `depth` hops of the starting nodes, seeds included.
 
 ## Architecture
 

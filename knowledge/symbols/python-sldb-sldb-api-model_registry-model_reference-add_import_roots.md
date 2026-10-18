@@ -30,7 +30,7 @@ repo that owns it without a `--pythonpath`. A path given explicitly still goes i
 
 ## Purpose
 
-Not documented.
+Put each project root on `sys.path`, once each, so an inherited model imports from the repo that owns it without a `--pythonpath`. A path given explicitly still goes in front.
 
 ## Architecture
 

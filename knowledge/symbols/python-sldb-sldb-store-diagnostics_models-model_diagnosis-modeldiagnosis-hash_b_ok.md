@@ -29,7 +29,7 @@ Deprecated alias for `roster_ok`.
 
 ## Purpose
 
-Not documented.
+Deprecated alias for `roster_ok`.
 
 ## Architecture
 

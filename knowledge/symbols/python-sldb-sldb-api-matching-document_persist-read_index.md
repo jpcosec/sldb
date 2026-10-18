@@ -28,7 +28,7 @@ The entries of a derived index file, only when written by this same embedder.
 
 ## Purpose
 
-Not documented.
+The entries of a derived index file, only when written by this same embedder.
 
 ## Architecture
 

@@ -1,7 +1,7 @@
 name: python-sldb-sldb-cli-commands-basic-basiccli-render
 path: knowledge/symbols/python-sldb-sldb-cli-commands-basic-basiccli-render.md
-source_hash: 5e8c9e96c455c5d96a52735cd6a8691d3683c15830113553dfcb8b42c32041a0
-content_hash: deac36b3d31f8793b474ced0c09e206e52b6069f192b310fd8f47477422813d5
+source_hash: b8b53de8fa74ce2d76c6b4e941ec6a7d12d2ac97f7a661d4a3a4fc67c1cfc9e2
+content_hash: 520b4fa5b25b7930a433348c318e8748017790952f961e455505396b4faa7d64
 field_hashes:
   id: 9d2d6434705a4d454e655172d71d1b3ee6377a4a92595ad9dbeff9fd74d82dca
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -15,7 +15,7 @@ field_hashes:
   signature: c6723a293edecc8e0dc0beae9226f765c114e5aded4df9efaf2ee4d4fc052b2f
   docstring: 4e8376d3a085825c8658da9fe91c7dd8bf681ccbc6334ec919a0e54638508ddf
   imports: e684c90aa96df908bc2fb5eb8c967332154315db3c68d5a68399021a868fe6b7
-  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  purpose: 4e8376d3a085825c8658da9fe91c7dd8bf681ccbc6334ec919a0e54638508ddf
   architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   provenance: 24203c4ec178b583f9d02a759f22a0dcf28798aef2eed11e60b3184a8f803811

@@ -28,7 +28,7 @@ Delete an existing store when forced; refuse otherwise.
 
 ## Purpose
 
-Not documented.
+Delete an existing store when forced; refuse otherwise.
 
 ## Architecture
 

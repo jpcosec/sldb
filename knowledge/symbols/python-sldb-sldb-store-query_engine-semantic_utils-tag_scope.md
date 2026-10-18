@@ -32,7 +32,7 @@ reader. Reading them is the whole point of the DAG being a graph.
 
 ## Purpose
 
-Not documented.
+The tag and every tag under it in the store's DAG: what naming it reaches.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Handles project initialization and example generation.
 
 ## Purpose
 
-Not documented.
+Handles project initialization and example generation.
 
 ## Architecture
 

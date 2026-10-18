@@ -29,7 +29,7 @@ The modules the model is imported through: the defining one and the registered o
 
 ## Purpose
 
-Not documented.
+The modules the model is imported through: the defining one and the registered one.
 
 ## Architecture
 

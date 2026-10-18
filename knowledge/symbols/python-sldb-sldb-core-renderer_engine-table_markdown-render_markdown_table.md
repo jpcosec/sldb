@@ -36,7 +36,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+A Markdown table for ``value`` over ``columns``.
 
 ## Architecture
 

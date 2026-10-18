@@ -30,7 +30,7 @@ here the per-document work it does not need to redo (PLAN 15 M2).
 
 ## Purpose
 
-Not documented.
+The last value cached for `model`, regardless of whether its key still matches: a rebuild whose key moved (a source_hash change moved the model's roster_hash) still finds here the per-document work it does not need to redo (PLAN 15 M2).
 
 ## Architecture
 

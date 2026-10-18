@@ -44,7 +44,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Resolve a store argument and start a new operation over that store.
 
 ## Architecture
 

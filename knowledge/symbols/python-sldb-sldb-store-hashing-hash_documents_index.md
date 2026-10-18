@@ -32,7 +32,7 @@ map (sldb.store.documents_hash — a write's own hot path).
 
 ## Purpose
 
-Not documented.
+PLAN 15 capa 7: keyed by `name` and sorted — order-independent (documents_index. documents used to be insertion-ordered, so roster_hash used to depend on write order too; a store's Merkle root should depend only on content). The same value however documents were gathered: a full scan (stores update) or the incremental per-document child-hash map (sldb.store.documents_hash — a write's own hot path).
 
 ## Architecture
 

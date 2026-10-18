@@ -40,7 +40,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Rebuild the edge index, then list the edges that join two documents.
 
 ## Architecture
 

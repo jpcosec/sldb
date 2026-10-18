@@ -28,7 +28,7 @@ Handles store-level lifecycle and federation.
 
 ## Purpose
 
-Not documented.
+Handles store-level lifecycle and federation.
 
 ## Architecture
 

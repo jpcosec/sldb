@@ -28,7 +28,7 @@ Refuse an alias `alias:doc` references could not name, and the reserved `local`.
 
 ## Purpose
 
-Not documented.
+Refuse an alias `alias:doc` references could not name, and the reserved `local`.
 
 ## Architecture
 

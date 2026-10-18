@@ -32,7 +32,7 @@ An empty expression always holds. Raises WherePredicateError when it does not pa
 
 ## Purpose
 
-Not documented.
+Whether `expression` holds on `payload`; `{field}` reads `subject` (default: `payload`).
 
 ## Architecture
 

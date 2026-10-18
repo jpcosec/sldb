@@ -28,7 +28,7 @@ One model's contribution (model node, fields, extends), next to its documents' d
 
 ## Purpose
 
-Not documented.
+One model's contribution (model node, fields, extends), next to its documents' dir.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ Every edge, with each `composes` target rewritten from its path to a document no
 
 ## Purpose
 
-Not documented.
+Every edge, with each `composes` target rewritten from its path to a document node id.
 
 ## Architecture
 

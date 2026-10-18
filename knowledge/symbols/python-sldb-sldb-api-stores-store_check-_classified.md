@@ -32,7 +32,7 @@ which is what `is_valid` reports.
 
 ## Purpose
 
-Not documented.
+The verdict split by category.
 
 ## Architecture
 

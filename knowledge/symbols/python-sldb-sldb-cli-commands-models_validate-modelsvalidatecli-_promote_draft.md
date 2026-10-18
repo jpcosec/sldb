@@ -30,7 +30,7 @@ indexes are put back, so the store stays consistent and the promote can be retri
 
 ## Purpose
 
-Not documented.
+Install the draft and reindex. If the reindex fails, the active model, the draft and the indexes are put back, so the store stays consistent and the promote can be retried.
 
 ## Architecture
 

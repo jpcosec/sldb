@@ -28,7 +28,7 @@ A declared field, checked: an identifier, a known type, a description.
 
 ## Purpose
 
-Not documented.
+A declared field, checked: an identifier, a known type, a description.
 
 ## Architecture
 

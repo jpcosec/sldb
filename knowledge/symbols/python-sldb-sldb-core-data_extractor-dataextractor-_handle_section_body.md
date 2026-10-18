@@ -36,7 +36,7 @@ expressions agree, since boundary_idx - 1 >= search.
 
 ## Purpose
 
-Not documented.
+Capture the blocks up to the next recipe's boundary.
 
 ## Architecture
 

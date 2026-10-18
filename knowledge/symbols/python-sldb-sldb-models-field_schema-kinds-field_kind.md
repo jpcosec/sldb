@@ -28,7 +28,7 @@ Kind of an unwrapped annotation: enum, a list kind, or a scalar kind.
 
 ## Purpose
 
-Not documented.
+Kind of an unwrapped annotation: enum, a list kind, or a scalar kind.
 
 ## Architecture
 

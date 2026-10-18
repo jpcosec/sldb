@@ -36,7 +36,7 @@ addresses a nested value as precisely as a top-level one.
 
 ## Purpose
 
-Not documented.
+`docs/<Model>/<doc>/<field_path>` — the address `sldb fields` already takes.
 
 ## Architecture
 

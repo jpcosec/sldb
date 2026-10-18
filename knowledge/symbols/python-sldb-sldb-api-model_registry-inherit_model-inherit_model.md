@@ -48,7 +48,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Register `alias:ModelName` as inherited from the store linked as `alias`.
 
 ## Architecture
 

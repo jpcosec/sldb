@@ -28,7 +28,7 @@ Plural store surface for the redesigned CLI.
 
 ## Purpose
 
-Not documented.
+Plural store surface for the redesigned CLI.
 
 ## Architecture
 

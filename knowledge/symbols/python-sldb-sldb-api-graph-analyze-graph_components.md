@@ -28,7 +28,7 @@ What hangs together, largest group first.
 
 ## Purpose
 
-Not documented.
+What hangs together, largest group first.
 
 ## Architecture
 

@@ -36,7 +36,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+The character-level opcodes taking ``canonical`` to ``raw``.
 
 ## Architecture
 

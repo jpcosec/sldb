@@ -28,7 +28,7 @@ Engine for processing local semantic queries.
 
 ## Purpose
 
-Not documented.
+Engine for processing local semantic queries.
 
 ## Architecture
 

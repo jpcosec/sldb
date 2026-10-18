@@ -31,7 +31,7 @@ about extraction: both capture paths ask it, and neither owns it.
 
 ## Purpose
 
-Not documented.
+Whether the recipe's single field may be absent from the payload.
 
 ## Architecture
 

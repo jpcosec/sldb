@@ -28,7 +28,7 @@ Stores whose links may resolve an alias: ancestors first, the global store last.
 
 ## Purpose
 
-Not documented.
+Stores whose links may resolve an alias: ancestors first, the global store last.
 
 ## Architecture
 

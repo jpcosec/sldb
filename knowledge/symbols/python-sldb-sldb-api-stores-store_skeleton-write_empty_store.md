@@ -34,7 +34,7 @@ Args:
 
 ## Purpose
 
-Not documented.
+Write a store index seeded with the default predicates, an empty DAG and semantic index.
 
 ## Architecture
 

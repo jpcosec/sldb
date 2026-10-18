@@ -29,7 +29,7 @@ What a form or a schema needs to know about one field of a model.
 
 ## Purpose
 
-Not documented.
+What a form or a schema needs to know about one field of a model.
 
 ## Architecture
 

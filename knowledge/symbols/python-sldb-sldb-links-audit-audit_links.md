@@ -28,7 +28,7 @@ One problem per unresolved link (`unresolved`) or per predicate missing from the
 
 ## Purpose
 
-Not documented.
+One problem per unresolved link (`unresolved`) or per predicate missing from the store (`custom`).
 
 ## Architecture
 

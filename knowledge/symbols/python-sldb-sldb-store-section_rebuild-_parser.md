@@ -28,7 +28,7 @@ One markdown-it instance for the process: building one per document cost more th
 
 ## Purpose
 
-Not documented.
+One markdown-it instance for the process: building one per document cost more than parsing it.
 
 ## Architecture
 

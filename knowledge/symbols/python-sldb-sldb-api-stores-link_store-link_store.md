@@ -41,7 +41,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Record another store as linked into `store`.
 
 ## Architecture
 

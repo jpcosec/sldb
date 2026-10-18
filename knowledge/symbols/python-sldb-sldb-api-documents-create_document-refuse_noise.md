@@ -28,7 +28,7 @@ Refuse a document whose headings or frontmatter keys the model never declares.
 
 ## Purpose
 
-Not documented.
+Refuse a document whose headings or frontmatter keys the model never declares.
 
 ## Architecture
 

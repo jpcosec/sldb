@@ -41,7 +41,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Assign the value at a dotted path, in place.
 
 ## Architecture
 

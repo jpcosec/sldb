@@ -29,7 +29,7 @@ Builtin types newer than the store's `edges init` that its derived edges use (re
 
 ## Purpose
 
-Not documented.
+Builtin types newer than the store's `edges init` that its derived edges use (re-run init to track them).
 
 ## Architecture
 

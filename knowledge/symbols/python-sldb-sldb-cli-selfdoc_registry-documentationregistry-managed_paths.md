@@ -29,7 +29,7 @@ Include missing files whose registration still belongs to this inventory.
 
 ## Purpose
 
-Not documented.
+Include missing files whose registration still belongs to this inventory.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ Each heading line the template never accounts for, in document order.
 
 ## Purpose
 
-Not documented.
+Each heading line the template never accounts for, in document order.
 
 ## Architecture
 

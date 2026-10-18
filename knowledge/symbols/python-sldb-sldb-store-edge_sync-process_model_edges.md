@@ -30,7 +30,7 @@ compares every document's shard whatever the caches say.
 
 ## Purpose
 
-Not documented.
+One model's shards, current. `model_type` imports the class only if the model is walked; `build_doc_edges(m_entry, model_type, doc)` is edge_rebuild's own document builder; `full` compares every document's shard whatever the caches say.
 
 ## Architecture
 

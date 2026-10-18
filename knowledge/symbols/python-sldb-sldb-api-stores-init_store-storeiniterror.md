@@ -29,7 +29,7 @@ The store could not be written; `precondition` when the place itself refused it
 
 ## Purpose
 
-Not documented.
+The store could not be written; `precondition` when the place itself refused it (permissions, a file in the way), not a failure half-way through.
 
 ## Architecture
 

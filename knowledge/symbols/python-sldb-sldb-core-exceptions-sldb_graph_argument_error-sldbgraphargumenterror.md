@@ -29,7 +29,7 @@ Raised when graph analysis receives unknown keyword arguments.
 
 ## Purpose
 
-Not documented.
+Raised when graph analysis receives unknown keyword arguments.
 
 ## Architecture
 

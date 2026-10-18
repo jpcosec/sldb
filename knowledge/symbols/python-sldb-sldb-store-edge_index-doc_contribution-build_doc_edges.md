@@ -44,7 +44,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+A relation type, relation or anchor document contributes what it declares; any other document contributes itself, its sections, and the references its model declares. Either way its tags become nodes: a tag exists in the index because some document, model or DAG entry carries it.
 
 ## Architecture
 

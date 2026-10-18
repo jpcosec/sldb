@@ -28,7 +28,7 @@ An edge whose two ends are documents, ids as `Model:name`.
 
 ## Purpose
 
-Not documented.
+An edge whose two ends are documents, ids as `Model:name`.
 
 ## Architecture
 

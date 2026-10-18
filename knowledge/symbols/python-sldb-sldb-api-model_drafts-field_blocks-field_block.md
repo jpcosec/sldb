@@ -28,7 +28,7 @@ The source line declaring a pydantic field, with a default when one is supplied.
 
 ## Purpose
 
-Not documented.
+The source line declaring a pydantic field, with a default when one is supplied.
 
 ## Architecture
 

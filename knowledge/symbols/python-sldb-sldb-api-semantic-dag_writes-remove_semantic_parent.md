@@ -32,7 +32,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Undeclare it. True when the DAG changed.
 
 ## Architecture
 

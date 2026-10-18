@@ -28,7 +28,7 @@ A unified node structure that abstracts away the specific AST library.
 
 ## Purpose
 
-Not documented.
+A unified node structure that abstracts away the specific AST library.
 
 ## Architecture
 

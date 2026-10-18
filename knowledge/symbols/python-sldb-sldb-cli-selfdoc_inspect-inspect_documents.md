@@ -28,7 +28,7 @@ Report drift without writing files, caches, indexes, or migrations.
 
 ## Purpose
 
-Not documented.
+Report drift without writing files, caches, indexes, or migrations.
 
 ## Architecture
 

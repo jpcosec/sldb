@@ -29,7 +29,7 @@ A model field's name, type and meaning.
 
 ## Purpose
 
-Not documented.
+A model field's name, type and meaning.
 
 ## Architecture
 

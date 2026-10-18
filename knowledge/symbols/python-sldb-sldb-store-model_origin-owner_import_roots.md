@@ -28,7 +28,7 @@ The project roots the store's inherited models import from, once each, in entry 
 
 ## Purpose
 
-Not documented.
+The project roots the store's inherited models import from, once each, in entry order.
 
 ## Architecture
 

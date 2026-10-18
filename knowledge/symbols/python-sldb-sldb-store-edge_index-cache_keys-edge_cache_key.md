@@ -28,7 +28,7 @@ A model whose key has not moved (documents, version, semantics, ref, rules) is n
 
 ## Purpose
 
-Not documented.
+A model whose key has not moved (documents, version, semantics, ref, rules) is not walked.
 
 ## Architecture
 

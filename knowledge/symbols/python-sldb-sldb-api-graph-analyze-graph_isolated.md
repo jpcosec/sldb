@@ -28,7 +28,7 @@ Nodes with no edge at all in the relations walked.
 
 ## Purpose
 
-Not documented.
+Nodes with no edge at all in the relations walked.
 
 ## Architecture
 

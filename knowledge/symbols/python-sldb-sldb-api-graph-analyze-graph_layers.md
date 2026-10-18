@@ -28,7 +28,7 @@ The dependency order as levels, each depending only on earlier ones.
 
 ## Purpose
 
-Not documented.
+The dependency order as levels, each depending only on earlier ones.
 
 ## Architecture
 

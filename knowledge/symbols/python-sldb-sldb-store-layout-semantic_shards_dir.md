@@ -29,7 +29,7 @@ its own shard, never the whole store's.
 
 ## Purpose
 
-Not documented.
+One document's semantic contribution per file (PLAN 15 capa 5): a write touches only its own shard, never the whole store's.
 
 ## Architecture
 

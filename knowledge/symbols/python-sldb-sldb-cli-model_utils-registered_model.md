@@ -28,7 +28,7 @@ registered_model(store_path: Path, model_name: str, pythonpath: str | None)
 
 ## Purpose
 
-Not documented.
+(model class, model entry, store index) of a registered or federated model name.
 
 ## Architecture
 

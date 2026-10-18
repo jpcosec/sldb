@@ -29,7 +29,7 @@ Determines which handler should process the node.
 
 ## Purpose
 
-Not documented.
+Determines which handler should process the node.
 
 ## Architecture
 

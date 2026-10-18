@@ -34,7 +34,7 @@ model, the draft and the store indexes are put back.
 
 ## Purpose
 
-Not documented.
+Validate the draft, install it, reindex, and bump the version.
 
 ## Architecture
 

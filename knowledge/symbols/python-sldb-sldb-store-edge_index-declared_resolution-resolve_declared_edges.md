@@ -29,7 +29,7 @@ resolve_declared_edges(nodes: dict[str, EdgeNodeRecord], edges: list[EdgeRecord]
 
 ## Purpose
 
-Not documented.
+(every edge, each declared one pointed at its document or left out; what named nothing).
 
 ## Architecture
 

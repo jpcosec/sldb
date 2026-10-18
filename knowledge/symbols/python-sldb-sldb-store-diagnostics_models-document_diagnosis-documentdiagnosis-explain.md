@@ -29,7 +29,7 @@ One line saying what is wrong and what to do about it.
 
 ## Purpose
 
-Not documented.
+One line saying what is wrong and what to do about it.
 
 ## Architecture
 

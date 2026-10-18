@@ -29,7 +29,7 @@ Add the model entry to the store index and cascade the store hash.
 
 ## Purpose
 
-Not documented.
+Add the model entry to the store index and cascade the store hash.
 
 ## Architecture
 

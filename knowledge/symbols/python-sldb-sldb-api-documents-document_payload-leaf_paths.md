@@ -28,7 +28,7 @@ Every leaf address (dotted path) of a payload, shallow lists by index.
 
 ## Purpose
 
-Not documented.
+Every leaf address (dotted path) of a payload, shallow lists by index.
 
 ## Architecture
 

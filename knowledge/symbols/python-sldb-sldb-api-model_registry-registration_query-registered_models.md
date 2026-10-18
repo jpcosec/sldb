@@ -32,7 +32,7 @@ Args:
 
 ## Purpose
 
-Not documented.
+Every model the store registers (its own and the ones it inherits), sorted by name.
 
 ## Architecture
 

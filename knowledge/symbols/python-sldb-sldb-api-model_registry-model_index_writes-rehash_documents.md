@@ -32,7 +32,7 @@ reports; the broad catch keeps one bad document from aborting the whole reindex.
 
 ## Purpose
 
-Not documented.
+Recompute every document's content and field hashes from its Markdown file.
 
 ## Architecture
 

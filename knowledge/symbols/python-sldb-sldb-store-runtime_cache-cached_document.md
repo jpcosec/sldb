@@ -33,7 +33,7 @@ extracted under the old contract — the standing bug where a new field stayed i
 
 ## Purpose
 
-Not documented.
+One document by its store, its leaf: (path, source_hash[, mtime, size]), and the contract of the class being extracted with, so a moved contract invalidates the entry (in memory and on disk) even when the leaf did not. The contract is hashed from `model_type` itself, not read from the models index: the index only learns of a contract change when something writes, and a pure read (new field on the class, same Markdown) must not be served a payload extracted under the old contract — the standing bug where a new field stayed invisible.
 
 ## Architecture
 

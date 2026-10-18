@@ -29,7 +29,7 @@ The registry facts of one model, as a store index records them.
 
 ## Purpose
 
-Not documented.
+The registry facts of one model, as a store index records them.
 
 ## Architecture
 

@@ -28,7 +28,7 @@ The unique identity and type of any node in the graph.
 
 ## Purpose
 
-Not documented.
+The unique identity and type of any node in the graph.
 
 ## Architecture
 

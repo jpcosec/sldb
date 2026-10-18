@@ -28,7 +28,7 @@ Build the export payload.
 
 ## Purpose
 
-Not documented.
+Build the export payload.
 
 ## Architecture
 

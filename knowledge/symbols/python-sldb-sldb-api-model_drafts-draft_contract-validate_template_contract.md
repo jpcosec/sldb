@@ -32,7 +32,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Refuse a model whose template markers name fields the model does not declare.
 
 ## Architecture
 

@@ -30,7 +30,7 @@ Whether `model` is registered: by name (`TaskDoc`), or by reference
 
 ## Purpose
 
-Not documented.
+Whether `model` is registered: by name (`TaskDoc`), or by reference (`deskops.models:TaskDoc` or `deskops.models.TaskDoc`).
 
 ## Architecture
 

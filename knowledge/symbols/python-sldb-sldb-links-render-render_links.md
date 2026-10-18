@@ -28,7 +28,7 @@ Rewrite the resolvable links of `markdown` (a file at `doc`); the rest stays as 
 
 ## Purpose
 
-Not documented.
+Rewrite the resolvable links of `markdown` (a file at `doc`); the rest stays as written.
 
 ## Architecture
 

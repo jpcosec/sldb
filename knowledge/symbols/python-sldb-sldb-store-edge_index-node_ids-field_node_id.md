@@ -28,7 +28,7 @@ Node id of one field of a model.
 
 ## Purpose
 
-Not documented.
+Node id of one field of a model.
 
 ## Architecture
 

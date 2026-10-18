@@ -29,7 +29,7 @@ Enumeration of diagnostic outcomes for documents.
 
 ## Purpose
 
-Not documented.
+Enumeration of diagnostic outcomes for documents.
 
 ## Architecture
 

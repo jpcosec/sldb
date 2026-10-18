@@ -28,7 +28,7 @@ Up to `limit` distinct chains between the two nodes, shortest first, at most `cu
 
 ## Purpose
 
-Not documented.
+Up to `limit` distinct chains between the two nodes, shortest first, at most `cutoff` hops.
 
 ## Architecture
 

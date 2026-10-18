@@ -32,7 +32,7 @@ name let `content_hash` — which is persisted — be computed from another clas
 
 ## Purpose
 
-Not documented.
+The extracted payload of this text under this model class, as the cache knows it now.
 
 ## Architecture
 

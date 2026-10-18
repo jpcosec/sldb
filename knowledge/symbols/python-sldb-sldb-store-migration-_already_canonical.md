@@ -30,7 +30,7 @@ the old store-wide semantic index file is gone too (capa 5: sharded): nothing to
 
 ## Purpose
 
-Not documented.
+True when every model index already sits at its canonical path, points at canonical document and section indexes (capa 5: sections already sharded, the old file gone), and the old store-wide semantic index file is gone too (capa 5: sharded): nothing to migrate.
 
 ## Architecture
 

@@ -29,7 +29,7 @@ Engine for processing glob and find queries on structural nodes.
 
 ## Purpose
 
-Not documented.
+Engine for processing glob and find queries on structural nodes.
 
 ## Architecture
 

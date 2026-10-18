@@ -38,7 +38,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Names of the StructuredNLDoc bases above this model, nearest first.
 
 ## Architecture
 

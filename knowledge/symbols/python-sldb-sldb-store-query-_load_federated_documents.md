@@ -28,7 +28,7 @@ Traverse explicit links once per canonical store, safely across cycles.
 
 ## Purpose
 
-Not documented.
+Traverse explicit links once per canonical store, safely across cycles.
 
 ## Architecture
 

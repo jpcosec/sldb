@@ -28,7 +28,7 @@ Unified semantic + physical retrieval.
 
 ## Purpose
 
-Not documented.
+Unified semantic + physical retrieval.
 
 ## Architecture
 

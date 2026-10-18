@@ -28,7 +28,7 @@ Log unclear points or suggestions into desk/inbox/.
 
 ## Purpose
 
-Not documented.
+Log unclear points or suggestions into desk/inbox/.
 
 ## Architecture
 

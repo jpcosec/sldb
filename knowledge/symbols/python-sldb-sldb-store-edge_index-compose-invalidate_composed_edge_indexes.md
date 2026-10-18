@@ -29,7 +29,7 @@ Forget every composed index (tests, or a caller that rewrote shards by hand).
 
 ## Purpose
 
-Not documented.
+Forget every composed index (tests, or a caller that rewrote shards by hand).
 
 ## Architecture
 

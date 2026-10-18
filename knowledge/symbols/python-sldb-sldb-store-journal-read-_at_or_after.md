@@ -28,7 +28,7 @@ Compare two timestamps, treating a naive one as UTC rather than raising.
 
 ## Purpose
 
-Not documented.
+Compare two timestamps, treating a naive one as UTC rather than raising.
 
 ## Architecture
 

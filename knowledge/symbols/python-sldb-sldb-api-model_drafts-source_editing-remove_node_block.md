@@ -29,7 +29,7 @@ The source without the whole lines a statement spans.
 
 ## Purpose
 
-Not documented.
+The source without the whole lines a statement spans.
 
 ## Architecture
 

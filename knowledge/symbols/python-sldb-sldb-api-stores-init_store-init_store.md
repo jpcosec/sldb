@@ -39,7 +39,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+Create `<path>/.sldb` and register it in the global store's catalog when it is under HOME.
 
 ## Architecture
 

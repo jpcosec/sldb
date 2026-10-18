@@ -34,7 +34,7 @@ exactly what `similar_to` returns) and 200; 400 without `id` or with a bad `limi
 
 ## Purpose
 
-Not documented.
+Serve `?id=&relations=&limit=&types=`.
 
 ## Architecture
 

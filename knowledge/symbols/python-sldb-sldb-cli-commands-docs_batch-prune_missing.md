@@ -28,7 +28,7 @@ Stop tracking the documents whose file no longer exists; returns their names.
 
 ## Purpose
 
-Not documented.
+Stop tracking the documents whose file no longer exists; returns their names.
 
 ## Architecture
 

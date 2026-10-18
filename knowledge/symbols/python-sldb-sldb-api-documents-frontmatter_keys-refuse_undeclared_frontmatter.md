@@ -29,7 +29,7 @@ Raise unless every top-level frontmatter key is declared by the model.
 
 ## Purpose
 
-Not documented.
+Raise unless every top-level frontmatter key is declared by the model.
 
 ## Architecture
 

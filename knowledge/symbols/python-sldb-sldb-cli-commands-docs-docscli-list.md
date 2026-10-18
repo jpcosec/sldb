@@ -32,7 +32,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+List tracked documents in the store. Args: args (Any): CLI args. Returns: int: Exit code.
 
 ## Architecture
 

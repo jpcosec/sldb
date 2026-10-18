@@ -28,7 +28,7 @@ An actionable explanation of why a document lacks a required field.
 
 ## Purpose
 
-Not documented.
+An actionable explanation of why a document lacks a required field.
 
 ## Architecture
 

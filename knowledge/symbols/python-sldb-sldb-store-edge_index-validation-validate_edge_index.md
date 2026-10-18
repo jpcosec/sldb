@@ -29,7 +29,7 @@ The violations found, as sentences; empty when every edge is valid.
 
 ## Purpose
 
-Not documented.
+The violations found, as sentences; empty when every edge is valid.
 
 ## Architecture
 

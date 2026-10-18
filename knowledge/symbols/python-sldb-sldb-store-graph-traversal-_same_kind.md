@@ -28,7 +28,7 @@ The subset of `nodes` whose kind matches `node_id`'s.
 
 ## Purpose
 
-Not documented.
+The subset of `nodes` whose kind matches `node_id`'s.
 
 ## Architecture
 

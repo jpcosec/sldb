@@ -28,7 +28,7 @@ split_anchor(target: str)
 
 ## Purpose
 
-Not documented.
+`doc#Section` -> (`doc`, `Section`); no `#` -> (target, None).
 
 ## Architecture
 

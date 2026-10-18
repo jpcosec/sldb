@@ -28,7 +28,7 @@ The draft file an edit was written to; the active model is untouched until promo
 
 ## Purpose
 
-Not documented.
+The draft file an edit was written to; the active model is untouched until promotion.
 
 ## Architecture
 

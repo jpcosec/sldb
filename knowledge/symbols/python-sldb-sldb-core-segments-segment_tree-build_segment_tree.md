@@ -36,7 +36,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+The full segment sequence for ``text``: nested nodes with literals between them.
 
 ## Architecture
 

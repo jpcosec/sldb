@@ -35,7 +35,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+The recorded metadata of one span, tagged with its wrap order.
 
 ## Architecture
 

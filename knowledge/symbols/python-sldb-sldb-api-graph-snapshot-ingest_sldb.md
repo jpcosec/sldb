@@ -28,7 +28,7 @@ Convert an `sldb_kgdb_semantic_export` v1 payload into a GraphSnapshot.
 
 ## Purpose
 
-Not documented.
+Convert an `sldb_kgdb_semantic_export` v1 payload into a GraphSnapshot.
 
 ## Architecture
 

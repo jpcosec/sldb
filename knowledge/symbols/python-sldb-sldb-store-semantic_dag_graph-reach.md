@@ -28,7 +28,7 @@ What a document carrying `tags` can be found by: the tags and everything above t
 
 ## Purpose
 
-Not documented.
+What a document carrying `tags` can be found by: the tags and everything above them.
 
 ## Architecture
 

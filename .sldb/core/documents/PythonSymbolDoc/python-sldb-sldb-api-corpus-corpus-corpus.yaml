@@ -1,7 +1,7 @@
 name: python-sldb-sldb-api-corpus-corpus-corpus
 path: knowledge/symbols/python-sldb-sldb-api-corpus-corpus-corpus.md
-source_hash: dce7e05790ec7773138c93846dc55959bcfa226f48f13e35b3db51810db64f83
-content_hash: e9c9377a5c3f8bc6d42a9a9f5261319a527d965943e3aa91407f041a38413871
+source_hash: 69031d314be4d7890a885dfa1e73020b4b5351cb57d4eaebfbaf2e0bfebc693a
+content_hash: 074f5f6d169e58dfafa5d92e8839fae36dbb9f70a1908f8d0bede515ad0d5a6d
 field_hashes:
   id: 93d525bd09cdae42a80b644a8b125c5cfa3bd4f6bec83164660b0d1610e302d1
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -15,7 +15,7 @@ field_hashes:
   signature: c1d77853d224098dd451050ed6e1528ff0380068f7307292ab8a0764b7e378b1
   docstring: 1d3efcdd3eef1384293f7624f1951945fbcd9cdb69fca9c0745b829070b01234
   imports: 9bdc2e70e0578a8eb1f596590ef7b2adf7dbf741656240b8752d1a366e42f1c0
-  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  purpose: 1d3efcdd3eef1384293f7624f1951945fbcd9cdb69fca9c0745b829070b01234
   architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   provenance: 0460fe9cd4de156041b72f97088b3d612c9a92bcdf2706198d355a2c24480c07

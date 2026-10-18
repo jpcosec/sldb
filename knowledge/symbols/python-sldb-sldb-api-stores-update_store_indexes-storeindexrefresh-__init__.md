@@ -29,7 +29,7 @@ Prepare a refresh of the store at `location`, importing models from `pythonpath`
 
 ## Purpose
 
-Not documented.
+Prepare a refresh of the store at `location`, importing models from `pythonpath`.
 
 ## Architecture
 

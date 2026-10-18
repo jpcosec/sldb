@@ -29,7 +29,7 @@ The report as the `details` payload of an `SLDBValidationError`.
 
 ## Purpose
 
-Not documented.
+The report as the `details` payload of an `SLDBValidationError`.
 
 ## Architecture
 

@@ -33,7 +33,7 @@ the regex path and lose everything past the first line break, silently.
 
 ## Purpose
 
-Not documented.
+Lone data marker: paragraph → block range, heading → regex, else error.
 
 ## Architecture
 

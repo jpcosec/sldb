@@ -28,7 +28,7 @@ Register `graph get|list|query|neighborhood|path|cycles|order|components|central
 
 ## Purpose
 
-Not documented.
+Register `graph get|list|query|neighborhood|path|cycles|order|components|central|similar|snapshot|ingest-sldb`.
 
 ## Architecture
 

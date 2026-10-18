@@ -28,7 +28,7 @@ A model's name, fields, template and base: the module they make.
 
 ## Purpose
 
-Not documented.
+A model's name, fields, template and base: the module they make.
 
 ## Architecture
 

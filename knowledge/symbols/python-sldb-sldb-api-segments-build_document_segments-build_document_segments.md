@@ -40,7 +40,7 @@ Raises:
 
 ## Purpose
 
-Not documented.
+The segmented canonical render of a tracked document.
 
 ## Architecture
 

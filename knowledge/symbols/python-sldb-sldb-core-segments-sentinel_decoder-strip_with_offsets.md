@@ -36,7 +36,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+Strip ``text`` the way the renderer does, clamping spans to the result.
 
 ## Architecture
 

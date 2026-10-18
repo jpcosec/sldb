@@ -29,7 +29,7 @@ Raised when there is an issue with the SLDB store or indexes.
 
 ## Purpose
 
-Not documented.
+Raised when there is an issue with the SLDB store or indexes.
 
 ## Architecture
 

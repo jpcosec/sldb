@@ -29,7 +29,7 @@ were under another contract, which moves every document's edges without moving i
 
 ## Purpose
 
-Not documented.
+No shards to trust (neither the cache key nor the dirty set): none were written, or they were under another contract, which moves every document's edges without moving its hashes.
 
 ## Architecture
 

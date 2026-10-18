@@ -5,11 +5,11 @@ module: sldb.selfdoc.python_source_graph
 qualname: _binding_targets
 kind: FunctionDef
 source_path: sldb/selfdoc/python_source_graph.py
-source_span: 63:69
-source_sha256: 2ca7c2be0a20b3fc1f7f2174cb1eb7be64c34720e47686dd305dca6ab0dd23e2
+source_span: 71:77
+source_sha256: d4993684ffb6ac80c43b4b99ff0483095464b7697bff0085b5b5b493663f00dd
 architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.selfdoc.python_source_graph:_binding_targets; contract-sha256:95442f814a509e20b0de3287093d04d27be05fd0eb2a01b8f8d64d28334e1f3e
+provenance: python-ast:python:sldb.selfdoc.python_source_graph:_binding_targets; contract-sha256:84896c8c4a445cddac5a95f00c000d8cc75ce0ea0541ca85293fb3013fc8f8f0
 ---
 
 # _binding_targets
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-[".python_reexports", ".python_source_values", ".python_tag_inheritance", "__future__", "datetime"]
+[".python_reexports", ".python_shadowing", ".python_source_values", ".python_tag_inheritance", "__future__", "datetime"]
 
 ## Purpose
 

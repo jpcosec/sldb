@@ -28,7 +28,7 @@ The field a payload write changed: its dotted paths joined, or None when nothing
 
 ## Purpose
 
-Not documented.
+The field a payload write changed: its dotted paths joined, or None when nothing did.
 
 ## Architecture
 

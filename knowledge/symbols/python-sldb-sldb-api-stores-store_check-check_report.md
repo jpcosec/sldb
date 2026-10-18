@@ -32,7 +32,7 @@ Args:
 
 ## Purpose
 
-Not documented.
+The compact `{ok, valid, damaged, ..., checked, mismatched, structural_noise}` view of one diagnosis.
 
 ## Architecture
 

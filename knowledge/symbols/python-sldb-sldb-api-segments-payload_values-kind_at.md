@@ -35,7 +35,7 @@ Returns:
 
 ## Purpose
 
-Not documented.
+The input kind of the field ``path`` addresses in ``model_type``.
 
 ## Architecture
 

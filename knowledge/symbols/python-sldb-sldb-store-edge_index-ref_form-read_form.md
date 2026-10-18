@@ -28,7 +28,7 @@ The first form of `text` as nested lists of RefSymbol and str; [] when there is 
 
 ## Purpose
 
-Not documented.
+The first form of `text` as nested lists of RefSymbol and str; [] when there is none.
 
 ## Architecture
 

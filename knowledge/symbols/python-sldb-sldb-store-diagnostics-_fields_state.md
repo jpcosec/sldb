@@ -28,7 +28,7 @@ _fields_state(model_type: Any, text: str, doc, content_ok: bool)
 
 ## Purpose
 
-Not documented.
+(fields hash on disk, per-field map, fields ok); without the class, intact text stands for intact fields.
 
 ## Architecture
 

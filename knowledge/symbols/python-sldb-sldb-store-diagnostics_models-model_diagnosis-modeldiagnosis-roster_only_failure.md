@@ -36,7 +36,7 @@ the absent documents have no verdict at all.
 
 ## Purpose
 
-Not documented.
+The roster hash disagrees, yet no document present is damaged.
 
 ## Architecture
 

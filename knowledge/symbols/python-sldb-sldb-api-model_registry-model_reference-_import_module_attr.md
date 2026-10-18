@@ -29,7 +29,7 @@ Follow a dotted attribute path inside an imported module.
 
 ## Purpose
 
-Not documented.
+Follow a dotted attribute path inside an imported module.
 
 ## Architecture
 
