@@ -1,7 +1,7 @@
 name: 20260818-151903-suggestion-canonical-path-lint-for-repo-root-references
 path: desk/inbox/20260818-151903-suggestion-canonical-path-lint-for-repo-root-references.md
-source_hash: 141b3467e1d17dd5aac3f4a31ea9b2329f3d807a99e196a822d1e458daf2e68f
-content_hash: 0721381a3e8d2d1e0ecff33756dcd32c0549122d6add92c6edfc397ead5ca4df
+source_hash: 12fa93ff6ce06034540c7bb0e5d42601cc3394997f42c1c658c6e70c4e6dc862
+content_hash: 9d509d64876b6c2aec5a7002540d2481c275200de5a88508b4a6c9e09bb459b1
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: f4a2eec9b5734c37e246678816f0b307c59c117a7dc74691342c9b86ff80e169
@@ -11,7 +11,7 @@ field_hashes:
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: ed5037c4d8dffc76f3b6192ad70617377d30898499e5d5daadc7a5abde69fb41
   title: 12ba78e223738e4de967b8768399c4b8851d47315aea1d06d3acbcadbe2b2801
-  body: e4e1c52801f04d72ba0b8dcca4274632be78a1a7b2cdb1e360a2fc04d5645f36
+  body: fe82a1d2d590ea0a84ed4879ea0f332a5f6c306d845f5b0891ce59c6c033067b
 semantic_tags:
 - representation.markdown
 - source.document.markdown

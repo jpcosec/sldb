@@ -1,7 +1,7 @@
 name: 20260614-000002-suggestion-add-store-health-check-api
 path: desk/inbox/20260614-000002-suggestion-add-store-health-check-api.md
-source_hash: c5a87a2ad7b5d4baaddf539de1e1942d663e275232ceb04de0faf801e58da1d3
-content_hash: 89cba8d2ac5bd10665bc295276338144c60f5f670abaa860ef0dd15d4169cf50
+source_hash: b6330c5b9b8b55d6b0ef5cfc7ac913fe00c024963d076e10f81bf965132549fe
+content_hash: e37bc322051ca8a058339a70f72753872f66f18ab6c5a1c55ab9076b3c4df0bf
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
@@ -11,7 +11,7 @@ field_hashes:
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: 476ded9371d64e69a9a61fe67dac02431a80f78e4559b15982698e785a68ae67
   title: aa3f9af6f7287e7706ed9b0df6cfe8439bdcd9ff0bdf0a8733493c93f5061af6
-  body: 904e0d9d691184db1e03d34fe6567f170290ee3e7459bcc85287472af73f16aa
+  body: cf3a0a0ab91b3aa11c73c2246cd7bf6b03ce97a29cd39d093615ff177f1b917b
 semantic_tags:
 - representation.markdown
 - source.document.markdown

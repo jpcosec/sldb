@@ -19,6 +19,8 @@ acknowledged_at: '2026-10-18T13:10:29'
 
 _Describe the incoming message with enough evidence to triage._
 
+Deskops needs to validate `.sldb/` store integrity to implement `deskops doctor` or `deskops health` commands. Currently there is no programmatic way to check whether a store is intact.
+
 ## Scope
 
 - `sldb stores check --path <dir>` — validate that `.sldb/` has all required index files, documents index is loadable, models index is loadable, store index is readable
@@ -43,7 +45,3 @@ Deskops health/recovery commands need to detect broken stores without guessing. 
 ## Resolución
 
 Resuelto (2026-10-18, sldb-04). `sldb stores check` valida el store y sale 0 con su línea de resumen; cada hallazgo trae su categoría y su `fix`. La API es `sldb.api.check_store(store_path, project_root, pythonpath=None)` (src/sldb/api/stores/store_check.py), que devuelve un dict estructurado: `ok`, `valid`, `damaged`, `reformatted`, `roster_only`, `moved_contracts`, `structural_noise`, `shadowed_models` y `broken_links`. No hay clase `StoreHealth`; el dict cumple el mismo papel.
-
-## Resolución
-
-x
