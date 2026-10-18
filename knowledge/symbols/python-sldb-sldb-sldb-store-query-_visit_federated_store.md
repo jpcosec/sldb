@@ -5,11 +5,11 @@ module: sldb.sldb.store.query
 qualname: _visit_federated_store
 kind: FunctionDef
 source_path: sldb/store/query.py
-source_span: 85:91
-source_sha256: 97c12e4ef2f6d845379fee569129cb7bfed79823b211d0b0d5d17a9628ebde23
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 86:92
+source_sha256: 441b74a92bf88e1691d36312d2dd7c6cf78ce1308baa2ff7a1baf84950ff7f71
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.query:_visit_federated_store; contract-sha256:006d522e7de5b1b193e5a2eac6baff312d0bd1f128612f539fa6e20450d6b384
+provenance: python-ast:python:sldb.sldb.store.query:_visit_federated_store; contract-sha256:1b0bb0b79e74b2262ae2448a9f6802335a3fe68ed82f0a2ef1c0ff4676573106
 ---
 
 # _visit_federated_store

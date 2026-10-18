@@ -1,0 +1,35 @@
+---
+id: python-sldb-sldb-sldb-api-corpus-field_entries-_admits
+system: sldb
+module: sldb.sldb.api.corpus.field_entries
+qualname: _admits
+kind: FunctionDef
+source_path: sldb/api/corpus/field_entries.py
+source_span: '51:54'
+source_sha256: f1c6c3fd6209973de2a471da239e1e6861b4a0a1f036438a86b432b08d1d529c
+architecture_spec: Not declared.
+tags: []
+provenance: python-ast:python:sldb.sldb.api.corpus.field_entries:_admits; contract-sha256:86547f2a45a7515c77b2f419c60832c4826d65ed067690190d00a1a3002c6eb3
+---
+
+# _admits
+
+## Signature
+
+_admits(corpus, model: str, store: str | None)
+
+## Docstring
+
+Not documented.
+
+## Imports
+
+["__future__", "sldb.api.corpus.corpus_entries", "sldb.api.corpus.document_context", "sldb.api.corpus.field_entry", "sldb.api.corpus.field_hit", "sldb.api.model_registry.model_reference", "sldb.store.hashing", "sldb.store.query", "typing"]
+
+## Purpose
+
+Not documented.
+
+## Architecture
+
+Not documented.

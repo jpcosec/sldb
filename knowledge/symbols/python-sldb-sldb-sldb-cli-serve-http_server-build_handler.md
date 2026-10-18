@@ -5,18 +5,18 @@ module: sldb.sldb.cli.serve.http_server
 qualname: build_handler
 kind: FunctionDef
 source_path: sldb/cli/serve/http_server.py
-source_span: '12:19'
-source_sha256: c6fbaf09cc45845e5a4214851de740c5fad869a0eb52be03db4924acd2876fbc
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '22:26'
+source_sha256: e3f20feb7d4e82e6984a9be493cd434ac9e61d68a08f07dda1a2910cde320c50
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.serve.http_server:build_handler; contract-sha256:7d69ef6c00c1008d2804bfb25dbd6a5c81bcdfc2b0e873b93f9081dbb4702f66
+provenance: python-ast:python:sldb.sldb.cli.serve.http_server:build_handler; contract-sha256:afefd92ecd6213809694ea46aee6eeee876a3bdc10620a7e12ad7fa2f61248d8
 ---
 
 # build_handler
 
 ## Signature
 
-build_handler(store_arg: str | None, pythonpath: str | None, cors: bool)
+build_handler(store_arg: str | None, pythonpath: str | None, cors: bool, token: str | None=None)
 
 ## Docstring
 
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "http.server", "pathlib", "sldb.cli.serve.responses", "sldb.cli.serve.routes", "sldb.cli.store_context", "typing"]
+["__future__", "http.server", "pathlib", "sldb.cli.serve.auth", "sldb.cli.serve.responses", "sldb.cli.serve.routes", "sldb.cli.store_context", "typing"]
 
 ## Purpose
 

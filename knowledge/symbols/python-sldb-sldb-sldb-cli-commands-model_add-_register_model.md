@@ -5,11 +5,11 @@ module: sldb.sldb.cli.commands.model_add
 qualname: _register_model
 kind: FunctionDef
 source_path: sldb/cli/commands/model_add.py
-source_span: '38:42'
-source_sha256: 29a6adaf76284ef269a47a1ce4f4861afc83706608a55f6c6e60b48fe36010db
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 68:72
+source_sha256: 5174865542928cac097a33fc6e7089416422da1ac9c873231e8909558c04c850
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.commands.model_add:_register_model; contract-sha256:5e6b0ffd8dad8ed1872aaaf0ddcdaf581504079e27c482607b8a2d720e5900b7
+provenance: python-ast:python:sldb.sldb.cli.commands.model_add:_register_model; contract-sha256:ef6c1e2768be93b43f34406ef032b3852dc6940d52f1625a710e67887ae46ab7
 ---
 
 # _register_model
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "inspect", "pathlib", "sldb.cli.model_utils", "sldb.cli.store_context", "sldb.core.exceptions", "sldb.store.hashing", "sldb.store.io", "sldb.store.layout", "sldb.store.models", "sldb.store.ops", "sldb.store.semantic", "sldb.store.semantic_tags", "typing"]
+["__future__", "inspect", "pathlib", "sldb.api.model_registry.model_lineage", "sldb.cli.model_utils", "sldb.cli.store_context", "sldb.core.exceptions", "sldb.store.derived_rebuild", "sldb.store.hashing", "sldb.store.io", "sldb.store.layout", "sldb.store.model_node", "sldb.store.models", "sldb.store.ops", "sldb.store.semantic_tags", "sys", "typing"]
 
 ## Purpose
 

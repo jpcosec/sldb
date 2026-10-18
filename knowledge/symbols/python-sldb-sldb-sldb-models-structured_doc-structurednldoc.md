@@ -5,11 +5,11 @@ module: sldb.sldb.models.structured_doc
 qualname: StructuredNLDoc
 kind: ClassDef
 source_path: sldb/models/structured_doc.py
-source_span: '7:55'
-source_sha256: 8a69fbd0a87837a6a8fa46eb6fe9263af2a645288458d8ecaaaf86ac1498b4a6
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 7:68
+source_sha256: 4ee4e777b82fa5ae9f897579af1be36bdd502f7088896788dcaae05597bcc4cf
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.models.structured_doc:StructuredNLDoc; contract-sha256:8df4daabafa8862524347b4379533174d8a7a3bc1d7b9245fda73850a0d83a13
+provenance: python-ast:python:sldb.sldb.models.structured_doc:StructuredNLDoc; contract-sha256:9fa132ee61dc1807254a811d63a7fb53c36b21226cb6daeef3eae2963f195b2c
 ---
 
 # StructuredNLDoc

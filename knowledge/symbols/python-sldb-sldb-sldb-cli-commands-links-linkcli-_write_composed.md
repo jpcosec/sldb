@@ -5,12 +5,12 @@ module: sldb.sldb.cli.commands.links
 qualname: LinkCLI._write_composed
 kind: FunctionDef
 source_path: sldb/cli/commands/links.py
-source_span: 57:63
-source_sha256: d1e137f7b7bc1443ea75145806be51651186e1cd5a9426fd2eb410ccb22ca911
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 65:71
+source_sha256: 0272e88c368d433380c0ccbbf0385950db115a0ffaee45b6853e0dee81e14288
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.cli.commands.links:LinkCLI._write_composed;
-  contract-sha256:aa94b96357abaee640de4767b34d69ad0dd943beec572b918af1ad3754d45d9b
+  contract-sha256:e7000c0c247ece2a947870943341d6643434926b8c3efc35733fcee361e4523c
 ---
 
 # LinkCLI._write_composed
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "json", "pathlib", "sldb.cli.store_context", "sldb.cli.utils", "sldb.links", "typing", "yaml"]
+["__future__", "json", "pathlib", "sldb.cli.commands.links_all", "sldb.cli.store_context", "sldb.cli.utils", "sldb.links", "typing", "yaml"]
 
 ## Purpose
 

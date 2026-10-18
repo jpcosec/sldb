@@ -6,10 +6,10 @@ qualname: runtime_dir
 kind: FunctionDef
 source_path: sldb/store/layout.py
 source_span: '14:15'
-source_sha256: d7d9f96ffd161b2f1bd1e642cfdb77800fe93561e627cd631b33a069395954ac
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: 5426bd05eb9d838ff5b7575a37c92ebc23b4da123ed19302fe13e0158dd44cdf
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.layout:runtime_dir; contract-sha256:63cb83b3f3218c5d70330f1b6b7d592ae7f23ab824da65eac9765d942131e3a8
+provenance: python-ast:python:sldb.sldb.store.layout:runtime_dir; contract-sha256:fdd7b5bc13965a2436c28df8b96ba268443ca0931415d64df72575930ee5361e
 ---
 
 # runtime_dir

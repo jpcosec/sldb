@@ -5,11 +5,11 @@ module: sldb.sldb.core.handlers.text
 qualname: TextNodeHandler
 kind: ClassDef
 source_path: sldb/core/handlers/text.py
-source_span: 32:78
-source_sha256: cc28587f8be3fcc46771c93e4c12cf1dee8f77e400c1c928e0abddb0e9d6787a
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 32:91
+source_sha256: 2f53dfb96ef90c9eeef26f51acaaf2765e3dfbcd80425e6cd03ae0db3c8e37db
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.core.handlers.text:TextNodeHandler; contract-sha256:c7663dfb560e14d98bc742851f3acbc2d4271ac7c3648a6646084a1d9d4492e4
+provenance: python-ast:python:sldb.sldb.core.handlers.text:TextNodeHandler; contract-sha256:d9f528bc3caf91eda768b4a5750fb0ec948f63c5ea0cc241b83a24d613f55407
 ---
 
 # TextNodeHandler

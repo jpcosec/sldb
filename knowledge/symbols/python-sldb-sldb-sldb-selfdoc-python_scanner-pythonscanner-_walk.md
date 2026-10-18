@@ -6,11 +6,11 @@ qualname: PythonScanner._walk
 kind: FunctionDef
 source_path: sldb/selfdoc/python_scanner.py
 source_span: '32:38'
-source_sha256: 7c498a53ddd1ed25a186ad74afce9c6081f186a6e18f7086dda5dd2770f129d4
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: 8581e7bc60802b1d8b38ce1767d0339b76147a7c9a88609cfaf526eed7010301
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.selfdoc.python_scanner:PythonScanner._walk;
-  contract-sha256:6e3a25670b7f40695420441e1eeab7afbbb8348850295b7df716f739af9af970
+  contract-sha256:4efe57d181630f5554f6eaacfe3de160f63c865f51decb42a3fa88a09a5d28f6
 ---
 
 # PythonScanner._walk

@@ -6,11 +6,11 @@ qualname: FindFormatter.format_output
 kind: FunctionDef
 source_path: sldb/cli/commands/find_format.py
 source_span: '10:19'
-source_sha256: 9f5f6e7edebc72677a7f60797681a85b9aa7685ecae7ba4a7043b2bde02f2876
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: daf17c5a32e4aca2840a1141983fca7306e5c22859a60cd7b53a0d5ac98db377
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.cli.commands.find_format:FindFormatter.format_output;
-  contract-sha256:afb739d48effb61982db9d772b2bdea8bdbcce9ed2511ac020b4fd2bd161bfdd
+  contract-sha256:d7ab6db14b17911742c25cfade0a339d4c03032d4720729884f4be389bcfd424
 ---
 
 # FindFormatter.format_output
@@ -25,7 +25,7 @@ Format and print the matching records.
 
 ## Imports
 
-["__future__", "json", "sldb.cli.graph_ops", "typing", "yaml"]
+["__future__", "json", "sldb.api.records", "typing", "yaml"]
 
 ## Purpose
 

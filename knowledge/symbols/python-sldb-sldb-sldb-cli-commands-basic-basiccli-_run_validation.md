@@ -5,12 +5,12 @@ module: sldb.sldb.cli.commands.basic
 qualname: BasicCLI._run_validation
 kind: FunctionDef
 source_path: sldb/cli/commands/basic.py
-source_span: '46:49'
-source_sha256: b1f1d73f3511af23384ef4baad5cfa03dcf27820bad667cddce56d7dbd85e73d
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '49:52'
+source_sha256: 4dcdc9c7c2412c8da0302d2d64e01410598a260bdbf3ce5faa3be87128ca2f26
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.cli.commands.basic:BasicCLI._run_validation;
-  contract-sha256:a8903dbbacf460234c2d1275389981a32f6086f66f3838a0ab33987571ccd30b
+  contract-sha256:7db9030e14cc6d9997b9066a75e20176208ed30ff0286425a7b718670f2428b3
 ---
 
 # BasicCLI._run_validation
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "json", "sldb.cli.model_utils", "sldb.cli.utils", "sldb.runtime.validation", "typing", "yaml"]
+["__future__", "json", "pathlib", "sldb.cli.model_utils", "sldb.cli.utils", "sldb.runtime.validation", "typing", "yaml"]
 
 ## Purpose
 

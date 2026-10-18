@@ -5,18 +5,18 @@ module: sldb.sldb.store.layout
 qualname: sections_index_relpath
 kind: FunctionDef
 source_path: sldb/store/layout.py
-source_span: '58:59'
-source_sha256: d7d9f96ffd161b2f1bd1e642cfdb77800fe93561e627cd631b33a069395954ac
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 67:68
+source_sha256: 5426bd05eb9d838ff5b7575a37c92ebc23b4da123ed19302fe13e0158dd44cdf
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.layout:sections_index_relpath; contract-sha256:cdc01004a54152db66c17c2cfeb748d7a02671657be7367d910149a45f845729
+provenance: python-ast:python:sldb.sldb.store.layout:sections_index_relpath; contract-sha256:3980124ce21d7013e1d15fbba6d116e3db3279b0a250b33a9ca226d58c429d23
 ---
 
 # sections_index_relpath
 
 ## Signature
 
-sections_index_relpath(model_name: str)
+sections_index_relpath(store_path: Path, model_name: str)
 
 ## Docstring
 

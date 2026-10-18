@@ -1,0 +1,48 @@
+---
+id: python-sldb-sldb-sldb-api-stores-link_store-link_store
+system: sldb
+module: sldb.sldb.api.stores.link_store
+qualname: link_store
+kind: FunctionDef
+source_path: sldb/api/stores/link_store.py
+source_span: '19:44'
+source_sha256: 31f9f05aeb9367a543f24fd7216c3df5745de95d2deacd34a4a3fefe7672206d
+architecture_spec: Not declared.
+tags: []
+provenance: python-ast:python:sldb.sldb.api.stores.link_store:link_store; contract-sha256:689fd79c4fdf62c336f8db00a86a3fd9023a802d0fb6c2734b859b6d6c1021fc
+---
+
+# link_store
+
+## Signature
+
+link_store(store: str | Path | None, other_store: str | Path, name: str | None=None, replace: bool=False)
+
+## Docstring
+
+Record another store as linked into `store`.
+
+Args:
+    store: The linking store (path, alias, or None to discover it).
+    other_store: Path of the `.sldb` directory to link.
+    name: Alias for the link; defaults to the name of the directory holding `other_store`.
+    replace: Point a link already recorded under that name at `other_store` instead.
+
+Returns:
+    The link as recorded in the store index.
+
+Raises:
+    SLDBStoreError: When `other_store` is not a store or is the linking store itself, or
+        the name is invalid, reserved (`local`) or already linked (and not `replace`).
+
+## Imports
+
+["__future__", "os", "pathlib", "sldb.api.stores.doc_ref", "sldb.api.stores.linked_store", "sldb.api.stores.open_store", "sldb.api.stores.unlink_store", "sldb.core.exceptions", "sldb.store.io", "sldb.store.layout", "sldb.store.models.store_entry", "sldb.store.models.store_index"]
+
+## Purpose
+
+Not documented.
+
+## Architecture
+
+Not documented.

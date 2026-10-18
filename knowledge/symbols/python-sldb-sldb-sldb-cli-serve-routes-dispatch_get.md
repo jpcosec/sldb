@@ -5,18 +5,18 @@ module: sldb.sldb.cli.serve.routes
 qualname: dispatch_get
 kind: FunctionDef
 source_path: sldb/cli/serve/routes.py
-source_span: '31:40'
-source_sha256: 2c5d6fc90b5900cdadf64088aed5d492e458476fb7f193f5aee56e1b8b914f8f
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '48:58'
+source_sha256: cd894d14825f6f73ae1fdb5186ab699c561a401ab7f8cb04ab74c916ec884743
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.serve.routes:dispatch_get; contract-sha256:2b2490e56566c49c539a8ef8c1e67184b841b8806fceca94d6c70ed27ae9545f
+provenance: python-ast:python:sldb.sldb.cli.serve.routes:dispatch_get; contract-sha256:5c48e41493b1e3b2fe539ff14fca02b43f4b6f4fbd6fceadfd2f1d0a71d69826
 ---
 
 # dispatch_get
 
 ## Signature
 
-dispatch_get(route: str, store_path: Path, project_root: Path, pythonpath: str)
+dispatch_get(handler: BaseHTTPRequestHandler, route: str, store_path: Path, project_root: Path, pythonpath: str)
 
 ## Docstring
 
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "http.server", "pathlib", "sldb.cli.commands.fields_save", "sldb.cli.model_utils", "sldb.cli.serve.responses", "sldb.cli.serve.schema", "sldb.store.export", "sldb.store.query", "typing", "urllib.parse"]
+["__future__", "http.server", "pathlib", "sldb.api", "sldb.cli.model_utils", "sldb.cli.serve.ast_routes", "sldb.cli.serve.corpus_routes", "sldb.cli.serve.docs_create_route", "sldb.cli.serve.document_routes", "sldb.cli.serve.edges_documents_routes", "sldb.cli.serve.fields_routes", "sldb.cli.serve.find_routes", "sldb.cli.serve.graph_payload", "sldb.cli.serve.graph_routes", "sldb.cli.serve.health", "sldb.cli.serve.lint_routes", "sldb.cli.serve.models_routes", "sldb.cli.serve.render_routes", "sldb.cli.serve.responses", "sldb.cli.serve.save_routes", "sldb.cli.serve.schema", "sldb.cli.serve.sections_routes", "sldb.cli.serve.segments_routes", "sldb.cli.serve.similar_routes", "sldb.cli.serve.stores_routes", "sldb.store.export", "typing", "urllib.parse"]
 
 ## Purpose
 

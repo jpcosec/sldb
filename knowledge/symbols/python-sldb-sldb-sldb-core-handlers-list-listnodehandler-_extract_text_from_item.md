@@ -5,12 +5,12 @@ module: sldb.sldb.core.handlers.list
 qualname: ListNodeHandler._extract_text_from_item
 kind: FunctionDef
 source_path: sldb/core/handlers/list.py
-source_span: '33:35'
-source_sha256: fe2bbeb02a91109c09b0e8990838837d87c351077062a05395c4fb935bb799e8
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '34:36'
+source_sha256: 77cda4bb47a3c5828c66da0251cb75472cddf034a6c9cdf1f07c57f1b79b3787
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.handlers.list:ListNodeHandler._extract_text_from_item;
-  contract-sha256:2701e04dd1c5798df077b092783b082c753ca3677102a9bafd4ceb34fc0dcb72
+  contract-sha256:611b7554c4db5414a36a31758db73e80bc07e7c75e5cea9dd24e1378267bcaab
 ---
 
 # ListNodeHandler._extract_text_from_item
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "re", "sldb.core.handlers.base", "sldb.core.handlers.utils", "sldb.core.node", "typing"]
+["__future__", "re", "sldb.core.handlers.base", "sldb.core.handlers.list_escape", "sldb.core.handlers.utils", "sldb.core.node", "typing"]
 
 ## Purpose
 

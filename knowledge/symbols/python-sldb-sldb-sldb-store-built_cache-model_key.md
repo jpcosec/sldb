@@ -5,11 +5,11 @@ module: sldb.sldb.store.built_cache
 qualname: model_key
 kind: FunctionDef
 source_path: sldb/store/built_cache.py
-source_span: '29:31'
-source_sha256: 88469bfec6d3de00247b4d49e9378e26851611f28b1bb21e9eaf30bd567cec5d
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '32:38'
+source_sha256: 84323b24a21fe928a344e41512249a0da6444efd6a7b553701d8aadebbdc2bd0
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.built_cache:model_key; contract-sha256:0f1bb7c9f08f03576dc86382e464359a286f91f7a48e2e9015870395ada4f17a
+provenance: python-ast:python:sldb.sldb.store.built_cache:model_key; contract-sha256:3f072b385df15716d48b93a4007a7e50f2538c12d7293fe02d5aab7065908f1b
 ---
 
 # model_key
@@ -20,11 +20,14 @@ model_key(m_idx: Any)
 
 ## Docstring
 
-hash_b plus what the models index records about the class: version and semantics.
+model_hash plus what the models index records about the class: version and semantics.
+
+The node, not the roster: a derived result built under one contract must not be reused
+under another, and the contract is exactly what the roster alone cannot see.
 
 ## Imports
 
-["__future__", "json", "pathlib", "typing"]
+["__future__", "json", "pathlib", "sldb.store", "typing"]
 
 ## Purpose
 

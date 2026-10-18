@@ -5,12 +5,12 @@ module: sldb.sldb.core.data_extractor
 qualname: DataExtractor.extract_values
 kind: FunctionDef
 source_path: sldb/core/data_extractor.py
-source_span: '42:49'
-source_sha256: 67626e17ce20edeb1bd04e488a778becc67db6f4cb29fbddea501d0d7b3e0d49
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '44:51'
+source_sha256: 0743434351f23ade474b8b134b7d283fdfa7df7641101188657110a9b05e9faa
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.data_extractor:DataExtractor.extract_values;
-  contract-sha256:e51450cd5995e1c2042d3a410d955c79cd68cf70e678bf4790b410b2593afe2d
+  contract-sha256:e709fad4e8ae965bc840e65616bc458c30a42d853c9a2456917439160a953663
 ---
 
 # DataExtractor.extract_values
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["sldb.core.extractor.recipe_matcher", "sldb.core.node", "sldb.core.node_handler", "typing"]
+["sldb.core.contracts.marker", "sldb.core.extractor.recipe_matcher", "sldb.core.extractor.section_boundary", "sldb.core.node", "sldb.core.node_handler", "typing"]
 
 ## Purpose
 

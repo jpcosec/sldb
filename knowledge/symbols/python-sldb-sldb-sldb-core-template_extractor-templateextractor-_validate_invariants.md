@@ -5,12 +5,12 @@ module: sldb.sldb.core.template_extractor
 qualname: TemplateExtractor._validate_invariants
 kind: FunctionDef
 source_path: sldb/core/template_extractor.py
-source_span: 71:77
-source_sha256: 52a6fe9ed7aa107f7a7c572056c88bc1663f6697492ad3f3af3f853b65b0556b
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 86:92
+source_sha256: 771a869da5394d801b3b55e95519bc3f75e5db7d525cb4866b17cdf5ebb8fefd
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.template_extractor:TemplateExtractor._validate_invariants;
-  contract-sha256:af84209031a7c6d575e89937a7f6aeca24e2d7e0832a8c243d5f23ab17707057
+  contract-sha256:722d17cfa6aaa1e5e8ed233842c58d26b308011dc7b6d11d58ea361fc751ceff
 ---
 
 # TemplateExtractor._validate_invariants

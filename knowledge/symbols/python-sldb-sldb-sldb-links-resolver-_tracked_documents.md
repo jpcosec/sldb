@@ -5,11 +5,11 @@ module: sldb.sldb.links.resolver
 qualname: _tracked_documents
 kind: FunctionDef
 source_path: sldb/links/resolver.py
-source_span: '7:13'
-source_sha256: 2f7dd77d084fa9e61d4e7bd4a127354c04c9228dac92d2570a0b76b1912e2c12
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '8:14'
+source_sha256: a85168b7c7ee58118d6f2f0f6908065cd44f60092ceff34c051fc0f73c6d2379
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.links.resolver:_tracked_documents; contract-sha256:06988bf7ce3e1e98a1abce1d96bab2589849005356a653269484beb9e477b4c6
+provenance: python-ast:python:sldb.sldb.links.resolver:_tracked_documents; contract-sha256:08e1cac5405b38868964c92be42ca1c7a1dcd2bdc0f95ac400fb3c53cc513504
 ---
 
 # _tracked_documents
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-[".resolved_link", "__future__", "pathlib", "sldb.store.io", "sldb.store.layout"]
+[".resolved_link", ".sections", "__future__", "pathlib", "sldb.store.io", "sldb.store.layout"]
 
 ## Purpose
 

@@ -5,12 +5,12 @@ module: sldb.sldb.store.io.semantic_index
 qualname: SemanticIndexIO.save
 kind: FunctionDef
 source_path: sldb/store/io/semantic_index.py
-source_span: '38:42'
-source_sha256: b0e92df800156b0ddcaa92714d21bf920d8e66f9a115f28e6dae84373a4fbd6f
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 57:68
+source_sha256: 7957ac2d25ea890531650f1a22dbb53ad34435c53ecc46f44ae7b9284b91c5ff
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.store.io.semantic_index:SemanticIndexIO.save;
-  contract-sha256:1c26b1af480a6bbc36433d5c815934898f187c957b60d07d54c4cfa07a32d82a
+  contract-sha256:9cfdc585cac170dbbb82a98e891263857d4aa5b7fd6b16923c0bf4c3176b39a0
 ---
 
 # SemanticIndexIO.save
@@ -21,7 +21,9 @@ save(store_path: Path, index: SemanticIndex)
 
 ## Docstring
 
-Not documented.
+Shards out every document `index` carries (store_init's empty index, migration's
+one-time conversion of an old store); the fast write path (semantic_doc_contribution)
+writes one shard directly instead of building a whole SemanticIndex for this.
 
 ## Imports
 

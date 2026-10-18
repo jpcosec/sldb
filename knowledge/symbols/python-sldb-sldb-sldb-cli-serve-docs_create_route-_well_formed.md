@@ -1,0 +1,36 @@
+---
+id: python-sldb-sldb-sldb-cli-serve-docs_create_route-_well_formed
+system: sldb
+module: sldb.sldb.cli.serve.docs_create_route
+qualname: _well_formed
+kind: FunctionDef
+source_path: sldb/cli/serve/docs_create_route.py
+source_span: '40:41'
+source_sha256: 79b73c7179904afcce55e13cb37594706aa5766a15727fd520ec042caafd7874
+architecture_spec: Not declared.
+tags: []
+provenance: python-ast:python:sldb.sldb.cli.serve.docs_create_route:_well_formed;
+  contract-sha256:69c1b8ff72e9c0b79a163cc109bf4821a4c6767490a90021b11ff77c6bdd6aaf
+---
+
+# _well_formed
+
+## Signature
+
+_well_formed(request: dict[str, Any])
+
+## Docstring
+
+Not documented.
+
+## Imports
+
+["__future__", "pathlib", "sldb.cli.serve.docs_routes", "sldb.cli.serve.responses", "sldb.cli.serve.save_plan", "sldb.cli.serve.save_routes", "typing"]
+
+## Purpose
+
+Not documented.
+
+## Architecture
+
+Not documented.

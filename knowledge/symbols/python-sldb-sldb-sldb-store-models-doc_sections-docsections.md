@@ -5,11 +5,11 @@ module: sldb.sldb.store.models.doc_sections
 qualname: DocSections
 kind: ClassDef
 source_path: sldb/store/models/doc_sections.py
-source_span: '5:7'
-source_sha256: c3b1fc57effdd2cf056774d9a4782334af073936c299d8c7819e8b8c46936065
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '5:10'
+source_sha256: ac368f7e9cead87a167630677d468930de4b2e46e618af4370584464ded213d0
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.models.doc_sections:DocSections; contract-sha256:de4e2c12fe2b282b0d68d820eb5f9fb48a74698587c8e1e207786ca16ce9f871
+provenance: python-ast:python:sldb.sldb.store.models.doc_sections:DocSections; contract-sha256:62edf7bbfcdfb1d1873406ce1a8872f70d638493ace126cd4df02601a5d7c200
 ---
 
 # DocSections

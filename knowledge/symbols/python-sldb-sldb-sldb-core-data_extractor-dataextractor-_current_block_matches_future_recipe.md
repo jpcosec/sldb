@@ -5,12 +5,12 @@ module: sldb.sldb.core.data_extractor
 qualname: DataExtractor._current_block_matches_future_recipe
 kind: FunctionDef
 source_path: sldb/core/data_extractor.py
-source_span: '36:40'
-source_sha256: 67626e17ce20edeb1bd04e488a778becc67db6f4cb29fbddea501d0d7b3e0d49
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '38:42'
+source_sha256: 0743434351f23ade474b8b134b7d283fdfa7df7641101188657110a9b05e9faa
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.data_extractor:DataExtractor._current_block_matches_future_recipe;
-  contract-sha256:66612fb4c9b2db52a189859afe20628e86cb5fcbcdad0477c7f4b92cc32a388b
+  contract-sha256:141067babd93210f0aaa49ade4e829fd7e551975b07ad61f35a7011be7d17537
 ---
 
 # DataExtractor._current_block_matches_future_recipe
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["sldb.core.extractor.recipe_matcher", "sldb.core.node", "sldb.core.node_handler", "typing"]
+["sldb.core.contracts.marker", "sldb.core.extractor.recipe_matcher", "sldb.core.extractor.section_boundary", "sldb.core.node", "sldb.core.node_handler", "typing"]
 
 ## Purpose
 

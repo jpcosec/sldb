@@ -5,12 +5,12 @@ module: sldb.sldb.core.renderer_engine.base
 qualname: BaseRenderer._format_value
 kind: FunctionDef
 source_path: sldb/core/renderer_engine/base.py
-source_span: '34:38'
-source_sha256: 628e34e7e0930d1d84d25cbe4fd8a4ad898ab2c7c6b62fde28c4b3442e7f5641
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 88:92
+source_sha256: ba5267bf5d0dd0936ea61e5fb71183b5604f43d857c57f8dbfa7fa7fe6f763b5
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.renderer_engine.base:BaseRenderer._format_value;
-  contract-sha256:cc61dcd35e09bca0d5ef4bde89a443053a7f280abc2283009a5c01f27d6f868e
+  contract-sha256:da6cee37ca02b2b44131112c7a32811e01086813211f7dcb55656c666ac16159
 ---
 
 # BaseRenderer._format_value
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "jinja2", "re", "sldb.core.handlers.utils", "sldb.core.renderer_engine.python_expr", "typing", "yaml"]
+["__future__", "jinja2", "re", "sldb.core.handlers.utils", "sldb.core.renderer_engine.jinja_trailing", "sldb.core.renderer_engine.python_expr", "sldb.core.renderer_engine.table_markdown", "typing", "yaml"]
 
 ## Purpose
 

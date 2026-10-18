@@ -5,26 +5,30 @@ module: sldb.sldb.store.runtime_cache
 qualname: payload_of
 kind: FunctionDef
 source_path: sldb/store/runtime_cache.py
-source_span: 96:101
-source_sha256: 268fb05766c0b59434a5e0d1d9b098d373e5250d83de20b10e42bbfd3aa9f511
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 92:102
+source_sha256: 870a33b2e031d380c875372e22bbf508b533af2cbd6dae4f59d6ddb6e563db78
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.runtime_cache:payload_of; contract-sha256:f84391bda7da6e41d071d6891fec1180bb7bf2343c9bc3416142fafadac532ad
+provenance: python-ast:python:sldb.sldb.store.runtime_cache:payload_of; contract-sha256:94899357ebcc56f350de65e22a5bf292b3dda69de948f60aa1f87f3df335fb1b
 ---
 
 # payload_of
 
 ## Signature
 
-payload_of(rel_path: str, hash_c: str, m_name: str)
+payload_of(rel_path: str, hash_c: str, model_type: type)
 
 ## Docstring
 
-The extracted payload of a document as the cache knows it now, or None.
+The extracted payload of this text under this model class, as the cache knows it now.
+
+Matched on the class itself, not on its name: a payload is what a class extracts from a
+text, and two classes called `Spec` in two modules extract different things. Matching the
+name let `content_hash` — which is persisted — be computed from another class's payload.
 
 ## Imports
 
-["__future__", "dataclasses", "os", "pathlib", "sldb.store", "sldb.store.io", "sldb.store.layout", "typing"]
+["__future__", "dataclasses", "pathlib", "sldb.store", "sldb.store.hashing", "sldb.store.runtime_cache_signature", "typing"]
 
 ## Purpose
 

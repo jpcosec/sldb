@@ -6,11 +6,11 @@ qualname: StoresCLI._format_payload
 kind: FunctionDef
 source_path: sldb/cli/commands/stores.py
 source_span: 59:62
-source_sha256: 4e65e4cb1a193336cf3a8a129e164fd75be5dbeac41bce3cb912500fe9534b9f
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: 6e04276d84743902688859069adc2a27dae10368badb5271f2e9e5cf389b96ec
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.cli.commands.stores:StoresCLI._format_payload;
-  contract-sha256:21f6135a0e295fa95946f9f47ec90fc70a6f9e03da96e687f46666b23f79063b
+  contract-sha256:bc0d2c980fb6ed0d2dcaf996cc318d27a58b0d31a3e81e8651e72a88e62639fd
 ---
 
 # StoresCLI._format_payload
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "json", "pathlib", "sldb.cli.commands.store", "sldb.cli.model_utils", "sldb.cli.store_context", "sldb.cli.utils", "sldb.store.catalog_reconcile", "sldb.store.export", "sldb.store.io", "sldb.store.resolver", "typing", "yaml"]
+["__future__", "json", "pathlib", "sldb.api.stores.store_links", "sldb.cli.commands.store", "sldb.cli.model_utils", "sldb.cli.store_context", "sldb.cli.utils", "sldb.store.catalog_reconcile", "sldb.store.export", "sldb.store.resolver", "typing", "yaml"]
 
 ## Purpose
 

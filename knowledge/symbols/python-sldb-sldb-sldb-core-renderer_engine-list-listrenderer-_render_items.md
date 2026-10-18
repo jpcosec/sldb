@@ -5,12 +5,12 @@ module: sldb.sldb.core.renderer_engine.list
 qualname: ListRenderer._render_items
 kind: FunctionDef
 source_path: sldb/core/renderer_engine/list.py
-source_span: '23:30'
-source_sha256: c5178088181e73bc16f99f5abab8acc9367fd5769111a625a7781f6e5d25ded4
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '24:31'
+source_sha256: 101ba951069266d9837b705dafc777e18bbd370f6f749fcbcacd7ef2aa38c859
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.renderer_engine.list:ListRenderer._render_items;
-  contract-sha256:a7d3002f7553953f0c86d0b0bf687a2cbf71d46b1552d3f6ee105d56698164c1
+  contract-sha256:715dd0ceba36d2264e91a20f2775139b0f4f760fcf3d844d14d7a5f8084d8531
 ---
 
 # ListRenderer._render_items
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "re", "sldb.core.renderer_engine.base", "typing"]
+["__future__", "re", "sldb.core.handlers.list_escape", "sldb.core.renderer_engine.base", "typing"]
 
 ## Purpose
 

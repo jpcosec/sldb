@@ -5,12 +5,12 @@ module: sldb.sldb.core.contracts.marker
 qualname: _append_part_and_reset
 kind: FunctionDef
 source_path: sldb/core/contracts/marker.py
-source_span: '29:33'
-source_sha256: b4024b4f7cd812b3de6aa94a462b89fa8d703b46ae0e102ea018c003033cce07
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '30:34'
+source_sha256: 726f13aa6aec69fcd478d34e0c30be6efe518c5ce653f29fd53b55ddfea96897
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.contracts.marker:_append_part_and_reset;
-  contract-sha256:083de1a1da24621008e47e741e66a2ee35b6b6cfb9f91210c62b08661e531f37
+  contract-sha256:b9ac454d0beed83ff4fb1340e961d7e663c270128753079fc4b1d9ed8ed258f2
 ---
 
 # _append_part_and_reset
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["pydantic"]
+["pydantic", "typing"]
 
 ## Purpose
 

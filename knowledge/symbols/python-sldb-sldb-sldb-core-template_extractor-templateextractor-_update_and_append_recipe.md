@@ -5,12 +5,12 @@ module: sldb.sldb.core.template_extractor
 qualname: TemplateExtractor._update_and_append_recipe
 kind: FunctionDef
 source_path: sldb/core/template_extractor.py
-source_span: 54:61
-source_sha256: 52a6fe9ed7aa107f7a7c572056c88bc1663f6697492ad3f3af3f853b65b0556b
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 69:76
+source_sha256: 771a869da5394d801b3b55e95519bc3f75e5db7d525cb4866b17cdf5ebb8fefd
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.template_extractor:TemplateExtractor._update_and_append_recipe;
-  contract-sha256:028faad9c38811da834eeafd30dbef81abdd2b7f28481a66ee8aed1aa264988d
+  contract-sha256:029c7554c0b0600c7c9af52e626bea836b86e379599c18a47f75ad7123291bf1
 ---
 
 # TemplateExtractor._update_and_append_recipe

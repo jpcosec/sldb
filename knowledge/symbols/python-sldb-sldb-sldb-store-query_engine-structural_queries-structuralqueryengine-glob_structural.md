@@ -6,11 +6,11 @@ qualname: StructuralQueryEngine.glob_structural
 kind: FunctionDef
 source_path: sldb/store/query_engine/structural_queries.py
 source_span: '28:39'
-source_sha256: 4e7ad9b7e20f85ce3c4526b5581393fb00dbc13b39a8e4b036c7f3d3d1ff0a73
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: b5ba0cdbae66e258547d9f321299b881312f0783d669deeed7d02c30fde4f257
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.store.query_engine.structural_queries:StructuralQueryEngine.glob_structural;
-  contract-sha256:9328b1c127464c5b29f0c96a8ea90f78739d299b5f7cee58d1040ee279252b2b
+  contract-sha256:946e7a9eb5d9fa215e6d5d9e9dc1a481e88d32fdac0cd91462bd80d7fd70cdff
 ---
 
 # StructuralQueryEngine.glob_structural
@@ -25,7 +25,7 @@ Matches structural addresses against a glob pattern.
 
 ## Imports
 
-["__future__", "fnmatch", "pathlib", "re", "sldb.store.query_engine.filter", "sldb.store.query_engine.store_prefix", "sldb.store.query_engine.structural"]
+["__future__", "fnmatch", "pathlib", "re", "sldb.store.query_engine.store_prefix", "sldb.store.query_engine.structural", "sldb.store.query_engine.where_parse"]
 
 ## Purpose
 

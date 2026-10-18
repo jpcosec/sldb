@@ -5,11 +5,11 @@ module: sldb.sldb.cli.dispatcher
 qualname: CLI
 kind: ClassDef
 source_path: sldb/cli/dispatcher.py
-source_span: 6:84
-source_sha256: 53357ad6f727e63011b4517f0e20555413669b91354668492cff9273cf1604ae
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 8:99
+source_sha256: 215856cb5578fef5bd8328d3dd0a5936115496fa43415f224f000ef96c0d483f
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.dispatcher:CLI; contract-sha256:40882bc628aef47d90e916d14075999face718f25830ae288bad3cc2a6166e64
+provenance: python-ast:python:sldb.sldb.cli.dispatcher:CLI; contract-sha256:355c82e6bdb7c5e8801862481698eea3dbdb841c75878f2311955eb8042a72ff
 ---
 
 # CLI
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "sldb.cli.commands.help_texts", "sldb.cli.parser", "typing"]
+["__future__", "sldb.cli.commands.help_texts", "sldb.cli.parser", "sldb.cli.singular_handlers", "sldb.cli.subcommand_errors", "typing"]
 
 ## Purpose
 

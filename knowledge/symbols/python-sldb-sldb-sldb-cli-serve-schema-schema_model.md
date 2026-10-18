@@ -5,11 +5,11 @@ module: sldb.sldb.cli.serve.schema
 qualname: schema_model
 kind: FunctionDef
 source_path: sldb/cli/serve/schema.py
-source_span: '17:19'
-source_sha256: d161558c30bb6e36413a54bb9d7cb9c3d79b7a1802c462c69ea450cd1eb72cca
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 53:63
+source_sha256: 76f8b45e5120c346a3c61e1323aee0a30ab7eea163c4cb893e47708b9fcb0f31
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.serve.schema:schema_model; contract-sha256:04dbbe1041cd6b05e23ad5f6d57b34be5248757430b06d6e3d89a26721eeaa71
+provenance: python-ast:python:sldb.sldb.cli.serve.schema:schema_model; contract-sha256:afadc0fc940165c529c295b8fc0f120da4398cd63c30f6a8e84ac66397559712
 ---
 
 # schema_model
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "enum", "pathlib", "sldb.cli.model_utils", "sldb.store.io", "types", "typing"]
+["__future__", "enum", "pathlib", "pydantic_core", "sldb.api.schema.field_descriptor", "sldb.api.schema.field_kinds", "sldb.api.schema.store_schema", "sldb.api.schema.unavailable_model", "sldb.cli.model_utils", "sldb.models.structured_doc", "sldb.store.io", "typing"]
 
 ## Purpose
 

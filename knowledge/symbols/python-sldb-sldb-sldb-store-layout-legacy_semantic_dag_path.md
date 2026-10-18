@@ -6,10 +6,10 @@ qualname: legacy_semantic_dag_path
 kind: FunctionDef
 source_path: sldb/store/layout.py
 source_span: '42:43'
-source_sha256: d7d9f96ffd161b2f1bd1e642cfdb77800fe93561e627cd631b33a069395954ac
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: 5426bd05eb9d838ff5b7575a37c92ebc23b4da123ed19302fe13e0158dd44cdf
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.layout:legacy_semantic_dag_path; contract-sha256:e8198fee2bc3b8d43e17aacfe59ba4672370a05719a1b0b1e2b2e999693a5235
+provenance: python-ast:python:sldb.sldb.store.layout:legacy_semantic_dag_path; contract-sha256:4670ccd1396d4a8207236b0221bccd96d205271f7d963c69777055bac9552d33
 ---
 
 # legacy_semantic_dag_path

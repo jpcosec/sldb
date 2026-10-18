@@ -5,11 +5,11 @@ module: sldb.sldb.store.diagnostics
 qualname: diagnose_store
 kind: FunctionDef
 source_path: sldb/store/diagnostics.py
-source_span: '49:56'
-source_sha256: 094f9ca83322841ab6c87fc5c815becde0d984360f6ad71a5c88b8758d79b0e9
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 111:119
+source_sha256: 8df97842ce8ae42fe7bd7d412973d2a760e684bbcde8e00f0b22146d56f8bab7
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.diagnostics:diagnose_store; contract-sha256:d408bf1114d322fc4c676a51ec7142c6338157a71b178f6f07577eeec815b8b1
+provenance: python-ast:python:sldb.sldb.store.diagnostics:diagnose_store; contract-sha256:9169b79ae2ea7f1032ec1042bd2067379b0d1660cc9b3055f2f57a9cb52ac854
 ---
 
 # diagnose_store
@@ -24,7 +24,7 @@ Diagnoses the integrity of the entire store.
 
 ## Imports
 
-["__future__", "pathlib", "sldb.store.diagnostics_models", "sldb.store.hashing", "sldb.store.io", "sldb.store.layout", "sldb.store.models", "typing"]
+["__future__", "pathlib", "sldb.store.diagnostics_models", "sldb.store.diagnostics_models.text_history", "sldb.store.field_set_drift", "sldb.store.hashing", "sldb.store.io", "sldb.store.layout", "sldb.store.legacy_contract", "sldb.store.model_node", "sldb.store.model_origin", "sldb.store.models", "typing"]
 
 ## Purpose
 

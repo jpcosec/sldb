@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/models/anchor_doc.py
 source_span: 9:61
 source_sha256: eb4e325d5098a4b4cc973fa181709c98befdc96f5f6f7e6b00884c425545c73f
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.models.anchor_doc:AnchorDoc; contract-sha256:6799f13693720774515b13f3df3c837e03a1e72596cb892d4e86093a8b6a261b
 ---

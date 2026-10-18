@@ -5,11 +5,11 @@ module: sldb.sldb.store.query
 qualname: _linked_stores
 kind: FunctionDef
 source_path: sldb/store/query.py
-source_span: 94:100
-source_sha256: 97c12e4ef2f6d845379fee569129cb7bfed79823b211d0b0d5d17a9628ebde23
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 95:101
+source_sha256: 441b74a92bf88e1691d36312d2dd7c6cf78ce1308baa2ff7a1baf84950ff7f71
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.query:_linked_stores; contract-sha256:bd217962f88c0b460eae59b882aaec03805c275041827ac1ef9a873be04c62dd
+provenance: python-ast:python:sldb.sldb.store.query:_linked_stores; contract-sha256:e6ecc18b42ea0b779e60df677d651083717ed073c3d1d2f967ef18fbd34776f1
 ---
 
 # _linked_stores

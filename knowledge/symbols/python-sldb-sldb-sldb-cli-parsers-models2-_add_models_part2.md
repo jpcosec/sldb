@@ -5,11 +5,11 @@ module: sldb.sldb.cli.parsers.models2
 qualname: _add_models_part2
 kind: FunctionDef
 source_path: sldb/cli/parsers/models2.py
-source_span: '4:5'
-source_sha256: 73e1ca58cb751414019c1101f03d3ce5bdba5a700216edf941296005f9c95bbf
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '5:6'
+source_sha256: f86901cf09fb09da80c36de9ca84430174754087845faac4c3103512843c577e
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.parsers.models2:_add_models_part2; contract-sha256:010a2ace2717ce8e56449d1e2836679bec45f9f8d32cb1f692b1530536ef19d0
+provenance: python-ast:python:sldb.sldb.cli.parsers.models2:_add_models_part2; contract-sha256:cb986701d1a654c2d4cf56aa26c5e5feaeb0f8c9ca58108687a53dbdb265aad5
 ---
 
 # _add_models_part2
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "argparse"]
+["__future__", "argparse", "sldb.cli.output_format"]
 
 ## Purpose
 

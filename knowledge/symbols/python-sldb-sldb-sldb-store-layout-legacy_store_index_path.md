@@ -6,10 +6,10 @@ qualname: legacy_store_index_path
 kind: FunctionDef
 source_path: sldb/store/layout.py
 source_span: '26:27'
-source_sha256: d7d9f96ffd161b2f1bd1e642cfdb77800fe93561e627cd631b33a069395954ac
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: 5426bd05eb9d838ff5b7575a37c92ebc23b4da123ed19302fe13e0158dd44cdf
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.layout:legacy_store_index_path; contract-sha256:de6f5e7e6028214ec717082c245f2aa409f2970faad8776054f478459b00070f
+provenance: python-ast:python:sldb.sldb.store.layout:legacy_store_index_path; contract-sha256:cb99de0917cfdac8b782df81dbed9475c728ed0c9b0d7c227c40d3893c22ed8c
 ---
 
 # legacy_store_index_path

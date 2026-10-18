@@ -6,10 +6,10 @@ qualname: yaml_dump
 kind: FunctionDef
 source_path: sldb/store/io/utils.py
 source_span: '34:35'
-source_sha256: fb6a0dd898ed65a490b096bd43e403055f3c581253b53ae942fde95627e2444a
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: 93204abb06ce4d86cc769a3ab03a45d08fa47114765b2589491e2e6a9a618c9a
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.io.utils:yaml_dump; contract-sha256:7f904c64d14b21fdb210246c313c67c81458aa7a7f6af4c2450c5fc53eceb909
+provenance: python-ast:python:sldb.sldb.store.io.utils:yaml_dump; contract-sha256:c824006656e323261df3a1f482c80e22f27040d3948ea392bf3cf10672f58de9
 ---
 
 # yaml_dump

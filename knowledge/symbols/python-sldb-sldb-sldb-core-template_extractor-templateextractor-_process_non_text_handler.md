@@ -6,11 +6,11 @@ qualname: TemplateExtractor._process_non_text_handler
 kind: FunctionDef
 source_path: sldb/core/template_extractor.py
 source_span: '29:35'
-source_sha256: 52a6fe9ed7aa107f7a7c572056c88bc1663f6697492ad3f3af3f853b65b0556b
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: 771a869da5394d801b3b55e95519bc3f75e5db7d525cb4866b17cdf5ebb8fefd
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.template_extractor:TemplateExtractor._process_non_text_handler;
-  contract-sha256:f1b9357db1833ff6abf0f7c978c6fc322ab63ba5832605da12b10f3c624ec9ee
+  contract-sha256:00ddec0f9bb5083f9db28bff5de4da0eac93605dc5a7a5273dd27f41e0d438eb
 ---
 
 # TemplateExtractor._process_non_text_handler

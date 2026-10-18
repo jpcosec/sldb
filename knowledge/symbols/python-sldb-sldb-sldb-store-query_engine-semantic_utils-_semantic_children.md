@@ -5,27 +5,27 @@ module: sldb.sldb.store.query_engine.semantic_utils
 qualname: _semantic_children
 kind: FunctionDef
 source_path: sldb/store/query_engine/semantic_utils.py
-source_span: '18:20'
-source_sha256: 2a9758ec86c0e3dc96e0f854ff3a90a1ad45615c8193cb5f543433b1d7d9ffa0
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '21:23'
+source_sha256: 4ad80c6c32c0718ef773607f8cbe6c5f96854ffe8004dc8bb8c5557271582761
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.store.query_engine.semantic_utils:_semantic_children;
-  contract-sha256:412ede1461905494775fe14faca5b522997442c9fe8641a5d18eca6c09205b8e
+  contract-sha256:60ba96a8ecb00be720fc003eed493e47b6aeb97e6329e3e88a190d46e23399f5
 ---
 
 # _semantic_children
 
 ## Signature
 
-_semantic_children(tags: list[str], prefix: str)
+_semantic_children(store_path: Path, prefix: str)
 
 ## Docstring
 
-Retrieves child semantic nodes for a given prefix.
+Retrieves child semantic nodes by walking the store's semantic DAG.
 
 ## Imports
 
-["__future__", "pathlib", "re", "sldb.store.io", "sldb.store.layout", "sldb.store.query", "sldb.store.query_engine.models", "typing"]
+["__future__", "pathlib", "re", "sldb.store.io", "sldb.store.layout", "sldb.store.query", "sldb.store.query_engine.models", "sldb.store.semantic_dag_graph", "typing"]
 
 ## Purpose
 

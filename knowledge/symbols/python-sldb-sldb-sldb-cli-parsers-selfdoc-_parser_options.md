@@ -5,11 +5,11 @@ module: sldb.sldb.cli.parsers.selfdoc
 qualname: _parser_options
 kind: FunctionDef
 source_path: sldb/cli/parsers/selfdoc.py
-source_span: '40:44'
-source_sha256: 076c872c21a9ded46ef73c9a35fcfcf93d2f1beab99be47996cdcf572fa7b199
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '49:53'
+source_sha256: e094d1d4bf53d6ecc8bc7f224e1e81e1f58bee4ac27985fe71949d7cc088368a
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.parsers.selfdoc:_parser_options; contract-sha256:0ba1b7805765e711b625c73aeb636cf2b3d80e346a20dc81af5bab9729277547
+provenance: python-ast:python:sldb.sldb.cli.parsers.selfdoc:_parser_options; contract-sha256:221263e72d457a8915f77e87ad83f064ec13084d40a3049633a4b54bae2dc27b
 ---
 
 # _parser_options

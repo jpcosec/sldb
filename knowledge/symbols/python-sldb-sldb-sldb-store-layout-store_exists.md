@@ -5,11 +5,11 @@ module: sldb.sldb.store.layout
 qualname: store_exists
 kind: FunctionDef
 source_path: sldb/store/layout.py
-source_span: 62:66
-source_sha256: d7d9f96ffd161b2f1bd1e642cfdb77800fe93561e627cd631b33a069395954ac
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 134:138
+source_sha256: 5426bd05eb9d838ff5b7575a37c92ebc23b4da123ed19302fe13e0158dd44cdf
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.layout:store_exists; contract-sha256:1f379f7815ef369d058931876c8b2f6e0be4627f807febc2a3cb77b1cf290469
+provenance: python-ast:python:sldb.sldb.store.layout:store_exists; contract-sha256:861ddb43893bd3401d5fadd86ef0f7a17698c1da3d74bb048c7bc654fdae21f5
 ---
 
 # store_exists

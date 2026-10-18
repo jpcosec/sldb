@@ -5,11 +5,11 @@ module: sldb.sldb.cli.commands.doc
 qualname: DocCLI.untrack
 kind: FunctionDef
 source_path: sldb/cli/commands/doc.py
-source_span: 91:98
-source_sha256: b0a1c410cd3c470be29e5ad89a3c24c89aac5a340cab892982bfebb6318f801d
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 89:92
+source_sha256: 6e6844bf3019af4fd3b4655fb340006d29811ce6c27ed1f22c4f7a0ac135eaab
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.commands.doc:DocCLI.untrack; contract-sha256:1857df83195102b72ff686a2bb382145629d43bb94d5f239d3d37362d4c733d6
+provenance: python-ast:python:sldb.sldb.cli.commands.doc:DocCLI.untrack; contract-sha256:5bc5414cadb484d393a6e4d2d13849f7426dacedeea2f573666b9e84963ccd5d
 ---
 
 # DocCLI.untrack
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "pathlib", "sldb.cli.model_utils", "sldb.cli.store_context", "sldb.core.exceptions", "sldb.runtime.validation", "sldb.store.hashing", "sldb.store.io", "sldb.store.ops", "sldb.store.section_rebuild", "sldb.store.semantic", "typing", "yaml"]
+["__future__", "pathlib", "sldb.api.documents.create_document", "sldb.api.documents.delete_document", "sldb.api.documents.track_document_file", "sldb.api.documents.untrack_document", "sldb.cli.commands.doc_lookup", "sldb.cli.commands.docs_batch", "sldb.cli.model_utils", "sldb.cli.output_format", "sldb.cli.store_context", "sldb.core.exceptions", "sldb.runtime.validation", "sldb.store", "sldb.store.derived_rebuild", "sldb.store.hashing", "sldb.store.io", "sldb.store.io.shards", "sldb.store.layout", "sldb.store.model_node", "sldb.store.ops", "typing", "yaml"]
 
 ## Purpose
 

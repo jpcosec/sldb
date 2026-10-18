@@ -5,12 +5,12 @@ module: sldb.sldb.runtime.validation
 qualname: validate_model_input_roundtrip
 kind: FunctionDef
 source_path: sldb/runtime/validation.py
-source_span: '50:50'
-source_sha256: db153bd8ee9125446f462b8c23bf82f3cbf008d2d78c86de4ace69adb9021246
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 66:66
+source_sha256: 2b2918b574091442a8d3d9b4cbf95a30da6261a2050927062ccc86077dec60bb
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.runtime.validation:validate_model_input_roundtrip;
-  contract-sha256:9abe8d6847b27c9132aca8e998a90dc2627d82793f88eef03abe6d66e35d6316
+  contract-sha256:6c8be6967731b1c0da7872105f302d49c3cc19db575641791fca82dfb59e4d90
 ---
 
 # validate_model_input_roundtrip
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "sldb.core.ast", "sldb.core.data_extractor", "sldb.core.renderer", "sldb.core.template_extractor", "sldb.models.structured_doc", "typing"]
+["__future__", "functools", "pathlib", "sldb.core.ast", "sldb.core.data_extractor", "sldb.core.renderer", "sldb.core.template_extractor", "sldb.models.structured_doc", "typing"]
 
 ## Purpose
 

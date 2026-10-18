@@ -5,12 +5,12 @@ module: sldb.sldb.store.query_engine.semantic
 qualname: glob_semantic
 kind: FunctionDef
 source_path: sldb/store/query_engine/semantic.py
-source_span: '25:29'
-source_sha256: d31573a0489cb9857a9eb18291413b3f7cc502f07d22964c07b0075331a475da
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '26:30'
+source_sha256: 82f150921b3122061d1632b5a0859666675f2337f69d3a8e05598d72b5746ec1
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.store.query_engine.semantic:glob_semantic;
-  contract-sha256:e7e8e9235b0e1917097bc67e11aa017ac551913ec3400440513456e87953ed82
+  contract-sha256:6f189d0e40ba99bca86c9709911db1c48b40f8ad1db423deb61abdc687e43a20
 ---
 
 # glob_semantic
@@ -25,7 +25,7 @@ Globs semantic tags.
 
 ## Imports
 
-["__future__", "pathlib", "sldb.store.query_engine.filter", "sldb.store.query_engine.semantic_utils"]
+["__future__", "pathlib", "sldb.store.query_engine.semantic_utils", "sldb.store.query_engine.where_parse"]
 
 ## Purpose
 

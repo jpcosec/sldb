@@ -6,10 +6,10 @@ qualname: _extract
 kind: FunctionDef
 source_path: sldb/cli/parsers/basic.py
 source_span: '9:15'
-source_sha256: 22bb11a4738c95a23178be3d3f9ce4f511b9b9e58f56aace2274a27d1403c307
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: 88276be411f976b40c02f348d2f6acadb20be2f889406a70852d6f6a40a7e671
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.parsers.basic:_extract; contract-sha256:02da9610b95e09ffdb3112149fd134f07a484f2bacdd2b6b200f22b73bddb0a3
+provenance: python-ast:python:sldb.sldb.cli.parsers.basic:_extract; contract-sha256:20014542b65515e61ab30d40d0842c9374ab711abbc3bd82c71141433f8125e9
 ---
 
 # _extract

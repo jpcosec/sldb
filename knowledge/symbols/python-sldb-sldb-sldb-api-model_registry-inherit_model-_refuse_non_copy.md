@@ -1,0 +1,36 @@
+---
+id: python-sldb-sldb-sldb-api-model_registry-inherit_model-_refuse_non_copy
+system: sldb
+module: sldb.sldb.api.model_registry.inherit_model
+qualname: _refuse_non_copy
+kind: FunctionDef
+source_path: sldb/api/model_registry/inherit_model.py
+source_span: 92:96
+source_sha256: 5d783eb4a01a532d4e4c8ed57e475eed1a1eda83cbd3d9d788363fa71bcbb831
+architecture_spec: Not declared.
+tags: []
+provenance: python-ast:python:sldb.sldb.api.model_registry.inherit_model:_refuse_non_copy;
+  contract-sha256:ce8b3b1a52b93adf5790dc6e63a03c4af5c1be0e2402020a1603bb8289ec4745
+---
+
+# _refuse_non_copy
+
+## Signature
+
+_refuse_non_copy(mine, theirs)
+
+## Docstring
+
+Not documented.
+
+## Imports
+
+["__future__", "pathlib", "sldb.api.journal", "sldb.api.model_registry.federated_registration", "sldb.api.model_registry.model_reference", "sldb.api.model_registry.model_registration", "sldb.api.stores.open_store", "sldb.core.exceptions", "sldb.store.derived_rebuild", "sldb.store.io", "sldb.store.layout", "sldb.store.model_origin", "sldb.store.ops"]
+
+## Purpose
+
+Not documented.
+
+## Architecture
+
+Not documented.

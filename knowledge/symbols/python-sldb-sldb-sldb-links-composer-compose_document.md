@@ -5,26 +5,27 @@ module: sldb.sldb.links.composer
 qualname: compose_document
 kind: FunctionDef
 source_path: sldb/links/composer.py
-source_span: '7:16'
-source_sha256: b6aad169c6cd2b9478ab06f7229dd65f21cc68dba9b47cfc9cd5cd85be096ef6
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '23:31'
+source_sha256: 5acd2bc58cf2fca168cf5e1b96c862176219e2511e96df5a35cf80de174b1b2d
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.links.composer:compose_document; contract-sha256:7f079aa53222dc118a70e4d062f7a286ea886aa0d3920e0f81937388a8a96ae5
+provenance: python-ast:python:sldb.sldb.links.composer:compose_document; contract-sha256:d12dfcf64efaf27d1c37d3caf6a62ceec564ce2b98712d086e28d353fc5a909c
 ---
 
 # compose_document
 
 ## Signature
 
-compose_document(dp: Path, sp: Path | None, s: set[Path] | None=None)
+compose_document(dp: Path, sp: Path | None, s: tuple[Path, ...]=(), _root: bool=True, section: str | None=None, links_base: Path | None=None)
 
 ## Docstring
 
-Not documented.
+Expand `![[x]]` / `![[x#Section]]`. An included document loses its YAML frontmatter;
+only the root keeps its own. `s` is the include chain (cycle guard), so a document may be included twice.
 
 ## Imports
 
-[".parser", ".resolver", "__future__", "pathlib", "re"]
+[".parser", ".render", ".resolver", ".sections", "__future__", "pathlib", "re"]
 
 ## Purpose
 

@@ -5,12 +5,12 @@ module: sldb.sldb.core.contracts.marker
 qualname: _split_marker_head
 kind: FunctionDef
 source_path: sldb/core/contracts/marker.py
-source_span: '11:20'
-source_sha256: b4024b4f7cd812b3de6aa94a462b89fa8d703b46ae0e102ea018c003033cce07
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '12:21'
+source_sha256: 726f13aa6aec69fcd478d34e0c30be6efe518c5ce653f29fd53b55ddfea96897
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.contracts.marker:_split_marker_head;
-  contract-sha256:e6c1e57510847e65259a76ce09384d572fd035d6655a7307c002068f9069e2fb
+  contract-sha256:433b1a343a40978b0acd25e7c0fd32fec791f2daa1c2b809c98239b4a97fd629
 ---
 
 # _split_marker_head
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["pydantic"]
+["pydantic", "typing"]
 
 ## Purpose
 

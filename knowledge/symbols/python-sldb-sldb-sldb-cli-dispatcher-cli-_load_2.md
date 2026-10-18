@@ -5,11 +5,11 @@ module: sldb.sldb.cli.dispatcher
 qualname: CLI._load_2
 kind: FunctionDef
 source_path: sldb/cli/dispatcher.py
-source_span: '24:32'
-source_sha256: 53357ad6f727e63011b4517f0e20555413669b91354668492cff9273cf1604ae
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '28:37'
+source_sha256: 215856cb5578fef5bd8328d3dd0a5936115496fa43415f224f000ef96c0d483f
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.dispatcher:CLI._load_2; contract-sha256:de2e67b3d703ef236bcd204601944fdda4aa59b6a49cd22ee211e9e98721c636
+provenance: python-ast:python:sldb.sldb.cli.dispatcher:CLI._load_2; contract-sha256:d0c331e82fd15ecd2ad4aa82bc4e285fa0577e47cfd4849e2f4dec70bdbd35a8
 ---
 
 # CLI._load_2
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "sldb.cli.commands.help_texts", "sldb.cli.parser", "typing"]
+["__future__", "sldb.cli.commands.help_texts", "sldb.cli.parser", "sldb.cli.singular_handlers", "sldb.cli.subcommand_errors", "typing"]
 
 ## Purpose
 

@@ -6,11 +6,11 @@ qualname: find_structural
 kind: FunctionDef
 source_path: sldb/store/query_engine/structural_queries.py
 source_span: '18:22'
-source_sha256: 4e7ad9b7e20f85ce3c4526b5581393fb00dbc13b39a8e4b036c7f3d3d1ff0a73
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: b5ba0cdbae66e258547d9f321299b881312f0783d669deeed7d02c30fde4f257
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.store.query_engine.structural_queries:find_structural;
-  contract-sha256:20c16616c4e2d1ac057db13029b6a9273d3ea1a26143323bab38930a9384426a
+  contract-sha256:bef3c1e63f1dbbf456b205e3fb228ae858b2a2c4dde988ea806acab95b5386f5
 ---
 
 # find_structural
@@ -25,7 +25,7 @@ Finds documents matching a structural scope and filter.
 
 ## Imports
 
-["__future__", "fnmatch", "pathlib", "re", "sldb.store.query_engine.filter", "sldb.store.query_engine.store_prefix", "sldb.store.query_engine.structural"]
+["__future__", "fnmatch", "pathlib", "re", "sldb.store.query_engine.store_prefix", "sldb.store.query_engine.structural", "sldb.store.query_engine.where_parse"]
 
 ## Purpose
 

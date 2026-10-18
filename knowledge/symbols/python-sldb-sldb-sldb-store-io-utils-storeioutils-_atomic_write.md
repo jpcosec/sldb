@@ -5,12 +5,12 @@ module: sldb.sldb.store.io.utils
 qualname: StoreIOUtils._atomic_write
 kind: FunctionDef
 source_path: sldb/store/io/utils.py
-source_span: '40:47'
-source_sha256: fb6a0dd898ed65a490b096bd43e403055f3c581253b53ae942fde95627e2444a
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '40:48'
+source_sha256: 93204abb06ce4d86cc769a3ab03a45d08fa47114765b2589491e2e6a9a618c9a
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.store.io.utils:StoreIOUtils._atomic_write;
-  contract-sha256:d5b4547785122eebed4cbf0cf1c6c715aef498e9352861383b6d1a4f8435716c
+  contract-sha256:c7798e48483421b8c5df6f9be3c5eb4a392f5acdc7264ea427eff2a09203c289
 ---
 
 # StoreIOUtils._atomic_write

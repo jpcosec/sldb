@@ -5,11 +5,11 @@ module: sldb.sldb.cli.commands.find_format
 qualname: FindFormatter
 kind: ClassDef
 source_path: sldb/cli/commands/find_format.py
-source_span: '7:50'
-source_sha256: 9f5f6e7edebc72677a7f60797681a85b9aa7685ecae7ba4a7043b2bde02f2876
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '7:46'
+source_sha256: daf17c5a32e4aca2840a1141983fca7306e5c22859a60cd7b53a0d5ac98db377
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.commands.find_format:FindFormatter; contract-sha256:9ece3c615ae57e30a947af60bb5f4f64337f6ad1de7cac8c0ff80d0ccd848989
+provenance: python-ast:python:sldb.sldb.cli.commands.find_format:FindFormatter; contract-sha256:e77812122a0a89f9d691f1add2f91a46b05e81612d807723134de8ee4a3cb911
 ---
 
 # FindFormatter
@@ -20,11 +20,11 @@ Not applicable.
 
 ## Docstring
 
-Formats search results.
+Formats search results. Serialization itself lives in `sldb.api.records`.
 
 ## Imports
 
-["__future__", "json", "sldb.cli.graph_ops", "typing", "yaml"]
+["__future__", "json", "sldb.api.records", "typing", "yaml"]
 
 ## Purpose
 

@@ -5,11 +5,11 @@ module: sldb.sldb.store.runtime_cache_disk
 qualname: mark_dirty
 kind: FunctionDef
 source_path: sldb/store/runtime_cache_disk.py
-source_span: '34:35'
-source_sha256: fd8f4f04316af3f276c987e975d93464ec96316a2d3ec5eabf403a20378ff503
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '40:41'
+source_sha256: 53c815c1e872fef35964554eadff51bb1e63c753adc7343530396b79c213f62e
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.runtime_cache_disk:mark_dirty; contract-sha256:c5b313a8a6ed0b5a2906442d5e4491902b2ac4bbe021228170f1b8c322ebc20d
+provenance: python-ast:python:sldb.sldb.store.runtime_cache_disk:mark_dirty; contract-sha256:4ed4e51fce696845cf101c85e6b9424143652e3de2d189ec97be27ebadb2a020
 ---
 
 # mark_dirty
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "json", "pathlib", "typing"]
+["__future__", "json", "pathlib", "sldb.store", "typing"]
 
 ## Purpose
 

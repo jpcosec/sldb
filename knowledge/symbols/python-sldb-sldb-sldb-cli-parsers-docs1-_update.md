@@ -5,11 +5,11 @@ module: sldb.sldb.cli.parsers.docs1
 qualname: _update
 kind: FunctionDef
 source_path: sldb/cli/parsers/docs1.py
-source_span: '29:34'
-source_sha256: fde22c55b5edd0b75c85b74d464c1958f2ade55f0821223e585351d1b06f0f37
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '31:37'
+source_sha256: 5cf9cbfdf558ac02841aa0514fd909bc76d19fd506849bb8962f8e9873a5f925
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.parsers.docs1:_update; contract-sha256:e3e714d128c5cf3a0a7a925e823fd9e6de07f44eb3c36c4055cec411be6c72bb
+provenance: python-ast:python:sldb.sldb.cli.parsers.docs1:_update; contract-sha256:8192ebcf80724ff4f732e9d0cbee487dc06bd4b5e3c54d99d36e26711a7f5dd2
 ---
 
 # _update
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-[".docs2", "__future__", "argparse"]
+[".docs2", "__future__", "argparse", "sldb.cli.output_format"]
 
 ## Purpose
 

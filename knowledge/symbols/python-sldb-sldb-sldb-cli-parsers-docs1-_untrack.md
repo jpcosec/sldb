@@ -5,11 +5,11 @@ module: sldb.sldb.cli.parsers.docs1
 qualname: _untrack
 kind: FunctionDef
 source_path: sldb/cli/parsers/docs1.py
-source_span: '36:40'
-source_sha256: fde22c55b5edd0b75c85b74d464c1958f2ade55f0821223e585351d1b06f0f37
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '39:43'
+source_sha256: 5cf9cbfdf558ac02841aa0514fd909bc76d19fd506849bb8962f8e9873a5f925
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.parsers.docs1:_untrack; contract-sha256:7b9663fdabdfb58907845dda4897f89ec56cf535889ddd9c28ae2deec1814e5c
+provenance: python-ast:python:sldb.sldb.cli.parsers.docs1:_untrack; contract-sha256:a814b3040ac627a941483d0440613a51e97e839d70db6f1ab1046802590ea124
 ---
 
 # _untrack
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-[".docs2", "__future__", "argparse"]
+[".docs2", "__future__", "argparse", "sldb.cli.output_format"]
 
 ## Purpose
 

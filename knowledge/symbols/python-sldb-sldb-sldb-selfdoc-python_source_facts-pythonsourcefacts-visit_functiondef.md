@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/selfdoc/python_source_facts.py
 source_span: '20:21'
 source_sha256: acfb4b747242ce6236dc7a3f826524f0b39c13c3e6847aafd9a19593ec84de4f
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.selfdoc.python_source_facts:PythonSourceFacts.visit_FunctionDef;
   contract-sha256:a8eff5e75f9a64ec1df3fa7a0187e2a3170d1388080d224be55d5d4b371bb92c

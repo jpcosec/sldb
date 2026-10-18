@@ -5,12 +5,12 @@ module: sldb.sldb.core.extractor.recipe_matcher
 qualname: RecipeMatcher._evaluate_handler
 kind: FunctionDef
 source_path: sldb/core/extractor/recipe_matcher.py
-source_span: '26:32'
-source_sha256: 91959257874437892d9a9a89d462ef06395b51fd30dd0323aa2ab9dcf29c9576
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '25:32'
+source_sha256: 81108664ed5ec0f46db303dab40c65681fd1b8939a0f39c40ccd44f3b3765711
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.extractor.recipe_matcher:RecipeMatcher._evaluate_handler;
-  contract-sha256:667b7cffea9bd5d69039cf829204b55908849f258e167ac21ac13a3c2962b3be
+  contract-sha256:3b9236aa571174da5e336b901ac732ee7b4a87182f590811f189d00f712d8bc0
 ---
 
 # RecipeMatcher._evaluate_handler
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["re", "sldb.core.node", "sldb.core.node_handler", "typing"]
+["sldb.core.node", "sldb.core.node_handler", "typing"]
 
 ## Purpose
 

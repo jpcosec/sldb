@@ -6,11 +6,11 @@ qualname: TextNodeHandler._table_columns
 kind: FunctionDef
 source_path: sldb/core/handlers/text.py
 source_span: 66:72
-source_sha256: cc28587f8be3fcc46771c93e4c12cf1dee8f77e400c1c928e0abddb0e9d6787a
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: 2f53dfb96ef90c9eeef26f51acaaf2765e3dfbcd80425e6cd03ae0db3c8e37db
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.handlers.text:TextNodeHandler._table_columns;
-  contract-sha256:202b0f93c0a02a1d97b8d22b40907057471a92a5467efe017d99d6b48fa61ba8
+  contract-sha256:4ff8586ee9639203f507d06995dd2abbc2ae3f8ed7ca17b523e159f673b1d79c
 ---
 
 # TextNodeHandler._table_columns

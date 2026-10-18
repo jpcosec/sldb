@@ -5,11 +5,11 @@ module: sldb.sldb.runtime.validation
 qualname: extract_payload
 kind: FunctionDef
 source_path: sldb/runtime/validation.py
-source_span: '54:56'
-source_sha256: db153bd8ee9125446f462b8c23bf82f3cbf008d2d78c86de4ace69adb9021246
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 70:72
+source_sha256: 2b2918b574091442a8d3d9b4cbf95a30da6261a2050927062ccc86077dec60bb
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.runtime.validation:extract_payload; contract-sha256:07fa41b459876b458c20c24ff15d66248b8911cc6df2e9e17dcaec08ba14a800
+provenance: python-ast:python:sldb.sldb.runtime.validation:extract_payload; contract-sha256:9058f8e50be997e29a0d1d33c552ae263beea956b9084f6c471b7d9e5761a22a
 ---
 
 # extract_payload
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "sldb.core.ast", "sldb.core.data_extractor", "sldb.core.renderer", "sldb.core.template_extractor", "sldb.models.structured_doc", "typing"]
+["__future__", "functools", "pathlib", "sldb.core.ast", "sldb.core.data_extractor", "sldb.core.renderer", "sldb.core.template_extractor", "sldb.models.structured_doc", "typing"]
 
 ## Purpose
 

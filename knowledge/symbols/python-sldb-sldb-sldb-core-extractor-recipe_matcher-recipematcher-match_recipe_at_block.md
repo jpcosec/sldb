@@ -5,12 +5,12 @@ module: sldb.sldb.core.extractor.recipe_matcher
 qualname: RecipeMatcher.match_recipe_at_block
 kind: FunctionDef
 source_path: sldb/core/extractor/recipe_matcher.py
-source_span: '16:18'
-source_sha256: 91959257874437892d9a9a89d462ef06395b51fd30dd0323aa2ab9dcf29c9576
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '15:17'
+source_sha256: 81108664ed5ec0f46db303dab40c65681fd1b8939a0f39c40ccd44f3b3765711
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.extractor.recipe_matcher:RecipeMatcher.match_recipe_at_block;
-  contract-sha256:67a1ee5ffc305d69dfad0ddc379af29fa7340b54c735742ce7e0ec8a6d32f01a
+  contract-sha256:69c56939b1c1bfac90ff9f4c519f79cb2ee6785edde0003ef6eb688125848be4
 ---
 
 # RecipeMatcher.match_recipe_at_block
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["re", "sldb.core.node", "sldb.core.node_handler", "typing"]
+["sldb.core.node", "sldb.core.node_handler", "typing"]
 
 ## Purpose
 

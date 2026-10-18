@@ -5,11 +5,11 @@ module: sldb.sldb.cli.parsers.docs2
 qualname: _recover
 kind: FunctionDef
 source_path: sldb/cli/parsers/docs2.py
-source_span: '7:14'
-source_sha256: 043b95486b61601edb8c0e0649f97994615e9a3aee5467be8d039fad6eb73bb7
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '7:17'
+source_sha256: d16a411c6e69e651be608493a1a440e5ec26ad95cf233a85999d5c4a0c75e23e
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.parsers.docs2:_recover; contract-sha256:962ad551db8741ae8eba7d216c4ad542586874e9559062bb0473a3845d5a6f4d
+provenance: python-ast:python:sldb.sldb.cli.parsers.docs2:_recover; contract-sha256:aeb90201134bf3473c9d1600bcc872fc02626a448b999418b06b598646f55154
 ---
 
 # _recover

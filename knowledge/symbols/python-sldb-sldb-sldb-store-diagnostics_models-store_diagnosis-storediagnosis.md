@@ -5,12 +5,12 @@ module: sldb.sldb.store.diagnostics_models.store_diagnosis
 qualname: StoreDiagnosis
 kind: ClassDef
 source_path: sldb/store/diagnostics_models/store_diagnosis.py
-source_span: '9:18'
-source_sha256: 5d52c463c180fbfd8453ca498110ec4bd2b724221a2da010030f1a46bf7fee3e
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 10:67
+source_sha256: b1c227d5fcfcdbdf563ce0d37904a50b43d97653eca621a5cee5984b67969f98
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.store.diagnostics_models.store_diagnosis:StoreDiagnosis;
-  contract-sha256:f3cf35e86e72b6431fcd528e41667fd9cdea5554678d0e36b97cc9e285faa1fe
+  contract-sha256:d24c949bf72f9211609f7bfdb24aa675050e1bd66ec0e552ac9e0d228e0bb069
 ---
 
 # StoreDiagnosis
@@ -23,9 +23,12 @@ Not applicable.
 
 Full diagnostic state for the entire store.
 
+``root_ok`` is `hash_a`: the store index signs `[{name, hash_b}]` over every
+registered model, so it is the Merkle root of the whole store.
+
 ## Imports
 
-["__future__", "dataclasses", "enum", "sldb.store.diagnostics_models.diagnosis_note", "sldb.store.diagnostics_models.model_diagnosis"]
+["__future__", "dataclasses", "sldb.store.diagnostics_models.diagnosis_note", "sldb.store.diagnostics_models.model_diagnosis"]
 
 ## Purpose
 

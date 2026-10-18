@@ -5,11 +5,11 @@ module: sldb.sldb.store.runtime_cache_disk
 qualname: entries
 kind: FunctionDef
 source_path: sldb/store/runtime_cache_disk.py
-source_span: '24:31'
-source_sha256: fd8f4f04316af3f276c987e975d93464ec96316a2d3ec5eabf403a20378ff503
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '29:37'
+source_sha256: 53c815c1e872fef35964554eadff51bb1e63c753adc7343530396b79c213f62e
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.runtime_cache_disk:entries; contract-sha256:1024e834735d343334c69d23b6ebda1b2bc4a19792ee6f0ddd80ec42bdaaa90c
+provenance: python-ast:python:sldb.sldb.store.runtime_cache_disk:entries; contract-sha256:1f6abba420f64a30c60c3c0356acb49755f70acb75883e4ba2c3730273d10a87
 ---
 
 # entries
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "json", "pathlib", "typing"]
+["__future__", "json", "pathlib", "sldb.store", "typing"]
 
 ## Purpose
 

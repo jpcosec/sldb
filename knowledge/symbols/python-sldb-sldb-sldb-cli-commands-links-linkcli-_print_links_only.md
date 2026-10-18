@@ -5,12 +5,12 @@ module: sldb.sldb.cli.commands.links
 qualname: LinkCLI._print_links_only
 kind: FunctionDef
 source_path: sldb/cli/commands/links.py
-source_span: '28:32'
-source_sha256: d1e137f7b7bc1443ea75145806be51651186e1cd5a9426fd2eb410ccb22ca911
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '30:34'
+source_sha256: 0272e88c368d433380c0ccbbf0385950db115a0ffaee45b6853e0dee81e14288
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.cli.commands.links:LinkCLI._print_links_only;
-  contract-sha256:7bf6b608d4054f17a2e0f33405ae0076d394b6cf9a5d9f1ea83be2a3b63fc54c
+  contract-sha256:0a53449944603b9193d3e2a00d16b899273d5516a53f153bdf71b760b9329626
 ---
 
 # LinkCLI._print_links_only
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "json", "pathlib", "sldb.cli.store_context", "sldb.cli.utils", "sldb.links", "typing", "yaml"]
+["__future__", "json", "pathlib", "sldb.cli.commands.links_all", "sldb.cli.store_context", "sldb.cli.utils", "sldb.links", "typing", "yaml"]
 
 ## Purpose
 

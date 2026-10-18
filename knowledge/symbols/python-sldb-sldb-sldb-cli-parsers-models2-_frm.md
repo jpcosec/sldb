@@ -5,11 +5,11 @@ module: sldb.sldb.cli.parsers.models2
 qualname: _frm
 kind: FunctionDef
 source_path: sldb/cli/parsers/models2.py
-source_span: '51:56'
-source_sha256: 73e1ca58cb751414019c1101f03d3ce5bdba5a700216edf941296005f9c95bbf
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '53:58'
+source_sha256: f86901cf09fb09da80c36de9ca84430174754087845faac4c3103512843c577e
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.parsers.models2:_frm; contract-sha256:08dbcbb3c9b34f8d5480dd15992b03a88af3252a55f0e07ab864450faa58838f
+provenance: python-ast:python:sldb.sldb.cli.parsers.models2:_frm; contract-sha256:d2adb2077690b236e8dca513f36bbf0df8a5973ba17719efac0107bab583bb52
 ---
 
 # _frm
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "argparse"]
+["__future__", "argparse", "sldb.cli.output_format"]
 
 ## Purpose
 

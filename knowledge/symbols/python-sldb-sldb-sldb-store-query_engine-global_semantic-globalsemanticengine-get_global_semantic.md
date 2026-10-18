@@ -5,12 +5,12 @@ module: sldb.sldb.store.query_engine.global_semantic
 qualname: GlobalSemanticEngine.get_global_semantic
 kind: FunctionDef
 source_path: sldb/store/query_engine/global_semantic.py
-source_span: '26:36'
-source_sha256: 8f8ddfe323ac7486c8db6cef55798a6f0bc98e7412429555638d33199e264e11
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '27:37'
+source_sha256: a54794ca440ff0c022c26d1ba4a141771b8bde64ba00c4455dfcbd207bb2f4b6
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.store.query_engine.global_semantic:GlobalSemanticEngine.get_global_semantic;
-  contract-sha256:3744a1174de6982f038611fcee4bb770ef74015d7303d60bcc5713933751de16
+  contract-sha256:7d9bfd371d4f354fcfae7c2b2f50e6635e4fb7332823dc5e63aeacb3b5ef9f4b
 ---
 
 # GlobalSemanticEngine.get_global_semantic
@@ -25,7 +25,7 @@ Gets documents across all linked stores for a global semantic tag.
 
 ## Imports
 
-["__future__", "pathlib", "re", "sldb.store.io", "sldb.store.query"]
+["__future__", "pathlib", "re", "sldb.store.io", "sldb.store.query", "sldb.store.semantic_dag_graph"]
 
 ## Purpose
 

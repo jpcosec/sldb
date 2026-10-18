@@ -5,12 +5,12 @@ module: sldb.sldb.store.io.documents_index
 qualname: DocumentsIndexIO
 kind: ClassDef
 source_path: sldb/store/io/documents_index.py
-source_span: '28:39'
-source_sha256: 327d751e8204f6a65a62f7b5a0e3bfab4045c44740bfe4848088311a7eae6189
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '28:56'
+source_sha256: 8aa37bb0441e9cb89b92e28cc541512f833104dc7c976ee3f717260f27108a71
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.store.io.documents_index:DocumentsIndexIO;
-  contract-sha256:8e93438a6462e47c0add489e56db8f756683108afb981ef9ce74e48e1605203c
+  contract-sha256:1ef38d5ba75b49288d31e26f654522ab4272ea654433a26ea6ed26cf20ba3da0
 ---
 
 # DocumentsIndexIO
@@ -21,7 +21,9 @@ Not applicable.
 
 ## Docstring
 
-Not documented.
+`path` is `<store>/core/documents/<model>.yaml` — no longer written to (PLAN 15 capa
+7), still the key every caller already has: the stem is the model name, enough to find
+or make `<store>/core/documents/<model>/`.
 
 ## Imports
 

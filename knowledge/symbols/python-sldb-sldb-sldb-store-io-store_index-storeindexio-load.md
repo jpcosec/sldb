@@ -5,11 +5,11 @@ module: sldb.sldb.store.io.store_index
 qualname: StoreIndexIO.load
 kind: FunctionDef
 source_path: sldb/store/io/store_index.py
-source_span: '30:35'
-source_sha256: 75502b7aa962636ee57dd5e27392864c562385f1cea81758f6039a1547d9f10b
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '31:39'
+source_sha256: 8c2b9a095e4b20612d61afdf7a521550d35fafb6a39231868cef0a5d2778ad63
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.io.store_index:StoreIndexIO.load; contract-sha256:b29378faf0033aca524b1112c4f88294781ffe8bc694ef14b25c25d44fe200aa
+provenance: python-ast:python:sldb.sldb.store.io.store_index:StoreIndexIO.load; contract-sha256:efae6bb6a7ca66dc23adea2b0198b27b1b118f80c535633561d73c6f7b604fc6
 ---
 
 # StoreIndexIO.load
@@ -20,7 +20,7 @@ load(store_path: Path)
 
 ## Docstring
 
-Not documented.
+The store index; a store from before `core/` existed has it at the store root.
 
 ## Imports
 

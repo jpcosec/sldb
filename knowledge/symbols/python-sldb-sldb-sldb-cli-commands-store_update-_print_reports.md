@@ -5,12 +5,12 @@ module: sldb.sldb.cli.commands.store_update
 qualname: _print_reports
 kind: FunctionDef
 source_path: sldb/cli/commands/store_update.py
-source_span: 79:84
-source_sha256: bb53e87544ada7851aef47a1e81206582a98276e0ccc254ba78f40c1112f71dd
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '32:37'
+source_sha256: 3482e14569cac525afa80049577e81022c4fd9a3b8f075b058a33641c6de4083
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.cli.commands.store_update:_print_reports;
-  contract-sha256:c2d691d616b6c66230b48457239e53440f12f860b76de112235089c0fc94a3c4
+  contract-sha256:b69a5ecaa4f3b6a29f92d1cbe86bb80de86a05261715acd675513e40cc41257c
 ---
 
 # _print_reports
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "pathlib", "sldb.cli.model_utils", "sldb.cli.store_context", "sldb.store.hashing", "sldb.store.io", "sldb.store.models", "sldb.store.ops", "sldb.store.section_rebuild", "sldb.store.semantic", "typing"]
+["__future__", "pathlib", "sldb.api.stores.index_commit", "sldb.api.stores.index_refresh", "sldb.api.stores.update_store_indexes", "sldb.cli.commands.docs_batch", "sldb.store.semantic", "typing"]
 
 ## Purpose
 

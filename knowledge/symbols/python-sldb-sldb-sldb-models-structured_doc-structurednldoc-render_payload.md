@@ -6,18 +6,18 @@ qualname: StructuredNLDoc.render_payload
 kind: FunctionDef
 source_path: sldb/models/structured_doc.py
 source_span: '30:33'
-source_sha256: 8a69fbd0a87837a6a8fa46eb6fe9263af2a645288458d8ecaaaf86ac1498b4a6
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: 4ee4e777b82fa5ae9f897579af1be36bdd502f7088896788dcaae05597bcc4cf
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.models.structured_doc:StructuredNLDoc.render_payload;
-  contract-sha256:ff426df66e94578b4fdbab9c8e19113ae88fd3df7f4ed5037264d26e77efc060
+  contract-sha256:c4402cfaff66fa07649bc20f64ae0dba3ff784b4f2958ff4084b0874b5076df5
 ---
 
 # StructuredNLDoc.render_payload
 
 ## Signature
 
-render_payload(self)
+render_payload(self, recorder: Any=None, ref_root: Path | None=None)
 
 ## Docstring
 

@@ -5,11 +5,11 @@ module: sldb.sldb.store.query
 qualname: _load_federated_documents
 kind: FunctionDef
 source_path: sldb/store/query.py
-source_span: 75:82
-source_sha256: 97c12e4ef2f6d845379fee569129cb7bfed79823b211d0b0d5d17a9628ebde23
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 76:83
+source_sha256: 441b74a92bf88e1691d36312d2dd7c6cf78ce1308baa2ff7a1baf84950ff7f71
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.query:_load_federated_documents; contract-sha256:495556d2aefc5e46c258f527b65eb93c9f451b0ce0049f1f0e7fe1973a66a867
+provenance: python-ast:python:sldb.sldb.store.query:_load_federated_documents; contract-sha256:95b3799e0693a2f374f5c5416d4355d4b807777dca2c5e918a65cfd071d17b54
 ---
 
 # _load_federated_documents

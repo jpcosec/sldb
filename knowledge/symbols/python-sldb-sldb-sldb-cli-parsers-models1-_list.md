@@ -5,11 +5,11 @@ module: sldb.sldb.cli.parsers.models1
 qualname: _list
 kind: FunctionDef
 source_path: sldb/cli/parsers/models1.py
-source_span: '24:27'
-source_sha256: 93a1ff7cdf8978a81a6d824b364a2f34044bd946cfd0d7a2ef95b9033526832c
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '38:41'
+source_sha256: e8507b15ee5012e573b4c2001ef32c424447416afe34bbe12b49c49b5cab4757
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.parsers.models1:_list; contract-sha256:1681136868685c46929273d47981e715b9b99d3031f08c398ce97877aff57e41
+provenance: python-ast:python:sldb.sldb.cli.parsers.models1:_list; contract-sha256:1c9c2afb3af3e7bc77b1f5a975b44f006293fdf048cb82f37f8c1ce7c3008a74
 ---
 
 # _list
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-[".models2", "__future__", "argparse"]
+[".models2", "__future__", "argparse", "sldb.cli.output_format"]
 
 ## Purpose
 

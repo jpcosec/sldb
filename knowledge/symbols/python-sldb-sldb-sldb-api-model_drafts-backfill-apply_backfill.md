@@ -1,0 +1,36 @@
+---
+id: python-sldb-sldb-sldb-api-model_drafts-backfill-apply_backfill
+system: sldb
+module: sldb.sldb.api.model_drafts.backfill
+qualname: apply_backfill
+kind: FunctionDef
+source_path: sldb/api/model_drafts/backfill.py
+source_span: 61:68
+source_sha256: 2d50a8e235b6f4d23db522c72e334767e0ae992d11812096d7e27fd2dd325c65
+architecture_spec: Not declared.
+tags: []
+provenance: python-ast:python:sldb.sldb.api.model_drafts.backfill:apply_backfill;
+  contract-sha256:da4ad3c6d9a58aaf7f629a2b0784c3ee56f29f828d49184ce416b97abacb8afe
+---
+
+# apply_backfill
+
+## Signature
+
+apply_backfill(store: str | Path | None, model_name: str, new_type: type, plan: list[BackfillDoc], actor: str | None)
+
+## Docstring
+
+Rewrite each planned document and record its own journal entry; returns the count.
+
+## Imports
+
+["__future__", "dataclasses", "pathlib", "pydantic", "sldb.api.documents.payload_diff", "sldb.api.journal", "sldb.api.model_drafts.draft_contract", "sldb.api.model_drafts.draft_document_check", "sldb.api.stores.open_store", "sldb.core.exceptions", "sldb.runtime.validation", "sldb.store.facade", "sldb.store.hashing", "typing"]
+
+## Purpose
+
+Not documented.
+
+## Architecture
+
+Not documented.

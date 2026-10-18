@@ -6,10 +6,10 @@ qualname: _load_doc
 kind: FunctionDef
 source_path: sldb/store/query.py
 source_span: '29:33'
-source_sha256: 97c12e4ef2f6d845379fee569129cb7bfed79823b211d0b0d5d17a9628ebde23
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: 441b74a92bf88e1691d36312d2dd7c6cf78ce1308baa2ff7a1baf84950ff7f71
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.query:_load_doc; contract-sha256:20376a2c95fc02574b98ae03278503da3870cd580182757636986c7bdc682398
+provenance: python-ast:python:sldb.sldb.store.query:_load_doc; contract-sha256:a373363dfcedb41ff547a7a955f7a205729ad0f9b8d1c34897d7eacacd6b9f8c
 ---
 
 # _load_doc

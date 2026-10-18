@@ -6,11 +6,11 @@ qualname: SLDBStoreError
 kind: ClassDef
 source_path: sldb/core/exceptions/sldb_store_error.py
 source_span: '4:6'
-source_sha256: 82245ba14e06cbfad12fd18645b0a1b33f0639aa6bc0cc964f527d9dead21ffc
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: c5e3b0ca40e59a3883bb42ca923dcdc4c0eb7f8e650ec253db9beb71fa177c39
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.exceptions.sldb_store_error:SLDBStoreError;
-  contract-sha256:3c2df8d92b032bbba5060cd9187399604e40a4102440f3303554b7147be8a0cc
+  contract-sha256:089198a25268af83a47053f836847388fd4ebd48a11e8f112fda6da1c59aefd8
 ---
 
 # SLDBStoreError
@@ -25,7 +25,7 @@ Raised when there is an issue with the SLDB store or indexes.
 
 ## Imports
 
-[".sldb_error", "sldb.store.exceptions"]
+[".sldb_error", ".store_error"]
 
 ## Purpose
 

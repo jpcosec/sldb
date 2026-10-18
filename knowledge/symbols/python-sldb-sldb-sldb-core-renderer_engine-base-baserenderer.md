@@ -5,11 +5,11 @@ module: sldb.sldb.core.renderer_engine.base
 qualname: BaseRenderer
 kind: ClassDef
 source_path: sldb/core/renderer_engine/base.py
-source_span: 13:70
-source_sha256: 628e34e7e0930d1d84d25cbe4fd8a4ad898ab2c7c6b62fde28c4b3442e7f5641
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 15:104
+source_sha256: ba5267bf5d0dd0936ea61e5fb71183b5604f43d857c57f8dbfa7fa7fe6f763b5
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.core.renderer_engine.base:BaseRenderer; contract-sha256:18166320bce0eeba0acb6bbb9abde66941b8ca3d0af9d3c425f8a7f907d5d713
+provenance: python-ast:python:sldb.sldb.core.renderer_engine.base:BaseRenderer; contract-sha256:e242994ba5aa74fcc4bff03794478bc98ae98e2db80b05d27f9e1cb6f456f2c0
 ---
 
 # BaseRenderer
@@ -24,7 +24,7 @@ Base class for rendering components.
 
 ## Imports
 
-["__future__", "jinja2", "re", "sldb.core.handlers.utils", "sldb.core.renderer_engine.python_expr", "typing", "yaml"]
+["__future__", "jinja2", "re", "sldb.core.handlers.utils", "sldb.core.renderer_engine.jinja_trailing", "sldb.core.renderer_engine.python_expr", "sldb.core.renderer_engine.table_markdown", "typing", "yaml"]
 
 ## Purpose
 

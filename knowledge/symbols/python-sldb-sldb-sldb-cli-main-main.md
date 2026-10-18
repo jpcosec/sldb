@@ -5,11 +5,11 @@ module: sldb.sldb.cli.main
 qualname: main
 kind: FunctionDef
 source_path: sldb/cli/main.py
-source_span: '8:13'
-source_sha256: ecccf1dfb68ca4920e1b1c20eb917d75f86356d09239c68807e74b202ce08164
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '9:15'
+source_sha256: db64a13da02262bbb38bbea360b8d2cf60091500d5619641b3cad1f3b140c858
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.main:main; contract-sha256:4fde27d83104a3f39c6722779c6fcf0a82da1654b651a34c5e3bc71cc3019d00
+provenance: python-ast:python:sldb.sldb.cli.main:main; contract-sha256:b6dcb643f1d19e32c7bd98ba38023209272b4ef025e8f0c904c6c09fce2f4d75
 ---
 
 # main
@@ -24,7 +24,7 @@ CLI entry point with error handling.
 
 ## Imports
 
-["__future__", "sldb.cli.commands.help_texts", "sldb.cli.dispatcher", "sldb.core.exceptions", "sys", "typing"]
+["__future__", "sldb.cli.commands.help_texts", "sldb.cli.dispatcher", "sldb.cli.warning_output", "sldb.core.exceptions", "sys", "typing"]
 
 ## Purpose
 

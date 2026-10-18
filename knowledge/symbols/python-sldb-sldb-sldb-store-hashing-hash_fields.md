@@ -5,11 +5,11 @@ module: sldb.sldb.store.hashing
 qualname: hash_fields
 kind: FunctionDef
 source_path: sldb/store/hashing.py
-source_span: '19:20'
-source_sha256: e248d4ee89abcf1062dcb9606458aa00dabd9c3078f0597b0aa17f697c496b4e
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '20:21'
+source_sha256: 307e4065fa6890503d585512c64bf412c3d1ecb617f5cbf575d9d1bd97c24b7c
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.hashing:hash_fields; contract-sha256:b72a49ca4c7d985c77a92d0a1bd019781add4346eef06badb8425d94ffa85d8b
+provenance: python-ast:python:sldb.sldb.store.hashing:hash_fields; contract-sha256:6ea1b979e27b2eab6b9b1911b0684fad1ff5a24c724b777f19a3cfb5ed2726c7
 ---
 
 # hash_fields
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["hashlib", "json", "sldb.store.codec", "sldb.store.models", "typing"]
+["hashlib", "json", "sldb.store.codec", "sldb.store.models", "sldb.store.semantic_tags", "typing"]
 
 ## Purpose
 

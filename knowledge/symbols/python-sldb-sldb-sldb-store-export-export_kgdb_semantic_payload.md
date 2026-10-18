@@ -5,12 +5,12 @@ module: sldb.sldb.store.export
 qualname: export_kgdb_semantic_payload
 kind: FunctionDef
 source_path: sldb/store/export.py
-source_span: 74:76
-source_sha256: 9feefed66a674f9cec7c5c41a330709a4b7150fd5a797fd1a45cd19ae5c02b70
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 87:89
+source_sha256: 308e0be06700f6b413840f94fb84d8df1eaccde97954944749e339a62cd5dbe7
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.store.export:export_kgdb_semantic_payload;
-  contract-sha256:d8d0742d1ecd676fd9741f060fcbae9523724b973f254f145a8bf04dc62c0126
+  contract-sha256:6a9c46e6fa9d3f9f620c154fadc0dffa20377c52fca0fffca277f49f6df142d1
 ---
 
 # export_kgdb_semantic_payload
@@ -25,7 +25,7 @@ Build the KGDB semantic export payload from persisted SLDB indexes.
 
 ## Imports
 
-["__future__", "datetime", "importlib.metadata", "pathlib", "sldb.store.io", "sldb.store.layout", "sldb.store.section_rebuild", "sldb.store.semantic", "typing"]
+["__future__", "datetime", "pathlib", "sldb.store.edge_rebuild", "sldb.store.io", "sldb.store.layout", "sldb.store.package_version", "sldb.store.section_rebuild", "sldb.store.semantic", "typing"]
 
 ## Purpose
 

@@ -5,12 +5,12 @@ module: sldb.sldb.selfdoc.python_relation_registry
 qualname: registered_source_relations
 kind: FunctionDef
 source_path: sldb/selfdoc/python_relation_registry.py
-source_span: '13:27'
-source_sha256: 772864677ee22736ade5b0eb5cdfd154148e8fdfb39534a0c4c6d7e9883d1922
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '13:18'
+source_sha256: c34b762befd2d4d664dc5e3146726ec1ed2187cc376f1dc1f9c66fb899494b80
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.selfdoc.python_relation_registry:registered_source_relations;
-  contract-sha256:00e8b27e6fa67020f1f0a9e085ccce6f233f051580686647a673d069bffacff4
+  contract-sha256:f8be34966bc9e8320356d7fa848a0c7e34d65f8853b3788ce716716d71a6abbf
 ---
 
 # registered_source_relations

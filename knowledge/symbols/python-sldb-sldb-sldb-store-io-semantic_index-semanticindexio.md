@@ -5,11 +5,11 @@ module: sldb.sldb.store.io.semantic_index
 qualname: SemanticIndexIO
 kind: ClassDef
 source_path: sldb/store/io/semantic_index.py
-source_span: '28:42'
-source_sha256: b0e92df800156b0ddcaa92714d21bf920d8e66f9a115f28e6dae84373a4fbd6f
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 42:68
+source_sha256: 7957ac2d25ea890531650f1a22dbb53ad34435c53ecc46f44ae7b9284b91c5ff
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.io.semantic_index:SemanticIndexIO; contract-sha256:3cbbe5df29cd6255f95c213184bca3d6b6788716eb088097cd73d1d733afa15f
+provenance: python-ast:python:sldb.sldb.store.io.semantic_index:SemanticIndexIO; contract-sha256:7ec8486fac396d1ecc415345e971fe4302f6b36f166ea102bfda868ea4d090bc
 ---
 
 # SemanticIndexIO

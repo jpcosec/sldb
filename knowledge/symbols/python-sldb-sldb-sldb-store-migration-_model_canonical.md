@@ -5,26 +5,28 @@ module: sldb.sldb.store.migration
 qualname: _model_canonical
 kind: FunctionDef
 source_path: sldb/store/migration.py
-source_span: '39:45'
-source_sha256: 22047095c411eeaa2697b503c40a07f073b240fefed0daaea0cadaab2dbd2cc4
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 49:60
+source_sha256: a5e14561f69f4aef068095bfaf7af6b7ee4393388167753439969f2af46be039
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.migration:_model_canonical; contract-sha256:ff7d8a8cc3bf1afd414940e743b39c324f5c6b4d4e53b4e202016c41428c5f7b
+provenance: python-ast:python:sldb.sldb.store.migration:_model_canonical; contract-sha256:6f881c17823961435a038a47f87a53e89cd4e30c85146208562b9b82c4f12c8d
 ---
 
 # _model_canonical
 
 ## Signature
 
-_model_canonical(m_entry, p_root: Path)
+_model_canonical(m_entry, store_path: Path, p_root: Path)
 
 ## Docstring
 
-Not documented.
+PLAN 15 capa 5/7: a model's sections and documents are canonical once their old single
+per-model files are gone (sharded into `<store>/{runtime/sections,core/documents}/<model>/`,
+or a section-less model that never had one).
 
 ## Imports
 
-["__future__", "pathlib", "sldb.store.io", "sldb.store.layout"]
+["__future__", "pathlib", "sldb.store.io", "sldb.store.layout", "sldb.store.migration_legacy_layout"]
 
 ## Purpose
 

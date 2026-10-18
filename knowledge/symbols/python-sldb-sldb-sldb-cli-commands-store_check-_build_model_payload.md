@@ -5,12 +5,12 @@ module: sldb.sldb.cli.commands.store_check
 qualname: _build_model_payload
 kind: FunctionDef
 source_path: sldb/cli/commands/store_check.py
-source_span: '37:42'
-source_sha256: 1213f6d497871cf1ca0418e617eca9a1a4c7354ae84e7c122c7eabde20b6a8c5
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 67:76
+source_sha256: 017f5a863608413b9308b6ca9a8a08a44c7876cada64b44336f75b3cb862bee1
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.cli.commands.store_check:_build_model_payload;
-  contract-sha256:2d1a3c07c38d9bbc96b1457b054a7ee459a98050f31884f866363fcbedb7ec7a
+  contract-sha256:f716abd790f0b25f3a1f0868dcf40a74b3020c99220607828797168fe4e30232
 ---
 
 # _build_model_payload
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "json", "sldb.cli.store_context", "typing"]
+["__future__", "json", "sldb.cli.commands.store_check_content_notes", "sldb.cli.commands.store_check_report", "sldb.cli.store_context", "typing"]
 
 ## Purpose
 

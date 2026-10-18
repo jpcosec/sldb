@@ -5,12 +5,12 @@ module: sldb.sldb.store.query_engine.models
 qualname: RuntimeDocument
 kind: ClassDef
 source_path: sldb/store/query_engine/models.py
-source_span: '9:21'
-source_sha256: 6283cedb7ee7bbf5faf6a4404e0991f6935b003bfb52917be99ea9c154a27609
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '9:28'
+source_sha256: bc9b2a5c038d31e2490df7a658e451c932483b33146805a6dbba794e2b4c8ab9
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.store.query_engine.models:RuntimeDocument;
-  contract-sha256:6833dc47d8506d109694e8cf7429adb9fbf6607191b4c59abdc7040758491053
+  contract-sha256:669e720bd65fed0be566ada8d4495df472eaa930576e9fbd7e6d9f8f89d7f806
 ---
 
 # RuntimeDocument

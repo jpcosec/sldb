@@ -5,11 +5,11 @@ module: sldb.sldb.core.contracts.marker
 qualname: Marker
 kind: ClassDef
 source_path: sldb/core/contracts/marker.py
-source_span: '35:47'
-source_sha256: b4024b4f7cd812b3de6aa94a462b89fa8d703b46ae0e102ea018c003033cce07
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '36:48'
+source_sha256: 726f13aa6aec69fcd478d34e0c30be6efe518c5ce653f29fd53b55ddfea96897
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.core.contracts.marker:Marker; contract-sha256:4394191d537bc7df1fa8d8bf8e108917aebf827351387bd3766e82e67bc3f0a5
+provenance: python-ast:python:sldb.sldb.core.contracts.marker:Marker; contract-sha256:4099ab8cf69615b1e3f1b6ca7a35142e45e76b8cb14aa740370be985cf041e22
 ---
 
 # Marker
@@ -24,7 +24,7 @@ First-class representation of an SLDB marker.
 
 ## Imports
 
-["pydantic"]
+["pydantic", "typing"]
 
 ## Purpose
 

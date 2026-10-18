@@ -5,12 +5,12 @@ module: sldb.sldb.store.io.semantic_index
 qualname: SemanticIndexIO.load
 kind: FunctionDef
 source_path: sldb/store/io/semantic_index.py
-source_span: '30:35'
-source_sha256: b0e92df800156b0ddcaa92714d21bf920d8e66f9a115f28e6dae84373a4fbd6f
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '44:54'
+source_sha256: 7957ac2d25ea890531650f1a22dbb53ad34435c53ecc46f44ae7b9284b91c5ff
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.store.io.semantic_index:SemanticIndexIO.load;
-  contract-sha256:c840e11ba36a4b4be631d8d82a60e4cce38dff2e09dbdc5f8d37d0d906a37d23
+  contract-sha256:34955fb9e22c54105d65408506e2c2d8807c1e98072d4dc448e44b3ac33ccc4c
 ---
 
 # SemanticIndexIO.load
@@ -21,7 +21,9 @@ load(store_path: Path)
 
 ## Docstring
 
-Not documented.
+Composed from per-document shards (PLAN 15 capa 5); a store not migrated to
+shards yet (no shards, the legacy file still there) reads that file instead —
+`migrate_store_layout` is what shards it, on the next call that touches this store.
 
 ## Imports
 

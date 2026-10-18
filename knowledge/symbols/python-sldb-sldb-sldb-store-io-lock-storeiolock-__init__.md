@@ -6,10 +6,10 @@ qualname: StoreIOLock.__init__
 kind: FunctionDef
 source_path: sldb/store/io/lock.py
 source_span: '28:29'
-source_sha256: 6fa5455447ec3c1c665e273d60af2964bdc3ad65bc18764074a65b7f2c9d1f2a
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: f9ae7d5ec4464f085a654724aedb39b8a87efa2111d997da8d047755637ed648
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.io.lock:StoreIOLock.__init__; contract-sha256:a510be437143b6c6a9f3e13efdfcfd64e02b561ea940eea8c62fe8a45daac99a
+provenance: python-ast:python:sldb.sldb.store.io.lock:StoreIOLock.__init__; contract-sha256:b895ba82e8e89fed11696a997ff6583558b31c403ade1e161fcc404b3a90f1b1
 ---
 
 # StoreIOLock.__init__

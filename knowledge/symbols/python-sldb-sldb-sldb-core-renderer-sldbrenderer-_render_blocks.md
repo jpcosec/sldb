@@ -5,12 +5,12 @@ module: sldb.sldb.core.renderer
 qualname: SLDBRenderer._render_blocks
 kind: FunctionDef
 source_path: sldb/core/renderer.py
-source_span: '32:39'
-source_sha256: be382eb9d5c5d528cde0143d4b5961347e0d4a1df8b978ae96d50ee7718e051e
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '52:59'
+source_sha256: ca9068edcc01fd6be31a3a6b103846c31ac742cca66e4df3bc71aaf3aa6fb2a5
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.renderer:SLDBRenderer._render_blocks;
-  contract-sha256:bbd3eb27033feec76b2eebb133b99698f7677eb50d0121ba2d299f4ec5e99e99
+  contract-sha256:13137fa20c63c6c96dfd199f9d85f1277f044e375b882967ea07d43161699bf9
 ---
 
 # SLDBRenderer._render_blocks
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "jinja2", "sldb.core.ast", "sldb.core.handlers.router", "sldb.core.node", "sldb.core.renderer_engine.list", "sldb.core.renderer_engine.table", "sldb.core.renderer_engine.yaml", "sldb.models.structured_doc"]
+["__future__", "jinja2", "pathlib", "sldb.core.ast", "sldb.core.handlers.router", "sldb.core.node", "sldb.core.renderer_engine.list", "sldb.core.renderer_engine.payload_call", "sldb.core.renderer_engine.table", "sldb.core.renderer_engine.yaml", "sldb.core.segments.sentinel_decoder", "sldb.models.structured_doc", "typing"]
 
 ## Purpose
 

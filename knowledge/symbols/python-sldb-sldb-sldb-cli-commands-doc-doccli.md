@@ -5,11 +5,11 @@ module: sldb.sldb.cli.commands.doc
 qualname: DocCLI
 kind: ClassDef
 source_path: sldb/cli/commands/doc.py
-source_span: 17:101
-source_sha256: b0a1c410cd3c470be29e5ad89a3c24c89aac5a340cab892982bfebb6318f801d
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 27:108
+source_sha256: 6e6844bf3019af4fd3b4655fb340006d29811ce6c27ed1f22c4f7a0ac135eaab
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.commands.doc:DocCLI; contract-sha256:596e1d4d2d0932bf274bf34ae05ff56750d30c4b62b89297b8a99ad1f6a31b7d
+provenance: python-ast:python:sldb.sldb.cli.commands.doc:DocCLI; contract-sha256:eb4329906164af6b56d1bdd7661d219ff3b20f59f8d577a394abfbfff7c60e13
 ---
 
 # DocCLI
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "pathlib", "sldb.cli.model_utils", "sldb.cli.store_context", "sldb.core.exceptions", "sldb.runtime.validation", "sldb.store.hashing", "sldb.store.io", "sldb.store.ops", "sldb.store.section_rebuild", "sldb.store.semantic", "typing", "yaml"]
+["__future__", "pathlib", "sldb.api.documents.create_document", "sldb.api.documents.delete_document", "sldb.api.documents.track_document_file", "sldb.api.documents.untrack_document", "sldb.cli.commands.doc_lookup", "sldb.cli.commands.docs_batch", "sldb.cli.model_utils", "sldb.cli.output_format", "sldb.cli.store_context", "sldb.core.exceptions", "sldb.runtime.validation", "sldb.store", "sldb.store.derived_rebuild", "sldb.store.hashing", "sldb.store.io", "sldb.store.io.shards", "sldb.store.layout", "sldb.store.model_node", "sldb.store.ops", "typing", "yaml"]
 
 ## Purpose
 

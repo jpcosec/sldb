@@ -5,11 +5,11 @@ module: sldb.sldb.cli.commands.fields_save
 qualname: save_payload
 kind: FunctionDef
 source_path: sldb/cli/commands/fields_save.py
-source_span: '13:22'
-source_sha256: 0beab749fa0bf02e745816671f52b0e994302f422ec481c707c0e667efabcf01
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '6:14'
+source_sha256: dfa90f349fecf44915da47a16fc41cff86d780b9b9a495d819a2b57b8988240e
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.commands.fields_save:save_payload; contract-sha256:95c654813c3ac7d98a5f0154735756a5bb3bc12f04a90125eccab9c302597e71
+provenance: python-ast:python:sldb.sldb.cli.commands.fields_save:save_payload; contract-sha256:a2e6533f3b5a8b2b2397752145fb720eaaaa1edc4c6c67932bec1915538a453c
 ---
 
 # save_payload
@@ -20,11 +20,12 @@ save_payload(runtime_doc: Any, payload: dict[str, Any], store_arg: str | None, p
 
 ## Docstring
 
-Not documented.
+Save a runtime document's new payload; an unregistered model/document or a broken
+round-trip exits with the error message, as the `fields` commands always have.
 
 ## Imports
 
-["sldb.cli.model_utils", "sldb.cli.store_context", "sldb.runtime.validation", "sldb.store.hashing", "sldb.store.io", "sldb.store.ops", "sldb.store.semantic", "typing"]
+["sldb.api.documents.payload_save", "sldb.core.exceptions", "typing"]
 
 ## Purpose
 

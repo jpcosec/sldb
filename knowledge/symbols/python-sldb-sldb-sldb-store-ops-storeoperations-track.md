@@ -5,11 +5,11 @@ module: sldb.sldb.store.ops
 qualname: StoreOperations.track
 kind: FunctionDef
 source_path: sldb/store/ops.py
-source_span: '19:24'
-source_sha256: 482248855b344d1c043a55c146e669bd313fb2e129c8249ef3a2ec8ca97e4adf
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '24:29'
+source_sha256: 15a1ed96fccad244114a03a10e83846e3c5596b9f5fb9a59a08be3e7211c7e26
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.ops:StoreOperations.track; contract-sha256:3e08d140c1d30c253e21385339736156aec97c9233a815ca3eb3d13c1f6c8634
+provenance: python-ast:python:sldb.sldb.store.ops:StoreOperations.track; contract-sha256:9afe1ecb5afde8ac82dfeaa54b0db0ab0f996a2fb9aeb71efdabea3cf53d3496
 ---
 
 # StoreOperations.track
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "pathlib", "sldb.store.hashing", "sldb.store.io", "sldb.store.models", "sldb.store.semantic", "typing"]
+["__future__", "pathlib", "sldb.store", "sldb.store.edge_rebuild", "sldb.store.hashing", "sldb.store.io", "sldb.store.io.shards", "sldb.store.layout", "sldb.store.model_node", "sldb.store.models", "sldb.store.section_rebuild", "sldb.store.semantic", "typing"]
 
 ## Purpose
 

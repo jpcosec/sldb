@@ -6,11 +6,11 @@ qualname: TextNodeHandler._is_optional_block
 kind: FunctionDef
 source_path: sldb/core/handlers/text.py
 source_span: 62:64
-source_sha256: cc28587f8be3fcc46771c93e4c12cf1dee8f77e400c1c928e0abddb0e9d6787a
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: 2f53dfb96ef90c9eeef26f51acaaf2765e3dfbcd80425e6cd03ae0db3c8e37db
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.handlers.text:TextNodeHandler._is_optional_block;
-  contract-sha256:f96a87aae2aef1b7f20a1524e3663265c68a1d30aa9bd5f125c43505cc0eb3e8
+  contract-sha256:a1b4ddd2a788e4e136fc091988a76d27f241a2f51f177d6e15254336fb737df9
 ---
 
 # TextNodeHandler._is_optional_block

@@ -5,11 +5,11 @@ module: sldb.sldb.store.io.store_index
 qualname: StoreIndexIO.save
 kind: FunctionDef
 source_path: sldb/store/io/store_index.py
-source_span: '38:42'
-source_sha256: 75502b7aa962636ee57dd5e27392864c562385f1cea81758f6039a1547d9f10b
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '42:46'
+source_sha256: 8c2b9a095e4b20612d61afdf7a521550d35fafb6a39231868cef0a5d2778ad63
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.io.store_index:StoreIndexIO.save; contract-sha256:f9ff2774b72a40af15d44c6075d78060bde116b7973bd42ac67e8a3379fc0479
+provenance: python-ast:python:sldb.sldb.store.io.store_index:StoreIndexIO.save; contract-sha256:e3577d29d9c4c849f68916c5a29459f446000f6e8bf0d4f3846f51ba39d74ee1
 ---
 
 # StoreIndexIO.save

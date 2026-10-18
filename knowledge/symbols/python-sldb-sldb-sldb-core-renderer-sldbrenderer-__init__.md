@@ -5,18 +5,18 @@ module: sldb.sldb.core.renderer
 qualname: SLDBRenderer.__init__
 kind: FunctionDef
 source_path: sldb/core/renderer.py
-source_span: '14:20'
-source_sha256: be382eb9d5c5d528cde0143d4b5961347e0d4a1df8b978ae96d50ee7718e051e
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '18:26'
+source_sha256: ca9068edcc01fd6be31a3a6b103846c31ac742cca66e4df3bc71aaf3aa6fb2a5
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.core.renderer:SLDBRenderer.__init__; contract-sha256:df0457b3cf32a30f8af9428c0618e27d37a2ad77094e1601294cd2edc801b2c4
+provenance: python-ast:python:sldb.sldb.core.renderer:SLDBRenderer.__init__; contract-sha256:0578b889e9a3ab1dc0208b245a531605733ea14be0d11ed35c940c61f2f40a49
 ---
 
 # SLDBRenderer.__init__
 
 ## Signature
 
-__init__(self)
+__init__(self, recorder: Any=None)
 
 ## Docstring
 
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "jinja2", "sldb.core.ast", "sldb.core.handlers.router", "sldb.core.node", "sldb.core.renderer_engine.list", "sldb.core.renderer_engine.table", "sldb.core.renderer_engine.yaml", "sldb.models.structured_doc"]
+["__future__", "jinja2", "pathlib", "sldb.core.ast", "sldb.core.handlers.router", "sldb.core.node", "sldb.core.renderer_engine.list", "sldb.core.renderer_engine.payload_call", "sldb.core.renderer_engine.table", "sldb.core.renderer_engine.yaml", "sldb.core.segments.sentinel_decoder", "sldb.models.structured_doc", "typing"]
 
 ## Purpose
 

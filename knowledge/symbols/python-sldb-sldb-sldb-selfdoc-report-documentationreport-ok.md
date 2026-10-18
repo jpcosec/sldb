@@ -6,10 +6,10 @@ qualname: DocumentationReport.ok
 kind: FunctionDef
 source_path: sldb/selfdoc/report.py
 source_span: '47:49'
-source_sha256: 5d8bd5eb6eff43620b77491acf873c4b69d6920bc69ad1f49d415ddf25209ec4
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: de02f24e9af7f6087fc62441c20ddc2346f536fd82b859fd51c26518c5873b89
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.selfdoc.report:DocumentationReport.ok; contract-sha256:225757cbac4ccc697e89e3b9ec9f633791a56377daa0f5e3da0ec4009f70d349
+provenance: python-ast:python:sldb.sldb.selfdoc.report:DocumentationReport.ok; contract-sha256:08854ce473c10a217ab592e5bc65af594bf7f28c44416efd7fe0a227215e546b
 ---
 
 # DocumentationReport.ok

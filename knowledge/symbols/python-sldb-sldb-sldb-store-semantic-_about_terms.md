@@ -5,11 +5,11 @@ module: sldb.sldb.store.semantic
 qualname: _about_terms
 kind: FunctionDef
 source_path: sldb/store/semantic.py
-source_span: 111:118
-source_sha256: e6ed1ae68f1402f97d9b5e9dec452672110b3d4539af26d4daf5d812e460d7e6
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 85:92
+source_sha256: 51c6b9afc86175d457240d8d9da3b5a7591c9439bc7f46489db64c49a1b4cee3
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.semantic:_about_terms; contract-sha256:3caa2f935520d13de8d36739b129ef10cfdb36e31246de383a9b35a46fc68900
+provenance: python-ast:python:sldb.sldb.store.semantic:_about_terms; contract-sha256:0bb831c633f78a26e88117f78385c46df63db98c8c11e9aca35997baf58a0b8e
 ---
 
 # _about_terms
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "collections", "dataclasses", "logging", "pathlib", "re", "sldb.store.codec", "sldb.store.io", "sldb.store.layout", "sldb.store.models", "sldb.store.semantic_doc_tags", "sldb.store.semantic_tags"]
+["__future__", "dataclasses", "pathlib", "re", "sldb.store", "sldb.store.io", "sldb.store.io.shards", "sldb.store.layout", "sldb.store.semantic_dag_sync", "sldb.store.semantic_doc_contribution"]
 
 ## Purpose
 

@@ -6,10 +6,10 @@ qualname: _extract_doc
 kind: FunctionDef
 source_path: sldb/store/query.py
 source_span: '22:26'
-source_sha256: 97c12e4ef2f6d845379fee569129cb7bfed79823b211d0b0d5d17a9628ebde23
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: 441b74a92bf88e1691d36312d2dd7c6cf78ce1308baa2ff7a1baf84950ff7f71
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.query:_extract_doc; contract-sha256:48433be264cf6bd2ac11390b136998d18711c248e7d84aa18cb6f828f6b6d8f2
+provenance: python-ast:python:sldb.sldb.store.query:_extract_doc; contract-sha256:05c85287a16aec15c2957dea1457fa0935c0e45c7325be76a5f28cfb3dedc25e
 ---
 
 # _extract_doc

@@ -5,11 +5,11 @@ module: sldb.sldb.cli.parsers.models2
 qualname: _tshow
 kind: FunctionDef
 source_path: sldb/cli/parsers/models2.py
-source_span: '21:26'
-source_sha256: 73e1ca58cb751414019c1101f03d3ce5bdba5a700216edf941296005f9c95bbf
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '22:28'
+source_sha256: f86901cf09fb09da80c36de9ca84430174754087845faac4c3103512843c577e
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.parsers.models2:_tshow; contract-sha256:c136e2587f80adbb36e2c364f540a374f2d9724d2231ebf96f813646d3637eb6
+provenance: python-ast:python:sldb.sldb.cli.parsers.models2:_tshow; contract-sha256:77f2a91812a40c67b4cb99fcc9b112e8bcd0624b7d0ffd069c323a7ac2bfdfd7
 ---
 
 # _tshow
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "argparse"]
+["__future__", "argparse", "sldb.cli.output_format"]
 
 ## Purpose
 

@@ -5,12 +5,12 @@ module: sldb.sldb.store.query_engine.semantic_utils
 qualname: SemanticUtils
 kind: ClassDef
 source_path: sldb/store/query_engine/semantic_utils.py
-source_span: 30:79
-source_sha256: 2a9758ec86c0e3dc96e0f854ff3a90a1ad45615c8193cb5f543433b1d7d9ffa0
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 43:87
+source_sha256: 4ad80c6c32c0718ef773607f8cbe6c5f96854ffe8004dc8bb8c5557271582761
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.store.query_engine.semantic_utils:SemanticUtils;
-  contract-sha256:c082da31fe3caf16d32a49a835bd233d0c3d67fe9a8a3ed9c607ade932ae9b8c
+  contract-sha256:118fde92f04e217727d4f80aaca35de04513b9cf9d89a8eb343880817449e383
 ---
 
 # SemanticUtils
@@ -25,7 +25,7 @@ Utilities for semantic query processing.
 
 ## Imports
 
-["__future__", "pathlib", "re", "sldb.store.io", "sldb.store.layout", "sldb.store.query", "sldb.store.query_engine.models", "typing"]
+["__future__", "pathlib", "re", "sldb.store.io", "sldb.store.layout", "sldb.store.query", "sldb.store.query_engine.models", "sldb.store.semantic_dag_graph", "typing"]
 
 ## Purpose
 

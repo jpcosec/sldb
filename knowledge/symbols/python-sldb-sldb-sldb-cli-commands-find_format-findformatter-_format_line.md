@@ -5,12 +5,12 @@ module: sldb.sldb.cli.commands.find_format
 qualname: FindFormatter._format_line
 kind: FunctionDef
 source_path: sldb/cli/commands/find_format.py
-source_span: '42:50'
-source_sha256: 9f5f6e7edebc72677a7f60797681a85b9aa7685ecae7ba4a7043b2bde02f2876
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '38:46'
+source_sha256: daf17c5a32e4aca2840a1141983fca7306e5c22859a60cd7b53a0d5ac98db377
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.cli.commands.find_format:FindFormatter._format_line;
-  contract-sha256:1f44e786e4bbace8b4053ce579b4b40cdc31f95c6dd0bffc6931f9635631c318
+  contract-sha256:0643cee1b0073270bac100136455eeb1ae12e6db863ad25f67099afc8d95a60e
 ---
 
 # FindFormatter._format_line
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "json", "sldb.cli.graph_ops", "typing", "yaml"]
+["__future__", "json", "sldb.api.records", "typing", "yaml"]
 
 ## Purpose
 

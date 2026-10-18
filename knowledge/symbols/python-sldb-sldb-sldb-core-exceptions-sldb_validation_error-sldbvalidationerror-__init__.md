@@ -5,19 +5,19 @@ module: sldb.sldb.core.exceptions.sldb_validation_error
 qualname: SLDBValidationError.__init__
 kind: FunctionDef
 source_path: sldb/core/exceptions/sldb_validation_error.py
-source_span: '6:8'
-source_sha256: 41fcda45daa717b3b897fafd51c73fcf6f69f8108ec8a78bc7182ee2a4ad5c12
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '8:10'
+source_sha256: b62e1de061f6bc063e6cd35834fc4a68053b21f44c628387d5bef955141be90e
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.exceptions.sldb_validation_error:SLDBValidationError.__init__;
-  contract-sha256:350477877de6dfe4d55241aa570f804912fbd4ae88f031a9e5dd5c5bed11a96e
+  contract-sha256:e22537afca500087779f6e45d0d4690502f9e10e53487ffaf1d6b6662fd4db87
 ---
 
 # SLDBValidationError.__init__
 
 ## Signature
 
-__init__(self, message, details=None)
+__init__(self, message: str, details: dict[str, Any] | None=None)
 
 ## Docstring
 
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-[".sldb_error"]
+[".sldb_error", "typing"]
 
 ## Purpose
 

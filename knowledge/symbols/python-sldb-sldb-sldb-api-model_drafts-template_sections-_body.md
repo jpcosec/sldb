@@ -1,0 +1,36 @@
+---
+id: python-sldb-sldb-sldb-api-model_drafts-template_sections-_body
+system: sldb
+module: sldb.sldb.api.model_drafts.template_sections
+qualname: _body
+kind: FunctionDef
+source_path: sldb/api/model_drafts/template_sections.py
+source_span: 54:61
+source_sha256: f529940f6693c6f7c16152d6313715b358ea7fa5a3ec39096e3f7e86f6818757
+architecture_spec: Not declared.
+tags: []
+provenance: python-ast:python:sldb.sldb.api.model_drafts.template_sections:_body;
+  contract-sha256:2e51b5cc637198f4506599094cb29f14f3f6b31b8de0ea1e70e411783a4cda9b
+---
+
+# _body
+
+## Signature
+
+_body(field_name: str, prefix: str, kind: str)
+
+## Docstring
+
+Not documented.
+
+## Imports
+
+["__future__", "re"]
+
+## Purpose
+
+Not documented.
+
+## Architecture
+
+Not documented.

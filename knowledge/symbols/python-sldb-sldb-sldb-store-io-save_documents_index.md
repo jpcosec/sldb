@@ -5,11 +5,11 @@ module: sldb.sldb.store.io
 qualname: save_documents_index
 kind: FunctionDef
 source_path: sldb/store/io/__init__.py
-source_span: 86:87
-source_sha256: 0b240d527fd6f837d606be3dad180b7b89529226c9a8bf5a3d4666ecde28097f
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 97:98
+source_sha256: a65d487517f80e48a31662a55b977d5d2a86eaaa5f6dc2379c796c8b06ddfee0
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.io:save_documents_index; contract-sha256:b49cb27b10c286f4a3f3ba787385e0213d669bcad1d778fad6eb79a4b8f719e7
+provenance: python-ast:python:sldb.sldb.store.io:save_documents_index; contract-sha256:24d15acfc0238637fa55bb425f93962699d2ba48444f79d0b8a63bb6808c55f4
 ---
 
 # save_documents_index

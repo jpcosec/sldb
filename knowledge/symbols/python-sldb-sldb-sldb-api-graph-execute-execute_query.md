@@ -1,0 +1,35 @@
+---
+id: python-sldb-sldb-sldb-api-graph-execute-execute_query
+system: sldb
+module: sldb.sldb.api.graph.execute
+qualname: execute_query
+kind: FunctionDef
+source_path: sldb/api/graph/execute.py
+source_span: '13:15'
+source_sha256: fae0dafbb9772dee4b9cee631d45bac6fe7aac7030edd6e8896ed8333c8332fa
+architecture_spec: Not declared.
+tags: []
+provenance: python-ast:python:sldb.sldb.api.graph.execute:execute_query; contract-sha256:6340c09986523d5fad6c70f988a11e84b183278da2a8a51b6c78c9e1212baf33
+---
+
+# execute_query
+
+## Signature
+
+execute_query(store, query: StructuredQuery, include_linked: bool=True, exclude_tags: Iterable[str]=())
+
+## Docstring
+
+Execute a StructuredQuery over the store's edge index; returns matching nodes.
+
+## Imports
+
+["__future__", "sldb.api.edges.edge_reading", "sldb.store.graph.executor", "sldb.store.graph.language", "sldb.store.graph.node_view", "typing"]
+
+## Purpose
+
+Not documented.
+
+## Architecture
+
+Not documented.

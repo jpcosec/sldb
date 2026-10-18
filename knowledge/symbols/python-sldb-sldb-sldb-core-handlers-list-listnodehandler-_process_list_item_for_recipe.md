@@ -5,12 +5,12 @@ module: sldb.sldb.core.handlers.list
 qualname: ListNodeHandler._process_list_item_for_recipe
 kind: FunctionDef
 source_path: sldb/core/handlers/list.py
-source_span: '18:23'
-source_sha256: fe2bbeb02a91109c09b0e8990838837d87c351077062a05395c4fb935bb799e8
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '19:24'
+source_sha256: 77cda4bb47a3c5828c66da0251cb75472cddf034a6c9cdf1f07c57f1b79b3787
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.handlers.list:ListNodeHandler._process_list_item_for_recipe;
-  contract-sha256:8374d2e0436c5369642e09a57e98886e3fd5c1586eb5834512ab94a0fd599f5b
+  contract-sha256:79b43cbd629dd561c04b0f283559240e88504b0224ecb603e4ea10ccba2e775c
 ---
 
 # ListNodeHandler._process_list_item_for_recipe
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "re", "sldb.core.handlers.base", "sldb.core.handlers.utils", "sldb.core.node", "typing"]
+["__future__", "re", "sldb.core.handlers.base", "sldb.core.handlers.list_escape", "sldb.core.handlers.utils", "sldb.core.node", "typing"]
 
 ## Purpose
 

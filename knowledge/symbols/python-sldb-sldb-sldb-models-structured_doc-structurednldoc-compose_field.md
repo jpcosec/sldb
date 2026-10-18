@@ -5,23 +5,28 @@ module: sldb.sldb.models.structured_doc
 qualname: StructuredNLDoc.compose_field
 kind: FunctionDef
 source_path: sldb/models/structured_doc.py
-source_span: '35:43'
-source_sha256: 8a69fbd0a87837a6a8fa46eb6fe9263af2a645288458d8ecaaaf86ac1498b4a6
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '35:50'
+source_sha256: 4ee4e777b82fa5ae9f897579af1be36bdd502f7088896788dcaae05597bcc4cf
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.models.structured_doc:StructuredNLDoc.compose_field;
-  contract-sha256:9a2bec8d55a0b616aff8c9a7349d4541277e01ae69895f3ed96fd1db02f02345
+  contract-sha256:30b53b0473672f097d18275fcbf6f270da652605272827da212a8314053569b7
 ---
 
 # StructuredNLDoc.compose_field
 
 ## Signature
 
-compose_field(self, name: str)
+compose_field(self, name: str, recorder: Any=None, ref_root: Path | None=None)
 
 ## Docstring
 
-Not documented.
+The composed field's text. `ref_root` resolves relative refs; the CWD is the fallback.
+
+A composition ref is a path in the project (`docs/tasks/task-a.md`), not a path
+relative to wherever the process happens to be running. Resolving it against the CWD
+made the same document compose differently depending on the caller's directory —
+silently, because a ref that does not resolve renders as empty text.
 
 ## Imports
 

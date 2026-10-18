@@ -6,10 +6,10 @@ qualname: get_tracked_docs
 kind: FunctionDef
 source_path: sldb/store/facade.py
 source_span: '8:17'
-source_sha256: a1cece39fe63d17031745ae47ae46f10a2a4e5b669b8ebba353084a08bb2919f
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: b8c1053a0e1903f8db3b813069a76c1c6c4353e0178017b68f07015829efced7
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.facade:get_tracked_docs; contract-sha256:e0c8d337328c3ac2ffcb843ec4a24b83bfb99b4d6982cc49faae526dadf63285
+provenance: python-ast:python:sldb.sldb.store.facade:get_tracked_docs; contract-sha256:9d4ad08406716f867bffa4bb19a3e8ed690c4521eb98d304bcc1a0bbb1bdbcfb
 ---
 
 # get_tracked_docs

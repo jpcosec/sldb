@@ -5,12 +5,12 @@ module: sldb.sldb.core.renderer_engine.base
 qualname: BaseRenderer.get_node_source
 kind: FunctionDef
 source_path: sldb/core/renderer_engine/base.py
-source_span: 65:70
-source_sha256: 628e34e7e0930d1d84d25cbe4fd8a4ad898ab2c7c6b62fde28c4b3442e7f5641
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 99:104
+source_sha256: ba5267bf5d0dd0936ea61e5fb71183b5604f43d857c57f8dbfa7fa7fe6f763b5
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.renderer_engine.base:BaseRenderer.get_node_source;
-  contract-sha256:b8c3b73664bcb059723c86c9f353b3581c02417ce3560a640ba0b452860173e2
+  contract-sha256:c694b045ec926be63f2448c5badfb5e11261e04c3359788edf77011489ba1d51
 ---
 
 # BaseRenderer.get_node_source
@@ -25,7 +25,7 @@ Helper to get node source from block text.
 
 ## Imports
 
-["__future__", "jinja2", "re", "sldb.core.handlers.utils", "sldb.core.renderer_engine.python_expr", "typing", "yaml"]
+["__future__", "jinja2", "re", "sldb.core.handlers.utils", "sldb.core.renderer_engine.jinja_trailing", "sldb.core.renderer_engine.python_expr", "sldb.core.renderer_engine.table_markdown", "typing", "yaml"]
 
 ## Purpose
 

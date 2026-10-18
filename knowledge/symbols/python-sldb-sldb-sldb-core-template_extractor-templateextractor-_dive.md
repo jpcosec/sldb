@@ -6,11 +6,11 @@ qualname: TemplateExtractor._dive
 kind: FunctionDef
 source_path: sldb/core/template_extractor.py
 source_span: '22:27'
-source_sha256: 52a6fe9ed7aa107f7a7c572056c88bc1663f6697492ad3f3af3f853b65b0556b
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: 771a869da5394d801b3b55e95519bc3f75e5db7d525cb4866b17cdf5ebb8fefd
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.template_extractor:TemplateExtractor._dive;
-  contract-sha256:4508a0fa381d75b5792616e3c035359e09205b381edcb355669a2880a16e28ab
+  contract-sha256:b9bed69aa9dcd8310be64e65aba4fc82dbaab29fb1f3a3cb8a5deabbff2348f0
 ---
 
 # TemplateExtractor._dive

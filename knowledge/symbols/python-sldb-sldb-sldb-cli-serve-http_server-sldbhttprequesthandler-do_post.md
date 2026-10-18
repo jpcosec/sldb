@@ -5,12 +5,12 @@ module: sldb.sldb.cli.serve.http_server
 qualname: SLDBHTTPRequestHandler.do_POST
 kind: FunctionDef
 source_path: sldb/cli/serve/http_server.py
-source_span: '31:32'
-source_sha256: c6fbaf09cc45845e5a4214851de740c5fad869a0eb52be03db4924acd2876fbc
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '39:40'
+source_sha256: e3f20feb7d4e82e6984a9be493cd434ac9e61d68a08f07dda1a2910cde320c50
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.cli.serve.http_server:SLDBHTTPRequestHandler.do_POST;
-  contract-sha256:400d68d5ad05de43f4f6e86689336b20934f681694cc7d01139e0454ff778147
+  contract-sha256:60bc45b16eeb49c463a3adeccf254e21351e6f4f76ab12f12e91358707e1ed04
 ---
 
 # SLDBHTTPRequestHandler.do_POST
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "http.server", "pathlib", "sldb.cli.serve.responses", "sldb.cli.serve.routes", "sldb.cli.store_context", "typing"]
+["__future__", "http.server", "pathlib", "sldb.cli.serve.auth", "sldb.cli.serve.responses", "sldb.cli.serve.routes", "sldb.cli.store_context", "typing"]
 
 ## Purpose
 

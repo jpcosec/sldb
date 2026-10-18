@@ -5,12 +5,12 @@ module: sldb.sldb.store.section_rebuild
 qualname: _extend_section_spans
 kind: FunctionDef
 source_path: sldb/store/section_rebuild.py
-source_span: '46:49'
-source_sha256: 808d2f1fae507769d7a165cb4605967c9c31fd793733ba29856e4ac04eb22a74
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '52:55'
+source_sha256: 4123a15e91c727b443e7332a04fee892e6a3b34d818a196ea393da9765e83108
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.store.section_rebuild:_extend_section_spans;
-  contract-sha256:d1c160283ae7466d518d2bb326ae8f389c5969abe3bb6b727dd5108b9216eedf
+  contract-sha256:137a12e524f6d529c91ead86b20bbab019ca9ec67d664b1b4ef286c19f25e6a8
 ---
 
 # _extend_section_spans
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "logging", "pathlib", "re", "sldb.store.io", "sldb.store.layout", "sldb.store.models", "sldb.store.section_paths", "sldb.store.semantic"]
+["__future__", "pathlib", "re", "sldb.store.io", "sldb.store.models", "sldb.store.section_paths", "sldb.store.section_sync", "sldb.store.semantic"]
 
 ## Purpose
 

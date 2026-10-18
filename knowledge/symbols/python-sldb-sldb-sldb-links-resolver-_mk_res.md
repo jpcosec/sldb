@@ -5,11 +5,11 @@ module: sldb.sldb.links.resolver
 qualname: _mk_res
 kind: FunctionDef
 source_path: sldb/links/resolver.py
-source_span: '20:21'
-source_sha256: 2f7dd77d084fa9e61d4e7bd4a127354c04c9228dac92d2570a0b76b1912e2c12
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '21:22'
+source_sha256: a85168b7c7ee58118d6f2f0f6908065cd44f60092ceff34c051fc0f73c6d2379
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.links.resolver:_mk_res; contract-sha256:a07058f0900567481632295d83ca3693fd8929bd7eef26cd18f180648a484533
+provenance: python-ast:python:sldb.sldb.links.resolver:_mk_res; contract-sha256:c2e59e548b395285dcfd7c9eb2cd3ecd864b90eabaacea26a8334c8780895756
 ---
 
 # _mk_res
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-[".resolved_link", "__future__", "pathlib", "sldb.store.io", "sldb.store.layout"]
+[".resolved_link", ".sections", "__future__", "pathlib", "sldb.store.io", "sldb.store.layout"]
 
 ## Purpose
 

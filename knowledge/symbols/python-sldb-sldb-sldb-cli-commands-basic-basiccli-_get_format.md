@@ -5,11 +5,11 @@ module: sldb.sldb.cli.commands.basic
 qualname: BasicCLI._get_format
 kind: FunctionDef
 source_path: sldb/cli/commands/basic.py
-source_span: '28:31'
-source_sha256: b1f1d73f3511af23384ef4baad5cfa03dcf27820bad667cddce56d7dbd85e73d
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '29:32'
+source_sha256: 4dcdc9c7c2412c8da0302d2d64e01410598a260bdbf3ce5faa3be87128ca2f26
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.commands.basic:BasicCLI._get_format; contract-sha256:aac80f4152a7f9b9ba10fa02f4836afe58fda3f1cc9774058336d9aceba12c66
+provenance: python-ast:python:sldb.sldb.cli.commands.basic:BasicCLI._get_format; contract-sha256:6455c795010d7667921fdb127c680119d7352efea4ed65e18d771d7e3e51b849
 ---
 
 # BasicCLI._get_format
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "json", "sldb.cli.model_utils", "sldb.cli.utils", "sldb.runtime.validation", "typing", "yaml"]
+["__future__", "json", "pathlib", "sldb.cli.model_utils", "sldb.cli.utils", "sldb.runtime.validation", "typing", "yaml"]
 
 ## Purpose
 

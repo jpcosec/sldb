@@ -5,11 +5,11 @@ module: sldb.sldb.cli.parsers.docs2
 qualname: _explore
 kind: FunctionDef
 source_path: sldb/cli/parsers/docs2.py
-source_span: '28:37'
-source_sha256: 043b95486b61601edb8c0e0649f97994615e9a3aee5467be8d039fad6eb73bb7
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '32:41'
+source_sha256: d16a411c6e69e651be608493a1a440e5ec26ad95cf233a85999d5c4a0c75e23e
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.parsers.docs2:_explore; contract-sha256:4dfec922190ca340412168c78f65ba4820489dcda4e378e90c98025f596dd097
+provenance: python-ast:python:sldb.sldb.cli.parsers.docs2:_explore; contract-sha256:bc1fc7d6093bb2811feb5263eb0e319e71fd842729db1830cdb1bfef43cd58a7
 ---
 
 # _explore

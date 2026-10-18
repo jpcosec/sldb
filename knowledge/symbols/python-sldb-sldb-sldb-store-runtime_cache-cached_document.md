@@ -5,11 +5,11 @@ module: sldb.sldb.store.runtime_cache
 qualname: cached_document
 kind: FunctionDef
 source_path: sldb/store/runtime_cache.py
-source_span: 68:75
-source_sha256: 268fb05766c0b59434a5e0d1d9b098d373e5250d83de20b10e42bbfd3aa9f511
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 49:61
+source_sha256: 870a33b2e031d380c875372e22bbf508b533af2cbd6dae4f59d6ddb6e563db78
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.runtime_cache:cached_document; contract-sha256:085ececce127e66a7fa2274aac03ca391ff6ca768dcfe9eaee9dbd3fe9a09c41
+provenance: python-ast:python:sldb.sldb.store.runtime_cache:cached_document; contract-sha256:5f77cc0668307f5a8e57da8183289126031c2f6f2ed1c6e70e05708ff0e513f9
 ---
 
 # cached_document
@@ -20,11 +20,16 @@ cached_document(entry: Any, root: Path, s_path: Path, s_name: str, m_name: str, 
 
 ## Docstring
 
-One document by its leaf key: (path, hash_c[, mtime, size]).
+One document by its store, its leaf: (path, source_hash[, mtime, size]), and the contract
+of the class being extracted with, so a moved contract invalidates the entry (in memory and
+on disk) even when the leaf did not. The contract is hashed from `model_type` itself, not
+read from the models index: the index only learns of a contract change when something
+writes, and a pure read (new field on the class, same Markdown) must not be served a payload
+extracted under the old contract — the standing bug where a new field stayed invisible.
 
 ## Imports
 
-["__future__", "dataclasses", "os", "pathlib", "sldb.store", "sldb.store.io", "sldb.store.layout", "typing"]
+["__future__", "dataclasses", "pathlib", "sldb.store", "sldb.store.hashing", "sldb.store.runtime_cache_signature", "typing"]
 
 ## Purpose
 

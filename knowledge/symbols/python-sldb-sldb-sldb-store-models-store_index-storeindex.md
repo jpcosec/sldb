@@ -5,11 +5,11 @@ module: sldb.sldb.store.models.store_index
 qualname: StoreIndex
 kind: ClassDef
 source_path: sldb/store/models/store_index.py
-source_span: '7:11'
-source_sha256: 3fcaff24115595b9caacc6733b1b119905d30be70f73b7bff962d9177184503e
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '7:21'
+source_sha256: 8b44c5eea5f7d47ad9161416bab15aeb8922575ec25e1a4ef70efd6c9dc1843f
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.models.store_index:StoreIndex; contract-sha256:f68593f7fa115a5e7381a2c2042be6ceb788419888a7e7d714d5bd5da157073c
+provenance: python-ast:python:sldb.sldb.store.models.store_index:StoreIndex; contract-sha256:119bab56ce8e96af5028ee3ec92bb0470245fb24d5170a59533ee329ec2b7755
 ---
 
 # StoreIndex

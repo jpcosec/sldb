@@ -5,11 +5,11 @@ module: sldb.sldb.cli.model_utils
 qualname: registered_model
 kind: FunctionDef
 source_path: sldb/cli/model_utils.py
-source_span: '43:52'
-source_sha256: b810e202bfc58bca4bcf96a21e5b96c47d38939624163a71288af4ccd5b5e9e1
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '12:15'
+source_sha256: ff9991570a28023ed976ae0b1ba089f8a76b2b1ea8c451518a9d582fbcdd26f4
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.model_utils:registered_model; contract-sha256:33f886ddac25554df64ecd390310295eb20e8ff6302479e9d158ed27d080177a
+provenance: python-ast:python:sldb.sldb.cli.model_utils:registered_model; contract-sha256:2f5d3d96168e9db1adedb20c63fca59424778e63f7af9205e852fc1220b1b2d5
 ---
 
 # registered_model
@@ -20,11 +20,11 @@ registered_model(store_path: Path, model_name: str, pythonpath: str | None)
 
 ## Docstring
 
-Not documented.
+(model class, model entry, store index) of a registered or federated model name.
 
 ## Imports
 
-["__future__", "importlib", "pathlib", "sldb.core.exceptions", "sldb.models.structured_doc", "sldb.store.io", "sys", "typing"]
+["__future__", "pathlib", "sldb.api.model_registry.load_registered_model", "sldb.api.model_registry.model_reference", "typing"]
 
 ## Purpose
 

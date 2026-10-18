@@ -5,12 +5,12 @@ module: sldb.sldb.store.query_engine.semantic_utils
 qualname: SemanticUtils._rebuild_index
 kind: FunctionDef
 source_path: sldb/store/query_engine/semantic_utils.py
-source_span: 70:79
-source_sha256: 2a9758ec86c0e3dc96e0f854ff3a90a1ad45615c8193cb5f543433b1d7d9ffa0
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 78:87
+source_sha256: 4ad80c6c32c0718ef773607f8cbe6c5f96854ffe8004dc8bb8c5557271582761
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.store.query_engine.semantic_utils:SemanticUtils._rebuild_index;
-  contract-sha256:29cc350c2b49fe590354844805d6d88317d167a095c004e8f3dd9e3a19bf22a0
+  contract-sha256:483b18b879da36e64418c8167a10de53075381a94112aa45b9b4bd95f46012a6
 ---
 
 # SemanticUtils._rebuild_index
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "pathlib", "re", "sldb.store.io", "sldb.store.layout", "sldb.store.query", "sldb.store.query_engine.models", "typing"]
+["__future__", "pathlib", "re", "sldb.store.io", "sldb.store.layout", "sldb.store.query", "sldb.store.query_engine.models", "sldb.store.semantic_dag_graph", "typing"]
 
 ## Purpose
 

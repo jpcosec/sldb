@@ -5,12 +5,12 @@ module: sldb.sldb.cli.commands.models_fields
 qualname: ModelsFieldsCLI._get_new_field_block
 kind: FunctionDef
 source_path: sldb/cli/commands/models_fields.py
-source_span: '30:33'
-source_sha256: 0caaa71ebdce3d7a6ac36af9a2890d1bbf030ae6f18eb3535d074eddaecc6c56
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '26:29'
+source_sha256: 4ef03b9fe06d9cf15f3d47c5f152981b899205bac33adb027505ea98a09050b1
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.cli.commands.models_fields:ModelsFieldsCLI._get_new_field_block;
-  contract-sha256:028ba542767a632189e8d3ffabbb18924ef1a5681620335349b7de4972105b02
+  contract-sha256:3c8d94f4865322214c9dfb0064e460ddf1c9d6d0de65569ce11939cb369559a6
 ---
 
 # ModelsFieldsCLI._get_new_field_block
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "ast", "pathlib", "sldb.cli.commands.models_utils", "sldb.cli.utils", "sldb.core.exceptions", "typing"]
+["__future__", "ast", "pathlib", "sldb.api.model_drafts.field_blocks", "sldb.api.model_drafts.field_drafts", "sldb.cli.utils", "typing"]
 
 ## Purpose
 

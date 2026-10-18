@@ -5,11 +5,11 @@ module: sldb.sldb.cli.parsers.serve
 qualname: _serve_flags
 kind: FunctionDef
 source_path: sldb/cli/parsers/serve.py
-source_span: '10:15'
-source_sha256: 5477e6536d1540cac41e6e7fbfca608edad9b67907a3cb5e5d0e51752c968872
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '10:16'
+source_sha256: 6e3d02d4ee33fa338e5043dc5e0da32d806ae9e866f19866778d3010b63b5fcd
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.parsers.serve:_serve_flags; contract-sha256:640e94ee38d01c820fd70ed0fcede9eb875e3384fa57ea01ccb323ae0a28405c
+provenance: python-ast:python:sldb.sldb.cli.parsers.serve:_serve_flags; contract-sha256:9f03b8a434d04f9df88c907703894f2673d9f5bdb544ebd89ab387841c8e029a
 ---
 
 # _serve_flags

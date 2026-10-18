@@ -5,12 +5,12 @@ module: sldb.sldb.store.query_engine.semantic_utils
 qualname: SemanticUtils.local_semantic_docs
 kind: FunctionDef
 source_path: sldb/store/query_engine/semantic_utils.py
-source_span: 59:67
-source_sha256: 2a9758ec86c0e3dc96e0f854ff3a90a1ad45615c8193cb5f543433b1d7d9ffa0
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 67:75
+source_sha256: 4ad80c6c32c0718ef773607f8cbe6c5f96854ffe8004dc8bb8c5557271582761
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.store.query_engine.semantic_utils:SemanticUtils.local_semantic_docs;
-  contract-sha256:5ad72934bb1eb1ec6e02e73befe8d5be438a2639b65ce5180339dd7a6e7d7e83
+  contract-sha256:f0bfb0412d9145f7dd073cf866e3520cef83b9c04b08ec4eac8ee59e9a286e77
 ---
 
 # SemanticUtils.local_semantic_docs
@@ -25,7 +25,7 @@ Loads docs and the semantic index, rebuilding if necessary.
 
 ## Imports
 
-["__future__", "pathlib", "re", "sldb.store.io", "sldb.store.layout", "sldb.store.query", "sldb.store.query_engine.models", "typing"]
+["__future__", "pathlib", "re", "sldb.store.io", "sldb.store.layout", "sldb.store.query", "sldb.store.query_engine.models", "sldb.store.semantic_dag_graph", "typing"]
 
 ## Purpose
 

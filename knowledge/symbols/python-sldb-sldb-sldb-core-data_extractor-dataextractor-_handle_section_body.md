@@ -5,12 +5,12 @@ module: sldb.sldb.core.data_extractor
 qualname: DataExtractor._handle_section_body
 kind: FunctionDef
 source_path: sldb/core/data_extractor.py
-source_span: 57:69
-source_sha256: 67626e17ce20edeb1bd04e488a778becc67db6f4cb29fbddea501d0d7b3e0d49
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 59:75
+source_sha256: 0743434351f23ade474b8b134b7d283fdfa7df7641101188657110a9b05e9faa
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.data_extractor:DataExtractor._handle_section_body;
-  contract-sha256:971ff63fb893e0eff02b49e99425ea07cc23a69a5137c0f1eccd1a9a05a2e149
+  contract-sha256:715980ea09677816d35d2b27ad4260d2449264ebc18ef5b89ae259db25111ec8
 ---
 
 # DataExtractor._handle_section_body
@@ -32,7 +32,7 @@ expressions agree, since boundary_idx - 1 >= search.
 
 ## Imports
 
-["sldb.core.extractor.recipe_matcher", "sldb.core.node", "sldb.core.node_handler", "typing"]
+["sldb.core.contracts.marker", "sldb.core.extractor.recipe_matcher", "sldb.core.extractor.section_boundary", "sldb.core.node", "sldb.core.node_handler", "typing"]
 
 ## Purpose
 

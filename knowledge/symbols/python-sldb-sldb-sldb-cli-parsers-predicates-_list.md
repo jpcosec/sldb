@@ -6,10 +6,10 @@ qualname: _list
 kind: FunctionDef
 source_path: sldb/cli/parsers/predicates.py
 source_span: '16:19'
-source_sha256: ca1a6776dfaa16c10f6999ecfca027137c9581376296ba71ab7b96f2a722232a
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: 06979cddb59a7d5d8c6b1fe938dd39ec3c75d6319e367154e125f2c0bc33aba5
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.parsers.predicates:_list; contract-sha256:5ad5067af3ee18f1bf930c613f362ab1c6c283c05b9a32e63bbe205323a5a432
+provenance: python-ast:python:sldb.sldb.cli.parsers.predicates:_list; contract-sha256:2b42f6fea517dca869180f9de08776ea5e7ef433a09c5fa05ee2a8e0896466a4
 ---
 
 # _list

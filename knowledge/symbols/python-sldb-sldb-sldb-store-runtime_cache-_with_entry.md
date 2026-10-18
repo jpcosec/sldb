@@ -5,11 +5,11 @@ module: sldb.sldb.store.runtime_cache
 qualname: _with_entry
 kind: FunctionDef
 source_path: sldb/store/runtime_cache.py
-source_span: 86:93
-source_sha256: 268fb05766c0b59434a5e0d1d9b098d373e5250d83de20b10e42bbfd3aa9f511
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 72:82
+source_sha256: 870a33b2e031d380c875372e22bbf508b533af2cbd6dae4f59d6ddb6e563db78
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.runtime_cache:_with_entry; contract-sha256:54c14dc689bdb2d368394e6b8c382114d6d66d8a6af94d653aded84292217f2d
+provenance: python-ast:python:sldb.sldb.store.runtime_cache:_with_entry; contract-sha256:4dd7168bf1dbab99f8207c41a4da6264e18e8a2f9a4e2d543b9cc849e532e970
 ---
 
 # _with_entry
@@ -20,11 +20,12 @@ _with_entry(key: tuple, hit: Any, entry: Any)
 
 ## Docstring
 
-The name and the tags come from the index and can change without the text changing.
+The name, the tags and the two index hashes come from the index and can change without
+the text changing; the cached object is stamped with the entry's current values.
 
 ## Imports
 
-["__future__", "dataclasses", "os", "pathlib", "sldb.store", "sldb.store.io", "sldb.store.layout", "typing"]
+["__future__", "dataclasses", "pathlib", "sldb.store", "sldb.store.hashing", "sldb.store.runtime_cache_signature", "typing"]
 
 ## Purpose
 

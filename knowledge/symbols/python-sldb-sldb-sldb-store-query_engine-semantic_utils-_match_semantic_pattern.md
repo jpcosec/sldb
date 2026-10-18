@@ -5,12 +5,12 @@ module: sldb.sldb.store.query_engine.semantic_utils
 qualname: _match_semantic_pattern
 kind: FunctionDef
 source_path: sldb/store/query_engine/semantic_utils.py
-source_span: '13:15'
-source_sha256: 2a9758ec86c0e3dc96e0f854ff3a90a1ad45615c8193cb5f543433b1d7d9ffa0
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '16:18'
+source_sha256: 4ad80c6c32c0718ef773607f8cbe6c5f96854ffe8004dc8bb8c5557271582761
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.store.query_engine.semantic_utils:_match_semantic_pattern;
-  contract-sha256:1d46620a2bcc9ada0fb8ebb04e9dd0961699ab7f5d50f41cf10c17f567d4104b
+  contract-sha256:3072ed24d259066db7884aaf34940303a7a353ac6037db036ee4743037175800
 ---
 
 # _match_semantic_pattern
@@ -25,7 +25,7 @@ Matches a semantic tag against a glob-like pattern (** or *).
 
 ## Imports
 
-["__future__", "pathlib", "re", "sldb.store.io", "sldb.store.layout", "sldb.store.query", "sldb.store.query_engine.models", "typing"]
+["__future__", "pathlib", "re", "sldb.store.io", "sldb.store.layout", "sldb.store.query", "sldb.store.query_engine.models", "sldb.store.semantic_dag_graph", "typing"]
 
 ## Purpose
 

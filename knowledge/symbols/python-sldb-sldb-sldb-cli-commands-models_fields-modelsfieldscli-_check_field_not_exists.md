@@ -5,12 +5,12 @@ module: sldb.sldb.cli.commands.models_fields
 qualname: ModelsFieldsCLI._check_field_not_exists
 kind: FunctionDef
 source_path: sldb/cli/commands/models_fields.py
-source_span: '49:52'
-source_sha256: 0caaa71ebdce3d7a6ac36af9a2890d1bbf030ae6f18eb3535d074eddaecc6c56
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '37:38'
+source_sha256: 4ef03b9fe06d9cf15f3d47c5f152981b899205bac33adb027505ea98a09050b1
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.cli.commands.models_fields:ModelsFieldsCLI._check_field_not_exists;
-  contract-sha256:6d85df4b2cb0663735306591b26871a3ada88772378134bfbe53d0c2aeb3f73c
+  contract-sha256:0f9d2ab1a9d98e64a27e86c7c8ffe8358c67a0a5674c32f30a6d6ab5bbaa2405
 ---
 
 # ModelsFieldsCLI._check_field_not_exists
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "ast", "pathlib", "sldb.cli.commands.models_utils", "sldb.cli.utils", "sldb.core.exceptions", "typing"]
+["__future__", "ast", "pathlib", "sldb.api.model_drafts.field_blocks", "sldb.api.model_drafts.field_drafts", "sldb.cli.utils", "typing"]
 
 ## Purpose
 

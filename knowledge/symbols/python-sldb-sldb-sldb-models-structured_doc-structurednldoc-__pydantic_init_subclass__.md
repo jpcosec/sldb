@@ -6,11 +6,11 @@ qualname: StructuredNLDoc.__pydantic_init_subclass__
 kind: FunctionDef
 source_path: sldb/models/structured_doc.py
 source_span: '24:28'
-source_sha256: 8a69fbd0a87837a6a8fa46eb6fe9263af2a645288458d8ecaaaf86ac1498b4a6
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: 4ee4e777b82fa5ae9f897579af1be36bdd502f7088896788dcaae05597bcc4cf
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.models.structured_doc:StructuredNLDoc.__pydantic_init_subclass__;
-  contract-sha256:e025055a4c9efb540b42d1180adec87d7a11793645025a7066aa23ab437341be
+  contract-sha256:0d0a84e0076b81ff69cc9b2ae5acb391fd1e896fb2fe1fd4cb732776bbdad241
 ---
 
 # StructuredNLDoc.__pydantic_init_subclass__

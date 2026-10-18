@@ -5,11 +5,11 @@ module: sldb.sldb.store.export
 qualname: SemanticExporter.__init__
 kind: FunctionDef
 source_path: sldb/store/export.py
-source_span: '20:22'
-source_sha256: 9feefed66a674f9cec7c5c41a330709a4b7150fd5a797fd1a45cd19ae5c02b70
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '32:34'
+source_sha256: 308e0be06700f6b413840f94fb84d8df1eaccde97954944749e339a62cd5dbe7
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.export:SemanticExporter.__init__; contract-sha256:abbcf79e3fa7374fa2c1ea24b5dcd75c96e27e87bce0853b209512f136e6282d
+provenance: python-ast:python:sldb.sldb.store.export:SemanticExporter.__init__; contract-sha256:e348ed8bef69da38bbf4d3ef6b1f1d760a375556201d31e115cd55651e790ccb
 ---
 
 # SemanticExporter.__init__
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "datetime", "importlib.metadata", "pathlib", "sldb.store.io", "sldb.store.layout", "sldb.store.section_rebuild", "sldb.store.semantic", "typing"]
+["__future__", "datetime", "pathlib", "sldb.store.edge_rebuild", "sldb.store.io", "sldb.store.layout", "sldb.store.package_version", "sldb.store.section_rebuild", "sldb.store.semantic", "typing"]
 
 ## Purpose
 

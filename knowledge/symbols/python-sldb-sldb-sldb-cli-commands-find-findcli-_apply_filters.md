@@ -5,12 +5,12 @@ module: sldb.sldb.cli.commands.find
 qualname: FindCLI._apply_filters
 kind: FunctionDef
 source_path: sldb/cli/commands/find.py
-source_span: '23:25'
-source_sha256: b8aa0aa4c8fc9a713076c0ff77303670657fcda3392018756d1b354c8d91b132
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '25:27'
+source_sha256: 7fd79d43b7febe6dd6b4a18934df79477499bc9728928abca813cec5a9ccbc20
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.cli.commands.find:FindCLI._apply_filters;
-  contract-sha256:075507886035222e5a154dd53c2ffda3efd9a2819aac3f95562b850e259cf004
+  contract-sha256:8e5c4bc63dc83e4c40f9d1ee510c2713de7b351c9d36dc292c9f20cfaab48795
 ---
 
 # FindCLI._apply_filters
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "sldb.cli.commands.find_filters", "sldb.cli.commands.find_format", "sldb.cli.graph_ops", "typing"]
+["__future__", "sldb.api.records.record_filters", "sldb.cli.commands.find_format", "sldb.cli.graph_ops", "sldb.store.query_engine.where_parse", "typing"]
 
 ## Purpose
 

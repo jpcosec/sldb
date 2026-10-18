@@ -5,11 +5,11 @@ module: sldb.sldb.links.recovery
 qualname: _dedup_links
 kind: FunctionDef
 source_path: sldb/links/recovery.py
-source_span: '14:18'
-source_sha256: 5ebc1b48bd2273c75c593ad0f760e217e649eb76c7b119c653967b3f85e738f7
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '17:21'
+source_sha256: ba003cae95c94f5dbda95c0d814f6afb18a4a67bd18451c9a826193498ada479
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.links.recovery:_dedup_links; contract-sha256:c610a5ba40af7cd351d911b12a08dd2f9a0aba4be290b9e14d0180ac3011bcbc
+provenance: python-ast:python:sldb.sldb.links.recovery:_dedup_links; contract-sha256:4fc6e2e4d4c300dbc7ad4f6391ee1223f251ffa5d9d8f9a8352c3bc6852e4111
 ---
 
 # _dedup_links
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-[".parser", ".resolver", "__future__", "collections.abc", "pathlib", "sldb.store.io", "sldb.store.predicates"]
+[".parser", ".resolver", ".sections", "__future__", "collections.abc", "pathlib", "sldb.store.io", "sldb.store.predicates"]
 
 ## Purpose
 

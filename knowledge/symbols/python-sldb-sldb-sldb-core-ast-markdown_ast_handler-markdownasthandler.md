@@ -5,12 +5,12 @@ module: sldb.sldb.core.ast.markdown_ast_handler
 qualname: MarkdownASTHandler
 kind: ClassDef
 source_path: sldb/core/ast/markdown_ast_handler.py
-source_span: '7:26'
-source_sha256: 15c00bd2d9d3ef4d675f7e85400cf5cb1fc086d2ae49e87e06bc39e697ea1f67
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '7:27'
+source_sha256: c008382f68385f2ecae45e4a6da3797f202bc15a99d23d5d581875bc7503a280
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.ast.markdown_ast_handler:MarkdownASTHandler;
-  contract-sha256:683f977f017d107fc6f34efb7a545aa2f5ce02f0fcb803cf36387eaac93e8e4f
+  contract-sha256:80c093e76e9202452c2eae80897bb8563f5f23ae798ba084e7424eea689457d2
 ---
 
 # MarkdownASTHandler

@@ -5,27 +5,28 @@ module: sldb.sldb.store.migration
 qualname: _already_canonical
 kind: FunctionDef
 source_path: sldb/store/migration.py
-source_span: '47:50'
-source_sha256: 22047095c411eeaa2697b503c40a07f073b240fefed0daaea0cadaab2dbd2cc4
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 63:69
+source_sha256: a5e14561f69f4aef068095bfaf7af6b7ee4393388167753439969f2af46be039
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.migration:_already_canonical; contract-sha256:cd33964993e38a9ba7a05fe1a9545482c5c6c25e61ef174fc7316e105049d3f9
+provenance: python-ast:python:sldb.sldb.store.migration:_already_canonical; contract-sha256:22314b4d3fa323e5a690915dc0e82abcf4c4ff3e5e017df9a353021c2db97032
 ---
 
 # _already_canonical
 
 ## Signature
 
-_already_canonical(store_index, p_root: Path)
+_already_canonical(store_index, store_path: Path, p_root: Path)
 
 ## Docstring
 
-True when every model index already sits at its canonical path and points at canonical
-document and section indexes: nothing to migrate, and nothing to rewrite.
+True when every model index already sits at its canonical path, points at canonical
+document and section indexes (capa 5: sections already sharded, the old file gone), and
+the old store-wide semantic index file is gone too (capa 5: sharded): nothing to migrate.
 
 ## Imports
 
-["__future__", "pathlib", "sldb.store.io", "sldb.store.layout"]
+["__future__", "pathlib", "sldb.store.io", "sldb.store.layout", "sldb.store.migration_legacy_layout"]
 
 ## Purpose
 

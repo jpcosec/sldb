@@ -5,11 +5,11 @@ module: sldb.sldb.store.runtime_cache
 qualname: _remember
 kind: FunctionDef
 source_path: sldb/store/runtime_cache.py
-source_span: 78:83
-source_sha256: 268fb05766c0b59434a5e0d1d9b098d373e5250d83de20b10e42bbfd3aa9f511
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 64:69
+source_sha256: 870a33b2e031d380c875372e22bbf508b533af2cbd6dae4f59d6ddb6e563db78
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.runtime_cache:_remember; contract-sha256:18f77fa511df2b81d709aa65a33546f12697478c3ff6213a4f9e767f1c179cbe
+provenance: python-ast:python:sldb.sldb.store.runtime_cache:_remember; contract-sha256:9b952fcea5182ef04d85ad6b831c0ef20da1cb14e2bbdf00f24addc54bde1af6
 ---
 
 # _remember
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "dataclasses", "os", "pathlib", "sldb.store", "sldb.store.io", "sldb.store.layout", "typing"]
+["__future__", "dataclasses", "pathlib", "sldb.store", "sldb.store.hashing", "sldb.store.runtime_cache_signature", "typing"]
 
 ## Purpose
 

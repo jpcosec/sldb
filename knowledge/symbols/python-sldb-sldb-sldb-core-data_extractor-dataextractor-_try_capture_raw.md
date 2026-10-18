@@ -5,12 +5,12 @@ module: sldb.sldb.core.data_extractor
 qualname: DataExtractor._try_capture_raw
 kind: FunctionDef
 source_path: sldb/core/data_extractor.py
-source_span: '24:28'
-source_sha256: 67626e17ce20edeb1bd04e488a778becc67db6f4cb29fbddea501d0d7b3e0d49
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '26:30'
+source_sha256: 0743434351f23ade474b8b134b7d283fdfa7df7641101188657110a9b05e9faa
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.data_extractor:DataExtractor._try_capture_raw;
-  contract-sha256:6a3b25e979b10a8bc693356c10547c7ae408d17c2288bfff05457f7a6a93c0c9
+  contract-sha256:7276df58f78358541e7b9402174a01c59128cd8ec5f59111a9a138e01c1adae9
 ---
 
 # DataExtractor._try_capture_raw
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["sldb.core.extractor.recipe_matcher", "sldb.core.node", "sldb.core.node_handler", "typing"]
+["sldb.core.contracts.marker", "sldb.core.extractor.recipe_matcher", "sldb.core.extractor.section_boundary", "sldb.core.node", "sldb.core.node_handler", "typing"]
 
 ## Purpose
 

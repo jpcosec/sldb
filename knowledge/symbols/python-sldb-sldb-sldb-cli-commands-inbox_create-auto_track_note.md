@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/commands/inbox_create.py
 source_span: 83:92
 source_sha256: 516a3a599c3a78d5deb7ff51e1c0b7b7afb6ecb74722d896204b835c001d8713
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.cli.commands.inbox_create:auto_track_note;
   contract-sha256:83d0c516ab3a7fd7aad3d4839038f40c7a544c811ed7f79407d8395cfae367ff

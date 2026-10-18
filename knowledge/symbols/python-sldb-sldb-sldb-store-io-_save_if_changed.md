@@ -5,11 +5,11 @@ module: sldb.sldb.store.io
 qualname: _save_if_changed
 kind: FunctionDef
 source_path: sldb/store/io/__init__.py
-source_span: 59:68
-source_sha256: 0b240d527fd6f837d606be3dad180b7b89529226c9a8bf5a3d4666ecde28097f
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 67:76
+source_sha256: a65d487517f80e48a31662a55b977d5d2a86eaaa5f6dc2379c796c8b06ddfee0
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.io:_save_if_changed; contract-sha256:47301b7e4d04289ada1ab0c8048f9e67d8aa9edd8d7f7d86762d2264a7780d3f
+provenance: python-ast:python:sldb.sldb.store.io:_save_if_changed; contract-sha256:4a9c91412a422391b3cb5acd21af4a2ea77be49fc02817016fc12a2a810d1049
 ---
 
 # _save_if_changed

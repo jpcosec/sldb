@@ -5,11 +5,11 @@ module: sldb.sldb.store.ops
 qualname: track_document
 kind: FunctionDef
 source_path: sldb/store/ops.py
-source_span: '48:50'
-source_sha256: 482248855b344d1c043a55c146e669bd313fb2e129c8249ef3a2ec8ca97e4adf
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 60:62
+source_sha256: 15a1ed96fccad244114a03a10e83846e3c5596b9f5fb9a59a08be3e7211c7e26
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.ops:track_document; contract-sha256:fec0b4f4657a743128d51d73582443dfadff9b5eeaca3f62a1e557e4e07bf1f1
+provenance: python-ast:python:sldb.sldb.store.ops:track_document; contract-sha256:122c6bf97bc66ed6a0a854b912200c2b80c2ed8fa5c9ead4345f2092ad1ca047
 ---
 
 # track_document
@@ -24,7 +24,7 @@ Track a document in the store and update hashes.
 
 ## Imports
 
-["__future__", "pathlib", "sldb.store.hashing", "sldb.store.io", "sldb.store.models", "sldb.store.semantic", "typing"]
+["__future__", "pathlib", "sldb.store", "sldb.store.edge_rebuild", "sldb.store.hashing", "sldb.store.io", "sldb.store.io.shards", "sldb.store.layout", "sldb.store.model_node", "sldb.store.models", "sldb.store.section_rebuild", "sldb.store.semantic", "typing"]
 
 ## Purpose
 

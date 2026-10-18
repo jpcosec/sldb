@@ -5,12 +5,12 @@ module: sldb.sldb.store.io.documents_index
 qualname: DocumentsIndexIO.load
 kind: FunctionDef
 source_path: sldb/store/io/documents_index.py
-source_span: '30:32'
-source_sha256: 327d751e8204f6a65a62f7b5a0e3bfab4045c44740bfe4848088311a7eae6189
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '34:45'
+source_sha256: 8aa37bb0441e9cb89b92e28cc541512f833104dc7c976ee3f717260f27108a71
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.store.io.documents_index:DocumentsIndexIO.load;
-  contract-sha256:7c72161ab4bdc00fc9e9a7e69ba21663f32ad4236c11a3a83b632d3edad09e31
+  contract-sha256:983b7137ac443aeac7fd591508f1b586b26c6cc99ab9063474b33eec42bb1781
 ---
 
 # DocumentsIndexIO.load

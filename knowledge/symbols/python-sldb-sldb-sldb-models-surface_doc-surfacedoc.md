@@ -6,10 +6,10 @@ qualname: SurfaceDoc
 kind: ClassDef
 source_path: sldb/models/surface_doc.py
 source_span: 9:64
-source_sha256: 7e32d542249bbc5dbe84d178bc3ca2db796cedc03618fa114ecd846eae06b3ee
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: edf3b1077f8aef68950e27a92ee47624579e1623a07565eea04c67eda34f0c7f
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.models.surface_doc:SurfaceDoc; contract-sha256:295619df66fb1b610490299bda0d16ad371c78889a9fcb91d789d7c572a3c7af
+provenance: python-ast:python:sldb.sldb.models.surface_doc:SurfaceDoc; contract-sha256:04c7ef8607565c2a4df259897319c2ff66b3274df52585b15bb466fa44113991
 ---
 
 # SurfaceDoc

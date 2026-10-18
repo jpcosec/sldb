@@ -1,0 +1,38 @@
+---
+id: python-sldb-sldb-sldb-api-edges-builtin_relation_writes-_refresh_outdated
+system: sldb
+module: sldb.sldb.api.edges.builtin_relation_writes
+qualname: _refresh_outdated
+kind: FunctionDef
+source_path: sldb/api/edges/builtin_relation_writes.py
+source_span: '43:55'
+source_sha256: dac7dd73866d52ed3012baf66f64df8b7bf2a7d369493aa94bc72ff68a86adf1
+architecture_spec: Not declared.
+tags: []
+provenance: python-ast:python:sldb.sldb.api.edges.builtin_relation_writes:_refresh_outdated;
+  contract-sha256:85c693d3b33c2a64a82490b36caaf300281b7cce188f35bc2a029ab46deda46a
+---
+
+# _refresh_outdated
+
+## Signature
+
+_refresh_outdated(root: Path, model_type, tracked: dict[str, str], report: RelationsInitReport)
+
+## Docstring
+
+Rewrite a tracked builtin whose spec moved (`has_model` became many-to-many when stores
+began sharing models): the index produces those edges, so sldb owns their type. Compared
+on the payload, so a builtin that only reads differently is left alone.
+
+## Imports
+
+["__future__", "pathlib", "sldb.api.edges.relations_init_report", "sldb.api.model_registry.load_registered_model", "sldb.api.model_registry.model_reference", "sldb.models.builtin_relation_types", "sldb.runtime.validation", "sldb.store", "sldb.store.io", "sldb.store.models", "sldb.store.ops"]
+
+## Purpose
+
+Not documented.
+
+## Architecture
+
+Not documented.

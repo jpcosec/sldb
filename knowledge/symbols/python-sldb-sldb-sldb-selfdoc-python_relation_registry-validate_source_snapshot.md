@@ -5,12 +5,12 @@ module: sldb.sldb.selfdoc.python_relation_registry
 qualname: validate_source_snapshot
 kind: FunctionDef
 source_path: sldb/selfdoc/python_relation_registry.py
-source_span: 30:62
-source_sha256: 772864677ee22736ade5b0eb5cdfd154148e8fdfb39534a0c4c6d7e9883d1922
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '38:48'
+source_sha256: c34b762befd2d4d664dc5e3146726ec1ed2187cc376f1dc1f9c66fb899494b80
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.selfdoc.python_relation_registry:validate_source_snapshot;
-  contract-sha256:577ec8dc67917eb78cfa4781c50c3cfaaaa5f970f171837508facf4c9539890c
+  contract-sha256:6031827071b7c0c82842049db384184fbb04a565a05d66091bd6f42ead3c26df
 ---
 
 # validate_source_snapshot

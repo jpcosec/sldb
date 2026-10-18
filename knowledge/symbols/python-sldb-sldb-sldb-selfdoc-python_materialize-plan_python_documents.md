@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/selfdoc/python_materialize.py
 source_span: '16:21'
 source_sha256: 0b7a47eda31a2dd66c292231d723ab75919a6aa48b9102156805f94468645834
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.selfdoc.python_materialize:plan_python_documents;
   contract-sha256:63323b83539095233c1395350cd0a7b8942d6b978c7266c979c2d3345024f3a9

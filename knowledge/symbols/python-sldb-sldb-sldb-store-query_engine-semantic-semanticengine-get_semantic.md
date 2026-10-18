@@ -6,11 +6,11 @@ qualname: SemanticEngine.get_semantic
 kind: FunctionDef
 source_path: sldb/store/query_engine/semantic.py
 source_span: 54:60
-source_sha256: d31573a0489cb9857a9eb18291413b3f7cc502f07d22964c07b0075331a475da
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: 82f150921b3122061d1632b5a0859666675f2337f69d3a8e05598d72b5746ec1
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.store.query_engine.semantic:SemanticEngine.get_semantic;
-  contract-sha256:77d52af495ba4d3fff26bb12a3a4c880a21fe95a354bbb5d53080ef614ea963f
+  contract-sha256:cece8597d4b8a00e81f6d388af18a2c02d1b8661cbd5ff93f6c6fd938fb08af2
 ---
 
 # SemanticEngine.get_semantic
@@ -25,7 +25,7 @@ Gets documents associated with a semantic tag.
 
 ## Imports
 
-["__future__", "pathlib", "sldb.store.query_engine.filter", "sldb.store.query_engine.semantic_utils"]
+["__future__", "pathlib", "sldb.store.query_engine.semantic_utils", "sldb.store.query_engine.where_parse"]
 
 ## Purpose
 

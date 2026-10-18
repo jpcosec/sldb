@@ -5,12 +5,12 @@ module: sldb.sldb.core.handlers.list
 qualname: ListNodeHandler.compile_recipe
 kind: FunctionDef
 source_path: sldb/core/handlers/list.py
-source_span: '11:16'
-source_sha256: fe2bbeb02a91109c09b0e8990838837d87c351077062a05395c4fb935bb799e8
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '12:17'
+source_sha256: 77cda4bb47a3c5828c66da0251cb75472cddf034a6c9cdf1f07c57f1b79b3787
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.handlers.list:ListNodeHandler.compile_recipe;
-  contract-sha256:59c1c8831057b5370b36e2336dd898de39d22608ab9bd5f1871f09da7e197dc0
+  contract-sha256:ddb0b7c778ff09fde63f5bb047e6555c0d1da958b5813ee04d19c270ceaf4337
 ---
 
 # ListNodeHandler.compile_recipe
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "re", "sldb.core.handlers.base", "sldb.core.handlers.utils", "sldb.core.node", "typing"]
+["__future__", "re", "sldb.core.handlers.base", "sldb.core.handlers.list_escape", "sldb.core.handlers.utils", "sldb.core.node", "typing"]
 
 ## Purpose
 

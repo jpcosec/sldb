@@ -5,12 +5,12 @@ module: sldb.sldb.models.structured_doc
 qualname: StructuredNLDoc._resolve_composition_model
 kind: FunctionDef
 source_path: sldb/models/structured_doc.py
-source_span: '45:51'
-source_sha256: 8a69fbd0a87837a6a8fa46eb6fe9263af2a645288458d8ecaaaf86ac1498b4a6
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 58:64
+source_sha256: 4ee4e777b82fa5ae9f897579af1be36bdd502f7088896788dcaae05597bcc4cf
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.models.structured_doc:StructuredNLDoc._resolve_composition_model;
-  contract-sha256:77a60c854769eca098d275100f41c76a2d8f525ae9e7227e008a2672588d6c27
+  contract-sha256:ad9a26e207cbbbd51aa3831bae364ed06263e35a7a5c6defd4487a8f2e8762bc
 ---
 
 # StructuredNLDoc._resolve_composition_model

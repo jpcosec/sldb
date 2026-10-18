@@ -6,11 +6,11 @@ qualname: TextNodeHandler._build_text_recipe
 kind: FunctionDef
 source_path: sldb/core/handlers/text.py
 source_span: 51:60
-source_sha256: cc28587f8be3fcc46771c93e4c12cf1dee8f77e400c1c928e0abddb0e9d6787a
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: 2f53dfb96ef90c9eeef26f51acaaf2765e3dfbcd80425e6cd03ae0db3c8e37db
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.handlers.text:TextNodeHandler._build_text_recipe;
-  contract-sha256:229432ebdf1e2f343b17d5eee2f359d889b73b47114087a13a5e0cd054b3cb59
+  contract-sha256:bbcfaa84a4706b87a29920626438ea110b7b8fb7b525c5b8cb905ac66147b854
 ---
 
 # TextNodeHandler._build_text_recipe

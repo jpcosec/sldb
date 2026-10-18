@@ -5,12 +5,12 @@ module: sldb.sldb.cli.commands.selfdoc
 qualname: SelfdocCLI._records
 kind: FunctionDef
 source_path: sldb/cli/commands/selfdoc.py
-source_span: 99:100
-source_sha256: 0868c8844cc32944cc6d9ef9e2aedbc3e9fcda9748090591f30ff558c8b490ae
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 59:60
+source_sha256: 66ebb6697343c88faba1a8f890ce8c3483b277229c60704849d86ef00e8c2552
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.cli.commands.selfdoc:SelfdocCLI._records;
-  contract-sha256:3a9fb711edff4dbd71c6a90fd7e589ff5214451e87573b6b84df8c2f262a348c
+  contract-sha256:4cdc68c91649b90ccb80ee40b87e01a59f2b312932e5059a3bcf240238e8865a
 ---
 
 # SelfdocCLI._records
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "contextlib", "json", "pathlib", "sldb.cli.selfdoc_context", "sldb.cli.selfdoc_inspect", "sldb.cli.selfdoc_write", "sldb.selfdoc.kgdb_sync", "sldb.selfdoc.materialize", "sldb.selfdoc.parser", "sldb.selfdoc.python_materialize", "sldb.selfdoc.python_relation_registry", "sldb.selfdoc.python_scanner", "sldb.selfdoc.python_source_graph", "sldb.selfdoc.python_source_scan", "sldb.store.resolver", "sys"]
+["__future__", "contextlib", "json", "pathlib", "sldb.cli.commands", "sldb.cli.selfdoc_context", "sldb.cli.selfdoc_inspect", "sldb.cli.selfdoc_write", "sldb.selfdoc.materialize", "sldb.selfdoc.parser", "sldb.selfdoc.python_materialize", "sldb.selfdoc.python_scanner", "sldb.store.resolver", "sys"]
 
 ## Purpose
 

@@ -1,0 +1,35 @@
+---
+id: python-sldb-sldb-sldb-api-edges-edge_reading-edges_to
+system: sldb
+module: sldb.sldb.api.edges.edge_reading
+qualname: edges_to
+kind: FunctionDef
+source_path: sldb/api/edges/edge_reading.py
+source_span: '47:49'
+source_sha256: 843bafb03f66570ae4a91c980e7c72edc694998e17af5edc4882a34b62ba45b5
+architecture_spec: Not declared.
+tags: []
+provenance: python-ast:python:sldb.sldb.api.edges.edge_reading:edges_to; contract-sha256:18fda185fe0fb0739fd6b1139ef4090495c06241689f6972e44edcebebeffaa1
+---
+
+# edges_to
+
+## Signature
+
+edges_to(store: str | Path | None, export_id: str, relation: str | None=None, include_linked: bool=True, exclude_tags: Iterable[str]=())
+
+## Docstring
+
+Edges pointing at a document or node; arguments and result as in `edges_from`.
+
+## Imports
+
+["__future__", "pathlib", "sldb.api.stores.open_store", "sldb.store.edge_index.compose", "sldb.store.edge_index.edge_index", "sldb.store.models", "typing"]
+
+## Purpose
+
+Not documented.
+
+## Architecture
+
+Not documented.

@@ -5,11 +5,11 @@ module: sldb.sldb.store.hashing
 qualname: hash_payload
 kind: FunctionDef
 source_path: sldb/store/hashing.py
-source_span: '13:16'
-source_sha256: e248d4ee89abcf1062dcb9606458aa00dabd9c3078f0597b0aa17f697c496b4e
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '14:17'
+source_sha256: 307e4065fa6890503d585512c64bf412c3d1ecb617f5cbf575d9d1bd97c24b7c
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.hashing:hash_payload; contract-sha256:cfe594401d6f0223dadd5543beb57ebd5822518141aa63a38d7016996ed5b2d9
+provenance: python-ast:python:sldb.sldb.store.hashing:hash_payload; contract-sha256:9afff46f69194cfdadd8ac2a8c3bca9ab9b2dd8a295cd99a7bbff3a33ae6945d
 ---
 
 # hash_payload
@@ -20,11 +20,11 @@ hash_payload(payload: Any)
 
 ## Docstring
 
-hash_d of an already extracted payload.
+content_hash of an already extracted payload.
 
 ## Imports
 
-["hashlib", "json", "sldb.store.codec", "sldb.store.models", "typing"]
+["hashlib", "json", "sldb.store.codec", "sldb.store.models", "sldb.store.semantic_tags", "typing"]
 
 ## Purpose
 

@@ -5,11 +5,11 @@ module: sldb.sldb.store.runtime_cache_disk
 qualname: from_disk
 kind: FunctionDef
 source_path: sldb/store/runtime_cache_disk.py
-source_span: '38:44'
-source_sha256: fd8f4f04316af3f276c987e975d93464ec96316a2d3ec5eabf403a20378ff503
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '44:52'
+source_sha256: 53c815c1e872fef35964554eadff51bb1e63c753adc7343530396b79c213f62e
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.runtime_cache_disk:from_disk; contract-sha256:5e54f5fa1779264987e4b53b25f74c84539922202ebc9bdfd40ff5b89e06d635
+provenance: python-ast:python:sldb.sldb.store.runtime_cache_disk:from_disk; contract-sha256:6b68deb5e5b58a0be2fed91a612fe4cfcabd18af5232c09d3d353e02720c459b
 ---
 
 # from_disk
@@ -20,11 +20,13 @@ from_disk(s_path: Path, s_name: str, m_name: str, entry: Any, leaf: tuple, model
 
 ## Docstring
 
-A document whose payload the cache file already holds: no extraction.
+A document whose payload the cache file already holds: no extraction. `leaf` is the
+key material `runtime_cache.leaf_of` hands over — the document's file state plus the
+model's model_hash — so a contract change misses here exactly like in memory.
 
 ## Imports
 
-["__future__", "json", "pathlib", "typing"]
+["__future__", "json", "pathlib", "sldb.store", "typing"]
 
 ## Purpose
 

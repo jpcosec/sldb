@@ -5,11 +5,11 @@ module: sldb.sldb.links.recovery
 qualname: _process_link
 kind: FunctionDef
 source_path: sldb/links/recovery.py
-source_span: '9:12'
-source_sha256: 5ebc1b48bd2273c75c593ad0f760e217e649eb76c7b119c653967b3f85e738f7
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '10:15'
+source_sha256: ba003cae95c94f5dbda95c0d814f6afb18a4a67bd18451c9a826193498ada479
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.links.recovery:_process_link; contract-sha256:aecf3465127bd76badf265e4e7f2f3aea5423ee7c699b7174647004a32436214
+provenance: python-ast:python:sldb.sldb.links.recovery:_process_link; contract-sha256:6809d86f77db87e6b32a898e305e23595a71bb0ed9718365e2a97ebc13275a04
 ---
 
 # _process_link
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-[".parser", ".resolver", "__future__", "collections.abc", "pathlib", "sldb.store.io", "sldb.store.predicates"]
+[".parser", ".resolver", ".sections", "__future__", "collections.abc", "pathlib", "sldb.store.io", "sldb.store.predicates"]
 
 ## Purpose
 

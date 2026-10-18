@@ -5,11 +5,11 @@ module: sldb.sldb.cli.utils
 qualname: write_text
 kind: FunctionDef
 source_path: sldb/cli/utils.py
-source_span: '14:19'
-source_sha256: 974a471cdc4a7d618538bbb8bd0087c91ef9b9169fcf501084a9b9ff6ddf357a
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '12:17'
+source_sha256: f07c87e93a5041693fec34fe114e178e6e774f954db3ba3ef76e4c1037388c1a
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.utils:write_text; contract-sha256:5787c7126288158fc8dee4a3b8dfd04403e073ee81337bdcfc88cf19dbf38819
+provenance: python-ast:python:sldb.sldb.cli.utils:write_text; contract-sha256:04fa9fae908e5821206bbba51746f79431dc245e0322351cc18b404848fd9fcd
 ---
 
 # write_text
@@ -24,7 +24,7 @@ Write text to a file or stdout.
 
 ## Imports
 
-["__future__", "json", "pathlib", "sys", "typing", "yaml"]
+["__future__", "pathlib", "sldb.api.documents.data_values", "sys"]
 
 ## Purpose
 

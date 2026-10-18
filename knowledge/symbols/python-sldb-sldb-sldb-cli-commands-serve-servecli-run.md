@@ -5,11 +5,11 @@ module: sldb.sldb.cli.commands.serve
 qualname: ServeCLI.run
 kind: FunctionDef
 source_path: sldb/cli/commands/serve.py
-source_span: '10:20'
-source_sha256: f18ab136c1e3808e5efc4aa8279040fe6c98ef4a6242981f6d7aed0029d28fe1
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '13:19'
+source_sha256: 1a1c9763647bb18d50c7a65b3dfbbd925a9fea3226089338f78a1523967e7cca
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.commands.serve:ServeCLI.run; contract-sha256:b26c657bb1bade7786b015537a4a3639136750af02107e5aabb832a2291f3aaa
+provenance: python-ast:python:sldb.sldb.cli.commands.serve:ServeCLI.run; contract-sha256:fb4949e4a8ef942f390bc383e1d46095de6aefe6b9cc7ee13483a5177e6dd0f3
 ---
 
 # ServeCLI.run
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "http.server", "sldb.cli.serve.http_server", "typing"]
+["__future__", "http.server", "sldb.cli.serve.auth", "sldb.cli.serve.http_server", "typing"]
 
 ## Purpose
 

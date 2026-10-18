@@ -5,12 +5,12 @@ module: sldb.sldb.cli.commands.docs
 qualname: DocsCLI._run_subcommand
 kind: FunctionDef
 source_path: sldb/cli/commands/docs.py
-source_span: '34:38'
-source_sha256: c853813a19ddec0435375b07b14a4d388bfe6d1fc505bdc5dc3d5fc78a1b7744
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '35:39'
+source_sha256: 693d414cf63105d4c72ef6d59da92358d862ee604ecc1953505ac8af59c40358
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.cli.commands.docs:DocsCLI._run_subcommand;
-  contract-sha256:a24ff8d7279cb84d60d70adfd7bc293e0d7a77b1419c0774a781366e5d077667
+  contract-sha256:8163ea62ca9ba18e8fa6d36fe205580ef188444e8942956cf87e300f267e95bc
 ---
 
 # DocsCLI._run_subcommand
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "json", "sldb.cli.commands.doc", "sldb.cli.commands.explore", "sldb.cli.commands.links", "sldb.cli.graph_ops", "sldb.cli.store_context", "sldb.store.io", "typing", "yaml"]
+["__future__", "json", "sldb.api.stores.indexed_documents", "sldb.cli.commands.doc", "sldb.cli.commands.docs_exists", "sldb.cli.commands.explore", "sldb.cli.commands.links", "sldb.cli.graph_ops", "sldb.cli.store_context", "typing", "yaml"]
 
 ## Purpose
 

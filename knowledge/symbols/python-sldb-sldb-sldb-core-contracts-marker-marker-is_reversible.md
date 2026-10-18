@@ -5,12 +5,12 @@ module: sldb.sldb.core.contracts.marker
 qualname: Marker.is_reversible
 kind: FunctionDef
 source_path: sldb/core/contracts/marker.py
-source_span: '42:43'
-source_sha256: b4024b4f7cd812b3de6aa94a462b89fa8d703b46ae0e102ea018c003033cce07
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '43:44'
+source_sha256: 726f13aa6aec69fcd478d34e0c30be6efe518c5ce653f29fd53b55ddfea96897
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.contracts.marker:Marker.is_reversible;
-  contract-sha256:b4181db87490b06fb2bf92e6f0c8f7e829f016645d045b64f7186dc637c60cee
+  contract-sha256:c0ad614b214c09253b97c1314000db3f941e6a6eb501fa0095d2c72183c4998b
 ---
 
 # Marker.is_reversible
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["pydantic"]
+["pydantic", "typing"]
 
 ## Purpose
 

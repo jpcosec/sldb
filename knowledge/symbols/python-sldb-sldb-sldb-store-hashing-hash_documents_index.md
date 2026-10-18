@@ -5,11 +5,11 @@ module: sldb.sldb.store.hashing
 qualname: hash_documents_index
 kind: FunctionDef
 source_path: sldb/store/hashing.py
-source_span: '23:31'
-source_sha256: e248d4ee89abcf1062dcb9606458aa00dabd9c3078f0597b0aa17f697c496b4e
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 62:68
+source_sha256: 307e4065fa6890503d585512c64bf412c3d1ecb617f5cbf575d9d1bd97c24b7c
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.hashing:hash_documents_index; contract-sha256:cfc118dd8a18c2d92d50ce34826884b9438c6c912e0bdaafc24d3f4dd6b35648
+provenance: python-ast:python:sldb.sldb.store.hashing:hash_documents_index; contract-sha256:e4b89a3cec848f6306f3d91c3cf4408e4a0e4bc5deb356aab36a737b3a9019c8
 ---
 
 # hash_documents_index
@@ -20,11 +20,15 @@ hash_documents_index(documents_index: DocumentsIndex)
 
 ## Docstring
 
-Not documented.
+PLAN 15 capa 7: keyed by `name` and sorted — order-independent (documents_index.
+documents used to be insertion-ordered, so roster_hash used to depend on write order too; a
+store's Merkle root should depend only on content). The same value however documents
+were gathered: a full scan (stores update) or the incremental per-document child-hash
+map (sldb.store.documents_hash — a write's own hot path).
 
 ## Imports
 
-["hashlib", "json", "sldb.store.codec", "sldb.store.models", "typing"]
+["hashlib", "json", "sldb.store.codec", "sldb.store.models", "sldb.store.semantic_tags", "typing"]
 
 ## Purpose
 

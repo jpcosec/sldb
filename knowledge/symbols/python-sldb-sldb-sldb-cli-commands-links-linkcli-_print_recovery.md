@@ -5,12 +5,12 @@ module: sldb.sldb.cli.commands.links
 qualname: LinkCLI._print_recovery
 kind: FunctionDef
 source_path: sldb/cli/commands/links.py
-source_span: '34:41'
-source_sha256: d1e137f7b7bc1443ea75145806be51651186e1cd5a9426fd2eb410ccb22ca911
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '36:43'
+source_sha256: 0272e88c368d433380c0ccbbf0385950db115a0ffaee45b6853e0dee81e14288
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.cli.commands.links:LinkCLI._print_recovery;
-  contract-sha256:b47433ff500b4ad313e740484fc0f6f1ff6ca51214da0216bca5c59baf0957a6
+  contract-sha256:748690dd71bf4821ead6ded39a69e5039e9a507c65cf1f3bc9a99c7f99da2374
 ---
 
 # LinkCLI._print_recovery
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "json", "pathlib", "sldb.cli.store_context", "sldb.cli.utils", "sldb.links", "typing", "yaml"]
+["__future__", "json", "pathlib", "sldb.cli.commands.links_all", "sldb.cli.store_context", "sldb.cli.utils", "sldb.links", "typing", "yaml"]
 
 ## Purpose
 

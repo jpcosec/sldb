@@ -5,11 +5,11 @@ module: sldb.sldb.store.built_cache
 qualname: _file
 kind: FunctionDef
 source_path: sldb/store/built_cache.py
-source_span: '15:16'
-source_sha256: 88469bfec6d3de00247b4d49e9378e26851611f28b1bb21e9eaf30bd567cec5d
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '17:18'
+source_sha256: 84323b24a21fe928a344e41512249a0da6444efd6a7b553701d8aadebbdc2bd0
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.built_cache:_file; contract-sha256:e0f668c00465c9144c3cd66ba92fc4fe908e20ce33228d82e2b1935a1daf32a3
+provenance: python-ast:python:sldb.sldb.store.built_cache:_file; contract-sha256:5766408c9c37c4eb43d074c20a4c18294553f2c59b83768cfce001d6b688b330
 ---
 
 # _file
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "json", "pathlib", "typing"]
+["__future__", "json", "pathlib", "sldb.store", "typing"]
 
 ## Purpose
 

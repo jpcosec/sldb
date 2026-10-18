@@ -5,11 +5,11 @@ module: sldb.sldb.store.io
 qualname: save_models_index
 kind: FunctionDef
 source_path: sldb/store/io/__init__.py
-source_span: 80:81
-source_sha256: 0b240d527fd6f837d606be3dad180b7b89529226c9a8bf5a3d4666ecde28097f
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 88:89
+source_sha256: a65d487517f80e48a31662a55b977d5d2a86eaaa5f6dc2379c796c8b06ddfee0
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.io:save_models_index; contract-sha256:c0407bb222402bfdf6df076a049996baebb37e6367775194c17a602b9b62a2d6
+provenance: python-ast:python:sldb.sldb.store.io:save_models_index; contract-sha256:ed97fa462b7204f47e326cdb8276d5835b9cca824f78df7007c1249b61879ba4
 ---
 
 # save_models_index

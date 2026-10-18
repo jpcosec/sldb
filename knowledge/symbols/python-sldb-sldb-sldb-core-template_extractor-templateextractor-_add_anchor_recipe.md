@@ -5,12 +5,12 @@ module: sldb.sldb.core.template_extractor
 qualname: TemplateExtractor._add_anchor_recipe
 kind: FunctionDef
 source_path: sldb/core/template_extractor.py
-source_span: 63:69
-source_sha256: 52a6fe9ed7aa107f7a7c572056c88bc1663f6697492ad3f3af3f853b65b0556b
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 78:84
+source_sha256: 771a869da5394d801b3b55e95519bc3f75e5db7d525cb4866b17cdf5ebb8fefd
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.template_extractor:TemplateExtractor._add_anchor_recipe;
-  contract-sha256:455de382fd1a67c3ad28facd4c690a9da399ab9d943e81784e8ec3bf318cfbc6
+  contract-sha256:3a7468cb3385ebda297f9700f0a6c7b1c6001d6b0980e53e30503f0a9eb01555
 ---
 
 # TemplateExtractor._add_anchor_recipe

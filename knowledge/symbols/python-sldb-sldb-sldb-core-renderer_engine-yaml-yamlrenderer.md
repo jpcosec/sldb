@@ -5,11 +5,11 @@ module: sldb.sldb.core.renderer_engine.yaml
 qualname: YamlRenderer
 kind: ClassDef
 source_path: sldb/core/renderer_engine/yaml.py
-source_span: '12:37'
-source_sha256: dac35c58434e74eca569d5bce2706dd57bdee1ffb47536db4840d8755ac08530
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 15:85
+source_sha256: 04be636440ea839f16e888cdb899ebe59568b79ca13e6c807cb8bbb727e3be7f
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.core.renderer_engine.yaml:YamlRenderer; contract-sha256:709f079404388b4cb30790165d792908d68f39862890192955eceb5171a9b242
+provenance: python-ast:python:sldb.sldb.core.renderer_engine.yaml:YamlRenderer; contract-sha256:c63bf5d8af65f4837440a886467969759590e49fde321de052dfeabcbaeec9e6
 ---
 
 # YamlRenderer

@@ -5,11 +5,11 @@ module: sldb.sldb.links.resolver
 qualname: resolve_document_input
 kind: FunctionDef
 source_path: sldb/links/resolver.py
-source_span: '15:18'
-source_sha256: 2f7dd77d084fa9e61d4e7bd4a127354c04c9228dac92d2570a0b76b1912e2c12
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '16:19'
+source_sha256: a85168b7c7ee58118d6f2f0f6908065cd44f60092ceff34c051fc0f73c6d2379
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.links.resolver:resolve_document_input; contract-sha256:935e037ab746d0a94dd71735b6af67f98dab2dc554da04e104455f0ddbfb5508
+provenance: python-ast:python:sldb.sldb.links.resolver:resolve_document_input; contract-sha256:3f27291c4d6581ee0a81a6ec8dbe18ad66abd15dbcafbec8f4c4350715213ad6
 ---
 
 # resolve_document_input
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-[".resolved_link", "__future__", "pathlib", "sldb.store.io", "sldb.store.layout"]
+[".resolved_link", ".sections", "__future__", "pathlib", "sldb.store.io", "sldb.store.layout"]
 
 ## Purpose
 

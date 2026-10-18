@@ -6,11 +6,11 @@ qualname: StructuralQueryEngine._glob_docs
 kind: FunctionDef
 source_path: sldb/store/query_engine/structural_queries.py
 source_span: '42:51'
-source_sha256: 4e7ad9b7e20f85ce3c4526b5581393fb00dbc13b39a8e4b036c7f3d3d1ff0a73
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: b5ba0cdbae66e258547d9f321299b881312f0783d669deeed7d02c30fde4f257
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.store.query_engine.structural_queries:StructuralQueryEngine._glob_docs;
-  contract-sha256:7892b4ed6e72b26a130436e61811d60cfc9ebfe0af36a2c4711dcf9d2faa45df
+  contract-sha256:f6859d678f5a94fba3955be7a178afdd0b4a2198d00f68c6400f3944bd65c153
 ---
 
 # StructuralQueryEngine._glob_docs
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "fnmatch", "pathlib", "re", "sldb.store.query_engine.filter", "sldb.store.query_engine.store_prefix", "sldb.store.query_engine.structural"]
+["__future__", "fnmatch", "pathlib", "re", "sldb.store.query_engine.store_prefix", "sldb.store.query_engine.structural", "sldb.store.query_engine.where_parse"]
 
 ## Purpose
 

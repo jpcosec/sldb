@@ -5,12 +5,12 @@ module: sldb.sldb.core.exceptions.sldb_validation_error
 qualname: SLDBValidationError
 kind: ClassDef
 source_path: sldb/core/exceptions/sldb_validation_error.py
-source_span: '3:8'
-source_sha256: 41fcda45daa717b3b897fafd51c73fcf6f69f8108ec8a78bc7182ee2a4ad5c12
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '5:10'
+source_sha256: b62e1de061f6bc063e6cd35834fc4a68053b21f44c628387d5bef955141be90e
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.exceptions.sldb_validation_error:SLDBValidationError;
-  contract-sha256:f3e2081a5b6510ee5ecd0b071572f3b43045591b79253838f8eb654cdaa43b8e
+  contract-sha256:e96e0a41a0b782bd9d4dfa8fce8fe2e3513da8535cd16408f6c0b4fc31ede965
 ---
 
 # SLDBValidationError
@@ -25,7 +25,7 @@ Raised when document validation or idempotency checks fail.
 
 ## Imports
 
-[".sldb_error"]
+[".sldb_error", "typing"]
 
 ## Purpose
 

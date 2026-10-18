@@ -5,11 +5,11 @@ module: sldb.sldb.store.semantic_doc_tags
 qualname: tags_of
 kind: FunctionDef
 source_path: sldb/store/semantic_doc_tags.py
-source_span: '26:33'
-source_sha256: f14e32ed04cf8181376591a00e34e288ff63e1f09b4e39a05be1b220704582d8
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '32:39'
+source_sha256: 9ad8b44d8a555acae278bdcfb4539273045c612b3c2f4a7faa4f1d39d22515fd
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.semantic_doc_tags:tags_of; contract-sha256:66303be7c554c1ed5d79d51ad577d60b7a40556da13571b77e44a6fecd9147f5
+provenance: python-ast:python:sldb.sldb.store.semantic_doc_tags:tags_of; contract-sha256:89a806da827315d96e433918b26c454dac399e8cb529f3ec79dc9738f35ae9f7
 ---
 
 # tags_of

@@ -6,10 +6,10 @@ qualname: CliCommandDoc
 kind: ClassDef
 source_path: sldb/models/cli_command_doc.py
 source_span: 9:88
-source_sha256: 5fe3fe878161a4ba892b97098351c628ded65868fd622f06440e4ee1da242949
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: 3407b12785a6a98e85b4233ca5b27b6edba1cfe991a27ad2fa36a5b1ca02ac6e
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.models.cli_command_doc:CliCommandDoc; contract-sha256:515f7401b09df84a6df2d5c25d40918988f194bec421e320f0935dcc1c7c516c
+provenance: python-ast:python:sldb.sldb.models.cli_command_doc:CliCommandDoc; contract-sha256:d276af13735ca555a59f700fcc3fa9845f3e791ace4d451ccd0d68fbaa80e662
 ---
 
 # CliCommandDoc

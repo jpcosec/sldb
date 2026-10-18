@@ -6,10 +6,10 @@ qualname: _file_signature
 kind: FunctionDef
 source_path: sldb/store/io/__init__.py
 source_span: '26:31'
-source_sha256: 0b240d527fd6f837d606be3dad180b7b89529226c9a8bf5a3d4666ecde28097f
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: a65d487517f80e48a31662a55b977d5d2a86eaaa5f6dc2379c796c8b06ddfee0
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.io:_file_signature; contract-sha256:c5c3615defa3dd1e53b9cb9ff7b978197a72de343d6439f3493939ed8f5f9d39
+provenance: python-ast:python:sldb.sldb.store.io:_file_signature; contract-sha256:5ff63ad298074483c8719b18a5af2099c520370cec797849391385dda9811ca2
 ---
 
 # _file_signature

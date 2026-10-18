@@ -5,11 +5,11 @@ module: sldb.sldb.store.query
 qualname: load_runtime_documents.one
 kind: FunctionDef
 source_path: sldb/store/query.py
-source_span: 68:70
-source_sha256: 97c12e4ef2f6d845379fee569129cb7bfed79823b211d0b0d5d17a9628ebde23
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 69:71
+source_sha256: 441b74a92bf88e1691d36312d2dd7c6cf78ce1308baa2ff7a1baf84950ff7f71
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.query:load_runtime_documents.one; contract-sha256:41847bed592883bae98c2bf3feb144010ab5f676833b7b2e583beb8350a0b9ce
+provenance: python-ast:python:sldb.sldb.store.query:load_runtime_documents.one; contract-sha256:8251ee2ccc94abf5fb215eafa39e377798b2ef680d498140815362b9390d911b
 ---
 
 # load_runtime_documents.one

@@ -6,11 +6,11 @@ qualname: TemplateExtractor.extract_nodes
 kind: FunctionDef
 source_path: sldb/core/template_extractor.py
 source_span: '13:20'
-source_sha256: 52a6fe9ed7aa107f7a7c572056c88bc1663f6697492ad3f3af3f853b65b0556b
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: 771a869da5394d801b3b55e95519bc3f75e5db7d525cb4866b17cdf5ebb8fefd
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.core.template_extractor:TemplateExtractor.extract_nodes;
-  contract-sha256:5964450f3ea91101a69c0c3dd1fa2929c760c6870e33bc0fb9dcc4f92d2f969d
+  contract-sha256:72f9e24b3f146fa6aeb7ee480a2d96fb167813387f81c2540720941b59498df1
 ---
 
 # TemplateExtractor.extract_nodes

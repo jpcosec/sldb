@@ -6,10 +6,10 @@ qualname: config_dir
 kind: FunctionDef
 source_path: sldb/store/layout.py
 source_span: '18:19'
-source_sha256: d7d9f96ffd161b2f1bd1e642cfdb77800fe93561e627cd631b33a069395954ac
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_sha256: 5426bd05eb9d838ff5b7575a37c92ebc23b4da123ed19302fe13e0158dd44cdf
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.layout:config_dir; contract-sha256:59f5184ee878bddffb281e3d4d6d7ad8b5e22f744847781b83fc761b6620d89a
+provenance: python-ast:python:sldb.sldb.store.layout:config_dir; contract-sha256:3d494744e824070e2d4dd545bc6bf2e40054c83c3a55f8005e93d3d6a9c2ace1
 ---
 
 # config_dir

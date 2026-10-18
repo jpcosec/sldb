@@ -5,11 +5,11 @@ module: sldb.sldb.store.hashing
 qualname: hash_text
 kind: FunctionDef
 source_path: sldb/store/hashing.py
-source_span: '9:10'
-source_sha256: e248d4ee89abcf1062dcb9606458aa00dabd9c3078f0597b0aa17f697c496b4e
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '10:11'
+source_sha256: 307e4065fa6890503d585512c64bf412c3d1ecb617f5cbf575d9d1bd97c24b7c
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.hashing:hash_text; contract-sha256:4b02da339f5e7086f041d6e278b04e0cd0fbb0c33189b94f89e4ce107b835fbf
+provenance: python-ast:python:sldb.sldb.store.hashing:hash_text; contract-sha256:b434411f053e019c9289d718ec589d8bfe567ddde4ba212452766e732d54ded9
 ---
 
 # hash_text
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["hashlib", "json", "sldb.store.codec", "sldb.store.models", "typing"]
+["hashlib", "json", "sldb.store.codec", "sldb.store.models", "sldb.store.semantic_tags", "typing"]
 
 ## Purpose
 

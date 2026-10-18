@@ -5,11 +5,11 @@ module: sldb.sldb.store.built_cache
 qualname: put
 kind: FunctionDef
 source_path: sldb/store/built_cache.py
-source_span: '39:46'
-source_sha256: 88469bfec6d3de00247b4d49e9378e26851611f28b1bb21e9eaf30bd567cec5d
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 54:63
+source_sha256: 84323b24a21fe928a344e41512249a0da6444efd6a7b553701d8aadebbdc2bd0
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.store.built_cache:put; contract-sha256:c5b6d7c737bcb8d7643277bfddef296b86edb3fa9a2112f99c53e56aa0f9dbb0
+provenance: python-ast:python:sldb.sldb.store.built_cache:put; contract-sha256:e786a079cf73fae4bfb302f9f9dbd83a2c83c03fbff2477738d3fa5a41465f9d
 ---
 
 # put
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "json", "pathlib", "typing"]
+["__future__", "json", "pathlib", "sldb.store", "typing"]
 
 ## Purpose
 

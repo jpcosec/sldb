@@ -5,12 +5,12 @@ module: sldb.sldb.runtime.validation
 qualname: Validator._check_render_validity._norm
 kind: FunctionDef
 source_path: sldb/runtime/validation.py
-source_span: '39:39'
-source_sha256: db153bd8ee9125446f462b8c23bf82f3cbf008d2d78c86de4ace69adb9021246
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '48:48'
+source_sha256: 2b2918b574091442a8d3d9b4cbf95a30da6261a2050927062ccc86077dec60bb
+architecture_spec: Not declared.
 tags: []
 provenance: python-ast:python:sldb.sldb.runtime.validation:Validator._check_render_validity._norm;
-  contract-sha256:657c840d9468e190c9406b80492951b66644d2244294ff5fe2aa94c4299d9d59
+  contract-sha256:d71aa399089101ba4c07cd4600491aa0d0e54770c2a2834f05b5ce187c15441f
 ---
 
 # Validator._check_render_validity._norm
@@ -25,7 +25,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "sldb.core.ast", "sldb.core.data_extractor", "sldb.core.renderer", "sldb.core.template_extractor", "sldb.models.structured_doc", "typing"]
+["__future__", "functools", "pathlib", "sldb.core.ast", "sldb.core.data_extractor", "sldb.core.renderer", "sldb.core.template_extractor", "sldb.models.structured_doc", "typing"]
 
 ## Purpose
 

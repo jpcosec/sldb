@@ -5,11 +5,11 @@ module: sldb.sldb.cli.commands.store_check
 qualname: check_store
 kind: FunctionDef
 source_path: sldb/cli/commands/store_check.py
-source_span: '6:11'
-source_sha256: 1213f6d497871cf1ca0418e617eca9a1a4c7354ae84e7c122c7eabde20b6a8c5
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: '8:14'
+source_sha256: 017f5a863608413b9308b6ca9a8a08a44c7876cada64b44336f75b3cb862bee1
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.commands.store_check:check_store; contract-sha256:5ee3d09807d3d6756151317a0ba051e17592edff8803e5a6ec21d1c6aabdb823
+provenance: python-ast:python:sldb.sldb.cli.commands.store_check:check_store; contract-sha256:6552ccae0052c23c288deefdc104b1c24b7c0194d4c4296625c003053e9854b5
 ---
 
 # check_store
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "json", "sldb.cli.store_context", "typing"]
+["__future__", "json", "sldb.cli.commands.store_check_content_notes", "sldb.cli.commands.store_check_report", "sldb.cli.store_context", "typing"]
 
 ## Purpose
 

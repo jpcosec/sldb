@@ -5,11 +5,11 @@ module: sldb.sldb.cli.commands.models
 qualname: ModelsCLI._show
 kind: FunctionDef
 source_path: sldb/cli/commands/models.py
-source_span: '51:54'
-source_sha256: cc9dd46a5d2da96eff7da3202f833421bf356741fdcac28f4aeac199e7299d35
-architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
+source_span: 67:70
+source_sha256: 38c5e45b79ee45cb61648fdeb8df2c225190249b01e1eb2e2cb85f1d51458c3c
+architecture_spec: Not declared.
 tags: []
-provenance: python-ast:python:sldb.sldb.cli.commands.models:ModelsCLI._show; contract-sha256:9490068a3f783626b81c85d5f335e3950ffc98ddf1a78a313aee7768071d2346
+provenance: python-ast:python:sldb.sldb.cli.commands.models:ModelsCLI._show; contract-sha256:39d84b798df9ec83355a7de3f18483e40319ad9b3c4fe4e7a94f09de680c363b
 ---
 
 # ModelsCLI._show
@@ -24,7 +24,7 @@ Not documented.
 
 ## Imports
 
-["__future__", "sldb.cli.commands.model", "sldb.cli.commands.models_create", "sldb.cli.commands.models_fields", "sldb.cli.commands.models_list", "sldb.cli.commands.models_template", "sldb.cli.commands.models_validate", "sldb.cli.graph_ops", "typing", "yaml"]
+["__future__", "sldb.cli.commands.model", "sldb.cli.commands.models_check", "sldb.cli.commands.models_create", "sldb.cli.commands.models_fields", "sldb.cli.commands.models_list", "sldb.cli.commands.models_template", "sldb.cli.commands.models_validate", "sldb.cli.graph_ops", "sldb.cli.output_format", "typing", "yaml"]
 
 ## Purpose
 
