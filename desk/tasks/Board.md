@@ -6,7 +6,6 @@ scope: sldb-local-desk
 # List of task-xxx paths
 tasks:
 - desk/tasks/task-congelar-journal-autoridad-arbol.md
-- desk/tasks/task-build-code-self-documentation.md
 - desk/tasks/task-correct-ast-ownership-and-section-contracts.md
 - desk/tasks/task-stores-check-escala-mal-con-el-inventario-de-símbolos-python.md
 # List of pill-xxx paths
@@ -60,6 +59,5 @@ Current review follow-up: CLI self-documentation is active; shared store context
 _Generated from the task references above._
 
 - Congelar el journal y rediseñar la autoridad: el árbol guarda, el journal es una vista [draft] - Dejar por escrito la dirección de diseño para cuando se retome: el **árbol es la autoridad**; el **journal es una interfaz de lectura** sobre él (como `git log`/`git diff` sobre el object database), no un segundo almacén.
-- Build code-derived self-documentation [active] - Provide repeatable scan, materialization, tracking, and freshness checks for code documentation.
 - Correct AST ownership and section contracts [open] - Make field ownership and section boundaries reliable enough for structural queries and documentation provenance.
 - stores check escala mal con el inventario de símbolos Python [draft] - Que stores check completo del store de sldb vuelva a quedar bajo ~20 s sin perder hallazgos.
