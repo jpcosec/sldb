@@ -11,7 +11,7 @@ git log --oneline main..archive/refactor-target
 
 | Tag | Was | What it holds | Why it is not in main |
 |---|---|---|---|
-| `archive/refactor-target` | `refactor-target` (0dc8c04; `origin/refactor-target` is its ancestor) | A rewrite of sldb, first in Rust/PyO3, then as a Clojure/Babashka kernel ("v2 SMG node pool": content-addressed nodes, trees, revisions, CAS heads) under `src/sldb/kernel`, plus its specs in `docs/v2/` | Another product direction in another language; main is the Python package | <!-- gone -->
+| `archive/refactor-target` | `refactor-target` (0dc8c04; `origin/refactor-target` is its ancestor) | A rewrite of sldb, first in Rust/PyO3, then as a Clojure/Babashka kernel ("v2 SMG node pool": content-addressed nodes, trees, revisions, CAS heads) under `src/sldb/kernel`, plus its specs in `docs/v2/` | Another product direction in another language; main is the Python package <!-- gone --> |
 | `archive/refactor-target-rustflavor` | `refactor-target-rustflavor` (323295c) | The Rust kernel PoC (a Lisp/EDN evaluator over `petgraph`) and `WHY_NOT_RUST.md`; its other 44 commits are in `archive/refactor-target` | Abandoned by its author (below) |
 | `archive/fix-composition-anchoring` | `fix/composition-anchoring` (b3f5cc4) | WIP: composition refs anchored to the project root, and `composition_issues` reporting broken children | Anchoring landed in main another way (`ref_root`, 8264b8a); the reporting did not |
 | (none) | `iso-lab/sldb` (b731803) | A progress note on the store-extraction task | Brought into the task itself (`desk/drawer/tasks/task-extract-store-into-generic-typed-document-engine-document-codec-plugins.md`), re-checked against main |
