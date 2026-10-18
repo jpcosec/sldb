@@ -2,3 +2,4 @@
 {"task_id": "task-quitar-los-re-parseos-evitables-del-pipeline-de-markdown", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "a877c05069f55f8d4391a68e036b2f3c69b29a44"}
 {"task_id": "task-edges-show-rechaza-lo-que-no-es-un-nodo", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "9da46f260f14a05a7a87c379ee76d7c9fd10f761"}
 {"task_id": "task-quitar-del-manual-las-fricciones-que-ya-no-existen", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "0a164cbc05daec25cacfb6b3a55bf9befdb1b8ff"}
+{"task_id": "task-opci\u00f3n-format-en-models-show-models-template-show-y-docs-update", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "87f50473559ad0b82dff088a890df3f59babf86b"}

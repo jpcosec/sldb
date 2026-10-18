@@ -394,3 +394,6 @@ Task-Id: task-tighten-semantic-export-provenance-contract
 2026-10-18 13:02:51,415 - deskops - INFO - Advanced task task-quitar-del-manual-las-fricciones-que-ya-no-existen to node ritual-testing
 2026-10-18 13:02:58,815 - deskops - INFO - Advanced task task-quitar-del-manual-las-fricciones-que-ya-no-existen to node ritual-closeout
 2026-10-18 13:03:05,705 - deskops - INFO - Task task-quitar-del-manual-las-fricciones-que-ya-no-existen reached the closure gate; deferring to closeout commit.
+2026-10-18 13:03:35,422 - deskops - INFO - Advanced task task-opción-format-en-models-show-models-template-show-y-docs-update to node ritual-testing
+2026-10-18 13:03:41,948 - deskops - INFO - Advanced task task-opción-format-en-models-show-models-template-show-y-docs-update to node ritual-closeout
+2026-10-18 13:03:48,317 - deskops - INFO - Task task-opción-format-en-models-show-models-template-show-y-docs-update reached the closure gate; deferring to closeout commit.
