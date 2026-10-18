@@ -1,6 +1,7 @@
 from typing import Any
 from sldb.core.node import SLDBNode
 from sldb.core.extractor.recipe_matcher import RecipeMatcher
+from sldb.core.extractor.section_boundary import find_boundary_idx
 from sldb.core.node_handler import SharedNodeHandler
 from sldb.core.contracts.marker import recipe_is_optional
 
@@ -74,10 +75,7 @@ class DataExtractor:
         state["curr_block"] = boundary_idx - 1
 
     def _find_boundary_idx(self, data_blocks: list[SLDBNode], recipes: list[dict[str, Any]], r_idx: int, search_index: int) -> int:
-        for future_recipe in recipes[r_idx + 1 :]:
-            if (match_idx := self._find_next_matching_block(data_blocks, future_recipe, search_index)) is not None:
-                return match_idx
-        return len(data_blocks)
+        return find_boundary_idx(lambda recipe, start: self._find_next_matching_block(data_blocks, recipe, start), recipes, r_idx, search_index, len(data_blocks))
 
     def _process_recipe_blocks(self, data_blocks: list[SLDBNode], recipes: list[dict[str, Any]], r_idx: int, state: dict[str, Any]) -> None:
         block_range = self._get_block_range(data_blocks, recipes[r_idx], state["search"])

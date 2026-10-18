@@ -1,7 +1,7 @@
 name: ritual-testing
 path: desk/rituals/testing.md
 source_hash: c0bf33033ac68616e91572e1bc69eef3a9826bad5c630f385ed44633de885f09
-content_hash: 81002a6c6279fed3cd33cc320274fb7dfff570e5fb4f8d2ad97e49ae6a93a037
+content_hash: 782e03f162d216d2ffc097b2841ce390a243af0b64abb5660b4873c7d47fb166
 field_hashes:
   title: 6e60b00c1ff4247c777e0e15ad59725bc951c43fa6ae91e9738ec07eb17fed43
   id: d10f5286503cbf750af0584acaec732741c2d9cfbae2a6d5b8ce45b8bf83b79d
@@ -10,7 +10,7 @@ field_hashes:
   tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
   current_node: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  purpose: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  purpose: 8e6e0cba89dc08ad78355320aefb5b31bb2fe837f0e6e46edf36428afc9116e7
   trigger: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   preconditions: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   steps: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
