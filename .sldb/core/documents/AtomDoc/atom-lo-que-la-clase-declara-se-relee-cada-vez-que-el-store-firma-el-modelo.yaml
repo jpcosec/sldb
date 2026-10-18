@@ -1,0 +1,16 @@
+name: atom-lo-que-la-clase-declara-se-relee-cada-vez-que-el-store-firma-el-modelo
+path: desk/atoms/atom-lo-que-la-clase-declara-se-relee-cada-vez-que-el-store-firma-el-modelo.md
+source_hash: b27022952c42bc12699700cc2a7ad7d51680ba28fcba40927ab150c1d7a9ad7c
+content_hash: 53852a8dbc21aad4204a201198a3481a5ed03baeba4bc3059161fa6a38220033
+field_hashes:
+  id: ef8eafc38e8ffbb5186c4f51bdf49f99e2d90f397d5379d39dadc94d6b15fc96
+  title: e57dbf578369c00f95b02b1153f6a49aa7c2b19bfec3c7c787e4b60bdc1e4d96
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: e038f427d12f8177a3c268a947a434298d29df4c74be8948f4d10d75a180e32f
+  tags: e3e5d8aaa8a9a23873bbdf4cc73680289c881d0b8cc78c763f4294e8ca97a4b4
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- type.knowledge.atom
+- workspace.desk.atoms
