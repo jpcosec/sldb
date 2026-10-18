@@ -1,5 +1,14 @@
 # Plan de retiro de la capa `runtime/edges/`
 
+> **Estado (2026-10-18): retiro cancelado.** La capa `runtime/edges/` se queda. Después de este
+> plan recibió funcionalidad que el snapshot no tiene: referencias declaradas por id sin
+> calificar y por path, con `unresolved_references` (9675fd8d); modelos heredados de un store
+> enlazado, con `links_to`, `origin_store` y `has_model` many_to_many (0463a9b6, 9d6cab2d); el
+> chequeo de aristas federado que separa los errores del store enlazado; y shards que siguen
+> al contrato del modelo (b42a18b0). Las 4 tasks del retiro se cerraron como superseded. El
+> inventario de abajo queda como registro: si el retiro vuelve, G3 y G5 tienen el alcance
+> nuevo anotado en la tabla de GAPS.
+
 Inventario y plan, sin refactor. Decisión del mantenedor (documentada, no discutida): la capa
 derivada `runtime/edges/` (un YAML por documento) se retira; se queda la capa de grafo
 `src/sldb/store/graph/` (networkx + node-link JSON portable) con KGDB integrado.
@@ -235,11 +244,22 @@ solo puede ser anterior al retiro.
    `applies_to_*` / alias: sin productor.
 3. **G3** — reglas cross-document de `resolve.py` (condition/axis heredados, reverse de
    undirected, dangling authored → problema): el snapshot guarda edges crudos, sin resolución.
+   *Alcance al 2026-10-18:* `resolve.py` ya no es solo eso. `resolve_edges_reporting` además
+   resuelve las referencias declaradas (`declared_resolution.py`: export id, path de un
+   documento trackeado, id sin calificar contra `__reference_models__`, con `ambiguous`) y
+   devuelve `unresolved_references`; y las composiciones se resuelven de path a documento
+   (`composition_targets.py`). Un porte tiene que producir esas tres salidas, no solo los edges.
 4. **G4** — validación de edges contra relation types (tipo desconocido, endpoints, clases con
    herencia, cardinalidad): el `/lint` y `sldb edges check` se quedan sin equivalente. Solo lo
    acyclico tiene pieza (`analysis.cycles`).
 5. **G5** — federación de lectura (`include_linked`, ids calificados `store:Model:name`) sobre
    snapshots.
+   *Alcance al 2026-10-18:* la federación ya no es solo calificar ids. Un modelo heredado es un
+   solo nodo en todos los stores (`qualify_id` no califica modelos) y el store lo declara con
+   `links_to` y `origin_store` (`store_contribution.py`); el mismo edge aportado por dos stores
+   cuenta una vez en la validación, y `validate_edge_index_by_store` separa los errores propios
+   de los del store enlazado (`linked_errors`, `linked_stale`). Además, `snapshot_save` con
+   stores enlazados todavía da `node_type` = nombre del modelo.
 6. **G6** (menor) — `exclude_tags` como filtro en `index_from_snapshot`.
 
 No son gaps (retiro intencional): rebuild incremental por-shard (8), staleness (9).
