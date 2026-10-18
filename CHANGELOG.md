@@ -99,6 +99,12 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   the selfdoc report's `kgdb_stale` is `graph_stale`. The data contract
   `sldb_kgdb_semantic_export`, `stores semantic-export --format kgdb` and the HTTP route
   `/kgdb/snapshot` (graph_ui reads it) keep their names.
+- Docstring metadata is parsed strictly (`sldb.selfdoc.docstring_metadata`, spec section 2):
+  only an opening line exactly `---` starts it, a closing `---` is required, and the block is a
+  YAML mapping with unique keys among `id` (required), `kind` and `tags` (`namespace:value`,
+  deduplicated). Malformed metadata and an id declared twice are reported as `path:line:
+  problem` in the selfdoc report's `metadata_errors`, and `selfdoc python-sync` writes nothing
+  while any remain; they were silently ignored and the declaration lost its identity.
 - `stores init` fails cleanly: what a failed init wrote is removed, the message says where it
   failed and what to check (instead of `Unexpected: [Errno 13] ...`), and the exit code tells
   a caller what happened: 0 created or already there, 2 the place refused it (permissions),

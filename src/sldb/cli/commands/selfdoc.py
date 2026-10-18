@@ -49,7 +49,7 @@ class SelfdocCLI:
         spec = selfdoc_python.architecture_spec_path(root, args.architecture_spec)
         graph, graph_output = selfdoc_python.python_graph(args, store, root); plans = plan_python_documents(records, args.system, output, spec)
         report = selfdoc_python.python_report(plans, graph, graph_output, store, root, output, args.system)
-        if args.selfdoc_command == "python-sync":
+        if args.selfdoc_command == "python-sync" and not report.metadata_errors:
             written = selfdoc_python.write_python_plans(plans, records, args, store, root, output, spec)
             selfdoc_python.write_python_graph(graph, graph_output)
             report = selfdoc_python.python_report(plans, graph, graph_output, store, root, output, args.system)

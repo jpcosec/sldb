@@ -16,7 +16,7 @@ from sldb.selfdoc.python_relation_registry import (
 )
 from sldb.selfdoc.python_scanner import PythonScanner
 from sldb.selfdoc.python_source_graph import source_snapshot
-from sldb.selfdoc.python_source_scan import scan_source_facts
+from sldb.selfdoc.python_source_scan import metadata_diagnostics, scan_source_facts
 
 
 def print_python_records(source, root, records) -> None:
@@ -27,6 +27,7 @@ def python_report(plans, graph, graph_output, store, root, output, system):
     report = inspect_documents(plans, store, root, output, system)
     if not graph_is_current(graph, graph_output):
         report.graph_stale.append(str(graph_output.relative_to(root)))
+    report.metadata_errors = list(graph["metadata"].get("diagnostics", []))
     return report
 
 
@@ -35,7 +36,9 @@ def python_graph(args, store, root):
     if not output.is_relative_to(root):
         raise ValueError("The source graph must stay within the store project")
     source = (root / args.source_root).resolve()
-    graph = source_snapshot(scan_source_facts(source, args.package), args.system)
+    files = scan_source_facts(source, args.package)
+    graph = source_snapshot(files, args.system)
+    graph["metadata"]["diagnostics"] = metadata_diagnostics(source, files)
     validate_source_snapshot(graph, registered_source_relations(store, root))
     return graph, output
 

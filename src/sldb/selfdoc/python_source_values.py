@@ -4,24 +4,24 @@ from __future__ import annotations
 import ast
 import hashlib
 
-import yaml
-
 
 def source_hash(text: str) -> str:
     """Return the containing file's content hash."""
     return hashlib.sha256(text.encode()).hexdigest()
 
 
+def docstring_metadata(node: ast.AST):
+    """The node's docstring metadata, parsed strictly (see `docstring_metadata`)."""
+    from .docstring_metadata import parse_docstring
+
+    return parse_docstring(ast.get_docstring(node, clean=True))
+
+
 def frontmatter(node: ast.AST) -> dict:
-    """Read only valid leading YAML metadata from one docstring."""
-    docstring = ast.get_docstring(node, clean=True) or ""
-    if not docstring.startswith("---\n"):
-        return {}
-    _, separator, remainder = docstring.partition("\n---")
-    if not separator:
-        return {}
-    payload = yaml.safe_load(docstring[4:len(docstring) - len(remainder) - 4])
-    return payload if isinstance(payload, dict) else {}
+    """The declared metadata of one docstring; empty when it declares none or is invalid
+    (invalid metadata is reported as a diagnostic by the scan, never used)."""
+    meta = docstring_metadata(node)
+    return meta.values if meta.declared and not meta.errors else {}
 
 
 def declared_id(node: ast.AST, fallback: str) -> str:
