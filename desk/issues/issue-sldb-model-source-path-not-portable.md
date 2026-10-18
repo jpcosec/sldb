@@ -1,6 +1,6 @@
 ---
 id: issue-sldb-model-source-path-not-portable
-status: open
+status: closed
 tags:
 - system:sldb
 - topic:stores
@@ -81,3 +81,9 @@ This issue is narrower than the task: one concrete reproducible defect. It can l
 - `desk/pills/pill-005-store-health-is-sldb-owned.md` — store integrity findings belong to SLDB's own check surface
 - `desk/pills/pill-006-model-registration-is-queryable.md` — registration state must stay resolvable through the store
 - `desk/pills/pill-009-cli-error-and-serialization-failure-mode.md` — raw file errors are not acceptable operator diagnostics
+
+## Resolution
+
+Closed: 2026-10-18
+Reason: Resuelto: la fuente de un modelo se busca importando model_ref cuando el path guardado no es un archivo aquí (store copiado, path de otra máquina, modelo heredado); si tampoco importa, el error nombra el modelo y el store.
+Refs: 66ed2d40dc, tests/api/test_model_source_portable.py, task-la-fuente-de-un-modelo-se-encuentra-por-model-ref-si-el-path-guardado-no-sirve
