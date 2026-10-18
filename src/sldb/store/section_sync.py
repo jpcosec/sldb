@@ -24,7 +24,7 @@ def process_model_sections(m_entry, root, report, store_path: Path | None, proce
 
     m_idx = load_models_index(root / m_entry.models_index)
     key = section_cache_key(m_idx)
-    if store_path and built_cache.get(store_path, "sections_shards", m_entry.name, key) is not None:
+    if store_path and built_cache.get(store_path, "sections_shards", m_entry.name, key) is not None and _shards_kept(sections_shards_dir(store_path, m_entry.name), m_idx):
         return
     current = _sync_model_sections(store_path, m_entry, m_idx, root, report, process_doc_sections)
     _mark_has_sections(store_path, m_entry, m_idx, root, current)
@@ -45,7 +45,7 @@ def _sync_model_sections(store_path, m_entry, m_idx, root, report, process_doc_s
     is actually opened and re-synced — an untouched document's sections shard is never read
     just to confirm it agrees with a source_hash that has not moved."""
     entries = {e.name: e for e in documents_hash.entries_of(store_path, m_entry.name)}
-    dirty = documents_hash.dirty_names(store_path, m_entry.name, "sections")
+    dirty = documents_hash.dirty_names(store_path, m_entry.name, "sections") if sections_shards_dir(store_path, m_entry.name).is_dir() else None  # no shards: no baseline
     current = {doc.name for doc in entries.values() if _sync_one_section(store_path, doc, m_entry, root, report, process_doc_sections, dirty is None or doc.name in dirty)}
     if store_path:
         prune_shards(sections_shards_dir(store_path, m_entry.name), current)
@@ -67,3 +67,11 @@ def _missing_doc(doc, d_path, report) -> None:
     report.docs_skipped_missing += 1
     report.verbose.append(f"sections: {doc.name} — missing file {d_path}")
     logger.warning(f"Sections rebuild: doc '{doc.name}' missing at {d_path}")
+
+
+def _shards_kept(shards_dir: Path, m_idx) -> bool:
+    """The user cache says the shards are current; they are only if they are still there. A
+    deleted `.sldb/runtime/` left the cache trusting shards that no longer existed, so no
+    rebuild (nor `stores update`) brought sections back."""
+    return not m_idx.documents_count or shards_dir.is_dir()
+

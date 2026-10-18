@@ -133,6 +133,10 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   `purpose_conflicts` for a decision.
 - `selfdoc python-sync` reports on what is on disk after writing: it reported the plans made
   before writing, so a sync that wrote everything returned 1.
+- Deleting `.sldb/runtime/` and rebuilding brings the sections and semantic indexes back. The
+  user cache (`~/.cache/sldb/runtime-cache-built/`) and the in-process dirty set vouched for
+  shards that were gone, so a rebuild wrote only the edges and a graph snapshot lost
+  `has_section` and `semantic_parent` (reported by graph-ui).
 - `stores init` fails cleanly: what a failed init wrote is removed, the message says where it
   failed and what to check (instead of `Unexpected: [Errno 13] ...`), and the exit code tells
   a caller what happened: 0 created or already there, 2 the place refused it (permissions),

@@ -39,8 +39,8 @@ def _sync_model(store_path, m_entry, root, resolver, py_path, report, new_tags: 
 
     m_idx = load_models_index(root / m_entry.models_index)
     key = built_cache.model_key(m_idx)
-    if built_cache.get(store_path, "semantic_shards", m_entry.name, key) is not None:
-        return
+    if built_cache.get(store_path, "semantic_shards", m_entry.name, key) is not None and (not m_idx.documents_count or semantic_shards_dir(store_path, m_entry.name).is_dir()):
+        return  # cached, and the shards it vouches for are still on disk
     _sync_model_docs(store_path, m_entry, m_idx, root, resolver, py_path, report, new_tags)
     built_cache.put(store_path, "semantic_shards", m_entry.name, key, True)
 
@@ -53,7 +53,7 @@ def _sync_model_docs(store_path, m_entry, m_idx, root, resolver, py_path, report
     clean baseline), only those documents are even opened — an untouched one's semantic
     shard is never read just to confirm it agrees with a source_hash that has not moved."""
     entries = {e.name: e for e in documents_hash.entries_of(store_path, m_entry.name)}
-    dirty = documents_hash.dirty_names(store_path, m_entry.name, "semantic")
+    dirty = documents_hash.dirty_names(store_path, m_entry.name, "semantic") if semantic_shards_dir(store_path, m_entry.name).is_dir() else None  # no shards: no baseline
     to_sync = entries.values() if dirty is None else (entries[n] for n in dirty if n in entries)
     for doc in to_sync:
         _sync_one(store_path, doc, m_entry, root, resolver, py_path, report, new_tags)
