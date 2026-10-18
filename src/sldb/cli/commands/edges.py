@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 from typing import Any
 
+from sldb.cli.commands.edges_unknown_node import unknown_node_message
 from sldb.api import check_edges, edges_from, edges_holding, edges_to, extract_document_payload, init_relations, open_store, rebuild_edges, unresolved_references
 
 
@@ -28,13 +29,17 @@ class EdgesCLI:
     def _show(self, args: Any) -> int:
         if args.holds_for and args.to:
             raise SystemExit("--holds-for reads the edges leaving the node; it does not combine with --to")
-        if args.holds_for:
-            subject = extract_document_payload(open_store(args.store, mode="readonly").store_path, args.pythonpath, args.holds_for)
-            edges = edges_holding(args.store, args.node, subject, args.relation, not args.local, args.exclude_tag)
-        else:
-            edges = (edges_to if args.to else edges_from)(args.store, args.node, args.relation, not args.local, args.exclude_tag)
+        edges = self._edges(args)
+        if not edges and (unknown := unknown_node_message(args)):
+            raise SystemExit(unknown)
         print(json.dumps([e.model_dump() for e in edges], indent=2, ensure_ascii=False))
         return 0
+
+    def _edges(self, args: Any) -> list:
+        if args.holds_for:
+            subject = extract_document_payload(open_store(args.store, mode="readonly").store_path, args.pythonpath, args.holds_for)
+            return edges_holding(args.store, args.node, subject, args.relation, not args.local, args.exclude_tag)
+        return (edges_to if args.to else edges_from)(args.store, args.node, args.relation, not args.local, args.exclude_tag)
 
     def _check(self, args: Any) -> int:
         report = check_edges(args.store, not args.local, args.exclude_tag)
