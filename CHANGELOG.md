@@ -39,6 +39,20 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   `{model, draft, path, template}`; `docs update` reports `{updated, model, path}`). An
   argument a subcommand does not know is reported with that subcommand's usage, not the
   root's.
+- A model's `__family__` changed in the class reaches the store: `stores update` and
+  `models update` re-read it (it was written only at `models add`).
+- `sldb.api.registered_models(store)` and `is_model_registered(store, model)` (by name,
+  `module:Class` or `module.Class`), and `sldb models check <model>...`, which reports each as
+  registered or missing and exits 1 if any is missing.
+- `stores check` notes ignore rules that break the store's split (`.sldb/core` ignored, or
+  `.sldb/runtime` not ignored); `check_store` returns it as `gitignore_policy`.
+- A registered model that does not import here no longer takes the store's AST down: it is
+  listed with `resolved: false` and the error (a healthy model's entry is unchanged), so `models show` and `ast show` of the rest
+  answer (in an environment without `pron`, `models show TaskDoc` failed).
+- `models template show` (and every draft operation) finds a model's source by importing its
+  `model_ref` when the recorded path is not a file here: a store copied without its models,
+  an absolute path from another machine, or an inherited model, whose path is empty and
+  failed with `Is a directory`. When neither works, the error names the model and the store.
 
 ## 0.1.12 - 2026-10-18 — declared references resolve bare ids and paths, and report what names nothing
 

@@ -700,11 +700,6 @@ Cosas que cuestan tiempo la primera vez:
 - **`--store` quiere la ruta a `.sldb`**, no el directorio que lo contiene
 - **`edges rebuild` dice `0 shard(s) written` cuando ya está todo hecho.** Es
   caché, no falla: revisá `.sldb/runtime/edges/`.
-- **`models template show` resuelve el fuente del modelo por el `path` del store,
-  re-anclado al project root actual.** El path suele guardarse relativo, así que
-  copiar el store completo funciona; falla con `No such file or directory` cuando
-  el `.py` no está en la ruta resuelta (store copiado sin sus modelos, o `path`
-  absoluto de otra máquina). El `model_ref` sí importa bien: sirve de fallback.
 
 ---
 
@@ -770,6 +765,7 @@ Correcciones que salieron de esa auditoria:
 | 4 | los 4 hashes como si `model_hash` fuera hoja | `model_hash` se compone de `contract_hash` + `roster_hash`, guardados por separado |
 | 4 | nada sobre granularidad por campo | `field_hashes` por documento, y que un mapa vacio es "no se pudo calcular" |
 | 13 | ninguna friccion de performance | los dos re-parseos evitables de `validation.py` y `section_rebuild.py` |
+| 13 | `models template show` fallaba si el `path` guardado no era un archivo aquí | busca el fuente importando el `model_ref`, y si tampoco importa nombra el modelo y el store |
 | 13 | `ast show` con warnings antes del JSON; `--format json` rechazado por `models show`, `models template show` y `docs update`; `edges show` con un nombre de documento devolvía `[]`; los dos re-parseos | resueltos (2026-10-18): stdout limpio, `--format` en los tres (y un flag desconocido muestra el uso del subcomando), `edges show` rechaza lo que no es un nodo y sugiere el export id, template memoizado y un solo `MarkdownIt` |
 | 14 | nada sobre los limites de indexacion | el indice de embeddings tiene granularidad de documento y de campo; las secciones no tienen hash propio |
 
