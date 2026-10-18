@@ -15,3 +15,4 @@
 {"task_id": "task-stores-init-falla-limpio-y-con-un-c\u00f3digo-de-salida-por-caso", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "cb4da2e22d809b84e33bf22902bb46937edd856c"}
 {"task_id": "task-stores-check-reporta-lo-que-una-reescritura-perder\u00eda", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "aab35e8e186738b60120a7ef7268a2eea9f2e3d6"}
 {"task_id": "task-stores-check-separa-stale-unmatched-y-orphan-con-la-historia-de-git", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "a40101b56667027e893d2fc4c308e1d93869aff9"}
+{"task_id": "task-unify-store-context-and-federation", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": "f16688d0c0cda739d49992fe556f99070c408208"}
