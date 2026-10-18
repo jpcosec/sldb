@@ -49,9 +49,25 @@ def locate_model_source(store: str | Path | None, model_name: str, pythonpath: s
     m_entry = next((m for m in load_store_index(location.store_path).models if m.name == model_name), None)
     if not m_entry:
         raise SLDBModelError(f"Model '{model_name}' not found.")
-    model_path = Path(m_entry.path)
-    if not model_path.is_absolute():
-        model_path = location.project_root / model_path
     mod, attr = m_entry.model_ref.split(":", 1)
-    path, module_name, attr_path = resolve_definition(model_path, mod, attr, pythonpath or str(location.project_root))
+    importable_from = pythonpath or str(location.project_root)
+    model_path = _recorded_path(m_entry.path, location.project_root) or _imported_path(m_entry, importable_from, location.store_path)
+    path, module_name, attr_path = resolve_definition(model_path, mod, attr, importable_from)
     return ModelSource(path=path, module_name=module_name, attr_path=attr_path)
+
+
+def _recorded_path(recorded: str, root: Path) -> Path | None:
+    """The source file the store recorded, when it is one here: a store copied without its
+    models, an absolute path from another machine, or an inherited model (no path) is not."""
+    if not recorded:
+        return None
+    path = Path(recorded) if Path(recorded).is_absolute() else root / recorded
+    return path if path.is_file() else None
+
+
+def _imported_path(m_entry, pythonpath: str, store_path: Path) -> Path:
+    """Where the class is defined, found by importing `model_ref`."""
+    try:
+        return Path(inspect.getfile(resolve_model_ref(m_entry.model_ref, pythonpath))).resolve()
+    except (SLDBModelError, TypeError, OSError) as exc:
+        raise SLDBModelError(f"Model '{m_entry.name}' of store {store_path}: its recorded source '{m_entry.path}' is not a file here and '{m_entry.model_ref}' does not import ({exc}). Pass --pythonpath to where its package lives.") from exc
