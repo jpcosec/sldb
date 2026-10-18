@@ -44,6 +44,8 @@ class DocumentDiagnosis:
     # not be asked (a store written before `field_hashes`, or a document that no longer
     # extracts) — never that no field moved, which `fields_ok` already answers.
     changed_fields: list[str] = field(default_factory=list)
+    # Where the indexed text sits in the file's git history, when the text disagrees (text_history).
+    history: dict[str, str] | None = None
 
     @property
     def hash_c_ok(self) -> bool:

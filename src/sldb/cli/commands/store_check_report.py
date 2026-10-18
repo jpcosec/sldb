@@ -67,6 +67,8 @@ def _print_document(doc: Any) -> None:
     print(f"    what    : {doc.explain()}")
     print(f"    inspect : {doc.inspect()}")
     print(f"    fix     : {doc.remedy()}")
+    if doc.history:
+        _print_history(doc.history)
     _print_hash_pair("source_hash (text)  ", doc.content_on_disk, doc.content_in_index, doc.content_ok)
     _print_hash_pair("content_hash (fields)", doc.fields_on_disk, doc.fields_in_index, doc.fields_ok)
 
@@ -81,3 +83,11 @@ def _print_hash_pair(label: str, on_disk: str | None, in_index: str | None, ok: 
 
 def _short(value: str | None) -> str:
     return value[:12] if value else "(none)"
+
+
+def _print_history(history: dict) -> None:
+    """Where the indexed text sits in git: fell behind, matches nothing, or file gone."""
+    from sldb.store.diagnostics_models.text_history import MEANINGS
+
+    at = f", commit {history['commit']}" if history.get("commit") else ""
+    print(f"    history : {history['verdict']}{at}: {MEANINGS[history['verdict']]} ({history['command']})")

@@ -78,7 +78,7 @@ def _build_model_payload(model: Any) -> dict[str, Any]:
 def _build_doc_payload(doc: Any) -> dict[str, Any]:
     identity = {"name": doc.name, "path": doc.path, "path_exists": doc.path_exists}
     verdict = {"note": doc.note.value, "explain": doc.explain()}
-    return {**identity, **_doc_hash_flags(doc), **verdict}
+    return {**identity, **_doc_hash_flags(doc), **verdict, **({"history": doc.history} if doc.history else {})}
 
 def _doc_hash_flags(doc: Any) -> dict[str, Any]:
     """Both namings of the same two booleans: letters for existing readers, semantic

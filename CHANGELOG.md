@@ -76,6 +76,11 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   what it is, sldb reading the same file differently after an upgrade, and points to
   `sldb models update <Model>`: `stores check` said `stores update` would accept it, but
   `stores update` trusts unchanged text and did nothing. It no longer asks for a decision.
+- `stores check` says, for a document whose text disagrees with its index, where the indexed
+  text sits in the file's git history: `stale` (an earlier committed version, with the commit:
+  the index fell behind), `unmatched` (no committed version has it: an edit indexed and never
+  committed, or damage), `orphan` (the file is gone) or `undetermined` (not a git work tree),
+  with the `git log` command that shows it. The JSON report carries it as `history`.
 - `stores init` fails cleanly: what a failed init wrote is removed, the message says where it
   failed and what to check (instead of `Unexpected: [Errno 13] ...`), and the exit code tells
   a caller what happened: 0 created or already there, 2 the place refused it (permissions),
