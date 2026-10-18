@@ -5,18 +5,13 @@ summary: ''
 tags:
 - workspace:desk
 - artifact:task
-routine: routine-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico
-current_node: checklist-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico-execution-ready
+current_node: ritual-execution
 history: []
 references: []
 depends_on:
 - task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion
 pills: []
 files: []
-checklists:
-- checklist-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico-execution-ready
-- checklist-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico-testing-ready
-- checklist-task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico-closeout-ready
 task_type: implementation
 inherits_from: []
 inherit_acceptance_context: false

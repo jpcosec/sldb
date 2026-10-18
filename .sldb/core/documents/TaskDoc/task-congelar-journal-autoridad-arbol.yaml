@@ -1,0 +1,35 @@
+name: task-congelar-journal-autoridad-arbol
+path: desk/tasks/task-congelar-journal-autoridad-arbol.md
+source_hash: e504b7b87f1f011e1da6fe5d8f7457f2c0d58c02408ffed5ef78e50e990973b0
+content_hash: bffaae9da43f88044044b6c2b28afe29c1de2fbbfc00b76ead8bc572b017d0ec
+field_hashes:
+  title: 8d6f3a148a82320fb585d24354f97b470d9a2d75f45d128b90035444ed07e6bc
+  id: f071111e1b5af62c0d7442e93194d0d27bb07f8109de8d7edd1566b85396ca83
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: f09bcdfae5ba44f1ecd377cacc5b83403ffb969e11c72018f7efdef2a16ce286
+  tags: e3a8b2b0c7f1cd7da6616cec0f49dc26a6aa778268a6a71cb857f5b81ee38580
+  current_node: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  goal: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  scope: 8fe304f56392f3b8bc43a7784aa5846322b9db6c99d29cf102eb429649332b37
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 9489d4facddbd33ed8c16a097b350f6c81320f5178aa2ff9b59bf05f741604c7
+  implementation_path: 1cb2955c4236abc6bdee61c6ed948c3de78965be043a832dabddc5db954a7478
+  validation: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  done_when: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  task_type: 528784b364a2e4712426a6f229951542b9b669eaceebda59a4ce7ec426064e08
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- artifact:task
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:governance
+- type.workflow.task
+- workspace.desk
+- workspace:desk

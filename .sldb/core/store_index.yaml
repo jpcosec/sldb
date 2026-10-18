@@ -126,46 +126,6 @@ models:
   family: null
   semantics: []
   origin: deskops
-- name: EdgeDoc
-  model_ref: deskops.models:EdgeDoc
-  path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/edge.py
-  models_index: .sldb/core/models/EdgeDoc.yaml
-  version: 1
-  canonical: false
-  family: null
-  semantics: []
-- name: RoutineDoc
-  model_ref: deskops.models:RoutineDoc
-  path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/routine.py
-  models_index: .sldb/core/models/RoutineDoc.yaml
-  version: 1
-  canonical: false
-  family: null
-  semantics: []
-- name: ChecklistDoc
-  model_ref: deskops.models:ChecklistDoc
-  path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/checklist.py
-  models_index: .sldb/core/models/ChecklistDoc.yaml
-  version: 1
-  canonical: false
-  family: null
-  semantics: []
-- name: ConditionDoc
-  model_ref: deskops.models:ConditionDoc
-  path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/condition.py
-  models_index: .sldb/core/models/ConditionDoc.yaml
-  version: 1
-  canonical: false
-  family: null
-  semantics: []
-- name: OperatorDoc
-  model_ref: deskops.models:OperatorDoc
-  path: /home/jp/proyectos/hum-ecosystem/tools/deskops/deskops/models/operator.py
-  models_index: .sldb/core/models/OperatorDoc.yaml
-  version: 1
-  canonical: false
-  family: null
-  semantics: []
 - name: SurfaceDoc
   model_ref: sldb.models.knowledge_surface:SurfaceDoc
   path: src/sldb/models/surface_doc.py
@@ -331,6 +291,33 @@ models:
   - type.knowledge.crossroad
   - workspace.desk.atoms
   origin: deskops
+- name: MaterializationContractDoc
+  model_ref: deskops.models:MaterializationContractDoc
+  path: ''
+  models_index: .sldb/core/models/MaterializationContractDoc.yaml
+  version: 1
+  canonical: false
+  family: null
+  semantics: []
+  origin: deskops
+- name: RunDoc
+  model_ref: deskops.models:RunDoc
+  path: ''
+  models_index: .sldb/core/models/RunDoc.yaml
+  version: 1
+  canonical: false
+  family: null
+  semantics: []
+  origin: deskops
+- name: RuntimeProfileDoc
+  model_ref: deskops.models:RuntimeProfileDoc
+  path: ''
+  models_index: .sldb/core/models/RuntimeProfileDoc.yaml
+  version: 1
+  canonical: false
+  family: null
+  semantics: []
+  origin: deskops
 predicates:
 - name: has_model
   axis: WHAT
@@ -387,4 +374,4 @@ predicates:
   axis: WHERE
   description: 'The store links that store under an alias (`stores add`): it reads
     its documents and inherits its models.'
-store_hash: 6e95a80bf646350d11cfbc5e59844b6b2c75102f683025643bd48c22f3087f21
+store_hash: c5f2381e03e860c577f29710dda2688466024b21529a031e86396c67e00f280b

@@ -1,13 +1,13 @@
 ---
 id: task-congelar-journal-autoridad-arbol
 status: draft
-summary: Congelar el journal; el arbol es la autoridad y el journal una vista derivada sobre el.
+summary: Congelar el journal; el arbol es la autoridad y el journal una vista derivada
+  sobre el.
 tags:
 - workspace:desk
 - artifact:task
 - system:sldb
 - topic:governance
-routine: ''
 current_node: ''
 history: []
 references: []
@@ -16,7 +16,6 @@ pills: []
 files:
 - src/sldb/store/journal/
 - src/sldb/store/hashing.py
-checklists: []
 task_type: design
 inherits_from: []
 inherit_acceptance_context: false

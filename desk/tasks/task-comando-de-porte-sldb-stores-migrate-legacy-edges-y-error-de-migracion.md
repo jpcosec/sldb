@@ -5,18 +5,13 @@ summary: ''
 tags:
 - workspace:desk
 - artifact:task
-routine: routine-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion
-current_node: checklist-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-execution-ready
+current_node: ritual-execution
 history: []
 references: []
 depends_on:
 - task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges
 pills: []
 files: []
-checklists:
-- checklist-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-execution-ready
-- checklist-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-testing-ready
-- checklist-task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion-closeout-ready
 task_type: implementation
 inherits_from: []
 inherit_acceptance_context: false

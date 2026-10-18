@@ -5,17 +5,12 @@ summary: ''
 tags:
 - workspace:desk
 - artifact:task
-routine: routine-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges
-current_node: checklist-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-execution-ready
+current_node: ritual-execution
 history: []
 references: []
 depends_on: []
 pills: []
 files: []
-checklists:
-- checklist-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-execution-ready
-- checklist-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-testing-ready
-- checklist-task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges-closeout-ready
 task_type: implementation
 inherits_from: []
 inherit_acceptance_context: false

@@ -8,7 +8,7 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-10-17T23:32:35'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
 # ISO 8601 timestamp, set when acknowledged
 ---
@@ -27,3 +27,13 @@ Auditoría read-only de empaquetado (2026-10-17). Hallazgos en sldb:
 7. dist/sldb-0.1.0-py3-none-any.whl (2026-07-26) es el único artefacto: nombre de dist viejo, 115/611 módulos, contiene nldb/. build/lib y src/sldb.egg-info (0.1.0) igual de desfasados.
 8. sldb/kgdb/ no es paquete (solo relation_types/*.md); el kgdb importable es kgdb 0.1.0 instalado desde git jpcosec/kgdb@1247139, no index.
 CI: ci.yml verde en la última corrida (2026-10-17 15:28Z).
+
+Resolución (2026-10-18), punto por punto:
+1. 0.1.10, 0.1.11 y 0.1.12 publicadas con sus tags (546a726, 6c81ed4, b43f931).
+2. pip uninstall de sldb y kgdb en el entorno base; el sldb 0.1.0 que seguía en pip list era src/sldb.egg-info. Queda solo structuredLanguageDB 0.1.12 editable.
+3. export.py lee la versión real (store/package_version.py), sin fallback '0.1.0'.
+4. sldb/.venv recreado desde este checkout con uv (structuredLanguageDB 0.1.12 editable, extras dev y click).
+5. click declarado como extra `click`; click_scanner lo importa perezoso.
+6. examples/pandoc_cv es paquete y entra en la rueda; help_texts.json se borró (nada lo leía).
+7. dist/, build/ y src/sldb.egg-info movidos a /tmp/sldb-cleanup-20261018 (nada trackeado; .gitignore ya los cubría).
+8. kgdb 0.1.0 desinstalado; sldb/kgdb/ sigue siendo solo datos (relation_types).
