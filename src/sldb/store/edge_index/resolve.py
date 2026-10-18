@@ -1,7 +1,8 @@
 """The rules that span documents, applied when the index is composed (they cannot live in a
 shard: they depend on other documents): an authored edge inherits its type's condition and
 axis and, if the type is undirected, gets its reverse; an authored edge to nothing is
-reported and left out; a schema or alias edge to nothing is just left out. A RelationTypeDoc
+reported and left out; a declared reference is pointed at its document or reported apart
+(`declared_resolution`); an alias edge to nothing is just left out. A RelationTypeDoc
 is a `relation_type` node, not a document node, so an end written as its export id is first
 moved onto that node."""
 
@@ -9,7 +10,9 @@ from __future__ import annotations
 
 from typing import Any
 
+from sldb.store.edge_index.declared_resolution import resolve_declared_edges
 from sldb.store.edge_index.node_ids import RELATION_TYPE_MODEL, doc_node_id
+from sldb.store.edge_index.unresolved_reference import UnresolvedReference
 from sldb.store.models import EdgeNodeRecord, EdgeRecord
 
 _DROPPED_IF_DANGLING = ("schema", "alias")
@@ -22,8 +25,19 @@ def relation_types_of(nodes: dict[str, EdgeNodeRecord]) -> dict[str, dict[str, A
 
 def resolve_edges(nodes: dict[str, EdgeNodeRecord], edges: list[EdgeRecord]) -> tuple[list[EdgeRecord], list[str]]:
     """(the edges that hold, the problems found with authored ones)."""
+    kept, problems, _ = resolve_edges_reporting(nodes, edges)
+    return kept, problems
+
+
+def resolve_edges_reporting(nodes: dict[str, EdgeNodeRecord], edges: list[EdgeRecord]) -> tuple[list[EdgeRecord], list[str], list[UnresolvedReference]]:
+    """`resolve_edges`, plus the declared references that name no document (`declared_resolution`)."""
     relation_types = relation_types_of(nodes)
-    edges = _onto_relation_type_nodes(nodes, edges)
+    edges, unresolved = resolve_declared_edges(nodes, _onto_relation_type_nodes(nodes, edges))
+    kept, problems = _apply_rules(nodes, edges, relation_types)
+    return kept, problems, unresolved
+
+
+def _apply_rules(nodes: dict[str, EdgeNodeRecord], edges: list[EdgeRecord], relation_types: dict[str, dict[str, Any]]) -> tuple[list[EdgeRecord], list[str]]:
     kept: list[EdgeRecord] = []
     problems: list[str] = []
     for e in edges:

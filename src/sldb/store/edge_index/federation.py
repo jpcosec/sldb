@@ -39,11 +39,12 @@ def qualify_id(node_id: str, store_name: str | None) -> str:
 
 
 def qualify(part: EdgeContribution, store_name: str | None) -> EdgeContribution:
-    """A linked store's contribution with every id qualified; the local store's, untouched."""
+    """A linked store's contribution with every id qualified and every edge marked `from_store`
+    (so a check of this store tells its own edges from its links'); the local store's, untouched."""
     if store_name is None:
         return part
     nodes = [_qualified_node(n, store_name) for n in part.nodes]
-    edges = [EdgeRecord(source=qualify_id(e.source, store_name), target=qualify_id(e.target, store_name), relation=e.relation, metadata=e.metadata) for e in part.edges]
+    edges = [EdgeRecord(source=qualify_id(e.source, store_name), target=qualify_id(e.target, store_name), relation=e.relation, metadata={**e.metadata, "from_store": store_name}) for e in part.edges]
     return EdgeContribution(nodes=nodes, edges=edges)
 
 

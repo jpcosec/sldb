@@ -10,7 +10,7 @@ from typing import Iterable
 from sldb.store.edge_index.composition_targets import resolve_composition_edges
 from sldb.store.edge_index.edge_index import EdgeIndex
 from sldb.store.edge_index.federation import federated_stores, qualify
-from sldb.store.edge_index.resolve import resolve_edges
+from sldb.store.edge_index.resolve import resolve_edges_reporting
 from sldb.store.edge_index.shard_reading import read_store_contributions
 from sldb.store.edge_index.shard_signature import shards_signature
 from sldb.store.io import load_store_index
@@ -51,8 +51,8 @@ def _compose(stores: list[tuple[Path, str | None]], exclude_tags: frozenset[str]
     stale: list[str] = []
     for path, name in stores:
         stale += _merge_store(path, name, exclude_tags, nodes, edges)
-    kept, problems = resolve_edges(nodes, resolve_composition_edges(nodes, edges))
-    return EdgeIndex(nodes=nodes, edges=kept, problems=problems, stale=stale)
+    kept, problems, unresolved = resolve_edges_reporting(nodes, resolve_composition_edges(nodes, edges))
+    return EdgeIndex(nodes=nodes, edges=kept, problems=problems, stale=stale, unresolved_references=unresolved)
 
 
 def _merge_store(path: Path, name: str | None, exclude_tags: frozenset[str], nodes: dict, edges: list[EdgeRecord]) -> list[str]:

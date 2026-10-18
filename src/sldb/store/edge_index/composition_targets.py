@@ -42,7 +42,8 @@ def _owners_by_path(nodes: dict[str, EdgeNodeRecord]) -> dict[str, str]:
     """
     owners: dict[str, str] = {}
     for node in nodes.values():
-        path = node.semantics.get("path") if "export_id" in node.semantics else None
+        # A section's semantics carry a `path` too (its heading path): only documents own files.
+        path = node.semantics.get("path") if node.id.startswith("sldb://document/") else None
         if path and not node.semantics.get("store"):
             owners.setdefault(_normalized(str(path)), node.id)
     return owners

@@ -27,6 +27,8 @@ from sldb.api.edges.edges_holding import edges_holding
 from sldb.api.model_registry.remove_model import remove_model
 from sldb.api.model_registry.inherit_model import inherit_model
 from sldb.models.structured_doc import StructuredNLDoc
+from sldb.api.edges.unresolved_references import unresolved_references
+from sldb.store.edge_index.unresolved_reference import UnresolvedReference
 from sldb.api.edges.edge_serialization import serialize_edge_node_record, serialize_edge_node_records, serialize_edge_record, serialize_edge_records
 from sldb.api.edges.init_relations import init_relations
 from sldb.api.edges.rebuild_edges import rebuild_edges
@@ -121,5 +123,5 @@ __all__ = [
     "update_store_indexes", "validate_model_draft", "verify_journal",
     "DocRefStatus", "doc_exists", "doc_status", "split_doc_ref", "store_links",
     "WherePredicateError", "edges_holding", "remove_model", "where_matches", "inherit_model",
-    "StructuredNLDoc",
+    "StructuredNLDoc", "UnresolvedReference", "unresolved_references",
 ]

@@ -5,6 +5,7 @@ from __future__ import annotations
 from pydantic import BaseModel, Field, PrivateAttr
 
 from sldb.store.edge_index.node_ids import as_node_id
+from sldb.store.edge_index.unresolved_reference import UnresolvedReference
 from sldb.store.models import EdgeNodeRecord, EdgeRecord
 
 
@@ -16,6 +17,7 @@ class EdgeIndex(BaseModel):
     edges: list[EdgeRecord] = Field(default_factory=list, description="Every edge, cross-document rules applied (inherited conditions, reverse edges, edges to nothing dropped).")
     problems: list[str] = Field(default_factory=list, description="Authored edges left out because an endpoint is not a node; reported, never stored.")
     stale: list[str] = Field(default_factory=list, description="Export ids of tracked documents whose shard is missing or built from another hash_c: run the rebuild.")
+    unresolved_references: list[UnresolvedReference] = Field(default_factory=list, description="Declared reference and containment values that name no document; inspected, never stored as edges.")
     _out: dict[str, list[EdgeRecord]] | None = PrivateAttr(default=None)
     _in: dict[str, list[EdgeRecord]] | None = PrivateAttr(default=None)
 

@@ -6,13 +6,16 @@ import argparse
 
 
 def add_edges_group(s: argparse._SubParsersAction) -> None:
-    """Register `edges init|rebuild|show|check`."""
+    """Register `edges init|rebuild|show|check|unresolved`."""
     p = s.add_parser("edges", help="Typed nodes and edges of the store (the edge index).")
     sub = p.add_subparsers(dest="edges_command", required=True)
     _store_args(sub.add_parser("init", help="Register RelationTypeDoc/RelationDoc and track the builtin relation types."))
     _store_args(sub.add_parser("rebuild", help="Bring the edge index current; only what moved is rewritten."))
     _read_args(sub.add_parser("check", help="Validate every edge against its relation type."))
     _show_args(sub.add_parser("show", help="Edges from (or --to) a document or node."))
+    unresolved = sub.add_parser("unresolved", help="Declared references that name no document.")
+    unresolved.add_argument("--format", choices=("text", "json"), default="text")
+    _read_args(unresolved)
 
 
 def _show_args(show: argparse.ArgumentParser) -> None:

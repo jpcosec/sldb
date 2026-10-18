@@ -11,10 +11,12 @@ and the edge index ignored them. Everything else the model declares already reac
 graph -- `model_fields` becomes `has_field`, `base_models` becomes `extends`, `__semantics__`
 becomes `tagged_as` -- so a declared reference was the one declaration that did not.
 
-These edges are `origin: "schema"`, like `has_field` and `extends`: a reference to an
-untracked document is dropped by `resolve_edges` instead of reported, because the model
-declared a shape, not an authored assertion. An authored edge that dangles is a `RelationDoc`
-problem; a declared one is just a field whose target is not in this store.
+These edges are `origin: "schema"`, like `has_field` and `extends`. A shard records each
+value as written (`declared`) with the models the field allows (`__containment__`, or
+`__reference_models__ = {"depends_on": ["TaskDoc"]}` for a reference field); which document
+it names is decided when the index is composed (`declared_resolution`), since a bare id or a
+path depends on what else is tracked. One that names nothing is reported there, apart from
+the authored-edge problems: a declared reference is a shape, not an assertion.
 """
 
 from __future__ import annotations
@@ -29,6 +31,8 @@ Payload = dict[str, Any]
 
 CONTAINS = "contains"
 REFERENCES = "references"
+#: Where a declared value that is not an export id points until the index is composed.
+PENDING_TARGET = "sldb://unresolved_ref/"
 
 
 def declared_reference_edges(model_name: str, doc_name: str, model_type: Any | None, payload: Payload | None) -> list[EdgeRecord]:
@@ -49,26 +53,38 @@ def declared_reference_edges(model_name: str, doc_name: str, model_type: Any | N
         return []
     source = doc_node_id(f"{model_name}:{doc_name}")
     containment: dict[str, list[str]] = getattr(model_type, "__containment__", {}) or {}
-    references: list[str] = getattr(model_type, "__references__", []) or []
+    allowed_refs: dict[str, list[str]] = getattr(model_type, "__reference_models__", {}) or {}
+    references = list(getattr(model_type, "__references__", []) or []) + [f for f in allowed_refs if f not in (getattr(model_type, "__references__", []) or [])]
     contained = [(field, CONTAINS, list(allowed)) for field, allowed in containment.items()]
     # Containment already spoke for a field declared both ways.
-    referenced = [(field, REFERENCES, []) for field in references if field not in containment]
+    referenced = [(field, REFERENCES, list(allowed_refs.get(field, []))) for field in references if field not in containment]
     return [e for field, relation, allowed in contained + referenced for e in _field_edges(source, payload, field, relation, allowed)]
 
 
 def _field_edges(source: str, payload: Payload, field: str, relation: str, allowed: list[str]) -> list[EdgeRecord]:
-    """One edge per id in `field`; the field may hold one id or a list of them."""
+    """One edge per value in `field` that can name a document; the field may hold one or a list."""
+    extra = {"allowed_models": allowed} if allowed else {}
     return [
-        edge(source, doc_node_id(target), relation, "schema", field=field, **({"allowed_models": allowed} if allowed else {}))
-        for target in _ids_in(payload.get(field))
+        edge(source, _target(value), relation, "schema", field=field, declared=value, **extra)
+        for value in _values_in(payload.get(field))
+        if is_export_id(value) or allowed or relation == CONTAINS or looks_like_path(value)
     ]
 
 
-def _ids_in(value: Any) -> list[str]:
-    """The export ids held in a field value.
+def _target(value: str) -> str:
+    """An export id points at its document now; anything else waits for the composed index."""
+    return doc_node_id(value) if is_export_id(value) else PENDING_TARGET + value
 
-    A declared id is written `Model:name`: the bare name is ambiguous across models and
-    cannot be resolved to a node here, so it is left out rather than guessed at.
-    """
+
+def _values_in(value: Any) -> list[str]:
     raw = value if isinstance(value, list) else [value]
-    return [item.strip() for item in raw if isinstance(item, str) and ":" in item.strip()]
+    return [v for v in (item.strip().strip("`").strip() for item in raw if isinstance(item, str)) if v]
+
+
+def is_export_id(value: str) -> bool:
+    """`Model:name` (or `store:Model:name`); a URL is not one."""
+    return ":" in value and "://" not in value
+
+
+def looks_like_path(value: str) -> bool:
+    return "/" in value or value.endswith(".md")

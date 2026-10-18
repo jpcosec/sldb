@@ -5,15 +5,15 @@ from __future__ import annotations
 import json
 from typing import Any
 
-from sldb.api import check_edges, edges_from, edges_holding, edges_to, extract_document_payload, init_relations, open_store, rebuild_edges
+from sldb.api import check_edges, edges_from, edges_holding, edges_to, extract_document_payload, init_relations, open_store, rebuild_edges, unresolved_references
 
 
 class EdgesCLI:
     """Noun-first surface of the edge index."""
 
     def run(self, args: Any) -> int:
-        """Dispatch `edges init|rebuild|show|check`; 0 on success, 1 when a check fails."""
-        handler = {"init": self._init, "rebuild": self._rebuild, "show": self._show, "check": self._check}[args.edges_command]
+        """Dispatch `edges init|rebuild|show|check|unresolved`; 0 on success, 1 when a check fails."""
+        handler = {"init": self._init, "rebuild": self._rebuild, "show": self._show, "check": self._check, "unresolved": self._unresolved}[args.edges_command]
         return handler(args)
 
     def _init(self, args: Any) -> int:
@@ -40,7 +40,20 @@ class EdgesCLI:
         report = check_edges(args.store, not args.local, args.exclude_tag)
         for line in [f"error: {e}" for e in report.errors] + [f"stale: {s}" for s in report.stale]:
             print(line)
+        if report.linked_errors or report.linked_stale:
+            print(f"note: linked stores: {len(report.linked_errors)} error(s), {len(report.linked_stale)} stale, theirs to fix (run `edges check` there, or this with --local to leave them out)")
         if report.untracked_builtins:
             print(f"note: builtin relation type(s) not tracked here, checked against sldb's own: {', '.join(report.untracked_builtins)} (`sldb edges init` tracks them)")
         print("Edges OK" if report.ok else f"{len(report.errors)} error(s), {len(report.stale)} stale")
         return 0 if report.ok else 1
+
+    def _unresolved(self, args: Any) -> int:
+        """A report, not a check: 0 whatever it finds."""
+        found = unresolved_references(args.store, not args.local, args.exclude_tag)
+        if args.format == "json":
+            print(json.dumps([r.model_dump() for r in found], indent=2, ensure_ascii=False))
+            return 0
+        for r in found:
+            print(f"{r.reason}: {r.source} .{r.field} -> {r.target}" + (f" ({r.target_export_id})" if r.target_export_id else ""))
+        print(f"{len(found)} unresolved reference(s)")
+        return 0

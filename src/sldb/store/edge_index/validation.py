@@ -4,7 +4,8 @@ names inherit through `base_models`), and cardinality holds.
 
 In a store that ran `edges init`, an edge sldb derives itself (structural, schema, alias)
 whose builtin type the store has not tracked is checked against the definition sldb ships: a
-builtin added after that init must not fail every existing store. A store that never ran
+builtin added after that init must not fail every existing store, and a type authored under a
+builtin's name does not retype the edges sldb derives. A store that never ran
 `edges init` still fails, as before. `untracked_builtins` names those types so
 the gap is reported, not hidden; authored edges still need a tracked type."""
 
@@ -24,12 +25,28 @@ _SHIPPED = {spec["name"]: builtin_payload(spec) for spec in BUILTIN_RELATION_TYP
 
 def validate_edge_index(index: EdgeIndex) -> list[str]:
     """The violations found, as sentences; empty when every edge is valid."""
+    own, linked = validate_edge_index_by_store(index)
+    return own + linked
+
+
+def validate_edge_index_by_store(index: EdgeIndex) -> tuple[list[str], list[str]]:
+    """(violations of this store's own edges, those only a linked store's edges commit).
+
+    A cardinality violation is this store's when any edge behind it is; an edge a linked store
+    contributes that this store also contributes (a shared model's fields) is this store's."""
     tracked = relation_types_of(index.nodes)
     effective = _effective_types(tracked)
-    errors: list[str] = []
+    own_keys = {_key(e) for e in index.edges if "from_store" not in e.metadata}
+    own: list[str] = []
+    linked: list[str] = []
     for e in index.edges:
-        errors += _edge_errors(index.nodes, e, (effective if _derived(e) else tracked).get(e.relation))
-    return errors + _cardinality_errors(index.edges, effective)
+        (linked if _key(e) not in own_keys else own).extend(_edge_errors(index.nodes, e, (effective if _derived(e) else tracked).get(e.relation)))
+    cardinality = _cardinality_errors([e for e in index.edges if _derived(e)], effective, own_keys) + _cardinality_errors([e for e in index.edges if not _derived(e)], {**_SHIPPED, **tracked}, own_keys)
+    return list(dict.fromkeys(own + [m for m, mine in cardinality if mine])), list(dict.fromkeys(m for m in linked + [m for m, mine in cardinality if not mine] if m not in own))
+
+
+def _key(e: EdgeRecord) -> tuple[str, str, str]:
+    return (e.source, e.relation, e.target)
 
 
 def untracked_builtins(index: EdgeIndex) -> list[str]:
@@ -41,8 +58,10 @@ def untracked_builtins(index: EdgeIndex) -> list[str]:
 
 
 def _effective_types(tracked: dict[str, dict[str, Any]]) -> dict[str, dict[str, Any]]:
-    """The tracked types, completed with the shipped builtins once the store ran `edges init`."""
-    return {**_SHIPPED, **tracked} if _initialised(tracked) else tracked
+    """The types a derived edge is checked against once the store ran `edges init`: sldb's own
+    definition of a builtin wins, since sldb produces those edges. A store may author a type
+    under a builtin's name (selfdoc's code `contains`); it applies to authored edges only."""
+    return {**tracked, **_SHIPPED} if _initialised(tracked) else tracked
 
 
 def _initialised(tracked: dict[str, dict[str, Any]]) -> bool:
@@ -72,12 +91,15 @@ def _class_ok(nodes: dict[str, EdgeNodeRecord], node: EdgeNodeRecord, allowed: l
     return any(cls in allowed for cls in lineage)
 
 
-def _cardinality_errors(edges: list[EdgeRecord], relation_types: dict[str, dict[str, Any]]) -> list[str]:
-    unique = {(e.source, e.relation, e.target) for e in edges}  # one fact two stores both emit (a shared model's fields) is one edge
+def _cardinality_errors(edges: list[EdgeRecord], relation_types: dict[str, dict[str, Any]], own_keys: set) -> list[tuple[str, bool]]:
+    """(violation, whether an edge of this store is behind it)."""
+    unique = {_key(e) for e in edges}  # one fact two stores both emit (a shared model's fields) is one edge
     out_count = Counter((src, rel) for src, rel, _ in unique)
     in_count = Counter((tgt, rel) for _, rel, tgt in unique)
-    errors = [f"{src} has {n} '{rel}' targets but cardinality is {_card(relation_types, rel)}" for (src, rel), n in out_count.items() if n > 1 and _card(relation_types, rel) in ("one_to_one", "many_to_one")]
-    return errors + [f"{tgt} has {n} '{rel}' sources but cardinality is {_card(relation_types, rel)}" for (tgt, rel), n in in_count.items() if n > 1 and _card(relation_types, rel) in ("one_to_one", "one_to_many")]
+    out_own = {(s_, r) for s_, r, t in unique if (s_, r, t) in own_keys}
+    in_own = {(t, r) for s_, r, t in unique if (s_, r, t) in own_keys}
+    errors = [(f"{src} has {n} '{rel}' targets but cardinality is {_card(relation_types, rel)}", (src, rel) in out_own) for (src, rel), n in out_count.items() if n > 1 and _card(relation_types, rel) in ("one_to_one", "many_to_one")]
+    return errors + [(f"{tgt} has {n} '{rel}' sources but cardinality is {_card(relation_types, rel)}", (tgt, rel) in in_own) for (tgt, rel), n in in_count.items() if n > 1 and _card(relation_types, rel) in ("one_to_one", "one_to_many")]
 
 
 def _card(relation_types: dict[str, dict[str, Any]], relation: str) -> str:

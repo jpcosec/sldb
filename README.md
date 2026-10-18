@@ -528,6 +528,32 @@ SLDB treats this as a generic stores/models/docs operation. Workflow tools such 
 
 Model relationships (`inherits`, `has_many`) are **not** stored in the index — they are derived at query time from the Python class hierarchy and field types. The YAML index stores only physical pointers; the Pydantic class is the single source of truth for schema and semantics.
 
+### Declared references
+
+A model says which of its fields hold other documents, and each value becomes an edge of the
+index (`sldb edges show`):
+
+```python
+class TaskDoc(StructuredNLDoc):
+    __references__ = ["depends_on", "about"]             # `references` edges
+    __reference_models__ = {"depends_on": ["TaskDoc"]}   # what a bare id in the field names
+    __containment__ = {"steps": ["StepDoc"]}             # `contains` edges: children, one parent each
+```
+
+A value names its document as an export id (`TaskDoc:task-a`), as the path a tracked document
+lives at (`desk/tasks/task-a.md`), or as a bare id (`task-a`) tried against the models the
+field allows (`__reference_models__`, or the list in `__containment__`). Which document it
+names is decided when the index is composed, so tracking the target later resolves it
+without touching the source. A value that names nothing is not an edge; it is reported:
+
+```bash
+sldb edges unresolved [--format json]   # missing_document | ambiguous | unknown_path
+```
+
+From Python, `sldb.api.unresolved_references(store)`. A field with no allowed models (a free
+`about` holding files and commits) only reports export ids. `contains` means one parent: a
+document several others point at is a reference, not a child (`edges check` reports it).
+
 ### CLI reference
 
 | Command | Description |
@@ -545,6 +571,7 @@ Model relationships (`inherits`, `has_many`) are **not** stored in the index —
 | `sldb docs track <path> --model <name>` | Validate and track an existing document |
 | `sldb docs update <name> <payload>` | Re-render a tracked document with new data |
 | `sldb docs exists <[alias:]ref>` | Check that a reference resolves (exit 0/1/2/5) |
+| `sldb edges unresolved [--format json]` | Declared references that name no document, and why |
 
 Note: `stores update` now prints a rebuild summary (docs processed, missing, empty sections, unparseable headings). Pass `--wait` to block if the store is locked by another process, and `--verbose` to see individual skip details.
 

@@ -2,6 +2,31 @@
 
 Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.11`; it was `0.1.0` while PyPI already had `0.1.1`. Existing entries below are historical development records, not a verified registry release inventory. The product-generation label “v1” is separate from package versioning. No new package version or release is created by this documentation reconciliation.
 
+## Unreleased
+
+- Declared references resolve bare ids and paths. A value of a `__references__` or
+  `__containment__` field names its document as an export id, as the path a tracked document
+  lives at, or as a bare id tried against the models the field allows — the new
+  `__reference_models__ = {"field": ["Model", ...]}`, or the containment list; one match
+  resolves, several are `ambiguous`. It is decided when the index is composed, so tracking the
+  target later resolves it. What names nothing is reported, never an edge:
+  `sldb.api.unresolved_references(store)` / `sldb edges unresolved` /
+  `EdgeIndex.unresolved_references` (`UnresolvedReference`: source, model, field, target,
+  target_export_id, relation, reason, source_path). A free reference field only reports export
+  ids. `EDGE_INDEX_VERSION` is 4: shards rebuild. `__reference_models__` enters the contract
+  hash only for a model that declares it.
+- An edge sldb derives (structural, schema, alias) is checked against sldb's own definition of
+  its builtin type, even where the store authored a type under that name (selfdoc's code
+  `contains` / `references`).
+- `edges check` of a store that links others fails only on its own edges: what only a linked
+  store's edges commit (an owner's stale shards, its cardinality violations) is reported apart
+  (`EdgeCheckReport.linked_errors`, `linked_stale`; a `note:` line in the CLI). Edges read
+  from a linked store carry `metadata["from_store"]`.
+- Inheriting a model into a store (`models inherit`, or `alias:Model` on first use) signs its
+  empty roster, so `stores check` passes without a `stores update` first.
+- A section no longer counts as the owner of a path: a bare composition or reference value
+  equal to a heading path resolved to that section instead of a document.
+
 ## 0.1.11 - 2026-10-18 — models are defined once and inherited; a free `attributes` on relations
 
 - `RelationDoc.attributes`: a free dict of the edge's own attributes (a multiplicity, a role, a

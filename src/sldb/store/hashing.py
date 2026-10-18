@@ -83,6 +83,11 @@ def hash_model_contract(model_type: Any) -> str:
 
 
 def _contract_parts(model_type: Any) -> dict[str, Any]:
+    declared = getattr(model_type, "__reference_models__", None)  # only when declared: no other contract moves
+    return {**_core_contract_parts(model_type), **({"reference_models": declared} if declared else {})}
+
+
+def _core_contract_parts(model_type: Any) -> dict[str, Any]:
     return {"fields": _field_schema(model_type), "template": getattr(model_type, "__template__", ""),
             "family": getattr(model_type, "__family__", None), "semantics": flatten_model_semantics(model_type),
             "base_models": _base_names(model_type), "references": getattr(model_type, "__references__", None) or [],

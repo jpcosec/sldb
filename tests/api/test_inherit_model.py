@@ -171,3 +171,30 @@ def test_a_copy_registered_by_a_reexporting_module_is_still_a_copy(stores):
     inherit_model(sp, "deskops:NoteDoc")
     assert _entry(sp).origin == "deskops" and _entry(sp).model_ref == f"{MODULE}:NoteDoc"
     sys.modules.pop("sldb_inherit_reexport", None)
+
+
+def test_a_fresh_inherited_model_passes_the_check_without_an_update(stores):
+    """deskops init inherits its models into an empty store; the roster of no documents is
+    signed by the inherit itself (it was left blank, so the check failed until `stores update`)."""
+    owner, local, sp = stores
+    inherit_model(sp, "deskops:NoteDoc")
+    report = check_store(sp, local)
+    assert report["valid"] and report["roster_only"] == []
+
+
+def test_a_child_store_check_does_not_fail_on_its_owners_edges(stores):
+    """deskops: `edges check` of a child failed with the owner's 223 stale shards; what only
+    the linked store's edges commit is its to fix, reported apart."""
+    from sldb.api import check_edges, init_relations
+
+    owner, local, sp = stores
+    init_relations(owner / ".sldb", str(owner)), init_relations(sp)
+    (owner / "theirs.md").write_text("# Theirs\n", encoding="utf-8")
+    track_document_file(owner / ".sldb", "NoteDoc", owner / "theirs.md", "theirs", str(owner))
+    inherit_model(sp, "deskops:NoteDoc")
+    for shard in (owner / ".sldb").rglob("theirs.yaml"):
+        if "edges" in shard.parts:
+            shard.unlink()                                   # the owner's shard is gone: stale there
+    report = check_edges(sp)
+    assert report.ok and report.stale == []
+    assert report.linked_stale == ["deskops:NoteDoc:theirs"]
