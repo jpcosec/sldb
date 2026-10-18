@@ -1,0 +1,16 @@
+name: atom-lo-que-el-código-dice-de-sí-mismo-se-publica-con-lo-que-no-se-pudo-probar-a-la-vista
+path: desk/atoms/atom-lo-que-el-código-dice-de-sí-mismo-se-publica-con-lo-que-no-se-pudo-probar-a-la-vista.md
+source_hash: e7f78dc174fc2b1849cdcc2594a37e9f608c79af412376d7a51c005f3d14ef8b
+content_hash: e97f496170ed2c5e8c1ff12479ff4532903dc824b258c26611f98bf235c95fca
+field_hashes:
+  id: 49d220413da977b9ddb976f6a78a249f58a8058c1c8b5f331254cf605a37f60d
+  title: 12ea68f1524de238cd8777881d47bed5306d28d43293fd4d837dbd803157564c
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 4dcbeb8e775384da8be6c85b86ee3d8f696f8b263b1dfd98d6886478f78be02d
+  tags: e3e5d8aaa8a9a23873bbdf4cc73680289c881d0b8cc78c763f4294e8ca97a4b4
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- type.knowledge.atom
+- workspace.desk.atoms
