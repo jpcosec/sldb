@@ -28,15 +28,15 @@ def scan_structural_noise(store_path: Path, project_root: Path, pythonpath: str 
     from sldb.api.model_registry.model_reference import resolve_model_ref
     from sldb.store.query import load_runtime_documents
 
-    documents = load_runtime_documents(store_path, resolve_model_ref, pythonpath)
-    found = (_scan_one(doc, project_root) for doc in documents)
-    return [report for report in found if report is not None and not report.clean]
+    from sldb.api.stores.scan_cache import cached_per_document
+
+    present = [(d, (project_root / d.path).read_text(encoding="utf-8")) for d in load_runtime_documents(store_path, resolve_model_ref, pythonpath) if (project_root / d.path).exists()]
+    typed = cached_per_document(store_path, "structural-noise", [p for p in present if p[0].model_type is not None], _scan_one)
+    found = [StructuralNoiseReport.model_validate(r) for _d, r in typed] + [StructuralNoiseReport.model_validate(_scan_one(d, t)) for d, t in present if d.model_type is None]
+    order = {(d.model_name, d.name): i for i, (d, _t) in enumerate(present)}
+    return sorted((r for r in found if not r.clean), key=lambda r: order.get((r.model, r.document), 0))
 
 
-def _scan_one(doc, project_root: Path) -> StructuralNoiseReport | None:
-    """The noise report for one tracked document, or None when its file is gone."""
-    doc_path = project_root / doc.path
-    if not doc_path.exists():
-        return None
-    markdown = doc_path.read_text(encoding="utf-8")
-    return find_structural_noise(doc.model_type, markdown, doc.name)
+def _scan_one(doc, markdown: str) -> dict:
+    """The noise report for one tracked document, as cacheable data."""
+    return find_structural_noise(doc.model_type, markdown, doc.name).model_dump()

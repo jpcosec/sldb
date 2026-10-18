@@ -14,13 +14,14 @@ from typing import Any
 _CONTENT = ("paragraph", "fence", "code_block", "bullet_list", "ordered_list", "blockquote", "table", "html_block")
 
 
-def rewrite_loss(model_type: Any, markdown: str) -> list[str]:
+def rewrite_loss(model_type: Any, markdown: str, payload: dict | None = None) -> list[str]:
     """The source of each body block a rewrite would drop, in document order; [] when none
-    (or when the document does not extract at all: that is reported elsewhere)."""
+    (or when the document does not extract at all: that is reported elsewhere). `payload` is
+    the document's extraction when the caller already has it."""
     from sldb.runtime.validation import extract_model_data, render_model_markdown
 
     try:
-        rewritten = _flat(render_model_markdown(model_type, extract_model_data(model_type, markdown)))
+        rewritten = _flat(render_model_markdown(model_type, payload if payload is not None else extract_model_data(model_type, markdown)))
     except Exception:  # noqa: BLE001 - a document that does not extract is another finding
         return []
     return [src for src in _content_blocks(markdown, _derived_headings(model_type.__template__)) if _flat(src) not in rewritten]

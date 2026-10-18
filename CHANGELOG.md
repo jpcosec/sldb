@@ -117,6 +117,11 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   reaches the submodule. A star import, a cycle or a module outside the scan stays
   unresolved. A relative import inside a package's `__init__.py` resolves against that
   package (it was resolved against the parent: `pkg.impl` for `pkg.inner.impl`).
+- `stores check` reuses its per-document content scans (rewrite loss and structural noise)
+  while a document's text, its model's contract and the sldb that reads it have not moved, in
+  the user's cache directory; the rewrite-loss scan also reuses the extraction the check
+  already has instead of extracting again. On sldb's store (2775 documents) a full check went
+  from 43 s to 23 s cold and 7 s warm, with the same findings.
 - `stores init` fails cleanly: what a failed init wrote is removed, the message says where it
   failed and what to check (instead of `Unexpected: [Errno 13] ...`), and the exit code tells
   a caller what happened: 0 created or already there, 2 the place refused it (permissions),

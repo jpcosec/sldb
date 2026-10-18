@@ -16,9 +16,8 @@ def scan_rewrite_loss(store_path: Path, project_root: Path, pythonpath: str | No
     from sldb.api.model_registry.model_reference import resolve_model_ref
     from sldb.store.query import load_runtime_documents
 
-    found = []
-    for doc in load_runtime_documents(store_path, resolve_model_ref, pythonpath):
-        path = project_root / doc.path
-        if doc.model_type is not None and path.exists() and (lost := rewrite_loss(doc.model_type, path.read_text(encoding="utf-8"))):
-            found.append({"document": doc.name, "model": doc.model_name, "path": doc.path, "lost": lost})
-    return found
+    from sldb.api.stores.scan_cache import cached_per_document
+
+    docs = [(d, (project_root / d.path).read_text(encoding="utf-8")) for d in load_runtime_documents(store_path, resolve_model_ref, pythonpath) if d.model_type is not None and (project_root / d.path).exists()]
+    scanned = cached_per_document(store_path, "rewrite-loss", docs, lambda doc, text: rewrite_loss(doc.model_type, text, doc.payload))
+    return [{"document": d.name, "model": d.model_name, "path": d.path, "lost": lost} for d, lost in scanned if lost]
