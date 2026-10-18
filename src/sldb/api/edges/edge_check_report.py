@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field
 
 
 class EdgeCheckReport(BaseModel):
-    """What kgdb raised as TypedIngestError, reported instead: the index is still readable."""
+    """The edge index's validation errors, reported instead of raised: the index is still readable."""
 
     errors: list[str] = Field(default_factory=list, description="Authored edges to documents that are not tracked, edges of unknown relation types, endpoint classes a type does not allow, cardinality violations.")
     stale: list[str] = Field(default_factory=list, description="Export ids of documents whose shard is not built from their current hash_c.")

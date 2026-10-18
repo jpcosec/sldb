@@ -1,4 +1,4 @@
-"""The graph layer absorbed from kgdb: contracts, query language, executor, neighborhood,
+"""The graph layer: contracts, query language, executor, neighborhood,
 portable snapshots and the semantic-export ingest route — all on top of the edge index."""
 
 from sldb.store.graph.edge import Edge

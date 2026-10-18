@@ -40,7 +40,7 @@ provenance: ⸢optrev•provenance⸥
         description="Stable id, conventionally 'surface-<system>-<surface>'."
     )
     system: str = Field(
-        description="System/tool that owns this surface (e.g. sldb, kgdb)."
+        description="System/tool that owns this surface (e.g. sldb, deskops)."
     )
     surface: str = Field(
         description="Surface/command-group name as exposed by the CLI (e.g. stores, docs)."

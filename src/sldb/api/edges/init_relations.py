@@ -1,4 +1,4 @@
-"""Prepare a store for typed relations (what `kgdb init` / `kgdb.world.init_world` did)."""
+"""Prepare a store for typed relations: the relation models, the builtin relation types."""
 
 from __future__ import annotations
 

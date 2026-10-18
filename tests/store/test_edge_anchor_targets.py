@@ -1,4 +1,4 @@
-"""What an anchor's `ref` names (ported from kgdb's typed ingest): both spellings of a ref —
+"""What an anchor's `ref` names: both spellings of a ref —
 the `kind:rest` scheme and the pron form (spec 13) — name the same nodes."""
 
 from __future__ import annotations

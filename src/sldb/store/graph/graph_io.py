@@ -10,7 +10,7 @@ from sldb.store.graph.snapshot import GraphSnapshot
 
 
 def save_graph(snapshot: GraphSnapshot, path: str | Path) -> None:
-    """Write a snapshot as node-link JSON, in the on-disk format kgdb consumers read."""
+    """Write a snapshot as node-link JSON (networkx's format, which external consumers read)."""
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(_node_link(snapshot), indent=2, ensure_ascii=False), encoding="utf-8")

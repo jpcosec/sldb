@@ -1,4 +1,4 @@
-"""The edge index (fusion of kgdb's typed ingest into sldb): every node and typed edge of a
+"""The edge index, sldb's typed graph: every node and typed edge of a
 store, kept as per-document shards on the hash chain and composed on read.
 
 - contributions (`doc_*`, `model_contribution`, `store_contribution`): what each shard holds;

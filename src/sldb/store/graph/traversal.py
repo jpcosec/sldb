@@ -1,8 +1,8 @@
 """Relation-parametrized walks over an edge index.
 
 Every walk takes the relation name it follows; none knows which relations a world
-declares. These are the primitives the old kgdb/pron graph readers implemented by hand,
-now on top of `EdgeIndex`.
+declares. These are the primitives graph readers (pron's, among others) used to implement
+by hand, on top of `EdgeIndex`.
 """
 
 from __future__ import annotations

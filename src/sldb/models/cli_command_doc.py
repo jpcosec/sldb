@@ -55,7 +55,7 @@ provenance: ⸢optrev•provenance⸥
         description="Stable id, conventionally 'cmd-<system>-<dashed-command-path>'."
     )
     system: str = Field(
-        description="System/tool that owns this command (e.g. sldb, kgdb)."
+        description="System/tool that owns this command (e.g. sldb, deskops)."
     )
     command_path: str = Field(
         description="Full command path as invoked, space-separated (e.g. 'stores init')."

@@ -1,4 +1,4 @@
-"""Node ids and vocabulary of the edge index (kept from kgdb's typed ingest, id for id)."""
+"""Node ids and vocabulary of the edge index: `sldb://<kind>/...`, stable across releases."""
 
 from __future__ import annotations
 

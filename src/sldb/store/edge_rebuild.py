@@ -1,5 +1,5 @@
-"""The edge index brought current (mirror of section_rebuild; the port of kgdb's typed
-ingest lives in `sldb.store.edge_index`): the store's shard, then every model's and every
+"""The edge index brought current (mirror of section_rebuild; the typed ingest itself lives
+in `sldb.store.edge_index`): the store's shard, then every model's and every
 document's. Runs after the semantic and sections rebuilds — a document's shard is built from
 its index entry's tags and its sections shard."""
 

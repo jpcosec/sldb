@@ -2,7 +2,7 @@ GRAPH_HELP = """sldb graph
 
 Query, traverse, analyse and snapshot the store's graph (the edge index).
 
-The graph layer is what kgdb's query half became: a structured query language (facet filters,
+The graph layer is a structured query language (facet filters,
 scope, relation filters) executed over the edge index's _out/_in maps, a BFS neighborhood,
 node-link JSON snapshots readable by external consumers, and — on networkx — the analyses that
 need the whole graph rather than one hop.
@@ -30,8 +30,8 @@ Examples:
   sldb graph components --isolated --type SpecDoc
   sldb graph central --kind pagerank --limit 10
   sldb graph similar Spec:spec-11 --limit 5
-  sldb graph snapshot save --output kgdb.graph.json
-  sldb graph ingest-sldb --input export.json --output kgdb.graph.json
+  sldb graph snapshot save --output graph.json
+  sldb graph ingest-sldb --input export.json --output graph.json
 
 Subcommands:
   get           One node from the store's edge index, as JSON

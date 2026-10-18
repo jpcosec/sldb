@@ -1,7 +1,7 @@
 """Compatibility bridge: store resolution now lives in `sldb.api.stores`.
 
 `get_store_context` keeps its tuple-returning signature for existing importers (the sldb CLI
-commands, deskops, kgdb, pron); new code should call `sldb.api.open_store`. The private
+commands, deskops, pron); new code should call `sldb.api.open_store`. The private
 helpers are re-exported because `sldb.cli.selfdoc_context` imports them.
 """
 from __future__ import annotations

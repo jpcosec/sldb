@@ -1,4 +1,5 @@
-"""Register the two relation models in a store, or re-point them when kgdb registered them."""
+"""Register the two relation models in a store, or re-point a store that still registers them
+under their retired `kgdb.models` refs (stores created before kgdb merged into sldb)."""
 
 from __future__ import annotations
 

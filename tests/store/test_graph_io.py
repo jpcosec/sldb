@@ -27,7 +27,7 @@ def test_ingest_sldb_builds_the_structural_nodes():
 
 def test_save_and_load_round_trip(tmp_path):
     snapshot = _snapshot()
-    path = tmp_path / "kgdb.graph.json"
+    path = tmp_path / "graph.json"
     save_graph(snapshot, path)
     reloaded = load_graph(path)
     assert [n.identity.node_id for n in reloaded.nodes] == [n.identity.node_id for n in snapshot.nodes]

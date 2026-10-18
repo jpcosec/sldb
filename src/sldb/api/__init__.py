@@ -1,6 +1,6 @@
 """sldb's library API: the store, model and document operations the CLI performs, as functions.
 
-Consumers (pron, kgdb, deskops...) call these instead of instantiating `sldb.cli` command
+Consumers (pron, deskops, graph_ui...) call these instead of instantiating `sldb.cli` command
 classes with fake argparse namespaces. Each operation that names a store opens it the way a
 CLI command does (`open_store`), returns a pydantic model instead of printing, and raises
 `sldb.core.exceptions` errors instead of exiting. Layering: `sldb.cli` -> `sldb.api` ->

@@ -1,4 +1,4 @@
-"""Every edge checked against its relation type (kgdb's TypedIngestError, as a report): the
+"""Every edge checked against its relation type, as a report rather than an exception: the
 type is a tracked RelationTypeDoc, the target exists, both endpoint classes are allowed (model
 names inherit through `base_models`), and cardinality holds.
 

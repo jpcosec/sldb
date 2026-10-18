@@ -15,7 +15,7 @@ Payload = dict[str, Any]
 
 def special_contribution(model_name: str, doc: DocumentEntry, payload_of: Callable[[], Payload | None]) -> EdgeContribution | None:
     """The contribution of a relation type, relation or anchor document; None for a plain one
-    (or one whose payload cannot be read: it stays a plain document, as it did in kgdb)."""
+    (or one whose payload cannot be read: it stays a plain document)."""
     builder = _builder_for(model_name, doc)
     payload = payload_of() if builder is not None else None
     if builder is None or payload is None:

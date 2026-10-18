@@ -1,4 +1,4 @@
-"""The structured query language, ported from kgdb with the two known defects fixed."""
+"""The structured query language, with the two defects of its first version fixed."""
 
 from __future__ import annotations
 

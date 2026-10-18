@@ -12,7 +12,7 @@ from sldb.store.edge_index.validation import untracked_builtins, validate_edge_i
 
 
 def check_edges(store: str | Path | None, include_linked: bool = True, exclude_tags: Iterable[str] = ()) -> EdgeCheckReport:
-    """The cross-document validation kgdb's typed ingest did, as a report.
+    """The cross-document validation of the edge index, as a report.
 
     Args:
         store: The store (path, alias, or None to discover it).

@@ -1,7 +1,7 @@
 """Compatibility bridge: model resolution now lives in `sldb.api.model_registry`.
 
 `registered_model` keeps its tuple-returning signature for existing importers (sldb CLI
-commands, deskops, kgdb, pron); new code should call `sldb.api.load_registered_model`.
+commands, deskops, pron); new code should call `sldb.api.load_registered_model`.
 """
 from __future__ import annotations
 from pathlib import Path
