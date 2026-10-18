@@ -46,7 +46,9 @@ python -m sldb --help
 python -m sldb stores init --path .
 python -m sldb stores check --store .sldb
 python -m sldb stores update --store .sldb --pythonpath .
-python -m sldb models add deskops.models:AtomDoc --store .sldb --pythonpath .
+python -m sldb models add notes.models:MeetingNoteDoc --store .sldb --pythonpath .   # a model this repo declares
+python -m sldb models inherit deskops:AtomDoc --store .sldb                         # a model the linked deskops store owns
+python -m sldb models check AtomDoc MeetingNoteDoc --store .sldb
 python -m sldb models show AtomDoc --store .sldb --pythonpath .
 python -m sldb models template edit AtomDoc --input <template.md> --store .sldb --pythonpath .
 python -m sldb models fields add AtomDoc <field> --type <type> --description "..." --store .sldb --pythonpath .
@@ -73,6 +75,17 @@ python -m sldb validate deskops.models:AtomDoc --input <doc.md> --pythonpath .
 ```
 
 If the installed CLI is available as `sldb`, that shorter form is also fine.
+
+## Models that live in your repo
+
+A model is declared in the repo that owns the content it describes, not in the tool's repo:
+any repo can write `class MeetingNoteDoc(StructuredNLDoc)` in, say, `notes/models.py` and
+register it as `notes.models:MeetingNoteDoc`.
+
+- `--pythonpath .` is how sldb imports it. The repo does not need a `pyproject.toml` or to be
+  pip-installable; the store keeps the reference and the source path, never the code.
+- A model another repo owns (deskops' `AtomDoc`, `TaskDoc`...) is not copied: link that
+  repo's store (`sldb stores add ../deskops/.sldb --name deskops`) and `models inherit` it.
 
 ## Model editing workflow
 

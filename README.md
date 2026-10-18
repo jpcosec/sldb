@@ -489,6 +489,14 @@ Linked store aliases can be used as generic document destinations from the curre
 sldb docs create --store shared --model Book -o docs/book.md data.yaml
 ```
 
+#### Models declared in your own repo
+
+A model lives in the repo that owns the content it describes. Any repo can declare one
+(`notes/models.py` → `class MeetingNoteDoc(StructuredNLDoc)`) and register it with
+`sldb models add notes.models:MeetingNoteDoc --pythonpath .`: `--pythonpath` is how sldb imports
+it, so the repo needs no `pyproject.toml` and does not have to be installable. The store keeps
+the reference and the source path, never the code.
+
 #### Models from the store that owns them
 
 A model is defined once, in the store that owns it (deskops' models live in the deskops repo's
