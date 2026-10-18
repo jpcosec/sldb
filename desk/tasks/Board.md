@@ -7,7 +7,6 @@ scope: sldb-local-desk
 tasks:
 - desk/tasks/task-congelar-journal-autoridad-arbol.md
 - desk/tasks/task-build-code-self-documentation.md
-- desk/tasks/task-unify-store-context-and-federation.md
 - desk/tasks/task-correct-ast-ownership-and-section-contracts.md
 # List of pill-xxx paths
 pills:
@@ -61,5 +60,4 @@ _Generated from the task references above._
 
 - Congelar el journal y rediseñar la autoridad: el árbol guarda, el journal es una vista [draft] - Dejar por escrito la dirección de diseño para cuando se retome: el **árbol es la autoridad**; el **journal es una interfaz de lectura** sobre él (como `git log`/`git diff` sobre el object database), no un segundo almacén.
 - Build code-derived self-documentation [active] - Provide repeatable scan, materialization, tracking, and freshness checks for code documentation.
-- Unify store context and federation [open] - Resolve project operations from the nearest enclosing store and make known stores discoverable through a maintained global catalog.
 - Correct AST ownership and section contracts [open] - Make field ownership and section boundaries reliable enough for structural queries and documentation provenance.

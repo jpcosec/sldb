@@ -1,0 +1,19 @@
+name: atom-una-operación-de-sldb-se-ancla-al-store-más-cercano-no-al-directorio-desde-donde-se-corre
+path: desk/atoms/atom-una-operación-de-sldb-se-ancla-al-store-más-cercano-no-al-directorio-desde-donde-se-corre.md
+source_hash: 72926690f28016020fdb70eb760f375e1a038dc4030db453bf84a3cea416199c
+content_hash: ebd7ac7ec84e56950ddec51b8a1fa5d656bc08934bf4876a22b2532ac58ff41b
+field_hashes:
+  id: a8e496e58502e49086e310b8ba7acdc7c4158a9e85b6e58a520541c13ecee169
+  title: c5ca2f863612cfb8152d854c309e9dd46e924799fe6e5de73380fe368e5972bc
+  five_wh_one_plus: 43f94244d00ce4813a89d3c0d15e1842fe2cfd95ce9fe3b063dda9e7983e0063
+  answer: 789d339bdfa7d159f281d0d68b97e15e14d83bc94731199faa3753cba590c69e
+  tags: 2e624d52c16672258c12f7aa58c6e0d78ca01a0e45ff162ab3480162ee7cacd4
+  provenance: 04b4c0a69face95502f28f045ddf0b70068b64435882e2ea82249ff007db502b
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:federation
+- topic:store-context
+- type.knowledge.atom
+- workspace.desk.atoms
