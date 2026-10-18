@@ -8,6 +8,14 @@ Version note (2026-09-13, updated 2026-10-17): `pyproject.toml` declares `0.1.10
   the model whole, so a stale roster (a merge that brought its shards in, say) stayed
   `roster stale` in `stores check`. Its documents are still not rehashed, it is still reported
   as skipped, and it keeps the contract it signed.
+- `stores check` no longer reports a moved contract for a model with `extra="allow"` (deskops'
+  TaskDoc) whose documents carry undeclared frontmatter keys. Such a key is still produced by
+  the current class, so it is not a field the model dropped; the check only counts a key the
+  current extraction of the same document no longer yields. `stores update` could never clear
+  the old finding.
+- A template whose frontmatter is one `dict` placeholder (`⸢rev,dict•frontmatter⸥`) declares
+  every key: `docs track` and `docs create` no longer refuse a document's extra keys, which that
+  dict carries back on re-render.
 - `tools/check_identity.py` reads `git ls-files -z`: a quoted non-ASCII path no longer shows
   up as a top-level entry named `"docs`.
 

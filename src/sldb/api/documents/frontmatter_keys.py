@@ -19,9 +19,19 @@ from sldb.core.exceptions import SLDBValidationError
 _TOP_LEVEL_KEY = re.compile(r"^([A-Za-z0-9_-]+)\s*:")
 
 
+#: A frontmatter that is one dict placeholder (`⸢rev,dict•frontmatter⸥`): every key rides in it.
+_DICT_PLACEHOLDER = re.compile(r"^\s*⸢[^⸥]*\bdict\b[^⸥]*⸥\s*$")
+
+
 def undeclared_frontmatter_keys(model_type: type, markdown: str) -> list[str]:
-    """The document's top-level frontmatter keys the model's template never declares."""
+    """The document's top-level frontmatter keys the model's template never declares.
+
+    None when the template's frontmatter is a single dict placeholder: that dict carries any
+    key through extraction and back on re-render, so nothing is lost (deskops' TaskDoc).
+    """
     template = getattr(model_type, "__template__", "") or ""
+    if _frontmatter_is_dict(template):
+        return []
     return sorted(_frontmatter_keys(markdown, load_yaml=True) - _frontmatter_keys(template, load_yaml=False))
 
 
@@ -46,6 +56,11 @@ def _frontmatter_keys(markdown: str, load_yaml: bool) -> set[str]:
         return set()
     content = node.content or ""
     return _yaml_keys(content) if load_yaml else _template_keys(content)
+
+
+def _frontmatter_is_dict(template: str) -> bool:
+    node = _front_matter_node(template)
+    return node is not None and bool(_DICT_PLACEHOLDER.match((node.content or "").strip()))
 
 
 def _yaml_keys(content: str) -> set[str]:

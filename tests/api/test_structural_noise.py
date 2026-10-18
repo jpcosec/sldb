@@ -146,6 +146,18 @@ def test_undeclared_frontmatter_key_is_refused():
         refuse_undeclared_frontmatter(CardDoc, with_owner, "card")
 
 
+def test_a_dict_placeholder_frontmatter_declares_every_key():
+    """A frontmatter that is one `dict` placeholder carries any key through extraction and
+    back on re-render, so no key is lost and none is refused (deskops' TaskDoc)."""
+
+    class TaskDoc(StructuredNLDoc):
+        __template__ = "---\n⸢rev,dict•frontmatter⸥\n---\n\n# ⸢rev•title⸥"
+        title: str = Field(description="Task title.")
+        frontmatter: dict | None = Field(default=None, description="Metadata.")
+
+    assert undeclared_frontmatter_keys(TaskDoc, "---\npriority: p0\ndomain: x\n---\n\n# T") == []
+
+
 def test_stores_check_reports_noise_already_tracked_without_blocking(noise_store):
     """`stores check` diagnoses what `docs track` would now refuse; force put it there."""
     path = noise_store.write("noisy", NOISY)

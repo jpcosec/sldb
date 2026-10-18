@@ -3,7 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any, Callable, Optional
 
-from sldb.store.field_set_drift import signed_under_other_fields
+from sldb.store.field_set_drift import document_drifted
 from sldb.store.layout import project_root as store_project_root
 from sldb.store.hashing import (
     hash_documents_index,
@@ -100,7 +100,7 @@ def _diagnose_model(model_entry, root, pythonpath, resolve_model_ref: Callable) 
     docs_idx = load_documents_index(root / models_idx.documents_index)
     model_type = _try_resolve_model(model_entry.model_ref, pythonpath, resolve_model_ref)
     legacy = legacy_contract(models_idx, model_type)
-    drifted = any(signed_under_other_fields(d.field_hashes, model_type) for d in docs_idx.documents)  # see sldb.store.field_set_drift
+    drifted = any(document_drifted(d, root, model_type) for d in docs_idx.documents)  # see sldb.store.field_set_drift
     contract_ok = (legacy or not contract_moved(models_idx, model_type)) and not drifted
     doc_diagnoses = [_diagnose_doc(d, root, model_type, contract_ok) for d in docs_idx.documents]
     roster_ok = hash_documents_index(docs_idx) == models_idx.roster_hash

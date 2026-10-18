@@ -56,3 +56,54 @@ def test_a_dropped_field_is_a_contract_move_that_update_fixes(tmp_path):
     assert not diagnosis.damaged_documents
     update_store_indexes(sp, str(models))
     assert diagnose_store(sp, resolve_model_ref, project_root(sp), str(models)).is_valid
+
+
+_EXTRA = '''from pydantic import ConfigDict, Field, model_validator
+from sldb import StructuredNLDoc
+
+
+class NoteDoc(StructuredNLDoc):
+    """The shape of deskops' TaskDoc: the frontmatter is one dict whose keys become extras."""
+    model_config = ConfigDict(extra="allow")
+    __template__ = """---
+⸢rev,dict•frontmatter⸥
+---
+
+# ⸢rev•title⸥"""
+    title: str = Field(description="Title.")
+    frontmatter: dict | None = Field(default=None, description="Metadata.", exclude=True)
+
+    @model_validator(mode="before")
+    @classmethod
+    def _merge_frontmatter(cls, data):
+        if isinstance(data, dict) and isinstance(data.get("frontmatter"), dict):
+            for key, value in data.pop("frontmatter").items():
+                data.setdefault(key, value)
+        return data
+
+    def render_payload(self, ref_root=None):
+        data = super().render_payload(ref_root)
+        data["frontmatter"] = {k: v for k, v in data.items() if k != "title"}
+        return data
+'''
+
+
+def test_an_extra_key_the_class_still_yields_is_not_another_contract(tmp_path):
+    """`extra="allow"` promotes an undeclared frontmatter key into the payload, so its field
+    hash comes from the current contract. Counting it as a dropped field made `stores check`
+    report a contract move that `stores update` could never clear (graph_ui, TaskDoc)."""
+    from sldb.api import track_document_file
+    from sldb.store.io import load_documents_index, load_models_index, load_store_index
+
+    models, root = tmp_path / "models", tmp_path / "repo"
+    models.mkdir(), root.mkdir()
+    _reload(models, _EXTRA)
+    sp = init_store(root).store_path
+    add_model(sp, f"{MODULE}:NoteDoc", str(models))
+    (root / "task.md").write_text("---\npriority: p0\n---\n\n# A task\n", encoding="utf-8")
+    track_document_file(sp, "NoteDoc", root / "task.md", "task", str(models))
+    m_idx = load_models_index(root / load_store_index(sp).models[0].models_index)
+    assert "priority" in load_documents_index(root / m_idx.documents_index).documents[0].field_hashes
+
+    diagnosis = diagnose_store(sp, resolve_model_ref, project_root(sp), str(models))
+    assert diagnosis.is_valid and not diagnosis.moved_contracts
