@@ -43,10 +43,12 @@ def module_name(path, root, package: str | None) -> str:
     return ".".join(([package] if package else []) + parts)
 
 
-def relative_module(module: str, requested: str | None, level: int) -> str:
-    """Resolve an ImportFrom module spelling against its importer's package."""
+def relative_module(module: str, requested: str | None, level: int, is_package: bool = False) -> str:
+    """Resolve an ImportFrom module spelling against its importer's package: a package's
+    `__init__` is its own package (`from .impl import X` in `pkg/inner/__init__.py` names
+    `pkg.inner.impl`, which was resolved as `pkg.impl`)."""
     if not level:
         return requested or ""
-    package = module.split(".")[:-1]
+    package = module.split(".") if is_package else module.split(".")[:-1]
     base = package[:len(package) - level + 1]
     return ".".join([*base, *(requested or "").split(".")]).strip(".")

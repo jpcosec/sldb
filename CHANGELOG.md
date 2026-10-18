@@ -111,6 +111,12 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   `topic:*` as a union, any other tag local only; nothing through imports, base classes or
   siblings. Each effective tag names the declaration and `path:line` it comes from. Two
   `system:` (or `workspace:`) tags on one declaration are a metadata error.
+- An import in the source graph follows explicit re-export chains to the definition
+  (`from sldb.api import open_store` reaches `sldb.api.stores.open_store:open_store`), through
+  module-level imports only, with the chain in the edge's `via`; `from pkg import submodule`
+  reaches the submodule. A star import, a cycle or a module outside the scan stays
+  unresolved. A relative import inside a package's `__init__.py` resolves against that
+  package (it was resolved against the parent: `pkg.impl` for `pkg.inner.impl`).
 - `stores init` fails cleanly: what a failed init wrote is removed, the message says where it
   failed and what to check (instead of `Unexpected: [Errno 13] ...`), and the exit code tells
   a caller what happened: 0 created or already there, 2 the place refused it (permissions),

@@ -4,6 +4,7 @@ from __future__ import annotations
 from datetime import datetime, timezone
 
 from .python_source_values import relative_module
+from .python_reexports import module_bindings, resolve_import
 from .python_tag_inheritance import apply_effective_tags
 
 
@@ -14,8 +15,9 @@ def source_snapshot(files: list[dict], system: str) -> dict:
     nodes = {file["id"]: _module_node(file, system) for file in files}
     nodes.update({symbol["id"]: _symbol_node(file, symbol, system) for file in files for symbol in file["symbols"]})
     apply_effective_tags(files, nodes)
+    reexports = module_bindings(files)
     for file in files:
-        _edges(file, nodes, modules, symbols)
+        _edges(file, nodes, modules, symbols, reexports)
     return {"version": "1.0", "created_at": _now(), "nodes": list(nodes.values()), "metadata": _metadata(files, system)}
 
 
@@ -35,10 +37,10 @@ def _node(identity, kind, metadata, file, system, symbol=None) -> dict:
             "ast": ast, "source": {"producer": "sldb.python_ast", "system": system, "sha256": file["hash"], "path": file["path"]}}
 
 
-def _edges(file, nodes, modules, symbols) -> None:
+def _edges(file, nodes, modules, symbols, reexports) -> None:
     for symbol in file["symbols"]:
         _edge(nodes, symbol["parent"], symbol["id"], "contains", _evidence(file, symbol))
-    bindings = _binding_targets(file, modules, symbols)
+    bindings = _binding_targets(file, modules, symbols, reexports)
     for binding in bindings:
         _edge(nodes, binding["owner"], binding["target"], "imports", binding)
     parents = {symbol["id"]: symbol["parent"] for symbol in file["symbols"]}
@@ -58,16 +60,13 @@ def _reference_target(reference, bindings, parents) -> str | None:
     return None
 
 
-def _binding_targets(file, modules, symbols) -> list[dict]:
-    return [{**binding, "module": relative_module(file["module"], binding["module"], binding["level"]),
-             "target": _target(file, binding, modules, symbols), **_evidence(file, binding)} for binding in file["imports"]]
-
-
-def _target(file, binding, modules, symbols) -> str:
-    module = relative_module(file["module"], binding["module"], binding["level"])
-    if binding["name"] and f"{module}:{binding['name']}" in symbols:
-        return symbols[f"{module}:{binding['name']}"]
-    return modules.get(module, f"python:external:{module}:{binding['name'] or ''}")
+def _binding_targets(file, modules, symbols, bindings) -> list[dict]:
+    found = []
+    for binding in file["imports"]:
+        module = relative_module(file["module"], binding["module"], binding["level"], file["path"].endswith("__init__.py"))
+        target, via = resolve_import(module, binding["name"], modules, symbols, bindings)
+        found.append({**binding, "module": module, "target": target, **({"via": via} if via else {}), **_evidence(file, binding)})
+    return found
 
 
 def _edge(nodes, source, target, relation, metadata) -> None:
