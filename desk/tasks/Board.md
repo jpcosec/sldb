@@ -9,7 +9,6 @@ tasks:
 - desk/tasks/task-build-code-self-documentation.md
 - desk/tasks/task-unify-store-context-and-federation.md
 - desk/tasks/task-correct-ast-ownership-and-section-contracts.md
-- desk/tasks/task-dar-fuente-propia-al-grafo-store-graph-deja-de-leer-runtime-edges.md
 - desk/tasks/task-cerrar-los-gaps-g1-g5-que-bloquean-el-retiro-de-runtime-edges.md
 - desk/tasks/task-comando-de-porte-sldb-stores-migrate-legacy-edges-y-error-de-migracion.md
 - desk/tasks/task-borrar-la-capa-runtime-edges-y-podar-el-surface-publico.md
@@ -63,11 +62,10 @@ Current review follow-up: CLI self-documentation is active; shared store context
 
 _Generated from the task references above._
 
-- Congelar el journal y rediseñar la autoridad: el árbol guarda, el journal es una vista [draft] - 
+- Congelar el journal y rediseñar la autoridad: el árbol guarda, el journal es una vista [draft] - Dejar por escrito la dirección de diseño para cuando se retome: el **árbol es la autoridad**; el **journal es una interfaz de lectura** sobre él (como `git log`/`git diff` sobre el object database), no un segundo almacén.
 - Build code-derived self-documentation [active] - Provide repeatable scan, materialization, tracking, and freshness checks for code documentation.
 - Unify store context and federation [open] - Resolve project operations from the nearest enclosing store and make known stores discoverable through a maintained global catalog.
 - Correct AST ownership and section contracts [open] - Make field ownership and section boundaries reliable enough for structural queries and documentation provenance.
-- Dar fuente propia al grafo: store/graph deja de leer runtime/edges [draft] - Que store/graph/ construya su indice desde el snapshot portable (semantic export -> sldb_semantic_export_to_snapshot, graph/ingest_sldb.py:20) en vez de desde los shards de runtime/edges/.
 - Cerrar los gaps G1-G5 que bloquean el retiro de runtime/edges [draft] - Que cada capacidad de runtime/edges tenga equivalente demostrado sobre el snapshot networkx/KGDB.
 - Comando de porte sldb stores migrate-legacy-edges y error de migracion [draft] - Implementar 'sldb stores migrate-legacy-edges' y el error de apertura que lo referencia.
 - Borrar la capa runtime/edges y podar el surface publico [draft] - Borrar edge_sync.py, edge_rebuild.py, edge_doc_contribution.py, edge_index/doc_contribution.py, models/doc_edges.py, models/edge_contribution.py, api/edges/rebuild_edges.py, cli/commands/edges.py, cli/parsers/edges.py, cli/serve/edges_routes.py, y podar api/__init__.py.
