@@ -73,8 +73,9 @@ def _class_ok(nodes: dict[str, EdgeNodeRecord], node: EdgeNodeRecord, allowed: l
 
 
 def _cardinality_errors(edges: list[EdgeRecord], relation_types: dict[str, dict[str, Any]]) -> list[str]:
-    out_count = Counter((e.source, e.relation) for e in edges)
-    in_count = Counter((e.target, e.relation) for e in edges)
+    unique = {(e.source, e.relation, e.target) for e in edges}  # one fact two stores both emit (a shared model's fields) is one edge
+    out_count = Counter((src, rel) for src, rel, _ in unique)
+    in_count = Counter((tgt, rel) for _, rel, tgt in unique)
     errors = [f"{src} has {n} '{rel}' targets but cardinality is {_card(relation_types, rel)}" for (src, rel), n in out_count.items() if n > 1 and _card(relation_types, rel) in ("one_to_one", "many_to_one")]
     return errors + [f"{tgt} has {n} '{rel}' sources but cardinality is {_card(relation_types, rel)}" for (tgt, rel), n in in_count.items() if n > 1 and _card(relation_types, rel) in ("one_to_one", "one_to_many")]
 

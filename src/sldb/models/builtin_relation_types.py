@@ -13,7 +13,8 @@ from typing import Any
 
 # (name, axis, cardinality, source_types, target_types, description)
 _TABLE: list[tuple[str, str, str, list[str], list[str], str]] = [
-    ("has_model", "WHAT", "one_to_many", ["sldb_store"], ["sldb_model"], "The store registers this model."),
+    ("has_model", "WHAT", "many_to_many", ["sldb_store"], ["sldb_model"], "The store registers this model: its own, or one it inherits from the linked store that owns it."),
+    ("links_to", "WHERE", "many_to_many", ["sldb_store"], ["sldb_store"], "The store links that store under an alias (`stores add`): it reads its documents and inherits its models."),
     ("has_document", "WHAT", "one_to_many", ["sldb_model"], [], "The model has this document as an instance."),
     ("has_section", "WHERE", "one_to_many", [], ["sldb_section"], "The document contains this section."),
     ("tagged_as", "WHAT", "many_to_many", [], ["semantic_tag"], "The model, document or section carries this semantic tag."),

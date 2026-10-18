@@ -4,6 +4,11 @@ Version note (2026-09-13, updated 2026-10-17): `pyproject.toml` declares `0.1.10
 
 ## Unreleased
 
+- `edges check` over linked stores: one edge that two stores both emit (a shared model's
+  `has_field`) counts once for cardinality; `has_model` is many-to-many, since stores share a
+  model they inherit; `links_to` is a builtin relation type. `sldb edges init` now also
+  rewrites a tracked builtin relation type whose spec moved (`updated` in its report), and no
+  longer writes a builtin over an authored relation type of the same name.
 - Models are defined once, in the store that owns them, and inherited by the others.
   `sldb models inherit alias:Model` / `sldb.api.inherit_model` registers an inherited entry
   (`origin: <alias>`, no source path) or converts a local copy in place, keeping its documents,

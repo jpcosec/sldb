@@ -133,3 +133,29 @@ def test_sldbs_own_models_are_nobodys_to_inherit(stores):
     ref = "sldb.models.relation_doc:RelationDoc"
     add_model(owner / ".sldb", ref), add_model(sp, ref)
     assert shadowed_models(sp) == []
+
+
+def test_a_shared_model_is_one_fact_in_the_federated_edge_check(stores):
+    """Both stores emit the inherited model's node and fields; the same edge from two stores
+    is one edge, and two stores registering one model is what `has_model` now allows."""
+    from sldb.api import check_edges, init_relations
+
+    owner, local, sp = stores
+    init_relations(owner / ".sldb", str(owner)), init_relations(sp)
+    inherit_model(sp, "deskops:NoteDoc")
+    track_document_file(sp, "NoteDoc", local / "note.md", "note")
+    report = check_edges(sp)
+    assert report.errors == [], report.errors
+
+
+def test_edges_init_rewrites_an_outdated_builtin_and_leaves_an_authored_namesake(stores):
+    from sldb.api import init_relations
+
+    owner, local, sp = stores
+    init_relations(sp)
+    has_model = local / "sldb" / "relation_types" / "has_model.md"
+    has_model.write_text(has_model.read_text(encoding="utf-8").replace("many_to_many", "one_to_many"), encoding="utf-8")
+    report = init_relations(sp)
+    assert report.types_updated == ["has_model"] and "many_to_many" in has_model.read_text(encoding="utf-8")
+    assert init_relations(sp).types_updated == []
+    assert check_store(sp, local)["valid"]

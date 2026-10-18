@@ -9,6 +9,7 @@ from sldb.api.edges.builtin_relation_writes import register_builtin_predicates, 
 from sldb.api.edges.relation_models import register_relation_models
 from sldb.api.edges.relations_init_report import RelationsInitReport
 from sldb.api.stores.open_store import open_store
+from sldb.api.stores.update_store_indexes import update_store_indexes
 
 
 def init_relations(store: str | Path | None, pythonpath: str | None = None) -> RelationsInitReport:
@@ -30,6 +31,8 @@ def init_relations(store: str | Path | None, pythonpath: str | None = None) -> R
     register_relation_models(location.store_path, location.project_root, pythonpath, report)
     write_builtin_relation_types(location.store_path, location.project_root, pythonpath, report)
     register_builtin_predicates(location.store_path, report)
-    if report.models_repointed:
+    if report.types_updated:
+        update_store_indexes(location.store_path, pythonpath)  # rehash the rewritten builtins
+    elif report.models_repointed:
         rebuild_edges(location.store_path, pythonpath)  # the model nodes carry their model_ref
     return report
