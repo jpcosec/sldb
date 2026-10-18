@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import Any
 from sldb.core.exceptions import SLDBError
 from sldb.cli.commands.store_init import init_store
-from sldb.cli.commands.store_add import add_store
+from sldb.cli.commands.store_add import add_store, remove_store
 from sldb.cli.commands.store_check import check_store
 from sldb.cli.commands.store_migrate_hashes import migrate_hashes
 from sldb.cli.commands.store_update import update_store
@@ -15,6 +15,7 @@ class StoreCLI:
         cmd_map = {
             "init": init_store,
             "add": add_store,
+            "remove": remove_store,
             "check": check_store,
             "migrate-hashes": migrate_hashes,
             "update": update_store,

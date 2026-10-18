@@ -10,7 +10,7 @@ inferred from a hash.
 
 from __future__ import annotations
 from typing import Any
-from sldb.cli.commands.store_check_notes import print_notes, print_shadowed  # noqa: F401 - print_shadowed re-exported
+from sldb.cli.commands.store_check_notes import print_link_notes, print_notes, print_shadowed  # noqa: F401 - re-exported
 from sldb.store.diagnostics_models import DiagnosisNote
 
 

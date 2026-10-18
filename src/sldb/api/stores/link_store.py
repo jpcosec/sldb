@@ -8,6 +8,7 @@ from pathlib import Path
 from sldb.api.stores.doc_ref import LINK_NAME, LOCAL
 from sldb.api.stores.linked_store import LinkedStore
 from sldb.api.stores.open_store import open_store
+from sldb.api.stores.unlink_store import drop_link
 from sldb.core.exceptions import SLDBStoreError
 from sldb.store.io import load_store_index, save_store_index
 from sldb.store.layout import store_exists
@@ -15,20 +16,21 @@ from sldb.store.models.store_entry import StoreEntry
 from sldb.store.models.store_index import StoreIndex
 
 
-def link_store(store: str | Path | None, other_store: str | Path, name: str | None = None) -> LinkedStore:
+def link_store(store: str | Path | None, other_store: str | Path, name: str | None = None, replace: bool = False) -> LinkedStore:
     """Record another store as linked into `store`.
 
     Args:
         store: The linking store (path, alias, or None to discover it).
         other_store: Path of the `.sldb` directory to link.
         name: Alias for the link; defaults to the name of the directory holding `other_store`.
+        replace: Point a link already recorded under that name at `other_store` instead.
 
     Returns:
         The link as recorded in the store index.
 
     Raises:
         SLDBStoreError: When `other_store` is not a store or is the linking store itself, or
-            the name is invalid, reserved (`local`) or already linked.
+            the name is invalid, reserved (`local`) or already linked (and not `replace`).
     """
     location = open_store(store)
     other = Path(other_store).resolve()
@@ -36,6 +38,8 @@ def link_store(store: str | Path | None, other_store: str | Path, name: str | No
     _check_not_self(location.store_path, other)
     link_name = name or other.parent.name
     _check_link_name(link_name)
+    if replace and any(s.name == link_name for s in load_store_index(location.store_path).stores):
+        drop_link(location.store_path, link_name)
     path = record_store_link(location.store_path, location.project_root, other, link_name)
     return LinkedStore(name=link_name, path=path)
 

@@ -463,10 +463,12 @@ defined once, in the store that owns it, and inherited by the others (below).
 # Link a shared ontology store
 sldb stores add ~/.sldb/shared-ontology --name shared
 sldb stores list            # each link with its state: ok, or [missing|not-a-store: <path>]
+sldb stores add ../shared/.sldb --name shared --replace   # point an existing link elsewhere
+sldb stores remove shared   # forget a link (refused while a model here is inherited from it)
 ```
 
 The link is recorded relative to the project root, so two repos checked out side by side keep
-it on another machine. The alias must be letters, digits, `.`, `_` or `-`; `local` is reserved.
+it on another machine. `stores check` notes a link whose target is gone or holds no store. The alias must be letters, digits, `.`, `_` or `-`; `local` is reserved.
 
 Referencing a document of a linked store does not track it here: `docs list` and the root hash
 stay local. `alias:ref` reads the store linked **directly** as `alias` (links of links are not
@@ -503,7 +505,8 @@ inherits it on first use, the same way.
 
 - **No source path, no `--pythonpath`.** An inherited entry records only where it comes from
   (`origin: deskops` in `store_index.yaml`); the class imports from the owner's project root.
-  If the owner moves, update the one link (`stores add` again), not every store.
+  If the owner moves, update the one link (`stores add <path> --name deskops --replace`), not
+  every store.
 - **What stays local is the store's own:** the roster of its documents of that model and the
   contract it last signed. If the owner is unreachable the store keeps working as with any
   model that does not import: `stores check` passes on the text, and the documents keep their
@@ -560,6 +563,8 @@ document several others point at is a reference, not a child (`edges check` repo
 |---------|-------------|
 | `sldb stores init [--path .]` | Initialize a `.sldb/` store |
 | `sldb stores add <path> [--name alias]` | Link a federated store |
+| `sldb stores add <path> --name alias --replace` | Point an existing link elsewhere |
+| `sldb stores remove <alias>` | Remove a link |
 | `sldb stores list` | List links with their state |
 | `sldb stores check [--format text\|json\|yaml]` | Run integrity diagnostics |
 | `sldb stores update [--wait] [--verbose]` | Recompute all hashes from current file states |

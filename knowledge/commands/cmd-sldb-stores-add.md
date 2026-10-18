@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#stores add; contract-sha256:420e56e3c941638193aae484468577ca5eee1c6a17a48719fb71478655770543
+provenance: parser:sldb.cli.parser:build_parser#stores add; contract-sha256:a5a60d8166665974dd1fe4c554f241f9dd5bc69fdfcb5432488ef1a459c4d423
 ---
 
 # stores add
@@ -69,6 +69,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'add'. It par
       "action": "argparse._StoreAction",
       "const": "null",
       "help": "Local store path"
+    },
+    {
+      "names": [
+        "--replace"
+      ],
+      "required": false,
+      "default": "false",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "argparse._StoreTrueAction",
+      "const": "true",
+      "help": "Point a link already recorded under that name here"
     }
   ],
   "exclusive_groups": []

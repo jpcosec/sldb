@@ -66,6 +66,7 @@ from sldb.api.stores.doc_ref_status import DocRefStatus
 from sldb.api.stores.doc_status import doc_exists, doc_status
 from sldb.api.stores.init_store import init_store
 from sldb.api.stores.link_store import link_store
+from sldb.api.stores.unlink_store import unlink_store
 from sldb.api.stores.linked_store import LinkedStore
 from sldb.api.stores.migrate_hash_names import migrate_store_hash_names
 from sldb.api.stores.open_store import open_store
@@ -112,7 +113,7 @@ __all__ = [
     "delete_document", "describe_field", "describe_model", "describe_model_fields",
     "doc_node_id", "document_ast", "edge_node", "edge_nodes_of_type", "edges_from",
     "edges_to", "edit_model_template", "ensure_list", "extract_document_payload",
-    "field_node_id", "init_relations", "init_store", "journal", "kind", "link_store",
+    "field_node_id", "init_relations", "init_store", "journal", "kind", "link_store", "unlink_store",
     "load_edge_index", "leaf_paths", "load_runtime_documents", "migrate_store_hash_names",
     "load_registered_model", "locate_model_source", "model_node_id", "open_store",
     "promote_model_draft", "rebuild_edges", "reindex_model", "relation_type_node_id",

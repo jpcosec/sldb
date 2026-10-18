@@ -13,6 +13,11 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   edges shard (its hashes had not moved), so the new references never reached the index and
   `edges rebuild` walked nothing until the shards were deleted by hand. Each shard now records
   the contract it was built under; the first rebuild after upgrading rewrites every shard once.
+- A store link can be removed or pointed elsewhere: `sldb.api.unlink_store(store, name)` /
+  `sldb stores remove <name>`, and `link_store(..., replace=True)` / `stores add --replace`.
+  Removing a link a model here is inherited from is refused (replace it instead). A link to a
+  directory that is gone was only fixable by editing `store_index.yaml`; `stores check` now
+  notes it (`broken_links` in `check_store`).
 
 ## 0.1.12 - 2026-10-18 — declared references resolve bare ids and paths, and report what names nothing
 

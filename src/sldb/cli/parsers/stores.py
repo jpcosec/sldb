@@ -4,7 +4,7 @@ import argparse
 def add_stores_group(s: argparse._SubParsersAction) -> None:
     p = s.add_parser("stores", help="Store lifecycle and federation.")
     sub = p.add_subparsers(dest="stores_command", required=True)
-    _init(sub); _add(sub); _check(sub); _update(sub); _reconcile(sub)
+    _init(sub); _add(sub); _remove(sub); _check(sub); _update(sub); _reconcile(sub)
     _semantic_map(sub); _semantic_export(sub); _list(sub); _migrate_hashes(sub)
 
 def _init(s):
@@ -17,6 +17,12 @@ def _add(s):
     a.add_argument("path", help="Store path")
     a.add_argument("--name", help="Store name")
     a.add_argument("--store", help="Local store path")
+    a.add_argument("--replace", action="store_true", help="Point a link already recorded under that name here")
+
+def _remove(s):
+    r = s.add_parser("remove", help="Remove a store link; refused while a model here is inherited from it.")
+    r.add_argument("name", help="Link name")
+    r.add_argument("--store", help="Local store path")
 
 def _check(s):
     c = s.add_parser("check", help="Integrity check: reports each finding and its category.")

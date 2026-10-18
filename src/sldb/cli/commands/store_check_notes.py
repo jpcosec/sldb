@@ -48,3 +48,18 @@ def print_shadowed(sp: Any) -> None:
             print(f"\nnote: {found['model']} is another class under the name of a model '{found['store']}' owns; the graph merges both in one node")
             print(f"    fix     : give the override a name of its own and extend {found['model']}")
 
+
+
+def print_broken_links(sp: Any) -> None:
+    """Links whose target is gone or holds no store: what is read through them is missing."""
+    from sldb.api.stores.store_links import store_links
+
+    for link in [li for li in store_links(sp) if li["status"] != "ok"]:
+        print(f"\nnote: the store linked as '{link['name']}' is {link['status']}: {link['resolved']}")
+        print(f"    fix     : sldb stores add <path> --name {link['name']} --replace   (or `sldb stores remove {link['name']}`)")
+
+
+def print_link_notes(sp: Any) -> None:
+    """What the store's links say: models shadowing an owner's, links to nothing."""
+    print_shadowed(sp)
+    print_broken_links(sp)
