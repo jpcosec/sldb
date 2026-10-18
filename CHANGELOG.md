@@ -2,7 +2,7 @@
 
 Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12`; it was `0.1.0` while PyPI already had `0.1.1`. Existing entries below are historical development records, not a verified registry release inventory. The product-generation label “v1” is separate from package versioning. No new package version or release is created by this documentation reconciliation.
 
-## Unreleased
+## 0.1.13 — not released yet (no tag, not on PyPI)
 
 - The pre-redesign singular groups `sldb store`, `sldb model` and `sldb doc` run again: they
   were parsed (and listed by `sldb doc --help`) but had no handler, so `sldb doc untrack`
