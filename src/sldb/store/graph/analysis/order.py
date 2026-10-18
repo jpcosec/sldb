@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import networkx as nx
 
-from sldb.core.exceptions import SLDBGraphCycleError
+from sldb.store.exceptions import SLDBGraphCycleError
 from sldb.store.graph.analysis.cycles import cycles
 from sldb.store.graph.analysis.nx_graph import collapsed
 

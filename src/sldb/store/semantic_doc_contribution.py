@@ -9,7 +9,7 @@ rebuild never fails on a model nobody is reading."""
 
 from __future__ import annotations
 
-from sldb.core.exceptions import SLDBModelError
+from sldb.store.exceptions import SLDBModelError
 from sldb.store.codec import StoreCodec, default_codec
 from sldb.store.io.shards import load_semantic_shard, save_semantic_shard
 from sldb.store.layout import semantic_shard_path

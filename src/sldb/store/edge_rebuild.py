@@ -9,7 +9,7 @@ import logging
 from pathlib import Path
 from typing import Any
 
-from sldb.core.exceptions import SLDBModelError
+from sldb.store.exceptions import SLDBModelError
 from sldb.store.codec import default_codec
 from sldb.store.edge_index.cache_keys import edge_shard_version
 from sldb.store.edge_index.doc_contribution import build_doc_edges

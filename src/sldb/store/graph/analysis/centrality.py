@@ -17,7 +17,7 @@ from __future__ import annotations
 
 import networkx as nx
 
-from sldb.core.exceptions import SLDBError
+from sldb.store.exceptions import SLDBError
 from sldb.store.graph.analysis.nx_graph import collapsed
 from sldb.store.graph.analysis.similarity import of_types
 

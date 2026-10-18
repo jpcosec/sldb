@@ -38,7 +38,7 @@ def _model_node(m_idx: ModelsIndex, mid: str, tags: list[str]) -> EdgeNodeRecord
 
 
 def _field_node(model_name: str, fname: str, finfo: Any) -> EdgeNodeRecord:
-    from sldb.api.schema.describe_field import describe_field  # a pydantic-only leaf; imported late so sldb.store never loads sldb.api at import time
+    from sldb.store.model_contract import describe_field
 
     desc = describe_field(fname, finfo).model_dump(exclude={"annotation", "description"}, exclude_none=True)
     desc.update({"model": model_name, "description": finfo.description or ""})

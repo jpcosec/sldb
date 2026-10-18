@@ -12,7 +12,7 @@ relations to walk defaults to the authored ones.
 
 from __future__ import annotations
 
-from sldb.models.builtin_relation_types import BUILTIN_RELATION_TYPES
+from sldb.store.model_contract import BUILTIN_RELATION_TYPES
 
 DERIVED: frozenset[str] = frozenset(str(r["name"]) for r in BUILTIN_RELATION_TYPES)
 """The relations sldb derives from the store: the structural spine and the semantic DAG."""

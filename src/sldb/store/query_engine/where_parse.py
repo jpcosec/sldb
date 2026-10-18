@@ -10,7 +10,7 @@ from __future__ import annotations
 import re
 from typing import Any, Callable
 
-from sldb.core.exceptions import SLDBError
+from sldb.store.exceptions import SLDBError
 from sldb.store.query_engine.where_literal import LITERAL as _LITERAL
 from sldb.store.query_engine.where_literal import LITERAL_NONEMPTY as _LITERAL_NONEMPTY
 from sldb.store.query_engine.where_literal import split_outside_literals

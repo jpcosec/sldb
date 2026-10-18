@@ -4,24 +4,8 @@ from __future__ import annotations
 
 from typing import Any
 
-from pydantic.fields import FieldInfo
-
-from sldb.api.schema.field_description import FieldDescription
-from sldb.api.schema.field_descriptor import field_descriptor
-
-
-def describe_field(name: str, field: FieldInfo) -> FieldDescription:
-    """Describe one pydantic field: kind, requiredness, enum values, annotation and description.
-
-    Args:
-        name: Field name.
-        field: The field's `FieldInfo`, e.g. `Model.model_fields[name]`.
-
-    Returns:
-        The field description.
-    """
-    annotation = getattr(field.annotation, "__name__", repr(field.annotation))
-    return FieldDescription(**field_descriptor(name, field), annotation=annotation)
+from sldb.models.field_schema.describe import describe_field
+from sldb.models.field_schema.description import FieldDescription
 
 
 def describe_model_fields(model_type: type[Any]) -> list[FieldDescription]:

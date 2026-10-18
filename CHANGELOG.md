@@ -81,6 +81,12 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   the index fell behind), `unmatched` (no committed version has it: an edit indexed and never
   committed, or damage), `orphan` (the file is gone) or `undetermined` (not a git work tree),
   with the `git log` command that shows it. The JSON report carries it as `history`.
+- `sldb.store` imports the rest of sldb through three seams only: `store/exceptions.py`
+  (errors), `store/runtime_codec.py` (extraction) and `store/model_contract.py` (what a model
+  class declares, and the built-in relation types); it imports nothing from `sldb.api`, `cli`
+  or `selfdoc`, and `tests/test_store_seams.py` keeps it so. `describe_field` and the field
+  kinds moved to `sldb.models.field_schema` (still importable from `sldb.api.schema`), which
+  closes the store → api edge R4 in `contracts/layers.toml`.
 - `stores init` fails cleanly: what a failed init wrote is removed, the message says where it
   failed and what to check (instead of `Unexpected: [Errno 13] ...`), and the exit code tells
   a caller what happened: 0 created or already there, 2 the place refused it (permissions),

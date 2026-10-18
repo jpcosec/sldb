@@ -33,9 +33,9 @@ def stamp_model_node(m_idx: Any, roster_hash: str, model_type: Any | None, entry
 def _declared_family(model_type: Any) -> str | None:
     """The class's `__family__` as it is now: it used to be read only at `models add`, so a
     family changed in the class never reached the store (AgentsKBs, 2026-10-03)."""
-    from sldb.api.model_registry.model_lineage import model_family
+    from sldb.store.model_contract import declared_family
 
-    return model_family(model_type)
+    return declared_family(model_type)
 
 
 def contract_moved(m_idx: Any, model_type: Any | None) -> bool:

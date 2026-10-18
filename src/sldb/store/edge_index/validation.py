@@ -16,7 +16,7 @@ from typing import Any
 
 from sldb.store.edge_index.edge_index import EdgeIndex
 from sldb.store.edge_index.resolve import relation_types_of
-from sldb.models.builtin_relation_types import BUILTIN_RELATION_TYPES, builtin_payload
+from sldb.store.model_contract import BUILTIN_RELATION_TYPES, builtin_payload
 from sldb.store.models import EdgeNodeRecord, EdgeRecord
 
 _BUILTIN_ORIGINS = ("structural", "schema", "alias")

@@ -10,7 +10,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from sldb.core.exceptions import SLDBStoreError
+from sldb.store.exceptions import SLDBStoreError
 from sldb.store.io import load_semantic_dag, save_semantic_dag
 from sldb.store.models.semantic_node import SemanticNode
 from sldb.store.semantic_dag_graph import above

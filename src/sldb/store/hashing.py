@@ -99,9 +99,8 @@ def _field_schema(model_type: Any) -> dict[str, list[str]]:
 
 
 def _base_names(model_type: Any) -> list[str]:
-    from sldb.models.structured_doc import StructuredNLDoc
-    return [b.__name__ for b in model_type.__mro__[1:]
-            if isinstance(b, type) and issubclass(b, StructuredNLDoc) and b is not StructuredNLDoc]
+    from sldb.store.model_contract import base_names
+    return base_names(model_type)
 
 
 def hash_model_layer(roster_hash: str, contract_hash: str) -> str:

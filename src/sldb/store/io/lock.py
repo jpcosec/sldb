@@ -47,5 +47,5 @@ class StoreIOLock:
         try:
             fcntl.lockf(lock_fd, flags)
         except BlockingIOError:
-            from sldb.core.exceptions import SLDBStoreError
+            from sldb.store.exceptions import SLDBStoreError
             raise SLDBStoreError(f"Store at {self.store_path} is busy. Use --wait to block.")

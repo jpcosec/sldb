@@ -85,7 +85,6 @@ depende de ellos.
 
 [allow]
 upward = [
-  ["store", "api"],        # R4
   ["selfdoc", "cli"],      # R5
 ]
 
@@ -136,17 +135,17 @@ El import diferido es la evidencia: alguien ya sabía que el ciclo estaba ahí.
 Mover la extracción a la capa que ya depende de ambos, o inyectarla.
 """
 
-[[pending]]
+[[done]]
 id = "R4"
 edge = "store → api"
 at = "src/sldb/store/edge_index/model_contribution.py#L41"
 imports = "api.schema.describe_field.describe_field"
 cycle_weight = "store→api: 1 arista diferida · api→store: 195 aristas"
-repair = """
-El comentario en esa línea dice que se importa tarde para que el almacén nunca
-cargue las operaciones al importarse. Es un ciclo documentado en un comentario
-y en ningún otro lugar. La función importada no toca el almacén: bajarla a una
-capa que ambos puedan ver.
+repaired = """
+Hecho (2026-10-18). `describe_field` y sus piezas (kinds, descriptor, description) bajaron a
+`models/field_schema/`, que el almacén y las operaciones ven; `api/schema` las reexporta. El
+almacén las lee por su costura `store/model_contract.py`, y `tests/test_store_seams.py`
+rechaza cualquier import del almacén hacia `api`, `cli` o `selfdoc`.
 """
 
 [[pending]]
@@ -392,9 +391,9 @@ identity = false
 
 [[axis]]
 id = "codec"
-paths = ["store/codec.py", "store/runtime_codec.py"]
+paths = ["store/codec.py", "store/runtime_codec.py", "store/model_contract.py"]
 external = []
-does = "serializar y deserializar el estado del almacén"
+does = "serializar y deserializar el estado del almacén, y leer lo que una clase de modelo declara: las costuras del almacén hacia el resto de sldb"
 identity = false
 
 [[axis]]
@@ -502,7 +501,7 @@ superficies derivadas y Markdown es la única autorada por diseño.
 id = "nucleo"
 axes = ["superficie", "representacion", "render", "contrato", "runtime", "identidad_y_hash", "errores"]
 needs = 3
-needed_by = 30
+needed_by = 29
 indivisible = false
 why = """
 Los cinco ejes de identidad forman un nudo de 11 aristas internas. Lo declaré
@@ -526,8 +525,8 @@ cuts = [
 [[unit]]
 id = "persistencia"
 axes = ["persistencia", "consulta", "federacion", "cache", "codec", "migracion", "bitacora", "semantica", "indice_de_aristas"]
-needs = 17
-needed_by = 32
+needs = 16
+needed_by = 33
 why = "el centro de gravedad del sistema: 110 aristas entran desde los ejes de operación"
 
 [[unit]]
@@ -588,7 +587,7 @@ why = "nadie depende de él; puerto Embedder sin dependencia vectorial propia"
 id = "operacion"
 axes = ["op_almacen", "op_documentos", "op_modelos", "op_aristas"]
 needs = 40
-needed_by = 9
+needed_by = 8
 verdict = "fachada"
 why = """
 158 archivos, el grupo más grande, y el candidato más obvio por tamaño. Pero

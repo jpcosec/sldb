@@ -31,7 +31,7 @@ class StoreOperations:
     @staticmethod
     def _pre_check(store_path, project_root, model_entry, doc_name):
         if documents_shard_path(store_path, model_entry.name, doc_name).exists():
-            from sldb.core.exceptions import SLDBStoreError
+            from sldb.store.exceptions import SLDBStoreError
             raise SLDBStoreError(f"Doc '{doc_name}' already tracked.")
 
     @staticmethod
