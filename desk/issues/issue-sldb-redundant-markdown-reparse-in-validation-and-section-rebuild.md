@@ -1,6 +1,6 @@
 ---
 id: issue-sldb-redundant-markdown-reparse-in-validation-and-section-rebuild
-status: open
+status: closed
 tags:
 - system:sldb
 - topic:performance
@@ -81,3 +81,9 @@ The correct move is to promote that drawer task out of `deferred`, not to run th
 
 - `desk/pills/pill-003-template-marker-roundtrip-contract.md` — roundtrip fidelity is the invariant any caching must preserve
 - `desk/pills/pill-005-store-health-is-sldb-owned.md` — `runtime/` is derived cache; rebuild cost is SLDB's concern
+
+## Resolution
+
+Closed: 2026-10-18
+Reason: Resuelto: las recetas del template se calculan una vez por template, validate renderiza una vez y section_rebuild reusa un MarkdownIt; en el store de sldb la extracción bajó de ~420 a ~275 ms.
+Refs: 9e8ec426, tests/test_parse_once.py, task-quitar-los-re-parseos-evitables-del-pipeline-de-markdown
