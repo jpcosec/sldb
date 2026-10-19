@@ -10,26 +10,26 @@ When the repo evolves through multiple documentation, CLI, and architecture slic
 
 ## Minimal Feature Slice To Deliver
 
-The first credible slice is:
-
-- a board
-- local desk task docs
-- local desk pill docs
-- a desk standards doc
-- a desk spec doc
-- local drawer notes for unclear points and task candidates
-- future `deskops`-owned inbox request docs for cross-project routing
+- un board (desk/tasks/Board.md)
+- tasks del desk local
+- pills de contexto (desk/contexts/)
+- átomos de conocimiento (desk/atoms/)
+- rituales y grafo del ciclo de vida (desk/rituals/, desk/lifecycle/)
+- issues del repo (desk/issues/)
+- un doc de standards y un doc de spec
+- el drawer para trabajo diferido
+- el inbox para mensajes entre repos, ruteados por deskops
+- el registry de repos de la suite
 
 ## What Is Currently Missing
 
-The desk is still missing richer lifecycle operations, explicit cross-linking between notes and tasks, status transition commands, and any true orchestration or ritual automation beyond the manual workflow carried out in this repo.
+El ciclo de vida de las tasks, el closeout con sus evidencias, el cierre de issues, el ruteo de mensajes entre repos y el retiro de documentos del desk los opera deskops (desk/lifecycle/, desk/rituals/). Lo que sigue manual en este desk: editar issues (deskops no tiene verbo para eso) y las tasks del drawer en formato viejo, sin frontmatter.
 
 ## Non-Goals For This Delivery
 
-- implementing full `deskops`
-- implementing cross-repo routing semantics inside SLDB
-- automated commit rituals
-- moving all desk logic out of SLDB immediately
+- implementar deskops dentro de sldb
+- implementar en sldb la semántica de ruteo entre repos
+- rituales de commit automáticos dentro de sldb (los commits de cierre los hace deskops)
 
 ## Acceptance Criteria
 
