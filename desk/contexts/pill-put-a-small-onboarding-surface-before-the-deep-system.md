@@ -1,5 +1,8 @@
 ---
-id: pill-002-onboarding-surface-before-depth
+# pill-xxx
+id: pill-put-a-small-onboarding-surface-before-the-deep-system
+status: active
+# e.g., language:python, library:pydantic
 tags:
 - system:sldb
 - topic:onboarding
@@ -46,4 +49,3 @@ Favor a minimal top layer that points users to deeper capabilities only after th
 _Describe the shortcut or failure mode to avoid._
 
 Do not force first-time users to reconstruct the full internal architecture before they can discover the next useful command or document.
-

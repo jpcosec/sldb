@@ -1,5 +1,8 @@
 ---
-id: pill-001-sldb-vs-deskops-boundary
+# pill-xxx
+id: pill-keep-sldb-generic-and-move-workflow-behavior-toward-deskops
+status: active
+# e.g., language:python, library:pydantic
 tags:
 - system:sldb
 - system:deskops
@@ -47,4 +50,3 @@ Keep SLDB text-first and generic. Use local desk docs only for SLDB-owned projec
 _Describe the shortcut or failure mode to avoid._
 
 Do not encode desk-specific lifecycle rules, inbox staging semantics, or operational orchestration as core SLDB behavior when the owning runtime should be `deskops`.
-

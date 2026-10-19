@@ -1,10 +1,11 @@
-name: pill-009-cli-error-and-serialization-failure-mode
-path: desk/pills/pill-009-cli-error-and-serialization-failure-mode.md
-source_hash: c39f9bd1a67310753687c2e94340c27dfcf38c89152e95879d4a4cea5e3d63e2
-content_hash: 540e07ff43f3d81eba60dbb2d9022e96f1de9908c5c39a75dade8949e115f65e
+name: pill-sldb-cli-errors-must-stay-actionable-and-machine-safe
+path: desk/contexts/pill-sldb-cli-errors-must-stay-actionable-and-machine-safe.md
+source_hash: cfce8292ec99349a2f0b4e8860ddb4f8d195ba9e3a531f2a3c3e9d54106d6271
+content_hash: 6917d9342a8ed019f16918b32c430de651910a098fbe52a3f63e30e34ce432ed
 field_hashes:
   title: 2d45d0b81cb81e0e905fb5fe3191e6fa7cc014acd640c2fd6c189fd1c7c21b06
-  id: e9d43620cb32d297498b9e14cad5b558f344a6470e651d6dd757f899a47079a8
+  id: 03ea33998714c5df3790714527e56a108dcc6bbb80e90177b140130f14dd04c3
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
   tags: 67f81eb180a7199ed11989b22b3c8ae1bedd5244d1511385566c04d84731497c
   what: 4f6930282a86ea6a636fc98e33938b45dcd805191a416d781902b5a854a8d8bc
   why: 6de32bb97be2b94773ce0bdfd45eddbbe85a529b021f5f3d26cfbc98610dcc4c

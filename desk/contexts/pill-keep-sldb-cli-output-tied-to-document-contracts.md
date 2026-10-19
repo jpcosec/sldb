@@ -1,5 +1,8 @@
 ---
-id: pill-008-sldb-cli-document-contract
+# pill-xxx
+id: pill-keep-sldb-cli-output-tied-to-document-contracts
+status: active
+# e.g., language:python, library:pydantic
 tags:
 - system:sldb
 - topic:cli
@@ -47,4 +50,3 @@ Keep document models authoritative. Validate from realistic caller locations whe
 _Describe the shortcut or failure mode to avoid._
 
 Do not paper over parsing or validation problems with broad exception handlers, and do not make output prettier by breaking machine-readable semantics.
-

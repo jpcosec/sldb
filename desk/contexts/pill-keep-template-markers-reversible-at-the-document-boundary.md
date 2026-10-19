@@ -1,5 +1,8 @@
 ---
-id: pill-003-template-marker-roundtrip-contract
+# pill-xxx
+id: pill-keep-template-markers-reversible-at-the-document-boundary
+status: active
+# e.g., language:python, library:pydantic
 tags:
 - system:sldb
 - topic:templates
@@ -32,9 +35,9 @@ Apply this pill when changing marker families, render/extract behavior, standalo
 _Name the files, surfaces, or scope this pill applies to._
 
 - `src/sldb/core/template_extractor.py`
-- `src/sldb/core/data_extractor.py`
-- text/list/yaml handlers
-- marker roundtrip tests
+- `src/sldb/core/data_extractor.py` and `src/sldb/core/extractor/`
+- `src/sldb/core/handlers/` (text, list, yaml, table)
+- `tests/test_marker_invariants.py`
 
 ## How
 
@@ -47,4 +50,3 @@ Treat marker changes as bidirectional contract changes. Validate render and extr
 _Describe the shortcut or failure mode to avoid._
 
 Do not make rendering look nicer by silently weakening extraction fidelity or by introducing marker semantics that cannot roundtrip safely.
-

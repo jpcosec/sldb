@@ -8,16 +8,15 @@ tasks:
 - desk/tasks/task-congelar-journal-autoridad-arbol.md
 # List of pill-xxx paths
 pills:
-- desk/pills/pill-001-sldb-vs-deskops-boundary.md
-- desk/pills/pill-002-onboarding-surface-before-depth.md
-- desk/pills/pill-003-template-marker-roundtrip-contract.md
-- desk/pills/pill-004-store-init-idempotency.md
-- desk/pills/pill-005-store-health-is-sldb-owned.md
-- desk/pills/pill-006-model-registration-is-queryable.md
-- desk/pills/pill-007-sldb-text-layer-vs-kgdb-graph-layer.md
-- desk/pills/pill-008-sldb-cli-document-contract.md
-- desk/pills/pill-009-cli-error-and-serialization-failure-mode.md
-- desk/pills/pill-015-self-documentation-boundaries.md
+- desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
+- desk/contexts/pill-keep-sldb-generic-and-move-workflow-behavior-toward-deskops.md
+- desk/contexts/pill-keep-template-markers-reversible-at-the-document-boundary.md
+- desk/contexts/pill-model-registration-must-be-queryable.md
+- desk/contexts/pill-put-a-small-onboarding-surface-before-the-deep-system.md
+- desk/contexts/pill-sldb-cli-errors-must-stay-actionable-and-machine-safe.md
+- desk/contexts/pill-store-health-is-owned-by-sldb.md
+- desk/contexts/pill-stores-init-must-be-idempotent-and-fail-safely.md
+- desk/contexts/pill-keep-the-text-layer-and-the-graph-layer-separate-inside-sldb.md
 # List of ritual-xxx paths
 rituals:
 - desk/rituals/execution.md

@@ -1,5 +1,8 @@
 ---
-id: pill-005-store-health-is-sldb-owned
+# pill-xxx
+id: pill-store-health-is-owned-by-sldb
+status: active
+# e.g., language:python, library:pydantic
 tags:
 - system:sldb
 - system:deskops
@@ -31,8 +34,8 @@ Apply this pill when adding health checks, integrity commands, diagnostics, or r
 
 _Name the files, surfaces, or scope this pill applies to._
 
-- `src/sldb/store/`
-- `src/sldb/cli/commands/stores.py`
+- `src/sldb/store/diagnostics.py` and `src/sldb/store/diagnostics_models/`
+- `src/sldb/cli/commands/store_check.py` (`sldb stores check`)
 - downstream deskops health surfaces that call into SLDB
 
 ## How
@@ -46,4 +49,3 @@ Add diagnostics and programmatic checks in SLDB, then let deskops consume those 
 _Describe the shortcut or failure mode to avoid._
 
 Do not make deskops parse raw store internals or duplicate validity rules that belong in SLDB.
-

@@ -1,5 +1,8 @@
 ---
-id: pill-009-cli-error-and-serialization-failure-mode
+# pill-xxx
+id: pill-sldb-cli-errors-must-stay-actionable-and-machine-safe
+status: active
+# e.g., language:python, library:pydantic
 tags:
 - system:sldb
 - topic:failure-mode
@@ -47,4 +50,3 @@ Normalize output only at the presentation boundary, verify exit codes and stderr
 _Describe the shortcut or failure mode to avoid._
 
 Do not catch every exception as a user error, degrade stored data just to satisfy JSON output, or let help text and parser behavior drift apart.
-

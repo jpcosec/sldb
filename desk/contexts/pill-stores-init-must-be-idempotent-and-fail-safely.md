@@ -1,5 +1,8 @@
 ---
-id: pill-004-store-init-idempotency
+# pill-xxx
+id: pill-stores-init-must-be-idempotent-and-fail-safely
+status: active
+# e.g., language:python, library:pydantic
 tags:
 - system:sldb
 - system:deskops
@@ -31,8 +34,8 @@ Apply this pill when touching `stores init`, local bootstrap flows, or error han
 
 _Name the files, surfaces, or scope this pill applies to._
 
-- `src/sldb/cli/commands/stores.py`
-- store creation helpers
+- `src/sldb/cli/commands/store_init.py` (exit codes 0/1/2)
+- `src/sldb/api/stores/init_store.py` (StoreInitError, undo on failure)
 - deskops bootstrap integration points
 
 ## How
@@ -46,4 +49,3 @@ Treat existing valid stores as success, emit actionable failures for real precon
 _Describe the shortcut or failure mode to avoid._
 
 Do not leave half-created `.sldb/` trees behind, and do not return raw traceback-style output for common bootstrap failures.
-

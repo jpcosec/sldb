@@ -1,0 +1,24 @@
+name: pill-keep-the-text-layer-and-the-graph-layer-separate-inside-sldb
+path: desk/contexts/pill-keep-the-text-layer-and-the-graph-layer-separate-inside-sldb.md
+source_hash: 372f32084f4c961a0e2458ddee10fa9e9a5605a7ea158c5b5fbfe2528fa9d913
+content_hash: 4892aa75b4e614bedec4d2f761c37de36b33af4bbfb14db5d90c6386b79c0ae2
+field_hashes:
+  title: fd825261deb9580a3064091d342b651d743de0e1bbf8b632691c07b5473bd2ba
+  id: dc12c187c48049a7599b799fc6ae53e6aedd8bcb2dab84f32d71197247871e1e
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: 989fbb7e53a8a98526b8a5c46f5f86b82f2ea5b0d4e1e80963fb361efd1f3d3b
+  tags: 481b182ab1ee0c49cc5e8a32f01159017e40ef4628701c03ebafa60ae1b1fe62
+  what: 0b99b3e0ef08af70f57d8b91d1242d7e04f82c3af75400d0907cf1bb77ef4c53
+  why: 8d7b6087d9808d035f427eb2649e30e212d223618a1291969986e0e590518445
+  when: 9af48c64f6d46f4cdd7839502ddba1797550a2f13ffc755335db7dab50052fdc
+  where: b2ec70d14554b2ac7a2e6754a504cc8128efd89147c8017ae7bbd1dd507d40c0
+  how: 0c4164f55888993608f51d495ad2b5e04d12f6d26408f0ba67c6c0fd7d44aa42
+  how_not: 78112c02070b8e13904ab581b2f39af60585d931cfd9959bf5bb3c9fae9c75dd
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:architecture
+- topic:graph
+- type.workflow.pill
+- workspace.desk
