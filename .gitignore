@@ -20,6 +20,10 @@ dist/
 
 .sldb/runtime/
 .sldb/.config/
+# Derived from .sldb/store.yaml, the tracked Markdown and the models: `sldb stores build`
+# regenerates them (docs/architecture/derived-store-boundary.md).
+.sldb/core/
+knowledge/symbols/
 .kgdb/
 
 .DS_Store
