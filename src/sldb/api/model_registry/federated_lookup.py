@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from sldb.api.model_registry.federated_registration import _ensure_federated_model_entry
+from sldb.store.model_import_root import import_root
 from sldb.api.model_registry.model_reference import add_import_roots, resolve_model_ref
 from sldb.store.io import load_store_index
 from sldb.store.layout import project_root, store_exists
@@ -53,7 +54,7 @@ def _load_remote_entry(linked_store: Path, remote_model_name: str) -> Any:
 
 def _build_federated_entry(destination_store: Path, linked_store: Path, remote_entry: Any, pythonpath: str | None, store_alias: str | None = None) -> tuple[type, Any, Any]:
     """Import the remote model from where its owner lives and register it here as inherited."""
-    add_import_roots([project_root(linked_store)])
+    add_import_roots([import_root(project_root(linked_store), remote_entry.model_ref, remote_entry.path)])
     model_type = resolve_model_ref(remote_entry.model_ref, pythonpath)
     local_entry = _ensure_federated_model_entry(destination_store, project_root(destination_store), load_store_index(destination_store), model_type, remote_entry.model_ref, project_root(linked_store) / remote_entry.path, store_alias)
     return model_type, local_entry, load_store_index(destination_store)

@@ -6,6 +6,7 @@ from pathlib import Path
 
 from sldb.api.journal import record, store_hash
 from sldb.api.model_registry.federated_registration import _do_ensure_federated_model
+from sldb.store.model_import_root import import_root
 from sldb.api.model_registry.model_reference import add_import_roots, resolve_model_ref, same_model_class
 from sldb.api.model_registry.model_registration import ModelRegistration
 from sldb.api.stores.open_store import open_store
@@ -66,7 +67,7 @@ def _owners_entry(sp: Path, alias: str, name: str):
     theirs = next((m for m in load_store_index(owner).models if m.name == name and not m.origin), None)
     if theirs is None:
         raise SLDBStoreError(f"The store linked as '{alias}' does not own a model named '{name}'.")
-    add_import_roots([project_root(owner)])
+    add_import_roots([import_root(project_root(owner), theirs.model_ref, theirs.path)])
     return theirs
 
 

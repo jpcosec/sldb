@@ -213,13 +213,17 @@ def test_an_owner_with_a_src_layout_imports_from_its_package_root(tmp_path):
     add_model(owner_sp, "srcowner_pkg:NoteDoc", str(owner / "src"))
     link_store(sp, owner_sp, "pron")
     (local / "note.md").write_text("# A note\n", encoding="utf-8")
-    try:
-        inherit_model(sp, "pron:NoteDoc")
-        track_document_file(sp, "NoteDoc", local / "note.md", "note")
+    def as_a_fresh_process():
         sys.modules.pop("srcowner_pkg", None)
         while str((owner / "src").resolve()) in sys.path:
             sys.path.remove(str((owner / "src").resolve()))
         invalidate_index_cache(), invalidate_runtime_cache()
+
+    try:
+        as_a_fresh_process()                                   # a clean clone runs inherit first
+        inherit_model(sp, "pron:NoteDoc")
+        track_document_file(sp, "NoteDoc", local / "note.md", "note")
+        as_a_fresh_process()
         assert diagnose_store(sp, __import__("sldb.api", fromlist=["resolve_model_ref"]).resolve_model_ref, local).models[0].resolved
     finally:
         sys.modules.pop("srcowner_pkg", None)
