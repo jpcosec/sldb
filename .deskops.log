@@ -455,3 +455,7 @@ Task-Id: task-tighten-semantic-export-provenance-contract
 2026-10-18 17:59:22,146 - deskops - INFO - Advanced task task-completar-el-contrato-de-indexado-de-docstrings to node ritual-testing
 2026-10-18 17:59:32,679 - deskops - INFO - Advanced task task-completar-el-contrato-de-indexado-de-docstrings to node ritual-closeout
 2026-10-18 17:59:42,981 - deskops - INFO - Task task-completar-el-contrato-de-indexado-de-docstrings reached the closure gate; deferring to closeout commit.
+2026-10-18 21:56:33,074 - deskops - INFO - Advanced task task-correct-ast-ownership-and-section-contracts to node ritual-testing
+2026-10-18 21:56:45,325 - deskops - INFO - Advanced task task-correct-ast-ownership-and-section-contracts to node ritual-closeout
+2026-10-18 21:56:56,524 - deskops - INFO - Task task-correct-ast-ownership-and-section-contracts reached the closure gate; deferring to closeout commit.
+2026-10-18 21:57:07,975 - deskops - INFO - Task task-correct-ast-ownership-and-section-contracts reached the closure gate; deferring to closeout commit.
