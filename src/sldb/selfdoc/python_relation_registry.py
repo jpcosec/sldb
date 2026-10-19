@@ -1,4 +1,4 @@
-"""Validate AST-derived edges against the store's KGDB relation vocabulary."""
+"""Validate AST-derived edges against the store's registered relation types."""
 from __future__ import annotations
 
 from collections import Counter
@@ -11,7 +11,7 @@ RELATIONS = frozenset({"contains", "imports", "references"})
 
 
 def registered_source_relations(store: Path, root: Path) -> dict[str, dict]:
-    """Load the registered KGDB relation types, never a private adapter copy."""
+    """Load the store's registered relation types, never a private adapter copy."""
     documents = load_runtime_documents(store, resolve_model_ref, str(root))
     registry = _relation_registry(documents)
     _require_registered(registry)
@@ -30,7 +30,7 @@ def _require_registered(registry) -> None:
     missing = sorted(RELATIONS - registry.keys())
     if missing:
         raise ValueError(
-            "Python source relations are not registered in KGDB: "
+            "Python source relations are not registered as relation types in the store: "
             + ", ".join(missing)
         )
 

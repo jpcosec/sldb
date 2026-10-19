@@ -1,0 +1,328 @@
+version: 1
+links:
+- name: deskops
+  path: ../deskops/.sldb
+- name: pron
+  path: ../pron/.sldb
+models:
+- name: ArchitectureDoc
+  model_ref: docs.models:ArchitectureDoc
+  path: docs/models.py
+- name: PackagingDoc
+  model_ref: docs.models:PackagingDoc
+  path: docs/models.py
+- name: PlanDoc
+  model_ref: docs.models:PlanDoc
+  path: docs/models.py
+- name: SpecDoc
+  model_ref: docs.models:SpecDoc
+  path: docs/models.py
+- name: RequestDoc
+  model_ref: docs.models:RequestDoc
+  path: docs/models.py
+- name: ArchitectureNarrativeDoc
+  model_ref: docs.models:ArchitectureNarrativeDoc
+  path: docs/models.py
+- name: StoreReadmeDoc
+  model_ref: docs.models:StoreReadmeDoc
+  path: docs/models.py
+- name: AtomicDocumentDoc
+  model_ref: docs.models:AtomicDocumentDoc
+  path: docs/models.py
+- name: FAQDoc
+  model_ref: docs.models:FAQDoc
+  path: docs/models.py
+- name: DeskStandardsDoc
+  model_ref: desk.models:DeskStandardsDoc
+  path: desk/models.py
+- name: DeskSpecDoc
+  model_ref: desk.models:DeskSpecDoc
+  path: desk/models.py
+- name: InboxNoteDoc
+  model_ref: deskops.models:InboxNoteDoc
+  origin: deskops
+- name: TaskDoc
+  model_ref: deskops.models:TaskDoc
+  origin: deskops
+- name: BoardDoc
+  model_ref: deskops.models:BoardDoc
+  origin: deskops
+- name: PillDoc
+  model_ref: deskops.models:PillDoc
+  origin: deskops
+- name: SurfaceDoc
+  model_ref: sldb.models.knowledge_surface:SurfaceDoc
+  path: src/sldb/models/surface_doc.py
+- name: CliCommandDoc
+  model_ref: sldb.models.knowledge_surface:CliCommandDoc
+  path: src/sldb/models/cli_command_doc.py
+- name: PythonSymbolDoc
+  model_ref: sldb.models.knowledge_surface:PythonSymbolDoc
+  path: src/sldb/models/python_symbol_doc.py
+- name: RelationTypeDoc
+  model_ref: sldb.models.relation_type_doc:RelationTypeDoc
+  path: src/sldb/models/relation_type_doc.py
+- name: RelationDoc
+  model_ref: sldb.models.relation_doc:RelationDoc
+  path: src/sldb/models/relation_doc.py
+- name: AnchorDoc
+  model_ref: pron.models:AnchorDoc
+  origin: pron
+- name: ProjectionDoc
+  model_ref: pron.models:ProjectionDoc
+  origin: pron
+- name: MoveDoc
+  model_ref: pron.models:MoveDoc
+  origin: pron
+- name: AtomDoc
+  model_ref: deskops.models:AtomDoc
+  origin: deskops
+- name: RitualDoc
+  model_ref: deskops.models:RitualDoc
+  origin: deskops
+- name: RepositoryDoc
+  model_ref: deskops.models:RepositoryDoc
+  origin: deskops
+- name: RoleDoc
+  model_ref: deskops.models:RoleDoc
+  origin: deskops
+- name: StepDoc
+  model_ref: deskops.models:StepDoc
+  origin: deskops
+- name: ProtoAtomDoc
+  model_ref: deskops.models:ProtoAtomDoc
+  origin: deskops
+- name: CrossroadDoc
+  model_ref: deskops.models:CrossroadDoc
+  origin: deskops
+- name: MaterializationContractDoc
+  model_ref: deskops.models:MaterializationContractDoc
+  origin: deskops
+- name: RunDoc
+  model_ref: deskops.models:RunDoc
+  origin: deskops
+- name: RuntimeProfileDoc
+  model_ref: deskops.models:RuntimeProfileDoc
+  origin: deskops
+- name: DeskFAQDoc
+  model_ref: deskops.models:DeskFAQDoc
+  origin: deskops
+predicates:
+  applies_to_source:
+    axis: WHAT
+    description: 'Instances of this model may be the source of edges of this relation type: the verbs
+      a class can be subject of.'
+  applies_to_target:
+    axis: WHAT
+    description: Instances of this model may be the target of edges of this relation type.
+  composes:
+    axis: WHAT
+    description: A composed field of the source (`__compositions__`) renders this document's payload into
+      the source's text; the edge carries the composed field, the field holding the refs and the ref as
+      authored.
+  contains:
+    axis: WHERE
+    description: A field the model declared in `__containment__` holds this document as a child; the edge
+      carries the field name and the models the declaration allows.
+  extends:
+    axis: WHAT
+    description: The model inherits from that model (base_models); instances of the source are instances
+      of the target.
+  has_document:
+    axis: WHAT
+    description: The model has this document as an instance.
+  has_field:
+    axis: WHAT
+    description: The model declares this field; the field node carries its type and description.
+  has_model:
+    axis: WHAT
+    description: The store registers this model.
+  has_section:
+    axis: WHERE
+    description: The document contains this section.
+  links_to:
+    axis: WHERE
+    description: 'The store links that store under an alias (`stores add`): it reads its documents and
+      inherits its models.'
+  names:
+    axis: WHAT
+    description: The anchor (an alias word) names this model, field, relation type or document.
+  references:
+    axis: WHAT
+    description: A field the model declared in `__references__` holds this document's id; the edge carries
+      the field name.
+  semantic_equivalent:
+    axis: WHAT
+    description: This local tag maps to that global tag across linked stores.
+  semantic_parent:
+    axis: WHAT
+    description: This tag is a child of that tag in the semantic DAG.
+  tagged_as:
+    axis: WHAT
+    description: The model, document or section carries this semantic tag.
+generate:
+- command: selfdoc python-sync
+  args:
+  - --source-root
+  - src
+  - --system
+  - sldb
+  - --architecture-spec
+  - docs/architecture/spec2viz/python-ast.yml
+derived:
+- knowledge/symbols/
+include:
+- model: ArchitectureNarrativeDoc
+  paths:
+  - path: docs/architecture/code-docstring-indexing-handoff.md
+    name: arch-code-docstring-indexing-handoff
+  - path: docs/architecture/code-docstring-indexing.spec.md
+    name: arch-code-docstring-indexing
+  - path: docs/architecture/current-cli-tree.md
+    name: arch-current-cli-tree
+  - path: docs/architecture/current-source-tree.md
+    name: arch-current-source-tree
+  - path: docs/architecture/current-system-overview.md
+    name: arch-current-system-overview
+  - path: docs/architecture/database_component_diagram.md
+    name: arch-database-component-diagram
+  - path: docs/architecture/deskops-boundary-proposal.md
+    name: arch-deskops-boundary-proposal
+  - path: docs/architecture/refactored_components.md
+    name: arch-refactored-components
+  - path: docs/architecture/smg-ir.md
+    name: arch-smg-ir
+- model: AtomDoc
+  glob: desk/atoms/*.md
+- model: AtomicDocumentDoc
+  paths:
+  - path: docs/atoms/address-space.atom.md
+    name: atom-address-space
+  - path: docs/atoms/ast-view.atom.md
+    name: atom-ast-view
+  - path: docs/atoms/compose-vs-recover.atom.md
+    name: atom-compose-vs-recover
+  - path: docs/atoms/model-reference.atom.md
+    name: atom-model-reference
+  - docs/atoms/one-question-per-diagram.atom.md
+  - path: docs/atoms/payload-inputs.atom.md
+    name: atom-payload-inputs
+  - path: docs/atoms/semantic-vs-physical.atom.md
+    name: atom-semantic-vs-physical
+  - path: docs/atoms/store.atom.md
+    name: atom-store
+  - path: docs/atoms/structurednldoc-model.atom.md
+    name: atom-structurednldoc-model
+  - path: docs/atoms/tracked-document.atom.md
+    name: atom-tracked-document
+- model: BoardDoc
+  paths:
+  - desk/tasks/Board.md
+- model: CliCommandDoc
+  glob: knowledge/commands/*.md
+- model: DeskSpecDoc
+  paths:
+  - path: desk/SPEC.md
+    name: desk-spec
+- model: DeskStandardsDoc
+  paths:
+  - path: desk/STANDARDS.md
+    name: desk-standards
+- model: FAQDoc
+  paths:
+  - docs/faq.md
+- model: InboxNoteDoc
+  paths:
+  - desk/inbox/20261001-031224-suggestion-cerrar-las-cuatro-decisiones-de-operacionalizacion-vistas-6.md
+  - desk/inbox/20261001-031225-unclear-atomo-y-field-convergieron-falta-un-set-bootstrap.md
+  - desk/inbox/20261001-031226-suggestion-los-llm-se-saltan-la-api-de-escritura-y-escriben-markdown-directo.md
+  - desk/inbox/20261007-133032-suggestion-el-store-sldb-no-se-versiona-sacar-shards-e-indice-de-git.md
+  - desk/inbox/20261019-011009-unclear-decisi-n-del-due-o-qu-mecanismo-guarda-el-pasado-del-rbol-del-store-journal.md
+- model: MoveDoc
+  glob: ledger/*.md
+- model: PackagingDoc
+  paths:
+  - path: docs/packaging instructions.md
+    name: packaging-instructions
+- model: PillDoc
+  paths:
+  - desk/contexts/pill-context-pills-carry-reasoning-not-a-copy-of-code-or-docs.md
+  - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
+  - desk/contexts/pill-keep-sldb-generic-and-move-workflow-behavior-toward-deskops.md
+  - desk/contexts/pill-keep-template-markers-reversible-at-the-document-boundary.md
+  - desk/contexts/pill-keep-the-text-layer-and-the-graph-layer-separate-inside-sldb.md
+  - desk/contexts/pill-model-registration-must-be-queryable.md
+  - desk/contexts/pill-put-a-small-onboarding-surface-before-the-deep-system.md
+  - desk/contexts/pill-sldb-cli-errors-must-stay-actionable-and-machine-safe.md
+  - desk/contexts/pill-store-health-is-owned-by-sldb.md
+  - desk/contexts/pill-stores-init-must-be-idempotent-and-fail-safely.md
+- model: PythonSymbolDoc
+  glob: knowledge/symbols/*.md
+- model: RelationDoc
+  paths:
+  - desk/lifecycle/closeout-task_completes.md
+  - desk/lifecycle/execution-task_activates.md
+  - desk/lifecycle/testing-task_hands_to_closeout.md
+- model: RelationTypeDoc
+  paths:
+  - desk/lifecycle/type-task_activates.md
+  - desk/lifecycle/type-task_completes.md
+  - desk/lifecycle/type-task_hands_to_closeout.md
+- model: RelationTypeDoc
+  paths:
+  - path: sldb/relation_types/applies_to_source.md
+    name: reltype-applies_to_source
+  - path: sldb/relation_types/applies_to_target.md
+    name: reltype-applies_to_target
+  - path: sldb/relation_types/composes.md
+    name: reltype-composes
+  - sldb/relation_types/contains.md
+  - path: sldb/relation_types/extends.md
+    name: reltype-extends
+  - path: sldb/relation_types/has_document.md
+    name: reltype-has_document
+  - path: sldb/relation_types/has_field.md
+    name: reltype-has_field
+  - path: sldb/relation_types/has_model.md
+    name: reltype-has_model
+  - path: sldb/relation_types/has_section.md
+    name: reltype-has_section
+  - sldb/relation_types/imports.md
+  - path: sldb/relation_types/links_to.md
+    name: reltype-links_to
+  - path: sldb/relation_types/names.md
+    name: reltype-names
+  - sldb/relation_types/references.md
+  - path: sldb/relation_types/semantic_equivalent.md
+    name: reltype-semantic_equivalent
+  - path: sldb/relation_types/semantic_parent.md
+    name: reltype-semantic_parent
+  - path: sldb/relation_types/tagged_as.md
+    name: reltype-tagged_as
+- model: RepositoryDoc
+  glob: desk/registry/*.md
+- model: RequestDoc
+  paths:
+  - path: docs/requests/sldb-knowledge-graph-integration.md
+    name: req-knowledge-graph-integration
+  - path: docs/requests/sldb-ontology-feature-request.md
+    name: req-ontology-feature-request
+- model: RitualDoc
+  paths:
+  - path: desk/rituals/closeout.md
+    name: ritual-closeout
+  - path: desk/rituals/execution.md
+    name: ritual-execution
+  - path: desk/rituals/phase.md
+    name: ritual-phase
+  - path: desk/rituals/testing.md
+    name: ritual-testing
+- model: StoreReadmeDoc
+  paths:
+  - path: .sldb/README.md
+    name: sldb-readme
+- model: SurfaceDoc
+  glob: knowledge/surfaces/*.md
+- model: TaskDoc
+  paths:
+  - desk/tasks/task-congelar-journal-autoridad-arbol.md

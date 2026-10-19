@@ -6,6 +6,7 @@ def add_stores_group(s: argparse._SubParsersAction) -> None:
     sub = p.add_subparsers(dest="stores_command", required=True)
     _init(sub); _add(sub); _remove(sub); _check(sub); _update(sub); _reconcile(sub)
     _semantic_map(sub); _semantic_export(sub); _list(sub); _migrate_hashes(sub)
+    _declare(sub); _build(sub)
 
 def _init(s):
     i = s.add_parser("init", help="Init .sldb store.")
@@ -69,3 +70,14 @@ def _list(s):
     l = s.add_parser("list", help="List federated stores.")
     l.add_argument("--store", help="Store path")
     l.add_argument("--format", choices=("text", "json", "yaml"), default="text")
+
+def _declare(s):
+    d = s.add_parser("declare", help="Print the store.yaml declaration the current index implies.")
+    d.add_argument("--store", help="Store path")
+    d.add_argument("--write", action="store_true", help="Write it to .sldb/store.yaml")
+
+def _build(s):
+    b = s.add_parser("build", help="Rebuild the store from .sldb/store.yaml, the tracked Markdown and the models.")
+    b.add_argument("--store", help="Store path")
+    b.add_argument("--check", action="store_true", help="Rebuild a scratch copy of the sources and compare, writing nothing here")
+    b.add_argument("--format", choices=("text", "json", "yaml"), default="text")

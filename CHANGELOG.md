@@ -4,8 +4,17 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
 
 ## 0.1.13 — not released yet (no tag, not on PyPI)
 
+- `sldb stores declare` and `sldb stores build`. A store's source is `.sldb/store.yaml`: the
+  models it registers (local, or inherited from a linked store), its links, its predicates,
+  the generators that write derived documents (such as `selfdoc python-sync`), the paths
+  they write, and `include` rules saying which file is tracked under which model and name.
+  The index and the model and document indexes are rebuilt from it by `stores build`
+  (idempotent); `stores build --check` rebuilds a scratch copy of the sources and fails when
+  that copy does not pass `stores check`, a tracked document is not declared, or it tracks
+  something other than the local store. `stores declare --write` writes the declaration the
+  current index implies, to adopt the layout. Design: `docs/architecture/derived-store-boundary.md`.
 - An inherited model whose owner uses a `src/` layout imports again. The import root was the
-  owner's project root, so pron's models (`src/pron/models/...`) stayed unimportable in a
+  owner's project root, so pron's models, which live under its `src/` directory, stayed unimportable in a
   store that inherits them; it is now the directory the owner's registered path puts the
   package in (`sldb.store.model_import_root`). sldb's own store inherits AnchorDoc,
   ProjectionDoc and MoveDoc from pron through a relative link (`../pron/.sldb`) instead of

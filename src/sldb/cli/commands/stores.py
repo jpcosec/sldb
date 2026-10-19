@@ -23,12 +23,9 @@ class StoresCLI:
         self._store = StoreCLI()
 
     def run(self, args: Any) -> int:
-        if args.stores_command == "list":
-            return self.list(args)
-        if args.stores_command == "semantic-export":
-            return self.semantic_export(args)
-        if args.stores_command == "reconcile":
-            return self.reconcile(args)
+        own = {"list": self.list, "semantic-export": self.semantic_export, "reconcile": self.reconcile, "declare": _declare, "build": _build}
+        if args.stores_command in own:
+            return own[args.stores_command](args)
         args.store_command = args.stores_command
         return self._store.run(args)
 
@@ -81,3 +78,15 @@ class StoresCLI:
             state = "" if item["status"] == "ok" else f"  [{item['status']}: {item['resolved']}]"
             print(f"- {item['name']} -> {item['path']}{state}")
         return 0
+
+
+def _declare(args: Any) -> int:
+    from sldb.cli.commands.stores_build import declare_command
+
+    return declare_command(args)
+
+
+def _build(args: Any) -> int:
+    from sldb.cli.commands.stores_build import build_command
+
+    return build_command(args)

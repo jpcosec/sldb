@@ -1,0 +1,20 @@
+name: cmd-sldb-stores-build
+path: knowledge/commands/cmd-sldb-stores-build.md
+source_hash: fa7d2aec029c4fae3abe2bdaf940083cb649bb2a206d32b28f1976742a343545
+content_hash: 1c24821a382e3b88c315992084b982134957ae031bfb157766b5d65312dda147
+field_hashes:
+  id: ecddcb82232149d03eacbeea61ef66197dbeecc088c615ecc7d94b75d8df3f7a
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  command_path: 2016f5c62d838525eea9f0bddcd9bb87d8adde4db532e582a4e28990a060adf2
+  synopsis: 956523cac6bd6069aa51ce638ec7a2bd1f1649c4004777fdeb307933e83bd424
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  arguments: c8f8180786e2cfadcc44f622c469ddf3caa0da5f54fc91979974f9ad199ae7a5
+  usage: 96164fe11066ef0224cd80c52ba3bb9931b2cc309b4a3465ee5f12c71c2e8ba3
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: 617eb9b8a72d53d9eefcba37bb4407d10aeb53f652fbca5eb413c3e67ad420ac
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.cli_command
+- workspace.knowledge.commands

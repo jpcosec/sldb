@@ -1,8 +1,9 @@
 # Qué del store es fuente y qué se deriva
 
-Estado (2026-10-19): propuesta, sin implementar. Nada se borra de git hasta que la frontera
-esté aprobada y el clon limpio la reconstruya con `stores check` en PASS. Retoma la decisión
-del dueño del 2026-10-07 (nota del inbox 20261007-133032).
+Estado (2026-10-19): frontera aprobada por el dueño. `stores declare` y `stores build`
+están implementados y `.sldb/store.yaml` es la declaración de este store; sacar lo derivado
+de git es el paso siguiente, después de reconstruirlo en un clon limpio con `stores check` en
+PASS. Retoma la decisión del dueño del 2026-10-07 (nota del inbox 20261007-133032).
 
 ## 1. Medición (2026-10-19, este repo)
 
@@ -49,10 +50,10 @@ construirlo.
 
 ## 3. Reconstrucción
 
-Un comando nuevo, `sldb stores build` <!-- gone --> (todavía no existe), lee `.sldb/store.yaml`, registra los modelos y los links, corre
+`sldb stores build` lee `.sldb/store.yaml`, registra los modelos y los links, corre
 `selfdoc python-sync` para lo generado, trackea cada `include` y reconstruye los índices.
 Es idempotente. En un clon limpio, `stores build` seguido de `stores check` tiene que dar
-PASS. `stores build --check` construye en un directorio aparte y compara sin escribir.
+PASS. `stores build --check` construye una copia de los fuentes (lo que git versiona, sin lo derivado: `.sldb/core/`, `.sldb/runtime/` y lo que la declaración lista en `derived`) en un directorio temporal, con los stores enlazados alcanzables por symlink, y falla si la copia no pasa `stores check`, si algo trackeado no está declarado o si lo que trackea difiere del store local. `stores declare --write` escribe la declaración que el índice actual implica, para adoptar este layout. Una glob solo cubre una carpeta donde rastrearía exactamente lo trackeado, con nombres iguales al archivo, y nunca la raíz del proyecto.
 
 El CI no commitea (ya no lo hace: los commits firmados `github-actions[bot]` salen de un
 `~/.gitconfig` local). Pasa a correr `stores build --check` y falla si los fuentes no generan
@@ -63,13 +64,14 @@ lo esperado.
 - 15 modelos (48 documentos del desk) se heredan del store de deskops por el link
   `../deskops/.sldb`. Un clon solo de sldb no los resuelve: el CI necesita deskops al lado,
   con la misma ruta relativa.
-- 3 modelos de pron (AnchorDoc, ProjectionDoc, MoveDoc, con 37 documentos en `ledger/`) están
-  registrados con rutas absolutas a `/home/jp/proyectos/pron`, que no existen en otro equipo.
-  Entraron en un commit WIP de otra sesión (1b04515e). Que sigan en el store de sldb es
-  decisión del dueño.
+- 3 modelos de pron (AnchorDoc, ProjectionDoc, MoveDoc, con 37 documentos en `ledger/`): por
+  decisión del dueño viven en el store de pron y sldb los hereda por `../pron/.sldb` (106ed3c0);
+  `ledger/*.md` queda en sldb como fuente. pron no versiona su `.sldb/`, así que un checkout
+  limpio de pron tampoco tiene store: pron necesita su propio `.sldb/store.yaml` para que el CI
+  de sldb pueda construirlo antes que el de sldb.
 
 ## 5. Los otros repos
 
-deskops, spec2viz y graph_ui también versionan `.sldb/`. Cada uno necesita su
+deskops (225 archivos), spec2viz (23) y graph_ui (311) también versionan `.sldb/`. Cada uno necesita su
 `.sldb/store.yaml`, el `.gitignore` de lo derivado y el `stores build --check` en su CI. sldb
 migra primero.
