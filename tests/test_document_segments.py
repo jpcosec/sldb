@@ -18,14 +18,16 @@ from sldb.api.documents.runtime_documents import load_runtime_documents
 from sldb.api.segments import build_document_segments
 from sldb.core.segments.instrumented_render import render_with_spans
 from sldb.runtime.validation import render_model_markdown
+from sldb.store.layout import store_exists
 
 ROOT = Path(__file__).resolve().parents[1]
 STORE = ROOT / ".sldb"
 
 
 def _store_documents() -> list[Any]:
-    """Every runtime document of the repo's own store, or none when absent."""
-    if not STORE.is_dir():
+    """Every runtime document of the repo's own store, or none when it is not built: the store
+    is derived (`sldb stores build`), so a fresh checkout has `.sldb/store.yaml` and no index."""
+    if not store_exists(STORE):
         return []
     return load_runtime_documents(STORE, str(ROOT))
 
@@ -33,7 +35,7 @@ def _store_documents() -> list[Any]:
 DOCUMENTS = _store_documents()
 
 
-@pytest.mark.skipif(not DOCUMENTS, reason="the repo's own .sldb store is required")
+@pytest.mark.skipif(not DOCUMENTS, reason="the repo's own store is not built (sldb stores build)")
 def test_instrumented_render_matches_canonical_render_for_every_document() -> None:
     """The decoded text equals ``render_model_markdown`` byte for byte, store-wide."""
     mismatches = [doc.name for doc in DOCUMENTS if not _renders_identically(doc)]
@@ -46,7 +48,7 @@ def _renders_identically(doc: Any) -> bool:
     return text == render_model_markdown(doc.model_type, doc.payload)
 
 
-@pytest.mark.skipif(not DOCUMENTS, reason="the repo's own .sldb store is required")
+@pytest.mark.skipif(not DOCUMENTS, reason="the repo's own store is not built (sldb stores build)")
 def test_segments_concatenate_back_into_the_document_text() -> None:
     """Top-level segments tile the text with no gap and no overlap, store-wide."""
     broken = [doc.name for doc in DOCUMENTS if not _segments_tile(doc.name)]
@@ -59,7 +61,7 @@ def _segments_tile(name: str) -> bool:
     return "".join(segment.text for segment in result.segments) == result.text
 
 
-@pytest.mark.skipif(not DOCUMENTS, reason="the repo's own .sldb store is required")
+@pytest.mark.skipif(not DOCUMENTS, reason="the repo's own store is not built (sldb stores build)")
 def test_every_segment_text_matches_its_own_offsets() -> None:
     """Each segment's ``text`` is exactly the slice its offsets address, nested included."""
     offenders = [doc.name for doc in DOCUMENTS if _offset_mismatch(doc.name)]
