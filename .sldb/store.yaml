@@ -237,8 +237,6 @@ include:
   - desk/inbox/20261001-031225-unclear-atomo-y-field-convergieron-falta-un-set-bootstrap.md
   - desk/inbox/20261001-031226-suggestion-los-llm-se-saltan-la-api-de-escritura-y-escriben-markdown-directo.md
   - desk/inbox/20261019-011009-unclear-decisi-n-del-due-o-qu-mecanismo-guarda-el-pasado-del-rbol-del-store-journal.md
-  - desk/inbox/20261019-135415-suggestion-spec2viz-migr-al-store-derivado-dos-cosas-de-sldb-valueerror-en-create-document-y-nota-vieja-de-gitignore-en-stores-check.md
-  - desk/inbox/20261019-140852-suggestion-deskops-envelope-y-evidencia-en-aristas-recibidas-por-ahora-no-las-adopto-motivos.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
