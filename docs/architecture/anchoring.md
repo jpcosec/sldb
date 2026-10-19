@@ -58,4 +58,4 @@ Reglas de salida:
 La regla vale para todo sldb, no solo para los anclajes. Hoy varios comandos tratan un
 movimiento de fuente como error (por ejemplo, `stores check` da FAIL por un hash atrasado).
 La auditoría de cada caso y su reclasificación propuesta están en
-[code-anchoring.md, sección 9](code-anchoring.md).
+[code-anchoring.md, sección 10](code-anchoring.md).
