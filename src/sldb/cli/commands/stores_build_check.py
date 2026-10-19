@@ -42,9 +42,9 @@ def check_build(store: Path, root: Path, scratch: Path) -> dict[str, Any]:
     built_store = copy / store.relative_to(root)
     built = build_store(built_store, copy)
     integrity = _integrity(built_store)
-    differences = _differences(store, root, built_store, copy) if store_exists(store) else []
-    ok = integrity == 0 and not built["undeclared"] and not differences
-    return {"ok": ok, "integrity_exit": integrity, "undeclared": built["undeclared"], "differences": differences}
+    differences = _differences(store, root, built_store, copy, tuple(load_declaration(store).derived)) if store_exists(store) else []
+    ok = integrity == 0 and not built["undeclared"] and not built["missing"] and not differences
+    return {"ok": ok, "integrity_exit": integrity, "undeclared": built["undeclared"], "missing": built["missing"], "differences": differences}
 
 
 def _prepared_copy(store: Path, root: Path, copy: Path) -> Path:
@@ -81,15 +81,18 @@ def _link_siblings(root: Path, copy: Path, links: list[dict]) -> None:
             target.symlink_to(project, target_is_directory=True)
 
 
-def _differences(store: Path, root: Path, built_store: Path, copy: Path) -> list[str]:
+def _differences(store: Path, root: Path, built_store: Path, copy: Path, generated: tuple[str, ...]) -> list[str]:
+    """What the copy tracks and the local store does not, or the reverse; generated paths are
+    left out: a local store whose generators have not rerun since the code moved is behind, not wrong."""
     invalidate_index_cache()
-    local = {(m, p, n) for m, p, n in tracked_rows(store, root)}
-    rebuilt = {(m, p, n) for m, p, n in tracked_rows(built_store, copy)}
+    local = {r for r in tracked_rows(store, root) if not r[1].startswith(generated or ("\0",))}
+    rebuilt = {r for r in tracked_rows(built_store, copy) if not r[1].startswith(generated or ("\0",))}
     return [f"only local: {r}" for r in sorted(local - rebuilt)] + [f"only rebuilt: {r}" for r in sorted(rebuilt - local)]
 
 
 def _summary(report: dict[str, Any]) -> str:
     head = "PASS: the sources rebuild the store" if report["ok"] else "FAIL: the sources do not rebuild the store"
     lines = [head, f"  stores check exit: {report['integrity_exit']}"]
-    lines += [f"  undeclared: {p}" for p in report["undeclared"]] + [f"  {d}" for d in report["differences"][:50]]
+    lines += [f"  undeclared: {p}" for p in report["undeclared"]] + [f"  declared, no file: {p}" for p in report["missing"]]
+    lines += [f"  {d}" for d in report["differences"][:50]]
     return "\n".join(lines)

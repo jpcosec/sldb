@@ -1,4 +1,5 @@
 from __future__ import annotations
+from sldb.api.stores.declaration_sync import forget_tracked
 from sldb.cli.output_format import emit
 
 from pathlib import Path
@@ -85,6 +86,7 @@ class DocCLI:
 
     def _save_untracked(self, sp: Any, root: Path, idx: Any, args: Any, m_entry: Any, m_idx: Any, doc: Any) -> None:
         forget_document(sp, root, idx, m_entry, m_idx, doc, args.pythonpath)
+        forget_tracked(sp, doc.path)
 
     def untrack(self, args: Any) -> int:
         untracked = untrack_document(args.store, args.doc, args.pythonpath)

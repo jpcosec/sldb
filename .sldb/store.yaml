@@ -236,7 +236,6 @@ include:
   - desk/inbox/20261001-031224-suggestion-cerrar-las-cuatro-decisiones-de-operacionalizacion-vistas-6.md
   - desk/inbox/20261001-031225-unclear-atomo-y-field-convergieron-falta-un-set-bootstrap.md
   - desk/inbox/20261001-031226-suggestion-los-llm-se-saltan-la-api-de-escritura-y-escriben-markdown-directo.md
-  - desk/inbox/20261007-133032-suggestion-el-store-sldb-no-se-versiona-sacar-shards-e-indice-de-git.md
   - desk/inbox/20261019-011009-unclear-decisi-n-del-due-o-qu-mecanismo-guarda-el-pasado-del-rbol-del-store-journal.md
 - model: MoveDoc
   glob: ledger/*.md

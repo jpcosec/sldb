@@ -56,7 +56,7 @@ def apply_predicates(store_path: Path, declaration: StoreDeclaration) -> bool:
 def apply_includes(store_path: Path, root: Path, declaration: StoreDeclaration) -> list[str]:
     """Track every declared file that is not tracked yet under its declared model and name."""
     tracked = set(tracked_rows(store_path, root))
-    new = [row for row in declared_files(root, declaration) if row not in tracked]
+    new = [row for row in declared_files(root, declaration) if row not in tracked and (root / row[1]).is_file()]
     for model, path, name in new:
         track_document_file(store_path, model, root / path, name, str(root), force=True)
     return [path for _, path, _ in new]
@@ -66,3 +66,9 @@ def undeclared(store_path: Path, root: Path, declaration: StoreDeclaration) -> l
     """Tracked documents no include rule names: the declaration is missing them."""
     wanted = set(declared_files(root, declaration))
     return sorted(path for model, path, name in tracked_rows(store_path, root) if (model, path, name) not in wanted)
+
+
+def missing_declared(root: Path, declaration: StoreDeclaration) -> list[str]:
+    """Declared paths with no file: the declaration names something gone, and a build that
+    tracked around it silently would rebuild a different store."""
+    return sorted({path for _, path, _ in declared_files(root, declaration) if not (root / path).is_file()})

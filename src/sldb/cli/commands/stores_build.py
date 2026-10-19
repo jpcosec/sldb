@@ -12,7 +12,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from sldb.api.stores.apply_declaration import apply_includes, apply_links, apply_models, apply_predicates, undeclared
+from sldb.api.stores.apply_declaration import apply_includes, apply_links, apply_models, apply_predicates, missing_declared, undeclared
 from sldb.api.stores.declare_store import declare_store
 from sldb.api.stores.store_declaration import declared_store, load_declaration, save_declaration
 from sldb.api.stores.store_skeleton import write_empty_store
@@ -42,6 +42,7 @@ def build_store(store: Path, root: Path) -> dict[str, Any]:
     report.update(_track(store, root, declaration))
     update_store_indexes(store, str(root))
     report["undeclared"] = undeclared(store, root, declaration)
+    report["missing"] = missing_declared(root, declaration)
     return report
 
 
@@ -62,10 +63,10 @@ def build_command(args: Any) -> int:
     store, root = declared_store(args.store)
     report = build_store(store, root)
     emit(report, args.format, _summary(report))
-    return 1 if report["undeclared"] else 0
+    return 1 if report["undeclared"] or report["missing"] else 0
 
 
 def _summary(report: dict[str, Any]) -> str:
     counts = ", ".join(f"{k}: {len(v)}" for k, v in report.items() if isinstance(v, list))
-    flagged = "" if not report["undeclared"] else "\nundeclared (tracked, but no include rule names them): " + ", ".join(report["undeclared"])
+    flagged = "".join(f"\n{key}: " + ", ".join(report[key]) for key in ("undeclared", "missing") if report[key])
     return f"built: {counts}{flagged}"

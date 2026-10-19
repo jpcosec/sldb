@@ -1,6 +1,7 @@
 """Stop tracking a document: drop it from the store indexes, leaving its Markdown file alone."""
 
 from __future__ import annotations
+from sldb.api.stores.declaration_sync import forget_tracked
 
 from pathlib import Path
 
@@ -52,6 +53,7 @@ def _forget_and_record(sp: Path, root: Path, idx: StoreIndex, m_entry: ModelEntr
     before_a = store_hash(sp)
     hash_c, hash_d = doc.hash_c, doc.hash_d
     forget_document(sp, root, idx, m_entry, m_idx, doc, pythonpath)
+    forget_tracked(sp, doc.path)
     record(sp, {"operation": "untrack_document", "address": doc_address(m_entry.name, doc.name), "hash_c_before": hash_c, "hash_d_before": hash_d, "hash_a_before": before_a, "hash_a_after": store_hash(sp), "actor": actor})
 
 
