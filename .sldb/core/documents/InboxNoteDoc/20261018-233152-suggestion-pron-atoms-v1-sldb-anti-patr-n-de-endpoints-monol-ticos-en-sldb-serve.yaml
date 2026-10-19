@@ -1,0 +1,19 @@
+name: 20261018-233152-suggestion-pron-atoms-v1-sldb-anti-patr-n-de-endpoints-monol-ticos-en-sldb-serve
+path: desk/inbox/20261018-233152-suggestion-pron-atoms-v1-sldb-anti-patr-n-de-endpoints-monol-ticos-en-sldb-serve.md
+source_hash: 4e85e193ea53d962096071ce6fa4cc53c9752c90e84fda94b26fb0412d9ca1cf
+content_hash: 02b18d0a053393c599fe38bea5a205932b2c42a4579b40fa8f0c98e77c766d68
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: 1d147ab379788e0277ce278d918ca7cf9e0572dffeefc59e10d282ef146bd45c
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 8328a2cd2c55c4893f4e8463771db8e4b177b5dcabd0a1902ceb1d22e0fbd4b5
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 439ea68b30f4edeabd5a443cbefe0cbe974cfe0c308c8ac470207d9b2913373e
+  title: 0ff8309ed4d6ba4f5bc248c07fedebfbfa039da799ad1e2c09d286566e5eaf0f
+  body: 4589a4eeea84b76ff71f1a7508183a9a813273fa6c8f0c88e4256efd9eec3eaa
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
