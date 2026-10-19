@@ -30,3 +30,37 @@ jobs:
         run: python -m sldb selfdoc check
       - name: Build distribution
         run: python -m build
+
+  store:
+    # The store is derived (docs/architecture/derived-store-boundary.md): rebuild it from the
+    # sources, with the stores it links checked out as siblings at the same relative paths.
+    runs-on: ubuntu-latest
+    # Until pron declares its store (.sldb/store.yaml): a fresh pron checkout has no store,
+    # so the three models sldb inherits from it cannot be built here yet.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: sldb
+      - uses: actions/checkout@v4
+        with:
+          repository: jpcosec/opsys
+          path: deskops
+      - uses: actions/checkout@v4
+        with:
+          repository: jpcosec/pron
+          ref: master
+          path: pron
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install sldb
+        run: python -m pip install -e "sldb[dev,click]"
+      - name: Build the linked stores that declare themselves
+        run: |
+          for repo in deskops pron; do
+            if [ -f "$repo/.sldb/store.yaml" ]; then (cd "$repo" && sldb stores build); fi
+          done
+      - name: Rebuild sldb's store from its sources
+        working-directory: sldb
+        run: sldb stores build --check
