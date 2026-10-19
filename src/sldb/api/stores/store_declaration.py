@@ -47,3 +47,17 @@ def save_declaration(store_path: Path, declaration: StoreDeclaration) -> Path:
     path = declaration_path(store_path)
     path.write_text(yaml.safe_dump(declaration.model_dump(), sort_keys=False, allow_unicode=True, width=100), encoding="utf-8")
     return path
+
+
+def declared_store(store_arg: str | None) -> tuple[Path, Path]:
+    """`(store, project root)` of the store a build targets: `--store` (a `.sldb` directory or
+    its project) or the nearest ancestor holding `.sldb/store.yaml`. A store that is only
+    declared has no index yet, so the usual discovery, which looks for one, cannot find it."""
+    if store_arg:
+        store = Path(store_arg).resolve()
+        store = store if store.name == ".sldb" else store / ".sldb"
+        return store, store.parent
+    for folder in (Path.cwd().resolve(), *Path.cwd().resolve().parents):
+        if declaration_path(folder / ".sldb").is_file():
+            return folder / ".sldb", folder
+    raise FileNotFoundError(f"No .sldb/{DECLARATION_FILE} here or above {Path.cwd()}")

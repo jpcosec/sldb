@@ -76,3 +76,15 @@ def test_the_check_rebuilds_a_scratch_copy_and_compares(tmp_path, capsys):
     report = check_build(store, root, tmp_path / "scratch")
     assert report == {"ok": True, "integrity_exit": 0, "undeclared": [], "differences": []}
     assert yaml.safe_load((store / "store.yaml").read_text(encoding="utf-8"))["include"]
+
+
+def test_build_finds_a_store_that_is_only_declared(tmp_path, capsys, monkeypatch):
+    """A fresh clone has `.sldb/store.yaml` and no index: the usual discovery, which looks for
+    the index, missed it and fell back to the global store."""
+    store, root = _declared(tmp_path, capsys)
+    for derived in ("core", "runtime"):
+        shutil.rmtree(store / derived, ignore_errors=True)
+    invalidate_index_cache()
+    monkeypatch.chdir(root)
+    assert cli_main(["stores", "build"]) == 0
+    assert cli_main(["stores", "check", "--store", str(store), "--quiet"]) == 0

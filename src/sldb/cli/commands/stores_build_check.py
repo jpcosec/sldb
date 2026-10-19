@@ -18,9 +18,8 @@ from pathlib import Path
 from typing import Any
 
 from sldb.api.stores.declared_includes import tracked_rows
-from sldb.api.stores.store_declaration import load_declaration
+from sldb.api.stores.store_declaration import declared_store, load_declaration
 from sldb.cli.output_format import emit
-from sldb.cli.store_context import get_store_context
 from sldb.store.io import invalidate_index_cache
 from sldb.store.layout import store_exists
 
@@ -28,7 +27,7 @@ ALWAYS_DERIVED = (".sldb/core/", ".sldb/runtime/")
 
 
 def check_command(args: Any) -> int:
-    store, root = get_store_context(args.store, mode="readonly")
+    store, root = declared_store(args.store)
     with tempfile.TemporaryDirectory(prefix="sldb-build-check-") as scratch:
         report = check_build(store, root, Path(scratch))
     emit(report, args.format, _summary(report))

@@ -14,7 +14,7 @@ from typing import Any
 
 from sldb.api.stores.apply_declaration import apply_includes, apply_links, apply_models, apply_predicates, undeclared
 from sldb.api.stores.declare_store import declare_store
-from sldb.api.stores.store_declaration import load_declaration, save_declaration
+from sldb.api.stores.store_declaration import declared_store, load_declaration, save_declaration
 from sldb.api.stores.store_skeleton import write_empty_store
 from sldb.api.stores.update_store_indexes import update_store_indexes
 from sldb.cli.output_format import emit
@@ -59,7 +59,7 @@ def build_command(args: Any) -> int:
         from sldb.cli.commands.stores_build_check import check_command
 
         return check_command(args)
-    store, root = get_store_context(args.store)
+    store, root = declared_store(args.store)
     report = build_store(store, root)
     emit(report, args.format, _summary(report))
     return 1 if report["undeclared"] else 0
