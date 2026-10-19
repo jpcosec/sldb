@@ -548,7 +548,7 @@ Modelos que vienen con SLDB:
 | `SurfaceDoc` | — | un subsistema completo |
 | `RelationTypeDoc` | — | un tipo de arista |
 | `RelationDoc` | — | una arista concreta |
-| `AnchorDoc` | — | un símbolo atado a su referente y su motivo |
+| `AnchorDoc` | — | un alias de pron: una palabra y lo que nombra; resuelve pero no verifica (ver [anclaje](architecture/anchoring.md)) |
 | `KnowledgeTag` | — | vocabulario |
 
 Por eso SLDB se auto-documenta: hay un adaptador que lee argparse y genera
