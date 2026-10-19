@@ -1,12 +1,12 @@
 # Handoff: Continue Source Docstring Annotations
 
-> Note (2026-10-18): KGDB was merged into sldb and is now its graph layer (`sldb.store.graph`, CLI `sldb graph ...`). Where this document says KGDB it means that layer; no external `kgdb` package or executable exists any more. The `sldb_semantic_export` contract name is kept as a data contract.
+> History (2026-10-18): this handoff guided the delivery of the docstring indexing contract and is kept as its working record. The task closed in aca36681; strict metadata, tag inheritance, re-exports, shadowing and the spec2viz projection were implemented afterwards, and the current status and open items are in [the spec, section 7](code-docstring-indexing.spec.md). KGDB, named throughout, was a separate graph product at the time; it was merged into sldb as its graph layer (`sldb.store.graph`) and no external `kgdb` exists any more.
 
 Continue the [docstring indexing specification](code-docstring-indexing.spec.md) in a small annotation-only batch. The specification is the authority; the two [PythonSymbol pilot declarations](../../src/sldb/selfdoc/python_symbol.py) demonstrate its syntax. The source-fact adapter now writes a regenerable KGDB graph, but strict docstring metadata interpretation and tag inheritance are not implemented. Do not report annotations as complete semantic classification.
 
 ## Assignment for the next agent
 
-Read the spec completely, `standards.md`, [the active task](../../desk/tasks/task-build-code-self-documentation.md), and [the execution pill](../../desk/pills/pill-015-self-documentation-boundaries.md). Preserve unrelated working-tree changes; this checkout already contains extensive unfinished work. Do not reset, stage everything, commit, bump versions, or mark the overarching task done as part of this handoff.
+Read the spec completely, `standards.md`, the active task (`task-build-code-self-documentation`, closed in aca36681), and the execution pill (`pill-015-self-documentation-boundaries`, retired on 2026-10-18; its rules are in [self-documentation.md](../self-documentation.md)). Preserve unrelated working-tree changes; this checkout already contains extensive unfinished work. Do not reset, stage everything, commit, bump versions, or mark the overarching task done as part of this handoff.
 
 The following batch-2 assignment is complete; do not repeat it. The next annotation assignment is the batch-3 proposal at the end of this handoff. Each batch annotates at most four declarations and requires reading consumers before describing behavior.
 
