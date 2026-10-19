@@ -405,12 +405,14 @@ def test_help_topics(capsys):
 
 
 def test_faq_lists_and_selects_questions(capsys):
-    assert cli_main(["faq"]) == 0
+    # The repo's FAQ by path: finding it through the repo's store needs that (derived) store built.
+    faq = ["--faq-path", str(Path(__file__).resolve().parents[1] / "docs" / "faq.md")]
+    assert cli_main(["faq", *faq]) == 0
     out = capsys.readouterr().out
     assert "SLDB FAQ questions:" in out
     assert "What exactly is a store?" in out
 
-    assert cli_main(["faq", "store"]) == 0
+    assert cli_main(["faq", "store", *faq]) == 0
     out = capsys.readouterr().out
     assert "What exactly is a store?" in out
     assert "A store is SLDB's metadata workspace" in out

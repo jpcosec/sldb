@@ -16,7 +16,16 @@ def test_store_check_yaml_format(tmp_path, capsys):
     assert "hash_a_ok: true" in captured.out
     assert "models:" in captured.out
 
-def test_recover_links_only(tmp_path, capsys):
+def _own_store(tmp_path, monkeypatch) -> None:
+    """Run from a project with its own store: the repo's store is derived and may not be built."""
+    from sldb.api.stores.store_skeleton import write_empty_store
+
+    write_empty_store(tmp_path / ".sldb")
+    monkeypatch.chdir(tmp_path)
+
+
+def test_recover_links_only(tmp_path, capsys, monkeypatch):
+    _own_store(tmp_path, monkeypatch)
     doc = tmp_path / "test.md"
     doc.write_text("# Test\n[[target1]]\n[[target2]]")
     
@@ -27,7 +36,8 @@ def test_recover_links_only(tmp_path, capsys):
     assert "target2" in captured.out
     assert "link:" not in captured.out
 
-def test_recover_depth(tmp_path, capsys):
+def test_recover_depth(tmp_path, capsys, monkeypatch):
+    _own_store(tmp_path, monkeypatch)
     doc1 = tmp_path / "doc1.md"
     doc2 = tmp_path / "doc2.md"
     doc1.write_text("# Doc 1\n[[doc2.md]]")
