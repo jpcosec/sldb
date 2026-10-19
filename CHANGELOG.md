@@ -12,7 +12,10 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   (idempotent); `stores build --check` rebuilds a scratch copy of the sources and fails when
   that copy does not pass `stores check`, a tracked document is not declared, or it tracks
   something other than the local store. `stores declare --write` writes the declaration the
-  current index implies, to adopt the layout. Design: `docs/architecture/derived-store-boundary.md`.
+  current index implies, to adopt the layout: a model whose source is outside the project
+  (sldb's own, from the installed package) is declared by `model_ref` alone, and a glob is
+  written only for a folder with more than one tracked file, all of one model. Design:
+  `docs/architecture/derived-store-boundary.md`.
 - An inherited model whose owner uses a `src/` layout imports again. The import root was the
   owner's project root, so pron's models, which live under its `src/` directory, stayed unimportable in a
   store that inherits them; it is now the directory the owner's registered path puts the

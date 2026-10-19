@@ -19,19 +19,19 @@ def declare_store(store_path: Path, root: Path) -> StoreDeclaration:
     index = load_store_index(store_path)
     return StoreDeclaration(
         links=[{"name": link.name, "path": link.path} for link in index.stores],
-        models=[_model(entry) for entry in index.models],
+        models=[_model(entry, root) for entry in index.models],
         predicates={p.name: {"axis": p.axis, "description": p.description} for p in sorted(index.predicates, key=lambda p: p.name)},
         **_kept(store_path),
         include=declared_includes(store_path, root),
     )
 
 
-def _model(entry) -> dict:
+def _model(entry, root: Path) -> dict:
     declared = {"name": entry.name, "model_ref": entry.model_ref}
     if entry.origin:
         declared["origin"] = entry.origin
-    elif entry.path:
-        declared["path"] = entry.path
+    elif _inside(root, entry.path):
+        declared["path"] = Path(entry.path).as_posix()
     if entry.canonical:
         declared["canonical"] = True
     return declared
@@ -43,3 +43,12 @@ def _kept(store_path: Path) -> dict:
         return {}
     current = load_declaration(store_path)
     return {"generate": current.generate, "derived": current.derived}
+
+
+def _inside(root: Path, path: str) -> bool:
+    """A model source the project holds. One outside it (sldb's own models, from the installed
+    package) is declared by `model_ref` alone: its absolute path would pin one checkout."""
+    if not path:
+        return False
+    source = Path(path) if Path(path).is_absolute() else root / path
+    return source.resolve().is_relative_to(root.resolve()) and not Path(path).is_absolute()

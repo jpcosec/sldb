@@ -88,3 +88,24 @@ def test_build_finds_a_store_that_is_only_declared(tmp_path, capsys, monkeypatch
     monkeypatch.chdir(root)
     assert cli_main(["stores", "build"]) == 0
     assert cli_main(["stores", "check", "--store", str(store), "--quiet"]) == 0
+
+
+def test_a_model_outside_the_project_is_declared_by_reference_only(tmp_path, capsys):
+    """deskops and spec2viz register sldb's relation models from the installed package: their
+    absolute path would pin the declaration to one checkout."""
+    from sldb.api import add_model
+
+    store, root = _build_tracked_store(tmp_path, capsys)
+    add_model(store, "sldb.models.relation_doc:RelationDoc")
+    models = {m["name"]: m for m in declare_store(store, root).models}
+    assert models["RelationDoc"] == {"name": "RelationDoc", "model_ref": "sldb.models.relation_doc:RelationDoc"}
+    assert models["TaskDoc"]["path"] == "tmpdocs/models.py"
+
+
+def test_a_folder_with_one_tracked_file_is_listed_not_globbed(tmp_path, capsys):
+    store, root = _build_tracked_store(tmp_path, capsys)
+    (root / "boards").mkdir()
+    (root / "boards" / "board.md").write_text("# Board\n\n## Overview\n\nBody\n", encoding="utf-8")
+    assert cli_main(["docs", "track", str(root / "boards" / "board.md"), "--model", "TaskDoc", "--store", str(store), "--pythonpath", str(root)]) == 0
+    rules = [r for r in declare_store(store, root).include if "boards/board.md" in str(r)]
+    assert rules == [{"model": "TaskDoc", "paths": ["boards/board.md"]}]

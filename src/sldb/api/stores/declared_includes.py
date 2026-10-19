@@ -2,7 +2,8 @@
 
 A directory becomes one glob only when the glob would track exactly what is tracked there,
 under one model, each document named after its file, and never the project root itself (a
-new README there is not a new document of that model). Anything else is listed by path, with
+new README there is not a new document of that model), nor a folder holding a single tracked
+file: `desk/tasks/` with only `Board.md` would make every new task a board. Anything else is listed by path, with
 the name when it differs from the file stem: document names enter the `sldb://document/...`
 ids, so a rule may not rename what it tracks.
 """
@@ -36,6 +37,6 @@ def declared_includes(store_path: Path, root: Path) -> list[dict]:
 def _rule(root: Path, model: str, folder: str, docs: list[tuple[str, str]]) -> dict:
     tracked = {path for path, _ in docs}
     on_disk = {p.relative_to(root).as_posix() for p in (root / folder).glob("*.md")}
-    if folder != "." and tracked == on_disk and all(Path(path).stem == name for path, name in docs):
+    if folder != "." and len(docs) > 1 and tracked == on_disk and all(Path(path).stem == name for path, name in docs):
         return {"model": model, "glob": f"{folder}/*.md"}
     return {"model": model, "paths": [path if Path(path).stem == name else {"path": path, "name": name} for path, name in docs]}
