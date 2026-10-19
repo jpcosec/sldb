@@ -4,7 +4,7 @@ system: sldb
 command_path: edges show
 synopsis: Edges from (or --to) a document or node.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#edges show; contract-sha256:a250f178e14e26f628193f39ea69a784dcd80d0d4f2fd31b1f1c87f6c8856301
+provenance: parser:sldb.cli.parser:build_parser#edges show; contract-sha256:bf9df8956855b86d0b8fa9ef4d84987dfde67d14dc6c2e13d8867a9383c6afe1
 ---
 
 # edges show
@@ -90,6 +90,19 @@ Not documented.
       "action": "argparse._StoreAction",
       "const": "null",
       "help": "Project path (to read the --holds-for document)"
+    },
+    {
+      "names": [
+        "--evidence"
+      ],
+      "required": false,
+      "default": "false",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "argparse._StoreTrueAction",
+      "const": "true",
+      "help": "Add metadata.evidence: the target's hash, the source's contract, and the engine or actor"
     },
     {
       "names": [

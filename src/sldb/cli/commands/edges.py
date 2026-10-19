@@ -32,6 +32,7 @@ class EdgesCLI:
         edges = self._edges(args)
         if not edges and (unknown := unknown_node_message(args)):
             raise SystemExit(unknown)
+        edges = _with_evidence(args, edges) if args.evidence else edges
         print(json.dumps([e.model_dump() for e in edges], indent=2, ensure_ascii=False))
         return 0
 
@@ -62,3 +63,9 @@ class EdgesCLI:
             print(f"{r.reason}: {r.source} .{r.field} -> {r.target}" + (f" ({r.target_export_id})" if r.target_export_id else ""))
         print(f"{len(found)} unresolved reference(s)")
         return 0
+
+
+def _with_evidence(args: Any, edges: list) -> list:
+    from sldb.api.edges.edge_evidence import stamp_evidence
+
+    return stamp_evidence(args.store, edges, not args.local)

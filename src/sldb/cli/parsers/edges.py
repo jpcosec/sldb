@@ -24,6 +24,7 @@ def _show_args(show: argparse.ArgumentParser) -> None:
     show.add_argument("--relation", help="Only edges of this relation type")
     show.add_argument("--holds-for", metavar="DOC", help="Only edges whose condition holds on this document's fields (name, path or Model/name)")
     show.add_argument("--pythonpath", help="Project path (to read the --holds-for document)")
+    show.add_argument("--evidence", action="store_true", help="Add metadata.evidence: the target's hash, the source's contract, and the engine or actor")
     _read_args(show)
 
 

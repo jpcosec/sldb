@@ -4,6 +4,12 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
 
 ## 0.1.13 — not released yet (no tag, not on PyPI)
 
+- Edges can carry their evidence, on request: `sldb edges show --evidence` and
+  `sldb.api.edges.edge_evidence.stamp_evidence` add `metadata.evidence` with `ref_hash` (the
+  target's `content_hash`, a model's `model_hash`; for a section its document's, flagged
+  `ref: document`, since sections have no hash of their own), `contract` (the source model's
+  `contract_hash`) and `engine` (`{name, version}`) or, for an authored edge, `actor`
+  (`relation_doc:<name>`). No timestamp. Computed on read, so the shards do not change.
 - `sldb --envelope <command> ...` prints one JSON value per run, `{ok, command, store,
   revision, data, warnings}` or `{ok: false, error: {type: "ns/name", message}, exit}`, and
   exits with a typed code: 0 ok, 1 missing, 2 ambiguous, 3 rejected input, 4 busy, 5 store or
