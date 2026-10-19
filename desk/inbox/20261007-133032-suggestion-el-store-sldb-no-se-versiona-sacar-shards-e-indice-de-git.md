@@ -18,3 +18,7 @@ status: open
 _Describe the incoming message with enough evidence to triage._
 
 Decision del dueno (2026-10-07): en sldb, los shards de documentos (.sldb/core/documents/, 1551 archivos) y el indice (.sldb/core/store_index.yaml) NO deben ir en git; hoy estan versionados. Pendiente de definir si core/models/ (35 indices de modelo) tambien sale. Antes de sacarlos hace falta una receta de reconstruccion en un clon limpio: los 1368 documentos de knowledge/ se regeneran con 'sldb selfdoc sync' y 'python-sync'; los otros 183 (docs del repo, desk, inbox) solo los conoce hoy el indice, asi que hace falta declarar modelo y patron de rutas (como kimun.include.edn en kimun) y un script que corra models add + docs track + selfdoc sync. Prueba requerida: reconstruir en un directorio aparte y comparar los 1551 payloads contra el store actual antes de borrar nada. Despues: git rm --cached de lo que salga y .sldb/ en .gitignore salvo README.md. No se ejecuta ahora: el foco esta en kimun (decision 18: v1 sigue en v1).
+
+## Avance (2026-10-18)
+
+Los conteos de arriba son los del 2026-10-07. Hoy git trackea 2782 archivos bajo .sldb/core/documents/ y 34 bajo .sldb/core/models/. La decisión sigue en espera; afecta también a 20260925-102838 y 20260925-113912.

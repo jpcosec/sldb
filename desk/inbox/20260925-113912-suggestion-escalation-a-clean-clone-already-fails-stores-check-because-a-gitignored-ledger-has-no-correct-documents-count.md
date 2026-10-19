@@ -50,3 +50,7 @@ There is no value that satisfies both a clone and a live tree simultaneously. Th
 ## Suggested acceptance test
 
 A store with a ledger model, all its documents absent, should pass `stores check` from a clean clone.
+
+## Avance (2026-10-18)
+
+5d975e01: stores check ya clasifica este caso como `roster_only` (un MoveDoc sin documentos no se reporta como daño), pero sigue en FAIL a propósito: clasificar una falla no es tolerarla. El criterio de aceptación depende de la decisión del dueño en 20260925-102838 (modelos volátiles) y 20261007-133032 (sacar el store de git).

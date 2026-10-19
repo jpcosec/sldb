@@ -1,7 +1,7 @@
 name: 20261001-031224-suggestion-cerrar-las-cuatro-decisiones-de-operacionalizacion-vistas-6
 path: desk/inbox/20261001-031224-suggestion-cerrar-las-cuatro-decisiones-de-operacionalizacion-vistas-6.md
-source_hash: 9cb551e08f56fe1fa1b97fbbebebcce4dcd751d905538b160ed64a5cc3fb4487
-content_hash: 293955794df693f17f0727443223ec439b974ff564a559c3ccf6a7b132ff9506
+source_hash: 868e947058464c03907e1f0e70b1304e1a13b5c1533b55e9865df7d4a17b46ba
+content_hash: 0eca6f005fad2e30cfeb6e25168f4a98160bba77a25c5feba258d119a531e255
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,7 +9,7 @@ field_hashes:
   created_at: f56950456f290932d4cf2d18545c3f93444ea9af282c36b2a5237ca22b1d9f1e
   status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
   title: 15aa1171b28c86d207dda903f7c1020c1912a3ef1d36eaa0ce3cb087bd2ba7ed
-  body: d1c1e7ca66695f22c88d6b497b4d297bf88dc3014ab5aa8ba0c8f91d6a35b1dd
+  body: 8574878bcfaaaa55f686acac710cabc42599414b81b00379ee990bbcc4494bbf
 semantic_tags:
 - representation.markdown
 - source.document.markdown
