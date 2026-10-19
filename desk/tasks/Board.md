@@ -17,6 +17,7 @@ pills:
 - desk/contexts/pill-store-health-is-owned-by-sldb.md
 - desk/contexts/pill-stores-init-must-be-idempotent-and-fail-safely.md
 - desk/contexts/pill-keep-the-text-layer-and-the-graph-layer-separate-inside-sldb.md
+- desk/contexts/pill-context-pills-carry-reasoning-not-a-copy-of-code-or-docs.md
 # List of ritual-xxx paths
 rituals:
 - desk/rituals/execution.md
