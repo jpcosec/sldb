@@ -18,6 +18,7 @@ from typing import Any
 
 from sldb.store.io import load_store_index
 from sldb.store.layout import project_root, store_exists
+from sldb.store.model_import_root import import_root
 
 
 def linked_store(store_path: Path, alias: str) -> Path | None:
@@ -41,12 +42,14 @@ def owner_entry(store_path: Path, entry: Any) -> tuple[Path, Any] | None:
 
 
 def owner_import_roots(store_path: Path) -> list[Path]:
-    """The project roots the store's inherited models import from, once each, in entry order."""
+    """The directories the store's inherited models import from (the owner's package root),
+    once each, in entry order."""
     roots: list[Path] = []
     for entry in load_store_index(store_path).models:
-        owner = linked_store(store_path, entry.origin) if entry.origin else None
-        if owner is not None and project_root(owner) not in roots:
-            roots.append(project_root(owner))
+        found = owner_entry(store_path, entry)
+        root = import_root(project_root(found[0]), found[1].model_ref, found[1].path) if found else None
+        if root is not None and root not in roots:
+            roots.append(root)
     return roots
 
 

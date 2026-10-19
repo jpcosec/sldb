@@ -198,3 +198,31 @@ def test_a_child_store_check_does_not_fail_on_its_owners_edges(stores):
     report = check_edges(sp)
     assert report.ok and report.stale == []
     assert report.linked_stale == ["deskops:NoteDoc:theirs"]
+
+
+def test_an_owner_with_a_src_layout_imports_from_its_package_root(tmp_path):
+    """pron registers `src/pron/models/anchor.py`: its package starts at `src/`, so the
+    owner's project root alone left the inherited model unimportable in the other store."""
+    from sldb.store.model_import_root import import_root
+
+    owner, local = tmp_path / "pron", tmp_path / "repo"
+    package = owner / "src" / "srcowner_pkg"
+    package.mkdir(parents=True), local.mkdir()
+    (package / "__init__.py").write_text(_OWNER, encoding="utf-8")
+    owner_sp, sp = init_store(owner).store_path, init_store(local).store_path
+    add_model(owner_sp, "srcowner_pkg:NoteDoc", str(owner / "src"))
+    link_store(sp, owner_sp, "pron")
+    (local / "note.md").write_text("# A note\n", encoding="utf-8")
+    try:
+        inherit_model(sp, "pron:NoteDoc")
+        track_document_file(sp, "NoteDoc", local / "note.md", "note")
+        sys.modules.pop("srcowner_pkg", None)
+        while str((owner / "src").resolve()) in sys.path:
+            sys.path.remove(str((owner / "src").resolve()))
+        invalidate_index_cache(), invalidate_runtime_cache()
+        assert diagnose_store(sp, __import__("sldb.api", fromlist=["resolve_model_ref"]).resolve_model_ref, local).models[0].resolved
+    finally:
+        sys.modules.pop("srcowner_pkg", None)
+    assert import_root(owner, "srcowner_pkg:NoteDoc", "src/srcowner_pkg/__init__.py") == owner / "src"
+    assert import_root(owner, "deskops.models:PillDoc", "deskops/models/pill.py") == owner
+    assert import_root(owner, "x.y:Z", "") == owner

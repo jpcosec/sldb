@@ -1,6 +1,6 @@
 name: AnchorDoc
 model_ref: pron.models:AnchorDoc
-path: /home/jp/proyectos/pron/src/pron/models/anchor.py
+path: ''
 documents_index: .sldb/core/documents/AnchorDoc.yaml
 sections_index: ''
 model_hash: 958adce1fe99e7837e83b248626d80fee450479fe98f78f6abe84623aa4df2a9

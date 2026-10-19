@@ -4,6 +4,12 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
 
 ## 0.1.13 — not released yet (no tag, not on PyPI)
 
+- An inherited model whose owner uses a `src/` layout imports again. The import root was the
+  owner's project root, so pron's models (`src/pron/models/...`) stayed unimportable in a
+  store that inherits them; it is now the directory the owner's registered path puts the
+  package in (`sldb.store.model_import_root`). sldb's own store inherits AnchorDoc,
+  ProjectionDoc and MoveDoc from pron through a relative link (`../pron/.sldb`) instead of
+  registering copies pinned to an absolute path that no longer existed.
 - **Python 3.12 or newer is required** (`requires-python >=3.12`; it was `>=3.10`). Python
   3.10 reaches end of life this month, and the whole suite (sldb, deskops, spec2viz, graph_ui)
   moves to the same floor. CI tests 3.12 and 3.13. The compatibility code for 3.10 is gone:

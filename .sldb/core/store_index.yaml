@@ -1,6 +1,8 @@
 stores:
 - name: deskops
   path: ../deskops/.sldb
+- name: pron
+  path: ../pron/.sldb
 models:
 - name: ArchitectureDoc
   model_ref: docs.models:ArchitectureDoc
@@ -172,7 +174,7 @@ models:
   - type.relation.instance
 - name: AnchorDoc
   model_ref: pron.models:AnchorDoc
-  path: /home/jp/proyectos/pron/src/pron/models/anchor.py
+  path: ''
   models_index: .sldb/core/models/AnchorDoc.yaml
   version: 1
   canonical: false
@@ -180,9 +182,10 @@ models:
   semantics:
   - type.knowledge.anchor
   - workspace.knowledge.anchors
+  origin: pron
 - name: ProjectionDoc
   model_ref: pron.models:ProjectionDoc
-  path: /home/jp/proyectos/pron/src/pron/models/projection.py
+  path: ''
   models_index: .sldb/core/models/ProjectionDoc.yaml
   version: 1
   canonical: false
@@ -190,9 +193,10 @@ models:
   semantics:
   - type.knowledge.projection
   - workspace.knowledge.projections
+  origin: pron
 - name: MoveDoc
   model_ref: pron.models:MoveDoc
-  path: /home/jp/proyectos/pron/src/pron/models/move.py
+  path: ''
   models_index: .sldb/core/models/MoveDoc.yaml
   version: 1
   canonical: false
@@ -200,6 +204,7 @@ models:
   semantics:
   - type.pron.move
   - workspace.knowledge.ledger
+  origin: pron
 - name: AtomDoc
   model_ref: deskops.models:AtomDoc
   path: ''

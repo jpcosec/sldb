@@ -1,6 +1,6 @@
 name: MoveDoc
 model_ref: pron.models:MoveDoc
-path: /home/jp/proyectos/pron/src/pron/models/move.py
+path: ''
 documents_index: .sldb/core/documents/MoveDoc.yaml
 sections_index: .sldb/runtime/sections/MoveDoc.yaml
 model_hash: b5c75498bd07fe1d9889e2a7325edcb16bd2145715d039af1c9cd61c41d18596

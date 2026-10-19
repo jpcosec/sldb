@@ -356,7 +356,7 @@ identity = false
 
 [[axis]]
 id = "op_modelos"
-paths = ["api/model_drafts", "api/model_registry", "api/model_create", "api/schema", "store/model_origin.py"]
+paths = ["api/model_drafts", "api/model_registry", "api/model_create", "api/schema", "store/model_origin.py", "store/model_import_root.py"]
 external = ["ast"]
 note = """
 Usa `ast` igual que `adaptadores`, y para otra cosa: aquél LEE código para
