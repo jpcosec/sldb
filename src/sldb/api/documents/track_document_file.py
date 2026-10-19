@@ -1,7 +1,7 @@
 """Start tracking an existing Markdown file as a document of a registered model."""
 
 from __future__ import annotations
-from sldb.api.stores.declaration_sync import declare_tracked
+from sldb.api.stores.declaration_sync import declare_tracked, project_relative
 
 from pathlib import Path
 
@@ -58,7 +58,7 @@ def _track_and_record(sp: Path, root: Path, registered, doc_path: Path, doc_name
     before = store_hash(sp)
     track_document(sp, root, registered.store_index, registered.model_type, registered.entry, doc_path, doc_name, resolve_model_ref, pythonpath)
     hash_c, hash_d = doc_hashes(sp, registered.entry.name, doc_name)
-    declare_tracked(sp, root, registered.entry.name, doc_path.relative_to(root).as_posix(), doc_name)
+    declare_tracked(sp, root, registered.entry.name, project_relative(root, doc_path), doc_name)
     record(sp, {"operation": "track_document_file", "address": doc_address(registered.entry.name, doc_name), "hash_c_after": hash_c, "hash_d_after": hash_d, "hash_a_before": before, "hash_a_after": store_hash(sp), "actor": actor})
 
 

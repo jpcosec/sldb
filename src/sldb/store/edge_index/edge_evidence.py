@@ -1,11 +1,13 @@
-"""Evidence on an edge: what the edge was derived from, so a reader can tell when it went stale.
+"""Evidence on an edge: the states it stands on, named by hash.
 
 `metadata.evidence` carries `ref_hash` (the target as it was: a document's `content_hash`, a
 model's `model_hash`; for a section, its document's, flagged `ref: document`, because a section
 has no hash of its own), `contract` (the source model's `contract_hash`), and who made the edge:
 `actor` (`relation_doc:<name>`) for an authored edge, else `engine` (`{name, version}`). No
 timestamp: evidence names states, not moments. Stamped on read, never written into a shard: a
-source shard would otherwise go stale every time its target changed.
+source shard would otherwise go stale every time its target changed. Because it is read now,
+`ref_hash` is the target's current hash: telling an edge went stale takes a consumer that kept
+an earlier evidence and compares (deskops, inbox 20261019-140852).
 """
 
 from __future__ import annotations

@@ -140,3 +140,15 @@ def test_a_declared_file_that_is_gone_is_reported_not_raised(tmp_path, capsys):
     report = check_build(store, root, tmp_path / "scratch")
     assert report["ok"] is False and report["missing"] == ["gone.md"]
     assert report["integrity_exit"] == 0
+
+
+def test_a_document_outside_the_project_does_not_break_the_declaration(tmp_path, capsys):
+    """spec2viz synced a repo spec into a tmp store: create_document raised pathlib's raw
+    ValueError from the declaration sync. A file outside the project cannot be declared."""
+    from sldb.api import create_document
+
+    (tmp_path / "project").mkdir()
+    store, root = _declared(tmp_path / "project", capsys)
+    outside = tmp_path / "elsewhere" / "far.md"
+    create_document(store, "TaskDoc", outside, {"title": "Far", "body": "Away"}, pythonpath=str(root))
+    assert load_declaration(store).include == [{"model": "TaskDoc", "paths": ["task.md"]}]

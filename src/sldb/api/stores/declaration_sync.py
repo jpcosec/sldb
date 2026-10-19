@@ -13,9 +13,9 @@ from sldb.api.stores.declared_files import declared_files
 from sldb.api.stores.store_declaration import declaration_path, load_declaration, save_declaration
 
 
-def declare_tracked(store_path: Path, root: Path, model: str, path: str, name: str) -> None:
+def declare_tracked(store_path: Path, root: Path, model: str, path: str | None, name: str) -> None:
     """Add `(model, path, name)` to the declaration unless a rule already names it."""
-    if not declaration_path(store_path).is_file():
+    if not declaration_path(store_path).is_file() or path is None:
         return
     declaration = load_declaration(store_path)
     if (model, path, name) in declared_files(root, declaration):
@@ -30,6 +30,13 @@ def _path_rule(declaration, model: str) -> dict:
     if rule is None:
         declaration.include.append(rule := {"model": model, "paths": []})
     return rule
+
+
+def project_relative(root: Path, doc_path: Path) -> str | None:
+    """`doc_path` relative to the project, or None for a file outside it, which a declaration
+    cannot name (and a rebuild could not reach)."""
+    resolved = doc_path.resolve()
+    return resolved.relative_to(root.resolve()).as_posix() if resolved.is_relative_to(root.resolve()) else None
 
 
 def forget_tracked(store_path: Path, path: str) -> None:

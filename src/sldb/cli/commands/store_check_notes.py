@@ -67,13 +67,23 @@ def print_link_notes(sp: Any) -> None:
 
 
 def print_gitignore_policy(sp: Any) -> None:
-    """`.sldb/core` must stay versionable and `.sldb/runtime` ignored; noted when not."""
+    """The ignore rules against the store's split (see `gitignore_policy`); noted when they break it."""
     from pathlib import Path
 
     from sldb.api.stores.gitignore_policy import gitignore_policy
 
     policy = gitignore_policy(Path(sp))
     if policy is not None and not policy["ok"]:
-        what = [w for w, bad in (("`.sldb/core` is ignored", policy["core_ignored"]), ("`.sldb/runtime` is not ignored", not policy["runtime_ignored"])) if bad]
+        what, fix = _declared_split(policy) if policy["declared"] else _versioned_split(policy)
         print(f"\nnote: the repository's ignore rules break the store's split: {'; '.join(what)}")
-        print("    fix     : ignore `.sldb/runtime/` and keep `.sldb/core/` versionable in .gitignore")
+        print(f"    fix     : {fix}")
+
+
+def _versioned_split(policy: dict) -> tuple[list[str], str]:
+    what = [w for w, bad in (("`.sldb/core` is ignored", policy["core_ignored"]), ("`.sldb/runtime` is not ignored", not policy["runtime_ignored"])) if bad]
+    return what, "ignore `.sldb/runtime/` and keep `.sldb/core/` versionable in .gitignore"
+
+
+def _declared_split(policy: dict) -> tuple[list[str], str]:
+    checks = (("`.sldb/core` is not ignored", not policy["core_ignored"]), ("`.sldb/runtime` is not ignored", not policy["runtime_ignored"]), ("`.sldb/store.yaml` is ignored", policy["declaration_ignored"]))
+    return [w for w, bad in checks if bad], "the store is declared: ignore `.sldb/core/` and `.sldb/runtime/`, and version `.sldb/store.yaml`"

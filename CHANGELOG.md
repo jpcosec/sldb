@@ -9,7 +9,9 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   target's `content_hash`, a model's `model_hash`; for a section its document's, flagged
   `ref: document`, since sections have no hash of their own), `contract` (the source model's
   `contract_hash`) and `engine` (`{name, version}`) or, for an authored edge, `actor`
-  (`relation_doc:<name>`). No timestamp. Computed on read, so the shards do not change.
+  (`relation_doc:<name>`). No timestamp. Computed on read, so the shards do not change, and
+  `ref_hash` is the target's current hash: telling an edge went stale takes a caller that kept
+  an earlier evidence to compare.
 - `sldb --envelope <command> ...` prints one JSON value per run, `{ok, command, store,
   revision, data, warnings}` or `{ok: false, error: {type: "ns/name", message}, exit}`, and
   exits with a typed code: 0 ok, 1 missing, 2 ambiguous, 3 rejected input, 4 busy, 5 store or
@@ -23,7 +25,11 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   (idempotent); `stores build --check` rebuilds a scratch copy of the sources and fails when
   that copy does not pass `stores check`, a tracked document is not declared, or it tracks
   something other than the local store. `stores declare --write` writes the declaration the
-  current index implies, to adopt the layout: a model whose source is outside the project
+  current index implies, to adopt the layout. Tracking or untracking a document through the
+  API keeps the declaration current (a file outside the project is not declared), `stores
+  check` notes a declared store whose `.sldb/core/` is versioned rather than ignored, and a
+  declared file that is gone is reported by `build` as `missing`. `declare --write` writes
+  the declaration the index implies: a model whose source is outside the project
   (sldb's own, from the installed package) is declared by `model_ref` alone, and a glob is
   written only for a folder with more than one tracked file, all of one model. Design:
   `docs/architecture/derived-store-boundary.md`.
