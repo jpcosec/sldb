@@ -66,9 +66,11 @@ lo esperado.
   con la misma ruta relativa.
 - 3 modelos de pron (AnchorDoc, ProjectionDoc, MoveDoc, con 37 documentos en `ledger/`): por
   decisión del dueño viven en el store de pron y sldb los hereda por `../pron/.sldb` (106ed3c0);
-  `ledger/*.md` queda en sldb como fuente. pron no versiona su `.sldb/`, así que un checkout
-  limpio de pron tampoco tiene store: pron necesita su propio `.sldb/store.yaml` para que el CI
-  de sldb pueda construirlo antes que el de sldb.
+  `ledger/*.md` queda en sldb como fuente. pron no versiona su `.sldb/` y lo construye con su
+  propio CLI (`make world`); por decisión del coordinador queda así, y el CI de sldb corre
+  `make world` en el checkout hermano de pron antes de reconstruir el de sldb. Un generador de
+  `store.yaml` solo corre subcomandos de sldb, a propósito: un store que ejecuta comandos
+  arbitrarios es más superficie de la necesaria.
 
 ## 5. Los otros repos
 
