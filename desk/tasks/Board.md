@@ -23,6 +23,7 @@ rituals:
 - desk/rituals/execution.md
 - desk/rituals/testing.md
 - desk/rituals/closeout.md
+- desk/rituals/phase.md
 # e.g., system:sldb, workspace:desk
 tags:
 - system:sldb
@@ -37,15 +38,13 @@ tags:
 
 _Explain what this board routes and why it exists._
 
-
+Enruta las tasks activas del desk local de sldb, las pills que las acompañan y los rituales del ciclo de vida.
 
 ## Notes
 
 _Add short operational notes about the current routed set._
 
-Current review follow-up: CLI self-documentation is active; shared store context/federation and AST ownership/section contracts are separate open tasks. Their task files define scope and validation. Historical rows below have not been reclassified.
-
-- Mapear arquitectura real de SLDB [active] - _Describe the concrete result this task must produce._
+Activa: task-congelar-journal-autoridad-arbol (diseño, en borrador). La auditoría de documentación de septiembre de 2026 está cerrada: autodocumentación (aca36681), contexto del store y federación (f16688d0), y ownership de AST y secciones (closeout del 2026-10-18). El trabajo diferido vive en desk/drawer/; lo que espera decisión del dueño está en las notas abiertas del inbox.
 
 ## Task Details
 
