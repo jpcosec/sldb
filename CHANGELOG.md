@@ -102,8 +102,7 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   `.sldb/runtime/graphs/python-source.graph.json` (it was `.kgdb/python-source.graph.json`).
   `sldb.selfdoc.kgdb_sync` is now `sldb.selfdoc.source_graph_file` (`write_source_graph`), and
   the selfdoc report's `kgdb_stale` is `graph_stale`. The data contract
-  `sldb_kgdb_semantic_export`, `stores semantic-export --format kgdb` and the HTTP route
-  `/kgdb/snapshot` (graph_ui reads it) keep their names.
+  `sldb_kgdb_semantic_export` keeps its name (see the entry on kgdb names below).
 - Docstring metadata is parsed strictly (`sldb.selfdoc.docstring_metadata`, spec section 2):
   only an opening line exactly `---` starts it, a closing `---` is required, and the block is a
   YAML mapping with unique keys among `id` (required), `kind` and `tags` (`namespace:value`,
@@ -144,10 +143,14 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   `has_section` and `semantic_parent` (reported by graph-ui).
 - The last kgdb names in sldb's public surface are sldb's now (kgdb merged into sldb):
   - `sldb.store.export.export_kgdb_semantic_payload` is `export_semantic_payload`;
-  - the semantic export contract `sldb_kgdb_semantic_export` is `sldb_semantic_export` (schema
-    `contracts/schemas/sldb_semantic_export.schema.json`, fixture
-    `contracts/fixtures/sldb_semantic_export.v1.json`); a payload written under the old name is
-    still read by `graph ingest-sldb` and `sldb_semantic_export_to_snapshot`, never written;
+  - the semantic export contract keeps its name, `sldb_kgdb_semantic_export` version 1, and so
+    do its schema and fixture (`contracts/schemas/sldb_kgdb_semantic_export.schema.json`,
+    `contracts/fixtures/sldb_kgdb_semantic_export.v1.json`). It is a frozen data identifier,
+    like the `sldb://...` node ids: renaming a data contract breaks every reader of files
+    already written, so a format change goes behind a new contract version, never a rename.
+    Main wrote `sldb_semantic_export` for a while before release; an export under that name is
+    still read, never written. `tests/store/test_export_contract_frozen.py` pins the contract,
+    the ids and the keys of the store index and of the document entries. The reading function is `sldb_semantic_export_to_snapshot`;
   - `stores semantic-export --format kgdb` is `--format sldb`;
   - the `sldb serve` route `/kgdb/snapshot` is `/semantic-export`;
   - the store's tracked relation types moved from `kgdb/relation_types/` to

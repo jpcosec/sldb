@@ -1,7 +1,9 @@
-"""`sldb_semantic_export` v1 -> GraphSnapshot.
+"""`sldb_kgdb_semantic_export` v1 -> GraphSnapshot.
 
-The contract was named `sldb_kgdb_semantic_export` while kgdb was a separate package. sldb
-writes only the new name; a payload already written under the old one is still read.
+The contract name is frozen with the `sldb://...` node ids: renaming a data contract breaks
+every reader of files already written, so a format change goes behind a new contract version,
+never a rename. sldb writes only `sldb_kgdb_semantic_export`. Unreleased main briefly wrote
+`sldb_semantic_export`; a payload under that name is still read, never written.
 """
 
 from __future__ import annotations
@@ -17,8 +19,8 @@ from sldb.store.graph.ingest_sldb_nodes import (
 )
 from sldb.store.graph.snapshot import GraphSnapshot
 
-CONTRACT_NAME = "sldb_semantic_export"
-LEGACY_CONTRACT_NAMES = ("sldb_kgdb_semantic_export",)  # read, never written
+CONTRACT_NAME = "sldb_kgdb_semantic_export"
+LEGACY_CONTRACT_NAMES = ("sldb_semantic_export",)  # read, never written
 CONTRACT_VERSION = 1
 
 

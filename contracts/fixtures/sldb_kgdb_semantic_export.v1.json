@@ -1,6 +1,6 @@
 {
   "contract": {
-    "name": "sldb_semantic_export",
+    "name": "sldb_kgdb_semantic_export",
     "version": 1,
     "generated_at": "2026-06-04T00:00:00Z"
   },

@@ -45,7 +45,7 @@ Subcommands:
   central       What the store leans on: pagerank, betweenness, degree, in_degree, out_degree
   similar       What resembles a node, by targets they share (tags by default)
   snapshot      save: export the edge index as node-link JSON; load: read one back
-  ingest-sldb   Convert an sldb_semantic_export file into node-link JSON
+  ingest-sldb   Convert an sldb_kgdb_semantic_export file into node-link JSON
 
 --type filters different things on purpose
   For `components --islands` it restricts the graph: "which specs hang together" is a question

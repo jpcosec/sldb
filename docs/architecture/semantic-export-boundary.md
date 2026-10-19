@@ -1,6 +1,6 @@
 # Semantic Export Boundary
 
-> Note (2026-10-18): KGDB was merged into sldb and is now its graph layer (`sldb.store.graph`, CLI `sldb graph ...`). Where this document says KGDB it means that layer; no external `kgdb` package or executable exists any more. The `sldb_semantic_export` contract name is kept as a data contract.
+> Note (2026-10-18): KGDB was merged into sldb and is now its graph layer (`sldb.store.graph`, CLI `sldb graph ...`). Where this document says KGDB it means that layer; no external `kgdb` package or executable exists any more. The `sldb_kgdb_semantic_export` contract name is kept as a data contract.
 
 SLDB owns the semantic truth for tracked Markdown documents. KGDB should ingest that truth through the versioned semantic export contract instead of scraping `.sldb/runtime` files directly.
 
@@ -16,7 +16,7 @@ sldb stores semantic-export --store .sldb --pythonpath . --format sldb --encodin
 
 Use `-o -` or omit `-o` to write the payload to stdout. Use `--encoding yaml` when a YAML handoff is easier to inspect. `--rebuild` refreshes semantic and section indexes before export.
 
-The current contract name is `sldb_semantic_export` with version `1`.
+The contract name is `sldb_kgdb_semantic_export` with version `1`, and both are frozen, with the `sldb://...` node ids: renaming a data contract breaks every reader of files already written. The `kgdb` in the name is historical, not a dependency; a format change goes behind a new contract version, never a rename. `tests/store/test_export_contract_frozen.py` pins the contract, the ids and the `.sldb/` keys readers depend on.
 
 ## What The Export Includes
 
@@ -45,7 +45,7 @@ Downstream systems may add these excluded edges after ingestion. For example, de
 1. A project registers `StructuredNLDoc` models and tracks Markdown documents in `.sldb`.
 2. The project runs `sldb stores update --store .sldb --pythonpath .` or exports with `--rebuild` so semantic and section indexes are current.
 3. The project emits the semantic payload with `sldb stores semantic-export --store .sldb --pythonpath . --format sldb --encoding json -o semantic.json`.
-4. The graph layer (`sldb.store.graph`, formerly kgdb) validates the payload against `sldb_semantic_export` version `1`.
+4. The graph layer (`sldb.store.graph`, formerly kgdb) validates the payload against `sldb_kgdb_semantic_export` version `1`.
 5. KGDB creates or updates graph nodes for exported models, documents, sections, semantic tags, DAG relationships, and equivalences.
 6. Downstream adapters add non-SLDB graph edges, such as source-file relations or workflow provenance, using the SLDB export ids as stable anchors.
 

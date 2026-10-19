@@ -1,8 +1,12 @@
-"""The `sldb_semantic_export` payload, built from the persisted indexes.
+"""The `sldb_kgdb_semantic_export` payload, built from the persisted indexes.
+
+The contract name, the `sldb://...` node ids and the tag forms are frozen data identifiers:
+readers of exports already written depend on them. The function names may move; what is
+written may not.
 
 The hash keys are emitted under BOTH namings. The letters (`hash_a`/`hash_b`/`hash_c`/
 `hash_d`) are the v1 contract and stay exactly as they were — `contracts/fixtures/
-sldb_semantic_export.v1.json` pins them, and dropping them would be a contract break, not
+sldb_kgdb_semantic_export.v1.json` pins them, and dropping them would be a contract break, not
 a rename. The semantic names (`store_hash`, `model_hash`, `source_hash`, `content_hash`) carry
 the same values, plus the model node's two children (`roster_hash`, `contract_hash`) which the
 letters cannot express at all: v1 had one key where there are now two causes. Readers should
@@ -51,7 +55,7 @@ class SemanticExporter:
         st_idx = load_store_index(self.store_path)
         dag = load_semantic_dag(self.store_path)
         mods, docs, secs = self._proc_models(st_idx)
-        return {"contract": {"name": "sldb_semantic_export", "version": 1, "generated_at": _utc_now()}, "producer": {"name": "sldb", "version": _version(), "command": command or []}, "store": self._store_meta(st_idx, mods), "models": mods, "documents": docs, "sections": secs, "semantic_dag": self._dag_meta(dag)}
+        return {"contract": {"name": "sldb_kgdb_semantic_export", "version": 1, "generated_at": _utc_now()}, "producer": {"name": "sldb", "version": _version(), "command": command or []}, "store": self._store_meta(st_idx, mods), "models": mods, "documents": docs, "sections": secs, "semantic_dag": self._dag_meta(dag)}
 
     def _proc_models(self, st_idx):
         mods, docs, secs = [], [], []
@@ -85,7 +89,7 @@ class SemanticExporter:
         return {"nodes": [{"id": n.id, "parents": sorted(set(n.parents))} for n in sorted(dag.nodes, key=lambda i: i.id)], "equivalences": {k: sorted(set(v)) for k, v in sorted(dag.equivalences.items())}}
 
 def export_semantic_payload(store_path: Path, project_root: Path, resolve_model_ref: Callable[..., Any] | None = None, pythonpath: str | None = None, *, rebuild: bool = False, command: list[str] | None = None) -> dict[str, Any]:
-    """Build the `sldb_semantic_export` payload from persisted SLDB indexes."""
+    """Build the `sldb_kgdb_semantic_export` payload from persisted SLDB indexes."""
     return SemanticExporter(store_path, project_root).export(resolve_model_ref, pythonpath, rebuild=rebuild, command=command)
 
 def _disp(path: Path, root: Path) -> str:

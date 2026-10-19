@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://hum.ai/contracts/sldb_semantic_export.schema.json",
+  "$id": "https://hum.ai/contracts/sldb_kgdb_semantic_export.schema.json",
   "title": "SLDB KGDB Semantic Export",
   "description": "Versioned SLDB-owned semantic payload for KGDB ingestion. The payload is a stable contract and must not require consumers to scrape .sldb/runtime internals.",
   "type": "object",
@@ -20,7 +20,7 @@
       "additionalProperties": false,
       "required": ["name", "version"],
       "properties": {
-        "name": {"const": "sldb_semantic_export"},
+        "name": {"const": "sldb_kgdb_semantic_export"},
         "version": {"type": "integer", "minimum": 1},
         "generated_at": {
           "type": "string",

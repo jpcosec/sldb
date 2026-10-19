@@ -86,7 +86,7 @@ def test_stores_semantic_export_json_from_tracked_store(tmp_path, capsys):
 
     assert rc == 0
     payload = json.loads(capsys.readouterr().out)
-    assert payload["contract"]["name"] == "sldb_semantic_export"
+    assert payload["contract"]["name"] == "sldb_kgdb_semantic_export"
     assert payload["contract"]["version"] == 1
     assert payload["producer"]["name"] == "sldb"
     assert payload["store"]["root"] == str(root)
@@ -161,9 +161,9 @@ def test_producer_version_matches_pyproject():
     assert _version() == re.search(r'^version\s*=\s*"([^"]+)"', text, re.M).group(1)
 
 
-def test_a_payload_written_under_the_old_contract_name_is_still_read():
-    """sldb writes `sldb_semantic_export`; an export written as `sldb_kgdb_semantic_export`
-    before kgdb merged into sldb is read, never written."""
+def test_a_payload_written_under_the_unreleased_name_is_still_read():
+    """sldb writes `sldb_kgdb_semantic_export`; an export written as `sldb_semantic_export`
+    by unreleased main (52553cde until the restore) is read, never written."""
     import json
     from pathlib import Path
 
@@ -171,10 +171,10 @@ def test_a_payload_written_under_the_old_contract_name_is_still_read():
 
     from sldb.store.graph.ingest_sldb import sldb_semantic_export_to_snapshot
 
-    payload = json.loads((Path(__file__).resolve().parents[2] / "contracts" / "fixtures" / "sldb_semantic_export.v1.json").read_text(encoding="utf-8"))
+    payload = json.loads((Path(__file__).resolve().parents[2] / "contracts" / "fixtures" / "sldb_kgdb_semantic_export.v1.json").read_text(encoding="utf-8"))
     new_nodes = len(sldb_semantic_export_to_snapshot(payload).nodes)
-    payload["contract"]["name"] = "sldb_kgdb_semantic_export"
+    payload["contract"]["name"] = "sldb_semantic_export"
     assert len(sldb_semantic_export_to_snapshot(payload).nodes) == new_nodes
     payload["contract"]["name"] = "something_else"
-    with pytest.raises(ValueError, match="sldb_semantic_export"):
+    with pytest.raises(ValueError, match="sldb_kgdb_semantic_export"):
         sldb_semantic_export_to_snapshot(payload)

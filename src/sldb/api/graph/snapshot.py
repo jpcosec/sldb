@@ -41,5 +41,5 @@ def snapshot_load(path) -> GraphSnapshot:
 
 
 def ingest_sldb(payload: dict[str, Any]) -> GraphSnapshot:
-    """Convert an `sldb_semantic_export` v1 payload (or one written under its old name) into a GraphSnapshot."""
+    """Convert an `sldb_kgdb_semantic_export` v1 payload (or one written under its old name) into a GraphSnapshot."""
     return sldb_semantic_export_to_snapshot(payload)

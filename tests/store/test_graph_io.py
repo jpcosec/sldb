@@ -7,7 +7,7 @@ from pathlib import Path
 
 from sldb.store.graph import load_graph, save_graph, sldb_semantic_export_to_snapshot
 
-FIXTURE = Path(__file__).resolve().parents[2] / "contracts" / "fixtures" / "sldb_semantic_export.v1.json"
+FIXTURE = Path(__file__).resolve().parents[2] / "contracts" / "fixtures" / "sldb_kgdb_semantic_export.v1.json"
 
 
 def _snapshot():

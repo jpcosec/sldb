@@ -68,7 +68,7 @@ def _add_snapshot_load(inner) -> None:
 
 def _add_ingest(sub) -> None:
     p = sub.add_parser("ingest-sldb", help="Convert an sldb semantic export into node-link JSON.")
-    p.add_argument("--input", required=True, help="The sldb_semantic_export JSON file.")
+    p.add_argument("--input", required=True, help="The sldb_kgdb_semantic_export JSON file.")
     p.add_argument("--output", required=True, help="Where to write the node-link JSON.")
 
 

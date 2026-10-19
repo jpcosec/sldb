@@ -9,7 +9,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#stores semantic-export; contract-sha256:2ce8b02922bb563fd12696fd0d92c16ef86987648bf3f9a7210acbed3ea057f3
+provenance: parser:sldb.cli.parser:build_parser#stores semantic-export; contract-sha256:e2151bfd4c7dfb041ee9b3f144d2b25e8c003472c98bcd2f3bcd77923f17d317
 ---
 
 # stores semantic-export
@@ -70,7 +70,7 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'semantic-exp
       "value_type": null,
       "action": "argparse._StoreAction",
       "const": "null",
-      "help": "Payload contract: sldb_semantic_export v1"
+      "help": "Payload contract: sldb_kgdb_semantic_export v1"
     },
     {
       "names": [
