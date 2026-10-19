@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/store/diagnostics_models/model_diagnosis.py
 source_span: 32:88
 source_sha256: e67122e7080feac6559fd9d0c2c921e4f1badeb274ae2e9f4ae2f870397b2947
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.diagnostics_models.model_diagnosis:ModelDiagnosis;
   contract-sha256:b15c27ad6c36086721a51c6ead1471e5a5da72fb6b53527ec3bfef3a1c71c17e

@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/migration_legacy_layout.py
 source_span: '35:44'
 source_sha256: 6afccfe9b23571a9e09e78d0fcd41b026d61ae18b31d4c522711db3850161326
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.migration_legacy_layout:relocate_legacy_layout;
   contract-sha256:5124a801b1a17bda34add73a51ccf01b39fa1dd99b9bfe2ea1064368444605ea

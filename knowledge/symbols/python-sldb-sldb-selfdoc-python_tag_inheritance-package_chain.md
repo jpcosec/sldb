@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/selfdoc/python_tag_inheritance.py
 source_span: '31:34'
 source_sha256: 2715a7dac015da0744b893b6d50fc364000e38dfc5c380d316bbbe88f7956a5b
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.selfdoc.python_tag_inheritance:package_chain; contract-sha256:0f5caf0e2aa151c352b5b9886b30af9a3b4467009dba4afd30853042ab7d771a
 ---

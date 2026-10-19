@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/migration.py
 source_span: '39:46'
 source_sha256: a5e14561f69f4aef068095bfaf7af6b7ee4393388167753439969f2af46be039
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.migration:_migrate_model_indexes; contract-sha256:0903a9009bd31e756efbd49c6fee9f8d31217c3dd539d54c768881b4447237e7
 ---

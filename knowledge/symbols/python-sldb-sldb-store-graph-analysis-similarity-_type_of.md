@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/graph/analysis/similarity.py
 source_span: '39:41'
 source_sha256: 6463277a080afcc75deae4d9442216811843351215170e1281455dece4ce217a
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.graph.analysis.similarity:_type_of; contract-sha256:df23bf1b0645346e8a01a344e5fed406306d0dd516c37c6b22ca879d1d17cf96
 ---

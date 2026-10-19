@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/stores/init_store.py
 source_span: '48:50'
 source_sha256: 093bd3453d72151b1d8fb6afa508d3b6d7ec7c929e92ef28238a78eb783e6671
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.stores.init_store:StoreInitError.__init__;
   contract-sha256:a258f37684b9345e47e873c5a3a8c0941ac2bc3d62e33d0b9141169356981ba4

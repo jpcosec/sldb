@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/core/data_extractor.py
 source_span: 77:78
 source_sha256: 0743434351f23ade474b8b134b7d283fdfa7df7641101188657110a9b05e9faa
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.core.data_extractor:DataExtractor._find_boundary_idx;
   contract-sha256:2d075e1fdd17d61f6a3a4e7f2cd04c5dbe7ff59ec2f579d70e1b809d17b74c80

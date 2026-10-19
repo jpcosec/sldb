@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/documents/document_lookup.py
 source_span: '21:39'
 source_sha256: 610537428c389e86f08db49ef8aaf0f5feae27b82321f23467ced296a949c499
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.documents.document_lookup:find_doc; contract-sha256:c38a624db94a156a6f6ab0efb3c241fc0647c4a10cdf480cd22611f08ec12cec
 ---

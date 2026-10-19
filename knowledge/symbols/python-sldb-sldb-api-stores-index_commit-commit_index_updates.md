@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/stores/index_commit.py
 source_span: '22:45'
 source_sha256: 0b2f2196939a4d5e718b1616d720f365b2b844242b0e475f17deca3b46ee4cb8
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.stores.index_commit:commit_index_updates; contract-sha256:1088f3f6f506172bcc69f3e64e7a796e854d7bf205a175ffa2159d8139178d78
 ---

@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/models/field_schema/describe.py
 source_span: '16:27'
 source_sha256: 8c8a559bb560bc40662ff3f69a227ad8778a26b343277b09503b485add869d26
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.models.field_schema.describe:describe_field; contract-sha256:e226f1e7c67d934bb64f66d267b2dc8d118c078bdcd9127e8575ac7ad67504b0
 ---

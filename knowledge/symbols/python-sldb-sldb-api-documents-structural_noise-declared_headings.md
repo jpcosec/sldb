@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/documents/structural_noise.py
 source_span: '14:28'
 source_sha256: 1f7a37afefc55f4924aed85f6460cad1659f547025f798d68f9c1a37acc3a711
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.documents.structural_noise:declared_headings;
   contract-sha256:1c5f6e4f148a4790fc0c6ef24cbbe3127b103e6e555064f1dc56d80650a397bf

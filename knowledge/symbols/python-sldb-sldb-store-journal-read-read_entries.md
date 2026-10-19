@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/journal/read.py
 source_span: '13:20'
 source_sha256: 29517a239f392ca54c98ccc92fc9b1994809a353a8b52b2812a4248fc7d75e6e
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.journal.read:read_entries; contract-sha256:fb6660bfcd0e2cdbce97c76a96cc7382b0681e52b8f7d9f120939b2f9c22d998
 ---

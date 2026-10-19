@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/edge_index/composition_edges.py
 source_span: '53:58'
 source_sha256: f01b85254d77f3aa8cde82d837c90b6c71fcdc3fdd7ebdd4ffdfff6ae61a51b9
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.edge_index.composition_edges:_edge; contract-sha256:fc943e941a2d407d7e78308773a705622a5f04512dfeebc9af51a719f0865cce
 ---

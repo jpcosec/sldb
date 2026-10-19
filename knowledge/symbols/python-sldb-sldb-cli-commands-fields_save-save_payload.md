@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/commands/fields_save.py
 source_span: '6:14'
 source_sha256: dfa90f349fecf44915da47a16fc41cff86d780b9b9a495d819a2b57b8988240e
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.commands.fields_save:save_payload; contract-sha256:6dd5fb4f69e098232d5047e1899377754b2215268092c032c15cc9129b85b69b
 ---

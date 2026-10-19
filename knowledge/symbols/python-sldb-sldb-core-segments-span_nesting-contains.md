@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/core/segments/span_nesting.py
 source_span: '36:46'
 source_sha256: cd2f1c89f4f7cbff94cdfa309c4d993fe721b9e511081a682218bc78fbf530d5
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.core.segments.span_nesting:contains; contract-sha256:b76be08cf5a73462b67b1b76e272accbaec40561bc38d3e405487f0305c20589
 ---

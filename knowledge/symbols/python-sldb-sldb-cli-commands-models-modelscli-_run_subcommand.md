@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/commands/models.py
 source_span: '44:48'
 source_sha256: 38c5e45b79ee45cb61648fdeb8df2c225190249b01e1eb2e2cb85f1d51458c3c
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.commands.models:ModelsCLI._run_subcommand;
   contract-sha256:ee0867a3145ba929279945693fd107044dc2cd35d807cdb8bc105e423abd8630

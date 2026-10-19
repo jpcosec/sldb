@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/selfdoc/click_scanner.py
 source_span: '29:30'
 source_sha256: 9d509fde551037616f8ee5ff3ae5d003ec452ea60f5392bce440df6653cc2b5e
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.selfdoc.click_scanner:_synopsis; contract-sha256:93f3c04a8aac35e6067ea225d96285608014e42f30631309a6126e979a456925
 ---

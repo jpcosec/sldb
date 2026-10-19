@@ -5,11 +5,11 @@ module: sldb.store.graph.ingest_sldb
 qualname: _store_provenance
 kind: FunctionDef
 source_path: sldb/store/graph/ingest_sldb.py
-source_span: '43:44'
-source_sha256: 5c290ba296f44a411efaec78bafb57fa3263b19a960ade02286bd4fde83cd10c
-architecture_spec: Not declared.
+source_span: '45:46'
+source_sha256: 4080692b87c2b94b84489346f6df3451416221278668bbcb6cb068b24527847e
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
-provenance: python-ast:python:sldb.store.graph.ingest_sldb:_store_provenance; contract-sha256:3476ca19ac0e7b743e65db7f21e12542ebc419132c14980b5f8486d2229cda06
+provenance: python-ast:python:sldb.store.graph.ingest_sldb:_store_provenance; contract-sha256:07360a62e5201c63142f5e9a8e0eb670ff84e62b041d51c786ba89db4b9179fb
 ---
 
 # _store_provenance

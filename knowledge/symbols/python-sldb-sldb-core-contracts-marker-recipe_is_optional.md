@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/core/contracts/marker.py
 source_span: '51:58'
 source_sha256: 726f13aa6aec69fcd478d34e0c30be6efe518c5ce653f29fd53b55ddfea96897
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.core.contracts.marker:recipe_is_optional; contract-sha256:9539bfa977746506938ea92457fbfb833f696e6249ca5c3c46b2f14ecea47a65
 ---

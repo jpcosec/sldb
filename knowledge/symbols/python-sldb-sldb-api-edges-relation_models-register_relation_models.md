@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/edges/relation_models.py
 source_span: '18:28'
 source_sha256: 1cce284b3270932c44e41d99b985898df128e13f706697accab51325214e7d47
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.edges.relation_models:register_relation_models;
   contract-sha256:8eef60ec231d1ef91085dc8333495ac3496eaa5e065cbbc319a31eff11fa589a

@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/core/segments/sentinel_decoder.py
 source_span: 77:89
 source_sha256: 251c56399d88d64e3189be29334e03bd0b1777b3a4152101dbd676ede17a1ef9
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.core.segments.sentinel_decoder:strip_with_offsets;
   contract-sha256:36958d8e25b95dc6ca6dbcc577c1aa82174f8f74a81e4b026a8f7d27d4810c33

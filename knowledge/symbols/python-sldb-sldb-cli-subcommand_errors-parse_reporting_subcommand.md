@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/subcommand_errors.py
 source_span: '13:17'
 source_sha256: 4c46b7c8d03a80f42f435aa75626471f609145d447d7557983bbf374a5cd5f8f
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.subcommand_errors:parse_reporting_subcommand;
   contract-sha256:561568d6f3080beb69a43a0d7f64bd81ddda11c5a5251589484b682cdfdc252c

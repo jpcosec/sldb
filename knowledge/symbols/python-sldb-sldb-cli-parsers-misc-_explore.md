@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/parsers/misc.py
 source_span: '35:44'
 source_sha256: 6a0ff46ed9f6b41a9790115e0e3221dfaa91e6922209457ca189a7351dd2bd8b
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.parsers.misc:_explore; contract-sha256:bd8e86bbe5c187fb27f2ee1bcc8bc06b464a4242666c308f7495bcd27e844121
 ---

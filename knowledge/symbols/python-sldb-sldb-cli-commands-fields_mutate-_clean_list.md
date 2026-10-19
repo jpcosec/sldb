@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/commands/fields_mutate.py
 source_span: '26:34'
 source_sha256: 6ce9ecc229027b9de19dc03c04c67aa1889b99e877a749643ac1f39bf3ffe00c
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.commands.fields_mutate:_clean_list; contract-sha256:ac1071f4a72e2a4636bd7da00828cd8e43be161f9de03c55654a648a8aa4601a
 ---

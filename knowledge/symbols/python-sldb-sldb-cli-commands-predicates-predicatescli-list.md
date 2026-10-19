@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/commands/predicates.py
 source_span: '45:54'
 source_sha256: 6b520f9d57039512860c1877e65f3ae822b461ff8a71862b54393d3ad9388c44
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.commands.predicates:PredicatesCLI.list; contract-sha256:57718f98fa92b4635dffc66c0fcb3ddaed00ad6900a78f6992ae7bd8b72f5960
 ---

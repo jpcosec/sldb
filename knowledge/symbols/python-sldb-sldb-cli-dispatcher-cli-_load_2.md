@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/dispatcher.py
 source_span: '28:37'
 source_sha256: 215856cb5578fef5bd8328d3dd0a5936115496fa43415f224f000ef96c0d483f
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.dispatcher:CLI._load_2; contract-sha256:74d2a2fb57942812adcdeaa0c3eece52b5e7df14afb73f16c29c365f8150badb
 ---

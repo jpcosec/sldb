@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/commands/sections.py
 source_span: '13:20'
 source_sha256: df2536d4a66bf1fd03d507f85c5430c01bd51f9839edb4ab1da77861b30d85aa
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.commands.sections:SectionsCLI.run; contract-sha256:62f0ebb7af28b44a48a3b806aa2013f3d5c16b6dbb69b8c275fb6f66ac62e7cc
 ---

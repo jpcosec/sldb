@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/model_drafts/draft_validation.py
 source_span: 90:93
 source_sha256: d049ed57d4c2347b4f75bee2034d88b861928f3fd6a62724592cef037ef2ddf4
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.model_drafts.draft_validation:_model_modules;
   contract-sha256:ef22301de84bc169da5fa7f2d87ef877704172c0343325413ee973678fed7aa2

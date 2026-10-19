@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/facade.py
 source_span: '8:17'
 source_sha256: b8c1053a0e1903f8db3b813069a76c1c6c4353e0178017b68f07015829efced7
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.facade:get_tracked_docs; contract-sha256:1d43b2242804054ff1a859917a595ee0af7d89cf1398b51d29db18bfeccbfd46
 ---

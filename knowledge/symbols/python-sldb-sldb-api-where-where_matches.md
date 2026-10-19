@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/where.py
 source_span: '10:23'
 source_sha256: cf928a640518f596de220a88541cbfce620f3a2e6e5b45c74f2692b920c61834
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.where:where_matches; contract-sha256:48151e2b2aacd35de2115cc10e89e13b9e9e388590773c4684635ac889edf390
 ---

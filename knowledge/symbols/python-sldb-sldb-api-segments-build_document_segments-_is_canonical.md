@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/segments/build_document_segments.py
 source_span: 47:60
 source_sha256: bda5832ce19e68ac1423df94831e354a74ed34a440de19840f14026df942d7a0
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.segments.build_document_segments:_is_canonical;
   contract-sha256:b228b16e1ac0da5eb9713b9a702ebc04dd860f148c50642aa0817066675b84b7

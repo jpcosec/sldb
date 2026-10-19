@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/core/renderer_engine/list.py
 source_span: '33:48'
 source_sha256: 101ba951069266d9837b705dafc777e18bbd370f6f749fcbcacd7ef2aa38c859
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.core.renderer_engine.list:ListRenderer._render_item;
   contract-sha256:f5f0cd952956974e761c55e9287b285fa8b8e4e90b9d92230be7a51b537bec81

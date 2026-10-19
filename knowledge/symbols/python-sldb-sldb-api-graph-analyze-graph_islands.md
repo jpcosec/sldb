@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/graph/analyze.py
 source_span: '47:49'
 source_sha256: 514fb5d5270290f5668091039e4310a917f116a12720f780712ce3221e0a96c1
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.graph.analyze:graph_islands; contract-sha256:4ca17e4a8c5acfae926ac33d4da871d9b51ce54db55793edba567b4d799133ef
 ---

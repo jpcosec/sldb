@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/links/recovery.py
 source_span: '17:21'
 source_sha256: ba003cae95c94f5dbda95c0d814f6afb18a4a67bd18451c9a826193498ada479
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.links.recovery:_dedup_links; contract-sha256:49806b8a4c2e9b92adc685b06ec93f4a3ae4217337e2ee2f3ccbc21b1f5cdf1e
 ---

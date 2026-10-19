@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/graph/graph_io.py
 source_span: '37:38'
 source_sha256: 9eba7d9193a9ade14b3f05400202c87656ae77ecb81577b81f2137429821096b
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.graph.graph_io:_status; contract-sha256:7daf9b890e38e74eb001cd648eeaf7a732239343a610123938d06acf9ec34582
 ---

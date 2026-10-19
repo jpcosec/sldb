@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/commands/links_all.py
 source_span: '31:38'
 source_sha256: 7316ab5cc6a10812e9d092e3eb483dd565e7bcbc047a9a5f4f95c5bc2ecccc4c
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.commands.links_all:recover_all; contract-sha256:f51a1afe4bbefaf578aa5b07eb46854fcd9b94f7fbfddbe5adfe74d397d7bb2f
 ---

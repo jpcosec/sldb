@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/edges/edge_reading.py
 source_span: '31:44'
 source_sha256: 843bafb03f66570ae4a91c980e7c72edc694998e17af5edc4882a34b62ba45b5
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.edges.edge_reading:edges_from; contract-sha256:7bef0d4a088f6d7e66f94117d06aae79a06037348577c62c3c3ba0e0d29a9e55
 ---

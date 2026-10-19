@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/model_registry/reindex_model.py
 source_span: '44:50'
 source_sha256: 45db2b343e573f7c76efbfee630d57af9615e4cc7570ac181486b017e8c4fc9f
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.model_registry.reindex_model:_rehash_and_record;
   contract-sha256:29f99c169d7c1e4d810b33774384a66b05c68beea751174d79c488b9ed1094da

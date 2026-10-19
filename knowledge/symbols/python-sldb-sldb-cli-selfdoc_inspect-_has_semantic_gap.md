@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/selfdoc_inspect.py
 source_span: 82:83
 source_sha256: 47c2de649f97cd68786c80c359e185850d093efc4ce86142738e93a6d64d4cdd
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.selfdoc_inspect:_has_semantic_gap; contract-sha256:29e1290cdae22b799193d29b33168af5422809469df67f1027db970b5f229d73
 ---

@@ -6,10 +6,10 @@ qualname: _add
 kind: FunctionDef
 source_path: sldb/cli/parsers/stores.py
 source_span: '15:20'
-source_sha256: 405f406f98c9ce4e28b5fc4d8c70c1e88d7169e818b23166c20178d48aff32ec
-architecture_spec: Not declared.
+source_sha256: ac707a42af3615544622a305b306b403303bd27a5e35aa7400967ec463ba548c
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
-provenance: python-ast:python:sldb.cli.parsers.stores:_add; contract-sha256:074e23605cdcb9ea96c295f6bc0e7a025ecaf633d240eee2816eccdd166174e4
+provenance: python-ast:python:sldb.cli.parsers.stores:_add; contract-sha256:ca9463e5919727f003f2d6ccb99e83c50a7c586f4d2dbc36c649afecb8dcf7cb
 ---
 
 # _add

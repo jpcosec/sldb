@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/matching/matcher.py
 source_span: '25:32'
 source_sha256: 7334a378c54f363ba71d8ff8b2cc7c745b0829982ea43482513a209000ccd0be
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.matching.matcher:Matcher.__init__; contract-sha256:bc995e10814c87c845ab09644c50352afd2376cbf8ab88a03a150de6550c75d1
 ---

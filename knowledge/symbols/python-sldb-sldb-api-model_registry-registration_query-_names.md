@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/model_registry/registration_query.py
 source_span: '31:32'
 source_sha256: 90efa11245be48e7c63c873a9d451278ab8f21066c1c5f37ea2939eb5415c0d1
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.model_registry.registration_query:_names; contract-sha256:732aa76de53af335150fdff2900e39bd50bed84fceed14e53e7206d41e112876
 ---

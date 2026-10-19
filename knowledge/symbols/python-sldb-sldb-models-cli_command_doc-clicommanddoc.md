@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/models/cli_command_doc.py
 source_span: 9:88
 source_sha256: 3407b12785a6a98e85b4233ca5b27b6edba1cfe991a27ad2fa36a5b1ca02ac6e
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.models.cli_command_doc:CliCommandDoc; contract-sha256:f18990adfce9693aeea7de8c218b81632a8e2d789f343906739aac27f525a599
 ---

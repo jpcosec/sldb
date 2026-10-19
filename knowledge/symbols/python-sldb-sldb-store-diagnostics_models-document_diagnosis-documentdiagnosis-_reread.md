@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/diagnostics_models/document_diagnosis.py
 source_span: 97:99
 source_sha256: 495c8577669797ba3d5b4038632959a0e53fa36e35c6a2df01e728132f574758
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.diagnostics_models.document_diagnosis:DocumentDiagnosis._reread;
   contract-sha256:81f8d8ca4d8a1062b077d74e92753c9b13322fca81cac869ec2ea0044f32c528

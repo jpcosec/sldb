@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/edge_index/anchor_targets.py
 source_span: '35:42'
 source_sha256: 348e0c69e3944d6f94be363528eb6fea9cbb1f6bab4900d92ff75b835c27c666
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.edge_index.anchor_targets:_compose_targets;
   contract-sha256:f392cdae4a48ba56dc71f370df4dcf921810b4ddf84466549ba88cd09bd5ba51

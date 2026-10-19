@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/serve/find_routes.py
 source_span: 62:67
 source_sha256: 68fa2ec016369b5d68822b85ccbe4882ed2679842d29aca291d334f32cbadb94
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.serve.find_routes:_kinds; contract-sha256:bc127c60374ac0debe7467da66bb9b9f713d8a74378bfbf0148ec39c02094b98
 ---

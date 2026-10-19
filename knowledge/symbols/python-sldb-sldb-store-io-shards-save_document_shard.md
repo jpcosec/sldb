@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/io/shards.py
 source_span: 105:106
 source_sha256: 06c3fe7900d88e52e7539ef533eb6bed2d1ba9ba9c2f574542944038ff68e6f7
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.io.shards:save_document_shard; contract-sha256:e43fc2dd49903135be00cd6545b28f51c5ab084ea223251d42d06afbbbc2ca76
 ---

@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/core/renderer_engine/jinja_trailing.py
 source_span: '18:36'
 source_sha256: 277c2fb390b8b776c11dedb31109164f8134712bf133c6e0f85750b136c27d4d
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.core.renderer_engine.jinja_trailing:unshield_trailing_newline;
   contract-sha256:5f65ca525f2cfe98d550df02879f49f44ee13392b40875977c1433ac5f3cde68

@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/selfdoc/python_shadowing.py
 source_span: '21:23'
 source_sha256: 7e42367057f2eb755424060821118fc6b9ec6f1775e3bd98ee8ccb992914972b
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.selfdoc.python_shadowing:active; contract-sha256:25d2164873f11a5a8bc8c71680c3a8d73b1c9ab530cb07ec39a3f6963c7a22b8
 ---

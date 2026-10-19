@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/core/extractor/recipe_matcher.py
 source_span: '19:23'
 source_sha256: 81108664ed5ec0f46db303dab40c65681fd1b8939a0f39c40ccd44f3b3765711
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.core.extractor.recipe_matcher:RecipeMatcher.check_type_and_tag;
   contract-sha256:5acf6946519cea5e02038c84e24fd50c638d73c772ce7d17593e1400dc2a71bd

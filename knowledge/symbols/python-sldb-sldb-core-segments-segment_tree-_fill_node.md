@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/core/segments/segment_tree.py
 source_span: 53:66
 source_sha256: d0781963eb802dc9bfa2e75b86eccf4adefa98c50dce0879f7490fa791f420d4
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.core.segments.segment_tree:_fill_node; contract-sha256:302d5e88a5f5b40beb921ddab43d2a093f844d39a263ebec149d6e3fa63844e0
 ---

@@ -6,10 +6,10 @@ qualname: _check
 kind: FunctionDef
 source_path: sldb/cli/parsers/stores.py
 source_span: '27:32'
-source_sha256: 405f406f98c9ce4e28b5fc4d8c70c1e88d7169e818b23166c20178d48aff32ec
-architecture_spec: Not declared.
+source_sha256: ac707a42af3615544622a305b306b403303bd27a5e35aa7400967ec463ba548c
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
-provenance: python-ast:python:sldb.cli.parsers.stores:_check; contract-sha256:9ffb775353d4bee4d91556fc996e770ac272a65d2bf4e57955dbe6000e9ae7b5
+provenance: python-ast:python:sldb.cli.parsers.stores:_check; contract-sha256:ce6d0e3b447b597d3becd294fe05f2baf6ced19c726c1fde1f9635e198cabe52
 ---
 
 # _check

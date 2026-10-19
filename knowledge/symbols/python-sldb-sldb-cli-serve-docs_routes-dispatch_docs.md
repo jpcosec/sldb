@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/serve/docs_routes.py
 source_span: '22:25'
 source_sha256: b298dbb7b88e6f4d9ac19f88217214dda92450efebcaef6612dbd18f9b5b349b
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.serve.docs_routes:dispatch_docs; contract-sha256:fd0869ea39e2fae196d68891a5c3edbba4fe61371953d0286467a05eadff3305
 ---

@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/edge_index/federation.py
 source_span: '41:48'
 source_sha256: 8035b477af7ddc4e0a2a164daecf0883269b3012570643e3bb3e6591795e78c9
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.edge_index.federation:qualify; contract-sha256:dd7cc209c67840badc1df73238a51988bf4876b9f02ee0499bc8a00471471ac8
 ---

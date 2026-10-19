@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/serve/save_single.py
 source_span: '24:28'
 source_sha256: 22a356c881e47336b9148eea7339c5a308f5ba0294913c22fd5a1997b56e46c5
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.serve.save_single:ensure_save_request; contract-sha256:1384bc3dbd698eb0dc852750c8f47a191aca15a18384376ff6f9854832fb7a0d
 ---

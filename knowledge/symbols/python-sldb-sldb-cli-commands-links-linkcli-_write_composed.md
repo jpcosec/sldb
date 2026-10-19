@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/commands/links.py
 source_span: 65:71
 source_sha256: 0272e88c368d433380c0ccbbf0385950db115a0ffaee45b6853e0dee81e14288
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.commands.links:LinkCLI._write_composed; contract-sha256:727b4a0f8d09f5769bb64a397f84dff97f2dfd8931d991e881dceb2b7b15b12f
 ---

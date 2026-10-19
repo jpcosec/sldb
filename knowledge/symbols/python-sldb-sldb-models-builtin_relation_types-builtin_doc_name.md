@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/models/builtin_relation_types.py
 source_span: '44:46'
 source_sha256: d802555b6e2ea982771e3dfe98ea9fd21e92f8819186c6f26c8798ab849e158a
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.models.builtin_relation_types:builtin_doc_name;
   contract-sha256:3c89ba6fcfd640777c606bafd42c47180d9118b97aec566bdc1d8be47eef26db

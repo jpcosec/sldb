@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/links/render.py
 source_span: '19:20'
 source_sha256: bedaed07c20cfec032d4b39130ad8adc8b9fbd49d1c9f09e855372c479fd5e2b
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.links.render:_slug; contract-sha256:927fb736850dc38685bc0f7b126878625567a5fd0118ed451486158a3330f45d
 ---

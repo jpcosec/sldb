@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/records/iter_records.py
 source_span: '11:19'
 source_sha256: efd24766000be811e2e9670d27a1af88ea76be2ab17db5f7ca2fd67f29cb2688
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.records.iter_records:iter_search_records; contract-sha256:6a7c62627e74087f01226b2bf24ca10e9262b857e676df20a907b12251df2b6f
 ---

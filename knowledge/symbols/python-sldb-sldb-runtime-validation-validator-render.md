@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/runtime/validation.py
 source_span: '21:22'
 source_sha256: 2b2918b574091442a8d3d9b4cbf95a30da6261a2050927062ccc86077dec60bb
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.runtime.validation:Validator.render; contract-sha256:08c18db97d43d372898b4d06e978406a7fb84c47e23a23823f3af0e8b0ad45d5
 ---

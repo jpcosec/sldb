@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/commands/explore_docs.py
 source_span: '20:28'
 source_sha256: 194c81eb54a8ac2f8154c8f34b92f6b4ccf8d836a38d5756b61c984f6eadd8fe
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.commands.explore_docs:ExploreDocs._scan_root;
   contract-sha256:03a212052bd6310c9d3bc82a1912f40c33675f9bbf051552d73f40f8498447dd

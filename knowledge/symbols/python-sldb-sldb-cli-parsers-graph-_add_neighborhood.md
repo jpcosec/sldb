@@ -6,10 +6,10 @@ qualname: _add_neighborhood
 kind: FunctionDef
 source_path: sldb/cli/parsers/graph.py
 source_span: '43:48'
-source_sha256: 12f938230ecf5f75f829f9e5554ee806e6d8d443a280716083bfcf794c7258e2
-architecture_spec: Not declared.
+source_sha256: 5bfb6d28140b5817c703567d437543c5a7a4dca0287fb73c7de50d3188aed0ad
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
-provenance: python-ast:python:sldb.cli.parsers.graph:_add_neighborhood; contract-sha256:d681a9a21d4e900763ef4b376af9b82be4bb48083ee183724f4b79fbd4687083
+provenance: python-ast:python:sldb.cli.parsers.graph:_add_neighborhood; contract-sha256:cb491bb765db474ddea4d0f6bd2ff2d96be4b56641919d545347e19f79c193b3
 ---
 
 # _add_neighborhood

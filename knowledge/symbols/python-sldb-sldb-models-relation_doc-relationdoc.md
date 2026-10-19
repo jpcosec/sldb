@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/models/relation_doc.py
 source_span: 12:71
 source_sha256: d5a32d8b5a9343b45ccfd8ff1accc04dc7578d892e753b84047335c74acb13a1
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.models.relation_doc:RelationDoc; contract-sha256:08736d70fe9b0f6a9e46833288161e2495599ca701cbd86a9e75aadb1f3bcf47
 ---

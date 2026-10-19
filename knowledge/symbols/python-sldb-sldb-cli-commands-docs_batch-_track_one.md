@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/commands/docs_batch.py
 source_span: '12:15'
 source_sha256: 74cfb6791eec653396bc7b3da0b3826ab0c51d9e1e65c52fcfaef46828579330
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.commands.docs_batch:_track_one; contract-sha256:82352e01df6d1afa1bd438e97caf33748dcda1e889291c83760d028e18a361c6
 ---

@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/cli/commands/faq_entry.py
 source_span: '4:8'
 source_sha256: 904ac524f919afce4a89165000963b6ae342b14ae2418ce56fea4891cd7e82ff
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.commands.faq_entry:FAQEntry; contract-sha256:316b77e375563d4164eea171339c2d9be07f9288ce5bfb20800c0807c3cf917b
 ---

@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/links/parser.py
 source_span: '17:20'
 source_sha256: 127c14d56fd8de7916bdba1ba054db6d3b025fb816162019b433d2bc742280cc
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.links.parser:parse_links; contract-sha256:b81dada3eba25f534734c67f7d44b79ebb627c0daebdd688898f35918ad579fe
 ---

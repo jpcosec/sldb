@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/core/renderer_engine/yaml.py
 source_span: '38:53'
 source_sha256: 04be636440ea839f16e888cdb899ebe59568b79ca13e6c807cb8bbb727e3be7f
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.core.renderer_engine.yaml:YamlRenderer._render_frontmatter_line;
   contract-sha256:05fac58c176e0c4b05224a80ff3eea6c208c1bee281bfaa9f0f21de028664523

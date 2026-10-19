@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/corpus/field_entries.py
 source_span: 72:76
 source_sha256: f1c6c3fd6209973de2a471da239e1e6861b4a0a1f036438a86b432b08d1d529c
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.corpus.field_entries:_entry; contract-sha256:8422c4a7f51dfcc5a3b5cbd9d2dbbe02e68e824834787dec0d10158c15156689
 ---

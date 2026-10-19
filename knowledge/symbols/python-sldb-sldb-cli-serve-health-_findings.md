@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/serve/health.py
 source_span: '23:34'
 source_sha256: cfacc306a5be70f7699f1f17325771fd971ff01579a2b4cabd8fd83dd0aa9432
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.serve.health:_findings; contract-sha256:716410c6318de0d6187b7f265d19f66e13dd58844d719fdd9ef6962ab2a3c294
 ---

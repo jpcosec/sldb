@@ -5,11 +5,11 @@ module: sldb.store.export
 qualname: SemanticExporter._proc_entry
 kind: FunctionDef
 source_path: sldb/store/export.py
-source_span: 62:69
-source_sha256: fe78991a46bf0d7d5f5f00cda9a2598fbdc212cf89ef327c727174f30cd8a1e0
-architecture_spec: Not declared.
+source_span: 66:73
+source_sha256: 1619390e4822af9e09209bb4452ba154c9c3d35735540ec480c0a34555cf7f26
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
-provenance: python-ast:python:sldb.store.export:SemanticExporter._proc_entry; contract-sha256:00b43bf4a150b6c98e9e94bc30bac36eb3a02389b7d81520e4e8b29a063875c1
+provenance: python-ast:python:sldb.store.export:SemanticExporter._proc_entry; contract-sha256:ce9963db3c6fa57168cf4240959cf2e2f8e4f0a5b4e646e716acbfcca0129462
 ---
 
 # SemanticExporter._proc_entry

@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/serve/segments_routes.py
 source_span: '26:40'
 source_sha256: 0e885c9eff79cd20204b144ba8d39790f6b2fa50d2da4b9d870e156f9602ca62
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.serve.segments_routes:segments_response; contract-sha256:81f647544c3997d25be84c88ff68260fa0a661de9b25f74e50a824fdf5482b23
 ---

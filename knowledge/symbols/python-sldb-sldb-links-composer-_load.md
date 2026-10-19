@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/links/composer.py
 source_span: '9:12'
 source_sha256: 5acd2bc58cf2fca168cf5e1b96c862176219e2511e96df5a35cf80de174b1b2d
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.links.composer:_load; contract-sha256:30435da36680d43653b1d107ec487c2b108dc0106db2b83fb2fa92a7cb3cec32
 ---

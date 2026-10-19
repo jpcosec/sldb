@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/semantic/dag_writes.py
 source_span: '30:37'
 source_sha256: 88d3bee0a6e179f78e4d7d06153cedf2c3862443897c28fc61af62ed56c50e74
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.semantic.dag_writes:remove_semantic_parent;
   contract-sha256:a94f357e886d3360059b853a464f39442f202da34b24884a6ec3195e07221b0e

@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/diagnostics_models/text_history.py
 source_span: 56:60
 source_sha256: a7ea20e79acb37fdb3a1b51202616601e72a31a722d1c9c7c81baf492f201657
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.diagnostics_models.text_history:with_history;
   contract-sha256:453c5b5a2e1d0bd4cd533cb7f943f9cc281e024ed9d4884cafeec94bb9608093

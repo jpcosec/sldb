@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/core/data_extractor.py
 source_span: '32:36'
 source_sha256: 0743434351f23ade474b8b134b7d283fdfa7df7641101188657110a9b05e9faa
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.core.data_extractor:DataExtractor._fallback_capture;
   contract-sha256:1d62d5a1a2ac64dc87a00edecaa046b4e995dad3e1e070cd7421805e4d615876

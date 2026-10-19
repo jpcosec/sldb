@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/documents/rewrite_loss.py
 source_span: '43:55'
 source_sha256: 936c08fb605d4b09ab923c9e6ed51f25178bd66526dc1c9d71a99dc48c1aa2bd
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.documents.rewrite_loss:_derived_headings; contract-sha256:6a8cf054a425609e908907165ab7d4aec19a00bdb3123fffc9b4867d84f894e7
 ---

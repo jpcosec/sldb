@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/store/graph/language/relation_filter.py
 source_span: '10:14'
 source_sha256: ae937eb1800167d53802a8f61ba515903643f2515c02b1ffe4d88be16072e44f
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.graph.language.relation_filter:RelationFilter;
   contract-sha256:32110cbe16a5850351622661563753c51a66a573fbb1609983544dba44c1955a

@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/core/handlers/text.py
 source_span: 51:60
 source_sha256: 2f53dfb96ef90c9eeef26f51acaaf2765e3dfbcd80425e6cd03ae0db3c8e37db
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.core.handlers.text:TextNodeHandler._build_text_recipe;
   contract-sha256:bd548c6e15589f8b33a12913f433c6f08ea080a26fd2e64016d0760a0f31fa02

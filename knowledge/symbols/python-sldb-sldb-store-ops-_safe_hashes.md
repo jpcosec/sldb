@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/ops.py
 source_span: 83:92
 source_sha256: 15a1ed96fccad244114a03a10e83846e3c5596b9f5fb9a59a08be3e7211c7e26
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.ops:_safe_hashes; contract-sha256:593478227b34dea555313a851f05416ab649c19dd9ed1233c01d800a43b012d7
 ---

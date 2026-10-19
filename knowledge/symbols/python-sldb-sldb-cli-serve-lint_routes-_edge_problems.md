@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/serve/lint_routes.py
 source_span: 61:65
 source_sha256: 3ff7094d991df419930c4a2744a7122efc26f1cd94c78d4353219dd17910341d
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.serve.lint_routes:_edge_problems; contract-sha256:5e693aecced6bcfedbe34b90bed3cbfb104328fc7e83f36eea202c4afd4828eb
 ---

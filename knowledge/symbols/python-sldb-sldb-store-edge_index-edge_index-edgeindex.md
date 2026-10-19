@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/store/edge_index/edge_index.py
 source_span: '12:48'
 source_sha256: 57b00c4548b569da2f528af9fe5c824798c90693ee28a304b8959d9661993281
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.edge_index.edge_index:EdgeIndex; contract-sha256:415a75c94eb763999bdf9e4b3e553a124a9bd7e30de6e49d07d7d7b0d2d1590f
 ---

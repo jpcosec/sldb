@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/serve/save_plan.py
 source_span: '19:28'
 source_sha256: 1609af5dd465164b6d90f10e25c1b9d0760e6c69564bb47549823686f9b84b3f
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.serve.save_plan:prevalidate; contract-sha256:c5865e5596c263f4e1da091be95ef8d5fd2a0c3034bd9fb34047ce032e8c2058
 ---

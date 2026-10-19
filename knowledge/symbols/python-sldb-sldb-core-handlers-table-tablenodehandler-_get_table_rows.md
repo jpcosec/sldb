@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/core/handlers/table.py
 source_span: '21:28'
 source_sha256: 8131410648829b7c483d47b065caa7a597bc207af018e652e5706ea94cf19253
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.core.handlers.table:TableNodeHandler._get_table_rows;
   contract-sha256:e28911e57a477a5bd3435299007da9b40ccb497af2f34b1f2c830a43fd9235d6

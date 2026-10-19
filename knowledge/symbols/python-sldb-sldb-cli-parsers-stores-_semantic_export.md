@@ -6,10 +6,10 @@ qualname: _semantic_export
 kind: FunctionDef
 source_path: sldb/cli/parsers/stores.py
 source_span: 59:66
-source_sha256: 405f406f98c9ce4e28b5fc4d8c70c1e88d7169e818b23166c20178d48aff32ec
-architecture_spec: Not declared.
+source_sha256: ac707a42af3615544622a305b306b403303bd27a5e35aa7400967ec463ba548c
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
-provenance: python-ast:python:sldb.cli.parsers.stores:_semantic_export; contract-sha256:a8dafbfd41f7227b451553c0d26b069b98cde848a166d1573fb811034c9c7c86
+provenance: python-ast:python:sldb.cli.parsers.stores:_semantic_export; contract-sha256:8f0240202065d9a53659a71714bc3dbb0b2eab0a26c38eff172521a3abdfde0a
 ---
 
 # _semantic_export

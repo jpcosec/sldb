@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/commands/models_validate.py
 source_span: '26:27'
 source_sha256: 4e1ff2b38cdb6ce7cdc7f12d753ae26ebbe9595cfacfa79bf07e65ba70042c10
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.commands.models_validate:ModelsValidateCLI._init_validate_details;
   contract-sha256:a132015807c7412339bcd2a3dd78cf633a47851de1213a89bd1e1319158728bf

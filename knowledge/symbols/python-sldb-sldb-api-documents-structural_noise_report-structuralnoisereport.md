@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/api/documents/structural_noise_report.py
 source_span: '8:39'
 source_sha256: a5ff49f52de4e15dd7b0735c547b3134c3c874afa332d4dd022565c17b0ff58f
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.documents.structural_noise_report:StructuralNoiseReport;
   contract-sha256:c2199239d65f20d4099591ed971944e21290f9edf8437ac4a006a5e2a8aad856

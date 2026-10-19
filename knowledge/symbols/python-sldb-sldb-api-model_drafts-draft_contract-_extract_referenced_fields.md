@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/model_drafts/draft_contract.py
 source_span: '28:39'
 source_sha256: cdfab3afe477742eb73f4741b037686a43244112b11cdb81e61cfea80ef74714
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.model_drafts.draft_contract:_extract_referenced_fields;
   contract-sha256:63d2adb35a21b83236ebfadeb8659c73cb09941d6ec63da6504a447945e15524

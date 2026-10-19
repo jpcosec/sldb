@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/graph/ingest_sldb_nodes.py
 source_span: 65:66
 source_sha256: e18d8127a8a18ea55290672a86ee85ef0e827efe06346511658c425fa0bff939
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.graph.ingest_sldb_nodes:_document_semantics;
   contract-sha256:b7a266fa7d529b8fd1a32859bf88e6127974e9b03656fbc10df8ea861a12ea15

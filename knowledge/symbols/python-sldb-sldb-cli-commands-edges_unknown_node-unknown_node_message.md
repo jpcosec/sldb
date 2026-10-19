@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/commands/edges_unknown_node.py
 source_span: '14:23'
 source_sha256: 5cc3f3af3c2908a4d2eb5b479dd846a51b49cc8b295beed678089ba2837a8b24
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.commands.edges_unknown_node:unknown_node_message;
   contract-sha256:7459520efbfc1f1499fef5418238ecb63a46cea60c577dcf9e81849a827fb5d0

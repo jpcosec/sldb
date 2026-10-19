@@ -6,10 +6,10 @@ qualname: add_graph_group
 kind: FunctionDef
 source_path: sldb/cli/parsers/graph.py
 source_span: '10:17'
-source_sha256: 12f938230ecf5f75f829f9e5554ee806e6d8d443a280716083bfcf794c7258e2
-architecture_spec: Not declared.
+source_sha256: 5bfb6d28140b5817c703567d437543c5a7a4dca0287fb73c7de50d3188aed0ad
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
-provenance: python-ast:python:sldb.cli.parsers.graph:add_graph_group; contract-sha256:bf1c72040e408d778414df21eedc797be7f1d55bcfd29d087916aba85d5d8e3e
+provenance: python-ast:python:sldb.cli.parsers.graph:add_graph_group; contract-sha256:cadfff5b92e80b4e71b3e0a1b78d25e67f240084a7a2db281b47b4619dec6e0d
 ---
 
 # add_graph_group

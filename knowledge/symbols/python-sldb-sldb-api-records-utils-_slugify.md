@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/records/utils.py
 source_span: '6:8'
 source_sha256: a26fe35d5855bc3c1df978d22e69321c5cd8890f3d87645b0b6ec5743a80b5e9
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.records.utils:_slugify; contract-sha256:d7d97f8dbdb42e1516d5a375422b3188b4dbdefd253d13f808055ca1b2f97141
 ---

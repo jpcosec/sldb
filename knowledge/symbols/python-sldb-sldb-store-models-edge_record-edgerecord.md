@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/store/models/edge_record.py
 source_span: '10:16'
 source_sha256: f7b087a99e0cfad4209ff4d980fb7266ddaf89d1068b3742af863ec37cedee95
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.models.edge_record:EdgeRecord; contract-sha256:79185faf648d0e90277611a35116dd881a05d6c1ac9312a6ee318852d6c07a47
 ---

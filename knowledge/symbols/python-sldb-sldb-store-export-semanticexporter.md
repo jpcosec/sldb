@@ -5,11 +5,11 @@ module: sldb.store.export
 qualname: SemanticExporter
 kind: ClassDef
 source_path: sldb/store/export.py
-source_span: 29:85
-source_sha256: fe78991a46bf0d7d5f5f00cda9a2598fbdc212cf89ef327c727174f30cd8a1e0
-architecture_spec: Not declared.
+source_span: 33:89
+source_sha256: 1619390e4822af9e09209bb4452ba154c9c3d35735540ec480c0a34555cf7f26
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
-provenance: python-ast:python:sldb.store.export:SemanticExporter; contract-sha256:802756bd7d9276cd4be71a3905f13290dee497ae7a0f3a6ffe1bd25c2a4bf633
+provenance: python-ast:python:sldb.store.export:SemanticExporter; contract-sha256:497fef61536ae4ed1938ae4de661c3ad4eb96ee28ebd7be78b683e904898e096
 ---
 
 # SemanticExporter

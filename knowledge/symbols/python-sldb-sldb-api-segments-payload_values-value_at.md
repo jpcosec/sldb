@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/segments/payload_values.py
 source_span: '18:33'
 source_sha256: a39d5165f9da7956b8203c06eeb7395918ae01dafc4379360934af42674f4ece
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.segments.payload_values:value_at; contract-sha256:e93749ce78bb4f3c5514cbe92671fe5ce252db2e05850a6a62c5f154d7628ed1
 ---

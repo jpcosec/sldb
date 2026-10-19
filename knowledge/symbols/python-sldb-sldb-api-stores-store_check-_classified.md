@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/stores/store_check.py
 source_span: 64:77
 source_sha256: ae685aaf2819655d86bdc81c2ef092ed5403833ebacc062e01469191d3deeac5
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.stores.store_check:_classified; contract-sha256:636ac46e08b16bd95a820c50e81b7c359f01d04218f54cad42be71b3974b0bb7
 ---

@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/selfdoc/command.py
 source_span: '9:19'
 source_sha256: bb7952aa96d78cb7a9f0d1c2953b8f341de9bc54f98843a001f95753d63ea532
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.selfdoc.command:CommandRecord; contract-sha256:d43480baf3cebb62ea3bf3ce530b064a50a500086eaf00c67e1aebd855775f05
 ---

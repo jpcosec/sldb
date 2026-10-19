@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/model_drafts/backfill.py
 source_span: 100:101
 source_sha256: 2d50a8e235b6f4d23db522c72e334767e0ae992d11812096d7e27fd2dd325c65
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.model_drafts.backfill:_entry; contract-sha256:6a36c1c63a24618b1b5b409c152b880927899a0e5398501416b3dc424b511ff9
 ---

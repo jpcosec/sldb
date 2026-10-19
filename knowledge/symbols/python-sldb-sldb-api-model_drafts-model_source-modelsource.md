@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/api/model_drafts/model_source.py
 source_span: '10:30'
 source_sha256: 38028a5d6368470bf97d84565de36ddea76624b948c252d1c4ceeb0916255dd0
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.model_drafts.model_source:ModelSource; contract-sha256:6130b107fc2e4a02bc11d43776bd89e7075ee588a74b681357aebe9cdb5a462c
 ---

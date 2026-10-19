@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/api/corpus/document_context.py
 source_span: '18:37'
 source_sha256: 20f5a3f89917d495c26ac71b9c815984543aed2cfbf38a0d1bdf519a1a1d521b
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.corpus.document_context:DocumentContext; contract-sha256:953e9b459a57a173a8b4368119eac4638b64dc3668195321df3d7640fa8193aa
 ---

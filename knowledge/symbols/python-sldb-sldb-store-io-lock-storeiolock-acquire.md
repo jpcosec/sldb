@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/io/lock.py
 source_span: '32:41'
 source_sha256: f9ae7d5ec4464f085a654724aedb39b8a87efa2111d997da8d047755637ed648
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.io.lock:StoreIOLock.acquire; contract-sha256:f552c3f22700ffe06f2569776f76641307b4d468d293cadddb4b5c19903c5157
 ---

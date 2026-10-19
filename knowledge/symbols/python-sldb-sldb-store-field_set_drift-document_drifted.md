@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/field_set_drift.py
 source_span: '35:44'
 source_sha256: 1ad57505444177e11663cbe39b1fbccceff24a84e0316e440362a7ded430dca4
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.field_set_drift:document_drifted; contract-sha256:e23a88cc191c3d14760cddf45b78bcedc35f24f8d0a25ac8ab3d4079a5295af3
 ---

@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/core/renderer.py
 source_span: 15:74
 source_sha256: ca9068edcc01fd6be31a3a6b103846c31ac742cca66e4df3bc71aaf3aa6fb2a5
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.core.renderer:SLDBRenderer; contract-sha256:d00d3919dfe506058e8d1daa97ddb633e28caae926b21bd5fad2544c0aec0290
 ---

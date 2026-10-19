@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/cli/commands/sections_find.py
 source_span: '8:46'
 source_sha256: 0d8c84a37a601ec02d328328727e58d2d887bc5433b26dc34f3b4e5fd59216df
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.commands.sections_find:FindSectionsCLI; contract-sha256:567d6fce6a6a7a035c4351060bde5feb6294bc0038eddbb528c85a089c19643f
 ---

@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/edge_index/acyclic.py
 source_span: '17:23'
 source_sha256: 72dfaa7feb440ce779bd491a4407cd9dcb266a45a327ceca06c08dc17346d934
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.edge_index.acyclic:cycle_errors; contract-sha256:a02f38c0b7ea468ebd792e60f29e345d873987dd0d5b791b0bb66a244e378bd7
 ---

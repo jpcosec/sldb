@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/edges/unresolved_references.py
 source_span: '12:28'
 source_sha256: fe28d882f7f6d1e12443b6682b8e5f82ce21698305fe866723ee79a38ff2c746
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.edges.unresolved_references:unresolved_references;
   contract-sha256:d12f0696738e94fb05dd3e82b8038c8a204b23f512ebebe42b494ee8c797cc72

@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/corpus/index_projection.py
 source_span: '11:14'
 source_sha256: d5c0a6175ce5476bcd78e6644ca3510cae6e573c36b3645ca2b693358a41ac73
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.corpus.index_projection:summary_text; contract-sha256:99f6b670e5b9f71b51765b96d3e36f91d37ac4880fc533ab10095b25cbf95676
 ---

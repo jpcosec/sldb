@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/serve/routes.py
 source_span: 94:109
 source_sha256: c3a4a742e5dad60346b058ff43fce5a58cc3624edc1ac67d1bef636f40e58dcd
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.serve.routes:dispatch_post; contract-sha256:fc644e10b4aee62fe5df06498dcd0c3a75a89e14d9ba7d110f379f8c5493b530
 ---

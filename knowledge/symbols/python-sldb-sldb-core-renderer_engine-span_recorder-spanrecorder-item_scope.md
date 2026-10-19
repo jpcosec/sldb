@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/core/renderer_engine/span_recorder.py
 source_span: 67:82
 source_sha256: cdc8283006a58f8d13c955af17a5c823821a55c4439feb16859a25bc4fe06626
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.core.renderer_engine.span_recorder:SpanRecorder.item_scope;
   contract-sha256:1d36f870ca178e0e4dda17e9fe12c15ceadeda7794ac4fdb8c8dc194b1a7e16d

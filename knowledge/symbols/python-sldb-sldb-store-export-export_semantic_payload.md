@@ -5,11 +5,11 @@ module: sldb.store.export
 qualname: export_semantic_payload
 kind: FunctionDef
 source_path: sldb/store/export.py
-source_span: 87:89
-source_sha256: fe78991a46bf0d7d5f5f00cda9a2598fbdc212cf89ef327c727174f30cd8a1e0
-architecture_spec: Not declared.
+source_span: 91:93
+source_sha256: 1619390e4822af9e09209bb4452ba154c9c3d35735540ec480c0a34555cf7f26
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
-provenance: python-ast:python:sldb.store.export:export_semantic_payload; contract-sha256:cfa63a50528da132a2afe9ba9870b8b6d3a4c67bbe4567e6a4c44b1a2c28ccfb
+provenance: python-ast:python:sldb.store.export:export_semantic_payload; contract-sha256:724c63d2cf144d78a49d6961c5b9494063eb1940f42e1e5a21b501b151c7a848
 ---
 
 # export_semantic_payload
@@ -20,7 +20,7 @@ export_semantic_payload(store_path: Path, project_root: Path, resolve_model_ref:
 
 ## Docstring
 
-Build the `sldb_semantic_export` payload from persisted SLDB indexes.
+Build the `sldb_kgdb_semantic_export` payload from persisted SLDB indexes.
 
 ## Imports
 
@@ -28,7 +28,7 @@ Build the `sldb_semantic_export` payload from persisted SLDB indexes.
 
 ## Purpose
 
-Build the `sldb_semantic_export` payload from persisted SLDB indexes.
+Build the `sldb_kgdb_semantic_export` payload from persisted SLDB indexes.
 
 ## Architecture
 

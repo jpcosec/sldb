@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/commands/find.py
 source_span: '11:17'
 source_sha256: 7fd79d43b7febe6dd6b4a18934df79477499bc9728928abca813cec5a9ccbc20
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.commands.find:FindCLI.run; contract-sha256:fbd1c1400d57f197108cdd50e155f24f53b6cbf6eea9cbedac7848c7d918f68d
 ---

@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/serve/corpus_routes.py
 source_span: '21:40'
 source_sha256: fc8fd01acab0e9a2ff9c25941ec02c04fc31ad15b72c230538fca63de614b895
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.serve.corpus_routes:corpus_rank; contract-sha256:5b9edcea1b8cd89d694ee2a00f5c3fc6cafebb1fccf4be68a36ce4e6b2c3f8bf
 ---

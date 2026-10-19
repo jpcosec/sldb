@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/commands/store_semantic_map.py
 source_span: '7:14'
 source_sha256: c94bc2225e6e958fa664e8c6a680ec36ccd69a992b3fc577b9fde37f7d40258f
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.commands.store_semantic_map:semantic_map_store;
   contract-sha256:0f35a57af3d9e64ad7df2bbe559da79e468b10752ce063a9f2f957eb6e02b7da

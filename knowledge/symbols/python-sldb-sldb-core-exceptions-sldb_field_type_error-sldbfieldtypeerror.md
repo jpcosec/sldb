@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/core/exceptions/sldb_field_type_error.py
 source_span: '13:14'
 source_sha256: e9299d9f889b09bc7f3969a35e7984e168e2fd808d0255bb3f1facc2b2174ab2
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.core.exceptions.sldb_field_type_error:SLDBFieldTypeError;
   contract-sha256:58bfc914da1e55c52effeba4099dc371c0ec950b350a531dd40470f8cd6b0eb2

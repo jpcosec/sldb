@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/store/graph/query_result.py
 source_span: '12:17'
 source_sha256: 8b54ad277c0887f6621161b76113919740263ac747d5a349950569eb3f17841a
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.graph.query_result:QueryResult; contract-sha256:1af9ea6283a7bb70c3ed1bb7ba1924da77eb9959bd08461c25d2800fa98bed40
 ---

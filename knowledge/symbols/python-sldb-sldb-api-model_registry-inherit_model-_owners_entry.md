@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/model_registry/inherit_model.py
 source_span: 61:70
 source_sha256: 5d783eb4a01a532d4e4c8ed57e475eed1a1eda83cbd3d9d788363fa71bcbb831
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.model_registry.inherit_model:_owners_entry;
   contract-sha256:2139e0e0577fecb879eff86d4516d4fe57083a2f82be8c58e5c2efe2d3674bc6

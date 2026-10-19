@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/selfdoc/report.py
 source_span: '17:54'
 source_sha256: eae33ef265d0d143767e30db35cf9ca0fcecaee519a93ae001af8591a70d15b3
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.selfdoc.report:DocumentationReport; contract-sha256:039d101228847073aad2dc19de78b9cfb84d2d4bb0398eb55a6d13eeaba9975a
 ---

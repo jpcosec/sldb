@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/documents/delete_document.py
 source_span: '40:52'
 source_sha256: 780f3c87ffb4bfd447b262dfdf1851ad54fdeeeb1c127b214cfac6d9c71e12b3
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.documents.delete_document:_forget_cached_extraction;
   contract-sha256:7a7da9e36b9a62e9e6afb8ef45e15d92188b7968c572fbf34a8a6b5bc8543ef8

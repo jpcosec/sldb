@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/graph/analysis/order.py
 source_span: '12:20'
 source_sha256: d33e90091b97e86dc4e2017ab53967ca208e0fa78b44a037a8c5ccd3e96c4e20
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.graph.analysis.order:topological_order; contract-sha256:cb603e5b3d0a1f7f1f5ff572f0b53c52c319dae9944266a05dd686a2d8401d2c
 ---

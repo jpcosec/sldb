@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/api/matching/embedder_protocol.py
 source_span: '10:12'
 source_sha256: b157077f11743cf2a5777bf96787f67deffa1b5632bc9ce5d59fc3b10eee9157
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.matching.embedder_protocol:Embedder; contract-sha256:bde32c4e7e13adf4dd703fa88b65a7d7ccf59e27827663a8d59a05b04820a2f0
 ---

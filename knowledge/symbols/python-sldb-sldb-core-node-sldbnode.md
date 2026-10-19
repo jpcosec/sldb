@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/core/node.py
 source_span: '7:32'
 source_sha256: 586ff411d7448d65e2ac03a1f20f4bd7375a040855b2c489a14625f96b256df4
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.core.node:SLDBNode; contract-sha256:27531f5ff879d29e31e51183182a4e0c7b99be28bf37648664230dd19c1e32b3
 ---

@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/model_create/create_model.py
 source_span: '28:52'
 source_sha256: 0bd54b0bb70f70280fc7b52ad98d77a7e45d29e4e93ac612b024b212fa211055
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.model_create.create_model:create_model; contract-sha256:ce7e2c8c48e6c02f11515105d70dcb6619d4c24a3dccfcc44eadee7659211782
 ---

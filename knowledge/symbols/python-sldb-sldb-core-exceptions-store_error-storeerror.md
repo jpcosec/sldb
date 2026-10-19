@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/core/exceptions/store_error.py
 source_span: '1:10'
 source_sha256: 4235274219b2904e41e2ade71c705195cf96aa7fc709bb7a3c02d75661038207
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.core.exceptions.store_error:StoreError; contract-sha256:0502e51ef7dcddefcde0dd53364e8ef79bddb88ac617b8ff11733174097b9e24
 ---

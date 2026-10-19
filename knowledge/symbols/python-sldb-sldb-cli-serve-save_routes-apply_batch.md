@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/serve/save_routes.py
 source_span: 79:87
 source_sha256: 408aea16fbc3ba42fb7534082f884f5d7ded4f54a81587ca07b1bf42b5d8ff38
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.serve.save_routes:apply_batch; contract-sha256:7db82335660385ec2dbcbe068a55013691eacfe469a6f46bd1734908fe10498d
 ---

@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/matching/difflib_matcher.py
 source_span: '25:32'
 source_sha256: aae95beaab6f32acd36f051dcc086d54267827de13eabf0e8329dae37e803e83
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.matching.difflib_matcher:DifflibMatcher.similarity;
   contract-sha256:4e6b62e279f7e013a1dd08f9837489c2105f2bd58101c0268a14b1073c4ee78a

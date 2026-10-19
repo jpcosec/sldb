@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/parsers/graph_analysis.py
 source_span: '31:34'
 source_sha256: 95108a0f6e4063f4f3e08eb7a3ecd27ec59c29ffaeb6926d9fa2a6694a78b970
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.parsers.graph_analysis:_add_cycles; contract-sha256:52e0b7394dd4e0cbdfd969a868752a71ca63c27257960b06e092bc85608f977f
 ---

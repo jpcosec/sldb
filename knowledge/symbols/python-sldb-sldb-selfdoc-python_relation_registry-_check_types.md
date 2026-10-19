@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/selfdoc/python_relation_registry.py
 source_span: 83:88
 source_sha256: c34b762befd2d4d664dc5e3146726ec1ed2187cc376f1dc1f9c66fb899494b80
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.selfdoc.python_relation_registry:_check_types;
   contract-sha256:06537a4f35ce535c07cc039c883c69458d6cfe67ba4218861f41a8c2f5e943a2

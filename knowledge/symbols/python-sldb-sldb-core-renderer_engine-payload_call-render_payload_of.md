@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/core/renderer_engine/payload_call.py
 source_span: '18:31'
 source_sha256: b80aaf3f6bb1c1f9db75c8dad70fe5a6404d1b08a456067451e8891613bcc2b9
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.core.renderer_engine.payload_call:render_payload_of;
   contract-sha256:8fb0caff1cec145b51add302172880f1e75920e2c6c383f5d2807e9ede14f76b

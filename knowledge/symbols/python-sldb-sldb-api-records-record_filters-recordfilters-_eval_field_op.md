@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/records/record_filters.py
 source_span: '39:46'
 source_sha256: 8163a7474dff2b2af2b8e4fa94b58f66e01633d1fbf0d4f37ff82f0e799f954f
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.records.record_filters:RecordFilters._eval_field_op;
   contract-sha256:2ea8fae76de1a85052ead88b41a7179e415a33ba1ea8c27c69d332c64b838644

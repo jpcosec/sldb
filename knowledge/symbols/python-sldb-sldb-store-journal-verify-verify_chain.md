@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/journal/verify.py
 source_span: '14:24'
 source_sha256: a78496ac4cbea1a654aab10e4f1a0c0d679f8239f1d73923452aa8b2eb98d76d
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.journal.verify:verify_chain; contract-sha256:10139d89c84a93ca79f4df11ce7aa422d17fe665274d2890407359bb9fac93c3
 ---

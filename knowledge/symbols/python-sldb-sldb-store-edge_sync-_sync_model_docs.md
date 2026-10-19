@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/edge_sync.py
 source_span: '45:53'
 source_sha256: 5fd6f57efb17f19c2862f456d18cc176660084d1711fc47c9007c6576b43752b
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.edge_sync:_sync_model_docs; contract-sha256:048876516366edba7dd8a94a0a74414dd2fb48736fdccd5227f29e2dbcd2a120
 ---

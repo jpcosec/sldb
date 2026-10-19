@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/io/semantic_index.py
 source_span: 57:68
 source_sha256: 7957ac2d25ea890531650f1a22dbb53ad34435c53ecc46f44ae7b9284b91c5ff
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.io.semantic_index:SemanticIndexIO.save; contract-sha256:75d0e80b592ce3e73b4a460c3bda12a19e46234f49d0807b66d42285b1376b14
 ---

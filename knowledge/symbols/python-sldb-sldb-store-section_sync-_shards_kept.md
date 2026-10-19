@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/section_sync.py
 source_span: 72:76
 source_sha256: 34a5d402dcd44758faba73ddc8862f6ceac89270c742a4e46f87f99ae956794d
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.section_sync:_shards_kept; contract-sha256:ba39f6184652e44807e71702e2fb484eec9129d6ff760cf5c53e28f5a4c11ddb
 ---

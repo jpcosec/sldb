@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/diagnostics.py
 source_span: 61:66
 source_sha256: 8df97842ce8ae42fe7bd7d412973d2a760e684bbcde8e00f0b22146d56f8bab7
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.diagnostics:_fields_state; contract-sha256:8f97ef0b40617c106aad1d69677de4db8a316312359f3c9570c46dbb574344bd
 ---

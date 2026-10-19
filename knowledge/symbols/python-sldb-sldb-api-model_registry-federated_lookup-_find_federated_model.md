@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/model_registry/federated_lookup.py
 source_span: 62:73
 source_sha256: ce5d7d76fd7183cd7e3bfdfbb914ac88893dae60f2be2cc42a4ec5d20c3f7609
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.model_registry.federated_lookup:_find_federated_model;
   contract-sha256:45fcba64418932abebeec39368bb192716b14f8d40c3dbf399f0dc1cc7e24611

@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/serve/tracked_docs.py
 source_span: '15:32'
 source_sha256: 7ae9eec0be578c90f9d6cc2115deebc00ca84d16b2d16b3e760528c5549108a4
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.serve.tracked_docs:is_tracked; contract-sha256:134637a3f149370dd453c7ebf3cb0bcd9bcf780bfd0e500992c0a6dfbeead6ff
 ---

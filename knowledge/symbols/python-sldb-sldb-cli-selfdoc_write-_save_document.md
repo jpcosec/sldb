@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/selfdoc_write.py
 source_span: 55:65
 source_sha256: f9d84fd2e6a0a5be2dda0fb619594a35346236a1736a9cc17160babb25c113d7
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.selfdoc_write:_save_document; contract-sha256:e0e3a5466326c27ffa6b7595ed5fa53488e1a625ca0dd12b46deb537a2e5cca5
 ---

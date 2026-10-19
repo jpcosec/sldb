@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/edge_index/validation.py
 source_span: 60:64
 source_sha256: 03c609667a78e9116e3dc13b69649e8b0aa72d0690774488e6c79d05d6c9d81e
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.edge_index.validation:_effective_types; contract-sha256:706ea0d37cddca8670011d58907a30b0d95d0ac6e55f8e4a5b28617323c7ae3a
 ---

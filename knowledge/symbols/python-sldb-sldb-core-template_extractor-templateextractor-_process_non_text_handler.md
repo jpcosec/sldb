@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/core/template_extractor.py
 source_span: '29:35'
 source_sha256: 771a869da5394d801b3b55e95519bc3f75e5db7d525cb4866b17cdf5ebb8fefd
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.core.template_extractor:TemplateExtractor._process_non_text_handler;
   contract-sha256:b32357963f5cc6c36e6054ebe39bd613753fef1589e1078ddc36d436e40d8ecc

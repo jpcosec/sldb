@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/selfdoc/python_source_scan.py
 source_span: '26:32'
 source_sha256: f78a9614869eb2878a757a84ac30a15b907e36f8f87670f59c61549cfccfab85
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.selfdoc.python_source_scan:metadata_diagnostics;
   contract-sha256:6203a3296896bd3287927aac10dbf526d0e507da43483e4256a6f33d4c6ea3b2

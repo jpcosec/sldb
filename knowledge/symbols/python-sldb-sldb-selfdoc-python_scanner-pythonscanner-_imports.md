@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/selfdoc/python_scanner.py
 source_span: '50:51'
 source_sha256: 8581e7bc60802b1d8b38ce1767d0339b76147a7c9a88609cfaf526eed7010301
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.selfdoc.python_scanner:PythonScanner._imports;
   contract-sha256:8c78b6742015e9fb45ac9e7566c18ec02475a27dc834e5c509ed7d4cf03017d4

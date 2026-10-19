@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/cli/commands/predicates.py
 source_span: 15:81
 source_sha256: 6b520f9d57039512860c1877e65f3ae822b461ff8a71862b54393d3ad9388c44
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.commands.predicates:PredicatesCLI; contract-sha256:424c34a370166da6e4f21cdc2a98bf26eabe884bca8fbda3830f90d89505b479
 ---

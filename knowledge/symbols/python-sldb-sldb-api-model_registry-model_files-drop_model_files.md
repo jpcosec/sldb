@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/model_registry/model_files.py
 source_span: '16:22'
 source_sha256: da591706804f1183166df962c481f51b111f0ed2400ad01204144945d46b6dfb
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.model_registry.model_files:drop_model_files;
   contract-sha256:4a295f03515112155edef9ba9847f0925685f210407c18178c1f74d1c96221d6

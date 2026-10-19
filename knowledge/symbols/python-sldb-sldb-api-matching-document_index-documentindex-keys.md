@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/matching/document_index.py
 source_span: 65:66
 source_sha256: baa2f5863f03aa57c0c9385c50483c797db04aaecf3d9e07820a479dc956d84d
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.matching.document_index:DocumentIndex.keys;
   contract-sha256:ae241ec7f8e2ff46f063fff1455d5bdbb4386c8e76911a0bd6751a86127d8fba

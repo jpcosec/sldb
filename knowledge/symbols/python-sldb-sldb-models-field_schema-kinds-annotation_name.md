@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/models/field_schema/kinds.py
 source_span: '14:20'
 source_sha256: b811b50eb76242cdbd64c438772baa21cad22d3afe2cfaba8ac28f8ad4e6af2d
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.models.field_schema.kinds:annotation_name; contract-sha256:c2faa233de63058c4ea2e2771c18a89d4d0b0fff4c9ab9018e721db4121a4b7a
 ---

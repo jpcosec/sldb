@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/stores/gitignore_policy.py
 source_span: '14:21'
 source_sha256: d081b8ef12aad3255d65e97410a79e45bab9a565f86e5f9e19df65f1d9d9a02c
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.stores.gitignore_policy:gitignore_policy; contract-sha256:b05ddcd48e563f32246ba47f0da6b5ee3795eb95a937181c41de13f7e1c65b57
 ---

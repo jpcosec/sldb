@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/model_registry/model_lineage.py
 source_span: '11:21'
 source_sha256: 7cd5ab2cb50ce291642cc427f146016805735f27060abfcab3176694d1767c33
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.model_registry.model_lineage:model_family;
   contract-sha256:351540bbdfbf7a7fdb62a837812502bf6e5ff7f71ad2b0b08e42a2eb40095ff9

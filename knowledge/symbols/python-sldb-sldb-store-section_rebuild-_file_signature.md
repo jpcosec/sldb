@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/section_rebuild.py
 source_span: 60:65
 source_sha256: 4123a15e91c727b443e7332a04fee892e6a3b34d818a196ea393da9765e83108
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.section_rebuild:_file_signature; contract-sha256:69dd1916651ad104ee52e5d53238b96d22ee1d17b4464bf75fe750c5a4c682b9
 ---

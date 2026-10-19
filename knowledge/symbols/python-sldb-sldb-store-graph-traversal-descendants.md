@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/graph/traversal.py
 source_span: '39:47'
 source_sha256: d6f1ef9117ad30d152c5e5356938c082bc25b034e6861a4817b881bb63451d57
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.graph.traversal:descendants; contract-sha256:201ed1b771f64e164defcf6f588be5b7463366a7ee32ce294ff71daf6ba6b254
 ---

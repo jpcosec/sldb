@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/model_registry/model_index_writes.py
 source_span: '45:49'
 source_sha256: e2e60b0a1efaa0bbb2722d8038f635820fba39a6f9ae7025a1dad875a353f12e
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.model_registry.model_index_writes:_fresh_models_index;
   contract-sha256:d69335ff2801779e781d7bd9f275dfbfd36da042be1c4d9e35ae7fa9ad9e51c2

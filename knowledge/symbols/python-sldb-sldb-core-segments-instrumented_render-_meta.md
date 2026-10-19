@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/core/segments/instrumented_render.py
 source_span: '43:53'
 source_sha256: f94161fc5f560cd0d37e3b1edefaf12ba66a3853687a28682c588de09bc4151f
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.core.segments.instrumented_render:_meta; contract-sha256:234dccf73dff32883de2dcefb4d6e9f3ba29bfeacc27547d65fb01a22c07b294
 ---

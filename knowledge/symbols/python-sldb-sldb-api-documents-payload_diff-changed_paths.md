@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/documents/payload_diff.py
 source_span: '14:29'
 source_sha256: a43590ef7e0c244eab9e7108917e9016541cfeed1d380b20c09a305e1306f396
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.documents.payload_diff:changed_paths; contract-sha256:2c7a8b4f2935ad26c3f24c9371f8817f6ff63c8635426e992ebd2d491d2047e2
 ---

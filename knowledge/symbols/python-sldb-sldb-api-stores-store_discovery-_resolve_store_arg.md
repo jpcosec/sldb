@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/stores/store_discovery.py
 source_span: 67:76
 source_sha256: ec9bba6fc1eef1921048bfa96fa56ac233724d2d88cac219973ada2a508f20d8
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.stores.store_discovery:_resolve_store_arg;
   contract-sha256:ec04a7cc9f18e8ee8258fe05e697505ec34066a0de9ce1301c05586b06a70f6d

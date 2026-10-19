@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/serve/responses.py
 source_span: '17:27'
 source_sha256: 72b96bcd9b17f7c1a2db67a946713ae13e6d69df9da77ef5d2b304cedfac844d
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.serve.responses:send_json; contract-sha256:b3ad2d46c53b11e999a43a44b8707287605132ce074c76f44ee7f586b181c35e
 ---

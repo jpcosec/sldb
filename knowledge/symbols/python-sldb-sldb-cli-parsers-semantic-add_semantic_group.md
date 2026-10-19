@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/parsers/semantic.py
 source_span: '8:14'
 source_sha256: 408f33b3f372d3ca82b07518e46e9b185b6b9dcd83fbc8df433923f67a9b54d2
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.parsers.semantic:add_semantic_group; contract-sha256:d80e5a0f42b04a11a53f3554884f2869b698ac21e9f6a9df62e82541a5c53e06
 ---

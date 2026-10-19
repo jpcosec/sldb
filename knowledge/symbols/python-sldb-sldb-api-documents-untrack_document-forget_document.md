@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/documents/untrack_document.py
 source_span: 58:72
 source_sha256: 4b8b7dbf33b146257f439416df941f2af3cf7a2110869f935a40636bdf01fe2e
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.documents.untrack_document:forget_document;
   contract-sha256:62f802ba89a3c97e66a1266c08f922bb974390b2f114508f15142411d11f3c9d

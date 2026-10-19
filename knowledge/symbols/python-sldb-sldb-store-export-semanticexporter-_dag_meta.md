@@ -5,11 +5,11 @@ module: sldb.store.export
 qualname: SemanticExporter._dag_meta
 kind: FunctionDef
 source_path: sldb/store/export.py
-source_span: 84:85
-source_sha256: fe78991a46bf0d7d5f5f00cda9a2598fbdc212cf89ef327c727174f30cd8a1e0
-architecture_spec: Not declared.
+source_span: 88:89
+source_sha256: 1619390e4822af9e09209bb4452ba154c9c3d35735540ec480c0a34555cf7f26
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
-provenance: python-ast:python:sldb.store.export:SemanticExporter._dag_meta; contract-sha256:1700e3d139e0a5c4b34903ea3d0fde563ca849f51ac63ec0d683b79b4d30ae8c
+provenance: python-ast:python:sldb.store.export:SemanticExporter._dag_meta; contract-sha256:c062ed9857a45c2f9692e4973bb69fdec9fe4d500f4eff63fccacf0e3cc1b092
 ---
 
 # SemanticExporter._dag_meta

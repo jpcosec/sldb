@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/core/ast/markdown_ast_handler.py
 source_span: '18:27'
 source_sha256: c008382f68385f2ecae45e4a6da3797f202bc15a99d23d5d581875bc7503a280
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.core.ast.markdown_ast_handler:MarkdownASTHandler._convert;
   contract-sha256:89da215bde2e2280325a8c2ccdec691f0925c477da01557e28f54aa6fa07dc8d

@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/commands/store_check_report.py
 source_span: '17:26'
 source_sha256: 5dd18e3fa924b23f5b45df74fd7983b5eeeb6a59d17634e10306c14424fadb8c
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.commands.store_check_report:print_report; contract-sha256:86190b1358614cb2abb2360c1990e7e625ed8e73c69c5b724eee75036f4272fd
 ---

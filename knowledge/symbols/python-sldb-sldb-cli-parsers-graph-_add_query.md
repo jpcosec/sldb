@@ -6,10 +6,10 @@ qualname: _add_query
 kind: FunctionDef
 source_path: sldb/cli/parsers/graph.py
 source_span: '37:40'
-source_sha256: 12f938230ecf5f75f829f9e5554ee806e6d8d443a280716083bfcf794c7258e2
-architecture_spec: Not declared.
+source_sha256: 5bfb6d28140b5817c703567d437543c5a7a4dca0287fb73c7de50d3188aed0ad
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
-provenance: python-ast:python:sldb.cli.parsers.graph:_add_query; contract-sha256:cee091d54c372146f8e9f1f25fecd2d389f8738ceb33de486cb8d75bb85bbbab
+provenance: python-ast:python:sldb.cli.parsers.graph:_add_query; contract-sha256:e25f18f8a20cf5b3dd88e8cb6097c651f00d0106672f11fe7ad58c0957588c35
 ---
 
 # _add_query

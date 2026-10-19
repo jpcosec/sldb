@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/serve/edges_routes.py
 source_span: '26:35'
 source_sha256: 45156815ec019bee2e7304504c2815c5106adee40c509638bbcf3a5d5d7595f9
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.serve.edges_routes:edge_list_payload; contract-sha256:4511e0f99fb978514262dfb0a066a95d770f01a1d8b73cb6785ed8511259fb6e
 ---

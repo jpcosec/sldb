@@ -6,10 +6,10 @@ qualname: _semantic_map
 kind: FunctionDef
 source_path: sldb/cli/parsers/stores.py
 source_span: '53:57'
-source_sha256: 405f406f98c9ce4e28b5fc4d8c70c1e88d7169e818b23166c20178d48aff32ec
-architecture_spec: Not declared.
+source_sha256: ac707a42af3615544622a305b306b403303bd27a5e35aa7400967ec463ba548c
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
-provenance: python-ast:python:sldb.cli.parsers.stores:_semantic_map; contract-sha256:979756c07ef2e8c076d62cedaf10138d8857a89b36db1997de32dd4ff1cd816e
+provenance: python-ast:python:sldb.cli.parsers.stores:_semantic_map; contract-sha256:d374f334e8be1b614e6d752c9d834050f82572870d52e1cabeb8d5007454cf42
 ---
 
 # _semantic_map

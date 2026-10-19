@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/edges/edges_holding.py
 source_span: '13:31'
 source_sha256: 54fb23c131c738eec0ea17fae99ff1f96da7ba21b2d3492c9b8539b380231d27
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.edges.edges_holding:edges_holding; contract-sha256:42bfa3c0eabdadf80b520b8181e6e1efd93e6766b64cc9e7e757fe60c1760bce
 ---

@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/edges/edge_serialization.py
 source_span: '11:12'
 source_sha256: 9acb39812c91ee3581a74410aa1279db02c8519b3879eb118cc441c291f66554
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.edges.edge_serialization:serialize_edge_records;
   contract-sha256:048853fdc2316266543fac61883dee63f6aff57bbd32eca4d76f938e4c43c72d

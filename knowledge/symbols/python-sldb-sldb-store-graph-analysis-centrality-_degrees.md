@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/graph/analysis/centrality.py
 source_span: 58:60
 source_sha256: 303755778339ea44056fb2a6e3a4ee72dc173ec4784c4af508830a532e06b531
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.graph.analysis.centrality:_degrees; contract-sha256:ea55589c7c3245d6381a96377dfe3283d8ff685ee5a77a86ee951975cbfb499a
 ---

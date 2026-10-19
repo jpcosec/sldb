@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/graph/edge_filter.py
 source_span: '20:24'
 source_sha256: 387f4ce300629c7a44a4b2969d0b7b4e113aad1eef4e6163e0eed801c9c05517
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.graph.edge_filter:edge_matches; contract-sha256:ba67ddebb200975abde96a2852bc254ec9753ea8f469ec2f54e78f0649464eef
 ---

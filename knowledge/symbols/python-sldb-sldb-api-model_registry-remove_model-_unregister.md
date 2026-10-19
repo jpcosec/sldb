@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/model_registry/remove_model.py
 source_span: '49:59'
 source_sha256: c74f8174a85521bc8296eee2045d247a2369edd3c5531240a6360569f2461436
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.model_registry.remove_model:_unregister; contract-sha256:56e253f5ff7a9518c78d951adeb20c1125663a94caf48c63d242d12318d63f81
 ---

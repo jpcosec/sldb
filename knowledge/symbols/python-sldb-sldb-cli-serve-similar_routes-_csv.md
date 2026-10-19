@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/serve/similar_routes.py
 source_span: '35:36'
 source_sha256: f8b16e4745358ba65be7fa12946659c0b1c122677a6f06b7e0b7bae601dc1572
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.serve.similar_routes:_csv; contract-sha256:b6605c674706fac6b074ccdcedbd5a3e6df794c2b1a75703692d2285b1ee7dcf
 ---

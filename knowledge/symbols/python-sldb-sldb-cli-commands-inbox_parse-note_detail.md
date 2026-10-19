@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/commands/inbox_parse.py
 source_span: '51:59'
 source_sha256: cc88a927658011cf903522d9814c3c79ccbadbd1d396a85c9a915469939061f3
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.commands.inbox_parse:note_detail; contract-sha256:3d64f474a80450a478b38a60eba6c7b0778913f8b4b39ea6069cb07a5cfa1341
 ---

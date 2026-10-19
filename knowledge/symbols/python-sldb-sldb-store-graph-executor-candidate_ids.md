@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/graph/executor.py
 source_span: '22:32'
 source_sha256: 062ae617ae1450b0d4b56da133447af27acd0749de8f47910611d66ac8283d3a
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.graph.executor:candidate_ids; contract-sha256:02bf6c0f291648dd6a89dba71f70bdcea00a267913e459100ffeb45580f47e36
 ---

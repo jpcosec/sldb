@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/model_drafts/backfill.py
 source_span: 104:106
 source_sha256: 2d50a8e235b6f4d23db522c72e334767e0ae992d11812096d7e27fd2dd325c65
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.model_drafts.backfill:missing_fields; contract-sha256:35b9bae476b75a723678b51282c92411608df647efdd05d9a6f9c8a9b3f3b2aa
 ---

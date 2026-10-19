@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/api/edges/edge_check_report.py
 source_span: '8:21'
 source_sha256: dead6ea5cf5bfa4c808025c52eeb739c9612ef7451fe860795b270339263ae35
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.edges.edge_check_report:EdgeCheckReport; contract-sha256:7cfeef7169320071c2c936b66e19db88db06427ce3baebd15b86b4fec34af680
 ---

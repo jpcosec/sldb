@@ -5,11 +5,11 @@ module: sldb.store.graph.ingest_sldb
 qualname: _sections_of
 kind: FunctionDef
 source_path: sldb/store/graph/ingest_sldb.py
-source_span: 83:84
-source_sha256: 5c290ba296f44a411efaec78bafb57fa3263b19a960ade02286bd4fde83cd10c
-architecture_spec: Not declared.
+source_span: 85:86
+source_sha256: 4080692b87c2b94b84489346f6df3451416221278668bbcb6cb068b24527847e
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
-provenance: python-ast:python:sldb.store.graph.ingest_sldb:_sections_of; contract-sha256:2031043e40c6cc3d7982e03ea3fbc4e12e8665f2014bda62bacdec861d818626
+provenance: python-ast:python:sldb.store.graph.ingest_sldb:_sections_of; contract-sha256:b240ab9e6be5bb9ff8203ce739e35db3ba0eb98b87552312d3150297e1cdbe7a
 ---
 
 # _sections_of

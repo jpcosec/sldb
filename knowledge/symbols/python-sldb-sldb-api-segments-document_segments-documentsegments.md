@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/api/segments/document_segments.py
 source_span: '12:22'
 source_sha256: 170263c036c707de8985930e206727bd0edce0578a14ee083ff316d6077c8778
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.segments.document_segments:DocumentSegments;
   contract-sha256:b349086a4b6dc9aa0d413508b7896ac0e4b93d8bbc5b3013bf37b1d018f08cbd

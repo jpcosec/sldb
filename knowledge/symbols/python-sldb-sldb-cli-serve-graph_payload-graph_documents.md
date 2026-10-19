@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/serve/graph_payload.py
 source_span: '20:31'
 source_sha256: 5b6ff19cdd49719215b9d0f0fe7a03a57c91680f246042ba74ad005a4c0f3cd7
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.serve.graph_payload:graph_documents; contract-sha256:46872e78b4fd7c2b56c76d624de2753607469682eb2dbefbe47a565a81a32dbf
 ---

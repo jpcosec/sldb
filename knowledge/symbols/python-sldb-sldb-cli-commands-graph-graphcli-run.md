@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/commands/graph.py
 source_span: '27:37'
 source_sha256: dddb55a4cbbfcc9a233b8f001dc6543adaf1124e9db2af752f39b5b33433ea3e
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.commands.graph:GraphCLI.run; contract-sha256:64b5b100d38393653b4c58903c6fac210eaaec7fddc2d966822d5ea424e84524
 ---

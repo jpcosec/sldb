@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/segments/extract_markdown_segments.py
 source_span: '45:56'
 source_sha256: e22d23b5bf5399393f23878e71b52f36ff4a90ef85b59c19b1fe536f9ce8be5d
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.segments.extract_markdown_segments:_reason;
   contract-sha256:2e641c9f73a9b2798d28fa1c87f9b1971db84a8fb603088b68e4991ab46cd7bf

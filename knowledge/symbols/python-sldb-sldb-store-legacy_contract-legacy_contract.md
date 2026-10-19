@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/legacy_contract.py
 source_span: '23:28'
 source_sha256: 49b6c0dfcc21322db943e6d7b7e0b4f0e20126b2083a191173a4dc336bef721d
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.legacy_contract:legacy_contract; contract-sha256:59145a8be7a0c6751fe9d8747d8b8a70cab18319ece62eb2d1567ba0ba2b34ed
 ---

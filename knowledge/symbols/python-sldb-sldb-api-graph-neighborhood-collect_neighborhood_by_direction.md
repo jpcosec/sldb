@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/graph/neighborhood.py
 source_span: '17:19'
 source_sha256: c28d4fac5413d55e23776891fef98e73e9402d1add0348f9d5c603e351d4d546
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.graph.neighborhood:collect_neighborhood_by_direction;
   contract-sha256:c2b42135bafcb61e9243fd2218db8c2e028b21d02280d629953c90027e65a2c4

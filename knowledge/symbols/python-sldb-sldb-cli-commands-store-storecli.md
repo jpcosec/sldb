@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/cli/commands/store.py
 source_span: '11:31'
 source_sha256: 48723d2db336f2f27e46b398f53cd4a544b8750da6fcff056f19330e2e3ca71e
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.commands.store:StoreCLI; contract-sha256:e008e3a3118fbb0d3330dabb92824a76e45faaca576473a533ffedc36c26b9bc
 ---

@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/derived_rebuild.py
 source_span: '13:24'
 source_sha256: 4892743c7d55e1fa24b816cfbc950ca001a66b4bedbdbae77f6a688e15393ba7
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.derived_rebuild:rebuild_derived_indexes;
   contract-sha256:b8dc17bb53ff872c10fa8ef680caabf08989ae2037d8eb96248118c6dd435c5a

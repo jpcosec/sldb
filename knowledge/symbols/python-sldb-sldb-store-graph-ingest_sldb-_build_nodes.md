@@ -5,11 +5,11 @@ module: sldb.store.graph.ingest_sldb
 qualname: _build_nodes
 kind: FunctionDef
 source_path: sldb/store/graph/ingest_sldb.py
-source_span: 69:76
-source_sha256: 5c290ba296f44a411efaec78bafb57fa3263b19a960ade02286bd4fde83cd10c
-architecture_spec: Not declared.
+source_span: 71:78
+source_sha256: 4080692b87c2b94b84489346f6df3451416221278668bbcb6cb068b24527847e
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
-provenance: python-ast:python:sldb.store.graph.ingest_sldb:_build_nodes; contract-sha256:e3a57325d76e263fbd743902ee495171dd0e93d27a688a5a6812fd4c0605dbbf
+provenance: python-ast:python:sldb.store.graph.ingest_sldb:_build_nodes; contract-sha256:816a8c0c6bb1267af4c2bfb2b8c11a6d3ddd2738076899c159be94a7d74cf42c
 ---
 
 # _build_nodes

@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/query_engine/semantic_utils.py
 source_span: '21:23'
 source_sha256: 4ad80c6c32c0718ef773607f8cbe6c5f96854ffe8004dc8bb8c5557271582761
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.query_engine.semantic_utils:_semantic_children;
   contract-sha256:780eb42cdd1572a30e740683398c6f28f412ac558b40de4bf9169ae71e660850

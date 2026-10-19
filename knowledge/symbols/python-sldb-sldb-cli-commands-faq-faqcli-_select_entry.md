@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/commands/faq.py
 source_span: 60:64
 source_sha256: c33c4165d8a3b76024f21fa0645ccbe93b192492172a913578eb9a521da46ff3
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.commands.faq:FAQCLI._select_entry; contract-sha256:045ba4d9c77f24ffce94149811d3e88dd3a4ffccc2f84ffd73985bd45967a1bb
 ---

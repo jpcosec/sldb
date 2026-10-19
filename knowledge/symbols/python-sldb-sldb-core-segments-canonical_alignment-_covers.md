@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/core/segments/canonical_alignment.py
 source_span: 52:64
 source_sha256: 63209856d57ebc37f565891e59046288cb7d72b59cb1688d6b47f1ec5e21941f
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.core.segments.canonical_alignment:_covers; contract-sha256:4ab47c8eecdee7ec7bacf09694783b6df00470a848da3eb9d9493e790bc5253d
 ---

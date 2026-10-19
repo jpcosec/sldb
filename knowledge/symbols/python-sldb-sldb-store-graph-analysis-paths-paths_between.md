@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/store/graph/analysis/paths.py
 source_span: '24:30'
 source_sha256: 7a7bda6a25c639e520767c07ad12c8bba467fb2b59c0708ac62dcbaddbda6fd0
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.graph.analysis.paths:paths_between; contract-sha256:477165e11dd8dc2e4e94682f1d2cecb7a16b8a7b5fda0489119cd57fce8923bd
 ---

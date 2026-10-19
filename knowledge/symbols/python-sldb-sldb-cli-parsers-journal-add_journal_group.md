@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/cli/parsers/journal.py
 source_span: '8:12'
 source_sha256: 71450e7620249443a1e06510f427c57798aa49e9a3e52905f6879e7abe44e4c9
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.cli.parsers.journal:add_journal_group; contract-sha256:a5472e495ed1f4fa234131538b558a133d76f27879b9cf3d8a63dd7541df3225
 ---

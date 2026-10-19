@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/core/handlers/list.py
 source_span: '34:36'
 source_sha256: 77cda4bb47a3c5828c66da0251cb75472cddf034a6c9cdf1f07c57f1b79b3787
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.core.handlers.list:ListNodeHandler._extract_text_from_item;
   contract-sha256:c52e302d91a72b5c2ddc9d86561e108e92cd034ff6b48f243c7046c7171ea47d

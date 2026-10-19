@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/graph/traverse.py
 source_span: '46:49'
 source_sha256: 6b7cc25ea0075260e80341c7fa94417aa45a1bf38d1df0eae119e50c73669ca6
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.graph.traverse:descendants; contract-sha256:4a18a13d0a3a8db3cc16ad0531f9822367b6ff38e5b6a1bbb05bd99ccccdb2fb
 ---

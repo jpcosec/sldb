@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/stores/scan_structural_noise.py
 source_span: '40:42'
 source_sha256: c74b37a6c0124e40b4033277d492ecf173b51e9a2d53f7927388c7b5fac2af42
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.stores.scan_structural_noise:_scan_one; contract-sha256:cd722d6a5662ef81c3425232af8a434f05e7a350bc84f3307d0f82291195ec84
 ---

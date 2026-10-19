@@ -7,7 +7,7 @@ kind: ClassDef
 source_path: sldb/store/journal/entry.py
 source_span: '11:42'
 source_sha256: 6fcdbfe9f29b85b8ed5cb73ca64845196a1f18246ab089b35331aa67b641d284
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.store.journal.entry:JournalEntry; contract-sha256:fc89176b91a3c37e065702b38cacf13a1b63685d7969adf80dbdfdac188d45c4
 ---

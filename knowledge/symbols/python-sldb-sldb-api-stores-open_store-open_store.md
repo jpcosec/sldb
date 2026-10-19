@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/stores/open_store.py
 source_span: '16:42'
 source_sha256: 647aef25b8551a07a8a535f52947c5a5cad564ef438f14942449a0d067bd5e63
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.stores.open_store:open_store; contract-sha256:b5326c6d4bd96fe502b02ecada6b64c3a649b76a25af1a3c75a775a9b9ae7d6c
 ---

@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/records/build_ir.py
 source_span: '17:24'
 source_sha256: 306cad37b37a2e5e70fb35e10ca0cdc825a3d23ccff3c6731796cfccfea1b629
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.records.build_ir:_create_doc_ir; contract-sha256:7dc57eead65c0789c83f58602dec9fbec8b45ee0ac3250fa45d0fd2c1dcc5fe8
 ---

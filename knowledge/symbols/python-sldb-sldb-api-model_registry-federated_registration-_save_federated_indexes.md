@@ -7,7 +7,7 @@ kind: FunctionDef
 source_path: sldb/api/model_registry/federated_registration.py
 source_span: '31:37'
 source_sha256: cb4870b6d4bfe1ec68122f61bc45b010bc99d9bfb249bc1d1e2e13184bbdbdfa
-architecture_spec: Not declared.
+architecture_spec: docs/architecture/spec2viz/python-ast.yml; sha256=cece0196cfdf01c39315c3221d5fbe10e2953377809b62cfa800c0463d2146fd
 tags: []
 provenance: python-ast:python:sldb.api.model_registry.federated_registration:_save_federated_indexes;
   contract-sha256:c2f4f3ac4759b287f7be9f7f91abe08a66754c8d074fb329870a2b5550e7bf03
