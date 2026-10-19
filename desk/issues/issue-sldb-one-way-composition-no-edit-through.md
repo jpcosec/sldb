@@ -6,7 +6,7 @@ tags:
 - topic:composition
 - topic:feature
 related_tasks:
-- desk/tasks/task-expand-sldb-composition-modes.md
+- docs/composition_modes.md
 ---
 
 # SLDB: composition is one-way — no edit-through, no composition by query
@@ -26,7 +26,7 @@ One-way composition is the documented contract and it does what it claims. What 
 
 ## Relationship to tracked tasks
 
-**This overlaps `task-expand-sldb-composition-modes` almost exactly.** That task's scope reads:
+**This overlaps `task-expand-sldb-composition-modes` (closed in 76546236; its design is in `docs/composition_modes.md`) almost exactly.** That task's scope read:
 
 > "Consider transclusion composition, summary composition, sectional composition, and query-driven semantic composition while preserving authored locality and readable textual outputs."
 
@@ -63,7 +63,7 @@ Two separable pieces, worth treating as separate slices:
 
 ## Task list
 
-- [ ] **First**: resolve whether `task-expand-sldb-composition-modes` at `completed` was design-only or mis-statused; this issue may be its execution half
+- [x] **First**: resolve whether `task-expand-sldb-composition-modes` at `completed` was design-only or mis-statused — it was a design task, closed in 76546236; this issue is its execution half
 - [ ] Split into two slices: edit-through, and query-defined membership
 - [ ] Specify the composed-address → source-field ownership map, including regions that cannot have one
 - [ ] Mark non-mappable composed regions read-only and error on writes to them
@@ -74,5 +74,5 @@ Two separable pieces, worth treating as separate slices:
 
 ## Pills
 
-- `desk/pills/pill-013-composition-task-execution-context.md` — execution context for composition work
-- `desk/pills/pill-011-addressability-task-execution-context.md` — edit-through is an addressability problem before it is a write problem
+- `docs/composition_modes.md` — the composition design (pill-013, its execution context, was retired on 2026-10-18)
+- `docs/addressability_model.md` — edit-through is an addressability problem before it is a write problem

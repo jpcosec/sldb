@@ -7,7 +7,7 @@ tags:
 - topic:performance
 - topic:feature
 related_tasks:
-- desk/tasks/task-correct-ast-ownership-and-section-contracts.md
+- desk/issues/issue-sldb-stable-section-ids.md
 related_issues:
 - desk/issues/issue-sldb-stable-section-ids.md
 ---
@@ -26,12 +26,11 @@ The cache is correct — it never serves stale sections. It is simply coarser th
 
 ## Relationship to tracked work
 
-Gated by `issue-sldb-stable-section-ids`, which is itself the stated blocker on `task-correct-ast-ownership-and-section-contracts` (status `open`). The chain is:
+Gated by `issue-sldb-stable-section-ids`, which owns the stable-addressing gap since `task-correct-ast-ownership-and-section-contracts` closed on 2026-10-18. The chain is:
 
 ```
-task-correct-ast-ownership-and-section-contracts (open)
-  └─ blocked on: stable section ids
-       └─ gates: per-section hashes (this issue)
+issue-sldb-stable-section-ids (open)
+  └─ gates: per-section hashes (this issue)
 ```
 
 That task's validation list already includes "Assert the same section schema before and after index rebuild" — adding a per-section hash changes that schema, so this cannot land without it.
@@ -61,7 +60,7 @@ That task's validation list already includes "Assert the same section schema bef
 ## Task list
 
 - [ ] **Blocked**: sequence after `issue-sldb-stable-section-ids`; per-section hashes need stable identity to be useful
-- [ ] Confirm the schema change is compatible with `task-correct-ast-ownership-and-section-contracts` rebuild-parity check
+- [ ] Confirm the schema change keeps the rebuild-parity check green (`tests/store/test_section_rebuild.py`)
 - [ ] Measure what a per-section hash actually saves (embedding and edge work, not parsing)
 - [ ] Add a per-section content hash to the sections shard
 - [ ] Refine the reuse condition in `section_doc_contribution.py` to per-section granularity
@@ -72,5 +71,5 @@ That task's validation list already includes "Assert the same section schema bef
 
 ## Pills
 
-- `desk/pills/pill-005-store-health-is-sldb-owned.md` — the hash model and rebuild cost are SLDB's own
-- `desk/pills/pill-011-addressability-task-execution-context.md` — section identity gates this work
+- `desk/contexts/pill-store-health-is-owned-by-sldb.md` — the hash model and rebuild cost are SLDB's own
+- `docs/addressability_model.md` — section identity gates this work (pill-011 was retired on 2026-10-18)

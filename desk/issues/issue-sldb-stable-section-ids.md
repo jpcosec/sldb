@@ -7,8 +7,7 @@ tags:
 - topic:sections
 - topic:feature
 related_tasks:
-- desk/tasks/task-correct-ast-ownership-and-section-contracts.md
-- desk/tasks/task-define-sldb-addressability-model.md
+- docs/addressability_model.md
 ---
 
 # SLDB: sections have no stable id, so moving one changes its address
@@ -28,15 +27,9 @@ Slug addressing works as designed and is documented. What is missing is an ident
 
 ## Relationship to tracked tasks
 
-This gap is **already named as the reason a task stays open**. `task-correct-ast-ownership-and-section-contracts` (status `open`) ends with:
+This issue is the sole owner of the gap. `task-correct-ast-ownership-and-section-contracts` named it as the reason it stayed open; that task closed on 2026-10-18 (its ownership, span and rebuild-parity checks are in `tests/test_field_ownership.py` and `tests/store/test_section_rebuild.py`) and handed stable addressing to this issue. `docs/addressability_model.md` already states the contract side: "Section paths break when a heading changes. Treat them as navigational, not as long-lived links."
 
-> "Stable addressing for repeated sibling headings remains a design gap; keep this task open until it is decided and the delivery audit is complete."
-
-So this is not new work — it is the explicit blocker on an open task. `docs/addressability_model.md` already states the contract side: "Section paths break when a heading changes. Treat them as navigational, not as long-lived links."
-
-Decide before starting: fold this into that task, or make the task depend on this issue. Do not run them as parallel efforts.
-
-`task-define-sldb-addressability-model` (`current_node: completed`) produced the model that documents the limit; it is the contract this change would amend.
+`task-define-sldb-addressability-model` (closed in 181c175f) produced that model; it is the contract this change would amend.
 
 ## What's needed
 
@@ -61,7 +54,7 @@ Decide before starting: fold this into that task, or make the task depend on thi
 
 ## Task list
 
-- [ ] **First**: reconcile with `task-correct-ast-ownership-and-section-contracts` — fold in, or declare a dependency
+- [x] **First**: reconcile with `task-correct-ast-ownership-and-section-contracts` — it closed on 2026-10-18 and handed this gap to this issue
 - [ ] Write down the identity contract: what a section id promises across edit, move, retitle, delete
 - [ ] Decide `core/` vs `runtime/` persistence and record the reasoning
 - [ ] Decide rename-detection policy (attempt matching, or treat as delete+create)
@@ -72,5 +65,5 @@ Decide before starting: fold this into that task, or make the task depend on thi
 
 ## Pills
 
-- `desk/pills/pill-011-addressability-task-execution-context.md` — execution context for addressability work
-- `desk/pills/pill-005-store-health-is-sldb-owned.md` — the `core/` vs `runtime/` placement decision is a store-health question
+- `docs/addressability_model.md` — the addressability contract (pill-011, its execution context, was retired on 2026-10-18)
+- `desk/contexts/pill-store-health-is-owned-by-sldb.md` — the `core/` vs `runtime/` placement decision is a store-health question
