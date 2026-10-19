@@ -40,7 +40,7 @@ sldb fields show docs/cmd-sldb-selfdoc-sync/arguments
 
 `scan` emits a JSON inventory without running command handlers. `sync` updates generated fields, registers missing models/documents, and updates tracking hashes and section indexes. `check` compares expected fields, files, and document tracking without writing them. A repeated sync of current inputs does not rewrite the documents.
 
-The repository CI checks the generated reference on Python 3.13, the runtime used to materialize it. The normal test matrix continues covering Python 3.10–3.13; parser presentation can differ between Python versions.
+The repository CI checks the generated reference on Python 3.13, the runtime used to materialize it. The normal test matrix covers Python 3.12 and 3.13, the supported versions (`requires-python >=3.12`); parser presentation can differ between Python versions.
 
 `sync` and `check` resolve the nearest ancestor store or accept `--store PATH/ALIAS`. `--output knowledge` is relative to the selected store's project root, not the current subdirectory; destinations outside that project are rejected. The global registry is not modified by this workflow.
 

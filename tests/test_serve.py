@@ -400,10 +400,10 @@ def _build_graphdoc_store(tmp_path: Path) -> tuple[Path, str]:
 
     module = tmp_path / "kb_graphdoc.py"
     module.write_text(
-        "from enum import Enum\n"
+        "from enum import StrEnum\n"
         "from pydantic import Field\n"
         "from sldb import StructuredNLDoc\n\n"
-        "class Level(str, Enum):  # StrEnum is 3.11+\n"
+        "class Level(StrEnum):\n"
         '    LOW = "low"\n'
         '    HIGH = "high"\n\n'
         "class RichBook(StructuredNLDoc):\n"

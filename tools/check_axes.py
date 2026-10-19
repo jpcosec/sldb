@@ -26,10 +26,7 @@ from __future__ import annotations
 import argparse
 import re
 import sys
-try:
-    import tomllib
-except ModuleNotFoundError:  # Python 3.10: tomllib is 3.11+; tomli is the same parser
-    import tomli as tomllib
+import tomllib
 from collections import defaultdict
 from pathlib import Path
 

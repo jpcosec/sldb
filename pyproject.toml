@@ -3,7 +3,7 @@ name = "structuredLanguageDB"
 version = "0.1.13"
 description = "Structured Language Database - structured Markdown to Pydantic and back"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 license = "MIT"
 license-files = ["LICENSE"]
 keywords = ["markdown", "pydantic", "structured-data", "templating", "cli"]
@@ -11,8 +11,6 @@ classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Topic :: Software Development :: Libraries",
@@ -47,7 +45,6 @@ dev = [
     "build>=1.2",
     "pytest>=8.0",
     "pytest-cov>=5.0",
-    "tomli>=2.0; python_version < '3.11'",
 ]
 
 [tool.setuptools.packages.find]

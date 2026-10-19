@@ -4,6 +4,11 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
 
 ## 0.1.13 — not released yet (no tag, not on PyPI)
 
+- **Python 3.12 or newer is required** (`requires-python >=3.12`; it was `>=3.10`). Python
+  3.10 reaches end of life this month, and the whole suite (sldb, deskops, spec2viz, graph_ui)
+  moves to the same floor. CI tests 3.12 and 3.13. The compatibility code for 3.10 is gone:
+  the `tomllib`/`tomli` fallback in the `tools/check_*.py` gates and the conditional `tomli`
+  dev dependency. `uv.lock` is regenerated for the new floor.
 - The pre-redesign singular groups `sldb store`, `sldb model` and `sldb doc` run again: they
   were parsed (and listed by `sldb doc --help`) but had no handler, so `sldb doc untrack`
   answered `Unknown command: doc`. The plural groups (`stores`, `models`, `docs`) remain the

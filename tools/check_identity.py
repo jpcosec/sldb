@@ -28,10 +28,7 @@ import argparse
 import re
 import subprocess
 import sys
-try:
-    import tomllib
-except ModuleNotFoundError:  # Python 3.10: tomllib is 3.11+; tomli is the same parser
-    import tomli as tomllib
+import tomllib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
