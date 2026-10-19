@@ -49,7 +49,7 @@ construirlo.
 
 ## 3. Reconstrucción
 
-`sldb stores build` lee `.sldb/store.yaml`, registra los modelos y los links, corre
+Un comando nuevo, `sldb stores build` <!-- gone --> (todavía no existe), lee `.sldb/store.yaml`, registra los modelos y los links, corre
 `selfdoc python-sync` para lo generado, trackea cada `include` y reconstruye los índices.
 Es idempotente. En un clon limpio, `stores build` seguido de `stores check` tiene que dar
 PASS. `stores build --check` construye en un directorio aparte y compara sin escribir.
