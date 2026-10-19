@@ -14,4 +14,4 @@ provenance: src/sldb/runtime/validation.py
 
 ## Answer
 
-Las recetas de extracción de sldb dependen solo del string __template__ del modelo, no del documento: se memoizan por template (runtime/validation.py:_recipes, lru_cache). Rehacerlas en cada extract y validate era el mayor costo evitable del pipeline (~35% de la extracción en el store de sldb). Lo mismo vale para el parser markdown-it: uno por proceso, no uno por documento. Lo que sí depende del documento (su AST) se parsea una vez por texto.
+Las recetas de extracción de sldb dependen solo del string __template__ del modelo, no del documento: se memoizan por template (runtime/validation.py:_recipes, lru_cache). Rehacerlas en cada extract y validate era el mayor costo evitable del pipeline (~35% de la extracción en el store de sldb). Lo mismo vale para el parser markdown-it de las secciones (store/section_rebuild.py, uno por proceso); AST_Handler todavía crea un MarkdownIt por instancia. Lo que sí depende del documento (su AST) se parsea una vez por texto.

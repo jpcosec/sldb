@@ -1,12 +1,12 @@
 name: atom-el-template-de-un-modelo-es-estable-sus-recetas-se-calculan-una-vez-no-en-cada-extract
 path: desk/atoms/atom-el-template-de-un-modelo-es-estable-sus-recetas-se-calculan-una-vez-no-en-cada-extract.md
-source_hash: 281a57c74976b34c3dd7a81c38320b0c1edfeab070992aa8214519ed67d3583c
-content_hash: a7411a19e1d09a6871a3a8261b9ef42fe22a4df3eb97076656f84499aa17d76f
+source_hash: c2d6a205d758f70cf6c9f02c3a5d0c277404cff2e5811a6a3f7c8be4b03676a2
+content_hash: 6d184d3374dbafbad27ce4ce099900ad43133e112cbf40e93cbdefea17572e70
 field_hashes:
   id: cdf001457f96576bed01d9cc66d26c98f421b143da53b34627be796022e74aeb
   title: 06175681cd19d576fbd0b13f62419e53f18eced36442ae3da8c9fb9d018e754a
   five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
-  answer: 4895164dc837f681e1e7d36ba440f93228b1f9c22736724c59e85a319dd3ab88
+  answer: 37aca8c99d7fc6b8f30a0dc6aba00d03169e8623b35b842d65099f3f5d44b1ab
   tags: 7d9bf9f8ec5640805435bedbb4baebf3daf1efc079d0e0ff3dc401fec87134ef
   provenance: 6287fab835e2e54a6f1663dc2501bef0876f9216765dfd59cd6f7c5119adafcf
 semantic_tags:
