@@ -9,7 +9,6 @@ tasks:
 - desk/tasks/task-correct-ast-ownership-and-section-contracts.md
 # List of pill-xxx paths
 pills:
-- desk/pills/pill-015-self-documentation-boundaries.md
 - desk/pills/pill-001-sldb-vs-deskops-boundary.md
 - desk/pills/pill-002-onboarding-surface-before-depth.md
 - desk/pills/pill-003-template-marker-roundtrip-contract.md
@@ -19,11 +18,7 @@ pills:
 - desk/pills/pill-007-sldb-text-layer-vs-kgdb-graph-layer.md
 - desk/pills/pill-008-sldb-cli-document-contract.md
 - desk/pills/pill-009-cli-error-and-serialization-failure-mode.md
-- desk/pills/pill-010-active-board-slice-execution-map.md
-- desk/pills/pill-011-addressability-task-execution-context.md
-- desk/pills/pill-012-query-task-execution-context.md
-- desk/pills/pill-013-composition-task-execution-context.md
-- desk/pills/pill-014-semantic-export-task-execution-context.md
+- desk/pills/pill-015-self-documentation-boundaries.md
 # List of ritual-xxx paths
 rituals:
 - desk/rituals/execution.md
