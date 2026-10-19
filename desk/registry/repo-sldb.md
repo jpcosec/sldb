@@ -15,4 +15,4 @@ tags: []
 
 _Describe the repository purpose, scope, and role in the ecosystem._
 
-Repository for sldb.
+Motor de documentos Markdown estructurados (paquete sldb, PyPI structuredLanguageDB): store Merkle con índices de aristas, secciones y semántica, capa de grafo, CLI, API, federación de stores y autodocumentación de código.

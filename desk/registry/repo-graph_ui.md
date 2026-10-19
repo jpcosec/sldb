@@ -15,4 +15,4 @@ tags: []
 
 _Describe the repository purpose, scope, and role in the ecosystem._
 
-Repository for graph_ui.
+Editor visual de un store pron/sldb (frontends/mindmap/): apunta al store que se elija con SLDB_STORE y edita sus documentos y sus clases por la API de sldb. Su CI instala sldb desde main en cada push.
