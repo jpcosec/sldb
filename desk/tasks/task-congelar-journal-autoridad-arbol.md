@@ -1,6 +1,6 @@
 ---
 id: task-congelar-journal-autoridad-arbol
-status: draft
+status: blocked
 summary: Congelar el journal; el arbol es la autoridad y el journal una vista derivada
   sobre el.
 tags:
@@ -10,7 +10,10 @@ tags:
 - topic:governance
 current_node: ''
 history: []
-references: []
+references:
+- docs/architecture/journal-authority.md
+- desk/inbox/20261019-011009-unclear-decisi-n-del-due-o-qu-mecanismo-guarda-el-pasado-del-rbol-del-store-journal.md
+- docs/versionado-y-colaboracion.md
 depends_on: []
 pills: []
 files:
@@ -26,13 +29,19 @@ atoms: []
 
 ## Rationale
 
+_Explain why this task exists or the business driver behind it._
+
 El journal hoy es un log de escrituras paralelo al árbol Merkle: guarda `previous_value`/`new_value` (los valores) Y los mismos `hash_c/hash_d/hash_a` que el árbol ya computa. Es una segunda fuente de verdad que duplica la primera, y su dueño no la conoce a fondo. Decisión tomada: **congelarlo** y rediseñar la relación.
 
 ## Goal
 
+_Describe the concrete result this task must produce._
+
 Dejar por escrito la dirección de diseño para cuando se retome: el **árbol es la autoridad**; el **journal es una interfaz de lectura** sobre él (como `git log`/`git diff` sobre el object database), no un segundo almacén.
 
 ## Scope
+
+_State what is in scope and what is out of scope._
 
 **En scope:**
 
@@ -48,10 +57,12 @@ Dejar por escrito la dirección de diseño para cuando se retome: el **árbol es
 
 ## Implementation Path
 
+_Outline the expected implementation route or affected surface._
+
 **Estado actual del journal (medido):**
 
 - `JournalEntry` ya tiene `actor` y `timestamp` (el "quién" y "cuándo" ya existen), `previous_value`/`new_value` (el diff), y `previous_hash`/`entry_hash` (cadena).
-- 24 sitios de escritura lo alimentan (`save_document_payload`, `edit_model_template`, `promote_model_draft`, `add_model`, `untrack_document`, `dag_writes`, etc.).
+- Lo alimenta `sldb.api.journal.record`, con 14 llamadas en 15 módulos de `sldb.api` (medido el 2026-10-19; el texto original decía 24 sitios).
 - Es opcional: `SLDB_JOURNAL_OFF=1` lo apaga.
 
 **La dirección:**
@@ -64,8 +75,12 @@ Dejar por escrito la dirección de diseño para cuando se retome: el **árbol es
 
 ## Validation
 
-- _Congelado: no se espera validación mientras la task esté en draft/archived._
+_List the checks required before this task can close._
+
+- Bloqueada por decisión del dueño (nota del inbox 20261019-011009): qué mecanismo guarda el pasado del árbol del store, (a) snapshots propios, (b) historia de git de los shards o (c) descartar el journal. La propuesta está en docs/architecture/journal-authority.md y no se implementa hasta esa decisión.
 
 ## Done When
+
+_Name the observable condition that makes the task complete._
 
 Se retoma la task, se decide el mecanismo de snapshot del árbol, y el journal se reduce a una vista derivada (o se archiva la decisión y se descarta el journal).

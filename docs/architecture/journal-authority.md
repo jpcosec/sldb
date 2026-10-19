@@ -1,8 +1,9 @@
 # El árbol guarda, el journal es una vista
 
-Estado (2026-10-19): diseño entregado, sin implementar. El journal queda **congelado**: no
-se le agregan campos ni escritores nuevos. La implementación espera una decisión del dueño
-(sección 4). Entregable de `task-congelar-journal-autoridad-arbol`.
+Estado (2026-10-19): **propuesta pendiente del dueño, sin implementar.** Nada de este
+documento se ejecuta hasta que el dueño elija una opción de la sección 4. Mientras tanto el
+journal queda **congelado**: no se le agregan campos ni escritores nuevos. Escrito para
+`task-congelar-journal-autoridad-arbol`.
 
 ## 1. Decisión tomada
 

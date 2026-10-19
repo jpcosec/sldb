@@ -1,0 +1,19 @@
+name: atom-un-log-no-puede-reducirse-a-una-vista-si-el-árbol-que-mira-no-guarda-el-pasado
+path: desk/atoms/atom-un-log-no-puede-reducirse-a-una-vista-si-el-árbol-que-mira-no-guarda-el-pasado.md
+source_hash: 1e0745c52e11ac0aa75dfd7f7a9bca98a3d02ba766318c7dff550dc5a470cb1a
+content_hash: fe28ef861cf322f3fa262063d7ec866202d9ffb9f913e052ca9a823d4651001f
+field_hashes:
+  id: 9e130312bc4c5d6069ea334f0ca4d8b676fe1ab67f5bbbdc004948ece3f38ad4
+  title: 44d777400525d187da1fac9059ef099594e8ccfaede9206070fbe7cc90bd12f3
+  five_wh_one_plus: 1566d618b9ad05f5d6636ef68875b058a3311f288ab671709bb72d36b5dd1a5c
+  answer: b3bb2ea048710d2dc4e30ae04d0e14a5ac34dfb11adc3a3c69d13ae2f7689610
+  tags: 1d1ed0142bc62edcd8361e9826554fcc720a3a3065d966d8edcec4687c10384d
+  provenance: 7dbeedb4ade261a39c8fc4d6be741f8df4906e60e709d1069715e46daa1f53f1
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:hashing
+- topic:merkle-tree
+- type.knowledge.atom
+- workspace.desk.atoms
