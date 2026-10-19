@@ -28,8 +28,11 @@ en dos direcciones distintas.
   el modo por documento funciona y las refs se resuelven contra la raiz del
   proyecto (commit 8264b8a), no contra el CWD.
 - `__compositions__` declara `source_field`, `model`, `template`, `separator`.
-- `Procedencia de composicion (Parte C) existe en feat/document-segments:
-  cada pieza sabe de que documento salio (`api/segments/composition_piece.py`).
+- La procedencia de composicion (Parte C) existe en main: cada pieza sabe de
+  que documento salio (`src/sldb/api/segments/composition_piece.py`).
+- `CompositionSpec.ref: Literal["document", "field"]` ya esta declarado, con
+  `"document"` por default (`src/sldb/api/segments/composition_spec.py`), pero
+  nada lo resuelve todavia: no hay resolver ni rama `ref == "field"`.
 - La direccion de un field es `docs/<Modelo>/<doc>/<campo>` (`field_id`,
   commit d8bbcfc), la misma que acepta `sldb fields`.
 
@@ -38,7 +41,7 @@ en dos direcciones distintas.
 1. Definir el resolver y su inyeccion explicita: el render recibe un
    `FieldRefResolver` (o equivalente), no lo importa ni lo busca por un global.
    Sin resolver, el field se rinde vacio, igual que hoy con una ruta inexistente.
-2. Extender `CompositionSpec` con `ref: "document" | "field"`; `"document"` es el
+2. Usar el `ref` ya declarado en `CompositionSpec`; `"document"` es el
    comportamiento actual y debe seguir siendo el default.
 3. Resolver `source_field` cuando `ref == "field"`: el valor es un field de otro
    documento, no una ruta de archivo. Requiere contexto de store, que es
