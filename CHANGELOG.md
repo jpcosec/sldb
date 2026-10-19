@@ -4,6 +4,11 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
 
 ## 0.1.13 — not released yet (no tag, not on PyPI)
 
+- `sldb --envelope <command> ...` prints one JSON value per run, `{ok, command, store,
+  revision, data, warnings}` or `{ok: false, error: {type: "ns/name", message}, exit}`, and
+  exits with a typed code: 0 ok, 1 missing, 2 ambiguous, 3 rejected input, 4 busy, 5 store or
+  runtime failure, 6 usage, 70 unexpected (`docs/cli-envelope.md`). Opt-in: without the flag
+  the CLI prints and exits as before, because callers parse that output today.
 - `sldb stores declare` and `sldb stores build`. A store's source is `.sldb/store.yaml`: the
   models it registers (local, or inherited from a linked store), its links, its predicates,
   the generators that write derived documents (such as `selfdoc python-sync`), the paths
