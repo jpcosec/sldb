@@ -5,7 +5,7 @@ from __future__ import annotations
 import os
 from typing import Any
 
-from sldb.selfdoc.treesitter.readers import field_text, text
+from sldb.code.readers import field_text, text
 
 
 def py_module_name(rel: str) -> str:

@@ -45,7 +45,7 @@ verificada.
 # ---------------------------------------------------------------------------
 
 [product]
-packages = ["core", "runtime", "store", "api", "selfdoc", "models", "cli"]
+packages = ["core", "runtime", "store", "api", "selfdoc", "models", "cli", "code"]
 rule = """
 Ningún paquete de acá puede nombrar nada específico de este repositorio: ni un
 modelo de autoaplicación, ni una ruta del árbol, ni un documento del almacén
@@ -71,7 +71,7 @@ describir su propia casa.
 base = ["structured_doc", "provenance", "provenance_block"]
 relations = ["relation_doc", "relation_type_doc", "builtin_relation_types"]
 derived_surfaces = ["python_symbol_doc", "cli_command_doc", "surface_doc"]
-vocabulary = ["knowledge_tag", "anchor_doc", "knowledge_surface"]
+vocabulary = ["knowledge_tag", "anchor_doc", "knowledge_surface", "code_anchor_doc", "code_ref", "anchor_state"]
 
 # ---------------------------------------------------------------------------
 # Grupo 2 · la autoaplicación

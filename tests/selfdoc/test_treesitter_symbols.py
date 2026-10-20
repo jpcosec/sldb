@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from sldb.selfdoc.treesitter.runtime import available
+from sldb.code.runtime import available
 
 pytestmark = pytest.mark.skipif(not available(), reason="tree-sitter runtime not installed (extra [code])")
 
@@ -44,7 +44,7 @@ if True:
 
 @pytest.fixture
 def facts(tmp_path):
-    from sldb.selfdoc.treesitter.scan import scan_tree
+    from sldb.code.scan import scan_tree
 
     (tmp_path / "pkg").mkdir()
     (tmp_path / "pkg" / "__init__.py").write_text("", encoding="utf-8")
@@ -71,7 +71,7 @@ def test_docstrings_signatures_and_relations(facts):
 
 
 def test_docstring_forms_and_duplicate_ids(tmp_path):
-    from sldb.selfdoc.treesitter.scan import scan_tree
+    from sldb.code.scan import scan_tree
 
     (tmp_path / "docs.py").write_text('def a():\n    r"""raw \\d"""\ndef b():\n    "x\\ty" \'z\'\ndef c():\n    f"{1}"\ndef d():\n    b"bytes"\ndef e():\n    pass\n    "late"\n', encoding="utf-8")
     (tmp_path / "dup.py").write_text("def f(): pass\ndef f(): pass\n", encoding="utf-8")
@@ -81,7 +81,7 @@ def test_docstring_forms_and_duplicate_ids(tmp_path):
 
 
 def test_without_the_runtime_the_error_names_the_extra(monkeypatch):
-    import sldb.selfdoc.treesitter.runtime as rt
+    import sldb.code.runtime as rt
 
     monkeypatch.setattr(rt, "_RUNTIME", [])
     monkeypatch.setattr(rt.importlib, "import_module", lambda name: (_ for _ in ()).throw(ImportError(name, name=name)))

@@ -7,14 +7,14 @@ from pathlib import Path
 import pytest
 
 from sldb.selfdoc.python_scanner import PythonScanner
-from sldb.selfdoc.treesitter.runtime import available
+from sldb.code.runtime import available
 
 pytestmark = pytest.mark.skipif(not available(), reason="tree-sitter runtime not installed (extra [code])")
 FIXTURES = Path(__file__).resolve().parents[1] / "fixtures" / "treesitter"
 
 
 def _ts(root: Path) -> dict[str, dict]:
-    from sldb.selfdoc.treesitter.scan import scan_tree
+    from sldb.code.scan import scan_tree
 
     return {f["id"].split("~")[0]: f for f in scan_tree(root) if f["kind"] != "module" and "~" not in f["id"]}
 

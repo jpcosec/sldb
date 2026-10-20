@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from sldb.selfdoc.treesitter.runtime import available
+from sldb.code.runtime import available
 
 pytestmark = pytest.mark.skipif(not available(), reason="tree-sitter runtime not installed (extra [code])")
 
@@ -12,8 +12,8 @@ BASE = 'class K:\n    """K doc."""\n\n    def m(self, x: int = 1) -> int:\n     
 
 
 def _fp(source: str, name: str) -> dict:
-    from sldb.selfdoc.treesitter.fingerprints import fingerprints
-    from sldb.selfdoc.treesitter.runtime import parse
+    from sldb.code.fingerprints import fingerprints
+    from sldb.code.runtime import parse
 
     src = source.encode("utf-8")
     root = parse(src).root_node

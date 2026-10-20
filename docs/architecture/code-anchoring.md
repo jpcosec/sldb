@@ -1,6 +1,7 @@
 # Anclaje a código
 
-Estado (2026-10-20): diseño aprobado; se implementa por etapas. La definición, las vías y
+Estado (2026-10-20): implementado (etapas b, c y d: escáner, modelo `CodeAnchorDoc`, `anchors
+record` y `anchors check [--record]`); queda la etapa e, el aviso a deskops. La definición, las vías y
 las reglas del dueño están en el documento de autoridad, [anchoring.md](anchoring.md); este
 documento las implementa y no las rediscute.
 
@@ -32,6 +33,7 @@ code:
   kind: function            # module | class | function | method
   seen:                     # un fingerprint por nodo, no el hash del archivo
     signature: sha256:…     # decoradores + firma normalizada
+    shape: sha256:…         # la firma sin el nombre: lo que un renombre conserva
     docstring: sha256:… | null   # null: no tenía docstring
     body: sha256:…          # el cuerpo sin la docstring
   normalization: 1          # versión de las reglas de la sección 3
@@ -92,11 +94,12 @@ fingerprints por nodo:
 dueño 3): registra la reconexión en el anclaje, con la nueva `ref` y una entrada en
 `history`. Así queda registrada sin que una lectura escriba.
 
-## 6. Comandos (propuestos; todavía no existen)
+## 6. Comandos
 
-- `sldb anchors record <ref>` <!-- gone -->: resuelve la referencia y devuelve el bloque `code` de la
-  sección 2, para guardarlo en un anclaje.
-- `sldb anchors check [--store S] [--format text|json] [--record]` <!-- gone -->: verifica cada anclaje a
+- `sldb anchors record <ref> [--write <ruta> --claim "..."]`: resuelve la referencia y devuelve
+  el bloque de la sección 2; con `--write` crea (o regraba, conservando `claim` e `history`)
+  un `CodeAnchorDoc` trackeado en el store.
+- `sldb anchors check [--store S] [--format text|json] [--record]`: verifica cada anclaje a
   código del store. Exit 0 con solo alertas; distinto de 0 solo con errores (`anchors/invalid`
   3, `anchors/unparseable` 3, `anchors/unavailable` 5 con `--envelope`).
 - No hay `anchors update` (decisión del dueño 3). Aceptar un `changed` es reanclar: el autor
@@ -117,7 +120,7 @@ alias resuelve, y lo que quiera verificar remite al modelo de anclaje de sldb.
 
 ## 8. Origen del código
 
-Hecho (2026-10-20): el adaptador vive en `src/sldb/selfdoc/treesitter/` (solo Python,
+Hecho (2026-10-20): el adaptador vive en `src/sldb/code/` (solo Python,
 partido a las reglas de tamaño de sldb), con `fingerprints.py` para los nodos de la sección 3
 más `shape` (la firma sin el nombre, para reconectar un renombre); el extra es `[code]`
 (`tree-sitter>=0.25`, `tree-sitter-python`), y los tests y fixtures están en

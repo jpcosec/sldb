@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-10-20T17:12:38Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-stores-check
 system: sldb
 command_path: stores check
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#stores check; contract-sha256:4b7b0dfbbfcc5baf149e9f8a167dabe8d5abc97ba00421a2e34b5220d1fe72b6
+provenance: parser:sldb.cli.parser:build_parser#stores check; contract-sha256:425d7a107e2d19a4fbc62a33367ad90c94818f0dab5cfd731ddfa55a7efadb9a
 ---
 
 # stores check
@@ -73,6 +78,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'check'. It p
       "action": "argparse._StoreTrueAction",
       "const": "true",
       "help": "Only the PASS/FAIL line, without per-document findings"
+    },
+    {
+      "names": [
+        "--apply"
+      ],
+      "required": false,
+      "default": "false",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "argparse._StoreTrueAction",
+      "const": "true",
+      "help": "Run what the store's policy answers to each finding: `reindex` and `hook: <command>`"
     },
     {
       "names": [

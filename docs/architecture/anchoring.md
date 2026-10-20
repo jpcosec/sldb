@@ -24,8 +24,9 @@ fundamenta ni guarda lo que vio.
    documento, una relación; sldb lo resuelve en `src/sldb/store/edge_index/anchor_targets.py`).
    Hoy resuelve, pero no verifica: no guarda lo que vio.
 2. **Código, con tree-sitter**: un anclaje a un símbolo de código, `code:<ruta>::<qualified_name>`,
-   resuelto por nombre y no por línea, que guarda un fingerprint de cada nodo que vio. Todavía
-   no existe; su diseño está en [code-anchoring.md](code-anchoring.md).
+   resuelto por nombre y no por línea, que guarda un fingerprint de cada nodo que vio
+   (`CodeAnchorDoc`, `sldb anchors record|check`); su diseño está en
+   [code-anchoring.md](code-anchoring.md).
 
 ## 3. Reglas del anclaje (decisión del dueño, 2026-10-19)
 

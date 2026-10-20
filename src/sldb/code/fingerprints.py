@@ -13,7 +13,7 @@ from __future__ import annotations
 import hashlib
 from typing import Any
 
-from sldb.selfdoc.treesitter.readers import docstring_node, field_text, py_doc, py_norm, text
+from sldb.code.readers import docstring_node, field_text, py_doc, py_norm, text
 
 NORMALIZATION = 1
 _DEFINITIONS = ("function_definition", "class_definition", "decorated_definition")

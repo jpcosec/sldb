@@ -13,7 +13,7 @@
 [[layers]]
 level = 0
 name = "núcleo"
-packages = ["core", "models", "runtime"]
+packages = ["core", "models", "runtime", "code"]
 rationale = """
 Convierte texto en estructura y estructura en texto, junto con los tipos de
 documento y la configuración que decide qué se permite al renderizar.
@@ -307,7 +307,7 @@ identity = false
 [[axis]]
 id = "adaptadores"
 paths = ["selfdoc"]
-external = ["ast", "argparse", "click", "tree-sitter", "tree-sitter-python"]
+external = ["ast", "argparse", "click"]
 does = "derivar documentos de código y de interfaces"
 identity = false
 note = "tres adaptadores derivados frente a una sola superficie autorada"
@@ -380,6 +380,21 @@ id = "op_aristas"
 paths = ["api/edges", "api/graph", "store/edge_sync.py", "store/edge_rebuild.py", "store/edge_doc_contribution.py", "store/model_node.py"]
 external = []
 does = "leer, reconstruir y verificar el índice de aristas; ejecutar consultas de grafo"
+identity = false
+
+[[axis]]
+id = "codigo"
+paths = ["code"]
+external = ["ast", "tree-sitter", "tree-sitter-python"]
+does = "leer código Python como símbolos con tree-sitter, y un fingerprint por nodo de cada definición (portado de kimun)"
+identity = false
+note = "no importa nada de sldb: es la superficie de entrada del código, como `core/ast` lo es del Markdown"
+
+[[axis]]
+id = "anclaje"
+paths = ["api/anchors"]
+external = []
+does = "anclar una afirmación a un símbolo de código: grabar lo visto, comprobarlo, reconectar lo que se movió"
 identity = false
 
 [[axis]]
@@ -499,9 +514,9 @@ superficies derivadas y Markdown es la única autorada por diseño.
 
 [[unit]]
 id = "nucleo"
-axes = ["superficie", "representacion", "render", "contrato", "runtime", "identidad_y_hash", "errores"]
+axes = ["superficie", "representacion", "render", "contrato", "runtime", "identidad_y_hash", "errores", "codigo"]
 needs = 3
-needed_by = 32
+needed_by = 35
 indivisible = false
 why = """
 Los cinco ejes de identidad forman un nudo de 11 aristas internas. Lo declaré
@@ -526,7 +541,7 @@ cuts = [
 id = "persistencia"
 axes = ["persistencia", "consulta", "federacion", "cache", "codec", "migracion", "bitacora", "semantica", "indice_de_aristas"]
 needs = 16
-needed_by = 33
+needed_by = 35
 why = "el centro de gravedad del sistema: 110 aristas entran desde los ejes de operación"
 
 [[unit]]
@@ -585,8 +600,8 @@ why = "nadie depende de él; puerto Embedder sin dependencia vectorial propia"
 
 [[non_unit]]
 id = "operacion"
-axes = ["op_almacen", "op_documentos", "op_modelos", "op_aristas"]
-needs = 42
+axes = ["op_almacen", "op_documentos", "op_modelos", "op_aristas", "anclaje"]
+needs = 47
 needed_by = 8
 verdict = "fachada"
 why = """

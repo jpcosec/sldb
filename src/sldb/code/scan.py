@@ -12,12 +12,12 @@ import os
 from pathlib import Path
 from typing import Any
 
-from sldb.selfdoc.treesitter.facts import fact, key_of, rels
-from sldb.selfdoc.treesitter.fingerprints import fingerprints
-from sldb.selfdoc.treesitter.ids import Ids
-from sldb.selfdoc.treesitter.imports import py_imports, py_module_name
-from sldb.selfdoc.treesitter.readers import field_text, py_doc, py_end_line, py_native_kind, py_signature
-from sldb.selfdoc.treesitter.runtime import parse, runtime
+from sldb.code.facts import fact, key_of, rels
+from sldb.code.fingerprints import fingerprints
+from sldb.code.ids import Ids
+from sldb.code.imports import py_imports, py_module_name
+from sldb.code.readers import field_text, py_doc, py_end_line, py_native_kind, py_signature
+from sldb.code.runtime import parse, runtime
 
 QUERY = "(class_definition) @class (function_definition) @function"
 _TRANSPARENT = {"block", "decorated_definition"}
