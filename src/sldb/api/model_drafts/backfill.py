@@ -20,6 +20,7 @@ from sldb.api.model_drafts.draft_contract import validate_template_contract
 from sldb.api.model_drafts.draft_document_check import DraftDocumentCheck
 from sldb.api.stores.open_store import open_store
 from sldb.core.exceptions import SLDBModelEditError, SLDBModelError, SLDBValidationError
+from sldb.api.documents.provenance_stamp import stamped_file
 from sldb.runtime.validation import extract_model_data, render_model_markdown, validate_model_data_roundtrip
 from sldb.store.facade import get_tracked_docs
 from sldb.store.hashing import hash_fields, hash_text
@@ -62,7 +63,7 @@ def apply_backfill(store: str | Path | None, model_name: str, new_type: type, pl
     """Rewrite each planned document and record its own journal entry; returns the count."""
     location = open_store(store)
     for doc in plan:
-        text = doc.rendered + "\n"
+        text = stamped_file(doc.path, doc.rendered + "\n", new_type, "backfill_document", actor)
         doc.path.write_text(text, encoding="utf-8")
         record(location.store_path, _entry(location.store_path, model_name, new_type, doc, text, actor))
     return len(plan)

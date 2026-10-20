@@ -8,6 +8,7 @@ from sldb import StructuredNLDoc
 
 
 class ArchitectureNarrativeDoc(StructuredNLDoc):
+    __authority__ = "authored"
     __semantics__ = {
         "type": ["documentation", "architecture"],
         "workspace": ["docs", "architecture"],
@@ -29,6 +30,7 @@ class ArchitectureDoc(ArchitectureNarrativeDoc):
 
 
 class ArchitectureDiagramDoc(StructuredNLDoc):
+    __authority__ = "authored"
     __semantics__ = {
         "type": ["documentation", "architecture"],
         "workspace": ["docs", "architecture"],
@@ -51,6 +53,7 @@ class ArchitectureDiagramDoc(StructuredNLDoc):
 
 
 class ArchitectureDiagramWithHighlightsDoc(StructuredNLDoc):
+    __authority__ = "authored"
     __semantics__ = {
         "type": ["documentation", "architecture"],
         "workspace": ["docs", "architecture"],
@@ -134,6 +137,7 @@ class SourceTreeDoc(StructuredNLDoc):
 
 
 class PackagingDoc(StructuredNLDoc):
+    __authority__ = "authored"
     __semantics__ = {
         "type": ["documentation", "packaging"],
         "workspace": ["docs", "packaging"],
@@ -151,6 +155,7 @@ class PackagingDoc(StructuredNLDoc):
 
 
 class AtomicDocumentDoc(StructuredNLDoc):
+    __authority__ = "authored"
     __semantics__ = {
         "type": ["documentation", "atom"],
         "workspace": ["docs", "atoms"],
@@ -212,6 +217,7 @@ class AtomicDocumentDoc(StructuredNLDoc):
 
 
 class PlanDoc(StructuredNLDoc):
+    __authority__ = "authored"
     __semantics__ = {
         "type": ["documentation", "plan"],
         "workspace": ["docs", "superpowers"],
@@ -229,6 +235,7 @@ class PlanDoc(StructuredNLDoc):
 
 
 class SpecDoc(StructuredNLDoc):
+    __authority__ = "authored"
     __semantics__ = {
         "type": ["documentation", "spec"],
         "workspace": ["docs", "superpowers"],
@@ -246,6 +253,7 @@ class SpecDoc(StructuredNLDoc):
 
 
 class RequestDoc(StructuredNLDoc):
+    __authority__ = "authored"
     __semantics__ = {
         "type": ["documentation", "request"],
         "workspace": ["docs", "requests"],
@@ -270,6 +278,7 @@ class RequestDoc(StructuredNLDoc):
 
 
 class FAQDoc(StructuredNLDoc):
+    __authority__ = "authored"
     __semantics__ = {
         "type": ["documentation", "faq"],
         "workspace": ["docs", "faq"],
@@ -287,6 +296,7 @@ class FAQDoc(StructuredNLDoc):
 
 
 class StoreReadmeDoc(StructuredNLDoc):
+    __authority__ = "authored"
     __semantics__ = {
         "type": ["documentation", "store"],
         "workspace": ["sldb", "store"],

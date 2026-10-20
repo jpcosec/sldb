@@ -12,11 +12,18 @@ def main(argv: Any = None) -> int:
     install_warning_handler()
     try:
         if argv is None and sys.argv[1:] in (["-h"], ["--help"]): print(SHORT_ARGPARSE_HELP); return 0
-        args = list(sys.argv[1:] if argv is None else argv)
+        args = _take_actor(list(sys.argv[1:] if argv is None else argv))
         if FLAG in args:
             return run_enveloped([a for a in args if a != FLAG], lambda a: _plain(a))
-        return CLI().run(argv)
+        return CLI().run(args)
     except Exception as e: return _handle_error(e)
+
+def _take_actor(args: list) -> list:
+    """The global `--actor <id>` (who signs every write), taken off the arguments."""
+    from sldb.api.actor import set_actor
+    if "--actor" in args[:-1] and (i := args.index("--actor")) is not None:
+        set_actor(args[i + 1]); return args[:i] + args[i + 2:]
+    return args
 
 def _handle_error(e: Exception) -> int:
     if isinstance(e, SLDBError): raise SystemExit(str(e))

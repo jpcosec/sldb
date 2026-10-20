@@ -23,7 +23,9 @@ def document_ast(store_path: Path, project_root: Path, pythonpath: str | None, d
     runtime_dict = {"store": doc.store_name, "model": doc.model_name, "name": doc.name, "path": doc.path, "payload": doc.payload, "semantic_tags": doc.semantic_tags}
     ir = build_ir_json(runtime_dict, markdown, getattr(doc.model_type, "__template__", None))
     sections = [vars(section) for section in extract_sections(markdown)]
-    return {"document": {"store": doc.store_name, "model": doc.model_name, "name": doc.name, "path": doc.path, "semantic_tags": list(doc.semantic_tags), "payload": doc.payload, "sections": sections, "ir": ir}}
+    from sldb.api.documents.document_serialization import provenance
+
+    return {"document": {"store": doc.store_name, "model": doc.model_name, "name": doc.name, "path": doc.path, "semantic_tags": list(doc.semantic_tags), "payload": doc.payload, "provenance": provenance(doc), "sections": sections, "ir": ir}}
 
 
 def build_ir_json(runtime_doc: dict[str, Any], markdown: str, template: str | None) -> dict[str, Any]:

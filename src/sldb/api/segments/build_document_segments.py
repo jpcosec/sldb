@@ -61,7 +61,7 @@ def _is_canonical(store_path: Path, path: str | None, text: str) -> bool | None:
 
 
 def _read_stripped(file_path: Path, text: str) -> bool | None:
-    """Compare a file's stripped contents with ``text``.
+    """Compare a file's stripped contents (its provenance block aside) with ``text``.
 
     Args:
         file_path: Absolute path of the document file.
@@ -71,6 +71,8 @@ def _read_stripped(file_path: Path, text: str) -> bool | None:
         The comparison result, or None when the file cannot be read.
     """
     try:
-        return file_path.read_text(encoding="utf-8").strip() == text
+        from sldb.models.provenance_block import strip_block
+
+        return strip_block(file_path.read_text(encoding="utf-8")).strip() == text
     except OSError:
         return None

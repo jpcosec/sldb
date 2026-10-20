@@ -14,6 +14,7 @@ from sldb.api.documents.frontmatter_keys import refuse_undeclared_frontmatter
 from sldb.api.model_registry.model_reference import resolve_model_ref
 from sldb.api.stores.open_store import open_store
 from sldb.core.exceptions import SLDBValidationError
+from sldb.api.documents.provenance_stamp import stamped
 from sldb.runtime.validation import render_model_markdown, validate_model_input_roundtrip
 from sldb.store.ops import track_document
 
@@ -46,7 +47,7 @@ def create_document(store: str | Path | None, model_name: str, path: str | Path,
     doc_name = name or doc_path.stem
     refuse_noise(registered.model_type, rendered, doc_name)
     doc_path.parent.mkdir(parents=True, exist_ok=True)
-    doc_path.write_text(rendered + "\n", encoding="utf-8")
+    doc_path.write_text(stamped(rendered + "\n", registered.model_type, "create_document", actor), encoding="utf-8")
     _track_and_record(location.store_path, location.project_root, registered, doc_path, doc_name, payload, pythonpath, actor)
     return DocumentReference(model=registered.entry.name, name=doc_name, path=doc_path)
 

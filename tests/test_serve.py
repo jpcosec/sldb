@@ -11,6 +11,7 @@ from urllib.request import Request, urlopen
 
 from sldb.cli.serve import save_routes
 from sldb.cli.serve.http_server import build_handler
+from sldb.models.provenance_block import strip_block
 from sldb.store.io import load_store_index
 from tests.store.test_cli_store import _PY_ARGS, _SETUP_REF, _STORE_ARGS, _doc_track, _init, _model_add
 
@@ -65,6 +66,7 @@ def test_serve_endpoints_use_real_store(tmp_path: Path) -> None:
                 "version": _hash_d({"title": "My Book"}),
                 "payload": {"title": "My Book"},
                 "semantic_tags": ["representation.markdown", "source.document.markdown"],
+                "provenance": {"by": "agent", "at": 0, "via": None, "authority": "generated", "from": [], "declared": False},
             }
         ]
 
@@ -81,7 +83,7 @@ def test_serve_endpoints_use_real_store(tmp_path: Path) -> None:
         assert graph_after["documents"][0]["payload"] == {"title": "Updated Title"}
         assert graph_after["documents"][0]["version"] == _hash_d({"title": "Updated Title"})
         assert graph_after["documents"][0]["version"] != graph["documents"][0]["version"]
-        assert (tmp_path / "book.md").read_text(encoding="utf-8") == "# Updated Title\n"
+        assert strip_block((tmp_path / "book.md").read_text(encoding="utf-8")) == "# Updated Title\n"
 
         missing_status, missing = _request_json(
             f"{base_url}/save",
@@ -201,7 +203,7 @@ def test_batch_save_create_update_delete(tmp_path: Path) -> None:
         book = next(doc for doc in graph["documents"] if doc["id"] == "book")
         assert book["payload"] == {"title": "Batch Updated"}
         assert next(doc for doc in graph["documents"] if doc["id"] == "book2")["model_name"] == "SimpleBook"
-        assert (tmp_path / "book2.md").read_text(encoding="utf-8") == "# Batch New\n"
+        assert strip_block((tmp_path / "book2.md").read_text(encoding="utf-8")) == "# Batch New\n"
         # delete borra el archivo, no solo lo destrackea: si no, el proximo track resucita el documento
         assert not (tmp_path / "other.md").exists()
     finally:
@@ -278,7 +280,7 @@ def test_batch_save_partial_failure_reports_completed(tmp_path: Path, monkeypatc
         ]}, expected_error=500)
         assert status == 500
         assert body == {"ok": False, "error": "No se completó el guardado: boom", "completed": ["c1"]}
-        assert (tmp_path / "c1.md").read_text(encoding="utf-8") == "# 1\n"
+        assert strip_block((tmp_path / "c1.md").read_text(encoding="utf-8")) == "# 1\n"
         assert not (tmp_path / "c3.md").exists()
     finally:
         _stop(server, thread)
@@ -622,7 +624,7 @@ def test_docs_create_tracks_and_returns_version(tmp_path: Path) -> None:
         assert body["doc"]["model_name"] == "SimpleBook"
         assert body["doc"]["path"] == "newbook.md"
         assert body["doc"]["version"] == _hash_d({"title": "New Book"})
-        assert (tmp_path / "newbook.md").read_text(encoding="utf-8") == "# New Book\n"
+        assert strip_block((tmp_path / "newbook.md").read_text(encoding="utf-8")) == "# New Book\n"
         _, graph = _request_json(f"{base_url}/graph")
         assert {doc["id"] for doc in graph["documents"]} == {"book", "newbook"}
     finally:
@@ -715,7 +717,7 @@ def test_docs_untrack_keeps_file_on_disk(tmp_path: Path) -> None:
         assert body["doc"]["id"] == "book"
         assert body["doc"]["path"] == "book.md"
         assert body["doc"]["version"] == _hash_d({"title": "My Book"})
-        assert (tmp_path / "book.md").read_text(encoding="utf-8") == "# My Book\n"
+        assert strip_block((tmp_path / "book.md").read_text(encoding="utf-8")) == "# My Book\n"
         _, graph = _request_json(f"{base_url}/graph")
         assert "book" not in {doc["id"] for doc in graph["documents"]}
     finally:
@@ -802,6 +804,7 @@ def test_models_endpoints_resolve_relative_imports_by_package_name(tmp_path: Pat
             "version": _hash_d({"title": "The Rel Book", "author": ""}),
             "payload": {"title": "The Rel Book", "author": ""},
             "semantic_tags": ["representation.markdown", "source.document.markdown"],
+            "provenance": {"by": "agent", "at": 0, "via": None, "authority": "generated", "from": [], "declared": False},
         }
     finally:
         _stop(server, thread)

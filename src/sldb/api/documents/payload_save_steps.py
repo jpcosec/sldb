@@ -65,11 +65,15 @@ def render_checked(model_type: type, payload: dict[str, Any], ref_root: Path) ->
     return rendered
 
 
-def write_rendered_document(root: Path, doc_entry: DocumentEntry, model_type: type, rendered: str) -> None:
-    """Write the rendered Markdown (plus final newline) and record its source and content hashes."""
-    (root / doc_entry.path).write_text(rendered + "\n", encoding="utf-8")
-    doc_entry.source_hash = hash_text(rendered + "\n")
-    doc_entry.content_hash, doc_entry.field_hashes = hash_fields_with_map(model_type, rendered + "\n")
+def write_rendered_document(root: Path, doc_entry: DocumentEntry, model_type: type, rendered: str, via: str = "save_document_payload", actor: str | None = None) -> None:
+    """Write the rendered Markdown, signed with its provenance block (plus final newline), and
+    record its source and content hashes."""
+    from sldb.api.documents.provenance_stamp import stamped_file
+
+    text = stamped_file(root / doc_entry.path, rendered + "\n", model_type, via, actor)
+    (root / doc_entry.path).write_text(text, encoding="utf-8")
+    doc_entry.source_hash = hash_text(text)
+    doc_entry.content_hash, doc_entry.field_hashes = hash_fields_with_map(model_type, text)
 
 
 def save_document_indexes(sp: Path, root: Path, idx: StoreIndex, m_idx: ModelsIndex, m_entry: ModelEntry, doc_entry: DocumentEntry, pythonpath: str | None, model_type: type | None = None) -> None:

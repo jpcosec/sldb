@@ -1,7 +1,7 @@
 # Procedencia: quién escribió cada cosa, con qué autoridad, y dónde está su historia
 
-Estado (2026-10-20): **propuesta pendiente del dueño, sin implementar.** Nace de su corrección
-del mismo día: la heurística de errores y reparaciones de sldb es demasiado estricta porque
+Estado (2026-10-20): el dueño pidió implementarlo entero; la etapa 1 (sección 6) está hecha y
+las demás van en commits sucesivos. Nace de su corrección del mismo día: la heurística de errores y reparaciones de sldb es demasiado estricta porque
 no sabe de quién es cada documento ni qué tan estable es su modelo. Este documento declara
 esas tres cosas en cada documento y hace que `stores check`, `lint`, `selfdoc check` y el
 anclaje las lean en vez de aplicar una tabla fija. Reemplaza la sección 10 de
@@ -146,9 +146,14 @@ solo de los errores. Lo que cambia es de dónde sale el nivel.
 
 ## 6. Etapas propuestas
 
-1. `Provenance` y `__authority__` en el modelo base; sello en escritura y lectura a
-   `.provenance`; exención de la clave `sldb`; `--actor` global. Tests: round-trip con y sin
-   bloque, defaults, `content_hash` quieto ante un sello, sello solo si cambió algo.
+1. **Hecha.** `Provenance` (`src/sldb/models/provenance.py`) y el bloque
+   (`src/sldb/models/provenance_block.py`); `__authority__` en `StructuredNLDoc`; el sello en
+   cada escritura (`src/sldb/api/documents/provenance_stamp.py`, llamado desde save, create,
+   update, backfill y los tipos de relación builtin); `docs show` y el export de documentos
+   traen `provenance`; la clave `sldb` está exenta del rechazo de frontmatter; `--actor` global
+   y `SLDB_ACTOR` (`src/sldb/api/actor.py`). De paso: el índice de secciones parseaba sin el
+   plugin de frontmatter y leía la última línea de un frontmatter como heading setext
+   (`src/sldb/store/section_rebuild.py`). Tests en `tests/api/test_provenance.py`.
 2. `DocumentEntry` con `by`/`at`/`authority`; `find --where` y export los exponen.
 3. `docs history` sobre git.
 4. La política de la sección 5 con sus defaults, y la salida de error/alerta ya escrita

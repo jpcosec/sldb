@@ -5,6 +5,9 @@ from typing import Any, TypeVar
 from pydantic import BaseModel
 
 class StructuredNLDoc(BaseModel):
+    # The authority a document of this model has unless its own `sldb` block says otherwise
+    # (docs/architecture/provenance.md §2): source_raw | authored | theorem | generated | cache.
+    __authority__: str = "generated"
     # Every tracked record is rendered as Markdown, but its subject can come from another
     # adapter. Subclasses override source when they describe code, data, or another
     # non-Markdown source format. Store semantic indexes expose both dimensions.

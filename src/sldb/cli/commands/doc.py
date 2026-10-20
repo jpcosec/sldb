@@ -17,7 +17,6 @@ from sldb.cli.commands.docs_batch import track_glob
 from sldb.runtime.validation import render_model_markdown, validate_model_input_roundtrip
 from sldb.store.io import load_store_index, save_models_index, store_lock
 from sldb.store.io.shards import save_document_shard
-from sldb.store.hashing import hash_text, hash_fields, hash_fields_with_map
 from sldb.store.layout import documents_shard_path
 from sldb.store.derived_rebuild import rebuild_derived_indexes
 from sldb.store.model_node import stamp_model_node
@@ -57,10 +56,8 @@ class DocCLI:
     @staticmethod
     def _write_and_rehash(root: Any, doc: Any, model_type: Any, rendered: str) -> None:
         """Write the rendered Markdown and record both hashes plus the per-field map."""
-        text = rendered + "\n"
-        (root / doc.path).write_text(text, encoding="utf-8")
-        doc.source_hash = hash_text(text)
-        doc.content_hash, doc.field_hashes = hash_fields_with_map(model_type, text)
+        from sldb.api.documents.payload_save_steps import write_rendered_document
+        write_rendered_document(root, doc, model_type, rendered, via="update_document")
 
     def update(self, args: Any) -> int:
         sp, root = get_store_context(args.store)

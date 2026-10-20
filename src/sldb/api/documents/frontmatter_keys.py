@@ -27,12 +27,15 @@ def undeclared_frontmatter_keys(model_type: type, markdown: str) -> list[str]:
     """The document's top-level frontmatter keys the model's template never declares.
 
     None when the template's frontmatter is a single dict placeholder: that dict carries any
-    key through extraction and back on re-render, so nothing is lost (deskops' TaskDoc).
+    key through extraction and back on re-render, so nothing is lost (deskops' TaskDoc). The
+    reserved `sldb` key (the provenance block) is the store's, never undeclared.
     """
+    from sldb.models.provenance import BLOCK_KEY
+
     template = getattr(model_type, "__template__", "") or ""
     if _frontmatter_is_dict(template):
         return []
-    return sorted(_frontmatter_keys(markdown, load_yaml=True) - _frontmatter_keys(template, load_yaml=False))
+    return sorted(_frontmatter_keys(markdown, load_yaml=True) - _frontmatter_keys(template, load_yaml=False) - {BLOCK_KEY})
 
 
 def refuse_undeclared_frontmatter(model_type: type, markdown: str, name: str) -> None:

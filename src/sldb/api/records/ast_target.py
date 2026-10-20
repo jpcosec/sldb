@@ -28,6 +28,12 @@ def _ast_for_doc(target, store_arg, pythonpath):
     runtime_doc = resolve_runtime_doc(store_arg, doc_ref, pythonpath)
     return _build_doc_ast(runtime_doc)
 
+def _provenance(markdown: str) -> dict[str, Any]:
+    from sldb.api.documents.provenance_stamp import provenance_of
+
+    found = provenance_of(markdown)
+    return {**found.model_dump(by_alias=True), "declared": found.declared}
+
 def _build_doc_ast(runtime_doc):
     markdown = Path(runtime_doc["absolute_path"]).read_text(encoding="utf-8")
     ir = build_document_ir(runtime_doc, markdown, template=runtime_doc.get("template"))
@@ -35,6 +41,7 @@ def _build_doc_ast(runtime_doc):
         "document": {
             "store": runtime_doc["store"], "model": runtime_doc["model"], "name": runtime_doc["name"],
             "path": runtime_doc["path"], "semantic_tags": runtime_doc["semantic_tags"], "payload": runtime_doc["payload"],
+            "provenance": _provenance(markdown),
             "sections": [section.__dict__ for section in extract_sections(markdown)], "ir": ir.model_dump(mode="json"),
         }
     }

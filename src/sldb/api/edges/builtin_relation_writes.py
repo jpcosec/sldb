@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from sldb.api.documents.provenance_stamp import stamped_file
 from sldb.api.edges.relations_init_report import RelationsInitReport
 from sldb.api.model_registry.load_registered_model import load_registered_model
 from sldb.api.model_registry.model_reference import resolve_model_ref
@@ -24,7 +25,7 @@ def write_builtin_relation_types(sp: Path, root: Path, pythonpath: str | None, r
     for spec in (s for s in BUILTIN_RELATION_TYPES if _tracked_path(s, tracked) is None):
         path = root / BUILTIN_DIR / f"{spec['name']}.md"
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(render_model_markdown(registered.model_type, builtin_payload(spec), root) + "\n", encoding="utf-8")
+        path.write_text(stamped_file(path, render_model_markdown(registered.model_type, builtin_payload(spec), root) + "\n", registered.model_type, "init_relations"), encoding="utf-8")
         track_document(sp, root, load_store_index(sp), registered.model_type, registered.entry, path, builtin_doc_name(spec), resolve_model_ref, pythonpath)
         report.types_written.append(spec["name"])
     _refresh_outdated(root, registered.model_type, tracked, report)
@@ -51,7 +52,7 @@ def _refresh_outdated(root: Path, model_type, tracked: dict[str, str], report: R
             continue
         current, wanted = extract_model_data(model_type, path.read_text(encoding="utf-8")), builtin_payload(spec)
         if any(current.get(k) != wanted[k] for k in _SPEC_KEYS):
-            path.write_text(render_model_markdown(model_type, wanted, root) + "\n", encoding="utf-8")
+            path.write_text(stamped_file(path, render_model_markdown(model_type, wanted, root) + "\n", model_type, "init_relations"), encoding="utf-8")
             report.types_updated.append(spec["name"])
 
 

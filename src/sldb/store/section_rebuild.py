@@ -20,7 +20,8 @@ def _parser():
     global _PARSER
     if _PARSER is None:
         from markdown_it import MarkdownIt
-        _PARSER = MarkdownIt("gfm-like")
+        from mdit_py_plugins.front_matter import front_matter_plugin
+        _PARSER = MarkdownIt("gfm-like").use(front_matter_plugin)  # as sldb.core.ast: a frontmatter is not a setext heading
     return _PARSER
 
 def _parse_md_nodes(markdown: str):

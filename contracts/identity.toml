@@ -68,7 +68,7 @@ describir su propia casa.
 # almacén, no de los contratos. Confundí el modelo con su única instancia.
 
 [product.models]
-base = ["structured_doc"]
+base = ["structured_doc", "provenance", "provenance_block"]
 relations = ["relation_doc", "relation_type_doc", "builtin_relation_types"]
 derived_surfaces = ["python_symbol_doc", "cli_command_doc", "surface_doc"]
 vocabulary = ["knowledge_tag", "anchor_doc", "knowledge_surface"]
