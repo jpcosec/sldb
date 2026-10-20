@@ -307,7 +307,7 @@ identity = false
 [[axis]]
 id = "adaptadores"
 paths = ["selfdoc"]
-external = ["ast", "argparse", "click"]
+external = ["ast", "argparse", "click", "tree-sitter", "tree-sitter-python"]
 does = "derivar documentos de código y de interfaces"
 identity = false
 note = "tres adaptadores derivados frente a una sola superficie autorada"

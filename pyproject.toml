@@ -40,6 +40,10 @@ click = [
 graph = [
     "scipy>=1.10",
 ]
+code = [
+    "tree-sitter>=0.25",
+    "tree-sitter-python>=0.23",
+]
 dev = [
     "scipy>=1.10",
     "build>=1.2",

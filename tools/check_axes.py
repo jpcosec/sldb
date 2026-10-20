@@ -46,7 +46,7 @@ UNMAPPED_FILES = {"__main__.py"}
 #: Nombre del módulo de Python para cada dependencia declarada en el contrato.
 MODULE = {"markdown-it-py": "markdown_it", "pydantic": "pydantic",
           "jinja2": "jinja2", "networkx": "networkx", "click": "click",
-          "argparse": "argparse", "ast": "ast"}
+          "argparse": "argparse", "ast": "ast", "tree-sitter": "tree_sitter", "tree-sitter-python": "tree_sitter_python"}
 
 
 def load() -> dict:

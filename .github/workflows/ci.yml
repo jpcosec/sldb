@@ -20,7 +20,7 @@ jobs:
       - name: Install package and test deps
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -e .[dev]
+          python -m pip install -e ".[dev,code]"
       - name: Structural gates
         run: bash tools/check.sh --fast
       - name: Run tests
@@ -50,7 +50,7 @@ jobs:
           python-version: "3.13"
       - name: Install sldb and pron
         run: |
-          python -m pip install -e "sldb[dev,click]"
+          python -m pip install -e "sldb[dev,click,code]"
           python -m pip install -e "pron[mcp]"
       - name: Prepare pron's store
         # pron keeps .sldb/ out of git and builds it with its own CLI; a store.yaml generator

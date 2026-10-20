@@ -117,6 +117,13 @@ alias resuelve, y lo que quiera verificar remite al modelo de anclaje de sldb.
 
 ## 8. Origen del código
 
+Hecho (2026-10-20): el adaptador vive en `src/sldb/selfdoc/treesitter/` (solo Python,
+partido a las reglas de tamaño de sldb), con `fingerprints.py` para los nodos de la sección 3
+más `shape` (la firma sin el nombre, para reconectar un renombre); el extra es `[code]`
+(`tree-sitter>=0.25`, `tree-sitter-python`), y los tests y fixtures están en
+`tests/selfdoc/test_treesitter_symbols.py`, `tests/selfdoc/test_treesitter_agreement.py`
+(contra `PythonScanner`, el escáner `ast` de sldb) y `tests/fixtures/treesitter/`.
+
 El adaptador viene de `kimun/python/kimun/adapters/treesitter_symbols.py` (MIT, mismo autor),
 con sus tests `test_treesitter_symbols.py` y `test_treesitter_agreement.py` y las fixtures que
 usan (`kimun/test/fixtures/adapters/pytree`, `pytree_ts`). Por autorización del dueño, es lo
