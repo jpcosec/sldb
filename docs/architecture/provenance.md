@@ -60,7 +60,7 @@ agente que toca un `source_raw` está alterando evidencia (error); un agente que
 No se inventa la rueda: el pasado de un documento es su historia en git, y el bloque `sldb`
 de cada versión dice quién la escribió. sldb pone las ruedas para buscar ahí:
 
-- `sldb docs history <Model:doc> [--since] [--format json]` <!-- gone -->: por cada commit
+- `sldb docs history <doc> [--since] [--format json]`: por cada commit
   que tocó el archivo: sha, fecha de git, los `by`, `at` y `authority` del bloque `sldb` de esa versión, su
   `source_hash` y `content_hash`, y qué campos cambiaron respecto de la anterior (los dos
   payloads extraídos y comparados por campo, como `field_hashes`). Se apoya en
@@ -159,7 +159,8 @@ solo de los errores. Lo que cambia es de dónde sale el nivel.
    (`--where 'sldb.authority = "source_raw"'`: el `--where` ahora acepta rutas con punto,
    `src/sldb/store/query_engine/where_lookup.py`) y el export semántico lo exponen. Tests en
    `tests/api/test_provenance_index.py`.
-3. `docs history` sobre git.
+3. **Hecha.** `docs history` (`src/sldb/api/documents/document_history.py`,
+   `src/sldb/cli/commands/docs_history.py`). Tests en `tests/api/test_document_history.py`.
 4. La política de la sección 5 con sus defaults, y la salida de error/alerta ya escrita
    (tipo `Finding`, emisor único, `warnings` del envelope) conectada a ella. Avisar por inbox
    a deskops, spec2viz y graph_ui antes de subir, porque cambia `stores check`.

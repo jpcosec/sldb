@@ -5,6 +5,7 @@ from typing import Any
 import yaml
 from sldb.cli.commands.doc import DocCLI
 from sldb.cli.commands.docs_exists import docs_exists
+from sldb.cli.commands.docs_history import docs_history
 from sldb.cli.commands.explore import ExploreCLI
 from sldb.cli.commands.links import LinkCLI
 from sldb.cli.graph_ops import ast_for_target
@@ -33,7 +34,7 @@ class DocsCLI:
         return self._run_subcommand(cmd, args)
 
     def _run_subcommand(self, cmd: str, args: Any) -> int:
-        handlers = {"list": self.list, "show": self._show, "exists": docs_exists, "recover": self._links.recover, "compose": self._links.compose, "explore": self._explore.run}
+        handlers = {"list": self.list, "show": self._show, "exists": docs_exists, "history": docs_history, "recover": self._links.recover, "compose": self._links.compose, "explore": self._explore.run}
         if cmd in handlers:
             return handlers[cmd](args)
         raise SystemExit(f"Unknown docs command: {cmd}")

@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-10-20T16:30:17Z'
+  authority: generated
+  via: save_document_payload
 id: surface-sldb-docs
 system: sldb
 surface: docs
@@ -8,7 +13,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: parser:sldb.cli.parser:build_parser#docs; contract-sha256:e8cadc49f4389387abcdf9fb27c1abd54b900d56b9b0e33492903e37de5c0408
+provenance: parser:sldb.cli.parser:build_parser#docs; contract-sha256:8c69e8b0f9a0d4f868262aeb3934409fea2f31bd331307a9c84d4f33d3e7088a
 ---
 
 # docs
@@ -28,6 +33,7 @@ Registered under src/sldb/cli/parsers/ as the 'docs' subparser. Each command dis
 - sldb docs delete
 - sldb docs exists
 - sldb docs explore
+- sldb docs history
 - sldb docs list
 - sldb docs recover
 - sldb docs show

@@ -2,7 +2,15 @@ from __future__ import annotations
 import argparse
 
 def _add_docs_part2(sub):
-    _recover(sub); _list(sub); _compose(sub); _explore(sub)
+    _recover(sub); _list(sub); _compose(sub); _explore(sub); _history(sub)
+
+def _history(s):
+    h = s.add_parser("history", help="The document's committed versions from git: who signed each one and which fields moved.", epilog="Example:\n  sldb docs history roadmap --since 2026-10-01 --format json")
+    h.add_argument("doc", help="Doc name or Model/DocName or tracked path")
+    h.add_argument("--since", help="Only versions committed at or after this ISO date")
+    h.add_argument("--store", help="Store path")
+    h.add_argument("--pythonpath", help="Project path")
+    h.add_argument("--format", choices=("text", "json", "yaml"), default="text")
 
 def _recover(s):
     r = s.add_parser("recover", help="Resolve [[links]] and report their targets.", epilog="Example:\n  sldb docs recover roadmap --store .sldb")
