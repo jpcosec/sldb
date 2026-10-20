@@ -59,3 +59,18 @@ La regla vale para todo sldb, no solo para los anclajes. Hoy varios comandos tra
 movimiento de fuente como error (por ejemplo, `stores check` da FAIL por un hash atrasado).
 La auditoría de cada caso y su reclasificación propuesta están en
 [code-anchoring.md, sección 10](code-anchoring.md).
+
+## 5. Decisiones del dueño sobre la implementación (2026-10-20)
+
+1. **sldb tiene su propio modelo de anclaje.** Lleva la `ref`, un fingerprint por nodo
+   (firma, docstring y cuerpo), el estado y la provenance. El `AnchorDoc` de pron sigue
+   siendo un alias de léxico y **no se toca**: si algo quiere verificar, va al modelo de sldb.
+2. **En `lint`, una ruta citada que ya no existe es la alerta `lost`**: exit 0 y siempre
+   visible. El ruido estructural (headings que el modelo no declara) **sigue siendo error**,
+   en `lint` y en `stores check`.
+3. **`anchors check` solo lee.** `anchors check --record` es el único que escribe, y lo que
+   registra son las reconexiones.
+
+Regla general: el envelope lleva las alertas en `warnings` (antes era `[]` fijo) y
+`--format json` no las omite. Una alerta nunca es silenciosa. La reclasificación de la
+auditoría ([code-anchoring.md, sección 10](code-anchoring.md)) queda aprobada.

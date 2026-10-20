@@ -1,8 +1,16 @@
 # Anclaje a código
 
-Estado (2026-10-19): diseño propuesto, sin implementar. La definición, las vías y las reglas
-del dueño están en el documento de autoridad, [anchoring.md](anchoring.md); este documento
-las implementa y no las rediscute.
+Estado (2026-10-20): diseño aprobado; se implementa por etapas. La definición, las vías y
+las reglas del dueño están en el documento de autoridad, [anchoring.md](anchoring.md); este
+documento las implementa y no las rediscute.
+
+Decisiones del dueño (2026-10-20), [anchoring.md, sección 5](anchoring.md):
+1. El anclaje es un modelo propio de sldb, con `ref`, fingerprints por nodo, estado y
+   provenance. El `AnchorDoc` de pron no se toca; la sección 7 queda reemplazada.
+2. En `lint`, una ruta citada que no existe es la alerta `lost`. El ruido estructural sigue
+   siendo error.
+3. `anchors check` solo lee; `anchors check --record` es el único que escribe, y registra las
+   reconexiones. `anchors update` queda fuera.
 
 ## 1. Referencia
 
@@ -59,10 +67,10 @@ El fingerprint es `sha256` del texto normalizado del nodo, no del archivo.
 | estado | condición | clase | qué se hace |
 |---|---|---|---|
 | `intact` | el nombre existe y los tres fingerprints coinciden | ok | nada |
-| `changed(signature\|docstring\|body)` | el nombre existe y difiere al menos uno; se listan cuáles | alerta | mirar; `anchors update` regraba lo visto |
+| `changed(signature\|docstring\|body)` | el nombre existe y difiere al menos uno; se listan cuáles | alerta | mirar; reanclar (`anchors record` y guardar lo visto en el anclaje) |
 | `reconnected(X → Y)` | el nombre ya no existe y hay **un único** candidato (sección 5) | alerta | se reporta y se registra en `history`; puede venir con `changed` |
 | `lost` | el nombre ya no existe y no hay candidato, o hay más de uno (se listan) | alerta | mirar; reanclar a mano |
-| `renormalize` | grabado con otra versión de normalización | alerta | `anchors update` |
+| `renormalize` | grabado con otra versión de normalización | alerta | reanclar, como en `changed` |
 | `unparseable` | el archivo no parsea (`has_error`) | **error** | arreglar el archivo |
 | `invalid` | la referencia no tiene la forma `code:…::…`, o el anclaje no trae `seen` | **error** | arreglar el documento |
 | `unavailable` | tree-sitter o su gramática no están instalados (extra `[code]`) | **error** | `pip install 'structuredLanguageDB[code]'` |
@@ -80,9 +88,9 @@ fingerprints por nodo:
    **docstring y firma** son iguales salvo el nombre.
 3. Un único candidato: `reconnected`. Cero o más de uno: `lost`, con los candidatos listados.
 
-`anchors check` solo lee. `anchors check --record` (o `anchors update`) escribe la
-reconexión en el anclaje: nueva `ref` y una entrada en `history`. Así queda registrado sin
-que una lectura escriba.
+`anchors check` solo lee. `anchors check --record` es el único que escribe (decisión del
+dueño 3): registra la reconexión en el anclaje, con la nueva `ref` y una entrada en
+`history`. Así queda registrada sin que una lectura escriba.
 
 ## 6. Comandos (propuestos; todavía no existen)
 
@@ -91,8 +99,8 @@ que una lectura escriba.
 - `sldb anchors check [--store S] [--format text|json] [--record]` <!-- gone -->: verifica cada anclaje a
   código del store. Exit 0 con solo alertas; distinto de 0 solo con errores (`anchors/invalid`
   3, `anchors/unparseable` 3, `anchors/unavailable` 5 con `--envelope`).
-- `sldb anchors update [<ref>…]` <!-- gone -->: acepta lo que cambió y regraba los fingerprints, dejando el
-  estado anterior en `history`.
+- No hay `anchors update` (decisión del dueño 3). Aceptar un `changed` es reanclar: el autor
+  guarda en el anclaje el bloque que da `anchors record`, con la API de documentos.
 
 Una alerta nunca es silenciosa:
 - va en la salida de texto, una línea por anclaje;
@@ -100,16 +108,12 @@ Una alerta nunca es silenciosa:
 - en GitHub Actions (`GITHUB_ACTIONS=true`), se imprime como `::warning file=…::`;
 - el resumen final da los conteos: `12 intact, 2 changed, 1 reconnected, 0 lost — 3 alertas`.
 
-## 7. Integración con AnchorDoc
+## 7. Modelo propio, no AnchorDoc (decisión del dueño 1)
 
-AnchorDoc es un modelo de **pron** (`pron.models:AnchorDoc`), que sldb hereda; sldb resuelve
-su `ref` (`store/edge_index/anchor_targets.py`).
-
-- **sldb:** una forma nueva de `ref`, `(code "src/x.py::Clase.metodo")`, resuelta por
-  `anchor_targets` al nodo del símbolo, y la verificación de la sección 4.
-- **pron:** un campo opcional en AnchorDoc para lo visto (el bloque `code` de la sección 2).
-  Es un cambio en el modelo de pron, de su dueño; sin él, un AnchorDoc puede apuntar a código
-  pero no guardar sus fingerprints.
+El anclaje es un modelo de sldb que guarda la `ref`, lo visto (sección 2), el estado y la
+provenance. AnchorDoc es un modelo de **pron** (`pron.models:AnchorDoc`), un alias de léxico
+que sldb hereda y resuelve (`store/edge_index/anchor_targets.py`). AnchorDoc no cambia: un
+alias resuelve, y lo que quiera verificar remite al modelo de anclaje de sldb.
 
 ## 8. Origen del código
 
@@ -157,7 +161,7 @@ Hoy sldb trata como error la mayoría de los movimientos de fuente:
 | stores check | `missing` (archivo trackeado ausente) | FAIL | **error** |
 | stores check | modelo que no importa (hoy es una nota y PASS) | PASS | **error** (pasa de menos a más) |
 | stores check | enlace roto (hoy es una nota) | PASS | **error** |
-| stores check | `legacy_contract`, ruido estructural, `rewrite_loss`, modelos sombreados, política de `.gitignore` | nota | alerta (ruido estructural: decisión del dueño, porque las escrituras ya lo rechazan) |
+| stores check | `legacy_contract`, ruido estructural, `rewrite_loss`, modelos sombreados, política de `.gitignore` | nota | alerta; el ruido estructural es **error** (decisión del dueño 2: las escrituras ya lo rechazan) |
 | stores build --check | la copia no pasa la integridad, hay archivos sin declarar, o declarados sin archivo | FAIL | **error** |
 | stores build --check | la copia trackea algo que el store local no tiene (local atrasado) | FAIL | alerta |
 | selfdoc check / python-check | campos generados viejos, documentos sin generar o sin trackear, hashes viejos, símbolos o comandos quitados, pista de renombre | exit 1 | alerta |
@@ -165,7 +169,7 @@ Hoy sldb trata como error la mayoría de los movimientos de fuente:
 | selfdoc python-check | metadata mal formada, ids repetidos, colisiones | exit 1 | **error** |
 | edges check | shard construido desde otro `hash_c` | exit 1 | alerta |
 | edges check | aristas inválidas, ciclos, tipos desconocidos | exit 1 | **error** |
-| lint | ruta citada que ya no existe | exit 1 | **error** (o alerta: decisión del dueño) |
+| lint | ruta citada que ya no existe | exit 1 | alerta `lost` (decisión del dueño 2) |
 | journal verify, models check, stores update con modelos o archivos ausentes | cadena rota, no registrado, no importa, falta | exit 1 | **error** |
 | serve `/lint` | raíz o roster atrasados y `data_mutation` como `error`; `missing` como `warning` | — | invertir |
 
