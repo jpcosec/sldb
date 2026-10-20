@@ -12,6 +12,7 @@ from sldb.store.io import (
 from sldb.store.io.shards import save_document_shard
 from sldb.store.layout import documents_shard_path
 from sldb.store.models import DocumentEntry, StoreIndex
+from sldb.store.runtime_codec import index_block
 from sldb.store.edge_rebuild import rebuild_edges_indexes
 from sldb.store.section_rebuild import rebuild_sections_indexes
 from sldb.store.semantic import rebuild_semantic_indexes
@@ -38,7 +39,7 @@ class StoreOperations:
     def _do_track(store_path, root, st_idx, m_type, m_entry, d_name, rel_path, text, res_ref, py_path):
         StoreOperations._pre_check(store_path, root, m_entry, d_name)
         content_hash, field_hashes = _safe_hashes(m_type, text)
-        entry = DocumentEntry(name=d_name, path=rel_path, hash_c=hash_text(text), hash_d=content_hash, field_hashes=field_hashes)
+        entry = DocumentEntry(name=d_name, path=rel_path, hash_c=hash_text(text), hash_d=content_hash, field_hashes=field_hashes, provenance=index_block(text))
         save_document_shard(documents_shard_path(store_path, m_entry.name, d_name), entry)
         documents_hash.note(store_path, m_entry.name, entry)
         _update_model_summary(store_path, root, m_entry, m_type)

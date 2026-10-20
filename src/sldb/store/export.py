@@ -74,7 +74,7 @@ class SemanticExporter:
 
     def _proc_docs(self, d_idx, m_idx, docs):
         for d in sorted(d_idx.documents, key=lambda i: i.name):
-            docs.append({"id": f"{m_idx.name}:{d.name}", "name": d.name, "model": m_idx.name, "path": d.path, "hash_c": d.source_hash, "hash_d": d.content_hash, "source_hash": d.source_hash, "content_hash": d.content_hash, "semantic_tags": sorted(set(d.semantic_tags))})
+            docs.append({"id": f"{m_idx.name}:{d.name}", "name": d.name, "model": m_idx.name, "path": d.path, "hash_c": d.source_hash, "hash_d": d.content_hash, "source_hash": d.source_hash, "content_hash": d.content_hash, "semantic_tags": sorted(set(d.semantic_tags)), "provenance": d.provenance})
 
     def _proc_secs(self, s_idx, m_idx, secs):
         for d_s in sorted(s_idx.documents, key=lambda i: i.doc_name):

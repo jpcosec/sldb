@@ -10,6 +10,7 @@ from typing import Any
 
 from sldb.api.model_registry.model_reference import resolve_model_ref
 from sldb.api.stores.document_field_hashes import _field_hash, _field_hashes  # noqa: F401 - re-exported
+from sldb.models.provenance_block import index_block
 from sldb.store.hashing import hash_text
 from sldb.store.field_set_drift import signed_under_other_fields
 from sldb.store.model_node import contract_moved
@@ -106,7 +107,7 @@ def _restamp(doc: Any, mtype: Any, m_name: str, text: str, fresh: str, force: bo
     on the source hash the payload belongs to, so passing the old one here would read another
     document's cached payload (the file's previous content) and sign a wrong content_hash.
     """
-    previous = (doc.source_hash, doc.content_hash, doc.field_hashes)
+    previous = (doc.source_hash, doc.content_hash, doc.field_hashes, doc.provenance)
     doc.source_hash = fresh
-    doc.content_hash, doc.field_hashes = _field_hashes(mtype, m_name, doc, text, force)
-    return (doc.source_hash, doc.content_hash, doc.field_hashes) != previous
+    doc.content_hash, doc.field_hashes, doc.provenance = *_field_hashes(mtype, m_name, doc, text, force), index_block(text)
+    return (doc.source_hash, doc.content_hash, doc.field_hashes, doc.provenance) != previous

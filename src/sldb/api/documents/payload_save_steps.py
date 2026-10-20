@@ -69,11 +69,13 @@ def write_rendered_document(root: Path, doc_entry: DocumentEntry, model_type: ty
     """Write the rendered Markdown, signed with its provenance block (plus final newline), and
     record its source and content hashes."""
     from sldb.api.documents.provenance_stamp import stamped_file
+    from sldb.models.provenance_block import index_block
 
     text = stamped_file(root / doc_entry.path, rendered + "\n", model_type, via, actor)
     (root / doc_entry.path).write_text(text, encoding="utf-8")
     doc_entry.source_hash = hash_text(text)
     doc_entry.content_hash, doc_entry.field_hashes = hash_fields_with_map(model_type, text)
+    doc_entry.provenance = index_block(text)
 
 
 def save_document_indexes(sp: Path, root: Path, idx: StoreIndex, m_idx: ModelsIndex, m_entry: ModelEntry, doc_entry: DocumentEntry, pythonpath: str | None, model_type: type | None = None) -> None:

@@ -40,6 +40,15 @@ def strip_block(text: str) -> str:
     return f"---\n{body}\n---\n{rest}" if body.strip() else rest.lstrip("\n")
 
 
+def index_block(text: str) -> dict[str, Any] | None:
+    """What a document entry records of the block: its normalized mapping, or None when the
+    document carries none (the defaults are not written into an index)."""
+    from sldb.models.provenance import Provenance
+
+    block = read_block(text)
+    return Provenance.from_block(block).as_block() if block is not None else None
+
+
 def attach_block(text: str, block: dict[str, Any]) -> str:
     """`text` with `block` under the `sldb` key, first in its frontmatter (created if absent)."""
     bare = strip_block(text)

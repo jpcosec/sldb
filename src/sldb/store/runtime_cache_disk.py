@@ -49,7 +49,7 @@ def from_disk(s_path: Path, s_name: str, m_name: str, entry: Any, leaf: tuple, m
     hit = entries(s_path).get(disk_key(leaf, m_name))
     if hit is None:
         return None
-    return RuntimeDocument(store_name=s_name, store_path=s_path, model_name=m_name, model_type=model_type, name=entry.name, path=entry.path, payload=hit["payload"], semantic_tags=list(entry.semantic_tags))
+    return RuntimeDocument(store_name=s_name, store_path=s_path, model_name=m_name, model_type=model_type, name=entry.name, path=entry.path, payload=hit["payload"], semantic_tags=list(entry.semantic_tags), provenance=getattr(entry, "provenance", None))
 
 
 def flush(s_path: Path, docs: dict[tuple, Any]) -> None:

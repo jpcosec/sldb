@@ -1,3 +1,5 @@
+from typing import Any
+
 from pydantic import AliasChoices, BaseModel, ConfigDict, Field
 
 
@@ -14,6 +16,9 @@ class DocumentEntry(BaseModel):
     # to compare against falls back to the whole document.
     field_hashes: dict[str, str] = Field(default_factory=dict)
     semantic_tags: list[str] = Field(default_factory=list)
+    # The document's `sldb` block (by, at, via, authority, from) as last indexed; None when the
+    # document carries none, which readers take as agent / 0 / generated (docs/architecture/provenance.md).
+    provenance: dict[str, Any] | None = None
 
     @property
     def hash_c(self) -> str:

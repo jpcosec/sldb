@@ -20,7 +20,8 @@ class RecordFilters:
 
     def _match_doc(self, record: SearchRecord, expression: str) -> bool:
         name = record.doc_name or record.name
-        doc = RuntimeDocProxy(record.payload, name, record.model_type or self._model_proxy(record))
+        payload = {**record.payload, "sldb": record.provenance or {}}  # `sldb.<key>`: the provenance block, addressable like a field
+        doc = RuntimeDocProxy(payload, name, record.model_type or self._model_proxy(record))
         return _core_where_matches(doc, expression, self._resolve_model_ref, self.pythonpath) # type: ignore[arg-type]
 
     def _match_field(self, record: SearchRecord, expression: str) -> bool:

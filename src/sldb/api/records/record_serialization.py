@@ -16,6 +16,7 @@ def serialize_record(record: SearchRecord) -> dict[str, Any]:
     data = record.as_dict()
     if record.kind == "doc":
         data["semantic_tags"] = list(record.semantic)
+        data["provenance"] = record.provenance
     return data
 
 

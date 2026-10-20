@@ -68,6 +68,7 @@ def _add_doc_record(doc, records):
         physical=[doc.name, doc.path, f"{doc.model_name}/{doc.name}"],
         semantic=list(doc.semantic_tags), payload=doc.payload,
         model_name=doc.model_name, doc_name=doc.name, path=doc.path, model_type=doc.model_type,
+        provenance=getattr(doc, "provenance", None),
     ))
 
 def _process_doc_details(doc, model_sections, records):

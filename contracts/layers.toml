@@ -501,7 +501,7 @@ superficies derivadas y Markdown es la única autorada por diseño.
 id = "nucleo"
 axes = ["superficie", "representacion", "render", "contrato", "runtime", "identidad_y_hash", "errores"]
 needs = 3
-needed_by = 30
+needed_by = 31
 indivisible = false
 why = """
 Los cinco ejes de identidad forman un nudo de 11 aristas internas. Lo declaré
@@ -586,7 +586,7 @@ why = "nadie depende de él; puerto Embedder sin dependencia vectorial propia"
 [[non_unit]]
 id = "operacion"
 axes = ["op_almacen", "op_documentos", "op_modelos", "op_aristas"]
-needs = 41
+needs = 42
 needed_by = 8
 verdict = "fachada"
 why = """

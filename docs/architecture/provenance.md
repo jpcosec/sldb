@@ -102,8 +102,8 @@ Dos formas de llevarlo; se propone la segunda:
    - hashes: el bloque está en el texto, así que **mueve `source_hash`** (como cualquier
      escritura) y **no mueve `content_hash`**: un sello es un cambio de texto, no de datos.
      El contrato de los modelos no cambia; ningún store necesita `stores update` por esto.
-   - índice: `DocumentEntry` gana `by`, `at` y `authority` (aditivo, `None` en stores viejos)
-     para que `find --where`, el export semántico y el grafo los vean sin abrir el archivo.
+   - índice: `DocumentEntry` gana `provenance` (el bloque; aditivo, `None` en stores viejos)
+     para que `find --where`, el export semántico y el grafo lo vean sin abrir el archivo.
 
 Quién firma `by`: `--actor` (hoy solo en `sldb semantic`) pasa a ser un flag global, con
 `SLDB_ACTOR` como variante de entorno; sin ninguno, `agent`. `via` es el comando que
@@ -154,7 +154,11 @@ solo de los errores. Lo que cambia es de dónde sale el nivel.
    y `SLDB_ACTOR` (`src/sldb/api/actor.py`). De paso: el índice de secciones parseaba sin el
    plugin de frontmatter y leía la última línea de un frontmatter como heading setext
    (`src/sldb/store/section_rebuild.py`). Tests en `tests/api/test_provenance.py`.
-2. `DocumentEntry` con `by`/`at`/`authority`; `find --where` y export los exponen.
+2. **Hecha.** `DocumentEntry.provenance` guarda el bloque como se indexó (`None` sin bloque),
+   escrito al trackear, guardar, reindexar y en `stores update`; `RuntimeDocument`, `find`
+   (`--where 'sldb.authority = "source_raw"'`: el `--where` ahora acepta rutas con punto,
+   `src/sldb/store/query_engine/where_lookup.py`) y el export semántico lo exponen. Tests en
+   `tests/api/test_provenance_index.py`.
 3. `docs history` sobre git.
 4. La política de la sección 5 con sus defaults, y la salida de error/alerta ya escrita
    (tipo `Finding`, emisor único, `warnings` del envelope) conectada a ella. Avisar por inbox

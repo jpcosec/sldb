@@ -6,6 +6,7 @@ from pathlib import Path
 from sldb.api.model_registry.model_lineage import model_base_names, model_family
 from sldb.api.model_registry.model_reference import resolve_model_ref
 from sldb.store import documents_hash
+from sldb.models.provenance_block import index_block
 from sldb.store.hashing import hash_documents_index, hash_fields_with_map, hash_text
 from sldb.store.model_node import stamp_model_node
 from sldb.store.io import save_documents_index, save_models_index, store_lock
@@ -58,6 +59,7 @@ def rehash_documents(root: Path, d_idx: DocumentsIndex, model_type: type) -> Non
     for doc in d_idx.documents:
         text = (root / doc.path).read_text(encoding="utf-8")
         doc.hash_c = hash_text(text)
+        doc.provenance = index_block(text)
         try:
             doc.hash_d, doc.field_hashes = hash_fields_with_map(model_type, text)
         except Exception:

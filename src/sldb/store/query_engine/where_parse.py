@@ -12,6 +12,7 @@ from typing import Any, Callable
 
 from sldb.store.exceptions import SLDBError
 from sldb.store.query_engine.where_literal import LITERAL as _LITERAL
+from sldb.store.query_engine.where_lookup import _ABSENT, _lookup
 from sldb.store.query_engine.where_literal import LITERAL_NONEMPTY as _LITERAL_NONEMPTY
 from sldb.store.query_engine.where_literal import split_outside_literals
 from sldb.store.query_engine.where_literal import unquote as _unquote
@@ -57,7 +58,7 @@ def _build_nonempty(m: re.Match) -> Predicate:
     field = m.group(1)
 
     def check(doc: Any, resolve_model_ref: Any, pythonpath: Any) -> bool:
-        value = doc.payload.get(field)
+        value = _lookup(doc.payload, field)
         return value is not None and not (isinstance(value, (str, list, dict, tuple, set)) and len(value) == 0)
 
     return check
@@ -67,7 +68,7 @@ def _build_contains(m: re.Match) -> Predicate:
     needle, field = _unquote(m.group(1)), m.group(2)
 
     def check(doc: Any, resolve_model_ref: Any, pythonpath: Any) -> bool:
-        value = doc.payload.get(field)
+        value = _lookup(doc.payload, field)
         return needle in value if isinstance(value, (list, str)) else False
 
     return check
@@ -77,7 +78,7 @@ def _build_regex(m: re.Match) -> Predicate:
     field, pattern = m.group(1), _unquote(m.group(2))
 
     def check(doc: Any, resolve_model_ref: Any, pythonpath: Any) -> bool:
-        target = doc.name if field == "doc" else str(doc.payload.get(field, ""))
+        target = doc.name if field == "doc" else str(_lookup(doc.payload, field, ""))
         return re.search(pattern, target) is not None
 
     return check
@@ -99,9 +100,9 @@ def _build_compare(m: re.Match) -> Predicate:
     expected: Any = _unquote(raw) if raw.startswith('"') else float(raw)
 
     def check(doc: Any, resolve_model_ref: Any, pythonpath: Any) -> bool:
-        if raw.startswith('"') and field not in doc.payload:
+        if raw.startswith('"') and _lookup(doc.payload, field, _ABSENT) is _ABSENT:
             return False  # an absent field matches neither "=" nor "!=" (string literals)
-        return _apply_op(doc.payload.get(field), op, expected)
+        return _apply_op(_lookup(doc.payload, field), op, expected)
 
     return check
 
@@ -119,11 +120,11 @@ def _apply_op(value: Any, op: str, expected: Any) -> bool:
 _EVALUATORS = [
     (re.compile(r"has\(([^)]+)\)"), _build_has),
     (re.compile(r"nonempty\(([^)]+)\)"), _build_nonempty),
-    (re.compile(_LITERAL_NONEMPTY + r"\s+in\s+([A-Za-z_][\w]*)"), _build_contains),
-    (re.compile(r'([A-Za-z_][\w]*)\s*~\s*' + _LITERAL_NONEMPTY), _build_regex),
-    (re.compile(r"model\s*<=\s*([A-Za-z_][\w]*)"), _build_model),
+    (re.compile(_LITERAL_NONEMPTY + r"\s+in\s+([A-Za-z_][\w.]*)"), _build_contains),
+    (re.compile(r'([A-Za-z_][\w.]*)\s*~\s*' + _LITERAL_NONEMPTY), _build_regex),
+    (re.compile(r"model\s*<=\s*([A-Za-z_][\w.]*)"), _build_model),
     (
-        re.compile(r'([A-Za-z_][\w]*)\s*(=|!=|>=|<=)\s*(' + _LITERAL + r'|-?\d+(?:\.\d+)?)'),
+        re.compile(r'([A-Za-z_][\w.]*)\s*(=|!=|>=|<=)\s*(' + _LITERAL + r'|-?\d+(?:\.\d+)?)'),
         _build_compare,
     ),
 ]

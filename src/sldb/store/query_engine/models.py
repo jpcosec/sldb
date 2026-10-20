@@ -26,3 +26,5 @@ class RuntimeDocument:
     # "no fields": a per-field consumer with nothing to compare against indexes the whole
     # document instead of concluding nothing moved.
     field_hashes: dict[str, str] = field(default_factory=dict)
+    # The `sldb` block as indexed; None when the document carries none (docs/architecture/provenance.md).
+    provenance: dict[str, Any] | None = None

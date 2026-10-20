@@ -14,8 +14,8 @@ def _model_proxy(record: SearchRecord) -> type:
     return _Proxy
 
 def _where_matches_doc(record: SearchRecord, expression: str, pythonpath: str | None) -> bool:
-    runtime_doc = _RuntimeDocProxy(
-        payload=record.payload, name=record.doc_name or record.name, model_type=_model_proxy(record)
+    runtime_doc = _RuntimeDocProxy(  # `sldb.<key>`: the provenance block is addressable like a field
+        payload={**record.payload, "sldb": record.provenance or {}}, name=record.doc_name or record.name, model_type=_model_proxy(record)
     )
     return core_where_matches(runtime_doc, expression, resolve_model_ref, pythonpath) # type: ignore[arg-type]
 
