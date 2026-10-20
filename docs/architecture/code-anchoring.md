@@ -1,7 +1,8 @@
 # Anclaje a código
 
 Estado (2026-10-20): implementado (etapas b, c y d: escáner, modelo `CodeAnchorDoc`, `anchors
-record` y `anchors check [--record]`); queda la etapa e, el aviso a deskops. La definición, las vías y
+record` y `anchors check [--record]`); deskops avisado por inbox de cómo declarar anchors desde
+atoms, tasks y docs (etapa e). La definición, las vías y
 las reglas del dueño están en el documento de autoridad, [anchoring.md](anchoring.md); este
 documento las implementa y no las rediscute.
 
