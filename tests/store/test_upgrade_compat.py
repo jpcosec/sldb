@@ -94,7 +94,7 @@ def test_a_legacy_hash_does_not_excuse_a_class_that_changed(store, tmp_path):
     _seal_with_legacy_contract(store, str(tmp_path))
     _write_module(tmp_path, _NOTE_WITH_STATUS)
     diagnosis = _diagnose(store, str(tmp_path))
-    assert not diagnosis.is_valid
+    assert diagnosis.is_valid, "a moved contract is an alert"
     assert not diagnosis.models[0].contract_ok and not diagnosis.models[0].legacy_contract
 
 

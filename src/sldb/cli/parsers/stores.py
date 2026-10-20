@@ -30,6 +30,7 @@ def _check(s):
     c.add_argument("--store", help="Store path")
     c.add_argument("--format", choices=("text", "json", "yaml"), default="text")
     c.add_argument("--quiet", action="store_true", help="Only the PASS/FAIL line, without per-document findings")
+    c.add_argument("--apply", action="store_true", help="Run what the store's policy answers to each finding: `reindex` and `hook: <command>`")
     c.add_argument("--pythonpath", help="Project path")
 
 def _update(s):

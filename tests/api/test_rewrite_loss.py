@@ -66,4 +66,4 @@ def test_stores_check_names_the_document_and_the_block(store, capsys):
     (root / "n.md").write_text("# n\n\nAdded by hand.\n\n## What\n\nW.\n", encoding="utf-8")
     assert api.check_store(sp, root, py)["rewrite_loss"] == [{"document": "n", "model": "Note", "path": "n.md", "lost": ["Added by hand."]}]
     main(["stores", "check", "--store", str(sp), "--pythonpath", py])
-    assert "perderían contenido al reescribirse" in capsys.readouterr().out
+    assert "would be lost on a rewrite" in capsys.readouterr().out

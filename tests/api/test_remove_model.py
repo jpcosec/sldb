@@ -91,7 +91,10 @@ def _gone_with_a_document(store) -> tuple[Path, str]:
 def test_untracking_works_while_another_model_does_not_import(store):
     sp, py = _gone_with_a_document(store)
     api.untrack_document(sp, "kept", py)
-    assert diagnose_store(sp, api.resolve_model_ref, project_root(sp), py).is_valid
+    from sldb.api.stores.store_findings import diagnosis_findings
+
+    found = diagnosis_findings(diagnose_store(sp, api.resolve_model_ref, project_root(sp), py))
+    assert [(f.code, f.subject) for f in found] == [("store/model-unresolved", "GoneDoc")], "only the class that is gone"
 
 
 def test_a_model_is_removed_with_its_documents_when_asked(store):
@@ -132,8 +135,8 @@ def test_a_model_that_tracks_documents_is_refused(store):
 def test_stores_check_names_a_removable_model(store, capsys):
     sp, py = store
     _forget_the_class(py)
-    assert cli_main(["stores", "check", "--store", str(sp), "--pythonpath", py]) == 0
-    assert "sldb models remove <name>` unregisters one with no documents: GoneDoc" in capsys.readouterr().out
+    assert cli_main(["stores", "check", "--store", str(sp), "--pythonpath", py]) == 1
+    assert "`sldb models remove GoneDoc` unregisters it" in capsys.readouterr().out
     assert cli_main(["models", "remove", "GoneDoc", "--store", str(sp), "--pythonpath", py]) == 0
     assert capsys.readouterr().out.startswith("Removed model: GoneDoc")
     assert cli_main(["stores", "check", "--store", str(sp), "--pythonpath", py]) == 0

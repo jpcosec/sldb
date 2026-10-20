@@ -51,7 +51,7 @@ class SelfdocCLI:
         report = selfdoc_python.python_report(plans, graph, graph_output, store, root, output, args.system)
         if args.selfdoc_command == "python-sync" and not report.metadata_errors:
             report = self._write_python(args, records, (store, root, output, spec), plans, graph, graph_output)
-        print(json.dumps({"ok": report.ok, **report.model_dump()}, indent=2)); return report
+        _print_report(report); return report
 
     def _write_python(self, args, records, where, plans, graph, graph_output):
         """Write the documents and the graph, then report on what is on disk now (the plans made
@@ -82,5 +82,13 @@ class SelfdocCLI:
             plans = plan_documents(records, args.system, args.factory, output)
             report = inspect_documents(plans, store, root, output, args.system)
             report.written = written
-        print(json.dumps({"ok": report.ok, **report.model_dump()}, indent=2))
+        _print_report(report)
         return 0 if report.ok else 1
+
+def _print_report(report) -> None:
+    """The report as JSON, its alerts in it and by every other route (`sldb.cli.alert_sink`)."""
+    from sldb.cli import alert_sink
+    from sldb.selfdoc.report_findings import report_findings, report_payload
+
+    print(json.dumps(report_payload(report), indent=2))
+    alert_sink.report(report_findings(report), text=False)

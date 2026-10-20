@@ -127,18 +127,24 @@ policy:
   "*": {missing: error, model_unresolved: error, link_broken: error}
 ```
 
-Respuestas: `ignore`, `allow`, `reindex` (un `stores update` acotado a ese documento),
-`alert`, `error`, `hook: <comando>` (recibe el hallazgo en JSON; deskops puede mover una
-tarea o avisar por inbox). Defaults de sldb, sin declaración alguna:
+Respuestas: `ignore`, `allow`, `alert`, `error`, `reindex` y `hook: <comando>` (recibe el
+hallazgo en JSON por stdin; deskops puede mover una tarea o avisar por inbox). `stores check`
+solo lee: `reindex` y `hook` se reportan como alerta que nombra lo que correría, y
+**`sldb stores check --apply`** los ejecuta (un `stores update` del store, y cada hook una
+vez por hallazgo). La resolución está en `src/sldb/api/stores/policy.py` y la lectura de
+cada hallazgo en `src/sldb/api/stores/judge_findings.py`. Defaults de sldb, sin declaración
+alguna:
 
 - **error** solo lo roto: archivo trackeado ausente, modelo que no importa, store declarado
-  sin construir, enlace a nada, y las dos cruces de la sección 2 (humano sobre `generated`,
-  agente sobre `source_raw`).
+  sin construir, enlace a nada, y un `data_mutation` sobre un documento cuya autoridad
+  **declarada** (bloque o `__authority__` del modelo) es `source_raw` o `generated`: alguien
+  editó a mano lo que no muta o lo que un generador va a pisar. Una autoridad solo asumida
+  (sin bloque ni declaración) nunca convierte un movimiento en error.
 - **alerta** todo movimiento de fuente: contrato movido, raíz o roster atrasados,
   `data_mutation`, documento generado viejo, ancla cambiada, ruta citada ausente (`lost`).
-- **allow** el ruido estructural en modelos de cuerpo narrativo (un solo campo `body`) y en
-  `authored`; **alerta** en los demás. La escritura deja de rechazarlo cuando la política lo
-  permite: hoy `docs track` y `docs create` lo rechazan sin mirar el modelo.
+- **allow** el ruido estructural en modelos narrativos (su template no declara ningún heading
+  literal) y en `authored` declarado; **alerta** en los demás. `docs track` y `docs create`
+  lo rechazan solo cuando la política no lo permite.
 
 La salida no cambia respecto de lo ya diseñado: una alerta nunca es silenciosa (texto,
 `errors`/`alerts` en el JSON, `warnings` del envelope, `::warning` en CI) y el exit code sale
@@ -161,9 +167,13 @@ solo de los errores. Lo que cambia es de dónde sale el nivel.
    `tests/api/test_provenance_index.py`.
 3. **Hecha.** `docs history` (`src/sldb/api/documents/document_history.py`,
    `src/sldb/cli/commands/docs_history.py`). Tests en `tests/api/test_document_history.py`.
-4. La política de la sección 5 con sus defaults, y la salida de error/alerta ya escrita
-   (tipo `Finding`, emisor único, `warnings` del envelope) conectada a ella. Avisar por inbox
-   a deskops, spec2viz y graph_ui antes de subir, porque cambia `stores check`.
+4. **Hecha.** La política de la sección 5 y la salida de error/alerta: `Finding`
+   (`src/sldb/core/finding.py`), el emisor único (`src/sldb/cli/alert_sink.py`: texto,
+   `errors`/`alerts` en el JSON de `stores check`, `warnings` del envelope, `::warning` en
+   GitHub Actions), `lint` con la alerta `lost`, `selfdoc check`, `edges check` y
+   `stores build --check` con el exit atado solo a los errores, `/health` y `/lint` con el
+   mismo criterio, y `stores check` que falla sobre un store declarado sin construir. Tests
+   en `tests/api/test_policy.py` y `tests/store/test_alerts_never_silent.py`.
 5. El anclaje a código ([code-anchoring.md](code-anchoring.md)) encima: un ancla es un
    documento `theorem` con `from:` y sus fingerprints.
 

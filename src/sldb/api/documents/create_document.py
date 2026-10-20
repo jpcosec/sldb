@@ -45,16 +45,19 @@ def create_document(store: str | Path | None, model_name: str, path: str | Path,
     rendered = _render_roundtrip(registered.model_type, payload, location.project_root)
     doc_path = _resolve_path(path, location.project_root)
     doc_name = name or doc_path.stem
-    refuse_noise(registered.model_type, rendered, doc_name)
+    refuse_noise(registered.model_type, rendered, doc_name, location.store_path)
     doc_path.parent.mkdir(parents=True, exist_ok=True)
     doc_path.write_text(stamped(rendered + "\n", registered.model_type, "create_document", actor), encoding="utf-8")
     _track_and_record(location.store_path, location.project_root, registered, doc_path, doc_name, payload, pythonpath, actor)
     return DocumentReference(model=registered.entry.name, name=doc_name, path=doc_path)
 
 
-def refuse_noise(model_type: type, markdown: str, name: str) -> None:
-    """Refuse a document whose headings or frontmatter keys the model never declares."""
-    refuse_structural_noise(model_type, markdown, name)
+def refuse_noise(model_type: type, markdown: str, name: str, store_path: Path | None = None) -> None:
+    """Refuse a document whose headings (unless the store's policy allows them) or frontmatter
+    keys the model never declares."""
+    from sldb.api.stores.policy import Policy
+
+    refuse_structural_noise(model_type, markdown, name, Policy.of_store(store_path) if store_path else None)
     refuse_undeclared_frontmatter(model_type, markdown, name)
 
 

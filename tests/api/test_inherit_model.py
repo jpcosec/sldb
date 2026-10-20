@@ -110,7 +110,8 @@ def test_the_store_keeps_working_while_the_owner_is_away(stores, tmp_path):
     owner.rename(tmp_path / "moved-away")
     _forget_module(owner)
     report = check_store(sp, local)
-    assert report["valid"], "the roster and the contract it signed are the store's own"
+    assert {e["code"] for e in report["errors"]} == {"store/link-broken", "store/model-unresolved"}, "the owner's absence is named"
+    assert report["alerts"] == [], "the roster and the contract it signed are the store's own"
 
 
 def test_the_graph_shows_the_link_and_where_a_model_comes_from(stores):

@@ -31,8 +31,8 @@ def linked(tmp_path):
 def test_the_check_notes_a_link_to_nothing(linked, capsys):
     here, _owner = linked
     assert [li["name"] for li in check_store(here / ".sldb", here)["broken_links"]] == ["deskops"]
-    main(["stores", "check", "--store", str(here / ".sldb")])
-    assert "the store linked as 'deskops' is missing" in capsys.readouterr().out
+    assert main(["stores", "check", "--store", str(here / ".sldb")]) == 1, "a link to no store is an error"
+    assert "error: [store/link-broken] deskops: the linked store is missing" in capsys.readouterr().out
 
 
 def test_replace_points_the_link_elsewhere(linked):

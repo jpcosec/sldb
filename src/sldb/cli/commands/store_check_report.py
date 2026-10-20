@@ -10,20 +10,24 @@ inferred from a hash.
 
 from __future__ import annotations
 from typing import Any
-from sldb.cli.commands.store_check_notes import print_link_notes, print_notes, print_shadowed  # noqa: F401 - re-exported
 from sldb.store.diagnostics_models import DiagnosisNote
 
 
 def print_report(res: Any) -> None:
-    """The verdict, then every finding that produced it, then what to do."""
-    print(res.summary())
-    print_notes(res)
-    if res.is_valid:
+    """Every hash finding in detail, then what to do; the verdict line and the one-line
+    findings are `stores check`'s. Shown whenever something moved, not only on an error."""
+    if not _moved(res):
         return
     _print_root(res)
     for model in res.models:
         _print_model(model)
     _print_next_step(res)
+
+
+def _moved(res: Any) -> bool:
+    """Whether a hash finding is an alert or an error: a reformatted document alone is counted, not detailed."""
+    quiet = (DiagnosisNote.OK, DiagnosisNote.BENIGN_MUTATION)
+    return not res.root_ok or any(not (m.roster_ok and m.contract_ok) or any(d.note not in quiet for d in m.documents) for m in res.models)
 
 
 def _print_root(res: Any) -> None:

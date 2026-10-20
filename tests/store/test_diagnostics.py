@@ -63,20 +63,27 @@ def test_benign_text_mutation(tmp_path):
     assert result.is_valid
 
 
-def test_data_mutation_is_invalid(tmp_path):
+def test_data_mutation_is_an_alert_not_an_invalid_store(tmp_path):
+    """The source moved against the index: valid, to be looked at (anchoring.md §4)."""
+    from sldb.api.stores.store_findings import diagnosis_findings
+
     _make_store(tmp_path)
     (tmp_path / "doc.md").write_text("# Different Title\n", encoding="utf-8")
     result = diagnose_store(tmp_path / ".sldb", resolve_model_ref, tmp_path, pythonpath=_PYTHONPATH)
     assert result.models[0].documents[0].note == DiagnosisNote.DATA_MUTATION
-    assert not result.is_valid
+    assert result.is_valid
+    assert [(f.level, f.code) for f in diagnosis_findings(result)] == [("alert", "store/data-mutation")]
 
 
 def test_missing_document(tmp_path):
+    from sldb.api.stores.store_findings import diagnosis_findings
+
     _make_store(tmp_path)
     (tmp_path / "doc.md").unlink()
     result = diagnose_store(tmp_path / ".sldb", resolve_model_ref, tmp_path, pythonpath=_PYTHONPATH)
     assert result.models[0].documents[0].note == DiagnosisNote.MISSING
     assert not result.is_valid
+    assert ("error", "store/missing") in [(f.level, f.code) for f in diagnosis_findings(result)]
 
 
 def test_tampered_hash_b(tmp_path):
@@ -88,7 +95,7 @@ def test_tampered_hash_b(tmp_path):
     save_models_index(tmp_path / entry.models_index, models_idx)
     result = diagnose_store(tmp_path / ".sldb", resolve_model_ref, tmp_path, pythonpath=_PYTHONPATH)
     assert not result.models[0].hash_b_ok
-    assert not result.is_valid
+    assert result.is_valid, "a stale roster is an alert, not an invalid store"
 
 
 # ── semantic names: what each hash signs ─────────────────────────────────────
@@ -180,7 +187,7 @@ def test_roster_failure_over_absent_documents_names_no_damaged_document(tmp_path
     assert model.roster_only_failure, "so the failure is roster-only"
     assert res.damaged_documents == [], "and it must not be reported as damage"
     assert model in res.roster_only_models
-    assert not res.is_valid, "classifying a failure is not tolerating it"
+    assert res.is_valid, "a stale roster is an alert: classified, reported, and not an error"
     assert "0 documents" in model.explain()
 
 
@@ -224,9 +231,10 @@ def test_report_names_the_damaged_document_and_its_fix(tmp_path, capsys):
     (tmp_path / "doc.md").write_text("# Different Title\n", encoding="utf-8")
     rc, out = _check_output(tmp_path, capsys)
 
-    assert rc == 1
-    assert "FAIL: store integrity" in out
+    assert rc == 0, "a changed field is an alert"
+    assert "PASS: store integrity" in out
     assert "1 damaged" in out
+    assert "alert: [store/data-mutation] CheckDoc:doc" in out
     assert "data_mutation: doc" in out, "the document is named, not just counted"
     assert "doc.md" in out, "and so is its path"
     assert "stores update" in out, "the fix is stated in the message"
@@ -255,9 +263,10 @@ def test_report_explains_a_roster_only_failure_without_blaming_a_document(tmp_pa
     save_models_index(tmp_path / store_index.models[0].models_index, models_idx)
     rc, out = _check_output(tmp_path, capsys)
 
-    assert rc == 1
+    assert rc == 0
     assert "roster" in out
     assert "roster-only" in out
+    assert "alert: [store/roster-stale] CheckDoc" in out
     # the legend at the bottom defines every category; the findings above it must
     # not accuse any document
     findings = out.split("what the categories mean:")[0]
@@ -265,13 +274,15 @@ def test_report_explains_a_roster_only_failure_without_blaming_a_document(tmp_pa
     assert "all 1 documents present are clean" in findings
 
 
-def test_quiet_keeps_the_old_one_line_output(tmp_path, capsys):
+def test_quiet_keeps_the_verdict_line_and_never_hides_an_alert(tmp_path, capsys):
     _make_store(tmp_path)
     (tmp_path / "doc.md").write_text("# Different Title\n", encoding="utf-8")
     rc, out = _check_output(tmp_path, capsys, "--quiet")
 
-    assert rc == 1
-    assert out.strip() == "FAIL: store integrity", "scripts pinned to the old output keep working"
+    assert rc == 0
+    lines = out.strip().splitlines()
+    assert lines[0] == "PASS: store integrity", "scripts pinned to the first line keep working"
+    assert any(line.startswith("alert: [store/data-mutation]") for line in lines[1:])
 
 
 def test_json_carries_both_letter_and_semantic_keys(tmp_path, capsys):

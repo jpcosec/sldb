@@ -38,7 +38,8 @@ def test_parser_drift_preserves_authored_explanations_and_examples(project, invo
     importlib.import_module("selfdoc_test_factory").DEFAULT = 7
     before = snapshot(project)
     code, report = invoke("check")
-    assert code == 1 and "knowledge/commands/cmd-widget-run.md" in report["changed"]
+    assert code == 0 and "knowledge/commands/cmd-widget-run.md" in report["changed"], "stale fields are an alert"
+    assert "selfdoc/changed" in [a["code"] for a in report["alerts"]] and report["ok"]
     assert snapshot(project) == before
     assert invoke("sync")[0] == 0
     updated = extract_model_data(CliCommandDoc, path.read_text())
@@ -52,8 +53,9 @@ def test_removed_commands_are_reported_and_retained(project, invoke):
     assert invoke("sync")[0] == 0
     importlib.import_module("selfdoc_test_factory").REMOVED = True
     code, report = invoke("sync")
-    assert code == 1
+    assert code == 0, "a removed command is an alert, listed and retained"
     assert len(report["removed"]) == 2
+    assert [a["code"] for a in report["alerts"]].count("selfdoc/removed") == 2
     assert (project / "knowledge/commands/cmd-widget-run.md").exists()
 
 

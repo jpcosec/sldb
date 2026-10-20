@@ -39,7 +39,8 @@ def world(base: Path, module: str, semantics: str, field: str = "title") -> tupl
     root.mkdir()
     store = api.init_store(root).store_path
     api.add_model(store, f"{module}:Spec", str(base))
-    api.create_document(store, "Spec", root / "d.md", {field: "D"}, "d", str(base))
+    (root / "d.md").write_text("# D\n", encoding="utf-8")  # by hand: a created document carries a timestamped block
+    api.track_document_file(store, "Spec", root / "d.md", "d", str(base))
     return store, root
 
 

@@ -146,7 +146,7 @@ def test_store_check_clean_passes(tmp_path, capsys):
     assert "PASS" in capsys.readouterr().out
 
 
-def test_store_check_data_mutation_fails(tmp_path, capsys):
+def test_store_check_data_mutation_is_an_alert(tmp_path, capsys):
     _init(tmp_path)
     _model_add(tmp_path)
     doc = tmp_path / "book.md"
@@ -155,16 +155,14 @@ def test_store_check_data_mutation_fails(tmp_path, capsys):
     doc.write_text("# Changed Title\n", encoding="utf-8")
     capsys.readouterr()
     rc = cli_main(["stores", "check"] + _STORE_ARGS(tmp_path) + _PY_ARGS)
-    assert rc == 1
-    assert "FAIL" in capsys.readouterr().out
+    out = capsys.readouterr().out
+    assert rc == 0
+    assert "PASS" in out and "alert: [store/data-mutation]" in out
 
 
 def test_store_check_json_format(tmp_path, capsys):
-    """Deliberately produces an invalid store (data mutation after tracking,
-    the same pattern as test_store_check_data_mutation_fails) rather than
-    relying on a fresh _model_add() with zero documents to be invalid --
-    that used to be true only because of a hash_b registration bug, now
-    fixed; a freshly registered model with no documents is a valid store."""
+    """A changed field is an alert in `alerts`, a tracked file gone an error in `errors`;
+    `valid` is "no error" and the exit follows it."""
     _init(tmp_path)
     _model_add(tmp_path)
     doc = tmp_path / "book.md"
@@ -172,14 +170,15 @@ def test_store_check_json_format(tmp_path, capsys):
     _doc_track(tmp_path, doc)
     doc.write_text("# Changed Title\n", encoding="utf-8")
     capsys.readouterr()
-    with pytest.raises(SystemExit) as exc:
-        cli_main(
-            ["stores", "check", "--format", "json"] + _STORE_ARGS(tmp_path) + _PY_ARGS
-        )
-    assert exc.value.code == 1
+    assert cli_main(["stores", "check", "--format", "json"] + _STORE_ARGS(tmp_path) + _PY_ARGS) == 0
     data = json.loads(capsys.readouterr().out)
     assert "valid" in data and "models" in data
-    assert data["valid"] is False
+    assert data["valid"] is True and data["errors"] == []
+    assert [a["code"] for a in data["alerts"]] == ["store/data-mutation"]
+    doc.unlink()
+    assert cli_main(["stores", "check", "--format", "json"] + _STORE_ARGS(tmp_path) + _PY_ARGS) == 1
+    data = json.loads(capsys.readouterr().out)
+    assert data["valid"] is False and [e["code"] for e in data["errors"]] == ["store/missing"]
 
 
 # ── store update ──────────────────────────────────────────────────────────────

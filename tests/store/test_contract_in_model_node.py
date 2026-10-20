@@ -132,7 +132,8 @@ def test_a_moved_contract_is_reported_as_its_own_category(contract_store, tmp_pa
     accuse the document, whose text is exactly what it was."""
     _write_module(tmp_path, _TWO_FIELDS)
     report = check_store(contract_store.store, project_root(contract_store.store), contract_store.pythonpath)
-    assert not report["valid"]
+    assert report["valid"], "a moved contract is an alert, not an error"
+    assert "store/contract-moved" in [a["code"] for a in report["alerts"]]
     assert report["damaged"] == [], "the document's text never moved"
     from sldb.store.diagnostics import diagnose_store
     diagnosis = diagnose_store(contract_store.store, resolve_model_ref, project_root(contract_store.store), pythonpath=contract_store.pythonpath)
@@ -194,10 +195,10 @@ def test_health_names_what_to_look_at_and_what_to_run(contract_store, tmp_path):
     root = project_root(contract_store.store)
     assert health_payload(contract_store.store, root, contract_store.pythonpath)["status"] == "ok"
     _write_module(tmp_path, _TWO_FIELDS)
-    degraded = health_payload(contract_store.store, root, contract_store.pythonpath)
-    assert degraded["status"] == "degraded"
-    assert degraded["findings"] == [{"kind": "contract_moved", "subject": "NoteDoc", "needs_decision": False}]
-    assert degraded["action"] == "run: sldb stores update"
+    moved = health_payload(contract_store.store, root, contract_store.pythonpath)
+    assert moved["status"] == "ok", "a moved contract is an alert: listed, not degrading"
+    assert [(f["kind"], f["level"], f["subject"], f["needs_decision"]) for f in moved["findings"]] == [("store/contract-moved", "alert", "NoteDoc", False), ("store/contract-mutation", "alert", "NoteDoc:note", False)]
+    assert moved["action"] == "run: sldb stores update"
 
 
 def test_health_demands_a_human_when_a_field_was_edited(contract_store, tmp_path):
@@ -207,7 +208,7 @@ def test_health_demands_a_human_when_a_field_was_edited(contract_store, tmp_path
 
     (contract_store.root / "note.md").write_text("# Edited By Hand\n", encoding="utf-8")
     report = health_payload(contract_store.store, project_root(contract_store.store), contract_store.pythonpath)
-    assert report["status"] == "degraded"
+    assert report["status"] == "ok"
     assert report["action"].startswith("inspect:")
     assert any(f["needs_decision"] for f in report["findings"])
 
@@ -256,7 +257,7 @@ def test_update_restamps_the_roster_of_a_model_that_does_not_import(contract_sto
 
     assert report.skipped_models == ["NoteDoc"], "its documents still could not be rehashed"
     after = check_store(contract_store.store, contract_store.root, contract_store.pythonpath)
-    assert after["roster_only"] == [] and after["valid"]
+    assert after["roster_only"] == [] and [e["code"] for e in after["errors"]] == ["store/model-unresolved"]
     m_idx = _model_index(contract_store)
     assert m_idx.contract_hash == contract, "an unimportable class keeps the contract it signed"
     assert m_idx.model_hash == hash_model_layer(m_idx.roster_hash, contract)

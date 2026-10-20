@@ -13,7 +13,7 @@ Un solo valor JSON en stdout por corrida:
 {"ok": true, "command": "stores list", "store": {"path": "/repo/.sldb"},
  "revision": "<store_hash>", "data": {...}, "warnings": []}
 {"ok": false, "command": "docs show", "store": {...}, "revision": "...",
- "error": {"type": "docs/missing", "message": "Unknown document target: x"}, "exit": 1}
+ "error": {"type": "docs/missing", "message": "Unknown document target: x"}, "exit": 1, "warnings": []}
 ```
 
 - `data` es el JSON que imprimió el comando (pasar `--format json` donde el comando lo tiene); si
@@ -21,6 +21,10 @@ Un solo valor JSON en stdout por corrida:
 - `store` y `revision` (el `store_hash`) son los del store contra el que corrió, o `null`.
 - `command` es el grupo y el subcomando.
 - Un exit distinto de 0 siempre va con `ok: false` y repite `exit` en el envelope.
+- `warnings` trae las alertas que el comando reportó (cada una `{level, code, subject, what,
+  fix, document}`), con `ok: true` y con `ok: false` por igual: una alerta nunca es
+  silenciosa ([architecture/provenance.md, sección 5](architecture/provenance.md)). Una
+  alerta sola no cambia el exit; solo los errores lo hacen.
 
 ## Códigos de salida
 

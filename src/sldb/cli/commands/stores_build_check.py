@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import contextlib
 import io
+import json
 import shutil
 import subprocess
 import tempfile
@@ -21,6 +22,7 @@ from typing import Any
 from sldb.api.stores.declared_includes import tracked_rows
 from sldb.api.stores.store_declaration import declared_store, load_declaration
 from sldb.cli.output_format import emit
+from sldb.core.finding import Finding, alert, error
 from sldb.store.io import invalidate_index_cache
 from sldb.store.layout import store_exists
 
@@ -32,6 +34,7 @@ def check_command(args: Any) -> int:
     with tempfile.TemporaryDirectory(prefix="sldb-build-check-") as scratch:
         report = check_build(store, root, Path(scratch))
     emit(report, args.format, _summary(report))
+    _report_alerts(report, args.format)
     return 0 if report["ok"] else 1
 
 
@@ -42,10 +45,21 @@ def check_build(store: Path, root: Path, scratch: Path) -> dict[str, Any]:
     copy = _prepared_copy(store, root, scratch.joinpath(*root.resolve().parts[1:]))
     built_store = copy / store.relative_to(root)
     built = build_store(built_store, copy)
-    integrity = _integrity(built_store)
+    integrity, checked = _integrity(built_store)
     differences = _differences(store, root, built_store, copy, tuple(load_declaration(store).derived)) if store_exists(store) else []
-    ok = integrity == 0 and not built["undeclared"] and not built["missing"] and not differences
-    return {"ok": ok, "integrity_exit": integrity, "undeclared": built["undeclared"], "missing": built["missing"], "differences": differences}
+    alerts = [{**a, "subject": f"copy: {a['subject']}"} for a in checked.get("alerts", [])] + [_behind(d) for d in differences if d.startswith("only rebuilt")]
+    ok = integrity == 0 and not built["undeclared"] and not built["missing"] and not any(d.startswith("only local") for d in differences)
+    return {"ok": ok, "integrity_exit": integrity, "undeclared": built["undeclared"], "missing": built["missing"], "differences": differences, "errors": checked.get("errors", []), "alerts": alerts}
+
+
+def _behind(difference: str) -> dict:
+    return alert("build/local-behind", difference.removeprefix("only rebuilt: "), "the sources rebuild it and the local store does not track it", "sldb stores build").as_dict()
+
+
+def _report_alerts(report: dict, fmt: str) -> None:
+    from sldb.cli import alert_sink
+
+    alert_sink.report([Finding(**a) for a in report["alerts"]], text=fmt not in ("json", "yaml"))
 
 
 def _prepared_copy(store: Path, root: Path, copy: Path) -> Path:
@@ -56,11 +70,17 @@ def _prepared_copy(store: Path, root: Path, copy: Path) -> Path:
     return copy
 
 
-def _integrity(store: Path) -> int:
+def _integrity(store: Path) -> tuple[int, dict]:
+    """The copy's `stores check`: its exit, and its JSON (errors and alerts) kept, not dropped."""
     from sldb.cli.main import main
 
-    with contextlib.redirect_stdout(io.StringIO()):
-        return main(["stores", "check", "--store", str(store), "--quiet"])
+    out = io.StringIO()
+    with contextlib.redirect_stdout(out), contextlib.redirect_stderr(io.StringIO()):
+        code = main(["stores", "check", "--store", str(store), "--format", "json"])
+    try:
+        return code, json.loads(out.getvalue())
+    except ValueError:
+        return code, {"errors": [error("build/check", str(store), out.getvalue().strip()[-500:]).as_dict()]}
 
 
 def _copy_sources(root: Path, copy: Path, store: Path, derived: tuple[str, ...]) -> Path:
@@ -93,7 +113,7 @@ def _differences(store: Path, root: Path, built_store: Path, copy: Path, generat
 
 def _summary(report: dict[str, Any]) -> str:
     head = "PASS: the sources rebuild the store" if report["ok"] else "FAIL: the sources do not rebuild the store"
-    lines = [head, f"  stores check exit: {report['integrity_exit']}"]
+    lines = [head, f"  stores check exit: {report['integrity_exit']}"] + [f"  error: [{e['code']}] {e['subject']}: {e['what']}" for e in report["errors"]]
     lines += [f"  undeclared: {p}" for p in report["undeclared"]] + [f"  declared, no file: {p}" for p in report["missing"]]
     lines += [f"  {d}" for d in report["differences"][:50]]
     return "\n".join(lines)

@@ -38,6 +38,13 @@ class Provenance(BaseModel):
         return block
 
     @classmethod
+    def of_model(cls, model_type: type) -> tuple[str, bool]:
+        """`(authority, declared)` of a model class: its `__authority__`, and whether some class
+        of its own (not the base) set it."""
+        declared = any("__authority__" in vars(c) for c in model_type.__mro__ if c.__name__ != "StructuredNLDoc")
+        return getattr(model_type, "__authority__", None) or "generated", declared
+
+    @classmethod
     def from_block(cls, block: dict[str, Any] | None) -> Provenance:
         """A block as read, or the defaults when there is none (or it is not a mapping)."""
         if not isinstance(block, dict):

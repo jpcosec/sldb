@@ -52,7 +52,7 @@ def test_a_dropped_field_is_a_contract_move_that_update_fixes(tmp_path):
     _reload(models, _WITHOUT)
     create_document(sp, "NoteDoc", root / "new.md", {"title": "New"}, "new", str(models))  # re-stamps the contract
     diagnosis = diagnose_store(sp, resolve_model_ref, project_root(sp), str(models))
-    assert not diagnosis.is_valid and [m.name for m in diagnosis.moved_contracts] == ["NoteDoc"]
+    assert diagnosis.is_valid and [m.name for m in diagnosis.moved_contracts] == ["NoteDoc"], "a moved contract is an alert"
     assert not diagnosis.damaged_documents
     update_store_indexes(sp, str(models))
     assert diagnose_store(sp, resolve_model_ref, project_root(sp), str(models)).is_valid

@@ -23,13 +23,15 @@ class DocumentationReport(BaseModel):
     ---
     Report drift between parser-derived plans, files, and store tracking.
 
-    ``inspect_documents`` fills the findings and the CLI prints them as JSON;
-    ``ok`` controls CLI check/sync exit status, but the Python variants currently
-    return zero even when the JSON reports false. Removed documents are retained;
-    rename candidates are heuristic hints without a uniqueness guarantee.
-    ``ok`` means none of the checked freshness findings were populated. It ignores
-    ``semantic_gaps``, which counts authored placeholders, and does not establish
-    semantic completeness, docstring quality, or complete removal detection.
+    ``inspect_documents`` fills the findings and the CLI prints them as JSON, with
+    each one as an error or an alert (``sldb.selfdoc.report_findings``). ``ok``
+    controls the exit status of check, sync and their Python variants: it is false
+    only on an error (malformed metadata, a source graph missing or unreadable).
+    Stale or ungenerated documents, stale hashes and rename hints are alerts: the
+    source moved, the command exits 0, and the JSON lists them under ``alerts``.
+    Removed documents are retained; rename candidates are heuristic hints without a
+    uniqueness guarantee. ``ok`` ignores ``semantic_gaps``, which counts authored
+    placeholders, and does not establish semantic completeness or docstring quality.
     """
 
     documents: int = Field(default=0, description="Expected command and surface documents.")
@@ -40,7 +42,8 @@ class DocumentationReport(BaseModel):
     removed: list[str] = Field(default_factory=list, description="Retained documents absent from the parser.")
     renamed: list[dict[str, str]] = Field(default_factory=list, description="Unverified rename hints without a uniqueness guarantee.")
     semantic_gaps: int = Field(default=0, description="Symbols whose authored purpose or architecture remains undeclared.")
-    graph_stale: list[str] = Field(default_factory=list, description="Source graphs missing or stale against the scanned AST.")
+    graph_stale: list[str] = Field(default_factory=list, description="Source graphs stale against the scanned AST.")
+    graph_errors: list[str] = Field(default_factory=list, description="Source graphs missing or unreadable, as path (state).")
     undeclared: int = Field(default=0, description="Declarations (modules, classes, functions) whose docstring declares no metadata.")
     unexplained: list[str] = Field(default_factory=list, description="Declarations with metadata but no explanation in their docstring, as path:line.")
     unresolved_references: list[str] = Field(default_factory=list, description="Annotation references no import or definition resolves, as path:line: name.")
@@ -50,5 +53,5 @@ class DocumentationReport(BaseModel):
 
     @property
     def ok(self) -> bool:
-        """Whether all expected records and indexes are current."""
-        return not any((self.missing, self.changed, self.untracked, self.stale_indexes, self.removed, self.renamed, self.graph_stale, self.metadata_errors))
+        """Whether no error was found; alerts (stale documents, hashes, graph) do not count."""
+        return not (self.metadata_errors or self.graph_errors)

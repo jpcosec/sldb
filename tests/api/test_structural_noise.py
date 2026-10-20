@@ -191,7 +191,7 @@ def test_stores_check_prints_every_noisy_heading_not_just_a_count(noise_store, c
     path = noise_store.write("noisy", NOISY)
     track_document_file(noise_store.store, "NoteDoc", path, pythonpath=noise_store.pythonpath, force=True)
     capsys.readouterr()
-    cli_main(["stores", "check", "--store", str(noise_store.store), "--pythonpath", noise_store.pythonpath])
+    assert cli_main(["stores", "check", "--store", str(noise_store.store), "--pythonpath", noise_store.pythonpath]) == 0, "noise on a model with declared headings is an alert (policy default)"
     out = capsys.readouterr().out
-    assert "ruido estructural" in out and "noisy (NoteDoc)" in out
+    assert "alert: [store/structural-noise] NoteDoc:noisy" in out
     assert "## Entidades" in out and "## Medicion 1" in out

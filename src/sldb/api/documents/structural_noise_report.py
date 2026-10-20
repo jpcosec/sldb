@@ -17,6 +17,7 @@ class StructuralNoiseReport(BaseModel):
     document: str = Field(default="", description="Document name shown in the message.")
     model: str = Field(default="", description="Model whose template was compared against.")
     undeclared: list[str] = Field(default_factory=list, description="Undeclared heading lines, in document order.")
+    narrative: bool = Field(default=False, description="The model's template declares no literal heading: a body of free prose, where headings are the author's (policy: allowed).")
 
     @property
     def clean(self) -> bool:

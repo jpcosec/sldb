@@ -43,15 +43,15 @@ class EdgesCLI:
         return (edges_to if args.to else edges_from)(args.store, args.node, args.relation, not args.local, args.exclude_tag)
 
     def _check(self, args: Any) -> int:
+        """Exit 1 only on an error; a shard built from another `hash_c` is an alert."""
         report = check_edges(args.store, not args.local, args.exclude_tag)
-        for line in [f"error: {e}" for e in report.errors] + [f"stale: {s}" for s in report.stale]:
-            print(line)
+        _report_findings(report)
         if report.linked_errors or report.linked_stale:
             print(f"note: linked stores: {len(report.linked_errors)} error(s), {len(report.linked_stale)} stale, theirs to fix (run `edges check` there, or this with --local to leave them out)")
         if report.untracked_builtins:
             print(f"note: builtin relation type(s) not tracked here, checked against sldb's own: {', '.join(report.untracked_builtins)} (`sldb edges init` tracks them)")
         print("Edges OK" if report.ok else f"{len(report.errors)} error(s), {len(report.stale)} stale")
-        return 0 if report.ok else 1
+        return 1 if report.errors else 0
 
     def _unresolved(self, args: Any) -> int:
         """A report, not a check: 0 whatever it finds."""
@@ -63,6 +63,14 @@ class EdgesCLI:
             print(f"{r.reason}: {r.source} .{r.field} -> {r.target}" + (f" ({r.target_export_id})" if r.target_export_id else ""))
         print(f"{len(found)} unresolved reference(s)")
         return 0
+
+
+def _report_findings(report: Any) -> None:
+    from sldb.cli import alert_sink
+    from sldb.core.finding import alert, error
+
+    stale = [alert("edges/stale", s, "the shard was built from another hash_c of the document", "sldb edges rebuild") for s in report.stale]
+    alert_sink.report([error("edges/invalid", "edges", e) for e in report.errors] + stale)
 
 
 def _with_evidence(args: Any, edges: list) -> list:

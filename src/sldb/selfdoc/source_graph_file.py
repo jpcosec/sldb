@@ -31,14 +31,20 @@ def _replace(graph, output: Path) -> None:
 
 def graph_is_current(snapshot: dict, output: Path) -> bool:
     """Check that the written graph holds every expected node with its source hash."""
+    return graph_state(snapshot, output) == "current"
+
+
+def graph_state(snapshot: dict, output: Path) -> str:
+    """`current`, `stale` (the source moved: an alert), or `missing`/`unreadable` (an error)."""
     if not output.is_file():
-        return False
+        return "missing"
     try:
         nodes = {node["id"]: node["schema"] for node in json.loads(output.read_text(encoding="utf-8"))["nodes"]}
     except (KeyError, TypeError, json.JSONDecodeError):
-        return False
+        return "unreadable"
     expected = {node["identity"]["node_id"]: node for node in snapshot["nodes"]}
-    return set(nodes) == set(expected) and all(_same_source(node, nodes[node_id]) for node_id, node in expected.items())
+    current = set(nodes) == set(expected) and all(_same_source(node, nodes[node_id]) for node_id, node in expected.items())
+    return "current" if current else "stale"
 
 
 def _same_source(expected: dict, actual: dict | None) -> bool:

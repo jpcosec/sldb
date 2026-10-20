@@ -413,9 +413,9 @@ identity = false
 
 [[axis]]
 id = "errores"
-paths = ["core/exceptions", "store/exceptions.py"]
+paths = ["core/exceptions", "store/exceptions.py", "core/finding.py"]
 external = []
-does = "la jerarquía de excepciones del sistema"
+does = "la jerarquía de excepciones del sistema, y el hallazgo (error o alerta) que reporta un comando"
 identity = false
 note = "la capa más baja que todas las demás necesitan nombrar; por eso R2 importaba"
 
@@ -501,7 +501,7 @@ superficies derivadas y Markdown es la única autorada por diseño.
 id = "nucleo"
 axes = ["superficie", "representacion", "render", "contrato", "runtime", "identidad_y_hash", "errores"]
 needs = 3
-needed_by = 31
+needed_by = 32
 indivisible = false
 why = """
 Los cinco ejes de identidad forman un nudo de 11 aristas internas. Lo declaré
@@ -548,7 +548,7 @@ entre el formato del índice de aristas y el del motor. Cortar esa conversión
 [[unit]]
 id = "adaptadores"
 axes = ["adaptadores"]
-needs = 4
+needs = 5
 needed_by = 0
 extractable_today = true
 why = "nadie depende de él; deriva documentos de Python, argparse y click"

@@ -74,7 +74,7 @@ def test_the_check_rebuilds_a_scratch_copy_and_compares(tmp_path, capsys):
     (root / ".gitignore").write_text(".sldb/runtime/\n.sldb/core/\n", encoding="utf-8")
     subprocess.run(["git", "init", "-q"], cwd=root, check=True)
     report = check_build(store, root, tmp_path / "scratch")
-    assert report == {"ok": True, "integrity_exit": 0, "undeclared": [], "missing": [], "differences": []}
+    assert report == {"ok": True, "integrity_exit": 0, "undeclared": [], "missing": [], "differences": [], "errors": [], "alerts": []}
     assert yaml.safe_load((store / "store.yaml").read_text(encoding="utf-8"))["include"]
 
 
@@ -170,3 +170,28 @@ def test_the_check_reaches_a_link_that_climbs_more_than_one_level(tmp_path, caps
     subprocess.run(["git", "init", "-q"], cwd=root, check=True)
     assert check_build(store, root, tmp_path / "scratch")["ok"]
     assert not (tmp_path.parent / "owner").exists()
+
+
+def test_a_declared_store_that_was_not_built_fails_the_check(tmp_path, capsys):
+    """`stores check` passed on it with 0 documents in 0 models (inbox 20261020-024137)."""
+    store, root = _declared(tmp_path, capsys)
+    for derived in ("core", "runtime"):
+        shutil.rmtree(store / derived, ignore_errors=True)
+    invalidate_index_cache()
+    capsys.readouterr()
+    assert cli_main(["stores", "check", "--store", str(store)]) == 1
+    assert "error: [store/unbuilt]" in capsys.readouterr().out
+
+
+def test_a_declared_store_left_empty_by_a_failed_build_fails_the_check(tmp_path, capsys):
+    """Governance's case: the build stopped on a broken link after writing an empty index."""
+    from sldb.api.stores.store_skeleton import write_empty_store
+
+    store, root = _declared(tmp_path, capsys)
+    for derived in ("core", "runtime"):
+        shutil.rmtree(store / derived, ignore_errors=True)
+    write_empty_store(store)
+    invalidate_index_cache()
+    capsys.readouterr()
+    assert cli_main(["stores", "check", "--store", str(store)]) == 1
+    assert "error: [store/unbuilt]" in capsys.readouterr().out

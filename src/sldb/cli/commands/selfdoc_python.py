@@ -8,7 +8,7 @@ import sys
 from sldb.cli.selfdoc_context import documentation_store
 from sldb.cli.selfdoc_inspect import inspect_documents
 from sldb.cli.selfdoc_write import write_documents
-from sldb.selfdoc.source_graph_file import graph_is_current, write_source_graph
+from sldb.selfdoc.source_graph_file import graph_state, write_source_graph
 from sldb.selfdoc.python_materialize import plan_python_documents
 from sldb.selfdoc.python_relation_registry import (
     registered_source_relations,
@@ -26,8 +26,9 @@ def print_python_records(source, root, records) -> None:
 
 def python_report(plans, graph, graph_output, store, root, output, system):
     report = inspect_documents(plans, store, root, output, system)
-    if not graph_is_current(graph, graph_output):
-        report.graph_stale.append(str(graph_output.relative_to(root)))
+    state = graph_state(graph, graph_output)
+    if state != "current":
+        (report.graph_stale if state == "stale" else report.graph_errors).append(f"{graph_output.relative_to(root)}{'' if state == 'stale' else f' ({state})'}")
     report.metadata_errors = list(graph["metadata"].get("diagnostics", []))
     report.purpose_conflicts = [str(p.path.relative_to(root)) for p in plans if purpose_conflict(p.payload.purpose, p.payload.docstring)]
     _survey(report, graph["metadata"])

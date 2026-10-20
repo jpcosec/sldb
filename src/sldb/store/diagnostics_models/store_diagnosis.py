@@ -44,14 +44,14 @@ class StoreDiagnosis:
 
     @property
     def is_valid(self) -> bool:
-        """Whether the store is in a valid state.
+        """Whether the diagnosis found no error: no tracked file gone, every model importable.
 
-        A reformatted document (text moved, fields identical) is still valid, a damaged one is
-        not, and a disagreeing roster or root hash is not. A moved contract is not valid either:
-        the indexed payloads were extracted under a contract that no longer holds. Classifying
-        a failure is not the same as tolerating it.
+        A stale root or roster, a moved contract and a changed document are the source moving
+        against the index: alerts, valid but to be looked at (`sldb.api.stores.store_findings`,
+        docs/architecture/anchoring.md §4). What the store's surroundings break (links,
+        structural noise) is judged by `stores check`, not here.
         """
-        return self.root_ok and all(m.roster_ok and m.contract_ok for m in self.models) and not self.damaged_documents
+        return all(m.resolved for m in self.models) and not any(d.note is DiagnosisNote.MISSING for _m, d in self.damaged_documents)
 
     @property
     def counts(self) -> list[str]:
@@ -59,9 +59,9 @@ class StoreDiagnosis:
         pairs = ((len(self.damaged_documents), "damaged"), (len(self.reformatted_documents), "reformatted (ok)"), (len(self.roster_only_models), "roster-only"), (len(self.moved_contracts), "contract moved"))
         return [f"{n} {label}" for n, label in pairs if n]
 
-    def summary(self) -> str:
-        """One line: the verdict and the counts behind it."""
+    def summary(self, ok: bool | None = None, tally: str = "") -> str:
+        """One line: the verdict (`ok`, else `is_valid`), the counts behind it, and `tally`."""
         checked = sum(len(m.documents) for m in self.models)
-        head = ["PASS" if self.is_valid else "FAIL", f"{checked} documents in {len(self.models)} models"]
-        tail = [] if self.root_ok else ["root hash stale"]
-        return " — ".join([f"{head[0]}: store integrity", head[1], *self.counts, *tail])
+        verdict = "PASS" if (self.is_valid if ok is None else ok) else "FAIL"
+        tail = ([] if self.root_ok else ["root hash stale"]) + ([tally] if tally else [])
+        return " — ".join([f"{verdict}: store integrity", f"{checked} documents in {len(self.models)} models", *self.counts, *tail])

@@ -47,11 +47,15 @@ def _store_without_its_model(tmp_path: Path) -> Path:
     return sp
 
 
-def test_an_unimportable_model_with_intact_text_passes_and_is_named(tmp_path):
+def test_an_unimportable_model_is_an_error_and_is_named(tmp_path):
+    """A model that does not import is an error (anchoring.md §4): its fields went unchecked."""
+    from sldb.api.stores.store_findings import diagnosis_findings
+
     sp = _store_without_its_model(tmp_path)
     diagnosis = diagnose_store(sp, resolve_model_ref, project_root(sp))
-    assert diagnosis.is_valid
+    assert not diagnosis.is_valid
     assert not diagnosis.models[0].resolved
+    assert [(f.level, f.code, f.subject) for f in diagnosis_findings(diagnosis)] == [("error", "store/model-unresolved", "NoteDoc")]
 
 
 def test_an_unimportable_model_does_not_excuse_changed_text(tmp_path):
@@ -59,3 +63,6 @@ def test_an_unimportable_model_does_not_excuse_changed_text(tmp_path):
     (project_root(sp) / "note.md").write_text("# Edited by hand\n", encoding="utf-8")
     diagnosis = diagnose_store(sp, resolve_model_ref, project_root(sp))
     assert not diagnosis.is_valid
+    from sldb.api.stores.store_findings import diagnosis_findings
+
+    assert "store/data-mutation" in [f.code for f in diagnosis_findings(diagnosis)], "the changed text is reported too"

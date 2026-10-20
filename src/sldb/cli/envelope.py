@@ -1,9 +1,11 @@
 """`sldb --envelope ...`: one JSON value on stdout, whatever the command, and typed exit codes.
 
     {"ok": true, "command": "stores check", "store": {"path": ...}, "revision": "<store_hash>",
-     "data": ..., "warnings": []}
-    {"ok": false, "command": ..., "error": {"type": "store/busy", "message": ...}, "exit": 4}
+     "data": ..., "warnings": [{"level": "alert", "code": "store/root-stale", ...}]}
+    {"ok": false, "command": ..., "error": {"type": "store/busy", "message": ...}, "exit": 4, "warnings": []}
 
+`warnings` are the alerts the command reported (`sldb.cli.alert_sink`), on success and failure:
+an alert is never silent.
 `data` is the command's own JSON when it printed JSON (pass `--format json` where the command
 has it), else `{"text": ...}`. The exit codes are `sldb.cli.error_types`. Opt-in: without
 `--envelope` the CLI prints and exits as it always did, because callers parse that today.
@@ -23,8 +25,11 @@ FLAG = "--envelope"
 
 def run_enveloped(argv: list[str], run: Callable[[list[str]], int]) -> int:
     """Run `argv` with `run`, print its envelope, and return the envelope's exit code."""
+    from sldb.cli import alert_sink
+
+    alert_sink.forget()
     code, failure, printed = _capture(argv, run)
-    envelope = _envelope(argv, printed, code, failure)
+    envelope = {**_envelope(argv, printed, code, failure), "warnings": alert_sink.kept()}
     print(json.dumps(envelope, ensure_ascii=False, default=str))
     return envelope.get("exit", 0)
 
@@ -62,7 +67,7 @@ def _from_exit(stop: SystemExit) -> tuple[int | None, BaseException | None]:
 def _envelope(argv: list[str], printed: str, code: int | None, failure: BaseException | None) -> dict[str, Any]:
     base = {"command": _command(argv), **_store(argv)}
     if failure is None and code == 0:
-        return {"ok": True, **base, "data": _data(printed), "warnings": []}
+        return {"ok": True, **base, "data": _data(printed)}
     if failure is None:
         group = argv[0] if argv else "cli"
         return {"ok": False, **base, "error": {"type": f"{group}/failed", "message": printed.strip()[-2000:]}, "data": _data(printed), "exit": code}

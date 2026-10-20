@@ -1,4 +1,9 @@
-"""Canonical path lint for repo-root knowledge references."""
+"""Canonical path lint for repo-root knowledge references.
+
+A path that breaks the canonical form is an error. A well-formed path that no longer exists is
+the alert `lint/lost` (owner's decision, 2026-10-20): the source moved, exit 0, never silent.
+Each result carries its `level` and `code`.
+"""
 
 from __future__ import annotations
 import re
@@ -48,8 +53,13 @@ def lint_text(text: str, repo_root: Optional[Path] = None, label: str = "text") 
         for m in pat.finditer(line):
             errs = lint_path(m.group(0).rstrip("/."), repo_root)
             if errs:
-                results.append({"path": m.group(0).rstrip("/."), "errors": errs, "line": line_idx, "source": label})
+                results.append({"path": m.group(0).rstrip("/."), "errors": errs, "line": line_idx, "source": label, **_level(errs)})
     return results
+
+def _level(errs: list[str]) -> dict:
+    """Only a missing path left: the source moved (alert). Anything else breaks the form (error)."""
+    lost = len(errs) == 1 and errs[0].startswith("Referenced path does not exist")
+    return {"level": "alert", "code": "lint/lost"} if lost else {"level": "error", "code": "lint/path"}
 
 def _lint_dir(dir_path: Path, repo_root: Path) -> list[dict]:
     results: list[dict] = []
@@ -73,13 +83,18 @@ def lint_cli(args: Any) -> int:
     return _report(_lint_dir(target, repo_root), args.format)
 
 def _report(results: list[dict], fmt: str) -> int:
+    from sldb.cli import alert_sink
+    from sldb.core.finding import Finding
+
+    findings = [Finding(r["level"], r["code"], f"{r['source']}:{r['line']}", "; ".join(r["errors"])) for r in results]
+    _print_results(results, fmt, alert_sink.tally(findings))
+    alert_sink.report(findings, text=fmt not in ("json", "yaml"))
+    return 1 if any(r["level"] == "error" for r in results) else 0
+
+def _print_results(results: list[dict], fmt: str, tally: str) -> None:
     if fmt == "json":
-        import json; print(json.dumps(results, indent=2)); return 1 if results else 0
-    if fmt == "yaml":
-        import yaml; print(yaml.dump(results, default_flow_style=False)); return 1 if results else 0
-    if not results:
-        print("No path issues found."); return 0
-    for r in results:
-        for err in r["errors"]:
-            print(f"{r['source']}:{r['line']}: {err}")
-    return 1
+        import json; print(json.dumps(results, indent=2))
+    elif fmt == "yaml":
+        import yaml; print(yaml.dump(results, default_flow_style=False))
+    else:
+        print(f"Path lint: {tally}" if results else "No path issues found.")

@@ -42,7 +42,7 @@ def find_structural_noise(model_type: type, markdown: str, name: str = "") -> St
     template = getattr(model_type, "__template__", "") or ""
     literals, wildcards = declared_headings(template)
     undeclared = _undeclared(scan_headings(markdown), literals, wildcards)
-    return StructuralNoiseReport(document=name, model=getattr(model_type, "__name__", "?"), undeclared=undeclared)
+    return StructuralNoiseReport(document=name, model=getattr(model_type, "__name__", "?"), undeclared=undeclared, narrative=not literals)
 
 
 def _undeclared(headings: list[tuple[int, str]], literals: set, wildcards: set) -> list[str]:

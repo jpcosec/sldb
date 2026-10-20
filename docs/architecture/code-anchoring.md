@@ -146,6 +146,11 @@ Las reglas de [anchoring.md](anchoring.md) quedan en el código, no solo escrita
 
 ## 10. Error y alerta en todo sldb (auditoría del 2026-10-19)
 
+Nota (2026-10-20): la tabla de abajo fue la auditoría; el criterio vigente ya no es una tabla
+fija sino la política por autoridad de [provenance.md, sección 5](provenance.md), que la
+implementa con los defaults ahí descritos (la ruta citada ausente en `lint` es la alerta
+`lost`, decisión del dueño).
+
 La regla del dueño vale para todo sldb. Un **error** es algo roto o que viola un contrato (no
 parsea, store corrupto, documento inválido, archivo requerido ausente, modelo que no
 importa). Una **alerta** es que la fuente se movió respecto de lo registrado: el estado es

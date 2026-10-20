@@ -857,7 +857,8 @@ def test_stores_check_reports_mismatched_hash_c(tmp_path: Path) -> None:
     try:
         status, body = _request_json(f"{base_url}/stores/check")
         assert status == 200
-        assert body["ok"] is False
+        assert body["ok"] is True and body["ok"] == body["valid"], "a changed document is an alert; ok and valid agree"
+        assert "store/data-mutation" in [a["code"] for a in body["alerts"]]
         assert body["checked"] == 2
         entry = next(item for item in body["mismatched"] if item["doc"] == "guide")
         assert entry["kind"] == "hash_c"
