@@ -152,3 +152,21 @@ def test_a_document_outside_the_project_does_not_break_the_declaration(tmp_path,
     outside = tmp_path / "elsewhere" / "far.md"
     create_document(store, "TaskDoc", outside, {"title": "Far", "body": "Away"}, pythonpath=str(root))
     assert load_declaration(store).include == [{"model": "TaskDoc", "paths": ["task.md"]}]
+
+
+def test_the_check_reaches_a_link_that_climbs_more_than_one_level(tmp_path, capsys):
+    """Governance links deskops through `../../../...`: a copy one level under the scratch
+    resolved that link outside it (Permission denied on /tmp's parent, or a symlink left there)."""
+    project = tmp_path / "a" / "b" / "project"
+    project.mkdir(parents=True)
+    store, root = _declared(project, capsys)
+    owner = tmp_path / "owner"
+    owner.mkdir()
+    assert cli_main(["stores", "init", "--path", str(owner)]) == 0
+    assert cli_main(["stores", "add", str(owner / ".sldb"), "--name", "owner", "--store", str(store)]) == 0
+    save_declaration(store, declare_store(store, root))
+    assert load_declaration(store).links[0]["path"] == "../../../owner/.sldb"
+    (root / ".gitignore").write_text(".sldb/runtime/\n.sldb/core/\n", encoding="utf-8")
+    subprocess.run(["git", "init", "-q"], cwd=root, check=True)
+    assert check_build(store, root, tmp_path / "scratch")["ok"]
+    assert not (tmp_path.parent / "owner").exists()
