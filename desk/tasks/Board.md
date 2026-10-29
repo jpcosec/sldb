@@ -6,6 +6,7 @@ scope: sldb-local-desk
 # List of task-xxx paths
 tasks:
 - desk/tasks/task-congelar-journal-autoridad-arbol.md
+- desk/tasks/task-stores-declare-write-conserva-los-globs-autorados-de-include.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -49,5 +50,3 @@ Activa: task-congelar-journal-autoridad-arbol (diseño, en borrador). La auditor
 ## Task Details
 
 _Generated from the task references above._
-
-- Congelar el journal y rediseñar la autoridad: el árbol guarda, el journal es una vista [blocked] - Dejar por escrito la dirección de diseño para cuando se retome: el **árbol es la autoridad**; el **journal es una interfaz de lectura** sobre él (como `git log`/`git diff` sobre el object database), no un segundo almacén.

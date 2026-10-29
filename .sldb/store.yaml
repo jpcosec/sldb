@@ -323,6 +323,7 @@ include:
 - model: TaskDoc
   paths:
   - desk/tasks/task-congelar-journal-autoridad-arbol.md
+  - desk/tasks/task-stores-declare-write-conserva-los-globs-autorados-de-include.md
 - model: RunDoc
   paths:
   - path: runs/subagents/20261029-124912-task-cerrar-task-sldb-serve/run.md
