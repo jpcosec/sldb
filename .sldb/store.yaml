@@ -215,9 +215,6 @@ include:
     name: atom-structurednldoc-model
   - path: docs/atoms/tracked-document.atom.md
     name: atom-tracked-document
-- model: BoardDoc
-  paths:
-  - desk/tasks/Board.md
 - model: CliCommandDoc
   glob: knowledge/commands/*.md
 - model: DeskSpecDoc
@@ -330,4 +327,9 @@ include:
 - model: TaskDoc
   paths:
   - desk/tasks/task-congelar-journal-autoridad-arbol.md
+  - desk/tasks/task-cerrar-task-sldb-serve-sldb-serve-ya-existe.md
+  - desk/tasks/task-cerrar-task-store-generalize-storecodec-y-storeerror-ya-existen.md
+- model: BoardDoc
+  paths:
+  - desk/tasks/Board.md
 policy: {}
