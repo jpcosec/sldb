@@ -1,0 +1,7 @@
+Task: task-cerrar-task-sldb-serve-sldb-serve-ya-existe
+Title: Cerrar TASK-sldb-serve: sldb serve ya existe
+Status: active
+Current node: ritual-testing
+Task type: 
+Lifecycle gates:
+- task_hands_to_closeout -> ritual-closeout: open [nonempty(validation)]

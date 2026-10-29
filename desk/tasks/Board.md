@@ -6,7 +6,6 @@ scope: sldb-local-desk
 # List of task-xxx paths
 tasks:
 - desk/tasks/task-congelar-journal-autoridad-arbol.md
-- desk/tasks/task-cerrar-task-sldb-serve-sldb-serve-ya-existe.md
 - desk/tasks/task-cerrar-task-store-generalize-storecodec-y-storeerror-ya-existen.md
 # List of pill-xxx paths
 pills:
@@ -53,5 +52,4 @@ Activa: task-congelar-journal-autoridad-arbol (diseño, en borrador). La auditor
 _Generated from the task references above._
 
 - Congelar el journal y rediseñar la autoridad: el árbol guarda, el journal es una vista [blocked] - Dejar por escrito la dirección de diseño para cuando se retome: el **árbol es la autoridad**; el **journal es una interfaz de lectura** sobre él (como `git log`/`git diff` sobre el object database), no un segundo almacén.
-- Cerrar TASK-sldb-serve: sldb serve ya existe [draft] - Verificar que lo que TASK-sldb-serve.md pide está implementado y probado, dejar la evidencia en el desk y retirar el archivo de la raíz.
-- Cerrar TASK-store-generalize: StoreCodec y StoreError ya existen [draft] - Verificar que los tres acoplamientos que pide retirar (StructuredNLDoc, extract_model_data, core.exceptions dentro de store/) están resueltos vía StoreCodec/RuntimeCodec y StoreError, dejar la evidencia y retirar el archivo.
+- Cerrar TASK-store-generalize: StoreCodec y StoreError ya existen [active] - Verificar que los tres acoplamientos que pide retirar (StructuredNLDoc, extract_model_data, core.exceptions dentro de store/) están resueltos vía StoreCodec/RuntimeCodec y StoreError, dejar la evidencia y retirar el archivo.

@@ -327,8 +327,11 @@ include:
 - model: TaskDoc
   paths:
   - desk/tasks/task-congelar-journal-autoridad-arbol.md
-  - desk/tasks/task-cerrar-task-sldb-serve-sldb-serve-ya-existe.md
   - desk/tasks/task-cerrar-task-store-generalize-storecodec-y-storeerror-ya-existen.md
+- model: RunDoc
+  paths:
+  - path: runs/subagents/20261029-124912-task-cerrar-task-sldb-serve/run.md
+    name: run-sldb-close-serve
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md

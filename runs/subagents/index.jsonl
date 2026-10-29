@@ -21,3 +21,4 @@
 {"task_id": "task-stores-check-escala-mal-con-el-inventario-de-s\u00edmbolos-python", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
 {"task_id": "task-completar-el-contrato-de-indexado-de-docstrings", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
 {"task_id": "task-correct-ast-ownership-and-section-contracts", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
+{"task_id": "task-cerrar-task-sldb-serve-sldb-serve-ya-existe", "run_id": null, "run_dir": "runs/subagents/20261029-124912-task-cerrar-task-sldb-serve", "session_sha256": null, "commit": null}
