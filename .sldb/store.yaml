@@ -239,6 +239,9 @@ include:
   - desk/inbox/20261019-011009-unclear-decisi-n-del-due-o-qu-mecanismo-guarda-el-pasado-del-rbol-del-store-journal.md
   - desk/inbox/20261020-024137-suggestion-enlaces-entre-stores-no-portables-y-stores-check-en-verde-sobre-un-store-vac-o.md
   - desk/inbox/20261020-101708-suggestion-stores-build-check-falla-con-enlaces-que-suben-m-s-de-un-nivel.md
+  - desk/inbox/20261021-033635-unclear-linked-store-path-references-cannot-resolve-despite-tracked-targets.md
+  - desk/inbox/20261029-005556-unclear-stores-declare-write-aplana-los-globs-de-include-en-paths-enumerados.md
+  - desk/inbox/20261029-014629-unclear-docs-show-sobre-un-store-enlazado-reporta-unknown-document-target-cuando-lo-que-falla-es-importar-el-modelo.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -327,3 +330,4 @@ include:
 - model: TaskDoc
   paths:
   - desk/tasks/task-congelar-journal-autoridad-arbol.md
+policy: {}
