@@ -1,0 +1,7 @@
+Task: task-cerrar-task-store-generalize-storecodec-y-storeerror-ya-existen
+Title: Cerrar TASK-store-generalize: StoreCodec y StoreError ya existen
+Status: active
+Current node: ritual-testing
+Task type: 
+Lifecycle gates:
+- task_hands_to_closeout -> ritual-closeout: open [nonempty(validation)]

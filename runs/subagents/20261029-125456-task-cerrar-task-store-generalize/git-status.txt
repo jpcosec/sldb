@@ -1,0 +1,7 @@
+# Snapshot taken by the supervisor at closeout (2026-10-29), not by the executor.
+## main...origin/main [ahead 3]
+ M .deskops.log
+ M .sldb/store.yaml
+ M desk/tasks/task-cerrar-task-store-generalize-storecodec-y-storeerror-ya-existen.md
+?? .herdr-coordination.md
+?? runs/subagents/20261029-125456-task-cerrar-task-store-generalize/
