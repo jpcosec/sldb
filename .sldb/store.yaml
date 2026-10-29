@@ -230,11 +230,10 @@ include:
   - docs/faq.md
 - model: InboxNoteDoc
   paths:
-  - desk/inbox/20261001-031225-unclear-atomo-y-field-convergieron-falta-un-set-bootstrap.md
-  - desk/inbox/20261019-011009-unclear-decisi-n-del-due-o-qu-mecanismo-guarda-el-pasado-del-rbol-del-store-journal.md
   - desk/inbox/20261018-123600-suggestion-release-0-1-13-pendiente-hasta-que-la-suite-completa-este-verde.md
   - desk/inbox/20261020-024137-suggestion-enlaces-entre-stores-no-portables-y-stores-check-en-verde-sobre-un-store-vac-o.md
   - desk/inbox/20261020-101708-suggestion-stores-build-check-falla-con-enlaces-que-suben-m-s-de-un-nivel.md
+  - desk/inbox/20261019-011009-unclear-decisi-n-del-due-o-qu-mecanismo-guarda-el-pasado-del-rbol-del-store-journal.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -322,8 +321,9 @@ include:
   glob: knowledge/surfaces/*.md
 - model: TaskDoc
   paths:
-  - desk/tasks/task-congelar-journal-autoridad-arbol.md
   - desk/tasks/task-stores-declare-write-conserva-los-globs-autorados-de-include.md
+  - desk/tasks/task-congelar-journal-autoridad-arbol.md
+  - desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
 - model: RunDoc
   paths:
   - path: runs/subagents/20261029-124912-task-cerrar-task-sldb-serve/run.md

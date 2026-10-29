@@ -1,6 +1,6 @@
 ---
 id: task-congelar-journal-autoridad-arbol
-status: blocked
+status: active
 summary: Congelar el journal; el arbol es la autoridad y el journal una vista derivada
   sobre el.
 tags:
@@ -59,19 +59,7 @@ _State what is in scope and what is out of scope._
 
 _Outline the expected implementation route or affected surface._
 
-**Estado actual del journal (medido):**
-
-- `JournalEntry` ya tiene `actor` y `timestamp` (el "quién" y "cuándo" ya existen), `previous_value`/`new_value` (el diff), y `previous_hash`/`entry_hash` (cadena).
-- Lo alimenta `sldb.api.journal.record`, con 14 llamadas en 15 módulos de `sldb.api` (medido el 2026-10-19; el texto original decía 24 sitios).
-- Es opcional: `SLDB_JOURNAL_OFF=1` lo apaga.
-
-**La dirección:**
-
-1. Árbol = autoridad. Hoy solo guarda hashes del estado actual; necesita guardar el pasado (snapshots contenido-direccionados, no necesariamente completos).
-2. Journal = lista fina de punteros: `(timestamp, actor, operation, address, raíz_antes → raíz_después)`.
-3. El diff se computa comparando dos árboles, no se guarda en el journal.
-
-**El punto que no se puede esquivar:** una vista necesita un árbol con memoria. Sin el pasado en el árbol, el journal no puede ser solo una interfaz.
+Decisión del dueño (2026-10-29): el pasado del árbol del store se pregunta a git (historia de los shards de .sldb/core), no a snapshots propios ni al journal. El árbol versionado es la autoridad; el journal pasa a ser vista derivada y se congela. Partir de 'sldb docs history' que ya lee git.
 
 ## Validation
 

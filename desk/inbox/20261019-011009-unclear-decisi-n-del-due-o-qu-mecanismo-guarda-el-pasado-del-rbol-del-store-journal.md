@@ -8,9 +8,11 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-10-19T01:10:09'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-10-29T10:44:59'
 ---
 
 # Decisión del dueño: qué mecanismo guarda el pasado del árbol del store (journal)

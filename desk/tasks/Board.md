@@ -7,6 +7,7 @@ scope: sldb-local-desk
 tasks:
 - desk/tasks/task-congelar-journal-autoridad-arbol.md
 - desk/tasks/task-stores-declare-write-conserva-los-globs-autorados-de-include.md
+- desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md

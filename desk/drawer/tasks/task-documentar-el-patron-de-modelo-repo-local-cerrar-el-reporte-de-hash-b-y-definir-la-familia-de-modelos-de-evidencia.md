@@ -1,19 +1,40 @@
 ---
-# unclear | suggestion
-kind: suggestion
-# e.g., other_repo
-sender_project: setup
-# e.g., target_repo
-target_project: sldb
-# ISO 8601 timestamp
-created_at: '2026-09-23T13:03:22'
-# open | closed
-status: open
-# project identity that acknowledged the note
-# ISO 8601 timestamp, set when acknowledged
+id: task-documentar-el-patron-de-modelo-repo-local-cerrar-el-reporte-de-hash-b-y-definir-la-familia-de-modelos-de-evidencia
+status: deferred
+summary: ''
+tags:
+- workspace:desk
+- artifact:task
+- source:inbox
+current_node: ''
+history: []
+references: []
+depends_on: []
+pills: []
+files: []
+task_type: ''
+inherits_from: []
+inherit_acceptance_context: false
+atoms: []
 ---
 
 # Documentar el patron de modelo repo-local, cerrar el reporte de hash_b y definir la familia de modelos de evidencia
+
+## Rationale
+
+_Explain why this task exists or the business driver behind it._
+
+Promoted from the inbox note `desk/inbox/20260923-130322-suggestion-documentar-modelo-repo-local-y-cerrar-reporte-hash-b.md`.
+
+## Goal
+
+_Describe the concrete result this task must produce._
+
+Triage and resolve the inbox message promoted from `desk/inbox/20260923-130322-suggestion-documentar-modelo-repo-local-y-cerrar-reporte-hash-b.md`.
+
+## Scope
+
+_State what is in scope and what is out of scope._
 
 _Describe the incoming message with enough evidence to triage._
 
@@ -137,3 +158,21 @@ Este archivo queda sin trackear en el store, igual que las dos notas agregadas e
 ## Avance
 
 2026-10-18, sldb-04. (1) Hecho en 56b8f74371: README ('Models declared in your own repo') y .pi/skills/use-sldb/SKILL.md ('Models that live in your repo', con un ejemplo que no es de deskops, más models inherit y models check). (2) Confirmado corregido en 1b04515e: un modelo registrado sin documentos firma el roster vacío; además, desde 0463a9b6 un modelo heredado sin documentos también. Se le avisó a deskops para que cierre el reporte en su feature doc. (3) Queda abierto: la convención para la jerarquía de modelos de evidencia (__family__ o herencia de clases) es una decisión del dueño, escalada al coordinador el 2026-10-18.
+
+## Implementation Path
+
+_Outline the expected implementation route or affected surface._
+
+To be defined when the task is promoted.
+
+## Validation
+
+_List the checks required before this task can close._
+
+- 
+
+## Done When
+
+_Name the observable condition that makes the task complete._
+
+The message is resolved, answered, or promoted into active work.
