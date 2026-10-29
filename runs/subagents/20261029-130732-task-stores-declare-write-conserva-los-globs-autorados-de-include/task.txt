@@ -1,0 +1,8 @@
+Task: task-stores-declare-write-conserva-los-globs-autorados-de-include
+Title: stores declare --write conserva los globs autorados de include
+Status: active
+Current node: ritual-testing
+Task type: 
+From drawer: desk/drawer/tasks/task-stores-declare-write-aplana-los-globs-de-include-en-paths-enumerados.md
+Lifecycle gates:
+- task_hands_to_closeout -> ritual-closeout: open [nonempty(validation)]

@@ -321,7 +321,6 @@ include:
   glob: knowledge/surfaces/*.md
 - model: TaskDoc
   paths:
-  - desk/tasks/task-stores-declare-write-conserva-los-globs-autorados-de-include.md
   - desk/tasks/task-congelar-journal-autoridad-arbol.md
   - desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md

@@ -1,0 +1,5 @@
+## main...origin/main [ahead 2]
+ M .deskops.log
+?? .claude/
+?? .herdr-coordination.md
+?? runs/subagents/20261029-130732-task-stores-declare-write-conserva-los-globs-autorados-de-include/

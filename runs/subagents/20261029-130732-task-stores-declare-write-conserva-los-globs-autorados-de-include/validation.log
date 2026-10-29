@@ -1,0 +1,3 @@
+$ PYTHONPATH=/workspace/sldb/.venv/lib/python3.13/site-packages /home/scion/.local/share/uv/tools/structuredlanguagedb/bin/python -m pytest -q tests -k 'declare or stores' -p no:cacheprovider
+126 passed, 1492 deselected, 2 warnings in 39.06s
+exit code: 0

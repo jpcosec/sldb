@@ -23,3 +23,4 @@
 {"task_id": "task-correct-ast-ownership-and-section-contracts", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
 {"task_id": "task-cerrar-task-sldb-serve-sldb-serve-ya-existe", "run_id": null, "run_dir": "runs/subagents/20261029-124912-task-cerrar-task-sldb-serve", "session_sha256": null, "commit": null}
 {"task_id": "task-cerrar-task-store-generalize-storecodec-y-storeerror-ya-existen", "run_id": null, "run_dir": "runs/subagents/20261029-125456-task-cerrar-task-store-generalize", "session_sha256": null, "commit": null}
+{"task_id": "task-stores-declare-write-conserva-los-globs-autorados-de-include", "run_id": null, "run_dir": "runs/subagents/20261029-130732-task-stores-declare-write-conserva-los-globs-autorados-de-include", "session_sha256": null, "commit": null}
