@@ -2,7 +2,9 @@
 
 Run once per store to move it to a declared layout; after that the file is edited by hand (or
 by the commands that register models and links) and the index is what gets rebuilt from it.
-Generators cannot be read off an index, so an existing declaration's are kept.
+Generators cannot be read off an index, so an existing declaration's are kept, and so are its
+authored `include` rules (a glob is never flattened into the paths it matches): only what they
+do not cover is added.
 """
 
 from __future__ import annotations
@@ -10,6 +12,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from sldb.api.stores.declared_includes import declared_includes
+from sldb.api.stores.merged_includes import merged_includes
 from sldb.api.stores.store_declaration import StoreDeclaration, declaration_path, load_declaration
 from sldb.store.io import load_store_index
 
@@ -22,8 +25,16 @@ def declare_store(store_path: Path, root: Path) -> StoreDeclaration:
         models=[_model(entry, root) for entry in index.models],
         predicates={p.name: {"axis": p.axis, "description": p.description} for p in sorted(index.predicates, key=lambda p: p.name)},
         **_kept(store_path),
-        include=declared_includes(store_path, root),
+        include=_include(store_path, root),
     )
+
+
+def _include(store_path: Path, root: Path) -> list[dict]:
+    """The authored rules of an existing declaration, kept as they are and completed; the
+    rules derived from the index only for a store that has no declaration yet."""
+    if not declaration_path(store_path).is_file():
+        return declared_includes(store_path, root)
+    return merged_includes(store_path, root, load_declaration(store_path).include)
 
 
 def _model(entry, root: Path) -> dict:

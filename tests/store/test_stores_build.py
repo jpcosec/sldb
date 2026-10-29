@@ -195,3 +195,35 @@ def test_a_declared_store_left_empty_by_a_failed_build_fails_the_check(tmp_path,
     capsys.readouterr()
     assert cli_main(["stores", "check", "--store", str(store)]) == 1
     assert "error: [store/unbuilt]" in capsys.readouterr().out
+
+
+def test_declare_write_keeps_an_authored_glob_and_adds_only_what_is_missing(tmp_path, capsys):
+    """`declare --write` turned `glob: notes/*.md` into the list of its matches (93 lines in
+    deskops). The glob is the owner's intent: it stays, and a new link is added beside it."""
+    store, root = _declared(tmp_path, capsys)
+    (root / "notes").mkdir()
+    for stem in ("a", "b"):
+        (root / "notes" / f"{stem}.md").write_text(f"# {stem}\n\n## Overview\n\nBody\n", encoding="utf-8")
+        assert cli_main(["docs", "track", str(root / "notes" / f"{stem}.md"), "--model", "TaskDoc", "--store", str(store), "--pythonpath", str(root)]) == 0
+    authored = load_declaration(store)
+    authored.include = [{"model": "TaskDoc", "glob": "notes/*.md"}, {"model": "TaskDoc", "paths": ["task.md"]}]
+    save_declaration(store, authored)
+    owner = tmp_path / "owner"
+    owner.mkdir()
+    assert cli_main(["stores", "init", "--path", str(owner)]) == 0
+    assert cli_main(["stores", "add", str(owner / ".sldb"), "--name", "owner", "--store", str(store)]) == 0
+    (root / "late.md").write_text("# Late\n\n## Overview\n\nBody\n", encoding="utf-8")
+    assert cli_main(["docs", "track", str(root / "late.md"), "--model", "TaskDoc", "--store", str(store), "--pythonpath", str(root)]) == 0
+    assert cli_main(["stores", "declare", "--store", str(store), "--write"]) == 0
+    written = load_declaration(store)
+    assert written.include[0] == {"model": "TaskDoc", "glob": "notes/*.md"}
+    assert written.include == [{"model": "TaskDoc", "glob": "notes/*.md"}, {"model": "TaskDoc", "paths": ["task.md", "late.md"]}]
+    assert [link["name"] for link in written.links] == ["owner"]
+    assert undeclared(store, root, written) == []
+
+
+def test_declare_write_is_stable_on_a_declaration_it_already_completed(tmp_path, capsys):
+    store, root = _declared(tmp_path, capsys)
+    before = (store / "store.yaml").read_text(encoding="utf-8")
+    assert cli_main(["stores", "declare", "--store", str(store), "--write"]) == 0
+    assert (store / "store.yaml").read_text(encoding="utf-8") == before
