@@ -1,0 +1,42 @@
+[
+  {
+    "node": "sldb://document/Spec:lonely",
+    "shared": 3
+  },
+  {
+    "node": "sldb://document/Spec:s2",
+    "shared": 3
+  },
+  {
+    "node": "sldb://document/Spec:s3",
+    "shared": 3
+  },
+  {
+    "node": "sldb://model/Spec",
+    "shared": 3
+  },
+  {
+    "node": "sldb://section/Spec:lonely#lonely",
+    "shared": 3
+  },
+  {
+    "node": "sldb://section/Spec:s1#s1",
+    "shared": 3
+  },
+  {
+    "node": "sldb://section/Spec:s2#s2",
+    "shared": 3
+  },
+  {
+    "node": "sldb://section/Spec:s3#s3",
+    "shared": 3
+  },
+  {
+    "node": "sldb://model/RelationDoc",
+    "shared": 2
+  },
+  {
+    "node": "sldb://model/RelationTypeDoc",
+    "shared": 2
+  }
+]
