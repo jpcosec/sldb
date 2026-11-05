@@ -4,6 +4,15 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
 
 ## 0.1.13 — not released yet (no tag, not on PyPI)
 
+- The whole-graph analyses sit behind a `GraphBackend` seam (`load`, `eval`, `analyze`).
+  `NetworkXBackend` wraps `sldb.store.graph.analysis` unchanged, so the six `sldb graph`
+  analyses and the ten `api/graph/analyze.py` functions print the same output as before and
+  can be given another backend by Python for tests. A store selects it with
+  `graph_backend` in `.sldb/store.yaml`: absent means `networkx`; any other value fails on
+  load with `graph_backend <value> no admitido; admitidos: ["networkx"]`. `eval` implements
+  the GO02 subset without paths (finding shape in `rules-language.md` §4 and §6); a path
+  raises `NotImplementedError` until GO05. `docs/architecture/graph-backend.md` fixes the
+  seam: a future engine (Kùzu, Neo4j, Datalevin) enters behind it and the rules never see it.
 - The store splits in two sibling directories: `.sldb/` (`store.yaml` and `core/`) is
   versioned whole, so that git holds the tree's past, and `.sldb_cache/` (edges, sections,
   semantic shards, graphs, locks; `.sldb/runtime/` until now) is regenerable and ignored
