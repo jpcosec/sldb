@@ -43,7 +43,7 @@ _Name the files, surfaces, or scope this pill applies to._
 
 _Describe the correct way to apply this guidance._
 
-Keep SLDB text-first: the graph and every evaluated rule are derived from documents and rebuildable. Add generic capabilities (rule evaluation, predicate language, document anchors, state machine over edges) only in a form any consumer can author with its own documents. Route desk-specific lifecycle content (which states, which gates, which task types) toward deskops documents.
+Keep SLDB text-first: the graph and every evaluated rule are derived from documents and rebuildable. Add generic capabilities (rule evaluation, predicate language, document anchors, state machine over edges) only in a form any consumer can author with its own documents. Route desk-specific lifecycle content (which states, which gates, which task types) toward deskops documents. Durable ruling: desk/atoms/atom-sldb-evaluates-declared-rules-consumers-author-them.md (atom-sldb-evaluates-declared-rules-consumers-author-them).
 
 ## How Not
 
