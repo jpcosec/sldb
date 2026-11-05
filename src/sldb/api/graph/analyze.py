@@ -12,12 +12,14 @@ engine). Without it, the store's `.sldb/store.yaml` decides, with networkx as th
 
 from __future__ import annotations
 
+from pathlib import Path
 from typing import Any, Iterable
 
 from sldb.api.edges.edge_reading import load_edge_index
 from sldb.api.stores.open_store import open_store
+from sldb.api.stores.store_declaration import declared_graph_backend
 from sldb.core.exceptions import SLDBGraphArgumentError
-from sldb.store.graph.backend import GraphBackend, backend_for
+from sldb.store.graph.backend import GraphBackend, make_backend
 
 
 def graph_path(store, source: str, target: str, relations: object = None, directed: bool = False, backend: GraphBackend | None = None, **index) -> list[str] | None:
@@ -76,6 +78,11 @@ def _run(store: Any, op: str, arguments: dict[str, Any], options: dict[str, Any]
     engine = backend if backend is not None else backend_for(open_store(store, mode="readonly").store_path)
     engine.load(index, None)
     return engine.analyze(op, **arguments)
+
+
+def backend_for(store_path: str | Path | None = None) -> GraphBackend:
+    """The backend the store declares; an absent declaration or key means networkx."""
+    return make_backend(declared_graph_backend(store_path))
 
 
 def _index(store, options: dict):

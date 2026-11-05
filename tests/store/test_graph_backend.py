@@ -178,14 +178,16 @@ def _declared(tmp_path: Path, body: str) -> Path:
 
 
 def test_an_absent_graph_backend_key_means_networkx(tmp_path: Path):
-    from sldb.store.graph.backend import NetworkXBackend, backend_for
+    from sldb.api.graph.analyze import backend_for
+    from sldb.store.graph.backend import NetworkXBackend
 
     store = _declared(tmp_path, "version: 1\n")
     assert isinstance(backend_for(store), NetworkXBackend)
 
 
 def test_explicit_networkx_is_accepted(tmp_path: Path):
-    from sldb.store.graph.backend import NetworkXBackend, backend_for
+    from sldb.api.graph.analyze import backend_for
+    from sldb.store.graph.backend import NetworkXBackend
 
     store = _declared(tmp_path, "version: 1\ngraph_backend: networkx\n")
     assert isinstance(backend_for(store), NetworkXBackend)
@@ -194,7 +196,7 @@ def test_explicit_networkx_is_accepted(tmp_path: Path):
 def test_another_graph_backend_fails_with_the_defined_message(tmp_path: Path):
     import pytest
 
-    from sldb.store.graph.backend import backend_for
+    from sldb.api.graph.analyze import backend_for
 
     store = _declared(tmp_path, "version: 1\ngraph_backend: neo4j\n")
     with pytest.raises(ValueError) as caught:

@@ -53,6 +53,18 @@ def _validate_graph_backend(definition: dict[str, Any]) -> None:
         raise ValueError(f'graph_backend {backend} no admitido; admitidos: ["networkx"]')
 
 
+def declared_graph_backend(store_path: str | Path | None = None) -> str:
+    """The store's `graph_backend`, or `networkx` when it has no declaration or no key."""
+    if store_path is None:
+        return "networkx"
+    path = Path(store_path)
+    if path.name != ".sldb" and (path / ".sldb").is_dir():
+        path = path / ".sldb"
+    if not declaration_path(path).is_file():
+        return "networkx"
+    return load_declaration(path).graph_backend
+
+
 def save_declaration(store_path: Path, declaration: StoreDeclaration) -> Path:
     """Write the declaration in a stable, reviewable order."""
     path = declaration_path(store_path)

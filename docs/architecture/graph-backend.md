@@ -67,9 +67,10 @@ graph_backend: networkx
 - **Cualquier otro valor**: el store falla al cargar la declaración con el mensaje exacto
   `graph_backend <valor> no admitido; admitidos: ["networkx"]`.
 
-La selección vive en `src/sldb/store/graph/backend/__init__.py` (`backend_for`,
-`make_backend`) y la validación al leer la declaración, en
-`src/sldb/api/stores/store_declaration.py`.
+La resolución vive en `src/sldb/api/graph/analyze.py` (`backend_for`, que llama a
+`declared_graph_backend` en `src/sldb/api/stores/store_declaration.py` y pasa el nombre a
+`make_backend` en `src/sldb/store/graph/backend/__init__.py`). Así el paquete `store` no
+importa nada de `sldb.api`.
 
 Para tests y para futuros motores, un llamador de Python puede inyectar una instancia:
 `graph_path(..., backend=motor)`, `GraphAnalysisCLI(backend=motor)` o
