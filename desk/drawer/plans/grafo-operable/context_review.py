@@ -35,7 +35,7 @@ PLAN = B.relative_to(ROOT)
 _DAG = yaml.safe_load((B / 'dag.yaml').read_text())
 # Evidence root: dag.yaml may name it (review_run); default derives from the plan id.
 RUN = ROOT / _DAG.get('review_run', f"runs/subagents/{_DAG['id']}-context-reviews/context-review")
-TIMEOUT = 300
+TIMEOUT = 900  # inputs de ~45 KB tardan más de 300 s en deepseek-flash a veces
 RETRIES = 2  # transport retries on the same input
 SYSTEM = (
     'Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: '
