@@ -8,7 +8,8 @@ tags:
 current_node: ritual-execution
 history: []
 references: []
-depends_on: []
+depends_on:
+- task-go03-costura-graphbackend-sobre-networkx
 pills: []
 files:
 - src/sldb/store/edge_index/node_ids.py
@@ -18,6 +19,7 @@ files:
 - src/sldb/store/edge_index/compose.py
 - src/sldb/store/models/edge_node_record.py
 - src/sldb/store/edge_sync.py
+- src/sldb/store/edge_doc_contribution.py
 - src/sldb/store/graph/facet_match.py
 - src/sldb/store/graph/executor.py
 - src/sldb/store/query_engine/structural_queries.py
@@ -54,7 +56,18 @@ Cada nodo de documento del indice de aristas lleva la facet payload (escalares y
 
 _State what is in scope and what is out of scope._
 
-En alcance: src/sldb/store/edge_index/, src/sldb/store/edge_sync.py, src/sldb/store/graph/facet_match.py, src/sldb/store/graph/executor.py, src/sldb/store/query_engine/structural_queries.py, el registro del nodo (src/sldb/store/models/edge_node_record.py), la validacion de __indexed__ al cargar el modelo, docs/architecture/graph-backend.md (seccion de la proyeccion y sus omisiones), CHANGELOG.md, tests. Fuera: el lenguaje de GO02 sobre la proyeccion y los shims (GO05), anchor_state (GO07), cualquier cambio en el resultado de consultas existentes.
+En alcance: src/sldb/store/edge_index/, src/sldb/store/edge_sync.py, src/sldb/store/edge_doc_contribution.py, src/sldb/store/graph/facet_match.py, src/sldb/store/graph/executor.py, src/sldb/store/query_engine/structural_queries.py, el registro del nodo (src/sldb/store/models/edge_node_record.py), la validacion de __indexed__ al cargar el modelo (src/sldb/store/model_contract.py), docs/architecture/graph-backend.md (seccion de la proyeccion y sus omisiones), CHANGELOG.md, tests. Fuera: el lenguaje de GO02 sobre la proyeccion y los shims (GO05), anchor_state (GO07), cualquier cambio en el resultado de consultas existentes.
+
+PRECISIONES (revisiones en frio preflight y cold-bundle de GO04, 2026-11-05):
+p1 (files manda): la lista files manda sobre OUTPUT_SCOPE (mismo criterio que GO03 p6); edge_node_record.py, model_contract.py y edge_doc_contribution.py son editables.
+p2 (formato): payload, field_hashes, source_hash y contract_signature son cuatro campos nuevos de primer nivel de EdgeNodeRecord, persistidos en el shard (no van en facets, que sigue siendo solo de lectura). Solo los nodos de documento los llenan; los demas nodos los dejan vacios. facet_value(node, "payload") devuelve node.payload.
+p3 (superficie de consulta): un filtro sobre la proyeccion es FacetFilter(facet="payload", conditions=[FieldCondition(field=<campo>, op=..., value=...)]); las lecturas actuales de semantics no cambian.
+p4 (hashes): source_hash es el hash_c de la DocumentEntry del documento (el que ya usa _stale_documents); field_hashes es el mapa DocumentEntry.field_hashes completo (store/ops.py); no se define un hash nuevo.
+p5 (error de __indexed__): SLDBModelError (de store/exceptions.py) al cargar la definicion del modelo, con mensaje que nombra el modelo y el campo. Tambien es error un nombre de __indexed__ que no existe entre los campos del modelo tras la herencia.
+p6 (comparaciones): eq/ne usan la igualdad de Python tal como facet_match la aplica hoy: lista contra escalar da eq false y ne true; sin coercion adicional (1 == 1.0 y True == 1 quedan como en Python).
+p7 (modelo no cargable): si la clase del modelo no se puede cargar, el nodo no lleva payload (mapa vacio) y contract_signature es la cadena vacia; abrir el store no falla; el shard se marca stale cuando la firma guardada difiere de la calculada (incluida la vacia).
+p8 (medicion): tamano del indice = bytes de todos los archivos bajo edges_shards_root(.sldb) (du -sb) en MB (10^6) con dos decimales; shards = numero de archivos .yaml alli; antes = main 804f1ad4 tras stores build, despues = la rama tras stores build.
+p9 (dependencia): depende de GO03 (task-go03-costura-graphbackend-sobre-networkx, integrada en main 804f1ad4); G_SEAM lo marca el supervisor y el dispatch espera a que este satisfecho.
 
 ## Implementation Path
 
