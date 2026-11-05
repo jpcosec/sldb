@@ -61,4 +61,19 @@ _List the checks required before this task can close._
 
 _Name the observable condition that makes the task complete._
 
-rules-language.md existe con las secciones (a)-(f), cada construccion tiene ejemplo con resultado esperado, la tabla cubre los 18 operadores listados en la aceptacion, los xfail corren sin skipped, y G_SEMANTICS queda satisfied en dag.yaml citando el commit.
+rules-language.md existe con las secciones (a)-(f), cada construccion tiene ejemplo con resultado esperado, la tabla cubre los 19 operadores listados en la aceptacion, los xfail corren sin skipped, y G_SEMANTICS queda satisfied en dag.yaml citando el commit.
+
+## Hipótesis del ejecutor (2026-11-04)
+
+- H1. La API de los tests de spec es `sldb.store.query_engine.rules` con `parse_predicate(texto)`, `eval_predicate(ast, grafo, sujeto=None)` y `contract_hash(modelo, field_hashes)`. El contrato fija `eval(predicado parseado, sujeto opcional)`, no la ruta del módulo ni la forma de pasar el grafo.
+- H2. Los tests representan el store como `{"nodes": {id: {"model": ..., "payload": ...}}, "edges": [{"source", "type", "target", "field"?}]}`; el objeto real es el índice compuesto / `GraphBackend` de GO03.
+- H3. Los tests pasan como sujeto el identificador `Model:name`; GO03 admite además el payload y el `export_id` con proyección.
+- H4. Los tests marcan con `"unavailable": True` una arista que cae en un store enlazado no disponible; el índice real resolverá esa condición al abrir el store enlazado.
+- H5. El contrato no fija cómo se concatenan varios pasos de un camino; se propone `.` (`depends_on.rel:tipo`) sin afectar los ejemplos de un solo paso.
+- H6. Se interpreta que `^` también invierte un paso `rel:<tipo>`, aunque los ejemplos fijados usan `^campo`.
+- H7. Los literales escalares son cadenas entre comillas dobles y números; no hay sintaxis de `true`, `false` ni `null`. Las listas literales son de escalares, sin anidamiento.
+- H8. Las palabras clave son minúsculas y sensibles a mayúsculas; el espacio en blanco entre tokens no es significativo.
+- H9. El contrato no fija campos con punto; se conserva la resolución por ruta de `where_lookup` (`sldb.authority`, `tasks.0.title`) para un paso de campo.
+- H10. El contrato fija que la explicación viaja en el envelope, pero no el nombre exacto de la clave; GO06 lo fija al definir `rules explain`.
+- H11. Los tests esperan `ValueError` ante `__contract__ = []`; el contrato solo dice «error al cargar el modelo».
+
