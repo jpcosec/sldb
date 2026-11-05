@@ -19,10 +19,10 @@ gates:
     evidence: '2387b0804d04dcf6e8b25807ae3143beb0cfb4cb: atom-sldb-evaluates-declared-rules-consumers-author-them y la pill con el enlace en how (GO01, primer commit, 2026-11-04). D1 en decisiones.md.'
   G_SEMANTICS:
     title: Semántica del lenguaje de reglas aceptada
-    state: pending
+    state: satisfied
     produced_by: GO02
     resolver: revisión en frío de GO02 aceptada por el desk de sldb (D6 ya confirmada por el dueño el 2026-11-04)
-    evidence: docs/architecture/rules-language.md con gramática, semántica estratificada, mundo cerrado por store, resultado incomplete en el borde de links, formato de explicación, sintaxis __contract__; ejemplos ejecutables como tests de la spec
+    evidence: 'sldb 043282c3: docs/architecture/rules-language.md y tests/test_rules_language_spec.py (52 xfail estrictos); preflight y cold-bundle del TaskDoc dispuestos; aceptación verificada por el coordinador de robocop2 y revisada por el supervisor (agregó la columna todos I), 2026-11-04'
   G_SEAM:
     title: Costura GraphBackend definida
     state: pending
