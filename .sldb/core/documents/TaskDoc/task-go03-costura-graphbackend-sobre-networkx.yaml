@@ -1,7 +1,7 @@
 name: task-go03-costura-graphbackend-sobre-networkx
 path: desk/tasks/task-go03-costura-graphbackend-sobre-networkx.md
-source_hash: 3b78ac23d5b390ee7a0c6aa17bbcd30992ea53ec260807f8ae1bdcfe6f56bd44
-content_hash: 27f41cede830e407a34d7a519d075624052f46a66b9ba3320c7d00aed1e2666e
+source_hash: 6540a8c81f0acc1c1b3f503034c260e3dac1a3668bb3d991a66afe4e76dd8d63
+content_hash: a22a8293d5124368005f7dc0c1dc9651e3844aa92e36bf99e821436264b94283
 field_hashes:
   title: 350d9a595d97d3999b2049be4372519879c7b7464ac60eb02c94ced3d14fc621
   id: e170a769a931b87cd27a03a184bdb42f203ed1ffa0f01c5af5f4b5e4b3377676
@@ -12,7 +12,7 @@ field_hashes:
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 8722b68b7e93bfdee60f269e3a470e7d38e4a77997b97c735163956ba71cbba8
   goal: fc201521887084a35290d394e034c0fcfa9a305a51d2a7c2cf1bcd26a7d7749d
-  scope: 0a8d3dc9d2a885fec6c1f386cf15903dd3fa0c96af1b158d66289c824918e029
+  scope: c55cc65ebbfd0a9e0d70421fda550a4758e79a5c47255bfa57328192e4ca653b
   references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
