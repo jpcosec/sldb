@@ -8,7 +8,6 @@ tasks:
 - desk/tasks/task-congelar-journal-autoridad-arbol.md
 - desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
 - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
-- desk/tasks/task-el-store-se-parte-en-sldb-operacional-versionado-y-sldb-cache-regenerable-ignorado.md
 - desk/tasks/task-go02-semantica-gramatica-y-firma-de-evaluacion-del-lenguaje-de-reglas.md
 # List of pill-xxx paths
 pills:
@@ -57,5 +56,4 @@ _Generated from the task references above._
 - Congelar el journal y rediseñar la autoridad: el árbol guarda, el journal es una vista [active] - Dejar por escrito la dirección de diseño para cuando se retome: el **árbol es la autoridad**; el **journal es una interfaz de lectura** sobre él (como `git log`/`git diff` sobre el object database), no un segundo almacén.
 - Diseño: set bootstrap de modelos tras la convergencia átomo/field [draft] - Un documento de decisión en docs/ (SpecDoc o PlanDoc trackeado) que evalúe la propuesta de siete modelos, diga qué se adopta, qué no y por qué, con ejemplos de cada modelo sobre documentos reales del store.
 - Diseño: jerarquía de modelos de evidencia (__family__ o herencia) [draft] - Un documento de decisión en docs/ que compare __family__ vs herencia de clases para los modelos de evidencia, con la recomendación y sus consecuencias para deskops (RunDoc, materializaciones, closeout_evidence).
-- El store se parte en .sldb (operacional, versionado) y .sldb_cache (regenerable, ignorado) [draft] - .sldb/ contiene store.yaml y core/ (store_index, models, documents) y se versiona entero; .sldb_cache/ (hermano de .sldb) contiene lo que hoy es runtime/ (edges, sections, semantic, graphs, cache, locks) y se ignora; el journal desaparece porque su función la cumple git; stores init escribe la línea .sldb_cache/ en .gitignore y stores check alerta si falta o si core/ está ignorado.
 - GO02: semantica, gramatica y firma de evaluacion del lenguaje de reglas [draft] - Escribir docs/architecture/rules-language.md con los apartados (a)-(f) del contrato y una tabla de equivalencia con where_parse y FieldCondition, mas tests de spec marcados xfail (no skipped) en tests/test_rules_language_spec.py, uno por construccion. Sin codigo de produccion.

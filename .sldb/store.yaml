@@ -330,13 +330,22 @@ include:
   - desk/tasks/task-congelar-journal-autoridad-arbol.md
   - desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
-  - desk/tasks/task-el-store-se-parte-en-sldb-operacional-versionado-y-sldb-cache-regenerable-ignorado.md
+  - desk/tasks/task-go02-semantica-gramatica-y-firma-de-evaluacion-del-lenguaje-de-reglas.md
 - model: RunDoc
   paths:
   - path: runs/subagents/20261029-124912-task-cerrar-task-sldb-serve/run.md
     name: run-sldb-close-serve
   - path: runs/subagents/20261029-125456-task-cerrar-task-store-generalize/run.md
     name: run-sldb-close-generalize
+- model: MaterializationContractDoc
+  paths:
+  - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
+  - desk/materializations/materialization-store-layout-src-sldb-api-stores-gitignore-policy-py.md
+  - desk/materializations/materialization-store-layout-src-sldb-cli-commands-stores-py.md
+  - desk/materializations/materialization-store-layout-docs-architecture-derived-store-boundary-md.md
+  - desk/materializations/materialization-store-layout-docs-architecture-journal-authority-md.md
+  - desk/materializations/materialization-store-layout-changelog-md.md
+  - desk/materializations/materialization-store-layout-src-sldb-store-journal-entry-py.md
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md
