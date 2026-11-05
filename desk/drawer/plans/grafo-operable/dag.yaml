@@ -12,10 +12,10 @@ estimate_legend:
 gates:
   G_BOUNDARY:
     title: Frontera sldb/deskops reencuadrada por el dueño y commiteada
-    state: pending
+    state: satisfied
     produced_by: GO01
     resolver: GO01 (commit en main de sldb de la pill ya editada, el atom y la nota a deskops)
-    evidence: 'Decisión D1 registrada en decisiones.md; la pill reescrita entra en el commit de este plan (rev 5). El gate se satisface cuando GO01, en su segundo commit, reemplace este texto por el hash de su primer commit (el del atom y el enlace en la pill).'
+    evidence: '2387b0804d04dcf6e8b25807ae3143beb0cfb4cb: atom-sldb-evaluates-declared-rules-consumers-author-them y la pill con el enlace en how (GO01, primer commit, 2026-11-04). D1 en decisiones.md.'
   G_SEMANTICS:
     title: Semántica del lenguaje de reglas aceptada
     state: pending
