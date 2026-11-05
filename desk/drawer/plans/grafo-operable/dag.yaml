@@ -31,9 +31,9 @@ gates:
     evidence: protocolo GraphBackend (load, eval, analyze) documentado, comandos graph y api/graph enrutados por analyze con goldens y tests idénticos, eval probado en su subconjunto, clave graph_backend en store.yaml
   G_OPS_PREREQ:
     title: Store operacional versionado y journal congelado
-    state: pending
+    state: satisfied
     resolver: Board de sldb (task-congelar-journal-autoridad-arbol, task-el-store-se-parte-en-sldb-operacional-...)
-    evidence: ambas tareas cerradas con closeout commit; .sldb_cache ignorado y regenerable
+    evidence: 'sldb c420809c (split y journal retirado) con closeout d88ac119; tarea del journal cerrada; stores migrados en sldb 9bc591c3, deskops 1a58cf64, spec2viz f83d4ce, scion 499351951 (stores check PASS); pron solo agregó .sldb_cache/ porque ignora .sldb/ entero (consulta en su inbox), 2026-11-04'
   G_CONSUMER:
     title: deskops prueba el gate de activación con RuleDoc
     state: pending
