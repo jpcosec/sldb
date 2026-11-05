@@ -72,24 +72,3 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 Aceptacion de GO03 cumplida linea por linea, revision en frio aceptada, G_SEAM satisfied en dag.yaml citando el commit.
-
-## Hipótesis del ejecutor (2026-11-05)
-
-- **H1. Predicado parseado en `eval`.** El contrato fija `eval(predicado_parseado, sujeto)` pero no la
-  forma del objeto parseado ni una API de parseo pública (eso es GO05, `parse_predicate`). En GO03
-  `eval` recibe el predicado como texto y lo parsea con el subconjunto de GO02 dentro del backend;
-  los tests de especificación de `tests/test_rules_language_spec.py` siguen siendo de GO05.
-- **H2. Nombres de `analyze`.** Las seis operaciones del contrato son las de la CLI (`path`,
-  `cycles`, `order`, `components`, `central`, `similar`). Para que las diez funciones de
-  `api/graph/analyze.py` pasen por la costura, `analyze` admite además `paths`, `layers`,
-  `islands` e `isolated`, con el nombre de la función de `analysis` que envuelven.
-- **H3. `model <= X` sobre payload.** GO03 no tiene la proyección ni el registro de modelos del
-  sujeto. `model <= X` se evalúa con `payload["model"]` y el opcional `payload["base_models"]`;
-  si el payload no trae modelo, el predicado es `false`. GO04/GO05 lo resolverán con la familia
-  real de modelos.
-- **H4. `eval` sin sujeto.** Sin sujeto recorre la proyección cargada; con la proyección en `None`
-  (siempre en GO03) no hay payloads que evaluar y devuelve `[]`. El dominio completo del store
-  llega con la proyección de GO04 y el evaluador de GO05.
-- **H5. Inyección del backend en la CLI.** Para el espía, el backend se inyecta con
-  `GraphCLI(backend=...)` / `GraphAnalysisCLI(backend=...)`; `store.yaml` sigue siendo el selector
-  de producción y no un canal de inyección.
