@@ -13,6 +13,16 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   the GO02 subset without paths (finding shape in `rules-language.md` §4 and §6); a path
   raises `NotImplementedError` until GO05. `docs/architecture/graph-backend.md` fixes the
   seam: a future engine (Kùzu, Neo4j, Datalevin) enters behind it and the rules never see it.
+- A project's declared-edge graph as a library (`sldb.api.edges.project_graph`): `ProjectGraph(root,
+  ProjectGraphConfig)` reads the documents of configured surfaces and the files path rules
+  classify as nodes, the schema edges and unresolved values of the project's own store from its
+  cached composed edge index (`include_linked=False`), and from each document's text what its
+  model does not declare (configured mapping fields, fenced YAML blocks, mentions under headings
+  or on every line). `edges_from(node)` / `missing_from(node)` read one source alone and give
+  what `extraction()` gives for it, so a reader asking about a few documents reads only those.
+  The project owns only the configuration (deskops' desk is the first, `deskops/graph/desk_graph.py`).
+  New `sldb.api.tracked_documents(store, refs)`: `doc_status` for many references from one read
+  of the documents index.
 - The store splits in two sibling directories: `.sldb/` (`store.yaml` and `core/`) is
   versioned whole, so that git holds the tree's past, and `.sldb_cache/` (edges, sections,
   semantic shards, graphs, locks; `.sldb/runtime/` until now) is regenerable and ignored

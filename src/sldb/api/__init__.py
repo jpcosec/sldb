@@ -64,6 +64,7 @@ from sldb.api.segments import CompositionPiece, CompositionSpec, DocumentSegment
 from sldb.api.stores.doc_ref import split_doc_ref
 from sldb.api.stores.doc_ref_status import DocRefStatus
 from sldb.api.stores.doc_status import doc_exists, doc_status
+from sldb.api.stores.tracked_documents import tracked_documents
 from sldb.api.stores.init_store import init_store
 from sldb.api.stores.link_store import link_store
 from sldb.api.stores.unlink_store import unlink_store
@@ -123,7 +124,7 @@ __all__ = [
     "section_node_id", "serialize_document", "serialize_edge_node_records",
     "serialize_edge_records", "tag_node_id", "track_document_file", "untrack_document",
     "update_store_indexes", "validate_model_draft", "verify_journal",
-    "DocRefStatus", "doc_exists", "doc_status", "split_doc_ref", "store_links",
+    "DocRefStatus", "doc_exists", "doc_status", "tracked_documents", "split_doc_ref", "store_links",
     "WherePredicateError", "edges_holding", "remove_model", "where_matches", "inherit_model", "is_model_registered", "registered_models",
     "StructuredNLDoc", "UnresolvedReference", "unresolved_references",
 ]
