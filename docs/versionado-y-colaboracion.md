@@ -30,19 +30,15 @@ reescribe las claves nuevas. Los valores no cambian con el renombre.
 
 `hash_d` es **función pura del payload**: `hash_payload(codec.extract(model, markdown))`.
 Dos prints del mismo payload → mismo `hash_d`; un cambio de campo lo rota siempre. Se calcula en
-`ops.track_document` y en `payload_save_steps.write_rendered_document`, y el journal registra
-`hash_d_before`/`hash_d_after` en cada write (`payload_save._save_and_record`).
+`ops.track_document` y en `payload_save_steps.write_rendered_document`.
 
-### Journal (`src/sldb/store/journal/*`, `src/sldb/api/journal.py`)
+### Journal: retirado el 2026-11-04
 
-- Append-only, un YAML por write en `.sldb/runtime/journal/` (`append_entry`, bajo `journal_lock`).
-- Cada entrada (`JournalEntry`): `operation`, `address` (`Model:doc`), `field`, `previous_value`,
-  `new_value`, `hash_c_before/after`, `hash_d_before/after`, `hash_a_before/after`, `actor`,
-  `timestamp`, y cadena por `previous_hash -> entry_hash` (SHA-256 de todos los campos).
-- Lectura: `read_entries` (newest-first, filtros `limit/since/address`). Verificación:
-  `verify_chain` camina la cadena y reporta dónde rompe (`entry_hash mismatch` /
-  `previous_hash mismatch`). **No hay nada más**: no hay replay, no hay checkpoints, no hay
-  inversión, no hay expurgo, y `SLDB_JOURNAL_OFF=1` puede desactivar el append por completo.
+El journal (un YAML por write en `.sldb/runtime/journal/`, encadenado por hash) fue retirado:
+`.sldb/core/` se versiona entero y el pasado del árbol es la historia de git de sus shards
+(`sldb docs history <doc>`, `git log -- .sldb/core/`). Ninguna escritura lo produce,
+`sldb stores migrate-layout` borra el que un store tenía y `sldb journal show` imprime el aviso
+([architecture/journal-authority.md](architecture/journal-authority.md)).
 
 ### Pasos de una escritura (`payload_save_steps.py` + `payload_save.py`)
 

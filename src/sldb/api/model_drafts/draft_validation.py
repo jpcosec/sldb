@@ -5,7 +5,6 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-from sldb.api.journal import record, store_hash
 from sldb.api.model_drafts.backfill import BackfillDoc, apply_backfill, check_and_plan
 from sldb.api.model_drafts.draft_checks import current_version
 from sldb.api.model_drafts.draft_loading import load_model_from_path
@@ -14,7 +13,6 @@ from sldb.api.model_drafts.draft_validation_report import DraftValidationReport
 from sldb.api.model_drafts.model_source import ModelSource
 from sldb.api.model_drafts.source_location import locate_model_source
 from sldb.api.model_registry.reindex_model import reindex_model
-from sldb.api.schema.describe_field import schema_snapshot
 from sldb.api.stores.open_store import open_store
 from sldb.core.exceptions import SLDBModelDraftError
 from sldb.store.io import load_store_index
@@ -37,14 +35,12 @@ def promote_model_draft(store: str | Path | None, model_name: str, pythonpath: s
     """Validate the draft, install it, reindex, and bump the version.
 
     With `backfill=True`, tracked documents missing a new field's default are re-rendered
-    under the new contract and each gets its own journal entry; the report lists them, so
+    under the new contract; the report lists them, so
     nothing is rewritten without the caller asking for it. On reindex failure the active
     model, the draft and the store indexes are put back.
     """
-    source, old_type, new_type, plan, report = _checked(store, model_name, pythonpath)
-    before = store_hash(open_store(store).store_path)
+    source, _old_type, new_type, plan, report = _checked(store, model_name, pythonpath)
     version = _install_draft(store, model_name, source, new_type, plan, pythonpath, actor, backfill)
-    _record_promote(store, model_name, old_type, new_type, report.version, version, before, actor)
     return report.model_copy(update={"promoted": True, "version": version})
 
 
@@ -80,11 +76,6 @@ def _install_and_reindex(store: str | Path | None, model_name: str, source: Mode
         source.path.write_text(source.draft_path.read_text(encoding="utf-8"), encoding="utf-8")
         _drop_modules(modules)  # the reindex (document hashes, field nodes) reads the new contract
         return reindex_model(store, model_name, pythonpath, bump_version=True).version
-
-
-def _record_promote(store: str | Path | None, model_name: str, old_type: type, new_type: type, before_version: int, after_version: int, before: str, actor: str | None) -> None:
-    sp = open_store(store).store_path
-    record(sp, {"operation": "promote_model_draft", "address": model_name, "previous_value": schema_snapshot(old_type, before_version), "new_value": schema_snapshot(new_type, after_version), "hash_a_before": before, "hash_a_after": store_hash(sp), "actor": actor})
 
 
 def _model_modules(store: str | Path | None, model_name: str, source: ModelSource) -> set[str]:

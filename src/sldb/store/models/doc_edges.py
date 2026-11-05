@@ -1,4 +1,4 @@
-"""One document's shard of the edge index: `.sldb/runtime/edges/<Model>/<doc>.yaml`."""
+"""One document's shard of the edge index: `.sldb_cache/edges/<Model>/<doc>.yaml`."""
 
 from __future__ import annotations
 

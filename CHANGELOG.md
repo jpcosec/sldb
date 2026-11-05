@@ -4,6 +4,27 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
 
 ## 0.1.13 — not released yet (no tag, not on PyPI)
 
+- The store splits in two sibling directories: `.sldb/` (`store.yaml` and `core/`) is
+  versioned whole, so that git holds the tree's past, and `.sldb_cache/` (edges, sections,
+  semantic shards, graphs, locks; `.sldb/runtime/` until now) is regenerable and ignored
+  (`docs/architecture/derived-store-boundary.md`; owner's decision, 2026-10-29).
+  `sldb stores init` adds the line `.sldb_cache/` to the root `.gitignore` (idempotent, no
+  other line touched); `sldb stores check` reports the error `stores/core_ignored` (exit 1)
+  when git ignores `.sldb/core/` or `.sldb/store.yaml` and the alert `stores/cache_not_ignored`
+  (exit 0) when the cache is not ignored; `stores build --check` leaves `.sldb_cache/` out of
+  its copy. New `sldb stores migrate-layout [--store PATH] [--force]` moves the content of
+  `.sldb/runtime/` to `.sldb_cache/` (refusing a non-empty cache unless `--force`, which
+  deletes it first), deletes the journal without archiving it, removes `.sldb/runtime/` and
+  rewrites the root `.gitignore`: only the lines whose pattern is `.sldb/core` or
+  `.sldb/runtime` go, `.sldb_cache/` comes in, everything else stays verbatim. The
+  `selfdoc python-sync` graph defaults to `.sldb_cache/graphs/python-source.graph.json`.
+- The write journal is retired (2026-11-04): no write through `sldb.api` produces one, and
+  `sldb journal show` (and `verify`) print `El journal fue retirado el 2026-11-04; el pasado
+  del store se consulta con sldb docs history <doc>.` and exit 0. `sldb.api.journal()` answers
+  `[]` and `verify_journal()` a valid, empty report, for importers; `SLDB_JOURNAL_OFF` is gone;
+  the `actor` parameters stay (they still stamp a document's provenance where they did).
+  `docs/architecture/journal-authority.md` records the decision: the tree is the authority
+  and git is its memory.
 - Edges can carry their evidence, on request: `sldb edges show --evidence` and
   `sldb.api.edges.edge_evidence.stamp_evidence` add `metadata.evidence` with `ref_hash` (the
   target's `content_hash`, a model's `model_hash`; for a section its document's, flagged

@@ -17,7 +17,7 @@ sldb selfdoc python-check --source-root src --system sldb \
   --architecture-spec docs/architecture/spec2viz/python-ast.yml
 ```
 
-`python-sync` writes the source graph itself with sldb's graph IO (`sldb.selfdoc.source_graph_file.write_source_graph`); no external tool is invoked. The default location is `.sldb/runtime/graphs/python-source.graph.json`; override it with `--graph-output path`. Paths are rooted at the selected store and cannot escape it. The graph is generated local state. A missing or source-stale graph appears as `graph_stale` and makes `python-check` return 1, just like source-document drift.
+`python-sync` writes the source graph itself with sldb's graph IO (`sldb.selfdoc.source_graph_file.write_source_graph`); no external tool is invoked. The default location is `.sldb_cache/graphs/python-source.graph.json`; override it with `--graph-output path`. Paths are rooted at the store's project and cannot escape it. The graph is generated local state. A missing or source-stale graph appears as `graph_stale` and makes `python-check` return 1, just like source-document drift.
 
 For example, the graph distinguishes `command` **containing** `CommandRecord`, the module **importing** `ArgumentRecord`, and the field annotation **referencing** it. The projection proves containment, imports (following explicit re-export chains), and annotation references resolved against the binding active at that point — not runtime calls or star-imported names. Consumers query the published store facts through their own supported sldb integration; an agent does not treat the generated graph file as an ad-hoc source of truth. The consumer boundary is specified in [the docstring indexing contract, section 4.3](architecture/code-docstring-indexing.spec.md).
 

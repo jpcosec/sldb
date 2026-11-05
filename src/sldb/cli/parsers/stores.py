@@ -6,7 +6,7 @@ def add_stores_group(s: argparse._SubParsersAction) -> None:
     sub = p.add_subparsers(dest="stores_command", required=True)
     _init(sub); _add(sub); _remove(sub); _check(sub); _update(sub); _reconcile(sub)
     _semantic_map(sub); _semantic_export(sub); _list(sub); _migrate_hashes(sub)
-    _declare(sub); _build(sub)
+    _migrate_layout(sub); _declare(sub); _build(sub)
 
 def _init(s):
     i = s.add_parser("init", help="Init .sldb store.")
@@ -44,6 +44,11 @@ def _update(s):
 def _migrate_hashes(s):
     m = s.add_parser("migrate-hashes", help="Rename hash_a..hash_d to store/model/source/content.")
     m.add_argument("--store", help="Store path")
+
+def _migrate_layout(s):
+    m = s.add_parser("migrate-layout", help="Move the cache from .sldb/runtime/ to .sldb_cache/ (sibling of .sldb/), drop the journal and fix the root .gitignore.")
+    m.add_argument("--store", help="Store path")
+    m.add_argument("--force", action="store_true", help="Replace an existing, non-empty .sldb_cache/")
 
 def _reconcile(s):
     r = s.add_parser("reconcile", help="Explicitly reconcile a catalog against a subtree.")

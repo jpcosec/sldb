@@ -41,7 +41,7 @@ def _python_options(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--package", help="Optional package prefix for stable IDs")
     parser.add_argument("--store", help="Store used to anchor source root")
     parser.add_argument("--architecture-spec", help="Explicit spec2viz YAML relative to store root")
-    parser.add_argument("--graph-output", default=".sldb/runtime/graphs/python-source.graph.json", help="Source graph (node-link JSON) relative to the store root")
+    parser.add_argument("--graph-output", default=".sldb_cache/graphs/python-source.graph.json", help="Source graph (node-link JSON) relative to the project root")
     parser.add_argument("--kgdb-output", action=_RemovedKgdbFlag, help=argparse.SUPPRESS)
     parser.add_argument("--kgdb-command", action=_RemovedKgdbFlag, help=argparse.SUPPRESS)
 

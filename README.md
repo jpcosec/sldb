@@ -414,15 +414,16 @@ microseconds per file, no reads), so an edit made behind sldb's back is seen bef
 |-------|-------|-----|
 | Index cache | memory (`sldb.store.io`) | each yaml index by its file's mtime and size; loads return copies; saves that change nothing do not touch the file |
 | Runtime documents | memory (`sldb.store.runtime_cache`) | the store by `store_hash` + every `model_hash` (+ the leaf stats); each extracted document by `(path, source_hash[, mtime, size], model)` |
-| Extracted payloads | `.sldb/runtime/cache/extracted.json` | the payloads by the same leaf key, so a new process does not extract what it has already seen |
-| Built per model | `.sldb/runtime/cache/built.json` | the semantic contribution and the sections of each model by `model_hash`; a rebuild walks only models whose documents moved |
+| Extracted payloads | `$XDG_CACHE_HOME/sldb/runtime-cache-extracted/<store>.json` | the payloads by the same leaf key, so a new process does not extract what it has already seen |
+| Built per model | `$XDG_CACHE_HOME/sldb/runtime-cache-built/<store>.json` | the semantic contribution and the sections of each model by `model_hash`; a rebuild walks only models whose documents moved |
 
 `sldb stores update` rehashes every document's text (that is its job: to see edits made
 behind sldb's back and move the chain) but recomputes field hashes only where the text
 changed. A store layout that is already canonical is not rewritten when a command opens
 it. The rebuilds keyed by `model_hash` do not see a hand edit until `stores update` moves
 its `source_hash`; readers do, through the leaf sweep. The two cache files are derived; delete
-them freely and add `.sldb/runtime/cache/` to `.gitignore`.
+them freely; they live outside the repository, and the store's own cache (`.sldb_cache/`, a
+sibling of `.sldb/`) is what `stores init` ignores in `.gitignore`.
 
 ### Typical workflow
 

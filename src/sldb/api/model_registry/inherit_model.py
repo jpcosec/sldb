@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from sldb.api.journal import record, store_hash
 from sldb.api.model_registry.federated_registration import _do_ensure_federated_model
 from sldb.store.model_import_root import import_root
 from sldb.api.model_registry.model_reference import add_import_roots, resolve_model_ref, same_model_class
@@ -30,7 +29,7 @@ def inherit_model(store: str | Path | None, ref: str, pythonpath: str | None = N
         store: The store (path, alias, or None to discover it).
         ref: `alias:ModelName`, the alias being a store this store links (`stores add`).
         pythonpath: Directory to import the store's other models from (indexes are rebuilt).
-        actor: Optional label recorded in the store journal for this write.
+        actor: Optional caller label; accepted for compatibility, no longer recorded (the journal was retired on 2026-11-04).
 
     Returns:
         The inherited entry's registry record.
@@ -44,9 +43,7 @@ def inherit_model(store: str | Path | None, ref: str, pythonpath: str | None = N
     location = open_store(store)
     sp, root = location.store_path, location.project_root
     theirs = _owners_entry(sp, alias, name)
-    before = store_hash(sp)
     entry = _commit(sp, root, alias, theirs, pythonpath)
-    record(sp, {"operation": "inherit_model", "address": name, "previous_value": None, "new_value": {"origin": alias}, "hash_a_before": before, "hash_a_after": store_hash(sp), "actor": actor})
     return ModelRegistration(name=entry.name, model_ref=entry.model_ref, path=entry.path, version=entry.version)
 
 

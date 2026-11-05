@@ -3,7 +3,7 @@
 A document written before a field existed lacks the field's section. `check_and_plan`
 extracts it under the old contract, adds the new fields' defaults, validates that the
 filled payload round-trips under the new contract, and reports which documents a backfill
-would rewrite. `apply_backfill` re-renders each one and records its own journal entry.
+would rewrite. `apply_backfill` re-renders each one, stamped with the actor.
 """
 
 from __future__ import annotations
@@ -14,8 +14,6 @@ from typing import Any
 
 from pydantic import ValidationError
 
-from sldb.api.documents.payload_diff import field_label
-from sldb.api.journal import doc_address, doc_hashes, record
 from sldb.api.model_drafts.draft_contract import validate_template_contract
 from sldb.api.model_drafts.draft_document_check import DraftDocumentCheck
 from sldb.api.stores.open_store import open_store
@@ -23,7 +21,6 @@ from sldb.core.exceptions import SLDBModelEditError, SLDBModelError, SLDBValidat
 from sldb.api.documents.provenance_stamp import stamped_file
 from sldb.runtime.validation import extract_model_data, render_model_markdown, validate_model_data_roundtrip
 from sldb.store.facade import get_tracked_docs
-from sldb.store.hashing import hash_fields, hash_text
 
 
 @dataclass
@@ -35,8 +32,6 @@ class BackfillDoc:
     previous: dict[str, Any]
     new: dict[str, Any]
     rendered: str
-    hash_c_before: str | None
-    hash_d_before: str | None
     needs_write: bool = True
 
 
@@ -60,12 +55,9 @@ def _prepare_all(location, model_name: str, old_type: type, new_type: type, docs
 
 
 def apply_backfill(store: str | Path | None, model_name: str, new_type: type, plan: list[BackfillDoc], actor: str | None) -> int:
-    """Rewrite each planned document and record its own journal entry; returns the count."""
-    location = open_store(store)
+    """Rewrite each planned document, stamped with the actor; returns the count."""
     for doc in plan:
-        text = stamped_file(doc.path, doc.rendered + "\n", new_type, "backfill_document", actor)
-        doc.path.write_text(text, encoding="utf-8")
-        record(location.store_path, _entry(location.store_path, model_name, new_type, doc, text, actor))
+        doc.path.write_text(stamped_file(doc.path, doc.rendered + "\n", new_type, "backfill_document", actor), encoding="utf-8")
     return len(plan)
 
 
@@ -76,8 +68,7 @@ def _prepare(location, model_name: str, old_type: type, new_type: type, name: st
     new = _add_new_defaults(new_type, old_type, previous, model_name, name)
     _check_roundtrip(new_type, model_name, name, new)
     rendered = render_model_markdown(new_type, new, location.project_root)
-    hc, hd = doc_hashes(location.store_path, model_name, name)
-    return BackfillDoc(name, path, previous, new, rendered, hc, hd, rendered + "\n" != text)
+    return BackfillDoc(name, path, previous, new, rendered, rendered + "\n" != text)
 
 
 def _add_new_defaults(new_type: type, old_type: type, payload: dict[str, Any], model_name: str, name: str) -> dict[str, Any]:
@@ -96,10 +87,6 @@ def _check_roundtrip(new_type: type, model_name: str, name: str, payload: dict[s
     valid, details = validate_model_data_roundtrip(new_type, payload)
     if not valid:
         raise SLDBValidationError(f"Draft for '{model_name}' failed validation on '{name}'.", details)
-
-
-def _entry(sp: Path, model_name: str, new_type: type, doc: BackfillDoc, text: str, actor: str | None) -> dict[str, Any]:
-    return {"operation": "backfill_document", "address": doc_address(model_name, doc.name), "field": field_label(doc.previous, doc.new), "previous_value": doc.previous, "new_value": doc.new, "hash_c_before": doc.hash_c_before, "hash_c_after": hash_text(text), "hash_d_before": doc.hash_d_before, "hash_d_after": hash_fields(new_type, text), "actor": actor}
 
 
 def missing_fields(exc: ValidationError) -> list[str]:

@@ -58,7 +58,7 @@ EDGES_HELP = """sldb edges
 
 Typed nodes and edges of the store: the edge index.
 
-Every sldb write keeps one shard per document under `.sldb/runtime/edges/<Model>/<doc>.yaml`,
+Every sldb write keeps one shard per document under `.sldb_cache/edges/<Model>/<doc>.yaml`,
 stamped with the document's hash_c. Documents, sections, models, fields and tags are nodes;
 a RelationDoc is an edge typed by a RelationTypeDoc; an anchor document names what its ref
 points at. Reading composes the shards (and the linked stores'); nothing is rebuilt on read.

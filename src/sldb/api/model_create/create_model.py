@@ -3,7 +3,7 @@
 `sldb.api.create_model` is the substrate operation behind pron's `kb_model_create`: it
 turns `[{name, type, description, required?, default?, enum?}]` into a `StructuredNLDoc`
 module under `<pythonpath>/<target_package>/`, refuses a module that does not import and
-roundtrip, registers it, and leaves a journal entry.
+roundtrip, and registers it.
 """
 
 from __future__ import annotations
@@ -12,8 +12,6 @@ import importlib
 import sys
 from pathlib import Path
 
-from sldb.api.journal import record
-from sldb.api.model_create.field_decl import FieldDecl
 from sldb.api.model_create.model_check import ModelCheck
 from sldb.api.model_create.model_source import ModelSource
 from sldb.api.model_registry.add_model import add_model
@@ -36,7 +34,7 @@ def create_model(store: str | Path | None, name: str, fields: list, template: st
         base: A registered model name the new model extends; None extends StructuredNLDoc.
         target_package: Package under `pythonpath` to write the generated module into.
         pythonpath: Directory importing the module from; defaults to the store's project root.
-        actor: Optional label recorded in the store journal for this write.
+        actor: Optional caller label; accepted for compatibility, no longer recorded (the journal was retired on 2026-11-04).
 
     Returns:
         The new registry record (version 1).
@@ -46,10 +44,8 @@ def create_model(store: str | Path | None, name: str, fields: list, template: st
     """
     location = open_store(store)
     pythonpath = pythonpath or str(location.project_root)
-    path, ref, source = _generate(location.store_path, name, fields, template, base, target_package, pythonpath)
-    registration = add_model(location.store_path, ref, pythonpath, actor=actor)
-    _record(location.store_path, name, ref, path, source, actor)
-    return registration
+    _path, ref, _source = _generate(location.store_path, name, fields, template, base, target_package, pythonpath)
+    return add_model(location.store_path, ref, pythonpath, actor=actor)
 
 
 def _generate(sp: Path, name: str, fields: list, template: str | None, base: str | None, package: str, pythonpath: str) -> tuple[Path, str, ModelSource]:
@@ -96,10 +92,3 @@ def _forget(package: str, pythonpath: str) -> None:
     for key in [k for k in sys.modules if k == root or k.startswith(root + ".")]:
         del sys.modules[key]
 
-
-def _record(sp: Path, name: str, ref: str, path: Path, source: ModelSource, actor: str | None) -> None:
-    record(sp, {"operation": "create_model", "address": name, "new_value": {"model_ref": ref, "path": str(path), "fields": [_field(f) for f in source.fields]}, "actor": actor})
-
-
-def _field(f: FieldDecl) -> dict:
-    return {"name": f.name, "type": f.type, "description": f.description, "required": f.required, "default": f.default}

@@ -208,25 +208,28 @@ declaración `rev` en algún lado.
 ### Anatomía
 
 ```
-.sldb/
-├── core/                              ← estado, se versiona en git
-│   ├── store_index.yaml               ← modelos registrados
-│   ├── models/<Modelo>.yaml           ← el nodo del modelo: hashes y conteo
-│   └── documents/<Modelo>/<doc>.yaml  ← un archivo por documento
-└── runtime/                           ← derivado, se puede borrar
-    ├── sections/       ← secciones por documento
-    ├── edges/          ← shards del grafo
-    ├── semantic/       ← indice semantico
-    ├── journal/        ← historia de writes
-    ├── locks/          ← exclusion mutua
-    ├── edges.yaml      ← indice raiz de aristas
-    └── semantic_dag.yaml
+.sldb/                                 ← se versiona entero en git
+├── store.yaml                         ← la declaración del store
+└── core/
+    ├── store_index.yaml               ← modelos registrados
+    ├── models/<Modelo>.yaml           ← el nodo del modelo: hashes y conteo
+    └── documents/<Modelo>/<doc>.yaml  ← un archivo por documento
+.sldb_cache/                           ← hermana de .sldb/, ignorada por git, se puede borrar
+├── sections/       ← secciones por documento
+├── edges/          ← shards del grafo
+├── semantic/       ← indice semantico
+├── graphs/         ← grafos generados (selfdoc)
+├── locks/          ← exclusion mutua
+├── edges.yaml      ← indice raiz de aristas
+└── semantic_dag.yaml
 ```
 
-(`cache/` aparece en stores antiguos; los nuevos no lo crean.)
+(Hasta el 2026-11-04 la caché era `.sldb/runtime/`, con un `journal/` que ya no existe:
+`sldb stores migrate-layout` la mueve. El pasado del store se consulta con
+`sldb docs history <doc>`.)
 
-**`core` es estado, `runtime` es caché.** Si `runtime` se corrompe,
-`stores update` lo rehace desde los documentos.
+**`.sldb` es estado, `.sldb_cache` es caché.** Si la caché se corrompe,
+`stores build` (o `stores update`) la rehace desde los documentos.
 
 Un archivo por documento ("shard"): dos ramas de git que tocan documentos
 distintos no chocan.
@@ -699,7 +702,7 @@ Cosas que cuestan tiempo la primera vez:
 
 - **`--store` quiere la ruta a `.sldb`**, no el directorio que lo contiene
 - **`edges rebuild` dice `0 shard(s) written` cuando ya está todo hecho.** Es
-  caché, no falla: revisá `.sldb/runtime/edges/`.
+  caché, no falla: revisá `.sldb_cache/edges/`.
 
 ---
 

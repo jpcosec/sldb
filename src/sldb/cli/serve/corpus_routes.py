@@ -14,6 +14,7 @@ from sldb.cli.serve.corpus_projection import HTTP_PROJECTION
 from sldb.cli.serve.params import query_params
 from sldb.cli.serve.rank_request import RankRequest
 from sldb.core.exceptions import SLDBError
+from sldb.store.layout import runtime_dir
 
 NOT_INDEXED = {"ok": False, "error": "corpus no indexado", "kind": "not_indexed"}
 
@@ -33,7 +34,7 @@ def corpus_rank(handler: BaseHTTPRequestHandler, store_path: Path, pythonpath: s
     request, error = _parsed(handler)
     if error is not None:
         return error, 400
-    corpus = Corpus(store_path, pythonpath, store_path / "runtime" / "corpus", HTTP_PROJECTION)
+    corpus = Corpus(store_path, pythonpath, runtime_dir(store_path) / "corpus", HTTP_PROJECTION)
     index_path = corpus.field_index_path if request.fields else corpus.index_path
     if not request.refresh and not index_path.exists():
         return NOT_INDEXED, 409

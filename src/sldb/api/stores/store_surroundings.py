@@ -3,7 +3,7 @@
 Errors: a declared store that was never built (`stores check` passed on it with 0 documents,
 inbox 20261020-024137), a link to no store, and structural noise, which the writes already
 refuse (owner's decision, 2026-10-20). Alerts: blocks a rewrite would lose, a model shadowing
-its owner's, and ignore rules that break the store's split.
+its owner's, and the cache not ignored by git. Error too: `.sldb/` ignored, since its past is read from git.
 """
 
 from __future__ import annotations
@@ -63,19 +63,15 @@ def _shadowed(store_path: Path, pythonpath: str | None) -> list[Finding]:
 
 
 def _gitignore(store_path: Path) -> list[Finding]:
+    """`.sldb/` ignored is an error (the store's past is read from git, so nothing of it may be
+    ignored); the cache not ignored is an alert (it is regenerable, and would be versioned)."""
     from sldb.api.stores.gitignore_policy import gitignore_policy
 
     policy = gitignore_policy(Path(store_path))
-    if policy is None or policy["ok"]:
+    if policy is None:
         return []
-    what, fix = ignore_rules_broken(policy)
-    return [alert("store/gitignore-policy", ".gitignore", f"the repository's ignore rules break the store's split: {'; '.join(what)}", fix)]
-
-
-def ignore_rules_broken(policy: dict) -> tuple[list[str], str]:
-    """Which ignore rules break the split, and the rules to write instead."""
-    if policy["declared"]:
-        checks = (("`.sldb/core` is not ignored", not policy["core_ignored"]), ("`.sldb/runtime` is not ignored", not policy["runtime_ignored"]), ("`.sldb/store.yaml` is ignored", policy["declaration_ignored"]))
-        return [w for w, bad in checks if bad], "the store is declared: ignore `.sldb/core/` and `.sldb/runtime/`, and version `.sldb/store.yaml`"
-    checks = (("`.sldb/core` is ignored", policy["core_ignored"]), ("`.sldb/runtime` is not ignored", not policy["runtime_ignored"]))
-    return [w for w, bad in checks if bad], "ignore `.sldb/runtime/` and keep `.sldb/core/` versionable in .gitignore"
+    ignored = [path for path, bad in ((".sldb/core/", policy["core_ignored"]), (".sldb/store.yaml", policy["declaration_ignored"])) if bad]
+    found = [error("stores/core_ignored", ".gitignore", f"git ignores {', '.join(f'`{p}`' for p in ignored)}: the store is versioned whole, its past is read from git", "remove that rule from the root .gitignore (`sldb stores migrate-layout` rewrites it)")] if ignored else []
+    if not policy["cache_ignored"]:
+        found.append(alert("stores/cache_not_ignored", ".gitignore", "`.sldb_cache/` is not ignored by git: it is regenerable and must not be versioned", "add the line `.sldb_cache/` to the root .gitignore (`sldb stores init` and `sldb stores migrate-layout` write it)"))
+    return found

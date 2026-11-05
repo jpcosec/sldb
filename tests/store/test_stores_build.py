@@ -44,8 +44,8 @@ def test_the_declaration_names_what_is_tracked_and_nothing_else(tmp_path, capsys
 def test_a_store_rebuilt_from_its_declaration_tracks_the_same(tmp_path, capsys):
     store, root = _declared(tmp_path, capsys)
     before = tracked_rows(store, root)
-    for derived in ("core", "runtime"):
-        shutil.rmtree(store / derived, ignore_errors=True)
+    for derived in (store / "core", store.parent / ".sldb_cache"):
+        shutil.rmtree(derived, ignore_errors=True)
     invalidate_index_cache()
     report = build_store(store, root)
     assert report["models"] == ["TaskDoc"] and report["tracked"] == ["task.md"]
@@ -71,7 +71,7 @@ def test_the_check_rebuilds_a_scratch_copy_and_compares(tmp_path, capsys):
     project = tmp_path / "project"
     project.mkdir()
     store, root = _declared(project, capsys)
-    (root / ".gitignore").write_text(".sldb/runtime/\n.sldb/core/\n", encoding="utf-8")
+    (root / ".gitignore").write_text(".sldb_cache/\n", encoding="utf-8")
     subprocess.run(["git", "init", "-q"], cwd=root, check=True)
     report = check_build(store, root, tmp_path / "scratch")
     assert report == {"ok": True, "integrity_exit": 0, "undeclared": [], "missing": [], "differences": [], "errors": [], "alerts": []}
@@ -82,8 +82,8 @@ def test_build_finds_a_store_that_is_only_declared(tmp_path, capsys, monkeypatch
     """A fresh clone has `.sldb/store.yaml` and no index: the usual discovery, which looks for
     the index, missed it and fell back to the global store."""
     store, root = _declared(tmp_path, capsys)
-    for derived in ("core", "runtime"):
-        shutil.rmtree(store / derived, ignore_errors=True)
+    for derived in (store / "core", store.parent / ".sldb_cache"):
+        shutil.rmtree(derived, ignore_errors=True)
     invalidate_index_cache()
     monkeypatch.chdir(root)
     assert cli_main(["stores", "build"]) == 0
@@ -135,7 +135,7 @@ def test_a_declared_file_that_is_gone_is_reported_not_raised(tmp_path, capsys):
     declaration = load_declaration(store)
     declaration.include[0]["paths"].append("gone.md")
     save_declaration(store, declaration)
-    (root / ".gitignore").write_text(".sldb/runtime/\n.sldb/core/\n", encoding="utf-8")
+    (root / ".gitignore").write_text(".sldb_cache/\n", encoding="utf-8")
     subprocess.run(["git", "init", "-q"], cwd=root, check=True)
     report = check_build(store, root, tmp_path / "scratch")
     assert report["ok"] is False and report["missing"] == ["gone.md"]
@@ -166,7 +166,7 @@ def test_the_check_reaches_a_link_that_climbs_more_than_one_level(tmp_path, caps
     assert cli_main(["stores", "add", str(owner / ".sldb"), "--name", "owner", "--store", str(store)]) == 0
     save_declaration(store, declare_store(store, root))
     assert load_declaration(store).links[0]["path"] == "../../../owner/.sldb"
-    (root / ".gitignore").write_text(".sldb/runtime/\n.sldb/core/\n", encoding="utf-8")
+    (root / ".gitignore").write_text(".sldb_cache/\n", encoding="utf-8")
     subprocess.run(["git", "init", "-q"], cwd=root, check=True)
     assert check_build(store, root, tmp_path / "scratch")["ok"]
     assert not (tmp_path.parent / "owner").exists()
@@ -175,8 +175,8 @@ def test_the_check_reaches_a_link_that_climbs_more_than_one_level(tmp_path, caps
 def test_a_declared_store_that_was_not_built_fails_the_check(tmp_path, capsys):
     """`stores check` passed on it with 0 documents in 0 models (inbox 20261020-024137)."""
     store, root = _declared(tmp_path, capsys)
-    for derived in ("core", "runtime"):
-        shutil.rmtree(store / derived, ignore_errors=True)
+    for derived in (store / "core", store.parent / ".sldb_cache"):
+        shutil.rmtree(derived, ignore_errors=True)
     invalidate_index_cache()
     capsys.readouterr()
     assert cli_main(["stores", "check", "--store", str(store)]) == 1
@@ -188,8 +188,8 @@ def test_a_declared_store_left_empty_by_a_failed_build_fails_the_check(tmp_path,
     from sldb.api.stores.store_skeleton import write_empty_store
 
     store, root = _declared(tmp_path, capsys)
-    for derived in ("core", "runtime"):
-        shutil.rmtree(store / derived, ignore_errors=True)
+    for derived in (store / "core", store.parent / ".sldb_cache"):
+        shutil.rmtree(derived, ignore_errors=True)
     write_empty_store(store)
     invalidate_index_cache()
     capsys.readouterr()

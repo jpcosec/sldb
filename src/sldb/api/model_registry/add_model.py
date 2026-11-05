@@ -5,7 +5,6 @@ from __future__ import annotations
 import inspect
 from pathlib import Path
 
-from sldb.api.journal import record, store_hash
 from sldb.api.model_registry.model_index_writes import relative_model_path, write_new_model_indexes
 from sldb.api.model_registry.model_reference import resolve_model_ref
 from sldb.api.model_registry.model_registration import ModelRegistration
@@ -24,7 +23,7 @@ def add_model(store: str | Path | None, model_ref: str, pythonpath: str | None =
         model_ref: `module:ClassName` reference of a StructuredNLDoc subclass.
         pythonpath: Directory to import the model module from.
         canonical: Mark the model as the canonical one of its family.
-        actor: Optional label recorded in the store journal for this write.
+        actor: Optional caller label; accepted for compatibility, no longer recorded (the journal was retired on 2026-11-04).
 
     Returns:
         The new registry record (version 1).
@@ -37,9 +36,7 @@ def add_model(store: str | Path | None, model_ref: str, pythonpath: str | None =
     idx = load_store_index(location.store_path)
     name = model_type.__name__
     _refuse_duplicate(idx, name)
-    before = store_hash(location.store_path)
     mi = _write_indexes(location.store_path, location.project_root, idx, model_type, model_ref, canonical, pythonpath)
-    record(location.store_path, {"operation": "add_model", "address": mi.name, "new_value": mi.model_ref, "hash_a_before": before, "hash_a_after": store_hash(location.store_path), "actor": actor})
     return ModelRegistration(name=mi.name, model_ref=mi.model_ref, path=mi.path, version=mi.version)
 
 

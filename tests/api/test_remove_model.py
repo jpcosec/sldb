@@ -81,7 +81,7 @@ def _gone_with_a_document(store) -> tuple[Path, str]:
     sp, py = store
     api.create_document(sp, "GoneDoc", project_root(sp) / "gone.md", {"title": "Gone"}, "gone", py)
     _forget_the_class(py)
-    shutil.rmtree(sp / "runtime")  # a fresh clone: no derived shard to reuse, so rebuilds re-extract
+    shutil.rmtree(sp.parent / ".sldb_cache")  # a fresh clone: no derived shard to reuse, so rebuilds re-extract
     (built_cache_file(sp) or Path("/nonexistent")).unlink(missing_ok=True)
     built_cache.clear()
     documents_hash.invalidate(sp, "GoneDoc")  # nor an in-memory baseline: a new process

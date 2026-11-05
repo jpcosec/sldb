@@ -1,4 +1,4 @@
-"""Deleting `.sldb/runtime/` and rebuilding brings every derived index back (graph-ui report).
+"""Deleting `.sldb_cache/` (the cache, `.sldb/runtime/` until 2026-11-04) and rebuilding brings every derived index back (graph-ui report).
 
 The user cache (outside the store) and the in-process dirty set both vouched for shards that
 were gone, so a rebuild wrote only the edges: no sections, no semantic shards, and a graph
@@ -11,6 +11,7 @@ import shutil
 import sys
 
 from sldb import api
+from sldb.store.layout import cache_dir
 
 MODULE = "sldb_runtime_wiped_models"
 _MODELS = '''from pydantic import Field
@@ -35,11 +36,13 @@ def test_a_rebuild_after_wiping_runtime_restores_sections_and_semantic_shards(tm
         api.add_model(sp, f"{MODULE}:Note", str(tmp_path))
         api.create_document(sp, "Note", root / "n.md", {"title": "n", "what": "W."}, "n", str(tmp_path))
         api.rebuild_edges(sp, str(tmp_path))
-        kinds = lambda: sorted(p.name for p in (sp / "runtime").iterdir() if p.is_dir())  # noqa: E731
+        cache = cache_dir(sp)
+        assert cache == root / ".sldb_cache" and not (sp / "runtime").exists()
+        kinds = lambda: sorted(p.name for p in cache.iterdir() if p.is_dir())  # noqa: E731
         before = kinds()
-        shutil.rmtree(sp / "runtime")
+        shutil.rmtree(cache)
         api.rebuild_edges(sp, str(tmp_path))
-        derived = {"sections", "semantic", "edges"}  # the journal is a write log, not derived
+        derived = {"sections", "semantic", "edges"}
         assert derived <= set(before) and derived <= set(kinds())
     finally:
         sys.path.remove(str(tmp_path))

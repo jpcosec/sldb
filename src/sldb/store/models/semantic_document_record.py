@@ -6,4 +6,4 @@ class SemanticDocumentRecord(BaseModel):
     path: str
     tags: list[str] = Field(default_factory=list)
     source_hash: str = ""  # the document's source_hash this record was extracted from (PLAN 15 capa 5:
-    # this is also the per-document shard's own shape, .sldb/runtime/semantic/<Model>/<doc>.yaml)
+    # this is also the per-document shard's own shape, .sldb_cache/semantic/<Model>/<doc>.yaml)

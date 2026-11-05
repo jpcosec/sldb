@@ -193,9 +193,8 @@ def test_a_child_store_check_does_not_fail_on_its_owners_edges(stores):
     (owner / "theirs.md").write_text("# Theirs\n", encoding="utf-8")
     track_document_file(owner / ".sldb", "NoteDoc", owner / "theirs.md", "theirs", str(owner))
     inherit_model(sp, "deskops:NoteDoc")
-    for shard in (owner / ".sldb").rglob("theirs.yaml"):
-        if "edges" in shard.parts:
-            shard.unlink()                                   # the owner's shard is gone: stale there
+    for shard in (owner / ".sldb_cache" / "edges").rglob("theirs.yaml"):
+        shard.unlink()                                       # the owner's shard is gone: stale there
     report = check_edges(sp)
     assert report.ok and report.stale == []
     assert report.linked_stale == ["deskops:NoteDoc:theirs"]

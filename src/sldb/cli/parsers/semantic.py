@@ -41,4 +41,4 @@ def _add_show(sub) -> None:
 
 def _store_args(p: argparse.ArgumentParser) -> None:
     p.add_argument("--store", help="Store path")
-    p.add_argument("--actor", help="Who is writing, for the journal")
+    p.add_argument("--actor", help="Who is writing (accepted for compatibility; the journal was retired on 2026-11-04)")

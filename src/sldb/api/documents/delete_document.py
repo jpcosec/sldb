@@ -23,7 +23,7 @@ def delete_document(store: str | Path | None, document: str, pythonpath: str | N
         store: The store tracking the document (path, alias, or None to discover it).
         document: Document name, or its path as recorded in the store.
         pythonpath: Directory to import the store's model modules from.
-        actor: Optional label recorded in the store journal for this write.
+        actor: Optional caller label, stamped into the document's provenance block.
 
     Returns:
         The document that was deleted, including the path the file used to have.

@@ -1,7 +1,7 @@
 """`sldb stores build --check`: rebuild the store in a scratch copy of the sources and compare.
 
-The copy holds what git versions (and untracked, unignored files), minus `.sldb/core/`,
-`.sldb/runtime/` and the paths the declaration lists as `derived`. It sits under the scratch
+The copy holds what git versions (and untracked, unignored files), minus `.sldb/core/` (versioned
+for its history, still derived), `.sldb_cache/` and the paths the declaration lists as `derived`. It sits under the scratch
 directory at the project's own absolute path, so a link that climbs any number of levels
 (`../../../x/.sldb`) still lands inside the scratch, where a symlink reaches the linked store. The check
 fails when the build fails, the built store does not pass `stores check`, a tracked document
@@ -26,7 +26,7 @@ from sldb.core.finding import Finding, alert, error
 from sldb.store.io import invalidate_index_cache
 from sldb.store.layout import store_exists
 
-ALWAYS_DERIVED = (".sldb/core/", ".sldb/runtime/")
+ALWAYS_DERIVED = (".sldb/core/", ".sldb_cache/")
 
 
 def check_command(args: Any) -> int:

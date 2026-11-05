@@ -9,13 +9,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from sldb.api.documents.data_values import parse_data_value
-from sldb.api.journal import record, store_hash
-from sldb.api.model_drafts.field_blocks import (
-    field_block,
-    field_block_source,
-    insert_field_block,
-    remove_field_block,
-)
+from sldb.api.model_drafts.field_blocks import field_block, insert_field_block, remove_field_block
 from sldb.api.model_drafts.model_draft import ModelDraft
 from sldb.api.model_drafts.source_location import locate_model_source
 from sldb.api.model_drafts.template_literals import (
@@ -56,7 +50,6 @@ def add_model_field(store: str | Path | None, model_name: str, field_name: str, 
     updated = insert_field_block(source.editable_path, source.class_name, field_name, block)
     source.draft_path.write_text(updated, encoding="utf-8")
     _append_template(source, store, model_name, pythonpath, field_name, field_type, default is not None)
-    _record(store, "add_model_field", model_name, field_name, None, block)
     return ModelDraft(model=model_name, draft_path=source.draft_path)
 
 
@@ -77,11 +70,9 @@ def remove_model_field(store: str | Path | None, model_name: str, field_name: st
         SLDBModelEditError: When the class is not found or does not declare the field.
     """
     source = locate_model_source(store, model_name, pythonpath)
-    removed = field_block_source(source.editable_path, source.class_name, field_name)
     updated = remove_field_block(source.editable_path, source.class_name, field_name)
     source.draft_path.write_text(updated, encoding="utf-8")
     _remove_template(source, field_name)
-    _record(store, "remove_model_field", model_name, field_name, removed, None)
     return ModelDraft(model=model_name, draft_path=source.draft_path)
 
 
@@ -114,9 +105,3 @@ def _default_value(default: str | None):
         return ""
     return parse_data_value(default)
 
-
-def _record(store: str | Path | None, operation: str, model_name: str, field: str, previous, new) -> None:
-    """Record a draft edit; it writes only the `.py.temp`, so `store_hash` is unchanged."""
-    sp = open_store(store).store_path
-    h = store_hash(sp)
-    record(sp, {"operation": operation, "address": model_name, "field": field, "previous_value": previous, "new_value": new, "hash_a_before": h, "hash_a_after": h})

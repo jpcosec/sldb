@@ -23,7 +23,7 @@ Primary surfaces:
   ast       Normalized store/model/document graph
   edges     Typed relations and the edge index
   graph     Graph queries: neighborhoods, scope, snapshots
-  journal   Write history, chained by hash
+  journal   Retired; use `docs history`
   explore   Deep markdown docs and docstring search
   inbox     Log unclear points or suggestions to desk/inbox/
 

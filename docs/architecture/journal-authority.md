@@ -1,66 +1,57 @@
-# El árbol guarda, el journal es una vista
+# El árbol guarda, git recuerda: el journal fue retirado
 
-Estado (2026-10-19): **propuesta pendiente del dueño, sin implementar.** Nada de este
-documento se ejecuta hasta que el dueño elija una opción de la sección 4. Mientras tanto el
-journal queda **congelado**: no se le agregan campos ni escritores nuevos. Escrito para
-`task-congelar-journal-autoridad-arbol`.
+Estado (2026-11-04): **implementado.** El dueño decidió el 2026-10-29 la opción (b) de la
+propuesta del 2026-10-19: el pasado del árbol es la historia de git de sus shards. Con
+`.sldb/core/` versionado entero ([derived-store-boundary.md](derived-store-boundary.md)), el
+journal no tiene función y se retira: ninguna escritura lo produce, `sldb stores migrate-layout`
+borra el que un store tenía (sin archivarlo) y `sldb journal show` responde
 
-## 1. Decisión tomada
+```
+El journal fue retirado el 2026-11-04; el pasado del store se consulta con sldb docs history <doc>.
+```
 
-El dueño decidió congelar el journal y rediseñar su relación con el árbol Merkle: el
-**árbol es la autoridad** y el **journal es una interfaz de lectura** sobre él, como
-`git log`/`git diff` sobre el object database de git, no un segundo almacén.
+y sale con exit 0 (`journal verify` imprime lo mismo). Cierra
+`task-congelar-journal-autoridad-arbol`: el journal quedó congelado el 2026-10-19 y retirado
+ahora, en vez de rediseñado.
 
-## 2. Estado actual (medido el 2026-10-19)
+## 1. Qué decía la propuesta y qué quedó
 
-- `JournalEntry` (`src/sldb/store/journal/entry.py`) guarda `operation`, `address`, `field`,
-  `actor` y `timestamp`; los valores `previous_value`/`new_value`; los hashes del documento
-  y del store antes y después (`hash_c_*`, `hash_d_*`, `hash_a_*`); y la cadena
-  (`previous_hash`/`entry_hash`). Los nombres con letra se quedan porque `entry_hash` firma
-  el `model_dump()` de la entrada: renombrarlos rompe `verify_chain` en todo journal escrito.
-- Escribe por `sldb.api.journal.record`, con 14 llamadas en 15 módulos de `sldb.api`
-  (documentos: create, save, track, untrack, delete, backfill; modelos: add, create,
-  inherit, reindex, remove, drafts de campos y de template, promote).
-- Vive en `.sldb/runtime/journal/`, un YAML por escritura, sin rotación (en el store de
-  este repo: unas 5.900 entradas, 24 MB). Es ignorado por git y opcional:
-  `SLDB_JOURNAL_OFF=1` apaga las escrituras.
-- Hoy solo audita: no hay replay ni inversa. Un save completo se podría deshacer a mano
-  desde `previous_value`; create, track y untrack no guardan lo necesario
-  ([versionado-y-colaboracion.md, (b)](../versionado-y-colaboracion.md)).
+La dirección era que el **árbol es la autoridad** y el journal una interfaz de lectura sobre él,
+como `git log`/`git diff` sobre el object database de git, no un segundo almacén. El punto que no
+se podía esquivar: una vista necesita un árbol con memoria. Las opciones eran snapshots propios
+(a), apoyarse en git (b) o descartar el journal (c). Con (b), git es la memoria del árbol: cada
+commit guarda los shards de `core/` tal como quedaron, y el diff entre dos commits es el diff
+entre dos árboles, calculado, no guardado. El journal de punteros que (b) preveía
+(`timestamp, actor, operation, address, raíz_antes → raíz_después`) no se implementa: `git log`
+ya da el cuándo y el quién del commit, y `sldb docs history <doc>` lo proyecta por documento.
 
-El problema: guarda los mismos hashes que el árbol ya calcula y además los valores, así
-que es una segunda fuente de verdad. Como es opcional e ignorado por git, tampoco puede
-ser la autoridad.
+Lo que se pierde respecto del journal viejo, y se acepta: el quién y el cuándo **por escritura
+sin commit** (varias escrituras entre dos commits se ven como una), y los valores
+`previous_value`/`new_value` de cada operación. El Markdown versionado tiene el diff del
+contenido; el shard versionado, el de los hashes.
 
-## 3. Dirección
+## 2. Qué se retiró (2026-11-04)
 
-1. **Árbol = autoridad.** Hoy el árbol solo tiene los hashes del estado actual. Para que el
-   journal sea una vista, el árbol tiene que guardar el pasado: snapshots
-   contenido-direccionados, no necesariamente completos (los shards que no cambiaron se
-   comparten, como los blobs de git).
-2. **Journal = lista fina de punteros:** `(timestamp, actor, operation, address,
-   raíz_antes → raíz_después)`. Sin valores y sin hashes de documento.
-3. **El diff se calcula** comparando dos árboles; no se guarda.
+- El escritor: `sldb.api.journal.record` y `sldb.store.journal.append_entry`, con su lock y su
+  cadena de hashes. Los 14 puntos de escritura de `sldb.api` (documentos: create, save, track,
+  untrack, delete, backfill; modelos: add, create, inherit, reindex, remove, drafts de campos y
+  de template, promote; DAG semántico) ya no calculan `hash_a_before/after` ni valores previos.
+- Los lectores `read_entries`/`verify_chain` y el layout `.sldb/runtime/journal/`.
+  `sldb.api.journal()` devuelve `[]` y `sldb.api.verify_journal()` un reporte válido con 0
+  entradas, para que quien los importe siga funcionando; `JournalEntry` y
+  `JournalVerifyReport` quedan como modelos de ese contrato vacío.
+- `SLDB_JOURNAL_OFF`: no hay nada que apagar.
+- Los parámetros `actor` de la API se conservan. Donde sellan la procedencia del documento
+  (`create_document`, `save_document_payload`, `backfill`, `delete_document`) siguen
+  usándose; en el resto se aceptan por compatibilidad y no se registran.
 
-El punto que no se puede esquivar: una vista necesita un árbol con memoria. Sin el pasado
-en el árbol, el journal no puede reducirse a una interfaz, y los campos de valores son lo
-único que hoy permite ver qué cambió.
+## 3. Cómo se consulta el pasado ahora
 
-Mientras tanto (congelado): no se agregan campos ni escritores, no se lo usa como fuente
-de verdad del estado, y `verify_chain` sigue siendo su único contrato.
+- `sldb docs history <doc> [--since FECHA] [--format json]`: las versiones commiteadas del
+  documento, quién firmó cada una y qué campos se movieron.
+- `git log -- .sldb/core/documents/<Model>/<doc>.yaml`: cada commit que movió el hash de ese
+  documento; `git log -- .sldb/core/store_index.yaml`, cada movimiento de la raíz.
+- `git diff <a> <b> -- .sldb/core/`: el diff entre dos árboles.
 
-## 4. Decisión pendiente del dueño
-
-**Qué mecanismo guarda el pasado del árbol**, o si se descarta el journal. Opciones:
-
-- **(a) Snapshots propios:** el store guarda shards y raíces viejas, contenido-direccionados,
-  en `.sldb/`. Es lo más fiel a la dirección, pero agrega almacenamiento y una política
-  de poda.
-- **(b) Apoyarse en git:** la historia del árbol es la historia de git de los shards. Depende
-  de que `.sldb/core/` siga versionado, lo opuesto a la decisión pendiente de sacarlo de git
-  (nota del inbox 20261007-133032), y no cubre escrituras sin commit.
-- **(c) Descartar el journal:** se borra la capa y la auditoría queda en git del markdown.
-  Es lo más simple; se pierde el quién y el cuándo por escritura.
-
-Con (a) o (b): se implementa el journal de punteros detrás de una versión de formato que
-re-encadena las entradas, y se migra el lector (`sldb journal`, `sldb.api.journal`).
+Nada de esto cubre escrituras sin commit: el store refleja el estado actual del árbol y git su
+historia; entre commits, `sldb stores check` dice qué se movió contra lo indexado.

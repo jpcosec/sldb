@@ -51,7 +51,7 @@ Primary surfaces:
   ast       Normalized store/model/document graph
   edges     Typed relations: init, rebuild, show and check the edge index
   graph     The graph: nodes, neighborhoods, queries, paths, cycles, centrality, snapshots
-  journal   The store's write history: show and verify the hash chain
+  journal   Retired (2026-11-04): the store's past is `sldb docs history <doc>`
   semantic  Declare what a tag is a kind of, beyond what its dotted name says
   find      Unified semantic + physical retrieval
   explore   Deep markdown docs and docstring search

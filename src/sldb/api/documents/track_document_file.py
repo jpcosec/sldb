@@ -6,7 +6,6 @@ from sldb.api.stores.declaration_sync import declare_tracked, project_relative
 from pathlib import Path
 
 from sldb.api.documents.document_reference import DocumentReference
-from sldb.api.journal import doc_address, doc_hashes, record, store_hash
 from sldb.api.model_registry.load_registered_model import load_registered_model
 from sldb.api.documents.refuse_structural_noise import refuse_structural_noise
 from sldb.api.stores.policy import Policy
@@ -28,7 +27,7 @@ def track_document_file(store: str | Path | None, model_name: str, path: str | P
         name: Document name; defaults to the file stem.
         pythonpath: Directory to import the model module from.
         force: Track without checking that the file round-trips under the model.
-        actor: Optional label recorded in the store journal for this write.
+        actor: Optional caller label; accepted for compatibility, no longer recorded (the journal was retired on 2026-11-04).
 
     Returns:
         The tracked document.
@@ -46,7 +45,7 @@ def track_document_file(store: str | Path | None, model_name: str, path: str | P
         _check_roundtrip(registered.model_type, doc_path)
         refuse_structural_noise(registered.model_type, doc_path.read_text(encoding="utf-8"), doc_name, Policy.of_store(location.store_path))
         refuse_undeclared_frontmatter(registered.model_type, doc_path.read_text(encoding="utf-8"), doc_name)
-    _track_and_record(location.store_path, location.project_root, registered, doc_path, doc_name, pythonpath, actor)
+    _track(location.store_path, location.project_root, registered, doc_path, doc_name, pythonpath)
     return DocumentReference(model=registered.entry.name, name=doc_name, path=doc_path)
 
 
@@ -55,12 +54,9 @@ def _resolve_path(raw: str | Path, root: Path) -> Path:
     return raw_path.resolve() if raw_path.is_absolute() else (root / raw_path).resolve()
 
 
-def _track_and_record(sp: Path, root: Path, registered, doc_path: Path, doc_name: str, pythonpath: str | None, actor: str | None) -> None:
-    before = store_hash(sp)
+def _track(sp: Path, root: Path, registered, doc_path: Path, doc_name: str, pythonpath: str | None) -> None:
     track_document(sp, root, registered.store_index, registered.model_type, registered.entry, doc_path, doc_name, resolve_model_ref, pythonpath)
-    hash_c, hash_d = doc_hashes(sp, registered.entry.name, doc_name)
     declare_tracked(sp, root, registered.entry.name, project_relative(root, doc_path), doc_name)
-    record(sp, {"operation": "track_document_file", "address": doc_address(registered.entry.name, doc_name), "hash_c_after": hash_c, "hash_d_after": hash_d, "hash_a_before": before, "hash_a_after": store_hash(sp), "actor": actor})
 
 
 def _check_roundtrip(model_type: type, doc_path: Path) -> None:

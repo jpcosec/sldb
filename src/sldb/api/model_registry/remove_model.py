@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from sldb.api.journal import record, store_hash
 from sldb.api.model_registry.model_files import drop_model_files, forget_store_caches
 from sldb.api.model_registry.model_reference import resolve_model_ref
 from sldb.api.model_registry.model_registration import ModelRegistration
@@ -25,7 +24,7 @@ def remove_model(store: str | Path | None, model_name: str, pythonpath: str | No
         store: The store (path, alias, or None to discover it).
         model_name: The registered model's name.
         pythonpath: Directory to import the remaining models from (derived indexes are rebuilt).
-        actor: Optional label recorded in the store journal for this write.
+        actor: Optional caller label; accepted for compatibility, no longer recorded (the journal was retired on 2026-11-04).
         untrack_documents: Also stop tracking its documents (their Markdown files stay), the
             way to drop a model whose class was deleted while documents were tracked.
 
@@ -40,9 +39,7 @@ def remove_model(store: str | Path | None, model_name: str, pythonpath: str | No
     sp, root = location.store_path, location.project_root
     idx = load_store_index(sp)
     entry = _removable(sp, idx, model_name, untrack_documents)
-    before, count = store_hash(sp), documents_hash.count_of(sp, model_name)
     _unregister(sp, root, idx, entry, pythonpath)
-    record(sp, {"operation": "remove_model", "address": entry.name, "previous_value": entry.model_ref, "new_value": {"documents_untracked": count}, "hash_a_before": before, "hash_a_after": store_hash(sp), "actor": actor})
     return ModelRegistration(name=entry.name, model_ref=entry.model_ref, path=entry.path, version=entry.version)
 
 

@@ -1,7 +1,7 @@
 """Writing the semantic DAG: a parent beyond what the name says, an equivalence, and the guards.
 
 The point is the round trip. A parent declared here has to show up everywhere the DAG is read:
-`se.` navigation and closure, `sldb graph`, the journal, and it must survive the rebuild that
+`se.` navigation and closure, `sldb graph`, and it must survive the rebuild that
 re-derives the name's own parents.
 """
 
@@ -55,23 +55,19 @@ def _resolve(py: str):
     return lambda ref, pythonpath=None: api.resolve_model_ref(ref, py)
 
 
-def test_a_declared_parent_is_read_by_the_closure_by_the_graph_and_by_the_journal(world):
+def test_a_declared_parent_is_read_by_the_closure_and_by_the_graph(world):
     store, py = world
     assert get_semantic(store, "se.type.knowledge", _resolve(py)) == ["st.{Spec}.s1"]
     assert sem.add_semantic_parent(store, "layer.topology", "type.knowledge", actor="test") is True
     assert get_semantic(store, "se.type.knowledge", _resolve(py)) == ["st.{Spec}.s1", "st.{Topology}.t1"]
     parents = [e.target for e in api.edges_from(store, "sldb://semantic_tag/layer.topology", "semantic_parent")]
     assert "sldb://semantic_tag/type.knowledge" in parents
-    entry = api.journal(store, limit=1)[0]
-    assert (entry.operation, entry.address, entry.new_value, entry.actor) == ("add_semantic_parent", "se.layer.topology", "type.knowledge", "test")
 
 
-def test_declaring_it_twice_changes_nothing_and_journals_nothing(world):
+def test_declaring_it_twice_changes_nothing(world):
     store, _ = world
     sem.add_semantic_parent(store, "layer.topology", "type.knowledge")
-    count = len(api.journal(store))
     assert sem.add_semantic_parent(store, "layer.topology", "type.knowledge") is False
-    assert len(api.journal(store)) == count
 
 
 def test_a_declared_parent_survives_the_rebuild_that_rederives_the_names(world):

@@ -2,8 +2,8 @@
 
 `save_document_payload` receives the whole payload, so it cannot name the field it
 changed without comparing the previous value against the new one. These helpers do
-that comparison, nested keys included (`address.city`), so a journal entry can carry
-the field it actually wrote.
+that comparison, nested keys included (`address.city`), to name the field a write
+actually touched.
 """
 
 from __future__ import annotations

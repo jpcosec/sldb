@@ -7,7 +7,6 @@ from pathlib import Path
 from typing import Any
 
 from sldb.api.documents.document_reference import DocumentReference
-from sldb.api.journal import doc_address, doc_hashes, record, store_hash
 from sldb.api.model_registry.load_registered_model import load_registered_model
 from sldb.api.documents.refuse_structural_noise import refuse_structural_noise
 from sldb.api.documents.frontmatter_keys import refuse_undeclared_frontmatter
@@ -30,7 +29,7 @@ def create_document(store: str | Path | None, model_name: str, path: str | Path,
         payload: The document's field values; it has no fixed schema beyond the model's own.
         name: Document name; defaults to the file stem.
         pythonpath: Directory to import the model module from.
-        actor: Optional label recorded in the store journal for this write.
+        actor: Optional caller label, stamped into the document's provenance block.
 
     Returns:
         The created document.
@@ -48,7 +47,7 @@ def create_document(store: str | Path | None, model_name: str, path: str | Path,
     refuse_noise(registered.model_type, rendered, doc_name, location.store_path)
     doc_path.parent.mkdir(parents=True, exist_ok=True)
     doc_path.write_text(stamped(rendered + "\n", registered.model_type, "create_document", actor), encoding="utf-8")
-    _track_and_record(location.store_path, location.project_root, registered, doc_path, doc_name, payload, pythonpath, actor)
+    _track(location.store_path, location.project_root, registered, doc_path, doc_name, pythonpath)
     return DocumentReference(model=registered.entry.name, name=doc_name, path=doc_path)
 
 
@@ -66,12 +65,9 @@ def _resolve_path(raw: str | Path, root: Path) -> Path:
     return raw_path.resolve() if raw_path.is_absolute() else (root / raw_path).resolve()
 
 
-def _track_and_record(sp: Path, root: Path, registered, doc_path: Path, doc_name: str, payload: dict[str, Any], pythonpath: str | None, actor: str | None) -> None:
-    before = store_hash(sp)
+def _track(sp: Path, root: Path, registered, doc_path: Path, doc_name: str, pythonpath: str | None) -> None:
     track_document(sp, root, registered.store_index, registered.model_type, registered.entry, doc_path, doc_name, resolve_model_ref, pythonpath)
-    hash_c, hash_d = doc_hashes(sp, registered.entry.name, doc_name)
     declare_tracked(sp, root, registered.entry.name, project_relative(root, doc_path), doc_name)
-    record(sp, {"operation": "create_document", "address": doc_address(registered.entry.name, doc_name), "new_value": payload, "hash_c_after": hash_c, "hash_d_after": hash_d, "hash_a_before": before, "hash_a_after": store_hash(sp), "actor": actor})
 
 
 def _render_roundtrip(model_type: type, payload: dict[str, Any], ref_root: Path) -> str:

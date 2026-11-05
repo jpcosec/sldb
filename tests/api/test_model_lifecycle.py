@@ -1,4 +1,4 @@
-"""The model lifecycle: journaled draft edits, schema diffs, backfill and create_model."""
+"""The model lifecycle: draft edits, schema diffs, backfill and create_model."""
 
 from __future__ import annotations
 
@@ -13,45 +13,25 @@ from sldb.runtime.validation import extract_model_data
 from .conftest import MODULE, PAYLOAD
 
 
-def _entries(store, operation):
-    return [e for e in api.journal(store) if e.operation == operation]
-
-
-def test_draft_edits_leave_journal_entries(api_store):
-    api.add_model_field(api_store.store, "TicketDoc", "priority", "int", "x", "5", api_store.pythonpath)
+def test_draft_edits_rewrite_the_draft_and_leave_the_installed_model_alone(api_store):
+    draft = api.add_model_field(api_store.store, "TicketDoc", "priority", "int", "x", "5", api_store.pythonpath).draft_path
+    assert "priority" in draft.read_text(encoding="utf-8")
     api.remove_model_field(api_store.store, "TicketDoc", "priority", api_store.pythonpath)
+    assert "priority" not in draft.read_text(encoding="utf-8")
     api.edit_model_template(api_store.store, "TicketDoc", "# Ticket ⸢rev•title⸥\n", api_store.pythonpath)
-    ops = {e.operation for e in api.journal(api_store.store)}
-    assert {"add_model_field", "remove_model_field", "edit_model_template"} <= ops
-    add = _entries(api_store.store, "add_model_field")[0]
-    assert (add.address, add.field) == ("TicketDoc", "priority") and add.new_value is not None
-    remove = _entries(api_store.store, "remove_model_field")[0]
-    assert (remove.address, remove.field) == ("TicketDoc", "priority") and remove.previous_value is not None
-    template = _entries(api_store.store, "edit_model_template")[0]
-    assert template.address == "TicketDoc" and template.field == "__template__"
+    assert "# Ticket ⸢rev•title⸥" in draft.read_text(encoding="utf-8")
+    assert "# Ticket ⸢rev•title⸥" not in (api_store.root.parent / f"{MODULE}.py").read_text(encoding="utf-8")
 
 
-def test_promote_entry_carries_schema_before_and_after(api_store):
+def test_promote_bumps_the_version_and_installs_the_field(api_store):
     api.add_model_field(api_store.store, "TicketDoc", "priority", "int", "x", "5", api_store.pythonpath)
-    api.promote_model_draft(api_store.store, "TicketDoc", api_store.pythonpath)
-    entry = _entries(api_store.store, "promote_model_draft")[0]
-    assert entry.previous_value["version"] == 1 and entry.new_value["version"] == 2
-    before, after = {f["name"] for f in entry.previous_value["fields"]}, {f["name"] for f in entry.new_value["fields"]}
-    assert "priority" not in before and "priority" in after
-    assert all("required" in f and "description" in f for f in entry.new_value["fields"])
+    report = api.promote_model_draft(api_store.store, "TicketDoc", api_store.pythonpath)
+    assert (report.promoted, report.version) == (True, 2)
+    assert "priority" in api.resolve_model_ref(f"{MODULE}:TicketDoc", api_store.pythonpath).model_fields
 
 
-def test_reindex_entry_carries_schema(api_store):
-    api.reindex_model(api_store.store, "TicketDoc", api_store.pythonpath)
-    entry = _entries(api_store.store, "reindex_model")[0]
-    assert entry.previous_value["version"] == 1 and entry.new_value["version"] == 1
-    assert entry.previous_value["fields"] == entry.new_value["fields"]
-
-
-def test_save_entry_derives_field(api_store):
-    api.save_document_payload(api_store.store, "TicketDoc", "login", {**PAYLOAD, "title": "New"}, api_store.pythonpath)
-    entry = api.journal(api_store.store, limit=1)[0]
-    assert entry.field == "title"
+def test_reindex_keeps_the_version(api_store):
+    assert api.reindex_model(api_store.store, "TicketDoc", api_store.pythonpath).version == 1
 
 
 def test_changed_paths_include_dotted_nested_keys():
@@ -112,10 +92,6 @@ def test_promote_with_backfill_rewrites_documents(api_store):
     assert report.version == 2
     text = (api_store.root / "login.md").read_text(encoding="utf-8")
     assert "## Note\n\npending" in text
-    entry = _entries(api_store.store, "backfill_document")[0]
-    assert (entry.address, entry.field) == ("TicketDoc:login", "note")
-    assert entry.previous_value.get("note") is None and entry.new_value["note"] == "pending"
-    assert api.verify_journal(api_store.store).valid
 
 
 def test_full_roundtrip_add_backfill_write_and_reread(api_store):
@@ -142,6 +118,4 @@ def test_create_model_end_to_end(tmp_path):
     assert (registration.name, registration.version) == ("Dish", 1)
     document = api.create_document(store, "Dish", "dish.md", {"title": "Soup", "price": 3}, pythonpath=str(tmp_path))
     assert document.model == "Dish"
-    ops = {e.operation for e in api.journal(store)}
-    assert {"create_model", "add_model", "create_document"} <= ops
-    assert api.verify_journal(store).valid
+    assert [m.name for m in api.registered_models(store)] == ["Dish"]

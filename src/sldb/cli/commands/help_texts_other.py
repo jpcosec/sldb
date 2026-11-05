@@ -23,17 +23,26 @@ STORES_HELP = """sldb stores
 
 Store lifecycle commands.
 
-A store is the `.sldb/` workspace for model registrations, tracked doc indexes, hashes,
-and semantic artifacts. A local `.sldb/` is the normal project workflow, but a global
-`~/.sldb/` can also exist and local takes precedence when both are present. When no local
-store exists, store-based commands now tell you whether a global store was found and
-whether you should pass `--store` explicitly.
+A store is the `.sldb/` workspace for model registrations, tracked doc indexes and hashes:
+`store.yaml` (what it declares) and `core/` (the indexes), versioned whole so that git holds
+its past. What is only derived (edges, sections, semantic shards, graphs, locks) lives in
+`.sldb_cache/`, a sibling of `.sldb/`, ignored by git and rebuilt by `stores build`.
+`stores init` writes the `.sldb_cache/` line in the root `.gitignore`; `stores check` errors
+(`stores/core_ignored`) when git ignores `.sldb/core/` or `store.yaml` and alerts
+(`stores/cache_not_ignored`) when the cache is not ignored. A store from before 2026-11-04
+kept its cache at `.sldb/runtime/`: `stores migrate-layout` moves it, drops the journal and
+rewrites the `.gitignore`.
+
+A local `.sldb/` is the normal project workflow, but a global `~/.sldb/` can also exist and
+local takes precedence when both are present. When no local store exists, store-based
+commands tell you whether a global store was found and whether you should pass `--store`.
 
 Examples:
   sldb stores init --path .
   sldb stores add ~/.sldb/shared --name shared
   sldb stores check --store .sldb
   sldb stores update --store .sldb --pythonpath src
+  sldb stores migrate-layout --store .sldb
 """
 
 FAQ_HELP = """sldb faq

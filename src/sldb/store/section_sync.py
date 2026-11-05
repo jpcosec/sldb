@@ -71,7 +71,7 @@ def _missing_doc(doc, d_path, report) -> None:
 
 def _shards_kept(shards_dir: Path, m_idx) -> bool:
     """The user cache says the shards are current; they are only if they are still there. A
-    deleted `.sldb/runtime/` left the cache trusting shards that no longer existed, so no
+    deleted `.sldb_cache/` (then `.sldb/runtime/`) left the cache trusting shards that no longer existed, so no
     rebuild (nor `stores update`) brought sections back."""
     return not m_idx.documents_count or shards_dir.is_dir()
 

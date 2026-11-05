@@ -5,6 +5,7 @@ from __future__ import annotations
 import shutil
 from pathlib import Path
 
+from sldb.api.stores.gitignore_lines import ensure_cache_ignored
 from sldb.api.stores.store_location import StoreLocation
 from sldb.api.stores.store_skeleton import register_in_global_catalog, write_empty_store
 from sldb.core.exceptions import SLDBStoreError
@@ -12,7 +13,10 @@ from sldb.store.layout import store_exists
 
 
 def init_store(path: str | Path = ".", force: bool = False) -> StoreLocation:
-    """Create `<path>/.sldb` and register it in the global store's catalog when it is under HOME.
+    """Create `<path>/.sldb`, ignore `<path>/.sldb_cache/` and register the store in the global catalog.
+
+    The root `.gitignore` gets the line `.sldb_cache/` unless a line already says it; nothing
+    else in that file is touched. `.sldb/` itself is versioned whole.
 
     Args:
         path: The project root that will hold the `.sldb` directory.
@@ -30,6 +34,7 @@ def init_store(path: str | Path = ".", force: bool = False) -> StoreLocation:
     if store_exists(store_path):
         _replace_existing(store_path, force)
     _write_or_undo(store_path)
+    ensure_cache_ignored(root / ".gitignore")
     register_in_global_catalog(store_path)
     return StoreLocation(store_path=store_path, project_root=root)
 

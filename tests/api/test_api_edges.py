@@ -212,7 +212,7 @@ def test_a_wiped_index_reads_as_stale_and_rebuild_brings_it_back(world: EdgeWorl
     import shutil
 
     before = api.load_edge_index(world.store)
-    shutil.rmtree(world.store / "runtime" / "edges")
+    shutil.rmtree(world.store.parent / ".sldb_cache" / "edges")
     wiped = api.load_edge_index(world.store)
     assert "Table:t12" in wiped.stale and wiped.node("Table:t12") is None
     assert api.rebuild_edges(world.store, world.py).docs_written == len(wiped.stale)

@@ -74,7 +74,7 @@ def test_python_sync_writes_nothing_while_metadata_is_malformed(tmp_path, monkey
     assert main(["selfdoc", "python-sync", "--store", str(sp), "--source-root", "src", "--system", "demo"]) == 1
     report = json.loads(capsys.readouterr().out)
     assert report["metadata_errors"] and report["written"] == 0
-    assert not (tmp_path / "knowledge").exists() and not (sp / "runtime" / "graphs").exists()
+    assert not (tmp_path / "knowledge").exists() and not (sp.parent / ".sldb_cache" / "graphs").exists()
 
 
 def test_a_failed_sync_leaves_the_previous_graph_and_documents_as_they_were(tmp_path, monkeypatch, capsys):
@@ -84,7 +84,7 @@ def test_a_failed_sync_leaves_the_previous_graph_and_documents_as_they_were(tmp_
     monkeypatch.chdir(tmp_path)
     argv = ["selfdoc", "python-sync", "--store", str(sp), "--source-root", "src", "--system", "demo"]
     assert main(argv) == 0
-    graph = sp / "runtime" / "graphs" / "python-source.graph.json"
+    graph = sp.parent / ".sldb_cache" / "graphs" / "python-source.graph.json"
     before = (graph.read_text(encoding="utf-8"), sorted(p.name for p in (tmp_path / "knowledge" / "symbols").iterdir()))
     (tmp_path / "src" / "demo" / "m.py").write_text('"""---\nid: demo.m\nbogus: 1\n---\nModule."""\n\n\ndef added():\n    pass\n', encoding="utf-8")
     capsys.readouterr()

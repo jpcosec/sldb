@@ -41,7 +41,7 @@ Today the docs describe these current store surfaces:
 - integrity hashes
 - semantic artifacts and section indexes
 
-In this repo's current layout, that means files under `.sldb/core/` plus rebuildable runtime artifacts under `.sldb/runtime/`.
+In this repo's current layout, that means `.sldb/store.yaml` and the indexes under `.sldb/core/` (versioned whole) plus the rebuildable cache under `.sldb_cache/`, a sibling of `.sldb/` that git ignores.
 
 In practical terms, the store holds metadata about documents, not the documents themselves.
 

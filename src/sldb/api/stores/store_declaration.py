@@ -2,8 +2,8 @@
 
 Everything else in `.sldb/core/` (the store index, the model and document indexes) is derived
 from this file, the tracked Markdown and the models' Python classes, and `sldb stores build`
-regenerates it (docs/architecture/derived-store-boundary.md). The derived files keep their
-format; they just stop being versioned.
+regenerates it (docs/architecture/derived-store-boundary.md). `.sldb/` is versioned whole so
+that git holds the tree's past; what is only a cache lives in `.sldb_cache/`, ignored.
 """
 
 from __future__ import annotations
@@ -25,7 +25,7 @@ class StoreDeclaration(BaseModel):
     models: list[dict[str, Any]] = Field(default_factory=list, description="`{name, model_ref}` plus `path` (a local model's source) or `origin` (the link alias it is inherited from), and `canonical` when true.")
     predicates: dict[str, dict[str, str]] = Field(default_factory=dict, description="Predicate name -> `{axis, description}`.")
     generate: list[dict[str, Any]] = Field(default_factory=list, description="Generators run before tracking, e.g. `{command: selfdoc python-sync, args: [...]}`.")
-    derived: list[str] = Field(default_factory=list, description="Project paths (directory prefixes) the generators write: derived, so not versioned and left out of a rebuild check's copy. `.sldb/core/` and `.sldb/runtime/` always are.")
+    derived: list[str] = Field(default_factory=list, description="Project paths (directory prefixes) the generators write: derived, so not versioned and left out of a rebuild check's copy. `.sldb/core/` and `.sldb_cache/` always are.")
     include: list[dict[str, Any]] = Field(default_factory=list, description="`{model, glob}` (each match tracked under its file stem) or `{model, paths: [path | {path, name}]}`.")
     policy: dict[str, dict[str, str]] = Field(default_factory=dict, description="Model name (or `*`) -> finding code -> `ignore | allow | alert | error | reindex | hook: <command>` (docs/architecture/provenance.md §5).")
 
