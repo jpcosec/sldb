@@ -329,7 +329,6 @@ include:
   paths:
   - desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
-  - desk/tasks/task-go02-semantica-gramatica-y-firma-de-evaluacion-del-lenguaje-de-reglas.md
 - model: RunDoc
   paths:
   - path: runs/subagents/20261029-124912-task-cerrar-task-sldb-serve/run.md

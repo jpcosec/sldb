@@ -27,3 +27,4 @@
 {"task_id": "task-go01-registrar-la-decision-de-frontera-y-su-atom", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
 {"task_id": "task-el-store-se-parte-en-sldb-operacional-versionado-y-sldb-cache-regenerable-ignorado", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
 {"task_id": "task-congelar-journal-autoridad-arbol", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
+{"task_id": "task-go02-semantica-gramatica-y-firma-de-evaluacion-del-lenguaje-de-reglas", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
