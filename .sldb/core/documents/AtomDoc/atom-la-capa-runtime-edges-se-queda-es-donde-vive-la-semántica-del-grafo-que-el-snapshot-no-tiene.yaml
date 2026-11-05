@@ -1,0 +1,19 @@
+name: atom-la-capa-runtime-edges-se-queda-es-donde-vive-la-semántica-del-grafo-que-el-snapshot-no-tiene
+path: desk/atoms/atom-la-capa-runtime-edges-se-queda-es-donde-vive-la-semántica-del-grafo-que-el-snapshot-no-tiene.md
+source_hash: e64b072f6cae3a761971fb023066fab5607de32b83e734a01cb19f7952062164
+content_hash: 716c063811451b72204a49aa773d6c6187b8a9a9dd44999390b86a4ea9f0f69e
+field_hashes:
+  id: 1cd87f5a23b1fd9a957c75a37b6fd490e90020a6c012c0995c946409832bb489
+  title: dcc845c33a7812234e369e809730632484f11836efc0b25acff9473b5fde63d8
+  five_wh_one_plus: 1566d618b9ad05f5d6636ef68875b058a3311f288ab671709bb72d36b5dd1a5c
+  answer: 42dbe39e7aa1a3ccf67285a9e06cb1a9163f1e2ec94d8fd9685bf3b2c1b9043b
+  tags: 09389da9c1c1a1bbda3dd203e2435a2521238d1f9813ded663697386db618eb4
+  provenance: de3e5eeba8f4fb84fa9ba3a118437569337fe3f9b0e4ca3a4f89cba4297d12ca
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:architecture
+- topic:graph
+- type.knowledge.atom
+- workspace.desk.atoms

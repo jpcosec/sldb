@@ -1,0 +1,18 @@
+name: 20261031-033714-suggestion-resiliencia-en-carga-de-store-ante-documentos-invalidos-y-problems-estructurados
+path: desk/inbox/20261031-033714-suggestion-resiliencia-en-carga-de-store-ante-documentos-invalidos-y-problems-estructurados.md
+source_hash: 5e91d03894b1646c0d1967e1da413154824f0ac9dbf5a46e17c60345075b7bad
+content_hash: 6920b3be974213d09b5c7ff4c4a286e021060e4cc5be7977da9bccf2e49e87ab
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: 4c780288bc064ce34b7a4bdd2992c227f7ea83585f02adbf264ba86160a09621
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: c9de2bade1c627f184c58c34882855e0ed8d9c3ca5646654dc141a0883585f83
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: cbacb3818613c655a3da717a07fea5fe1e80976d37c3184a905055cd3ad122d6
+  body: 264114b07e234df36b1dcae739f7a212dc91ed7ab63b49ada05dcb9243b21dc9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

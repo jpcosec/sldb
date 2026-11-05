@@ -1,0 +1,16 @@
+name: atom-una-vista-de-todo-el-store-no-puede-depender-de-que-importen-todos-sus-modelos
+path: desk/atoms/atom-una-vista-de-todo-el-store-no-puede-depender-de-que-importen-todos-sus-modelos.md
+source_hash: ec7747eae271d79a187851a6c1dcd818451343b5e50414b03cd158f171f6f130
+content_hash: 75367bf410a1bfadf3f85b210181b9715b7207af3f5f9382f51ca233162d0eeb
+field_hashes:
+  id: be8bfcdcba9222c2c8445926567081300f0bf6241904ee7fc75568013d4f4bb1
+  title: 7102c6359c09d28ad67b00c1a7fa33d15d76eb63df23e32030d7c11e6b9cc799
+  five_wh_one_plus: 1566d618b9ad05f5d6636ef68875b058a3311f288ab671709bb72d36b5dd1a5c
+  answer: e95a1798dbd941d08f97a6d8226781ec91d619874f08df4b59112cd602bb0f76
+  tags: e3e5d8aaa8a9a23873bbdf4cc73680289c881d0b8cc78c763f4294e8ca97a4b4
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- type.knowledge.atom
+- workspace.desk.atoms

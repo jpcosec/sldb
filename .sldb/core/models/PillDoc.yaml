@@ -1,0 +1,16 @@
+name: PillDoc
+model_ref: deskops.models:PillDoc
+path: ''
+documents_index: .sldb/core/documents/PillDoc.yaml
+sections_index: .sldb/runtime/sections/PillDoc.yaml
+model_hash: 1b3bed76b623dd1f770865153a6063835adb0704f75153b7d1b9c4e8eea30b07
+roster_hash: 25da3663f42a851d12128bc968de740730b60d633355135b622ad031f1d3713a
+contract_hash: 16cbc282a5f20f99f8e31d890d1006d8c243049a78e1d1fca1c0a62737fee5a6
+documents_count: 10
+version: 1
+canonical: false
+family: null
+semantics:
+- type.workflow.pill
+- workspace.desk
+base_models: []

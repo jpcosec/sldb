@@ -1,0 +1,16 @@
+name: atom-una-lista-de-fricciones-conocidas-se-poda-cuando-la-fricción-se-arregla-en-el-mismo-cambio
+path: desk/atoms/atom-una-lista-de-fricciones-conocidas-se-poda-cuando-la-fricción-se-arregla-en-el-mismo-cambio.md
+source_hash: 31867fafa45ef1c877d7ed76a7fd5f47efb93d05709d79d5d5405d8f96000aca
+content_hash: c2703a7ceeb77631b0513a052aed352e48c070256c99c613821ead1543baa141
+field_hashes:
+  id: d3f6e402c71672256ead5db6fb7f3dccadfd14b0d75878b639484b74ee738d67
+  title: 98d9f0a27f469f8ea8fa3bfe8c3dd3a8be99a94940df0bc5d9196f17f8699367
+  five_wh_one_plus: 6d924791a1798656302bd4b9716a494a0c5f7f55ad9ceebf629dfb2317e86078
+  answer: b24be7a60912ef4ec21fc7d03069ca4cfe102e3a045341fa4e86e82b4dfe6026
+  tags: e3e5d8aaa8a9a23873bbdf4cc73680289c881d0b8cc78c763f4294e8ca97a4b4
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- type.knowledge.atom
+- workspace.desk.atoms

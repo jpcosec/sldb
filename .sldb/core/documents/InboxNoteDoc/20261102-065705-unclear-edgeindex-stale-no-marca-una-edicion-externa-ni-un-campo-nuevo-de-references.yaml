@@ -1,0 +1,18 @@
+name: 20261102-065705-unclear-edgeindex-stale-no-marca-una-edicion-externa-ni-un-campo-nuevo-de-references
+path: desk/inbox/20261102-065705-unclear-edgeindex-stale-no-marca-una-edicion-externa-ni-un-campo-nuevo-de-references.md
+source_hash: 614ccf1c32742634a98fc8a4221af4e387ce2ff7ea731210e0e98d63491093f6
+content_hash: e5c00c98d04a24ab6639a1461933837c31f353dffca1194ef163a4e8ec29f18e
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: e8ace40df249b014ce7f17763fa25906817c41d4948d11c4d4d237a537b3980a
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: 5727bb627600d7da7eee942c0641721346b2fd6e6c31f9c5405ad750b670dd4e
+  body: 842879c58e92194b850fa0f4f5c29faace5194f11384922fbf23b6330098acce
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

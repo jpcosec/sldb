@@ -1,0 +1,16 @@
+name: atom-una-consulta-del-grafo-distingue-un-nodo-inexistente-de-un-nodo-sin-aristas
+path: desk/atoms/atom-una-consulta-del-grafo-distingue-un-nodo-inexistente-de-un-nodo-sin-aristas.md
+source_hash: d269ef8f7f808e741e09715d853230c6fc2b3d648425f29e5a45112055418eb3
+content_hash: 9a9164f78f4ce7dfcb7ae94da055b361ca8edc7d213cf0ed665affc24ea6a20a
+field_hashes:
+  id: 780e4373c169439c6f86ad87b1eabb1af806df9d4cf93dc9627d34d88c1b28f8
+  title: f0096c113ef1a0bb6cb0d7d25528b3c36120e1e3f976fbc062812e0fcb1295d6
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: fecab3f449a28cf56da836ab81eaa22df70bbae31122a01d74fa34592b1924ef
+  tags: e3e5d8aaa8a9a23873bbdf4cc73680289c881d0b8cc78c763f4294e8ca97a4b4
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- type.knowledge.atom
+- workspace.desk.atoms

@@ -1,0 +1,16 @@
+name: atom-un-flag-que-casi-todos-los-subcomandos-aceptan-se-define-una-sola-vez
+path: desk/atoms/atom-un-flag-que-casi-todos-los-subcomandos-aceptan-se-define-una-sola-vez.md
+source_hash: a15e8a2127662d89e7abc7e2eb62bf24a1cf52a911f0dcf2c6879fc5b1876a2a
+content_hash: 40ff1e905af43a5a6120403173137619ef5a2e40e7a368f32411eb8c7a091234
+field_hashes:
+  id: b040a5a02fccb6cef916b9e79e52522a8d342441eab4a490419dc7a611b1c51d
+  title: 9ec39594aeeb41cb71dc45e9cb7e58b5b2caf8a99d94fde5b68d3aa082669862
+  five_wh_one_plus: c7d4bb6c4e85ef7f9bf7592aeecd1d09dd38adc39afd1ffb3908b19e689040ad
+  answer: 950da88609c8582ac324a55aa5de62008a2f61889ef0a8fcae870a25aded2393
+  tags: e3e5d8aaa8a9a23873bbdf4cc73680289c881d0b8cc78c763f4294e8ca97a4b4
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- type.knowledge.atom
+- workspace.desk.atoms

@@ -1,0 +1,17 @@
+name: repo-scion
+path: desk/registry/repo-scion.md
+source_hash: e329b612840ee81f5893faf0cb53d822ec74d7a68534fdfce9085d8792e11731
+content_hash: 26747982558282c8646f0263e12d409eb77ca261c017ecf8909fe4e6d944fdd9
+field_hashes:
+  name: 1321d9efcb48ac8350a2345a4fb62a20719e69787bd4152b777b80ff17daa46a
+  id: 1321d9efcb48ac8350a2345a4fb62a20719e69787bd4152b777b80ff17daa46a
+  path: 75c9ffc069819f4bc311e0403d39376314cf07513aaa4750ada10e131c9ae307
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  description: f85d6584428d61a8e2f3dd2e39aa24d84ac112a89d4d7250d4c7a355e7b02e9e
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.repository
+- workspace.desk.registry
+provenance: null

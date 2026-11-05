@@ -1,0 +1,18 @@
+name: 20261102-011823-unclear-post-save-no-rechaza-payload-invalido-de-update-antes-de-aplicar-y-el-lote-no-es-atomico
+path: desk/inbox/20261102-011823-unclear-post-save-no-rechaza-payload-invalido-de-update-antes-de-aplicar-y-el-lote-no-es-atomico.md
+source_hash: 4af20fef81ef439167fbd2f00e4398e55aa032b8015117143373a050dd559abb
+content_hash: c696292f619174278e3fc48c9c8d9904202ef645c2f91761c63e57ae3955ee8b
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 41065cad750b096b0223af90c7ac1c9289cf93c9bb9b8b1f2932f0d28a34076f
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: ea0f6a6451264c63974d7194762633a3ff4a7bfa67bb74bca1800c2f47f4d81b
+  body: 8c79695280f18c93e0ebef78f9979f391edb2043a8e77a32f5dd2b9361092415
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

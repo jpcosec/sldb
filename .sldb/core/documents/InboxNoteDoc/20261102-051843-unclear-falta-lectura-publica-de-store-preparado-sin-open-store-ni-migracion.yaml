@@ -1,0 +1,18 @@
+name: 20261102-051843-unclear-falta-lectura-publica-de-store-preparado-sin-open-store-ni-migracion
+path: desk/inbox/20261102-051843-unclear-falta-lectura-publica-de-store-preparado-sin-open-store-ni-migracion.md
+source_hash: dd2200184335357d69a4a624115d4d39039d4e69e8639b6fff2fd42b5f593b3c
+content_hash: 7841b810e9c01363de3a61baeed549fa967b14b11bcefdc499e5c072232ed5c8
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: fee1291db79ef7605a25603beedaf3e6596698792a1d577af359081687e24acd
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: 5c8c65a878b261e9ceac11bd13608641d0f4561496a0f3d7d9059cd09cfc3511
+  body: d7038aeb259a32fc06b0fdc8578e961af0d26c0c38c2a1d1d51e8bf21d54a36b
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

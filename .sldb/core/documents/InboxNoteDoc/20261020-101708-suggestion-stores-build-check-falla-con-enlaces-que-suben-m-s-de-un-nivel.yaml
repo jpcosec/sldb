@@ -1,0 +1,20 @@
+name: 20261020-101708-suggestion-stores-build-check-falla-con-enlaces-que-suben-m-s-de-un-nivel
+path: desk/inbox/20261020-101708-suggestion-stores-build-check-falla-con-enlaces-que-suben-m-s-de-un-nivel.md
+source_hash: 9415b52c103aa9ad34e2267d434b46e0bc6809598172da44fc53e1152748a091
+content_hash: f2618ae002d79c1580c65e599de40de59042efd2eb615a22046ebbb13aa52947
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 85515d8c74a3728cca1aff320948ffcc8b510b0f82e6c12036a9026aea105607
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: e5b31d14e86cf61268e6255aee9817f989fd2cd4a14d890e8426749fad3a729e
+  title: e5e60b63295403a6f0d72ad746e873a31244cde1bcbfc4a79c412536a18a665b
+  body: e4dc1a5c74b5dcc0f5359e3d9ed592aa3c64e0b24f131d134470475ea103b296
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

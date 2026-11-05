@@ -1,0 +1,28 @@
+name: run-sldb-close-generalize
+path: runs/subagents/20261029-125456-task-cerrar-task-store-generalize/run.md
+source_hash: 1ffe3f147064b153c71fbcd19d93c6170f5fef74baec9bfde8b97034426f7c79
+content_hash: 745c2bc6ea25d3c7420f665c5a88e2d9c948475a00f4fa73c5ccf3742fb828f1
+field_hashes:
+  id: 8c3820e78e09708f8b537a11eef9457358f3e0c2a947926c78172f693150b09d
+  title: a594d6b686a0acc6b183e4060d0d6044f8a195395963d18f156a8b3deb62cd63
+  summary: 2e1be9de31a2ccf02c8d92a6f90c324374e88fc5490d6fab373a685a78203813
+  task_id: e3e6180dd5afea9b100d3d436afd3cbb6e5fb264e52aae3401ccea9808c9eadd
+  role_id: 8980bfef6a3fc6abef521560e4eaed8965c3ab8863cc66495a41d21209b33fef
+  kind: 389432cbf83f3d1b64029a75864ec96f8fd06451b4c99d7b28385d395d480bfa
+  run_dir: 5f3b34828abfba5aaafb0e992f9dd160efbb2258ba9f62be73c446b55f5f8837
+  herdr_pane_id: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  session_path: 07ade6cdf03054e839377462ba0d02437b536e3de1af0fea16391e8d7de69542
+  session_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  started_at: 9dd7f839f68e26ccfbd2b8aa7476549e43ca6ec0adcf0ea61f3a7edb1d7a014b
+  ended_at: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  outcome: de2bc7968076346e1ae2e62d3fd6385361b3855025678cd2732d9132eb9965cb
+  commit_sha: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 82b76cc5dace91279820eb1061e36da0b31e379da526bb858ab6e54f6cff9ca8
+semantic_tags:
+- representation.markdown
+- runtime:scion
+- source.document.markdown
+- system:deskops
+- type.workflow.run
+- workspace.desk.runs
+provenance: null

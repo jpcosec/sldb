@@ -1,0 +1,21 @@
+name: cmd-sldb-anchors-record
+path: knowledge/commands/cmd-sldb-anchors-record.md
+source_hash: 376bfa4102ea9a209a81fce76d586ff1636efa500b37139abb570b16b4664b85
+content_hash: 4838a911371d5f3029ee240794b3c5669b13128b0aa32876955d707d81c1aabc
+field_hashes:
+  id: 8923a5b2181a48dd8f7826a4f010c9a439c78902070259c1bd7f5c90ca05a14f
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  command_path: 3ebbf90056ac811b590bff47a4e89a9959815d88c8642c4bbef81ec2ec4944e0
+  synopsis: a6db8347c38d34f8083d3c024f2243c885aa526a11187a52ac897070a362367f
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  arguments: fbc10b120b37cdaa7267d01653ae533d4afed1ca6ff62a9273c82d94d4926f4f
+  usage: 5e1eff494ea8d1bd1b8a6018ad1d01dcc9f6bc0158221e29b84f04cff6be0a2b
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: 23ad4c113b56c7337efce28d71624b3c7ddeac21ada2c0252ac2b22e2ee899b0
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.cli_command
+- workspace.knowledge.commands
+provenance: null

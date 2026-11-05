@@ -1,0 +1,17 @@
+name: repo-pron
+path: desk/registry/repo-pron.md
+source_hash: 23d40a56864f9e2ae993061960f50c8554bc377f15123dee5d0e721e72bb34a4
+content_hash: d5779e7d55cb50c9ffd771b75765c17089c75028b4da485158dcc39ec4879d7f
+field_hashes:
+  name: 1e6e84d52f8d8e656cbd188d8ad739f7b63d1bbc367d69e60d7847878a083a95
+  id: 1e6e84d52f8d8e656cbd188d8ad739f7b63d1bbc367d69e60d7847878a083a95
+  path: f13029dfd77a913d1d9e44e86aecdbfeec0a3e846667f662ed5ba76d1cba5a77
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  description: 5db7fea99f57ca6bd97a420ee1011563639be20e8dcbe0967e89d349e20e07c0
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.repository
+- workspace.desk.registry
+provenance: null

@@ -1,0 +1,20 @@
+name: cmd-sldb-edges-show
+path: knowledge/commands/cmd-sldb-edges-show.md
+source_hash: 3bd4fa351991347b3584072a68ac5a3587ad2718613e308584623624a566148b
+content_hash: 66ddb171340361c62d4a5dd5798396783e0ad7ffeea0b81000a1d0540c2f4bba
+field_hashes:
+  id: 2beb2ab3b46cd4a96245d7b09a2314ccb3ad7d0fa669a4bc619b08997cffff0e
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  command_path: f274391ca15666da31687fec6598dca1e710b98eef52aef618c9612a23f12fe4
+  synopsis: e5af90befbbf812a6750e7b6c399abec8f2619a8ace660d55d364ea3082fadae
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  arguments: f1fdec84f6b24c74c88d5108a2cbfbbf698f2f4c3a7c569cd06636365c29bcc7
+  usage: 5f37d3fbca4bec83baa600e39da722fba48ade725b937ccc97a6ab60e0a053d1
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: fd74e333079d80035e9ca174f2e379da389db128c670ec34c6777b9600d55c49
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.cli_command
+- workspace.knowledge.commands

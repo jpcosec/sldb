@@ -1,0 +1,16 @@
+name: atom-el-path-guardado-de-un-modelo-es-una-pista-model-ref-es-la-identidad
+path: desk/atoms/atom-el-path-guardado-de-un-modelo-es-una-pista-model-ref-es-la-identidad.md
+source_hash: d48994e8f9ff97c6dcc735a6284a69c222c1fcd01c16724141d3119fcc8bc0a7
+content_hash: 679318d4970913587ede7e3869befeb90c8812937db0103c4a65dce534ad96d7
+field_hashes:
+  id: 30dfe793106a6db5e449e0cf78c1ce692a1c8f086d43cc8d42820bc4c8368926
+  title: 3132c9cad9e81540bb345a5a267d5dee9f6c2dc80ae2f10a0de862b5c84f6da7
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 5d282a8f7e54f4431342a9a23a42b62066d2dacb1db28277238dada468bc553a
+  tags: e3e5d8aaa8a9a23873bbdf4cc73680289c881d0b8cc78c763f4294e8ca97a4b4
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- type.knowledge.atom
+- workspace.desk.atoms

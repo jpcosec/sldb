@@ -1,0 +1,16 @@
+name: atom-un-hash-consistente-no-prueba-que-el-modelo-lea-el-documento-la-prueba-es-reescribirlo
+path: desk/atoms/atom-un-hash-consistente-no-prueba-que-el-modelo-lea-el-documento-la-prueba-es-reescribirlo.md
+source_hash: 934de0e68b3ae8bd2609a83f0269c392a8981f01bd02cbc2cd9155d698bf030a
+content_hash: 521ef7555c2fae245e0a9332f66842b2cd6d4bd26f1bce0e5033699d20e9ee54
+field_hashes:
+  id: 9dacb815c408b8ca2117776350b086a53c4d22745c55ec49bfb5cf42eb5ea69b
+  title: 47cc5a52bd663800b4254f98e3afed93e9fd6f6556a2561d115a71a06592cbd8
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: a16be7d033f7b45bfdad0d29692f500358962d3e25e7ea1a89ab4970c5c7a0fe
+  tags: e3e5d8aaa8a9a23873bbdf4cc73680289c881d0b8cc78c763f4294e8ca97a4b4
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- type.knowledge.atom
+- workspace.desk.atoms

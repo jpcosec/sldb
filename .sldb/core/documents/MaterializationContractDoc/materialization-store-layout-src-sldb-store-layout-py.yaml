@@ -1,0 +1,19 @@
+name: materialization-store-layout-src-sldb-store-layout-py
+path: desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
+source_hash: 324512752ecdf164addc34f37c56518a7f01fa1f44e74726a8ecef838193f7dc
+content_hash: 813d0d601c58d70bd8e5faceeb7289d21a883a5b34914b34b86c49f329d0d5a3
+field_hashes:
+  id: 9b8abc4165907167d7b34486c9e05b4045c7e559c7116d58ef6b963b33c50bdb
+  title: e5257a728c7242fe94394c426ce970a0eda215e980eb921c20dde2e7ecc35b9f
+  source_atoms: 1da9ce13915be9bf3cd374f21234b9fff7abe63caffe365d5ae45125fa44e9b6
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: c0b5de33cdb3d586e912bb87c82c3f098fb85a42917f1aa9390ec102c6eafb4e
+  intent: fa0d91009ac5ee8b3caa616c05a019fabbdfd156ad5c2a73c59e87739f3633a5
+  validation: df1b2b7dda41b956cbcd4c6a02316ac7ff504db06bb0d6af09d66214007b200d
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

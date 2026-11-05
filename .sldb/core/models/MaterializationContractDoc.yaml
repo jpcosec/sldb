@@ -1,0 +1,18 @@
+name: MaterializationContractDoc
+model_ref: deskops.models:MaterializationContractDoc
+path: ''
+documents_index: .sldb/core/documents/MaterializationContractDoc.yaml
+sections_index: .sldb/runtime/sections/MaterializationContractDoc.yaml
+model_hash: c420cbb97a341d458f3fc8fcbdea397e8b9b281dffa7ee559199912d160399a3
+roster_hash: b1483bbb879149438fa0698210fae6da3b93f32726957b28a6946824acd9b644
+contract_hash: 7a9c4f2a6d1393a581170cb62c4c3779b80310e3b31ebe865e8bfd92d6beaf1b
+documents_count: 7
+version: 1
+canonical: false
+family: null
+semantics:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+base_models: []

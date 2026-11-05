@@ -1,0 +1,30 @@
+name: cmd-sldb-stores-check
+path: knowledge/commands/cmd-sldb-stores-check.md
+source_hash: 2f63ef0357d0fe0878a7e3d8fae1d9461ba20b7db829e33ceb67c6115f42838c
+content_hash: 6acbe8d45afe4f0219efd7f6deffac9df572f1eaaaaa9e26d6de76b341e9e57d
+field_hashes:
+  id: 710c0833b3111881632afb1cc76479acba8ed3f53c2ec7ff2e4bf84199d89aec
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  command_path: 8e95ca824f0f9c879ea8d8fcae7aa82e9f45166169b25e0f56ebe0d934eecdfd
+  synopsis: 3fe2da992d2d689207663c011e5a69f05c4e2d38492f049851547ed8cbedf9cc
+  purpose: 87b49865e3cd3e1d7a358ae4b87737910a05c5a8f4e53ee8450f6e539846ce9c
+  how_it_works: 8444b56f5bb1647b2442ef76c732883074ef53dd2e0fa4e3050d3b74ac7a8c7e
+  arguments: a22eaafa46fc56322ac3ff6dc59f884370644e6671f95f7a98f7eca5607f2eef
+  usage: 8e95ca824f0f9c879ea8d8fcae7aa82e9f45166169b25e0f56ebe0d934eecdfd
+  tags: 699c2cfd1a5b0cb746c8dfb0f4de3ed26435e62c74e179332ed04ad4f2591c91
+  provenance: 2cd475c1175265efa3a0700afedea6b60c65dc99522b2f8f25e611cec7a301dc
+semantic_tags:
+- domain:retrieval
+- entity:cli_command
+- impl:external
+- kind:software
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- type.knowledge.cli_command
+- workspace.knowledge.commands
+provenance:
+  by: agent
+  at: '2026-10-20T17:12:38Z'
+  authority: generated
+  via: save_document_payload

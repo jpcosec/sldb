@@ -1,0 +1,19 @@
+name: materialization-store-layout-src-sldb-api-stores-gitignore-policy-py
+path: desk/materializations/materialization-store-layout-src-sldb-api-stores-gitignore-policy-py.md
+source_hash: 00ece0a6e508e57efd0411ac7f096b617623a77b5e1557d0abd07dd23a003454
+content_hash: 2d024c4cbbcd6417b5b90b9c62b5899877914fd8ae941f3549c3e64a85ca2476
+field_hashes:
+  id: 907afdba4adcf92ea5e10d26272d9a413e763533141a253abe82669b5629e10e
+  title: ae2c2779ecab010e242f40fda0eb66a705f1f4162c766a03606271baa1d54dea
+  source_atoms: 1da9ce13915be9bf3cd374f21234b9fff7abe63caffe365d5ae45125fa44e9b6
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 385481fa841099c3e1eb379721f840f8eee6631fc31873f0c867f9f23c623a0f
+  intent: fa0d91009ac5ee8b3caa616c05a019fabbdfd156ad5c2a73c59e87739f3633a5
+  validation: df1b2b7dda41b956cbcd4c6a02316ac7ff504db06bb0d6af09d66214007b200d
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

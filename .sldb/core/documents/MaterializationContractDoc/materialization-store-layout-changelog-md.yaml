@@ -1,0 +1,19 @@
+name: materialization-store-layout-changelog-md
+path: desk/materializations/materialization-store-layout-changelog-md.md
+source_hash: ed70c49ab25e81f39e62b0ba1eb06fe1933f1f3e1a89aee8ffe4bf2b1ab29cca
+content_hash: 316281dedd6f2f1665bc1a604c28c67b580b087544b29d96266d84760238d4d7
+field_hashes:
+  id: f2036554fa646859f33edb324c1c37c68359525f5290d4313bb61b728ac24629
+  title: e1f0510aee4b3bdcee9759b10b2f2d4c1b1d52bebd5a236edebd0d801057dcc3
+  source_atoms: 1da9ce13915be9bf3cd374f21234b9fff7abe63caffe365d5ae45125fa44e9b6
+  target_kind: 64ac8e615520cd1ae43ab0d47cfc9e750a82d13f9c47d468dab7cd8c982b7859
+  target_identity: 7e16eb3337db86529de04e6873f8a76752e7db3f437b9a18d42e27a54e934612
+  intent: fa0d91009ac5ee8b3caa616c05a019fabbdfd156ad5c2a73c59e87739f3633a5
+  validation: df1b2b7dda41b956cbcd4c6a02316ac7ff504db06bb0d6af09d66214007b200d
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

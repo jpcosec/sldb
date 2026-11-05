@@ -1,0 +1,20 @@
+name: cmd-sldb-stores-declare
+path: knowledge/commands/cmd-sldb-stores-declare.md
+source_hash: b308ed5f551096373842b2dc8af3381f69ea4b3da4fea4a32d2222db822c17be
+content_hash: 0279658d03a5ea3ba1c1761854d2c87ce9a0cb76f2ff7389b21d14ac58432084
+field_hashes:
+  id: 966bcd5bc580620fa1d200126ce35cd106f0b1de0db959c4b92465d30e22dd5c
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  command_path: 852212fc455be6ebe638ce2afb175046a0598e1e23c5adb42298d3ffd650b821
+  synopsis: af5de427f777b85949b10ef44ba82afeb624cb5385dcbe853b810f78f3c0818a
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  arguments: 030ee15aea9409be60207ee53bd62d13f31bab2d60911fc94462d43996b10303
+  usage: 929aa998aed6db1fec7ba57b3d077856496a1f33039997ac3af02faf4654900f
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: cc5adde523042ed99d05a194610d329e5bde0ad760f569e1c4d253677ef01f9f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.cli_command
+- workspace.knowledge.commands

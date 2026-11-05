@@ -1,0 +1,20 @@
+name: 20261020-024137-suggestion-enlaces-entre-stores-no-portables-y-stores-check-en-verde-sobre-un-store-vac-o
+path: desk/inbox/20261020-024137-suggestion-enlaces-entre-stores-no-portables-y-stores-check-en-verde-sobre-un-store-vac-o.md
+source_hash: c084d3d008430e83d3e56491dbed95a8322d7da1362bad8c83e8fc0aa9cafc00
+content_hash: f2d7a905af3886c22e91bb266225b976381f760c6991320bb706573ed1ca23eb
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 206a9ad1419b126ba02a0debb9e065e004b9896a00b711351b2c493091c9743c
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: a8215f0fcde189fcac11e4b3033177ca54fa74d647af4fdb478e92c8fac1e8c2
+  title: 2496daaf1d8d536b857d6075823dd5160ed223fa05b0febe55c7b6504038a60f
+  body: d76f240c31aa1fcbb776029f4b4036e6961436439a076b16237c577d55296b63
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

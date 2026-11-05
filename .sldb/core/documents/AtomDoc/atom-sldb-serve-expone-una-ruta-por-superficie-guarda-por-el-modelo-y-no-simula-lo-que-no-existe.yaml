@@ -1,0 +1,19 @@
+name: atom-sldb-serve-expone-una-ruta-por-superficie-guarda-por-el-modelo-y-no-simula-lo-que-no-existe
+path: desk/atoms/atom-sldb-serve-expone-una-ruta-por-superficie-guarda-por-el-modelo-y-no-simula-lo-que-no-existe.md
+source_hash: 0b419f3029fce0e01c04cc203e19f97e68b8ac067b101317effedc5f1e708231
+content_hash: c4d94401c421c9f00b431bb9e2a0410e90e035a557088b947d048db7ae115883
+field_hashes:
+  id: 6397ff47171bdb05bc1688431b063af00e58ae22338da547d9a6aaeb30108dd4
+  title: 68300bd0a807e3c64bf4d94bd729b187c3c8a3f082ed6689fffbf93a5ae0a3d6
+  five_wh_one_plus: c7d4bb6c4e85ef7f9bf7592aeecd1d09dd38adc39afd1ffb3908b19e689040ad
+  answer: 14620397106a17dc4e94b42b6e4526154a369c6b18e5e70c34fe16f9198e5883
+  tags: 309c076953a7ff67f0ba80af97527d541c5d12e71dfc71e7884d6603cc6db005
+  provenance: a60fb2e5ddf61a04095950bf60847ef64b73353ea6ae9f08d936029833666a62
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:api
+- topic:serve
+- type.knowledge.atom
+- workspace.desk.atoms

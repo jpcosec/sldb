@@ -1,0 +1,14 @@
+name: PythonSymbolDoc
+model_ref: sldb.models.knowledge_surface:PythonSymbolDoc
+path: src/sldb/models/python_symbol_doc.py
+documents_index: .sldb/core/documents/PythonSymbolDoc.yaml
+sections_index: .sldb/runtime/sections/PythonSymbolDoc.yaml
+model_hash: 3a61495fbda6b372825303386d1d325e2947efec3335b84cc9ad52f0f5949443
+roster_hash: e78fb0cfb949405f91ad6968ffba66643d437363ef0b3a54e34a192fc1806e66
+contract_hash: c3b15d84e6f87b9e3171fb2745e524dc4c6cbcfc315cff88e88368c4c3c6eeef
+documents_count: 2561
+version: 1
+canonical: false
+family: null
+semantics: []
+base_models: []

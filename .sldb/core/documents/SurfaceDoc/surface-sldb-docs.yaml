@@ -1,0 +1,28 @@
+name: surface-sldb-docs
+path: knowledge/surfaces/surface-sldb-docs.md
+source_hash: 610a87b9deab4e4049ee3c4bac604e49c9c2c415cb7120472451f4a606055b61
+content_hash: b10036582c26b2f01460641a236fae8d5cd8b564f27900aa5f4fff67b7f110a5
+field_hashes:
+  id: d3ef149cdcd9b2ed1c34cae6512175d3a9bfbbb6674dfe0d8e244f98963f4cb4
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  surface: 5310eeb1d153dad19cd89e627b129d763e0cb2029f901c1a54fcc70478405c04
+  purpose: ece45df79201172fe2c951940c596bf4f10134ada716bbca6bf3b997933a6710
+  how_it_works: ceb68c51ca1340cb5079557e1bbe6a2fc7e1e58170b7a92a329a02085e22cdf3
+  commands: dac3206eb7ca28947267db0da064c9fbfd30e3698f4f5fad8377e556c4abec88
+  tags: 28e2d739923a919405b798242e5394dda38832570ee573367673daed32bb183f
+  provenance: d4f84cd9e4a4fc767d0a07df7aa17537bd1682344a60f80e28871cb533af30cf
+semantic_tags:
+- domain:retrieval
+- entity:cli_surface
+- impl:external
+- kind:software
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- type.knowledge.surface
+- workspace.knowledge.surfaces
+provenance:
+  by: agent
+  at: '2026-10-20T16:30:17Z'
+  authority: generated
+  via: save_document_payload

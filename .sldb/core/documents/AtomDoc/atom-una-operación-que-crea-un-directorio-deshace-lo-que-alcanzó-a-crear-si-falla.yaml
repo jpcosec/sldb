@@ -1,0 +1,16 @@
+name: atom-una-operación-que-crea-un-directorio-deshace-lo-que-alcanzó-a-crear-si-falla
+path: desk/atoms/atom-una-operación-que-crea-un-directorio-deshace-lo-que-alcanzó-a-crear-si-falla.md
+source_hash: f2a4e1d7cd660fd3454872bac17538635b1238fe9d0c26d972eefe116ca6454b
+content_hash: 6c7dac976bc813f0996be5c71ce257cfe7627362f2f66facf2da2cbbfd71312a
+field_hashes:
+  id: 3ad2ed247a9906843682f9480b1c4d300c82964dfe5d21856f0a7788dfb6a479
+  title: bea7f994640397a7edcfaf16cd6cb1ca79d5c831738affc0728b200cfde383e0
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 4712bd668622a6354cbe80aa1a1443092dd44041f1976acdf9191ded4fc04067
+  tags: e3e5d8aaa8a9a23873bbdf4cc73680289c881d0b8cc78c763f4294e8ca97a4b4
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- type.knowledge.atom
+- workspace.desk.atoms

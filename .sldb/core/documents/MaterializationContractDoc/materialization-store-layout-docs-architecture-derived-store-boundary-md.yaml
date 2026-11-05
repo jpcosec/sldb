@@ -1,0 +1,19 @@
+name: materialization-store-layout-docs-architecture-derived-store-boundary-md
+path: desk/materializations/materialization-store-layout-docs-architecture-derived-store-boundary-md.md
+source_hash: 348cbe08985e49e4e0e11c8afcfe771cc7ca5226db92cf580e6174418893d0a5
+content_hash: 397ab4b650fa61b7a2fa02732c04535b4ec09e3957ce769faa01c284920fa908
+field_hashes:
+  id: 4ac5d3a09c712bbba259af95c14d425879d1b68f7e7d0bd40866243fdf8d3d41
+  title: d8e665e8a87bbe3b7cff3d72f6b7f051aaf033aa3cde1a158eaf877eb43ac7c2
+  source_atoms: 1da9ce13915be9bf3cd374f21234b9fff7abe63caffe365d5ae45125fa44e9b6
+  target_kind: 64ac8e615520cd1ae43ab0d47cfc9e750a82d13f9c47d468dab7cd8c982b7859
+  target_identity: f57396ec11762a4a871b8538ecd7c28674f0c76118cf704e9cb6aff62e35e71d
+  intent: fa0d91009ac5ee8b3caa616c05a019fabbdfd156ad5c2a73c59e87739f3633a5
+  validation: df1b2b7dda41b956cbcd4c6a02316ac7ff504db06bb0d6af09d66214007b200d
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

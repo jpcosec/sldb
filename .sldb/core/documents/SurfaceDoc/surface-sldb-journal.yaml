@@ -1,0 +1,18 @@
+name: surface-sldb-journal
+path: knowledge/surfaces/surface-sldb-journal.md
+source_hash: 23f56b762c6bfa232de770065c90bd3d3120ce1e700694430557eda2f715304d
+content_hash: f0f5b3eabcc9c29dc90085fb6db61ed0f2d0f6be70c476afd299742fb283df00
+field_hashes:
+  id: 978196298b88022785c940af46577b5132ff49c74d53dbd7f84faced74fa2cd3
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  surface: 6b53b8079bacd772318e881d1b3f2d1176c5ee7809e52f74586adceafff3a27d
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  commands: b9523a8de27078a8d355a66ff57fc4a64cc9f0764b5a1ea3b3fb23d04daa7bbb
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: c45d9137b793f8dc8cb18adbcac7e08b2ad3b2375190cabb82df462c62a16514
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.surface
+- workspace.knowledge.surfaces

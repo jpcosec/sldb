@@ -1,0 +1,20 @@
+name: atom-sldb-evaluates-declared-rules-consumers-author-them
+path: desk/atoms/atom-sldb-evaluates-declared-rules-consumers-author-them.md
+source_hash: 099f81066d13f882a6f947e947b10216326513289c83efc02ee2d63916fc907d
+content_hash: 703ab47bd40437c04e93e9b63b0441a08f06718c1b043d3ce3a5c9487bea84aa
+field_hashes:
+  id: c119066fd3580ca9b346da9372d27d34ab61c776073bc98d9b82c227e08d1b88
+  title: 25de0a716379eea3cd9daf8ad348bfa17d6351539698fa33ce5ef2b4f3f27683
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: e9d6ece8281ad0307ed15e284ba07896bb687725c806a9ab94943ecc722b9cdd
+  tags: 1983c6f806bc43559b60de987f19fd467c88af7ce2ad05095964a8790127bada
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:deskops
+- system:sldb
+- topic:boundary
+- topic:rules
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance: null
