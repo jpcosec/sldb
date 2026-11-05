@@ -234,6 +234,12 @@ include:
   - desk/inbox/20261020-024137-suggestion-enlaces-entre-stores-no-portables-y-stores-check-en-verde-sobre-un-store-vac-o.md
   - desk/inbox/20261020-101708-suggestion-stores-build-check-falla-con-enlaces-que-suben-m-s-de-un-nivel.md
   - desk/inbox/20261019-011009-unclear-decisi-n-del-due-o-qu-mecanismo-guarda-el-pasado-del-rbol-del-store-journal.md
+  - desk/inbox/20261031-033714-suggestion-resiliencia-en-carga-de-store-ante-documentos-invalidos-y-problems-estructurados.md
+  - desk/inbox/20261102-011823-unclear-post-save-no-rechaza-payload-invalido-de-update-antes-de-aplicar-y-el-lote-no-es-atomico.md
+  - desk/inbox/20261102-051843-unclear-falta-lectura-publica-de-store-preparado-sin-open-store-ni-migracion.md
+  - desk/inbox/20261102-065705-unclear-edgeindex-stale-no-marca-una-edicion-externa-ni-un-campo-nuevo-de-references.md
+  - desk/inbox/20261102-081659-unclear-falta-forma-publica-de-abrir-operacion-de-lectura-sin-open-store.md
+  - desk/inbox/20261102-141033-unclear-adenda-al-intake-081659-open-store-readonly-sirve-para-ws13-2-sin-ser-api-universal-de-lectura.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -244,7 +250,6 @@ include:
   paths:
   - desk/contexts/pill-context-pills-carry-reasoning-not-a-copy-of-code-or-docs.md
   - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
-  - desk/contexts/pill-keep-sldb-generic-and-move-workflow-behavior-toward-deskops.md
   - desk/contexts/pill-keep-template-markers-reversible-at-the-document-boundary.md
   - desk/contexts/pill-keep-the-text-layer-and-the-graph-layer-separate-inside-sldb.md
   - desk/contexts/pill-model-registration-must-be-queryable.md
@@ -252,6 +257,7 @@ include:
   - desk/contexts/pill-sldb-cli-errors-must-stay-actionable-and-machine-safe.md
   - desk/contexts/pill-store-health-is-owned-by-sldb.md
   - desk/contexts/pill-stores-init-must-be-idempotent-and-fail-safely.md
+  - desk/contexts/pill-keep-sldb-generic-and-move-workflow-behavior-toward-deskops.md
 - model: PythonSymbolDoc
   glob: knowledge/symbols/*.md
 - model: RelationDoc

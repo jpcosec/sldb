@@ -9,7 +9,6 @@ tasks:
 - desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
 - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
 - desk/tasks/task-el-store-se-parte-en-sldb-operacional-versionado-y-sldb-cache-regenerable-ignorado.md
-- desk/tasks/task-go01-registrar-la-decision-de-frontera-y-su-atom.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -58,4 +57,3 @@ _Generated from the task references above._
 - Diseño: set bootstrap de modelos tras la convergencia átomo/field [draft] - Un documento de decisión en docs/ (SpecDoc o PlanDoc trackeado) que evalúe la propuesta de siete modelos, diga qué se adopta, qué no y por qué, con ejemplos de cada modelo sobre documentos reales del store.
 - Diseño: jerarquía de modelos de evidencia (__family__ o herencia) [draft] - Un documento de decisión en docs/ que compare __family__ vs herencia de clases para los modelos de evidencia, con la recomendación y sus consecuencias para deskops (RunDoc, materializaciones, closeout_evidence).
 - El store se parte en .sldb (operacional, versionado) y .sldb_cache (regenerable, ignorado) [draft] - .sldb/ contiene store.yaml y core/ (store_index, models, documents) y se versiona entero; .sldb_cache/ (hermano de .sldb) contiene lo que hoy es runtime/ (edges, sections, semantic, graphs, cache, locks) y se ignora; el journal desaparece porque su función la cumple git; stores init escribe la línea .sldb_cache/ en .gitignore y stores check alerta si falta o si core/ está ignorado.
-- GO01: registrar la decision de frontera y su atom [draft] - Atom nuevo en desk/atoms que diga que sldb evalua reglas declaradas sobre documentos, aristas y hashes y que los consumidores las autoran como documentos; la pill pill-keep-sldb-generic-and-move-workflow-behavior-toward-deskops lo enlaza en how; dos commits en main (atom+pill; luego gates.G_BOUNDARY satisfied con el hash del primero); nota a deskops por message send.
