@@ -1,0 +1,82 @@
+[
+  {
+    "node": "sldb://document/Spec:s2",
+    "score": 2.0
+  },
+  {
+    "node": "sldb://document/Spec:s1",
+    "score": 1.0
+  },
+  {
+    "node": "sldb://document/Spec:s3",
+    "score": 1.0
+  },
+  {
+    "node": "sldb://document/Spec:lonely",
+    "score": 0.0
+  },
+  {
+    "node": "sldb://field/RelationDoc.attributes",
+    "score": 0.0
+  },
+  {
+    "node": "sldb://field/RelationDoc.condition",
+    "score": 0.0
+  },
+  {
+    "node": "sldb://field/RelationDoc.notes",
+    "score": 0.0
+  },
+  {
+    "node": "sldb://field/RelationDoc.relation_type",
+    "score": 0.0
+  },
+  {
+    "node": "sldb://field/RelationDoc.source_id",
+    "score": 0.0
+  },
+  {
+    "node": "sldb://field/RelationDoc.target_id",
+    "score": 0.0
+  },
+  {
+    "node": "sldb://field/RelationDoc.title",
+    "score": 0.0
+  },
+  {
+    "node": "sldb://field/RelationTypeDoc.axis",
+    "score": 0.0
+  },
+  {
+    "node": "sldb://field/RelationTypeDoc.cardinality",
+    "score": 0.0
+  },
+  {
+    "node": "sldb://field/RelationTypeDoc.condition",
+    "score": 0.0
+  },
+  {
+    "node": "sldb://field/RelationTypeDoc.description",
+    "score": 0.0
+  },
+  {
+    "node": "sldb://field/RelationTypeDoc.direction",
+    "score": 0.0
+  },
+  {
+    "node": "sldb://field/RelationTypeDoc.name",
+    "score": 0.0
+  },
+  {
+    "node": "sldb://field/RelationTypeDoc.source_types",
+    "score": 0.0
+  },
+  {
+    "node": "sldb://field/RelationTypeDoc.target_types",
+    "score": 0.0
+  },
+  {
+    "node": "sldb://field/RelationTypeDoc.title",
+    "score": 0.0
+  }
+]

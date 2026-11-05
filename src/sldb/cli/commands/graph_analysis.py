@@ -26,7 +26,14 @@ from sldb.store.graph.analysis import ALL
 
 
 class GraphAnalysisCLI:
-    """The whole-graph questions, as commands."""
+    """The whole-graph questions, as commands.
+
+    `backend` is injected by Python for tests and future engines; without it each analysis
+    function selects the store's backend (networkx unless `.sldb/store.yaml` says otherwise).
+    """
+
+    def __init__(self, backend: Any = None) -> None:
+        self.backend = backend
 
     def run(self, args: Any) -> int:
         handlers = {
@@ -41,15 +48,15 @@ class GraphAnalysisCLI:
 
     def _path(self, args: Any) -> int:
         if args.all:
-            return _print(graph_paths(args.store, args.source, args.target, _rel(args), args.cutoff, args.limit, **_index(args)))
-        found = graph_path(args.store, args.source, args.target, _rel(args), args.directed, **_index(args))
+            return _print(graph_paths(args.store, args.source, args.target, _rel(args), args.cutoff, args.limit, backend=self.backend, **_index(args)))
+        found = graph_path(args.store, args.source, args.target, _rel(args), args.directed, backend=self.backend, **_index(args))
         if found is None:
             print(f"No path from {args.source} to {args.target}.")
             return 1
         return _print(found)
 
     def _cycles(self, args: Any) -> int:
-        found = graph_cycles(args.store, _rel(args), args.limit, **_index(args))
+        found = graph_cycles(args.store, _rel(args), args.limit, backend=self.backend, **_index(args))
         if not found:
             print("No cycles: the relations walked form a DAG.")
             return 0
@@ -58,27 +65,27 @@ class GraphAnalysisCLI:
     def _order(self, args: Any) -> int:
         call = graph_layers if args.layers else graph_order
         try:
-            return _print(call(args.store, _rel(args), **_index(args)))
+            return _print(call(args.store, _rel(args), backend=self.backend, **_index(args)))
         except SLDBError as cyclic:
             print(str(cyclic))
             return 1
 
     def _components(self, args: Any) -> int:
         if args.isolated:
-            return _print(graph_isolated(args.store, _rel(args), _types(args), **_index(args)))
+            return _print(graph_isolated(args.store, _rel(args), _types(args), backend=self.backend, **_index(args)))
         call = graph_islands if args.islands else graph_components
-        return _print(call(args.store, _rel(args), _types(args), **_index(args)))
+        return _print(call(args.store, _rel(args), _types(args), backend=self.backend, **_index(args)))
 
     def _central(self, args: Any) -> int:
         try:
-            ranked = graph_central(args.store, args.kind, _rel(args), _types(args), args.limit, **_index(args))
+            ranked = graph_central(args.store, args.kind, _rel(args), _types(args), args.limit, backend=self.backend, **_index(args))
         except SLDBError as needs_scipy:
             print(str(needs_scipy))
             return 1
         return _print([{"node": node, "score": score} for node, score in ranked])
 
     def _similar(self, args: Any) -> int:
-        ranked = graph_similar(args.store, args.node, _rel(args), args.limit, _types(args), **_index(args))
+        ranked = graph_similar(args.store, args.node, _rel(args), args.limit, _types(args), backend=self.backend, **_index(args))
         return _print([{"node": node, "shared": shared} for node, shared in ranked])
 
 

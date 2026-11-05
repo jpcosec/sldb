@@ -7,6 +7,7 @@ scope: sldb-local-desk
 tasks:
 - desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
 - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
+- desk/tasks/task-go03-costura-graphbackend-sobre-networkx.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -53,3 +54,4 @@ _Generated from the task references above._
 
 - Diseño: set bootstrap de modelos tras la convergencia átomo/field [draft] - Un documento de decisión en docs/ (SpecDoc o PlanDoc trackeado) que evalúe la propuesta de siete modelos, diga qué se adopta, qué no y por qué, con ejemplos de cada modelo sobre documentos reales del store.
 - Diseño: jerarquía de modelos de evidencia (__family__ o herencia) [draft] - Un documento de decisión en docs/ que compare __family__ vs herencia de clases para los modelos de evidencia, con la recomendación y sus consecuencias para deskops (RunDoc, materializaciones, closeout_evidence).
+- GO03: Costura GraphBackend sobre networkx [draft] - Protocolo GraphBackend (load, eval, analyze) con implementacion networkx; los seis comandos graph y api/graph enrutados por analyze sin cambiar salidas; eval sobre el subconjunto de GO02 sin caminos; clave graph_backend en store.yaml; docs/architecture/graph-backend.md y CHANGELOG.

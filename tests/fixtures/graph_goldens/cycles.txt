@@ -1,0 +1,1 @@
+No cycles: the relations walked form a DAG.

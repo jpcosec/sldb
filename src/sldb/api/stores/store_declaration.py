@@ -27,6 +27,7 @@ class StoreDeclaration(BaseModel):
     generate: list[dict[str, Any]] = Field(default_factory=list, description="Generators run before tracking, e.g. `{command: selfdoc python-sync, args: [...]}`.")
     derived: list[str] = Field(default_factory=list, description="Project paths (directory prefixes) the generators write: derived, so not versioned and left out of a rebuild check's copy. `.sldb/core/` and `.sldb_cache/` always are.")
     include: list[dict[str, Any]] = Field(default_factory=list, description="`{model, glob}` (each match tracked under its file stem) or `{model, paths: [path | {path, name}]}`.")
+    graph_backend: str = Field(default="networkx", description="Graph analysis backend; only `networkx` is admitted in this phase (docs/architecture/graph-backend.md).")
     policy: dict[str, dict[str, str]] = Field(default_factory=dict, description="Model name (or `*`) -> finding code -> `ignore | allow | alert | error | reindex | hook: <command>` (docs/architecture/provenance.md §5).")
 
 
@@ -40,7 +41,28 @@ def load_declaration(store_path: Path) -> StoreDeclaration:
     path = declaration_path(store_path)
     if not path.is_file():
         raise FileNotFoundError(f"{path} does not exist: run `sldb stores declare --write` first")
-    return StoreDeclaration.model_validate(yaml.safe_load(path.read_text(encoding="utf-8")) or {})
+    definition = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    _validate_graph_backend(definition)
+    return StoreDeclaration.model_validate(definition)
+
+
+def _validate_graph_backend(definition: dict[str, Any]) -> None:
+    """Reject a backend this phase cannot run, naming the only admitted one."""
+    backend = definition.get("graph_backend", "networkx")
+    if backend != "networkx":
+        raise ValueError(f'graph_backend {backend} no admitido; admitidos: ["networkx"]')
+
+
+def declared_graph_backend(store_path: str | Path | None = None) -> str:
+    """The store's `graph_backend`, or `networkx` when it has no declaration or no key."""
+    if store_path is None:
+        return "networkx"
+    path = Path(store_path)
+    if path.name != ".sldb" and (path / ".sldb").is_dir():
+        path = path / ".sldb"
+    if not declaration_path(path).is_file():
+        return "networkx"
+    return load_declaration(path).graph_backend
 
 
 def save_declaration(store_path: Path, declaration: StoreDeclaration) -> Path:

@@ -24,6 +24,9 @@ from sldb.store.graph.language import StructuredQuery
 class GraphCLI:
     """Noun-first surface of the graph layer."""
 
+    def __init__(self, backend: Any = None) -> None:
+        self.backend = backend
+
     def run(self, args: Any) -> int:
         handlers = {
             "get": self._get,
@@ -34,7 +37,7 @@ class GraphCLI:
             "ingest-sldb": self._ingest_sldb,
         }
         handler = handlers.get(args.graph_command)
-        return handler(args) if handler else GraphAnalysisCLI().run(args)
+        return handler(args) if handler else GraphAnalysisCLI(backend=self.backend).run(args)
 
     def _get(self, args: Any) -> int:
         node = graph_get(args.store, args.node, not args.local, args.exclude_tag)

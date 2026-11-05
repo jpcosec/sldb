@@ -1,46 +1,64 @@
-# Coordinator status (robocop2) — 2026-11-04
+# Coordinator status (robocop2) — 2026-11-05
 
-## Nodo GO02 — Semántica, gramática y firma de evaluación del lenguaje de reglas
+## Nodo GO03 — Costura GraphBackend sobre networkx — SQUASH A MAIN POR EL COORDINADOR
 
-- Rama: `wt/go02` (desde main `14575b02`). Worktree: `~/proyectos/SLDB_1/sldb-wt-go02`.
-- TaskDoc: `desk/tasks/task-go02-semantica-gramatica-y-firma-de-evaluacion-del-lenguaje-de-reglas.md` (preflight intento 2 y cold-bundle intento 1 ya dispuestos en main; sin tercer intento).
-- Worker: pi deepseek-flash (herdr), con dos dispatches: el encargo y una ronda de correcciones del coordinador.
+Rama `wt/go03` (worktree `sldb-wt-go03`). Por orden de JP, el coordinador hace el squash a main vía PR con `gh` (cuenta jpcosec). GO04 no se abre hasta que GO03 esté en main.
 
-### Commits
-- `8ffb141f` docs: fijar gramática y semántica del lenguaje de reglas
-- `d24a2af7` docs: registrar hipótesis del ejecutor en el TaskDoc de GO02
-- `eb665eae` docs: corregir tabla trivaluada y acotar explicación al envelope
-- (este commit) coordinator-status.md
+### Commits de la rama (sobre main local)
+Commits de main local que viajan en la rama porque el push a main da **403** (protección de rama); el supervisor decide si entran en el squash o los separa:
+- `9d9666a5` driver `context_review.py`: TIMEOUT 1800 s (autorizado por el supervisor).
+- `674b2ae0` GO03 promovido con deskops (Board.md, TaskDoc, `.sldb/store.yaml`, store_index, models/BoardDoc, models/TaskDoc, documents/BoardDoc/Board.yaml, documents/TaskDoc/task-go03-….yaml).
+- `ab161b34` precisiones p5–p7 tras el cold-bundle (con `deskops edit task`).
 
-Archivos: `docs/architecture/rules-language.md` (nuevo), `tests/test_rules_language_spec.py` (nuevo), TaskDoc (solo se añade `## Hipótesis del ejecutor (2026-11-04)`). No se toca `src/` ni `dag.yaml`.
+Commits del nodo:
+- `369021ee` status del bloqueo por timeouts (histórico, este archivo lo reemplaza).
+- `5e16f6fa` goldens de los seis comandos graph capturados desde main **antes** de tocar código.
+- `8f0e83f6` paquete `src/sldb/store/graph/backend/` con la implementación networkx.
+- `55661f06` api/graph y los seis comandos graph enrutan por `backend.analyze`.
+- `231be158` clave `graph_backend` en `store.yaml` (ausente = networkx; otro valor = error).
+- `709afd23` tests (`tests/store/test_graph_backend.py`, 9 tests).
+- `71bec911` `docs/architecture/graph-backend.md` y CHANGELOG.
+- `ecdf4e2c` + `3cb940dd`: el ejecutor escribió a mano una sección de hipótesis en el TaskDoc (contra la regla CLI-only, por un prompt mío anterior a ella); la revertí. Neto: la rama **no modifica `desk/`**. Las hipótesis van abajo.
+- `1f1f3ac0` corrección tras la suite completa: la resolución de `graph_backend` sale de `sldb.store` (importaba `sldb.api.stores.store_declaration`, rompiendo `tests/test_store_seams.py`). Ahora el store solo tiene `make_backend(name)`; `declared_graph_backend(store_path)` vive en `api/stores/store_declaration.py` y `backend_for(store_path)` en `api/graph/analyze.py`.
 
-### Aceptación, línea por línea
-| Criterio (dag.yaml rev 9, GO02) | Evidencia |
+### Aceptación línea por línea
+| Línea | Evidencia |
 |---|---|
-| El documento existe | `docs/architecture/rules-language.md`, 8 secciones `## ` (gramática, caminos, semántica, explicación, hash de contrato, firma eval, tabla de equivalencia, hipótesis) |
-| Cada construcción de (a) y (b) con ejemplo y resultado esperado | §1: tablas para precedencia, paréntesis, = != < <= > >=, in (lista/subcadena/otro tipo/lista literal), ~, regex inválida, model <=, has, nonempty. §2: paso por campo, campo no declarado = vacío, rel:tipo, ^campo, any/all/none, clausura +, clausura con ciclo, count, sustitución {campo} (presente, ausente, no escalar, dentro de literal), doc inexistente omitido, store no disponible = incomplete |
-| Incluidos regex inválida y clausura con ciclo | §1 fila `title ~ "("` → WherePredicateError; §2 `count(depends_on+: has(status)) = 2` con A→B→C→A |
-| La tabla cubre los 19 operadores | §7: filas 1–19 (has, nonempty, in, ~, model <=, = != < <= > >=, eq, ne, gt, lt, contains, starts_with, is_null, is_not_null); los nombres viejos no se usan como operadores nuevos |
-| El ejemplo de regex inválida espera WherePredicateError | `test_invalid_regex_raises_where_predicate_error` (importa `WherePredicateError` de `where_parse`) |
-| Tabla trivaluada: and, or, not, any, all, none y comparación con count | §3: tabla and/or (9 filas), not, cuantificadores con columnas excluyentes (verificadas celda a celda por el coordinador; la primera versión tenía columnas ambiguas y se corrigió en `eb665eae`) y tabla de `count(c: p) cmp n` |
-| Sintaxis de caminos (campo, rel:tipo, ^) con un ejemplo cada una | §2 filas "paso por campo", "rel:<tipo>", "^campo" |
-| __contract__, orden canónico y firma de eval definidos | §5 (ausente = todos, [] = error al cargar, campo ausente `<campo>=`, orden por bytes UTF-8, sha256, `\n` sin salto final); §6 (eval, dominio, model <= anidado, intersección p5) |
-| Ejemplos como tests xfail (no skipped) hasta GO05 | `pytest tests/test_rules_language_spec.py -q -rxs` → `52 xfailed, 1 warning` (0 skipped, 0 failed, 0 xpassed); `xfail(strict=True)`; `EXPECTED_XFAIL = 52` (p9: ≥ 25) |
-| Revisión en frío aceptada | Preflight y cold-bundle del TaskDoc dispuestos (accepted_with_corrections). La revisión en frío del documento producido y su disposición en `reviews/` quedan para el supervisor (ver abajo) |
+| Goldens de los seis comandos graph idénticos a antes | `tests/fixtures/graph_goldens/{path,cycles,order,components,central,similar}.txt` capturados en `5e16f6fa` desde main (argumentos p7); `git diff 5e16f6fa..HEAD -- tests/fixtures/graph_goldens/` vacío; `test_graph_goldens` pasa. |
+| Tests existentes de api/graph pasan sin cambios | `git diff main..HEAD -- tests/` solo agrega `tests/fixtures/graph_goldens/*` y `tests/store/test_graph_backend.py`; ningún test existente modificado. `tests/api/test_api_graph_analysis.py` pasa. |
+| Backend espía: cada comando graph y cada función de api/graph invocan al backend | `test_every_api_analysis_and_every_cli_command_calls_the_backend` (diez funciones de `analyze.py`, seis subcomandos; p3). |
+| Carga del índice compuesto del propio repo | `test_the_repository_composed_index_loads_into_the_backend` (`compose_edge_index(<repo>/.sldb)` → `load(índice, None)`; p2). |
+| `has(id) and status != "x"` por eval → finding con forma GO02 | `test_eval_returns_one_finding_with_the_go02_shape` (`node`, `holds`, `clause`, `seen`; p4). |
+| Predicado con camino → NotImplementedError | `test_eval_with_a_path_is_not_implemented_yet`; además `test_eval_by_export_id_without_projection_says_so` (ValueError "sin proyección para <id>"). |
+| store.yaml sin clave → networkx; clave inválida → mensaje definido | `test_an_absent_graph_backend_key_means_networkx`, `test_explicit_networkx_is_accepted`, `test_another_graph_backend_fails_with_the_defined_message` (`graph_backend <valor> no admitido; admitidos: ["networkx"]`). |
+| Protocolo documentado | `docs/architecture/graph-backend.md` (load/eval/analyze, el backend no expone su grafo; motores futuros detrás de la costura). |
+| CHANGELOG | entrada en `CHANGELOG.md` (`71bec911`). |
 
-### Suite completa (worktree, 2026-11-04)
-`python -m pytest -q tests` → `3 failed, 1588 passed, 27 skipped, 52 xfailed, 2 warnings in 3502.41s (0:58:22)`.
-Los 3 fallos **ya están en main `14575b02`** (los reproduje en el clon principal) y son de entorno, no de GO02:
-- `tests/store/test_graph_analysis.py::test_centrality_ranks_what_the_rest_leans_on` y `::test_the_analyses_run_over_a_real_semantic_export`: `ModuleNotFoundError: numpy` → SLDBError "PageRank is networkx-on-scipy ... install structuredLanguageDB[graph]".
-- `tests/test_serve.py::test_graph_endpoints_use_real_api`: HTTP 500 en el endpoint de centralidad, misma causa.
-Los 27 skipped son preexistentes en la suite (ninguno de GO02).
+### Verificación
+- Nodo (tras `1f1f3ac0`): `tests/test_store_seams.py tests/store/test_graph_backend.py tests/api/test_api_graph_analysis.py tests/test_clean_code_rules.py` → **721 passed**. Siempre con `PYTHONPATH=$PWD/src` (el venv tiene sldb editable apuntando al clon principal).
+- Suite completa #1 (antes de `1f1f3ac0`): 1 failed (`test_store_seams::test_nothing_in_the_store_imports_the_layers_above_it`), 1617 passed, 24 skipped, 52 xfailed (los 52 xfail strict de GO02), 59 min. El fallo era de GO03 y se corrigió en `1f1f3ac0`.
+- Suite completa #2: **no se corrió hasta el final, a propósito**. JP señaló sobretesteo: `1f1f3ac0` solo mueve dos funciones de módulo y el fallo era un chequeo estático de imports, cubierto por los 721 tests dirigidos. Con load ~25 en 6 núcleos (nueve pytest de otras sesiones en paralelo), la suite iba al 12 % tras una hora. La detuve.
+- Gates estructurales (`tools/check.sh --fast`, el paso de CI previo a pytest): main ya está rojo (`persistencia` 35 vs 33, `operacion` 47/45), así que en CI pytest no llega a correr desde al menos el 2026-10-29. GO03 añadía `grafo` needs 4→5 (eval reutiliza `store/query_engine/where_*`, de la unidad `persistencia`). Lo declaré en `contracts/layers.toml` (`needs = 5` con comentario). Con eso la rama da los mismos dos errores que main; `persistencia` pasa de 33 a 34 en el código (sigue declarado 35, desajuste previo).
+- Propuesta: suite completa una sola vez por nodo, serializada con `flock ~/.cache/pytest-full.lock`; después de cada corrección, solo los tests dirigidos.
 
-### Hipótesis del worker (en el doc §8 y en el TaskDoc)
-H1 API provisional `sldb.store.query_engine.rules` (`parse_predicate`, `eval_predicate(ast, grafo, sujeto=None)`, `contract_hash`); H2 grafo de test como dict nodes/edges; H3 sujeto `Model:name`; H4 `"unavailable": True` para store no disponible; H5 separador `.` entre pasos; H6 `^` invierte también `rel:`; H7 literales sin true/false/null ni listas anidadas; H8 palabras clave en minúsculas; H9 campos con punto como `where_lookup`; H10 clave del envelope → GO06; H11 `__contract__ = []` como `ValueError` en los tests.
+### Desvíos de `files`
+- `src/sldb/cli/commands/graph.py` (+4/−1) no está en `files`: `GraphCLI(backend=None)` pasa el backend a `GraphAnalysisCLI` (H5). Necesario para inyectar el espía en los seis subcomandos.
+- `src/sldb/api/graph/__init__.py` y `src/sldb/cli/parsers/graph_analysis.py` están en `files` pero no hizo falta tocarlos.
 
-### Para el supervisor
-1. **Entorno**: el venv no tiene el extra `[graph]` (numpy/scipy); por eso hay 3 rojos preexistentes en main. Propuesta: `pip install 'structuredLanguageDB[graph]'` en `~/proyectos/SLDB_1/.venv` (no lo instalé sin tu visto bueno). Con alcance.md regla 2, ningún nodo cierra en verde hasta resolverlo.
-2. Revisión en frío del documento producido y disposición en `desk/drawer/plans/grafo-operable/reviews/`, si la quieres antes del closeout.
-3. Inconsistencia del TaskDoc: "Done When" dice "18 operadores"; la aceptación y p8 dicen 19 (la tabla tiene 19).
-4. Squash-merge de `wt/go02`, closeout de la tarea, G_SEMANTICS → satisfied en dag.yaml citando el commit.
-5. Siguiente: GO03 (depende de GO02). Lo promuevo y reviso en frío cuando GO02 esté en main.
+### Hipótesis del ejecutor (regla 6 de alcance.md; no se registran en el TaskDoc por la regla CLI-only hasta que haya comando)
+- H1: `eval` recibe el predicado como texto y lo parsea dentro del backend (no hay aún tipo "predicado parseado" público).
+- H2: `analyze` admite además `paths`, `layers`, `islands`, `isolated` (las otras funciones de `analyze.py`), aparte de los seis ops del contrato.
+- H3: `model <= X` se evalúa con `payload["model"]` y `payload["base_models"]`.
+- H4: `eval` sin sujeto recorre la proyección y, con proyección `None` (siempre en GO03), devuelve `[]`. **A revisar en GO04/GO05**: rules-language §6 dice que el dominio sin sujeto es todos los documentos.
+- H5: el backend se inyecta en la CLI con `GraphCLI(backend=...)` / `GraphAnalysisCLI(backend=...)`.
+
+### Revisiones en frío
+- Preflight (attempt-1, technical_ok): 4 ambigüedades → p1–p4 en el Scope vía `deskops edit task`. El `disposition.md` y la edición de `receipt.json` de GO03-preflight **se escribieron a mano antes de la regla CLI-only**; quedan como están y se rehacen con `deskops review dispose` cuando GC03 se integre.
+- Bundle: attempt-1..3 timeouts a 900 s (técnicos, no cuentan); attempt-4 con TIMEOUT 1800, technical_ok, `disposition: pending` en receipt (no lo toco). 3 ambigüedades → p5 (protocolo de tres operaciones: dag manda sobre brief), p6 (`files` manda sobre OUTPUT_SCOPE), p7 (argumentos de los goldens), todas vía `deskops edit task` (`ab161b34`). FUTURO sin hallazgo nuevo.
+
+### Otros pendientes para el supervisor
+- **403 al pushear main**: `9d9666a5`, `674b2ae0`, `ab161b34` solo existen en main local y en esta rama.
+- **PythonSymbolDoc sin trackear** (202 en el clon `sldb` + `knowledge/symbols/*.md` gitignorados, creados 22:05–22:58 del 2026-11-04): ningún comando mío los generó. Lo más probable: `sldb selfdoc python-sync` o tests de selfdoc corriendo vía el editable install, solapados con la suite de GO02 y los workers pi. No pude confirmarlo. No los commiteé.
+- **`documents_count: 5` en `.sldb/core/models/TaskDoc.yaml`** (commiteado en `674b2ae0`) cuenta dos TaskDoc ajenos sin trackear (`task-congelar-journal-…`, `task-el-store-se-parte-…`) que no commiteé; el conteo queda inconsistente con lo trackeado hasta que se commiteen o se borren con `sldb docs delete`.
+- El worktree ajeno `sldb-wt-store-split` no lo toqué.
+- Push de `wt/go03` con `--force-with-lease` (la rama se rebasó sobre main local después del primer push de `369021ee`).
