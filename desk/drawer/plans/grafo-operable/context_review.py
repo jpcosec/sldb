@@ -1,6 +1,6 @@
 """Cheap isolated context reviews for this plan, under ritual-context-review.
 
-Governed copy of the driver used for the eight plan-level rounds of 2026-11-04 (it lived in
+Governed driver (plan-agnostic: copy it into any drawer plan directory that has brief.md, alcance.md, decisiones.md, context-review-guide.md and dag.yaml). Used for the eight plan-level rounds of 2026-11-04 (it lived in
 /tmp then; the owner asked for it to be governed here). It launches one fresh Pi process per
 node and attempt and writes the evidence the ritual asks for under
 runs/subagents/<run>/context-review/<node>/<input sha256>/attempt-N/ (input.md, manifest.json,
@@ -32,7 +32,9 @@ import yaml
 B = Path(__file__).resolve().parent            # the plan directory
 ROOT = B.parents[3]                            # the sldb repo root
 PLAN = B.relative_to(ROOT)
-RUN = ROOT / 'runs/subagents/20261104-grafo-operable-context-reviews/context-review'
+_DAG = yaml.safe_load((B / 'dag.yaml').read_text())
+# Evidence root: dag.yaml may name it (review_run); default derives from the plan id.
+RUN = ROOT / _DAG.get('review_run', f"runs/subagents/{_DAG['id']}-context-reviews/context-review")
 TIMEOUT = 300
 RETRIES = 2  # transport retries on the same input
 SYSTEM = (
