@@ -1,0 +1,71 @@
+{
+  "key": "GO02-bundle",
+  "input_sha256": "d3101402cde52e9738920bff8290027b8967586c647069bd7309db9bfa37213a",
+  "sources": [
+    {
+      "path": "desk/tasks/task-go02-semantica-gramatica-y-firma-de-evaluacion-del-lenguaje-de-reglas.md",
+      "sha256": "dca3739ac111c7f72a077daf930d4f99b76aab09b7d7d2373d020bed6367dfdf",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/context-review-guide.md",
+      "sha256": "f3c6f69f94380b67a066690e3756879cec9f3c8637f0ae711347356eb367c425",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/brief.md",
+      "sha256": "ff7840e93226e8db0510184c5b18c4678df4a0da690cc63e89fc69dfd1690f23",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/alcance.md",
+      "sha256": "e81d9bfcdfb02855b9be372a1ce90d2c3acc315d0f1173fe965d410f44ec7af3",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/decisiones.md",
+      "sha256": "6ce54892fa3565a54d5f1ae6afd121ad0643ca3b3eaba223fb317f4d8b0e6742",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/dag.yaml#node:GO02",
+      "sha256": "058df0e3a571c72e603d8c9f0c23347b31254a75dbd03318c9dc85c280151333",
+      "projection": "node_contract"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/dag.yaml#gates",
+      "sha256": "14f75e4efaadd88285b21366ab6f43f21a90f484ed33c219c9226faa88d1aeec",
+      "projection": "gate_contracts"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/dag.yaml",
+      "sha256": "1f62d8882617cbd6acf0054d4c173b23fd505bb894d99f4e1bcab7a68f6dcdab",
+      "projection": "whole_file"
+    }
+  ],
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "--print",
+    "@input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "thinking low, offline, no tools/session/context/skills/extensions/prompt-templates",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "started": "2026-11-05T00:53:01.189556+00:00",
+  "finished": "2026-11-05T00:54:58.888825+00:00"
+}

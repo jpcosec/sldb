@@ -33,7 +33,8 @@ B = Path(__file__).resolve().parent            # the plan directory
 ROOT = B.parents[3]                            # the sldb repo root
 PLAN = B.relative_to(ROOT)
 RUN = ROOT / 'runs/subagents/20261104-grafo-operable-context-reviews/context-review'
-TIMEOUT = 600
+TIMEOUT = 300
+RETRIES = 2  # transport retries on the same input
 SYSTEM = (
     'Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: '
     'sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas '
@@ -143,14 +144,26 @@ def cold_bundle(d: dict, nodes: dict, taskdoc: Path, nid: str) -> tuple[bytes, l
     return b.close(f'Cold-bundle del nodo {nid}: con el TaskDoc, las fuentes del plan, el contrato del nodo y los archivos que el TaskDoc nombra, reformula, lista ambigüedades con cita y da el DRY-RUN. No ejecutes nada.'), b.records
 
 
+def _technical_ok(att: Path) -> bool:
+    r = att / 'receipt.json'
+    return r.exists() and bool(json.loads(r.read_text()).get('technical_ok'))
+
+
 def attempt_dir(key: str, isha: str, max_attempts: int, force: bool) -> Path | None:
+    """Where the next attempt goes, or None when this exact input already has a usable review.
+
+    A transport failure (timeout, non-zero exit, no REFORMULACION) is technical evidence, not a
+    comprehension finding: it does not count against the cap and the same input is retried in
+    attempt-N+1 next to the failed one.
+    """
     base = RUN / key / isha
-    if base.exists() and any(p.name.startswith('attempt-') for p in base.iterdir()):
+    prior = sorted(base.glob('attempt-*')) if base.exists() else []
+    if prior and _technical_ok(prior[-1]):
         return None  # unchanged input: already reviewed
-    done = sum(1 for p in (RUN / key).glob('*/attempt-*')) if (RUN / key).exists() else 0
-    if done >= max_attempts and not force:
-        raise SystemExit(f'{key}: {done} intentos ya; tope --max-attempts {max_attempts} (usa --force si el input cambió de verdad)')
-    out = base / 'attempt-1'
+    good = sum(1 for p in (RUN / key).glob('*/attempt-*') if _technical_ok(p)) if (RUN / key).exists() else 0
+    if not prior and good >= max_attempts and not force:
+        raise SystemExit(f'{key}: {good} intentos ya; tope --max-attempts {max_attempts} (usa --force si el input cambió de verdad)')
+    out = base / f'attempt-{len(prior) + 1}'
     out.mkdir(parents=True)
     return out
 
@@ -162,9 +175,13 @@ def review(key: str, data: bytes, records: list, max_attempts: int, force: bool)
         return key, 'unchanged', isha[:12]
     (out / 'input.md').write_bytes(data)
     start = datetime.datetime.now(datetime.timezone.utc).isoformat()
-    p = subprocess.run(ARGV + [f'@{out / "input.md"}'], capture_output=True, text=True, timeout=TIMEOUT)
-    (out / 'output.md').write_text(p.stdout)
-    (out / 'stderr.log').write_text(p.stderr)
+    try:
+        p = subprocess.run(ARGV + [f'@{out / "input.md"}'], capture_output=True, text=True, timeout=TIMEOUT)
+        stdout, stderr, code = p.stdout, p.stderr, p.returncode
+    except subprocess.TimeoutExpired as exc:  # transport failure, recorded and retried by the caller
+        stdout, stderr, code = '', f'timeout after {TIMEOUT}s\n' + ((exc.stderr or b'').decode(errors='replace') if isinstance(exc.stderr, bytes) else (exc.stderr or '')), 'timeout'
+    (out / 'output.md').write_text(stdout)
+    (out / 'stderr.log').write_text(stderr)
     (out / 'manifest.json').write_text(json.dumps({
         'key': key, 'input_sha256': isha, 'sources': records,
         'argv': ARGV[:-1] + ['--print', '@input.md'], 'model': 'deepseek/deepseek-flash',
@@ -172,10 +189,10 @@ def review(key: str, data: bytes, records: list, max_attempts: int, force: bool)
         'selection_reason': SELECTION, 'started': start,
         'finished': datetime.datetime.now(datetime.timezone.utc).isoformat()}, indent=2, ensure_ascii=False))
     (out / 'receipt.json').write_text(json.dumps({
-        'key': key, 'exit': p.returncode,
-        'technical_ok': p.returncode == 0 and 'REFORMULACION' in p.stdout,
-        'disposition': 'pending'}, indent=2))
-    return key, p.returncode, len(p.stdout)
+        'key': key, 'exit': code,
+        'technical_ok': code == 0 and 'REFORMULACION' in stdout,
+        'disposition': 'pending' if code == 0 else 'technical_failure'}, indent=2))
+    return key, code, len(stdout)
 
 
 def status(d: dict, nodes: dict) -> None:
@@ -209,8 +226,15 @@ def main() -> None:
         taskdoc, nid = Path(a.args[0]), a.args[1]
         data, recs = (preflight_bundle(taskdoc, nid) if a.mode == 'preflight' else cold_bundle(d, nodes, taskdoc, nid))
         jobs = [(f'{nid}-{a.mode}', data, recs)]
+    def run(j):
+        for _ in range(RETRIES + 1):
+            r = review(j[0], j[1], j[2], a.max_attempts, a.force)
+            if r[1] in (0, 'unchanged'):
+                return r
+        return r
+
     with concurrent.futures.ThreadPoolExecutor(max_workers=a.jobs) as ex:
-        for r in ex.map(lambda j: review(j[0], j[1], j[2], a.max_attempts, a.force), jobs):
+        for r in ex.map(run, jobs):
             print(*r, flush=True)
 
 
