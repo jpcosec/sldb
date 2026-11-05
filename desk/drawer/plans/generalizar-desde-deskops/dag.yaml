@@ -1,0 +1,190 @@
+id: sldb-generalizar-desde-deskops
+revision: 1
+revision_note: 'Rev 1 (2026-11-05): plan inicial, rama P2 del árbol aprobado por el dueño (deskops-como-config-arbol.md). Sin revisión en frío todavía (la decide el supervisor). execution_authorized=false.'
+status: draft_pending_review
+as_of: '2026-11-05'
+source: dag.yaml es canónico; brief.md, alcance.md y decisiones.md son sus fuentes de contexto
+execution_authorized: false
+tree: ~/proyectos/SLDB_1/deskops-como-config-arbol.md (rama P2, T2.1-T2.7; GD2n = T2.n)
+estimate_legend:
+  S: un entregable acotado, chico; no es promesa de tiempo
+  M: una capacidad o contrato acotado; se parte al promover si tiene más de un entregable
+  L: toca el núcleo del store; se parte al promover
+gates:
+  G_GO04:
+    title: Payload proyectado al grafo (grafo-operable GO04) cerrado en main de sldb
+    state: pending
+    resolver: closeout commit de task-go04-payload-proyectado-al-grafo-y-staleness-correcta en main de sldb
+    evidence: un filtro estructurado por campo responde con cero llamadas a Validator.extract (aceptación de GO04)
+  G_GO05:
+    title: Lenguaje de predicados unificado (GO05) cerrado en main de sldb
+    state: pending
+    resolver: closeout commit de GO05 en main de sldb
+    evidence: sldb docs find --where con any()/all() sobre una relación responde con explicación
+  G_GO06:
+    title: RuleDoc, rules check y rules explain (GO06) cerrados en main de sldb
+    state: pending
+    resolver: closeout commit de GO06 en main de sldb
+    evidence: sldb rules explain RULE SUBJECT devuelve el finding de eval
+  G_GO08:
+    title: Evaluación on_write/on_transition/on_check y edges_blocked (GO08) cerrados en main de sldb
+    state: pending
+    resolver: closeout commit de GO08 en main de sldb
+    evidence: edges_holding con findings por arista y edges_blocked; test end-to-end de GO08 verde
+  G_PROJECT_GRAPH:
+    title: Grafo de proyecto declarado y servido por sldb
+    state: pending
+    produced_by: GD21
+    resolver: cierre de GD21 y nota a deskops por deskops message send --to deskops
+    evidence: sldb graph project nodes|edges|missing y GET /project-graph/* responden desde una configuración project_graph en store.yaml; ningún callable en la configuración
+  G_WRITE_API:
+    title: Transacción y referencias entrantes en sldb.api
+    state: pending
+    produced_by: GD24
+    resolver: cierre de GD24 (GD22 y GD27 la consumen)
+    evidence: sldb.api.transaction revierte archivos, entradas y shards ante excepción; /save delega en apply_batch
+external_references:
+  grafo_operable:
+    repo: sldb
+    path: desk/drawer/plans/grafo-operable/
+    status: reviewed_pending_promotion (rev 9; GO01-GO03 cerrados, GO04 promovido)
+    note: 'plan hermano (P1). Este plan no adelanta ni duplica su lenguaje, RuleDoc, anclas, evaluación ni efectos; los consume por los gates G_GO*. Su gate G_CONSUMER lo produce ahora el plan deskops-como-config (CC32), que también consume este plan: es el puente entre P1, P2 y P3.'
+  deskops_consumer_plan:
+    repo: deskops
+    path: desk/drawer/plans/deskops-como-config/
+    status: draft_pending_review
+    note: P3 y P5; cada nodo CC3x borra el código de deskops que el GD2x correspondiente deja sin motivo (alcance.md, tabla); sus gates G_GD2x se satisfacen con la nota de cierre de cada GD (alcance.md regla 7)
+  closeout_graph_branch:
+    repo: sldb + deskops
+    path: sldb-wt-closeout-graph (432e45d6), deskops-wt-graph (7a2ec23b, 9ced34e5, c50ffb36)
+    status: in_flight (tarea task-el-grafo-del-closeout-se-lee-del-índice-de-sldb-no-reescaneando-el-repo, ritual-testing)
+    note: es T0.3, la parte adelantada de GD21; GD21 parte de ella integrada y no la reescribe
+hierarchy:
+  root:
+    id: ROOT
+    title: Generalizar en sldb lo que deskops reimplementa
+    owner_repo: sldb
+    scope: 'La mecánica genérica que deskops reimplementa (grafo de proyecto, referencias entrantes, selectores, transacción, vistas, scaffold, tags y reemplazo) pasa a sldb.api, CLI y sldb serve, declarada por datos. Tres paquetes: lectura (GD21, GD22, GD23), escritura y store (GD24, GD26, GD27), vistas (GD25). El orden lo imponen las aristas depends_on de los hijos; GD21 primero (G3).'
+    acceptance: 'Todos los hijos cerrados; G_PROJECT_GRAPH y G_WRITE_API satisfechos; cada hijo mandó su nota de cierre a deskops (regla 7). grep -rniE "taskdoc|board|ritual|pill|atom|closeout" src/sldb/ no devuelve nombres nuevos introducidos por este plan (comparado contra el mismo grep en el commit base, que queda en la Validation de cada hijo). CHANGELOG y docs al día significa que cada hijo cumplió su propia aceptación; ROOT no agrega criterio.'
+    children: [PG1, PG2, PG3]
+  packages:
+    - id: PG1
+      title: Lectura
+      node_role: aggregate
+      owner_repo: sldb
+      children: [GD21, GD22, GD23]
+      scope: 'Leer el proyecto desde sldb: grafo de proyecto declarado (GD21), referencias entrantes con ubicación y su reescritura (GD22, que escribe con la transacción de GD24), selectores de documentos (GD23).'
+      acceptance: 'sldb graph project, sldb edges referrers y sldb docs select responden con envelope y por sldb serve; ninguno recorre el repo cuando el índice está fresco (contado en los tests).'
+    - id: PG2
+      title: Escritura y store
+      node_role: aggregate
+      owner_repo: sldb
+      children: [GD24, GD26, GD27]
+      scope: 'Escribir varios documentos con rollback total (GD24), scaffold de un store desde semillas declaradas (GD26), tags con espacios de nombres y reemplazo de texto en documentos trackeados (GD27).'
+      acceptance: 'G_WRITE_API satisfecho; sldb stores scaffold reporta y aplica semillas de forma idempotente; sldb docs replace y sldb tags tree responden con envelope.'
+    - id: PG3
+      title: Vistas
+      node_role: aggregate
+      owner_repo: sldb
+      children: [GD25]
+      scope: 'Vistas declaradas como documentos, ejecutadas por sldb y servidas por sldb serve con revisión.'
+      acceptance: 'Una ViewDoc de prueba con dos secciones, agrupación, reglas y transiciones responde igual por sldb views run y por GET /views/<nombre>, con ETag estable sin cambios y distinto tras una escritura.'
+tasks:
+  - id: GD21
+    tree_id: T2.1
+    title: Grafo de proyecto (aristas declaradas y nodos fuente) desde el índice de sldb, declarado por datos y servido
+    kind: code
+    node_role: delivery
+    parent_id: PG1
+    owner_repo: sldb
+    estimate: M
+    depends_on: []
+    requires: []
+    go_nodes: {requires: [], coordinates: [GO04]}
+    scope: 'Parte de la rama wt/closeout-graph-sldb integrada en main (sldb 432e45d6: src/sldb/api/edges/project_graph/, api/stores/tracked_documents.py); si al promover no está integrada, el primer paso es integrarla tal cual (con su oráculo de equivalencia en deskops) y este nodo arranca después. Tres cambios sobre ella: (1) configuración como dato puro: ProjectGraphConfig y sus dataclasses (DocumentSurface, FileRule, FileExclusions, DeclaredFileTargets, ReferenceField, MentionPattern, SectionMentions, LineMentions, MissingTargetKind) se cargan y se vuelcan a YAML (from_mapping/to_mapping, ida y vuelta exacta) y se declaran en store.yaml bajo la clave project_graph (StoreDeclaration, api/stores/store_declaration.py:20, con validación propia: clave desconocida = error al cargar el store que la nombra); el hook closed_document deja de ser callable y pasa a ser un campo closed: predicado del lenguaje de sldb evaluado con where_matches sobre el payload del documento (api/where.py:10; con GO04 cerrado se evalúa sobre la facet sin re-extraer, sin cambiar esta API); una superficie sin closed nunca está cerrada. (2) aristas entrantes: ProjectGraph.edges_to(node_id) con el mismo registro de arista que edges_from (tipo, rol, origen schema|mention, ubicación ruta:línea para menciones), calculadas desde un mapa inverso construido una vez por firma de shards (store/edge_index/shard_signature.py) más el mtime de las superficies no modeladas; no hay mapas inversos parciales por tipo (CloseoutGraph de deskops arma uno solo para materializations). (3) superficie pública: sldb.api.project_graph(store) → ProjectGraph con la configuración del store; CLI sldb graph project nodes [--kind K] | edges --from ID | --to ID | missing, con envelope JSON; sldb serve: GET /project-graph/nodes?kind=, /project-graph/edges?from=|to=, /project-graph/missing (propuesta de deskops runs/subagents/20261105-closeout-graph-sldb/sldb-serve-note.md); además /edges acepta include_linked=false (edges_routes.py:39 hoy fija True). Memoización: el grafo de proyecto se recalcula solo si cambia la firma de shards o el mtime de alguna superficie o archivo incluido; una segunda llamada sin cambios no recorre el disco. Doc docs/architecture/project-graph.md con el esquema de la configuración y un ejemplo neutral (modelos de prueba, sin nombres de deskops).'
+    acceptance: 'Un store temporal con modelos de prueba, una superficie no modelada, archivos fuente y una mención por regex declara project_graph en store.yaml y sldb graph project nodes/edges/missing devuelven los nodos y aristas esperados (fixture con resultado esperado); la configuración vuelca y carga ida y vuelta igual; una configuración con un callable o con una clave desconocida falla al cargar con un mensaje que nombra la clave; closed: status = "closed" marca cerrado un documento con ese campo y no otro; edges --to devuelve la mención con ruta:línea; una segunda consulta sin cambios hace cero llamadas a os.walk/rglob (contadas en el test) y tocar un archivo incluido hace que la siguiente recalcule; las tres rutas de /project-graph responden lo mismo que la CLI y /edges?include_linked=false excluye stores enlazados; el oráculo de equivalencia de la rama (extractores v1 de deskops) sigue verde contra la configuración que deskops declare (lo corre deskops en CC33; aquí basta con el fixture); grep de nombres del caso deskops en src/sldb/api/edges/project_graph/ vacío (regla 4); CHANGELOG; docs/architecture/project-graph.md. Produce G_PROJECT_GRAPH; nota de cierre a deskops (regla 7).'
+    output_scope: src/sldb/api/edges/project_graph/, src/sldb/api/stores/store_declaration.py, src/sldb/api/stores/tracked_documents.py, src/sldb/api/__init__.py, src/sldb/cli/parsers/graph*.py, src/sldb/cli/commands/graph*.py, src/sldb/cli/serve/routes.py, src/sldb/cli/serve/project_graph_routes.py, src/sldb/cli/serve/edges_routes.py, tests/, docs/architecture/project-graph.md, CHANGELOG.md
+  - id: GD22
+    tree_id: T2.2
+    title: Referencias entrantes - buscar y reescribir
+    kind: code
+    node_role: delivery
+    parent_id: PG1
+    owner_repo: sldb
+    estimate: M
+    depends_on: [GD21, GD24]
+    requires: [G_PROJECT_GRAPH, G_WRITE_API]
+    go_nodes: {requires: [], coordinates: [GO07]}
+    scope: 'Función sldb.api.referrers(store, target) → lista de Referrer {source (export_id o ruta de superficie no modelada), field (nombre del campo, o null para una mención), index (posición en un campo lista, o null), location (ruta:línea para una mención), origin (schema | mention)}, construida con edges_to del índice (api/edges/edge_reading.py:47; el campo sale de metadata.field, store/edge_index/declared_references.py:68) más ProjectGraph.edges_to de GD21 para menciones; target acepta export_id, Model:name, ruta trackeada o id de nodo del grafo de proyecto. Función sldb.api.rewrite_references(store, target, replacement | None, *, transaction=None) → RewriteReport {changed: [{source, field|location, before, after}], skipped: [{source, motivo}]}: para un campo escalar reemplaza el valor (o lo vacía si replacement es None); para un campo lista reemplaza el elemento (o lo quita, sin dejar huecos ni duplicados); para una mención reescribe el texto que el MentionPattern capturó, con límite de palabra, en la línea registrada (replacement None = la mención se deja y se informa en skipped, nunca se borra prosa); conserva la forma del valor original (p. ej. prefijo tipo:id si el campo lo usa); escribe dentro de sldb.api.transaction de GD24 (la suministrada o una propia), así que todo o nada. Valores de campos __doc_anchors__ (si GO07 ya cerró): se reescribe a doc:Model:name sin @sha256 para que sldb lo repinee al guardar; si GO07 no cerró, esos campos no existen y no hay caso. CLI: sldb edges referrers TARGET y sldb edges rewrite TARGET --to NUEVO | --remove [--dry-run], con envelope (dry-run devuelve el RewriteReport sin escribir). sldb serve: GET /edges/referrers?target= y POST /edges/rewrite {target, replacement|null, dry_run}. Doc en docs/architecture/references.md.'
+    acceptance: 'En un store temporal con un documento A referenciado por B (campo escalar), C (campo lista con otros dos valores) y una superficie no modelada D (mención en prosa), referrers(A) devuelve los tres con field/index/location correctos; rewrite_references(A, A2) deja B y C apuntando a A2 (C conserva el orden y los otros valores) y reescribe la mención de D; --remove vacía B, quita el elemento de C y deja D en skipped; un fallo inyectado al escribir C revierte B (todo o nada, por GD24); --dry-run no cambia ningún byte (hash de los archivos antes y después); la operación no recorre el disco con el índice fresco (contado); POST /edges/rewrite y la CLI producen el mismo reporte; CHANGELOG; docs/architecture/references.md; nota de cierre a deskops.'
+    output_scope: src/sldb/api/edges/referrers.py, src/sldb/api/edges/rewrite_references.py, src/sldb/api/__init__.py, src/sldb/cli/parsers/edges.py, src/sldb/cli/commands/edges.py, src/sldb/cli/serve/edges_routes.py, src/sldb/cli/serve/routes.py, tests/, docs/architecture/references.md, CHANGELOG.md
+  - id: GD23
+    tree_id: T2.3
+    title: Selectores de documento (id, prefijo, glob, modelo, where) como API de sldb
+    kind: code
+    node_role: delivery
+    parent_id: PG1
+    owner_repo: sldb
+    estimate: S
+    depends_on: []
+    requires: [G_GO04]
+    go_nodes: {requires: [GO04], coordinates: [GO05]}
+    scope: 'Función sldb.api.select_documents(store, selector, *, expect="many"|"one") → lista ordenada de {export_id, model, name, path}. Selector = mapa (o string corto equivalente para la CLI) con claves combinables por conjunción: ref (nombre, Model:name, ruta o alias, como doc_status, api/stores/doc_status.py:18), prefix (prefijo de nombre: con expect="one", exacto primero y si no hay, prefijo único; ambigüedad = error que lista los candidatos, la regla de deskops desk_paths.py:24 resolve_selector), path_glob (fnmatch sobre la ruta relativa a la raíz, con ** recursivo), model (model <= X con herencia), where (predicado del lenguaje de sldb evaluado sobre la facet payload de GO04, sin Validator.extract; con GO05 acepta caminos sin cambio de API), include_linked (default false). Orden estable: ruta relativa. expect="one" con cero resultados = error de documento desconocido existente de sldb; con más de uno = error de ambigüedad con candidatos. Solo documentos trackeados (las superficies no modeladas son nodos del grafo de proyecto de GD21, no documentos). glob_structural y find_structural (store/query_engine/structural_queries.py:12,18) pasan a ser casos de select_documents y la CLI query los llama por ahí, sin cambiar su salida. CLI: sldb docs select [--ref R] [--prefix P] [--path-glob G] [--model M] [--where W] [--one], con envelope. sldb serve: GET /docs/select con los mismos parámetros. Doc en docs/architecture/selectors.md.'
+    acceptance: 'En un store temporal con documentos de dos modelos (uno hereda del otro) en dos carpetas: --prefix único resuelve con --one y uno ambiguo falla listando candidatos; exacto gana a prefijo; --path-glob "sub/**/*.md" devuelve solo los de la subcarpeta; --model Base incluye al heredero; --where status = "open" filtra con cero llamadas a Validator.extract (contadas); la combinación de claves es conjunción; --one sin resultados da el error existente de documento desconocido; los goldens de sldb query glob/find no cambian; GET /docs/select responde igual que la CLI; CHANGELOG; docs/architecture/selectors.md; nota de cierre a deskops.'
+    output_scope: src/sldb/api/documents/select_documents.py, src/sldb/api/__init__.py, src/sldb/store/query_engine/structural_queries.py, src/sldb/cli/parsers/docs*.py, src/sldb/cli/commands/docs*.py, src/sldb/cli/serve/docs_routes.py, src/sldb/cli/serve/routes.py, tests/, docs/architecture/selectors.md, CHANGELOG.md
+  - id: GD24
+    tree_id: T2.4
+    title: Transacción multi-documento en sldb.api y /save atómico (absorbe doc_io.DocTransaction)
+    kind: code
+    node_role: delivery
+    parent_id: PG2
+    owner_repo: sldb
+    estimate: L
+    depends_on: []
+    requires: []
+    go_nodes: {requires: [], coordinates: [GO07, GO08]}
+    scope: 'Context manager sldb.api.transaction(store) → Transaction, anidable: una transacción interna sobre el mismo store se une a la externa y solo la más externa revierte (semántica de deskops doc_io.py:247-273, GP2). Escribe en el momento (lo escrito se lee dentro de la transacción) y, ante excepción, revierte todo: bytes de cada archivo tocado (restaurar o borrar si era nuevo), entradas del store (track/untrack al estado previo) y shards del índice de aristas y del índice de documentos, generalizando store/io/rollback.py:11 rollback_on_error de una operación a la transacción entera; después invalida las cachés (compose, runtime_cache). Un error durante el rollback no se traga: se re-levanta encadenado al original con la lista de rutas no restauradas. Operaciones de Transaction: create(model, name, payload, path=None) (path explícito permitido, dentro de la raíz del store; ausente = default_document_path como hoy), update(ref, payload, expected_source_hash=None, expected=None), delete(ref), move(ref, new_path) (mueve el archivo y re-trackea con el mismo nombre; las aristas se reconstruyen), track(path, model, name=None), untrack(ref), write_file(path, bytes, expected_sha256=None) (archivo no modelado; con expected_sha256 es guarda) y record(path) (registra un archivo que el llamante escribe por su cuenta, para que el rollback lo restaure). Guarda optimista (GP3): expected_source_hash compara con DocumentEntry.source_hash; expected (payload completo) se conserva por compatibilidad; una guarda que falla levanta ConflictError con ref, esperado y actual. Función sldb.api.apply_batch(store, changes) → BatchReport: prevalida todos los cambios (como prepare_batch de cli/serve/save_routes.py:46: round-trip, modelo, guardas) y los aplica en orden create → update → move → delete dentro de una transacción; cualquier falla revierte todo. /save (cli/serve/save_routes.py) delega en apply_batch: mismo formato de request y de respuesta exitosa, mismos 409/422; cambia que una falla a mitad de lote ya no deja completed parcial (500 con rolled_back: true); acepta además expected_source_hash y las acciones move, track, untrack (write_file no se expone por HTTP). No edita api/documents/payload_save_steps.py (lo comparten GO07 y GO08): llama a las funciones públicas de guardado y envuelve sus efectos; si GO08 cerró al promover, una regla on_write error dentro de un lote revierte el lote entero. Doc docs/architecture/transactions.md.'
+    acceptance: 'Un lote de tres cambios cuyo tercero falla (validación inyectada) deja bytes, entradas e índice idénticos a antes (hash de cada archivo tocado, sldb stores check PASS y edges show iguales antes y después); transacciones anidadas: la interna que termina bien y la externa que falla revierten ambas; dentro de la transacción un update se lee con el valor nuevo; move re-trackea con el mismo nombre y las aristas entrantes siguen resolviendo; write_file con expected_sha256 distinto falla sin escribir; expected_source_hash viejo da ConflictError y por HTTP 409; un error en el rollback se re-levanta con la ruta no restaurada; los tests existentes de /save pasan, salvo el caso de falla parcial, que cambia a rolled_back: true y se documenta en CHANGELOG como cambio de contrato (pendiente del dueño en decisiones.md); medición: tiempo de pared de un lote de 20 updates antes (save_routes actual) y después, en la Validation del TaskDoc; docs/architecture/transactions.md; nota de cierre a deskops. Produce G_WRITE_API.'
+    output_scope: src/sldb/api/documents/transaction.py, src/sldb/api/documents/apply_batch.py, src/sldb/api/documents/move_document.py, src/sldb/api/__init__.py, src/sldb/store/io/rollback.py, src/sldb/cli/serve/save_routes.py, src/sldb/cli/serve/save_plan.py, tests/, docs/architecture/transactions.md, CHANGELOG.md
+  - id: GD25
+    tree_id: T2.5
+    title: Vistas declaradas (ViewDoc) servidas por sldb serve
+    kind: code
+    node_role: delivery
+    parent_id: PG3
+    owner_repo: sldb
+    estimate: L
+    depends_on: [GD21, GD23]
+    requires: [G_GO05, G_GO06, G_GO08]
+    go_nodes: {requires: [GO05, GO06, GO08], coordinates: [GO09]}
+    scope: 'Modelo ViewDoc (GP4): name, params (lista de {name, required, default}), sections (lista ordenada de Section). Section = {key, select (selector de GD23; admite {param} con la sintaxis de sustitución de where_subject), fields (lista de campos de la facet a devolver; * = todos los proyectados), edges (lista opcional de {relation, direction out|in, as} que agrega a cada fila los export_id vecinos por edges_from/edges_to o ProjectGraph.edges_from/to de GD21), group_by (campo opcional; las filas salen agrupadas en el orden de una lista declarada group_order o, si falta, por valor), rules (lista opcional de nombres de RuleDoc: cada fila lleva findings = resultado de eval de GO06 para esas reglas), transitions (opcional {from_field, relation}: cada fila lleva holding = edges_holding con effects y findings (GO08/GO09) y blocked = edges_blocked, partiendo del nodo cuyo id es el valor de from_field), computed (lista opcional de nombres de proveedores: funciones Python que el consumidor registra con sldb.api.register_view_provider(name, fn(row, store) → dict) en su proceso; sldb solo las invoca y fusiona su salida bajo la clave computed; un proveedor no registrado = la sección devuelve error nombrándolo; es el punto de extensión para hechos que sldb no calcula, como los de git; pendiente del dueño)}. Validación al escribir una ViewDoc: selectores y where parsean, rules nombran RuleDocs existentes, params referenciados existen. Ejecución: sldb.api.run_view(store, name, params) → {view, params, revision, sections: {key: rows | groups}}; revision = sha256 de los source_hash ordenados de todos los documentos leídos más los content_hash de la ViewDoc y de las RuleDocs usadas (y, si hay grafo de proyecto, su firma). CLI: sldb views run NAME [--param k=v ...] y sldb views list, con envelope. sldb serve: GET /views (lista) y GET /views/<name>?k=v con ETag = revision e If-None-Match → 304. Doc docs/architecture/views.md con un ejemplo neutral de tablero (estados como columnas, tarjetas por campo) sin nombres de deskops.'
+    acceptance: 'En un store temporal con un modelo Item (status, owner, depends_on), un ciclo de vida de prueba (RitualDoc/RelationDoc de prueba o modelos propios) y una RuleDoc: una ViewDoc tablero con group_by status y group_order declarado devuelve las columnas en ese orden; edges agrega depends_on entrantes y salientes; rules agrega findings con la cláusula; transitions devuelve holding con effects y blocked con su finding para un Item bloqueado; un parámetro {owner} filtra; un proveedor computed registrado en el test agrega su clave y uno no registrado da error con su nombre; sldb views run y GET /views/<name> devuelven el mismo payload; GET con If-None-Match igual devuelve 304 y tras escribir un Item la revisión cambia; editar la RuleDoc también cambia la revisión; una ViewDoc con selector que no parsea es rechazada al escribirla; tiempo de pared de la vista tablero sobre 200 Items en caliente < 1 s en robocop2 (registrado en la Validation del TaskDoc); CHANGELOG; docs/architecture/views.md; nota de cierre a deskops.'
+    output_scope: src/sldb/models/view_doc.py, src/sldb/api/views/, src/sldb/api/__init__.py, src/sldb/cli/parsers/views.py, src/sldb/cli/commands/views.py, src/sldb/cli/serve/views_routes.py, src/sldb/cli/serve/routes.py, tests/, docs/architecture/views.md, CHANGELOG.md
+  - id: GD26
+    tree_id: T2.6
+    title: Scaffold de store desde carpetas y semillas declaradas
+    kind: code
+    node_role: delivery
+    parent_id: PG2
+    owner_repo: sldb
+    estimate: M
+    depends_on: []
+    requires: []
+    go_nodes: {requires: [], coordinates: []}
+    scope: 'StoreDeclaration (api/stores/store_declaration.py:20) gana dos claves (GP5): folders (lista de rutas relativas a la raíz) y seeds (lista de Seed = {path, mode: if_missing | managed, y una fuente: text (literal), file (ruta a una plantilla relativa a store.yaml o a un paquete Python como pkg:modulo/ruta) o document {model, name, payload} renderizado con el renderizador del modelo (api/documents/document_render.py:31 render_model_template); track: bool (default true si es document)}). Función sldb.api.scaffold_store(store, *, declaration=None, apply=False) → ScaffoldReport (declaration = un StoreDeclaration parcial con folders y seeds pasado en proceso por el consumidor; si se pasa, se usa en lugar de las claves de store.yaml y no se escribe en store.yaml: así un consumidor declara sus semillas en su paquete sin cambiar el formato de su store; las rutas file: relativas se resuelven contra el directorio que el consumidor indique con template_root) {created, rewritten, present, conflicts}: if_missing nunca sobrescribe (present si existe); managed compara bytes y, si difieren, lo reporta como rewritten (con apply) o como pendiente (sin apply); un document con track se trackea con el modelo y nombre declarados; idempotente: una segunda corrida con apply no cambia nada y todo sale present. Escribe dentro de sldb.api.transaction si GD24 ya cerró; si no, por archivo con rollback_on_error. build_store pasa de cli/commands/stores_build.py:35 a sldb.api.build_store(store, *, apply) y la CLI lo llama; build_store ejecuta apply_declaration (links, models, predicates, includes) y después scaffold_store, en ese orden, en un solo reporte. CLI: sldb stores scaffold [--apply] con envelope; sldb stores build incluye el reporte de scaffold. Doc en docs/architecture/store-declaration.md (sección folders y seeds).'
+    acceptance: 'En un store temporal: una declaración con dos carpetas, una semilla text if_missing, una file managed y una document if_missing con track: sin --apply el reporte lista todo como created pendiente y no escribe nada (hashes iguales); con --apply se crean y el documento queda trackeado con su nombre; una segunda corrida da todo present; editar el archivo managed hace que la siguiente corrida lo reporte rewritten y lo restaure; editar el if_missing no lo toca; una plantilla pkg: de un paquete de prueba se resuelve; la misma declaración pasada como declaration= produce el mismo resultado y store.yaml queda igual (hash); una clave desconocida en seeds falla al cargar nombrando la clave; sldb stores build sin cambios en la declaración produce el mismo reporte de links/models/includes que antes (golden existente) más la sección scaffold vacía; CHANGELOG; doc; nota de cierre a deskops.'
+    output_scope: src/sldb/api/stores/store_declaration.py, src/sldb/api/stores/scaffold_store.py, src/sldb/api/stores/build_store.py, src/sldb/api/__init__.py, src/sldb/cli/commands/stores_build.py, src/sldb/cli/parsers/stores*.py, src/sldb/cli/commands/stores*.py, tests/, docs/architecture/store-declaration.md, CHANGELOG.md
+  - id: GD27
+    tree_id: T2.7
+    title: Espacios de nombres y jerarquía de tags; reemplazo de texto en documentos trackeados
+    kind: code
+    node_role: delivery
+    parent_id: PG2
+    owner_repo: sldb
+    estimate: M
+    depends_on: [GD24]
+    requires: [G_WRITE_API]
+    go_nodes: {requires: [], coordinates: []}
+    scope: '(1) Tags: StoreDeclaration gana tag_namespaces: lista de {name, hierarchical: bool, folder_axis: bool, anchored_by: {model, field} opcional}. Validación al escribir un documento (paso de validación existente, sin tocar payload_save_steps.py: se registra como validador del store): un tag namespace:valor cuyo namespace no está declarado es error si el store declara tag_namespaces (sin la clave, nada cambia); con anchored_by, cada prefijo con punto del valor (la jerarquía de store/semantic_tags.py:35 _prefix_edges) debe tener un documento del modelo anchored_by.model cuyo campo anchored_by.field es ese tag; si falta, error que lista los prefijos faltantes (mecánica de deskops domain_tree.py:80 require_domain_parents, sin sus nombres). Función sldb.api.tag_tree(store, namespace) → {roots: árbol anidado {tag, document, children}, orphans: tags usados sin documento ancla, unplaced: documentos ancla sin uso}; folder_axis: sldb.api.tag_folder(tag) → ruta a/b para a.b (mecánica de atom_tags.py:120). sldb.api.semantic (dag_reads, dag_writes) se reexporta en sldb.api. CLI: sldb tags namespaces, sldb tags tree NAMESPACE, sldb tags check. (2) Reemplazo: sldb.api.replace_text(store, ref, old, new, *, count=1, transaction=None) sobre un documento trackeado o un archivo no modelado bajo la raíz: exige exactamente count apariciones de old (si no, error con el número visto y nada se escribe); en un documento trackeado reescribe los bytes, re-extrae y valida contra el modelo (si no valida, error y nada se escribe) y re-trackea con el mismo modelo y nombre; todo dentro de sldb.api.transaction. CLI sldb docs replace REF --old --new [--count N] con envelope. Doc docs/architecture/tags.md y sección en docs/architecture/transactions.md.'
+    acceptance: 'En un store temporal con tag_namespaces [{name: area, hierarchical: true, anchored_by: {model: Anchor, field: tag}}]: escribir un documento con area:a.b sin Anchor de area:a falla nombrando area:a; con los dos Anchor pasa; un tag otro:x falla por namespace no declarado; un store sin tag_namespaces acepta lo mismo que antes (tests existentes verdes); tag_tree devuelve raíz a con hijo a.b, un huérfano y un unplaced del fixture; tag_folder("a.b") = "a/b"; replace_text con count 1 y dos apariciones falla sin escribir; con una aparición reescribe, re-trackea y el documento extrae igual salvo el texto; un reemplazo que rompe el modelo falla y deja el archivo igual (hash); CHANGELOG; docs; nota de cierre a deskops.'
+    output_scope: src/sldb/api/stores/store_declaration.py, src/sldb/api/semantic/, src/sldb/api/tags/, src/sldb/api/documents/replace_text.py, src/sldb/api/__init__.py, src/sldb/store/semantic_tags.py, src/sldb/cli/parsers/tags.py, src/sldb/cli/commands/tags.py, src/sldb/cli/parsers/docs*.py, src/sldb/cli/commands/docs*.py, tests/, docs/architecture/tags.md, docs/architecture/transactions.md, CHANGELOG.md
