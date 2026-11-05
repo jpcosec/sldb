@@ -1,0 +1,82 @@
+{
+  "node": "ROOT",
+  "input_sha256": "72ec5dc5a42ae58de0f56b4f9cb32bac4575c69dcd6e6e3aba025a3fe77a14ca",
+  "contract_sha256": "93dd8f9cb529d1fd8f4bbaa47a26fccc6b55af1c83769750d8012ff26e56da6a",
+  "sources": [
+    {
+      "path": "desk/drawer/plans/grafo-operable/context-review-guide.md",
+      "sha256": "d334aadd1c27a7681214cc3cb28cd12ff7957e8f68a169903c8f96269ef4acb2",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/brief.md",
+      "sha256": "ff7840e93226e8db0510184c5b18c4678df4a0da690cc63e89fc69dfd1690f23",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/alcance.md",
+      "sha256": "f157d713f9f7503339598bf9e4bd21040d945867984a6d577fe2ebec730976ca",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/decisiones.md",
+      "sha256": "6ce54892fa3565a54d5f1ae6afd121ad0643ca3b3eaba223fb317f4d8b0e6742",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/dag.yaml#node:ROOT",
+      "sha256": "93dd8f9cb529d1fd8f4bbaa47a26fccc6b55af1c83769750d8012ff26e56da6a",
+      "projection": "node_contract"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/dag.yaml#edge:PK01",
+      "sha256": "400fe004c35f061394983261052098407ba30751f7498d89e3a44a9008da2f6a",
+      "projection": "edge_contract"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/dag.yaml#edge:PK02",
+      "sha256": "3788da838940592933a7b3767a1b9df329d48a33f82c3890e83525a04f0b52bb",
+      "projection": "edge_contract"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/dag.yaml#edge:PK03",
+      "sha256": "9a7ff2c1fc6e11c8de14ed1f68954a8985da4ee72e3bccd2c521ccfc2b21aecd",
+      "projection": "edge_contract"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/dag.yaml#edge:PK04",
+      "sha256": "a13cefe2bbed943ce055050846cf105e2e91ce915e55021960f6f80f80721af0",
+      "projection": "edge_contract"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/dag.yaml#gates",
+      "sha256": "32535ecc380ffd2ad36f4079fd53a6bcdaaddee0c98cbbb91d94bff33912a567",
+      "projection": "gate_contracts"
+    }
+  ],
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "--print",
+    "@input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "thinking low, offline, no tools/session/context/skills/extensions/prompt-templates",
+  "selection_reason": "perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "started": "2026-11-04T23:20:35.967185+00:00",
+  "finished": "2026-11-04T23:21:08.907598+00:00"
+}

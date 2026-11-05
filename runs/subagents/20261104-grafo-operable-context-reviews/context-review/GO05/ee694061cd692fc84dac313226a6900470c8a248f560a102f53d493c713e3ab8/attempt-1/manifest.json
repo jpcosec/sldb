@@ -1,0 +1,92 @@
+{
+  "node": "GO05",
+  "input_sha256": "ee694061cd692fc84dac313226a6900470c8a248f560a102f53d493c713e3ab8",
+  "contract_sha256": "b8b85e5b53cd9aea7540f365551abf4966454b67a97265346f267a740ef2a392",
+  "sources": [
+    {
+      "path": "desk/drawer/plans/grafo-operable/context-review-guide.md",
+      "sha256": "d334aadd1c27a7681214cc3cb28cd12ff7957e8f68a169903c8f96269ef4acb2",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/brief.md",
+      "sha256": "ff7840e93226e8db0510184c5b18c4678df4a0da690cc63e89fc69dfd1690f23",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/alcance.md",
+      "sha256": "e81d9bfcdfb02855b9be372a1ce90d2c3acc315d0f1173fe965d410f44ec7af3",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/decisiones.md",
+      "sha256": "6ce54892fa3565a54d5f1ae6afd121ad0643ca3b3eaba223fb317f4d8b0e6742",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/dag.yaml#node:GO05",
+      "sha256": "b8b85e5b53cd9aea7540f365551abf4966454b67a97265346f267a740ef2a392",
+      "projection": "node_contract"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/dag.yaml#edge:GO02",
+      "sha256": "f522d60f37d58e68631be760a2b532c52fc40ececdd785d9e43f0741d8784352",
+      "projection": "edge_contract"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/dag.yaml#edge:GO04",
+      "sha256": "7bf3403411216bbb537f07bb73cbe3090016c6d103e2c5a1fd53bcf47a997e01",
+      "projection": "edge_contract"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/dag.yaml#edge:GO06",
+      "sha256": "a7702df35fbd4e79096a675bf43a3fc6ca5c69738db1c701fcd2f0c3a1b58e7b",
+      "projection": "edge_contract"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/dag.yaml#edge:GO07",
+      "sha256": "2a7a9d818b25834682fab92d3b96eb5bdca7ecc7884ef08b411ae7797c56b9f6",
+      "projection": "edge_contract"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/dag.yaml#edge:GO09",
+      "sha256": "07db0ec9f3afbceafa663f454d47d8f5d7d3dda9944334e77eb302a9af2c834c",
+      "projection": "edge_contract"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/dag.yaml#edge:PK02",
+      "sha256": "3788da838940592933a7b3767a1b9df329d48a33f82c3890e83525a04f0b52bb",
+      "projection": "edge_contract"
+    },
+    {
+      "path": "desk/drawer/plans/grafo-operable/dag.yaml#gates",
+      "sha256": "f26e9c8f3a8677f8f50e2afb12e1f5312703cb94a5a255b7d835e197666a67a5",
+      "projection": "gate_contracts"
+    }
+  ],
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "--print",
+    "@input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "thinking low, offline, no tools/session/context/skills/extensions/prompt-templates",
+  "selection_reason": "perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "started": "2026-11-04T23:27:36.939327+00:00",
+  "finished": "2026-11-04T23:28:43.139556+00:00"
+}

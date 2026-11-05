@@ -1,0 +1,11 @@
+REFORMULACION
+Propósito: unificar en sldb el lenguaje de predicados definido por GO02, con parser y evaluador sobre el backend de GO03 y la facet payload de GO04. Resultado: gramática nueva (booleanos, caminos con cuantificadores, clausura transitiva, sustitución, `incomplete` y explicación estructurada), `where_parse` y `FieldCondition` como shims con `DeprecationWarning`, `--where` por la vía nueva, API única tras `where_matches`/`edges_holding`/`StructuredQuery`/`--where`, goldens y tests de equivalencia. Repo dueño: sldb. Límites: no retira los shims (GO10), no cambia resultados existentes, no re-extrae Markdown y no toca autenticación, backend ni motor externo; no es agregado.
+
+AMBIGUEDADES
+1. «el único comando de la CLI que entra por la vía vieja es el que recibe filtros FieldCondition como dicts (la consulta estructurada, graph query con sus filtros JSON)». Obliga a decidir si «la consulta estructurada» y «graph query» son un mismo comando o dos; si son dos, «el único» es contradictorio y el ejecutor tendría que inventar cuál(es) modificar y dónde añadir la entrada en `warnings` del envelope.
+
+DRY-RUN
+Un ejecutor futuro leería GO02 (gramática y firma `eval`), GO03 (`GraphBackend`), GO04 (proyección y `field_hashes`), `where_parse`/`FieldCondition` y `docs/cli-envelope.md`. Capturaría goldens antes de tocar código. Implementaría parser/evaluador y API única; convertiría `where_parse` y `FieldCondition` en shims; enrutaría `where_matches`, `edges_holding`, `StructuredQuery` y `--where`; añadiría el aviso en el comando de filtros dict; actualizaría `docs/architecture` y CHANGELOG. Dependencias: GO02/G_SEMANTICS, GO04 y G_SEAM (producido por GO03, disponible vía GO04). Validaría con pytest en el host indicado: tests de spec GO02 verdes, equivalencia contra goldens, CLI con `any()`/`all()` y `--explain`, cero `Validator.extract`, captura de warnings y ausencia de aviso en `--where`. Sin ejecutar nada.
+
+FUTURO
+GO10 retira los shims; GO06 consume el lenguaje para `RuleDoc`/`rules`; GO07 usa anclas `doc:`; el TaskDoc fija nombres exactos de archivos, funciones, tests y fixtures; la revisión en frío del desk de sldb acepta y los gates G_SEMANTICS/G_SEAM se resuelven por sus productores.

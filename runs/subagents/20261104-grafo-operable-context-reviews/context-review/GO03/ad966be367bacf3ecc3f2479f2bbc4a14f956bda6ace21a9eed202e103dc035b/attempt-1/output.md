@@ -1,0 +1,13 @@
+## REFORMULACION
+GO03, nodo `code` de sldb bajo PK01, debe fijar la costura `GraphBackend` con `load(índice compuesto, proyección)` y `eval(predicado parseado, sujeto opcional) → findings` según la firma de GO02; implementarla sobre networkx; y enrutar por ella los seis comandos `graph` y `api/graph` sin cambiar salidas. La proyección se acepta y no se usa; `eval` solo cubre predicados de un documento, sin caminos. `graph_backend` en `store.yaml`: lista `["networkx"]`, ausente = networkx, valor inválido = error al cargar. Entrega protocolo documentado, goldens/tests, CHANGELOG y G_SEAM. Límite: no cambia el comportamiento observable de comandos existentes.
+
+## AMBIGUEDADES
+1. "Protocolo GraphBackend con dos operaciones: load(...) y eval(...)" frente a "los seis comandos graph ... y la API api/graph pasan por el backend". Con solo `load` y `eval` no hay operación para `path`, `cycles`, `order`, `components`, `central` ni `similar`; obliga a inventar si `load` devuelve un grafo networkx —rompiendo la costura— o si se añaden operaciones no declaradas.
+2. "eval en este nodo soporta solo predicados de un documento (sin caminos), para probar la firma", mientras la aceptación solo exige "un test evalúa has(id)". No fija el subconjunto de operadores sin caminos ni el resultado ante un camino; obliga a inventar hasta dónde implementar y qué devolver fuera del subconjunto.
+3. "load(índice compuesto, proyección)" y "un test carga el índice compuesto del propio repo en el backend": no define qué objeto es el índice compuesto ni quién lo compone; obliga a inventar el tipo del argumento y si el backend compone o recibe compuesto.
+
+## DRY-RUN
+Lecturas: `dag.yaml` (GO03, GO02, PK01, gates), guía, brief/alcance/decisiones; código actual de `compose`, `api/graph`, `cli/parsers/graph_analysis.py`, `store.yaml` y tests de graph. Cambios previstos: protocolo y backend networkx en `src/sldb/store/graph/backend*`; enrutar `api/graph` y los seis comandos; clave `graph_backend` con validación; doc y CHANGELOG. Dependencias: GO02 ejecutado (firma/findings) y G_BOUNDARY resuelto por GO01. Validaciones futuras: pytest con goldens idénticos, backend espía, carga del índice propio, `eval has(id)`, `store.yaml` ausente/inválida. Sin ejecutar.
+
+## FUTURO
+GO04 produce la proyección que GO03 acepta sin usar; GO05 consume `eval` y añade caminos. GO01 debe resolver G_BOUNDARY antes. La revisión en frío de GO03 la acepta el operador del desk de sldb (D3), no un coordinador; eso resuelve G_SEAM. El TaskDoc fijará nombres exactos de archivos, funciones y tests. PK01 cierra cuando G_BOUNDARY, G_SEMANTICS y G_SEAM estén satisfechos.

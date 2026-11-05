@@ -1,0 +1,11 @@
+REFORMULACION
+ROOT es un agregado no ejecutable. Encargo: que sldb evalúe reglas declaradas sobre documentos, aristas y hashes, con explicación, incrementalidad y sin persistir resultados; deskops autora las reglas. Resultado: cuatro paquetes cerrados —fundamentos, sustrato, reglas y anclas, operación— y gates G_BOUNDARY, G_SEMANTICS y G_SEAM satisfechos; ejemplo end-to-end probado por GO08 y documentado; aviso de deprecación probado por GO05; retiro por GO10; CHANGELOG y docs/architecture según la aceptación de cada hijo. Repo dueño: sldb. Límites: no autentica actores, no produce hechos externos, no incorpora motor externo, no migra a kimun, no cambia deskops salvo la nota permitida por el canal entre desks; G_CONSUMER no bloquea el cierre. ROOT no se promueve: cierra cuando cierran sus hijos.
+
+AMBIGUEDADES
+ninguna.
+
+DRY-RUN
+Hipotético, sin ejecutar: no se promueve ROOT; se promueven sus hijos y ROOT solo observa cierre. Lecturas: dag.yaml, brief, alcance, decisiones y TaskDocs de PK01–PK04. Cambios previstos: ninguno directo en ROOT; cada hijo produce los suyos. Dependencias: las aristas `depends_on` de los nietos fijan el orden real; el listado PK01–PK04 no es secuencia. Transferencias: PK01 entrega frontera registrada, semántica/gramática/firma de evaluación y protocolo GraphBackend con networkx sin cambio observable; PK02 recibe eso y entrega proyección de payload, staleness corregido, lenguaje implementado y shims deprecados con aviso y goldens; PK03 recibe lenguaje/proyección y entrega RuleDoc, `rules check`, ancla `doc:`, `anchors check` y `anchor_state`; PK04 recibe lenguaje, reglas/anclas y backend y entrega `effects`/`findings`, evaluación en escritura/transición/check, retiro de shims y e2e. Validación conjunta: aceptaciones de cada hijo, gates satisfechos, tests de equivalencia/e2e/incrementalidad, aviso y retiro probados, CHANGELOG/docs por hijo. Si falta un contrato de dependencia no ejecutada, el hijo registra su hipótesis; no inventa API.
+
+FUTURO
+GO01/GO02/GO03 producen G_BOUNDARY/G_SEMANTICS/G_SEAM y las revisiones en frío los aceptan; GO05/GO08/GO10 producen las pruebas citadas. deskops produce G_CONSUMER en su propio plan, después y fuera del cierre de ROOT. El operador del desk de sldb acepta disposiciones; el dueño mantiene las decisiones operativas del Board.

@@ -1,0 +1,11 @@
+REFORMULACION
+PK01 es un agregado no ejecutable de sldb: no se promueve ni corre; cierra cuando cierran GO01, GO02 y GO03. Propósito: dejar escritos, antes de cambiar comportamiento del store, la frontera sldb/deskops, la semántica/gramática/firma del lenguaje de reglas y la costura `GraphBackend` implementada sobre networkx. Resultado: `G_BOUNDARY`, `G_SEMANTICS` y `G_SEAM` satisfechos; sin cambio observable en comandos existentes sobre stores existentes, salvo la clave nueva `graph_backend` en `store.yaml` con validación propia. Repo dueño: sldb. Límites: no autentica actores, no produce hechos externos, no juzga, mundo cerrado por store; no toca deskops salvo la nota por el canal sancionado; no migra a kimun.
+
+AMBIGUEDADES
+1. `G_SEAM ... evidence: protocolo GraphBackend (load, eval) documentado` frente a `GO03 ... Protocolo GraphBackend con tres operaciones: load(...), eval(...) y analyze(...)`. Obligaría a decidir si la aceptación conjunta exige documentar y probar también `analyze` o solo `load`/`eval`; afecta qué evidencia cuenta para cerrar `G_SEAM`.
+
+DRY-RUN
+Hipotético, sin ejecutar. PK01 no ejecuta: recorre hijos en serie. GO01: entrada D1, pill rev5 y dag; produce atom, enlace en pill, dos commits en main, nota a inbox de deskops y `G_BOUNDARY` con hash. Transfiere a GO02 frontera y `G_BOUNDARY`. GO02: entrada `G_BOUNDARY`; produce `rules-language.md` con gramática, lógica trivaluada, `__contract__`, firma de `eval` y tests xfail; transfiere semántica y `G_SEMANTICS`. GO03: entrada `G_SEMANTICS`; produce protocolo `load/eval/analyze`, backend networkx, `graph_backend` en `store.yaml`, docs y CHANGELOG; produce `G_SEAM`. Validación conjunta: hash de `G_BOUNDARY` alcanzable desde main; documento de GO02 con ejemplos xfail y revisión aceptada; goldens de `graph` idénticos, tests de `api/graph` sin cambios, espía de backend, carga del índice propio, `eval` básico y camino con `NotImplementedError`; `store.yaml` válido e inválido. Dependencias: GO02 depende de GO01; GO03 de GO02 y `G_BOUNDARY`.
+
+FUTURO
+La revisión en frío de GO02/GO03 y la disposición en `reviews/rN.md` las decide el humano/operador del desk de sldb; la promoción usa TaskDoc y pytest en el host indicado. deskops recibe la nota y producirá `G_CONSUMER` en su propio plan. Ninguna ejecución está autorizada.

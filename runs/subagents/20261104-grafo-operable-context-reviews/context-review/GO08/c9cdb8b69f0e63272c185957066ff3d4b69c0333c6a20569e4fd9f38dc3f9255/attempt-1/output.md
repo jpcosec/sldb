@@ -1,0 +1,13 @@
+REFORMULACION
+GO08 es un nodo `code` de tipo `delivery`, repo dueño `sldb`, hijo de PK04. Propósito: que sldb evalúe reglas en escritura, transición y `stores check`, de forma incremental y a punto fijo, sin persistir hechos derivados. Resultado: cablear la evaluación en los pasos de guardado, `edges_holding`, `api/stores` y los comandos `stores check`/`edges check`; añadir `findings` y `blocked` sin tocar `effects`; validar condiciones de arista; documentar en `rules.md`; CHANGELOG; medir 20 escrituras antes/después. Límites: solo `output_scope`; depende de GO06, GO07 y GO09; requiere `G_OPS_PREREQ`; no autentica actores, no produce hechos externos y no persiste derivados.
+
+AMBIGUEDADES
+1. “Dirty set: los documentos escritos desde la última evaluación… se vacía al terminar la evaluación” y “Caché derivada por dirty set… nunca persistidos”. No queda definido si “última evaluación” es por proceso, por store o por comando, ni si la caché puede persistir. El ejecutor tendría que inventar el ciclo de vida y el alcance de la incrementalidad.
+2. “on_check: stores check evalúa todas las on_check del store” frente a “una segunda evaluación sin cambios no visita documentos fuera del dirty set”. Con el dirty set vacío, no se ve cómo cumplir “todas” y a la vez “no visita”; habría que inventar si una visita cacheada cuenta como evaluación.
+3. “un finding error hace que la arista no se cumpla… un alert la deja cumplirse y su finding va en findings”. Si la misma arista recibe un error y un alert, no se especifica si el alert va a `findings` o `blocked` ni la precedencia; el ejecutor tendría que decidirlo.
+
+DRY-RUN
+Lecturas: contratos ya producidos por GO06, GO07 y GO09; modelos y `payload_save_steps`; `edges_holding`; `stores check`; `alert_sink`; tests existentes. Cambios previstos: evaluación `on_write` con rechazo atómico ante error; `findings` y `blocked` en `edges_holding`; `on_check` y `check_doc_anchors` en `stores check`; validación de condiciones en `edges check`; caché/dirty set; `rules.md`, CHANGELOG y medición. Dependencias: GO06 aporta `RuleDoc` y `content_hash`; GO07 aporta `check_doc_anchors`; GO09 aporta `effects`; `G_OPS_PREREQ` debe estar resuelto. Validaciones futuras: aceptación completa de GO08, incluidos dos errores en el envelope, arista bloqueada, incrementalidad contada, ciclo A→B→C→A, condición mal formada, end-to-end en tres pasos, medición y CHANGELOG. Sin ejecutar nada.
+
+FUTURO
+El Board de sldb resuelve `G_OPS_PREREQ`; el TaskDoc fijará archivos, tests y detalles de medición; GO10 retirará los shims después de GO08; deskops validará el consumo en `G_CONSUMER`; un humano escribe la disposición en `reviews/rN.md`.

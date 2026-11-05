@@ -1,0 +1,13 @@
+## REFORMULACION
+GO06 es un nodo `code` del repo sldb (entrega, padre PK03). Encargo: definir el modelo `RuleDoc` —sujeto por familia de modelo (`model <= X`) con `where` opcional, `condition`, severidad (`error|alert`) y momento (`on_write|on_transition|on_check`), más `message` opcional— y los comandos `rules check [--subject DOC]` y `rules explain RULE SUBJECT`, con validación al escribir, emisión de `Finding`, códigos y exits definidos, y documentación/CHANGELOG. Límites: no implementa el lenguaje (GO05/GO02), ni la evaluación en escritura/transición/check, caché o incrementalidad (GO08), ni anclas `doc:` (GO07), ni auth, motor externo, migración a kimun o cambios en deskops.
+
+## AMBIGUEDADES
+1. «Emite Finding (src/sldb/core/finding.py: level, code, subject, what, fix, document) por el canal existente: level = severidad de la regla, code = rules/<nombre de la RuleDoc>, subject = el documento, what = …». Solo se asignan cuatro de seis campos; no se define qué contienen `fix` ni `document`. Obligaría a inventar su valor o derivación.
+2. «sujeto = familia de modelo (expresión model <= X, resuelta con la herencia de modelos ya existente en sldb: base_models del registro…)». No fija si el sujeto se guarda como cadena de expresión, nombre de modelo o estructura, ni cómo se serializa y valida. Obligaría a inventar el esquema del campo.
+3. «exit 3 si la regla no aplica al sujeto (familia o where), con el motivo en el envelope». No dice si además del motivo se emite el finding de eval (`node, holds, clause, seen`) o solo el motivo. Obligaría a inventar la forma del envelope en exit 3.
+
+## DRY-RUN
+Lecturas: brief, alcance, decisiones, dag, contrato de GO05, especificación de GO02, `finding.py`, registro de modelos/`base_models`, validación de escritura y patrón CLI/envelope. Cambios previstos: `src/sldb/models/rule_doc.py`, `src/sldb/api/rules/`, `src/sldb/cli/commands/rules.py`, `docs/architecture/rules.md`, sección Constraint del README y CHANGELOG. Dependencias: GO05 entregado, G_SEMANTICS aceptado, herencia de modelos, canal `Finding`, `ValidationError` y error de documento desconocido. Validaciones futuras: herencia X/Y/Z, `check` con y sin `--subject`, exits 1/0, `explain` 0/1/2/3, `incomplete` como alert, reglas mal formadas rechazadas, docs y CHANGELOG. Sin ejecutar nada.
+
+## FUTURO
+GO02 produce G_SEMANTICS y el formato de explicación/eval; GO05 entrega parser y evaluador; GO07 aporta anclas; GO08 consume el `content_hash` e integra escritura/transición/check; una revisión en frío y el desk de sldb aceptan y promueven el TaskDoc; deskops consume después en su propio plan.

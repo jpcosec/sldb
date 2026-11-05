@@ -1,0 +1,11 @@
+REFORMULACION
+ROOT es un agregado no ejecutable de sldb: su encargo es que sldb evalúe reglas declaradas sobre documentos, aristas y hashes, con explicación, incrementalidad y sin persistir resultados; deskops autora las reglas. El resultado sustantivo son cuatro paquetes: fundamentos (frontera, semántica y costura `GraphBackend`), sustrato (payload proyectado y lenguaje único de predicados), reglas y anclas (`RuleDoc`, `rules check`, anclas `doc:` y estados) y operación (evaluación en escritura/transición/check, efectos en aristas y retiro de lenguajes viejos). Repo dueño: sldb. Límites: no autentica actores, no produce hechos externos, mundo cerrado por store, no juzga calidad, no persiste hechos derivados, no migra a kimun ni cambia deskops; `G_CONSUMER` queda fuera y no bloquea el cierre.
+
+AMBIGUEDADES
+ninguna.
+
+DRY-RUN
+Un ejecutor futuro no ejecuta ROOT: recorre sus hijos según el DAG y cierra cuando todos cierran. Lecturas: `dag.yaml`, brief, alcance, decisiones y guía; no hay cambios propios de ROOT. PK01: GO01 registra frontera y commit; GO02 fija gramática, semántica y firma de evaluación; GO03 define `GraphBackend` y enruta `analyze` con goldens. Transfiere especificación y costura a PK02–PK04. PK02: GO04 proyecta campos y corrige staleness; GO05 implementa el lenguaje, captura goldens y deja shims deprecados. Transfiere proyección, lenguaje y avisos a PK03/PK04. PK03: GO06 define `RuleDoc` y `rules check`; GO07 define anclas `doc:` y `anchor_state`. Transfiere reglas y anclas a PK04. PK04: GO09 lleva `effects` a las aristas; GO08 agrega `findings` sin tocar `effects` y evalúa en escritura, transición y check; GO10 retira shims. PK04 consume lenguaje, proyección, reglas/anclas y efectos; GO08 usa el ejemplo end-to-end como test de integración. Validación conjunta futura: aceptaciones de cada hijo, pytest sin rojos ni saltados, `G_BOUNDARY`, `G_SEMANTICS` y `G_SEAM` satisfechos, CHANGELOG y `docs/architecture/` al día, incrementalidad y ejemplo end-to-end probados por GO08, y ausencia final de `where_parse`/`FieldCondition`.
+
+FUTURO
+GO01 produce commits y evidencia de `G_BOUNDARY`; las revisiones en frío de GO02 y GO03 las acepta quien opera el desk de sldb; GO05 captura goldens; GO08 define y prueba el ejemplo end-to-end; deskops produce `G_CONSUMER`; el dueño indica el host de pytest.

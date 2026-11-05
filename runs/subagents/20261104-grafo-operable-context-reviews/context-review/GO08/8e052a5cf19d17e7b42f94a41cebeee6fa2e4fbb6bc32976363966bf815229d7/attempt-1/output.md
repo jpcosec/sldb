@@ -1,0 +1,12 @@
+## REFORMULACION
+Propósito: que sldb evalúe reglas en tres momentos (`on_write`, `on_transition`, `on_check`) de forma incremental y a punto fijo. Resultado: hooks en el guardado de payload (regla `error` rechaza sin persistir; `alert` pasa como warning), extensión de `edges_holding` con `findings` y clave `blocked`, `stores check` con las `on_check` y `check_doc_anchors` de GO07, caché derivada regenerable en `.sldb_cache` con dirty set, validación de parseo en `edges check`, test end-to-end y medición. Repo dueño: sldb. Nodo `delivery`, no agregado. Límites: no toca `effects` (GO09); no persiste hechos derivados; no autentica actores; gate `G_OPS_PREREQ` pendiente; no modifica deskops.
+
+## AMBIGUEDADES
+1. «Evaluar una regla sobre un documento fuera del dirty set devuelve el resultado cacheado sin recalcular». Si no existe entrada de caché (primer arranque, caché borrada o regla nueva), no define si evalúa ni qué devuelve; obligaría a inventar el comportamiento en cache miss.
+2. «stores check evalúa todas las on_check y solo recalcula las del dirty set» junto a «borrar .sldb_cache y reevaluar da los mismos findings». Con caché borrada y dirty set vacío, todo documento queda fuera del dirty set y sin caché: no se define cómo se siembra el dirty set inicial; contradicción operativa que obliga a inventar el sembrado.
+
+## DRY-RUN
+Hipotético, sin ejecutar. Lecturas: salidas de GO06, GO07 y GO09; `payload_save_steps.py`, `edges_holding.py`, `api/stores/`, CLI `stores*`, `edge_index/validation.py`, `edges.py`, tests existentes. Cambios previstos: módulo de caché y dirty set bajo `.sldb_cache`; hooks `on_write`; `findings`/`blocked` en `edges_holding`; `on_check` y `check_doc_anchors` en `stores check`; parseo de condiciones en `edges check`; `rules.md` y CHANGELOG; tests de aceptación. Dependencias: GO09 (`effects` intactos), GO06 (RuleDoc, `content_hash`, Finding), GO07 (`check_doc_anchors`, `anchor_state`), lenguaje de GO05 vía GO06/GO07; `G_OPS_PREREQ`. Validaciones futuras: pytest completo; aceptación (rechazo/persistencia, alerts, dos errores, `blocked`, incremental con 0 recálculos, invalidación por regla, rebuild de caché, ciclo A→B→C→A, condición mal formada); medición de 20 escrituras antes/después.
+
+## FUTURO
+El Board de sldb resuelve `G_OPS_PREREQ`. GO10 retira los shims usando GO08. Deskops produce `G_CONSUMER`. El TaskDoc fija nombres de archivos y tests. Un humano escribe la disposición en `reviews/rN.md`.

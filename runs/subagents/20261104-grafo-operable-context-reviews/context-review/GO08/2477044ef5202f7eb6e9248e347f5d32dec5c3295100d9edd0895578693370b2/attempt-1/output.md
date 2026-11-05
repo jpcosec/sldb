@@ -1,0 +1,13 @@
+REFORMULACION
+Propósito: que sldb evalúe reglas en tres momentos —`on_write` antes de persistir, `on_transition` vía `edges_holding`, `on_check` vía `stores check`— con caché derivada incremental por dirty set, punto fijo semi-naive y hechos nunca persistidos. Resultado: escritura rechazada o alertada con explicación, findings de transición y check, `edges check` validando condiciones, test end-to-end de ROOT y medición de 20 escrituras. Repo dueño: sldb. Nodo de código, `delivery`, hijo de PK04; depende de GO06 y GO07; requiere el gate pendiente G_OPS_PREREQ. Límites: `output_scope` acotado a `store/` (payload_save_steps), `api/edges/edges_holding.py`, `api/stores/`, `edge_index/validation.py`, CLI `edges check` y `docs/architecture/rules.md`; no toca autenticación, motores externos ni deskops.
+
+AMBIGUEDADES
+1. «Ejemplo end-to-end de ROOT como test de integración»: el input solo declara que ROOT es agrupación; no define documentos, regla ni recorrido del ejemplo. Obliga a inventar el escenario del test.
+2. «edges_holding evalúa las reglas on_transition cuyo sujeto es el documento y las devuelve como findings junto a las aristas»: GO09, hermano de PK04 sin arista con GO08, también modifica `edges_holding` para devolver efectos de transición desde attributes; no se delimita cómo conviven ambos cambios. Obliga a inventar la frontera y arriesga exceder alcance.
+3. «stores check evalúa todas las on_check del store y las reporta como findings»: `output_scope` incluye `src/sldb/api/stores/` pero no la CLI de `stores check`; si el comando debe cambiar o no existe, obliga a inventar dónde implementarlo o a tocar fuera de alcance.
+
+DRY-RUN
+Lecturas: GO06 (RuleDoc, `content_hash`, parser), GO07 (`anchor_state`), lenguaje de GO05 vía GO06, dag.yaml, brief/alcance/decisiones, `payload_save_steps`, `edges_holding`, `stores check`, `validation.py`, `edge_rebuild`, docs. Cambios previstos: hook `on_write` antes de persistir con rechazo/reporte; extender `edges_holding` con findings `on_transition`; extender `stores check`; caché derivada con clave que incluye `content_hash` de reglas y dirty set; punto fijo semi-naive; validación de parseo en `edges check`; tests del ciclo A→B→C→A y ROOT; `rules.md`; medición antes/después. Dependencias: GO06 y GO07 entregadas; G_OPS_PREREQ resuelto; coordinación con GO09 por `edges_holding`. Validaciones futuras: pytest en el host indicado, criterios de `acceptance` y medición registrada.
+
+FUTURO
+GO06 entrega RuleDoc y su hash; GO07 entrega anclas y `anchor_state`; GO09 entrega efectos de transición; el Board de sldb resuelve G_OPS_PREREQ; el TaskDoc fija archivos, tests y el ejemplo ROOT; deskops consume luego vía G_CONSUMER.

@@ -1,0 +1,11 @@
+## REFORMULACION
+GO05 es un nodo de entrega de código en sldb: implementar parser y evaluador del lenguaje fijado por GO02 (booleanos, caminos con any/all/none/count, clausura transitiva, sustitución `{campo}`, `incomplete` en el borde de links, explicación estructurada) sobre el `GraphBackend` de GO03 y la facet payload de GO04. Resultado: API única detrás de `where_matches`, `edges_holding`, `StructuredQuery` y `--where`; `where_parse` y `FieldCondition` como shims con `DeprecationWarning`; goldens previos y tests de equivalencia; xfail de GO02 verdes; CLI `--where` con `any()/all()` y `--explain`; docs y CHANGELOG. Límites: `output_scope` declarado; los shims se retiran en GO10, no aquí; depende de GO02 y GO04; requiere `G_SEMANTICS` y `G_SEAM`.
+
+## AMBIGUEDADES
+1. «API única detrás de where_matches, edges_holding, StructuredQuery y --where» exige enrutar `edges_holding`, pero `output_scope` no incluye `src/sldb/api/edges/` (solo `src/sldb/store/query_engine/`, `src/sldb/store/graph/language/`, `src/sldb/api/where.py`, «CLI --where», docs y CHANGELOG). El ejecutor tendría que inventar si edita `api/edges` fuera de alcance o deja `edges_holding` sin la API única, contra el scope.
+
+## DRY-RUN
+Lecturas: `rules-language.md` de GO02, protocolo `GraphBackend` de GO03, facet payload y staleness de GO04, `where_parse.py`, `FieldCondition`/`structural_queries`, `edges_holding`, `docs/cli-envelope.md`, tests de GO02 y CHANGELOG. Cambios previstos: capturar goldens antes de tocar; módulo en `store/graph/language/`; reemplazar `where_parse` por shim; `FieldCondition` shim; aviso en el envelope al usar operador viejo; pruebas de spec y equivalencia; docs/architecture y CHANGELOG. Dependencias: `G_SEMANTICS` y `G_SEAM` resueltos; contratos de GO02 (firma `eval`) y GO04 (payload). Validaciones futuras: pytest sin rojos ni saltos; xfail verdes; cero `Validator.extract`; captura de `DeprecationWarning` y entrada en `warnings`; CLI con envelope y `--explain`.
+
+## FUTURO
+GO10 retira los shims; GO06 y GO09 consumen el lenguaje; GO03/GO04 entregan contratos; un humano o revisión en frío resuelve `G_SEMANTICS`/`G_SEAM` y acepta el nodo; deskops valida el consumo en `G_CONSUMER`. Nada de esto es ambigüedad de GO05.

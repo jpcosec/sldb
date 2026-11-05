@@ -10,13 +10,13 @@ tags:
 - workspace:desk
 ---
 
-# Keep SLDB generic and move workflow behavior toward deskops
+# Keep SLDB generic: it evaluates rules over documents, edges and hashes; deskops authors them
 
 ## What
 
 _Define the context or guardrail this pill carries._
 
-SLDB should own structured Markdown contracts, stores, validation, and generic navigation/query surfaces. Reusable desk workflow semantics should be owned by `deskops`.
+SLDB owns structured Markdown contracts, stores, validation, generic navigation/query surfaces, and the generic evaluation of declared rules over documents, edges and content hashes (predicates with quantifiers over relations, rule documents, hash-pinned document anchors, transitions as edge data). Which rules exist, what a task type is, and what a workflow gate means is authored by deskops as documents; SLDB only evaluates them. Owner decision 2026-11-04: operativizar lo más posible en sldb, modificándolo a fondo si hace falta (desk/drawer/plans/grafo-operable/decisiones.md, D1).
 
 ## Why
 
@@ -43,10 +43,10 @@ _Name the files, surfaces, or scope this pill applies to._
 
 _Describe the correct way to apply this guidance._
 
-Keep SLDB text-first and generic. Use local desk docs only for SLDB-owned project state, and route reusable workflow behavior, models, and rituals toward `deskops`.
+Keep SLDB text-first: the graph and every evaluated rule are derived from documents and rebuildable. Add generic capabilities (rule evaluation, predicate language, document anchors, state machine over edges) only in a form any consumer can author with its own documents. Route desk-specific lifecycle content (which states, which gates, which task types) toward deskops documents.
 
 ## How Not
 
 _Describe the shortcut or failure mode to avoid._
 
-Do not encode desk-specific lifecycle rules, inbox staging semantics, or operational orchestration as core SLDB behavior when the owning runtime should be `deskops`.
+Do not hard-code desk-specific lifecycle rules, task types, inbox staging semantics or orchestration as SLDB behavior. Do not refuse a generic rule-evaluation capability on the ground that deskops is its first consumer: the boundary is 'generic evaluator in sldb, specific rules authored outside', not 'no rules in sldb'. Do not build actor authentication into SLDB: identity comes from git and the execution layer.
