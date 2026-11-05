@@ -547,7 +547,7 @@ why = "el centro de gravedad del sistema: 110 aristas entran desde los ejes de o
 [[unit]]
 id = "grafo"
 axes = ["grafo"]
-needs = 4
+needs = 5  # GO03: eval de store/graph/backend reutiliza el parser where de store/query_engine
 needed_by = 3
 extractable_today = false
 why = """
