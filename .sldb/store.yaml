@@ -551,6 +551,8 @@ include:
     name: review-task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field-preflight-1
   - path: desk/reviews/task-gd22/preflight-1.md
     name: review-task-gd22-preflight-1
+  - path: desk/reviews/task-gd22/bundle-1.md
+    name: review-task-gd22-bundle-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

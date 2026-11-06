@@ -91,6 +91,12 @@ q8 (sin recorrer disco): el test hace una primera llamada para calentar el memo 
 q9 (fallo inyectado): el test hace fallar la escritura de C dentro de la transacción (monkeypatch del update de la transacción para el ref de C, o un model_validator del modelo de C que rechaza el valor nuevo) y comprueba que B queda con sus bytes, su entrada y su índice originales (hash).
 q10 (HTTP igual a la CLI): como en GD21 y GD23, el cuerpo de POST /edges/rewrite y GET /edges/referrers es el mismo JSON que la CLI con --format json (igualdad de datos, sin envelope); parámetros faltantes o inválidos son 400.
 q11 (--to y --remove): son mutuamente excluyentes y uno es obligatorio (sin ninguno o con los dos, error de uso, exit 2). En POST /edges/rewrite, replacement es obligatorio en el cuerpo: null = quitar; ausente = 400.
+PRECISIONES DEL COLD-BUNDLE (review-task-gd22-bundle-1, 2026-11-06):
+q12 (files manda): files: es la lista autorizada; OUTPUT_SCOPE es el resumen del nodo en el dag. Los auxiliares de files (referrer.py, rewrite_report.py, rewrite_values.py, rewrite_mentions.py, edges_rewrite.py, edges_rewrite_routes.py) están autorizados por la regla de clean code (q4).
+q13 (salidas): como en los demás nodos del plan, la CLI con --format json emite el objeto de datos (lista de Referrer o RewriteReport) y con --envelope lo envuelve en el envelope habitual (data); el cuerpo HTTP 200 es el mismo objeto de datos que --format json, sin envelope.
+q14 (--dry-run): no escribe nada ni abre escritura: calcula el RewriteReport y valida en memoria cada payload nuevo contra su modelo (render y validación de modelo, sin persistir); un payload que el modelo rechaza va como error del dry-run. Las reglas on_write de GO08 no se evalúan en dry-run (solo al escribir); queda dicho en references.md.
+q15 (forma del valor): el valor nuevo conserva la forma en que el original nombraba al target: name -> name del reemplazo; Model:name o Model/name -> la misma forma con el Model y el name del reemplazo; ruta trackeada -> ruta del reemplazo; doc:Model:name@sha256... -> doc:Model:name sin @sha256 (q2). Para eso replacement se resuelve como el target (q6); si no resuelve a un documento (p. ej. un id de nodo del grafo de proyecto), se escribe literal.
+q16 (límite de palabra): un token de mención es una secuencia de caracteres [A-Za-z0-9_:./-]; el texto capturado se reemplaza solo si coincide con un token completo (el carácter anterior y el siguiente no son de ese conjunto, o son inicio o fin de línea). Así card:card-a no reescribe card:card-ab.
 
 ## Validation
 
