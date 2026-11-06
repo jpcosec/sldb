@@ -82,6 +82,13 @@ r3 (docs, grep mecanico): el grep de operadores se hace como lo fija la aceptaci
 r4 (goldens): tests/fixtures/where_goldens y los tests de equivalencia de tests/store/test_predicate_language.py se conservan como tests del lenguaje nuevo: la columna vieja queda como dato del golden (texto), sin importar los shims. tests/store/test_where_retired.py (nuevo) hace el grep de la aceptacion sobre src/ y docs/ y falla si aparece algo.
 r5 (tests existentes): los tests que hoy ejercitan los shims (DeprecationWarning, compile_where, FieldCondition, warning de graph query) se borran o se reescriben al lenguaje nuevo; es la unica excepcion a 'tests existentes sin cambios' y se reporta archivo por archivo.
 
+PRECISIONES (preflight de GO10, 2026-11-07):
+r6 (codigo muerto): en src/sldb/store/graph/facet_match.py se borran matches_filters, facet_matches, condition_matches y las funciones ordered_* (las que nombra el drawer task); ademas, cualquier funcion o modulo de src/ que quede sin importador en src/ ni en tests/ tras retirar los shims (comprobado por grep) se borra y se reporta.
+r7 (lista de docs): los Markdown de docs/ en files son la lista obtenida por grep al promover y es la de partida; si el grep de la aceptacion encuentra otro archivo, se agrega al trabajo y se reporta (no es desvio).
+r8 (formato de goldens): no cambia: tests/fixtures/where_goldens/where_parse.json y field_condition.json siguen siendo listas de {old, matches} (old como string en where_parse.json y como dict {field, op, value} en field_condition.json; GO05 p13). Los nombres de archivo de fixtures y tests son libres (la aceptacion no hace grep en tests/). Los tests leen old como dato, sin importar ningun shim.
+r9 (casos ajenos en docs): si la palabra aparece en un ejemplo que es un filtro, se reescribe con la construccion equivalente de la tabla; si aparece en codigo ajeno (otra API, un metodo de Python, un nombre de campo), se cambia lo minimo en el bloque para no usar esa palabra conservando lo que el ejemplo muestra (renombrar un campo de ejemplo, usar la expresion equivalente de Python). Cada caso se lista en el reporte; el coordinador los revisa al integrar.
+r10 (R6): RuleDoc (src/sldb/models/rule_doc.py) importa de forma diferida el parser de store/graph/language; GO10 no mueve el parser, asi que la arista models->store sigue y las entradas [allow].upward [models, store] y [[pending]] R6 de contracts/layers.toml quedan como estan (su reparacion es el drawer task-r6-...). Mover solo WherePredicateError a core no la cierra.
+
 ## Implementation Path
 
 _Outline the expected implementation route or affected surface._
