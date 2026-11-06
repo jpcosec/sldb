@@ -128,7 +128,7 @@ La severidad no afecta el exit de `explain`.
 
 Una regla o un documento que no resuelve es el error existente de documento desconocido:
 `SLDBDocumentTargetError: Unknown document target: <ref>`, que en el envelope es
-`docs/missing` con exit 1.
+el tipo `docs/missing` <!-- gone --> con exit 1 (un tipo de error, no una ruta).
 
 ## 7. API
 
