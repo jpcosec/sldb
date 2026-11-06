@@ -14,7 +14,7 @@ Two kinds, told apart by `origin`:
 
 | `origin` | Where it comes from | What it is |
 |---|---|---|
-| `schema` | The store's composed edge index (`edges_to`): every `references` or `contains` edge a declared field produces (`__references__`, `__reference_models__`, `__containment__`, and the `__doc_anchors__` fields of GO07). | A value of a tracked document's field: a scalar, or one element of a list (`index` is its position). The value is read as it was written (`metadata.declared`). |
+| `schema` | The store's composed edge index (`edges_to`): every references or contains (containment) edge a declared field produces (`__references__`, `__reference_models__`, `__containment__`, and the `__doc_anchors__` fields of GO07). | A value of a tracked document's field: a scalar, or one element of a list (`index` is its position). The value is read as it was written (`metadata.declared`). |
 | `mention` | The project graph of GD21 (`ProjectGraph.edges_to`): every edge a `MentionPattern` of `line_mentions` or `section_mentions` declared, located `line:N:<label>`. | A text a pattern captured on line `N` of a project file (tracked or not). `location` is `path:N`. |
 
 Not references, by this node: the frontmatter declarations of untracked documents the project

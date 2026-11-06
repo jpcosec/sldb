@@ -1,10 +1,10 @@
 name: plan-bootstrap-model-set
 path: docs/architecture/bootstrap-model-set.md
-source_hash: 0f1acb92c0cc6c695b91d7423c289d97bddfc6061bd78ced0b46c21e16c20ea5
-content_hash: bf665c76d4c458f4e34c425c2205b533230d1f4ca685d91f1abc0f28c2675e71
+source_hash: 3e49c01a9fd849529d0561f7f89397a98d636b7bd9f2afa7b3bf16ea1d550740
+content_hash: ea3397b2467127261b7e9354409d05e10b7d42d1b5295b608c3affdd21a21b3b
 field_hashes:
   title: 99c7edbe6f7dfed6929994e5d207474ea904442b3140228a9407f0926f274c4c
-  body: 14c9abff9b17017dd4c1bad6cae70f29148c0bba745f663b26affedc540ba236
+  body: b9c447c1469ed5694443e68a6d76b432a7aeac869899e9d14c9a62ebd737172b
 semantic_tags:
 - representation.markdown
 - source.document.markdown

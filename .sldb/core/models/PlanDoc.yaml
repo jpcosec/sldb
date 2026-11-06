@@ -3,8 +3,8 @@ model_ref: docs.models:PlanDoc
 path: docs/models.py
 documents_index: .sldb/core/documents/PlanDoc.yaml
 sections_index: .sldb/runtime/sections/PlanDoc.yaml
-model_hash: 280768ca18ae8876fad957ca08d0f021eda43d9f6bc9f49f5cabf5b23334bd89
-roster_hash: 8dca0d486dac7229bf0b802c23e0b1f3a912847590ccf55211973265be356b76
+model_hash: e88e15d6a7bace7f949453eafdea6b154eec06c396a1f83e652951e692283ad6
+roster_hash: f7a01e332dc89b347b8205550088e0e5ec37a2c828705d26de8ae2ee03193c86
 contract_hash: f6fef53e300337424352bddc165f70c04f1b80c1873d6dd310a190fc0c13b66a
 documents_count: 1
 version: 1

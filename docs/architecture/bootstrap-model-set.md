@@ -200,7 +200,7 @@ que distingue a un Grupo de una Composición (3.5), que sí tiene orden y render
 **Qué existe hoy.** Cuatro maneras de agrupar, cada una con su uso:
 
 - **Por lista en un documento:** `__containment__` (`src/sldb/models/structured_doc.py:13`,
-  `docs/architecture/model-authoring.md:11`), que el grafo materializa como aristas `contains`.
+  `docs/architecture/model-authoring.md:11`), que el grafo materializa como aristas de contención (relación contains).
 - **Por etiqueta:** el DAG de tags y las relaciones `tagged_as` y `semantic_parent`
   (`sldb/relation_types/tagged_as.md`, `sldb/relation_types/semantic_parent.md`); en deskops, el
   árbol de dominio con `CrossroadDoc` como padre obligatorio de cada camino

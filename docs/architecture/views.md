@@ -80,7 +80,7 @@ only when the section declares them:
 
 | Key | Declared by | Value |
 |---|---|---|
-| one per `edges` entry, named by its `as` (default `<direction>:<relation>`) | `edges` | the sorted ids reached along that relation in that direction: the index's neighbours (a relation type, or a declaring field of a `references`/`contains` edge) first, then, when the store declares a `project_graph` (GD21), the project graph's for the same relation, each as the document's export id when the index tracks it and as its project node id otherwise, without duplicates |
+| one per `edges` entry, named by its `as` (default `<direction>:<relation>`) | `edges` | the sorted ids reached along that relation in that direction: the index's neighbours (a relation type, or a declaring field of a references or contains (containment) edge) first, then, when the store declares a `project_graph` (GD21), the project graph's for the same relation, each as the document's export id when the index tracks it and as its project node id otherwise, without duplicates |
 | `findings` | `rules` | the findings (`Finding.as_dict()`: level, code `rules/<name>`, subject, what, fix, document) of the named rules that apply to the row's document and do not hold, as `sldb rules check` reports them; `what` carries the clause that decided it |
 | `holding`, `blocked` | `transitions` | what `edges_holding` and `edges_blocked` answer for the node whose id is the row's `from_field` value (`Model:name`), with the row's projected payload as subject and the row's document for its `on_transition` rules: each edge with its `effects` and, in a store with RuleDocs, its `findings`; an `error` finding moves every edge to `blocked`. Both empty when the row has no `from_field` value |
 
