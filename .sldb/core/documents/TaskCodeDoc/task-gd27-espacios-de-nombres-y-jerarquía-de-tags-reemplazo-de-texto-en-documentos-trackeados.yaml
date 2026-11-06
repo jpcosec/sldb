@@ -1,0 +1,35 @@
+name: task-gd27-espacios-de-nombres-y-jerarquía-de-tags-reemplazo-de-texto-en-documentos-trackeados
+path: desk/tasks/task-gd27-espacios-de-nombres-y-jerarquía-de-tags-reemplazo-de-texto-en-documentos-trackeados.md
+source_hash: 459f7ac651007ce3cf975a73e1c7d58bcdbc11c9d8269c482585f22eda936fd4
+content_hash: 3f3ed1679897a27f6789188e822cd78b15b7c134418a855fb1aa65da6975da8a
+field_hashes:
+  title: 4c9184d2776663c5339f773d740653bf9e97ba69505d0e3c39b46b6149e732cb
+  id: 61dee7b4af44d7a98ee04c4df1bec41b011c9c1c2dbcf40e10bba55ba1b0466b
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 01d0958c944034652767e4b488f580736404885c057e546d1076af94edfc3f37
+  goal: f40aed0e5c0c83e95374f945691b61be383ea1d106d488913cc8da9da1dee325
+  scope: bd576a26360e93103c4b280acbc292173875a4b797d5d40a55ca8c892dabd157
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 8492c6ad71fa655e9b6ae9e177faea28c938fcb1bd91dbe1fdbf4b5c1d3380a1
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 899a66d8823299b149281aa73ad96527809f4c9978996f1499d541647d8bfaf7
+  implementation_path: c31d5e03e1b0fa1bc6b3f2f01907dda883cc8a0f3c30bcb559c476e528356b9f
+  validation: f545c77649733e9f68e995787cd6b35490a270cfbe39721766cf469b53e08ff9
+  done_when: 3a8ecd864094ca15746b59061576459043fd3567f010aa63d0127cd9e3a8a717
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  from_drawer: 84d0c8013528cd1336b974c9598aedbd805bb8c4d4df539d615fd7700c5e2621
+semantic_tags:
+- artifact:task
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance: null

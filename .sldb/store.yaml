@@ -524,6 +524,7 @@ include:
   paths:
   - desk/tasks/task-go10-retiro-de-where-parse-y-fieldcondition.md
   - desk/tasks/task-gd21-grafo-de-proyecto-aristas-declaradas-y-nodos-fuente-desde-el-índice-de-sldb-declarado-por-datos.md
+  - desk/tasks/task-gd27-espacios-de-nombres-y-jerarquía-de-tags-reemplazo-de-texto-en-documentos-trackeados.md
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md
