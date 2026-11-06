@@ -97,6 +97,8 @@ q13 (salidas): como en los demás nodos del plan, la CLI con --format json emite
 q14 (--dry-run): no escribe nada ni abre escritura: calcula el RewriteReport y valida en memoria cada payload nuevo contra su modelo (render y validación de modelo, sin persistir); un payload que el modelo rechaza va como error del dry-run. Las reglas on_write de GO08 no se evalúan en dry-run (solo al escribir); queda dicho en references.md.
 q15 (forma del valor): el valor nuevo conserva la forma en que el original nombraba al target: name -> name del reemplazo; Model:name o Model/name -> la misma forma con el Model y el name del reemplazo; ruta trackeada -> ruta del reemplazo; doc:Model:name@sha256... -> doc:Model:name sin @sha256 (q2). Para eso replacement se resuelve como el target (q6); si no resuelve a un documento (p. ej. un id de nodo del grafo de proyecto), se escribe literal.
 q16 (límite de palabra): un token de mención es una secuencia de caracteres [A-Za-z0-9_:./-]; el texto capturado se reemplaza solo si coincide con un token completo (el carácter anterior y el siguiente no son de ese conjunto, o son inicio o fin de línea). Así card:card-a no reescribe card:card-ab.
+PRECISIONES DE EJECUCIÓN (coordinador, 2026-11-06):
+q17 (q8 afinada, hallazgo del ejecutor): shards_signature (src/sldb/store/edge_index/shard_signature.py:31) hace un os.scandir del directorio de shards de aristas en cada load_edge_index y en cada comprobación del memo de GD21: es una lectura de un directorio de .sldb, no un recorrido del árbol. El test de q8 cuenta os.walk y Path.rglob (cero, como el de GD21) y, para os.scandir, cero llamadas sobre directorios fuera de .sldb (ningún scandir del proyecto); los scandir dentro de .sldb no cuentan.
 
 ## Validation
 

@@ -9,5 +9,12 @@ field_hashes:
   answer: 2cc33b16c4ab27d5979143e1e12c48651f866206d173a061a510c8e6b45b8e94
   tags: 012bcdc658d3eadb274f51c1114fb05aa128b6efcace2d2a54d68d0185b2cf97
   provenance: ac29751cafcc422ed1d3af0fee7547b1a8ffda4730bf37ddb316d4e0a0d484b1
-semantic_tags: []
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:rules
+- topic:tags
+- type.knowledge.atom
+- workspace.desk.atoms
 provenance: null
