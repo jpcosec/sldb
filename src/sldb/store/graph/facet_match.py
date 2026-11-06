@@ -11,17 +11,25 @@ def matches_filters(node, filters: list) -> bool:
 
 
 def facet_matches(node, facet_filter) -> bool:
-    """Whether a node matches every condition of one facet filter."""
+    """Whether a node matches every condition of one facet filter; `payload` is read with its
+    own null and list rules (`payload_match`)."""
+    if facet_filter.facet == "payload":
+        from sldb.store.graph.payload_match import payload_matches
+
+        return payload_matches(node, facet_filter)
     value = facet_value(node, facet_filter.facet)
     return all(condition_matches(value, condition) for condition in facet_filter.conditions)
 
 
 def facet_value(node, facet: str) -> object:
-    """The facet payload a filter reads: identity, semantics, or a carried facet."""
+    """The facet payload a filter reads: identity, semantics, a document's projected payload, or
+    a carried facet."""
     if facet == "identity":
         return {"node_id": node.id, "node_type": node.node_type}
     if facet == "semantics":
         return node.semantics
+    if facet == "payload":
+        return node.payload
     return node.facets.get(facet)
 
 

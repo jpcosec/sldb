@@ -52,4 +52,4 @@ def _qualified_node(node: EdgeNodeRecord, store_name: str) -> EdgeNodeRecord:
     new_id = qualify_id(node.id, store_name)
     if new_id == node.id:
         return node
-    return EdgeNodeRecord(id=new_id, node_type=node.node_type, semantics={**node.semantics, "store": store_name})
+    return node.model_copy(update={"id": new_id, "semantics": {**node.semantics, "store": store_name}, "facets": {}})

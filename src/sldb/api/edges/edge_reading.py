@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Iterable
+from typing import Any, Iterable
 
 from sldb.api.stores.open_store import open_store
 from sldb.store.edge_index.compose import compose_edge_index
@@ -25,7 +25,21 @@ def load_edge_index(store: str | Path | None, include_linked: bool = True, exclu
     Returns:
         The composed index; kept and shared while the shards do not move, so read-only.
     """
-    return compose_edge_index(open_store(store, mode="readonly").store_path, include_linked, exclude_tags)
+    return compose_edge_index(open_store(store, mode="readonly").store_path, include_linked, exclude_tags, model_type_of)
+
+
+def model_type_of(model_ref: str, root: Path) -> Any | None:
+    """A store's model class for the stale check: imported as the rebuild imports it (the
+    working directory, then the store's own root); None when it cannot be loaded."""
+    from sldb.api.model_registry.model_reference import resolve_model_ref
+    from sldb.core.exceptions import SLDBModelError
+
+    for candidate in (None, str(root)):
+        try:
+            return resolve_model_ref(model_ref, candidate)
+        except SLDBModelError:
+            continue
+    return None
 
 
 def edges_from(store: str | Path | None, export_id: str, relation: str | None = None, include_linked: bool = True, exclude_tags: Iterable[str] = ()) -> list[EdgeRecord]:

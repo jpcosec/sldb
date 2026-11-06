@@ -6,7 +6,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from sldb.store import documents_hash
+from sldb.store import documents_dirty, documents_hash
+from sldb.store.edge_index.cache_keys import edge_shard_version
 from sldb.store.io import load_store_index
 from sldb.store.io.shard_compose import compose_edges_documents
 from sldb.store.io.shards import load_edges_shard
@@ -22,7 +23,7 @@ def read_store_contributions(store_path: Path, exclude_tags: frozenset[str]) -> 
         parts += [p for p in [load_edges_shard(edges_model_shard_path(store_path, m.name), ModelEdges)] if p]
         shards = compose_edges_documents(store_path, m.name)
         parts += [_filtered(shard, exclude_tags) for shard in shards]
-        stale += _stale_documents(store_path, m.name, {s.doc_name: (s.source_hash, s.content_hash) for s in shards})
+        stale += _stale_documents(store_path, m.name, {s.doc_name: (s.source_hash, s.content_hash, s.edges_version) for s in shards})
     return parts, stale
 
 
@@ -33,10 +34,16 @@ def _filtered(shard: DocEdges, exclude_tags: frozenset[str]) -> EdgeContribution
     return EdgeContribution(nodes=[n for n in shard.nodes if n.node_type == "semantic_tag"])
 
 
-def _stale_documents(store_path: Path, model_name: str, shard_hashes: dict[str, tuple[str, str]]) -> list[str]:
+def _stale_documents(store_path: Path, model_name: str, shard_hashes: dict[str, tuple[str, str, str]]) -> list[str]:
+    """Documents whose shard is missing, built from other hashes, or under another
+    EDGE_INDEX_VERSION (an older shard lacks what the new rules add): each enters the dirty set,
+    so the next rebuild compares it even where this operation already holds a baseline."""
     from sldb.store.layout import project_root
 
     root = project_root(store_path)
     entries = documents_hash.entries_of(store_path, model_name)
-    moved = [e for e in entries if shard_hashes.get(e.name) != (e.source_hash, e.content_hash)]
-    return [f"{model_name}:{e.name}" for e in moved if e.name in shard_hashes or (root / e.path).exists()]
+    moved = [e for e in entries if shard_hashes.get(e.name) != (e.source_hash, e.content_hash, edge_shard_version())]
+    stale = [e.name for e in moved if e.name in shard_hashes or (root / e.path).exists()]
+    for name in stale:
+        documents_dirty.mark(store_path, model_name, name)
+    return [f"{model_name}:{name}" for name in stale]

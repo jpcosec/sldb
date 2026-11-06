@@ -32,6 +32,22 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
   - `resolve_model_ref` maps legacy `spec2viz.sldb_models:<Model>` references to
     `sldb.models.notation_models:<Model>` for transparent backwards compatibility with existing stores.
   - Architecture documentation in `docs/architecture/notations-and-views.md`.
+- Each document node of the edge index carries its projected payload (GO04): `EdgeNodeRecord`
+  gains `payload` (top-level fields holding a scalar or a list of scalars; dicts and lists of
+  non-scalars are left out; a model's `__indexed__` picks exactly those names), `field_hashes`
+  (the entry's whole map), `source_hash` (hash_c) and `contract_signature` (sha256 of the model's
+  field names and `__references__` / `__containment__` / `__compositions__` names), persisted in
+  the shard; other nodes leave them empty. `EDGE_INDEX_VERSION` 4 -> 5: a version-4 shard reads
+  as stale and is rebuilt on the next write or `stores build`. `EdgeIndex.stale` now also names
+  a document whose Markdown was edited outside sldb and one built under another contract
+  signature of its model (a new `__references__` entry). `StructuredQuery` filters on
+  `FacetFilter(facet="payload", ...)` from the shard, with no re-extraction; a filter on a field
+  no model projects raises `SLDBGraphArgumentError` naming it. An `__indexed__` name that is not
+  a field or not scalar is `SLDBModelError` when the model loads. Existing queries answer as
+  before. Edge index of this repo after `sldb stores build` (`du -sb` of the edges shards root,
+  MB = 10^6; shards = `.yaml` files there; 2026-11-06): before (main 804f1ad4) 47.64 MB in
+  3116 shards; after (wt/go04 on c1e50419, which tracks more documents) 58.54 MB in 3277 shards.
+  `docs/architecture/graph-backend.md` documents the projection and what it leaves out.
 - A bare id in a reference field that allows a model also names a document of one of its submodels
   (`depends_on: task-x` with `TaskDoc` allowed names `TaskCodeDoc:task-x`), read from `base_models`
   of the model nodes in the composed index (an inherited model's node takes them from its class, since

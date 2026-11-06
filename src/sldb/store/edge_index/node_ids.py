@@ -6,7 +6,9 @@ from __future__ import annotations
 # `references` / `contains` edges, so shards built under version 1 are missing them.
 # 3: a model's `__compositions__` contribute `composes` edges, so shards built under 2 are
 # missing them; their target is resolved from a path when the index is composed.
-EDGE_INDEX_VERSION = "4"
+# 5: a document node carries its projected payload, field_hashes, source_hash and the model's
+# contract_signature (GO04), so shards built under 4 lack them and read as stale.
+EDGE_INDEX_VERSION = "5"
 STORE_NODE_ID = "sldb://store"
 RELATION_TYPE_MODEL = "RelationTypeDoc"
 RELATION_MODEL = "RelationDoc"

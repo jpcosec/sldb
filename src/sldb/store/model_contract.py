@@ -33,3 +33,58 @@ def describe_field(name: str, field: Any) -> Any:
     from sldb.models.field_schema.describe import describe_field as describe
 
     return describe(name, field)
+
+
+def indexed_fields(model_type: Any) -> list[str] | None:
+    """The class's `__indexed__` names, checked; None when it declares none.
+
+    Raises:
+        SLDBModelError: A name is not a field of the model (own or inherited), or the field's
+            declared type is neither a scalar nor a list of scalars.
+    """
+    names = getattr(model_type, "__indexed__", None)
+    if names is None:
+        return None
+    for name in names:
+        _check_indexed(model_type, name)
+    return sorted(set(names))
+
+
+def projected_fields(model_type: Any) -> list[str]:
+    """Fields a payload filter may name: `__indexed__`, else every field whose declared type can
+    hold a scalar or a list of scalars (`Any` included: known per value). [] without a class."""
+    from sldb.store.edge_index.payload_types import opaque_annotation, projectable_annotation
+
+    if model_type is None:
+        return []
+    indexed = indexed_fields(model_type)
+    if indexed is not None:
+        return indexed
+    return sorted(n for n, f in model_type.model_fields.items() if projectable_annotation(f.annotation) or opaque_annotation(f.annotation))
+
+
+def contract_signature(model_type: Any) -> str:
+    """sha256 of the canonical JSON (sorted keys, UTF-8, no spaces) of the model's field names
+    (inherited included) and its `__references__`, `__containment__`, `__compositions__` names;
+    "" when the class could not be loaded."""
+    import hashlib
+    import json
+
+    if model_type is None:
+        return ""
+    body = {"fields": sorted(model_type.model_fields), **{attr: sorted(getattr(model_type, f"__{attr}__", None) or []) for attr in _DECLARED}}
+    return hashlib.sha256(json.dumps(body, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")).hexdigest()
+
+
+_DECLARED = ("references", "containment", "compositions")
+
+
+def _check_indexed(model_type: Any, name: str) -> None:
+    from sldb.store.edge_index.payload_types import projectable_annotation
+    from sldb.store.exceptions import SLDBModelError
+
+    field = model_type.model_fields.get(name)
+    if field is None:
+        raise SLDBModelError(f"Model '{model_type.__name__}': __indexed__ names '{name}', which is not one of its fields.")
+    if not projectable_annotation(field.annotation):
+        raise SLDBModelError(f"Model '{model_type.__name__}': __indexed__ field '{name}' is declared {field.annotation!r}, not a scalar or a list of scalars.")

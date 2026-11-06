@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from functools import cache
 from typing import Any, Callable
 
 from sldb.store.edge_index.composition_edges import composition_edges
@@ -9,6 +10,7 @@ from sldb.store.edge_index.declared_references import declared_reference_edges
 from sldb.store.edge_index.doc_kinds import special_contribution
 from sldb.store.edge_index.node_ids import doc_node_id
 from sldb.store.edge_index.doc_structure import document_structure
+from sldb.store.edge_index.payload_projection import with_projection
 from sldb.store.edge_index.records import tag_nodes
 from sldb.store.models import DocEdges, DocumentEntry, SectionContextRecord
 
@@ -23,19 +25,22 @@ def build_doc_edges(model_name: str, doc: DocumentEntry, sections: list[SectionC
         model_name: Model the document is tracked under.
         doc: The document's index entry (name, path, hashes, tags).
         sections: The document's sections, from its sections shard.
-        payload_of: Reads the document's field payload; called for the special kinds and for
-            any model that declares `__references__`, `__containment__` or `__compositions__`.
+        payload_of: Reads the document's field payload, at most once: for the special kinds,
+            for the declared references, and for the document node's projection.
         model_type: The imported model class, or None when it cannot be imported; without it
             no declared reference is read, as in `build_model_edges`.
 
     Returns:
         The shard, not yet stamped with `source_hash` / `edges_version` (the caller's cache keys).
+        Its document node carries the projection (`payload_projection`).
     """
+    payload_of = cache(payload_of)
     special = special_contribution(model_name, doc, payload_of)
     part = special or document_structure(model_name, doc, sections)
     edges = part.edges + _declared_edges(model_name, doc, model_type, payload_of, special is not None)
     tags = set(doc.semantic_tags).union(*(s.semantic_tags for s in sections))
-    return DocEdges(doc_name=doc.name, model_name=model_name, semantic_tags=sorted(set(doc.semantic_tags)), nodes=part.nodes + tag_nodes(tags), edges=edges)
+    nodes = with_projection(part.nodes, doc_node_id(f"{model_name}:{doc.name}"), doc, model_type, payload_of)
+    return DocEdges(doc_name=doc.name, model_name=model_name, semantic_tags=sorted(set(doc.semantic_tags)), nodes=nodes + tag_nodes(tags), edges=edges)
 
 
 def _declared_edges(model_name: str, doc: DocumentEntry, model_type: Any | None, payload_of: Callable[[], dict[str, Any] | None], is_special: bool):

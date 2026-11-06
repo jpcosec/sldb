@@ -5,6 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from sldb.api.model_registry.model_reference import resolve_model_ref
+from sldb.api.edges.edge_reading import model_type_of
 from sldb.api.stores.open_store import open_store
 from sldb.store.edge_index.compose import compose_edge_index
 from sldb.store.edge_index.edge_rebuild_report import EdgeRebuildReport
@@ -34,5 +35,5 @@ def rebuild_edges(store: str | Path | None, pythonpath: str | None = None, wait:
     with store_lock(location.store_path, wait=wait):
         rebuild_semantic_indexes(location.store_path, location.project_root, resolve_model_ref, pythonpath)
         rebuild_sections_indexes(location.store_path, location.project_root, resolve_model_ref, pythonpath)
-        full = bool(compose_edge_index(location.store_path, include_linked=False).stale)
+        full = bool(compose_edge_index(location.store_path, include_linked=False, model_type_of=model_type_of).stale)
         return rebuild_edges_indexes(location.store_path, location.project_root, resolve_model_ref, pythonpath, full=full)
