@@ -555,5 +555,9 @@ include:
 - model: TaskCodeDoc
   paths:
   - desk/tasks/task-gd27-espacios-de-nombres-y-jerarquía-de-tags-reemplazo-de-texto-en-documentos-trackeados.md
+- model: PlanDoc
+  paths:
+  - path: docs/architecture/bootstrap-model-set.md
+    name: plan-bootstrap-model-set
 graph_backend: networkx
 policy: {}

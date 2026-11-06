@@ -1,0 +1,13 @@
+name: plan-bootstrap-model-set
+path: docs/architecture/bootstrap-model-set.md
+source_hash: 0f1acb92c0cc6c695b91d7423c289d97bddfc6061bd78ced0b46c21e16c20ea5
+content_hash: bf665c76d4c458f4e34c425c2205b533230d1f4ca685d91f1abc0f28c2675e71
+field_hashes:
+  title: 99c7edbe6f7dfed6929994e5d207474ea904442b3140228a9407f0926f274c4c
+  body: 14c9abff9b17017dd4c1bad6cae70f29148c0bba745f663b26affedc540ba236
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.documentation.plan
+- workspace.docs.superpowers
+provenance: null
