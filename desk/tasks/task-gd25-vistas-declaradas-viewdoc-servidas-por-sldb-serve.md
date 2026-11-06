@@ -7,7 +7,14 @@ tags:
 - artifact:task
 current_node: ritual-execution
 history: []
-references: []
+references:
+- pytest tests/api/test_views.py
+- tests/api/test_views.py
+- pytest tests/api/test_view_doc.py
+- tests/api/test_view_doc.py
+- docs/architecture/views.md
+- 05b4135fcc313953a1a8d7b26cfeb89ef0730279
+- desk/atoms/atom-una-vista-es-un-documento-que-declara-qué-leer-y-sldb-la-ejecuta.md
 depends_on:
 - task-gd21-grafo-de-proyecto-aristas-declaradas-y-nodos-fuente-desde-el-índice-de-sldb-declarado-por-datos
 - task-gd23-selectores-de-documento-id-prefijo-glob-modelo-where-como-api-de-sldb
@@ -134,6 +141,7 @@ _List the checks required before this task can close._
 - git fetch y rebase sobre origin/main antes de entregar; en CHANGELOG.md y src/sldb/api/__init__.py tomar la versión de main y agregar solo lo propio
 - files: del TaskDoc coincide con el diff entregado (los autorizados que no se usen se reportan y el coordinador los poda antes de entregar)
 - Medición q12 (entrega del ejecutor, wt/gd25 5d39b6d6, robocop2): vista tablero sobre 204 Items en caliente, una llamada de calentamiento y mediana de 5 = 0,328 s (corridas 0,328 / 0,260 / 0,351 / 0,261 / 0,331); detalle y comando en reports/gd25-entrega.md
+- RESULTADO (coordinador de proyecto, 2026-11-06, squash 05b4135f sobre origin/main): views 17, view_doc 22, notation_models_and_builtins 15, notation_view_and_routes 9 (SV02 sin cambios), store/test_payload_projection 40, store_seams 2, clean_code_rules 949, serve_auth 5, serve 61: todos verdes, de a uno. files 30/30 con el diff. Greps de register_view_provider/computed y de genericidad vacíos. q12: mediana 0,328 s sobre 204 Items en caliente. H6: SharedRules construye la vista del índice una vez por evaluación (sin ella, 0,9 s) y no toca rule_graph. H7: revision no incluye los params. H12, para el dueño: que las rules de una sección existan se comprueba en run_view. Suite completa: al cierre del plan.
 
 ## Done When
 

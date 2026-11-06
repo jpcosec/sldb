@@ -1,0 +1,21 @@
+name: materialization-gd25-views-list-views
+path: desk/materializations/materialization-gd25-views-list-views.md
+source_hash: 4272d5dc250a32c6e6b08f317a3e9e6838703062953a12e48005d1aeae2d6c5b
+content_hash: 831e0a024d7d10d881f2b94bd8cf582c18987e7d6c81d98f3fc57b33367c9dc5
+field_hashes:
+  id: 60dd12f7ef54633d819e13e22ecf05081b03e4d271d5dc8486b894f854a56570
+  title: bf23ab6944e3a82ec63e9d0ea0c6685f57737bb478c1947b4b76b201773eae25
+  source_atoms: 317f1609e3165f3af2d63da16dadf8318c4847c6cb34fd30de42497b5a46dfe8
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 66d6d8841126c5d8a410a0d169f6e5c5df702e46283232f235ff0fca4df1f0e1
+  intent: 23fe1e25e75a672eb40497dac9aa40af91a3247ef6d50dfaae083e8a6ddb624c
+  validation: 3e85597dbd86b953b1158fcd717608c83795725313521c8fc63104253bd092f8
+  tags: ae1dad02a9944a7e426c0f25d3c2e37892718d6c04c70f1f2df87e56c338d16f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:views
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

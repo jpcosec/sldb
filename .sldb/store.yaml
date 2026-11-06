@@ -527,6 +527,28 @@ include:
   - desk/materializations/materialization-gd22-api-test-referrers.md
   - desk/materializations/materialization-gd22-api-test-rewrite-references.md
   - desk/materializations/materialization-gd22-architecture-references.md
+  - desk/materializations/materialization-gd25-notation-view-doc.md
+  - desk/materializations/materialization-gd25-notation-view-param.md
+  - desk/materializations/materialization-gd25-notation-view-section.md
+  - desk/materializations/materialization-gd25-notation-view-section-parts.md
+  - desk/materializations/materialization-gd25-notation-view-doc-checks.md
+  - desk/materializations/materialization-gd25-views-init.md
+  - desk/materializations/materialization-gd25-views-run-view.md
+  - desk/materializations/materialization-gd25-views-list-views.md
+  - desk/materializations/materialization-gd25-views-view-rows.md
+  - desk/materializations/materialization-gd25-views-view-groups.md
+  - desk/materializations/materialization-gd25-views-view-edges.md
+  - desk/materializations/materialization-gd25-views-view-rules.md
+  - desk/materializations/materialization-gd25-views-view-transitions.md
+  - desk/materializations/materialization-gd25-views-view-revision.md
+  - desk/materializations/materialization-gd25-parsers-views.md
+  - desk/materializations/materialization-gd25-commands-views.md
+  - desk/materializations/materialization-gd25-serve-views-routes.md
+  - desk/materializations/materialization-gd25-api-test-views.md
+  - desk/materializations/materialization-gd25-api-test-view-doc.md
+  - desk/materializations/materialization-gd25-architecture-views.md
+  - desk/materializations/materialization-gd25-serve-responses.md
+  - desk/materializations/materialization-gd25-serve-http-server.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
