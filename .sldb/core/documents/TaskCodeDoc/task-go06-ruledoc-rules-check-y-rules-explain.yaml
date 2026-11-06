@@ -1,7 +1,7 @@
 name: task-go06-ruledoc-rules-check-y-rules-explain
 path: desk/tasks/task-go06-ruledoc-rules-check-y-rules-explain.md
-source_hash: ee818961eafd6a0d1859b7ef65d196895c744d655160d2f44cc89645b289a322
-content_hash: 84e5e158965b9fe084db49781a931b990a2a786f7c4f35ed33f54f0162feec30
+source_hash: ba064faf77623ec36c276be568f478647a2a5b72ef884ee4c3c227c22b7aa7cf
+content_hash: 892d3fbcae09bf4b954708b31704cded5bbf2103651e8cdc07f8b66f1a4b11f3
 field_hashes:
   title: 9fe23393198d47a9923dd7b57d7a27621b847214d5e8c6682e97b69e10b0b656
   id: c7a4266c1848347d87b84a91ebe0fe47dba9bccdfea1e35cff9fb1aeeb67154d
@@ -12,7 +12,7 @@ field_hashes:
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 257afd61ddeea27124a2edbf91786818aca3e92931b4477c5f1220e69e2f8a51
   goal: 5d1237dc1065ec5dcdb7134940de43e73c302070aac26e569fef4821c02a20fe
-  scope: de587b41b2b36ff1c2bebfb5fb166c4472025c8da68f2d71b50bab78c16fcb95
+  scope: bb186ea150f488c4f8dd655d1286c948145420b7a84a18b642d4d220aae52215
   references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945

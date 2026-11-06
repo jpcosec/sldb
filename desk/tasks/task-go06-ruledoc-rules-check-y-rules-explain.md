@@ -57,6 +57,12 @@ PRINCIPIO DEL DUENO (2026-11-05): las invariantes de UN documento van como valid
 
 HEREDADO: (h1) la familia de model <= X sale de base_models (GO05 p9, 8d7bee13). (h2) El finding de eval es el de rules-language.md seccion 4 (node, holds, clause, seen); la clave del envelope para rules explain la fija este nodo (H10 de rules-language). (h3) GO05 H6: los cambios de resultado del lenguaje nuevo frente a where_parse/FieldCondition ya estan en main; las reglas usan solo el lenguaje nuevo.
 
+PRECISIONES (preflight de GO06, 2026-11-06):
+p1 (envelope de rules explain): data = {"rule": "RuleDoc:<nombre>", "subject": "<Model:name>", "finding": {"node", "holds", "clause", "seen"}}, con el finding exactamente como lo devuelve GraphBackend.eval / eval_predicate (rules-language.md seccion 4; holds como "true", "false" o "incomplete"). La clave finding cierra H10 de rules-language.md para rules explain; el doc lo dice.
+p2 (Finding.what): explicacion = "<clause> (seen: <seen en JSON compacto, claves ordenadas, ensure_ascii=False>)". Con message: what = message + " | " + explicacion. Sin message: what = explicacion.
+p3 (exit 3): data = {"rule": "RuleDoc:<nombre>", "subject": "<Model:name>", "applies": false, "reason": "subject" | "where", "detail": "<texto>"}: reason subject cuando el documento no esta en la familia del sujeto (detail = la expresion subject de la regla); reason where cuando el where da false o incomplete (detail = la clause del where que decidio). Sin clave finding.
+p4 (Finding.subject y document): subject = el Model:name del documento (con prefijo <store>: si viene de un store enlazado, como en GO05 H11); document = la ruta del documento relativa a la raiz del proyecto, como la guarda el registro.
+
 ## Implementation Path
 
 _Outline the expected implementation route or affected surface._
