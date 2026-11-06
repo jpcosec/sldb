@@ -64,12 +64,14 @@ def _handle(handler: SLDBHTTPRequestHandler, method: str) -> None:
 
 
 def _dispatch_and_send(handler: SLDBHTTPRequestHandler, method: str) -> None:
+    """Send what `dispatch` answers: `(payload, status)`, or `(payload, status, headers)` when
+    a route adds response headers (`GET /views/<name>` and its `ETag`)."""
     try:
-        payload, status = dispatch(handler, method, handler.store_path, handler.project_root, handler.pythonpath)
+        payload, status, *extra = dispatch(handler, method, handler.store_path, handler.project_root, handler.pythonpath)
     except SystemExit as exc:
         send_json(handler, 400, {"ok": False, "error": str(exc)}, handler.cors)
         return
     except Exception as exc:  # pragma: no cover
         send_json(handler, 500, {"ok": False, "error": str(exc)}, handler.cors)
         return
-    send_json(handler, status, payload, handler.cors)
+    send_json(handler, status, payload, handler.cors, extra[0] if extra else None)

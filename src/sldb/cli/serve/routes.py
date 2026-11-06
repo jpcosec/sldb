@@ -31,6 +31,7 @@ from sldb.cli.serve.segments_routes import extract_segments_response
 from sldb.cli.serve.graph_payload import graph_documents, graph_payload  # noqa: F401 - graph_documents re-exported
 from sldb.cli.serve.stores_routes import dispatch_stores
 from sldb.cli.serve.notations_routes import dispatch_notations, dispatch_projection_views
+from sldb.cli.serve.views_routes import dispatch_views
 from sldb.store.export import export_semantic_payload
 
 
@@ -77,8 +78,14 @@ def _nested_get(
     if route == "/models" or route.startswith("/models/"): return dispatch_models(handler, "GET", route, store_path, project_root, pythonpath)
     if route == "/lint": return dispatch_lint(handler, store_path, project_root, pythonpath)
     if route == "/notations" or route.startswith("/notations/"): return dispatch_notations(handler, "GET", route, store_path, project_root, pythonpath)
-    if route.startswith("/views/projection"): return dispatch_projection_views(handler, "GET", route, store_path, project_root, pythonpath)
+    if route == "/views" or route.startswith("/views/"): return _views(handler, route, store_path, project_root, pythonpath)
     return _dispatch_reader(route, handler, store_path, project_root, pythonpath)
+
+
+def _views(handler: BaseHTTPRequestHandler, route: str, store_path: Path, project_root: Path, pythonpath: str) -> tuple:
+    # `/views/projection*` is SV02's (unchanged); any other `/views*` GET is a composed view (GD25).
+    if route.startswith("/views/projection"): return dispatch_projection_views(handler, "GET", route, store_path, project_root, pythonpath)
+    return dispatch_views(handler, route, store_path)
 
 
 def _edges_get(handler: BaseHTTPRequestHandler, route: str, store_path: Path, pythonpath: str) -> tuple[dict[str, Any], int]:
