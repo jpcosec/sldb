@@ -51,6 +51,13 @@ PRINCIPIO DEL DUENO (2026-11-05): invariantes de UN documento = validadores pyda
 
 HEREDADO: (h1) {campo} usa la sintaxis y la fuente de where_subject (fill_braces) sobre el payload del sujeto; un {campo} ausente, null o no escalar hace que la arista no se cumpla (GO05 H9). (h2) edges_holding evalua las condiciones con el lenguaje de GO05 (payload_holds).
 
+PRECISIONES (preflight de GO09, 2026-11-06):
+p1 (files manda): la lista files manda sobre OUTPUT_SCOPE (criterio de GO03 p6 y GO04 p1); src/sldb/store/models/edge_record.py es editable. effects es un campo nuevo de EdgeRecord que solo llena edges_holding; en cualquier otra lectura queda sin valor y la salida (texto, JSON, YAML) de todo comando y funcion existente no cambia: effects no aparece en la serializacion cuando no tiene valor.
+p2 (firma de apply_effects): apply_effects(subject: dict, effects: dict, model: type[StructuredNLDoc]) -> dict; model es la clase del modelo. Quien solo tiene el Model:name la obtiene con el resolutor existente de modelos del store (el mismo que usa la escritura de documentos); apply_effects no resuelve nombres.
+p3 (null): un {campo} dentro de un valor de sets que resuelve a ausente, null o no escalar en el sujeto hace que la arista no se cumpla (no aparece en edges_holding), igual que en una condicion. sets: {x: null} con null literal (sin llaves) es un valor asignable y escribe null.
+p4 (serializacion): {campo} solo se sustituye dentro de valores string de sets y el resultado sigue siendo string: el escalar se inserta como true/false para booleanos, el numero tal cual (str de int o float, sin notacion de Python como True o 1.0e+00 salvo que sea su forma YAML), y un string sin comillas ni escape. Ejemplo: sets {closed: "{done}"} con done=True da closed = "true".
+p5 (compatibilidad): los tests existentes de edges_holding, RelationDoc y EdgeRecord pasan sin cambios; si alguno falla es senal de que cambio una salida existente (contra p1) y se corrige el codigo, no el test.
+
 ## Implementation Path
 
 _Outline the expected implementation route or affected surface._

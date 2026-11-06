@@ -1,0 +1,30 @@
+name: review-task-go09-transiciones-como-datos-de-la-arista-preflight-1
+path: desk/reviews/task-go09-transiciones-como-datos-de-la-arista/preflight-1.md
+source_hash: 3cf0ec5c23b1b5575f6241a38e0e6142367607122d6229a9c5870e18792a2f39
+content_hash: b2b31ead89c9c83f289c203df885df84fb535f0d6f37a3200ddfb67f99dae282
+field_hashes:
+  id: 30aa412751f44edb58004a99d020592f55660c2ae72b2b0fb3f71dbf7fe3977c
+  title: 6bb33b5b63a2e40b74b2ec7b7dd309ee491813069fb736382ef98d30913ed7e8
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  subject: e048524c688947106975c9c1b02ede7cdbd8ef9efad0f78bcba658c076dae3b7
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 28da3022ca7a6f2a0041cd94d25bf3b44b336ac3a74a9df9ac116aca611fd109
+  input_sha256: 53492d7073053d3388911ea4525774a1882427bdc465a270f8a19b4d84e04509
+  output_sha256: b7b6d022c4c23d13fe5194ffd3df39067488e4423b6c20db1ea4317a077de29a
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 4ba7b2b6a48bb62a44d08df48df5bb06f117e67dfb0009ec5dea4771a94d5398
+  created_at: a1881df0a68ff087c0ee4f2a315cfb36cbb3d72df4902adf422c0ca62a176a85
+  disposed_at: 670869d0462b86187648e0122899f644988a55bb65013027d224943ba2122340
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: a590b612f8e04be9f6fd4edb97e8d5635ae34b734d139e160e340f988d7d43aa
+  disposition: 5426a81fbcb70db1106bd4f60b33faef3721ca2d6894459a0112350ee4d7a977
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance: null
