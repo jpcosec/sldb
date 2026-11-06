@@ -1,13 +1,21 @@
 ---
 id: task-go05-lenguaje-de-predicados-unificado
-status: draft
+status: ready_for_testing
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-closeout
+history:
+- task_activates
+- task_hands_to_closeout
+references:
+- pytest tests/store/test_predicate_language.py
+- tests/store/test_predicate_language.py
+- tests/test_rules_language_spec.py
+- 8be66bde0a9933bc32cb7e35e87221a0b7bd5a48
+- desk/atoms/atom-sldb-evaluates-declared-rules-consumers-author-them.md
+- desk/drawer/tasks/task-tras-go05-quedan-sin-uso-las-funciones-de-facet-match-y-el-retiro-de-los-shims.md
 depends_on: []
 pills: []
 files:
@@ -87,6 +95,8 @@ p11 (find): en sldb docs find --where, un documento cumple solo si holds es true
 p12 (canal del warning de p1): la entrada de warnings de sldb graph query se reporta por sldb.cli.alert_sink (report con un Finding de nivel warning), que es lo que el envelope ya vuelca en warnings; sin --envelope el comando imprime la misma salida que hoy.
 p13 (goldens de FieldCondition, precisa p5): field_condition.json guarda por fila la condicion vieja como dict {field, op, value} (forma JSON de FieldCondition) junto con la lista ordenada de payloads que cumple; where_parse.json guarda la expresion vieja como string. Ambos formatos: lista de objetos {old, matches}.
 
+HIPOTESIS DEL EJECUTOR (regla 6, GO05 integrado en 8be66bde): H1 sldb docs find no existe: --where/--explain es sldb find <term> --type doc. H2 has(f) resuelve rutas con punto (H9 de rules-language). H3 where_parse.where_parse(expr) es funcion nueva deprecada equivalente a parse_predicate; importar el modulo no avisa; WherePredicateError sigue ahi. H4 el indice compuesto descarta aristas a nodos inexistentes: incomplete en el indice real solo sale con metadata.unavailable; un store enlazado que no abre se lee como documento inexistente. H5 sin proyeccion, eval sin sujeto recorre los nodos de documento del indice con el payload de su shard; export_id como sujeto sin proyeccion sigue siendo ValueError. H6 CAMBIOS DE RESULTADO frente a los lenguajes viejos (tabla de rules-language seccion 7; fijados en WHERE_DIFFERENCES y FIELD_CONDITION_DIFFERENCES de tests/store/test_predicate_language.py y en CHANGELOG): f != <numero> ya no cumple sobre campo ausente; ordenar None o tipos mezclados da false, no TypeError; FieldCondition contains sobre string es subcadena; is_null/is_not_null tratan "" como ausente; FieldCondition se evalua con nulos como ausentes. H7 sintaxis de caminos: nombre con puntos = varios pasos de campo; rel:<tipo> en cualquier posicion; ^ invierte el primer paso del grupo, + aplica al ultimo (H12). H8 doc ~ "re" lee el nombre del documento (H13). H9 {campo} ausente o no escalar = predicado false con clause y seen (H15). H10 clause de not y de cuantificador = su texto; any falso, all verdadero y count sin testigo dan seen {} (H16). H11 --where con caminos carga el indice solo si hay any/all/none/count; records de campo y seccion conservan su lectura de --where; documentos de store enlazado se evaluan como store:Model:name. H12 contract_hash en store/graph/language/contract_hash.py; __contract__ = [] es ValueError (H11). DESVIOS: archivos nuevos en store/graph/language/ por clean code (predicate_tokens, _cursor, _atoms, _terms, _reach, _leaves, _view, _api, _documents, field_condition_translation, contract_hash) y store/graph/backend/index_view.py; borrados backend/{parser,tokens,evaluate,eval,atoms,checks,operations,state}.py (subconjunto de GO03); editados fuera de files: query_engine/{semantic,filter,where_subject}.py, api/search.py, cli/commands/find_format.py, cli/alert_sink.py (guarda tambien warnings), core/finding.py (Level warning); tests/store/test_graph_backend.py: test de NotImplementedError reemplazado por test_eval_with_a_path_answers_since_go05; p9 aplicado tambien a test_two_top_level_model_constraints_intersect_domain y test_nested_model_does_not_restrict_domain; contracts/layers.toml grafo needed_by 4. Codigo muerto en facet_match -> drawer task-tras-go05-quedan-sin-uso-las-funciones-de-facet-match-y-el-retiro-de-los-shims.
+
 ## Implementation Path
 
 _Outline the expected implementation route or affected surface._
@@ -104,6 +114,7 @@ _List the checks required before this task can close._
 - sldb docs find --where con any()/all() sobre una relacion y --explain probado por CLI con envelope
 - TMPDIR=/dev/shm pytest tests/test_clean_code_rules.py tests/test_store_seams.py en verde
 - suite completa sin rojos (una vez, al final del nodo, la corre el supervisor)
+- RESULTADO (coordinador 1, 2026-11-06, sobre 8be66bde rebaseado en b1ceb857): tests dirigidos 1210 passed, 1 skipped ambiental (test_the_repository_composed_index_loads_into_the_backend: shards del repo no construidos en el worktree; igual en main), 0 xfailed; incluye test_rules_language_spec (52 passed), test_predicate_language, clean_code_rules y store_seams. Con -W error::DeprecationWarning solo fallan tests que usan FieldCondition a proposito (example_queries, graph_executor, api_graph); ningun llamador en src/ usa los shims. Suite completa pendiente del supervisor.
 
 ## Done When
 
