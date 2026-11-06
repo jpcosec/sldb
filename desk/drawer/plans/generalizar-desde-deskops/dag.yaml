@@ -33,10 +33,10 @@ gates:
     evidence: 'sldb 3af872e7 (código GO08) y closeout 556408da: edges_holding con findings por arista y edges_blocked; test end-to-end de GO08 verde (verificado por el coordinador 1); 2026-11-06'
   G_PROJECT_GRAPH:
     title: Grafo de proyecto declarado y servido por sldb
-    state: pending
+    state: satisfied
     produced_by: GD21
     resolver: cierre de GD21 y nota a deskops por deskops message send --to deskops
-    evidence: sldb graph project nodes|edges|missing y GET /project-graph/* responden desde una configuración project_graph en store.yaml; ningún callable en la configuración
+    evidence: 'sldb a2a0174f (squash de wt/gd21) y closeout 27457ff7; nota en el inbox de deskops: sldb graph project nodes|edges|missing y GET /project-graph/* responden desde una configuración project_graph en store.yaml, sin callables (tests/api/test_project_graph_config.py); coordinador de proyecto, 2026-11-06'
   G_WRITE_API:
     title: Transacción y referencias entrantes en sldb.api
     state: satisfied
