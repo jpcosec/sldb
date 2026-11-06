@@ -12,14 +12,12 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from sldb.api.stores.apply_declaration import apply_includes, apply_links, apply_models, apply_predicates, missing_declared, undeclared
+from sldb.api.stores.build_store import build_store as api_build_store
 from sldb.api.stores.declare_store import declare_store
-from sldb.api.stores.store_declaration import declared_store, load_declaration, save_declaration
-from sldb.api.stores.store_skeleton import write_empty_store
-from sldb.api.stores.update_store_indexes import update_store_indexes
+from sldb.api.stores.store_declaration import declared_store, save_declaration
+from sldb.cli.commands.stores_build_generators import run_generators
 from sldb.cli.output_format import emit
 from sldb.cli.store_context import get_store_context
-from sldb.store.layout import store_exists
 
 
 def declare_command(args: Any) -> int:
@@ -33,26 +31,9 @@ def declare_command(args: Any) -> int:
 
 
 def build_store(store: Path, root: Path) -> dict[str, Any]:
-    """Apply the declaration to the store at `store` (created when absent) and report it."""
-    declaration = load_declaration(store)
-    if not store_exists(store):
-        write_empty_store(store)
-    report = {"links": apply_links(store, root, declaration), "models": apply_models(store, root, declaration)}
-    report["predicates_changed"] = apply_predicates(store, declaration)
-    report.update(_track(store, root, declaration))
-    update_store_indexes(store, str(root))
-    report["undeclared"] = undeclared(store, root, declaration)
-    report["missing"] = missing_declared(root, declaration)
-    return report
-
-
-def _track(store: Path, root: Path, declaration) -> dict[str, list[str]]:
-    """Sources first (generators read them), then what the generators wrote."""
-    from sldb.cli.commands.stores_build_generators import run_generators
-
-    tracked = apply_includes(store, root, declaration)
-    generated = run_generators(store, root, declaration)
-    return {"tracked": tracked + apply_includes(store, root, declaration), "generated": generated}
+    """`sldb.api.build_store` with the CLI's generators; `root` is the store's project
+    (kept for the callers that pass it: `stores build --check`)."""
+    return api_build_store(store, apply=True, generate=run_generators)
 
 
 def build_command(args: Any) -> int:

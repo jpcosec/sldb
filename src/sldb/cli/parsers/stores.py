@@ -6,7 +6,7 @@ def add_stores_group(s: argparse._SubParsersAction) -> None:
     sub = p.add_subparsers(dest="stores_command", required=True)
     _init(sub); _add(sub); _remove(sub); _check(sub); _update(sub); _reconcile(sub)
     _semantic_map(sub); _semantic_export(sub); _list(sub); _migrate_hashes(sub)
-    _migrate_layout(sub); _declare(sub); _build(sub)
+    _migrate_layout(sub); _declare(sub); _build(sub); _scaffold(sub)
 
 def _init(s):
     i = s.add_parser("init", help="Init .sldb store.")
@@ -86,4 +86,10 @@ def _build(s):
     b = s.add_parser("build", help="Rebuild the store from .sldb/store.yaml, the tracked Markdown and the models.")
     b.add_argument("--store", help="Store path")
     b.add_argument("--check", action="store_true", help="Rebuild a scratch copy of the sources and compare, writing nothing here")
+    b.add_argument("--format", choices=("text", "json", "yaml"), default="text")
+
+def _scaffold(s):
+    b = s.add_parser("scaffold", help="Create the folders and seed files .sldb/store.yaml declares; without --apply, report what is pending.")
+    b.add_argument("--store", help="Store path")
+    b.add_argument("--apply", action="store_true", help="Write them (default: report only)")
     b.add_argument("--format", choices=("text", "json", "yaml"), default="text")
