@@ -433,6 +433,8 @@ include:
     name: review-task-go09-transiciones-como-datos-de-la-arista-preflight-1
   - path: desk/reviews/task-go09-transiciones-como-datos-de-la-arista/bundle-1.md
     name: review-task-go09-transiciones-como-datos-de-la-arista-bundle-1
+  - path: desk/reviews/task-gd24/bundle-1.md
+    name: review-task-gd24-bundle-1
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md

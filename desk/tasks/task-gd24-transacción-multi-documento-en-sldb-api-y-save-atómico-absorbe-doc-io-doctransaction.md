@@ -91,6 +91,13 @@ q9 (test de /save que cambia): tests/test_serve.py::test_batch_save_partial_fail
 PRECISIONES DEL DESPACHO (coordinador, 2026-11-06):
 q10 (GO08, resuelve q3/q5): al despachar, GO08 no está cerrado en origin/main 9182759f (main trae GO06 cerrado y GO09 en curso). La parte "una regla on_write error dentro de un lote revierte el lote" queda FUERA de GD24; no se implementa ni se prueba, y se anota como hipótesis en la entrega.
 q11 (base): rama wt/gd24 desde origin/main 9182759f (el commit base de q4, 6b80df36, sigue siendo la referencia del grep de genericidad).
+PRECISIONES DEL COLD-BUNDLE (review-task-gd24-bundle-1, 2026-11-06):
+q12 (firma): transaction(store: str | Path | None, pythonpath: str | None = None) y apply_batch(store, changes, pythonpath=None) reciben store como el resto de sldb.api (ruta, alias o None para descubrirlo; se resuelve con open_store).
+q13 (move): new_path es relativo a la raíz del proyecto (como path en create_document y track_document_file) y debe quedar dentro de ella; si el destino ya existe, move levanta SLDBStoreError sin escribir nada.
+q14 (track): name por defecto = stem del archivo, como track_document_file.
+q15 (guardas): si update recibe expected_source_hash y expected, se comprueban las dos, primero expected_source_hash; la primera que falla levanta ConflictError.
+q16 (unrestored): rutas relativas a la raíz del proyecto (la misma contra la que se resuelven los paths relativos de q13), en el orden en que se intentó restaurarlas.
+q17 (medición): script fuera del repo (/dev/shm) que crea un store temporal con 20 documentos y manda un POST /save de 20 updates con el TestClient de serve (como tests/test_serve.py); antes = el mismo script con PYTHONPATH a un checkout de baacd852, después = wt/gd24; mediana de 3 corridas de cada uno; las cifras van al reporte de entrega y el coordinador las copia a la Validation.
 
 ## Validation
 
