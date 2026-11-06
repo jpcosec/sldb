@@ -1,0 +1,21 @@
+name: materialization-gd24-api-test-write-paths-validate
+path: desk/materializations/materialization-gd24-api-test-write-paths-validate.md
+source_hash: 7d9fb6f4826aa42014c2ecf65e0ae77bfa9ce3634e4df4c4b480650150057cb6
+content_hash: 50f1054f723073f9a70bc3b1aeeddfb521580401af96bb6ca5c8a2457c279e2b
+field_hashes:
+  id: 3964e78244a7cd18c854d23be24b9f4be669c482ebaccd4eb89413e665a3fab9
+  title: 9f8a799c820ecc974bb4bc472f7ff6be84c90a4fbdc6958f9f754e16dffb48ce
+  source_atoms: 590fcd271a74aea3e45daafe2c2d7dda4cc542038b7a138fc5d14e79a042ac85
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: a430a2ea9c1d95dc2152b5650a2c177f0308462f71a9da14e61c085d2d39f29f
+  intent: ad789ba7496d3c6855b083796d781363bed3afc4e52a3411f6e17c24566c8739
+  validation: f21c424eb72eab40048520b2dea1f0108072a981c997ce316658108ca5a829aa
+  tags: 12c5322998971bec44713a7addc24faa0c1ba3daf7a7a7de90327d0830cdc042
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:transactions
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

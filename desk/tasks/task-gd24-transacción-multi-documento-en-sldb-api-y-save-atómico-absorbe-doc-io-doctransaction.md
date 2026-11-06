@@ -7,7 +7,16 @@ tags:
 - artifact:task
 current_node: ritual-execution
 history: []
-references: []
+references:
+- pytest tests/api/test_transaction.py
+- tests/api/test_transaction.py
+- pytest tests/api/test_write_paths_validate.py
+- tests/api/test_write_paths_validate.py
+- pytest tests/test_serve.py
+- tests/test_serve.py
+- 0cbd307e2f733d3ba2a044e6c24c91ac54a664b3
+- desk/atoms/atom-una-escritura-de-varios-documentos-en-sldb-es-todo-o-nada.md
+- docs/architecture/transactions.md
 depends_on: []
 pills: []
 files:
@@ -123,6 +132,7 @@ _List the checks required before this task can close._
 - tiempo de pared de un lote de 20 updates por /save antes y después, registrado aquí
 - TMPDIR=/dev/shm pytest -q tests/test_clean_code_rules.py antes de cada squash (recorre todo src/: funciones de 10 líneas de lógica como máximo, límite de clases por archivo; cuenta como test de los archivos tocados aunque output_scope no lo nombre)
 - git fetch y rebase sobre origin/main antes de integrar (main trae SV01, SV02, SV04 en 6ba8bb20 y GO04 en d7eefdeb); en CHANGELOG.md y src/sldb/api/__init__.py tomar la versión de main y agregar solo lo propio
+- RESULTADO (coordinador de proyecto, 2026-11-06, squash 0cbd307e sobre origin/main): test_transaction 13, test_write_paths_validate 5, test_api_documents 10, test_store_seams 2, test_clean_code_rules 887, test_serve 54, test_serve_auth 5, todos verdes; en el worker además test_doc_anchors 20. stores check PASS antes y después del lote fallido (aceptación 1). Genericidad: 0 coincidencias en los archivos de GD24 (49 líneas en src contra 44 en 6b80df36, las 5 nuevas de otros nodos). Medición de un lote de 20 updates por /save, mediana de 9: antes 1.923 s y después 2.203 s (~+15%, con ruido de máquina compartida; detalle en docs/architecture/transactions.md §Medición). H4 aceptado por el coordinador: un update inválido por /save da 422 en vez de 500, declarado en CHANGELOG. on_write de GO08 queda fuera (q10). Suite completa pendiente, una vez, al cierre del plan.
 
 ## Done When
 

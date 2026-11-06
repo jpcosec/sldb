@@ -1,0 +1,21 @@
+name: materialization-gd24-commands-docs
+path: desk/materializations/materialization-gd24-commands-docs.md
+source_hash: e07eed91f18d07021aa720bd784402cd8adb4481e4f8ba75bb47511ac41371d8
+content_hash: adbf5ea358f1f84ad2a4da9b990d3b792c76057a69855ae4bbec9d087615777e
+field_hashes:
+  id: cf47033fbd0d6a6646f2ad11273dd7acb6a791429004f0db091734597feb80e7
+  title: 38c4880f82629d2586aa972b785d1b4fba5f20792b5342bd82644c792832b2bf
+  source_atoms: 590fcd271a74aea3e45daafe2c2d7dda4cc542038b7a138fc5d14e79a042ac85
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 0e2bce8cc728171daa51e66d2fb31be9915dc97c6c8c16d117042379c0e3dca8
+  intent: 855bfd3e334315da65f4f4bd3003af54a51ea7339c5431c25c4ec6c328091b37
+  validation: 5e295842da0ac8f33b664430755d256b289b73e1b71d5d94cda489cdb5205cb0
+  tags: 12c5322998971bec44713a7addc24faa0c1ba3daf7a7a7de90327d0830cdc042
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:transactions
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

@@ -427,12 +427,34 @@ include:
   - desk/materializations/materialization-sv04-src-sldb-cli-serve-models-routes-py.md
   - desk/materializations/materialization-sv04-docs-architecture-model-authoring-md.md
   - desk/materializations/materialization-sv04-tests-api-test-model-metadata-drafts-py.md
+  - desk/materializations/materialization-gd24-documents-transaction.md
+  - desk/materializations/materialization-gd24-documents-apply-batch.md
+  - desk/materializations/materialization-gd24-documents-move-document.md
+  - desk/materializations/materialization-gd24-io-rollback.md
+  - desk/materializations/materialization-gd24-serve-save-routes.md
+  - desk/materializations/materialization-gd24-serve-save-plan.md
+  - desk/materializations/materialization-gd24-commands-fields-mutate.md
+  - desk/materializations/materialization-gd24-commands-fields-save.md
+  - desk/materializations/materialization-gd24-commands-docs.md
+  - desk/materializations/materialization-gd24-api-test-transaction.md
+  - desk/materializations/materialization-gd24-api-test-write-paths-validate.md
+  - desk/materializations/materialization-gd24-tests-test-serve.md
+  - desk/materializations/materialization-gd24-tests-test-serve-auth.md
+  - desk/materializations/materialization-gd24-api-test-api-documents.md
+  - desk/materializations/materialization-gd24-architecture-transactions.md
+  - desk/materializations/materialization-gd24-documents-transaction-state.md
+  - desk/materializations/materialization-gd24-documents-transaction-ops.md
+  - desk/materializations/materialization-gd24-documents-transaction-paths.md
+  - desk/materializations/materialization-gd24-documents-batch-prevalidate.md
+  - desk/materializations/materialization-gd24-documents-batch-report.md
+  - desk/materializations/materialization-gd24-exceptions-sldb-conflict-error.md
+  - desk/materializations/materialization-gd24-exceptions-init.md
 - model: TaskCodeDoc
   paths:
   - desk/tasks/task-gd26-scaffold-de-store-desde-carpetas-y-semillas-declaradas.md
-  - desk/tasks/task-gd24-transacción-multi-documento-en-sldb-api-y-save-atómico-absorbe-doc-io-doctransaction.md
   - desk/tasks/task-go08-evaluacion-en-escritura-transicion-y-check-incremental-y-a-punto-fijo.md
   - desk/tasks/task-gd23-selectores-de-documento-id-prefijo-glob-modelo-where-como-api-de-sldb.md
+  - desk/tasks/task-gd24-transacción-multi-documento-en-sldb-api-y-save-atómico-absorbe-doc-io-doctransaction.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md

@@ -1,0 +1,21 @@
+name: materialization-gd24-exceptions-sldb-conflict-error
+path: desk/materializations/materialization-gd24-exceptions-sldb-conflict-error.md
+source_hash: af0e61f3d5fef2c264dd18184b3ca0e220736d88aa6da3f31aad17b5cd8c5756
+content_hash: 5baaedf852102a75482ad0e4ad803d16cd750b04cf6ae87d1b07ae92f6276144
+field_hashes:
+  id: f47f72d3e6effe4f4f2e5038dd353efbd4b04d303085ac2e14e67e3c81cc1d09
+  title: fff831c0fcc86e3d46ee494b491610c72ab0ac788d7ee2ea88bb4abb2e0e69ce
+  source_atoms: 590fcd271a74aea3e45daafe2c2d7dda4cc542038b7a138fc5d14e79a042ac85
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 72a73e4074246aeb650195eb1f879914bdaaeac582645f65846ed66a9806ffb4
+  intent: 70e12db8401f0a10a7ee3fabf73fa4e63fe5ff4d2bd0ca1fee93aa8c60b50d16
+  validation: 5e295842da0ac8f33b664430755d256b289b73e1b71d5d94cda489cdb5205cb0
+  tags: 12c5322998971bec44713a7addc24faa0c1ba3daf7a7a7de90327d0830cdc042
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:transactions
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

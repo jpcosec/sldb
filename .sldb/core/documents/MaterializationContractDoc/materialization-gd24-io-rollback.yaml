@@ -1,0 +1,21 @@
+name: materialization-gd24-io-rollback
+path: desk/materializations/materialization-gd24-io-rollback.md
+source_hash: 0b0a55e78776bb1c976e507d0b243ebfc928af555f4164cc56f5c75893a7cef8
+content_hash: 84f8461d85c8cf289239b4765df1ed0fab72144d66d2f565f829c9ec292f6496
+field_hashes:
+  id: cbaf06787e9c51e75a029c16d3bbdef04fd19518be3ff1dab20b8d276fa09591
+  title: 3713678378890152b44643f5f2b8a4f4edfb9c717a09d68b6bf162f4dd63d342
+  source_atoms: 590fcd271a74aea3e45daafe2c2d7dda4cc542038b7a138fc5d14e79a042ac85
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: d8f14e221ed7901496467c8cd562acdd8168e97a661c246776c181ec5fc8227a
+  intent: 5eeb5b2643ff2725978e58cd6194ece209011ef64f3e3c094e9adcdd9f92aba1
+  validation: 5e295842da0ac8f33b664430755d256b289b73e1b71d5d94cda489cdb5205cb0
+  tags: 12c5322998971bec44713a7addc24faa0c1ba3daf7a7a7de90327d0830cdc042
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:transactions
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

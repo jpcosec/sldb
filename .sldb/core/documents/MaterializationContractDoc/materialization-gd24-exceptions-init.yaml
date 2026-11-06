@@ -1,0 +1,21 @@
+name: materialization-gd24-exceptions-init
+path: desk/materializations/materialization-gd24-exceptions-init.md
+source_hash: d6e16e010d234f9de43a138cb3ab0da975ab4f15b0a19603d88dc256dd413d29
+content_hash: ab5cbdf9cbc75b63b1117c3f48639264f86556e6f68aaaba5c33055aba4dd5f7
+field_hashes:
+  id: f54b14654f8fdf895277b105eaf0278a614498c8b1d88d4e557585b192e380fa
+  title: c8b18cdc151c83fb0526ba6c86c613444e7f6054ed5887ddbfa298a6e053c819
+  source_atoms: 590fcd271a74aea3e45daafe2c2d7dda4cc542038b7a138fc5d14e79a042ac85
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 958a1123058e56d3595b1a928512678c8e60604c27dc22693720466437b75a34
+  intent: 6ce044092c3eb7074efb49033a6ac4b3c6520bcbf72eb9fccfe21acf8293074e
+  validation: 5e295842da0ac8f33b664430755d256b289b73e1b71d5d94cda489cdb5205cb0
+  tags: 12c5322998971bec44713a7addc24faa0c1ba3daf7a7a7de90327d0830cdc042
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:transactions
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null
