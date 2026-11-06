@@ -7,7 +7,6 @@ scope: sldb-local-desk
 tasks:
 - desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
 - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
-- desk/tasks/task-gd23-selectores-de-documento-id-prefijo-glob-modelo-where-como-api-de-sldb.md
 - desk/tasks/task-gd26-scaffold-de-store-desde-carpetas-y-semillas-declaradas.md
 - desk/tasks/task-go08-evaluacion-en-escritura-transicion-y-check-incremental-y-a-punto-fijo.md
 # List of pill-xxx paths
@@ -56,6 +55,5 @@ _Generated from the task references above._
 
 - Diseño: set bootstrap de modelos tras la convergencia átomo/field [draft] - Un documento de decisión en docs/ (SpecDoc o PlanDoc trackeado) que evalúe la propuesta de siete modelos, diga qué se adopta, qué no y por qué, con ejemplos de cada modelo sobre documentos reales del store.
 - Diseño: jerarquía de modelos de evidencia (__family__ o herencia) [draft] - Un documento de decisión en docs/ que compare __family__ vs herencia de clases para los modelos de evidencia, con la recomendación y sus consecuencias para deskops (RunDoc, materializaciones, closeout_evidence).
-- GD23: Selectores de documento (id, prefijo, glob, modelo, where) como API de sldb [draft] - sldb.api.select_documents(store, selector, *, expect='many'|'one') con claves ref, prefix, path_glob, model (con herencia), where (sobre la facet payload de GO04, sin Validator.extract) e include_linked, combinadas por conjunción, orden por ruta relativa, error de ambigüedad con candidatos; glob_structural y find_structural pasan por ella sin cambiar su salida; CLI sldb docs select con envelope; GET /docs/select; docs/architecture/selectors.md.
 - GD26: Scaffold de store desde carpetas y semillas declaradas [draft] - StoreDeclaration gana folders y seeds (modos if_missing y managed; fuentes text, file con pkg: y document con track); sldb.api.scaffold_store(store, *, declaration=None, apply=False, template_root) idempotente con reporte created/rewritten/present/conflicts; sldb.api.build_store ejecuta apply_declaration y luego scaffold_store; CLI sldb stores scaffold [--apply] y stores build con sección scaffold; doc en docs/architecture/store-declaration.md.
 - GO08: Evaluacion en escritura, transicion y check, incremental y a punto fijo [draft] - on_write en los pasos de guardado (despues del pinneado, antes de persistir: error rechaza, alert pasa y reporta); on_transition en edges_holding (findings por arista, solo alerts) y edges_blocked nueva (aristas con error); on_check en stores check junto con check_doc_anchors; cache derivada por dirty set en .sldb_cache con clave por content_hash de las reglas; punto fijo semi-naive; edges check valida condiciones; test end-to-end de tres pasos; medicion de 20 escrituras antes/despues.
