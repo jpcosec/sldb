@@ -38,9 +38,9 @@ def _bases(m_idx: ModelsIndex, model_type: Any | None) -> list[str]:
     imported class says them then."""
     if m_idx.base_models or model_type is None:
         return sorted(set(m_idx.base_models))
-    from sldb.api.model_registry.model_lineage import model_base_names
+    from sldb.store.model_contract import base_names
 
-    return sorted(set(model_base_names(model_type)))
+    return sorted(set(base_names(model_type)))
 
 
 def _model_node(m_idx: ModelsIndex, mid: str, tags: list[str], bases: list[str]) -> EdgeNodeRecord:
