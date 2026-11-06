@@ -8,6 +8,7 @@ tasks:
 - desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
 - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
 - desk/tasks/task-gd21-grafo-de-proyecto-aristas-declaradas-y-nodos-fuente-desde-el-índice-de-sldb-declarado-por-datos.md
+- desk/tasks/task-go10-retiro-de-where-parse-y-fieldcondition.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -55,3 +56,4 @@ _Generated from the task references above._
 - Diseño: set bootstrap de modelos tras la convergencia átomo/field [draft] - Un documento de decisión en docs/ (SpecDoc o PlanDoc trackeado) que evalúe la propuesta de siete modelos, diga qué se adopta, qué no y por qué, con ejemplos de cada modelo sobre documentos reales del store.
 - Diseño: jerarquía de modelos de evidencia (__family__ o herencia) [draft] - Un documento de decisión en docs/ que compare __family__ vs herencia de clases para los modelos de evidencia, con la recomendación y sus consecuencias para deskops (RunDoc, materializaciones, closeout_evidence).
 - GD21: Grafo de proyecto (aristas declaradas y nodos fuente) desde el índice de sldb, declarado por datos y servido [draft] - La configuración del grafo de proyecto es dato puro: ProjectGraphConfig y sus dataclasses se cargan y vuelcan a YAML con ida y vuelta exacta, y se declaran en store.yaml bajo project_graph con validación propia; el hook closed_document pasa a ser un predicado closed: del lenguaje de sldb; ProjectGraph gana edges_to desde un mapa inverso memoizado por firma de shards y mtime de superficies; sldb.api.project_graph(store), CLI sldb graph project nodes|edges|missing con envelope, GET /project-graph/nodes|edges|missing y /edges?include_linked=false; docs/architecture/project-graph.md. Produce G_PROJECT_GRAPH.
+- GO10: Retiro de where_parse y FieldCondition [draft] - Sin los identificadores where_parse ni FieldCondition en src/ ni en docs/ (salvo la tabla historica de rules-language.md bajo 'Historico'); sin los ocho operadores viejos en bloques de codigo de docs/ fuera de esa tabla; cada mencion reescrita con la construccion equivalente; goldens conservados como tests del lenguaje nuevo; CHANGELOG en la seccion en curso.

@@ -516,11 +516,12 @@ include:
     name: review-task-gd21-preflight-1
   - path: desk/reviews/task-gd21/bundle-1.md
     name: review-task-gd21-bundle-1
-- model: BoardDoc
-  paths:
-  - desk/tasks/Board.md
 - model: TaskCodeDoc
   paths:
   - desk/tasks/task-gd21-grafo-de-proyecto-aristas-declaradas-y-nodos-fuente-desde-el-índice-de-sldb-declarado-por-datos.md
+  - desk/tasks/task-go10-retiro-de-where-parse-y-fieldcondition.md
+- model: BoardDoc
+  paths:
+  - desk/tasks/Board.md
 graph_backend: networkx
 policy: {}
