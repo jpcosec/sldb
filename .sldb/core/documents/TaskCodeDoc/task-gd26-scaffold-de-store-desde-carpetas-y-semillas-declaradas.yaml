@@ -1,7 +1,7 @@
 name: task-gd26-scaffold-de-store-desde-carpetas-y-semillas-declaradas
 path: desk/tasks/task-gd26-scaffold-de-store-desde-carpetas-y-semillas-declaradas.md
-source_hash: 0c7784d2e2beb1d0bc641df79dafd7dd547469a8d7bcb13a13874b7da572ab39
-content_hash: b77cfcf9e7fa4498c463a69f054474249a4a20e3ebd043efe25f0dcf930ba2a6
+source_hash: 6cf947f124671ff26050182c2f42d9d67442fcb6a1ab829f942783b4d220c466
+content_hash: 329ba4ea458c9551c94ec7d4619b05b55311a06ff14b40363a8e746da70275ea
 field_hashes:
   title: ce71981e7092570cb77c563fd4023c7a19ae7a2a4c05ad2367177d5ba9043183
   id: dd90f32c38ad0bd0dcb815cc367f353936380294facf4d72fc02d9b0c40db831
@@ -18,7 +18,7 @@ field_hashes:
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: ae03c9e6f401f5cf7a05f6c06ee08cea9c9c596ce97fef7dd00b6cbc0d1ff7f2
   implementation_path: 5100746770d9dc465f71f3aa821d28011af72f5721d1454ccfb00b2ae8822644
-  validation: f3bb3660b4416ae5e9e7030aee1efd48e04c9308b53929033b87bbac1a8c1652
+  validation: 73a592c672a117ce768caef38f2ae2564f63348832e0f5a42b0753dd081114c1
   done_when: 8177f7b06e39e46bd85ec403c1af427eb21f1c2f0a5e4bbdfb39a41333371886
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945

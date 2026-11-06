@@ -101,6 +101,8 @@ _List the checks required before this task can close._
 - nota de cierre a deskops por deskops message send --to deskops --kind suggestion (regla 7)
 - sldb stores check PASS antes y después del lote fallido en el store temporal
 - tiempo de pared de un lote de 20 updates por /save antes y después, registrado aquí
+- TMPDIR=/dev/shm pytest -q tests/test_clean_code_rules.py antes de cada squash (recorre todo src/: funciones de 10 líneas de lógica como máximo, límite de clases por archivo; cuenta como test de los archivos tocados aunque output_scope no lo nombre)
+- git fetch y rebase sobre origin/main antes de integrar (main trae SV01, SV02, SV04 en 6ba8bb20 y GO04 en d7eefdeb); en CHANGELOG.md y src/sldb/api/__init__.py tomar la versión de main y agregar solo lo propio
 
 ## Done When
 
