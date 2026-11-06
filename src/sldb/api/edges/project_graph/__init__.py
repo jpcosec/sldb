@@ -3,7 +3,8 @@
 A project (a desk, a repository) configures where its documents live, which files are nodes
 and which fields and sections declare references (`ProjectGraphConfig`); `ProjectGraph`
 reads the nodes once, the store's cached edge index for tracked documents, and the text of
-only the documents a reader asks about.
+only the documents a reader asks about. `project_graph(store)` is the graph of the project
+whose `store.yaml` declares the configuration under `project_graph`, kept per process.
 """
 
 from sldb.api.edges.project_graph.declared_file_targets import DeclaredFileTargets
@@ -25,10 +26,11 @@ from sldb.api.edges.project_graph.project_graph_config import ProjectGraphConfig
 from sldb.api.edges.project_graph.project_graph_extraction import ProjectGraphExtraction
 from sldb.api.edges.project_graph.reference_field import ReferenceField
 from sldb.api.edges.project_graph.section_mentions import SectionMentions
+from sldb.api.edges.project_graph.store_project_graph import project_graph
 
 __all__ = [
     "DeclaredFileTargets", "DocumentNode", "DocumentSurface", "FileExclusions", "FileNode", "FileRule",
     "LineMentions", "MentionPattern", "MissingProjectTarget", "MissingTargetKind", "NodeProvenance",
     "ProjectEdge", "ProjectGraph", "ProjectGraphConfig", "ProjectGraphExtraction", "ReferenceField",
-    "SectionMentions", "extract_document_nodes", "extract_file_nodes",
+    "SectionMentions", "extract_document_nodes", "extract_file_nodes", "project_graph",
 ]

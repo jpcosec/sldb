@@ -2,14 +2,17 @@
 
 sldb owns the reading (documents, files, the store's edge index, declarations); the project
 owns this configuration: where its documents live, which files are nodes, which fields and
-sections declare references, and which documents are archived records.
+sections declare references, and which documents are archived records. It is plain data:
+`from_mapping` loads it from (and `to_mapping` dumps it to) the mapping a `store.yaml`
+declares under `project_graph`.
 """
 
 from __future__ import annotations
 
-from typing import Callable
+import warnings
+from typing import Any, Callable
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from sldb.api.edges.project_graph.declared_file_targets import DeclaredFileTargets
 from sldb.api.edges.project_graph.document_surface import DocumentSurface
@@ -43,7 +46,39 @@ class ProjectGraphConfig(BaseModel):
     line_mentions: tuple[LineMentions, ...] = Field(default=(), description="Mentions read on every line.")
     missing_target_kinds: tuple[MissingTargetKind, ...] = Field(default=(), description="Kinds of dangling path targets.")
     closed_document: Callable[[str, str], bool] | None = Field(
-        default=None,
-        description="(kind, text) -> whether a document is history besides `record: true` (a closed issue).",
+        default=None, exclude=True,
+        description="Deprecated: `(kind, text) -> closed`, a Python-only argument that never loads or dumps; declare `closed:` on the surface instead.",
     )
+
+    @model_validator(mode="after")
+    def _closed_document_is_deprecated(self) -> ProjectGraphConfig:
+        if self.closed_document is not None:
+            warnings.warn("ProjectGraphConfig(closed_document=...) is deprecated: declare `closed:` on the document surface", DeprecationWarning, stacklevel=2)
+        return self
+
+    @classmethod
+    def from_mapping(cls, mapping: Any, path: str = "project_graph") -> ProjectGraphConfig:
+        """The configuration a plain mapping (what `store.yaml` holds under `project_graph`) declares.
+
+        Args:
+            mapping: Scalars, lists and mappings only, keyed by the field names.
+            path: Where the mapping sits, prefixed to the key an error names.
+
+        Raises:
+            ValueError: An unknown key or a value that is not data, naming the key's path
+                (`project_graph.surfaces[0].closed_document`); a value of the wrong type.
+        """
+        from sldb.api.edges.project_graph.project_graph_config_mapping import config_from_mapping
+
+        return config_from_mapping(mapping, path)
+
+    def to_mapping(self) -> dict[str, Any]:
+        """The configuration as plain data: `from_mapping` of it is an equal configuration.
+
+        Raises:
+            ValueError: `closed_document` is set; a callable is not data.
+        """
+        from sldb.api.edges.project_graph.project_graph_config_mapping import config_to_mapping
+
+        return config_to_mapping(self)
 

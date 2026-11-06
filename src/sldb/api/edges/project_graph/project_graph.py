@@ -5,13 +5,14 @@ from __future__ import annotations
 from pathlib import Path
 
 from sldb.api.edges.project_graph.document_edge_reader import DocumentEdgeReader
+from sldb.api.edges.project_graph.inverse_edges import InverseEdges
 from sldb.api.edges.project_graph.missing_project_target import MissingProjectTarget
 from sldb.api.edges.project_graph.project_edge import ProjectEdge
 from sldb.api.edges.project_graph.project_graph_config import ProjectGraphConfig
 from sldb.api.edges.project_graph.project_graph_extraction import ProjectGraphExtraction
 from sldb.api.edges.project_graph.project_nodes import ProjectNodes
 from sldb.api.edges.project_graph.project_store import load_project_store
-from sldb.api.edges.project_graph.project_texts import ProjectTexts
+from sldb.api.edges.project_graph.project_texts import ProjectTexts, indexed_payloads
 from sldb.api.edges.project_graph.source_edges import SourceEdges
 from sldb.api.edges.project_graph.store_sources import StoreSources
 
@@ -22,7 +23,8 @@ class ProjectGraph:
     The store's own edge index (cached by sldb while its shards do not move) gives the schema
     edges of tracked documents and the values it could not resolve; each document's text gives
     what its model does not declare (configured fields, YAML blocks, sections, mentions). A
-    reader that needs a few sources reads those documents, not all of them.
+    reader that needs a few sources reads those documents, not all of them. The edges reaching
+    a node come from one inverse map, built from every source the first time it is asked.
     """
 
     def __init__(self, root: Path, config: ProjectGraphConfig) -> None:
@@ -36,10 +38,12 @@ class ProjectGraph:
         self.config = config
         self.nodes = ProjectNodes(self.root, config)
         self.store = load_project_store(self.root, [node.path for node in self.nodes.documents])
-        self.texts = ProjectTexts(self.root, config.closed_document)
+        self.texts = ProjectTexts(self.root, config, indexed_payloads(self.store.index) if self.store else None)
         self.store_sources = StoreSources(self.store, self.nodes.lookup, self.texts, config)
         self._document_reader = DocumentEdgeReader(config, self.nodes, self.store, self.texts)
         self._read: dict[str, tuple[list[ProjectEdge], list[MissingProjectTarget]]] = {}
+        self._extraction: ProjectGraphExtraction | None = None
+        self._inverse: InverseEdges | None = None
 
     def node_ids(self) -> set[str]:
         """Every id that may be the source of an edge or of a missing target."""
@@ -53,14 +57,22 @@ class ProjectGraph:
         """The declared targets of `node_id` that resolve to no node, sorted by key."""
         return self._read_source(node_id)[1]
 
+    def edges_to(self, node_id: str) -> list[ProjectEdge]:
+        """The declared edges reaching `node_id`, the same records `edges_from` gives, sorted by key."""
+        if self._inverse is None:
+            self._inverse = InverseEdges(self.extraction())
+        return self._inverse.edges_to(node_id)
+
     def extraction(self) -> ProjectGraphExtraction:
-        """Every source read: all edges and findings, each sorted by key."""
-        edges: list[ProjectEdge] = []
-        missing: list[MissingProjectTarget] = []
-        for node_id in sorted(self.node_ids()):
-            edges.extend(self.edges_from(node_id))
-            missing.extend(self.missing_from(node_id))
-        return ProjectGraphExtraction(edges=sorted(edges, key=ProjectEdge.key), missing_targets=sorted(missing, key=MissingProjectTarget.key))
+        """Every source read (once): all edges and findings, each sorted by key."""
+        if self._extraction is None:
+            edges: list[ProjectEdge] = []
+            missing: list[MissingProjectTarget] = []
+            for node_id in sorted(self.node_ids()):
+                edges.extend(self.edges_from(node_id))
+                missing.extend(self.missing_from(node_id))
+            self._extraction = ProjectGraphExtraction(edges=sorted(edges, key=ProjectEdge.key), missing_targets=sorted(missing, key=MissingProjectTarget.key))
+        return self._extraction
 
     def _read_source(self, node_id: str) -> tuple[list[ProjectEdge], list[MissingProjectTarget]]:
         """Index edges first, then each document with that id, then the index's unresolved values.
