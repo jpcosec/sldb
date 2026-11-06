@@ -13,14 +13,14 @@ estimate_legend:
 gates:
   G_GO04:
     title: Payload proyectado al grafo (grafo-operable GO04) cerrado en main de sldb
-    state: pending
+    state: satisfied
     resolver: closeout commit de task-go04-payload-proyectado-al-grafo-y-staleness-correcta en main de sldb
-    evidence: un filtro estructurado por campo responde con cero llamadas a Validator.extract (aceptación de GO04)
+    evidence: 'sldb d7eefdeb (squash de wt/go04) y closeout ee211b21: un filtro estructurado por campo responde con cero llamadas a Validator.extract (aceptación de GO04 verificada por el coordinador 1, reports/coordinador1.md); 2026-11-06'
   G_GO05:
     title: Lenguaje de predicados unificado (GO05) cerrado en main de sldb
-    state: pending
+    state: satisfied
     resolver: closeout commit de GO05 en main de sldb
-    evidence: sldb docs find --where con any()/all() sobre una relación responde con explicación
+    evidence: 'sldb 8be66bde (squash de wt/go05) y closeout 5fd22306: sldb find --where con any()/all() sobre una relación responde con explicación (el comando es sldb find, no sldb docs find; aceptación verificada por el coordinador 1); 2026-11-06'
   G_GO06:
     title: RuleDoc, rules check y rules explain (GO06) cerrados en main de sldb
     state: pending
