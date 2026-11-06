@@ -11,6 +11,7 @@ from sldb.cli.serve.health import health_payload
 from sldb.cli.serve.docs_create_route import dispatch_docs_or_create
 from sldb.cli.serve.docs_select_routes import dispatch_docs_select
 from sldb.cli.serve.edges_documents_routes import dispatch_edges
+from sldb.cli.serve.edges_rewrite_routes import dispatch_edges_rewrite
 from sldb.cli.serve.document_routes import DOCUMENT_ROUTES, dispatch_document
 from sldb.cli.serve.corpus_routes import corpus_rank
 from sldb.cli.serve.find_routes import dispatch_find
@@ -68,7 +69,7 @@ def _nested_get(
     project_root: Path,
     pythonpath: str,
 ) -> tuple[dict[str, Any], int]:
-    if route == "/edges" or route.startswith("/edges/"): return dispatch_edges(handler, store_path, pythonpath)
+    if route == "/edges" or route.startswith("/edges/"): return _edges_get(handler, route, store_path, pythonpath)
     if route.startswith("/graph/"): return dispatch_graph(handler, store_path)
     if route.startswith("/project-graph/"): return dispatch_project_graph(handler, store_path)
     if route in DOCUMENT_ROUTES: return dispatch_document(handler, route, store_path, project_root, pythonpath)
@@ -78,6 +79,12 @@ def _nested_get(
     if route == "/notations" or route.startswith("/notations/"): return dispatch_notations(handler, "GET", route, store_path, project_root, pythonpath)
     if route.startswith("/views/projection"): return dispatch_projection_views(handler, "GET", route, store_path, project_root, pythonpath)
     return _dispatch_reader(route, handler, store_path, project_root, pythonpath)
+
+
+def _edges_get(handler: BaseHTTPRequestHandler, route: str, store_path: Path, pythonpath: str) -> tuple[dict[str, Any], int]:
+    """`/edges/referrers` (GD22) answers a list; every other `/edges*` route reads as before."""
+    if route == "/edges/referrers": return dispatch_edges_rewrite(handler, "GET", store_path, pythonpath)
+    return dispatch_edges(handler, store_path, pythonpath)
 
 
 def _dispatch_reader(route: str, handler: BaseHTTPRequestHandler, store_path: Path, project_root: Path, pythonpath: str) -> tuple[dict[str, Any], int]:
@@ -102,6 +109,7 @@ def dispatch_post(
     project_root: Path,
     pythonpath: str,
 ) -> tuple[dict[str, Any], int]:
+    if route == "/edges/rewrite": return dispatch_edges_rewrite(handler, "POST", store_path, pythonpath)
     if route.startswith("/models/"): return dispatch_models(handler, "POST", route, store_path, project_root, pythonpath)
     if route == "/docs" or route.startswith("/docs/"): return dispatch_docs_or_create(handler, route, store_path, project_root, pythonpath)
     if route == "/extract/segments": return extract_segments_response(read_json_body(handler), store_path, pythonpath)
