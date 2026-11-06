@@ -107,3 +107,28 @@ def test_two_submodels_with_the_same_name_are_ambiguous(store):
         resolve_indexed_document(sp, "NoteDoc", "twin")
     assert exc.value.models == ["LetterNoteDoc", "MemoNoteDoc"]
     assert "MemoNoteDoc:twin" in str(exc.value)
+
+
+def test_an_inherited_submodel_is_found_through_its_owners_bases(tmp_path):
+    """The repo inherits the models from the store that owns them (as desks inherit deskops'):
+    the local index keeps no `base_models`; the owner's does."""
+    from sldb.api import inherit_model, link_store
+
+    owner, local = tmp_path / "owner", tmp_path / "repo"
+    owner.mkdir(), local.mkdir()
+    (owner / f"{MODULE}.py").write_text(_MODELS, encoding="utf-8")
+    owner_sp, local_sp = init_store(owner).store_path, init_store(local).store_path
+    try:
+        for model in ("NoteDoc", "MemoNoteDoc"):
+            add_model(owner_sp, f"{MODULE}:{model}", str(owner))
+        link_store(local_sp, owner_sp, "owner")
+        for model in ("NoteDoc", "MemoNoteDoc"):
+            inherit_model(local_sp, f"owner:{model}")
+        _track(local, local_sp, "MemoNoteDoc", "x")
+        assert resolve_indexed_document(local_sp, "NoteDoc", "x")["model"] == "MemoNoteDoc"
+    finally:
+        sys.modules.pop(MODULE, None)
+        while str(owner) in sys.path:
+            sys.path.remove(str(owner))
+        invalidate_index_cache()
+        invalidate_runtime_cache()

@@ -3,7 +3,8 @@
 A document is tracked under its own model. Asking for it under a base model (`TaskDoc:task-x`
 for a document tracked as `TaskCodeDoc:task-x`) finds it too: an instance of a submodel is an
 instance of its bases, as the `extends` relation says. The answer comes from the store's indexes
-alone (`base_models` of each model index), so no model class is imported.
+alone (`base_models` of each model index, or of the owner's for an inherited model), so no model
+class is imported.
 """
 
 from __future__ import annotations
@@ -13,6 +14,18 @@ from pathlib import Path
 from sldb.api.stores.ambiguous_document import AmbiguousDocument
 from sldb.store.io import load_documents_index, load_models_index, load_store_index
 from sldb.store.layout import project_root
+from sldb.store.model_origin import owner_entry
+
+
+def _bases(store_path: Path, entry, models_index) -> list[str]:
+    """The model's bases; an inherited entry keeps them in its owner's model index."""
+    if models_index.base_models or not entry.origin:
+        return list(models_index.base_models)
+    owned = owner_entry(store_path, entry)
+    if owned is None:
+        return []
+    owner, owner_model = owned
+    return list(load_models_index(project_root(owner) / owner_model.models_index).base_models)
 
 
 def _family_hits(store_path: Path, model: str, name: str) -> list[dict[str, str]]:
@@ -20,7 +33,7 @@ def _family_hits(store_path: Path, model: str, name: str) -> list[dict[str, str]
     root, hits = project_root(store_path), []
     for entry in sorted(load_store_index(store_path).models, key=lambda item: item.name):
         models_index = load_models_index(root / entry.models_index)
-        if entry.name != model and model not in models_index.base_models:
+        if entry.name != model and model not in _bases(store_path, entry, models_index):
             continue
         documents = load_documents_index(root / models_index.documents_index).documents
         hits += [{"name": d.name, "model": entry.name, "path": d.path} for d in documents if d.name == name]
