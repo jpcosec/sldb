@@ -1,0 +1,27 @@
+name: python-sldb-sldb-cli-main-_plain
+path: knowledge/symbols/python-sldb-sldb-cli-main-_plain.md
+source_hash: fd67990e2510ca92d0144e787355e00ba37ae606d3afb7cb83ea5a5db4020a5f
+content_hash: 88cf99fea974c01a23cf84a6fb81c441921d3f41a2d34dd0e7d13e8b5a3e40cc
+field_hashes:
+  id: ab4e50514802b3ee6b02825da1dfa75bb7c4298eec4dadaf76ab08c7b7d31195
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  module: 8127691d36aa9b9ac7352f02f6e0ad8f74e0281d64c93eed86e05150cb74e9ae
+  qualname: b2fd28a8194eab087b153b679c26c6316b42d47285ac17f0ed272544f3141ec2
+  kind: efc8bf12721ebca0b78886cfac3be3af9d29c6da34d05be1060d1c27006bfeb1
+  source_path: 26eafa05cd00092397fb426542352750b84bebe8cacbaff9bba2dd588c2c6fa6
+  source_span: fb41ec8ec232344eb5b64b5d50180240c966cd0abd481c4a5ebaf04e9b8753e9
+  source_sha256: 7fa23ef6cc6a216dd069b7fa4cd67966b9c1a09129822a7f213a5139f057b6d4
+  architecture_spec: f4064a2cf745361c0b2ac80cc8ce1967877089b41f1a971da025c7c1bd2b0ade
+  signature: 7e9b904bbc290e38f1e4673dd6840cc9bfc7cc6977102bd199119b3304850af5
+  docstring: 628a44b99e743ef4f225bdeafd4b510d9aa05384dd8ec00fb0ff4bbc3d8589e4
+  imports: ce854e4e504e69069c0b4ef50b84c2c99d038a19834800a6f289d8257d1735f7
+  purpose: 628a44b99e743ef4f225bdeafd4b510d9aa05384dd8ec00fb0ff4bbc3d8589e4
+  architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: 1e2349e68c751dfb53dda1628af8328aaf8cc9600d934533d06cb3824d0b8b22
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols
+provenance: null

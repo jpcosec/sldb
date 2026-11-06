@@ -1,0 +1,27 @@
+name: python-sldb-sldb-core-finding-finding-as_dict
+path: knowledge/symbols/python-sldb-sldb-core-finding-finding-as_dict.md
+source_hash: 6c580ca525ed2835822cafba935b5675154212d244c741a74703e3002742dc46
+content_hash: bcc2c0a5eeda63a052222748ed097386072e4a08a2499209d87b81943f604f42
+field_hashes:
+  id: 589f4599cfd91bed71b676d45b210b47b30173ead297d993a4706923c0ff6312
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  module: c557f8d8d433d0d52e5a3556e72f227b30ab376013f8c9797e180ce672c17b01
+  qualname: 78827912c25b31a831b328b09f08f3547b9a73d28d12f7227164d5a27110e098
+  kind: efc8bf12721ebca0b78886cfac3be3af9d29c6da34d05be1060d1c27006bfeb1
+  source_path: c79c9a0165fa6fef414c69f1a72bb21a990ed72435071bd88d97746061208610
+  source_span: e2639e8a56298f1fc956197e38edbcd0c37821e7da8e867b4bd397999c88b19e
+  source_sha256: 536c8e7063665710b0f038d6ce3acfe3533fc22c442912d11c5923bc1eaa62b3
+  architecture_spec: f4064a2cf745361c0b2ac80cc8ce1967877089b41f1a971da025c7c1bd2b0ade
+  signature: c567d03245fba86880530c4c8b8ac1c6bba0dc04d319a1fe926beb4fd2eca196
+  docstring: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  imports: 0813d23dd8b37e960948a6a2633f0b69aad3f46f2bb9c9da9cdc7142e075d654
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: 1a74ef3bc10f00bbf41f2b90b6d8a31130a11af68aba435e4b2165b93ff6772b
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols
+provenance: null

@@ -1,0 +1,27 @@
+name: python-sldb-sldb-core-finding-finding-line
+path: knowledge/symbols/python-sldb-sldb-core-finding-finding-line.md
+source_hash: 844424870cc5e1ac433cb787f2186bdea43cf93992cfdf57200228c3b04c5525
+content_hash: b49844d8c526c6badca4032b8a8be41231db6c999c6035ad4a27d30aab140682
+field_hashes:
+  id: 9037dcc685394e363b94877c18465d921fde77b35efa2e8b6fbb733ab0410a52
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  module: c557f8d8d433d0d52e5a3556e72f227b30ab376013f8c9797e180ce672c17b01
+  qualname: 989b76a7716721de7c72a5547f3ae6a10e3fdf25371ace1bd665e11c45d1caf4
+  kind: efc8bf12721ebca0b78886cfac3be3af9d29c6da34d05be1060d1c27006bfeb1
+  source_path: c79c9a0165fa6fef414c69f1a72bb21a990ed72435071bd88d97746061208610
+  source_span: 47aa5ac42d11fe6b65adb866aea9664e6933236a86ace28a6944c4ae215cc03e
+  source_sha256: 536c8e7063665710b0f038d6ce3acfe3533fc22c442912d11c5923bc1eaa62b3
+  architecture_spec: f4064a2cf745361c0b2ac80cc8ce1967877089b41f1a971da025c7c1bd2b0ade
+  signature: fc547021f272c163bbcd4ae479982467296134e18c832c6e5f1e89b08fe7f261
+  docstring: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  imports: 0813d23dd8b37e960948a6a2633f0b69aad3f46f2bb9c9da9cdc7142e075d654
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: eef67596206d3e6039aa45f6fb73243d8399cfbf90bc4d5b67345aa318a488c9
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols
+provenance: null

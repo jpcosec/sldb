@@ -1,0 +1,27 @@
+name: python-sldb-sldb-api-stores-policy-policy-of_store
+path: knowledge/symbols/python-sldb-sldb-api-stores-policy-policy-of_store.md
+source_hash: aa2356b7d991177cccd5275598de7054b86147603d39e62dc3ac9e76b4048004
+content_hash: ce092dc538ddcf8dbcc63dcb54e61949af802a80482ed3ceda66e768596c78b6
+field_hashes:
+  id: 0c5f31a6c3a65afadd1cf9ba9628b3b5d93eb206a3eac862af3b09106f9ec01d
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  module: 79e5b5e162dbe5c8e07cf742e306501d3b352fe627adee24a3323ad990f3b241
+  qualname: 0cbd398b1502abcb9c6aa37c71cd207605f6595fc8172f1399b69942a0fc8b1a
+  kind: efc8bf12721ebca0b78886cfac3be3af9d29c6da34d05be1060d1c27006bfeb1
+  source_path: 085634a1acc6a361077b07c49cdb477174e6b513405d696418b942c1e001f849
+  source_span: 196077eacc24a422ceef502a1b7fbdc28b2efaf0395803dd1a84eb139ff505f5
+  source_sha256: 141cbb944f4fe546678805728b4b58d1241212f211c10f02671faa4408457e4e
+  architecture_spec: f4064a2cf745361c0b2ac80cc8ce1967877089b41f1a971da025c7c1bd2b0ade
+  signature: 709449001ab6d54d4661b75008b056e77d6d4b483b511a01128ef1f39e47922e
+  docstring: 04d4c3216d7011aef12749b7fce11a2127d6508fef055d8fb3b27945d3191e88
+  imports: 3cbe8ae7a0d6c9ce53a943bb109075eff242a326de7af45dbecf77615d0b9e67
+  purpose: 04d4c3216d7011aef12749b7fce11a2127d6508fef055d8fb3b27945d3191e88
+  architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: 6a0dff0bd57b160865dcc55ee77f391cb935c5a83c5a7ba83d369e855a79d49a
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols
+provenance: null

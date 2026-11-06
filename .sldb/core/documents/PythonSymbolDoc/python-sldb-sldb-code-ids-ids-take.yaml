@@ -1,0 +1,27 @@
+name: python-sldb-sldb-code-ids-ids-take
+path: knowledge/symbols/python-sldb-sldb-code-ids-ids-take.md
+source_hash: 20a94f7f4d5e5800c4a161dfc561dea45bf24bbdfc5bb37d3efbe657524eeebf
+content_hash: 22794d323aafb10b1819461a80735e4b4f9dab6df785abad633baadb9d1bbeaf
+field_hashes:
+  id: bb86dbc58cfe42173da4a93a0d90042263510eb8a14a81a0b00946a9cc457590
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  module: 97b3ff699ab171350ac3eff12365faea4d3100d47e86a6ff280c81001a324704
+  qualname: 9e3ea8363975f0269c9270dc868c28e4040ffb5c71ca78834197a931d54d936f
+  kind: efc8bf12721ebca0b78886cfac3be3af9d29c6da34d05be1060d1c27006bfeb1
+  source_path: 56a397ada707fd9afc4ab21d4195171f96865097ef73414d089f530ffb6529ab
+  source_span: 503a7732fe403409798875b62eebd6e6790b7197b280955dd281bb5a0ef49d4c
+  source_sha256: 91ee9c80b4ac6f482f2cb65d0e2837dd4519b1542bd0c4190be4b5ec9834c5a3
+  architecture_spec: f4064a2cf745361c0b2ac80cc8ce1967877089b41f1a971da025c7c1bd2b0ade
+  signature: 345eced30352bacd3f16d00f73913a74bc01555a4a55daf011f64641a2ccb171
+  docstring: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  imports: eab80ff6e7e2833ffb87361dd35eb2faf5f28f80ea37bd664aaeeadf65c0efb2
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: 83b0cdd9b03ab694714a2f96730c18e84c2771736017ba547e733c49f81ef993
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols
+provenance: null

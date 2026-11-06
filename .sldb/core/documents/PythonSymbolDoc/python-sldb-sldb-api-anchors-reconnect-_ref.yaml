@@ -1,0 +1,27 @@
+name: python-sldb-sldb-api-anchors-reconnect-_ref
+path: knowledge/symbols/python-sldb-sldb-api-anchors-reconnect-_ref.md
+source_hash: 6325208cbfd3b512e7e7384df2fed0bc05916a18fbad15a52f87a5b6e99dee72
+content_hash: c7924a30a36017a1845027cab0954de3a9fec828ed2d2d92d73e5afb40d99cfd
+field_hashes:
+  id: 782a643cbd6c06e17b99d4f571aeebe3b8c1deb4669f0f8dfd7f631ab8d2ae10
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  module: 8beb7b55c79643216cb9713a7b2cd62d3d939ad6b8ea22d139b6b1bb3e9e480d
+  qualname: fc27fb4f29483209cace3a1da68a72bf2ca35057f2d208ff3b8513b2f00a91d6
+  kind: efc8bf12721ebca0b78886cfac3be3af9d29c6da34d05be1060d1c27006bfeb1
+  source_path: a2eba04ba7b8b206044acbed40b5477a54cdd4460078ddc75358787d470776d8
+  source_span: f879c90212c2ca4564fc67f502326b92d881ef1c278756f5c1c1c4bc0ffc30e4
+  source_sha256: a5eb97503538054d5be23f5fe9dc6f82fc1188130373c2483bdd587a9d3944ae
+  architecture_spec: f4064a2cf745361c0b2ac80cc8ce1967877089b41f1a971da025c7c1bd2b0ade
+  signature: a630ab01e3bd5fef09b67b5b063858aca8833f82af43ec378e6c111313c2cbce
+  docstring: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  imports: bf6e2c17084e1ed52a8aac626beef11a06fe3dd167cee20383eff8e6027717a4
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: 99324158b0909ae43c095599b04553484184335a876c27869179f072335c155b
+semantic_tags:
+- representation.markdown
+- source.code.python
+- type.knowledge.code_symbol
+- workspace.knowledge.symbols
+provenance: null
