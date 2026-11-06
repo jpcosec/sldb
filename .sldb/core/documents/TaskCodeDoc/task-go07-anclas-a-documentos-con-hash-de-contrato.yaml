@@ -1,0 +1,34 @@
+name: task-go07-anclas-a-documentos-con-hash-de-contrato
+path: desk/tasks/task-go07-anclas-a-documentos-con-hash-de-contrato.md
+source_hash: 6d385acc04a7e99aedbbea7cc8a14aa825cdc15ce536d94b15ddc03c23d46619
+content_hash: 90e8548181aa9afdd3ff5c1668035ef2ee7edb5d59c035690a89689775e1ecd4
+field_hashes:
+  title: dded58a4bd40be5c44b2c522752fe22cf83951e1520d302b4f69efccb49f8d27
+  id: c8f31d610bfda84572a42b48f94f51b0f0deed13c5f6d2ddceea587ef05e0eef
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 1d4e6ce976f445a7423f4ea3ff13e30190957721b18f0ba18a9873dda6410e8b
+  goal: 109afb9ae21d3fd58373bfacca2404f0cdc27de12916a22fae1a803752432101
+  scope: a2a8d9d1b4a47f42b981ff6e1b3d66bfbdb718947f1062f150dc5de887a53011
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 4b9ca679de7646447009bb407e658a82c13db0c37cb704c2eaa9cd8f6a5d7ab5
+  implementation_path: a7469dbfe6436a671a37cc94b9b869cc323c79ec1789fe546ce42c0c000fb7d2
+  validation: 3ade8167ea6f8a260f90789884a279b789314fb3dda5466c330d72c38e586c6a
+  done_when: b5835854a8cd4ea691400850ca4fff473fecd3db10ae191c612c2d104acc85b2
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- artifact:task
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance: null
