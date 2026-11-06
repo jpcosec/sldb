@@ -2,9 +2,12 @@
 
 from __future__ import annotations
 
-from pydantic import Field, field_validator
+from pydantic import Field, field_validator, model_validator
+from sldb.models.notation.view_doc_checks import check_params, check_sections, check_view_name
 from sldb.models.notation.view_doc_template import VIEW_DOC_TEMPLATE
 from sldb.models.notation.view_nodes import normalize_view_nodes
+from sldb.models.notation.view_param import ViewParam
+from sldb.models.notation.view_section import ViewSection
 from sldb.models.structured_doc import StructuredNLDoc
 
 
@@ -39,13 +42,13 @@ class ViewDoc(StructuredNLDoc):
         default_factory=dict,
         description="Override del `layout` de la notacion, misma forma (`kind: graph`, `style: layered|rings`, `ring_field` para rings).",
     )
-    params: dict = Field(
-        default_factory=dict,
-        description="Parametros opcionales de vista compuesta (GD25).",
-    )
-    sections: list = Field(
+    params: list[ViewParam] = Field(
         default_factory=list,
-        description="Secciones opcionales de vista compuesta (GD25).",
+        description="Parametros de vista compuesta (GD25): `{name, required, default}`, referenciados como `{name}` en el `select` de las secciones.",
+    )
+    sections: list[ViewSection] = Field(
+        default_factory=list,
+        description="Secciones ordenadas de vista compuesta (GD25); vacio = vista de proyeccion de grafo (SV02).",
     )
     description: str = Field(default="", description="Para que sirve la vista.")
 
@@ -75,12 +78,15 @@ class ViewDoc(StructuredNLDoc):
     def _absent_notation(cls, value):
         return "" if value is None else value
 
-    @field_validator("params", mode="before")
+    @field_validator("params", "sections", mode="before")
     @classmethod
-    def _absent_params(cls, value):
-        return {} if value is None else value
+    def _absent_is_empty(cls, value):
+        """None, `{}` o `[]` (los ViewDoc de proyeccion existentes) es la lista vacia."""
+        return [] if value is None or value == {} else value
 
-    @field_validator("sections", mode="before")
-    @classmethod
-    def _absent_sections(cls, value):
-        return [] if value is None else value
+    @model_validator(mode="after")
+    def _composed(self) -> "ViewDoc":
+        check_view_name(self.name)
+        check_params(self.params)
+        check_sections(self.sections, self.params)
+        return self

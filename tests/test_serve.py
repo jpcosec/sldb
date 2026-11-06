@@ -18,6 +18,7 @@ from sldb.store.io import load_store_index
 from sldb.store.io.shards import load_document_shard
 from sldb.store.layout import documents_shard_path
 from tests.api.test_project_graph import declared_project, project, tracked_project  # noqa: F401 - fixtures
+from tests.api.test_views import world as view_world  # noqa: F401 - fixture
 from tests.api.test_referrers import reference_world  # noqa: F401 - fixture
 from tests.store.test_cli_store import _PY_ARGS, _SETUP_REF, _STORE_ARGS, _doc_track, _init, _model_add
 
@@ -1546,5 +1547,68 @@ def test_edges_referrers_and_rewrite_answer_what_the_cli_prints(reference_world,
         for query, payload, code in (("referrers", None, 400), ("referrers?target=nope", None, 404), ("rewrite", {"target": "card-a"}, 400), ("rewrite", {"replacement": None}, 400), ("rewrite", {"target": "card-a", "replacement": 3}, 400), ("rewrite", {"target": "card-a", "replacement": None, "dry_run": "yes"}, 400), ("rewrite", {"target": "nope", "replacement": None}, 404)):
             status, body = _request_json(f"{base_url}/edges/{query}", method="GET" if payload is None else "POST", payload=payload, expected_error=code)
             assert status == code and body["ok"] is False and body["error"], query
+    finally:
+        _stop(server, thread)
+
+
+# ── GET /views and GET /views/<name> (GD25) ─────────────────────────────────────
+
+def _request_with_etag(url: str, if_none_match: str | None = None) -> tuple[int, dict | None, str | None]:
+    """`(status, body, ETag)`; a 304 has no body."""
+    request = Request(url, method="GET")
+    if if_none_match is not None:
+        request.add_header("If-None-Match", if_none_match)
+    try:
+        with urlopen(request, timeout=5) as response:
+            return response.status, json.loads(response.read().decode("utf-8")), response.headers.get("ETag")
+    except HTTPError as exc:
+        if exc.code != 304:
+            raise
+        assert exc.read() == b""
+        return exc.code, None, exc.headers.get("ETag")
+
+
+def test_views_routes_answer_what_the_cli_prints_with_an_etag_and_304(view_world, capsys) -> None:  # noqa: F811
+    from tests.api.test_views import RULE
+
+    world = view_world
+    server, thread, base_url = _serve(world.store, world.py)
+    try:
+        capsys.readouterr()
+        assert cli_main(["views", "run", "tablero", "--param", "owner=bo", "--store", str(world.store), "--format", "json"]) == 0
+        printed = json.loads(capsys.readouterr().out)
+        status, body, etag = _request_with_etag(f"{base_url}/views/tablero?owner=bo")
+        assert (status, body) == (200, printed) and etag == f'"{body["revision"]}"'
+        assert _request_with_etag(f"{base_url}/views/tablero?owner=bo", etag) == (304, None, etag)
+        assert _request_with_etag(f"{base_url}/views/tablero?owner=bo", f'W/{etag}, "other"') == (304, None, etag)
+        world.save("Item", "i1", {"title": "I1 moved", "status": "open", "owner": "ana", "stage": "Stage:open", "depends_on": []})
+        status, body, moved = _request_with_etag(f"{base_url}/views/tablero?owner=bo", etag)
+        assert status == 200 and moved != etag and body["revision"] == moved.strip('"')
+        world.save("RuleDoc", "owned", {**RULE, "message": "an owner, please"})
+        status, body, edited = _request_with_etag(f"{base_url}/views/tablero?owner=bo", moved)
+        assert status == 200 and edited not in (etag, moved) and body["revision"] == edited.strip('"')
+        assert cli_main(["views", "list", "--store", str(world.store), "--format", "json"]) == 0
+        status, listed = _request_json(f"{base_url}/views")
+        assert (status, listed) == (200, json.loads(capsys.readouterr().out)) and [v["name"] for v in listed["views"]] == ["tablero"]
+    finally:
+        _stop(server, thread)
+
+
+def test_views_routes_refuse_and_leave_the_projection_routes_as_they_were(view_world) -> None:  # noqa: F811
+    world = view_world
+    world.doc("ViewDoc", "graph", {"id": "graph", "name": "graph", "title": "Graph", "nodes": [{"model": "Item"}]})
+    server, thread, base_url = _serve(world.store, world.py)
+    try:
+        for query, code in (("/views/nope", 404), ("/views/graph", 400), ("/views/tablero?who=x", 400), ("/views/tablero/extra", 404)):
+            status, body = _request_json(f"{base_url}{query}", expected_error=code)
+            assert status == code and body["ok"] is False and body["error"], query
+        status, body = _request_json(f"{base_url}/views/graph", expected_error=400)
+        assert "'graph' is a projection view" in body["error"]
+        status, projections = _request_json(f"{base_url}/views/projection")
+        assert status == 200 and [v["ref"] for v in projections["views"]] == ["ViewDoc:graph", "ViewDoc:tablero"]
+        status, evaluated = _request_json(f"{base_url}/views/projection/evaluate?view=ViewDoc:graph")
+        assert status == 200 and {"nodes", "edges", "layout"} <= set(evaluated)
+        status, body = _request_json(f"{base_url}/views/projection/evaluate", expected_error=400)
+        assert status == 400 and body == {"ok": False, "error": "Missing parameter: view (or ref)"}
     finally:
         _stop(server, thread)

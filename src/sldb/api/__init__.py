@@ -61,6 +61,7 @@ from sldb.api.notations import (
     sync_notation,
     sync_palette,
 )
+from sldb.api.views import list_views, run_view
 from sldb.api.edges.unresolved_references import unresolved_references
 from sldb.store.edge_index.unresolved_reference import UnresolvedReference
 from sldb.api.edges.edge_serialization import serialize_edge_node_record, serialize_edge_node_records, serialize_edge_record, serialize_edge_records
@@ -180,6 +181,7 @@ __all__ = [
     "Referrer", "RewriteReport", "referrers", "rewrite_references",
     "GlyphDoc", "LinkDoc", "NotationDoc", "PaletteDoc", "SpecDoc", "SpecNodeDoc", "ViewDoc",
     "resolve_view", "resolve_documents", "evaluate_projection_view", "list_projection_views", "save_projection_view", "sync_notation", "sync_palette",
+    "list_views", "run_view",
     "TagNamespace", "add_semantic_equivalence", "add_semantic_parent", "remove_semantic_parent", "semantic_tag",
     "replace_text", "tag_check", "tag_folder", "tag_namespaces", "tag_tree",
 ]

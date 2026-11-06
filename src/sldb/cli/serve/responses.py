@@ -19,10 +19,15 @@ def send_json(
     status: int,
     payload: JsonDict,
     cors: bool,
+    headers: dict[str, str] | None = None,
 ) -> None:
-    data = json.dumps(payload).encode("utf-8")
+    """The payload as JSON with the common headers plus `headers` (an `ETag`, say); a 304 Not
+    Modified carries the headers and no body."""
+    data = b"" if status == 304 else json.dumps(payload).encode("utf-8")
     handler.send_response(status)
     send_common_headers(handler, len(data), cors)
+    for name, value in (headers or {}).items():
+        handler.send_header(name, value)
     handler.end_headers()
     handler.wfile.write(data)
 
