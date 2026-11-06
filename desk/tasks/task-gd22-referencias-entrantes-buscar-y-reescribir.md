@@ -83,6 +83,14 @@ q1 (gates): G_PROJECT_GRAPH (ad679a8d) y G_WRITE_API (fe36893f) están satisfied
 q2 (GO07): GO07 está cerrado (anclas a documentos con hash de contrato): los campos __doc_anchors__ existen; su valor se reescribe a doc:Model:name sin @sha256 para que sldb lo repinee al guardar (caso cubierto por un test).
 q3 (GO08 y on_write): la reescritura de un documento trackeado pasa por transaction.update (save_document_payload), así que las reglas on_write de GO08 y la familia de GD27 se evalúan; un rechazo revierte el lote entero.
 q4 (files): la lista es la mejor previsión al promover; un archivo autorizado que no se use se reporta en la entrega y el coordinador lo poda del TaskDoc; uno nuevo se pide antes.
+PRECISIONES DEL PREFLIGHT (review-task-gd22-preflight-1, 2026-11-06):
+q5 (menciones): una mención es lo que captura un MentionPattern de la configuración project_graph del store (GD21: src/sldb/api/edges/project_graph/mention_pattern.py, LineMentions y SectionMentions); el fixture declara su propio patrón (p. ej. un regex de identificadores tipo card:card-a). rewrite_references reescribe solo el texto capturado, en la línea que registró la arista (location ruta:línea), respetando límite de palabra; si en esa línea el texto ya no está, la mención va a skipped con motivo.
+q6 (resolución de target): primero como documento trackeado con la misma regla que doc_status (name, Model/name, Model:name o ruta trackeada; ambiguo = error con candidatos); si no resuelve, como id de nodo del grafo de proyecto (kind:identity); si tampoco, SLDBDocumentTargetError. El export_id de un documento es Model:name.
+q7 (--remove en un campo escalar): el valor pasa a null (None) y se guarda por transaction.update; si el modelo no admite null en ese campo, la validación del modelo lo rechaza y no se escribe nada del lote (error con el campo). En un campo lista se quita el elemento (sin huecos ni duplicados).
+q8 (sin recorrer disco): el test hace una primera llamada para calentar el memo de GD21 y después cuenta con monkeypatch os.walk, os.scandir y Path.rglob durante referrers y rewrite_references --dry-run: deben ser cero.
+q9 (fallo inyectado): el test hace fallar la escritura de C dentro de la transacción (monkeypatch del update de la transacción para el ref de C, o un model_validator del modelo de C que rechaza el valor nuevo) y comprueba que B queda con sus bytes, su entrada y su índice originales (hash).
+q10 (HTTP igual a la CLI): como en GD21 y GD23, el cuerpo de POST /edges/rewrite y GET /edges/referrers es el mismo JSON que la CLI con --format json (igualdad de datos, sin envelope); parámetros faltantes o inválidos son 400.
+q11 (--to y --remove): son mutuamente excluyentes y uno es obligatorio (sin ninguno o con los dos, error de uso, exit 2). En POST /edges/rewrite, replacement es obligatorio en el cuerpo: null = quitar; ausente = 400.
 
 ## Validation
 
