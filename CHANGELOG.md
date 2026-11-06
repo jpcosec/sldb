@@ -4,6 +4,16 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
 
 ## 0.1.13 — not released yet (no tag, not on PyPI)
 
+- Visual notation and projection view resolver, store synchronization, CLI, and serve routes (SV02):
+  - `sldb.api.notations`:
+    - `notation_view.py`: `resolve_view` and `resolve_documents` resolving glyphs, compartments (`data.attributes`), template/keyword interpolation, edge ordering, UML fragments, and legends.
+    - `projection_view.py`: `evaluate_projection_view`, `list_projection_views`, and `save_projection_view` evaluating node where-predicates, relation filters, layout, palette ink, and notation styling.
+    - `notation_sync.py`: `sync_palette` and `sync_notation` writing `PaletteDoc`, `NotationDoc`, `GlyphDoc`, `LinkDoc`, and `RelationTypeDoc` into stores without intermediate YAML dependencies.
+    - Re-exported in `sldb.api` and `sldb.api.notations`.
+  - CLI: `sldb notations (list, sync, view, resolve)` with JSON output and envelope support (`sldb --envelope notations ...`).
+  - HTTP serve routes in `sldb serve`: `GET /notations`, `GET /notations/view`, `POST /notations/resolve`, `GET /views/projection`, `GET|POST /views/projection/evaluate`, `POST /views/projection/save`.
+  - Documentation updated in `docs/architecture/notations-and-views.md`.
+  - Comprehensive test suite in `tests/notations/test_notation_view_and_routes.py`.
 - Declaración y edición draft de containment, references, compositions, semantics y authority en modelos (SV04):
   - `sldb.api.create_model` y `ModelSource` aceptan `containment`, `references`, `compositions`, `semantics`, `authority`; validan que los campos referenciados existan y que las composiciones tengan marcador `⸢render•<name>⸥` en template (o lo generan en `default_template`), emitiendo las asignaciones correspondientes en el código Python generado.
   - `describe_model` y `ModelDescription` exponen `containment`, `references`, `compositions`, `semantics_map`, `authority`, `template`, `has_draft`, `draft_path`.

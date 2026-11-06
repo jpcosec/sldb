@@ -11,6 +11,7 @@ from .graph import add_graph_group
 from .journal import add_journal_group
 from .semantic import add_semantic_group
 from .anchors import add_anchors_group
+from .notations import add_notations_group
 
 def add_public_group_commands(s: argparse._SubParsersAction) -> None:
     add_stores_group(s)
@@ -23,3 +24,4 @@ def add_public_group_commands(s: argparse._SubParsersAction) -> None:
     add_graph_group(s)
     add_journal_group(s)
     add_semantic_group(s); add_anchors_group(s)
+    add_notations_group(s)

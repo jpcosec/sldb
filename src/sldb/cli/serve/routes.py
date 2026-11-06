@@ -27,6 +27,7 @@ from sldb.cli.serve.similar_routes import similar_payload
 from sldb.cli.serve.segments_routes import extract_segments_response
 from sldb.cli.serve.graph_payload import graph_documents, graph_payload  # noqa: F401 - graph_documents re-exported
 from sldb.cli.serve.stores_routes import dispatch_stores
+from sldb.cli.serve.notations_routes import dispatch_notations, dispatch_projection_views
 from sldb.store.export import export_semantic_payload
 
 
@@ -73,6 +74,10 @@ def _nested_get(
         return dispatch_document(handler, route, store_path, project_root, pythonpath)
     if route == "/models" or route.startswith("/models/"): return dispatch_models(handler, "GET", route, store_path, project_root, pythonpath)
     if route == "/lint": return dispatch_lint(handler, store_path, project_root, pythonpath)
+    if route == "/notations" or route.startswith("/notations/"):
+        return dispatch_notations(handler, "GET", route, store_path, project_root, pythonpath)
+    if route.startswith("/views/projection"):
+        return dispatch_projection_views(handler, "GET", route, store_path, project_root, pythonpath)
     return _dispatch_reader(route, handler, store_path, project_root, pythonpath)
 
 
@@ -104,6 +109,10 @@ def dispatch_post(
         return dispatch_docs_or_create(handler, route, store_path, project_root, pythonpath)
     if route == "/extract/segments":
         return extract_segments_response(read_json_body(handler), store_path, pythonpath)
+    if route.startswith("/notations/"):
+        return dispatch_notations(handler, "POST", route, store_path, project_root, pythonpath)
+    if route.startswith("/views/projection"):
+        return dispatch_projection_views(handler, "POST", route, store_path, project_root, pythonpath)
     if route != "/save":
         return {"ok": False, "error": f"Unknown route: {route}"}, 404
     return save_request(read_json_body(handler), store_path, project_root, pythonpath)

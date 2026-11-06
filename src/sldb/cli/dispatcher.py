@@ -52,7 +52,13 @@ class CLI:
         from sldb.cli.commands.anchors import AnchorsCLI
         from sldb.cli.commands.edges import EdgesCLI
         from sldb.cli.commands.graph import GraphCLI
-        self.handlers.update({"edges": EdgesCLI().run, "anchors": AnchorsCLI().run, "graph": GraphCLI().run})
+        from sldb.cli.commands.notations import NotationsCLI
+        self.handlers.update({
+            "edges": EdgesCLI().run,
+            "anchors": AnchorsCLI().run,
+            "graph": GraphCLI().run,
+            "notations": NotationsCLI().run,
+        })
 
     def _load_addresses(self):
         """The raw address surface: `legacy ls|get|glob|find|recover|compose`.

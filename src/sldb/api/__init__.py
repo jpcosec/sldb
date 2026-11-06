@@ -36,6 +36,15 @@ from sldb.models.notation_models import (
     SpecNodeDoc,
     ViewDoc,
 )
+from sldb.api.notations import (
+    evaluate_projection_view,
+    list_projection_views,
+    resolve_documents,
+    resolve_view,
+    save_projection_view,
+    sync_notation,
+    sync_palette,
+)
 from sldb.api.edges.unresolved_references import unresolved_references
 from sldb.store.edge_index.unresolved_reference import UnresolvedReference
 from sldb.api.edges.edge_serialization import serialize_edge_node_record, serialize_edge_node_records, serialize_edge_record, serialize_edge_records
@@ -140,4 +149,5 @@ __all__ = [
     "WherePredicateError", "edges_holding", "remove_model", "where_matches", "inherit_model", "is_model_registered", "registered_models",
     "StructuredNLDoc", "UnresolvedReference", "unresolved_references",
     "GlyphDoc", "LinkDoc", "NotationDoc", "PaletteDoc", "SpecDoc", "SpecNodeDoc", "ViewDoc",
+    "resolve_view", "resolve_documents", "evaluate_projection_view", "list_projection_views", "save_projection_view", "sync_notation", "sync_palette",
 ]

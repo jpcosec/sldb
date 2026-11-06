@@ -75,3 +75,56 @@ El submódulo `sldb.notations` expone:
   - `resolve_style(glyph, kind, spec_kinds, palette)`: Resuelve propiedades visuales (`fill`, `stroke`, `icon`) aplicando la precedencia estricta:
     $$\text{Glifo de la notación} > \text{Spec kinds} > \text{Paleta de la notación}$$
   - `resolve_line_color(link, palette)`: Resuelve el color de línea en función de la paleta.
+
+---
+
+## 5. Resolvedor de Vistas y Vistas de Proyección (`sldb.api.notations`)
+
+A partir de SV02, `sldb.api` provee los intérpretes canónicos del contrato de notación y de vistas proyectivas sin depender de librerías externas:
+
+### 5.1 Resolvedor de Vistas (`notation_view.py`)
+- `resolve_view(store, spec_ref, pythonpath=None)`:
+  - Lee el `SpecDoc` del store, valida su coincidencia con `NotationDoc.diagram_type` y resuelve los nodos, aristas y leyendas.
+  - Retorna `{spec, title, diagram_type, notation, palette, level, layout, nodes, links, fragments, skipped, legend}`.
+- `resolve_documents(store, notation_ref, doc_refs, *, relation_refs=None, spec_style=None, pythonpath=None)`:
+  - Aplica la notación a cualquier conjunto de documentos del store sin requerir un `SpecDoc`.
+  - Casado de glifos por modelo + evaluación de predicado `where` sobre el payload aplanado (`flatten()`).
+  - Extracción de compartimentos con rutas punto (`data.attributes`, `data.methods`).
+  - Interpolación de plantillas `{campo}` y estereotipos `keyword` (`«{kind}»`) sin dejar variables huérfanas.
+  - Detección y agrupamiento de fragmentos UML consecutivos (`fragments_of()`) por operador `data.group`.
+  - Generación de leyenda completa (`glyphs`, `links`, `kinds`).
+
+### 5.2 Vistas de Proyección (`projection_view.py`)
+- `evaluate_projection_view(store, view_or_ref, pythonpath=None)`:
+  - Evalúa la consulta de nodos (`[{model, where}]`) y aristas (`RelationFilter(relations, direction)`) sobre el grafo del almacén.
+  - Si la vista especifica una `notation`, invoca `resolve_documents` y adjunta estilo para nodos (`styled_nodes`), aristas (`edge_styles`), `ink` de paleta por tema y `legend`.
+- `list_projection_views(store, pythonpath=None)`:
+  - Lista todos los `ViewDoc` registrados en el almacén.
+- `save_projection_view(store, name, view, pythonpath=None, actor=None)`:
+  - Guarda o actualiza un `ViewDoc` en el almacén bajo `sldb/views/<name>.md`.
+
+### 5.3 Sincronización al Almacén (`notation_sync.py`)
+- `sync_palette(store, name_or_path="default")`:
+  - Escribe el `PaletteDoc` correspondiente en `sldb/palettes/` y registra modelos si hiciera falta.
+- `sync_notation(store, name_or_path)`:
+  - Escribe `NotationDoc`, `GlyphDoc`, `LinkDoc` y sus `RelationTypeDoc` asociados en `sldb/notations/<name>/`, además de su paleta vinculada.
+
+---
+
+## 6. Superficie CLI y HTTP Serve
+
+### 6.1 CLI (`sldb notations`)
+Disponible con envelope JSON (`sldb --envelope notations ...`):
+- `sldb notations list [--views]`: Lista las notaciones y paletas builtin y registradas en el store (o las vistas proyectivas si se indica `--views`).
+- `sldb notations sync [--notation <name|path>] [--palette <name|path>]`: Sincroniza notaciones o paletas en el store.
+- `sldb notations view <spec> [--projection]`: Resuelve la vista de un `SpecDoc` o evalúa una proyección (`--projection`).
+- `sldb notations resolve --notation <notation> --docs <Model:name ...>`: Resuelve un conjunto arbitrario de documentos bajo una notación.
+
+### 6.2 HTTP Serve (`sldb serve`)
+- `GET /notations`: Lista notaciones y paletas builtin y del store.
+- `GET /notations/view?spec=<spec_ref>`: Resuelve un `SpecDoc`.
+- `POST /notations/resolve`: Resuelve un conjunto de documentos `{notation, docs, [relations], [style]}`.
+- `GET /views/projection`: Lista los `ViewDoc` del store.
+- `GET /views/projection/evaluate?view=<ref>`: Evalúa una vista proyectiva por referencia.
+- `POST /views/projection/evaluate`: Evalúa una vista proyectiva pasada en el body JSON.
+- `POST /views/projection/save`: Guarda un `ViewDoc` `{name, view}`.
