@@ -576,11 +576,12 @@ include:
   paths:
   - path: docs/architecture/bootstrap-model-set.md
     name: plan-bootstrap-model-set
-- model: BoardDoc
-  paths:
-  - desk/tasks/Board.md
 - model: TaskCodeDoc
   paths:
   - desk/tasks/task-gd22-referencias-entrantes-buscar-y-reescribir.md
+  - desk/tasks/task-gd25-vistas-declaradas-viewdoc-servidas-por-sldb-serve.md
+- model: BoardDoc
+  paths:
+  - desk/tasks/Board.md
 graph_backend: networkx
 policy: {}
