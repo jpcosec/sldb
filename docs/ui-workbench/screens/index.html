@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SLDB Workbench — Vistas Minimalistas</title>
+  <style>
+    :root {
+      --bg: #FAF9F6;
+      --card-bg: #FFFFFF;
+      --ink: #1A1A1A;
+      --muted: #737373;
+      --border: #E5E5E0;
+      --accent: #2A2A2A;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      margin: 0;
+      padding: 40px 24px;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    header {
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin: 0 0 8px 0;
+    }
+    p.lead {
+      color: var(--muted);
+      font-size: 15px;
+      margin: 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.15s ease;
+    }
+    .card:hover {
+      border-color: var(--accent);
+    }
+    .card-title {
+      font-size: 17px;
+      font-weight: 600;
+      margin: 0 0 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .badge {
+      font-size: 11px;
+      font-family: monospace;
+      padding: 2px 6px;
+      background: #F0EFEB;
+      border-radius: 4px;
+      color: var(--muted);
+    }
+    .card-desc {
+      color: var(--muted);
+      font-size: 13.5px;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    .card-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    a.btn {
+      display: inline-block;
+      padding: 7px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 4px;
+      background: var(--ink);
+      color: #FFF;
+    }
+    a.btn-secondary {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--border);
+    }
+    a.btn:hover {
+      opacity: 0.9;
+    }
+    footer {
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>SLDB — Workbench & Inspector de Fierros</h1>
+      <p class="lead">Prototipos interactivos minimalistas (estética cálida monochrome de papel). Conmutador de lentes: Lectura, Estructura, Fierros.</p>
+    </header>
+
+    <div class="grid">
+      <!-- 01 Workbench -->
+      <div class="card">
+        <div>
+          <h2 class="card-title">
+            <span>01. Workbench de Prosa & Fierros</span>
+            <span class="badge">Vista 01</span>
+          </h2>
+          <p class="card-desc">
+            Vista unificada de lectura y edición de documentos Markdown estructurados con transclusión in situ, navegación por árbol topológico y panel de fierros que muestra exactamente el contrato y las mutaciones contra el store.
+          </p>
+        </div>
+        <div class="card-actions">
+          <a href="01_workbench.html" class="btn">Abrir Vista Interactiva</a>
+          <a href="01_workbench.png" target="_blank" class="btn btn-secondary">Ver PNG</a>
+        </div>
+      </div>
+
+      <!-- 02 Spec2Viz Inspector -->
+      <div class="card">
+        <div>
+          <h2 class="card-title">
+            <span>02. Inspector de Notaciones y Diagramas</span>
+            <span class="badge">Vista 02</span>
+          </h2>
+          <p class="card-desc">
+            Visualizador de diagramas integrados. Muestra la ficha de trazabilidad completa: Nodo del diagrama &rarr; Átomos justificativos &rarr; Símbolo Python en código &rarr; Tarea con sus gates de verificación.
+          </p>
+        </div>
+        <div class="card-actions">
+          <a href="02_spec2viz_inspector.html" class="btn">Abrir Vista Interactiva</a>
+          <a href="02_spec2viz_inspector.png" target="_blank" class="btn btn-secondary">Ver PNG</a>
+        </div>
+      </div>
+
+      <!-- 03 Extracción y Anclaje -->
+      <div class="card">
+        <div>
+          <h2 class="card-title">
+            <span>03. Extracción y Anclaje a Fuente</span>
+            <span class="badge">Vista 03</span>
+          </h2>
+          <p class="card-desc">
+            Lector de documentos de fuente externa con anclaje semántico de rangos hacia átomos estructurados, panel de cobertura y detección de cambios con alerta de fuente modificada.
+          </p>
+        </div>
+        <div class="card-actions">
+          <a href="03_extraccion_anchoring.html" class="btn">Abrir Vista Interactiva</a>
+          <a href="03_extraccion_anchoring.png" target="_blank" class="btn btn-secondary">Ver PNG</a>
+        </div>
+      </div>
+
+      <!-- 04 Esquema Studio -->
+      <div class="card">
+        <div>
+          <h2 class="card-title">
+            <span>04. Studio de Esquemas y Modelos</span>
+            <span class="badge">Vista 04</span>
+          </h2>
+          <p class="card-desc">
+            Editor de modelos de datos en modo draft: definición de composición, contención, referencias y semántica con validación de contrato y promoción con backfill automático.
+          </p>
+        </div>
+        <div class="card-actions">
+          <a href="04_esquema_studio.html" class="btn">Abrir Vista Interactiva</a>
+          <a href="04_esquema_studio.png" target="_blank" class="btn btn-secondary">Ver PNG</a>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div>SLDB Kernel: <a href="http://localhost:8085/document/segments?id=doc-levira-fase2" target="_blank" style="color:var(--ink); font-weight:600; text-decoration:underline;">sldb serve :8085 (Store Real Activo)</a></div>
+      <div>Workbench Store: <code>workbench_demo/.sldb</code></div>
+      <div>Especificación: <code>sldb/docs/ui-workbench/</code></div>
+    </footer>
+  </div>
+</body>
+</html>
