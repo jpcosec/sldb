@@ -1,0 +1,21 @@
+name: materialization-gd23-parsers-docs2
+path: desk/materializations/materialization-gd23-parsers-docs2.md
+source_hash: f7052a3b0aa766ffc50404a8a858737bb1686c2b23a7bd479a3044a1e0387216
+content_hash: d955f223e70bbec569a4a0c8cf5cd94425b2e5614feaf8f2a34032da6d578fd4
+field_hashes:
+  id: ed7db4bf5422577b63ef71df5222532c49ae7c216c3bbc9da3b937ffa5a666c0
+  title: 6475cc4e191bc9c47ad88e237b9e925543ac7d1a691bd9bbe708a244a2cb6824
+  source_atoms: aea05e56f81ea421f199e6962ea7d775e63b85f66254fde51ac67c67fe88fc5b
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: ea812571f801b97ebfcea8b5a8697a3d39a764c1af68d2fdc383478113b9c535
+  intent: bd2d5eb6444e4319b9b46f232f7505855404f41a70f89237f9fd544a9ece56c2
+  validation: 76f7b1e600d57c61115b351d2e5b751cb8bb2b4397d444f06cc6952788198bfb
+  tags: 8545372a5da0640266ae544cd7bc582aa6a9a791ea59b3bb478093eb3b584a8d
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:selectors
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

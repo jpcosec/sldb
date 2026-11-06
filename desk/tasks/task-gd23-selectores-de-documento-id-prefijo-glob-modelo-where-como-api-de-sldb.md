@@ -7,33 +7,36 @@ tags:
 - artifact:task
 current_node: ritual-execution
 history: []
-references: []
+references:
+- pytest tests/api/test_select_documents.py
+- tests/api/test_select_documents.py
+- pytest tests/test_serve.py
+- tests/test_serve.py
+- pytest tests/store/test_queries_expanded.py
+- 850f8fca0551e814a9eadfa318c78d6e0d73e2a0
+- desk/atoms/atom-un-documento-se-elige-con-un-selector-declarado-y-la-ambigüedad-es-un-error.md
+- docs/architecture/selectors.md
 depends_on: []
 pills: []
 files:
-- src/sldb/api/documents/select_documents.py
-- src/sldb/api/__init__.py
-- src/sldb/store/query_engine/structural_queries.py
-- src/sldb/cli/parsers/docs1.py
-- src/sldb/cli/parsers/docs2.py
-- src/sldb/cli/commands/docs.py
-- src/sldb/cli/serve/docs_routes.py
-- src/sldb/cli/serve/routes.py
-- tests/api/test_select_documents.py
-- tests/store/test_queries_expanded.py
-- tests/test_linked_structural.py
-- tests/test_serve.py
-- docs/architecture/selectors.md
 - CHANGELOG.md
+- docs/architecture/selectors.md
+- src/sldb/api/__init__.py
+- src/sldb/api/documents/select_documents.py
 - src/sldb/api/documents/selector.py
-- src/sldb/api/documents/select_filters.py
-- src/sldb/core/exceptions/sldb_ambiguous_selection_error.py
-- src/sldb/core/exceptions/__init__.py
+- src/sldb/cli/commands/docs.py
 - src/sldb/cli/commands/docs_select.py
+- src/sldb/cli/parsers/docs2.py
 - src/sldb/cli/parsers/docs3.py
 - src/sldb/cli/serve/docs_select_routes.py
+- src/sldb/cli/serve/routes.py
+- src/sldb/core/exceptions/__init__.py
+- src/sldb/core/exceptions/sldb_ambiguous_selection_error.py
 - src/sldb/store/query_engine/document_selection.py
 - src/sldb/store/query_engine/document_selection_filters.py
+- src/sldb/store/query_engine/structural_queries.py
+- tests/api/test_select_documents.py
+- tests/test_serve.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
@@ -118,6 +121,7 @@ _List the checks required before this task can close._
 - sldb docs select --prefix P --one --format json sobre el store temporal del test
 - TMPDIR=/dev/shm pytest -q tests/test_clean_code_rules.py antes de cada squash (recorre todo src/: funciones de 10 líneas de lógica como máximo, límite de clases por archivo; cuenta como test de los archivos tocados aunque output_scope no lo nombre)
 - git fetch y rebase sobre origin/main antes de integrar (main trae SV01, SV02, SV04 en 6ba8bb20 y GO04 en d7eefdeb); en CHANGELOG.md y src/sldb/api/__init__.py tomar la versión de main y agregar solo lo propio
+- RESULTADO (coordinador de proyecto, 2026-11-06, squash 850f8fca sobre origin/main): test_select_documents 19, test_queries_expanded 9, test_linked_structural 1, test_where_empty_and_errors 25, test_address_surface 8, test_store_seams 2, test_clean_code_rules 895, test_serve 55: todos verdes. Genericidad 0 en los archivos de GD23. Desvíos aceptados por claude6: path_glob con semántica de pathlib (** recursivo, documentado en selectors.md); con --envelope una selección ambigua es docs/ambiguous con exit 2, según la tabla existente de error_types. Desvío rechazado y revertido (dbe4de45): find --where vuelve a evaluar sobre el payload, con test de regresión. files corregido al conjunto real del squash: select_filters.py no existe, los filtros viven en store/query_engine/document_selection_filters.py. Suite completa pendiente al cierre del plan.
 
 ## Done When
 

@@ -449,11 +449,23 @@ include:
   - desk/materializations/materialization-gd24-documents-batch-report.md
   - desk/materializations/materialization-gd24-exceptions-sldb-conflict-error.md
   - desk/materializations/materialization-gd24-exceptions-init.md
+  - desk/materializations/materialization-gd23-api-test-select-documents.md
+  - desk/materializations/materialization-gd23-architecture-selectors.md
+  - desk/materializations/materialization-gd23-commands-docs-select.md
+  - desk/materializations/materialization-gd23-documents-select-documents.md
+  - desk/materializations/materialization-gd23-documents-selector.md
+  - desk/materializations/materialization-gd23-exceptions-sldb-ambiguous-selection-error.md
+  - desk/materializations/materialization-gd23-parsers-docs2.md
+  - desk/materializations/materialization-gd23-parsers-docs3.md
+  - desk/materializations/materialization-gd23-query-engine-document-selection-filters.md
+  - desk/materializations/materialization-gd23-query-engine-document-selection.md
+  - desk/materializations/materialization-gd23-query-engine-structural-queries.md
+  - desk/materializations/materialization-gd23-serve-docs-select-routes.md
 - model: TaskCodeDoc
   paths:
   - desk/tasks/task-go08-evaluacion-en-escritura-transicion-y-check-incremental-y-a-punto-fijo.md
-  - desk/tasks/task-gd23-selectores-de-documento-id-prefijo-glob-modelo-where-como-api-de-sldb.md
   - desk/tasks/task-gd26-scaffold-de-store-desde-carpetas-y-semillas-declaradas.md
+  - desk/tasks/task-gd23-selectores-de-documento-id-prefijo-glob-modelo-where-como-api-de-sldb.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md

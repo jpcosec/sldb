@@ -1,0 +1,20 @@
+name: atom-un-documento-se-elige-con-un-selector-declarado-y-la-ambigüedad-es-un-error
+path: desk/atoms/atom-un-documento-se-elige-con-un-selector-declarado-y-la-ambigüedad-es-un-error.md
+source_hash: a7aa1e5059d8434cff8a9267f1bda6b2c8d400dd0253129b53b4b0a413470333
+content_hash: 096e60f05186e9f78c1c92ca578c9bf79a5b58b3820f659ba202b7ef7f637d41
+field_hashes:
+  id: aaf699b0f32630680590f68a902280be48e2307f980fccb255b1a49ad15218ed
+  title: 3ae81ed4093dcb158f55666c0d8617a3286716e106b0f91a257a4ae4db9081f6
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: da7c6ec8810ecc88d3ccf8d48edba9745881b20638272c74d2c3b63c315ba759
+  tags: 30159adf9eb6122f916be5ce43383429fb16897ccd9ab5bbd3e1a6c9652316dc
+  provenance: 72d9fec535082a1e79c9f4fe52fcd5826995414eb421c2840f047e77b126ec1e
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:query-api
+- topic:selectors
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance: null
