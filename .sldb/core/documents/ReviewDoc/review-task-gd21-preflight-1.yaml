@@ -1,0 +1,30 @@
+name: review-task-gd21-preflight-1
+path: desk/reviews/task-gd21/preflight-1.md
+source_hash: a49ee9720f0bfaf26c97184a892cfa16be7ff66c60a8c87eb8e1f232882e544d
+content_hash: fbc712556b33a9096cbe87ea987b1073ffa9c8095a0cd32c6f0ae215dfef3504
+field_hashes:
+  id: 1e3d8325409c1d4ba292ff87568d75328d135ce7be68589612375ebb1c9f6286
+  title: a0a044a090717d97be8b7bc50e9f8f5e418ffa4eda860f15f8b2895d6c9dcd2e
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  subject: 92cc14009240fc8b84238f4cf40a9d595e69aa04b474420ed7376a62570df36d
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 13c8b8961c101782d52dfefc6e62e75f65c90f3c429e7825d1dd86da21ae4b8b
+  input_sha256: fa8c3726b619aa7dc5b32290dbbc356484bea4c7838086b843a48970e175a3ee
+  output_sha256: cc6801a705a487973c309c42dc5c8914a9e4f0cc3ea7345497bbfb49d33768b9
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: d945d37860728ebb6321ce8872c09b703555ccb987662f19e988f58912b8fad9
+  created_at: 2c4ee4a0a0dedc8008cee47e4a185b79a351bedcf3918bf65e5daa4a744a7066
+  disposed_at: 0d36ff9ac67f7b49933300d468678e2a8388205f45fe2641c2c715074e5b8497
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 742a60b32ae615780d4b842be9e9381e4c948bb017bfe70765ccb7a1cde00eed
+  disposition: 3a5e5b03e2159b32a369e1b00d245f7dcb1c9ddb61d323b4ac68e5800c26a253
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance: null
