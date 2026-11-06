@@ -1,0 +1,20 @@
+name: atom-el-contrato-completo-de-un-modelo-se-declara-y-edita-por-drafts-con-validacion-y-backfill
+path: desk/atoms/atom-el-contrato-completo-de-un-modelo-se-declara-y-edita-por-drafts-con-validacion-y-backfill.md
+source_hash: 552c8e7fcea91d6a6b3374cf97e94b5d23c2205becfcf03406f7124d07cf4721
+content_hash: f51d27d2f86aa67c506b9393a929e579cc79d60847a2021c96d0a0e2ffb7f26c
+field_hashes:
+  id: 0575fb37f3f6d6b16ad03a675756310a06b4d1c3607d5d0afe545bed79c0217e
+  title: e289d7b99278aff83e985244cdf7a484e99e5115708f4608c20809bc156f32e4
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: ad010ab027eeb39043d619ec87266999c37524fa2f7f2e7fa72a70e90adbad28
+  tags: 9a6d839adf327887d645d851fa9f17478cdfe2cb9064afa12be32abdd0334e6e
+  provenance: e8123400a624047e5a9dffe257ebd443fe845a651e75b1b20a92636cb1207538
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:drafts
+- topic:models
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance: null

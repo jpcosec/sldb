@@ -1,0 +1,20 @@
+name: atom-las-vistas-de-notacion-y-proyeccion-se-resuelven-en-sldb-api-notations-por-cli-y-por-sldb-serve
+path: desk/atoms/atom-las-vistas-de-notacion-y-proyeccion-se-resuelven-en-sldb-api-notations-por-cli-y-por-sldb-serve.md
+source_hash: 1380d73d2c1d98f92fd28d9dcd003768bbdf953397bb095ed69a3d10665ce0a4
+content_hash: 6c33b6d5e5188d39cd2bee28096149d7972f5432620d804a893f2bca6e187e93
+field_hashes:
+  id: 75bdf7762f751aa26112203e82f23c457a63dd10fbf13fe2a5ed31a072b7d7ee
+  title: c028bdac49685d5fe7d9cd53eb380d760222397302dea9f8acf215ce96ada260
+  five_wh_one_plus: 43f94244d00ce4813a89d3c0d15e1842fe2cfd95ce9fe3b063dda9e7983e0063
+  answer: 2f88bfe79ba7ec6b44030a0993ba9d630409cb796df0b730248ca4196457b546
+  tags: a36dcab13d96f12c2a68df21d39299051e8b5b07f5908b47c4435aa4c2d9ebbe
+  provenance: de8cf920ccb8a893df12b00ca132958de08a0ff691b2b248e55cde22be43b12a
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:notations
+- topic:serve
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance: null

@@ -1,0 +1,21 @@
+name: materialization-sv03-docs-architecture-segments-and-transclusion-md
+path: desk/materializations/materialization-sv03-docs-architecture-segments-and-transclusion-md.md
+source_hash: f4877f56c3bcb4d130b00f241411e9d62be706d69ddd6c3740b7b0ddcb058c04
+content_hash: b0bc7766c1e51d7345b7e47dd55a5f179f41b9e2dc393a7a7ef80fa97d38fb25
+field_hashes:
+  id: 3ad2a5f4145d3df54d3f68609d7aaf89ff6061f3bfdeb150918b878433ac83ce
+  title: 402e27817b4e94f0868deed7a6cad0c2eef882cc3c93129878cb3bbe4be80d61
+  source_atoms: cdfedc963cedc5f8772a8c05cce2b67f822d4e1d6618c0fe0e144aee1bd5b7ad
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 4dd3df5b2b16d9a238b43ea8cbf8e6e751a3d349cc2f4574161e992ee397ff24
+  intent: e40b809c5f295f7b13e0df10eda576916e102636777569315977d54f5e000ac3
+  validation: a669b7f9dbedf8b61b07ed2a1bc1b84f57cfca9bcccabe583852454e3b7ef0ae
+  tags: d0da616832a0d16312953ca510239eb5af65f70f28f8edad31956b4783a1abf5
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- task:sv03
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

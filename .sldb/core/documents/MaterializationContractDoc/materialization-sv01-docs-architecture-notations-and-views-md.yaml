@@ -1,0 +1,21 @@
+name: materialization-sv01-docs-architecture-notations-and-views-md
+path: desk/materializations/materialization-sv01-docs-architecture-notations-and-views-md.md
+source_hash: 56db9ec07c0c8f8e02092bee1c74ba307729598bd72232dd77920e1a78b3eb0e
+content_hash: b9b12295f1792b9ec627612c43fabcba7ccc1bb7c5e63b9ad4602925255ae839
+field_hashes:
+  id: 308c4fd497757d0facd6d0a8bb28da7b0760c003c4b4ced37182fe2402d24eb8
+  title: 710a4e9f417a329b1e614c46485734db911f4202117500611b185408dfd50787
+  source_atoms: 7069d92b9e526b0ca0bf3e65c6be63e1260c2aba338c45abeba5b4e3f21e3b30
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: de8cf920ccb8a893df12b00ca132958de08a0ff691b2b248e55cde22be43b12a
+  intent: fa3ab0246ab9a318dc3d5fc39255e72a2cbc692471003e3668c9a3f88ca0ed15
+  validation: 7b5426ded6de5f6a9cfa546b6947dfc16872dedae2c315f7ed373be4788717c3
+  tags: ad70412099f09e1a9070da34b0c6ec7d341d2c060c258f07892e8c99bcefefb0
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- task:sv01
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

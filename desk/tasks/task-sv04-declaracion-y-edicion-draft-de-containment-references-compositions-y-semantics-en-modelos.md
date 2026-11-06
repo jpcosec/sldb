@@ -1,13 +1,19 @@
 ---
 id: task-sv04-declaracion-y-edicion-draft-de-containment-references-compositions-y-semantics-en-modelos
-status: draft
+status: ready_for_testing
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-closeout
+history:
+- task_activates
+- task_hands_to_closeout
+references:
+- 6b80df36
+- 6ba8bb20
+- tests/api/test_model_metadata_drafts.py
+- atom-el-contrato-completo-de-un-modelo-se-declara-y-edita-por-drafts-con-validacion-y-backfill
 depends_on: []
 pills: []
 files:

@@ -1,0 +1,21 @@
+name: materialization-sv02-tests-notations-test-notation-view-and-routes-py
+path: desk/materializations/materialization-sv02-tests-notations-test-notation-view-and-routes-py.md
+source_hash: e4c528db194fe803805d4b7aa0d366bb6b6563e2f217f5d3fbf721f681111b85
+content_hash: 9cca1ceddd0f1bf4d7de2c4b0539256ac0614c2c4e80bd65b2fcd56f4cd51c52
+field_hashes:
+  id: bdafdb174f5490122595890d4f6da5dc33740d815745f981ec69d156f961fa9c
+  title: a34f1f1893d3343f3364484d5f933b06aabb60fa7f9fa6c6e58949cfba13e235
+  source_atoms: 575730cac9e4440044f3842e500fdc36d80968b38a9f297512174455d1753885
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 2d94ce77871d3b604943430cd9fec84fcedd8dec95bf1063cadcb3aa56b5cf35
+  intent: 8124e0cfdf8aed3b26ff5630f494c5ee40cd3db8d6afbd24c2f1d4aa8ff83e9d
+  validation: 5288950618dd0382628e6589b513073e5245aac45988086e6f47e82fa2b407fe
+  tags: 8a60d45d427ef8c5d891ac831f9f1915e3fdcb4c50b5092ee6ad0c515de0f125
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- task:sv02
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

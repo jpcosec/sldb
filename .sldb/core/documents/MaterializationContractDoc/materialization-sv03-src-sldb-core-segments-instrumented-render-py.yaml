@@ -1,0 +1,21 @@
+name: materialization-sv03-src-sldb-core-segments-instrumented-render-py
+path: desk/materializations/materialization-sv03-src-sldb-core-segments-instrumented-render-py.md
+source_hash: a3cd7c4846096771bd2394b8c9cf6ec0134c6da67bec0bcb19f5cf78113530fe
+content_hash: 5bb5e1a5c916c4876b405f4e64c908931f7bcdc8f1353829b9cea1fd852a19c0
+field_hashes:
+  id: 77416a85a6f660f2a2d73f2973bde9a3a6c0ef0394432307a57be2c3cfe3ee80
+  title: 5abf91a5456833902e43f44fb6caf902208f077dcd29dcfdcd4e0d378d1ac188
+  source_atoms: cdfedc963cedc5f8772a8c05cce2b67f822d4e1d6618c0fe0e144aee1bd5b7ad
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: ec907a003eff18ee194d6b5c963daa81f8c0e783cf055b9f107c2b97dc9b27a3
+  intent: 01800a4c00f1b8421f3889d57d85207a320470d98babbc9a38b0b43b1c1c9e65
+  validation: a669b7f9dbedf8b61b07ed2a1bc1b84f57cfca9bcccabe583852454e3b7ef0ae
+  tags: d0da616832a0d16312953ca510239eb5af65f70f28f8edad31956b4783a1abf5
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- task:sv03
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

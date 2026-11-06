@@ -1,0 +1,21 @@
+name: materialization-sv01-src-sldb-notations-builtin-activity-yml
+path: desk/materializations/materialization-sv01-src-sldb-notations-builtin-activity-yml.md
+source_hash: f64951fcbe51ca4af79021cec6929821187a7f5ebafec8e7d61d565316b39802
+content_hash: 2b360c4e02bb3551cf776b30cc42830c630786c58944c8f0b5651196a5b958c3
+field_hashes:
+  id: 65a1197fe2a38633f00b1ab8a735cc4bbd0d00d2496a374a041156006dbcf01b
+  title: ddc8fd946267013126bacb2e3bf209112af2888b193dadc15aa93a34bfdc5aba
+  source_atoms: 7069d92b9e526b0ca0bf3e65c6be63e1260c2aba338c45abeba5b4e3f21e3b30
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: b810ff1dfcc2525aba798ad96a3bd1bcf47d873188e5c8d5c3386cc6738cde48
+  intent: b2821b28c990b35fe21f7c0cf75faf175878d43bbc0b63fb5ab588a8e6bac360
+  validation: 7b5426ded6de5f6a9cfa546b6947dfc16872dedae2c315f7ed373be4788717c3
+  tags: ad70412099f09e1a9070da34b0c6ec7d341d2c060c258f07892e8c99bcefefb0
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- task:sv01
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

@@ -1,0 +1,20 @@
+name: atom-los-modelos-de-vocabulario-visual-viven-en-sldb-y-spec2viz-sldb-models-es-un-alias
+path: desk/atoms/atom-los-modelos-de-vocabulario-visual-viven-en-sldb-y-spec2viz-sldb-models-es-un-alias.md
+source_hash: 93d3b5855b19fec435c0e39b665ae336b5c651ac663c94f81be1e47ba5f4e465
+content_hash: 7081c59f31e498ef3aeeae38bb5f6c94d37325c712a99f0d1b22c728f99330d3
+field_hashes:
+  id: 00f598b98b8f1967c808549a59f15c1698d61b1b3a88a9cc388b105bedf6cf0e
+  title: 9baec03eeb9d9d92b3b3d40c1024b5acadeb5c3b708426d8b2ffd75a3e164221
+  five_wh_one_plus: 43f94244d00ce4813a89d3c0d15e1842fe2cfd95ce9fe3b063dda9e7983e0063
+  answer: 32387e5101a9250dfd135381b8732b5877a62be35ff49a3f2ea4d668ba4b7549
+  tags: 5df830da0121780e93e4d191016d51b13c947165173be156905e2e4d237f2a6d
+  provenance: 3664373195583051def3ca5db4a0cbd8bc41e84ec7f87c499ca3f125b7e7368e
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:models
+- topic:notations
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance: null

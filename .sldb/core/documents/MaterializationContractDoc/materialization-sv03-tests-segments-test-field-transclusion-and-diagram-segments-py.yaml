@@ -1,0 +1,21 @@
+name: materialization-sv03-tests-segments-test-field-transclusion-and-diagram-segments-py
+path: desk/materializations/materialization-sv03-tests-segments-test-field-transclusion-and-diagram-segments-py.md
+source_hash: 50d6ad4979217f8b03b76126482b007dfc89c106fc28bdf63fd9f82de44b5378
+content_hash: e28f619b99b2240dca8bcaf2865f519b917b0cef3e76ad27a6ec9026b6fdb673
+field_hashes:
+  id: 1d81d81e29699b226439e78899e9883648a745bbf954306618aefebf9af0d534
+  title: de650747465e5ef8f8346b65a2a2fa2fc1bb79fae8f1733b1a1c984035390bf5
+  source_atoms: cdfedc963cedc5f8772a8c05cce2b67f822d4e1d6618c0fe0e144aee1bd5b7ad
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 29137b432b0bbeebe6ea5694673463e4fb6944aa5f715c06e65e072485515cbe
+  intent: 6c304d68cdc6b7b86d05b5c9559cc7c9ef23a27166d0990f73c57dc83b697ff1
+  validation: a669b7f9dbedf8b61b07ed2a1bc1b84f57cfca9bcccabe583852454e3b7ef0ae
+  tags: d0da616832a0d16312953ca510239eb5af65f70f28f8edad31956b4783a1abf5
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- task:sv03
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

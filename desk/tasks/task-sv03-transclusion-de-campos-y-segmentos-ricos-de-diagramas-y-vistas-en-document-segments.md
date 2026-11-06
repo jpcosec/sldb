@@ -1,13 +1,18 @@
 ---
 id: task-sv03-transclusion-de-campos-y-segmentos-ricos-de-diagramas-y-vistas-en-document-segments
-status: draft
+status: ready_for_testing
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-closeout
+history:
+- task_activates
+- task_hands_to_closeout
+references:
+- ea85af56
+- tests/segments/test_field_transclusion_and_diagram_segments.py
+- atom-la-transclusion-por-campo-y-los-bloques-ricos-de-diagramas-y-tablas-se-resuelven-en-document-segment
 depends_on:
 - task-sv02-resolvedor-de-vistas-y-notaciones-en-sldb-api-cli-y-sldb-serve
 pills: []

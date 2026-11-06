@@ -1,13 +1,19 @@
 ---
 id: task-sv02-resolvedor-de-vistas-y-notaciones-en-sldb-api-cli-y-sldb-serve
-status: draft
+status: ready_for_testing
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-closeout
+history:
+- task_activates
+- task_hands_to_closeout
+references:
+- ddc049b4
+- 6ba8bb20
+- tests/notations/test_notation_view_and_routes.py
+- atom-las-vistas-de-notacion-y-proyeccion-se-resuelven-en-sldb-api-notations-por-cli-y-por-sldb-serve
 depends_on:
 - task-sv01-modelos-de-vocabulario-visual-paletas-y-notaciones-builtin-en-sldb
 pills: []

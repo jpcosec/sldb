@@ -1,0 +1,21 @@
+name: materialization-sv02-src-sldb-api-notations-init-py
+path: desk/materializations/materialization-sv02-src-sldb-api-notations-init-py.md
+source_hash: a66ea2969a6931eb3201b01e150329028b330e2624f3c2549406d843bbc2db62
+content_hash: c333bfefaed1ce9bd17e9a95284468acc7b268084416581fc942b28d21cce1b1
+field_hashes:
+  id: 4002acffae346271cc44490cc828b86b11cabb41b4cea86585e15971b99d6a8e
+  title: b980391ce3ca2198542d844ae8e17f5579485b2847909e5ac8148819d5fcf5a8
+  source_atoms: 575730cac9e4440044f3842e500fdc36d80968b38a9f297512174455d1753885
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 1cda5b0253311d64619ec015da6980ee07a23818b6b73a6feab871086d601915
+  intent: d4f201f0c112a31dfebd3b976557f3b7ff6a5e21edc80512070aa453817b1de5
+  validation: 5288950618dd0382628e6589b513073e5245aac45988086e6f47e82fa2b407fe
+  tags: 8a60d45d427ef8c5d891ac831f9f1915e3fdcb4c50b5092ee6ad0c515de0f125
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- task:sv02
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

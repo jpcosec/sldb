@@ -1,0 +1,21 @@
+name: materialization-sv01-src-sldb-notations-builtin-statechart-yml
+path: desk/materializations/materialization-sv01-src-sldb-notations-builtin-statechart-yml.md
+source_hash: 44d2329540479d826e4526ac855151f6c2674e250af2c615845e8bc2b2087429
+content_hash: 8fa5a65193530ab0302ba6eac720da4eb597449ce67c7c5e8a9eebbb364dc1e1
+field_hashes:
+  id: 21ff7e3346ac6f5a03e9d926fbb40321b6dc871713e08c2e022f783cb0626a21
+  title: 1e2f8c0dab70603ee170452e0e11177632a027350ed7802f1be4c9f89fdc0ff6
+  source_atoms: 7069d92b9e526b0ca0bf3e65c6be63e1260c2aba338c45abeba5b4e3f21e3b30
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 26db9fad0017969f3bfea05825d2ccee8f84a1ce9bf3773ee61ed98ddc401be8
+  intent: 356c35d94a5f933e8d1139779f32d71066d5d7ff2ce661685511b11e363e384a
+  validation: 7b5426ded6de5f6a9cfa546b6947dfc16872dedae2c315f7ed373be4788717c3
+  tags: ad70412099f09e1a9070da34b0c6ec7d341d2c060c258f07892e8c99bcefefb0
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- task:sv01
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

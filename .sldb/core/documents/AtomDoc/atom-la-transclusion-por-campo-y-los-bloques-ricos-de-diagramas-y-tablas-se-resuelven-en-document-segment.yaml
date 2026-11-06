@@ -1,0 +1,20 @@
+name: atom-la-transclusion-por-campo-y-los-bloques-ricos-de-diagramas-y-tablas-se-resuelven-en-document-segment
+path: desk/atoms/atom-la-transclusion-por-campo-y-los-bloques-ricos-de-diagramas-y-tablas-se-resuelven-en-document-segment.md
+source_hash: 053081d0b422ea17fbcbbd8a012087b4eb09e3473929167daf38adbc7e666424
+content_hash: c82b7c4cad9a7d5826e81cc319ef9990b51a0ba9b23f67d76baf7b5dfb8ba72d
+field_hashes:
+  id: 23262e100d937fcc116aaea43fe209219134de4e05ffa6cfa05d3806f9fdb917
+  title: a1f6aace2f1012f779e785c44bdec75ecfcb4e3a636800ff73004c9f15b959a3
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 316b5a81f5f5837ed2020737c823a4b742a2a40f2569e0469098f7db994e4ceb
+  tags: ffdcc42991c3e2bb049b9751e74993e2780bd03017a2de182e148be98579cbaa
+  provenance: 4dd3df5b2b16d9a238b43ea8cbf8e6e751a3d349cc2f4574161e992ee397ff24
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:segments
+- topic:transclusion
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance: null

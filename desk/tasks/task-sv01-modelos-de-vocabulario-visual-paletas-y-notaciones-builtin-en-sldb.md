@@ -1,13 +1,19 @@
 ---
 id: task-sv01-modelos-de-vocabulario-visual-paletas-y-notaciones-builtin-en-sldb
-status: draft
+status: ready_for_testing
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-closeout
+history:
+- task_activates
+- task_hands_to_closeout
+references:
+- 6b80df36
+- 6ba8bb20
+- tests/notations/test_notation_models_and_builtins.py
+- atom-los-modelos-de-vocabulario-visual-viven-en-sldb-y-spec2viz-sldb-models-es-un-alias
 depends_on: []
 pills: []
 files:
