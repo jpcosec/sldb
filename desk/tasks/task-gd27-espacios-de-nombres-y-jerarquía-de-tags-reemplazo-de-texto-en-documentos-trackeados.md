@@ -7,7 +7,15 @@ tags:
 - artifact:task
 current_node: ritual-execution
 history: []
-references: []
+references:
+- pytest tests/api/test_tags.py
+- tests/api/test_tags.py
+- pytest tests/api/test_replace_text.py
+- tests/api/test_replace_text.py
+- docs/architecture/tags.md
+- desk/drawer/tasks/task-on-write-no-se-eval-a-en-create-document-ni-en-track-document-file.md
+- fb733e86e830f6f578982ede3a25409dd632613e
+- desk/atoms/atom-los-namespaces-de-tags-se-declaran-en-el-store-y-un-prefijo-necesita-su-documento-ancla.md
 depends_on:
 - task-gd24-transacción-multi-documento-en-sldb-api-y-save-atómico-absorbe-doc-io-doctransaction
 pills: []
@@ -124,6 +132,7 @@ _List the checks required before this task can close._
 - TMPDIR=/dev/shm pytest -q tests/test_clean_code_rules.py antes de cada squash (recorre todo src/: funciones de 10 líneas de lógica como máximo, máximo 1 clase y 80 líneas efectivas por archivo)
 - git fetch y rebase sobre origin/main antes de entregar; en CHANGELOG.md y src/sldb/api/__init__.py tomar la versión de main y agregar solo lo propio
 - files: del TaskDoc coincide con el diff entregado (los autorizados que no se usen se reportan y el coordinador los poda antes de entregar)
+- RESULTADO (coordinador de proyecto, 2026-11-06, squash fb733e86 sobre origin/main): tags 34, replace_text 16, api_semantic 8, transaction 13, write_paths_validate 5, stores_build 25, store_seams 2, clean_code_rules 925, rules 13, rules_end_to_end 1, rules_evaluation 12, rules_language_spec 52: todos verdes, de a uno. q3 = B (familia incorporada builtin:tag_namespace en GO08), decidido por el coordinador de proyecto y revisable por el dueño (alternativa C: RuleDoc de usuario con predicado de prefijo ancla). q18: on_write no corre en create/track (hueco previo de GO08; drawer task-on-write-no-se-eval-a-en-create-document-ni-en-track-document-file). H8: replace_text re-trackea y mueve la ruta al final de include.paths (igual que docs untrack + track). H7: barrido de anclas O(N²) sin caché, seguimiento si crece. payload_save_steps sin tocar. Suite completa pendiente al cierre del plan.
 
 ## Done When
 

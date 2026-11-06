@@ -495,6 +495,25 @@ include:
   - desk/materializations/materialization-gd21-architecture-project-graph.md
   - desk/materializations/materialization-gd21-project-graph-document-surface.md
   - desk/materializations/materialization-gd21-project-graph-reference-field.md
+  - desk/materializations/materialization-gd27-stores-tag-namespace.md
+  - desk/materializations/materialization-gd27-tags-init.md
+  - desk/materializations/materialization-gd27-tags-tag-tree.md
+  - desk/materializations/materialization-gd27-tags-tag-folder.md
+  - desk/materializations/materialization-gd27-tags-tag-check.md
+  - desk/materializations/materialization-gd27-documents-replace-text.md
+  - desk/materializations/materialization-gd27-store-semantic-tags.md
+  - desk/materializations/materialization-gd27-parsers-tags.md
+  - desk/materializations/materialization-gd27-commands-tags.md
+  - desk/materializations/materialization-gd27-commands-docs-replace.md
+  - desk/materializations/materialization-gd27-api-test-tags.md
+  - desk/materializations/materialization-gd27-api-test-replace-text.md
+  - desk/materializations/materialization-gd27-architecture-tags.md
+  - desk/materializations/materialization-gd27-rules-builtin-tag-rules.md
+  - desk/materializations/materialization-gd27-rules-rules-on-write.md
+  - desk/materializations/materialization-gd27-rules-rules-check.md
+  - desk/materializations/materialization-gd27-rules-rules-on-check.md
+  - desk/materializations/materialization-gd27-rules-rules-explain.md
+  - desk/materializations/materialization-gd27-cli-dispatcher.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -559,8 +578,8 @@ include:
     name: plan-bootstrap-model-set
 - model: TaskCodeDoc
   paths:
-  - desk/tasks/task-gd27-espacios-de-nombres-y-jerarquía-de-tags-reemplazo-de-texto-en-documentos-trackeados.md
   - desk/tasks/task-gd22-referencias-entrantes-buscar-y-reescribir.md
+  - desk/tasks/task-gd27-espacios-de-nombres-y-jerarquía-de-tags-reemplazo-de-texto-en-documentos-trackeados.md
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md

@@ -1,0 +1,22 @@
+name: materialization-gd27-rules-rules-explain
+path: desk/materializations/materialization-gd27-rules-rules-explain.md
+source_hash: 0c4802c5fe0e26e99cb30c93b9aba1409874e34534652b11532c79e4b962c0c2
+content_hash: 8cf8c53ab5b59eab5944274d3fe7fad49b98d53387793b2736cdd1e113a6a1ae
+field_hashes:
+  id: 71eae5d6bd2af2579ba5467c49c9ce022c95b7abc01ac176bcdf80c44c18ce94
+  title: 027cd9df3efa8d65d1c9203a874dba447ad8095b7a6aa49291ccf7a645128fee
+  source_atoms: d15bdb87b2ae6408c60b27bb40da997a441f51233fb8264da3b0fd30e32dcd92
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: fc4ed68508aa5abcf53a2ee73df40e7056d53d4fa8cb5e16e9866562d977c7e7
+  intent: f7a7f794e5261182b66bb7106e93f65ee2465c36bf4f296281b7c7d2e56d6d55
+  validation: 95ce100d8a49f83d276c1c550b1d84cedc786dcd796440fff7cb213443a53129
+  tags: 012bcdc658d3eadb274f51c1114fb05aa128b6efcace2d2a54d68d0185b2cf97
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:rules
+- topic:tags
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null
