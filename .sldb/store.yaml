@@ -582,8 +582,8 @@ include:
     name: plan-bootstrap-model-set
 - model: TaskCodeDoc
   paths:
-  - desk/tasks/task-gd22-referencias-entrantes-buscar-y-reescribir.md
   - desk/tasks/task-gd25-vistas-declaradas-viewdoc-servidas-por-sldb-serve.md
+  - desk/tasks/task-gd22-referencias-entrantes-buscar-y-reescribir.md
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md

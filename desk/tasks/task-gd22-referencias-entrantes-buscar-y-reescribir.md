@@ -99,6 +99,7 @@ q15 (forma del valor): el valor nuevo conserva la forma en que el original nombr
 q16 (límite de palabra): un token de mención es una secuencia de caracteres [A-Za-z0-9_:./-]; el texto capturado se reemplaza solo si coincide con un token completo (el carácter anterior y el siguiente no son de ese conjunto, o son inicio o fin de línea). Así card:card-a no reescribe card:card-ab.
 PRECISIONES DE EJECUCIÓN (coordinador, 2026-11-06):
 q17 (q8 afinada, hallazgo del ejecutor): shards_signature (src/sldb/store/edge_index/shard_signature.py:31) hace un os.scandir del directorio de shards de aristas en cada load_edge_index y en cada comprobación del memo de GD21: es una lectura de un directorio de .sldb, no un recorrido del árbol. El test de q8 cuenta os.walk y Path.rglob (cero, como el de GD21) y, para os.scandir, cero llamadas sobre directorios fuera de .sldb (ningún scandir del proyecto); los scandir dentro de .sldb no cuentan. Afinado (ejecutor): los shards de aristas viven en .sldb_cache/edges/, así que el conteo excluye los scandir sobre .sldb y .sldb_cache (directorios cuyo nombre empieza por .sldb); cualquier otro scandir del proyecto cuenta y debe ser cero.
+q18 (afina q16, observación del ejecutor): uno o más puntos al final de un token, seguidos de espacio en blanco o de fin de línea, son puntuación de la frase y no parte del token. Así "Ver card:card-a." reescribe card:card-a y conserva el punto, y card:card-a.b sigue siendo un token distinto. Un test lo cubre y references.md lo dice.
 
 ## Validation
 
