@@ -1,17 +1,22 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-06T20:45:00Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-journal-show
 system: sldb
 command_path: journal show
-synopsis: Show journal entries, newest first.
+synopsis: 'Retired: prints the notice and exits 0.'
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#journal show; contract-sha256:ed40f3478dd771e649fc8929df6349d62a8f452b07cf359c6242f3d5c0d09347
+provenance: parser:sldb.cli.parser:build_parser#journal show; contract-sha256:8b393ff4b1edd63c2b8a6eae17808cb78e9a19cf49ffeb1a9039b9c7f16e56e4
 ---
 
 # journal show
 
 ## Synopsis
 
-Show journal entries, newest first.
+Retired: prints the notice and exits 0.
 
 ## Purpose
 

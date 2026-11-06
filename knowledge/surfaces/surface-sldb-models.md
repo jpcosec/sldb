@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-06T20:45:01Z'
+  authority: generated
+  via: save_document_payload
 id: surface-sldb-models
 system: sldb
 surface: models
@@ -8,7 +13,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: parser:sldb.cli.parser:build_parser#models; contract-sha256:6caea32399f799c92ea80644a4ba400027ce71153a6bbdae3ed248d35c79ff86
+provenance: parser:sldb.cli.parser:build_parser#models; contract-sha256:d5ff7eecb808896f02714d6ec2072b108d724bc6e1c77f5bcb08d48da2731ad5
 ---
 
 # models
@@ -30,6 +35,7 @@ Registered under src/sldb/cli/parsers/ as the 'models' subparser. Each command d
 - sldb models fields remove
 - sldb models inherit
 - sldb models list
+- sldb models metadata edit
 - sldb models remove
 - sldb models show
 - sldb models template edit

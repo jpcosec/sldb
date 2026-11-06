@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-06T20:45:07Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-selfdoc-python-sync
 system: sldb
 command_path: selfdoc python-sync
 synopsis: Track static Python symbols as reference documents.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#selfdoc python-sync; contract-sha256:4012bf97db3ded6a7fda4931d3a4ba4c971c855ddfd8176cf3101f487da9ed78
+provenance: parser:sldb.cli.parser:build_parser#selfdoc python-sync; contract-sha256:65902c2d3bd7857833f0ece9b7647c86c80733fd8935d523e2b48b758a1f8edb
 ---
 
 # selfdoc python-sync
@@ -83,13 +88,13 @@ Not documented.
         "--graph-output"
       ],
       "required": false,
-      "default": "\".sldb/runtime/graphs/python-source.graph.json\"",
+      "default": "\".sldb_cache/graphs/python-source.graph.json\"",
       "choices": null,
       "nargs": null,
       "value_type": null,
       "action": "argparse._StoreAction",
       "const": "null",
-      "help": "Source graph (node-link JSON) relative to the store root"
+      "help": "Source graph (node-link JSON) relative to the project root"
     },
     {
       "names": [

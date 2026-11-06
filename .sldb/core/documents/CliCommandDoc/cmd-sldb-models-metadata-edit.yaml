@@ -1,0 +1,21 @@
+name: cmd-sldb-models-metadata-edit
+path: knowledge/commands/cmd-sldb-models-metadata-edit.md
+source_hash: f70fc368972ffd91f90c2105ecb748fa2a4e9d0986180b803bf08c66b09b8bbb
+content_hash: 523b42bb2e9b5e801f8203ace185d85cbe3da85d6a62966375342f238143ebe7
+field_hashes:
+  id: 40c39443120af6aebeac945ff800a6e34feb3adca25281f52e3effd9a0149d5f
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  command_path: 9c06f0f25a02834bab8ad1c679856d8b6090ba6dc7cfa37872eb245a6292e046
+  synopsis: 36f679c00b77f217eea107c39349ae2acf43c4e985408f196a36a14e88c23957
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  arguments: 39ab63240bc6ca8db5026b61939fcee1463fd7f7b7f7a47c078d76ee4b87b738
+  usage: 89602573434680a0ed7d87fd5ee2494748c49dd18c837ab2a12a506b205d3975
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: 234ad442215c966f40c16e5cb436c9c437d38febc4ac3dd3346fbe65117b8125
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.cli_command
+- workspace.knowledge.commands
+provenance: null

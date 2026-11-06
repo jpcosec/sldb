@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-06T20:45:08Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-semantic-parent-add
 system: sldb
 command_path: semantic parent add
 synopsis: Declare TAG a kind of PARENT.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#semantic parent add; contract-sha256:8da991ab4ab581975dbaf6ae5601a640c83913ac3706a49ffdd52b20758f489b
+provenance: parser:sldb.cli.parser:build_parser#semantic parent add; contract-sha256:5ecc0fa518fea0295a510d0c3c5672e0f283dec474865f2062d846e84d2565eb
 ---
 
 # semantic parent add
@@ -76,7 +81,7 @@ Not documented.
       "value_type": null,
       "action": "argparse._StoreAction",
       "const": "null",
-      "help": "Who is writing, for the journal"
+      "help": "Who is writing (accepted for compatibility; the journal was retired on 2026-11-04)"
     }
   ],
   "exclusive_groups": []

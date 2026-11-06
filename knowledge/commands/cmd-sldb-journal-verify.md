@@ -1,17 +1,22 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-06T20:45:00Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-journal-verify
 system: sldb
 command_path: journal verify
-synopsis: Verify the journal hash chain.
+synopsis: 'Retired: prints the notice and exits 0.'
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#journal verify; contract-sha256:e39cd00e3342b9c6568059a4b70b07e9034be9bfccd5f17ef3cc077a13056f39
+provenance: parser:sldb.cli.parser:build_parser#journal verify; contract-sha256:61be786ec36e0159069712ecb2df976ceb62625d7f3de6f37b0b5035ac1a71b2
 ---
 
 # journal verify
 
 ## Synopsis
 
-Verify the journal hash chain.
+Retired: prints the notice and exits 0.
 
 ## Purpose
 

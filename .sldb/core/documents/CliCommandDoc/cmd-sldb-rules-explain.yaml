@@ -1,0 +1,21 @@
+name: cmd-sldb-rules-explain
+path: knowledge/commands/cmd-sldb-rules-explain.md
+source_hash: 5d0f1e8410a3d197fba893a3b2a76f23022e2a2596ab37b4e044f7a98ab70127
+content_hash: 6d1434a26e662843b1140c11de6e45d11f9ef3184eb1ca2c2913aa73cb7377d1
+field_hashes:
+  id: fda9fa363df8c3fa46845b2aa62d973940939fa225d7d29f8925169734b04e3e
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  command_path: ae25a2463c29583d865da15a81f91ecc21f57aa4f451b3c0c97d5774ea0291e0
+  synopsis: 910f0d611581f8e582c6442c1f4a747fa5064fbf5d5dbc87595e28a450af742b
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  arguments: 27ab7010cdaf9e9636147c5612d990181a9fd651eb9ab40209a9d1b594cbe0c1
+  usage: eb4474f63ad65e878f5e3273132ac8cab88e2bfd465f9e85895706d9159ee96b
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: d443ff50f7289452e9cfc399680a42319a8c2d26503ed1a23c47909c84a2f340
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.cli_command
+- workspace.knowledge.commands
+provenance: null

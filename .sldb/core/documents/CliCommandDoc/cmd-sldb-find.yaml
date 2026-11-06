@@ -1,7 +1,7 @@
 name: cmd-sldb-find
 path: knowledge/commands/cmd-sldb-find.md
-source_hash: 6f8abe957eb2e54fd8335111f175f375339187ac25bff54398a63561a60f5bec
-content_hash: 51ae9b4189b8e30d2285110a86b1dd0c0137f283115b90eed3be7aa7c0d1ab32
+source_hash: 1c2fcde61e1ce58d8176a4387546d01cda5e28de6ec77c4fc7a44fe9b6859383
+content_hash: a2b58e7c863e4166951f650dc62c970a7d52d2de826b9e0fea98455e1dfa4e38
 field_hashes:
   id: 8caf7276432eec33dd106cd9e378e69b8bd17980456de0f13fcd0e79efd7b14f
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,10 +9,10 @@ field_hashes:
   synopsis: 5582e24fbd0f35cab328c0cb1d3bc7c4e9454079a483c4171ebad74dbd3d4c08
   purpose: 405203c369c8bb9ea4ee19c9bfeb5aaa393c26699901d9f07d3816e2e6fc4817
   how_it_works: 33dbf1e507b2ec6698e59fabab0df8df5283e983595137a85ec410591105ee89
-  arguments: 9bed23c669e88bae8f9209c2d0d89458a61f1922ec563a6b16e13ae4827113b5
+  arguments: eb286a4ffd27cf4d4b77568a07009e3b79050bf919479e136a37d936528bd2d0
   usage: 3fbe8ae37de255630548b9d994d85052f2fcd10992224eb3f75f1ed28b1231f4
   tags: 699c2cfd1a5b0cb746c8dfb0f4de3ed26435e62c74e179332ed04ad4f2591c91
-  provenance: 5c25a14c446eb0d25efa630467b5d0dc2cd73efc24d0dfcdb9b44c1b65b82011
+  provenance: e87faecfc17dab5f300b89adc6ae16297fc056448f38005e89268b483c9bc20a
 semantic_tags:
 - domain:retrieval
 - entity:cli_command
@@ -23,3 +23,8 @@ semantic_tags:
 - system:sldb
 - type.knowledge.cli_command
 - workspace.knowledge.commands
+provenance:
+  by: agent
+  at: '2026-11-06T20:44:53Z'
+  authority: generated
+  via: save_document_payload

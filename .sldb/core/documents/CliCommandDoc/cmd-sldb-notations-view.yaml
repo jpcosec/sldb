@@ -1,0 +1,21 @@
+name: cmd-sldb-notations-view
+path: knowledge/commands/cmd-sldb-notations-view.md
+source_hash: 6e210bfef4457ddf867432dd07469eb6566cb85448e015b386c1c2bfa3b2f010
+content_hash: dad9f07c96412f77191f3655885a03d29d15602a1f5dc9106494f549bf7eee4b
+field_hashes:
+  id: e10e75ac078bbaeedafcf169c29d27417bc5605954e8ae99c337345673a2a0dc
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  command_path: 98dca0f1ce0c60c410c9a7df5af49ebcfc3403d740f125b1b973d72c492d6044
+  synopsis: ee447848e16ed7bad104cced74e09ef441f4f22a627fc37c6b0dbb06455478f2
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  arguments: 8078c386d0a10f7190a6b70e1b6f1a2d1951f58a0987e1d69239009541d628d4
+  usage: 8c0bfe514f259fd6231563313b13ae4f3e309b1a57ab50a094f6bda7d95a03b1
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: ff17aa13b9a774191cc47a32767d1860d2045147b6719e9554e63a043498c22f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.cli_command
+- workspace.knowledge.commands
+provenance: null

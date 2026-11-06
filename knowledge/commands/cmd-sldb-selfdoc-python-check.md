@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-06T20:45:07Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-selfdoc-python-check
 system: sldb
 command_path: selfdoc python-check
 synopsis: Report static Python documentation drift without writing.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#selfdoc python-check; contract-sha256:7d5a66705e28347f28d20d36a44029c42891ff14c18a083cd37040a91a3db8ed
+provenance: parser:sldb.cli.parser:build_parser#selfdoc python-check; contract-sha256:e4757bbe5a95dd6c5e7179a0271d13ed7ddf2147e69aa7f3366e7e1d5acb4c5c
 ---
 
 # selfdoc python-check
@@ -83,13 +88,13 @@ Not documented.
         "--graph-output"
       ],
       "required": false,
-      "default": "\".sldb/runtime/graphs/python-source.graph.json\"",
+      "default": "\".sldb_cache/graphs/python-source.graph.json\"",
       "choices": null,
       "nargs": null,
       "value_type": null,
       "action": "argparse._StoreAction",
       "const": "null",
-      "help": "Source graph (node-link JSON) relative to the store root"
+      "help": "Source graph (node-link JSON) relative to the project root"
     },
     {
       "names": [

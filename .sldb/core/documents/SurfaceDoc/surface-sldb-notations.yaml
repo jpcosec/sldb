@@ -1,0 +1,19 @@
+name: surface-sldb-notations
+path: knowledge/surfaces/surface-sldb-notations.md
+source_hash: b3d93e00cb4150c3dfd933eb21d9cca075e3cac6c011a9666aec5ba2b225b340
+content_hash: e268262532c68338b21a18e3f6107f8339c7b6f960c6a802b9fe0d085dfdaf51
+field_hashes:
+  id: 75410a1a7091cfdcfc89cfba8bc94f6789c23a51a2f41639221307d879e9eab6
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  surface: efd1a9f6c750e55bf95369f0abc9f0d9a48784abfbf22abe28223ce14a34901c
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  commands: 51793c53a9c5e9366c1cb1191077313815e5bf380d6c0a21320a92504dfd2700
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: 7db4e75b97b384334df5c7b4f4c35d37fb29de8182f518cc84473f57a67c6634
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.surface
+- workspace.knowledge.surfaces
+provenance: null

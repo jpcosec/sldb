@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-06T20:45:01Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-models-create
 system: sldb
 command_path: models create
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#models create; contract-sha256:5e5f6a4838d1f3ba3dfd8cb153f2753338153aae5c0da8c81571ce49258e0508
+provenance: parser:sldb.cli.parser:build_parser#models create; contract-sha256:0b1a44bdfaf9e5bbafd908a92caaad76aac11cc600e9dd002e3372cb2a438631
 ---
 
 # models create
@@ -95,6 +100,71 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'create'. It 
       "action": "argparse._StoreTrueAction",
       "const": "true",
       "help": "Print generated code"
+    },
+    {
+      "names": [
+        "--containment"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Containment mapping as JSON/YAML"
+    },
+    {
+      "names": [
+        "--references"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "References list as JSON/YAML"
+    },
+    {
+      "names": [
+        "--compositions"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Compositions mapping as JSON/YAML"
+    },
+    {
+      "names": [
+        "--semantics"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Semantics mapping as JSON/YAML"
+    },
+    {
+      "names": [
+        "--authority"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Authority string"
     }
   ],
   "exclusive_groups": []
