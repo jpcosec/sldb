@@ -1,6 +1,6 @@
 # Brief: generalizar en sldb lo que deskops reimplementa
 
-Fecha: 2026-11-05. Repo dueño: sldb. Estado: plan autorizado por el dueño (2026-11-05, decisiones.md DA1-DA6 y G4), `execution_authorized: true`; GD23, GD24 y GD26 promovidos el 2026-11-06. Rama P2 del árbol aprobado por el dueño (`~/proyectos/SLDB_1/deskops-como-config-arbol.md`). Hermano de `grafo-operable` (P1, mismo desk) y productor de los habilitadores `T2.x` que consume el plan `deskops-como-config` de deskops (P3, P5).
+Fecha: 2026-11-05. Repo dueño: sldb. Estado: plan autorizado por el dueño (2026-11-05, decisiones.md DA1-DA6 y G4), `execution_authorized: true`; GD23, GD24 y GD26 por promover (bloqueados: el desk de sldb necesita deskops desk update --apply para registrar TaskCodeDoc). Rama P2 del árbol aprobado por el dueño (`~/proyectos/SLDB_1/deskops-como-config-arbol.md`). Hermano de `grafo-operable` (P1, mismo desk) y productor de los habilitadores `T2.x` que consume el plan `deskops-como-config` de deskops (P3, P5).
 
 ## Encargo
 
