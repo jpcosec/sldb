@@ -4,6 +4,11 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
 
 ## 0.1.13 — not released yet (no tag, not on PyPI)
 
+- `sldb.api.resolve_indexed_document(store_path, model, name)` finds `Model:name` when the document is
+  tracked under a submodel of `Model` (`TaskDoc:task-x` finds `TaskCodeDoc:task-x`): an instance of a
+  submodel is an instance of its bases, read from `base_models` in the model indexes, without importing
+  any class. An exact match on the model wins; two submodels tracking the same name raise
+  `AmbiguousDocument`. Consumers such as graph_ui resolve ids through it instead of comparing model names.
 - The whole-graph analyses sit behind a `GraphBackend` seam (`load`, `eval`, `analyze`).
   `NetworkXBackend` wraps `sldb.store.graph.analysis` unchanged, so the six `sldb graph`
   analyses and the ten `api/graph/analyze.py` functions print the same output as before and
