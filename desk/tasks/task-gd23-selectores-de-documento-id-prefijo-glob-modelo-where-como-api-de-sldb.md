@@ -25,6 +25,13 @@ files:
 - tests/test_serve.py
 - docs/architecture/selectors.md
 - CHANGELOG.md
+- src/sldb/api/documents/selector.py
+- src/sldb/api/documents/select_filters.py
+- src/sldb/core/exceptions/sldb_ambiguous_selection_error.py
+- src/sldb/core/exceptions/__init__.py
+- src/sldb/cli/commands/docs_select.py
+- src/sldb/cli/parsers/docs3.py
+- src/sldb/cli/serve/docs_select_routes.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
@@ -83,6 +90,15 @@ q5 (where): la gramática es la de docs/architecture/rules-language.md (GO02), e
 q6 (CLI): no hay string corto: la CLI usa solo los flags --ref, --prefix, --path-glob, --model, --where, --one (y --include-linked); el selector como mapa es la forma de la API y de GET /docs/select (mismos nombres como query params).
 q7 (ref y alias): ref acepta exactamente lo que doc_status (src/sldb/api/stores/doc_status.py:18) acepta: name, Model/name o Model:name, ruta trackeada, opcionalmente con prefijo alias: de un store enlazado (split_doc_ref de api/stores/doc_ref.py); no hay tabla de alias nueva.
 q8 (include_linked): false = solo documentos del store dado; true = también los de los stores enlazados por stores add (los mismos que doc_status resuelve con alias:), y cada fila lleva export_id con el prefijo alias:. No sigue aristas.
+PRECISIONES DEL COLD-BUNDLE Y DEL DESPACHO (review-task-gd23-bundle-1 y coordinador, 2026-11-06):
+q9 (gates y where): G_GO04 y G_GO05 están satisfied (sldb 289ec6c7); q1 y q4 quedan resueltos y la rama de q5 "si GO05 no cerró" no aplica. where usa la gramática completa de docs/architecture/rules-language.md con el evaluador que está en main: sldb.api.where (where_findings(store, expression, include_linked) sobre la proyección del índice, o payload_holds de store/graph/language/predicate_documents.py sobre los payloads de esa proyección). Cero llamadas a Validator.extract (el test las cuenta). No se escribe evaluador nuevo.
+q10 (glob y find): glob_structural y find_structural conservan su salida de direcciones (st.{M}.doc[.campo]); lo que pasa por select_documents es solo el paso de elegir documentos (alcance de modelo con o sin herencia, y where en find). El patrón de nombre de glob (fnmatch sobre el nombre) y la expansión a campos siguen en structural_queries.py. Goldens de tests/store/test_queries_expanded.py y tests/test_linked_structural.py intactos.
+q11 (errores): expect="one" con cero resultados levanta SLDBDocumentTargetError (core/exceptions/sldb_document_target_error.py, la clase existente de "Unknown document target") con mensaje "Unknown document: <selector>". Con más de uno levanta AmbiguousSelectionError(SLDBDocumentTargetError) (nuevo, core/exceptions/sldb_ambiguous_selection_error.py, exportado en core/exceptions/__init__.py y sldb.api) con atributo candidates: list[str] (export_id de cada uno, en el orden de salida) y los candidatos en el mensaje. AmbiguousDocument (api/stores/ambiguous_document.py) no se reutiliza: es otra ambigüedad (submodelos de un Model:name). CLI: exit 1 con el envelope de error habitual; GET /docs/select: 404 para desconocido y 409 para ambiguo.
+q12 (prefix con expect="many"): devuelve todos los documentos cuyo nombre empieza por el prefijo (el exacto incluido); nunca falla por ambigüedad. La regla "exacto primero, si no prefijo único" es solo de expect="one".
+q13 (filas): export_id = id del nodo del documento en el índice de aristas (Model:name; alias:Model:name para los de un store enlazado); path = ruta relativa a la raíz del proyecto del store que lo trackea (posix). Orden: primero los del store dado y después los enlazados por alias, cada grupo por path.
+q14 (include_linked): solo los stores enlazados directamente al store dado (los de stores add y find_link); no es transitivo.
+q15 (string corto): manda q6: no hay string corto. La frase "(o string corto equivalente para la CLI)" del contrato queda anulada.
+q16 (estructura, por tests/test_clean_code_rules.py: máximo 1 clase y 80 líneas efectivas por archivo; structural_queries.py ya está en 80): se agregan a files src/sldb/api/documents/selector.py (modelo pydantic Selector), src/sldb/api/documents/select_filters.py (filtros por clave), src/sldb/core/exceptions/sldb_ambiguous_selection_error.py y core/exceptions/__init__.py, src/sldb/cli/commands/docs_select.py, src/sldb/cli/parsers/docs3.py y src/sldb/cli/serve/docs_select_routes.py. Si structural_queries.py no cabe, lo que se extraiga va a un archivo nuevo previa consulta al coordinador.
 
 ## Validation
 
