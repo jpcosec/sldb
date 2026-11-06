@@ -123,7 +123,7 @@ _List the checks required before this task can close._
 - TMPDIR=/dev/shm pytest -q tests/test_serve.py
 - TMPDIR=/dev/shm pytest -q tests/notations/test_notation_view_and_routes.py
 - TMPDIR=/dev/shm pytest -q tests/notations/test_notation_models_and_builtins.py
-- TMPDIR=/dev/shm pytest -q tests/notations/test_payload_projection.py
+- TMPDIR=/dev/shm pytest -q tests/store/test_payload_projection.py
 - TMPDIR=/dev/shm pytest -q tests/test_store_seams.py
 - TMPDIR=/dev/shm pytest -q tests/test_cli_every_command_has_a_handler.py
 - grep -rn 'register_view_provider\|computed' src/sldb/api/views/ vacío
@@ -133,6 +133,7 @@ _List the checks required before this task can close._
 - TMPDIR=/dev/shm pytest -q tests/test_clean_code_rules.py antes de cada squash (recorre todo src/: funciones de 10 líneas de lógica como máximo, máximo 1 clase y 80 líneas efectivas por archivo)
 - git fetch y rebase sobre origin/main antes de entregar; en CHANGELOG.md y src/sldb/api/__init__.py tomar la versión de main y agregar solo lo propio
 - files: del TaskDoc coincide con el diff entregado (los autorizados que no se usen se reportan y el coordinador los poda antes de entregar)
+- Medición q12 (entrega del ejecutor, wt/gd25 5d39b6d6, robocop2): vista tablero sobre 204 Items en caliente, una llamada de calentamiento y mediana de 5 = 0,328 s (corridas 0,328 / 0,260 / 0,351 / 0,261 / 0,331); detalle y comando en reports/gd25-entrega.md
 
 ## Done When
 
