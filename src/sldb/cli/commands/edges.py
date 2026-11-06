@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 from typing import Any
 
+from sldb.cli.commands.edges_rewrite import edges_referrers, edges_rewrite
 from sldb.cli.commands.edges_unknown_node import unknown_node_message
 from sldb.api import check_edges, edges_from, edges_holding, edges_to, init_relations, open_store, rebuild_edges, runtime_document, unresolved_references
 
@@ -13,8 +14,8 @@ class EdgesCLI:
     """Noun-first surface of the edge index."""
 
     def run(self, args: Any) -> int:
-        """Dispatch `edges init|rebuild|show|check|unresolved`; 0 on success, 1 when a check fails."""
-        handler = {"init": self._init, "rebuild": self._rebuild, "show": self._show, "check": self._check, "unresolved": self._unresolved}[args.edges_command]
+        """Dispatch `edges init|rebuild|show|check|unresolved|referrers|rewrite`; 0 on success, 1 when a check fails."""
+        handler = {"init": self._init, "rebuild": self._rebuild, "show": self._show, "check": self._check, "unresolved": self._unresolved, "referrers": edges_referrers, "rewrite": edges_rewrite}[args.edges_command]
         return handler(args)
 
     def _init(self, args: Any) -> int:

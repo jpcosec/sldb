@@ -18,6 +18,7 @@ from sldb.store.io import load_store_index
 from sldb.store.io.shards import load_document_shard
 from sldb.store.layout import documents_shard_path
 from tests.api.test_project_graph import declared_project, project, tracked_project  # noqa: F401 - fixtures
+from tests.api.test_referrers import reference_world  # noqa: F401 - fixture
 from tests.store.test_cli_store import _PY_ARGS, _SETUP_REF, _STORE_ARGS, _doc_track, _init, _model_add
 
 
@@ -1519,5 +1520,31 @@ def test_edges_include_linked_false_leaves_the_linked_stores_out(tmp_path: Path)
         assert status == 200 and [edge["relation"] for edge in same["edges"]] == ["has_document"]
         status, bad = _request_json(f"{base_url}/edges?from=SimpleBook:book&include_linked=maybe", expected_error=400)
         assert status == 400 and bad == {"ok": False, "error": "Invalid parameter include_linked: expected true or false"}
+    finally:
+        _stop(server, thread)
+
+
+# ── GET /edges/referrers and POST /edges/rewrite (GD22) ────────────────────────
+
+def test_edges_referrers_and_rewrite_answer_what_the_cli_prints(reference_world, capsys) -> None:  # noqa: F811
+    from tests.api.test_referrers import EXPECTED
+
+    world = reference_world
+    server, thread, base_url = _serve(world.store, world.py)
+    try:
+        capsys.readouterr()
+        assert cli_main(["edges", "referrers", "card-a", "--store", str(world.store), "--format", "json"]) == 0
+        status, body = _request_json(f"{base_url}/edges/referrers?target=card-a")
+        assert (status, body) == (200, json.loads(capsys.readouterr().out)) and body == EXPECTED
+        before = world.digests()
+        assert cli_main(["edges", "rewrite", "card-a", "--to", "card-a2", "--dry-run", "--store", str(world.store), "--pythonpath", world.py, "--format", "json"]) == 0
+        status, body = _request_json(f"{base_url}/edges/rewrite", method="POST", payload={"target": "card-a", "replacement": "card-a2", "dry_run": True})
+        assert (status, body) == (200, json.loads(capsys.readouterr().out)) and len(body["changed"]) == 5 and world.digests() == before
+        status, body = _request_json(f"{base_url}/edges/rewrite", method="POST", payload={"target": "card-a", "replacement": None})
+        assert status == 200 and [c["after"] for c in body["changed"]] == [None, None, None] and len(body["skipped"]) == 2
+        assert "about" not in world.payload("Card:card-b") and world.payload("Card:card-c")["related"] == ["card-x", "card-z"]
+        for query, payload, code in (("referrers", None, 400), ("referrers?target=nope", None, 404), ("rewrite", {"target": "card-a"}, 400), ("rewrite", {"replacement": None}, 400), ("rewrite", {"target": "card-a", "replacement": 3}, 400), ("rewrite", {"target": "card-a", "replacement": None, "dry_run": "yes"}, 400), ("rewrite", {"target": "nope", "replacement": None}, 404)):
+            status, body = _request_json(f"{base_url}/edges/{query}", method="GET" if payload is None else "POST", payload=payload, expected_error=code)
+            assert status == code and body["ok"] is False and body["error"], query
     finally:
         _stop(server, thread)
