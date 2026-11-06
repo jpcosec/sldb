@@ -1,0 +1,30 @@
+name: review-task-gd27-bundle-1
+path: desk/reviews/task-gd27/bundle-1.md
+source_hash: 5396075f3c4578009a37b62447306fe0c3c18a13b51e8fecdd7aa6424390b92e
+content_hash: 3c3eea70196fa489599d8941533018321040bc971bbede1d1e7b14cf81c6fdf6
+field_hashes:
+  id: b0bc5cddcbef42ed3921816db69798a2037c83a44d926ec903f0e9e009bccfc8
+  title: 97cca3cc8fdb74fd11473894b332c3c2eef4f9b9364736405d336691ec1fe3b6
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  subject: dd8e038626b2232767c3381d3e2a8893bff62accf2034fcd1712ae87761a230a
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: ba68b51868cbc39603034c3c73344abb361a88e45c65b2d941d8aef9e38b2b6d
+  input_sha256: 7ed870ed0c29ac4b289c07135f4a575fd048487d30fcfa44f0f4a1c5ce16e76e
+  output_sha256: 72baee550cd52ec77b176d2f08de672dd72ad61f3b8b696a79693cacc8029144
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 0cafc316d81c6359c5b80ac73ab86fcb26e6f2aaf41f23e2d6a3684ecb5b8c04
+  created_at: 2ba79885a6ddec9ada7abe82d37de685ff399bb7b61d5ea5c2481a307f4bbbc0
+  disposed_at: 4b2b124463c2696c3b3743f1e7cf6b38ed7bf923755444fa2c222e69d30aa473
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 29a7b6b53a6505b826f371da2a403c8feb8457e6ffd47a54d450c785ae9d47a4
+  disposition: 532d5762424fc4d925d732597e41c96b8225fd5543f63638bf7ccb1eb3711c51
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance: null

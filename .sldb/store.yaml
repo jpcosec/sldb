@@ -541,11 +541,13 @@ include:
     name: review-task-go10-retiro-de-where-parse-y-fieldcondition-bundle-1
   - path: desk/reviews/task-gd27/preflight-1.md
     name: review-task-gd27-preflight-1
-- model: TaskCodeDoc
-  paths:
-  - desk/tasks/task-gd27-espacios-de-nombres-y-jerarquía-de-tags-reemplazo-de-texto-en-documentos-trackeados.md
+  - path: desk/reviews/task-gd27/bundle-1.md
+    name: review-task-gd27-bundle-1
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md
+- model: TaskCodeDoc
+  paths:
+  - desk/tasks/task-gd27-espacios-de-nombres-y-jerarquía-de-tags-reemplazo-de-texto-en-documentos-trackeados.md
 graph_backend: networkx
 policy: {}

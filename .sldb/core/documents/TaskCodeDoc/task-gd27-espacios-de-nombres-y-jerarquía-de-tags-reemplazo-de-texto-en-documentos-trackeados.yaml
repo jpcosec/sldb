@@ -1,7 +1,7 @@
 name: task-gd27-espacios-de-nombres-y-jerarquía-de-tags-reemplazo-de-texto-en-documentos-trackeados
 path: desk/tasks/task-gd27-espacios-de-nombres-y-jerarquía-de-tags-reemplazo-de-texto-en-documentos-trackeados.md
-source_hash: d01784cd1fb172e28f4b9e0d80ead533f839a347deb0ef7b2c57babb23048607
-content_hash: 8b45781b60e6305e15624e107d7da071595857da30f1e06012c2864eb6ad38c0
+source_hash: 29872d331441802f81dc4f13a0bc6e38ab0b0c14f682c64e4c131b0c464ad87f
+content_hash: 277489caac008c60213b393e7f1d2e2186d5725c95b24648e180cd552356c98c
 field_hashes:
   title: 4c9184d2776663c5339f773d740653bf9e97ba69505d0e3c39b46b6149e732cb
   id: 61dee7b4af44d7a98ee04c4df1bec41b011c9c1c2dbcf40e10bba55ba1b0466b
@@ -17,7 +17,7 @@ field_hashes:
   depends_on: 8492c6ad71fa655e9b6ae9e177faea28c938fcb1bd91dbe1fdbf4b5c1d3380a1
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 99fd6d0c9b389aa0b4b8c9a665ad1f95b18253e38b16bf5cc7194151b85458b9
-  implementation_path: ebb3bfd17c25a0a4a37d75318fea35dbbe395572c186de8b42f0bd80187d126b
+  implementation_path: dbc559d88d3e0f31e51a7ee0805c0223e0df4e1048b7877e03d9ef8c4ef3c4b4
   validation: f545c77649733e9f68e995787cd6b35490a270cfbe39721766cf469b53e08ff9
   done_when: 3a8ecd864094ca15746b59061576459043fd3567f010aa63d0127cd9e3a8a717
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
