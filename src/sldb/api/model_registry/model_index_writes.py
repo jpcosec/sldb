@@ -72,15 +72,20 @@ def save_reindexed_model(sp: Path, root: Path, idx: StoreIndex, m_entry: ModelEn
         save_documents_index(root / m_idx.documents_index, d_idx)
         if bump_version:
             _bump_version(m_idx, m_entry)
-        stamp_model_node(m_idx, hash_documents_index(d_idx), model_type, entry=m_entry)
-        if model_type is not None:
-            m_idx.semantics = flatten_model_semantics(model_type)
-            m_entry.semantics = m_idx.semantics
-        m_idx.documents_count = len(d_idx.documents)
+        _stamp_reindexed(m_idx, m_entry, d_idx, model_type)
         save_models_index(root / m_entry.models_index, m_idx)
         documents_hash.invalidate(sp, m_entry.name)  # a full scan moved source/content hashes
         rebuild_derived_indexes(sp, root, resolve_model_ref, pythonpath)
         cascade_store_hash(sp, root, idx)
+
+
+def _stamp_reindexed(m_idx: ModelsIndex, m_entry: ModelEntry, d_idx: DocumentsIndex, model_type: type | None) -> None:
+    """Stamp the model node, refresh semantics and the documents count."""
+    stamp_model_node(m_idx, hash_documents_index(d_idx), model_type, entry=m_entry)
+    if model_type is not None:
+        m_idx.semantics = flatten_model_semantics(model_type)
+        m_entry.semantics = m_idx.semantics
+    m_idx.documents_count = len(d_idx.documents)
 
 
 def _bump_version(m_idx: ModelsIndex, m_entry: ModelEntry) -> None:

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import contextlib
 import json
 from pathlib import Path
 from typing import Any
@@ -19,22 +20,8 @@ class ModelsMetadataCLI:
         raise SystemExit(f"Unknown models metadata command: {args.metadata_command}")
 
     def edit_metadata(self, args: Any) -> int:
-        containment = self._parse_json_or_yaml(getattr(args, "containment", None))
-        references = self._parse_json_or_yaml(getattr(args, "references", None))
-        compositions = self._parse_json_or_yaml(getattr(args, "compositions", None))
-        semantics = self._parse_json_or_yaml(getattr(args, "semantics", None))
-        authority = getattr(args, "authority", None)
-
-        draft = edit_model_metadata(
-            args.store,
-            args.model,
-            containment=containment,
-            references=references,
-            compositions=compositions,
-            semantics=semantics,
-            authority=authority,
-            pythonpath=getattr(args, "pythonpath", None),
-        )
+        meta = {k: self._parse_json_or_yaml(getattr(args, k, None)) for k in ("containment", "references", "compositions", "semantics")}
+        draft = edit_model_metadata(args.store, args.model, authority=getattr(args, "authority", None), pythonpath=getattr(args, "pythonpath", None), **meta)
         print(f"Updated metadata draft for '{args.model}' in {draft.draft_path}")
         return 0
 
@@ -44,11 +31,7 @@ class ModelsMetadataCLI:
             return None
         text = value.strip()
         if (text.startswith("{") and text.endswith("}")) or (text.startswith("[") and text.endswith("]")):
-            try:
+            with contextlib.suppress(Exception):
                 return json.loads(text)
-            except Exception:
-                pass
         p = Path(text)
-        if p.is_file():
-            return yaml.safe_load(p.read_text(encoding="utf-8"))
-        return yaml.safe_load(text)
+        return yaml.safe_load(p.read_text(encoding="utf-8") if p.is_file() else text)

@@ -2,22 +2,12 @@
 
 from __future__ import annotations
 
-from http.server import BaseHTTPRequestHandler
-from pathlib import Path
 from typing import Any
 
-from sldb.api import (
-    add_model_field,
-    create_model,
-    describe_model,
-    edit_model_metadata,
-    edit_model_template,
-    promote_model_draft,
-    remove_model_field,
-    validate_model_draft,
-)
+from sldb.api import describe_model
+from sldb.cli.serve.models_create_routes import create_payload, metadata_edit_payload
+from sldb.cli.serve.models_write_routes import fields_add_payload, fields_remove_payload, promote_payload, template_edit_payload, validate_payload
 from sldb.cli.serve.params import query_params, require_param
-from sldb.cli.serve.responses import read_json_body
 from sldb.core.exceptions import SLDBError
 from sldb.store.io import load_documents_index, load_models_index, load_store_index
 
@@ -63,111 +53,6 @@ def _describe(store_path, model, pythonpath):
     except SLDBError as exc:
         return {"ok": False, "error": str(exc)}, 200
     return {"ok": True, "model": description.model_dump(mode="json")}, 200
-
-
-def fields_add_payload(handler, store_path, project_root, pythonpath):
-    request, error = _require(handler, "model", "field_name")
-    if error is not None:
-        return error, 400
-    return _run(store_path, pythonpath, lambda: add_model_field(store_path, request["model"], request["field_name"], request.get("field_type") or "str", str(request.get("description") or ""), request.get("default") or None, pythonpath), {"model": request["model"], "field_name": request["field_name"]})
-
-
-def fields_remove_payload(handler, store_path, project_root, pythonpath):
-    request, error = _require(handler, "model", "field_name")
-    if error is not None:
-        return error, 400
-    return _run(store_path, pythonpath, lambda: remove_model_field(store_path, request["model"], request["field_name"], pythonpath), {"model": request["model"], "field_name": request["field_name"]})
-
-
-def template_edit_payload(handler, store_path, project_root, pythonpath):
-    request, error = _require(handler, "model", "content")
-    if error is not None:
-        return error, 400
-    return _run(store_path, pythonpath, lambda: edit_model_template(store_path, request["model"], request["content"], pythonpath), {"model": request["model"]})
-
-
-def validate_payload(handler, store_path, project_root, pythonpath):
-    request, error = _require(handler, "model")
-    if error is not None:
-        return error, 400
-    return _report(store_path, pythonpath, lambda: validate_model_draft(store_path, request["model"], pythonpath))
-
-
-def create_payload(handler, store_path, project_root, pythonpath):
-    request, error = _require(handler, "name", "fields")
-    if error is not None:
-        return error, 400
-    try:
-        reg = create_model(
-            store_path,
-            request["name"],
-            request["fields"],
-            template=request.get("template"),
-            base=request.get("base"),
-            target_package=request.get("target_package", "sldb_generated"),
-            pythonpath=pythonpath or str(project_root),
-            containment=request.get("containment"),
-            references=request.get("references"),
-            compositions=request.get("compositions"),
-            semantics=request.get("semantics"),
-            authority=request.get("authority"),
-        )
-    except SLDBError as exc:
-        return {"ok": False, "error": str(exc)}, 200
-    return {"ok": True, **reg.model_dump(mode="json")}, 200
-
-
-def metadata_edit_payload(handler, store_path, project_root, pythonpath):
-    request, error = _require(handler, "model")
-    if error is not None:
-        return error, 400
-    return _run(
-        store_path,
-        pythonpath,
-        lambda: edit_model_metadata(
-            store_path,
-            request["model"],
-            containment=request.get("containment"),
-            references=request.get("references"),
-            compositions=request.get("compositions"),
-            semantics=request.get("semantics"),
-            authority=request.get("authority"),
-            pythonpath=pythonpath,
-        ),
-        {"model": request["model"]},
-    )
-
-
-def promote_payload(handler, store_path, project_root, pythonpath):
-    request, error = _require(handler, "model")
-    if error is not None:
-        return error, 400
-    backfill = bool(request.get("backfill", False))
-    return _report(store_path, pythonpath, lambda: promote_model_draft(store_path, request["model"], pythonpath, backfill=backfill))
-
-
-def _require(handler, *required):
-    request = read_json_body(handler)
-    for name in required:
-        if not request.get(name):
-            return None, {"ok": False, "error": f"Missing parameter: {name}"}
-    return request, None
-
-
-def _run(store_path, pythonpath, op, extra):
-    try:
-        draft = op()
-    except SLDBError as exc:
-        return {"ok": False, "error": str(exc)}, 200
-    return {"ok": True, "draft_path": str(draft.draft_path), **extra}, 200
-
-
-def _report(store_path, pythonpath, op):
-    try:
-        report = op()
-    except SLDBError as exc:
-        return {"ok": False, "error": str(exc)}, 200
-    return {"ok": True, **report.model_dump(mode="json")}, 200
 
 
 _GET_ROUTES = {"/models": catalog_payload, "/models/detail": detail_payload}

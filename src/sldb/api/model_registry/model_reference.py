@@ -55,6 +55,14 @@ def _import_module_attr(module_name: str, attr_path: str) -> Any:
     return obj
 
 
+def _translate_legacy(module_name: str) -> str:
+    """Traduce un prefijo de modulo legado al modulo vigente."""
+    for old_prefix, new_prefix in LEGACY_MODULE_PREFIXES:
+        if module_name == old_prefix or module_name.startswith(f"{old_prefix}."):
+            return new_prefix + module_name[len(old_prefix):]
+    return module_name
+
+
 def resolve_model_ref(model_ref: str, pythonpath: str | None = None) -> type[StructuredNLDoc]:
     """Import the StructuredNLDoc subclass a model reference names.
 
@@ -73,11 +81,7 @@ def resolve_model_ref(model_ref: str, pythonpath: str | None = None) -> type[Str
         raise SLDBModelError("Model reference must use the form 'module:ClassName'.")
     _setup_sys_path(pythonpath)
     module_name, attr_path = model_ref.split(":", 1)
-    for old_prefix, new_prefix in LEGACY_MODULE_PREFIXES:
-        if module_name == old_prefix or module_name.startswith(f"{old_prefix}."):
-            module_name = new_prefix + module_name[len(old_prefix):]
-            break
-    obj = _import_module_attr(module_name, attr_path)
+    obj = _import_module_attr(_translate_legacy(module_name), attr_path)
     if not isinstance(obj, type) or not issubclass(obj, StructuredNLDoc):
         raise SLDBModelError(f"'{model_ref}' is not a StructuredNLDoc subclass.")
     return obj

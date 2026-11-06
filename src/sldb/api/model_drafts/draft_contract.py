@@ -7,6 +7,7 @@ from __future__ import annotations
 
 from typing import Any
 
+from sldb.api.model_drafts.composition_contract import check_composition_contract
 from sldb.core.exceptions import SLDBModelEditError
 from sldb.runtime.validation import Validator
 
@@ -19,33 +20,21 @@ def validate_template_contract(model_type: Any) -> None:
     Raises:
         SLDBModelEditError: When any referenced field is unknown or a composition marker is missing.
     """
-    recipes = Validator(model_type)._get_recipes()
-    field_names = set(model_type.model_fields)
-    referenced = _extract_referenced_fields(recipes)
-    unknown = sorted(name for name in referenced if name not in field_names)
+    names = set(model_type.model_fields)
+    label = f"Draft for '{model_type.__name__}'"
+    unknown = sorted(n for n in _extract_referenced_fields(Validator(model_type)._get_recipes()) if n not in names)
     if unknown:
-        raise SLDBModelEditError(f"Draft for '{model_type.__name__}' references unknown fields: {', '.join(unknown)}")
+        raise SLDBModelEditError(f"{label} references unknown fields: {', '.join(unknown)}")
+    for attr in ("__references__", "__containment__"):
+        _check_known_fields(label, attr, getattr(model_type, attr, None) or [], names)
+    check_composition_contract(label, model_type, names)
 
-    references = getattr(model_type, "__references__", []) or []
-    unknown_refs = sorted(r for r in references if r not in field_names)
-    if unknown_refs:
-        raise SLDBModelEditError(f"Draft for '{model_type.__name__}': __references__ references unknown field(s): {', '.join(unknown_refs)}")
 
-    containment = getattr(model_type, "__containment__", {}) or {}
-    unknown_cont = sorted(k for k in containment if k not in field_names)
-    if unknown_cont:
-        raise SLDBModelEditError(f"Draft for '{model_type.__name__}': __containment__ references unknown field(s): {', '.join(unknown_cont)}")
-
-    compositions = getattr(model_type, "__compositions__", {}) or {}
-    template_str = str(getattr(model_type, "__template__", "") or "")
-    for comp_name, comp_spec in compositions.items():
-        if not isinstance(comp_spec, dict):
-            raise SLDBModelEditError(f"Draft for '{model_type.__name__}': composition '{comp_name}' must be a dictionary.")
-        src_field = comp_spec.get("source_field")
-        if not src_field or src_field not in field_names:
-            raise SLDBModelEditError(f"Draft for '{model_type.__name__}': composition '{comp_name}' references unknown source field '{src_field}'.")
-        if f"⸢render•{comp_name}⸥" not in template_str:
-            raise SLDBModelEditError(f"Draft for '{model_type.__name__}': composition '{comp_name}' missing render marker '⸢render•{comp_name}⸥' in template.")
+def _check_known_fields(label: str, attr: str, cited: Any, names: set[str]) -> None:
+    """Every field an attribute (references or containment keys) cites must be declared."""
+    unknown = sorted(f for f in cited if f not in names)
+    if unknown:
+        raise SLDBModelEditError(f"{label}: {attr} references unknown field(s): {', '.join(unknown)}")
 
 
 def _extract_referenced_fields(recipes: list[Any]) -> set[str]:

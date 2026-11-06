@@ -42,32 +42,33 @@ def replace_or_insert_metadata(source: str, class_name: str, path: Path, attr_na
 
 def insert_metadata_assignment(source: str, class_name: str, path: Path, attr_name: str, value: Any) -> str:
     """Insert `attr_name = value` into class `class_name`."""
-    tree = ast.parse(source)
-    class_node = find_class_node(tree, class_name, path)
+    class_node = find_class_node(ast.parse(source), class_name, path)
     lines = source.splitlines(keepends=True)
-    if not class_node.body:
-        indent = "    "
-        insert_line = class_node.lineno
-    else:
-        first = class_node.body[0]
-        first_line = lines[first.lineno - 1]
-        indent = first_line[: len(first_line) - len(first_line.lstrip())] or "    "
-        meta_assigns = [
-            node for node in class_node.body
-            if isinstance(node, ast.Assign) and any(
-                isinstance(t, ast.Name) and t.id.startswith("__") and t.id.endswith("__")
-                for t in node.targets
-            )
-        ]
-        if meta_assigns:
-            insert_line = meta_assigns[-1].end_lineno or meta_assigns[-1].lineno
-        elif _is_docstring(first):
-            insert_line = first.end_lineno or first.lineno
-        else:
-            insert_line = first.lineno - 1
-
+    indent, insert_line = _insertion_point(class_node, lines)
     lines.insert(insert_line, f"{indent}{attr_name} = {repr(value)}\n")
     return "".join(lines)
+
+
+def _is_dunder_assign(node: ast.stmt) -> bool:
+    """Whether the statement assigns a `__dunder__` name."""
+    return isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id.startswith("__") and t.id.endswith("__") for t in node.targets)
+
+
+def _insertion_point(class_node: ast.ClassDef, lines: list[str]) -> tuple[str, int]:
+    """The indent and the line after which a new metadata assignment goes."""
+    if not class_node.body:
+        return "    ", class_node.lineno
+    first = class_node.body[0]
+    indent = _indent_of(lines[first.lineno - 1])
+    metas = [n for n in class_node.body if _is_dunder_assign(n)]
+    if metas:
+        return indent, metas[-1].end_lineno or metas[-1].lineno
+    return indent, (first.end_lineno or first.lineno) if _is_docstring(first) else first.lineno - 1
+
+
+def _indent_of(line: str) -> str:
+    """The line's leading whitespace, four spaces when it has none."""
+    return line[: len(line) - len(line.lstrip())] or "    "
 
 
 def _is_docstring(node: ast.stmt) -> bool:

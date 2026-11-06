@@ -23,5 +23,4 @@ def add_public_group_commands(s: argparse._SubParsersAction) -> None:
     add_edges_group(s)
     add_graph_group(s)
     add_journal_group(s)
-    add_semantic_group(s); add_anchors_group(s)
-    add_notations_group(s)
+    add_semantic_group(s); add_anchors_group(s); add_notations_group(s)

@@ -7,12 +7,14 @@ from pathlib import Path
 from sldb.api.model_registry.model_description import ModelDescription
 from sldb.api.model_registry.model_document_summary import ModelDocumentSummary
 from sldb.api.model_registry.model_field_summary import ModelFieldSummary
+from sldb.api.model_registry.model_class_attrs import draft_status, model_class_attrs
 from sldb.api.model_registry.model_reference import resolve_model_ref
 from sldb.api.schema.field_kinds import annotation_name
 from sldb.api.stores.open_store import open_store
 from sldb.core.exceptions import SLDBModelError
 from sldb.models.structured_doc import StructuredNLDoc
 from sldb.store.io import load_documents_index, load_models_index, load_store_index
+from sldb.store.models.model_entry import ModelEntry
 from sldb.store.models.models_index import ModelsIndex
 
 
@@ -33,49 +35,42 @@ def describe_model(store: str | Path | None, model_name: str, pythonpath: str | 
         SLDBModelError: When the model is not registered or cannot be imported.
     """
     location = open_store(store)
-    entry = next((m for m in load_store_index(location.store_path).models if m.name == model_name), None)
-    if entry is None:
-        raise SLDBModelError(f"Model '{model_name}' not found.")
+    entry = _registered_entry(location.store_path, model_name)
     m_idx = load_models_index(location.project_root / entry.models_index)
     model_type = resolve_model_ref(entry.model_ref, pythonpath)
-    fields = _field_summaries(model_type)
-    documents = _document_summaries(location.project_root, m_idx)
-    containment = dict(getattr(model_type, "__containment__", {}) or {})
-    references = list(getattr(model_type, "__references__", []) or [])
-    compositions = dict(getattr(model_type, "__compositions__", {}) or {})
-    semantics_map = dict(getattr(model_type, "__semantics__", {}) or {})
-    authority = str(getattr(model_type, "__authority__", "generated"))
-    template = str(getattr(model_type, "__template__", ""))
-    has_draft = False
-    draft_p = None
-    try:
-        from sldb.api.model_drafts.source_location import locate_model_source
-        src = locate_model_source(location.store_path, model_name, pythonpath)
-        if src.draft_path.exists():
-            has_draft = True
-            draft_p = str(src.draft_path)
-    except Exception:
-        pass
     return ModelDescription(
-        name=entry.name,
-        model_ref=entry.model_ref,
-        path=entry.path,
-        version=m_idx.version,
-        canonical=m_idx.canonical,
-        family=m_idx.family,
-        semantics=list(m_idx.semantics),
-        base_models=list(m_idx.base_models),
-        fields=fields,
-        documents=documents,
-        containment=containment,
-        references=references,
-        compositions=compositions,
-        semantics_map=semantics_map,
-        authority=authority,
-        template=template,
-        has_draft=has_draft,
-        draft_path=draft_p,
+        **_index_fields(entry, m_idx),
+        **_content_fields(location.project_root, m_idx, model_type),
+        **model_class_attrs(model_type),
+        **draft_status(location.store_path, model_name, pythonpath),
     )
+
+
+def _index_fields(entry: ModelEntry, m_idx: ModelsIndex) -> dict:
+    """The registry-record part of a description."""
+    return {
+        "name": entry.name,
+        "model_ref": entry.model_ref,
+        "path": entry.path,
+        "version": m_idx.version,
+        "canonical": m_idx.canonical,
+        "family": m_idx.family,
+        "semantics": list(m_idx.semantics),
+        "base_models": list(m_idx.base_models),
+    }
+
+
+def _registered_entry(store_path: Path, model_name: str) -> ModelEntry:
+    """The store's registry entry for a model name."""
+    entry = next((m for m in load_store_index(store_path).models if m.name == model_name), None)
+    if entry is None:
+        raise SLDBModelError(f"Model '{model_name}' not found.")
+    return entry
+
+
+def _content_fields(root: Path, m_idx: ModelsIndex, model_type: type[StructuredNLDoc]) -> dict:
+    """The fields and tracked documents of a description."""
+    return {"fields": _field_summaries(model_type), "documents": _document_summaries(root, m_idx)}
 
 
 def _field_summaries(model_type: type[StructuredNLDoc]) -> list[ModelFieldSummary]:

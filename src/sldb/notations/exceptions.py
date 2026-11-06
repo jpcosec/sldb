@@ -1,67 +1,18 @@
-"""Jerarquía de excepciones del subsistema de notaciones y paletas."""
+"""Jerarquía de excepciones del subsistema de notaciones y paletas (un módulo por clase en `errors`)."""
 
 from __future__ import annotations
 
+from sldb.notations.errors.notation_error import NotationError
+from sldb.notations.errors.validation_error import ValidationError
+from sldb.notations.errors.unknown_reference_error import UnknownReferenceError
+from sldb.notations.errors.endpoint_kind_error import EndpointKindError
+from sldb.notations.errors.structure_error import StructureError
+from sldb.notations.errors.unknown_kind_error import UnknownKindError
+from sldb.notations.errors.invalid_color_error import InvalidColorError
+from sldb.notations.errors.unknown_icon_error import UnknownIconError
+from sldb.notations.errors.unknown_shape_error import UnknownShapeError
+from sldb.notations.errors.ambiguous_path_error import AmbiguousPathError
+from sldb.notations.errors.unknown_notation_error import UnknownNotationError
+from sldb.notations.errors.notation_mismatch_error import NotationMismatchError
 
-class NotationError(Exception):
-    """Excepción base de notaciones y paletas."""
-
-
-class ValidationError(NotationError):
-    """Error de validación semántica de una notación o paleta."""
-
-
-class UnknownReferenceError(ValidationError):
-    """Un spec o notación nombra un id que no existe."""
-
-
-class EndpointKindError(ValidationError):
-    """El kind de un extremo no está permitido."""
-
-
-class StructureError(ValidationError):
-    """Estructura inválida."""
-
-
-class UnknownKindError(ValidationError):
-    """Una notación o spec style nombra un kind no declarado por la paleta."""
-
-
-class InvalidColorError(ValidationError):
-    """Un color no es un token de paleta ni un hex `#rrggbb`."""
-
-
-class UnknownIconError(ValidationError):
-    """Un icono no está en el conjunto de iconos declarado."""
-
-
-class UnknownShapeError(ValidationError):
-    """Una forma no es una primitiva reconocida."""
-
-
-class AmbiguousPathError(ValidationError):
-    """Ruta ambigua en la resolución."""
-
-
-class UnknownNotationError(ValidationError):
-    """Una notación no resuelve a un archivo, builtin ni documento del store."""
-
-
-class NotationMismatchError(ValidationError, ValueError):
-    """La notación existe pero dibuja un tipo de diagrama distinto al spec."""
-
-
-__all__ = [
-    "NotationError",
-    "ValidationError",
-    "UnknownReferenceError",
-    "EndpointKindError",
-    "StructureError",
-    "UnknownKindError",
-    "InvalidColorError",
-    "UnknownIconError",
-    "UnknownShapeError",
-    "AmbiguousPathError",
-    "UnknownNotationError",
-    "NotationMismatchError",
-]
+__all__ = ["NotationError", "ValidationError", "UnknownReferenceError", "EndpointKindError", "StructureError", "UnknownKindError", "InvalidColorError", "UnknownIconError", "UnknownShapeError", "AmbiguousPathError", "UnknownNotationError", "NotationMismatchError"]

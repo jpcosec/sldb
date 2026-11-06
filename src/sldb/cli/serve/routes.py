@@ -66,18 +66,13 @@ def _nested_get(
     project_root: Path,
     pythonpath: str,
 ) -> tuple[dict[str, Any], int]:
-    if route == "/edges" or route.startswith("/edges/"):
-        return dispatch_edges(handler, store_path, pythonpath)
-    if route.startswith("/graph/"):
-        return dispatch_graph(handler, store_path)
-    if route in DOCUMENT_ROUTES:
-        return dispatch_document(handler, route, store_path, project_root, pythonpath)
+    if route == "/edges" or route.startswith("/edges/"): return dispatch_edges(handler, store_path, pythonpath)
+    if route.startswith("/graph/"): return dispatch_graph(handler, store_path)
+    if route in DOCUMENT_ROUTES: return dispatch_document(handler, route, store_path, project_root, pythonpath)
     if route == "/models" or route.startswith("/models/"): return dispatch_models(handler, "GET", route, store_path, project_root, pythonpath)
     if route == "/lint": return dispatch_lint(handler, store_path, project_root, pythonpath)
-    if route == "/notations" or route.startswith("/notations/"):
-        return dispatch_notations(handler, "GET", route, store_path, project_root, pythonpath)
-    if route.startswith("/views/projection"):
-        return dispatch_projection_views(handler, "GET", route, store_path, project_root, pythonpath)
+    if route == "/notations" or route.startswith("/notations/"): return dispatch_notations(handler, "GET", route, store_path, project_root, pythonpath)
+    if route.startswith("/views/projection"): return dispatch_projection_views(handler, "GET", route, store_path, project_root, pythonpath)
     return _dispatch_reader(route, handler, store_path, project_root, pythonpath)
 
 
@@ -103,18 +98,12 @@ def dispatch_post(
     project_root: Path,
     pythonpath: str,
 ) -> tuple[dict[str, Any], int]:
-    if route.startswith("/models/"):
-        return dispatch_models(handler, "POST", route, store_path, project_root, pythonpath)
-    if route == "/docs" or route.startswith("/docs/"):
-        return dispatch_docs_or_create(handler, route, store_path, project_root, pythonpath)
-    if route == "/extract/segments":
-        return extract_segments_response(read_json_body(handler), store_path, pythonpath)
-    if route.startswith("/notations/"):
-        return dispatch_notations(handler, "POST", route, store_path, project_root, pythonpath)
-    if route.startswith("/views/projection"):
-        return dispatch_projection_views(handler, "POST", route, store_path, project_root, pythonpath)
-    if route != "/save":
-        return {"ok": False, "error": f"Unknown route: {route}"}, 404
+    if route.startswith("/models/"): return dispatch_models(handler, "POST", route, store_path, project_root, pythonpath)
+    if route == "/docs" or route.startswith("/docs/"): return dispatch_docs_or_create(handler, route, store_path, project_root, pythonpath)
+    if route == "/extract/segments": return extract_segments_response(read_json_body(handler), store_path, pythonpath)
+    if route.startswith("/notations/"): return dispatch_notations(handler, "POST", route, store_path, project_root, pythonpath)
+    if route.startswith("/views/projection"): return dispatch_projection_views(handler, "POST", route, store_path, project_root, pythonpath)
+    if route != "/save": return {"ok": False, "error": f"Unknown route: {route}"}, 404
     return save_request(read_json_body(handler), store_path, project_root, pythonpath)
 
 

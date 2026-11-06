@@ -65,6 +65,9 @@ def _create(s):
     c.add_argument("--fields", required=True, help="Field spec YAML path")
     c.add_argument("--output", default="-", help="Output Python file or -")
     c.add_argument("--stdout", action="store_true", help="Print generated code")
+    _create_metadata_options(c)
+
+def _create_metadata_options(c):
     c.add_argument("--containment", help="Containment mapping as JSON/YAML")
     c.add_argument("--references", help="References list as JSON/YAML")
     c.add_argument("--compositions", help="Compositions mapping as JSON/YAML")

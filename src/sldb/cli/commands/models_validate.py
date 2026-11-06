@@ -54,18 +54,17 @@ class ModelsValidateCLI:
         if not draft_path.exists():
             raise SLDBModelDraftError(f"No draft template for '{args.model}' to promote.")
         if getattr(args, "backfill", False):
-            from sldb.api.model_drafts.draft_validation import promote_model_draft
-            report = promote_model_draft(args.store, args.model, args.pythonpath, backfill=True)
-            details["promoted"] = True
-            details["version"] = report.version
-            details["backfill"] = report.backfill
-            return
-
+            return self._promote_backfill(args, details)
         with restored_on_failure([path, draft_path, *store_index_files(args.store)]):
             path.write_text(draft_path.read_text(encoding="utf-8"), encoding="utf-8")
             self._reindex(args, model_cli)
         draft_path.unlink()
         details["promoted"] = True
+
+    def _promote_backfill(self, args: Any, details: dict[str, Any]) -> None:
+        from sldb.api.model_drafts.draft_validation import promote_model_draft
+        report = promote_model_draft(args.store, args.model, args.pythonpath, backfill=True)
+        details.update({"promoted": True, "version": report.version, "backfill": report.backfill})
 
     def _reindex(self, args: Any, model_cli: Any) -> None:
         args.model_command = "update"
