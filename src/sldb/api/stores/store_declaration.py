@@ -12,9 +12,12 @@ from pathlib import Path
 from typing import Any
 
 import yaml
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, SerializerFunctionWrapHandler, model_serializer
+
+from sldb.api.stores.seed import Seed
 
 DECLARATION_FILE = "store.yaml"
+SCAFFOLD_KEYS = ("folders", "seeds")
 
 
 class StoreDeclaration(BaseModel):
@@ -29,6 +32,20 @@ class StoreDeclaration(BaseModel):
     include: list[dict[str, Any]] = Field(default_factory=list, description="`{model, glob}` (each match tracked under its file stem) or `{model, paths: [path | {path, name}]}`.")
     graph_backend: str = Field(default="networkx", description="Graph analysis backend; only `networkx` is admitted in this phase (docs/architecture/graph-backend.md).")
     policy: dict[str, dict[str, str]] = Field(default_factory=dict, description="Model name (or `*`) -> finding code -> `ignore | allow | alert | error | reindex | hook: <command>` (docs/architecture/provenance.md §5).")
+    folders: list[str] = Field(default_factory=list, description="Directories `stores scaffold` creates, relative to the project root (docs/architecture/store-declaration.md).")
+    seeds: list[Seed] = Field(default_factory=list, description="Files `stores scaffold` writes from a declared source: `{path, mode, text | file | document, track}`.")
+
+    @model_serializer(mode="wrap")
+    def _without_empty_scaffold_keys(self, handler: SerializerFunctionWrapHandler) -> dict[str, Any]:
+        """A declaration without folders or seeds dumps as it did before they existed, and a
+        seed dumps only the keys it was written with."""
+        dumped = handler(self)
+        for key in SCAFFOLD_KEYS:
+            if not dumped.get(key):
+                dumped.pop(key, None)
+        if dumped.get("seeds"):
+            dumped["seeds"] = [{k: v for k, v in seed.items() if v is not None} for seed in dumped["seeds"]]
+        return dumped
 
 
 def declaration_path(store_path: Path) -> Path:

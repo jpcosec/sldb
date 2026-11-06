@@ -96,6 +96,11 @@ from sldb.api.stores.doc_ref_status import DocRefStatus
 from sldb.api.stores.doc_status import doc_exists, doc_status
 from sldb.api.stores.tracked_documents import tracked_documents
 from sldb.api.stores.ambiguous_document import AmbiguousDocument
+from sldb.api.stores.build_store import build_store
+from sldb.api.stores.scaffold_report import ScaffoldReport
+from sldb.api.stores.scaffold_store import scaffold_store
+from sldb.api.stores.seed import Seed
+from sldb.api.stores.store_declaration import StoreDeclaration
 from sldb.api.stores.resolve_indexed_document import indexed_model_bases, resolve_indexed_document
 from sldb.api.stores.init_store import init_store
 from sldb.api.stores.link_store import link_store
@@ -161,6 +166,7 @@ __all__ = [
     "WherePredicateError", "apply_effects", "edges_holding", "effects_of", "refuse_unknown_family", "rules_check", "rules_explain", "remove_model", "where_matches", "inherit_model", "is_model_registered", "registered_models",
     "StructuredNLDoc", "UnresolvedReference", "unresolved_references",
     "BatchReport", "ConflictError", "RollbackError", "Transaction", "apply_batch", "move_document", "transaction",
+    "ScaffoldReport", "Seed", "StoreDeclaration", "build_store", "scaffold_store",
     "GlyphDoc", "LinkDoc", "NotationDoc", "PaletteDoc", "SpecDoc", "SpecNodeDoc", "ViewDoc",
     "resolve_view", "resolve_documents", "evaluate_projection_view", "list_projection_views", "save_projection_view", "sync_notation", "sync_palette",
 ]

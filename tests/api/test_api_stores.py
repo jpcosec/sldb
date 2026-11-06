@@ -54,3 +54,18 @@ def test_update_store_indexes_skips_a_missing_document(api_store):
     assert report.skipped_documents == ["login"]
     assert not report.complete
     assert cli_main(["stores", "update", "--store", str(api_store.store), "--pythonpath", api_store.pythonpath]) == 1
+
+
+def test_scaffold_store_and_build_store_are_public_and_bridged_by_the_cli(api_store, capsys):
+    """GD26: the scaffold of folders and seeds is an `sldb.api` function and a `stores` subcommand."""
+    from sldb.api import ScaffoldReport, Seed, StoreDeclaration, build_store, scaffold_store
+    from sldb.api.stores.declare_store import declare_store
+    from sldb.api.stores.store_declaration import save_declaration
+
+    save_declaration(api_store.store, declare_store(api_store.store, api_store.root))
+    declaration = StoreDeclaration(folders=["inbox"], seeds=[Seed(path="inbox/.keep", text="")])
+    report = scaffold_store(api_store.store, declaration=declaration, apply=True)
+    assert isinstance(report, ScaffoldReport) and report.created == ["inbox", "inbox/.keep"]
+    assert build_store(api_store.store)["scaffold"] == {"created": [], "rewritten": [], "present": [], "conflicts": []}
+    assert cli_main(["stores", "scaffold", "--store", str(api_store.store), "--format", "json"]) == 0
+    assert "created" in capsys.readouterr().out
