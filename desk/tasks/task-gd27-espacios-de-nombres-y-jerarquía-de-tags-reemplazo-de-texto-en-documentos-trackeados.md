@@ -37,6 +37,8 @@ files:
 - src/sldb/api/rules/rules_check.py
 - src/sldb/api/rules/rules_on_check.py
 - src/sldb/api/rules/rules_explain.py
+- src/sldb/cli/parsers/public.py
+- src/sldb/cli/dispatcher.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
@@ -104,6 +106,8 @@ q13 (hierarchical y folder_axis): hierarchical: false = el valor es atómico (lo
 q14 (validación de replace_text): sobre un documento trackeado, después de reescribir los bytes se extrae el payload con su modelo, se valida contra el modelo (model_validator incluidos) y se evalúan las reglas on_write de GO08 sobre ese payload (check_on_write, que incluye RuleDocs de usuario y la familia builtin:tag_namespace); cualquier error y nada queda escrito. Sobre un archivo no modelado no hay modelo ni reglas: solo el conteo exacto.
 q15 (transaction=None): replace_text abre su propia sldb.api.transaction(store); si recibe una, se une a ella (anidada, semántica de GD24: revierte la más externa).
 q16 (alcance de tag_tree): roots, orphans y unplaced se limitan al namespace pedido; orphans considera los tags usados en ese namespace por cualquier documento local, y unplaced los documentos ancla (modelo anchored_by.model) cuyo campo es un tag de ese namespace que nadie usa.
+PRECISIONES DE EJECUCIÓN (coordinador, 2026-11-06):
+q17 (registro del grupo CLI tags): un grupo nuevo de la CLI se registra en src/sldb/cli/parsers/public.py (add_public_group_commands) y en src/sldb/cli/dispatcher.py (handlers por grupo); se agregan a files, solo con las líneas aditivas del grupo tags. tests/test_cli_every_command_has_a_handler.py se corre sin editarse y debe quedar verde.
 
 ## Validation
 
