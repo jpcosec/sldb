@@ -217,13 +217,14 @@ def test_view_doc_instantiation_validation_and_gd25_fields():
         direction="both",
         notation="NotationDoc:component",
         layout={"kind": "graph", "style": "layered"},
-        params={"scope": "backend", "depth": 2},
-        sections=["architecture", "services"],
+        params=[{"name": "scope", "default": "backend"}, {"name": "depth", "required": True}],
+        sections=[{"key": "architecture", "select": {"model": "SpecNodeDoc", "where": 'kind = {scope}'}}, {"key": "services", "select": {"prefix": "{depth}"}, "group_by": "kind"}],
         description="Overview of system services and dependencies.",
     )
     assert doc.id == "system-overview"
-    assert doc.params == {"scope": "backend", "depth": 2}
-    assert doc.sections == ["architecture", "services"]
+    assert [p.model_dump() for p in doc.params] == [{"name": "scope", "required": False, "default": "backend"}, {"name": "depth", "required": True, "default": None}]
+    assert [s.key for s in doc.sections] == ["architecture", "services"]
+    assert doc.sections[0].fields == ["*"] and doc.sections[1].group_by == "kind"
 
     rendered = SLDBRenderer().render(doc)
     extracted = extract_model_data(ViewDoc, rendered)
@@ -239,8 +240,9 @@ def test_view_doc_instantiation_validation_and_gd25_fields():
         title="Default View",
         nodes=[{"model": "SpecNodeDoc"}],
     )
-    assert doc_defaults.params == {}
+    assert doc_defaults.params == []
     assert doc_defaults.sections == []
+    assert ViewDoc(id="v", name="v", title="V", params={}, sections=[]).params == []
 
     # Validation errors on invalid direction
     with pytest.raises(ValueError, match="direction.*must be both, outgoing or incoming"):

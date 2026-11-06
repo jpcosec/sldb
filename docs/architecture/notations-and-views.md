@@ -23,11 +23,11 @@ Los 7 modelos son subclases de `StructuredNLDoc` (`sldb.models.structured_nl_doc
 7. **`ViewDoc`**: Vista de proyección declarativa y portable sobre el grafo del almacén (`nodes`, `relations`, `direction`, `notation`, `layout`).
 
 ### Convergencia con GD25 en `ViewDoc` (SV-D3)
-`ViewDoc` conserva los campos de proyección de grafo y añade soporte para vistas compuestas mediante dos campos opcionales:
-- `params: dict = Field(default_factory=dict, description="Parametros opcionales de vista compuesta (GD25).")`
-- `sections: list = Field(default_factory=list, description="Secciones opcionales de vista compuesta (GD25).")`
+`ViewDoc` conserva los campos de proyección de grafo y añade soporte para vistas compuestas mediante dos campos opcionales, tipados por GD25 (`docs/architecture/views.md`):
+- `params: list[ViewParam]` (`sldb.models.notation.view_param`): lista de `{name, required, default}`, referenciados como `{name}` en el `select` de las secciones.
+- `sections: list[ViewSection]` (`sldb.models.notation.view_section`): lista ordenada de `{key, select, fields, edges, group_by, group_order, rules, transitions}`.
 
-Ambos campos cuentan con validadores para inicializar `dict` y `list` respectivamente cuando se omiten en documentos existentes, preservando total compatibilidad hacia atrás en extracción y renderizado de plantillas.
+Ambos campos valen `[]` cuando se omiten, son `null` o vienen vacíos (`{}` o `[]`) en documentos existentes, así que los `ViewDoc` de proyección de SV02 se leen, extraen y renderizan igual que antes. Una `ViewDoc` sin `sections` es de proyección de grafo (`/views/projection*`); con `sections` es una vista compuesta que evalúa `sldb.api.run_view`.
 
 ---
 
