@@ -1,13 +1,21 @@
 ---
 id: task-go08-evaluacion-en-escritura-transicion-y-check-incremental-y-a-punto-fijo
-status: draft
+status: ready_for_testing
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-closeout
+history:
+- task_activates
+- task_hands_to_closeout
+references:
+- pytest tests/api/test_rules_evaluation.py
+- tests/api/test_rules_evaluation.py
+- tests/api/test_rules_end_to_end.py
+- 3af872e77321676bc11d03be3f41fe8da40da412
+- desk/atoms/atom-sldb-evaluates-declared-rules-consumers-author-them.md
+- desk/drawer/tasks/task-on-write-alerts-sin-listener-se-pierden-por-la-api-y-la-regla-ve-las-aristas-previas-a-la-escritura.md
 depends_on: []
 pills: []
 files:
@@ -81,6 +89,8 @@ p7 (edges_blocked): vive en src/sldb/api/edges/edges_blocked.py (ya en files) y 
 p8 (recalculos contados): un recalculo es una evaluacion de una regla sobre un documento que no sale de la cache (una llamada al evaluador por par regla-documento). El ejecutor concentra esa evaluacion en una sola funcion y el test la cuenta con monkeypatch. check_doc_anchors (GO07) no se cachea y no cuenta como recalculo.
 p9 (despues de la medicion): "despues" es la punta de wt/go08 al terminar el trabajo (mismo arbol que el squash); el reporte nombra ese sha y el coordinador registra los dos numeros en Validation al integrar.
 
+HIPOTESIS DEL EJECUTOR (regla 6, GO08 integrado en 3af872e7): H1 testigo: un any falso tiene seen {} (GO05 H16), asi que what agrega " (witness: <Model:name> <seen>)": primer elemento que falsea un all, primero que cumple el any interno de un none, primero alcanzado de un any falso, primero incompleto; tambien en rules check (cambia el what de GO06 p2 solo con ese sufijo). H2 las alerts de on_write viajan por sldb.core.finding_route; solo la CLI instala alert_sink; por la API sin listener se pierden -> drawer task-on-write-alerts-sin-listener-se-pierden-por-la-api-y-la-regla-ve-las-aristas-previas-a-la-escritura. H3 on_write lee el payload pinneado pero las aristas del indice previo a la escritura (misma drawer task). H4 edges_holding/edges_blocked aceptan document= opcional (el sujeto); sin el no corre ninguna regla y findings es None (fuera del dump); los findings son del sujeto y valen para todas las aristas que salen del estado; edges show --holds-for DOC ahora incluye findings: []. H5 CORREGIDO: on_write resuelve la familia de un documento aun no indexado con indexed_model_bases. H6 cada resultado en cache guarda un stamp (source_hash y payload compuesto del documento y vecinos, o del store para reglas anchas); las reglas anchas (clausura +, camino de varios pasos, cuantificador anidado) recalculan su familia si el dirty set no esta vacio. H7 solo save_document_payload corre on_write y marca el dirty set; create_document, docs track y borrado no (los cubren los stamps). H8 los findings on_check y de anclas entran en all_findings despues de judged con su nivel, sin pasar por la politica (afectan check_store, /stores/check y lint); stores check toma store_lock(wait=True). DESVIOS: core/finding_route.py nuevo (la API no importa cli); cli/alert_sink.py gana install() y cli/main.py lo llama; api/rules/rules_check.py agrega el testigo; fixpoint.py contiene el testigo (el punto fijo es la clausura semi-naive de GO05); doc_anchor_pinning.py, cli/commands/stores.py y contracts/layers.toml sin tocar.
+
 ## Implementation Path
 
 _Outline the expected implementation route or affected surface._
@@ -103,6 +113,8 @@ _List the checks required before this task can close._
 - tests existentes de rules, edges_holding, edge_effects, doc_anchors, stores check y payload_save sin cambios
 - TMPDIR=/dev/shm pytest tests/test_clean_code_rules.py tests/test_store_seams.py en verde y tools/check_layers.py PASS
 - suite completa sin rojos (una vez, al final del nodo, la corre el supervisor)
+- MEDICION (regla 8, 2026-11-06, host server, metodo p5: worktree desechable en /dev/shm tras sldb stores build, 1 escritura de calentamiento no contada y 20 save_document_payload alternando summary de desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md, mediana de tiempo de pared con perf_counter): antes d39bf915 = 86.48 ms (load 5.22/6.10/8.87, 18:29); despues 547a5036 (punta de wt/go08) = 89.34 ms (load 5.32/6.15/8.94, 18:28); +2.86 ms. Una corrida previa de antes con load ~10 dio 132.78 ms (ruido). RuleDoc no esta registrado en este store: on_write solo cuesta has_rules. stores build salio con exit 1 en ambos worktrees por archivos no declarados (90) o ausentes (6) del repo; el store quedo construido.
+- RESULTADO (coordinador 1, 2026-11-07, sobre 3af872e7 rebaseado tras GD23/GD24/GD26): tests dirigidos 1182 passed, 7 skipped ambientales (tree-sitter en test_anchors), 0 xfailed; incluye test_rules_evaluation, test_rules_end_to_end, rules, edge_effects, doc_anchors, stores check, api documents, envelope, lenguaje, clean_code_rules y store_seams; ademas 126 passed en los tests de GD23/GD24/GD26; check_layers PASS. H5 (familia de un documento aun no indexado) corregido antes de integrar con test_a_document_not_yet_indexed_is_refused_by_a_rule_on_its_base_family. Suite completa pendiente del supervisor.
 
 ## Done When
 
