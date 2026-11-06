@@ -579,7 +579,6 @@ include:
 - model: TaskCodeDoc
   paths:
   - desk/tasks/task-gd22-referencias-entrantes-buscar-y-reescribir.md
-  - desk/tasks/task-gd27-espacios-de-nombres-y-jerarquía-de-tags-reemplazo-de-texto-en-documentos-trackeados.md
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md
