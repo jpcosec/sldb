@@ -437,6 +437,8 @@ include:
     name: review-task-gd24-bundle-1
   - path: desk/reviews/task-go07-anclas-a-documentos-con-hash-de-contrato/preflight-1.md
     name: review-task-go07-anclas-a-documentos-con-hash-de-contrato-preflight-1
+  - path: desk/reviews/task-go07-anclas-a-documentos-con-hash-de-contrato/bundle-1.md
+    name: review-task-go07-anclas-a-documentos-con-hash-de-contrato-bundle-1
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md

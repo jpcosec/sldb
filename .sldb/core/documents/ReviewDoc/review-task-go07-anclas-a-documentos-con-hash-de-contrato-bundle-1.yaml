@@ -1,0 +1,30 @@
+name: review-task-go07-anclas-a-documentos-con-hash-de-contrato-bundle-1
+path: desk/reviews/task-go07-anclas-a-documentos-con-hash-de-contrato/bundle-1.md
+source_hash: f91b1d684a58610558652f96c912b6ec6d97223e4562d2041e4528a7d415d724
+content_hash: c584d7c28f8e18398ced3cc68f811d44dc7ca04c7d45c11551a14ba5d1cf4b0e
+field_hashes:
+  id: 4e44a7c80301c32e9d1a175d8cb684894164dd339706ac959f78192a9c5bd5de
+  title: bac37ceafc2fc7ca54a9e35a1121166f0eb0726f11b4905b1b2573fd997ea475
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  subject: 2d881d0445e56fc7cb5d07d3a10bdcd08d26d6fec306f3506f9afa5b34bd8a37
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 8f1bf675ba1be0439b819383a93239700578fedb6c6e5153987616f232ed6530
+  input_sha256: 02be1116e7a333b907af44b699a8158298d8dadc859aa0a87c7eac440dbe5750
+  output_sha256: 0ca174f4102e5e5576ad8de88fd9c3a1fc06d80d7aee85375b7c9fa50df2772c
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: dc29df9b2a3756ab641d4b09d614d99b722534f17e0e7544f34cb73d64c3da8a
+  created_at: 4922a27b1e3f4c0452f08a96b4077a92c88bd937244472149b4e8b5d50a00e8b
+  disposed_at: c61242b8d15874da408a8604b42f452225d9eb103bb15a3459b71e558784eb30
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 629243f740d8361bb9927fc9f64be2d2515da93324ac20efd0655020d22c0e89
+  disposition: fa67fdd872cb2432df36aa91e7de6d8b23089fe7999fef94edd3d40c89cbf641
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance: null

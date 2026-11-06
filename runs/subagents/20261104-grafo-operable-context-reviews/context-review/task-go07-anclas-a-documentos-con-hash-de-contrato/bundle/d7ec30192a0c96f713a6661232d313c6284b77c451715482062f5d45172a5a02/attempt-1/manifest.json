@@ -1,0 +1,130 @@
+{
+  "key": "task-go07-anclas-a-documentos-con-hash-de-contrato/bundle",
+  "input_sha256": "d7ec30192a0c96f713a6661232d313c6284b77c451715482062f5d45172a5a02",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/dev/shm/sldb-desk/runs/subagents/20261104-grafo-operable-context-reviews/context-review/task-go07-anclas-a-documentos-con-hash-de-contrato/bundle/d7ec30192a0c96f713a6661232d313c6284b77c451715482062f5d45172a5a02/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-go07-anclas-a-documentos-con-hash-de-contrato.md",
+      "sha256": "3333401007861396801b775d743fa1eefde3885931c53b98d5381fdc16a714dc",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/models/structured_doc.py",
+      "sha256": "52936c2652195e6266c5df3a74463a765d883dbf6187d4ffc9f1cc284409354e",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/models/provenance.py",
+      "sha256": "36ee5508b13a3fef68d9d063738a2609a9c678292d054bd96697bc756b788b21",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/model_contract.py",
+      "sha256": "cd734f018b0d3b279e569aeca38688a945a4b7a861f999db963fd72c521ddb6f",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/edge_index/doc_contribution.py",
+      "sha256": "97191fa2535c85e26ae95e8585b9a540e4271c910d6195e483363aac58aeb825",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/edge_index/compose.py",
+      "sha256": "e47efedee84add2e9ef6cd1806653e1b115a069d43011db7a163d3f1015e3c93",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/edge_index/payload_projection.py",
+      "sha256": "86fae233aba55ca422e667eb2d551bffc26619e48c16750a62e41898b7f2c0f2",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/documents/payload_save_steps.py",
+      "sha256": "40977d088f2f819749979750bc35c315e2bae70b328393aead8c4c9af4177e7e",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/anchors/__init__.py",
+      "sha256": "81bf2f85abb3d5fe71cd2f0dd40fff76da956bc8f1d8050a12ffd0c9323c94b9",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/__init__.py",
+      "sha256": "c414f1c0f991a0a2536c8869ee0a02689d3ce60020aa522f83934d7595171a65",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/commands/anchors.py",
+      "sha256": "0021a4a2303160e31ac5beebdfe273c04776af48f612a0b5a8dfb15156271f53",
+      "projection": "whole_file"
+    },
+    {
+      "path": "docs/architecture/anchoring.md",
+      "sha256": "5b30006e86a0dbf8fe248df1a2df2fbd9072d503bfc80bc19f8a5d919ce76f92",
+      "projection": "whole_file"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "f00e8cc36cc39db1211d0a0cc6793b74465720033b98af53ca16e62b1232c656",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "src/sldb/models/doc_anchor_value.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/api/anchors/check_doc_anchors.py",
+      "reason": "missing"
+    },
+    {
+      "path": "tests/api/test_doc_anchors.py",
+      "reason": "missing"
+    }
+  ],
+  "started": "2026-11-06T20:20:14.938484+00:00",
+  "finished": "2026-11-06T20:20:48.861878+00:00"
+}

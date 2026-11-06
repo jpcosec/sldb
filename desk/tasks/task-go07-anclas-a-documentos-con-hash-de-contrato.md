@@ -64,6 +64,11 @@ p4 (from: sin aristas): solo los campos __doc_anchors__ generan aristas referenc
 p5 (destino creado despues): un ancla guardada sin hash es lost mientras no tenga hash, aunque el destino se cree despues; la siguiente escritura del documento contenedor la pinnea. No hay reescritura automatica ni otro estado.
 p6 (listas): en un campo list[str], cada elemento no vacio genera su propia arista references; <campo>__anchor_state es una lista alineada por indice con el valor del campo; un elemento vacio o null no genera arista y su posicion en __anchor_state es null.
 
+PRECISIONES (cold-bundle de GO07, 2026-11-06):
+p7 (donde se calcula anchor_state): la proyeccion persistida en el shard (GO04) no cambia. <campo>__anchor_state se agrega en memoria al componer el indice (compose_edge_index, despues de leer los shards, sobre copias de los nodos: model_copy) y nunca se escribe al shard; EDGE_INDEX_VERSION sigue en 5. La proyeccion que GraphBackend.load recibe y la facet payload que leen las consultas la incluyen.
+p8 (hash del destino): el hash de contrato del destino es contract_hash(clase del modelo del destino, field_hashes del destino) (h1), con los field_hashes que el indice ya guarda (GO04) y la clase resuelta con el mismo resolutor que GO04 usa para contract_signature (model_type_of de api/edges/edge_reading.py, que compose_edge_index ya recibe). check_doc_anchors(store, pythonpath=None) acepta pythonpath opcional como el resto de la API. El pinneado al guardar usa la misma funcion. Si la clase del destino no se puede cargar, se aplica la regla de __contract__ ausente (todas las claves de field_hashes) tanto al pinnear como al comparar, y se documenta en anchoring.md.
+p9 (clave __anchor_state): la clave <campo>__anchor_state existe en la facet si y solo si el campo esta en el payload del documento (la extraccion descarta null: un campo null o ausente no tiene la clave, y has(anchor_state) es false al atravesarlo). Para un campo list[str], los elementos vacios ("") ocupan su posicion con null (p6).
+
 ## Implementation Path
 
 _Outline the expected implementation route or affected surface._
