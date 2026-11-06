@@ -593,11 +593,11 @@ include:
   paths:
   - path: docs/architecture/bootstrap-model-set.md
     name: plan-bootstrap-model-set
-- model: TaskCodeDoc
-  paths:
-  - desk/tasks/task-gd25-vistas-declaradas-viewdoc-servidas-por-sldb-serve.md
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md
+- model: TaskCodeDoc
+  paths:
+  - desk/tasks/task-gd25-vistas-declaradas-viewdoc-servidas-por-sldb-serve.md
 graph_backend: networkx
 policy: {}

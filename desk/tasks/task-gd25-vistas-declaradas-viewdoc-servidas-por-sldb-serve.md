@@ -39,6 +39,10 @@ files:
 - tests/test_serve.py
 - docs/architecture/views.md
 - CHANGELOG.md
+- tests/notations/test_notation_models_and_builtins.py
+- docs/architecture/notations-and-views.md
+- src/sldb/cli/serve/responses.py
+- src/sldb/cli/serve/http_server.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
@@ -106,6 +110,9 @@ q14 (envelope): sldb views run y views list usan el envelope estándar de la CLI
 q15 (--param k=v): los valores son strings, igual por CLI (--param k=v, repetible; una clave repetida es error de uso) y por HTTP (query ?k=v); la sustitución de {param} en select usa la sintaxis de where_subject (el valor entra como string literal del predicado). Un param required ausente es error que lo nombra; un param no declarado es error; default se aplica si falta.
 q16 (revision, corrige q9): revision = sha256 de: los source_hash ordenados de los documentos de las filas, el content_hash de la ViewDoc y de las RuleDocs usadas, y SIEMPRE shards_signature(store) en su forma serializada, porque una arista entrante nueva (otro documento que empieza a apuntar a una fila) no cambia los documentos de la fila pero sí los shards. Así edges, rules y transitions quedan cubiertos. La hipótesis de q9 sobre superficies no modeladas se mantiene.
 q17 (forma de la fila): cada fila es {export_id, model, name, path, fields: {campo: valor}} más, solo si la sección los declara: una clave por cada entrada de edges, con el nombre de su as (si falta as: "<direction>:<relation>"), con la lista ordenada de ids vecinos; findings (lista de Finding de GO06 para las rules de la sección); holding y blocked (transitions: listas de EdgeRecord con effects y de findings, como edges_holding y edges_blocked). fields con * = todos los campos proyectados de la facet payload.
+PRECISIONES DE EJECUCIÓN (coordinador, 2026-11-06):
+q18 (fixture de params, resuelve q3): ningún ViewDoc real del repo ni del store trae params como mapa; el único es el fixture de tests/notations/test_notation_models_and_builtins.py::test_view_doc_instantiation_validation_and_gd25_fields (params como mapa y sections como strings, contrato reservado por SV01). Ese test se agrega a files y se ajusta a la forma nueva (params lista de {name, required, default}, sections lista de Section, defaults []). Un params o sections vacío ({} o []) se normaliza a [] para que los ViewDoc de proyección existentes (tests/notations/test_notation_view_and_routes.py:311) sigan valiendo sin editarlos. docs/architecture/notations-and-views.md (línea 27, que describe params como dict) también va a files y se corrige.
+q19 (ETag y 304): http_server._dispatch_and_send siempre responde con responses.send_json, que no admite cabeceras. Se agregan a files src/sldb/cli/serve/responses.py (send_json gana headers opcional; un 304 se envía sin cuerpo) y src/sldb/cli/serve/http_server.py (_dispatch_and_send acepta un tercer elemento opcional con cabeceras en lo que devuelve dispatch). El cambio es aditivo: las rutas existentes devuelven (payload, status) y responden igual (test_serve y los de notations quedan verdes).
 
 ## Validation
 
