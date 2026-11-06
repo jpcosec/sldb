@@ -8,6 +8,7 @@ tasks:
 - desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
 - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
 - desk/tasks/task-go08-evaluacion-en-escritura-transicion-y-check-incremental-y-a-punto-fijo.md
+- desk/tasks/task-gd21-grafo-de-proyecto-aristas-declaradas-y-nodos-fuente-desde-el-índice-de-sldb-declarado-por-datos.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -55,3 +56,4 @@ _Generated from the task references above._
 - Diseño: set bootstrap de modelos tras la convergencia átomo/field [draft] - Un documento de decisión en docs/ (SpecDoc o PlanDoc trackeado) que evalúe la propuesta de siete modelos, diga qué se adopta, qué no y por qué, con ejemplos de cada modelo sobre documentos reales del store.
 - Diseño: jerarquía de modelos de evidencia (__family__ o herencia) [draft] - Un documento de decisión en docs/ que compare __family__ vs herencia de clases para los modelos de evidencia, con la recomendación y sus consecuencias para deskops (RunDoc, materializaciones, closeout_evidence).
 - GO08: Evaluacion en escritura, transicion y check, incremental y a punto fijo [draft] - on_write en los pasos de guardado (despues del pinneado, antes de persistir: error rechaza, alert pasa y reporta); on_transition en edges_holding (findings por arista, solo alerts) y edges_blocked nueva (aristas con error); on_check en stores check junto con check_doc_anchors; cache derivada por dirty set en .sldb_cache con clave por content_hash de las reglas; punto fijo semi-naive; edges check valida condiciones; test end-to-end de tres pasos; medicion de 20 escrituras antes/despues.
+- GD21: Grafo de proyecto (aristas declaradas y nodos fuente) desde el índice de sldb, declarado por datos y servido [draft] - La configuración del grafo de proyecto es dato puro: ProjectGraphConfig y sus dataclasses se cargan y vuelcan a YAML con ida y vuelta exacta, y se declaran en store.yaml bajo project_graph con validación propia; el hook closed_document pasa a ser un predicado closed: del lenguaje de sldb; ProjectGraph gana edges_to desde un mapa inverso memoizado por firma de shards y mtime de superficies; sldb.api.project_graph(store), CLI sldb graph project nodes|edges|missing con envelope, GET /project-graph/nodes|edges|missing y /edges?include_linked=false; docs/architecture/project-graph.md. Produce G_PROJECT_GRAPH.
