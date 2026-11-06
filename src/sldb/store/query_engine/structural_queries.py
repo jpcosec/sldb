@@ -4,6 +4,7 @@ import fnmatch
 import re
 from pathlib import Path
 
+from sldb.store.graph.language.predicate_documents import document_matcher
 from sldb.store.query_engine.document_selection import select_rows
 from sldb.store.query_engine.store_prefix import scoped_docs, split_store, with_store
 
@@ -22,8 +23,9 @@ def find_structural(
 
 class StructuralQueryEngine:
     """Engine for processing glob and find queries on structural nodes. The documents of a
-    scope are chosen by `document_selection` (model family, `where`); the name pattern and
-    the expansion to fields stay here, as does the address form of the results."""
+    scope are chosen by `document_selection` (exact model or family); the name pattern, the
+    expansion to fields and `find`'s `where` (on each document's own payload, as always) stay
+    here, as does the address form of the results."""
 
     @classmethod
     def glob_structural(
@@ -40,11 +42,10 @@ class StructuralQueryEngine:
         return cls._glob_docs(docs, doc_pattern, field_pattern, base_scope)
 
     @classmethod
-    def _chosen_docs(cls, store_path: Path, model_name: str, recursive: bool, resolve_model_ref, pythonpath: str | None, store: str | None, where: str | None = None) -> list:
+    def _chosen_docs(cls, store_path: Path, model_name: str, recursive: bool, resolve_model_ref, pythonpath: str | None, store: str | None) -> list:
         """The runtime documents of scope `{Model}` (exact) or `{Model+}` (the family), of the
         local store or of the linked store `store`, that `document_selection` keeps."""
-        selector = {"model": None if model_name == "*" else model_name, "where": where, "include_linked": store is not None}
-        rows = select_rows(store_path, **selector)
+        rows = select_rows(store_path, model=None if model_name == "*" else model_name, include_linked=store is not None)
         chosen = {r["export_id"] for r in rows if recursive or model_name == "*" or r["model"] == model_name}
         docs = scoped_docs(store_path, store, resolve_model_ref, pythonpath)
         return [doc for doc in docs if with_store(store, f"{doc.model_name}:{doc.name}") in chosen]
@@ -81,6 +82,7 @@ class StructuralQueryEngine:
     @classmethod
     def _find_docs(cls, match, store_path: Path, where: str, resolve_model_ref, pythonpath: str | None, store: str | None = None) -> list[str]:
         model_name, recursive_flag = match.groups()
-        docs = cls._chosen_docs(store_path, model_name, bool(recursive_flag), resolve_model_ref, pythonpath, store, where)
+        docs = cls._chosen_docs(store_path, model_name, bool(recursive_flag), resolve_model_ref, pythonpath, store)
         base_scope = with_store(store, f"st.{{{model_name}{'+' if recursive_flag else ''}}}")
-        return sorted(f"{base_scope}.{doc.name}" for doc in docs)
+        predicate = document_matcher(where)  # once per query; unparseable predicates raise
+        return sorted(f"{base_scope}.{doc.name}" for doc in docs if predicate(doc, resolve_model_ref, pythonpath))

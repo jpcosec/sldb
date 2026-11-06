@@ -164,6 +164,40 @@ def test_glob_and_find_choose_through_the_selection_and_keep_their_addresses(sto
     assert find_structural(store, "other:st.{BaseDoc}", 'status = "open"', resolve_model_ref, pythonpath) == ["other:st.{BaseDoc}.task-a"]
 
 
+INDEXED_SOURCE = '''from pydantic import Field
+from sldb import StructuredNLDoc
+
+
+class MemoDoc(StructuredNLDoc):
+    __template__ = "# ⸢rev•title⸥\\n\\nStatus: ⸢rev•status⸥"
+    __indexed__ = ["title"]
+    title: str = Field(description="Title.")
+    status: str = Field(description="State; outside __indexed__, so not projected.")
+'''
+
+
+def test_find_where_still_reads_each_document_payload_not_only_the_projection(tmp_path, monkeypatch):
+    """Regression (q10, rule 5): `find --where` on a field the index does not project answers as
+    it did before the selection core; `select_documents` keeps reading the projection only."""
+    module = "sldb_select_indexed_models"
+    sys.modules.pop(module, None)
+    (tmp_path / f"{module}.py").write_text(INDEXED_SOURCE, encoding="utf-8")
+    root, pythonpath = tmp_path / "repo", str(tmp_path)
+    root.mkdir()
+    init_store(root)
+    add_model(root / ".sldb", f"{module}:MemoDoc", pythonpath)
+    for name, status in (("open-memo", "open"), ("closed-memo", "closed")):
+        path = root / f"{name}.md"
+        path.write_text(render_model_markdown(resolve_model_ref(f"{module}:MemoDoc", pythonpath), {"title": name, "status": status}) + "\n", encoding="utf-8")
+        track_document_file(root / ".sldb", "MemoDoc", path, name, pythonpath)
+    assert find_structural(root / ".sldb", "st.{MemoDoc}", 'status = "open"', resolve_model_ref, pythonpath) == ["st.{MemoDoc}.open-memo"]
+    assert find_structural(root / ".sldb", "st.{MemoDoc+}", 'title ~ "memo" and status != "open"', resolve_model_ref, pythonpath) == ["st.{MemoDoc+}.closed-memo"]
+    with pytest.raises(WherePredicateError, match="bogus predicate"):
+        find_structural(root / ".sldb", "st.{MemoDoc}", "bogus predicate", resolve_model_ref, pythonpath)
+    assert select_documents(root / ".sldb", {"where": 'status = "open"'}) == []  # the projection has no status
+    sys.modules.pop(module, None)
+
+
 def test_the_cli_selects_with_flags_and_reports_the_errors_in_the_envelope(store, capsys):
     assert cli_main(["docs", "select", "--prefix", "task-b", "--one", "--format", "json", "--store", str(store)]) == 0
     assert json.loads(capsys.readouterr().out) == {"selector": {"prefix": "task-b"}, "expect": "one", "documents": [{"export_id": "ChildDoc:task-b", "model": "ChildDoc", "name": "task-b", "path": "sub/task-b.md"}]}

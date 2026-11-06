@@ -64,11 +64,11 @@ The store cannot import `sldb.api` (`tests/test_store_seams.py`), which is why t
 below the API.
 
 `glob_structural` and `find_structural` (`sldb query glob|find` over `st.{Model}`,
-`st.{Model+}` and `alias:st.…`) choose their documents through the same core: the model scope
-(exact or family) and `find`'s `--where` are a selection; the name pattern, the expansion to
-fields and the address form of the results (`st.{M+}.doc.field`) stay in
-`structural_queries`. Their output does not change; `find --where` now reads the payload
-projection of the index, as `sldb find --where` does, instead of re-extracting each document.
+`st.{Model+}` and `alias:st.…`) choose the documents of their scope through the same core (the
+model, exact or family); the name pattern, the expansion to fields, the address form of the
+results (`st.{M+}.doc.field`) and `find`'s `--where` stay in `structural_queries`. Their output
+does not change: `find --where` keeps evaluating on each document's own extracted payload, so a
+predicate on a field the index does not project (nested, or outside `__indexed__`) reads as before.
 
 ## CLI and HTTP
 
