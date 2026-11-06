@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from pydantic import Field
-from sldb.models.structured_nl_doc import StructuredNLDoc
+from sldb.models.structured_doc import StructuredNLDoc
 
 
 class PaletteDoc(StructuredNLDoc):

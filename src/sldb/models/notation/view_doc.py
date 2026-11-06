@@ -5,7 +5,7 @@ from __future__ import annotations
 from pydantic import Field, field_validator
 from sldb.models.notation.view_doc_template import VIEW_DOC_TEMPLATE
 from sldb.models.notation.view_nodes import normalize_view_nodes
-from sldb.models.structured_nl_doc import StructuredNLDoc
+from sldb.models.structured_doc import StructuredNLDoc
 
 
 class ViewDoc(StructuredNLDoc):

@@ -53,3 +53,9 @@ __all__ = [
     "FRAGMENT_KINDS",
     "node_id",
 ]
+
+# `sldb.notations` es vocabulario (capa 0) y no puede importar `sldb.api`: le conectamos el parser.
+from sldb.api.where import where_matches as _where_matches
+from sldb.notations.where_check import set_where_parser as _set_where_parser
+
+_set_where_parser(lambda expression: _where_matches(expression, {}))

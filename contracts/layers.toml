@@ -13,7 +13,7 @@
 [[layers]]
 level = 0
 name = "núcleo"
-packages = ["core", "models", "runtime", "code"]
+packages = ["core", "models", "runtime", "code", "notations"]
 rationale = """
 Convierte texto en estructura y estructura en texto, junto con los tipos de
 documento y la configuración que decide qué se permite al renderizar.
@@ -512,11 +512,30 @@ superficies derivadas y Markdown es la única autorada por diseño.
 # completo en propuesta/06-NIVELES-NO-SON-UNIDADES.md.
 # ---------------------------------------------------------------------------
 
+[[axis]]
+id = "vocabulario_visual"
+paths = ["notations", "models/notation", "models/notation_models.py"]
+external = ["pydantic", "pyyaml"]
+does = "notaciones, glifos, enlaces, paletas y vistas como modelos y catálogos builtin; absorbido de spec2viz (SV01)"
+identity = false
+note = """
+Capa 0 a propósito: es vocabulario, no operación. La comprobación de que un `where`
+parsea es un PUERTO (`where_check.set_where_parser`) que `api/notations` conecta al
+parser del almacén; sin él no se comprueba, igual que cuando vivía fuera de sldb.
+"""
+
+[[axis]]
+id = "vistas"
+paths = ["api/notations"]
+external = []
+does = "resolver una notación sobre documentos del almacén y evaluar vistas de proyección; sincronizar notaciones y paletas (SV02)"
+identity = false
+
 [[unit]]
 id = "nucleo"
 axes = ["superficie", "representacion", "render", "contrato", "runtime", "identidad_y_hash", "errores", "codigo"]
-needs = 3
-needed_by = 35
+needs = 4  # medido 2026-11-06 tras SV01/SV02: models reexporta notation_models; antes 3/35
+needed_by = 39  # medido 2026-11-06 tras SV01/SV02: models reexporta notation_models; antes 3/35
 indivisible = false
 why = """
 Los cinco ejes de identidad forman un nudo de 11 aristas internas. Lo declaré
@@ -540,8 +559,8 @@ cuts = [
 [[unit]]
 id = "persistencia"
 axes = ["persistencia", "consulta", "federacion", "cache", "codec", "migracion", "bitacora", "semantica", "indice_de_aristas"]
-needs = 16
-needed_by = 35
+needs = 19  # medido 2026-11-06 tras GO04 y SV02; antes 16/35
+needed_by = 36  # medido 2026-11-06 tras GO04 y SV02; antes 16/35
 why = "el centro de gravedad del sistema: 110 aristas entran desde los ejes de operación"
 
 [[unit]]
@@ -598,11 +617,23 @@ why = "nadie depende de él; puerto Embedder sin dependencia vectorial propia"
 
 # No son unidades, y conviene decir por qué:
 
+[[unit]]
+id = "notacion"
+axes = ["vocabulario_visual", "vistas"]
+needs = 3  # medido 2026-11-06
+needed_by = 2  # medido 2026-11-06
+indivisible = false
+why = """
+Lo que spec2viz hacía fuera del repositorio, adentro: el vocabulario (capa 0) y
+el resolvedor (capa 3) son una capacidad con una superficie propia (`sldb
+notations`, `/notations/*`, `/views/projection*`). Las cuentas las dice la puerta.
+"""
+
 [[non_unit]]
 id = "operacion"
 axes = ["op_almacen", "op_documentos", "op_modelos", "op_aristas", "anclaje"]
-needs = 47
-needed_by = 8
+needs = 47  # medido 2026-11-06 tras SV02: api/notations la necesita; antes 47/8
+needed_by = 9  # medido 2026-11-06 tras SV02: api/notations la necesita; antes 47/8
 verdict = "fachada"
 why = """
 158 archivos, el grupo más grande, y el candidato más obvio por tamaño. Pero
