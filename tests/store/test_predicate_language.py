@@ -4,16 +4,16 @@
 strings. `tests/fixtures/where_goldens/` holds, for each row of the equivalence table, the old
 expression (a `where_parse` string, or a `FieldCondition` as its JSON dict, p13) and the
 sorted names of the payloads it matched, captured with the code of main before GO05 touched
-`src/`. The goldens are never regenerated: `_capture` documents how they were taken. An old
-evaluator that raised on a payload (where_parse ordering `None` or mixed types raises
-TypeError) counted as "does not match".
+`src/` (commit 4d090ee2). The old evaluators are gone (GO10): the old expression is data, and
+each row evaluates its new construction of §7 against the golden. The goldens are never
+regenerated. An old evaluator that raised on a payload (where_parse ordering `None` or mixed
+types raises TypeError) counted as "does not match".
 """
 
 from __future__ import annotations
 
 import json
 from pathlib import Path
-from types import SimpleNamespace
 
 import pytest
 
@@ -72,28 +72,6 @@ def _matching(check) -> list[str]:
     return names
 
 
-def _old_where(expression: str):
-    from sldb.store.query_engine.where_parse import compile_where
-
-    predicate = compile_where(expression)
-    return lambda payload: predicate(SimpleNamespace(payload=payload, name="", model_type=None), None, None)
-
-
-def _old_field_condition(row: dict):
-    from sldb.store.graph.language import FieldCondition
-    from sldb.store.graph.payload_match import payload_condition
-
-    condition = FieldCondition(**row)
-    return lambda payload: payload_condition(payload, condition)
-
-
-def _capture() -> dict[str, list[dict]]:
-    """How the goldens were taken, with main's code before GO05 changed `src/` (commit 4d090ee2)."""
-    where = [{"old": old, "matches": _matching(_old_where(old))} for _, old in WHERE_ROWS]
-    conditions = [{"old": old, "matches": _matching(_old_field_condition(old))} for _, old, _ in FIELD_CONDITION_ROWS]
-    return {"where_parse": where, "field_condition": conditions}
-
-
 def test_the_goldens_cover_every_row_in_order():
     assert [g["old"] for g in _golden("where_parse")] == [old for _, old in WHERE_ROWS]
     assert [g["old"] for g in _golden("field_condition")] == [old for _, old, _ in FIELD_CONDITION_ROWS]
@@ -119,51 +97,18 @@ def test_where_parse_rows_answer_their_goldens_in_the_new_language():
     from sldb.api.where import where_matches
 
     for (row, old), golden in zip(WHERE_ROWS, _golden("where_parse")):
+        assert golden["old"] == old, row
         new = _matching(lambda payload: where_matches(old, payload))
         assert _changed(new, golden["matches"]) == WHERE_DIFFERENCES.get(old, set()), (row, old)
 
 
-def test_field_condition_rows_translate_to_the_table_and_answer_their_goldens():
+def test_field_condition_rows_answer_their_goldens_with_the_construction_of_the_table():
     from sldb.store.graph.language.predicate_documents import payload_holds
 
     for (row, old, construction), golden in zip(FIELD_CONDITION_ROWS, _golden("field_condition")):
-        assert _old_field_condition_predicate(old) == construction, row
-        through_the_shim = _matching(_old_field_condition(old))
+        assert golden["old"] == old, row
         through_the_language = _matching(lambda p: payload_holds(construction, {k: v for k, v in p.items() if v is not None}))
-        assert through_the_shim == through_the_language, row
-        assert _changed(through_the_shim, golden["matches"]) == FIELD_CONDITION_DIFFERENCES.get(row, set()), row
-
-
-def _old_field_condition_predicate(row: dict) -> str:
-    import warnings
-
-    from sldb.store.graph.language import FieldCondition
-
-    with warnings.catch_warnings():
-        warnings.simplefilter("ignore", DeprecationWarning)
-        return FieldCondition(**row).predicate().text
-
-
-# --- the shims warn; the new API does not (GO05 aceptación) ------------------------------
-
-def test_calling_where_parse_and_compile_where_warns():
-    import pytest
-
-    from sldb.store.query_engine.where_parse import compile_where, where_parse
-
-    with pytest.warns(DeprecationWarning, match="compile_where is deprecated"):
-        assert compile_where("has(status)")(SimpleNamespace(payload={"status": "x"}, name="d", model_type=None))
-    with pytest.warns(DeprecationWarning, match="where_parse is deprecated"):
-        assert where_parse('status = "x"').text == 'status = "x"'
-
-
-def test_constructing_a_field_condition_warns_naming_the_predicate():
-    import pytest
-
-    from sldb.store.graph.language import FieldCondition
-
-    with pytest.warns(DeprecationWarning, match='write the predicate `status = "open"`'):
-        FieldCondition(field="status", op="eq", value="open")
+        assert _changed(through_the_language, golden["matches"]) == FIELD_CONDITION_DIFFERENCES.get(row, set()), row
 
 
 def test_the_new_api_does_not_warn():
@@ -254,7 +199,7 @@ def test_backend_eval_and_eval_predicate_give_the_same_findings():
         assert backend.eval(parse_predicate(text)) == eval_predicate(parse_predicate(text), graph), text
 
 
-# --- the CLI: find --where (paths, --explain), graph query's warning, zero extractions ----
+# --- the CLI: find --where (paths, --explain), graph query's where, zero extractions -----
 
 _TASK_MODULE = "sldb_go05_predicate_models"
 _TASK_MODELS = '''from pydantic import Field
@@ -339,18 +284,26 @@ def test_find_where_with_the_same_expression_does_not_warn(tasks):
     assert envelope["warnings"] == [] and [r["doc"] for r in envelope["data"]["results"]] == ["b"]
 
 
-def test_graph_query_with_field_condition_dicts_warns_in_the_envelope(tasks, tmp_path):
+def test_graph_query_with_a_where_filter_answers_without_warnings(tasks, tmp_path):
     sp, py = tasks
     query = tmp_path / "query.json"
-    query.write_text(json.dumps({"filters": [{"facet": "payload", "conditions": [{"field": "status", "op": "eq", "value": "closed"}]}]}), encoding="utf-8")
+    query.write_text(json.dumps({"filters": [{"facet": "payload", "where": 'status = "closed"'}]}), encoding="utf-8")
     plain_code, plain = _cli("graph", "query", "--query-file", str(query), "--store", str(sp), "--local")
     code, printed = _cli("--envelope", "graph", "query", "--query-file", str(query), "--store", str(sp), "--local")
     envelope = json.loads(printed)
     assert plain_code == code == 0 and envelope["data"] == json.loads(plain)
     assert [n["id"] for n in envelope["data"]] == ["sldb://document/Task:b"]
-    warning = envelope["warnings"]
-    assert [(w["level"], w["code"], w["subject"]) for w in warning] == [("warning", "deprecated/field-condition", "graph query")]
-    assert 'status = "closed"' in warning[0]["what"]
+    assert envelope["warnings"] == []
+
+
+def test_a_path_in_a_facet_where_is_rejected_naming_it():
+    from sldb.store.edge_index.edge_index import EdgeIndex
+    from sldb.store.exceptions import SLDBGraphArgumentError
+    from sldb.store.graph import StructuredQuery, execute_query
+
+    query = StructuredQuery.model_validate({"filters": [{"facet": "payload", "where": 'any(depends_on: status = "open")'}]})
+    with pytest.raises(SLDBGraphArgumentError, match="any\\(depends_on"):
+        execute_query(EdgeIndex(nodes={}), query)
 
 
 def test_where_over_every_document_of_a_repo_model_extracts_nothing(tmp_path, monkeypatch):

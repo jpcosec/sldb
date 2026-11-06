@@ -6,7 +6,7 @@ from __future__ import annotations
 
 from typing import Any, Callable
 
-from sldb.store.query_engine.where_parse import WherePredicateError
+from sldb.store.exceptions import WherePredicateError
 
 
 def cursor(tokens: list, text: str, expression: Callable[[list], Any]) -> list:

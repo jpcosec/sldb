@@ -1,7 +1,7 @@
 # Lenguaje de reglas de sldb
 
-Estado (2026-11-06): contrato de semántica del nodo GO02 del plan
-`desk/drawer/plans/grafo-operable`, implementado por GO05. Fija la gramática, los caminos,
+Estado (2026-11-07): contrato de semántica del nodo GO02 del plan
+`desk/drawer/plans/grafo-operable`, implementado por GO05; GO10 retiró los lenguajes viejos. Fija la gramática, los caminos,
 la semántica trivaluada, el formato de explicación, el hash de contrato y la firma de
 evaluación del lenguaje único de predicados de sldb. Los ejemplos de este documento son los
 tests de especificación de `tests/test_rules_language_spec.py` (verdes desde GO05); la
@@ -52,9 +52,9 @@ Reglas de forma:
   cualquier otro tipo es `false`. `f in [ ... ]` prueba pertenencia de un escalar en una
   lista literal.
 - `f ~ "patrón"` usa el sabor de expresiones regulares de Python (`re`) y la misma
-  semántica de búsqueda que el `~` actual de `where_parse`: `re.search`, no anclaje
-  implícito. Un patrón inválido es error de parseo: `WherePredicateError`, la excepción
-  existente de `sldb.store.query_engine.where_parse`.
+  semántica de búsqueda que el `~` del `--where` anterior a GO05: `re.search`, no anclaje
+  implícito. Un patrón inválido es error de parseo: `WherePredicateError`, la excepción de
+  todo parseo del lenguaje (`from sldb.api import WherePredicateError`).
 - `model <= X` es verdadero si el modelo del documento es `X` o hereda de `X` por
   `base_models` (la familia de `X`).
 - `has(f)` es verdadero si el campo está presente y su valor no es `None` ni la cadena
@@ -309,9 +309,12 @@ Cada finding tiene `node`, `holds`, `clause` y `seen`, como en la sección 4.
 
 ## 7. Tabla de equivalencia
 
-La columna «nuevo» es la construcción del lenguaje de este documento. Ninguna de esas
-construcciones usa `eq`, `ne`, `gt`, `lt`, `contains`, `starts_with`, `is_null` ni
-`is_not_null` como nombres de operador.
+La tabla de abajo es histórica: relaciona cada operador de los dos lenguajes que GO10
+retiró con su construcción en el lenguaje de este documento (columna «Construcción nueva»).
+Ninguna de esas construcciones reutiliza como nombre de operador los de la columna «Operador
+viejo» de las filas 12 a 19.
+
+### Histórico: equivalencia de los lenguajes retirados
 
 | # | Operador viejo | Origen | Construcción nueva | Nota |
 |---|---|---|---|---|
@@ -381,10 +384,10 @@ puede ajustarlo sin cambiar la semántica de las secciones anteriores.
   varios pasos de campo (`depends_on.subject`); `rel:<tipo>` puede ir en cualquier posición
   (`depends_on.rel:task_activates`). Un campo de referencia llamado `rel` seguido de `:` se
   lee como paso de relación. `^` invierte solo el primer paso del grupo; `+` aplica al último.
-- **H13. `doc ~ "re"`.** Como el `~` de `where_parse`, `doc ~` lee el nombre del documento
+- **H13. `doc ~ "re"`.** Como el `~` del `--where` anterior a GO05, `doc ~` lee el nombre del documento
   (no un campo `doc`).
 - **H14. Ausencia en comparaciones.** Un campo ausente no cumple ninguna comparación, `in`
-  ni `~`, con literal de cadena o de número. `where_parse` dejaba cumplir `f != <número>`
+  ni `~`, con literal de cadena o de número. El `--where` anterior a GO05 dejaba cumplir `f != <número>`
   sobre un campo ausente y levantaba `TypeError` al ordenar `None` o tipos mezclados; el
   lenguaje devuelve `false` (tabla de equivalencia, golden de la fila 7).
 - **H15. Sustitución.** `{campo}` lee el valor de primer nivel del sujeto, también dentro de un
@@ -407,17 +410,21 @@ puede ajustarlo sin cambiar la semántica de las secciones anteriores.
   `backend/index_view.py`), `sldb.api.where.where_matches` (un payload suelto),
   `sldb.api.where.where_findings` (un store, sin re-extraer: lee la proyección del índice),
   `sldb.api.where.where_records` (`sldb find --where`), `edges_holding` (la condición de cada
-  arista) y `StructuredQuery` (cada `FieldCondition` se traduce por la tabla de la sección 7).
+  arista) y `StructuredQuery` (cada `FacetFilter` lleva un `where`: un predicado sin caminos
+  sobre los campos de su facet).
 - **CLI:** `sldb find ... --where <expr>` usa el lenguaje: un documento cumple solo si `holds`
   es `true`; un camino recorre el índice del store. `--explain` agrega a `data` la clave
   `findings`, un finding por documento evaluado (cumpla o no). Los registros de campo y de
-  sección conservan su lectura propia de `--where`. `sldb --envelope graph query` con filtros
-  `FieldCondition` lleva en `warnings` un `{level: "warning", code:
-  "deprecated/field-condition", subject: "graph query", what: <el predicado de reemplazo>}`.
-- **Shims (GO10 los retira):** `where_parse.compile_where` y `where_parse.where_parse`
-  delegan en el lenguaje y emiten `DeprecationWarning`; construir un `FieldCondition` también.
-  `--where` nunca avisa.
+  sección conservan su lectura propia de `--where`. `sldb graph query` lee filtros
+  `{"facet": ..., "where": "<predicado>"}`; un camino en ese `where` es
+  `SLDBGraphArgumentError` y un JSON con la clave anterior `conditions` es rechazado al
+  validar (`ValidationError`).
+- **Retiro (GO10):** los shims que GO05 dejó para los dos lenguajes viejos ya no existen;
+  la API única es `where_matches` (y las demás de arriba) con la gramática de este documento.
+  `WherePredicateError` vive en `sldb.core.exceptions` y se importa como
+  `from sldb.api import WherePredicateError`.
 - **Equivalencia:** `tests/fixtures/where_goldens/` guarda el resultado de cada fila de la
-  sección 7 con el código anterior a GO05; `tests/store/test_predicate_language.py` compara.
+  sección 7 con el código anterior a GO05; la expresión vieja queda como dato y
+  `tests/store/test_predicate_language.py` evalúa la construcción nueva y compara.
   Diferencias declaradas: fila 7 con número sobre campo ausente (H14), fila 16 (`in` también
   es subcadena), filas 18 y 19 (`has` rechaza `""`).

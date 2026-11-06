@@ -16,7 +16,7 @@ import hashlib
 
 import pytest
 
-from sldb.store.query_engine.where_parse import WherePredicateError
+from sldb.api import WherePredicateError
 
 
 # --- provisional spec adapter (see rules-language.md §8, H1-H4) -------------------------

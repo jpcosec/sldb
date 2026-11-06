@@ -16,7 +16,7 @@ from sldb.cli import main as cli_main
 from sldb.core.exceptions import SLDBDocumentTargetError
 from sldb.runtime.validation import Validator, render_model_markdown
 from sldb.store.query import find_structural, glob_structural
-from sldb.store.query_engine.where_parse import WherePredicateError
+from sldb.api import WherePredicateError
 
 MODULE = "sldb_select_test_models"
 MODELS_SOURCE = '''from pydantic import Field

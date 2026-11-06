@@ -15,7 +15,8 @@ from sldb.cli import main as cli_main
 from sldb.store.query import find_structural
 from sldb.store.query_engine.filter import DocumentFilter
 from sldb.store.query_engine.models import RuntimeDocument
-from sldb.store.query_engine.where_parse import WherePredicateError, compile_where
+from sldb.api import WherePredicateError
+from sldb.store.graph.language.predicate_parser import parse_predicate
 
 
 def _ref(model_ref, pythonpath=None):
@@ -82,7 +83,7 @@ def test_backslash_escapes_in_string_literals(predicate, payload, expected):
 )
 def test_an_unterminated_literal_is_still_an_error(predicate):
     with pytest.raises(WherePredicateError):
-        compile_where(predicate)
+        parse_predicate(predicate)
 
 
 @pytest.fixture

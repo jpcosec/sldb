@@ -370,7 +370,7 @@ Cinco fuentes, y **solo cinco**:
 3. **Modelos** — cada modelo aporta su nodo, un nodo por campo, `has_field`,
    `extends`
 4. **Referencias declaradas** — `__references__` aporta `references` y
-   `__containment__` aporta `contains`, una arista por id, con el nombre del
+   `__containment__` aporta aristas contains, una por id, con el nombre del
    campo en la arista
 5. **Composiciones** — `__compositions__` aporta `composes`, una arista por ref,
    con el campo compuesto, el campo que guarda los refs y el ref tal como fue
@@ -760,7 +760,7 @@ Correcciones que salieron de esa auditoria:
 | 5 | salida de `stores check` cortada en varias lineas | una linea por campo, con `(see 'fix:' above)` |
 | 6 | tabla de 8 comandos de graph | son 12: faltaban `get`, `list`, `query`, `ingest-sldb` |
 | 6 | "`__containment__`/`__references__` se exponen por /schema y fields_routes" | `fields_routes` solo expone `__references__` |
-| 6, 14 | "`__containment__`/`__references__` no generan aristas" | sí las generan (`references`/`contains`, `origin: "schema"`): cuarta fuente del grafo |
+| 6, 14 | "`__containment__`/`__references__` no generan aristas" | sí las generan (references y contains, `origin: "schema"`): cuarta fuente del grafo |
 | 6, 14 | "`__compositions__` no llega al grafo" | ya llega: aporta `composes`, con el target resuelto de ruta a documento al componer el índice |
 | 13 | "resuelve por el `path` absoluto" | el path suele ser relativo y se re-ancla al project root |
 | 14 | "`Corpus.rank()` no esta en el CLI" | y no se exportaba en `sldb.api`. Ya se exporta, con `rank_fields()`; lo que falta es el comando de CLI, no el cliente |

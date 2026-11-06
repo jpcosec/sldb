@@ -7,7 +7,7 @@ from sldb.store.graph.facet import FacetPayload
 from sldb.store.graph.graph_io import load_graph, save_graph
 from sldb.store.graph.identity import SystemIdentity
 from sldb.store.graph.ingest_sldb import sldb_semantic_export_to_snapshot
-from sldb.store.graph.language import FacetFilter, FieldCondition, GraphScope, RelationFilter, StructuredQuery
+from sldb.store.graph.language import FacetFilter, GraphScope, RelationFilter, StructuredQuery
 from sldb.store.graph.neighborhood import collect_neighborhood, collect_neighborhood_by_direction
 from sldb.store.graph.node import KnowledgeNode
 from sldb.store.graph.node_view import GraphNode
@@ -19,7 +19,6 @@ __all__ = [
     "Edge",
     "FacetFilter",
     "FacetPayload",
-    "FieldCondition",
     "GraphNode",
     "GraphScope",
     "GraphSnapshot",

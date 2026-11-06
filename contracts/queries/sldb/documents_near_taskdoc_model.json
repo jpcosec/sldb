@@ -5,13 +5,7 @@
   "filters": [
     {
       "facet": "identity",
-      "conditions": [
-        {
-          "field": "node_type",
-          "op": "eq",
-          "value": "sldb_document"
-        }
-      ]
+      "where": "node_type = \"sldb_document\""
     }
   ]
 }

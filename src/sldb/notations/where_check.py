@@ -7,7 +7,7 @@ from typing import Callable
 _parser: Callable[[str], object] | None = None
 
 
-def set_where_parser(parser: Callable[[str], object] | None) -> None:
+def connect_where_check(parser: Callable[[str], object] | None) -> None:
     """Conecta (o desconecta) el parser de `where`; sin parser no se comprueba."""
     global _parser
     _parser = parser

@@ -463,20 +463,6 @@ proyecciones con detección de rancidez.
 """
 
 [[axis_debt]]
-id = "dos-lenguajes-de-consulta"
-between = ["consulta", "grafo"]
-what = """
-`store/query_engine/where_parse.py` usa `=`, `!=`, `<=`, `>=`.
-`store/graph/language/field_condition.py` usa `eq`, `ne`, `lt`, `gt`, `contains`,
-`starts_with`, `is_null`, `is_not_null`.
-
-Dos vocabularios para filtrar por campo. No es código duplicado: son dos
-lenguajes que alguien tiene que aprender por separado para hacer lo mismo en dos
-ejes, y un cambio en uno no llega al otro.
-"""
-repair = "un solo lenguaje de condiciones, compartido por los dos ejes"
-
-[[axis_debt]]
 id = "adaptador-sin-uso"
 between = ["adaptadores"]
 what = """
@@ -536,7 +522,7 @@ does = "notaciones, glifos, enlaces, paletas y vistas como modelos y catálogos 
 identity = false
 note = """
 Capa 0 a propósito: es vocabulario, no operación. La comprobación de que un `where`
-parsea es un PUERTO (`where_check.set_where_parser`) que `api/notations` conecta al
+parsea es un PUERTO (`where_check.connect_where_check`) que `api/notations` conecta al
 parser del almacén; sin él no se comprueba, igual que cuando vivía fuera de sldb.
 """
 
@@ -583,7 +569,7 @@ why = "el centro de gravedad del sistema: 110 aristas entran desde los ejes de o
 id = "grafo"
 axes = ["grafo"]
 needs = 5  # GO03: eval de store/graph/backend reutiliza el parser where de store/query_engine
-needed_by = 4  # GO05: consulta (query_engine.rules y los shims where_parse/where_subject) usa el lenguaje de store/graph/language
+needed_by = 4  # GO05: consulta (query_engine.rules y where_subject) usa el lenguaje de store/graph/language; GO10 retiró los shims
 extractable_today = false
 why = """
 Unidad propia: 33 archivos, 28 de ellos autónomos. Necesita 7 imports de cuatro

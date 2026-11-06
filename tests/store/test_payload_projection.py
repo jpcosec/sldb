@@ -19,8 +19,8 @@ from sldb.store.edge_index.doc_contribution import build_doc_edges
 from sldb.store.edge_index.edge_index import EdgeIndex
 from sldb.store.edge_index.node_ids import EDGE_INDEX_VERSION
 from sldb.store.graph.executor import execute_query
-from sldb.store.graph.language import FacetFilter, FieldCondition, StructuredQuery
-from sldb.store.graph.payload_match import payload_condition
+from sldb.store.graph.language import FacetFilter, StructuredQuery
+from sldb.store.graph.payload_match import where_holds
 from sldb.store.io.shards import invalidate_shard_cache
 from sldb.store.layout import edges_shard_path
 from sldb.store.model_contract import contract_signature, indexed_fields, projected_fields
@@ -92,7 +92,7 @@ def world(tmp_path):
 
 
 def _status_is(value: str) -> StructuredQuery:
-    return StructuredQuery(filters=[FacetFilter(facet="payload", conditions=[FieldCondition(field="status", op="eq", value=value)])])
+    return StructuredQuery(filters=[FacetFilter(facet="payload", where=f'status = "{value}"')])
 
 
 def test_the_index_version_is_5():
@@ -134,7 +134,7 @@ def test_status_closed_is_answered_with_zero_extractions(world, monkeypatch):
 
 def test_existing_facets_answer_as_before_and_nodes_show_no_new_keys(world):
     _, _, sp, _ = world
-    query = StructuredQuery(filters=[FacetFilter(facet="identity", conditions=[FieldCondition(field="node_type", op="eq", value="Ticket")])])
+    query = StructuredQuery(filters=[FacetFilter(facet="identity", where='node_type = "Ticket"')])
     nodes = api_execute_query(sp, query)
     assert [n.id for n in nodes] == ["sldb://document/Ticket:a", "sldb://document/Ticket:b"]
     assert "payload" not in nodes[0].model_dump()
@@ -143,7 +143,7 @@ def test_existing_facets_answer_as_before_and_nodes_show_no_new_keys(world):
 def test_a_filter_on_a_field_not_projected_is_a_query_error_naming_it(world):
     _, _, sp, _ = world
     for field in ("meta", "steps", "nonexistent"):
-        query = StructuredQuery(filters=[FacetFilter(facet="payload", conditions=[FieldCondition(field=field, op="is_not_null")])])
+        query = StructuredQuery(filters=[FacetFilter(facet="payload", where=f"has({field})")])
         with pytest.raises(SLDBGraphArgumentError, match=repr(field)):
             api_execute_query(sp, query)
 
@@ -154,29 +154,29 @@ def _doc(id_: str, payload: dict) -> EdgeNodeRecord:
 
 def test_a_projectable_field_absent_from_every_payload_gives_the_empty_set():
     index = EdgeIndex(nodes={n.id: n for n in [_doc("a", {"s": "x"}), _doc("b", {})]}, payload_fields={"M": ["s", "owner"]})
-    query = StructuredQuery(filters=[FacetFilter(facet="payload", conditions=[FieldCondition(field="owner", op="eq", value="z")])])
+    query = StructuredQuery(filters=[FacetFilter(facet="payload", where='owner = "z"')])
     assert execute_query(index, query) == []
 
 
 def test_only_document_nodes_match_a_payload_filter():
     tag = EdgeNodeRecord(id="sldb://semantic_tag/t", node_type="semantic_tag")
     index = EdgeIndex(nodes={n.id: n for n in [_doc("a", {"s": "x"}), _doc("b", {}), tag]}, payload_fields={"M": ["s"]})
-    query = StructuredQuery(filters=[FacetFilter(facet="payload", conditions=[FieldCondition(field="s", op="is_null")])])
+    query = StructuredQuery(filters=[FacetFilter(facet="payload", where="not has(s)")])
     assert [n.id for n in execute_query(index, query)] == ["sldb://document/M:b"]
 
 
-@pytest.mark.parametrize(("value", "op", "operand", "expected"), [
-    (None, "is_null", None, True), (None, "is_not_null", None, False), (None, "eq", None, False),
-    (None, "ne", "x", False), (None, "contains", "x", False), (None, "gt", 1, False), (None, "starts_with", "x", False),
-    (["a", "b"], "contains", "a", True), (["a", "b"], "contains", "c", False), (["a", "b"], "eq", ["a", "b"], True),
-    (["a", "b"], "eq", "a", False), (["a", "b"], "ne", "a", True), (["a"], "gt", 0, False), (["a"], "lt", 9, False),
-    (["a"], "starts_with", "a", False), (["a"], "is_null", None, False), (["a"], "is_not_null", None, True),
-    ([], "eq", [], True), (1, "eq", 1.0, True), (True, "eq", 1, True), ("b", "gt", "a", True), ("b", "gt", 1, False),
-    ("abc", "starts_with", "ab", True), (3, "lt", 5, True),
+@pytest.mark.parametrize(("value", "where", "expected"), [
+    (None, "not has(f)", True), (None, "has(f)", False),
+    (None, 'f != "x"', False), (None, '"x" in f', False), (None, "f > 1", False), (None, 'f ~ "^x"', False),
+    (["a", "b"], '"a" in f', True), (["a", "b"], '"c" in f', False), (["a", "b"], 'f = ["a", "b"]', True),
+    (["a", "b"], 'f = "a"', False), (["a", "b"], 'f != "a"', True), (["a"], "f > 0", False), (["a"], "f < 9", False),
+    (["a"], 'f ~ "^a"', False), (["a"], "not has(f)", False), (["a"], "has(f)", True),
+    ([], "f = []", True), (1, "f = 1.0", True), (True, "f = 1", True), ("b", 'f > "a"', True), ("b", "f > 1", False),
+    ("abc", 'f ~ "^ab"', True), (3, "f < 5", True),
 ])
-def test_payload_operators_follow_the_contract(value, op, operand, expected):
+def test_payload_operators_follow_the_contract(value, where, expected):
     payload = {} if value is None else {"f": value}
-    assert payload_condition(payload, FieldCondition(field="f", op=op, value=operand)) is expected
+    assert where_holds(where, payload) is expected
 
 
 def test_an_edit_from_outside_sldb_is_stale_and_the_rebuild_updates_the_projection(world):
@@ -222,7 +222,7 @@ def test_indexed_restricts_the_projection(world):
     _write_models(tmp_path, extra='__indexed__ = ["status", "labels"]')
     api.create_document(sp, "Ticket", root / "c.md", _payload("c", "closed"), "c", py)
     assert api.edge_node(sp, "Ticket:c").payload == {"labels": ["x", "y"], "status": "closed"}
-    query = StructuredQuery(filters=[FacetFilter(facet="payload", conditions=[FieldCondition(field="priority", op="eq", value=2)])])
+    query = StructuredQuery(filters=[FacetFilter(facet="payload", where="priority = 2")])
     with pytest.raises(SLDBGraphArgumentError, match="'priority'"):
         api_execute_query(sp, query)
 

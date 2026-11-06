@@ -15,7 +15,7 @@ La absorción en `sldb` (iniciada en el nodo SV01 del plan `absorber-spec2viz-y-
 Los 7 modelos son subclases de `StructuredNLDoc` (`sldb.models.structured_nl_doc.StructuredNLDoc`) y se reexportan tanto en `sldb.models` como en `sldb.api`:
 
 1. **`SpecDoc`**: Representa una especificación de diagrama completa como documento del almacén. Sus elementos hijos se vinculan mediante referencias hacia `SpecNodeDoc`, y apunta opcionalmente a una `NotationDoc`.
-2. **`SpecNodeDoc`**: Elemento individual de un diagrama (nodo, componente, estado, clase, participante, actor). Declara contención (`__containment__ = {"contains": ["SpecNodeDoc"]}`) y referencias (`spec`, `refs`, `atom_refs`).
+2. **`SpecNodeDoc`**: Elemento individual de un diagrama (nodo, componente, estado, clase, participante, actor). Declara contención (`__containment__`: su campo contains admite hijos `SpecNodeDoc`) y referencias (`spec`, `refs`, `atom_refs`).
 3. **`NotationDoc`**: Define una notación visual (tipo de diagrama, nivel `types`/`instances`/`both`, layout, marcadores, lista de `GlyphDoc` y `LinkDoc`, y paleta opcional).
 4. **`GlyphDoc`**: Mapeo declarativo de un modelo del store (con predicado `where` opcional) a una forma visual primitiva (`shape`), compartimentos, etiquetas (`label`, `keyword`, `label_style`), y estilo (`kind`, `fill`, `stroke`, `icon`).
 5. **`LinkDoc`**: Mapeo de una relación del store (arista o modelo reificado) a su representación gráfica (`line`, terminales `source_end` / `target_end`, rótulos y color).

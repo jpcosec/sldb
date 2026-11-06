@@ -56,6 +56,6 @@ __all__ = [
 
 # `sldb.notations` es vocabulario (capa 0) y no puede importar `sldb.api`: le conectamos el parser.
 from sldb.api.where import where_matches as _where_matches
-from sldb.notations.where_check import set_where_parser as _set_where_parser
+from sldb.notations.where_check import connect_where_check as _connect_where_check
 
-_set_where_parser(lambda expression: _where_matches(expression, {}))
+_connect_where_check(lambda expression: _where_matches(expression, {}))

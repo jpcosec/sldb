@@ -44,7 +44,7 @@ def test_graph_reads_the_store_edge_index(world):
     assert "sldb://document/TaskDoc:task" in graph_api.graph_list(store)
     node = graph_api.graph_get(store, "sldb://document/TaskDoc:task")
     assert node.node_type == "TaskDoc"
-    query = StructuredQuery.model_validate({"scope": {"descendant_of": "sldb://model/TaskDoc"}, "filters": [{"facet": "identity", "conditions": [{"field": "node_type", "op": "eq", "value": "TaskDoc"}]}]})
+    query = StructuredQuery.model_validate({"scope": {"descendant_of": "sldb://model/TaskDoc"}, "filters": [{"facet": "identity", "where": 'node_type = "TaskDoc"'}]})
     assert [n.id for n in graph_api.execute_query(store, query)] == ["sldb://document/TaskDoc:task"]
 
 

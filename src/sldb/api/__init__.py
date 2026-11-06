@@ -79,8 +79,7 @@ from sldb.api.model_registry.add_model import add_model
 from sldb.api.search import search
 from sldb.api.rules import on_check_findings, refuse_unknown_family, rules_check, rules_explain, rules_on_check, transition_findings
 from sldb.api.where import where_matches
-from sldb.store.query_engine.where_parse import WherePredicateError
-from sldb.core.exceptions import AmbiguousSelectionError, ConflictError
+from sldb.core.exceptions import AmbiguousSelectionError, ConflictError, WherePredicateError
 from sldb.api.model_registry.describe_model import describe_model
 from sldb.api.model_registry.load_registered_model import load_registered_model
 from sldb.api.model_registry.model_description import ModelDescription

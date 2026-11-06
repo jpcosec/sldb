@@ -148,16 +148,17 @@ shard. El hash de cada archivo se recuerda mientras su mtime y su tamaño no cam
 ### Consulta
 
 `StructuredQuery` filtra sobre la proyección con
-`FacetFilter(facet="payload", conditions=[FieldCondition(field=..., op=..., value=...)])`. Se
-evalúa sobre lo que dice el shard: nunca se re-extrae un documento. Desde GO05 cada
-`FieldCondition` (deprecado) se traduce al lenguaje por la tabla de `rules-language.md` §7 y
-lo evalúa el mismo evaluador; por eso `contains` sobre una cadena es subcadena e `is_null` /
-`is_not_null` tratan `""` como ausente. Solo los nodos de documento
+`FacetFilter(facet="payload", where='status = "open"')`: un predicado del lenguaje de
+`rules-language.md` sobre los campos de la facet, sin caminos (un camino es
+`SLDBGraphArgumentError`). Se evalúa sobre lo que dice el shard: nunca se re-extrae un
+documento. Lo evalúa el mismo evaluador que `--where`; por eso `"x" in f` sobre una cadena es
+subcadena y `has(f)` / `not has(f)` tratan `""` como ausente. Solo los nodos de documento
 tienen la facet; los demás no casan con un filtro `payload`. Sobre un campo ausente (nulo) solo
-deciden `is_null` e `is_not_null`; sobre una lista, `contains` es pertenencia, `eq` / `ne`
-comparan la lista entera, `gt` / `lt` / `starts_with` dan false, `is_null` false e
-`is_not_null` true. `eq` / `ne` usan la igualdad de Python sin coerción (`1 == 1.0`,
-`True == 1`); una comparación que Python no puede ordenar da false. Un filtro sobre un campo
+decide la presencia (`not has(f)` true, `has(f)` false; ninguna comparación, `in` ni `~` se
+cumple); sobre una lista, `"x" in f` es pertenencia, `f = v` / `f != v` comparan la lista
+entera, `f > v` / `f < v` / `f ~ "^x"` dan false, `not has(f)` false y `has(f)` true. `=` /
+`!=` usan la igualdad de Python sin coerción (`1 == 1.0`, `True == 1`); una comparación que
+Python no puede ordenar da false. Un filtro que nombra un campo
 que ningún modelo proyecta (diccionario, lista no escalar, fuera de `__indexed__`, o inexistente)
 es `SLDBGraphArgumentError` con el nombre del campo; un campo proyectable ausente en todos los
 payloads da el conjunto vacío. La lista de campos proyectables por modelo vive en el shard del

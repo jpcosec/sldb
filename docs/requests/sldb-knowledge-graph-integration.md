@@ -88,7 +88,7 @@ Documents are nodes in a directed graph with typed edges:
 class Edge(BaseModel):
     target_id: str
     relation_type: Literal[
-        "contains",
+        "has_part",
         "depends_on",
         "reads_from",
         "writes_to",
@@ -109,7 +109,7 @@ relationships:
   - target: hum:ADRDoc.bar.md
     relation: documents
   - target: self:Chapter.1.md
-    relation: contains
+    relation: has_part
 ```
 
 **Reference implementation:**
@@ -412,7 +412,7 @@ src/wiki_compiler/contracts.py:12-29
 class Edge(BaseModel):
     target_id: str
     relation_type: Literal[
-        "contains", "depends_on", "reads_from",
+        "has_part", "depends_on", "reads_from",
         "writes_to", "documents", "transcludes",
         "extends", "implements",
     ] = Field(description="...")

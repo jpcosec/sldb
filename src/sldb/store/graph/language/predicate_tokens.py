@@ -11,7 +11,7 @@ from collections import namedtuple
 from typing import Any
 
 from sldb.store.query_engine.where_literal import unquote
-from sldb.store.query_engine.where_parse import WherePredicateError
+from sldb.store.exceptions import WherePredicateError
 
 _TOKEN = re.compile(
     r"""(?:

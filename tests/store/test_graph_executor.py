@@ -36,12 +36,12 @@ def test_descendant_scope_reaches_all_nodes_except_the_root():
 
 
 def test_identity_filter_narrows_by_node_type():
-    query = StructuredQuery.model_validate({"scope": {"descendant_of": "sldb://model/TaskDoc"}, "filters": [{"facet": "identity", "conditions": [{"field": "node_type", "op": "eq", "value": "sldb_section"}]}]})
+    query = StructuredQuery.model_validate({"scope": {"descendant_of": "sldb://model/TaskDoc"}, "filters": [{"facet": "identity", "where": 'node_type = "sldb_section"'}]})
     assert _ids(query) == ["sldb://section/TaskDoc:001#s"]
 
 
 def test_ancestor_scope_and_semantics_filter():
-    query = StructuredQuery.model_validate({"scope": {"ancestor_of": "sldb://section/TaskDoc:001#s"}, "filters": [{"facet": "semantics", "conditions": [{"field": "name", "op": "eq", "value": "001"}]}]})
+    query = StructuredQuery.model_validate({"scope": {"ancestor_of": "sldb://section/TaskDoc:001#s"}, "filters": [{"facet": "semantics", "where": 'name = "001"'}]})
     assert _ids(query) == ["sldb://document/TaskDoc:001"]
 
 
@@ -51,7 +51,7 @@ def test_prefix_scope_finds_tag_nodes():
 
 
 def test_source_facet_is_filterable():
-    query = StructuredQuery.model_validate({"filters": [{"facet": "source", "conditions": [{"field": "producer", "op": "eq", "value": "sldb"}]}]})
+    query = StructuredQuery.model_validate({"filters": [{"facet": "source", "where": 'producer = "sldb"'}]})
     assert _ids(query) == ["sldb://semantic_tag/domain.workflow.task"]
 
 

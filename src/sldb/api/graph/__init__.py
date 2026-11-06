@@ -30,7 +30,7 @@ from sldb.api.graph.traverse import (
 from sldb.store.graph.convert import index_from_snapshot, snapshot_from_index
 from sldb.store.graph.graph_io import load_graph, save_graph
 from sldb.store.graph.ingest_sldb import sldb_semantic_export_to_snapshot
-from sldb.store.graph.language import FacetFilter, FieldCondition, GraphScope, RelationFilter, StructuredQuery
+from sldb.store.graph.language import FacetFilter, GraphScope, RelationFilter, StructuredQuery
 from sldb.store.graph.edge import Edge
 from sldb.store.graph.identity import SystemIdentity
 from sldb.store.graph.node import KnowledgeNode

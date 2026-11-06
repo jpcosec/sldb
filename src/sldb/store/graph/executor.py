@@ -6,15 +6,16 @@ from collections import deque
 
 from sldb.store.graph.edge_filter import filtered_edges
 from sldb.store.exceptions import SLDBGraphArgumentError
-from sldb.store.graph.payload_match import filters_hold, unprojected_fields
+from sldb.store.graph.payload_match import facet_predicate, filters_hold, unprojected_fields
 from sldb.store.graph.node_view import GraphNode
 
 
 def execute_query(index, query) -> list[GraphNode]:
-    """Run a StructuredQuery against an edge index; returns matching nodes. Every condition is
-    evaluated by the predicate language (`payload_match`). A `payload` filter reads the
-    projection the shards hold (nothing is re-extracted); one naming a field no model projects
-    is rejected (SLDBGraphArgumentError naming the field)."""
+    """Run a StructuredQuery against an edge index; returns matching nodes. Every filter's
+    `where` is evaluated by the predicate language (`payload_match`); one with a path is
+    rejected (SLDBGraphArgumentError naming it). A `payload` filter reads the projection the
+    shards hold (nothing is re-extracted); one naming a field no model projects is rejected
+    (SLDBGraphArgumentError naming the field)."""
     _check_payload_fields(index, query.filters)
     matches: list[GraphNode] = []
     for node_id in candidate_ids(index, query.scope):
@@ -25,6 +26,8 @@ def execute_query(index, query) -> list[GraphNode]:
 
 
 def _check_payload_fields(index, filters) -> None:
+    for facet_filter in filters:
+        facet_predicate(facet_filter.where)
     missing = unprojected_fields(getattr(index, "payload_fields", {}), filters)
     if missing:
         raise SLDBGraphArgumentError(f"payload filter on {', '.join(repr(f) for f in missing)}: not projected into the graph (a dict or a list of non-scalars, outside the model's __indexed__, or not a field of any model).")

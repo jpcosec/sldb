@@ -3,7 +3,7 @@
 An **error** is something broken or a violated contract, and fails the command. An **alert**
 is a source that moved against what was recorded: the state is valid, the command exits 0,
 and the alert is never silent (`sldb.cli.alert_sink` prints it by every route). A **warning**
-is a deprecated use (GO05: `FieldCondition` in `sldb graph query`): it travels with the alerts.
+is a deprecated use: it travels with the alerts.
 """
 
 from __future__ import annotations

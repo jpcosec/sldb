@@ -5,7 +5,10 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from sldb.store.graph.language import FieldCondition, RelationFilter, StructuredQuery
+import pytest
+from pydantic import ValidationError
+
+from sldb.store.graph.language import RelationFilter, StructuredQuery
 
 FIXTURE = Path(__file__).resolve().parents[2] / "contracts" / "queries" / "sldb"
 
@@ -15,9 +18,10 @@ def test_example_queries_parse():
         StructuredQuery.model_validate(json.loads(path.read_text(encoding="utf-8")))
 
 
-def test_field_condition_accepts_all_eight_operators():
-    for op in ("eq", "ne", "is_null", "is_not_null", "contains", "gt", "lt", "starts_with"):
-        FieldCondition(field="name", op=op, value="x")
+def test_a_facet_filter_with_the_old_conditions_key_is_rejected_naming_it():
+    query = {"filters": [{"facet": "identity", "conditions": [{"field": "node_type", "op": "eq", "value": "x"}]}]}
+    with pytest.raises(ValidationError, match="conditions"):
+        StructuredQuery.model_validate(query)
 
 
 def test_relation_filter_declares_direction():

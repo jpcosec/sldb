@@ -15,6 +15,7 @@ from .sldb_document_target_error import SLDBDocumentTargetError
 from .sldb_ambiguous_selection_error import AmbiguousSelectionError
 from .sldb_graph_argument_error import SLDBGraphArgumentError
 from .sldb_rule_violation_error import SLDBRuleViolationError
+from .where_predicate_error import WherePredicateError
 
 __all__ = [
     "SLDBError",
@@ -34,4 +35,5 @@ __all__ = [
     "AmbiguousSelectionError",
     "SLDBGraphArgumentError",
     "SLDBRuleViolationError",
+    "WherePredicateError",
 ]

@@ -52,6 +52,14 @@ def substitutions(root: tuple) -> list[str]:
     return list(dict.fromkeys(names))
 
 
+def leaf_fields(root: tuple) -> list[str]:
+    """The field names a tree's leaves read (the ones that feed `seen`), in order, without
+    repeats; paths and `{field}` substitutions are not fields of the element."""
+    names = [n[3][0] for n in walk(root) if n[0] == "leaf" and n[2] in ("has", "nonempty")]
+    names += [term[1] for n in walk(root) for term in _terms(n) if n[0] == "leaf" and term[0] == "field"]
+    return list(dict.fromkeys(names))
+
+
 def top_level_models(root: tuple) -> list[str]:
     """The `model <= X` bases of the top-level conjunction (they restrict the domain, §6)."""
     if root[0] == "and":
