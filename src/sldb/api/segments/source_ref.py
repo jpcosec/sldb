@@ -11,3 +11,4 @@ class SourceRef(BaseModel):
     doc: str | None = Field(default=None, description="Tracked document name of the source; None when the referenced file is not tracked.")
     path: str = Field(description="The reference as written in the parent document, usually a file path.")
     model: str = Field(description="Class name of the model the source was extracted with.")
+    field: str | None = Field(default=None, description="Field name or path when resolving a single field transclusion; None for document transclusion.")

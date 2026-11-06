@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import BaseModel, Field
 
@@ -27,4 +27,6 @@ class CompositionPiece(BaseModel):
     source: SourceRef = Field(description="The document this piece was composed from.")
     ref_index: int = Field(description="Position of this reference in the composed field's source list.")
     ref: str = Field(description="The reference as written in the parent document.")
+    projection: dict[str, Any] | None = Field(default=None, description="Resolved view projection when referencing a diagram or view; None otherwise.")
+    table_data: dict[str, Any] | None = Field(default=None, description="Structured table data {columns, rows} when segment represents a table; None otherwise.")
     children: list["Segment"] = Field(default_factory=list, description="Segments nested inside the piece, literals interleaved.")

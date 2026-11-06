@@ -20,6 +20,7 @@ class SLDBRenderer:
         self.ast_handler = AST_Handler()
         self.node_handler = SharedNodeHandler()
         self.recorder = recorder
+        self.field_resolver: Any = None
         self.spans: list[tuple[int, int, int]] = []
         self.list_renderer = ListRenderer(self.jinja_env, recorder)
         self.table_renderer = TableRenderer(self.jinja_env, recorder)
@@ -35,17 +36,9 @@ class SLDBRenderer:
         return text
 
     def render_raw(self, model: StructuredNLDoc, ref_root: Path | None = None) -> str:
-        """The joined blocks before stripping, sentinels included when recording.
-
-        Args:
-            model: The document instance to render.
-            ref_root: Directory composition refs resolve against, or None for the CWD.
-
-        Returns:
-            The rendered blocks joined by blank lines, not yet stripped.
-        """
+        """The joined blocks before stripping, sentinels included when recording."""
         template = model.__template__
-        data = render_payload_of(model, self.recorder, ref_root)
+        data = render_payload_of(model, self.recorder, ref_root, field_resolver=self.field_resolver)
         blocks = self.ast_handler.split_nodes(template)
         return "\n\n".join(self._render_blocks(blocks, template.splitlines(), data))
 

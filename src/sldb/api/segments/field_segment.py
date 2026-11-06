@@ -29,4 +29,6 @@ class FieldSegment(BaseModel):
     value: Any = Field(default=None, description="The typed value behind the surface; the UI edits this, not the text.")
     source: SourceRef | None = Field(default=None, description="Origin document when the value comes from a composed piece; None when it is the document's own.")
     composition: CompositionSpec | None = Field(default=None, description="Composition declaration when this field assembles other documents; None otherwise.")
+    projection: dict[str, Any] | None = Field(default=None, description="Resolved view projection when segment references a diagram or view; None otherwise.")
+    table_data: dict[str, Any] | None = Field(default=None, description="Structured table data {columns, rows} when segment carries trait table; None otherwise.")
     children: list["Segment"] = Field(default_factory=list, description="Segments nested inside this one, literals interleaved.")

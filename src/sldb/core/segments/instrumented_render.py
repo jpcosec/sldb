@@ -1,12 +1,4 @@
-"""Render a payload while recording where every marker wrote its value.
-
-This is the one entry point that ties the three pieces together: a fresh
-:class:`~sldb.core.renderer_engine.span_recorder.SpanRecorder` is handed to the
-renderer, the renderer decodes its own sentinels, and the recorded metadata is
-matched back to the offsets by span id. The resulting text is the canonical
-render — identical to ``render_model_markdown`` — because the sentinels are
-removed before the final strip.
-"""
+"""Render a payload while recording where every marker wrote its value."""
 
 from __future__ import annotations
 
@@ -19,35 +11,20 @@ from sldb.core.renderer_engine.span_recorder import SpanRecorder
 SpanWithMeta = tuple[dict[str, Any], int, int]
 
 
-def render_with_spans(model_type: type, payload: dict[str, Any], ref_root: Path | None = None) -> tuple[str, list[SpanWithMeta]]:
-    """The canonical render of ``payload`` plus every value span in it.
-
-    Args:
-        model_type: The ``StructuredNLDoc`` subclass to render through.
-        payload: The payload to instantiate the model with.
-        ref_root: Directory a composed field's refs resolve against — the project root.
-            Without it they resolve against the working directory, so the same document
-            segments differently depending on where the caller runs.
-
-    Returns:
-        A tuple of the canonical text and a list of ``(meta, start, end)``, where
-        ``meta`` carries the field ``path``, ``marker`` kind, ``traits`` and the
-        wrap order under ``_order``.
-    """
+def render_with_spans(
+    model_type: type,
+    payload: dict[str, Any],
+    ref_root: Path | None = None,
+    field_resolver: Any = None,
+) -> tuple[str, list[SpanWithMeta]]:
+    """The canonical render of ``payload`` plus every value span in it."""
     recorder = SpanRecorder()
     renderer = SLDBRenderer(recorder=recorder)
+    if field_resolver is not None:
+        renderer.field_resolver = field_resolver
     text = renderer.render(model_type(**payload), ref_root)
     return text, [(_meta(recorder, span_id), start, end) for span_id, start, end in renderer.spans]
 
 
 def _meta(recorder: SpanRecorder, span_id: int) -> dict[str, Any]:
-    """The recorded metadata of one span, tagged with its wrap order.
-
-    Args:
-        recorder: The recorder that collected the span.
-        span_id: Index of the span in wrap order.
-
-    Returns:
-        A copy of the metadata carrying ``_order``, the nesting tiebreak.
-    """
     return {**recorder.metas[span_id], "_order": span_id}

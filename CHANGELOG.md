@@ -4,6 +4,17 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
 
 ## 0.1.13 — not released yet (no tag, not on PyPI)
 
+- Transclusión de campos y segmentos ricos de diagramas y vistas en /document/segments (SV03):
+  - `sldb.api.segments`:
+    - `source_ref.py`: `SourceRef` incorpora el campo opcional `field: str | None = None`.
+    - `composition_spec.py`: Soporta `ref: Literal["document", "field", "view", "spec"]`.
+    - `composition_piece.py` y `field_segment.py`: incorporan los campos opcionales `projection: dict | None = None` y `table_data: dict | None = None`.
+    - `field_ref_resolver.py`: `FieldRefResolver` resuelve referencias `Model:name#campo`, `docs/<Model>/<name>/<campo>` y `docs/<name>/<campo>` devolviendo `{model, doc, path, field, value, payload}`.
+    - `segment_enrichment.py`: Enriquecimiento de segmentos con vistas resueltas (`resolve_view` / `evaluate_projection_view`) y tablas estructuradas (`table_data`).
+    - `build_document_segments.py`: Inyecta `FieldRefResolver` en `render_with_spans` y enriquece los nodos con `projection` y `table_data`.
+  - `sldb.models.structured_doc`: `StructuredNLDoc.compose_field` y `render_payload` aceptan `field_resolver`; cuando `ref == "field"`, resuelve campos remotos emitiendo `CompositionPiece` con `SourceRef(model, doc, path, field)`. Sin resolver inyectado, rinde vacío preservando la pureza del renderizador.
+  - Documentación de arquitectura en `docs/architecture/segments-and-transclusion.md`.
+  - Suite de tests en `tests/segments/test_field_transclusion_and_diagram_segments.py`.
 - Visual notation and projection view resolver, store synchronization, CLI, and serve routes (SV02):
   - `sldb.api.notations`:
     - `notation_view.py`: `resolve_view` and `resolve_documents` resolving glyphs, compartments (`data.attributes`), template/keyword interpolation, edge ordering, UML fragments, and legends.
