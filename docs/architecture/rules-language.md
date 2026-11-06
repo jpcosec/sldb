@@ -370,7 +370,9 @@ puede ajustarlo sin cambiar la semántica de las secciones anteriores.
 - **H8. Mayúsculas y espacios.** Las palabras clave son minúsculas y sensibles a mayúsculas;
   el espacio en blanco entre tokens no es significativo.
 - **H9. Campos anidados.** El contrato no fija campos con punto. Se conserva la resolución
-  por ruta de `where_lookup` (`sldb.authority`, `tasks.0.title`) para un paso de campo.
+  por ruta de `where_lookup` para un paso de campo: `tasks.0.title`, o la autoridad del
+  bloque de procedencia `sldb` de un documento (`--where 'sldb.authority = "source_raw"'`,
+  una ruta de campo y no un módulo de Python).
 - **H10. Clave del envelope.** El contrato fija que la explicación viaja en el envelope,
   pero no el nombre exacto de la clave; GO06 lo fija al definir `rules explain`.
 - **H11. Error por `__contract__` vacío.** Los tests esperan `ValueError`; el contrato solo
