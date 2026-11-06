@@ -5,6 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 from sldb.api.model_registry.model_lineage import model_base_names, model_family
 from sldb.api.model_registry.model_reference import resolve_model_ref
+from sldb.api.stores.declaration_sync import declare_model
 from sldb.store import documents_hash
 from sldb.models.provenance_block import index_block
 from sldb.store.hashing import hash_documents_index, hash_fields_with_map, hash_text
@@ -37,9 +38,11 @@ def write_new_model_indexes(sp: Path, root: Path, idx: StoreIndex, model_type: t
         save_documents_index(root / di_rel, DocumentsIndex())
         mi = _fresh_models_index(model_type, model_ref, m_path, di_rel, canonical)
         save_models_index(root / mi_rel, mi)
-        idx.models.append(ModelEntry(name=mi.name, model_ref=model_ref, path=m_path, models_index=mi_rel, version=1, family=mi.family, semantics=mi.semantics))
+        entry = ModelEntry(name=mi.name, model_ref=model_ref, path=m_path, models_index=mi_rel, version=1, family=mi.family, semantics=mi.semantics)
+        idx.models.append(entry)
         rebuild_derived_indexes(sp, root, resolve_model_ref, pythonpath)
         cascade_store_hash(sp, root, idx)
+        declare_model(sp, root, entry)
     return mi
 
 

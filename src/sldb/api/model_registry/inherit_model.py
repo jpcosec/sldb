@@ -8,6 +8,7 @@ from sldb.api.model_registry.federated_registration import _do_ensure_federated_
 from sldb.store.model_import_root import import_root
 from sldb.api.model_registry.model_reference import add_import_roots, resolve_model_ref, same_model_class
 from sldb.api.model_registry.model_registration import ModelRegistration
+from sldb.api.stores.declaration_sync import declare_model
 from sldb.api.stores.open_store import open_store
 from sldb.core.exceptions import SLDBModelError, SLDBStoreError
 from sldb.store.derived_rebuild import rebuild_derived_indexes
@@ -102,4 +103,5 @@ def _convert_copy(sp: Path, root: Path, idx, mine, alias: str, theirs):
     m_idx.path, m_idx.model_ref = "", theirs.model_ref
     save_models_index(root / mine.models_index, m_idx)
     save_store_index(sp, idx)
+    declare_model(sp, root, mine)
     return mine

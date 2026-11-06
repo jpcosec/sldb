@@ -8,6 +8,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
+from sldb.api.stores.declaration_sync import declare_model
 from sldb.models.structured_doc import StructuredNLDoc
 from sldb.store.io import load_store_index, save_documents_index, save_models_index, store_lock
 from sldb.store.layout import documents_index_relpath, models_index_relpath
@@ -42,6 +43,7 @@ def _append_federated_entry(store_path: Path, root: Path, latest_index: Any, mod
     entry = ModelEntry(name=model_type.__name__, model_ref=model_ref, path=rel_model_path, models_index=mi_rel, version=1, origin=origin)
     latest_index.models.append(entry)
     cascade_store_hash(store_path, root, latest_index)
+    declare_model(store_path, root, entry)
     return entry
 
 

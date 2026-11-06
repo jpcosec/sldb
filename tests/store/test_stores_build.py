@@ -227,3 +227,75 @@ def test_declare_write_is_stable_on_a_declaration_it_already_completed(tmp_path,
     before = (store / "store.yaml").read_text(encoding="utf-8")
     assert cli_main(["stores", "declare", "--store", str(store), "--write"]) == 0
     assert (store / "store.yaml").read_text(encoding="utf-8") == before
+
+
+def _model_package(project, package, name="NoteDoc"):
+    (project / package).mkdir()
+    (project / package / "__init__.py").write_text("", encoding="utf-8")
+    (project / package / "models.py").write_text(
+        "from pydantic import Field\n"
+        "from sldb import StructuredNLDoc\n\n"
+        f"class {name}(StructuredNLDoc):\n"
+        "    __template__ = '# ⸢rev•title⸥'\n"
+        "    title: str = Field(description='Title')\n",
+        encoding="utf-8",
+    )
+    return f"{package}.models:{name}"
+
+
+def test_registering_a_model_declares_it_so_a_clean_clone_rebuilds(tmp_path, capsys):
+    """`deskops desk update --apply` registered the new task types in the index but not in
+    store.yaml: the CI rebuild said `Model 'TaskCodeDoc' not registered.` (sldb 8b60e889)."""
+    project = tmp_path / "project"
+    project.mkdir()
+    store, root = _declared(project, capsys)
+    ref = _model_package(root, "tmpnotes")
+    try:
+        assert cli_main(["models", "add", ref, "--store", str(store), "--pythonpath", str(root)]) == 0
+        (root / "note.md").write_text("# A note\n", encoding="utf-8")
+        assert cli_main(["docs", "track", str(root / "note.md"), "--model", "NoteDoc", "--store", str(store), "--pythonpath", str(root)]) == 0
+        declared = {m["name"]: m for m in load_declaration(store).models}
+        assert declared["NoteDoc"] == {"name": "NoteDoc", "model_ref": ref, "path": "tmpnotes/models.py"}
+        (root / ".gitignore").write_text(".sldb_cache/\n", encoding="utf-8")
+        subprocess.run(["git", "init", "-q"], cwd=root, check=True)
+        assert check_build(store, root, tmp_path / "scratch")["ok"] is True
+    finally:
+        for name in [m for m in sys.modules if m.startswith("tmpnotes")]:
+            del sys.modules[name]
+
+
+def test_inheriting_a_model_declares_it_with_its_origin(tmp_path, capsys):
+    (tmp_path / "project").mkdir()
+    store, root = _declared(tmp_path / "project", capsys)
+    owner = tmp_path / "owner"
+    owner.mkdir()
+    ref = _model_package(owner, "ownernotes")
+    try:
+        assert cli_main(["stores", "init", "--path", str(owner)]) == 0
+        assert cli_main(["models", "add", ref, "--store", str(owner / ".sldb"), "--pythonpath", str(owner)]) == 0
+        assert cli_main(["stores", "add", str(owner / ".sldb"), "--name", "owner", "--store", str(store)]) == 0
+        assert cli_main(["models", "inherit", "owner:NoteDoc", "--store", str(store), "--pythonpath", str(root)]) == 0
+        declared = {m["name"]: m for m in load_declaration(store).models}
+        assert declared["NoteDoc"] == {"name": "NoteDoc", "model_ref": ref, "origin": "owner"}
+        before = (store / "store.yaml").read_text(encoding="utf-8")
+        assert cli_main(["models", "inherit", "owner:NoteDoc", "--store", str(store), "--pythonpath", str(root)]) == 0
+        assert (store / "store.yaml").read_text(encoding="utf-8") == before
+    finally:
+        for name in [m for m in sys.modules if m.startswith("ownernotes")]:
+            del sys.modules[name]
+
+
+def test_declare_keeps_a_glob_whose_generated_files_are_not_on_disk_yet(tmp_path, capsys):
+    """In a clean clone the generator has not run: `declare --write` listed the 2561 symbol
+    docs `knowledge/symbols/*.md` already covers. A glob covers by its pattern."""
+    store, root = _declared(tmp_path, capsys)
+    (root / "gen").mkdir()
+    for stem in ("a", "b"):
+        (root / "gen" / f"{stem}.md").write_text(f"# {stem}\n\n## Overview\n\nBody\n", encoding="utf-8")
+        assert cli_main(["docs", "track", str(root / "gen" / f"{stem}.md"), "--model", "TaskDoc", "--store", str(store), "--pythonpath", str(root)]) == 0
+    authored = load_declaration(store)
+    authored.include = [{"model": "TaskDoc", "glob": "gen/*.md"}, {"model": "TaskDoc", "paths": ["task.md"]}]
+    save_declaration(store, authored)
+    shutil.rmtree(root / "gen")
+    assert cli_main(["stores", "declare", "--store", str(store), "--write"]) == 0
+    assert load_declaration(store).include == [{"model": "TaskDoc", "glob": "gen/*.md"}, {"model": "TaskDoc", "paths": ["task.md"]}]
