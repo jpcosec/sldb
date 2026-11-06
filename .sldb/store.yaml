@@ -407,8 +407,8 @@ include:
   paths:
   - desk/tasks/task-gd23-selectores-de-documento-id-prefijo-glob-modelo-where-como-api-de-sldb.md
   - desk/tasks/task-gd26-scaffold-de-store-desde-carpetas-y-semillas-declaradas.md
-  - desk/tasks/task-go09-transiciones-como-datos-de-la-arista.md
   - desk/tasks/task-gd24-transacción-multi-documento-en-sldb-api-y-save-atómico-absorbe-doc-io-doctransaction.md
+  - desk/tasks/task-go09-transiciones-como-datos-de-la-arista.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md

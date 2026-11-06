@@ -1,13 +1,20 @@
 ---
 id: task-go09-transiciones-como-datos-de-la-arista
-status: draft
+status: ready_for_testing
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-closeout
+history:
+- task_activates
+- task_hands_to_closeout
+references:
+- pytest tests/api/test_edge_effects.py
+- tests/api/test_edge_effects.py
+- 33b3c7a0cf848f9cbef35655e62e40cb6046ec6c
+- desk/atoms/atom-sldb-evaluates-declared-rules-consumers-author-them.md
+- desk/drawer/tasks/task-dos-formas-de-serializar-un-escalar-al-sustituir-llaves-effects-de-go09-y-where-subject.md
 depends_on: []
 pills: []
 files:
@@ -64,6 +71,8 @@ p7 (serializacion): EdgeRecord.effects es opcional con default None; cuando es N
 p8 (listas): la sustitucion {campo} alcanza tambien a cada string dentro de una lista de escalares en sets, elemento a elemento, con la misma regla de p3/p4.
 p9 (fixture de aceptacion): store temporal creado en el test, siguiendo el patron de los tests existentes de edges_holding (tests/api/test_graph_native_lifecycle.py): un modelo de sujeto con al menos status (str) y un booleano, tres documentos de estado y tres RelationDoc de transicion entre ellos con condition y attributes (una con sets que sustituye el booleano, una sin attributes, una con una clave extra).
 
+HIPOTESIS DEL EJECUTOR (regla 6, GO09 integrado en 33b3c7a0): H1 edges show --holds-for incluye effects en su JSON porque su salida es la de edges_holding (decidido por el coordinador: p1 solo excluye effects sin valor); edges show sin --holds-for, edges_from, edges_to y los shards no cambian. H2 la exclusion de p7 es model_serializer(mode=wrap) en EdgeRecord y alcanza a NodeView y EdgeContribution. H3 datetime.date cuenta como escalar literal en sets; un {campo} con fecha no resuelve (como fill_braces). H4 la forma YAML de numeros sale de yaml.safe_dump (1e20 -> 1.0e+20), distinta del literal de where_subject (Decimal) -> drawer task-dos-formas-de-serializar-un-escalar-al-sustituir-llaves-effects-de-go09-y-where-subject. H5 apply_effects: valor de sets mapa o lista anidada = ValueError; valor invalido para el modelo = ValidationError (subclase de ValueError). H6 apply_effects devuelve el dict (deepcopy), no model_dump: valida sin agregar defaults. H7 attributes no mapa lo rechaza el tipo dict[str, Any]. H8 toda arista que se cumple recibe effects, tambien las estructurales ({sets: {}, terminal: false}). H9 el validador corre en todo RelationDoc y solo actua si existen sets o terminal. DESVIOS: src/sldb/models/transition_attributes.py nuevo (relation_doc.py cerca de 80 lineas); api/__init__.py exporta tambien effects_of; api/edges/__init__.py sin tocar.
+
 ## Implementation Path
 
 _Outline the expected implementation route or affected surface._
@@ -82,6 +91,7 @@ _List the checks required before this task can close._
 - tests existentes de edges_holding y de RelationDoc sin cambios
 - TMPDIR=/dev/shm pytest tests/test_clean_code_rules.py tests/test_store_seams.py en verde
 - suite completa sin rojos (una vez, al final del nodo, la corre el supervisor)
+- RESULTADO (coordinador 1, 2026-11-06, sobre 33b3c7a0): tests dirigidos 1052 passed, 0 skipped (test_edge_effects 21, clean_code_rules, store_seams, graph_native_lifecycle, relation_models, api_edges, payload_projection, predicate_language, rules, cli envelope/v2); check_layers PASS. Ningun RelationDoc en sldb, deskops, spec2viz ni scion usa ya sets/terminal en attributes. Suite completa pendiente del supervisor.
 
 ## Done When
 
