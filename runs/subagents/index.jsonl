@@ -38,3 +38,4 @@
 {"task_id": "task-go06-ruledoc-rules-check-y-rules-explain", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
 {"task_id": "task-go09-transiciones-como-datos-de-la-arista", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
 {"task_id": "task-go07-anclas-a-documentos-con-hash-de-contrato", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
+{"task_id": "task-gd24", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
