@@ -21,5 +21,10 @@ field_hashes:
   summary: 3fd061f7216d1aecb2de744a229efc62ea7b867a048f94b5f21565c29788ec41
   disposition: 934eb3c38f5f7604245753040fe96d74672f2b034af3644e46888eb24560f2c1
   tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
-semantic_tags: []
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
 provenance: null

@@ -3,8 +3,8 @@ model_ref: docs.models:RequestDoc
 path: docs/models.py
 documents_index: .sldb/core/documents/RequestDoc.yaml
 sections_index: .sldb/runtime/sections/RequestDoc.yaml
-model_hash: bc017ba745e625074558b5251d22650dbffabe6ee6101efcdcf7d9c2a23a59e2
-roster_hash: 2d28f0ef917752e4213254193562e0494afa8498d4ac4bf0ff307926a65716c9
+model_hash: 2e01832c083887802bb266641cd1d5a8b3a092e29fd69b46be28037d61ad0afc
+roster_hash: 489121c7745ec7124f60526f5573773e0bf1292737b304656f55940f3eeef3a4
 contract_hash: b44b10f967b95c90f5a5b8226f05f62a634a0d471567c050616ca2e8969ad53c
 documents_count: 2
 version: 1

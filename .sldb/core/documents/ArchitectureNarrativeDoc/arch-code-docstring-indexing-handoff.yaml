@@ -1,12 +1,13 @@
 name: arch-code-docstring-indexing-handoff
 path: docs/architecture/code-docstring-indexing-handoff.md
-source_hash: 1e7adffe73b3c8c7630a6263d39e20717eef6e4b74d8988f091b3f32b5c3a27e
-content_hash: 12a81cb3bf4dadfb0a698ae4ec84b80da9bed95f600917bcbc725c2dd6fc0811
+source_hash: 3c88536aa959913501efc4bd5d26f3b6b4ad99270d84e1891ed5a4ddb955d48f
+content_hash: ad41de9d0566e054f440483c9a1a1df1129f0b57e2033388f5a7bd59ac31209f
 field_hashes:
   title: c5c0bd69a976c529a0047afa6afe3a55fb8657bfadaabe04fc8b468e056f4026
-  body: e2a52c9cda1bf9801ce29f8402ebb5b36a42afa886813a4e3e178aced525e812
+  body: c0f1c8ba2730a9b4db09388d544be38c80a5dadb9be0a5dce49c1b5fcb7294ff
 semantic_tags:
 - representation.markdown
 - source.document.markdown
 - type.documentation.architecture
 - workspace.docs.architecture
+provenance: null
