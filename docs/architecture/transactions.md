@@ -99,6 +99,36 @@ that rejects a value rejects it on every path, with the file, the entry and the 
 as they were. `tests/api/test_write_paths_validate.py` proves it with one test per path. No
 route had to be fixed: the rendering itself instantiates the model.
 
+## `replace_text` (GD27)
+
+`sldb.api.replace_text(store, ref, old, new, *, count=1, transaction=None, pythonpath=None)`
+replaces exactly `count` literal occurrences of `old` by `new` in a tracked document or in a
+plain file under the project root, inside a transaction; `sldb docs replace REF --old OLD
+--new NEW [--count N]` is its command (envelope `data` = what the function returns).
+
+- `ref` is what `doc_status` resolves (`name`, `Model/name` or a tracked path); when it names
+  no document it is a path relative to the project root, which must exist inside it. A path
+  outside the root is `SLDBStoreError`; an absent one, or an ambiguous reference, is
+  `SLDBDocumentTargetError`. A linked store's document is replaced from its own store.
+- `old` is literal (no regex) and not empty; `count >= 1`. The count is `str.count` over the
+  bytes decoded as UTF-8 as they are (no newline or Unicode normalisation): non-overlapping,
+  left to right. Another number is `SLDBValidationError` naming it (`details: {seen,
+  expected}`) and nothing is written.
+- A tracked document: the replaced text is extracted and validated under its model
+  (`model_validator` included) and the `on_write` rules run on that payload (`check_on_write`:
+  the RuleDocs and the family `builtin:tag_namespace:*`, tags.md); any error leaves the file as
+  it was (`SLDBValidationError`, `SLDBRuleViolationError`). Then, in the transaction, the
+  document is untracked, its bytes rewritten (guarded by the sha256 that was read) and
+  tracked again with the same model and name, so its entry and the derived indexes follow.
+  The document extracts the same payload except the replaced text.
+- A plain file: no model, no rule; `write_file` with the sha256 that was read.
+- `transaction=None` opens its own `transaction(store)`; a `Transaction` given must be open
+  over `store` and the writes join it (nested semantics above: the outermost block rolls back).
+- Returns `{ref, path (relative to the root), tracked, model, name, count}`.
+
+The retrack rewrites `store.yaml` as untrack and track do (`declaration_sync`): a path listed
+under `include.paths` leaves its place and comes back at the end of its model's list.
+
 ## Out of this node
 
 - An `on_write` rule (`RuleDoc`, GO08) raising inside a batch: GO08 was not closed when GD24
