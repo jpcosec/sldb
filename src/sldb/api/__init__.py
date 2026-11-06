@@ -23,6 +23,8 @@ from sldb.api.documents.untrack_document import untrack_document
 from sldb.api.edges.check_edges import check_edges
 from sldb.api.edges.edge_check_report import EdgeCheckReport
 from sldb.api.edges.edge_reading import edge_node, edge_nodes_of_type, edges_from, edges_to, load_edge_index
+from sldb.api.edges.apply_effects import apply_effects
+from sldb.api.edges.edge_effects import effects_of
 from sldb.api.edges.edges_holding import edges_holding
 from sldb.api.model_registry.remove_model import remove_model
 from sldb.api.model_registry.inherit_model import inherit_model
@@ -147,7 +149,7 @@ __all__ = [
     "serialize_edge_records", "tag_node_id", "track_document_file", "untrack_document",
     "update_store_indexes", "validate_model_draft", "verify_journal",
     "DocRefStatus", "doc_exists", "doc_status", "tracked_documents", "AmbiguousDocument", "indexed_model_bases", "resolve_indexed_document", "split_doc_ref", "store_links",
-    "WherePredicateError", "edges_holding", "refuse_unknown_family", "rules_check", "rules_explain", "remove_model", "where_matches", "inherit_model", "is_model_registered", "registered_models",
+    "WherePredicateError", "apply_effects", "edges_holding", "effects_of", "refuse_unknown_family", "rules_check", "rules_explain", "remove_model", "where_matches", "inherit_model", "is_model_registered", "registered_models",
     "StructuredNLDoc", "UnresolvedReference", "unresolved_references",
     "GlyphDoc", "LinkDoc", "NotationDoc", "PaletteDoc", "SpecDoc", "SpecNodeDoc", "ViewDoc",
     "resolve_view", "resolve_documents", "evaluate_projection_view", "list_projection_views", "save_projection_view", "sync_notation", "sync_palette",

@@ -7,6 +7,7 @@ from typing import Any
 from pydantic import Field, field_validator
 
 from sldb.models.structured_doc import StructuredNLDoc
+from sldb.models.transition_attributes import check_transition_attributes
 
 
 class RelationDoc(StructuredNLDoc):
@@ -61,7 +62,7 @@ attributes: ⸢rev,dict•attributes⸥
     )
     attributes: dict[str, Any] = Field(
         default_factory=dict,
-        description="Free attributes of this edge (a multiplicity, a role, a transition's action); copied to the index edge's metadata as `attributes`.",
+        description="Free attributes of this edge (a multiplicity, a role, a transition's action); copied to the index edge's metadata as `attributes`. A transition's `sets` (field -> scalar or list of scalars written on the subject) and `terminal` (boolean) follow the convention of docs/architecture/edges.md.",
     )
 
     @field_validator("attributes", mode="before")
@@ -69,3 +70,9 @@ attributes: ⸢rev,dict•attributes⸥
     def _absent_is_empty(cls, value: Any) -> Any:
         """A RelationDoc written before `attributes` existed has no such key: it has none."""
         return {} if value is None else value
+
+    @field_validator("attributes", mode="after")
+    @classmethod
+    def _transition_convention(cls, value: dict[str, Any]) -> dict[str, Any]:
+        """`sets` and `terminal`, when present, follow the transition convention (transition_attributes)."""
+        return check_transition_attributes(value)
