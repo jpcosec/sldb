@@ -539,6 +539,8 @@ include:
     name: review-task-go10-retiro-de-where-parse-y-fieldcondition-preflight-1
   - path: desk/reviews/task-go10-retiro-de-where-parse-y-fieldcondition/bundle-1.md
     name: review-task-go10-retiro-de-where-parse-y-fieldcondition-bundle-1
+  - path: desk/reviews/task-gd27/preflight-1.md
+    name: review-task-gd27-preflight-1
 - model: TaskCodeDoc
   paths:
   - desk/tasks/task-go10-retiro-de-where-parse-y-fieldcondition.md
