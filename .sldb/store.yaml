@@ -522,8 +522,8 @@ include:
     name: review-task-go10-retiro-de-where-parse-y-fieldcondition-bundle-1
 - model: TaskCodeDoc
   paths:
-  - desk/tasks/task-gd21-grafo-de-proyecto-aristas-declaradas-y-nodos-fuente-desde-el-índice-de-sldb-declarado-por-datos.md
   - desk/tasks/task-go10-retiro-de-where-parse-y-fieldcondition.md
+  - desk/tasks/task-gd21-grafo-de-proyecto-aristas-declaradas-y-nodos-fuente-desde-el-índice-de-sldb-declarado-por-datos.md
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md

@@ -35,6 +35,7 @@ files:
 - docs/architecture/project-graph.md
 - CHANGELOG.md
 - src/sldb/api/edges/project_graph/document_surface.py
+- src/sldb/api/edges/project_graph/reference_field.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
@@ -102,6 +103,7 @@ q14 (edges): --from y --to son mutuamente excluyentes y uno es obligatorio (grup
 q15 (closed_document): manda q5; el Goal describe el estado final (closed: como única forma declarable) y el argumento Python deprecated es transitorio hasta CC33.
 PRECISIONES DE EJECUCIÓN (coordinador, 2026-11-06):
 q16 (closed en la superficie): closed: str | None (predicado del lenguaje de sldb, default None = nunca cerrada) es un campo opcional de DocumentSurface; se agrega src/sldb/api/edges/project_graph/document_surface.py a files. No hay mapa kind->predicado en ProjectGraphConfig.
+q17 (grep de project_graph vacío): la aceptación exige el grep de src/sldb/api/edges/project_graph/ vacío; las dos coincidencias preexistentes de reference_field.py:13-14 (ejemplos en descripciones de Field: materialization, source_atoms, atom:) se neutralizan con ejemplos genéricos (p. ej. contract, sources, topic:). Solo cambian esas descripciones; se agrega reference_field.py a files.
 
 ## Validation
 
