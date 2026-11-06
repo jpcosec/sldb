@@ -1,0 +1,174 @@
+{
+  "key": "task-go08-evaluacion-en-escritura-transicion-y-check-incremental-y-a-punto-fijo/bundle",
+  "input_sha256": "7149cf74a5a9097c94a9c5b19c8dff98c522bfbe6a7c4b1e474314337f509976",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/dev/shm/sldb-desk/runs/subagents/20261104-grafo-operable-context-reviews/context-review/task-go08-evaluacion-en-escritura-transicion-y-check-incremental-y-a-punto-fijo/bundle/7149cf74a5a9097c94a9c5b19c8dff98c522bfbe6a7c4b1e474314337f509976/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-go08-evaluacion-en-escritura-transicion-y-check-incremental-y-a-punto-fijo.md",
+      "sha256": "7f4b998147db0cc894bcd93bb100f2cb02f40c98bc9e33e64a899cdfb52d6d73",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/documents/payload_save_steps.py",
+      "sha256": "de899d1e156c899d62a5f9f8f81ff0076de355c4df86edcdae23568d88200bec",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/documents/payload_save.py",
+      "sha256": "9c39452ffc6c98827d328206dde0b8fac1f1f95c5e79c696e53f7629770022cf",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/rules/__init__.py",
+      "sha256": "b5866455886e9373267be9f92fbbdd028572570f01378050c3abf9fb04914748",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/rules/rule_graph.py",
+      "sha256": "ab6e5e8ce2bce522065f682c1f1bb44e6dca9de974a64d7e60ae4c085702ebfe",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/edges/edges_holding.py",
+      "sha256": "8fa61364c907e4354aa03f87bbd690a25546d99486fc8fb75b65a9dad1189aa7",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/__init__.py",
+      "sha256": "92ba240c64a2edc8e9b8bc3d5eccd8d9ae500333297ce028d20e1e5028fa69f3",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/models/edge_record.py",
+      "sha256": "c8b4cb9d86c7a9f9cd634cc3a2fe164dc69cb966bc52eaeadecdae7acd9ee448",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/stores/store_check.py",
+      "sha256": "227eb1b94cd383b1213937b88086bbe2cbc21d5d798a79edf5598484019d756e",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/commands/stores.py",
+      "sha256": "10e73e8873e3503f98a97eba5676f8743cd8aa67a34ed6e3311e97c6a5d0585c",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/edge_index/validation.py",
+      "sha256": "03c609667a78e9116e3dc13b69649e8b0aa72d0690774488e6c79d05d6c9d81e",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/commands/edges.py",
+      "sha256": "dd76b2a9e212d33958193383f9086cfcf0f4988d46b9cb205cde94198f0be664",
+      "projection": "whole_file"
+    },
+    {
+      "path": "contracts/layers.toml",
+      "sha256": "5eb36ee40e2f4d98f78a884a40b4a6995dc852ee0b173b52b199cfa1eebcac46",
+      "projection": "whole_file"
+    },
+    {
+      "path": "docs/architecture/rules.md",
+      "sha256": "495b57e405709c54fd9a9d5f910925bb17be2c3f3e0bd153cc4e503259d05a1f",
+      "projection": "whole_file"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "5f2a42517588eb59bf89167fa0f0641c48cd6f7972598f242bc666fde97bd827",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/error_types.py",
+      "sha256": "db29bc093630a08d203ee29f4c4b8e1635733aa510136635aa4f792a9d5b6f4c",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/documents/doc_anchor_pinning.py",
+      "sha256": "ff8daf5d9de20d9732255616905e0569c1c916dd0c878a8c8e474f72f748c1f7",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "src/sldb/api/rules/rules_on_write.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/api/rules/rules_on_transition.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/api/rules/rules_on_check.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/api/rules/rule_cache.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/api/rules/dirty_set.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/api/rules/fixpoint.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/api/edges/edges_blocked.py",
+      "reason": "missing"
+    },
+    {
+      "path": "tests/api/test_rules_evaluation.py",
+      "reason": "missing"
+    },
+    {
+      "path": "tests/api/test_rules_end_to_end.py",
+      "reason": "missing"
+    }
+  ],
+  "started": "2026-11-06T20:39:49.863127+00:00",
+  "finished": "2026-11-06T20:40:10.042728+00:00"
+}

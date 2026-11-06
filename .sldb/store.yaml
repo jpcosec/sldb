@@ -441,6 +441,8 @@ include:
     name: review-task-go07-anclas-a-documentos-con-hash-de-contrato-bundle-1
   - path: desk/reviews/task-go08-evaluacion-en-escritura-transicion-y-check-incremental-y-a-punto-fijo/preflight-1.md
     name: review-task-go08-evaluacion-en-escritura-transicion-y-check-incremental-y-a-punto-fijo-preflight-1
+  - path: desk/reviews/task-go08-evaluacion-en-escritura-transicion-y-check-incremental-y-a-punto-fijo/bundle-1.md
+    name: review-task-go08-evaluacion-en-escritura-transicion-y-check-incremental-y-a-punto-fijo-bundle-1
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md

@@ -1,0 +1,9 @@
+{
+  "key": "task-go08-evaluacion-en-escritura-transicion-y-check-incremental-y-a-punto-fijo/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "7149cf74a5a9097c94a9c5b19c8dff98c522bfbe6a7c4b1e474314337f509976",
+  "output_sha256": "5acb6a0bd9a6a08c845ad705d217d706b36c21367cf589c0f11f77a326a885f7",
+  "start": "2026-11-06T20:39:49.863127+00:00",
+  "end": "2026-11-06T20:40:10.042728+00:00"
+}

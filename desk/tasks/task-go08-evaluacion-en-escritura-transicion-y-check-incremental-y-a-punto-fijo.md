@@ -36,6 +36,8 @@ files:
 - tests/api/test_rules_end_to_end.py
 - src/sldb/cli/error_types.py
 - src/sldb/api/documents/doc_anchor_pinning.py
+- src/sldb/core/exceptions/sldb_rule_violation_error.py
+- src/sldb/core/exceptions/__init__.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
@@ -72,6 +74,12 @@ p2 (cache fisica): vive en <.sldb_cache>/rules/ del store (layout.cache_dir), en
 p3 (punto fijo): el lenguaje no referencia resultados de otras reglas, asi que los unicos hechos derivados son los conjuntos alcanzados por la clausura + . El punto fijo es la clausura semi-naive: se itera solo sobre los nodos nuevos de la ronda anterior (delta) hasta que una ronda no agrega nodos; un nodo ya visto no se vuelve a expandir, por eso termina con ciclos. Si el evaluador de GO05 ya lo hace asi, GO08 lo reutiliza y lo prueba con el ciclo A->B->C->A; los conjuntos viven en memoria durante la evaluacion y nunca se persisten.
 p4 (ejemplo end-to-end): el fixture es el del Scope del nodo (store temporal; Task con __contract__ = [title, goal]; Review con __doc_anchors__ = [subject] y campo verdict; RuleDoc on_transition sobre model <= Task con condition any(^subject: anchor_state = "intact" and verdict = "accepted") y severity error), mas dos estados y un RelationDoc de transicion entre ellos sin condition. Paso 1: Task sin Review -> la arista no esta en edges_holding y si en edges_blocked con un finding cuyo what contiene la clausula any(...). Paso 2: Review accepted con subject doc:Task:<t> pinneada -> la arista esta en edges_holding. Paso 3: editar goal de la Task -> la arista vuelve a edges_blocked y el seen del finding muestra anchor_state = changed.
 p5 (medicion): documento = desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md de este repo (existe en d39bf915 y en main). Metodo: en un worktree desechable por commit (antes = d39bf915, despues = el squash de GO08) bajo /dev/shm, tras sldb stores build, 1 escritura de calentamiento no contada y luego 20 llamadas a sldb.api save_document_payload que alternan el campo summary entre dos valores; mediana del tiempo de pared en ms con dos decimales; se registra con fecha, host y load average en el reporte (el coordinador la pasa a Validation).
+
+PRECISIONES (cold-bundle de GO08, 2026-11-06):
+p6 (excepcion): SLDBRuleViolationError en src/sldb/core/exceptions/sldb_rule_violation_error.py, subclase de SLDBError (core/exceptions/sldb_error.py), exportada desde sldb.core.exceptions como las demas; lleva la lista de Finding error en un atributo findings y su str es el message de p1. cli/error_types.py la mapea a "rules/violation" con exit 1, como mapea las otras excepciones de sldb.
+p7 (edges_blocked): vive en src/sldb/api/edges/edges_blocked.py (ya en files) y se exporta desde sldb.api junto a edges_holding, con la misma firma de entrada (store, node, subject, y los mismos opcionales de edges_holding).
+p8 (recalculos contados): un recalculo es una evaluacion de una regla sobre un documento que no sale de la cache (una llamada al evaluador por par regla-documento). El ejecutor concentra esa evaluacion en una sola funcion y el test la cuenta con monkeypatch. check_doc_anchors (GO07) no se cachea y no cuenta como recalculo.
+p9 (despues de la medicion): "despues" es la punta de wt/go08 al terminar el trabajo (mismo arbol que el squash); el reporte nombra ese sha y el coordinador registra los dos numeros en Validation al integrar.
 
 ## Implementation Path
 
