@@ -11,6 +11,7 @@ from sldb.api.model_registry.load_registered_model import load_registered_model
 from sldb.api.documents.refuse_structural_noise import refuse_structural_noise
 from sldb.api.documents.frontmatter_keys import refuse_undeclared_frontmatter
 from sldb.api.model_registry.model_reference import resolve_model_ref
+from sldb.api.rules.rule_writes import refuse_unknown_family
 from sldb.api.stores.open_store import open_store
 from sldb.core.exceptions import SLDBValidationError
 from sldb.api.documents.provenance_stamp import stamped
@@ -35,13 +36,14 @@ def create_document(store: str | Path | None, model_name: str, path: str | Path,
         The created document.
 
     Raises:
-        SLDBStoreError: When the model is not registered.
+        SLDBStoreError: When the model is not registered, or a RuleDoc's subject names a model
+            the store does not register.
         SLDBValidationError: When the rendered Markdown does not round-trip under the model,
             or when it carries headings the model does not declare; nothing is written then.
     """
     location = open_store(store)
     registered = load_registered_model(location.store_path, model_name, pythonpath)
-    rendered = _render_roundtrip(registered.model_type, payload, location.project_root)
+    rendered = _rendered(location, registered.model_type, payload, pythonpath)
     doc_path = _resolve_path(path, location.project_root)
     doc_name = name or doc_path.stem
     refuse_noise(registered.model_type, rendered, doc_name, location.store_path)
@@ -68,6 +70,13 @@ def _resolve_path(raw: str | Path, root: Path) -> Path:
 def _track(sp: Path, root: Path, registered, doc_path: Path, doc_name: str, pythonpath: str | None) -> None:
     track_document(sp, root, registered.store_index, registered.model_type, registered.entry, doc_path, doc_name, resolve_model_ref, pythonpath)
     declare_tracked(sp, root, registered.entry.name, project_relative(root, doc_path), doc_name)
+
+
+def _rendered(location, model_type: type, payload: dict[str, Any], pythonpath: str | None) -> str:
+    """The round-tripped Markdown, once a RuleDoc's subject names only registered models."""
+    rendered = _render_roundtrip(model_type, payload, location.project_root)
+    refuse_unknown_family(location.store_path, model_type, payload, pythonpath)
+    return rendered
 
 
 def _render_roundtrip(model_type: type, payload: dict[str, Any], ref_root: Path) -> str:

@@ -9,6 +9,7 @@ import yaml
 from sldb.cli.store_context import get_store_context
 from sldb.api.documents.create_document import create_document
 from sldb.api.documents.track_document_file import track_document_file
+from sldb.api.rules.rule_writes import refuse_unknown_family
 from sldb.api.documents.delete_document import delete_document
 from sldb.api.documents.untrack_document import forget_document, untrack_document
 from sldb.cli.model_utils import resolve_model_ref
@@ -65,6 +66,7 @@ class DocCLI:
         model_type = resolve_model_ref(m_entry.model_ref, args.pythonpath)
         rendered = render_model_markdown(model_type, self._parse_payload(args.payload), root)
         if not validate_model_input_roundtrip(model_type, rendered)[0]: raise SLDBValidationError("Update fail", validate_model_input_roundtrip(model_type, rendered)[1])
+        refuse_unknown_family(sp, model_type, self._parse_payload(args.payload), args.pythonpath)
         self._write_and_rehash(root, doc, model_type, rendered)
         self._save_updated(sp, root, load_store_index(sp), m_entry, m_idx, doc, args, model_type)
         emit({"updated": doc.name, "model": m_entry.name, "path": doc.path}, getattr(args, "format", "text"), f"Updated '{doc.name}'")

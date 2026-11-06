@@ -66,6 +66,7 @@ from sldb.api.model_create.field_decl import FieldDecl
 from sldb.api.model_create.model_check import ModelCheck
 from sldb.api.model_registry.add_model import add_model
 from sldb.api.search import search
+from sldb.api.rules import refuse_unknown_family, rules_check, rules_explain
 from sldb.api.where import where_matches
 from sldb.store.query_engine.where_parse import WherePredicateError
 from sldb.api.model_registry.describe_model import describe_model
@@ -146,7 +147,7 @@ __all__ = [
     "serialize_edge_records", "tag_node_id", "track_document_file", "untrack_document",
     "update_store_indexes", "validate_model_draft", "verify_journal",
     "DocRefStatus", "doc_exists", "doc_status", "tracked_documents", "AmbiguousDocument", "indexed_model_bases", "resolve_indexed_document", "split_doc_ref", "store_links",
-    "WherePredicateError", "edges_holding", "remove_model", "where_matches", "inherit_model", "is_model_registered", "registered_models",
+    "WherePredicateError", "edges_holding", "refuse_unknown_family", "rules_check", "rules_explain", "remove_model", "where_matches", "inherit_model", "is_model_registered", "registered_models",
     "StructuredNLDoc", "UnresolvedReference", "unresolved_references",
     "GlyphDoc", "LinkDoc", "NotationDoc", "PaletteDoc", "SpecDoc", "SpecNodeDoc", "ViewDoc",
     "resolve_view", "resolve_documents", "evaluate_projection_view", "list_projection_views", "save_projection_view", "sync_notation", "sync_palette",

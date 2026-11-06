@@ -86,6 +86,7 @@ depende de ellos.
 [allow]
 upward = [
   ["selfdoc", "cli"],      # R5
+  ["models", "store"],     # R6
 ]
 
 # R2 (core→store) se reparó: `StoreError` bajó a `core/exceptions/store_error.py`
@@ -157,6 +158,21 @@ cycle_weight = "selfdoc→cli: 1 arista · cli→selfdoc: 14 aristas"
 repair = """
 Resolver una referencia a un modelo no es trabajo de la interfaz: es una
 operación. Subirla a la capa 3 y que ambos la llamen desde ahí.
+"""
+
+[[pending]]
+id = "R6"
+edge = "models → store"
+at = "src/sldb/models/rule_doc.py#L62"
+imports = "store.graph.language.predicate_parser.parse_predicate"
+cycle_weight = "models→store: 1 arista diferida · store→models: las costuras del almacén"
+repair = """
+GO06: `RuleDoc` valida con sus validadores pydantic que `condition`, `where` y `subject`
+parseen en el lenguaje de reglas (principio del dueño: las invariantes de un documento son
+del modelo), y el parser vive en el almacén. Diferido dentro de la función para no cerrar el
+ciclo al importar. Reparación: bajar el tokenizador y el parser del lenguaje (sin el
+evaluador ni la vista de grafo) a la capa 0, junto con `WherePredicateError`, y que el
+almacén los reexporte, como se hizo con `StoreError` en R2.
 """
 
 # ---------------------------------------------------------------------------

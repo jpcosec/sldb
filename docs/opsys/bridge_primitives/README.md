@@ -108,6 +108,11 @@ If a documentary artifact cannot reference the code surface in a durable way, th
 
 ## Constraint
 
+> **Reemplazada por `RuleDoc` (GO06, 2026-11-06).** Esta sección queda como registro
+> histórico. Una regla de sldb es hoy un documento `RuleDoc` (sujeto `model <= X`, `where`,
+> `condition`, severidad, momento y `message`) que evalúan `sldb rules check` y
+> `sldb rules explain`: ver [docs/architecture/rules.md](../../architecture/rules.md).
+
 ### Definition
 
 A `Constraint` is a declared rule that should hold across documentary and code surfaces.
