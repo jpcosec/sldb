@@ -1,13 +1,20 @@
 ---
 id: task-go07-anclas-a-documentos-con-hash-de-contrato
-status: draft
+status: ready_for_testing
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-closeout
+history:
+- task_activates
+- task_hands_to_closeout
+references:
+- pytest tests/api/test_doc_anchors.py
+- tests/api/test_doc_anchors.py
+- 4d521da8f8c3c6294bd951453bd3ff9bc0cb47a7
+- desk/atoms/atom-sldb-evaluates-declared-rules-consumers-author-them.md
+- desk/drawer/tasks/task-anclas-a-documentos-doc-anchors-fuera-de-la-firma-de-contrato-y-aristas-duplicadas-con-references.md
 depends_on: []
 pills: []
 files:
@@ -69,6 +76,8 @@ p7 (donde se calcula anchor_state): la proyeccion persistida en el shard (GO04) 
 p8 (hash del destino): el hash de contrato del destino es contract_hash(clase del modelo del destino, field_hashes del destino) (h1), con los field_hashes que el indice ya guarda (GO04) y la clase resuelta con el mismo resolutor que GO04 usa para contract_signature (model_type_of de api/edges/edge_reading.py, que compose_edge_index ya recibe). check_doc_anchors(store, pythonpath=None) acepta pythonpath opcional como el resto de la API. El pinneado al guardar usa la misma funcion. Si la clase del destino no se puede cargar, se aplica la regla de __contract__ ausente (todas las claves de field_hashes) tanto al pinnear como al comparar, y se documenta en anchoring.md.
 p9 (clave __anchor_state): la clave <campo>__anchor_state existe en la facet si y solo si el campo esta en el payload del documento (la extraccion descarta null: un campo null o ausente no tiene la clave, y has(anchor_state) es false al atravesarlo). Para un campo list[str], los elementos vacios ("") ocupan su posicion con null (p6).
 
+HIPOTESIS DEL EJECUTOR (regla 6, GO07 integrado en 4d521da8): D1 (aceptado por el coordinador) el alias anchor_state de GO05 solo se leia al recorrer F hacia adelante; GO07 lo extiende al cruzar ^F leyendo F__anchor_state del elemento alcanzado (el dueno de F), sin cambiar el sentido hacia adelante (store/graph/language/predicate_reach.py, graph-backend.md); sin esto la regla de aceptacion no podia cumplirse. H1 create_document no pinnea; solo save_document_payload: un ancla recien creada es lost hasta la primera escritura de payload. H2 __contract__ declarado vacio: el destino no tiene hash; se guarda sin hash y un ancla ya pinneada queda changed. H3 un ancla a destino inexistente no genera arista y aparece en unresolved_references como missing_document. H4 __doc_anchors__ no entra en contract_signature (y un cambio de __contract__ sin mover shards no lo ve el indice en cache) -> drawer task-anclas-a-documentos-doc-anchors-fuera-de-la-firma-de-contrato-y-aristas-duplicadas-con-references. H5 <campo>__anchor_state solo existe si el campo esta en la proyeccion (un __indexed__ sin el campo ancla lo oculta al lenguaje y a anchors check). H6 la cache de compose_edge_index incluye model_type_of en la clave; sin resolutor no se deriva __anchor_state; check_doc_anchors usa un resolutor por pythonpath. H7 en stores enlazados doc:Model:name se resuelve en el store del contenedor; check_doc_anchors revisa solo el store local. H8 el hash acepta hex en mayusculas y compara en minusculas; Model sin ':', '@' ni espacios; name sin '@' ni espacios. H9 Finding.what = "<campo|from> -> <Model:name>: <estado> (<valor>)", fix = "". H10 payload_fields gana <campo>__anchor_state. H11 un campo en __references__ y en __doc_anchors__ genera aristas duplicadas (misma drawer task). DESVIOS: store/edge_index/doc_anchor_edges.py, doc_anchor_states.py y api/documents/doc_anchor_pinning.py nuevos (clean code, capas); api/documents/payload_save.py pasa store_path; api/model_registry/model_reference.py valida doc_anchor_fields al cargar (como __indexed__); store/graph/language/predicate_reach.py y docs/architecture/graph-backend.md por D1.
+
 ## Implementation Path
 
 _Outline the expected implementation route or affected surface._
@@ -87,6 +96,7 @@ _List the checks required before this task can close._
 - tests existentes de anclas de codigo, provenance, proyeccion (test_payload_projection) y lenguaje (test_predicate_language, spec GO02) sin cambios
 - TMPDIR=/dev/shm pytest tests/test_clean_code_rules.py tests/test_store_seams.py en verde y tools/check_layers.py PASS
 - suite completa sin rojos (una vez, al final del nodo, la corre el supervisor)
+- RESULTADO (coordinador 1, 2026-11-06, sobre 4d521da8): tests dirigidos 1100 passed, 8 skipped ambientales (tree-sitter ausente en test_anchors; shards del repo no construidos en test_graph_backend:134), 0 xfailed; incluye test_doc_anchors, clean_code_rules, store_seams, provenance, payload_projection, predicate_language, spec GO02, rules, edge_effects; check_layers PASS. Suite completa pendiente del supervisor.
 
 ## Done When
 
