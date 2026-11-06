@@ -1,7 +1,7 @@
 name: task-gd21-grafo-de-proyecto-aristas-declaradas-y-nodos-fuente-desde-el-índice-de-sldb-declarado-por-datos
 path: desk/tasks/task-gd21-grafo-de-proyecto-aristas-declaradas-y-nodos-fuente-desde-el-índice-de-sldb-declarado-por-datos.md
-source_hash: e0e48322d5f65a27707c3940245ef2f78a72534989dcaeb4888eceae1057d2fb
-content_hash: 839272447adc0bf1edec406256c273c4abcf996466a8d025887d64a7a8846cb9
+source_hash: b1bd3cf90d35914e863b85a45813a84bb63dbbd3dc5f95fcf03dd80614f0dc17
+content_hash: c3c32222b740ff6e32570c95908eb5284d95fefae7b87b0b7c6acdabc116b5f6
 field_hashes:
   title: 9b8c85ec17da04f8a78f6ba1e3c820546fa5eb82b86fc5c175e913d2096f1bf4
   id: f889439ae37ecac590c476283a3017f5774efce7c1860311877704d28e9c0241
@@ -17,7 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 8368047bd42f8d09323f184a04f3ea6caa4899cd0f219a8c2708ece0e8e5c164
-  implementation_path: 3368de1bfc2a97a5a1814c8245f2692f375182a927c1e1a51d38e6218a0f2a4c
+  implementation_path: 62a927afbce399221ddb7a7df06359581a456d55464a95461df3262e7fa4ada8
   validation: 40b78e8cdfdf9b2bb46608b0ea26fe7fb970e3406a92ef58ba0af8713fa0c2f7
   done_when: 98a7a5ef1c28f8646602e8189b08a3e1b463809ded401e671aaac7cb764220e7
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb

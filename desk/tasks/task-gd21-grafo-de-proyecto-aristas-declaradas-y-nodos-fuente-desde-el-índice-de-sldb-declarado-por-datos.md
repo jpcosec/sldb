@@ -92,6 +92,13 @@ q6 (memo): la firma de memoización es la firma de shards (store/edge_index/shar
 q7 (HTTP igual a la CLI): cada GET /project-graph/* responde 200 con el mismo JSON que el comando equivalente con --format json (igualdad de datos, sin envelope), como GET /docs/select de GD23; parámetros faltantes o inválidos son 400 con {"ok": false, "error": ...}.
 q8 (error de callable): from_mapping solo acepta escalares, listas y mapas YAML; un valor que no es eso, o una clave que no es campo de la dataclass, levanta error de carga cuyo mensaje nombra la ruta de la clave (p. ej. project_graph.surfaces[0].closed_document). to_mapping de un campo con un callable levanta error que nombra el campo.
 q9 (validación): tests/test_store_seams.py se corre sin editarse (no va en files). La regla del grep es: ninguna línea agregada por el diff (git diff origin/main...HEAD, líneas +) contiene taskdoc|board|ritual|pill|atom|closeout, y src/sldb/api/edges/project_graph/ queda sin coincidencias; los módulos nuevos están permitidos.
+PRECISIONES DEL COLD-BUNDLE (review-task-gd21-bundle-1, 2026-11-06):
+q10 (G_PROJECT_GRAPH): es un gate del dag del plan; lo marca el coordinador de proyecto al cerrar. El ejecutor solo entrega la evidencia: sldb graph project nodes|edges|missing y GET /project-graph/* respondiendo desde project_graph en store.yaml, sin ningún callable en la configuración cargada.
+q11 (pills y atoms): el TaskDoc no liga ninguno y no hacen falta; el contrato completo está en este TaskDoc.
+q12 (vida del memo): caché por proceso, a nivel de módulo, con clave la ruta resuelta del store (como las demás cachés de sldb); "segunda consulta" es una segunda llamada a sldb.api.project_graph(store) en el mismo proceso, y también una segunda lectura del mismo objeto. Se invalida por la firma de q6 y la limpia la invalidación de cachés existente que usa GD24 (forget_caches), sin API nueva. No persiste en disco.
+q13 (cargar): "cargar" es from_mapping, que es lo que usa también la carga de store.yaml; los dos caminos fallan igual (q8). Un callable solo puede llegar por un dict de Python pasado a from_mapping.
+q14 (edges): --from y --to son mutuamente excluyentes y uno es obligatorio (grupo excluyente requerido de argparse: sin ninguno o con los dos, error de uso, exit 2). En HTTP, GET /project-graph/edges con ninguno o con los dos es 400.
+q15 (closed_document): manda q5; el Goal describe el estado final (closed: como única forma declarable) y el argumento Python deprecated es transitorio hasta CC33.
 
 ## Validation
 
