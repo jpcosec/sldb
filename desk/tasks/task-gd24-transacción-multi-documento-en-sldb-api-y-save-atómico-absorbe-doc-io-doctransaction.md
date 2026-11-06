@@ -28,6 +28,13 @@ files:
 - tests/api/test_api_documents.py
 - docs/architecture/transactions.md
 - CHANGELOG.md
+- src/sldb/api/documents/transaction_state.py
+- src/sldb/api/documents/transaction_ops.py
+- src/sldb/api/documents/transaction_paths.py
+- src/sldb/api/documents/batch_prevalidate.py
+- src/sldb/api/documents/batch_report.py
+- src/sldb/core/exceptions/sldb_conflict_error.py
+- src/sldb/core/exceptions/__init__.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
@@ -98,6 +105,8 @@ q14 (track): name por defecto = stem del archivo, como track_document_file.
 q15 (guardas): si update recibe expected_source_hash y expected, se comprueban las dos, primero expected_source_hash; la primera que falla levanta ConflictError.
 q16 (unrestored): rutas relativas a la raíz del proyecto (la misma contra la que se resuelven los paths relativos de q13), en el orden en que se intentó restaurarlas.
 q17 (medición): script fuera del repo (/dev/shm) que crea un store temporal con 20 documentos y manda un POST /save de 20 updates con el TestClient de serve (como tests/test_serve.py); antes = el mismo script con PYTHONPATH a un checkout de baacd852, después = wt/gd24; mediana de 3 corridas de cada uno; las cifras van al reporte de entrega y el coordinador las copia a la Validation.
+PRECISIONES DE EJECUCIÓN (coordinador, 2026-11-06):
+q18 (estructura, por tests/test_clean_code_rules.py: máximo 1 clase y 80 líneas efectivas por archivo): se agregan a files transaction_state.py (TransactionState: pila anidable por store, snapshot de bytes y modelos tocados), transaction_ops.py (operaciones sobre el estado, que delegan en las funciones públicas existentes y registran sus rutas), transaction_paths.py (qué archivos toca cada operación), batch_prevalidate.py (round-trip, modelo, guardas y ruta por defecto; save_plan.py la reutiliza), batch_report.py (BatchReport pydantic), todos en src/sldb/api/documents/, y src/sldb/core/exceptions/sldb_conflict_error.py (ConflictError(SLDBStoreError) con ref, expected y actual), exportada en core/exceptions/__init__.py. Desvío de q6: RollbackError se define en src/sldb/store/io/rollback.py y la reexportan transaction.py y sldb.api; el resto de q6 (unrestored, raise from original) se mantiene.
 
 ## Validation
 

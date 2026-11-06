@@ -3,8 +3,8 @@ model_ref: deskops.models:TaskCodeDoc
 path: ''
 documents_index: .sldb/core/documents/TaskCodeDoc.yaml
 sections_index: .sldb/runtime/sections/TaskCodeDoc.yaml
-model_hash: 08bdcdaa4954b30349f329611c2621a3c0d335c6c737c1ddef48fc0bc19d6bb3
-roster_hash: 8f060a68883acf776ee8864334a82c8687065fc691f45aadd3c9c9a45d012806
+model_hash: 9d8446464f49f45058687645b4386e0e4800f937b23a059ed32542cf79348234
+roster_hash: ba09b3537d7e293daddbfae5e2a1df3ffe8bdbebfd39e12c014a9d02d1c5335d
 contract_hash: fac7ef5325d87f49c624009f368c0ee7695b8e8c29c3b57df00e8d85c50fcb80
 documents_count: 3
 version: 1
