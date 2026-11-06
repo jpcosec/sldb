@@ -1,19 +1,40 @@
 ---
-# unclear | suggestion
-kind: suggestion
-# e.g., other_repo
-sender_project: sldb
-# e.g., target_repo
-target_project: sldb
-# ISO 8601 timestamp
-created_at: '2026-11-06T22:26:33Z'
-# open | closed
-status: open
-# project identity that acknowledged the note
-# ISO 8601 timestamp, set when acknowledged
+id: task-on-write-no-se-eval-a-en-create-document-ni-en-track-document-file
+status: deferred
+summary: ''
+tags:
+- workspace:desk
+- artifact:task
+- source:inbox
+current_node: ''
+history: []
+references: []
+depends_on: []
+pills: []
+files: []
+task_type: ''
+inherits_from: []
+inherit_acceptance_context: false
+atoms: []
 ---
 
 # on_write no se evalúa en create_document ni en track_document_file
+
+## Rationale
+
+_Explain why this task exists or the business driver behind it._
+
+Promoted from the inbox note `desk/inbox/inbox-note-on-write-no-se-evalúa-en-create-document-ni-en-track-document-file.md`.
+
+## Goal
+
+_Describe the concrete result this task must produce._
+
+Triage and resolve the inbox message promoted from `desk/inbox/inbox-note-on-write-no-se-evalúa-en-create-document-ni-en-track-document-file.md`.
+
+## Scope
+
+_State what is in scope and what is out of scope._
 
 _Describe the incoming message with enough evidence to triage._
 
@@ -29,3 +50,21 @@ Hallazgo de GD27 (plan generalizar-desde-deskops, 2026-11-06), seguimiento de GO
 **Decisión del dueño.** Extender `on_write` a create y track es decisión del dueño: es un cambio de contrato de las reglas de usuario (rules.md §9), no un arreglo local. Mientras no se decida, GD27 (q18) prueba el rechazo por save, `transaction.update` y `replace_text`, y deja create y track cubiertos por `on_check` y `tags check`.
 
 **Evidencia.** TaskDoc de GD27, precisión q18 (sldb 7ff04fd0); grep de `check_rules_on_write` y `check_on_write` en src/sldb/api/documents/.
+
+## Implementation Path
+
+_Outline the expected implementation route or affected surface._
+
+To be defined when the task is promoted.
+
+## Validation
+
+_List the checks required before this task can close._
+
+- 
+
+## Done When
+
+_Name the observable condition that makes the task complete._
+
+The message is resolved, answered, or promoted into active work.
