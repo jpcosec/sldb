@@ -32,6 +32,8 @@ files:
 - src/sldb/cli/commands/docs_select.py
 - src/sldb/cli/parsers/docs3.py
 - src/sldb/cli/serve/docs_select_routes.py
+- src/sldb/store/query_engine/document_selection.py
+- src/sldb/store/query_engine/document_selection_filters.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
@@ -99,6 +101,9 @@ q13 (filas): export_id = id del nodo del documento en el índice de aristas (Mod
 q14 (include_linked): solo los stores enlazados directamente al store dado (los de stores add y find_link); no es transitivo.
 q15 (string corto): manda q6: no hay string corto. La frase "(o string corto equivalente para la CLI)" del contrato queda anulada.
 q16 (estructura, por tests/test_clean_code_rules.py: máximo 1 clase y 80 líneas efectivas por archivo; structural_queries.py ya está en 80): se agregan a files src/sldb/api/documents/selector.py (modelo pydantic Selector), src/sldb/api/documents/select_filters.py (filtros por clave), src/sldb/core/exceptions/sldb_ambiguous_selection_error.py y core/exceptions/__init__.py, src/sldb/cli/commands/docs_select.py, src/sldb/cli/parsers/docs3.py y src/sldb/cli/serve/docs_select_routes.py. Si structural_queries.py no cabe, lo que se extraiga va a un archivo nuevo previa consulta al coordinador.
+PRECISIONES DE EJECUCIÓN (coordinador, 2026-11-06):
+q17 (capa store): tests/test_store_seams.py prohíbe cualquier import de sldb.api, sldb.cli o sldb.selfdoc desde src/sldb/store/ (incluso diferido). El núcleo de selección (candidatos del índice, filtros ref/prefix/path_glob/model/where y orden) vive en src/sldb/store/query_engine/document_selection.py (y document_selection_filters.py si no cabe en 80 líneas), con where evaluado por el evaluador del store que usa main (compose_edge_index, index_view y findings; cero Validator.extract) y errores por store/exceptions.py. sldb.api.select_documents es la cara pública (open_store, expect, SLDBDocumentTargetError y AmbiguousSelectionError) y structural_queries.py importa el núcleo del store, no la API. Se agregan los dos archivos a files.
+q18 (ref con alias): como doc_status (q7), un ref con alias explícito (alias:name) alcanza ese store enlazado aunque include_linked sea false; include_linked solo decide si las demás claves recorren también los stores enlazados.
 
 ## Validation
 
