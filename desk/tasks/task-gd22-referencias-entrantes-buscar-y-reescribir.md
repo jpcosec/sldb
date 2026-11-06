@@ -23,7 +23,6 @@ files:
 - src/sldb/cli/parsers/edges.py
 - src/sldb/cli/commands/edges.py
 - src/sldb/cli/commands/edges_rewrite.py
-- src/sldb/cli/serve/edges_routes.py
 - src/sldb/cli/serve/edges_rewrite_routes.py
 - src/sldb/cli/serve/routes.py
 - tests/api/test_referrers.py
