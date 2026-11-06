@@ -6,8 +6,9 @@ composed, like the other rules that span documents:
 
 1. an export id (`Model:name`) is used as written;
 2. a path a tracked document lives at names that document;
-3. a bare id is tried as `Model:id` for each model the field allows: one match resolves it,
-   several are `ambiguous`, none is `missing_document`.
+3. a bare id is tried as `Model:id` for each model the field allows, then for their submodels
+   (an instance of a submodel is one of its bases): one match resolves it, several are
+   `ambiguous`, none is `missing_document`.
 
 A value that names nothing becomes an `UnresolvedReference`, never an edge. A free reference
 field (no allowed models) only reports what is clearly meant as a document: an export id, or
@@ -23,6 +24,7 @@ from sldb.store.edge_index.unresolved_reference import UnresolvedReference
 from sldb.store.models import EdgeNodeRecord, EdgeRecord
 
 _DOC = "sldb://document/"
+_MODEL = "sldb://model/"
 
 
 def resolve_declared_edges(nodes: dict[str, EdgeNodeRecord], edges: list[EdgeRecord]) -> tuple[list[EdgeRecord], list[UnresolvedReference]]:
@@ -70,11 +72,19 @@ def _by_allowed_models(value: str, allowed: list[str], store: str | None, nodes:
     prefix = f"{store}:" if store else ""
     ids = [f"{prefix}{model}:{value}" for model in allowed]
     hits = [doc_node_id(i) for i in ids if doc_node_id(i) in nodes]
+    if not hits:  # an instance of a submodel is an instance of the allowed model
+        hits = [doc_node_id(f"{prefix}{model}:{value}") for model in _submodels(allowed, nodes) if doc_node_id(f"{prefix}{model}:{value}") in nodes]
     if len(hits) == 1:
         return hits[0], None, None
     if len(hits) > 1:
         return None, "ambiguous", None
     return None, ("missing_document" if allowed else None), (ids[0] if len(ids) == 1 else None)
+
+
+def _submodels(allowed: list[str], nodes: dict) -> list[str]:
+    """Registered models whose `base_models` include one of `allowed`."""
+    models = ((key[len(_MODEL):], rec) for key, rec in nodes.items() if key.startswith(_MODEL))
+    return [name for name, rec in models if set(allowed) & set(rec.semantics.get("base_models") or [])]
 
 
 def _store_of(source: str) -> str | None:

@@ -4,6 +4,11 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
 
 ## 0.1.13 — not released yet (no tag, not on PyPI)
 
+- A bare id in a reference field that allows a model also names a document of one of its submodels
+  (`depends_on: task-x` with `TaskDoc` allowed names `TaskCodeDoc:task-x`), read from `base_models`
+  of the model nodes in the composed index. The allowed model itself wins; several submodels with that
+  name stay `ambiguous`. `resolve_indexed_document` also reads the bases of an inherited model from
+  its owner store.
 - `sldb.api.resolve_indexed_document(store_path, model, name)` finds `Model:name` when the document is
   tracked under a submodel of `Model` (`TaskDoc:task-x` finds `TaskCodeDoc:task-x`): an instance of a
   submodel is an instance of its bases, read from `base_models` in the model indexes, without importing
