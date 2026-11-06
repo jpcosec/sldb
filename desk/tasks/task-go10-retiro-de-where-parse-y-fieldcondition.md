@@ -89,6 +89,16 @@ r8 (formato de goldens): no cambia: tests/fixtures/where_goldens/where_parse.jso
 r9 (casos ajenos en docs): si la palabra aparece en un ejemplo que es un filtro, se reescribe con la construccion equivalente de la tabla; si aparece en codigo ajeno (otra API, un metodo de Python, un nombre de campo), se cambia lo minimo en el bloque para no usar esa palabra conservando lo que el ejemplo muestra (renombrar un campo de ejemplo, usar la expresion equivalente de Python). Cada caso se lista en el reporte; el coordinador los revisa al integrar.
 r10 (R6): RuleDoc (src/sldb/models/rule_doc.py) importa de forma diferida el parser de store/graph/language; GO10 no mueve el parser, asi que la arista models->store sigue y las entradas [allow].upward [models, store] y [[pending]] R6 de contracts/layers.toml quedan como estan (su reparacion es el drawer task-r6-...). Mover solo WherePredicateError a core no la cierra.
 
+PRECISIONES (cold-bundle de GO10, 2026-11-07):
+r11 (esquema de FacetFilter): facet: str sigue igual y obligatorio; where: str = "" (vacio = sin condicion, el filtro se cumple como hoy un conditions vacio); model_config extra="forbid" en FacetFilter, de modo que un JSON con conditions es rechazado con ValidationError que nombra conditions (r13 queda cubierto por esto; StructuredQuery no cambia su model_config).
+r12 (forma del JSON): en cada archivo de contracts/queries/sldb, cada {"facet": X, "conditions": [c1, c2, ...]} pasa a {"facet": X, "where": "<e1> and <e2> and ..."}, donde ei es la construccion de la columna nueva de la tabla de rules-language.md seccion 7 para ci (las conditions eran conjuntivas); una lista vacia pasa a where "". Nada mas del JSON cambia.
+r13 (rechazo): cubierto por extra="forbid" de r11.
+r14 (campos de un where sobre payload): los campos que nombra un where son las hojas de campo del predicado parseado (las mismas que alimentan seen); unprojected_fields las usa en lugar de c.field. Un where de facet admite el subconjunto sin caminos (como el eval de GO03): un camino (rel:, ^, paso con punto que no sea ruta de campo de H9) es SLDBGraphArgumentError que lo nombra.
+r15 (base de WherePredicateError): hereda de ValueError y de sldb.core.exceptions.SLDBError; sldb.store.exceptions.SLDBError es la misma clase reexportada (store/exceptions.py importa de core), asi que no hay dos clases.
+r16 (docs listados sin coincidencias): un archivo de la lista que tras el trabajo ya no tiene coincidencias del grep no se toca mas; si nunca las tuvo, no se modifica y se reporta.
+r17 (version del CHANGELOG): la seccion en curso es la cabecera "## 0.1.13 — not released yet" de CHANGELOG.md; la entrada de GO10 va en ella, con el cambio de contrato de sldb graph query (r2) y el traslado de WherePredicateError a sldb.api (r1).
+r18 (test_predicate_language): _old_where y _old_field_condition se eliminan; los tests de equivalencia leen old del golden como dato (string o dict) y evaluan la columna nueva (la expresion equivalente de la fila, ya presente en el test como construction) con el lenguaje nuevo, comparando con matches y con las diferencias ya fijadas (WHERE_DIFFERENCES, FIELD_CONDITION_DIFFERENCES); ninguna fila se elimina. _capture se elimina (ya no hay codigo viejo con que capturar).
+
 ## Implementation Path
 
 _Outline the expected implementation route or affected surface._

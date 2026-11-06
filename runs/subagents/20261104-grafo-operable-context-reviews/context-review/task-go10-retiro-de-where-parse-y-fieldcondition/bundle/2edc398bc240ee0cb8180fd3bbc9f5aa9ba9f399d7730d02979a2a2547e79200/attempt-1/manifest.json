@@ -1,0 +1,236 @@
+{
+  "key": "task-go10-retiro-de-where-parse-y-fieldcondition/bundle",
+  "input_sha256": "2edc398bc240ee0cb8180fd3bbc9f5aa9ba9f399d7730d02979a2a2547e79200",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/dev/shm/sldb-desk/runs/subagents/20261104-grafo-operable-context-reviews/context-review/task-go10-retiro-de-where-parse-y-fieldcondition/bundle/2edc398bc240ee0cb8180fd3bbc9f5aa9ba9f399d7730d02979a2a2547e79200/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-go10-retiro-de-where-parse-y-fieldcondition.md",
+      "sha256": "508b8ead234132679c7877a5946fc506ffdeda39c862f2c294bdb83327759912",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/query_engine/where_parse.py",
+      "sha256": "77288553587c0cdfedd391ae246c9d9c69153125d5935a73a30fe9ab89dc1aab",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/query_engine/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/graph/language/field_condition.py",
+      "sha256": "7b31816a3754fbc28bfc80f185a59df199740fe73c0cfbbbda2e4dd05eb31c02",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/graph/language/field_condition_translation.py",
+      "sha256": "6e65a0325e1277f38b402e7adf80cd7079fbc87fd9b647cdc72220109adac59e",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/graph/language/facet_filter.py",
+      "sha256": "50d29ed1fc11257ba553f8d71ba582fb8f83eeb27f73457c68e4e23be431e00c",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/graph/language/__init__.py",
+      "sha256": "78aac24af48703713dfed722a4e9b0fff3d727e741f03822e24fef394b94dfe2",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/graph/language/predicate_cursor.py",
+      "sha256": "d62bf3b8b3f2d60616f57e4e4e280c37c0dabab955d37432c87919572398c1c5",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/graph/language/predicate_tokens.py",
+      "sha256": "1e7caf4106342af507656c09f30f544814c1ecb6b11bad467246a3bf90d91c98",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/graph/payload_match.py",
+      "sha256": "e67d253a90534ee00d324b1ba4b60cda9bc8dbd92a1e8f9dceed76d82ea161da",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/graph/facet_match.py",
+      "sha256": "7e03881776f5095cca603a710ddf569264e19e76df00c06f422f9dcfd82b3c47",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/graph/__init__.py",
+      "sha256": "5ae25b21129151ca0fbc662258ed86a37a8a5cfb06d9927be91c7349b8f2e142",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/core/exceptions/__init__.py",
+      "sha256": "fc5fbba161cf134d86d34077527eda3e00d15b7e9dd7927a58eadd59cc5a6c81",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/core/finding.py",
+      "sha256": "dd6ead5619b7931fd8f62af3560c9eb0ae98578a5d78db136191d6f73d29d806",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/commands/graph.py",
+      "sha256": "2050df798ecaadf3ac2f88ded254cbcb4a398b66366148730703d35a7eff24b7",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/__init__.py",
+      "sha256": "d548e1dd3465b9903b6bf607a62ab9eef639d120ac623e403e6d8efbacf7e26f",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/graph/__init__.py",
+      "sha256": "511772dd9e40f4929e2ce04ed187fe027363166d118ea887e55192b6454bcd06",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/notations/__init__.py",
+      "sha256": "230d5f6079f20caa6c84934394a25123f9a8c8cf578016a4d8b54a75ee9318c3",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/notations/where_check.py",
+      "sha256": "6f868f88745e048f77e5fbb768d3d647a92f0419077978435577b1ef610dc05b",
+      "projection": "whole_file"
+    },
+    {
+      "path": "contracts/layers.toml",
+      "sha256": "5eb36ee40e2f4d98f78a884a40b4a6995dc852ee0b173b52b199cfa1eebcac46",
+      "projection": "whole_file"
+    },
+    {
+      "path": "contracts/queries/sldb/sections_for_taskdoc_document.json",
+      "sha256": "e16e8d17564a47c40c59415d6dc97f101588950e17dfcb5954681deb8a230652",
+      "projection": "whole_file"
+    },
+    {
+      "path": "contracts/queries/sldb/semantic_neighborhood_integration_kgdb.json",
+      "sha256": "b7f9e85a059552db68768e349b96aca7d712d35ddb964b4801d820ff54c91e97",
+      "projection": "whole_file"
+    },
+    {
+      "path": "contracts/queries/sldb/documents_tagged_domain_contract.json",
+      "sha256": "62720084705a8d476ce47f4f48fbb8ed1d0e932d49b728a1ce3cfee580e9971d",
+      "projection": "whole_file"
+    },
+    {
+      "path": "contracts/queries/sldb/documents_near_domain_workflow_task_tag.json",
+      "sha256": "d91a4961b17d3bad9ac334dde7b4fa834c9af92dd05c3574c26cc98d243ac89e",
+      "projection": "whole_file"
+    },
+    {
+      "path": "contracts/queries/sldb/documents_near_taskdoc_model.json",
+      "sha256": "d9e36ad9dae86acd72b534d00c8bfc0f8f4b41fd2b47bc5357813f39efaafe4d",
+      "projection": "whole_file"
+    },
+    {
+      "path": "docs/architecture/graph-backend.md",
+      "sha256": "4c31874d7ba3d7784bbe450740aca4a6bd291c1ff39a6895335401d1aa2e5aa2",
+      "projection": "whole_file"
+    },
+    {
+      "path": "docs/architecture/rules-language.md",
+      "sha256": "b197f43cd2d9c47329c9ffc274785bdbcbcf1cb65adb3040d6959eccd95d552a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "docs/architecture/superseded-code-audit.md",
+      "sha256": "4bc65a09aad2b60774e50c730550a72a3770f1bb7181a57dc119f13c5f51be54",
+      "projection": "whole_file"
+    },
+    {
+      "path": "docs/architecture/code-docstring-indexing-handoff.md",
+      "sha256": "1e7adffe73b3c8c7630a6263d39e20717eef6e4b74d8988f091b3f32b5c3a27e",
+      "projection": "whole_file"
+    },
+    {
+      "path": "docs/architecture/code-docstring-indexing.spec.md",
+      "sha256": "b1a6ee5024851faef507e6ff66fde59956e6fb07e53fab6d4ce37a369433e755",
+      "projection": "whole_file"
+    },
+    {
+      "path": "docs/architecture/notations-and-views.md",
+      "sha256": "e307e1d8098af9babc423dbafa050cb20c00e49b2213cb776ebf048fb8b8a5ff",
+      "projection": "whole_file"
+    },
+    {
+      "path": "docs/requests/sldb-knowledge-graph-integration.md",
+      "sha256": "b3aed6513ff972957750f9fbef7808a416842280fff654cab03aaf4b2e7ed122",
+      "projection": "whole_file"
+    },
+    {
+      "path": "docs/user-manual.md",
+      "sha256": "63e72e802861ec855330437b083f2377ac71f781111f091062a3d23ae5a81946",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/store/test_predicate_language.py",
+      "sha256": "cda07d8d94bd722031893b9baf2ce8e29e91df428a5e5cfffc746aca14687bf8",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "src/sldb/core/exceptions/where_predicate_error.py",
+      "reason": "missing"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "reason": "size>=60000",
+      "size": 60359
+    },
+    {
+      "path": "tests/store/test_where_retired.py",
+      "reason": "missing"
+    }
+  ],
+  "started": "2026-11-06T21:38:11.338551+00:00",
+  "finished": "2026-11-06T21:38:35.339940+00:00"
+}

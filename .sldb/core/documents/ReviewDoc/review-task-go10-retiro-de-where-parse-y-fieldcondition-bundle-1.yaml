@@ -1,0 +1,30 @@
+name: review-task-go10-retiro-de-where-parse-y-fieldcondition-bundle-1
+path: desk/reviews/task-go10-retiro-de-where-parse-y-fieldcondition/bundle-1.md
+source_hash: b5013493dd241fddfd8ab034b4af3ea2ab9dfe01e389bbbed376c9a77cc4fc55
+content_hash: 371ff2e3955cb860e343f2e59e28fca0bcf9d0540cd20a05d951ef946f7f92d3
+field_hashes:
+  id: 934e048e3a28d49c8f0ce443ee77dc336f0cb68fdb3e1db358ea054641ee6ecc
+  title: 7eef2e1ed8ef49bd51e75e28263f69840c559f42b62eecb3bc9240a85c51d968
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  subject: 55201078306f42a39a66c6ce1cdca0a50f389ad8387457cf9f934a35ac3b47b0
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 36587e05e0dd78e292c3ae5876dc2b0fa0f4e25fe5b0617a1f9c10ebedd49dcb
+  input_sha256: 647085d50e598df2f69f5644920c34130c7f52261be693456c62e892cb042305
+  output_sha256: 059faf0674098f6bfe8cc48addfcf610c085dd2b3c5e1fbb3b828b9df0afe63b
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: c4b85d5a65e399e8907240b13f931b92d6d8e074ba3227fe09a665067a325e51
+  created_at: 0acdca9957c8bbee068f0ecc68af0ade80c447573f1e4b92dcc6514e7b109dac
+  disposed_at: 73c6ab3fe5b7a788e763107f8078344e6992bfeff9e15febe8bf98d6df0479dd
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 64c018bfe9bafd25ca2680c0aff1b1b5765031e7079f95c0e4c847300191e871
+  disposition: 0a767eba248eb9cac817fc82453aa10e6d1e5c383755ad3fe10bb5f81053d8b5
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance: null
