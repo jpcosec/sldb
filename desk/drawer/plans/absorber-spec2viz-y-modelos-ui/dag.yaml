@@ -1,35 +1,36 @@
 id: sldb-absorber-spec2viz-y-modelos-ui
 revision: 2
 revision_note: 'Rev 2 (2026-11-06): decisiones SV-D6, SV-D7 y SV-D8 (marco de deskops, escritura como operación nombrada, autoridad de escritura por modelo) registradas en decisiones.md y escritas como secciones 2-4 de docs/ui-workbench/MANUAL_DE_USUARIO_Y_ESPECIFICACION_UI.md; sin cambios en SV01-SV04. Rev 1 (2026-11-06): plan y tareas SV01-SV04 para absorber el vocabulario visual y resolvedor de spec2viz en sldb, enriquecer /document/segments con transclusión por campo y vistas de diagramas, y extender create_model y model_drafts para la UI unificada.'
-status: ready_for_execution
+status: delivered
+delivery_note: 'Entregado 2026-11-07: SV01 6b80df36 (closeout 2cbdd68c), SV02 ddc049b4 (closeout 09a3ee14), SV03 ea85af56 (closeout b1ceb857), SV04 6b80df36 (closeout 2542eb6f), refactor de clean code 6ba8bb20; gates G_SV_MODELS, G_SV_VIEW_RESOLVER, G_SV_SEGMENTS y G_SV_MODEL_EDITOR satisfechos; suite completa de sldb verde sobre 88f19ac8. Marcado por el coordinador 1 por encargo del coordinador de proyecto SLDB_1.'
 as_of: '2026-11-06'
 source: dag.yaml es canónico; brief.md, alcance.md y decisiones.md son sus fuentes de contexto
 execution_authorized: true
 gates:
   G_SV_MODELS:
     title: Modelos de vocabulario visual, paletas y notaciones builtin en sldb
-    state: pending
+    state: satisfied
     produced_by: SV01
     resolver: closeout commit de task-sv01-modelos-de-vocabulario-visual-paletas-y-notaciones-builtin-en-sldb
-    evidence: los 7 modelos importan desde sldb.models y sldb.api; resolve_model_ref resuelve spec2viz.sldb_models:* sin spec2viz; las 8 notaciones builtin y la paleta default cargan y validan WCAG desde sldb.notations
+    evidence: 'sldb 6b80df36 (SV01, con 6ba8bb20 clean code), closeout 2cbdd68c; suite completa de sldb verde sobre 88f19ac8 (2026-11-06): los 7 modelos importan desde sldb.models y sldb.api; resolve_model_ref resuelve spec2viz.sldb_models:* sin spec2viz; las 8 notaciones builtin y la paleta default cargan y validan WCAG desde sldb.notations'
   G_SV_VIEW_RESOLVER:
     title: Resolvedor de vistas y notaciones en sldb.api, CLI y sldb serve
-    state: pending
+    state: satisfied
     produced_by: SV02
     resolver: closeout commit de task-sv02-resolvedor-de-vistas-y-notaciones-en-sldb-api-cli-y-sldb-serve
-    evidence: resolve_view, resolve_documents y evaluate_projection_view responden igual por sldb.api, CLI sldb notations y sldb serve GET /notations/view y POST /views/projection/evaluate
+    evidence: 'sldb ddc049b4 (SV02, con 6ba8bb20 clean code), closeout 09a3ee14; suite completa de sldb verde sobre 88f19ac8 (2026-11-06): resolve_view, resolve_documents y evaluate_projection_view responden igual por sldb.api, CLI sldb notations y sldb serve GET /notations/view y POST /views/projection/evaluate'
   G_SV_SEGMENTS:
     title: Transclusión por campo y segmentos ricos de diagramas/vistas en /document/segments
-    state: pending
+    state: satisfied
     produced_by: SV03
     resolver: closeout commit de task-sv03-transclusion-de-campos-y-segmentos-ricos-de-diagramas-y-vistas-en-document-segments
-    evidence: GET /document/segments resuelve composiciones ref=field con SourceRef.field y adjunta resolved_view en segmentos de diagrama/vista sin romper el roundtrip Markdown
+    evidence: 'sldb ea85af56 (SV03), closeout b1ceb857; suite completa de sldb verde sobre 88f19ac8 (2026-11-06): GET /document/segments resuelve composiciones ref=field con SourceRef.field y adjunta resolved_view en segmentos de diagrama/vista sin romper el roundtrip Markdown'
   G_SV_MODEL_EDITOR:
     title: Declaración y edición draft de containment, references, compositions y semantics en sldb
-    state: pending
+    state: satisfied
     produced_by: SV04
     resolver: closeout commit de task-sv04-declaracion-y-edicion-draft-de-containment-references-compositions-y-semantics-en-modelos
-    evidence: create_model, edit_model_metadata, validate_model_draft y promote_model_draft(backfill=True) funcionan por sldb.api, CLI y POST /models/* en sldb serve
+    evidence: 'sldb 6b80df36 (SV04, con 6ba8bb20 clean code), closeout 2542eb6f; suite completa de sldb verde sobre 88f19ac8 (2026-11-06): create_model, edit_model_metadata, validate_model_draft y promote_model_draft(backfill=True) funcionan por sldb.api, CLI y POST /models/* en sldb serve'
 hierarchy:
   root:
     id: ROOT
