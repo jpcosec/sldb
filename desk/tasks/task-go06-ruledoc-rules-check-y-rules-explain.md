@@ -1,13 +1,20 @@
 ---
 id: task-go06-ruledoc-rules-check-y-rules-explain
-status: draft
+status: ready_for_testing
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-closeout
+history:
+- task_activates
+- task_hands_to_closeout
+references:
+- pytest tests/api/test_rules.py
+- tests/api/test_rules.py
+- 622da0b5b2abb2ad2b090f382b85ae12714eaffd
+- desk/atoms/atom-sldb-evaluates-declared-rules-consumers-author-them.md
+- desk/drawer/tasks/task-r6-bajar-el-parser-del-lenguaje-de-reglas-a-la-capa-0-para-cerrar-la-arista-models-a-store.md
 depends_on: []
 pills: []
 files:
@@ -69,6 +76,8 @@ p6 (nodo y clausula en el Finding): no se agrega ningun campo a core/finding.py.
 p7 (forma de subject): subject es exactamente model <= X, o una conjuncion de nivel superior de terminos model <= X (familia = interseccion, rules-language.md seccion 6). Cualquier otra clausula en subject (comparaciones, caminos, or, not) la rechaza el validador del modelo; los filtros adicionales van en where.
 p8 (alcance federado): las reglas son las RuleDoc del store local. rules check sin --subject recorre solo los documentos del store local (no los stores enlazados). --subject y SUBJECT de explain aceptan tambien un documento de un store enlazado (store:Model:name o su ruta) y lo evaluan.
 
+HIPOTESIS DEL EJECUTOR (regla 6, GO06 integrado en 622da0b5): H1 arista models->store: los validadores de RuleDoc importan el parser de store/graph/language de forma diferida; declarada [allow].upward [models, store] y [[pending]] R6 en contracts/layers.toml; reparacion en drawer task-r6-bajar-el-parser-del-lenguaje-de-reglas-a-la-capa-0-para-cerrar-la-arista-models-a-store. H2 reglas y payloads se leen de la proyeccion del indice (GO04), sin re-extraer: una condicion no ve campos no proyectados; hash de regla = content_hash, sin uso hasta GO08. H3 incomplete solo aparece si una arista lleva unavailable; el indice real hoy no lo marca (H4 de rules-language), el test lo fuerza con monkeypatch de load_edge_index. H4 resolucion: el indice se carga con stores enlazados; check sin --subject recorre solo documentos locales; DOC/SUBJECT por export id y si no por runtime_document (name, Model/name, ruta, alias:ruta); RULE solo reglas locales; "rule" en explain es RuleDoc:<nombre>. H5 sldb docs track no comprueba que los modelos del subject esten registrados (solo validacion pydantic): una regla asi no aplica a nada. H6 rules check/explain imprimen texto por defecto; el data de p1/p3 requiere --format json (o yaml); rules check --format json da {findings: [...]}. H7 where y message son str = "" (no None) por round-trip del template; condition vacia se rechaza. H8 subject entre parentesis se acepta como conjuncion. DESVIOS: api/rules/rule_graph.py y rule_writes.py nuevos (clean code); cli/parsers/public.py en vez de parsers/__init__.py (el registro vive ahi); rutas de escritura api/documents/create_document.py, api/documents/payload_save.py y cli/commands/doc.py llaman a refuse_unknown_family antes de escribir.
+
 ## Implementation Path
 
 _Outline the expected implementation route or affected surface._
@@ -86,6 +95,7 @@ _List the checks required before this task can close._
 - RuleDoc mal formada (condition, where, severidad, momento, sujeto) rechazada al escribir, un test de rechazo por campo
 - TMPDIR=/dev/shm pytest tests/test_clean_code_rules.py tests/test_store_seams.py en verde
 - suite completa sin rojos (una vez, al final del nodo, la corre el supervisor)
+- RESULTADO (coordinador 1, 2026-11-06, sobre 622da0b5 rebaseado en 289ec6c7): tests dirigidos 1179 passed, 0 skipped, 0 xfailed (test_rules 13, clean_code_rules, store_seams, CLI handler/envelope/format/v2, spec GO02, predicate_language, rutas de escritura, notations); tools/check_layers.py PASS con R6 declarada. Suite completa pendiente del supervisor.
 
 ## Done When
 
