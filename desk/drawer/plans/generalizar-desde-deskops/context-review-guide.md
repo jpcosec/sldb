@@ -8,11 +8,11 @@ Si este nodo, tal como está escrito, se entiende como **encargo de planificaci�
 
 ## Cómo leer
 
-- `dag.yaml` es la fuente de ids, aristas y gates. Ningún nodo tiene ejecución autorizada.
+- `dag.yaml` es la fuente de ids, aristas y gates. El plan tiene ejecución autorizada; un nodo se ejecuta solo promovido y con su preflight dispuesto.
 - ROOT y PG son agrupaciones; un nodo `aggregate` no se ejecuta: termina cuando terminan sus hijos.
 - Una flecha `depends_on` significa prerrequisito → dependiente. Hermanos sin arista no se entregan nada entre sí.
 - Un gate `pending` es intencional, no un defecto. Los gates `G_GO*` los produce el plan hermano `grafo-operable`; lo que ese plan fija es contrato suministrado, no ambigüedad de este nodo.
-- G1–G3, D3 y D5 están tomadas por el dueño; GP1–GP5 son propuestas de este plan y se leen como dadas. Los pendientes del dueño no son ambigüedad del nodo salvo que el nodo dependa de uno sin decir qué hace mientras tanto.
+- G1–G4, DA1–DA6, D3 y D5 están tomadas por el dueño; GP1–GP5 quedaron autorizadas con el plan y se leen como dadas.
 - La columna "código de deskops que deja sin motivo" es contexto: borrarlo es del plan de deskops, no de este nodo.
 
 ## Qué cuenta como ambigüedad
