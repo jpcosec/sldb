@@ -25,6 +25,7 @@ from sldb.api.documents.document_serialization import serialize_document
 from sldb.api.documents.payload_path_reading import deep_get, ensure_list
 from sldb.api.documents.payload_path_writing import deep_delete, deep_set
 from sldb.api.documents.payload_save import save_document_payload
+from sldb.api.documents.replace_text import replace_text
 from sldb.api.documents.track_document_file import track_document_file
 from sldb.api.documents.untrack_document import untrack_document
 from sldb.api.edges.check_edges import check_edges
@@ -77,6 +78,8 @@ from sldb.api.model_create.field_decl import FieldDecl
 from sldb.api.model_create.model_check import ModelCheck
 from sldb.api.model_registry.add_model import add_model
 from sldb.api.search import search
+from sldb.api.semantic import add_semantic_equivalence, add_semantic_parent, remove_semantic_parent, semantic_tag
+from sldb.api.tags import tag_check, tag_folder, tag_namespaces, tag_tree
 from sldb.api.rules import on_check_findings, refuse_unknown_family, rules_check, rules_explain, rules_on_check, transition_findings
 from sldb.api.where import where_matches
 from sldb.core.exceptions import AmbiguousSelectionError, ConflictError, WherePredicateError
@@ -102,6 +105,7 @@ from sldb.api.stores.scaffold_report import ScaffoldReport
 from sldb.api.stores.scaffold_store import scaffold_store
 from sldb.api.stores.seed import Seed
 from sldb.api.stores.store_declaration import StoreDeclaration
+from sldb.api.stores.tag_namespace import TagNamespace
 from sldb.api.stores.resolve_indexed_document import indexed_model_bases, resolve_indexed_document
 from sldb.api.stores.init_store import init_store
 from sldb.api.stores.link_store import link_store
@@ -171,4 +175,6 @@ __all__ = [
     "ProjectGraph", "ProjectGraphConfig", "project_graph",
     "GlyphDoc", "LinkDoc", "NotationDoc", "PaletteDoc", "SpecDoc", "SpecNodeDoc", "ViewDoc",
     "resolve_view", "resolve_documents", "evaluate_projection_view", "list_projection_views", "save_projection_view", "sync_notation", "sync_palette",
+    "TagNamespace", "add_semantic_equivalence", "add_semantic_parent", "remove_semantic_parent", "semantic_tag",
+    "replace_text", "tag_check", "tag_folder", "tag_namespaces", "tag_tree",
 ]
