@@ -7,7 +7,6 @@ scope: sldb-local-desk
 tasks:
 - desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
 - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
-- desk/tasks/task-go10-retiro-de-where-parse-y-fieldcondition.md
 - desk/tasks/task-gd27-espacios-de-nombres-y-jerarquía-de-tags-reemplazo-de-texto-en-documentos-trackeados.md
 # List of pill-xxx paths
 pills:
@@ -55,5 +54,4 @@ _Generated from the task references above._
 
 - Diseño: set bootstrap de modelos tras la convergencia átomo/field [draft] - Un documento de decisión en docs/ (SpecDoc o PlanDoc trackeado) que evalúe la propuesta de siete modelos, diga qué se adopta, qué no y por qué, con ejemplos de cada modelo sobre documentos reales del store.
 - Diseño: jerarquía de modelos de evidencia (__family__ o herencia) [draft] - Un documento de decisión en docs/ que compare __family__ vs herencia de clases para los modelos de evidencia, con la recomendación y sus consecuencias para deskops (RunDoc, materializaciones, closeout_evidence).
-- GO10: Retiro de where_parse y FieldCondition [draft] - Sin los identificadores where_parse ni FieldCondition en src/ ni en docs/ (salvo la tabla historica de rules-language.md bajo 'Historico'); sin los ocho operadores viejos en bloques de codigo de docs/ fuera de esa tabla; cada mencion reescrita con la construccion equivalente; goldens conservados como tests del lenguaje nuevo; CHANGELOG en la seccion en curso.
 - GD27: Espacios de nombres y jerarquía de tags; reemplazo de texto en documentos trackeados [draft] - StoreDeclaration gana tag_namespaces ({name, hierarchical, folder_axis, anchored_by}); un store que los declara rechaza al escribir un tag de namespace no declarado y un tag jerárquico sin ancla para cada prefijo; sldb.api.tag_tree y tag_folder; sldb.api reexporta sldb.api.semantic; CLI sldb tags namespaces|tree|check; sldb.api.replace_text(store, ref, old, new, *, count=1, transaction=None) con conteo exacto, re-extracción, validación contra el modelo y re-track dentro de sldb.api.transaction; CLI sldb docs replace con envelope; docs/architecture/tags.md y sección en transactions.md.

@@ -544,7 +544,6 @@ include:
 - model: TaskCodeDoc
   paths:
   - desk/tasks/task-gd27-espacios-de-nombres-y-jerarquía-de-tags-reemplazo-de-texto-en-documentos-trackeados.md
-  - desk/tasks/task-go10-retiro-de-where-parse-y-fieldcondition.md
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md
