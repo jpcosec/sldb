@@ -3,7 +3,7 @@ import argparse
 from sldb.cli.output_format import add_format
 
 def _add_models_part2(sub):
-    _validate(sub); _template(sub); _fields(sub); _create(sub)
+    _validate(sub); _template(sub); _fields(sub); _create(sub); _metadata(sub)
 
 def _validate(s):
     v = s.add_parser("validate", help="Validate a registered model or draft.")
@@ -11,6 +11,7 @@ def _validate(s):
     v.add_argument("--store", help="Store path")
     v.add_argument("--pythonpath", help="Project path")
     v.add_argument("--promote", action="store_true", help="Promote a valid draft")
+    v.add_argument("--backfill", action="store_true", help="Backfill documents on promote")
     v.add_argument("--format", choices=("text", "json", "yaml"), default="text")
 
 def _template(s):
@@ -64,3 +65,24 @@ def _create(s):
     c.add_argument("--fields", required=True, help="Field spec YAML path")
     c.add_argument("--output", default="-", help="Output Python file or -")
     c.add_argument("--stdout", action="store_true", help="Print generated code")
+    c.add_argument("--containment", help="Containment mapping as JSON/YAML")
+    c.add_argument("--references", help="References list as JSON/YAML")
+    c.add_argument("--compositions", help="Compositions mapping as JSON/YAML")
+    c.add_argument("--semantics", help="Semantics mapping as JSON/YAML")
+    c.add_argument("--authority", help="Authority string")
+
+def _metadata(s):
+    m = s.add_parser("metadata", help="Inspect or edit registered model metadata through drafts.")
+    ms = m.add_subparsers(dest="metadata_command", required=True)
+    _medit(ms)
+
+def _medit(ms):
+    medit = ms.add_parser("edit", help="Edit model metadata in draft.")
+    medit.add_argument("model", help="Model name")
+    medit.add_argument("--containment", help="Containment mapping as JSON/YAML text or file")
+    medit.add_argument("--references", help="References list as JSON/YAML text or file")
+    medit.add_argument("--compositions", help="Compositions mapping as JSON/YAML text or file")
+    medit.add_argument("--semantics", help="Semantics mapping as JSON/YAML text or file")
+    medit.add_argument("--authority", help="Authority string")
+    medit.add_argument("--store", help="Store path")
+    medit.add_argument("--pythonpath", help="Project path")

@@ -72,7 +72,10 @@ def save_reindexed_model(sp: Path, root: Path, idx: StoreIndex, m_entry: ModelEn
         save_documents_index(root / m_idx.documents_index, d_idx)
         if bump_version:
             _bump_version(m_idx, m_entry)
-        stamp_model_node(m_idx, hash_documents_index(d_idx), model_type)
+        stamp_model_node(m_idx, hash_documents_index(d_idx), model_type, entry=m_entry)
+        if model_type is not None:
+            m_idx.semantics = flatten_model_semantics(model_type)
+            m_entry.semantics = m_idx.semantics
         m_idx.documents_count = len(d_idx.documents)
         save_models_index(root / m_entry.models_index, m_idx)
         documents_hash.invalidate(sp, m_entry.name)  # a full scan moved source/content hashes

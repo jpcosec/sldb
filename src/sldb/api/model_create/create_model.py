@@ -23,7 +23,21 @@ from sldb.core.exceptions import SLDBModelError
 DEFAULT_PACKAGE = "sldb_generated"
 
 
-def create_model(store: str | Path | None, name: str, fields: list, template: str | None = None, base: str | None = None, target_package: str = DEFAULT_PACKAGE, pythonpath: str | None = None, actor: str | None = None) -> ModelRegistration:
+def create_model(
+    store: str | Path | None,
+    name: str,
+    fields: list,
+    template: str | None = None,
+    base: str | None = None,
+    target_package: str = DEFAULT_PACKAGE,
+    pythonpath: str | None = None,
+    actor: str | None = None,
+    containment: dict[str, list[str]] | None = None,
+    references: list[str] | None = None,
+    compositions: dict[str, dict] | None = None,
+    semantics: dict[str, list[str]] | None = None,
+    authority: str | None = None,
+) -> ModelRegistration:
     """Generate, check, write and register a model declared as JSON fields.
 
     Args:
@@ -35,6 +49,11 @@ def create_model(store: str | Path | None, name: str, fields: list, template: st
         target_package: Package under `pythonpath` to write the generated module into.
         pythonpath: Directory importing the module from; defaults to the store's project root.
         actor: Optional caller label; accepted for compatibility, no longer recorded (the journal was retired on 2026-11-04).
+        containment: Visual containment mapping field -> allowed target models.
+        references: Fields holding doc ids that are not containment.
+        compositions: Compositions mapping name -> spec dict.
+        semantics: Semantic mapping for the model.
+        authority: Model authority ("generated", "authored", etc.).
 
     Returns:
         The new registry record (version 1).
@@ -44,13 +63,50 @@ def create_model(store: str | Path | None, name: str, fields: list, template: st
     """
     location = open_store(store)
     pythonpath = pythonpath or str(location.project_root)
-    _path, ref, _source = _generate(location.store_path, name, fields, template, base, target_package, pythonpath)
+    _path, ref, _source = _generate(
+        location.store_path,
+        name,
+        fields,
+        template,
+        base,
+        target_package,
+        pythonpath,
+        containment=containment,
+        references=references,
+        compositions=compositions,
+        semantics=semantics,
+        authority=authority,
+    )
     return add_model(location.store_path, ref, pythonpath, actor=actor)
 
 
-def _generate(sp: Path, name: str, fields: list, template: str | None, base: str | None, package: str, pythonpath: str) -> tuple[Path, str, ModelSource]:
-    base_ref, head = _resolve_base(sp, base, pythonpath)
-    source = ModelSource.of(name, fields, template, base_ref)
+def _generate(
+    sp: Path,
+    name: str,
+    fields: list,
+    template: str | None,
+    base: str | None,
+    package: str,
+    pythonpath: str,
+    containment: dict[str, list[str]] | None = None,
+    references: list[str] | None = None,
+    compositions: dict[str, dict] | None = None,
+    semantics: dict[str, list[str]] | None = None,
+    authority: str | None = None,
+) -> tuple[Path, str, ModelSource]:
+    base_ref, head, inherited_fields = _resolve_base(sp, base, pythonpath)
+    source = ModelSource.of(
+        name,
+        fields,
+        template,
+        base_ref,
+        containment=containment,
+        references=references,
+        compositions=compositions,
+        semantics=semantics,
+        authority=authority,
+        inherited_fields=inherited_fields,
+    )
     module_text = source.module(head)
     check = ModelCheck(module_text, name)()
     if not check["ok"]:
@@ -59,12 +115,12 @@ def _generate(sp: Path, name: str, fields: list, template: str | None, base: str
     return path, f"{package}.{source.snake}:{name}", source
 
 
-def _resolve_base(sp: Path, base: str | None, pythonpath: str) -> tuple[tuple[str, str], str | None]:
+def _resolve_base(sp: Path, base: str | None, pythonpath: str) -> tuple[tuple[str, str], str | None, set[str]]:
     if base is None:
-        return ("sldb", "StructuredNLDoc"), None
+        return ("sldb", "StructuredNLDoc"), None, set()
     cls = load_registered_model(sp, base, pythonpath).model_type
     head = str(getattr(cls, "__template__", "")).strip() or None
-    return (cls.__module__, cls.__name__), head
+    return (cls.__module__, cls.__name__), head, set(cls.model_fields.keys())
 
 
 def _write_module(source: ModelSource, package: str, pythonpath: str, module_text: str) -> Path:

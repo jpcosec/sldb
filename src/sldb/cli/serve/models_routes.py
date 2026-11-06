@@ -6,7 +6,16 @@ from http.server import BaseHTTPRequestHandler
 from pathlib import Path
 from typing import Any
 
-from sldb.api import (add_model_field, describe_model, edit_model_template, promote_model_draft, remove_model_field, validate_model_draft)
+from sldb.api import (
+    add_model_field,
+    create_model,
+    describe_model,
+    edit_model_metadata,
+    edit_model_template,
+    promote_model_draft,
+    remove_model_field,
+    validate_model_draft,
+)
 from sldb.cli.serve.params import query_params, require_param
 from sldb.cli.serve.responses import read_json_body
 from sldb.core.exceptions import SLDBError
@@ -84,11 +93,57 @@ def validate_payload(handler, store_path, project_root, pythonpath):
     return _report(store_path, pythonpath, lambda: validate_model_draft(store_path, request["model"], pythonpath))
 
 
+def create_payload(handler, store_path, project_root, pythonpath):
+    request, error = _require(handler, "name", "fields")
+    if error is not None:
+        return error, 400
+    try:
+        reg = create_model(
+            store_path,
+            request["name"],
+            request["fields"],
+            template=request.get("template"),
+            base=request.get("base"),
+            target_package=request.get("target_package", "sldb_generated"),
+            pythonpath=pythonpath or str(project_root),
+            containment=request.get("containment"),
+            references=request.get("references"),
+            compositions=request.get("compositions"),
+            semantics=request.get("semantics"),
+            authority=request.get("authority"),
+        )
+    except SLDBError as exc:
+        return {"ok": False, "error": str(exc)}, 200
+    return {"ok": True, **reg.model_dump(mode="json")}, 200
+
+
+def metadata_edit_payload(handler, store_path, project_root, pythonpath):
+    request, error = _require(handler, "model")
+    if error is not None:
+        return error, 400
+    return _run(
+        store_path,
+        pythonpath,
+        lambda: edit_model_metadata(
+            store_path,
+            request["model"],
+            containment=request.get("containment"),
+            references=request.get("references"),
+            compositions=request.get("compositions"),
+            semantics=request.get("semantics"),
+            authority=request.get("authority"),
+            pythonpath=pythonpath,
+        ),
+        {"model": request["model"]},
+    )
+
+
 def promote_payload(handler, store_path, project_root, pythonpath):
     request, error = _require(handler, "model")
     if error is not None:
         return error, 400
-    return _report(store_path, pythonpath, lambda: promote_model_draft(store_path, request["model"], pythonpath))
+    backfill = bool(request.get("backfill", False))
+    return _report(store_path, pythonpath, lambda: promote_model_draft(store_path, request["model"], pythonpath, backfill=backfill))
 
 
 def _require(handler, *required):
@@ -116,4 +171,12 @@ def _report(store_path, pythonpath, op):
 
 
 _GET_ROUTES = {"/models": catalog_payload, "/models/detail": detail_payload}
-_POST_ROUTES = {"/models/fields-add": fields_add_payload, "/models/fields-remove": fields_remove_payload, "/models/template-edit": template_edit_payload, "/models/validate": validate_payload, "/models/promote": promote_payload}
+_POST_ROUTES = {
+    "/models/create": create_payload,
+    "/models/fields-add": fields_add_payload,
+    "/models/fields-remove": fields_remove_payload,
+    "/models/metadata-edit": metadata_edit_payload,
+    "/models/template-edit": template_edit_payload,
+    "/models/validate": validate_payload,
+    "/models/promote": promote_payload,
+}

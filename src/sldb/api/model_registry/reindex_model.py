@@ -42,7 +42,7 @@ def reindex_model(store: str | Path | None, model_name: str, pythonpath: str | N
 def _rehash(location, idx: StoreIndex, m_entry: ModelEntry, m_idx, d_idx, pythonpath: str | None, bump_version: bool) -> None:
     model_type = resolve_model_ref(m_entry.model_ref, pythonpath)
     rehash_documents(location.project_root, d_idx, model_type)
-    save_reindexed_model(location.store_path, location.project_root, idx, m_entry, m_idx, d_idx, bump_version, pythonpath)
+    save_reindexed_model(location.store_path, location.project_root, idx, m_entry, m_idx, d_idx, bump_version, pythonpath, model_type=model_type)
 
 
 def _model_entry(idx: StoreIndex, model_name: str) -> ModelEntry:

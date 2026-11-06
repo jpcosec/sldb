@@ -13,6 +13,10 @@ from typing import Any
 from sldb.core.exceptions import SLDBModelError
 from sldb.models.structured_doc import StructuredNLDoc
 
+LEGACY_MODULE_PREFIXES: tuple[tuple[str, str], ...] = (
+    ("spec2viz.sldb_models", "sldb.models.notation_models"),
+)
+
 
 def _setup_sys_path(pythonpath: str | None) -> None:
     """Put `pythonpath` (then the working directory) at the front of `sys.path`, once each."""
@@ -69,6 +73,10 @@ def resolve_model_ref(model_ref: str, pythonpath: str | None = None) -> type[Str
         raise SLDBModelError("Model reference must use the form 'module:ClassName'.")
     _setup_sys_path(pythonpath)
     module_name, attr_path = model_ref.split(":", 1)
+    for old_prefix, new_prefix in LEGACY_MODULE_PREFIXES:
+        if module_name == old_prefix or module_name.startswith(f"{old_prefix}."):
+            module_name = new_prefix + module_name[len(old_prefix):]
+            break
     obj = _import_module_attr(module_name, attr_path)
     if not isinstance(obj, type) or not issubclass(obj, StructuredNLDoc):
         raise SLDBModelError(f"'{model_ref}' is not a StructuredNLDoc subclass.")

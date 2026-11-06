@@ -23,9 +23,25 @@ class ModelSource:
     fields: tuple[FieldDecl, ...]
     template: str | None = None
     base: tuple[str, str] = ("sldb", "StructuredNLDoc")
+    containment: dict[str, list[str]] | None = None
+    references: list[str] | None = None
+    compositions: dict[str, dict] | None = None
+    semantics: dict[str, list[str]] | None = None
+    authority: str | None = None
 
     @staticmethod
-    def of(name: str, fields: list, template: str | None, base: tuple[str, str] | None) -> "ModelSource":
+    def of(
+        name: str,
+        fields: list,
+        template: str | None,
+        base: tuple[str, str] | None,
+        containment: dict[str, list[str]] | None = None,
+        references: list[str] | None = None,
+        compositions: dict[str, dict] | None = None,
+        semantics: dict[str, list[str]] | None = None,
+        authority: str | None = None,
+        inherited_fields: set[str] | None = None,
+    ) -> "ModelSource":
         if not re.fullmatch(r"[A-Z][A-Za-z0-9]*", name or ""):
             raise SLDBModelError(f"model name {name!r} is not a CamelCase identifier")
         decls = tuple(FieldDecl.of(f) for f in fields or [])
@@ -33,7 +49,36 @@ class ModelSource:
             raise SLDBModelError("a model needs at least one field")
         if len({d.name for d in decls}) < len(decls):
             raise SLDBModelError("two fields with the same name")
-        return ModelSource(name, decls, template, base or ("sldb", "StructuredNLDoc"))
+        all_field_names = {d.name for d in decls} | (inherited_fields or set())
+        if containment:
+            for f in containment:
+                if f not in all_field_names:
+                    raise SLDBModelError(f"Field '{f}' in containment does not exist in model '{name}'.")
+        if references:
+            for f in references:
+                if f not in all_field_names:
+                    raise SLDBModelError(f"Field '{f}' in references does not exist in model '{name}'.")
+        if compositions:
+            for comp_name, comp_spec in compositions.items():
+                if not isinstance(comp_spec, dict):
+                    raise SLDBModelError(f"Composition '{comp_name}' must be a dict.")
+                src_field = comp_spec.get("source_field")
+                if not src_field or src_field not in all_field_names:
+                    raise SLDBModelError(f"Composition '{comp_name}' references unknown source field '{src_field}'.")
+                if template is not None and f"⸢render•{comp_name}⸥" not in template:
+                    raise SLDBModelError(f"Composition '{comp_name}' requires marker '⸢render•{comp_name}⸥' in template.")
+
+        return ModelSource(
+            name,
+            decls,
+            template,
+            base or ("sldb", "StructuredNLDoc"),
+            containment=containment,
+            references=references,
+            compositions=compositions,
+            semantics=semantics,
+            authority=authority,
+        )
 
     @property
     def snake(self) -> str:
@@ -45,17 +90,39 @@ class ModelSource:
         for f in self.fields:
             slot = f"- ⸢rev,list•{f.name}⸥" if f.type == "list[str]" else f"⸢rev•{f.name}⸥"
             sections.append(f"## {f.name.replace('_', ' ').capitalize()}\n\n{slot}")
+        if self.compositions:
+            for comp_name in self.compositions:
+                slot = f"⸢render•{comp_name}⸥"
+                sections.append(f"## {comp_name.replace('_', ' ').capitalize()}\n\n{slot}")
         return "\n\n".join(sections) + "\n"
 
     def module(self, head: str | None = None) -> str:
         """The whole module, as text; `head` opens the default template."""
         module, cls = self.base
         template = (self.template or self.default_template(head)).strip()
-        return "\n".join(_module_lines(self.name, module, cls, template, self.fields)) + "\n"
+        return "\n".join(_module_lines(
+            self.name, module, cls, template, self.fields,
+            authority=self.authority,
+            semantics=self.semantics,
+            containment=self.containment,
+            references=self.references,
+            compositions=self.compositions,
+        )) + "\n"
 
 
-def _module_lines(name: str, module: str, cls: str, template: str, fields: tuple[FieldDecl, ...]) -> list[str]:
-    return [
+def _module_lines(
+    name: str,
+    module: str,
+    cls: str,
+    template: str,
+    fields: tuple[FieldDecl, ...],
+    authority: str | None = None,
+    semantics: dict[str, list[str]] | None = None,
+    containment: dict[str, list[str]] | None = None,
+    references: list[str] | None = None,
+    compositions: dict[str, dict] | None = None,
+) -> list[str]:
+    lines = [
         HEADER.format(name=name),
         "from typing import Literal  # noqa: F401\n",
         "from pydantic import Field\n",
@@ -63,8 +130,19 @@ def _module_lines(name: str, module: str, cls: str, template: str, fields: tuple
         f"class {name}({cls}):",
         f'    """{name}, declared by an agent through `sldb.api.create_model`."""\n',
         f"    __template__ = {_quoted(template)}\n",
-        *(f.source() for f in fields),
     ]
+    if authority is not None:
+        lines.append(f"    __authority__ = {authority!r}\n")
+    if semantics is not None:
+        lines.append(f"    __semantics__ = {semantics!r}\n")
+    if containment is not None:
+        lines.append(f"    __containment__ = {containment!r}\n")
+    if references is not None:
+        lines.append(f"    __references__ = {references!r}\n")
+    if compositions is not None:
+        lines.append(f"    __compositions__ = {compositions!r}\n")
+    lines.extend(f.source() for f in fields)
+    return lines
 
 
 def _quoted(text: str) -> str:

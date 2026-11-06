@@ -37,9 +37,45 @@ def describe_model(store: str | Path | None, model_name: str, pythonpath: str | 
     if entry is None:
         raise SLDBModelError(f"Model '{model_name}' not found.")
     m_idx = load_models_index(location.project_root / entry.models_index)
-    fields = _field_summaries(resolve_model_ref(entry.model_ref, pythonpath))
+    model_type = resolve_model_ref(entry.model_ref, pythonpath)
+    fields = _field_summaries(model_type)
     documents = _document_summaries(location.project_root, m_idx)
-    return ModelDescription(name=entry.name, model_ref=entry.model_ref, path=entry.path, version=m_idx.version, canonical=m_idx.canonical, family=m_idx.family, semantics=list(m_idx.semantics), base_models=list(m_idx.base_models), fields=fields, documents=documents)
+    containment = dict(getattr(model_type, "__containment__", {}) or {})
+    references = list(getattr(model_type, "__references__", []) or [])
+    compositions = dict(getattr(model_type, "__compositions__", {}) or {})
+    semantics_map = dict(getattr(model_type, "__semantics__", {}) or {})
+    authority = str(getattr(model_type, "__authority__", "generated"))
+    template = str(getattr(model_type, "__template__", ""))
+    has_draft = False
+    draft_p = None
+    try:
+        from sldb.api.model_drafts.source_location import locate_model_source
+        src = locate_model_source(location.store_path, model_name, pythonpath)
+        if src.draft_path.exists():
+            has_draft = True
+            draft_p = str(src.draft_path)
+    except Exception:
+        pass
+    return ModelDescription(
+        name=entry.name,
+        model_ref=entry.model_ref,
+        path=entry.path,
+        version=m_idx.version,
+        canonical=m_idx.canonical,
+        family=m_idx.family,
+        semantics=list(m_idx.semantics),
+        base_models=list(m_idx.base_models),
+        fields=fields,
+        documents=documents,
+        containment=containment,
+        references=references,
+        compositions=compositions,
+        semantics_map=semantics_map,
+        authority=authority,
+        template=template,
+        has_draft=has_draft,
+        draft_path=draft_p,
+    )
 
 
 def _field_summaries(model_type: type[StructuredNLDoc]) -> list[ModelFieldSummary]:

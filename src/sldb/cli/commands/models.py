@@ -13,6 +13,7 @@ from sldb.cli.commands.models_create import ModelsCreateCLI
 from sldb.cli.commands.models_validate import ModelsValidateCLI
 from sldb.cli.commands.models_template import ModelsTemplateCLI
 from sldb.cli.commands.models_fields import ModelsFieldsCLI
+from sldb.cli.commands.models_metadata import ModelsMetadataCLI
 
 class ModelsCLI:
     """Plural model surface for the redesigned CLI."""
@@ -25,6 +26,7 @@ class ModelsCLI:
         self._validate_cli = ModelsValidateCLI()
         self._template_cli = ModelsTemplateCLI()
         self._fields_cli = ModelsFieldsCLI()
+        self._metadata_cli = ModelsMetadataCLI()
 
     def run(self, args: Any) -> int:
         """Run the appropriate models subcommand.
@@ -42,7 +44,7 @@ class ModelsCLI:
         return self._run_subcommand(cmd, args)
 
     def _run_subcommand(self, cmd: str, args: Any) -> int:
-        handlers = {"remove": self._remove, "inherit": self._inherit, "list": self._list_cli.list, "show": self._show, "create": self._create_cli.create, "validate": self._run_validate, "template": self._template_cli.template, "fields": self._fields_cli.fields, "check": check_models}
+        handlers = {"remove": self._remove, "inherit": self._inherit, "list": self._list_cli.list, "show": self._show, "create": self._create_cli.create, "validate": self._run_validate, "template": self._template_cli.template, "fields": self._fields_cli.fields, "metadata": self._metadata_cli.metadata, "check": check_models}
         if cmd in handlers:
             return handlers[cmd](args)
         raise SystemExit(f"Unknown models command: {cmd}")

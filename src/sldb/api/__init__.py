@@ -27,6 +27,15 @@ from sldb.api.edges.edges_holding import edges_holding
 from sldb.api.model_registry.remove_model import remove_model
 from sldb.api.model_registry.inherit_model import inherit_model
 from sldb.models.structured_doc import StructuredNLDoc
+from sldb.models.notation_models import (
+    GlyphDoc,
+    LinkDoc,
+    NotationDoc,
+    PaletteDoc,
+    SpecDoc,
+    SpecNodeDoc,
+    ViewDoc,
+)
 from sldb.api.edges.unresolved_references import unresolved_references
 from sldb.store.edge_index.unresolved_reference import UnresolvedReference
 from sldb.api.edges.edge_serialization import serialize_edge_node_record, serialize_edge_node_records, serialize_edge_record, serialize_edge_records
@@ -42,6 +51,7 @@ from sldb.api.model_drafts.model_draft import ModelDraft
 from sldb.api.model_drafts.model_source import ModelSource
 from sldb.api.model_drafts.source_location import locate_model_source
 from sldb.api.model_drafts.template_drafts import edit_model_template
+from sldb.api.model_drafts.metadata_drafts import edit_model_metadata
 from sldb.api.model_create.create_model import create_model
 from sldb.api.model_create.field_decl import FieldDecl
 from sldb.api.model_create.model_check import ModelCheck
@@ -116,7 +126,7 @@ __all__ = [
     "store_fingerprint", "create_document", "deep_delete", "deep_get", "deep_set",
     "delete_document", "describe_field", "describe_model", "describe_model_fields",
     "doc_node_id", "document_ast", "edge_node", "edge_nodes_of_type", "edges_from",
-    "edges_to", "edit_model_template", "ensure_list", "extract_document_payload",
+    "edges_to", "edit_model_metadata", "edit_model_template", "ensure_list", "extract_document_payload",
     "field_node_id", "init_relations", "init_store", "journal", "kind", "link_store", "unlink_store",
     "load_edge_index", "leaf_paths", "load_runtime_documents", "migrate_store_hash_names",
     "load_registered_model", "locate_model_source", "model_node_id", "open_store",
@@ -129,4 +139,5 @@ __all__ = [
     "DocRefStatus", "doc_exists", "doc_status", "tracked_documents", "AmbiguousDocument", "indexed_model_bases", "resolve_indexed_document", "split_doc_ref", "store_links",
     "WherePredicateError", "edges_holding", "remove_model", "where_matches", "inherit_model", "is_model_registered", "registered_models",
     "StructuredNLDoc", "UnresolvedReference", "unresolved_references",
+    "GlyphDoc", "LinkDoc", "NotationDoc", "PaletteDoc", "SpecDoc", "SpecNodeDoc", "ViewDoc",
 ]

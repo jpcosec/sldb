@@ -59,6 +59,8 @@ sldb = []
 "sldb.examples.pandoc_cv" = ["*.md"]
 "sldb.assets.skills" = ["*.md"]
 "sldb.examples.reference_bundle" = ["*.md", "*.yaml"]
+"sldb.notations.palettes" = ["*.yml"]
+"sldb.notations.builtin" = ["*.yml"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src", "."]

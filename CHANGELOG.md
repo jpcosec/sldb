@@ -4,6 +4,24 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
 
 ## 0.1.13 — not released yet (no tag, not on PyPI)
 
+- Declaración y edición draft de containment, references, compositions, semantics y authority en modelos (SV04):
+  - `sldb.api.create_model` y `ModelSource` aceptan `containment`, `references`, `compositions`, `semantics`, `authority`; validan que los campos referenciados existan y que las composiciones tengan marcador `⸢render•<name>⸥` en template (o lo generan en `default_template`), emitiendo las asignaciones correspondientes en el código Python generado.
+  - `describe_model` y `ModelDescription` exponen `containment`, `references`, `compositions`, `semantics_map`, `authority`, `template`, `has_draft`, `draft_path`.
+  - `sldb.api.edit_model_metadata` en `sldb.api.model_drafts` edita `__containment__`, `__references__`, `__compositions__`, `__semantics__` y `__authority__` en el `.draft.py` (`.py.temp`) mediante manipulación AST en `metadata_literals.py`, y sincroniza secciones de composiciones en el template.
+  - `validate_template_contract` y `check_and_plan` validan coherencia de referencias/containment/compositions contra campos declarados y template, rechazando errores con `SLDBModelEditError`. `promote_model_draft(..., backfill=True)` re-renderiza documentos y reconstruye índices de modelo, semántico y de aristas.
+  - Expuesto en CLI (`sldb models metadata edit`, `sldb models validate --promote --backfill`, y flags de creación) y HTTP serve (`POST /models/create`, `POST /models/metadata-edit`, `POST /models/promote` con `backfill`).
+  - Documentación de arquitectura en `docs/architecture/model-authoring.md`.
+- Visual vocabulary models, palettes and builtin notations absorbed from spec2viz (SV01):
+  - 7 models in `sldb.models.notation_models` (re-exported in `sldb.models` and `sldb.api`):
+    `SpecDoc`, `SpecNodeDoc`, `NotationDoc`, `GlyphDoc`, `LinkDoc`, `PaletteDoc`, and `ViewDoc`.
+    `ViewDoc` adds optional `params: dict` and `sections: list` for GD25 convergence.
+  - Submodule `sldb.notations` containing palette (`palette.py`), notation (`notation.py`),
+    and styling (`styling.py`) engines, along with builtin `palettes/default.yml` and the 8 builtin
+    notations in `builtin/` (`uml-class`, `statechart`, `component`, `deployment`, `uml-sequence`,
+    `activity`, `component-view-matrix`, `reflection`).
+  - `resolve_model_ref` maps legacy `spec2viz.sldb_models:<Model>` references to
+    `sldb.models.notation_models:<Model>` for transparent backwards compatibility with existing stores.
+  - Architecture documentation in `docs/architecture/notations-and-views.md`.
 - A bare id in a reference field that allows a model also names a document of one of its submodels
   (`depends_on: task-x` with `TaskDoc` allowed names `TaskCodeDoc:task-x`), read from `base_models`
   of the model nodes in the composed index (an inherited model's node takes them from its class, since

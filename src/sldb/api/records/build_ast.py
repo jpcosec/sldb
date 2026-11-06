@@ -25,27 +25,49 @@ def _build_models_ast(store_index, root, pythonpath) -> list[dict[str, Any]]:
 def _process_model_entry(entry, root, pythonpath, models):
     models_index = load_models_index(root / entry.models_index)
     docs_index = load_documents_index(root / models_index.documents_index)
-    fields, problem = _fields_of(entry, pythonpath)
+    fields, meta, problem = _fields_of(entry, root, pythonpath)
     documents = [{"name": doc.name, "path": doc.path, "semantic_tags": list(doc.semantic_tags)} for doc in sorted(docs_index.documents, key=lambda item: item.name)]
-    _append_model_ast(models, entry, models_index, fields, documents)
+    _append_model_ast(models, entry, models_index, fields, documents, meta)
     if problem:
         models[-1].update({"resolved": False, "error": problem})  # only then: a healthy model's shape is describe_model's
 
-def _fields_of(entry, pythonpath) -> tuple[list[dict[str, Any]], str | None]:
+def _fields_of(entry, root, pythonpath) -> tuple[list[dict[str, Any]], dict[str, Any], str | None]:
     """The model's fields, or none and why: one model that does not import (its package is not
     installed here) used to abort the whole store's AST, so `models show` of any other failed."""
     try:
         model_type = resolve_model_ref(entry.model_ref, pythonpath)
     except SLDBModelError as exc:
-        return [], str(exc)
-    return [{"name": fname, "annotation": _annotation_name(f.annotation), "description": f.description or ""} for fname, f in model_type.model_fields.items()], None
+        return [], {}, str(exc)
+    fields = [{"name": fname, "annotation": _annotation_name(f.annotation), "description": f.description or ""} for fname, f in model_type.model_fields.items()]
+    has_draft = False
+    draft_p = None
+    try:
+        from sldb.api.model_drafts.source_location import locate_model_source
+        src = locate_model_source(root / ".sldb", entry.name, pythonpath)
+        if src.draft_path.exists():
+            has_draft = True
+            draft_p = str(src.draft_path)
+    except Exception:
+        pass
+    meta = {
+        "containment": dict(getattr(model_type, "__containment__", {}) or {}),
+        "references": list(getattr(model_type, "__references__", []) or []),
+        "compositions": dict(getattr(model_type, "__compositions__", {}) or {}),
+        "semantics_map": dict(getattr(model_type, "__semantics__", {}) or {}),
+        "authority": str(getattr(model_type, "__authority__", "generated")),
+        "template": str(getattr(model_type, "__template__", "")),
+        "has_draft": has_draft,
+        "draft_path": draft_p,
+    }
+    return fields, meta, None
 
-def _append_model_ast(models, entry, models_index, fields, documents):
+def _append_model_ast(models, entry, models_index, fields, documents, meta):
     models.append({
         "name": entry.name, "model_ref": entry.model_ref, "path": entry.path,
         "version": getattr(models_index, "version", 1), "canonical": getattr(models_index, "canonical", False),
         "family": getattr(models_index, "family", None), "semantics": list(getattr(models_index, "semantics", [])),
         "base_models": list(getattr(models_index, "base_models", [])), "fields": fields, "documents": documents,
+        **meta,
     })
 
 def _add_linked_documents(ast, store_path, pythonpath):

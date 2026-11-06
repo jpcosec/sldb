@@ -68,7 +68,10 @@ def _prepare(location, model_name: str, old_type: type, new_type: type, name: st
     new = _add_new_defaults(new_type, old_type, previous, model_name, name)
     _check_roundtrip(new_type, model_name, name, new)
     rendered = render_model_markdown(new_type, new, location.project_root)
-    return BackfillDoc(name, path, previous, new, rendered, rendered + "\n" != text)
+    comps_changed = getattr(old_type, "__compositions__", {}) != getattr(new_type, "__compositions__", {})
+    tpl_changed = getattr(old_type, "__template__", "") != getattr(new_type, "__template__", "")
+    needs_write = (rendered + "\n" != text) or comps_changed or tpl_changed
+    return BackfillDoc(name, path, previous, new, rendered, needs_write)
 
 
 def _add_new_defaults(new_type: type, old_type: type, payload: dict[str, Any], model_name: str, name: str) -> dict[str, Any]:

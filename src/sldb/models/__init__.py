@@ -1,5 +1,26 @@
 from sldb.models.anchor_state import AnchorState
 from sldb.models.code_anchor_doc import CodeAnchorDoc
 from sldb.models.structured_doc import M, StructuredNLDoc
+from sldb.models.notation_models import (
+    GlyphDoc,
+    LinkDoc,
+    NotationDoc,
+    PaletteDoc,
+    SpecDoc,
+    SpecNodeDoc,
+    ViewDoc,
+)
 
-__all__ = ["M", "StructuredNLDoc", "CodeAnchorDoc", "AnchorState"]
+__all__ = [
+    "M",
+    "StructuredNLDoc",
+    "CodeAnchorDoc",
+    "AnchorState",
+    "SpecDoc",
+    "SpecNodeDoc",
+    "NotationDoc",
+    "GlyphDoc",
+    "LinkDoc",
+    "PaletteDoc",
+    "ViewDoc",
+]
