@@ -9,7 +9,8 @@ def add_find_commands(s: argparse._SubParsersAction) -> None:
         p.add_argument(f, action="store_true", dest="global_scope" if f == "--global" else None)
     p.add_argument("--type", choices=("all", "store", "model", "doc", "section", "field"), default="all")
     p.add_argument("--select", help="Comma-separated projection fields")
-    p.add_argument("--where", help="Filter expression")
+    p.add_argument("--where", help="Predicate (docs/architecture/rules-language.md): has(f), f = \"v\", and/or/not, any(depends_on: ...)")
+    p.add_argument("--explain", action="store_true", help="With --where: add `findings` (node, holds, clause, seen) for every document evaluated")
     _add_common(p)
 
 def _add_common(p):

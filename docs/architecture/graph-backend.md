@@ -4,7 +4,7 @@ Estado (2026-11-05): contrato del nodo GO03 del plan
 `desk/drawer/plans/grafo-operable` (gate G_SEAM). Fija la costura `GraphBackend` sobre
 networkx. Cualquier motor futuro —Kùzu, Neo4j, Datalevin— entra detrás de esta costura; las
 reglas y los comandos no lo ven. La semántica de los predicados vive en
-[`rules-language.md`](rules-language.md); la proyección real llega en GO04 y el evaluador
+[`rules-language.md`](rules-language.md); la proyección llegó en GO04 y el evaluador
 completo en GO05.
 
 ## El protocolo
@@ -23,8 +23,8 @@ analyze(op, **args) -> resultado
   Devuelve `None`.
 - **`eval`** evalúa un predicado sobre un sujeto. El sujeto es un payload (`dict`) o un
   `export_id` (`str`). Si es un `export_id`, se lee la proyección cargada; sin proyección o
-  sin ese id, `eval` levanta `ValueError("sin proyección para <id>")`. En GO03 la proyección
-  real siempre es `None` (la produce GO04), así que los tests pasan el sujeto como payload.
+  sin ese id, `eval` levanta `ValueError("sin proyección para <id>")`. Sin sujeto, evalúa
+  el dominio entero (sección «eval» más abajo).
 - **`analyze`** responde una pregunta de grafo completo con los argumentos que las
   operaciones ya reciben. Hoy son las diez de `sldb.api.graph.analyze`: `path`, `paths`,
   `cycles`, `order`, `layers`, `components`, `islands`, `isolated`, `central` y `similar`;
@@ -37,16 +37,27 @@ operaciones lo usan dentro; no hay accesor público ni fuga del `MultiDiGraph` d
 La implementación actual, `NetworkXBackend`, envuelve `sldb.store.graph.analysis` sin
 cambiar ninguna respuesta.
 
-## eval en GO03
+## eval (GO03, completo desde GO05)
 
-Acepta el subconjunto de GO02 **sin caminos**: `has`, `nonempty`, `in`, `~`, `model <=`,
-comparaciones `= != < <= > >=`, `and`/`or`/`not`, paréntesis y sustitución `{campo}` desde
-el payload del sujeto. Reutiliza `where_lookup` para las rutas de campo,
-`where_subject.fill_braces` para la sustitución y `WherePredicateError` para lo que no
-parsea.
+Evalúa el lenguaje entero de [`rules-language.md`](rules-language.md): booleanos, caminos
+(`campo`, `rel:<tipo>`, `^`, clausura `+`), cuantificadores `any`/`all`/`none`, `count`,
+sustitución `{campo}` desde el sujeto e `incomplete` en el borde de links. El predicado llega
+como texto (se parsea, `WherePredicateError` si no parsea) o ya parseado (`Predicate`, de
+`sldb.store.graph.language`).
 
-Un predicado con camino —`any(...)`, `all(...)`, `none(...)`, `count(...)`, `rel:<tipo>`,
-`^campo`, pasos con `+`— levanta `NotImplementedError` hasta GO05.
+`NetworkXBackend` arma sobre el índice cargado la vista mínima del lenguaje
+(`backend/index_view.py`): los documentos por `export_id`, su payload (la proyección de
+`load`, o la que el shard lleva), su familia (`base_models` de los nodos de modelo,
+transitivamente) y las aristas del índice (`field` y `declared` de `metadata`; `unavailable`
+marca un elemento `incomplete`). El mismo evaluador corre sobre el grafo de los tests
+(`eval_predicate`) y da los mismos findings.
+
+- **Con sujeto** (payload o `export_id`): un finding. Un `export_id` sin proyección cargada
+  sigue siendo `ValueError("sin proyección para <id>")`.
+- **Sin sujeto:** un finding por documento del dominio (`rules-language.md` §6): los de la
+  proyección cargada, o todos los nodos de documento del índice si `load` recibió `None`.
+- Al atravesar un campo `F` del origen cuyo payload trae `F__anchor_state`, cada elemento
+  alcanzado expone esa entrada como `anchor_state` (lista: el elemento `i`; escalar: el valor).
 
 Cada resultado es un finding de la forma fijada en `rules-language.md` §4 y §6:
 
@@ -136,7 +147,10 @@ shard. El hash de cada archivo se recuerda mientras su mtime y su tamaño no cam
 
 `StructuredQuery` filtra sobre la proyección con
 `FacetFilter(facet="payload", conditions=[FieldCondition(field=..., op=..., value=...)])`. Se
-evalúa sobre lo que dice el shard: nunca se re-extrae un documento. Solo los nodos de documento
+evalúa sobre lo que dice el shard: nunca se re-extrae un documento. Desde GO05 cada
+`FieldCondition` (deprecado) se traduce al lenguaje por la tabla de `rules-language.md` §7 y
+lo evalúa el mismo evaluador; por eso `contains` sobre una cadena es subcadena e `is_null` /
+`is_not_null` tratan `""` como ausente. Solo los nodos de documento
 tienen la facet; los demás no casan con un filtro `payload`. Sobre un campo ausente (nulo) solo
 deciden `is_null` e `is_not_null`; sobre una lista, `contains` es pertenencia, `eq` / `ne`
 comparan la lista entera, `gt` / `lt` / `starts_with` dan false, `is_null` false e

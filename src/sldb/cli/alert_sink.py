@@ -2,7 +2,7 @@
 
 `report` prints each finding as a line in text mode (a JSON payload carries them instead),
 writes a `::warning`/`::error` annotation to stderr under GitHub Actions, and keeps every alert
-for the envelope's `warnings` (`sldb.cli.envelope`). `tally` is the closing count.
+and warning for the envelope's `warnings` (`sldb.cli.envelope`). `tally` is the closing count.
 """
 
 from __future__ import annotations
@@ -17,7 +17,7 @@ _KEPT: list[dict] = []
 
 def report(findings: list[Finding], text: bool = True) -> None:
     """Every finding by every route; `text=False` when the command printed them in its JSON."""
-    _KEPT.extend(f.as_dict() for f in findings if f.level == "alert")
+    _KEPT.extend(f.as_dict() for f in findings if f.level != "error")
     for finding in findings:
         if text:
             print(finding.line() + (f"\n    fix     : {finding.fix}" if finding.fix else ""))
@@ -40,6 +40,6 @@ def forget() -> None:
 
 
 def _annotation(finding: Finding) -> str:
-    kind = "warning" if finding.level == "alert" else "error"
+    kind = "error" if finding.level == "error" else "warning"
     message = f"{finding.subject}: {finding.what}".replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
     return f"::{kind} title={finding.code}::{message}"

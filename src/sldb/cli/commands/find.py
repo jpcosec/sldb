@@ -1,27 +1,23 @@
 from __future__ import annotations
 from typing import Any
 from sldb.cli.graph_ops import iter_search_records, search_records, SearchRecord
-from sldb.api.records.record_filters import RecordFilters
+from sldb.api.where import where_records
 from sldb.cli.commands.find_format import FindFormatter
-from sldb.store.query_engine.where_parse import compile_where
+from sldb.store.graph.language.predicate_parser import parse_predicate
 
 class FindCLI:
-    """Unified semantic + physical retrieval."""
+    """Unified semantic + physical retrieval; `--where` is the predicate language (GO05)."""
 
     def run(self, args: Any) -> int:
-        """Run the find command."""
-        if args.where: compile_where(args.where)  # once per query: unparseable predicates raise
-        matched = self._get_matches(args)
+        """Run the find command; `--explain` adds a finding per evaluated document."""
+        if args.where: parse_predicate(args.where)  # once per query: unparseable predicates raise
+        matched, findings = self._get_matches(args), None
         if args.where:
-            matched = self._apply_filters(matched, args)
-        return FindFormatter().format_output(matched, args)
+            matched, findings = where_records(matched, args.where, args.store, args.pythonpath, args.global_scope)
+        return FindFormatter().format_output(matched, args, findings if getattr(args, "explain", False) else None)
 
     def _get_matches(self, args: Any) -> list[SearchRecord]:
         rebuild = getattr(args, "rebuild", False)
         records = iter_search_records(args.store, args.pythonpath, include_linked=args.global_scope, rebuild=rebuild)
         kinds = {args.type} if args.type != "all" else None
         return search_records(records, args.term, search_in=args.search_in, regex=args.regex, fuzzy=args.fuzzy, kinds=kinds)
-
-    def _apply_filters(self, matched: list[SearchRecord], args: Any) -> list[SearchRecord]:
-        filters = RecordFilters(args.pythonpath)
-        return [r for r in matched if filters.matches(r, args.where)]

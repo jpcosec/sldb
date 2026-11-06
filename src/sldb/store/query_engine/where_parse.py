@@ -1,130 +1,40 @@
-"""One grammar for sldb's `--where` predicates: parsed once per query, matched per document.
+"""Deprecated (GO05): the old `--where` grammar, now a shim over the predicate language.
 
-`compile_where` raises `WherePredicateError` when no evaluator understands the predicate,
-so an unparseable expression is a loud error instead of a silent empty result. Predicates
-join with ` and ` (outside literals); there is no `or` and no parentheses.
+`WherePredicateError` stays here: it is the error every parse of the language raises. The
+grammar itself lives in `sldb.store.graph.language` (`parse_predicate`), a superset of the
+old one with the same operators and results (rules-language.md §7). `compile_where` and
+`where_parse` still work and emit `DeprecationWarning`; GO10 retires them.
 """
 
 from __future__ import annotations
 
-import re
+import warnings
 from typing import Any, Callable
 
 from sldb.store.exceptions import SLDBError
-from sldb.store.query_engine.where_literal import LITERAL as _LITERAL
-from sldb.store.query_engine.where_lookup import _ABSENT, _lookup
-from sldb.store.query_engine.where_literal import LITERAL_NONEMPTY as _LITERAL_NONEMPTY
-from sldb.store.query_engine.where_literal import split_outside_literals
-from sldb.store.query_engine.where_literal import unquote as _unquote
 
 Predicate = Callable[[Any, Any, Any], bool]  # (doc, resolve_model_ref, pythonpath) -> bool
+_USE = "use sldb.store.graph.language.parse_predicate / document_matcher (rules-language.md)"
 
 
 class WherePredicateError(ValueError, SLDBError):
-    """A --where predicate that no evaluator can parse."""
+    """A predicate that does not parse."""
 
     def __init__(self, expression: str):
         super().__init__(f"no evaluator understands the predicate: {expression!r}")
 
 
 def compile_where(expression: str) -> Predicate:
-    """Parses one --where predicate, or several joined by ` and ` (all must hold); raises
-    WherePredicateError naming the first part no evaluator parses."""
-    predicates = [_compile_one(part) for part in split_outside_literals(expression.strip(), r"\s+and\s+")]
-    if len(predicates) == 1:
-        return predicates[0]
-    return lambda doc, resolve_model_ref, pythonpath: all(p(doc, resolve_model_ref, pythonpath) for p in predicates)
+    """Deprecated: the document matcher of the predicate language for `expression`."""
+    warnings.warn(f"compile_where is deprecated: {_USE}", DeprecationWarning, stacklevel=2)
+    from sldb.store.graph.language.predicate_documents import document_matcher
+
+    return document_matcher(expression)
 
 
-def _compile_one(expression: str) -> Predicate:
-    text = expression.strip()
-    for pattern, build in _EVALUATORS:
-        m = pattern.fullmatch(text)
-        if m:
-            return build(m)
-    raise WherePredicateError(text)
+def where_parse(expression: str) -> Any:
+    """Deprecated: `parse_predicate(expression)` of the predicate language."""
+    warnings.warn(f"where_parse is deprecated: {_USE}", DeprecationWarning, stacklevel=2)
+    from sldb.store.graph.language.predicate_parser import parse_predicate
 
-
-def _build_has(m: re.Match) -> Predicate:
-    field = m.group(1)
-
-    def check(doc: Any, resolve_model_ref: Any, pythonpath: Any) -> bool:
-        return field in doc.payload and doc.payload[field] not in (None, "")
-
-    return check
-
-
-def _build_nonempty(m: re.Match) -> Predicate:
-    field = m.group(1)
-
-    def check(doc: Any, resolve_model_ref: Any, pythonpath: Any) -> bool:
-        value = _lookup(doc.payload, field)
-        return value is not None and not (isinstance(value, (str, list, dict, tuple, set)) and len(value) == 0)
-
-    return check
-
-
-def _build_contains(m: re.Match) -> Predicate:
-    needle, field = _unquote(m.group(1)), m.group(2)
-
-    def check(doc: Any, resolve_model_ref: Any, pythonpath: Any) -> bool:
-        value = _lookup(doc.payload, field)
-        return needle in value if isinstance(value, (list, str)) else False
-
-    return check
-
-
-def _build_regex(m: re.Match) -> Predicate:
-    field, pattern = m.group(1), _unquote(m.group(2))
-
-    def check(doc: Any, resolve_model_ref: Any, pythonpath: Any) -> bool:
-        target = doc.name if field == "doc" else str(_lookup(doc.payload, field, ""))
-        return re.search(pattern, target) is not None
-
-    return check
-
-
-def _build_model(m: re.Match) -> Predicate:
-    base = m.group(1)
-
-    def check(doc: Any, resolve_model_ref: Any, pythonpath: Any) -> bool:
-        from sldb.store.query_engine.structural import model_in_family
-
-        return model_in_family(doc.model_type, base)
-
-    return check
-
-
-def _build_compare(m: re.Match) -> Predicate:
-    field, op, raw = m.group(1), m.group(2), m.group(3)
-    expected: Any = _unquote(raw) if raw.startswith('"') else float(raw)
-
-    def check(doc: Any, resolve_model_ref: Any, pythonpath: Any) -> bool:
-        if raw.startswith('"') and _lookup(doc.payload, field, _ABSENT) is _ABSENT:
-            return False  # an absent field matches neither "=" nor "!=" (string literals)
-        return _apply_op(_lookup(doc.payload, field), op, expected)
-
-    return check
-
-
-def _apply_op(value: Any, op: str, expected: Any) -> bool:
-    if op == "=": return value == expected
-    if op == "!=": return value != expected
-    if op == ">=": return value >= expected
-    if op == "<=": return value <= expected
-    return False
-
-
-# same order the old evaluator tried them: has, in, regex, model family, comparison;
-# nonempty(f) is has(f) that also rejects [] and {}
-_EVALUATORS = [
-    (re.compile(r"has\(([^)]+)\)"), _build_has),
-    (re.compile(r"nonempty\(([^)]+)\)"), _build_nonempty),
-    (re.compile(_LITERAL_NONEMPTY + r"\s+in\s+([A-Za-z_][\w.]*)"), _build_contains),
-    (re.compile(r'([A-Za-z_][\w.]*)\s*~\s*' + _LITERAL_NONEMPTY), _build_regex),
-    (re.compile(r"model\s*<=\s*([A-Za-z_][\w.]*)"), _build_model),
-    (
-        re.compile(r'([A-Za-z_][\w.]*)\s*(=|!=|>=|<=)\s*(' + _LITERAL + r'|-?\d+(?:\.\d+)?)'),
-        _build_compare,
-    ),
-]
+    return parse_predicate(expression)

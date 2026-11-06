@@ -1,10 +1,10 @@
-"""--where over one document: sldb's predicate grammar, parsed once and matched per document."""
+"""--where over one document: the predicate language (GO05), parsed once and matched per document."""
 
 from __future__ import annotations
 
 from typing import Any
 
-from sldb.store.query_engine.where_parse import compile_where
+from sldb.store.graph.language.predicate_documents import document_matcher
 
 
 def _where_matches(
@@ -22,4 +22,4 @@ class DocumentFilter:
         cls, doc: Any, expression: str, resolve_model_ref: Any, pythonpath: Any
     ) -> bool:
         """Matches one document; a predicate no evaluator parses raises WherePredicateError."""
-        return compile_where(expression)(doc, resolve_model_ref, pythonpath)
+        return document_matcher(expression)(doc, resolve_model_ref, pythonpath)

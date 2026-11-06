@@ -9,11 +9,9 @@ or holds a non-scalar, makes the condition not hold, as an absent field does.
 from __future__ import annotations
 
 import re
-from types import SimpleNamespace
 from typing import Any
 
 from sldb.store.query_engine.where_literal import LITERAL, scalar_literal
-from sldb.store.query_engine.where_parse import compile_where
 
 _BRACE = re.compile(f"({LITERAL})|\\{{([A-Za-z_]\\w*)\\}}")
 
@@ -38,11 +36,10 @@ def fill_braces(expression: str, subject: dict[str, Any]) -> tuple[str, bool]:
 def payload_matches(expression: str, payload: dict[str, Any], subject: dict[str, Any] | None = None, name: str = "") -> bool:
     """Whether `expression` holds on `payload`; `{field}` reads `subject` (default: `payload`).
 
-    `doc ~ "..."` reads `name`; `model <= X` never holds, a payload carries no model class.
-    An empty expression always holds. Raises WherePredicateError when it does not parse.
+    The predicate language (GO05) evaluates it: `doc ~ "..."` reads `name`; `model <= X` never
+    holds, a payload carries no model class. An empty expression always holds. Raises
+    WherePredicateError when it does not parse.
     """
-    if not expression.strip():
-        return True
-    filled, complete = fill_braces(expression, payload if subject is None else subject)
-    predicate = compile_where(filled)
-    return complete and predicate(SimpleNamespace(payload=payload, name=name, model_type=None), None, None)
+    from sldb.store.graph.language.predicate_documents import payload_holds
+
+    return payload_holds(expression, payload, subject, name)

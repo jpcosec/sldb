@@ -1,0 +1,87 @@
+[
+  {
+    "old": "has(status)",
+    "matches": [
+      "closed",
+      "float",
+      "list_valued",
+      "numeric_text",
+      "open"
+    ]
+  },
+  {
+    "old": "nonempty(tags)",
+    "matches": [
+      "float",
+      "list_valued",
+      "numeric_text",
+      "open"
+    ]
+  },
+  {
+    "old": "\"x\" in tags",
+    "matches": [
+      "list_valued",
+      "open"
+    ]
+  },
+  {
+    "old": "title ~ \"dra\"",
+    "matches": [
+      "list_valued",
+      "open"
+    ]
+  },
+  {
+    "old": "model <= BaseDoc",
+    "matches": []
+  },
+  {
+    "old": "status = \"open\"",
+    "matches": [
+      "open"
+    ]
+  },
+  {
+    "old": "priority = 2",
+    "matches": [
+      "open"
+    ]
+  },
+  {
+    "old": "status != \"open\"",
+    "matches": [
+      "closed",
+      "float",
+      "list_valued",
+      "null",
+      "numeric_text"
+    ]
+  },
+  {
+    "old": "priority != 2",
+    "matches": [
+      "absent",
+      "closed",
+      "float",
+      "list_valued",
+      "null",
+      "numeric_text"
+    ]
+  },
+  {
+    "old": "priority <= 3",
+    "matches": [
+      "float",
+      "numeric_text",
+      "open"
+    ]
+  },
+  {
+    "old": "priority >= 3",
+    "matches": [
+      "closed",
+      "numeric_text"
+    ]
+  }
+]

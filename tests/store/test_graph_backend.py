@@ -137,7 +137,7 @@ def test_the_repository_composed_index_loads_into_the_backend():
     assert backend.analyze("components", relations=None, node_types=None)
 
 
-# --- eval: the GO02 subset, no paths ----------------------------------------------------
+# --- eval: the GO02 language (the GO03 subset; paths since GO05) ------------------------
 
 def test_eval_returns_one_finding_with_the_go02_shape():
     from sldb.store.edge_index.edge_index import EdgeIndex
@@ -154,14 +154,12 @@ def test_eval_returns_one_finding_with_the_go02_shape():
     assert finding["seen"]["status"] == "open"
 
 
-def test_eval_with_a_path_is_not_implemented_yet():
-    import pytest
-
+def test_eval_with_a_path_answers_since_go05():
     from sldb.store.graph.backend import NetworkXBackend
 
     backend = NetworkXBackend()
-    with pytest.raises(NotImplementedError):
-        backend.eval('any(depends_on: status = "open")', {"id": "Task:a"})
+    findings = backend.eval('any(depends_on: status = "open")', {"id": "Task:a"})
+    assert [(f["node"], f["holds"]) for f in findings] == [("Task:a", "false")]
 
 
 def test_eval_by_export_id_without_projection_says_so():

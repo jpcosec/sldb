@@ -7,15 +7,15 @@ from typing import Any, Iterable
 
 from sldb.api.edges.edge_reading import edges_from
 from sldb.store.models import EdgeRecord
-from sldb.store.query_engine.where_subject import payload_matches
+from sldb.store.graph.language.predicate_documents import payload_holds
 
 
 def edges_holding(store: str | Path | None, export_id: str, subject: dict[str, Any], relation: str | None = None, include_linked: bool = True, exclude_tags: Iterable[str] = ()) -> list[EdgeRecord]:
     """The edges leaving `export_id` whose condition holds on `subject`.
 
-    Each edge's condition (its own, else its relation type's) is a `--where` predicate read on
-    the subject's fields, `{field}` filled from the subject too; an edge without a condition
-    always holds. To test a condition on another document (an edge's target, say) with the
+    Each edge's condition (its own, else its relation type's) is a predicate of the language
+    (rules-language.md, the one `--where` reads) evaluated on the subject's fields, `{field}`
+    filled from the subject too; an edge without a condition always holds. To test a condition on another document (an edge's target, say) with the
     subject in braces, use `where_matches(condition, that_payload, subject)`.
 
     Args:
@@ -28,4 +28,4 @@ def edges_holding(store: str | Path | None, export_id: str, subject: dict[str, A
         WherePredicateError: An edge's condition does not parse.
     """
     edges = edges_from(store, export_id, relation, include_linked, exclude_tags)
-    return [e for e in edges if payload_matches(e.metadata.get("condition") or "", subject)]
+    return [e for e in edges if payload_holds(e.metadata.get("condition") or "", subject)]

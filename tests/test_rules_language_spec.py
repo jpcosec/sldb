@@ -18,8 +18,6 @@ import pytest
 
 from sldb.store.query_engine.where_parse import WherePredicateError
 
-EXPECTED_XFAIL = 52
-
 
 # --- provisional spec adapter (see rules-language.md §8, H1-H4) -------------------------
 
@@ -90,117 +88,98 @@ def _edge(source: str, type_: str, target: str, field: str | None = None, **extr
 
 # --- (a) grammar ------------------------------------------------------------------------
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_precedence_not_over_and_over_or():
     graph = _graph({"Task:a": _doc(note="x")})
     assert _holds('has(status) and status = "open" or has(note)', graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_not_binds_tighter_than_and():
     graph = _graph({"Task:a": _doc(note="x")})
     assert _holds("not has(status) and has(note)", graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_parentheses_group_expression():
     graph = _graph({"Task:b": _doc()})
     assert _holds("not (has(a) or has(b))", graph, "Task:b") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_left_associativity_with_parentheses():
     graph = _graph({"Task:c": _doc(a=1, c=2), "Task:d": _doc(b=1)})
     assert _holds("(has(a) or has(b)) and has(c)", graph, "Task:c") == "true"
     assert _holds("(has(a) or has(b)) and has(c)", graph, "Task:d") == "false"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_comparison_equal():
     graph = _graph({"Task:a": _doc(status="open")})
     assert _holds('status = "open"', graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_comparison_not_equal():
     graph = _graph({"Task:a": _doc(status="closed")})
     assert _holds('status != "open"', graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_comparison_less_than():
     graph = _graph({"Task:a": _doc(priority=2)})
     assert _holds("priority < 3", graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_comparison_less_or_equal():
     graph = _graph({"Task:a": _doc(priority=3)})
     assert _holds("priority <= 3", graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_comparison_greater_than():
     graph = _graph({"Task:a": _doc(priority=4)})
     assert _holds("priority > 3", graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_comparison_greater_or_equal():
     graph = _graph({"Task:a": _doc(priority=3)})
     assert _holds("priority >= 3", graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_in_list_membership():
     graph = _graph({"Task:a": _doc(statuses=["draft", "open"])})
     assert _holds('"draft" in statuses', graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_in_substring():
     graph = _graph({"Task:a": _doc(title="draft spec")})
     assert _holds('"raf" in title', graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_in_other_type_is_false():
     graph = _graph({"Task:a": _doc(priority=5)})
     assert _holds('"x" in priority', graph, "Task:a") == "false"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_scalar_in_literal_list():
     graph = _graph({"Task:a": _doc(status="draft")})
     assert _holds('status in ["open", "draft"]', graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_regex_search_semantics():
     graph = _graph({"Task:a": _doc(title="alpha beta")})
     assert _holds('title ~ "beta"', graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_invalid_regex_raises_where_predicate_error():
     with pytest.raises(WherePredicateError):
         _parse('title ~ "("')
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_model_less_or_equal_family():
-    graph = _graph({"Task:a": _doc("ChildDoc")})
+    graph = _graph({"Task:a": {**_doc("ChildDoc"), "base_models": ["BaseDoc"]}})
     assert _holds("model <= BaseDoc", graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_has_present_and_nonempty_value():
     graph = _graph({"Task:a": _doc(status="open"), "Task:b": _doc(status="")})
     assert _holds("has(status)", graph, "Task:a") == "true"
     assert _holds("has(status)", graph, "Task:b") == "false"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_nonempty_rejects_empty_collections():
     graph = _graph({"Task:a": _doc(tags=["x"]), "Task:b": _doc(tags=[])})
     assert _holds("nonempty(tags)", graph, "Task:a") == "true"
@@ -209,7 +188,6 @@ def test_nonempty_rejects_empty_collections():
 
 # --- (b) paths, quantifiers, count and substitution -------------------------------------
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_any_quantifier():
     graph = _graph(
         {"Task:a": _doc(), "Task:b": _doc(status="open"), "Task:c": _doc(status="closed")},
@@ -219,7 +197,6 @@ def test_any_quantifier():
     assert _holds('any(depends_on: status = "open")', graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_all_quantifier():
     graph = _graph(
         {"Task:a": _doc(), "Task:b": _doc(status="closed"), "Task:c": _doc(status="closed")},
@@ -229,7 +206,6 @@ def test_all_quantifier():
     assert _holds('all(depends_on: status = "closed")', graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_none_quantifier():
     graph = _graph(
         {"Task:a": _doc(), "Task:b": _doc(status="closed"), "Task:c": _doc(status="closed")},
@@ -239,7 +215,6 @@ def test_none_quantifier():
     assert _holds('none(depends_on: status = "open")', graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_count_in_comparison():
     graph = _graph(
         {"Task:a": _doc(), "Task:b": _doc(status="closed")},
@@ -248,7 +223,6 @@ def test_count_in_comparison():
     assert _holds('count(depends_on: status = "open") = 0', graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_count_omits_missing_document_reference():
     graph = _graph(
         {"Task:a": _doc()},
@@ -258,7 +232,6 @@ def test_count_omits_missing_document_reference():
     assert _holds("all(depends_on: status = \"closed\")", graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_count_with_incomplete_element_is_incomplete():
     graph = _graph(
         {"Task:a": _doc()},
@@ -267,31 +240,26 @@ def test_count_with_incomplete_element_is_incomplete():
     assert _holds("count(rel:external_link: status = \"open\") = 0", graph, "Task:a") == "incomplete"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_substitution_from_subject_payload():
     graph = _graph({"Task:a": _doc(capacity=6, party_size=4)})
     assert _holds("capacity >= {party_size}", graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_substitution_missing_field_makes_false():
     graph = _graph({"Task:a": _doc(capacity=6)})
     assert _holds("capacity >= {party_size}", graph, "Task:a") == "false"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_substitution_non_scalar_makes_false():
     graph = _graph({"Task:a": _doc(capacity=6, party_size=[4])})
     assert _holds("capacity >= {party_size}", graph, "Task:a") == "false"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_substitution_not_applied_inside_quoted_literal():
     graph = _graph({"Task:a": _doc(label="{party_size}", party_size=4)})
     assert _holds('label = "{party_size}"', graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_field_step_follows_references():
     graph = _graph(
         {"Task:a": _doc(), "Task:b": _doc(status="open")},
@@ -300,14 +268,12 @@ def test_field_step_follows_references():
     assert _holds('any(depends_on: status = "open")', graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_undeclared_reference_field_is_empty_set():
     graph = _graph({"Task:a": _doc(), "Task:b": _doc(status="open")})
     assert _holds('any(no_declarado: status = "open")', graph, "Task:a") == "false"
     assert _holds('all(no_declarado: status = "open")', graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_rel_type_step():
     graph = _graph(
         {"Task:a": _doc(), "Task:b": _doc(status="active")},
@@ -316,7 +282,6 @@ def test_rel_type_step():
     assert _holds('any(rel:task_activates: status = "active")', graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_inverse_field_step():
     graph = _graph(
         {"Task:a": _doc(), "Review:r": _doc(verdict="accepted")},
@@ -325,7 +290,6 @@ def test_inverse_field_step():
     assert _holds('any(^subject: verdict = "accepted")', graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_transitive_closure_field():
     graph = _graph(
         {"Task:a": _doc(), "Task:b": _doc(status="closed"), "Task:c": _doc(status="closed")},
@@ -335,7 +299,6 @@ def test_transitive_closure_field():
     assert _holds('all(depends_on+: status = "closed")', graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_transitive_closure_cycle_terminates():
     graph = _graph(
         {"Task:a": _doc(status="closed"), "Task:b": _doc(status="closed"), "Task:c": _doc(status="closed")},
@@ -346,7 +309,6 @@ def test_transitive_closure_cycle_terminates():
     assert _holds("count(depends_on+: has(status)) = 2", graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_transitive_closure_rel_type():
     graph = _graph(
         {"Task:a": _doc(), "Task:b": _doc(), "Task:c": _doc(status="done")},
@@ -356,7 +318,6 @@ def test_transitive_closure_rel_type():
     assert _holds('any(rel:task_activates+: status = "done")', graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_transitive_closure_inverse():
     graph = _graph(
         {"Task:a": _doc(), "Review:r1": _doc(), "Review:r2": _doc(verdict="accepted")},
@@ -366,7 +327,6 @@ def test_transitive_closure_inverse():
     assert _holds('any(^subject+: verdict = "accepted")', graph, "Task:a") == "true"
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_linked_store_unavailable_is_incomplete():
     graph = _graph(
         {"Task:a": _doc()},
@@ -377,7 +337,6 @@ def test_linked_store_unavailable_is_incomplete():
 
 # --- (d) explanation and (f) eval signature ---------------------------------------------
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_finding_shape_and_seen_for_false_clause():
     graph = _graph({"Task:a": _doc(status="closed")})
     finding = _one('status = "open"', graph, "Task:a")
@@ -387,7 +346,6 @@ def test_finding_shape_and_seen_for_false_clause():
     assert _value(finding, "seen") == {"status": "closed"}
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_seen_and_first_false_branch():
     graph = _graph({"Task:a": _doc(status="closed", priority=5)})
     finding = _one('status = "open" and priority > 3', graph, "Task:a")
@@ -395,7 +353,6 @@ def test_seen_and_first_false_branch():
     assert set(_value(finding, "seen")) == {"status"}
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_seen_or_first_true_branch():
     graph = _graph({"Task:a": _doc(status="open", priority=5)})
     finding = _one('status = "open" or priority > 3', graph, "Task:a")
@@ -403,7 +360,6 @@ def test_seen_or_first_true_branch():
     assert set(_value(finding, "seen")) == {"status"}
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_seen_not_negated_leaf():
     graph = _graph({"Task:a": _doc(status="open")})
     finding = _one("not has(status)", graph, "Task:a")
@@ -411,7 +367,6 @@ def test_seen_not_negated_leaf():
     assert set(_value(finding, "seen")) == {"status"}
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_seen_quantifier_witness():
     graph = _graph(
         {"Task:a": _doc(), "Task:b": _doc(status="closed"), "Task:c": _doc(status="open")},
@@ -423,13 +378,11 @@ def test_seen_quantifier_witness():
     assert _value(finding, "seen") == {"status": "open"}
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_eval_with_subject_returns_one_finding():
     graph = _graph({"Task:a": _doc(status="open"), "Task:b": _doc(status="closed")})
     assert len(_findings("has(status)", graph, "Task:a")) == 1
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_eval_without_subject_returns_all_domain_documents():
     graph = _graph(
         {"Task:a": _doc(status="open"), "Task:b": _doc(status="closed"), "Task:c": _doc()}
@@ -438,21 +391,19 @@ def test_eval_without_subject_returns_all_domain_documents():
     assert {_value(f, "node") for f in findings} == {"Task:a", "Task:b", "Task:c"}
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_top_level_model_conjunction_restricts_domain():
     graph = _graph(
-        {"Task:a": _doc("ChildDoc", status="open"),
-         "Task:b": _doc("ChildDoc", status="closed"),
+        {"Task:a": {**_doc("ChildDoc", status="open"), "base_models": ["BaseDoc"]},
+         "Task:b": {**_doc("ChildDoc", status="closed"), "base_models": ["BaseDoc"]},
          "Task:c": _doc("OtherDoc", status="open")}
     )
     findings = _findings('model <= BaseDoc and status = "open"', graph)
     assert {_value(f, "node") for f in findings} == {"Task:a", "Task:b"}
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_nested_model_does_not_restrict_domain():
     graph = _graph(
-        {"Task:a": _doc("ChildDoc", status="open"),
+        {"Task:a": {**_doc("ChildDoc", status="open"), "base_models": ["BaseDoc"]},
          "Task:b": _doc("OtherDoc", status="closed"),
          "Task:c": _doc("OtherDoc")}
     )
@@ -460,12 +411,11 @@ def test_nested_model_does_not_restrict_domain():
     assert {_value(f, "node") for f in findings} == {"Task:a", "Task:b", "Task:c"}
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_two_top_level_model_constraints_intersect_domain():
     graph = _graph(
-        {"Task:a": _doc("OnlyOne", status="open"),
-         "Task:b": _doc("OnlyTwo", status="open"),
-         "Task:c": _doc("Both", status="open")}
+        {"Task:a": {**_doc("OnlyOne", status="open"), "base_models": ["BaseOne"]},
+         "Task:b": {**_doc("OnlyTwo", status="open"), "base_models": ["BaseTwo"]},
+         "Task:c": {**_doc("Both", status="open"), "base_models": ["BaseOne", "BaseTwo"]}}
     )
     findings = _findings("model <= BaseOne and model <= BaseTwo", graph)
     assert {_value(f, "node") for f in findings} == {"Task:c"}
@@ -489,7 +439,6 @@ class _Utf8Contract:
     __contract__ = ["á", "z", "A"]
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_contract_absent_uses_all_payload_fields():
     field_hashes = {"title": "t", "goal": "g"}
     assert _contract_hash(_NoContract, field_hashes) == _expected_contract(
@@ -497,13 +446,11 @@ def test_contract_absent_uses_all_payload_fields():
     )
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_contract_empty_list_is_load_error():
     with pytest.raises(ValueError):
         _contract_hash(_EmptyContract, {"title": "t"})
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_contract_absent_field_contributes_empty_hash():
     field_hashes = {"title": "t"}
     assert _contract_hash(_TwoFieldContract, field_hashes) == _expected_contract(
@@ -511,7 +458,6 @@ def test_contract_absent_field_contributes_empty_hash():
     )
 
 
-@pytest.mark.xfail(strict=True, reason="GO05: lenguaje de reglas no implementado")
 def test_contract_order_is_utf8_bytes():
     field_hashes = {"A": "a", "z": "z", "á": "aacute"}
     assert _contract_hash(_Utf8Contract, field_hashes) == _expected_contract(

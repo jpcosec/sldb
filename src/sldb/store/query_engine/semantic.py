@@ -8,7 +8,7 @@ from sldb.store.query_engine.semantic_utils import (
     _match_semantic_pattern,
     tag_scope,
 )
-from sldb.store.query_engine.where_parse import compile_where
+from sldb.store.graph.language.predicate_documents import document_matcher
 
 
 def list_semantic(
@@ -76,7 +76,7 @@ class SemanticEngine:
         docs, _ = _local_semantic_docs(store_path, resolve_model_ref, pythonpath)
         semantic_pattern = address.removeprefix("se.")
         matching = [doc for doc in docs if cls._in_scope(store_path, semantic_pattern, doc)]
-        predicate = compile_where(where)  # once per query; unparseable predicates raise
+        predicate = document_matcher(where)  # once per query; unparseable predicates raise
         return sorted(f"st.{{{doc.model_name}}}.{doc.name}" for doc in matching if predicate(doc, resolve_model_ref, pythonpath))
 
     @classmethod

@@ -1,9 +1,9 @@
 """`sldb find` as a library call: match records and serialize them.
 
 The matching pipeline — ``iter_search_records``, ``search_records``,
-``RecordFilters`` and the record serializer — all live in ``sldb.api.records`` and are
+``where_records`` (``sldb.api.where``) and the record serializer — are
 composed here in the exact order ``FindCLI.run`` composes them, so a serve response is
-the same shape as `sldb find --format json`. ``compile_where`` runs first, so an
+the same shape as `sldb find --format json`. ``parse_predicate`` runs first, so an
 unparseable ``--where`` raises ``WherePredicateError`` (the parser's real message)
 before any matching happens.
 """
@@ -14,13 +14,13 @@ from pathlib import Path
 from typing import Any
 
 from sldb.api.records import (
-    RecordFilters,
     SearchRecord,
     iter_search_records,
     search_records,
     select_keys,
     serialize_records,
 )
+from sldb.api.where import where_records
 
 
 def search(
@@ -37,14 +37,14 @@ def search(
     include_linked: bool = False,
 ) -> dict[str, Any]:
     """Match records exactly as `sldb find` matches, serialized as its JSON results."""
-    from sldb.store.query_engine.where_parse import compile_where
+    from sldb.store.graph.language.predicate_parser import parse_predicate
 
     if where:
-        compile_where(where)
+        parse_predicate(where)
     records = _records(store_path, pythonpath, include_linked)
     matched = _match(records, term, search_in, regex, fuzzy, kinds)
     if where:
-        matched = _filtered(matched, where, pythonpath)
+        matched = where_records(matched, where, store_path, pythonpath, include_linked)[0]
     return _serialize(matched, select, limit)
 
 
@@ -54,11 +54,6 @@ def _records(store_path: Path, pythonpath: str | None, include_linked: bool) -> 
 
 def _match(records: list[SearchRecord], term: str, search_in: str, regex: bool, fuzzy: bool, kinds: set[str] | None) -> list[SearchRecord]:
     return search_records(records, term, search_in, regex, fuzzy, kinds)
-
-
-def _filtered(matched: list[SearchRecord], where: str, pythonpath: str | None) -> list[SearchRecord]:
-    filters = RecordFilters(pythonpath)
-    return [record for record in matched if filters.matches(record, where)]
 
 
 def _serialize(matched: list[SearchRecord], select: str | None, limit: int | None) -> dict[str, Any]:

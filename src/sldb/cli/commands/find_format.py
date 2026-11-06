@@ -7,15 +7,15 @@ from sldb.api.records import SearchRecord, select_keys, serialize_record, serial
 class FindFormatter:
     """Formats search results. Serialization itself lives in `sldb.api.records`."""
 
-    def format_output(self, records: list[SearchRecord], args: Any) -> int:
-        """Format and print the matching records."""
+    def format_output(self, records: list[SearchRecord], args: Any, findings: list[dict[str, Any]] | None = None) -> int:
+        """Format and print the matching records; `findings` (from `--explain`) go alongside."""
         payload = serialize_records(records)
         payload = select_keys(payload, args.select) if args.select else payload
+        extra = {} if findings is None else {"findings": findings}
+        if args.format == "text": self._print_text(payload, findings or [])
+        elif args.format == "yaml": print(yaml.safe_dump({"results": payload, **extra}, sort_keys=False, allow_unicode=True))
+        else: print(json.dumps({"results": payload, **extra}, indent=2, default=str))
 
-        if args.format == "text": self._print_text(payload)
-        elif args.format == "yaml": self._print_yaml(payload)
-        else: self._print_json(payload)
-            
         return 0 if payload else 1
 
     def _serialize(self, record: SearchRecord) -> dict[str, Any]:
@@ -24,16 +24,11 @@ class FindFormatter:
     def _apply_select(self, payload: list[dict[str, Any]], select: str) -> list[dict[str, Any]]:
         return select_keys(payload, select)
 
-    def _print_text(self, payload: list[dict[str, Any]]) -> None:
+    def _print_text(self, payload: list[dict[str, Any]], findings: list[dict[str, Any]]) -> None:
         for item in payload:
             print(self._format_line(item))
-
-    def _print_yaml(self, payload: list[dict[str, Any]]) -> None:
-        out = yaml.safe_dump({"results": payload}, sort_keys=False, allow_unicode=True)
-        print(out)
-
-    def _print_json(self, payload: list[dict[str, Any]]) -> None:
-        print(json.dumps({"results": payload}, indent=2))
+        for finding in findings:
+            print(f"finding | {finding['node']} | holds={finding['holds']} | {finding['clause']} | seen={json.dumps(finding['seen'], default=str)}")
 
     def _format_line(self, item: dict[str, Any]) -> str:
         parts = [item.get("kind", "?")]

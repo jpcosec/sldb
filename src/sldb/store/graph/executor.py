@@ -6,20 +6,20 @@ from collections import deque
 
 from sldb.store.graph.edge_filter import filtered_edges
 from sldb.store.exceptions import SLDBGraphArgumentError
-from sldb.store.graph.facet_match import matches_filters
-from sldb.store.graph.payload_match import unprojected_fields
+from sldb.store.graph.payload_match import filters_hold, unprojected_fields
 from sldb.store.graph.node_view import GraphNode
 
 
 def execute_query(index, query) -> list[GraphNode]:
-    """Run a StructuredQuery against an edge index; returns matching nodes. A `payload` filter
-    reads the projection the shards hold (nothing is re-extracted); one naming a field no model
-    projects is rejected (SLDBGraphArgumentError naming the field)."""
+    """Run a StructuredQuery against an edge index; returns matching nodes. Every condition is
+    evaluated by the predicate language (`payload_match`). A `payload` filter reads the
+    projection the shards hold (nothing is re-extracted); one naming a field no model projects
+    is rejected (SLDBGraphArgumentError naming the field)."""
     _check_payload_fields(index, query.filters)
     matches: list[GraphNode] = []
     for node_id in candidate_ids(index, query.scope):
         node = index.nodes[node_id]
-        if matches_filters(node, query.filters):
+        if filters_hold(node, query.filters):
             matches.append(_node_view(index, node, query.relations))
     return matches
 

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import warnings
 from pathlib import Path
 from typing import Any
 
@@ -17,7 +18,9 @@ from sldb.api.graph import (
     snapshot_load,
     snapshot_save,
 )
+from sldb.cli import alert_sink
 from sldb.cli.commands.graph_analysis import GraphAnalysisCLI
+from sldb.core.finding import Finding
 from sldb.store.graph.language import StructuredQuery
 
 
@@ -51,7 +54,10 @@ class GraphCLI:
         return 0
 
     def _query(self, args: Any) -> int:
-        query = StructuredQuery.model_validate(json.loads(Path(args.query_file).read_text(encoding="utf-8")))
+        with warnings.catch_warnings():  # the deprecation travels in the envelope's warnings
+            warnings.simplefilter("ignore", DeprecationWarning)
+            query = StructuredQuery.model_validate(json.loads(Path(args.query_file).read_text(encoding="utf-8")))
+        _warn_field_conditions(query)
         nodes = execute_query(args.store, query, not args.local, args.exclude_tag)
         print(json.dumps([n.model_dump() for n in nodes], indent=2, ensure_ascii=False))
         return 0
@@ -81,3 +87,13 @@ class GraphCLI:
         save_graph(ingest_sldb(payload), args.output)
         print(f"Saved graph snapshot to {args.output}")
         return 0
+
+
+def _warn_field_conditions(query: StructuredQuery) -> None:
+    """A query with `FieldCondition` filters reports the deprecation (GO05 p1, p12): one
+    `warning` in the envelope naming the predicate that replaces them; the output is unchanged."""
+    predicates = [c.predicate().text for f in query.filters for c in f.conditions]
+    if not predicates:
+        return
+    what = "FieldCondition is deprecated; write the predicate instead: " + " and ".join(predicates)
+    alert_sink.report([Finding("warning", "deprecated/field-condition", "graph query", what, "docs/architecture/rules-language.md")], text=False)

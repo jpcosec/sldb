@@ -1,11 +1,11 @@
 # Lenguaje de reglas de sldb
 
-Estado (2026-11-04): contrato de semántica del nodo GO02 del plan
-`desk/drawer/plans/grafo-operable`. Fija la gramática, los caminos, la semántica
-trivaluada, el formato de explicación, el hash de contrato y la firma de evaluación del
-lenguaje único de predicados de sldb. El evaluador lo implementa GO05 sobre el backend de
-GO03 y la proyección de GO04; hasta entonces los ejemplos de este documento viven como
-tests de especificación marcados `xfail` en `tests/test_rules_language_spec.py`.
+Estado (2026-11-06): contrato de semántica del nodo GO02 del plan
+`desk/drawer/plans/grafo-operable`, implementado por GO05. Fija la gramática, los caminos,
+la semántica trivaluada, el formato de explicación, el hash de contrato y la firma de
+evaluación del lenguaje único de predicados de sldb. Los ejemplos de este documento son los
+tests de especificación de `tests/test_rules_language_spec.py` (verdes desde GO05); la
+implementación, la API y la CLI se describen en la sección 9.
 
 Este documento no describe la API de Python ni la CLI de las reglas (`RuleDoc`,
 `rules check`, `rules explain`): eso es GO06. Aquí se fija qué significa un predicado y qué
@@ -349,12 +349,17 @@ puede ajustarlo sin cambiar la semántica de las secciones anteriores.
   sujeto=None)` y `contract_hash(modelo, field_hashes)`. El contrato fija `eval(predicado
   parseado, sujeto opcional)`, no la ruta del módulo ni la forma de pasar el grafo.
 - **H2. Grafo de los tests.** Los tests representan el store como un diccionario
-  `{"nodes": {id: {"model": ..., "payload": ...}}, "edges": [{"source", "type", "target",
-  "field"?}]}`. El objeto real es el índice compuesto / `GraphBackend` de GO03.
+  `{"nodes": {id: {"model": ..., "payload": ..., "base_models"?: [...]}}, "edges": [{"source",
+  "type", "target", "field"?, "unavailable"?}]}`. La familia de `model <= X` sale de
+  `base_models` del nodo (GO05 p9). El objeto real es el índice compuesto / `GraphBackend`
+  de GO03: allí la familia sale de `base_models` de los nodos de modelo, transitivamente.
 - **H3. Sujeto de `eval`.** Los tests pasan como sujeto el identificador `Model:name` del
   nodo. GO03 admite además el payload y el `export_id` con proyección.
 - **H4. `incomplete` por store no disponible.** Los tests marcan la arista con
-  `"unavailable": True`; el índice real resolverá esa condición al abrir el store enlazado.
+  `"unavailable": True`; en el índice real la marca es `metadata.unavailable` de la arista.
+  Hoy `compose_edge_index` descarta las aristas hacia nodos que no existen, así que una
+  referencia a un store enlazado que no se pudo abrir se lee como documento inexistente
+  hasta que el índice la marque.
 - **H5. Separación de pasos.** El contrato no fija cómo se concatenan varios pasos de un
   camino. Se propone `.` (`depends_on.rel:tipo`), sin afectar los ejemplos de un solo paso.
 - **H6. `^` sobre relaciones.** Se interpreta que `^` también invierte un paso `rel:<tipo>`,
@@ -370,3 +375,47 @@ puede ajustarlo sin cambiar la semántica de las secciones anteriores.
   pero no el nombre exacto de la clave; GO06 lo fija al definir `rules explain`.
 - **H11. Error por `__contract__` vacío.** Los tests esperan `ValueError`; el contrato solo
   dice «error al cargar el modelo».
+- **H12. Separador y `rel` en caminos (GO05).** Un nombre con puntos dentro de un camino son
+  varios pasos de campo (`depends_on.subject`); `rel:<tipo>` puede ir en cualquier posición
+  (`depends_on.rel:task_activates`). Un campo de referencia llamado `rel` seguido de `:` se
+  lee como paso de relación. `^` invierte solo el primer paso del grupo; `+` aplica al último.
+- **H13. `doc ~ "re"`.** Como el `~` de `where_parse`, `doc ~` lee el nombre del documento
+  (no un campo `doc`).
+- **H14. Ausencia en comparaciones.** Un campo ausente no cumple ninguna comparación, `in`
+  ni `~`, con literal de cadena o de número. `where_parse` dejaba cumplir `f != <número>`
+  sobre un campo ausente y levantaba `TypeError` al ordenar `None` o tipos mezclados; el
+  lenguaje devuelve `false` (tabla de equivalencia, golden de la fila 7).
+- **H15. Sustitución.** `{campo}` lee el valor de primer nivel del sujeto, también dentro de un
+  cuantificador; si alguno falta o no es escalar (cadena o número, no booleano), el predicado
+  entero es `false` con `clause` = el predicado y `seen` = los valores leídos.
+- **H16. Cláusula de `not` y de los cuantificadores.** `clause` es el texto del `not` o del
+  cuantificador; `seen` sigue la sección 4. Un `any` falso, un `all` verdadero y un `count`
+  no tienen testigo: `seen` es `{}`.
+
+## 9. Implementación (GO05)
+
+- **Lenguaje:** `src/sldb/store/graph/language/`: tokens, parser (`parse_predicate(texto) ->
+  Predicate`, el tipo público parseado: `text` y `root`), átomos y términos, caminos
+  (`predicate_paths`, `predicate_reach`), evaluador con Kleene fuerte (`predicate_eval`,
+  `predicate_explain`) y la vista mínima de grafo (`predicate_view`: por nodo `model`,
+  `base_models`, `payload`; aristas salientes y entrantes con `field`, `type` y
+  `unavailable`). `sldb.store.query_engine.rules` es la fachada de los tests de spec
+  (`parse_predicate`, `eval_predicate`, `contract_hash`).
+- **API única:** `GraphBackend.eval` (sobre la vista del índice compuesto,
+  `backend/index_view.py`), `sldb.api.where.where_matches` (un payload suelto),
+  `sldb.api.where.where_findings` (un store, sin re-extraer: lee la proyección del índice),
+  `sldb.api.where.where_records` (`sldb find --where`), `edges_holding` (la condición de cada
+  arista) y `StructuredQuery` (cada `FieldCondition` se traduce por la tabla de la sección 7).
+- **CLI:** `sldb find ... --where <expr>` usa el lenguaje: un documento cumple solo si `holds`
+  es `true`; un camino recorre el índice del store. `--explain` agrega a `data` la clave
+  `findings`, un finding por documento evaluado (cumpla o no). Los registros de campo y de
+  sección conservan su lectura propia de `--where`. `sldb --envelope graph query` con filtros
+  `FieldCondition` lleva en `warnings` un `{level: "warning", code:
+  "deprecated/field-condition", subject: "graph query", what: <el predicado de reemplazo>}`.
+- **Shims (GO10 los retira):** `where_parse.compile_where` y `where_parse.where_parse`
+  delegan en el lenguaje y emiten `DeprecationWarning`; construir un `FieldCondition` también.
+  `--where` nunca avisa.
+- **Equivalencia:** `tests/fixtures/where_goldens/` guarda el resultado de cada fila de la
+  sección 7 con el código anterior a GO05; `tests/store/test_predicate_language.py` compara.
+  Diferencias declaradas: fila 7 con número sobre campo ausente (H14), fila 16 (`in` también
+  es subcadena), filas 18 y 19 (`has` rechaza `""`).

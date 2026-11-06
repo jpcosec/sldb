@@ -1,0 +1,93 @@
+[
+  {
+    "old": {
+      "field": "status",
+      "op": "eq",
+      "value": "open"
+    },
+    "matches": [
+      "open"
+    ]
+  },
+  {
+    "old": {
+      "field": "status",
+      "op": "ne",
+      "value": "open"
+    },
+    "matches": [
+      "closed",
+      "float",
+      "list_valued",
+      "numeric_text"
+    ]
+  },
+  {
+    "old": {
+      "field": "priority",
+      "op": "gt",
+      "value": 2
+    },
+    "matches": [
+      "closed",
+      "float",
+      "numeric_text"
+    ]
+  },
+  {
+    "old": {
+      "field": "priority",
+      "op": "lt",
+      "value": 3
+    },
+    "matches": [
+      "float",
+      "open"
+    ]
+  },
+  {
+    "old": {
+      "field": "tags",
+      "op": "contains",
+      "value": "x"
+    },
+    "matches": [
+      "open"
+    ]
+  },
+  {
+    "old": {
+      "field": "title",
+      "op": "starts_with",
+      "value": "dra"
+    },
+    "matches": [
+      "open"
+    ]
+  },
+  {
+    "old": {
+      "field": "note",
+      "op": "is_null",
+      "value": null
+    },
+    "matches": [
+      "absent",
+      "null"
+    ]
+  },
+  {
+    "old": {
+      "field": "note",
+      "op": "is_not_null",
+      "value": null
+    },
+    "matches": [
+      "closed",
+      "float",
+      "list_valued",
+      "numeric_text",
+      "open"
+    ]
+  }
+]
