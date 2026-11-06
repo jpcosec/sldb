@@ -1,13 +1,20 @@
 ---
 id: task-go04-payload-proyectado-al-grafo-y-staleness-correcta
-status: draft
+status: ready_for_testing
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-closeout
+history:
+- task_activates
+- task_hands_to_closeout
+references:
+- pytest tests/store/test_payload_projection.py
+- tests/store/test_payload_projection.py
+- d7eefdeba6a672df02ab259069c716e941a4d6ba
+- desk/atoms/atom-la-capa-runtime-edges-se-queda-es-donde-vive-la-semántica-del-grafo-que-el-snapshot-no-tiene.md
+- desk/drawer/tasks/task-cambiar-indexed-de-un-modelo-no-marca-stale-la-proyeccion-del-payload.md
 depends_on:
 - task-go03-costura-graphbackend-sobre-networkx
 pills: []
@@ -69,6 +76,8 @@ p7 (modelo no cargable): si la clase del modelo no se puede cargar, el nodo no l
 p8 (medicion): tamano del indice = bytes de todos los archivos bajo edges_shards_root(.sldb) (du -sb) en MB (10^6) con dos decimales; shards = numero de archivos .yaml alli; antes = main 804f1ad4 tras stores build, despues = la rama tras stores build.
 p9 (dependencia): depende de GO03 (task-go03-costura-graphbackend-sobre-networkx, integrada en main 804f1ad4); G_SEAM lo marca el supervisor y el dispatch espera a que este satisfecho.
 
+HIPOTESIS DEL EJECUTOR (regla 6, GO04 integrado en d7eefdeb): H1 cambiar __indexed__ no marca stale (la firma fija {fields, references, containment, compositions}); va como drawer task-cambiar-indexed-de-un-modelo-no-marca-stale-la-proyeccion-del-payload. H2 la facet payload solo existe en nodos de documento; ningun otro nodo casa con un filtro payload, ni con is_null. H3 un campo nulo no llega a la proyeccion (exclude_none): is_null da true sobre campo ausente en un documento; proyectable ausente = vacio vale para operadores de valor. H4 comparaciones no ordenables sobre payload dan false, no TypeError. H5 escalar para __indexed__ = tipos de forma JSON escalar (Enum, date, datetime, time, UUID, Literal de escalares, Optional de esos); Any/object no valen en __indexed__ pero si se proyectan sin __indexed__ segun el valor; list sin parametro no es proyectable. H6 campo no proyectado = ausente de projected_fields de todo modelo del indice (EdgeIndex.payload_fields), error SLDBGraphArgumentError; query_snapshot no lleva proyeccion. H7 la edicion externa se detecta en cada lectura por stat+hash de archivos cambiados; la firma se compara solo cuando el llamador pasa model_type_of (load_edge_index, rebuild_edges). H8 un cambio de firma lo reconstruye edges rebuild o stores build, no una escritura normal; el cambio de version si en la siguiente escritura. H9 cada documento de un modelo cargable se extrae al reconstruir su shard (una vez, functools.cache). DESVIOS DE files: store/edge_index/{payload_types,payload_projection,live_stale,federation}.py, store/graph/payload_match.py, store/models/model_edges.py (projected_fields), store/exceptions.py, api/model_registry/model_reference.py, api/edges/{edge_reading,rebuild_edges}.py.
+
 ## Implementation Path
 
 _Outline the expected implementation route or affected surface._
@@ -84,6 +93,8 @@ _List the checks required before this task can close._
 - consulta status = closed con cero llamadas a Validator.extract (contadas)
 - tamano del indice en MB y numero de shards de este repo antes y despues registrados en Validation y CHANGELOG
 - suite completa sin rojos (una vez, al final del nodo)
+- MEDICION (regla 8, 2026-11-06, metodo p8: sldb stores build, du -sb de .sldb_cache/edges en MB 10^6, shards = archivos .yaml): antes main 804f1ad4 = 47.64 MB en 3116 shards; despues wt/go04 (sobre c1e50419) = 58.54 MB en 3277 shards. No es comparacion limpia: c1e50419 rastrea mas documentos que 804f1ad4. La cifra de partida de alcance.md (73 MB, 2874 shards) esta desactualizada.
+- RESULTADO (coordinador 1, 2026-11-06): tests dirigidos 964 passed sobre d7eefdeb (test_payload_projection, StructuredQuery, edge index, stale, api edges/graph, notations, store_seams, clean_code_rules); seleccion -k del worker 369 passed; suite completa pendiente del supervisor.
 
 ## Done When
 
