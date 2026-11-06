@@ -34,6 +34,7 @@ files:
 - tests/test_serve.py
 - docs/architecture/project-graph.md
 - CHANGELOG.md
+- src/sldb/api/edges/project_graph/document_surface.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
@@ -99,6 +100,8 @@ q12 (vida del memo): caché por proceso, a nivel de módulo, con clave la ruta r
 q13 (cargar): "cargar" es from_mapping, que es lo que usa también la carga de store.yaml; los dos caminos fallan igual (q8). Un callable solo puede llegar por un dict de Python pasado a from_mapping.
 q14 (edges): --from y --to son mutuamente excluyentes y uno es obligatorio (grupo excluyente requerido de argparse: sin ninguno o con los dos, error de uso, exit 2). En HTTP, GET /project-graph/edges con ninguno o con los dos es 400.
 q15 (closed_document): manda q5; el Goal describe el estado final (closed: como única forma declarable) y el argumento Python deprecated es transitorio hasta CC33.
+PRECISIONES DE EJECUCIÓN (coordinador, 2026-11-06):
+q16 (closed en la superficie): closed: str | None (predicado del lenguaje de sldb, default None = nunca cerrada) es un campo opcional de DocumentSurface; se agrega src/sldb/api/edges/project_graph/document_surface.py a files. No hay mapa kind->predicado en ProjectGraphConfig.
 
 ## Validation
 
