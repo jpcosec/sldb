@@ -56,6 +56,14 @@ PRINCIPIO DEL DUENO (2026-11-05): invariantes de UN documento = validadores pyda
 
 HEREDADO: (h1) el hash de contrato es contract_hash(modelo, field_hashes) de src/sldb/store/graph/language/contract_hash.py (GO02 seccion 5, GO05 H12). (h2) El alias anchor_state ya existe en el lenguaje (GO05 p10): al atravesar el campo F lee F__anchor_state del payload del documento origen (lista alineada para list[str]); GO07 solo produce esa entrada. (h3) En el codigo actual Provenance.from_ es list[str] (alias from), no un escalar como dice el contrato: cada elemento que empieza por doc: es un ancla independiente; los que no (code:...) no se tocan. (h4) Los valores intact/changed/lost reutilizan el vocabulario de AnchorState (src/sldb/models/anchor_state.py) de las anclas de codigo; changed y lost son alertas.
 
+PRECISIONES (preflight de GO07, 2026-11-06):
+p1 (from: es lista): rige el codigo: Provenance.from_ sigue siendo list[str] (alias from); no hay migracion. Cada elemento se valida y trata por separado; donde el contrato dice "un from:" se lee "un elemento de from:".
+p2 (que se rechaza): en from:, un elemento que no empieza por doc: (code:..., otros) se acepta como hoy y no se toca; un elemento que empieza por doc: debe tener la forma doc:Model:name[@sha256:<64 hex>] y si no la tiene (incluido @sha256: vacio o malformado) es error de validacion. En un campo __doc_anchors__, todo valor no vacio/null debe tener esa forma; cualquier otro texto es error.
+p3 (Finding): check_doc_anchors devuelve sldb.core.finding.Finding (level, code, subject, what, fix, document) con level "alert". Codes: anchors/doc_changed y anchors/doc_lost para campos __doc_anchors__; anchors/provenance_changed y anchors/provenance_lost para elementos de from:. subject = Model:name del documento que contiene el ancla; what nombra el campo (o from), el destino y el estado; fix = ""; document = ruta del contenedor relativa a la raiz. Un ancla intact no emite Finding.
+p4 (from: sin aristas): solo los campos __doc_anchors__ generan aristas references; from: no genera aristas (su estado lo reporta anchors check).
+p5 (destino creado despues): un ancla guardada sin hash es lost mientras no tenga hash, aunque el destino se cree despues; la siguiente escritura del documento contenedor la pinnea. No hay reescritura automatica ni otro estado.
+p6 (listas): en un campo list[str], cada elemento no vacio genera su propia arista references; <campo>__anchor_state es una lista alineada por indice con el valor del campo; un elemento vacio o null no genera arista y su posicion en __anchor_state es null.
+
 ## Implementation Path
 
 _Outline the expected implementation route or affected surface._

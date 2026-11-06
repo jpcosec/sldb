@@ -1,0 +1,9 @@
+{
+  "key": "task-go07-anclas-a-documentos-con-hash-de-contrato/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "8e7d4ff02bc33265b6842976814308d2e3cea8dbfe1771ba7dfcbf2420cbd482",
+  "output_sha256": "c771d444f77060646849f9a2abef7e689bfaf319cdd11f8e7edbe3a2536a9483",
+  "start": "2026-11-06T20:19:17.167869+00:00",
+  "end": "2026-11-06T20:19:34.679666+00:00"
+}

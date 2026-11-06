@@ -1,7 +1,7 @@
 name: task-go07-anclas-a-documentos-con-hash-de-contrato
 path: desk/tasks/task-go07-anclas-a-documentos-con-hash-de-contrato.md
-source_hash: 6d385acc04a7e99aedbbea7cc8a14aa825cdc15ce536d94b15ddc03c23d46619
-content_hash: 90e8548181aa9afdd3ff5c1668035ef2ee7edb5d59c035690a89689775e1ecd4
+source_hash: 3333401007861396801b775d743fa1eefde3885931c53b98d5381fdc16a714dc
+content_hash: ccf43568f85b589835204ef39860a3c1abd2e310eb938be7a6d50700f74be9a7
 field_hashes:
   title: dded58a4bd40be5c44b2c522752fe22cf83951e1520d302b4f69efccb49f8d27
   id: c8f31d610bfda84572a42b48f94f51b0f0deed13c5f6d2ddceea587ef05e0eef
@@ -12,7 +12,7 @@ field_hashes:
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 1d4e6ce976f445a7423f4ea3ff13e30190957721b18f0ba18a9873dda6410e8b
   goal: 109afb9ae21d3fd58373bfacca2404f0cdc27de12916a22fae1a803752432101
-  scope: a2a8d9d1b4a47f42b981ff6e1b3d66bfbdb718947f1062f150dc5de887a53011
+  scope: a9091801385ecd3d8d4f1defff31d224e2655741a72aaddb8e9a7f8e1d6e7a7b
   references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
