@@ -23,7 +23,8 @@ def build_model_edges(m_idx: ModelsIndex, model_type: Any | None) -> ModelEdges:
     """
     mid = model_node_id(m_idx.name)
     tags = sorted(set(m_idx.semantics))
-    nodes = [_model_node(m_idx, mid, tags)] + tag_nodes(tags)
+    bases = _bases(m_idx, model_type)
+    nodes = [_model_node(m_idx, mid, tags, bases)] + tag_nodes(tags)
     edges = tagged_as(mid, tags)
     if model_type is not None:
         nodes += [_field_node(m_idx.name, fname, finfo) for fname, finfo in model_type.model_fields.items()]
@@ -32,8 +33,18 @@ def build_model_edges(m_idx: ModelsIndex, model_type: Any | None) -> ModelEdges:
     return ModelEdges(model_name=m_idx.name, nodes=nodes, edges=edges)
 
 
-def _model_node(m_idx: ModelsIndex, mid: str, tags: list[str]) -> EdgeNodeRecord:
-    semantics = {"name": m_idx.name, "model_ref": m_idx.model_ref, "path": m_idx.path, "version": m_idx.version, "canonical": m_idx.canonical, "family": m_idx.family, "semantic_tags": tags, "base_models": sorted(set(m_idx.base_models))}
+def _bases(m_idx: ModelsIndex, model_type: Any | None) -> list[str]:
+    """The index's base models; an inherited model's index was written without them, so the
+    imported class says them then."""
+    if m_idx.base_models or model_type is None:
+        return sorted(set(m_idx.base_models))
+    from sldb.api.model_registry.model_lineage import model_base_names
+
+    return sorted(set(model_base_names(model_type)))
+
+
+def _model_node(m_idx: ModelsIndex, mid: str, tags: list[str], bases: list[str]) -> EdgeNodeRecord:
+    semantics = {"name": m_idx.name, "model_ref": m_idx.model_ref, "path": m_idx.path, "version": m_idx.version, "canonical": m_idx.canonical, "family": m_idx.family, "semantic_tags": tags, "base_models": bases}
     return EdgeNodeRecord(id=mid, node_type="sldb_model", semantics=semantics)
 
 

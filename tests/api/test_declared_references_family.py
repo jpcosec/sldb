@@ -87,3 +87,26 @@ def test_two_submodels_with_that_name_are_ambiguous_and_no_edge(world: World) ->
     assert world.about("l1", "twin") == []
     reasons = [u.reason for u in api.unresolved_references(world.store) if u.target == "twin"]
     assert reasons == ["ambiguous"]
+
+
+def test_inherited_models_resolve_through_the_bases_of_their_classes(tmp_path: Path) -> None:
+    """A repo inherits the models from the store that owns them (as desks inherit deskops'):
+    its local model indexes keep no `base_models`, and the reference still names the submodel."""
+    owner, local = tmp_path / "owner", tmp_path / "repo"
+    owner.mkdir(), local.mkdir()
+    (owner / f"{MODULE}.py").write_text(MODELS, encoding="utf-8")
+    sys.path.insert(0, str(owner))
+    try:
+        owner_sp, local_sp = api.init_store(owner).store_path, api.init_store(local).store_path
+        for model in ("Note", "Memo", "Linked"):
+            api.add_model(owner_sp, f"{MODULE}:{model}", str(owner))
+        api.link_store(local_sp, owner_sp, "owner")
+        for model in ("Note", "Memo", "Linked"):
+            api.inherit_model(local_sp, f"owner:{model}")
+        api.create_document(local_sp, "Memo", local / "m.md", {"title": "m1"}, "m1")
+        api.create_document(local_sp, "Linked", local / "l.md", {"title": "l1", "about": "m1"}, "l1")
+        api.rebuild_edges(local_sp)
+        assert [e.target for e in api.edges_from(local_sp, "Linked:l1", "references")] == ["sldb://document/Memo:m1"]
+    finally:
+        sys.path.remove(str(owner))
+        sys.modules.pop(MODULE, None)
