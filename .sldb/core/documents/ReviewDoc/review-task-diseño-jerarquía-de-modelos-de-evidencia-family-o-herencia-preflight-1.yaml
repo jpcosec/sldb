@@ -1,0 +1,30 @@
+name: review-task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia-preflight-1
+path: desk/reviews/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia/preflight-1.md
+source_hash: 8fbb9a35acde819d176a7f5ad37e5aeadd6aea597c66e36ca9878c9ee1596575
+content_hash: 31b6f6b6f54b20504fb6a46492161aad1cd774d1a7e444d32da0ee4f1e37dd89
+field_hashes:
+  id: b9cc6ec80d6cc633aa201615c0c7f557da828b2599a6982e9ae68140912e13ed
+  title: a236eedf5b32b1c51a91c73dbd94da0e92ad90b3bb4e1a1744b75eb614dbb6c5
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  subject: 5fb9ba391e4c2314b273f8fd499e978f5fd6823d0558a34f33a1321536835e2f
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 11e45b2f63e33807d50443466f5dc1cf1978966a577ed07f318f06eef5937012
+  input_sha256: ce53721e16ccd2b32575437445c83edf0ba6faf2225e53c0db04aafc1d893456
+  output_sha256: cff95f2b89b3232cd128a75ff948f10000776ae2c931da1bee11cd3a1495d254
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: b1cb1d1180c16cbc94840511ad0b78ad5e0e718aeb7efa9a5ab53d5400e19229
+  created_at: ef269c5263c7ed67a000ce7ada085b944eac370c8eeefc94de51606aa823e75d
+  disposed_at: 49ead0540fee1eed54492b804bb00b21e3c9fae203a6897edf3e088b8d5c2052
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 3383dc9be9c97c75643f5edacd4a7d0260a379837f64b50c7f7dd26fef6e3686
+  disposition: 890f28e64d81608f00f6382a2740b6e70f944208645afbded7b68d48ba28fe9e
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance: null

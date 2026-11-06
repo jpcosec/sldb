@@ -1,7 +1,7 @@
 name: task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia
 path: desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
-source_hash: 40b79ab9f3d19b3455cce2d17838c195b0fc18e0bc1aa72a938683fee631a916
-content_hash: 0c411a358ff77d26f1e9cff9a186e33b32c4b7cb0c831112d876d885a43103de
+source_hash: 302a5db83e1c86b5e5f518f06f6bada945a32aea09a1c202edd863307d24b7e3
+content_hash: dcb7e74b3725f57a1b02e80a9cc342a985b04a63ba26ecb70e2ca06972a94b3a
 field_hashes:
   title: d3adefcedf9e8d4744e429cdf382e2bd86a19e46e582f830a3279c93dd2e1e9e
   id: 04eced991074a0b6180a71d993d4fe188e5f253711bd01659bdedb15af94d4d4
@@ -12,7 +12,7 @@ field_hashes:
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: cb52f0607493d5153a152d1443b40bdd6089e299d6aa56019a2d8dc9c79711ca
   goal: 0cc2642f40f95ba60a002060e4a38463a408ff206a676d7dfb9c5c6944f04ee8
-  scope: cfac23758443a8cd9aa9b66790bba643113766dba7ea3b23cfff03ff413a54cf
+  scope: 9cc498cde453427b066b808b0c78a64bb4bc0cb8631cf61112746233f5d784d8
   references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
