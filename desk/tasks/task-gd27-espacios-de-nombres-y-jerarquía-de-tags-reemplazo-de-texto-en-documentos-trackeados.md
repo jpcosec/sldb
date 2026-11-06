@@ -32,6 +32,11 @@ files:
 - docs/architecture/tags.md
 - docs/architecture/transactions.md
 - CHANGELOG.md
+- src/sldb/api/rules/builtin_tag_rules.py
+- src/sldb/api/rules/rules_on_write.py
+- src/sldb/api/rules/rules_check.py
+- src/sldb/api/rules/rules_on_check.py
+- src/sldb/api/rules/rules_explain.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
@@ -82,7 +87,8 @@ REGLAS COMUNES (alcance.md):
 PRECISIONES DE PROMOCIÓN (2026-11-06):
 q1 (gates): G_WRITE_API está satisfied (fe36893f) y GD24 cerrado (88f19ac8): sldb.api.transaction existe y replace_text la usa.
 q2 (base): GO08 está cerrado en main (556408da): existen las reglas on_write (src/sldb/api/rules/rules_on_write.py, RuleDoc con moment on_write) que save_document_payload evalúa antes de escribir.
-q3 (mecanismo de validación de tags, ABIERTO hasta el despacho): el contrato (anterior a GO08 y al principio del dueño) dice 'se registra como validador del store'; el principio del dueño dice que una invariante que cruza documentos va como RuleDoc. anchored_by cruza documentos. El coordinador fija el mecanismo antes de despachar (precisión posterior); el ejecutor no arranca la parte (1) sin ella.
+q3 (mecanismo de validación de tags, DECIDIDO por el coordinador de proyecto 2026-11-06, opción B): tag_namespaces sigue siendo dato de store.yaml (StoreDeclaration); su chequeo es una familia de reglas incorporada, no una RuleDoc de usuario, que corre dentro de la evaluación de reglas de GO08 en los tres momentos: on_write (check_on_write: un error rechaza la escritura con SLDBRuleViolationError y no se escribe nada), on_check (stores check) y sldb rules check. Condiciones: (a) rules check y rules explain muestran sus hallazgos con la misma forma que los de una RuleDoc (Finding con node, clause y seen; la regla se identifica con un id estable, p. ej. builtin:tag_namespace:<name>); (b) no se edita src/sldb/api/documents/payload_save_steps.py; (c) la familia vive en un módulo hermano nuevo, src/sldb/api/rules/builtin_tag_rules.py, y se engancha en rules_on_write.py (incluido el corte temprano de has_rules: un store sin RuleDocs pero con tag_namespaces también se chequea), rules_check.py, rules_on_check.py y rules_explain.py, agregados a files; (d) sin tag_namespaces en store.yaml nada cambia (las salidas existentes de rules check, explain y stores check son iguales). Coordinación: api/rules es área de grafo-operable (GO08 cerrado; GO10 en curso con where_parse/FieldCondition): el coordinador avisa a w1:p4 antes de despachar y el ejecutor rebasea sobre origin/main antes de entregar.
+HIPÓTESIS PARA EL DUEÑO (q3): no es RuleDoc de usuario (opción C) porque el lenguaje de reglas de GO05 no tiene un predicado de prefijo ancla (para cada prefijo con punto de un tag, existe un documento de un modelo dado cuyo campo es ese prefijo); agregarlo tocaría GO05. Si el dueño lo quiere como RuleDoc, el camino es ese predicado y la familia incorporada se reemplaza por RuleDocs declaradas.
 q4 (files): la lista es la mejor previsión al promover; un archivo autorizado que no se use se reporta en la entrega y el coordinador lo poda del TaskDoc; uno nuevo se pide antes.
 
 ## Validation
