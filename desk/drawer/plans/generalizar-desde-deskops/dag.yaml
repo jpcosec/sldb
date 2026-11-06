@@ -39,10 +39,10 @@ gates:
     evidence: sldb graph project nodes|edges|missing y GET /project-graph/* responden desde una configuración project_graph en store.yaml; ningún callable en la configuración
   G_WRITE_API:
     title: Transacción y referencias entrantes en sldb.api
-    state: pending
+    state: satisfied
     produced_by: GD24
     resolver: cierre de GD24 (GD22 y GD27 la consumen)
-    evidence: sldb.api.transaction revierte archivos, entradas y shards ante excepción; /save delega en apply_batch; toda ruta de escritura rechaza un payload que el model_validator del modelo rechaza (G4)
+    evidence: 'sldb 0cbd307e (squash de wt/gd24) y closeout 88f19ac8: sldb.api.transaction revierte archivos, entradas y shards ante excepción (tests/api/test_transaction.py); /save delega en apply_batch; toda ruta de escritura rechaza un payload que el model_validator del modelo rechaza (G4, tests/api/test_write_paths_validate.py); coordinador de proyecto, 2026-11-06'
 external_references:
   grafo_operable:
     repo: sldb
