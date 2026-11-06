@@ -58,6 +58,12 @@ p3 (null): un {campo} dentro de un valor de sets que resuelve a ausente, null o 
 p4 (serializacion): {campo} solo se sustituye dentro de valores string de sets y el resultado sigue siendo string: el escalar se inserta como true/false para booleanos, el numero tal cual (str de int o float, sin notacion de Python como True o 1.0e+00 salvo que sea su forma YAML), y un string sin comillas ni escape. Ejemplo: sets {closed: "{done}"} con done=True da closed = "true".
 p5 (compatibilidad): los tests existentes de edges_holding, RelationDoc y EdgeRecord pasan sin cambios; si alguno falla es senal de que cambio una salida existente (contra p1) y se corrige el codigo, no el test.
 
+PRECISIONES (cold-bundle de GO09, 2026-11-06):
+p6 (modulos): edge_effects.py contiene la resolucion: effects_of(attributes, subject) -> effects resueltos, o None cuando un {campo} no resuelve (la arista no se cumple); edges_holding la llama por cada arista cuya condicion se cumple. apply_effects.py contiene apply_effects (p2). Si clean_code obliga a partirlos, se parten y se reporta.
+p7 (serializacion): EdgeRecord.effects es opcional con default None; cuando es None no aparece en model_dump ni en ninguna salida. Un test lo comprueba (model_dump de un EdgeRecord sin effects no tiene la clave effects) y los tests existentes que serializan aristas siguen iguales (p5). El mecanismo de exclusion lo elige el ejecutor.
+p8 (listas): la sustitucion {campo} alcanza tambien a cada string dentro de una lista de escalares en sets, elemento a elemento, con la misma regla de p3/p4.
+p9 (fixture de aceptacion): store temporal creado en el test, siguiendo el patron de los tests existentes de edges_holding (tests/api/test_graph_native_lifecycle.py): un modelo de sujeto con al menos status (str) y un booleano, tres documentos de estado y tres RelationDoc de transicion entre ellos con condition y attributes (una con sets que sustituye el booleano, una sin attributes, una con una clave extra).
+
 ## Implementation Path
 
 _Outline the expected implementation route or affected surface._
