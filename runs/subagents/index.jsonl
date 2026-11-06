@@ -29,3 +29,4 @@
 {"task_id": "task-congelar-journal-autoridad-arbol", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
 {"task_id": "task-go02-semantica-gramatica-y-firma-de-evaluacion-del-lenguaje-de-reglas", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
 {"task_id": "task-go03-costura-graphbackend-sobre-networkx", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
+{"task_id": "task-go04-payload-proyectado-al-grafo-y-staleness-correcta", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}

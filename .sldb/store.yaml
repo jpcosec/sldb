@@ -350,14 +350,10 @@ include:
   - desk/tasks/task-gd23-selectores-de-documento-id-prefijo-glob-modelo-where-como-api-de-sldb.md
   - desk/tasks/task-gd24-transacción-multi-documento-en-sldb-api-y-save-atómico-absorbe-doc-io-doctransaction.md
   - desk/tasks/task-gd26-scaffold-de-store-desde-carpetas-y-semillas-declaradas.md
-  - desk/tasks/task-go04-payload-proyectado-al-grafo-y-staleness-correcta.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
   - desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
-- model: BoardDoc
-  paths:
-  - desk/tasks/Board.md
 - model: ReviewDoc
   paths:
   - path: desk/reviews/task-gd23/preflight-1.md
@@ -366,5 +362,8 @@ include:
     name: review-task-gd24-preflight-1
   - path: desk/reviews/task-gd26/preflight-1.md
     name: review-task-gd26-preflight-1
+- model: BoardDoc
+  paths:
+  - desk/tasks/Board.md
 graph_backend: networkx
 policy: {}

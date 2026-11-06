@@ -7,7 +7,6 @@ scope: sldb-local-desk
 tasks:
 - desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
 - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
-- desk/tasks/task-go04-payload-proyectado-al-grafo-y-staleness-correcta.md
 - desk/tasks/task-sv01-modelos-de-vocabulario-visual-paletas-y-notaciones-builtin-en-sldb.md
 - desk/tasks/task-sv02-resolvedor-de-vistas-y-notaciones-en-sldb-api-cli-y-sldb-serve.md
 - desk/tasks/task-sv03-transclusion-de-campos-y-segmentos-ricos-de-diagramas-y-vistas-en-document-segments.md
@@ -61,7 +60,6 @@ _Generated from the task references above._
 
 - Diseño: set bootstrap de modelos tras la convergencia átomo/field [draft] - Un documento de decisión en docs/ (SpecDoc o PlanDoc trackeado) que evalúe la propuesta de siete modelos, diga qué se adopta, qué no y por qué, con ejemplos de cada modelo sobre documentos reales del store.
 - Diseño: jerarquía de modelos de evidencia (__family__ o herencia) [draft] - Un documento de decisión en docs/ que compare __family__ vs herencia de clases para los modelos de evidencia, con la recomendación y sus consecuencias para deskops (RunDoc, materializaciones, closeout_evidence).
-- GO04: Payload proyectado al grafo y staleness correcta [draft] - Cada nodo de documento del indice de aristas lleva la facet payload (escalares y listas de escalares, o __indexed__), field_hashes, source_hash y contract_signature; EDGE_INDEX_VERSION 5; stale por source_hash o firma de contrato; StructuredQuery filtra sobre la facet payload sin re-extraer; ninguna consulta existente cambia de resultado.
 - SV01: Modelos de vocabulario visual, paletas y notaciones builtin en sldb [draft] - Los siete modelos de vocabulario visual y proyeccion (SpecDoc, SpecNodeDoc, NotationDoc, GlyphDoc, LinkDoc, PaletteDoc, ViewDoc) viven en sldb.models.notation_models (reexportados en sldb.models y sldb.api); palette.py, notation.py y styling.py junto con default.yml y las 8 notaciones builtin viven en sldb.notations; resolve_model_ref traduce spec2viz.sldb_models:<Model> a sldb.models.notation_models:<Model>.
 - SV02: Resolvedor de vistas y notaciones en sldb.api, CLI y sldb serve [draft] - resolve_view, resolve_documents, evaluate_projection_view, sync_notation y sync_palette en sldb.api.notations (reexportados en sldb.api); subcomando CLI sldb notations (list, sync, view, resolve) con envelope JSON; rutas en sldb serve (GET /notations, GET /notations/view, POST /notations/resolve, GET /views/projection, GET|POST /views/projection/evaluate y POST /views/projection/save); docs/architecture/notations-and-views.md y CHANGELOG.
 - SV03: Transclusion de campos y segmentos ricos de diagramas y vistas en /document/segments [draft] - CompositionSpec.ref == "field" resuelve campos de otros documentos del store mediante un FieldRefResolver inyectado (con SourceRef.field en cada CompositionPiece); FieldSegment y CompositionPiece con trait diagram o view adjuntan la vista ya resuelta (projection desde resolve_view / evaluate_projection_view) y con trait table adjuntan {columns, rows} estructurados en /document/segments.
