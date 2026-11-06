@@ -1,0 +1,21 @@
+name: materialization-gd26-store-test-stores-build
+path: desk/materializations/materialization-gd26-store-test-stores-build.md
+source_hash: 963b506ae2353402e09307b8e246a3d367900a799c0a5dc168cc9ee7ebd34959
+content_hash: b01d6ef07af22e9496d4124f2570328635dcb04e34cb7933a9ddf70481dca799
+field_hashes:
+  id: d412fa8f4ef3e087c6bb488d0597d399244a76e8ce29809eb6001cbcc5d486f0
+  title: 6afdbe357bdf809f36daff54e7b43c885355def2c83fa4d55d8616e3f771c534
+  source_atoms: d8ab108da7b0955a2bc8d6f73c251f6d49dd3e22235efa2686ece5dd64fcd4ba
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 225a20407486766e255802662a95d29c7d7441229d990c3e06882eddbe40eb64
+  intent: 89a3bc5ebeb2b399480adb6734365ae8cee372d729ee86eb3857b34613830668
+  validation: 46ba8fa00f696ec18e1e10e30b5051940235c1696b08966cc29f91be39d6eed9
+  tags: 9a17b2d5727a3b248eb8378d26ab03d03f60548d14960caa4cb2e36c6fefb0f4
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:scaffold
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

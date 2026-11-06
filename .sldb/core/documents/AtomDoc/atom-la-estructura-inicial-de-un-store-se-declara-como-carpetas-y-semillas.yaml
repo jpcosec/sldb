@@ -1,0 +1,20 @@
+name: atom-la-estructura-inicial-de-un-store-se-declara-como-carpetas-y-semillas
+path: desk/atoms/atom-la-estructura-inicial-de-un-store-se-declara-como-carpetas-y-semillas.md
+source_hash: eeff9c93ee9011b5e4eeb66bbf4d5e2c4e99d6ee771c291edaa8682e505fd1a8
+content_hash: dcac5583b67117b4d306966a0c9b9a7c0d70adf3948169a74a457254c1bf4c4b
+field_hashes:
+  id: fb8171dd22d782dc3f875c413fd588a556a997e7499527d056020fe09489ccde
+  title: 15992aad655c8e95e41fc196f3917c193898e4ffc00772652a8b542054fa7494
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: 809f7b816c05709003334e319d0db4d7c3349ce10bac9c1f23a8225846721d4b
+  tags: 6ae62d1f682bb15eaeddb6c3d1705e201850461e9b4c3e432492a4668b44e733
+  provenance: 0bc93469817f8ec79621e7e5c9ec1fb9036fafb036e2afc92c2d38cd2fa31d5b
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:scaffold
+- topic:store-declaration
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance: null

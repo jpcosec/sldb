@@ -461,6 +461,19 @@ include:
   - desk/materializations/materialization-gd23-query-engine-document-selection.md
   - desk/materializations/materialization-gd23-query-engine-structural-queries.md
   - desk/materializations/materialization-gd23-serve-docs-select-routes.md
+  - desk/materializations/materialization-gd26-stores-store-declaration.md
+  - desk/materializations/materialization-gd26-stores-scaffold-store.md
+  - desk/materializations/materialization-gd26-stores-build-store.md
+  - desk/materializations/materialization-gd26-commands-stores-build.md
+  - desk/materializations/materialization-gd26-parsers-stores.md
+  - desk/materializations/materialization-gd26-api-test-scaffold-store.md
+  - desk/materializations/materialization-gd26-store-test-stores-build.md
+  - desk/materializations/materialization-gd26-api-test-api-stores.md
+  - desk/materializations/materialization-gd26-architecture-store-declaration.md
+  - desk/materializations/materialization-gd26-stores-seed.md
+  - desk/materializations/materialization-gd26-stores-scaffold-report.md
+  - desk/materializations/materialization-gd26-stores-scaffold-sources.md
+  - desk/materializations/materialization-gd26-commands-stores-scaffold.md
 - model: TaskCodeDoc
   paths:
   - desk/tasks/task-go08-evaluacion-en-escritura-transicion-y-check-incremental-y-a-punto-fijo.md

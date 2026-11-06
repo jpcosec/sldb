@@ -1,0 +1,21 @@
+name: materialization-gd26-architecture-store-declaration
+path: desk/materializations/materialization-gd26-architecture-store-declaration.md
+source_hash: 0bff37b075ebe5541e810451687484e8849dbb143aad2f01c1d1b4025c659151
+content_hash: c064bfcf5fd1c3981bf9d077b043c7da9a8043bac9bb6e20d161e156586a8345
+field_hashes:
+  id: 226b7ecdd2cbd1a331fd13d3ff05ffffa066e88c6b8684b9a05dd7b76768d8a8
+  title: e2184d12d9aac951f68abfeb7ea47594b614db865e8fe8381ee4c82561232e0f
+  source_atoms: d8ab108da7b0955a2bc8d6f73c251f6d49dd3e22235efa2686ece5dd64fcd4ba
+  target_kind: bc0f43f548d6cd00dd5cc626a2e75c8454853828c86074d136cd4de2381ea142
+  target_identity: 0bc93469817f8ec79621e7e5c9ec1fb9036fafb036e2afc92c2d38cd2fa31d5b
+  intent: 8d4f4d59e0e40924df3c437d71ffee539b6e6aad575b4f34186371911cb6f0db
+  validation: 5fb91f81cbe30d6dc25180588c7dd3d48af8d5636c233af9663f69f282fd89f3
+  tags: 9a17b2d5727a3b248eb8378d26ab03d03f60548d14960caa4cb2e36c6fefb0f4
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:scaffold
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

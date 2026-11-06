@@ -7,7 +7,14 @@ tags:
 - artifact:task
 current_node: ritual-execution
 history: []
-references: []
+references:
+- pytest tests/api/test_scaffold_store.py
+- tests/api/test_scaffold_store.py
+- pytest tests/store/test_stores_build.py
+- tests/store/test_stores_build.py
+- 96d7b823fda2df0f6ab393ba94f0b17d20697b3a
+- desk/atoms/atom-la-estructura-inicial-de-un-store-se-declara-como-carpetas-y-semillas.md
+- docs/architecture/store-declaration.md
 depends_on: []
 pills: []
 files:
@@ -107,6 +114,7 @@ _List the checks required before this task can close._
 - sldb stores scaffold --format json y sldb stores scaffold --apply sobre el store temporal del test; segunda corrida todo present
 - TMPDIR=/dev/shm pytest -q tests/test_clean_code_rules.py antes de cada squash (recorre todo src/: funciones de 10 líneas de lógica como máximo, límite de clases por archivo; cuenta como test de los archivos tocados aunque output_scope no lo nombre)
 - git fetch y rebase sobre origin/main antes de integrar (main trae SV01, SV02, SV04 en 6ba8bb20 y GO04 en d7eefdeb); en CHANGELOG.md y src/sldb/api/__init__.py tomar la versión de main y agregar solo lo propio
+- RESULTADO (coordinador de proyecto, 2026-11-06, squash 96d7b823 sobre origin/main): test_scaffold_store 20, test_stores_build 25, test_api_stores 7, test_store_seams 2, test_clean_code_rules 901, test_serve 55, test_serve_auth 5: todos verdes. files coincide 16/16 con el diff (claude6). Genericidad: 0 líneas agregadas. H2 aceptado: trackear una semilla de documento la declara en include de store.yaml como todo tracking; declaration= deja el hash igual cuando el consumidor ya declara un include glob que la cubre (documentado en store-declaration.md). D1: stores_build.build_store queda como puente hacia sldb.api.build_store por stores_build_check.py. Las carpetas creadas en una corrida revertida quedan vacías (documentado). Sin ruta de serve. Suite completa pendiente al cierre del plan.
 
 ## Done When
 
