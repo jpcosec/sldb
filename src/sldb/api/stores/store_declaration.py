@@ -9,16 +9,17 @@ that git holds the tree's past; what is only a cache lives in `.sldb_cache/`, ig
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any
+from typing import Annotated, Any
 
 import yaml
-from pydantic import BaseModel, Field, SerializerFunctionWrapHandler, field_validator, model_serializer
+from pydantic import AfterValidator, BaseModel, Field, SerializerFunctionWrapHandler, field_validator, model_serializer
 
 from sldb.api.stores.seed import Seed
+from sldb.api.stores.tag_namespace import TagNamespace, unique_namespaces
 
 DECLARATION_FILE = "store.yaml"
 SCAFFOLD_KEYS = ("folders", "seeds")
-OPTIONAL_KEYS = (*SCAFFOLD_KEYS, "project_graph")
+OPTIONAL_KEYS = (*SCAFFOLD_KEYS, "project_graph", "tag_namespaces")
 
 
 class StoreDeclaration(BaseModel):
@@ -36,6 +37,7 @@ class StoreDeclaration(BaseModel):
     folders: list[str] = Field(default_factory=list, description="Directories `stores scaffold` creates, relative to the project root (docs/architecture/store-declaration.md).")
     seeds: list[Seed] = Field(default_factory=list, description="Files `stores scaffold` writes from a declared source: `{path, mode, text | file | document, track}`.")
     project_graph: dict[str, Any] | None = Field(default=None, description="The project's graph configuration as data (`sldb.api.ProjectGraphConfig.from_mapping`; docs/architecture/project-graph.md), read by `sldb.api.project_graph`.")
+    tag_namespaces: Annotated[list[TagNamespace], AfterValidator(unique_namespaces)] = Field(default_factory=list, description="The tag namespaces the store declares (`{name, hierarchical, folder_axis, anchored_by}`, names unique); a store that declares any checks every namespaced tag it writes (docs/architecture/tags.md).")
 
     @field_validator("project_graph")
     @classmethod
@@ -49,7 +51,7 @@ class StoreDeclaration(BaseModel):
 
     @model_serializer(mode="wrap")
     def _without_empty_optional_keys(self, handler: SerializerFunctionWrapHandler) -> dict[str, Any]:
-        """A declaration without folders, seeds or project_graph dumps as before they existed; a seed dumps only the keys it was written with."""
+        """A declaration without folders, seeds, project_graph or tag_namespaces dumps as before they existed; a seed dumps only the keys it was written with (a namespace does the same on its own)."""
         dumped = handler(self)
         for key in OPTIONAL_KEYS:
             if not dumped.get(key):

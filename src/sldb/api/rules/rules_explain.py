@@ -3,6 +3,8 @@
 The answer is `{"rule", "subject", "finding"}` with the finding exactly as `GraphBackend.eval`
 returns it (node, holds, clause, seen), also when it holds. When the rule does not apply to the
 document it is `{"rule", "subject", "applies": false, "reason", "detail"}` and has no finding.
+A built-in rule (`builtin:tag_namespace:<name>`, GD27) applies to every document and answers
+with its finding; it exists only in a store that declares `tag_namespaces`.
 """
 
 from __future__ import annotations
@@ -10,6 +12,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
+from sldb.api.rules.builtin_tag_rules import PREFIX, explain
 from sldb.api.rules.rule_graph import rule_graph
 from sldb.api.rules.rule_subjects import applies, resolve_rule, resolve_subject
 
@@ -21,7 +24,10 @@ def rules_explain(store: str | Path | None, rule: str, subject: str, pythonpath:
     """The explanation of `rule` (`RuleDoc:name`, `name` or path) on `subject` (`Model:name`,
     `store:Model:name` or path); an unknown reference is `SLDBDocumentTargetError`."""
     graph = rule_graph(store)
-    found, node = resolve_rule(graph, rule), resolve_subject(graph, subject, pythonpath)
+    found = None if rule.startswith(PREFIX) else resolve_rule(graph, rule)
+    node = resolve_subject(graph, subject, pythonpath)
+    if found is None:
+        return explain(graph, rule, node)
     answer = {"rule": found["id"], "subject": node}
     missing = applies(graph, found, node)
     if missing is not None:

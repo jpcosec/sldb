@@ -1,0 +1,107 @@
+# Tag namespaces: declared in `store.yaml`, checked as a rule family, read as a tree
+
+Node GD27 of the plan `generalizar-desde-deskops`. A document's tags (`tags` or
+`semantic_tags`) may carry a namespace: `area:a.b` belongs to `area`, the text before the
+first colon; what follows is the value (it may hold colons). A tag without a colon belongs to
+no namespace and is never checked. The store declares its namespaces in `.sldb/store.yaml`,
+beside `models` and `include`:
+
+```yaml
+tag_namespaces:
+- name: area                 # what precedes the first colon
+  hierarchical: true         # a.b.c is a path: a, a.b and a.b.c are tags too (default)
+  folder_axis: true          # declarative: the value is the document's folder (tag_folder)
+  anchored_by:               # optional: every required tag must be the `tag` of an Anchor
+    model: Anchor
+    field: tag
+- name: kind
+  hierarchical: false        # the value is one piece: no prefixes
+```
+
+`sldb.api.TagNamespace` (`src/sldb/api/stores/tag_namespace.py`) is one entry; its invariants
+are its validators: a name without colon or blanks, `anchored_by` exactly `{model, field}`,
+no other key; `StoreDeclaration.tag_namespaces` refuses a repeated name. A declaration without
+the key reads and writes as before it existed. `sldb tags namespaces` lists what is declared.
+
+## What the family checks
+
+The checks are the built-in rule family `builtin:tag_namespace:<name>`
+(`src/sldb/api/rules/builtin_tag_rules.py`), one rule per namespace a document names, not a
+RuleDoc of the user (q3: the rules language has no anchor predicate). On a document, the rule
+of namespace `<name>` holds when:
+
+1. `<name>` is declared (`clause: namespace declared`; `seen: {namespace, tags, declared}`);
+2. with `anchored_by`, every tag the namespace **requires** for each of its values is the
+   `field` of a local document of `model` (`clause: each prefix anchored by Model.field`;
+   `seen: {namespace, tags, missing}`, `missing` top-down, once each). A hierarchical
+   namespace requires every prefix of the value, the whole value included (`area:a.b.c`
+   requires `area:a`, `area:a.b` and `area:a.b.c`); a non-hierarchical one requires the value
+   alone. The document being written counts as an anchor of the tag it carries in that field.
+
+Without `anchored_by`, declaring the namespace is all a tag needs. Every finding is an
+`error` with code `rules/builtin:tag_namespace:<name>`, the subject is the document's export
+id and `what` is `<clause> (seen: <seen>)`, the form of a RuleDoc's finding (rules.md §4).
+
+The family runs where the RuleDocs run (rules.md §9), also in a store that registers no
+`RuleDoc` but declares `tag_namespaces`:
+
+| Moment | Where | Effect |
+|---|---|---|
+| `on_write` | `save_document_payload` (so `fields update`, `docs update`, `transaction.update`, `apply_batch`, `POST /save`) and `replace_text` | an error is `SLDBRuleViolationError` (`rules/violation`, exit 1) and nothing is written |
+| `on_check` | `stores check`, `on_check_findings` | the findings follow the `on_check` RuleDocs' (not cached) |
+| `rules check [--subject]` | `rules_check` | the findings follow the RuleDocs', on the same documents |
+| `rules explain builtin:tag_namespace:<name> DOC` | `rules_explain` | `{"rule", "subject", "finding": {node, holds, clause, seen}}`, also when it holds; without `tag_namespaces` the rule is an unknown target |
+| `tags check` | `tag_check` | the same evaluation as `rules check` filtered to the family; exit 1 on an error |
+
+`create_document` and `track_document_file` evaluate no `on_write` rule (a GO08 gap, q18):
+a document created without its anchor is reported by `tags check`, `rules check` and
+`stores check`.
+
+## `tag_tree`, `tag_folder`
+
+`sldb.api.tag_tree(store, namespace)` (`sldb tags tree NAMESPACE --format json` emits the same
+object, in the envelope's `data`):
+
+```json
+{"namespace": "area",
+ "roots": [{"tag": "area:a", "document": "Anchor:a",
+            "children": [{"tag": "area:a.b", "document": "Anchor:ab", "children": []}]}],
+ "orphans": [{"tag": "area:c", "used_by": ["Note:n2"]}],
+ "unplaced": [{"tag": "area:a.x", "document": "Anchor:ax"}]}
+```
+
+- Everything is limited to the namespace asked; tags are complete (`area:a.b`); each level
+  is alphabetical by tag; an undeclared namespace is `SLDBStoreError`.
+- With `anchored_by`, `roots` is the anchors' tree: every prefix of an anchored value is a
+  node, `document` its anchor's export id or `null` for a prefix without one; `orphans` are
+  the tags local documents use that no anchor declares (`used_by`: their export ids);
+  `unplaced` are the anchors no local document uses, directly or, when hierarchical, through
+  a tag under them (an anchor of `area:a` is placed by a document tagged `area:a.b`).
+- Without `anchored_by`, `roots` nests the tags local documents use (`document: null`) and
+  both lists are empty. A non-hierarchical namespace has roots without children.
+
+`sldb.api.tag_folder(tag)` is a pure function of the text: `a.b` or `area:a.b` -> `a/b`, one
+segment per part (`a` -> `a`); it never reads the store (`folder_axis` is the declaration that
+tells a consumer to use it). A blank value, an empty segment (`a..b`, `.a`, `a.`) or a slash
+inside a segment is a `ValueError` naming the value.
+
+## API and CLI
+
+- `sldb.api.tag_namespaces(store) -> list[dict]`, `tag_tree(store, namespace) -> dict`,
+  `tag_folder(tag) -> str`, `tag_check(store) -> list[Finding]` (also in `sldb.api.tags`);
+  `sldb.api.TagNamespace`.
+- `sldb.api` re-exports `sldb.api.semantic`: `add_semantic_parent`, `remove_semantic_parent`,
+  `add_semantic_equivalence`, `semantic_tag`.
+- `sldb tags namespaces | tree NAMESPACE | check` (`--store`, `--pythonpath`, `--format`,
+  with envelope). `tags check` prints as `rules check` does (`{"findings": [...]}` in JSON).
+- Helpers of the store layer (`src/sldb/store/semantic_tags.py`): `payload_tags`,
+  `split_namespace`, `namespaced_tags`, `tag_prefixes`.
+
+## Hypotheses
+
+- The anchors are read from the local store only (linked stores do not anchor).
+- `anchors_of` reads every local document per evaluation: a sweep over a store of N
+  documents is O(N²) dictionary reads. Enough for the stores seen so far; a cache keyed by the
+  rule graph is the next step if it is not.
+- `tags check` and `stores check` recompute the family every time (no `.sldb_cache/rules`
+  entry): the family has no `content_hash` to key it by.

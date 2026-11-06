@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Any
 
 from sldb.api.anchors.check_doc_anchors import check_doc_anchors
+from sldb.api.rules.builtin_tag_rules import store_findings
 from sldb.api.rules.dirty_set import read_dirty, stamps_of, wide, write_dirty
 from sldb.api.rules.rule_cache import prune, read_results, rule_hash, write_results
 from sldb.api.rules.rule_graph import RuleGraph, rule_graph
@@ -24,10 +25,11 @@ from sldb.store.io import store_lock
 
 
 def on_check_findings(store: str | Path | None, pythonpath: str | None = None) -> list[Finding]:
-    """The findings `stores check` adds: the `on_check` rules', then `check_doc_anchors`'."""
+    """The findings `stores check` adds: the `on_check` rules', the built-in tag namespace
+    family's (GD27, not cached), then `check_doc_anchors`'."""
     store_path = open_store(store, mode="readonly").store_path
     rules = rules_on_check(store_path) if has_rules(store_path) else []
-    return rules + check_doc_anchors(store_path, pythonpath)
+    return rules + store_findings(store_path) + check_doc_anchors(store_path, pythonpath)
 
 
 def rules_on_check(store: str | Path | None) -> list[Finding]:

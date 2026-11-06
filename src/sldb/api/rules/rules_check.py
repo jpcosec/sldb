@@ -3,7 +3,8 @@
 With a subject, every rule that applies to that document, of any moment; without one, the
 `on_check` rules over every local document they apply to. Only `false` and `incomplete` become
 findings: `false` at the rule's severity with code `rules/<name>`, `incomplete` always an alert
-with code `rules/<name>/incomplete`. Nothing of the result is stored.
+with code `rules/<name>/incomplete`. Nothing of the result is stored. The built-in family
+`builtin:tag_namespace:*` (GD27) follows the RuleDocs' findings, on the same documents.
 """
 
 from __future__ import annotations
@@ -12,6 +13,7 @@ import json
 from pathlib import Path
 from typing import Any
 
+from sldb.api.rules.builtin_tag_rules import family_findings
 from sldb.api.rules.fixpoint import witness
 from sldb.api.rules.rule_graph import RuleGraph, rule_graph
 from sldb.api.rules.rule_subjects import applies, resolve_subject, rules_of
@@ -23,12 +25,13 @@ def rules_check(store: str | Path | None, subject: str | None = None, pythonpath
     (`Model:name`, `store:Model:name` or a path). An unknown subject is `SLDBDocumentTargetError`."""
     graph = rule_graph(store)
     rules = rules_of(graph)
-    if subject is not None:
-        node = resolve_subject(graph, subject, pythonpath)
-        pairs = [(rule, node) for rule in rules if applies(graph, rule, node) is None]
+    nodes = None if subject is None else [resolve_subject(graph, subject, pythonpath)]
+    if nodes is not None:
+        pairs = [(rule, nodes[0]) for rule in rules if applies(graph, rule, nodes[0]) is None]
     else:
         pairs = [(r, n) for r in rules if r.get("moment") == "on_check" for n in graph.domain(r["subject"]) if applies(graph, r, n) is None]
-    return [f for f in (rule_finding(graph, rule, node) for rule, node in pairs) if f is not None]
+    found = [f for f in (rule_finding(graph, rule, node) for rule, node in pairs) if f is not None]
+    return found + family_findings(graph, nodes)
 
 
 def rule_finding(graph: RuleGraph, rule: dict[str, Any], node: str) -> Finding | None:

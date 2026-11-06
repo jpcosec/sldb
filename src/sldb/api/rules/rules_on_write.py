@@ -5,6 +5,8 @@ reads the pinned payload, with the anchors' states (`<field>__anchor_state`) as 
 compose them; paths follow the index as it is before the write. An `error` finding refuses the
 write (`SLDBRuleViolationError`, nothing written); alerts are routed (`sldb.core.finding_route`)
 whether the write passes or not. The document and its neighbours enter the dirty set.
+The built-in family `builtin:tag_namespace:*` (GD27) runs beside the RuleDocs, also in a store
+that registers none but declares `tag_namespaces`.
 """
 
 from __future__ import annotations
@@ -13,6 +15,7 @@ from pathlib import Path
 from typing import Any
 
 from sldb.api.edges.edge_reading import model_type_of
+from sldb.api.rules.builtin_tag_rules import family_findings, tag_rules
 from sldb.api.rules.dirty_set import mark_dirty
 from sldb.api.rules.rule_graph import rule_graph
 from sldb.api.rules.rules_on_transition import has_rules, payload_findings
@@ -25,10 +28,12 @@ from sldb.store.model_contract import doc_anchor_fields
 
 def check_on_write(store_path: Path, model_type: type, node: str, payload: dict[str, Any]) -> None:
     """Evaluate the `on_write` rules on `node` (`Model:name`) as `payload`; raise on an error."""
-    if not has_rules(store_path):
+    declared = has_rules(store_path)
+    if not declared and not tag_rules(store_path):
         return
-    graph = rule_graph(store_path)
-    errors, alerts = split(payload_findings(graph, "on_write", node, anchored(store_path, model_type, payload)))
+    graph, read = rule_graph(store_path), anchored(store_path, model_type, payload)
+    found = payload_findings(graph, "on_write", node, read) if declared else []
+    errors, alerts = split(found + family_findings(graph.with_payload(node, read), [node]))
     mark_dirty(store_path, graph.index, node)
     route(alerts)
     if errors:
