@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SLDB // Esquema / Model &amp; Notation Studio</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: {
+              canvas: '#F4F3EF',
+              surface: '#FAF9F6',
+              card: '#FFFFFF',
+              hairline: '#E6E4DD',
+              hairlineDark: '#C8C6BF',
+              ink: '#1A1A1A',
+              pencil: '#73726E',
+              pencilLight: '#9E9D97'
+            }
+          },
+          fontFamily: {
+            mono: ['"JetBrains Mono"', 'monospace'],
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            display: ['Cinzel', 'serif']
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 350, 'GRAD' 0, 'opsz' 20;
+      font-size: 16px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    /* Subtle paper texture */
+    .bg-paper-grid {
+      background-size: 24px 24px;
+      background-image: 
+        linear-gradient(to right, rgba(230, 228, 221, 0.45) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(230, 228, 221, 0.45) 1px, transparent 1px);
+    }
+    /* Custom scrollbar for editorial quiet feel */
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D8D6CE;
+      border-radius: 2px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #BCBAB1;
+    }
+  </style>
+</head>
+<body class="h-full bg-paper-surface text-paper-ink font-sans antialiased flex flex-col overflow-hidden select-none">
+<!-- ========================================================================= -->
+<!-- TOP APP / SUB-NAV HEADER (38px height, hairline bottom, paper surface)     -->
+<!-- ========================================================================= -->
+<header class="h-[38px] min-h-[38px] w-full border-b border-paper-hairline bg-paper-surface flex items-center justify-between px-3.5 z-30">
+<!-- Left breadcrumb & status tag -->
+<div class="flex items-center space-x-2.5">
+<span class="font-mono text-[11px] text-paper-pencil tracking-tight">levira</span>
+<span class="font-mono text-[11px] text-paper-pencilLight">/</span>
+<span class="font-mono text-[11px] text-paper-pencil tracking-tight">modelos</span>
+<span class="font-mono text-[11px] text-paper-pencilLight">/</span>
+<span class="font-mono text-[11px] font-semibold text-paper-ink bg-[#EFECE5] px-1.5 py-0.5 rounded-sm">InformeDoc</span>
+<span class="font-mono text-[9.5px] text-paper-pencil border border-paper-hairline px-1.5 py-0.5 rounded bg-paper-canvas tracking-wider">
+        v2.4 · draft .py.temp
+      </span>
+</div>
+<!-- Center Mode / Lens Switcher -->
+<nav class="hidden md:flex items-center space-x-1 font-mono text-[11px] text-paper-pencil">
+<button class="px-2.5 py-0.5 hover:text-paper-ink transition-colors cursor-pointer">Lectura</button>
+<span class="text-paper-pencilLight text-[9px]">·</span>
+<button class="px-2.5 py-0.5 hover:text-paper-ink transition-colors cursor-pointer">Estructura / Fierros</button>
+<span class="text-paper-pencilLight text-[9px]">·</span>
+<div class="px-2 py-0.5 text-paper-ink font-medium border border-paper-hairlineDark bg-paper-card shadow-[0_1px_2px_rgba(0,0,0,0.03)] rounded-sm">
+        [ Esquema ]
+      </div>
+</nav>
+<!-- Far Right System Actions -->
+<div class="flex items-center space-x-2">
+<button class="font-mono text-[11px] text-paper-pencil hover:text-paper-ink px-2 py-1 rounded transition-colors flex items-center space-x-1">
+<span class="material-symbols-outlined text-[14px]">tune</span>
+<span>Validar Draft (12 docs)</span>
+</button>
+<div class="h-3 w-px bg-paper-hairline mx-0.5"></div>
+<button class="bg-paper-ink text-paper-surface hover:bg-black font-mono text-[10.5px] px-2.5 py-1 rounded-sm tracking-tight flex items-center space-x-1.5 transition-colors cursor-pointer shadow-sm">
+<span class="material-symbols-outlined text-[12px]">publish</span>
+<span>Promover v2.5</span>
+</button>
+</div>
+</header>
+<!-- ========================================================================= -->
+<!-- MAIN WORKSPACE SPLIT: LEFT GRAPH CANVAS (38%) & RIGHT SPEC PANE (62%)    -->
+<!-- ========================================================================= -->
+<main class="flex-1 flex overflow-hidden">
+<!-- ----------------------------------------------------------------------- -->
+<!-- LEFT PANE: UML / SCHEMA NOTATION CANVAS (38% width, warm paper canvas)  -->
+<!-- ----------------------------------------------------------------------- -->
+<section class="w-[38%] min-w-[340px] max-w-[540px] h-full bg-paper-canvas border-r border-paper-hairline flex flex-col relative select-text">
+<!-- Canvas Header Strip -->
+<div class="h-8 border-b border-paper-hairline px-3.5 flex items-center justify-between bg-paper-canvas/90 backdrop-blur-sm z-10">
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-[14px] text-paper-pencil">account_tree</span>
+<span class="font-mono text-[10px] tracking-wider text-paper-pencil font-medium uppercase">Graph de Clases &amp; Notación (SLDB)</span>
+</div>
+<div class="flex items-center space-x-2 font-mono text-[9px] text-paper-pencilLight">
+<span>zoom: 100%</span>
+<span>·</span>
+<span>layout: strict-uml</span>
+</div>
+</div>
+<!-- Diagram Architectural Viewport with Grid Texture -->
+<div class="flex-1 overflow-auto p-5 bg-paper-grid relative">
+<!-- SVG CONNECTOR LINES & RELATION LABELS -->
+<svg class="absolute inset-0 w-full h-[760px] pointer-events-none z-0">
+<defs>
+<marker id="uml-diamond" markerheight="8" markerwidth="10" orient="auto" refx="0" refy="4">
+<polygon fill="#1A1A1A" points="0,4 5,1 10,4 5,7" stroke="#1A1A1A" stroke-width="0.8"></polygon>
+</marker>
+<marker id="uml-arrow" markerheight="8" markerwidth="8" orient="auto" refx="7" refy="4">
+<path d="M 0 1 L 7 4 L 0 7" fill="none" stroke="#73726E" stroke-width="1.1"></path>
+</marker>
+<marker id="uml-ref-circle" markerheight="6" markerwidth="6" orient="auto" refx="3" refy="3">
+<circle cx="3" cy="3" fill="#FAF9F6" r="2" stroke="#73726E" stroke-width="1"></circle>
+</marker>
+</defs>
+<!-- Connector 1: InformeDoc -> AtomDoc (__compositions__ .criterios[]) -->
+<!-- From bottom center of InformeDoc (x: 165, y: 172) to top of AtomDoc (x: 165, y: 248) -->
+<path d="M 165 174 L 165 248" marker-end="url(#uml-arrow)" marker-start="url(#uml-diamond)" stroke="#1A1A1A" stroke-width="1.2"></path>
+<!-- Connector 2: AtomDoc -> FuenteDoc (__references__ .source) -->
+<!-- From bottom center of AtomDoc (x: 165, y: 412) to top of FuenteDoc (x: 165, y: 488) -->
+<path d="M 165 412 L 165 488" marker-end="url(#uml-arrow)" marker-start="url(#uml-ref-circle)" stroke="#73726E" stroke-dasharray="3 3" stroke-width="1"></path>
+<!-- Connector 3: InformeDoc -> SpecDoc (__references__ .diagrama_flujo) -->
+<!-- Elbow route from right edge of InformeDoc (x: 295, y: 140) to top of SpecDoc (x: 320, y: 248) -->
+<path d="M 285 138 L 330 138 L 330 248" fill="none" marker-end="url(#uml-arrow)" marker-start="url(#uml-ref-circle)" stroke="#73726E" stroke-dasharray="3 3" stroke-width="1"></path>
+</svg>
+<!-- CONTAINER FOR DIAGRAM BOXES -->
+<div class="relative z-10 flex flex-col space-y-6">
+<!-- 1. ROOT TARGET MODEL: class InformeDoc (ACTIVE SELECTION) -->
+<div class="w-[285px] bg-paper-card border border-paper-ink shadow-sm rounded-none">
+<!-- Box Header Compartment -->
+<div class="bg-paper-card px-2.5 py-1.5 border-b border-paper-ink flex items-center justify-between">
+<div class="flex items-center space-x-1.5">
+<span class="w-1.5 h-1.5 bg-paper-ink rounded-full inline-block"></span>
+<span class="font-mono text-[11px] font-bold text-paper-ink">class InformeDoc</span>
+</div>
+<span class="font-mono text-[9px] text-paper-pencil">«active root»</span>
+</div>
+<!-- Subclass / Extension Marker -->
+<div class="px-2.5 py-0.5 bg-[#FAF9F6] border-b border-paper-hairline font-mono text-[9px] text-paper-pencil italic">
+              extends StructuredNLDoc
+            </div>
+<!-- Field Compartment -->
+<div class="p-2 space-y-1 font-mono text-[10px] leading-tight text-paper-ink bg-paper-card">
+<div class="flex items-center justify-between text-[9.5px]">
+<span><span class="text-paper-pencil">+</span> title: <span class="text-paper-pencil">str</span></span>
+<span class="text-[8.5px] text-paper-pencilLight bg-paper-canvas px-1 rounded">⸢rev⸥</span>
+</div>
+<div class="flex items-center justify-between text-[9.5px]">
+<span><span class="text-paper-pencil">+</span> resumen: <span class="text-paper-pencil">str</span></span>
+<span class="text-[8.5px] text-paper-pencilLight bg-paper-canvas px-1 rounded">⸢rev,md⸥</span>
+</div>
+<div class="flex items-center justify-between text-[9.5px] bg-[#F7F6F1] px-1 -mx-1 py-0.5 rounded">
+<span class="font-medium text-paper-ink"><span class="text-paper-pencil">♦</span> criterios: <span class="text-paper-ink font-semibold">list[Ref[AtomDoc]]</span></span>
+<span class="text-[8.5px] text-paper-ink border border-paper-hairlineDark px-0.5">1..*</span>
+</div>
+<div class="flex items-center justify-between text-[9.5px]">
+<span><span class="text-paper-pencil">○</span> diagrama_flujo: <span class="text-paper-pencil">Ref[SpecDoc]</span></span>
+<span class="text-[8.5px] text-paper-pencilLight">0..1</span>
+</div>
+</div>
+</div>
+<!-- UML RELATION TAG 1: COMPOSITION -->
+<div class="pl-8 pt-0.5 -mb-2">
+<span class="font-mono text-[8.5px] tracking-tight text-paper-ink bg-paper-canvas px-1.5 py-0.5 border border-paper-hairline rounded shadow-xs">
+              __compositions__ (.criterios[])
+            </span>
+</div>
+<!-- TWO COLUMN LOWER ROW FOR CONNECTED MODELS -->
+<div class="flex space-x-4 items-start">
+<!-- 2. CONNECTED BOX: AtomDoc -->
+<div class="w-[205px] bg-paper-card border border-paper-hairline hover:border-paper-hairlineDark transition-colors">
+<div class="bg-paper-surface px-2 py-1 border-b border-paper-hairline flex items-center justify-between">
+<span class="font-mono text-[10px] font-semibold text-paper-ink">class AtomDoc</span>
+<span class="font-mono text-[8.5px] text-paper-pencil">«leaf»</span>
+</div>
+<div class="px-2 py-0.5 bg-[#FAF9F6] border-b border-paper-hairline font-mono text-[8.5px] text-paper-pencil italic">
+                extends NLAtomicFragment
+              </div>
+<div class="p-2 space-y-1 font-mono text-[9px] text-paper-ink">
+<div><span class="text-paper-pencilLight">+</span> kind: <span class="text-paper-pencil">str</span></div>
+<div><span class="text-paper-pencilLight">+</span> status: <span class="text-paper-pencil">str</span></div>
+<div class="flex items-center justify-between">
+<span><span class="text-paper-pencilLight">+</span> text: <span class="text-paper-pencil">str</span></span>
+<span class="text-[8px] text-paper-pencilLight">⸢rev⸥</span>
+</div>
+<div><span class="text-paper-pencilLight">+</span> quote: <span class="text-paper-pencil">str</span></div>
+<div class="pt-0.5 text-paper-ink font-medium">
+<span class="text-paper-pencilLight">○</span> source: <span class="underline decoration-paper-hairlineDark">Ref[FuenteDoc]</span>
+</div>
+</div>
+</div>
+<!-- 3. CONNECTED BOX: SpecDoc (diagram) -->
+<div class="w-[185px] bg-paper-card border border-paper-hairline">
+<div class="bg-paper-surface px-2 py-1 border-b border-paper-hairline flex items-center justify-between">
+<span class="font-mono text-[10px] font-semibold text-paper-ink">class SpecDoc</span>
+<span class="font-mono text-[8.5px] text-paper-pencil">«spec»</span>
+</div>
+<div class="px-2 py-0.5 bg-[#FAF9F6] border-b border-paper-hairline font-mono text-[8.5px] text-paper-pencil italic">
+                extends VisualArtifact
+              </div>
+<div class="p-2 space-y-1 font-mono text-[9px] text-paper-ink">
+<div><span class="text-paper-pencilLight">+</span> diagram_type: <span class="text-paper-pencil">str</span></div>
+<div><span class="text-paper-pencilLight">+</span> notation: <span class="text-paper-pencil">str</span></div>
+<div><span class="text-paper-pencilLight">+</span> nodes: <span class="text-paper-pencil">list[dict]</span></div>
+<div class="text-[8.5px] text-paper-pencil pt-0.5 italic"># compiles via graphviz</div>
+</div>
+</div>
+</div>
+<!-- UML RELATION TAG 2: REFERENCE TO FUENTEDOC -->
+<div class="pl-8 pt-0.5 -mb-2">
+<span class="font-mono text-[8.5px] tracking-tight text-paper-pencil bg-paper-canvas px-1.5 py-0.5 border border-paper-hairline rounded shadow-xs">
+              __references__ (.source)
+            </span>
+</div>
+<!-- 4. CONNECTED BOX: FuenteDoc -->
+<div class="w-[205px] bg-paper-card border border-paper-hairline">
+<div class="bg-paper-surface px-2 py-1 border-b border-paper-hairline flex items-center justify-between">
+<span class="font-mono text-[10px] font-semibold text-paper-ink">class FuenteDoc</span>
+<span class="font-mono text-[8.5px] text-paper-pencil">«external»</span>
+</div>
+<div class="p-2 space-y-1 font-mono text-[9px] text-paper-ink">
+<div><span class="text-paper-pencilLight">+</span> tipo: <span class="text-paper-pencil">str</span></div>
+<div><span class="text-paper-pencilLight">+</span> base: <span class="text-paper-pencil">str</span></div>
+<div><span class="text-paper-pencilLight">+</span> title: <span class="text-paper-pencil">str</span></div>
+<div><span class="text-paper-pencilLight">+</span> body: <span class="text-paper-pencil">str</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Toolbar of Left Pane -->
+<div class="h-10 border-t border-paper-hairline px-3.5 flex items-center justify-between bg-paper-canvas">
+<button class="font-mono text-[10px] text-paper-ink hover:text-black border border-paper-hairlineDark bg-paper-card px-2.5 py-1 rounded-sm shadow-xs transition-colors flex items-center space-x-1 cursor-pointer">
+<span class="font-bold">+</span>
+<span>Nuevo Modelo (create_model)</span>
+</button>
+<span class="font-mono text-[9px] text-paper-pencil">4 registered classes</span>
+</div>
+</section>
+<!-- ----------------------------------------------------------------------- -->
+<!-- RIGHT PANE: CONTRACT & REVERSIBLE SPEC ENGINE (62% width, editorial)   -->
+<!-- ----------------------------------------------------------------------- -->
+<section class="flex-1 h-full bg-paper-surface overflow-y-auto px-8 py-7 space-y-8 select-text">
+<!-- Model Contract Master Header -->
+<header class="border-b border-paper-hairline pb-4">
+<div class="flex items-baseline justify-between mb-1">
+<h1 class="font-serif text-2xl font-semibold tracking-tight text-paper-ink">
+            Contrato de Modelo: <span class="font-mono font-medium text-xl">InformeDoc</span>
+</h1>
+<span class="font-mono text-[10px] text-paper-pencil border border-paper-hairline px-2 py-0.5 rounded bg-paper-card">
+            AST-ID: 0x98FF2A4
+          </span>
+</div>
+<p class="font-mono text-[11px] text-paper-pencil leading-relaxed">
+          extends StructuredNLDoc · source: <span class="text-paper-ink underline decoration-paper-hairlineDark">models/informe.py</span> · reversible template engine v2
+        </p>
+</header>
+<!-- SECTION 01: CAMPOS & SLOTS -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="font-mono text-[10.5px] font-semibold text-paper-ink tracking-wider uppercase flex items-center space-x-2">
+<span class="text-paper-pencil">01 /</span>
+<span>Declaración de Campos &amp; Slots</span>
+</div>
+<span class="font-mono text-[10px] text-paper-pencil">4 slots tipados</span>
+</div>
+<!-- Hairline Table for Fields -->
+<div class="border border-paper-hairline bg-paper-card shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-paper-hairline bg-[#FAF9F6] text-[10px] font-mono text-paper-pencil uppercase tracking-wider">
+<th class="py-2 px-3 font-medium">Campo</th>
+<th class="py-2 px-3 font-medium">Tipo / Ref</th>
+<th class="py-2 px-3 font-medium">Reversible Marker (⸢...⸥)</th>
+<th class="py-2 px-3 font-medium">Comportamiento</th>
+<th class="py-2 px-3 font-medium">Descripción Semántica</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-paper-hairline font-mono text-[11px] text-paper-ink">
+<!-- Row 1: title -->
+<tr class="hover:bg-[#FAF9F6] transition-colors">
+<td class="py-2 px-3 font-semibold">title</td>
+<td class="py-2 px-3 text-paper-pencil">str</td>
+<td class="py-2 px-3 text-paper-ink font-mono text-[10.5px] bg-[#FAF8F5]/60">⸢rev•title⸥</td>
+<td class="py-2 px-3 text-paper-pencil text-[10.5px]">—</td>
+<td class="py-2 px-3 font-sans text-paper-pencil text-xs">Título principal del informe</td>
+</tr>
+<!-- Row 2: resumen -->
+<tr class="hover:bg-[#FAF9F6] transition-colors">
+<td class="py-2 px-3 font-semibold">resumen</td>
+<td class="py-2 px-3 text-paper-pencil">str (markdown)</td>
+<td class="py-2 px-3 text-paper-ink font-mono text-[10.5px] bg-[#FAF8F5]/60">⸢rev,markdown•resumen⸥</td>
+<td class="py-2 px-3 text-paper-pencil text-[10.5px]">—</td>
+<td class="py-2 px-3 font-sans text-paper-pencil text-xs">Síntesis clínica ejecutiva</td>
+</tr>
+<!-- Row 3: criterios -->
+<tr class="hover:bg-[#FAF9F6] transition-colors bg-[#FAF9F6]/40">
+<td class="py-2 px-3 font-semibold">criterios</td>
+<td class="py-2 px-3 text-paper-ink font-medium">list[DocRef]</td>
+<td class="py-2 px-3 text-paper-ink font-mono text-[10.5px] bg-[#FAF8F5]">⸢render•criterios_txt⸥</td>
+<td class="py-2 px-3 text-paper-ink text-[10px]">
+<span class="border border-paper-hairlineDark px-1.5 py-0.5 rounded bg-paper-card">transclude → AtomDoc#text</span>
+</td>
+<td class="py-2 px-3 font-sans text-paper-pencil text-xs">Lista de átomos de criterio</td>
+</tr>
+<!-- Row 4: diagrama_flujo -->
+<tr class="hover:bg-[#FAF9F6] transition-colors">
+<td class="py-2 px-3 font-semibold">diagrama_flujo</td>
+<td class="py-2 px-3 text-paper-ink font-medium">DocRef[SpecDoc]</td>
+<td class="py-2 px-3 text-paper-ink font-mono text-[10.5px] bg-[#FAF8F5]/60">⸢render•diagrama_flujo⸥</td>
+<td class="py-2 px-3 text-paper-ink text-[10px]">
+<span class="border border-paper-hairlineDark px-1.5 py-0.5 rounded bg-paper-card">spec2viz → activity</span>
+</td>
+<td class="py-2 px-3 font-sans text-paper-pencil text-xs">Diagrama de decisión embebido</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Add Field Trigger -->
+<div class="pt-0.5">
+<button class="font-mono text-[10.5px] text-paper-pencil hover:text-paper-ink transition-colors flex items-center space-x-1 cursor-pointer">
+<span class="text-paper-ink font-medium">+</span>
+<span class="underline decoration-paper-hairlineDark underline-offset-2">Agregar campo (add_model_field)</span>
+</button>
+</div>
+</section>
+<!-- SECTION 02: PLANTILLA REVERSIBLE -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="font-mono text-[10.5px] font-semibold text-paper-ink tracking-wider uppercase flex items-center space-x-2">
+<span class="text-paper-pencil">02 /</span>
+<span>Plantilla Reversible (Round-Trip MD Engines)</span>
+</div>
+<span class="font-mono text-[9px] text-paper-pencil border border-paper-hairline px-2 py-0.5 rounded bg-paper-card">
+            parser: AST-preserving · syntax: SLDB-Reversible-v2
+          </span>
+</div>
+<!-- Monospace Reversible Markdown Block -->
+<div class="border border-paper-hairline rounded-sm bg-paper-canvas p-4 font-mono text-[11px] leading-relaxed text-paper-ink relative overflow-x-auto shadow-inner">
+<div class="text-paper-pencilLight select-none text-[9.5px] mb-2 border-b border-paper-hairline pb-1.5 flex justify-between items-center">
+<span>templates/informe_doc_v2.md</span>
+<span class="text-paper-pencil">encoding: utf-8 · zero-loss-lossless</span>
+</div>
+<pre class="font-mono text-paper-ink"><span class="text-paper-pencil">---</span>
+<span class="text-paper-pencil">id:</span> <span class="bg-[#EAE8E0] px-1 py-0.2 rounded text-paper-ink">⸢rev•id⸥</span>
+<span class="text-paper-pencil">estado:</span> <span class="bg-[#EAE8E0] px-1 py-0.2 rounded text-paper-ink">⸢rev•estado⸥</span>
+<span class="text-paper-pencil">criterios:</span> <span class="bg-[#EAE8E0] px-1 py-0.2 rounded text-paper-ink">⸢rev,list•criterios⸥</span>
+<span class="text-paper-pencil">---</span>
+
+<span class="text-paper-pencil font-bold">#</span> <span class="bg-[#EAE8E0] px-1 py-0.2 rounded text-paper-ink font-semibold">⸢rev•title⸥</span>
+
+<span class="text-paper-pencil font-bold">##</span> Resumen Ejecutivo
+<span class="bg-[#EAE8E0] px-1 py-0.2 rounded text-paper-ink">⸢rev,markdown•resumen⸥</span>
+
+<span class="text-paper-pencil font-bold">##</span> Criterios Transcluidos
+<span class="bg-[#EAE8E0] px-1 py-0.2 rounded text-paper-ink">⸢render•criterios_txt⸥</span></pre>
+</div>
+</section>
+<!-- SECTION 03: VERIFICACIÓN & MIGRACIÓN -->
+<section class="space-y-3 pb-8">
+<div class="flex items-center justify-between">
+<div class="font-mono text-[10.5px] font-semibold text-paper-ink tracking-wider uppercase flex items-center space-x-2">
+<span class="text-paper-pencil">03 /</span>
+<span>Estado de Validación &amp; Migración</span>
+</div>
+<span class="font-mono text-[9.5px] text-paper-ink font-medium">daemon status: active</span>
+</div>
+<!-- Hairline Status & Migration Card -->
+<div class="bg-paper-card border border-paper-hairline p-3.5 text-xs rounded-sm space-y-3 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+<div class="flex items-start space-x-2.5">
+<span class="font-mono text-paper-ink font-bold text-sm leading-none mt-0.5">✓</span>
+<div class="space-y-1">
+<p class="font-mono text-[11px] text-paper-ink leading-tight font-medium">
+                12/12 documentos de InformeDoc pasan round-trip sin diff
+              </p>
+<p class="font-mono text-[10.5px] text-paper-pencil leading-tight">
+                Plan de backfill: 2 documentos recibirán default en 'diagrama_flujo'.
+              </p>
+</div>
+</div>
+<!-- Quiet Metrics Bar -->
+<div class="border-t border-paper-hairline pt-2.5 flex items-center justify-between font-mono text-[10px] text-paper-pencil">
+<div class="flex items-center space-x-4">
+<div class="flex items-center space-x-1.5">
+<span class="w-1.5 h-1.5 bg-paper-ink rounded-full"></span>
+<span class="text-paper-ink">Zero AST drift</span>
+</div>
+<div>
+<span>Coverage:</span> <span class="text-paper-ink font-semibold">100%</span>
+</div>
+<div>
+<span>Reversibility index:</span> <span class="text-paper-ink font-semibold">1.000</span>
+</div>
+</div>
+<div class="text-[9.5px] text-paper-pencilLight">
+              Target: SLDB daemon 0.14
+            </div>
+</div>
+</div>
+</section>
+</section>
+</main>
+<!-- ========================================================================= -->
+<!-- BOTTOM STATUS RAIL (Editorial ultra-quiet footer)                         -->
+<!-- ========================================================================= -->
+<footer class="h-6 border-t border-paper-hairline bg-paper-surface px-3.5 flex items-center justify-between text-[10px] font-mono text-paper-pencil z-30">
+<div class="flex items-center space-x-3">
+<span class="flex items-center space-x-1">
+<span class="inline-block w-1.5 h-1.5 bg-paper-ink rounded-full"></span>
+<span class="text-paper-ink">engine live</span>
+</span>
+<span>·</span>
+<span>schema: sldb://models/informe.py#InformeDoc</span>
+<span>·</span>
+<span>branch: main (clean)</span>
+</div>
+<div class="flex items-center space-x-3 text-[9.5px] text-paper-pencilLight">
+<span>UTF-8</span>
+<span>LF</span>
+<span>Py 3.12 (typing.DocRef)</span>
+</div>
+</footer>
+</body></html>

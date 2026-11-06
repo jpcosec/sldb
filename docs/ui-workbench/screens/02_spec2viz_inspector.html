@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Levira // SLDB — Spec2Viz &amp; Notation Inspector</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#FAF9F6',
+            'paper-canvas': '#F4F3EF',
+            ink: '#1A1A1A',
+            'ink-muted': '#73726E',
+            'hairline': '#E6E4DD',
+            'hairline-subtle': '#EEEDE8',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+          },
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #FAF9F6;
+      color: #1A1A1A;
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+      -webkit-font-smoothing: antialiased;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #E6E4DD;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #73726E;
+    }
+  </style>
+</head>
+<body class="h-full flex flex-col font-sans overflow-hidden select-none">
+<!-- 1. Top Minimal Header Bar -->
+<header class="h-11 border-b border-hairline bg-paper px-6 flex items-center justify-between text-xs font-mono shrink-0 z-20">
+<!-- Left Breadcrumb & Quiet Tag -->
+<div class="flex items-center gap-3">
+<span class="text-ink font-medium tracking-tight">levira</span>
+<span class="text-ink-muted">/</span>
+<span class="text-ink-muted">specs</span>
+<span class="text-ink-muted">/</span>
+<span class="text-ink font-semibold">diag-flujo-renal</span>
+<span class="text-ink-muted text-[11px] font-normal pl-1">(SpecDoc · activity · notation: activity)</span>
+</div>
+<!-- Center-Right Lens Toggle -->
+<div class="flex items-center gap-3 text-xs">
+<span class="text-ink-muted hover:text-ink cursor-pointer transition-colors duration-150">Lectura</span>
+<span class="text-ink-muted">·</span>
+<span class="text-ink font-medium px-2 py-0.5 border border-hairline bg-paper-canvas rounded-none shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">[ Estructura / Fierros ]</span>
+<span class="text-ink-muted">·</span>
+<span class="text-ink-muted hover:text-ink cursor-pointer transition-colors duration-150">Esquema</span>
+</div>
+<!-- Far Right Sync Status & Meta Actions -->
+<div class="flex items-center gap-4 text-[11px] text-ink-muted">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-ink inline-block opacity-80"></span>
+<span class="text-ink">[ Sincronizado con .sldb ]</span>
+</div>
+<span class="text-hairline">|</span>
+<span>commit: 4e9c71a</span>
+</div>
+</header>
+<!-- 2. Main Body: Split View -->
+<main class="flex-1 flex overflow-hidden">
+<!-- LEFT PANE: SPEC2VIZ CANVAS (48%) -->
+<section class="w-[48%] bg-paper-canvas border-r border-hairline flex flex-col justify-between p-8 relative overflow-hidden select-text">
+<!-- Top Title / Canvas Breadcrumb -->
+<div class="flex items-center justify-between z-10">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 border border-ink rotate-45 inline-block"></span>
+<h2 class="text-[10px] tracking-widest uppercase font-mono text-ink-muted font-medium">SPEC2VIZ DIAGRAM CANVAS · notation: activity</h2>
+</div>
+<div class="text-[11px] font-mono text-ink-muted flex items-center gap-2">
+<span>zoom 100%</span>
+<span class="text-hairline">|</span>
+<span class="hover:text-ink cursor-pointer">grid: dot</span>
+</div>
+</div>
+<!-- Live Diagram Visualization Area -->
+<div class="flex-1 flex flex-col items-center justify-center my-4 overflow-y-auto custom-scroll py-6">
+<div class="flex flex-col items-center w-full max-w-sm">
+<!-- 1. Start Node -->
+<div class="flex items-center gap-2 font-mono text-xs text-ink">
+<span class="w-3.5 h-3.5 rounded-full bg-ink inline-block"></span>
+<span class="font-medium tracking-tight">Ingreso</span>
+</div>
+<!-- Flow vector down -->
+<div class="flex flex-col items-center py-2">
+<div class="w-px h-6 bg-ink"></div>
+<span class="text-[9px] font-mono -mt-1 text-ink">▼</span>
+</div>
+<!-- 2. Step Node -->
+<div class="w-64 border border-ink bg-white px-4 py-2 text-center text-xs font-mono font-medium shadow-[1px_1px_0px_#E6E4DD]">
+            [ Evaluar Función Renal ]
+          </div>
+<!-- Flow vector down -->
+<div class="flex flex-col items-center py-2">
+<div class="w-px h-6 bg-ink"></div>
+<span class="text-[9px] font-mono -mt-1 text-ink">▼</span>
+</div>
+<!-- 3. Decision Diamond Node (SELECTED NODE) -->
+<div class="relative group my-2">
+<!-- Active Node Badge -->
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 whitespace-nowrap bg-paper px-2 py-0.5 border border-ink text-[10px] font-mono text-ink shadow-[2px_2px_0px_#E6E4DD]">
+              SpecNodeDoc: .crcl_check · 2 atoms · 1 ref
+            </div>
+<!-- Geometric Diamond Box -->
+<div class="relative w-64 h-24 flex items-center justify-center">
+<!-- Rotated square to emulate sharp technical diamond -->
+<div class="absolute w-20 h-20 bg-white border-[1.5px] border-ink rotate-45 shadow-[2px_2px_0px_rgba(0,0,0,0.06)]"></div>
+<!-- Content -->
+<div class="relative z-10 text-center font-mono text-xs font-semibold px-4 tracking-tight leading-snug">
+                &lt; CrCl &lt; 30 mL/min? &gt;
+              </div>
+</div>
+</div>
+<!-- Flow vectors splitting left and right -->
+<div class="w-full relative mt-2">
+<!-- Horizontal Split Bar -->
+<div class="w-48 h-px bg-ink mx-auto"></div>
+<!-- Dual Branches Layout -->
+<div class="flex justify-between items-start w-80 mx-auto pt-0">
+<!-- Branch 1: Sí (Suspension) -->
+<div class="flex flex-col items-center w-36 text-center">
+<div class="h-6 w-px bg-ink"></div>
+<div class="bg-paper px-1.5 py-0.5 border border-hairline text-[10px] font-mono text-ink my-1">
+                  ──[Sí]──►
+                </div>
+<div class="w-36 border border-hairline bg-white p-2 text-[11px] font-mono leading-tight mt-1">
+                  [ Suspensión Inmediata del Protocolo ]
+                </div>
+<div class="h-5 w-px bg-ink"></div>
+<!-- End Bullseye -->
+<div class="w-5 h-5 rounded-full border border-ink flex items-center justify-center bg-white">
+<div class="w-2.5 h-2.5 rounded-full bg-ink"></div>
+</div>
+<span class="text-[9px] font-mono text-ink-muted mt-1">(◉) Fin</span>
+</div>
+<!-- Branch 2: No (Continuar) -->
+<div class="flex flex-col items-center w-36 text-center">
+<div class="h-6 w-px bg-ink"></div>
+<div class="bg-paper px-1.5 py-0.5 border border-hairline text-[10px] font-mono text-ink my-1">
+                  ──[No]──►
+                </div>
+<div class="w-36 border border-hairline bg-white p-2 text-[11px] font-mono leading-tight mt-1">
+                  [ Titulación Basal Estándar 100% ]
+                </div>
+<div class="h-5 w-px bg-ink"></div>
+<!-- End Bullseye -->
+<div class="w-5 h-5 rounded-full border border-ink flex items-center justify-center bg-white">
+<div class="w-2.5 h-2.5 rounded-full bg-ink"></div>
+</div>
+<span class="text-[9px] font-mono text-ink-muted mt-1">(◉) Fin</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom-left status & notation bar -->
+<footer class="pt-3 border-t border-hairline flex items-center justify-between text-[11px] font-mono text-ink-muted z-10">
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.5 bg-paper border border-hairline text-ink">GlyphDoc: activity.decision</span>
+<span class="hidden sm:inline">(where: kind = "decision" → shape: diamond)</span>
+</div>
+<div class="text-[10px] tracking-tight">
+          engine: spec2viz-renderer v1.2 · zero-drift
+        </div>
+</footer>
+</section>
+<!-- RIGHT PANE: DOCUMENT NOTATION INSPECTOR (52%) -->
+<section class="w-[52%] bg-paper p-10 overflow-y-auto custom-scroll flex flex-col select-text">
+<!-- Document Header Block -->
+<header class="mb-10 pb-6 border-b border-hairline">
+<div class="flex items-center justify-between text-xs font-mono text-ink-muted mb-2">
+<span>SpecNodeDoc: diag-flujo-renal.crcl_check</span>
+<span class="border border-hairline px-2 py-0.5 text-[11px] bg-paper-canvas text-ink">AST node #4</span>
+</div>
+<!-- Title in elegant serif -->
+<h1 class="font-serif text-3xl font-medium tracking-tight text-ink leading-tight mb-2">
+          CrCl &lt; 30 mL/min?
+        </h1>
+<!-- Monospace metadata below title -->
+<div class="text-xs font-mono text-ink-muted flex flex-wrap items-center gap-x-3 gap-y-1 pt-1">
+<span class="text-ink font-medium">SpecNodeDoc</span>
+<span>·</span>
+<span>kind: decision</span>
+<span>·</span>
+<span>spec: diag-flujo-renal</span>
+<span>·</span>
+<span>hash: <span class="text-ink">9a4f21</span></span>
+</div>
+</header>
+<!-- Editorial Layout With Subtle Left Gutter Annotations -->
+<div class="space-y-10">
+<!-- Section 1: field: description -->
+<div class="grid grid-cols-12 gap-6 items-start">
+<div class="col-span-3 font-mono text-[11px] text-ink-muted tracking-tight pt-1">
+            field: description
+          </div>
+<div class="col-span-9 font-sans text-sm text-ink leading-relaxed font-normal">
+<p>
+              Compuerta de decisión clínica que evalúa el aclaramiento de creatinina (CrCl) estimado mediante fórmula de Cockcroft-Gault o CKD-EPI. Si el valor es estrictamente inferior a 30 mL/min, el sujeto presenta insuficiencia renal grado 4/5, lo cual invalida los márgenes de seguridad farmacocinéticos para el agente en investigación.
+            </p>
+</div>
+</div>
+<!-- Section 2: atom_refs: [AtomDoc] -->
+<div class="grid grid-cols-12 gap-6 items-start">
+<div class="col-span-3 font-mono text-[11px] text-ink-muted tracking-tight pt-1">
+            atom_refs: [AtomDoc]
+            <div class="text-[10px] text-ink-muted opacity-70 mt-1">2 transclusiones</div>
+</div>
+<div class="col-span-9 space-y-4">
+<!-- Transcluded Block 1: atom-04 -->
+<article class="border border-hairline bg-paper-canvas p-4 rounded-none">
+<div class="flex items-center justify-between text-[11px] font-mono text-ink-muted pb-2 mb-2 border-b border-hairline">
+<span class="text-ink font-medium">atom-04.md → #body (AtomDoc · transcluded)</span>
+<a class="hover:text-ink flex items-center gap-0.5" href="#atom-04">↗ atom-04</a>
+</div>
+<blockquote class="font-serif italic text-sm text-ink leading-relaxed">
+                "Depuración de creatinina &lt; 30 mL/min requiere suspensión inmediata del protocolo y escalado automático al médico responsable de farmacovigilancia."
+              </blockquote>
+</article>
+<!-- Transcluded Block 2: atom-09 -->
+<article class="border border-hairline bg-paper-canvas p-4 rounded-none">
+<div class="flex items-center justify-between text-[11px] font-mono text-ink-muted pb-2 mb-2 border-b border-hairline">
+<span class="text-ink font-medium">atom-09.md → #body (AtomDoc · transcluded)</span>
+<a class="hover:text-ink flex items-center gap-0.5" href="#atom-09">↗ atom-09</a>
+</div>
+<blockquote class="font-serif italic text-sm text-ink leading-relaxed">
+                "El cálculo de filtrado glomerular se realiza mediante fórmula CKD-EPI antes de cada ciclo."
+              </blockquote>
+</article>
+<!-- Action Button -->
+<div>
+<button class="font-mono text-xs text-ink hover:bg-white border border-hairline bg-transparent px-3 py-1.5 transition-colors duration-150 inline-flex items-center gap-1.5" type="button">
+<span>+</span> Vincular átomo (atom_refs)
+              </button>
+</div>
+</div>
+</div>
+<!-- Section 3: refs: [Model:name] -->
+<div class="grid grid-cols-12 gap-6 items-start">
+<div class="col-span-3 font-mono text-[11px] text-ink-muted tracking-tight pt-1">
+            refs: [Model:name]
+            <div class="text-[10px] text-ink-muted opacity-70 mt-1">código &amp; rituales</div>
+</div>
+<div class="col-span-9">
+<h3 class="text-xs font-mono font-medium text-ink-muted uppercase tracking-wider mb-3">
+              Traced Code &amp; Tasks
+            </h3>
+<ul class="border border-hairline divide-y divide-hairline bg-white text-xs font-mono">
+<!-- Ref 1 -->
+<li class="p-3 flex items-center justify-between hover:bg-paper-canvas transition-colors">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-2">
+<span class="text-ink font-medium">PythonSymbolDoc</span>
+<span class="text-ink-muted">:</span>
+<span class="text-ink">levira.rules.check_renal_clearance</span>
+</div>
+<span class="text-[11px] text-ink-muted">src/levira/rules.py:42</span>
+</div>
+<a class="text-ink-muted hover:text-ink text-sm" href="#code">↗</a>
+</li>
+<!-- Ref 2 -->
+<li class="p-3 flex items-center justify-between hover:bg-paper-canvas transition-colors">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-2">
+<span class="text-ink font-medium">TaskDoc</span>
+<span class="text-ink-muted">:</span>
+<span class="text-ink">task-validar-umbral-renal</span>
+</div>
+<span class="text-[11px] text-ink-muted">ritual-testing · 2/2 gates ok</span>
+</div>
+<a class="text-ink-muted hover:text-ink text-sm" href="#task">↗</a>
+</li>
+</ul>
+</div>
+</div>
+<!-- Section 4: edges (Relations) -->
+<div class="grid grid-cols-12 gap-6 items-start pb-8">
+<div class="col-span-3 font-mono text-[11px] text-ink-muted tracking-tight pt-1">
+            edges: [RelationDoc]
+            <div class="text-[10px] text-ink-muted opacity-70 mt-1">topología de flujo</div>
+</div>
+<div class="col-span-9">
+<div class="space-y-2 font-mono text-xs">
+<!-- Edge 1: Incoming -->
+<div class="p-2.5 border border-hairline bg-paper-canvas flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-ink font-bold">← next</span>
+<span class="text-ink-muted">from</span>
+<span class="text-ink font-medium">SpecNodeDoc:diag-flujo-renal.evaluar_renal</span>
+</div>
+<span class="text-[10px] text-ink-muted">inbound</span>
+</div>
+<!-- Edge 2: Outbound Branch Sí -->
+<div class="p-2.5 border border-hairline bg-white flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-ink font-bold">→ branch</span>
+<span class="border border-hairline px-1 py-0.2 text-[10px] bg-paper">label: "Sí"</span>
+<span class="text-ink-muted">to</span>
+<span class="text-ink font-medium">SpecNodeDoc:diag-flujo-renal.suspension</span>
+</div>
+<span class="text-[10px] text-ink-muted">outbound</span>
+</div>
+<!-- Edge 3: Outbound Branch No -->
+<div class="p-2.5 border border-hairline bg-white flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-ink font-bold">→ branch</span>
+<span class="border border-hairline px-1 py-0.2 text-[10px] bg-paper">label: "No"</span>
+<span class="text-ink-muted">to</span>
+<span class="text-ink font-medium">SpecNodeDoc:diag-flujo-renal.titulacion_basal</span>
+</div>
+<span class="text-[10px] text-ink-muted">outbound</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>

@@ -1,0 +1,89 @@
+id: sldb-absorber-spec2viz-y-modelos-ui
+revision: 2
+revision_note: 'Rev 2 (2026-11-06): decisiones SV-D6, SV-D7 y SV-D8 (marco de deskops, escritura como operación nombrada, autoridad de escritura por modelo) registradas en decisiones.md y escritas como secciones 2-4 de docs/ui-workbench/MANUAL_DE_USUARIO_Y_ESPECIFICACION_UI.md; sin cambios en SV01-SV04. Rev 1 (2026-11-06): plan y tareas SV01-SV04 para absorber el vocabulario visual y resolvedor de spec2viz en sldb, enriquecer /document/segments con transclusión por campo y vistas de diagramas, y extender create_model y model_drafts para la UI unificada.'
+status: ready_for_execution
+as_of: '2026-11-06'
+source: dag.yaml es canónico; brief.md, alcance.md y decisiones.md son sus fuentes de contexto
+execution_authorized: true
+gates:
+  G_SV_MODELS:
+    title: Modelos de vocabulario visual, paletas y notaciones builtin en sldb
+    state: pending
+    produced_by: SV01
+    resolver: closeout commit de task-sv01-modelos-de-vocabulario-visual-paletas-y-notaciones-builtin-en-sldb
+    evidence: los 7 modelos importan desde sldb.models y sldb.api; resolve_model_ref resuelve spec2viz.sldb_models:* sin spec2viz; las 8 notaciones builtin y la paleta default cargan y validan WCAG desde sldb.notations
+  G_SV_VIEW_RESOLVER:
+    title: Resolvedor de vistas y notaciones en sldb.api, CLI y sldb serve
+    state: pending
+    produced_by: SV02
+    resolver: closeout commit de task-sv02-resolvedor-de-vistas-y-notaciones-en-sldb-api-cli-y-sldb-serve
+    evidence: resolve_view, resolve_documents y evaluate_projection_view responden igual por sldb.api, CLI sldb notations y sldb serve GET /notations/view y POST /views/projection/evaluate
+  G_SV_SEGMENTS:
+    title: Transclusión por campo y segmentos ricos de diagramas/vistas en /document/segments
+    state: pending
+    produced_by: SV03
+    resolver: closeout commit de task-sv03-transclusion-de-campos-y-segmentos-ricos-de-diagramas-y-vistas-en-document-segments
+    evidence: GET /document/segments resuelve composiciones ref=field con SourceRef.field y adjunta resolved_view en segmentos de diagrama/vista sin romper el roundtrip Markdown
+  G_SV_MODEL_EDITOR:
+    title: Declaración y edición draft de containment, references, compositions y semantics en sldb
+    state: pending
+    produced_by: SV04
+    resolver: closeout commit de task-sv04-declaracion-y-edicion-draft-de-containment-references-compositions-y-semantics-en-modelos
+    evidence: create_model, edit_model_metadata, validate_model_draft y promote_model_draft(backfill=True) funcionan por sldb.api, CLI y POST /models/* en sldb serve
+hierarchy:
+  root:
+    id: ROOT
+    title: Absorber spec2viz en sldb y extender la autoría de modelos para la UI unificada
+    owner_repo: sldb
+    scope: 'Tres ejes: (1) absorber modelos, paletas, notaciones builtin y resolvedor de vistas de spec2viz en sldb (SV01, SV02); (2) soportar transclusión por campo y bloques ricos de diagramas/vistas y tablas en /document/segments (SV03); (3) extender create_model, describe_model, model_drafts y /models/* en sldb serve para declarar y editar __containment__, __references__, __compositions__ y __semantics__ con validación y backfill (SV04).'
+    acceptance: 'SV01–SV04 cerrados con tests en verde, documentación en docs/architecture/ y CHANGELOG al día.'
+    children: [SV01, SV02, SV03, SV04]
+tasks:
+  - id: SV01
+    title: Modelos de vocabulario visual, paletas y notaciones builtin en sldb
+    kind: code
+    node_role: delivery
+    parent_id: ROOT
+    owner_repo: sldb
+    estimate: M
+    depends_on: []
+    requires: []
+    scope: 'Absorber en src/sldb/models/notation_models.py (reexportados en sldb.models y sldb.api) los modelos SpecDoc, SpecNodeDoc, NotationDoc, GlyphDoc, LinkDoc, PaletteDoc y ViewDoc (con params y sections opcionales para converger con GD25). Absorber en src/sldb/notations/ los módulos palette.py, notation.py y styling.py junto con los recursos YAML builtin (src/sldb/notations/palettes/default.yml y src/sldb/notations/builtin/*.yml para las 8 notaciones: uml-class, statechart, component, deployment, uml-sequence, activity, component-view-matrix, reflection). En src/sldb/api/model_registry/model_reference.py añadir resolución de alias legacy spec2viz.sldb_models:<Model> -> sldb.models.notation_models:<Model> para que cualquier store existente cargue sin spec2viz instalado.'
+    acceptance: 'Los 7 modelos importan desde sldb.models y sldb.api y pasan roundtrip de validación; resolve_model_ref("spec2viz.sldb_models:NotationDoc") devuelve sldb.models.notation_models.NotationDoc; load_palette("default") y load_notation(<name>) para las 8 notaciones builtin cargan y validan contraste WCAG y formas desde sldb.notations; resolve_style aplica precedencia glifo > spec > paleta; tests en tests/notations/test_notation_models_and_builtins.py verdes; doc en docs/architecture/notations-and-views.md y CHANGELOG.'
+    output_scope: src/sldb/models/notation_models.py, src/sldb/models/__init__.py, src/sldb/notations/__init__.py, src/sldb/notations/palette.py, src/sldb/notations/notation.py, src/sldb/notations/styling.py, src/sldb/notations/palettes/default.yml, src/sldb/notations/builtin/, src/sldb/api/model_registry/model_reference.py, src/sldb/api/__init__.py, docs/architecture/notations-and-views.md, CHANGELOG.md, tests/notations/test_notation_models_and_builtins.py
+  - id: SV02
+    title: Resolvedor de vistas y notaciones en sldb.api, CLI y sldb serve
+    kind: code
+    node_role: delivery
+    parent_id: ROOT
+    owner_repo: sldb
+    estimate: M
+    depends_on: [SV01]
+    requires: [G_SV_MODELS]
+    scope: 'Absorber en src/sldb/api/notations/ el resolvedor de vistas de notación y proyección: resolve_view(store, spec_ref, pythonpath=None), resolve_documents(store, notation_ref, doc_refs, *, relation_refs=None, spec_style=None, pythonpath=None), evaluate_projection_view(store, view_or_ref, pythonpath=None) (evalúa un ViewDoc o dict {nodes, relations, direction, notation, layout} sobre el grafo del store y aplica resolve_documents cuando lleva notación) y las utilidades de sincronización al store sync_notation(store, name_or_path) y sync_palette(store, name_or_path) (sin requerir archivos YAML intermedios para evaluar vistas sobre documentos del store). Exponer en CLI sldb notations (list, sync, view, resolve) con envelope JSON y en sldb serve: GET /notations, GET /notations/view?spec=, POST /notations/resolve, GET /views/projection, GET|POST /views/projection/evaluate y POST /views/projection/save.'
+    acceptance: 'En un store temporal con una notación builtin sincronizada por sync_notation y documentos del store (tanto SpecDoc+SpecNodeDoc+RelationDoc como documentos de modelos arbitrarios proyectados con un ViewDoc), resolve_view, resolve_documents y evaluate_projection_view devuelven nodos con glifo, shape, compartments, markers y style resuelto, links ordenados con terminales y color, fragments y legend; la CLI sldb notations view|resolve y las rutas de sldb serve (/notations/view, /notations/resolve, /views/projection/evaluate, /views/projection/save) devuelven el mismo resultado; tests en tests/notations/test_notation_view_and_routes.py verdes; docs/architecture/notations-and-views.md actualizado y CHANGELOG.'
+    output_scope: src/sldb/api/notations/__init__.py, src/sldb/api/notations/notation_view.py, src/sldb/api/notations/projection_view.py, src/sldb/api/notations/notation_sync.py, src/sldb/api/__init__.py, src/sldb/cli/parsers/notations.py, src/sldb/cli/parsers/public.py, src/sldb/cli/commands/notations.py, src/sldb/cli/serve/notations_routes.py, src/sldb/cli/serve/routes.py, docs/architecture/notations-and-views.md, CHANGELOG.md, tests/notations/test_notation_view_and_routes.py
+  - id: SV03
+    title: Transclusión de campos y segmentos ricos de diagramas y vistas en /document/segments
+    kind: code
+    node_role: delivery
+    parent_id: ROOT
+    owner_repo: sldb
+    estimate: M
+    depends_on: [SV02]
+    requires: [G_SV_VIEW_RESOLVER]
+    scope: 'Cerrar la brecha de transclusión y bloques ricos en /document/segments (absorbiendo también task-atom-como-field-tipado-composicion-por-field): (1) En StructuredNLDoc.compose_field y render_with_spans / build_document_segments, inyectar un FieldRefResolver cuando se renderiza con contexto de store para resolver composiciones con ref: "field" (referencias de la forma Model:name#campo o docs/<Model>/<name>/<campo>), registrando en cada CompositionPiece su SourceRef con model, doc, path y field; sin resolver inyectado, ref: "field" rinde vacío sin fallar y la validación/extracción del marcador render no cambia. (2) Enriquecer FieldSegment y CompositionPiece cuando el marcador o la composición declara el trait diagram o view (p. ej. ⸢rev,diagram•spec_ref⸥ o composición con ref: "view"|"spec") o table: adjuntar en el segmento el campo opcional projection (con el resultado de resolve_view / evaluate_projection_view para la ref del segmento, o {error} si no resuelve) y table ({columns, rows} para marcadores table), de modo que la UI unificada renderice diagramas, vistas y tablas inline desde /document/segments.'
+    acceptance: 'Un documento con una composición ref="field" hacia campos de otros documentos del store produce en build_document_segments (y GET /document/segments) piezas CompositionPiece con el texto del campo remoto y SourceRef(model, doc, path, field); sin store resolver rinde vacío y validate_model_data_roundtrip no cambia; un documento con un campo marcado con trait diagram apuntando a un SpecDoc o ViewDoc del store incluye en su FieldSegment de /document/segments el objeto projection con nodes, links, layout y legend ya resueltos; un campo con trait table incluye table con columns y rows; tests en tests/segments/test_field_transclusion_and_diagram_segments.py verdes; doc en docs/architecture/segments-and-transclusion.md y CHANGELOG.'
+    output_scope: src/sldb/models/structured_doc.py, src/sldb/api/segments/source_ref.py, src/sldb/api/segments/composition_spec.py, src/sldb/api/segments/composition_piece.py, src/sldb/api/segments/field_segment.py, src/sldb/api/segments/field_ref_resolver.py, src/sldb/api/segments/segment_nodes.py, src/sldb/api/segments/build_document_segments.py, src/sldb/core/segments/instrumented_render.py, src/sldb/core/renderer_engine/payload_call.py, docs/architecture/segments-and-transclusion.md, CHANGELOG.md, tests/segments/test_field_transclusion_and_diagram_segments.py
+  - id: SV04
+    title: Declaración y edición draft de containment, references, compositions y semantics en modelos
+    kind: code
+    node_role: delivery
+    parent_id: ROOT
+    owner_repo: sldb
+    estimate: M
+    depends_on: []
+    requires: []
+    scope: 'Extender la creación y edición de modelos para que la UI unificada opere el contrato completo de un StructuredNLDoc: (1) En sldb.api.model_create (create_model, ModelSource, ModelCheck), aceptar containment (dict[str, list[str]]), references (list[str]), compositions (dict[str, dict]), semantics (dict[str, list[str]]) y authority (str), validando que los campos referenciados en containment, references y compositions.source_field existan y que cada composición tenga su marcador render en __template__, y generando las asignaciones __containment__, __references__, __compositions__, __semantics__ y __authority__ en el módulo Python. (2) En sldb.api.model_registry.describe_model (ModelDescription y GET /models/detail), incluir containment, references, compositions, semantics_map, authority, template y has_draft (más draft_path si existe). (3) En sldb.api.model_drafts, añadir edit_model_metadata(store, model_name, *, containment=None, references=None, compositions=None, semantics=None, authority=None, pythonpath=None) -> ModelDraft que inserta o reemplaza esas asignaciones de clase en el .draft.py por AST (y añade/quita secciones ⸢render•<name>⸥ en el template del draft cuando se agregan/eliminan composiciones); extender validate_template_contract (draft_contract.py) y check_and_plan (backfill.py) para validar coherencia de __containment__, __references__ y __compositions__ contra model_fields y __template__, y planificar el backfill cuando cambian campos o composiciones. (4) Exponer en CLI (sldb models create, sldb models metadata edit, sldb models validate --promote --backfill) y en sldb serve (POST /models/create, POST /models/metadata-edit y parámetro backfill en POST /models/promote).'
+    acceptance: 'create_model con containment, references, compositions y semantics genera un módulo válido, lo registra y describe_model (y GET /models/detail) devuelve todos esos metadatos; edit_model_metadata sobre un modelo registrado crea/actualiza el .draft.py con __references__, __containment__, __compositions__ y __semantics__; un campo inexistente en __references__ o __containment__ o una composición sin source_field válido falla en validate_model_draft con SLDBModelEditError accionable; promote_model_draft(..., backfill=True) y POST /models/promote {model, backfill: true} reescriben los documentos afectados, incrementan la versión del modelo y actualizan el índice de aristas y semántico; tests en tests/api/test_model_metadata_drafts.py verdes; doc en docs/architecture/model-authoring.md y CHANGELOG.'
+    output_scope: src/sldb/api/model_create/create_model.py, src/sldb/api/model_create/model_source.py, src/sldb/api/model_create/model_check.py, src/sldb/api/model_registry/describe_model.py, src/sldb/api/model_registry/model_description.py, src/sldb/api/model_drafts/metadata_drafts.py, src/sldb/api/model_drafts/metadata_literals.py, src/sldb/api/model_drafts/draft_contract.py, src/sldb/api/model_drafts/backfill.py, src/sldb/api/model_drafts/__init__.py, src/sldb/api/__init__.py, src/sldb/cli/parsers/models2.py, src/sldb/cli/commands/models.py, src/sldb/cli/commands/models_create.py, src/sldb/cli/commands/models_metadata.py, src/sldb/cli/commands/models_validate.py, src/sldb/cli/serve/models_routes.py, docs/architecture/model-authoring.md, CHANGELOG.md, tests/api/test_model_metadata_drafts.py
