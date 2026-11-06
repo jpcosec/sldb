@@ -7,7 +7,14 @@ tags:
 - artifact:task
 current_node: ritual-execution
 history: []
-references: []
+references:
+- pytest tests/api/test_referrers.py
+- tests/api/test_referrers.py
+- pytest tests/api/test_rewrite_references.py
+- tests/api/test_rewrite_references.py
+- docs/architecture/references.md
+- 2570b71030ab4bc999187dca81ebba09e5830896
+- desk/atoms/atom-las-referencias-entrantes-de-un-documento-se-consultan-y-se-reescriben-en-sldb-todo-o-nada.md
 depends_on:
 - task-gd21-grafo-de-proyecto-aristas-declaradas-y-nodos-fuente-desde-el-índice-de-sldb-declarado-por-datos
 - task-gd24-transacción-multi-documento-en-sldb-api-y-save-atómico-absorbe-doc-io-doctransaction
@@ -117,6 +124,7 @@ _List the checks required before this task can close._
 - TMPDIR=/dev/shm pytest -q tests/test_clean_code_rules.py antes de cada squash (recorre todo src/: funciones de 10 líneas de lógica como máximo, máximo 1 clase y 80 líneas efectivas por archivo)
 - git fetch y rebase sobre origin/main antes de entregar; en CHANGELOG.md y src/sldb/api/__init__.py tomar la versión de main y agregar solo lo propio
 - files: del TaskDoc coincide con el diff entregado (los autorizados que no se usen se reportan y el coordinador los poda antes de entregar)
+- RESULTADO (coordinador de proyecto, 2026-11-06, squash 2570b710 sobre origin/main): referrers 10, rewrite_references 18, api_edges 15, project_graph 13, replace_text 16, store_seams 2, clean_code_rules 933, serve 59: todos verdes, de a uno. files podado al diff (salió serve/edges_routes.py). Genericidad 0 en src y tests. H3: el frontmatter de archivos no trackeados y los bloques YAML no son referencias entrantes. H5: un reemplazo literal en un campo __doc_anchors__ rechaza todo el lote (se reescribe a doc:Model:name y sldb repinea al guardar). --dry-run valida en memoria y no evalúa on_write. Suite completa pendiente al cierre del plan.
 
 ## Done When
 

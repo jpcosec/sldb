@@ -1,0 +1,21 @@
+name: materialization-gd22-architecture-references
+path: desk/materializations/materialization-gd22-architecture-references.md
+source_hash: 7ddaeaa6dce64f151a636bbcc313e0860c742efa4ad0edf0527a1013855fa875
+content_hash: cbb35968348ecd1e4ef606170af487ecc9aaa96020470015dcac05213397433d
+field_hashes:
+  id: 47286bf0b822419e264534f829bee1e44d47fe6c4a048519b523a2ac3edc85f6
+  title: 6657c85de3d4beb01dc692f9e3ea509ff75e2f98cf0c21695d4c2a853dd715ff
+  source_atoms: 2390db225ef69bb463d4c7d6d7ec3f18ef361908d81f49d60f330848c2035dcc
+  target_kind: bc0f43f548d6cd00dd5cc626a2e75c8454853828c86074d136cd4de2381ea142
+  target_identity: 65e141fa4212c201c3461898b9f148ea9f58ced36a7a5abd168a0a63d32b5239
+  intent: e221092c7fa656b4f1b86427cfb5f67b05bdf101112e0560ca781f8fcdf62d0a
+  validation: 626ff766f08151c4c71dc0b191443af90be807e156ffa87628375b45bf0fdfec
+  tags: 5b344ce5c5bf7bdb76ff874ca48cc365dc1ea363d087d8f5ac5e949e4226ff72
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:references
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

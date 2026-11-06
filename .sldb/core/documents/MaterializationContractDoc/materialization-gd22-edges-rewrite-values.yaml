@@ -1,0 +1,21 @@
+name: materialization-gd22-edges-rewrite-values
+path: desk/materializations/materialization-gd22-edges-rewrite-values.md
+source_hash: 13e0112ff45929f3793e6f1c3e64389be6d78603b329099478bc10588cafc354
+content_hash: 4deb8434a6e25212d7e9b3faf5c3cd8e19e9bc8545d5f46c09d934517779e9b6
+field_hashes:
+  id: a93078ff47765296d2f49babf33590ab0216f1846191905870961b27e7ddda2a
+  title: 3f38dcc6e7480be3853acb513bed858ada34dd308ec0f628b1d086ffa0421ea4
+  source_atoms: 2390db225ef69bb463d4c7d6d7ec3f18ef361908d81f49d60f330848c2035dcc
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: a22b6776ea1224d1fcb2ba49c6433e4d3fea3821c0c72f3cf8f103e911c957a3
+  intent: e64d3bd9c088dd5ed4bfeed184388ab5b789ef7378ba7b2604cae0119294d23a
+  validation: 626ff766f08151c4c71dc0b191443af90be807e156ffa87628375b45bf0fdfec
+  tags: 5b344ce5c5bf7bdb76ff874ca48cc365dc1ea363d087d8f5ac5e949e4226ff72
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:references
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

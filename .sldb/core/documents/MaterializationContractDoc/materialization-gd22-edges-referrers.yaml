@@ -1,0 +1,21 @@
+name: materialization-gd22-edges-referrers
+path: desk/materializations/materialization-gd22-edges-referrers.md
+source_hash: 08fb7cdc28e4c5e98e5ae78c27694883f38484f4937658cd21fae12fc95f0bf1
+content_hash: 0198468d5a3d13683856af7c404d8bbe28fd462f7f5d166e699a3a84fecf31ed
+field_hashes:
+  id: 8ba02271e2dba86b43dbbd173b0f273d249c2ae9863ad7e35b68ecd54dbeba24
+  title: 6b58df01e4be2d2ee3b1f690602b9a51ff9562f16141b030e5a09b2ebf3d0728
+  source_atoms: 2390db225ef69bb463d4c7d6d7ec3f18ef361908d81f49d60f330848c2035dcc
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 47326bb3e720eca85170c816e6d79fec497537ec3719fa8bcc14e8d74e81df4a
+  intent: 0d98275595852dd6459f6657bd28c42933260c03ac3b88b3144c19b7f6e18511
+  validation: 626ff766f08151c4c71dc0b191443af90be807e156ffa87628375b45bf0fdfec
+  tags: 5b344ce5c5bf7bdb76ff874ca48cc365dc1ea363d087d8f5ac5e949e4226ff72
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:references
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

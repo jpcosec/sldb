@@ -514,6 +514,19 @@ include:
   - desk/materializations/materialization-gd27-rules-rules-on-check.md
   - desk/materializations/materialization-gd27-rules-rules-explain.md
   - desk/materializations/materialization-gd27-cli-dispatcher.md
+  - desk/materializations/materialization-gd22-edges-referrers.md
+  - desk/materializations/materialization-gd22-edges-referrer.md
+  - desk/materializations/materialization-gd22-edges-rewrite-references.md
+  - desk/materializations/materialization-gd22-edges-rewrite-report.md
+  - desk/materializations/materialization-gd22-edges-rewrite-values.md
+  - desk/materializations/materialization-gd22-edges-rewrite-mentions.md
+  - desk/materializations/materialization-gd22-parsers-edges.md
+  - desk/materializations/materialization-gd22-commands-edges.md
+  - desk/materializations/materialization-gd22-commands-edges-rewrite.md
+  - desk/materializations/materialization-gd22-serve-edges-rewrite-routes.md
+  - desk/materializations/materialization-gd22-api-test-referrers.md
+  - desk/materializations/materialization-gd22-api-test-rewrite-references.md
+  - desk/materializations/materialization-gd22-architecture-references.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md

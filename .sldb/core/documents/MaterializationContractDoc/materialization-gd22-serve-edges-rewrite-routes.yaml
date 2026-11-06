@@ -1,0 +1,21 @@
+name: materialization-gd22-serve-edges-rewrite-routes
+path: desk/materializations/materialization-gd22-serve-edges-rewrite-routes.md
+source_hash: f10d6466fd97489b55fa4656333860cc82f789078f7307b31c5eebf8a7a0ee3e
+content_hash: 6a91858d8d09631120e45c9e46af336d3dec92f4e5ee883fce705e8ff17aa61e
+field_hashes:
+  id: 4b6df12fadc5b720a1c56aecb4036687838c0a6c69dd0f908e4ff7052c359eaf
+  title: da69b2514b3acfdbdf7e554a37f5516da47c771f09791fdce92accbe43e28d21
+  source_atoms: 2390db225ef69bb463d4c7d6d7ec3f18ef361908d81f49d60f330848c2035dcc
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: fd1fe3aa0f9b5cad4b2f54f5330fc05f86483ae691a7a3e923dd00a71e01cab5
+  intent: 75cfb73d82dabed965da76b98a85525253f7f4ce362a0616ea3364c40df57753
+  validation: 626ff766f08151c4c71dc0b191443af90be807e156ffa87628375b45bf0fdfec
+  tags: 5b344ce5c5bf7bdb76ff874ca48cc365dc1ea363d087d8f5ac5e949e4226ff72
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:references
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

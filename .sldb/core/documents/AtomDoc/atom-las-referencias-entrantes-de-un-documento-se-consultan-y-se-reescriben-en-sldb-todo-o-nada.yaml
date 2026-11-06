@@ -1,0 +1,19 @@
+name: atom-las-referencias-entrantes-de-un-documento-se-consultan-y-se-reescriben-en-sldb-todo-o-nada
+path: desk/atoms/atom-las-referencias-entrantes-de-un-documento-se-consultan-y-se-reescriben-en-sldb-todo-o-nada.md
+source_hash: a8f4c477d57f8b380a50fe216b2ca25283911c7d33fd7f29cfbed891841e1c1f
+content_hash: e2d4999b0c7f6752685fabb7947bd35f16b66a871d872581dcb8c8b99fecefc0
+field_hashes:
+  id: 26370af943d6c384665ab3b52f04d69d5b15dd52d45f4a292cfc0a44808d855d
+  title: 0e7eb1a126a4dbc63ab8ec6975b022103a9e061f55b74de40fad17705fe0ff46
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: c2580abee8cc6fadfbac2e2513eab8bb8bcc52a9c6013a421bbc56ea1c936684
+  tags: 5b344ce5c5bf7bdb76ff874ca48cc365dc1ea363d087d8f5ac5e949e4226ff72
+  provenance: 65e141fa4212c201c3461898b9f148ea9f58ced36a7a5abd168a0a63d32b5239
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:references
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance: null
