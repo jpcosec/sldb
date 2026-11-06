@@ -58,6 +58,8 @@ marca un elemento `incomplete`). El mismo evaluador corre sobre el grafo de los 
   proyección cargada, o todos los nodos de documento del índice si `load` recibió `None`.
 - Al atravesar un campo `F` del origen cuyo payload trae `F__anchor_state`, cada elemento
   alcanzado expone esa entrada como `anchor_state` (lista: el elemento `i`; escalar: el valor).
+  Al atravesar `^F`, la entrada se lee del elemento alcanzado, que es el que tiene el campo `F`
+  (GO07: `any(^subject: anchor_state = "intact")` desde el sujeto de una Review).
 
 Cada resultado es un finding de la forma fijada en `rules-language.md` §4 y §6:
 

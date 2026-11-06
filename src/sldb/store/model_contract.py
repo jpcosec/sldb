@@ -50,6 +50,29 @@ def indexed_fields(model_type: Any) -> list[str] | None:
     return sorted(set(names))
 
 
+def doc_anchor_fields(model_type: Any) -> list[str]:
+    """The class's `__doc_anchors__` names, checked; [] without a class (GO07).
+
+    Raises:
+        SLDBModelError: A name is not a field or not str / list[str], or a field ends in the
+            reserved `__anchor_state` suffix (`sldb.models.doc_anchor_value.definition_problems`).
+    """
+    from sldb.models.doc_anchor_value import definition_problems
+    from sldb.store.exceptions import SLDBModelError
+
+    problems = [] if model_type is None else definition_problems(model_type)
+    if problems:
+        raise SLDBModelError(f"Model '{model_type.__name__}': {'; '.join(problems)}.")
+    return [] if model_type is None else list(getattr(model_type, "__doc_anchors__", None) or [])
+
+
+def doc_anchor(value: Any) -> tuple[str, str | None] | None:
+    """(target export id, seen hash or None) of a document anchor value; None for anything else."""
+    from sldb.models.doc_anchor_value import parse_doc_anchor
+
+    return parse_doc_anchor(value) if isinstance(value, str) and value.strip() else None
+
+
 def projected_fields(model_type: Any) -> list[str]:
     """Fields a payload filter may name: `__indexed__`, else every field whose declared type can
     hold a scalar or a list of scalars (`Any` included: known per value). [] without a class."""

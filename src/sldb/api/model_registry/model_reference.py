@@ -12,7 +12,7 @@ from typing import Any
 
 from sldb.core.exceptions import SLDBModelError
 from sldb.models.structured_doc import StructuredNLDoc
-from sldb.store.model_contract import indexed_fields
+from sldb.store.model_contract import doc_anchor_fields, indexed_fields
 
 LEGACY_MODULE_PREFIXES: tuple[tuple[str, str], ...] = (
     ("spec2viz.sldb_models", "sldb.models.notation_models"),
@@ -77,7 +77,8 @@ def resolve_model_ref(model_ref: str, pythonpath: str | None = None) -> type[Str
     Raises:
         SLDBModelError: When the reference is malformed, cannot be imported, does not
             name a StructuredNLDoc subclass, or its `__indexed__` names a field that does not
-            exist or is not a scalar or a list of scalars.
+            exist or is not a scalar or a list of scalars, or its `__doc_anchors__` (or a field
+            with the reserved `__anchor_state` suffix) is declared wrongly (GO07).
     """
     if ":" not in model_ref:
         raise SLDBModelError("Model reference must use the form 'module:ClassName'.")
@@ -87,6 +88,7 @@ def resolve_model_ref(model_ref: str, pythonpath: str | None = None) -> type[Str
     if not isinstance(obj, type) or not issubclass(obj, StructuredNLDoc):
         raise SLDBModelError(f"'{model_ref}' is not a StructuredNLDoc subclass.")
     indexed_fields(obj)
+    doc_anchor_fields(obj)
     return obj
 
 

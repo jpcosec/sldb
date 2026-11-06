@@ -2,7 +2,8 @@ from __future__ import annotations
 from importlib import import_module
 from pathlib import Path
 from typing import Any, TypeVar
-from pydantic import BaseModel
+from pydantic import BaseModel, model_validator
+from sldb.models.doc_anchor_value import check_anchor_fields
 
 class StructuredNLDoc(BaseModel):
     __authority__: str = "generated"
@@ -11,6 +12,7 @@ class StructuredNLDoc(BaseModel):
     __compositions__: dict[str, dict[str, Any]] = {}
     __containment__: dict[str, list[str]] = {}
     __references__: list[str] = []
+    __doc_anchors__: list[str] = []
 
     @classmethod
     def __pydantic_init_subclass__(cls, **kwargs):
@@ -18,6 +20,9 @@ class StructuredNLDoc(BaseModel):
         if cls is StructuredNLDoc: return
         missing = sorted(n for n, i in cls.model_fields.items() if not i.description or not i.description.strip())
         if missing: raise TypeError(f"{cls.__name__} fields must define a non-empty description: {', '.join(missing)}")
+
+    @model_validator(mode="after")
+    def _doc_anchor_forms(self): return check_anchor_fields(self)
 
     def render_payload(self, recorder: Any = None, ref_root: Path | None = None, field_resolver: Any = None) -> dict[str, Any]:
         payload = self.model_dump(mode="json")

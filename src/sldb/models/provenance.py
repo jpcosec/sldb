@@ -9,7 +9,9 @@ from __future__ import annotations
 
 from typing import Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
+
+from sldb.models.doc_anchor_value import check_from_items
 
 Authority = Literal["source_raw", "authored", "theorem", "generated", "cache"]
 AUTHORITIES: tuple[str, ...] = ("source_raw", "authored", "theorem", "generated", "cache")
@@ -23,10 +25,15 @@ class Provenance(BaseModel):
     at: str | int = Field(default=0, description="When, as an ISO-8601 UTC instant; 0 when unknown.")
     via: str | None = Field(default=None, description="The operation or tool that wrote: `save_document_payload`, `deskops retire`...")
     authority: Authority = Field(default="generated", description="How much the content is to be trusted and who may change it (docs/architecture/provenance.md §2).")
-    from_: list[str] = Field(default_factory=list, alias="from", description="What this document derives from (theorem, generated): `code:<path>::<name>`, `doc:<Model:name>`.")
+    from_: list[str] = Field(default_factory=list, alias="from", description="What this document derives from (theorem, generated): `code:<path>::<name>`, `doc:Model:name[@sha256:<64 hex>]` (a document anchor, docs/architecture/anchoring.md §6).")
     declared: bool = Field(default=False, exclude=True, description="True when the document carried a block; False when these are the defaults.")
 
     model_config = {"populate_by_name": True}
+
+    @field_validator("from_")
+    @classmethod
+    def _doc_items_are_anchors(cls, items: list[str]) -> list[str]:
+        return check_from_items(items)
 
     def as_block(self) -> dict[str, Any]:
         """The mapping written under the `sldb` key; `from` only when it names something."""

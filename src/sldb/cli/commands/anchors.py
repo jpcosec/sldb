@@ -1,11 +1,12 @@
-"""`sldb anchors record|check` handlers: alerts by every route, exit by the errors alone."""
+"""`sldb anchors record|check` handlers: alerts by every route, exit by the errors alone. `check`
+reports code anchors and, since GO07, document anchors (`check_doc_anchors`, alerts only)."""
 
 from __future__ import annotations
 
 from pathlib import Path
 from typing import Any
 
-from sldb.api.anchors import check_anchors, record_anchor
+from sldb.api.anchors import check_anchors, check_doc_anchors, record_anchor
 from sldb.api.anchors.anchor_docs import write_anchor
 from sldb.cli import alert_sink
 from sldb.cli.output_format import emit
@@ -28,9 +29,10 @@ class AnchorsCLI:
         return 0
 
     def _check(self, args: Any) -> int:
-        reports = check_anchors(args.store, args.pythonpath, record=args.record)
-        findings = [f for r in reports if (f := r.finding())]
-        emit({"anchors": [r.as_dict() for r in reports], "errors": [f.as_dict() for f in findings if f.level == "error"], "alerts": [f.as_dict() for f in findings if f.level == "alert"]}, args.format, _summary(reports, findings))
+        reports, doc_findings = check_anchors(args.store, args.pythonpath, record=args.record), check_doc_anchors(args.store, args.pythonpath)
+        findings = [f for r in reports if (f := r.finding())] + doc_findings
+        body = {"anchors": [r.as_dict() for r in reports], "doc_anchors": [f.as_dict() for f in doc_findings]}
+        emit({**body, "errors": [f.as_dict() for f in findings if f.level == "error"], "alerts": [f.as_dict() for f in findings if f.level == "alert"]}, args.format, _summary(reports, findings, doc_findings))
         alert_sink.report(findings, text=args.format == "text")
         return 1 if any(f.level == "error" for f in findings) else 0
 
@@ -39,7 +41,8 @@ def _target(root: Path, write: str) -> Path:
     return Path(write) if Path(write).is_absolute() else root / write
 
 
-def _summary(reports: list, findings: list) -> str:
+def _summary(reports: list, findings: list, doc_findings: list) -> str:
     counts = {state.value: sum(r.state is state for r in reports) for state in AnchorState}
     shown = ", ".join(f"{n} {name}" for name, n in counts.items() if n or name == "intact")
-    return f"anchors: {len(reports)} checked — {shown} — {alert_sink.tally(findings) or 'no findings'}"
+    moved = f" — {len(doc_findings)} document anchor(s) moved" if doc_findings else ""
+    return f"anchors: {len(reports)} checked — {shown}{moved} — {alert_sink.tally(findings) or 'no findings'}"

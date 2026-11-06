@@ -7,6 +7,7 @@ from typing import Any, Callable
 
 from sldb.store.edge_index.composition_edges import composition_edges
 from sldb.store.edge_index.declared_references import declared_reference_edges
+from sldb.store.edge_index.doc_anchor_edges import doc_anchor_edges
 from sldb.store.edge_index.doc_kinds import special_contribution
 from sldb.store.edge_index.node_ids import doc_node_id
 from sldb.store.edge_index.doc_structure import document_structure
@@ -55,12 +56,12 @@ def _declared_edges(model_name: str, doc: DocumentEntry, model_type: Any | None,
         return []
     if not _declares_links(model_type):
         return []
-    payload = payload_of()
+    payload, source = payload_of(), doc_node_id(f"{model_name}:{doc.name}")
     references = declared_reference_edges(model_name, doc.name, model_type, payload)
-    return references + composition_edges(doc_node_id(f"{model_name}:{doc.name}"), model_type, payload)
+    return references + doc_anchor_edges(source, model_type, payload) + composition_edges(source, model_type, payload)
 
 
 def _declares_links(model_type: Any) -> bool:
     """Whether the model names other documents at all: otherwise its payload is not read."""
-    dunders = ("__references__", "__containment__", "__compositions__")
+    dunders = ("__references__", "__containment__", "__compositions__", "__doc_anchors__")
     return any(getattr(model_type, name, None) for name in dunders)

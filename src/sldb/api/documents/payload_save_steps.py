@@ -52,12 +52,16 @@ def load_document_entry(sp: Path, model_name: str, doc_name: str) -> DocumentEnt
     return doc_entry
 
 
-def render_checked(model_type: type, payload: dict[str, Any], ref_root: Path) -> str:
+def render_checked(model_type: type, payload: dict[str, Any], ref_root: Path, store_path: Path | None = None) -> str:
     """The payload rendered to Markdown, refused unless it round-trips.
 
     `ref_root` is the project root, so a composed field resolves its refs against the project
-    rather than against whatever directory the caller happens to run in.
+    rather than against whatever directory the caller happens to run in. With `store_path`, the
+    unpinned document anchors of the payload are pinned first (GO07, `doc_anchor_pinning`).
     """
+    from sldb.api.documents.doc_anchor_pinning import pin_payload
+
+    payload = pin_payload(store_path, model_type, payload) if store_path is not None else payload
     rendered = render_model_markdown(model_type, payload, ref_root)
     valid, details = validate_model_input_roundtrip(model_type, rendered)
     if not valid:
@@ -65,13 +69,16 @@ def render_checked(model_type: type, payload: dict[str, Any], ref_root: Path) ->
     return rendered
 
 
-def write_rendered_document(root: Path, doc_entry: DocumentEntry, model_type: type, rendered: str, via: str = "save_document_payload", actor: str | None = None) -> None:
+def write_rendered_document(root: Path, doc_entry: DocumentEntry, model_type: type, rendered: str, via: str = "save_document_payload", actor: str | None = None, store_path: Path | None = None) -> None:
     """Write the rendered Markdown, signed with its provenance block (plus final newline), and
-    record its source and content hashes."""
+    record its source and content hashes. With `store_path`, the block's unpinned `from:`
+    document anchors are pinned (GO07)."""
+    from sldb.api.documents.doc_anchor_pinning import pin_provenance
     from sldb.api.documents.provenance_stamp import stamped_file
     from sldb.models.provenance_block import index_block
 
     text = stamped_file(root / doc_entry.path, rendered + "\n", model_type, via, actor)
+    text = pin_provenance(store_path, text) if store_path is not None else text
     (root / doc_entry.path).write_text(text, encoding="utf-8")
     doc_entry.source_hash = hash_text(text)
     doc_entry.content_hash, doc_entry.field_hashes = hash_fields_with_map(model_type, text)

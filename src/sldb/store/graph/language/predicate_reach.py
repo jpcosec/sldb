@@ -4,7 +4,9 @@ A reference to a document the view does not hold is dropped (closed world, §3);
 `unavailable` (a linked store that cannot be opened) yields an incomplete element. Crossing a
 field `F` of the origin whose payload carries `F__anchor_state` exposes, on each element
 reached, that entry under the name `anchor_state` (element `i` of a list field reads entry `i`;
-a scalar field reads the scalar). Without the entry `anchor_state` stays undefined.
+a scalar field reads the scalar). Crossing `^F` the entry is read from the element reached,
+which is the one holding `F` (GO07: `any(^subject: anchor_state = "intact")`). Without the
+entry `anchor_state` stays undefined.
 """
 
 from __future__ import annotations
@@ -46,17 +48,18 @@ def _element(view: dict, origin: dict, edge: dict, step: tuple) -> dict | None:
     if edge.get("unavailable"):
         return {"id": target, "incomplete": target}
     node = view["node"](target)
-    alias = _alias(origin, edge, step)
+    alias = _alias(node if step[2] else origin, edge, step)
     if node is None or alias is _NO_ALIAS:
         return node
     return {**node, "payload": {**node["payload"], "anchor_state": alias}}
 
 
-def _alias(origin: dict, edge: dict, step: tuple):
+def _alias(holder: dict | None, edge: dict, step: tuple):
+    """The entry of the document holding the field crossed: the origin, or the element reached by `^F`."""
     key = f"{step[1]}__anchor_state"
-    if step[0] != "field" or step[2] or key not in origin["payload"]:
+    if step[0] != "field" or holder is None or key not in holder["payload"]:
         return _NO_ALIAS
-    states, values = origin["payload"][key], origin["payload"].get(step[1])
+    states, values = holder["payload"][key], holder["payload"].get(step[1])
     if not isinstance(values, list):
         return states
     position = _position(values, edge)

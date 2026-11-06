@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Iterable
 
 from sldb.store.edge_index.composition_targets import resolve_composition_edges
+from sldb.store.edge_index.doc_anchor_states import with_anchor_states
 from sldb.store.edge_index.edge_index import EdgeIndex
 from sldb.store.edge_index.federation import federated_stores, qualify
 from sldb.store.edge_index.live_stale import ModelTypeOf, live_stale
@@ -29,18 +30,20 @@ def compose_edge_index(store_path: Path, include_linked: bool = True, exclude_ta
         exclude_tags: Documents carrying one of these tags are left out (their nodes, their
             sections, their edges); the index itself holds everything.
         model_type_of: Loads a model class (`(model_ref, project_root) -> class | None`), so
-            `stale` also names documents built under another contract of their model.
+            `stale` also names documents built under another contract of their model, and a
+            document node's payload gains `<field>__anchor_state` for each of its model's
+            `__doc_anchors__` (GO07: on copies, never in a shard; without it, none).
 
     Returns:
         The composed index; shared between callers, so treat it as read-only. Its `stale` is
         checked on every call against the files on disk (`live_stale`), not only the shards.
     """
     stores = federated_stores(Path(store_path), include_linked)
-    key = (str(stores[0][0]), include_linked, frozenset(exclude_tags))
+    key = (str(stores[0][0]), include_linked, frozenset(exclude_tags), model_type_of)
     signature = tuple(shards_signature(path) for path, _ in stores)
     hit = _COMPOSED.get(key)
     if hit is None or hit[0] != signature:
-        hit = _COMPOSED[key] = (signature, _compose(stores, frozenset(exclude_tags)))
+        hit = _COMPOSED[key] = (signature, _compose(stores, frozenset(exclude_tags), model_type_of))
     return _with_live_stale(hit[1], stores, model_type_of)
 
 
@@ -55,13 +58,14 @@ def invalidate_composed_edge_indexes() -> None:
     _COMPOSED.clear()
 
 
-def _compose(stores: list[tuple[Path, str | None]], exclude_tags: frozenset[str]) -> EdgeIndex:
+def _compose(stores: list[tuple[Path, str | None]], exclude_tags: frozenset[str], model_type_of: ModelTypeOf | None) -> EdgeIndex:
     nodes: dict[str, EdgeNodeRecord] = {}
     edges: list[EdgeRecord] = []
     stale: list[str] = []
     fields: dict[str, list[str]] = {}
     for path, name in stores:
         stale += _merge_store(path, name, exclude_tags, nodes, edges, fields)
+    nodes = with_anchor_states(nodes, [path for path, _ in stores], model_type_of, fields)
     kept, problems, unresolved = resolve_edges_reporting(nodes, resolve_composition_edges(nodes, edges))
     return EdgeIndex(nodes=nodes, edges=kept, problems=problems, stale=stale, unresolved_references=unresolved, payload_fields=fields)
 

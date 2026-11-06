@@ -40,7 +40,7 @@ def save_document_payload(store: str | Path | None, model_name: str, document_na
 
 
 def _save(location, idx, m_idx, m_entry, doc_entry, model_type, payload, pythonpath, actor) -> None:
-    rendered = render_checked(model_type, payload, location.project_root)
+    rendered = render_checked(model_type, payload, location.project_root, location.store_path)
     refuse_unknown_family(location.store_path, model_type, payload, pythonpath)
-    write_rendered_document(location.project_root, doc_entry, model_type, rendered, actor=actor)
+    write_rendered_document(location.project_root, doc_entry, model_type, rendered, actor=actor, store_path=location.store_path)
     save_document_indexes(location.store_path, location.project_root, idx, m_idx, m_entry, doc_entry, pythonpath, model_type)
