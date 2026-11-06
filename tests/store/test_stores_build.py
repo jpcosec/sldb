@@ -5,9 +5,14 @@ import shutil
 import subprocess
 import sys
 
+import hashlib
+import json
+
 import pytest
 import yaml
 
+from sldb.api import Seed
+from sldb.api import build_store as api_build_store
 from sldb.api.stores.apply_declaration import undeclared
 from sldb.api.stores.declare_store import declare_store
 from sldb.api.stores.declared_includes import tracked_rows
@@ -53,11 +58,73 @@ def test_a_store_rebuilt_from_its_declaration_tracks_the_same(tmp_path, capsys):
     assert cli_main(["stores", "check", "--store", str(store), "--quiet"]) == 0
 
 
+EMPTY_SCAFFOLD = {"created": [], "rewritten": [], "present": [], "conflicts": []}
+REPORT_KEYS = ["links", "models", "predicates_changed", "tracked", "generated", "undeclared", "missing", "scaffold"]
+
+
 def test_building_a_current_store_changes_nothing(tmp_path, capsys):
     store, root = _declared(tmp_path, capsys)
     report = build_store(store, root)
     assert report["links"] == report["models"] == report["tracked"] == report["undeclared"] == []
     assert report["predicates_changed"] is False
+
+
+def test_the_build_report_is_the_golden_one_plus_an_empty_scaffold_section(tmp_path, capsys):
+    """A declaration without folders or seeds builds as before; the report only gains `scaffold`."""
+    store, root = _declared(tmp_path, capsys)
+    report = build_store(store, root)
+    assert list(report) == REPORT_KEYS
+    assert report == {"links": [], "models": [], "predicates_changed": False, "tracked": [], "generated": [], "undeclared": [], "missing": [], "scaffold": EMPTY_SCAFFOLD}
+    capsys.readouterr()
+    assert cli_main(["stores", "build", "--store", str(store), "--format", "json"]) == 0
+    printed = json.loads(capsys.readouterr().out)
+    assert list(printed) == REPORT_KEYS and printed["scaffold"] == EMPTY_SCAFFOLD
+    assert cli_main(["stores", "build", "--store", str(store)]) == 0
+    assert capsys.readouterr().out.strip() == "built: links: 0, models: 0, tracked: 0, generated: 0, undeclared: 0, missing: 0"
+
+
+def test_a_declaration_without_scaffold_keys_is_written_as_before(tmp_path, capsys):
+    store, root = _declared(tmp_path, capsys)
+    written = yaml.safe_load((store / "store.yaml").read_text(encoding="utf-8"))
+    assert "folders" not in written and "seeds" not in written
+    declaration = load_declaration(store)
+    declaration.folders, declaration.seeds = ["inbox"], [Seed(path="inbox/.keep", text="keep")]
+    save_declaration(store, declaration)
+    written = yaml.safe_load((store / "store.yaml").read_text(encoding="utf-8"))
+    assert written["folders"] == ["inbox"] and written["seeds"] == [{"path": "inbox/.keep", "mode": "if_missing", "text": "keep"}]
+
+
+def test_build_applies_the_declaration_and_then_scaffolds(tmp_path, capsys):
+    store, root = _declared(tmp_path, capsys)
+    declaration = load_declaration(store)
+    declaration.folders, declaration.seeds = ["inbox"], [Seed(path="inbox/.keep", text="keep"), Seed(path="NOTES.md", mode="managed", text="# Notes\n")]
+    save_declaration(store, declaration)
+    report = api_build_store(store)
+    assert list(report) == REPORT_KEYS and report["tracked"] == []
+    assert report["scaffold"] == {"created": ["inbox", "inbox/.keep", "NOTES.md"], "rewritten": [], "present": [], "conflicts": []}
+    assert (root / "inbox" / ".keep").read_bytes() == b"keep"
+    (root / "NOTES.md").write_text("edited", encoding="utf-8")
+    assert build_store(store, root)["scaffold"] == {"created": [], "rewritten": ["NOTES.md"], "present": ["inbox", "inbox/.keep"], "conflicts": []}
+    assert (root / "NOTES.md").read_text(encoding="utf-8") == "# Notes\n"
+
+
+def test_build_without_apply_writes_nothing_and_says_what_is_pending(tmp_path, capsys):
+    store, root = _declared(tmp_path, capsys)
+    declaration = load_declaration(store)
+    declaration.folders = ["inbox"]
+    declaration.include[0]["paths"].append("gone.md")
+    save_declaration(store, declaration)
+    before = {p: hashlib.sha256(p.read_bytes()).hexdigest() for p in root.rglob("*") if p.is_file()}
+    report = api_build_store(store, apply=False)
+    assert report == {"links": [], "models": [], "predicates_changed": False, "tracked": [], "generated": [], "undeclared": [], "missing": ["gone.md"], "scaffold": {"created": ["inbox"], "rewritten": [], "present": [], "conflicts": []}}
+    assert {p: hashlib.sha256(p.read_bytes()).hexdigest() for p in root.rglob("*") if p.is_file()} == before
+
+
+def test_build_runs_the_generators_the_caller_hands_in(tmp_path, capsys):
+    store, root = _declared(tmp_path, capsys)
+    seen = []
+    report = api_build_store(store, generate=lambda s, r, d: seen.append((s, r)) or ["noop"])
+    assert report["generated"] == ["noop"] and seen == [(store.resolve(), root.resolve())]
 
 
 def test_a_tracked_document_no_rule_names_is_reported(tmp_path, capsys):
