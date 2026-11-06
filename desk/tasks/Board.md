@@ -7,7 +7,6 @@ scope: sldb-local-desk
 tasks:
 - desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
 - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
-- desk/tasks/task-gd22-referencias-entrantes-buscar-y-reescribir.md
 - desk/tasks/task-gd25-vistas-declaradas-viewdoc-servidas-por-sldb-serve.md
 # List of pill-xxx paths
 pills:
@@ -55,5 +54,4 @@ _Generated from the task references above._
 
 - Diseño: set bootstrap de modelos tras la convergencia átomo/field [draft] - Un documento de decisión en docs/ (SpecDoc o PlanDoc trackeado) que evalúe la propuesta de siete modelos, diga qué se adopta, qué no y por qué, con ejemplos de cada modelo sobre documentos reales del store.
 - Diseño: jerarquía de modelos de evidencia (__family__ o herencia) [draft] - Un documento de decisión en docs/ que compare __family__ vs herencia de clases para los modelos de evidencia, con la recomendación y sus consecuencias para deskops (RunDoc, materializaciones, closeout_evidence).
-- GD22: Referencias entrantes - buscar y reescribir [draft] - sldb.api.referrers(store, target) devuelve las referencias entrantes (campos escalares, elementos de listas y menciones en superficies no modeladas) desde el índice y el grafo de proyecto de GD21; sldb.api.rewrite_references(store, target, replacement | None, *, transaction=None) las reescribe o quita dentro de una transacción de GD24 (todo o nada) y devuelve un RewriteReport; CLI sldb edges referrers y sldb edges rewrite --to | --remove [--dry-run] con envelope; GET /edges/referrers y POST /edges/rewrite; docs/architecture/references.md.
 - GD25: Vistas declaradas (ViewDoc) servidas por sldb serve [draft] - ViewDoc (el de SV01) tipa params y sections y valida al escribir; sldb.api.run_view(store, name, params) ejecuta las secciones (select de GD23, fields, edges, group_by con group_order, rules de GO06, transitions de GO08/GO09) y devuelve {view, params, revision, sections}; revision por hashes de lo leído; CLI sldb views run|list con envelope; GET /views y GET /views/<name> con ETag e If-None-Match → 304, sin tapar /views/projection* de SV02; sin punto de extensión en Python; docs/architecture/views.md.
