@@ -1,0 +1,196 @@
+{
+  "key": "task-go05-lenguaje-de-predicados-unificado/bundle",
+  "input_sha256": "837b143a2ce37aba51be4678667567d6eb4220bef2ab78864a3cc6b381c418c8",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/dev/shm/sldb-desk/runs/subagents/20261104-grafo-operable-context-reviews/context-review/task-go05-lenguaje-de-predicados-unificado/bundle/837b143a2ce37aba51be4678667567d6eb4220bef2ab78864a3cc6b381c418c8/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-go05-lenguaje-de-predicados-unificado.md",
+      "sha256": "57841727f4cded20e44661d6868091a7505f676958a3124cd5c21a94b9b2da28",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/graph/language/__init__.py",
+      "sha256": "78aac24af48703713dfed722a4e9b0fff3d727e741f03822e24fef394b94dfe2",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/graph/language/field_condition.py",
+      "sha256": "ea7b24823f36d0ff37f4f453d3cf3237c7145bace6c57e05ed6c1eb460c65aac",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/graph/backend/parser.py",
+      "sha256": "798d668f6885b0ec9dae54ed69ff35c69aee384056243866302fa02832f31c67",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/graph/backend/tokens.py",
+      "sha256": "f460ea7b99e3c3b6793b7592af6e2348549ac7576870f4b63284b05c5ee1bd59",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/graph/backend/evaluate.py",
+      "sha256": "604a196f27bab4bca2ec85bc2fd40ff924584b817d387cce2354f7be2a97082a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/graph/backend/eval.py",
+      "sha256": "3b99d954c0652fe4b41862a82f752d2218ccb504a3ed782c1efa9227c2361aad",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/graph/backend/networkx_backend.py",
+      "sha256": "2b41a17820ac3d801fed37294025b0ae61cf68f39447eb07a4253f246f2a61e0",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/graph/executor.py",
+      "sha256": "6dd6e0be1e7d2ab39db385cf5e41ab6434b999527dc90971c436e7089a9a110b",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/graph/payload_match.py",
+      "sha256": "89ac9bb2bbb514b0eb84e912a36e667083a1ed9c66c6dc777980dc2f4b4e5227",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/query_engine/where_parse.py",
+      "sha256": "313df22c72443515c7f67ae01e84a12843b3da0a9267d663dbd63c605c57827f",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/query_engine/where_subject.py",
+      "sha256": "61951821d053f402c65bcac21e3b7664fb6f80493ec90e49ad77fa1fe5171889",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/query_engine/structural_queries.py",
+      "sha256": "b5ba0cdbae66e258547d9f321299b881312f0783d669deeed7d02c30fde4f257",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/where.py",
+      "sha256": "cf928a640518f596de220a88541cbfce620f3a2e6e5b45c74f2692b920c61834",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/api/edges/edges_holding.py",
+      "sha256": "54fb23c131c738eec0ea17fae99ff1f96da7ba21b2d3492c9b8539b380231d27",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/parsers/find.py",
+      "sha256": "7a889b687a01c94c548bbef5da431eebc50aa92649ceedf386a0c92f17104827",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/commands/find.py",
+      "sha256": "7fd79d43b7febe6dd6b4a18934df79477499bc9728928abca813cec5a9ccbc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/commands/find_filter.py",
+      "sha256": "12819becd63d27b708deb0b62047220aca431a8b0ad99f62f35b02d88e56ea8a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/cli/commands/graph.py",
+      "sha256": "7a3f2ce4ad93f017ac1e6f9ab7c14d584c5d3bbf5b4e76f5a66a68d533b9c8b9",
+      "projection": "whole_file"
+    },
+    {
+      "path": "docs/architecture/rules-language.md",
+      "sha256": "800dc76e84b9aefd4ef138c25778d7145c2af0a03b1fbf5abbc2bd6e7bba49c9",
+      "projection": "whole_file"
+    },
+    {
+      "path": "docs/architecture/graph-backend.md",
+      "sha256": "9f439750af288a7f02cbc3c136f710e5f26ca42bf36e5ca19cd9091254e051da",
+      "projection": "whole_file"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "3493b91b50ed8d692b317f846ed7b0198a25ae129cc59d6663df0a6351cadc94",
+      "projection": "whole_file"
+    },
+    {
+      "path": "tests/test_rules_language_spec.py",
+      "sha256": "6b284fec917da180806c33e1e595362b85629d9022ea600209d76ff2c0dd5615",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "src/sldb/store/graph/language/predicate_ast.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/store/graph/language/predicate_parser.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/store/graph/language/predicate_eval.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/store/graph/language/predicate_paths.py",
+      "reason": "missing"
+    },
+    {
+      "path": "src/sldb/store/graph/language/predicate_explain.py",
+      "reason": "missing"
+    },
+    {
+      "path": "tests/store/test_predicate_language.py",
+      "reason": "missing"
+    },
+    {
+      "path": "tests/fixtures/where_goldens/",
+      "reason": "missing"
+    }
+  ],
+  "started": "2026-11-06T19:08:09.360030+00:00",
+  "finished": "2026-11-06T19:08:36.989809+00:00"
+}

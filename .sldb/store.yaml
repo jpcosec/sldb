@@ -365,6 +365,8 @@ include:
     name: review-task-gd26-preflight-1
   - path: desk/reviews/task-go05-lenguaje-de-predicados-unificado/preflight-1.md
     name: review-task-go05-lenguaje-de-predicados-unificado-preflight-1
+  - path: desk/reviews/task-go05-lenguaje-de-predicados-unificado/bundle-1.md
+    name: review-task-go05-lenguaje-de-predicados-unificado-bundle-1
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md

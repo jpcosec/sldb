@@ -1,0 +1,30 @@
+name: review-task-go05-lenguaje-de-predicados-unificado-bundle-1
+path: desk/reviews/task-go05-lenguaje-de-predicados-unificado/bundle-1.md
+source_hash: b8498cf13f7f169ddb3b9defd64411104e2aeb9ca4efccfee81af2d27a992db4
+content_hash: cca10bbe2f95dbe34cfef79337c784c8734452b0643ba4ccba83f77a583aacc5
+field_hashes:
+  id: 920796cd2d3e98b8cc7b224e5d1592b1a138cef921e08081f9f050dc4c867319
+  title: 8dbb243eb612030958b9beeed6568e08b14b8fc48a75be94568c1cd9bac584d1
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  subject: 7b5d3a9cd1de500052e31949ad7b34e87447d466ba9e56790fa7e999252e778a
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 566fa6197a4ac6ca102a3c9e9eb3b0f6e0e42560ef8fdbcc34436b7f380f22b8
+  input_sha256: aa595dd0bd95ac27cfc81d3e3cab0de1e535767a34649a0e8a14a560be51b620
+  output_sha256: 460d44b0810ccb306ed266aaf63923d4c0e15aa2cf4f11d08d375e726e1aee5b
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: b1ef832deacf1852a0533c40ad6b218badf94415e4652593d160b1323d212aec
+  created_at: 2138bbf6d718929ef4e0b6b88e81fccbd3c4c7f03857761fff4502aee5d9ba47
+  disposed_at: 6c5dc0f0f5402ad295c817d4a40cd6815835564c7dd00a9ed8e5172967133c7e
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: e0cf3e8e2ee986bff221a09f32d35f6e15689b1021619e0a1aa8c13561c9746f
+  disposition: f012301a69ad9e5f34d24f3a93138fd561704451afb11e31bede4d2483fb1226
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance: null

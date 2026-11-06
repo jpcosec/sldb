@@ -40,6 +40,8 @@ files:
 - tests/test_rules_language_spec.py
 - tests/store/test_predicate_language.py
 - tests/fixtures/where_goldens/
+- src/sldb/store/query_engine/rules.py
+- contracts/layers.toml
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
@@ -75,6 +77,15 @@ p3 (--explain): sldb docs find --where <expr> --explain agrega a data la clave f
 p4 (anchor_state): GO07 aun no produce F__anchor_state; el alias se prueba con una proyeccion sintetica cargada en el backend (load(indice, proyeccion)) cuya facet de origen trae la entrada F__anchor_state, y con otra sin ella (has(anchor_state) es false). No se escribe nada de GO07.
 p5 (goldens): antes de tocar src/, un primer commit captura con el codigo de main tests/fixtures/where_goldens/where_parse.json y tests/fixtures/where_goldens/field_condition.json: para cada fila de la tabla de equivalencia (rules-language.md seccion 7), la expresion vieja y la lista ordenada de nombres de los payloads que cumple, sobre un conjunto fijo de payloads definido en tests/store/test_predicate_language.py (cubre null, listas, campo ausente, numeros, strings). El test de equivalencia evalua la columna nueva sobre los mismos payloads y compara con el golden; los goldens no se regeneran despues.
 p6 (extract): Validator.extract es sldb.runtime.validation.Validator.extract; el test lo cuenta con monkeypatch (como test_status_closed_is_answered_with_zero_extractions de GO04).
+
+PRECISIONES (cold-bundle de GO05, 2026-11-06):
+p7 (modulo de la spec, H1 de rules-language.md): sldb.store.query_engine.rules es el modulo que los tests de spec importan: parse_predicate(texto) -> predicado parseado, eval_predicate(predicado, grafo, subject=None) -> lista de findings, contract_hash(modelo, field_hashes) -> str; es una fachada delgada sobre el lenguaje (store/graph/language/) y no tiene logica propia. La ubicacion del parser y del evaluador respeta contracts/layers.toml y test_store_seams; si un import entre unidades lo exige, se ajusta needs en contracts/layers.toml con comentario (como GO03) y se reporta.
+p8 (adaptador del grafo, H2): el evaluador trabaja sobre una vista de grafo minima (por nodo: model, base_models, payload; por nodo y paso: aristas salientes y entrantes por campo o por rel:tipo, con la marca unavailable). Hay dos implementaciones: NetworkXBackend la arma sobre el indice compuesto y la proyeccion de load; eval_predicate la arma sobre el dict de los tests ({nodes: {id: {model, payload, base_models?}}, edges: [{source, type, target, field?, unavailable?}]}). Ambas usan el mismo evaluador; GraphBackend.eval y eval_predicate dan los mismos findings para el mismo grafo.
+p9 (familia en los tests): la familia de model <= X sale de base_models del nodo (en el indice real, base_models del nodo del modelo, como en 8d7bee13). Los tres tests de spec que usan ChildDoc/BaseDoc (test_model_less_or_equal_family y los dos de dominio con model <=) no declaran que ChildDoc < BaseDoc aunque rules-language.md seccion 1 lo da por supuesto: se corrige SOLO su fixture agregando base_models=["BaseDoc"] al nodo ChildDoc (via _doc o el dict), sin tocar la expresion ni el resultado esperado. Es la unica edicion permitida a tests/test_rules_language_spec.py ademas de quitar xfail y EXPECTED_XFAIL; se reporta.
+p10 (anchor_state, corrige p4): la proyeccion de load es export_id -> facet payload (un dict plano). El alias lee, en el payload del documento ORIGEN, la clave F__anchor_state cuando el camino atraviesa su campo F: si F es una lista, el elemento i alcanzado expone F__anchor_state[i] bajo el nombre anchor_state; si F es escalar, expone el escalar. La prueba carga una proyeccion sintetica con y sin esa clave; nada se escribe en el indice.
+p11 (find): en sldb docs find --where, un documento cumple solo si holds es true (incomplete y false no cumplen). --where se aplica a los mismos records y con el mismo sujeto que hoy; el lenguaje nuevo no amplia ni reduce el tipo de records que find devuelve.
+p12 (canal del warning de p1): la entrada de warnings de sldb graph query se reporta por sldb.cli.alert_sink (report con un Finding de nivel warning), que es lo que el envelope ya vuelca en warnings; sin --envelope el comando imprime la misma salida que hoy.
+p13 (goldens de FieldCondition, precisa p5): field_condition.json guarda por fila la condicion vieja como dict {field, op, value} (forma JSON de FieldCondition) junto con la lista ordenada de payloads que cumple; where_parse.json guarda la expresion vieja como string. Ambos formatos: lista de objetos {old, matches}.
 
 ## Implementation Path
 
