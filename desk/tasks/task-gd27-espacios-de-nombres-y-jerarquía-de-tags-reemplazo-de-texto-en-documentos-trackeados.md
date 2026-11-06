@@ -18,7 +18,6 @@ files:
 - src/sldb/api/tags/tag_tree.py
 - src/sldb/api/tags/tag_folder.py
 - src/sldb/api/tags/tag_check.py
-- src/sldb/api/semantic/__init__.py
 - src/sldb/api/documents/replace_text.py
 - src/sldb/api/__init__.py
 - src/sldb/store/semantic_tags.py
