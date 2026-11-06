@@ -23,9 +23,9 @@ gates:
     evidence: 'sldb 8be66bde (squash de wt/go05) y closeout 5fd22306: sldb find --where con any()/all() sobre una relación responde con explicación (el comando es sldb find, no sldb docs find; aceptación verificada por el coordinador 1); 2026-11-06'
   G_GO06:
     title: RuleDoc, rules check y rules explain (GO06) cerrados en main de sldb
-    state: pending
+    state: satisfied
     resolver: closeout commit de GO06 en main de sldb
-    evidence: sldb rules explain RULE SUBJECT devuelve el finding de eval
+    evidence: 'sldb 622da0b5 (código GO06) y closeout aed21a8c: sldb rules explain RULE SUBJECT devuelve el finding de eval (aceptación verificada por el coordinador 1, reports/coordinador1.md); 2026-11-06'
   G_GO08:
     title: Evaluación on_write/on_transition/on_check y edges_blocked (GO08) cerrados en main de sldb
     state: pending
