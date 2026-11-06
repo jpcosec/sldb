@@ -49,6 +49,14 @@ b5 (estructura): 1 Contexto y fuentes; 2 Resumen de la propuesta; 3 Un punto por
 b6 (cierre): el entregable es el documento con todas las decisiones en PENDIENTE; la tarea no se cierra al integrar, queda abierta hasta que el dueno marque cada punto (Done When).
 b7 (fuera): ningun cambio de codigo ni de modelos; no se crean los siete modelos.
 
+PRECISIONES (preflight, 2026-11-07):
+b8 (rutas de lo existente, en main de sldb salvo que se diga): AtomDoc = ../deskops/deskops/models/atom.py (y protoatom.py); RelationDoc = src/sldb/models/relation_doc.py; RelationTypeDoc = src/sldb/models/relation_type_doc.py; __compositions__ y base_models = src/sldb/store/model_contract.py y docs/architecture/model-authoring.md; anclas doc: = docs/architecture/anchoring.md seccion 6 y src/sldb/models/doc_anchor_value.py; RuleDoc = src/sldb/models/rule_doc.py y docs/architecture/rules.md; SV04 = src/sldb/api/model_create/ y src/sldb/api/model_drafts/; SV01 = src/sldb/models/notation_models.py (ViewDoc) y docs/architecture/notations-and-views.md. Se cita archivo:linea sobre el estado de main al redactar.
+b9 (atoms): como minimo atom-el-contrato-completo-de-un-modelo-se-declara-y-edita-por-drafts-con-validacion-y-backfill, atom-el-dueño-de-un-field-es-la-sección-del-template-que-lo-contiene-no-la-línea-donde-quedó-renderizado, atom-el-path-guardado-de-un-modelo-es-una-pista-model-ref-es-la-identidad y atom-sldb-evaluates-declared-rules-consumers-author-them (desk/atoms/); el redactor puede sumar otros que encuentre con sldb find o grep y los nombra.
+b10 (espiral): docs/surface/PROPUESTA-SUPERFICIE.md, seccion '## 16. El ciclo', subseccion '### 16.1 · La espiral'.
+b11 (ejemplos reales): cada ejemplo nombra un documento trackeado en .sldb/store.yaml de sldb por su export id Model:name (p. ej. ArchitectureNarrativeDoc:arch-..., AtomDoc:atom-..., RelationTypeDoc:..., PlanDoc:...), elegido porque ilustra el punto; el redactor dice en una frase por que ese documento.
+b12 (entorno y git): el trabajo va en un worktree propio de sldb en una rama wt/ que da el coordinador; Python = ~/proyectos/SLDB_1/.venv/bin/python con PYTHONPATH=<worktree>/src:<worktree> y TMPDIR=/dev/shm; un commit con el documento y los cambios de .sldb/ que produce el track; sin push (integra el coordinador de proyecto).
+b13 (fuentes del marco): principio del dueno = docs/architecture/rules.md (seccion de RuleDoc y validacion al escribir) y el Scope de las tareas GO06-GO09 del plan desk/drawer/plans/grafo-operable (notas q1); G_BOUNDARY = desk/drawer/plans/grafo-operable/dag.yaml (gates.G_BOUNDARY) y el atom atom-sldb-evaluates-declared-rules-consumers-author-them.
+
 ## Implementation Path
 
 _Outline the expected implementation route or affected surface._

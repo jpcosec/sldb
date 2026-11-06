@@ -1,7 +1,7 @@
 name: task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field
 path: desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
-source_hash: 806030b29909769ff4cad904aa8e52cb4a94899ebc102526b90d01db1ec4cfef
-content_hash: 2a3acf9a7cdea26661b63e0e74be899dd3bea8919b0fd1b3cbb3771b6da92b08
+source_hash: 0d83c717aeaebfaf06e49905c09c08f3b8da3a8c682a6cb5fa48664d7a0e7a71
+content_hash: 32ef7109863ee45b61855c15fd5e042254bd0b8d93fc26bd84ae45003b45c591
 field_hashes:
   title: cb7c6eccff7def108b6ad36f2909dc82620644842565b637988fa4ed996c1d2f
   id: aa8cd2cc57b2280791ee36a0414d93c37c8be58962ef85d3f18531ecd28a4a30
@@ -12,7 +12,7 @@ field_hashes:
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: b13992f41c0899bd64dc2a87effee5d0594c2857475fd5ca9faa3acc5e79b49f
   goal: ef4085c56be4579caffdbeb9e4eb9ee16bd3903bfaee6d8f367d6898caeadc37
-  scope: d6db43282a6a32b394df0411b2ae764e192803b8a083bbc86b6a5a4973f601f3
+  scope: fa6ce22c5cb0c0c6f73634c780cb7caae287b8bb22ef8100ca55281585c7c82e
   references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945

@@ -545,6 +545,8 @@ include:
     name: review-task-gd27-bundle-1
   - path: desk/reviews/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia/preflight-1.md
     name: review-task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia-preflight-1
+  - path: desk/reviews/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field/preflight-1.md
+    name: review-task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field-preflight-1
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md

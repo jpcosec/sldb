@@ -1,0 +1,30 @@
+name: review-task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field-preflight-1
+path: desk/reviews/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field/preflight-1.md
+source_hash: 3d26e53cbad53143fc0a8c384af921dc56f79e839ad52a93c673c62116eb83ce
+content_hash: 11e13e0c109c3b239c5b5df75e2cd8939b509991bcd11fced0ba0f04bd1a9c62
+field_hashes:
+  id: 31eed0e63b9379129d33d912ce15b0cea2192cff9398066165e039261d36affd
+  title: e90f08c11d8c04be64de459b137e484a657572f090e96b7d9f86f618486b5e6b
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  subject: d6ac5fc1df76701f7b3a1d52e0cf5aa21c5548b9fd6427be5a1bbe6fd890a7b3
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: c8e66a9e7cfeea13f950c05e35f2cb5a7155ccb29b03ad1ce83d1277990fec87
+  input_sha256: 123182fefe42cea8c69131db09864f5fb714d596ea2c755ec90ef24ceee1bd44
+  output_sha256: 20b9b1f7c02ee4d4cd9a566d76f19c1b206ab6fc43022e09a541fa0309225cf7
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 0bfee6c007196f606a750e95d16c63f6a3d30ff44b713f25e203c241b5844aee
+  created_at: 81976ccb2d858d6b4ba1a1e7800d376ec9ca69e65f7d4949f5eca1098ff02442
+  disposed_at: 69652fe336c8e0e89285bd78c3fd66897235c1fda8938870e7e75c8a876d2d54
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: bb8851ae4e61330305cf089290b90aa83ca16865e0a0466d6922f7d1e88f7809
+  disposition: 16ca10c8689ed9c3aa872f3e6779830bb680bdd00100f8bace04b7d8be422f2e
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance: null
