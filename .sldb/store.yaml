@@ -325,11 +325,6 @@ include:
     name: sldb-readme
 - model: SurfaceDoc
   glob: knowledge/surfaces/*.md
-- model: TaskDoc
-  paths:
-  - desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
-  - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
-  - desk/tasks/task-go04-payload-proyectado-al-grafo-y-staleness-correcta.md
 - model: RunDoc
   paths:
   - path: runs/subagents/20261029-124912-task-cerrar-task-sldb-serve/run.md
@@ -345,8 +340,19 @@ include:
   - desk/materializations/materialization-store-layout-docs-architecture-journal-authority-md.md
   - desk/materializations/materialization-store-layout-changelog-md.md
   - desk/materializations/materialization-store-layout-src-sldb-store-journal-entry-py.md
+- model: TaskCodeDoc
+  paths:
+  - desk/tasks/task-sv01-modelos-de-vocabulario-visual-paletas-y-notaciones-builtin-en-sldb.md
+  - desk/tasks/task-sv02-resolvedor-de-vistas-y-notaciones-en-sldb-api-cli-y-sldb-serve.md
+  - desk/tasks/task-sv03-transclusion-de-campos-y-segmentos-ricos-de-diagramas-y-vistas-en-document-segments.md
+  - desk/tasks/task-sv04-declaracion-y-edicion-draft-de-containment-references-compositions-y-semantics-en-modelos.md
+  - desk/tasks/task-go04-payload-proyectado-al-grafo-y-staleness-correcta.md
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md
+- model: TaskDocsDoc
+  paths:
+  - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
+  - desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
 graph_backend: networkx
 policy: {}

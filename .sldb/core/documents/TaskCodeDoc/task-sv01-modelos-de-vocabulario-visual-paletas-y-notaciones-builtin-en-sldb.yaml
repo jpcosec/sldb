@@ -1,0 +1,34 @@
+name: task-sv01-modelos-de-vocabulario-visual-paletas-y-notaciones-builtin-en-sldb
+path: desk/tasks/task-sv01-modelos-de-vocabulario-visual-paletas-y-notaciones-builtin-en-sldb.md
+source_hash: 3970daeb412f0fd0f73560ecd4551206d2e74ced568b1e2ff1a49f447ab38e8d
+content_hash: 53eb3d339c1a7cdca3b6c9092c4cf53b923a0684f353ebf0df5728487db19365
+field_hashes:
+  title: 47db49e9d907412a4ab032aec00c92c2cf1d5171d9d4ae81bda0d341efa89d8e
+  id: 8a1c191649df802098510661dd38cc0f5cee8567656b97454921fb2e7462a83d
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 1db36259665de2563749388b4b2401962cb7c3e8d1bbf5899421cdd1fef2ec1d
+  goal: c7619256562806bf5b0779c4081b0a8ebc9d2c2952af5ab1ff1d6637446fba81
+  scope: 5dd92af952e06dcab1e3a8f6504992f70b55e794a3079004e0eb4a761a83ff95
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 1a002a522ca5bfb24917e2d9a34c21edf40749b3e64151cf6b6a340e3e614bf6
+  implementation_path: e10b71c38bcb439fdef6faca5d789258f27e579cb1a1039d30210558ccc2f3cb
+  validation: 4b83528aa5ec78cb8a95cd625c26bb55687df31243d6c8e3a94ea6b263fc015c
+  done_when: 80832f15a8bb9eb8536165c35cbaf0a931b4f5603f4d356522b5cdb804fb4082
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- artifact:task
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance: null

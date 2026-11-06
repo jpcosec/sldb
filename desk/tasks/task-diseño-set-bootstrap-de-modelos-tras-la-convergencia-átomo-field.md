@@ -11,7 +11,7 @@ references: []
 depends_on: []
 pills: []
 files: []
-task_type: design
+task_type: task.docs
 inherits_from: []
 inherit_acceptance_context: false
 atoms: []

@@ -1,12 +1,13 @@
 name: faq
 path: docs/faq.md
-source_hash: eeadd0c8ec0a5787579aefe66233a283c81bd1ddccaa4e077a74aa483ed12f5e
-content_hash: 766b1edc11b7811dce26364904522488fca4ef2279b936b2e50aa16b3cc93f10
+source_hash: caf43776a80231ffd9dc862b295b67b428a72f9d78950d56024a6b4da9491cbc
+content_hash: d02c217ceb7ca87c6ae39accbcaafdfc8411fb9f2b8a9bf52b05000f8f26d4d0
 field_hashes:
   title: db7be09dab5161c4fcda1cf9ee0cbc7fff9817b06c26c1b903c1925ee31e5cb6
-  body: 29ffde4d9683cd053917cdda174ced1b2abbd1282aeb9b2586c36f990cf856bf
+  body: 11fb90808495017ca0c8ad4e31a2a05d0db0bfc3670acb5be25c6e4a73ed9370
 semantic_tags:
 - representation.markdown
 - source.document.markdown
 - type.documentation.faq
 - workspace.docs.faq
+provenance: null

@@ -27,7 +27,7 @@ files:
 - docs/architecture/graph-backend.md
 - CHANGELOG.md
 - tests/store/test_payload_projection.py
-task_type: code
+task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
 atoms: []
