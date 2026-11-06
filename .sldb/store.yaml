@@ -358,5 +358,13 @@ include:
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md
+- model: ReviewDoc
+  paths:
+  - path: desk/reviews/task-gd23/preflight-1.md
+    name: review-task-gd23-preflight-1
+  - path: desk/reviews/task-gd24/preflight-1.md
+    name: review-task-gd24-preflight-1
+  - path: desk/reviews/task-gd26/preflight-1.md
+    name: review-task-gd26-preflight-1
 graph_backend: networkx
 policy: {}

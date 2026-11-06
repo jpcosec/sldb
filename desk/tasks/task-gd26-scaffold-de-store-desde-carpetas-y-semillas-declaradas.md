@@ -75,6 +75,15 @@ q1 (GD24): GD24 se promueve a la vez y no hay arista entre ambos; si GD24 no cer
 q2 (doc): docs/architecture/store-declaration.md no existe hoy; se crea con la sección folders y seeds.
 q3 (base): commit base 6b80df36 de main de sldb.
 
+PRECISIONES DEL PREFLIGHT (review-task-gd26-preflight-1, 2026-11-06):
+q4 (firma): scaffold_store(store, *, declaration=None, apply=False, template_root=None) -> ScaffoldReport; template_root=None = el directorio de store.yaml.
+q5 (folders): cada carpeta se crea con sus padres (mkdir parents); si ya existe como directorio va a present; si existe como archivo va a conflicts y no se toca; sin apply, las faltantes se reportan en created como pendientes. folders no tiene modo.
+q6 (GD24): decide el ejecutor al implementar mirando main: si sldb.api.transaction existe (GD24 cerrado), se usa; si no, rollback_on_error (store/io/rollback.py:11) por archivo. Sin detección en tiempo de ejecución.
+q7 (track): un seed document con track se trackea con track_document_file(store, model, path, name) (api/documents/track_document_file.py:20).
+q8 (reporte vacío): la sección scaffold de stores build es siempre el objeto {created: [], rewritten: [], present: [], conflicts: []} (listas de rutas relativas); vacía = las cuatro listas vacías.
+q9 (pkg:): pkg:modulo/ruta se resuelve con importlib.resources.files("modulo").joinpath("ruta") sobre el paquete importable (instalado o en pythonpath); no se resuelve relativo a nada más.
+q10 (clave desconocida): Seed y la parte nueva de StoreDeclaration usan model_config = ConfigDict(extra="forbid"); load_declaration levanta pydantic.ValidationError, cuyo mensaje nombra la clave (loc). Las claves existentes de StoreDeclaration no cambian de comportamiento.
+
 ## Validation
 
 _List the checks required before this task can close._

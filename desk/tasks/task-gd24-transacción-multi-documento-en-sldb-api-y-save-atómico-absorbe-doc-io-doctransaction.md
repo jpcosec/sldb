@@ -81,6 +81,13 @@ q2 (rutas de escritura): las cinco rutas son sldb fields update, sldb docs updat
 q3 (GO08): si GO08 no cerró al despachar, la parte 'una regla on_write error revierte el lote' queda fuera y se anota.
 q4 (base): commit base 6b80df36 de main de sldb.
 
+PRECISIONES DEL PREFLIGHT (review-task-gd24-preflight-1, 2026-11-06):
+q5 (GO08): decide el coordinador al despachar mirando main: si GO08 está cerrado, una regla on_write error dentro de un lote revierte el lote y se prueba; si no, esa parte queda fuera de este nodo y se anota aquí. No hay detección en tiempo de ejecución.
+q6 (error de rollback): una excepción nueva RollbackError(SLDBStoreError) (en src/sldb/api/documents/transaction.py, exportada en sldb.api) con atributo unrestored: list[str] (rutas relativas a la raíz, todas las no restauradas) y __cause__ = la excepción original (raise ... from original). El test inyecta un fallo de restauración y comprueba la lista.
+q7 (cachés): tras el rollback se llaman las funciones que ya existen: forget_store_caches(sp, model_name) (api/model_registry/model_files.py:25) por cada modelo tocado, invalidate_index_cache() (store/io/__init__.py:53), invalidate_shard_cache() (store/io/shards.py:49) e invalidate_composed_edge_indexes() (store/edge_index/compose.py:43). No se crea API de invalidación nueva.
+q8 (rutas de escritura): fields update = src/sldb/cli/commands/fields_mutate.py (y fields_save.py si la ruta pasa por ahí); docs update = src/sldb/cli/commands/docs.py; /save = cli/serve/save_routes.py. El test por ruta va en tests/api/test_write_paths_validate.py; si una ruta no rechaza, el arreglo es en ese archivo y llama a la validación de modelo existente (render_checked/validate_model_input_roundtrip) sin editar payload_save_steps.py.
+q9 (test de /save que cambia): tests/test_serve.py::test_batch_save_partial_failure_reports_completed (:262) pasa a esperar 500 con rolled_back: true y ningún archivo cambiado; se renombra a test_batch_save_partial_failure_rolls_back. Los demás tests de /save (:187, :213, :228, :247, :1095) quedan iguales.
+
 ## Validation
 
 _List the checks required before this task can close._

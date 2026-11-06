@@ -77,6 +77,13 @@ q1 (gate): requiere G_GO04 (GO04 promovido en ritual-execution, no cerrado). El 
 q2 (archivo de test): tests/api/test_select_documents.py es nuevo; los goldens de query glob/find son los de tests/store/test_queries_expanded.py y tests/test_linked_structural.py.
 q3 (base): commit base 6b80df36 de main de sldb.
 
+PRECISIONES DEL PREFLIGHT (review-task-gd23-preflight-1, 2026-11-06):
+q4 (arranque): el ejecutor NO arranca mientras G_GO04 esté pending; despacha el coordinador cuando el supervisor lo marca. El contrato de la facet payload es el que GO04 deja en main (TaskDoc task-go04-..., precisiones p2-p6: FacetFilter(facet="payload", conditions=[FieldCondition(...)])).
+q5 (where): la gramática es la de docs/architecture/rules-language.md (GO02), evaluada por el evaluador que haya en main al despachar; si GO05 no cerró, where acepta solo comparaciones de campo (campo op valor con =, !=, <, >, in, combinadas con and/or/not) traducidas a FacetFilter de GO04, y lo que el parser rechace es error de where con el texto de error del parser. No se inventan operadores.
+q6 (CLI): no hay string corto: la CLI usa solo los flags --ref, --prefix, --path-glob, --model, --where, --one (y --include-linked); el selector como mapa es la forma de la API y de GET /docs/select (mismos nombres como query params).
+q7 (ref y alias): ref acepta exactamente lo que doc_status (src/sldb/api/stores/doc_status.py:18) acepta: name, Model/name o Model:name, ruta trackeada, opcionalmente con prefijo alias: de un store enlazado (split_doc_ref de api/stores/doc_ref.py); no hay tabla de alias nueva.
+q8 (include_linked): false = solo documentos del store dado; true = también los de los stores enlazados por stores add (los mismos que doc_status resuelve con alias:), y cada fila lleva export_id con el prefijo alias:. No sigue aristas.
+
 ## Validation
 
 _List the checks required before this task can close._

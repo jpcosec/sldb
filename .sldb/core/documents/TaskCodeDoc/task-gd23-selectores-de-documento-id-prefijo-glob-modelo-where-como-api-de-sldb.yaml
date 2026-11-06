@@ -1,7 +1,7 @@
 name: task-gd23-selectores-de-documento-id-prefijo-glob-modelo-where-como-api-de-sldb
 path: desk/tasks/task-gd23-selectores-de-documento-id-prefijo-glob-modelo-where-como-api-de-sldb.md
-source_hash: cfc3c2b6edc2194f78a3d59bf2b678eb8238ca0ffef26c76769ef4d0d12c417d
-content_hash: e9654b758fc1b46e9f9c0594375dcd5358d44ae1cce942518ef5a44a72a7fe7b
+source_hash: 716d881224ca26053c49717bad5506fb8f7000e17e57612df40eb4042612a420
+content_hash: 50c148a3443af7eb82a7575a641c65e7afed70c912d1cfbdccc1c728a5cc4bf3
 field_hashes:
   title: 9ca9891bae378f2cbb9f76a9de1b4c0c5c8dae0fa115974a27b0421ef7ced13d
   id: f5f8bd40f206d34f84eb6d05d91fadd5fabbb29fb97abacda90a9ce8e02679fe
@@ -17,7 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: eed576ecdc1a9959c164a392df37dbfcb3f81aab939896a8343ad9cedddbf666
-  implementation_path: d983b0ec8486c1baed648e1e4115d79a5460874ec97f2632bdb987bb960c81c4
+  implementation_path: ec404947202dfbc74b3535f7a59ecf31472f8573499ecacad67f18bd3c705cf9
   validation: f47c93f31ccec986ac347fcdcd9612fd737ab6a75aaf7314f8337799898830e9
   done_when: ce52a51df46aaddc23de6426294ac66f80f6f3ed64319b5d39bcb9f2ed695fe9
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
