@@ -1,8 +1,10 @@
 from __future__ import annotations
 import argparse
+from .docs3 import _add_docs_part3
 
 def _add_docs_part2(sub):
     _recover(sub); _list(sub); _compose(sub); _explore(sub); _history(sub)
+    _add_docs_part3(sub)
 
 def _history(s):
     h = s.add_parser("history", help="The document's committed versions from git: who signed each one and which fields moved.", epilog="Example:\n  sldb docs history roadmap --since 2026-10-01 --format json")
