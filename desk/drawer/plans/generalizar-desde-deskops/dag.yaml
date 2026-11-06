@@ -28,9 +28,9 @@ gates:
     evidence: 'sldb 622da0b5 (código GO06) y closeout aed21a8c: sldb rules explain RULE SUBJECT devuelve el finding de eval (aceptación verificada por el coordinador 1, reports/coordinador1.md); 2026-11-06'
   G_GO08:
     title: Evaluación on_write/on_transition/on_check y edges_blocked (GO08) cerrados en main de sldb
-    state: pending
+    state: satisfied
     resolver: closeout commit de GO08 en main de sldb
-    evidence: edges_holding con findings por arista y edges_blocked; test end-to-end de GO08 verde
+    evidence: 'sldb 3af872e7 (código GO08) y closeout 556408da: edges_holding con findings por arista y edges_blocked; test end-to-end de GO08 verde (verificado por el coordinador 1); 2026-11-06'
   G_PROJECT_GRAPH:
     title: Grafo de proyecto declarado y servido por sldb
     state: pending
