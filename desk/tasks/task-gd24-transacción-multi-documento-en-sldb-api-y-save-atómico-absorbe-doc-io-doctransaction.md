@@ -88,6 +88,10 @@ q7 (cachés): tras el rollback se llaman las funciones que ya existen: forget_st
 q8 (rutas de escritura): fields update = src/sldb/cli/commands/fields_mutate.py (y fields_save.py si la ruta pasa por ahí); docs update = src/sldb/cli/commands/docs.py; /save = cli/serve/save_routes.py. El test por ruta va en tests/api/test_write_paths_validate.py; si una ruta no rechaza, el arreglo es en ese archivo y llama a la validación de modelo existente (render_checked/validate_model_input_roundtrip) sin editar payload_save_steps.py.
 q9 (test de /save que cambia): tests/test_serve.py::test_batch_save_partial_failure_reports_completed (:262) pasa a esperar 500 con rolled_back: true y ningún archivo cambiado; se renombra a test_batch_save_partial_failure_rolls_back. Los demás tests de /save (:187, :213, :228, :247, :1095) quedan iguales.
 
+PRECISIONES DEL DESPACHO (coordinador, 2026-11-06):
+q10 (GO08, resuelve q3/q5): al despachar, GO08 no está cerrado en origin/main 9182759f (main trae GO06 cerrado y GO09 en curso). La parte "una regla on_write error dentro de un lote revierte el lote" queda FUERA de GD24; no se implementa ni se prueba, y se anota como hipótesis en la entrega.
+q11 (base): rama wt/gd24 desde origin/main 9182759f (el commit base de q4, 6b80df36, sigue siendo la referencia del grep de genericidad).
+
 ## Validation
 
 _List the checks required before this task can close._
