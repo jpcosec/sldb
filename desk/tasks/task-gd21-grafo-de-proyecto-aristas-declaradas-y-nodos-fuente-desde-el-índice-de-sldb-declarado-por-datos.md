@@ -20,7 +20,6 @@ files:
 - src/sldb/api/edges/project_graph/store_project_graph.py
 - src/sldb/api/edges/project_graph/__init__.py
 - src/sldb/api/stores/store_declaration.py
-- src/sldb/api/stores/tracked_documents.py
 - src/sldb/api/__init__.py
 - src/sldb/cli/parsers/graph.py
 - src/sldb/cli/parsers/graph_project.py
