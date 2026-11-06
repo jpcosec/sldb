@@ -1,0 +1,9 @@
+{
+  "key": "task-go05-lenguaje-de-predicados-unificado/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "d97971adc52261ef6611b03d0270887ef7a1d7e8dcb092a7a151d1e9af8453a3",
+  "output_sha256": "770f65b46ca2012a884e526f3420d4cb6222b93e6f9a5264eb4d3ef0255348c0",
+  "start": "2026-11-06T19:06:53.113918+00:00",
+  "end": "2026-11-06T19:07:08.881915+00:00"
+}
