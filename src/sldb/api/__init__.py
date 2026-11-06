@@ -18,6 +18,8 @@ from sldb.api.documents.move_document import move_document
 from sldb.api.documents.transaction import RollbackError, Transaction, transaction
 from sldb.api.documents import document_ast, build_document_ir_json, leaf_paths, runtime_document, extract_document_payload, render_document_markdown, render_model_template
 from sldb.api.documents.runtime_documents import load_runtime_documents
+from sldb.api.documents.select_documents import select_documents
+from sldb.api.documents.selector import Selector
 from sldb.api.documents.document_reference import DocumentReference
 from sldb.api.documents.document_serialization import serialize_document
 from sldb.api.documents.payload_path_reading import deep_get, ensure_list
@@ -76,7 +78,7 @@ from sldb.api.search import search
 from sldb.api.rules import refuse_unknown_family, rules_check, rules_explain
 from sldb.api.where import where_matches
 from sldb.store.query_engine.where_parse import WherePredicateError
-from sldb.core.exceptions import ConflictError
+from sldb.core.exceptions import AmbiguousSelectionError, ConflictError
 from sldb.api.model_registry.describe_model import describe_model
 from sldb.api.model_registry.load_registered_model import load_registered_model
 from sldb.api.model_registry.model_description import ModelDescription
@@ -154,6 +156,7 @@ __all__ = [
     "section_node_id", "serialize_document", "serialize_edge_node_records",
     "serialize_edge_records", "tag_node_id", "track_document_file", "untrack_document",
     "update_store_indexes", "validate_model_draft", "verify_journal",
+    "AmbiguousSelectionError", "Selector", "select_documents",
     "DocRefStatus", "doc_exists", "doc_status", "tracked_documents", "AmbiguousDocument", "indexed_model_bases", "resolve_indexed_document", "split_doc_ref", "store_links",
     "WherePredicateError", "apply_effects", "edges_holding", "effects_of", "refuse_unknown_family", "rules_check", "rules_explain", "remove_model", "where_matches", "inherit_model", "is_model_registered", "registered_models",
     "StructuredNLDoc", "UnresolvedReference", "unresolved_references",
