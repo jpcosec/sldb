@@ -1,0 +1,30 @@
+name: review-task-go08-evaluacion-en-escritura-transicion-y-check-incremental-y-a-punto-fijo-preflight-1
+path: desk/reviews/task-go08-evaluacion-en-escritura-transicion-y-check-incremental-y-a-punto-fijo/preflight-1.md
+source_hash: d5d1a456a4db41c48f7c4b18e587b78859f070c47388e45d248c766987553c62
+content_hash: 58bcac2e0416b6410144f32bdd4afa97d66e37add2d96d6b1afa976e165e4259
+field_hashes:
+  id: 6fad0716522c71df3038c7cdea4a72afb452bf42c585d387ec6a2d8d305e47bd
+  title: 1ae4f9e8d2bb5ca3660f6a98fd2eefe1983fcf651352be2cfa5833d821efc0b4
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  subject: 852fbe89fc42c6717957f7dbfb91caa4690d737f4862025a73857668014e6411
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 2c82126aedfc10ac57501967bb323f8700396f71d99e2c7631e48df6767b636a
+  input_sha256: 8e708147f1492fbcb1134a63eabc31d46d6e2dc3aec9bab87b0032002edead98
+  output_sha256: 03c155ec1f9a01c69f11537691c51357a4b44b16fcddb9ea7aeef89b85ca2987
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 949e78d16b8ac352815cf5d474788735726aa3cf49dbcbdb98c9a2b23f7bb55f
+  created_at: c6585d23a885b75ff34de5fd3b69e4517f9dccf253b1a33c914bb1edc571a19a
+  disposed_at: b41fe379f9e5984a42951867e95985e3bd3e852a65e776741f87ed32154dc7c4
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 591298f50c15116aa3cbc4f8545d3bf9a3773fbcbbe711f142627747adfced59
+  disposition: b3639ef6336e121c32c669da3e158bcf54f1f4af3e2ce36f7ca0bafaa50808bd
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance: null

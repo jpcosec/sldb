@@ -1,0 +1,37 @@
+{
+  "key": "task-go08-evaluacion-en-escritura-transicion-y-check-incremental-y-a-punto-fijo/preflight",
+  "input_sha256": "3ea5404e03c9aa7b04fa1fa9953cfff94fbb59566f0e74d9f83cc8608c493711",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/dev/shm/sldb-desk/runs/subagents/20261104-grafo-operable-context-reviews/context-review/task-go08-evaluacion-en-escritura-transicion-y-check-incremental-y-a-punto-fijo/preflight/3ea5404e03c9aa7b04fa1fa9953cfff94fbb59566f0e74d9f83cc8608c493711/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-go08-evaluacion-en-escritura-transicion-y-check-incremental-y-a-punto-fijo.md",
+      "sha256": "f04cbd99de1ba58f29bd3eec92f57456c504c620ada3a46488e465c1b2094a73",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [],
+  "started": "2026-11-06T20:38:25.638538+00:00",
+  "finished": "2026-11-06T20:38:42.263216+00:00"
+}
