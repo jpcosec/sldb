@@ -409,7 +409,6 @@ include:
   - desk/tasks/task-gd24-transacción-multi-documento-en-sldb-api-y-save-atómico-absorbe-doc-io-doctransaction.md
   - desk/tasks/task-gd26-scaffold-de-store-desde-carpetas-y-semillas-declaradas.md
   - desk/tasks/task-go05-lenguaje-de-predicados-unificado.md
-  - desk/tasks/task-sv02-resolvedor-de-vistas-y-notaciones-en-sldb-api-cli-y-sldb-serve.md
   - desk/tasks/task-sv03-transclusion-de-campos-y-segmentos-ricos-de-diagramas-y-vistas-en-document-segments.md
   - desk/tasks/task-sv04-declaracion-y-edicion-draft-de-containment-references-compositions-y-semantics-en-modelos.md
 - model: TaskDocsDoc

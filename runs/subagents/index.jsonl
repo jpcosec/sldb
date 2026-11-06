@@ -31,3 +31,4 @@
 {"task_id": "task-go03-costura-graphbackend-sobre-networkx", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
 {"task_id": "task-go04-payload-proyectado-al-grafo-y-staleness-correcta", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
 {"task_id": "task-sv01-modelos-de-vocabulario-visual-paletas-y-notaciones-builtin-en-sldb", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
+{"task_id": "task-sv02-resolvedor-de-vistas-y-notaciones-en-sldb-api-cli-y-sldb-serve", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
