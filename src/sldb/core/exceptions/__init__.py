@@ -4,6 +4,7 @@ from .sldb_model_draft_error import SLDBModelDraftError
 from .sldb_model_edit_error import SLDBModelEditError
 from .sldb_validation_error import SLDBValidationError
 from .sldb_store_error import SLDBStoreError
+from .sldb_conflict_error import ConflictError
 from .sldb_ast_error import SLDBASTError
 from .sldb_link_error import SLDBLinkError
 from .sldb_payload_save_error import SLDBPayloadSaveError
@@ -20,6 +21,7 @@ __all__ = [
     "SLDBModelEditError",
     "SLDBValidationError",
     "SLDBStoreError",
+    "ConflictError",
     "SLDBASTError",
     "SLDBLinkError",
     "SLDBPayloadSaveError",

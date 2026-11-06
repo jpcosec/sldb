@@ -10,8 +10,12 @@ CLI command does (`open_store`), returns a pydantic model instead of printing, a
 from __future__ import annotations
 
 from sldb.api.anchors.check_doc_anchors import check_doc_anchors
+from sldb.api.documents.apply_batch import apply_batch
+from sldb.api.documents.batch_report import BatchReport
 from sldb.api.documents.create_document import create_document
 from sldb.api.documents.delete_document import delete_document
+from sldb.api.documents.move_document import move_document
+from sldb.api.documents.transaction import RollbackError, Transaction, transaction
 from sldb.api.documents import document_ast, build_document_ir_json, leaf_paths, runtime_document, extract_document_payload, render_document_markdown, render_model_template
 from sldb.api.documents.runtime_documents import load_runtime_documents
 from sldb.api.documents.document_reference import DocumentReference
@@ -72,6 +76,7 @@ from sldb.api.search import search
 from sldb.api.rules import refuse_unknown_family, rules_check, rules_explain
 from sldb.api.where import where_matches
 from sldb.store.query_engine.where_parse import WherePredicateError
+from sldb.core.exceptions import ConflictError
 from sldb.api.model_registry.describe_model import describe_model
 from sldb.api.model_registry.load_registered_model import load_registered_model
 from sldb.api.model_registry.model_description import ModelDescription
@@ -152,6 +157,7 @@ __all__ = [
     "DocRefStatus", "doc_exists", "doc_status", "tracked_documents", "AmbiguousDocument", "indexed_model_bases", "resolve_indexed_document", "split_doc_ref", "store_links",
     "WherePredicateError", "apply_effects", "edges_holding", "effects_of", "refuse_unknown_family", "rules_check", "rules_explain", "remove_model", "where_matches", "inherit_model", "is_model_registered", "registered_models",
     "StructuredNLDoc", "UnresolvedReference", "unresolved_references",
+    "BatchReport", "ConflictError", "RollbackError", "Transaction", "apply_batch", "move_document", "transaction",
     "GlyphDoc", "LinkDoc", "NotationDoc", "PaletteDoc", "SpecDoc", "SpecNodeDoc", "ViewDoc",
     "resolve_view", "resolve_documents", "evaluate_projection_view", "list_projection_views", "save_projection_view", "sync_notation", "sync_palette",
 ]
