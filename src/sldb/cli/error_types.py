@@ -19,6 +19,7 @@ from sldb.core.exceptions import (
     SLDBLinkError,
     SLDBModelError,
     SLDBPayloadSaveError,
+    SLDBRuleViolationError,
     SLDBStoreError,
     SLDBValidationError,
 )
@@ -38,7 +39,10 @@ _BY_CLASS = (
 
 
 def error_type(exc: BaseException) -> tuple[str, int]:
-    """`(ns/name, exit)` for an exception raised by a command."""
+    """`(ns/name, exit)` for an exception raised by a command; a write an `on_write` rule
+    refused (GO08) is `rules/violation`, exit 1."""
+    if isinstance(exc, SLDBRuleViolationError):
+        return "rules/violation", 1
     special = _special(exc)
     if special:
         return special

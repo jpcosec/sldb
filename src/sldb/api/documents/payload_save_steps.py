@@ -69,6 +69,14 @@ def render_checked(model_type: type, payload: dict[str, Any], ref_root: Path, st
     return rendered
 
 
+def check_rules_on_write(store_path: Path, model_type: type, node: str, payload: dict[str, Any]) -> None:
+    """The `on_write` rules on the pinned payload of `node` (GO08), before anything is written:
+    an error raises `SLDBRuleViolationError`; a store without RuleDoc is not read."""
+    from sldb.api.rules.rules_on_write import check_on_write
+
+    check_on_write(store_path, model_type, node, payload)
+
+
 def write_rendered_document(root: Path, doc_entry: DocumentEntry, model_type: type, rendered: str, via: str = "save_document_payload", actor: str | None = None, store_path: Path | None = None) -> None:
     """Write the rendered Markdown, signed with its provenance block (plus final newline), and
     record its source and content hashes. With `store_path`, the block's unpinned `from:`

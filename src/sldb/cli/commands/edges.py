@@ -6,7 +6,7 @@ import json
 from typing import Any
 
 from sldb.cli.commands.edges_unknown_node import unknown_node_message
-from sldb.api import check_edges, edges_from, edges_holding, edges_to, extract_document_payload, init_relations, open_store, rebuild_edges, unresolved_references
+from sldb.api import check_edges, edges_from, edges_holding, edges_to, init_relations, open_store, rebuild_edges, runtime_document, unresolved_references
 
 
 class EdgesCLI:
@@ -38,8 +38,8 @@ class EdgesCLI:
 
     def _edges(self, args: Any) -> list:
         if args.holds_for:
-            subject = extract_document_payload(open_store(args.store, mode="readonly").store_path, args.pythonpath, args.holds_for)
-            return edges_holding(args.store, args.node, subject, args.relation, not args.local, args.exclude_tag)
+            doc = runtime_document(open_store(args.store, mode="readonly").store_path, args.pythonpath, args.holds_for)
+            return edges_holding(args.store, args.node, dict(doc.payload), args.relation, not args.local, args.exclude_tag, _export_id(doc))
         return (edges_to if args.to else edges_from)(args.store, args.node, args.relation, not args.local, args.exclude_tag)
 
     def _check(self, args: Any) -> int:
@@ -71,6 +71,12 @@ def _report_findings(report: Any) -> None:
 
     stale = [alert("edges/stale", s, "the shard was built from another hash_c of the document", "sldb edges rebuild") for s in report.stale]
     alert_sink.report([error("edges/invalid", "edges", e) for e in report.errors] + stale)
+
+
+def _export_id(doc: Any) -> str:
+    """`Model:name` of a runtime document (`store:Model:name` behind a link): its `on_transition` rules run (GO08)."""
+    prefix = "" if doc.store_name in ("local", "", None) else f"{doc.store_name}:"
+    return f"{prefix}{doc.model_name}:{doc.name}"
 
 
 def _with_evidence(args: Any, edges: list) -> list:

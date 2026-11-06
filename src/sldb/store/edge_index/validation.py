@@ -7,7 +7,8 @@ whose builtin type the store has not tracked is checked against the definition s
 builtin added after that init must not fail every existing store, and a type authored under a
 builtin's name does not retype the edges sldb derives. A store that never ran
 `edges init` still fails, as before. `untracked_builtins` names those types so
-the gap is reported, not hidden; authored edges still need a tracked type."""
+the gap is reported, not hidden; authored edges still need a tracked type. Every edge
+condition (its own or its type's) must parse as a predicate of the language (GO08)."""
 
 from __future__ import annotations
 
@@ -16,6 +17,7 @@ from typing import Any
 
 from sldb.store.edge_index.edge_index import EdgeIndex
 from sldb.store.edge_index.resolve import relation_types_of
+from sldb.store.graph.language.predicate_parser import parse_predicate
 from sldb.store.model_contract import BUILTIN_RELATION_TYPES, builtin_payload
 from sldb.store.models import EdgeNodeRecord, EdgeRecord
 
@@ -40,7 +42,7 @@ def validate_edge_index_by_store(index: EdgeIndex) -> tuple[list[str], list[str]
     own: list[str] = []
     linked: list[str] = []
     for e in index.edges:
-        (linked if _key(e) not in own_keys else own).extend(_edge_errors(index.nodes, e, (effective if _derived(e) else tracked).get(e.relation)))
+        (linked if _key(e) not in own_keys else own).extend(_edge_errors(index.nodes, e, (effective if _derived(e) else tracked).get(e.relation)) + _condition_errors(e))
     cardinality = _cardinality_errors([e for e in index.edges if _derived(e)], effective, own_keys) + _cardinality_errors([e for e in index.edges if not _derived(e)], {**_SHIPPED, **tracked}, own_keys)
     return list(dict.fromkeys(own + [m for m, mine in cardinality if mine])), list(dict.fromkeys(m for m in linked + [m for m, mine in cardinality if not mine] if m not in own))
 
@@ -81,6 +83,15 @@ def _edge_errors(nodes: dict[str, EdgeNodeRecord], e: EdgeRecord, rt: dict[str, 
         return [f"{where}: target does not exist"]
     ends = (("source", nodes[e.source], rt.get("source_types") or []), ("target", nodes[e.target], rt.get("target_types") or []))
     return [f"{where}: {end} class '{node.node_type}' not in {end}_types {allowed}" for end, node, allowed in ends if not _class_ok(nodes, node, allowed)]
+
+
+def _condition_errors(e: EdgeRecord) -> list[str]:
+    condition = e.metadata.get("condition") or ""
+    try:
+        _ = parse_predicate(condition) if condition.strip() else None
+    except ValueError as exc:
+        return [f"edge {e.source} -[{e.relation}]-> {e.target}: condition does not parse: {exc}"]
+    return []
 
 
 def _class_ok(nodes: dict[str, EdgeNodeRecord], node: EdgeNodeRecord, allowed: list[str]) -> bool:

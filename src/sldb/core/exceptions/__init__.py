@@ -14,6 +14,7 @@ from .sldb_field_type_error import SLDBFieldTypeError
 from .sldb_document_target_error import SLDBDocumentTargetError
 from .sldb_ambiguous_selection_error import AmbiguousSelectionError
 from .sldb_graph_argument_error import SLDBGraphArgumentError
+from .sldb_rule_violation_error import SLDBRuleViolationError
 
 __all__ = [
     "SLDBError",
@@ -32,4 +33,5 @@ __all__ = [
     "SLDBDocumentTargetError",
     "AmbiguousSelectionError",
     "SLDBGraphArgumentError",
+    "SLDBRuleViolationError",
 ]

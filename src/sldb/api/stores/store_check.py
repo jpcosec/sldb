@@ -29,12 +29,15 @@ def check_store(store_path: Path, project_root: Path, pythonpath: str | None = N
 
 def all_findings(diagnosis: Any, store_path: Path, project_root: Path, pythonpath: str | None) -> list:
     """The diagnosis' findings and its surroundings', each read through the store's policy
-    (`judge_findings`), as `stores check` reports them."""
+    (`judge_findings`), as `stores check` reports them; then, at their own level, the `on_check`
+    rules' and the document anchors' (GO08, `on_check_findings`)."""
+    from sldb.api.rules.rules_on_check import on_check_findings
     from sldb.api.stores.judge_findings import judged
     from sldb.api.stores.store_findings import diagnosis_findings
     from sldb.api.stores.store_surroundings import surroundings_findings
 
-    return judged(diagnosis_findings(diagnosis) + surroundings_findings(store_path, project_root, pythonpath), store_path, pythonpath)
+    found = judged(diagnosis_findings(diagnosis) + surroundings_findings(store_path, project_root, pythonpath), store_path, pythonpath)
+    return found + on_check_findings(store_path, pythonpath)
 
 
 def _broken_links(store_path: Path) -> list[dict[str, str]]:

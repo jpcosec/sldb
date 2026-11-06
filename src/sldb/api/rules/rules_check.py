@@ -12,6 +12,7 @@ import json
 from pathlib import Path
 from typing import Any
 
+from sldb.api.rules.fixpoint import witness
 from sldb.api.rules.rule_graph import RuleGraph, rule_graph
 from sldb.api.rules.rule_subjects import applies, resolve_subject, rules_of
 from sldb.core.finding import Finding
@@ -38,11 +39,17 @@ def rule_finding(graph: RuleGraph, rule: dict[str, Any], node: str) -> Finding |
     incomplete = found["holds"] == "incomplete"
     level = "alert" if incomplete else rule.get("severity", "error")
     code = f"rules/{rule['name']}" + ("/incomplete" if incomplete else "")
-    return Finding(level, code, node, explanation(rule, found), "", graph.semantics(node).get("path"))
+    named = witness(graph, rule["condition"], found)
+    return Finding(level, code, node, explanation(rule, found, named), "", graph.semantics(node).get("path"))
 
 
-def explanation(rule: dict[str, Any], found: dict[str, Any]) -> str:
-    """`<clause> (seen: <seen as compact JSON>)`, after `<message> | ` when the rule has one."""
-    seen = json.dumps(found["seen"], sort_keys=True, ensure_ascii=False, separators=(",", ":"))
-    text = f"{found['clause']} (seen: {seen})"
+def explanation(rule: dict[str, Any], found: dict[str, Any], named: tuple[str, dict] | None = None) -> str:
+    """`<clause> (seen: <seen as compact JSON>)`, after `<message> | ` when the rule has one,
+    then ` (witness: <Model:name> <its seen>)` when a quantifier decided it (GO08, `fixpoint.witness`)."""
+    seen = _compact(found["seen"])
+    text = f"{found['clause']} (seen: {seen})" + (f" (witness: {named[0]} {_compact(named[1])})" if named else "")
     return f"{rule['message']} | {text}" if rule.get("message") else text
+
+
+def _compact(value: Any) -> str:
+    return json.dumps(value, sort_keys=True, ensure_ascii=False, separators=(",", ":"))

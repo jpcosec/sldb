@@ -6,10 +6,12 @@ from sldb.core.exceptions import SLDBError
 from sldb.cli.dispatcher import CLI
 from sldb.cli.warning_output import install_warning_handler
 from sldb.cli.envelope import FLAG, run_enveloped
+from sldb.cli import alert_sink
 
 def main(argv: Any = None) -> int:
     """CLI entry point with error handling."""
     install_warning_handler()
+    alert_sink.install()
     try:
         if argv is None and sys.argv[1:] in (["-h"], ["--help"]): print(SHORT_ARGPARSE_HELP); return 0
         args = _take_actor(list(sys.argv[1:] if argv is None else argv))

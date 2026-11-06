@@ -31,6 +31,20 @@ def tally(findings: list[Finding]) -> str:
     return ", ".join(f"{n} {label}" for n, label in ((len(errors), "error(es)"), (len(alerts), "alerta(s)")) if n)
 
 
+def install() -> None:
+    """Receive the findings the library routes (`sldb.core.finding_route`): kept for the
+    envelope and printed to stderr, so a write command's own output stays as it was."""
+    from sldb.core.finding_route import listen
+
+    listen(_routed)
+
+
+def _routed(findings: list[Finding]) -> None:
+    report(findings, text=False)
+    for finding in findings:
+        print(finding.line(), file=sys.stderr)
+
+
 def kept() -> list[dict]:
     return list(_KEPT)
 
