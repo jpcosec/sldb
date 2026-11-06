@@ -240,6 +240,7 @@ include:
   - desk/inbox/20261102-065705-unclear-edgeindex-stale-no-marca-una-edicion-externa-ni-un-campo-nuevo-de-references.md
   - desk/inbox/20261102-081659-unclear-falta-forma-publica-de-abrir-operacion-de-lectura-sin-open-store.md
   - desk/inbox/20261102-141033-unclear-adenda-al-intake-081659-open-store-readonly-sirve-para-ws13-2-sin-ser-api-universal-de-lectura.md
+  - desk/inbox/20261106-152834-unclear-specdoc-el-modelo-local-docs-models-specdoc-colisiona-con-el-builtin-sldb-models-notation-models-specdoc-tras-sv01.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
