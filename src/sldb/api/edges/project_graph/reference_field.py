@@ -10,8 +10,8 @@ class ReferenceField(BaseModel):
 
     model_config = ConfigDict(frozen=True)
 
-    path: tuple[str, ...] = Field(description="Keys from the mapping's top to the field (`materialization`, `source_atoms`).")
-    target_prefix: str = Field(default="", description="Prefix a value gets unless it already starts with it (`atom:`).")
+    path: tuple[str, ...] = Field(description="Keys from the mapping's top to the field (`contract`, `sources`).")
+    target_prefix: str = Field(default="", description="Prefix a value gets unless it already starts with it (`topic:`).")
     default_role: str = Field(description="Edge role of a value that names no role of its own.")
     allowed_roles: tuple[str, ...] = Field(default=(), description="Roles an `{id, role}` item may name; any other falls back to the default.")
     scalar_only: bool = Field(default=False, description="Only a non-blank string value counts; lists are not read.")

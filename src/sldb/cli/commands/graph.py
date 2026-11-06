@@ -20,6 +20,7 @@ from sldb.api.graph import (
 )
 from sldb.cli import alert_sink
 from sldb.cli.commands.graph_analysis import GraphAnalysisCLI
+from sldb.cli.commands.graph_project import graph_project
 from sldb.core.finding import Finding
 from sldb.store.graph.language import StructuredQuery
 
@@ -32,12 +33,8 @@ class GraphCLI:
 
     def run(self, args: Any) -> int:
         handlers = {
-            "get": self._get,
-            "list": self._list,
-            "query": self._query,
-            "neighborhood": self._neighborhood,
-            "snapshot": self._snapshot,
-            "ingest-sldb": self._ingest_sldb,
+            "get": self._get, "list": self._list, "query": self._query, "neighborhood": self._neighborhood,
+            "snapshot": self._snapshot, "ingest-sldb": self._ingest_sldb, "project": graph_project,
         }
         handler = handlers.get(args.graph_command)
         return handler(args) if handler else GraphAnalysisCLI(backend=self.backend).run(args)

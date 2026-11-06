@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 
 class DocumentSurface(BaseModel):
@@ -22,6 +22,20 @@ class DocumentSurface(BaseModel):
         default="path",
         description="What names the node: the document id (falling back to the path), the id or the slug of its title, or the path.",
     )
+    closed: str | None = Field(
+        default=None,
+        description="Predicate of the rules language on the document's payload; when it holds, the document is closed (history). None: never closed.",
+    )
+
+    @field_validator("closed")
+    @classmethod
+    def _closed_parses(cls, value: str | None) -> str | None:
+        """A predicate the language does not understand is refused when the surface is built."""
+        from sldb.api.where import where_matches
+
+        if value is not None:
+            where_matches(value, {})  # raises WherePredicateError (a ValueError) on a bad predicate
+        return value
 
     def keeps(self, relative_to_directory: tuple[str, ...], name: str, suffix: str) -> bool:
         """Whether a file the glob found is a document of this surface.

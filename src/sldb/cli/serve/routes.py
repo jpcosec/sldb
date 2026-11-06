@@ -19,6 +19,7 @@ from sldb.cli.serve.lint_routes import dispatch_lint
 from sldb.cli.serve.models_routes import dispatch_models
 from sldb.cli.serve.ast_routes import dispatch_ast
 from sldb.cli.serve.fields_routes import dispatch_fields
+from sldb.cli.serve.project_graph_routes import dispatch_project_graph
 from sldb.cli.serve.render_routes import dispatch_render
 from sldb.cli.serve.responses import read_json_body, send_json, send_common_headers
 from sldb.cli.serve.save_routes import save_request
@@ -69,6 +70,7 @@ def _nested_get(
 ) -> tuple[dict[str, Any], int]:
     if route == "/edges" or route.startswith("/edges/"): return dispatch_edges(handler, store_path, pythonpath)
     if route.startswith("/graph/"): return dispatch_graph(handler, store_path)
+    if route.startswith("/project-graph/"): return dispatch_project_graph(handler, store_path)
     if route in DOCUMENT_ROUTES: return dispatch_document(handler, route, store_path, project_root, pythonpath)
     if route == "/docs/select": return dispatch_docs_select(handler, store_path)
     if route == "/models" or route.startswith("/models/"): return dispatch_models(handler, "GET", route, store_path, project_root, pythonpath)

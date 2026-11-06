@@ -12,12 +12,13 @@ from pathlib import Path
 from typing import Any
 
 import yaml
-from pydantic import BaseModel, Field, SerializerFunctionWrapHandler, model_serializer
+from pydantic import BaseModel, Field, SerializerFunctionWrapHandler, field_validator, model_serializer
 
 from sldb.api.stores.seed import Seed
 
 DECLARATION_FILE = "store.yaml"
 SCAFFOLD_KEYS = ("folders", "seeds")
+OPTIONAL_KEYS = (*SCAFFOLD_KEYS, "project_graph")
 
 
 class StoreDeclaration(BaseModel):
@@ -34,13 +35,23 @@ class StoreDeclaration(BaseModel):
     policy: dict[str, dict[str, str]] = Field(default_factory=dict, description="Model name (or `*`) -> finding code -> `ignore | allow | alert | error | reindex | hook: <command>` (docs/architecture/provenance.md §5).")
     folders: list[str] = Field(default_factory=list, description="Directories `stores scaffold` creates, relative to the project root (docs/architecture/store-declaration.md).")
     seeds: list[Seed] = Field(default_factory=list, description="Files `stores scaffold` writes from a declared source: `{path, mode, text | file | document, track}`.")
+    project_graph: dict[str, Any] | None = Field(default=None, description="The project's graph configuration as data (`sldb.api.ProjectGraphConfig.from_mapping`; docs/architecture/project-graph.md), read by `sldb.api.project_graph`.")
+
+    @field_validator("project_graph")
+    @classmethod
+    def _project_graph_loads(cls, value: dict[str, Any] | None) -> dict[str, Any] | None:
+        """An unknown key or a value that is not data is refused naming its path (`project_graph.surfaces[0].x`)."""
+        from sldb.api.edges.project_graph.project_graph_config_mapping import config_from_mapping
+
+        if value is not None:
+            config_from_mapping(value, "project_graph")
+        return value
 
     @model_serializer(mode="wrap")
-    def _without_empty_scaffold_keys(self, handler: SerializerFunctionWrapHandler) -> dict[str, Any]:
-        """A declaration without folders or seeds dumps as it did before they existed, and a
-        seed dumps only the keys it was written with."""
+    def _without_empty_optional_keys(self, handler: SerializerFunctionWrapHandler) -> dict[str, Any]:
+        """A declaration without folders, seeds or project_graph dumps as before they existed; a seed dumps only the keys it was written with."""
         dumped = handler(self)
-        for key in SCAFFOLD_KEYS:
+        for key in OPTIONAL_KEYS:
             if not dumped.get(key):
                 dumped.pop(key, None)
         if dumped.get("seeds"):
@@ -59,15 +70,9 @@ def load_declaration(store_path: Path) -> StoreDeclaration:
     if not path.is_file():
         raise FileNotFoundError(f"{path} does not exist: run `sldb stores declare --write` first")
     definition = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
-    _validate_graph_backend(definition)
+    if definition.get("graph_backend", "networkx") != "networkx":  # a backend this phase cannot run
+        raise ValueError(f'graph_backend {definition["graph_backend"]} no admitido; admitidos: ["networkx"]')
     return StoreDeclaration.model_validate(definition)
-
-
-def _validate_graph_backend(definition: dict[str, Any]) -> None:
-    """Reject a backend this phase cannot run, naming the only admitted one."""
-    backend = definition.get("graph_backend", "networkx")
-    if backend != "networkx":
-        raise ValueError(f'graph_backend {backend} no admitido; admitidos: ["networkx"]')
 
 
 def declared_graph_backend(store_path: str | Path | None = None) -> str:
@@ -90,9 +95,8 @@ def save_declaration(store_path: Path, declaration: StoreDeclaration) -> Path:
 
 
 def declared_store(store_arg: str | None) -> tuple[Path, Path]:
-    """`(store, project root)` of the store a build targets: `--store` (a `.sldb` directory or
-    its project) or the nearest ancestor holding `.sldb/store.yaml`. A store that is only
-    declared has no index yet, so the usual discovery, which looks for one, cannot find it."""
+    """`(store, project root)` of the store a build targets: `--store` (a `.sldb` directory or its project)
+    or the nearest ancestor holding `.sldb/store.yaml` (a store only declared has no index for the usual discovery)."""
     if store_arg:
         store = Path(store_arg).resolve()
         store = store if store.name == ".sldb" else store / ".sldb"

@@ -34,6 +34,7 @@ from sldb.api.edges.apply_effects import apply_effects
 from sldb.api.edges.edge_effects import effects_of
 from sldb.api.edges.edges_blocked import edges_blocked
 from sldb.api.edges.edges_holding import edges_holding
+from sldb.api.edges.project_graph import ProjectGraph, ProjectGraphConfig, project_graph
 from sldb.api.model_registry.remove_model import remove_model
 from sldb.api.model_registry.inherit_model import inherit_model
 from sldb.models.structured_doc import StructuredNLDoc
@@ -168,6 +169,7 @@ __all__ = [
     "StructuredNLDoc", "UnresolvedReference", "unresolved_references",
     "BatchReport", "ConflictError", "RollbackError", "Transaction", "apply_batch", "move_document", "transaction",
     "ScaffoldReport", "Seed", "StoreDeclaration", "build_store", "scaffold_store",
+    "ProjectGraph", "ProjectGraphConfig", "project_graph",
     "GlyphDoc", "LinkDoc", "NotationDoc", "PaletteDoc", "SpecDoc", "SpecNodeDoc", "ViewDoc",
     "resolve_view", "resolve_documents", "evaluate_projection_view", "list_projection_views", "save_projection_view", "sync_notation", "sync_palette",
 ]

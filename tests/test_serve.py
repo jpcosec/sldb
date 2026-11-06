@@ -9,12 +9,15 @@ from urllib.error import HTTPError
 from urllib.parse import quote
 from urllib.request import Request, urlopen
 
+from sldb import api
 from sldb.api.documents import transaction_ops
+from sldb.cli import main as cli_main
 from sldb.cli.serve.http_server import build_handler
 from sldb.models.provenance_block import strip_block
 from sldb.store.io import load_store_index
 from sldb.store.io.shards import load_document_shard
 from sldb.store.layout import documents_shard_path
+from tests.api.test_project_graph import declared_project, project, tracked_project  # noqa: F401 - fixtures
 from tests.store.test_cli_store import _PY_ARGS, _SETUP_REF, _STORE_ARGS, _doc_track, _init, _model_add
 
 
@@ -1463,5 +1466,58 @@ def test_docs_select_answers_as_the_cli_does(tmp_path: Path, capsys) -> None:
 
         status, body = _request_json(f"{base_url}/docs/select?where=nonsense(missing", expected_error=400)
         assert status == 400 and "no evaluator understands" in body["error"]
+    finally:
+        _stop(server, thread)
+
+
+# ── /project-graph/* and /edges?include_linked (GD21) ──────────────────────────
+
+def test_project_graph_endpoints_answer_what_the_cli_prints(declared_project: Path, capsys) -> None:  # noqa: F811
+    store = declared_project / ".sldb"
+    server, thread, base_url = _serve(store, str(declared_project))
+    try:
+        for query, argv in (("nodes?kind=card", ["nodes", "--kind", "card"]), ("nodes", ["nodes"]), ("edges?to=source_file:src/app.py", ["edges", "--to", "source_file:src/app.py"]), ("edges?from=card:card-c", ["edges", "--from", "card:card-c"]), ("missing", ["missing"])):
+            status, body = _request_json(f"{base_url}/project-graph/{query}")
+            assert cli_main(["graph", "project", *argv, "--store", str(store), "--format", "json"]) == 0
+            assert (status, body) == (200, json.loads(capsys.readouterr().out)), query
+        assert [e["provenance_locator"] for e in _request_json(f"{base_url}/project-graph/edges?to=source_file:src/app.py")[1]["edges"]] == ["line:11:path", "line:8:path"]
+        for query in ("edges", "edges?from=a&to=b"):
+            status, body = _request_json(f"{base_url}/project-graph/{query}", expected_error=400)
+            assert status == 400 and body["ok"] is False and "from" in body["error"]
+        status, body = _request_json(f"{base_url}/project-graph/nope", expected_error=404)
+        assert status == 404
+    finally:
+        _stop(server, thread)
+
+
+def test_project_graph_endpoints_need_a_declared_project_graph(tmp_path: Path) -> None:
+    from sldb.api.stores.declare_store import declare_store
+    from sldb.api.stores.store_declaration import save_declaration
+
+    store = _build_store(tmp_path)
+    save_declaration(store, declare_store(store, tmp_path))
+    server, thread, base_url = _serve(store)
+    try:
+        status, body = _request_json(f"{base_url}/project-graph/missing", expected_error=400)
+        assert status == 400 and body["ok"] is False and "declares no project_graph" in body["error"]
+    finally:
+        _stop(server, thread)
+
+
+def test_edges_include_linked_false_leaves_the_linked_stores_out(tmp_path: Path) -> None:
+    store = _build_store(tmp_path)
+    annex_root = tmp_path / "annex"
+    annex_root.mkdir()
+    api.link_store(store, _build_store(annex_root), "annex")
+    server, thread, base_url = _serve(store)
+    try:
+        status, linked = _request_json(f"{base_url}/edges?from=annex:SimpleBook:book")
+        assert status == 200 and {edge["relation"] for edge in linked["edges"]} == {"has_section", "tagged_as"}
+        status, local = _request_json(f"{base_url}/edges?from=annex:SimpleBook:book&include_linked=false")
+        assert status == 200 and local["edges"] == []
+        status, same = _request_json(f"{base_url}/edges?to=SimpleBook:book&include_linked=true")
+        assert status == 200 and [edge["relation"] for edge in same["edges"]] == ["has_document"]
+        status, bad = _request_json(f"{base_url}/edges?from=SimpleBook:book&include_linked=maybe", expected_error=400)
+        assert status == 400 and bad == {"ok": False, "error": "Invalid parameter include_linked: expected true or false"}
     finally:
         _stop(server, thread)

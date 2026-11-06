@@ -5,16 +5,18 @@ from __future__ import annotations
 import argparse
 
 from sldb.cli.parsers.graph_analysis import add_analysis_commands
+from sldb.cli.parsers.graph_project import add_project_commands
 
 
 def add_graph_group(s: argparse._SubParsersAction) -> None:
-    """Register `graph get|list|query|neighborhood|path|cycles|order|components|central|similar|snapshot|ingest-sldb`."""
+    """Register `graph get|list|query|neighborhood|path|cycles|order|components|central|similar|snapshot|ingest-sldb|project`."""
     p = s.add_parser("graph", help="Query, traverse and snapshot the store's graph.")
     sub = p.add_subparsers(dest="graph_command", required=True)
     _add_read_commands(sub)
     add_analysis_commands(sub)
     _add_snapshot(sub)
     _add_ingest(sub)
+    add_project_commands(sub)
 
 
 def _add_read_commands(sub) -> None:

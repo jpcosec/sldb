@@ -6,6 +6,7 @@ are nodes and which fields and sections declare references; `ProjectGraph` reads
 
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 
@@ -17,7 +18,10 @@ from sldb.api.edges.project_graph import (
     MissingTargetKind, ProjectGraph, ProjectGraphConfig, ReferenceField, SectionMentions,
     extract_document_nodes, extract_file_nodes,
 )
+from sldb.api.stores.declare_store import declare_store
+from sldb.api.stores.store_declaration import save_declaration
 from sldb.api.stores.tracked_documents import tracked_documents
+from sldb.store.edge_index.compose import invalidate_composed_edge_indexes
 
 MODULE = "sldb_project_graph_test_models"
 MODELS = '''from pydantic import Field
@@ -46,7 +50,7 @@ CONFIG = ProjectGraphConfig(
     surfaces=(
         DocumentSurface(kind="card", directory="cards", pattern="*.md", excluded_names=("Board.md",), identity="document_id"),
         DocumentSurface(kind="note", directory="notes", pattern="*.md"),
-        DocumentSurface(kind="issue", directory="issues", pattern="*.md", identity="document_id_or_slug"),
+        DocumentSurface(kind="issue", directory="issues", pattern="*.md", identity="document_id_or_slug", closed='status = "closed"'),
     ),
     file_rules=(
         FileRule(kind="test_file", file_kind="test", path_prefixes=("tests",), suffixes=(".py",)),
@@ -61,7 +65,6 @@ CONFIG = ProjectGraphConfig(
     section_mentions=(SectionMentions(headings=("related cards",), patterns=(MentionPattern(regex=r"\bcard-[a-z0-9-]+\b", target="card:{0}"),), role="relates"),),
     line_mentions=(LineMentions(kinds=("card",), patterns=(PATH,), role="touches", locator="path"),),
     missing_target_kinds=(MissingTargetKind(parts=("src",), ending=".py", kind="source_file"),),
-    closed_document=lambda kind, text: kind == "issue" and "Status: closed" in text,
 )
 
 
@@ -77,8 +80,9 @@ def project(tmp_path: Path) -> Path:
     _write(root / "cards" / "card-a.md", "---\nid: card-a\ntopics:\n  - auth\n  - {id: login, role: defines}\ntarget: generated/out.py\n---\n\n# Card A\n\nTouches src/app.py and src/gone.py.\n\n## Related cards\n\n- card-b\n- card-zz\n\n```yaml\ntopics: [yaml-topic]\n```\n")
     _write(root / "cards" / "card-b.md", "---\nid: card-b\nrecord: true\n---\n\n# Card B\n\nsrc/app.py\n")
     _write(root / "cards" / "Board.md", "# Board\n")
-    _write(root / "notes" / "n1.md", "# First note\n")
-    _write(root / "issues" / "broken-login.md", "# Broken Login\n\nStatus: closed\n\n## Related cards\n\n- card-a\n")
+    _write(root / "notes" / "n1.md", "---\nstatus: closed\n---\n\n# First note\n")
+    _write(root / "issues" / "broken-login.md", "---\nstatus: closed\n---\n\n# Broken Login\n\n## Related cards\n\n- card-a\n")
+    _write(root / "issues" / "open-login.md", "---\nstatus: open\n---\n\n# Open Login\n\n## Related cards\n\n- card-a\n")
     _write(root / "src" / "app.py", "")
     _write(root / "src" / "vendored" / "lib.py", "")
     _write(root / "build" / "src" / "x.py", "")
@@ -89,7 +93,7 @@ def project(tmp_path: Path) -> Path:
 
 def test_nodes_follow_the_surfaces_and_the_file_rules(project: Path) -> None:
     documents = {node.id: node for node in extract_document_nodes(project, CONFIG)}
-    assert set(documents) == {"card:card-a", "card:card-b", "note:notes/n1.md", "issue:broken-login"}
+    assert set(documents) == {"card:card-a", "card:card-b", "note:notes/n1.md", "issue:broken-login", "issue:open-login"}
     assert documents["note:notes/n1.md"].label == "First note"
     assert documents["card:card-a"].provenance.extractor == "docs_v1"
     files = {node.id: node.provenance.source_kind for node in extract_file_nodes(project, CONFIG)}
@@ -102,13 +106,32 @@ def test_declarations_resolve_to_edges_or_missing_targets(project: Path) -> None
     assert ("card:card-a", "source_file:src/app.py", "touches", "line:11:path", None) in edges
     assert ("card:card-a", "card:card-b", "relates", "line:15:related cards", None) in edges
     assert ("card:card-b", "source_file:src/app.py", "touches", "line:8:path", True) in edges
-    assert ("issue:broken-login", "card:card-a", "relates", "line:7:related cards", True) in edges
+    assert ("issue:broken-login", "card:card-a", "relates", "line:9:related cards", True) in edges
+    assert ("issue:open-login", "card:card-a", "relates", "line:9:related cards", None) in edges
     missing = {(m.source_id, m.target_id, m.provenance_locator) for m in graph.extraction().missing_targets}
     assert missing == {
         ("card:card-a", "topic:auth", "frontmatter"), ("card:card-a", "topic:login", "frontmatter"),
         ("card:card-a", "source_file:src/gone.py", "line:11:path"), ("card:card-a", "card:card-zz", "line:16:related cards"),
         ("card:card-a", "topic:yaml-topic", "line:18:yaml"),
     }
+
+
+def test_closed_is_the_surfaces_predicate_on_the_documents_payload(project: Path) -> None:
+    """`status = "closed"` closes the issue that holds it: not the open one, nor a note (its surface has no `closed`)."""
+    texts = ProjectGraph(project, CONFIG).texts
+    assert texts.is_history("issue", texts.text("issues/broken-login.md")) is True
+    assert texts.is_history("issue", texts.text("issues/open-login.md")) is None
+    assert texts.is_history("note", texts.text("notes/n1.md")) is None
+    assert texts.is_history("issue", "# No status\n") is None
+
+
+def test_edges_to_gives_the_mention_with_its_path_and_line(project: Path) -> None:
+    graph = ProjectGraph(project, CONFIG)
+    incoming = [(e.source_id, e.role, e.provenance_path, e.provenance_locator, e.record) for e in graph.edges_to("source_file:src/app.py")]
+    assert incoming == [("card:card-a", "touches", "cards/card-a.md", "line:11:path", None), ("card:card-b", "touches", "cards/card-b.md", "line:8:path", True)]
+    assert graph.edges_to("card:card-a") == [e for e in graph.extraction().edges if e.target_id == "card:card-a"]
+    assert graph.edges_to("card:card-a")[0].to_dict() == graph.edges_from("issue:broken-login")[0].to_dict()
+    assert graph.edges_to("nobody:here") == []
 
 
 def test_one_source_read_alone_is_its_part_of_the_whole(project: Path) -> None:
@@ -149,3 +172,87 @@ def test_tracked_documents_agrees_with_doc_status(tracked_project: Path) -> None
     store = tracked_project / ".sldb"
     expected = {ref: api.doc_status(store, ref) for ref in refs if api.doc_status(store, ref).exists}
     assert tracked_documents(store, refs) == expected
+
+
+def test_a_tracked_document_is_judged_on_its_indexed_payload(tracked_project: Path) -> None:
+    """The index projection carries `title` (a body field); the frontmatter alone would not."""
+    texts = ProjectGraph(tracked_project, CONFIG).texts
+    assert texts.payload_of(texts.text("cards/card-c.md"))["title"] == "Card C"
+    assert texts.payload_of(texts.text("cards/card-a.md"))["id"] == "card-a"
+
+
+@pytest.fixture
+def declared_project(tracked_project: Path) -> Path:
+    """The tracked project with `project_graph` declared in its `store.yaml`."""
+    store = tracked_project / ".sldb"
+    declaration = declare_store(store, tracked_project).model_copy(update={"project_graph": CONFIG.to_mapping()})
+    save_declaration(store, declaration)
+    return tracked_project
+
+
+def _count_walks(monkeypatch: pytest.MonkeyPatch) -> dict[str, int]:
+    counts = {"walk": 0, "rglob": 0}
+    walk, rglob = os.walk, Path.rglob
+
+    def counted_walk(*args, **kwargs):
+        counts["walk"] += 1
+        return walk(*args, **kwargs)
+
+    def counted_rglob(self, *args, **kwargs):
+        counts["rglob"] += 1
+        return rglob(self, *args, **kwargs)
+
+    monkeypatch.setattr(os, "walk", counted_walk)
+    monkeypatch.setattr(Path, "rglob", counted_rglob)
+    return counts
+
+
+def test_the_declared_graph_is_read_from_store_yaml_without_any_callable(declared_project: Path) -> None:
+    graph = api.project_graph(declared_project / ".sldb")
+    assert graph.config == CONFIG and graph.config.closed_document is None
+    assert {node.id for node in graph.nodes.documents} >= {"card:card-a", "card:card-c", "issue:broken-login"}
+    assert [e.provenance_locator for e in graph.edges_to("source_file:src/app.py")] == ["line:11:path", "line:8:path"]
+
+
+def test_a_second_query_without_changes_walks_nothing(declared_project: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    store = declared_project / ".sldb"
+    counts = _count_walks(monkeypatch)
+    first = api.project_graph(store)
+    assert counts["walk"] > 0
+    counts.update(walk=0, rglob=0)
+    assert api.project_graph(store) is first
+    assert first.edges_to("source_file:src/app.py") and first.extraction().missing_targets
+    assert counts == {"walk": 0, "rglob": 0}
+
+
+def test_touching_an_included_file_makes_the_next_query_recalculate(declared_project: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    store = declared_project / ".sldb"
+    first = api.project_graph(store)
+    assert first.edges_to("test_file:tests/test_app.py") == []
+    counts = _count_walks(monkeypatch)
+    card = declared_project / "cards" / "card-a.md"
+    card.write_text(card.read_text(encoding="utf-8") + "\nAlso tests/test_app.py.\n", encoding="utf-8")
+    second = api.project_graph(store)
+    assert second is not first and counts["walk"] > 0
+    assert [e.provenance_locator for e in second.edges_to("source_file:src/app.py")] == ["line:11:path", "line:8:path"]
+    counts.update(walk=0, rglob=0)
+    assert api.project_graph(store) is second and counts["walk"] == 0
+
+
+def test_a_new_file_in_a_walked_directory_and_a_changed_declaration_recalculate(declared_project: Path) -> None:
+    store = declared_project / ".sldb"
+    first = api.project_graph(store)
+    _write(declared_project / "src" / "new.py", "")
+    second = api.project_graph(store)
+    assert second is not first and "source_file:src/new.py" in {node.id for node in second.nodes.files}
+    declaration = declare_store(store, declared_project).model_copy(update={"project_graph": CONFIG.model_copy(update={"surfaces": CONFIG.surfaces[:2]}).to_mapping()})
+    save_declaration(store, declaration)
+    assert "issue:broken-login" not in {node.id for node in api.project_graph(store).nodes.documents}
+
+
+def test_the_existing_cache_invalidation_drops_the_memoized_graph(declared_project: Path) -> None:
+    store = declared_project / ".sldb"
+    first = api.project_graph(store)
+    assert api.project_graph(store) is first
+    invalidate_composed_edge_indexes()
+    assert api.project_graph(store) is not first
