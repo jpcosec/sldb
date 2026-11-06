@@ -216,6 +216,8 @@ include:
     name: arch-refactored-components
   - path: docs/architecture/smg-ir.md
     name: arch-smg-ir
+  - path: docs/architecture/evidence-model-family.md
+    name: arch-evidence-model-family
 - model: AtomDoc
   glob: desk/atoms/*.md
 - model: AtomicDocumentDoc

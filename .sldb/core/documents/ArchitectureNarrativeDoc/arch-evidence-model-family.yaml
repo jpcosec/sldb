@@ -1,0 +1,13 @@
+name: arch-evidence-model-family
+path: docs/architecture/evidence-model-family.md
+source_hash: 29d17a2c85e59d671716988a223d261541add023958ae33b367006143b8b978e
+content_hash: 850c532282eabcbe805e9618db4fcd0ee8ec52985ce22b02d6a9abb4ba40a613
+field_hashes:
+  title: 20b42cf73a7a98eb16cd89432e98de1b7060feed116bbc1c10f0c0c33511386f
+  body: 4d15f681c93eed12d6886498ba00ad6d1af54e2fb7768dd6136e4c57db7b76c2
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.documentation.architecture
+- workspace.docs.architecture
+provenance: null
