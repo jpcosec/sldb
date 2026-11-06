@@ -1,13 +1,21 @@
 ---
 id: task-go10-retiro-de-where-parse-y-fieldcondition
-status: draft
+status: ready_for_testing
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-closeout
+history:
+- task_activates
+- task_hands_to_closeout
+references:
+- pytest tests/store/test_where_retired.py
+- tests/store/test_where_retired.py
+- tests/store/test_predicate_language.py
+- 1e6ecd55ffbc6debfe26ae51155b22acdbf9f524
+- desk/atoms/atom-sldb-evaluates-declared-rules-consumers-author-them.md
+- desk/drawer/tasks/task-r6-bajar-el-parser-del-lenguaje-de-reglas-a-la-capa-0-para-cerrar-la-arista-models-a-store.md
 depends_on: []
 pills: []
 files:
@@ -99,6 +107,8 @@ r16 (docs listados sin coincidencias): un archivo de la lista que tras el trabaj
 r17 (version del CHANGELOG): la seccion en curso es la cabecera "## 0.1.13 — not released yet" de CHANGELOG.md; la entrada de GO10 va en ella, con el cambio de contrato de sldb graph query (r2) y el traslado de WherePredicateError a sldb.api (r1).
 r18 (test_predicate_language): _old_where y _old_field_condition se eliminan; los tests de equivalencia leen old del golden como dato (string o dict) y evaluan la columna nueva (la expresion equivalente de la fila, ya presente en el test como construction) con el lenguaje nuevo, comparando con matches y con las diferencias ya fijadas (WHERE_DIFFERENCES, FIELD_CONDITION_DIFFERENCES); ninguna fila se elimina. _capture se elimina (ya no hay codigo viejo con que capturar).
 
+HIPOTESIS DEL EJECUTOR (regla 6, GO10 integrado en 1e6ecd55): H1 fuera de files en src: store/exceptions.py (reexporta WherePredicateError por la regla de costuras), store/graph/executor.py (valida cada where antes de recorrer), store/graph/language/predicate_ast.py (leaf_fields, r14). H2 set_where_parser contenia la subcadena where_parse (el grep no usa -w): renombrado a connect_where_check en notations/where_check.py y api/notations (sin usos fuera de sldb). H3 contracts/layers.toml: borrada la [[axis_debt]] dos-lenguajes-de-consulta (GO10 es su reparacion); R6 intacta por r10 aunque su repair ya cumplio la parte de WherePredicateError (drawer task-r6-...). H4 camino en un where de facet = nodo quant o count; un nombre con puntos es ruta de campo (H9). H5 where vacio sobre payload no casa con nodos que no son documentos (como conditions vacio); un where que no parsea es WherePredicateError, no ValidationError. H6 split_outside_literals y LITERAL_NONEMPTY de where_literal ya estaban sin importador antes de GO10; se dejan. H7 Finding conserva el Level warning aunque nadie lo emita ya en src. H8 la fila (None, eq, None) de test_payload_projection se borro: no hay literal null (H7 de rules-language). TESTS reescritos (r5/r18): test_predicate_language, test_payload_projection, test_graph_language, test_graph_executor, test_api_graph, test_where_empty_and_errors, test_select_documents, test_rules_language_spec; nuevo test_where_retired. DOCS ajenos (r9): 15 menciones de la relacion contains sacadas del codigo en linea a prosa en code-docstring-indexing-handoff.md, code-docstring-indexing.spec.md, notations-and-views.md, user-manual.md; en requests/sldb-knowledge-graph-integration.md el ejemplo de enum renombra contains a has_part. Conflicto de rebase con GD21 en cli/commands/graph.py resuelto por el coordinador (se conserva graph_project, se quita el import de Finding sin uso).
+
 ## Implementation Path
 
 _Outline the expected implementation route or affected surface._
@@ -116,6 +126,7 @@ _List the checks required before this task can close._
 - TMPDIR=/dev/shm pytest tests/test_clean_code_rules.py tests/test_store_seams.py en verde y tools/check_layers.py PASS
 - suite completa verde (una vez, al final del nodo, la corre el supervisor)
 - CHANGELOG registra el retiro en la seccion en curso
+- RESULTADO (coordinador 1, 2026-11-07, sobre 1e6ecd55 rebaseado tras GD21): grep -rn where_parse|FieldCondition en src/ y docs/ vacio salvo las 19 filas de la tabla de rules-language.md bajo '### Historico: equivalencia de los lenguajes retirados'; grep de operadores en bloques de codigo de docs/ vacio salvo esa tabla (tests/store/test_where_retired.py); lote amplio de 146 archivos de tests 2024 passed, 25 skips ambientales, 0 xfailed; tras el rebase sobre GD21 1102 passed en graph/queries/lenguaje/rules/notations/project; clean_code_rules y store_seams en verde; check_layers PASS. Suite completa pendiente del supervisor. Consumidor externo pron coordinado con coord-sldb1 (cambio de import aplicado por el al integrar).
 
 ## Done When
 
