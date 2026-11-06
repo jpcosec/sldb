@@ -1,0 +1,30 @@
+name: review-task-go06-ruledoc-rules-check-y-rules-explain-bundle-1
+path: desk/reviews/task-go06-ruledoc-rules-check-y-rules-explain/bundle-1.md
+source_hash: 26fffdf23d7c1df9e2aec1e583925b7bf778f0fabb7d951de7bb4a297c58428a
+content_hash: ea78c6802968065fceea2d654317efee3831b00bb423781ec90e2b60be4a189f
+field_hashes:
+  id: afe3159febadfcf9fddd8e90b001619d774be0f043ca2f7bd092ca0a30840c61
+  title: 0d6a7f05c9614624ec54e2a7b839888dddafcd1f4844b3f511fd067d9d01eaa8
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  subject: 182b55e52b522b6662f5b989a18ec3ee0783e70c3740a20ed1a71ffac0a5f5e2
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 110c0c9bde532bf9485b18c761d62296d5c2801844c4c698e189fe5da5ca76ee
+  input_sha256: 4de4ede9e70b2c531cfb0ab39b5544fa0803a37bbd9a3f53c65e30cae1dff8be
+  output_sha256: 080417a2a78c9d7c51336b2dbb25e09ba40b46d9849cc0beab82caee46bc2b2e
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: abb6e1fc1d0976ef363bb84b494b94c4ce5851152198ccc17311b1bc70172d63
+  created_at: 1b669b6992dec66b8e1c62f74ae95fa1a490db559058d316d275e8dbdc13476b
+  disposed_at: eccaa1e7bdfc702ec96b901a333297bbebee0c96949df42c0d678d1f59a753bc
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 4e7c1278474e003a060130dfd6f5d8b33f1b2d5707ca38536999e9153bb7756f
+  disposition: 5fc9a5531f8492c8ea0ece793534715266905c18b3e97fb4f73fd4e19ecf270f
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance: null

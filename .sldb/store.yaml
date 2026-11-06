@@ -427,6 +427,8 @@ include:
     name: review-task-go05-lenguaje-de-predicados-unificado-bundle-1
   - path: desk/reviews/task-go06-ruledoc-rules-check-y-rules-explain/preflight-1.md
     name: review-task-go06-ruledoc-rules-check-y-rules-explain-preflight-1
+  - path: desk/reviews/task-go06-ruledoc-rules-check-y-rules-explain/bundle-1.md
+    name: review-task-go06-ruledoc-rules-check-y-rules-explain-bundle-1
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md

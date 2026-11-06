@@ -63,6 +63,12 @@ p2 (Finding.what): explicacion = "<clause> (seen: <seen en JSON compacto, claves
 p3 (exit 3): data = {"rule": "RuleDoc:<nombre>", "subject": "<Model:name>", "applies": false, "reason": "subject" | "where", "detail": "<texto>"}: reason subject cuando el documento no esta en la familia del sujeto (detail = la expresion subject de la regla); reason where cuando el where da false o incomplete (detail = la clause del where que decidio). Sin clave finding.
 p4 (Finding.subject y document): subject = el Model:name del documento (con prefijo <store>: si viene de un store enlazado, como en GO05 H11); document = la ruta del documento relativa a la raiz del proyecto, como la guarda el registro.
 
+PRECISIONES (cold-bundle de GO06, 2026-11-06):
+p5 (nombres de campo): RuleDoc tiene los campos subject, where (opcional), condition, severity (Literal "error" | "alert"), moment (Literal "on_write" | "on_transition" | "on_check") y message (opcional). Los tests de rechazo usan esos nombres: condition, where, severity, moment, subject.
+p6 (nodo y clausula en el Finding): no se agrega ningun campo a core/finding.py. El nodo viaja en Finding.subject (p4: el Model:name del documento evaluado, que es el node del finding de eval) y la clausula en Finding.what (p2). "Finding con clausula y nodo" de la aceptacion se comprueba sobre esos dos campos.
+p7 (forma de subject): subject es exactamente model <= X, o una conjuncion de nivel superior de terminos model <= X (familia = interseccion, rules-language.md seccion 6). Cualquier otra clausula en subject (comparaciones, caminos, or, not) la rechaza el validador del modelo; los filtros adicionales van en where.
+p8 (alcance federado): las reglas son las RuleDoc del store local. rules check sin --subject recorre solo los documentos del store local (no los stores enlazados). --subject y SUBJECT de explain aceptan tambien un documento de un store enlazado (store:Model:name o su ruta) y lo evaluan.
+
 ## Implementation Path
 
 _Outline the expected implementation route or affected surface._
