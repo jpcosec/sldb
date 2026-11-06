@@ -9,10 +9,12 @@ from urllib.error import HTTPError
 from urllib.parse import quote
 from urllib.request import Request, urlopen
 
-from sldb.cli.serve import save_routes
+from sldb.api.documents import transaction_ops
 from sldb.cli.serve.http_server import build_handler
 from sldb.models.provenance_block import strip_block
 from sldb.store.io import load_store_index
+from sldb.store.io.shards import load_document_shard
+from sldb.store.layout import documents_shard_path
 from tests.store.test_cli_store import _PY_ARGS, _SETUP_REF, _STORE_ARGS, _doc_track, _init, _model_add
 
 
@@ -259,19 +261,22 @@ def test_batch_save_invalid_payload_422(tmp_path: Path) -> None:
         _stop(server, thread)
 
 
-def test_batch_save_partial_failure_reports_completed(tmp_path: Path, monkeypatch: Any) -> None:
+def test_batch_save_partial_failure_rolls_back(tmp_path: Path, monkeypatch: Any) -> None:
+    """DA2: a failure halfway through a batch leaves nothing saved (500, `rolled_back: true`),
+    not the ids completed so far."""
     store = _build_store(tmp_path)
     server, thread, base_url = _serve(store)
+    before = _project_files(tmp_path)
     calls = {"n": 0}
-    real_create = save_routes.create_document
+    real_create = transaction_ops.create_document
 
-    def flaky(store: Path, model: str, path: Path, payload: dict, **kw: Any) -> Any:
+    def flaky(store: Path, model: str, path: Path, payload: dict, *args: Any, **kw: Any) -> Any:
         calls["n"] += 1
         if calls["n"] == 2:
             raise RuntimeError("boom")
-        return real_create(store, model, path, payload, **kw)
+        return real_create(store, model, path, payload, *args, **kw)
 
-    monkeypatch.setattr(save_routes, "create_document", flaky)
+    monkeypatch.setattr(transaction_ops, "create_document", flaky)
     try:
         status, body = _request_json(f"{base_url}/save", method="POST", payload={"changes": [
             {"id": "c1", "action": "create", "model": "SimpleBook", "payload": {"title": "1"}},
@@ -279,11 +284,58 @@ def test_batch_save_partial_failure_reports_completed(tmp_path: Path, monkeypatc
             {"id": "c3", "action": "create", "model": "SimpleBook", "payload": {"title": "3"}},
         ]}, expected_error=500)
         assert status == 500
-        assert body == {"ok": False, "error": "No se completó el guardado: boom", "completed": ["c1"]}
-        assert strip_block((tmp_path / "c1.md").read_text(encoding="utf-8")) == "# 1\n"
-        assert not (tmp_path / "c3.md").exists()
+        assert body == {"ok": False, "error": "No se completó el guardado: boom", "rolled_back": True}
+        assert not (tmp_path / "c1.md").exists() and not (tmp_path / "c3.md").exists()
+        assert _project_files(tmp_path) == before
+        status, check = _request_json(f"{base_url}/stores/check")
+        assert status == 200 and check["ok"] is True
     finally:
         _stop(server, thread)
+
+
+def test_batch_save_stale_source_hash_conflict(tmp_path: Path) -> None:
+    """`expected_source_hash` is the guard a client that holds the entry's hash sends instead of
+    the whole payload; a stale one is the same 409 as a stale `expected`."""
+    store = _build_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        status, body = _request_json(f"{base_url}/save", method="POST", payload={"changes": [
+            {"id": "book", "action": "update", "model": "SimpleBook", "payload": {"title": "X"}, "expected_source_hash": "stale"},
+        ]}, expected_error=409)
+        assert status == 409
+        assert body == {"ok": False, "error": "book cambió en SLDB. Recarga para evitar sobrescribirlo."}
+        source_hash = load_document_shard(documents_shard_path(store, "SimpleBook", "book")).source_hash
+        status, body = _request_json(f"{base_url}/save", method="POST", payload={"changes": [
+            {"id": "book", "action": "update", "model": "SimpleBook", "payload": {"title": "Hashed"}, "expected_source_hash": source_hash},
+        ]})
+        assert (status, body) == (200, {"ok": True, "saved": ["book"]})
+    finally:
+        _stop(server, thread)
+
+
+def test_batch_save_move_track_and_untrack(tmp_path: Path) -> None:
+    store = _build_store(tmp_path)
+    (tmp_path / "loose.md").write_text("# Loose\n", encoding="utf-8")
+    server, thread, base_url = _serve(store)
+    try:
+        status, body = _request_json(f"{base_url}/save", method="POST", payload={"changes": [
+            {"id": "book", "action": "move", "path": "books/book.md", "expected": {"title": "My Book"}},
+            {"id": "loose", "action": "track", "model": "SimpleBook", "path": "loose.md"},
+        ]})
+        assert (status, body) == (200, {"ok": True, "saved": ["loose", "book"]})
+        assert (tmp_path / "books" / "book.md").exists() and not (tmp_path / "book.md").exists()
+        status, body = _request_json(f"{base_url}/save", method="POST", payload={"changes": [{"id": "loose", "action": "untrack"}]})
+        assert (status, body) == (200, {"ok": True, "saved": ["loose"]})
+        assert (tmp_path / "loose.md").exists()
+        _, graph = _request_json(f"{base_url}/graph")
+        assert [doc["id"] for doc in graph["documents"]] == ["book"]
+    finally:
+        _stop(server, thread)
+
+
+def _project_files(root: Path) -> dict[str, str]:
+    import hashlib
+    return {p.relative_to(root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(root.rglob("*")) if p.is_file() and "locks" not in p.parts}
 
 
 def _track_other(tmp_path: Path) -> None:
@@ -292,8 +344,8 @@ def _track_other(tmp_path: Path) -> None:
     _doc_track(tmp_path, other)
 
 
-def _serve(store: Path) -> tuple[ThreadingHTTPServer, threading.Thread, str]:
-    handler = build_handler(str(store), _PY_ARGS[1], cors=False)
+def _serve(store: Path, pythonpath: str = _PY_ARGS[1]) -> tuple[ThreadingHTTPServer, threading.Thread, str]:
+    handler = build_handler(str(store), pythonpath, cors=False)
     server = ThreadingHTTPServer(("127.0.0.1", 0), handler)
     thread = threading.Thread(target=server.serve_forever, daemon=True)
     thread.start()

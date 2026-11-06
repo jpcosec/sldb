@@ -1,9 +1,9 @@
 """POST /save: single-document write (legacy) and batched optimistic writes.
 
-The batch prevalidates every change before writing anything, applies in
-create→update→delete order under a module lock, and reports partial failure
-with the ids already completed so clients retry only the outstanding ones.
-All store logic comes from ``sldb.api`` — nothing is reimplemented here.
+The batch is checked here for its HTTP contract (shape, ids, stale `expected`, targets) and
+handed whole to ``sldb.api.apply_batch``, which prevalidates it against the models and writes
+it in one transaction: a failure halfway rolls every change back (``rolled_back: true``);
+nothing is saved partially any more. Nothing of the store is reimplemented here.
 """
 
 from __future__ import annotations
@@ -12,17 +12,15 @@ import threading
 from pathlib import Path
 from typing import Any
 
-from sldb.api.documents.create_document import create_document
-from sldb.api.documents.delete_document import delete_document
-from sldb.api.documents.payload_save import save_document_payload
+from sldb.api.documents.apply_batch import apply_batch
 from sldb.cli.model_utils import resolve_model_ref
 from sldb.cli.serve.save_plan import bad, prevalidate
 from sldb.cli.serve.save_single import save_single
+from sldb.core.exceptions import ConflictError, SLDBStoreError, SLDBValidationError
 from sldb.store.query import load_runtime_documents
 
 SAVE_LOCK = threading.RLock()
 _CHANGE_LIMIT = 500
-_ACTION_ORDER = {"create": 0, "update": 1, "delete": 2}
 
 
 def save_request(request: dict[str, Any], store_path: Path, project_root: Path, pythonpath: str) -> tuple[dict[str, Any], int]:
@@ -40,7 +38,7 @@ def batch_save(request: dict[str, Any], store_path: Path, project_root: Path, py
     prepared, error = prepare_batch(request["changes"], current, docs, store_path, project_root, pythonpath)
     if error is not None:
         return error
-    return apply_batch(prepared, store_path, pythonpath)
+    return apply_prepared(prepared, store_path, pythonpath)
 
 
 def batch_shape(request: dict[str, Any]) -> bool:
@@ -76,32 +74,22 @@ def change_name(change: Any, seen: set[str]) -> tuple[str | None, tuple[dict[str
     return name, None
 
 
-def apply_batch(prepared: list[tuple[dict[str, Any], Any, Path | None]], store_path: Path, pythonpath: str) -> tuple[dict[str, Any], int]:
-    completed: list[str] = []
+def apply_prepared(prepared: list[tuple[dict[str, Any], Any, Path | None]], store_path: Path, pythonpath: str) -> tuple[dict[str, Any], int]:
+    """The whole batch through `apply_batch`: its prevalidation errors keep their HTTP status
+    (409 conflict or taken target, 422 payload); a failure while applying is a 500 that rolled
+    everything back."""
     try:
-        for change, current, path in sorted(prepared, key=sort_key):
-            apply_change(change, current, path, store_path, pythonpath)
-            completed.append(change["id"])
+        report = apply_batch(store_path, [with_target(change, path) for change, _current, path in prepared], pythonpath)
+    except ConflictError as exc:
+        return bad(f"{exc.ref} cambió en SLDB. Recarga para evitar sobrescribirlo.", 409)
+    except (SLDBStoreError, SLDBValidationError) as exc:
+        return bad(str(exc), 422 if isinstance(exc, SLDBValidationError) else 409)
     except (Exception, SystemExit) as exc:
-        return {"ok": False, "error": f"No se completó el guardado: {exc}", "completed": completed}, 500
-    return {"ok": True, "saved": completed}, 200
+        return {"ok": False, "error": f"No se completó el guardado: {exc}", "rolled_back": True}, 500
+    return {"ok": True, "saved": report.saved}, 200
 
 
-def sort_key(item: tuple[dict[str, Any], Any, Path | None]) -> int:
-    return _ACTION_ORDER[item[0]["action"]]
-
-
-def apply_change(change: dict[str, Any], current: Any, path: Path | None, store_path: Path, pythonpath: str) -> None:
-    """Apply one prevalidated change; `delete` is the inverse of `create`, file included.
-
-    `create` writes the Markdown file, so `delete` removes it. Untracking instead would
-    drop the document from the graph and leave the file on disk, where the next track or
-    rescan of the directory resurrects it.
-    """
-    name, action = change["id"], change["action"]
-    if action == "create":
-        create_document(store_path, change["model"], path, change["payload"], name=name, pythonpath=pythonpath)
-    elif action == "update":
-        save_document_payload(store_path, current.model_name, name, change["payload"], pythonpath=pythonpath)
-    else:
-        delete_document(store_path, name, pythonpath=pythonpath)
+def with_target(change: dict[str, Any], path: Path | None) -> dict[str, Any]:
+    """A create carries the path prevalidation chose for it, so /save keeps placing new files
+    beside the model's existing documents."""
+    return {**change, "path": str(path)} if path is not None and change["action"] == "create" else change
