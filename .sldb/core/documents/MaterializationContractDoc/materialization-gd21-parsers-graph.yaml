@@ -1,0 +1,21 @@
+name: materialization-gd21-parsers-graph
+path: desk/materializations/materialization-gd21-parsers-graph.md
+source_hash: 4520a50935459c72e3d608bd5973ea1830a42073563d47c08e2e7c483b31b071
+content_hash: 8afaa2e4008d69d9faa296665cefadee2ac05eba9b327c408c4d075a7d9c601d
+field_hashes:
+  id: e7fd9e6fa2c88cf65d75a9e63b4b20fa7f3516639c3ad930bae44a5a91b10065
+  title: fe75edea167ce7a16da0ef06b285b06f2cf2aa65856b5adc3e604cba672a0be2
+  source_atoms: 8834dd87ebabd7cf3637b9097ea4395d27dc0a60434883b6b944d13af68ce160
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 6bd357c25c8ac176f84210749ee193724063c4b1f0489a9140d4c19560f0feca
+  intent: 556b1b326dc05347949ca7603f5b24d750762295e01ee09892e745ca807459b2
+  validation: 97d59dffa92bb5158090f9eb6de39c4febcb6804a174d2e7cabdb5ec23f38240
+  tags: 4ebb300465ab9bd184c374383eeed08aa90dd59eedfcecb81206a942b1704c9a
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:project-graph
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

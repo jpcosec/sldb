@@ -474,6 +474,25 @@ include:
   - desk/materializations/materialization-gd26-stores-scaffold-report.md
   - desk/materializations/materialization-gd26-stores-scaffold-sources.md
   - desk/materializations/materialization-gd26-commands-stores-scaffold.md
+  - desk/materializations/materialization-gd21-project-graph-project-graph-config.md
+  - desk/materializations/materialization-gd21-project-graph-project-graph-config-mapping.md
+  - desk/materializations/materialization-gd21-project-graph-project-graph.md
+  - desk/materializations/materialization-gd21-project-graph-project-texts.md
+  - desk/materializations/materialization-gd21-project-graph-inverse-edges.md
+  - desk/materializations/materialization-gd21-project-graph-project-graph-memo.md
+  - desk/materializations/materialization-gd21-project-graph-store-project-graph.md
+  - desk/materializations/materialization-gd21-project-graph-init.md
+  - desk/materializations/materialization-gd21-parsers-graph.md
+  - desk/materializations/materialization-gd21-parsers-graph-project.md
+  - desk/materializations/materialization-gd21-commands-graph.md
+  - desk/materializations/materialization-gd21-commands-graph-project.md
+  - desk/materializations/materialization-gd21-serve-project-graph-routes.md
+  - desk/materializations/materialization-gd21-serve-edges-routes.md
+  - desk/materializations/materialization-gd21-api-test-project-graph.md
+  - desk/materializations/materialization-gd21-api-test-project-graph-config.md
+  - desk/materializations/materialization-gd21-architecture-project-graph.md
+  - desk/materializations/materialization-gd21-project-graph-document-surface.md
+  - desk/materializations/materialization-gd21-project-graph-reference-field.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -523,8 +542,8 @@ include:
 - model: TaskCodeDoc
   paths:
   - desk/tasks/task-go10-retiro-de-where-parse-y-fieldcondition.md
-  - desk/tasks/task-gd21-grafo-de-proyecto-aristas-declaradas-y-nodos-fuente-desde-el-índice-de-sldb-declarado-por-datos.md
   - desk/tasks/task-gd27-espacios-de-nombres-y-jerarquía-de-tags-reemplazo-de-texto-en-documentos-trackeados.md
+  - desk/tasks/task-gd21-grafo-de-proyecto-aristas-declaradas-y-nodos-fuente-desde-el-índice-de-sldb-declarado-por-datos.md
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md

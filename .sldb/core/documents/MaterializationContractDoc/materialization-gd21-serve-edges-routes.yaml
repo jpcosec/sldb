@@ -1,0 +1,21 @@
+name: materialization-gd21-serve-edges-routes
+path: desk/materializations/materialization-gd21-serve-edges-routes.md
+source_hash: fd4ff9aba8dd8472fddf6ee04b0696feac24fed96c92b7894a92c4be3236a7ad
+content_hash: de6445e5c5c6dc993a59650e26be7f82a5817353153c718d312508e900b5bb7a
+field_hashes:
+  id: f2a2dd3ab4ebbfb2620970f9b1f24e6695914acd76896e42f9580967fdd63ebe
+  title: 6611a958815e3a7a02b2746f03fbdc93cf30de5729180b25b898de44e5f2aba3
+  source_atoms: 8834dd87ebabd7cf3637b9097ea4395d27dc0a60434883b6b944d13af68ce160
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: f8271a93963d558e755b8b249edda5072befb06b0e815fd783db7eba2198ec7e
+  intent: d3c545003d368f4d854271bb4239abb01cb5ff2699a5b0fdbe241e4edb743104
+  validation: 97d59dffa92bb5158090f9eb6de39c4febcb6804a174d2e7cabdb5ec23f38240
+  tags: 4ebb300465ab9bd184c374383eeed08aa90dd59eedfcecb81206a942b1704c9a
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:project-graph
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

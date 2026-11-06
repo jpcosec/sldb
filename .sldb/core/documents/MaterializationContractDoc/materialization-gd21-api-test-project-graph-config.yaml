@@ -1,0 +1,21 @@
+name: materialization-gd21-api-test-project-graph-config
+path: desk/materializations/materialization-gd21-api-test-project-graph-config.md
+source_hash: 0dd9ac607785ecab095b5a0a74a4eda61e853464cba5ffd309ce1aca14f9f1c2
+content_hash: 1efc07c3e6fd00ffc23f0462ace6bed2ebb0e8731c124167d5b8ff277a365741
+field_hashes:
+  id: 023d149332776e09647f67d2b5d3504df89f87ef043079f4c54209e2da51c32e
+  title: 719d435df66493eafc95694b7960f9d020a2eeff82ab7e41159f0715204a9f4b
+  source_atoms: 8834dd87ebabd7cf3637b9097ea4395d27dc0a60434883b6b944d13af68ce160
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: fc02ef4db5a5eb97851a204caa4b172c77e80cdee14ff0c6b18042ce1172249a
+  intent: f0ba28ffe8695acbd9dfe8489d8b0dccce3865c4d69a7c0f060839642539c84e
+  validation: 4ef299216f8ba92c28fa0272c1bbe8088a4800dfbf6606a7c7d243e0a19ec90f
+  tags: 4ebb300465ab9bd184c374383eeed08aa90dd59eedfcecb81206a942b1704c9a
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:project-graph
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

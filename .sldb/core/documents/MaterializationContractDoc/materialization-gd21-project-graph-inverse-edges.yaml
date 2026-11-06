@@ -1,0 +1,21 @@
+name: materialization-gd21-project-graph-inverse-edges
+path: desk/materializations/materialization-gd21-project-graph-inverse-edges.md
+source_hash: 206b3c89212143247a7592da86fb5b39fc87c520762a9a763435fbf5010ca304
+content_hash: bd9ddb9f65800fb735c16e8b7b8d9c575d1ea8f8fc6b3c2213cc6ab46eb694b4
+field_hashes:
+  id: 766be6c5d5c199bd2272d95987df939d538cf5fee683cae788255674caead1ce
+  title: 935c118319210a531e86e119142401324f536197ad4d2c68ec7416db43cadc70
+  source_atoms: 8834dd87ebabd7cf3637b9097ea4395d27dc0a60434883b6b944d13af68ce160
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 2207f5568d63ba8e3bfe3d0499fd8bbd7ebd7a0a40e1f43a7172621bfb466248
+  intent: a996c951e6e714656c04643eb42f1a45151fb1cc84a77d185321baa423095272
+  validation: 97d59dffa92bb5158090f9eb6de39c4febcb6804a174d2e7cabdb5ec23f38240
+  tags: 4ebb300465ab9bd184c374383eeed08aa90dd59eedfcecb81206a942b1704c9a
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:project-graph
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance: null

@@ -7,7 +7,14 @@ tags:
 - artifact:task
 current_node: ritual-execution
 history: []
-references: []
+references:
+- pytest tests/api/test_project_graph.py
+- tests/api/test_project_graph.py
+- pytest tests/api/test_project_graph_config.py
+- tests/api/test_project_graph_config.py
+- docs/architecture/project-graph.md
+- a2a0174fe27cef0805e39c8dadf78f678a036313
+- desk/atoms/atom-el-grafo-de-un-proyecto-se-declara-en-store-yaml-y-sldb-lo-sirve.md
 depends_on: []
 pills: []
 files:
@@ -118,6 +125,7 @@ _List the checks required before this task can close._
 - TMPDIR=/dev/shm pytest -q tests/test_clean_code_rules.py antes de cada squash (recorre todo src/: funciones de 10 líneas de lógica como máximo, máximo 1 clase y 80 líneas efectivas por archivo)
 - git fetch y rebase sobre origin/main antes de entregar; en CHANGELOG.md y src/sldb/api/__init__.py tomar la versión de main y agregar solo lo propio
 - files: del TaskDoc coincide con el diff entregado (los autorizados que no se usen se reportan y el coordinador los poda antes de entregar)
+- RESULTADO (coordinador de proyecto, 2026-11-06, squash a2a0174f sobre origin/main): project_graph 13, project_graph_config 11, store_seams 2, clean_code_rules 917, api_edges 15, api_graph 2, api_stores 7, stores_build 25, serve 58: todos verdes, de a uno. Grep de project_graph/ vacío; files podado por claude6 al diff real (salió tracked_documents.py). closed_document queda deprecated (q5), gana closed y no se serializa; se borra al cerrar CC33 de deskops. Suite completa pendiente al cierre del plan.
 
 ## Done When
 
