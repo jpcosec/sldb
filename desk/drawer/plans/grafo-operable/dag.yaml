@@ -25,10 +25,10 @@ gates:
     evidence: 'sldb 043282c3: docs/architecture/rules-language.md y tests/test_rules_language_spec.py (52 xfail estrictos); preflight y cold-bundle del TaskDoc dispuestos; aceptación verificada por el coordinador de robocop2 y revisada por el supervisor (agregó la columna todos I), 2026-11-04'
   G_SEAM:
     title: Costura GraphBackend definida
-    state: pending
+    state: satisfied
     produced_by: GO03
     resolver: revisión en frío de GO03 aceptada (D5 ya confirmada por el dueño el 2026-11-04)
-    evidence: protocolo GraphBackend (load, eval, analyze) documentado, comandos graph y api/graph enrutados por analyze con goldens y tests idénticos, eval probado en su subconjunto, clave graph_backend en store.yaml
+    evidence: 'sldb 804f1ad4 (squash de wt/go03, PR #2): protocolo GraphBackend (load, eval, analyze) en docs/architecture/graph-backend.md, comandos graph y api/graph enrutados por analyze con goldens idénticos, eval probado en su subconjunto, clave graph_backend en store.yaml; preflight y cold-bundle dispuestos (p1-p7); aceptación verificada línea por línea por el coordinador 1 de robocop2; closeout ec15bd27 y siguiente, 2026-11-06'
   G_OPS_PREREQ:
     title: Store operacional versionado y journal congelado
     state: satisfied
