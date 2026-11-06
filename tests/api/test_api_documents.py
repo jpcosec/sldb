@@ -10,7 +10,7 @@ from pydantic import ValidationError
 import sldb.api as api
 from sldb.cli import dict_utils
 from sldb.cli.commands.fields_save import save_payload
-from sldb.core.exceptions import SLDBError, SLDBPayloadSaveError, SLDBValidationError
+from sldb.core.exceptions import SLDBError, SLDBPayloadSaveError, SLDBStoreError, SLDBValidationError
 from sldb.store.query import load_runtime_documents
 
 from .conftest import PAYLOAD
@@ -81,3 +81,18 @@ def test_payload_paths_are_the_cli_helpers():
     assert api.deep_delete(payload, "meta.owner") == {"items": [{"name": "b"}], "meta": {}}
     with pytest.raises(TypeError):
         api.ensure_list(payload, "meta")
+
+
+def test_move_document_moves_the_file_and_keeps_the_name(api_store):
+    moved = api.move_document(api_store.store, "login", "tickets/login.md", api_store.pythonpath)
+    assert (moved.model, moved.name, moved.path) == ("TicketDoc", "login", (api_store.root / "tickets" / "login.md").resolve())
+    assert not (api_store.root / "login.md").exists()
+    assert api.doc_status(api_store.store, "login").exists
+    assert _title(api_store, "login") == "Broken login"
+
+
+def test_move_document_refuses_a_taken_destination_without_moving(api_store):
+    (api_store.root / "taken.md").write_text("# Taken\n", encoding="utf-8")
+    with pytest.raises(SLDBStoreError, match="already exists"):
+        api.move_document(api_store.store, "login", "taken.md", api_store.pythonpath)
+    assert (api_store.root / "login.md").exists()
