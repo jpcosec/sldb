@@ -108,6 +108,7 @@ q15 (transaction=None): replace_text abre su propia sldb.api.transaction(store);
 q16 (alcance de tag_tree): roots, orphans y unplaced se limitan al namespace pedido; orphans considera los tags usados en ese namespace por cualquier documento local, y unplaced los documentos ancla (modelo anchored_by.model) cuyo campo es un tag de ese namespace que nadie usa.
 PRECISIONES DE EJECUCIÓN (coordinador, 2026-11-06):
 q17 (registro del grupo CLI tags): un grupo nuevo de la CLI se registra en src/sldb/cli/parsers/public.py (add_public_group_commands) y en src/sldb/cli/dispatcher.py (handlers por grupo); se agregan a files, solo con las líneas aditivas del grupo tags. tests/test_cli_every_command_has_a_handler.py se corre sin editarse y debe quedar verde.
+q18 (alcance de on_write, hallazgo del ejecutor): check_on_write de GO08 solo corre en save_document_payload; create_document y track_document_file no evalúan reglas on_write (ni RuleDocs de usuario ni la familia builtin:tag_namespace). Es un hueco previo de GO08, no de GD27. En GD27 "escribir un documento con area:a.b sin ancla falla" se prueba por save_document_payload, transaction.update y replace_text (q14); create y track quedan cubiertos por on_check y sldb rules check / tags check. No se edita create_document.py ni track_document_file.py: extender on_write a create y track cambia el comportamiento de las RuleDocs de usuario y lo decide el coordinador de proyecto (hipótesis en la entrega).
 
 ## Validation
 
