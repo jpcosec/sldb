@@ -11,7 +11,7 @@ from pathlib import Path
 
 import pytest
 
-from sldb.api import AmbiguousDocument, add_model, init_store, resolve_indexed_document, track_document_file
+from sldb.api import AmbiguousDocument, add_model, indexed_model_bases, init_store, resolve_indexed_document, track_document_file
 from sldb.store.io import invalidate_index_cache
 from sldb.store.runtime_cache import invalidate_runtime_cache
 
@@ -109,6 +109,14 @@ def test_two_submodels_with_the_same_name_are_ambiguous(store):
     assert "MemoNoteDoc:twin" in str(exc.value)
 
 
+def test_every_model_says_its_bases_nearest_first(store):
+    _, sp = store
+    bases = indexed_model_bases(sp)
+    assert bases["DraftMemoNoteDoc"] == ["MemoNoteDoc", "NoteDoc"]
+    assert bases["LetterNoteDoc"] == ["NoteDoc"]
+    assert bases["NoteDoc"] == [] and bases["OtherDoc"] == []
+
+
 def test_an_inherited_submodel_is_found_through_its_owners_bases(tmp_path):
     """The repo inherits the models from the store that owns them (as desks inherit deskops'):
     the local index keeps no `base_models`; the owner's does."""
@@ -126,6 +134,7 @@ def test_an_inherited_submodel_is_found_through_its_owners_bases(tmp_path):
             inherit_model(local_sp, f"owner:{model}")
         _track(local, local_sp, "MemoNoteDoc", "x")
         assert resolve_indexed_document(local_sp, "NoteDoc", "x")["model"] == "MemoNoteDoc"
+        assert indexed_model_bases(local_sp)["MemoNoteDoc"] == ["NoteDoc"]
     finally:
         sys.modules.pop(MODULE, None)
         while str(owner) in sys.path:

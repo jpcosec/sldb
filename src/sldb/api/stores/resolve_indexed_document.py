@@ -59,3 +59,22 @@ def resolve_indexed_document(store_path: Path, model: str, name: str) -> dict[st
     if exact or len(hits) <= 1:
         return (exact or hits or [None])[0]
     raise AmbiguousDocument(model, name, [hit["model"] for hit in hits])
+
+
+def indexed_model_bases(store_path: Path) -> dict[str, list[str]]:
+    """Each tracked model's bases, nearest first, read from the store's indexes alone.
+
+    A consumer that groups documents by model family (`model <= TaskDoc`) asks here instead of
+    keeping its own list of submodels; an inherited model answers with its owner's bases.
+
+    Args:
+        store_path: The store's `.sldb` directory.
+
+    Returns:
+        `{model name: [base names]}`, an empty list for a model with no document bases.
+    """
+    root = project_root(store_path)
+    return {
+        entry.name: _bases(store_path, entry, load_models_index(root / entry.models_index))
+        for entry in sorted(load_store_index(store_path).models, key=lambda item: item.name)
+    }

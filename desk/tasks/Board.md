@@ -7,7 +7,6 @@ scope: sldb-local-desk
 tasks:
 - desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
 - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
-- desk/tasks/task-go03-costura-graphbackend-sobre-networkx.md
 - desk/tasks/task-go04-payload-proyectado-al-grafo-y-staleness-correcta.md
 # List of pill-xxx paths
 pills:
@@ -55,5 +54,4 @@ _Generated from the task references above._
 
 - Diseño: set bootstrap de modelos tras la convergencia átomo/field [draft] - Un documento de decisión en docs/ (SpecDoc o PlanDoc trackeado) que evalúe la propuesta de siete modelos, diga qué se adopta, qué no y por qué, con ejemplos de cada modelo sobre documentos reales del store.
 - Diseño: jerarquía de modelos de evidencia (__family__ o herencia) [draft] - Un documento de decisión en docs/ que compare __family__ vs herencia de clases para los modelos de evidencia, con la recomendación y sus consecuencias para deskops (RunDoc, materializaciones, closeout_evidence).
-- GO03: Costura GraphBackend sobre networkx [draft] - Protocolo GraphBackend (load, eval, analyze) con implementacion networkx; los seis comandos graph y api/graph enrutados por analyze sin cambiar salidas; eval sobre el subconjunto de GO02 sin caminos; clave graph_backend en store.yaml; docs/architecture/graph-backend.md y CHANGELOG.
 - GO04: Payload proyectado al grafo y staleness correcta [draft] - Cada nodo de documento del indice de aristas lleva la facet payload (escalares y listas de escalares, o __indexed__), field_hashes, source_hash y contract_signature; EDGE_INDEX_VERSION 5; stale por source_hash o firma de contrato; StructuredQuery filtra sobre la facet payload sin re-extraer; ninguna consulta existente cambia de resultado.

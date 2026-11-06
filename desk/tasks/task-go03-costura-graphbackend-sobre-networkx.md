@@ -1,13 +1,20 @@
 ---
 id: task-go03-costura-graphbackend-sobre-networkx
-status: draft
+status: ready_for_testing
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-closeout
+history:
+- task_activates
+- task_hands_to_closeout
+references:
+- pytest tests/store/test_graph_backend.py
+- tests/store/test_graph_backend.py
+- 804f1ad45478c4e6046abfc4ce2debdaca00320d
+- desk/atoms/atom-sldb-evaluates-declared-rules-consumers-author-them.md
+- task:task-go04-payload-proyectado-al-grafo-y-staleness-correcta
 depends_on: []
 pills: []
 files:
