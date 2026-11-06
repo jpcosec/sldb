@@ -23,6 +23,10 @@ files:
 - tests/api/test_api_stores.py
 - docs/architecture/store-declaration.md
 - CHANGELOG.md
+- src/sldb/api/stores/seed.py
+- src/sldb/api/stores/scaffold_report.py
+- src/sldb/api/stores/scaffold_sources.py
+- src/sldb/cli/commands/stores_scaffold.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
@@ -83,6 +87,13 @@ q7 (track): un seed document con track se trackea con track_document_file(store,
 q8 (reporte vacío): la sección scaffold de stores build es siempre el objeto {created: [], rewritten: [], present: [], conflicts: []} (listas de rutas relativas); vacía = las cuatro listas vacías.
 q9 (pkg:): pkg:modulo/ruta se resuelve con importlib.resources.files("modulo").joinpath("ruta") sobre el paquete importable (instalado o en pythonpath); no se resuelve relativo a nada más.
 q10 (clave desconocida): Seed y la parte nueva de StoreDeclaration usan model_config = ConfigDict(extra="forbid"); load_declaration levanta pydantic.ValidationError, cuyo mensaje nombra la clave (loc). Las claves existentes de StoreDeclaration no cambian de comportamiento.
+PRECISIONES DEL COLD-BUNDLE Y DEL DESPACHO (review-task-gd26-bundle-1 y coordinador, 2026-11-06):
+q11 (GD24, resuelve q1/q6): GD24 está cerrado en main (88f19ac8). Las escrituras del scaffold van dentro de sldb.api.transaction (write_file, create y track de la transacción); no se usa rollback_on_error por archivo.
+q12 (raíces): folders y el path de cada seed son relativos a la raíz del proyecto (StoreLocation.project_root, la misma root que usan build e includes) y deben quedar dentro de ella. Solo las fuentes file: relativas se resuelven contra template_root (default: el directorio de store.yaml, q4); pkg: según q9.
+q13 (sin apply): ScaffoldReport tiene las cuatro listas y applied: bool. Sin apply nada se escribe y las listas dicen lo que pasaría: lo que falta en created y un managed divergente en rewritten. Con apply, lo mismo pero hecho. La sección scaffold de stores build (q8) es el dump de las cuatro listas, sin applied (build siempre aplica).
+q14 (build_store): sldb.api.build_store(store, *, apply=True, generate=None) en src/sldb/api/stores/build_store.py, con root = project_root de declared_store(store). apply=True es exactamente el build de hoy (links, models, predicates, includes, generadores, includes, índices, undeclared y missing), seguido de scaffold_store(apply=True), en un solo reporte con la clave nueva scaffold. Como sldb.api no importa sldb.cli y los generadores corren la CLI (cli/commands/stores_build_generators.py), generate es un callable (store, root, declaration) -> list[str] que la CLI pasa (run_generators); con generate=None no se corre ningún generador y generated = []. apply=False no escribe nada: links, models, tracked y generated vacíos, predicates_changed false, scaffold sin aplicar, undeclared y missing calculados. sldb stores build llama build_store(apply=True, generate=run_generators); su salida solo gana la clave scaffold (las demás claves, el resumen de texto y el exit no cambian).
+q15 (bytes de text): text se escribe en UTF-8 tal cual, sin agregar salto de línea final. managed compara los bytes del archivo con los de la fuente (text codificado, bytes de la plantilla file o pkg, o el Markdown renderizado del document en UTF-8).
+q16 (estructura, por tests/test_clean_code_rules.py: máximo 1 clase y 80 líneas efectivas por archivo): se agregan a files src/sldb/api/stores/seed.py (modelo Seed), scaffold_report.py (ScaffoldReport), scaffold_sources.py (bytes de cada fuente: text, file, pkg y document) y src/sldb/cli/commands/stores_scaffold.py. Cualquier otro archivo, previa consulta al coordinador.
 
 ## Validation
 
