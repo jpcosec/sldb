@@ -9,5 +9,11 @@ field_hashes:
   answer: 56eada18a22bdc449f93d74e9ae23caac918ac0f1b7de682365f71d2d52b5db1
   tags: 4ebb300465ab9bd184c374383eeed08aa90dd59eedfcecb81206a942b1704c9a
   provenance: 4d83ffd71db2f975a3857c5c46be9331629af527035b34439cdbb1d2ff20bdbe
-semantic_tags: []
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:project-graph
+- type.knowledge.atom
+- workspace.desk.atoms
 provenance: null
