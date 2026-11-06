@@ -1434,3 +1434,34 @@ def test_graph_reports_no_unavailable_models_for_a_healthy_store(tmp_path: Path)
         assert len(body["documents"]) == 1
     finally:
         _stop(server, thread)
+
+
+# ── GET /docs/select: `sldb docs select` sobre HTTP, misma respuesta ─────────
+
+def test_docs_select_answers_as_the_cli_does(tmp_path: Path, capsys) -> None:
+    from sldb.cli import main as cli_main
+
+    store = _build_chapter_store(tmp_path)
+    server, thread, base_url = _serve(store)
+    try:
+        capsys.readouterr()  # what building the store printed
+        assert cli_main(["docs", "select", "--prefix", "b", "--path-glob", "*.md", "--one", "--format", "json", "--store", str(store)]) == 0
+        printed = json.loads(capsys.readouterr().out)
+        status, body = _request_json(f"{base_url}/docs/select?prefix=b&path_glob={quote('*.md')}&one=1")
+        assert (status, body) == (200, printed)
+        assert body["documents"] == [{"export_id": "SimpleBook:book", "model": "SimpleBook", "name": "book", "path": "book.md"}]
+
+        status, body = _request_json(f"{base_url}/docs/select?model=SimpleBook")
+        assert status == 200 and [row["export_id"] for row in body["documents"]] == ["SimpleBook:book", "BookWithSetup:guide"]
+
+        status, body = _request_json(f"{base_url}/docs/select?prefix=zzz&one=true", expected_error=404)
+        assert (status, body) == (404, {"ok": False, "error": "Unknown document: prefix='zzz'"})
+
+        status, body = _request_json(f"{base_url}/docs/select?model=SimpleBook&one=1", expected_error=409)
+        assert status == 409 and body["candidates"] == ["SimpleBook:book", "BookWithSetup:guide"]
+        assert body["error"] == "Ambiguous selection model='SimpleBook': SimpleBook:book, BookWithSetup:guide"
+
+        status, body = _request_json(f"{base_url}/docs/select?where=nonsense(missing", expected_error=400)
+        assert status == 400 and "no evaluator understands" in body["error"]
+    finally:
+        _stop(server, thread)
