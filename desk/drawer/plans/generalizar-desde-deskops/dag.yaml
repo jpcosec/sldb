@@ -1,7 +1,8 @@
 id: sldb-generalizar-desde-deskops
 revision: 3
 revision_note: 'Rev 3 (2026-11-06): GD25 usa el ViewDoc de SV01 (absorber-spec2viz-y-modelos-ui, SV-D3) en lugar de crear src/sldb/models/view_doc.py, reserva el nombre projection y no toca /views/projection* de SV02 (aviso del supervisor). Rev 2 (2026-11-06): el dueño autoriza el plan (2026-11-05) y responde sus pendientes (decisiones.md DA1-DA6, G4): GD25 pierde el punto de extensión computed (DA1: los hechos que sldb no calcula entran como documentos que la vista lee); GD24 suma a su aceptación que toda ruta de escritura valida contra el modelo (G4) y fija /save atómico como cambio de contrato (DA2). execution_authorized=true. Rev 1 (2026-11-05): plan inicial, rama P2 del árbol aprobado por el dueño (deskops-como-config-arbol.md). Sin revisión en frío todavía (la decide el supervisor). execution_authorized=false.'
-status: authorized
+status: delivered
+delivery_note: 'GD21 a2a0174f/27457ff7, GD22 2570b710/680adcc4, GD23 850f8fca/0b72a473, GD24 0cbd307e/88f19ac8, GD25 05b4135f/2d5cf98e, GD26 96d7b823/713978e5, GD27 fb733e86/9f368024 (código/closeout). Suite completa de sldb sobre 2d5cf98e, un proceso por archivo: 164 archivos verdes, 2305 passed y 25 skipped, 0 OOM; la única falla (test_where_retired de GO10, por contains entre comillas invertidas en tres docs del plan) se arregló en c2d279d0. Pendientes del dueño: H12 de GD25, q3 de GD27 (opción B revisable), on_write en create/track (drawer). Coordinador de proyecto, 2026-11-06.'
 as_of: '2026-11-06'
 source: dag.yaml es canónico; brief.md, alcance.md y decisiones.md son sus fuentes de contexto
 execution_authorized: true
