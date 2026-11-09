@@ -1,7 +1,7 @@
 name: task-transacción-el-rollback-restaura-el-dirty-set-de-reglas-sldb-cache-rules-dirty-json
 path: desk/tasks/task-transacción-el-rollback-restaura-el-dirty-set-de-reglas-sldb-cache-rules-dirty-json.md
-source_hash: 82ae4a588bcc6124163988e84c3294f49aed38212cfe6c7b48d927bde2f62f21
-content_hash: 630287c6bcbccbab18e33984e2cbbb26a003b144b4b450569f9d0d171e9bc578
+source_hash: e8d57b5e44f21cd851c3ac20af6fbb93c7987832ba15ac35b412c6ec47e9bbd5
+content_hash: 737e3a0505df9501062789bb31636cb46d27f0dee0049f6de048d504ae558d19
 field_hashes:
   title: 3690378ea1cad281f98a655ca1b88f07d0a158ea10fa8f5856ba99130a68ac70
   id: cc1369221c8b66bb00f869e0f40decd3d48e032d05e7529b6434dd74efadd4ef
@@ -17,7 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: f2eabcda77f4682bfa872dfae83c5b7fa85af6b13d1244cd137ee2016c48ae30
-  implementation_path: 402fbb82fe334847604ab166909aac561dc579189807fa340bf85b368ee745d2
+  implementation_path: ce6e7c8db1d0cec1a52526e487c0dfdc3f6bc89c8cb6cd43e4c29fb48b082e8c
   validation: ae6f1f1b35debc15b0253c6b671bc1d2026be4f1b50c0b1f46cb270947f91072
   done_when: bb054049339bd24a0db685f6906558604e848e6f4eecb416c48de133db7c509c
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-09T16:52:25Z'
+  at: '2026-11-09T16:53:13Z'
   authority: generated
   via: save_document_payload

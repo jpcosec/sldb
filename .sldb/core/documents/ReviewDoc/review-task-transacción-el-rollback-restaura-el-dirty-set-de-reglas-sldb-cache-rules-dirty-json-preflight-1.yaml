@@ -1,0 +1,34 @@
+name: review-task-transacción-el-rollback-restaura-el-dirty-set-de-reglas-sldb-cache-rules-dirty-json-preflight-1
+path: desk/reviews/task-transacción-el-rollback-restaura-el-dirty-set-de-reglas-sldb-cache-rules-dirty-json/preflight-1.md
+source_hash: ba13c9be985a56ee16431ff592eddc0c73fd1f35994a76a1039498c707948855
+content_hash: 4ae57bec9d2073b8adceee9fd5d8966c301d01b744986e143565b7006080e608
+field_hashes:
+  id: 832993badb7034a770ba4994ef3df607344765fe97108a8464771b26320a7e69
+  title: d3977f995240daa2db5eb0b372e02940aaf36969f2a9efce68f06730d25dc122
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  subject: 52676a64ec09ebb8c6c65f3af237bae824146791fca5ab4347f5ce56fa1e3023
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: b83ba87b29a5e58586589742910d84b51b6da136e69484ec84c71f181111d37c
+  input_sha256: 2a51f9a0012c8abba53fab43f1afa92c823934ebc47f0bae619c7222be90c55d
+  output_sha256: 734953535a3839bc6f53fd6ee6b04939046d03022b1720f5891e709ff9ec1831
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 7dbc0cc3d508263d526f5a053dc0e2e643d679776ad09679fd2412b2e2664036
+  created_at: e01bba341d75653c5499a496899ecb7f42e24d9c0acfbea84d8fac218eb3f9b3
+  disposed_at: 5e06e3c7eeacd289320fb448fa1d78775f42d4de7e6458f1179d55d5a5084c56
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 931b89f81d9c0c2d97202fa8da81fc2277f4d8e908a72ce83aa3cb3f228f4ea2
+  disposition: de9f445b537d2a90f234cfa719c8c05d128d7e5d3d6b8419e3ecd48705c71659
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-09T16:53:16Z'
+  authority: generated
+  via: save_document_payload

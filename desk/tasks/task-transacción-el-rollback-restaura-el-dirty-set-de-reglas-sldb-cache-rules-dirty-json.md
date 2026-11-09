@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-09T16:52:25Z'
+  at: '2026-11-09T16:53:13Z'
   authority: generated
   via: save_document_payload
 id: task-transacción-el-rollback-restaura-el-dirty-set-de-reglas-sldb-cache-rules-dirty-json
@@ -65,6 +65,14 @@ s2 (sin cambiar semántica): mark_dirty sigue marcando lo mismo. Tras un commit 
 s3 (test de regresión): un test nuevo en tests/api/ (por ejemplo tests/api/test_transaction_rules_dirty.py, o un caso nuevo en tests/api/test_transaction.py) que arme un store con un RuleDoc on_write y un dirty set existente (rules check o rules_on_check para crearlo), abra transaction(), actualice un documento trackeado y lance un error propio dentro del bloque. El test espera: (a) que salga el error propio, no RollbackError; (b) que dirty.json quede byte a byte igual que antes; (c) que el documento quede igual. Un segundo caso usa expected_source_hash viejo y espera ConflictError, no RollbackError. Un tercero hace commit exitoso y comprueba que dirty.json cambia como hoy.
 s4 (validación, de a uno): el test nuevo, tests/api/test_transaction.py, tests/api/test_rules_evaluation.py, tests/api/test_write_paths_validate.py, tests/api/test_replace_text.py y tests/test_clean_code_rules.py. Con deskops wt/cc32 (c9af867e) y PYTHONPATH a esta rama de sldb, tests/test_transaction.py de deskops pasa entero; es la prueba de aceptación del consumidor.
 s5 (líneas): wc -l antes y después; los archivos de sldb respetan los límites de test_clean_code_rules.
+
+PRECISIONES DEL PREFLIGHT (review-...-preflight-1, 2026-11-09):
+b1 (diseño): se snapshotea al abrir la transacción. TransactionState.__init__ (transaction_state.py:28), donde ya se toman las signatures, llama a remember([rules_dir(store_path) / "dirty.json"]). snapshot ya guarda None para un archivo ausente, y restore_all lo borra si apareció. remember y las escrituras no cambian. Si el worker encuentra que esto no alcanza (por ejemplo, un import circular entre api/documents y api/rules), usa en su lugar la ruta como constante en transaction_paths y lo explica en el informe.
+b2 (criterio): manda b1; no hay que elegir otra forma.
+b3 (test): archivo nuevo tests/api/test_transaction_rules_dirty.py. tests/api/test_transaction.py no se toca.
+b4 (setup): se reusa el patrón del fixture world de tests/api/test_rules_evaluation.py (:53-87: World.doc, World.rule y World.save, un store en tmp_path con un RuleDoc). El dirty set se crea con api.rules_on_check(world.store), como en test_a_write_dirties_the_document_and_its_neighbours_only (:204-211). Si el fixture no se puede importar, se copia lo mínimo al archivo nuevo.
+b5 (error propio): class Boom(RuntimeError) definida en el test, lanzada con raise Boom("boom") dentro del with api.transaction(...). El test espera pytest.raises(Boom), no RollbackError.
+b6 (dirty.json ausente): hay un cuarto caso. Sin dirty.json al abrir (sin rules_on_check previo), la transacción escribe y falla, y después dirty.json sigue ausente; mark_dirty no lo crea, así que no debería aparecer. El commit exitoso (tercer caso de s3) va con dirty.json presente.
 
 ## Validation
 
