@@ -1,0 +1,22 @@
+name: atom-la-transacción-restaura-el-dirty-set-de-reglas-en-el-rollback
+path: desk/atoms/atom-la-transacción-restaura-el-dirty-set-de-reglas-en-el-rollback.md
+source_hash: 0c38becbe6883e102b1d00250b1497517c1bc3a668ee42d514e70d3dae944ef5
+content_hash: 8b04f46e73d35e58f511e6099eb89707e1c331d91034f52768a210df64f0a10e
+field_hashes:
+  id: 65998d1e8693dbb7967db54e01cb1bb702c605d4a139d41da3b5f343f633c9b2
+  title: 501f1ce92f21d145cb152c4eec63d93babe14fd56a866132250c234e6a26f162
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: 4345cac81e17fed3912f084014b99a02c1dda73b8f2d40f2189f932d4c8f581a
+  tags: 7a7b051da4ab577771d945a2744a100abd504ab48be965b01f0cf8eeb108895b
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:transaction
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-09T17:25:11Z'
+  authority: generated
+  via: create_document

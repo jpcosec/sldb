@@ -1,0 +1,25 @@
+name: materialization-rules-dirty-rollback-api-test-transaction-rules-dirty
+path: desk/materializations/materialization-rules-dirty-rollback-api-test-transaction-rules-dirty.md
+source_hash: bb21f7430db3dc996760f501ebaeb559692e2d057db4892133dfacdd61fef7db
+content_hash: f0a6ed3e661e0e5e2efa91ffef33c25add1ad976ebcb8b9a71452200354736fb
+field_hashes:
+  id: 856be3e00dea5cfe6f0ca6e2501c49799c3e2d349e308753074812968dabf69d
+  title: d3e5bdfeefb020fd994fada0ba69cba59f142c483e91a0343253dacde90ec0af
+  source_atoms: c00ba1d75991defa90ffd08c2ff9ef97f6c5612e3f1f5e3d28f0fc5f85eab506
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 6f0d4139b36420fabe0d3ecf2ab2b517664e6d15d5a43de9eeea82031b6075fb
+  intent: a23ded43fb368fcb7d8c56cbe161090d936ed63469b36d454997778ca38861b3
+  validation: ecdf73ea1edb8f4d3599f8baa520f71bc43bd8c1df3b14aea28ab9cd603e32ad
+  tags: 7a7b051da4ab577771d945a2744a100abd504ab48be965b01f0cf8eeb108895b
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:transaction
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-09T17:25:18Z'
+  authority: generated
+  via: create_document

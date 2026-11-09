@@ -549,6 +549,8 @@ include:
   - desk/materializations/materialization-gd25-architecture-views.md
   - desk/materializations/materialization-gd25-serve-responses.md
   - desk/materializations/materialization-gd25-serve-http-server.md
+  - desk/materializations/materialization-rules-dirty-rollback-documents-transaction-state.md
+  - desk/materializations/materialization-rules-dirty-rollback-api-test-transaction-rules-dirty.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md

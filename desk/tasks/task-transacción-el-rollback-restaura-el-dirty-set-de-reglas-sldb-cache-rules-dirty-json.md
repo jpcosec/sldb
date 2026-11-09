@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-09T16:53:13Z'
+  at: '2026-11-09T17:25:26Z'
   authority: generated
   via: save_document_payload
 id: task-transacción-el-rollback-restaura-el-dirty-set-de-reglas-sldb-cache-rules-dirty-json
@@ -12,16 +12,16 @@ tags:
 - artifact:task
 current_node: ritual-execution
 history: []
-references: []
+references:
+- pytest tests/api/test_transaction_rules_dirty.py
+- pytest tests/api/test_transaction.py
+- 5d4e07711ca2cb355de7d05aa65ce435f286788e
+- desk/atoms/atom-la-transacción-restaura-el-dirty-set-de-reglas-en-el-rollback.md
 depends_on: []
 pills: []
 files:
 - src/sldb/api/documents/transaction_state.py
-- src/sldb/api/documents/transaction_ops.py
-- src/sldb/api/documents/transaction_paths.py
-- src/sldb/api/rules/dirty_set.py
-- src/sldb/api/rules/rules_on_write.py
-- tests/api/
+- tests/api/test_transaction_rules_dirty.py
 - CHANGELOG.md
 task_type: task.code
 inherits_from: []
@@ -83,6 +83,7 @@ _List the checks required before this task can close._
 - deskops wt/cc32 c9af867e: tests/test_transaction.py pasa con PYTHONPATH a esta rama de sldb
 - wc -l antes y después
 - CHANGELOG
+- Resultado (coordinador de proyecto, squash 5d4e0771): tests/api/test_transaction_rules_dirty.py 4 y tests/api/test_transaction.py 13 verdes de a uno; el worker corrió además rules_evaluation 12, write_paths_validate 5, replace_text 16 y clean_code_rules 949; test_transaction de deskops wt/cc32 c9af867e: 11 passed contra esta rama. files podado a la entrega real.
 
 ## Done When
 

@@ -1,7 +1,7 @@
 name: task-transacción-el-rollback-restaura-el-dirty-set-de-reglas-sldb-cache-rules-dirty-json
 path: desk/tasks/task-transacción-el-rollback-restaura-el-dirty-set-de-reglas-sldb-cache-rules-dirty-json.md
-source_hash: e8d57b5e44f21cd851c3ac20af6fbb93c7987832ba15ac35b412c6ec47e9bbd5
-content_hash: 737e3a0505df9501062789bb31636cb46d27f0dee0049f6de048d504ae558d19
+source_hash: cc42836a228e4849333c2801b8fbf9a1070fbbdf1f2ee03e59581d4dfad3e881
+content_hash: 64b96218891f59a38f486c18126e2fd438d5d6787c28ab4da295d9e163b15da1
 field_hashes:
   title: 3690378ea1cad281f98a655ca1b88f07d0a158ea10fa8f5856ba99130a68ac70
   id: cc1369221c8b66bb00f869e0f40decd3d48e032d05e7529b6434dd74efadd4ef
@@ -13,12 +13,12 @@ field_hashes:
   why: c8127f268c3b98ce1e8dbee2e35e8171a7711c2478833a7b81f45618a08e4e71
   goal: e9f37a3a81c22806ac13f9dad1ce5aa3a83e9ac5a776ef9bbbfe5fbf2fed2f5e
   scope: 8e2cab21125536144601ae52dadd0f88cac3d4617026352a675b004e832568d2
-  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  references: 2acbeb81de075fb747e80c8033651a5ff8e9e0922ed69b37211b6dc7e4676603
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  files: f2eabcda77f4682bfa872dfae83c5b7fa85af6b13d1244cd137ee2016c48ae30
+  files: b383b1cd7f1533674ee9c0b3fac4b2efcef8c1f9edb0d229b221f1587444d03e
   implementation_path: ce6e7c8db1d0cec1a52526e487c0dfdc3f6bc89c8cb6cd43e4c29fb48b082e8c
-  validation: ae6f1f1b35debc15b0253c6b671bc1d2026be4f1b50c0b1f46cb270947f91072
+  validation: ba694a376d8a61ea9038e7b4f756210515dd5815154580d3ef4f13cdf1079ecc
   done_when: bb054049339bd24a0db685f6906558604e848e6f4eecb416c48de133db7c509c
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-09T16:53:13Z'
+  at: '2026-11-09T17:25:26Z'
   authority: generated
   via: save_document_payload
