@@ -8,6 +8,7 @@ from typing import Iterable
 
 from sldb.api.documents.transaction_paths import inside, store_signatures, unsnapshotted_drift
 from sldb.api.model_registry.model_files import forget_store_caches
+from sldb.api.rules.rule_cache import DIRTY, rules_dir
 from sldb.api.stores.store_location import StoreLocation
 from sldb.store.edge_index.compose import invalidate_composed_edge_indexes
 from sldb.store.io import invalidate_index_cache
@@ -19,13 +20,15 @@ class TransactionState:
     """One store's open transaction: `depth` counts the nested `with` blocks sharing it, `saved`
     holds the first-seen bytes (or absence) of each file touched, `models` the models whose
     caches a rollback forgets, and `signatures` the store as it was on entry, to catch a file
-    moved without a snapshot."""
+    moved without a snapshot. The rules dirty set is snapshotted on entry: any `on_write` of
+    the transaction may rewrite it (GO08)."""
 
     def __init__(self, location: StoreLocation, pythonpath: str | None) -> None:
         self.location, self.pythonpath, self.depth = location, pythonpath, 0
         self.saved: dict[Path, bytes | None] = {}
         self.models: set[str] = set()
         self.signatures = store_signatures(location.store_path)
+        self.remember([rules_dir(location.store_path) / f"{DIRTY}.json"])
 
     @property
     def store_path(self) -> Path:
