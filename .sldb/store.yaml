@@ -618,5 +618,8 @@ include:
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md
+- model: TaskCodeDoc
+  paths:
+  - desk/tasks/task-transacción-el-rollback-restaura-el-dirty-set-de-reglas-sldb-cache-rules-dirty-json.md
 graph_backend: networkx
 policy: {}
