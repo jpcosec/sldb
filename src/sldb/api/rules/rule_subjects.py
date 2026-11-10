@@ -11,7 +11,8 @@ from pathlib import Path
 from typing import Any
 
 from sldb.api.documents.document_payload import runtime_document
-from sldb.api.rules.rule_graph import RuleGraph
+from sldb.api.rules.rule_graph import RuleGraph, reading, rule_graph
+from sldb.api.rules.rule_reach import qualified
 from sldb.core.exceptions import SLDBDocumentTargetError
 from sldb.store.layout import project_root
 
@@ -41,6 +42,16 @@ def resolve_subject(graph: RuleGraph, ref: str, pythonpath: str | None = None) -
     doc = runtime_document(graph.store_path, pythonpath, _relative(graph.store_path, ref))
     prefix = "" if doc.store_name in ("local", "", None) else f"{doc.store_name}:"
     return f"{prefix}{doc.model_name}:{doc.name}"
+
+
+def subject_in(graph: RuleGraph, ref: str, pythonpath: str | None = None) -> tuple[RuleGraph, str]:
+    """`(graph, export id)` of the document `ref` names, as `resolve_subject`; the graph is the
+    composed one when the document is not local (`rule_graph.reading`), and is composed before
+    resolving an export id `alias:Model:name`, which only the composed index names."""
+    if not graph.linked and qualified(ref):
+        graph = rule_graph(graph.store_path, True)
+    node = resolve_subject(graph, ref, pythonpath)
+    return reading(graph, node), node
 
 
 def resolve_rule(graph: RuleGraph, ref: str) -> dict[str, Any]:

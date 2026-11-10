@@ -34,7 +34,7 @@ def tag_rules(store_path: Path) -> dict[str, TagNamespace]:
 def store_findings(store: str | Path | None) -> list[Finding]:
     """The family over every local document; a store without namespaces is not read."""
     store_path = open_store(store, mode="readonly").store_path
-    return family_findings(rule_graph(store_path), None) if tag_rules(store_path) else []
+    return family_findings(rule_graph(store_path, None), None) if tag_rules(store_path) else []
 
 
 def family_findings(graph: RuleGraph, nodes: list[str] | None) -> list[Finding]:

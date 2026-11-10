@@ -14,7 +14,7 @@ from typing import Any
 
 from sldb.api.rules.builtin_tag_rules import PREFIX, explain
 from sldb.api.rules.rule_graph import rule_graph
-from sldb.api.rules.rule_subjects import applies, resolve_rule, resolve_subject
+from sldb.api.rules.rule_subjects import applies, resolve_rule, subject_in
 
 EXITS = {"true": 0, "false": 1, "incomplete": 2}
 NOT_APPLIED_EXIT = 3
@@ -23,16 +23,15 @@ NOT_APPLIED_EXIT = 3
 def rules_explain(store: str | Path | None, rule: str, subject: str, pythonpath: str | None = None) -> dict[str, Any]:
     """The explanation of `rule` (`RuleDoc:name`, `name` or path) on `subject` (`Model:name`,
     `store:Model:name` or path); an unknown reference is `SLDBDocumentTargetError`."""
-    graph = rule_graph(store)
+    graph = rule_graph(store, None)
     found = None if rule.startswith(PREFIX) else resolve_rule(graph, rule)
-    node = resolve_subject(graph, subject, pythonpath)
+    graph, node = subject_in(graph, subject, pythonpath)
     if found is None:
         return explain(graph, rule, node)
-    answer = {"rule": found["id"], "subject": node}
     missing = applies(graph, found, node)
     if missing is not None:
-        return {**answer, "applies": False, "reason": missing[0], "detail": missing[1]}
-    return {**answer, "finding": graph.holds(found["condition"], node)}
+        return {"rule": found["id"], "subject": node, "applies": False, "reason": missing[0], "detail": missing[1]}
+    return {"rule": found["id"], "subject": node, "finding": graph.holds(found["condition"], node)}
 
 
 def explain_exit(answer: dict[str, Any]) -> int:

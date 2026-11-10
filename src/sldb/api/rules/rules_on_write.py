@@ -31,7 +31,7 @@ def check_on_write(store_path: Path, model_type: type, node: str, payload: dict[
     declared = has_rules(store_path)
     if not declared and not tag_rules(store_path):
         return
-    graph, read = rule_graph(store_path), anchored(store_path, model_type, payload)
+    graph, read = rule_graph(store_path, None), anchored(store_path, model_type, payload)
     found = payload_findings(graph, "on_write", node, read) if declared else []
     errors, alerts = split(found + family_findings(graph.with_payload(node, read), [node]))
     mark_dirty(store_path, graph.index, node)
