@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Any
 
 from sldb.api.rules.rule_graph import RuleGraph, rule_graph
-from sldb.api.rules.rule_subjects import RULE_MODEL, applies, resolve_subject, rules_of
+from sldb.api.rules.rule_subjects import RULE_MODEL, applies, rules_of, subject_in
 from sldb.api.rules.rules_check import rule_finding
 from sldb.api.stores.open_store import open_store
 from sldb.core.finding import Finding
@@ -26,8 +26,8 @@ def transition_findings(store: str | Path | None, document: str, subject: dict[s
     store_path = open_store(store, mode="readonly").store_path
     if not has_rules(store_path):
         return []
-    graph = rule_graph(store_path)
-    return payload_findings(graph, "on_transition", resolve_subject(graph, document, pythonpath), subject)
+    graph, node = subject_in(rule_graph(store_path, None), document, pythonpath)
+    return payload_findings(graph, "on_transition", node, subject)
 
 
 def payload_findings(graph: RuleGraph, moment: str, node: str, payload: dict[str, Any]) -> list[Finding]:

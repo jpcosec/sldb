@@ -16,16 +16,16 @@ from typing import Any
 from sldb.api.rules.builtin_tag_rules import family_findings
 from sldb.api.rules.fixpoint import witness
 from sldb.api.rules.rule_graph import RuleGraph, rule_graph
-from sldb.api.rules.rule_subjects import applies, resolve_subject, rules_of
+from sldb.api.rules.rule_subjects import applies, rules_of, subject_in
 from sldb.core.finding import Finding
 
 
 def rules_check(store: str | Path | None, subject: str | None = None, pythonpath: str | None = None) -> list[Finding]:
     """The findings of the store's rules (see the module); `subject` is a document reference
     (`Model:name`, `store:Model:name` or a path). An unknown subject is `SLDBDocumentTargetError`."""
-    graph = rule_graph(store)
+    graph, node = (rule_graph(store, None), None) if subject is None else subject_in(rule_graph(store, None), subject, pythonpath)
+    nodes = None if node is None else [node]
     rules = rules_of(graph)
-    nodes = None if subject is None else [resolve_subject(graph, subject, pythonpath)]
     if nodes is not None:
         pairs = [(rule, nodes[0]) for rule in rules if applies(graph, rule, nodes[0]) is None]
     else:

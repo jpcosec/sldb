@@ -34,7 +34,7 @@ def on_check_findings(store: str | Path | None, pythonpath: str | None = None) -
 
 def rules_on_check(store: str | Path | None) -> list[Finding]:
     """The findings of every `on_check` rule over its family, by rule export id then document."""
-    graph = rule_graph(store)
+    graph = rule_graph(store, None)
     rules = [rule for rule in rules_of(graph) if rule.get("moment") == "on_check"]
     with store_lock(graph.store_path, wait=True):
         dirty = read_dirty(graph.store_path)
