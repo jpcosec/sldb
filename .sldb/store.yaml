@@ -635,5 +635,8 @@ include:
 - model: TaskCodeDoc
   paths:
   - desk/tasks/task-reglas-rule-graph-no-compone-la-federación-entera-de-stores-enlazados-27-s-por-comando-de-deskops.md
+- model: TaskDebugDoc
+  paths:
+  - desk/tasks/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024.md
 graph_backend: networkx
 policy: {}
