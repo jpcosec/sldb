@@ -38,7 +38,17 @@ def _links(store_path: Path) -> list[Finding]:
     from sldb.api.stores.store_links import store_links
 
     fix = "sldb stores add <path> --name {0} --replace   (or `sldb stores remove {0}`)"
-    return [error("store/link-broken", link["name"], f"the linked store is {link['status']}: {link['resolved']}", fix.format(link["name"])) for link in store_links(store_path) if link["status"] != "ok"]
+    return [_link_finding(link, fix.format(link["name"])) for link in store_links(store_path) if link["status"] != "ok"]
+
+
+def _link_finding(link: dict, fix: str) -> Finding:
+    """A link whose directory is absent (a sibling repository not checked out, as in a CI runner)
+    is `store/link-absent`, an alert by default that names the link and its path; a link to a
+    directory that holds no store is `store/link-broken`, an error."""
+    what = f"the linked store is {link['status']}: {link['resolved']}"
+    if link["status"] == "missing":
+        return alert("store/link-absent", link["name"], what, fix)
+    return error("store/link-broken", link["name"], what, fix)
 
 
 def _noise(store_path: Path, root: Path, pythonpath: str | None) -> list[Finding]:

@@ -31,8 +31,15 @@ def linked(tmp_path):
 def test_the_check_notes_a_link_to_nothing(linked, capsys):
     here, _owner = linked
     assert [li["name"] for li in check_store(here / ".sldb", here)["broken_links"]] == ["deskops"]
-    assert main(["stores", "check", "--store", str(here / ".sldb")]) == 1, "a link to no store is an error"
-    assert "error: [store/link-broken] deskops: the linked store is missing" in capsys.readouterr().out
+    assert main(["stores", "check", "--store", str(here / ".sldb")]) == 0, "an absent linked store is an alert, not an error"
+    assert "alert: [store/link-absent] deskops: the linked store is missing" in capsys.readouterr().out
+
+
+def test_a_link_to_a_directory_without_store_is_still_an_error(linked, capsys, tmp_path):
+    here, _owner = linked
+    (tmp_path / "wt" / ".sldb").mkdir(parents=True)          # the directory is back, but no store
+    assert main(["stores", "check", "--store", str(here / ".sldb")]) == 1
+    assert "error: [store/link-broken] deskops: the linked store is not-a-store" in capsys.readouterr().out
 
 
 def test_replace_points_the_link_elsewhere(linked):
