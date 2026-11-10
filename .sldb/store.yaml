@@ -615,6 +615,8 @@ include:
     name: review-task-gd25-bundle-1
   - path: desk/reviews/task-transacción-el-rollback-restaura-el-dirty-set-de-reglas-sldb-cache-rules-dirty-json/preflight-1.md
     name: review-task-transacción-el-rollback-restaura-el-dirty-set-de-reglas-sldb-cache-rules-dirty-json-preflight-1
+  - path: desk/reviews/task-reglas-rule-graph-no-compone-la-federación-entera-de-stores-enlazados-27-s-por-comando-de-deskops/preflight-1.md
+    name: review-task-reglas-rule-graph-no-compone-la-federación-entera-de-stores-enlazados-27-s-por-comando-de-deskops-preflight-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

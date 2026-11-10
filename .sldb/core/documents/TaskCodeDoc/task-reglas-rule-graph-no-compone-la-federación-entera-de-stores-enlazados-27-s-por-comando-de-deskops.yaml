@@ -1,7 +1,7 @@
 name: task-reglas-rule-graph-no-compone-la-federación-entera-de-stores-enlazados-27-s-por-comando-de-deskops
 path: desk/tasks/task-reglas-rule-graph-no-compone-la-federación-entera-de-stores-enlazados-27-s-por-comando-de-deskops.md
-source_hash: 618c51b9b4e2f2083df7b756090167c0998d683b8727b5ea53fec594a0ffe043
-content_hash: 217c0eb268623e8e4f73c936f344d286c927f3e74509f5fc57e9f2d2512bbf77
+source_hash: 67da493e77013bdbab8eac8f780a5505ea0cb1ded82b5d477fca0751077937fe
+content_hash: 10c944411b7ba41cbb4ee13553d2a88213573a094b29e1e388f0bc6697886fbe
 field_hashes:
   title: c1bf19acf873e2d6cfbb086d858927442bd159a968224fd82914924d5941459c
   id: ad474f33c0de41f4b5677b77467d763a0eda9f4ac45443f06516f4cff3dd41af
@@ -17,7 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 3ba3b7fe8d74d3c2db68bcdd91e2ced009f21d329ce46c97f407ea1bdec9dbc7
-  implementation_path: f943a7f34517c0eb2626ff20ae3767a2a7db461b077542abb52be5e0c5836e8d
+  implementation_path: b5d56f1327c76f846a77e2b97dd1f1c7f3d76a0e1d5095a258229145dd9bfeb3
   validation: 444b0af7e9277ae2b0cd6043a300151972854fc810d95fef3b85a552cca3d2dc
   done_when: d52193fa4fe58846cef0d243300920ce8df8ec7b5d7f68d0bb6a6af9a2553138
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-10T03:34:17Z'
+  at: '2026-11-10T03:35:35Z'
   authority: generated
   via: save_document_payload

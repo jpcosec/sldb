@@ -1,0 +1,34 @@
+name: review-task-reglas-rule-graph-no-compone-la-federación-entera-de-stores-enlazados-27-s-por-comando-de-deskops-preflight-1
+path: desk/reviews/task-reglas-rule-graph-no-compone-la-federación-entera-de-stores-enlazados-27-s-por-comando-de-deskops/preflight-1.md
+source_hash: fe8b73cf71d67be98c7fd6c2719fa7d435eaedb7992d696cebaef7c24ac55bd4
+content_hash: ec511d775879e5d69ca7af05511246b076523d0ec1c3717bf29f6f596e5a4d4f
+field_hashes:
+  id: e161e9b7d8cd6d3eda5b3763efc9090e6c0b929d0650dbf26828b188918e7357
+  title: a4dc82d7fc5adf62cd76e54393bc3f60afbe5b4fb9b6005ad1c9264ee84a700e
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  subject: 4c4cacbb161edfeb134f40bbf4f82ad86f1621569269bfe9818b19cf396f1124
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 4687070243b39acf32b72f562c2b3f0c994620cd2251f3a99143907db30cfb2a
+  input_sha256: 47bf972e3993c17782d45f00a35a6b5a8f4da823a95b0b0fe55756ef3a20a690
+  output_sha256: 8a70ccb799ccf2f0b1ed83a53872d59992cbf98d7e5c9e5dc2d26cebf36286b7
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 47c2dad4b20c3b27091633a875b667f61cfe1cc0b405da98a046acef1a9abb5e
+  created_at: 6b23e768241d9d5cb2fd27c291e4bc977cfa151ce53996778de5ab37965be356
+  disposed_at: 584845b4c15c73def398babe6d81d3449eee8d4f46d0bd29cf7fe105e52a23a9
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 28356426cd5b8b37330026b40f12b9bc1b7059349f1560f6b3a6ed078b859957
+  disposition: ff91ad6e9b9af453c9d0244ed4609214e36694173c76ea61a678e0957e6bc963
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-10T03:35:38Z'
+  authority: generated
+  via: save_document_payload

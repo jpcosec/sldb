@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-10T03:34:17Z'
+  at: '2026-11-10T03:35:35Z'
   authority: generated
   via: save_document_payload
 id: task-reglas-rule-graph-no-compone-la-federación-entera-de-stores-enlazados-27-s-por-comando-de-deskops
@@ -59,6 +59,14 @@ s2 (diseño, a elegir por el worker y explicado en el informe): (a) componer los
 s3 (findings idénticos): sobre copias de los stores de los 6 desks (deskops, sldb, spec2viz, scion, pron, graph_ui), sldb rules check sin --subject y rules explain de las reglas de activación de deskops sobre cada tarea activa dan exactamente lo mismo antes y después. Un test nuevo fija un caso con un camino de regla que cruza a un store enlazado: tiene que seguir viéndolo.
 s4 (tests, de a uno): el test nuevo, tests/api/test_rules_evaluation.py, tests/api/test_transaction.py, tests/api/test_transaction_rules_dirty.py, tests/test_rules_language_spec.py y tests/test_clean_code_rules.py. Prueba del consumidor: con deskops main (copia en /dev/shm) y PYTHONPATH a esta rama de sldb, tests/test_activation_rules.py y tests/test_lifecycle_end_to_end.py de deskops pasan enteros, cada uno en menos de 90 s.
 s5 (sin tocar deskops): el arreglo es de sldb. El worker no escribe en deskops.
+
+PRECISIONES DEL PREFLIGHT (review-...-preflight-1, 2026-11-10):
+b1 (cierre de caminos, opción b): el conjunto de documentos que una regla puede visitar siguiendo sus pasos de camino (campos de referencia y aristas inversas ^campo) desde los documentos locales del subject, en la cantidad de saltos que la regla escribe; con + (clausura) son todos los alcanzables. En la práctica, los documentos enlazados que referencian o son referenciados por un documento local en las relaciones que nombran las reglas.
+b2 (análisis estático, opción a): recorrer el AST de cada RuleDoc del store (el parser ya existe: sldb.store.graph.language.predicate_parser y predicate_ast.children, que usa dirty_set.wide) y juntar los nombres de relación/campo de sus pasos. Si ninguno de esos campos de los documentos locales apunta a un documento de un store enlazado (los ids con alias:Model:name en el índice local), la evaluación es local. Ante la duda, compone: debe ser correcto antes que rápido.
+b3 (firmas, opción c): solo si a y b no alcanzan. La firma es la de shards que ya usa sldb para invalidar (live_stale / runtime_cache); el worker la reusa y no inventa una.
+b4 (comando y copia de s1): la copia es /dev/shm/sldb-rg-desk, copiando ~/proyectos/SLDB_1/deskops/desk y .sldb, más los stores enlazados que nombra su store.yaml en sus rutas (o copias en /dev/shm/sldb-rg-<alias> con el store.yaml de la copia reapuntado). La tarea es la primera de deskops list tasks en esa copia. El comando: deskops show task <id> --root /dev/shm/sldb-rg-desk con PYTHONPATH a esta rama de sldb.
+b5 (copias de los 6 desks): /dev/shm/sldb-rg-6/<desk> (deskops, sldb, spec2viz, scion, pron, graph_ui), desk/ y .sldb/ de cada uno desde ~/proyectos/SLDB_1/<desk> y UIs/graph_ui. Se borran al terminar.
+b6 («salvo lo mínimo»): load_edge_index no cambia de firma ni de comportamiento para otros consumidores. Si el arreglo necesita una variante (por ejemplo, componer solo un conjunto de ids), se agrega como parámetro opcional con default igual a hoy o como función nueva.
 
 ## Validation
 
