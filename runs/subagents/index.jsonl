@@ -48,3 +48,4 @@
 {"task_id": "task-gd22", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
 {"task_id": "task-gd25", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
 {"task_id": "task-transacci\u00f3n-el-rollback", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
+{"task_id": "task-stores-build-un-store-enlazado", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
