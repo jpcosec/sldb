@@ -635,6 +635,5 @@ include:
 - model: TaskCodeDoc
   paths:
   - desk/tasks/task-reglas-rule-graph-no-compone-la-federación-entera-de-stores-enlazados-27-s-por-comando-de-deskops.md
-  - desk/tasks/task-stores-check-un-link-cuyo-directorio-no-existe-es-alerta-store-link-absent.md
 graph_backend: networkx
 policy: {}
