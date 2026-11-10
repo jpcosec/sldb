@@ -561,8 +561,8 @@ Clasificado en main-de-sldb-en-verde (2026-11-10), decisión revisable del coord
 [[unit]]
 id = "nucleo"
 axes = ["superficie", "representacion", "render", "contrato", "runtime", "identidad_y_hash", "errores", "codigo"]
-needs = 4  # medido 2026-11-06 tras SV01/SV02: models reexporta notation_models; antes 3/35
-needed_by = 39  # medido 2026-11-06 tras SV01/SV02: models reexporta notation_models; antes 3/35
+needs = 5  # medido 2026-11-10 (main-de-sldb-en-verde): GO06 suma contrato → grafo (models/rule_doc.py:62); antes 4/39
+needed_by = 43  # medido 2026-11-10: GD26 op_almacen → runtime, y los ejes reglas y vistas_compuestas (→ contrato, errores, runtime); antes 4/39
 indivisible = false
 why = """
 Los cinco ejes de identidad forman un nudo de 11 aristas internas. Lo declaré
@@ -586,15 +586,15 @@ cuts = [
 [[unit]]
 id = "persistencia"
 axes = ["persistencia", "consulta", "federacion", "cache", "codec", "migracion", "bitacora", "semantica", "indice_de_aristas"]
-needs = 19  # medido 2026-11-06 tras GO04 y SV02; antes 16/35
-needed_by = 36  # medido 2026-11-06 tras GO04 y SV02; antes 16/35
+needs = 21  # medido 2026-11-10 (main-de-sldb-en-verde): GO05 api/where.py → op_aristas, GD23 query_engine/document_selection.py → op_modelos; antes 19/36
+needed_by = 47  # medido 2026-11-10: GO07, GD23, GD24 (op_documentos y anclaje → codec, consulta, indice_de_aristas) y los ejes reglas y vistas_compuestas; antes 19/36
 why = "el centro de gravedad del sistema: 110 aristas entran desde los ejes de operación"
 
 [[unit]]
 id = "grafo"
 axes = ["grafo"]
 needs = 5  # GO03: eval de store/graph/backend reutiliza el parser where de store/query_engine
-needed_by = 4  # GO05: consulta (query_engine.rules y where_subject) usa el lenguaje de store/graph/language; GO10 retiró los shims
+needed_by = 8  # medido 2026-11-10 (main-de-sldb-en-verde): GO06 contrato (models/rule_doc.py:62), GD25 vocabulario_visual (models/notation/view_doc_checks.py:61), reglas y vistas_compuestas; antes 4 (GO05)
 extractable_today = false
 why = """
 Unidad propia: 33 archivos, 28 de ellos autónomos. Necesita 7 imports de cuatro
@@ -647,8 +647,8 @@ why = "nadie depende de él; puerto Embedder sin dependencia vectorial propia"
 [[unit]]
 id = "notacion"
 axes = ["vocabulario_visual", "vistas"]
-needs = 3  # medido 2026-11-06
-needed_by = 2  # medido 2026-11-06
+needs = 4  # medido 2026-11-10 (main-de-sldb-en-verde): GD25 suma vocabulario_visual → grafo (models/notation/view_doc_checks.py:61); antes 3
+needed_by = 3  # medido 2026-11-10: GD25 vistas_compuestas → vocabulario_visual; antes 2
 indivisible = false
 why = """
 Lo que spec2viz hacía fuera del repositorio, adentro: el vocabulario (capa 0) y
@@ -659,8 +659,8 @@ notations`, `/notations/*`, `/views/projection*`). Las cuentas las dice la puert
 [[non_unit]]
 id = "operacion"
 axes = ["op_almacen", "op_documentos", "op_modelos", "op_aristas", "anclaje", "reglas", "vistas_compuestas"]
-needs = 47  # medido 2026-11-06 tras SV02: api/notations la necesita; antes 47/8
-needed_by = 9  # medido 2026-11-06 tras SV02: api/notations la necesita; antes 47/8
+needs = 66  # medido 2026-11-10 (main-de-sldb-en-verde): 13 aristas de los ejes reglas y vistas_compuestas, y GO07, GD23, GD24, GD26; antes 47/9
+needed_by = 11  # medido 2026-11-10: GO05 api/where.py → op_aristas, GD23 → op_modelos; antes 47/9
 verdict = "fachada"
 why = """
 158 archivos, el grupo más grande, y el candidato más obvio por tamaño. Pero
