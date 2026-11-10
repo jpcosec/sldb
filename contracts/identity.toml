@@ -69,9 +69,10 @@ describir su propia casa.
 
 [product.models]
 base = ["structured_doc", "provenance", "provenance_block"]
-relations = ["relation_doc", "relation_type_doc", "builtin_relation_types"]
+relations = ["relation_doc", "relation_type_doc", "builtin_relation_types", "transition_attributes"]  # GO09: la convención sets/terminal de RelationDoc.attributes
 derived_surfaces = ["python_symbol_doc", "cli_command_doc", "surface_doc"]
-vocabulary = ["knowledge_tag", "anchor_doc", "knowledge_surface", "code_anchor_doc", "code_ref", "anchor_state"]
+vocabulary = ["knowledge_tag", "anchor_doc", "knowledge_surface", "code_anchor_doc", "code_ref", "anchor_state", "doc_anchor_value"]  # GO07: doc_anchor_value es la forma doc:Model:name, par de code_ref
+rules = ["rule_doc"]  # GO06: RuleDoc, el predicado que una familia de documentos debe cumplir (docs/architecture/rules.md)
 notation = ["notation_models"]  # SV01: SpecDoc, SpecNodeDoc, NotationDoc, GlyphDoc, LinkDoc, PaletteDoc, ViewDoc (un módulo por modelo en models/notation/)
 
 # ---------------------------------------------------------------------------

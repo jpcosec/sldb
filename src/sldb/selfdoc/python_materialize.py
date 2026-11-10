@@ -11,13 +11,14 @@ from sldb.runtime.validation import extract_model_data, render_model_markdown
 from .python_purpose import merged_purpose
 
 from .planned_document import PlannedDocument
+from .python_doc_ids import document_ids
 from .python_symbol import PythonSymbol
 
 
 def plan_python_documents(records: list[PythonSymbol], system: str, output: Path, architecture_spec: Path | None = None) -> list[PlannedDocument]:
     _validate_system(system)
     spec = _architecture_spec(architecture_spec, output.parent)
-    plans = [_plan(record, system, output, spec) for record in records]
+    plans = [_plan(record, (system, doc_id), output, spec) for record, doc_id in zip(records, document_ids(records, system))]
     _validate_paths(plans, output)
     return plans
 
@@ -27,8 +28,8 @@ def _validate_system(system: str) -> None:
         raise ValueError("system must be a lowercase identifier without path separators")
 
 
-def _plan(record: PythonSymbol, system: str, output: Path, spec: str) -> PlannedDocument:
-    fields = _fields(record, system, spec)
+def _plan(record: PythonSymbol, named: tuple[str, str], output: Path, spec: str) -> PlannedDocument:
+    fields = _fields(record, named, spec)
     path = (output / "symbols" / f"{fields['id']}.md").resolve()
     previous = path.read_text(encoding="utf-8") if path.exists() else None
     existing = extract_model_data(PythonSymbolDoc, previous) if previous else _defaults(record)
@@ -37,10 +38,10 @@ def _plan(record: PythonSymbol, system: str, output: Path, spec: str) -> Planned
     return _planned(path, previous, existing, fields, payload)
 
 
-def _fields(record: PythonSymbol, system: str, spec: str) -> dict:
+def _fields(record: PythonSymbol, named: tuple[str, str], spec: str) -> dict:
+    system, doc_id = named
     digest = hashlib.sha256(json.dumps(record.model_dump(), sort_keys=True).encode()).hexdigest()
-    safe = re.sub(r"[^a-z0-9_]+", "-", f"{record.module}-{record.qualname}".lower()).strip("-")
-    return {"id": f"python-{system}-{safe}", "system": system, "module": record.module,
+    return {"id": doc_id, "system": system, "module": record.module,
             "qualname": record.qualname, "kind": record.kind, "source_path": record.path,
             "source_span": f"{record.line_start}:{record.line_end}", "source_sha256": record.source_sha256,
             "signature": record.signature or "Not applicable.", "docstring": record.docstring or "Not documented.",
