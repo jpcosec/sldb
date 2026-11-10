@@ -1,0 +1,22 @@
+name: inbox-note-sldb-stores-add-guarda-siempre-el-enlace-relativo-no-resuelve-desde-worktrees-un-nivel-más-hondo
+path: desk/inbox/inbox-note-sldb-stores-add-guarda-siempre-el-enlace-relativo-no-resuelve-desde-worktrees-un-nivel-más-hondo.md
+source_hash: fa30639a20c18b203bd72db52026340b41a080528304fd937058a08b708af706
+content_hash: 7ab2bcfe7133865fad846f6a9f80519fa8283ba5795661df87bb104e18264528
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: f4a2eec9b5734c37e246678816f0b307c59c117a7dc74691342c9b86ff80e169
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: e882ba0ed94bf08ddea044aaa4bab46885415b5ddd0bb51fa9590ded6cd6d5de
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: 266bea863c3d90dce24d3117087f731211d8fdff89d424dafe89322662565647
+  body: 29db4b797492634d59eecfa45cf7c4bed34b1dd294bf2364b31ef78a66a9b728
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance:
+  by: agent
+  at: '2026-11-10T21:31:25Z'
+  authority: generated
+  via: create_document
