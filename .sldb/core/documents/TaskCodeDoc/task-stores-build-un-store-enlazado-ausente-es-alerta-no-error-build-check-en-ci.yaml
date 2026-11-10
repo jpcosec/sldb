@@ -1,7 +1,7 @@
 name: task-stores-build-un-store-enlazado-ausente-es-alerta-no-error-build-check-en-ci
 path: desk/tasks/task-stores-build-un-store-enlazado-ausente-es-alerta-no-error-build-check-en-ci.md
-source_hash: a0c8c4f6ecdf0541521940ec7a44dbb179e3c4ddcaf321dacf1bcd9f2399f7b0
-content_hash: b2b3b5dc8712f5a69216a3aa890ce800b3ccf72f61abf0401906ec5e706a2c76
+source_hash: 88ebd9bfa84000431b497d8200d3dffc485f27dd3e80d84930f16f3ba8e6bd35
+content_hash: 12f9f67e9c35a9b82a10932bb2904dba91f56242b0eb42b47a1c1696641ccb04
 field_hashes:
   title: 6f24c9f8ffadf51c7ab851b5ec52a82bf594b459f788d7fdfe814d7e748f6cbd
   id: d520644a841aff517997c0c7280c9fd2e2f26bd238317f931a6d0bafdfbc30cb
@@ -16,8 +16,8 @@ field_hashes:
   references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  files: 4f87da1df1ad8bba9eed40fff19f32e371320a49bdbd79e71d00be874fe5d0af
-  implementation_path: adfc252b0eaf92e42db943668d8d4df7dc7c815395e040bf8a8a5f1b58d7eb0b
+  files: b13e2b5d8c79a918b3e5a1c2e695ba781d83cba555fba0ce7313072e0e89dd07
+  implementation_path: 8b109d28fe2408d0571d94d0defc67de276149216edf8acc97db1576f8f4b6d2
   validation: e23bb0fd42f5f74bce4a1cc05ad096a3b7bd35a02c93ad8a47c81d7794f02686
   done_when: 33e2102c32f358f0f0ae1c940f6a84e2b64006f23629b9ad2caf2591eff83383
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-10T04:38:12Z'
+  at: '2026-11-10T04:50:17Z'
   authority: generated
   via: save_document_payload

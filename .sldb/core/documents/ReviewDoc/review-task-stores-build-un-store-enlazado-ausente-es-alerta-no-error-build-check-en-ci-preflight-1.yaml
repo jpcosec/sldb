@@ -1,0 +1,34 @@
+name: review-task-stores-build-un-store-enlazado-ausente-es-alerta-no-error-build-check-en-ci-preflight-1
+path: desk/reviews/task-stores-build-un-store-enlazado-ausente-es-alerta-no-error-build-check-en-ci/preflight-1.md
+source_hash: f6061503dbbe8ae32d16d67c27b73a35ac590290b5c98d87206e07f1b92c2de8
+content_hash: 30c038ca38badd0c6db350466c2607de3e25759a8f7d9674e12438ab618e1916
+field_hashes:
+  id: cc99e9fd1b17b9a13dc10027df0b7127382fa8d87bb5d73ff40853ea2d93db27
+  title: e81366bb5247afba9af401d934f8b56220057fcd8717534e8b4b4ca4812e5f5c
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  subject: 60114503c0955e68ff541e0f968e59882474e62c65dc51de6eaf7240eb9537dc
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 3d792aca082de27ef43fed4681fca8e8477bca9ff12f36d578cb05d6738b7b6d
+  input_sha256: e812ccf1c2e80f73817ba0d5ed77ac683bbc4505bc2691e34370db358be9deb3
+  output_sha256: 1d40fcff7d9f35a21bbda012c237c78ddf8f5834f0fbbbb308c97a31ada7137a
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 1ade60066a2849732b2bd7e4be049a514b27ec9b1741b51858bf79ae39144e32
+  created_at: 3c567147c5db59a1164a9d2be8172ea1d71d6b98ac879029e867b1b254e51398
+  disposed_at: d49d9a323740f314b52c43158aae44942623426545bdc687f80c17dae09328a6
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 6c54867072dfd4b8a783b70b2f2c00b0deabb27ec393685080bec77939de8c6a
+  disposition: 4b67725af6cd5683ce0b58be2e7a0e78475f1d6fcc04283c39033f835cbe0620
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-10T04:50:20Z'
+  authority: generated
+  via: save_document_payload
