@@ -18,16 +18,26 @@ from sldb.api.stores.store_declaration import StoreDeclaration
 from sldb.api.documents.track_document_file import track_document_file
 from sldb.store.io import load_store_index, save_store_index
 from sldb.store.model_import_root import import_root
+from sldb.store.layout import store_exists
 from sldb.store.models import PredicateEntry
 
 
 def apply_links(store_path: Path, root: Path, declaration: StoreDeclaration) -> list[str]:
-    """Link each declared store that is not linked yet, or re-point one that moved."""
+    """Link each declared store that is not linked yet, or re-point one that moved.
+
+    A declared link whose store is absent (a sibling repository not checked out, as in a CI
+    runner) is left unlinked instead of failing the build; `missing_links` names it."""
     current = {s.name: s.path for s in load_store_index(store_path).stores}
-    changed = [link for link in declaration.links if current.get(link["name"]) != link["path"]]
+    absent = {link["name"] for link in missing_links(root, declaration)}
+    changed = [link for link in declaration.links if current.get(link["name"]) != link["path"] and link["name"] not in absent]
     for link in changed:
         link_store(store_path, root / link["path"], link["name"], replace=link["name"] in current)
     return [link["name"] for link in changed]
+
+
+def missing_links(root: Path, declaration: StoreDeclaration) -> list[dict[str, str]]:
+    """Declared links whose store does not exist, as `{name, path}`: an alert, not an error."""
+    return [{"name": link["name"], "path": link["path"]} for link in declaration.links if not store_exists(root / link["path"])]
 
 
 def apply_models(store_path: Path, root: Path, declaration: StoreDeclaration) -> list[str]:

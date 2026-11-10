@@ -5,7 +5,9 @@ for its history, still derived), `.sldb_cache/` and the paths the declaration li
 directory at the project's own absolute path, so a link that climbs any number of levels
 (`../../../x/.sldb`) still lands inside the scratch, where a symlink reaches the linked store. The check
 fails when the build fails, the built store does not pass `stores check`, a tracked document
-is not declared, or what the copy tracks (model, path, name) differs from the local store.
+is not declared, or what the copy tracks (model, path, name) differs from the local store. A
+declared link whose store is absent (a sibling repository not checked out) is an alert that
+names the link and its path, not a failure.
 """
 
 from __future__ import annotations
@@ -21,6 +23,7 @@ from typing import Any
 
 from sldb.api.stores.declared_includes import tracked_rows
 from sldb.api.stores.store_declaration import declared_store, load_declaration
+from sldb.cli.commands.stores_link_alert import link_missing_alert
 from sldb.cli.output_format import emit
 from sldb.core.finding import Finding, alert, error
 from sldb.store.io import invalidate_index_cache
@@ -47,7 +50,7 @@ def check_build(store: Path, root: Path, scratch: Path) -> dict[str, Any]:
     built = build_store(built_store, copy)
     integrity, checked = _integrity(built_store)
     differences = _differences(store, root, built_store, copy, tuple(load_declaration(store).derived)) if store_exists(store) else []
-    alerts = [{**a, "subject": f"copy: {a['subject']}"} for a in checked.get("alerts", [])] + [_behind(d) for d in differences if d.startswith("only rebuilt")]
+    alerts = [{**a, "subject": f"copy: {a['subject']}"} for a in checked.get("alerts", [])] + [_behind(d) for d in differences if d.startswith("only rebuilt")] + [link_missing_alert(link) for link in built.get("links_missing", [])]
     ok = integrity == 0 and not built["undeclared"] and not built["missing"] and not any(d.startswith("only local") for d in differences)
     return {"ok": ok, "integrity_exit": integrity, "undeclared": built["undeclared"], "missing": built["missing"], "differences": differences, "errors": checked.get("errors", []), "alerts": alerts}
 

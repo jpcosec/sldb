@@ -16,6 +16,7 @@ from sldb.api.stores.build_store import build_store as api_build_store
 from sldb.api.stores.declare_store import declare_store
 from sldb.api.stores.store_declaration import declared_store, save_declaration
 from sldb.cli.commands.stores_build_generators import run_generators
+from sldb.cli.commands.stores_link_alert import link_missing_what
 from sldb.cli.output_format import emit
 from sldb.cli.store_context import get_store_context
 
@@ -48,6 +49,7 @@ def build_command(args: Any) -> int:
 
 
 def _summary(report: dict[str, Any]) -> str:
-    counts = ", ".join(f"{k}: {len(v)}" for k, v in report.items() if isinstance(v, list))
+    counts = ", ".join(f"{k}: {len(v)}" for k, v in report.items() if isinstance(v, list) and k != "links_missing")
     flagged = "".join(f"\n{key}: " + ", ".join(report[key]) for key in ("undeclared", "missing") if report[key])
-    return f"built: {counts}{flagged}"
+    absent = "".join(f"\nalert: [build/link-missing] {link['name']}: {link_missing_what(link)}" for link in report.get("links_missing", []))
+    return f"built: {counts}{flagged}{absent}"
