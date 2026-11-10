@@ -625,6 +625,8 @@ include:
     name: review-task-reglas-rule-graph-no-compone-la-federación-entera-de-stores-enlazados-27-s-por-comando-de-deskops-preflight-1
   - path: desk/reviews/task-stores-build-un-store-enlazado-ausente-es-alerta-no-error-build-check-en-ci/preflight-1.md
     name: review-task-stores-build-un-store-enlazado-ausente-es-alerta-no-error-build-check-en-ci-preflight-1
+  - path: desk/reviews/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024/preflight-1.md
+    name: review-task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024-preflight-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

@@ -1,0 +1,9 @@
+{
+  "key": "task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "65aab28cb6a0fb7ed56546e03d2f8857d693f0f3efa22d34aebd601477fdc9e7",
+  "output_sha256": "a568bd78ad23866727f698cfbf95126d89a4519e4fe577168c0feeca3b50df2b",
+  "start": "2026-11-10T07:24:31.559105+00:00",
+  "end": "2026-11-10T07:24:59.977434+00:00"
+}

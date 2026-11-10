@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-10T07:24:16Z'
+  at: '2026-11-10T08:38:07Z'
   authority: generated
   via: save_document_payload
 id: task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024
@@ -52,6 +52,7 @@ Run 42758984024 (c1f41105). Job test, paso 'Structural gates' (tools/check.sh --
 
 _Outline the expected implementation route or affected surface._
 
+
 PRECISIONES DE PROMOCIÓN (2026-11-10, coordinador del plan de deskops):
 p1 (método, regla del dueño): por cada fallo, primero se reproduce y se escribe la causa raíz con evidencia (archivo, línea y el commit que lo introdujo, por git log/blame); recién entonces se arregla. Nunca skip, xfail, relajar un gate estructural ni bajar un umbral. Lo que falta clasificar se clasifica: a los 24 archivos sin eje se les da su eje, los 3 modelos sin clasificar entran en el contrato y los grados de dependencia de grafo, notación y núcleo se corrigen. Si un gate está mal (su expectativa quedó vieja), el informe lo prueba y se corrige el gate con su causa escrita.
 p2 (los pasos del workflow, en un clon limpio de esta rama en /dev/shm, en el orden de .github/workflows/ci.yml):
@@ -60,6 +61,15 @@ p2 (los pasos del workflow, en un clon limpio de esta rama en /dev/shm, en el or
 p3 (job store, «Build deskops' store»): el log trae SurfaceDoc y RelationDoc de pron. Hay que reproducir con deskops main actual (c66b4fad o posterior, que ya trae RuleDoc declarado y los links como alerta) antes de concluir: puede haber quedado arreglado por las tareas de link-absent y main-en-verde de deskops.
 p4 (paralelo): wt/rule-graph-local (bdb9b0ff) espera a que este CI esté verde y no se integra antes. Esta tarea no lo incluye; si un fallo coincide con lo que esa rama toca (api/rules), el worker lo dice y coordinamos.
 p5 (fallos sin tarea): si un fallo exige una decisión (por ejemplo, el eje correcto de un archivo no es obvio), el worker para y avisa con las opciones. El coordinador decide o abre tarea (p1 de main-en-verde de deskops).
+
+PRECISIONES DEL PREFLIGHT (review-...-preflight-1, 2026-11-10):
+b1 (cierre): el worker pushea a wt/main-de-sldb-en-verde. El coordinador de proyecto integra en main y corre el CI. El run de cierre es el del workflow ci sobre el commit integrado en main (gh run list --repo jpcosec/sldb --branch main --workflow ci.yml --limit 1); su URL va a references al cerrar.
+b2 (rama): wt/main-de-sldb-en-verde, desde sldb origin/main al despacho. El brief nombra el commit.
+b3 (nombre del paso): es el de .github/workflows/ci.yml, «Build deskops' store when it declares one», del job store, con working-directory deskops.
+b4 (directorio): .sldb/store.yaml se busca en el checkout de deskops (working-directory: deskops), igual que en el CI: if [ -f .sldb/store.yaml ]; then sldb stores build; fi.
+b5 (informe): runs/subagents/sldb-ci-worker-report.md en la rama, en Markdown, con una sección por fallo: reproducción, causa raíz con evidencia, arreglo y el paso en verde.
+b6 (grados de dependencia): los valores esperados están en el contrato que el gate lee (tools/check.sh y lo que ese script consulta). El worker los lee de ahí y, si el contrato y el código discrepan, el informe dice cuál de los dos quedó viejo y por qué. No se inventa ningún valor.
+b7 (guarda de pytest): antes de cada archivo, while pgrep -f '^(\S*/)?python[0-9.]* -m pytest' >/dev/null; do sleep 60; done.
 
 ## Validation
 

@@ -1,7 +1,7 @@
 name: task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024
 path: desk/tasks/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024.md
-source_hash: 57c49bab5bdf6405cc2149ef5cb448a3415520605fe0b93aebed0bf6713cc9e0
-content_hash: 9dd215652119fdc8da93eac6d06f8353dd4ec25d6e897c3164f3354171caf0c7
+source_hash: 5706878906c173200d1909971f09f6eca004cefa431265a19b3d57c2805870b4
+content_hash: 7909663f25dca35278e810cff4bd9d76fc0308c3e6ddc89a492a3cd0ba4ca22f
 field_hashes:
   title: bf7299fc29b8856618b2bae04e85460fb5294735295c05f76b01a660e0b0f8f0
   id: 1de65054b5183d7d7f15fa81f09a8553c4207bdd8324ad2c8d9d5a1eabe0be5e
@@ -17,7 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: f860fdd4fa48ca48f6475fd562135c5000cd7771be7273cb190369ca88d023b7
-  implementation_path: 9967b34b8d4e9bda526816deea8c0c04adc101b1b25d39675ac0aa97cd972002
+  implementation_path: 78c3f2c85c5ec43e2debd20291864017be7df2063b7dc16a6b8c40678294d12f
   validation: df7689e5b4699d504973b356e0b3609e6d3664956af021c0fc9958913aac08be
   done_when: 3718b1a9d0adfe18c7ed06331c1eecfbbdccca1782ba4b5464eb767be8546c78
   task_type: 17aef8a679138336d87167505c61b03a7bc28c9a12b1ccf78947b619d28fae69
@@ -33,6 +33,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-10T07:24:16Z'
+  at: '2026-11-10T08:38:07Z'
   authority: generated
   via: save_document_payload

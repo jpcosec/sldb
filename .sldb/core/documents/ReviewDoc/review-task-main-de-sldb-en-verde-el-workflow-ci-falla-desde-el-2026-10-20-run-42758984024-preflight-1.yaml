@@ -1,0 +1,34 @@
+name: review-task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024-preflight-1
+path: desk/reviews/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024/preflight-1.md
+source_hash: 51629f313b1c2aa582f9d78fa038a7cb901d1a3d523324a159813a5144f06ee9
+content_hash: 7e64bd37048ff1cb22b4527ebd1ae1d54c3f28784d5571c14628e92ff8939bb3
+field_hashes:
+  id: 3dcc4005576ad19a79c0b9c8be334206ac2d3181053fcb963e630b3165d49ada
+  title: c427cf69e7c204f9603bfb99760abfd45f8e15bdfdc13583b3acf1d3b5c7d417
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  subject: 7cc55b7c82ee8ff923da95f5abbe43d0bb0f651184b360e87de39dffdbfedd53
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 71919afa72db6106ac305447745f7798e353cb5e0bab3ffdb5b5b3c7ccc9c881
+  input_sha256: c31ce30ca7a05d3e22a7dbb2a51281072175305feaa710388e33c1fecfc41840
+  output_sha256: 2d27897e77e5d1e25b322b7ee50e00ccfe598aa047637262153288dc2ce6da28
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: fb34d079742026c6d079f85b322cb693368ba5bfb82e93df7b14a037b8e601c1
+  created_at: 5b4d7b71c108df9dda2466bd962ab08c819c219c6a440294456bdcffcfef33d1
+  disposed_at: 66732fdbdb1d79dcc24d015b71a073aaf764173df839975044423414fd73ead9
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 8534be0b73c9251a04db61b732fa2474a34f08130815497c7973af6c1b138f27
+  disposition: b57c68d6d80e0c0d1d244d58b4557964c59bca3bc74f07b13954ae2390d5d263
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-10T08:38:10Z'
+  authority: generated
+  via: save_document_payload
