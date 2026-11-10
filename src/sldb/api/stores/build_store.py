@@ -10,7 +10,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any, Callable
 
-from sldb.api.stores.apply_declaration import apply_includes, apply_links, apply_models, apply_predicates, missing_declared, undeclared
+from sldb.api.stores.apply_declaration import apply_includes, apply_links, apply_models, apply_predicates, missing_declared, missing_links, undeclared
 from sldb.api.stores.scaffold_store import scaffold_store
 from sldb.api.stores.store_declaration import StoreDeclaration, declared_store, load_declaration
 from sldb.api.stores.store_skeleton import write_empty_store
@@ -32,7 +32,8 @@ def build_store(store: str | Path | None, *, apply: bool = True, generate: Gener
 
     Returns:
         `links`, `models`, `predicates_changed`, `tracked`, `generated`, `undeclared`,
-        `missing` and `scaffold` (`created`, `rewritten`, `present`, `conflicts`).
+        `missing`, `links_missing` (declared links whose store is absent, `{name, path}`: an
+        alert, the build goes on) and `scaffold` (`created`, `rewritten`, `present`, `conflicts`).
     """
     store_path, root = declared_store(store)
     declaration = load_declaration(store_path)
@@ -66,5 +67,5 @@ def _planned(store_path: Path, root: Path, declaration: StoreDeclaration) -> dic
 
 
 def _pending(store_path: Path, root: Path, declaration: StoreDeclaration, apply: bool) -> dict[str, Any]:
-    missing = {"undeclared": undeclared(store_path, root, declaration) if store_exists(store_path) else [], "missing": missing_declared(root, declaration)}
+    missing = {"undeclared": undeclared(store_path, root, declaration) if store_exists(store_path) else [], "missing": missing_declared(root, declaration), "links_missing": missing_links(root, declaration)}
     return {**missing, "scaffold": scaffold_store(store_path, apply=apply).lists()}

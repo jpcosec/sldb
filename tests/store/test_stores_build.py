@@ -59,7 +59,7 @@ def test_a_store_rebuilt_from_its_declaration_tracks_the_same(tmp_path, capsys):
 
 
 EMPTY_SCAFFOLD = {"created": [], "rewritten": [], "present": [], "conflicts": []}
-REPORT_KEYS = ["links", "models", "predicates_changed", "tracked", "generated", "undeclared", "missing", "scaffold"]
+REPORT_KEYS = ["links", "models", "predicates_changed", "tracked", "generated", "undeclared", "missing", "links_missing", "scaffold"]
 
 
 def test_building_a_current_store_changes_nothing(tmp_path, capsys):
@@ -74,7 +74,7 @@ def test_the_build_report_is_the_golden_one_plus_an_empty_scaffold_section(tmp_p
     store, root = _declared(tmp_path, capsys)
     report = build_store(store, root)
     assert list(report) == REPORT_KEYS
-    assert report == {"links": [], "models": [], "predicates_changed": False, "tracked": [], "generated": [], "undeclared": [], "missing": [], "scaffold": EMPTY_SCAFFOLD}
+    assert report == {"links": [], "models": [], "predicates_changed": False, "tracked": [], "generated": [], "undeclared": [], "missing": [], "links_missing": [], "scaffold": EMPTY_SCAFFOLD}
     capsys.readouterr()
     assert cli_main(["stores", "build", "--store", str(store), "--format", "json"]) == 0
     printed = json.loads(capsys.readouterr().out)
@@ -116,7 +116,7 @@ def test_build_without_apply_writes_nothing_and_says_what_is_pending(tmp_path, c
     save_declaration(store, declaration)
     before = {p: hashlib.sha256(p.read_bytes()).hexdigest() for p in root.rglob("*") if p.is_file()}
     report = api_build_store(store, apply=False)
-    assert report == {"links": [], "models": [], "predicates_changed": False, "tracked": [], "generated": [], "undeclared": [], "missing": ["gone.md"], "scaffold": {"created": ["inbox"], "rewritten": [], "present": [], "conflicts": []}}
+    assert report == {"links": [], "models": [], "predicates_changed": False, "tracked": [], "generated": [], "undeclared": [], "missing": ["gone.md"], "links_missing": [], "scaffold": {"created": ["inbox"], "rewritten": [], "present": [], "conflicts": []}}
     assert {p: hashlib.sha256(p.read_bytes()).hexdigest() for p in root.rglob("*") if p.is_file()} == before
 
 
@@ -237,6 +237,45 @@ def test_the_check_reaches_a_link_that_climbs_more_than_one_level(tmp_path, caps
     subprocess.run(["git", "init", "-q"], cwd=root, check=True)
     assert check_build(store, root, tmp_path / "scratch")["ok"]
     assert not (tmp_path.parent / "owner").exists()
+
+
+def _linked_then_removed(tmp_path, capsys):
+    """A project whose declaration links a sibling store that is then gone (a CI runner
+    checks out one repository, not its siblings)."""
+    project = tmp_path / "project"
+    project.mkdir()
+    store, root = _declared(project, capsys)
+    sibling = tmp_path / "sibling"
+    sibling.mkdir()
+    assert cli_main(["stores", "init", "--path", str(sibling)]) == 0
+    assert cli_main(["stores", "add", str(sibling / ".sldb"), "--name", "sibling", "--store", str(store)]) == 0
+    save_declaration(store, declare_store(store, root))
+    shutil.rmtree(sibling)
+    (root / ".gitignore").write_text(".sldb_cache/\n", encoding="utf-8")
+    subprocess.run(["git", "init", "-q"], cwd=root, check=True)
+    return store, root
+
+
+def test_an_absent_linked_store_is_an_alert_naming_the_link_and_its_path_in_the_check(tmp_path, capsys):
+    store, root = _linked_then_removed(tmp_path, capsys)
+    report = check_build(store, root, tmp_path / "scratch")
+    assert report["ok"] and report["errors"] == []
+    [absent] = [a for a in report["alerts"] if a["code"] == "build/link-missing"]
+    assert absent["subject"] == "sibling" and "../sibling/.sldb" in absent["what"]
+    assert cli_main(["stores", "build", "--check", "--store", str(store)]) == 0
+
+
+def test_an_absent_linked_store_does_not_fail_the_build_and_is_reported(tmp_path, capsys):
+    store, root = _linked_then_removed(tmp_path, capsys)
+    for derived in (store / "core", store.parent / ".sldb_cache"):
+        shutil.rmtree(derived, ignore_errors=True)
+    invalidate_index_cache()
+    capsys.readouterr()
+    assert cli_main(["stores", "build", "--store", str(store)]) == 0
+    printed = capsys.readouterr().out
+    assert "alert: [build/link-missing] sibling: declared link path ../sibling/.sldb has no store" in printed
+    report = build_store(store, root)
+    assert report["links_missing"] == [{"name": "sibling", "path": "../sibling/.sldb"}]
 
 
 def test_a_declared_store_that_was_not_built_fails_the_check(tmp_path, capsys):
