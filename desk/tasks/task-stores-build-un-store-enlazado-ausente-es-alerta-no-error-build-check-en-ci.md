@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-10T04:50:17Z'
+  at: '2026-11-10T04:52:34Z'
   authority: generated
   via: save_document_payload
 id: task-stores-build-un-store-enlazado-ausente-es-alerta-no-error-build-check-en-ci
@@ -12,15 +12,20 @@ tags:
 - artifact:task
 current_node: ritual-execution
 history: []
-references: []
+references:
+- pytest tests/store/test_stores_build.py
+- pytest tests/test_clean_code_rules.py
+- 8278d2a359e6a904fd6215aff58f1cc6724c27b8
+- desk/atoms/atom-un-store-enlazado-ausente-es-alerta-en-stores-build-y-build-check.md
 depends_on: []
 pills: []
 files:
 - src/sldb/api/stores/apply_declaration.py
 - src/sldb/api/stores/build_store.py
-- src/sldb/cli/commands/
+- src/sldb/cli/commands/stores_build.py
+- src/sldb/cli/commands/stores_build_check.py
+- src/sldb/cli/commands/stores_link_alert.py
 - tests/store/test_stores_build.py
-- tests/api/
 - CHANGELOG.md
 task_type: task.code
 inherits_from: []
@@ -79,6 +84,7 @@ _List the checks required before this task can close._
 - Test nuevo de s5
 - Tests existentes de stores build/build --check y test_clean_code_rules de a uno
 - Clon limpio de deskops sin hermanos: sldb stores build --check exit 0 con 4 alertas (s6)
+- Resultado (coordinador de proyecto, squash 8278d2a3): de a uno, tests/store/test_stores_build.py 27, test_api_stores 7, test_clean_code_rules 950. Consumidor: clon limpio de deskops wt/main-en-verde-2 sin repos hermanos, build --check exit 0 con 4 alertas (coord2). files podado a la entrega real.
 
 ## Done When
 

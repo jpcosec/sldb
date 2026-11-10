@@ -1,0 +1,25 @@
+name: materialization-link-missing-commands-stores-build
+path: desk/materializations/materialization-link-missing-commands-stores-build.md
+source_hash: d6ee9bc9ce2fc67512a50c4a2192e7550ea28e2c2644c0794c4c7fbd471c0285
+content_hash: 4640c8edd637cbd41de9c00b75f1293c48211e18c4b857ccfd5f3644353ca213
+field_hashes:
+  id: 10e91ddd70252ab9bd4197696bf00c5d56598073c8c3e86ba586bc0d68d54155
+  title: 6d4415b3c650ba2c1da47ebac3512af3aab5973123358018732582cb8c69c22e
+  source_atoms: 4508d58857dc9548f14e8e7a9593cd0c5ea448e51a29defc7a8c477359a25a03
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: da952ec2cb8e35140e6b745ccff5557b65934a1b531be5f726dbd68fd10f8ddb
+  intent: 2b03a4a96bfb72ec4ac97603d65177226983a3715dad097e821b59e2d14a8514
+  validation: 46ba8fa00f696ec18e1e10e30b5051940235c1696b08966cc29f91be39d6eed9
+  tags: dc6cb10d5b02dd7e84f396d4d539d877efe2563f35c4138c90600b588d782f63
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:stores
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-10T04:52:16Z'
+  authority: generated
+  via: create_document

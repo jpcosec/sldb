@@ -551,6 +551,12 @@ include:
   - desk/materializations/materialization-gd25-serve-http-server.md
   - desk/materializations/materialization-rules-dirty-rollback-documents-transaction-state.md
   - desk/materializations/materialization-rules-dirty-rollback-api-test-transaction-rules-dirty.md
+  - desk/materializations/materialization-link-missing-stores-apply-declaration.md
+  - desk/materializations/materialization-link-missing-stores-build-store.md
+  - desk/materializations/materialization-link-missing-commands-stores-build.md
+  - desk/materializations/materialization-link-missing-commands-stores-build-check.md
+  - desk/materializations/materialization-link-missing-commands-stores-link-alert.md
+  - desk/materializations/materialization-link-missing-store-test-stores-build.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md

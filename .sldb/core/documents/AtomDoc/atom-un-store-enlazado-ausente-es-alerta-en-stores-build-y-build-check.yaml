@@ -1,0 +1,22 @@
+name: atom-un-store-enlazado-ausente-es-alerta-en-stores-build-y-build-check
+path: desk/atoms/atom-un-store-enlazado-ausente-es-alerta-en-stores-build-y-build-check.md
+source_hash: 4845202d69e6269f9298a76b4853d11f9aa1a053abd70ab96f85fb2be3e918a3
+content_hash: 2b423bd059594d79cfa5473cfe7ce9aa1e49b2dc5ffb09f951cfa133a768271b
+field_hashes:
+  id: fd948eae6334ee27cc648a1b8e7bbe0875718fea30979812f0163459962f3728
+  title: 69a14ce9d4bc691495ec980f62251bd3fe5b6e02e00216f3f91aa645bfaa18cd
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: 3fd8ea6e2265f34606a0379c23482384d058bf126386ffe7da25468a22023010
+  tags: dc6cb10d5b02dd7e84f396d4d539d877efe2563f35c4138c90600b588d782f63
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:stores
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-10T04:52:05Z'
+  authority: generated
+  via: create_document
