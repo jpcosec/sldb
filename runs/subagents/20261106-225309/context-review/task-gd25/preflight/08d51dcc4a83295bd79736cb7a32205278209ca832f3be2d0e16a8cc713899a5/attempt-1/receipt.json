@@ -1,0 +1,9 @@
+{
+  "key": "task-gd25/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "08d51dcc4a83295bd79736cb7a32205278209ca832f3be2d0e16a8cc713899a5",
+  "output_sha256": "51c941d500eb19c60efdd003b6e701569043c904797d73c0e849f10b8c2ec5d4",
+  "start": "2026-11-06T22:53:10.515474+00:00",
+  "end": "2026-11-06T22:53:33.083073+00:00"
+}
