@@ -444,7 +444,7 @@ identity = false
 
 [[axis]]
 id = "errores"
-paths = ["core/exceptions", "store/exceptions.py", "core/finding.py"]
+paths = ["core/exceptions", "store/exceptions.py", "core/finding.py", "core/finding_route.py"]
 external = []
 does = "la jerarquía de excepciones del sistema, y el hallazgo (error o alerta) que reporta un comando"
 identity = false
@@ -532,6 +532,31 @@ paths = ["api/notations"]
 external = []
 does = "resolver una notación sobre documentos del almacén y evaluar vistas de proyección; sincronizar notaciones y paletas (SV02)"
 identity = false
+
+[[axis]]
+id = "reglas"
+paths = ["api/rules", "api/tags"]
+external = []
+does = "evaluar RuleDoc con el lenguaje de predicados en escritura, transición y check, incremental y a punto fijo; los espacios de etiquetas como familia de reglas (GO06, GO08, GD27)"
+identity = false
+note = """
+`api/tags` va acá y no en `semantica`: un espacio de etiquetas se verifica como una familia de
+reglas (`builtin_tag_rules.py`, docs/architecture/tags.md), y `tag_check` es `rules check`
+filtrado a esa familia. Clasificado en main-de-sldb-en-verde (2026-11-10), decisión revisable
+del coordinador; alternativas descartadas en runs/subagents/sldb-ci-worker-report.md.
+"""
+
+[[axis]]
+id = "vistas_compuestas"
+paths = ["api/views"]
+external = []
+does = "evaluar un ViewDoc con sections sobre un almacén, y el catálogo de vistas (GD25)"
+identity = false
+note = """
+No va en `vistas` (unidad `notacion`): consume grafo, índice de aristas y persistencia, y
+sumarlo a `notacion` la llevaba de necesitar 4 a 12, una consumidora neta como `operacion`.
+Clasificado en main-de-sldb-en-verde (2026-11-10), decisión revisable del coordinador.
+"""
 
 [[unit]]
 id = "nucleo"
@@ -633,7 +658,7 @@ notations`, `/notations/*`, `/views/projection*`). Las cuentas las dice la puert
 
 [[non_unit]]
 id = "operacion"
-axes = ["op_almacen", "op_documentos", "op_modelos", "op_aristas", "anclaje"]
+axes = ["op_almacen", "op_documentos", "op_modelos", "op_aristas", "anclaje", "reglas", "vistas_compuestas"]
 needs = 47  # medido 2026-11-06 tras SV02: api/notations la necesita; antes 47/8
 needed_by = 9  # medido 2026-11-06 tras SV02: api/notations la necesita; antes 47/8
 verdict = "fachada"
