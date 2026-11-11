@@ -1,0 +1,22 @@
+name: inbox-note-h4-q18-create-document-y-track-document-file-no-evalúan-las-reglas-on-write-deskops-necesita-un-puen
+path: desk/inbox/inbox-note-h4-q18-create-document-y-track-document-file-no-evalúan-las-reglas-on-write-deskops-necesita-un-puen.md
+source_hash: 0d468917533b39c9c63df96670c098cef5417c641896cc37fedc29ce443ea995
+content_hash: 6d089507c2988af68e45a859a37388ffcd72df0cc86afbb18c0f27eaa31406c6
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 7418c21fa752f7a3206a4007ef8639a73f3f438c811a724d30db423b07aa5600
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: 54f9be5c10bf5ef73970105a7b38bf2677d8b49972dfcf8d499e48e7a5e68a63
+  body: 9eb5c9fdb9dd4731ac25fa73db48a9ea17c2a2e8dd1f94774afed392d2b2f2e4
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance:
+  by: agent
+  at: '2026-11-11T15:23:48Z'
+  authority: generated
+  via: create_document

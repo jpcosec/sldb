@@ -271,6 +271,7 @@ include:
   - desk/inbox/inbox-note-sldb-docs-update-valida-y-reescribe-documentos-ajenos-al-que-actualiza.md
   - desk/inbox/inbox-note-viewdoc-run-view-lo-que-el-modelo-no-expresa-para-las-vistas-de-deskops-h1-h8-y-huecos-de-run-view-h.md
   - desk/inbox/inbox-note-referrers-y-rewrite-references-para-un-grafo-armado-en-proceso-excluir-fuentes-y-menciones-duplicada.md
+  - desk/inbox/inbox-note-h4-q18-create-document-y-track-document-file-no-evalúan-las-reglas-on-write-deskops-necesita-un-puen.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
