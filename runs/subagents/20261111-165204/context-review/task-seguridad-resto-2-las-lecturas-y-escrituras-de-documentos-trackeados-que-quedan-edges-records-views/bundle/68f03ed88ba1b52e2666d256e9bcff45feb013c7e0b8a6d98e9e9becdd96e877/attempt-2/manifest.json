@@ -1,0 +1,125 @@
+{
+  "key": "task-seguridad-resto-2-las-lecturas-y-escrituras-de-documentos-trackeados-que-quedan-edges-records-views/bundle",
+  "input_sha256": "68f03ed88ba1b52e2666d256e9bcff45feb013c7e0b8a6d98e9e9becdd96e877",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/mnt/ssd/proyectos/SLDB_1/sldb-desk-tmp/runs/subagents/20261111-165204/context-review/task-seguridad-resto-2-las-lecturas-y-escrituras-de-documentos-trackeados-que-quedan-edges-records-views/bundle/68f03ed88ba1b52e2666d256e9bcff45feb013c7e0b8a6d98e9e9becdd96e877/attempt-2/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-seguridad-resto-2-las-lecturas-y-escrituras-de-documentos-trackeados-que-quedan-edges-records-views.md",
+      "sha256": "138f4f6169d8f5e672e6f49d0fa33239573463e4ee0565819f476ce4cbc3b8cb",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/models/structured_doc.py",
+      "sha256": "f00448ed040a36a80e3e6a9ae285584cb7bf89f7ba5e7b0c0e57355e98b5b552",
+      "projection": "whole_file"
+    },
+    {
+      "path": "contracts/layers.toml",
+      "sha256": "cbe7403830cdce2b60c408c0d3345d6e3eb7eeeddf319800ed7d99af9b3cf98f",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "src/sldb/api/model_registry/",
+      "reason": "directory"
+    },
+    {
+      "path": "src/sldb/api/edges/",
+      "reason": "directory"
+    },
+    {
+      "path": "src/sldb/api/views/",
+      "reason": "directory"
+    },
+    {
+      "path": "src/sldb/api/records/",
+      "reason": "directory"
+    },
+    {
+      "path": "src/sldb/api/segments/",
+      "reason": "directory"
+    },
+    {
+      "path": "src/sldb/api/model_drafts/",
+      "reason": "directory"
+    },
+    {
+      "path": "src/sldb/api/documents/",
+      "reason": "directory"
+    },
+    {
+      "path": "src/sldb/cli/serve/",
+      "reason": "directory"
+    },
+    {
+      "path": "src/sldb/cli/commands/",
+      "reason": "directory"
+    },
+    {
+      "path": "src/sldb/links/",
+      "reason": "directory"
+    },
+    {
+      "path": "src/sldb/store/",
+      "reason": "directory"
+    },
+    {
+      "path": "tests/",
+      "reason": "directory"
+    },
+    {
+      "path": "docs/",
+      "reason": "directory"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "reason": "size>=60000",
+      "size": 85354
+    }
+  ],
+  "started": "2026-11-11T16:52:05.530804+00:00",
+  "finished": "2026-11-11T16:52:25.699740+00:00"
+}

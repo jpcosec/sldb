@@ -1,0 +1,36 @@
+name: review-task-seguridad-resto-2-las-lecturas-y-escrituras-de-documentos-trackeados-que-quedan-edges-records-views-bundle-1
+path: desk/reviews/task-seguridad-resto-2-las-lecturas-y-escrituras-de-documentos-trackeados-que-quedan-edges-records-views/bundle-1.md
+source_hash: 2db385d4a7063e1b7d8e3f3ccfbf75f59d9f32a6f761ab0652e4e7b92b1500b0
+content_hash: bbc0c6cfe58c045ece5e3c39aa5997b994f48e6c81c3baad1030c57eaf7439a6
+field_hashes:
+  id: 2fafbad7f6b5e7bdb0f6a7eff0b26945b9aa0611fcd4fdcc34868f00b17d0239
+  title: af5b845740b79379d818fb09f004c5728c89f5fb69971dc5ce9f7f009351a2cc
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: e7afb37d73a44c6d634d5154397960165f7e61311cff35ee61ea906b6d02f592
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 2925f5a04fe5e7d5b5b11c66531d36aef0e4fca45d05545d22098d37c65db857
+  input_sha256: 46d5c2d728713ce455baf77ac7b15bc8f97347db0fa9de0464adea61a22a63ff
+  output_sha256: e8a06b9744647bb3829c567c76df6194882d619ce40e1c753d33fb38d1fcb243
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 92a88badd124cfad3cf5800a07df5d180ae5a67d73f404f11fb313376e1fc32d
+  created_at: d5728183a29abaa26b6f73acc23b24483fae9eee1f31f5e4688ac09be239a775
+  disposed_at: 9bc832006fbc54cfed5cc170369f339b62e5aac699c31fe4814fccb7d30e9e78
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 2cd4b6a6621983c8a42a28666f020d5eacf0c3da0631385cdda6d8d5e1765091
+  disposition: 9a440c81a0cab751ae8379a8db99fc604793cd31d041eb6053eaaa035607a996
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-11T16:53:06Z'
+  authority: generated
+  via: save_document_payload

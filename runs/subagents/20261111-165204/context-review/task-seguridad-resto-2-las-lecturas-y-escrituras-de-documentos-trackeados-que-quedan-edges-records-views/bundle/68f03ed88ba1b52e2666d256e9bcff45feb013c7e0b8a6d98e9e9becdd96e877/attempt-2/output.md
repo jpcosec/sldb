@@ -1,0 +1,15 @@
+REFORMULACION
+El nodo pide cerrar el resto de SEGURIDAD en sldb (repo `src/sldb`, base main con `wt/secrest` ca578fd2): que ninguna lectura o escritura del texto de un documento trackeado que sea symlink o resuelva fuera de la raíz escape de la guarda. Resultado: r1 lecturas por `sldb.store.source_read`; r2 escrituras y llamadores de `provenance_stamp.stamped_file` capturan symlink/ELOOP; r3 `replace_text` con `O_NOFOLLOW` y test de carrera; r4 mensaje de `stores update` con código; r5 inventario, grep final y tests con audit hook por superficie; r6 límites de clean code y ejes. Límites: dentro, lecturas de `implementation_path`, llamadores de `stamped_file`, `replace_text` y `store_update`; fuera, lo ya cubierto por SEGURIDAD resto, stale/rebuild y forma de hallazgos. No es agregado: `atoms` y `depends_on` vacíos; se ejecuta como tarea única.
+
+AMBIGUEDADES
+1. "las lecturas listadas en implementation_path" e "inventario del informe de SEGURIDAD resto §7, a confirmar y completar por grep": mezcla líneas concretas con confirmación pendiente. Obliga a inventar el inventario definitivo y si las líneas citadas siguen vigentes.
+2. "la superficie lo nombra con el hallazgo existente y sigue con los demás, o falla con error claro cuando el documento es el objetivo único del comando": no define qué comando tiene objetivo único. Obliga a inventar, por superficie, si continúa o aborta.
+3. "grep final de read_text/read_bytes/open sobre rutas de documentos trackeados fuera de source_read, vacío o con cada excepción justificada": no da patrón ni criterio de "ruta de documento trackeado" ni de excepción justificada. Obliga a inventar el grep y la lista blanca.
+4. "Tests ... uno por superficie: edges (rebuild/rewrite/project graph), records, views, serve (/document/ir), links (compose --render-links), segments, sections show, model_registry": no aclara si edges son tres tests o uno. Obliga a inventar la matriz de tests.
+5. "Los grados medidos de unidad se actualizan con comentario fechado si cambian": no define cómo se miden ni qué cambio los obliga. Obliga a inventar el procedimiento.
+
+DRY-RUN
+Lecturas: TaskDoc, rituales execution/testing/closeout, `contracts/layers.toml`, `structured_doc.py`, `source_read` y tests nombrados. Cambios previstos: sustituir aperturas directas por `source_read`; añadir `O_NOFOLLOW` y manejo de ELOOP; endurecer `replace_text`; ajustar `store_update`; crear tests con audit hook; escribir informe con tabla antes/después y grep. Dependencias: API de `source_read`, códigos `store/path-outside-root` y `store/symlink-not-read`, helper de audit hook, límites de `test_clean_code_rules`. Validaciones futuras: tests por superficie, `replace_text`, `stores update`, `test_live_stale_security`, `test_tracked_reads_guarded`, `test_clean_code_rules`, `tools/check.sh --fast` y 7 pasos en clon limpio. Sin ejecutar.
+
+FUTURO
+El worker ejecuta r1-r6 y entrega informe/tests; el coordinador corre los 7 pasos del workflow y decide sobre el inventario "a confirmar y completar por grep" y las excepciones del grep. El closeout actualiza CHANGELOG/docs y cierra la tarea.
