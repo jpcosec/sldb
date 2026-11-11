@@ -25,8 +25,11 @@ def _print_update_result(sp: Path, skipped_models: list[str], skipped_docs: list
     print(f"Updated store at {sp}")
     if skipped_models:
         print(f"Skipped broken models: {', '.join(skipped_models)}")
-    if skipped_docs:
-        print(f"Skipped missing documents: {', '.join(skipped_docs)}")
+    missing, unread = [d for d in skipped_docs if " (store/" not in d], [d for d in skipped_docs if " (store/" in d]
+    if missing:
+        print(f"Skipped missing documents: {', '.join(missing)}")
+    if unread:  # `name (code)`: the read guard refused the path (unread_documents.tracked_text)
+        print(f"Skipped unread documents: {', '.join(unread)}")
     _print_reports(sem_report, sec_report, verbose)
 
 def _print_reports(sem_report: RebuildReport, sec_report: RebuildReport, verbose: bool) -> None:

@@ -5,6 +5,8 @@ from .map_fields import _map_fields_to_sections
 from .utils import _slugify
 from .build_ir import build_document_ir
 from .extract import extract_sections
+from sldb.store.layout import project_root
+from sldb.store.source_guard import aggregate_text
 
 logger = logging.getLogger(__name__)
 
@@ -30,18 +32,19 @@ def _process_doc_sections(doc, sections, doc_template, records):
         _add_field_record(doc, field_path, value, field_section_map.get(field_path), records)
 
 def _rebuild_from_markdown(doc, doc_path, doc_template, records):
-    ir = build_document_ir(
-        {"store": doc.store_name, "model": doc.model_name, "name": doc.name, "path": doc.path, "payload": doc.payload, "semantic_tags": doc.semantic_tags},
-        doc_path.read_text(encoding="utf-8"), template=doc_template,
-    )
-    context_by_path = {entry.path: entry.model_dump(mode="json") for entry in ir.context_index}
-    field_section_map = {node.field_path: node.owning_section for node in ir.nodes if node.kind == "field" and node.field_path}
-    _add_rebuilt_sections(doc, doc_path, context_by_path, records)
+    """Section and field records from the document's Markdown; a path the read guard refuses
+    (outside the root, or a symlink) is warned and gives field records only, like a missing file."""
+    text = aggregate_text(project_root(doc.store_path), doc_path, f"{doc.model_name}:{doc.name}")
+    runtime = {"store": doc.store_name, "model": doc.model_name, "name": doc.name, "path": doc.path, "payload": doc.payload, "semantic_tags": doc.semantic_tags}
+    ir = build_document_ir(runtime, text, template=doc_template) if text is not None else None
+    context_by_path = {entry.path: entry.model_dump(mode="json") for entry in ir.context_index} if ir else {}
+    field_section_map = {node.field_path: node.owning_section for node in ir.nodes if node.kind == "field" and node.field_path} if ir else {}
+    _add_rebuilt_sections(doc, text or "", context_by_path, records)
     for field_path, value in flatten_payload(doc.payload):
         _add_field_record(doc, field_path, value, field_section_map.get(field_path), records)
 
-def _add_rebuilt_sections(doc, doc_path, context_by_path, records):
-    for section in extract_sections(doc_path.read_text(encoding="utf-8")):
+def _add_rebuilt_sections(doc, text, context_by_path, records):
+    for section in extract_sections(text):
         context_entry = context_by_path.get(section.path, {})
         _add_rebuilt_section_record(doc, section, context_entry, records)
 

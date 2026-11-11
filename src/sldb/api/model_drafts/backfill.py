@@ -21,6 +21,7 @@ from sldb.core.exceptions import SLDBModelEditError, SLDBModelError, SLDBValidat
 from sldb.api.documents.provenance_stamp import stamped_file
 from sldb.runtime.validation import extract_model_data, render_model_markdown, validate_model_data_roundtrip
 from sldb.store.facade import get_tracked_docs
+from sldb.store.source_guard import aggregate_text, write_source_text
 
 
 @dataclass
@@ -47,7 +48,7 @@ def check_and_plan(store: str | Path | None, model_name: str, old_type: type, ne
 
 def _prepare_all(location, model_name: str, old_type: type, new_type: type, docs: list[tuple[str, str]]) -> list[BackfillDoc]:
     try:
-        return [_prepare(location, model_name, old_type, new_type, name, path) for name, path in docs]
+        return [d for name, path in docs if (d := _prepare(location, model_name, old_type, new_type, name, path)) is not None]
     except (SLDBValidationError, SLDBModelError):
         raise
     except Exception as exc:  # noqa: BLE001 - a broken draft raises whatever it raises
@@ -57,13 +58,14 @@ def _prepare_all(location, model_name: str, old_type: type, new_type: type, docs
 def apply_backfill(store: str | Path | None, model_name: str, new_type: type, plan: list[BackfillDoc], actor: str | None) -> int:
     """Rewrite each planned document, stamped with the actor; returns the count."""
     for doc in plan:
-        doc.path.write_text(stamped_file(doc.path, doc.rendered + "\n", new_type, "backfill_document", actor), encoding="utf-8")
+        write_source_text(doc.path, stamped_file(doc.path, doc.rendered + "\n", new_type, "backfill_document", actor))
     return len(plan)
 
 
-def _prepare(location, model_name: str, old_type: type, new_type: type, name: str, path_str: str) -> BackfillDoc:
-    path = Path(path_str)
-    text = path.read_text(encoding="utf-8")
+def _prepare(location, model_name: str, old_type: type, new_type: type, name: str, path_str: str) -> BackfillDoc | None:
+    """The backfill of one document; None (warned with its finding) when the read guard refuses its path."""
+    if (text := aggregate_text(location.project_root, path := Path(path_str), f"{model_name}:{name}")) is None:
+        return None
     previous = extract_model_data(old_type, text)
     new = _add_new_defaults(new_type, old_type, previous, model_name, name)
     _check_roundtrip(new_type, model_name, name, new)

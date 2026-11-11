@@ -5,6 +5,8 @@ import re
 from pathlib import Path
 from sldb.models.knowledge_surface import CliCommandDoc, SurfaceDoc
 from sldb.runtime.validation import extract_model_data, render_model_markdown
+from sldb.store.source_guard import refuse_unread
+from sldb.store.source_read import read_source_text
 from .command import CommandRecord
 from .planned_document import PlannedDocument
 from .projection import command_fields, surface_fields
@@ -37,8 +39,9 @@ def _surface(record, records, system, factory, output):
 
 
 def _prepare(model, path, fields, defaults):
+    refuse_unread(path.parent, path, f"{model.__name__}:{fields['id']}")  # knowledge/ is generated: a symlink there is refused
     path = path.resolve()
-    previous = path.read_text(encoding="utf-8") if path.exists() else None
+    previous = read_source_text(path) if path.exists() else None
     existing = extract_model_data(model, previous) if previous is not None else defaults
     payload = model.model_validate({**existing, **fields})
     rendered = render_model_markdown(model, payload.model_dump(mode="json")) + "\n"

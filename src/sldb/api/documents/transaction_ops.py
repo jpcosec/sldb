@@ -21,6 +21,7 @@ from sldb.api.documents.untrack_document import untrack_document
 from sldb.api.model_registry.load_registered_model import load_registered_model
 from sldb.core.exceptions import ConflictError
 from sldb.store.io import load_store_index
+from sldb.store.source_guard import read_source_bytes, write_source_bytes
 
 
 def create(state: TransactionState, model: str, name: str, payload: dict[str, Any], path: str | Path | None) -> DocumentReference:
@@ -68,12 +69,12 @@ def write_file(state: TransactionState, path: str | Path, data: bytes, expected_
     """A plain file written in the transaction; with `expected_sha256`, only if its current
     bytes (None when absent) hash to it, else `ConflictError` and nothing is written."""
     target = state.inside(path)
-    actual = hashlib.sha256(target.read_bytes()).hexdigest() if target.exists() else None
+    actual = hashlib.sha256(read_source_bytes(target)).hexdigest() if target.exists() or target.is_symlink() else None
     if expected_sha256 is not None and actual != expected_sha256:
         raise ConflictError(state.relative(target), expected_sha256, actual)
     state.remember([target])
     target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_bytes(data)
+    write_source_bytes(target, data)  # O_NOFOLLOW: a symlink swapped in after the read is not written through
     return target
 
 

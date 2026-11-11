@@ -8,6 +8,8 @@ from pathlib import Path
 
 from sldb.models.knowledge_surface import PythonSymbolDoc
 from sldb.runtime.validation import extract_model_data, render_model_markdown
+from sldb.store.source_guard import refuse_unread
+from sldb.store.source_read import read_source_text
 from .python_purpose import merged_purpose
 
 from .planned_document import PlannedDocument
@@ -30,8 +32,9 @@ def _validate_system(system: str) -> None:
 
 def _plan(record: PythonSymbol, named: tuple[str, str], output: Path, spec: str) -> PlannedDocument:
     fields = _fields(record, named, spec)
-    path = (output / "symbols" / f"{fields['id']}.md").resolve()
-    previous = path.read_text(encoding="utf-8") if path.exists() else None
+    refuse_unread(output, raw := output / "symbols" / f"{fields['id']}.md", f"PythonSymbolDoc:{fields['id']}")  # knowledge/ is generated: a symlink there is refused
+    path = raw.resolve()
+    previous = read_source_text(path) if path.exists() else None
     existing = extract_model_data(PythonSymbolDoc, previous) if previous else _defaults(record)
     fields["purpose"] = merged_purpose(existing.get("purpose"), existing.get("docstring"), record.docstring)
     payload = PythonSymbolDoc.model_validate({**existing, **fields})

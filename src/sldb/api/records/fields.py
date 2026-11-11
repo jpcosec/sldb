@@ -7,6 +7,7 @@ from sldb.api.model_registry.model_reference import resolve_model_ref
 from .flatten import flatten_payload
 from .map_fields import _map_fields_to_sections
 from .extract import extract_sections
+from sldb.store.source_guard import aggregate_text
 
 def query_field_records(store_arg: str | None, pythonpath: str | None, field_ref: str, include_linked: bool = False) -> list[dict[str, Any]]:
     location = open_store(store_arg)
@@ -47,8 +48,7 @@ def _get_owning_section_map(doc, model_sections):
     return _extract_from_path(doc, doc_template)
 
 def _extract_from_path(doc, doc_template):
-    doc_path = project_root(doc.store_path) / doc.path
-    if doc_path.exists():
-        sections = extract_sections(doc_path.read_text(encoding="utf-8"))
-        return _map_fields_to_sections(doc_template, sections)
+    root = project_root(doc.store_path)
+    if (root / doc.path).exists() and (text := aggregate_text(root, root / doc.path, f"{doc.model_name}:{doc.name}")) is not None:
+        return _map_fields_to_sections(doc_template, extract_sections(text))
     return {}

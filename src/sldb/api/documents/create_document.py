@@ -13,10 +13,12 @@ from sldb.api.documents.frontmatter_keys import refuse_undeclared_frontmatter
 from sldb.api.model_registry.model_reference import resolve_model_ref
 from sldb.api.rules.rule_writes import refuse_unknown_family
 from sldb.api.stores.open_store import open_store
-from sldb.core.exceptions import SLDBValidationError
+from sldb.core.exceptions import SLDBDocumentTargetError, SLDBValidationError
 from sldb.api.documents.provenance_stamp import stamped
 from sldb.runtime.validation import render_model_markdown, validate_model_input_roundtrip
 from sldb.store.ops import track_document
+from sldb.store.source_guard import READ_CODES, write_source_text
+from sldb.store.source_read import SYMLINK
 
 
 def create_document(store: str | Path | None, model_name: str, path: str | Path, payload: dict[str, Any], name: str | None = None, pythonpath: str | None = None, actor: str | None = None) -> DocumentReference:
@@ -48,7 +50,7 @@ def create_document(store: str | Path | None, model_name: str, path: str | Path,
     doc_name = name or doc_path.stem
     refuse_noise(registered.model_type, rendered, doc_name, location.store_path)
     doc_path.parent.mkdir(parents=True, exist_ok=True)
-    doc_path.write_text(stamped(rendered + "\n", registered.model_type, "create_document", actor), encoding="utf-8")
+    write_source_text(doc_path, stamped(rendered + "\n", registered.model_type, "create_document", actor))
     _track(location.store_path, location.project_root, registered, doc_path, doc_name, pythonpath)
     return DocumentReference(model=registered.entry.name, name=doc_name, path=doc_path)
 
@@ -63,8 +65,12 @@ def refuse_noise(model_type: type, markdown: str, name: str, store_path: Path | 
 
 
 def _resolve_path(raw: str | Path, root: Path) -> Path:
-    raw_path = Path(raw)
-    return raw_path.resolve() if raw_path.is_absolute() else (root / raw_path).resolve()
+    """The new document's path, resolved; a symlink there is refused BEFORE resolving (the write
+    would go where it points). A plain path outside the project is still created (spec2viz)."""
+    raw_path = Path(raw) if Path(raw).is_absolute() else root / raw
+    if raw_path.is_symlink():
+        raise SLDBDocumentTargetError(f"[{READ_CODES[SYMLINK]}] {raw}: the path is a symlink; sldb does not write it")
+    return raw_path.resolve()
 
 
 def _track(sp: Path, root: Path, registered, doc_path: Path, doc_name: str, pythonpath: str | None) -> None:

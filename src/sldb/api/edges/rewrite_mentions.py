@@ -57,6 +57,16 @@ def rewritten_line(line: str, graph: ProjectGraph, target: Target, replacement: 
     return line, changes, skips
 
 
+def rewritten_text(text: str, graph: ProjectGraph | None, path: str, hits: list[tuple[Referrer, Any]], target: Target, replacement: Target | None) -> tuple[str, list[dict[str, Any]], list[dict[str, Any]]]:
+    """(new text, changes, skips) of one mentioning file's text, each hit's line rewritten."""
+    lines, changes, skips = text.split("\n"), [], []
+    for referrer, _ in hits:
+        number = int((referrer.location or ":0").rsplit(":", 1)[1])
+        lines[number - 1], made, left = rewritten_line(lines[number - 1], graph, target, replacement, referrer) if 0 < number <= len(lines) and graph else (lines[number - 1], [], [{"source": path, "location": referrer.location, "reason": "the line is gone"}])
+        changes, skips = changes + made, skips + left
+    return "\n".join(lines), changes, skips
+
+
 def _replaced(line: str, text: str, new: str, referrer: Referrer, changes: list, skips: list) -> str:
     rewritten = re.sub(rf"(?<!{TOKEN}){re.escape(text)}{AFTER}", lambda _: new, line)
     if rewritten == line:

@@ -6,6 +6,7 @@ from sldb.selfdoc.planned_document import PlannedDocument
 from sldb.selfdoc.report import DocumentationReport
 from sldb.models.knowledge_surface import PythonSymbolDoc
 from sldb.runtime.validation import extract_model_data
+from sldb.store.source_guard import target_text
 from .selfdoc_registry import DocumentationRegistry
 
 
@@ -50,7 +51,7 @@ def _managed_files(output: Path, system: str, models: set[str]) -> list[Path]:
 def rename_candidates(plans, removed: list[str], root: Path) -> list[dict[str, str]]:
     """Report heuristic Python fact matches without guaranteeing uniqueness."""
     new = _new_symbol_ids(plans)
-    candidates = [_rename_candidate(root / path, new) for path in removed if path.startswith("knowledge/symbols/")]
+    candidates = [_rename_candidate(root, path, new) for path in removed if path.startswith("knowledge/symbols/")]
     return [candidate for candidate in candidates if candidate is not None]
 
 
@@ -62,10 +63,11 @@ def _new_symbol_ids(plans) -> dict[tuple, list[str]]:
     return ids
 
 
-def _rename_candidate(path: Path, new: dict[tuple, list[str]]) -> dict[str, str] | None:
-    if not path.exists():
+def _rename_candidate(root: Path, rel: str, new: dict[tuple, list[str]]) -> dict[str, str] | None:
+    """The rename a removed symbol doc stands for; a symlink in knowledge/ (generated) is refused."""
+    if not (root / rel).exists() and not (root / rel).is_symlink():
         return None
-    old = extract_model_data(PythonSymbolDoc, path.read_text(encoding="utf-8"))
+    old = extract_model_data(PythonSymbolDoc, target_text(root, root / rel, rel))
     targets = new.get(_symbol_key(PythonSymbolDoc.model_validate(old)), [])
     return {"from": old["id"], "to": targets[0]} if len(targets) == 1 and targets[0] != old["id"] else None
 

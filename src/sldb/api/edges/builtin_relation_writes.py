@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import logging
 from pathlib import Path
 
 from sldb.api.documents.provenance_stamp import stamped_file
@@ -14,21 +15,34 @@ from sldb.store import documents_hash
 from sldb.store.io import load_store_index, save_store_index
 from sldb.store.models import PredicateEntry
 from sldb.store.ops import track_document
+from sldb.store.source_guard import aggregate_text, unread_line, write_source_text
+
+logger = logging.getLogger(__name__)
 
 BUILTIN_DIR = Path("sldb") / "relation_types"
 
 
 def write_builtin_relation_types(sp: Path, root: Path, pythonpath: str | None, report: RelationsInitReport) -> None:
-    """One RelationTypeDoc per builtin relation that is not tracked yet, under `sldb/relation_types/`."""
+    """One RelationTypeDoc per builtin relation that is not tracked yet, under `sldb/relation_types/`;
+    a path there the read guard refuses (outside the root, or a symlink) is warned and not written."""
     registered = load_registered_model(sp, "RelationTypeDoc", pythonpath)
     tracked = {e.name: e.path for e in documents_hash.entries_of(sp, "RelationTypeDoc")}
     for spec in (s for s in BUILTIN_RELATION_TYPES if _tracked_path(s, tracked) is None):
-        path = root / BUILTIN_DIR / f"{spec['name']}.md"
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(stamped_file(path, render_model_markdown(registered.model_type, builtin_payload(spec), root) + "\n", registered.model_type, "init_relations"), encoding="utf-8")
-        track_document(sp, root, load_store_index(sp), registered.model_type, registered.entry, path, builtin_doc_name(spec), resolve_model_ref, pythonpath)
-        report.types_written.append(spec["name"])
+        if _write_builtin(sp, root, registered, spec, pythonpath):
+            report.types_written.append(spec["name"])
     _refresh_outdated(root, registered.model_type, tracked, report)
+
+
+def _write_builtin(sp: Path, root: Path, registered, spec, pythonpath: str | None) -> bool:
+    """Write and track one builtin; False (warned) when the read guard refuses its path."""
+    path = root / BUILTIN_DIR / f"{spec['name']}.md"
+    if (line := unread_line(root, path, f"RelationTypeDoc:{builtin_doc_name(spec)}")) is not None:
+        logger.warning(line)
+        return False
+    path.parent.mkdir(parents=True, exist_ok=True)
+    write_source_text(path, stamped_file(path, render_model_markdown(registered.model_type, builtin_payload(spec), root) + "\n", registered.model_type, "init_relations"))
+    track_document(sp, root, load_store_index(sp), registered.model_type, registered.entry, path, builtin_doc_name(spec), resolve_model_ref, pythonpath)
+    return True
 
 
 #: What a builtin's spec decides; a tracked builtin that disagrees on any of these is rewritten.
@@ -48,11 +62,11 @@ def _refresh_outdated(root: Path, model_type, tracked: dict[str, str], report: R
     for spec in BUILTIN_RELATION_TYPES:
         rel = tracked.get(builtin_doc_name(spec))  # only what sldb wrote: a bare name may be authored
         path = root / rel if rel else None
-        if spec["name"] in report.types_written or path is None or not path.exists():
+        if spec["name"] in report.types_written or path is None or not path.exists() or (text := aggregate_text(root, path, f"RelationTypeDoc:{rel}")) is None:
             continue
-        current, wanted = extract_model_data(model_type, path.read_text(encoding="utf-8")), builtin_payload(spec)
+        current, wanted = extract_model_data(model_type, text), builtin_payload(spec)
         if any(current.get(k) != wanted[k] for k in _SPEC_KEYS):
-            path.write_text(stamped_file(path, render_model_markdown(model_type, wanted, root) + "\n", model_type, "init_relations"), encoding="utf-8")
+            write_source_text(path, stamped_file(path, render_model_markdown(model_type, wanted, root) + "\n", model_type, "init_relations"))
             report.types_updated.append(spec["name"])
 
 

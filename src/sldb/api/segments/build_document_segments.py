@@ -10,6 +10,7 @@ from sldb.api.segments.field_ref_resolver import FieldRefResolver
 from sldb.api.segments.segment_nodes import build_node
 from sldb.core.segments.instrumented_render import render_with_spans
 from sldb.core.segments.segment_tree import build_segment_tree
+from sldb.store.source_guard import target_text
 
 
 def build_document_segments(store_path: Path, pythonpath: str | None, doc: str) -> DocumentSegments:
@@ -28,13 +29,15 @@ def build_document_segments(store_path: Path, pythonpath: str | None, doc: str) 
 def _is_canonical(store_path: Path, path: str | None, text: str) -> bool | None:
     if not path:
         return None
-    return _read_stripped(store_path.parent / path, text)
+    return _read_stripped(store_path.parent, path, text)
 
 
-def _read_stripped(file_path: Path, text: str) -> bool | None:
+def _read_stripped(root: Path, path: str, text: str) -> bool | None:
+    """Whether the file, block aside, is the canonical render; read through the guard (a path
+    outside the root, or a symlink, fails as `SLDBDocumentTargetError` naming its finding)."""
     try:
         from sldb.models.provenance_block import strip_block
 
-        return strip_block(file_path.read_text(encoding="utf-8")).strip() == text
+        return strip_block(target_text(root, root / path, path)).strip() == text
     except OSError:
         return None

@@ -6,6 +6,7 @@ import yaml
 from sldb.cli.graph_ops import build_document_ir, resolve_runtime_doc
 from sldb.cli.store_context import get_store_context
 from sldb.store.io import load_store_index
+from sldb.store.source_read import read_source_text
 from sldb.cli.commands.sections_common import load_persisted_sections, section_record_to_entry
 
 class ShowSectionsCLI:
@@ -24,7 +25,7 @@ class ShowSectionsCLI:
         return self._build_ir_entries(runtime_doc)
 
     def _build_ir_entries(self, runtime_doc: dict) -> list[dict]:
-        markdown = Path(runtime_doc["absolute_path"]).read_text(encoding="utf-8")
+        markdown = read_source_text(Path(runtime_doc["absolute_path"]))
         ir = build_document_ir(runtime_doc, markdown, template=runtime_doc.get("template"))
         return [entry.model_dump(mode="json") for entry in ir.context_index]
 

@@ -12,7 +12,7 @@ from typing import Any
 
 from sldb.api.edges.edge_reading import load_edge_index
 from sldb.api.stores.open_store import open_store
-from sldb.api.views.view_source import VIEW_MODEL, bare_name, qualified_name, read_view_node, view_node
+from sldb.api.views.view_source import VIEW_MODEL, bare_name, qualified_name, read_view_node, readable_view_node, view_node
 from sldb.core.exceptions import SLDBValidationError
 from sldb.models.notation.view_doc import ViewDoc
 
@@ -24,7 +24,7 @@ def list_views(store: str | Path | None) -> list[dict[str, Any]]:
     index = load_edge_index(open_store(store, mode="readonly").store_path, include_linked=True)
     nodes = index.nodes_of_type(VIEW_MODEL)
     clashes = Counter(n.semantics["export_id"] for n in nodes)
-    named = [(listed_name(n, clashes), read_view_node(n)) for n in nodes]
+    named = [(listed_name(n, clashes), view) for n in nodes if (view := readable_view_node(n)) is not None]  # a refused path is warned, not listed
     return [summary(name, view) for name, view in sorted(named, key=lambda nv: nv[0]) if view.sections]
 
 
