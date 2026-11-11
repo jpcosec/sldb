@@ -1,13 +1,11 @@
 name: review-task-h9-run-view-y-list-views-encuentran-una-viewdoc-de-un-store-enlazado-y-leen-su-archivo-desde-la-raíz-reproduction-1
 path: desk/reviews/task-h9-run-view-y-list-views-encuentran-una-viewdoc-de-un-store-enlazado-y-leen-su-archivo-desde-la-raíz/reproduction-1.md
 source_hash: 60cd2ad9cee087217151d0964fcc65f4064ea4bdd983021b992ff6be574fb7ae
-content_hash: 0e207fe21022f671d2cc3d522f4475f8168cf64528e8c31cf1412edfa4e8c630
+content_hash: 6bc9100393061ed38bc321ee729873517a6499dce020a9213fc96967725001da
 field_hashes:
   id: 3fac05fb3a0d75e80b0f5045e4bbff2534bbcae44220bd11138e8c04d5fc1f70
   title: b48b9798133a5861c3916c8221558614821b49f65fceff99aa4f3af578e61505
   kind: 368fe53d1f06908176884aa53b85fb3135f2431d04d9892f2b26b178bfe9c736
-  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   subject: 0adde5481ed2fb130aa49dc0dc3d97dd2fdda418d926d89551f87583945e1f0e
   subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   engine: 11e25bab0df4bb9f63c6dde985fea5de0ef16abdb2ec640dc08e7e97ec6b1d15
