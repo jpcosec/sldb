@@ -1,0 +1,20 @@
+### 0 sldb main 7b9b1e6d (con seguridad 39221856), deskops main 0eb4f36b solo para armar el desk
+Initialization complete.
+Task: /dev/shm/repro-secrest/desk/tasks/task-repro-uno.md
+Task: /dev/shm/repro-secrest/desk/tasks/task-repro-dos.md
+### 1 un documento trackeado pasa a ser symlink a un archivo fuera de la raíz
+desk/tasks/task-repro-dos.md -> /dev/shm/outside-secret2/secreto-externo.md
+### sldb stores check --store .sldb
+[audit] stores check --store .sldb: rc=Unexpected: 2 validation errors for TaskCodeDoc
+### sldb stores update --store .sldb
+[audit] stores update --store .sldb: rc=Unexpected: 2 validation errors for TaskCodeDoc
+### sldb stores build --store .sldb
+[audit] stores build --store .sldb: rc=Unexpected: /dev/shm/repro-secrest/.sldb/store.yaml does not exist: run `sldb stores declare --write` first; .md fuera de la raíz abiertos: []
+### sldb stores build --check --store .sldb
+[audit] stores build --check --store .sldb: rc=Unexpected: /dev/shm/repro-secrest/.sldb/store.yaml does not exist: run `sldb stores declare --write` first; .md fuera de la raíz abiertos: []
+### sldb stores check --store .sldb
+[audit] stores check --store .sldb: .md fuera de la raíz abiertos: ['/dev/shm/deskops-main/deskops/data/lifecycle/closeout-task_completes.md', '/dev/shm/deskops-main/deskops/data/lifecycle/execution-task_activates.md', '/dev/shm/deskops-main/deskops/data/lifecycle/testing-task_hands_to_closeout.md', '/dev/shm/deskops-main/deskops/data/lifecycle/type-task_activates.md', '/dev/shm/deskops-main/deskops/data/lifecycle/type-task_completes.md', '/dev/shm/deskops-main/deskops/data/lifecycle/type-task_hands_to_closeout.md', '/dev/shm/outside-secret2/secreto-externo.md']; rc='Unexpected: 2 validation errors for TaskCodeDoc'
+### sldb stores update --store .sldb
+[audit] stores update --store .sldb: .md fuera de la raíz abiertos: ['/dev/shm/outside-secret2/secreto-externo.md']; rc='Unexpected: 2 validation errors for TaskCodeDoc'
+### sldb docs track desk/tasks/task-repro-dos.md --store .sldb
+[audit] docs track desk/tasks/task-repro-dos.md --store .sldb: .md fuera de la raíz abiertos: []; rc='2'
