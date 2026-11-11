@@ -23,6 +23,7 @@ from typing import Any
 
 from sldb.api.stores.declared_includes import tracked_rows
 from sldb.api.stores.store_declaration import declared_store, load_declaration
+from sldb.api.stores.unread_documents import unread_declared
 from sldb.cli.commands.stores_link_alert import link_missing_alert
 from sldb.cli.output_format import emit
 from sldb.core.finding import Finding, alert, error
@@ -50,7 +51,7 @@ def check_build(store: Path, root: Path, scratch: Path) -> dict[str, Any]:
     built = build_store(built_store, copy)
     integrity, checked = _integrity(built_store)
     differences = _differences(store, root, built_store, copy, tuple(load_declaration(store).derived)) if store_exists(store) else []
-    alerts = [{**a, "subject": f"copy: {a['subject']}"} for a in checked.get("alerts", [])] + [_behind(d) for d in differences if d.startswith("only rebuilt")] + [link_missing_alert(link) for link in built.get("links_missing", [])]
+    alerts = [{**a, "subject": f"copy: {a['subject']}"} for a in checked.get("alerts", [])] + [_behind(d) for d in differences if d.startswith("only rebuilt")] + [link_missing_alert(link) for link in built.get("links_missing", [])] + [{**a, "subject": f"copy: {a['subject']}"} for a in unread_declared(copy, load_declaration(built_store))]
     ok = integrity == 0 and not built["undeclared"] and not built["missing"] and not any(d.startswith("only local") for d in differences)
     return {"ok": ok, "integrity_exit": integrity, "undeclared": built["undeclared"], "missing": built["missing"], "differences": differences, "errors": checked.get("errors", []), "alerts": alerts}
 
@@ -89,9 +90,9 @@ def _integrity(store: Path) -> tuple[int, dict]:
 def _copy_sources(root: Path, copy: Path, store: Path, derived: tuple[str, ...]) -> Path:
     listed = subprocess.run(["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z"], cwd=root, capture_output=True, check=True).stdout
     for name in filter(None, listed.decode().split("\0")):
-        if not name.startswith(derived) and (root / name).is_file():
+        if not name.startswith(derived) and ((root / name).is_symlink() or (root / name).is_file()):
             (copy / name).parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(root / name, copy / name)
+            shutil.copy2(root / name, copy / name, follow_symlinks=False)  # a symlink stays one: the rebuild's guard names it
     (copy / store.relative_to(root)).mkdir(parents=True, exist_ok=True)
     return copy
 

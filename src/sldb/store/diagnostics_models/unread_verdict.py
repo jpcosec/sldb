@@ -12,10 +12,16 @@ from sldb.store.diagnostics_models.document_diagnosis import DocumentDiagnosis
 from sldb.store.source_read import OUTSIDE_ROOT, unreadable_reason
 
 
+def unread_note(root: Path, doc_path: Path) -> DiagnosisNote | None:
+    """`PATH_OUTSIDE_ROOT` or `SYMLINK_NOT_READ` for a tracked path that must not be read; else None."""
+    if (reason := unreadable_reason(root, doc_path)) is None:
+        return None
+    return DiagnosisNote.PATH_OUTSIDE_ROOT if reason == OUTSIDE_ROOT else DiagnosisNote.SYMLINK_NOT_READ
+
+
 def unread_diagnosis(doc, root: Path, doc_path: Path) -> DocumentDiagnosis | None:
     """The verdict of a document that is not read; None when it may be read."""
-    if (reason := unreadable_reason(root, doc_path)) is not None:
-        note = DiagnosisNote.PATH_OUTSIDE_ROOT if reason == OUTSIDE_ROOT else DiagnosisNote.SYMLINK_NOT_READ
+    if (note := unread_note(root, doc_path)) is not None:
         return DocumentDiagnosis(name=doc.name, path=doc.path, content_ok=False, fields_ok=False, path_exists=True, note=note, content_in_index=doc.source_hash, fields_in_index=doc.content_hash)
     if not doc_path.exists():
         return DocumentDiagnosis(name=doc.name, path=doc.path, content_ok=False, fields_ok=False, path_exists=False, note=DiagnosisNote.MISSING, content_in_index=doc.source_hash, fields_in_index=doc.content_hash)

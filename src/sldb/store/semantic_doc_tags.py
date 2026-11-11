@@ -14,6 +14,7 @@ from pathlib import Path
 
 from sldb.store.codec import StoreCodec, default_codec
 from sldb.store.semantic_tags import collect_document_semantic_tags
+from sldb.store.source_read import read_source_text
 
 _DOC_TAGS: dict[tuple, list[str]] = {}
 
@@ -23,7 +24,7 @@ def _extract_tags(doc, doc_path: Path, model_type, m_name: str, codec: StoreCode
     payload = payload_of(doc.path, doc.hash_c, model_type) if codec is default_codec else None
     if payload is None:
         try:
-            payload = codec.extract(model_type, doc_path.read_text(encoding="utf-8"))
+            payload = codec.extract(model_type, read_source_text(doc_path))
         except Exception:  # noqa: BLE001 - an unreadable document has no tags of its own
             payload = {}
     return collect_document_semantic_tags(model_type, payload)

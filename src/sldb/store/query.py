@@ -10,6 +10,7 @@ from sldb.store.io import (
     load_store_index,
 )
 from sldb.store.query_engine.models import RuntimeDocument
+from sldb.store.source_read import guarded_text
 from sldb.store.runtime_cache import cached_document, cached_store, invalidate_runtime_cache  # noqa: F401
 
 
@@ -20,10 +21,9 @@ def _resolve_path(base: Path, maybe_relative: str) -> Path:
 
 
 def _extract_doc(doc, root, model_type, m_entry, s_name, s_path, codec: StoreCodec) -> RuntimeDocument | None:
-    d_path = root / doc.path
-    if not d_path.exists():
-        return None
-    return RuntimeDocument(store_name=s_name, store_path=s_path, model_name=m_entry.name, model_type=model_type, name=doc.name, path=doc.path, payload=codec.extract(model_type, d_path.read_text(encoding="utf-8")), semantic_tags=list(doc.semantic_tags), source_hash=doc.source_hash, content_hash=doc.content_hash, field_hashes=dict(doc.field_hashes or {}), provenance=doc.provenance)
+    if (text := guarded_text(root, root / doc.path)) is None:
+        return None  # missing, or not read (source_read): `stores check` names it
+    return RuntimeDocument(store_name=s_name, store_path=s_path, model_name=m_entry.name, model_type=model_type, name=doc.name, path=doc.path, payload=codec.extract(model_type, text), semantic_tags=list(doc.semantic_tags), source_hash=doc.source_hash, content_hash=doc.content_hash, field_hashes=dict(doc.field_hashes or {}), provenance=doc.provenance)
 
 
 def _load_doc(doc, root, model_type, m_entry, s_name, s_path, codec: StoreCodec = default_codec) -> RuntimeDocument | None:

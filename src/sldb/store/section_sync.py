@@ -15,6 +15,7 @@ from sldb.store.io.shards import prune_shards
 from sldb.store.layout import sections_index_relpath, sections_shards_dir
 from sldb.store.section_doc_contribution import sync_doc_shard
 from sldb.store.section_paths import section_cache_key
+from sldb.store.source_read import unreadable_reason
 
 logger = logging.getLogger(__name__)
 
@@ -55,6 +56,8 @@ def _sync_model_sections(store_path, m_entry, m_idx, root, report, process_doc_s
 
 def _sync_one_section(store_path, doc, m_entry, root, report, process_doc_sections, do_sync: bool) -> bool:
     d_path = root / doc.path
+    if unreadable_reason(root, d_path) is not None:
+        return False  # not read (source_read): `stores check` and `stores update` name it
     if not d_path.exists():
         _missing_doc(doc, d_path, report)
         return False
