@@ -1,0 +1,18 @@
+sldb 0.1.13 /dev/shm/deskops-cc34/venv/lib/python3.13/site-packages/sldb/api/__init__.py
+run_view(B, 'probe') -> ['view', 'params', 'revision', 'sections']
+composed index of A, document ids: ['sldb://document/B:ViewDoc:probe']
+index.node('B:ViewDoc:probe').semantics: {"export_id": "ViewDoc:probe", "path": "views/probe.md", "store": "B"}
+index.node('ViewDoc:probe'): None
+run_view(A, 'probe') ->
+Traceback (most recent call last):
+  File "/mnt/ssd/proyectos/SLDB_1/coord2-ccconfig/cc34/h9-repro/h9_repro.py", line 31, in <module>
+    api.run_view(a, "probe")
+    ~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/dev/shm/deskops-cc34/venv/lib/python3.13/site-packages/sldb/api/views/run_view.py", line 40, in run_view
+    view = load_view(reading.store_path, name, reading.index)
+  File "/dev/shm/deskops-cc34/venv/lib/python3.13/site-packages/sldb/api/views/list_views.py", line 37, in load_view
+    view = read_view(store_path, f"{VIEW_MODEL}:{name}", index)
+  File "/dev/shm/deskops-cc34/venv/lib/python3.13/site-packages/sldb/api/views/list_views.py", line 47, in read_view
+    raise SLDBDocumentTargetError(f"Unknown view: {export_id.split(':', 1)[-1]}")
+sldb.core.exceptions.sldb_document_target_error.SLDBDocumentTargetError: Unknown view: probe
+sldb source: git archive of sldb origin/main 1c3132aa (installed in /dev/shm/deskops-cc34/venv)
