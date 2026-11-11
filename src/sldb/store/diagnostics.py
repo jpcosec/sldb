@@ -7,10 +7,13 @@ from sldb.store.field_set_drift import document_drifted
 from sldb.store.diagnostics_models.text_history import with_history
 from sldb.store.layout import project_root as store_project_root
 from sldb.store.hashing import (
+    OUTSIDE_ROOT,
     hash_documents_index,
     hash_fields_with_map,
     hash_models_layer,
     hash_text,
+    read_source_text,
+    unreadable_reason,
 )
 from sldb.store.io import load_documents_index, load_models_index, load_store_index
 from sldb.store.legacy_contract import legacy_contract
@@ -47,9 +50,12 @@ def _diagnose_doc(doc, root: Path, model_type: Any, contract_ok: bool = True) ->
     the operator to restore a file nobody touched. The model is named as unresolved.
     """
     doc_path = root / doc.path
+    if (reason := unreadable_reason(root, doc_path)) is not None:
+        note = DiagnosisNote.PATH_OUTSIDE_ROOT if reason == OUTSIDE_ROOT else DiagnosisNote.SYMLINK_NOT_READ
+        return DocumentDiagnosis(name=doc.name, path=doc.path, content_ok=False, fields_ok=False, path_exists=True, note=note, content_in_index=doc.source_hash, fields_in_index=doc.content_hash)
     if not doc_path.exists():
         return DocumentDiagnosis(name=doc.name, path=doc.path, content_ok=False, fields_ok=False, path_exists=False, note=DiagnosisNote.MISSING, content_in_index=doc.source_hash, fields_in_index=doc.content_hash)
-    text = doc_path.read_text(encoding="utf-8")
+    text = read_source_text(doc_path)
     content_on_disk = hash_text(text)
     content_ok = content_on_disk == doc.source_hash
     fields_on_disk, map_on_disk, fields_ok = _fields_state(model_type, text, doc, content_ok)
@@ -104,9 +110,14 @@ def _diagnose_model(model_entry, root, pythonpath, resolve_model_ref: Callable) 
     legacy = legacy_contract(models_idx, model_type)
     drifted = any(document_drifted(d, root, model_type) for d in docs_idx.documents)  # see sldb.store.field_set_drift
     contract_ok = (legacy or not contract_moved(models_idx, model_type)) and not drifted
-    doc_diagnoses = [with_history(_diagnose_doc(d, root, model_type, contract_ok), root) for d in docs_idx.documents]
+    doc_diagnoses = [_with_history(_diagnose_doc(d, root, model_type, contract_ok), root) for d in docs_idx.documents]
     roster_ok = hash_documents_index(docs_idx) == models_idx.roster_hash
     return ModelDiagnosis(name=models_idx.name, roster_ok=roster_ok, contract_ok=contract_ok, legacy_contract=legacy, resolved=model_type is not None, source_path=models_idx.path, documents=doc_diagnoses), models_idx
+
+def _with_history(doc: DocumentDiagnosis, root: Path) -> DocumentDiagnosis:
+    """The text's git history, except for a path sldb would not read (nothing to compare)."""
+    return doc if doc.note in (DiagnosisNote.PATH_OUTSIDE_ROOT, DiagnosisNote.SYMLINK_NOT_READ) else with_history(doc, root)
+
 
 def diagnose_store(store_path: Path, resolve_model_ref: Callable, project_root: Optional[Path] = None, pythonpath: Optional[str] = None) -> StoreDiagnosis:
     """Diagnoses the integrity of the entire store."""

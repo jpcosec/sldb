@@ -3,7 +3,7 @@ from dataclasses import dataclass, field
 from sldb.store.diagnostics_models.model_diagnosis import ModelDiagnosis
 from sldb.store.diagnostics_models.diagnosis_note import DiagnosisNote
 
-_DAMAGING = (DiagnosisNote.DATA_MUTATION, DiagnosisNote.MISSING)
+_DAMAGING = (DiagnosisNote.DATA_MUTATION, DiagnosisNote.MISSING, DiagnosisNote.PATH_OUTSIDE_ROOT, DiagnosisNote.SYMLINK_NOT_READ)
 
 
 @dataclass

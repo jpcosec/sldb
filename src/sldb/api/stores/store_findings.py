@@ -14,7 +14,12 @@ from sldb.core.finding import Finding, alert, error
 from sldb.store.diagnostics_models.diagnosis_note import DiagnosisNote
 
 _UPDATE = "sldb stores update"
-_DOC_CODES = {DiagnosisNote.DATA_MUTATION: "store/data-mutation", DiagnosisNote.CONTRACT_MUTATION: "store/contract-mutation"}
+_DOC_CODES = {
+    DiagnosisNote.DATA_MUTATION: "store/data-mutation",
+    DiagnosisNote.CONTRACT_MUTATION: "store/contract-mutation",
+    DiagnosisNote.PATH_OUTSIDE_ROOT: "store/path-outside-root",
+    DiagnosisNote.SYMLINK_NOT_READ: "store/symlink-not-read",
+}
 
 
 def diagnosis_findings(diagnosis: Any) -> list[Finding]:
