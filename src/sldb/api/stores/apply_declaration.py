@@ -21,6 +21,7 @@ from sldb.store.io import load_store_index, save_store_index
 from sldb.store.model_import_root import import_root
 from sldb.store.layout import store_exists
 from sldb.store.models import PredicateEntry
+from sldb.api.stores.unread_documents import warn_unread
 
 
 def apply_links(store_path: Path, root: Path, declaration: StoreDeclaration) -> list[str]:
@@ -67,7 +68,8 @@ def apply_predicates(store_path: Path, declaration: StoreDeclaration) -> bool:
 def apply_includes(store_path: Path, root: Path, declaration: StoreDeclaration) -> list[str]:
     """Track every declared file that is not tracked yet under its declared model and name."""
     tracked = set(tracked_rows(store_path, root))
-    new = [row for row in declared_files(root, declaration, store_bases(store_path)) if row not in tracked and (root / row[1]).is_file()]
+    pending = [row for row in declared_files(root, declaration, store_bases(store_path)) if row not in tracked]
+    new = [row for row in pending if warn_unread(root, root / row[1], row[1]) is None and (root / row[1]).is_file()]  # a symlink or an escape: named, not tracked
     for model, path, name in new:
         track_document_file(store_path, model, root / path, name, str(root), force=True)
     return [path for _, path, _ in new]

@@ -16,6 +16,7 @@ from sldb.store.field_set_drift import signed_under_other_fields
 from sldb.store.model_node import contract_moved
 from sldb.store.io import load_documents_index, load_models_index
 from sldb.store.models.store_index import StoreIndex
+from sldb.api.stores.unread_documents import tracked_text
 
 
 def _process_models(idx: StoreIndex, root: Path, pypath: str | None, skipped_models: list[str], skipped_docs: list[str], pending: list[tuple[Any, Any, Any]], changed: dict[str, list[Any]]) -> None:
@@ -75,11 +76,8 @@ def _process_doc(doc: Any, mtype: Any, m_name: str, root: Path, skipped_docs: li
     knew it. `force` is the one case where the text is not the trigger: the model's contract
     moved, so the payload can change with the text standing still.
     """
-    doc_path = root / doc.path
-    if not doc_path.exists():
-        skipped_docs.append(doc.name)
+    if (text := tracked_text(root, doc, m_name, skipped_docs)) is None:
         return False
-    text = doc_path.read_text(encoding="utf-8")
     fresh = hash_text(text)
     force = force or signed_under_other_fields(doc.field_hashes, mtype)  # see sldb.store.field_set_drift
     if _trusted(doc, fresh, force):

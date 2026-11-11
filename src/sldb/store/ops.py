@@ -16,6 +16,7 @@ from sldb.store.runtime_codec import index_block
 from sldb.store.edge_rebuild import rebuild_edges_indexes
 from sldb.store.section_rebuild import rebuild_sections_indexes
 from sldb.store.semantic import rebuild_semantic_indexes
+from sldb.store.source_read import read_source_text
 
 
 class StoreOperations:
@@ -25,7 +26,7 @@ class StoreOperations:
     def track(store_path: Path, project_root: Path, store_index: StoreIndex, model_type: type, model_entry: Any, doc_path: Path, doc_name: str, resolve_model_ref: Callable, pythonpath: str | None = None) -> None:
         StoreOperations._pre_check(store_path, project_root, model_entry, doc_name)
         rel = _get_rel(doc_path, project_root)
-        txt = doc_path.read_text(encoding="utf-8")
+        txt = read_source_text(doc_path)  # O_NOFOLLOW; `track_document_file` refused a symlink or an escape first
         with store_lock(store_path):
             StoreOperations._do_track(store_path, project_root, store_index, model_type, model_entry, doc_name, rel, txt, resolve_model_ref, pythonpath)
 

@@ -14,6 +14,7 @@ from pathlib import Path
 from sldb.api.actor import current_actor
 from sldb.models.provenance import Provenance
 from sldb.models.provenance_block import attach_block, read_block, strip_block
+from sldb.store.source_read import read_source_text
 
 
 def stamped(text: str, model_type: type, via: str, actor: str | None = None, previous: str | None = None) -> str:
@@ -28,7 +29,7 @@ def stamped(text: str, model_type: type, via: str, actor: str | None = None, pre
 
 def stamped_file(path: Path, text: str, model_type: type, via: str, actor: str | None = None) -> str:
     """`stamped` against what `path` holds now, if anything."""
-    previous = path.read_text(encoding="utf-8") if path.exists() else None
+    previous = read_source_text(path) if path.exists() else None  # the caller refused a symlink first
     return stamped(text, model_type, via, actor, previous)
 
 

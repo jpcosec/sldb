@@ -27,6 +27,7 @@ from sldb.api.stores.open_store import open_store
 from sldb.api.stores.store_location import StoreLocation
 from sldb.core.exceptions import SLDBDocumentTargetError, SLDBValidationError
 from sldb.runtime.validation import validate_model_input_roundtrip
+from sldb.store.source_read import refuse_unreadable
 
 
 def replace_text(store: str | Path | None, ref: str, old: str, new: str, *, count: int = 1, transaction: Transaction | None = None, pythonpath: str | None = None) -> dict[str, Any]:
@@ -42,6 +43,7 @@ def replace_text(store: str | Path | None, ref: str, old: str, new: str, *, coun
     location = open_store(store)
     status = _status(location, ref)
     path = location.project_root / status.path if status.exists else _plain_path(location.project_root, ref)
+    refuse_unreadable(location.project_root, path)  # a tracked symlink is neither read nor rewritten
     data, text = _read(path, ref)
     replaced = _replaced(text, old, new, count, ref).encode("utf-8")
     with nullcontext(transaction) if transaction is not None else open_transaction(location.store_path, pythonpath) as tx:

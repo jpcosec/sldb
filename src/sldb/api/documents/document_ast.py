@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Any
 
 from sldb.api.documents.document_payload import runtime_document
+from sldb.store.source_read import read_source_text
 
 
 def document_ast(store_path: Path, project_root: Path, pythonpath: str | None, doc_ref: str) -> dict[str, Any]:
@@ -19,7 +20,7 @@ def document_ast(store_path: Path, project_root: Path, pythonpath: str | None, d
     from sldb.api.records import extract_sections
 
     doc = runtime_document(store_path, pythonpath, doc_ref)
-    markdown = Path(project_root / doc.path).read_text(encoding="utf-8")
+    markdown = read_source_text(project_root / doc.path)  # runtime_document found it: guarded by store.query
     runtime_dict = {"store": doc.store_name, "model": doc.model_name, "name": doc.name, "path": doc.path, "payload": doc.payload, "semantic_tags": doc.semantic_tags}
     ir = build_ir_json(runtime_dict, markdown, getattr(doc.model_type, "__template__", None))
     sections = [vars(section) for section in extract_sections(markdown)]

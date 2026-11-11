@@ -7,6 +7,7 @@ from sldb.store.models import DocSections, SectionContextRecord
 from sldb.store.section_sync import process_model_sections
 from sldb.store.semantic import RebuildReport, _about_terms
 from sldb.store.section_paths import section_path, unique_slug
+from sldb.store.source_read import read_source_text
 
 def _slugify(text: str) -> str:
     slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
@@ -70,7 +71,7 @@ def _sections_of(d_path: Path, hash_c: str = "") -> list[dict]:
     key = (str(d_path), hash_c) if hash_c else (str(d_path), *_file_signature(d_path))
     secs = _DOC_SECTIONS.get(key)
     if secs is None:
-        secs = _DOC_SECTIONS[key] = _extract_sections(d_path.read_text(encoding="utf-8"))
+        secs = _DOC_SECTIONS[key] = _extract_sections(read_source_text(d_path))
     return secs
 
 
