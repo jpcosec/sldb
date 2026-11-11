@@ -1,0 +1,25 @@
+### 0 checkout limpio de deskops origin/main 64a5bcc7, sldb 9c9dac6b
+### 1 store.yaml: TaskDoc por glob y las mismas tareas por paths de los hijos
+211:- model: TaskDoc
+212-  glob: desk/tasks/task-*.md
+529:- model: TaskDebugDoc
+530-  paths:
+531-  - desk/tasks/task-advance-y-doctor-ante-semillas-del-ciclo-de-vida-anteriores-a-cc31-doctor-las-reporta-y-advance-fall.md
+532:- model: TaskCodeDoc
+533-  paths:
+534-  - desk/tasks/task-cc35c-referencias-entrantes-referrers-y-rewrite-references-dentro-de-la-transacción-menciones-en-pro.md
+### 2 rm -rf .sldb_cache && sldb stores build --store .sldb
+built: links: 0, models: 0, tracked: 11, generated: 0, undeclared: 0, missing: 0
+rc=0
+### 3 cada tarea, en qué modelos queda trackeada
+task-advance-y-doctor-ante-semillas-del-ciclo-de-vida-anteriores-a-cc31-doctor-las-reporta-y-advance-fall: TaskDebugDoc TaskDoc 
+task-cc34-vistas-de-la-ui-como-viewdoc-servidas-por-sldb-desk-view-py-desaparece: TaskCodeDoc TaskDoc 
+task-cc35c-referencias-entrantes-referrers-y-rewrite-references-dentro-de-la-transacción-menciones-en-pro: TaskCodeDoc TaskDoc 
+### 4 deskops view board
+ritual-execution (0)
+ritual-testing (0)
+ritual-closeout (0)
+! desk/tasks/task-advance-y-doctor-ante-semillas-del-ciclo-de-vida-anteriores-a-cc31-doctor-las-reporta-y-advance-fall.md: Task does not load: Ambiguous task selector 'task-advance-y-doctor-ante-semillas-del-ciclo-de-vida-anteriores-a-cc31-doctor-las-reporta-y-advance-fall': tasks/task-advance-y-doctor-ante-semillas-del-ciclo-de-vida-anteriores-a-cc31-doctor-las-reporta-y-advance-fall.md, tasks/task-advance-y-doctor-ante-semillas-del-ciclo-de-vida-anteriores-a-cc31-doctor-las-reporta-y-advance-fall.md
+! desk/tasks/task-cc35c-referencias-entrantes-referrers-y-rewrite-references-dentro-de-la-transacción-menciones-en-pro.md: Task does not load: Ambiguous task selector 'task-cc35c-referencias-entrantes-referrers-y-rewrite-references-dentro-de-la-transacción-menciones-en-pro': tasks/task-cc35c-referencias-entrantes-referrers-y-rewrite-references-dentro-de-la-transacción-menciones-en-pro.md, tasks/task-cc35c-referencias-entrantes-referrers-y-rewrite-references-dentro-de-la-transacción-menciones-en-pro.md
+! desk/tasks/task-cc34-vistas-de-la-ui-como-viewdoc-servidas-por-sldb-desk-view-py-desaparece.md: Task does not load: Ambiguous task selector 'task-cc34-vistas-de-la-ui-como-viewdoc-servidas-por-sldb-desk-view-py-desaparece': tasks/task-cc34-vistas-de-la-ui-como-viewdoc-servidas-por-sldb-desk-view-py-desaparece.md, tasks/task-cc34-vistas-de-la-ui-como-viewdoc-servidas-por-sldb-desk-view-py-desaparece.md
+rc=0
