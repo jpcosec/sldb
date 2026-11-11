@@ -1,0 +1,34 @@
+name: review-task-seguridad-resto-toda-lectura-de-un-documento-trackeado-pasa-por-la-guarda-de-raíz-y-symlinks-stores-bundle-1
+path: desk/reviews/task-seguridad-resto-toda-lectura-de-un-documento-trackeado-pasa-por-la-guarda-de-raíz-y-symlinks-stores/bundle-1.md
+source_hash: 25f6720f0c4bb04a118810715085f13712036db0d99e5ff254195f08f7fe349e
+content_hash: 128b04b3a8d4f53f1ce4984d43cf7ee017dc90ad312899e968baa8cd60e6d630
+field_hashes:
+  id: 9dc6261015cbca0685585779cc02471e2804c9778d86eafb00d8fa1e129b5aad
+  title: 9d15786ee3eefc1f34a26b038f9b6aff4a7971d8f78de8248e5472f876fa5d54
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  subject: b717abeac8fca72aefa0365b53722dbe7d92d88f65419662d9d652ef9608dad1
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 3e953c242b8f5af0a98e54f6093d8a4c967bf4ab5f0cf30c1cca7fe6acc79777
+  input_sha256: 848af55bda45695d1507d72b4b8c36c075a6c8f8e26a0a33119b442dd7a93a02
+  output_sha256: 3b03ddc50a6d7439ad81372d162c682ae41a0501ad7d0638265924fd2b54c8e6
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: df715012188de9730b7e54eab7f6ac85d4eb352aa43c58e56a1d5589b99ec13c
+  created_at: ef9976be062a237a8b20ff426c8316b97daf5828fd053edf6d29c64931805b86
+  disposed_at: b3714ac7555b3e680e9866e8fc0e2a87ad5f3cf9b657b282ec79a1ba29a23be1
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 2bc7f90d715c447f333d7e4efc2e57261650e684094c1aab219596166525467e
+  disposition: 385000b2877aaefbdf9aba720cd5624f98c0a48926ce665db61e8bf2c93c3a8a
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-11T14:47:36Z'
+  authority: generated
+  via: save_document_payload

@@ -1,0 +1,9 @@
+{
+  "key": "task-seguridad-resto-toda-lectura-de-un-documento-trackeado-pasa-por-la-guarda-de-raíz-y-symlinks-stores/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "2fd0d7230f63ba0f2de59a6611790185a7a2a107f0bbdfdd3de0cf2c41f2035d",
+  "output_sha256": "9ccd70b9f841b9ed8cbce4be1fb5b0c68b8712780c547ca5dae642f6b99f9a27",
+  "start": "2026-11-11T14:46:54.433286+00:00",
+  "end": "2026-11-11T14:47:08.470964+00:00"
+}
