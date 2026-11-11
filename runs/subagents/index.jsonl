@@ -50,3 +50,4 @@
 {"task_id": "task-transacci\u00f3n-el-rollback", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
 {"task_id": "task-stores-build-un-store-enlazado", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "manual", "commit": null}
 {"task_id": "task-stores-check-un-link-cuyo-directorio-no-existe-es-alerta-store-link-absent", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}
+{"task_id": "task-seguridad-live-stale-no-abre-archivos-fuera-de-la-ra\u00edz-no-sigue-symlinks-y-no-lee-archivos-sin-cambi", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}

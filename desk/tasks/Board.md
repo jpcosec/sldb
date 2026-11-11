@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-11T09:31:42Z'
+  at: '2026-11-11T11:27:44Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -14,7 +14,6 @@ tasks:
 - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
 - desk/tasks/task-reglas-rule-graph-no-compone-la-federación-entera-de-stores-enlazados-27-s-por-comando-de-deskops.md
 - desk/tasks/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024.md
-- desk/tasks/task-seguridad-live-stale-no-abre-archivos-fuera-de-la-raíz-no-sigue-symlinks-y-no-lee-archivos-sin-cambi.md
 - desk/tasks/task-h9-run-view-y-list-views-encuentran-una-viewdoc-de-un-store-enlazado-y-leen-su-archivo-desde-la-raíz.md
 - desk/tasks/task-un-documento-en-el-glob-de-un-modelo-padre-y-en-los-paths-de-un-modelo-hijo-se-trackea-una-sola-vez.md
 # List of pill-xxx paths
@@ -65,6 +64,5 @@ _Generated from the task references above._
 - Diseño: jerarquía de modelos de evidencia (__family__ o herencia) [draft] - Un documento de decisión en docs/ que compare __family__ vs herencia de clases para los modelos de evidencia, con la recomendación y sus consecuencias para deskops (RunDoc, materializaciones, closeout_evidence).
 - reglas: rule_graph no compone la federación entera de stores enlazados (27 s por comando de deskops) [draft] - La evaluación de reglas (on_write, on_transition, edges_holding/edges_blocked, rules check/explain) no compone la federación entera de stores enlazados salvo que una regla lo necesite. Los findings quedan idénticos a los de hoy, y un comando de deskops sobre el desk de deskops vuelve a tardar del orden de 1-2 s.
 - main de sldb en verde: el workflow CI falla desde el 2026-10-20 (run 42758984024) [draft] - El workflow CI de sldb (jobs test 3.12/3.13 y store) termina en success sobre main.
-- SEGURIDAD: live_stale no abre archivos fuera de la raíz, no sigue symlinks y no lee archivos sin cambios al cargar el índice de aristas [draft] - Cargar el índice de aristas no abre archivos fuera de la raíz, no sigue symlinks y no lee el contenido de archivos que no cambiaron desde el build; tests de regresión con symlink saliente y archivo protegido.
 - H9: run_view y list_views encuentran una ViewDoc de un store enlazado y leen su archivo desde la raíz de ese store [draft] - run_view, list_views y sldb serve encuentran una ViewDoc de un store enlazado, la leen desde la raíz de ese store por la guarda de lectura y la evalúan sobre el store que llama.
 - Un documento en el glob de un modelo padre y en los paths de un modelo hijo se trackea una sola vez, bajo el hijo (gana el más específico) [draft] - sldb resuelve un path nombrado por varias reglas include a una sola fila: gana el modelo hijo por paths sobre el glob del padre; sin herencia, error store/include-conflict; un store ya duplicado se corrige en el próximo build.
