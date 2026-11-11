@@ -1,13 +1,11 @@
 name: review-task-seguridad-live-stale-no-abre-archivos-fuera-de-la-raíz-no-sigue-symlinks-y-no-lee-archivos-sin-cambi-preflight-1
 path: desk/reviews/task-seguridad-live-stale-no-abre-archivos-fuera-de-la-raíz-no-sigue-symlinks-y-no-lee-archivos-sin-cambi/preflight-1.md
 source_hash: d95dc3a5bc8ae4e5b60a1aa883bd19cb6850bf1432359311326d549a3bc89d64
-content_hash: b51d5f6a0e5d6e00c63d8e4567274e729cca524fcec4ea330ad9972952035842
+content_hash: 896f26fc5d0562bc65ed023ead46aecdba954ed00b0be7bde850aec0fdac8d70
 field_hashes:
   id: 7516e3794180ba46f7cff4e59ee5beac525ea6324f30c487a4cd2bf5a638b265
   title: 2bf90099dc30177c82fe6077d8da28f55bc196dd9d930a3704969579e2d0df6a
   kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
-  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   subject: eda25ad7b84dbff43abd2705d771f3d48804255f1449b5c770ee35b148a06ba3
   subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
