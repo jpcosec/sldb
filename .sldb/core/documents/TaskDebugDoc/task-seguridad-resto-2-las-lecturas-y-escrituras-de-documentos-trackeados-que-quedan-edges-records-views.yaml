@@ -1,7 +1,7 @@
 name: task-seguridad-resto-2-las-lecturas-y-escrituras-de-documentos-trackeados-que-quedan-edges-records-views
 path: desk/tasks/task-seguridad-resto-2-las-lecturas-y-escrituras-de-documentos-trackeados-que-quedan-edges-records-views.md
-source_hash: 138f4f6169d8f5e672e6f49d0fa33239573463e4ee0565819f476ce4cbc3b8cb
-content_hash: d3e8fef521bfceff16774bdefc20d83064ad30372b942e6db36345ba9f7d89ff
+source_hash: 94d8955905496f0bae9d2cecd0a4dbe28548086c638cb560e21482b1d01e3d38
+content_hash: a9ad7b263910b3eb1ee6d1ecd08e37d1d6f75d9984935fd67510bf04ec5bffca
 field_hashes:
   title: 7471707d18512be04943002040a828b8938826a126b31f1c24de1ff8a26747d9
   id: cba0a727b34f8a9feb7b38d795bd350de53e6309eea9c06144d1c6de0c279ce4
@@ -16,7 +16,7 @@ field_hashes:
   references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  files: c6dbb253422b9c1718d3369e22dc15cf8f4cad6cf1bd5cd18f478ac02833526b
+  files: f1d7b7125984adeced907db73cfa0f5cd58786aacf8ad614d29b9d20fd16714f
   implementation_path: 63e43b649ddf7a4d6154ed244b4ad62907b17589000993f6262a3981fe4ac0da
   validation: 1808592aa7502e7e667e5a9b7f77022f0f033fa74568407f87c177f18e14810a
   done_when: e7b45fcaa57cb5377d449a0c88925919d60f46012d2c08237ca53c889bfc45f1
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-11T16:50:56Z'
+  at: '2026-11-11T16:56:05Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

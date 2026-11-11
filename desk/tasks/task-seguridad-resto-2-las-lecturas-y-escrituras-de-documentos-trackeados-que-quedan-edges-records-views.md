@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-11T16:50:56Z'
+  at: '2026-11-11T16:56:05Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-seguridad-resto-2-las-lecturas-y-escrituras-de-documentos-trackeados-que-quedan-edges-records-views
 status: draft
 summary: ''
@@ -28,6 +28,10 @@ files:
 - src/sldb/links/
 - src/sldb/models/structured_doc.py
 - src/sldb/store/
+- src/sldb/selfdoc/python_materialize.py
+- src/sldb/selfdoc/materialize.py
+- src/sldb/cli/selfdoc_inspect.py
+- src/sldb/cli/selfdoc_write.py
 - tests/
 - docs/
 - CHANGELOG.md
