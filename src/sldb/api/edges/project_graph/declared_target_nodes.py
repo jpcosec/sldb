@@ -9,6 +9,7 @@ from sldb.api.edges.project_graph.file_exclusions import FileExclusions
 from sldb.api.edges.project_graph.file_node import FileNode
 from sldb.api.edges.project_graph.frontmatter_mapping import frontmatter_mapping
 from sldb.api.edges.project_graph.node_provenance import NodeProvenance
+from sldb.store.source_guard import aggregate_text
 
 
 class DeclaredTargetNodes:
@@ -45,7 +46,7 @@ class DeclaredTargetNodes:
 
     def _declared_path(self, document: Path, field: str) -> str | None:
         """The declared repo-relative file, when it is a plain path to an existing project file."""
-        value = _field_value(document, field)
+        value = _field_value(self.root, document, field)
         normalized = value.removeprefix("./") if value else ""
         if not normalized or normalized.startswith("/") or ".." in PurePosixPath(normalized).parts or ":" in normalized:
             return None
@@ -58,10 +59,12 @@ class DeclaredTargetNodes:
         return FileNode(id=f"{declaration.kind}:{path}", kind=declaration.kind, identity=path, path=path, file_kind=declaration.file_kind, provenance=provenance)
 
 
-def _field_value(document: Path, field: str) -> str | None:
+def _field_value(root: Path, document: Path, field: str) -> str | None:
     try:
-        text = document.read_text(encoding="utf-8")
+        text = aggregate_text(root, document, document.relative_to(root).as_posix())
     except (OSError, UnicodeDecodeError):
+        return None
+    if text is None:
         return None
     value = (frontmatter_mapping(text) or {}).get(field)
     return value.strip() if isinstance(value, str) and value.strip() else None

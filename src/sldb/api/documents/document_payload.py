@@ -15,7 +15,9 @@ from sldb.api.model_registry.model_reference import resolve_model_ref
 from sldb.api.stores.doc_ref import LOCAL, matches_doc_ref, qualifier, split_doc_ref
 from sldb.api.stores.store_links import find_link
 from sldb.core.exceptions import SLDBDocumentTargetError
+from sldb.store.layout import project_root
 from sldb.store.query import load_runtime_documents
+from sldb.store.source_guard import unread_line
 
 
 def runtime_document(store_path: Path, pythonpath: str | None, doc_ref: str) -> Any:
@@ -28,10 +30,23 @@ def runtime_document(store_path: Path, pythonpath: str | None, doc_ref: str) -> 
     docs = _scoped_documents(store_path, alias, pythonpath)
     candidates = [doc for doc in docs if matches_doc_ref(ref, doc.name, doc.path, doc.model_name)]
     if not candidates:
+        _refuse_unread(store_path, alias, ref)
         raise SLDBDocumentTargetError(_unknown_target(doc_ref, alias))
     if len(candidates) > 1:
         raise SLDBDocumentTargetError(f"Ambiguous document target '{doc_ref}'. Use 'Model/DocName' or a tracked path.")
     return candidates[0]
+
+
+def _refuse_unread(store_path: Path, alias: str | None, ref: str) -> None:
+    """A tracked document the read guard refuses is not loaded (`store.query`): when `ref` names
+    one, fail with its finding (`store/path-outside-root`, `store/symlink-not-read`), not as unknown."""
+    from sldb.api.stores.declared_includes import tracked_rows
+
+    scoped = store_path if alias is None else Path(find_link(store_path, alias)["resolved"])
+    root = project_root(scoped)
+    for model, path, name in tracked_rows(scoped, root):
+        if matches_doc_ref(ref, name, path, model) and (line := unread_line(root, root / path, f"{model}:{name}")) is not None:
+            raise SLDBDocumentTargetError(line)
 
 
 def _scoped_documents(store_path: Path, alias: str | None, pythonpath: str | None) -> list[Any]:

@@ -1,13 +1,14 @@
 from __future__ import annotations
 import re
 from pathlib import Path
+from sldb.store.source_read import read_source_text
 from .parser import LINK_PATTERN
 from .resolver import resolve_link_target
 from .render import render_links
 from .sections import extract_section, split_anchor, strip_frontmatter
 
 def _load(dp: Path, root: bool, section: str | None) -> str | None:
-    text = dp.read_text("utf-8")
+    text = read_source_text(dp)
     text = text if root else strip_frontmatter(text)
     return text if section is None else extract_section(text, section)
 

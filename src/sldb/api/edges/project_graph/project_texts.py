@@ -7,6 +7,7 @@ from typing import Any
 
 from sldb.api.edges.project_graph.frontmatter_mapping import frontmatter_mapping, is_record_text
 from sldb.api.edges.project_graph.project_graph_config import ProjectGraphConfig
+from sldb.store.source_guard import aggregate_text
 
 
 class ProjectTexts:
@@ -27,9 +28,9 @@ class ProjectTexts:
         self._path_of_text: dict[str, str] = {}
 
     def text(self, relative_path: str) -> str:
-        """The text of a repo-relative file."""
+        """The text of a repo-relative file; empty (warned once) when the read guard refuses it."""
         if relative_path not in self._texts:
-            self._texts[relative_path] = (self.root / relative_path).read_text(encoding="utf-8")
+            self._texts[relative_path] = aggregate_text(self.root, self.root / relative_path, relative_path) or ""
             self._path_of_text.setdefault(self._texts[relative_path], relative_path)
         return self._texts[relative_path]
 

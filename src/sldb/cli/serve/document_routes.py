@@ -18,6 +18,7 @@ from sldb.cli.graph_ops import resolve_runtime_doc
 from sldb.cli.serve.params import query_params, require_param
 from sldb.cli.serve.segments_routes import segments_response
 from sldb.cli.serve.tracked_docs import is_tracked
+from sldb.store.source_read import read_source_text
 
 JsonDict = dict[str, Any]
 DOCUMENT_ROUTES = ("/document", "/document/ir", "/document/segments")
@@ -59,7 +60,7 @@ def _respond_ir(route: str, name: str, store_path: Path, pythonpath: str) -> tup
 
 def _ir_json(runtime_doc: dict[str, Any]) -> JsonDict | str:
     try:
-        markdown = Path(runtime_doc["absolute_path"]).read_text(encoding="utf-8")
+        markdown = read_source_text(Path(runtime_doc["absolute_path"]))
         return build_document_ir_json(runtime_doc, markdown, runtime_doc.get("template"))
     except Exception as exc:
         return str(exc)

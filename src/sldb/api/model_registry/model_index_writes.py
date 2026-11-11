@@ -18,6 +18,7 @@ from sldb.store.models.store_index import StoreIndex
 from sldb.store.ops import cascade_store_hash
 from sldb.store.derived_rebuild import rebuild_derived_indexes
 from sldb.store.semantic_tags import flatten_model_semantics
+from sldb.store.source_guard import aggregate_text
 
 
 def relative_model_path(path: Path, root: Path) -> str:
@@ -57,10 +58,12 @@ def rehash_documents(root: Path, d_idx: DocumentsIndex, model_type: type) -> Non
     """Recompute every document's content and field hashes from its Markdown file.
 
     A document that no longer extracts gets an empty field hash, which `stores check`
-    reports; the broad catch keeps one bad document from aborting the whole reindex.
+    reports; the broad catch keeps one bad document from aborting the whole reindex. A path the
+    read guard refuses (outside the root, or a symlink) is warned and keeps its hashes.
     """
     for doc in d_idx.documents:
-        text = (root / doc.path).read_text(encoding="utf-8")
+        if (text := aggregate_text(root, root / doc.path, f"{model_type.__name__}:{doc.name}")) is None:
+            continue
         doc.hash_c = hash_text(text)
         doc.provenance = index_block(text)
         try:

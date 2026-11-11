@@ -4,6 +4,7 @@ import os
 import re
 from pathlib import Path
 import yaml
+from sldb.store.source_read import read_source_text
 from .parser import INLINE_PREDICATE_LINK_PATTERN
 from .resolver import resolve_link_target
 from .sections import split_anchor
@@ -12,7 +13,7 @@ _PLAIN = re.compile(r"(?<!!)\[\[([^\]]+)\]\]")
 _FRONT = re.compile(r"\A---[ \t]*\r?\n(.*?)\r?\n---", re.DOTALL)
 
 def _title(path: Path, fallback: str) -> str:
-    m = _FRONT.match(path.read_text("utf-8"))
+    m = _FRONT.match(read_source_text(path))
     meta = yaml.safe_load(m.group(1)) if m else None
     return str(meta["title"]) if isinstance(meta, dict) and meta.get("title") else fallback
 

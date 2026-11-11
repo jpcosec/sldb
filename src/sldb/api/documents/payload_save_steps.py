@@ -23,6 +23,7 @@ from sldb.store.edge_rebuild import rebuild_edges_indexes
 from sldb.store.section_rebuild import rebuild_sections_indexes
 from sldb.store.semantic import rebuild_semantic_indexes
 from sldb.store.source_read import refuse_unreadable
+from sldb.store.source_guard import write_source_text
 from sldb.models.provenance_block import index_block
 
 
@@ -89,7 +90,7 @@ def write_rendered_document(root: Path, doc_entry: DocumentEntry, model_type: ty
     refuse_unreadable(root, root / doc_entry.path)  # a symlink, or a path out of the root, is not written through
     text = stamped_file(root / doc_entry.path, rendered + "\n", model_type, via, actor)
     text = pin_provenance(store_path, text) if store_path is not None else text
-    (root / doc_entry.path).write_text(text, encoding="utf-8")
+    write_source_text(root / doc_entry.path, text)  # O_NOFOLLOW: a symlink swapped in after the check is not written through
     doc_entry.source_hash = hash_text(text)
     doc_entry.content_hash, doc_entry.field_hashes = hash_fields_with_map(model_type, text)
     doc_entry.provenance = index_block(text)

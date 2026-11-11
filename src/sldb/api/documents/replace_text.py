@@ -28,6 +28,7 @@ from sldb.api.stores.store_location import StoreLocation
 from sldb.core.exceptions import SLDBDocumentTargetError, SLDBValidationError
 from sldb.runtime.validation import validate_model_input_roundtrip
 from sldb.store.source_read import refuse_unreadable
+from sldb.store.source_guard import read_source_bytes
 
 
 def replace_text(store: str | Path | None, ref: str, old: str, new: str, *, count: int = 1, transaction: Transaction | None = None, pythonpath: str | None = None) -> dict[str, Any]:
@@ -75,7 +76,7 @@ def _plain_path(root: Path, ref: str) -> Path:
 
 
 def _read(path: Path, ref: str) -> tuple[bytes, str]:
-    data = path.read_bytes()
+    data = read_source_bytes(path)  # O_NOFOLLOW: a symlink swapped in after refuse_unreadable is not read
     try:
         return data, data.decode("utf-8")
     except UnicodeDecodeError as exc:

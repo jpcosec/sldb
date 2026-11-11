@@ -10,6 +10,7 @@ from sldb.selfdoc.planned_document import PlannedDocument
 from sldb.store.io import load_store_index
 from sldb.store.io.utils import StoreIOUtils
 from sldb.store.ops import track_document
+from sldb.store.source_read import read_source_text
 from sldb.store.edge_rebuild import rebuild_edges_indexes
 from sldb.store.section_rebuild import rebuild_sections_indexes
 from .selfdoc_registry import DocumentationRegistry
@@ -40,7 +41,7 @@ def _write_changed(plans, store, root) -> int:
 
 def _check_before_images(plans: list[PlannedDocument]) -> None:
     for plan in plans:
-        current = plan.path.read_text(encoding="utf-8") if plan.path.exists() else None
+        current = read_source_text(plan.path) if plan.path.exists() else None  # resolved by the plan, after its symlink check
         if current != plan.previous:
             raise ValueError(f"Document changed during planning: {plan.path}")
 

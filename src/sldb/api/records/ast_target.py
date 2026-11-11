@@ -6,6 +6,7 @@ from .build_ir import build_document_ir
 from .extract import extract_sections
 from .fields import query_field_records
 from sldb.core.exceptions import SLDBDocumentTargetError
+from sldb.store.source_read import read_source_text
 
 def ast_for_target(store_arg: str | None, pythonpath: str | None, target: str) -> dict[str, Any]:
     graph = build_store_ast(store_arg, pythonpath)
@@ -35,7 +36,7 @@ def _provenance(markdown: str) -> dict[str, Any]:
     return {**found.model_dump(by_alias=True), "declared": found.declared}
 
 def _build_doc_ast(runtime_doc):
-    markdown = Path(runtime_doc["absolute_path"]).read_text(encoding="utf-8")
+    markdown = read_source_text(Path(runtime_doc["absolute_path"]))
     ir = build_document_ir(runtime_doc, markdown, template=runtime_doc.get("template"))
     return {
         "document": {

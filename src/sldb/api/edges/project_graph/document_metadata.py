@@ -7,21 +7,26 @@ from pathlib import Path
 import yaml
 
 from sldb.api.edges.project_graph.frontmatter_mapping import frontmatter_mapping
+from sldb.store.source_guard import aggregate_text
 
 # path -> (text, metadata)
 _METADATA: dict[str, tuple[str, dict[str, str]]] = {}
 
 
-def document_metadata(path: Path) -> dict[str, str]:
+def document_metadata(path: Path, root: Path | None = None) -> dict[str, str]:
     """`id` and `title` of a document: from YAML, frontmatter, or its `# ` heading and `ID:` line.
 
     Args:
         path: The document file.
+        root: The project root: a path the read guard refuses there (outside it, or a symlink)
+            is warned and carries no metadata. None: the file's own folder (a symlink is still refused).
 
     Returns:
         A fresh mapping holding the keys that were found.
     """
-    text = path.read_text(encoding="utf-8")
+    root = root if root is not None else path.absolute().parent
+    if (text := aggregate_text(root, path, path.relative_to(root).as_posix() if path.is_relative_to(root) else path.name)) is None:
+        return {}
     hit = _METADATA.get(str(path))
     if hit is None or hit[0] != text:
         hit = _METADATA[str(path)] = (text, _parse_metadata(path, text))

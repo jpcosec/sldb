@@ -177,6 +177,27 @@ Leer el índice abre lo mínimo (SEGURIDAD, nota 9c9dac6b; `unreadable_reason`, 
 - `docs track` de un path que es symlink o resuelve fuera de la raíz se rechaza antes de abrirlo
   (antes se resolvía el path y se trackeaba el destino). `docs update` / `save_document_payload`
   / `replace_text` sobre un documento así se rechazan antes de leerlo o escribir a través de él.
+- Fuera del store (SEGURIDAD resto 2, tarea secrest2), cada superficie actúa sobre el veredicto de
+  la guarda por `sldb/store/source_guard.py`, con los códigos de `stores check`:
+  - **Objetivo único** (`sections show|fields`, `ast show docs/<doc>`, `docs compose <doc>`,
+    `GET /document/ir`, `/sections`, segments, `run_view`, `selfdoc` en `knowledge/`):
+    `target_text` / `refuse_unread` levantan `SLDBDocumentTargetError('[store/path-outside-root]
+    Modelo:nombre: ...')`, exit 1. `runtime_document` da ese error, no `Unknown document target`,
+    cuando el nombre pedido es un documento que la guarda no deja leer.
+  - **Agregadas** (`edges rebuild|rewrite|init`, grafo de proyecto, `find`, registros de campos,
+    `list_views`, `models update`, backfill): `aggregate_text` emite el hallazgo como warning y
+    sigue sin ese documento.
+  - **Enlaces**: el resolver chequea la guarda **antes** de resolver (antes `.resolve()` perdía el
+    symlink y entregaba la ruta de afuera). Un `[[x]]` / `![[x]]` cuyo destino no se deja leer
+    queda como estaba escrito, sin abrirlo ni emitir su ruta.
+  - **Escrituras**: `write_source_text` / `write_source_bytes` abren con `O_NOFOLLOW` (docs
+    update, `replace_text` por `transaction.write_file`, `create_document`, backfill, `edges
+    init`); un symlink puesto tras el chequeo (TOCTOU) falla como `store/symlink-not-read` sin
+    escribir. `stamped_file` lee con `O_NOFOLLOW` y nombra el symlink en lugar de un ELOOP.
+  - `stores update` lista un documento no leído bajo `Skipped unread documents: b
+    (store/path-outside-root)`, no como faltante.
+  - `models/` (capa 0) no importa el store: `StructuredNLDoc` repite inline la guarda al leer un
+    documento compuesto (symlink o fuera de `ref_root`: no se lee).
 
 ### Consulta
 

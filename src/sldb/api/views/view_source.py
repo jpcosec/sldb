@@ -14,7 +14,7 @@ from sldb.core.exceptions import SLDBDocumentTargetError
 from sldb.models.notation.view_doc import ViewDoc
 from sldb.runtime.validation import extract_model_data
 from sldb.store.layout import project_root
-from sldb.store.source_read import read_source_text, unreadable_reason
+from sldb.store.source_guard import aggregate_text, target_text
 
 VIEW_MODEL = "ViewDoc"
 
@@ -52,11 +52,15 @@ def view_store(node: Any) -> Path:
 
 def read_view_node(node: Any) -> ViewDoc:
     """The ViewDoc extracted from its file, under the root of the store that tracks it; a path
-    that leaves that root or is a symlink is not read (`SLDBDocumentTargetError` naming why)."""
+    that leaves that root or is a symlink is not read (`SLDBDocumentTargetError` naming its
+    finding, `store/path-outside-root` or `store/symlink-not-read`)."""
     root = project_root(view_store(node))
-    path = root / node.semantics["path"]
-    reason = unreadable_reason(root, path)
-    if reason is not None:
-        raise SLDBDocumentTargetError(f"view {qualified_name(node)!r}: {node.semantics['path']} not read ({reason})")
-    text = read_source_text(path)
+    text = target_text(root, root / node.semantics["path"], f"{VIEW_MODEL}:{qualified_name(node)}")
     return ViewDoc.model_validate(extract_model_data(ViewDoc, text))
+
+
+def readable_view_node(node: Any) -> ViewDoc | None:
+    """`read_view_node` for a listing: a path the read guard refuses is warned and gives None."""
+    root = project_root(view_store(node))
+    text = aggregate_text(root, root / node.semantics["path"], f"{VIEW_MODEL}:{qualified_name(node)}")
+    return ViewDoc.model_validate(extract_model_data(ViewDoc, text)) if text is not None else None

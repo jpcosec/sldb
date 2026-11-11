@@ -20,7 +20,7 @@ from sldb.api.documents.replace_text import replace_text
 from sldb.api.documents.transaction import Transaction, transaction as open_transaction
 from sldb.api.edges.project_graph.project_graph import ProjectGraph
 from sldb.api.edges.referrers import Hit, Target, find_hits, matching_documents, optional_graph, resolve_target
-from sldb.api.edges.rewrite_mentions import rewritten_line
+from sldb.api.edges.rewrite_mentions import rewritten_text
 from sldb.api.edges.rewrite_report import RewriteReport
 from sldb.api.edges.rewrite_values import rewritten_payload
 from sldb.api.model_registry.load_registered_model import load_registered_model
@@ -28,6 +28,7 @@ from sldb.api.stores.open_store import open_store
 from sldb.api.stores.store_location import StoreLocation
 from sldb.core.exceptions import SLDBDocumentTargetError, SLDBValidationError
 from sldb.runtime.validation import validate_model_data_roundtrip, validate_model_input_roundtrip
+from sldb.store.source_guard import aggregate_text
 
 Plan = tuple[str, dict[str, Any], list[dict[str, Any]]]
 TextPlan = tuple[str, str, str, list[dict[str, Any]], list[dict[str, Any]]]
@@ -81,13 +82,9 @@ def _planned_payload(location: StoreLocation, pythonpath: str | None, export_id:
 
 def _planned_text(location: StoreLocation, graph: ProjectGraph | None, pythonpath: str | None, path: str, hits: list[Hit], target: Target, replacement: Target | None) -> TextPlan:
     """(path, text, new text, changes, skips) of one mentioning file, a tracked document's new text validated."""
-    text = (location.project_root / path).read_text(encoding="utf-8")
-    lines, changes, skips = text.split("\n"), [], []
-    for referrer, _ in hits:
-        number = int((referrer.location or ":0").rsplit(":", 1)[1])
-        lines[number - 1], made, left = rewritten_line(lines[number - 1], graph, target, replacement, referrer) if 0 < number <= len(lines) and graph else (lines[number - 1], [], [{"source": path, "location": referrer.location, "reason": "the line is gone"}])
-        changes, skips = changes + made, skips + left
-    new_text = "\n".join(lines)
+    if (text := aggregate_text(location.project_root, location.project_root / path, path)) is None:
+        return path, "", "", [], [{"source": path, "location": None, "reason": "not read: the path resolves outside the project root or is a symlink"}]
+    new_text, changes, skips = rewritten_text(text, graph, path, hits, target, replacement)
     for document in matching_documents(location.store_path, path) if new_text != text else []:
         _check(f"{document['model']}:{document['name']}", _model_type(location, pythonpath, document["model"]), None, new_text)
     return path, text, new_text, changes, skips

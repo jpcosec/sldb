@@ -1,4 +1,5 @@
 from __future__ import annotations
+import os
 from importlib import import_module
 from pathlib import Path
 from typing import Any, TypeVar
@@ -64,7 +65,8 @@ class StructuredNLDoc(BaseModel):
         return _wrap_doc_piece(rec, text, m_type.__name__, idx, str(raw).strip()) if rec else text
 
     def _payload_for_ref(self, raw: Any, m_type: type, root: Path | None) -> dict[str, Any] | None:
-        if not (path := self._resolve_ref(raw, root)).exists(): return None
+        # the read guard of sldb.store.source_read, inline: models (layer 0) does not import the store
+        if not (path := self._resolve_ref(raw, root)).exists() or path.is_symlink() or (root is not None and not path.resolve().is_relative_to(root.resolve())): return None
         try: return self._extract_composed_payload(m_type, path)
         except Exception: return None
 
@@ -84,7 +86,8 @@ class StructuredNLDoc(BaseModel):
 
     def _extract_composed_payload(self, model_type: type[StructuredNLDoc], path: Path) -> dict[str, Any]:
         from sldb.runtime.validation import extract_model_data
-        return extract_model_data(model_type, path.read_text(encoding="utf-8"))
+        with open(os.open(path, os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0)), encoding="utf-8") as f:
+            return extract_model_data(model_type, f.read())
 
 
 def _format_field_val(val: Any, payload: dict[str, Any], template: str) -> str:

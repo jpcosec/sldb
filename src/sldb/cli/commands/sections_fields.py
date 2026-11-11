@@ -6,6 +6,7 @@ import yaml
 from sldb.cli.graph_ops import _map_fields_to_sections, build_document_ir, flatten_payload, resolve_runtime_doc
 from sldb.cli.store_context import get_store_context
 from sldb.store.io import load_store_index
+from sldb.store.source_read import read_source_text
 from sldb.cli.commands.sections_common import load_persisted_sections
 
 class FieldsSectionsCLI:
@@ -41,7 +42,7 @@ class FieldsSectionsCLI:
         ]
 
     def _match_ir_fields(self, runtime_doc: dict, section_path: str) -> list[dict]:
-        markdown = Path(runtime_doc["absolute_path"]).read_text(encoding="utf-8")
+        markdown = read_source_text(Path(runtime_doc["absolute_path"]))
         ir = build_document_ir(runtime_doc, markdown, template=runtime_doc.get("template"))
         return [
             node.model_dump(mode="json") for node in ir.nodes

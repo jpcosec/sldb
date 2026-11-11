@@ -14,6 +14,7 @@ from typing import Any
 
 from sldb.api import build_document_ir_json, runtime_document
 from sldb.cli.serve.params import query_params, require_param
+from sldb.store.source_guard import target_text
 
 
 def dispatch_sections(
@@ -43,7 +44,7 @@ def _find(store_path: Path, pythonpath: str, doc: str) -> tuple[Any, dict[str, A
 
 def _ir_json(runtime: Any, root: Path) -> tuple[dict[str, Any], dict[str, Any] | None]:
     try:
-        markdown = Path(root / runtime.path).read_text(encoding="utf-8")
+        markdown = target_text(root, root / runtime.path, f"{runtime.model_name}:{runtime.name}")
         runtime_dict = {"store": runtime.store_name, "model": runtime.model_name, "name": runtime.name, "path": runtime.path, "payload": runtime.payload, "semantic_tags": runtime.semantic_tags}
         return build_document_ir_json(runtime_dict, markdown, getattr(runtime.model_type, "__template__", None)), None
     except Exception as exc:

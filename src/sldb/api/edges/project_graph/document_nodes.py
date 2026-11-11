@@ -42,7 +42,7 @@ def surface_files(root: Path, surface: DocumentSurface) -> list[Path]:
 
 def _document_node(root: Path, path: Path, surface: DocumentSurface, extractor: str) -> DocumentNode:
     relative_path = path.relative_to(root).as_posix()
-    metadata = document_metadata(path)
+    metadata = document_metadata(path, root)
     document_id = metadata.get("id")
     label = metadata.get("title") or re.sub(r"[-_]+", " ", path.stem).strip().title()
     identity = _identity(surface, relative_path, document_id, label, path)
