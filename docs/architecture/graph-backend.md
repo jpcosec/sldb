@@ -145,6 +145,26 @@ comprueban en cada lectura del índice (`compose_edge_index` con `model_type_of`
 `load_edge_index` y `rebuild_edges`), no se guardan con el índice compuesto: ninguna mueve un
 shard. El hash de cada archivo se recuerda mientras su mtime y su tamaño no cambien.
 
+Leer el índice abre lo mínimo (SEGURIDAD, nota 9c9dac6b; `unreadable_reason`, `source_stat` y `read_source_text` en `sldb/store/hashing.py`):
+
+- Una ruta trackeada que resuelve fuera de la raíz del proyecto (`project_root(store_path)`:
+  un symlink, o un directorio del camino, que escapa) no se abre ni se hashea: el documento
+  sale en `stale` y `stores check` lo nombra con la alerta `store/path-outside-root`.
+- Una ruta trackeada que es un symlink, aunque apunte dentro de la raíz, tampoco se sigue:
+  `stale` y la alerta `store/symlink-not-read`. Los archivos se abren con `O_NOFOLLOW`.
+- Cada shard de documento guarda `source_stat` (`[mtime_ns, size]` del `lstat` del archivo
+  cuyo texto da su `source_hash`, tomado al construirlo y solo si el texto coincide). Un
+  archivo cuyo `lstat` sigue siendo ese no se abre: un proceso nuevo sobre un store recién
+  construido no abre ningún `.md` del proyecto. Solo se lee un archivo cuyo stat cambió.
+- `stale` sigue siendo `list[str]`; el motivo está en el hallazgo de `stores check`.
+- Un shard sin `source_stat` (construido antes) se hashea como antes. La primera
+  reconstrucción de aristas tras actualizar recorre una vez los documentos de cada modelo y
+  completa el stat de los shards que reutiliza, sin cambiar la versión ni el contrato de
+  ningún shard. Un archivo tocado sin cambiar su texto (stat nuevo, mismo hash) se lee una vez
+  por proceso hasta que su shard se reconstruya.
+- La reconstrucción (`rebuild_edges`, `stores build`) todavía lee el payload por la ruta
+  trackeada sin esta guarda (fuera del alcance de esta tarea; nota a2 en el inbox de sldb).
+
 ### Consulta
 
 `StructuredQuery` filtra sobre la proyección con

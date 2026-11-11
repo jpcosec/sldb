@@ -19,6 +19,10 @@ from sldb.store.layout import edges_model_shard_path, edges_shards_dir
 from sldb.store.model_contract import contract_signature, projected_fields
 
 DocBuilder = Callable[[Any, Any, Any], Any]
+#: Appended to the contract a model's walk is cached under: a store walked before shards carried
+#: `source_stat` has its documents compared once more, so each reused shard is stamped with its
+#: file's stat (SEGURIDAD live_stale) without moving any shard's version or contract.
+_STAT_BASELINE = "|source_stat"
 
 
 def process_model_edges(m_entry, root: Path, report: EdgeRebuildReport, store_path: Path, model_type: Callable[[], Any], build_doc_edges: DocBuilder, full: bool = False) -> None:
@@ -34,13 +38,13 @@ def process_model_edges(m_entry, root: Path, report: EdgeRebuildReport, store_pa
     resolved = model_type()
     save_edges_shard(model_shard, build_model_edges(m_idx, resolved).model_copy(update={"edges_version": edge_shard_version(), "projected_fields": projected_fields(resolved)}))
     _sync_model_docs(store_path, m_entry, root, report, lambda doc: build_doc_edges(m_entry, resolved, doc), wiped, (m_idx.contract_hash, contract_signature(resolved)))
-    built_cache.put(store_path, "edges_shards", m_entry.name, key, m_idx.contract_hash)
+    built_cache.put(store_path, "edges_shards", m_entry.name, key, m_idx.contract_hash + _STAT_BASELINE)
 
 
 def _untrusted(store_path: Path, model: str, contract: str, model_shard: Path) -> bool:
     """No shards to trust (neither the cache key nor the dirty set): none were written, or they
     were under another contract, which moves every document's edges without moving its hashes."""
-    return not model_shard.exists() or built_cache.get_stale(store_path, "edges_shards", model) != contract
+    return not model_shard.exists() or built_cache.get_stale(store_path, "edges_shards", model) != contract + _STAT_BASELINE
 
 
 def _sync_model_docs(store_path: Path, m_entry, root: Path, report: EdgeRebuildReport, build_one, every: bool, contract: tuple[str, str] = ("", "")) -> None:

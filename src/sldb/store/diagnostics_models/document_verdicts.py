@@ -23,6 +23,14 @@ EXPLANATIONS = {
         "fields differ because the MODEL's contract moved, not the document: the text on "
         "disk is unchanged — `stores update` re-extracts it under the new contract"
     ),
+    DiagnosisNote.PATH_OUTSIDE_ROOT: (
+        "the tracked path resolves outside the project root (a symlink, or a directory on the "
+        "way, points elsewhere): sldb does not open it, and the edge index counts it as stale"
+    ),
+    DiagnosisNote.SYMLINK_NOT_READ: (
+        "the tracked path is a symlink: sldb does not follow it, and the edge index counts it "
+        "as stale"
+    ),
 }
 
 REMEDIES = {
@@ -38,10 +46,18 @@ REMEDIES = {
         "decide first: restore the file if it was moved by accident, or sldb docs untrack "
         "<name> if it is gone on purpose"
     ),
+    DiagnosisNote.PATH_OUTSIDE_ROOT: (
+        "decide first: replace the symlink with the file itself inside the project, or sldb "
+        "docs untrack <name>; nothing outside the root is read"
+    ),
+    DiagnosisNote.SYMLINK_NOT_READ: (
+        "decide first: replace the symlink with the regular file it points to, or sldb docs "
+        "untrack <name> and track the target"
+    ),
 }
 
 # Verdicts a command must not paper over: a human decides before anything runs.
-NEEDS_DECISION = (DiagnosisNote.DATA_MUTATION, DiagnosisNote.MISSING)
+NEEDS_DECISION = (DiagnosisNote.DATA_MUTATION, DiagnosisNote.MISSING, DiagnosisNote.PATH_OUTSIDE_ROOT, DiagnosisNote.SYMLINK_NOT_READ)
 
 # A data mutation over untouched text, under an unchanged contract: the file is what it was and
 # so is the model; what reads it changed (an sldb upgrade that extracts more). `stores update`

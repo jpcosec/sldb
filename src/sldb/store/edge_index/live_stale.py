@@ -2,7 +2,13 @@
 from outside sldb (its text no longer hashes to the `source_hash` its shard was built from) and
 a model whose contract moved (its fields or declared reference names: a new `__references__`
 entry moves no document hash). Checked on every read of the index, not kept with the composed
-index: neither moves a shard file. A file's hash is kept while its mtime and size hold."""
+index: neither moves a shard file.
+
+Reading the index opens as little as it can (SEGURIDAD, inbox 9c9dac6b): a tracked path that
+resolves outside the project root, or is a symlink, is never opened (`source_read.unreadable_reason`): its
+document counts as moved, and `stores check` names why. A file whose `lstat` still matches the
+`source_stat` its shard was built with is not opened either; only a file whose stat moved is
+read and hashed (and its hash kept, per process, while its stat holds)."""
 
 from __future__ import annotations
 
@@ -12,6 +18,7 @@ from typing import Any, Callable
 from sldb.store import documents_hash
 from sldb.store.edge_index.node_ids import doc_node_id
 from sldb.store.hashing import hash_text
+from sldb.store.source_read import read_source_text, source_stat, unreadable_reason
 from sldb.store.io import load_store_index
 from sldb.store.io.shard_compose import compose_edges_documents
 from sldb.store.layout import project_root
@@ -31,7 +38,7 @@ def live_stale(store_path: Path, model_type_of: ModelTypeOf | None) -> list[str]
         signature = _signature(m.model_ref, root, model_type_of)
         paths = {e.name: root / e.path for e in documents_hash.entries_of(store_path, m.name)}
         shards = [s for s in compose_edges_documents(store_path, m.name) if s.doc_name in paths]
-        stale += [f"{m.name}:{s.doc_name}" for s in shards if _moved(s, doc_node_id(f"{m.name}:{s.doc_name}"), paths[s.doc_name], signature)]
+        stale += [f"{m.name}:{s.doc_name}" for s in shards if _moved(s, doc_node_id(f"{m.name}:{s.doc_name}"), root, paths[s.doc_name], signature)]
     return stale
 
 
@@ -41,22 +48,33 @@ def _signature(model_ref: str, root: Path, model_type_of: ModelTypeOf | None) ->
     return None if model_type_of is None else contract_signature(model_type_of(model_ref, root))
 
 
-def _moved(shard: DocEdges, node_id: str, path: Path, signature: str | None) -> bool:
-    current = _file_hash(path)
-    if current is not None and current != shard.source_hash:
+def _moved(shard: DocEdges, node_id: str, root: Path, path: Path, signature: str | None) -> bool:
+    if unreadable_reason(root, path) is not None:
+        return True
+    if _text_moved(shard, path):
         return True
     node = next((n for n in shard.nodes if n.id == node_id), None)
     return signature is not None and node is not None and node.contract_signature != signature
 
 
-def _file_hash(path: Path) -> str | None:
+def _text_moved(shard: DocEdges, path: Path) -> bool:
+    """Whether the file's text left the shard's `source_hash`; read only when its stat moved."""
+    current_stat = source_stat(path)
+    if current_stat is None:
+        return False  # missing: the shard reader and `stores check` name it, as before
+    if shard.source_stat is not None and list(shard.source_stat) == current_stat:
+        return False
+    current = _file_hash(path, current_stat)
+    return current is not None and current != shard.source_hash
+
+
+def _file_hash(path: Path, current_stat: list[int]) -> str | None:
     """The file's source_hash as sldb computes it on track; None when it cannot be read."""
-    try:
-        st = path.stat()
-        key = (st.st_mtime_ns, st.st_size)
-        hit = _FILE_HASHES.get(str(path))
-        if hit is None or hit[0] != key:
-            hit = _FILE_HASHES[str(path)] = (key, hash_text(path.read_text(encoding="utf-8")))
-        return hit[1]
-    except (OSError, UnicodeDecodeError):
-        return None
+    key = (current_stat[0], current_stat[1])
+    hit = _FILE_HASHES.get(str(path))
+    if hit is None or hit[0] != key:
+        try:
+            hit = _FILE_HASHES[str(path)] = (key, hash_text(read_source_text(path)))
+        except (OSError, UnicodeDecodeError):
+            return None
+    return hit[1]

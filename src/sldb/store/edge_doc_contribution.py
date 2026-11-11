@@ -11,7 +11,9 @@ from sldb.store.edge_index.cache_keys import edge_shard_version
 from sldb.store.edge_index.edge_rebuild_report import EdgeRebuildReport
 from sldb.store.edge_index.node_ids import doc_node_id
 from sldb.store.io.shards import load_edges_shard, save_edges_shard
-from sldb.store.layout import edges_shard_path
+from sldb.store.hashing import hash_text
+from sldb.store.source_read import read_source_text, source_stat, unreadable_reason
+from sldb.store.layout import edges_shard_path, project_root
 from sldb.store.models import DocEdges, DocumentEntry
 
 
@@ -24,8 +26,9 @@ def sync_doc_shard(store_path, doc: DocumentEntry, m_entry, report: EdgeRebuildR
     cached = load_edges_shard(path, DocEdges)
     if cached is not None and _is_current(cached, doc, contract) and _same_signature(cached, m_entry.name, doc.name, signature):
         report.docs_reused += 1
-        return cached
-    fresh = build_doc_edges(doc).model_copy(update={"source_hash": doc.source_hash, "content_hash": doc.content_hash, "contract_hash": contract, "edges_version": edge_shard_version()})
+        return _with_current_stat(path, cached, store_path, doc)
+    stamp = {"source_hash": doc.source_hash, "content_hash": doc.content_hash, "contract_hash": contract, "edges_version": edge_shard_version(), "source_stat": built_stat(store_path, doc)}
+    fresh = build_doc_edges(doc).model_copy(update=stamp)
     save_edges_shard(path, fresh)
     report.docs_written += 1
     return fresh
@@ -44,3 +47,34 @@ def _same_signature(cached: DocEdges, model: str, name: str, signature: str | No
     (a new `__references__` entry moves no hash); a shard without that node is not compared."""
     node = next((n for n in cached.nodes if n.id == doc_node_id(f"{model}:{name}")), None)
     return signature is None or node is None or node.contract_signature == signature
+
+
+def _with_current_stat(path, cached: DocEdges, store_path, doc: DocumentEntry) -> DocEdges:
+    """A reused shard whose `source_stat` is missing (built before it existed) or no longer the
+    file's gets it, so the next read of the index need not open the file; one whose file does
+    not hash to its `source_hash` keeps what it has (the read then hashes it and calls it stale)."""
+    root = project_root(store_path)
+    if cached.source_stat is not None and list(cached.source_stat) == source_stat(root / doc.path):
+        return cached
+    current = built_stat(store_path, doc)
+    if current is None or current == cached.source_stat:
+        return cached
+    updated = cached.model_copy(update={"source_stat": current})
+    save_edges_shard(path, updated)
+    return updated
+
+
+def built_stat(store_path, doc: DocumentEntry) -> list[int] | None:
+    """`[mtime_ns, size]` of the document's file when its text hashes to the entry's
+    `source_hash` (stat, read, stat again, all equal); None when the file may not be read
+    (`source_read.unreadable_reason`), is gone, or moved since it was tracked: an edit made outside sldb before
+    this build must not be stamped as current."""
+    root = project_root(store_path)
+    file = root / doc.path
+    if unreadable_reason(root, file) is not None or (before := source_stat(file)) is None:
+        return None
+    try:
+        text = read_source_text(file)
+    except (OSError, UnicodeDecodeError):
+        return None
+    return before if hash_text(text) == doc.source_hash and source_stat(file) == before else None

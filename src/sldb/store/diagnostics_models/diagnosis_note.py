@@ -10,3 +10,5 @@ class DiagnosisNote(str, Enum):
     DATA_MUTATION = 'data_mutation'
     CONTRACT_MUTATION = 'contract_mutation'
     MISSING = 'missing'
+    PATH_OUTSIDE_ROOT = 'path_outside_root'
+    SYMLINK_NOT_READ = 'symlink_not_read'
