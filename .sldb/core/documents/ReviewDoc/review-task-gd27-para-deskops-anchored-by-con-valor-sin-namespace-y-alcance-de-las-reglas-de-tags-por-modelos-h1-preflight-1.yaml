@@ -1,0 +1,34 @@
+name: review-task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1-preflight-1
+path: desk/reviews/task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1/preflight-1.md
+source_hash: 952e13cb151aaa7d790e8998ed6f868f6780790d8a5c08b402dfad2f1c374764
+content_hash: 63a7447dc3a6a6e4cea7bc6aa1bb0e6bc68b9addeb7881d56ce112490bb24deb
+field_hashes:
+  id: df664d0dc61272fb9456b05d287d218157cc441ee1f810f02ec7c1050accb131
+  title: 8f4f4da32d2cff6f669c6ec7d3f8a80afa594a2399988e192985c0864dcb1a55
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  subject: deb022e9d74ed46aec83a2d255f3594672d318281e5aa1f07a31594d4d50fc9a
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: fb5fd1b5471d04120e364202f98ffe6cf9a1fba480e46e4be7964f58264089bc
+  input_sha256: 868a9efe74daa447b95c2114b1e1c6fe2a5ee9492cdcbe7b4d50d0c784654931
+  output_sha256: 44fb88d9c08f746132c589ca85484d0187815fbe4cc70a719f6b15854588100e
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 726d3a56cb4b7ce1098931dee6e3fdacb783187af7299fbe8bb8d619af88705f
+  created_at: 3c30686ac024ef7fa1420376d5d0fd1542dfb4903f71e33b992452ed6330c2eb
+  disposed_at: b5eff64c915484016f97229477977755204e71431f93ba25b22ade1ba40126df
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 4abdaf1ea38e1974906712b2c1ec6f52e6a5fc201af5ba1c408b4e280c4cbe2b
+  disposition: 63edb7dba01fcf89189f8896556f614f9146a3f8aaf3eeb47c01777c2ba0e62e
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-11T12:49:13Z'
+  authority: generated
+  via: save_document_payload

@@ -1,0 +1,34 @@
+name: review-task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1-bundle-1
+path: desk/reviews/task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1/bundle-1.md
+source_hash: b94a7090777411befd8e313db1541ebda1c5c8fa9f51aefd867055156e1e21f9
+content_hash: 824d2a392f8af3571e37ab46bed42c0a3d0be723ac2aa08e856fffb82ecb65b5
+field_hashes:
+  id: 98a090e7be0f6a5d8746856f08ab40c31d018bdefe0017b245c155d2d056557c
+  title: ce8fed4869c9fe4f070155f1d25d41f94e51b69c5ac6e9c2fa35f62d4ff02d06
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  subject: deb022e9d74ed46aec83a2d255f3594672d318281e5aa1f07a31594d4d50fc9a
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 92b8846cf4cd4ac2935a4327889d1da5ddbd1bedc7e38215f313f59561292581
+  input_sha256: 92e1ac3e7ab414407bb2b6724f55bcc0937c2c9b5c8aafc40fd838fe5613e8a9
+  output_sha256: 7e865d5c1da8664217806cb9c8b9651214b10b9efdf8cfa21ed49b71910940c2
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 726d3a56cb4b7ce1098931dee6e3fdacb783187af7299fbe8bb8d619af88705f
+  created_at: e6d0c26b387cb14524680ea04df6e9b7a842241955f65a1f2021a0c9cbaf8f08
+  disposed_at: 5a0e7ee41b4594cbe3e3354e102efca187fdac2595518d37044fc238be826a15
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: cc39aa6a60f8c4b611063dc1e99ce5ccc3cc72ae92d42ec677e29a8f5dfe0ac9
+  disposition: 63edb7dba01fcf89189f8896556f614f9146a3f8aaf3eeb47c01777c2ba0e62e
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-11T12:49:17Z'
+  authority: generated
+  via: save_document_payload
