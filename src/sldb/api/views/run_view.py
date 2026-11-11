@@ -32,15 +32,17 @@ def run_view(store: str | Path | None, name: str, params: dict[str, str] | None 
     `{export_id, model, name, path, fields}` plus the keys its section declares (q17).
 
     Raises:
-        SLDBDocumentTargetError: No such ViewDoc, or a section names a RuleDoc the store lacks.
+        SLDBDocumentTargetError: No such ViewDoc (local, or in a linked store: then read from
+            that store's root and evaluated over this one, H9), several linked ViewDocs share
+            the name, or a section names a RuleDoc the store lacks.
         SLDBValidationError: The view has no sections (a projection view), a param is not
             declared, required and absent, or not a string.
     """
     reading = ViewReading(open_store(store, mode="readonly").store_path)
-    view = load_view(reading.store_path, name, reading.index)
+    view, node = load_view(name, reading.index)
     values = resolve_params(view, dict(params or {}))
     sections = {section.key: run_section(reading, view, section, values) for section in view.sections}
-    stamp = revision(reading.store_path, reading.index, reading.rows, f"ViewDoc:{view.name}", reading.rule_ids)
+    stamp = revision(reading.store_path, reading.index, reading.rows, node, reading.rule_ids)
     return {"view": view.name, "params": values, "revision": stamp, "sections": sections}
 
 

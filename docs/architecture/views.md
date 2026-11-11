@@ -95,6 +95,28 @@ or a RuleDoc, or writing any document that moves the shards changes it; two eval
 nothing written in between give the same value. A surface no document models (a file the
 project graph reads, say) does not move it.
 
+## A view from a linked store
+
+A `ViewDoc` need not live in the store that runs it (H9; deskops ships its views only in its
+package store, decision DA4, and a desk reaches them through the link). `run_view`, `list_views`
+and therefore `views run|list` and `GET /views[/<name>]` read the composed index (the store and
+the stores it links to, where a linked document is `<link>:ViewDoc:<name>`):
+
+- **Which one a name means.** The local `ViewDoc:<name>` first; else the only linked ViewDoc with
+  that name; `<link>:<name>` names a linked one directly. Two or more linked ViewDocs with the
+  name and no local one is `SLDBDocumentTargetError('Ambiguous view: <name> (linked in <s1>, <s2>)')`
+  (`docs/missing`, 404): sldb does not pick one.
+- **Where its file is read.** From the root of the store that tracks it (the linked one), which
+  the index records in the node's `facets.source.store_path`, through the read guard of
+  `sldb.store.source_read`: a path that resolves outside that root or is a symlink is not read
+  (`SLDBDocumentTargetError` naming `outside-root` or `symlink`).
+- **What it reads.** The sections select, project and join over the store that calls, never over
+  the store the ViewDoc comes from: the view is a definition, the calling store is the data.
+- **The catalogue.** `list_views` lists local and linked views by name; a linked view whose name
+  another view also has (local or linked) is listed `<link>:<name>`, which `run_view` accepts.
+- **The revision** takes the ViewDoc's `content_hash` from the shard of the store that tracks it,
+  so editing a linked view moves it too.
+
 ## CLI and HTTP
 
 - `sldb views run NAME [--param k=v ...] [--store] [--pythonpath] [--format]`: the result
