@@ -11,8 +11,9 @@ from pathlib import Path
 
 from sldb.api.model_registry.add_model import add_model
 from sldb.api.model_registry.inherit_model import inherit_model
-from sldb.api.stores.declared_files import declared_files
+from sldb.api.stores.declared_files import declared_files, rule_rows
 from sldb.api.stores.declared_includes import tracked_rows
+from sldb.api.stores.include_resolution import include_conflicts, store_bases
 from sldb.api.stores.link_store import link_store
 from sldb.api.stores.store_declaration import StoreDeclaration
 from sldb.api.documents.track_document_file import track_document_file
@@ -66,19 +67,21 @@ def apply_predicates(store_path: Path, declaration: StoreDeclaration) -> bool:
 def apply_includes(store_path: Path, root: Path, declaration: StoreDeclaration) -> list[str]:
     """Track every declared file that is not tracked yet under its declared model and name."""
     tracked = set(tracked_rows(store_path, root))
-    new = [row for row in declared_files(root, declaration) if row not in tracked and (root / row[1]).is_file()]
+    new = [row for row in declared_files(root, declaration, store_bases(store_path)) if row not in tracked and (root / row[1]).is_file()]
     for model, path, name in new:
         track_document_file(store_path, model, root / path, name, str(root), force=True)
     return [path for _, path, _ in new]
 
 
 def undeclared(store_path: Path, root: Path, declaration: StoreDeclaration) -> list[str]:
-    """Tracked documents no include rule names: the declaration is missing them."""
-    wanted = set(declared_files(root, declaration))
-    return sorted(path for model, path, name in tracked_rows(store_path, root) if (model, path, name) not in wanted)
+    """Tracked documents no include rule names: the declaration is missing them. A path in
+    conflict (`store/include-conflict`) is declared, only not resolved, so it is not listed."""
+    wanted = set(declared_files(root, declaration, store_bases(store_path)))
+    conflicted = {c["path"] for c in include_conflicts(store_path, root)}
+    return sorted(path for model, path, name in tracked_rows(store_path, root) if (model, path, name) not in wanted and path not in conflicted)
 
 
 def missing_declared(root: Path, declaration: StoreDeclaration) -> list[str]:
     """Declared paths with no file: the declaration names something gone, and a build that
     tracked around it silently would rebuild a different store."""
-    return sorted({path for _, path, _ in declared_files(root, declaration) if not (root / path).is_file()})
+    return sorted({path for _, _, path, _ in rule_rows(root, declaration) if not (root / path).is_file()})

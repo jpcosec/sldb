@@ -10,6 +10,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any, Callable
 
+from sldb.api.stores.include_resolution import conflict_finding, include_conflicts
 from sldb.api.stores.apply_declaration import apply_includes, apply_links, apply_models, apply_predicates, missing_declared, missing_links, undeclared
 from sldb.api.stores.scaffold_store import scaffold_store
 from sldb.api.stores.store_declaration import StoreDeclaration, declared_store, load_declaration
@@ -33,7 +34,10 @@ def build_store(store: str | Path | None, *, apply: bool = True, generate: Gener
     Returns:
         `links`, `models`, `predicates_changed`, `tracked`, `generated`, `undeclared`,
         `missing`, `links_missing` (declared links whose store is absent, `{name, path}`: an
-        alert, the build goes on) and `scaffold` (`created`, `rewritten`, `present`, `conflicts`).
+        alert, the build goes on), `scaffold` (`created`, `rewritten`, `present`, `conflicts`)
+        and `include_conflicts`: a path the include rules resolve to no single row, as a
+        `store/include-conflict` error finding (`include_resolution`); that path is not tracked.
+        Rows another rule beat are untracked by the index refresh (`include_losers`).
     """
     store_path, root = declared_store(store)
     declaration = load_declaration(store_path)
@@ -68,4 +72,9 @@ def _planned(store_path: Path, root: Path, declaration: StoreDeclaration) -> dic
 
 def _pending(store_path: Path, root: Path, declaration: StoreDeclaration, apply: bool) -> dict[str, Any]:
     missing = {"undeclared": undeclared(store_path, root, declaration) if store_exists(store_path) else [], "missing": missing_declared(root, declaration), "links_missing": missing_links(root, declaration)}
-    return {**missing, "scaffold": scaffold_store(store_path, apply=apply).lists()}
+    return {**missing, "scaffold": scaffold_store(store_path, apply=apply).lists(), "include_conflicts": _conflicts(store_path, root)}
+
+
+def _conflicts(store_path: Path, root: Path) -> list[dict]:
+    """Paths the include rules resolve to no single row, as `store/include-conflict` errors."""
+    return [conflict_finding(c).as_dict() for c in include_conflicts(store_path, root)]

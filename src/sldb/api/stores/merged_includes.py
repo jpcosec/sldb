@@ -13,6 +13,7 @@ from pathlib import Path, PurePosixPath
 
 from sldb.api.stores.declared_files import declared_files
 from sldb.api.stores.declared_includes import tracked_rows
+from sldb.api.stores.include_resolution import store_bases
 from sldb.api.stores.store_declaration import StoreDeclaration
 
 
@@ -20,7 +21,7 @@ def merged_includes(store_path: Path, root: Path, current: list[dict]) -> list[d
     """`current` rules verbatim (copied, never rewritten), plus the tracked documents no rule
     names, appended to the model's path list (created at the end when the model has none)."""
     rules = [dict(rule) for rule in current]
-    covered = set(declared_files(root, StoreDeclaration(include=rules)))
+    covered = set(declared_files(root, StoreDeclaration(include=rules), store_bases(store_path)))
     for model, path, name in tracked_rows(store_path, root):
         if (model, path, name) not in covered and not _globbed(rules, model, path, name):
             _path_rule(rules, model)["paths"].append(path if Path(path).stem == name else {"path": path, "name": name})

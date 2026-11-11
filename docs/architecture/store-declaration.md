@@ -93,6 +93,35 @@ template that cannot be read, a name already tracked) leaves every file written 
 was. Folders are created with `mkdir(parents=True)` before the seeds that need them; a
 directory created in a run that then rolls back stays, empty.
 
+## `include`: one row per path
+
+Each `include` rule names files under a model. A `glob` rule names every match under its file
+stem, and a `paths` rule names each path under its stem or its given `name`
+(`src/sldb/api/stores/declared_files.py`). A path that several rules name resolves to a single
+`(model, path, name)` row (`src/sldb/api/stores/include_resolution.py`, task.debug dbltrack,
+2026-11-11):
+
+- **The rules name one model**: one row, no conflict. A `paths` entry gives the name.
+- **`paths` of a child, `glob` of its parent**: the `paths` rules name a single model, the
+  `glob` rules a single model, and that model is one of the first one's bases. The `paths`
+  row wins: the most specific rule. A model's bases are the `base_models` its model index
+  records, the walk `sldb.store.model_contract.base_names` makes over the class (an inherited
+  model answers with its owner's, `indexed_model_bases`).
+- **Anything else**: no row is chosen. That covers two `paths` models, two `glob` models, and
+  models with no descent between them. The path is not tracked, and it is the error
+  `store/include-conflict`, which names the path and the models.
+  `build_store` reports it under `include_conflicts`, `sldb stores build` exits 1, and
+  `sldb stores check` lists it among its errors. `undeclared` does not list the path: it is
+  declared, just not resolved.
+
+Before this, `declared_files` added up the rows of every rule. A file in a parent's glob and
+in a child's `paths` was tracked under both models in a clean build, and `Parent:name` was
+ambiguous. In a store that already tracks such a file twice, the index refresh
+(`update_store_indexes`, which `sldb stores update` and `sldb stores build` run) untracks the
+losing row (`src/sldb/api/stores/include_losers.py`). It recognises the row from the rules,
+never from the cache. Only the index changes: the file and `store.yaml` stay as they are, and
+a second pass finds nothing. `sldb stores declare --write` keeps an authored glob as before.
+
 ## `sldb.api.build_store`
 
 ```python
@@ -121,4 +150,7 @@ empty and `predicates_changed` false, while `scaffold` (not applied), `undeclare
   With `--envelope`, the report is the envelope's `data`.
 - `sldb stores build`: unchanged in its keys, text summary and exit code; its JSON and YAML
   output gains the `scaffold` section, always present, `{created: [], rewritten: [], present: [],
-  conflicts: []}` when the declaration has no folders or seeds.
+  conflicts: []}` when the declaration has no folders or seeds. Since dbltrack it also gains
+  `include_conflicts`, always present. Each `store/include-conflict` prints as an
+  `error: [store/include-conflict] <path>: ...` line after `built:` and makes the exit 1.
+  The counts in the `built:` line do not change.

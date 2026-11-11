@@ -1,6 +1,6 @@
 """What a store's surroundings say, as findings: its declaration, links, contents and ignores.
 
-Errors: a declared store that was never built (`stores check` passed on it with 0 documents,
+Errors: a path the `include` rules resolve to no single row (`store/include-conflict`), a declared store that was never built (`stores check` passed on it with 0 documents,
 inbox 20261020-024137), a link to no store, and structural noise, which the writes already
 refuse (owner's decision, 2026-10-20). Alerts: blocks a rewrite would lose, a model shadowing
 its owner's, and the cache not ignored by git. Error too: `.sldb/` ignored, since its past is read from git.
@@ -31,7 +31,7 @@ def unbuilt(store_path: Path) -> Finding | None:
 def surroundings_findings(store_path: Path, root: Path, pythonpath: str | None) -> list[Finding]:
     if found := unbuilt(store_path):
         return [found]
-    return [*_links(store_path), *_noise(store_path, root, pythonpath), *_rewrite_loss(store_path, root, pythonpath), *_shadowed(store_path, pythonpath), *_gitignore(store_path)]
+    return [*_links(store_path), *_include_conflicts(store_path, root), *_noise(store_path, root, pythonpath), *_rewrite_loss(store_path, root, pythonpath), *_shadowed(store_path, pythonpath), *_gitignore(store_path)]
 
 
 def _links(store_path: Path) -> list[Finding]:
@@ -49,6 +49,12 @@ def _link_finding(link: dict, fix: str) -> Finding:
     if link["status"] == "missing":
         return alert("store/link-absent", link["name"], what, fix)
     return error("store/link-broken", link["name"], what, fix)
+
+
+def _include_conflicts(store_path: Path, root: Path) -> list[Finding]:
+    from sldb.api.stores.include_resolution import conflict_finding, include_conflicts
+
+    return [conflict_finding(c) for c in include_conflicts(store_path, root)]
 
 
 def _noise(store_path: Path, root: Path, pythonpath: str | None) -> list[Finding]:

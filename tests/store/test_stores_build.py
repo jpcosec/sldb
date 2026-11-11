@@ -59,7 +59,7 @@ def test_a_store_rebuilt_from_its_declaration_tracks_the_same(tmp_path, capsys):
 
 
 EMPTY_SCAFFOLD = {"created": [], "rewritten": [], "present": [], "conflicts": []}
-REPORT_KEYS = ["links", "models", "predicates_changed", "tracked", "generated", "undeclared", "missing", "links_missing", "scaffold"]
+REPORT_KEYS = ["links", "models", "predicates_changed", "tracked", "generated", "undeclared", "missing", "links_missing", "scaffold", "include_conflicts"]
 
 
 def test_building_a_current_store_changes_nothing(tmp_path, capsys):
@@ -74,7 +74,7 @@ def test_the_build_report_is_the_golden_one_plus_an_empty_scaffold_section(tmp_p
     store, root = _declared(tmp_path, capsys)
     report = build_store(store, root)
     assert list(report) == REPORT_KEYS
-    assert report == {"links": [], "models": [], "predicates_changed": False, "tracked": [], "generated": [], "undeclared": [], "missing": [], "links_missing": [], "scaffold": EMPTY_SCAFFOLD}
+    assert report == {"links": [], "models": [], "predicates_changed": False, "tracked": [], "generated": [], "undeclared": [], "missing": [], "links_missing": [], "scaffold": EMPTY_SCAFFOLD, "include_conflicts": []}
     capsys.readouterr()
     assert cli_main(["stores", "build", "--store", str(store), "--format", "json"]) == 0
     printed = json.loads(capsys.readouterr().out)
@@ -116,7 +116,7 @@ def test_build_without_apply_writes_nothing_and_says_what_is_pending(tmp_path, c
     save_declaration(store, declaration)
     before = {p: hashlib.sha256(p.read_bytes()).hexdigest() for p in root.rglob("*") if p.is_file()}
     report = api_build_store(store, apply=False)
-    assert report == {"links": [], "models": [], "predicates_changed": False, "tracked": [], "generated": [], "undeclared": [], "missing": ["gone.md"], "links_missing": [], "scaffold": {"created": ["inbox"], "rewritten": [], "present": [], "conflicts": []}}
+    assert report == {"links": [], "models": [], "predicates_changed": False, "tracked": [], "generated": [], "undeclared": [], "missing": ["gone.md"], "links_missing": [], "scaffold": {"created": ["inbox"], "rewritten": [], "present": [], "conflicts": []}, "include_conflicts": []}
     assert {p: hashlib.sha256(p.read_bytes()).hexdigest() for p in root.rglob("*") if p.is_file()} == before
 
 
