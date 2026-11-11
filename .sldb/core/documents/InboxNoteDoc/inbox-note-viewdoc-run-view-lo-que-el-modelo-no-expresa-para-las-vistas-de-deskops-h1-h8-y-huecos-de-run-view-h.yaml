@@ -1,0 +1,22 @@
+name: inbox-note-viewdoc-run-view-lo-que-el-modelo-no-expresa-para-las-vistas-de-deskops-h1-h8-y-huecos-de-run-view-h
+path: desk/inbox/inbox-note-viewdoc-run-view-lo-que-el-modelo-no-expresa-para-las-vistas-de-deskops-h1-h8-y-huecos-de-run-view-h.md
+source_hash: 46f03c1d2cc0e01f25f1f3cf2eb74387f2364ebf562b1330306fad2c161d00f9
+content_hash: 6d8ad62954292a8d4611603d2a2d7f822083f80d6bbe8182af0acbf075c7c946
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 7e92564755679e5b30c1b14378a782e2f5d8b5be37d0ce544581fe7c4a124e9e
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: 1bd953c5d9e8a9b962b0d5e8899e19215b79b4059922f02168f501e1f22e9eb2
+  body: edc410afad96e73b9ad4d89a27f4032336b5a594baccd3714290982c812d2f85
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance:
+  by: agent
+  at: '2026-11-11T10:47:49Z'
+  authority: generated
+  via: create_document
