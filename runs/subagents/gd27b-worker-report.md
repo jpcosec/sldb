@@ -74,3 +74,29 @@ namespace no declarado sí; explain fuera de alcance; tag_tree acotado; (c) los 
 
 - `tag_models` no se contrasta con los modelos registrados: un nombre mal escrito deja el
   alcance vacío (ningún hallazgo). Un `stores check` que lo avise sería el paso siguiente.
+
+## Entrega
+
+Hecho como el diseño, sin desvíos. Archivos: `tag_namespace.py` (`anchored_by.value`,
+`anchor_tag`), `store_declaration.py` (`tag_models`; el `if` de `declared_graph_backend` pasa
+a expresión para quedar en 80 líneas efectivas), `builtin_tag_rules.py` (`tag_scope`,
+`in_scope`, filtro en `family_findings`, `explain` fuera de alcance, `anchors_of` por
+`anchor_tag`; queda en 80), `tags/tag_tree.py` (`used_tags` acotado), `cli/commands/tags.py`
+(`(bare)` en `tags namespaces`), `docs/architecture/tags.md` (g1, g2 y la línea de g3),
+`CHANGELOG.md`, `tests/api/test_tags_scope.py` (nuevo, 11 tests). Sin archivos nuevos en `src/`
+(no cambia `contracts/layers.toml`).
+
+Validación (de a uno, con la guarda; intérprete `SLDB_1/.venv` con `PYTHONPATH=src`, porque
+el worktree no tiene `python` en el PATH ni pytest en `sldb/.venv`):
+
+| Archivo | Resultado |
+|---|---|
+| tests/api/test_tags_scope.py | 11 passed |
+| tests/api/test_tags.py (sin cambios) | 34 passed |
+| tests/test_clean_code_rules.py | 954 passed |
+| tests/api/test_api_stores.py, test_policy.py, test_project_graph.py, test_project_graph_config.py, test_referrers.py, test_replace_text.py, test_scaffold_store.py, test_rules_linked_reach.py | 7, 14, 13, 11, 10, 16, 20, 4 passed |
+| tests/store/test_stores_build.py | 27 passed |
+| tests/test_serve.py | 61 passed |
+| `bash tools/check.sh --fast` | TODAS LAS PUERTAS PASAN |
+
+Pendiente del coordinador: los 7 pasos de `.github/workflows/ci.yml` en clon limpio.

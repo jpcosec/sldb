@@ -8,7 +8,8 @@
 With `anchored_by`, the tree is the anchors' (an intermediate prefix without its anchor is a
 node with `document: null`), `orphans` are the tags local documents use that no anchor
 declares and `unplaced` the anchors no document uses, directly or (hierarchical) through a tag
-under them; without it, the tree is the used tags' and both lists are empty. A
+under them; without it, the tree is the used tags' and both lists are empty. With `tag_models`,
+a tag is used only by documents in scope (`in_scope`); the anchors are every local one. A
 non-hierarchical namespace has roots only. Alphabetical by tag.
 """
 
@@ -17,7 +18,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from sldb.api.rules.builtin_tag_rules import anchors_of, payload_of, tag_rules
+from sldb.api.rules.builtin_tag_rules import anchors_of, in_scope, payload_of, tag_rules, tag_scope
 from sldb.api.rules.rule_graph import RuleGraph, rule_graph
 from sldb.api.stores.tag_namespace import TagNamespace
 from sldb.core.exceptions import SLDBStoreError
@@ -39,9 +40,10 @@ def tag_tree(store: str | Path | None, namespace: str) -> dict[str, Any]:
 
 
 def used_tags(graph: RuleGraph, namespace: str) -> dict[str, list[str]]:
-    """Tag -> the local documents carrying it, for the tags of `namespace`."""
+    """Tag -> the local documents in scope (`tag_models`) carrying it, for the tags of `namespace`."""
     found: dict[str, list[str]] = {}
-    for node in sorted(graph.local):
+    models = tag_scope(graph.store_path)
+    for node in (node for node in sorted(graph.local) if in_scope(graph, models, node)):
         for name, tag in namespaced_tags(payload_of(graph, node)):
             if name == namespace:
                 found.setdefault(tag, []).append(node)

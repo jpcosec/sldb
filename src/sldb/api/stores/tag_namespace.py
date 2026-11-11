@@ -16,6 +16,7 @@ from pydantic import BaseModel, ConfigDict, Field, SerializerFunctionWrapHandler
 from sldb.store.semantic_tags import split_namespace, tag_prefixes
 
 ANCHOR_KEYS = ("model", "field")
+ANCHOR_VALUES = ("tag", "bare")
 
 
 class TagNamespace(BaseModel):
@@ -26,7 +27,7 @@ class TagNamespace(BaseModel):
     name: str = Field(description="The namespace: what precedes the first colon of its tags; no colon, no blank.")
     hierarchical: bool = Field(default=True, description="Whether `a.b.c` is a path whose prefixes `a` and `a.b` are tags too; false means the value is one piece, without prefixes.")
     folder_axis: bool = Field(default=False, description="Declarative: the value of a tag of this namespace is the document's folder (`tag_folder`).")
-    anchored_by: dict[str, str] | None = Field(default=None, description="`{model, field}`: every tag the namespace requires must be the `field` of a local document of `model`.")
+    anchored_by: dict[str, str] | None = Field(default=None, description="`{model, field, value?}`: every tag the namespace requires must be the `field` of a local document of `model` (`value: tag`, the default) or its value without the namespace (`value: bare`).")
 
     @field_validator("name")
     @classmethod
@@ -38,8 +39,8 @@ class TagNamespace(BaseModel):
     @field_validator("anchored_by")
     @classmethod
     def _names_model_and_field(cls, value: dict[str, str] | None) -> dict[str, str] | None:
-        if value is not None and (set(value) != set(ANCHOR_KEYS) or not all(str(value[k]).strip() for k in ANCHOR_KEYS)):
-            raise ValueError(f"anchored_by must be {{model, field}} with non-blank values, not {value!r}")
+        if value is not None and (set(value) - {"value"} != set(ANCHOR_KEYS) or not all(str(value[k]).strip() for k in ANCHOR_KEYS) or value.get("value", "tag") not in ANCHOR_VALUES):
+            raise ValueError(f"anchored_by must be {{model, field}} with non-blank values and an optional value tag|bare, not {value!r}")
         return value
 
     @model_serializer(mode="wrap")
@@ -53,6 +54,17 @@ class TagNamespace(BaseModel):
         value = split_namespace(tag)[1]
         values = tag_prefixes(value) if self.hierarchical else [value]
         return [f"{self.name}:{v}" for v in values]
+
+    def anchor_tag(self, field_value: Any) -> str | None:
+        """The tag an anchor document's `field` anchors: the value itself when it is a tag of
+        this namespace (`value: tag`); with `value: bare`, the namespace plus the value, and
+        nothing for a value already carrying `name:`, a blank one or one that is not text."""
+        if not isinstance(field_value, str) or not field_value.strip():
+            return None
+        carried = split_namespace(field_value)[0] == self.name
+        if (self.anchored_by or {}).get("value", "tag") == "bare":
+            return None if carried else f"{self.name}:{field_value}"
+        return field_value if carried else None
 
 
 def unique_namespaces(value: list[TagNamespace]) -> list[TagNamespace]:

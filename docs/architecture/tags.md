@@ -16,12 +16,40 @@ tag_namespaces:
     field: tag
 - name: kind
   hierarchical: false        # the value is one piece: no prefixes
+- name: domain
+  anchored_by:
+    model: CrossroadDoc
+    field: path
+    value: bare              # the field holds `a.b`, the value without `domain:` (default: tag)
+tag_models: [AtomDoc]        # optional: the family checks only these models and their descendants
 ```
 
 `sldb.api.TagNamespace` (`src/sldb/api/stores/tag_namespace.py`) is one entry; its invariants
-are its validators: a name without colon or blanks, `anchored_by` exactly `{model, field}`,
-no other key; `StoreDeclaration.tag_namespaces` refuses a repeated name. A declaration without
+are its validators: a name without colon or blanks, `anchored_by` exactly `{model, field}`
+plus an optional `value` (`tag` or `bare`), no other key; `StoreDeclaration.tag_namespaces` refuses a repeated name. A declaration without
 the key reads and writes as before it existed. `sldb tags namespaces` lists what is declared.
+
+### `anchored_by.value` (GD27 for deskops, CC35d H1)
+
+`value: tag` (the default, and what a declaration without the key means) reads the anchor's
+`field` as a complete tag: `area:a.b` anchors `area:a.b`, a value of another namespace anchors
+nothing. `value: bare` reads it as the value without the namespace: a `CrossroadDoc.path` of
+`a.b` anchors `domain:a.b`; a field that already carries `domain:` (or is blank, or is not text)
+anchors nothing. `TagNamespace.anchor_tag(field_value)` is that decision; the tags the
+namespace requires, `missing` and the tree are always complete tags.
+
+### `tag_models` (GD27 for deskops, CC35d H2)
+
+`StoreDeclaration.tag_models` (a list of model names, empty by default and then not dumped)
+limits the family to the documents whose model is listed or has a listed one among its
+`base_models`. The tags of other documents are not checked: neither `on_write`, `on_check`,
+`rules check` nor `tags check` report them, and `rules explain` of the family on such a
+document holds with `clause: model in tag_models` and `seen: {model, tag_models}`. The
+anchors are never filtered: any local document of the `anchored_by` model anchors. In
+`tag_tree`, a tag is used (and so orphan, or what places an anchor) only through documents in
+scope; roots and anchors are as without it. It is store-wide, not per namespace, because the
+case it solves is an undeclared namespace, which has no entry to say "does not apply". Model
+names are not checked against the registered ones (a misspelt one leaves the scope empty).
 
 ## What the family checks
 
@@ -83,7 +111,9 @@ object, in the envelope's `data`):
 `sldb.api.tag_folder(tag)` is a pure function of the text: `a.b` or `area:a.b` -> `a/b`, one
 segment per part (`a` -> `a`); it never reads the store (`folder_axis` is the declaration that
 tells a consumer to use it). A blank value, an empty segment (`a..b`, `.a`, `a.`) or a slash
-inside a segment is a `ValueError` naming the value.
+inside a segment is a `ValueError` naming the value. It stays strict on purpose (CC35d H3):
+a consumer that derives folders from a `folder_axis` namespace keeps those tags out of its own
+documents (deskops forbids them in its atom pattern) instead of having them silently skipped.
 
 ## API and CLI
 

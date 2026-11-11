@@ -19,7 +19,7 @@ from sldb.api.stores.tag_namespace import TagNamespace, unique_namespaces
 
 DECLARATION_FILE = "store.yaml"
 SCAFFOLD_KEYS = ("folders", "seeds")
-OPTIONAL_KEYS = (*SCAFFOLD_KEYS, "project_graph", "tag_namespaces")
+OPTIONAL_KEYS = (*SCAFFOLD_KEYS, "project_graph", "tag_models", "tag_namespaces")
 
 
 class StoreDeclaration(BaseModel):
@@ -37,6 +37,7 @@ class StoreDeclaration(BaseModel):
     folders: list[str] = Field(default_factory=list, description="Directories `stores scaffold` creates, relative to the project root (docs/architecture/store-declaration.md).")
     seeds: list[Seed] = Field(default_factory=list, description="Files `stores scaffold` writes from a declared source: `{path, mode, text | file | document, track}`.")
     project_graph: dict[str, Any] | None = Field(default=None, description="The project's graph configuration as data (`sldb.api.ProjectGraphConfig.from_mapping`; docs/architecture/project-graph.md), read by `sldb.api.project_graph`.")
+    tag_models: list[str] = Field(default_factory=list, description="Models whose documents (and their descendants' by `base_models`) the `tag_namespaces` family checks; empty means every document (docs/architecture/tags.md).")
     tag_namespaces: Annotated[list[TagNamespace], AfterValidator(unique_namespaces)] = Field(default_factory=list, description="The tag namespaces the store declares (`{name, hierarchical, folder_axis, anchored_by}`, names unique); a store that declares any checks every namespaced tag it writes (docs/architecture/tags.md).")
 
     @field_validator("project_graph")
@@ -51,7 +52,7 @@ class StoreDeclaration(BaseModel):
 
     @model_serializer(mode="wrap")
     def _without_empty_optional_keys(self, handler: SerializerFunctionWrapHandler) -> dict[str, Any]:
-        """A declaration without folders, seeds, project_graph or tag_namespaces dumps as before they existed; a seed dumps only the keys it was written with (a namespace does the same on its own)."""
+        """A declaration without folders, seeds, project_graph, tag_models or tag_namespaces dumps as before they existed; a seed dumps only the keys it was written with (a namespace does the same on its own)."""
         dumped = handler(self)
         for key in OPTIONAL_KEYS:
             if not dumped.get(key):
@@ -82,8 +83,7 @@ def declared_graph_backend(store_path: str | Path | None = None) -> str:
     if store_path is None:
         return "networkx"
     path = Path(store_path)
-    if path.name != ".sldb" and (path / ".sldb").is_dir():
-        path = path / ".sldb"
+    path = path / ".sldb" if path.name != ".sldb" and (path / ".sldb").is_dir() else path
     if not declaration_path(path).is_file():
         return "networkx"
     return load_declaration(path).graph_backend

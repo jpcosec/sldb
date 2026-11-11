@@ -4,8 +4,10 @@ the `tag_namespaces` of `store.yaml`, checked where the RuleDocs are (`on_write`
 
 On a document, the rule of namespace `<name>` holds when every tag `<name>:value` it carries
 names a declared namespace and, with `anchored_by`, every tag the namespace requires for the
-value (`TagNamespace.required`) is the `field` of a local document of `model`, the document
-being written included. Without `tag_namespaces` the family reads nothing.
+value (`TagNamespace.required`) is anchored by the `field` of a local document of `model`
+(`TagNamespace.anchor_tag`), the document being written included. With `tag_models`, only the
+documents of those models or of their descendants are checked (anchors are not filtered).
+Without `tag_namespaces` the family reads nothing.
 """
 
 from __future__ import annotations
@@ -19,7 +21,7 @@ from sldb.api.stores.store_declaration import declaration_path, load_declaration
 from sldb.api.stores.tag_namespace import TagNamespace
 from sldb.core.exceptions import SLDBDocumentTargetError
 from sldb.core.finding import Finding
-from sldb.store.semantic_tags import namespaced_tags, split_namespace
+from sldb.store.semantic_tags import namespaced_tags
 
 PREFIX = "builtin:tag_namespace:"
 
@@ -31,6 +33,17 @@ def tag_rules(store_path: Path) -> dict[str, TagNamespace]:
     return {namespace.name: namespace for namespace in load_declaration(store_path).tag_namespaces}
 
 
+def tag_scope(store_path: Path) -> set[str]:
+    """The declared `tag_models`; empty (every document is in scope) without them."""
+    return set(load_declaration(store_path).tag_models) if declaration_path(store_path).is_file() else set()
+
+
+def in_scope(graph: RuleGraph, models: set[str], node: str) -> bool:
+    """Whether the family checks `node`: no `tag_models`, or its model or a base among them."""
+    item = graph.located(node)[1]
+    return not models or bool(models & {item["model"], *item["base_models"]})
+
+
 def store_findings(store: str | Path | None) -> list[Finding]:
     """The family over every local document; a store without namespaces is not read."""
     store_path = open_store(store, mode="readonly").store_path
@@ -39,8 +52,9 @@ def store_findings(store: str | Path | None) -> list[Finding]:
 
 def family_findings(graph: RuleGraph, nodes: list[str] | None) -> list[Finding]:
     """The findings on `nodes` (every local document when None), by document then namespace."""
-    rules = tag_rules(graph.store_path)
-    found = [(node, name) for node in (sorted(graph.local) if nodes is None else nodes) for name in _names(graph, node)] if rules else []
+    rules, models = tag_rules(graph.store_path), tag_scope(graph.store_path)
+    scoped = [node for node in (sorted(graph.local) if nodes is None else nodes) if in_scope(graph, models, node)] if rules else []
+    found = [(node, name) for node in scoped for name in _names(graph, node)]
     results = [(name, evaluate(graph, rules, name, node)) for node, name in found]
     return [_finding(graph, name, result) for name, result in results if result["holds"] != "true"]
 
@@ -50,7 +64,9 @@ def explain(graph: RuleGraph, rule: str, node: str) -> dict[str, Any]:
     rules = tag_rules(graph.store_path)
     if not rules:
         raise SLDBDocumentTargetError(f"Unknown document target: {rule}")
-    return {"rule": rule, "subject": node, "finding": evaluate(graph, rules, rule.removeprefix(PREFIX), node)}
+    models, model = tag_scope(graph.store_path), graph.located(node)[1]["model"]
+    found = evaluate(graph, rules, rule.removeprefix(PREFIX), node) if in_scope(graph, models, node) else _found(node, True, "model in tag_models", {"model": model, "tag_models": sorted(models)})
+    return {"rule": rule, "subject": node, "finding": found}
 
 
 def evaluate(graph: RuleGraph, rules: dict[str, TagNamespace], name: str, node: str) -> dict[str, Any]:
@@ -66,15 +82,15 @@ def evaluate(graph: RuleGraph, rules: dict[str, TagNamespace], name: str, node: 
 
 
 def anchors_of(graph: RuleGraph, namespace: TagNamespace) -> dict[str, str]:
-    """Anchor tag -> export id of the local document of `anchored_by.model` whose `field` is
-    that tag, as `graph` reads it (a payload being written included)."""
+    """Anchor tag -> export id of the local document of `anchored_by.model` whose `field`
+    anchors that tag (`anchor_tag`), as `graph` reads it (a payload being written included)."""
     model, field = namespace.anchored_by["model"], namespace.anchored_by["field"]
     found: dict[str, str] = {}
     for node in sorted(graph.local | ({graph.override[0]} if graph.override else set())):
         item = graph.located(node)[1]
-        value = item["payload"].get(field) if model in (item["model"], *item["base_models"]) else None
-        if isinstance(value, str) and split_namespace(value)[0] == namespace.name:
-            found.setdefault(value, node)
+        tag = namespace.anchor_tag(item["payload"].get(field)) if model in (item["model"], *item["base_models"]) else None
+        if tag is not None:
+            found.setdefault(tag, node)
     return found
 
 
