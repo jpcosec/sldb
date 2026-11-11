@@ -12,7 +12,8 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any, Iterable
 
-from sldb.store.hashing import hash_fields_with_map, read_source_text, unreadable_reason
+from sldb.store.hashing import hash_fields_with_map
+from sldb.store.source_read import read_source_text, unreadable_reason
 
 
 def signed_under_other_fields(field_hashes: dict[str, str] | None, model_type: Any, current: Iterable[str] | None = None) -> bool:
@@ -40,7 +41,7 @@ def document_drifted(doc: Any, root: Path, model_type: Any) -> bool:
         return False
     path = root / doc.path
     if unreadable_reason(root, path) is not None:
-        return False  # not read: `stores check` names the path on its own (hashing.unreadable_reason)
+        return False  # not read: `stores check` names the path on its own (source_read.unreadable_reason)
     if not path.exists():
         return True
     return signed_under_other_fields(doc.field_hashes, model_type, hash_fields_with_map(model_type, read_source_text(path))[1])

@@ -11,7 +11,8 @@ from sldb.store.edge_index.cache_keys import edge_shard_version
 from sldb.store.edge_index.edge_rebuild_report import EdgeRebuildReport
 from sldb.store.edge_index.node_ids import doc_node_id
 from sldb.store.io.shards import load_edges_shard, save_edges_shard
-from sldb.store.hashing import hash_text, read_source_text, source_stat, unreadable_reason
+from sldb.store.hashing import hash_text
+from sldb.store.source_read import read_source_text, source_stat, unreadable_reason
 from sldb.store.layout import edges_shard_path, project_root
 from sldb.store.models import DocEdges, DocumentEntry
 
@@ -66,7 +67,7 @@ def _with_current_stat(path, cached: DocEdges, store_path, doc: DocumentEntry) -
 def built_stat(store_path, doc: DocumentEntry) -> list[int] | None:
     """`[mtime_ns, size]` of the document's file when its text hashes to the entry's
     `source_hash` (stat, read, stat again, all equal); None when the file may not be read
-    (`hashing.unreadable_reason`), is gone, or moved since it was tracked: an edit made outside sldb before
+    (`source_read.unreadable_reason`), is gone, or moved since it was tracked: an edit made outside sldb before
     this build must not be stamped as current."""
     root = project_root(store_path)
     file = root / doc.path

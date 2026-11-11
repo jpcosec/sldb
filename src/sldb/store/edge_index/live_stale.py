@@ -5,7 +5,7 @@ entry moves no document hash). Checked on every read of the index, not kept with
 index: neither moves a shard file.
 
 Reading the index opens as little as it can (SEGURIDAD, inbox 9c9dac6b): a tracked path that
-resolves outside the project root, or is a symlink, is never opened (`hashing.unreadable_reason`): its
+resolves outside the project root, or is a symlink, is never opened (`source_read.unreadable_reason`): its
 document counts as moved, and `stores check` names why. A file whose `lstat` still matches the
 `source_stat` its shard was built with is not opened either; only a file whose stat moved is
 read and hashed (and its hash kept, per process, while its stat holds)."""
@@ -17,7 +17,8 @@ from typing import Any, Callable
 
 from sldb.store import documents_hash
 from sldb.store.edge_index.node_ids import doc_node_id
-from sldb.store.hashing import hash_text, read_source_text, source_stat, unreadable_reason
+from sldb.store.hashing import hash_text
+from sldb.store.source_read import read_source_text, source_stat, unreadable_reason
 from sldb.store.io import load_store_index
 from sldb.store.io.shard_compose import compose_edges_documents
 from sldb.store.layout import project_root
