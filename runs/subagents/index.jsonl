@@ -52,3 +52,4 @@
 {"task_id": "task-stores-check-un-link-cuyo-directorio-no-existe-es-alerta-store-link-absent", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}
 {"task_id": "task-seguridad-live-stale-no-abre-archivos-fuera-de-la-ra\u00edz-no-sigue-symlinks-y-no-lee-archivos-sin-cambi", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}
 {"task_id": "task-un-documento-en-el-glob-de-un-modelo-padre-y-en-los-paths-de-un-modelo-hijo-se-trackea-una-sola-vez", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}
+{"task_id": "task-h9-run-view-y-list-views-encuentran-una-viewdoc-de-un-store-enlazado-y-leen-su-archivo-desde-la-ra\u00edz", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}

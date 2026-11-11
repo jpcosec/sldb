@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-11T15:04:20Z'
+  at: '2026-11-11T16:11:25Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -14,7 +14,6 @@ tasks:
 - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
 - desk/tasks/task-reglas-rule-graph-no-compone-la-federación-entera-de-stores-enlazados-27-s-por-comando-de-deskops.md
 - desk/tasks/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024.md
-- desk/tasks/task-h9-run-view-y-list-views-encuentran-una-viewdoc-de-un-store-enlazado-y-leen-su-archivo-desde-la-raíz.md
 - desk/tasks/task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1.md
 - desk/tasks/task-seguridad-resto-toda-lectura-de-un-documento-trackeado-pasa-por-la-guarda-de-raíz-y-symlinks-stores.md
 # List of pill-xxx paths
@@ -65,6 +64,5 @@ _Generated from the task references above._
 - Diseño: jerarquía de modelos de evidencia (__family__ o herencia) [draft] - Un documento de decisión en docs/ que compare __family__ vs herencia de clases para los modelos de evidencia, con la recomendación y sus consecuencias para deskops (RunDoc, materializaciones, closeout_evidence).
 - reglas: rule_graph no compone la federación entera de stores enlazados (27 s por comando de deskops) [draft] - La evaluación de reglas (on_write, on_transition, edges_holding/edges_blocked, rules check/explain) no compone la federación entera de stores enlazados salvo que una regla lo necesite. Los findings quedan idénticos a los de hoy, y un comando de deskops sobre el desk de deskops vuelve a tardar del orden de 1-2 s.
 - main de sldb en verde: el workflow CI falla desde el 2026-10-20 (run 42758984024) [draft] - El workflow CI de sldb (jobs test 3.12/3.13 y store) termina en success sobre main.
-- H9: run_view y list_views encuentran una ViewDoc de un store enlazado y leen su archivo desde la raíz de ese store [draft] - run_view, list_views y sldb serve encuentran una ViewDoc de un store enlazado, la leen desde la raíz de ese store por la guarda de lectura y la evalúan sobre el store que llama.
 - GD27 para deskops: anchored_by con valor sin namespace y alcance de las reglas de tags por modelos (H1-H2); tag_folder estricto documentado (H3) [draft] - anchored_by acepta un campo con el valor pelado (value: bare); la declaración del store acota las reglas de tags a unos modelos (tag_models); tag_folder sigue estricto y documentado.
 - SEGURIDAD (resto): toda lectura de un documento trackeado pasa por la guarda de raíz y symlinks (stores check/update/build, track, rebuild) [draft] - Ninguna operación del store abre un documento trackeado que resuelva fuera de la raíz o sea symlink: un solo punto de apertura (source_read), hallazgo nombrado en lugar de error, track rechaza symlinks, con tests de audit hook.
