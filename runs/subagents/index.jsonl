@@ -55,3 +55,4 @@
 {"task_id": "task-h9-run-view-y-list-views-encuentran-una-viewdoc-de-un-store-enlazado-y-leen-su-archivo-desde-la-ra\u00edz", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}
 {"task_id": "task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}
 {"task_id": "task-seguridad-resto-toda-lectura-de-un-documento-trackeado-pasa-por-la-guarda-de-ra\u00edz-y-symlinks-stores", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}
+{"task_id": "task-seguridad-resto-2-las-lecturas-y-escrituras-de-documentos-trackeados-que-quedan-edges-records-views", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}

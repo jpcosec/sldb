@@ -677,7 +677,6 @@ include:
 - model: TaskDebugDoc
   paths:
   - desk/tasks/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024.md
-  - desk/tasks/task-seguridad-resto-2-las-lecturas-y-escrituras-de-documentos-trackeados-que-quedan-edges-records-views.md
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md
