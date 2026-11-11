@@ -1,0 +1,22 @@
+name: inbox-note-h5-h7-de-cc35d-resto-de-deskops-stores-declare-write-conserva-tag-namespaces-y-tag-models-evaluación
+path: desk/inbox/inbox-note-h5-h7-de-cc35d-resto-de-deskops-stores-declare-write-conserva-tag-namespaces-y-tag-models-evaluación.md
+source_hash: 19824dc6428251777a12265d8bc50a24f93af636c88732088052de19b9d2203a
+content_hash: d9a48bf13ce1abb8125e84a3bbb1da8cc2928b47101a4afe5125b32062c8861c
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 43a33a51069b329de150a8286d28b078b417876a2e1f313717af1bf2318767bf
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: d6ee01d3746950dd41acb3e70447c0801675044bba182646b5386fd30451115e
+  body: 252ca02f9c3ca866920e72cf96e80063a6ca2c22e17b01b9d9b871b647ec7948
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance:
+  by: agent
+  at: '2026-11-11T18:02:19Z'
+  authority: generated
+  via: create_document

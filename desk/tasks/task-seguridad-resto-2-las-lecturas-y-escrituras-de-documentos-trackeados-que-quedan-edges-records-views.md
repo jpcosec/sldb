@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-11T16:56:05Z'
+  at: '2026-11-11T18:03:11Z'
   authority: generated
   via: save_document_payload
 id: task-seguridad-resto-2-las-lecturas-y-escrituras-de-documentos-trackeados-que-quedan-edges-records-views
@@ -69,7 +69,7 @@ _Outline the expected implementation route or affected surface._
 
 BASE: sldb main con wt/secrest integrada (ca578fd2). sldb.store.source_read (unreadable_reason + read_source_text con O_NOFOLLOW, eje lectura_de_fuentes) es el único punto de apertura; load_runtime_documents ya no devuelve un documento no leído, pero varias superficies leen por su cuenta.
 
-REPRODUCCIÓN (coordinador, sobre ca578fd2; runs/subagents/20261111-repro-secrest2/repro.log con audit_run.py, audit hook de 'open'): con desk/tasks/task-repro-dos.md symlink a /dev/shm/outside-secret2/secreto-externo.md y otra tarea que lo enlaza con [[task-repro-dos]], 'sldb docs compose <otra> --render-links' abre el archivo de afuera (links/render.py:15 _title) y emite un enlace relativo hacia fuera de la raíz.
+REPRODUCCIÓN (coordinador, sobre ca578fd2; runs/subagents/20261111-repro-secrest2/repro.log con audit_run.py, audit hook de 'open'): con la tarea trackeada task-repro-dos como symlink a /dev/shm/outside-secret2/secreto-externo.md y otra tarea que lo enlaza con [[task-repro-dos]], 'sldb docs compose <otra> --render-links' abre el archivo de afuera (links/render.py:15 _title) y emite un enlace relativo hacia fuera de la raíz.
 
 CAUSA (lecturas por root / doc.path o ruta resuelta sin la guarda; inventario del informe de SEGURIDAD resto §7, a confirmar y completar por grep): api/model_registry/model_index_writes.py:63, api/edges/builtin_relation_writes.py:53, api/edges/rewrite_references.py:84, api/edges/project_graph/document_metadata.py:24, api/edges/project_graph/project_texts.py:32, api/edges/project_graph/declared_target_nodes.py:63, api/views/list_views.py:48, api/records/ast_target.py:38, api/records/fields.py:52, api/records/iter_records_docs.py:35,44, api/segments/build_document_segments.py:38, cli/serve/document_routes.py:62, cli/commands/sections_show.py:27, links/render.py:15, links/recovery.py:14,28, models/structured_doc.py:87. provenance_stamp.stamped_file ahora abre con O_NOFOLLOW: sus llamadores (model_drafts/backfill.py, edges/builtin_relation_writes.py) fallan con ELOOP ante un symlink en vez de nombrar el hallazgo.
 
