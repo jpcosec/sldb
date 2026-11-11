@@ -269,6 +269,7 @@ include:
   - desk/inbox/20261106-152834-unclear-specdoc-el-modelo-local-docs-models-specdoc-colisiona-con-el-builtin-sldb-models-notation-models-specdoc-tras-sv01.md
   - desk/inbox/inbox-note-sldb-stores-add-guarda-siempre-el-enlace-relativo-no-resuelve-desde-worktrees-un-nivel-más-hondo.md
   - desk/inbox/inbox-note-sldb-docs-update-valida-y-reescribe-documentos-ajenos-al-que-actualiza.md
+  - desk/inbox/inbox-note-h9-run-view-no-encuentra-una-viewdoc-de-un-store-enlazado-unknown-view-bloquea-cc34-de-deskops-da4.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
