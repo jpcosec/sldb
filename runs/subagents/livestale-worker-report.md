@@ -38,6 +38,69 @@ por proceso nuevo.
 tiene la misma forma: `doc_path.read_text()` sin guarda de raíz ni de symlink. Ahí se reportan
 los hallazgos nuevos (`store/path-outside-root`, `store/symlink-not-read`).
 
-## Arreglo
+## Arreglo (s1-s3)
 
-_(pendiente: se completa con el arreglo)_
+- **Guarda** (`src/sldb/store/hashing.py`: `unreadable_reason`, `source_stat`,
+  `read_source_text`). Raíz = `project_root(store_path)`. Solo `lstat` y `resolve`, nunca un
+  open: una ruta cuyo `resolve()` no queda bajo `root.resolve()` es `outside-root` (s1: un
+  symlink que escapa, un directorio del camino que escapa, un symlink colgante hacia afuera);
+  una ruta que es symlink dentro de la raíz es `symlink` (s2). La lectura usa `O_NOFOLLOW`,
+  así que un archivo cambiado por un symlink entre la guarda y el open tampoco se sigue. Vive en
+  `hashing.py` (eje `identidad_y_hash`) y no en un módulo nuevo porque un archivo nuevo pide eje
+  en `contracts/layers.toml`, que no está en los files permitidos.
+- **live_stale** (s1-s3): si la guarda dice que no, el documento es stale sin leerlo. Si el
+  `lstat` coincide con `DocEdges.source_stat`, no se abre. Solo un archivo cuyo stat cambió se
+  lee y se hashea (y el hash se cachea por proceso como antes). `stale` sigue siendo
+  `list[str]`; el motivo va en el hallazgo.
+- **Stat en el shard** (`DocEdges.source_stat: list[int] | None = None`). Lo escribe
+  `edge_doc_contribution.sync_doc_shard`: en un shard nuevo, y en uno reutilizado cuyo stat
+  falta o cambió. Solo se estampa si el archivo pasa la guarda y su texto da el `source_hash`
+  de la entrada (stat, lectura, stat otra vez, iguales): una edición externa anterior al build
+  no se marca como vigente. Un shard sin el campo se hashea como hoy. Para que "el próximo
+  build lo complete" de verdad (el walk por modelo se salta con el caché), `edge_sync` guarda la
+  línea base del walk como `contract_hash + "|source_stat"`: un store construido antes recorre
+  una vez cada modelo comparando todos sus documentos, sin cambiar `EDGE_INDEX_VERSION` ni el
+  contrato de ningún shard. `.sldb_cache/` no entra en `stores build --check`, así que un mtime
+  en el shard no rompe esa comparación.
+- **Hallazgos** (`stores check`): `DiagnosisNote.PATH_OUTSIDE_ROOT` / `SYMLINK_NOT_READ`,
+  códigos `store/path-outside-root` y `store/symlink-not-read` en `store_findings._DOC_CODES`,
+  nivel alert. Necesitan decisión (`NEEDS_DECISION`) y cuentan como dañados. `stores check`
+  tampoco los lee: `diagnostics._diagnose_doc` y `field_set_drift.document_drifted` pasan por
+  la guarda y leen con `O_NOFOLLOW`; para esas rutas no se consulta el historial git.
+  `src/sldb/api/stores/store_findings.py` está fuera de la lista literal de files, pero lo
+  nombra la disposición de pi.
+
+### s2: ¿rompe un caso real?
+
+No encontré un caso real que dependa de trackear un symlink. En `src/` el único symlink es el
+que `stores build --check` crea para un store enlazado; `project_root` lo resuelve y las rutas
+de sus documentos quedan dentro. En los stores de sldb, deskops, pron, spec2viz y scion ningún
+shard de documento tiene `path` absoluto ni con `../` (los que aparecen son rutas de modelos).
+El único repo con symlinks en git es scion (`GEMINI.md`, `claude.md` -> `AGENTS.md`), y no
+están trackeados en su store. Si un consumidor
+lo hiciera, ahora vería el documento stale y la alerta `store/symlink-not-read`. Sigue
+leyéndose en `docs show` y en la reconstrucción, que están fuera de esta tarea.
+
+## Fuera de alcance (s6 y lo visto al pasar)
+
+- a2 de la nota (rebuild no resuelve la stale de una edición externa; stale global): sin tocar.
+- La reconstrucción (`edge_rebuild._doc_edges`, payload) y el track (`store/ops.py`) siguen
+  leyendo por la ruta trackeada sin esta guarda. `sldb.api.check_store` también corre
+  `scan_rewrite_loss` y `structural_noise` (en `src/sldb/api/stores/`), que leen documentos sin
+  la guarda. Para cerrar esos caminos hace falta una tarea aparte (files fuera de esta).
+- Un archivo tocado sin cambiar su texto (stat nuevo, mismo hash) se lee una vez por proceso
+  hasta que su shard se reconstruye: `rebuild_edges` no lo marca sucio.
+- Como antes con `_FILE_HASHES`, una edición que conserva tamaño y cae en el mismo `mtime_ns`
+  no se ve sin reconstruir.
+
+## Servidores (s5)
+
+- `sldb serve` (`src/sldb/cli/commands/serve.py`) es `ThreadingHTTPServer((args.host,
+  args.port))` y `--host` vale `127.0.0.1` por defecto (`cli/parsers/serve.py:11`). No hay
+  otro camino que escuche (grep de `ThreadingHTTPServer`, `socketserver`, `bind`, `listen`,
+  `0.0.0.0` en `src/`): **nada escucha fuera de localhost por defecto.** El token bearer es
+  opcional y viene apagado (`cli/serve/auth.py`).
+- Usa `load_edge_index` directo en `cli/serve/similar_routes.py:28` e indirecto en las rutas de
+  grafo, aristas, vistas, reglas y proyecto (`sldb.api.graph.*`, `sldb.api.edges.*`,
+  `run_view`, `rule_graph`). Antes del arreglo, cada petición pasaba por `live_stale`, y en el
+  proceso del servidor la primera abría todos los `.md` trackeados, siguiendo symlinks.
