@@ -50,7 +50,7 @@ class TagsCLI:
 def _namespace_line(namespace: dict[str, Any]) -> str:
     anchored = namespace.get("anchored_by")
     flags = [k for k in ("hierarchical", "folder_axis") if namespace.get(k)]
-    return f"{namespace['name']}: {', '.join(flags) or 'flat'}" + (f"; anchored by {anchored['model']}.{anchored['field']}" if anchored else "")
+    return f"{namespace['name']}: {', '.join(flags) or 'flat'}" + (f"; anchored by {anchored['model']}.{anchored['field']}" + (" (bare)" if anchored.get("value") == "bare" else "") if anchored else "")
 
 
 def _tree_lines(node: dict[str, Any], depth: int) -> list[str]:
