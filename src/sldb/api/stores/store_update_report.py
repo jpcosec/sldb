@@ -14,7 +14,7 @@ class StoreUpdateReport(BaseModel):
 
     store_path: Path = Field(description="The `.sldb` directory whose indexes were refreshed.")
     skipped_models: list[str] = Field(description="Registered models whose class could not be imported; their documents were not rehashed.")
-    skipped_documents: list[str] = Field(description="Tracked documents whose Markdown file no longer exists.")
+    skipped_documents: list[str] = Field(description="Tracked documents whose Markdown file no longer exists, or is not read (`name (store/path-outside-root)`, `name (store/symlink-not-read)`).")
     semantic_index: RebuildReport = Field(description="Counters from rebuilding the semantic (tag) indexes.")
     sections_index: RebuildReport = Field(description="Counters from rebuilding the section indexes.")
 

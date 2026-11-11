@@ -575,7 +575,7 @@ Clasificado en main-de-sldb-en-verde (2026-11-10), decisión revisable del coord
 id = "nucleo"
 axes = ["superficie", "representacion", "render", "contrato", "runtime", "identidad_y_hash", "lectura_de_fuentes", "errores", "codigo"]
 needs = 5  # medido 2026-11-10 (main-de-sldb-en-verde): GO06 suma contrato → grafo (models/rule_doc.py:62); antes 4/39
-needed_by = 46  # medido 2026-11-11 (seguridad live_stale): eje nuevo lectura_de_fuentes en nucleo; antes 43. 2026-11-10: GD26 op_almacen → runtime, y los ejes reglas y vistas_compuestas (→ contrato, errores, runtime); antes 4/39
+needed_by = 49  # medido 2026-11-11 (secrest): aristas nuevas hacia lectura_de_fuentes desde las lecturas guardadas (consulta, secciones, semántica, aristas); antes 46. 2026-11-11 (seguridad live_stale): eje nuevo lectura_de_fuentes en nucleo; antes 43. 2026-11-10: GD26 op_almacen → runtime, y los ejes reglas y vistas_compuestas (→ contrato, errores, runtime); antes 4/39
 indivisible = false
 why = """
 Los cinco ejes de identidad forman un nudo de 11 aristas internas. Lo declaré
@@ -599,7 +599,7 @@ cuts = [
 [[unit]]
 id = "persistencia"
 axes = ["persistencia", "consulta", "federacion", "cache", "codec", "migracion", "bitacora", "semantica", "indice_de_aristas"]
-needs = 22  # medido 2026-11-11 (seguridad live_stale): aristas nuevas hacia el eje lectura_de_fuentes; antes 21. 2026-11-10 (main-de-sldb-en-verde): GO05 api/where.py → op_aristas, GD23 query_engine/document_selection.py → op_modelos; antes 19/36
+needs = 24  # medido 2026-11-11 (secrest): lecturas de documentos trackeados por la guarda lectura_de_fuentes; antes 22. 2026-11-11 (seguridad live_stale): aristas nuevas hacia el eje lectura_de_fuentes; antes 21. 2026-11-10 (main-de-sldb-en-verde): GO05 api/where.py → op_aristas, GD23 query_engine/document_selection.py → op_modelos; antes 19/36
 needed_by = 47  # medido 2026-11-10: GO07, GD23, GD24 (op_documentos y anclaje → codec, consulta, indice_de_aristas) y los ejes reglas y vistas_compuestas; antes 19/36
 why = "el centro de gravedad del sistema: 110 aristas entran desde los ejes de operación"
 
@@ -672,7 +672,7 @@ notations`, `/notations/*`, `/views/projection*`). Las cuentas las dice la puert
 [[non_unit]]
 id = "operacion"
 axes = ["op_almacen", "op_documentos", "op_modelos", "op_aristas", "anclaje", "reglas", "vistas_compuestas"]
-needs = 68  # medido 2026-11-11 (seguridad live_stale): aristas nuevas hacia el eje lectura_de_fuentes; antes 66. 2026-11-10 (main-de-sldb-en-verde): 13 aristas de los ejes reglas y vistas_compuestas, y GO07, GD23, GD24, GD26; antes 47/9
+needs = 69  # medido 2026-11-11 (secrest): api/stores y api/documents leen por la guarda lectura_de_fuentes; antes 68. 2026-11-11 (seguridad live_stale): aristas nuevas hacia el eje lectura_de_fuentes; antes 66. 2026-11-10 (main-de-sldb-en-verde): 13 aristas de los ejes reglas y vistas_compuestas, y GO07, GD23, GD24, GD26; antes 47/9
 needed_by = 11  # medido 2026-11-10: GO05 api/where.py → op_aristas, GD23 → op_modelos; antes 47/9
 verdict = "fachada"
 why = """

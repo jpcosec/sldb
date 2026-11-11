@@ -15,9 +15,10 @@ def provenance(doc: Any) -> dict[str, Any]:
 
     from sldb.api.documents.provenance_stamp import provenance_of
     from sldb.store.layout import project_root
+    from sldb.store.source_read import guarded_text
 
-    path = Path(doc.path) if Path(doc.path).is_absolute() else project_root(Path(doc.store_path)) / doc.path
-    found = provenance_of(path.read_text(encoding="utf-8")) if path.is_file() else provenance_of("")
+    root = project_root(Path(doc.store_path))
+    found = provenance_of(guarded_text(root, root / doc.path) or "")
     return {**found.model_dump(by_alias=True), "declared": found.declared}
 
 

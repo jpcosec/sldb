@@ -22,6 +22,8 @@ from sldb.store.ops import cascade_store_hash
 from sldb.store.edge_rebuild import rebuild_edges_indexes
 from sldb.store.section_rebuild import rebuild_sections_indexes
 from sldb.store.semantic import rebuild_semantic_indexes
+from sldb.store.source_read import refuse_unreadable
+from sldb.models.provenance_block import index_block
 
 
 def model_class(model_ref: str, pythonpath: str | None, root: Path) -> type:
@@ -83,8 +85,8 @@ def write_rendered_document(root: Path, doc_entry: DocumentEntry, model_type: ty
     document anchors are pinned (GO07)."""
     from sldb.api.documents.doc_anchor_pinning import pin_provenance
     from sldb.api.documents.provenance_stamp import stamped_file
-    from sldb.models.provenance_block import index_block
 
+    refuse_unreadable(root, root / doc_entry.path)  # a symlink, or a path out of the root, is not written through
     text = stamped_file(root / doc_entry.path, rendered + "\n", model_type, via, actor)
     text = pin_provenance(store_path, text) if store_path is not None else text
     (root / doc_entry.path).write_text(text, encoding="utf-8")

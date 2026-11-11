@@ -20,6 +20,7 @@ from sldb.store.edge_sync import process_model_edges
 from sldb.store.io import load_semantic_dag, load_store_index
 from sldb.store.io.shards import delete_shard, load_sections_shard, save_edges_shard
 from sldb.store.layout import edges_shards_root, edges_store_shard_path, sections_shard_path
+from sldb.store.source_read import guarded_text
 
 logger = logging.getLogger(__name__)
 
@@ -64,7 +65,7 @@ def _model_type(resolver, m_entry, pythonpath: str | None, root: Path, report: E
 
 def _doc_edges(store_path: Path, root: Path, m_entry, model_type: Any | None, doc):
     sections = load_sections_shard(sections_shard_path(store_path, m_entry.name, doc.name))
-    read_payload = lambda: None if model_type is None else default_codec.extract(model_type, (root / doc.path).read_text(encoding="utf-8"))  # noqa: E731
+    read_payload = lambda: None if model_type is None or (text := guarded_text(root, root / doc.path)) is None else default_codec.extract(model_type, text)  # noqa: E731
     return build_doc_edges(m_entry.name, doc, sections.sections if sections else [], read_payload, model_type)
 
 

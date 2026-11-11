@@ -51,3 +51,20 @@ def read_source_text(path: Path) -> str:
     fd = os.open(path, os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0))
     with open(fd, encoding="utf-8") as f:
         return f.read()
+
+
+def guarded_text(root: Path, path: Path) -> str | None:
+    """The text of the tracked `path`, or None when it is missing or must not be read
+    (`unreadable_reason`): the one way a store operation opens a tracked document."""
+    if unreadable_reason(root, path) is not None or not path.exists():
+        return None
+    return read_source_text(path)
+
+
+def refuse_unreadable(root: Path, path: Path) -> None:
+    """Raise before `path` is opened (to track it, or to write it) when it must not be read."""
+    from sldb.store.exceptions import SLDBStoreError
+
+    if (reason := unreadable_reason(root, path)) is not None:
+        why = "resolves outside the project root" if reason == OUTSIDE_ROOT else "is a symlink"
+        raise SLDBStoreError(f"{path}: the path {why}; sldb neither reads nor writes it (replace it with the file itself inside the project)")

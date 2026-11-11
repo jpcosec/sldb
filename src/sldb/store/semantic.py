@@ -15,6 +15,7 @@ from sldb.store.io.shards import prune_shards, save_document_shard
 from sldb.store.layout import documents_shard_path, semantic_shards_dir
 from sldb.store.semantic_dag_sync import sync_semantic_dag
 from sldb.store.semantic_doc_contribution import sync_doc_shard
+from sldb.store.source_read import unreadable_reason
 
 
 def _slugify(text: str) -> str:
@@ -62,8 +63,7 @@ def _sync_model_docs(store_path, m_entry, m_idx, root, resolver, py_path, report
 
 
 def _sync_one(store_path, doc, m_entry, root, resolver, py_path, report, new_tags: set) -> None:
-    if not (d_path := root / doc.path).exists():
-        report.docs_skipped_missing += 1
+    if not _readable(root, d_path := root / doc.path, report):
         return
     before = list(doc.semantic_tags)
     rec = sync_doc_shard(store_path, doc, d_path, m_entry, resolver, py_path, report)
@@ -71,6 +71,15 @@ def _sync_one(store_path, doc, m_entry, root, resolver, py_path, report, new_tag
     if doc.semantic_tags != before:
         save_document_shard(documents_shard_path(store_path, m_entry.name, doc.name), doc)
         documents_hash.note(store_path, m_entry.name, doc)
+
+
+def _readable(root: Path, d_path: Path, report) -> bool:
+    """Whether to read it: not when missing (counted), nor when `source_read` refuses it (a
+    symlink, or a path out of the root, which `stores check` and `stores update` name)."""
+    if unreadable_reason(root, d_path) is not None:
+        return False
+    report.docs_skipped_missing += 0 if d_path.exists() else 1
+    return d_path.exists()
 
 
 def rebuild_semantic_indexes(store_path: Path, project_root: Path, resolve_model_ref, pythonpath: str | None = None, report: RebuildReport | None = None) -> RebuildReport:

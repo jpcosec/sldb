@@ -145,7 +145,7 @@ comprueban en cada lectura del índice (`compose_edge_index` con `model_type_of`
 `load_edge_index` y `rebuild_edges`), no se guardan con el índice compuesto: ninguna mueve un
 shard. El hash de cada archivo se recuerda mientras su mtime y su tamaño no cambien.
 
-Leer el índice abre lo mínimo (SEGURIDAD, nota 9c9dac6b; `unreadable_reason`, `source_stat` y `read_source_text` en `sldb/store/hashing.py`):
+Leer el índice abre lo mínimo (SEGURIDAD, nota 9c9dac6b; `unreadable_reason`, `source_stat` y `read_source_text` en `sldb/store/source_read.py`):
 
 - Una ruta trackeada que resuelve fuera de la raíz del proyecto (`project_root(store_path)`:
   un symlink, o un directorio del camino, que escapa) no se abre ni se hashea: el documento
@@ -162,8 +162,21 @@ Leer el índice abre lo mínimo (SEGURIDAD, nota 9c9dac6b; `unreadable_reason`, 
   completa el stat de los shards que reutiliza, sin cambiar la versión ni el contrato de
   ningún shard. Un archivo tocado sin cambiar su texto (stat nuevo, mismo hash) se lee una vez
   por proceso hasta que su shard se reconstruya.
-- La reconstrucción (`rebuild_edges`, `stores build`) todavía lee el payload por la ruta
-  trackeada sin esta guarda (fuera del alcance de esta tarea; nota a2 en el inbox de sldb).
+- La guarda es el único punto de apertura de un documento trackeado en todo el store
+  (SEGURIDAD resto, tarea secrest): `guarded_text(root, path)` lee el texto o da `None` (falta,
+  o no se lee), y `refuse_unreadable(root, path)` levanta `SLDBStoreError` antes de abrir.
+  La reconstrucción (`rebuild_edges`, secciones, tags semánticos), la extracción en tiempo de
+  ejecución (`load_runtime_documents`), el rehash de `stores update` y `stores build`, y los
+  escaneos de `stores check` (ruido estructural, pérdida al reescribir) pasan por ella: un
+  documento que no se lee no entra a esos índices; `stores update` y `stores build` lo nombran
+  con su hallazgo (`[warning] alert: [store/path-outside-root] Modelo:nombre: ...`; en
+  `skipped_documents` como `nombre (store/path-outside-root)`, y `build_store` lo reporta en la
+  clave `unread`) y siguen con los demás. `stores build` no trackea un path declarado que es
+  symlink o escapa de la raíz, y `stores build --check` copia los symlinks como symlinks a la
+  copia de trabajo, donde la misma guarda los nombra (alertas `copy: <path>`).
+- `docs track` de un path que es symlink o resuelve fuera de la raíz se rechaza antes de abrirlo
+  (antes se resolvía el path y se trackeaba el destino). `docs update` / `save_document_payload`
+  / `replace_text` sobre un documento así se rechazan antes de leerlo o escribir a través de él.
 
 ### Consulta
 
