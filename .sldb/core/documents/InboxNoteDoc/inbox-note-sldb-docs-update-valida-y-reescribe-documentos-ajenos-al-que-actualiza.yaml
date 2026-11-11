@@ -1,0 +1,22 @@
+name: inbox-note-sldb-docs-update-valida-y-reescribe-documentos-ajenos-al-que-actualiza
+path: desk/inbox/inbox-note-sldb-docs-update-valida-y-reescribe-documentos-ajenos-al-que-actualiza.md
+source_hash: 6a4399f2901aaaf8752c102590632454ef0761f5cbe7c3670ccb77ff0c483de7
+content_hash: 6c1312c47751658bc6085e1b846a01783409794c1969ca9dc1f83a675f9b0d74
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: f4a2eec9b5734c37e246678816f0b307c59c117a7dc74691342c9b86ff80e169
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: ce601c945c04db8c2371d1fbdd00e67a123de6d18ea526ee12a60ec631f8bafc
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: 5f222d89d974e9de5a9089e3112b89a0c484da63c66d0a5064a79d3bec87bbd2
+  body: 56babe0b82fd9356668c4b61c35b76e58125bfda9fe06955268ccbfabd0d4ed5
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance:
+  by: agent
+  at: '2026-11-11T00:59:13Z'
+  authority: generated
+  via: create_document
