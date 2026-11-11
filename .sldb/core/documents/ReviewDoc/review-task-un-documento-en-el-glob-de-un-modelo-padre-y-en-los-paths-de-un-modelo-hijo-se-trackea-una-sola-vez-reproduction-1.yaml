@@ -1,0 +1,34 @@
+name: review-task-un-documento-en-el-glob-de-un-modelo-padre-y-en-los-paths-de-un-modelo-hijo-se-trackea-una-sola-vez-reproduction-1
+path: desk/reviews/task-un-documento-en-el-glob-de-un-modelo-padre-y-en-los-paths-de-un-modelo-hijo-se-trackea-una-sola-vez/reproduction-1.md
+source_hash: cbbd139e7cadb10dbdc9e0ad8ca1023ce4d9d9ff04017766ece4579705ff03e9
+content_hash: 297ad374bf865e3ebdc9268cb67b1da95fbf433c7e03fc3e50d7d05378dc5f8c
+field_hashes:
+  id: 4a56d0a6acf32056f77d2ab99fa9a6ac0246e50e421db758fe558bd023a4f3b6
+  title: 694fce159ac0e3cedf9f64c9c999c8b296a6929c67e76b20cc1e98153251dbe4
+  kind: 368fe53d1f06908176884aa53b85fb3135f2431d04d9892f2b26b178bfe9c736
+  subject: 5a675c8f29d13abd762456bcd839965367551988c380269272fca803419218a9
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 11e25bab0df4bb9f63c6dde985fea5de0ef16abdb2ec640dc08e7e97ec6b1d15
+  actor: d8118dff4b4f05ead1700220929618d164af018ee7c6e347eeb481ec63f69521
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 4fb9fcaad005febbd016fb13dd362472e361778d1b640e7ebc2e0ed6f6e6cab7
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 5c13303f786b90ad746ba894db0fafb96f6d10dd54ae16a01d8718687f593aea
+  created_at: 66ee3371eb561c2ae2aa6046833a0d2103d411bfcd549e91c287afdb0c14eb3d
+  disposed_at: f1f08510004235b28bc77b28b284ff050edfe197fb5ccb3e3d772afb1c1bcbf6
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 56d42f37c99a3938089defb3a8ae8759677d5a69a685e931c6885aa445fec62b
+  disposition: 2ba35cab1de03e86ee24aa3700b70a57abb8907763aafd3914cfa2b470d1a550
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-11T09:32:54Z'
+  authority: generated
+  via: save_document_payload

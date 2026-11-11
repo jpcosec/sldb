@@ -1,0 +1,34 @@
+name: review-task-un-documento-en-el-glob-de-un-modelo-padre-y-en-los-paths-de-un-modelo-hijo-se-trackea-una-sola-vez-preflight-1
+path: desk/reviews/task-un-documento-en-el-glob-de-un-modelo-padre-y-en-los-paths-de-un-modelo-hijo-se-trackea-una-sola-vez/preflight-1.md
+source_hash: 7f323c37ff5018e630de313a4ab1755931ba8fbd94295941d39899902fce34d5
+content_hash: 557b7884e1ffc9d5c67bcb5f9a3848f64f3338d25a1bdbad9309b0d735c4d1f6
+field_hashes:
+  id: 102c2cb99bc64c5f5cdfd0c11cfbee9bd008591114b362610e3b778c56520fd9
+  title: f058545574bdcd4f3b56f0cd45878c567e75acdba57310cf5be5e69a0631664a
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  subject: 5a675c8f29d13abd762456bcd839965367551988c380269272fca803419218a9
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 584e867e3891aba26ed80ba8ca31cb9e1809882aff3f8031af4ce0dbe2575188
+  input_sha256: 13c715dbb8c7428b57ad0e831fe02fd580c2856a36946a432e75ca4135a89561
+  output_sha256: e02cf7b91490357b1c60f1edc5c546ade9bbe97628b8c67eeb68ef9a5af3435d
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 6e1c86ff8602ade723984f9b0cd687ac5fb93a0a9ebe644aa03b091a70abb9b4
+  created_at: d4f0254ce55fda68ff9e855cfe518907f5b15105c60c7aa2d9b1e28725b8ba73
+  disposed_at: 61af047646700146e27ad00aa55e5a210a9bd79d807bfa1e7c4d45f6899ea762
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 095651286072a56dfb2b37059e922104513138f43727bbd6a20c8b9c6a5746e8
+  disposition: f50bc251247b31d0aacf44c9d6043cc54df13f4c39b9e3b93941a3dd3de64c44
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-11T09:32:44Z'
+  authority: generated
+  via: save_document_payload

@@ -1,0 +1,9 @@
+{
+  "key": "task-un-documento-en-el-glob-de-un-modelo-padre-y-en-los-paths-de-un-modelo-hijo-se-trackea-una-sola-vez/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "5214f6f01114d7e44e276dad943fe0c23a38f86097d08d3684a4b805d6c6531d",
+  "output_sha256": "ac272369dbf9629bf0243b2ed79e4e119f412ad014af85de2e46cee570891ea2",
+  "start": "2026-11-11T09:31:52.816778+00:00",
+  "end": "2026-11-11T09:32:02.238746+00:00"
+}
