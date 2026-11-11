@@ -1,0 +1,10 @@
+### Reproducción SEGURIDAD resto 2 (coord2, 2026-11-11)
+### Código: sldb wt/secrest ca578fd2 (resto 1 ya aplicado), extraído en /dev/shm/sldb-secrest-src
+### Desk: copia de /dev/shm/repro-secrest (resto 1) + `sldb stores declare --write`
+desk/tasks/task-repro-dos.md -> /dev/shm/outside-secret2/secreto-externo.md   (documento trackeado, symlink saliente)
+### desk/tasks/task-repro-uno.md recibe la línea: Ver [[task-repro-dos]].
+### python audit_run.py docs compose desk/tasks/task-repro-uno.md --render-links --store .sldb
+[audit] docs compose desk/tasks/task-repro-uno.md --render-links --store .sldb: .md fuera de la raíz abiertos: ['/dev/shm/outside-secret2/secreto-externo.md']; rc='0'
+stdout: Ver [task-repro-dos](../../../outside-secret2/secreto-externo.md).
+### Causa: links/render.py:15 `_title` hace path.read_text() del destino resuelto sin unreadable_reason/read_source_text; el resolver además entrega la ruta realpath de afuera.
+### Las superficies que pasan por load_runtime_documents (sections show, edges rebuild, find) ya no lo abren tras el resto 1.

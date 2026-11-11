@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-11T16:11:30Z'
+  at: '2026-11-11T16:50:59Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -15,6 +15,7 @@ tasks:
 - desk/tasks/task-reglas-rule-graph-no-compone-la-federación-entera-de-stores-enlazados-27-s-por-comando-de-deskops.md
 - desk/tasks/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024.md
 - desk/tasks/task-seguridad-resto-toda-lectura-de-un-documento-trackeado-pasa-por-la-guarda-de-raíz-y-symlinks-stores.md
+- desk/tasks/task-seguridad-resto-2-las-lecturas-y-escrituras-de-documentos-trackeados-que-quedan-edges-records-views.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -64,3 +65,4 @@ _Generated from the task references above._
 - reglas: rule_graph no compone la federación entera de stores enlazados (27 s por comando de deskops) [draft] - La evaluación de reglas (on_write, on_transition, edges_holding/edges_blocked, rules check/explain) no compone la federación entera de stores enlazados salvo que una regla lo necesite. Los findings quedan idénticos a los de hoy, y un comando de deskops sobre el desk de deskops vuelve a tardar del orden de 1-2 s.
 - main de sldb en verde: el workflow CI falla desde el 2026-10-20 (run 42758984024) [draft] - El workflow CI de sldb (jobs test 3.12/3.13 y store) termina en success sobre main.
 - SEGURIDAD (resto): toda lectura de un documento trackeado pasa por la guarda de raíz y symlinks (stores check/update/build, track, rebuild) [draft] - Ninguna operación del store abre un documento trackeado que resuelva fuera de la raíz o sea symlink: un solo punto de apertura (source_read), hallazgo nombrado en lugar de error, track rechaza symlinks, con tests de audit hook.
+- SEGURIDAD (resto 2): las lecturas y escrituras de documentos trackeados que quedan (edges, records, views, serve, links, segments, sections show, model_registry, structured_doc) pasan por la guarda de raíz y symlinks; TOCTOU de replace_text y mensaje de stores update [draft] - Ningún comando ni función de la API lee o escribe el texto de un documento trackeado que sea symlink o resuelva fuera de la raíz: toda lectura pasa por sldb.store.source_read y toda escritura abre con O_NOFOLLOW, con un test de audit hook por superficie y el grep final vacío o con excepciones nombradas.
