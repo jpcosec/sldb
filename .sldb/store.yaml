@@ -633,14 +633,15 @@ include:
   paths:
   - path: docs/architecture/bootstrap-model-set.md
     name: plan-bootstrap-model-set
-- model: BoardDoc
-  paths:
-  - desk/tasks/Board.md
 - model: TaskCodeDoc
   paths:
   - desk/tasks/task-reglas-rule-graph-no-compone-la-federación-entera-de-stores-enlazados-27-s-por-comando-de-deskops.md
 - model: TaskDebugDoc
   paths:
   - desk/tasks/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024.md
+  - desk/tasks/task-seguridad-live-stale-no-abre-archivos-fuera-de-la-raíz-no-sigue-symlinks-y-no-lee-archivos-sin-cambi.md
+- model: BoardDoc
+  paths:
+  - desk/tasks/Board.md
 graph_backend: networkx
 policy: {}

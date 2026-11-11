@@ -1,0 +1,12 @@
+### 0 sldb 9c9dac6b, deskops main f21ab5c8 (solo para armar un store de prueba)
+### 1 desk de prueba con dos tareas trackeadas
+Initialization complete.
+Task: /dev/shm/repro-livestale/desk/tasks/task-repro-uno.md
+Task: /dev/shm/repro-livestale/desk/tasks/task-repro-dos.md
+build rc=1
+### 2 un archivo fuera de la raíz y un documento trackeado convertido en symlink hacia él
+desk/tasks/task-repro-dos.md -> /dev/shm/outside-secret/secreto-externo.md
+### 3 proceso nuevo: load_edge_index con un audit hook que registra cada open
+md abiertos: 26
+fuera de la raíz: ['/dev/shm/outside-secret/secreto-externo.md']
+stale: ['TaskCodeDoc:task-repro-dos']
