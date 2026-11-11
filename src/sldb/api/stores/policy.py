@@ -15,7 +15,7 @@ from typing import Any
 
 from sldb.api.stores.policy_subject import Subject  # noqa: F401 - re-exported
 
-ERRORS = frozenset({"missing", "model-unresolved", "unbuilt", "link-broken", "check", "unparseable", "invalid", "unavailable", "core-ignored"})
+ERRORS = frozenset({"missing", "model-unresolved", "unbuilt", "link-broken", "check", "unparseable", "invalid", "unavailable", "core-ignored", "include-conflict"})
 LEVELS = {"error": "error", "alert": "alert", "reindex": "alert", "ignore": None, "allow": None}
 
 

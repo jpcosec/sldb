@@ -13,6 +13,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from sldb.api.stores.declared_files import declared_files
+from sldb.api.stores.include_resolution import store_bases
 from sldb.api.stores.store_declaration import declaration_path, load_declaration, save_declaration
 
 
@@ -64,7 +65,7 @@ def declare_tracked(store_path: Path, root: Path, model: str, path: str | None, 
     if not declaration_path(store_path).is_file() or path is None:
         return
     declaration = load_declaration(store_path)
-    if (model, path, name) in declared_files(root, declaration):
+    if (model, path, name) in declared_files(root, declaration, store_bases(store_path)):
         return
     _path_rule(declaration, model)["paths"].append(path if Path(path).stem == name else {"path": path, "name": name})
     save_declaration(store_path, declaration)

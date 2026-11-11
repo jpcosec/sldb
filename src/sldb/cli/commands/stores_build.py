@@ -45,11 +45,12 @@ def build_command(args: Any) -> int:
     store, root = declared_store(args.store)
     report = build_store(store, root)
     emit(report, args.format, _summary(report))
-    return 1 if report["undeclared"] or report["missing"] else 0
+    return 1 if report["undeclared"] or report["missing"] or report["include_conflicts"] else 0
 
 
 def _summary(report: dict[str, Any]) -> str:
-    counts = ", ".join(f"{k}: {len(v)}" for k, v in report.items() if isinstance(v, list) and k != "links_missing")
+    counts = ", ".join(f"{k}: {len(v)}" for k, v in report.items() if isinstance(v, list) and k not in ("links_missing", "include_conflicts"))
     flagged = "".join(f"\n{key}: " + ", ".join(report[key]) for key in ("undeclared", "missing") if report[key])
     absent = "".join(f"\nalert: [build/link-missing] {link['name']}: {link_missing_what(link)}" for link in report.get("links_missing", []))
-    return f"built: {counts}{flagged}{absent}"
+    conflicts = "".join(f"\nerror: [{c['code']}] {c['subject']}: {c['what']}" for c in report["include_conflicts"])
+    return f"built: {counts}{flagged}{conflicts}{absent}"

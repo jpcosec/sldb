@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from sldb.api.stores.index_commit import commit_index_updates
+from sldb.api.stores.include_losers import untrack_losers
 from sldb.api.stores.index_refresh import _process_models
 from sldb.api.stores.open_store import open_store
 from sldb.api.stores.store_location import StoreLocation
@@ -14,7 +15,8 @@ from sldb.store.io import load_store_index
 
 
 def update_store_indexes(store: str | Path | None, pythonpath: str | None = None, wait: bool = False) -> StoreUpdateReport:
-    """Rehash changed documents, save model indexes and rebuild the derived indexes.
+    """Untrack the rows a more specific include rule beat (`include_losers`), rehash changed
+    documents, save model indexes and rebuild the derived indexes.
 
     Args:
         store: The store to refresh (path, alias, or None to discover it).
@@ -24,7 +26,9 @@ def update_store_indexes(store: str | Path | None, pythonpath: str | None = None
     Returns:
         What was refreshed and which models or documents had to be skipped.
     """
-    return StoreIndexRefresh(open_store(store), pythonpath)(wait)
+    location = open_store(store)
+    untrack_losers(location.store_path, location.project_root, pythonpath)
+    return StoreIndexRefresh(location, pythonpath)(wait)
 
 
 class StoreIndexRefresh:
