@@ -1,0 +1,94 @@
+{
+  "key": "task-seguridad-live-stale-no-abre-archivos-fuera-de-la-raíz-no-sigue-symlinks-y-no-lee-archivos-sin-cambi/bundle",
+  "input_sha256": "70d208b5f6fa23b83d09c9bf3fed6aa7627c06ad538d010f624ee36801007767",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/mnt/ssd/proyectos/SLDB_1/sldb-desk-tmp/runs/subagents/20261111-073745/context-review/task-seguridad-live-stale-no-abre-archivos-fuera-de-la-raíz-no-sigue-symlinks-y-no-lee-archivos-sin-cambi/bundle/70d208b5f6fa23b83d09c9bf3fed6aa7627c06ad538d010f624ee36801007767/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-seguridad-live-stale-no-abre-archivos-fuera-de-la-raíz-no-sigue-symlinks-y-no-lee-archivos-sin-cambi.md",
+      "sha256": "58714a3032655050c59160fb2d3a89e7e800ac945e59aa14d36427cd984df2be",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/edge_index/live_stale.py",
+      "sha256": "8b0e3fe487b062f94e4f137a98609fc0a51345de7b35e73dcfbcf4d09e5d71f4",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/edge_index/compose.py",
+      "sha256": "eec5358f3c061846be56a567b132248ab3664ed1fd1040633498cbc6e4ab0ca1",
+      "projection": "whole_file"
+    },
+    {
+      "path": "src/sldb/store/models/doc_edges.py",
+      "sha256": "b4bee22baca68a77dcb2ce84a4f39da6f9d55e1e245d291e6b23db2dce3f73ce",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "src/sldb/store/",
+      "reason": "directory"
+    },
+    {
+      "path": "tests/store/",
+      "reason": "directory"
+    },
+    {
+      "path": "tests/api/",
+      "reason": "directory"
+    },
+    {
+      "path": "docs/",
+      "reason": "directory"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "reason": "size>=60000",
+      "size": 80043
+    }
+  ],
+  "started": "2026-11-11T07:37:46.511770+00:00",
+  "finished": "2026-11-11T07:37:57.601688+00:00"
+}

@@ -629,6 +629,12 @@ include:
     name: review-task-stores-build-un-store-enlazado-ausente-es-alerta-no-error-build-check-en-ci-preflight-1
   - path: desk/reviews/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024/preflight-1.md
     name: review-task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024-preflight-1
+  - path: desk/reviews/task-seguridad-live-stale-no-abre-archivos-fuera-de-la-raíz-no-sigue-symlinks-y-no-lee-archivos-sin-cambi/preflight-1.md
+    name: review-task-seguridad-live-stale-no-abre-archivos-fuera-de-la-raíz-no-sigue-symlinks-y-no-lee-archivos-sin-cambi-preflight-1
+  - path: desk/reviews/task-seguridad-live-stale-no-abre-archivos-fuera-de-la-raíz-no-sigue-symlinks-y-no-lee-archivos-sin-cambi/bundle-1.md
+    name: review-task-seguridad-live-stale-no-abre-archivos-fuera-de-la-raíz-no-sigue-symlinks-y-no-lee-archivos-sin-cambi-bundle-1
+  - path: desk/reviews/task-seguridad-live-stale-no-abre-archivos-fuera-de-la-raíz-no-sigue-symlinks-y-no-lee-archivos-sin-cambi/reproduction-1.md
+    name: review-task-seguridad-live-stale-no-abre-archivos-fuera-de-la-raíz-no-sigue-symlinks-y-no-lee-archivos-sin-cambi-reproduction-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
