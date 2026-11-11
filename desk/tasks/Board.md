@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-11T11:27:44Z'
+  at: '2026-11-11T12:48:07Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -16,6 +16,7 @@ tasks:
 - desk/tasks/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024.md
 - desk/tasks/task-h9-run-view-y-list-views-encuentran-una-viewdoc-de-un-store-enlazado-y-leen-su-archivo-desde-la-raíz.md
 - desk/tasks/task-un-documento-en-el-glob-de-un-modelo-padre-y-en-los-paths-de-un-modelo-hijo-se-trackea-una-sola-vez.md
+- desk/tasks/task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -66,3 +67,4 @@ _Generated from the task references above._
 - main de sldb en verde: el workflow CI falla desde el 2026-10-20 (run 42758984024) [draft] - El workflow CI de sldb (jobs test 3.12/3.13 y store) termina en success sobre main.
 - H9: run_view y list_views encuentran una ViewDoc de un store enlazado y leen su archivo desde la raíz de ese store [draft] - run_view, list_views y sldb serve encuentran una ViewDoc de un store enlazado, la leen desde la raíz de ese store por la guarda de lectura y la evalúan sobre el store que llama.
 - Un documento en el glob de un modelo padre y en los paths de un modelo hijo se trackea una sola vez, bajo el hijo (gana el más específico) [draft] - sldb resuelve un path nombrado por varias reglas include a una sola fila: gana el modelo hijo por paths sobre el glob del padre; sin herencia, error store/include-conflict; un store ya duplicado se corrige en el próximo build.
+- GD27 para deskops: anchored_by con valor sin namespace y alcance de las reglas de tags por modelos (H1-H2); tag_folder estricto documentado (H3) [draft] - anchored_by acepta un campo con el valor pelado (value: bare); la declaración del store acota las reglas de tags a unos modelos (tag_models); tag_folder sigue estricto y documentado.
