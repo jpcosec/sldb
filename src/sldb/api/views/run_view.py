@@ -11,18 +11,14 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from sldb.api.edges.edge_reading import load_edge_index
-from sldb.api.edges.project_graph.store_project_graph import project_graph
-from sldb.api.rules.rule_graph import rule_graph
-from sldb.api.rules.rules_on_transition import has_rules
 from sldb.api.stores.open_store import open_store
-from sldb.api.stores.store_declaration import load_declaration
-from sldb.api.views.list_views import load_view
+from sldb.api.views.view_reading import ViewReading
+from sldb.api.views.view_rules import named_rules, row_findings
 from sldb.api.views.view_edges import row_neighbours
+from sldb.api.views.view_links import view_needs_linked
 from sldb.api.views.view_groups import grouped
 from sldb.api.views.view_revision import revision
 from sldb.api.views.view_rows import projected, resolve_params, section_rows
-from sldb.api.views.view_rules import SharedRules, named_rules, row_findings
 from sldb.api.views.view_transitions import row_transitions
 
 
@@ -39,8 +35,10 @@ def run_view(store: str | Path | None, name: str, params: dict[str, str] | None 
             declared, required and absent, or not a string.
     """
     reading = ViewReading(open_store(store, mode="readonly").store_path)
-    view, node = load_view(name, reading.index)
+    view, node = reading.view(name)
     values = resolve_params(view, dict(params or {}))
+    if view_needs_linked(reading.store_path, view, values, reading.index):
+        reading.widen()
     sections = {section.key: run_section(reading, view, section, values) for section in view.sections}
     stamp = revision(reading.store_path, reading.index, reading.rows, node, reading.rule_ids)
     return {"view": view.name, "params": values, "revision": stamp, "sections": sections}
@@ -64,41 +62,3 @@ def add_row_keys(reading: "ViewReading", section: Any, rules: list[dict[str, Any
     if section.transitions:
         subject = projected(reading.index, row["export_id"])
         row.update(row_transitions(reading.index, reading.transition_rules(), row["export_id"], subject, section.transitions))
-
-
-class ViewReading:
-    """What one evaluation reads, loaded once and shared by every section and row."""
-
-    def __init__(self, store_path: Path) -> None:
-        self.store_path = store_path
-        self.index = load_edge_index(store_path, include_linked=True)
-        self.rows: set[str] = set()
-        self.rule_ids: list[str] = []
-        self._rules: SharedRules | None = None
-        self._transitions: tuple | None = None
-        self._project: Any = None
-
-    def rules(self) -> SharedRules:
-        if self._rules is None:
-            self._rules = SharedRules(rule_graph(self.store_path))
-        return self._rules
-
-    def transition_rules(self) -> tuple | None:
-        """`(rules, on_transition rules)`, or None in a store without RuleDoc (then no rule
-        runs, as in `edges_holding`)."""
-        if self._transitions is None and has_rules(self.store_path):
-            self._transitions = (self.rules(), [r for r in self.rules().rules() if r.get("moment") == "on_transition"])
-        return self._transitions
-
-    def project(self) -> Any:
-        """The declared project graph (GD21), or None when `store.yaml` is absent or declares none."""
-        if self._project is None and declares_project_graph(self.store_path):
-            self._project = project_graph(self.store_path)
-        return self._project
-
-
-def declares_project_graph(store_path: Path) -> bool:
-    try:
-        return load_declaration(store_path).project_graph is not None
-    except FileNotFoundError:
-        return False

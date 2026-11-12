@@ -7,18 +7,19 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Iterable
 
+from sldb.store.edge_index.composed_reading import read_or_compose, with_live_stale
 from sldb.store.edge_index.composition_targets import resolve_composition_edges
 from sldb.store.edge_index.doc_anchor_states import with_anchor_states
 from sldb.store.edge_index.edge_index import EdgeIndex
 from sldb.store.edge_index.federation import federated_stores, qualify
-from sldb.store.edge_index.live_stale import ModelTypeOf, live_stale
+from sldb.store.edge_index.live_stale import ModelTypeOf
 from sldb.store.edge_index.resolve import resolve_edges_reporting
 from sldb.store.edge_index.shard_reading import read_store_contributions
 from sldb.store.edge_index.shard_signature import shards_signature
 from sldb.store.io import load_store_index
 from sldb.store.models import EdgeContribution, EdgeNodeRecord, EdgeRecord, ModelEdges
 
-_COMPOSED: dict[tuple, tuple[tuple, EdgeIndex]] = {}
+_COMPOSED: dict[tuple, tuple[tuple, EdgeIndex, list]] = {}
 
 
 def compose_edge_index(store_path: Path, include_linked: bool = True, exclude_tags: Iterable[str] = (), model_type_of: ModelTypeOf | None = None) -> EdgeIndex:
@@ -43,14 +44,8 @@ def compose_edge_index(store_path: Path, include_linked: bool = True, exclude_ta
     signature = tuple(shards_signature(path) for path, _ in stores)
     hit = _COMPOSED.get(key)
     if hit is None or hit[0] != signature:
-        hit = _COMPOSED[key] = (signature, _compose(stores, frozenset(exclude_tags), model_type_of))
-    return _with_live_stale(hit[1], stores, model_type_of)
-
-
-def _with_live_stale(index: EdgeIndex, stores: list[tuple[Path, str | None]], model_type_of: ModelTypeOf | None) -> EdgeIndex:
-    moved, known = [f"{name}:{e}" if name else e for path, name in stores for e in live_stale(path, model_type_of)], set(index.stale)
-    extra = [e for e in dict.fromkeys(moved) if e not in known]
-    return index.model_copy(update={"stale": index.stale + extra}) if extra else index
+        hit = _COMPOSED[key] = (signature, *read_or_compose(stores, include_linked, frozenset(exclude_tags), model_type_of, _compose))
+    return with_live_stale(hit[1], stores, hit[2], model_type_of)
 
 
 def invalidate_composed_edge_indexes() -> None:

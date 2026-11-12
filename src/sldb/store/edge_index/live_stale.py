@@ -32,13 +32,34 @@ _FILE_HASHES: dict[str, tuple[tuple[int, int], str]] = {}
 def live_stale(store_path: Path, model_type_of: ModelTypeOf | None) -> list[str]:
     """Export ids whose file or model contract moved since their shard was built. Without
     `model_type_of` the contract is not compared (the store alone cannot import a class)."""
+    return stale_of_facts(store_path, live_facts(store_path), model_type_of)
+
+
+def live_facts(store_path: Path) -> list[dict[str, Any]]:
+    """What `stale_of_facts` needs of the shards, per model: `{model, model_ref, docs: [[name,
+    path, source_stat, source_hash, has_node, contract_signature]]}`. Plain data, so the
+    composed index keeps it beside itself and a later process never re-reads the shards."""
+    facts = []
+    for m in load_store_index(store_path).models:
+        paths = {e.name: e.path for e in documents_hash.entries_of(store_path, m.name)}
+        shards = [s for s in compose_edges_documents(store_path, m.name) if s.doc_name in paths]
+        facts.append({"model": m.name, "model_ref": m.model_ref, "docs": [_doc_fact(m.name, s, paths[s.doc_name]) for s in shards]})
+    return facts
+
+
+def _doc_fact(model: str, shard: DocEdges, path: str) -> list[Any]:
+    node = next((n for n in shard.nodes if n.id == doc_node_id(f"{model}:{shard.doc_name}")), None)
+    stat = None if shard.source_stat is None else list(shard.source_stat)
+    return [shard.doc_name, path, stat, shard.source_hash, node is not None, node.contract_signature if node else None]
+
+
+def stale_of_facts(store_path: Path, facts: list[dict[str, Any]], model_type_of: ModelTypeOf | None) -> list[str]:
+    """`live_stale` over facts: the files' stats now, and the models' contracts now."""
     root = project_root(store_path)
     stale: list[str] = []
-    for m in load_store_index(store_path).models:
-        signature = _signature(m.model_ref, root, model_type_of)
-        paths = {e.name: root / e.path for e in documents_hash.entries_of(store_path, m.name)}
-        shards = [s for s in compose_edges_documents(store_path, m.name) if s.doc_name in paths]
-        stale += [f"{m.name}:{s.doc_name}" for s in shards if _moved(s, doc_node_id(f"{m.name}:{s.doc_name}"), root, paths[s.doc_name], signature)]
+    for fact in facts:
+        signature = _signature(fact["model_ref"], root, model_type_of)
+        stale += [f"{fact['model']}:{d[0]}" for d in fact["docs"] if _moved(d, root, signature)]
     return stale
 
 
@@ -48,24 +69,23 @@ def _signature(model_ref: str, root: Path, model_type_of: ModelTypeOf | None) ->
     return None if model_type_of is None else contract_signature(model_type_of(model_ref, root))
 
 
-def _moved(shard: DocEdges, node_id: str, root: Path, path: Path, signature: str | None) -> bool:
-    if unreadable_reason(root, path) is not None:
+def _moved(doc: list[Any], root: Path, signature: str | None) -> bool:
+    name, rel, stat, source_hash, has_node, node_signature = doc
+    path = root / rel
+    if unreadable_reason(root, path) is not None or _text_moved(stat, source_hash, path):
         return True
-    if _text_moved(shard, path):
-        return True
-    node = next((n for n in shard.nodes if n.id == node_id), None)
-    return signature is not None and node is not None and node.contract_signature != signature
+    return signature is not None and has_node and node_signature != signature
 
 
-def _text_moved(shard: DocEdges, path: Path) -> bool:
+def _text_moved(shard_stat: list[int] | None, source_hash: str, path: Path) -> bool:
     """Whether the file's text left the shard's `source_hash`; read only when its stat moved."""
     current_stat = source_stat(path)
     if current_stat is None:
         return False  # missing: the shard reader and `stores check` name it, as before
-    if shard.source_stat is not None and list(shard.source_stat) == current_stat:
+    if shard_stat is not None and shard_stat == current_stat:
         return False
     current = _file_hash(path, current_stat)
-    return current is not None and current != shard.source_hash
+    return current is not None and current != source_hash
 
 
 def _file_hash(path: Path, current_stat: list[int]) -> str | None:
