@@ -1,0 +1,22 @@
+name: inbox-note-h1-de-placeholder-deskops-api-pública-para-leer-los-párrafos-ancla-literales-de-la-plantilla-de-un-m
+path: desk/inbox/inbox-note-h1-de-placeholder-deskops-api-pública-para-leer-los-párrafos-ancla-literales-de-la-plantilla-de-un-m.md
+source_hash: 5b44834a272ff3e0430cd08b9f222ce94da4ba9046a119302ec1d47d0ea61211
+content_hash: cb9ae4853e08555d0a03ecc245445bcd8526c81e3528aebe3d30ed6b20fbbeb6
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 32db44db3a5c2cc9946c0c9e871b0832cb78cb8e9c505bb34eb44a03bfce5a96
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: fd33ee7234f67b8b290fb9374ad9d46d563e38a15ac6656f4a5aecc12ad4bbba
+  body: 59f0f29a804d165ee1713980e2b0916298e7dd9b994f41ba3084a6cae05fe211
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance:
+  by: agent
+  at: '2026-11-12T00:36:42Z'
+  authority: generated
+  via: create_document
