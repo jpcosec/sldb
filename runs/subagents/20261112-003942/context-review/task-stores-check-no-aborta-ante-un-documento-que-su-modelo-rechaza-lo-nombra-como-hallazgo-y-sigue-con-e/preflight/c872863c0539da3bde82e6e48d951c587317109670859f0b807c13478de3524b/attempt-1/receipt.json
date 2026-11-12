@@ -1,0 +1,9 @@
+{
+  "key": "task-stores-check-no-aborta-ante-un-documento-que-su-modelo-rechaza-lo-nombra-como-hallazgo-y-sigue-con-e/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "c872863c0539da3bde82e6e48d951c587317109670859f0b807c13478de3524b",
+  "output_sha256": "93418f569c10640db4db2b79dbdea368dba090fe1b41cefe4cc551338fe94502",
+  "start": "2026-11-12T00:39:43.480912+00:00",
+  "end": "2026-11-12T00:39:52.677888+00:00"
+}

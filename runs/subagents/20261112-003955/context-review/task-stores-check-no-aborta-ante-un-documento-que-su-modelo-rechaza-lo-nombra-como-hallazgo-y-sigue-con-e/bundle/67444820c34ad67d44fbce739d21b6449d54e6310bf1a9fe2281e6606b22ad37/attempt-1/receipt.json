@@ -1,0 +1,9 @@
+{
+  "key": "task-stores-check-no-aborta-ante-un-documento-que-su-modelo-rechaza-lo-nombra-como-hallazgo-y-sigue-con-e/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "67444820c34ad67d44fbce739d21b6449d54e6310bf1a9fe2281e6606b22ad37",
+  "output_sha256": "1d8acd06186bf06d32ecad1dfbd0174a7c6605e6dd78109e3c75e9ec49740ed3",
+  "start": "2026-11-12T00:39:56.554545+00:00",
+  "end": "2026-11-12T00:40:09.883347+00:00"
+}

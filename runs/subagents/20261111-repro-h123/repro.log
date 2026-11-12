@@ -1,0 +1,45 @@
+### sldb ce27c82b, deskops 0ccf497c
+Board.md
+task-repro-dos.md
+task-repro-tres.md
+task-repro-uno.md
+status: draft
+summary: ''
+tags:
+- workspace:desk
+--
+history:
+### H1: sldb stores check
+rc=1
+Unexpected: 1 validation error for TaskCodeDoc
+### H2/H3: sldb docs update (escritura) de la tercera tarea, válida
+rc=0
+Updated task task-repro-tres field summary
+Path: /dev/shm/repro-h123/desk/tasks/task-repro-tres.md
+### git status tras la escritura fallida (H3: lo que quedó escrito)
+ M .sldb/core/documents/TaskCodeDoc/task-repro-tres.yaml
+ M .sldb/core/models/TaskCodeDoc.yaml
+ M .sldb/core/store_index.yaml
+ M desk/tasks/task-repro-tres.md
+### H2/H3: sldb docs untrack de la tercera tarea (válida), con dos inválidas en TaskCodeDoc
+rc=0
+Untracked 'task-repro-tres'
+### git status tras el untrack fallido (H3)
+ D .sldb/core/documents/TaskCodeDoc/task-repro-tres.yaml
+ M .sldb/core/models/TaskCodeDoc.yaml
+ M .sldb/core/store_index.yaml
+### H2b: sldb docs untrack de una inválida (uno) con otra inválida (dos) en el mismo modelo
+rc=0
+Untracked 'task-repro-uno'
+ D .sldb/core/documents/TaskCodeDoc/task-repro-uno.yaml
+ M .sldb/core/models/TaskCodeDoc.yaml
+ M .sldb/core/store_index.yaml
+### H2c: deskops closeout supersede de uno (deskops rechaza antes por H2)
+rc=1
+Cannot supersede task-repro-uno yet: sldb rebuilds every task of the store when one leaves it, and these task documents are invalid: desk/tasks/task-repro-dos.md. This is sldb H2 (note 3895e9f7): sldb re-extracts the whole model on every write. Migrate them with deskops desk update --apply (it lists
+### H2d: deskops closeout supersede de uno con la guarda de deskops desactivada (monkeypatch de _other_invalid_tasks), dos sigue inválida
+Closing commit c9b53c8ecac4 made in superseded mode: r
+Index: /dev/shm/repro-h123/runs/subagents/index.jsonl
+rc 0
+git status:
+c9b53c8 closeout: task-repro-uno

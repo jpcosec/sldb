@@ -1,0 +1,36 @@
+name: review-task-stores-check-no-aborta-ante-un-documento-que-su-modelo-rechaza-lo-nombra-como-hallazgo-y-sigue-con-e-bundle-1
+path: desk/reviews/task-stores-check-no-aborta-ante-un-documento-que-su-modelo-rechaza-lo-nombra-como-hallazgo-y-sigue-con-e/bundle-1.md
+source_hash: 4ff27dc6f7b7afe3a2fdf3a67a9417528aca6ca236164396305fcbcd64285760
+content_hash: 78cfa497663a535ab656109708bb7b4b96db665f30df297ab02ccb19f59697c0
+field_hashes:
+  id: 9fa2a8cbb7baa088634c7d92258cc8b9ebdb631cf42a53cac21b99ac2e31eceb
+  title: 8d34fe260be5718c806c66da75959b1d3cc2a345e2e54d4aa6018611a2a10347
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 4bfaad31d638418cadc49a3aa9c55b2596e2d2d37db66377c63151f24ff27459
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 8e072da367fb89d0a2451a568408d52ce45c47503fc91295c26dbfe28a09998b
+  input_sha256: 0fdf87b6d9b4dd45d162176c78fbfab1f76dda9dcdbc8e72b765d219b4bc31cc
+  output_sha256: 12760162d89f94e1949b2bdf5947a53d3cdeca6b5d7a18df92a9b4a94e1cb01f
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 01f7f2c7f3de119bc502a80557d9a8a007078f05112bd12a1e2d74e8d81dfa79
+  created_at: c201aa7b0f913b898e85de7123ccdca4fc6c2693dcda81b6620d06d539081b01
+  disposed_at: 0e9db42c2aab74dc06d38909f4177178c2c62b07215a1cad463b6a969a62cc1c
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: cc158341a2dcfb1cc86acc7db3196886eb4977d731e75646aee0b6fcd8163f38
+  disposition: 8e1e30e3705551f295ca6e45182859f0195af436f5ceabb14c02085b4d84671d
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-12T00:40:36Z'
+  authority: generated
+  via: save_document_payload

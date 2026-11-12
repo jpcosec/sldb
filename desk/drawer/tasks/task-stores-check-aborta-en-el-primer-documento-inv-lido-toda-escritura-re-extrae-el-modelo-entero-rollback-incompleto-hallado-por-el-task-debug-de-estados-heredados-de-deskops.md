@@ -1,19 +1,40 @@
 ---
-# unclear | suggestion
-kind: suggestion
-# e.g., other_repo
-sender_project: deskops
-# e.g., target_repo
-target_project: sldb
-# ISO 8601 timestamp
-created_at: '2026-11-11T04:00:00'
-# open | closed
-status: open
-# project identity that acknowledged the note
-# ISO 8601 timestamp, set when acknowledged
+id: task-stores-check-aborta-en-el-primer-documento-inv-lido-toda-escritura-re-extrae-el-modelo-entero-rollback-incompleto-hallado-por-el-task-debug-de-estados-heredados-de-deskops
+status: deferred
+summary: ''
+tags:
+- workspace:desk
+- artifact:task
+- source:inbox
+current_node: ''
+history: []
+references: []
+depends_on: []
+pills: []
+files: []
+task_type: ''
+inherits_from: []
+inherit_acceptance_context: false
+atoms: []
 ---
 
 # stores check aborta en el primer documento inválido; toda escritura re-extrae el modelo entero; rollback incompleto (hallado por el task.debug de estados heredados de deskops)
+
+## Rationale
+
+_Explain why this task exists or the business driver behind it._
+
+Promoted from the inbox note `desk/inbox/inbox-note-stores-check-aborta-en-el-primer-documento-inválido-toda-escritura-re-extrae-el-modelo-entero-rollba.md`.
+
+## Goal
+
+_Describe the concrete result this task must produce._
+
+Triage and resolve the inbox message promoted from `desk/inbox/inbox-note-stores-check-aborta-en-el-primer-documento-inválido-toda-escritura-re-extrae-el-modelo-entero-rollba.md`.
+
+## Scope
+
+_State what is in scope and what is out of scope._
 
 _Describe the incoming message with enough evidence to triage._
 
@@ -40,3 +61,21 @@ Todas verificadas sobre una copia del gateway en `/dev/shm` con sldb `84eb7f75`.
   store a medio escribir.
 
 Esperado: H1, un hallazgo por documento inválido y el resto del diagnóstico; H2, una escritura de un documento no re-valida todos los del modelo, o al menos no cae por otro documento; H3, el rollback de una transacción fallida restaura todo lo que escribió.
+
+## Implementation Path
+
+_Outline the expected implementation route or affected surface._
+
+To be defined when the task is promoted.
+
+## Validation
+
+_List the checks required before this task can close._
+
+- 
+
+## Done When
+
+_Name the observable condition that makes the task complete._
+
+The message is resolved, answered, or promoted into active work.

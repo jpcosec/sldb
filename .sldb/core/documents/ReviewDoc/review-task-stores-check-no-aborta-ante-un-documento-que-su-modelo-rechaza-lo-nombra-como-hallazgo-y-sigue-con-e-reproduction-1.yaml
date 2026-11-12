@@ -1,0 +1,36 @@
+name: review-task-stores-check-no-aborta-ante-un-documento-que-su-modelo-rechaza-lo-nombra-como-hallazgo-y-sigue-con-e-reproduction-1
+path: desk/reviews/task-stores-check-no-aborta-ante-un-documento-que-su-modelo-rechaza-lo-nombra-como-hallazgo-y-sigue-con-e/reproduction-1.md
+source_hash: 46177fbbcf8cf8bae22d94bcdc9c8ba688db878a5149b5dd5246cf8f3c3767bc
+content_hash: f4284e57ab62b2dec7bb700443e368e34a2448ea56bdd8055573ced46bde94bd
+field_hashes:
+  id: 5173498d442e0178ddc1c851db144ef3792cdb2982a60247054ad4068a6f3a01
+  title: 95bb292d7828b113f0e940273da14af34d35a2fd8662f840b2bcce4b647cc9e9
+  kind: 368fe53d1f06908176884aa53b85fb3135f2431d04d9892f2b26b178bfe9c736
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 5e6032b47f3165d1bb7d3193bbfe9765ee46c4bc174dba5735d2ba81bc0e78ef
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 11e25bab0df4bb9f63c6dde985fea5de0ef16abdb2ec640dc08e7e97ec6b1d15
+  actor: d8118dff4b4f05ead1700220929618d164af018ee7c6e347eeb481ec63f69521
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: ef5f0949186a9b9158e8b82eb74edda47a46bac04713fb4b0afb2a4ddd320295
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: 12adac54ac6f7140109391b670b3cbcd51f083d8f5ee62ce26857c794ed67d36
+  reason: 3e9a3720c5f5dc42542b8f5da71fbb0d3ede2e38900690293de10205c3256c64
+  created_at: b2eed3a4649b488ac73b16649d1d55b6452a172e5b4b485588725bfcad674871
+  disposed_at: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposed_by: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  summary: 31ea110ab5c6ea1c345fa5b9d7320a0e3a4f91133e0a5af828706dd2136907e5
+  disposition: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-12T00:39:24Z'
+  authority: generated
+  via: create_document
