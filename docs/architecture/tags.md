@@ -81,9 +81,21 @@ The family runs where the RuleDocs run (rules.md §9), also in a store that regi
 | `rules explain builtin:tag_namespace:<name> DOC` | `rules_explain` | `{"rule", "subject", "finding": {node, holds, clause, seen}}`, also when it holds; without `tag_namespaces` the rule is an unknown target |
 | `tags check` | `tag_check` | the same evaluation as `rules check` filtered to the family; exit 1 on an error |
 
-`create_document` and `track_document_file` evaluate no `on_write` rule (a GO08 gap, q18):
-a document created without its anchor is reported by `tags check`, `rules check` and
-`stores check`.
+`create_document` and `track_document_file` evaluate `on_write` as a save does (H4, so do
+`apply_batch`, `POST /save` with create or track, `transaction.create` and `transaction.track`,
+and `scaffold_store`): a document that enters with a tag whose prefixes are not anchored is
+refused with `SLDBRuleViolationError` and nothing is written or tracked. There is no earlier
+index for a new document: the family reads it with its model, its tags and the new payload,
+and no previous edges. `stores build` (the batch tracking of `include`) does **not** evaluate
+`on_write`: it is declarative, and `stores check` covers what it tracked with `on_check`
+(a decision of the coordinator, revisable).
+
+### Which documents the family sees (H7)
+
+The family reads **indexed** documents only. A Markdown file written by hand has no findings
+until it is tracked (`docs track`, `track_document_file`, `stores build`); an edited document is
+evaluated over its indexed projection, i.e. what the index holds after the last write or
+`stores update`, not over the text on disk. Run `stores update` after hand edits.
 
 ## `tag_tree`, `tag_folder`
 
@@ -118,12 +130,12 @@ documents (deskops forbids them in its atom pattern) instead of having them sile
 ## API and CLI
 
 - `sldb.api.tag_namespaces(store) -> list[dict]`, `tag_tree(store, namespace) -> dict`,
-  `tag_folder(tag) -> str`, `tag_check(store) -> list[Finding]` (also in `sldb.api.tags`);
+  `tag_folder(tag) -> str`, `tag_check(store) -> list[Finding]`, `tag_evaluations(store) -> list[dict]` (also in `sldb.api.tags`);
   `sldb.api.TagNamespace`.
 - `sldb.api` re-exports `sldb.api.semantic`: `add_semantic_parent`, `remove_semantic_parent`,
   `add_semantic_equivalence`, `semantic_tag`.
 - `sldb tags namespaces | tree NAMESPACE | check` (`--store`, `--pythonpath`, `--format`,
-  with envelope). `tags check` prints as `rules check` does (`{"findings": [...]}` in JSON).
+  with envelope). `tags check` prints as `rules check` does; in JSON it is `{"findings": [...], "evaluations": [...]}` (H6): one entry `{document, namespace, rule, holds, clause, tags, missing}` per local document and namespace it carries, held or not, from the same pass as the findings. `Finding` has no new field: the node stays in `subject` and the clause in `what`; `rules explain` already returns `node, holds, clause, seen`.
 - Helpers of the store layer (`src/sldb/store/semantic_tags.py`): `payload_tags`,
   `split_namespace`, `namespaced_tags`, `tag_prefixes`.
 

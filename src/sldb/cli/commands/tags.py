@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from sldb.api.tags import tag_check, tag_namespaces, tag_tree
+from sldb.api.tags import tag_namespaces, tag_report, tag_tree
 from sldb.cli import alert_sink
 from sldb.cli.output_format import emit
 from sldb.core.exceptions import SLDBError
@@ -37,10 +37,10 @@ class TagsCLI:
         return 0
 
     def check(self, args: Any) -> int:
-        findings = tag_check(args.store)
+        findings, evaluations = tag_report(args.store)
         text = args.format == "text"
         if not text:
-            emit({"findings": [f.as_dict() for f in findings]}, args.format, "")
+            emit({"findings": [f.as_dict() for f in findings], "evaluations": evaluations}, args.format, "")
         alert_sink.report(findings, text=text)
         if text:
             print(f"tags check: {alert_sink.tally(findings) or 'sin hallazgos'}")
