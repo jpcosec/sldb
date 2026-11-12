@@ -2,7 +2,8 @@
 
 Run once per store to move it to a declared layout; after that the file is edited by hand (or
 by the commands that register models and links) and the index is what gets rebuilt from it.
-Generators cannot be read off an index, so an existing declaration's are kept, and so are its
+Generators, policy, scaffold, graph and tag declarations cannot be read off an index, so an existing
+declaration's are kept, and so are its
 authored `include` rules (a glob is never flattened into the paths it matches): only what they
 do not cover is added.
 """
@@ -38,10 +39,12 @@ def _include(store_path: Path, root: Path) -> list[dict]:
     return merged_includes(store_path, root, load_declaration(store_path).include)
 
 
+AUTHORED = ("generate", "derived", "policy", "graph_backend", "folders", "seeds", "project_graph", "tag_models", "tag_namespaces")
+
+
 def _kept(store_path: Path) -> dict:
-    """What an index cannot say: the generators and the paths they write, from the current file."""
+    """What an index cannot say: the keys the author wrote, from the current file."""
     if not declaration_path(store_path).is_file():
         return {}
     current = load_declaration(store_path)
-    return {"generate": current.generate, "derived": current.derived}
-
+    return {key: getattr(current, key) for key in AUTHORED}
