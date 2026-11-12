@@ -1,0 +1,9 @@
+{
+  "key": "task-sldb-views-run-board-en-menos-de-1-s-caché-de-disco-de-los-shards-de-documentos-para-select-document/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "313d62d58027e1102a8e3f756cf031bb16eb87a70d98296d082da9c469fbc38e",
+  "output_sha256": "3351ed2f03b811339759678078fe56ea89e7cae92165053dd0f2c1496b8a4793",
+  "start": "2026-11-12T03:39:19.147193+00:00",
+  "end": "2026-11-12T03:39:30.648420+00:00"
+}
