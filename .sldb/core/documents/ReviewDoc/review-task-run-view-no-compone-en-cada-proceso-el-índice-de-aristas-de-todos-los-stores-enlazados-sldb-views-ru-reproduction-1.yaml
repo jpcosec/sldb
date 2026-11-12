@@ -1,0 +1,36 @@
+name: review-task-run-view-no-compone-en-cada-proceso-el-índice-de-aristas-de-todos-los-stores-enlazados-sldb-views-ru-reproduction-1
+path: desk/reviews/task-run-view-no-compone-en-cada-proceso-el-índice-de-aristas-de-todos-los-stores-enlazados-sldb-views-ru/reproduction-1.md
+source_hash: aaebd60667f2410515093dc95be67a3ae21fcb6b6af23a2305611b2aef047d4a
+content_hash: 05c0ffd1135feed98f5136d8020bebfa17e95b6497426b36433e04bcd84ed824
+field_hashes:
+  id: 8fa6b1ce66cb291de30963194c02c069fad18fc2732ef3fa6ad20da4dc6b3176
+  title: 440d913c64943fcdac110613f8e14de30909ce57a0414383a2ca2c7fe07cf67e
+  kind: 368fe53d1f06908176884aa53b85fb3135f2431d04d9892f2b26b178bfe9c736
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 1961a3f662ff3e042ce4caf72fb3ab987411d48d46314b3b307fddd2c3a5c98c
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 11e25bab0df4bb9f63c6dde985fea5de0ef16abdb2ec640dc08e7e97ec6b1d15
+  actor: d8118dff4b4f05ead1700220929618d164af018ee7c6e347eeb481ec63f69521
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 42e718400cf3a07dd44ec9b93df1dd82055215c2b2bb157d7ed4e4407c421be8
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: 12adac54ac6f7140109391b670b3cbcd51f083d8f5ee62ce26857c794ed67d36
+  reason: 6f4953a4b59a8990f7e070b87d2b926e4603e09e9116736dc3d7511ae414fa20
+  created_at: 863e066f59bb3a507eae25c495dab3a39433c6e57cbcec0781c936c0b0b3ff8c
+  disposed_at: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposed_by: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  summary: 59db3571327b305bccfb33e9d64490818bd063e1dd4dd16c318d6dd0cff2e003
+  disposition: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-12T02:26:38Z'
+  authority: generated
+  via: create_document

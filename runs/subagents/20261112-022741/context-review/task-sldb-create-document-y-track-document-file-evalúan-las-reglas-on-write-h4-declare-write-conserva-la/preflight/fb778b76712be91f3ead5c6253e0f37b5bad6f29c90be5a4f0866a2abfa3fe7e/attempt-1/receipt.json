@@ -1,0 +1,9 @@
+{
+  "key": "task-sldb-create-document-y-track-document-file-evalúan-las-reglas-on-write-h4-declare-write-conserva-la/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "fb778b76712be91f3ead5c6253e0f37b5bad6f29c90be5a4f0866a2abfa3fe7e",
+  "output_sha256": "850c7a91353b1ffce2f0ad88f270da5ffcb444483db7d3aa8c905f8d0aa9be33",
+  "start": "2026-11-12T02:27:42.477474+00:00",
+  "end": "2026-11-12T02:27:53.296925+00:00"
+}

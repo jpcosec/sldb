@@ -1,0 +1,38 @@
+name: task-run-view-no-compone-en-cada-proceso-el-índice-de-aristas-de-todos-los-stores-enlazados-sldb-views-ru
+path: desk/tasks/task-run-view-no-compone-en-cada-proceso-el-índice-de-aristas-de-todos-los-stores-enlazados-sldb-views-ru.md
+source_hash: a567e568cccf5a4322b82ea989c5add68b1bb65be60eefb4a7ba844323040c36
+content_hash: 70f493f5f6deca6ed853dbbc43a2f0693ca5cd6b06818b42a11c2a61d75e3e37
+field_hashes:
+  title: 23f17fedb7efd4a4c3284a82f939a92239691a59c1fe0869854e68b1f9f6c06a
+  id: 709871e8b44f9860c04cc27bbaa8afb91c0e21829aed3978b5455414500f096b
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 90b132bbf2c4fedcee8359d0b71b7b4b51681960e19db557c27d862ee9540bf1
+  goal: d9689d416ad007c60ac045bd302c1dcbd5a41545f20f58e3271a161da9893320
+  scope: 82c14f4c5146fce5899af1edad1a5812add074709348cc3ee2271d4abcd68d1d
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 27190cecb2cb2a7abf995a706d3e49e3eea5bab64b898062cd6dedc79b5c076d
+  implementation_path: a7eb613c0d18ee656469eaaf035aea1e4c59224756151ced033b8accffe49f48
+  validation: 97b08b6c2aec940d0c723b42fcc2582692a4e66dd6a7cbef89ad58e0314263a7
+  done_when: 629c6c50b731eeae5a827f0fd89147220013f8142aabadccd67ea0a695017efa
+  task_type: 17aef8a679138336d87167505c61b03a7bc28c9a12b1ccf78947b619d28fae69
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- artifact:task
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-12T02:26:09Z'
+  authority: generated
+  via: create_document

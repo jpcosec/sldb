@@ -1,0 +1,9 @@
+{
+  "key": "task-run-view-no-compone-en-cada-proceso-el-índice-de-aristas-de-todos-los-stores-enlazados-sldb-views-ru/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "19ded5d45ae2cc5483952b32ff0b047a3903324404d557bd8dd0934989117e27",
+  "output_sha256": "83cfde4a7d30dec9f31f8477db5aff67e4cb39aac307ee5225a459ec6e402551",
+  "start": "2026-11-12T02:26:47.111719+00:00",
+  "end": "2026-11-12T02:27:01.108044+00:00"
+}

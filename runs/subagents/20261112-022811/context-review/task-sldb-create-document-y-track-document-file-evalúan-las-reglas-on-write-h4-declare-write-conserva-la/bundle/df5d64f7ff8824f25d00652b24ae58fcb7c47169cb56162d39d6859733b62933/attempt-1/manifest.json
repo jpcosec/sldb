@@ -1,0 +1,102 @@
+{
+  "key": "task-sldb-create-document-y-track-document-file-evalúan-las-reglas-on-write-h4-declare-write-conserva-la/bundle",
+  "input_sha256": "df5d64f7ff8824f25d00652b24ae58fcb7c47169cb56162d39d6859733b62933",
+  "argv": [
+    "pi",
+    "--provider",
+    "deepseek",
+    "--model",
+    "deepseek-flash",
+    "--thinking",
+    "low",
+    "--offline",
+    "--no-session",
+    "--no-context-files",
+    "--no-skills",
+    "--no-extensions",
+    "--no-prompt-templates",
+    "--no-tools",
+    "--print",
+    "--system-prompt",
+    "Revisor barato aislado de un encargo de planificación. Trabajas solo con el input explícito: sin herramientas, historial ni otras fuentes. No ejecutas nada. Responde en español con estas secciones exactas: REFORMULACION (propósito, resultado, repo, límites), AMBIGUEDADES (numeradas, cada una con cita textual del input y qué obligaría a inventar; escribe \"ninguna\" si no hay), DRY-RUN (lecturas, cambios previstos, dependencias y validaciones futuras, sin ejecutar), FUTURO (lo que produce otro nodo o decide un humano, no ambigüedad). REFORMULACION describe el encargo del nodo, no esta revisión. DRY-RUN describe cómo lo ejecutaría un ejecutor futuro, hipotéticamente y sin ejecutar nada. Si el nodo es un agregado o paquete no ejecutable, dilo y además recorre cómo lo cumplen sus hijos, qué transfiere cada uno al siguiente y cómo se valida el resultado conjunto. Máximo 350 palabras.",
+    "@/mnt/ssd/proyectos/SLDB_1/sldb-desk-tmp/runs/subagents/20261112-022811/context-review/task-sldb-create-document-y-track-document-file-evalúan-las-reglas-on-write-h4-declare-write-conserva-la/bundle/df5d64f7ff8824f25d00652b24ae58fcb7c47169cb56162d39d6859733b62933/attempt-1/input.md"
+  ],
+  "model": "deepseek/deepseek-flash",
+  "profile": "runtime-pi-deepseek-flash",
+  "selection_reason": "deepseek-flash: perfil barato verificado en esta máquina por ritual-context-review (D4)",
+  "sources": [
+    {
+      "path": "desk/tasks/task-sldb-create-document-y-track-document-file-evalúan-las-reglas-on-write-h4-declare-write-conserva-la.md",
+      "sha256": "aefa4b1e2ac165f5ae41912cf6341d322ccd7e2dbd717ec8143e1f77eb61a882",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/execution.md",
+      "sha256": "46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/testing.md",
+      "sha256": "2919dd9e77be4c9c4d1415a1452201c1cfaf613d854d44ef721f2f7b23da6493",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/closeout.md",
+      "sha256": "6deb0f677a41425d8e691faadc2f8d91d3a73c1bcd2fe0db4a3a4fb704b5462a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "desk/rituals/phase.md",
+      "sha256": "03337ed9ce413f687ffbe485efb22e2007a44472f0f819e2a73cf00e28610344",
+      "projection": "whole_file"
+    },
+    {
+      "path": "docs/architecture/rules.md",
+      "sha256": "a1f9ff602d069f8b1ecc6ae4acfe284e3196eee9ed4c63d031110541d250a22a",
+      "projection": "whole_file"
+    },
+    {
+      "path": "docs/architecture/tags.md",
+      "sha256": "80e83f0c872909a908cfdbbbb06f86bcd040ace5f2e4be65f435e9c72733d962",
+      "projection": "whole_file"
+    },
+    {
+      "path": "contracts/layers.toml",
+      "sha256": "cce996f9becff61ecf8a03a17fe69e9e673d6ade4e7663cace216288e2637127",
+      "projection": "whole_file"
+    }
+  ],
+  "omitted_sources": [
+    {
+      "path": "src/sldb/api/documents/",
+      "reason": "directory"
+    },
+    {
+      "path": "src/sldb/api/rules/",
+      "reason": "directory"
+    },
+    {
+      "path": "src/sldb/api/tags/",
+      "reason": "directory"
+    },
+    {
+      "path": "src/sldb/api/stores/",
+      "reason": "directory"
+    },
+    {
+      "path": "src/sldb/cli/commands/",
+      "reason": "directory"
+    },
+    {
+      "path": "tests/",
+      "reason": "directory"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "reason": "size>=60000",
+      "size": 89551
+    }
+  ],
+  "started": "2026-11-12T02:28:12.713538+00:00",
+  "finished": "2026-11-12T02:28:27.384484+00:00"
+}
