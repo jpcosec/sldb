@@ -42,7 +42,7 @@ def live_facts(store_path: Path) -> list[dict[str, Any]]:
     facts = []
     for m in load_store_index(store_path).models:
         paths = {e.name: e.path for e in documents_hash.entries_of(store_path, m.name)}
-        shards = [s for s in compose_edges_documents(store_path, m.name) if s.doc_name in paths]
+        shards = [s for s in compose_edges_documents(store_path, m.name, copy=False) if s.doc_name in paths]
         facts.append({"model": m.name, "model_ref": m.model_ref, "docs": [_doc_fact(m.name, s, paths[s.doc_name]) for s in shards]})
     return facts
 

@@ -83,12 +83,12 @@ def save_sections_shard(path: Path, doc_sections: DocSections) -> None:
     _save_shard(path, doc_sections, lambda: DocSections(**(yaml_load(path.read_text(encoding="utf-8")) or {})))
 
 
-def load_edges_shard(path: Path, shard_type: type[E]) -> E | None:
-    """An edges shard of the given shape: DocEdges, ModelEdges, or the store's EdgeContribution."""
+def load_edges_shard(path: Path, shard_type: type[E], copy: bool = True) -> E | None:
+    """An edges shard (DocEdges, ModelEdges or the store's EdgeContribution); `copy=False`: the cached one, read-only."""
     if not path.exists():
         _forget_shard(path)
         return None
-    return _cached_shard(path, lambda: shard_type(**(yaml_load(path.read_text(encoding="utf-8")) or {})))
+    return (_cached_shard if copy else _cached_instance)(path, lambda: shard_type(**(yaml_load(path.read_text(encoding="utf-8")) or {})))
 
 
 def save_edges_shard(path: Path, shard: EdgeContribution) -> None:

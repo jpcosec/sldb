@@ -39,13 +39,14 @@ def compose_sections_documents(store_path, model_name: str) -> list[DocSections]
     return out
 
 
-def compose_edges_documents(store_path, model_name: str) -> list[DocEdges]:
+def compose_edges_documents(store_path, model_name: str, copy: bool = True) -> list[DocEdges]:
     """Every edges shard of one model's documents, by name (the model's own shard and the
-    store's are single files: `layout.edges_model_shard_path` / `edges_store_shard_path`)."""
+    store's are single files: `layout.edges_model_shard_path` / `edges_store_shard_path`).
+    `copy=False`: the cached instances themselves, for a caller that only reads them."""
     from sldb.store.layout import edges_shards_dir
 
     shards_dir = edges_shards_dir(Path(store_path), model_name)
-    shards = (load_edges_shard(shards_dir / f"{name}.yaml", DocEdges) for name in list_shard_names(shards_dir))
+    shards = (load_edges_shard(shards_dir / f"{name}.yaml", DocEdges, copy) for name in list_shard_names(shards_dir))
     return [shard for shard in shards if shard is not None]
 
 
