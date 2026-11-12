@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-12T00:38:54Z'
+  at: '2026-11-12T00:50:55Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-stores-check-no-aborta-ante-un-documento-que-su-modelo-rechaza-lo-nombra-como-hallazgo-y-sigue-con-e
 status: draft
 summary: ''
@@ -42,7 +42,7 @@ Prioridad del coordinador: un desk heredado (los de AntonIA, el gateway) con un 
 
 _Describe the concrete result this task must produce._
 
-sldb stores check sobre un store con documentos que su modelo rechaza termina el diagnóstico: cada documento inválido es un hallazgo por documento con su código, el resto del store se diagnostica como hoy, y la salida JSON está completa; H2 y H3 quedan cubiertos por tests de regresión que fijan el comportamiento actual.
+sldb stores check sobre un store con documentos que su modelo rechaza termina el diagnóstico: cada documento inválido es un hallazgo por documento con su código, el resto del store se diagnostica como hoy y la salida JSON está completa. Además (corrección del 2026-11-12), con caché frío una escritura o un untrack de un documento ya no cae por otro inválido del mismo modelo (H2), y una transacción fallida restaura todo lo que escribió, shards derivados incluidos (H3).
 
 ## Scope
 
@@ -71,6 +71,8 @@ r4: tests/test_clean_code_rules.py OBLIGATORIO (80 líneas efectivas por archivo
 r5: docs (el capítulo de stores check y los códigos de hallazgo) y CHANGELOG.
 
 VALIDACIÓN: el worker corre de a uno los tests que toca y, antes de entregar, la suite COMPLETA de sldb de a un archivo desde /dev/shm (cada uno precedido por la espera con wait-pytest), más test_clean_code_rules y tools/check.sh --fast. Los 7 pasos del workflow de sldb los corre el coordinador.
+
+CORRECCIÓN (coord2, 2026-11-12, revisable): H2 y H3 SÍ se reproducen con caché frío (sin .sldb_cache ni XDG cache, como un clon limpio), en ce27c82b y en 84eb7f75; la reproducción del coordinador corrió con caché caliente. Hallazgo de h1-worker: sldb docs untrack de una tarea con dos inválidas en el modelo sale rc 1 con 'Value error, Task ... lifecycle is inconsistent' y deja modificados los índices de las inválidas. Traza: forget_document, rebuild_edges_indexes, edge_sync._sync_model_docs (every=True; sin caché los shards no son confiables), edge_index doc_contribution._declared_edges y read_payload sin guarda (payload_projection._read sí atrapa ValueError). DECISIÓN: H2 y H3 se ARREGLAN en esta tarea. r3 pasa a ser: (H2) _declared_edges lleva la misma guarda que payload_projection._read; un documento que su modelo rechaza no aporta aristas declaradas, se reporta como store/doc-invalid y el rebuild sigue con los demás. (H3) una transacción fallida restaura todo lo que escribió, shards derivados de aristas incluidos. Los tests de H2 y H3 corren con caché frío y con caché caliente.
 
 ## Validation
 

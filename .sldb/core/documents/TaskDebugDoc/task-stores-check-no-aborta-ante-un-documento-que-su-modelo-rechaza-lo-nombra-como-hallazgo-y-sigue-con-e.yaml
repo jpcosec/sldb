@@ -1,7 +1,7 @@
 name: task-stores-check-no-aborta-ante-un-documento-que-su-modelo-rechaza-lo-nombra-como-hallazgo-y-sigue-con-e
 path: desk/tasks/task-stores-check-no-aborta-ante-un-documento-que-su-modelo-rechaza-lo-nombra-como-hallazgo-y-sigue-con-e.md
-source_hash: 2b30bb24617d5d1c5372c5b24b25eb717dbb62a8af861a27499b592aa417d518
-content_hash: 8150d12f63d415aa7dc33070a1bfaf647b418d69ba8c9abef5c3bc9a705d4293
+source_hash: 5e4464bf92bd35f0d98201b413d8d9cd41a97991c6d572ce7a19b67a9e78dbf3
+content_hash: 1a24bdcc1daf47478924a1581da4eebf0f8647886e443d7a543dd2d35d64ad7e
 field_hashes:
   title: fa6ee69becd002f06eb5321da81467c79bdca67986cf4ee2c5f863b9b83d26c2
   id: 9ecf51069bade4ba57a46c1ceb99e9f422cfe632afa2e9616e44154f596dfdf7
@@ -11,13 +11,13 @@ field_hashes:
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 45b12eed028800a6b17701a46b60f59f0e1d5057784857aa89842c4ac6bb2341
-  goal: 0bf5c5f2157327144c4b23b2680df08cbc64d30796f00f54962e503c831a9c0d
+  goal: 6753e1b57e53bdb30712f76a205a363101aab26a0796092f4d53e3333545c64b
   scope: e313a9529f363f60b4d671fac16cb9f8d7bc4518d9498fcb0f50949359d07219
   references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 678660d4a6b0e8026a2dc63efab783e65bf9a510d75980643b958aacaf1fc76d
-  implementation_path: 34d8ac2580e54c5d2a1cc3c976bd090c918b7e62092886145bb15f7721abce9b
+  implementation_path: c2b579d12172ae8f10a1b88cefbc9263bf85761c0a9c667f8239d9fef600b56a
   validation: a1f16385db2b54b335e216d0e28f173c5dcc0443a88c1c51495439c0e2aebdf3
   done_when: 894df61120f6b73ea35f48d9256f4e9e0d25597c6f837b3e1b3cf1a30f12b633
   task_type: 17aef8a679138336d87167505c61b03a7bc28c9a12b1ccf78947b619d28fae69
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-12T00:38:54Z'
+  at: '2026-11-12T00:50:55Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
