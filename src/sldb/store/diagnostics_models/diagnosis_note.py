@@ -12,3 +12,4 @@ class DiagnosisNote(str, Enum):
     MISSING = 'missing'
     PATH_OUTSIDE_ROOT = 'path_outside_root'
     SYMLINK_NOT_READ = 'symlink_not_read'
+    DOC_INVALID = 'doc_invalid'

@@ -3,7 +3,8 @@ from dataclasses import dataclass, field
 from sldb.store.diagnostics_models.model_diagnosis import ModelDiagnosis
 from sldb.store.diagnostics_models.diagnosis_note import DiagnosisNote
 
-_DAMAGING = (DiagnosisNote.DATA_MUTATION, DiagnosisNote.MISSING, DiagnosisNote.PATH_OUTSIDE_ROOT, DiagnosisNote.SYMLINK_NOT_READ)
+_DAMAGING = (DiagnosisNote.DATA_MUTATION, DiagnosisNote.MISSING, DiagnosisNote.PATH_OUTSIDE_ROOT, DiagnosisNote.SYMLINK_NOT_READ, DiagnosisNote.DOC_INVALID)
+_BROKEN = (DiagnosisNote.MISSING, DiagnosisNote.DOC_INVALID)  # errors, not alerts (store_findings)
 
 
 @dataclass
@@ -44,14 +45,14 @@ class StoreDiagnosis:
 
     @property
     def is_valid(self) -> bool:
-        """Whether the diagnosis found no error: no tracked file gone, every model importable.
+        """Whether the diagnosis found no error: no tracked file gone or rejected by its model, every model importable.
 
         A stale root or roster, a moved contract and a changed document are the source moving
         against the index: alerts, valid but to be looked at (`sldb.api.stores.store_findings`,
         docs/architecture/anchoring.md §4). What the store's surroundings break (links,
         structural noise) is judged by `stores check`, not here.
         """
-        return all(m.resolved for m in self.models) and not any(d.note is DiagnosisNote.MISSING for _m, d in self.damaged_documents)
+        return all(m.resolved for m in self.models) and not any(d.note in _BROKEN for _m, d in self.damaged_documents)
 
     @property
     def counts(self) -> list[str]:

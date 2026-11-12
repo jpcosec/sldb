@@ -2,7 +2,8 @@
 
 The owner's rule (docs/architecture/anchoring.md, §4): a stale root or roster, a moved
 contract and a changed document are the source moving against the index, alerts; a tracked
-file that is gone and a model that does not import are errors. A reformatted document is
+file that is gone, one its model rejects (`store/doc-invalid`, inbox 3895e9f7 H1) and a model
+that does not import are errors. A reformatted document is
 neither: its fields held still, and the summary counts it.
 """
 
@@ -19,7 +20,9 @@ _DOC_CODES = {
     DiagnosisNote.CONTRACT_MUTATION: "store/contract-mutation",
     DiagnosisNote.PATH_OUTSIDE_ROOT: "store/path-outside-root",
     DiagnosisNote.SYMLINK_NOT_READ: "store/symlink-not-read",
+    DiagnosisNote.DOC_INVALID: "store/doc-invalid",
 }
+_ERRORS = (DiagnosisNote.DOC_INVALID,)
 
 
 def diagnosis_findings(diagnosis: Any) -> list[Finding]:
@@ -50,4 +53,11 @@ def _document_finding(model: str, doc: Any) -> Finding | None:
     if doc.note is DiagnosisNote.MISSING:
         return error("store/missing", subject, doc.explain(), doc.remedy(), doc.name)
     code = _DOC_CODES.get(doc.note)
-    return alert(code, subject, doc.explain(), doc.remedy(), doc.name) if code else None
+    return (error if doc.note in _ERRORS else alert)(code, subject, doc.explain(), doc.remedy(), doc.name) if code else None
+
+
+def once_per_invalid(findings: list[Finding], diagnosis: Any) -> list[Finding]:
+    """`findings` without any other finding on a document its model rejects: the
+    `store/doc-invalid` already names it, keyed by (model, document), in the order of today."""
+    invalid = {f"{m.name}:{d.name}" for m in diagnosis.models for d in m.documents if d.note is DiagnosisNote.DOC_INVALID}
+    return [f for f in findings if f.subject not in invalid or f.code == "store/doc-invalid"]

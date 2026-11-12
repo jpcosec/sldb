@@ -32,14 +32,15 @@ def with_projection(nodes: list[EdgeNodeRecord], node_id: str, doc: DocumentEntr
 
     if not any(n.id == node_id for n in nodes):
         return nodes
-    payload = {} if model_type is None else project_payload(_read(payload_of, doc), indexed_fields(model_type))
+    payload = {} if model_type is None else project_payload(read_payload(payload_of, doc), indexed_fields(model_type))
     update = {"payload": payload, "field_hashes": dict(doc.field_hashes), "source_hash": doc.source_hash, "contract_signature": contract_signature(model_type)}
     return [n.model_copy(update=update) if n.id == node_id else n for n in nodes]
 
 
-def _read(payload_of: Callable[[], dict[str, Any] | None], doc: DocumentEntry) -> dict[str, Any] | None:
-    """The payload, or None when the file no longer extracts (an edit from outside sldb broke it):
-    the node is still contributed, without a projection, and the next rebuild tries again."""
+def read_payload(payload_of: Callable[[], dict[str, Any] | None], doc: DocumentEntry) -> dict[str, Any] | None:
+    """The payload, or None when the file no longer extracts (an edit from outside sldb broke it,
+    or its model rejects it): the node is still contributed, without a projection or declared
+    edges, and the next rebuild tries again. `stores check` names it (`store/doc-invalid`)."""
     try:
         return payload_of()
     except (SLDBError, ValueError, OSError) as exc:
