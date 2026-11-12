@@ -7,6 +7,7 @@ from pathlib import Path
 
 from sldb.api.documents.document_reference import DocumentReference
 from sldb.api.model_registry.load_registered_model import load_registered_model
+from sldb.api.documents.on_write_gate import check_entering_text
 from sldb.api.documents.refuse_structural_noise import refuse_structural_noise
 from sldb.api.stores.policy import Policy
 from sldb.api.documents.frontmatter_keys import refuse_undeclared_frontmatter
@@ -42,8 +43,10 @@ def track_document_file(store: str | Path | None, model_name: str, path: str | P
     registered = load_registered_model(location.store_path, model_name, pythonpath)
     doc_path = _resolve_path(path, location.project_root)
     doc_name = name or doc_path.stem
+    text = read_source_text(doc_path)
     if not force:
-        _refuse_unfit(registered.model_type, read_source_text(doc_path), doc_name, location.store_path)
+        _refuse_unfit(registered.model_type, text, doc_name, location.store_path)
+    check_entering_text(location.store_path, registered.model_type, registered.entry.name, doc_name, text, force)
     _track(location.store_path, location.project_root, registered, doc_path, doc_name, pythonpath)
     return DocumentReference(model=registered.entry.name, name=doc_name, path=doc_path)
 
