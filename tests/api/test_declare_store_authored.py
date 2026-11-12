@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from sldb.api.edges.project_graph import DocumentSurface, ProjectGraphConfig
 from sldb.api.stores.declare_store import declare_store
 from sldb.api.stores.store_declaration import Seed, StoreDeclaration, TagNamespace, load_declaration, save_declaration
 
@@ -14,7 +15,7 @@ def test_declare_write_keeps_tags_policy_scaffold_and_graph(api_store):
         "graph_backend": "networkx",
         "folders": ["inbox"],
         "seeds": [Seed(path="inbox/.keep", text="")],
-        "project_graph": {"nodes": []},
+        "project_graph": ProjectGraphConfig(document_extractor="docs_v1", file_extractor="files_v1", edge_extractor="edges_v1", surfaces=(DocumentSurface(kind="note", directory="notes", pattern="*.md"),)).to_mapping(),
         "derived": ["out/"],
     })
     save_declaration(api_store.store, authored)
