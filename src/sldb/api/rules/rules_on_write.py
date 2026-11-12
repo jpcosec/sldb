@@ -15,7 +15,8 @@ from pathlib import Path
 from typing import Any
 
 from sldb.api.edges.edge_reading import model_type_of
-from sldb.api.rules.builtin_tag_rules import family_findings, tag_rules
+from sldb.api.rules.builtin_tag_findings import family_findings
+from sldb.api.rules.builtin_tag_rules import tag_rules
 from sldb.api.rules.dirty_set import mark_dirty
 from sldb.api.rules.rule_graph import rule_graph
 from sldb.api.rules.rules_on_transition import has_rules, payload_findings

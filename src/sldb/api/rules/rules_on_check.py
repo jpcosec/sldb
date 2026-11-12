@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Any
 
 from sldb.api.anchors.check_doc_anchors import check_doc_anchors
-from sldb.api.rules.builtin_tag_rules import store_findings
+from sldb.api.rules.builtin_tag_findings import store_findings
 from sldb.api.rules.dirty_set import read_dirty, stamps_of, wide, write_dirty
 from sldb.api.rules.rule_cache import prune, read_results, rule_hash, write_results
 from sldb.api.rules.rule_graph import RuleGraph, rule_graph

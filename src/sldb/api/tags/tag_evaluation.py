@@ -6,7 +6,8 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from sldb.api.rules.builtin_tag_rules import PREFIX, family_evaluations, findings_of, tag_rules
+from sldb.api.rules.builtin_tag_findings import family_evaluations, findings_of
+from sldb.api.rules.builtin_tag_rules import PREFIX, tag_rules
 from sldb.api.rules.rule_graph import rule_graph
 from sldb.api.stores.open_store import open_store
 from sldb.core.finding import Finding

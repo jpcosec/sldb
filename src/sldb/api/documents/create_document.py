@@ -49,8 +49,7 @@ def create_document(store: str | Path | None, model_name: str, path: str | Path,
     rendered = _rendered(location, registered.model_type, payload, pythonpath)
     doc_path = _resolve_path(path, location.project_root)
     doc_name = name or doc_path.stem
-    refuse_noise(registered.model_type, rendered, doc_name, location.store_path)
-    check_entering(location.store_path, registered.model_type, registered.entry.name, doc_name, payload)
+    _admit(location.store_path, registered, rendered, doc_name, payload)
     doc_path.parent.mkdir(parents=True, exist_ok=True)
     write_source_text(doc_path, stamped(rendered + "\n", registered.model_type, "create_document", actor))
     _track(location.store_path, location.project_root, registered, doc_path, doc_name, pythonpath)
@@ -98,3 +97,9 @@ def _render_roundtrip(model_type: type, payload: dict[str, Any], ref_root: Path)
     if not valid:
         raise SLDBValidationError("Idempotency fail", details)
     return rendered
+
+
+def _admit(sp: Path, registered, rendered: str, doc_name: str, payload: dict[str, Any]) -> None:
+    """Refuse a document the model's structure or an `on_write` rule (H4) does not admit."""
+    refuse_noise(registered.model_type, rendered, doc_name, sp)
+    check_entering(sp, registered.model_type, registered.entry.name, doc_name, payload)

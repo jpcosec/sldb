@@ -13,7 +13,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from sldb.api.rules.builtin_tag_rules import family_findings
+from sldb.api.rules.builtin_tag_findings import family_findings
 from sldb.api.rules.fixpoint import witness
 from sldb.api.rules.rule_graph import RuleGraph, rule_graph
 from sldb.api.rules.rule_subjects import applies, rules_of, subject_in

@@ -122,11 +122,11 @@ def test_with_bare_a_path_carrying_the_namespace_anchors_nothing(desk: Desk) -> 
 
 def test_tag_models_checks_only_their_documents_and_descendants(desk: Desk) -> None:
     """CC35d B2: tasks with undeclared `workspace:x` are out of scope; atoms are checked."""
-    desk.declare(DOMAIN, models=["AtomDoc"])
     desk.create("CrossroadDoc", "a", {"path": "a"})
     desk.create("TaskDoc", "t1", {"tags": ["workspace:x", "domain:zz"]})
     desk.create("AtomDoc", "atom", {"tags": ["domain:a", "kind:x"]})
     desk.create("SubAtomDoc", "sub", {"tags": ["pill-type:y"]})
+    desk.declare(DOMAIN, models=["AtomDoc"])
     assert [(f.subject, f.code) for f in api.tag_check(desk.store)] == [("AtomDoc:atom", "rules/builtin:tag_namespace:kind"), ("SubAtomDoc:sub", "rules/builtin:tag_namespace:pill-type")]
     assert [f.subject for f in api.rules_check(desk.store)] == ["AtomDoc:atom", "SubAtomDoc:sub"]
     assert [f.subject for f in api.on_check_findings(desk.store, desk.py)] == ["AtomDoc:atom", "SubAtomDoc:sub"]
@@ -143,11 +143,11 @@ def test_explain_of_a_document_out_of_scope_holds_naming_the_scope(desk: Desk) -
 
 
 def test_tag_tree_with_tag_models_uses_only_documents_in_scope_and_every_anchor(desk: Desk) -> None:
-    desk.declare(DOMAIN, models=["AtomDoc"])
     desk.create("CrossroadDoc", "a", {"path": "a"})
     desk.create("CrossroadDoc", "b", {"path": "b"})
     desk.create("TaskDoc", "t1", {"tags": ["domain:b", "domain:c"]})
     desk.create("AtomDoc", "atom", {"tags": ["domain:a", "domain:d"]})
+    desk.declare(DOMAIN, models=["AtomDoc"])
     tree = api.tag_tree(desk.store, "domain")
     assert [root["tag"] for root in tree["roots"]] == ["domain:a", "domain:b"]
     assert tree["orphans"] == [{"tag": "domain:d", "used_by": ["AtomDoc:atom"]}]
@@ -157,6 +157,6 @@ def test_tag_tree_with_tag_models_uses_only_documents_in_scope_and_every_anchor(
 def test_without_tag_models_the_declaration_dumps_as_before_and_every_document_is_checked(desk: Desk) -> None:
     assert "tag_models" not in StoreDeclaration().model_dump()
     assert StoreDeclaration(tag_models=["AtomDoc"]).model_dump()["tag_models"] == ["AtomDoc"]
-    desk.declare(DOMAIN)
     desk.create("TaskDoc", "t1", {"tags": ["workspace:x"]})
+    desk.declare(DOMAIN)
     assert [f.subject for f in api.tag_check(desk.store)] == ["TaskDoc:t1"]
