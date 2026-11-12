@@ -57,3 +57,27 @@
 - deskops: el puente que repite la validación de tags puede borrarse (otra tarea); puede leer `tag_evaluations` en vez de parsear el texto del hallazgo.
 - deskops: cualquier flujo que cree documentos con tags sin ancla vía `create_document` ahora recibe SLDBRuleViolationError; si necesitaba crear huérfanos, debe declarar los namespaces después.
 - sldb: `rules check` podría ganar `evaluations` si deskops lo pide.
+
+## Tests existentes modificados: qué afirmación cambió y por qué
+
+Ninguna aserción sobre hallazgos, mensajes de error o estado del índice se relajó; cambia cómo se llega al estado de prueba o qué forma tiene la salida JSON.
+
+### tests/api/test_tags.py
+
+- Helper nuevo `World.orphan(name, tags)`: guarda la declaración, la deja sin namespaces, crea la nota y restaura la declaración. **Por qué:** estos tests necesitan un documento que ya viola la familia para probar `tags check`, `rules check`, `rules explain` y `tag_tree` sobre huérfanos. Antes lo conseguían con `create_document` porque no evaluaba `on_write`; con H4 ese alta se rechaza con `SLDBRuleViolationError` (rules.md §9.1), así que el huérfano solo puede existir si entró antes de declararse el namespace, que es el caso real que `tags check` y `on_check` cubren.
+- `placed.note("n2", ["area:c"])` → `placed.orphan(...)` en tres tests: `test_tags_check_finds_a_document_created_without_its_anchor`, `test_rules_explain_answers_a_builtin_rule_with_its_eval_finding` y `test_tag_tree_lists_the_anchors_the_orphan_and_the_unplaced` (el que ejerce `tag_tree` con el huérfano `area:c`). Las aserciones de esos tests no cambian. Solo cambió el docstring del primero, que decía «`create_document` runs no `on_write` rule (q18, a GO08 gap)», ahora falso.
+- `test_tags_check_finds_...`: `envelope["data"] == {"findings": [found.as_dict()]}` → `envelope["data"]["findings"] == [found.as_dict()]`. **Por qué:** `tags check --format json` gana la clave `evaluations` (H6, aditiva), así que la igualdad exacta del dict ya no vale. La lista de hallazgos se sigue comparando entera; la clave nueva se afirma en el test nuevo. `rules check` conserva la comparación exacta `{"findings": [...]}`, porque no cambió.
+- `test_tags_check_passes_a_placed_store`: `envelope["data"] == {"findings": []}` → `envelope["data"]["findings"] == []`, mismo motivo.
+- Tests nuevos (H6): `test_tags_check_gives_the_evaluation_as_data_beside_the_findings` y `test_tag_evaluations_are_empty_without_namespaces`.
+
+### tests/api/test_tags_scope.py
+
+Tres tests: `test_tag_models_checks_only_their_documents_and_descendants`, `test_tag_tree_with_tag_models_uses_only_documents_in_scope_and_every_anchor` y `test_without_tag_models_the_declaration_dumps_as_before_and_every_document_is_checked`. **Único cambio: la línea `desk.declare(...)` pasa de antes a después de los `desk.create(...)`.** Las aserciones no cambian. **Por qué:** los tres crean documentos que violan la familia (`workspace:x` sin namespace declarado, `kind:x`, `pill-type:y`, `domain:d` sin ancla) para comprobar que `tag_models` los acota. Declarando primero, `create_document` los rechaza por H4 (el fallo que vimos fue `rules/builtin:tag_namespace:workspace: namespace declared`). Declarando después queda el mismo estado que antes (documentos indexados que violan la familia) y las comprobaciones de alcance de `tag_models` siguen ejerciéndose igual. El cuarto test del archivo (`explain` fuera de alcance) pasaba sin cambios.
+
+### tests/api/test_referrers.py
+
+`test_a_store_without_a_project_graph_has_only_the_fields`: antes `save_declaration(store, declare_store(...))`; ahora `declared = declare_store(...)` y se guarda `declared.model_copy(update={"project_graph": None})`. La aserción (`referrers` solo devuelve las menciones de campos, `EXPECTED[:3]`) no cambia. **Por qué:** el test usaba `declare_store` como forma de obtener un store sin `project_graph`, o sea que dependía de que `declare --write` perdiera esa clave, que es justo el bug que corrige H5. Ahora la declaración conserva el `project_graph` del fixture, y el test lo quita explícitamente para seguir probando «store sin project graph».
+
+### Qué mirar al integrar
+
+El único cambio de contrato visible para un consumidor externo es el de `tags check --format json` (clave nueva `evaluations`, aditiva) y el rechazo del alta. Si deskops compara `data == {"findings": ...}` de `tags check` con igualdad exacta, tendrá que ajustarlo igual.
