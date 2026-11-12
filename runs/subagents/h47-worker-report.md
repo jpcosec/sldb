@@ -11,3 +11,49 @@
 - H6: el hallazgo de la familia lleva su evaluación solo como texto (`cláusula (seen: {json})`);
   `tags check --format json` devuelve únicamente `findings`.
 - H7: tags.md y rules.md no dicen que la familia solo ve documentos indexados.
+
+## Aceptación línea por línea
+
+| Aceptación | Evidencia |
+|---|---|
+| Estado actual primero, commiteado antes del cambio | commit `a5288b22` (este informe, sección anterior) precede a q1-q5 |
+| q1 (H5) declare --write conserva las claves autoradas | `tests/api/test_declare_store_authored.py`: una declaración con `tag_namespaces`, `tag_models`, `policy`, `graph_backend`, `folders`, `seeds`, `project_graph` y `derived` queda igual tras `declare_store` |
+| q2 (H4) create/track evalúan on_write | `tests/api/test_on_write_entering.py` (7 casos, ver tabla); código en `api/documents/on_write_gate.py`; contrato en rules.md §9.1 y H-GO08-6 |
+| q3 (H6) evaluación estructurada | `sldb.api.tag_evaluations(store)` y clave `evaluations` de `tags check --format json`; test `test_tags_check_gives_the_evaluation_as_data_beside_the_findings` |
+| q4 (H7) guía | tags.md §«Which documents the family sees (H7)» |
+| q5 tests y docs | tests citados, CHANGELOG, rules.md, tags.md |
+| test_clean_code_rules | verde en la suite completa (tras separar `builtin_tag_findings.py` y `_admit` en create_document; ningún límite subido) |
+| `tools/check.sh --fast` | PASS en las 5 puertas (núcleo, capas, identidad, ejes 31/750, superficie); no hizo falta tocar `contracts/layers.toml` |
+| Suite completa | 187 archivos `tests/**/test_*.py`, cada uno en su pytest desde copia en /dev/shm con wait-pytest: **2409 passed, 0 failed**; 5 archivos 100 % skipped (test_anchors 7, test_machine_editor_schema 7, selfdoc/test_fingerprints 4, test_treesitter_agreement 2, test_treesitter_symbols 4: dependencia opcional ausente, no es del cambio) |
+
+## Casos probados
+
+| Caso | Resultado |
+|---|---|
+| create viola on_write | SLDBRuleViolationError, ni archivo ni nodo |
+| create cumple | escrito y trackeado |
+| track de archivo a mano que viola | rechazado, el archivo queda, no se trackea |
+| track que cumple | trackeado |
+| apply_batch con create válido + create inválido | rechazo, árbol sin ninguno de los dos |
+| transaction.create válido + inválido | rechazo, árbol restaurado |
+| store sin reglas on_write | crea como antes |
+| declare --write con todas las claves autoradas | idéntico |
+| tags check JSON | `evaluations` con held/no held, `missing`, sin parsear texto |
+| tag_evaluations sin namespaces | `[]` |
+
+`stores build` no evalúa on_write: no cambié `apply_includes`; no añadí test negativo propio (queda cubierto por no haberlo tocado y por la suite de `tests/store/test_stores_build.py` en verde); la decisión está escrita en rules.md §9.1 y tags.md.
+
+## Decisiones y desvíos
+
+- H5: además de `tag_namespaces` y `tag_models` declare --write perdía `policy`, `graph_backend`, `folders`, `seeds` y `project_graph`; se suman (en alcance, regla 3).
+- H6: nombres elegidos: `tag_evaluations` (api, `sldb.api.tags`) y `tag_report` (api.tags, devuelve findings y evaluations en una pasada). Entrada: `{document, namespace, rule, holds, clause, tags, missing}`. **Desvío:** `rules check --format json` NO lleva `evaluations` (la disposición de pi lo limita a `tags check`; `rules explain` ya devolvía node/holds/clause/seen).
+- `track_document_file(force=True)` de un archivo que el modelo no extrae no se evalúa (no hay payload); sin `force` el round-trip falla antes.
+- Tests existentes ajustados porque dependían del comportamiento anterior: `test_tags.py` y `test_tags_scope.py` creaban huérfanos con `create_document` (ahora lo rechaza; se crean antes de declarar los namespaces, helper `orphan`); `test_referrers.py` daba por buena la pérdida de `project_graph` de declare --write.
+- Código movido por los límites de código limpio: `store_findings`, `family_*`, `findings_of`, `_finding` a `api/rules/builtin_tag_findings.py` (sin cambio de comportamiento).
+- Entorno: no hay `python` en PATH; usé `~/proyectos/SLDB_1/.venv/bin/python` con `PYTHONPATH=<copia en /dev/shm>/src` (sldb de ese venv es sldb-runtime, no se importó). La copia en /dev/shm fue un rsync del worktree (con .sldb y desk, que los tests leen), no un `git worktree add`.
+
+## Hipótesis para el resto del ecosistema
+
+- deskops: el puente que repite la validación de tags puede borrarse (otra tarea); puede leer `tag_evaluations` en vez de parsear el texto del hallazgo.
+- deskops: cualquier flujo que cree documentos con tags sin ancla vía `create_document` ahora recibe SLDBRuleViolationError; si necesitaba crear huérfanos, debe declarar los namespaces después.
+- sldb: `rules check` podría ganar `evaluations` si deskops lo pide.
