@@ -24,8 +24,8 @@ _TX = "with api.transaction(sp, py) as tx:\n    api.replace_text(sp, 'c', '# c',
 
 
 def _tree(root: Path, cache: bool = False) -> dict[str, bytes]:
-    """Every file under the project; the regenerable cache only with `cache`."""
-    return {p.relative_to(root).as_posix(): p.read_bytes() for p in sorted(root.rglob("*")) if p.is_file() and (cache or ".sldb_cache" not in p.parts)}
+    """Every file under the project, lock files aside; the regenerable cache only with `cache`."""
+    return {p.relative_to(root).as_posix(): p.read_bytes() for p in sorted(root.rglob("*")) if p.is_file() and "locks" not in p.parts and (cache or ".sldb_cache" not in p.parts)}
 
 
 def _changed(before: dict[str, bytes], after: dict[str, bytes]) -> set[str]:

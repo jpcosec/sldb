@@ -46,6 +46,8 @@ class DocumentDiagnosis:
     changed_fields: list[str] = field(default_factory=list)
     # Where the indexed text sits in the file's git history, when the text disagrees (text_history).
     history: dict[str, str] | None = None
+    # The verdict's own line when the generic one cannot say it: the model's rejection (DOC_INVALID).
+    detail: str | None = None
 
     @property
     def hash_c_ok(self) -> bool:
@@ -79,8 +81,8 @@ class DocumentDiagnosis:
 
     def explain(self) -> str:
         """One line saying what is wrong and what to do about it."""
-        if self.note is DiagnosisNote.MISSING:
-            return f"missing: tracked at {self.path}, not on disk"
+        if self.detail is not None or self.note is DiagnosisNote.MISSING:
+            return self.detail or f"missing: tracked at {self.path}, not on disk"
         base = REREAD_EXPLANATION if self._reread else EXPLANATIONS[self.note]
         return f"{base} [fields: {', '.join(self.changed_fields)}]" if self.changed_fields else base
 

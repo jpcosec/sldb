@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from functools import cache
+from functools import cache, partial
 from typing import Any, Callable
 
 from sldb.store.edge_index.composition_edges import composition_edges
@@ -11,7 +11,7 @@ from sldb.store.edge_index.doc_anchor_edges import doc_anchor_edges
 from sldb.store.edge_index.doc_kinds import special_contribution
 from sldb.store.edge_index.node_ids import doc_node_id
 from sldb.store.edge_index.doc_structure import document_structure
-from sldb.store.edge_index.payload_projection import with_projection
+from sldb.store.edge_index.payload_projection import read_payload, with_projection
 from sldb.store.edge_index.records import tag_nodes
 from sldb.store.models import DocEdges, DocumentEntry, SectionContextRecord
 
@@ -27,7 +27,9 @@ def build_doc_edges(model_name: str, doc: DocumentEntry, sections: list[SectionC
         doc: The document's index entry (name, path, hashes, tags).
         sections: The document's sections, from its sections shard.
         payload_of: Reads the document's field payload, at most once: for the special kinds,
-            for the declared references, and for the document node's projection.
+            for the declared references, and for the document node's projection. A payload
+            that does not extract (its model rejects the text) reads as None for all three, so
+            one invalid document does not stop the rebuild of the rest (inbox 3895e9f7, H2).
         model_type: The imported model class, or None when it cannot be imported; without it
             no declared reference is read, as in `build_model_edges`.
 
@@ -35,7 +37,7 @@ def build_doc_edges(model_name: str, doc: DocumentEntry, sections: list[SectionC
         The shard, not yet stamped with `source_hash` / `edges_version` (the caller's cache keys).
         Its document node carries the projection (`payload_projection`).
     """
-    payload_of = cache(payload_of)
+    payload_of = cache(partial(read_payload, payload_of, doc))  # one the model rejects reads as None (inbox 3895e9f7 H2)
     special = special_contribution(model_name, doc, payload_of)
     part = special or document_structure(model_name, doc, sections)
     edges = part.edges + _declared_edges(model_name, doc, model_type, payload_of, special is not None)

@@ -104,3 +104,40 @@ La transacción ya restaura lo que snapshotea y borra lo nuevo de `.sldb/` y `.s
 
 - `tests/store/test_doc_invalid_check.py`: 2 failed (`ValidationError: 1 validation error for Memo`).
 - `tests/store/test_doc_invalid_writes.py`: 4 failed, 4 passed. Los 4 casos en frío fallan (untrack de `a` y de `c`, escritura transaccional, transacción fallida: `ValidationError`, y sin el `RuntimeError` esperado); los 4 en caliente pasan, que es lo que vio el coordinador.
+
+## 2. Arreglo
+
+- **H1** (`store/doc-invalid`): `DiagnosisNote.DOC_INVALID`; `store/diagnostics_models/invalid_verdict.py`
+  (`fields_state`, `invalid_message`) atrapa el `ValidationError` de `hash_fields_with_map` y arma el
+  `DocumentDiagnosis` con `detail` = `invalid: <Model> rejects <path>: <N> validation error(s); first: <loc>: <msg>`
+  (primera línea de hasta 3 errores, sin la URL de pydantic). El código está en `_DOC_CODES`
+  (`store_findings.py`) y en `policy.ERRORS`: el nivel lo decide la política del store, no solo el
+  hallazgo (una primera versión salía como alerta y rc 0). Es error, `is_valid` falso, entra en
+  `damaged_documents` y en `NEEDS_DECISION`.
+- **Una sola vez**: `field_set_drift` ya no re-extrae por documento (devuelve "no derivó" si el modelo
+  rechaza); `scan_structural_noise` y `scan_rewrite_loss` leen con
+  `load_runtime_documents(..., accepted_only=True)` (sin caché, saltan los rechazados);
+  `once_per_invalid` quita cualquier otro hallazgo con sujeto `Modelo:nombre` de un documento inválido.
+- **H2**: `edge_index/doc_contribution.build_doc_edges` envuelve `payload_of` con
+  `payload_projection.read_payload` (la guarda de siempre, ahora pública): un documento rechazado no
+  aporta aristas declaradas ni proyección y el rebuild sigue.
+- **H3**: `semantic_doc_tags` conserva los tags de un documento rechazado en lugar de leerlo como `{}`;
+  con eso el rebuild no reescribe los shards versionados de los inválidos, y la transacción fallida deja
+  el árbol como estaba, caché incluida (el rollback ya restauraba lo snapshoteado).
+- `_diagnose_doc` se partió en `_diagnose_doc` y `_compared` por el límite de 10 líneas de lógica.
+
+## 3. Validación (desde `/dev/shm/sldb-h1`, de a un archivo, tras `wait-pytest`)
+
+- `tests/store/test_doc_invalid_check.py`: 2 passed; `tests/store/test_doc_invalid_writes.py`: 8 passed
+  (untrack de `a` y de `c`, escritura transaccional, transacción fallida; cada uno en frío y en caliente,
+  en proceso nuevo).
+- Suite completa: los 187 `tests/**/test_*.py` uno por uno, todos verdes salvo `test_clean_code_rules` (1
+  fallo: `_diagnose_doc` con 13 líneas de lógica), que quedó en 960 passed tras partir la función. La
+  partición se hizo después de la corrida completa; tras ella se repitieron `test_clean_code_rules`,
+  `test_doc_invalid_*`, `test_diagnostics`, `test_unresolved_model_check` y `test_field_set_drift`.
+  Los skips (anchors, machine_editor_schema, fingerprints, treesitter) son de dependencias opcionales
+  y ya lo eran.
+- `bash tools/check.sh --fast`: TODAS LAS PUERTAS PASAN (ejes: 748 archivos mapeados, 0 violaciones;
+  sin cambio en `contracts/layers.toml`).
+- Los 7 pasos del workflow en clon limpio: los corre el coordinador.
+- Docs: `docs/user-manual.md` §5 (documento que su modelo rechaza). CHANGELOG: entrada en 0.1.13.

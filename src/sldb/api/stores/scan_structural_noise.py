@@ -31,7 +31,7 @@ def scan_structural_noise(store_path: Path, project_root: Path, pythonpath: str 
 
     from sldb.api.stores.scan_cache import cached_per_document
 
-    present = [(d, text) for d in load_runtime_documents(store_path, resolve_model_ref, pythonpath) if (text := guarded_text(project_root, project_root / d.path)) is not None]
+    present = [(d, text) for d in load_runtime_documents(store_path, resolve_model_ref, pythonpath, accepted_only=True) if (text := guarded_text(project_root, project_root / d.path)) is not None]
     typed = cached_per_document(store_path, "structural-noise", [p for p in present if p[0].model_type is not None], _scan_one)
     found = [StructuralNoiseReport.model_validate(r) for _d, r in typed] + [StructuralNoiseReport.model_validate(_scan_one(d, t)) for d, t in present if d.model_type is None]
     order = {(d.model_name, d.name): i for i, (d, _t) in enumerate(present)}

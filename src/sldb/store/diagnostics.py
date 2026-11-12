@@ -6,12 +6,8 @@ from typing import Any, Callable, Optional
 from sldb.store.field_set_drift import document_drifted
 from sldb.store.diagnostics_models.text_history import with_history
 from sldb.store.layout import project_root as store_project_root
-from sldb.store.hashing import (
-    hash_documents_index,
-    hash_fields_with_map,
-    hash_models_layer,
-    hash_text,
-)
+from sldb.store.hashing import hash_documents_index, hash_models_layer, hash_text
+from sldb.store.diagnostics_models.invalid_verdict import fields_state
 from sldb.store.source_read import read_source_text
 from sldb.store.diagnostics_models.unread_verdict import unread_diagnosis
 from sldb.store.io import load_documents_index, load_models_index, load_store_index
@@ -49,23 +45,21 @@ def _diagnose_doc(doc, root: Path, model_type: Any, contract_ok: bool = True) ->
     the operator to restore a file nobody touched. The model is named as unresolved.
     """
     doc_path = root / doc.path
-    unread = unread_diagnosis(doc, root, doc_path)
-    if unread is not None:
+    if (unread := unread_diagnosis(doc, root, doc_path)) is not None:
         return unread
     text = read_source_text(doc_path)
     content_on_disk = hash_text(text)
+    state = fields_state(model_type, text, doc, content_on_disk)
+    if isinstance(state, DocumentDiagnosis):
+        return state  # the model rejects the text: nothing else of it is compared (inbox 3895e9f7 H1)
+    return _compared(doc, state, content_on_disk, contract_ok)
+
+
+def _compared(doc, state: tuple[str, dict[str, str], bool], content_on_disk: str, contract_ok: bool) -> DocumentDiagnosis:
+    fields_on_disk, map_on_disk, fields_ok = state
     content_ok = content_on_disk == doc.source_hash
-    fields_on_disk, map_on_disk, fields_ok = _fields_state(model_type, text, doc, content_ok)
     changed = [] if fields_ok else _changed_fields(getattr(doc, "field_hashes", {}) or {}, map_on_disk)
     return DocumentDiagnosis(name=doc.name, path=doc.path, content_ok=content_ok, fields_ok=fields_ok, path_exists=True, note=_note(content_ok, fields_ok, contract_ok), content_on_disk=content_on_disk, content_in_index=doc.source_hash, fields_on_disk=fields_on_disk, fields_in_index=doc.content_hash, changed_fields=changed)
-
-
-def _fields_state(model_type: Any, text: str, doc, content_ok: bool) -> tuple[str, dict[str, str], bool]:
-    """(fields hash on disk, per-field map, fields ok); without the class, intact text stands for intact fields."""
-    if model_type is None:
-        return "", {}, content_ok
-    fields_on_disk, map_on_disk = hash_fields_with_map(model_type, text)
-    return fields_on_disk, map_on_disk, fields_on_disk == doc.content_hash
 
 
 def _changed_fields(in_index: dict[str, str], on_disk: dict[str, str]) -> list[str]:

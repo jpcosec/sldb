@@ -356,6 +356,29 @@ No dice "corrupto". Dice `data_mutation` y **"decide first"**.
 registró al último write. **Ninguno es autoritativo**: cuál está viejo es
 justamente lo que estás averiguando.
 
+### Documento que su modelo rechaza
+
+Si una edición a mano deja un documento que su modelo no acepta (un validador
+lo rechaza), `stores check` no se corta: lo nombra con el error
+`store/doc-invalid` y diagnostica el resto del store.
+
+```
+error: [store/doc-invalid] Memo:a: invalid: Memo rejects a.md: 1 validation error(s); first: status: Value error, status bad is not a status
+```
+
+El mensaje trae la primera línea de hasta tres errores de pydantic, sin la URL
+de errors.pydantic.dev. En el JSON el documento sale con `note: doc_invalid` y
+el hallazgo en `errors`; el comando sale con exit 1. Cada documento inválido
+aparece **una sola vez**: no pasa por las otras comprobaciones que extraen con
+el modelo (campos, ruido estructural, pérdida por reescritura). El arreglo es
+editar el archivo hasta que el modelo lo acepte y correr `sldb stores update`,
+o `sldb docs untrack <name>` si sobra.
+
+Un documento inválido tampoco frena las escrituras de sus vecinos: un `untrack`
+o una escritura de otro documento del mismo modelo, aun con el caché frío de un
+clon limpio, lo saltea al reconstruir las aristas (no aporta aristas
+declaradas) y le deja los tags que tenía.
+
 ---
 
 ## 6. El grafo
