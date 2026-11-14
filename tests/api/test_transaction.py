@@ -42,8 +42,9 @@ class Linked(StructuredNLDoc):
 
 
 def _files(root: Path) -> dict[str, str]:
-    """sha256 of every file under the project (lock files aside): bytes, entries and shards."""
-    return {p.relative_to(root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(root.rglob("*")) if p.is_file() and "locks" not in p.parts}
+    """sha256 of every file under the project (lock files and the on-disk composed index aside): bytes, entries and shards.
+    The composed index is a cache H11 keeps outside a transaction (prevalidation reads it before one opens)."""
+    return {p.relative_to(root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(root.rglob("*")) if p.is_file() and "locks" not in p.parts and "composed" not in p.parts}
 
 
 def _edges(store: Path) -> list:

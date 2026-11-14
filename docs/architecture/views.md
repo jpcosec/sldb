@@ -117,6 +117,25 @@ the stores it links to, where a linked document is `<link>:ViewDoc:<name>`):
 - **The revision** takes the ViewDoc's `content_hash` from the shard of the store that tracks it,
   so editing a linked view moves it too.
 
+## What a run reads (H11)
+
+`run_view` composes the edge index of the calling store alone; it reads the linked stores too
+only when something the view evaluates can name one: a section whose `select` has
+`include_linked` true or a `ref` or `prefix` behind a link's alias (after the params are filled),
+a section with `edges` or `transitions` when a declared reference of the calling store's own
+documents names a document behind a link alias, or a ViewDoc that only a linked store tracks
+(H9). The criterion reads the definition, never a fixed list, and is conservative: when any
+section needs the linked stores, all of them are read. The result does not change: the
+revision's shards signature is the calling store's, and a change in a linked store moves the
+revision of a view that selects from it (through the rows it reads) and no other.
+
+The composed index outlives the process: `.sldb_cache/composed/<request>.json` of the calling
+store holds it (plain JSON, never executed) with the key it was composed under: every federated
+store's shard and document-shard state, the models' contracts and this sldb's index version.
+Another key, a missing or unreadable file is a miss: the shards are read as before and the file
+rewritten. The files a document moved to from outside sldb (`stale`) are checked on every read
+against the files on disk, as before.
+
 ## CLI and HTTP
 
 - `sldb views run NAME [--param k=v ...] [--store] [--pythonpath] [--format]`: the result

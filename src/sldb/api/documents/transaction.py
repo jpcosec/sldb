@@ -13,6 +13,7 @@ from sldb.api.documents import transaction_ops as ops
 from sldb.api.documents.document_reference import DocumentReference
 from sldb.api.documents.transaction_state import TransactionState
 from sldb.api.stores.open_store import open_store
+from sldb.store.edge_index.composed_disk import hold_persistence, release_persistence
 from sldb.store.io.rollback import RollbackError
 
 __all__ = ["RollbackError", "Transaction", "transaction"]
@@ -53,6 +54,7 @@ def _join(location, pythonpath: str | None) -> TransactionState:
     state = _OPEN.get(key)
     if state is None:
         state = _OPEN[key] = TransactionState(location, pythonpath)
+        hold_persistence(location.store_path)  # the composed index stays in memory while it is open
     state.depth += 1
     return state
 
@@ -62,6 +64,7 @@ def _leave(state: TransactionState, exc: BaseException | None) -> None:
     if state.depth:
         return
     _OPEN.pop(str(state.location.store_path.resolve()), None)
+    release_persistence(state.location.store_path)
     if exc is not None:
         state.rollback(exc)
 
