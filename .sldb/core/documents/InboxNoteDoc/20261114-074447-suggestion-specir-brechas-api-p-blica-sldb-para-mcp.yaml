@@ -1,0 +1,18 @@
+name: 20261114-074447-suggestion-specir-brechas-api-p-blica-sldb-para-mcp
+path: desk/inbox/20261114-074447-suggestion-specir-brechas-api-p-blica-sldb-para-mcp.md
+source_hash: 69faad15a1b6e490188d94b766520e0a29b291a0aa3e72cfcad579ccf4f5536f
+content_hash: 66e8527bcec4e85bad9b37c3a57593953c2d4c744aebabc2be94c94092fffeb4
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 99f53ced0be6b3455ec4a43d6fe119370b88478df60a7c0b25df9a9d03730d0b
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: 51f8164a48a0d9b5a2e2baaf7f652ca2bd4bab531c0df54ab2221f95653ba4e6
+  body: 90891a96702917f98141259310ba0c83177143e0cdab798eae816de1387346ff
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

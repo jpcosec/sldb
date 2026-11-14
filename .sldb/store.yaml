@@ -274,6 +274,7 @@ include:
   - desk/inbox/inbox-note-h4-q18-create-document-y-track-document-file-no-evalúan-las-reglas-on-write-deskops-necesita-un-puen.md
   - desk/inbox/inbox-note-h5-h7-de-cc35d-resto-de-deskops-stores-declare-write-conserva-tag-namespaces-y-tag-models-evaluación.md
   - desk/inbox/inbox-note-h1-de-placeholder-deskops-api-pública-para-leer-los-párrafos-ancla-literales-de-la-plantilla-de-un-m.md
+  - desk/inbox/20261114-074447-suggestion-specir-brechas-api-p-blica-sldb-para-mcp.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
