@@ -1,0 +1,23 @@
+/* Lo que la maqueta no tiene en Extracción: avisos de ancla, errores de escritura, estados de guardado.
+   Usa las variables de maqueta.css; las clases de la maqueta no se tocan. */
+.ext-note { margin-top: 8px; display: flex; align-items: center; gap: 8px; font-size: 11.5px; color: var(--ink-2); }
+.ext-note strong { font-weight: 600; color: var(--t-pendiente); }
+.ext-note.is-orphan strong { color: var(--t-riesgo); }
+.ext-note button { color: var(--accent); font-weight: 600; }
+.ext-note button:hover { text-decoration: underline; }
+.ext-err { margin-top: 8px; display: flex; align-items: center; gap: 8px; border: 1px solid var(--t-riesgo); border-radius: 4px; padding: 3px 8px; font-size: 11.5px; color: var(--t-riesgo); background: var(--panel); }
+.ext-err button { margin-left: auto; color: var(--accent); font-weight: 600; text-decoration: underline; }
+article[aria-busy="true"] { opacity: .7; }
+article[aria-busy="true"] button, .ext-busy button { cursor: default; }
+.ext-msg { position: absolute; z-index: 10; max-width: 280px; border: 1px solid var(--t-riesgo); border-radius: 6px; background: var(--panel); color: var(--t-riesgo); padding: 6px 10px; font-size: 12.5px; box-shadow: 0 4px 14px -6px rgba(20,30,40,.35); }
+button.ext-disabled:disabled { opacity: .55; cursor: not-allowed; }
+button.ext-disabled:disabled:hover { background: transparent; }
+
+/* Tipos con color en maqueta.css: regla, criterio, logistica, paciente, pregunta. Los del acta viejo
+   reusan esa paleta; cualquier otro tipo usa un neutro. */
+:root { --t-entidad: var(--t-logistica); --t-hecho: var(--t-criterio); --t-decision: var(--t-regla); --t-pendiente: var(--t-pregunta); --t-riesgo: var(--t-paciente); --t-otro: var(--ink-faint); }
+.bg-t-entidad, .bg-t-hecho, .bg-t-decision, .bg-t-pendiente, .bg-t-riesgo, .bg-t-otro { background-color: var(--c); }
+.bg-t-entidad { --c: var(--t-entidad); } .bg-t-hecho { --c: var(--t-hecho); } .bg-t-decision { --c: var(--t-decision); } .bg-t-pendiente { --c: var(--t-pendiente); } .bg-t-riesgo { --c: var(--t-riesgo); } .bg-t-otro { --c: var(--t-otro); }
+.tx-t-entidad { color: var(--t-entidad); } .tx-t-hecho { color: var(--t-hecho); } .tx-t-decision { color: var(--t-decision); } .tx-t-pendiente { color: var(--t-pendiente); } .tx-t-riesgo { color: var(--t-riesgo); } .tx-t-otro { color: var(--ink-2); }
+.bl-t-entidad { border-left-color: var(--t-entidad); } .bl-t-hecho { border-left-color: var(--t-hecho); } .bl-t-decision { border-left-color: var(--t-decision); } .bl-t-pendiente { border-left-color: var(--t-pendiente); } .bl-t-riesgo { border-left-color: var(--t-riesgo); } .bl-t-otro { border-left-color: var(--t-otro); }
+.anc.t-entidad { --c: var(--t-entidad); } .anc.t-hecho { --c: var(--t-hecho); } .anc.t-decision { --c: var(--t-decision); } .anc.t-pendiente { --c: var(--t-pendiente); } .anc.t-riesgo { --c: var(--t-riesgo); } .anc.t-otro { --c: var(--t-otro); }

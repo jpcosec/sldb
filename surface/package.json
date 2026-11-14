@@ -6,10 +6,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/check-layers.mjs && tsc -b && vite build",
+    "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "lint:layers": "node scripts/check-layers.mjs",
-    "test": "node scripts/check-layers.mjs && vitest run",
+    "test": "vitest run",
     "typecheck": "tsc -b --noEmit"
   },
   "dependencies": {

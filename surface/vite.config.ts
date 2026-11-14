@@ -1,17 +1,16 @@
 import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 
-// En desarrollo, /sldb se redirige al `sldb serve` y /desk a la vista HTTP de deskops.
-const sldbTarget = process.env.SLDB_TARGET ?? "http://127.0.0.1:8085";
-const deskTarget = process.env.DESK_TARGET ?? "http://127.0.0.1:8091";
+// En desarrollo, /sldb se redirige al `sldb serve` (o al servidor de referencia).
+const target = process.env.SLDB_TARGET ?? "http://127.0.0.1:8787";
 
 export default defineConfig({
   plugins: [react()],
-  build: { rollupOptions: { input: { main: "index.html" } } },
+  // Dos entradas: la superficie genérica (index.html) y la maqueta de átomos (maqueta.html).
+  build: { rollupOptions: { input: { main: "index.html", maqueta: "maqueta.html" } } },
   server: {
     proxy: {
-      "/sldb": { target: sldbTarget, changeOrigin: true, rewrite: (path) => path.replace(/^\/sldb/, "") },
-      "/desk": { target: deskTarget, changeOrigin: true, rewrite: (path) => path.replace(/^\/desk/, "") },
+      "/sldb": { target, changeOrigin: true, rewrite: (path) => path.replace(/^\/sldb/, "") },
     },
   },
   test: {

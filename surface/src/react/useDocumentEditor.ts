@@ -3,7 +3,7 @@
  * field y recarga. Un field de una pieza compuesta se escribe en su documento de origen.
  * Nunca escribe Markdown: manda payload con `expected` y SLDB re-renderiza.
  */
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import type { DocumentSegments, Payload, SaveChange } from "../core/contract";
 import { SaveConflictError, SldbHttpError } from "../core/client";
 import { setAt } from "../core/paths";
@@ -29,19 +29,11 @@ export function useDocumentEditor(id: string) {
   const [loadError, setLoadError] = useState<string | null>(null);
   const [save, setSave] = useState<SaveState>({ status: "idle" });
 
-  // Id vigente: una respuesta lenta de un documento anterior no pisa al actual.
-  const currentId = useRef(id);
-  currentId.current = id;
-
   const reload = useCallback(async () => {
-    if (!id) return;
     try {
-      const next = await client.segments(id);
-      if (currentId.current !== id) return;
-      setData(next);
+      setData(await client.segments(id));
       setLoadError(null);
     } catch (error) {
-      if (currentId.current !== id) return;
       setLoadError((error as Error).message);
     }
   }, [client, id]);

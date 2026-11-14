@@ -1,0 +1,5 @@
+/* Lo que la maqueta no tiene (estados de red, errores, menús): mismas variables que maqueta.css
+   (--panel, --ink, --line, --accent…). Las clases de maqueta.css NO se tocan. */
+.mq-state { padding: 24px; color: var(--ink-2); font-size: 14px; }
+.mq-error { margin: 8px 16px; padding: 8px 12px; border: 1px solid var(--t-riesgo); border-radius: 6px; background: var(--panel); color: var(--t-riesgo); font-size: 13px; }
+.mq-error button { margin-left: 8px; text-decoration: underline; }
