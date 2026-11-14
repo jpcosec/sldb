@@ -146,7 +146,8 @@ def test_an_ambiguous_target_names_its_candidates(reference_world: World) -> Non
 
 
 def test_a_store_without_a_project_graph_has_only_the_fields(reference_world: World) -> None:
-    save_declaration(reference_world.store, declare_store(reference_world.store, reference_world.root))
+    declared = declare_store(reference_world.store, reference_world.root)  # keeps the authored project_graph (H5): the test removes it
+    save_declaration(reference_world.store, declared.model_copy(update={"project_graph": None}))
     assert [r.to_dict() for r in api.referrers(reference_world.store, "card-a")] == EXPECTED[:3]
 
 

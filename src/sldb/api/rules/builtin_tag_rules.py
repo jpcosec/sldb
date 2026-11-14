@@ -15,16 +15,13 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from sldb.api.rules.rule_graph import RuleGraph, rule_graph
-from sldb.api.stores.open_store import open_store
+from sldb.api.rules.rule_graph import RuleGraph
 from sldb.api.stores.store_declaration import declaration_path, load_declaration
 from sldb.api.stores.tag_namespace import TagNamespace
 from sldb.core.exceptions import SLDBDocumentTargetError
-from sldb.core.finding import Finding
 from sldb.store.semantic_tags import namespaced_tags
 
 PREFIX = "builtin:tag_namespace:"
-
 
 def tag_rules(store_path: Path) -> dict[str, TagNamespace]:
     """The declared namespaces by name; empty without a declaration or without the key."""
@@ -32,32 +29,14 @@ def tag_rules(store_path: Path) -> dict[str, TagNamespace]:
         return {}
     return {namespace.name: namespace for namespace in load_declaration(store_path).tag_namespaces}
 
-
 def tag_scope(store_path: Path) -> set[str]:
     """The declared `tag_models`; empty (every document is in scope) without them."""
     return set(load_declaration(store_path).tag_models) if declaration_path(store_path).is_file() else set()
-
 
 def in_scope(graph: RuleGraph, models: set[str], node: str) -> bool:
     """Whether the family checks `node`: no `tag_models`, or its model or a base among them."""
     item = graph.located(node)[1]
     return not models or bool(models & {item["model"], *item["base_models"]})
-
-
-def store_findings(store: str | Path | None) -> list[Finding]:
-    """The family over every local document; a store without namespaces is not read."""
-    store_path = open_store(store, mode="readonly").store_path
-    return family_findings(rule_graph(store_path, None), None) if tag_rules(store_path) else []
-
-
-def family_findings(graph: RuleGraph, nodes: list[str] | None) -> list[Finding]:
-    """The findings on `nodes` (every local document when None), by document then namespace."""
-    rules, models = tag_rules(graph.store_path), tag_scope(graph.store_path)
-    scoped = [node for node in (sorted(graph.local) if nodes is None else nodes) if in_scope(graph, models, node)] if rules else []
-    found = [(node, name) for node in scoped for name in _names(graph, node)]
-    results = [(name, evaluate(graph, rules, name, node)) for node, name in found]
-    return [_finding(graph, name, result) for name, result in results if result["holds"] != "true"]
-
 
 def explain(graph: RuleGraph, rule: str, node: str) -> dict[str, Any]:
     """`rules explain` of a built-in rule: its eval finding on `node`; no namespaces, no rule."""
@@ -67,7 +46,6 @@ def explain(graph: RuleGraph, rule: str, node: str) -> dict[str, Any]:
     models, model = tag_scope(graph.store_path), graph.located(node)[1]["model"]
     found = evaluate(graph, rules, rule.removeprefix(PREFIX), node) if in_scope(graph, models, node) else _found(node, True, "model in tag_models", {"model": model, "tag_models": sorted(models)})
     return {"rule": rule, "subject": node, "finding": found}
-
 
 def evaluate(graph: RuleGraph, rules: dict[str, TagNamespace], name: str, node: str) -> dict[str, Any]:
     """The eval finding (node, holds, clause, seen) of `builtin:tag_namespace:<name>` on `node`."""
@@ -79,7 +57,6 @@ def evaluate(graph: RuleGraph, rules: dict[str, TagNamespace], name: str, node: 
     missing = _missing(rules[name], tags, anchors_of(graph, rules[name]))
     clause = f"each prefix anchored by {rules[name].anchored_by['model']}.{rules[name].anchored_by['field']}"
     return _found(node, not missing, clause, {"namespace": name, "tags": tags, "missing": missing})
-
 
 def anchors_of(graph: RuleGraph, namespace: TagNamespace) -> dict[str, str]:
     """Anchor tag -> export id of the local document of `anchored_by.model` whose `field`
@@ -93,14 +70,9 @@ def anchors_of(graph: RuleGraph, namespace: TagNamespace) -> dict[str, str]:
             found.setdefault(tag, node)
     return found
 
-
 def payload_of(graph: RuleGraph, node: str) -> dict[str, Any]:
     """The payload `graph` reads for `node` (its projection, or the payload overriding it)."""
     return graph.located(node)[1]["payload"]
-
-
-def _names(graph: RuleGraph, node: str) -> list[str]:
-    return sorted({namespace for namespace, _ in namespaced_tags(payload_of(graph, node))})
 
 
 def _missing(namespace: TagNamespace, tags: list[str], anchors: dict[str, str]) -> list[str]:
@@ -113,10 +85,3 @@ def _missing(namespace: TagNamespace, tags: list[str], anchors: dict[str, str]) 
 
 def _found(node: str, holds: bool, clause: str, seen: dict[str, Any]) -> dict[str, Any]:
     return {"node": node, "holds": "true" if holds else "false", "clause": clause, "seen": seen}
-
-
-def _finding(graph: RuleGraph, name: str, found: dict[str, Any]) -> Finding:
-    from sldb.api.rules.rules_check import explanation
-
-    what = explanation({"name": PREFIX + name}, found)
-    return Finding("error", f"rules/{PREFIX}{name}", found["node"], what, "", graph.semantics(found["node"]).get("path"))

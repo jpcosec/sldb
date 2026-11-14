@@ -5,7 +5,8 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from sldb.api.rules.builtin_tag_rules import store_findings, tag_rules
+from sldb.api.rules.builtin_tag_findings import store_findings
+from sldb.api.rules.builtin_tag_rules import tag_rules
 from sldb.api.stores.open_store import open_store
 from sldb.core.finding import Finding
 

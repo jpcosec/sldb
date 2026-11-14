@@ -64,6 +64,13 @@ class World:
     def note(self, name: str, tags: list[str]) -> None:
         api.create_document(self.store, "Note", self.root / f"{name}.md", {"title": name, "tags": tags}, name, self.py)
 
+    def orphan(self, name: str, tags: list[str]) -> None:
+        """A note whose tags break the family, created while no namespace is declared: `create_document` evaluates `on_write` (H4), so it cannot enter any other way."""
+        declared = load_declaration(self.store)
+        self.declare()
+        self.note(name, tags)
+        save_declaration(self.store, declared)
+
     def anchor(self, name: str, tag: str) -> None:
         api.create_document(self.store, "Anchor", self.root / "anchors" / f"{name}.md", {"title": name, "tag": tag}, name, self.py)
 
@@ -196,29 +203,44 @@ def test_a_store_without_tag_namespaces_writes_as_before_and_has_no_builtin_rule
 
 
 def test_tags_check_finds_a_document_created_without_its_anchor(placed: World, capsys) -> None:
-    """`create_document` runs no `on_write` rule (q18, a GO08 gap): `tags check`, `rules check`
+    """A document that entered before the namespace was declared (`create_document` now runs `on_write`, H4): `tags check`, `rules check`
     and `stores check` report the orphan, with the same finding."""
-    placed.note("n2", ["area:c"])
+    placed.orphan("n2", ["area:c"])
     [found] = api.tag_check(placed.store)
     assert found.as_dict() == {"level": "error", "code": "rules/builtin:tag_namespace:area", "subject": "Note:n2", "fix": "", "document": "n2.md",
                                "what": 'each prefix anchored by Anchor.tag (seen: {"missing":["area:c"],"namespace":"area","tags":["area:c"]})'}
     assert api.rules_check(placed.store) == [found] == api.rules_check(placed.store, "Note:n2", placed.py)
     assert [f.code for f in api.on_check_findings(placed.store, placed.py)] == ["rules/builtin:tag_namespace:area"]
     code, envelope = placed.cli(capsys, "tags", "check")
-    assert (code, envelope["error"]["type"], envelope["data"]) == (1, "tags/failed", {"findings": [found.as_dict()]})
+    assert (code, envelope["error"]["type"], envelope["data"]["findings"]) == (1, "tags/failed", [found.as_dict()])
     assert placed.cli(capsys, "rules", "check")[1]["data"] == {"findings": [found.as_dict()]}
     assert main(["tags", "check", "--store", str(placed.store)]) == 1
     assert capsys.readouterr().out.splitlines()[-1] == "tags check: 1 error(es)"
 
 
+def test_tags_check_gives_the_evaluation_as_data_beside_the_findings(placed: World, capsys) -> None:
+    """H6: the evaluation of each document and namespace, held or not, without parsing a finding's text."""
+    placed.orphan("n2", ["area:c"])
+    code, envelope = placed.cli(capsys, "tags", "check")
+    wanted = [{"document": "Note:n1", "namespace": "area", "rule": "builtin:tag_namespace:area", "holds": True, "clause": "each prefix anchored by Anchor.tag", "tags": ["area:a.b"], "missing": []},
+              {"document": "Note:n2", "namespace": "area", "rule": "builtin:tag_namespace:area", "holds": False, "clause": "each prefix anchored by Anchor.tag", "tags": ["area:c"], "missing": ["area:c"]}]
+    assert (code, envelope["data"]["evaluations"]) == (1, wanted)
+    assert api.tag_evaluations(placed.store) == wanted
+    assert [e["document"] for e in envelope["data"]["evaluations"] if not e["holds"]] == [f["subject"] for f in envelope["data"]["findings"]]
+
+
+def test_tag_evaluations_are_empty_without_namespaces(world: World) -> None:
+    assert api.tag_evaluations(world.store) == []
+
+
 def test_tags_check_passes_a_placed_store(placed: World, capsys) -> None:
     code, envelope = placed.cli(capsys, "tags", "check")
-    assert (code, envelope["ok"], envelope["data"]) == (0, True, {"findings": []})
+    assert (code, envelope["ok"], envelope["data"]["findings"]) == (0, True, [])
     assert main(["tags", "check", "--store", str(placed.store)]) == 0
 
 
 def test_rules_explain_answers_a_builtin_rule_with_its_eval_finding(placed: World, capsys) -> None:
-    placed.note("n2", ["area:c"])
+    placed.orphan("n2", ["area:c"])
     answer = api.rules_explain(placed.store, "builtin:tag_namespace:area", "Note:n2", placed.py)
     assert answer == {"rule": "builtin:tag_namespace:area", "subject": "Note:n2", "finding": {"node": "Note:n2", "holds": "false", "clause": "each prefix anchored by Anchor.tag", "seen": {"namespace": "area", "tags": ["area:c"], "missing": ["area:c"]}}}
     assert explain_exit(answer) == 1
@@ -239,7 +261,7 @@ def test_tags_namespaces_lists_the_declaration(placed: World, capsys) -> None:
 
 
 def test_tag_tree_nests_the_anchors_and_lists_the_orphan_and_the_unplaced(placed: World, capsys) -> None:
-    placed.note("n2", ["area:c"])
+    placed.orphan("n2", ["area:c"])
     placed.anchor("ax", "area:a.x")
     tree = api.tag_tree(placed.store, "area")
     assert tree == {"namespace": "area",

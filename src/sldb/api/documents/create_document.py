@@ -8,6 +8,7 @@ from typing import Any
 
 from sldb.api.documents.document_reference import DocumentReference
 from sldb.api.model_registry.load_registered_model import load_registered_model
+from sldb.api.documents.on_write_gate import check_entering
 from sldb.api.documents.refuse_structural_noise import refuse_structural_noise
 from sldb.api.documents.frontmatter_keys import refuse_undeclared_frontmatter
 from sldb.api.model_registry.model_reference import resolve_model_ref
@@ -48,7 +49,7 @@ def create_document(store: str | Path | None, model_name: str, path: str | Path,
     rendered = _rendered(location, registered.model_type, payload, pythonpath)
     doc_path = _resolve_path(path, location.project_root)
     doc_name = name or doc_path.stem
-    refuse_noise(registered.model_type, rendered, doc_name, location.store_path)
+    _admit(location.store_path, registered, rendered, doc_name, payload)
     doc_path.parent.mkdir(parents=True, exist_ok=True)
     write_source_text(doc_path, stamped(rendered + "\n", registered.model_type, "create_document", actor))
     _track(location.store_path, location.project_root, registered, doc_path, doc_name, pythonpath)
@@ -96,3 +97,9 @@ def _render_roundtrip(model_type: type, payload: dict[str, Any], ref_root: Path)
     if not valid:
         raise SLDBValidationError("Idempotency fail", details)
     return rendered
+
+
+def _admit(sp: Path, registered, rendered: str, doc_name: str, payload: dict[str, Any]) -> None:
+    """Refuse a document the model's structure or an `on_write` rule (H4) does not admit."""
+    refuse_noise(registered.model_type, rendered, doc_name, sp)
+    check_entering(sp, registered.model_type, registered.entry.name, doc_name, payload)

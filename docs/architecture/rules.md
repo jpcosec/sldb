@@ -184,6 +184,16 @@ inmediatamente después del pinneado de anclas (GO07) y antes de renderizar y es
   stderr). Un programa que use la API sin instalar oyente no los recibe (H-GO08-2).
 - Un store que no registra `RuleDoc` (ni un modelo construido sobre él) no lee ninguna regla:
   la escritura se comporta exactamente como antes.
+- **Alta de un documento (H4).** `create_document` y `track_document_file` corren este mismo paso
+  antes de escribir o trackear (lo heredan `apply_batch`, `/save` con create y track,
+  `transaction.create`, `transaction.track` y `scaffold_store`). No hay índice anterior: el sujeto
+  de la regla es el documento con su modelo, sus tags y el payload nuevo (en `track_document_file`,
+  el que el modelo extrae del archivo; un archivo que no se extrae y se trackea con `force` no se
+  evalúa), **sin aristas previas**: una regla cuya condición depende de aristas ve un conjunto
+  vacío. Un error es `SLDBRuleViolationError`, no se escribe ni se trackea nada. Cambio de contrato
+  de las reglas de usuario: antes un documento nuevo entraba sin pasar por `on_write`.
+- **`stores build` no evalúa `on_write`** (decisión del coordinador, revisable): el tracking en lote
+  de `include` (`apply_includes`) es declarativo y `stores check` lo cubre con `on_check`.
 
 ### 9.2 `on_transition`
 
@@ -290,5 +300,5 @@ moment: on_transition
   parámetro `document` lo nombra. Sin él no corre ninguna regla.
 - **H-GO08-5. Stamps.** Además del dirty set del contrato, cada resultado guarda un stamp; un
   cambio que no pasó por una escritura con reglas también recalcula.
-- **H-GO08-6. Solo `save_document_payload`.** `create_document`, `docs track` y el borrado no
+- **H-GO08-6. `on_write` en alta (revisada por H4).** Ya no es solo `save_document_payload`: `create_document` y `track_document_file` lo corren (§9.1). `stores build` y el borrado no
   corren `on_write` ni marcan el dirty set (los stamps cubren su efecto en `on_check`).
