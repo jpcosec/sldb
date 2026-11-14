@@ -1,4 +1,5 @@
 /** Composición de la app: navegación + vista según la ruta. */
+import "../styles/app.css";
 import { DocumentView } from "./DocumentView";
 import { DistillView } from "./DistillView";
 import { ExtractionView } from "./ExtractionView";

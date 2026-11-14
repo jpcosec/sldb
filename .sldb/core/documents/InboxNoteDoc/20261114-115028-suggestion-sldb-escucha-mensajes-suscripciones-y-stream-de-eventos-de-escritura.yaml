@@ -1,0 +1,18 @@
+name: 20261114-115028-suggestion-sldb-escucha-mensajes-suscripciones-y-stream-de-eventos-de-escritura
+path: desk/inbox/20261114-115028-suggestion-sldb-escucha-mensajes-suscripciones-y-stream-de-eventos-de-escritura.md
+source_hash: 59abc4de290bef5f8d0ea9e1840227c0de18dc3fe412be4bca1c3255f8bfa0e0
+content_hash: 19e4389c86ea1d5628a0030404d902001f59fb232eba50b07288d7edd9597790
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 40e2cfd9924e1f14ef7369001c54acdbe2397a2f379810f24ac8a27af75f9f56
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: ac268bb6e437131fb69386da35c57db83e3298518ab1229a99e488c5707e2002
+  body: 108ab75aff075b82cf179f686cf0365513551b1923ae705cc0a3567049aaa3fe
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

@@ -20,6 +20,12 @@ import type {
   StoresCheck,
   SimilarityResult,
   StoredDocument,
+  ModelCatalogEntry,
+  ModelDescription,
+  ModelDraftOpResult,
+  ModelValidationReport,
+  ResolvedNotationView,
+  AuthorityKind,
 } from "./contract";
 
 export class SldbHttpError extends Error {
@@ -65,6 +71,28 @@ export interface SldbClient {
   lint(): Promise<LintReport>;
   isolated(): Promise<string[]>;
   cycles(limit?: number): Promise<string[][]>;
+  /** SV02: Vista de notación resuelta (`GET /notations/view?spec=`). */
+  notationView(spec: string): Promise<ResolvedNotationView>;
+  /** SV04: Catálogo de modelos (`GET /models`). */
+  modelsCatalog(): Promise<ModelCatalogEntry[]>;
+  /** SV04: Descripción completa del contrato de un modelo (`GET /models/detail?model=`). */
+  describeModel(model: string): Promise<ModelDescription>;
+  /** SV04: Operaciones de edición draft, validación y promoción de modelos (`POST /models/*`). */
+  addModelField(model: string, fieldName: string, fieldType: string, description: string, defaultValue?: unknown): Promise<ModelDraftOpResult>;
+  removeModelField(model: string, fieldName: string): Promise<ModelDraftOpResult>;
+  editModelMetadata(
+    model: string,
+    metadata: {
+      authority?: AuthorityKind;
+      containment?: Record<string, string[]>;
+      references?: string[];
+      compositions?: Record<string, unknown>;
+      semantics?: Record<string, string[]>;
+    },
+  ): Promise<ModelDraftOpResult>;
+  editModelTemplate(model: string, content: string): Promise<ModelDraftOpResult>;
+  validateModelDraft(model: string): Promise<ModelValidationReport>;
+  promoteModelDraft(model: string, backfill?: boolean): Promise<ModelValidationReport>;
 }
 
 type FetchLike = (input: string, init?: RequestInit) => Promise<Response>;
@@ -137,5 +165,24 @@ export function createHttpClient(baseUrl: string, fetchImpl: FetchLike = (i, ini
     lint: () => request<LintReport>("/lint"),
     isolated: async () => (await request<{ isolated: string[] }>("/graph/isolated")).isolated,
     cycles: async (limit = 20) => (await request<{ cycles: string[][] }>(`/graph/cycles?limit=${limit}`)).cycles,
+    notationView: (spec) => request<ResolvedNotationView>(`/notations/view?spec=${encodeURIComponent(spec.replace(/^SpecDoc:/, ""))}`),
+    modelsCatalog: async () => (await request<{ models: ModelCatalogEntry[] }>("/models")).models,
+    describeModel: async (model) => {
+      const res = await request<{ ok: boolean; model?: ModelDescription; error?: string }>(`/models/detail?model=${encodeURIComponent(model)}`);
+      if (!res.ok || !res.model) throw new SldbHttpError(res.error ?? `No se pudo describir ${model}`, 400, res);
+      return res.model;
+    },
+    addModelField: (model, field_name, field_type, description, defaultVal) =>
+      post<ModelDraftOpResult>("/models/fields-add", { model, field_name, field_type, description, default: defaultVal }),
+    removeModelField: (model, field_name) =>
+      post<ModelDraftOpResult>("/models/fields-remove", { model, field_name }),
+    editModelMetadata: (model, metadata) =>
+      post<ModelDraftOpResult>("/models/metadata-edit", { model, ...metadata }),
+    editModelTemplate: (model, content) =>
+      post<ModelDraftOpResult>("/models/template-edit", { model, content }),
+    validateModelDraft: (model) =>
+      post<ModelValidationReport>("/models/validate", { model }),
+    promoteModelDraft: (model, backfill = false) =>
+      post<ModelValidationReport>("/models/promote", { model, backfill }),
   };
 }
