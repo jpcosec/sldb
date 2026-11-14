@@ -31,6 +31,7 @@ EXPLANATIONS = {
         "the tracked path is a symlink: sldb does not follow it, and the edge index counts it "
         "as stale"
     ),
+    DiagnosisNote.DOC_INVALID: "its model rejects the text on disk: no field could be re-extracted",
 }
 
 REMEDIES = {
@@ -54,10 +55,14 @@ REMEDIES = {
         "decide first: replace the symlink with the regular file it points to, or sldb docs "
         "untrack <name> and track the target"
     ),
+    DiagnosisNote.DOC_INVALID: (
+        "decide first: edit the file until its model accepts it (the first errors are named "
+        "above), then sldb stores update; or sldb docs untrack <name> if it is gone on purpose"
+    ),
 }
 
 # Verdicts a command must not paper over: a human decides before anything runs.
-NEEDS_DECISION = (DiagnosisNote.DATA_MUTATION, DiagnosisNote.MISSING, DiagnosisNote.PATH_OUTSIDE_ROOT, DiagnosisNote.SYMLINK_NOT_READ)
+NEEDS_DECISION = (DiagnosisNote.DATA_MUTATION, DiagnosisNote.MISSING, DiagnosisNote.PATH_OUTSIDE_ROOT, DiagnosisNote.SYMLINK_NOT_READ, DiagnosisNote.DOC_INVALID)
 
 # A data mutation over untouched text, under an unchanged contract: the file is what it was and
 # so is the model; what reads it changed (an sldb upgrade that extracts more). `stores update`

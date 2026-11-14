@@ -12,6 +12,8 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any, Iterable
 
+from pydantic import ValidationError
+
 from sldb.store.hashing import hash_fields_with_map
 from sldb.store.source_read import read_source_text, unreadable_reason
 
@@ -44,4 +46,14 @@ def document_drifted(doc: Any, root: Path, model_type: Any) -> bool:
         return False  # not read: `stores check` names the path on its own (source_read.unreadable_reason)
     if not path.exists():
         return True
-    return signed_under_other_fields(doc.field_hashes, model_type, hash_fields_with_map(model_type, read_source_text(path))[1])
+    current = _current_fields(model_type, path)
+    return current is not None and signed_under_other_fields(doc.field_hashes, model_type, current)
+
+
+def _current_fields(model_type: Any, path: Path) -> dict[str, str] | None:
+    """The per-field map today's extraction yields; None when the model rejects the text, which
+    `stores check` names once, as `store/doc-invalid` (inbox 3895e9f7 H1), not as drift."""
+    try:
+        return hash_fields_with_map(model_type, read_source_text(path))[1]
+    except ValidationError:
+        return None
