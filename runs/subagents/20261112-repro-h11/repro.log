@@ -1,0 +1,14 @@
+### H11 (nota sldb 9c08039a, CC34): run_view compone el índice de aristas entero en cada proceso.
+### Medido por coord2 el 2026-11-12. Desk real de deskops (origin/main d120766d) con sus stores enlazados (sldb b965c62d, spec2viz, scion; pron no tiene store),
+### cada uno en un worktree de /dev/shm, store de deskops construido (sldb stores build rc 0), XDG_CACHE_HOME vacío. Por escala: 5067 shards YAML (el desk real tiene ~10 000).
+### deskops view board, proceso nuevo cada vez (solo hay caché de disco .sldb_cache):
+corrida 1: real 9.395 s
+corrida 2: real 9.731 s
+### cProfile de sldb.api.run_view(store, "board") en un proceso nuevo: 10.89 s en total
+    8.896 s load_edge_index (run_view.py:72 __init__ -> edge_reading.py:14)
+    8.861 s compose_edge_index (store/edge_index/compose.py:24); _merge_store x4 (4 stores)
+    7.490 s _cached_shard x5067 (store/io/shards.py:31); 4606 yaml.load = 6.064 s (yaml/__init__.py:74, loader en Python puro)
+    5.158 s load_edges_shard x1128; 4.988 s compose_edges_documents x236
+### Conclusión: ~82 % del tiempo de run_view está en componer el índice con todos los stores enlazados, y ~70 % en leer YAML de shards con el parser de Python puro.
+### El board solo selecciona documentos locales. A escala real (~10 000 shards) el informe de CC34 midió 38,4 s.
+### Sin store construido (sin .sldb_cache), view board falla con 'Unknown view: board' aunque ya compuso el índice (3 s): eso es H12, fuera de esta tarea.

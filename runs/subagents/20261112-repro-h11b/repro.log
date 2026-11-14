@@ -1,0 +1,12 @@
+### H11b: lo que queda de sldb views run board tras H11. Mediciones del h11-worker (wt/h11 3448891a, informe runs/subagents/h11-worker-report.md),
+### NO re-corridas por el coordinador: la máquina estaba cargada (11-13) y repetir el benchmark la habría cargado más; el worker de esta tarea mide su línea base propia.
+### Layout: deskops 4904ddfe, sldb con H11, spec2viz b16c021, pron 7f2e308, scion 4ead6d0bf, en /dev/shm; mediana de 3, proceso nuevo cada vez.
+sldb views run board, store construido, caché de composición caliente: 7,0 s antes de H11 -> 1,59 s
+sldb views run board, primera corrida tras el build (compone y guarda): 3,9 s
+sin store construido / sin ninguna caché (frío): 2,6 s / 2,9 s (falla rápido con Unknown view, H12)
+### Desglose del caliente (1,4 s medidos sin perfil):
+  ~0,55 s  importar sldb.api
+  ~0,38 s  leer el JSON del índice compuesto y revisar los archivos
+  ~0,35 s  select_documents: parsea con yaml ~540 shards de documentos (store/io/documents_index.py) en cada proceso
+  resto    la propia vista
+### Meta: menos de 1 s. No alcanzada por H11.

@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-12T00:38:56Z'
+  at: '2026-11-12T03:38:11Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -15,6 +15,9 @@ tasks:
 - desk/tasks/task-reglas-rule-graph-no-compone-la-federación-entera-de-stores-enlazados-27-s-por-comando-de-deskops.md
 - desk/tasks/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024.md
 - desk/tasks/task-stores-check-no-aborta-ante-un-documento-que-su-modelo-rechaza-lo-nombra-como-hallazgo-y-sigue-con-e.md
+- desk/tasks/task-run-view-no-compone-en-cada-proceso-el-índice-de-aristas-de-todos-los-stores-enlazados-sldb-views-ru.md
+- desk/tasks/task-sldb-create-document-y-track-document-file-evalúan-las-reglas-on-write-h4-declare-write-conserva-la.md
+- desk/tasks/task-sldb-views-run-board-en-menos-de-1-s-caché-de-disco-de-los-shards-de-documentos-para-select-document.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -63,4 +66,7 @@ _Generated from the task references above._
 - Diseño: jerarquía de modelos de evidencia (__family__ o herencia) [draft] - Un documento de decisión en docs/ que compare __family__ vs herencia de clases para los modelos de evidencia, con la recomendación y sus consecuencias para deskops (RunDoc, materializaciones, closeout_evidence).
 - reglas: rule_graph no compone la federación entera de stores enlazados (27 s por comando de deskops) [draft] - La evaluación de reglas (on_write, on_transition, edges_holding/edges_blocked, rules check/explain) no compone la federación entera de stores enlazados salvo que una regla lo necesite. Los findings quedan idénticos a los de hoy, y un comando de deskops sobre el desk de deskops vuelve a tardar del orden de 1-2 s.
 - main de sldb en verde: el workflow CI falla desde el 2026-10-20 (run 42758984024) [draft] - El workflow CI de sldb (jobs test 3.12/3.13 y store) termina en success sobre main.
-- stores check no aborta ante un documento que su modelo rechaza: lo nombra como hallazgo y sigue con el resto (H1 de la nota 3895e9f7); H2 y H3 quedan con tests de regresión [draft] - sldb stores check sobre un store con documentos que su modelo rechaza termina el diagnóstico: cada documento inválido es un hallazgo por documento con su código, el resto del store se diagnostica como hoy, y la salida JSON está completa; H2 y H3 quedan cubiertos por tests de regresión que fijan el comportamiento actual.
+- stores check no aborta ante un documento que su modelo rechaza: lo nombra como hallazgo y sigue con el resto (H1 de la nota 3895e9f7); H2 y H3 quedan con tests de regresión [draft] - sldb stores check sobre un store con documentos que su modelo rechaza termina el diagnóstico: cada documento inválido es un hallazgo por documento con su código, el resto del store se diagnostica como hoy y la salida JSON está completa. Además (corrección del 2026-11-12), con caché frío una escritura o un untrack de un documento ya no cae por otro inválido del mismo modelo (H2), y una transacción fallida restaura todo lo que escribió, shards derivados incluidos (H3).
+- run_view no compone en cada proceso el índice de aristas de todos los stores enlazados: sldb views run board y deskops view board en menos de 1 s con el store construido (H11) [draft] - Con el store construido, sldb views run board y deskops view board, en un proceso nuevo cada vez, tardan menos de 1 s sobre el desk de deskops con sus stores enlazados; en frío (sin caché de disco) no tardan más que hoy; el resultado y la revision de la vista no cambian.
+- sldb: create_document y track_document_file evalúan las reglas on_write (H4), declare --write conserva la declaración de tags (H5), la familia de tags da su evaluación estructurada (H6) y se documenta qué documentos ve (H7) [draft] - create_document y track_document_file evalúan on_write como save (H4); stores declare --write conserva tag_namespaces y tag_models (H5); un hallazgo de la familia de tags lleva su evaluación estructurada y rules check, rules explain y tags check la exponen en su salida JSON (H6); la guía de reglas y de tags dice qué documentos ve la familia (H7).
+- sldb views run board en menos de 1 s: caché de disco de los shards de documentos para select_documents y costo del import de sldb.api (H11b) [draft] - sldb views run board, con el store construido y en un proceso nuevo, tarda menos de 1 s (mediana de 3) sobre el layout del benchmark de H11; el resultado y la revision de la vista no cambian, y un documento escrito o cambiado se nota en la siguiente corrida.
