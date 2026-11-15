@@ -1,0 +1,19 @@
+name: surface-sldb-views
+path: knowledge/surfaces/surface-sldb-views.md
+source_hash: 1226a7134937470c968f9992e6d1285ad351f22387a41ad4b974c2f4cf0e1548
+content_hash: 9af7023ffb60d3672f54b313a33524f9e8636ab3a2bab29a89e3ff67f3b20990
+field_hashes:
+  id: 92b64527e81b3686641f4788842b09edb0b27f099a87909202f25f9d9fb0e7b4
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  surface: f51ad48275128167febf6df5118a91cb43b2080462177f4cf12c4c8232092dba
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  commands: b4ef1d33a883139b0e925e08f447bc77393ac944ee36599a9613eaacfba2af5d
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: 71724beb4c3944dbe4e1d96d70e3bb0143025456f88f6ce61830e83491fa1e23
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.surface
+- workspace.knowledge.surfaces
+provenance: null

@@ -1,9 +1,14 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-15T20:05:05Z'
+  authority: generated
+  via: save_document_payload
 id: surface-sldb-edges
 system: sldb
 surface: edges
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#edges; contract-sha256:90d0b1201fcbae71143f084b33689f324bcdf5950756b4329f16e83374cfacff
+provenance: parser:sldb.cli.parser:build_parser#edges; contract-sha256:610a0b0188a53aa91688721394fd87801e6cfc58cf25d283070ac7d02b5cff8f
 ---
 
 # edges
@@ -21,5 +26,7 @@ Not documented.
 - sldb edges check
 - sldb edges init
 - sldb edges rebuild
+- sldb edges referrers
+- sldb edges rewrite
 - sldb edges show
 - sldb edges unresolved

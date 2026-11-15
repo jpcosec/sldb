@@ -1,0 +1,21 @@
+name: cmd-sldb-graph-project-nodes
+path: knowledge/commands/cmd-sldb-graph-project-nodes.md
+source_hash: d3e9d737a943b18ece60397af008945bdd3a3dfc4e172ad5e636fb97040f3d3d
+content_hash: 3cc456fa5d2bfde7b7cbec502f0fd72214f2d7ed082313eb314d93b6c38ef8a4
+field_hashes:
+  id: 7631518549de6cc84b576198043f1cc510ca99b14f5cb9887b1f32265fda5e0a
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  command_path: 826f084c36148f307d99c209f2eeba9a0d3101c18436b70850cb779c913c967d
+  synopsis: 8a502a7b3f3f5ed481e4abac8f26ea0ce1888ed65db5b3dd1c30e70c336447f7
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  arguments: 40fa0336d6128ac8e6d526fd7c7e54514c3c51de3c0e35c51bb7f70f62b8b9f0
+  usage: 63d9ee55bd7d97378674393610841fed1abe95a4e19d7ae756d70dd84dde1c99
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: 2f338ccb9f14ee5b765f0f12020bf2a0cdd67e0ad457eae26024364bd581af67
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.cli_command
+- workspace.knowledge.commands
+provenance: null

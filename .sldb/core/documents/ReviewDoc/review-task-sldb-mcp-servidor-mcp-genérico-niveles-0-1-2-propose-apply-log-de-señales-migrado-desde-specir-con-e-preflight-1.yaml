@@ -1,0 +1,36 @@
+name: review-task-sldb-mcp-servidor-mcp-genérico-niveles-0-1-2-propose-apply-log-de-señales-migrado-desde-specir-con-e-preflight-1
+path: desk/reviews/task-sldb-mcp-servidor-mcp-genérico-niveles-0-1-2-propose-apply-log-de-señales-migrado-desde-specir-con-e/preflight-1.md
+source_hash: daff9ddd4590215129911cf594aa3afa8cb7a628e69f3160a0ab72cbcb317b80
+content_hash: 42996cbc27ccd6eb557293faa9003b77f02be44a95c37d757176d4cb9ef3d845
+field_hashes:
+  id: b5193604620d8ed6e61d82018f9d30b9423d98fa1fab3f4f0920d52a7774d30a
+  title: 3d54fe21f347cd34a9a6ebbd18801d0b6c604053512a9a7af0442046d5cb6a91
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 8d1b0b49b83e05f31583dc0fbe5cad06ae1ec12c6a8971fdea8ba206a77f9e1c
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 6475f25a9a913ec8fa3443184b632520749f3d465839c1e22bd1480b00cd2319
+  input_sha256: 3451b33f6ab03e2fa512c1edfd5f5df00e2e58c34c4dbc6da66806a799fe149c
+  output_sha256: abb73ec4f445addf15552cdf8f44aa12f0a142bd370afd2985ade18c5577f3c4
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 7fc40ab75aeeb709d4ca71525d0dc34bf1c90fa2f99ce64f733defae82e1696c
+  created_at: a1cd7bc9067653509d38f20686a89f299898e952de5ae41897cecac73242e076
+  disposed_at: 24588cd7bc1696a49858a2e1cff65a3edd410ad372e820f891808c9bd543e765
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 0fd3da9621f8d28b5a55a5eee948bceca71100ba54e9390c3271e416175dbb94
+  disposition: b59174bfa0188b4b43c997786f26e43cfce9a0c328caca24403254509b5310e5
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-15T16:02:41Z'
+  authority: generated
+  via: save_document_payload

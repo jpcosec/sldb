@@ -3,10 +3,10 @@ model_ref: sldb.models.knowledge_surface:SurfaceDoc
 path: src/sldb/models/surface_doc.py
 documents_index: .sldb/core/documents/SurfaceDoc.yaml
 sections_index: .sldb/runtime/sections/SurfaceDoc.yaml
-model_hash: aac8188334c8445959204d28748a81cdfefa5e789f0076e84816116464e2f6dc
-roster_hash: 5c54c658db8a926c9bd4c3baa16cb99fef19cecff454c7511f90b19002e5b947
+model_hash: b74f297bd96a9b5c13d05fb5bd89603597a968de5850371e7a989c28a337cebc
+roster_hash: 0b485bb9f75267cc9448f4212a38ba2dbe44fb6f82861c9d06a5d5af6b5dcbb7
 contract_hash: 6d49979b0838fe7501430ed29516354b756d984161bea50c2fc27eec9f783a00
-documents_count: 28
+documents_count: 31
 version: 1
 canonical: false
 family: null

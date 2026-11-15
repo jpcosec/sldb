@@ -1,0 +1,19 @@
+name: surface-sldb-mcp
+path: knowledge/surfaces/surface-sldb-mcp.md
+source_hash: e287c2198d5e57b0988d299b3cc78a5654cc3818395427f4f618a85134c076e2
+content_hash: 100a9d65aa60e65253473e3ae409d4786cb7dba03df990ef7cd4790a554e82e7
+field_hashes:
+  id: 09e9d3b398ffafbfed0a3f8d0361a3ba13837c4ee423d9d8c8f51391713da8e4
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  surface: 7c5c4ba60297f1adc7a83b8b86eeb7c355f6846ca0b2a04f88f94e98a978a21e
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  commands: 0a9b7cf14692968fc33a21bee17eb007906efcc284958428e82e66dbb4cf22f0
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: c0d8bda4f1f8f219769560dfdf430ffedc803ba3b7e5c20da5eb35f1b3babc2b
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.surface
+- workspace.knowledge.surfaces
+provenance: null

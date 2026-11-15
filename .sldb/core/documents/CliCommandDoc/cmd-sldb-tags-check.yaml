@@ -1,0 +1,21 @@
+name: cmd-sldb-tags-check
+path: knowledge/commands/cmd-sldb-tags-check.md
+source_hash: bed7ed5e48607323b89d3efad41b647ef6d0cf2e383d711dd5684403ea39bae8
+content_hash: f7f3afd3480b568c43fbf6d01a1f67c194f8f0d304bff4683eb432aa0b961bf3
+field_hashes:
+  id: b76ce4bf78e89d904a80eb3d200a305cfa704acffdcf7f01aeebfd5d02fdc390
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  command_path: 1c7b66ef97a50a731c0bb0a2e72573c490a6f55a86cb46b8ab4ba925c3df3305
+  synopsis: 593fd245fc057c949a443fce052e6c5ec0a31f6dfbe7010e370cf5ff6cd89fa8
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  arguments: 4ed3af73147e7181c87a0594cc40ea56ef1ceed9cd2b53e49100ed3e975a1329
+  usage: 37c06712d0dbe49109ed1733218f60c59e44c740af0f854ca9601d9746f3974b
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: 9d90c9e469d67382da4f3410147a60ba7a14c9fafc161a96af1881e8791e7016
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.cli_command
+- workspace.knowledge.commands
+provenance: null

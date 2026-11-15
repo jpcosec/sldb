@@ -1,0 +1,21 @@
+name: cmd-sldb-stores-scaffold
+path: knowledge/commands/cmd-sldb-stores-scaffold.md
+source_hash: 5dd99740cb84070f184520d6d68a13f643c48e4164c31b2f9022676f17cd6a81
+content_hash: 1d1a0bf96afc4f97405c9533fe1b3472fbc72786128e1dc3d3b757f5b7b356ab
+field_hashes:
+  id: 862611621e081aff822a6c6aef29571eeb84c0a5f10b51e8e88609df8d914257
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  command_path: b18e984c454565d40150bea9ba6ce00cfed7474afd8a2bd1cf8057367706d589
+  synopsis: 76f4663dfc572f03297c3fdc835514e3c969b730d3b42fb9146ed806537d20a5
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  arguments: 9dd61a03a4491de9e51a64e93497e1d244f71fdbf0ba0b91945fc47e511b5ab6
+  usage: 22eabc2a21ccae82f49868f17ce70b0438396de0db0969dcf57d75f0f866742e
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: 0d6d8a4ed34a869843e0e9c17265af5518e0f59fb0ddc6522af953bb9a944a80
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.cli_command
+- workspace.knowledge.commands
+provenance: null

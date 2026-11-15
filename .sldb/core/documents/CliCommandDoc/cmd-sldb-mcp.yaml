@@ -1,0 +1,21 @@
+name: cmd-sldb-mcp
+path: knowledge/commands/cmd-sldb-mcp.md
+source_hash: dc6569e654232501b4d4fab6e1621e5824ba68fd2fda692f6487a2b46e629af0
+content_hash: e38d92b1de665136fd89b916af365a96a3f32c616c43aadba8640eaa51cab2a2
+field_hashes:
+  id: 505126a0c8e2ed9037ea115980fec80595f9b1d4c0454329df47641e38bba23c
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  command_path: 7c5c4ba60297f1adc7a83b8b86eeb7c355f6846ca0b2a04f88f94e98a978a21e
+  synopsis: 75734fbf9f66a18c1c9f8cd38c7e1525bec4efc580813df416905e50a10edc91
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  arguments: 0bb37857bbb5e55bad2a77b1c57ce9b584e7a0e39349e767199a1f0dd46e38e5
+  usage: 201f72f2fab3cd10e7b3506ddaeff3a0887f5ed2616136e55bd6a64074ecbca8
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: c0d8bda4f1f8f219769560dfdf430ffedc803ba3b7e5c20da5eb35f1b3babc2b
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.cli_command
+- workspace.knowledge.commands
+provenance: null

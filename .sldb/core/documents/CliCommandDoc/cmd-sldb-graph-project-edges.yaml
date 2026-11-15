@@ -1,0 +1,21 @@
+name: cmd-sldb-graph-project-edges
+path: knowledge/commands/cmd-sldb-graph-project-edges.md
+source_hash: d3e55841923a575583402eacc0ef36c40d291b0e8dbb68c5ffaa4c2c23b1bde4
+content_hash: ad8c069258de02c5ed7bf4c40b052157b427c9d879c36fcae4e97a1a9cb6a478
+field_hashes:
+  id: 4689082a2619086482890d378822df3120572fb1be4a0c013a28f89488cd41db
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  command_path: 6bef48b4c4f09c3026ead9ef4bc0abbf1ac90069872227047e0190b3d541d8b6
+  synopsis: f0479a2067412923520dcd35674d221fec9f50126b0bcbe63ff2a5a96451e3a7
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  arguments: 2cb4be10e112ec05899fd39203ebb0a974edf11b039c82a05735f4c0484b31f5
+  usage: cca0a3b5c8a995e880c694455ffbf4e2e9f2dc6432eb19bfcede3a79a6b83565
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: 8ea3a3c97693c308be8373a751f8ecc8baa6e9230ea0f0d6d3f190433d626319
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.cli_command
+- workspace.knowledge.commands
+provenance: null
