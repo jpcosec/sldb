@@ -1,0 +1,18 @@
+name: 20261115-203456-suggestion-code-scan-tree-nested-imports-component-spec-from-python-no-ve-los-from-imports-anidados
+path: desk/inbox/20261115-203456-suggestion-code-scan-tree-nested-imports-component-spec-from-python-no-ve-los-from-imports-anidados.md
+source_hash: 913c433ffadc1fd1276de5e26d998704d94c457dfc789ae0ab342935d240cce3
+content_hash: da31c0ac049672f3bfeffe2d542cc5bac5d54b42d142831b2df5a9182097e070
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 51696c3fd1832be2f57b15b8bc4cc55bea3584ce4e9b2504aa452fc9a9c25d23
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: 8d4c1cadc1b7038ce67f38807c1a85b1c10cc938d7f1e61e95158f27481ec6e7
+  body: 39d5af1312ad01ac81b5fa9a61b14912c3e8b831bf2788a367d7d2be8d2681b4
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null
