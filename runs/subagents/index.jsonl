@@ -60,3 +60,4 @@
 {"task_id": "task-sldb-mcp-servidor-mcp-gen\u00e9rico-niveles-0-1-2-propose-apply-log-de-se\u00f1ales-migrado-desde-specir-con-e", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}
 {"task_id": "task-migrar-a-sldb-los-modelos-de-spec-por-tipo-de-diagrama-de-spec2viz-con-carga-y-validaci\u00f3n-junto-a-sp", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}
 {"task_id": "task-migrar-a-sldb-el-generador-de-spec-de-componentes-desde-un-grafo-y-desde-el-ast-de-python-d2-b4", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}
+{"task_id": "task-migrar-specsync-de-spec2viz-a-sldb-api-notations-junto-a-notationsync-y-palettesync-d1-b1-cierra-lo", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}
