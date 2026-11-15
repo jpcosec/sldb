@@ -2,7 +2,7 @@
 # repo-xxx
 id: scion
 # Relative path to repository
-path: /home/jp/proyectos/SLDB_1/scion
+path: ../scion
 # active | maintenance | archived
 status: active
 # e.g., type:tool, layer:infra

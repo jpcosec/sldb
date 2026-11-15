@@ -2,7 +2,7 @@
 # repo-xxx
 id: pron
 # Relative path to repository
-path: /home/jp/proyectos/SLDB_1/pron
+path: ../pron
 # active | maintenance | archived
 status: active
 # e.g., type:tool, layer:infra

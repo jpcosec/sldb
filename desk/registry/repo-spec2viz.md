@@ -2,7 +2,7 @@
 # repo-xxx
 id: spec2viz
 # Relative path to repository
-path: /home/jp/proyectos/SLDB_1/spec2viz
+path: ../spec2viz
 # active | maintenance | archived
 status: active
 # e.g., type:tool, layer:infra
