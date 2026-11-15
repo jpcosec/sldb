@@ -1,0 +1,38 @@
+name: task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3
+path: desk/tasks/task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3.md
+source_hash: c8306b2b06bb5fcb5dd4c09b1233e56a021435044a4089bc968a111c2c03e249
+content_hash: 5b1d960ef4f27197d323f5e7de0d79b27437d8dde93d0c3e99c9567efe5db6b7
+field_hashes:
+  title: 3c4c3e91829dd4c075a37d7a0be38b7ef6b5442cfc757eb9deaf5c9c17314b91
+  id: e5f6447109656fc59544c018637f882dfd5818714edfd59f03ecf2eeaacb1f27
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 3be01b3dd8a83c0f16f026ea55993d919cdcc001bd4bd44b464c83e6db33cd27
+  goal: 3d93cecdb95f7b63c489a0f2ec3541e71d88d8ec614766ce8477c8eee7c3e193
+  scope: 6cbcd0ad4c555980d1215d4f0af341402ec4833014410ff3494d934f64a4fee8
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  implementation_path: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  validation: 2db25073ac6505f7dfa614261babf778eafa3fa2a63b10ac69dae9c673103dac
+  done_when: d89f4aa7ba3a732920e585cc301241e4442d38386380c593ab7f00dc0c7f065f
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- artifact:task
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-15T15:52:49Z'
+  authority: generated
+  via: create_document

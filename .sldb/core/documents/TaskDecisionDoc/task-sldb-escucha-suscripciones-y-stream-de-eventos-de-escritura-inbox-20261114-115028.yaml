@@ -1,0 +1,38 @@
+name: task-sldb-escucha-suscripciones-y-stream-de-eventos-de-escritura-inbox-20261114-115028
+path: desk/tasks/task-sldb-escucha-suscripciones-y-stream-de-eventos-de-escritura-inbox-20261114-115028.md
+source_hash: 7da6e94120914e1a50c5650c7a14c521279f11161f23832553706395df47b6c6
+content_hash: 2d6e017ba4c09f18267f381e97c6f6a87113e65c1fc00196e88a9811eab08cf1
+field_hashes:
+  title: 78fd5872e65864ed681cfdce6da5b3bb6ae6705f098a4bbd58f806ed01bf8813
+  id: cf08a247d3250ce81da72b7a8dc1f3f3a68875985855839f7d8f9fca1e527430
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 62d9d2871a62d4da89f8d96cd66c8c26e872cf1660785e7b208cd5b118bda205
+  goal: 5766a509b5704c50e5903c9b28c37cbdd3796a99506e5d2c61014b96c7e2999d
+  scope: a5f370b7f7a6d96995651c63fc3e83ac885834ce1481e82487e5050f24aa7c8c
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  implementation_path: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  validation: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  done_when: 75be8b0988e7bb1878612ec2f449eb2309f06f5f8554df2243abbafcce58a549
+  task_type: a4df8849de4c7c42dff3bfe95bbeb8759b5ca37238136b51e418b9d2f5ef311c
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- artifact:task
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-15T15:52:20Z'
+  authority: generated
+  via: create_document
