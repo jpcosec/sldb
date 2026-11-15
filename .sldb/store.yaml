@@ -131,6 +131,8 @@ models:
 - name: TaskRefactorDoc
   model_ref: deskops.models:TaskRefactorDoc
   origin: deskops
+- name: RuleDoc
+  model_ref: sldb.models.rule_doc:RuleDoc
 predicates:
   applies_to_source:
     axis: WHAT
@@ -730,5 +732,43 @@ include:
 - model: TaskDecisionDoc
   paths:
   - desk/tasks/task-sldb-escucha-suscripciones-y-stream-de-eventos-de-escritura-inbox-20261114-115028.md
+- model: RuleDoc
+  paths:
+  - desk/lifecycle/rule-activation-task-aggregate.md
+  - desk/lifecycle/rule-activation-task-code.md
+  - desk/lifecycle/rule-activation-task-debug.md
+  - desk/lifecycle/rule-activation-task-decision.md
+  - desk/lifecycle/rule-activation-task-docs.md
+  - desk/lifecycle/rule-activation-task-external.md
+  - desk/lifecycle/rule-activation-task-refactor.md
+  - desk/lifecycle/rule-closeout-alert-implicit-code.md
+  - desk/lifecycle/rule-closeout-alert-pill-graduation.md
+  - desk/lifecycle/rule-closeout-task-aggregate.md
+  - desk/lifecycle/rule-closeout-task-code.md
+  - desk/lifecycle/rule-closeout-task-debug.md
+  - desk/lifecycle/rule-closeout-task-decision.md
+  - desk/lifecycle/rule-closeout-task-docs.md
+  - desk/lifecycle/rule-closeout-task-external.md
+  - desk/lifecycle/rule-closeout-task-refactor.md
 graph_backend: networkx
 policy: {}
+tag_models:
+- AtomDoc
+- ProtoAtomDoc
+tag_namespaces:
+- name: domain
+  hierarchical: true
+  folder_axis: false
+  anchored_by:
+    model: CrossroadDoc
+    field: path
+    value: bare
+- name: layer
+  hierarchical: true
+  folder_axis: false
+- name: system
+  hierarchical: true
+  folder_axis: false
+- name: topic
+  hierarchical: true
+  folder_axis: false

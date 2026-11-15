@@ -404,6 +404,18 @@ models:
   family: null
   semantics: []
   origin: deskops
+- name: RuleDoc
+  model_ref: sldb.models.rule_doc:RuleDoc
+  path: /mnt/ssd/herramientas/sldb/src/sldb/models/rule_doc.py
+  models_index: .sldb/core/models/RuleDoc.yaml
+  version: 1
+  canonical: false
+  family: rule
+  semantics:
+  - layer.governance
+  - representation.markdown
+  - source.document.markdown
+  - type.rule
 predicates:
 - name: has_model
   axis: WHAT
@@ -460,4 +472,4 @@ predicates:
   axis: WHERE
   description: 'The store links that store under an alias (`stores add`): it reads
     its documents and inherits its models.'
-store_hash: 30708a6db8ae959696d87c0ffda81b1a52bd30b4a0285275a487b717c3676de4
+store_hash: 50f74380721e5516120bf5820f7d42a0c0254e052b52d63a730bd1e4589b25e4
