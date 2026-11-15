@@ -58,3 +58,4 @@
 {"task_id": "task-seguridad-resto-2-las-lecturas-y-escrituras-de-documentos-trackeados-que-quedan-edges-records-views", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}
 {"task_id": "task-run-view-no-compone-en-cada-proceso-el-\u00edndice-de-aristas-de-todos-los-stores-enlazados-sldb-views-ru", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}
 {"task_id": "task-sldb-mcp-servidor-mcp-gen\u00e9rico-niveles-0-1-2-propose-apply-log-de-se\u00f1ales-migrado-desde-specir-con-e", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}
+{"task_id": "task-migrar-a-sldb-los-modelos-de-spec-por-tipo-de-diagrama-de-spec2viz-con-carga-y-validaci\u00f3n-junto-a-sp", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}

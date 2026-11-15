@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-15T21:25:01Z'
+  at: '2026-11-15T22:17:49Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -28,7 +28,6 @@ tasks:
 - desk/tasks/task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3.md
 - desk/tasks/task-migrar-specsync-de-spec2viz-a-sldb-api-notations-junto-a-notationsync-y-palettesync-d1-b1-cierra-lo.md
 - desk/tasks/task-migrar-a-sldb-el-generador-de-spec-de-componentes-desde-un-grafo-y-desde-el-ast-de-python-d2-b4.md
-- desk/tasks/task-migrar-a-sldb-los-modelos-de-spec-por-tipo-de-diagrama-de-spec2viz-con-carga-y-validación-junto-a-sp.md
 - desk/tasks/task-emparejamiento-de-átomos-con-elementos-de-diagrama-explícito-y-difuso-en-sldb-api-matching-d4.md
 # List of pill-xxx paths
 pills:
@@ -92,5 +91,4 @@ _Generated from the task references above._
 - Grafo: graph_path y graph_paths devuelven caminos explicados con la procedencia de cada tramo (B3) [draft] - Caminos explicados: por cada tramo, origen, destino, tipo de relación, dirección recorrida y procedencia de la arista.
 - Migrar SpecSync de spec2viz a sldb.api.notations junto a NotationSync y PaletteSync (D1, B1, cierra lo pendiente de SV02) [draft] - Reconciliar un conjunto de documentos de spec en un store: crear, actualizar y borrar SpecDoc, SpecNodeDoc y RelationDoc, con informe.
 - Migrar a sldb el generador de spec de componentes desde un grafo y desde el AST de Python (D2, B4) [draft] - sldb produce un spec de componentes desde un grafo y desde código Python, reutilizando lo que ya tiene.
-- Migrar a sldb los modelos de spec por tipo de diagrama de spec2viz, con carga y validación, junto a SpecDoc (D3) [draft] - sldb aloja los modelos de spec de los ocho tipos de diagrama con su carga y validación.
 - Emparejamiento de átomos con elementos de diagrama (explícito y difuso) en sldb.api.matching (D4) [draft] - sldb.api.matching empareja átomos con elementos de diagrama por vínculo explícito (atoms: en el elemento) y por similitud difusa.
