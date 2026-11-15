@@ -1,0 +1,36 @@
+name: review-task-migrar-a-sldb-los-modelos-de-spec-por-tipo-de-diagrama-de-spec2viz-con-carga-y-validación-junto-a-sp-bundle-1
+path: desk/reviews/task-migrar-a-sldb-los-modelos-de-spec-por-tipo-de-diagrama-de-spec2viz-con-carga-y-validación-junto-a-sp/bundle-1.md
+source_hash: 8bb5eac22c1304bb3ec1ffbdd66ea705daa1f2584f4719078fd900db6841d49b
+content_hash: 775be9c78be2adddd10cbac6706e0c7e24ada7a40ad536285cda4c47e478592d
+field_hashes:
+  id: cb39163302e236508e227d5b9e2ac9098284eec5d3cf48513967d2d83359603f
+  title: 93834a7a35ff8399b9966783e8e3d77593631d18ed358a1035f04cdf6d0a8f99
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 0877434c7dd998300a1a6d266c5cfa8dd460db38d876cf9f4d9f38ac70fffc5f
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 78e574f2994bbe786749c8d53755ce520a03a431aa1d1dd78a7fb3caab8f7895
+  input_sha256: 388c9a31984b511b1c761591d09e0f411fe5d6ce69f96f9c7be7b5f3295078fb
+  output_sha256: b946a1e5648d7f6a10ba145ff704441d77a8756ee5ac03d13af959717de3d4cc
+  verdict: 12adac54ac6f7140109391b670b3cbcd51f083d8f5ee62ce26857c794ed67d36
+  reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  created_at: 6cd9392bc8112b113e7c0fa14cefc4ff805b887fcc5cbbae40add9c46a8daa6c
+  disposed_at: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposed_by: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  summary: 2ff42d95e310fd92d66b2c044cc8d32da0a98067a459caa7a408ccb8f256dc59
+  disposition: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-15T16:51:49Z'
+  authority: generated
+  via: create_document

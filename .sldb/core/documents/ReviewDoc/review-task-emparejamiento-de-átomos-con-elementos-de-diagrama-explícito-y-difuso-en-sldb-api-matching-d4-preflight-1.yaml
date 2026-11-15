@@ -1,0 +1,36 @@
+name: review-task-emparejamiento-de-átomos-con-elementos-de-diagrama-explícito-y-difuso-en-sldb-api-matching-d4-preflight-1
+path: desk/reviews/task-emparejamiento-de-átomos-con-elementos-de-diagrama-explícito-y-difuso-en-sldb-api-matching-d4/preflight-1.md
+source_hash: ae9882a7dfafe0835b29a8ac8daa73a726c6504ed2ca911fbe33ecca826ec54e
+content_hash: 2a449c2af64b9485007a0660fd326976f09c8c6b1c5f779a103ae9decdeed070
+field_hashes:
+  id: 83f62ae6258538a3456d7c2767d5a5d037e55bd475e40f82bb6fa5abc93a7d3c
+  title: 0fee85b8db9cc3f49c2b45ed45e204e69b7d9cd3a403e5f6729b726dbaebb939
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 47e1182ec36ee5b0d32a8d04585a818ca3d225d0792cda38f2f7b71eacb451a9
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: ae609ab809e8012de3c30adf5d31676da743b5a447a90d3de8f9c2d9cadedb9f
+  input_sha256: ad3413fc76598daa280e918a3f0478ee8b6da91b46fbf047f67529a25ee67669
+  output_sha256: 183e2f532d7ecb091e22f06dfd08f2589d6e0db7d21aeb5c79bd894d3f76d3ad
+  verdict: 12adac54ac6f7140109391b670b3cbcd51f083d8f5ee62ce26857c794ed67d36
+  reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  created_at: ce943262ae05c2ee26704a2517a3eb4a811d2bbce22394f95be03b005d7ac3a4
+  disposed_at: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposed_by: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  summary: ec8048108f2cd3e09be683009499a76dc057807d8a1f6ba4593bf3dfe654a509
+  disposition: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-15T16:47:18Z'
+  authority: generated
+  via: create_document

@@ -704,6 +704,22 @@ include:
     name: review-task-sldb-mcp-servidor-mcp-genérico-niveles-0-1-2-propose-apply-log-de-señales-migrado-desde-specir-con-e-preflight-1
   - path: desk/reviews/task-sldb-mcp-servidor-mcp-genérico-niveles-0-1-2-propose-apply-log-de-señales-migrado-desde-specir-con-e/bundle-1.md
     name: review-task-sldb-mcp-servidor-mcp-genérico-niveles-0-1-2-propose-apply-log-de-señales-migrado-desde-specir-con-e-bundle-1
+  - path: desk/reviews/task-emparejamiento-de-átomos-con-elementos-de-diagrama-explícito-y-difuso-en-sldb-api-matching-d4/preflight-1.md
+    name: review-task-emparejamiento-de-átomos-con-elementos-de-diagrama-explícito-y-difuso-en-sldb-api-matching-d4-preflight-1
+  - path: desk/reviews/task-emparejamiento-de-átomos-con-elementos-de-diagrama-explícito-y-difuso-en-sldb-api-matching-d4/bundle-1.md
+    name: review-task-emparejamiento-de-átomos-con-elementos-de-diagrama-explícito-y-difuso-en-sldb-api-matching-d4-bundle-1
+  - path: desk/reviews/task-migrar-a-sldb-el-generador-de-spec-de-componentes-desde-un-grafo-y-desde-el-ast-de-python-d2-b4/preflight-1.md
+    name: review-task-migrar-a-sldb-el-generador-de-spec-de-componentes-desde-un-grafo-y-desde-el-ast-de-python-d2-b4-preflight-1
+  - path: desk/reviews/task-migrar-a-sldb-los-modelos-de-spec-por-tipo-de-diagrama-de-spec2viz-con-carga-y-validación-junto-a-sp/preflight-1.md
+    name: review-task-migrar-a-sldb-los-modelos-de-spec-por-tipo-de-diagrama-de-spec2viz-con-carga-y-validación-junto-a-sp-preflight-1
+  - path: desk/reviews/task-migrar-specsync-de-spec2viz-a-sldb-api-notations-junto-a-notationsync-y-palettesync-d1-b1-cierra-lo/preflight-1.md
+    name: review-task-migrar-specsync-de-spec2viz-a-sldb-api-notations-junto-a-notationsync-y-palettesync-d1-b1-cierra-lo-preflight-1
+  - path: desk/reviews/task-migrar-a-sldb-el-generador-de-spec-de-componentes-desde-un-grafo-y-desde-el-ast-de-python-d2-b4/bundle-1.md
+    name: review-task-migrar-a-sldb-el-generador-de-spec-de-componentes-desde-un-grafo-y-desde-el-ast-de-python-d2-b4-bundle-1
+  - path: desk/reviews/task-migrar-a-sldb-los-modelos-de-spec-por-tipo-de-diagrama-de-spec2viz-con-carga-y-validación-junto-a-sp/bundle-1.md
+    name: review-task-migrar-a-sldb-los-modelos-de-spec-por-tipo-de-diagrama-de-spec2viz-con-carga-y-validación-junto-a-sp-bundle-1
+  - path: desk/reviews/task-migrar-specsync-de-spec2viz-a-sldb-api-notations-junto-a-notationsync-y-palettesync-d1-b1-cierra-lo/bundle-1.md
+    name: review-task-migrar-specsync-de-spec2viz-a-sldb-api-notations-junto-a-notationsync-y-palettesync-d1-b1-cierra-lo-bundle-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
