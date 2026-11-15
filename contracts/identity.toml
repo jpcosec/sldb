@@ -45,7 +45,7 @@ verificada.
 # ---------------------------------------------------------------------------
 
 [product]
-packages = ["core", "runtime", "store", "api", "selfdoc", "models", "cli", "code", "notations"]
+packages = ["core", "runtime", "store", "api", "selfdoc", "models", "cli", "code", "notations", "mcp"]
 rule = """
 Ningún paquete de acá puede nombrar nada específico de este repositorio: ni un
 modelo de autoaplicación, ni una ruta del árbol, ni un documento del almacén

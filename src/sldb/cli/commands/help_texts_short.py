@@ -30,6 +30,7 @@ Primary surfaces:
 Other commands:
   extract, render, validate   Direct model-first operations without a store
   init, example               Bootstrapping helpers
+  mcp                         Serve the store to an MCP client over stdio (extra `mcp`)
   selfdoc                     Scan, sync, and check code-derived CLI reference
   legacy                      Address surface: ls/get/glob/find over st.{Model}.doc.field
 
