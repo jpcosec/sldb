@@ -276,6 +276,7 @@ include:
   - desk/inbox/inbox-note-h1-de-placeholder-deskops-api-pública-para-leer-los-párrafos-ancla-literales-de-la-plantilla-de-un-m.md
   - desk/inbox/20261114-074447-suggestion-specir-brechas-api-p-blica-sldb-para-mcp.md
   - desk/inbox/20261114-115028-suggestion-sldb-escucha-mensajes-suscripciones-y-stream-de-eventos-de-escritura.md
+  - desk/inbox/20261115-015936-suggestion-specir-check-edges-clasifica-como-stale-propio-los-stale-de-stores-enlazados-cuyo-nombre-lleva.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
