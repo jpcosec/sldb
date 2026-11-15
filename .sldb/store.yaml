@@ -285,6 +285,7 @@ include:
   - desk/inbox/20261115-022655-suggestion-specir-validar-aristas-antes-de-escribir-y-devolver-las-alertas-on-write-de-apply-batch.md
   - desk/inbox/20261115-123855-suggestion-specir-apply-batch-devuelve-el-lote-inverso-con-guardas-deshacer-en-sldb.md
   - desk/inbox/20261115-182013-suggestion-sldb-mcp-gancho-p-blico-de-comprobaciones-de-dominio-antes-de-propose-changes.md
+  - desk/inbox/20261115-192054-suggestion-sldb-notations-validar-una-notaci-n-una-paleta-o-un-spec-por-nombre-o-ruta-desde-la-cli.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc

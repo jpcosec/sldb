@@ -1,0 +1,18 @@
+name: 20261115-192054-suggestion-sldb-notations-validar-una-notaci-n-una-paleta-o-un-spec-por-nombre-o-ruta-desde-la-cli
+path: desk/inbox/20261115-192054-suggestion-sldb-notations-validar-una-notaci-n-una-paleta-o-un-spec-por-nombre-o-ruta-desde-la-cli.md
+source_hash: 910d27d223317546f49d3851be82280a26161ba030ffd95e2975516717c6da0d
+content_hash: a5243abf3e924a68cd8268c1447bbbcb11e27bc1c6cc6102c6be308de61a508e
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 5b9c54c3e32991f477cd1249e819412ce035a9610e457dd7dff965db088427c7
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: 45bd10bcb9ff09f7325509ea053c6ccfcedcf06b5a9de3ef782bb1ae9bd3911c
+  body: 642e6068609a22f49104fb4517db62ace1e0cbb07346f099976538a64387e84c
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

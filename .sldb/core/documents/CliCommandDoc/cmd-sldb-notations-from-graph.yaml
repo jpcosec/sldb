@@ -1,0 +1,21 @@
+name: cmd-sldb-notations-from-graph
+path: knowledge/commands/cmd-sldb-notations-from-graph.md
+source_hash: ee6dab4f045df82e3859d5b6338b6e443896bf435f638c74f818f83cb9ac4978
+content_hash: c885c672c1f37ae6a8f1eaf7b2656a736eca7f1da9037358099bbfe672efee22
+field_hashes:
+  id: 30273d15b30b46b471eb92b14c78576878e7d15badd20b6a964a3419ad53109e
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  command_path: 45af3f1eb94d33644856c72c2a7a5c9e0a0a3b954b8f4a6bb9240ca4cb1ffc21
+  synopsis: a216681366aee68c86c4cff4028cb224c105db32622ef9d71659c74307dc5029
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  arguments: 764497e96002ecd4c771db48b024b2224813c879b50f79ad499e0324f6a603c2
+  usage: b32e2ea23f45b576ce9d44ea79900d6b2fafb5afe88d00b59f29232aff226bb1
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: 359d16c02e4737bd5db2c560ac0727bb624257b5f886fafa0f47777a4d796fba
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.cli_command
+- workspace.knowledge.commands
+provenance: null
