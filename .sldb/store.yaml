@@ -286,6 +286,8 @@ include:
   - desk/inbox/20261115-123855-suggestion-specir-apply-batch-devuelve-el-lote-inverso-con-guardas-deshacer-en-sldb.md
   - desk/inbox/20261115-182013-suggestion-sldb-mcp-gancho-p-blico-de-comprobaciones-de-dominio-antes-de-propose-changes.md
   - desk/inbox/20261115-192054-suggestion-sldb-notations-validar-una-notaci-n-una-paleta-o-un-spec-por-nombre-o-ruta-desde-la-cli.md
+  - desk/inbox/20261115-193320-suggestion-ir-pide-exportar-desde-sldb-api-notations-los-modelos-de-spec-de-d3-y-guardar-style-y-entity-en-specdoc.md
+  - desk/inbox/20261115-195349-suggestion-ir-pide-exportar-desde-sldb-api-notations-resolve-style-load-palette-notationerror-anydiagram-diagramtype-y-diagramstoreenvelope.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -738,7 +740,6 @@ include:
   - desk/tasks/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2.md
   - desk/tasks/task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3.md
   - desk/tasks/task-migrar-specsync-de-spec2viz-a-sldb-api-notations-junto-a-notationsync-y-palettesync-d1-b1-cierra-lo.md
-  - desk/tasks/task-migrar-a-sldb-el-generador-de-spec-de-componentes-desde-un-grafo-y-desde-el-ast-de-python-d2-b4.md
   - desk/tasks/task-emparejamiento-de-átomos-con-elementos-de-diagrama-explícito-y-difuso-en-sldb-api-matching-d4.md
 - model: TaskDebugDoc
   paths:

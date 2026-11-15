@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-15T22:17:49Z'
+  at: '2026-11-15T23:23:23Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -27,7 +27,6 @@ tasks:
 - desk/tasks/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2.md
 - desk/tasks/task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3.md
 - desk/tasks/task-migrar-specsync-de-spec2viz-a-sldb-api-notations-junto-a-notationsync-y-palettesync-d1-b1-cierra-lo.md
-- desk/tasks/task-migrar-a-sldb-el-generador-de-spec-de-componentes-desde-un-grafo-y-desde-el-ast-de-python-d2-b4.md
 - desk/tasks/task-emparejamiento-de-átomos-con-elementos-de-diagrama-explícito-y-difuso-en-sldb-api-matching-d4.md
 # List of pill-xxx paths
 pills:
@@ -90,5 +89,4 @@ _Generated from the task references above._
 - Código: readers y facts de TSX/TS y SQL con anclas sobre tree-sitter (inbox 20261115-022446, B2) [draft] - El paquete sldb.code lee TS/TSX y SQL, publica sus hechos de fuente y soporta anclas, con gramáticas tree-sitter como extras opcionales.
 - Grafo: graph_path y graph_paths devuelven caminos explicados con la procedencia de cada tramo (B3) [draft] - Caminos explicados: por cada tramo, origen, destino, tipo de relación, dirección recorrida y procedencia de la arista.
 - Migrar SpecSync de spec2viz a sldb.api.notations junto a NotationSync y PaletteSync (D1, B1, cierra lo pendiente de SV02) [draft] - Reconciliar un conjunto de documentos de spec en un store: crear, actualizar y borrar SpecDoc, SpecNodeDoc y RelationDoc, con informe.
-- Migrar a sldb el generador de spec de componentes desde un grafo y desde el AST de Python (D2, B4) [draft] - sldb produce un spec de componentes desde un grafo y desde código Python, reutilizando lo que ya tiene.
 - Emparejamiento de átomos con elementos de diagrama (explícito y difuso) en sldb.api.matching (D4) [draft] - sldb.api.matching empareja átomos con elementos de diagrama por vínculo explícito (atoms: en el elemento) y por similitud difusa.

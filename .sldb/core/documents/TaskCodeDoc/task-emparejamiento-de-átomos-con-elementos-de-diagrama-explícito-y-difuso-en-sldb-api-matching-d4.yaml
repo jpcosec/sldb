@@ -1,7 +1,7 @@
 name: task-emparejamiento-de-átomos-con-elementos-de-diagrama-explícito-y-difuso-en-sldb-api-matching-d4
 path: desk/tasks/task-emparejamiento-de-átomos-con-elementos-de-diagrama-explícito-y-difuso-en-sldb-api-matching-d4.md
-source_hash: 2b4329236983bfc5bfa0697756330d4b178960df8adc63218df22f3df9b059b4
-content_hash: c471ce9d0a609ab0947f0849acb086bc976926231a2a1559b32f3ab141f37f05
+source_hash: 4048ca861cf240ea67338faaa0e10eee2788fe35d5295ebbf11a0ec95222a64f
+content_hash: 05964cd951e05af3176fae5db7370640e113880ddb569946e3a60600f392b283
 field_hashes:
   title: b814aa07ec939aa74824de35951b59b462c3ef21c26459cd58684bfa2b2ef585
   id: 278f5dda0c86d92e7fd9d7175d5f46ee9e42ed6746c75af427bed75feb06778f
@@ -18,7 +18,7 @@ field_hashes:
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 4034ee104741352f572bc0f4d2e23f4c25aeb068b11b8b558d875088cb4fa4eb
-  validation: 83876a7dbf255d96a817358a8430ae962e1b911ee0cb01fbd4b5c591aaf7c617
+  validation: 07721a3a9fef03cae0ae70344a8f5ddb8261b4f9ef6bd5d9bd49e8d7d2ee8129
   done_when: 6ab84fecb6609731dbc14867d34f2dc80c14c0225e88f94b0aec467a919dbd77
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -33,6 +33,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-15T17:48:15Z'
+  at: '2026-11-15T22:37:14Z'
   authority: generated
   via: save_document_payload

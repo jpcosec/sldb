@@ -1,0 +1,18 @@
+name: 20261115-193320-suggestion-ir-pide-exportar-desde-sldb-api-notations-los-modelos-de-spec-de-d3-y-guardar-style-y-entity-en-specdoc
+path: desk/inbox/20261115-193320-suggestion-ir-pide-exportar-desde-sldb-api-notations-los-modelos-de-spec-de-d3-y-guardar-style-y-entity-en-specdoc.md
+source_hash: 67735302f6cad493cec555fba76b368e335945ca92531b3b55435f7eb432485a
+content_hash: 5ab1d4cff32ea3b218a368c83a6c334c954927f737d44ed585f868fa48afb222
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 57572151412c9df9c2c79d7e562dba0acd4eedbaf253c060e23a67f0415f8823
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: 9ce33ea820769f1a86aa974c592729f3ff64aaf07f81955191bb08b251161311
+  body: dac93e1afe8c27e7e6baab34945cb1dad9efd6b9f6f6ff4759979020e2fbe509
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null
