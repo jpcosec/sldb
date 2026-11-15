@@ -1,0 +1,18 @@
+name: 20261115-123855-suggestion-specir-apply-batch-devuelve-el-lote-inverso-con-guardas-deshacer-en-sldb
+path: desk/inbox/20261115-123855-suggestion-specir-apply-batch-devuelve-el-lote-inverso-con-guardas-deshacer-en-sldb.md
+source_hash: 878c5f7229660db7b86ea2f3df19f8912469354fc4355f5b63a4ad3a4426c83f
+content_hash: 5688c85baaf3dc29e164d7f286d6e3dd23835bb76a658a6cc159497f89f310e9
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: b1ff5008408896839384b01881ae36c554ba551ebe1be95ba56a9bb77b323e3f
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: 6bbc71fa7705891917e6fbb070f76540aae7a375648f28ab3480aff679a1df48
+  body: d436f4d62766d5337aa831edae9618eca0cb6ac89c2dbf66518bc3318c6e6abd
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

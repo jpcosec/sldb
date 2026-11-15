@@ -281,6 +281,7 @@ include:
   - desk/inbox/20261115-022444-suggestion-specir-guardas-de-apply-batch-bajo-el-cerrojo-del-store.md
   - desk/inbox/20261115-022446-suggestion-specir-anclas-de-c-digo-para-tsx-y-sql.md
   - desk/inbox/20261115-022655-suggestion-specir-validar-aristas-antes-de-escribir-y-devolver-las-alertas-on-write-de-apply-batch.md
+  - desk/inbox/20261115-123855-suggestion-specir-apply-batch-devuelve-el-lote-inverso-con-guardas-deshacer-en-sldb.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
