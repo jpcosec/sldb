@@ -23,6 +23,7 @@ from sldb.api.notations.notation_view import (
     resolve_documents,
     resolve_view,
 )
+from sldb.api.notations.spec_models import load_spec, validate_spec
 from sldb.api.notations.projection_view import (
     evaluate_projection_view,
     list_projection_views,
@@ -36,6 +37,8 @@ __all__ = [
     "evaluate_projection_view",
     "list_projection_views",
     "save_projection_view",
+    "load_spec",
+    "validate_spec",
     "sync_notation",
     "sync_palette",
     "ViewError",
