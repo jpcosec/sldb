@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-15T16:52:23Z'
+  at: '2026-11-15T17:52:02Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 # review-<task>-<kind>-<n>
 id: review-task-migrar-specsync-de-spec2viz-a-sldb-api-notations-junto-a-notationsync-y-palettesync-d1-b1-cierra-lo-bundle-1
 # preflight | bundle | reproduction | goldens | owner | node | evidence
@@ -13,7 +13,7 @@ fact: ''
 # kind evidence only: what the producer verified, one item per line
 value: ''
 # doc:<Model>:<id> or empty for reviews of plan nodes
-subject: doc:TaskCodeDoc:task-migrar-specsync-de-spec2viz-a-sldb-api-notations-junto-a-notationsync-y-palettesync-d1-b1-cierra-lo
+subject: doc:TaskCodeDoc:task-migrar-specsync-de-spec2viz-a-sldb-api-notations-junto-a-notationsync-y-palettesync-d1-b1-cierra-lo@sha256:965eabd41d9c42445d0000527601a37d35c7bfed4699dca155184aa325adc1b3
 # <plan>/dag.yaml#node:<ID>; empty when subject names a document
 subject_ref: ''
 # RuntimeProfileDoc name or "human"
@@ -24,13 +24,18 @@ run_dir: runs/subagents/20261115-165152/context-review/task-migrar-specsync-de-s
 input_sha256: 83632f55ed0785ece4e8474e27f8a518af347427ff0d8be40fb5ce8f3368e72e
 output_sha256: cfeb6cc5cd957c2dd235c1f4360a45866a102a24a74e0524b5781b540421c530
 # pending | accepted | rejected | incomplete
-verdict: pending
-reason: ''
+verdict: accepted
+reason: 'Aceptada: las 10 ambigüedades de D1 están resueltas en el TaskDoc (implementation_path,
+  scope, validation y done_when) con deskops edit task en 5e0e1c3e, leyendo el código
+  real de spec2viz y sldb (coordinador wA:p1, revisable). Criterios comunes: spec2viz
+  no se retira (gate IR13); paridad portando los tests con el mínimo cambio; se reutiliza
+  lo de sldb si da la misma salida observable en los tests portados, si no se migra;
+  los avisos tienen formato de finding de sldb; D2 depende de D3.'
 # ISO 8601 timestamp
 created_at: '2026-11-15T16:52:05.547909+00:00'
 # ISO 8601 timestamp, empty while pending
-disposed_at: ''
-disposed_by: ''
+disposed_at: '2026-11-15T17:51:46.885752+00:00'
+disposed_by: sldb
 # e.g. workspace:desk
 tags:
 - workspace:desk
@@ -47,3 +52,5 @@ bundle review; engine runtime-pi-deepseek-flash; evidence under runs/subagents/2
 ## Disposition
 
 _Record the verdict rationale and who disposed of the review._
+
+Verdict accepted: Aceptada: las 10 ambigüedades de D1 están resueltas en el TaskDoc (implementation_path, scope, validation y done_when) con deskops edit task en 5e0e1c3e, leyendo el código real de spec2viz y sldb (coordinador wA:p1, revisable). Criterios comunes: spec2viz no se retira (gate IR13); paridad portando los tests con el mínimo cambio; se reutiliza lo de sldb si da la misma salida observable en los tests portados, si no se migra; los avisos tienen formato de finding de sldb; D2 depende de D3.

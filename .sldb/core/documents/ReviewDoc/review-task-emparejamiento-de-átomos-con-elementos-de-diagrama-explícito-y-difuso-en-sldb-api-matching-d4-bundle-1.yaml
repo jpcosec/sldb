@@ -1,27 +1,27 @@
 name: review-task-emparejamiento-de-átomos-con-elementos-de-diagrama-explícito-y-difuso-en-sldb-api-matching-d4-bundle-1
 path: desk/reviews/task-emparejamiento-de-átomos-con-elementos-de-diagrama-explícito-y-difuso-en-sldb-api-matching-d4/bundle-1.md
-source_hash: e3f69c468318bd5072e232e70130eaa4be9f244cbe98ac7eef1834edb539e4c7
-content_hash: d1d473bf375d1e1ab9e310d55c460dd8937e4fb9a5b7e8c7f6a65bb53979dd36
+source_hash: 9f7656de7b606ede79dadb883c87b50e9d17a653fc6d79405644c0d692fab7cf
+content_hash: b6e4bf85083c6ad8c87a19449bbdb6e5558e13d97f43e6b21e2a9259109b0798
 field_hashes:
   id: 8551c5aac2ee6ed10d47437faf3d190590fd912e0e0730aed74edd269fc6de6a
   title: 933f15007bd1066e0bba69762d0ca7b2e20a3be7beb1c231b4be5e686dce40ed
   kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
   fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  subject: 47e1182ec36ee5b0d32a8d04585a818ca3d225d0792cda38f2f7b71eacb451a9
+  subject: 942ba3f0446e8a0a511f145ad5f549571164daa4da1af179a47ba884e1484ac6
   subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 3f465352aece00e8e20318ebcda80cc2b7198497eb27201da33b65c440151b79
   input_sha256: 7f41964e63704a373fc5e34f1c567d1bf42c4772ef956d06a62fd8a04b02bcc3
   output_sha256: 1202f1e1a0f3a13b9116cd3958359f111319c85614d05a0bdcaf5084c84e1b8d
-  verdict: 12adac54ac6f7140109391b670b3cbcd51f083d8f5ee62ce26857c794ed67d36
-  reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 68ea7c336e57ee3b5777b3357e39795f150608099d64f5985c45d8a18291ccdc
   created_at: 8e7c142ae1c2d6460de9b6d55c53750b9b25532e4e61cd8b1b29fabe78361aed
-  disposed_at: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  disposed_by: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposed_at: 611d9a485b733b4011c4617c401c4cb78239ada4b1b7eaffd7c413fb4ce0064e
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 5b0553b7719086bc86e8bb1a32e5498b5e8254b2b8c94377d8262337c27b83b9
-  disposition: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposition: b676e5da90b8daa8f5cebb8239c22582d8bf7db8867740e7def58116604508f6
   tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
 semantic_tags:
 - representation.markdown
@@ -31,6 +31,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-15T16:47:55Z'
+  at: '2026-11-15T17:50:04Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

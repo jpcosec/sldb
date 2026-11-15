@@ -1,27 +1,27 @@
 name: review-task-migrar-a-sldb-los-modelos-de-spec-por-tipo-de-diagrama-de-spec2viz-con-carga-y-validación-junto-a-sp-preflight-1
 path: desk/reviews/task-migrar-a-sldb-los-modelos-de-spec-por-tipo-de-diagrama-de-spec2viz-con-carga-y-validación-junto-a-sp/preflight-1.md
-source_hash: 04e4a06631f56d18adb5127dde15b03a1ee7b2550e3f87a21fb6a62b09cb6c4b
-content_hash: 1de682e28fe57b43330837f595ab282c95726a0b19efe663edebf3351e300b41
+source_hash: cead0f09b4454a20a7ec73a0d7e32abf8ad3ea20efe8e7384e7b9159b7d4630a
+content_hash: 35c667111e6db44e371443f4fd24c117c263e3578cfc4b40a08d0b8fc8ab43e2
 field_hashes:
   id: 79f630471e0b0e6f164bb102d642db8085b960e0c591cdd3f103dad08b5af56c
   title: a067e4aa116693e992f8f6cdeb039e800f36fe3a1340b3fa5e3c6e8ac666809e
   kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
   fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  subject: 0877434c7dd998300a1a6d266c5cfa8dd460db38d876cf9f4d9f38ac70fffc5f
+  subject: cf9ba0c1c9bd792b1bd9976be98e9dabcba87fd565bef32b6c638083496289e1
   subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 823b4154ce2dea9ba6d67ecdb93f544f24cbec415344034705d701f8b03aa967
   input_sha256: 846de296d75cd40763290d0a69228abb5a14fc6037168540aad7d91e19381a41
   output_sha256: 7e925618b4bd60fd8beb2f774f16c3f3d70dba3c0f9c821c56d5c15155c37edd
-  verdict: 12adac54ac6f7140109391b670b3cbcd51f083d8f5ee62ce26857c794ed67d36
-  reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 10c13070ce6e635a758c25357326788d8d6de503043bb9009c8508ca9517f984
   created_at: 0d63b8cc4f538c5099d02e156bdac73fdea2b50f210bf077724ec208221cb326
-  disposed_at: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  disposed_by: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposed_at: 9a44acf25b6d5e5360fd916bdf548f537f027a1bca80d1d41eb571ecb1e3dd3d
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 886e43d0fb3968acf5c78e08437af43e18da99bcfac6b9c51ce9e603b27ece51
-  disposition: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposition: 9ee02d99c4d34291cd111024c39a64696ce94a646d88a5ab9ce4bc6e7ffe55aa
   tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
 semantic_tags:
 - representation.markdown
@@ -31,6 +31,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-15T16:50:06Z'
+  at: '2026-11-15T17:51:03Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

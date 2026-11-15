@@ -1,27 +1,27 @@
 name: review-task-migrar-a-sldb-el-generador-de-spec-de-componentes-desde-un-grafo-y-desde-el-ast-de-python-d2-b4-preflight-1
 path: desk/reviews/task-migrar-a-sldb-el-generador-de-spec-de-componentes-desde-un-grafo-y-desde-el-ast-de-python-d2-b4/preflight-1.md
-source_hash: 7526e50e72fb72010fd2b5c0852232f6f8290d20b55d844a5a808a368679ea70
-content_hash: fdfbee153ca8605380f5dff2529c1d4a117c0ce973005679025a8e9572158bf2
+source_hash: 7af0a5dc6e458cbbb1e7e25a98f1c282af2bd178a278d062bb072e039c8abc40
+content_hash: 539d204ef2fc5da06e50bcf5276ee6ecaba6958c9d042b625fcc182e0ce95215
 field_hashes:
   id: bf5184a1cb4631ada519c5a0c892c20115fd658754fd63e3a006dde3ccda8c28
   title: 1fbe9a8ec5d46cc03fb80745ae8c1e74821d76b5bf5428b8d2b76a6fdbbe73b9
   kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
   fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  subject: 2d602146a2745ff0f909062ea4d0fda36f2a171cb84854f6757208ad48bb3aba
+  subject: 3be396dea9e978285f78e53b7b3c7695e482382bde89d6b18bbf752ad9fd8c0d
   subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 549e7ea8edd29575c4b46e2bb9699ee9024758aeab965bb75cde7a28e3455cfd
   input_sha256: add6f7764a8a58bc54cd63a6c59b84fa6bc1ddd08d3b6f3f6920e05f87a8f870
   output_sha256: 558ac8374d7528577911a0f3e61ec7f6089cccd924d90f0a6a4174085b10b95b
-  verdict: 12adac54ac6f7140109391b670b3cbcd51f083d8f5ee62ce26857c794ed67d36
-  reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: b8ad952c709f209f81cea8e2990fb7a8d785bab6423c573c4f03cbc4cd0754ae
   created_at: a01b0a7fa3f16a88eb101e6568d76121da44786ce8e08461e42e37937620023f
-  disposed_at: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  disposed_by: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposed_at: 5c40c46854ec234721ee3c1c012875b00f372ed4a5d4197eca0aaf1ab583adac
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 8e28368ebe2dec3d3eebb5ebfb43eb44aab180fe4a0ac3ed337da52e9a0bd7d1
-  disposition: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposition: 904201ac8c4e0d8debc8d5ef4e58ba34b6775a7f69f4c1a25a2ef36ae58d703a
   tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
 semantic_tags:
 - representation.markdown
@@ -31,6 +31,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-15T16:49:36Z'
+  at: '2026-11-15T17:50:23Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
