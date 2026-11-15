@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-15T17:48:15Z'
+  at: '2026-11-15T22:37:14Z'
   authority: generated
   via: save_document_payload
 id: task-emparejamiento-de-átomos-con-elementos-de-diagrama-explícito-y-difuso-en-sldb-api-matching-d4
@@ -61,6 +61,7 @@ _Outline the expected implementation route or affected surface._
 _List the checks required before this task can close._
 
 - Tests de origen en spec2viz: de test_atoms_matching, test_filter_atoms_payload_by_full_tag_or_value; de test_explicit_atoms, test_build_exposes_explicit_map_by_label_and_id, test_unknown_atom_is_warning_unless_strict, test_fully_explicit_view_embeds_no_fuzzy_payload, test_partially_explicit_view_keeps_fuzzy_payload y test_atoms_linked_from_explicit_are_embedded_one_level.
+- Tests de origen agregados por la matriz de cobertura de IR07 (SV-I03, SV-I04): de test_refs, test_collect_explicit_refs_indexes_by_label_and_id, test_build_resolves_refs_with_title_path_and_summary, test_unknown_ref_is_warning_unless_strict, test_view_without_store_warns_per_ref, test_edges_of_keeps_declared_edges_both_ways_and_drops_structural, test_edges_of_without_edge_index_warns_once_and_is_empty, test_edges_of_against_a_real_store, test_build_attaches_edges_to_explicit_atoms y test_store_documents_come_from_sldb_api, contra un store sldb real en vez de monkeypatch; de test_deskops, test_parse_atoms_handles_missing_dir, test_parse_atoms_builds_index_and_skips_bad_files, test_build_coverage_by_view_projects_snapshot_payload y test_build_atoms_by_view_uses_store_scoped_payload. De test_refs no se portan los de modelos y schema (tarea de modelos de spec), test_store_discovery_uses_a_real_store (la vista trae su store) ni test_no_internal_sldb_imports (no aplica dentro de sldb).
 - Destino previsto: un archivo de tests de resolución explícita y alias junto a los de matching de sldb, uno de cobertura y uno de emparejamiento difuso con alias (test nuevo sobre DocumentIndex.rank).
 - Prueba real de sldb serve en un store temporal (lectura por id, escritura con guarda, conflicto con hash viejo) y su resultado, alcanza o nota enviada, registrado en el cierre.
 - Informe de comparación con sldb.api.matching escrito en el cierre.
