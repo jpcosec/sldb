@@ -38,9 +38,30 @@ def _add_resolve(sub: argparse._SubParsersAction) -> None:
     _store_args(p_resolve)
 
 
+def _add_from_graph(sub: argparse._SubParsersAction) -> None:
+    p = sub.add_parser("from-graph", help="Compile an sldb graph (snapshot JSON or store index) or a Python tree into a component spec.")
+    source = p.add_mutually_exclusive_group(required=True)
+    source.add_argument("--snapshot", help="Node-link JSON (`sldb graph snapshot save`, or the Python source graph of `sldb selfdoc python-sync`)")
+    source.add_argument("--store", help="Read the edge index of this .sldb (or project) dir via sldb.api")
+    source.add_argument("--python", help="Directory of .py files, scanned with sldb.code (extra [code]); nodes module/class/external")
+    _from_graph_filters(p)
+    p.add_argument("--id", dest="spec_id", help="Spec id. Defaults to the file stem, 'sldb-graph', or the parent dir of --python")
+    p.add_argument("--title", help="Spec title. Defaults to '<id> graph' ('<id> AST Architecture' with --python)")
+    p.add_argument("--output", help="Write the YAML spec here instead of stdout")
+
+
+def _from_graph_filters(p: argparse.ArgumentParser) -> None:
+    p.add_argument("--node-type", dest="node_types", action="append", default=[], help="Node type to keep (document, model, semantic_tag, ...); repeatable. Default: document, model")
+    p.add_argument("--model", dest="models", action="append", default=[], help="Keep only documents of this model (e.g. AtomDoc); repeatable")
+    p.add_argument("--relation", dest="relations", action="append", default=[], help="Keep only these relations; repeatable. Overrides the default exclusions")
+    p.add_argument("--exclude-relation", dest="exclude_relations", action="append", default=[], help="Drop this relation; repeatable. Default: structural relations")
+    p.add_argument("--drop-isolated", action="store_true", help="Drop nodes left without edges after filtering")
+    p.add_argument("--module-prefix", dest="module_prefixes", action="append", default=[], help="Keep only Python nodes of this module or below; repeatable. With --python, the one root package")
+
+
 def add_notations_group(s: argparse._SubParsersAction) -> None:
-    """Register `notations list|sync|view|resolve`."""
+    """Register `notations list|sync|view|resolve|from-graph`."""
     p = s.add_parser("notations", help="Visual notations, palettes, views and diagram resolver.")
     sub = p.add_subparsers(dest="notations_command", required=True)
-    for add in (_add_list, _add_sync, _add_view, _add_resolve):
+    for add in (_add_list, _add_sync, _add_view, _add_resolve, _add_from_graph):
         add(sub)

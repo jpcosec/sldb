@@ -24,6 +24,12 @@ from sldb.api.notations.notation_view import (
     resolve_view,
 )
 from sldb.api.notations.spec_models import load_spec, validate_spec
+from sldb.api.notations.component_spec_constants import CONTAINS_RELATION, DEFAULT_EXCLUDED_RELATIONS, DEFAULT_NODE_TYPES
+from sldb.api.notations.component_spec_graph import component_spec_from_graph
+from sldb.api.notations.component_spec_ids import document_ref, node_kind, sanitize_id
+from sldb.api.notations.component_spec_loaders import index_graph, load_node_link, load_node_link_graph
+from sldb.api.notations.component_spec_python import component_spec_from_python
+from sldb.api.notations.component_spec_python_build import write_component_spec
 from sldb.api.notations.projection_view import (
     evaluate_projection_view,
     list_projection_views,
@@ -39,6 +45,18 @@ __all__ = [
     "save_projection_view",
     "load_spec",
     "validate_spec",
+    "component_spec_from_graph",
+    "component_spec_from_python",
+    "write_component_spec",
+    "load_node_link",
+    "load_node_link_graph",
+    "index_graph",
+    "node_kind",
+    "document_ref",
+    "sanitize_id",
+    "DEFAULT_NODE_TYPES",
+    "DEFAULT_EXCLUDED_RELATIONS",
+    "CONTAINS_RELATION",
     "sync_notation",
     "sync_palette",
     "ViewError",

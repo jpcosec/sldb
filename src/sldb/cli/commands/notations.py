@@ -1,4 +1,4 @@
-"""`sldb notations` command handler: list, sync, view, and resolve notations/views."""
+"""`sldb notations` command handler: list, sync, view, and resolve notations/views; from-graph."""
 
 from __future__ import annotations
 
@@ -14,6 +14,7 @@ from sldb.api import (
     sync_palette,
 )
 from sldb.api.notations.notation_listing import list_notations
+from sldb.cli.commands.notations_from_graph import from_graph
 
 
 class NotationsCLI:
@@ -21,7 +22,7 @@ class NotationsCLI:
 
     def run(self, args: Any) -> int:
         """Dispatch to the handler of `args.notations_command`."""
-        handler = {"list": self._list, "sync": self._sync, "view": self._view, "resolve": self._resolve}
+        handler = {"list": self._list, "sync": self._sync, "view": self._view, "resolve": self._resolve, "from-graph": from_graph}
         return handler[args.notations_command](args)
 
     def _dump(self, payload: Any) -> int:

@@ -589,7 +589,7 @@ Clasificado en main-de-sldb-en-verde (2026-11-10), decisión revisable del coord
 id = "nucleo"
 axes = ["superficie", "representacion", "render", "contrato", "runtime", "identidad_y_hash", "lectura_de_fuentes", "errores", "codigo"]
 needs = 5  # medido 2026-11-10 (main-de-sldb-en-verde): GO06 suma contrato → grafo (models/rule_doc.py:62); antes 4/39
-needed_by = 54  # medido 2026-11-11 (secrest2): enlaces, adaptadores (selfdoc), op_aristas y op_modelos leen y escriben por la guarda lectura_de_fuentes (store/source_guard.py); antes 50. medido 2026-11-11 (secrest, rebasada sobre H9): las lecturas guardadas de consulta, secciones, semántica y aristas suman aristas hacia lectura_de_fuentes; antes 47. 2026-11-11 (H9): vistas_compuestas lee la ViewDoc enlazada por lectura_de_fuentes (api/views/view_source.py); antes 46. 2026-11-11 (seguridad live_stale): eje nuevo lectura_de_fuentes en nucleo; antes 43. 2026-11-10: GD26 op_almacen → runtime, y los ejes reglas y vistas_compuestas (→ contrato, errores, runtime); antes 4/39
+needed_by = 56  # medido 2026-11-15 (D2): vistas lee código Python por codigo (sldb.code.scan_tree, api/notations/component_spec_python.py) y avisa con errores (core/finding.py); antes 54. medido 2026-11-11 (secrest2): enlaces, adaptadores (selfdoc), op_aristas y op_modelos leen y escriben por la guarda lectura_de_fuentes (store/source_guard.py); antes 50. medido 2026-11-11 (secrest, rebasada sobre H9): las lecturas guardadas de consulta, secciones, semántica y aristas suman aristas hacia lectura_de_fuentes; antes 47. 2026-11-11 (H9): vistas_compuestas lee la ViewDoc enlazada por lectura_de_fuentes (api/views/view_source.py); antes 46. 2026-11-11 (seguridad live_stale): eje nuevo lectura_de_fuentes en nucleo; antes 43. 2026-11-10: GD26 op_almacen → runtime, y los ejes reglas y vistas_compuestas (→ contrato, errores, runtime); antes 4/39
 indivisible = false
 why = """
 Los cinco ejes de identidad forman un nudo de 11 aristas internas. Lo declaré
@@ -682,7 +682,7 @@ why = "solo el eje mcp depende de él; puerto Embedder sin dependencia vectorial
 [[unit]]
 id = "notacion"
 axes = ["vocabulario_visual", "vistas"]
-needs = 4  # medido 2026-11-10 (main-de-sldb-en-verde): GD25 suma vocabulario_visual → grafo (models/notation/view_doc_checks.py:61); antes 3
+needs = 6  # medido 2026-11-15 (D2): el spec de componentes desde Python suma vistas → codigo y vistas → errores (api/notations/component_spec_python.py, component_spec_findings.py); antes 4. medido 2026-11-10 (main-de-sldb-en-verde): GD25 suma vocabulario_visual → grafo (models/notation/view_doc_checks.py:61); antes 3
 needed_by = 3  # medido 2026-11-10: GD25 vistas_compuestas → vocabulario_visual; antes 2
 indivisible = false
 why = """
