@@ -24,6 +24,15 @@ from sldb.api.notations.notation_view import (
     resolve_view,
 )
 from sldb.api.notations.spec_models import load_spec, validate_spec
+from sldb.api.notations.spec_sync import SpecSync, sync_spec
+from sldb.api.notations.spec_catalog import catalog_entries
+from sldb.api.notations.spec_catalog_check import check_catalog
+from sldb.api.notations.spec_catalog_sync import sync_catalog
+from sldb.api.notations.spec_edges import spec_edges
+from sldb.api.notations.spec_elements import spec_elements
+from sldb.api.notations.spec_notation import resolve_spec_notation
+from sldb.api.notations.spec_refs import edge_name, find_store, node_ref, relation_token, spec_style_kinds, stage_id, to_slash_ref
+from sldb.api.notations.spec_sync_report import format_notation_report, format_report, report_findings
 from sldb.api.notations.component_spec_constants import CONTAINS_RELATION, DEFAULT_EXCLUDED_RELATIONS, DEFAULT_NODE_TYPES
 from sldb.api.notations.component_spec_graph import component_spec_from_graph
 from sldb.api.notations.component_spec_ids import document_ref, node_kind, sanitize_id
@@ -45,6 +54,9 @@ __all__ = [
     "save_projection_view",
     "load_spec",
     "validate_spec",
+    "SpecSync", "sync_spec", "check_catalog", "sync_catalog", "catalog_entries", "spec_elements", "spec_edges",
+    "resolve_spec_notation", "format_report", "format_notation_report", "report_findings",
+    "edge_name", "find_store", "node_ref", "relation_token", "spec_style_kinds", "stage_id", "to_slash_ref",
     "component_spec_from_graph",
     "component_spec_from_python",
     "write_component_spec",

@@ -15,6 +15,7 @@ from sldb.api import (
 )
 from sldb.api.notations.notation_listing import list_notations
 from sldb.cli.commands.notations_from_graph import from_graph
+from sldb.cli.commands.notations_spec_sync import is_spec_sync, spec_sync
 
 
 class NotationsCLI:
@@ -37,9 +38,13 @@ class NotationsCLI:
         return self._dump(list_notations(store_path, args.pythonpath))
 
     def _sync(self, args: Any) -> int:
+        """Specs or a catalog (`--spec`/`--catalog`), else a notation and/or a palette."""
+        return spec_sync(args) if is_spec_sync(args) else self._sync_notation(args)
+
+    def _sync_notation(self, args: Any) -> int:
         store_path = args.store or "."
         if not args.notation and not args.palette:
-            raise SystemExit("Specify at least --notation <name|path> or --palette <name|path> to sync")
+            raise SystemExit("Specify --spec, --catalog, --notation <name|path> or --palette <name|path> to sync")
         reports = []
         if args.palette:
             reports.append(sync_palette(store_path, args.palette, pythonpath=args.pythonpath).to_dict())

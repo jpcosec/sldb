@@ -17,9 +17,15 @@ def _add_list(sub: argparse._SubParsersAction) -> None:
 
 
 def _add_sync(sub: argparse._SubParsersAction) -> None:
-    p_sync = sub.add_parser("sync", help="Synchronize a notation or palette into the store.")
-    p_sync.add_argument("--notation", help="Notation name or YAML file to sync")
+    p_sync = sub.add_parser("sync", help="Synchronize a notation, a palette, diagram specs or a vistas.yml catalog into the store.")
+    p_sync.add_argument("--notation", help="Notation name or YAML file to sync; with --spec, the notation the specs are drawn with (`none` for none)")
     p_sync.add_argument("--palette", help="Palette name or YAML file to sync")
+    p_sync.add_argument("--spec", action="append", default=[], help="Diagram spec YAML to reconcile (SpecDoc, SpecNodeDoc, RelationDoc); repeatable")
+    p_sync.add_argument("--catalog", help="vistas.yml whose specs are synced with their notation and catalog metadata")
+    p_sync.add_argument("--check", action="store_true", help="With --catalog: only validate it (paths, specs, notations); write nothing")
+    p_sync.add_argument("--prune", action="store_true", help="With --catalog: delete the catalog SpecDocs the vistas.yml no longer lists")
+    p_sync.add_argument("--strict", action="store_true", help="With --spec/--catalog: exit 1 when a ref does not exist or the edge index reports errors")
+    p_sync.add_argument("--json", action="store_true", help="With --spec/--catalog: print the list of reports as JSON")
     _store_args(p_sync)
 
 
