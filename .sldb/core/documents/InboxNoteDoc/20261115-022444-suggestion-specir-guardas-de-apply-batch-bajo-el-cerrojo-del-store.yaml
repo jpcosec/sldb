@@ -1,0 +1,18 @@
+name: 20261115-022444-suggestion-specir-guardas-de-apply-batch-bajo-el-cerrojo-del-store
+path: desk/inbox/20261115-022444-suggestion-specir-guardas-de-apply-batch-bajo-el-cerrojo-del-store.md
+source_hash: 9ce6d516dc28c8d2aac4f10760398c244faaaf14fa8a34639b3e3f9a85a39f64
+content_hash: 1df0ba3382ee693eb565c5bbc8295e8f607dc54152f4d5832d50667f2243a372
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 16ac1b795e47cb697d50d2e4184f26f51e2c3d303f4de43bc2fb00c28e3600f7
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: 9d44a4f0c7dfe952a00b62837ced85a0387bb7991f48bab999370e7b7a74ebdc
+  body: 0633f7037d9194cfbce89dd6e4d4c8c3cf843c3fceae109d14a72ab392c3f393
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null
