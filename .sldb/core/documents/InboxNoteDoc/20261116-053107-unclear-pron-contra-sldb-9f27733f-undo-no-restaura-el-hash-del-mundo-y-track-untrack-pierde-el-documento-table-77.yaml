@@ -1,0 +1,18 @@
+name: 20261116-053107-unclear-pron-contra-sldb-9f27733f-undo-no-restaura-el-hash-del-mundo-y-track-untrack-pierde-el-documento-table-77
+path: desk/inbox/20261116-053107-unclear-pron-contra-sldb-9f27733f-undo-no-restaura-el-hash-del-mundo-y-track-untrack-pierde-el-documento-table-77.md
+source_hash: d8f14b5c42496d3e68288f99eda36548c41603e056654e54773cb18523991004
+content_hash: 7b32a62058563b1af871c24c6a0f0338a561522213302cfdb7be1ae48d54044a
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: 8e7d42497d066cf2702e1aec85ede74beecbb16e002906840a4e20c4e1e3e0c7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 3ee5076037c4755acf4792c69fffe14711c32ba66cf552a6eca38863ba1418b1
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: 5de49e8e79f007724ae21d734205a9dfa5ec6bc8e4f6c87fee4cf544cba9c873
+  body: a20a95fda5c863ecc704e7696219c57d7aeb1677c00c769373bf2f4469d9d6ed
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

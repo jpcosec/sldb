@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-15T15:51:43Z'
+  at: '2026-11-16T02:45:03Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-apply-batch-guardas-expected-source-hash-bajo-el-cerrojo-del-store-inbox-20261115-022444
 status: draft
 summary: ''
@@ -46,7 +46,7 @@ Pedido del inbox sldb 20261115-022444. Hoy los guardas se comprueban en la preva
 
 _Outline the expected implementation route or affected surface._
 
-
+Superficie real (leída en src/): src/sldb/api/documents/apply_batch.py (hoy: prevalidate_changes fuera de todo cerrojo, luego transaction(); _APPLY llama tx.update(id, payload) SIN guardas); src/sldb/api/documents/batch_prevalidate.py (check_guards(location, m_entry, doc, expected_source_hash, expected, pythonpath) lanza ConflictError de sldb.core.exceptions.sldb_conflict_error); src/sldb/api/documents/transaction_ops.py (update ya acepta expected_source_hash y expected y llama check_guards); src/sldb/api/documents/transaction.py (Transaction.update(ref, payload, expected_source_hash=None, expected=None)); cerrojo: sldb.store.io.store_lock(store_path, wait=False) -> StoreIOLock.acquire en src/sldb/store/io/lock.py (fcntl.lockf sobre lock_path(store_path)). 1) apply_batch toma store_lock(location.store_path, wait=True) envolviendo prevalidación Y transaction() hasta la última escritura; wait=True para que el segundo proceso espere y vea el estado nuevo (con wait=False saldría SLDBStoreError busy, no ConflictError). 2) Los guardas se comprueban dentro del cerrojo: se conserva la prevalidación (ahora bajo cerrojo) y además se pasan expected_source_hash/expected a tx.update (y a los demás actions sobre documentos rastreados si transaction_ops los admite; si no, la prevalidación bajo el mismo cerrojo ya es atómica). Sin reentrancia hoy: fcntl.lockf es por proceso y os.close del fd interior libera el cerrojo exterior (semántica POSIX), y otros caminos dentro de la transacción (index_commit, untrack_document, rebuild_edges, etc.) llaman store_lock; el ejecutor debe hacer StoreIOLock reentrante dentro del proceso (contador por store_path resuelto, solo el exterior abre fd, bloquea y cierra) o demostrar con test que no se pierde el cerrojo, sin cambiar el comportamiento de los demás llamadores. 3) Excepciones sin cambio: ConflictError para guarda, SLDBStoreError si ocupado sin wait. 4) Test nuevo en tests/api/ (p.ej. tests/api/test_apply_batch_lock.py) con dos procesos reales (subprocess o multiprocessing 'spawn') sobre un store copiado a tmp_path (ver fixture api_store en tests/api/conftest.py y tests/api/test_transaction.py como patrón): ambos lotes llevan expected_source_hash del mismo estado inicial; uno gana, el otro recibe ConflictError y no deja escritura parcial (comprobar hashes y que stores build --check sigue limpio); sincronizar con Event/archivo para que el segundo llegue mientras el primero retiene el cerrojo.
 
 ## Validation
 

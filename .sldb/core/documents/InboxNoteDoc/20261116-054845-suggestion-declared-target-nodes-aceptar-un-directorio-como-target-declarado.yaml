@@ -1,0 +1,18 @@
+name: 20261116-054845-suggestion-declared-target-nodes-aceptar-un-directorio-como-target-declarado
+path: desk/inbox/20261116-054845-suggestion-declared-target-nodes-aceptar-un-directorio-como-target-declarado.md
+source_hash: b66bda72f653e9dd23fd6ac963b38dcd82c0e3c452963930a5490b6dac3106e5
+content_hash: 07de1ba47eca22dcadd88b7cadfe8ff894aedef132899dbf3fb5c0f9dccdb9ee
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: e658bc888e42fd3a9abfaea1d85c893fb64a4bddfb8e1db057a0be1c29c300f7
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: e364bfa72b939c90dc730e9854ec2a670b4740eb016dc05f092f3a496b2a3443
+  body: 39508d61d83c95ebad80632b3caae139bb97ba0589f68968fbc79626adcb0955
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

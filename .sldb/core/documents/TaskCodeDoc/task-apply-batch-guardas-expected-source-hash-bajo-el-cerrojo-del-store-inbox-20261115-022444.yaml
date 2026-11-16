@@ -1,7 +1,7 @@
 name: task-apply-batch-guardas-expected-source-hash-bajo-el-cerrojo-del-store-inbox-20261115-022444
 path: desk/tasks/task-apply-batch-guardas-expected-source-hash-bajo-el-cerrojo-del-store-inbox-20261115-022444.md
-source_hash: 35f6900ef901ed7da255bcc808afa979f8ba7d26f314a2fc0c6d9f6ef35f6ca7
-content_hash: 4433fab8df6ae7b6a6bf5eace527214d91424a8afa4b3f97bb8467786b9c5925
+source_hash: c5b395e0bc6d8e55a9dee071951238552225fe96a1839ea686df21e12b7427c5
+content_hash: bf1e59d283ba21888fb46c7e808fb866a42a1e2fba41283a45ccc51473df6e28
 field_hashes:
   title: 246754394ea5fbbc3e4cfb6cd6df98c1f3516dcbead56c96f7c33a996f951e55
   id: 82165fbe9e4977dd25ee5688453b44f55933a851c7ada9920105620827c47047
@@ -17,7 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  implementation_path: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  implementation_path: 073221153671c7d7d9c3e71525ea839e8176ea50ef9eda291e3ff03d1e1d2d3a
   validation: 2db25073ac6505f7dfa614261babf778eafa3fa2a63b10ac69dae9c673103dac
   done_when: 9fee5c97b56cc74a42c79e2df856843e81a785180c7cd5a9f0ea398f4cecc262
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
@@ -33,6 +33,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-15T15:51:43Z'
+  at: '2026-11-16T02:45:03Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
