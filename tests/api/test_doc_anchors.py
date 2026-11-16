@@ -113,6 +113,22 @@ def test_a_saved_anchor_is_pinned_with_the_target_contract_hash(world: World) ->
     assert world.codes() == []
 
 
+def test_create_document_pins_the_anchor_without_a_later_save(world: World) -> None:
+    world.create("Review", "a", {"title": "a", "subject": "doc:TaskDoc:b", "verdict": "accepted"})
+    assert world.payload("Review:a")["subject"] == f"doc:TaskDoc:b@sha256:{world.b_hash()}"
+    assert world.payload("Review:a")["subject__anchor_state"] == "intact"
+    world.create("Review", "g", {"title": "g", "subject": "doc:TaskDoc:ghost", "verdict": ""})
+    assert world.payload("Review:g")["subject"] == "doc:TaskDoc:ghost"
+    assert world.payload("Review:g")["subject__anchor_state"] == "lost"
+
+
+def test_a_transaction_create_pins_the_anchor(world: World) -> None:
+    with api.transaction(world.store, pythonpath=world.py) as tx:
+        tx.create("Review", "t", {"title": "t", "subject": "doc:TaskDoc:b", "verdict": "accepted"})
+    assert world.payload("Review:t")["subject"] == f"doc:TaskDoc:b@sha256:{world.b_hash()}"
+    assert world.payload("Review:t")["subject__anchor_state"] == "intact"
+
+
 def test_the_anchor_follows_the_target_contract_and_anchors_check_alerts(world: World, capsys) -> None:
     world.review()
     world.save("TaskDoc", "b", {**TASK, "notes": "outside the contract"})

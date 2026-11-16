@@ -6,6 +6,7 @@ from sldb.api.stores.declaration_sync import declare_tracked, project_relative
 from pathlib import Path
 from typing import Any
 
+from sldb.api.documents.doc_anchor_pinning import pin_payload, pin_provenance
 from sldb.api.documents.document_reference import DocumentReference
 from sldb.api.model_registry.load_registered_model import load_registered_model
 from sldb.api.documents.on_write_gate import check_entering
@@ -43,15 +44,21 @@ def create_document(store: str | Path | None, model_name: str, path: str | Path,
             the store does not register.
         SLDBValidationError: When the rendered Markdown does not round-trip under the model,
             or when it carries headings the model does not declare; nothing is written then.
+
+    Unpinned `doc:Model:name` anchors in `__doc_anchors__` fields and in the provenance `from:`
+    are pinned with the target's contract hash before writing, as `save_document_payload` does
+    (GO07); an untracked target leaves the value as it is.
     """
     location = open_store(store)
     registered = load_registered_model(location.store_path, model_name, pythonpath)
+    payload = pin_payload(location.store_path, registered.model_type, payload)
     rendered = _rendered(location, registered.model_type, payload, pythonpath)
     doc_path = _resolve_path(path, location.project_root)
     doc_name = name or doc_path.stem
     _admit(location.store_path, registered, rendered, doc_name, payload)
     doc_path.parent.mkdir(parents=True, exist_ok=True)
-    write_source_text(doc_path, stamped(rendered + "\n", registered.model_type, "create_document", actor))
+    text = pin_provenance(location.store_path, stamped(rendered + "\n", registered.model_type, "create_document", actor))
+    write_source_text(doc_path, text)
     _track(location.store_path, location.project_root, registered, doc_path, doc_name, pythonpath)
     return DocumentReference(model=registered.entry.name, name=doc_name, path=doc_path)
 
