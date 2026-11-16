@@ -22,6 +22,19 @@ from sldb.store.models import (
 )
 
 _LOCK_TIMEOUT = 10
+_HELD: dict[str, int] = {}  # resolved store path -> nesting depth of the lock this process holds
+
+
+@contextlib.contextmanager
+def _counted(key: str):
+    """One more nesting level of the lock this process holds on `key`, dropped on exit."""
+    _HELD[key] = _HELD.get(key, 0) + 1
+    try:
+        yield
+    finally:
+        _HELD[key] -= 1
+        if not _HELD[key]:
+            del _HELD[key]
 
 
 class StoreIOLock:
@@ -30,6 +43,19 @@ class StoreIOLock:
 
     @contextlib.contextmanager
     def acquire(self, wait: bool = False):
+        """Hold the store lock. Re-entrant within the process: POSIX record locks belong to the
+        process and closing any fd on the file drops them, so only the outermost acquire opens,
+        locks and closes the fd; nested ones just count."""
+        key = str(self.store_path.resolve())
+        if _HELD.get(key):
+            with _counted(key):
+                yield
+            return
+        with self._locked_fd(wait), _counted(key):
+            yield
+
+    @contextlib.contextmanager
+    def _locked_fd(self, wait: bool):
         lock_file = lock_path(self.store_path)
         lock_file.parent.mkdir(parents=True, exist_ok=True)
         lock_fd = os.open(lock_file, os.O_CREAT | os.O_RDWR, 0o644)
