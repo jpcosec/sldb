@@ -11,6 +11,10 @@ export id form (`name`, `Model/name`, `Model:name` or a tracked path; several ca
 error naming them), then as a project graph node id (`kind:identity`); anything else is
 `SLDBDocumentTargetError`. A document that is also a project node (its path is on a surface)
 has both kinds of referrers.
+
+A caller that builds its project graph in process (no `project_graph` in its `store.yaml`)
+passes it as `graph`; then it is used instead of the declared one. A mention on a frontmatter
+line of a document that is already a `schema` referrer is that same field, so it is left out.
 """
 
 from __future__ import annotations
@@ -47,19 +51,20 @@ class Target(NamedTuple):
         return f"{self.model}:{self.name}" if self.model else None
 
 
-def referrers(store: str | Path | None, target: str, pythonpath: str | None = None) -> list[Referrer]:
+def referrers(store: str | Path | None, target: str, pythonpath: str | None = None, *, graph: ProjectGraph | None = None) -> list[Referrer]:
     """Every reference to `target`, fields first (by source, field and position), then mentions (by path and line).
 
     Args:
         store: The store (path, alias, or None to discover it).
         target: A tracked document (`name`, `Model/name`, `Model:name`, tracked path) or a project node id.
         pythonpath: Unused by the read; accepted so callers pass what they pass `rewrite_references`.
+        graph: A project graph built in process, used instead of the one the store declares; None reads the declared one.
 
     Raises:
         SLDBDocumentTargetError: `target` names no document and no project node, or several documents.
     """
     location = open_store(store, mode="readonly")
-    graph = optional_graph(location.store_path)
+    graph = graph if graph is not None else optional_graph(location.store_path)
     return [referrer for referrer, _ in find_hits(location, resolve_target(location, graph, target), graph)]
 
 
@@ -98,8 +103,40 @@ def node_id_of_path(graph: ProjectGraph | None, path: str) -> str | None:
 
 
 def find_hits(location: StoreLocation, target: Target, graph: ProjectGraph | None) -> list[Hit]:
-    """Field hits (with the value as written) then mention hits (value found when rewriting)."""
-    hits = schema_hits(location.store_path, target.export_id) if target.export_id else []
+    """Field hits (with the value as written) then mention hits (value found when rewriting).
+
+    A mention on a frontmatter line of a document that has a field hit repeats that field: it is dropped.
+    """
+    hits: list[Hit] = list(schema_hits(location.store_path, target.export_id)) if target.export_id else []
     if graph is not None and target.node_id:
-        hits += mention_hits(graph, target.node_id)
+        mentions = mention_hits(graph, target.node_id)
+        paths = document_paths(location.store_path)
+        with_fields = {paths[r.source] for r, _ in hits if r.source in paths}
+        frontmatters = {path: frontmatter_lines(location.project_root / path) for path in with_fields if any(r.source == path for r, _ in mentions)}
+        hits += [(r, v) for r, v in mentions if not _in_frontmatter(r, frontmatters)]
     return hits
+
+
+def document_paths(store_path: Path) -> dict[str, str]:
+    """The tracked path (relative to the project) of every tracked document, by export id `Model:name`."""
+    return {f"{d['model']}:{d['name']}": d["path"] for d in indexed_documents(store_path)}
+
+
+def frontmatter_lines(file: Path) -> range:
+    """The lines (from 1) of the frontmatter: the first line `---` through the next `---`, both included; empty when there is none."""
+    try:
+        lines = file.read_text(encoding="utf-8").splitlines()
+    except (OSError, UnicodeDecodeError):
+        return range(0)
+    if not lines or lines[0].strip() != "---":
+        return range(0)
+    end = next((i for i in range(1, len(lines)) if lines[i].strip() == "---"), None)
+    return range(1, end + 2) if end is not None else range(0)
+
+
+def _in_frontmatter(referrer: Referrer, frontmatters: dict[str, range]) -> bool:
+    lines = frontmatters.get(referrer.source)
+    if not lines or referrer.location is None:
+        return False
+    line = referrer.location.rsplit(":", 1)[-1]
+    return line.isdigit() and int(line) in lines

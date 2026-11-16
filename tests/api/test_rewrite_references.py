@@ -19,7 +19,7 @@ from sldb import api
 from sldb.api.documents import payload_save, transaction_ops
 from sldb.cli import main
 from sldb.core.exceptions import SLDBDocumentTargetError, SLDBValidationError
-from tests.api.test_referrers import EXPECTED, World, count_walks, reference_world  # noqa: F401 - fixture
+from tests.api.test_referrers import EXPECTED, Desk, World, count_walks, desk, reference_world  # noqa: F401 - fixture
 
 A2_CHANGES = [
     {"source": "Card:card-b", "field": "about", "index": None, "location": None, "before": "card-a", "after": "card-a2"},
@@ -30,9 +30,17 @@ A2_CHANGES = [
 ]
 
 
+def a2_changes(world: World) -> list[dict]:
+    """`A2_CHANGES` with the `before` of `Review:r1.subject` as `create_document` pinned it (`doc:Card:card-a@sha256:<hash>`)."""
+    pinned = world.payload("Review:r1")["subject"]
+    assert pinned.startswith("doc:Card:card-a@sha256:") and len(pinned) == len("doc:Card:card-a@sha256:") + 64
+    return [{**change, "before": pinned} if change["source"] == "Review:r1" else change for change in A2_CHANGES]
+
+
 def test_rewriting_to_another_document_moves_every_field_and_mention_keeping_their_forms(reference_world: World) -> None:
+    expected = a2_changes(reference_world)
     report = api.rewrite_references(reference_world.store, "card-a", "card-a2", pythonpath=reference_world.py)
-    assert report.to_dict() == {"changed": A2_CHANGES, "skipped": []}
+    assert report.to_dict() == {"changed": expected, "skipped": []}
     assert reference_world.payload("Card:card-b")["about"] == "card-a2"
     assert reference_world.payload("Card:card-c")["related"] == ["card-x", "card-a2", "card-z"]
     assert reference_world.payload("Card:card-c")["body"] == "Also card:card-a2."
@@ -49,9 +57,9 @@ def _without_lines(found: list) -> list[dict]:
 
 
 def test_removing_empties_the_scalar_drops_the_element_and_keeps_the_prose(reference_world: World) -> None:
-    before_d = reference_world.text("notes/d.md")
+    before_d, expected = reference_world.text("notes/d.md"), a2_changes(reference_world)
     report = api.rewrite_references(reference_world.store, "card-a", None, pythonpath=reference_world.py)
-    assert report.changed == [{**change, "after": None} for change in A2_CHANGES[:3]]
+    assert report.changed == [{**change, "after": None} for change in expected[:3]]
     assert [s["location"] for s in report.skipped] == ["cards/card-c.md:16", "notes/d.md:3"]
     assert all("never deleted" in s["reason"] for s in report.skipped)
     assert "about" not in reference_world.payload("Card:card-b") and "about:" not in reference_world.text("cards/card-b.md")
@@ -94,18 +102,19 @@ def test_a_dry_run_reports_the_same_changes_writes_no_byte_and_runs_no_on_write_
     calls: list[str] = []
     check = payload_save.check_rules_on_write
     monkeypatch.setattr(payload_save, "check_rules_on_write", lambda *args: calls.append(args[2]) or check(*args))
-    before = reference_world.digests()
+    before, expected = reference_world.digests(), a2_changes(reference_world)
     report = api.rewrite_references(reference_world.store, "card-a", "card-a2", dry_run=True, pythonpath=reference_world.py)
-    assert report.to_dict() == {"changed": A2_CHANGES, "skipped": []}
+    assert report.to_dict() == {"changed": expected, "skipped": []}
     assert reference_world.digests() == before and calls == []
     assert api.rewrite_references(reference_world.store, "card-a", "card-a2", pythonpath=reference_world.py).to_dict() == report.to_dict()
     assert reference_world.digests() != before and sorted(calls) == ["Card:card-b", "Card:card-c", "Review:r1"]
 
 
 def test_with_the_index_and_the_graph_warm_a_dry_run_walks_nothing(reference_world: World, monkeypatch: pytest.MonkeyPatch) -> None:
+    expected = a2_changes(reference_world)
     api.rewrite_references(reference_world.store, "card-a", "card-a2", dry_run=True, pythonpath=reference_world.py)
     counts = count_walks(monkeypatch, reference_world.root)
-    assert api.rewrite_references(reference_world.store, "card-a", "card-a2", dry_run=True, pythonpath=reference_world.py).changed == A2_CHANGES
+    assert api.rewrite_references(reference_world.store, "card-a", "card-a2", dry_run=True, pythonpath=reference_world.py).changed == expected
     assert counts == {"walk": 0, "rglob": 0, "scandir": 0}
 
 
@@ -164,9 +173,9 @@ def test_the_call_joins_the_transaction_it_receives_and_the_outermost_one_rolls_
 
 
 def test_the_cli_rewrites_removes_and_dry_runs_with_the_envelope(reference_world: World, capsys) -> None:
-    before = reference_world.digests()
+    before, expected = reference_world.digests(), a2_changes(reference_world)
     code, envelope = reference_world.cli(capsys, "rewrite", "card-a", "--to", "card-a2", "--dry-run")
-    assert (code, envelope["ok"], envelope["data"]) == (0, True, {"changed": A2_CHANGES, "skipped": []}) and reference_world.digests() == before
+    assert (code, envelope["ok"], envelope["data"]) == (0, True, {"changed": expected, "skipped": []}) and reference_world.digests() == before
     assert main(["edges", "rewrite", "card-a", "--remove", "--store", str(reference_world.store), "--pythonpath", reference_world.py, "--format", "json"]) == 0
     printed = json.loads(capsys.readouterr().out)
     assert [c["after"] for c in printed["changed"]] == [None, None, None] and len(printed["skipped"]) == 2
@@ -189,3 +198,21 @@ def test_the_text_output_names_each_change(reference_world: World, capsys) -> No
     lines = capsys.readouterr().out.splitlines()
     assert lines[0] == "Card:card-b .about: 'card-a' -> 'card-a2'" and lines[-1] == "would change 5 reference(s), skipped 0"
     assert Path(reference_world.root / "cards" / "card-b.md").read_text(encoding="utf-8").count("card-a2") == 0
+
+
+@pytest.mark.parametrize("excluded", ["Task:task-b", "desk/tasks/task-b.md"])
+def test_an_excluded_source_is_left_byte_for_byte_and_the_rest_is_rewritten(desk: Desk, excluded: str) -> None:
+    """H-b, with the graph built in process (H-a): the excluded document keeps its field; the other one and the mention move."""
+    desk.task("task-b", ["Atom:atom-a"])
+    desk.task("task-c", ["Atom:atom-a"])
+    before = (desk.root / "desk" / "tasks" / "task-b.md").read_bytes()
+    report = api.rewrite_references(desk.store, "atom-a", "atom-b", pythonpath=desk.py, graph=desk.graph(), excluded_sources=[excluded])
+    assert [(c["source"], c["before"], c["after"]) for c in report.changed] == [("Task:task-c", "Atom:atom-a", "Atom:atom-b"), ("desk/tasks/task-ref.md", "atom:atom-a", "atom:atom-b")]
+    assert (desk.root / "desk" / "tasks" / "task-b.md").read_bytes() == before
+    assert api.edge_node(desk.store, "Task:task-c").payload["depends_on"] == ["Atom:atom-b"]
+    assert desk.text("desk/tasks/task-ref.md") == "# Task ref\n\nDepends on atom:atom-b.\n"
+
+
+def test_an_excluded_source_that_names_no_tracked_document_is_refused(desk: Desk) -> None:
+    with pytest.raises(SLDBDocumentTargetError, match="Unknown document target: nope"):
+        api.rewrite_references(desk.store, "atom-a", "atom-b", pythonpath=desk.py, graph=desk.graph(), excluded_sources=["nope"])

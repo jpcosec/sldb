@@ -19,6 +19,7 @@ import pytest
 
 from sldb import api
 from sldb.api.edges.project_graph import DocumentSurface, LineMentions, MentionPattern, ProjectGraphConfig
+from sldb.api.edges.project_graph.project_graph import ProjectGraph
 from sldb.api.stores.declare_store import declare_store
 from sldb.api.stores.store_declaration import save_declaration
 from sldb.cli import main
@@ -197,3 +198,87 @@ def test_the_cli_prints_the_list_and_the_envelope_wraps_it(reference_world: Worl
     assert (code, envelope["error"]["type"]) == (1, "docs/missing")
     assert main(["edges", "referrers", "card-a", "--store", str(reference_world.store)]) == 0
     assert capsys.readouterr().out.splitlines() == ["schema: Card:card-b .about", "schema: Card:card-c .related[1]", "schema: Review:r1 .subject", "mention: cards/card-c.md:16", "mention: notes/d.md:3"]
+
+
+DESK_MODULE = "sldb_gd22_desk_models"
+DESK_MODELS = '''from pydantic import Field
+from sldb import StructuredNLDoc
+
+
+class Atom(StructuredNLDoc):
+    __template__ = "---\\nid: ⸢rev•id⸥\\n---\\n\\n# ⸢rev•title⸥"
+    id: str = Field(description="Atom id.")
+    title: str = Field(description="Title.")
+
+
+class Task(StructuredNLDoc):
+    __references__ = ["depends_on"]
+    __reference_models__ = {"depends_on": ["Atom"]}
+    __template__ = "---\\nid: ⸢rev•id⸥\\ndepends_on: ⸢rev,list•depends_on⸥\\n---\\n\\n# ⸢rev•title⸥"
+    id: str = Field(description="Task id.")
+    title: str = Field(description="Title.")
+    depends_on: list[str] = Field(default_factory=list, description="Atoms this task depends on.")
+'''
+
+DESK_CONFIG = ProjectGraphConfig(
+    document_extractor="docs_v1", file_extractor="files_v1", edge_extractor="edges_v1",
+    surfaces=(DocumentSurface(kind="atom", directory="desk/atoms", pattern="*.md", identity="document_id"), DocumentSurface(kind="task", directory="desk/tasks", pattern="*.md")),
+    fields_by_model={"Task": ("depends_on",)},
+    kind_by_model={"Atom": "atom", "Task": "task"},
+    line_mentions=(LineMentions(kinds=("task",), patterns=(MentionPattern(regex=r"(?i)atom:(?P<id>[a-z0-9-]+)", target="atom:{id}"),), role="mentions", locator="prose"),),
+)
+TASK_REF = "# Task ref\n\nDepends on atom:atom-a.\n"
+
+
+class Desk:
+    """The minimal desk of the deskops note (H-a): an atom, an untracked task mentioning it, no `project_graph` in `store.yaml`."""
+
+    def __init__(self, base: Path) -> None:
+        self.root, self.py = base / "desk-project", str(base)
+        self.root.mkdir()
+        self.store = api.init_store(self.root).store_path
+        for model in ("Atom", "Task"):
+            api.add_model(self.store, f"{DESK_MODULE}:{model}", self.py)
+        for name in ("atom-a", "atom-b"):
+            api.create_document(self.store, "Atom", self.root / "desk" / "atoms" / f"{name}.md", {"id": name, "title": name}, name, self.py)
+        (self.root / "desk" / "tasks").mkdir(parents=True)
+        (self.root / "desk" / "tasks" / "task-ref.md").write_text(TASK_REF, encoding="utf-8")
+
+    def task(self, name: str, depends_on: list[str]) -> None:
+        api.create_document(self.store, "Task", self.root / "desk" / "tasks" / f"{name}.md", {"id": name, "title": name, "depends_on": depends_on}, name, self.py)
+
+    def graph(self):
+        return ProjectGraph(self.root, DESK_CONFIG)
+
+    def text(self, relative: str) -> str:
+        return (self.root / relative).read_text(encoding="utf-8")
+
+
+@pytest.fixture
+def desk(tmp_path: Path):
+    (tmp_path / f"{DESK_MODULE}.py").write_text(DESK_MODELS, encoding="utf-8")
+    sys.path.insert(0, str(tmp_path))
+    try:
+        yield Desk(tmp_path)
+    finally:
+        sys.path.remove(str(tmp_path))
+        sys.modules.pop(DESK_MODULE, None)
+
+
+TASK_REF_MENTION = {"source": "desk/tasks/task-ref.md", "field": None, "index": None, "location": "desk/tasks/task-ref.md:3", "origin": "mention"}
+
+
+def test_a_graph_built_in_process_gives_the_mentions_the_store_does_not_declare(desk: Desk) -> None:
+    """H-a: without `project_graph` in `store.yaml` there are no mentions; the graph passed in gives them."""
+    assert api.referrers(desk.store, "atom-a") == []
+    assert [r.to_dict() for r in api.referrers(desk.store, "atom-a", graph=desk.graph())] == [TASK_REF_MENTION]
+
+
+def test_a_declared_field_is_one_schema_referrer_not_also_a_frontmatter_mention(desk: Desk) -> None:
+    """H-c: the line mention also reads the frontmatter line of `depends_on`; that line is the schema hit already."""
+    desk.task("task-b", ["Atom:atom-a"])
+    assert "Atom:atom-a" in desk.text("desk/tasks/task-b.md").split("\n---", 1)[0]
+    graph = desk.graph()
+    assert any(e.provenance_path == "desk/tasks/task-b.md" for e in graph.edges_to("atom:atom-a"))  # the mention is in the graph
+    found = [r.to_dict() for r in api.referrers(desk.store, "atom-a", graph=graph)]
+    assert found == [{"source": "Task:task-b", "field": "depends_on", "index": 0, "location": None, "origin": "schema"}, TASK_REF_MENTION]

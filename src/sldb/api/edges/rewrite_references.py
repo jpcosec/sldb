@@ -1,17 +1,19 @@
 """`sldb.api.rewrite_references(store, target, replacement, *, transaction=None, dry_run=False,
-pythonpath=None)` (GD22): every incoming reference of `target` (what `referrers` finds) rewritten to
+pythonpath=None, graph=None, excluded_sources=())` (GD22): every incoming reference of `target` (what `referrers` finds) rewritten to
 name `replacement`, or removed when it is None, inside one `sldb.api.transaction` of GD24 (the one
 given or its own): a write that fails puts every document back (docs/architecture/references.md).
 A scalar field takes the new value (None removes it: the model decides whether it may be null); a
 list field has the element replaced in place, or dropped, never duplicated; a mention has the
 captured text replaced on its line (`rewrite_mentions`) through `replace_text`. Every new payload
 and text is validated in memory first; with `dry_run` that is all: nothing is opened for writing
-and the `on_write` rules do not run.
+and the `on_write` rules do not run. `graph` is a project graph built in process, used instead of
+the declared one; the documents named in `excluded_sources` are left untouched, fields and mentions.
 """
 
 from __future__ import annotations
 
 from contextlib import nullcontext
+from collections.abc import Iterable
 from pathlib import Path
 from typing import Any
 
@@ -19,7 +21,7 @@ from sldb.api.documents.document_payload import runtime_document
 from sldb.api.documents.replace_text import replace_text
 from sldb.api.documents.transaction import Transaction, transaction as open_transaction
 from sldb.api.edges.project_graph.project_graph import ProjectGraph
-from sldb.api.edges.referrers import Hit, Target, find_hits, matching_documents, optional_graph, resolve_target
+from sldb.api.edges.referrers import Hit, Target, document_paths, find_hits, matching_documents, optional_graph, resolve_target
 from sldb.api.edges.rewrite_mentions import rewritten_text
 from sldb.api.edges.rewrite_report import RewriteReport
 from sldb.api.edges.rewrite_values import rewritten_payload
@@ -34,19 +36,28 @@ Plan = tuple[str, dict[str, Any], list[dict[str, Any]]]
 TextPlan = tuple[str, str, str, list[dict[str, Any]], list[dict[str, Any]]]
 
 
-def rewrite_references(store: str | Path | None, target: str, replacement: str | None, *, transaction: Transaction | None = None, dry_run: bool = False, pythonpath: str | None = None) -> RewriteReport:
+def rewrite_references(store: str | Path | None, target: str, replacement: str | None, *, transaction: Transaction | None = None, dry_run: bool = False, pythonpath: str | None = None, graph: ProjectGraph | None = None, excluded_sources: Iterable[str] = ()) -> RewriteReport:
     """Rewrite (or remove) every reference to `target` (what `referrers` accepts); see the module.
 
     `replacement` is resolved like `target` (a document keeps each value's form), written as given
     when it names nothing, None to remove. `transaction` is an open one over `store` to join.
-    Raises `SLDBDocumentTargetError` (unknown or ambiguous target, ambiguous replacement) and
-    `SLDBValidationError` (a rewritten payload or text the model refuses); nothing is written then.
+    `graph` replaces the declared project graph when given. Each of `excluded_sources` names a
+    tracked document like `target` does (`Model:name` and its path exclude the same one); its
+    fields and mentions are not rewritten.
+    Raises `SLDBDocumentTargetError` (unknown or ambiguous target, ambiguous replacement, an
+    excluded source that names no tracked document) and `SLDBValidationError` (a rewritten
+    payload or text the model refuses); nothing is written then.
     """
     location = open_store(store, mode="readonly" if dry_run else "default")
-    graph = optional_graph(location.store_path)
+    graph = graph if graph is not None else optional_graph(location.store_path)
     found = resolve_target(location, graph, target)
     new = None if replacement is None else replacement_target(location, graph, replacement)
+    excluded = excluded_paths(location, graph, excluded_sources)
     fields, mentions = _grouped(find_hits(location, found, graph))
+    if excluded:
+        paths = document_paths(location.store_path)
+        fields = {source: hits for source, hits in fields.items() if paths.get(source) not in excluded}
+        mentions = {path: hits for path, hits in mentions.items() if path not in excluded}
     plans = [_planned_payload(location, pythonpath, export_id, hits, found, new) for export_id, hits in fields.items()]
     texts = [_planned_text(location, graph, pythonpath, path, hits, found, new) for path, hits in mentions.items()]
     if not dry_run:
@@ -62,6 +73,17 @@ def replacement_target(location: StoreLocation, graph: ProjectGraph | None, give
         if "Ambiguous" in str(exc):
             raise
         return Target(given, None, None, None, None)
+
+
+def excluded_paths(location: StoreLocation, graph: ProjectGraph | None, sources: Iterable[str]) -> set[str]:
+    """The tracked paths (relative to the project) of the documents `sources` name; one that names no tracked document is `SLDBDocumentTargetError`."""
+    paths: set[str] = set()
+    for source in sources:
+        resolved = resolve_target(location, graph, source)
+        if resolved.path is None:
+            raise SLDBDocumentTargetError(f"Excluded source is not a tracked document: {source}")
+        paths.add(resolved.path)
+    return paths
 
 
 def _grouped(hits: list[Hit]) -> tuple[dict[str, list[Hit]], dict[str, list[Hit]]]:
