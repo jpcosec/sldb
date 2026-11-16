@@ -63,3 +63,4 @@
 {"task_id": "task-migrar-specsync-de-spec2viz-a-sldb-api-notations-junto-a-notationsync-y-palettesync-d1-b1-cierra-lo", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}
 {"task_id": "task-emparejamiento-de-\u00e1tomos-con-elementos-de-diagrama-expl\u00edcito-y-difuso-en-sldb-api-matching-d4", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}
 {"task_id": "task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relaci\u00f3n-de-aristas-contains", "run_id": "deskops-e-f61ad438e462", "run_dir": "runs/subagents/20261116-exec-test-where-retired", "session_sha256": null, "commit": null}
+{"task_id": "task-scan-tree-registra-los-imports-anidados-y-component-spec-from-python-dibuja-sus-aristas", "run_id": "deskops-e-0901c0b6a455", "run_dir": "runs/subagents/20261116-exec-scan-tree", "session_sha256": null, "commit": null}

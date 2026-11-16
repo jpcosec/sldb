@@ -1,0 +1,11 @@
+Task: task-scan-tree-registra-los-imports-anidados-y-component-spec-from-python-dibuja-sus-aristas
+Title: scan_tree registra los imports anidados y component_spec_from_python dibuja sus aristas
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective pills:
+- desk/contexts/pill-pill-imports-anidados-en-scan-tree.md
+Effective atoms:
+- atom-el-inventario-de-código-de-sldb-se-publica-como-hechos-de-fuente-y-cada-consumidor-los-proyecta
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]

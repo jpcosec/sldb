@@ -418,6 +418,10 @@ include:
     name: run-deskops-e-f61ad438e462
   - path: runs/subagents/20261116-test-test-where-retired/run.md
     name: run-deskops-t-e73d2fad915b
+  - path: runs/subagents/20261116-exec-scan-tree/run.md
+    name: run-deskops-e-0901c0b6a455
+  - path: runs/subagents/20261116-test-scan-tree/run.md
+    name: run-deskops-t-3ddb03815c4e
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -618,6 +622,11 @@ include:
   - desk/materializations/materialization-link-missing-commands-stores-link-alert.md
   - desk/materializations/materialization-link-missing-store-test-stores-build.md
   - desk/materializations/materialization-go10-test-where-retired-contains-en-contexto-de-predicado.md
+  - desk/materializations/materialization-imports-anidados-imports.md
+  - desk/materializations/materialization-imports-anidados-scan.md
+  - desk/materializations/materialization-imports-anidados-component-spec-python.md
+  - desk/materializations/materialization-imports-anidados-test-component-spec-python.md
+  - desk/materializations/materialization-imports-anidados-test-treesitter-symbols.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -1057,6 +1066,14 @@ include:
     name: review-task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains-evidence-atom-1
   - path: desk/reviews/task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains/evidence-materialization-2.md
     name: review-task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains-evidence-materialization-2
+  - path: desk/reviews/task-scan-tree-registra-los-imports-anidados-y-component-spec-from-python-dibuja-sus-aristas/evidence-tests-1.md
+    name: review-task-scan-tree-registra-los-imports-anidados-y-component-spec-from-python-dibuja-sus-aristas-evidence-tests-1
+  - path: desk/reviews/task-scan-tree-registra-los-imports-anidados-y-component-spec-from-python-dibuja-sus-aristas/evidence-commit-1.md
+    name: review-task-scan-tree-registra-los-imports-anidados-y-component-spec-from-python-dibuja-sus-aristas-evidence-commit-1
+  - path: desk/reviews/task-scan-tree-registra-los-imports-anidados-y-component-spec-from-python-dibuja-sus-aristas/evidence-atom-1.md
+    name: review-task-scan-tree-registra-los-imports-anidados-y-component-spec-from-python-dibuja-sus-aristas-evidence-atom-1
+  - path: desk/reviews/task-scan-tree-registra-los-imports-anidados-y-component-spec-from-python-dibuja-sus-aristas/evidence-materialization-1.md
+    name: review-task-scan-tree-registra-los-imports-anidados-y-component-spec-from-python-dibuja-sus-aristas-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -1073,7 +1090,6 @@ include:
   - desk/tasks/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2.md
   - desk/tasks/task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3.md
   - desk/tasks/task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida.md
-  - desk/tasks/task-scan-tree-registra-los-imports-anidados-y-component-spec-from-python-dibuja-sus-aristas.md
   - desk/tasks/task-el-oráculo-de-paridad-de-d2-deja-de-importar-spec2viz-golden-congelado-en-tests-notations.md
   - desk/tasks/task-label-key-de-sldb-api-matching-trata-el-guion-bajo-como-separador-igual-que-normkey-del-catálogo.md
   - desk/tasks/task-sldb-api-notations-reexporta-lo-que-specir-importa-hoy-de-módulos-internos-estilos-paletas-errores-m.md

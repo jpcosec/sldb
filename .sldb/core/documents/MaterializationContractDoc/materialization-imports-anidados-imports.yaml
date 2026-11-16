@@ -1,0 +1,25 @@
+name: materialization-imports-anidados-imports
+path: desk/materializations/materialization-imports-anidados-imports.md
+source_hash: ee359489601d77443cabb7a85383548aaccaf0c1c45ce97698f81478e1008631
+content_hash: 2b5c3cc030ed17ae82f75a48d10e643c48d2af512ba75ef744eb92fe675cd2b9
+field_hashes:
+  id: e4ba9badcded8aa9a1c03a819f4fda815a353e4367b462dccc355ead98cbeee5
+  title: 2c676f48a3d4e2259d8de8e454c9bc7de9f839e4b9b4ef005c804ec700d9a935
+  source_atoms: 38e6210dd522d4eba5b809d9ca035b335f4eaf880b4b5bb59a6de44d4db35db9
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 596fc200228a8dd04512b00b5c1e9c139d212cbf360b9f791662c4e7b42c291d
+  intent: f765cd0dd6d84962b1725ae54a99925865a80058fc0260ad543f6bebbbebef24
+  validation: 05784deddb4964eae5a5dd1dbb244a7e5634226993902b8e3fe6772559bba942
+  tags: 1bd30fbf588e03a559d1383cd3dfbb6c41a0f12bb25ba123031e1d9b4da3330b
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:code-facts
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T09:22:17Z'
+  authority: generated
+  via: create_document

@@ -1,0 +1,23 @@
+name: atom-los-imports-anidados-de-un-módulo-python-son-un-hecho-aparte-de-los-de-nivel-superior-y-el-spec-de-c
+path: desk/atoms/atom-los-imports-anidados-de-un-módulo-python-son-un-hecho-aparte-de-los-de-nivel-superior-y-el-spec-de-c.md
+source_hash: 822d55f9a96f39e24c4c8154321ca91c31f29afc8b36ad226ad043fd3db18549
+content_hash: 52f064d44fb89cdd1a8585d6c85836c6e3ffdd5fa9fe413f1d8ba049a143dced
+field_hashes:
+  id: 9db7fe944ebbada2eb0c5538f856a7e5b6f91042a1337673c0b016048c6dab81
+  title: def591b12748ca67004880164a946837792c40978b985d81cfb4996424cee844
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: 504880c95230a7469e1477505547efa9d0d34479a919fc9483f467702f0dd4d5
+  tags: 1bd30fbf588e03a559d1383cd3dfbb6c41a0f12bb25ba123031e1d9b4da3330b
+  provenance: 596fc200228a8dd04512b00b5c1e9c139d212cbf360b9f791662c4e7b42c291d
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:code-facts
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-16T09:21:57Z'
+  authority: generated
+  via: create_document

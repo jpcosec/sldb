@@ -1,0 +1,25 @@
+name: materialization-imports-anidados-test-component-spec-python
+path: desk/materializations/materialization-imports-anidados-test-component-spec-python.md
+source_hash: 9ad4abb31228e8061dcff22149269e0c2fccd33c69c20cfce1e6925d4a640d84
+content_hash: 56d880eed7f52c0a68ff4b9786a074b3aea4b8f81a91fe11653fda380645b113
+field_hashes:
+  id: 3b1ceee384693d518f036684449f9e06b4ac99beb1ad39a4dc4d1c589990e000
+  title: dee3e0dafe22a5ebcb4e265941997c1c9ae3823719c8c3354742dda68681fb11
+  source_atoms: 38e6210dd522d4eba5b809d9ca035b335f4eaf880b4b5bb59a6de44d4db35db9
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 4021b23efdcaf2b93d0cc183cea7661b1e07883135c862a7022ce14b94fd8473
+  intent: 89c204083563937edef0d4acba9cc4c241ff8f12164543cd61f34d1b91984663
+  validation: 05784deddb4964eae5a5dd1dbb244a7e5634226993902b8e3fe6772559bba942
+  tags: 1bd30fbf588e03a559d1383cd3dfbb6c41a0f12bb25ba123031e1d9b4da3330b
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:code-facts
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T09:23:22Z'
+  authority: generated
+  via: create_document

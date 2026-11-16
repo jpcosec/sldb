@@ -1,0 +1,36 @@
+name: review-task-scan-tree-registra-los-imports-anidados-y-component-spec-from-python-dibuja-sus-aristas-evidence-commit-1
+path: desk/reviews/task-scan-tree-registra-los-imports-anidados-y-component-spec-from-python-dibuja-sus-aristas/evidence-commit-1.md
+source_hash: d2d6a362fd94b448be48f585bff432cf4d3220eaa34ecda027a046727117db89
+content_hash: c67379364d8dbc64be71b8e8e6afabed1e4d345c257ccc7e99e985c925d2751c
+field_hashes:
+  id: 0c01a3855fd6245da5326ab8aca4de3a8e15a970dfbe94cc106b49a2680c7ba7
+  title: 0c809e298c1ca9839b22bb60eff5ce2b7a008a6d97ea32dee91396354b342609
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: 5ea9c58673a69c87d0e5540a6f9978aad8f8e0a0b9ce3471cff139c730d97888
+  value: ff206c2d79f4a386ab82aec389da0b963ccabdc4a9e3de4a90ec276dd836185d
+  subject: b88c2ad0df361d82e354bb7a52a6e4e172d4878350114350655f693e345b0bdd
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 006fc9894b7d21d6bbc6246486dadf5acb39e3898a9ae00ca5e876a9f4c4ad32
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 2f406e2419b19436b28cd26691beca4cca1c386989ba4e468de8272e7a07fd28
+  created_at: bf8080377e540e6bd7c07a821bf80f614f5554946d74d0e59b7ce92eea46fac1
+  disposed_at: bf8080377e540e6bd7c07a821bf80f614f5554946d74d0e59b7ce92eea46fac1
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 0521399fadb3e697cb9569fadfc6a9c8c4645e276e7d4fff513f0c4ebd8e477f
+  disposition: 1480026769f5b0ea0074d18868bdc9b8ac7c4e4bc8f12e60f7345b0eb66e747c
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T09:25:10Z'
+  authority: generated
+  via: save_document_payload

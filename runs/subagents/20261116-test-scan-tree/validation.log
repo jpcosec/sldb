@@ -1,0 +1,108 @@
+$ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q -rs tests/notations/test_component_spec_python.py
+s....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+SKIPPED [1] tests/notations/test_component_spec_python.py:46: could not import 'spec2viz.generators.python_ast': No module named 'spec2viz'
+4 passed, 1 skipped, 1 warning in 0.76s
+rc=0
+$ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q -rs tests/selfdoc/test_treesitter_symbols.py
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 0.05s
+rc=0
+
+$ (caso borde) uv run python /dev/shm/tst-scan/edge.py
+OK   py_imports nuevo == HEAD en 1160 archivos de src/
+  e.imports = ['a1,a2']
+  e.nested = ['.', '...', '.a', 'a2', 'deep_inner', 'in_async', 'in_class_body', 'in_else', 'in_except', 'in_finally', 'in_for', 'in_match', 'in_while']
+OK   top-level de e intacto
+FAIL rels de e = solo top-level
+OK   nested cubre def anidado, decorado, async, while, for, match, except/else/finally, cuerpo de clase, relativos
+OK   strings y comentarios no cuentan
+OK   modulo sin anidados -> nested_imports == []
+  aristas e: ['module_a1', 'module_a2', 'module_deep_inner', 'module_in_async', 'module_in_class_body', 'module_in_else', 'module_in_except', 'module_in_finally', 'module_in_for', 'module_in_match', 'module_in_while', 'module_pkg', 'module_pkg_a']
+OK   sin aristas duplicadas
+OK   a2 (top + anidado) una sola arista
+OK   relativo anidado resuelto (from .a -> pkg.a)
+OK   relativo fuera de raiz no crea arista basura
+  commands.nested = ['specir.visual.compilers', 'specir.visual.lint_mermaid', 'specir.visual.renderers']
+OK   commands.py ve compilers / lint_mermaid anidados
+FAILS: ['rels de e = solo top-level']
+
+$ (rels nuevo vs HEAD) /dev/shm/tst-scan/rels.py
+new rels: [{'type': 'imports', 'target': 'a1,a2'}]
+HEAD rels: [{'type': 'imports', 'target': 'a1,a2'}]  (worktree detached de HEAD en /dev/shm, ya eliminado)
+
+$ cat /dev/shm/tst-scan/edge.py
+import sys, importlib.util, pathlib, tempfile, os
+spec = importlib.util.spec_from_file_location("old_imports", "/dev/shm/tst-scan/old_imports.py")
+old = importlib.util.module_from_spec(spec); spec.loader.exec_module(old)
+from sldb.code.scan import scan_tree
+from sldb.code.imports import py_imports, py_nested_imports
+from sldb.code.runtime import parse
+from sldb.api.notations.component_spec_python import component_spec_from_python
+fails = []
+def check(name, cond):
+    print(("OK  " if cond else "FAIL"), name); cond or fails.append(name)
+
+# 1) attrs.imports y facts.rels sobre el src real: py_imports nuevo == viejo en cada .py de src/
+src = pathlib.Path("/mnt/ssd/proyectos/SLDB_1/sldb/src")
+n = diff = 0
+for p in src.rglob("*.py"):
+    b = p.read_bytes(); root = parse(b).root_node if hasattr(parse(b), "root_node") else parse(b)
+    n += 1
+    if old.py_imports(root, b) != py_imports(root, b): diff += 1; print("  diff", p)
+check(f"py_imports nuevo == HEAD en {n} archivos de src/", diff == 0)
+
+d = pathlib.Path(tempfile.mkdtemp(dir="/dev/shm"))
+(d/"pkg").mkdir(); (d/"pkg/__init__.py").write_text("")
+(d/"pkg/a.py").write_text("class A: pass\n")
+(d/"pkg/e.py").write_text(
+ "import a1, a2\n"
+ "s = 'import fake_in_string'\n# import fake_in_comment\n"
+ "@deco\ndef f():\n    def inner():\n        import deep_inner\n    import a2\n"
+ "async def g():\n    import in_async\n"
+ "while True:\n    import in_while\n    break\n"
+ "for _ in []:\n    import in_for\n"
+ "match x:\n    case 1:\n        import in_match\n"
+ "try:\n    pass\nexcept Exception:\n    import in_except\nelse:\n    import in_else\nfinally:\n    import in_finally\n"
+ "class C:\n    import in_class_body\n"
+ "def h():\n    from ... import too_far\n    from . import a\n    from .a import A\n")
+(d/"pkg/only_top.py").write_text("import os\nfrom pkg.a import A\n")
+facts = {f["id"]: f for f in scan_tree(d)}
+e = next(f for f in facts.values() if f.get("kind") == "module" and f["attrs"]["module"] == "pkg.e")
+print("  e.imports =", e["attrs"]["imports"]); print("  e.nested =", e["attrs"]["nested_imports"])
+check("top-level de e intacto", e["attrs"]["imports"] == ["a1,a2"])
+check("rels de e = solo top-level", sorted(r["target"] for r in e["relations"]) == ["a1", "a2"])
+exp = {"deep_inner","a2","in_async","in_while","in_for","in_match","in_except","in_else","in_finally","in_class_body","...",".",".a"}
+check("nested cubre def anidado, decorado, async, while, for, match, except/else/finally, cuerpo de clase, relativos", set(e["attrs"]["nested_imports"]) == exp)
+check("strings y comentarios no cuentan", not any("fake" in x for x in e["attrs"]["nested_imports"]))
+ot = next(f for f in facts.values() if f.get("kind") == "module" and f["attrs"]["module"] == "pkg.only_top")
+check("modulo sin anidados -> nested_imports == []", ot["attrs"]["nested_imports"] == [])
+
+spec_, _ = component_spec_from_python(d, root_package="pkg")
+edges = [(x["from"], x["to"]) for x in spec_["data"]["edges"] if x["relation"] == "imports"]
+ee = sorted(t for s, t in edges if s == "module_pkg_e"); print("  aristas e:", ee)
+check("sin aristas duplicadas", len(edges) == len(set(edges)))
+check("a2 (top + anidado) una sola arista", ee.count("module_a2") == 1)
+check("relativo anidado resuelto (from .a -> pkg.a)", "module_pkg_a" in ee)
+check("relativo fuera de raiz no crea arista basura", not any("too_far" in t or t.endswith("_") for t in ee))
+
+# 2) caso motivador: IR specir/visual/commands.py
+ir = pathlib.Path("/mnt/ssd/proyectos/SLDB_1/IR/src")
+cmd = next(f for f in scan_tree(ir / "specir" / "visual") if f.get("kind") == "module" and f["path"].endswith("commands.py"))
+print("  commands.nested =", cmd["attrs"]["nested_imports"])
+check("commands.py ve compilers / lint_mermaid anidados", any("compiler" in x for x in cmd["attrs"]["nested_imports"]) and any("lint_mermaid" in x or "mermaid" in x for x in cmd["attrs"]["nested_imports"]))
+print("FAILS:", fails)
