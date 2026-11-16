@@ -1,13 +1,15 @@
 name: 20261116-162239-unclear-docs-track-force-no-fuerza-sigue-diciendo-already-tracked
 path: desk/inbox/20261116-162239-unclear-docs-track-force-no-fuerza-sigue-diciendo-already-tracked.md
-source_hash: 561a74f764c36c77948dc7c852e396e267fd6475f8471d934f0e0711d0511825
-content_hash: 516eb9b181d873c233bdb4df52ebbbe73259b65ef01047ba37be79c227553c34
+source_hash: b532eee60f11c73b6beefddbd17fb61d9b8e43a167e643e2b30b1ee392612847
+content_hash: 81f0ecbed441e89d0abd8cbfc04d5daa7ad99ea765ed49e04fe5d72120940576
 field_hashes:
   kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
   sender_project: e710514e29fab1ba3c04f75397d61d649da0270012ce642af2775691b57f6e9c
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: 96daf954a8a270f192f9e41185a9cc1860ddf9e5d50bc29091130b56476538ac
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: b7cf9db0cf304cafafee07d967bb83fb2f7c7f3cc808723c77baa813a7a39a7d
   title: 07f2e283956fb40b1c5dcce3349c8502309fafb4cd9f0217b4c1a7abed98f640
   body: c0c145f9aa657eb495b3b8e9e747204aa6cc6920bef465a619a5202d8694ba1d
 semantic_tags:
@@ -15,4 +17,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-16T21:49:26Z'
+  authority: generated
+  via: save_document_payload

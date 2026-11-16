@@ -314,6 +314,7 @@ include:
   - desk/inbox/20261116-161013-suggestion-fields-update-parsea-el-valor-como-yaml-y-el-inbox-no-tiene-promote-matriz-ux-de-sldb-ui.md
   - desk/inbox/20261116-162239-unclear-docs-track-force-no-fuerza-sigue-diciendo-already-tracked.md
   - desk/inbox/20261116-172753-suggestion-sldb-stores-remove-no-quita-el-enlace-de-la-declaraci-n-en-store-yaml-y-otra-sesi-n-lo-reintroduce.md
+  - desk/inbox/20261116-184421-unclear-ir04b-undo-changes-lo-sirve-sldb-mcp-o-es-una-extensi-n-de-specir-qui-n-guarda-la-pila-de-lotes-inversos-de-la-sesi-n.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -523,6 +524,14 @@ include:
     name: run-deskops-e-640c751d7c12
   - path: runs/subagents/20261116-test-b2/run.md
     name: run-deskops-t-9d06b59a722f
+  - path: runs/subagents/20261116-exec-b2sql/run.md
+    name: run-deskops-e-1cc9693036d5
+  - path: runs/subagents/20261116-test-b2sql/run.md
+    name: run-deskops-t-06b4a7769cb3
+  - path: runs/subagents/20261116-exec-ci1/run.md
+    name: run-deskops-e-ddef8b98ace9
+  - path: runs/subagents/20261116-test-ci1/run.md
+    name: run-deskops-t-5021a6084fb0
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -838,6 +847,7 @@ include:
   - desk/materializations/materialization-b2-panel.md
   - desk/materializations/materialization-b2-usetoggle.md
   - desk/materializations/materialization-b2-util.md
+  - desk/materializations/materialization-ci1-test-api-graph-analysis.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -1575,6 +1585,26 @@ include:
     name: review-task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2-evidence-atom-1
   - path: desk/reviews/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2/evidence-materialization-1.md
     name: review-task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2-evidence-materialization-1
+  - path: desk/reviews/task-ci-el-test-de-graph-path-explicado-sobre-datos-reales-pasa-en-un-clon-limpio-sin-sldb-cache-ni-archi/preflight-1.md
+    name: review-task-ci-el-test-de-graph-path-explicado-sobre-datos-reales-pasa-en-un-clon-limpio-sin-sldb-cache-ni-archi-preflight-1
+  - path: desk/reviews/task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t/preflight-4.md
+    name: review-task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t-preflight-4
+  - path: desk/reviews/task-docs-track-force-sobre-un-documento-ya-trackeado-en-la-misma-ruta-lo-re-indexa-desde-el-archivo-en-l/preflight-1.md
+    name: review-task-docs-track-force-sobre-un-documento-ya-trackeado-en-la-misma-ruta-lo-re-indexa-desde-el-archivo-en-l-preflight-1
+  - path: desk/reviews/task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t/bundle-4.md
+    name: review-task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t-bundle-4
+  - path: desk/reviews/task-ci-el-test-de-graph-path-explicado-sobre-datos-reales-pasa-en-un-clon-limpio-sin-sldb-cache-ni-archi/bundle-1.md
+    name: review-task-ci-el-test-de-graph-path-explicado-sobre-datos-reales-pasa-en-un-clon-limpio-sin-sldb-cache-ni-archi-bundle-1
+  - path: desk/reviews/task-docs-track-force-sobre-un-documento-ya-trackeado-en-la-misma-ruta-lo-re-indexa-desde-el-archivo-en-l/bundle-1.md
+    name: review-task-docs-track-force-sobre-un-documento-ya-trackeado-en-la-misma-ruta-lo-re-indexa-desde-el-archivo-en-l-bundle-1
+  - path: desk/reviews/task-ci-el-test-de-graph-path-explicado-sobre-datos-reales-pasa-en-un-clon-limpio-sin-sldb-cache-ni-archi/evidence-tests-1.md
+    name: review-task-ci-el-test-de-graph-path-explicado-sobre-datos-reales-pasa-en-un-clon-limpio-sin-sldb-cache-ni-archi-evidence-tests-1
+  - path: desk/reviews/task-ci-el-test-de-graph-path-explicado-sobre-datos-reales-pasa-en-un-clon-limpio-sin-sldb-cache-ni-archi/evidence-commit-1.md
+    name: review-task-ci-el-test-de-graph-path-explicado-sobre-datos-reales-pasa-en-un-clon-limpio-sin-sldb-cache-ni-archi-evidence-commit-1
+  - path: desk/reviews/task-ci-el-test-de-graph-path-explicado-sobre-datos-reales-pasa-en-un-clon-limpio-sin-sldb-cache-ni-archi/evidence-atom-1.md
+    name: review-task-ci-el-test-de-graph-path-explicado-sobre-datos-reales-pasa-en-un-clon-limpio-sin-sldb-cache-ni-archi-evidence-atom-1
+  - path: desk/reviews/task-ci-el-test-de-graph-path-explicado-sobre-datos-reales-pasa-en-un-clon-limpio-sin-sldb-cache-ni-archi/evidence-materialization-1.md
+    name: review-task-ci-el-test-de-graph-path-explicado-sobre-datos-reales-pasa-en-un-clon-limpio-sin-sldb-cache-ni-archi-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -1603,6 +1633,7 @@ include:
   - desk/tasks/task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y.md
   - desk/tasks/task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable.md
   - desk/tasks/task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t.md
+  - desk/tasks/task-docs-track-force-sobre-un-documento-ya-trackeado-en-la-misma-ruta-lo-re-indexa-desde-el-archivo-en-l.md
 - model: TaskDebugDoc
   paths:
   - desk/tasks/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024.md

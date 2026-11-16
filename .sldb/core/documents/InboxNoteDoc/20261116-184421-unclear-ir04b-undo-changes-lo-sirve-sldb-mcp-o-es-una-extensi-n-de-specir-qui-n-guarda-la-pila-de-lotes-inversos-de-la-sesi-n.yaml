@@ -1,0 +1,18 @@
+name: 20261116-184421-unclear-ir04b-undo-changes-lo-sirve-sldb-mcp-o-es-una-extensi-n-de-specir-qui-n-guarda-la-pila-de-lotes-inversos-de-la-sesi-n
+path: desk/inbox/20261116-184421-unclear-ir04b-undo-changes-lo-sirve-sldb-mcp-o-es-una-extensi-n-de-specir-qui-n-guarda-la-pila-de-lotes-inversos-de-la-sesi-n.md
+source_hash: 6c72f9d3e8a087d0b413db487242434ae26490295dd32c3830ff35fb3d8c10a0
+content_hash: 6662e1a9ae95812d7319db52651381f3fbe055124fc2790b01058a58d8fb30fb
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: d9cb75b639ac0bbd3e2b2c9abc33977b4289610265d590fb517e6e6e2f6cd7fb
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: 4d94a9534b0ea21d52070810bd1d0e4158ed586db3bff3ec361497b97eddb134
+  body: a15cbd7193b7d0c60cf29a3edbdf2be4ef10601990338705ce41310a016a4022
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

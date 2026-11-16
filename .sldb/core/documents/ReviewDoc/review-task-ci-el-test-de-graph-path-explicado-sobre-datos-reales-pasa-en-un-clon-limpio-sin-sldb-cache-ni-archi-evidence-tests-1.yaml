@@ -1,0 +1,36 @@
+name: review-task-ci-el-test-de-graph-path-explicado-sobre-datos-reales-pasa-en-un-clon-limpio-sin-sldb-cache-ni-archi-evidence-tests-1
+path: desk/reviews/task-ci-el-test-de-graph-path-explicado-sobre-datos-reales-pasa-en-un-clon-limpio-sin-sldb-cache-ni-archi/evidence-tests-1.md
+source_hash: d3304339d4292afdb4fd9363820d7bbefb320b8399c782b444cb9d0866d7f5f5
+content_hash: 351d9cb18ab7b12008de994db8e4885ab1ee2e1f152342e63de8637d6c93490f
+field_hashes:
+  id: f0c4bbd5c3d9d5e42d45f4c5f607729d01bb85f709ce9195f6ddda7805f28aa7
+  title: 9dcb93cb77d67e1b4e9edf76e71fb4924a9cd50fb5fd792faaff605693b0bbd4
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: 68f05093bc600659c0aecd265fad80c71a658cc857e91cdfeeee782eb670c200
+  value: 86882f2d954ca16bb515e18f10f352686b018e4fda0a8d4bd3e110aa3d87098b
+  subject: 29e78a17dda6896471c3c9d454a858c2550a251374f9cbc5cb88b309f416bb38
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: ed8fb39caff4012f1686d6fe6a2b386e5538b409b65d4253f0cd024d722568cf
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: b32036861e796c60792135c9fc7fa4a10dc5dc40d2f37e8173119c132a5d30df
+  created_at: fb9fe103866d3e3711511caa881f502e65b810c18cf824d9ff646a657ba0fc19
+  disposed_at: fb9fe103866d3e3711511caa881f502e65b810c18cf824d9ff646a657ba0fc19
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: ca97304f48a9a00f38a745316457adfb2f339c7d849b4bb6097ed2857364c7ec
+  disposition: 7ae2744c9723e4c4e2065b082daeaab44767524b40205d7d5966806603e49497
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T22:18:16Z'
+  authority: generated
+  via: create_document

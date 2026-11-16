@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T21:38:16Z'
+  at: '2026-11-16T22:20:12Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -57,6 +57,7 @@ tasks:
 - desk/tasks/task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y.md
 - desk/tasks/task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable.md
 - desk/tasks/task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t.md
+- desk/tasks/task-docs-track-force-sobre-un-documento-ya-trackeado-en-la-misma-ruta-lo-re-indexa-desde-el-archivo-en-l.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -148,3 +149,4 @@ _Generated from the task references above._
 - Merge de dos .sldb sin detenerse: merge driver de sldb, un comando que regenera los índices derivados y un error que dice exactamente qué correr (une la decisión de JP y H2 de velocidad-hooks) [draft] - Un merge o rebase de dos ramas que tocaron .sldb termina sin intervención: el merge driver de sldb resuelve store_index.yaml y models/*.yaml y une los include de store.yaml; si aun así quedan índices derivados ilegibles (por ejemplo, marcadores de un merge hecho sin el driver), cualquier comando de sldb que los lea falla con un mensaje que dice el comando exacto a correr, y ese comando los regenera desde los shards. El procedimiento está en AGENTS.md del repo y en la ayuda del CLI.
 - Separar el store en .sldb_store (todo lo versionado: store.yaml y core/) y .sldb_cache (todo lo regenerable), con stores migrate-layout, lectura del layout viejo y migración del ecosistema [draft] - Un store nuevo se crea en .sldb_store/ (store.yaml, core/ y README.md, todo versionado) con su cache en .sldb_cache/ (todo regenerable e ignorado); `sldb stores migrate-layout` lleva un store del layout viejo al nuevo con git mv; todo comando de sldb sigue leyendo un store en .sldb/ (layout viejo) con una alerta que dice que se migre; el store de sldb está migrado; y cada repo del ecosistema que tiene store recibió por inbox el aviso con el comando.
 - sldb.code lee SQL: tablas, columnas, vistas e índices de DDL y migraciones como hechos con anclas, con tree-sitter-sql como extra (B2, parte SQL) [draft] - Con el extra code instalado, sldb.code escanea archivos .sql y publica hechos de tablas, columnas, vistas e índices con la misma forma que los de Python y TS; un ancla code:<ruta>.sql::<tabla> o ::<tabla>.<columna> se registra y check_anchors la informa intact, changed, lost o reconnected.
+- docs track --force sobre un documento ya trackeado en la misma ruta lo re-indexa desde el archivo en lugar de fallar con already tracked [draft] - track_document_file(..., force=True) y docs track --force sobre un documento ya trackeado con el mismo modelo, nombre y ruta lo re-indexan desde el contenido actual del archivo (shard, índice y aristas al día) y terminan sin error; sin force sigue fallando con already tracked; make world de pron vuelve a pasar contra este sldb.

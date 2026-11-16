@@ -1,0 +1,9 @@
+Task: task-ci-el-test-de-graph-path-explicado-sobre-datos-reales-pasa-en-un-clon-limpio-sin-sldb-cache-ni-archi
+Title: CI: el test de graph-path explicado sobre datos reales pasa en un clon limpio, sin .sldb_cache ni archivos generados
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective atoms:
+- atom-graph-path-con-explain-devuelve-por-cada-tramo-las-aristas-que-lo-justifican-y-su-procedencia
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
