@@ -151,3 +151,16 @@ def test_label_key_matches_template_normkey():
     # normKey: minusculas, puntuacion a espacio, espacios colapsados; los acentos se conservan
     assert label_key("  HOMOLOGACIÓN de producto (R1) ") == "homologación de producto r1"
     assert label_key("4 Nueva") == "4 nueva"
+
+
+def test_label_key_underscore_is_a_separator():
+    # un elemento sin label se dibuja con su id; normKey separa el guion bajo
+    assert label_key("post_published") == "post published"
+
+
+@pytest.mark.parametrize(
+    ("value", "expected"),
+    [("post_published", "post published"), ("Año_2024", "año 2024"), ("a-b_c.d", "a b c d"), ("  x__y  ", "x y")],
+)
+def test_label_key_matches_normkey(value, expected):
+    assert label_key(value) == expected

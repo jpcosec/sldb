@@ -12,8 +12,12 @@ import re
 
 
 def label_key(value: str) -> str:
-    """Misma normalizacion que `normKey` del template (minusculas, sin puntuacion)."""
-    return re.sub(r"\s+", " ", re.sub(r"[^\w\s]+", " ", (value or "").strip().lower())).strip()
+    """Misma normalizacion que `normKey` del template (minusculas, sin puntuacion).
+
+    `normKey` usa `/[^\\p{L}\\p{N}\\s]+/gu`: el guion bajo no es letra ni digito, asi que tambien
+    es separador; por eso `[\\W_]+` y no `[^\\w\\s]+` (`\\w` incluye `_`).
+    """
+    return re.sub(r"\s+", " ", re.sub(r"[\W_]+", " ", (value or "").strip().lower())).strip()
 
 
 def normalize_key(value: str) -> str:
