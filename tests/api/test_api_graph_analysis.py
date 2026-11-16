@@ -26,6 +26,14 @@ class Spec(StructuredNLDoc):
     __semantics__ = {"type": ["doc", "spec"]}
     __template__ = "# ⸢rev•title⸥"
     title: str = Field(description="Title.")
+
+
+class Card(StructuredNLDoc):
+    __semantics__ = {"type": ["doc", "card"]}
+    __references__ = ["about"]
+    __template__ = "---\\nabout: ⸢rev•about⸥\\n---\\n\\n# ⸢rev•title⸥"
+    title: str = Field(description="Title.")
+    about: str = Field(default="", description="The spec this card is about.")
 '''
 
 
@@ -138,9 +146,13 @@ def test_the_cli_and_serve_expose_the_explained_path(world: AnalysisWorld, capsy
     assert explained[0]["path"] == [S3, S2, S1] and explained[0]["steps"][1]["edges"] == [_refines("s2-s1")]
 
 
-def test_explain_over_the_repo_own_index_names_origin_and_relation_doc():
-    """The desk's rituals: execution activates testing, testing hands to closeout."""
-    store = str(Path(__file__).resolve().parents[2] / ".sldb")
-    found = graph_path(store, "sldb://document/RitualDoc:ritual-execution", "sldb://document/RitualDoc:ritual-closeout", explain=True, include_linked=False)
+def test_explain_names_origin_and_relation_doc_or_field_over_a_store_built_in_tmp(world: AnalysisWorld):
+    """A declared reference (`schema`, by field) followed by the authored chain (`relation_doc`):
+    built here, so it holds in a clean clone without the checkout's .sldb or its caches."""
+    api.add_model(world.store, f"{MODULE}:Card", world.py)
+    world.create("Card", "c1", {"title": "C1", "about": "Spec:s3"})
+    found = graph_path(world.store, "sldb://document/Card:c1", S1, relations=["references", "refines"], explain=True, include_linked=False)
     edges = [e for step in found["steps"] for e in step["edges"]]
-    assert edges and all(e["provenance"]["origin"] and ("relation_doc" in e["provenance"] or "field" in e["provenance"]) for e in edges)
+    assert {e["provenance"]["origin"] for e in edges} == {"schema", "relation_doc"}
+    assert edges[0]["provenance"] == {"origin": "schema", "field": "about"} and edges[1:] == [_refines("s3-s2"), _refines("s2-s1")]
+    assert all(e["provenance"]["origin"] and ("relation_doc" in e["provenance"] or "field" in e["provenance"]) for e in edges)
