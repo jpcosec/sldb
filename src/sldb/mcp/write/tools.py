@@ -41,11 +41,7 @@ class WriteTools:
         findings = self._domain_findings(changes)
         if self._has_errors(findings):
             return self._domain_rejected(findings)
-        fingerprint = api.store_fingerprint(self.store_path)
-        batch = [propose.batch_change(self.store_path, change, fingerprint) for change in changes]
-        level = max(model_level(c.model) for c in batch)
-        sealed = Proposal(changes=batch, level=level, store_hash=fingerprint.store_hash, seal=self.sealer.seal(batch, level, fingerprint.store_hash))
-        return self._with_alerts(self._dry_run(sealed), findings)
+        return self._with_alerts(self._dry_run(self._seal(changes)), findings)
 
     def apply_changes(self, proposal: Proposal) -> dict[str, Any]:
         """Apply a proposal exactly as propose_changes returned it: whole, or nothing and why
@@ -56,6 +52,13 @@ class WriteTools:
         if self._has_errors(findings):
             return self._domain_rejected(findings)
         return self._with_alerts(apply.run_batch(self.store_path, proposal), findings)
+
+    def _seal(self, changes: list[Change]) -> Proposal:
+        """The sealed proposal: each change as a batch change against the store's current fingerprint."""
+        fingerprint = api.store_fingerprint(self.store_path)
+        batch = [propose.batch_change(self.store_path, change, fingerprint) for change in changes]
+        level = max(model_level(c.model) for c in batch)
+        return Proposal(changes=batch, level=level, store_hash=fingerprint.store_hash, seal=self.sealer.seal(batch, level, fingerprint.store_hash))
 
     def _domain_findings(self, changes: list[Any]) -> list[dict[str, Any]]:
         """What every batch validator an extension registered finds in `changes` (all of them run)."""
