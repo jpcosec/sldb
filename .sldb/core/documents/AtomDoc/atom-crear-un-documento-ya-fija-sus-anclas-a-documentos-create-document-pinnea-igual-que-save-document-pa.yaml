@@ -1,0 +1,23 @@
+name: atom-crear-un-documento-ya-fija-sus-anclas-a-documentos-create-document-pinnea-igual-que-save-document-pa
+path: desk/atoms/atom-crear-un-documento-ya-fija-sus-anclas-a-documentos-create-document-pinnea-igual-que-save-document-pa.md
+source_hash: 5e89c7e838de37d6f26d4f45d2d9a02684e5d8dd8ff572b07987e8222a033cf5
+content_hash: 9c42f3b9f121a9c332edd42e996a9c90c7c47e7dd1d34cad3390a7a030a452b9
+field_hashes:
+  id: e719983de2e4f624878f878a40c1f830258adc7dcb1b9730f98f38f8058a0c0f
+  title: 50e94e8684b902af1402832fb437d92c4577077dc4a06d2310757c2a77159a41
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: 318b5e75207016bff5b5ae3369263371c02c27c5ec70caa0e1d418af85eb66b1
+  tags: 2ca6aacc660d22a9b328ef92ba5939a951de297b874f6cb8341713379582793f
+  provenance: 5186fc5793f116692e6114dc590335433f9082525984e6c2f2d4261c1ba5ed07
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:anchors
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-16T11:09:58Z'
+  authority: generated
+  via: create_document
