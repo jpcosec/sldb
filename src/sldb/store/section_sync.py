@@ -22,19 +22,34 @@ logger = logging.getLogger(__name__)
 
 
 def process_model_sections(m_entry, root, report, store_path: Path | None, process_doc_sections) -> None:
-    from sldb.store import built_cache
-
     m_idx = load_models_index(root / m_entry.models_index)
     key = section_cache_key(m_idx)
-    if store_path and built_cache.get(store_path, "sections_shards", m_entry.name, key) is not None and _shards_kept(sections_shards_dir(store_path, m_entry.name), m_idx):
+    if _built_and_kept(store_path, m_entry, m_idx, key):
         return
     start = len(report.missing_paths)
     current = _sync_model_sections(store_path, m_entry, m_idx, root, report, process_doc_sections)
-    if missing := report.missing_paths[start:]:
-        logger.warning(missing_summary({m_entry.name: len(missing)}, missing))
+    _warn_missing(report, start, m_entry.name)
     _mark_has_sections(store_path, m_entry, m_idx, root, current)
+    _remember_built(store_path, m_entry.name, key)
+
+
+def _built_and_kept(store_path: Path | None, m_entry, m_idx, key) -> bool:
+    from sldb.store import built_cache
+
+    return bool(store_path) and built_cache.get(store_path, "sections_shards", m_entry.name, key) is not None and _shards_kept(sections_shards_dir(store_path, m_entry.name), m_idx)
+
+
+def _remember_built(store_path: Path | None, model_name: str, key) -> None:
+    from sldb.store import built_cache
+
     if store_path:
-        built_cache.put(store_path, "sections_shards", m_entry.name, key, True)
+        built_cache.put(store_path, "sections_shards", model_name, key, True)
+
+
+def _warn_missing(report, start: int, model_name: str) -> None:
+    """One summary line for the documents this model found missing since `start`."""
+    if missing := report.missing_paths[start:]:
+        logger.warning(missing_summary({model_name: len(missing)}, missing))
 
 
 def _mark_has_sections(store_path: Path, m_entry, m_idx, root, current: set[str]) -> None:
