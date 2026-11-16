@@ -6,6 +6,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any, Callable
 
+from sldb.api.documents.batch_inverse import before, inverse
 from sldb.api.documents.batch_prevalidate import prevalidate_changes
 from sldb.api.documents.batch_report import BatchReport
 from sldb.api.documents.transaction import Transaction, transaction
@@ -37,7 +38,8 @@ def apply_batch(store: str | Path | None, changes: list[dict[str, Any]], pythonp
         pythonpath: Directory to import the store's model modules from.
 
     Returns:
-        The ids applied, in order.
+        The ids applied, in order, and `inverse`: the batch that undoes this one, guarded by
+        the source hashes this one left (`apply_batch(store, report.inverse)` puts it back).
 
     Raises:
         SLDBValidationError: A malformed change, or a payload the model rejects (G4).
@@ -52,9 +54,10 @@ def apply_batch(store: str | Path | None, changes: list[dict[str, Any]], pythonp
     location = open_store(store)
     with store_lock(location.store_path, wait=True):  # guards are checked and writes made under one lock
         plan = sorted(prevalidate_changes(location, changes, pythonpath), key=lambda change: _ORDER[change["action"]])
+        prior = before(location, plan, pythonpath)  # what each change replaces, read under the lock
         with transaction(location.store_path, pythonpath) as tx:
             saved = [_applied(tx, change) for change in plan]
-    return BatchReport(saved=saved)
+        return BatchReport(saved=saved, inverse=inverse(location, prior))
 
 
 def _applied(tx: Transaction, change: dict[str, Any]) -> str:

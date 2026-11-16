@@ -7,6 +7,7 @@ moves test registers a referencing pair of models so an incoming edge can be fol
 from __future__ import annotations
 
 import hashlib
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -23,6 +24,7 @@ from sldb.store.layout import documents_shard_path
 
 from .conftest import PAYLOAD
 
+PROVENANCE = re.compile(rb"\A---\nsldb:\n(?:  .*\n)*---\n\n")
 REF_MODULE = "sldb_transaction_ref_models"
 REF_MODELS = '''from pydantic import Field
 from sldb import StructuredNLDoc
@@ -228,3 +230,43 @@ def test_a_failed_move_puts_the_file_and_the_entry_back(linked_store):
             raise RuntimeError("after the move")
     assert _files(root) == before
     assert api.check_store(store, root, py)["ok"]
+
+
+def _state(api_store) -> tuple[dict, dict, dict]:
+    """Payloads, index entries and Markdown bytes of every tracked document, the provenance
+    aside: the undo is stamped like any write (its `sldb:` front matter and the source hash)."""
+    docs = api.load_runtime_documents(api_store.store, api_store.pythonpath)
+    entries = {d.name: _entry(api_store, d.name).model_dump(exclude={"source_hash", "provenance"}) for d in docs}
+    unstamped = {d.name: PROVENANCE.sub(b"", (api_store.root / entries[d.name]["path"]).read_bytes()) for d in docs}
+    return {d.name: d.payload for d in docs}, entries, unstamped
+
+
+def _create_update_delete(api_store):
+    api_store.write_document("loose", PAYLOAD)
+    api.track_document_file(api_store.store, "TicketDoc", "loose.md", pythonpath=api_store.pythonpath)
+    before = _state(api_store)
+    report = api.apply_batch(api_store.store, [
+        {"id": "fresh", "action": "create", "model": "TicketDoc", "payload": {**PAYLOAD, "title": "Fresh"}},
+        {"id": "login", "action": "update", "payload": {**PAYLOAD, "title": "Changed"}},
+        {"id": "loose", "action": "delete"},
+    ], api_store.pythonpath)
+    return before, report
+
+
+def test_applying_the_inverse_puts_payloads_entries_and_bytes_back(api_store):
+    before, report = _create_update_delete(api_store)
+    assert {c["id"]: c["action"] for c in report.inverse} == {"fresh": "delete", "login": "update", "loose": "create"}
+    api.apply_batch(api_store.store, report.inverse, api_store.pythonpath)
+    assert _state(api_store) == before
+    assert not (api_store.root / "fresh.md").exists()
+    assert api.check_store(api_store.store, api_store.root, api_store.pythonpath)["ok"]
+
+
+def test_the_inverse_after_another_write_is_a_conflict_and_writes_nothing(api_store):
+    _, report = _create_update_delete(api_store)
+    api.save_document_payload(api_store.store, "TicketDoc", "login", {**PAYLOAD, "title": "Someone else"}, api_store.pythonpath)
+    touched = _files(api_store.root)
+    with pytest.raises(ConflictError) as info:
+        api.apply_batch(api_store.store, report.inverse, api_store.pythonpath)
+    assert info.value.ref == "login"
+    assert _files(api_store.root) == touched
