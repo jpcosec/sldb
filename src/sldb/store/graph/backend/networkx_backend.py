@@ -15,6 +15,7 @@ from __future__ import annotations
 from typing import Any, Callable
 
 from sldb.store.graph import analysis
+from sldb.store.graph.analysis.path_steps import explained_path, explained_paths
 from sldb.store.graph.backend.index_view import index_view
 from sldb.store.graph.language.predicate_api import findings, node_finding
 from sldb.store.graph.language.predicate_view import node, with_node
@@ -22,6 +23,8 @@ from sldb.store.graph.language.predicate_view import node, with_node
 _OPERATIONS: dict[str, Callable[..., Any]] = {
     "path": analysis.path_between,
     "paths": analysis.paths_between,
+    "path_explained": explained_path,
+    "paths_explained": explained_paths,
     "cycles": analysis.cycles,
     "order": analysis.topological_order,
     "layers": analysis.layers,

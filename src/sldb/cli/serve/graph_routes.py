@@ -46,10 +46,11 @@ def path_payload(handler: BaseHTTPRequestHandler, store_path: Path) -> tuple[dic
     values, error = require_params(params, "source", "target")
     if error is not None:
         return error, 400
-    found = graph_path(store_path, values[0], values[1])
+    explain = params.get("explain") in ("1", "true")
+    found = graph_path(store_path, values[0], values[1], explain=explain)
     if found is None:
         return {"ok": False, "error": f"No path from {values[0]} to {values[1]}."}, 404
-    return {"path": found}, 200
+    return found if explain else {"path": found}, 200
 
 
 def cycles_payload(handler: BaseHTTPRequestHandler, store_path: Path) -> tuple[dict[str, Any], int]:

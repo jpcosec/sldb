@@ -17,10 +17,9 @@ from sldb.api.graph import (
     graph_isolated,
     graph_layers,
     graph_order,
-    graph_path,
-    graph_paths,
     graph_similar,
 )
+from sldb.cli.commands.graph_path_print import print_path
 from sldb.core.exceptions import SLDBError
 from sldb.store.graph.analysis import ALL
 
@@ -47,13 +46,7 @@ class GraphAnalysisCLI:
         return handlers[args.graph_command](args)
 
     def _path(self, args: Any) -> int:
-        if args.all:
-            return _print(graph_paths(args.store, args.source, args.target, _rel(args), args.cutoff, args.limit, backend=self.backend, **_index(args)))
-        found = graph_path(args.store, args.source, args.target, _rel(args), args.directed, backend=self.backend, **_index(args))
-        if found is None:
-            print(f"No path from {args.source} to {args.target}.")
-            return 1
-        return _print(found)
+        return print_path(args, self.backend, _rel(args), _index(args))
 
     def _cycles(self, args: Any) -> int:
         found = graph_cycles(args.store, _rel(args), args.limit, backend=self.backend, **_index(args))

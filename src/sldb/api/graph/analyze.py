@@ -22,14 +22,19 @@ from sldb.core.exceptions import SLDBGraphArgumentError
 from sldb.store.graph.backend import GraphBackend, make_backend
 
 
-def graph_path(store, source: str, target: str, relations: object = None, directed: bool = False, backend: GraphBackend | None = None, **index) -> list[str] | None:
-    """The shortest chain of nodes connecting two nodes, or None."""
-    return _run(store, "path", {"source": source, "target": target, "relations": relations, "directed": directed}, index, backend)
+def graph_path(store, source: str, target: str, relations: object = None, directed: bool = False, backend: GraphBackend | None = None, explain: bool = False, **index) -> list[str] | dict[str, Any] | None:
+    """The shortest chain of nodes connecting two nodes, or None.
+
+    With `explain=True`, `{"path": [ids], "steps": [{source, target, edges}]}`: each edge with
+    its relation, the direction walked and its provenance (`sldb.store.graph.analysis.path_steps`).
+    """
+    return _run(store, "path_explained" if explain else "path", {"source": source, "target": target, "relations": relations, "directed": directed}, index, backend)
 
 
-def graph_paths(store, source: str, target: str, relations: object = None, cutoff: int | None = None, limit: int = 10, backend: GraphBackend | None = None, **index) -> list[list[str]]:
-    """Up to `limit` distinct chains between two nodes, shortest first."""
-    return _run(store, "paths", {"source": source, "target": target, "relations": relations, "cutoff": cutoff, "limit": limit}, index, backend)
+def graph_paths(store, source: str, target: str, relations: object = None, cutoff: int | None = None, limit: int = 10, backend: GraphBackend | None = None, explain: bool = False, **index) -> list[list[str]] | list[dict[str, Any]]:
+    """Up to `limit` distinct chains between two nodes, shortest first; with `explain=True`,
+    each one in the shape `graph_path(..., explain=True)` returns."""
+    return _run(store, "paths_explained" if explain else "paths", {"source": source, "target": target, "relations": relations, "cutoff": cutoff, "limit": limit}, index, backend)
 
 
 def graph_cycles(store, relations: object = None, limit: int = 10, backend: GraphBackend | None = None, **index) -> list[list[str]]:

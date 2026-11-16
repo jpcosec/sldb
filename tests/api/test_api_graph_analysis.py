@@ -2,14 +2,20 @@
 
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
 from sldb import api
-from sldb.api.graph import graph_central, graph_components, graph_cycles, graph_isolated, graph_order, graph_path, graph_similar
+from sldb.api.graph import graph_central, graph_components, graph_cycles, graph_isolated, graph_order, graph_path, graph_paths, graph_similar
 from sldb.cli import main as cli_main
+from sldb.cli.serve.graph_routes import path_payload
+from sldb.store.edge_index.edge_index import EdgeIndex
+from sldb.store.graph.analysis.path_steps import explain_path
+from sldb.store.models import EdgeNodeRecord, EdgeRecord
 
 MODULE = "sldb_analysis_test_models"
 MODELS = '''from pydantic import Field
@@ -95,3 +101,46 @@ def test_the_cli_prints_each_analysis(world: AnalysisWorld, capsys):
 def test_the_cli_says_so_when_there_is_no_path_and_exits_nonzero(world: AnalysisWorld, capsys):
     assert cli_main(["graph", "path", S1, "sldb://document/Spec:lonely", "--store", str(world.store)]) == 1
     assert "No path" in capsys.readouterr().out
+
+
+def _refines(relation_doc: str, direction: str = "forward") -> dict:
+    return {"relation": "refines", "direction": direction, "provenance": {"origin": "relation_doc", "relation_doc": relation_doc}}
+
+
+def test_explain_says_which_edge_joins_each_hop_and_where_it_came_from(world: AnalysisWorld):
+    """The authored chain read both ways: forward from s3, backward from s1; the plain form stays a list."""
+    assert graph_path(world.store, S3, S1, explain=True) == {"path": [S3, S2, S1], "steps": [{"source": S3, "target": S2, "edges": [_refines("s3-s2")]}, {"source": S2, "target": S1, "edges": [_refines("s2-s1")]}]}
+    backward = graph_path(world.store, S1, S3, explain=True)
+    assert [e["direction"] for step in backward["steps"] for e in step["edges"]] == ["backward", "backward"]
+    assert graph_paths(world.store, S3, S1, explain=True) == [graph_path(world.store, S3, S1, explain=True)]
+    assert graph_paths(world.store, S3, S1) == [[S3, S2, S1]]
+
+
+def test_a_hop_lists_every_edge_by_precedence_and_a_mirror_is_its_authored_edge_read_backward():
+    a, b = "sldb://document/M:a", "sldb://document/M:b"
+    meta = {"origin": "relation_doc", "relation_doc": "r1", "evidence": "x"}
+    edges = [EdgeRecord(source=b, target=a, relation="peer", metadata=meta), EdgeRecord(source=a, target=b, relation="peer", metadata={**meta, "reverse": True}),
+             EdgeRecord(source=a, target=b, relation="mentions", metadata={"origin": "alias"}), EdgeRecord(source=a, target=b, relation="owns", metadata={"origin": "schema", "field": "owner", "from_store": "other"}),
+             EdgeRecord(source=a, target=b, relation="odd", metadata={"origin": "custom"})]
+    index = EdgeIndex(nodes={n: EdgeNodeRecord(id=n, node_type="M") for n in (a, b)}, edges=edges)
+    peer = {"relation": "peer", "direction": "backward", "provenance": {"origin": "relation_doc", "relation_doc": "r1"}}
+    owns = {"relation": "owns", "direction": "forward", "provenance": {"origin": "schema", "field": "owner", "from_store": "other"}}
+    rest = [{"relation": "mentions", "direction": "forward", "provenance": {"origin": "alias"}}, {"relation": "odd", "direction": "forward", "provenance": {"origin": "custom"}}]
+    assert explain_path(index, [a, b], "*")["steps"][0]["edges"] == [peer, owns, *rest]
+    assert explain_path(index, [a, b], ["peer"], directed=True)["steps"][0]["edges"] == [peer]
+
+
+def test_the_cli_and_serve_expose_the_explained_path(world: AnalysisWorld, capsys):
+    assert cli_main(["graph", "path", S3, S1, "--explain", "--store", str(world.store)]) == 0
+    assert json.loads(capsys.readouterr().out)["steps"][0]["edges"] == [_refines("s3-s2")]
+    plain, explained = (path_payload(SimpleNamespace(path=f"/graph/path?source={S3}&target={S1}{q}"), world.store) for q in ("", "&explain=1"))
+    assert plain == ({"path": [S3, S2, S1]}, 200)
+    assert explained[0]["path"] == [S3, S2, S1] and explained[0]["steps"][1]["edges"] == [_refines("s2-s1")]
+
+
+def test_explain_over_the_repo_own_index_names_origin_and_relation_doc():
+    """The desk's rituals: execution activates testing, testing hands to closeout."""
+    store = str(Path(__file__).resolve().parents[2] / ".sldb")
+    found = graph_path(store, "sldb://document/RitualDoc:ritual-execution", "sldb://document/RitualDoc:ritual-closeout", explain=True, include_linked=False)
+    edges = [e for step in found["steps"] for e in step["edges"]]
+    assert edges and all(e["provenance"]["origin"] and ("relation_doc" in e["provenance"] or "field" in e["provenance"]) for e in edges)

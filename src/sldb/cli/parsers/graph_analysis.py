@@ -25,6 +25,7 @@ def _add_path(sub) -> None:
     p.add_argument("--all", action="store_true", help="Every route, not just the shortest")
     p.add_argument("--cutoff", type=int, help="With --all, the longest route to consider, in hops")
     p.add_argument("--limit", type=int, default=10, help="With --all, how many routes to print (default 10)")
+    p.add_argument("--explain", action="store_true", help="Print each hop with its edges: relation, direction and provenance")
     _walk_args(p)
 
 
