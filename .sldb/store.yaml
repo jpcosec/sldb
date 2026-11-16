@@ -726,6 +726,8 @@ include:
     name: review-task-migrar-a-sldb-los-modelos-de-spec-por-tipo-de-diagrama-de-spec2viz-con-carga-y-validación-junto-a-sp-bundle-1
   - path: desk/reviews/task-migrar-specsync-de-spec2viz-a-sldb-api-notations-junto-a-notationsync-y-palettesync-d1-b1-cierra-lo/bundle-1.md
     name: review-task-migrar-specsync-de-spec2viz-a-sldb-api-notations-junto-a-notationsync-y-palettesync-d1-b1-cierra-lo-bundle-1
+  - path: desk/reviews/task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida/preflight-1.md
+    name: review-task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida-preflight-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -741,6 +743,7 @@ include:
   - desk/tasks/task-api-pública-búsqueda-rankeada-escrituras-recientes-y-store-hash-como-precondición-atómica-brechas-de.md
   - desk/tasks/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2.md
   - desk/tasks/task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3.md
+  - desk/tasks/task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida.md
 - model: TaskDebugDoc
   paths:
   - desk/tasks/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024.md

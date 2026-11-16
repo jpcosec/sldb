@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T00:27:11Z'
+  at: '2026-11-16T00:33:39Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -26,6 +26,7 @@ tasks:
 - desk/tasks/task-sldb-escucha-suscripciones-y-stream-de-eventos-de-escritura-inbox-20261114-115028.md
 - desk/tasks/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2.md
 - desk/tasks/task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3.md
+- desk/tasks/task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -86,3 +87,4 @@ _Generated from the task references above._
 - sldb escucha: suscripciones y stream de eventos de escritura (inbox 20261114-115028) [draft] - Decidir la forma antes de implementar y dejar la implementación como tareas.
 - Código: readers y facts de TSX/TS y SQL con anclas sobre tree-sitter (inbox 20261115-022446, B2) [draft] - El paquete sldb.code lee TS/TSX y SQL, publica sus hechos de fuente y soporta anclas, con gramáticas tree-sitter como extras opcionales.
 - Grafo: graph_path y graph_paths devuelven caminos explicados con la procedencia de cada tramo (B3) [draft] - Caminos explicados: por cada tramo, origen, destino, tipo de relación, dirección recorrida y procedencia de la arista.
+- V0: benchmark fijo de velocidad (sldb bench) y punto de partida [draft] - Agregar a sldb el verbo 'sldb bench', que copia desks a un directorio de trabajo, mide en frío y en caliente tiempo de pared, CPU y RSS máximo de stores update (sin cambios y con un documento cambiado), stores check, stores build --check, deskops doctor, deskops status y el arranque de ambos CLI, y entrega JSON más una tabla; y dejar el punto de partida medido en reports/velocidad-baseline-20261115.md.

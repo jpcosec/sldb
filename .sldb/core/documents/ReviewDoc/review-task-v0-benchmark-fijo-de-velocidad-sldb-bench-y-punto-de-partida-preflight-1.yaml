@@ -1,0 +1,36 @@
+name: review-task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida-preflight-1
+path: desk/reviews/task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida/preflight-1.md
+source_hash: 7d8760a5b4c01cfda63794dfd5e3baa152beaf3b32bb367e0ead44ad0644a01c
+content_hash: 37e2e5c71dbf5fbad2b3212e3cc4f0830356300a57941b9321a308f1a8e7c69b
+field_hashes:
+  id: 2ce3024d5d2a0d92404baba722a03395d7021a98771c71bab94ab0ddeb6386e8
+  title: 1ad2d646e54ad07f982ed1adfa5d476a3abbcf58fbc922cf82140e480c1ae017
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: a455e4384528918d36de047a0d22ce79c42d8af7fa701fd4c5fe0d227a23bb1c
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: cec01b50d00c2e1469a66eb6acf200c8410803eaebf9f0e3d3cba2279bf394aa
+  input_sha256: 3dd76ef1102633085b31bec5141e73b764832e01ce136b189396e992d40741fb
+  output_sha256: d21aad755515dc803b9d5c95adb02043903f46b47ec992a5fd74db3877ab045b
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 1e4f5fa44bb2b845bb76d6d93505a10ee29b3669c5b03547e9fe46dd254fa027
+  created_at: 64b7b2302cb395619c0a270e8f97d211e8ff9d31968fb2d2bc23966a5c9dab71
+  disposed_at: 52ac4004b8d6a564be1e14b90c59a9c20e76bc6c5fc61d2e01030082239f0456
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 992155ac92a69f86fe529546b243abaf6ff7d08cef4239faa2e13ed86017a120
+  disposition: 8f23c1aeb9a027d2abc945f0f9b921d765ff0c34058a5a0dedcc15842faf29cd
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T00:35:23Z'
+  authority: generated
+  via: save_document_payload
