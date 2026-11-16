@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T14:56:24Z'
+  at: '2026-11-16T15:11:56Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -58,7 +58,6 @@ tasks:
 - desk/tasks/task-átomos-del-catálogo-sin-rutas-absolutas-atom-payload-y-store-documents-emiten-la-ruta-relativa-al-pr.md
 - desk/tasks/task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto.md
 - desk/tasks/task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup.md
-- desk/tasks/task-clean-code-tras-referrers-referrers-py-bajo-80-líneas-y-rewrite-references-con-10-líneas-de-lógica-c.md
 - desk/tasks/task-clean-code-tras-create-pin-create-document-con-10-líneas-de-lógica-como-máximo.md
 - desk/tasks/task-clean-code-tras-sections-rebuild-process-model-sections-con-10-líneas-de-lógica-como-máximo.md
 - desk/tasks/task-clean-code-tras-el-gancho-de-sldb-mcp-propose-changes-con-10-líneas-de-lógica-como-máximo.md
@@ -158,7 +157,6 @@ _Generated from the task references above._
 - Átomos del catálogo sin rutas absolutas: atom_payload y store_documents emiten la ruta relativa al proyecto y no la del store [draft] - El payload de átomos y las filas de store_documents traen "path" relativo a la raíz del proyecto del store que tiene el documento (con "/" como separador) y ya no traen la ruta absoluta del store; un catálogo construido con ellos no contiene "/mnt/" ni "/home/".
 - raw_atoms_by_view: si se pasa atoms_dir, ese directorio manda para todas las vistas y nunca entran átomos de un store ajeno [draft] - raw_atoms_by_view(views, atoms_dir=d) devuelve para todas las vistas los átomos de d y no consulta ningún store; sin atoms_dir, el comportamiento es el de hoy.
 - sldb notations from-graph elige el campo del label, el campo que da kind o estilo y un campo de agrupación [draft] - from-graph acepta --label-field <campo>, --kind-field <campo|tag:<namespace>> y --group-field <campo|tag:<namespace>>; con ellos, el label del nodo es el valor de ese campo del payload (o el id si falta), el kind es el valor del campo o del tag con ese namespace (o el modelo si falta), y los nodos con el mismo valor de agrupación quedan dentro de un nodo contenedor con aristas contains.
-- Clean code tras referrers: referrers.py bajo 80 líneas y rewrite_references con 10 líneas de lógica como máximo [draft] - tests/test_clean_code_rules.py y bash tools/check.sh --fast pasan sin la violación de task-referrers-y-rewrite-references, con el mismo comportamiento: los tests de la tarea original siguen verdes sin cambios.
 - Clean code tras create-pin: create_document con 10 líneas de lógica como máximo [draft] - tests/test_clean_code_rules.py y bash tools/check.sh --fast pasan sin la violación de task-create-document-pinnea, con el mismo comportamiento: los tests de la tarea original siguen verdes sin cambios.
 - Clean code tras sections-rebuild: process_model_sections con 10 líneas de lógica como máximo [draft] - tests/test_clean_code_rules.py y bash tools/check.sh --fast pasan sin la violación de task-una-escritura-sections-rebuild, con el mismo comportamiento: los tests de la tarea original siguen verdes sin cambios.
 - Clean code tras el gancho de sldb mcp: propose_changes con 10 líneas de lógica como máximo [draft] - tests/test_clean_code_rules.py y bash tools/check.sh --fast pasan sin la violación de task-sldb-mcp-gancho, con el mismo comportamiento: los tests de la tarea original siguen verdes sin cambios.

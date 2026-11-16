@@ -1,0 +1,36 @@
+name: review-task-clean-code-tras-referrers-referrers-py-bajo-80-líneas-y-rewrite-references-con-10-líneas-de-lógica-c-evidence-materialization-1
+path: desk/reviews/task-clean-code-tras-referrers-referrers-py-bajo-80-líneas-y-rewrite-references-con-10-líneas-de-lógica-c/evidence-materialization-1.md
+source_hash: cbf81bebacc8aedd33a9f1c582d7d8174b4b89e0045148049a6e79605148e79a
+content_hash: ffc93174b35a3e2a99b2f45da248c3ad4639435e75d53b5c42e72399ff0e2ce3
+field_hashes:
+  id: 5ed222a1a82b206f806a48cc08928e25638f5e74e67fb164ab74ac46b51f9d21
+  title: 78900551517ec591790ab54260b3f1c0697d1c646771bee70f0976a99cfbc673
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: fd8501637fc074c4cbec02646890fef4562fea518f8817e3265191a60c6675b2
+  subject: 726daab0e1916920c2c0fb25d4e38c4fec8f422aa2e2395baf3c14dc05f1bd76
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: caea694342c7de7ea2a53e71e38074e64decb8359f27521a265de96c3f826dac
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 183bb6aa0cfc773cea5b2316a3b58135a45fde59d39c8851daf3745d0e5646d4
+  created_at: c332d243b0ed1408d24938ddb52771346a97cc9b2efc54f181a1debfba137113
+  disposed_at: c332d243b0ed1408d24938ddb52771346a97cc9b2efc54f181a1debfba137113
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: fdf0e9c48be3e01baac1156d258ee32167b6d289b6e1be9733eab22fb897496c
+  disposition: 06be58864483c0daafd6446d9943cdaab1bb3fcfa8d99b63f2f5eaaa96692963
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T15:09:11Z'
+  authority: generated
+  via: save_document_payload

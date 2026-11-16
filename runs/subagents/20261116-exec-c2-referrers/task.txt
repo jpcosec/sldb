@@ -1,0 +1,9 @@
+Task: task-clean-code-tras-referrers-referrers-py-bajo-80-líneas-y-rewrite-references-con-10-líneas-de-lógica-c
+Title: Clean code tras referrers: referrers.py bajo 80 líneas y rewrite_references con 10 líneas de lógica como máximo
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective atoms:
+- atom-referrers-y-rewrite-references-trabajan-sobre-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-cuent
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
