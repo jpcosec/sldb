@@ -31,20 +31,25 @@ def _source_checkout_dir() -> Path | None:
     return None
 
 
-def source_revision() -> str | None:
-    """`git describe --tags --always --dirty` of the source checkout, or None outside git."""
-    checkout = _source_checkout_dir()
-    if checkout is None or not (checkout / ".git").exists():
-        return None
+def _git_describe(directory: Path) -> str | None:
+    """`git -C <directory> describe --tags --always --dirty`, or None if git fails or is missing."""
     try:
         done = subprocess.run(
-            ["git", "-C", str(checkout), "describe", "--tags", "--always", "--dirty"],
+            ["git", "-C", str(directory), "describe", "--tags", "--always", "--dirty"],
             capture_output=True, text=True, timeout=2, check=False,
         )
     except (FileNotFoundError, subprocess.TimeoutExpired):
         return None
     described = done.stdout.strip()
     return described if done.returncode == 0 and described else None
+
+
+def source_revision() -> str | None:
+    """`git describe --tags --always --dirty` of the source checkout, or None outside git."""
+    checkout = _source_checkout_dir()
+    if checkout is None or not (checkout / ".git").exists():
+        return None
+    return _git_describe(checkout)
 
 
 def version_line() -> str:
