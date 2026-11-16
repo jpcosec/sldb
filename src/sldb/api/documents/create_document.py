@@ -56,9 +56,7 @@ def create_document(store: str | Path | None, model_name: str, path: str | Path,
     doc_path = _resolve_path(path, location.project_root)
     doc_name = name or doc_path.stem
     _admit(location.store_path, registered, rendered, doc_name, payload)
-    doc_path.parent.mkdir(parents=True, exist_ok=True)
-    text = pin_provenance(location.store_path, stamped(rendered + "\n", registered.model_type, "create_document", actor))
-    write_source_text(doc_path, text)
+    _write(location.store_path, registered.model_type, rendered, doc_path, actor)
     _track(location.store_path, location.project_root, registered, doc_path, doc_name, pythonpath)
     return DocumentReference(model=registered.entry.name, name=doc_name, path=doc_path)
 
@@ -79,6 +77,12 @@ def _resolve_path(raw: str | Path, root: Path) -> Path:
     if raw_path.is_symlink():
         raise SLDBDocumentTargetError(f"[{READ_CODES[SYMLINK]}] {raw}: the path is a symlink; sldb does not write it")
     return raw_path.resolve()
+
+
+def _write(sp: Path, model_type: type, rendered: str, doc_path: Path, actor: str | None) -> None:
+    """Stamp the provenance, pin its `from:` anchors and write the file, parents created."""
+    doc_path.parent.mkdir(parents=True, exist_ok=True)
+    write_source_text(doc_path, pin_provenance(sp, stamped(rendered + "\n", model_type, "create_document", actor)))
 
 
 def _track(sp: Path, root: Path, registered, doc_path: Path, doc_name: str, pythonpath: str | None) -> None:
