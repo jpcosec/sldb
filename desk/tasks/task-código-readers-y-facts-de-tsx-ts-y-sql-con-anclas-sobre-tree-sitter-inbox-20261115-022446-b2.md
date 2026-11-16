@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T20:07:45Z'
+  at: '2026-11-16T20:37:24Z'
   authority: generated
   via: save_document_payload
 id: task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2
@@ -50,11 +50,24 @@ El paquete sldb.code lee TypeScript y JavaScript (.ts, .tsx, .js, .jsx) con un m
 
 _State what is in scope and what is out of scope._
 
-Amplía el pedido parcial del inbox sldb 20261115-022446, que solo pedía anclas: aquí entran readers y facts, no solo anclas. Hoy el escáner recorre solo .py con tree-sitter-python (extra code); sldb.code tiene readers, facts, fingerprints, ids, imports y scan. Alcance: TS/TSX (componentes, funciones, hooks, tipos, imports) y SQL (tablas, columnas, vistas, DDL y migraciones); hechos en la misma forma que los de Python (ver el atom del inventario de código como hechos de fuente); record_anchor y check_anchors con la misma referencia code:<ruta>::<qualified_name>, fingerprints por nodo, estados y reconexión; gramáticas como extras opcionales. Reutilizar la maquinaria existente de Python, no duplicarla. Fuera de alcance: mapear a conceptos de dominio (eso es specIR).
+Amplía el pedido parcial del inbox sldb 20261115-022446, que solo pedía anclas: aquí entran readers y facts, no solo anclas. Hoy el escáner recorre solo .py con tree-sitter-python (extra code); sldb.code tiene readers, facts, fingerprints, ids (src/sldb/code/ids.py), imports y scan.
 
-Precisiones (coordinador, 2026-11-16): esta tarea cubre TS y TSX; SQL va en la tarea hermana que depende de esta. kind de los hechos TS: component (función o const que devuelve JSX, nombre en mayúscula), hook (función cuyo nombre empieza por use), type (type o interface), function (el resto), module (el archivo). qualified_name del módulo: la ruta sin extensión con '.' como separador, igual que py_module_name. docstring: el comentario JSDoc /** */ inmediatamente anterior. NORMALIZATION no cambia si la salida de .py es la misma.
+Alcance (JP, 2026-11-16: el foco es el frontend): TypeScript y JavaScript, es decir .ts, .tsx, .js y .jsx, con un mismo reader en un módulo nuevo lang_ts.py del paquete sldb.code; solo cambia la gramática según la extensión (typescript para .ts; tsx para .tsx, .js y .jsx, porque la gramática tsx también parsea JavaScript). Hechos en la misma forma que los de Python (ver el atom del inventario de código como hechos de fuente). record_anchor y check_anchors usan la misma referencia code:<ruta>::<qualified_name>, con fingerprints por nodo, estados y reconexión. tree-sitter-typescript entra en el extra code. Se reutiliza la maquinaria existente de Python, sin duplicarla. Fuera de alcance: SQL (lo hace la tarea hermana que depende de esta), mapear a conceptos de dominio (eso es specIR) y cualquier cambio fuera del paquete sldb.code, salvo el registro de extensiones en code_ref y record_anchor que nombra Implementation Path.
 
-Precisiones (JP, 2026-11-16): el foco es el frontend. TS, TSX, JS y JSX se leen con un mismo reader (lang_ts.py); solo cambia la gramática según la extensión (typescript para .ts; tsx para .tsx, .js y .jsx). En JS no hay hechos kind type; component, hook, function y module aplican igual. El qualified_name del módulo sigue siendo la ruta sin extensión: si a.ts y a.js coexisten en la misma carpeta, el segundo en orden alfabético de ruta completa lleva el sufijo ~2, como hace Ids. No se reimplementa nada fuera del paquete sldb.code, salvo el registro de extensiones en code_ref y record_anchor que ya nombra Implementation Path.
+Reglas de los hechos:
+- kind component: declaración de función (function X, export function X, export default function X) o const/let con arrow function o function expression (const X = () => ..., const X = memo(() => ...), const X = forwardRef(...)), cuyo nombre empieza por mayúscula y cuyo cuerpo contiene al menos un nodo JSX en cualquier punto. Los reexports (export { X } from ...) no crean hechos.
+- kind hook: misma forma que component, con nombre que empieza por use seguido de mayúscula; tiene prioridad sobre component.
+- kind type: type alias o interface, solo en .ts y .tsx.
+- kind function: cualquier otra declaración de función o const con arrow function del nivel superior del módulo.
+- kind module: el archivo.
+- Solo se leen las declaraciones del nivel superior del módulo, incluidas las exportadas; las funciones anidadas no crean hechos.
+- docstring: el comentario /** ... */ cuyo final está en la línea inmediatamente anterior a la declaración, o a su export. No se admiten líneas en blanco en medio; los decoradores no cuentan como separación. El texto va sin los delimitadores ni los asteriscos de cada línea.
+- qualified_name del módulo: la ruta sin extensión con '.' como separador, igual que py_module_name; el de un símbolo es módulo.nombre. Si dos archivos de la misma carpeta dan el mismo qualified_name de módulo (a.ts y a.js), se ordenan por ruta completa y del segundo en adelante llevan el sufijo ~2, ~3..., con la misma función de ids.py que ya desambigua nombres repetidos.
+- NORMALIZATION no cambia si la salida de .py es la misma.
+
+Lock: después de agregar tree-sitter-typescript a pyproject.toml, se corre uv lock (sin --frozen) una vez. Los comandos de Validation con --frozen se corren después, ya con el lock nuevo. Si uv.lock tiene cambios ajenos sin commitear, se anota y lo decide el coordinador.
+
+La lista files nombra los archivos existentes que cambian. Los módulos nuevos (lang_ts.py) y los fixtures nuevos están autorizados por Implementation Path.
 
 ## Implementation Path
 

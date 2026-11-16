@@ -1,0 +1,25 @@
+name: materialization-b3-graph-analysis-command
+path: desk/materializations/materialization-b3-graph-analysis-command.md
+source_hash: 6ae00d9e33a6eac20b992c0859efb727ae3f7a228773e6f49043ac8ae8c73a78
+content_hash: 66ca65a4018038fba2ea72923d3779b2e0df5bf7c2d158e01a5c4e91de43085b
+field_hashes:
+  id: 5c17cdc5f21cd24df59b19e20aaa31b2f45cb335be9ceb618efbf84498cca18d
+  title: b876610b75bb3a7c050b623e9585aa3079c547c06bd8c743d5d79b2a6a7a2b41
+  source_atoms: 772a79f75a4b171a239bc7ddf9074954e006601ad3f42dfd12136be8ca1fc000
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 84de24540a01750345d46ea4f8d6e29afa8e4f051135a21a3628170e631a0963
+  intent: 436e2fe22e5b36272c4dada5522d873fc85e5bb5ea2548ac8d67985f7851eacd
+  validation: 85fb61c80844f77ff8e943da197c09931a4d3466ed828e723c3428270b5a405e
+  tags: 7a63f38b746315facc253bb99ed43c6e92fa7645b4127405e1ec66a7bc715d10
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:graph
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T21:02:14Z'
+  authority: generated
+  via: create_document

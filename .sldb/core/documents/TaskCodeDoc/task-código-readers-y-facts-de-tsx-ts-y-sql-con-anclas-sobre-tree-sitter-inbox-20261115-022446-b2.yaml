@@ -1,7 +1,7 @@
 name: task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2
 path: desk/tasks/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2.md
-source_hash: 7cfc71d810d92e10163f3f76f6b03be9bc1cdbe110d4604536ca98ab7b4ca913
-content_hash: aa238c1cdbe06ece20102f6e331318749385f04a68e2af30cd10df7968959e38
+source_hash: 6d42c680df1a49d3e419d2384a0e0e0c4e3d96d2099f03dfcde92ed710a83cc5
+content_hash: 8695f21bcf36cfc7ea2133545ad7a654dcd3a76f41aed65501046c69258da6cf
 field_hashes:
   title: c1955ae6a738c49c86153567be293404307ac335baccd0432be89caf64287669
   id: ed05d8d980b99b08e224dc91c7be71a3c469b32c47116af31bc04494f157877d
@@ -12,7 +12,7 @@ field_hashes:
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 1909ad266d9aa6280e5e1b78401029ff6fd7a392073485048c7e9a2cafcd28a2
   goal: 68892a23fb153f39ba34fbd3bee6461b18b3386f362935f47539176c18d7a2a5
-  scope: c4baaf4079d04a3030b30a652681d3ac44dc8f13bd0288f914aa081f76f0130c
+  scope: 557e1622ee5203f7cf870e656186c95f97489791d644060e888e3f463d9db65f
   references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-16T20:07:45Z'
+  at: '2026-11-16T20:37:24Z'
   authority: generated
   via: save_document_payload

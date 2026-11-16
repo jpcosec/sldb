@@ -1,0 +1,299 @@
+=== pytest -q tests/api/test_api_graph_analysis.py
+..........                                                               [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+10 passed, 1 warning in 28.95s
+rc=0
+=== pytest -q tests/store/test_graph_analysis.py
+................                                                         [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+16 passed, 1 warning in 0.66s
+rc=0
+=== pytest -q tests/store/test_graph_backend.py
+.........                                                                [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+9 passed, 1 warning in 29.07s
+rc=0
+=== pytest -q tests/test_serve.py
+.............................................................            [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+61 passed, 1 warning in 46.79s
+rc=0
+=== pytest -q tests/test_clean_code_rules.py
+........................................................................ [  6%]
+........................................................................ [ 12%]
+........................................................................ [ 18%]
+........................................................................ [ 24%]
+........................................................................ [ 30%]
+........................................................................ [ 36%]
+........................................................................ [ 42%]
+........................................................................ [ 49%]
+........................................................................ [ 55%]
+........................................................................ [ 61%]
+........................................................................ [ 67%]
+........................................................................ [ 73%]
+........................................................................ [ 79%]
+........................................................................ [ 85%]
+........................................................................ [ 92%]
+........................................................................ [ 98%]
+.....................                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1173 passed, 2 warnings in 2.72s
+rc=0
+=== check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   222 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 945 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  32 símbolos pedidos sin puerta que los declare
+PASS: superficie — 120 símbolos pedidos, 592 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+rc=0
+=== check_claims CHANGELOG.md (working tree)
+  ERROR  CHANGELOG.md: la ruta `docs/missing` no existe
+  ERROR  CHANGELOG.md: la ruta `docs/ambiguous` no existe
+  ERROR  CHANGELOG.md: el comando `sldb query` no existe
+FAIL: afirmaciones — 1 documentos, 282 afirmaciones comprobadas, 3 falsas
+rc=1
+=== check_claims CHANGELOG.md (HEAD, en /dev/shm/tb3-head)
+  ERROR  CHANGELOG.md: la ruta `docs/missing` no existe
+  ERROR  CHANGELOG.md: la ruta `docs/ambiguous` no existe
+  ERROR  CHANGELOG.md: el comando `sldb query` no existe
+FAIL: afirmaciones — 1 documentos, 274 afirmaciones comprobadas, 3 falsas
+rc=1
+=== edge cases /dev/shm/tb3/edge_cases.py
+null
+Traceback (most recent call last):
+  File "/dev/shm/tb3/edge_cases.py", line 20, in <module>
+    edges = [e for s in r["steps"] for e in s["edges"]]
+                        ~^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+rc=1
+=== edge cases /dev/shm/tb3/edge_cases.py (retry, ids URI)
+{
+ "path": [
+  "sldb://document/RitualDoc:ritual-execution",
+  "sldb://document/RitualDoc:ritual-testing",
+  "sldb://document/RitualDoc:ritual-closeout"
+ ],
+ "steps": [
+  {
+   "source": "sldb://document/RitualDoc:ritual-execution",
+   "target": "sldb://document/RitualDoc:ritual-testing",
+   "edges": [
+    {
+     "relation": "task_activates",
+     "direction": "forward",
+     "provenance": {
+      "origin": "relation_doc",
+      "relation_doc": "execution-task_activates"
+     }
+    }
+   ]
+  },
+  {
+   "source": "sldb://document/RitualDoc:ritual-testing",
+   "target": "sldb://document/RitualDoc:ritual-closeout",
+   "edges": [
+    {
+     "relation": "task_hands_to_closeout",
+     "direction": "forward",
+     "provenance": {
+      "origin": "relation_doc",
+      "relation_doc": "testing-task_hands_to_closeout"
+     }
+    }
+   ]
+  }
+ ]
+}
+OK  repo: steps == len(path)-1 
+OK  repo: each edge has origin and relation_doc|field 
+OK  repo: explain path == plain path ['sldb://document/RitualDoc:ritual-execution', 'sldb://document/RitualDoc:ritual-testing', 'sldb://document/RitualDoc:ritual-closeout']
+OK  source==target: steps [] {'path': ['a'], 'steps': []}
+OK  no path -> None 
+OK  paths no path -> [] 
+BAD relation filter excludes r2 on hop []
+Traceback (most recent call last):
+  File "/dev/shm/tb3/edge_cases.py", line 45, in <module>
+    check("backward hop b->c", e["steps"][1]["edges"][0]["direction"] == "backward", e["steps"][1])
+                               ~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+rc=1
+=== edge cases (retry 2: ids sldb:// en el índice sintético; el intento anterior usó ids desnudos, que as_node_id normaliza: artefacto del script)
+OK  repo: steps == len(path)-1 
+OK  repo: each edge has origin and relation_doc|field 
+OK  repo: explain path == plain path ['sldb://document/RitualDoc:ritual-execution', 'sldb://document/RitualDoc:ritual-testing', 'sldb://document/RitualDoc:ritual-closeout']
+OK  source==target: steps [] {'path': ['sldb://document/M:a'], 'steps': []}
+OK  no path -> None 
+OK  paths no path -> [] 
+OK  relation filter excludes r2 on hop ['r1', 'r1']
+OK  backward hop b->c {'source': 'sldb://document/M:b', 'target': 'sldb://document/M:c', 'edges': [{'relation': 'r1', 'direction': 'backward', 'provenance': {'origin': 'relation_doc', 'relation_doc': 'd3'}}]}
+OK  evidence excluded 
+OK  tie order r1<r2 {'source': 'sldb://document/M:a', 'target': 'sldb://document/M:b', 'edges': [{'relation': 'r1', 'direction': 'forward', 'provenance': {'origin': 'relation_doc', 'relation_doc': 'd1'}}, {'relation': 'r2', 'direction': 'forward', 'provenance': {'origin': 'relation_doc', 'relation_doc': 'd2'}}]}
+OK  directed a->c None 
+OK  nonempty edges a->a None 
+OK  nonempty edges a->a ['r1'] 
+OK  nonempty edges a->a ['r2'] 
+OK  nonempty edges a->b None 
+OK  nonempty edges a->b ['r1'] 
+OK  nonempty edges a->b ['r2'] 
+OK  nonempty edges a->c None 
+OK  nonempty edges a->c ['r1'] 
+OK  nonempty edges b->a None 
+OK  nonempty edges b->a ['r1'] 
+OK  nonempty edges b->a ['r2'] 
+OK  nonempty edges b->b None 
+OK  nonempty edges b->b ['r1'] 
+OK  nonempty edges b->b ['r2'] 
+OK  nonempty edges b->c None 
+OK  nonempty edges b->c ['r1'] 
+OK  nonempty edges c->a None 
+OK  nonempty edges c->a ['r1'] 
+OK  nonempty edges c->b None 
+OK  nonempty edges c->b ['r1'] 
+OK  nonempty edges c->c None 
+OK  nonempty edges c->c ['r1'] 
+OK  nonempty edges c->c ['r2'] 
+OK  empty field/from_store dropped {'path': ['sldb://document/M:a', 'sldb://document/M:b'], 'steps': [{'source': 'sldb://document/M:a', 'target': 'sldb://document/M:b', 'edges': [{'relation': 'k', 'direction': 'forward', 'provenance': {'origin': 'schema'}}]}]}
+OK  no origin -> provenance {} {'path': ['sldb://document/M:a', 'sldb://document/M:b'], 'steps': [{'source': 'sldb://document/M:a', 'target': 'sldb://document/M:b', 'edges': [{'relation': 'k', 'direction': 'forward', 'provenance': {}}]}]}
+OK  serve ut&explain=1 (200, ['path', 'steps'])
+OK  serve explain=true (200, ['path', 'steps'])
+OK  serve ut&explain=0 (200, ['path'])
+OK  serve ual-closeout (200, ['path'])
+OK  serve explain no-path -> 404 (404, {'ok': False, 'error': 'No path from sldb://document/RitualDoc:ritual-execution to __nope__.'})
+OK  cli --explain [] 0
+OK  cli --explain ['--all', '--limit', '2'] 0
+ALL OK
+rc=0
+=== REGRESIONES VECINAS (archivo por archivo)
+=== pytest -q tests/api/test_api_edges.py
+................                                                         [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+16 passed, 1 warning in 9.97s
+rc=0
+=== pytest -q tests/api/test_api_graph.py
+..                                                                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 0.99s
+rc=0
+=== pytest -q tests/api/test_graph_source_parity.py
+.............                                                            [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+13 passed, 1 warning in 3.08s
+rc=0
+=== pytest -q tests/store/test_payload_projection.py
+........................................                                 [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+40 passed, 1 warning in 1.52s
+rc=0
+=== pytest -q tests/store/test_predicate_language.py
+................                                                         [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+16 passed, 1 warning in 1.51s
+rc=0

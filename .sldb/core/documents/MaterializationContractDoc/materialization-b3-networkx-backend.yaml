@@ -1,0 +1,25 @@
+name: materialization-b3-networkx-backend
+path: desk/materializations/materialization-b3-networkx-backend.md
+source_hash: a79879034838262b881e607f11661ee124249e5310aba16efb9affb6e142cd51
+content_hash: 47fb48b4fea49db894c9e6aeba2f1efa91663c6ad3a5b1babfabcb80d05729b7
+field_hashes:
+  id: e70354a5be293afbf5dc42fc13ed71ef0e5dcd4512a190d9478a43b6246519b4
+  title: 67d6c41139cdd38eeab482443243fbdaa001249f5928f3f368c88e3819209347
+  source_atoms: 772a79f75a4b171a239bc7ddf9074954e006601ad3f42dfd12136be8ca1fc000
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: e3fa8bad870fe9f64c626f37b10ba3d2ab925bc347ef445fdedfdb9c967dfe36
+  intent: 4bb730a120f5aba11ab61d883bd361c36bd7cbb51a4036afaf5b433f16dfe81b
+  validation: 85fb61c80844f77ff8e943da197c09931a4d3466ed828e723c3428270b5a405e
+  tags: 7a63f38b746315facc253bb99ed43c6e92fa7645b4127405e1ec66a7bc715d10
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:graph
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T20:58:52Z'
+  authority: generated
+  via: create_document

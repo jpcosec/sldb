@@ -1,0 +1,23 @@
+name: atom-graph-path-con-explain-devuelve-por-cada-tramo-las-aristas-que-lo-justifican-y-su-procedencia
+path: desk/atoms/atom-graph-path-con-explain-devuelve-por-cada-tramo-las-aristas-que-lo-justifican-y-su-procedencia.md
+source_hash: 967c4c29b046993f4af13527d86854e5a2d5e971d513fb5d10950d712829fcec
+content_hash: 1d53def531db4475f3950dbcaa79bf641d73a952cc9c91d55e3b3f543e727a7a
+field_hashes:
+  id: 4d7c33715935819cdf91c9dec3aa6b8505e358ef9efa7feb82d6f3219f806fa4
+  title: 82fafc05d4d563b0b2b01144845284776ce08b8d6dcdaa63d06bc3c12eeaa5ea
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: e517bce517c8d11a174705fe7075ab136b6ba24ae55e512fbb24b5eaf72ac4ba
+  tags: 7a63f38b746315facc253bb99ed43c6e92fa7645b4127405e1ec66a7bc715d10
+  provenance: 210e715977e9ba50667ee0feb1f79a8bb931958160dbc7e0638a0a8fec1f0152
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:graph
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-16T20:56:59Z'
+  authority: generated
+  via: create_document

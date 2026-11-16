@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T20:30:28Z'
+  at: '2026-11-16T20:38:27Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 # review-<task>-<kind>-<n>
 id: review-task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2-bundle-3
 # preflight | bundle | reproduction | goldens | owner | node | evidence
@@ -24,14 +24,17 @@ run_dir: runs/subagents/20261116-202957/context-review/task-código-readers-y-fa
 input_sha256: 8b599431099f277806e6b922010fac9bd1794c719571aeabd08f125d700d20e3
 output_sha256: 8f8d570cdf5224cccf5628e92dbca7345febc57d4e2a8402655a1063eef74723
 # pending | accepted | rejected | incomplete
-verdict: pending
-reason: 'El input cambió de verdad: JP pidió que B2 cubra TS, TSX, JS y JSX con un
-  mismo reader (title, goal, implementation_path, done_when y Precisiones nuevas).'
+verdict: rejected
+reason: 'Contradicción real: la frase original del alcance seguía nombrando SQL. Se
+  reescribe el scope entero y queda coherente: solo TS, TSX, JS y JSX. Se fijan además
+  las reglas de component y hook (arrow, memo, forwardRef, JSX en cualquier punto,
+  sin reexports), la adyacencia del JSDoc, el sufijo ~N vía ids.py, el uv lock antes
+  de --frozen y que files lista solo los archivos existentes.'
 # ISO 8601 timestamp
 created_at: '2026-11-16T20:30:10.627419+00:00'
 # ISO 8601 timestamp, empty while pending
-disposed_at: ''
-disposed_by: ''
+disposed_at: '2026-11-16T20:38:08.372288+00:00'
+disposed_by: sldb
 # e.g. workspace:desk
 tags:
 - workspace:desk
@@ -48,3 +51,5 @@ bundle review; engine runtime-pi-deepseek-flash; evidence under runs/subagents/2
 ## Disposition
 
 _Record the verdict rationale and who disposed of the review._
+
+Verdict rejected: Contradicción real: la frase original del alcance seguía nombrando SQL. Se reescribe el scope entero y queda coherente: solo TS, TSX, JS y JSX. Se fijan además las reglas de component y hook (arrow, memo, forwardRef, JSX en cualquier punto, sin reexports), la adyacencia del JSDoc, el sufijo ~N vía ids.py, el uv lock antes de --frozen y que files lista solo los archivos existentes.

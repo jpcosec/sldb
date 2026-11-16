@@ -1,0 +1,25 @@
+name: materialization-b3-graph-routes
+path: desk/materializations/materialization-b3-graph-routes.md
+source_hash: 7501e73287de35fc133fc3754f226a81db4d0f542cbfffeeddebd1f651b3ea60
+content_hash: 945a66b9a2d1c0f3b39161a0a42b90df6b9a7a654f014f878e5871cf81554c9f
+field_hashes:
+  id: 9185935ac66896a011deacd8fced91264bf948e40bd85c0ab694568150aebce1
+  title: 1206e8dd42ecc44abf44400a22c36357cdee75730a2c5495b98c666e572f923f
+  source_atoms: 772a79f75a4b171a239bc7ddf9074954e006601ad3f42dfd12136be8ca1fc000
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 4ed541dc56746f7854267181ce2aa35153293592e3432f7d37cfefd175b23be5
+  intent: 76759ce30ea26a7be5228861eee8b4e23f593e3ffd57d0b069dc50fb7421ff9f
+  validation: 85fb61c80844f77ff8e943da197c09931a4d3466ed828e723c3428270b5a405e
+  tags: 7a63f38b746315facc253bb99ed43c6e92fa7645b4127405e1ec66a7bc715d10
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:graph
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T21:03:51Z'
+  authority: generated
+  via: create_document
