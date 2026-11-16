@@ -1,0 +1,9 @@
+Task: task-clean-code-tras-sections-rebuild-process-model-sections-con-10-líneas-de-lógica-como-máximo
+Title: Clean code tras sections-rebuild: process_model_sections con 10 líneas de lógica como máximo
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective atoms:
+- atom-una-reconstrucción-de-secciones-con-documentos-trackeados-ausentes-avisa-una-vez-por-modelo-con-el-n
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]

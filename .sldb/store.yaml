@@ -484,6 +484,10 @@ include:
     name: run-deskops-e-6e35133703b0
   - path: runs/subagents/20261116-test-c3-createpin/run.md
     name: run-deskops-t-e4d2bed64866
+  - path: runs/subagents/20261116-exec-c4-sections/run.md
+    name: run-deskops-e-8ceadfbae763
+  - path: runs/subagents/20261116-test-c4-sections/run.md
+    name: run-deskops-t-ca6d4d0b8fa2
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -759,6 +763,7 @@ include:
   - desk/materializations/materialization-c2-referrers-referrer-frontmatter.md
   - desk/materializations/materialization-c2-referrers-rewrite-plan.md
   - desk/materializations/materialization-c3-createpin-create-document.md
+  - desk/materializations/materialization-c4-sections-section-sync.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -1376,6 +1381,14 @@ include:
     name: review-task-clean-code-tras-create-pin-create-document-con-10-líneas-de-lógica-como-máximo-evidence-atom-1
   - path: desk/reviews/task-clean-code-tras-create-pin-create-document-con-10-líneas-de-lógica-como-máximo/evidence-materialization-1.md
     name: review-task-clean-code-tras-create-pin-create-document-con-10-líneas-de-lógica-como-máximo-evidence-materialization-1
+  - path: desk/reviews/task-clean-code-tras-sections-rebuild-process-model-sections-con-10-líneas-de-lógica-como-máximo/evidence-tests-1.md
+    name: review-task-clean-code-tras-sections-rebuild-process-model-sections-con-10-líneas-de-lógica-como-máximo-evidence-tests-1
+  - path: desk/reviews/task-clean-code-tras-sections-rebuild-process-model-sections-con-10-líneas-de-lógica-como-máximo/evidence-commit-1.md
+    name: review-task-clean-code-tras-sections-rebuild-process-model-sections-con-10-líneas-de-lógica-como-máximo-evidence-commit-1
+  - path: desk/reviews/task-clean-code-tras-sections-rebuild-process-model-sections-con-10-líneas-de-lógica-como-máximo/evidence-atom-1.md
+    name: review-task-clean-code-tras-sections-rebuild-process-model-sections-con-10-líneas-de-lógica-como-máximo-evidence-atom-1
+  - path: desk/reviews/task-clean-code-tras-sections-rebuild-process-model-sections-con-10-líneas-de-lógica-como-máximo/evidence-materialization-1.md
+    name: review-task-clean-code-tras-sections-rebuild-process-model-sections-con-10-líneas-de-lógica-como-máximo-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -1405,7 +1418,6 @@ include:
   - desk/tasks/task-átomos-del-catálogo-sin-rutas-absolutas-atom-payload-y-store-documents-emiten-la-ruta-relativa-al-pr.md
   - desk/tasks/task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto.md
   - desk/tasks/task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup.md
-  - desk/tasks/task-clean-code-tras-sections-rebuild-process-model-sections-con-10-líneas-de-lógica-como-máximo.md
   - desk/tasks/task-clean-code-tras-el-gancho-de-sldb-mcp-propose-changes-con-10-líneas-de-lógica-como-máximo.md
   - desk/tasks/task-clean-code-tras-sldb-version-source-revision-con-10-líneas-de-lógica-como-máximo.md
   - desk/tasks/task-la-puerta-de-afirmaciones-vuelve-a-verde-el-changelog-no-nombra-la-ruta-inexistente-docs-architectur.md
