@@ -1,0 +1,23 @@
+name: atom-una-reconstrucción-de-secciones-con-documentos-trackeados-ausentes-avisa-una-vez-por-modelo-con-el-n
+path: desk/atoms/atom-una-reconstrucción-de-secciones-con-documentos-trackeados-ausentes-avisa-una-vez-por-modelo-con-el-n.md
+source_hash: ef4a96d046f81444bb7595bd5ec4809a58639b336dd96bcc95287ae637f0d72a
+content_hash: d8a8697d6d52dc250dc687f87b574f57a704b2a231977f39a7b11a187c4a6f2e
+field_hashes:
+  id: 41b3f980ab919515f62ce12f788b2dfed15a1c4595b4e69f03155fa1e82f7796
+  title: fceedea2c9f5c6ba839c4aae6b1278d337d654a9f7332a472e46ad12f179ff25
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: 890ad3688984d7b1f97ff23aa150c7a586332994b84369b72f27a58dd1fe5c4f
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+  provenance: e3fc7064d8312f94e4828a8cd22f811d9bec1602958d4ba2ce13a77e5cb2585b
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-16T10:14:16Z'
+  authority: generated
+  via: create_document

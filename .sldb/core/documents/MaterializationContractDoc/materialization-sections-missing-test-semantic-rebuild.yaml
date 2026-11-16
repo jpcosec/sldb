@@ -1,0 +1,25 @@
+name: materialization-sections-missing-test-semantic-rebuild
+path: desk/materializations/materialization-sections-missing-test-semantic-rebuild.md
+source_hash: a0ee6a8de98168e05843f7484e3af003354d6783e82e2239239f3aa33faa4a7f
+content_hash: 940818eee36db04cb22a978ad328319ed9e5f4b2b11964d1d32f4d3e90ebf5a6
+field_hashes:
+  id: 2b026e85602c77bef79458999d7a6d7bd98ce7e4cbff88ae481d0dcfaa3bd0b1
+  title: 8653538df5aae67baacb0c06999f61ef395ba14c93c6235265891270661e9c0a
+  source_atoms: f0160109c3512bdec1d810606817ddd364f9dec1f166a07ed478e87a65e97f0f
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 48940eb0301e55829912a7f5d5c8969faed0d4d00a024bb777a385b69f25ad7c
+  intent: 71fd8f4b610303fe38dae90cab15742ba332ae8f01764782f4295ba0733b3667
+  validation: 907db91e52870219ba386510124af22d264ae19b4bde1f4197bfc7d55f422c7c
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T10:15:32Z'
+  authority: generated
+  via: create_document

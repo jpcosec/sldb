@@ -1,0 +1,48 @@
+$ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/store/test_semantic_rebuild.py
+..........                                                               [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+10 passed, 1 warning in 0.67s
+rc=0
+
+$ ... pytest -q tests/store/test_semantic_rebuild.py::test_missing_documents_log_one_summary_warning -v
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.1.1, pluggy-1.6.0
+rootdir: /mnt/ssd/proyectos/SLDB_1/sldb
+configfile: pyproject.toml
+plugins: cov-7.1.0
+collected 1 item
+
+tests/store/test_semantic_rebuild.py .                                   [100%]
+
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+========================= 1 passed, 1 warning in 0.66s =========================
+rc=0
+
+$ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev python /dev/shm/tsm/edge.py   (bordes; copia en runs/subagents/20261116-test-sections-missing/edge_cases.py)
+logs during setup (all present): []
+OK   no warning when nothing missing -> []
+A: ['Sections rebuild: 4 documents missing on disk (Note: 4); e.g. notes/z0.md, notes/z1.md, notes/z2.md', 'Sections rebuild: 2 documents missing on disk (Memo: 2); e.g. memos/m0.md, memos/m1.md']
+OK   A: one line per model with missing (2 models) -> 2
+OK   A: Memo line, <3 examples -> ['Sections rebuild: 4 documents missing on disk (Note: 4); e.g. notes/z0.md, notes/z1.md, notes/z2.md', 'Sections rebuild: 2 documents missing on disk (Memo: 2); e.g. memos/m0.md, memos/m1.md']
+OK   A: Note line, 4 counted, 3 alpha examples -> ['Sections rebuild: 4 documents missing on disk (Note: 4); e.g. notes/z0.md, notes/z1.md, notes/z2.md', 'Sections rebuild: 2 documents missing on disk (Memo: 2); e.g. memos/m0.md, memos/m1.md']
+OK   A: docs_skipped_missing==6 -> 6
+B (write via api.create_document): ['Sections rebuild: 4 documents missing on disk (Note: 4); e.g. notes/z0.md, notes/z1.md, notes/z2.md', 'Sections rebuild: 2 documents missing on disk (Memo: 2); e.g. memos/m0.md, memos/m1.md']
+OK   B: write emits <=1 line per model, not one per doc -> ['Sections rebuild: 4 documents missing on disk (Note: 4); e.g. notes/z0.md, notes/z1.md, notes/z2.md', 'Sections rebuild: 2 documents missing on disk (Memo: 2); e.g. memos/m0.md, memos/m1.md']
+C (warm): ['Sections rebuild: 2 documents missing on disk (Memo: 2); e.g. memos/m0.md, memos/m1.md']
+OK   D: no old per-doc format anywhere -> 
+FAILS 0
+rc=0
+
+# Negativo: mismo test con section_sync.py de HEAD (copia de src/ en /dev/shm, PYTHONPATH) -> 1 failed: 5 líneas 'Sections rebuild: doc 'nX' missing at ...' en vez de 1 resumen (salida resumida arriba en el informe)

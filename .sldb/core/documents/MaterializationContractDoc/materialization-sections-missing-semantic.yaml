@@ -1,0 +1,25 @@
+name: materialization-sections-missing-semantic
+path: desk/materializations/materialization-sections-missing-semantic.md
+source_hash: bfdb67a9e20d63bc62a5d5e4ef237a12ec1d70991bbabf7b3cad08aefc015d7a
+content_hash: 1544f1d8fc082a52edab1ad54b0b9dfbf01e8548966fd4838e1c657d98168252
+field_hashes:
+  id: d95f1687ff4c998e0ebae8210df0a97c40b75bb5c3b58c60b4c1ba3018f60b35
+  title: a2892a8a76a28422b5e7c48478a71714b8912b01ad65978441de18e47bc92c59
+  source_atoms: f0160109c3512bdec1d810606817ddd364f9dec1f166a07ed478e87a65e97f0f
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 8bb3caacdff21b12f1b1fe0adbc522cf1145d1887938b944d108f1564bb22e7c
+  intent: a9950bca27a6993988dac47d1558e8d9036b12ac083fa86ddbfff52c69933c84
+  validation: 907db91e52870219ba386510124af22d264ae19b4bde1f4197bfc7d55f422c7c
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T10:15:07Z'
+  authority: generated
+  via: create_document

@@ -1,0 +1,9 @@
+Task: task-una-escritura-en-un-store-con-documentos-generados-ausentes-no-imprime-una-línea-por-cada-uno-sectio
+Title: Una escritura en un store con documentos generados ausentes no imprime una línea por cada uno (Sections rebuild missing)
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective pills:
+- desk/contexts/pill-pill-dónde-se-agrupan-los-ausentes-de-sections-rebuild.md
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
