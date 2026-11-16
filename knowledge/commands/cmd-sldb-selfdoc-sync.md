@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:07:57Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-selfdoc-sync
 system: sldb
 command_path: selfdoc sync
 synopsis: Update generated fields and track reference documents.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#selfdoc sync; contract-sha256:06263cf4e45e5345356730da87d97af18e53fc01a92c8d29d8186f87695acd3f
+provenance: parser:sldb.cli.parser:build_parser#selfdoc sync; contract-sha256:43ec30cc0ad54dbd57f5d7819b517841f08016a6f7248a5551e9b1bbfdea46bb
 ---
 
 # selfdoc sync
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--factory"

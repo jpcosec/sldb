@@ -1,9 +1,14 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:54:26Z'
+  authority: generated
+  via: save_document_payload
 id: surface-sldb-legacy
 system: sldb
 surface: legacy
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#legacy; contract-sha256:1fa13980bb9c0f04ce7deaf13a211cc7458a689eda1e68627d1b65522f4e349b
+provenance: parser:sldb.cli.parser:build_parser#legacy; contract-sha256:58d7e286f29f8b62df60ce3f93b9ff5815daeaa8ea8f50efb530460c14d4e0d0
 ---
 
 # legacy

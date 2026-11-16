@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:49:53Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-fields-query
 system: sldb
 command_path: fields query
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#fields query; contract-sha256:bf39b1042cb279b0dfa666398b6f894e1cec793a8d5133be224bf47e07165f8a
+provenance: parser:sldb.cli.parser:build_parser#fields query; contract-sha256:3367078a6ecf845132efa98ae384e0283382816a10cc2f48da4d5639c0e8cb24
 ---
 
 # fields query
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'query'. It p
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "field"

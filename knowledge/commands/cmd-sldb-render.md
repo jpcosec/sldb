@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:02:10Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-render
 system: sldb
 command_path: render
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#render; contract-sha256:e04642ea74565f1edd927135c01b15befc97e4c91cb83b4a44e861720e075743
+provenance: parser:sldb.cli.parser:build_parser#render; contract-sha256:90766ef79e1d59b6b053022cb5cc72c7f39f6d0eae46edec0b3fea5ae73a2040
 ---
 
 # render
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'render'. It 
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "model"

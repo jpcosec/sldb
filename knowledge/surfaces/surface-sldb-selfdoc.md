@@ -1,9 +1,14 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:06:26Z'
+  authority: generated
+  via: save_document_payload
 id: surface-sldb-selfdoc
 system: sldb
 surface: selfdoc
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#selfdoc; contract-sha256:49987e1e27aa7139caac796142bb45ff7fcaa89e5075c9a79bb711d9e8549d37
+provenance: parser:sldb.cli.parser:build_parser#selfdoc; contract-sha256:049c2d0bedfdb870c4d9495e45d47a108f1fa5d287eb465877021d676b37aa0d
 ---
 
 # selfdoc

@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:11:18Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-stores-reconcile
 system: sldb
 command_path: stores reconcile
 synopsis: Explicitly reconcile a catalog against a subtree.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#stores reconcile; contract-sha256:fa5677737edd6da97f7720ab902239b5b8696e0a37d21e25444e1fe28127bfb1
+provenance: parser:sldb.cli.parser:build_parser#stores reconcile; contract-sha256:e77979c68b26526a2b8f4cd1aaebc0946f6acd54f6c43c8d646321f00f4f6b57
 ---
 
 # stores reconcile
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--path"

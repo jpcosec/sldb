@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:53:51Z'
+  authority: generated
+  via: save_document_payload
 id: surface-sldb-init
 system: sldb
 surface: init
@@ -8,7 +13,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: parser:sldb.cli.parser:build_parser#init; contract-sha256:74e0986dc3590370dc5c67a46bcef8cbe79f47792cb014b23d185c592e281d6f
+provenance: parser:sldb.cli.parser:build_parser#init; contract-sha256:9697092f003eaf68726658fa0a048c0430f11c9aa212e514bb15d6da968ded88
 ---
 
 # init

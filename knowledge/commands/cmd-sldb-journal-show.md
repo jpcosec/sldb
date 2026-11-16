@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-06T20:45:00Z'
+  at: '2026-11-16T20:54:08Z'
   authority: generated
   via: save_document_payload
 id: cmd-sldb-journal-show
@@ -9,7 +9,7 @@ system: sldb
 command_path: journal show
 synopsis: 'Retired: prints the notice and exits 0.'
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#journal show; contract-sha256:8b393ff4b1edd63c2b8a6eae17808cb78e9a19cf49ffeb1a9039b9c7f16e56e4
+provenance: parser:sldb.cli.parser:build_parser#journal show; contract-sha256:eabdf0dfe4ab399a7488ed047fb3deb7eda39fabb3e867da321425d0d60ab95f
 ---
 
 # journal show
@@ -31,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--store"

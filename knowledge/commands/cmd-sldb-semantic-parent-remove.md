@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-06T20:45:09Z'
+  at: '2026-11-16T21:08:47Z'
   authority: generated
   via: save_document_payload
 id: cmd-sldb-semantic-parent-remove
@@ -9,7 +9,7 @@ system: sldb
 command_path: semantic parent remove
 synopsis: Undeclare it.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#semantic parent remove; contract-sha256:2e311605e5bedff645d76feb29340dd4fe6c4c98ccff6541592d3307100409b2
+provenance: parser:sldb.cli.parser:build_parser#semantic parent remove; contract-sha256:ee7696b9a6e0aa0cdc70488d8266add918fed1d1d08777f0124c4614f813f60c
 ---
 
 # semantic parent remove
@@ -31,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "tag"

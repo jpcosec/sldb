@@ -1,7 +1,7 @@
 name: cmd-sldb-graph-cycles
 path: knowledge/commands/cmd-sldb-graph-cycles.md
-source_hash: 846578dda0a7e18e3297105fe5be5947e7373319546ea1a3b216a9ecd02eeeb8
-content_hash: dc1564167a3e5567d985c224ec7cdbbdcb4631b4aa5232fc029bf7f17fbe6f51
+source_hash: c77763e5ad4924642174eb44fd6b29846872f865c820df932382e0cfd34c6e86
+content_hash: c34ba8a1a1a23c599b304d9e747d2747fbcf400a97fe97fe56064f0328cb22f8
 field_hashes:
   id: fff337aefe49bcf056a883882056f841a746fea964f47119d315bf484ac132a9
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,12 +9,17 @@ field_hashes:
   synopsis: 3b8deeeb3633677fd82a259515e7bb55f28a1c18691a89afcf1769a6331f2d8d
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: c213e7c58f8244f1a0fa3e8ce6274756f903ddad3436f6c969fca4b26208a257
+  arguments: f5d2e2df43ae6b626303de70cdc24fdd7b3f9ae214041fd2d8b09dd60177bcc4
   usage: 91e472615ec3bfabfc797e8a4b902dcb0e028e4dfa29c17bdedf6b0302adfb8b
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 85e0c871af106927e5cd226918b67b136f59097de29a850e0a503b9088e367e4
+  provenance: 72dd328e24ca81f1aeaa237e370bfa3bef66149f748d136b228f8c8a8ab0570f
 semantic_tags:
 - representation.markdown
 - source.document.markdown
 - type.knowledge.cli_command
 - workspace.knowledge.commands
+provenance:
+  by: agent
+  at: '2026-11-16T20:51:06Z'
+  authority: generated
+  via: save_document_payload

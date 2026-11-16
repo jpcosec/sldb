@@ -1,7 +1,7 @@
 name: cmd-sldb-journal-show
 path: knowledge/commands/cmd-sldb-journal-show.md
-source_hash: 173875f54b7d67f9613afe4186f2443a145900dde398d851d0ab6a3bdd77e13c
-content_hash: 4c8164573080b4aab30c255e77e4474418829686cc6819bb8f46af8a4ecdcc82
+source_hash: a88f5891c4edcfbfbb102e64ecba42c47f5f91cbcb78bbf799b55b3ba72a3e56
+content_hash: 9d8d9df89b30aae8c75276b9b5eb8ffd727aef91f37a28de08b11d6591b46232
 field_hashes:
   id: b71b316f8074c2e95910c7047f73a0fdbc63fffab8700e7383a678138fca4ad0
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,10 +9,10 @@ field_hashes:
   synopsis: 4d2a407e1b1237c1244e95cc66ef68d49b165538e37649f75c77daeefa44821f
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: 4f7ac2930a46b538879f444a1de3d70511f35a5374be5dee2ade3b2c8ee05493
+  arguments: 18f8ed896f04488ed53122c0616c769cae2e0dd386da18937e60d1517c1ea0a8
   usage: 999865c96c0558cdf733822853d24ef1d3673d1a27c71aa16ed04a0ffe54867f
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: ee0feb4034187d0a5c0a96dd1a0b9c54ad371946654877a78e17290ad06980d9
+  provenance: f7f8d8bf3e7602f0a3108342a732209f39b14d85e114c77f9f06f0de69f889fe
 semantic_tags:
 - representation.markdown
 - source.document.markdown
@@ -20,6 +20,6 @@ semantic_tags:
 - workspace.knowledge.commands
 provenance:
   by: agent
-  at: '2026-11-06T20:45:00Z'
+  at: '2026-11-16T20:54:08Z'
   authority: generated
   via: save_document_payload

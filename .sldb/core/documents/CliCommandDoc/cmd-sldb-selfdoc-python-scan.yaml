@@ -1,7 +1,7 @@
 name: cmd-sldb-selfdoc-python-scan
 path: knowledge/commands/cmd-sldb-selfdoc-python-scan.md
-source_hash: 5ffb4d97e17f2b948e8493fb82ba3f55e3857beb1a1f62591de1ff4e00ebcd86
-content_hash: 0685bc4d2eb9934669f18a6b2b4fa0d95fb04b8d7f780c7eba14f2bed499a37f
+source_hash: c52a22c8d589ea962dcee3e225686f8b9a9f8a37aa824ac92951f230103d9489
+content_hash: 616e6fe0a34402a3ba6ac559c78cf3c96a903ac0965c518b38890ad00094760b
 field_hashes:
   id: ada667feaa6dbb831d935f8d690549bfa637811ad7519835abd13de1e213fe5a
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,10 +9,10 @@ field_hashes:
   synopsis: 3f4e87114788713141233255814e2d81c70da23ae8c0e8551d3a3effa4b53743
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: 97afe9679a84adec4e15660494753a50527a495ce3c5341f5cbf2d22fb9b5d7c
+  arguments: 896cbb7a6796f8cd8915516ada6dd282bff51ae535c670cdfa8c460e61fffe23
   usage: b568f01d5db478e794b3ebccfd58387ad1fbc5ad9d55711df1aab25a22703fcf
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 154b888a9e4221fc6d1758be870a31f90a92ab32b1a5193721c7704989bb9681
+  provenance: 3bd7c05fc4245411f25511f339cb708b88781857a63c08f730f6c2775f1792dd
 semantic_tags:
 - representation.markdown
 - source.document.markdown
@@ -20,6 +20,6 @@ semantic_tags:
 - workspace.knowledge.commands
 provenance:
   by: agent
-  at: '2026-11-06T20:45:07Z'
+  at: '2026-11-16T21:07:14Z'
   authority: generated
   via: save_document_payload

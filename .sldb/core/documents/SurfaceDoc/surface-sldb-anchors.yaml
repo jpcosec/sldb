@@ -1,7 +1,7 @@
 name: surface-sldb-anchors
 path: knowledge/surfaces/surface-sldb-anchors.md
-source_hash: 78c33311806929f3fa6dfcaccc1cbb5f121f1bb6298da4b85a0da697d92995b4
-content_hash: 0e3e5f5ab1e123553a06083b2959c5f69f251d44debe9e127715557ae213f688
+source_hash: 4f4279afed15e7106e83d5ca538b3bb1e551c9f8517ae9b613971d6ef4813084
+content_hash: 968e6cd0a748d6bba2db48be78e55438b8afb7b07e4926982f5955a7259dae10
 field_hashes:
   id: e045f7c72fc84e13644a4e01070c6986d73b5f3c9d0b5f262ed6f71f859a54f0
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -10,10 +10,14 @@ field_hashes:
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   commands: 700ed03a8f238cbbd44bc64d430a4935fe67297161a8a766ec9b1d8902cf264e
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: d07e9873aa51738a2507855fd4d321d4f82e19427e83dcdf1c13fcd8947d3dbf
+  provenance: 2ecf08f7febfc35fbc070b04897ea753bbe236d891d7814f2f1ef08ac170ddce
 semantic_tags:
 - representation.markdown
 - source.document.markdown
 - type.knowledge.surface
 - workspace.knowledge.surfaces
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-16T20:43:00Z'
+  authority: generated
+  via: save_document_payload

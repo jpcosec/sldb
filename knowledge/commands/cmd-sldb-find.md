@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-06T20:44:53Z'
+  at: '2026-11-16T20:50:24Z'
   authority: generated
   via: save_document_payload
 id: cmd-sldb-find
@@ -14,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#find; contract-sha256:d7641f6337c1fab6a753be7c7f4a1449f95e43a75787d5275294d1c23d8b446f
+provenance: parser:sldb.cli.parser:build_parser#find; contract-sha256:cfa06f6241aa64d72a366460bcb3bed7c43f486fd2c84e86daa9ad54f84c385c
 ---
 
 # find
@@ -36,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'find'. It pa
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "term"

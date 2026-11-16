@@ -1,7 +1,7 @@
 name: cmd-sldb-docs-history
 path: knowledge/commands/cmd-sldb-docs-history.md
-source_hash: 4e1461d132b37752f85273ae9f9efce3d0f3860e11ed993815257584cbc34862
-content_hash: af9970fbae4341c9a19bf5224f9f4afca3185c1c3effa65e77a6478e173a6d4c
+source_hash: ab31b2e71389af2f7ee765ff1693d058f271dac9cda98c69a68870c6b54a7569
+content_hash: d9f88df3a1ba975512c0a8bc4f0d636558236bdada5c42533c132eb6adbea3e2
 field_hashes:
   id: e76574ffe320ff1411cf66bfb32242f48ead46cf2dc565567b10a77aa6883069
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,13 +9,17 @@ field_hashes:
   synopsis: bb139618f8bb8fc0fde541b854203eb89cda272b359f7b6d13016ebe4f877894
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: 15ecaac394e4ee989339a177f39746ec293dee2227dd66936878083191f1d9a0
+  arguments: 1a350352de5861b2b193cc1c9ed8b5d82737fda6e146243a3c04d79ee6820018
   usage: 8a89f2fd714bf4735726959f76a2703ad89d90bc0aee6bb65198c0a79e587c86
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 104940580817775e99fb8848fe533847f50c55dd8d629c2e66e75d637028ec9e
+  provenance: 47b3f7d5e634bb1c30b209e5d60f5d9c3b969d5d93822ffaa278f9e50c92931a
 semantic_tags:
 - representation.markdown
 - source.document.markdown
 - type.knowledge.cli_command
 - workspace.knowledge.commands
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-16T20:45:48Z'
+  authority: generated
+  via: save_document_payload

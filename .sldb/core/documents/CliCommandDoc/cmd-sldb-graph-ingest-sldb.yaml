@@ -1,7 +1,7 @@
 name: cmd-sldb-graph-ingest-sldb
 path: knowledge/commands/cmd-sldb-graph-ingest-sldb.md
-source_hash: 69e8c84df262d96a6aa522e933f4032f20de8fdc73cb87354ef80cb78fa7bebc
-content_hash: 9b253866303ba8378bd833ccfcc269035bb9e7dbbaf301383909e7db10a995c3
+source_hash: 884e35e9bcb62fa8d9f54c5e4f168b86cdc493e83e4c2eaf1e1ec4bb7fe7d945
+content_hash: d20051a0cbcaa0455b546ab7bcb7c7ad6cb6715a7090ad0deeae612616067651
 field_hashes:
   id: efd23d90a0811ac110a1cc76270c7048479d09b338bf7ab07e8eb2a6bde76c59
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,12 +9,17 @@ field_hashes:
   synopsis: 77bfddc1446fa537b3797acad252f0241f00d62754a3a491302f82cf98f62ace
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: c01a982f6fef633f8be8b4d300e6acf77f71356ca35c0b086eb0195e0698a3f6
+  arguments: d546153507b05373970823857c08c4fb4f623ee557cf625677f7288c07c8364e
   usage: 42350a6f1f2803794c152e3623a180116da790f5710607f1626dbe5d1a68556e
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 4d62e58ac1edbc1377d33158aff630c4f95af2e1bef820021b7287e6a2aff5d4
+  provenance: 05346d687467647d1322c87d9b5343ae89c0330e09e5685c01424517f1cacc7d
 semantic_tags:
 - representation.markdown
 - source.document.markdown
 - type.knowledge.cli_command
 - workspace.knowledge.commands
+provenance:
+  by: agent
+  at: '2026-11-16T20:51:23Z'
+  authority: generated
+  via: save_document_payload

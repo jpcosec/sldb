@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:49:45Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-fields-create
 system: sldb
 command_path: fields create
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#fields create; contract-sha256:f16e020a25aa686c92d9beda66e41b536b8f9c223627b1309bd38dad0d5713f5
+provenance: parser:sldb.cli.parser:build_parser#fields create; contract-sha256:f8a80a3173528604c4d47923b35cb1bc443d57bdf0b0e3e90f74de6e1330f057
 ---
 
 # fields create
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'create'. It 
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "target"

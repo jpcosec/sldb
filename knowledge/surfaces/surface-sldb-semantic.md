@@ -1,9 +1,14 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:08:11Z'
+  authority: generated
+  via: save_document_payload
 id: surface-sldb-semantic
 system: sldb
 surface: semantic
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#semantic; contract-sha256:f56025e81b04b2cb8597f247c9a94f85e43abe6d8f7a888ec1a44761d8635d73
+provenance: parser:sldb.cli.parser:build_parser#semantic; contract-sha256:4634f34ae25e297db73d72481f8018da6b89a55bcb02fe2ee5070d036f764dcb
 ---
 
 # semantic

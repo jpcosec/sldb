@@ -1,7 +1,7 @@
 name: cmd-sldb-docs-exists
 path: knowledge/commands/cmd-sldb-docs-exists.md
-source_hash: 69071fd4f49486e74f97a838d9fa3389d9d49d8694d6c6d7f7a57fd49e48729b
-content_hash: 40825bdf55328709cb96d341a1815dce80eb6bb0f63506a215ffb75403807b0d
+source_hash: ef96936c6de5482ed649c218d6bdf3ad55a033c4959f8d9340db525cef4a1506
+content_hash: b378d212fbd7b2a05aa426d0df6a4c16e3e7893487f25ffb66d41c0c97de310e
 field_hashes:
   id: 52e1f7a8d9ecaf2959b245e93cdc27e64754e04419c8fcf453ea724f70533491
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,12 +9,17 @@ field_hashes:
   synopsis: 44fe15948b56d7cea69c54a20e681665f4f54d14d82e8e1cd570b43f6ee639a9
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: ca93af6cb3b80a7d5767f276c7714e2e1fb168ba8068b1899f2fb7931f50ef7b
+  arguments: 793e24737e87da82085ed59dc30a6f44eb4bf7e0d3e928e8888786d39e8179de
   usage: b55bac822c3969e078be7c53dad8af18240c65d20a1cf869a7024957945022cf
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: c99858634138fc1cdd1d8a647849a8e3042fc636db8d07baa1f6df7a2e25d8b8
+  provenance: 16a107124a5606ff6fa6de6289ce9ba8680e4fe35fea0c7410105085d0cc790c
 semantic_tags:
 - representation.markdown
 - source.document.markdown
 - type.knowledge.cli_command
 - workspace.knowledge.commands
+provenance:
+  by: agent
+  at: '2026-11-16T20:45:30Z'
+  authority: generated
+  via: save_document_payload

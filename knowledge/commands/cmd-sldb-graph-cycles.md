@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:51:06Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-graph-cycles
 system: sldb
 command_path: graph cycles
 synopsis: Cycles in a relation that should be a DAG.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#graph cycles; contract-sha256:ac5ad72e9791093d76bbaef2c46517d4fe9d2ca9729f3001dcc968fe44c42442
+provenance: parser:sldb.cli.parser:build_parser#graph cycles; contract-sha256:55e8be358c2cb023a5d9b59d9df46ee0a089fe1b15aba7fa66fdfdf2aabe818c
 ---
 
 # graph cycles
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--limit"

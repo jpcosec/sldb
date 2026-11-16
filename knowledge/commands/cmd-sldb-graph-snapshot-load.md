@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:52:49Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-graph-snapshot-load
 system: sldb
 command_path: graph snapshot load
 synopsis: Read a node-link or snapshot JSON file.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#graph snapshot load; contract-sha256:04e9f9db4ba4bfdabddd8e9fed49b28bd3ade6139d8ad7b0a64bd72458f4318d
+provenance: parser:sldb.cli.parser:build_parser#graph snapshot load; contract-sha256:cb273bcaf87b5a4eff8d047251a53f7eb408e1cd46a4cbb65d56ee30036d636e
 ---
 
 # graph snapshot load
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--input"

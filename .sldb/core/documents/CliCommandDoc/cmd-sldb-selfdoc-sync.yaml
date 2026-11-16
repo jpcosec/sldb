@@ -1,7 +1,7 @@
 name: cmd-sldb-selfdoc-sync
 path: knowledge/commands/cmd-sldb-selfdoc-sync.md
-source_hash: af2a36b3fed346e028698042e34881c9932f7c34735d9217aabbe9493c92164a
-content_hash: 72df95ca8e5c2da6397a2939efd892aa7cfa6be2f30894f8c6215e7cac7bb966
+source_hash: 14f76a732524db8b79f12860a2c6d343cce092c988e2e0b459c1395444abaea1
+content_hash: 214a2fbf1a8974a31dcad59d06ef88f039303593c5c788d466b7984e3218d9e0
 field_hashes:
   id: e45ffc6c9448a33743ef9e5154602e831650dcbcc3880082deadfc750189dbdc
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,12 +9,17 @@ field_hashes:
   synopsis: a9fb005225e2491fe59856857b6d2a848fee64ecd490ceb89d85cb35617e10d4
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: f12612b90657e949f55153bfd23e59e3d9fcaad9f39c011be961fd671b544538
+  arguments: c92710fe1c7a15231ee7bc1d8057326029737436826ece7f85235e1d67316567
   usage: ef580ad466c030c2963e9751e205ef9b6af74484348a6af213c5ca7ba1db67e9
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 276faa03cc62441a406af77c63ed9a44df3dd209b68034a13a70b4b1efff4545
+  provenance: 7f3146e3a964041b5022db34c1d3a36c0e2ccaf46876b70dda08df95ef741f6e
 semantic_tags:
 - representation.markdown
 - source.document.markdown
 - type.knowledge.cli_command
 - workspace.knowledge.commands
+provenance:
+  by: agent
+  at: '2026-11-16T21:07:57Z'
+  authority: generated
+  via: save_document_payload

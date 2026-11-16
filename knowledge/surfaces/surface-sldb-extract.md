@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:48:55Z'
+  authority: generated
+  via: save_document_payload
 id: surface-sldb-extract
 system: sldb
 surface: extract
@@ -8,7 +13,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: parser:sldb.cli.parser:build_parser#extract; contract-sha256:8360e64bc232e35fbd51c401ac68c69939596417a52cc3972fcaa81dc59ee8f2
+provenance: parser:sldb.cli.parser:build_parser#extract; contract-sha256:a8b25c282a96dad4240383b7a334cd3f73d29f6993791c8d82b11669b5168d66
 ---
 
 # extract

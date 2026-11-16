@@ -1,7 +1,7 @@
 name: surface-sldb-ast
 path: knowledge/surfaces/surface-sldb-ast.md
-source_hash: c8ef554f8004e4908ed7e1fea1f7f804dba3ea3a9853943aadef822fb3964d54
-content_hash: cc37a279a397cb2289a7746498d9c62b88b56d81e2a9a8f95a1e49fbab93cbe1
+source_hash: 46e9f1633999898af45e6c2fe75184280003f85a37f8e510ae85ae1624bfe1ef
+content_hash: eeecee7d8b3d048dbeae278c1bb39904062094e5ced1bfb94ed86966d1b0c270
 field_hashes:
   id: 51e783b6afc4cfc2921503165edb02a1dac8bfa8a6f1bbfdac948fc15a2f5308
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -10,7 +10,7 @@ field_hashes:
   how_it_works: a898d1a0dd3df4e61567726caad150a43653fd1ee75f4ae6568c10a97f0928fa
   commands: 868c60e068e667ff7e28e52a2a0000c7431559baec5e9c5fbdb3a9be871264c3
   tags: 28e2d739923a919405b798242e5394dda38832570ee573367673daed32bb183f
-  provenance: 07f7056513c354756fa65f8f867c9491628f4319e9ca1ec3b1518f280a78b35e
+  provenance: 8938ee9dee4991a007685af7caf41a18bc75e6ca52ed8c587ed237077300254e
 semantic_tags:
 - domain:retrieval
 - entity:cli_surface
@@ -21,3 +21,8 @@ semantic_tags:
 - system:sldb
 - type.knowledge.surface
 - workspace.knowledge.surfaces
+provenance:
+  by: agent
+  at: '2026-11-16T20:44:18Z'
+  authority: generated
+  via: save_document_payload

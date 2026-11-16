@@ -1,11 +1,16 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:12:57Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-tags-tree
 system: sldb
 command_path: tags tree
 synopsis: 'One namespace''s tags as a tree: roots (nested by prefix), orphans and
   unplaced.'
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#tags tree; contract-sha256:c083d074f6a389db14066a86d26f00ac78965af9584cf4fee0c65e4139d1919a
+provenance: parser:sldb.cli.parser:build_parser#tags tree; contract-sha256:56ae8fbd3a31625d683e2317ee5466a401b30737803a4f5b859ecd8d3a7cdf5a
 ---
 
 # tags tree
@@ -27,6 +32,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "namespace"

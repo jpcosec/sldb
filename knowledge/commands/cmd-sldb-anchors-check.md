@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:44:02Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-anchors-check
 system: sldb
 command_path: anchors check
 synopsis: Every anchor of the store against the code now; reads only, unless --record.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#anchors check; contract-sha256:ca2930871bf398d38ad19e20e1dd0a002fd4ca15d6fcc3af60b86473a5513f49
+provenance: parser:sldb.cli.parser:build_parser#anchors check; contract-sha256:731a8a4e1d5bb11cc66e09ffb4ef3d16a070f2650bdb7b5f57379c7dacb16c3f
 ---
 
 # anchors check
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--record"

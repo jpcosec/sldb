@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:45:56Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-docs-list
 system: sldb
 command_path: docs list
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#docs list; contract-sha256:49fa1cc6ce0e6c19eab4f1c2d3d43a0885c4a0432c4e64ad83bb7e32c32b816d
+provenance: parser:sldb.cli.parser:build_parser#docs list; contract-sha256:c7435593d6c2ade293c518eda560028860a72b11b4b4b3a90a41e23c72356d6b
 ---
 
 # docs list
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'list'. It pa
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--store"

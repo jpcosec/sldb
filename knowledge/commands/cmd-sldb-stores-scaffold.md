@@ -1,11 +1,16 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:11:37Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-stores-scaffold
 system: sldb
 command_path: stores scaffold
 synopsis: Create the folders and seed files .sldb/store.yaml declares; without --apply,
   report what is pending.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#stores scaffold; contract-sha256:9fd19bc23d9d49d84dbac157e87d206f8bc5b41bf6489cbdcced808446bfb53a
+provenance: parser:sldb.cli.parser:build_parser#stores scaffold; contract-sha256:3bcae7ecd5f202759fa8a0def6c416a3a4ca2d2515000d93bbd2c1fb20060446
 ---
 
 # stores scaffold
@@ -27,6 +32,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--store"

@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:11:49Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-stores-semantic-export
 system: sldb
 command_path: stores semantic-export
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#stores semantic-export; contract-sha256:e2151bfd4c7dfb041ee9b3f144d2b25e8c003472c98bcd2f3bcd77923f17d317
+provenance: parser:sldb.cli.parser:build_parser#stores semantic-export; contract-sha256:31ed7d2348b38461ae6b66bb0f32cc8493380654dd2f28d9dd36d87181899431
 ---
 
 # stores semantic-export
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'semantic-exp
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--store"

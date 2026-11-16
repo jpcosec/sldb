@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:49:04Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-faq
 system: sldb
 command_path: faq
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#faq; contract-sha256:3142bc75631c1825e49076fe0fe8f0a9c54e3bb6c26ae705a0f7f516809242f9
+provenance: parser:sldb.cli.parser:build_parser#faq; contract-sha256:d4e29ba122449ae36773c7bec1db755c2fd32af56c40fb6736f50e1edfba0d46
 ---
 
 # faq
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'faq'. It par
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "question"

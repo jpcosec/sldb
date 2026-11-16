@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:44:27Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-ast-schema
 system: sldb
 command_path: ast schema
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#ast schema; contract-sha256:f36bb2571f3b2ad66865dfd3fb5e2d1b34dd4f3f5cb009623984737a41cd1054
+provenance: parser:sldb.cli.parser:build_parser#ast schema; contract-sha256:b7942350944b9b7a382d47201bd9f2000c52ad32f91ec62e8531401b2ee04c6b
 ---
 
 # ast schema
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'schema'. It 
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--format"

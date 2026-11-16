@@ -1,11 +1,16 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:04:42Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-rules-explain
 system: sldb
 command_path: rules explain
 synopsis: The eval finding of one rule on one document; exit 0 true, 1 false, 2 incomplete,
   3 not applicable.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#rules explain; contract-sha256:b1b42b245dd52a7df45e965c36881d0e836a269209fd70320463fda55f31996d
+provenance: parser:sldb.cli.parser:build_parser#rules explain; contract-sha256:d85ab27aafb8ab7592421e061dfcf208443925e27dbda8bc04a8693c7a57c016
 ---
 
 # rules explain
@@ -27,6 +32,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "rule"

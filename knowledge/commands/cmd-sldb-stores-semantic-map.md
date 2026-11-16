@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:12:02Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-stores-semantic-map
 system: sldb
 command_path: stores semantic-map
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#stores semantic-map; contract-sha256:6adb6e5b0bc4868e2029e8ed4aa25f627a52c2ad567eb5e8772068c18c5972ab
+provenance: parser:sldb.cli.parser:build_parser#stores semantic-map; contract-sha256:e960da3fb04272b980c6bce43391f71ac12f5616d4fa40321d29513069c8cb3d
 ---
 
 # stores semantic-map
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'semantic-map
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "concept_a"

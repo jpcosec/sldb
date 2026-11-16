@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:44:18Z'
+  authority: generated
+  via: save_document_payload
 id: surface-sldb-ast
 system: sldb
 surface: ast
@@ -8,7 +13,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: parser:sldb.cli.parser:build_parser#ast; contract-sha256:8fb9d72ca813046a3598946dc3c3d07e5991b87247b646069496361f0c962837
+provenance: parser:sldb.cli.parser:build_parser#ast; contract-sha256:02cc829aedc665147bd804e328355167190d4ff2e579abe18233d73bf2da8f00
 ---
 
 # ast

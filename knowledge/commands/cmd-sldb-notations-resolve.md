@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:59:47Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-notations-resolve
 system: sldb
 command_path: notations resolve
 synopsis: Resolve documents under a notation without a SpecDoc.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#notations resolve; contract-sha256:d138c7b4a178328670b276d551a59052eef47b16da985e68d6ee8f5cb5d9757c
+provenance: parser:sldb.cli.parser:build_parser#notations resolve; contract-sha256:dc213fd4a50326e82513e1361912e6b37b3af114779fb535d525357047afbb5b
 ---
 
 # notations resolve
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--notation"

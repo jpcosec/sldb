@@ -1,7 +1,7 @@
 name: surface-sldb-validate
 path: knowledge/surfaces/surface-sldb-validate.md
-source_hash: 17935a173e0aa5422750d65f5917537159e53f0edf12aa91f42b2195b896c239
-content_hash: 4547697bbf822540ccd5cb4abdb69cf06049a39e6fdbe95173606dbee1f6c085
+source_hash: ead9894b5b730c960ec4bb0462e87e99d53b912f8756f0752cf233807bcdeb47
+content_hash: 80275862110524ae30182c68bcddfdbf579ecd48819aa3f6706dba2ee5bf05ca
 field_hashes:
   id: 9b6cb6d208532f4e5550ba379f2c1938ddf4eb65280878dd7e16a14909bb1d94
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -10,7 +10,7 @@ field_hashes:
   how_it_works: e702c116fd7e0d8484ea7bc3bf0e4a972ee4b060fdc44c6064e198c88c141518
   commands: 709aeee7ff5e9c0a668627e43e512a760a3694436d3ed35251ac577e2e1cdc8f
   tags: 28e2d739923a919405b798242e5394dda38832570ee573367673daed32bb183f
-  provenance: 3a1e4c885bd457ac411d77209a98b3d59af51f706c0a6177cb88abb80f0740a8
+  provenance: c5d186842b2ed21239f0d3108c243d7ff070ce182c514f7c484bac4284b68102
 semantic_tags:
 - domain:retrieval
 - entity:cli_surface
@@ -21,3 +21,8 @@ semantic_tags:
 - system:sldb
 - type.knowledge.surface
 - workspace.knowledge.surfaces
+provenance:
+  by: agent
+  at: '2026-11-16T21:13:20Z'
+  authority: generated
+  via: save_document_payload

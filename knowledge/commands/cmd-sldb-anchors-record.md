@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:44:10Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-anchors-record
 system: sldb
 command_path: anchors record
 synopsis: 'What the symbol looks like now: the block an anchor keeps (code:<path>::<name>).'
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#anchors record; contract-sha256:24b5fff36da0f8aa9b4121f7d4ad8261ac5e0f6c62f680c515ea75cfa710479f
+provenance: parser:sldb.cli.parser:build_parser#anchors record; contract-sha256:9fed08d6f88374940303c69f704beb3ebc7d821b73a17699c6747bec6c17d301
 ---
 
 # anchors record
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "ref"

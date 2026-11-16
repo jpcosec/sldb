@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:00:09Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-notations-view
 system: sldb
 command_path: notations view
 synopsis: Resolve a SpecDoc or projection view.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#notations view; contract-sha256:51325b6cea4931240f149acc821153a69a70a20e57b1bc1873356ec349aac59b
+provenance: parser:sldb.cli.parser:build_parser#notations view; contract-sha256:255efdc0d421256aced68d833d2b8a3540fb6185babc809e65a64a6018e63c18
 ---
 
 # notations view
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "spec"

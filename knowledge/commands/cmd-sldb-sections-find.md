@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:05:51Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-sections-find
 system: sldb
 command_path: sections find
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#sections find; contract-sha256:054346f64e78770bb05bb26abd80f13af5a2eed283df35ace0b5eb7d7a8c8455
+provenance: parser:sldb.cli.parser:build_parser#sections find; contract-sha256:79f8ceb53d6260f31b369ef618898d29bf38d9e981baaaa4754b681e2ca271a4
 ---
 
 # sections find
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'find'. It pa
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "term"

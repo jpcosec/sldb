@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:52:58Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-graph-snapshot-save
 system: sldb
 command_path: graph snapshot save
 synopsis: Export the store's edge index as node-link JSON.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#graph snapshot save; contract-sha256:f5bc2ed33dc1827460fed9550ec14077cae05b528e1f4c73d2ead5754df9ebd3
+provenance: parser:sldb.cli.parser:build_parser#graph snapshot save; contract-sha256:4b2ddf06fdafdc6cb99bdedcfd0aa37ee814968b03c8b74fefea32465e7e3aae
 ---
 
 # graph snapshot save
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--output"

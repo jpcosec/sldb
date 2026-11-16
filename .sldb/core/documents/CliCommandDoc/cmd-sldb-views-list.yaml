@@ -1,7 +1,7 @@
 name: cmd-sldb-views-list
 path: knowledge/commands/cmd-sldb-views-list.md
-source_hash: b44a396985c8044a026eceb65de0cd1d1ab9de5f09473d2dd6431c8469508d0d
-content_hash: 208b8e5bab7f1820301a1908344499addc833695b93eda419b9db62888b5cd6a
+source_hash: 5b4f3b6b6750adb426f75450b6e3180c73bf33afa31e0b069e5281b6f05ee682
+content_hash: 42719b7e751ecffcd675175e0bab3b5f1039c1c895815b2b1fa8e93bdcd3c5fe
 field_hashes:
   id: a2684aee03638f9db16b5d953f0f8a37a1be1a3a5429a0f7f85773abaf7d821a
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,13 +9,17 @@ field_hashes:
   synopsis: ba0cd5b719346fd71d73db755eb8570158b40cf3e6be2a92d6c9a334abd7c8a9
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: 4ed3af73147e7181c87a0594cc40ea56ef1ceed9cd2b53e49100ed3e975a1329
+  arguments: e0e20108e1306eaa19f9fe39b3ab569e431447321eae13ed8d8ea21ef9cdd6e1
   usage: 9f826ae2b6d2a819c7cc19af80226a65c341d07a1353eece6b29c51fdcb87c6c
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 25a81dab948f700d1fafc8030816a116db294f07d32ed7171625d1439276a95a
+  provenance: e4e0fd00285345e2bcc9bb063f73fcca6ba6e33038ddc14f2a599e6aa377cb2c
 semantic_tags:
 - representation.markdown
 - source.document.markdown
 - type.knowledge.cli_command
 - workspace.knowledge.commands
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-16T21:13:39Z'
+  authority: generated
+  via: save_document_payload

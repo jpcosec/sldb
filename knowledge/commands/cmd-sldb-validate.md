@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:13:07Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-validate
 system: sldb
 command_path: validate
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#validate; contract-sha256:2c4c5cdfd763fd6eb1bb6644ea715f8d0296549ab46bd6073f9637a4b8d2974d
+provenance: parser:sldb.cli.parser:build_parser#validate; contract-sha256:fdb252b7bc859b5238a072d59614c4d5bb4867ed481cb7e4618a5b34702606a3
 ---
 
 # validate
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'validate'. I
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "model"

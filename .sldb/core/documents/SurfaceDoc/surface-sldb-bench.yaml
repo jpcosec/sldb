@@ -1,7 +1,7 @@
 name: surface-sldb-bench
 path: knowledge/surfaces/surface-sldb-bench.md
-source_hash: 5db549c4867ed75aec50539ec79ac4dbf0f4271eac9bb312d40865cbdf274591
-content_hash: 78706c8cf97828d309da6a9a21ab5813e82c2fc06529ad0f97b933cc0b9bb6d0
+source_hash: efb219826b91484c6b5f20eee8373159f38e880d3335d15eeab1e9957f295c9c
+content_hash: 5dc99fce0741db506b885156665ce10cb4e4745166f0c7c77105b6463080384e
 field_hashes:
   id: b427e921648f956a6db4e92ca7eb45d9d47081156937a4237f0087ec84311b0c
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -10,7 +10,7 @@ field_hashes:
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   commands: c450fc998112b0f609afab322ae7ecc7f7ee7335c21e763eac7f708ab56d47bc
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 422fdf847e8d899ee7aaac980473cd32a59884e9a85f72b231a24d2e33803757
+  provenance: 274886e5ea0d93c8044ee26d7e5eb74459f2a7b59430b5542713be4d2d264a10
 semantic_tags:
 - representation.markdown
 - source.document.markdown
@@ -18,6 +18,6 @@ semantic_tags:
 - workspace.knowledge.surfaces
 provenance:
   by: agent
-  at: '2026-11-16T01:06:28Z'
+  at: '2026-11-16T20:44:51Z'
   authority: generated
   via: save_document_payload

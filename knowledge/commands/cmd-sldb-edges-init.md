@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:47:15Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-edges-init
 system: sldb
 command_path: edges init
 synopsis: Register RelationTypeDoc/RelationDoc and track the builtin relation types.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#edges init; contract-sha256:446d219c7dedb1841f3ef75a24e7a614ba0d2845634e8680f806e2a8672fa6f5
+provenance: parser:sldb.cli.parser:build_parser#edges init; contract-sha256:e46033da023344d18ae692b286caa1bd47626b20bcfd8e6dcae8035f49309064
 ---
 
 # edges init
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--store"

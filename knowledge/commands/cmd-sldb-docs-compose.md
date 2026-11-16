@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:45:07Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-docs-compose
 system: sldb
 command_path: docs compose
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#docs compose; contract-sha256:0a2f934e0913cf383209ade835624281091a95292c721cb36b0e15df8c7a33e8
+provenance: parser:sldb.cli.parser:build_parser#docs compose; contract-sha256:7014891075e243296b572c7a82fd5aca047ebad62ee06e2c873d0dfb45848ee6
 ---
 
 # docs compose
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'compose'. It
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "doc"

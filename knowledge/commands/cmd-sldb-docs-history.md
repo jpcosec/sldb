@@ -1,11 +1,16 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:45:48Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-docs-history
 system: sldb
 command_path: docs history
 synopsis: 'The document''s committed versions from git: who signed each one and which
   fields moved.'
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#docs history; contract-sha256:40049783962f3f24df9116b8138d209af7f61d2fb4ae9a39ef7c6f24971c2a53
+provenance: parser:sldb.cli.parser:build_parser#docs history; contract-sha256:bb62149a377abfedc1143c8655932f680b3328a974c8e66a7b93d5b00072dd3c
 ---
 
 # docs history
@@ -27,6 +32,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "doc"

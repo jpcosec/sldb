@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:49:20Z'
+  authority: generated
+  via: save_document_payload
 id: surface-sldb-fields
 system: sldb
 surface: fields
@@ -8,7 +13,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: parser:sldb.cli.parser:build_parser#fields; contract-sha256:8748c1d008f374e5692b73fd8189b12c0eac20a8a5c46ffed67c95c7524ad132
+provenance: parser:sldb.cli.parser:build_parser#fields; contract-sha256:634c16c8d1a91e81cda8a26c9ecd8ba144d650de8ab1ddd2d93edfb559fc2b11
 ---
 
 # fields

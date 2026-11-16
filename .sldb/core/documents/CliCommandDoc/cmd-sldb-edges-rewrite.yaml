@@ -1,7 +1,7 @@
 name: cmd-sldb-edges-rewrite
 path: knowledge/commands/cmd-sldb-edges-rewrite.md
-source_hash: 3e09201da1c44192fdde210067c759728d3911cc10bfdbdb460de99e28c3c1e0
-content_hash: 4bdc7bbc1d06bd78b0d392c05994351ea33bb3a3eac3d327a16bee03fff9d732
+source_hash: 970a0f1761b0248497aa8cb5d14e25d691745744dfe2fc29296355f3f4b7483a
+content_hash: 14f361b46ca29532acfec339cae19e99fc767758875129b7b4d20fcc65d7f304
 field_hashes:
   id: 5e01df283bbaea5256444216a195a80936176499b9b5fa9decc8e49abbeeea0d
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,13 +9,17 @@ field_hashes:
   synopsis: 31cefb2e371c7e9b4962896887353a9e2431121d56902bc9f0653ae5ad1886ce
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: 559a46ac4bf25aa677423126c08ca94c6e93dbba55153874fe813b1c4ce838ce
+  arguments: d162620a16ecb858e586e91b4439a4605b3334a7e49d5de4460c6aa4cace1b93
   usage: d751934442b17318cfbbc876496bcf6f5aa98cec63e9656859fedc5c8631fd0d
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 19bded5e80df8215c7ea6a8485c98259f7ac2d4203a97609bc4825057b9aaa10
+  provenance: 1d9d04c30a5a39357cd9e5c89ee2ea5a36262024aedf275284c14c939e5dcd9d
 semantic_tags:
 - representation.markdown
 - source.document.markdown
 - type.knowledge.cli_command
 - workspace.knowledge.commands
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-16T20:47:40Z'
+  authority: generated
+  via: save_document_payload

@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:55:41Z'
+  authority: generated
+  via: save_document_payload
 id: surface-sldb-lint
 system: sldb
 surface: lint
@@ -8,7 +13,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: parser:sldb.cli.parser:build_parser#lint; contract-sha256:3e592c55f7905f39606c20f99f4056182a64aeecafa22acd438c662442d52939
+provenance: parser:sldb.cli.parser:build_parser#lint; contract-sha256:d6f5a58f282387f65533ac029658b88c5f9b369a61000197125b881f1172e879
 ---
 
 # lint

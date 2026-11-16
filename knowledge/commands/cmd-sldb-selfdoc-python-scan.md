@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-06T20:45:07Z'
+  at: '2026-11-16T21:07:14Z'
   authority: generated
   via: save_document_payload
 id: cmd-sldb-selfdoc-python-scan
@@ -9,7 +9,7 @@ system: sldb
 command_path: selfdoc python-scan
 synopsis: Inspect static Python symbols without importing code.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#selfdoc python-scan; contract-sha256:4cc4ed1ec9c41d75270d8b3765a6295895346f5e3f1f7d2754f1f6bf39f31066
+provenance: parser:sldb.cli.parser:build_parser#selfdoc python-scan; contract-sha256:d2fc0a0d02be2311015523ef5d1a8c10a84bc5f49f127bc8e85629419b9aced6
 ---
 
 # selfdoc python-scan
@@ -31,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--source-root"

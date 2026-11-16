@@ -1,7 +1,7 @@
 name: surface-sldb-edges
 path: knowledge/surfaces/surface-sldb-edges.md
-source_hash: 51efc28893eae484381c29c5758141553c6c8665c4cb621b3c3dc00f880f8af0
-content_hash: c4ea90e49255b8045f0d0e60bef4dc59932e19fa95ad3537ba3c5945da9e8e80
+source_hash: 5aee3c172a679f7cbe97abc0ceeb40c111faadcca9c0a985b81b18dd73abb153
+content_hash: 69ce3f015e534e444011c267c8dc39a08f8e222cac364192f81a4c867dd94447
 field_hashes:
   id: 8f3f7f930a4b512ab96383de16fa3424b5170bd70560b73dd12a086b408dc112
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -10,7 +10,7 @@ field_hashes:
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   commands: 84a1a6ff3b45bf8315ac517ebc4b757f90a36d01c701788e1702ff87f56ffa68
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 0c6b9e1d8af0d1e83eae86076edb01c341ab92aea10dd0e9b216b50b207c7d2c
+  provenance: 7f8887657bbc2ff526f6849c41d867f9642ea75d359652bf9e6907b86ef7a352
 semantic_tags:
 - representation.markdown
 - source.document.markdown
@@ -18,6 +18,6 @@ semantic_tags:
 - workspace.knowledge.surfaces
 provenance:
   by: agent
-  at: '2026-11-15T20:05:05Z'
+  at: '2026-11-16T20:46:59Z'
   authority: generated
   via: save_document_payload

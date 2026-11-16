@@ -1,11 +1,16 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:46:12Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-docs-replace
 system: sldb
 command_path: docs replace
 synopsis: Replace exactly N occurrences of a literal text in a tracked document (validated
   and tracked again) or in a plain file under the project root.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#docs replace; contract-sha256:377a86d05df89446a44d85fb06c352f2a94f5d0c6c9d04055d68d3efbf38aa43
+provenance: parser:sldb.cli.parser:build_parser#docs replace; contract-sha256:459a4a5e9d3030f8de89b7499eb19ccfbfd15470d80de97f959fc17a7f71eae5
 ---
 
 # docs replace
@@ -27,6 +32,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "ref"

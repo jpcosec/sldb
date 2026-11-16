@@ -1,7 +1,7 @@
 name: surface-sldb-predicates
 path: knowledge/surfaces/surface-sldb-predicates.md
-source_hash: 2baa6f4bb6d0a7c40a1fb03b6d82b4bd1807c0f5107becf888bc18ee81777787
-content_hash: 234ab7688c7396003cf9fc2a38afac232b7850987f6540f613434fe6f6b51770
+source_hash: dca2b676f7fa6b6d3d7fdad73946c7cc36a9ac52f79a3cc1a4d16bd294d00733
+content_hash: 8c08b4313a176650a58e0908b5e5c1cb6f0a82bc0c1f46a03bab5e33d35a2c0b
 field_hashes:
   id: 07495fdd0fed0ffcb8814e5e1cf51d50749cc26aa4befed2d3fb5b76aa15d746
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -10,7 +10,7 @@ field_hashes:
   how_it_works: 64224e829fda345e725eebbd5a9e9480eddac3d494d4a29bba6ad3378dfc3786
   commands: 5a83d46110d571e0c08ef438d3bec4c0ac6f1adce87c17f2b6d9839c227fd768
   tags: 28e2d739923a919405b798242e5394dda38832570ee573367673daed32bb183f
-  provenance: edd560864df0161090520b6d023e9cfc0beccc1035762ebdd0ed78ac16869c72
+  provenance: d6f2d78df7fe7dfa528593067575d366785208aefe27d5fac86b040e35b2a099
 semantic_tags:
 - domain:retrieval
 - entity:cli_surface
@@ -21,3 +21,8 @@ semantic_tags:
 - system:sldb
 - type.knowledge.surface
 - workspace.knowledge.surfaces
+provenance:
+  by: agent
+  at: '2026-11-16T21:00:22Z'
+  authority: generated
+  via: save_document_payload

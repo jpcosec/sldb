@@ -1,11 +1,16 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:45:30Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-docs-exists
 system: sldb
 command_path: docs exists
 synopsis: Check that a doc reference resolves, here or in a linked store, without
   importing it.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#docs exists; contract-sha256:5fd8a9128bfc5bfb17c85cf5f2d4690d29f1cbad7f47e592501b68e8e53319c2
+provenance: parser:sldb.cli.parser:build_parser#docs exists; contract-sha256:85781d6338c117a3135b05d1cd9e0273bad620e4c18efc538e1fe11eadeac214
 ---
 
 # docs exists
@@ -27,6 +32,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "ref"

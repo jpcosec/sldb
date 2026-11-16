@@ -1,7 +1,7 @@
 name: cmd-sldb-docs-replace
 path: knowledge/commands/cmd-sldb-docs-replace.md
-source_hash: e207410c55cd21d2ee228b48f8837289083eeb72ad761af79c0dcfd8c3603c87
-content_hash: fff8a7b3baefc8dae71d17b6fe80d9775ef705e169a046732893dd162bd3542e
+source_hash: ada79d3756ec3c34d993a61d61f79b68c061771a9060e1cdd7dacae669304ba6
+content_hash: 13528e78891187500e3f5aeb113c436c221421d7dc1b22419a0ff62e0177e30b
 field_hashes:
   id: 770a13bd0a2a1ce9a5299262e3ee99feac813449450c01b8feb2de257158a99e
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,13 +9,17 @@ field_hashes:
   synopsis: 8aed4afbda3a29c5842f5fbcb83ff0a972b5f50b3464bced8e45233d9cf16dcf
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: 231b023d6c5df564fd86e330df694cb2c163213d5ca6cba1abe5e0f0d5a92341
+  arguments: 188bf8476dc59bf01c9391d3dcbe1f772f78aee2a71f7ae04ddb491a65eb1794
   usage: ed75ec3f3020086937b29bd162d3bbfea41e725ed2b2a2c452380848a3a83f47
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 6a697742e782fe298c67255ceadc48a511e9e5f0f7667730f52e1d61efc1647d
+  provenance: 1d978020c564531fdd414e9e0cbe62b5c0acc424a71aa54b10a23d869f6e3304
 semantic_tags:
 - representation.markdown
 - source.document.markdown
 - type.knowledge.cli_command
 - workspace.knowledge.commands
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-16T20:46:12Z'
+  authority: generated
+  via: save_document_payload

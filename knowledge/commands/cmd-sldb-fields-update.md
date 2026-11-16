@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:50:16Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-fields-update
 system: sldb
 command_path: fields update
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#fields update; contract-sha256:1f3d30180f6fbe542970dc9f2bf428ee28ba2c5eeff93288ee54e5d12d944cb9
+provenance: parser:sldb.cli.parser:build_parser#fields update; contract-sha256:4cc3d7ff473486744f5ebd82d3d90696077dfa6a9340981c5e4747188b75260c
 ---
 
 # fields update
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'update'. It 
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "target"

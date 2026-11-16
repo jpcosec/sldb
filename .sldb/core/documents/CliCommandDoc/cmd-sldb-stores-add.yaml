@@ -1,7 +1,7 @@
 name: cmd-sldb-stores-add
 path: knowledge/commands/cmd-sldb-stores-add.md
-source_hash: 8f518adbf963ff41b5ef2c6752a20e3e7a5b5838c2f3a3bf16b53525b20dcf13
-content_hash: 056f9db305301297cd234be872b9b06ba77f24c6daa29d5706b5656462ef2585
+source_hash: defb0dbe2af8d3208de25c841eb5b59305ac402cbc056258682e8cc279c66008
+content_hash: f23718fdbc977596b5a4f35d1ced69bb2dc64b9cf0fe6bbc526ffaebd18527b0
 field_hashes:
   id: eab61b296adf8fc67cbd0d72aa80800372930f8bb3604b7854dae49544b52734
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,10 +9,10 @@ field_hashes:
   synopsis: de33a90e95be1d16b07b7af09c469cd825b0a4204f44f849f663571a594e1c92
   purpose: 00f84d84dee0d5991b204b85256259ac184ca2d1fcc01143a596b3d6bd237b45
   how_it_works: 628b2ec2afbf884a30e897e103529230127bbe50cf743d4970e8e415159cdae3
-  arguments: e48fa062195314470cf9f327f953d2d78ae316cd1b3145ea75002ef2f31f7f59
+  arguments: 99233d28429e66d56ca5a282ff3369b316ded7e93b3850a91bf890b735bd3ad8
   usage: 90bdac2489fe52282615a92a874ca103a4d115f7b5726428ec1be9d47cb3aca7
   tags: 699c2cfd1a5b0cb746c8dfb0f4de3ed26435e62c74e179332ed04ad4f2591c91
-  provenance: 55c070155be23acb13aaf82dffddb9dc1232e48f9a6cb8c7e86a64b819a6a964
+  provenance: 4851c525c67b1fe59d454c24a3c8da37f4f51ef833debf909d1d3d5e58758de7
 semantic_tags:
 - domain:retrieval
 - entity:cli_command
@@ -23,3 +23,8 @@ semantic_tags:
 - system:sldb
 - type.knowledge.cli_command
 - workspace.knowledge.commands
+provenance:
+  by: agent
+  at: '2026-11-16T21:09:48Z'
+  authority: generated
+  via: save_document_payload

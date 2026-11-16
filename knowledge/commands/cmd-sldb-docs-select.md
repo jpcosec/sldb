@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:46:20Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-docs-select
 system: sldb
 command_path: docs select
 synopsis: Which tracked documents a selector names (keys combined by conjunction).
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#docs select; contract-sha256:4882d5fc32d10d07e11ec685bed630d82982cb840187ec0f8cb8bb042a0cd049
+provenance: parser:sldb.cli.parser:build_parser#docs select; contract-sha256:65b86734e84b7ab6a6f69f6ba5aec4f413f273f1965c382f40742f402775bc10
 ---
 
 # docs select
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--ref"

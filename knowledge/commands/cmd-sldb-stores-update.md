@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:12:13Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-stores-update
 system: sldb
 command_path: stores update
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#stores update; contract-sha256:c998078345d5b2e78d24455a37e953425b72fe5e58b537d4eba264df074ed462
+provenance: parser:sldb.cli.parser:build_parser#stores update; contract-sha256:b2c805552f3a03a7cb418c59433663b676e51bf3b60f2064e096fc43735e4171
 ---
 
 # stores update
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'update'. It 
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--wait"

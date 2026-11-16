@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:09:48Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-stores-add
 system: sldb
 command_path: stores add
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#stores add; contract-sha256:a5a60d8166665974dd1fe4c554f241f9dd5bc69fdfcb5432488ef1a459c4d423
+provenance: parser:sldb.cli.parser:build_parser#stores add; contract-sha256:862f676cacadaad78f417ee422eee3b34d255c41a1abf3f14f1e1fee723e2ce6
 ---
 
 # stores add
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'add'. It par
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "path"

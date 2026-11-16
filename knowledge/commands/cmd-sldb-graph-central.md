@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:50:49Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-graph-central
 system: sldb
 command_path: graph central
 synopsis: Which nodes the rest of the store leans on.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#graph central; contract-sha256:73bebbf8b0882fb087804d94f6f46384ffbb6368c40cfe0561bec33815368c90
+provenance: parser:sldb.cli.parser:build_parser#graph central; contract-sha256:c912cc6f9183f40e10bc539f5aed14206bf2632fc710c297d7735821973933cc
 ---
 
 # graph central
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--kind"

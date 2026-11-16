@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-06T20:45:07Z'
+  at: '2026-11-16T21:07:00Z'
   authority: generated
   via: save_document_payload
 id: cmd-sldb-selfdoc-python-check
@@ -9,7 +9,7 @@ system: sldb
 command_path: selfdoc python-check
 synopsis: Report static Python documentation drift without writing.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#selfdoc python-check; contract-sha256:e4757bbe5a95dd6c5e7179a0271d13ed7ddf2147e69aa7f3366e7e1d5acb4c5c
+provenance: parser:sldb.cli.parser:build_parser#selfdoc python-check; contract-sha256:b8b793c5ac53576cfb67139accea5bc5c5e293815844490cf0b0bc68c824f7be
 ---
 
 # selfdoc python-check
@@ -31,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--source-root"

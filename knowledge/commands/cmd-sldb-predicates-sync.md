@@ -1,11 +1,16 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:01:42Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-predicates-sync
 system: sldb
 command_path: predicates sync
 synopsis: Make the store match a versioned predicates file (create/update; --prune
   removes the rest).
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#predicates sync; contract-sha256:1c564728d7a93f8bba3ed61f0dda16d77cb88f385a16dcde73872e8f36a85c69
+provenance: parser:sldb.cli.parser:build_parser#predicates sync; contract-sha256:f695dda2876ff235517df94c5bdeefb4a9fdcbe85bb25275e0cea7ec0d05c3da
 ---
 
 # predicates sync
@@ -27,6 +32,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--file"

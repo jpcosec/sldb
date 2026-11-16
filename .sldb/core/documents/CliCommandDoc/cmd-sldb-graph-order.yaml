@@ -1,7 +1,7 @@
 name: cmd-sldb-graph-order
 path: knowledge/commands/cmd-sldb-graph-order.md
-source_hash: 457a06cc6068e14ad1480d51f60712f426095d18e740771ad0e951d39f953e87
-content_hash: b4f4902cd89159e9d341764f3c65bfcfcbd3f8ef722e1a2abe86f36323d4ca69
+source_hash: b757a6a03d26925a62f97445e22a21753398731f9198d01cfbd7f9518cbbd3d3
+content_hash: 82ee2a00a22c243887304f980e19f6addbebc9edf09d0343c92ee0b80017bfc6
 field_hashes:
   id: c98a00a07bede2688bafff42712b620a1fe016c8ac7ed62138f896efce4dc1de
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,12 +9,17 @@ field_hashes:
   synopsis: c4ec277a7b9e06744c505682591179cf879c6d9f1e38ea3cc5c4f8972ac6a71f
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: a1e5bd8a9f8b26516f2821fa85f41186d079f275ffe2dea18b901b0396eccaa0
+  arguments: af87867a65c87b21d03643515e673c39b0b04449479bb749f539e925a87547f8
   usage: 144f65db5841b013eb88b18199082ed6c6f6f6152071775fc2b79a84e196b029
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: fae0eec42a18d08cf0011bcc771955d1da355210d78fcdd4dca6e84ad305e48f
+  provenance: 4f3bd748499a376db23c40531c2a8592bb39fcd1d5310b7c366a6f106b04ba37
 semantic_tags:
 - representation.markdown
 - source.document.markdown
 - type.knowledge.cli_command
 - workspace.knowledge.commands
+provenance:
+  by: agent
+  at: '2026-11-16T20:51:48Z'
+  authority: generated
+  via: save_document_payload

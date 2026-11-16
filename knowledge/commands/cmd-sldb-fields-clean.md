@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:49:37Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-fields-clean
 system: sldb
 command_path: fields clean
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#fields clean; contract-sha256:5fdb0f4594efe74ee20c0eb06acc1ca1c83ed3d86e19c5572da0c96dfa11ee47
+provenance: parser:sldb.cli.parser:build_parser#fields clean; contract-sha256:0ed9fe0dff58f7a29e97e3b156f6e06a590217fd801b13f6f50f8fba48d051b7
 ---
 
 # fields clean
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'clean'. It p
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "target"

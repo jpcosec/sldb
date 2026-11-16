@@ -1,7 +1,7 @@
 name: cmd-sldb-semantic-equivalent-add
 path: knowledge/commands/cmd-sldb-semantic-equivalent-add.md
-source_hash: 7b16aa3f0f100e2dc230965365cce65013be6eca052b006a763c193d3662593c
-content_hash: baf59432bc335d289e59a2ff90a9a20e31559a7b92799b81bf7c79037788a916
+source_hash: a3771b41a27c1b14dedcb8847f91a0ec6fd30d3a266eafd69b1f1881c14b7b31
+content_hash: 1da799bb255d399c2ef85242f6e9618302bfc1e0b81fab462e1fcdb359a4cfed
 field_hashes:
   id: 81a3f91f7edb8e5fa557c6b3c66579cdd56d70ddf035803d121c0286a9ce4975
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,10 +9,10 @@ field_hashes:
   synopsis: cc2eb504014c26097095cbbf5ab842793e0eed1a86ff224a659d0af2062c5a90
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: 1a0c58612396f8be67b3acf3778d64f42627df52f183247f7b96d6bf322a1771
+  arguments: f4f925d83373d294fc214770c0af4c004654edc751e549d081d871c818f7e709
   usage: d416311759f471349891714f40b3d5ef93964368b03e452a4c9013c5c0f24ab6
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: f3cc15710bb25923a7fe9efdf957302658267ecbff56567332f2675fb8e7c872
+  provenance: 60db509bac4e577e3d49ce171398646c84c9fad8d866e4a89d21e9a6b8a9ba0a
 semantic_tags:
 - representation.markdown
 - source.document.markdown
@@ -20,6 +20,6 @@ semantic_tags:
 - workspace.knowledge.commands
 provenance:
   by: agent
-  at: '2026-11-06T20:45:08Z'
+  at: '2026-11-16T21:08:24Z'
   authority: generated
   via: save_document_payload

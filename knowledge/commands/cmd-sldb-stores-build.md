@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:10:04Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-stores-build
 system: sldb
 command_path: stores build
 synopsis: Rebuild the store from .sldb/store.yaml, the tracked Markdown and the models.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#stores build; contract-sha256:af5937277739ee0a7796fba59fe02ee32cd8ce07f4050f361c8a455386787765
+provenance: parser:sldb.cli.parser:build_parser#stores build; contract-sha256:17ec9bef6dade13079f77c29ce3befe2425d7e0167fc16b1a3f933e3545fa93e
 ---
 
 # stores build
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--store"

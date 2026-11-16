@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:04:59Z'
+  authority: generated
+  via: save_document_payload
 id: surface-sldb-sections
 system: sldb
 surface: sections
@@ -8,7 +13,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: parser:sldb.cli.parser:build_parser#sections; contract-sha256:d5376952526324801076d5cd834650c453fcfdae72fc4079118589ab8f1e9aea
+provenance: parser:sldb.cli.parser:build_parser#sections; contract-sha256:f4f3f3d9a663d194f20143fcffb876bd308c07f46dd4070335dd316facd34985
 ---
 
 # sections

@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:51:39Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-graph-neighborhood
 system: sldb
 command_path: graph neighborhood
 synopsis: Nodes within a depth of a starting node.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#graph neighborhood; contract-sha256:30aaecb798cd0efd0b68e230ecdbafc2c1a7247b30686a979de6b1a707aba8fe
+provenance: parser:sldb.cli.parser:build_parser#graph neighborhood; contract-sha256:cb2cd8993839a3951adc02b70d865b7ec415a76fd1f37e62c55469fad7012c99
 ---
 
 # graph neighborhood
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "node"

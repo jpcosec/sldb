@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-15T22:21:46Z'
+  at: '2026-11-16T20:59:58Z'
   authority: generated
   via: save_document_payload
 id: cmd-sldb-notations-sync
@@ -10,7 +10,7 @@ command_path: notations sync
 synopsis: Synchronize a notation, a palette, diagram specs or a vistas.yml catalog
   into the store.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#notations sync; contract-sha256:a1bb8a357a4ecee6c8f383e82a2892d7ec1e7615a22ed7873ee7fb1eaf3f5beb
+provenance: parser:sldb.cli.parser:build_parser#notations sync; contract-sha256:0cf2060887a2bf09646df52862e019ff4819cb8f51231df5a2c27e3fc7c2234b
 ---
 
 # notations sync
@@ -32,6 +32,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--notation"

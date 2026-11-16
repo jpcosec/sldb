@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T01:06:19Z'
+  at: '2026-11-16T20:44:43Z'
   authority: generated
   via: save_document_payload
 id: cmd-sldb-bench
@@ -9,7 +9,7 @@ system: sldb
 command_path: bench
 synopsis: Measure sldb and deskops speed on desk copies, cold and warm.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#bench; contract-sha256:1b6930c6452fd920d19abedf653de000d967c6c361ff8f6772a226689cd45222
+provenance: parser:sldb.cli.parser:build_parser#bench; contract-sha256:b57cc7aacc1e9c922ae302130a825541600fd254a0eb80ea92a9ebdbcba3b5b0
 ---
 
 # bench
@@ -31,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--desk"

@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-06T20:45:01Z'
+  at: '2026-11-16T20:56:46Z'
   authority: generated
   via: save_document_payload
 id: cmd-sldb-models-create
@@ -14,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#models create; contract-sha256:0b1a44bdfaf9e5bbafd908a92caaad76aac11cc600e9dd002e3372cb2a438631
+provenance: parser:sldb.cli.parser:build_parser#models create; contract-sha256:a9848282d20ad1123a70c3c49c5f7383b1169e6f564f1ecc1d0e4477f03b7993
 ---
 
 # models create
@@ -36,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'create'. It 
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "name"

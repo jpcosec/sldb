@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:52:06Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-graph-project-edges
 system: sldb
 command_path: graph project edges
 synopsis: Declared edges leaving (--from) or reaching (--to) a node, with their provenance.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#graph project edges; contract-sha256:6629d39c63720c06b948f63c217719f48782454a48cdc1f486fa77d69ebe1084
+provenance: parser:sldb.cli.parser:build_parser#graph project edges; contract-sha256:f3524501a0e722402fb0aa107dc34161549a38487ea9e38fd874a7ed1d028662
 ---
 
 # graph project edges
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--from"

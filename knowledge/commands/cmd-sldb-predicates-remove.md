@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:01:21Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-predicates-remove
 system: sldb
 command_path: predicates remove
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#predicates remove; contract-sha256:9befc14dbf8ac94f9b74c7bf5e8d89c01b6ce6720605daf355db80dfc660d240
+provenance: parser:sldb.cli.parser:build_parser#predicates remove; contract-sha256:7f33e4bf736bab2dd7a5b84172c1c916a904e583ed306c1eb9d9f1517e39eadf
 ---
 
 # predicates remove
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'remove'. It 
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "name"

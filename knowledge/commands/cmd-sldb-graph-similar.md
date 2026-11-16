@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:52:41Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-graph-similar
 system: sldb
 command_path: graph similar
 synopsis: Which nodes resemble this one, by shared targets.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#graph similar; contract-sha256:35113f18a78b448ae4fa95092ef110c91431709b42ed553cde244f7d423cf055
+provenance: parser:sldb.cli.parser:build_parser#graph similar; contract-sha256:e481e4aaa12c092778c0549408e24f0b79e1f2887f2f98e64fced3c40b6508f8
 ---
 
 # graph similar
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "node"

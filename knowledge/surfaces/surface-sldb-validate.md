@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:13:20Z'
+  authority: generated
+  via: save_document_payload
 id: surface-sldb-validate
 system: sldb
 surface: validate
@@ -8,7 +13,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: parser:sldb.cli.parser:build_parser#validate; contract-sha256:2c4c5cdfd763fd6eb1bb6644ea715f8d0296549ab46bd6073f9637a4b8d2974d
+provenance: parser:sldb.cli.parser:build_parser#validate; contract-sha256:fdb252b7bc859b5238a072d59614c4d5bb4867ed481cb7e4618a5b34702606a3
 ---
 
 # validate

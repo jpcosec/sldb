@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:10:26Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-stores-declare
 system: sldb
 command_path: stores declare
 synopsis: Print the store.yaml declaration the current index implies.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#stores declare; contract-sha256:f1dd54df014027317bf4b776c06fabbf4dc9c8f179951d863fb38951c68ca202
+provenance: parser:sldb.cli.parser:build_parser#stores declare; contract-sha256:f35105333555e2c11391b1325afe080691e1405f25912a9bcf7cc07fe3ae1430
 ---
 
 # stores declare
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--store"

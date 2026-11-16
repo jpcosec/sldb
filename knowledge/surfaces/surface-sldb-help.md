@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:53:16Z'
+  authority: generated
+  via: save_document_payload
 id: surface-sldb-help
 system: sldb
 surface: help
@@ -8,7 +13,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: parser:sldb.cli.parser:build_parser#help; contract-sha256:3a232bac71000b48414029113e6c0651e15a539fe9609d760f282d62fb6e89a7
+provenance: parser:sldb.cli.parser:build_parser#help; contract-sha256:881fa6ebe51dcbc3297882736fcef2bf0a7f8756ab90f5c89979b3ab617cee1c
 ---
 
 # help

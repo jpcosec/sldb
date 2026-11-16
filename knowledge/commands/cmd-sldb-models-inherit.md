@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:57:19Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-models-inherit
 system: sldb
 command_path: models inherit
 synopsis: Inherit a model from the linked store that owns it (converts a local copy).
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#models inherit; contract-sha256:e4fd776c4e78871f8dce5af72426b0a709efa57bae39997cbf435bfc2eec5d3b
+provenance: parser:sldb.cli.parser:build_parser#models inherit; contract-sha256:34302028f3a983aeb7e866ef2b6d0eb67f9d983e67c974e6765eddabfee106c5
 ---
 
 # models inherit
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "model"

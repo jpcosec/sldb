@@ -1,7 +1,7 @@
 name: cmd-sldb-selfdoc-python-check
 path: knowledge/commands/cmd-sldb-selfdoc-python-check.md
-source_hash: b001ec567a0cb4fd9ec71d2f13b65aad0819cf40106a808057aec412b7be793c
-content_hash: ede6b240c1817d39a4c20971ce9613d63e1b66498a790325d100aad122a3eeb3
+source_hash: 2fa0ce749c6fc5d60e5bd21646ce27152cbc5f76ef6e39253ff8c16e6d79db48
+content_hash: eb45327a975b9ab493a429ca210d620f07f0b498ff6080dc662844c061e4d500
 field_hashes:
   id: 9d3bc10cf0c331f4b165c99558b0e2c6415314ceac81286537ff739e70987bf5
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,10 +9,10 @@ field_hashes:
   synopsis: 8cc92eb21719354c7b22b5722830fc3e569965d9385f2cea66c0ae81de0ddee5
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: 00ce40df0b35b9c908d8e529229a6c9cdf5c136df31aa252af7ce75222f671db
+  arguments: ecd4f6e1695112d9606ba784766b1928a3b50af4a63968275700b5b9218ae938
   usage: b66550d4f222e491a12ea0a9541c66054fcc2b632dd9a4a07919f6bc83be68c6
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 12a8885e488606192a75c3b350876b1aa4143be8525ffe5163d6ae08510e98c5
+  provenance: a55af3a9d847472e59b7493a7365b3a21d41f8ee59b51ebfaf4f99f51ba1917e
 semantic_tags:
 - representation.markdown
 - source.document.markdown
@@ -20,6 +20,6 @@ semantic_tags:
 - workspace.knowledge.commands
 provenance:
   by: agent
-  at: '2026-11-06T20:45:07Z'
+  at: '2026-11-16T21:07:00Z'
   authority: generated
   via: save_document_payload

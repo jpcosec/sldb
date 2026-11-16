@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:49:29Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-fields-append
 system: sldb
 command_path: fields append
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#fields append; contract-sha256:8958e24931f6c0b4e8cd38bdc787089b1ae07c2fec070155e80faca280998c7c
+provenance: parser:sldb.cli.parser:build_parser#fields append; contract-sha256:f67df8e8e4826ae37f64683d343e0b492698c9535d73faf6fece099cf4efeb2e
 ---
 
 # fields append
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'append'. It 
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "target"

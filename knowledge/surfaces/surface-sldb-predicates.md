@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:00:22Z'
+  authority: generated
+  via: save_document_payload
 id: surface-sldb-predicates
 system: sldb
 surface: predicates
@@ -8,7 +13,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: parser:sldb.cli.parser:build_parser#predicates; contract-sha256:ad418d3431da794c9221921b7e8af339e1604bc404323efb5aa260284ad753bf
+provenance: parser:sldb.cli.parser:build_parser#predicates; contract-sha256:daa0382ab3efaf9701bcd06a2a7640ba03b7658635216effef93d2ce24a84934
 ---
 
 # predicates

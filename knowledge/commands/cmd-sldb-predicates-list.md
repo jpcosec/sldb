@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:01:07Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-predicates-list
 system: sldb
 command_path: predicates list
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#predicates list; contract-sha256:eba2369fe797ac654ce43be60ff39ee334891110e25f0a3479f1205e40bafbec
+provenance: parser:sldb.cli.parser:build_parser#predicates list; contract-sha256:b33dab8c9c0b43e687a5a9d195ec51ec1a81166aaa97a80b2e99db15d513220e
 ---
 
 # predicates list
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'list'. It pa
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--store"

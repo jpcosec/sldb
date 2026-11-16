@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:55:51Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-mcp
 system: sldb
 command_path: mcp
 synopsis: Serve the store to an MCP client over stdio (needs the `mcp` extra).
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#mcp; contract-sha256:6a0232b148816ddab9121e23905270aa70b16d08c7b3c488ce806366bc11b251
+provenance: parser:sldb.cli.parser:build_parser#mcp; contract-sha256:12e6075545b816a1b2c6bdce3a212889d37577bbe110c24ce6941fabc34e4a91
 ---
 
 # mcp
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--store"

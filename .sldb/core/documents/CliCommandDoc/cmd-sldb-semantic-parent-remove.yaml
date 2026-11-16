@@ -1,7 +1,7 @@
 name: cmd-sldb-semantic-parent-remove
 path: knowledge/commands/cmd-sldb-semantic-parent-remove.md
-source_hash: bf46749d9f597e911f008fe0dae0e87e7929eb36e3172d72b7ebd5a581dd4337
-content_hash: 9034418ec7ffbcb39d397d2aede8509aca34a614d2400d0f6a99accdd55276bc
+source_hash: ce584aaf3c8a8c2c756cff4c225de718f87df65220707a92fd046a4966cef462
+content_hash: f60aff7791aa4fefd4aa809ca91cf0087a93aec5f124391a3ae71b996c604f4e
 field_hashes:
   id: 467dd18f25d642ba4e45b0f3c5a887e416c025278874951c7f38b663da1b482a
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,10 +9,10 @@ field_hashes:
   synopsis: 16bf9b80d59d40432c8a4988b46b4196175be80f7fae1212ed2c0539a40ca86a
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: 3897cba3f43c18f4321bbd9ad990d53b43c5a4e74de187cf1f84582b85355daa
+  arguments: 4dc56895a187fd92e5532ddb455ee5fa91eca61558a4bb92625e4b3deda6dcd2
   usage: 37c26cf5e0fbed141b212e4cf81cddf7337a66391aa4ea7a71fe55b3af9f476d
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 2a85ecb5541e2c83370ee4f5f604362d99bb36c193f393386e5cd2f1c8bbf57f
+  provenance: 24cb191852fde3c62dcf6cbda1bb91f529283aff1576b92f187156d60e502419
 semantic_tags:
 - representation.markdown
 - source.document.markdown
@@ -20,6 +20,6 @@ semantic_tags:
 - workspace.knowledge.commands
 provenance:
   by: agent
-  at: '2026-11-06T20:45:09Z'
+  at: '2026-11-16T21:08:47Z'
   authority: generated
   via: save_document_payload

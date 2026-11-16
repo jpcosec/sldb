@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:46:44Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-docs-untrack
 system: sldb
 command_path: docs untrack
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#docs untrack; contract-sha256:3e476408df09ed3c9430516902c4746737a6c637cff3209e05c7c6287a299dba
+provenance: parser:sldb.cli.parser:build_parser#docs untrack; contract-sha256:65230938ad36cf3f8becaa63f3fd196d2bae9cf33b7e8d6c936c9cce5d4c8cde
 ---
 
 # docs untrack
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'untrack'. It
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "doc"

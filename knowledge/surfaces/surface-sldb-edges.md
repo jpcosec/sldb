@@ -1,14 +1,14 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-15T20:05:05Z'
+  at: '2026-11-16T20:46:59Z'
   authority: generated
   via: save_document_payload
 id: surface-sldb-edges
 system: sldb
 surface: edges
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#edges; contract-sha256:610a0b0188a53aa91688721394fd87801e6cfc58cf25d283070ac7d02b5cff8f
+provenance: parser:sldb.cli.parser:build_parser#edges; contract-sha256:ccff926ee28e2bf1a9c5a74afdc5a671bbc6534aca5ffc7930ff1461fdaeb0de
 ---
 
 # edges

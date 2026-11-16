@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:51:48Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-graph-order
 system: sldb
 command_path: graph order
 synopsis: The nodes in dependency order.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#graph order; contract-sha256:956ad8f3d5e7c3df8c723953f0d536233ca26249c4a1f476e848cb924c385cee
+provenance: parser:sldb.cli.parser:build_parser#graph order; contract-sha256:b8cce753a936271a0775e8f99304bb3eba3b92a4d331d986a3d94913ef901713
 ---
 
 # graph order
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--layers"

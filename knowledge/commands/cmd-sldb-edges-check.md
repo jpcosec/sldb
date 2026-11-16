@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:47:07Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-edges-check
 system: sldb
 command_path: edges check
 synopsis: Validate every edge against its relation type.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#edges check; contract-sha256:accd4fb23f7e818b576dce063d9e9328740a74ae77c1583b2d0cf75aa64617e0
+provenance: parser:sldb.cli.parser:build_parser#edges check; contract-sha256:fed2b9b52bc64522c3fdbb2a05966815f59c678f22d67711f67227c9931dbf02
 ---
 
 # edges check
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--store"

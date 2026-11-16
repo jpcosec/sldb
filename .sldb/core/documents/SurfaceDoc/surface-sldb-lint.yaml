@@ -1,7 +1,7 @@
 name: surface-sldb-lint
 path: knowledge/surfaces/surface-sldb-lint.md
-source_hash: c7bcb4ea049d01e7abd74b92d04dc82752fac6f16306d1da8caab3978bf24bb5
-content_hash: e9138f93104660b851e2324589bccee7beef51e9713404385bd3ae36785abcf9
+source_hash: e9d19c2de5c0dfef24305103f27798904a4163662e9cb9eb1a3e2091049d010c
+content_hash: a701d37bcf98a157dd393e78ba64625e24fa1d2bbe096cd5769a18dec7756f34
 field_hashes:
   id: 7eb59d5939b2c81407c921526ca1b52354d5a59a0cd2fe2cf0eeef6c39f7159b
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -10,7 +10,7 @@ field_hashes:
   how_it_works: 3ddb74b05e69bd763f64cdf41b3c147b61a4cafc793bceda95aa988ff3f220f4
   commands: ef09e47bb5cbb323f746b7743aba79b7038662e025bec51117385210ac9f72f4
   tags: 28e2d739923a919405b798242e5394dda38832570ee573367673daed32bb183f
-  provenance: 07b7bbd962459a63ad4032a19498e30662c9fecf417fc05586ec2f7fd81ceed1
+  provenance: c1d325996a0237d8d4c70e37ad7bb323d4a58704647f7a38571d437867eeb0e1
 semantic_tags:
 - domain:retrieval
 - entity:cli_surface
@@ -21,3 +21,8 @@ semantic_tags:
 - system:sldb
 - type.knowledge.surface
 - workspace.knowledge.surfaces
+provenance:
+  by: agent
+  at: '2026-11-16T20:55:41Z'
+  authority: generated
+  via: save_document_payload

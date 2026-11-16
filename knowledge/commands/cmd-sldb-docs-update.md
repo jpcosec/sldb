@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:46:51Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-docs-update
 system: sldb
 command_path: docs update
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#docs update; contract-sha256:cd6be9adc3f355ff3fcdf2e753a419a1714664880102c82b958f4b1c95ad7d75
+provenance: parser:sldb.cli.parser:build_parser#docs update; contract-sha256:4474a33e878807d33dfd37179d0e724fc6b82033a8fbdaff9540c848f822f27c
 ---
 
 # docs update
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'update'. It 
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "doc"

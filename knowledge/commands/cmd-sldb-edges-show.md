@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:47:48Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-edges-show
 system: sldb
 command_path: edges show
 synopsis: Edges from (or --to) a document or node.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#edges show; contract-sha256:bf9df8956855b86d0b8fa9ef4d84987dfde67d14dc6c2e13d8867a9383c6afe1
+provenance: parser:sldb.cli.parser:build_parser#edges show; contract-sha256:840ad76bc012af0d5b1b90b5687ec50a442de4d3b271fa00f73ea8db621834a7
 ---
 
 # edges show
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "node"

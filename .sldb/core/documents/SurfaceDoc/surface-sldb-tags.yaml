@@ -1,7 +1,7 @@
 name: surface-sldb-tags
 path: knowledge/surfaces/surface-sldb-tags.md
-source_hash: 1712a2d542a5e8f39365719d99812a3ce73169f454ad518cc28c9e8b64cef742
-content_hash: 34b8ffde141bf50fac0b8bdaf2ce6ec9234c4625395dd266036d85b4bdb06266
+source_hash: f6888219bcc13a93d0e34a42b886824e8e2301e84fddaa9c4e7c386c912a08b1
+content_hash: ceb9d7ac45cc8c3e97ea5165f13bb899ec5664a1850109732be3ed42fee4432a
 field_hashes:
   id: fdc20e374759f8d6afcd846474b08d5212fa468a5f84ac14ad6d594529136eef
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -10,10 +10,14 @@ field_hashes:
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   commands: c58e519a209a1ec9560b8303e4d2d88efaa991a98f199f30b745d5e26fd0be58
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 3038dd61200696cdeab1e7945f45bb137f180de2296b8796f8883f3d97a27284
+  provenance: 6a3143f0ee7060ae646438a40372aadc9fe82bd6feb72e1f5e985ddac319f7fa
 semantic_tags:
 - representation.markdown
 - source.document.markdown
 - type.knowledge.surface
 - workspace.knowledge.surfaces
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-16T21:12:24Z'
+  authority: generated
+  via: save_document_payload

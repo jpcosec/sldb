@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:46:04Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-docs-recover
 system: sldb
 command_path: docs recover
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#docs recover; contract-sha256:67c547efc5956295c51d33ebc2a14e20454cbead16808976b030499189e339f1
+provenance: parser:sldb.cli.parser:build_parser#docs recover; contract-sha256:b377fa91a0511e6825a258d8de0749f0c851560fc14d100c9dfb1cd79661a6d8
 ---
 
 # docs recover
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'recover'. It
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "doc"

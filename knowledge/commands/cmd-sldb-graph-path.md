@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:51:56Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-graph-path
 system: sldb
 command_path: graph path
 synopsis: How two nodes are connected.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#graph path; contract-sha256:39e1fa70750ffe26138fcf98a698e2e577c0dcab54fae9af99e7bde0a9e6d5c8
+provenance: parser:sldb.cli.parser:build_parser#graph path; contract-sha256:4ef7402c8b1d75f62cbc864bda3f9153b254b0c3aa912d57ac8eeaf1d5da8825
 ---
 
 # graph path
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "source"

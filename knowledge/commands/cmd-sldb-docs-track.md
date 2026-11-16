@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:46:36Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-docs-track
 system: sldb
 command_path: docs track
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#docs track; contract-sha256:ecd948ac4db5fbafd5456cf4f7f4c5e5f22198d0be7e91b73e38176e051f3922
+provenance: parser:sldb.cli.parser:build_parser#docs track; contract-sha256:36df920ecf47ac3888620c147a632b4ae26370a66261b4692a0d284c60b84bcd
 ---
 
 # docs track
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'track'. It p
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "path"

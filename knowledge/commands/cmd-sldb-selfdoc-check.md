@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:06:45Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-selfdoc-check
 system: sldb
 command_path: selfdoc check
 synopsis: Report documentation drift without writing.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#selfdoc check; contract-sha256:b99024e55bc43ebb5c33ecdabd62040815b279850d4a05a9e95d642e3bd36404
+provenance: parser:sldb.cli.parser:build_parser#selfdoc check; contract-sha256:2660900a08d0e550e8f7fde0786a6f3752d7119e24eb6e0114f04fec6889deb5
 ---
 
 # selfdoc check
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--factory"

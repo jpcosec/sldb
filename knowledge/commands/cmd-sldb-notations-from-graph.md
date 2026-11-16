@@ -1,11 +1,16 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:59:22Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-notations-from-graph
 system: sldb
 command_path: notations from-graph
 synopsis: Compile an sldb graph (snapshot JSON or store index) or a Python tree into
   a component spec.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#notations from-graph; contract-sha256:cbab49dd2d9752c23b2b287abf0f23fc0485edc7c47aa4dc1f8cc1ffa6791073
+provenance: parser:sldb.cli.parser:build_parser#notations from-graph; contract-sha256:883f7ff655c808d577a8e988db17619899deec863e9352d49dc171e2a6a15121
 ---
 
 # notations from-graph
@@ -27,6 +32,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--snapshot"

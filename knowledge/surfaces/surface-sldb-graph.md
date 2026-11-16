@@ -1,14 +1,14 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-15T20:05:15Z'
+  at: '2026-11-16T20:50:40Z'
   authority: generated
   via: save_document_payload
 id: surface-sldb-graph
 system: sldb
 surface: graph
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#graph; contract-sha256:423da44682bc4f75e061bf70809fae6100b6a730997ef3073ad39074d264f356
+provenance: parser:sldb.cli.parser:build_parser#graph; contract-sha256:004e278e25626ad026c41df62380a57101804e959d57beb4ba2eb9463231f8c7
 ---
 
 # graph

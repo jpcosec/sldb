@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:58:33Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-models-template-show
 system: sldb
 command_path: models template show
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#models template show; contract-sha256:6c56a60ad1fc58f4b337bd7d56eceee144b91397ba51acec3419d9809b3ab8df
+provenance: parser:sldb.cli.parser:build_parser#models template show; contract-sha256:f09ffa204b6fc0c9763a14be33a76a9c252bb96fe896a5ed686f6f819d1e39fc
 ---
 
 # models template show
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'show'. It pa
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "model"

@@ -1,7 +1,7 @@
 name: cmd-sldb-bench
 path: knowledge/commands/cmd-sldb-bench.md
-source_hash: 0e216a175f49996d7ed6dfc4e93aea2e009e84696930a3989d663e47573545a0
-content_hash: 1c4ad53525c32281822679d9b11b332a5615a8bedcbb85057f8272c66c9bf0a2
+source_hash: 3384644c1615c7c59a95c64cbfb97ba2de3910c68a53fdafca1a03ab2f63d9e1
+content_hash: 7a6af7a8211a8dbc909c1f771ff0a91c64374ce654043059f70f3311875dc3ce
 field_hashes:
   id: d17e98591137d35bb56d113bad3134df3d5dcd8f541f9c8f04178d471b82b791
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,10 +9,10 @@ field_hashes:
   synopsis: eaa8791e60089446cfd06c994269d024dc3d1b4fe6410d68c65911db072454f8
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: 82068210239b23314d7b7d322b4277063b16e64d4aef1acfe58d5266ba58547f
+  arguments: a39cc486bfc15108fd8aa2d7a98c2a36b0e7d26604743be5f63c367898bf9a08
   usage: d02a590ad0a11ed1bf0e277cb7796b7b7a41194c39fdb12db07621c85ad9c528
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 422fdf847e8d899ee7aaac980473cd32a59884e9a85f72b231a24d2e33803757
+  provenance: 274886e5ea0d93c8044ee26d7e5eb74459f2a7b59430b5542713be4d2d264a10
 semantic_tags:
 - representation.markdown
 - source.document.markdown
@@ -20,6 +20,6 @@ semantic_tags:
 - workspace.knowledge.commands
 provenance:
   by: agent
-  at: '2026-11-16T01:06:19Z'
+  at: '2026-11-16T20:44:43Z'
   authority: generated
   via: save_document_payload

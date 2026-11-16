@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:53:34Z'
+  authority: generated
+  via: save_document_payload
 id: surface-sldb-inbox
 system: sldb
 surface: inbox
@@ -8,7 +13,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: parser:sldb.cli.parser:build_parser#inbox; contract-sha256:b37fc2b83589982b1a055c20bfd6530f3c12e39a9b782fc5064574784b15ec1c
+provenance: parser:sldb.cli.parser:build_parser#inbox; contract-sha256:86f7c85a69ff1c87a3fde7cada1a131a181e20f8faaa7fe9ff2eb1025e3f15f4
 ---
 
 # inbox

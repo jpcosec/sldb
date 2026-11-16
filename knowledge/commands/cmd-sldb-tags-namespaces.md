@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:12:48Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-tags-namespaces
 system: sldb
 command_path: tags namespaces
 synopsis: 'The declared namespaces: name, hierarchical, folder_axis, anchored_by.'
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#tags namespaces; contract-sha256:87179afb0f236ac4f384ea3d7f501c4e6f9004e9c47c4545ca17567f89a5524e
+provenance: parser:sldb.cli.parser:build_parser#tags namespaces; contract-sha256:cc60723ec2bed0b0895bf605fc5acf154fe48d30a65bf5019c2df039b76805e1
 ---
 
 # tags namespaces
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--store"

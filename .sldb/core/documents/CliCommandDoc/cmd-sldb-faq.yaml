@@ -1,7 +1,7 @@
 name: cmd-sldb-faq
 path: knowledge/commands/cmd-sldb-faq.md
-source_hash: 92fcffeead96541cd7477ffcfefd4f62d43fcfe0fadcc850bdd3e08936daefab
-content_hash: c78a3a37367d6375fb0dbd6c1bc3eea90f552b1680c8f1c056d480e15aa9a081
+source_hash: c26513db9d6d8eb4ed90f7657c9baa10359416b63a014d131ef79d389c71a895
+content_hash: ff23b7e87b99e1992d03b16dd87f773dceee0b1d83a484fad196b27efc7ff1f1
 field_hashes:
   id: 54b737aec7a2bb319b68be811e921dce45acb109856f9f8b98ffc0e04eae9664
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,10 +9,10 @@ field_hashes:
   synopsis: 6d61aeb337e6c913ee71fbfa0b2f19e984f2e5dcc92c3108205f74d9e8c8370e
   purpose: 5135c5bd290faea652d26300ef37cc80a10acb45e89b9839f78ece929fbb289d
   how_it_works: 9d74ae92c1cbff8eb9792a1a80e2223bc952ef1d1d219a5669ab999113d15d44
-  arguments: 0bc3f9c9fbbf8a900cb977d741bfb55b9e7fb03314d22a825643437e6f9bd777
+  arguments: 4dbc1e593535bf43b4c82055fe81d1a28d37230e9f7bca4ab72abbcb623d47ca
   usage: 88497f27a42848bd7e04c9571db4485bb292d9dbaea2b1450e5ab5971595d34e
   tags: 699c2cfd1a5b0cb746c8dfb0f4de3ed26435e62c74e179332ed04ad4f2591c91
-  provenance: cc871b81b6061f35f5e439e6422d1c3eb4204700040276155b2fae6087ec1d4c
+  provenance: 43eb91f56a322bc0eb9cf5d03c5fcdaa352f84429d4dce223cb30cff897f79d5
 semantic_tags:
 - domain:retrieval
 - entity:cli_command
@@ -23,3 +23,8 @@ semantic_tags:
 - system:sldb
 - type.knowledge.cli_command
 - workspace.knowledge.commands
+provenance:
+  by: agent
+  at: '2026-11-16T20:49:04Z'
+  authority: generated
+  via: save_document_payload

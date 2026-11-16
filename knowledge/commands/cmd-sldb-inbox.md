@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:53:25Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-inbox
 system: sldb
 command_path: inbox
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#inbox; contract-sha256:b37fc2b83589982b1a055c20bfd6530f3c12e39a9b782fc5064574784b15ec1c
+provenance: parser:sldb.cli.parser:build_parser#inbox; contract-sha256:86f7c85a69ff1c87a3fde7cada1a131a181e20f8faaa7fe9ff2eb1025e3f15f4
 ---
 
 # inbox
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'inbox'. It p
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "message"

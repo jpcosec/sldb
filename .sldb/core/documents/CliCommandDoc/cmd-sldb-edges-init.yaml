@@ -1,7 +1,7 @@
 name: cmd-sldb-edges-init
 path: knowledge/commands/cmd-sldb-edges-init.md
-source_hash: 9cc97aa4310e1ad02d23e036541c9f206ac573fb032d8df88286f3993302794d
-content_hash: 97da5c0dcdaee457520bea7d012eed3b4661e0a4f680203fa3cae552edbaae74
+source_hash: 1ece12391043caed3621337d89ad4613c4e4155766f8c9ec5a2095bbd863b85c
+content_hash: 7e522c0e9968ddd28c65dbd7712f209fd6f7af165bec20a0dfae13ae6a5f6210
 field_hashes:
   id: ddbbef6ef786ed90e7ce995fe97a87896d763d1737241b59f9ef24bcb4d8ecfd
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,12 +9,17 @@ field_hashes:
   synopsis: df4c509ae141992f1c9e4652f3c16038eb610bf81e6e217b8390253b28e0f072
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: 32054a73ea73532e7fcd4d04fa327a59a63c0e17a91243b448cf0c08c25e5fb8
+  arguments: 5c191f63d6d437a451d9b96d817d10030361b340e1b262e620b091f798bd931b
   usage: a3438c27b59a354965d80e1f7a0f8f4c4b832e0c91a40c7855da6716cc585dfd
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 7c558d565f6b9dd3ba3a0fc162ecf88b3e81215750425c01f19391bda33cf9cb
+  provenance: 646af366b6b2a15d78d352c04018a7d947206dd922d6a7e4b7abc92decdeea4d
 semantic_tags:
 - representation.markdown
 - source.document.markdown
 - type.knowledge.cli_command
 - workspace.knowledge.commands
+provenance:
+  by: agent
+  at: '2026-11-16T20:47:15Z'
+  authority: generated
+  via: save_document_payload

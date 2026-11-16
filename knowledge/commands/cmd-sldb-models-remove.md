@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:57:55Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-models-remove
 system: sldb
 command_path: models remove
 synopsis: Unregister a model; refused while it tracks documents unless --with-documents.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#models remove; contract-sha256:e8f4c6402be8397969f891adbafd1d00a4c5d32803db2f93e7367661185b23b5
+provenance: parser:sldb.cli.parser:build_parser#models remove; contract-sha256:75d8c836b3232e6a1815de3f2802cc35fee94f744d9b8d043b9fb02301a5c30e
 ---
 
 # models remove
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--with-documents"

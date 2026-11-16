@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-06T20:45:08Z'
+  at: '2026-11-16T21:08:24Z'
   authority: generated
   via: save_document_payload
 id: cmd-sldb-semantic-equivalent-add
@@ -9,7 +9,7 @@ system: sldb
 command_path: semantic equivalent add
 synopsis: Declare LOCAL equivalent to GLOBAL.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#semantic equivalent add; contract-sha256:5218d13bd4268f6677a54ab3a18e79567e8f4091a086c7b97a0c55828d2af4c1
+provenance: parser:sldb.cli.parser:build_parser#semantic equivalent add; contract-sha256:d17ada30d615e7b315073d860326a13b53fe42914bd834975c66f8f58a9d20ce
 ---
 
 # semantic equivalent add
@@ -31,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "local"

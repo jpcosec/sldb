@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:44:35Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-ast-show
 system: sldb
 command_path: ast show
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#ast show; contract-sha256:854915b08193f8bf5936063506b85217c6635bde702a85eba73fcd6c6c848780
+provenance: parser:sldb.cli.parser:build_parser#ast show; contract-sha256:ed3dc65fe6175eb5b4d6858b97963c35f4093ec312d9105290d69ea78d8f3d7e
 ---
 
 # ast show
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'show'. It pa
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "target"

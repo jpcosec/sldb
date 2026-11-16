@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:05:31Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-sections-fields
 system: sldb
 command_path: sections fields
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#sections fields; contract-sha256:b9dbce9c27e0d6dbbd172dd69a503626c8d80ec9a902694ab3e44d51b75a82bc
+provenance: parser:sldb.cli.parser:build_parser#sections fields; contract-sha256:7e05f1d77a19d386f9e84b1c82996806fe6e1a497307c7a7b7c8218f6985088b
 ---
 
 # sections fields
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'fields'. It 
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "target"

@@ -1,7 +1,7 @@
 name: cmd-sldb-edges-referrers
 path: knowledge/commands/cmd-sldb-edges-referrers.md
-source_hash: d67cf2f860f31e810edebadeabdfc452e561882e94b5796e53e6b1ec0bc3c457
-content_hash: bf24fb70baf77450f3d4cfb74e922c4c8c64d950c45364a5b3018f2f2d33e069
+source_hash: f77b3ca6ad9fa04bbc480200122f3b928f97d4314100cd2e8f8d9ba61819e0e8
+content_hash: b493e7534749c26b98267bce7160924030073a5173471294e26b8683d7a16865
 field_hashes:
   id: 00d74b42d2da553987ffe087bc9c073502bc3932b8328f100b0a176bfa5915e8
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,13 +9,17 @@ field_hashes:
   synopsis: eef0b76cbd9a5ac85ff6c748d701279548b495682fd4400cc7928feda1849618
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: 2e2f838707e080490dd50064853ea8c9bb16d8a12ad14c5c68b993650708dc91
+  arguments: 02a4458ae39ee076bc8c63704828faee89e4508f2bce9d6ebc06a64dd5365a99
   usage: c10503cade455e556cc1ae1844fd2647f335cc53c0b9a0e39987733493ff7942
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 6021267938df1c03e3daa034e160dc7ea566cc17b2e3348f2d5689e282ae432e
+  provenance: 572dc868d33d09c767207f3ffa77ea95960d536e64ac4bc0ab6623d9a5cc8f32
 semantic_tags:
 - representation.markdown
 - source.document.markdown
 - type.knowledge.cli_command
 - workspace.knowledge.commands
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-16T20:47:32Z'
+  authority: generated
+  via: save_document_payload

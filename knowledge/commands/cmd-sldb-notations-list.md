@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:59:34Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-notations-list
 system: sldb
 command_path: notations list
 synopsis: List notations or projection views in the store or builtins.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#notations list; contract-sha256:4d188184699c968ab11e21b745d7d89048410c3150917af57bedc079ac1cb26a
+provenance: parser:sldb.cli.parser:build_parser#notations list; contract-sha256:e9ff5a3254adfe4e149b8204ba101fc0815b750b3a5a7eb24399b581a9ce18e6
 ---
 
 # notations list
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--views"

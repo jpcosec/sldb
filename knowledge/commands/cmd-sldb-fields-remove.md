@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:50:01Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-fields-remove
 system: sldb
 command_path: fields remove
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#fields remove; contract-sha256:a028d5ca4268752625db1efc186713367f688185caad16cfc8719e793a78865c
+provenance: parser:sldb.cli.parser:build_parser#fields remove; contract-sha256:bb92fe312ded7206fbecbd30bbec9851dfe76ba188316de31db8703395e56732
 ---
 
 # fields remove
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'remove'. It 
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "target"

@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:52:25Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-graph-project-nodes
 system: sldb
 command_path: graph project nodes
 synopsis: Every document and file node, sorted by id.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#graph project nodes; contract-sha256:5d2803945d4a27600d1f969a03f686ec6d25eccfdac49d3126de8da2edb1b137
+provenance: parser:sldb.cli.parser:build_parser#graph project nodes; contract-sha256:73247644b775324da0928be69df74ec7cc819275adf6b41d33502d3b3c330838
 ---
 
 # graph project nodes
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--kind"

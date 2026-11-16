@@ -1,7 +1,7 @@
 name: cmd-sldb-semantic-parent-add
 path: knowledge/commands/cmd-sldb-semantic-parent-add.md
-source_hash: 91229925e35af6d8100f2dfa559dc466ddbd1aef746f3a4a060e478cdd8131ae
-content_hash: b5f3c51977da12ea9659deab7fc35d43eef9f9e0f385bb1cbc55a602ed65b474
+source_hash: e5722935a6d6dae6c460d58d2151f407b849c8178a7308ca7d86eec8e4cad559
+content_hash: 3bac430ac49a0ad6c38c6b89ad5ac15d6918e877bf6847d24da56bdb0b202232
 field_hashes:
   id: f8f087a2475238ce41b151d455b9cf88dd707b8258c75839f40a7d6208ec4321
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,10 +9,10 @@ field_hashes:
   synopsis: 0ec18c78822f59221e9f7b0fc4ff28f36337a2324212fc08027708d1562d6c56
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: 3897cba3f43c18f4321bbd9ad990d53b43c5a4e74de187cf1f84582b85355daa
+  arguments: 4dc56895a187fd92e5532ddb455ee5fa91eca61558a4bb92625e4b3deda6dcd2
   usage: 2cafca66689a0d3b8f9287d4938bea7502c88e8ba5bb6939ee5fc7c8a51892ea
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 4b601a0a49ece2aca9f1086fa0027deb7485bce4c7918d7719d90fefde5e003f
+  provenance: 39fff7adafc47978ea72fd65beeae3fd93a0f6609ed12b9d62e1475a1f417945
 semantic_tags:
 - representation.markdown
 - source.document.markdown
@@ -20,6 +20,6 @@ semantic_tags:
 - workspace.knowledge.commands
 provenance:
   by: agent
-  at: '2026-11-06T20:45:08Z'
+  at: '2026-11-16T21:08:34Z'
   authority: generated
   via: save_document_payload

@@ -1,7 +1,7 @@
 name: cmd-sldb-tags-tree
 path: knowledge/commands/cmd-sldb-tags-tree.md
-source_hash: 165915be60d209e8dd9f5a3a6b0f841e4e032d258108186fb1fdb2e83f0e48fe
-content_hash: 5b1d944d8a36ae36985ad23601bbc1612e8a90d9a2957dcbd3914fe5ef6aebae
+source_hash: f096a25e9ccc72c308e6921739e8e6549ee225b7176a82998a799c5e02fdecdf
+content_hash: b48093d94155aa4c6686a333365531e51006c658a2f93e2e9fcd962e2380c794
 field_hashes:
   id: b51ef0680f62fb909113358d032622ea312bd78c5b77319d499244119ca8efde
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,13 +9,17 @@ field_hashes:
   synopsis: 4b4f4e0e0bf9565606fd48f62fd6142f2df1af0d52491960572a5c21ae0fe275
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: 8736924de8611280cada588eb55dcd6b8d6e1800145156c5adbd563c75e55677
+  arguments: 165d2ceec64d21844f5ed2ad258dde8f4ecb688562793d5fe84ef148986cacb2
   usage: 8762f4481fa5041f0dba4d6a7e6e3cea2f094ed7ac8e8123c841e08e37c5ade3
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 3a9d45730c1d34c8698c6db0253b7d7551a6fc2bc13b6870b870c053e256c070
+  provenance: a89ba7fda43b6ad5a4251c601be0962859cd2d708a42a2958ed7bdf900be98c3
 semantic_tags:
 - representation.markdown
 - source.document.markdown
 - type.knowledge.cli_command
 - workspace.knowledge.commands
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-16T21:12:57Z'
+  authority: generated
+  via: save_document_payload

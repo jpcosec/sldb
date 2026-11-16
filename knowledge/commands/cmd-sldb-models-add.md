@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:56:16Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-models-add
 system: sldb
 command_path: models add
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#models add; contract-sha256:ebe6f6869fbfd9ddf05a622e144fb06d6b8d1a37d982e876fbd9f5c50faad457
+provenance: parser:sldb.cli.parser:build_parser#models add; contract-sha256:a355ef9f5218910e553771eecb846b63343729bf0a0caf58882060e6ed8db13d
 ---
 
 # models add
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'add'. It par
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "model"

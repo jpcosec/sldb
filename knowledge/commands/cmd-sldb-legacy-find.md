@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:54:44Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-legacy-find
 system: sldb
 command_path: legacy find
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#legacy find; contract-sha256:14bf4b4483d5d27f1d5f42a16ea9029e958a8044bba075fb7fd8fb1592dfb755
+provenance: parser:sldb.cli.parser:build_parser#legacy find; contract-sha256:9966a9cb2db957d54b51a001d2fb56a68c586c3a9bf4a6b490d6bd46ebbddd2e
 ---
 
 # legacy find
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/legacy.py (parser) and src/sldb/cli/comma
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "address"

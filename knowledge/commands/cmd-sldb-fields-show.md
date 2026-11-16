@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:50:08Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-fields-show
 system: sldb
 command_path: fields show
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#fields show; contract-sha256:e416861265986041399906e85fe90ecdc283b9dfd906836809a805f4ebe45025
+provenance: parser:sldb.cli.parser:build_parser#fields show; contract-sha256:a5ae12eb6a98ba85863f84d623a02e90086dc56cb9f89dd4c06e6670f065f34c
 ---
 
 # fields show
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'show'. It pa
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "target"

@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:55:22Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-legacy-recover
 system: sldb
 command_path: legacy recover
 synopsis: Recover links.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#legacy recover; contract-sha256:40e7a3f23c0583b8c65f7b1d6ebfd121d0563392b0c1c0a4cf33bb1a3f97f29d
+provenance: parser:sldb.cli.parser:build_parser#legacy recover; contract-sha256:ec9d85a2fc59619bd5e4240c0f0b8cbfac3ec7f1f9a658cf725a36dc7ba1fad6
 ---
 
 # legacy recover
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "doc"

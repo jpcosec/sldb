@@ -1,7 +1,7 @@
 name: surface-sldb-inbox
 path: knowledge/surfaces/surface-sldb-inbox.md
-source_hash: 2e0e2fc1add05cd4d7d0b7bfea887fa4f6ee133331bf50078c2c1896386bfd2a
-content_hash: be5dc344cce9736de1c1b2db4316e6bda3dd61f78999e6a9d33a4eaf4c93e06d
+source_hash: 2736f4cf7b23b6163538072eed420d58418989ecdd216111027152624eeff4be
+content_hash: 4451d60840e2a38f592d04308d3334663e7bc39fc3e3c85f45e43e90621c8e26
 field_hashes:
   id: e224af5f0d8d2ea6f5a45421f5bf32c8b646aaafb4b85c49c52901b0447d462d
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -10,7 +10,7 @@ field_hashes:
   how_it_works: a160f7fa8733d333f5d390e5acf14cee215714f3e9caa845b93ae737b4376fb6
   commands: 1b5341aca013f95cced4dbdf3fb693d600d0a28fe3516c938a3e41fa79b68b42
   tags: 28e2d739923a919405b798242e5394dda38832570ee573367673daed32bb183f
-  provenance: 5f754da06b1ae0016c1f41edde1a67a91864603b494f2dc5cac516a40206186b
+  provenance: a2e36d84caeeeab42df6c22aca4b20f2db5fab91762056963d28de7095a5da5d
 semantic_tags:
 - domain:retrieval
 - entity:cli_surface
@@ -21,3 +21,8 @@ semantic_tags:
 - system:sldb
 - type.knowledge.surface
 - workspace.knowledge.surfaces
+provenance:
+  by: agent
+  at: '2026-11-16T20:53:34Z'
+  authority: generated
+  via: save_document_payload

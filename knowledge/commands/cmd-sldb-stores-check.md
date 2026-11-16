@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-10-20T17:12:38Z'
+  at: '2026-11-16T21:10:17Z'
   authority: generated
   via: save_document_payload
 id: cmd-sldb-stores-check
@@ -14,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#stores check; contract-sha256:425d7a107e2d19a4fbc62a33367ad90c94818f0dab5cfd731ddfa55a7efadb9a
+provenance: parser:sldb.cli.parser:build_parser#stores check; contract-sha256:e61c4d45656e9a5f8c28d48b13b4c2efeda7af02a325a29038e86e88cc6b7336
 ---
 
 # stores check
@@ -36,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'check'. It p
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--store"

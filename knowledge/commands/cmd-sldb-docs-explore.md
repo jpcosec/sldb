@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:45:39Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-docs-explore
 system: sldb
 command_path: docs explore
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#docs explore; contract-sha256:8c113b86b16d5c0e7e7e9b5c91f8cb17c7cf677aed1d81411eef15ec141fd851
+provenance: parser:sldb.cli.parser:build_parser#docs explore; contract-sha256:5475b2c31cefaab1623d340b25381602aca1041b8409841e4ea9948e0a77e095
 ---
 
 # docs explore
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'explore'. It
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "term"

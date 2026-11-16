@@ -1,11 +1,16 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:47:40Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-edges-rewrite
 system: sldb
 command_path: edges rewrite
 synopsis: Rewrite (--to) or remove (--remove) every reference to a document or project
   node, all or nothing.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#edges rewrite; contract-sha256:aece50113f5d5c4752c5e38fe5cc93a2207c8b7323ea16a1c48ba1e38465bca1
+provenance: parser:sldb.cli.parser:build_parser#edges rewrite; contract-sha256:40bb48bc7a408d195698c0fb413225d8bd12f07053e694a4b2e8ef0e4d641c4e
 ---
 
 # edges rewrite
@@ -27,6 +32,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "target"

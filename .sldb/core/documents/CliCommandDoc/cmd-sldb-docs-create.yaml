@@ -1,7 +1,7 @@
 name: cmd-sldb-docs-create
 path: knowledge/commands/cmd-sldb-docs-create.md
-source_hash: fef130654b00f1434f00cb0e6558bb3cc796df9d540ebf07c451d01983711483
-content_hash: 29665fae02e447c0a425f25184c09b4e9fa60353ae456efba37e636cc27d9213
+source_hash: 99ca52eae7b30a6b0951f94f1dba7d94f968a8b162f420f7b47fbd48302186f6
+content_hash: a090f247e3a74379d12600013305f4f2359eccc283a4d51d11601e0956494ecc
 field_hashes:
   id: bcea21104819adb97dd2ab7358f5292a743402e98bc9ff11261deddaccc85911
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,10 +9,10 @@ field_hashes:
   synopsis: 2deb7c0e3905ec5e36e3d7bc70f3f0a4d72fe3eb6f1b612af9b97f92d4488c1a
   purpose: 49a5f74b2afbc4c13768629c88681d6c0851de4fd2b60263cb20d36e39025853
   how_it_works: 400807911882547b263f59d2b4a35e214ecc600df4de1f479aee975b3113d471
-  arguments: ca714e8e19e11aa82d268d11a9582b6c4080f9c0eab44227ba5a865a5e96d8d8
+  arguments: b5b601736a7b43f6956d934ed44e982e20b6b0d05552787a977e0bf8bee3c0e4
   usage: e36402a205c2b38ff3f8dc4ad581c7bf46ee3b4921471571eb09d80eee750dab
   tags: 699c2cfd1a5b0cb746c8dfb0f4de3ed26435e62c74e179332ed04ad4f2591c91
-  provenance: e79cf0606a5ba215103516a264bb9c0d30fc1b53be391a18d50e4d04a653ef77
+  provenance: 94d1cee07aa008fde82e76da7f5f5e12d230c1095d7017f41d06336ba42cf55a
 semantic_tags:
 - domain:retrieval
 - entity:cli_command
@@ -23,3 +23,8 @@ semantic_tags:
 - system:sldb
 - type.knowledge.cli_command
 - workspace.knowledge.commands
+provenance:
+  by: agent
+  at: '2026-11-16T20:45:15Z'
+  authority: generated
+  via: save_document_payload

@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:10:35Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-stores-init
 system: sldb
 command_path: stores init
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#stores init; contract-sha256:ae366f29de24a73e9855d287e9ae4095b38eb0d2ee4a4ffbc183261f0b8ac81c
+provenance: parser:sldb.cli.parser:build_parser#stores init; contract-sha256:fe548b6aa93e907d8125d0a681f46e45bdc5e95b1c78cf6e6d37b7e70686ecf3
 ---
 
 # stores init
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'init'. It pa
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--path"

@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:58:20Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-models-template-edit
 system: sldb
 command_path: models template edit
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#models template edit; contract-sha256:488f84deb77dbb9e599f2a5acf480adaa41dc5c18b27dbea53a2e0a1b43233f4
+provenance: parser:sldb.cli.parser:build_parser#models template edit; contract-sha256:e8644273c0aa903d5e8bcfb730fa17015aeab242a8675b2fa2001cb7881f4903
 ---
 
 # models template edit
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'edit'. It pa
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "model"

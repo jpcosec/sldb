@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-15T20:04:55Z'
+  at: '2026-11-16T20:44:59Z'
   authority: generated
   via: save_document_payload
 id: surface-sldb-docs
@@ -13,7 +13,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: parser:sldb.cli.parser:build_parser#docs; contract-sha256:2e4c2075c30f4f187ec4a283a7695f1f10bd727ba36b290a11d22cc4e38e7cfe
+provenance: parser:sldb.cli.parser:build_parser#docs; contract-sha256:0a7ecd38f8be077a8600e2c5f6d0a99c3c6972714023b00e781474818fa0c59d
 ---
 
 # docs

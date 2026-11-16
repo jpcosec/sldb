@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-06T20:45:07Z'
+  at: '2026-11-16T21:07:32Z'
   authority: generated
   via: save_document_payload
 id: cmd-sldb-selfdoc-python-sync
@@ -9,7 +9,7 @@ system: sldb
 command_path: selfdoc python-sync
 synopsis: Track static Python symbols as reference documents.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#selfdoc python-sync; contract-sha256:65902c2d3bd7857833f0ece9b7647c86c80733fd8935d523e2b48b758a1f8edb
+provenance: parser:sldb.cli.parser:build_parser#selfdoc python-sync; contract-sha256:3e2c1268ff293e06938ab1980d54efc280c8f0569aacae7e488327ba7fb19406
 ---
 
 # selfdoc python-sync
@@ -31,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--source-root"

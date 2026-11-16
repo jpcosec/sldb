@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:55:02Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-legacy-glob
 system: sldb
 command_path: legacy glob
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#legacy glob; contract-sha256:0bf5b38142a6a39eaeda1a1f1ea922ee0fe0ae33f8891d998976d17096a14cc6
+provenance: parser:sldb.cli.parser:build_parser#legacy glob; contract-sha256:8bc907c5907537dcc2f3f646723dc8ee0e21f4c3c1abb07ec27f948b408a8683
 ---
 
 # legacy glob
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/legacy.py (parser) and src/sldb/cli/comma
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "address"

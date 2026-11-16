@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:50:58Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-graph-components
 system: sldb
 command_path: graph components
 synopsis: What hangs together, and what hangs alone.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#graph components; contract-sha256:8f4591854dffeee319c0e6a3abf2a52f23f882cc1518c5791f11aa22f91f5595
+provenance: parser:sldb.cli.parser:build_parser#graph components; contract-sha256:03da15e0614992f8811af3d547f1fea17de41580b3849686a0827346d463d75b
 ---
 
 # graph components
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--islands"

@@ -1,7 +1,7 @@
 name: surface-sldb-notations
 path: knowledge/surfaces/surface-sldb-notations.md
-source_hash: e433bdd25a4e9d1f14a2eeebfc0e33509a74e2cfcaaf2d50c3bcddc7c5d0933c
-content_hash: f6392b91f2ce86dca647aeeebe11c5b2dfb7cc4b8458ae6be475176b8765e732
+source_hash: 848b0d73792fb3f7b1ace1a83a183c4cabef1cb4f40b92665bbc95c0785b982c
+content_hash: b3c86fdcc30490684ab8f68b8b529bf5b5240e0f0829aef552b030f6a156f775
 field_hashes:
   id: 75410a1a7091cfdcfc89cfba8bc94f6789c23a51a2f41639221307d879e9eab6
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -10,7 +10,7 @@ field_hashes:
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   commands: 697ef16256efd263327d51410d689dfd8042e5f1b724426ec6356de00996ba19
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 38ef40ca8ea069369ceb0ab187dd35e71b285dd380bb74f360fc3564b0e9dadd
+  provenance: 855f8c86728474c226c0ede0ed830ffe6a98d8250f9b59a85cc7847a4210c9a3
 semantic_tags:
 - representation.markdown
 - source.document.markdown
@@ -18,6 +18,6 @@ semantic_tags:
 - workspace.knowledge.surfaces
 provenance:
   by: agent
-  at: '2026-11-15T22:21:38Z'
+  at: '2026-11-16T20:59:09Z'
   authority: generated
   via: save_document_payload

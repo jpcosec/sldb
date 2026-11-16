@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-06T20:45:08Z'
+  at: '2026-11-16T21:08:34Z'
   authority: generated
   via: save_document_payload
 id: cmd-sldb-semantic-parent-add
@@ -9,7 +9,7 @@ system: sldb
 command_path: semantic parent add
 synopsis: Declare TAG a kind of PARENT.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#semantic parent add; contract-sha256:5ecc0fa518fea0295a510d0c3c5672e0f283dec474865f2062d846e84d2565eb
+provenance: parser:sldb.cli.parser:build_parser#semantic parent add; contract-sha256:f676584a6acdc5da4274121666a733629145350174e771a8bafb05153b316ef6
 ---
 
 # semantic parent add
@@ -31,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "tag"

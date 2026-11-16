@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:47:24Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-edges-rebuild
 system: sldb
 command_path: edges rebuild
 synopsis: Bring the edge index current; only what moved is rewritten.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#edges rebuild; contract-sha256:66c142041f3ea4a5fdab267403f1a2924f31f0c68fe0c771dd069a1d448e972f
+provenance: parser:sldb.cli.parser:build_parser#edges rebuild; contract-sha256:2e4aa010d6932660b185fe2a06ec21a10ccabddf2c8d600c945ae02e75689b46
 ---
 
 # edges rebuild
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--store"

@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:48:06Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-example
 system: sldb
 command_path: example
@@ -9,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#example; contract-sha256:a79207ee248dc6268dcdffa7431d62e7825f5eaee5bb3a5c50f26f499f072125
+provenance: parser:sldb.cli.parser:build_parser#example; contract-sha256:28e34d9fa377fb466bb21992bf82ce49af035e191c27a4b92009adb917236f79
 ---
 
 # example
@@ -31,6 +36,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'example'. It
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "path"

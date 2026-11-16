@@ -1,11 +1,16 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:12:38Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-tags-check
 system: sldb
 command_path: tags check
 synopsis: The findings of builtin:tag_namespace:* over every local document, as `rules
   check` reports them; exit 1 on an error.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#tags check; contract-sha256:8f62642282e6add6fdc43cb369eeaf10a229ee93e3fadc5714c38716d84cf1f9
+provenance: parser:sldb.cli.parser:build_parser#tags check; contract-sha256:93881414955f0e4afbbf3f35c99473005b0879ce8447a34d46519111df418783
 ---
 
 # tags check
@@ -27,6 +32,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--store"

@@ -1,11 +1,16 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T21:11:07Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-stores-migrate-layout
 system: sldb
 command_path: stores migrate-layout
 synopsis: Move the cache from .sldb/runtime/ to .sldb_cache/ (sibling of .sldb/),
   drop the journal and fix the root .gitignore.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#stores migrate-layout; contract-sha256:97c78383a7e3368fceea9ee2172682e7e31a8e48233450bfda7259e13fd55df3
+provenance: parser:sldb.cli.parser:build_parser#stores migrate-layout; contract-sha256:f5ad792ae4b6d6449497e36a7dd7d1be28e011c9ab65258ebcddc09ef2b088c6
 ---
 
 # stores migrate-layout
@@ -27,6 +32,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--store"

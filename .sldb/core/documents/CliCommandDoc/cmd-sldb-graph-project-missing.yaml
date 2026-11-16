@@ -1,7 +1,7 @@
 name: cmd-sldb-graph-project-missing
 path: knowledge/commands/cmd-sldb-graph-project-missing.md
-source_hash: e8fa2bd840a938e3e463ec11973195b35d1f4946bcc737de7b68ad3867a6a3ca
-content_hash: 6c348333dbb56882aa2546410fecd0866b7c5452b58efc3b3a57536e66cf54b3
+source_hash: b861a30b159c10303769516b69e03f2a5f0ad052231a24f5b8a0efd090d6ae6e
+content_hash: a3a285abf5decf2ed317ea1d5ce97864098bbcad8f4187c8685741018210abe8
 field_hashes:
   id: a9eca895e119995a9d78e556319db7045eefbb416be5d1310062cb0afbca7c56
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,13 +9,17 @@ field_hashes:
   synopsis: 9d8635af25c51f01e1762ff4d22e67e30f6ee13ca40a4cd33fe4b5b8d5a0115e
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: 65ad4b1a782edfec6f251f11e88377c6fca4188088091103a372df6bcc8e016c
+  arguments: 88cf1f900287ca860c828df66e7aa5a6500bba1728faf81a9241b327d33569bd
   usage: f62b78abfec59a7d5128626b6ddc93f8d3e66c1f1de4d713bee512e408926029
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: c78235c5e230f7bf03c46eda602a6a3fd56c6f572cf877eb6434591942cfd3c6
+  provenance: 8eeb8ad264710e68c5ca3e6ba4429104658068a4cf72e6fe1708b2d5faf0f73b
 semantic_tags:
 - representation.markdown
 - source.document.markdown
 - type.knowledge.cli_command
 - workspace.knowledge.commands
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-16T20:52:16Z'
+  authority: generated
+  via: save_document_payload

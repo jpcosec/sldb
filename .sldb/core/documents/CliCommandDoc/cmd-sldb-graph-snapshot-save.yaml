@@ -1,7 +1,7 @@
 name: cmd-sldb-graph-snapshot-save
 path: knowledge/commands/cmd-sldb-graph-snapshot-save.md
-source_hash: 28f4aef303574d24f76c4fd395d2bf1d0cf2aa35b61313db2c7b5964f96f82f8
-content_hash: c7dd0892b3195157431a323de041971fb8c1db0341786c23333759a2e1c89782
+source_hash: 19854a121358d987c1a28d4d01207063cfddc2eff2e3e7e26e3215a299418f54
+content_hash: 22722df4b980fa3ba08531f36a92520b4c581a9775fdd2c400067373cb64eb30
 field_hashes:
   id: 44f10e7db2707f8b547e18de642ef19d305081f1a180d42faf97e56bd6a78d5e
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,12 +9,17 @@ field_hashes:
   synopsis: 02e8c2921b4f7a9d49e1d27cd41a07be87e12dd41be2c365a4c1d31ba2812abe
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: c3ca4e85e94ecaf5c836aac43c3cc02efe7e18d1a9c2f0602d4bc6c5009d13d7
+  arguments: 1bcee501be6009c4391bfe114a454543e8060d8933f3b2af9c9617cadf1c67e4
   usage: 98cc1a41280c3ecf226de671ca1f99026736f6808b13b962b14b8c24f712bc09
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: f1a0741c1a5287b56e937d7a7bdd410de65a3af76ed4e6299b3c0e6a64602695
+  provenance: 3a1678f491b887a7736a25f73ca237649c3fa04a702905fb1eaf97e9880b6677
 semantic_tags:
 - representation.markdown
 - source.document.markdown
 - type.knowledge.cli_command
 - workspace.knowledge.commands
+provenance:
+  by: agent
+  at: '2026-11-16T20:52:58Z'
+  authority: generated
+  via: save_document_payload

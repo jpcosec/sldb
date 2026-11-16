@@ -1,7 +1,7 @@
 name: cmd-sldb-stores-migrate-layout
 path: knowledge/commands/cmd-sldb-stores-migrate-layout.md
-source_hash: 5e2d526dccfdc6cbac9187c025ba17405f42f743255e020711cb88d866ff2e4c
-content_hash: 66ce113bf4cead210c297d589489853f75f464d95852ab383ac77d51096debc3
+source_hash: d534cd863c68e652cbe47e24f44bafd3af4ff6178e7dbe8dfbb7937d64ea093f
+content_hash: 8b2a7b0f0109cc680cf0f768508375b490218f4e1c234898e2caab19719d224a
 field_hashes:
   id: 9c4d8fd940fff7840c534590817d1962f73985c7701d902f7b2f9e1c681ec4e4
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,13 +9,17 @@ field_hashes:
   synopsis: 2fa5d6705307637870c7e2b7383d9b85544e1d49b9f6eec325a69e95f231fa7b
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: 82f7caec4f1b86babb06b54c0550e83ea2d9a73819a2df698222f4cf12515c9c
+  arguments: ff606d5e4533b6c9e0589c8ea62f7bcddfa4dc1aa8e80327595e21d5405e039f
   usage: cde765bd377a81106d6b15365fc83345b90aca2440c8efa6d918a9ac5e2bdadc
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 72caa48cad097a48b9a937c9c8a4d44d132ea2146c9fac01caf09e26eb217430
+  provenance: 0a1282096c46158b67b41a6e0122e26b7d73a1e1f373010c9ef9c12368b71f88
 semantic_tags:
 - representation.markdown
 - source.document.markdown
 - type.knowledge.cli_command
 - workspace.knowledge.commands
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-16T21:11:07Z'
+  authority: generated
+  via: save_document_payload

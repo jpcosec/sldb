@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:52:16Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-graph-project-missing
 system: sldb
 command_path: graph project missing
 synopsis: Declared targets that resolve to no node, with where each is declared.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#graph project missing; contract-sha256:39d91daf8ed49394348622b5a950c853c8c2f57c798f964228649eae2c7c0dcd
+provenance: parser:sldb.cli.parser:build_parser#graph project missing; contract-sha256:9fddee2db98430518678bbd550310927e021a26c6d709d477fcbe2ed58bafee7
 ---
 
 # graph project missing
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--store"

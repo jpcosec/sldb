@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:51:31Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-graph-list
 system: sldb
 command_path: graph list
 synopsis: All node ids in the store's edge index.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#graph list; contract-sha256:d3c480533f3a56836623595ecf935624e9bfaad94f956c1e50051bbc8c11cd3a
+provenance: parser:sldb.cli.parser:build_parser#graph list; contract-sha256:d99b3a12edb34f30a25ebaf877293cd8e6e6b6d2f0268ccd3cffd48a9b0c0b98
 ---
 
 # graph list
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "--store"

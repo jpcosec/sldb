@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T20:57:39Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-models-metadata-edit
 system: sldb
 command_path: models metadata edit
 synopsis: Edit model metadata in draft.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#models metadata edit; contract-sha256:1bb04ccd84807ee8c6fdcf1617aa1f80f56cf657d7113e68a82adcd6ed0fdea4
+provenance: parser:sldb.cli.parser:build_parser#models metadata edit; contract-sha256:0f77bd57ccfc8b2e7ef61ca013624f6a43a75a7a21876b50c1d2ac89a24a9be2
 ---
 
 # models metadata edit
@@ -26,6 +31,19 @@ Not documented.
 ```json
 {
   "arguments": [
+    {
+      "names": [
+        "--version"
+      ],
+      "required": false,
+      "default": "SUPPRESS",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "sldb.cli.parsers.core._VersionAction",
+      "const": "null",
+      "help": "print the version and the git revision, then exit"
+    },
     {
       "names": [
         "model"
