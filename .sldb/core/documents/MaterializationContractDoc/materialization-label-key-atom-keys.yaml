@@ -1,0 +1,25 @@
+name: materialization-label-key-atom-keys
+path: desk/materializations/materialization-label-key-atom-keys.md
+source_hash: 1617a9724b86ccbf6158deae1b63a9b4267b0bc901a80cc77197286127268df3
+content_hash: f2a23cdc5cac04d4d7dceee7999f64a7f23a0863b350e2aa79d798cd602e846a
+field_hashes:
+  id: a65c6c879297390599aa9ec940a18cd926a669bafe8873dbe6b4028021bc5339
+  title: 85e06a33225c451299ba8a5a1e8fe4963bff2167d1eb435fc7084395f8518adc
+  source_atoms: 16c1812fd864249ef5ec489aff17982e9a546d8490b2d62619fab6047f28428b
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 0ced068093fb5bf2208a402eba90f2fe73b50a5511dbf212970f9d07e3d4ac57
+  intent: f23538f56eb328bde7e04ec72ccec9e351ee18391e8d50b1698f40533c91c4bb
+  validation: 673edd1d3ac75070e11ba3369e08301fbaeed7cd12c091302b8f5377960cea81
+  tags: eb83724b5baf1b29134e16e6d88549ccfcadf25fdd746fa5711565c67f1ca1e6
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:matching
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T09:38:45Z'
+  authority: generated
+  via: create_document

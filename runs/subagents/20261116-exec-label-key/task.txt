@@ -1,0 +1,7 @@
+Task: task-label-key-de-sldb-api-matching-trata-el-guion-bajo-como-separador-igual-que-normkey-del-catálogo
+Title: label_key de sldb.api.matching trata el guion bajo como separador, igual que normKey del catálogo
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]

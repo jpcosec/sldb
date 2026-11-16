@@ -1,0 +1,23 @@
+name: atom-label-key-de-sldb-api-matching-normaliza-igual-que-normkey-del-catálogo-el-guion-bajo-separa-palabra
+path: desk/atoms/atom-label-key-de-sldb-api-matching-normaliza-igual-que-normkey-del-catálogo-el-guion-bajo-separa-palabra.md
+source_hash: fe988aea553c86a6121dad5a8433d5b8106c160b68ba365054058a35c73fc9a9
+content_hash: 4ee52907c4bf949aa54bea72c6a799fbfbf5df9aa993dfd7ef1e7020d15330a2
+field_hashes:
+  id: 0b984e844efef0ae74abaf1dc44c41cf5f92ef0d75c90cf29a00a7312638e90b
+  title: bfd8c18047cdd4a4481095370e8cd29dc855e93d7ab9ff13352bc17d3acbcff4
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: c95906b5b17762024013c7a57578677c225df01bcc74e6ffe6933ce2771a06f5
+  tags: eb83724b5baf1b29134e16e6d88549ccfcadf25fdd746fa5711565c67f1ca1e6
+  provenance: 0ced068093fb5bf2208a402eba90f2fe73b50a5511dbf212970f9d07e3d4ac57
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:matching
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-16T09:38:22Z'
+  authority: generated
+  via: create_document

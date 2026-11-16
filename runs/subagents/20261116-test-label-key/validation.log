@@ -1,0 +1,81 @@
+### TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/matching/
+...............................                                          [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+31 passed, 1 warning in 1.69s
+rc=0
+
+### pytest -q -v tests/matching/test_matching_explicit.py -k label_key
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.1.1, pluggy-1.6.0
+rootdir: /mnt/ssd/proyectos/SLDB_1/sldb
+configfile: pyproject.toml
+plugins: cov-7.1.0
+collected 15 items / 9 deselected / 6 selected
+
+tests/matching/test_matching_explicit.py ......                          [100%]
+
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================== 6 passed, 9 deselected, 1 warning in 0.03s ==================
+rc=0
+
+### caso extra: /dev/shm/tlk/edge.py (paridad con normKey en node + E2E collect_explicit_atoms)
+import json, subprocess, string, itertools
+from sldb.api.matching.atom_keys import label_key, normalize_key
+from sldb.api.matching.spec_view import SpecView
+from sldb.api.matching.spec_view_elements import collect_explicit_atoms
+from sldb.api.notations.spec_sync_constants import _ELEMENT_COLLECTIONS
+JS = "const normKey=s=>String(s||'').trim().toLowerCase().replace(/[^\\p{L}\\p{N}\\s]+/gu,' ').replace(/\\s+/g,' ').trim();" \
+     "const a=JSON.parse(require('fs').readFileSync(0,'utf8'));console.log(JSON.stringify(a.map(normKey)));"
+pr = [c for c in string.printable if c not in "\x0b\x0c"]
+cases = [f"a{c}b" for c in pr] + [f"{c}{c}x{c}" for c in pr] + [
+  "post_published","Año_2024","a-b_c.d","  x__y  ","_lead_","__","_","Ñandú_42 ok","x_1_y","snake_case_ID","ÉLAN_vital","a\t_\nb","Straße_ß","٣_x","x²_y", ""]
+js = json.loads(subprocess.run(["node","-e",JS],input=json.dumps(cases),capture_output=True,text=True,check=True).stdout)
+bad = [(c, label_key(c), j) for c, j in zip(cases, js) if label_key(c) != j]
+print("casos", len(cases), "diferencias", len(bad))
+for b in bad: print("  DIFF", repr(b[0]), repr(b[1]), "js=", repr(b[2]))
+# negativos: normalize_key intacto (sigue conservando _ ?)
+print("normalize_key('post_published') =", repr(normalize_key("post_published")))
+# extremo a extremo: elemento sin label con id con _
+typ, cols = next(iter(_ELEMENT_COLLECTIONS.items()))
+spec = {"type": typ, "data": {cols[0]: {"post_published": {"atoms": ["atom-x"]}, "Otro_Id": {"label": "Mi_Label", "atoms": ["atom-y"]}}}}
+explicit, total, wa = collect_explicit_atoms(SpecView(key="k", id="v", specs=[spec]))
+print("tipo", typ, cols[0], "->", explicit, total, wa)
+assert explicit.get("post published") == ["atom-x"] and "post_published" not in explicit
+assert explicit.get("mi label") == ["atom-y"] and explicit.get("otro id") == ["atom-y"]
+print("E2E OK")
+--- salida
+casos 212 diferencias 0
+normalize_key('post_published') = 'post_published'
+tipo component nodes -> {'post published': ['atom-x'], 'mi label': ['atom-y'], 'otro id': ['atom-y']} 2 2
+E2E OK
+
+### uv.lock md5 antes/después
+uv.lock: OK
+
+### git status --short (sin runs/subagents/2026110*)
+ M .sldb/core/models/RunDoc.yaml
+ M .sldb/core/store_index.yaml
+ M .sldb/store.yaml
+ M CHANGELOG.md
+ M src/sldb/api/documents/apply_batch.py
+ M src/sldb/api/matching/atom_keys.py
+ M src/sldb/store/io/lock.py
+ M tests/matching/test_matching_explicit.py
+ M uv.lock
+?? .herdr-coordination.md
+?? .sldb/core/documents/RunDoc/run-deskops-e-2edd3c6307c2.yaml
+?? .sldb/core/documents/RunDoc/run-deskops-t-9741372cd8e8.yaml
+?? desk/runtimes/
+?? tests/api/test_apply_batch_lock.py
