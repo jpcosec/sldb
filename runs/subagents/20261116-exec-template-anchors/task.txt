@@ -1,0 +1,9 @@
+Task: task-sldb-api-template-anchors-devuelve-por-campo-de-un-modelo-el-párrafo-ancla-literal-de-su-plantilla
+Title: sldb.api.template_anchors devuelve, por campo de un modelo, el párrafo ancla literal de su plantilla
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective atoms:
+- atom-el-template-de-un-modelo-es-estable-sus-recetas-se-calculan-una-vez-no-en-cada-extract
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
