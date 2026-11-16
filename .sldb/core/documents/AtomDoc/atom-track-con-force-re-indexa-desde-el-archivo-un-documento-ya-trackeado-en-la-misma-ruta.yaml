@@ -1,0 +1,23 @@
+name: atom-track-con-force-re-indexa-desde-el-archivo-un-documento-ya-trackeado-en-la-misma-ruta
+path: desk/atoms/atom-track-con-force-re-indexa-desde-el-archivo-un-documento-ya-trackeado-en-la-misma-ruta.md
+source_hash: ef608974aea643ce8289e8fda30572afe3dd4c7a93f1053df3654c4f432a37ee
+content_hash: 55c9819ba8fa0de7a531d0e5398ba27ff983aa58cb040057778ed810e2383ed0
+field_hashes:
+  id: adf12af7efd92d785d6f9042a95393ed980efd41dc440431b6ea27d4fc4c91b6
+  title: 4f4d8082dcae5b9c14bdb5c922d2f992a086e25e95160872c3d89f50fe06581c
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: 286b07a90948f69bbc25e8bb7fabb0593fb31bc81964fc0461517306264c8c12
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+  provenance: fc74c3d8ebfb7d4e914c1736c780de77ae89b2ff91e483351a8ad013e8696646
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-16T22:50:52Z'
+  authority: generated
+  via: create_document

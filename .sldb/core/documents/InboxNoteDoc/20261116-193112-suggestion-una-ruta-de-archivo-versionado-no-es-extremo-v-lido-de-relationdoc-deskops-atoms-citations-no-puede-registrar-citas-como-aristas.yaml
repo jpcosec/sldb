@@ -1,0 +1,18 @@
+name: 20261116-193112-suggestion-una-ruta-de-archivo-versionado-no-es-extremo-v-lido-de-relationdoc-deskops-atoms-citations-no-puede-registrar-citas-como-aristas
+path: desk/inbox/20261116-193112-suggestion-una-ruta-de-archivo-versionado-no-es-extremo-v-lido-de-relationdoc-deskops-atoms-citations-no-puede-registrar-citas-como-aristas.md
+source_hash: 29cf97041897aafec8bbd37959906b1870c3b5dace9762d28500f2d3ee4e22cb
+content_hash: 7d6a93aceabf3eaed5aeeda5b9d9babc50134b857e14dda8f4720e1000ac94bc
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 481af2c0bbdd7fc1f5ee70b0ec75e9c33ef948ebf0c790899720b255e7740c30
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: 81980b1c284699c06debdb7d05c0f087b3967e931a7b699dec580ff73f274d07
+  body: 89e4b9fd1267cf46419edc57b1a4d5c5e95272220710c1e3b93f4c819457f72e
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

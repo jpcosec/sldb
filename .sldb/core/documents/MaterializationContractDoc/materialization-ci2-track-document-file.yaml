@@ -1,0 +1,25 @@
+name: materialization-ci2-track-document-file
+path: desk/materializations/materialization-ci2-track-document-file.md
+source_hash: 8e28259ddee96967c2fe6b9de59aeefcfc53caf7dd60fb3e0040cc7c06092238
+content_hash: b50e1398ba6ab36264ce7844ccd422abb546cbd961aa39e797e32aa623acee4d
+field_hashes:
+  id: 8156dd0ee9b08d0b79e5c4eb980bd5bfe780d242c808062f4b7aa1ba84de21df
+  title: 25f870f8d3be1416bf1ea9303645fb24e04053ddd65265274345acf728ef5c6d
+  source_atoms: ec21e3a81eeeb60b29f8e0932ca6cd6badf1f5390bfbd393b1b97bf791fd9c51
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 0608a249a822cbdea210a3ad9f9ab91c194daf7b312b833234edbf96b31cdccc
+  intent: c4a4a310b4aaae03ecbf8238fd36cf1ea58f39c23fed1e483705cf872c37b653
+  validation: 6f94e445aef2fde20b2c2ca9c77ceffd0f6924bb670f23b6fd20af43d3c38fe0
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T22:52:11Z'
+  authority: generated
+  via: create_document

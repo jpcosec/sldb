@@ -88,3 +88,4 @@
 {"task_id": "task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3", "run_id": "deskops-e-884be32362ef", "run_dir": "runs/subagents/20261116-exec-b3", "session_sha256": null, "commit": null}
 {"task_id": "task-c\u00f3digo-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2", "run_id": "deskops-e-640c751d7c12", "run_dir": "runs/subagents/20261116-exec-b2", "session_sha256": null, "commit": null}
 {"task_id": "task-ci-el-test-de-graph-path-explicado-sobre-datos-reales-pasa-en-un-clon-limpio-sin-sldb-cache-ni-archi", "run_id": "deskops-e-ddef8b98ace9", "run_dir": "runs/subagents/20261116-exec-ci1", "session_sha256": null, "commit": null}
+{"task_id": "task-docs-track-force-sobre-un-documento-ya-trackeado-en-la-misma-ruta-lo-re-indexa-desde-el-archivo-en-l", "run_id": "deskops-e-146155e482b3", "run_dir": "runs/subagents/20261116-exec-ci2", "session_sha256": null, "commit": null}

@@ -1,0 +1,229 @@
+=== pytest -q tests/api/test_api_documents.py
+.................                                                        [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+17 passed, 1 warning in 1.19s
+rc=0
+=== pytest -q tests/api/test_on_write_entering.py
+.......                                                                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+7 passed, 1 warning in 4.19s
+rc=0
+=== pytest -q tests/api/test_api_stores.py
+............                                                             [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+12 passed, 1 warning in 1.00s
+rc=0
+=== pytest -q tests/test_links_batch_cli.py
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 3.48s
+rc=0
+=== pytest -q tests/test_clean_code_rules.py
+........................................................................ [  6%]
+........................................................................ [ 12%]
+........................................................................ [ 18%]
+........................................................................ [ 24%]
+........................................................................ [ 30%]
+........................................................................ [ 36%]
+........................................................................ [ 42%]
+........................................................................ [ 48%]
+........................................................................ [ 55%]
+........................................................................ [ 61%]
+........................................................................ [ 67%]
+........................................................................ [ 73%]
+........................................................................ [ 79%]
+........................................................................ [ 85%]
+........................................................................ [ 91%]
+........................................................................ [ 97%]
+.........................                                                [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1177 passed, 2 warnings in 4.71s
+rc=0
+=== bash tools/check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   222 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 949 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 123 símbolos pedidos, 592 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+rc=0
+
+=== EDGE (patched) — /dev/shm/t-ci2-scripts/edge.py
+sldb from /mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/__init__.py
+no-force exact: EXC sldb.core.exceptions.sldb_store_error.SLDBStoreError: Doc 'login' already tracked.
+no-force CLI: OK (1, ["Doc 'login' already tracked."], '')
+force abs path: OK (DocumentReference(model='TicketDoc', name='login', path=PosixPath('/dev/shm/t-ci2-wp/repo/login.md')), 'Abs path')
+force ./ path: OK (DocumentReference(model='TicketDoc', name='login', path=PosixPath('/dev/shm/t-ci2-wp/repo/login.md')), 'Dot path')
+shard hash_c == sha256(file)?: OK ('e87867d4b54ddd14315c6dabfa0f3a10f8dc33de4366bd918f4ef9be802b1234', 'e87867d4b54ddd14315c6dabfa0f3a10f8dc33de4366bd918f4ef9be802b1234')
+check_store after reindex: OK True
+force CLI: OK (0, '', 'Dot path')
+force other path (subdir): EXC sldb.core.exceptions.sldb_store_error.SLDBStoreError: Doc 'login' already tracked at 'login.md', not 'moved/login.md'; use move.
+title unchanged after refused: OK 'CLI force'
+force new doc: OK ('fresh', 'Broken login')
+force missing file: EXC builtins.FileNotFoundError: [Errno 2] No such file or directory: '/dev/shm/t-ci2-wp/repo/fresh.md'
+store.yaml login.md count: OK 'no store.yaml'
+final check_store: OK {'ok': True, 'damaged': [], 'reformatted': [], 'roster_only': [], 'moved_contracts': [], 'valid': True, 'errors': [], 'alerts': [], 'checked': 2, 'mismatched': [], 'structural_noise': [], 'shadowed_models': [], 'broken_links': [], 'gitignore_policy': None, 'rewrite_loss': []}
+=== EDGE (HEAD 12e9b191 via git archive) — mensaje y tipo sin force
+sldb from /dev/shm/t-ci2-head/src/sldb/__init__.py
+no-force exact: EXC sldb.core.exceptions.sldb_store_error.SLDBStoreError: Doc 'login' already tracked.
+no-force CLI: OK (1, ["Doc 'login' already tracked."], '')
+=== CONCURRENCIA force (3 procesos x 5 tracks x 6 rondas)
+round 0: child rcs=[0, 0, 0] check={"ok": true, "valid": true, "errors": [], "mismatched": [], "damaged": [], "alerts": [], "hash_c_matches_file": true} 
+round 1: child rcs=[0, 0, 0] check={"ok": true, "valid": true, "errors": [], "mismatched": [], "damaged": [], "alerts": [], "hash_c_matches_file": true} 
+round 2: child rcs=[0, 0, 0] check={"ok": true, "valid": true, "errors": [], "mismatched": [], "damaged": [], "alerts": [], "hash_c_matches_file": true} 
+round 3: child rcs=[0, 0, 0] check={"ok": true, "valid": true, "errors": [], "mismatched": [], "damaged": [], "alerts": [], "hash_c_matches_file": true} 
+round 4: child rcs=[1, 0, 0] check={"ok": true, "valid": true, "errors": [], "mismatched": [], "damaged": [], "alerts": [], "hash_c_matches_file": true} 
+  child stderr: ib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/store/io/lock.py", line 63, in _locked_fd
+    self._lock(lock_fd, wait)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/store/io/lock.py", line 77, in _lock
+    raise SLDBStoreError(f"Store at {self.store_path} is busy. Use --wait to block.")
+sldb.core.exceptions.sldb_store_error.SLDBStoreError: Store at /dev/shm/t-ci2-wp/repo/.sldb is busy. Use --wait to block.
+
+round 5: child rcs=[0, 0, 0] check={"ok": true, "valid": true, "errors": [], "mismatched": [], "damaged": [], "alerts": [], "hash_c_matches_file": true} 
+FAILS 1
+=== CARRERA sin force (4 procesos, doc nuevo, 5 veces)
+race0 ["EXC SLDBStoreError Doc 'race0' already tracked.", "EXC SLDBStoreError Doc 'race0' already tracked.", "EXC SLDBStoreError Doc 'race0' already tracked.", 'OK']
+race1 ["EXC SLDBStoreError Doc 'race1' already tracked.", "EXC SLDBStoreError Doc 'race1' already tracked.", "EXC SLDBStoreError Doc 'race1' already tracked.", 'OK']
+race2 ["EXC SLDBStoreError Doc 'race2' already tracked.", "EXC SLDBStoreError Doc 'race2' already tracked.", "EXC SLDBStoreError Doc 'race2' already tracked.", 'OK']
+race3 ["EXC SLDBStoreError Doc 'race3' already tracked.", "EXC SLDBStoreError Doc 'race3' already tracked.", "EXC SLDBStoreError Doc 'race3' already tracked.", 'OK']
+race4 ["EXC SLDBStoreError Doc 'race4' already tracked.", "EXC SLDBStoreError Doc 'race4' already tracked.", "EXC SLDBStoreError Doc 'race4' already tracked.", 'OK']
+check ok: True
+
+=== REGRESIONES VECINAS (archivo por archivo)
+tests/api/test_api_creation.py :: 6 passed, 1 warning in 0.48s
+tests/api/test_api_documents.py :: 17 passed, 1 warning in 1.46s
+tests/api/test_api_edges.py :: 16 passed, 1 warning in 14.84s
+tests/api/test_api_stores.py :: 12 passed, 1 warning in 1.76s
+tests/api/test_inherit_model.py :: 14 passed, 1 warning in 3.53s
+tests/api/test_journal.py :: 4 passed, 1 warning in 1.41s
+tests/api/test_model_metadata_drafts.py :: 8 passed, 1 warning in 1.79s
+tests/api/test_on_write_entering.py :: 7 passed, 1 warning in 4.98s
+tests/api/test_policy.py :: 14 passed, 1 warning in 1.27s
+tests/api/test_provenance.py :: 7 passed, 1 warning in 0.77s
+tests/api/test_remove_model.py :: 6 passed, 1 warning in 4.50s
+tests/api/test_resolve_indexed_document.py :: 8 passed, 1 warning in 0.72s
+tests/api/test_scaffold_store.py :: 20 passed, 1 warning in 1.86s
+tests/api/test_select_documents.py :: 19 passed, 1 warning in 7.85s
+tests/api/test_structural_noise.py :: 10 passed, 1 warning in 0.85s
+tests/api/test_transaction.py :: 15 passed, 1 warning in 2.92s
+tests/security/test_guard_selfdoc.py :: 1 passed, 1 warning in 6.65s
+tests/selfdoc/test_docstring_metadata.py :: 14 passed, 1 warning in 1.42s
+tests/store/test_cache_identity.py :: 3 passed, 1 warning in 1.67s
+tests/store/test_cli_store.py :: 38 passed, 1 warning in 12.01s
+tests/store/test_contract_in_model_node.py :: 13 passed, 1 warning in 2.56s
+tests/store/test_diagnostics.py :: 16 passed, 1 warning in 6.94s
+tests/store/test_doc_invalid_writes.py :: 8 passed, 1 warning in 16.87s
+tests/store/test_documents_shards.py :: 6 passed, 1 warning in 5.10s
+tests/store/test_field_set_drift.py :: 2 passed, 1 warning in 1.60s
+tests/store/test_include_resolution.py :: 5 passed, 1 warning in 2.89s
+tests/store/test_merkle_cost.py :: 2 passed, 1 warning in 4.76s
+tests/store/test_merkle_operation_cache.py :: 6 passed, 1 warning in 7.10s
+tests/store/test_semantic_export.py :: 4 passed, 1 warning in 1.50s
+tests/store/test_shard_cache_copies.py :: 4 passed, 1 warning in 1.62s
+tests/store/test_stores_build.py :: 27 passed, 1 warning in 14.90s
+tests/store/test_tracked_reads_guarded.py :: 9 passed, 1 warning in 40.91s
+tests/store/test_unresolved_model_check.py :: 2 passed, 1 warning in 1.12s
+tests/store/test_upgrade_compat.py :: 5 passed, 1 warning in 1.93s
+tests/test_linked_doc_refs.py :: 20 passed, 1 warning in 7.86s
+tests/test_linked_structural.py :: 1 passed, 1 warning in 1.57s
+tests/test_links.py :: 8 passed, 1 warning in 2.83s
+tests/test_links_batch_cli.py :: 5 passed, 1 warning in 2.33s
+tests/test_runtime_cache.py :: 8 passed, 1 warning in 2.66s
+tests/test_serve.py :: 61 passed, 1 warning in 50.22s
+
+=== git status --short (sin runs/subagents)
+ M .sldb/core/models/InboxNoteDoc.yaml
+ M .sldb/core/models/RunDoc.yaml
+ M .sldb/core/store_index.yaml
+ M .sldb/store.yaml
+ M CHANGELOG.md
+ M src/sldb/api/documents/track_document_file.py
+ M src/sldb/cli/parsers/docs1.py
+ M src/sldb/store/ops.py
+ M tests/api/test_api_documents.py
+?? .herdr-coordination.md
+?? .sldb/core/documents/InboxNoteDoc/20261116-193112-suggestion-una-ruta-de-archivo-versionado-no-es-extremo-v-lido-de-relationdoc-deskops-atoms-citations-no-puede-registrar-citas-como-aristas.yaml
+?? .sldb/core/documents/RunDoc/run-deskops-e-146155e482b3.yaml
+?? .sldb/core/documents/RunDoc/run-deskops-t-eab6088c807b.yaml
+?? desk/inbox/20261116-193112-suggestion-una-ruta-de-archivo-versionado-no-es-extremo-v-lido-de-relationdoc-deskops-atoms-citations-no-puede-registrar-citas-como-aristas.md
+?? desk/runtimes/

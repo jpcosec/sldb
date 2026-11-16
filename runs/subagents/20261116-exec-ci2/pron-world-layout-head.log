@@ -1,0 +1,67 @@
+test -f .sldb/core/store_index.yaml || sldb stores init
+/dev/shm/ci2-venv-head/bin/python -m pron.cli.main init --world . --pythonpath . --knowledge > /dev/null
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/dev/shm/ci2-lay/proyectos/PRON/pron/src/pron/cli/main.py", line 40, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/dev/shm/ci2-lay/proyectos/PRON/pron/src/pron/cli/main.py", line 29, in main
+    return cli.invoke(ctx)
+           ~~~~~~~~~~^^^^^
+  File "/dev/shm/ci2-venv-head/lib/python3.13/site-packages/click/core.py", line 2054, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/dev/shm/ci2-venv-head/lib/python3.13/site-packages/click/core.py", line 1414, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ci2-venv-head/lib/python3.13/site-packages/click/core.py", line 911, in invoke
+    return callback(*args, **kwargs)
+  File "/dev/shm/ci2-lay/proyectos/PRON/pron/src/pron/cli/commands/init.py", line 41, in command
+    report = init_world(world, pythonpath, with_knowledge=knowledge, template=template)
+  File "/dev/shm/ci2-lay/proyectos/PRON/pron/src/pron/world/world_init.py", line 114, in init_world
+    return WorldInit(root, pythonpath)(with_knowledge, template)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ci2-lay/proyectos/PRON/pron/src/pron/world/world_init.py", line 57, in __call__
+    types_added = self._knowledge_relation_types() if with_knowledge else []
+                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/dev/shm/ci2-lay/proyectos/PRON/pron/src/pron/world/world_init.py", line 91, in _knowledge_relation_types
+    self.store.create(
+    ~~~~~~~~~~~~~~~~~^
+        DocId.of("RelationTypeDoc", name),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        / f"{rt['name']}.md",
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/dev/shm/ci2-lay/proyectos/PRON/pron/src/pron/world/storage/document_tracker.py", line 63, in create
+    self._track_registered(doc_id, path)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/dev/shm/ci2-lay/proyectos/PRON/pron/src/pron/world/storage/document_tracker.py", line 92, in _track_registered
+    track_document_file(
+    ~~~~~~~~~~~~~~~~~~~^
+        self.sp_of(doc_id.store),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        force=True,
+        ^^^^^^^^^^^
+    )
+    ^
+  File "/dev/shm/ci2-head/src/sldb/api/documents/track_document_file.py", line 50, in track_document_file
+    _track(location.store_path, location.project_root, registered, doc_path, doc_name, pythonpath)
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ci2-head/src/sldb/api/documents/track_document_file.py", line 63, in _track
+    track_document(sp, root, registered.store_index, registered.model_type, registered.entry, doc_path, doc_name, resolve_model_ref, pythonpath)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ci2-head/src/sldb/store/ops.py", line 64, in track_document
+    StoreOperations.track(store_path, project_root, store_index, model_type, model_entry, doc_path, doc_name, resolve_model_ref, pythonpath)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ci2-head/src/sldb/store/ops.py", line 27, in track
+    StoreOperations._pre_check(store_path, project_root, model_entry, doc_name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/ci2-head/src/sldb/store/ops.py", line 37, in _pre_check
+    raise SLDBStoreError(f"Doc '{doc_name}' already tracked.")
+sldb.core.exceptions.sldb_store_error.SLDBStoreError: Doc 'rt-implements' already tracked.
+make: *** [Makefile:31: world] Error 1
+rc=2

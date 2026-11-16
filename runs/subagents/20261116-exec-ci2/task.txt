@@ -1,0 +1,7 @@
+Task: task-docs-track-force-sobre-un-documento-ya-trackeado-en-la-misma-ruta-lo-re-indexa-desde-el-archivo-en-l
+Title: docs track --force sobre un documento ya trackeado en la misma ruta lo re-indexa desde el archivo en lugar de fallar con already tracked
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
