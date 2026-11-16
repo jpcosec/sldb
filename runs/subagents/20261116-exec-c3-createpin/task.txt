@@ -1,0 +1,9 @@
+Task: task-clean-code-tras-create-pin-create-document-con-10-líneas-de-lógica-como-máximo
+Title: Clean code tras create-pin: create_document con 10 líneas de lógica como máximo
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective atoms:
+- atom-crear-un-documento-ya-fija-sus-anclas-a-documentos-create-document-pinnea-igual-que-save-document-pa
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]

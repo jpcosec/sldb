@@ -1,0 +1,423 @@
+### pytest -q tests/api/test_doc_anchors.py
+......................                                                   [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+22 passed, 1 warning in 1.70s
+rc=0
+### pytest -q tests/api/test_on_write_entering.py
+.......                                                                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+7 passed, 1 warning in 3.50s
+rc=0
+### pytest -q tests/api/test_rewrite_references.py
+.....................                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+21 passed, 1 warning in 6.25s
+rc=0
+### pytest -q tests/test_clean_code_rules.py
+....................F................................................... [  6%]
+........................................................................ [ 12%]
+........................................................................ [ 18%]
+........................................................................ [ 24%]
+........................................................................ [ 30%]
+........................................................................ [ 36%]
+........................................................................ [ 43%]
+........................................................................ [ 49%]
+........................................................................ [ 55%]
+........................................................................ [ 61%]
+........................................................................ [ 67%]
+........................................................................ [ 73%]
+........................................................................ [ 80%]
+.................................F....................................F. [ 86%]
+........................................................................ [ 92%]
+....................F................................................... [ 98%]
+................                                                         [100%]
+=================================== FAILURES ===================================
+________________ test_clean_code_rules[sldb/mcp/write/tools.py] ________________
+
+filepath = PosixPath('/mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/mcp/write/tools.py')
+
+    @pytest.mark.parametrize("filepath", get_python_files(), ids=lambda p: p.relative_to(SRC_DIR).as_posix())
+    def test_clean_code_rules(filepath: Path):
+        with open(filepath, "r", encoding="utf-8") as f:
+            source = f.read()
+    
+        raw_lines = source.splitlines()
+        tree = ast.parse(source, filename=str(filepath))
+    
+        classes = [node for node in tree.body if isinstance(node, ast.ClassDef)]
+    
+        # Rule 1: One class per file (max)
+        assert len(classes) <= 1, f"File {filepath.name} has {len(classes)} classes. Must have max 1."
+    
+        # Rule 2: Functions <= 10 lines of logic
+        for node in ast.walk(tree):
+            if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+                body = node.body
+                if body and isinstance(body[0], ast.Expr) and isinstance(body[0].value, ast.Constant) and isinstance(body[0].value.value, str):
+                    body = body[1:] # exclude docstring
+    
+                if not body:
+                    continue
+    
+                start_line = body[0].lineno
+                end_line = body[-1].end_lineno
+                logic_lines = end_line - start_line + 1
+    
+>               assert logic_lines <= 10, f"Function '{node.name}' in {filepath.name} has {logic_lines} lines of logic (max 10)."
+E               AssertionError: Function 'propose_changes' in tools.py has 11 lines of logic (max 10).
+E               assert 11 <= 10
+
+tests/test_clean_code_rules.py:41: AssertionError
+_____________ test_clean_code_rules[sldb/store/package_version.py] _____________
+
+filepath = PosixPath('/mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/store/package_version.py')
+
+    @pytest.mark.parametrize("filepath", get_python_files(), ids=lambda p: p.relative_to(SRC_DIR).as_posix())
+    def test_clean_code_rules(filepath: Path):
+        with open(filepath, "r", encoding="utf-8") as f:
+            source = f.read()
+    
+        raw_lines = source.splitlines()
+        tree = ast.parse(source, filename=str(filepath))
+    
+        classes = [node for node in tree.body if isinstance(node, ast.ClassDef)]
+    
+        # Rule 1: One class per file (max)
+        assert len(classes) <= 1, f"File {filepath.name} has {len(classes)} classes. Must have max 1."
+    
+        # Rule 2: Functions <= 10 lines of logic
+        for node in ast.walk(tree):
+            if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+                body = node.body
+                if body and isinstance(body[0], ast.Expr) and isinstance(body[0].value, ast.Constant) and isinstance(body[0].value.value, str):
+                    body = body[1:] # exclude docstring
+    
+                if not body:
+                    continue
+    
+                start_line = body[0].lineno
+                end_line = body[-1].end_lineno
+                logic_lines = end_line - start_line + 1
+    
+>               assert logic_lines <= 10, f"Function '{node.name}' in {filepath.name} has {logic_lines} lines of logic (max 10)."
+E               AssertionError: Function 'source_revision' in package_version.py has 12 lines of logic (max 10).
+E               assert 12 <= 10
+
+tests/test_clean_code_rules.py:41: AssertionError
+______________ test_clean_code_rules[sldb/store/section_sync.py] _______________
+
+filepath = PosixPath('/mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/store/section_sync.py')
+
+    @pytest.mark.parametrize("filepath", get_python_files(), ids=lambda p: p.relative_to(SRC_DIR).as_posix())
+    def test_clean_code_rules(filepath: Path):
+        with open(filepath, "r", encoding="utf-8") as f:
+            source = f.read()
+    
+        raw_lines = source.splitlines()
+        tree = ast.parse(source, filename=str(filepath))
+    
+        classes = [node for node in tree.body if isinstance(node, ast.ClassDef)]
+    
+        # Rule 1: One class per file (max)
+        assert len(classes) <= 1, f"File {filepath.name} has {len(classes)} classes. Must have max 1."
+    
+        # Rule 2: Functions <= 10 lines of logic
+        for node in ast.walk(tree):
+            if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+                body = node.body
+                if body and isinstance(body[0], ast.Expr) and isinstance(body[0].value, ast.Constant) and isinstance(body[0].value.value, str):
+                    body = body[1:] # exclude docstring
+    
+                if not body:
+                    continue
+    
+                start_line = body[0].lineno
+                end_line = body[-1].end_lineno
+                logic_lines = end_line - start_line + 1
+    
+>               assert logic_lines <= 10, f"Function '{node.name}' in {filepath.name} has {logic_lines} lines of logic (max 10)."
+E               AssertionError: Function 'process_model_sections' in section_sync.py has 13 lines of logic (max 10).
+E               assert 13 <= 10
+
+tests/test_clean_code_rules.py:41: AssertionError
+_________________ test_clean_code_rules[sldb/store/io/lock.py] _________________
+
+filepath = PosixPath('/mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/store/io/lock.py')
+
+    @pytest.mark.parametrize("filepath", get_python_files(), ids=lambda p: p.relative_to(SRC_DIR).as_posix())
+    def test_clean_code_rules(filepath: Path):
+        with open(filepath, "r", encoding="utf-8") as f:
+            source = f.read()
+    
+        raw_lines = source.splitlines()
+        tree = ast.parse(source, filename=str(filepath))
+    
+        classes = [node for node in tree.body if isinstance(node, ast.ClassDef)]
+    
+        # Rule 1: One class per file (max)
+        assert len(classes) <= 1, f"File {filepath.name} has {len(classes)} classes. Must have max 1."
+    
+        # Rule 2: Functions <= 10 lines of logic
+        for node in ast.walk(tree):
+            if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+                body = node.body
+                if body and isinstance(body[0], ast.Expr) and isinstance(body[0].value, ast.Constant) and isinstance(body[0].value.value, str):
+                    body = body[1:] # exclude docstring
+    
+                if not body:
+                    continue
+    
+                start_line = body[0].lineno
+                end_line = body[-1].end_lineno
+                logic_lines = end_line - start_line + 1
+    
+>               assert logic_lines <= 10, f"Function '{node.name}' in {filepath.name} has {logic_lines} lines of logic (max 10)."
+E               AssertionError: Function '_acquire_outer' in lock.py has 13 lines of logic (max 10).
+E               assert 13 <= 10
+
+tests/test_clean_code_rules.py:41: AssertionError
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_clean_code_rules.py::test_clean_code_rules[sldb/mcp/write/tools.py]
+FAILED tests/test_clean_code_rules.py::test_clean_code_rules[sldb/store/package_version.py]
+FAILED tests/test_clean_code_rules.py::test_clean_code_rules[sldb/store/section_sync.py]
+FAILED tests/test_clean_code_rules.py::test_clean_code_rules[sldb/store/io/lock.py]
+4 failed, 1164 passed, 2 warnings in 2.43s
+rc=1
+### bash tools/check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   221 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 941 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  32 símbolos pedidos sin puerta que los declare
+PASS: superficie — 120 símbolos pedidos, 592 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+rc=0
+### Regresiones vecinas (tests que mencionan create_document), archivo por archivo
+rc=0 tests/api/test_api_creation.py :: 6 passed, 1 warning in 0.59s
+rc=0 tests/api/test_api_edges.py :: 16 passed, 1 warning in 11.13s
+rc=0 tests/api/test_api_graph.py :: 2 passed, 1 warning in 1.11s
+rc=0 tests/api/test_api_graph_analysis.py :: 6 passed, 1 warning in 3.57s
+rc=0 tests/api/test_api_model_drafts.py :: 10 passed, 1 warning in 0.54s
+rc=0 tests/api/test_api_semantic.py :: 8 passed, 1 warning in 0.77s
+rc=0 tests/api/test_composition_edges.py :: 7 passed, 1 warning in 3.32s
+rc=0 tests/api/test_composition_ref_root.py :: 3 passed, 1 warning in 0.28s
+rc=0 tests/api/test_declared_references.py :: 7 passed, 1 warning in 3.27s
+rc=0 tests/api/test_declared_references_family.py :: 4 passed, 1 warning in 1.60s
+rc=0 tests/api/test_doc_anchors.py :: 22 passed, 1 warning in 2.57s
+rc=0 tests/api/test_edge_effects.py :: 21 passed, 1 warning in 10.09s
+rc=0 tests/api/test_graph_native_lifecycle.py :: 16 passed, 1 warning in 3.11s
+rc=0 tests/api/test_graph_source_parity.py :: 13 passed, 1 warning in 4.00s
+rc=0 tests/api/test_journal.py :: 4 passed, 1 warning in 0.62s
+rc=0 tests/api/test_machine_editor_schema.py :: 7 skipped, 1 warning in 0.10s
+rc=0 tests/api/test_model_lifecycle.py :: 14 passed, 1 warning in 0.77s
+rc=0 tests/api/test_on_write_entering.py :: 7 passed, 1 warning in 4.87s
+rc=0 tests/api/test_project_graph.py :: 13 passed, 1 warning in 1.30s
+rc=0 tests/api/test_provenance.py :: 7 passed, 1 warning in 0.74s
+rc=0 tests/api/test_provenance_index.py :: 3 passed, 1 warning in 0.48s
+rc=0 tests/api/test_referrers.py :: 12 passed, 1 warning in 2.58s
+rc=0 tests/api/test_remove_model.py :: 6 passed, 1 warning in 4.28s
+rc=0 tests/api/test_replace_text.py :: 16 passed, 1 warning in 9.11s
+rc=0 tests/api/test_rewrite_loss.py :: 3 passed, 1 warning in 0.37s
+rc=0 tests/api/test_rewrite_references.py :: 21 passed, 1 warning in 8.14s
+rc=0 tests/api/test_rules.py :: 13 passed, 1 warning in 9.20s
+rc=0 tests/api/test_rules_end_to_end.py :: 1 passed, 1 warning in 1.73s
+rc=0 tests/api/test_rules_evaluation.py :: 12 passed, 1 warning in 10.28s
+rc=0 tests/api/test_rules_linked_reach.py :: 4 passed, 1 warning in 0.80s
+rc=0 tests/api/test_run_view_reads.py :: 6 passed, 1 warning in 1.72s
+rc=0 tests/api/test_scan_cache.py :: 2 passed, 1 warning in 0.20s
+rc=0 tests/api/test_tags.py :: 36 passed, 1 warning in 17.87s
+rc=0 tests/api/test_tags_scope.py :: 11 passed, 1 warning in 4.06s
+rc=0 tests/api/test_transaction.py :: 13 passed, 1 warning in 2.14s
+rc=0 tests/api/test_unresolved_references.py :: 6 passed, 1 warning in 0.94s
+rc=0 tests/api/test_views.py :: 17 passed, 1 warning in 55.92s
+rc=0 tests/api/test_views_linked.py :: 6 passed, 1 warning in 1.15s
+rc=0 tests/api/test_write_paths_validate.py :: 5 passed, 1 warning in 1.19s
+rc=5 tests/matching/conftest.py :: 1 warning in 0.02s
+rc=5 tests/mcp/mcp_world.py :: 1 warning in 0.03s
+rc=1 tests/mcp/test_write_tools.py :: 1 xfailed, 1 warning, 8 errors in 4.60s
+rc=0 tests/notations/test_notation_view_and_routes.py :: 9 passed, 1 warning in 14.68s
+rc=0 tests/notations/test_ported_from_spec2viz_view_doc.py :: 6 passed, 1 warning in 1.57s
+rc=0 tests/notations/test_spec_sync.py :: 16 passed, 1 warning in 11.59s
+rc=5 tests/security/audited.py :: 1 warning in 0.02s
+rc=0 tests/security/test_guard_views.py :: 2 passed, 1 warning in 7.84s
+rc=0 tests/segments/test_field_transclusion_and_diagram_segments.py :: 5 passed, 1 warning in 2.12s
+rc=5 tests/store/invalid_memo_store.py :: 1 warning in 0.99s
+rc=0 tests/store/test_edges_follow_the_contract.py :: 1 passed, 1 warning in 0.98s
+rc=0 tests/store/test_family_follows_the_class.py :: 2 passed, 1 warning in 1.03s
+rc=0 tests/store/test_field_set_drift.py :: 2 passed, 1 warning in 1.40s
+rc=0 tests/store/test_live_stale_security.py :: 8 passed, 1 warning in 9.66s
+rc=0 tests/store/test_migrate_layout.py :: 8 passed, 1 warning in 2.05s
+rc=0 tests/store/test_payload_projection.py :: 40 passed, 1 warning in 1.94s
+rc=0 tests/store/test_predicate_language.py :: 16 passed, 1 warning in 1.97s
+rc=0 tests/store/test_runtime_wiped.py :: 1 passed, 1 warning in 1.36s
+rc=0 tests/store/test_semantic_rebuild.py :: 10 passed, 1 warning in 1.32s
+rc=0 tests/store/test_store_context_audit.py :: 2 passed, 1 warning in 0.98s
+rc=0 tests/store/test_stores_build.py :: 27 passed, 1 warning in 11.15s
+rc=0 tests/store/test_tracked_reads_guarded.py :: 9 passed, 1 warning in 26.02s
+rc=0 tests/test_cli_format_coverage.py :: 4 passed, 1 warning in 1.71s
+rc=0 tests/test_field_corpus.py :: 7 passed, 1 warning in 1.42s
+rc=0 tests/test_runtime_cache.py :: 8 passed, 1 warning in 3.35s
+rc=0 tests/test_serve.py :: 61 passed, 1 warning in 46.78s
+rc=0 tests/test_serve_corpus_similar.py :: 6 passed, 1 warning in 6.46s
+rc=0 tests/test_serve_edges_docs.py :: 3 passed, 1 warning in 3.84s
+### tests/mcp/test_write_tools.py con --extra mcp (con code+dev falla en setup por 'No module named anyio', igual en HEAD)
+error: Extra `mcp` is not defined in the `optional-dependencies` table for `structuredlanguagedb`
+rc=2
+### fallback: uvx --with-editable .[mcp] pytest tests/mcp/test_write_tools.py
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+8 passed, 1 xfailed, 1 warning in 6.88s
+rc=0
+### Caso borde propio (/dev/shm/t-c3-edge/edge.py), árbol vs HEAD (git archive en /dev/shm/t-c3-base)
+"""Borde: create_document a un directorio anidado inexistente con actor, y rechazo sin crear padres."""
+import re, sys, tempfile, importlib.util
+from pathlib import Path
+spec = importlib.util.spec_from_file_location("tda", sys.argv[1]); tda = importlib.util.module_from_spec(spec); spec.loader.exec_module(tda)
+from sldb import api
+import sldb; print("sldb from", Path(sldb.__file__).parent.parent)
+base = Path(tempfile.mkdtemp(dir="/dev/shm"))
+(base / f"{tda.MODULE}.py").write_text(tda.MODELS, encoding="utf-8"); sys.path.insert(0, str(base))
+w = tda.World(base)
+ref = api.create_document(w.store, "Review", w.root / "deep/x/y/r.md", {"title": "r", "subject": "doc:TaskDoc:b", "verdict": "accepted"}, "r", w.py, actor="tester")
+text = ref.path.read_text()
+print("REF", ref.model, ref.name, ref.path.relative_to(w.root))
+print(re.sub(r"\d{4}-\d\d-\d\dT[\d:.]+Z?", "<TS>", text))
+print("tracked:", sorted(d.name for d in api.list_documents(w.store, "Review")) if hasattr(api, "list_documents") else "n/a")
+try:
+    api.create_document(w.store, "Review", w.root / "refused/dir/z.md", {"title": "z", "subject": "not an anchor", "verdict": ""}, "z", w.py)
+    print("NOT REFUSED")
+except Exception as e:
+    print("refused:", type(e).__name__)
+print("parent created after refusal:", (w.root / "refused").exists())
+--- salida árbol
+sldb from /mnt/ssd/proyectos/SLDB_1/sldb/src
+REF Review r deep/x/y/r.md
+---
+sldb:
+  by: tester
+  at: '<TS>'
+  authority: generated
+  via: create_document
+subject: doc:TaskDoc:b@sha256:f34e312161d553c9d4395101c99036129dde82d1c4c2c7856ada7cd97b137ac5
+verdict: accepted
+---
+
+# r
+
+tracked: n/a
+refused: ValidationError
+parent created after refusal: False
+--- salida HEAD
+sldb from /dev/shm/t-c3-base/src
+REF Review r deep/x/y/r.md
+---
+sldb:
+  by: tester
+  at: '<TS>'
+  authority: generated
+  via: create_document
+subject: doc:TaskDoc:b@sha256:f34e312161d553c9d4395101c99036129dde82d1c4c2c7856ada7cd97b137ac5
+verdict: accepted
+---
+
+# r
+
+tracked: n/a
+refused: ValidationError
+parent created after refusal: False
+--- diff (sin línea de origen): idéntico
+### Base HEAD: test_clean_code_rules.py
+FAILED tests/test_clean_code_rules.py::test_clean_code_rules[sldb/store/section_sync.py]
+FAILED tests/test_clean_code_rules.py::test_clean_code_rules[sldb/store/package_version.py]
+FAILED tests/test_clean_code_rules.py::test_clean_code_rules[sldb/mcp/write/tools.py]
+FAILED tests/test_clean_code_rules.py::test_clean_code_rules[sldb/api/documents/create_document.py]
+4 failed, 1164 passed, 2 warnings in 5.32s
+### Base HEAD: tests/mcp/test_write_tools.py con code+dev
+1 xfailed, 1 warning, 8 errors in 5.83s
+### puerta afirmaciones aislada: python3 tools/check_claims.py
+  ERROR  docs/architecture/evidence-model-family.md: `sldb models` existe pero no acepta `describe`
+  ERROR  docs/architecture/references.md: la ruta `docs/missing` no existe
+  ERROR  docs/architecture/references.md: la ruta `docs/ambiguous` no existe
+  ERROR  docs/architecture/selectors.md: la ruta `docs/missing` no existe
+  ERROR  docs/architecture/selectors.md: la ruta `docs/ambiguous` no existe
+  ERROR  docs/architecture/selectors.md: el comando `sldb query` no existe
+  ERROR  docs/architecture/views.md: la ruta `docs/missing` no existe
+  ERROR  docs/architecture/views.md: la ruta `docs/missing` no existe
+  ERROR  CHANGELOG.md: la ruta `docs/architecture/vistas.yml` no existe
+  ERROR  CHANGELOG.md: la ruta `docs/missing` no existe
+  ERROR  CHANGELOG.md: la ruta `docs/ambiguous` no existe
+  ERROR  CHANGELOG.md: el comando `sldb query` no existe
+FAIL: afirmaciones — 102 documentos, 1128 afirmaciones comprobadas, 12 falsas
+rc=1
+### afirmaciones en HEAD: 1127 comprobadas, 12 falsas; árbol: 1128 comprobadas, 12 falsas; lista de ERROR idéntica (diff vacío) -> la línea nueva añade 1 afirmación verdadera
