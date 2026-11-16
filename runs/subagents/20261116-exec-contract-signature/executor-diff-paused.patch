@@ -1,0 +1,179 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 74fe3e9e..6bddb522 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -4,6 +4,7 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
+ 
+ ## 0.1.13 — not released yet (no tag, not on PyPI)
+ 
++- **Fuerza un rebuild**: `contract_signature` firma también `__indexed__`, `__doc_anchors__` y `__contract__` (task `task-contract-signature-cubre-indexed-doc-anchors-y-contract-y-un-campo-no-puede-ser-a-la-vez-referencia`, hallazgos H1 de GO04 y H4, H11 de GO07): las tres claves van siempre en el cuerpo firmado (`[]` si el modelo no las declara), así que cambiar cualquiera deja stale los shards de sus documentos y el rebuild reproyecta el payload y agrega las aristas de ancla; antes un `__indexed__` nuevo no reproyectaba y un `__doc_anchors__` nuevo no daba aristas hasta la próxima reconstrucción. Como la firma cambia para todos los modelos, todo store existente queda stale una vez: correr `sldb stores build`. Además `definition_problems` (`src/sldb/models/doc_anchor_value.py`) rechaza un campo declarado en `__references__` y en `__doc_anchors__` (`field '<n>' is declared in both __references__ and __doc_anchors__`, `SLDBModelError` al cargar el modelo), que antes daba dos aristas. Tests: `tests/store/test_payload_projection.py::test_a_new_indexed_is_stale_and_the_rebuild_projects_the_new_field`, `test_projected_fields_and_the_signature_follow_the_class`, `tests/api/test_doc_anchors.py::test_doc_anchors_added_to_a_model_with_indexed_documents_is_stale_and_the_rebuild_adds_the_edge` y el caso nuevo de `test_an_invalid_model_definition_is_refused_when_loaded`.
+ - `referrers` y `rewrite_references` aceptan un grafo armado en proceso, excluyen fuentes y no duplican menciones del frontmatter (task `task-referrers-y-rewrite-references-aceptan-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-duplican-men`, nota del inbox `inbox-note-referrers-y-rewrite-references-para-un-grafo-armado-en-proceso-excluir-fuentes-y-menciones-duplicada`, H-a..H-c de CC35c de deskops): **H-a**: `sldb.api.referrers(store, target, *, graph=None)` y `rewrite_references(..., graph=None)` usan el `ProjectGraph` que se les pasa en lugar del que declara `store.yaml` (`optional_graph`); antes un proyecto que arma su grafo en proceso, como deskops, no veía menciones. **H-b**: `rewrite_references(..., excluded_sources=())` deja sin tocar, campos y menciones, los documentos trackeados que nombra (por `Model:name`, nombre o ruta trackeada, resueltos con `resolve_target` y comparados por ruta; una fuente que no es un documento trackeado lanza `SLDBDocumentTargetError`). **H-c**: `find_hits` ya no devuelve como `mention` una línea del frontmatter (de la primera línea `---` a la siguiente, ambas incluidas) de un documento que ya es un hit `schema`, así que un campo declarado aparece una sola vez. Sin `graph` ni `excluded_sources` nada cambia. Funciones nuevas `document_paths` y `frontmatter_lines` en `src/sldb/api/edges/referrers.py`, `excluded_paths` en `rewrite_references.py`. Tests: `tests/api/test_referrers.py::test_a_graph_built_in_process_gives_the_mentions_the_store_does_not_declare`, `test_a_declared_field_is_one_schema_referrer_not_also_a_frontmatter_mention`, `tests/api/test_rewrite_references.py::test_an_excluded_source_is_left_byte_for_byte_and_the_rest_is_rewritten`, `test_an_excluded_source_that_names_no_tracked_document_is_refused`.
+ - `sldb.api.template_anchors(model_type)` devuelve, por campo de un modelo, el párrafo ancla literal de su plantilla (task `task-sldb-api-template-anchors-devuelve-por-campo-de-un-modelo-el-párrafo-ancla-literal-de-su-plantilla`, nota del inbox `inbox-note-h1-de-placeholder-deskops-api-pública-para-leer-los-párrafos-ancla-literales-de-la-plantilla-de-un-m`): `{campo: texto}` con el párrafo literal inmediatamente anterior al marcador del campo en `__template__`, cursivas incluidas (`"_Outline the expected implementation route or affected surface._"`), leído de las mismas recetas que usa `Validator(model).extract`; los campos sin párrafo ancla no aparecen y una entrada que no es una clase `StructuredNLDoc` lanza `TypeError`. Es solo lectura: render y extract no cambian. Test: `tests/test_literal_paragraph_anchor.py`.
+ - `create_document` pinnea las anclas a documentos igual que `save_document_payload` (task `task-create-document-pinnea-las-anclas-a-documentos-igual-que-save-document-payload`, nota del inbox `inbox-note-g-consumer-cumplido-por-deskops-cc32-6afc78b0`, hipótesis 2): antes un `doc:Model:name` sin `@sha256` en un campo de `__doc_anchors__` o en el `from:` de procedencia solo se pinneaba al guardar, así que un documento creado y nunca reescrito quedaba con `anchor_state` `lost` aunque su destino existiera, y deskops lo esquivaba con create + update en la misma transacción. Ahora `create_document` (`src/sldb/api/documents/create_document.py`) llama `pin_payload` sobre el payload antes de renderizar y de las reglas `on_write`, y `pin_provenance` sobre el texto sellado antes de escribir, en el mismo orden que `save_document_payload`; `Transaction.create` pasa por `create_document` y hereda el pinneo. Un destino no trackeado deja el valor como estaba. Tests: `tests/api/test_doc_anchors.py::test_create_document_pins_the_anchor_without_a_later_save`, `test_a_transaction_create_pins_the_anchor`.
+diff --git a/src/sldb/models/doc_anchor_value.py b/src/sldb/models/doc_anchor_value.py
+index 6d54c0a0..5bfad0c3 100644
+--- a/src/sldb/models/doc_anchor_value.py
++++ b/src/sldb/models/doc_anchor_value.py
+@@ -66,11 +66,14 @@ def check_from_items(items: list[str]) -> list[str]:
+ 
+ def definition_problems(model_type: Any) -> list[str]:
+     """What a model class declares wrongly about anchors: a field with the reserved suffix, an
+-    `__doc_anchors__` name that is not a field, or a field that is not str or list[str]."""
++    `__doc_anchors__` name that is not a field, a field that is not str or list[str], or a field
++    also declared in `__references__` (it would give two edges)."""
+     fields = model_type.model_fields
+     reserved = [f"field '{n}' ends in the reserved suffix '{STATE_SUFFIX}'" for n in fields if n.endswith(STATE_SUFFIX)]
+     named = getattr(model_type, "__doc_anchors__", None) or []
+-    return reserved + [problem for n in named if (problem := _field_problem(fields, n))]
++    references = set(getattr(model_type, "__references__", None) or [])
++    both = [f"field '{n}' is declared in both __references__ and __doc_anchors__" for n in named if n in references]
++    return reserved + [problem for n in named if (problem := _field_problem(fields, n))] + both
+ 
+ 
+ def _field_problem(fields: dict[str, Any], name: str) -> str | None:
+diff --git a/src/sldb/store/model_contract.py b/src/sldb/store/model_contract.py
+index d4cd0533..c956154e 100644
+--- a/src/sldb/store/model_contract.py
++++ b/src/sldb/store/model_contract.py
+@@ -88,8 +88,10 @@ def projected_fields(model_type: Any) -> list[str]:
+ 
+ def contract_signature(model_type: Any) -> str:
+     """sha256 of the canonical JSON (sorted keys, UTF-8, no spaces) of the model's field names
+-    (inherited included) and its `__references__`, `__containment__`, `__compositions__` names;
+-    "" when the class could not be loaded."""
++    (inherited included) and its `__references__`, `__containment__`, `__compositions__`,
++    `__indexed__`, `__doc_anchors__` and `__contract__` names (each key always present, [] when the
++    class declares none); "" when the class could not be loaded. Any of them moving leaves the
++    model's document shards stale, so the rebuild reprojects them."""
+     import hashlib
+     import json
+ 
+@@ -99,7 +101,7 @@ def contract_signature(model_type: Any) -> str:
+     return hashlib.sha256(json.dumps(body, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")).hexdigest()
+ 
+ 
+-_DECLARED = ("references", "containment", "compositions")
++_DECLARED = ("references", "containment", "compositions", "indexed", "doc_anchors", "contract")
+ 
+ 
+ def _check_indexed(model_type: Any, name: str) -> None:
+diff --git a/src/sldb/store/models/edge_node_record.py b/src/sldb/store/models/edge_node_record.py
+index 5fc2cbfd..55d6ed9c 100644
+--- a/src/sldb/store/models/edge_node_record.py
++++ b/src/sldb/store/models/edge_node_record.py
+@@ -20,7 +20,7 @@ class EdgeNodeRecord(BaseModel):
+     payload: dict[str, Any] = Field(default_factory=dict, description="A document's projected payload: its top-level fields holding a scalar or a list of scalars (or exactly the model's `__indexed__`); nested values are left out. Empty on any other node.")
+     field_hashes: dict[str, str] = Field(default_factory=dict, description="A document's whole field_hashes map, as its index entry records it. Empty on any other node.")
+     source_hash: str = Field(default="", description="A document's source_hash (hash_c) the node was built from. Empty on any other node.")
+-    contract_signature: str = Field(default="", description="sha256 of the model's fields, __references__, __containment__ and __compositions__ names the node was built under; empty when the model could not be loaded, or on any other node.")
++    contract_signature: str = Field(default="", description="sha256 of the model's fields, __references__, __containment__, __compositions__, __indexed__, __doc_anchors__ and __contract__ names the node was built under; empty when the model could not be loaded, or on any other node.")
+ 
+     @model_serializer(mode="wrap")
+     def _drop_empty_projection(self, handler: Any) -> Any:
+diff --git a/tests/api/test_doc_anchors.py b/tests/api/test_doc_anchors.py
+index f712262f..4af18bd1 100644
+--- a/tests/api/test_doc_anchors.py
++++ b/tests/api/test_doc_anchors.py
+@@ -230,6 +230,7 @@ def test_the_accepted_forms_and_from_items_that_are_not_doc_anchors(world: World
+         ('__doc_anchors__ = ["ghost"]\n    title: str = Field(description="Title.")', "ghost"),
+         ('__doc_anchors__ = ["meta"]\n    meta: dict = Field(default_factory=dict, description="Nested.")', "meta"),
+         ('subject__anchor_state: str = Field(default="", description="Reserved.")', "reserved suffix"),
++        ('__references__ = ["about"]\n    __doc_anchors__ = ["about"]\n    about: str = Field(default="", description="Both.")', "'about' is declared in both __references__ and __doc_anchors__"),
+     ],
+ )
+ def test_an_invalid_model_definition_is_refused_when_loaded(tmp_path: Path, body: str, reason: str) -> None:
+@@ -251,3 +252,53 @@ def test_optional_str_and_list_fields_are_valid_anchor_fields() -> None:
+     from sldb.store.model_contract import doc_anchor_fields
+ 
+     assert doc_anchor_fields(Fine) == ["one", "many"]
++
++
++LATE = "sldb_go07_late_anchor_models"
++LATE_MODELS = '''from pydantic import Field
++from sldb import StructuredNLDoc
++
++
++class Target(StructuredNLDoc):
++    __template__ = "# ⸢rev•title⸥"
++    title: str = Field(description="Title.")
++
++
++class Pointer(StructuredNLDoc):
++    {anchors}
++    __template__ = "---\\nabout: ⸢rev•about⸥\\n---\\n\\n# ⸢rev•title⸥"
++    title: str = Field(description="Title.")
++    about: str = Field(default="", description="Another document.")
++'''
++
++
++def test_doc_anchors_added_to_a_model_with_indexed_documents_is_stale_and_the_rebuild_adds_the_edge(tmp_path: Path) -> None:
++    from sldb.store.runtime_cache import invalidate_runtime_cache
++
++    def write(anchors: str) -> None:
++        (tmp_path / f"{LATE}.py").write_text(LATE_MODELS.format(anchors=anchors), encoding="utf-8")
++        sys.modules.pop(LATE, None)
++        invalidate_runtime_cache()
++
++    write("")
++    py = str(tmp_path)
++    sys.path.insert(0, py)
++    try:
++        root = tmp_path / "world"
++        root.mkdir()
++        store = api.init_store(root).store_path
++        for model in ("Target", "Pointer"):
++            api.add_model(store, f"{LATE}:{model}", py)
++        api.create_document(store, "Target", root / "t.md", {"title": "t"}, "t", py)
++        api.create_document(store, "Pointer", root / "p.md", {"title": "p", "about": "doc:Target:t"}, "p", py)
++        assert api.edges_from(store, "Pointer:p", "references") == []
++        assert api.load_edge_index(store).stale == []
++        write('__doc_anchors__ = ["about"]')
++        assert api.load_edge_index(store).stale == ["Pointer:p"]
++        api.rebuild_edges(store, py)
++        assert api.load_edge_index(store).stale == []
++        edges = api.edges_from(store, "Pointer:p", "references")
++        assert [(e.target, e.metadata["field"]) for e in edges] == [("sldb://document/Target:t", "about")]
++    finally:
++        sys.path.remove(py)
++        sys.modules.pop(LATE, None)
+diff --git a/tests/store/test_payload_projection.py b/tests/store/test_payload_projection.py
+index 59bbf347..7127b21c 100644
+--- a/tests/store/test_payload_projection.py
++++ b/tests/store/test_payload_projection.py
+@@ -199,6 +199,21 @@ def test_a_new_references_entry_is_stale_and_the_rebuild_takes_it(world):
+     assert api.edge_node(sp, "Ticket:a").contract_signature == contract_signature(sys.modules[MODULE].Ticket)
+ 
+ 
++def test_a_new_indexed_is_stale_and_the_rebuild_projects_the_new_field(world):
++    tmp_path, _, sp, py = world
++    _write_models(tmp_path, extra='__indexed__ = ["status"]')
++    assert sorted(api.load_edge_index(sp).stale) == ["Ticket:a", "Ticket:b"]
++    api.rebuild_edges(sp, py)
++    assert api.load_edge_index(sp).stale == []
++    assert api.edge_node(sp, "Ticket:a").payload == {"status": "open"}
++    _write_models(tmp_path, extra='__indexed__ = ["status", "priority"]')
++    assert sorted(api.load_edge_index(sp).stale) == ["Ticket:a", "Ticket:b"]
++    api.rebuild_edges(sp, py)
++    assert api.load_edge_index(sp).stale == []
++    assert api.edge_node(sp, "Ticket:a").payload == {"priority": 2, "status": "open"}
++    assert api.edge_node(sp, "Ticket:a").contract_signature == contract_signature(sys.modules[MODULE].Ticket)
++
++
+ def test_a_version_4_shard_is_stale_on_open_and_rebuilt_on_the_next_write(world):
+     _, root, sp, py = world
+     path = edges_shard_path(sp, "Ticket", "a")
+@@ -246,9 +261,11 @@ def test_projected_fields_and_the_signature_follow_the_class(tmp_path):
+         ticket = api.resolve_model_ref(f"{MODULE}:Ticket", str(tmp_path))
+         assert indexed_fields(ticket) is None
+         assert projected_fields(ticket) == ["labels", "priority", "status", "title"]
+-        before = contract_signature(ticket)
+-        ticket.__containment__ = {"steps": ["Ticket"]}
+-        assert contract_signature(ticket) != before
++        signatures = [contract_signature(ticket)]
++        for attr, value in (("__containment__", {"steps": ["Ticket"]}), ("__indexed__", ["status"]), ("__doc_anchors__", ["title"]), ("__contract__", ["title"])):
++            setattr(ticket, attr, value)
++            signatures.append(contract_signature(ticket))
++        assert len(set(signatures)) == len(signatures)
+     finally:
+         sys.path.remove(str(tmp_path))
+         sys.modules.pop(MODULE, None)

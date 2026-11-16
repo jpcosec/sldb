@@ -1,0 +1,46 @@
+--- a/tests/store/test_stores_build.py	2026-11-16 08:38:39.338419288 -0300
++++ b/tests/store/test_stores_build.py	2026-11-16 08:38:45.140954941 -0300
+@@ -1,6 +1,7 @@
+ """`stores declare` / `stores build`: the derived store comes back from what the store declares."""
+ from __future__ import annotations
+ 
++import os
+ import shutil
+ import subprocess
+ import sys
+@@ -230,7 +231,7 @@
+     owner = tmp_path / "owner"
+     owner.mkdir()
+     assert cli_main(["stores", "init", "--path", str(owner)]) == 0
+-    assert cli_main(["stores", "add", str(owner / ".sldb"), "--name", "owner", "--store", str(store)]) == 0
++    assert cli_main(["stores", "add", os.path.relpath(owner / ".sldb"), "--name", "owner", "--store", str(store)]) == 0
+     save_declaration(store, declare_store(store, root))
+     assert load_declaration(store).links[0]["path"] == "../../../owner/.sldb"
+     (root / ".gitignore").write_text(".sldb_cache/\n", encoding="utf-8")
+@@ -248,7 +249,7 @@
+     sibling = tmp_path / "sibling"
+     sibling.mkdir()
+     assert cli_main(["stores", "init", "--path", str(sibling)]) == 0
+-    assert cli_main(["stores", "add", str(sibling / ".sldb"), "--name", "sibling", "--store", str(store)]) == 0
++    assert cli_main(["stores", "add", os.path.relpath(sibling / ".sldb"), "--name", "sibling", "--store", str(store)]) == 0
+     save_declaration(store, declare_store(store, root))
+     shutil.rmtree(sibling)
+     (root / ".gitignore").write_text(".sldb_cache/\n", encoding="utf-8")
+@@ -317,7 +318,7 @@
+     owner = tmp_path / "owner"
+     owner.mkdir()
+     assert cli_main(["stores", "init", "--path", str(owner)]) == 0
+-    assert cli_main(["stores", "add", str(owner / ".sldb"), "--name", "owner", "--store", str(store)]) == 0
++    assert cli_main(["stores", "add", os.path.relpath(owner / ".sldb"), "--name", "owner", "--store", str(store)]) == 0
+     (root / "late.md").write_text("# Late\n\n## Overview\n\nBody\n", encoding="utf-8")
+     assert cli_main(["docs", "track", str(root / "late.md"), "--model", "TaskDoc", "--store", str(store), "--pythonpath", str(root)]) == 0
+     assert cli_main(["stores", "declare", "--store", str(store), "--write"]) == 0
+@@ -379,7 +380,7 @@
+     try:
+         assert cli_main(["stores", "init", "--path", str(owner)]) == 0
+         assert cli_main(["models", "add", ref, "--store", str(owner / ".sldb"), "--pythonpath", str(owner)]) == 0
+-        assert cli_main(["stores", "add", str(owner / ".sldb"), "--name", "owner", "--store", str(store)]) == 0
++        assert cli_main(["stores", "add", os.path.relpath(owner / ".sldb"), "--name", "owner", "--store", str(store)]) == 0
+         assert cli_main(["models", "inherit", "owner:NoteDoc", "--store", str(store), "--pythonpath", str(root)]) == 0
+         declared = {m["name"]: m for m in load_declaration(store).models}
+         assert declared["NoteDoc"] == {"name": "NoteDoc", "model_ref": ref, "origin": "owner"}

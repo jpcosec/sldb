@@ -1,0 +1,236 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 74fe3e9e..1a2ff746 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -4,6 +4,7 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
+ 
+ ## 0.1.13 — not released yet (no tag, not on PyPI)
+ 
++- `sldb stores add` guarda tal cual un enlace absoluto, con `~` o con variable de entorno (task `task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno`, nota del inbox `inbox-note-sldb-stores-add-guarda-siempre-el-enlace-relativo-no-resuelve-desde-worktrees-un-nivel-más-hondo`): antes `record_store_link` guardaba siempre `os.path.relpath(other, root)`, así que un clon en `/srv/repos/<repo>` y un worktree en `/srv/wt/<repo>/<rama>`, un nivel más hondo, no resolvían el mismo enlace versionado (AntonIA quedó con `../../../mnt/ssd/proyectos/SLDB_1/deskops-runtime/.sldb`). Ahora el texto que escribió el usuario llega del comando (`src/sldb/cli/commands/store_add.py`) a `link_store(..., *, raw=None)` y `record_store_link(..., *, raw=None)` en `src/sldb/api/stores/link_store.py`: si empieza por `/`, `~` (incluido `~user`) o `$` (`$VAR` o `${VAR}`) se guarda sin cambios, y cualquier otro texto se guarda relativo a la raíz del proyecto como antes; un `$` literal en un nombre de carpeta se toma como variable. La validación usa el texto expandido (`expand_link_path`) y la lectura (`_linked_stores` de `src/sldb/store/query.py`) aplica `os.path.expanduser` y `os.path.expandvars` antes de resolver. Sin `raw` (la API llamada directo, `stores build`) nada cambia; los enlaces ya guardados no se migran. Tests: `tests/api/test_api_stores.py::test_stores_add_keeps_an_absolute_path_absolute`, `test_stores_add_keeps_a_home_path_as_written_and_reads_it_with_home`, `test_stores_add_keeps_a_variable_path_as_written_and_reads_it_with_the_variable`, `test_stores_add_keeps_a_relative_path_relative_to_the_root`.
+ - `referrers` y `rewrite_references` aceptan un grafo armado en proceso, excluyen fuentes y no duplican menciones del frontmatter (task `task-referrers-y-rewrite-references-aceptan-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-duplican-men`, nota del inbox `inbox-note-referrers-y-rewrite-references-para-un-grafo-armado-en-proceso-excluir-fuentes-y-menciones-duplicada`, H-a..H-c de CC35c de deskops): **H-a**: `sldb.api.referrers(store, target, *, graph=None)` y `rewrite_references(..., graph=None)` usan el `ProjectGraph` que se les pasa en lugar del que declara `store.yaml` (`optional_graph`); antes un proyecto que arma su grafo en proceso, como deskops, no veía menciones. **H-b**: `rewrite_references(..., excluded_sources=())` deja sin tocar, campos y menciones, los documentos trackeados que nombra (por `Model:name`, nombre o ruta trackeada, resueltos con `resolve_target` y comparados por ruta; una fuente que no es un documento trackeado lanza `SLDBDocumentTargetError`). **H-c**: `find_hits` ya no devuelve como `mention` una línea del frontmatter (de la primera línea `---` a la siguiente, ambas incluidas) de un documento que ya es un hit `schema`, así que un campo declarado aparece una sola vez. Sin `graph` ni `excluded_sources` nada cambia. Funciones nuevas `document_paths` y `frontmatter_lines` en `src/sldb/api/edges/referrers.py`, `excluded_paths` en `rewrite_references.py`. Tests: `tests/api/test_referrers.py::test_a_graph_built_in_process_gives_the_mentions_the_store_does_not_declare`, `test_a_declared_field_is_one_schema_referrer_not_also_a_frontmatter_mention`, `tests/api/test_rewrite_references.py::test_an_excluded_source_is_left_byte_for_byte_and_the_rest_is_rewritten`, `test_an_excluded_source_that_names_no_tracked_document_is_refused`.
+ - `sldb.api.template_anchors(model_type)` devuelve, por campo de un modelo, el párrafo ancla literal de su plantilla (task `task-sldb-api-template-anchors-devuelve-por-campo-de-un-modelo-el-párrafo-ancla-literal-de-su-plantilla`, nota del inbox `inbox-note-h1-de-placeholder-deskops-api-pública-para-leer-los-párrafos-ancla-literales-de-la-plantilla-de-un-m`): `{campo: texto}` con el párrafo literal inmediatamente anterior al marcador del campo en `__template__`, cursivas incluidas (`"_Outline the expected implementation route or affected surface._"`), leído de las mismas recetas que usa `Validator(model).extract`; los campos sin párrafo ancla no aparecen y una entrada que no es una clase `StructuredNLDoc` lanza `TypeError`. Es solo lectura: render y extract no cambian. Test: `tests/test_literal_paragraph_anchor.py`.
+ - `create_document` pinnea las anclas a documentos igual que `save_document_payload` (task `task-create-document-pinnea-las-anclas-a-documentos-igual-que-save-document-payload`, nota del inbox `inbox-note-g-consumer-cumplido-por-deskops-cc32-6afc78b0`, hipótesis 2): antes un `doc:Model:name` sin `@sha256` en un campo de `__doc_anchors__` o en el `from:` de procedencia solo se pinneaba al guardar, así que un documento creado y nunca reescrito quedaba con `anchor_state` `lost` aunque su destino existiera, y deskops lo esquivaba con create + update en la misma transacción. Ahora `create_document` (`src/sldb/api/documents/create_document.py`) llama `pin_payload` sobre el payload antes de renderizar y de las reglas `on_write`, y `pin_provenance` sobre el texto sellado antes de escribir, en el mismo orden que `save_document_payload`; `Transaction.create` pasa por `create_document` y hereda el pinneo. Un destino no trackeado deja el valor como estaba. Tests: `tests/api/test_doc_anchors.py::test_create_document_pins_the_anchor_without_a_later_save`, `test_a_transaction_create_pins_the_anchor`.
+diff --git a/docs/architecture/store-declaration.md b/docs/architecture/store-declaration.md
+index b5e623b5..ab7aa5a9 100644
+--- a/docs/architecture/store-declaration.md
++++ b/docs/architecture/store-declaration.md
+@@ -8,6 +8,25 @@ node GD26 of the plan `generalizar-desde-deskops`, `folders` and `seeds`. A decl
+ without those two keys is read and written exactly as before: both are left out of the dump
+ when empty.
+ 
++## Links: how `sldb stores add` records the path
++
++`sldb stores add <path>` records the link in the store index (and `stores declare` copies it
++into `links`) in one of two forms, chosen from the text as it was typed, not from the
++resolved path:
++
++- **As written**, when it starts with `/` (absolute), `~` (home, `~user` included) or `$`
++  (an environment variable, `$VAR` or `${VAR}`): `/srv/stores/deskops/.sldb`,
++  `~/stores/deskops/.sldb`, `$SLDB_ROOT/deskops/.sldb`. Clones and worktrees at different
++  depths then resolve the same link. A literal `$` in a folder name is read as a variable.
++- **Relative to the project root** otherwise (`../deskops/.sldb`), so the link survives a
++  checkout of both repositories at another location, as long as they keep their relative place.
++
++The path is checked with `~` and variables expanded, and reading a link
++(`sldb.store.query._linked_stores`) expands them again before resolving it, so the variable
++must be set wherever the store is read. `stores remove` and `stores add --replace` work by
++name and accept any of the forms. From the API, `link_store(..., raw=<text>)` chooses the
++same way; without `raw` the link is recorded relative to the root.
++
+ ## `folders` and `seeds`
+ 
+ A consumer that keeps its working tree in a store (deskops keeps a desk) needs the tree to
+diff --git a/src/sldb/api/stores/link_store.py b/src/sldb/api/stores/link_store.py
+index 544a88b6..d30e828a 100644
+--- a/src/sldb/api/stores/link_store.py
++++ b/src/sldb/api/stores/link_store.py
+@@ -15,8 +15,10 @@ from sldb.store.layout import store_exists
+ from sldb.store.models.store_entry import StoreEntry
+ from sldb.store.models.store_index import StoreIndex
+ 
++KEPT_PREFIXES = ("/", "~", "$")
+ 
+-def link_store(store: str | Path | None, other_store: str | Path, name: str | None = None, replace: bool = False) -> LinkedStore:
++
++def link_store(store: str | Path | None, other_store: str | Path, name: str | None = None, replace: bool = False, *, raw: str | None = None) -> LinkedStore:
+     """Record another store as linked into `store`.
+ 
+     Args:
+@@ -24,6 +26,9 @@ def link_store(store: str | Path | None, other_store: str | Path, name: str | No
+         other_store: Path of the `.sldb` directory to link.
+         name: Alias for the link; defaults to the name of the directory holding `other_store`.
+         replace: Point a link already recorded under that name at `other_store` instead.
++        raw: The path as the user wrote it (`sldb stores add <path>`). When it starts with `/`,
++            `~` or `$` it is recorded as written and checked with `~` and variables expanded;
++            otherwise, or without it, the link is recorded relative to the project root.
+ 
+     Returns:
+         The link as recorded in the store index.
+@@ -33,17 +38,27 @@ def link_store(store: str | Path | None, other_store: str | Path, name: str | No
+             the name is invalid, reserved (`local`) or already linked (and not `replace`).
+     """
+     location = open_store(store)
+-    other = Path(other_store).resolve()
++    other = Path(expand_link_path(raw) if raw is not None else other_store).resolve()
+     _check_other_exists(other)
+     _check_not_self(location.store_path, other)
+     link_name = name or other.parent.name
+     _check_link_name(link_name)
+     if replace and any(s.name == link_name for s in load_store_index(location.store_path).stores):
+         drop_link(location.store_path, link_name)
+-    path = record_store_link(location.store_path, location.project_root, other, link_name)
++    path = record_store_link(location.store_path, location.project_root, other, link_name, raw=raw)
+     return LinkedStore(name=link_name, path=path)
+ 
+ 
++def expand_link_path(text: str) -> str:
++    """The link path with `~` (or `~user`) and `$VAR`/`${VAR}` expanded, as reading resolves it."""
++    return os.path.expandvars(os.path.expanduser(text))
++
++
++def kept_as_written(raw: str | None) -> bool:
++    """Whether a link path is recorded as written: absolute (`/`), home (`~`) or variable (`$`)."""
++    return bool(raw) and raw[0] in KEPT_PREFIXES
++
++
+ def _check_other_exists(other: Path) -> None:
+     """Refuse to link a directory that holds no store."""
+     if not store_exists(other):
+@@ -68,7 +83,7 @@ def _check_store_linked(idx: StoreIndex, name: str) -> None:
+         raise SLDBStoreError(f"Store '{name}' already linked.")
+ 
+ 
+-def record_store_link(sp: Path, root: Path, other: Path, name: str) -> str:
++def record_store_link(sp: Path, root: Path, other: Path, name: str, *, raw: str | None = None) -> str:
+     """Append a link entry to the store index without checking that `other` exists.
+ 
+     Args:
+@@ -76,17 +91,20 @@ def record_store_link(sp: Path, root: Path, other: Path, name: str) -> str:
+         root: The linking store's project root.
+         other: Resolved `.sldb` directory being linked.
+         name: Alias for the link.
++        raw: The path as the user wrote it; recorded unchanged when it starts with `/`, `~`
++            or `$` (a `$` in a folder name is taken as a variable).
+ 
+     Returns:
+-        The path recorded for the link, always relative to `root` so the link survives a
+-        checkout of both repos at another location.
++        The path recorded for the link: `raw` when it is absolute, home or a variable (so
++        clones and worktrees at different depths resolve the same link), otherwise relative
++        to `root` so the link survives a checkout of both repos at another location.
+ 
+     Raises:
+         SLDBStoreError: When the name is already linked.
+     """
+     idx = load_store_index(sp)
+     _check_store_linked(idx, name)
+-    rel = os.path.relpath(other, root)
+-    idx.stores.append(StoreEntry(name=name, path=rel))
++    recorded = raw if kept_as_written(raw) else os.path.relpath(other, root)
++    idx.stores.append(StoreEntry(name=name, path=recorded))
+     save_store_index(sp, idx)
+-    return rel
++    return recorded
+diff --git a/src/sldb/cli/commands/store_add.py b/src/sldb/cli/commands/store_add.py
+index eedabc88..4cad4477 100644
+--- a/src/sldb/cli/commands/store_add.py
++++ b/src/sldb/cli/commands/store_add.py
+@@ -10,7 +10,7 @@ from sldb.api.stores.link_store import record_store_link as _link_store  # noqa:
+ from sldb.api.stores.unlink_store import unlink_store
+ 
+ def add_store(args: Any) -> int:
+-    linked = link_store(args.store, args.path, args.name, replace=getattr(args, "replace", False))
++    linked = link_store(args.store, args.path, args.name, replace=getattr(args, "replace", False), raw=str(args.path))
+     print(f"Linked '{linked.name}' at {linked.path}")
+     return 0
+ 
+diff --git a/src/sldb/store/query.py b/src/sldb/store/query.py
+index d799ac79..c46b1e1d 100644
+--- a/src/sldb/store/query.py
++++ b/src/sldb/store/query.py
+@@ -1,5 +1,6 @@
+ from __future__ import annotations
+ 
++import os
+ from functools import partial
+ from pathlib import Path
+ 
+@@ -112,12 +113,10 @@ def _visit_federated_store(item, pending, visited, documents, load_one) -> None:
+ 
+ 
+ def _linked_stores(store_path: Path) -> list[tuple[Path, str]]:
++    """Each linked store with its alias; `~` and `$VAR` in a recorded path are expanded first."""
+     root = project_root(store_path)
+-    return [
+-        (_resolve_path(root, entry.path).resolve(), entry.name)
+-        for entry in load_store_index(store_path).stores
+-        if store_exists(_resolve_path(root, entry.path))
+-    ]
++    targets = [(_resolve_path(root, os.path.expandvars(os.path.expanduser(entry.path))), entry.name) for entry in load_store_index(store_path).stores]
++    return [(target.resolve(), name) for target, name in targets if store_exists(target)]
+ 
+ 
+ from sldb.store.query_engine.structural import (  # noqa: E402
+diff --git a/tests/api/test_api_stores.py b/tests/api/test_api_stores.py
+index 44b5bae6..23b47835 100644
+--- a/tests/api/test_api_stores.py
++++ b/tests/api/test_api_stores.py
+@@ -51,6 +51,58 @@ def test_link_store_refuses_a_directory_without_store(api_store, tmp_path):
+         link_store(api_store.store, tmp_path / "nowhere" / ".sldb", "ghost")
+ 
+ 
++def _other_store(tmp_path: Path, name: str = "other") -> Path:
++    other = tmp_path / name
++    other.mkdir(parents=True)
++    assert cli_main(["stores", "init", "--path", str(other)]) == 0
++    return other / ".sldb"
++
++
++def _add_link(api_store, path: str, name: str = "shared") -> str:
++    assert cli_main(["stores", "add", path, "--name", name, "--store", str(api_store.store)]) == 0
++    return next(s.path for s in load_store_index(api_store.store).stores if s.name == name)
++
++
++def test_stores_add_keeps_an_absolute_path_absolute(api_store, tmp_path):
++    from sldb.store.query import _linked_stores
++
++    other = _other_store(tmp_path)
++    assert _add_link(api_store, str(other)) == str(other)
++    assert _linked_stores(api_store.store.resolve()) == [(other.resolve(), "shared")]
++
++
++def test_stores_add_keeps_a_home_path_as_written_and_reads_it_with_home(api_store, tmp_path, monkeypatch):
++    from sldb.store.query import _linked_stores
++
++    home = tmp_path / "home"
++    other = _other_store(home, "other")
++    monkeypatch.setenv("HOME", str(home))
++    assert _add_link(api_store, "~/other/.sldb") == "~/other/.sldb"
++    assert _linked_stores(api_store.store.resolve()) == [(other.resolve(), "shared")]
++
++
++def test_stores_add_keeps_a_variable_path_as_written_and_reads_it_with_the_variable(api_store, tmp_path, monkeypatch):
++    from sldb.store.query import _linked_stores
++
++    other = _other_store(tmp_path / "vroot", "other")
++    monkeypatch.setenv("SLDB_TEST_ROOT", str(tmp_path / "vroot"))
++    assert _add_link(api_store, "$SLDB_TEST_ROOT/other/.sldb") == "$SLDB_TEST_ROOT/other/.sldb"
++    assert _linked_stores(api_store.store.resolve()) == [(other.resolve(), "shared")]
++    assert _add_link(api_store, "${SLDB_TEST_ROOT}/other/.sldb", "braced") == "${SLDB_TEST_ROOT}/other/.sldb"
++    assert cli_main(["stores", "remove", "braced", "--store", str(api_store.store)]) == 0
++    assert cli_main(["stores", "add", "$SLDB_TEST_ROOT/other/.sldb", "--name", "shared", "--replace", "--store", str(api_store.store)]) == 0
++    assert [s.name for s in load_store_index(api_store.store).stores] == ["shared"]
++
++
++def test_stores_add_keeps_a_relative_path_relative_to_the_root(api_store, tmp_path, monkeypatch):
++    from sldb.store.query import _linked_stores
++
++    other = _other_store(tmp_path)
++    monkeypatch.chdir(tmp_path)
++    assert _add_link(api_store, "other/.sldb") == "../other/.sldb"
++    assert _linked_stores(api_store.store.resolve()) == [(other.resolve(), "shared")]
++
++
+ def test_update_store_indexes_reports_a_complete_refresh(api_store):
+     report = update_store_indexes(api_store.store, api_store.pythonpath)
+     assert report.complete

@@ -1,0 +1,103 @@
+$ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/api/test_api_stores.py
+................                                                         [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+16 passed, 1 warning in 1.30s
+rc=0
+
+$ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/api/test_unlink_store.py
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 0.40s
+rc=0
+
+$ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/store/test_stores_build.py
+.................FFF.......                                              [100%]
+=================================== FAILURES ===================================
+________ test_the_check_reaches_a_link_that_climbs_more_than_one_level _________
+
+tmp_path = PosixPath('/dev/shm/pytest-of-robocop/pytest-293/test_the_check_reaches_a_link_0')
+capsys = <_pytest.capture.CaptureFixture object at 0x77c3adde3c20>
+
+    def test_the_check_reaches_a_link_that_climbs_more_than_one_level(tmp_path, capsys):
+        """Governance links deskops through `../../../...`: a copy one level under the scratch
+        resolved that link outside it (Permission denied on /tmp's parent, or a symlink left there)."""
+        project = tmp_path / "a" / "b" / "project"
+        project.mkdir(parents=True)
+        store, root = _declared(project, capsys)
+        owner = tmp_path / "owner"
+        owner.mkdir()
+        assert cli_main(["stores", "init", "--path", str(owner)]) == 0
+        assert cli_main(["stores", "add", str(owner / ".sldb"), "--name", "owner", "--store", str(store)]) == 0
+        save_declaration(store, declare_store(store, root))
+>       assert load_declaration(store).links[0]["path"] == "../../../owner/.sldb"
+E       AssertionError: assert '/dev/shm/pyt...0/owner/.sldb' == '../../../owner/.sldb'
+E         
+E         - ../../../owner/.sldb
+E         + /dev/shm/pytest-of-robocop/pytest-293/test_the_check_reaches_a_link_0/owner/.sldb
+
+tests/store/test_stores_build.py:235: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Initialized store at /dev/shm/pytest-of-robocop/pytest-293/test_the_check_reaches_a_link_0/owner/.sldb
+Linked 'owner' at /dev/shm/pytest-of-robocop/pytest-293/test_the_check_reaches_a_link_0/owner/.sldb
+_ test_an_absent_linked_store_is_an_alert_naming_the_link_and_its_path_in_the_check _
+
+tmp_path = PosixPath('/dev/shm/pytest-of-robocop/pytest-293/test_an_absent_linked_store_is0')
+capsys = <_pytest.capture.CaptureFixture object at 0x77c3ad636620>
+
+    def test_an_absent_linked_store_is_an_alert_naming_the_link_and_its_path_in_the_check(tmp_path, capsys):
+        store, root = _linked_then_removed(tmp_path, capsys)
+        report = check_build(store, root, tmp_path / "scratch")
+        assert report["ok"] and report["errors"] == []
+        [absent] = [a for a in report["alerts"] if a["code"] == "build/link-missing"]
+>       assert absent["subject"] == "sibling" and "../sibling/.sldb" in absent["what"]
+E       AssertionError: assert ('sibling' == 'sibling'
+E         
+E           sibling and '../sibling/.sldb' in 'declared link path /dev/shm/pytest-of-robocop/pytest-293/test_an_absent_linked_store_is0/sibling/.sldb has no store; the build goes on without it')
+
+tests/store/test_stores_build.py:264: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Initialized store at /dev/shm/pytest-of-robocop/pytest-293/test_an_absent_linked_store_is0/sibling/.sldb
+Linked 'sibling' at /dev/shm/pytest-of-robocop/pytest-293/test_an_absent_linked_store_is0/sibling/.sldb
+_____ test_an_absent_linked_store_does_not_fail_the_build_and_is_reported ______
+
+tmp_path = PosixPath('/dev/shm/pytest-of-robocop/pytest-293/test_an_absent_linked_store_do0')
+capsys = <_pytest.capture.CaptureFixture object at 0x77c3ada09950>
+
+    def test_an_absent_linked_store_does_not_fail_the_build_and_is_reported(tmp_path, capsys):
+        store, root = _linked_then_removed(tmp_path, capsys)
+        for derived in (store / "core", store.parent / ".sldb_cache"):
+            shutil.rmtree(derived, ignore_errors=True)
+        invalidate_index_cache()
+        capsys.readouterr()
+        assert cli_main(["stores", "build", "--store", str(store)]) == 0
+        printed = capsys.readouterr().out
+>       assert "alert: [build/link-missing] sibling: declared link path ../sibling/.sldb has no store" in printed
+E       AssertionError: assert 'alert: [build/link-missing] sibling: declared link path ../sibling/.sldb has no store' in 'built: links: 0, models: 1, tracked: 1, generated: 0, undeclared: 0, missing: 0\nalert: [build/link-missing] sibling:...ytest-of-robocop/pytest-293/test_an_absent_linked_store_do0/sibling/.sldb has no store; the build goes on without it\n'
+
+tests/store/test_stores_build.py:276: AssertionError
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/store/test_stores_build.py::test_the_check_reaches_a_link_that_climbs_more_than_one_level
+FAILED tests/store/test_stores_build.py::test_an_absent_linked_store_is_an_alert_naming_the_link_and_its_path_in_the_check
+FAILED tests/store/test_stores_build.py::test_an_absent_linked_store_does_not_fail_the_build_and_is_reported
+3 failed, 24 passed, 1 warning in 6.79s
+rc=1
+
