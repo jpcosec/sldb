@@ -1,7 +1,7 @@
 name: task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t
 path: desk/tasks/task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t.md
-source_hash: e6cdaf564059d3bb5ebc6ea3df97f480d80c46859b3effdbbbfc726710181757
-content_hash: 3914fdd9afdff179111755d4ef64b28147b294eed50bfeafe962942928b5242b
+source_hash: 9b4ab834e9e79bde8424b9deefb885ad1663e1c96ae6fe17c8f997011cd60f72
+content_hash: 80cc98534dfdebc78d926b7877b28db8783c1aeebba3b8ead577fcae3b14b420
 field_hashes:
   title: 2832b67ee42bee72584ec50249ee9dd1b491563f98b77899f4ebaf9f15a1440b
   id: 37c4941889df7ef349f3b4d9464829d4d8d752566cca1d8b49f1cdb84143a942
@@ -12,14 +12,14 @@ field_hashes:
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 8ed409f00ec57743c2c8444c2ed94c02bc01b7610c29e3346cd72dcfc9882a9b
   goal: df6d67fc6df85f1a585cf4f4469b828d660f93f386c62228d5f652343d636e0a
-  scope: a308a460c2040b8f4be2dbe46952b64890c6252e65c4b1f020923b8a369dcb45
+  scope: 9ab965629d454c52c1b2d1d1e6f587bb49f6acd30ed29bc2d53eda7f7ec2206f
   references: 63fff60fb714bac47581dee7e7b86c88be8bd7f22e6ba5eefa5c9cc298deb182
   depends_on: cf489a935866cc7848c3d223af222a9026102210bae368ed949526fa7f9d1042
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 480cd4d5d36a1007452eb39397c2be1eeac808c43eea72d0ee5a097b2c8bde12
   implementation_path: 424c0b0dc74b08efbbcb7472a0ff0bc043a92bd75e0c67ece3c78286adfed2ab
   validation: 8b2d199a6a4b4a0349305a02405da53d8e6f04099642ffe4c99857b9df126043
-  done_when: 5de810673d1b4f3723e5417cf38e18710d79e0604d18dbac1698bd1f547c577f
+  done_when: a6c08903dd705c725cec1602c3ccfaa6b1d4929d8ff94df2dd1b381de86cf416
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-16T16:30:43Z'
+  at: '2026-11-16T20:09:07Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

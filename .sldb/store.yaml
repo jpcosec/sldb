@@ -506,6 +506,10 @@ include:
     name: run-deskops-e-4e4ba795934b
   - path: runs/subagents/20261116-test-guardas/run.md
     name: run-deskops-t-a6ddcc3e4afc
+  - path: runs/subagents/20261116-exec-leak/run.md
+    name: run-deskops-e-0d2adfe5edff
+  - path: runs/subagents/20261116-test-leak/run.md
+    name: run-deskops-t-8fa6a308e8be
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -787,6 +791,12 @@ include:
   - desk/materializations/materialization-guardas-apply-batch.md
   - desk/materializations/materialization-guardas-lock.md
   - desk/materializations/materialization-guardas-test-apply-batch-lock.md
+  - desk/materializations/materialization-leak-list-views.md
+  - desk/materializations/materialization-leak-view-nodes.md
+  - desk/materializations/materialization-leak-compose.md
+  - desk/materializations/materialization-leak-compose-lock.md
+  - desk/materializations/materialization-leak-test-views-linked.md
+  - desk/materializations/materialization-leak-test-shard-cache-copies.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -1470,6 +1480,14 @@ include:
     name: review-task-apply-batch-guardas-expected-source-hash-bajo-el-cerrojo-del-store-inbox-20261115-022444-evidence-commit-1
   - path: desk/reviews/task-apply-batch-guardas-expected-source-hash-bajo-el-cerrojo-del-store-inbox-20261115-022444/evidence-atom-1.md
     name: review-task-apply-batch-guardas-expected-source-hash-bajo-el-cerrojo-del-store-inbox-20261115-022444-evidence-atom-1
+  - path: desk/reviews/task-sldb-serve-list-views-deja-de-componer-el-índice-federado-de-toda-la-máquina-y-compose-edge-index-co/evidence-tests-1.md
+    name: review-task-sldb-serve-list-views-deja-de-componer-el-índice-federado-de-toda-la-máquina-y-compose-edge-index-co-evidence-tests-1
+  - path: desk/reviews/task-sldb-serve-list-views-deja-de-componer-el-índice-federado-de-toda-la-máquina-y-compose-edge-index-co/evidence-commit-1.md
+    name: review-task-sldb-serve-list-views-deja-de-componer-el-índice-federado-de-toda-la-máquina-y-compose-edge-index-co-evidence-commit-1
+  - path: desk/reviews/task-sldb-serve-list-views-deja-de-componer-el-índice-federado-de-toda-la-máquina-y-compose-edge-index-co/evidence-atom-1.md
+    name: review-task-sldb-serve-list-views-deja-de-componer-el-índice-federado-de-toda-la-máquina-y-compose-edge-index-co-evidence-atom-1
+  - path: desk/reviews/task-sldb-serve-list-views-deja-de-componer-el-índice-federado-de-toda-la-máquina-y-compose-edge-index-co/evidence-materialization-1.md
+    name: review-task-sldb-serve-list-views-deja-de-componer-el-índice-federado-de-toda-la-máquina-y-compose-edge-index-co-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -1500,7 +1518,6 @@ include:
   - desk/tasks/task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup.md
   - desk/tasks/task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y.md
   - desk/tasks/task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable.md
-  - desk/tasks/task-sldb-serve-list-views-deja-de-componer-el-índice-federado-de-toda-la-máquina-y-compose-edge-index-co.md
   - desk/tasks/task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t.md
 - model: TaskDebugDoc
   paths:

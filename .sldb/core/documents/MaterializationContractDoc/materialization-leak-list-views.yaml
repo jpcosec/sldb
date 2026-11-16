@@ -1,0 +1,25 @@
+name: materialization-leak-list-views
+path: desk/materializations/materialization-leak-list-views.md
+source_hash: 592125e5428423f4d32145826b4370bafcfa28d52417a0f69eec4d7b4ee9fe7d
+content_hash: 575999504ada8c93c9e029408b0458aa79ecc6d5c6d6226b9f82fb037a6242c5
+field_hashes:
+  id: d165f87dfd5a2e5866d2daba3d411a742bdd100be5049ae46d692151f65a3f1a
+  title: 47df11939e13bcaa748f4e8a5f0f90b93f0793e83327bf7113534952281583c5
+  source_atoms: 5f22f81cca625be1a61f1e76d3065b18c4e0f55f28a86a81d26b97f5e4897b90
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 66d6d8841126c5d8a410a0d169f6e5c5df702e46283232f235ff0fca4df1f0e1
+  intent: b655b0d9af2062fcb802782b7fb2cc8033a942fb58a6da481ebe14e02a020278
+  validation: 0db3e85ac68874c1ceaf4e174dc8d740329121d2016d3a20b47f13968b73b2f7
+  tags: 115ea3ed3d938506565c5776443b635b44cd3c52f54e82bc73054dc0b7460937
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:serve
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T20:12:38Z'
+  authority: generated
+  via: create_document

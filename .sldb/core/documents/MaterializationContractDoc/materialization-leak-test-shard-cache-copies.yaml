@@ -1,0 +1,25 @@
+name: materialization-leak-test-shard-cache-copies
+path: desk/materializations/materialization-leak-test-shard-cache-copies.md
+source_hash: 4e2e0bd366227f0947a5b2ae03ab1a193dadedd213b375dea28cf243746d92d3
+content_hash: 2e33b214cc5c821ba532c47474096ebf8866873597b7ddd10e1724f1c53cca61
+field_hashes:
+  id: 0d9f4c1ad05292967309ad177efca9fdacbde5bcaef635df01c675f589d31dc9
+  title: bf70ebc9f147cceb6ce906d8d071e87518b95f514b2f75a2a8e7a6554794066d
+  source_atoms: 5f22f81cca625be1a61f1e76d3065b18c4e0f55f28a86a81d26b97f5e4897b90
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 1477caae881562975009cf976eed8130949c083dcb7247178c149b8c2bd01c2b
+  intent: 9cc340c39d5a25e941f42e52884f9e934e37b6f40141e83cc12fbc75d287a0fe
+  validation: 0db3e85ac68874c1ceaf4e174dc8d740329121d2016d3a20b47f13968b73b2f7
+  tags: 115ea3ed3d938506565c5776443b635b44cd3c52f54e82bc73054dc0b7460937
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:serve
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T20:16:02Z'
+  authority: generated
+  via: create_document

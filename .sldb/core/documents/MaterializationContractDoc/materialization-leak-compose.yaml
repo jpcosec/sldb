@@ -1,0 +1,25 @@
+name: materialization-leak-compose
+path: desk/materializations/materialization-leak-compose.md
+source_hash: a78cfdd1c3a2635f8aa0a91adbd85f4024aacfc9e197cd7fc7e8247b91683c91
+content_hash: a8582acebc7d171458b9fe9c9102af09ba0b3313fa2299482b5c74eab98e93c0
+field_hashes:
+  id: 8f0617944052af4726caf1646dc8f71c3ef649266933f96e6a80b697338d3d59
+  title: cdb4b4dde274330b819e2ca277c7b6e8a16e4ffd4cf626335266497bf9b904ba
+  source_atoms: 5f22f81cca625be1a61f1e76d3065b18c4e0f55f28a86a81d26b97f5e4897b90
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 29ac36d2fdefa74bb414ed3e796fce194632d86704d6477980cf1fc821608c92
+  intent: edf835768f15a961f7c721c3f49957cca2500e24be52e9e00767324b9f99bdf5
+  validation: 0db3e85ac68874c1ceaf4e174dc8d740329121d2016d3a20b47f13968b73b2f7
+  tags: 115ea3ed3d938506565c5776443b635b44cd3c52f54e82bc73054dc0b7460937
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:serve
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T20:14:15Z'
+  authority: generated
+  via: create_document

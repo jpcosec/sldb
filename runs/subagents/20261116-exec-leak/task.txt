@@ -1,0 +1,9 @@
+Task: task-sldb-serve-list-views-deja-de-componer-el-índice-federado-de-toda-la-máquina-y-compose-edge-index-co
+Title: sldb serve: list_views deja de componer el índice federado de toda la máquina y compose_edge_index compone una sola vez por clave aunque lleguen peticiones concurrentes
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective atoms:
+- atom-una-vista-es-un-documento-que-declara-qué-leer-y-sldb-la-ejecuta
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]

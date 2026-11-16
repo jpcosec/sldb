@@ -1,0 +1,36 @@
+.                                                                        [100%]
+=============================== warnings summary ===============================
+../../../../../../dev/shm/venv-exec-leak/lib/python3.13/site-packages/_pytest/config/__init__.py:1636
+  /dev/shm/venv-exec-leak/lib/python3.13/site-packages/_pytest/config/__init__.py:1636: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+tests/test_mindmap_deskops.py::test_real_advance_stale_origin_and_types
+  /dev/shm/venv-exec-leak/lib/python3.13/site-packages/pydantic/main.py:280: DeprecationWarning: ProjectGraphConfig(closed_document=...) is deprecated: declare `closed:` on the document surface
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 2 warnings in 17.18s
+	Command being timed: "/dev/shm/venv-exec-leak/bin/python -m pytest -q -p no:cacheprovider --basetemp=/dev/shm/leak-after tests/test_mindmap_deskops.py::test_real_advance_stale_origin_and_types"
+	User time (seconds): 13.28
+	System time (seconds): 1.02
+	Percent of CPU this job got: 80%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:17.71
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 103720
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 39206
+	Voluntary context switches: 209
+	Involuntary context switches: 8944
+	Swaps: 0
+	File system inputs: 1768
+	File system outputs: 7920
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

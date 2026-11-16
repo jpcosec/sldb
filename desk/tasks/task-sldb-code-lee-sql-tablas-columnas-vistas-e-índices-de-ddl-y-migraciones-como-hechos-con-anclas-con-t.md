@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T16:30:43Z'
+  at: '2026-11-16T20:09:07Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t
 status: draft
 summary: ''
@@ -53,6 +53,8 @@ _State what is in scope and what is out of scope._
 
 Entra: agregar tree-sitter-sql>=0.3 (la versión 0.3.13 está en PyPI) al extra code de pyproject.toml y regenerar uv.lock; un módulo nuevo lang_sql.py en el paquete sldb.code con la query y los readers de CREATE TABLE, CREATE VIEW y CREATE INDEX, con las columnas como hijos de su tabla. qualified_name: <tabla> y <tabla>.<columna>. Si un archivo de migraciones define dos veces la misma tabla, la segunda lleva el sufijo ~2, como ya hace Ids con nombres repetidos. docstring: un comentario -- inmediatamente anterior a la sentencia. kind: table, column, view, index, module. El dispatch por extensión agrega .sql; find_files incluye .sql solo si la gramática está. code_ref acepta .sql. Fixtures en tests/fixtures/treesitter/ con una migración de dos tablas y una vista; tests de intact/changed/lost/reconnected que se saltan sin la gramática. CHANGELOG.md. No entra: ALTER TABLE ni el estado acumulado de varias migraciones (cada archivo se lee por sí solo); dialectos más allá de lo que la gramática tree-sitter-sql reconoce; TS/TSX (tarea de la que depende).
 
+Precisiones (JP, 2026-11-16): el dialecto objetivo es PostgreSQL, que es el que se usa. Los fixtures son DDL de Postgres: CREATE TABLE IF NOT EXISTS, tipos serial/bigserial/jsonb/timestamptz, nombres calificados por esquema (public.users), CREATE INDEX CONCURRENTLY, CREATE VIEW y CREATE MATERIALIZED VIEW (kind view). El qualified_name conserva el esquema si viene escrito (public.users, public.users.email) y si no va sin él. Lo que tree-sitter-sql no reconozca de Postgres se salta con un hecho menos, nunca con error. Las constraints de tabla (PRIMARY KEY, FOREIGN KEY, UNIQUE al final de CREATE TABLE) no son columnas. Comentario --: solo las líneas -- contiguas inmediatamente encima de la sentencia, sin línea en blanco en medio.
+
 ## Implementation Path
 
 _Outline the expected implementation route or affected surface._
@@ -73,4 +75,4 @@ _List the checks required before this task can close._
 
 _Name the observable condition that makes the task complete._
 
-Los comandos de Validation pasan con los tests nuevos; las anclas de tabla y de columna de la migración de prueba pasan por intact, changed, lost y reconnected; CHANGELOG y commit; aviso a IR anotado en result-summary.md (IR no está en el registro).
+Los comandos de Validation pasan con los tests nuevos sobre una migración Postgres de dos tablas (una calificada por esquema) y una vista materializada; las anclas de tabla y de columna pasan por intact, changed, lost y reconnected; CHANGELOG y commit; aviso a IR por deskops message send --desk-root a su desk.

@@ -1,0 +1,823 @@
+=== pytest -q tests/api/test_views_linked.py
+.......                                                                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+7 passed, 1 warning in 1.87s
+rc=0
+=== pytest -q tests/api/test_views.py
+.................                                                        [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+17 passed, 1 warning in 69.98s (0:01:09)
+rc=0
+=== pytest -q tests/store/test_shard_cache_copies.py
+....                                                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 1.83s
+rc=0
+=== pytest -q tests/api/test_run_view_reads.py
+......                                                                   [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+6 passed, 1 warning in 2.64s
+rc=0
+=== pytest -q tests/test_serve.py
+.............................................................            [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+61 passed, 1 warning in 55.08s
+rc=0
+=== pytest -q tests/test_clean_code_rules.py
+........................................................................ [  6%]
+........................................................................ [ 12%]
+........................................................................ [ 18%]
+........................................................................ [ 24%]
+........................................................................ [ 30%]
+........................................................................ [ 36%]
+........................................................................ [ 43%]
+........................................................................ [ 49%]
+........................................................................ [ 55%]
+........................................................................ [ 61%]
+........................................................................ [ 67%]
+........................................................................ [ 73%]
+........................................................................ [ 80%]
+........................................................................ [ 86%]
+........................................................................ [ 92%]
+........................................................................ [ 98%]
+..................                                                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1170 passed, 2 warnings in 3.64s
+rc=0
+=== bash tools/check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   221 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 943 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  32 símbolos pedidos sin puerta que los declare
+PASS: superficie — 120 símbolos pedidos, 592 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+rc=0
+##### Regresiones vecinas (archivo por archivo)
+=== pytest -q tests/api/test_project_graph.py
+.............                                                            [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+13 passed, 1 warning in 1.65s
+rc=0
+=== pytest -q tests/mcp/test_no_writes.py
+EE                                                                       [100%]
+==================================== ERRORS ====================================
+______ ERROR at setup of test_every_read_tool_leaves_the_store_untouched _______
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-682/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-682/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '1608333ae1ae48d6740df3fa5bed3f0a2190f3f4f6ef17f6bcd32cbab9b2ced4', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-682/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_____ ERROR at setup of test_logging_a_signal_is_not_a_write_to_the_store ______
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-682/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-682/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '1608333ae1ae48d6740df3fa5bed3f0a2190f3f4f6ef17f6bcd32cbab9b2ced4', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-682/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+ERROR tests/mcp/test_no_writes.py::test_every_read_tool_leaves_the_store_untouched
+ERROR tests/mcp/test_no_writes.py::test_logging_a_signal_is_not_a_write_to_the_store
+1 warning, 2 errors in 7.66s
+rc=1
+=== pytest -q tests/mcp/test_read_tools.py
+EEEEEEEEEEEEEE                                                           [100%]
+==================================== ERRORS ====================================
+_______ ERROR at setup of test_tools_are_the_read_surface_and_read_only ________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '08ef429372962e08980f0c00f109df3ccfc7a4b8409c8d35f8794606256981db', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+___________ ERROR at setup of test_list_models_is_the_store_registry ___________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '08ef429372962e08980f0c00f109df3ccfc7a4b8409c8d35f8794606256981db', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+____ ERROR at setup of test_documents_are_the_files_of_the_store[Item-item] ____
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '08ef429372962e08980f0c00f109df3ccfc7a4b8409c8d35f8794606256981db', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_ ERROR at setup of test_documents_are_the_files_of_the_store[RuleDoc-ruledoc] _
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '08ef429372962e08980f0c00f109df3ccfc7a4b8409c8d35f8794606256981db', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_ ERROR at setup of test_documents_are_the_files_of_the_store[RelationDoc-relationdoc] _
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '08ef429372962e08980f0c00f109df3ccfc7a4b8409c8d35f8794606256981db', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+____________________ ERROR at setup of test_read_one_field _____________________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '08ef429372962e08980f0c00f109df3ccfc7a4b8409c8d35f8794606256981db', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_______________ ERROR at setup of test_largest_model_comes_paged _______________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '08ef429372962e08980f0c00f109df3ccfc7a4b8409c8d35f8794606256981db', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+__________________ ERROR at setup of test_select_by_predicate __________________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '08ef429372962e08980f0c00f109df3ccfc7a4b8409c8d35f8794606256981db', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_________________ ERROR at setup of test_neighbors_by_relation _________________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '08ef429372962e08980f0c00f109df3ccfc7a4b8409c8d35f8794606256981db', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_______________ ERROR at setup of test_neighborhood_by_direction _______________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '08ef429372962e08980f0c00f109df3ccfc7a4b8409c8d35f8794606256981db', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+____________________ ERROR at setup of test_relation_types _____________________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '08ef429372962e08980f0c00f109df3ccfc7a4b8409c8d35f8794606256981db', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_______ ERROR at setup of test_undeclared_answers_empty_with_explanation _______
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '08ef429372962e08980f0c00f109df3ccfc7a4b8409c8d35f8794606256981db', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_____________ ERROR at setup of test_composed_and_projection_views _____________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '08ef429372962e08980f0c00f109df3ccfc7a4b8409c8d35f8794606256981db', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+____________________ ERROR at setup of test_check_integrity ____________________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '08ef429372962e08980f0c00f109df3ccfc7a4b8409c8d35f8794606256981db', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-683/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+ERROR tests/mcp/test_read_tools.py::test_tools_are_the_read_surface_and_read_only
+ERROR tests/mcp/test_read_tools.py::test_list_models_is_the_store_registry - ...
+ERROR tests/mcp/test_read_tools.py::test_documents_are_the_files_of_the_store[Item-item]
+ERROR tests/mcp/test_read_tools.py::test_documents_are_the_files_of_the_store[RuleDoc-ruledoc]
+ERROR tests/mcp/test_read_tools.py::test_documents_are_the_files_of_the_store[RelationDoc-relationdoc]
+ERROR tests/mcp/test_read_tools.py::test_read_one_field - ModuleNotFoundError...
+ERROR tests/mcp/test_read_tools.py::test_largest_model_comes_paged - ModuleNo...
+ERROR tests/mcp/test_read_tools.py::test_select_by_predicate - ModuleNotFound...
+ERROR tests/mcp/test_read_tools.py::test_neighbors_by_relation - ModuleNotFou...
+ERROR tests/mcp/test_read_tools.py::test_neighborhood_by_direction - ModuleNo...
+ERROR tests/mcp/test_read_tools.py::test_relation_types - ModuleNotFoundError...
+ERROR tests/mcp/test_read_tools.py::test_undeclared_answers_empty_with_explanation
+ERROR tests/mcp/test_read_tools.py::test_composed_and_projection_views - Modu...
+ERROR tests/mcp/test_read_tools.py::test_check_integrity - ModuleNotFoundErro...
+1 warning, 14 errors in 10.04s
+rc=1
+=== pytest -q tests/security/test_guard_views.py
+..                                                                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 8.20s
+rc=0
+=== pytest -q tests/store/test_graph_backend.py
+.........                                                                [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+9 passed, 1 warning in 52.88s
+rc=0
+=== pytest -q tests/store/test_live_stale_security.py
+........                                                                 [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+8 passed, 1 warning in 19.77s
+rc=0
+=== pytest -q tests/store/test_payload_projection.py
+........................................                                 [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+40 passed, 1 warning in 4.48s
+rc=0
+=== pytest -q tests/store/test_predicate_language.py
+................                                                         [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+16 passed, 1 warning in 2.73s
+rc=0
+##### MCP con --extra mcp (el primer intento falló por ModuleNotFoundError: anyio, entorno)
+=== [--extra mcp] pytest -q tests/mcp/test_no_writes.py
+error: Extra `mcp` is not defined in the `optional-dependencies` table for `structuredlanguagedb`
+rc=2
+=== [--extra mcp] pytest -q tests/mcp/test_read_tools.py
+error: Extra `mcp` is not defined in the `optional-dependencies` table for `structuredlanguagedb`
+rc=2
+##### MCP vía uvx (uv run --frozen no conoce el extra mcp en uv.lock)
+=== [uvx .[mcp,code,dev]] pytest -q tests/mcp/test_no_writes.py
+Installed 50 packages in 396ms
+..                                                                       [100%]
+=============================== warnings summary ===============================
+../../../cache/uv/archive-v0/uY9jhPO2GY_IDfpx/lib/python3.13/site-packages/_pytest/config/__init__.py:1636
+  /mnt/ssd/cache/uv/archive-v0/uY9jhPO2GY_IDfpx/lib/python3.13/site-packages/_pytest/config/__init__.py:1636: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 10.87s
+rc=0
+=== [uvx .[mcp,code,dev]] pytest -q tests/mcp/test_read_tools.py
+..............                                                           [100%]
+=============================== warnings summary ===============================
+../../../cache/uv/archive-v0/uY9jhPO2GY_IDfpx/lib/python3.13/site-packages/_pytest/config/__init__.py:1636
+  /mnt/ssd/cache/uv/archive-v0/uY9jhPO2GY_IDfpx/lib/python3.13/site-packages/_pytest/config/__init__.py:1636: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+14 passed, 1 warning in 8.81s
+rc=0
+##### Bordes propios: /dev/shm/tester-leak/edge_cases.py
+view_nodes : [('sldb://document/B:ViewDoc:board', 'ViewDoc', 'ViewDoc:board', 'B', '/dev/shm/tester-leak/tmpat_e1yca/B/.sldb'), ('sldb://document/C:ViewDoc:board', 'ViewDoc', 'ViewDoc:board', 'C', '/dev/shm/tester-leak/tmpat_e1yca/C/.sldb'), ('sldb://document/C:ViewDoc:deep', 'ViewDoc', 'ViewDoc:deep', 'C', '/dev/shm/tester-leak/tmpat_e1yca/C/.sldb'), ('sldb://document/ViewDoc:board', 'ViewDoc', 'ViewDoc:board', None, '/dev/shm/tester-leak/tmpat_e1yca/A/.sldb')]
+old index  : [('sldb://document/B:ViewDoc:board', 'ViewDoc', 'ViewDoc:board', 'B', '/dev/shm/tester-leak/tmpat_e1yca/B/.sldb'), ('sldb://document/C:ViewDoc:board', 'ViewDoc', 'ViewDoc:board', 'C', '/dev/shm/tester-leak/tmpat_e1yca/C/.sldb'), ('sldb://document/C:ViewDoc:deep', 'ViewDoc', 'ViewDoc:deep', 'C', '/dev/shm/tester-leak/tmpat_e1yca/C/.sldb'), ('sldb://document/ViewDoc:board', 'ViewDoc', 'ViewDoc:board', None, '/dev/shm/tester-leak/tmpat_e1yca/A/.sldb')]
+list_views : [('B:board', 'Board B'), ('C:board', 'Board C'), ('board', 'Board A'), ('deep', 'Deep')]
+3 claves distintas: 0.55s
+recomposiciones tras escribir: 1
+OK
+rc=0
+##### Sanidad: test de concurrencia sin lock (plugin /dev/shm/tester-leak/plug/nolock_plugin.py)
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________ test_concurrent_cold_compositions_of_one_key_compose_once ___________
+
+tmp_path = PosixPath('/dev/shm/pytest-of-robocop/pytest-694/test_concurrent_cold_compositi0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7d59a45a0770>
+
+    def test_concurrent_cold_compositions_of_one_key_compose_once(tmp_path: Path, monkeypatch):
+        import threading
+        import time
+    
+        from sldb.store.edge_index import compose
+    
+        assert sldb_main(["stores", "init", "--path", str(tmp_path)]) == 0
+        composed, real = [], compose._compose
+    
+        def counted(*args):
+            composed.append(1)
+            time.sleep(0.2)
+            return real(*args)
+    
+        monkeypatch.setattr(compose, "_compose", counted)
+        compose.invalidate_composed_edge_indexes()
+        start = threading.Barrier(8)
+        threads = [threading.Thread(target=lambda: (start.wait(), compose.compose_edge_index(tmp_path / ".sldb", False))) for _ in range(8)]
+        for thread in threads:
+            thread.start()
+        for thread in threads:
+            thread.join()
+>       assert len(composed) == 1
+E       assert 8 == 1
+E        +  where 8 = len([1, 1, 1, 1, 1, 1, ...])
+
+tests/store/test_shard_cache_copies.py:76: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Initialized store at /dev/shm/pytest-of-robocop/pytest-694/test_concurrent_cold_compositi0/.sldb
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/store/test_shard_cache_copies.py::test_concurrent_cold_compositions_of_one_key_compose_once
+1 failed, 1 warning in 1.84s
+rc=1
+##### Sanidad: test de list_views contra list_views de HEAD
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________ test_list_views_never_composes_the_federated_index ______________
+
+stores = (<test_views_linked.Store object at 0x7ad5aecee510>, <test_views_linked.Store object at 0x7ad5ace59090>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7ad5ad017a80>
+
+    def test_list_views_never_composes_the_federated_index(stores, monkeypatch) -> None:
+        a, _ = stores
+        a.doc("ViewDoc", "mine", board("mine", "Mine"))
+    
+        def refuse(*args, **kwargs):
+            raise AssertionError("list_views composed the edge index")
+    
+        monkeypatch.setattr("sldb.api.edges.edge_reading.compose_edge_index", refuse)
+        monkeypatch.setattr("sldb.store.edge_index.compose.compose_edge_index", refuse)
+>       assert [(v["name"], v["title"]) for v in api.list_views(a.store)] == [("board", "Board"), ("mine", "Mine")]
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^
+
+/dev/shm/tester-leak/head/test_views_linked.py:126: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/dev/shm/tester-leak/head/src/sldb/api/views/list_views.py:24: in list_views
+    index = load_edge_index(open_store(store, mode="readonly").store_path, include_linked=True)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tester-leak/head/src/sldb/api/edges/edge_reading.py:28: in load_edge_index
+    return compose_edge_index(open_store(store, mode="readonly").store_path, include_linked, exclude_tags, model_type_of)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (PosixPath('/dev/shm/pytest-of-robocop/pytest-695/test_list_views_never_composes0/A/.sldb'), True, (), <function model_type_of at 0x7ad5add28360>)
+kwargs = {}
+
+    def refuse(*args, **kwargs):
+>       raise AssertionError("list_views composed the edge index")
+E       AssertionError: list_views composed the edge index
+
+/dev/shm/tester-leak/head/test_views_linked.py:122: AssertionError
+=========================== short test summary info ============================
+FAILED ../../../../../dev/shm/tester-leak/head/test_views_linked.py::test_list_views_never_composes_the_federated_index
+1 failed in 3.70s
+rc=1

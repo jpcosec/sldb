@@ -1,0 +1,36 @@
+name: review-task-sldb-serve-list-views-deja-de-componer-el-índice-federado-de-toda-la-máquina-y-compose-edge-index-co-evidence-materialization-1
+path: desk/reviews/task-sldb-serve-list-views-deja-de-componer-el-índice-federado-de-toda-la-máquina-y-compose-edge-index-co/evidence-materialization-1.md
+source_hash: 5001a363cbfbe687219adb10920188ea7ee1d219aee552e680ec63b4d8b55f47
+content_hash: 5c8baffcea12100c9fcc6852e6c551b7c66cf2d71dc4e251f0217258baa5b2ee
+field_hashes:
+  id: 2affc01e1f005cdbbccde66012054b8cdd23263b74040149bb657dc8bfb1b13c
+  title: 59b1ad8983f1c57f87553310cd076a318edf9ae7989334f6cf3d61f247143f5f
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: c53019a99806c2a308704f6ff897257f81533faf42952cffcb84dfeda3fefa1b
+  subject: be3a0a601f74a131366052ba4b16741edf6c6ef182c46330ae4447ad5a7b4ab3
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: c0295bfdacdc775608ff88c53aab1e6c9b9766da537d4950e7048e9d0f1befe7
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 3e0e21ab1cc3e5e3135c239c8db684cfd5983b5490c2e80e5e23b8559745f3b6
+  created_at: eac6a13f19079bb7d37017abbf57a59774e29acd1cd49636a8a66ecd2eea2e13
+  disposed_at: eac6a13f19079bb7d37017abbf57a59774e29acd1cd49636a8a66ecd2eea2e13
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 1c6efc5a204aea4af70ebe5ea75ae5f8f17442dede7c0239035e865451d5617c
+  disposition: b184056acd2a1a5e898fb54d99ab28c400143b75aeca3845ec641d7c053e3798
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T20:17:31Z'
+  authority: generated
+  via: create_document
