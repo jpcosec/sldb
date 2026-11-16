@@ -1,0 +1,36 @@
+name: review-task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n-evidence-materialization-1
+path: desk/reviews/task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n/evidence-materialization-1.md
+source_hash: 76fd23caee3453024a92d8d5972cee114157cf6e7a1ad2ec203bdf10217e08c3
+content_hash: 3bc61b7708f0d5cce43c4997005916097e9e9cec67c3be72c8e2a4e340d823ea
+field_hashes:
+  id: 0079c77b8be613b25137e4761b0ec2c80d589b8127bc279bd95c2495326a1699
+  title: 736c24cbd78ba90ce9774e1af648641d4e8d7248eadd0778dbde9b283a10a2b2
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: 426ee718172eae650e1a8017b93e1051bfb2deb996f66032b1ee618d59920dbd
+  subject: 67a0442c712fc673048abea3ce5d0dc777c272caf77f2806c6ebc028018532b9
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 0351fefd5f155c2cb409e17cec37e0081962149050ee83d76428e8e5ea0078fa
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
+  reason: 60d6089a2f250c430e3a32efa4d5534eab29af2da56b3dfb4f1ff46d1487e103
+  created_at: 956d7b677707914a1c69d480d1b02a907746e5a07f1aa2e36ac5a751b0de3240
+  disposed_at: 956d7b677707914a1c69d480d1b02a907746e5a07f1aa2e36ac5a751b0de3240
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 30ddb0814c706475aacf25b9878f4b14fe9ca1531d559c88b5e81d9086d75474
+  disposition: e8b8b423503b1cfe621a4ba3747fbb66106cd4b107a0ead6e4966bf0922b8255
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T10:26:44Z'
+  authority: generated
+  via: save_document_payload

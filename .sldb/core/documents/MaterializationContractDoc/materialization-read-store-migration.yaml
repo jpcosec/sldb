@@ -1,0 +1,25 @@
+name: materialization-read-store-migration
+path: desk/materializations/materialization-read-store-migration.md
+source_hash: 5c1487067e6903574cfc446c8131658481290eb2832d15657fc9b0e5111d0b50
+content_hash: a19309a2b06dd06342f5724d59d6be9f7266ba8a90a8ea5a7fc170bf1ade8ce1
+field_hashes:
+  id: 1f17f91cb08ad084299fb6b1ad9b5ed0c523aa9e9d0b629313fd2c857da64a0b
+  title: 45d027673c80b6d691a260ae18841fadcaf7d857ee107bb6366e7faad62b7499
+  source_atoms: bec3c52641f5628e95bbe8e3aab6ef46a8c16b7a1a3629bc441495368afe4d99
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: beafa9ba0a5b3becfbc30ba65803a46098f659ce0c6ca17ec88438f3694fa4a6
+  intent: cd9a036c36774191373eaf5b444bd5edb9ea2ff01bd0bf73664db6c1f44f59f6
+  validation: d9a504775d66bdee716177a67fe2a74d17eb082d3fcc40f3c7496b54db5f4fbe
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T10:28:40Z'
+  authority: generated
+  via: create_document

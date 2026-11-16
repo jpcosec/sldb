@@ -438,6 +438,10 @@ include:
     name: run-deskops-e-98bf5ed2ff9f
   - path: runs/subagents/20261116-test-sections-missing/run.md
     name: run-deskops-t-fcd90d896392
+  - path: runs/subagents/20261116-exec-read-store/run.md
+    name: run-deskops-e-ec3e43f4e6ca
+  - path: runs/subagents/20261116-test-read-store/run.md
+    name: run-deskops-t-aaa566ba1025
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -669,6 +673,12 @@ include:
   - desk/materializations/materialization-sections-missing-section-sync.md
   - desk/materializations/materialization-sections-missing-semantic.md
   - desk/materializations/materialization-sections-missing-test-semantic-rebuild.md
+  - desk/materializations/materialization-read-store-read-store.md
+  - desk/materializations/materialization-read-store-extract-payload.md
+  - desk/materializations/materialization-read-store-init.md
+  - desk/materializations/materialization-read-store-test-api-stores.md
+  - desk/materializations/materialization-read-store-store-declaration.md
+  - desk/materializations/materialization-read-store-migration.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -1156,6 +1166,16 @@ include:
     name: review-task-una-escritura-en-un-store-con-documentos-generados-ausentes-no-imprime-una-línea-por-cada-uno-sectio-evidence-atom-1
   - path: desk/reviews/task-una-escritura-en-un-store-con-documentos-generados-ausentes-no-imprime-una-línea-por-cada-uno-sectio/evidence-materialization-1.md
     name: review-task-una-escritura-en-un-store-con-documentos-generados-ausentes-no-imprime-una-línea-por-cada-uno-sectio-evidence-materialization-1
+  - path: desk/reviews/task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n/evidence-tests-1.md
+    name: review-task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n-evidence-tests-1
+  - path: desk/reviews/task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n/evidence-commit-1.md
+    name: review-task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n-evidence-commit-1
+  - path: desk/reviews/task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n/evidence-atom-1.md
+    name: review-task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n-evidence-atom-1
+  - path: desk/reviews/task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n/evidence-materialization-1.md
+    name: review-task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n-evidence-materialization-1
+  - path: desk/reviews/task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n/evidence-materialization-2.md
+    name: review-task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n-evidence-materialization-2
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -1175,7 +1195,6 @@ include:
   - desk/tasks/task-sldb-api-notations-reexporta-lo-que-specir-importa-hoy-de-módulos-internos-estilos-paletas-errores-m.md
   - desk/tasks/task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding.md
   - desk/tasks/task-specdoc-guarda-los-datos-de-un-spec-que-no-son-elementos-data-entity-y-afines-y-el-style-llega-a-la.md
-  - desk/tasks/task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n.md
   - desk/tasks/task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra.md
   - desk/tasks/task-sldb-mcp-gancho-público-de-validadores-de-lote-que-corren-antes-de-propose-changes-y-apply-changes.md
   - desk/tasks/task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable.md

@@ -1,0 +1,9 @@
+Task: task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n
+Title: Lectura pública sin migrar: read_store abre una operación fresca de solo lectura y rechaza un store no preparado; extract_payload extrae de texto ya leído
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective atoms:
+- atom-un-consumidor-pregunta-al-store-por-la-api-no-leyendo-sus-archivos-de-índice
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
