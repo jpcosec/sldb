@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T11:22:13Z'
+  at: '2026-11-16T11:35:53Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -34,7 +34,6 @@ tasks:
 - desk/tasks/task-specdoc-guarda-los-datos-de-un-spec-que-no-son-elementos-data-entity-y-afines-y-el-style-llega-a-la.md
 - desk/tasks/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg.md
 - desk/tasks/task-edgeindex-stale-manda-a-la-operación-correcta-una-edición-externa-se-resuelve-con-sldb-stores-update.md
-- desk/tasks/task-referrers-y-rewrite-references-aceptan-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-duplican-men.md
 - desk/tasks/task-reproducir-si-sldb-docs-update-reescribe-índices-de-documentos-ajenos-al-que-actualiza-reviewdoc-de.md
 - desk/tasks/task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno.md
 - desk/tasks/task-run-view-dice-que-el-store-no-está-construido-en-vez-de-unknown-view-h12-y-se-reproduce-si-la-revisi.md
@@ -127,7 +126,6 @@ _Generated from the task references above._
 - SpecDoc guarda los datos de un spec que no son elementos (data.entity y afines) y el style llega a la vista resuelta [draft] - Sincronizar un spec con data.entity (y cualquier otra clave de data que no sea elementos) y leerlo de vuelta con el SpecDoc devuelve esos datos sin pérdida, y la vista resuelta de ese SpecDoc incluye su style.
 - matching: attach_atom_edges deja de recomponer live-stale y los mapas del índice federado en cada edges_of (catalog build con átomos en minutos) [draft] - attach_atom_edges sobre N referencias llama a load_edge_index a lo sumo 2 veces por llamada (una con enlaces y otra sin ellos, si hacen falta las dos) y no recalcula live-stale ni los mapas por cada referencia; el catalog build de IR de la nota termina en menos de 60 s con el mismo resultado.
 - EdgeIndex.stale manda a la operación correcta: una edición externa se resuelve con sldb stores update, no con edges rebuild [draft] - Los tres textos nombran `sldb stores update` (API update_store_indexes) como la operación que resuelve un documento stale por edición externa, y un test prueba que después de stores update el documento editado sale de stale.
-- referrers y rewrite_references aceptan un grafo armado en proceso, excluyen fuentes y no duplican menciones del frontmatter [draft] - referrers(store, target, graph=g) y rewrite_references(..., graph=g, excluded_sources=[...]) usan g en lugar de optional_graph cuando se pasa, no tocan las fuentes excluidas, y find_hits no devuelve como mention una línea del frontmatter que ya es un hit schema del mismo documento.
 - Reproducir si sldb docs update reescribe índices de documentos ajenos al que actualiza (ReviewDoc de un store enlazado con otro contrato) [draft] - Saber, con un test que lo prueba, si `sldb docs update <doc>` sobre un store que enlaza a otro store cuyo modelo rechaza algunos de sus documentos modifica algún archivo fuera del documento actualizado, su shard y los índices derivados del store (store_index.yaml y models/<Modelo>.yaml del modelo del documento).
 - sldb stores add guarda tal cual un enlace absoluto, con ~ o con variable de entorno [draft] - `sldb stores add <ruta>` guarda la ruta como la escribió el usuario si empieza por /, ~ o $ (absoluta, home o variable de entorno) y relativa a la raíz del proyecto en cualquier otro caso (como hoy); la lectura expande ~ y variables de entorno al resolver el enlace.
 - run_view dice que el store no está construido en vez de Unknown view (H12) y se reproduce si la revision depende de cachés del proceso (H13) [draft] - (H12) run_view sobre un store cuyo índice compuesto está vacío o sin construir lanza SLDBStoreError con "store index not built: run `sldb stores build`" en lugar de "Unknown view"; (H13) un test dice si la revision cambia entre el proceso que escribió y uno nuevo, y si cambia, la revision deja de depender de cachés en memoria.

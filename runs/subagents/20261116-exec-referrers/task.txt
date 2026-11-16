@@ -1,0 +1,11 @@
+Task: task-referrers-y-rewrite-references-aceptan-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-duplican-men
+Title: referrers y rewrite_references aceptan un grafo armado en proceso, excluyen fuentes y no duplican menciones del frontmatter
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective pills:
+- desk/contexts/pill-pill-grafo-en-proceso-para-referrers.md
+Effective atoms:
+- atom-las-referencias-entrantes-de-un-documento-se-consultan-y-se-reescriben-en-sldb-todo-o-nada
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]

@@ -1,0 +1,25 @@
+name: materialization-referrers-test-rewrite-references
+path: desk/materializations/materialization-referrers-test-rewrite-references.md
+source_hash: 5ccc088f4b8bc7062fd6e0393bb005d51719e0d165bd9b1d09827befd1ef1329
+content_hash: bd28905493b4311e85a51a7170df835119614271bfb8e3a77534cf986499bec1
+field_hashes:
+  id: 4f7571c1c91aaeaa4e65fc196d171ac6d5ba14a23d0e82bfe0e1865f46ec678b
+  title: d42823340c863fbfd3faf03955b9c9f74c34364fdafa759439861d382f82ebed
+  source_atoms: 677eb326b3be471d3dff52b2cb14a4b22fc8ea5bb5eaf0402df8de06c0e2f5cb
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: c605af08d83c1677a7665b33e0c6019cd2bc91fdcb2ecf0ecaab8b1e01aa3e0a
+  intent: ea0ab4993723bb83f831f1547ee658fa2c14d3b65573fb3d6027c2200735b9a2
+  validation: 1d6b24da7652df2168b6fddab8f6f7e7dae1c1ba2de20a32079a49575df58a7a
+  tags: 5b344ce5c5bf7bdb76ff874ca48cc365dc1ea363d087d8f5ac5e949e4226ff72
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:references
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T11:33:09Z'
+  authority: generated
+  via: create_document

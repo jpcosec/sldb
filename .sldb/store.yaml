@@ -462,6 +462,10 @@ include:
     name: run-deskops-e-a5fa67d6c1db
   - path: runs/subagents/20261116-test-template-anchors/run.md
     name: run-deskops-t-54ea165c28be
+  - path: runs/subagents/20261116-exec-referrers/run.md
+    name: run-deskops-e-ca9ebf095f85
+  - path: runs/subagents/20261116-test-referrers/run.md
+    name: run-deskops-t-5182291d0393
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -722,6 +726,10 @@ include:
   - desk/materializations/materialization-template-anchors-init.md
   - desk/materializations/materialization-template-anchors-template-extractor.md
   - desk/materializations/materialization-template-anchors-test-literal-paragraph-anchor.md
+  - desk/materializations/materialization-referrers-referrers.md
+  - desk/materializations/materialization-referrers-rewrite-references.md
+  - desk/materializations/materialization-referrers-test-referrers.md
+  - desk/materializations/materialization-referrers-test-rewrite-references.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -1259,6 +1267,14 @@ include:
     name: review-task-sldb-api-template-anchors-devuelve-por-campo-de-un-modelo-el-párrafo-ancla-literal-de-su-plantilla-evidence-atom-1
   - path: desk/reviews/task-sldb-api-template-anchors-devuelve-por-campo-de-un-modelo-el-párrafo-ancla-literal-de-su-plantilla/evidence-materialization-1.md
     name: review-task-sldb-api-template-anchors-devuelve-por-campo-de-un-modelo-el-párrafo-ancla-literal-de-su-plantilla-evidence-materialization-1
+  - path: desk/reviews/task-referrers-y-rewrite-references-aceptan-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-duplican-men/evidence-tests-1.md
+    name: review-task-referrers-y-rewrite-references-aceptan-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-duplican-men-evidence-tests-1
+  - path: desk/reviews/task-referrers-y-rewrite-references-aceptan-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-duplican-men/evidence-commit-1.md
+    name: review-task-referrers-y-rewrite-references-aceptan-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-duplican-men-evidence-commit-1
+  - path: desk/reviews/task-referrers-y-rewrite-references-aceptan-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-duplican-men/evidence-atom-1.md
+    name: review-task-referrers-y-rewrite-references-aceptan-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-duplican-men-evidence-atom-1
+  - path: desk/reviews/task-referrers-y-rewrite-references-aceptan-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-duplican-men/evidence-materialization-1.md
+    name: review-task-referrers-y-rewrite-references-aceptan-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-duplican-men-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -1279,7 +1295,6 @@ include:
   - desk/tasks/task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding.md
   - desk/tasks/task-specdoc-guarda-los-datos-de-un-spec-que-no-son-elementos-data-entity-y-afines-y-el-style-llega-a-la.md
   - desk/tasks/task-edgeindex-stale-manda-a-la-operación-correcta-una-edición-externa-se-resuelve-con-sldb-stores-update.md
-  - desk/tasks/task-referrers-y-rewrite-references-aceptan-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-duplican-men.md
   - desk/tasks/task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno.md
   - desk/tasks/task-contract-signature-cubre-indexed-doc-anchors-y-contract-y-un-campo-no-puede-ser-a-la-vez-referencia.md
   - desk/tasks/task-sldb-docs-track-canonical-un-markdown-escrito-a-mano-se-lleva-a-su-render-canónico-con-el-diff-a-la.md

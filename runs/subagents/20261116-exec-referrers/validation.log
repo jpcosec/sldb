@@ -1,0 +1,153 @@
+$ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/api/test_referrers.py
+............                                                             [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+12 passed, 1 warning in 2.00s
+rc=0
+
+$ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/api/test_rewrite_references.py
+FF..FF........F......                                                    [100%]
+=================================== FAILURES ===================================
+_ test_rewriting_to_another_document_moves_every_field_and_mention_keeping_their_forms _
+
+reference_world = <tests.api.test_referrers.World object at 0x732cda4cc440>
+
+    def test_rewriting_to_another_document_moves_every_field_and_mention_keeping_their_forms(reference_world: World) -> None:
+        report = api.rewrite_references(reference_world.store, "card-a", "card-a2", pythonpath=reference_world.py)
+>       assert report.to_dict() == {"changed": A2_CHANGES, "skipped": []}
+E       AssertionError: assert {'changed': [...'skipped': []} == {'changed': [...'skipped': []}
+E         
+E         Omitting 1 identical items, use -vv to show
+E         Differing items:
+E         {'changed': [{'source': 'Card:card-b', 'field': 'about', 'index': None, 'location': None, ...}, {'source': 'Card:card-...: 'cards/card-c.md:16', ...}, {'source': 'notes/d.md', 'field': None, 'index': None, 'location': 'notes/d.md:3', ...}]} != {'changed': [{'source': 'Card:card-b', 'field': 'about', 'index': None, 'location': None, ...}, {'source': 'Card:card-...: 'cards/card-c.md:16', ...}, {'source': 'notes/d.md', 'field': None, 'index': None, 'location': 'notes/d.md:3', ...}]}
+E         Use -v to get more diff
+
+tests/api/test_rewrite_references.py:35: AssertionError
+____ test_removing_empties_the_scalar_drops_the_element_and_keeps_the_prose ____
+
+reference_world = <tests.api.test_referrers.World object at 0x732cda473ed0>
+
+    def test_removing_empties_the_scalar_drops_the_element_and_keeps_the_prose(reference_world: World) -> None:
+        before_d = reference_world.text("notes/d.md")
+        report = api.rewrite_references(reference_world.store, "card-a", None, pythonpath=reference_world.py)
+>       assert report.changed == [{**change, "after": None} for change in A2_CHANGES[:3]]
+E       AssertionError: assert [{'source': '...': None, ...}] == [{'source': '...': None, ...}]
+E         
+E         At index 2 diff: {'source': 'Review:r1', 'field': 'subject', 'index': None, 'location': None, 'before': 'doc:Card:card-a@sha256:57abcfa8151bb726d65994be36b037d8fbd9d861308ce3714c1ec34583257d47', 'after': None} != {'source': 'Review:r1', 'field': 'subject', 'index': None, 'location': None, 'before': 'doc:Card:card-a', 'after': None}
+E         Use -v to get more diff
+
+tests/api/test_rewrite_references.py:54: AssertionError
+_ test_a_dry_run_reports_the_same_changes_writes_no_byte_and_runs_no_on_write_rule _
+
+reference_world = <tests.api.test_referrers.World object at 0x732cda467230>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x732cda5dfbd0>
+
+    def test_a_dry_run_reports_the_same_changes_writes_no_byte_and_runs_no_on_write_rule(reference_world: World, monkeypatch: pytest.MonkeyPatch) -> None:
+        calls: list[str] = []
+        check = payload_save.check_rules_on_write
+        monkeypatch.setattr(payload_save, "check_rules_on_write", lambda *args: calls.append(args[2]) or check(*args))
+        before = reference_world.digests()
+        report = api.rewrite_references(reference_world.store, "card-a", "card-a2", dry_run=True, pythonpath=reference_world.py)
+>       assert report.to_dict() == {"changed": A2_CHANGES, "skipped": []}
+E       AssertionError: assert {'changed': [...'skipped': []} == {'changed': [...'skipped': []}
+E         
+E         Omitting 1 identical items, use -vv to show
+E         Differing items:
+E         {'changed': [{'source': 'Card:card-b', 'field': 'about', 'index': None, 'location': None, ...}, {'source': 'Card:card-...: 'cards/card-c.md:16', ...}, {'source': 'notes/d.md', 'field': None, 'index': None, 'location': 'notes/d.md:3', ...}]} != {'changed': [{'source': 'Card:card-b', 'field': 'about', 'index': None, 'location': None, ...}, {'source': 'Card:card-...: 'cards/card-c.md:16', ...}, {'source': 'notes/d.md', 'field': None, 'index': None, 'location': 'notes/d.md:3', ...}]}
+E         Use -v to get more diff
+
+tests/api/test_rewrite_references.py:99: AssertionError
+________ test_with_the_index_and_the_graph_warm_a_dry_run_walks_nothing ________
+
+reference_world = <tests.api.test_referrers.World object at 0x732cda61d5b0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x732cda4db650>
+
+    def test_with_the_index_and_the_graph_warm_a_dry_run_walks_nothing(reference_world: World, monkeypatch: pytest.MonkeyPatch) -> None:
+        api.rewrite_references(reference_world.store, "card-a", "card-a2", dry_run=True, pythonpath=reference_world.py)
+        counts = count_walks(monkeypatch, reference_world.root)
+>       assert api.rewrite_references(reference_world.store, "card-a", "card-a2", dry_run=True, pythonpath=reference_world.py).changed == A2_CHANGES
+E       AssertionError: assert [{'source': '...d.md:3', ...}] == [{'source': '...d.md:3', ...}]
+E         
+E         At index 2 diff: {'source': 'Review:r1', 'field': 'subject', 'index': None, 'location': None, 'before': 'doc:Card:card-a@sha256:57abcfa8151bb726d65994be36b037d8fbd9d861308ce3714c1ec34583257d47', 'after': 'doc:Card:card-a2'} != {'source': 'Review:r1', 'field': 'subject', 'index': None, 'location': None, 'before': 'doc:Card:card-a', 'after': 'doc:Card:card-a2'}
+E         Use -v to get more diff
+
+tests/api/test_rewrite_references.py:108: AssertionError
+_________ test_the_cli_rewrites_removes_and_dry_runs_with_the_envelope _________
+
+reference_world = <tests.api.test_referrers.World object at 0x732cd9d461a0>
+capsys = <_pytest.capture.CaptureFixture object at 0x732cda4cde80>
+
+    def test_the_cli_rewrites_removes_and_dry_runs_with_the_envelope(reference_world: World, capsys) -> None:
+        before = reference_world.digests()
+        code, envelope = reference_world.cli(capsys, "rewrite", "card-a", "--to", "card-a2", "--dry-run")
+>       assert (code, envelope["ok"], envelope["data"]) == (0, True, {"changed": A2_CHANGES, "skipped": []}) and reference_world.digests() == before
+E       AssertionError: assert ((0, True, {'c...skipped': []}) == (0, True, {'c...skipped': []})
+E         
+E         At index 2 diff: {'changed': [{'source': 'Card:card-b', 'field': 'about', 'index': None, 'location': None, 'before': 'card-a', 'after': 'card-a2'}, {'source': 'Card:card-c', 'field': 'related', 'index': 1, 'location': None, 'before': 'card-a', 'after': 'card-a2'}, {'source': 'Review:r1', 'field': 'subject', 'index': None, 'location': None, 'before': 'doc:Card:card-a@sha256:57abcfa8151bb726d65994be36b037d8fbd9d861308ce3714c1ec34583257d47', 'after': 'doc:Card:card-a2'}, {'source': 'cards/card-c.md', 'field': None, 'index': None, 'location': 'cards/card-c.md:16', 'before':...
+E         
+E         ...Full output truncated (2 lines hidden), use '-vv' to show)
+
+tests/api/test_rewrite_references.py:169: AssertionError
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/api/test_rewrite_references.py::test_rewriting_to_another_document_moves_every_field_and_mention_keeping_their_forms
+FAILED tests/api/test_rewrite_references.py::test_removing_empties_the_scalar_drops_the_element_and_keeps_the_prose
+FAILED tests/api/test_rewrite_references.py::test_a_dry_run_reports_the_same_changes_writes_no_byte_and_runs_no_on_write_rule
+FAILED tests/api/test_rewrite_references.py::test_with_the_index_and_the_graph_warm_a_dry_run_walks_nothing
+FAILED tests/api/test_rewrite_references.py::test_the_cli_rewrites_removes_and_dry_runs_with_the_envelope
+5 failed, 16 passed, 1 warning in 5.38s
+rc=1
+
+# Evidencia extra (no es comando de Validation): mismos tests sobre git archive de HEAD 7cd8a5e3 (sin cambios de esta tarea ni ajenos)
+$ cd $SCRATCH/head && PYTHONPATH=$SCRATCH/head/src:$SCRATCH/head uv run --project <repo> --frozen --extra code --extra dev pytest -q tests/api/test_rewrite_references.py
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/api/test_rewrite_references.py::test_rewriting_to_another_document_moves_every_field_and_mention_keeping_their_forms
+FAILED tests/api/test_rewrite_references.py::test_removing_empties_the_scalar_drops_the_element_and_keeps_the_prose
+FAILED tests/api/test_rewrite_references.py::test_a_dry_run_reports_the_same_changes_writes_no_byte_and_runs_no_on_write_rule
+FAILED tests/api/test_rewrite_references.py::test_with_the_index_and_the_graph_warm_a_dry_run_walks_nothing
+FAILED tests/api/test_rewrite_references.py::test_the_cli_rewrites_removes_and_dry_runs_with_the_envelope
+5 failed, 13 passed, 1 warning in 5.32s
+rc=1
+
+# Lo mismo sobre e82d62ba~1 (antes de 'create_document pinnea las anclas')
+..................                                                       [100%]
+18 passed in 5.40s
+rc=0
+
+######## Corrección 1 (2026-11-16T11:28:16Z)
+$ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/api/test_referrers.py
+............                                                             [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+12 passed, 1 warning in 1.99s
+rc=0
+
+$ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/api/test_rewrite_references.py
+.....................                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+21 passed, 1 warning in 5.87s
+rc=0
+

@@ -1,0 +1,42 @@
+== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/api/test_referrers.py
+............                                                             [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+12 passed, 1 warning in 2.01s
+rc=0
+== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/api/test_rewrite_references.py
+.....................                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+21 passed, 1 warning in 5.87s
+rc=0
+
+== Casos borde del tester (script no versionado /dev/shm/tester-referrers/edge.py)
+== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -v -p no:cacheprovider /dev/shm/tester-referrers/edge.py
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.1.1, pluggy-1.6.0 -- /mnt/ssd/proyectos/SLDB_1/sldb/.venv/bin/python
+rootdir: /dev/shm/tester-referrers
+plugins: cov-7.1.0
+collecting ... collected 8 items
+
+../../../../../dev/shm/tester-referrers/edge.py::test_frontmatter_mention_in_doc_without_schema_hit_is_kept PASSED [ 12%]
+../../../../../dev/shm/tester-referrers/edge.py::test_body_mention_in_doc_with_schema_hit_is_kept PASSED [ 25%]
+../../../../../dev/shm/tester-referrers/edge.py::test_frontmatter_mention_on_other_line_of_doc_with_schema_hit PASSED [ 37%]
+../../../../../dev/shm/tester-referrers/edge.py::test_exclude_by_bare_name_and_slash_form_and_generator[task-b] PASSED [ 50%]
+../../../../../dev/shm/tester-referrers/edge.py::test_exclude_by_bare_name_and_slash_form_and_generator[Task/task-b] PASSED [ 62%]
+../../../../../dev/shm/tester-referrers/edge.py::test_exclude_without_graph_works_on_fields_and_dry_run_writes_nothing PASSED [ 75%]
+../../../../../dev/shm/tester-referrers/edge.py::test_untracked_file_as_excluded_source_is_refused_and_nothing_written PASSED [ 87%]
+../../../../../dev/shm/tester-referrers/edge.py::test_graph_none_is_same_as_omitting PASSED [100%]
+
+============================== 8 passed in 2.42s ===============================
+rc=0

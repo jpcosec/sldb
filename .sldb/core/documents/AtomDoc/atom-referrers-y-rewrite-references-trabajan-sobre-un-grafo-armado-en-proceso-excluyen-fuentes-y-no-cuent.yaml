@@ -1,0 +1,23 @@
+name: atom-referrers-y-rewrite-references-trabajan-sobre-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-cuent
+path: desk/atoms/atom-referrers-y-rewrite-references-trabajan-sobre-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-cuent.md
+source_hash: e0695db55852efc653b6c137a850edf8e28c31b02875906e5fd2d59370d982bf
+content_hash: 1c2fe72a0b65a4b9754ec3e6b81bd289d49ccf482c4d2bf16a1ae5640c37f527
+field_hashes:
+  id: 01c38b89d122f1c140378eca0ce22617954a234bf3583a88362370ebe31c8e43
+  title: f33ced93743a313c05a668fa417429b5dee2fd1f3d09ea02aa3d5b22199152e0
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: e10c6c00a4d448f7f554e6bedcf1cde8a1aca20bef9337a3e0c681bba877585c
+  tags: 5b344ce5c5bf7bdb76ff874ca48cc365dc1ea363d087d8f5ac5e949e4226ff72
+  provenance: 47326bb3e720eca85170c816e6d79fec497537ec3719fa8bcc14e8d74e81df4a
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:references
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-16T11:31:46Z'
+  authority: generated
+  via: create_document
