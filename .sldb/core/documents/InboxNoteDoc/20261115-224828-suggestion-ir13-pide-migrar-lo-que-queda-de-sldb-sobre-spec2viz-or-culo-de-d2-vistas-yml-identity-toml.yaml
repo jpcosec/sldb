@@ -1,0 +1,18 @@
+name: 20261115-224828-suggestion-ir13-pide-migrar-lo-que-queda-de-sldb-sobre-spec2viz-or-culo-de-d2-vistas-yml-identity-toml
+path: desk/inbox/20261115-224828-suggestion-ir13-pide-migrar-lo-que-queda-de-sldb-sobre-spec2viz-or-culo-de-d2-vistas-yml-identity-toml.md
+source_hash: 3da5d7fdb5fed2b759eb23b8d590f4e2245ed90d7c9c56d597d5fd8c805aa608
+content_hash: d2af0d88483e5969d0f69652b6dd412fe70db6d165729db4ee42c01f071ddec3
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: ebf4a3bf1aae35a7a4ee7817f906a9f9ae147bc835990465dabf636cad2b0790
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: ff2cd81564381740ebf53e498c12ba35b2468ad89bcd3427d8c6403c77881801
+  body: 8e901a5aa0def371e4827b8a3e30172dcf236dc7f4d51bc191227ff47bc3de45
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null
