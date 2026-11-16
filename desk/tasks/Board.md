@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-15T23:23:51Z'
+  at: '2026-11-16T00:27:11Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -26,7 +26,6 @@ tasks:
 - desk/tasks/task-sldb-escucha-suscripciones-y-stream-de-eventos-de-escritura-inbox-20261114-115028.md
 - desk/tasks/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2.md
 - desk/tasks/task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3.md
-- desk/tasks/task-emparejamiento-de-átomos-con-elementos-de-diagrama-explícito-y-difuso-en-sldb-api-matching-d4.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -87,4 +86,3 @@ _Generated from the task references above._
 - sldb escucha: suscripciones y stream de eventos de escritura (inbox 20261114-115028) [draft] - Decidir la forma antes de implementar y dejar la implementación como tareas.
 - Código: readers y facts de TSX/TS y SQL con anclas sobre tree-sitter (inbox 20261115-022446, B2) [draft] - El paquete sldb.code lee TS/TSX y SQL, publica sus hechos de fuente y soporta anclas, con gramáticas tree-sitter como extras opcionales.
 - Grafo: graph_path y graph_paths devuelven caminos explicados con la procedencia de cada tramo (B3) [draft] - Caminos explicados: por cada tramo, origen, destino, tipo de relación, dirección recorrida y procedencia de la arista.
-- Emparejamiento de átomos con elementos de diagrama (explícito y difuso) en sldb.api.matching (D4) [draft] - sldb.api.matching empareja átomos con elementos de diagrama por vínculo explícito (atoms: en el elemento) y por similitud difusa.
