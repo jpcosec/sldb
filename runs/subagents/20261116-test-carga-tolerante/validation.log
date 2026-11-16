@@ -1,0 +1,56 @@
+### TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/api/test_api_documents.py
+.............                                                            [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+13 passed, 1 warning in 0.87s
+rc=0
+### TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/api/test_api_edges.py
+................                                                         [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+16 passed, 1 warning in 8.37s
+rc=0
+### TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/store/test_doc_invalid_check.py
+..                                                                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 0.95s
+rc=0
+
+### Casos propios del tester (scripts en /dev/shm/tcarga, copia en este run-dir): edge_cases.py
+OK   1 skip subdir path relativo ['notes/deep/x.md']
+OK   1 skip subdir sanos
+OK   1 raise nombra ruta de subcarpeta notes/deep/x.md: 1 validation error for Memo
+OK   2 carga sana (cachea)
+FAIL 2 raise tras editar no lanzó (caché)   <- preexistente, ver cache_case.py
+OK   3 ValueError para on_invalid desconocido
+   4 docs: ['j', 'm'] invalid: [('k.md', 'Memo')]
+OK   4 linked: inválido nombrado, sanos devueltos
+OK   4 linked raise nombra k.md
+OK   5 skip repetido estable
+OK   6 re-derivado (problem_details incoherente se reconstruye; texto desconocido -> document "")
+OK   6 vacío
+OK   6 nombre con ': ' RelationDoc:a: b
+OK   7 dump incluye problem_details
+
+### cache_case.py
+sano: 2
+store.query crudo (camino de HEAD) tras editar: ['p', 'q']
+api raise tras editar: ['p', 'q']
+api skip tras editar: ['p', 'q'] []
+proceso nuevo, raise lanzó: SLDBValidationError p.md: 1 validation error for Memo

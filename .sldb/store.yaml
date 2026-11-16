@@ -442,6 +442,10 @@ include:
     name: run-deskops-e-ec3e43f4e6ca
   - path: runs/subagents/20261116-test-read-store/run.md
     name: run-deskops-t-aaa566ba1025
+  - path: runs/subagents/20261116-exec-carga-tolerante/run.md
+    name: run-deskops-e-a51428cebb72
+  - path: runs/subagents/20261116-test-carga-tolerante/run.md
+    name: run-deskops-t-b92e84cfea3e
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -679,6 +683,12 @@ include:
   - desk/materializations/materialization-read-store-test-api-stores.md
   - desk/materializations/materialization-read-store-store-declaration.md
   - desk/materializations/materialization-read-store-migration.md
+  - desk/materializations/materialization-carga-tolerante-query.md
+  - desk/materializations/materialization-carga-tolerante-runtime-documents.md
+  - desk/materializations/materialization-carga-tolerante-init.md
+  - desk/materializations/materialization-carga-tolerante-edge-index.md
+  - desk/materializations/materialization-carga-tolerante-test-api-documents.md
+  - desk/materializations/materialization-carga-tolerante-test-api-edges.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -1176,6 +1186,14 @@ include:
     name: review-task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n-evidence-materialization-1
   - path: desk/reviews/task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n/evidence-materialization-2.md
     name: review-task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n-evidence-materialization-2
+  - path: desk/reviews/task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra/evidence-tests-1.md
+    name: review-task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra-evidence-tests-1
+  - path: desk/reviews/task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra/evidence-commit-1.md
+    name: review-task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra-evidence-commit-1
+  - path: desk/reviews/task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra/evidence-atom-1.md
+    name: review-task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra-evidence-atom-1
+  - path: desk/reviews/task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra/evidence-materialization-1.md
+    name: review-task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -1195,7 +1213,6 @@ include:
   - desk/tasks/task-sldb-api-notations-reexporta-lo-que-specir-importa-hoy-de-módulos-internos-estilos-paletas-errores-m.md
   - desk/tasks/task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding.md
   - desk/tasks/task-specdoc-guarda-los-datos-de-un-spec-que-no-son-elementos-data-entity-y-afines-y-el-style-llega-a-la.md
-  - desk/tasks/task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra.md
   - desk/tasks/task-sldb-mcp-gancho-público-de-validadores-de-lote-que-corren-antes-de-propose-changes-y-apply-changes.md
   - desk/tasks/task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable.md
   - desk/tasks/task-edgeindex-stale-manda-a-la-operación-correcta-una-edición-externa-se-resuelve-con-sldb-stores-update.md

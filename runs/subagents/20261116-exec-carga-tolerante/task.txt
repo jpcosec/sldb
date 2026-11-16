@@ -1,0 +1,11 @@
+Task: task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra
+Title: Carga tolerante en la API pública: load_runtime_documents aísla los documentos inválidos y los nombra, y EdgeIndex expone problemas estructurados
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective pills:
+- desk/contexts/pill-pill-rechazados-de-la-carga-tolerante.md
+Effective atoms:
+- atom-una-vista-de-todo-el-store-no-puede-depender-de-que-importen-todos-sus-modelos
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]

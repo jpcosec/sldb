@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T10:30:40Z'
+  at: '2026-11-16T10:44:18Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -33,7 +33,6 @@ tasks:
 - desk/tasks/task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding.md
 - desk/tasks/task-specdoc-guarda-los-datos-de-un-spec-que-no-son-elementos-data-entity-y-afines-y-el-style-llega-a-la.md
 - desk/tasks/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg.md
-- desk/tasks/task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra.md
 - desk/tasks/task-sldb-mcp-gancho-público-de-validadores-de-lote-que-corren-antes-de-propose-changes-y-apply-changes.md
 - desk/tasks/task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable.md
 - desk/tasks/task-edgeindex-stale-manda-a-la-operación-correcta-una-edición-externa-se-resuelve-con-sldb-stores-update.md
@@ -131,7 +130,6 @@ _Generated from the task references above._
 - sldb notations validate valida una notación, una paleta o un spec por nombre o ruta e imprime findings [draft] - `sldb notations validate <nombre|ruta>` detecta si el objetivo es una notación, una paleta o un spec, corre la validación que sldb ya tiene para ese tipo y devuelve findings en el formato de findings de sldb, con exit 0 si no hay errores y 1 si los hay.
 - SpecDoc guarda los datos de un spec que no son elementos (data.entity y afines) y el style llega a la vista resuelta [draft] - Sincronizar un spec con data.entity (y cualquier otra clave de data que no sea elementos) y leerlo de vuelta con el SpecDoc devuelve esos datos sin pérdida, y la vista resuelta de ese SpecDoc incluye su style.
 - matching: attach_atom_edges deja de recomponer live-stale y los mapas del índice federado en cada edges_of (catalog build con átomos en minutos) [draft] - attach_atom_edges sobre N referencias llama a load_edge_index a lo sumo 2 veces por llamada (una con enlaces y otra sin ellos, si hacen falta las dos) y no recalcula live-stale ni los mapas por cada referencia; el catalog build de IR de la nota termina en menos de 60 s con el mismo resultado.
-- Carga tolerante en la API pública: load_runtime_documents aísla los documentos inválidos y los nombra, y EdgeIndex expone problemas estructurados [draft] - load_runtime_documents(..., on_invalid="skip") devuelve los documentos sanos y una lista de (ruta, modelo, error) de los inválidos sin lanzar; el comportamiento por defecto (on_invalid="raise") no cambia salvo que el mensaje nombra la ruta del documento; EdgeIndex gana un campo problem_details con objetos {kind, document, detail} junto a problems, que no cambia.
 - sldb mcp: gancho público de validadores de lote que corren antes de propose_changes y apply_changes [draft] - Una extensión registra validadores con context.add_batch_validator(fn), donde fn(changes, context) -> list[dict] devuelve findings; propose_changes y apply_changes de WriteTools llaman a todos los validadores antes de su trabajo y, si algún finding tiene level "error", responden rechazado con esos findings y no escriben; los de level "alert" se devuelven en la respuesta sin bloquear.
 - sldb --version dice qué commit corre (versión del paquete más git describe del checkout editable) [draft] - `sldb --version` imprime una línea "sldb <versión> (<git describe --always --dirty> at <ruta del checkout>)" cuando corre desde un checkout git, y "sldb <versión>" cuando corre desde un paquete instalado sin .git; exit 0.
 - EdgeIndex.stale manda a la operación correcta: una edición externa se resuelve con sldb stores update, no con edges rebuild [draft] - Los tres textos nombran `sldb stores update` (API update_store_indexes) como la operación que resuelve un documento stale por edición externa, y un test prueba que después de stores update el documento editado sale de stale.

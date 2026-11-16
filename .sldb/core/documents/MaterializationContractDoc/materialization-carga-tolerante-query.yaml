@@ -1,0 +1,25 @@
+name: materialization-carga-tolerante-query
+path: desk/materializations/materialization-carga-tolerante-query.md
+source_hash: c68034bc7b5773b9ed8ccaae3473f384f77dc1b07a9df68f769e2df52ba8ec58
+content_hash: ef30118398bd338bb1bd568454f95115b00bbeba7bddae14dbba1086660f1403
+field_hashes:
+  id: 721f5b62724e6f2636449235aed54beac7a47d1277399b852af1ec8240f72331
+  title: ec2d37f9d92984050f52997edff5266dd33720a5d1b5e6c3c73832eca29d0745
+  source_atoms: c726d4ae7528633a16502869ae847ae34d10f3c1473c7a3a9ace0766c7509021
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 024c1b12a00918514d4a15513290d0097a9bc7b5eff3b941252a0a0e20d84327
+  intent: 4b7abf0953154b0dee18f744ab260fcc370015c41107a6f1375881fd630dbfff
+  validation: 6b4c4816eb51b9e151ca99ce9053ade06a1bbb9ba42273f3c9454699fc280f8f
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T10:39:22Z'
+  authority: generated
+  via: create_document

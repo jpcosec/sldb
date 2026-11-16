@@ -1,0 +1,25 @@
+name: materialization-carga-tolerante-test-api-edges
+path: desk/materializations/materialization-carga-tolerante-test-api-edges.md
+source_hash: 48202ded3e7888819763600b677f02bd81c5ea5edffcd3444457b6b28375eadb
+content_hash: 0db06e10a7ade6f593beebad081cba285421b48cea73e27ebb1c2fcedcada864
+field_hashes:
+  id: f2b6e6c75f85c8f9beebb1393279b39f8d7f9112a38ee7ff286af829622742f1
+  title: 4cbe06b4a0bbd40761d37ea130833e95b21c6f72ecbea7601a932b99cf67d4fa
+  source_atoms: c726d4ae7528633a16502869ae847ae34d10f3c1473c7a3a9ace0766c7509021
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 2e27ab0aa299d6cdd3a2fa9bfe61884eb798f106ceca326e11612814b1bb5878
+  intent: ebc6983173739fbc0127472adafad6b162cbbe2ebda4ef98fb3e879c5c91ca26
+  validation: 6b4c4816eb51b9e151ca99ce9053ade06a1bbb9ba42273f3c9454699fc280f8f
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T10:41:16Z'
+  authority: generated
+  via: create_document
