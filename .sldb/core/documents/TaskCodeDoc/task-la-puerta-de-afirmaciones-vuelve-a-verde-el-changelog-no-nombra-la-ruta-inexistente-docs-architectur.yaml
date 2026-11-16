@@ -1,0 +1,39 @@
+name: task-la-puerta-de-afirmaciones-vuelve-a-verde-el-changelog-no-nombra-la-ruta-inexistente-docs-architectur
+path: desk/tasks/task-la-puerta-de-afirmaciones-vuelve-a-verde-el-changelog-no-nombra-la-ruta-inexistente-docs-architectur.md
+source_hash: 5e93ba826b944f75d3fa86fbd5032d5da233eb03a5f1758089ae5c041207225a
+content_hash: 1f19d08098626ea9bf530e429a75ae0ee192b2454e3eefcb5c5745d409ba7cae
+field_hashes:
+  title: d9b67c40df32a232507a0a4846d88c5a75cb24242be0e352afa00a410b959d1a
+  id: 7cfa196c031761ff75d78786f3e47adb2f9ff7e63ce778811988c67581637861
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: cbcdb365d3b2df1443e840c5c99df198b01043ebfa6d18aad45ef398b51c26fc
+  goal: 86e6f04889f4fc1dca710af156d3d02a3418167c5c9ee839d605a1e95826c75a
+  scope: d156a7b5ffb242ffb83414670eaffb5425c013b2a512bf41bb832b746ce0ef93
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: ff4e90b516be9b9f138c1b9703eb677dfe206db1f5280c902e87300afc1aaf77
+  implementation_path: b13775d8f03b6897611431077c7574830d8200a2191d39a80528778e5df7da34
+  validation: dc9bc1ff1330cdd798f6c597b2c0aa493325003c4fd45817c2f720771815554a
+  done_when: b4a66c00104c7980f014b4955eaf62c6f344033b6671a7154cf7dd406af77f49
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: bc82413df82be75315d00a67ae829fc27615f96be08c221959d68d3ddcdd4a9c
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T13:41:18Z'
+  authority: generated
+  via: save_document_payload

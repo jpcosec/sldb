@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T08:50:53Z'
+  at: '2026-11-16T13:14:14Z'
   authority: generated
   via: save_document_payload
 id: task-surface-dev-prosa-generada-con-marca-y-hash-de-sus-átomos-de-origen-y-extractor-externo-de-átomos-pr
@@ -10,7 +10,7 @@ summary: ''
 tags:
 - workspace:desk
 - artifact:task
-- host:local
+- host:robocop2
 current_node: ritual-execution
 history: []
 references: []

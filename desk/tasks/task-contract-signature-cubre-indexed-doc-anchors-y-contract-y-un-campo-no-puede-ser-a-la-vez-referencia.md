@@ -1,12 +1,16 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T08:53:35Z'
+  at: '2026-11-16T14:38:43Z'
   authority: generated
   via: save_document_payload
 id: task-contract-signature-cubre-indexed-doc-anchors-y-contract-y-un-campo-no-puede-ser-a-la-vez-referencia
 status: draft
-summary: ''
+summary: 'PAUSADA (2026-11-16, ejecución): el ejecutor deskops-e-a7eadfe52463 terminó
+  el código y los tests en verde, pero su stores build --check llevaba más de una
+  hora esperando el lock compartido. Se pausó para correr antes las correcciones de
+  clean code del lote 2, que bloquean la integración. Diff guardado en runs/subagents/20261116-exec-contract-signature/executor-diff-paused.patch
+  y revertido. Se retoma como intento 2 aplicando el parche.'
 tags:
 - workspace:desk
 - artifact:task

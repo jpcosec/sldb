@@ -1,0 +1,36 @@
+name: review-task-decisión-de-jp-python-sync-o-stores-build-destrackean-los-pythonsymboldoc-cuyo-símbolo-desapareció-owner-1
+path: desk/reviews/task-decisión-de-jp-python-sync-o-stores-build-destrackean-los-pythonsymboldoc-cuyo-símbolo-desapareció/owner-1.md
+source_hash: 1f051b7efaf5e0e2357f884f146b95ef41e145eaf09f2a3ebd49fe18a6d14a6c
+content_hash: 27c12147724e4fdab5ecbcaeafdf285c404fb630c9abb0fcda968444ccb34add
+field_hashes:
+  id: 13a79144e4b124cd8df24731b8c24b55723ccc8dd48d3197f2ffd374a3ac808b
+  title: b360087eae7aed76f26aa97a9992217d7055a21e1e698a68017c15a811eb2e66
+  kind: 622f06cbcd2e7e61637e17212e714e6c721d2dd5a9f7bc1aec911b65b34edcf5
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 687789c215640c5fd38d0dbb3c409bbd8c94e06c42ee630ab2a36cf0cc4d9247
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 11e25bab0df4bb9f63c6dde985fea5de0ef16abdb2ec640dc08e7e97ec6b1d15
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: 12adac54ac6f7140109391b670b3cbcd51f083d8f5ee62ce26857c794ed67d36
+  reason: c1a14e53a8c029b1fdf342ccc35661d7253456f2cf1f0d0fce1be7b8a67085cd
+  created_at: b170b99f592dfb18327c3fe525d3f121a2dc25c23cb4f3232996656dd7f7e968
+  disposed_at: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposed_by: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  summary: ac32a4c69a3ead9b5977d374bf0a07de4161e58ca753bb21f7379e6d84baa7e3
+  disposition: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T13:13:24Z'
+  authority: generated
+  via: create_document

@@ -1,12 +1,12 @@
 name: task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno
 path: desk/tasks/task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno.md
-source_hash: 2749b840ca9ea51003f5cd0fe12d52afb335c8ceb6a7ec318ba5bd5daf35339b
-content_hash: 7139bc9a1da76e9fecceac5a96ab11bc4299fc263fedd43e04fe827f36555e4a
+source_hash: 056bc8f0d534a63af4d9fdc4cb8a79eb5b79cf1e1bbd2f99103226ce7bb006cf
+content_hash: c594ad5e97db69a1502d985069140114c335ad12567eb44df932480b3b852468
 field_hashes:
   title: dfe14a54c647504d100708a0dc2e9f6c76cf538a184df260fabae9d4fc1661fa
   id: 8354b675e17497448fdd9f99d1119da4cedb74470faa42199eeef965bbf63244
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
-  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  summary: 9d5179f255c12aea99c9c167351fff8e5d16188fa27e27f9434630f335e72b34
   tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-16T07:48:50Z'
+  at: '2026-11-16T11:40:33Z'
   authority: generated
   via: save_document_payload

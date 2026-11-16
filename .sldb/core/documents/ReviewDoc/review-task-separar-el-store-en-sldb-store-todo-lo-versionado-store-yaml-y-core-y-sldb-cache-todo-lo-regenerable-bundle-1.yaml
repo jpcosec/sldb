@@ -1,0 +1,36 @@
+name: review-task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable-bundle-1
+path: desk/reviews/task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable/bundle-1.md
+source_hash: 6fd63b05e0d84c71f999db9f506c3f738f16b8e0f467ea71599c24e302bf485b
+content_hash: 4e4dd2deb23eb6ac68be18e0208013779e8d7d1aa38b4f56ab9f55d6e9d67535
+field_hashes:
+  id: 9876a8342a0ecef408ca23dba4382858660efce894dc97acc092bac1822b928f
+  title: c997573317e5648b34730afac6bdae3b232bc0f2742cecf76a5340a37686bb59
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 41361fb16483038a20fec35d227f0f208d9fb47a0fb94c2119a8d622acccde2b
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: f7e1471be731670413afd61ee285e3c69c71f668b69b1a17c1881278cb5a4e6f
+  input_sha256: 63db05ea13ceb4c208b0c4653270599833ce38920037bcba98f36db4f791597a
+  output_sha256: c4b5b533af2e0996264aad27c6410f8a27816628b2b9a53697f66624f30a1069
+  verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
+  reason: 8b54ff12595e74c07bb2068dcbedae2b1142a5b8a57927e70f638edae8ea060a
+  created_at: db1b674d8427ee219e54089bd79c077463600616a2aa12eaab632c9d08b50140
+  disposed_at: 9ac86c4cafee3be4f911540dfbd69930fe29de50080825392ef7511103937e85
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 96bd24f96a0f986c3c294f3442464d91f3fe065545a77a3d411a85694518c43e
+  disposition: ee7347dc4fe48a75c321ce9e48367ac3d6189d45942bed27604f19f410f0b5bb
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T13:40:41Z'
+  authority: generated
+  via: save_document_payload

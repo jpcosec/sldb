@@ -1,0 +1,36 @@
+name: review-task-clean-code-tras-el-gancho-de-sldb-mcp-propose-changes-con-10-líneas-de-lógica-como-máximo-preflight-1
+path: desk/reviews/task-clean-code-tras-el-gancho-de-sldb-mcp-propose-changes-con-10-líneas-de-lógica-como-máximo/preflight-1.md
+source_hash: 02611488672dfd10a385292d6a32237d1fe699d7cda3d50553aff88be96847a7
+content_hash: efba2852c210083cd08b092a89e89b947c2bcf926dc60afc442d72a924f43dfe
+field_hashes:
+  id: fa690f92c897ad8555d87e203298e13d4baebfd792df076cffec669d4fe37a5e
+  title: 9cb873400bd1a80388db7bb931420b532c9871ca124df13028704f6d80c7e2f7
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 741669c77b3c32d04a81d1ce1e1491aa4b13f71d6d3b82c847dd284b3b9d5a59
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: f674e8048069fbafd8313aae6979d8f4096b114351b277ebe631b24e0ab94011
+  input_sha256: 7822bec2392d3bd42384df3fbfbe77e5daff6de5c8dd3e963b22e0898354b70e
+  output_sha256: da2c07278ccaa7efeb1087b362750d2d66ac8871de732add7b05a6d49ccca5b6
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: d94cc9270aa1a9c1a23bdd265580f6c034353b9ad7ebb91d8ea089f8ed702056
+  created_at: d2864a05d99f4b6706b4343e2f14c80bd93c1100f5e466bed29212366c4e7972
+  disposed_at: 4ee5b591bec7246814cb722877746383c33290f5ff17935261040391acd51bc5
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 3303126aa0dc5c38790efcd63ab97fba35df69d75704d2e6bff88413b385121a
+  disposition: 498bec4d8fa0f44b7beba49a2bc0ddf3706790540a1259d45d3334beeec6c848
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T13:35:12Z'
+  authority: generated
+  via: save_document_payload

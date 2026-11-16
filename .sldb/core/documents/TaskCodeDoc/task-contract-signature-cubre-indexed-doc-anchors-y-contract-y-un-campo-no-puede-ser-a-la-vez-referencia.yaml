@@ -1,12 +1,12 @@
 name: task-contract-signature-cubre-indexed-doc-anchors-y-contract-y-un-campo-no-puede-ser-a-la-vez-referencia
 path: desk/tasks/task-contract-signature-cubre-indexed-doc-anchors-y-contract-y-un-campo-no-puede-ser-a-la-vez-referencia.md
-source_hash: 5d8440b10175b0ebf5836e6b1eb87d1ec5d8b3d70d05061c117966595ac8c24d
-content_hash: 1f864c3ccf572d4d18eb78310b192b09ed959937db335c326a57c1800d254b42
+source_hash: 8ab705e047a96a836a89f5b503b93c86cfee9c54eb3fa8f0f30d83631d02b075
+content_hash: 0b0ee45c0a55ebab214348d84f3b89fbd8abb306a10ad56127fe72a6c4fa0cb7
 field_hashes:
   title: 544a3518b4c5c2ec535ede4a5043a611e07c596dbe6bdb75e42a47ea5580d56c
   id: b41df4f4bac752d088b0035b7b8f27e3030f040d9c3a1b0a112e716de5aaaaea
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
-  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  summary: d4ac7d54689d9260a61d0fa106f70fb163d2748274051da9296bdebe67500f76
   tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -35,6 +35,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-16T08:53:35Z'
+  at: '2026-11-16T14:38:43Z'
   authority: generated
   via: save_document_payload

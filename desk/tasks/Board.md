@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T11:35:53Z'
+  at: '2026-11-16T13:12:59Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -58,6 +58,15 @@ tasks:
 - desk/tasks/task-átomos-del-catálogo-sin-rutas-absolutas-atom-payload-y-store-documents-emiten-la-ruta-relativa-al-pr.md
 - desk/tasks/task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto.md
 - desk/tasks/task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup.md
+- desk/tasks/task-clean-code-tras-carga-tolerante-edge-index-py-y-runtime-documents-py-con-una-clase-cada-uno-y-query.md
+- desk/tasks/task-clean-code-tras-referrers-referrers-py-bajo-80-líneas-y-rewrite-references-con-10-líneas-de-lógica-c.md
+- desk/tasks/task-clean-code-tras-create-pin-create-document-con-10-líneas-de-lógica-como-máximo.md
+- desk/tasks/task-clean-code-tras-sections-rebuild-process-model-sections-con-10-líneas-de-lógica-como-máximo.md
+- desk/tasks/task-clean-code-tras-el-gancho-de-sldb-mcp-propose-changes-con-10-líneas-de-lógica-como-máximo.md
+- desk/tasks/task-clean-code-tras-sldb-version-source-revision-con-10-líneas-de-lógica-como-máximo.md
+- desk/tasks/task-la-puerta-de-afirmaciones-vuelve-a-verde-el-changelog-no-nombra-la-ruta-inexistente-docs-architectur.md
+- desk/tasks/task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y.md
+- desk/tasks/task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -150,3 +159,12 @@ _Generated from the task references above._
 - Átomos del catálogo sin rutas absolutas: atom_payload y store_documents emiten la ruta relativa al proyecto y no la del store [draft] - El payload de átomos y las filas de store_documents traen "path" relativo a la raíz del proyecto del store que tiene el documento (con "/" como separador) y ya no traen la ruta absoluta del store; un catálogo construido con ellos no contiene "/mnt/" ni "/home/".
 - raw_atoms_by_view: si se pasa atoms_dir, ese directorio manda para todas las vistas y nunca entran átomos de un store ajeno [draft] - raw_atoms_by_view(views, atoms_dir=d) devuelve para todas las vistas los átomos de d y no consulta ningún store; sin atoms_dir, el comportamiento es el de hoy.
 - sldb notations from-graph elige el campo del label, el campo que da kind o estilo y un campo de agrupación [draft] - from-graph acepta --label-field <campo>, --kind-field <campo|tag:<namespace>> y --group-field <campo|tag:<namespace>>; con ellos, el label del nodo es el valor de ese campo del payload (o el id si falta), el kind es el valor del campo o del tag con ese namespace (o el modelo si falta), y los nodos con el mismo valor de agrupación quedan dentro de un nodo contenedor con aristas contains.
+- Clean code tras carga-tolerante: edge_index.py y runtime_documents.py con una clase cada uno y query.py bajo 80 líneas [draft] - tests/test_clean_code_rules.py y bash tools/check.sh --fast pasan sin la violación de task-carga-tolerante, con el mismo comportamiento: los tests de la tarea original siguen verdes sin cambios.
+- Clean code tras referrers: referrers.py bajo 80 líneas y rewrite_references con 10 líneas de lógica como máximo [draft] - tests/test_clean_code_rules.py y bash tools/check.sh --fast pasan sin la violación de task-referrers-y-rewrite-references, con el mismo comportamiento: los tests de la tarea original siguen verdes sin cambios.
+- Clean code tras create-pin: create_document con 10 líneas de lógica como máximo [draft] - tests/test_clean_code_rules.py y bash tools/check.sh --fast pasan sin la violación de task-create-document-pinnea, con el mismo comportamiento: los tests de la tarea original siguen verdes sin cambios.
+- Clean code tras sections-rebuild: process_model_sections con 10 líneas de lógica como máximo [draft] - tests/test_clean_code_rules.py y bash tools/check.sh --fast pasan sin la violación de task-una-escritura-sections-rebuild, con el mismo comportamiento: los tests de la tarea original siguen verdes sin cambios.
+- Clean code tras el gancho de sldb mcp: propose_changes con 10 líneas de lógica como máximo [draft] - tests/test_clean_code_rules.py y bash tools/check.sh --fast pasan sin la violación de task-sldb-mcp-gancho, con el mismo comportamiento: los tests de la tarea original siguen verdes sin cambios.
+- Clean code tras sldb --version: source_revision con 10 líneas de lógica como máximo [draft] - tests/test_clean_code_rules.py y bash tools/check.sh --fast pasan sin la violación de task-sldb-version, con el mismo comportamiento: los tests de la tarea original siguen verdes sin cambios.
+- La puerta de afirmaciones vuelve a verde: el CHANGELOG no nombra la ruta inexistente docs/architecture/vistas.yml [draft] - tests/test_clean_code_rules.py y bash tools/check.sh --fast pasan sin la violación de task-portar-a-sldb-las-pruebas-de-spec2viz, con el mismo comportamiento: los tests de la tarea original siguen verdes sin cambios.
+- Merge de dos .sldb sin detenerse: merge driver de sldb, un comando que regenera los índices derivados y un error que dice exactamente qué correr (une la decisión de JP y H2 de velocidad-hooks) [draft] - Un merge o rebase de dos ramas que tocaron .sldb termina sin intervención: el merge driver de sldb resuelve store_index.yaml y models/*.yaml y une los include de store.yaml; si aun así quedan índices derivados ilegibles (por ejemplo, marcadores de un merge hecho sin el driver), cualquier comando de sldb que los lea falla con un mensaje que dice el comando exacto a correr, y ese comando los regenera desde los shards. El procedimiento está en AGENTS.md del repo y en la ayuda del CLI.
+- Separar el store en .sldb_store (todo lo versionado: store.yaml y core/) y .sldb_cache (todo lo regenerable), con stores migrate-layout, lectura del layout viejo y migración del ecosistema [draft] - Un store nuevo se crea en .sldb_store/ (store.yaml, core/ y README.md, todo versionado) con su cache en .sldb_cache/ (todo regenerable e ignorado); `sldb stores migrate-layout` lleva un store del layout viejo al nuevo con git mv; todo comando de sldb sigue leyendo un store en .sldb/ (layout viejo) con una alerta que dice que se migre; el store de sldb está migrado; y cada repo del ecosistema que tiene store recibió por inbox el aviso con el comando.

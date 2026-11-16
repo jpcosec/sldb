@@ -1,0 +1,39 @@
+name: task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable
+path: desk/tasks/task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable.md
+source_hash: e7d4c2d03636ac5a522f7cb8e02aabfc24ebb0e0448b586d21ce6e71c8d63150
+content_hash: 92409318042560cfd5d067eba3164354f22976477faadec9bac30a02f52bbc40
+field_hashes:
+  title: 1c25b01c9aebcd852a10354300cebf3c8d7f7c3f342a9a399fd49b3737dfe7cc
+  id: 77007d76366bebe4828503b09d09876b184ba2e2c81297d0733baa05f938d582
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 3abc8e4a2ed62fb16692c494e9a5a744087c2c96104853195ea2442b755aa6b4
+  goal: abdc16a8701c040f5d136ab9f221e80063647e5c1685426286cffa5654b7601a
+  scope: 67c05c2175ced1c16f9480b22d01e1b939d6f70ec14401592ec17a479968b984
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: d01bc0d49e1491a960ec623c93cee26f8d2073b15c857ab2a240b38d57043c28
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: edd70a6ece1bae79e906834f4187f8c4b37b72b0a8c71af218f7f12917a3f99a
+  implementation_path: b53ddca897baee038b9bfef012fe109a1520c4444b39a67e14cb73a0b2c6a62e
+  validation: 75fe45d5d276632a7daf0bfbc4ce1d98ed91e374a436f765d662691bef994113
+  done_when: 18b552e3bbe59ef509aaedec2b88bf9e393592d89b55a11aa3ea1f50cad8dc5f
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 1da9ce13915be9bf3cd374f21234b9fff7abe63caffe365d5ae45125fa44e9b6
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T13:41:48Z'
+  authority: generated
+  via: save_document_payload

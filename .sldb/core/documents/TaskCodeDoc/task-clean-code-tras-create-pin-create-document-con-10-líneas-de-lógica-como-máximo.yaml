@@ -1,0 +1,39 @@
+name: task-clean-code-tras-create-pin-create-document-con-10-líneas-de-lógica-como-máximo
+path: desk/tasks/task-clean-code-tras-create-pin-create-document-con-10-líneas-de-lógica-como-máximo.md
+source_hash: fe6be4156c431d8b8f1184d6178b393b79895c3c0ce55516012bfe8b289c6803
+content_hash: 07cdebce1b2d8144b3678800ef6f56b5de1c6896ee3d634bca6473f9814aafff
+field_hashes:
+  title: f84258bbff368a84c7513ed6b643e0856b0a2df5a9a855bb519a3bd8fb3309ed
+  id: 7a95a692e6a36746f6f103ee86f46518b79d2d902ab1edbabc624883c084e19f
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 73533aa54ab35e2eb640ec75a9cbacdf8bab453f0d6c1d4bbe0269c5395c3060
+  goal: 42a3b8a4382fe89a09e6ecf9d7cef9d0f5be33605d0e6ea8c43ef05f8e5d3ef6
+  scope: f33d8f875846e1703eb768d175bf7215566362084c84561a761795fb71fb3ca0
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: ef0946365b39420cc72adf3e59a3939a6093399b40360c82d2ebd5f8e91af084
+  implementation_path: b13775d8f03b6897611431077c7574830d8200a2191d39a80528778e5df7da34
+  validation: 896e6db07299fbb15123d2ae62975633f89508d1abe94d477dc9a0464b72c9be
+  done_when: b4a66c00104c7980f014b4955eaf62c6f344033b6671a7154cf7dd406af77f49
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 394e8d26bf91d6c1b37d209f3ec6df621e6faf323f7a7821cd222b1ef3aa9d98
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T13:09:20Z'
+  authority: generated
+  via: create_document

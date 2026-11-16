@@ -1,0 +1,36 @@
+name: review-task-decisión-de-jp-cómo-se-resuelve-un-conflicto-de-git-en-los-índices-derivados-de-sldb-store-index-yam-owner-1
+path: desk/reviews/task-decisión-de-jp-cómo-se-resuelve-un-conflicto-de-git-en-los-índices-derivados-de-sldb-store-index-yam/owner-1.md
+source_hash: e453cea73e0d171bae101a84c0667c227664bbd466329787019abb94bc8d2e91
+content_hash: ec0c15597c8cb490217f86571f0aa2d30fde785a7f6114d65dac4f37be13a36f
+field_hashes:
+  id: 894e0f9fcc3f5a97eaeb341229466a1eb3848d090d0380d6c44deb0e14967f3e
+  title: e49e89e87bb89b96b0bb6e3bbb7d8bae8ff67e874cc9cf6001abc2d5f91ccaa0
+  kind: 622f06cbcd2e7e61637e17212e714e6c721d2dd5a9f7bc1aec911b65b34edcf5
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: bf6b1acc0b1a8278887edd7a325e1f12845b690e93ffb6c52189222725398466
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 11e25bab0df4bb9f63c6dde985fea5de0ef16abdb2ec640dc08e7e97ec6b1d15
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: 12adac54ac6f7140109391b670b3cbcd51f083d8f5ee62ce26857c794ed67d36
+  reason: ac10132895e8e44c158807fa7c3e0cdff60c2789fed4e7e9990927e9f4788cc7
+  created_at: 418df39f104850a90e0f02a68eac10d184b150dbdccbd1df1d3b63780de03389
+  disposed_at: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposed_by: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  summary: ac32a4c69a3ead9b5977d374bf0a07de4161e58ca753bb21f7379e6d84baa7e3
+  disposition: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T13:13:49Z'
+  authority: generated
+  via: create_document

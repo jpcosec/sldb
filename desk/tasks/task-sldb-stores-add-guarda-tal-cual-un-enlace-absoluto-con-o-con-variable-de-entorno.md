@@ -1,12 +1,18 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T07:48:50Z'
+  at: '2026-11-16T11:40:33Z'
   authority: generated
   via: save_document_payload
 id: task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno
 status: draft
-summary: ''
+summary: 'BLOQUEADA (2026-11-16, ejecución): el contrato hace que toda ruta absoluta
+  se guarde absoluta y eso rompe la portabilidad que hoy da stores add. Fallan 3 tests
+  de tests/store/test_stores_build.py, y probablemente test_cli_store y test_export_contract_frozen,
+  que pasan rutas absolutas esperando un enlace relativo. Corrección de contrato pendiente:
+  que sea opcional con un flag (por ejemplo --as-written) y el defecto siga relativo.
+  Después necesita preflight y bundle nuevos. Evidencia: runs/subagents/20261116-exec-stores-add/
+  (result-summary.md, executor-diff.patch).'
 tags:
 - workspace:desk
 - artifact:task
