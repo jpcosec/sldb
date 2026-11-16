@@ -1,7 +1,7 @@
 name: python-sldb-sldb-api-semantic-dag_writes-add_semantic_equivalence
 path: knowledge/symbols/python-sldb-sldb-api-semantic-dag_writes-add_semantic_equivalence.md
-source_hash: 10d7ff6033ba8606ab34ef41518a5cc14da6bd856c90fae76262a4c009a9f8ea
-content_hash: b8ce84c9922ac7a114af7367927b0405a80bddcd212ef319ff35c312658e71e3
+source_hash: 78c93abb035a32b1d66a6d8954c8b002f6137a3e13fa6d1cc26615bb7dac86b4
+content_hash: 48f0e11de575880e665425fe9f43aa959cbae4b0b8c6ea9b128c97f27b907304
 field_hashes:
   id: 24fb9edea31c7366dcbf5af0c4294d52d7030549d80f73a9b9173d6e3224cb75
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,18 +9,23 @@ field_hashes:
   qualname: b5c0ef207e07eb9ed3cac744af80f10676bb4a28fa1f883432902eafecb6f03e
   kind: efc8bf12721ebca0b78886cfac3be3af9d29c6da34d05be1060d1c27006bfeb1
   source_path: 73dcb5d5901b0f7c0c1cbb3189302f3bb4dc80d26e74b269551af1874e177dcf
-  source_span: 5e5e62442897b33926c2c6167c90504e21ed09feaac055546e3e89382589d562
-  source_sha256: f1a1003ed188a913475aaa6154fc84e5ccfbf4b92ad8d37f672ba37edb45b4ad
+  source_span: 11f8b7438d92544660b8a37c231f21caa28100611b43f9de6420f907746b5800
+  source_sha256: 88ff99075eddcd91b711a3bf1a1c4c89e6c2c24be772fe16d49094e24b5f6120
   architecture_spec: f4064a2cf745361c0b2ac80cc8ce1967877089b41f1a971da025c7c1bd2b0ade
   signature: 5f3edb0b38803ca8cc28a4fb93b24864a21e618b3f786538f3f3dd5f0eb32aee
   docstring: ebc8cba44ebcff92738af35b1e157197586569d1ce3285abbb908a9ff21274fa
-  imports: d94e4b37cff7235b63a26c966ac52a3d704de0803e73412bcf99ed8b9e71b0d4
+  imports: 112c6adc3fe291cca9e64d51381baf9ff3f534954d293b1a1bf47dd1f47ea39e
   purpose: 870d3a6f7b6687ceb62830b65533fed62ef61d5111ab773e8e033e169efa14e0
   architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: dae21bf05789c34a0d3e1a30016188f829761c777cdfaa074b2d85f191c5ccac
+  provenance: 8bd6ad4ce13527e3a8aa65dece75fef9a712561573b1b90b1a3a8afb80e04bd4
 semantic_tags:
 - representation.markdown
 - source.code.python
 - type.knowledge.code_symbol
 - workspace.knowledge.symbols
+provenance:
+  by: agent
+  at: '2026-11-15T19:58:14Z'
+  authority: generated
+  via: save_document_payload

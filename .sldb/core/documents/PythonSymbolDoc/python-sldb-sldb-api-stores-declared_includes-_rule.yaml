@@ -1,7 +1,7 @@
 name: python-sldb-sldb-api-stores-declared_includes-_rule
 path: knowledge/symbols/python-sldb-sldb-api-stores-declared_includes-_rule.md
-source_hash: 2fea5d9277d7dc4310108a7510ab71266064d3495470bd794c0a1c89644f1f29
-content_hash: 0b8dabd930ef9b033805125479ee5f4ec47befd191fa822fdb38fe275556c75b
+source_hash: d458d2487f50aa5d25b11709cef9d2c9e3dc450af86824807363d418c145ac29
+content_hash: 20a084fdb7f704f78592818250d5b8adb872eea5f0abe9a9663fe0d4d7247a5c
 field_hashes:
   id: da384e0f95491755623938f775047e532cc258e2dd4b09808c96fda8a4883aa3
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,8 +9,8 @@ field_hashes:
   qualname: 45a057f3943cec7eb4303f4218fb00efffd0cc23c2d8ad2fc86bd9c449347ecc
   kind: efc8bf12721ebca0b78886cfac3be3af9d29c6da34d05be1060d1c27006bfeb1
   source_path: 6d62e7a4bcd35b8e2126fac1c62343e42f1500f1baa9e755b3821753ceba05aa
-  source_span: 5b7c5528cc226c4e79e21047688b398b5a557b16e54a2a26c2f3a923c752da0a
-  source_sha256: dd524b6b3dc5ff24cfcd97388e1290fdde0e14a90ddc6f2f19e8077d484512c4
+  source_span: 5d76493104e5720ab6453687947b4f06a62428435fe3ce61f350a50f6ebb8b03
+  source_sha256: 92fb419e9790ea0efd2d5d0fc53295c210c234b23a55ddeb6d55a786f927de53
   architecture_spec: f4064a2cf745361c0b2ac80cc8ce1967877089b41f1a971da025c7c1bd2b0ade
   signature: 3acc3b14b2297da4171bf6617ad2cf50f2634400d429bfa18a7ee35f42fccf00
   docstring: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
@@ -18,9 +18,14 @@ field_hashes:
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 204eb7597698e7f8c5ae7e4831ff640187f075abb17196158d82dbe564010f04
+  provenance: 00557889f71203ac96ddcfa02317a881896ed3d114f44394cd2cc5a7e2d66a1f
 semantic_tags:
 - representation.markdown
 - source.code.python
 - type.knowledge.code_symbol
 - workspace.knowledge.symbols
+provenance:
+  by: agent
+  at: '2026-11-15T20:01:45Z'
+  authority: generated
+  via: save_document_payload

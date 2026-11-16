@@ -1,7 +1,7 @@
 name: python-sldb-sldb-api-records-iter_records_helpers-_process_doc_details
 path: knowledge/symbols/python-sldb-sldb-api-records-iter_records_helpers-_process_doc_details.md
-source_hash: fbb8296c78cb8952b858eb9712a49f850469ac66d7dbd919171b9c2d81548a49
-content_hash: d48d71edbd47ec42f7d82dcfb1ff59a4c804a74b5f291c8f9f06afb5929d8d37
+source_hash: ca67f7c321706922c79dcda2a9c187042df67acd15982452a11848d1ba02c4c3
+content_hash: d4070924f64cc8d48bdd321cd7b1beddfcda9d084ebc32ad6db0d22de16ee013
 field_hashes:
   id: 9594ed30cc6f7a2deba61575336dc00f4e2870703a0a765afdc4475e40172352
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,8 +9,8 @@ field_hashes:
   qualname: 7ea72c53eb91dd4d505f8e5e29a166c48b134636569a982671358f8ebb2feaa4
   kind: efc8bf12721ebca0b78886cfac3be3af9d29c6da34d05be1060d1c27006bfeb1
   source_path: ade0c942a84bfde56f230e5833daed73477b25840cf7ed00d5da789f42ef60a0
-  source_span: aef741326446e0e333dc2dbb3901dbff49bcdfbdd06be0c84585b491dfb8fb5f
-  source_sha256: 1afdb508f17c91e135f0df7f108b9ef5693c42351c6e3dd8dd4b6c2e16d6b3b6
+  source_span: 7cc51a37fd035c141c41c73d21d24b922c11da8868f76c395750b2880a12174d
+  source_sha256: f589253ab4770f75bdd136e4b90e9e4dc4bbc2e126d765e189dc4b5f544cceb1
   architecture_spec: f4064a2cf745361c0b2ac80cc8ce1967877089b41f1a971da025c7c1bd2b0ade
   signature: 7f8e82e4b7f15f33b8a0a5ae25e91312b57eb10c5915c03694a98f16a2b55070
   docstring: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
@@ -18,9 +18,14 @@ field_hashes:
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 39f7d8d212faef2966604e28ceb8694f2ae3f1385d929fd81d1778e2d5c623e5
+  provenance: dfa04ee0cd8eef60c93c763e482d9d5008d9ea268d2d3adc9c54b6658d327214
 semantic_tags:
 - representation.markdown
 - source.code.python
 - type.knowledge.code_symbol
 - workspace.knowledge.symbols
+provenance:
+  by: agent
+  at: '2026-11-15T19:51:10Z'
+  authority: generated
+  via: save_document_payload

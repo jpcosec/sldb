@@ -1,7 +1,7 @@
 name: python-sldb-sldb-api-documents-document_payload-_walk_mapping
 path: knowledge/symbols/python-sldb-sldb-api-documents-document_payload-_walk_mapping.md
-source_hash: 4e667f4c708ad8d711fa739f907fa734eefea0a898003abcaceb7cfd0b47954a
-content_hash: f3d20877c54001118d6af8030f6de4c72851307df7b4252c66aab8f0c518227f
+source_hash: b7c9e94d44d2376801b1e9e6aba82219e60c6cf3777b1dbcfdc88038db0144c2
+content_hash: f4ca35a6ec0e0ec5f139e755b6fccbf1a78ed8a611ba5586f42e93627ee8bce8
 field_hashes:
   id: 980907534e642e6f314d89c62c145984a8426b3a30df027242bbc89475750552
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,18 +9,23 @@ field_hashes:
   qualname: 9077d9b18d9310bb84a92d35d0d47161e53fd90458036cb094641910b8d788cf
   kind: efc8bf12721ebca0b78886cfac3be3af9d29c6da34d05be1060d1c27006bfeb1
   source_path: 66d858b33ba6097cd08769f6fbea6bb199fe51429d5986997825761de87fb0f0
-  source_span: 029f9f49fe128be60f6a5e808f3bbf7efb10c310bea2559d18bbc602eb14ebbf
-  source_sha256: c4e9a1aca0d7d45fa9f4b6d5268820410e303bcbc3ba975d6022e6340fa61241
-  architecture_spec: f4064a2cf745361c0b2ac80cc8ce1967877089b41f1a971da025c7c1bd2b0ade
+  source_span: 0529a8f93164fa223420e6e1f6e72bb93a5dc3b82178e10527446c4b1f3a71a6
+  source_sha256: 23f35ba20c28d6aaeb3b93475d296a9d060e58db1049cba3ec9011b113c27d7e
+  architecture_spec: 5cd590bfa2ba9d5178c129689491b293135803a05e573e4128be7f612061300c
   signature: bbf9866e81c8705986cc17a9c3c7f79fb776aad0f7d6f04fbfc54c479b795a1f
   docstring: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  imports: ba34f09db8e10ff9a2c362e9f45fb4159f3635d23e069e6899fbf5a7ef4e01a6
+  imports: b26528a771e4986a14f17ca7146298a5dcdc3179cfa54b060bb519ff0f9c790c
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 3264c1b6f39fe9f6506aa9d348f358db5cc920d596504676d6f588caa26d6a6b
+  provenance: 70a83268ed26bd629fa8bcc9121bfd52727a6af0eb3944eaf8f56a77888857e1
 semantic_tags:
 - representation.markdown
 - source.code.python
 - type.knowledge.code_symbol
 - workspace.knowledge.symbols
+provenance:
+  by: agent
+  at: '2026-11-15T20:29:47Z'
+  authority: generated
+  via: save_document_payload

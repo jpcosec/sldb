@@ -1,7 +1,7 @@
 name: python-sldb-sldb-api-records-record_serialization-serialize_record
 path: knowledge/symbols/python-sldb-sldb-api-records-record_serialization-serialize_record.md
-source_hash: 4c0d6d345a8e741bd77bdbfa4f9a811f6133303e2c8fe0b69141f67c8b055a58
-content_hash: 728fb1e734e612d8b5527bfb4f4ed13c5797a3f9b0d3aac1f4c5e78387deba65
+source_hash: c3bfd95bfb3174b282ac0eb176d308fb8d8973b840d8bcb6dba0594d5dd13d8c
+content_hash: 8de8ff7ded37c182c129d4a2a7a03512c4d070e80b9b742abc260710df642f84
 field_hashes:
   id: 010a34e6f48bbf6e3114c4afb1a75790fa56bb2bd2592913549869a159c4c6dd
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,8 +9,8 @@ field_hashes:
   qualname: aa56a363957136a7b10d95fd8962ee418821b56855dce99f22bfe412a498d953
   kind: efc8bf12721ebca0b78886cfac3be3af9d29c6da34d05be1060d1c27006bfeb1
   source_path: 19c1cdcdf000c72eae45d9da3b078cafec02cfc201172919de594c833500ef18
-  source_span: eebc393425ed05a36180175475c63e97e5382c98465d8c5eb594662057cae14e
-  source_sha256: 1e1d171a596b23d1bbc4cee6503dbfcb14534e07da1aab6b558ae817478f5f3f
+  source_span: b3b7e71a5d710aed6ef0b4a2a09424553e1e7ddaae874a494ada1bfd398ad86b
+  source_sha256: 0e94d824e2340c14a39ef87cb4f7fdd7f60ea4a900e03cf41cdcde13f192a1f6
   architecture_spec: f4064a2cf745361c0b2ac80cc8ce1967877089b41f1a971da025c7c1bd2b0ade
   signature: 4ba4a2917e8a466b8e1a8ac4290bf35a02193ba1fa5a3fda9c49bb66f3d3006b
   docstring: b6e4fbcc1c3ef807eed45a0e839c4a85dd89eb03728978e0aae76f9d1737014b
@@ -18,9 +18,14 @@ field_hashes:
   purpose: b6e4fbcc1c3ef807eed45a0e839c4a85dd89eb03728978e0aae76f9d1737014b
   architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 53984e86c75796e1f7fe6c9b881f021bf635fbc4c8ece9448296ba4253eb8ee3
+  provenance: a891593e1fa963067cc40b03ebb20d6cef029f572f1d8d8a6ae847c56f73f279
 semantic_tags:
 - representation.markdown
 - source.code.python
 - type.knowledge.code_symbol
 - workspace.knowledge.symbols
+provenance:
+  by: agent
+  at: '2026-11-15T19:53:26Z'
+  authority: generated
+  via: save_document_payload

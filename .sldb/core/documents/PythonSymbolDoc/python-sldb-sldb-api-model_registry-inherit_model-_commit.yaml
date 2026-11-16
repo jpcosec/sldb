@@ -1,7 +1,7 @@
 name: python-sldb-sldb-api-model_registry-inherit_model-_commit
 path: knowledge/symbols/python-sldb-sldb-api-model_registry-inherit_model-_commit.md
-source_hash: c20810029f5844bbcdf4d65e78fe342cf1e942c94e7ad972a3c7626597fc4ea7
-content_hash: b6018af4a894062fda07e6a0e6b22d704be49137ed5d66959cad6412c4bf8ee1
+source_hash: c0ba574220cad0a3f52170fd73dea745d2706a8d8591cf203aee8710ac526f49
+content_hash: ca7bffcdb731a1dcf658c20b6bf8839a6554a2bbb435fd18d29457c4376cd9df
 field_hashes:
   id: 9932a6883d8707c9ebfc68edb4c74b89d8ab0d4e510e7d993b131de4837e5ad1
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,18 +9,23 @@ field_hashes:
   qualname: e7417aead9f7e42b7ab0b3866ff2b840092e828fc6ff5482f7ec8e3714ab2636
   kind: efc8bf12721ebca0b78886cfac3be3af9d29c6da34d05be1060d1c27006bfeb1
   source_path: d8803d7bd2dc8317961596ecb864f7350c26c88e36eb8da66006fc5b3c13a1ff
-  source_span: 8189306c2b000451225480a85c52bea9a00bf6746dde44c9772c69ef73e14a09
-  source_sha256: c432519aa586764f15d1dcb8702e8f0bb2ad0be9c42c8ebba66886ec3db55fe2
+  source_span: d572da3177acc91b16a140e39b89c12059a04e49ce85bde20d1b9ffe69a748ac
+  source_sha256: f2dddb8e5107b57678371deae120b6e6418455c3d575c9ab0925ffbabd283f59
   architecture_spec: f4064a2cf745361c0b2ac80cc8ce1967877089b41f1a971da025c7c1bd2b0ade
   signature: c9f47be39421a63b038a358e44dccad4d72ac48543dd1a9de8c7665db594b416
   docstring: 49a47f9889e57e0234a66144a92e3870505f14b77bf34c0b5797be8a2450fc60
-  imports: 2543b21502baebef937ddcbbf7f0868755ff8b0bc0254cba24e8dd142eba9c11
+  imports: 7e773a44469a25c1a2f0020481ec45ed3196307718e602651cbcbecd482c09d0
   purpose: 49a47f9889e57e0234a66144a92e3870505f14b77bf34c0b5797be8a2450fc60
   architecture: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 009c8d64d293007162f41d2fd2361d610a42cd152877d6381b562ff2892c626f
+  provenance: bcfce8e41868ce09fde687c7186913d4a28338f6a95796cf556c15fe9640e8b2
 semantic_tags:
 - representation.markdown
 - source.code.python
 - type.knowledge.code_symbol
 - workspace.knowledge.symbols
+provenance:
+  by: agent
+  at: '2026-11-15T19:41:07Z'
+  authority: generated
+  via: save_document_payload
