@@ -18,21 +18,12 @@ from typing import Any, Literal, overload
 
 from pydantic import ValidationError
 
+from sldb.api.documents.invalid_document import InvalidDocument
 from sldb.api.model_registry.model_reference import resolve_model_ref
 from sldb.core.exceptions import SLDBValidationError
 from sldb.store.query import load_runtime_documents as _load_runtime_documents
 
 __all__ = ["InvalidDocument", "RuntimeDocuments", "load_runtime_documents"]
-
-
-@dataclass(frozen=True)
-class InvalidDocument:
-    """A tracked document its model rejects: path relative to its project root, the model's
-    name and the text of the validation error."""
-
-    path: str
-    model: str
-    error: str
 
 
 @dataclass
@@ -58,6 +49,11 @@ def load_runtime_documents(store_path: Path, pythonpath: str | None = None, incl
         return _skipping(store_path, pythonpath, include_linked)
     if on_invalid != "raise":
         raise ValueError(f"on_invalid must be 'raise' or 'skip', not {on_invalid!r}")
+    return _raising(store_path, pythonpath, include_linked)
+
+
+def _raising(store_path: Path, pythonpath: str | None, include_linked: bool) -> list[Any]:
+    """The load as always; a rejected document raises SLDBValidationError naming its path."""
     try:
         return _load_runtime_documents(store_path, resolve_model_ref, pythonpath, include_linked=include_linked)
     except ValidationError as exc:

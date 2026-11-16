@@ -3,8 +3,7 @@ from __future__ import annotations
 from functools import partial
 from pathlib import Path
 
-from pydantic import ValidationError
-
+from sldb.store.query_engine.accepted_load import load_accepted
 from sldb.store.codec import StoreCodec, default_codec
 from sldb.store.layout import project_root, store_exists
 from sldb.store.io import (
@@ -36,19 +35,6 @@ def _load_doc(doc, root, model_type, m_entry, s_name, s_path, codec: StoreCodec 
     return cached_document(doc, root, s_path, s_name, m_entry.name, model_type, lambda: _extract_doc(doc, root, model_type, m_entry, s_name, s_path, codec))
 
 
-def _load_accepted(*args, rejected: list[tuple[str, str, str]] | None = None) -> RuntimeDocument | None:
-    """`_load_doc`, None for a document its model rejects: `stores check` names it once, as
-    `store/doc-invalid` (inbox 3895e9f7 H1), and its scans read the rest. A caller that wants
-    them named passes `rejected`: each one is added as (path, model, message)."""
-    try:
-        return _load_doc(*args)
-    except ValidationError as exc:
-        if rejected is not None:
-            doc, m_entry = args[0], args[3]
-            rejected.append((str(doc.path), m_entry.name, str(exc)))
-        return None
-
-
 def _resolve_model_type(resolver, model_ref: str, p_path, store_root: Path):
     """Resolve a model, trying the store's own project root before giving up.
 
@@ -67,7 +53,7 @@ def _resolve_model_type(resolver, model_ref: str, p_path, store_root: Path):
 
 def _load_one(s_path: Path, s_name: str, resolver, p_path, codec: StoreCodec = default_codec, accepted_only: bool = False, rejected: list[tuple[str, str, str]] | None = None) -> list[RuntimeDocument]:
     root, docs = project_root(s_path), []
-    load = partial(_load_accepted, rejected=rejected) if accepted_only else _load_doc
+    load = partial(load_accepted, _load_doc, rejected=rejected) if accepted_only else _load_doc
     for m in load_store_index(s_path).models:
         m_type = _resolve_model_type(resolver, m.model_ref, p_path, root)
         if m_type is None:
