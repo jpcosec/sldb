@@ -1,7 +1,7 @@
 name: task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida
 path: desk/tasks/task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida.md
-source_hash: cb60fd400da35eb0c2bdb4687e2188b8595eb332d8d9e7e7102656c65ce2edb9
-content_hash: 397a5575972ecec7fb9870260e4db723326ca081408eed8eab8916b8a4ad0c1d
+source_hash: 8db58b84fdb1d65ff3b787edf483355dc81725b899cdf72623b97f7a0134c928
+content_hash: 5945ae473b9348ca7cd4485f420fd645cbfb1fdc0306fd02a5160d30ac55deaa
 field_hashes:
   title: d4011e74b903303eaa308ea5932c24ea6037f61ea044b086d064416d93f8cbe6
   id: 1c5ac9fdc75125478648c197504e37cbf87b98765678a25a3966b746065ead66
@@ -12,7 +12,7 @@ field_hashes:
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: f83737b288bafd2e098febd4c6b4e10279818ad41f42f152ec1bf0312a505236
   goal: 9cc3627519fa8b98a23aeda7812fc119392a55b4ddcf1ad7af115abb0a8fbe87
-  scope: 13e87be52d42226070103949fe88f86a568c1f4a8ee4edc18294cbcb333d6f7a
+  scope: 314c1431c1e06a943aebdc2bda08c2dfffc6bd54f4a7da0072df7f70cdb77e9c
   references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -33,6 +33,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-16T00:35:00Z'
+  at: '2026-11-16T04:48:55Z'
   authority: generated
   via: save_document_payload

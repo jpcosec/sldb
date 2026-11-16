@@ -731,6 +731,8 @@ include:
     name: review-task-migrar-specsync-de-spec2viz-a-sldb-api-notations-junto-a-notationsync-y-palettesync-d1-b1-cierra-lo-bundle-1
   - path: desk/reviews/task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida/preflight-1.md
     name: review-task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida-preflight-1
+  - path: desk/reviews/task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida/bundle-1.md
+    name: review-task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida-bundle-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
