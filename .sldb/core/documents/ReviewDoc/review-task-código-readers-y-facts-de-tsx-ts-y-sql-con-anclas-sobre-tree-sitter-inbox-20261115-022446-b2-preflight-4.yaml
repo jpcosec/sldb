@@ -1,7 +1,7 @@
 name: review-task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2-preflight-4
 path: desk/reviews/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2/preflight-4.md
-source_hash: 04f94b655eceec384e15c7ccd437d5de82778eeda2098df8169729d1c1a8e55a
-content_hash: a8cd32b0d19b77f110f024e58d1b68496a2a72b1a652cb2fc3adffb786185ffb
+source_hash: edfffda9d047f5009862eb6fefa97363c9cc2e01e5ee9f4aec560fd319ea76aa
+content_hash: 9f2be6d1f7fc2e9ad89d153fd68eba7b6d69e69548d44fcc607d40a9b25a6c36
 field_hashes:
   id: fb75d6096f225239bccdbc17049157b33acde3a0af31323944d2b1dd9d652bf1
   title: e371b8527c38913b127add1d529e990eaa3b3c6f61f12e35d6f62746cfe7f64a
@@ -15,13 +15,13 @@ field_hashes:
   run_dir: d37baa983cecc7202bf935b42263de1646763e67314056c0c6e20da9ccbfac47
   input_sha256: 176eb4190cb6e8af6f51c5587c3579c0f05eb5a8cab9ec07286804f4fc4cdce2
   output_sha256: 0a665f36fba870ff437b7172324896a51debb9800041462882f36aa84290f4b5
-  verdict: 12adac54ac6f7140109391b670b3cbcd51f083d8f5ee62ce26857c794ed67d36
-  reason: ba2f2af9f759e4ac5b93dff982f9decbec2ef0df63f888e8da247d3128268202
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 6d6a6eec44f44b130ad7513da631b9b53ecf2438335201c0fab9d22a11386bfa
   created_at: f5d2529d1fa85e72d4c209ae6d56fc7173ca045990f44910bc865e4c8eee650a
-  disposed_at: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  disposed_by: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposed_at: cb087f6ac40a6807c3e4dad0044ae4504184d4eb06d498a257d9882fa3f2557c
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 3c223b4ce103baa72ecdc3ca5803eab6af157fd42a850f2fcbc5bf9e20f9fc2e
-  disposition: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposition: 736e320a5125e34a186287eb56e8e3c17d706c6ee6816ef2e470899ae321fcba
   tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
 semantic_tags:
 - representation.markdown
@@ -31,6 +31,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-16T20:49:00Z'
+  at: '2026-11-16T21:11:24Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

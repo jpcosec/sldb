@@ -1,0 +1,354 @@
+### pytest -q tests/api/test_anchors.py
+..........                                                               [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+10 passed, 1 warning in 1.41s
+rc=0
+### pytest -q tests/selfdoc/test_treesitter_symbols.py
+.........                                                                [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+9 passed, 1 warning in 0.09s
+rc=0
+### pytest -q tests/selfdoc/test_fingerprints.py
+....                                                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 0.06s
+rc=0
+### pytest -q tests/selfdoc/test_treesitter_agreement.py
+..                                                                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 0.12s
+rc=0
+### pytest -q tests/notations/test_component_spec_python.py
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 1.10s
+rc=0
+### pytest -q tests/test_clean_code_rules.py
+........................................................................ [  6%]
+........................................................................ [ 12%]
+........................................................................ [ 18%]
+........................................................................ [ 24%]
+........................................................................ [ 30%]
+........................................................................ [ 36%]
+........................................................................ [ 42%]
+........................................................................ [ 48%]
+........................................................................ [ 55%]
+........................................................................ [ 61%]
+........................................................................ [ 67%]
+........................................................................ [ 73%]
+........................................................................ [ 79%]
+........................................................................ [ 85%]
+........................................................................ [ 91%]
+........................................................................ [ 97%]
+.........................                                                [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1177 passed, 2 warnings in 2.99s
+rc=0
+### bash tools/check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   222 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 949 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  32 símbolos pedidos sin puerta que los declare
+PASS: superficie — 120 símbolos pedidos, 592 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+rc=0
+### === Regresiones vecinas (fuera de Validation) ===
+### pytest -q tests/notations/test_component_spec_graph.py
+................                                                         [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+16 passed, 1 warning in 1.50s
+rc=0
+### pytest -q tests/notations/test_notations_from_graph_cli.py
+......                                                                   [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+6 passed, 1 warning in 1.05s
+rc=0
+### pytest -q tests/security/test_guard_selfdoc.py
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 3.58s
+rc=0
+### pytest -q tests/selfdoc/test_docstring_metadata.py
+..............                                                           [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+14 passed, 1 warning in 0.83s
+rc=0
+### pytest -q tests/selfdoc/test_import_context.py
+...                                                                      [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+3 passed, 1 warning in 0.03s
+rc=0
+### pytest -q tests/selfdoc/test_parser.py
+....                                                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 0.03s
+rc=0
+### pytest -q tests/selfdoc/test_preflight.py
+....                                                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 0.54s
+rc=0
+### pytest -q tests/selfdoc/test_python_doc_ids.py
+..                                                                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 0.10s
+rc=0
+### pytest -q tests/selfdoc/test_python_purpose.py
+....                                                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 0.02s
+rc=0
+### pytest -q tests/selfdoc/test_python_scanner.py
+.......                                                                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+7 passed, 1 warning in 0.36s
+rc=0
+### pytest -q tests/selfdoc/test_reexports.py
+..                                                                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 0.03s
+rc=0
+### pytest -q tests/selfdoc/test_sync.py
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 1.95s
+rc=0
+### pytest -q tests/selfdoc/test_tag_inheritance.py
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 1.10s
+rc=0
+### pytest -q tests/test_store_seams.py
+..                                                                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 0.34s
+rc=0
+### === Casos borde (/dev/shm/tb2/s/edge.py sobre /dev/shm/tb2/edge) ===
+src.Anon module src.Anon None None {'start_line': 1, 'end_line': 1} False []
+src.Anon.Anon component Anon None Anon() {'start_line': 1, 'end_line': 1}  
+src.AnonFn module src.AnonFn None None {'start_line': 1, 'end_line': 2} False []
+src.AnonFn.AnonFn function AnonFn 'doc' AnonFn() {'start_line': 2, 'end_line': 2}  
+src.Edge module src.Edge None None {'start_line': 1, 'end_line': 31} False ['./types', 'react']
+src.Edge.Card component Card 'Doc B\nsecond line' Card() {'start_line': 8, 'end_line': 8}  
+src.Edge.Gapped function Gapped None Gapped() {'start_line': 15, 'end_line': 15}  
+src.Edge.Later component Later None Later() {'start_line': 31, 'end_line': 31}  
+src.Edge.Multi component Multi None Multi() {'start_line': 23, 'end_line': 23}  
+src.Edge.NoJsx function NoJsx None NoJsx() {'start_line': 18, 'end_line': 18}  
+src.Edge.Plain component Plain None Plain() {'start_line': 11, 'end_line': 11}  
+src.Edge.Props type Props None None {'start_line': 26, 'end_line': 26}  
+src.Edge.Ref component Ref None Ref(p, r) {'start_line': 17, 'end_line': 17}  
+src.Edge.T type T None None {'start_line': 27, 'end_line': 27}  
+src.Edge.gen function gen None gen() {'start_line': 22, 'end_line': 22}  
+src.Edge.outer function outer None outer() {'start_line': 30, 'end_line': 30}  
+src.Edge.use function use None use() {'start_line': 21, 'end_line': 21}  
+src.Edge.useThing hook useThing None useThing() {'start_line': 19, 'end_line': 19}  
+src.Edge.user function user None user() {'start_line': 20, 'end_line': 20}  
+src.a module src.a None None {'start_line': 1, 'end_line': 1} False []
+src.a.f function f None f() {'start_line': 1, 'end_line': 1}  
+src.a.f~2 function f None f() {'start_line': 1, 'end_line': 1}  
+src.a~2 module src.a None None {'start_line': 1, 'end_line': 1} False []
+src.broken module src.broken None None {'start_line': 1, 'end_line': 1} True []
+src.types.d module src.types.d None None {'start_line': 1, 'end_line': 1} False []
+src.types.d.D type D None None {'start_line': 1, 'end_line': 1}  
+---anchors
+code:src/Edge.tsx::Card component treesitter-symbols/1 (tree-sitter-typescript 0.23.2, tsx)
+code:src/Anon.tsx::Anon component treesitter-symbols/1 (tree-sitter-typescript 0.23.2, tsx)
+code:src/a.js::f function treesitter-symbols/1 (tree-sitter-typescript 0.23.2, tsx)
+code:src/types.d.ts::D type treesitter-symbols/1 (tree-sitter-typescript 0.23.2, typescript)
+code:x.mjs::a None
+code:x.TSX::a None
+code:../x.ts::a None
+code:x.jsx:: ('x.jsx', '')
+### === Sin tree-sitter-typescript (/dev/shm/tb2/s/nots.py) ===
+con TS: ['a', 'a.f', 'a.f~2', 'a~2', 'b', 'b.g']
+sin TS: ['a', 'a.f', 'a.f~2', 'a~2']
+record .ts sin TS: TreeSitterUnavailable tree-sitter runtime missing (tree_sitter_typescript): pip install 'structuredLanguageDB[code]'
+### === Anclas sobre los fixtures reales (/dev/shm/tb2/s/anch.py) ===
+rec code:src/App.tsx::Button component
+rec code:src/util.js::double function
+rec code:src/Panel.jsx::Panel component
+1 [('code:src/App.tsx::Button', 'intact', [], None), ('code:src/util.js::double', 'intact', [], None), ('code:src/Panel.jsx::Panel', 'intact', [], None)]
+body [('code:src/App.tsx::Button', 'changed', ['body'], None), ('code:src/util.js::double', 'intact', [], None), ('code:src/Panel.jsx::Panel', 'intact', [], None)]
+doc [('code:src/App.tsx::Button', 'changed', ['docstring'], None), ('code:src/util.js::double', 'intact', [], None), ('code:src/Panel.jsx::Panel', 'intact', [], None)]
+rename [('code:src/App.tsx::Button', 'reconnected', [], 'code:src/App.tsx::Boton'), ('code:src/util.js::double', 'intact', [], None), ('code:src/Panel.jsx::Panel', 'intact', [], None)]
+lost? [('code:src/App.tsx::Button', 'reconnected', [], 'code:src/App.tsx::Gone'), ('code:src/util.js::double', 'intact', [], None), ('code:src/Panel.jsx::Panel', 'intact', [], None)]
+deleted ('code:src/App.tsx::Button', 'lost', [], None)
+moved ('code:src/App.tsx::Button', 'reconnected', [], 'code:src/Moved.tsx::Button')
+### === (3a)(3b) scan_tree src+tests y scan_file de 5 .py: código HEAD vs código nuevo, sobre git archive HEAD ===
+files IGUAL 5
+src IGUAL 5564
+src_paths IGUAL 1173
+tests IGUAL 2561
+tests_paths IGUAL 255
+arbol actual, archivos nuevos en src ['sldb/code/files.py', 'sldb/code/lang_ts.py', 'sldb/code/ts_fingerprints.py', 'sldb/code/ts_readers.py'] faltantes []
+arbol actual, archivos nuevos en tests ['fixtures/treesitter/frontend/src/App.tsx', 'fixtures/treesitter/frontend/src/Panel.jsx', 'fixtures/treesitter/frontend/src/useToggle.ts', 'fixtures/treesitter/frontend/src/util.js'] faltantes []
+### === uv.lock: paquetes de 'uv lock' sobre el pyproject de HEAD vs uv.lock actual ===
+49a50
+> name = "tree-sitter-typescript"

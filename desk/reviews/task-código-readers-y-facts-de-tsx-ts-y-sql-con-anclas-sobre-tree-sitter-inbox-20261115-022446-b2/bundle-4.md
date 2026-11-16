@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T21:05:47Z'
+  at: '2026-11-16T21:11:59Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 # review-<task>-<kind>-<n>
 id: review-task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2-bundle-4
 # preflight | bundle | reproduction | goldens | owner | node | evidence
@@ -24,14 +24,17 @@ run_dir: runs/subagents/20261116-210422/context-review/task-código-readers-y-fa
 input_sha256: 60e2f89324a240ab6ddbcb6bb2386e0c1c00d9e14e7c178414da33dd4ba35ac9
 output_sha256: 2016aded306bbfc04aca35c18a5aa029ee4b057515ae0050b150f5641dac12f4
 # pending | accepted | rejected | incomplete
-verdict: pending
-reason: 'Scope reescrito entero: se quita la frase que todavía nombraba SQL y se fijan
-  las reglas de component, hook y JSDoc, el sufijo y el lock.'
+verdict: accepted
+reason: Intento 4. El preflight no encontró ambigüedad. El bundle solo pide detalles
+  de implementación que se resuelven siguiendo el reader de Python existente (forma
+  de signature, imports y recorded_with) o con reglas que el coordinador fija en el
+  brief del ejecutor (nodos JSX, defaults anónimos, JSDoc múltiple). No hay ambigüedad
+  de intención.
 # ISO 8601 timestamp
 created_at: '2026-11-16T21:04:54.643918+00:00'
 # ISO 8601 timestamp, empty while pending
-disposed_at: ''
-disposed_by: ''
+disposed_at: '2026-11-16T21:11:31.822768+00:00'
+disposed_by: sldb
 # e.g. workspace:desk
 tags:
 - workspace:desk
@@ -48,3 +51,5 @@ bundle review; engine runtime-pi-deepseek-flash; evidence under runs/subagents/2
 ## Disposition
 
 _Record the verdict rationale and who disposed of the review._
+
+Verdict accepted: Intento 4. El preflight no encontró ambigüedad. El bundle solo pide detalles de implementación que se resuelven siguiendo el reader de Python existente (forma de signature, imports y recorded_with) o con reglas que el coordinador fija en el brief del ejecutor (nodos JSX, defaults anónimos, JSDoc múltiple). No hay ambigüedad de intención.

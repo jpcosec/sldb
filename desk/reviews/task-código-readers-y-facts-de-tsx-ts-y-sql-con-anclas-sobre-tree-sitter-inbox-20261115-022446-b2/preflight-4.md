@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T20:49:00Z'
+  at: '2026-11-16T21:11:24Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 # review-<task>-<kind>-<n>
 id: review-task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2-preflight-4
 # preflight | bundle | reproduction | goldens | owner | node | evidence
@@ -24,14 +24,17 @@ run_dir: runs/subagents/20261116-204813/context-review/task-código-readers-y-fa
 input_sha256: 4d7878fa9da65e103f155c087f99a8fcd1c806d053e0d11dd55acdb78be18b8e
 output_sha256: 4c6d41aed29e611909c8a47c890e39eb490f7d638cc23b1cfff043ce83c1a4c2
 # pending | accepted | rejected | incomplete
-verdict: pending
-reason: 'Scope reescrito entero: se quita la frase que todavía nombraba SQL y se fijan
-  las reglas de component, hook y JSDoc, el sufijo y el lock.'
+verdict: accepted
+reason: Intento 4. El preflight no encontró ambigüedad. El bundle solo pide detalles
+  de implementación que se resuelven siguiendo el reader de Python existente (forma
+  de signature, imports y recorded_with) o con reglas que el coordinador fija en el
+  brief del ejecutor (nodos JSX, defaults anónimos, JSDoc múltiple). No hay ambigüedad
+  de intención.
 # ISO 8601 timestamp
 created_at: '2026-11-16T20:48:33.641965+00:00'
 # ISO 8601 timestamp, empty while pending
-disposed_at: ''
-disposed_by: ''
+disposed_at: '2026-11-16T21:11:00.323388+00:00'
+disposed_by: sldb
 # e.g. workspace:desk
 tags:
 - workspace:desk
@@ -48,3 +51,5 @@ preflight review; engine runtime-pi-deepseek-flash; evidence under runs/subagent
 ## Disposition
 
 _Record the verdict rationale and who disposed of the review._
+
+Verdict accepted: Intento 4. El preflight no encontró ambigüedad. El bundle solo pide detalles de implementación que se resuelven siguiendo el reader de Python existente (forma de signature, imports y recorded_with) o con reglas que el coordinador fija en el brief del ejecutor (nodos JSX, defaults anónimos, JSDoc múltiple). No hay ambigüedad de intención.

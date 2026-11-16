@@ -1,0 +1,25 @@
+name: materialization-b2-ts-readers
+path: desk/materializations/materialization-b2-ts-readers.md
+source_hash: 837b12f4e11eade457018d58f48a8c75ef473dbd76da517c02b23b820bb17948
+content_hash: b0116824adddd7c0b9bf5258915f97b25bf82b32996e6caf031eb569fcf6cfd1
+field_hashes:
+  id: 18138448cbbe275e01b4f7e95b5f18bc7516d012db6fa0c1775ee65c846b4df8
+  title: 3122b91f0049a2b4409f2294ebe7e505648ca51a995ebfaa172bcfc83946b744
+  source_atoms: f491332489ff696e1874c2d4104ac5e2659e871134de37b8e331b120264504a3
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 83428986cfe7acbd19c8826853872b4ddc49af83308f3edc2a775bbeb6faccda
+  intent: e632b6ed79d2d64c5be747db212b37c4715c0b658f4bebe11a54e329f2658679
+  validation: daa03c82cae76f5e0a00f3adb494635488935018cc34137965e56158aad150a5
+  tags: 31506c064612c9d3967862e44c9997bd808f51edfbc4030d1c5772f29f5b992f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:code
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T21:28:30Z'
+  authority: generated
+  via: create_document

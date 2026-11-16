@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T21:10:26Z'
+  at: '2026-11-16T21:38:16Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -22,7 +22,6 @@ tasks:
 - desk/tasks/task-api-pública-búsqueda-rankeada-escrituras-recientes-y-store-hash-como-precondición-atómica-brechas-de.md
 - desk/tasks/task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2.md
 - desk/tasks/task-sldb-escucha-suscripciones-y-stream-de-eventos-de-escritura-inbox-20261114-115028.md
-- desk/tasks/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2.md
 - desk/tasks/task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida.md
 - desk/tasks/task-el-emparejamiento-de-átomos-de-sldb-api-matching-pasa-a-su-propio-eje-y-recuperacion-vuelve-a-ser-un.md
 - desk/tasks/task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con.md
@@ -114,7 +113,6 @@ _Generated from the task references above._
 - API pública: búsqueda rankeada, escrituras recientes y store_hash como precondición atómica (brechas de IR01, inbox 20261114-074447) [draft] - Resolver o documentar con decisión cada brecha.
 - check_edges clasifica como stale propio los de stores enlazados cuyo nombre lleva dos puntos (inbox 20261115-015936) [draft] - Clasificar el stale por el store dueño del nodo, no por el conteo de ':'.
 - sldb escucha: suscripciones y stream de eventos de escritura (inbox 20261114-115028) [draft] - Decidir la forma antes de implementar y dejar la implementación como tareas.
-- sldb.code lee el frontend: TS, TSX, JS y JSX con un mismo reader sobre tree-sitter-typescript como extra (B2, parte TS; SQL va aparte) [draft] - El paquete sldb.code lee TypeScript y JavaScript (.ts, .tsx, .js, .jsx) con un mismo reader, publica sus hechos de fuente con la misma forma que los de Python y soporta anclas code:<ruta>.<ext>::<símbolo>, con tree-sitter-typescript como parte del extra code; SQL lo hace la tarea hermana.
 - V0: benchmark fijo de velocidad (sldb bench) y punto de partida [draft] - Agregar a sldb el verbo 'sldb bench', que copia desks a un directorio de trabajo, mide en frío y en caliente tiempo de pared, CPU y RSS máximo de stores update (sin cambios y con un documento cambiado), stores check, stores build --check, deskops doctor, deskops status y el arranque de ambos CLI, y entrega JSON más una tabla; y dejar el punto de partida medido en reports/velocidad-baseline-20261115.md.
 - El emparejamiento de átomos de sldb.api.matching pasa a su propio eje y recuperacion vuelve a ser un puerto puro [draft] - El emparejamiento de átomos (explicit_atoms, explicit_refs, atom_*, coverage*, spec_view*, store_reader, store_documents, store_edges, matching_findings, unknown_atom_error) vive en un eje propio en contracts/layers.toml; recuperacion vuelve a sus 4 dependencias medidas y sigue siendo extraíble.
 - Los specs de docs/architecture/spec2viz se construyen con specir catalog build y se sincronizan con sldb notations sync --catalog [draft] - docs/architecture/spec2viz/vistas.yml y sus specs se construyen con specir catalog build y se sincronizan al store con sldb notations sync --catalog; ninguna instrucción ni contrato de sldb invoca spec2viz para ellos.

@@ -519,6 +519,10 @@ include:
     name: run-deskops-e-884be32362ef
   - path: runs/subagents/20261116-test-b3/run.md
     name: run-deskops-t-b4736317f0b4
+  - path: runs/subagents/20261116-exec-b2/run.md
+    name: run-deskops-e-640c751d7c12
+  - path: runs/subagents/20261116-test-b2/run.md
+    name: run-deskops-t-9d06b59a722f
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -818,6 +822,22 @@ include:
   - desk/materializations/materialization-b3-graph-path-print.md
   - desk/materializations/materialization-b3-graph-routes.md
   - desk/materializations/materialization-b3-test-api-graph-analysis.md
+  - desk/materializations/materialization-b2-pyproject.md
+  - desk/materializations/materialization-b2-uv.md
+  - desk/materializations/materialization-b2-runtime.md
+  - desk/materializations/materialization-b2-scan.md
+  - desk/materializations/materialization-b2-files.md
+  - desk/materializations/materialization-b2-lang-ts.md
+  - desk/materializations/materialization-b2-ts-readers.md
+  - desk/materializations/materialization-b2-ts-fingerprints.md
+  - desk/materializations/materialization-b2-code-ref.md
+  - desk/materializations/materialization-b2-record-anchor.md
+  - desk/materializations/materialization-b2-test-anchors.md
+  - desk/materializations/materialization-b2-test-treesitter-symbols.md
+  - desk/materializations/materialization-b2-app.md
+  - desk/materializations/materialization-b2-panel.md
+  - desk/materializations/materialization-b2-usetoggle.md
+  - desk/materializations/materialization-b2-util.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -1543,6 +1563,18 @@ include:
     name: review-task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3-evidence-atom-1
   - path: desk/reviews/task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3/evidence-materialization-2.md
     name: review-task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3-evidence-materialization-2
+  - path: desk/reviews/task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t/preflight-3.md
+    name: review-task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t-preflight-3
+  - path: desk/reviews/task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t/bundle-3.md
+    name: review-task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t-bundle-3
+  - path: desk/reviews/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2/evidence-tests-1.md
+    name: review-task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2-evidence-tests-1
+  - path: desk/reviews/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2/evidence-commit-1.md
+    name: review-task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2-evidence-commit-1
+  - path: desk/reviews/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2/evidence-atom-1.md
+    name: review-task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2-evidence-atom-1
+  - path: desk/reviews/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2/evidence-materialization-1.md
+    name: review-task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -1554,7 +1586,6 @@ include:
   - desk/tasks/task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430.md
   - desk/tasks/task-apply-batch-aristas-validadas-antes-de-escribir-alertas-on-write-en-batchreport-rules-check-sobre-re.md
   - desk/tasks/task-api-pública-búsqueda-rankeada-escrituras-recientes-y-store-hash-como-precondición-atómica-brechas-de.md
-  - desk/tasks/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2.md
   - desk/tasks/task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida.md
   - desk/tasks/task-sldb-api-notations-reexporta-lo-que-specir-importa-hoy-de-módulos-internos-estilos-paletas-errores-m.md
   - desk/tasks/task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding.md
