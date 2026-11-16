@@ -8,6 +8,8 @@ import pytest
 from pydantic import ValidationError
 
 import sldb.api as api
+from sldb.api.stores.declare_store import declare_store
+from sldb.api.stores.store_declaration import save_declaration
 from sldb.cli import dict_utils
 from sldb.cli.commands.fields_save import save_payload
 from sldb.core.exceptions import SLDBError, SLDBPayloadSaveError, SLDBStoreError, SLDBValidationError
@@ -121,3 +123,44 @@ def test_load_runtime_documents_default_still_returns_a_list(api_store):
     assert isinstance(docs, list) and docs
     skipped = api.load_runtime_documents(api_store.store, api_store.pythonpath, on_invalid="skip")
     assert [d.name for d in skipped.documents] == [d.name for d in docs] and skipped.invalid == []
+
+
+def _retrack(api_store, path="login.md", force=True):
+    return api.track_document_file(api_store.store, "TicketDoc", path, "login", api_store.pythonpath, force=force)
+
+
+def test_track_force_reindexes_a_document_already_tracked_at_the_same_path(api_store):
+    """sldb-ui saves the file and re-tracks it with --force (inbox 20261116-162239)."""
+    api_store.write_document("login", {**PAYLOAD, "title": "Edited outside"})
+    assert _retrack(api_store).name == "login"
+    assert _title(api_store, "login") == "Edited outside"
+    report = api.check_store(api_store.store, api_store.root, api_store.pythonpath)
+    assert report["ok"], report
+
+
+def test_track_without_force_still_refuses_a_document_already_tracked(api_store):
+    with pytest.raises(SLDBStoreError, match="Doc 'login' already tracked."):
+        _retrack(api_store, force=False)
+
+
+def test_track_force_refuses_a_document_tracked_at_another_path_and_names_both(api_store):
+    api_store.write_document("other", PAYLOAD)
+    with pytest.raises(SLDBStoreError, match=r"already tracked at 'login\.md', not 'other\.md'"):
+        _retrack(api_store, "other.md")
+    assert _title(api_store, "login") == "Broken login"
+
+
+def _index_state(api_store):
+    return sorted((str(p), p.read_bytes()) for p in api_store.store.rglob("*.yaml") if p.name != "store.yaml")
+
+
+def test_track_force_twice_without_changes_is_idempotent(api_store):
+    """declare_tracked neither duplicates the path nor rewrites store.yaml."""
+    declaration = save_declaration(api_store.store, declare_store(api_store.store, api_store.root))
+    before = declaration.read_bytes()
+    _retrack(api_store)
+    state = _index_state(api_store)
+    _retrack(api_store)
+    assert _index_state(api_store) == state and declaration.read_bytes() == before
+    assert before.count(b"login.md") <= 1
+    assert api.check_store(api_store.store, api_store.root, api_store.pythonpath)["ok"]

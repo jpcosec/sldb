@@ -28,14 +28,17 @@ def track_document_file(store: str | Path | None, model_name: str, path: str | P
         path: The Markdown file; a relative path is relative to the project root, not the cwd.
         name: Document name; defaults to the file stem.
         pythonpath: Directory to import the model module from.
-        force: Track without checking that the file round-trips under the model.
+        force: Track without checking that the file round-trips under the model; a document
+            already tracked with this model and name at this same path is re-indexed from the
+            file's current content instead of refused (one at another path is still refused: use move).
         actor: Optional caller label; accepted for compatibility, no longer recorded (the journal was retired on 2026-11-04).
 
     Returns:
         The tracked document.
 
     Raises:
-        SLDBStoreError: When the model is not registered.
+        SLDBStoreError: When the model is not registered, when the document is already tracked
+            and `force` is False, or when it is tracked at another path.
         SLDBValidationError: When the file does not round-trip, or when it carries
             headings the model does not declare, and `force` is False.
     """
@@ -47,7 +50,7 @@ def track_document_file(store: str | Path | None, model_name: str, path: str | P
     if not force:
         _refuse_unfit(registered.model_type, text, doc_name, location.store_path)
     check_entering_text(location.store_path, registered.model_type, registered.entry.name, doc_name, text, force)
-    _track(location.store_path, location.project_root, registered, doc_path, doc_name, pythonpath)
+    _track(location.store_path, location.project_root, registered, doc_path, doc_name, pythonpath, force)
     return DocumentReference(model=registered.entry.name, name=doc_name, path=doc_path)
 
 
@@ -59,8 +62,8 @@ def _resolve_path(raw: str | Path, root: Path) -> Path:
     return joined.resolve()
 
 
-def _track(sp: Path, root: Path, registered, doc_path: Path, doc_name: str, pythonpath: str | None) -> None:
-    track_document(sp, root, registered.store_index, registered.model_type, registered.entry, doc_path, doc_name, resolve_model_ref, pythonpath)
+def _track(sp: Path, root: Path, registered, doc_path: Path, doc_name: str, pythonpath: str | None, force: bool) -> None:
+    track_document(sp, root, registered.store_index, registered.model_type, registered.entry, doc_path, doc_name, resolve_model_ref, pythonpath, force)
     declare_tracked(sp, root, registered.entry.name, project_relative(root, doc_path), doc_name)
 
 

@@ -9,7 +9,7 @@ from sldb.store.model_node import stamp_model_node
 from sldb.store.io import (
     load_models_index, save_models_index, save_store_index, store_lock,
 )
-from sldb.store.io.shards import save_document_shard
+from sldb.store.io.shards import load_document_shard, save_document_shard
 from sldb.store.layout import documents_shard_path
 from sldb.store.models import DocumentEntry, StoreIndex
 from sldb.store.runtime_codec import index_block
@@ -23,22 +23,27 @@ class StoreOperations:
     """Operations for the SLDB store."""
 
     @staticmethod
-    def track(store_path: Path, project_root: Path, store_index: StoreIndex, model_type: type, model_entry: Any, doc_path: Path, doc_name: str, resolve_model_ref: Callable, pythonpath: str | None = None) -> None:
-        StoreOperations._pre_check(store_path, project_root, model_entry, doc_name)
+    def track(store_path: Path, project_root: Path, store_index: StoreIndex, model_type: type, model_entry: Any, doc_path: Path, doc_name: str, resolve_model_ref: Callable, pythonpath: str | None = None, force: bool = False) -> None:
+        """With `force`, a document already tracked at the same path is re-indexed from the file."""
         rel = _get_rel(doc_path, project_root)
+        StoreOperations._pre_check(store_path, rel, model_entry, doc_name, force)
         txt = read_source_text(doc_path)  # O_NOFOLLOW; `track_document_file` refused a symlink or an escape first
         with store_lock(store_path):
+            StoreOperations._pre_check(store_path, rel, model_entry, doc_name, force)
             StoreOperations._do_track(store_path, project_root, store_index, model_type, model_entry, doc_name, rel, txt, resolve_model_ref, pythonpath)
 
     @staticmethod
-    def _pre_check(store_path, project_root, model_entry, doc_name):
-        if documents_shard_path(store_path, model_entry.name, doc_name).exists():
-            from sldb.store.exceptions import SLDBStoreError
+    def _pre_check(store_path, rel_path, model_entry, doc_name, force=False):
+        """Refuse a document already tracked, unless `force` and its shard names the same path."""
+        from sldb.store.exceptions import SLDBStoreError
+        tracked = load_document_shard(documents_shard_path(store_path, model_entry.name, doc_name))
+        if tracked is not None and not force:
             raise SLDBStoreError(f"Doc '{doc_name}' already tracked.")
+        if tracked is not None and tracked.path != rel_path:
+            raise SLDBStoreError(f"Doc '{doc_name}' already tracked at '{tracked.path}', not '{rel_path}'; use move.")
 
     @staticmethod
     def _do_track(store_path, root, st_idx, m_type, m_entry, d_name, rel_path, text, res_ref, py_path):
-        StoreOperations._pre_check(store_path, root, m_entry, d_name)
         content_hash, field_hashes = _safe_hashes(m_type, text)
         entry = DocumentEntry(name=d_name, path=rel_path, hash_c=hash_text(text), hash_d=content_hash, field_hashes=field_hashes, provenance=index_block(text))
         save_document_shard(documents_shard_path(store_path, m_entry.name, d_name), entry)
@@ -59,9 +64,9 @@ def _update_model_summary(store_path: Path, root: Path, m_entry: Any, model_type
     save_models_index(root / m_entry.models_index, m_idx)
 
 
-def track_document(store_path: Path, project_root: Path, store_index: StoreIndex, model_type: type, model_entry: Any, doc_path: Path, doc_name: str, resolve_model_ref: Callable, pythonpath: str | None = None) -> None:
-    """Track a document in the store and update hashes."""
-    StoreOperations.track(store_path, project_root, store_index, model_type, model_entry, doc_path, doc_name, resolve_model_ref, pythonpath)
+def track_document(store_path: Path, project_root: Path, store_index: StoreIndex, model_type: type, model_entry: Any, doc_path: Path, doc_name: str, resolve_model_ref: Callable, pythonpath: str | None = None, force: bool = False) -> None:
+    """Track a document in the store and update hashes; with `force`, re-index one already tracked at the same path."""
+    StoreOperations.track(store_path, project_root, store_index, model_type, model_entry, doc_path, doc_name, resolve_model_ref, pythonpath, force)
 
 def cascade_store_hash(store_path: Path, project_root: Path, store_index: StoreIndex) -> None:
     """Recompute the Merkle root from every model node and persist it."""
