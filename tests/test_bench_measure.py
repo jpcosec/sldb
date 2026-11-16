@@ -10,9 +10,9 @@ from sldb.cli.bench.report import summarize, table
 
 
 def test_run_measured_reports_rc_time_cpu_and_rss(tmp_path):
-    code = "import sys, time; x = bytearray(30 * 1024 * 1024); time.sleep(0.2); sys.exit(3)"
+    code = "import sys, time; x = bytearray(30 * 1024 * 1024); time.sleep(0.2); sys.exit('boom')"
     sample = run_measured([sys.executable, "-c", code], tmp_path, {}, 30)
-    assert sample["rc"] == 3
+    assert sample["rc"] == 1 and sample["stderr_tail"] == ["boom"]
     assert sample["wall_s"] >= 0.2
     assert sample["maxrss_mb"] >= 30
     assert sample["cpu_s"] == pytest.approx(sample["user_s"] + sample["sys_s"], abs=0.01)

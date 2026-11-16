@@ -4,18 +4,28 @@ from __future__ import annotations
 
 import os
 import subprocess
+import tempfile
 import time
 from pathlib import Path
 
 
 def run_measured(argv: list[str], cwd: Path, env: dict[str, str], timeout: float) -> dict:
     """Run `argv` to completion and return its rc and resource use (children included)."""
-    start = time.perf_counter()
-    proc = subprocess.Popen(argv, cwd=cwd, env=env, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    status, usage = _wait(proc, timeout)
-    wall = time.perf_counter() - start
-    rc = os.waitstatus_to_exitcode(status) if status is not None else -9
-    return _sample(argv, rc, wall, usage)
+    with tempfile.TemporaryFile() as err:
+        start = time.perf_counter()
+        proc = subprocess.Popen(argv, cwd=cwd, env=env, stdout=subprocess.DEVNULL, stderr=err)
+        status, usage = _wait(proc, timeout)
+        wall = time.perf_counter() - start
+        rc = os.waitstatus_to_exitcode(status) if status is not None else -9
+        return {**_sample(argv, rc, wall, usage), **_failure(rc, err)}
+
+
+def _failure(rc: int, err) -> dict:
+    """A failed run keeps the last lines of its stderr, so a fast rc 1 is not read as speed."""
+    if rc == 0:
+        return {}
+    err.seek(0)
+    return {"stderr_tail": err.read().decode("utf-8", "replace").splitlines()[-5:]}
 
 
 def _wait(proc: subprocess.Popen, timeout: float):
