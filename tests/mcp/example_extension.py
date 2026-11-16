@@ -12,7 +12,24 @@ from sldb.mcp.paging import DEFAULT_LIMIT, page
 
 
 def register(server: Any, context: Any) -> None:
-    """Two tools over the store of the context: one that pages, one that misses on purpose."""
+    """Three tools over the store of the context (one that pages, one that misses on purpose, one
+    that sets the domain check) and a batch validator that runs before propose and apply."""
+    check: dict[str, str | None] = {"level": None}
+
+    def domain_check(changes: list[Any], context: Any) -> list[dict[str, Any]]:
+        """One finding per change, at the level `set_domain_check` fixed; none while it is off."""
+        if check["level"] is None:
+            return []
+        subjects = [getattr(c, "name", None) or getattr(c, "id", None) for c in changes]
+        return [{"code": "example_domain_check", "level": check["level"], "what": f"{subject} is checked by the example domain", "subject": subject} for subject in subjects]
+
+    context.add_batch_validator(domain_check)
+
+    @server.tool()
+    def set_domain_check(level: str | None = None) -> dict[str, Any]:
+        """What the example validator finds in every change from now on: "error", "alert" or nothing."""
+        check["level"] = level
+        return {"level": level}
 
     @server.tool()
     def count_by_model(model: str | None = None, offset: int = 0, limit: int = DEFAULT_LIMIT) -> dict[str, Any]:

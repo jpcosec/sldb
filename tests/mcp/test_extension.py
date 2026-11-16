@@ -10,12 +10,12 @@ from typing import Iterator
 
 import pytest
 
-from mcp_helpers import files, page_items
+from mcp_helpers import an_item, files, page_items
 from mcp_session import HERE, WRITER, McpSession, copy_of, server_env, served
 from mcp_world import ITEM_COUNT
 from test_read_tools import TOOLS
 
-EXTENSION_TOOLS = {"count_by_model", "whoami", "find_model"}
+EXTENSION_TOOLS = {"count_by_model", "whoami", "find_model", "set_domain_check"}
 SPEC = "example_extension:register"
 
 
@@ -65,3 +65,53 @@ def test_an_extension_that_does_not_exist_stops_the_server(extended_copy: Path) 
     for spec in ("no_such_module_for_sldb:register", "example_extension:no_such_function", "not-a-spec"):
         done = subprocess.run([sys.executable, "-m", "sldb", "mcp", "--store", str(extended_copy / ".sldb"), "--extension", spec], capture_output=True, text=True, timeout=120, cwd=extended_copy, env=server_env((HERE,)))
         assert done.returncode != 0 and spec.split(":")[0] in done.stderr + done.stdout, (spec, done.stderr)
+
+
+def an_update(session, root: Path, title: str) -> tuple[dict[str, object], Path]:
+    """A change of an item's title, and the file it would write."""
+    item = an_item(session, root)
+    return {"action": "update", "model": item["model"], "name": item["name"], "fields": {"title": title}}, root / item["path"]
+
+
+def test_a_validator_error_blocks_propose_and_apply_and_writes_nothing(extended, extended_copy: Path) -> None:
+    change, path = an_update(extended, extended_copy, "refused by the domain")
+    before = path.read_bytes()
+    try:
+        extended.call("set_domain_check", level="error")
+        refused = extended.call("propose_changes", changes=[change])
+        assert refused["rejected"] == "domain" and refused["applied"] is False and refused["written"] is False, refused
+        assert refused["explanation"] == "1 domain check(s) failed" and "proposal" not in refused
+        assert [(f["code"], f["level"], f["subject"]) for f in refused["findings"]] == [("example_domain_check", "error", change["name"])]
+        extended.call("set_domain_check", level=None)
+        proposal = extended.call("propose_changes", changes=[change])["proposal"]
+        extended.call("set_domain_check", level="error")
+        stopped = extended.call("apply_changes", proposal=proposal)
+        assert stopped["rejected"] == "domain" and stopped["applied"] is False and stopped["written"] is False, stopped
+        assert [f["subject"] for f in stopped["findings"]] == [change["name"]]
+    finally:
+        extended.call("set_domain_check", level=None)
+    assert path.read_bytes() == before
+
+
+def test_a_validator_alert_lets_the_batch_through_and_rides_in_the_answer(extended, extended_copy: Path) -> None:
+    change, path = an_update(extended, extended_copy, "alerted by the domain")
+    try:
+        extended.call("set_domain_check", level="alert")
+        dry_run = extended.call("propose_changes", changes=[change])
+        assert dry_run["dry_run"] is True and [(f["level"], f["subject"]) for f in dry_run["domain_alerts"]] == [("alert", change["name"])]
+        answer = extended.call("apply_changes", proposal=dry_run["proposal"])
+        assert answer["applied"] is True and [f["code"] for f in answer["domain_alerts"]] == ["example_domain_check"], answer
+    finally:
+        extended.call("set_domain_check", level=None)
+    assert "alerted by the domain" in path.read_text()
+
+
+def test_without_validators_propose_and_apply_answer_as_before(built_world: Path, tmp_path_factory: pytest.TempPathFactory) -> None:
+    root = copy_of(built_world, tmp_path_factory, "mcp-no-validators")
+    with served(root, "--level", "1", "--actor", WRITER) as plain:
+        change, path = an_update(plain, root, "no domain to ask")
+        dry_run = plain.call("propose_changes", changes=[change])
+        assert dry_run["dry_run"] is True and "domain_alerts" not in dry_run
+        answer = plain.call("apply_changes", proposal=dry_run["proposal"])
+        assert answer["applied"] is True and "domain_alerts" not in answer and "rejected" not in answer
+    assert "no domain to ask" in path.read_text()

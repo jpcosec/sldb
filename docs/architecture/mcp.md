@@ -81,3 +81,32 @@ server, the built-in ones and an extension's, goes through the same guard: a fai
 agent with its cause, an unknown argument is a signal, and a dict answer carrying
 `{"signal": {"class": ..., "name": ...}}` is logged with suggestions. Pages come from
 `sldb.mcp.paging.page`; an extension reads `context.level` to refuse what the operator did not allow.
+
+### Batch validators
+
+An extension adds a domain rule to the write tools without re-registering them:
+
+```python
+def register(server, context):
+    def claims_verified(changes, context):   # changes: the batch's list of changes
+        return [{"code": "claims_verified", "level": "error", "what": "only the server verifies", "subject": c.name} for c in changes if ...]
+    context.add_batch_validator(claims_verified)
+```
+
+The stable extension contract is `sldb.mcp.extension.Extension` (`extension(server, context)`),
+`sldb.mcp.extension.BatchValidator` (`validator(changes, context) -> list[dict]`) and
+`ServerContext.add_batch_validator(validator)`. `build_server` runs every extension before the server
+answers its first call and hands the `ServerContext` to the write tools, which read
+`context.batch_validators` on every call:
+
+- `propose_changes` runs them after its level and path checks and before building the batch, over
+  its typed changes (`create`/`update`/`delete`/`assert_edge`/`retract_edge`); `apply_changes` runs
+  them after its level check and the seal check, over the proposal's `BatchChange`s (`id`, `action`,
+  `model`, `payload`, `path`).
+- Every validator runs, always. A finding is `{"code", "level", "what", "subject"}` with `level`
+  `"error"` or `"alert"`.
+- Any `"error"`: the answer is `{"applied": false, "rejected": "domain", "explanation": "<n> domain
+  check(s) failed", "written": false, "findings": [every finding, errors and alerts]}`; nothing is
+  sealed or written.
+- Only alerts: the dry run of `propose_changes` and the answer of `apply_changes` gain
+  `"domain_alerts": [...]`. Without findings (or without validators) the answers are as before.

@@ -37,12 +37,13 @@ WRITE_INSTRUCTIONS = (
 
 def build_server(store: str | Path, level: int = READ, actor: str | None = None, extensions: Sequence[Extension] = ()) -> SignalServer:
     """An MCP server whose tools read `store` through `sldb.api`, write it at `level` >= 1, and
-    carry the tools each of `extensions` (`extension(server, context)`) registers."""
+    carry the tools and batch validators each of `extensions` (`extension(server, context)`)
+    registers. Every extension runs here, before the server answers its first call."""
     context = ServerContext(store, level, actor)
     server = SignalServer(context, instructions=INSTRUCTIONS + (WRITE_INSTRUCTIONS if level > READ else ""))
     register_read(server, ReadTools(store), SignalTools(context.log))
     if level > READ:
-        register_write(server, WriteTools(store, level, actor))
+        register_write(server, WriteTools(store, level, actor, context=context))
     for extension in extensions:
         extension(server, context)
     return server

@@ -1,10 +1,12 @@
-"""What a server knows and an extension may use: the store, the level, the actor and the signal log."""
+"""What a server knows and an extension may use: the store, the level, the actor, the signal log
+and the batch validators the write tools run."""
 
 from __future__ import annotations
 
 from pathlib import Path
 
 import sldb.api as api
+from sldb.mcp.extension import BatchValidator
 from sldb.mcp.mutability import server_level
 from sldb.mcp.signals import SignalLog
 
@@ -19,3 +21,9 @@ class ServerContext:
         self.level = server_level(level)
         self.actor = actor
         self.log = SignalLog(self.store_path, actor)
+        self.batch_validators: list[BatchValidator] = []
+
+    def add_batch_validator(self, validator: BatchValidator) -> None:
+        """Run `validator(changes, context)` before `propose_changes` and `apply_changes` write
+        or seal anything; its "error" findings reject the batch, its "alert" findings ride along."""
+        self.batch_validators.append(validator)
