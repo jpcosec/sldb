@@ -450,6 +450,10 @@ include:
     name: run-deskops-e-eda2f0fb7728
   - path: runs/subagents/20261116-test-mcp-gancho/run.md
     name: run-deskops-t-7bf3eb7dc2d7
+  - path: runs/subagents/20261116-exec-sldb-version/run.md
+    name: run-deskops-e-95afccc5d347
+  - path: runs/subagents/20261116-test-sldb-version/run.md
+    name: run-deskops-t-a70c5f5c6081
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -700,6 +704,10 @@ include:
   - desk/materializations/materialization-mcp-gancho-test-extension.md
   - desk/materializations/materialization-mcp-gancho-example-extension.md
   - desk/materializations/materialization-mcp-gancho-mcp.md
+  - desk/materializations/materialization-sldb-version-package-version.md
+  - desk/materializations/materialization-sldb-version-core.md
+  - desk/materializations/materialization-sldb-version-parser.md
+  - desk/materializations/materialization-sldb-version-test-cli-v2.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -1213,6 +1221,14 @@ include:
     name: review-task-sldb-mcp-gancho-público-de-validadores-de-lote-que-corren-antes-de-propose-changes-y-apply-changes-evidence-atom-1
   - path: desk/reviews/task-sldb-mcp-gancho-público-de-validadores-de-lote-que-corren-antes-de-propose-changes-y-apply-changes/evidence-materialization-1.md
     name: review-task-sldb-mcp-gancho-público-de-validadores-de-lote-que-corren-antes-de-propose-changes-y-apply-changes-evidence-materialization-1
+  - path: desk/reviews/task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable/evidence-tests-1.md
+    name: review-task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable-evidence-tests-1
+  - path: desk/reviews/task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable/evidence-commit-1.md
+    name: review-task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable-evidence-commit-1
+  - path: desk/reviews/task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable/evidence-atom-1.md
+    name: review-task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable-evidence-atom-1
+  - path: desk/reviews/task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable/evidence-materialization-1.md
+    name: review-task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -1232,7 +1248,6 @@ include:
   - desk/tasks/task-sldb-api-notations-reexporta-lo-que-specir-importa-hoy-de-módulos-internos-estilos-paletas-errores-m.md
   - desk/tasks/task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding.md
   - desk/tasks/task-specdoc-guarda-los-datos-de-un-spec-que-no-son-elementos-data-entity-y-afines-y-el-style-llega-a-la.md
-  - desk/tasks/task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable.md
   - desk/tasks/task-edgeindex-stale-manda-a-la-operación-correcta-una-edición-externa-se-resuelve-con-sldb-stores-update.md
   - desk/tasks/task-create-document-pinnea-las-anclas-a-documentos-igual-que-save-document-payload.md
   - desk/tasks/task-sldb-api-template-anchors-devuelve-por-campo-de-un-modelo-el-párrafo-ancla-literal-de-su-plantilla.md

@@ -1,0 +1,9 @@
+Task: task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable
+Title: sldb --version dice qué commit corre (versión del paquete más git describe del checkout editable)
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective pills:
+- desk/contexts/pill-pill-dónde-va-version.md
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]

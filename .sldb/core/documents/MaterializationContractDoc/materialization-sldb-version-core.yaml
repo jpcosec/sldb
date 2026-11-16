@@ -1,0 +1,25 @@
+name: materialization-sldb-version-core
+path: desk/materializations/materialization-sldb-version-core.md
+source_hash: d09a95ebce82482bbd6916f4f17171ab28bbf963f4e10a23243b018cff3c2d7e
+content_hash: e9938605a0c7fdc74ba2c6e32c6f031df5e2637a8fa0cabfe579da17a5ba0e51
+field_hashes:
+  id: 948e0fa689e94b98ec7ff7924d94f204c0cae7463319c7d834c252624768bb5f
+  title: 2d9f784757474f23a153bd20d363f8727cc399b299df08bc2cc780569def0663
+  source_atoms: 9f8b06c8d35c6815d22679eaff7f7197b7f436f91191b5d8acd37f5e9e2a9680
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: c87932efb11827ea7c5c226d55ee014a27e01a62777b686142ffb588aa79cf89
+  intent: 2032b1806cb6278f029f95a532e69d65574bafdfa041371e5a5a87b18d9e8d45
+  validation: e021b49447468b9ed1857d3d2445c07631b589c08d8363a88e06d89c49225e4f
+  tags: 7c16fe67e0216c2fb354b044f93d4cca5adbf8d378e15b3cc0b9b94051a10d68
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:cli
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T11:02:19Z'
+  authority: generated
+  via: create_document

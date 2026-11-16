@@ -1,0 +1,68 @@
+$ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/test_cli_v2.py
+...........................................                              [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+43 passed, 1 warning in 9.38s
+rc=0
+
+$ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/test_cli_envelope.py
+..........                                                               [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+10 passed, 1 warning in 0.85s
+rc=0
+
+$ TMPDIR=/dev/shm PYTHONPATH=src uv run --frozen --extra code --extra dev python -m sldb --version
+sldb 0.1.13 (archive/wt/h47-70-gf4d7c828-dirty at /mnt/ssd/proyectos/SLDB_1/sldb)
+rc=0
+
+$ git -C /mnt/ssd/proyectos/SLDB_1/sldb describe --tags --always --dirty
+archive/wt/h47-70-gf4d7c828-dirty
+rc=0
+
+== 1) checkout sin .git -> sin paréntesis
+sldb 0.1.13
+rc=0
+== 2) .git como ARCHIVO (worktree) -> describe del worktree
+-rw-r--r-- 1 robocop robocop 57 Nov 16 08:00 /dev/shm/sldbver-test/wt/.git
+usage: sldb [-h]
+            {extract,render,validate,init,example,stores,models,predicates,rules,docs,fields,sections,edges,graph,journal,semantic,anchors,notations,tags,views,help,faq,inbox,explore,ast,lint,bench,find,legacy,serve,mcp,selfdoc,store,model,doc,ls,get,glob,raw-find,recover,compose} ...
+sldb: error: the following arguments are required: command
+rc=2
+== 3) .git roto (git describe rc!=0) -> sin paréntesis
+sldb 0.1.13
+rc=0
+== 4) git ausente del PATH -> sin paréntesis, rc 0
+sldb 0.1.13
+rc=0
+== 5) TimeoutExpired / salida vacía / rc!=0 parcheados
+timeout -> None | sldb 0.1.13
+vacía -> None
+rc128 -> None
+args -> ['git', '-C', '/mnt/ssd/proyectos/SLDB_1/sldb', 'describe', '--tags', '--always', '--dirty'] {'capture_output': True, 'text': True, 'timeout': 2, 'check': False}
+== 6) --version con subcomando y entrypoint sldb
+sldb 0.1.13 (archive/wt/h47-70-gf4d7c828-dirty at /mnt/ssd/proyectos/SLDB_1/sldb)
+rc=0
+== 2bis) .git como ARCHIVO (worktree) con el src del árbol copiado
+gitdir: /mnt/ssd/proyectos/SLDB_1/sldb/.git/worktrees/wt
+
+/bin/bash: line 16: .venv/bin/python: No such file or directory
+rc=127
+sldb 0.1.13 (archive/wt/h47-70-gf4d7c828-dirty at /dev/shm/sldbver-test/wt)
+rc=0
+0
+== 6bis) --help lista --version
+rc=1
+== 7) --version antes de subcomando y tras uno
+sldb 0.1.13 (archive/wt/h47-70-gf4d7c828-dirty at /mnt/ssd/proyectos/SLDB_1/sldb)
+rc=0

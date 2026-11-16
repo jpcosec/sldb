@@ -1,0 +1,36 @@
+name: review-task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable-evidence-materialization-1
+path: desk/reviews/task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable/evidence-materialization-1.md
+source_hash: 2564149acd1517dd76a328d17d41cac7ca2b396f650670395b8d9e293a7a388c
+content_hash: 12dd1cd8c2222e786d83731e7e944ee93ec36ccad700ca2f634910fec66e93d6
+field_hashes:
+  id: 9fce1f3e1f966ceed01cbad542cd2e803996e0135e615fd43d050deb49b57087
+  title: c2c59b7ca3f63e46628489f05f5791510ec6e280d528318f412cbca6c7d6fcd0
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: 9362482e59b786c1db3da1ec511caf3a298d253ab75329eed641a8d5e8bc3be3
+  subject: 6a559d447da397bdaee1e15d75eb90fbb15b10bac7f91ebc8ba43429a937d159
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: d01b80db6b027038433fcab9e1f7d75ec20d0efb7fa7c147a93a266d3bfed910
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 50c8d90ff1aba9deee147d2985c1c78dd8718137bafb91835bfaaeb8f7ee4410
+  created_at: 4a815389ffd1a8ae1b0f1fb6eadd41f5b76f5daa49a8ebbb8c0b166661f4b72c
+  disposed_at: 4a815389ffd1a8ae1b0f1fb6eadd41f5b76f5daa49a8ebbb8c0b166661f4b72c
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 5e3961aaff91efdc501b154a984e8df409fb66574dd3827ed8cda66faf719e9b
+  disposition: cd6b8a6132c203c1ada9d6555274705025ee9e31986745d20448857a5495e110
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T11:04:40Z'
+  authority: generated
+  via: save_document_payload

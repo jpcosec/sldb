@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T10:56:58Z'
+  at: '2026-11-16T11:05:48Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -33,7 +33,6 @@ tasks:
 - desk/tasks/task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding.md
 - desk/tasks/task-specdoc-guarda-los-datos-de-un-spec-que-no-son-elementos-data-entity-y-afines-y-el-style-llega-a-la.md
 - desk/tasks/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg.md
-- desk/tasks/task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable.md
 - desk/tasks/task-edgeindex-stale-manda-a-la-operación-correcta-una-edición-externa-se-resuelve-con-sldb-stores-update.md
 - desk/tasks/task-create-document-pinnea-las-anclas-a-documentos-igual-que-save-document-payload.md
 - desk/tasks/task-sldb-api-template-anchors-devuelve-por-campo-de-un-modelo-el-párrafo-ancla-literal-de-su-plantilla.md
@@ -129,7 +128,6 @@ _Generated from the task references above._
 - sldb notations validate valida una notación, una paleta o un spec por nombre o ruta e imprime findings [draft] - `sldb notations validate <nombre|ruta>` detecta si el objetivo es una notación, una paleta o un spec, corre la validación que sldb ya tiene para ese tipo y devuelve findings en el formato de findings de sldb, con exit 0 si no hay errores y 1 si los hay.
 - SpecDoc guarda los datos de un spec que no son elementos (data.entity y afines) y el style llega a la vista resuelta [draft] - Sincronizar un spec con data.entity (y cualquier otra clave de data que no sea elementos) y leerlo de vuelta con el SpecDoc devuelve esos datos sin pérdida, y la vista resuelta de ese SpecDoc incluye su style.
 - matching: attach_atom_edges deja de recomponer live-stale y los mapas del índice federado en cada edges_of (catalog build con átomos en minutos) [draft] - attach_atom_edges sobre N referencias llama a load_edge_index a lo sumo 2 veces por llamada (una con enlaces y otra sin ellos, si hacen falta las dos) y no recalcula live-stale ni los mapas por cada referencia; el catalog build de IR de la nota termina en menos de 60 s con el mismo resultado.
-- sldb --version dice qué commit corre (versión del paquete más git describe del checkout editable) [draft] - `sldb --version` imprime una línea "sldb <versión> (<git describe --always --dirty> at <ruta del checkout>)" cuando corre desde un checkout git, y "sldb <versión>" cuando corre desde un paquete instalado sin .git; exit 0.
 - EdgeIndex.stale manda a la operación correcta: una edición externa se resuelve con sldb stores update, no con edges rebuild [draft] - Los tres textos nombran `sldb stores update` (API update_store_indexes) como la operación que resuelve un documento stale por edición externa, y un test prueba que después de stores update el documento editado sale de stale.
 - create_document pinnea las anclas a documentos igual que save_document_payload [draft] - Un documento creado con create_document cuyo campo de __doc_anchors__ nombra un destino trackeado sin @sha256 queda escrito con el ancla pinneada (anchor_state intact al leerlo), igual que si se hubiera guardado con save_document_payload.
 - sldb.api.template_anchors devuelve, por campo de un modelo, el párrafo ancla literal de su plantilla [draft] - sldb.api.template_anchors(model_type) -> dict[str, str] devuelve, para cada campo cuyo marcador en __template__ va precedido por un párrafo literal que ancla su extracción, el texto exacto de ese párrafo tal como render lo escribe y extract lo consume; los campos sin párrafo ancla no aparecen.
