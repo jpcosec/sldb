@@ -1,0 +1,382 @@
+=== pytest -q tests/api/test_anchors.py
+..............                                                           [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+14 passed, 1 warning in 1.82s
+rc=0
+=== pytest -q tests/selfdoc/test_treesitter_symbols.py
+..............                                                           [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+14 passed, 1 warning in 0.16s
+rc=0
+=== pytest -q tests/selfdoc/test_fingerprints.py
+....                                                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 0.03s
+rc=0
+=== pytest -q tests/test_clean_code_rules.py
+........................................................................ [  6%]
+........................................................................ [ 12%]
+........................................................................ [ 18%]
+........................................................................ [ 24%]
+........................................................................ [ 30%]
+........................................................................ [ 36%]
+........................................................................ [ 42%]
+........................................................................ [ 48%]
+........................................................................ [ 54%]
+........................................................................ [ 61%]
+........................................................................ [ 67%]
+........................................................................ [ 73%]
+........................................................................ [ 79%]
+........................................................................ [ 85%]
+........................................................................ [ 91%]
+........................................................................ [ 97%]
+............................                                             [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1180 passed, 2 warnings in 3.55s
+rc=0
+=== bash tools/check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   222 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 952 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 123 símbolos pedidos, 592 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+rc=0
+=== Regresiones vecinas (un archivo por corrida)
+=== pytest -q tests/notations/test_component_spec_python.py
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 1.17s
+rc=0
+=== pytest -q tests/selfdoc/test_treesitter_agreement.py
+..                                                                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 0.06s
+rc=0
+=== pytest -q tests/api/test_api_edges.py
+................                                                         [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+16 passed, 1 warning in 8.78s
+rc=0
+=== pytest -q tests/api/test_doc_anchors.py
+......................                                                   [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+22 passed, 1 warning in 1.81s
+rc=0
+=== pytest -q tests/api/test_graph_source_parity.py
+.............                                                            [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+13 passed, 1 warning in 2.73s
+rc=0
+=== pytest -q tests/api/test_referrers.py
+............                                                             [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+12 passed, 1 warning in 2.18s
+rc=0
+=== pytest -q tests/api/test_rules_end_to_end.py
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 1.22s
+rc=0
+=== pytest -q tests/api/test_rules_evaluation.py
+............                                                             [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+12 passed, 1 warning in 7.35s
+rc=0
+=== pytest -q tests/api/test_tags.py
+....................................                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+36 passed, 1 warning in 11.67s
+rc=0
+=== pytest -q tests/api/test_tags_scope.py
+...........                                                              [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+11 passed, 1 warning in 3.74s
+rc=0
+=== pytest -q tests/test_literal_paragraph_anchor.py
+........                                                                 [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+8 passed, 1 warning in 0.62s
+rc=0
+=== Sonda: DDL de sqlmigrate (Django 6.1.3, /dev/shm/b2sqlc1t/proj/gen.py)
+BEGIN;
+--
+-- Create model Publisher
+--
+CREATE TABLE "app_publisher" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "name" varchar(100) NOT NULL UNIQUE, "meta" jsonb NOT NULL);
+--
+-- Create model Tag
+--
+CREATE TABLE "app_tag" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "label" varchar(30) NOT NULL);
+--
+-- Create model Book
+--
+CREATE TABLE "app_book" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "title" varchar(200) NOT NULL, "pages" integer NOT NULL CHECK ("pages" >= 0), "isbn" varchar(13) NOT NULL UNIQUE, "published" timestamp with time zone NULL, "publisher_id" bigint NOT NULL);
+CREATE TABLE "app_book_tags" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "book_id" bigint NOT NULL, "tag_id" bigint NOT NULL);
+--
+-- Create model Review
+--
+CREATE TABLE "app_review" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "score" smallint NOT NULL, "book_id" bigint NOT NULL UNIQUE);
+--
+-- Create index book_pub_title_idx on field(s) published, title of model book
+--
+CREATE INDEX "book_pub_title_idx" ON "app_book" ("published", "title");
+--
+-- Create constraint pages_pos on model book
+--
+ALTER TABLE "app_book" ADD CONSTRAINT "pages_pos" CHECK ("pages" >= 1);
+--
+-- Create constraint isbn_pages_uniq on model book
+--
+ALTER TABLE "app_book" ADD CONSTRAINT "isbn_pages_uniq" UNIQUE ("isbn", "pages");
+--
+-- Alter unique_together for book (1 constraint(s))
+--
+ALTER TABLE "app_book" ADD CONSTRAINT "app_book_title_publisher_id_7dbaf4fa_uniq" UNIQUE ("title", "publisher_id");
+CREATE INDEX "app_publisher_name_7b7ad619_like" ON "app_publisher" ("name" varchar_pattern_ops);
+ALTER TABLE "app_book" ADD CONSTRAINT "app_book_publisher_id_74fff6a5_fk_app_publisher_id" FOREIGN KEY ("publisher_id") REFERENCES "app_publisher" ("id") DEFERRABLE INITIALLY DEFERRED;
+CREATE INDEX "app_book_title_30dcdb86" ON "app_book" ("title");
+CREATE INDEX "app_book_title_30dcdb86_like" ON "app_book" ("title" varchar_pattern_ops);
+CREATE INDEX "app_book_isbn_20fbcddf_like" ON "app_book" ("isbn" varchar_pattern_ops);
+CREATE INDEX "app_book_publisher_id_74fff6a5" ON "app_book" ("publisher_id");
+ALTER TABLE "app_book_tags" ADD CONSTRAINT "app_book_tags_book_id_tag_id_29d98cde_uniq" UNIQUE ("book_id", "tag_id");
+ALTER TABLE "app_book_tags" ADD CONSTRAINT "app_book_tags_book_id_e497aee0_fk_app_book_id" FOREIGN KEY ("book_id") REFERENCES "app_book" ("id") DEFERRABLE INITIALLY DEFERRED;
+ALTER TABLE "app_book_tags" ADD CONSTRAINT "app_book_tags_tag_id_d1db0c7a_fk_app_tag_id" FOREIGN KEY ("tag_id") REFERENCES "app_tag" ("id") DEFERRABLE INITIALLY DEFERRED;
+CREATE INDEX "app_book_tags_book_id_e497aee0" ON "app_book_tags" ("book_id");
+CREATE INDEX "app_book_tags_tag_id_d1db0c7a" ON "app_book_tags" ("tag_id");
+ALTER TABLE "app_review" ADD CONSTRAINT "app_review_book_id_378fe186_fk_app_book_id" FOREIGN KEY ("book_id") REFERENCES "app_book" ("id") DEFERRABLE INITIALLY DEFERRED;
+COMMIT;
+=== probe.py sobre ese DDL
+module app.migrations.0001_initial has_error=False parse_errors=True 
+table app_publisher  doc='Create model Publisher'
+column app_publisher.name  
+column app_publisher.meta  
+table app_tag  doc='Create model Tag'
+column app_tag.label  
+table app_book  doc='Create model Book'
+column app_book.title  
+column app_book.pages  
+column app_book.isbn  
+column app_book.published  
+column app_book.publisher_id  
+table app_book_tags  
+column app_book_tags.book_id  
+column app_book_tags.tag_id  
+table app_review  doc='Create model Review'
+column app_review.score  
+column app_review.book_id  
+index book_pub_title_idx  doc='Create index book_pub_title_idx on field(s) published, title of model book'
+index app_publisher_name_7b7ad619_like  
+index app_book_title_30dcdb86  
+index app_book_title_30dcdb86_like  
+index app_book_isbn_20fbcddf_like  
+index app_book_publisher_id_74fff6a5  
+index app_book_tags_book_id_e497aee0  
+index app_book_tags_tag_id_d1db0c7a  
+=== anchor.py sql (worktree)
+app_book ['table', 'treesitter-symbols/1 (tree-sitter-sql 0.3.13, sql)', [('intact', None)], [('changed', None)], ('rename', [('reconnected', 'code:m/0001_initial.sql::app_volume')]), ('deleted', [('lost', None)])]
+app_book.title ['column', 'treesitter-symbols/1 (tree-sitter-sql 0.3.13, sql)', [('intact', None)], [('changed', None)], ('rename', [('reconnected', 'code:m/0001_initial.sql::app_book.headline')]), ('deleted', [('lost', None)])]
+app_book_publisher_id_74fff6a5 ['index', 'treesitter-symbols/1 (tree-sitter-sql 0.3.13, sql)', [('intact', None)], [('changed', None)], ('deleted', [('lost', None)])]
+=== anchor.py all (worktree)
+py [('intact', None)] [('unparseable', None)]
+ts [('intact', None)] [('unparseable', None)]
+sql_garbage [('intact', None)] [('unparseable', None)]
+=== anchor.py pyts (HEAD, PYTHONPATH=/dev/shm/b2sqlc1t/head/src)
+py [('intact', None)] [('unparseable', None)]
+ts [('intact', None)] [('unparseable', None)]
+=== hechos .py/TS worktree vs HEAD
+IDENTICAL
+=== bordes e1.sql
+-- uno
+-- dos
+CREATE TABLE "public"."users" ("id" bigint GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, "email" text, CONSTRAINT k UNIQUE (email));
+CREATE TABLE public.users (x int);
+CREATE UNIQUE INDEX IF NOT EXISTS ux ON public.users (email);
+CREATE TABLE (z int);
+CREATE TABLE ok2 (a int, b text DEFAULT 'x');
+BEGIN;
+CREATE VIEW "v" AS SELECT 1;
+COMMIT;
+BEGIN;
+CREATE MATERIALIZED VIEW mv AS SELECT 2;
+COMMIT;
+CREATE TABLE ok3 (a int, "weird col" int, CONSTRAINT pk PRIMARY KEY (a), FOREIGN KEY (a) REFERENCES ok2(a));
+---
+module e1 has_error=False parse_errors=True 
+table public.users  doc='uno\ndos'
+column public.users.email  
+table public.users~2  
+column public.users~2.x  
+index ux  
+table ok2  
+column ok2.a  
+column ok2.b  
+view v  
+view mv  
+table ok3  
+column ok3.a  
+column ok3.weird col  
+=== bordes e2.sql
+---
+module e2 has_error=False parse_errors=False 
+=== bordes e3.sql
+-- just a comment
+---
+module e3 has_error=False parse_errors=False 
+=== bordes e4.sql
+CREATE TABLE lat (n� int);
+---
+module e4 has_error=False parse_errors=True 
+table lat  
+=== bordes e5.sql
+CREATE TABLE IF NOT EXISTS t (a serial, b bigserial, c jsonb, d timestamptz);
+CREATE INDEX CONCURRENTLY i ON t (a);
+CREATE INDEX ON t (b);
+---
+module e5 has_error=False parse_errors=False 
+table t  
+column t.a  
+column t.b  
+column t.c  
+column t.d  
+index i  
+=== uv.lock: paquetes nuevos
++[[package]]
++name = "tree-sitter-sql"

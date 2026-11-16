@@ -1,0 +1,25 @@
+name: materialization-b2sql-c1-pyproject
+path: desk/materializations/materialization-b2sql-c1-pyproject.md
+source_hash: fa69afdbc7e95bec471ff075febaff5d82a24eeb66a89ebd55fb41b7986a4ad1
+content_hash: 7f4437fc8c269401d31e2c4b982faa9c46d4bf7e5022591133cec6a1f1aeac7a
+field_hashes:
+  id: 47dd0e8014bb1cb35c40c22fed4cc3e3aae093029f4c5f55ab3c16815ef65c4c
+  title: 44ba8c889bafe30f3435fbdc359c3f862414630ab48fc466f161a094297d81a1
+  source_atoms: 1a12944c8611f7c47abca99d2612d9a56cd2b2577f766ed27c841352b0a155b4
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 9c6cd9431da5c16d2ee820ad552f266833f2ce755f554cbf9ffc5e0d3ccf1504
+  intent: 5e8ef7105099580d809494aa25072649b2b0fc6caf6939b8a52faf44bf2511d2
+  validation: daa03c82cae76f5e0a00f3adb494635488935018cc34137965e56158aad150a5
+  tags: 31506c064612c9d3967862e44c9997bd808f51edfbc4030d1c5772f29f5b992f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:code
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T23:09:53Z'
+  authority: generated
+  via: create_document

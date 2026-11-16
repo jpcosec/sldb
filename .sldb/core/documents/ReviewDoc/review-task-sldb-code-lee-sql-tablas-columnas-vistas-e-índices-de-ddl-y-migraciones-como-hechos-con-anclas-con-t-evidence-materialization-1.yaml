@@ -1,0 +1,36 @@
+name: review-task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t-evidence-materialization-1
+path: desk/reviews/task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t/evidence-materialization-1.md
+source_hash: ed4a87886f93b0a7a5c9df0ce64473c4799cce00c3ea7d6dd71edc0a4ae15fc5
+content_hash: 42107402c7fee3a347439b03be5bd82c320021082340a0e035e26653fa841954
+field_hashes:
+  id: 21ea93127f38dc0f2b64e2a5de11d621dc7d515fdc79716f3d3498fa4b1dc81f
+  title: 355faff69c7a0735ea9a7bc6b2dfbda0f8c45b8958d8ff0c285f04371738e6ee
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: a48d883b9c2ae9c13db45e6dd3647d31473d9585d568aad6c959aae7559bcc5d
+  subject: bacf4d0a1804db3079a96b3e1745dd2db98f8873103fb2b7b3aee342bea3482d
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 4d1792d4b56755d45a8ee7f8d0e3a711a6ce5c3582be1edac36e66cd5b74581a
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: d9c7609fbe1954facaee59a8c4a4bc87d7467f7f2a868e7cefe7a63cbec02840
+  created_at: 3dbe0ee42ade7ad8f3afcb1dba574b0198de231931efd6386659f7d2e10fd2b1
+  disposed_at: 3dbe0ee42ade7ad8f3afcb1dba574b0198de231931efd6386659f7d2e10fd2b1
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 0a1b6b07687e31e0281b4a24f32f0dcedbaf7fb8c8035094b15d56d330381584
+  disposition: f02a6700f9be6b2b05855fdb9d2b1fdce8438a205728eb10fd3b35250adc2836
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T23:23:23Z'
+  authority: generated
+  via: create_document

@@ -1,0 +1,25 @@
+name: materialization-b2sql-c1-django-0001-initial
+path: desk/materializations/materialization-b2sql-c1-django-0001-initial.md
+source_hash: 1013e6a26571e3702b525007151401ffdcd5f9614b602d3f850dba8719dc69f4
+content_hash: ff3a7d1184eb4b21b78a79aaaa0b9cae2a289f1ed9c8fe7311fbc40c5cf367d9
+field_hashes:
+  id: d82e0a9d27f3e000fbbde09297bf3c0fc3a8a05bda5074bd5a4520bfe5cc4864
+  title: caae33d3fdb18eb02a2e7b780b8e92ece89ab8df1e8142216fdeed84280ca09f
+  source_atoms: 1a12944c8611f7c47abca99d2612d9a56cd2b2577f766ed27c841352b0a155b4
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: ceb280bf7f32f358497d1c922fbf17db9e1e6f34e869f06eaed8d788f88ce496
+  intent: 6a21a5f0e36b99d78ade48dcd7771954a4c786e3320428831cb89a16c4f3b9f7
+  validation: daa03c82cae76f5e0a00f3adb494635488935018cc34137965e56158aad150a5
+  tags: 31506c064612c9d3967862e44c9997bd808f51edfbc4030d1c5772f29f5b992f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:code
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T23:20:44Z'
+  authority: generated
+  via: create_document

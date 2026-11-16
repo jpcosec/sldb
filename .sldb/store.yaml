@@ -537,6 +537,10 @@ include:
     name: run-deskops-e-146155e482b3
   - path: runs/subagents/20261116-test-ci2/run.md
     name: run-deskops-t-eab6088c807b
+  - path: runs/subagents/20261116-exec-b2sql-c1/run.md
+    name: run-deskops-e-90f36a61abe4
+  - path: runs/subagents/20261116-test-b2sql-c1/run.md
+    name: run-deskops-t-ad9f049e2cf8
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -857,6 +861,19 @@ include:
   - desk/materializations/materialization-ci2-track-document-file.md
   - desk/materializations/materialization-ci2-docs1.md
   - desk/materializations/materialization-ci2-test-api-documents.md
+  - desk/materializations/materialization-b2sql-c1-pyproject.md
+  - desk/materializations/materialization-b2sql-c1-uv.md
+  - desk/materializations/materialization-b2sql-c1-runtime.md
+  - desk/materializations/materialization-b2sql-c1-files.md
+  - desk/materializations/materialization-b2sql-c1-scan.md
+  - desk/materializations/materialization-b2sql-c1-lang-sql.md
+  - desk/materializations/materialization-b2sql-c1-sql-readers.md
+  - desk/materializations/materialization-b2sql-c1-sql-fingerprints.md
+  - desk/materializations/materialization-b2sql-c1-code-ref.md
+  - desk/materializations/materialization-b2sql-c1-test-anchors.md
+  - desk/materializations/materialization-b2sql-c1-test-treesitter-symbols.md
+  - desk/materializations/materialization-b2sql-c1-django-0001-initial.md
+  - desk/materializations/materialization-b2sql-c1-migrations-0001-initial.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -1622,6 +1639,14 @@ include:
     name: review-task-docs-track-force-sobre-un-documento-ya-trackeado-en-la-misma-ruta-lo-re-indexa-desde-el-archivo-en-l-evidence-atom-1
   - path: desk/reviews/task-docs-track-force-sobre-un-documento-ya-trackeado-en-la-misma-ruta-lo-re-indexa-desde-el-archivo-en-l/evidence-materialization-1.md
     name: review-task-docs-track-force-sobre-un-documento-ya-trackeado-en-la-misma-ruta-lo-re-indexa-desde-el-archivo-en-l-evidence-materialization-1
+  - path: desk/reviews/task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t/evidence-tests-1.md
+    name: review-task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t-evidence-tests-1
+  - path: desk/reviews/task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t/evidence-commit-1.md
+    name: review-task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t-evidence-commit-1
+  - path: desk/reviews/task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t/evidence-atom-1.md
+    name: review-task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t-evidence-atom-1
+  - path: desk/reviews/task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t/evidence-materialization-1.md
+    name: review-task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -1649,7 +1674,6 @@ include:
   - desk/tasks/task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup.md
   - desk/tasks/task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y.md
   - desk/tasks/task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable.md
-  - desk/tasks/task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t.md
 - model: TaskDebugDoc
   paths:
   - desk/tasks/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024.md

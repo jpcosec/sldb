@@ -1,0 +1,9 @@
+Task: task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t
+Title: sldb.code lee SQL: tablas, columnas, vistas e índices de DDL y migraciones como hechos con anclas, con tree-sitter-sql como extra (B2, parte SQL)
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective atoms:
+- atom-el-inventario-de-código-de-sldb-se-publica-como-hechos-de-fuente-y-cada-consumidor-los-proyecta
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]

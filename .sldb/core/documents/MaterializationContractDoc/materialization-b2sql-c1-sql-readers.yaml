@@ -1,0 +1,25 @@
+name: materialization-b2sql-c1-sql-readers
+path: desk/materializations/materialization-b2sql-c1-sql-readers.md
+source_hash: 8710268ea4bde507dec6be91b495881e3c9293cddd5a37500e3956d7bb85c07d
+content_hash: d10a8fc27857198add1336499433a4c2db8ab3448eed7f7741df38362d876743
+field_hashes:
+  id: 97fbaa83bfd1835eefe6ec7a52c4aa641f4577a48dc9aa6eeb547a6679dd0228
+  title: 4cca0e0f59d581c45febee441f7ace9378a05c3df4e48cd58150210ada7e6aeb
+  source_atoms: 1a12944c8611f7c47abca99d2612d9a56cd2b2577f766ed27c841352b0a155b4
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 59dd551ff7bfbe0306b3b4b2d502db5840775270765806124d3233dbde0313f8
+  intent: b87e9feed46e2c73b88f58bb4e0bf4325ded9bca0095fb836ea4ba04c5033244
+  validation: daa03c82cae76f5e0a00f3adb494635488935018cc34137965e56158aad150a5
+  tags: 31506c064612c9d3967862e44c9997bd808f51edfbc4030d1c5772f29f5b992f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:code
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T23:15:04Z'
+  authority: generated
+  via: create_document

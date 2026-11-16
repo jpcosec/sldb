@@ -1,0 +1,25 @@
+name: materialization-b2sql-c1-test-treesitter-symbols
+path: desk/materializations/materialization-b2sql-c1-test-treesitter-symbols.md
+source_hash: 6801961405a3062875f41a470b15271ee7e11206ccf2df384768301658a4af3a
+content_hash: 892f0517d4745bce7dc87f7e09a314d8d54895a8c44c40463c0a1b06c8ad35d3
+field_hashes:
+  id: 6dfaa0bc58d566d247a5efc6c924109664cd81ad13617dcb8f22cf6b7054360e
+  title: 07ddd1255b6d5c2a0990c33796f5784ea57223a46cdbcc8e25c6f8a69807f9ad
+  source_atoms: 1a12944c8611f7c47abca99d2612d9a56cd2b2577f766ed27c841352b0a155b4
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 67f8da032dd9f97c869850d4fa0c3634bd01d4db275119df80863303d23ca990
+  intent: 60953fa78c6a061fb734ebec8a40c82d6d89765896ce2efa19f8c0b96f09c262
+  validation: daa03c82cae76f5e0a00f3adb494635488935018cc34137965e56158aad150a5
+  tags: 31506c064612c9d3967862e44c9997bd808f51edfbc4030d1c5772f29f5b992f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:code
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T23:18:22Z'
+  authority: generated
+  via: create_document
