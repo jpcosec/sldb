@@ -2,6 +2,7 @@
 Skipped without the `[code]` extra."""
 from __future__ import annotations
 
+import shutil
 from pathlib import Path
 
 import pytest
@@ -94,8 +95,62 @@ def test_docstring_forms_and_duplicate_ids(tmp_path):
 def test_without_the_runtime_the_error_names_the_extra(monkeypatch):
     import sldb.code.runtime as rt
 
-    monkeypatch.setattr(rt, "_RUNTIME", [])
+    monkeypatch.setattr(rt, "_RUNTIME", {})
     monkeypatch.setattr(rt.importlib, "import_module", lambda name: (_ for _ in ()).throw(ImportError(name, name=name)))
     with pytest.raises(rt.TreeSitterUnavailable, match=r"\[code\]"):
         rt.runtime()
     assert not rt.available()
+
+
+FRONTEND = Path(__file__).parent.parent / "fixtures" / "treesitter" / "frontend"
+needs_ts = pytest.mark.skipif(not available(".ts"), reason="tree-sitter-typescript not installed (extra [code])")
+
+
+@pytest.fixture
+def ts_facts():
+    from sldb.code.scan import scan_tree
+
+    return {f["id"]: f for f in scan_tree(FRONTEND)}
+
+
+@needs_ts
+def test_ts_kinds_names_and_top_level_only(ts_facts):
+    app = {i.removeprefix("src.App."): f["kind"] for i, f in ts_facts.items() if i.startswith("src.App.")}
+    assert app == {"App": "component", "Button": "component", "ButtonProps": "type", "Card": "component", "Mode": "type",
+                   "NotComponent": "function", "helper": "function", "useCounter": "hook"}, "no reexport, no nested `inner`"
+    assert (ts_facts["src.useToggle.useToggle"]["kind"], ts_facts["src.useToggle.Pair"]["kind"]) == ("hook", "type")
+    assert (ts_facts["src.util.double"]["kind"], ts_facts["src.Panel.Panel"]["kind"]) == ("function", "component")
+    assert ts_facts["src.App"]["kind"] == "module" and ts_facts["src.App"]["qualified_name"] == "src.App" and ts_facts["src.App.Button"]["qualified_name"] == "Button"
+    assert ts_facts["src.App.Button"]["relations"] == [{"type": "contained-in", "target": "src.App"}]
+
+
+@needs_ts
+def test_ts_jsdoc_signature_span_and_imports(ts_facts):
+    assert ts_facts["src.App.Button"]["doc"] == "A button.\n\n  Indented.", "the last of two JSDoc blocks"
+    assert (ts_facts["src.App.ButtonProps"]["doc"], ts_facts["src.App.Card"]["doc"], ts_facts["src.util.double"]["doc"]) == ("Props of a button.", None, "Doubles a number.")
+    assert ts_facts["src.App.Button"]["signature"] == "Button({ label }: ButtonProps)" and ts_facts["src.App.helper"]["signature"] == "helper(x)"
+    assert ts_facts["src.App.Mode"]["signature"] is None and ts_facts["src.App.Button"]["span"] == {"start_line": 16, "end_line": 21}
+    assert ts_facts["src.App"]["attrs"]["imports"] == ["./app.css", "react"] and [r["target"] for r in ts_facts["src.Panel"]["relations"]] == ["./util"]
+    assert all(set(f["fingerprints"]) == {"signature", "shape", "docstring", "body"} for f in ts_facts.values())
+
+
+@needs_ts
+def test_ts_types_only_in_ts_and_same_module_names_take_a_suffix(tmp_path):
+    from sldb.code.scan import scan_tree
+
+    (tmp_path / "a.ts").write_text("export const f = () => 1;\n", encoding="utf-8")
+    (tmp_path / "a.js").write_text("type T = number;\nfunction g() {}\n", encoding="utf-8")
+    facts = {f["id"]: f for f in scan_tree(tmp_path)}
+    assert sorted(facts) == ["a", "a.f", "a.g", "a~2"] and (facts["a"]["path"], facts["a~2"]["path"]) == ("a.js", "a.ts")
+
+
+def test_without_the_ts_grammar_python_still_scans(monkeypatch, tmp_path):
+    import sldb.code.runtime as rt
+    from sldb.code.scan import scan_tree
+
+    real = rt.importlib.import_module
+    monkeypatch.setattr(rt, "_RUNTIME", {})
+    monkeypatch.setattr(rt.importlib, "import_module", lambda name: (_ for _ in ()).throw(ImportError(name, name=name)) if name == "tree_sitter_typescript" else real(name))
+    shutil.copytree(FRONTEND, tmp_path / "front")
+    (tmp_path / "front" / "m.py").write_text("def f(): pass\n", encoding="utf-8")
+    assert not rt.available(".tsx") and sorted(f["id"] for f in scan_tree(tmp_path / "front")) == ["m", "m.f"]

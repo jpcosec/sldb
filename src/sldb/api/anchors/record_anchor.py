@@ -8,6 +8,7 @@ from typing import Any
 
 from sldb.models.code_ref import code_ref, parse_code_ref
 from sldb.code.fingerprints import NORMALIZATION
+from sldb.code.runtime import grammar_of
 
 SCANNER = "treesitter-symbols/1"
 
@@ -27,7 +28,7 @@ def record_anchor(root: Path, ref: str) -> dict[str, Any]:
     found = symbol_of(root, path, name)
     if found is None:
         raise ValueError(f"no symbol {name!r} in {path} (or the file is missing)")
-    return {"ref": code_ref(path, name), "kind": found["kind"], "seen": dict(found["fingerprints"]), "normalization": NORMALIZATION, "recorded_with": recorded_with()}
+    return {"ref": code_ref(path, name), "kind": found["kind"], "seen": dict(found["fingerprints"]), "normalization": NORMALIZATION, "recorded_with": recorded_with(path)}
 
 
 def symbols_of(root: Path, path: str) -> list[dict[str, Any]] | None:
@@ -47,9 +48,12 @@ def symbol_of(root: Path, path: str, name: str) -> dict[str, Any] | None:
     return next((f for f in facts if (f["id"] if f["kind"] == "module" else f["id"].removeprefix(module + ".")) == wanted or (f["kind"] == "module" and not name)), None)
 
 
-def recorded_with() -> str:
+def recorded_with(path: str = ".py") -> str:
+    """The scanner and the grammar package with its version; for TS/JS also which grammar read it (`typescript` or `tsx`)."""
+    grammar, module, _ = grammar_of(path)
+    package = module.replace("_", "-")
     try:
-        grammar = version("tree-sitter-python")
+        release = version(package)
     except PackageNotFoundError:
-        grammar = "?"
-    return f"{SCANNER} (tree-sitter-python {grammar})"
+        release = "?"
+    return f"{SCANNER} ({package} {release})" if grammar == "python" else f"{SCANNER} ({package} {release}, {grammar})"

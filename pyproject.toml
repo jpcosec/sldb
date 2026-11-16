@@ -46,6 +46,7 @@ mcp = [
 code = [
     "tree-sitter>=0.25",
     "tree-sitter-python>=0.23",
+    "tree-sitter-typescript>=0.23",
 ]
 dev = [
     "scipy>=1.10",

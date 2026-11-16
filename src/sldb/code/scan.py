@@ -1,5 +1,5 @@
-"""Scan Python files into symbol facts: module, classes, functions and methods, each with its
-qualified name, span, docstring, signature and fingerprints (from kimun's adapter).
+"""Scan source files into symbol facts; `.ts`, `.tsx`, `.js` and `.jsx` go to `lang_ts`. A Python
+file gives its module, classes, functions and methods, each with its qualified name, span, docstring, signature and fingerprints (from kimun's adapter).
 
 A definition under `if`, `try` or any statement other than a class or function body is not
 a symbol (its owner chain is not a chain of definitions), exactly like `ast`-based scanners.
@@ -8,49 +8,49 @@ a symbol (its owner chain is not a chain of definitions), exactly like `ast`-bas
 from __future__ import annotations
 
 import hashlib
-import os
 from pathlib import Path
 from typing import Any
 
 from sldb.code.facts import fact, key_of, rels
+from sldb.code.files import find_files
 from sldb.code.fingerprints import fingerprints
 from sldb.code.ids import Ids
 from sldb.code.imports import py_imports, py_module_name, py_nested_imports
 from sldb.code.readers import field_text, py_doc, py_end_line, py_native_kind, py_signature
-from sldb.code.runtime import parse, runtime
+from sldb.code.lang_ts import scan_ts_file
+from sldb.code.runtime import TS_SUFFIXES, parse, runtime
 
 QUERY = "(class_definition) @class (function_definition) @function"
 _TRANSPARENT = {"block", "decorated_definition"}
 
 
 def scan_tree(root: Path) -> list[dict[str, Any]]:
-    """Every `.py` under `root`, facts sorted by id; one id space for the whole tree."""
+    """Every source file under `root` (see `find_files`), facts sorted by id; one id space for the whole tree."""
     idgen, facts = Ids(), []
     for rel in find_files(root):
         facts.extend(scan_file(rel, root, idgen))
     return sorted(facts, key=lambda f: f["id"])
 
 
-def find_files(root: Path) -> list[str]:
-    out = []
-    for base, dirs, files in os.walk(root):
-        dirs[:] = sorted(d for d in dirs if d != "__pycache__")
-        out += [os.path.relpath(os.path.join(base, f), root).replace(os.sep, "/") for f in files if f.endswith(".py")]
-    return sorted(out, key=lambda r: tuple(r.split("/")))
-
-
 def scan_file(rel: str, root: Path, idgen: Ids | None = None) -> list[dict[str, Any]]:
     """The facts of one file: the module first, then its definitions in source order."""
+    if rel.endswith(TS_SUFFIXES):
+        return scan_ts_file(rel, root, idgen or Ids())
     src, idgen = (root / rel).read_bytes(), idgen or Ids()
     rootn, module = parse(src).root_node, py_module_name(rel)
     digest = "sha256:" + hashlib.sha256(src).hexdigest()
     mid = idgen.take(module or "__init__")
     facts = [_module_fact(mid, module, rel, rootn, src, digest)]
+    items, owners, names, captured = _analysis(rootn, src)
+    return facts + _definition_facts(items, owners, names, captured, src, module, mid, rel, digest, idgen)
+
+
+def _analysis(rootn: Any, src: bytes) -> tuple[list, dict, dict, dict]:
+    """The captured definitions in source order, the owner of each and their qualified names."""
     captured = _captures(rootn)
     items = sorted(captured.values(), key=lambda cn: (cn[1].start_byte, -cn[1].end_byte))
     owners = {key_of(n): _owner_of(n, captured) for _, n in items}
-    names = _qualified_names(items, owners, captured, src)
-    return facts + _definition_facts(items, owners, names, captured, src, module, mid, rel, digest, idgen)
+    return items, owners, _qualified_names(items, owners, captured, src), captured
 
 
 def _module_fact(mid: str, module: str, rel: str, rootn: Any, src: bytes, digest: str) -> dict[str, Any]:

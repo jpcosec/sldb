@@ -122,3 +122,56 @@ def test_the_cli_records_and_writes_a_signed_theorem(world, capsys):
     assert "authority: theorem" in text and "ref: code:src/x.py::free" in text and "free returns its argument" in text
     assert cli_main(["anchors", "check", "--store", str(store)]) == 0
     assert "2 checked" in capsys.readouterr().out
+
+
+TSX = '/** A card. */\nexport function Card({ title }: { title: string }) {\n  return <div>{title}</div>;\n}\n\nexport const helper = (x: number) => x + 1;\n'
+needs_ts = pytest.mark.skipif(not available(".tsx"), reason="tree-sitter-typescript not installed (extra [code])")
+
+
+@pytest.fixture
+def front(tmp_path):
+    root = tmp_path / "front"
+    (root / "src").mkdir(parents=True)
+    (root / "src" / "Card.tsx").write_text(TSX, encoding="utf-8")
+    (root / "src" / "util.js").write_text("/** Doubles. */\nexport function double(n) {\n  return n * 2;\n}\n", encoding="utf-8")
+    store = api.init_store(root).store_path
+    api.add_model(store, "sldb.models.code_anchor_doc:CodeAnchorDoc")
+    recorded = record_anchor(root, "code:src/Card.tsx::Card")
+    write_anchor(store, None, root / "anchors" / "card.md", recorded, "Card renders its title")
+    yield root, store, recorded
+    for name in [m for m in sys.modules if m.startswith("tmpdocs")]:
+        del sys.modules[name]
+
+
+@needs_ts
+def test_a_tsx_component_anchor_is_intact_changed_reconnected_and_lost(front):
+    root, store, recorded = front
+    assert recorded["kind"] == "component" and recorded["recorded_with"].startswith("treesitter-symbols/1 (tree-sitter-typescript ") and recorded["recorded_with"].endswith(", tsx)")
+    assert _state(store) == (AnchorState.INTACT, [])
+    card = root / "src" / "Card.tsx"
+    card.write_text(TSX.replace("<div>{title}</div>", "<section>{title}</section>"), encoding="utf-8")
+    assert _state(store) == (AnchorState.CHANGED, ["body"])
+    card.write_text(TSX.replace("function Card(", "function Tile("), encoding="utf-8")
+    [report] = check_anchors(store)
+    assert (report.state, report.to) == (AnchorState.RECONNECTED, "code:src/Card.tsx::Tile")
+    card.write_text("export const helper = (x: number) => x + 1;\n", encoding="utf-8")
+    [report] = check_anchors(store)
+    assert report.state is AnchorState.LOST and report.candidates == []
+
+
+@needs_ts
+def test_a_js_function_anchor_records_and_stays_intact(front):
+    root, store, _ = front
+    recorded = record_anchor(root, "code:src/util.js::double")
+    assert recorded["kind"] == "function" and recorded["recorded_with"].endswith(", tsx)") and record_anchor(root, "code:src/Card.tsx::")["kind"] == "module"
+    write_anchor(store, None, root / "anchors" / "double.md", recorded, "double doubles")
+    assert sorted(r.state.value for r in check_anchors(store)) == ["intact", "intact"]
+
+
+def test_python_anchors_keep_their_recorded_with_and_ts_refs_parse(world):
+    from sldb.models.code_ref import parse_code_ref
+
+    root, _store = world
+    assert record_anchor(root, REF)["recorded_with"].startswith("treesitter-symbols/1 (tree-sitter-python ") and record_anchor(root, REF)["recorded_with"].endswith(")")
+    assert [parse_code_ref(f"code:a/b{ext}::X") for ext in (".ts", ".tsx", ".js", ".jsx")] == [(f"a/b{ext}", "X") for ext in (".ts", ".tsx", ".js", ".jsx")]
+    assert parse_code_ref("code:a/b.css::X") is None
