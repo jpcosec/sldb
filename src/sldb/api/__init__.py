@@ -98,6 +98,7 @@ from sldb.api.model_registry.model_reference import resolve_model_ref
 from sldb.api.model_registry.model_registration import ModelRegistration
 from sldb.api.model_registry.registered_model import RegisteredModel
 from sldb.api.model_registry.reindex_model import reindex_model
+from sldb.api.model_registry.template_anchors import template_anchors
 from sldb.api.schema.describe_field import describe_field, describe_model_fields
 from sldb.api.schema.field_description import FieldDescription
 from sldb.api.segments import CompositionPiece, CompositionSpec, DocumentSegments, FieldSegment, LiteralSegment, Segment, SourceRef, build_document_segments
@@ -186,4 +187,5 @@ __all__ = [
     "list_views", "run_view",
     "TagNamespace", "add_semantic_equivalence", "add_semantic_parent", "remove_semantic_parent", "semantic_tag",
     "replace_text", "tag_check", "tag_evaluations", "tag_folder", "tag_namespaces", "tag_tree",
+    "template_anchors",
 ]
