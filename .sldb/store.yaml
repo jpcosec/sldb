@@ -430,6 +430,10 @@ include:
     name: run-deskops-e-2edd3c6307c2
   - path: runs/subagents/20261116-test-label-key/run.md
     name: run-deskops-t-9741372cd8e8
+  - path: runs/subagents/20261116-exec-portar-spec2viz/run.md
+    name: run-deskops-e-aedd8fa5525a
+  - path: runs/subagents/20261116-test-portar-spec2viz/run.md
+    name: run-deskops-t-ba1b1f54d370
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -639,6 +643,25 @@ include:
   - desk/materializations/materialization-oraculo-d2-component-spec-python-spec2viz.md
   - desk/materializations/materialization-label-key-atom-keys.md
   - desk/materializations/materialization-label-key-test-matching-explicit.md
+  - desk/materializations/materialization-portar-spec2viz-test-ported-from-spec2viz-catalog-notation.md
+  - desk/materializations/materialization-portar-spec2viz-test-ported-from-spec2viz-catalog-resolved-views.md
+  - desk/materializations/materialization-portar-spec2viz-test-ported-from-spec2viz-notation.md
+  - desk/materializations/materialization-portar-spec2viz-test-ported-from-spec2viz-notation-view.md
+  - desk/materializations/materialization-portar-spec2viz-test-ported-from-spec2viz-style-palette.md
+  - desk/materializations/materialization-portar-spec2viz-test-ported-from-spec2viz-view-contract-resolved.md
+  - desk/materializations/materialization-portar-spec2viz-test-ported-from-spec2viz-view-doc.md
+  - desk/materializations/materialization-portar-spec2viz-activity-render-error-handling.md
+  - desk/materializations/materialization-portar-spec2viz-class-sldb-models.md
+  - desk/materializations/materialization-portar-spec2viz-component-architecture.md
+  - desk/materializations/materialization-portar-spec2viz-component-exception-hierarchy.md
+  - desk/materializations/materialization-portar-spec2viz-component-type-system.md
+  - desk/materializations/materialization-portar-spec2viz-matrix-pipeline-coverage.md
+  - desk/materializations/materialization-portar-spec2viz-sequence-build-pipeline.md
+  - desk/materializations/materialization-portar-spec2viz-sequence-render-pipeline.md
+  - desk/materializations/materialization-portar-spec2viz-sequence-sync-pipeline.md
+  - desk/materializations/materialization-portar-spec2viz-state-diagram-sync-lifecycle.md
+  - desk/materializations/materialization-portar-spec2viz-state-diagram-type-lifecycle.md
+  - desk/materializations/materialization-portar-spec2viz-vistas.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -1102,6 +1125,22 @@ include:
     name: review-task-label-key-de-sldb-api-matching-trata-el-guion-bajo-como-separador-igual-que-normkey-del-catálogo-evidence-atom-1
   - path: desk/reviews/task-label-key-de-sldb-api-matching-trata-el-guion-bajo-como-separador-igual-que-normkey-del-catálogo/evidence-materialization-1.md
     name: review-task-label-key-de-sldb-api-matching-trata-el-guion-bajo-como-separador-igual-que-normkey-del-catálogo-evidence-materialization-1
+  - path: desk/reviews/task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc/evidence-tests-1.md
+    name: review-task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc-evidence-tests-1
+  - path: desk/reviews/task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc/evidence-commit-1.md
+    name: review-task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc-evidence-commit-1
+  - path: desk/reviews/task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc/evidence-atom-1.md
+    name: review-task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc-evidence-atom-1
+  - path: desk/reviews/task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc/evidence-materialization-1.md
+    name: review-task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc-evidence-materialization-1
+  - path: desk/reviews/task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc/evidence-tests-2.md
+    name: review-task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc-evidence-tests-2
+  - path: desk/reviews/task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc/evidence-commit-2.md
+    name: review-task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc-evidence-commit-2
+  - path: desk/reviews/task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc/evidence-atom-2.md
+    name: review-task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc-evidence-atom-2
+  - path: desk/reviews/task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc/evidence-materialization-2.md
+    name: review-task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc-evidence-materialization-2
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -1120,7 +1159,6 @@ include:
   - desk/tasks/task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida.md
   - desk/tasks/task-sldb-api-notations-reexporta-lo-que-specir-importa-hoy-de-módulos-internos-estilos-paletas-errores-m.md
   - desk/tasks/task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding.md
-  - desk/tasks/task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc.md
   - desk/tasks/task-specdoc-guarda-los-datos-de-un-spec-que-no-son-elementos-data-entity-y-afines-y-el-style-llega-a-la.md
   - desk/tasks/task-una-escritura-en-un-store-con-documentos-generados-ausentes-no-imprime-una-línea-por-cada-uno-sectio.md
   - desk/tasks/task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n.md

@@ -1,0 +1,36 @@
+name: review-task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc-evidence-commit-2
+path: desk/reviews/task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc/evidence-commit-2.md
+source_hash: bf61c00f1c4a77c45f2f2cac4e9aa9e0291656e9e6094587f704b9cc94fc2492
+content_hash: 6836715bd99e271fad208729f2a99f21145b3fb730ae165e01d3b737404a37e4
+field_hashes:
+  id: e3c06861ddf5fbc189bbb522ff8a98e685defe8f913860445840198c6a81978a
+  title: de05d95df707589dfb08e5f7cac3945485bd8ef054b3492f44343231d11b59ec
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: 5ea9c58673a69c87d0e5540a6f9978aad8f8e0a0b9ce3471cff139c730d97888
+  value: 84c005e7ec1704ec3e85bab82d30dbd8d711381e7bc8f8946c23718674ffac6e
+  subject: d9b67f08e25bfb6c9b67b25dcec5d1d9f3a92794850619b5eb0856ec0c095783
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: f292c2f5af1625d43aeb3997b449ac708e6ba7b6453ecd4f93e77b45dbcc4e38
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 793707ef6367437b9fac3ac28b8133c7757f696fd6e84eceda8f34a0e31b3c89
+  created_at: a434ca6667bfd18144acdc56d32d1f36a994b850361db274a560cd346e305101
+  disposed_at: a434ca6667bfd18144acdc56d32d1f36a994b850361db274a560cd346e305101
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: edc21619ea82491f1dac918be6b93947bed1285a35761f7e86f6f3c03d9c4661
+  disposition: 7bf1892994b820c72be5617674f5df5d91b35e7704bfa2e1700830cd712c708d
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T10:07:56Z'
+  authority: generated
+  via: save_document_payload

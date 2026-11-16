@@ -1,0 +1,25 @@
+name: materialization-portar-spec2viz-sequence-sync-pipeline
+path: desk/materializations/materialization-portar-spec2viz-sequence-sync-pipeline.md
+source_hash: ddc0d580722c8de089b330b00fa228dc82c4514c650eda124a5bcf6dd87a5c89
+content_hash: 36e06070a9f42cf778e4ae8c258adff594865821252f2224914893fc6c808900
+field_hashes:
+  id: 18b708ecf439a51bd230e0c645da1c213b85893b16a0e941e657f8bbafc75f4d
+  title: 1457941ea94f3c9acdcbbfd4e295d06d132f5d93d50d9237defac7b22e312c43
+  source_atoms: bc82413df82be75315d00a67ae829fc27615f96be08c221959d68d3ddcdd4a9c
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 369e6a889f6cb3d9005c365af189e8e04e57fcd9445b23c3f0fd7f481fb4c983
+  intent: db8b3cd680d869fb4bea578f597cdd7b31a22f0c86af35fdaa1eb24c2242559e
+  validation: dfb25ef4a5075e1beee0923ed0948738720debda892163bbb87656b4216e2278
+  tags: 1f6879d3f31f56b2802c17ed6bd1ec91facdb8d554030fea048f5505d98e5e32
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:notations
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T10:00:27Z'
+  authority: generated
+  via: create_document

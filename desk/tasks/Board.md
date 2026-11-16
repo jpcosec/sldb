@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T09:41:54Z'
+  at: '2026-11-16T10:09:33Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -31,7 +31,6 @@ tasks:
 - desk/tasks/task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con.md
 - desk/tasks/task-sldb-api-notations-reexporta-lo-que-specir-importa-hoy-de-módulos-internos-estilos-paletas-errores-m.md
 - desk/tasks/task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding.md
-- desk/tasks/task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc.md
 - desk/tasks/task-specdoc-guarda-los-datos-de-un-spec-que-no-son-elementos-data-entity-y-afines-y-el-style-llega-a-la.md
 - desk/tasks/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg.md
 - desk/tasks/task-una-escritura-en-un-store-con-documentos-generados-ausentes-no-imprime-una-línea-por-cada-uno-sectio.md
@@ -132,7 +131,6 @@ _Generated from the task references above._
 - Los specs de docs/architecture/spec2viz se construyen con specir catalog build y se sincronizan con sldb notations sync --catalog [draft] - docs/architecture/spec2viz/vistas.yml y sus specs se construyen con specir catalog build y se sincronizan al store con sldb notations sync --catalog; ninguna instrucción ni contrato de sldb invoca spec2viz para ellos.
 - sldb.api.notations reexporta lo que specIR importa hoy de módulos internos (estilos, paletas, errores, modelos de spec y rutas del catálogo) [draft] - Todos los nombres listados en Scope se importan desde sldb.api.notations y están en su __all__; specIR puede quitar sus excepciones de import sin cambiar comportamiento.
 - sldb notations validate valida una notación, una paleta o un spec por nombre o ruta e imprime findings [draft] - `sldb notations validate <nombre|ruta>` detecta si el objetivo es una notación, una paleta o un spec, corre la validación que sldb ya tiene para ese tipo y devuelve findings en el formato de findings de sldb, con exit 0 si no hay errores y 1 si los hay.
-- Portar a sldb las pruebas de spec2viz de notaciones, paletas, vista resuelta y ViewDoc [draft] - Cada caso de prueba de los siete archivos de spec2viz listados en Scope que aplica a código que hoy vive en sldb tiene un equivalente que pasa en tests/notations/ de sldb, importando solo sldb; los que no aplican quedan listados con su motivo en el docstring del archivo portado.
 - SpecDoc guarda los datos de un spec que no son elementos (data.entity y afines) y el style llega a la vista resuelta [draft] - Sincronizar un spec con data.entity (y cualquier otra clave de data que no sea elementos) y leerlo de vuelta con el SpecDoc devuelve esos datos sin pérdida, y la vista resuelta de ese SpecDoc incluye su style.
 - matching: attach_atom_edges deja de recomponer live-stale y los mapas del índice federado en cada edges_of (catalog build con átomos en minutos) [draft] - attach_atom_edges sobre N referencias llama a load_edge_index a lo sumo 2 veces por llamada (una con enlaces y otra sin ellos, si hacen falta las dos) y no recalcula live-stale ni los mapas por cada referencia; el catalog build de IR de la nota termina en menos de 60 s con el mismo resultado.
 - Una escritura en un store con documentos generados ausentes no imprime una línea por cada uno (Sections rebuild missing) [draft] - Una reconstrucción de secciones con N documentos ausentes emite a lo sumo una línea de aviso con el número de ausentes, el modelo y hasta 3 ejemplos, en lugar de N líneas.

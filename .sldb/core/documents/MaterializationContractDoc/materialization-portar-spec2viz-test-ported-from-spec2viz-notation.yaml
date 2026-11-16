@@ -1,0 +1,25 @@
+name: materialization-portar-spec2viz-test-ported-from-spec2viz-notation
+path: desk/materializations/materialization-portar-spec2viz-test-ported-from-spec2viz-notation.md
+source_hash: 8a8fbe523fcd9b5ebeea60d6db8e1afc619a013b94ec397f40c3c0ab307ab0ae
+content_hash: 9858a534eb8b3a7cbbcd732f3ed87e1799d1a5fdf0c6259912843ccf235b1109
+field_hashes:
+  id: ab09788bf062b85b46c6566bf74b43710e72871c3c1de34faf04012d52489c52
+  title: 596efc55ee9fd2f4bd249398d6de05e6fdf32e921d929e7177cb014ad8b1e461
+  source_atoms: bc82413df82be75315d00a67ae829fc27615f96be08c221959d68d3ddcdd4a9c
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 62d6e8f6ae21fb0d6cf61aa4d615d7236abd8ceac8ffb66054ddfeb38ed2e02a
+  intent: 8ce788475475e501263a83574157381b3d3bc50dd6bcbc91799ce55cee1fa7cc
+  validation: dfb25ef4a5075e1beee0923ed0948738720debda892163bbb87656b4216e2278
+  tags: 1f6879d3f31f56b2802c17ed6bd1ec91facdb8d554030fea048f5505d98e5e32
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:notations
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T09:55:34Z'
+  authority: generated
+  via: create_document

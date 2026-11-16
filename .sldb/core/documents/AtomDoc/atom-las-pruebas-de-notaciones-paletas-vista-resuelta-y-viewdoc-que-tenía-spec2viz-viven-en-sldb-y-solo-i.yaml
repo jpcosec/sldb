@@ -1,0 +1,23 @@
+name: atom-las-pruebas-de-notaciones-paletas-vista-resuelta-y-viewdoc-que-tenía-spec2viz-viven-en-sldb-y-solo-i
+path: desk/atoms/atom-las-pruebas-de-notaciones-paletas-vista-resuelta-y-viewdoc-que-tenía-spec2viz-viven-en-sldb-y-solo-i.md
+source_hash: 88e3ae2e0343fc9fb9699885f6869bce94adddc90e173a30d96eaf156bb02862
+content_hash: 822ed573c63d3360f33e41145bbd7f3d3006718a367f3bc1888664628d79b45d
+field_hashes:
+  id: 9764373543ad7805f33eeaa0df80da13bb9864477e32ea7c204920ca571aed54
+  title: d6134844ba09d0639bcc38b454642edc356a370e6bf3b139df02af3710921a7c
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: c96db1bd094165d33d519e12f2486d5e07be136dda0816f660e294ab67c2216f
+  tags: 1f6879d3f31f56b2802c17ed6bd1ec91facdb8d554030fea048f5505d98e5e32
+  provenance: 62d6e8f6ae21fb0d6cf61aa4d615d7236abd8ceac8ffb66054ddfeb38ed2e02a
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:notations
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-16T09:54:26Z'
+  authority: generated
+  via: create_document
