@@ -53,8 +53,8 @@ class CLI:
         from sldb.cli.commands.edges import EdgesCLI
         from sldb.cli.commands.graph import GraphCLI
         from sldb.cli.commands.notations import NotationsCLI
-        from sldb.cli.commands import mcp, rules, tags, views
-        self.handlers.update({"edges": EdgesCLI().run, "mcp": mcp.McpCLI().run, "anchors": AnchorsCLI().run, "graph": GraphCLI().run, "notations": NotationsCLI().run, "rules": rules.RulesCLI().run, "tags": tags.TagsCLI().run, "views": views.ViewsCLI().run})
+        from sldb.cli.commands import bench, mcp, rules, tags, views
+        self.handlers.update({"edges": EdgesCLI().run, "mcp": mcp.McpCLI().run, "anchors": AnchorsCLI().run, "graph": GraphCLI().run, "notations": NotationsCLI().run, "rules": rules.RulesCLI().run, "tags": tags.TagsCLI().run, "views": views.ViewsCLI().run, "bench": bench.BenchCLI().run})
 
     def _load_addresses(self):
         """The raw address surface: `legacy ls|get|glob|find|recover|compose`.

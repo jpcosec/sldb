@@ -1,8 +1,9 @@
 from __future__ import annotations
 import argparse
+from .bench import add_bench_commands
 
 def add_misc_commands(s: argparse._SubParsersAction) -> None:
-    _help(s); _faq(s); _inbox(s); _explore(s); _ast(s); _lint(s)
+    _help(s); _faq(s); _inbox(s); _explore(s); _ast(s); _lint(s); add_bench_commands(s)
 
 def _help(s):
     p = s.add_parser("help", help="Curated CLI help.")
