@@ -171,3 +171,48 @@ def test_atomic_write_creates_parent_dirs(tmp_path):
     _atomic_write(target, "key: val\n")
     assert target.exists()
     assert target.read_text() == "key: val\n"
+
+
+def _git(root: Path, *args: str) -> str:
+    return subprocess.run(["git", "-c", "user.name=t", "-c", "user.email=t@t", *args], cwd=root, capture_output=True, text=True, check=True).stdout
+
+
+def test_a_conflicted_derived_index_says_which_command_to_run(tmp_path):
+    """The exact message, for the store index and for a model index, with markers or unparseable."""
+    from sldb.core.exceptions import SLDBStoreError
+    from sldb.store.io import invalidate_index_cache, load_models_index, load_store_index
+
+    store_path, _ = _setup_store(tmp_path)
+    index_file, model_file = store_path / "core" / "store_index.yaml", store_path / "core" / "models" / "MyDoc.yaml"
+    index_file.write_text("<<<<<<< HEAD\nstore_hash: a\n=======\nstore_hash: b\n>>>>>>> other\n", encoding="utf-8")
+    model_file.write_text("name: [unclosed\n", encoding="utf-8")
+    invalidate_index_cache()
+    for path, load in ((index_file, lambda: load_store_index(store_path)), (model_file, lambda: load_models_index(model_file))):
+        with pytest.raises(SLDBStoreError) as raised:
+            load()
+        assert str(raised.value) == f"{path} is a derived index that git could not merge: run `sldb stores rebuild-index` (and `sldb stores merge-driver --install` once per clone)"
+
+
+def test_merge_driver_install_is_idempotent(tmp_path):
+    _git(tmp_path, "init", "-q")
+    cli_main(["stores", "init", "--path", str(tmp_path)])
+    for _ in range(2):
+        assert cli_main(["stores", "merge-driver", "--install", "--store", str(tmp_path / ".sldb")]) == 0
+    lines = (tmp_path / ".gitattributes").read_text(encoding="utf-8").splitlines()
+    assert lines == [".sldb/core/store_index.yaml merge=sldb", ".sldb/core/models/*.yaml merge=sldb", ".sldb/store.yaml merge=sldb"]
+    assert _git(tmp_path, "config", "--get", "merge.sldb.driver").strip() == "sldb stores merge-driver %O %A %B %P"
+    assert _git(tmp_path, "config", "--get", "merge.sldb.name").strip()
+
+
+def test_stores_init_alerts_when_another_branch_already_has_a_store(tmp_path, capsys):
+    _git(tmp_path, "init", "-q", "-b", "main")
+    cli_main(["stores", "init", "--path", str(tmp_path)])
+    _git(tmp_path, "add", "-A")
+    _git(tmp_path, "commit", "-qm", "store")
+    _git(tmp_path, "checkout", "-q", "--orphan", "dev")
+    _git(tmp_path, "rm", "-rq", "--cached", ".")
+    import shutil
+    shutil.rmtree(tmp_path / ".sldb")
+    capsys.readouterr()
+    assert cli_main(["stores", "init", "--path", str(tmp_path)]) == 0
+    assert "alert: branch 'main' already has a store at .sldb/" in capsys.readouterr().err

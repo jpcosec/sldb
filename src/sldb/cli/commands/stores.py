@@ -23,7 +23,7 @@ class StoresCLI:
         self._store = StoreCLI()
 
     def run(self, args: Any) -> int:
-        own = {"list": self.list, "semantic-export": self.semantic_export, "reconcile": self.reconcile, "declare": _declare, "build": _build, "scaffold": _scaffold}
+        own = {"list": self.list, "semantic-export": self.semantic_export, "reconcile": self.reconcile, "declare": _declare, "build": _build, "scaffold": _scaffold, "rebuild-index": _merge, "merge-driver": _merge}
         if args.stores_command in own:
             return own[args.stores_command](args)
         args.store_command = args.stores_command
@@ -96,3 +96,9 @@ def _scaffold(args: Any) -> int:
     from sldb.cli.commands.stores_scaffold import scaffold_command
 
     return scaffold_command(args)
+
+
+def _merge(args: Any) -> int:
+    from sldb.cli.commands.stores_merge import merge_driver_command, rebuild_index_command
+
+    return (rebuild_index_command if args.stores_command == "rebuild-index" else merge_driver_command)(args)

@@ -168,3 +168,43 @@ def test_migrates_a_legacy_single_file_store_into_shards(tmp_path: Path):
     got_tags, got_secs = _composed(root, store)
     assert got_tags == ref_tags
     assert got_secs == ref_secs
+
+
+# -- merging two branches that touched .sldb/ (stores rebuild-index, stores merge-driver) --------
+
+
+def _conflicted(ours: str, theirs: str) -> str:
+    """A file the way git leaves it when both branches changed it."""
+    return f"<<<<<<< HEAD\n{ours}=======\n{theirs}>>>>>>> other-branch\n"
+
+
+def test_rebuild_index_turns_conflicted_indexes_into_the_clean_ones(tmp_path: Path):
+    store, root = _store(tmp_path, 3)
+    update_store(_Args(store, root))
+    index_file = store_index_path(store)
+    model_file = root / next(m for m in load_store_index(store).models if m.name == "Note").models_index
+    clean = {index_file: index_file.read_text(encoding="utf-8"), model_file: model_file.read_text(encoding="utf-8")}
+    other_side = {index_file: "store_hash: " + "a" * 64 + "\n", model_file: clean[model_file].replace("documents_count: 3", "documents_count: 9")}
+    roster, root_hash = load_models_index(model_file).roster_hash, load_store_index(store).store_hash
+    for path, text in clean.items():  # this branch's side carries stale hashes, the other a different count
+        stale = text.replace(roster, "b" * 64).replace(root_hash, "c" * 64)
+        path.write_text(_conflicted(stale, other_side[path]), encoding="utf-8")
+    assert cli_main(["stores", "rebuild-index", "--store", str(store)]) == 0
+    assert {path: path.read_text(encoding="utf-8") for path in clean} == clean
+
+
+def test_merge_driver_joins_the_include_rules_of_store_yaml(tmp_path: Path):
+    import yaml
+
+    base = {"version": 1, "models": [{"name": "Note", "model_ref": "m:Note"}], "include": [{"model": "Note", "paths": ["n0.md"]}]}
+    ours = {**base, "include": [{"model": "Note", "paths": ["n0.md", "b.md"]}]}
+    theirs = {**base, "models": base["models"] + [{"name": "Atom", "model_ref": "m:Atom"}], "include": [{"model": "Note", "paths": ["n0.md", {"path": "a.md", "name": "a"}]}, {"model": "Atom", "glob": "atoms/*.md"}]}
+    files = []
+    for name, data in (("O", base), ("A", ours), ("B", theirs)):
+        files.append(tmp_path / name)
+        files[-1].write_text(yaml.safe_dump(data, sort_keys=False), encoding="utf-8")
+    assert cli_main(["stores", "merge-driver", *map(str, files), ".sldb/store.yaml"]) == 0
+    merged = yaml.safe_load(files[1].read_text(encoding="utf-8"))
+    assert merged["include"] == [{"model": "Note", "paths": ["n0.md", "b.md", {"path": "a.md", "name": "a"}]}, {"model": "Atom", "glob": "atoms/*.md"}]
+    assert [m["name"] for m in merged["models"]] == ["Note", "Atom"]
+    assert cli_main(["stores", "merge-driver", *map(str, files), "docs/readme.md"]) == 1

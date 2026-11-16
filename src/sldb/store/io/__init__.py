@@ -1,5 +1,6 @@
 from pathlib import Path
 from sldb.store.io.lock import StoreIOLock
+from sldb.store.io.derived_guard import guarded_load
 from sldb.store.io.store_index import StoreIndexIO
 from sldb.store.io.models_index import ModelsIndexIO
 from sldb.store.io.documents_index import DocumentsIndexIO
@@ -77,13 +78,14 @@ def _save_if_changed(path: Path, index, saver) -> None:
 
 
 def load_store_index(store_path: Path) -> StoreIndex:
-    return _cached(_store_index_path(store_path), lambda: StoreIndexIO.load(store_path))
+    path = _store_index_path(store_path)
+    return _cached(path, lambda: guarded_load(path, lambda: StoreIndexIO.load(store_path)))
 
 def save_store_index(store_path: Path, index: StoreIndex) -> None:
     _save_if_changed(_store_index_path(store_path), index, lambda: StoreIndexIO.save(store_path, index))
 
 def load_models_index(path: Path) -> ModelsIndex:
-    return _cached(path, lambda: ModelsIndexIO.load(path))
+    return _cached(path, lambda: guarded_load(path, lambda: ModelsIndexIO.load(path)))
 
 def save_models_index(path: Path, index: ModelsIndex) -> None:
     _save_if_changed(path, index, lambda: ModelsIndexIO.save(path, index))

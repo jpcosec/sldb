@@ -1,12 +1,13 @@
 from __future__ import annotations
 import argparse
+from sldb.cli.parsers.stores_merge import add_merge_parsers
 
 def add_stores_group(s: argparse._SubParsersAction) -> None:
     p = s.add_parser("stores", help="Store lifecycle and federation.")
     sub = p.add_subparsers(dest="stores_command", required=True)
     _init(sub); _add(sub); _remove(sub); _check(sub); _update(sub); _reconcile(sub)
     _semantic_map(sub); _semantic_export(sub); _list(sub); _migrate_hashes(sub)
-    _migrate_layout(sub); _declare(sub); _build(sub); _scaffold(sub)
+    _migrate_layout(sub); _declare(sub); _build(sub); _scaffold(sub); add_merge_parsers(sub)
 
 def _init(s):
     i = s.add_parser("init", help="Init .sldb store.")
