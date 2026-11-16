@@ -1705,3 +1705,26 @@ def test_models_promote_json_output_is_pure_json(tmp_path, capsys):
     )
     report = json.loads(capsys.readouterr().out)
     assert report["promoted"] is True and report["draft"] is True
+
+
+def test_version_prints_package_version_and_exits_zero(capsys):
+    assert cli_main(["--version"]) == 0
+    assert capsys.readouterr().out.startswith("sldb ")
+
+
+def test_version_without_git_has_no_parenthesis(monkeypatch, capsys):
+    import sldb.store.package_version as pv
+    monkeypatch.setattr(pv, "source_revision", lambda: None)
+    assert cli_main(["--version"]) == 0
+    out = capsys.readouterr().out.strip()
+    assert out == f"sldb {pv.package_version()}"
+    assert "(" not in out
+
+
+def test_version_with_git_shows_describe_in_parenthesis(monkeypatch, capsys):
+    import sldb.store.package_version as pv
+    monkeypatch.setattr(pv, "source_revision", lambda: "v0.1.13-1-gabc")
+    assert cli_main(["--version"]) == 0
+    out = capsys.readouterr().out
+    assert out.startswith(f"sldb {pv.package_version()} ")
+    assert "(v0.1.13-1-gabc at " in out

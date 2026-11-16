@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+import subprocess
 from importlib.metadata import PackageNotFoundError, version
 from pathlib import Path
 
@@ -19,6 +20,38 @@ def _source_checkout_version() -> str | None:
                 match = re.search(r'^version\s*=\s*"([^"]+)"', text, re.M)
                 return match.group(1) if match else None
     return None
+
+
+def _source_checkout_dir() -> Path | None:
+    """Directory of the pyproject.toml `_source_checkout_version` reads, same walk."""
+    for parent in Path(__file__).resolve().parents[:5]:
+        pyproject = parent / "pyproject.toml"
+        if pyproject.is_file() and f'name = "{_DIST_NAME}"' in pyproject.read_text(encoding="utf-8"):
+            return parent
+    return None
+
+
+def source_revision() -> str | None:
+    """`git describe --tags --always --dirty` of the source checkout, or None outside git."""
+    checkout = _source_checkout_dir()
+    if checkout is None or not (checkout / ".git").exists():
+        return None
+    try:
+        done = subprocess.run(
+            ["git", "-C", str(checkout), "describe", "--tags", "--always", "--dirty"],
+            capture_output=True, text=True, timeout=2, check=False,
+        )
+    except (FileNotFoundError, subprocess.TimeoutExpired):
+        return None
+    described = done.stdout.strip()
+    return described if done.returncode == 0 and described else None
+
+
+def version_line() -> str:
+    """`sldb <version> (<describe> at <checkout>)`, or `sldb <version>` outside a git checkout."""
+    line = f"sldb {package_version()}"
+    revision = source_revision()
+    return f"{line} ({revision} at {_source_checkout_dir()})" if revision else line
 
 
 def package_version() -> str:

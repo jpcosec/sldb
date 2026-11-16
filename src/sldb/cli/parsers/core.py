@@ -16,9 +16,22 @@ def build_parser() -> argparse.ArgumentParser:
         prog="sldb", description="SLDB: structured Markdown models plus an optional store.",
         formatter_class=argparse.RawTextHelpFormatter,
     )
+    p.add_argument("--version", action=_VersionAction, help="print the version and the git revision, then exit")
     s = p.add_subparsers(dest="command", required=True)
     _add_commands(s)
     return p
+
+
+class _VersionAction(argparse.Action):
+    """`--version`: the package version plus the checkout's `git describe`, then exit 0."""
+
+    def __init__(self, option_strings, dest=argparse.SUPPRESS, default=argparse.SUPPRESS, help=None):
+        super().__init__(option_strings, dest=dest, default=default, nargs=0, help=help)
+
+    def __call__(self, parser, namespace, values, option_string=None):
+        from sldb.store import package_version as pv
+        print(pv.version_line())
+        parser.exit(0)
 
 def _add_commands(s: argparse._SubParsersAction) -> None:
     add_basic_commands(s)
