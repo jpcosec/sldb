@@ -1,0 +1,23 @@
+name: atom-apply-batch-prevalida-y-escribe-bajo-el-cerrojo-del-store-y-rechaza-con-conflicterror-un-guarda-obso
+path: desk/atoms/atom-apply-batch-prevalida-y-escribe-bajo-el-cerrojo-del-store-y-rechaza-con-conflicterror-un-guarda-obso.md
+source_hash: 371d419cafcdd912feb477dc3c369079487bface0f2ec6cfc6cff260c611325b
+content_hash: 7e9f17ee61a6e845aff3aca683828c52942867e22ee6146d81874659e5640463
+field_hashes:
+  id: 14dfabfd1fed4b1e59c3615a1de8433266d634a3ee8a9086c89b984a89ede564
+  title: 5078abd0e87debd17b28a55311224ae9bad82d81480bae3c82160619d19c6449
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: 56b6ae0ea49bb4cfcebf242bbebb774ddc3da8ee64bbdcc2e4ee742b32d21d32
+  tags: 75da8c415dfdb85c80acbaced9ae893849e885b205751f60e09dac270108576d
+  provenance: 20c1d0aa8d0a27dc8e82f1a356616cc5cc578a6703ab31a94898e754457e6a80
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store-lock
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-16T19:44:52Z'
+  authority: generated
+  via: create_document

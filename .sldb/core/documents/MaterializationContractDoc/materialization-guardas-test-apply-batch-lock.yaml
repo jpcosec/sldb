@@ -1,0 +1,25 @@
+name: materialization-guardas-test-apply-batch-lock
+path: desk/materializations/materialization-guardas-test-apply-batch-lock.md
+source_hash: 5dfb541973b4944f07ada857e8425b551970d1b025bd81f1588a531521b9875c
+content_hash: cf50821e34ee5da8b3036553647b7577e70e1d800bc23b0f4536b375900b564b
+field_hashes:
+  id: f56f9036029ddf142d0f9636791c366d926e8dd615b5e69ed64a0ef4535819ae
+  title: dde10c190242e2f365e417c2fb0994d8b04587b52627d8f387bf42f9777ee3a0
+  source_atoms: 0fc2c200fb841ffc1a754965bb1c6e92a7b55f561e0cb67f183cddd09f269813
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 67fcc03e2ea6d5bdd8dbe00f02eafb581d4b793ca5f7cd031d1eb9b9dcee67cf
+  intent: 17db3157c387af3299adf47c91b6ca78b67fb413c9d803932b1b99952dab0c17
+  validation: 8f29ad27076078893c7256b7601d800fd395ce3f000f7bf14e0737254c0143e2
+  tags: 75da8c415dfdb85c80acbaced9ae893849e885b205751f60e09dac270108576d
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store-lock
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T19:46:47Z'
+  authority: generated
+  via: create_document

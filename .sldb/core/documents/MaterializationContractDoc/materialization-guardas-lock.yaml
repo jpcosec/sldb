@@ -1,0 +1,25 @@
+name: materialization-guardas-lock
+path: desk/materializations/materialization-guardas-lock.md
+source_hash: e0f59ab8673cef4130106937b2869cfa2880ef758c249365598a7bec631fbb1b
+content_hash: 3de96a1ddfd1563ad25c8c516ba9fcf76342538db5cce7c9065f4d267f0cfacd
+field_hashes:
+  id: 5deefcf0da579d42df714c0616ab02be459e23df15b849f45b77af727ab45f38
+  title: 3ecab49d378dbfbd9281dcd83dd054cd4a87a0fea0d1ddbeffdba32429f7fc2d
+  source_atoms: 0fc2c200fb841ffc1a754965bb1c6e92a7b55f561e0cb67f183cddd09f269813
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: bae75981e764c3439acf4b5512c415a8d63441b44b45c48508fc38a83f7b12c9
+  intent: 2f5ab45f996201c47c96130e4488a4f66edb814f77863895b5118d17a03879dc
+  validation: 8f29ad27076078893c7256b7601d800fd395ce3f000f7bf14e0737254c0143e2
+  tags: 75da8c415dfdb85c80acbaced9ae893849e885b205751f60e09dac270108576d
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store-lock
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T19:46:19Z'
+  authority: generated
+  via: create_document

@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T16:20:43Z'
+  at: '2026-11-16T17:35:36Z'
   authority: generated
   via: save_document_payload
 id: task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3
@@ -10,6 +10,7 @@ summary: ''
 tags:
 - workspace:desk
 - artifact:task
+- host:robocop2
 current_node: ritual-execution
 history: []
 references: []
@@ -50,6 +51,8 @@ _State what is in scope and what is out of scope._
 Verificado hoy: graph_path y graph_paths (módulo analyze de sldb.api.graph) devuelven list[str]; el módulo traverse tiene solo targets, sources, children y similares sin camino. No existe pedido ni tarea previa. Añadir una variante o un parámetro que devuelva el camino explicado sin romper la forma actual (compatibilidad con la CLI de graph y sus goldens), pasar por el protocolo GraphBackend, exponerlo en la CLI y en sldb serve si ya exponen graph path. La procedencia sale de la arista del índice (RelationDoc o campo de referencia); cuando una arista tiene varias, decidir y documentar.
 
 Precisiones (coordinador, 2026-11-16): si entre a y b hay varias aristas que pasan el filtro, se listan todas en el tramo (steps[i].edges), ordenadas por precedencia relation_doc > schema > structural > alias; una arista espejo con metadata.reverse true no se lista aparte: aparece como su arista directa con direction backward; evidence no entra en provenance. La forma sin explain no cambia.
+
+Precisiones (bundle-1): forma exacta del resultado con explain=True. graph_path devuelve {"path": [ids], "steps": [...]} y graph_paths una lista de esos dicts; con explain=False la forma no cambia (lista de ids, o lista de listas). Hay un step por par consecutivo: {"source": a, "target": b, "edges": [...]}, y cada elemento de edges es {"relation", "direction" (forward|backward), "provenance": {"origin", "relation_doc" (solo si origin es relation_doc), "field" (solo si origin es schema), "from_store" (solo si viene de un store enlazado)}}. Las claves ausentes no se emiten. Empates dentro de la misma clase de precedencia: orden alfabético por relation y luego por relation_doc o field. Un origin desconocido va al final. La impresión de --explain va a un módulo nuevo graph_path_print.py en el paquete sldb.cli.commands.
 
 ## Implementation Path
 

@@ -1,0 +1,36 @@
+name: review-task-apply-batch-guardas-expected-source-hash-bajo-el-cerrojo-del-store-inbox-20261115-022444-evidence-tests-1
+path: desk/reviews/task-apply-batch-guardas-expected-source-hash-bajo-el-cerrojo-del-store-inbox-20261115-022444/evidence-tests-1.md
+source_hash: a41b9931917d4e86bdfa7d7e08e72c785a88a075c0b9579258f55d78c7513ede
+content_hash: d43b766d2cd3fa6425716afdb31993fef118fbb0a28804f4bdc2a48e067985f3
+field_hashes:
+  id: 99e20c9ca0df01b9fd357858b4bd271745696ac516e7f298d39273bcaa699cdb
+  title: 2fdad30d41444e0f02ff4ad308f9f55a808be2456cc90cd19c37cc969d2ce853
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: 68f05093bc600659c0aecd265fad80c71a658cc857e91cdfeeee782eb670c200
+  value: 354bfa3b9fe402ac777f8d9dd09d82f90c97002663acefc53a406db59ddf9d03
+  subject: 1b5e7868d14d9af127ca968ffdbf95406e9e62e8a8d6a7026f6bdef4034975ff
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 09d0d7554170813aa83e8d3a4a7459f40421e415881da8af686decbb49d52e07
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: a938d548980713d06610fab290a9315266322b0d0d9662a04f5562fabdcc3da1
+  created_at: 7aea2cd910f0e53aa0a6136d7f2c4aa556a20bb6ca57f8c99a69be374bdb81c5
+  disposed_at: 7aea2cd910f0e53aa0a6136d7f2c4aa556a20bb6ca57f8c99a69be374bdb81c5
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: b99471c22990120391bf29ffccf690177a288a5ed311fba6988599453e10980e
+  disposition: 2573c28d3b9ea0ea781c8bbcbce1e2ff2a39dd341da4113d04147b00de633d94
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T19:48:00Z'
+  authority: generated
+  via: create_document

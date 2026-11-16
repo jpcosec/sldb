@@ -1,7 +1,7 @@
 name: task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2
 path: desk/tasks/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2.md
-source_hash: c2260288861a186ff7e1d224fc5a8f9038ccc7f6e7d33edbfb1049b9feed6f22
-content_hash: dcf32edb761358e693e21729b890b7b9cd2a35a2aaa36c722554f1f374a99b21
+source_hash: cd53111653092987752fcee46f8f99e642fb1939f8a1487fe50c53bdd2b4958c
+content_hash: e5b9de1cfcc560b8bec7fc2b24440c88b515a252f3510637deb404f2568e54ca
 field_hashes:
   title: 1885d8ee27d80a13259d79b4507edd6250cd55107ef8748f1047e54c73a7cd74
   id: ed05d8d980b99b08e224dc91c7be71a3c469b32c47116af31bc04494f157877d
@@ -11,7 +11,7 @@ field_hashes:
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 1909ad266d9aa6280e5e1b78401029ff6fd7a392073485048c7e9a2cafcd28a2
-  goal: 84ebe067548ded25925f2701a56a10cfdd8fad2aa58e147cf24a6273195f93ad
+  goal: 402c248076def9e005d7f858834a38b7d143ff6365ca673dd2733d013d9f9f41
   scope: 2bccb22d5c1e484e2659026ed50465d4537d4fd2e13617a7c426a34c4e3b20ca
   references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -19,7 +19,7 @@ field_hashes:
   files: b7502a3e9419eec4e0435a3b3b7aa18fbf0c4b871ededa7be3e6c36a6b26eeab
   implementation_path: 88072df46d30e9574e5887d4a8ea525ea0dc683d542feca507f9f4ada3dd8cf4
   validation: 261da64932063d4186028dd9cb632d18abb366b51b56188664069f94ae4b9762
-  done_when: 90b8e367c9aaadb6008f49e788642855b457bf9344754a0293e477d2fb41755c
+  done_when: 5705c7f3f524e44effe0e5b8b52117e854bf75cf093b4be1a3afbc52282203f8
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-16T16:16:44Z'
+  at: '2026-11-16T17:34:37Z'
   authority: generated
   via: save_document_payload

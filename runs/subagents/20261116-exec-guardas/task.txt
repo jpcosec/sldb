@@ -1,0 +1,7 @@
+Task: task-apply-batch-guardas-expected-source-hash-bajo-el-cerrojo-del-store-inbox-20261115-022444
+Title: apply_batch: guardas expected_source_hash bajo el cerrojo del store (inbox 20261115-022444)
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]

@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T17:04:01Z'
+  at: '2026-11-16T19:50:00Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -18,7 +18,6 @@ tasks:
 - desk/tasks/task-sldb-create-document-y-track-document-file-evalúan-las-reglas-on-write-h4-declare-write-conserva-la.md
 - desk/tasks/task-sldb-views-run-board-en-menos-de-1-s-caché-de-disco-de-los-shards-de-documentos-para-select-document.md
 - desk/tasks/task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430.md
-- desk/tasks/task-apply-batch-guardas-expected-source-hash-bajo-el-cerrojo-del-store-inbox-20261115-022444.md
 - desk/tasks/task-apply-batch-devuelve-el-lote-inverso-con-guardas-deshacer-es-de-sldb-inbox-20261115-123855.md
 - desk/tasks/task-apply-batch-aristas-validadas-antes-de-escribir-alertas-on-write-en-batchreport-rules-check-sobre-re.md
 - desk/tasks/task-api-pública-búsqueda-rankeada-escrituras-recientes-y-store-hash-como-precondición-atómica-brechas-de.md
@@ -114,13 +113,12 @@ _Generated from the task references above._
 - sldb: create_document y track_document_file evalúan las reglas on_write (H4), declare --write conserva la declaración de tags (H5), la familia de tags da su evaluación estructurada (H6) y se documenta qué documentos ve (H7) [draft] - create_document y track_document_file evalúan on_write como save (H4); stores declare --write conserva tag_namespaces y tag_models (H5); un hallazgo de la familia de tags lleva su evaluación estructurada y rules check, rules explain y tags check la exponen en su salida JSON (H6); la guía de reglas y de tags dice qué documentos ve la familia (H7).
 - sldb views run board en menos de 1 s: caché de disco de los shards de documentos para select_documents y costo del import de sldb.api (H11b) [draft] - sldb views run board, con el store construido y en un proceso nuevo, tarda menos de 1 s (mediana de 3) sobre el layout del benchmark de H11; el resultado y la revision de la vista no cambian, y un documento escrito o cambiado se nota en la siguiente corrida.
 - apply_batch: dry_run público que valida sin escribir (inbox 20261115-022430) [draft] - apply_batch acepta dry_run=True: corre la prevalidación (forma, modelo, round-trip, guardas, destinos) y devuelve el informe o los errores, sin abrir transacción ni escribir.
-- apply_batch: guardas expected_source_hash bajo el cerrojo del store (inbox 20261115-022444) [draft] - apply_batch sostiene el cerrojo del store desde la prevalidación hasta la última escritura, y los guardas se comprueban dentro de la transacción.
 - apply_batch devuelve el lote inverso con guardas: deshacer es de sldb (inbox 20261115-123855) [draft] - BatchReport lleva el lote inverso, en la forma que acepta apply_batch; deshacer = apply_batch(report.inverse).
 - apply_batch: aristas validadas antes de escribir, alertas on_write en BatchReport, rules_check sobre RelationDoc y via/authority (inbox 20261115-022655) [draft] - Cerrar los cuatro puntos del pedido.
 - API pública: búsqueda rankeada, escrituras recientes y store_hash como precondición atómica (brechas de IR01, inbox 20261114-074447) [draft] - Resolver o documentar con decisión cada brecha.
 - check_edges clasifica como stale propio los de stores enlazados cuyo nombre lleva dos puntos (inbox 20261115-015936) [draft] - Clasificar el stale por el store dueño del nodo, no por el conteo de ':'.
 - sldb escucha: suscripciones y stream de eventos de escritura (inbox 20261114-115028) [draft] - Decidir la forma antes de implementar y dejar la implementación como tareas.
-- sldb.code lee TS y TSX: readers, facts y anclas con tree-sitter-typescript como extra (B2, parte TS; SQL va aparte) [draft] - El paquete sldb.code lee TS/TSX y SQL, publica sus hechos de fuente y soporta anclas, con gramáticas tree-sitter como extras opcionales.
+- sldb.code lee TS y TSX: readers, facts y anclas con tree-sitter-typescript como extra (B2, parte TS; SQL va aparte) [draft] - El paquete sldb.code lee TS y TSX, publica sus hechos de fuente con la misma forma que los de Python y soporta anclas code:<ruta>.ts|.tsx::<símbolo>, con tree-sitter-typescript como parte del extra code; SQL lo hace la tarea hermana.
 - Grafo: graph_path y graph_paths devuelven caminos explicados con la procedencia de cada tramo (B3) [draft] - Caminos explicados: por cada tramo, origen, destino, tipo de relación, dirección recorrida y procedencia de la arista.
 - V0: benchmark fijo de velocidad (sldb bench) y punto de partida [draft] - Agregar a sldb el verbo 'sldb bench', que copia desks a un directorio de trabajo, mide en frío y en caliente tiempo de pared, CPU y RSS máximo de stores update (sin cambios y con un documento cambiado), stores check, stores build --check, deskops doctor, deskops status y el arranque de ambos CLI, y entrega JSON más una tabla; y dejar el punto de partida medido en reports/velocidad-baseline-20261115.md.
 - El emparejamiento de átomos de sldb.api.matching pasa a su propio eje y recuperacion vuelve a ser un puerto puro [draft] - El emparejamiento de átomos (explicit_atoms, explicit_refs, atom_*, coverage*, spec_view*, store_reader, store_documents, store_edges, matching_findings, unknown_atom_error) vive en un eje propio en contracts/layers.toml; recuperacion vuelve a sus 4 dependencias medidas y sigue siendo extraíble.

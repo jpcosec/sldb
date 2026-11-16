@@ -1,0 +1,3133 @@
+===== $ uv run --frozen --extra code --extra dev pytest -q tests/api/test_apply_batch_lock.py
+..                                                                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 7.13s
+===== rc=0
+
+===== $ uv run --frozen --extra code --extra dev pytest -q tests/api/test_transaction.py
+.............                                                            [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+13 passed, 1 warning in 2.31s
+===== rc=0
+
+===== $ uv run --frozen --extra code --extra dev pytest -q tests/api/test_transaction_rules_dirty.py
+....                                                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 5.53s
+===== rc=0
+
+===== $ uv run --frozen --extra code --extra dev pytest -q tests/api/test_write_paths_validate.py
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 3.21s
+===== rc=0
+
+===== $ uv run --frozen --extra code --extra dev pytest -q tests/api/test_on_write_entering.py
+.......                                                                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+7 passed, 1 warning in 12.82s
+===== rc=0
+
+===== $ uv run --frozen --extra code --extra dev pytest -q tests/store/test_update_fault_tolerance.py
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 7.40s
+===== rc=0
+
+===== $ uv run --frozen --extra code --extra dev pytest -q tests/test_clean_code_rules.py
+........................................................................ [  6%]
+........................................................................ [ 12%]
+........................................................................ [ 18%]
+........................................................................ [ 24%]
+........................................................................ [ 30%]
+........................................................................ [ 36%]
+........................................................................ [ 43%]
+........................................................................ [ 49%]
+........................................................................ [ 55%]
+........................................................................ [ 61%]
+........................................................................ [ 67%]
+........................................................................ [ 73%]
+........................................................................ [ 80%]
+........................................................................ [ 86%]
+........................................................................ [ 92%]
+........................................................................ [ 98%]
+................                                                         [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1168 passed, 2 warnings in 3.83s
+===== rc=0
+
+===== $ uv run --frozen --extra code --extra dev bash tools/check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   221 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 941 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  32 símbolos pedidos sin puerta que los declare
+PASS: superficie — 120 símbolos pedidos, 592 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+===== rc=0
+
+===== $ flock /dev/shm/sldb1-tests.lock uv run --frozen --extra code --extra dev bash tools/check.sh
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   221 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 941 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  32 símbolos pedidos sin puerta que los declare
+PASS: superficie — 120 símbolos pedidos, 592 declarados, 0 violaciones
+
+[1m── afirmaciones ──[0m
+  ERROR  docs/architecture/evidence-model-family.md: `sldb models` existe pero no acepta `describe`
+  ERROR  docs/architecture/references.md: la ruta `docs/missing` no existe
+  ERROR  docs/architecture/references.md: la ruta `docs/ambiguous` no existe
+  ERROR  docs/architecture/selectors.md: la ruta `docs/missing` no existe
+  ERROR  docs/architecture/selectors.md: la ruta `docs/ambiguous` no existe
+  ERROR  docs/architecture/selectors.md: el comando `sldb query` no existe
+  ERROR  docs/architecture/views.md: la ruta `docs/missing` no existe
+  ERROR  docs/architecture/views.md: la ruta `docs/missing` no existe
+  ERROR  CHANGELOG.md: la ruta `docs/missing` no existe
+  ERROR  CHANGELOG.md: la ruta `docs/ambiguous` no existe
+  ERROR  CHANGELOG.md: el comando `sldb query` no existe
+FAIL: afirmaciones — 102 documentos, 1131 afirmaciones comprobadas, 11 falsas
+
+[1m── pruebas ──[0m
+........................................................................ [  2%]
+........................................................................ [  4%]
+........................................................................ [  7%]
+....sssssss............................................................. [  9%]
+........................................................................ [ 11%]
+........................................................................ [ 14%]
+........................................................................ [ 16%]
+........................................................................ [ 19%]
+....................................................EEEEEFEEFEEEE.EEEEEE [ 21%]
+EEEEEEEEEEEE.EEEEEEEEEEEEEEEEEx......................................... [ 23%]
+........................................................................ [ 26%]
+........................................................................ [ 28%]
+........................................................................ [ 31%]
+........................................................................ [ 33%]
+........................................................................ [ 35%]
+........................................................................ [ 38%]
+........................................................................ [ 40%]
+........................................................................ [ 42%]
+........................................................................ [ 45%]
+........................................................................ [ 47%]
+........................................................................ [ 50%]
+........................................................................ [ 52%]
+........................................................................ [ 54%]
+........................................................................ [ 57%]
+........................................................................ [ 59%]
+........................................................................ [ 62%]
+........................................................................ [ 64%]
+........................................................................ [ 66%]
+........................................................................ [ 69%]
+........................................................................ [ 71%]
+........................................................................ [ 74%]
+........................................................................ [ 76%]
+........................................................................ [ 78%]
+........................................................................ [ 81%]
+........................................................................ [ 83%]
+........................................................................ [ 85%]
+........................................................................ [ 88%]
+........................................................................ [ 90%]
+........................................................................ [ 93%]
+........................................................................ [ 95%]
+........................................................................ [ 97%]
+..............................................................           [100%]
+==================================== ERRORS ====================================
+_ ERROR at setup of test_a_dry_run_answers_what_would_be_written_and_writes_nothing _
+
+write_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+
+    @pytest.fixture(scope="session")
+    def writer(write_copy: Path) -> Iterator[McpSession]:
+        """The server at write level 2 (content and rules as data) over the write copy."""
+>       with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+extra_path = (), options = ('--level', '2', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+______ ERROR at setup of test_the_extension_tools_join_the_built_in_ones _______
+
+extended_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-extension0/world')
+
+    @pytest.fixture(scope="module")
+    def extended(extended_copy: Path) -> Iterator[McpSession]:
+        """The server at level 1 with the example extension, over its own copy."""
+>       with served(extended_copy, "--level", "1", "--actor", WRITER, "--extension", SPEC, extra_path=(HERE,)) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/test_extension.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-extension0/world')
+extra_path = (PosixPath('/mnt/ssd/proyectos/SLDB_1/sldb/tests/mcp'),)
+options = ('--level', '1', '--actor', 'agent:sldb-mcp-tests', '--extension', 'example_extension:register')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+____ ERROR at setup of test_an_extension_tool_pages_like_the_built_in_ones _____
+
+extended_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-extension0/world')
+
+    @pytest.fixture(scope="module")
+    def extended(extended_copy: Path) -> Iterator[McpSession]:
+        """The server at level 1 with the example extension, over its own copy."""
+>       with served(extended_copy, "--level", "1", "--actor", WRITER, "--extension", SPEC, extra_path=(HERE,)) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/test_extension.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-extension0/world')
+extra_path = (PosixPath('/mnt/ssd/proyectos/SLDB_1/sldb/tests/mcp'),)
+options = ('--level', '1', '--actor', 'agent:sldb-mcp-tests', '--extension', 'example_extension:register')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_ ERROR at setup of test_an_extension_tool_sees_the_level_and_the_actor_of_the_server _
+
+extended_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-extension0/world')
+
+    @pytest.fixture(scope="module")
+    def extended(extended_copy: Path) -> Iterator[McpSession]:
+        """The server at level 1 with the example extension, over its own copy."""
+>       with served(extended_copy, "--level", "1", "--actor", WRITER, "--extension", SPEC, extra_path=(HERE,)) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/test_extension.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-extension0/world')
+extra_path = (PosixPath('/mnt/ssd/proyectos/SLDB_1/sldb/tests/mcp'),)
+options = ('--level', '1', '--actor', 'agent:sldb-mcp-tests', '--extension', 'example_extension:register')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_______ ERROR at setup of test_an_extension_tool_inherits_the_signal_log _______
+
+extended_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-extension0/world')
+
+    @pytest.fixture(scope="module")
+    def extended(extended_copy: Path) -> Iterator[McpSession]:
+        """The server at level 1 with the example extension, over its own copy."""
+>       with served(extended_copy, "--level", "1", "--actor", WRITER, "--extension", SPEC, extra_path=(HERE,)) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/test_extension.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-extension0/world')
+extra_path = (PosixPath('/mnt/ssd/proyectos/SLDB_1/sldb/tests/mcp'),)
+options = ('--level', '1', '--actor', 'agent:sldb-mcp-tests', '--extension', 'example_extension:register')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_ ERROR at setup of test_a_validator_error_blocks_propose_and_apply_and_writes_nothing _
+
+extended_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-extension0/world')
+
+    @pytest.fixture(scope="module")
+    def extended(extended_copy: Path) -> Iterator[McpSession]:
+        """The server at level 1 with the example extension, over its own copy."""
+>       with served(extended_copy, "--level", "1", "--actor", WRITER, "--extension", SPEC, extra_path=(HERE,)) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/test_extension.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-extension0/world')
+extra_path = (PosixPath('/mnt/ssd/proyectos/SLDB_1/sldb/tests/mcp'),)
+options = ('--level', '1', '--actor', 'agent:sldb-mcp-tests', '--extension', 'example_extension:register')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_ ERROR at setup of test_a_validator_alert_lets_the_batch_through_and_rides_in_the_answer _
+
+extended_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-extension0/world')
+
+    @pytest.fixture(scope="module")
+    def extended(extended_copy: Path) -> Iterator[McpSession]:
+        """The server at level 1 with the example extension, over its own copy."""
+>       with served(extended_copy, "--level", "1", "--actor", WRITER, "--extension", SPEC, extra_path=(HERE,)) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/test_extension.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-extension0/world')
+extra_path = (PosixPath('/mnt/ssd/proyectos/SLDB_1/sldb/tests/mcp'),)
+options = ('--level', '1', '--actor', 'agent:sldb-mcp-tests', '--extension', 'example_extension:register')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_ ERROR at setup of test_level_0_serves_no_write_tool_and_naming_one_is_a_signal _
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+___ ERROR at setup of test_level_1_refuses_rules_before_evaluating_anything ____
+
+write_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+
+    @pytest.fixture(scope="session")
+    def content_writer(write_copy: Path) -> Iterator[McpSession]:
+        """The server at write level 1 (content only) over the write copy."""
+>       with served(write_copy, "--level", "1", "--actor", WRITER) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+extra_path = (), options = ('--level', '1', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_______ ERROR at setup of test_level_1_refuses_to_apply_a_rules_proposal _______
+
+write_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+
+    @pytest.fixture(scope="session")
+    def writer(write_copy: Path) -> Iterator[McpSession]:
+        """The server at write level 2 (content and rules as data) over the write copy."""
+>       with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+extra_path = (), options = ('--level', '2', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+________________ ERROR at setup of test_level_1_writes_content _________________
+
+write_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+
+    @pytest.fixture(scope="session")
+    def content_writer(write_copy: Path) -> Iterator[McpSession]:
+        """The server at write level 1 (content only) over the write copy."""
+>       with served(write_copy, "--level", "1", "--actor", WRITER) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+extra_path = (), options = ('--level', '1', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+____________ ERROR at setup of test_no_tool_writes_a_python_module _____________
+
+write_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+
+    @pytest.fixture(scope="session")
+    def writer(write_copy: Path) -> Iterator[McpSession]:
+        """The server at write level 2 (content and rules as data) over the write copy."""
+>       with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+extra_path = (), options = ('--level', '2', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_________ ERROR at setup of test_write_tools_take_typed_arguments_only _________
+
+write_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+
+    @pytest.fixture(scope="session")
+    def writer(write_copy: Path) -> Iterator[McpSession]:
+        """The server at write level 2 (content and rules as data) over the write copy."""
+>       with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+extra_path = (), options = ('--level', '2', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+______ ERROR at setup of test_every_read_tool_leaves_the_store_untouched _______
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_____ ERROR at setup of test_logging_a_signal_is_not_a_write_to_the_store ______
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_______ ERROR at setup of test_tools_are_the_read_surface_and_read_only ________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+___________ ERROR at setup of test_list_models_is_the_store_registry ___________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+____ ERROR at setup of test_documents_are_the_files_of_the_store[Item-item] ____
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_ ERROR at setup of test_documents_are_the_files_of_the_store[RuleDoc-ruledoc] _
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_ ERROR at setup of test_documents_are_the_files_of_the_store[RelationDoc-relationdoc] _
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+____________________ ERROR at setup of test_read_one_field _____________________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_______________ ERROR at setup of test_largest_model_comes_paged _______________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+__________________ ERROR at setup of test_select_by_predicate __________________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_________________ ERROR at setup of test_neighbors_by_relation _________________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_______________ ERROR at setup of test_neighborhood_by_direction _______________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+____________________ ERROR at setup of test_relation_types _____________________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_______ ERROR at setup of test_undeclared_answers_empty_with_explanation _______
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_____________ ERROR at setup of test_composed_and_projection_views _____________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+____________________ ERROR at setup of test_check_integrity ____________________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_______ ERROR at setup of test_unknown_names_are_signals_and_not_errors ________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+______ ERROR at setup of test_every_signal_reaches_the_log_with_its_entry ______
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+__________ ERROR at setup of test_list_signals_is_paged_and_filtered ___________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+___ ERROR at setup of test_an_unknown_tool_is_a_signal_with_near_tool_names ____
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+___ ERROR at setup of test_an_unknown_argument_is_a_signal_and_nothing_runs ____
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_______ ERROR at setup of test_undo_changes_is_a_not_implemented_signal ________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+______________ ERROR at setup of test_a_found_answer_logs_nothing ______________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+____________ ERROR at setup of test_the_log_is_not_the_stores_state ____________
+
+store_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+copy_digest_before = {'/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world/.gitignore': '1330dabd06d837415d59b15eaf960ab6fa118d06732978ae...ad0/world/.sldb/core/documents/Item/i10.yaml': '844d82ed1605c14bc9e8d8ae6422e9445a703855234f6ec93f629c835c6354e2', ...}
+
+    @pytest.fixture(scope="session")
+    def mcp(store_copy: Path, copy_digest_before: dict[str, str]) -> Iterator[McpSession]:
+        """The server at level 0 (the default) over the read copy."""
+>       with served(store_copy) as session:
+             ^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-read0/world')
+extra_path = (), options = ()
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_ ERROR at setup of test_the_writer_signs_its_signals_and_a_missing_level_is_explained _
+
+write_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+
+    @pytest.fixture(scope="session")
+    def writer(write_copy: Path) -> Iterator[McpSession]:
+        """The server at write level 2 (content and rules as data) over the write copy."""
+>       with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+extra_path = (), options = ('--level', '2', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+__________________ ERROR at setup of test_cycle_on_a_document __________________
+
+write_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+
+    @pytest.fixture(scope="session")
+    def writer(write_copy: Path) -> Iterator[McpSession]:
+        """The server at write level 2 (content and rules as data) over the write copy."""
+>       with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+extra_path = (), options = ('--level', '2', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+___________________ ERROR at setup of test_cycle_on_an_edge ____________________
+
+write_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+
+    @pytest.fixture(scope="session")
+    def writer(write_copy: Path) -> Iterator[McpSession]:
+        """The server at write level 2 (content and rules as data) over the write copy."""
+>       with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+extra_path = (), options = ('--level', '2', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_ ERROR at setup of test_a_change_to_a_store_that_moved_since_the_proposal_is_rejected _
+
+write_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+
+    @pytest.fixture(scope="session")
+    def writer(write_copy: Path) -> Iterator[McpSession]:
+        """The server at write level 2 (content and rules as data) over the write copy."""
+>       with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+extra_path = (), options = ('--level', '2', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_____________ ERROR at setup of test_an_edited_proposal_is_refused _____________
+
+write_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+
+    @pytest.fixture(scope="session")
+    def writer(write_copy: Path) -> Iterator[McpSession]:
+        """The server at write level 2 (content and rules as data) over the write copy."""
+>       with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+extra_path = (), options = ('--level', '2', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_____ ERROR at setup of test_an_error_rule_refuses_the_change_and_is_named _____
+
+write_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+
+    @pytest.fixture(scope="session")
+    def writer(write_copy: Path) -> Iterator[McpSession]:
+        """The server at write level 2 (content and rules as data) over the write copy."""
+>       with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+extra_path = (), options = ('--level', '2', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+___________ ERROR at setup of test_an_alert_rule_is_reported_by_name ___________
+
+write_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+
+    @pytest.fixture(scope="session")
+    def writer(write_copy: Path) -> Iterator[McpSession]:
+        """The server at write level 2 (content and rules as data) over the write copy."""
+>       with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+extra_path = (), options = ('--level', '2', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_____ ERROR at setup of test_an_edge_against_its_relation_type_is_reported _____
+
+write_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+
+    @pytest.fixture(scope="session")
+    def writer(write_copy: Path) -> Iterator[McpSession]:
+        """The server at write level 2 (content and rules as data) over the write copy."""
+>       with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+extra_path = (), options = ('--level', '2', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_ ERROR at setup of test_cardinality_and_condition_of_a_declared_type_are_reported _
+
+write_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+
+    @pytest.fixture(scope="session")
+    def writer(write_copy: Path) -> Iterator[McpSession]:
+        """The server at write level 2 (content and rules as data) over the write copy."""
+>       with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-write0/world')
+extra_path = (), options = ('--level', '2', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+=================================== FAILURES ===================================
+____________ test_an_extension_that_does_not_exist_stops_the_server ____________
+
+extended_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-extension0/world')
+
+    def test_an_extension_that_does_not_exist_stops_the_server(extended_copy: Path) -> None:
+        for spec in ("no_such_module_for_sldb:register", "example_extension:no_such_function", "not-a-spec"):
+            done = subprocess.run([sys.executable, "-m", "sldb", "mcp", "--store", str(extended_copy / ".sldb"), "--extension", spec], capture_output=True, text=True, timeout=120, cwd=extended_copy, env=server_env((HERE,)))
+>           assert done.returncode != 0 and spec.split(":")[0] in done.stderr + done.stdout, (spec, done.stderr)
+E           AssertionError: ('no_such_module_for_sldb:register', "sldb mcp needs the optional `mcp` extra: install it with `pip install 'structuredLanguageDB[mcp]'` (or `uv pip install 'mcp>=2.2'`).
+E             ")
+E           assert (2 != 0 and 'no_such_module_for_sldb' in ("sldb mcp needs the optional `mcp` extra: install it with `pip install 'structuredLanguageDB[mcp]'` (or `uv pip install 'mcp>=2.2'`).\n" + ''))
+E            +  where 2 = CompletedProcess(args=['/mnt/ssd/proyectos/SLDB_1/sldb/.venv/bin/python3', '-m', 'sldb', 'mcp', '--store', '/dev/shm/p...e optional `mcp` extra: install it with `pip install 'structuredLanguageDB[mcp]'` (or `uv pip install 'mcp>=2.2'`).\n").returncode
+E            +  and   "sldb mcp needs the optional `mcp` extra: install it with `pip install 'structuredLanguageDB[mcp]'` (or `uv pip install 'mcp>=2.2'`).\n" = CompletedProcess(args=['/mnt/ssd/proyectos/SLDB_1/sldb/.venv/bin/python3', '-m', 'sldb', 'mcp', '--store', '/dev/shm/p...e optional `mcp` extra: install it with `pip install 'structuredLanguageDB[mcp]'` (or `uv pip install 'mcp>=2.2'`).\n").stderr
+E            +  and   '' = CompletedProcess(args=['/mnt/ssd/proyectos/SLDB_1/sldb/.venv/bin/python3', '-m', 'sldb', 'mcp', '--store', '/dev/shm/p...e optional `mcp` extra: install it with `pip install 'structuredLanguageDB[mcp]'` (or `uv pip install 'mcp>=2.2'`).\n").stdout
+
+tests/mcp/test_extension.py:67: AssertionError
+__________ test_without_validators_propose_and_apply_answer_as_before __________
+
+built_world = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-world0/world')
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x75eb764bdf30>, _basetemp=PosixPath('/dev/shm/pytest-of-robocop/pytest-616'), _retention_count=3, _retention_policy='all')
+
+    def test_without_validators_propose_and_apply_answer_as_before(built_world: Path, tmp_path_factory: pytest.TempPathFactory) -> None:
+        root = copy_of(built_world, tmp_path_factory, "mcp-no-validators")
+>       with served(root, "--level", "1", "--actor", WRITER) as plain:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/test_extension.py:111: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-616/mcp-no-validators0/world')
+extra_path = (), options = ('--level', '1', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/mcp/test_extension.py::test_an_extension_that_does_not_exist_stops_the_server
+FAILED tests/mcp/test_extension.py::test_without_validators_propose_and_apply_answer_as_before
+ERROR tests/mcp/test_dry_run.py::test_a_dry_run_answers_what_would_be_written_and_writes_nothing
+ERROR tests/mcp/test_extension.py::test_the_extension_tools_join_the_built_in_ones
+ERROR tests/mcp/test_extension.py::test_an_extension_tool_pages_like_the_built_in_ones
+ERROR tests/mcp/test_extension.py::test_an_extension_tool_sees_the_level_and_the_actor_of_the_server
+ERROR tests/mcp/test_extension.py::test_an_extension_tool_inherits_the_signal_log
+ERROR tests/mcp/test_extension.py::test_a_validator_error_blocks_propose_and_apply_and_writes_nothing
+ERROR tests/mcp/test_extension.py::test_a_validator_alert_lets_the_batch_through_and_rides_in_the_answer
+ERROR tests/mcp/test_mutability.py::test_level_0_serves_no_write_tool_and_naming_one_is_a_signal
+ERROR tests/mcp/test_mutability.py::test_level_1_refuses_rules_before_evaluating_anything
+ERROR tests/mcp/test_mutability.py::test_level_1_refuses_to_apply_a_rules_proposal
+ERROR tests/mcp/test_mutability.py::test_level_1_writes_content - ModuleNotFo...
+ERROR tests/mcp/test_mutability.py::test_no_tool_writes_a_python_module - Mod...
+ERROR tests/mcp/test_mutability.py::test_write_tools_take_typed_arguments_only
+ERROR tests/mcp/test_no_writes.py::test_every_read_tool_leaves_the_store_untouched
+ERROR tests/mcp/test_no_writes.py::test_logging_a_signal_is_not_a_write_to_the_store
+ERROR tests/mcp/test_read_tools.py::test_tools_are_the_read_surface_and_read_only
+ERROR tests/mcp/test_read_tools.py::test_list_models_is_the_store_registry - ...
+ERROR tests/mcp/test_read_tools.py::test_documents_are_the_files_of_the_store[Item-item]
+ERROR tests/mcp/test_read_tools.py::test_documents_are_the_files_of_the_store[RuleDoc-ruledoc]
+ERROR tests/mcp/test_read_tools.py::test_documents_are_the_files_of_the_store[RelationDoc-relationdoc]
+ERROR tests/mcp/test_read_tools.py::test_read_one_field - ModuleNotFoundError...
+ERROR tests/mcp/test_read_tools.py::test_largest_model_comes_paged - ModuleNo...
+ERROR tests/mcp/test_read_tools.py::test_select_by_predicate - ModuleNotFound...
+ERROR tests/mcp/test_read_tools.py::test_neighbors_by_relation - ModuleNotFou...
+ERROR tests/mcp/test_read_tools.py::test_neighborhood_by_direction - ModuleNo...
+ERROR tests/mcp/test_read_tools.py::test_relation_types - ModuleNotFoundError...
+ERROR tests/mcp/test_read_tools.py::test_undeclared_answers_empty_with_explanation
+ERROR tests/mcp/test_read_tools.py::test_composed_and_projection_views - Modu...
+ERROR tests/mcp/test_read_tools.py::test_check_integrity - ModuleNotFoundErro...
+ERROR tests/mcp/test_signals.py::test_unknown_names_are_signals_and_not_errors
+ERROR tests/mcp/test_signals.py::test_every_signal_reaches_the_log_with_its_entry
+ERROR tests/mcp/test_signals.py::test_list_signals_is_paged_and_filtered - Mo...
+ERROR tests/mcp/test_signals.py::test_an_unknown_tool_is_a_signal_with_near_tool_names
+ERROR tests/mcp/test_signals.py::test_an_unknown_argument_is_a_signal_and_nothing_runs
+ERROR tests/mcp/test_signals.py::test_undo_changes_is_a_not_implemented_signal
+ERROR tests/mcp/test_signals.py::test_a_found_answer_logs_nothing - ModuleNot...
+ERROR tests/mcp/test_signals.py::test_the_log_is_not_the_stores_state - Modul...
+ERROR tests/mcp/test_signals.py::test_the_writer_signs_its_signals_and_a_missing_level_is_explained
+ERROR tests/mcp/test_write_tools.py::test_cycle_on_a_document - ModuleNotFoun...
+ERROR tests/mcp/test_write_tools.py::test_cycle_on_an_edge - ModuleNotFoundEr...
+ERROR tests/mcp/test_write_tools.py::test_a_change_to_a_store_that_moved_since_the_proposal_is_rejected
+ERROR tests/mcp/test_write_tools.py::test_an_edited_proposal_is_refused - Mod...
+ERROR tests/mcp/test_write_tools.py::test_an_error_rule_refuses_the_change_and_is_named
+ERROR tests/mcp/test_write_tools.py::test_an_alert_rule_is_reported_by_name
+ERROR tests/mcp/test_write_tools.py::test_an_edge_against_its_relation_type_is_reported
+ERROR tests/mcp/test_write_tools.py::test_cardinality_and_condition_of_a_declared_type_are_reported
+2 failed, 2958 passed, 7 skipped, 1 xfailed, 2 warnings, 46 errors in 715.88s (0:11:55)
+
+[1m── selfdoc ──[0m
+{
+  "ok": true,
+  "documents": 162,
+  "missing": [],
+  "changed": [
+    "knowledge/surfaces/surface-sldb-anchors.md",
+    "knowledge/commands/cmd-sldb-anchors-check.md",
+    "knowledge/commands/cmd-sldb-anchors-record.md",
+    "knowledge/surfaces/surface-sldb-ast.md",
+    "knowledge/commands/cmd-sldb-ast-schema.md",
+    "knowledge/commands/cmd-sldb-ast-show.md",
+    "knowledge/commands/cmd-sldb-bench.md",
+    "knowledge/surfaces/surface-sldb-bench.md",
+    "knowledge/surfaces/surface-sldb-docs.md",
+    "knowledge/commands/cmd-sldb-docs-compose.md",
+    "knowledge/commands/cmd-sldb-docs-create.md",
+    "knowledge/commands/cmd-sldb-docs-delete.md",
+    "knowledge/commands/cmd-sldb-docs-exists.md",
+    "knowledge/commands/cmd-sldb-docs-explore.md",
+    "knowledge/commands/cmd-sldb-docs-history.md",
+    "knowledge/commands/cmd-sldb-docs-list.md",
+    "knowledge/commands/cmd-sldb-docs-recover.md",
+    "knowledge/commands/cmd-sldb-docs-replace.md",
+    "knowledge/commands/cmd-sldb-docs-select.md",
+    "knowledge/commands/cmd-sldb-docs-show.md",
+    "knowledge/commands/cmd-sldb-docs-track.md",
+    "knowledge/commands/cmd-sldb-docs-untrack.md",
+    "knowledge/commands/cmd-sldb-docs-update.md",
+    "knowledge/surfaces/surface-sldb-edges.md",
+    "knowledge/commands/cmd-sldb-edges-check.md",
+    "knowledge/commands/cmd-sldb-edges-init.md",
+    "knowledge/commands/cmd-sldb-edges-rebuild.md",
+    "knowledge/commands/cmd-sldb-edges-referrers.md",
+    "knowledge/commands/cmd-sldb-edges-rewrite.md",
+    "knowledge/commands/cmd-sldb-edges-show.md",
+    "knowledge/commands/cmd-sldb-edges-unresolved.md",
+    "knowledge/commands/cmd-sldb-example.md",
+    "knowledge/surfaces/surface-sldb-example.md",
+    "knowledge/commands/cmd-sldb-explore.md",
+    "knowledge/surfaces/surface-sldb-explore.md",
+    "knowledge/commands/cmd-sldb-extract.md",
+    "knowledge/surfaces/surface-sldb-extract.md",
+    "knowledge/commands/cmd-sldb-faq.md",
+    "knowledge/surfaces/surface-sldb-faq.md",
+    "knowledge/surfaces/surface-sldb-fields.md",
+    "knowledge/commands/cmd-sldb-fields-append.md",
+    "knowledge/commands/cmd-sldb-fields-clean.md",
+    "knowledge/commands/cmd-sldb-fields-create.md",
+    "knowledge/commands/cmd-sldb-fields-query.md",
+    "knowledge/commands/cmd-sldb-fields-remove.md",
+    "knowledge/commands/cmd-sldb-fields-show.md",
+    "knowledge/commands/cmd-sldb-fields-update.md",
+    "knowledge/commands/cmd-sldb-find.md",
+    "knowledge/surfaces/surface-sldb-find.md",
+    "knowledge/surfaces/surface-sldb-graph.md",
+    "knowledge/commands/cmd-sldb-graph-central.md",
+    "knowledge/commands/cmd-sldb-graph-components.md",
+    "knowledge/commands/cmd-sldb-graph-cycles.md",
+    "knowledge/commands/cmd-sldb-graph-get.md",
+    "knowledge/commands/cmd-sldb-graph-ingest-sldb.md",
+    "knowledge/commands/cmd-sldb-graph-list.md",
+    "knowledge/commands/cmd-sldb-graph-neighborhood.md",
+    "knowledge/commands/cmd-sldb-graph-order.md",
+    "knowledge/commands/cmd-sldb-graph-path.md",
+    "knowledge/commands/cmd-sldb-graph-project-edges.md",
+    "knowledge/commands/cmd-sldb-graph-project-missing.md",
+    "knowledge/commands/cmd-sldb-graph-project-nodes.md",
+    "knowledge/commands/cmd-sldb-graph-query.md",
+    "knowledge/commands/cmd-sldb-graph-similar.md",
+    "knowledge/commands/cmd-sldb-graph-snapshot-load.md",
+    "knowledge/commands/cmd-sldb-graph-snapshot-save.md",
+    "knowledge/commands/cmd-sldb-help.md",
+    "knowledge/surfaces/surface-sldb-help.md",
+    "knowledge/commands/cmd-sldb-inbox.md",
+    "knowledge/surfaces/surface-sldb-inbox.md",
+    "knowledge/commands/cmd-sldb-init.md",
+    "knowledge/surfaces/surface-sldb-init.md",
+    "knowledge/surfaces/surface-sldb-journal.md",
+    "knowledge/commands/cmd-sldb-journal-show.md",
+    "knowledge/commands/cmd-sldb-journal-verify.md",
+    "knowledge/surfaces/surface-sldb-legacy.md",
+    "knowledge/commands/cmd-sldb-legacy-compose.md",
+    "knowledge/commands/cmd-sldb-legacy-find.md",
+    "knowledge/commands/cmd-sldb-legacy-get.md",
+    "knowledge/commands/cmd-sldb-legacy-glob.md",
+    "knowledge/commands/cmd-sldb-legacy-ls.md",
+    "knowledge/commands/cmd-sldb-legacy-recover.md",
+    "knowledge/commands/cmd-sldb-lint.md",
+    "knowledge/surfaces/surface-sldb-lint.md",
+    "knowledge/commands/cmd-sldb-mcp.md",
+    "knowledge/surfaces/surface-sldb-mcp.md",
+    "knowledge/surfaces/surface-sldb-models.md",
+    "knowledge/commands/cmd-sldb-models-add.md",
+    "knowledge/commands/cmd-sldb-models-check.md",
+    "knowledge/commands/cmd-sldb-models-create.md",
+    "knowledge/commands/cmd-sldb-models-fields-add.md",
+    "knowledge/commands/cmd-sldb-models-fields-remove.md",
+    "knowledge/commands/cmd-sldb-models-inherit.md",
+    "knowledge/commands/cmd-sldb-models-list.md",
+    "knowledge/commands/cmd-sldb-models-metadata-edit.md",
+    "knowledge/commands/cmd-sldb-models-remove.md",
+    "knowledge/commands/cmd-sldb-models-show.md",
+    "knowledge/commands/cmd-sldb-models-template-edit.md",
+    "knowledge/commands/cmd-sldb-models-template-show.md",
+    "knowledge/commands/cmd-sldb-models-update.md",
+    "knowledge/commands/cmd-sldb-models-validate.md",
+    "knowledge/surfaces/surface-sldb-notations.md",
+    "knowledge/commands/cmd-sldb-notations-from-graph.md",
+    "knowledge/commands/cmd-sldb-notations-list.md",
+    "knowledge/commands/cmd-sldb-notations-resolve.md",
+    "knowledge/commands/cmd-sldb-notations-sync.md",
+    "knowledge/commands/cmd-sldb-notations-view.md",
+    "knowledge/surfaces/surface-sldb-predicates.md",
+    "knowledge/commands/cmd-sldb-predicates-add.md",
+    "knowledge/commands/cmd-sldb-predicates-export.md",
+    "knowledge/commands/cmd-sldb-predicates-list.md",
+    "knowledge/commands/cmd-sldb-predicates-remove.md",
+    "knowledge/commands/cmd-sldb-predicates-show.md",
+    "knowledge/commands/cmd-sldb-predicates-sync.md",
+    "knowledge/commands/cmd-sldb-predicates-validate.md",
+    "knowledge/commands/cmd-sldb-render.md",
+    "knowledge/surfaces/surface-sldb-render.md",
+    "knowledge/surfaces/surface-sldb-rules.md",
+    "knowledge/commands/cmd-sldb-rules-check.md",
+    "knowledge/commands/cmd-sldb-rules-explain.md",
+    "knowledge/surfaces/surface-sldb-sections.md",
+    "knowledge/commands/cmd-sldb-sections-fields.md",
+    "knowledge/commands/cmd-sldb-sections-find.md",
+    "knowledge/commands/cmd-sldb-sections-show.md",
+    "knowledge/surfaces/surface-sldb-selfdoc.md",
+    "knowledge/commands/cmd-sldb-selfdoc-check.md",
+    "knowledge/commands/cmd-sldb-selfdoc-python-check.md",
+    "knowledge/commands/cmd-sldb-selfdoc-python-scan.md",
+    "knowledge/commands/cmd-sldb-selfdoc-python-sync.md",
+    "knowledge/commands/cmd-sldb-selfdoc-scan.md",
+    "knowledge/commands/cmd-sldb-selfdoc-sync.md",
+    "knowledge/surfaces/surface-sldb-semantic.md",
+    "knowledge/commands/cmd-sldb-semantic-equivalent-add.md",
+    "knowledge/commands/cmd-sldb-semantic-parent-add.md",
+    "knowledge/commands/cmd-sldb-semantic-parent-remove.md",
+    "knowledge/commands/cmd-sldb-semantic-show.md",
+    "knowledge/commands/cmd-sldb-serve.md",
+    "knowledge/surfaces/surface-sldb-serve.md",
+    "knowledge/surfaces/surface-sldb-stores.md",
+    "knowledge/commands/cmd-sldb-stores-add.md",
+    "knowledge/commands/cmd-sldb-stores-build.md",
+    "knowledge/commands/cmd-sldb-stores-check.md",
+    "knowledge/commands/cmd-sldb-stores-declare.md",
+    "knowledge/commands/cmd-sldb-stores-init.md",
+    "knowledge/commands/cmd-sldb-stores-list.md",
+    "knowledge/commands/cmd-sldb-stores-migrate-hashes.md",
+    "knowledge/commands/cmd-sldb-stores-migrate-layout.md",
+    "knowledge/commands/cmd-sldb-stores-reconcile.md",
+    "knowledge/commands/cmd-sldb-stores-remove.md",
+    "knowledge/commands/cmd-sldb-stores-scaffold.md",
+    "knowledge/commands/cmd-sldb-stores-semantic-export.md",
+    "knowledge/commands/cmd-sldb-stores-semantic-map.md",
+    "knowledge/commands/cmd-sldb-stores-update.md",
+    "knowledge/surfaces/surface-sldb-tags.md",
+    "knowledge/commands/cmd-sldb-tags-check.md",
+    "knowledge/commands/cmd-sldb-tags-namespaces.md",
+    "knowledge/commands/cmd-sldb-tags-tree.md",
+    "knowledge/commands/cmd-sldb-validate.md",
+    "knowledge/surfaces/surface-sldb-validate.md",
+    "knowledge/surfaces/surface-sldb-views.md",
+    "knowledge/commands/cmd-sldb-views-list.md",
+    "knowledge/commands/cmd-sldb-views-run.md"
+  ],
+  "untracked": [],
+  "stale_indexes": [],
+  "removed": [],
+  "renamed": [],
+  "semantic_gaps": 0,
+  "graph_stale": [],
+  "graph_errors": [],
+  "undeclared": 0,
+  "unexplained": [],
+  "unresolved_references": [],
+  "purpose_conflicts": [],
+  "metadata_errors": [],
+  "written": 0,
+  "errors": [],
+  "alerts": [
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-anchors.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-anchors-check.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-anchors-record.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-ast.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-ast-schema.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-ast-show.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-bench.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-bench.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-docs.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-docs-compose.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-docs-create.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-docs-delete.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-docs-exists.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-docs-explore.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-docs-history.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-docs-list.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-docs-recover.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-docs-replace.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-docs-select.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-docs-show.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-docs-track.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-docs-untrack.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-docs-update.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-edges.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-edges-check.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-edges-init.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-edges-rebuild.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-edges-referrers.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-edges-rewrite.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-edges-show.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-edges-unresolved.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-example.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-example.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-explore.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-explore.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-extract.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-extract.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-faq.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-faq.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-fields.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-fields-append.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-fields-clean.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-fields-create.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-fields-query.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-fields-remove.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-fields-show.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-fields-update.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-find.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-find.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-graph.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-graph-central.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-graph-components.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-graph-cycles.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-graph-get.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-graph-ingest-sldb.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-graph-list.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-graph-neighborhood.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-graph-order.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-graph-path.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-graph-project-edges.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-graph-project-missing.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-graph-project-nodes.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-graph-query.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-graph-similar.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-graph-snapshot-load.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-graph-snapshot-save.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-help.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-help.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-inbox.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-inbox.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-init.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-init.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-journal.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-journal-show.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-journal-verify.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-legacy.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-legacy-compose.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-legacy-find.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-legacy-get.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-legacy-glob.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-legacy-ls.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-legacy-recover.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-lint.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-lint.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-mcp.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-mcp.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-models.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-models-add.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-models-check.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-models-create.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-models-fields-add.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-models-fields-remove.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-models-inherit.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-models-list.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-models-metadata-edit.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-models-remove.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-models-show.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-models-template-edit.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-models-template-show.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-models-update.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-models-validate.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-notations.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-notations-from-graph.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-notations-list.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-notations-resolve.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-notations-sync.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-notations-view.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-predicates.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-predicates-add.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-predicates-export.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-predicates-list.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-predicates-remove.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-predicates-show.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-predicates-sync.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-predicates-validate.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-render.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-render.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-rules.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-rules-check.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-rules-explain.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-sections.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-sections-fields.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-sections-find.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-sections-show.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-selfdoc.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-selfdoc-check.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-selfdoc-python-check.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-selfdoc-python-scan.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-selfdoc-python-sync.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-selfdoc-scan.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-selfdoc-sync.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-semantic.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-semantic-equivalent-add.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-semantic-parent-add.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-semantic-parent-remove.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-semantic-show.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-serve.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-serve.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-stores.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-stores-add.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-stores-build.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-stores-check.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-stores-declare.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-stores-init.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-stores-list.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-stores-migrate-hashes.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-stores-migrate-layout.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-stores-reconcile.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-stores-remove.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-stores-scaffold.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-stores-semantic-export.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-stores-semantic-map.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-stores-update.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-tags.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-tags-check.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-tags-namespaces.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-tags-tree.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-validate.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-validate.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/surfaces/surface-sldb-views.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-views-list.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    },
+    {
+      "level": "alert",
+      "code": "selfdoc/changed",
+      "subject": "knowledge/commands/cmd-sldb-views-run.md",
+      "what": "its generated fields are stale",
+      "fix": "sldb selfdoc sync (python-sync for the Python variants)",
+      "document": null
+    }
+  ]
+}
+
+[31mFALLAN: afirmaciones pruebas[0m
+===== rc=1
+
+===== $ flock /dev/shm/sldb1-tests.lock uv run --frozen --extra code --extra dev sldb stores build --check
+alert: [rules/rule-closeout-alert-pill-graduation] TaskRefactorDoc:task-r6-el-tokenizer-y-el-parser-del-lenguaje-de-reglas-bajan-a-core-para-cerrar-la-arista-de-capas-model: A task that binds pills graduates them into an atom; reference the atom it graduated to. | not nonempty(pills) or any(references: model <= AtomDoc) (seen: {"pills":["desk/contexts/pill-pill-alcance-real-del-traslado-del-parser-a-core.md"]})
+
+# Detenido por orden del coordinador/integrador: `flock /dev/shm/sldb1-tests.lock ... sldb stores build --check`
+# nunca obtuvo el cerrojo (lo retenía la suite de integración, pid 2395270) y se mató sin ejecutarse.
+# El chequeo queda delegado al integrador; no tiene rc propio.

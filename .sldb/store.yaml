@@ -311,6 +311,8 @@ include:
   - desk/inbox/20261116-094415-unclear-models-validate-falla-con-no-module-named-deskops-base-para-modelos-deskops-models.md
   - desk/inbox/20261116-101851-suggestion-sldb-serve-list-views-compone-el-ndice-federado-de-toda-la-m-quina-en-fr-o-y-sin-lock-2-5-gb-por-proceso.md
   - desk/inbox/20261115-195033-unclear-un-store-por-rama-no-hay-forma-de-unir-dos-stores-al-mergear.md
+  - desk/inbox/20261116-161013-suggestion-fields-update-parsea-el-valor-como-yaml-y-el-inbox-no-tiene-promote-matriz-ux-de-sldb-ui.md
+  - desk/inbox/20261116-162239-unclear-docs-track-force-no-fuerza-sigue-diciendo-already-tracked.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -500,6 +502,10 @@ include:
     name: run-deskops-e-26e8a3105895
   - path: runs/subagents/20261116-test-c7-changelog/run.md
     name: run-deskops-t-addc5ecb8b8c
+  - path: runs/subagents/20261116-exec-guardas/run.md
+    name: run-deskops-e-4e4ba795934b
+  - path: runs/subagents/20261116-test-guardas/run.md
+    name: run-deskops-t-a6ddcc3e4afc
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -778,6 +784,9 @@ include:
   - desk/materializations/materialization-c4-sections-section-sync.md
   - desk/materializations/materialization-c5-mcp-tools.md
   - desk/materializations/materialization-c6-version-package-version.md
+  - desk/materializations/materialization-guardas-apply-batch.md
+  - desk/materializations/materialization-guardas-lock.md
+  - desk/materializations/materialization-guardas-test-apply-batch-lock.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -1427,6 +1436,40 @@ include:
     name: review-task-la-puerta-de-afirmaciones-vuelve-a-verde-el-changelog-no-nombra-la-ruta-inexistente-docs-architectur-evidence-atom-1
   - path: desk/reviews/task-la-puerta-de-afirmaciones-vuelve-a-verde-el-changelog-no-nombra-la-ruta-inexistente-docs-architectur/evidence-materialization-1.md
     name: review-task-la-puerta-de-afirmaciones-vuelve-a-verde-el-changelog-no-nombra-la-ruta-inexistente-docs-architectur-evidence-materialization-1
+  - path: desk/reviews/task-apply-batch-devuelve-el-lote-inverso-con-guardas-deshacer-es-de-sldb-inbox-20261115-123855/preflight-2.md
+    name: review-task-apply-batch-devuelve-el-lote-inverso-con-guardas-deshacer-es-de-sldb-inbox-20261115-123855-preflight-2
+  - path: desk/reviews/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2/preflight-1.md
+    name: review-task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2-preflight-1
+  - path: desk/reviews/task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3/preflight-1.md
+    name: review-task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3-preflight-1
+  - path: desk/reviews/task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t/preflight-1.md
+    name: review-task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t-preflight-1
+  - path: desk/reviews/task-sldb-serve-list-views-deja-de-componer-el-índice-federado-de-toda-la-máquina-y-compose-edge-index-co/preflight-1.md
+    name: review-task-sldb-serve-list-views-deja-de-componer-el-índice-federado-de-toda-la-máquina-y-compose-edge-index-co-preflight-1
+  - path: desk/reviews/task-apply-batch-devuelve-el-lote-inverso-con-guardas-deshacer-es-de-sldb-inbox-20261115-123855/bundle-1.md
+    name: review-task-apply-batch-devuelve-el-lote-inverso-con-guardas-deshacer-es-de-sldb-inbox-20261115-123855-bundle-1
+  - path: desk/reviews/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2/bundle-1.md
+    name: review-task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2-bundle-1
+  - path: desk/reviews/task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3/bundle-1.md
+    name: review-task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3-bundle-1
+  - path: desk/reviews/task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t/bundle-1.md
+    name: review-task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t-bundle-1
+  - path: desk/reviews/task-sldb-serve-list-views-deja-de-componer-el-índice-federado-de-toda-la-máquina-y-compose-edge-index-co/bundle-1.md
+    name: review-task-sldb-serve-list-views-deja-de-componer-el-índice-federado-de-toda-la-máquina-y-compose-edge-index-co-bundle-1
+  - path: desk/reviews/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2/preflight-2.md
+    name: review-task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2-preflight-2
+  - path: desk/reviews/task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3/preflight-2.md
+    name: review-task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3-preflight-2
+  - path: desk/reviews/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2/bundle-2.md
+    name: review-task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2-bundle-2
+  - path: desk/reviews/task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3/bundle-2.md
+    name: review-task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3-bundle-2
+  - path: desk/reviews/task-apply-batch-guardas-expected-source-hash-bajo-el-cerrojo-del-store-inbox-20261115-022444/evidence-tests-1.md
+    name: review-task-apply-batch-guardas-expected-source-hash-bajo-el-cerrojo-del-store-inbox-20261115-022444-evidence-tests-1
+  - path: desk/reviews/task-apply-batch-guardas-expected-source-hash-bajo-el-cerrojo-del-store-inbox-20261115-022444/evidence-commit-1.md
+    name: review-task-apply-batch-guardas-expected-source-hash-bajo-el-cerrojo-del-store-inbox-20261115-022444-evidence-commit-1
+  - path: desk/reviews/task-apply-batch-guardas-expected-source-hash-bajo-el-cerrojo-del-store-inbox-20261115-022444/evidence-atom-1.md
+    name: review-task-apply-batch-guardas-expected-source-hash-bajo-el-cerrojo-del-store-inbox-20261115-022444-evidence-atom-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -1436,7 +1479,6 @@ include:
   - desk/tasks/task-reglas-rule-graph-no-compone-la-federación-entera-de-stores-enlazados-27-s-por-comando-de-deskops.md
   - desk/tasks/task-sldb-create-document-y-track-document-file-evalúan-las-reglas-on-write-h4-declare-write-conserva-la.md
   - desk/tasks/task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430.md
-  - desk/tasks/task-apply-batch-guardas-expected-source-hash-bajo-el-cerrojo-del-store-inbox-20261115-022444.md
   - desk/tasks/task-apply-batch-devuelve-el-lote-inverso-con-guardas-deshacer-es-de-sldb-inbox-20261115-123855.md
   - desk/tasks/task-apply-batch-aristas-validadas-antes-de-escribir-alertas-on-write-en-batchreport-rules-check-sobre-re.md
   - desk/tasks/task-api-pública-búsqueda-rankeada-escrituras-recientes-y-store-hash-como-precondición-atómica-brechas-de.md

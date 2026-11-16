@@ -1,0 +1,36 @@
+name: review-task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3-bundle-1
+path: desk/reviews/task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3/bundle-1.md
+source_hash: 20410922ebf8dc2149bd2f5b07d783f862f4cf62a5bd29ee6ea29d148fab90da
+content_hash: 5a723a2ff76425d7157446dbc0fbb4857570c4d977c9be15dad7858172ad1e7d
+field_hashes:
+  id: ac9d6a3c01ee158218dcf620402fe01c10afac644d3c6baef5905cfbab6ea6eb
+  title: b189a2ebb51ff3045de12b5fe0b19c0d92993fe08aebac542f422a603f3ead35
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: b19cf4e987d245d26703f32a89b26420e884500f4a737a414276fadb3442a6b1
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: ba931e42edba1b7ede881edaf89d1d95a2408843d07e2751c1e4bcfb00906ac5
+  input_sha256: 65c62f1f1c09e30699aba66c199d2226f04438ecb3a2546bb5b293c07926262a
+  output_sha256: 1186b3515d651a84b41c9a4db1b8ecb239a327258f2361926d17bd998bb5e150
+  verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
+  reason: 870207f4ae3fa46834765b0a0c7f048eb40c2b5f7ee2d503d128829aef05a77d
+  created_at: 0df7d3da2c31356a7d716936f4406a06af587148163f68c7acf3bf86a3aef000
+  disposed_at: d3958d68a4ef7deb47d7a20baab8d7c545d138fa4c49fd8b57324f0f07c8b206
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 21a3511b92015dfd536abc752932db020cc51b9615a1a945b607ab8409b6c060
+  disposition: 8ca9469c86d75bf9c5b46f1b257f2c7e5907c4c817d75577f8fdc1a66ebdee56
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T17:33:07Z'
+  authority: generated
+  via: save_document_payload

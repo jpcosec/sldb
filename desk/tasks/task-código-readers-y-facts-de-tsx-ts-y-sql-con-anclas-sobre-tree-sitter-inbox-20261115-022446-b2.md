@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T16:16:44Z'
+  at: '2026-11-16T17:34:37Z'
   authority: generated
   via: save_document_payload
 id: task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2
@@ -44,7 +44,7 @@ specIR ancla cada nodo extraído a su fuente con las anclas de código de sldb y
 
 _Describe the concrete result this task must produce._
 
-El paquete sldb.code lee TS/TSX y SQL, publica sus hechos de fuente y soporta anclas, con gramáticas tree-sitter como extras opcionales.
+El paquete sldb.code lee TS y TSX, publica sus hechos de fuente con la misma forma que los de Python y soporta anclas code:<ruta>.ts|.tsx::<símbolo>, con tree-sitter-typescript como parte del extra code; SQL lo hace la tarea hermana.
 
 ## Scope
 
@@ -76,4 +76,4 @@ _List the checks required before this task can close._
 
 _Name the observable condition that makes the task complete._
 
-Fixtures reales de TSX y de SQL producen hechos y anclas con estados intact/changed/lost verificados por test; sldb sin los extras sigue funcionando; suite de a un archivo, tools/check.sh y stores build --check.
+Los comandos de Validation pasan; un ancla code:<ruta>.tsx::<Componente> se registra y check_anchors la informa intact, changed al cambiar el cuerpo, lost al borrarla y reconnected al moverla; sldb sin tree-sitter-typescript sigue escaneando .py; la salida de los .py no cambia (NORMALIZATION igual); CHANGELOG y commit; aviso a IR anotado en result-summary.md (IR no está en el registro). La tarea hermana de SQL depende de esta.

@@ -1,18 +1,18 @@
 name: task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3
 path: desk/tasks/task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3.md
-source_hash: 7d7d9857fa7537cbf936dbbf340647df17320d61cd755ff51737eca69f1dd284
-content_hash: 59f0fd52e6ce3ab7eac17f667fb5f37d1126275dc91844528fa9b3d8d32ba64b
+source_hash: 8a626a2c9bddc13baef947615a1c2b0e2a93d1d880ec6a32b89fcf475643c7d6
+content_hash: 8ce9b685a5cf459558f15871bf1491dd48c32c6878ec8fd95d93536bfd9868ac
 field_hashes:
   title: 3c4c3e91829dd4c075a37d7a0be38b7ef6b5442cfc757eb9deaf5c9c17314b91
   id: e5f6447109656fc59544c018637f882dfd5818714edfd59f03ecf2eeaacb1f27
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 3be01b3dd8a83c0f16f026ea55993d919cdcc001bd4bd44b464c83e6db33cd27
   goal: 3d93cecdb95f7b63c489a0f2ec3541e71d88d8ec614766ce8477c8eee7c3e193
-  scope: c26b978db747d23862b07340f54714af19628add99f7c4fef768c50c6cedf0fa
+  scope: bb7ad424211fd7f60d7541ce41ee1cb3feaeca669155f458ce0489e3998a1a70
   references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -26,6 +26,7 @@ field_hashes:
   atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - artifact:task
+- host:robocop2
 - representation.markdown
 - source.document.markdown
 - type.workflow.task
@@ -33,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-16T16:20:43Z'
+  at: '2026-11-16T17:35:36Z'
   authority: generated
   via: save_document_payload
