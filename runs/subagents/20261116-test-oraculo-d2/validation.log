@@ -1,0 +1,193 @@
+$ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q -rs tests/notations/test_component_spec_python.py
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 0.90s
+rc=0
+$ ! grep -n 'import.*spec2viz\|importorskip("spec2viz' tests/notations/test_component_spec_python.py
+rc=0
+$ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev python -c "import spec2viz"
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import spec2viz
+ModuleNotFoundError: No module named 'spec2viz'
+rc=1
+$ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev python -c "import sys; print([p for p in sys.path if \"spec2viz\" in p])"
+[]
+rc=0
+$ grep -n spec2viz tests/notations/test_component_spec_python.py
+3:Parity with spec2viz's `python_ast` generator is checked against a frozen golden
+4:(`goldens/component_spec_python_spec2viz.json`: its modules, classes and `defines` on TREE, generated once
+5:from the spec2viz commit in `_source`), so the test runs without spec2viz installed. Skipped without the
+20:SPEC2VIZ_GOLDEN = Path(__file__).parent / "goldens" / "component_spec_python_spec2viz.json"
+50:def test_matches_spec2viz_on_modules_classes_and_defines(tree):
+rc=0
+$ cat tests/notations/goldens/component_spec_python_spec2viz.json; ls -la tests/notations/goldens
+{
+  "_source": "91ba1d0ccc14716c7ad63538a1757639ab9e8c94",
+  "classes": {
+    "class_other_x_X": "X",
+    "class_pkg_a_A": "A",
+    "class_pkg_a_Z": "Z",
+    "class_pkg_sub_b_Thing": "Thing"
+  },
+  "defines": [
+    [
+      "module_other_x",
+      "class_other_x_X"
+    ],
+    [
+      "module_pkg_a",
+      "class_pkg_a_A"
+    ],
+    [
+      "module_pkg_a",
+      "class_pkg_a_Z"
+    ],
+    [
+      "module_pkg_sub_b",
+      "class_pkg_sub_b_Thing"
+    ]
+  ],
+  "modules": {
+    "module_other_x": "other.x",
+    "module_pkg_a": "pkg.a",
+    "module_pkg_bad": "pkg.bad",
+    "module_pkg_lazy": "pkg.lazy",
+    "module_pkg_sub_b": "pkg.sub.b",
+    "module_pkg_typed": "pkg.typed"
+  }
+}
+total 12
+drwxr-xr-x 2 robocop robocop 4096 Nov 16 06:28 .
+drwxr-xr-x 4 robocop robocop 4096 Nov 16 06:28 ..
+-rw-r--r-- 1 robocop robocop  683 Nov 16 06:28 component_spec_python_spec2viz.json
+rc=0
+$ git -C /mnt/ssd/proyectos/SLDB_1/spec2viz rev-parse HEAD; git -C /mnt/ssd/proyectos/SLDB_1/spec2viz status --short | head
+91ba1d0ccc14716c7ad63538a1757639ab9e8c94
+?? runs/subagents/20261116-033547/
+?? runs/subagents/20261116-033629/
+?? runs/subagents/20261116-035418/
+?? runs/subagents/20261116-035531/
+?? runs/subagents/20261116-041130/
+rc=0
+$ git status --short --untracked-files=all tests/ src/ CHANGELOG.md desk/tasks .sldb; git diff --stat
+ M .sldb/core/models/RunDoc.yaml
+ M .sldb/core/store_index.yaml
+ M .sldb/store.yaml
+ M CHANGELOG.md
+ M src/sldb/api/documents/apply_batch.py
+ M src/sldb/store/io/lock.py
+ M tests/notations/test_component_spec_python.py
+?? .sldb/core/documents/RunDoc/run-deskops-e-4b91d6885d4e.yaml
+?? .sldb/core/documents/RunDoc/run-deskops-t-f05daf60b7c9.yaml
+?? tests/api/test_apply_batch_lock.py
+?? tests/notations/goldens/component_spec_python_spec2viz.json
+ .sldb/core/models/RunDoc.yaml                 |  6 +--
+ .sldb/core/store_index.yaml                   |  2 +-
+ .sldb/store.yaml                              |  4 ++
+ CHANGELOG.md                                  |  1 +
+ src/sldb/api/documents/apply_batch.py         | 12 ++++--
+ src/sldb/store/io/lock.py                     | 23 ++++++++++-
+ tests/notations/test_component_spec_python.py | 14 +++++--
+ uv.lock                                       | 58 ++++++++++++++++++++++++++-
+ 8 files changed, 105 insertions(+), 15 deletions(-)
+rc=0
+$ TMPDIR=/dev/shm PYTHONPATH=src uv run --frozen --extra code --extra dev pytest -q -rs -p no:cacheprovider tests/notations/test_component_spec_python.py
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 0.88s
+rc=0
+
+### Caso propio 1: regenerar golden desde spec2viz (PYTHONPATH=checkout) — /dev/shm/tester-oraculo/check.py
+import ast, json, sys, tempfile, pathlib, subprocess
+repo = pathlib.Path("/mnt/ssd/proyectos/SLDB_1/sldb")
+test = repo / "tests/notations/test_component_spec_python.py"
+golden_path = repo / "tests/notations/goldens/component_spec_python_spec2viz.json"
+src = test.read_text()
+TREE = next(ast.literal_eval(n.value) for n in ast.parse(src).body if isinstance(n, ast.Assign) and getattr(n.targets[0], "id", "") == "TREE")
+from spec2viz.generators import python_ast
+d = pathlib.Path(tempfile.mkdtemp(dir="/dev/shm"))
+for rel, text in TREE.items():
+    (d / rel).parent.mkdir(parents=True, exist_ok=True); (d / rel).write_text(text)
+spec = python_ast.generate_python_ast_spec(d)
+nodes = spec["data"]["nodes"]
+pick = lambda k: {i: v["label"] for i, v in nodes.items() if v["kind"] == k}
+mine = {"modules": pick("module"), "classes": pick("class"),
+        "defines": sorted([e["from"], e["to"]] for e in spec["data"]["edges"] if e["relation"] == "defines"),
+        "_source": subprocess.check_output(["git","-C","/mnt/ssd/proyectos/SLDB_1/spec2viz","rev-parse","HEAD"], text=True).strip()}
+golden = json.loads(golden_path.read_text())
+print("regenerated == golden:", mine == golden)
+print("serialization sort_keys/indent=2 identical:", json.dumps(golden, sort_keys=True, indent=2) == golden_path.read_text().rstrip("\n"))
+print("keys:", sorted(golden))
+regenerated == golden: True
+serialization sort_keys/indent=2 identical: True
+keys: ['_source', 'classes', 'defines', 'modules']
+rc=0
+
+### Caso propio 2: mutaciones del golden sobre copia en /dev/shm — /dev/shm/tester-oraculo/mutate.sh
+set -u
+R=/mnt/ssd/proyectos/SLDB_1/sldb; W=/dev/shm/tester-oraculo/mut
+run(){ name=$1; py=$2
+  rm -rf $W; mkdir -p $W/goldens; cp $R/tests/notations/test_component_spec_python.py $W/
+  cp $R/tests/notations/goldens/component_spec_python_spec2viz.json $W/goldens/
+  (cd $R && TMPDIR=/dev/shm uv run --frozen --extra code --extra dev python -c "$py" $W/goldens/component_spec_python_spec2viz.json)
+  out=$(cd $R && TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q -p no:cacheprovider --rootdir=$W $W/test_component_spec_python.py -k matches_spec2viz 2>&1 | tail -2)
+  echo "[$name] $out"; }
+run control "pass"
+run drop_module "import json,sys;p=sys.argv[1];g=json.load(open(p));g['modules'].pop('module_pkg_lazy');json.dump(g,open(p,'w'))"
+run extra_define "import json,sys;p=sys.argv[1];g=json.load(open(p));g['defines'].append(['module_pkg_a','class_pkg_a_Inner']);json.dump(g,open(p,'w'))"
+run wrong_label "import json,sys;p=sys.argv[1];g=json.load(open(p));g['classes']['class_pkg_a_A']='AA';json.dump(g,open(p,'w'))"
+run source_changed_only "import json,sys;p=sys.argv[1];g=json.load(open(p));g['_source']='deadbeef';json.dump(g,open(p,'w'))"
+run golden_missing "import os,sys;os.remove(sys.argv[1])"
+echo "[PYTHONPATH=src, sin spec2viz]"; cd $R && TMPDIR=/dev/shm PYTHONPATH=src uv run --frozen --extra code --extra dev python -c "import importlib.util as u,sys;print('spec2viz spec:',u.find_spec('spec2viz'))"
+[control] .                                                                        [100%]
+1 passed, 4 deselected in 0.69s
+[drop_module] FAILED ../../../../../dev/shm/tester-oraculo/mut/test_component_spec_python.py::test_matches_spec2viz_on_modules_classes_and_defines
+1 failed, 4 deselected in 0.79s
+[extra_define] FAILED ../../../../../dev/shm/tester-oraculo/mut/test_component_spec_python.py::test_matches_spec2viz_on_modules_classes_and_defines
+1 failed, 4 deselected in 0.76s
+[wrong_label] FAILED ../../../../../dev/shm/tester-oraculo/mut/test_component_spec_python.py::test_matches_spec2viz_on_modules_classes_and_defines
+1 failed, 4 deselected in 0.75s
+[source_changed_only] .                                                                        [100%]
+1 passed, 4 deselected in 0.62s
+[golden_missing] FAILED ../../../../../dev/shm/tester-oraculo/mut/test_component_spec_python.py::test_matches_spec2viz_on_modules_classes_and_defines
+1 failed, 4 deselected in 0.82s
+[PYTHONPATH=src, sin spec2viz]
+spec2viz spec: None
+
+### git status (archivos del repo fuera de runs/)
+ M .sldb/core/models/RunDoc.yaml
+ M .sldb/core/store_index.yaml
+ M .sldb/store.yaml
+ M CHANGELOG.md
+ M src/sldb/api/documents/apply_batch.py
+ M src/sldb/store/io/lock.py
+ M tests/notations/test_component_spec_python.py
+ M uv.lock
+?? .herdr-coordination.md
+?? .sldb/core/documents/RunDoc/run-deskops-e-4b91d6885d4e.yaml
+?? .sldb/core/documents/RunDoc/run-deskops-t-f05daf60b7c9.yaml
+?? desk/runtimes/
+?? tests/api/test_apply_batch_lock.py
+?? tests/notations/goldens/
+ .sldb/core/models/RunDoc.yaml                 |  6 +--
+ .sldb/core/store_index.yaml                   |  2 +-
+ .sldb/store.yaml                              |  4 ++
+ CHANGELOG.md                                  |  1 +
+ src/sldb/api/documents/apply_batch.py         | 12 ++++--
+ src/sldb/store/io/lock.py                     | 23 ++++++++++-
+ tests/notations/test_component_spec_python.py | 14 +++++--
+ uv.lock                                       | 58 ++++++++++++++++++++++++++-
+ 8 files changed, 105 insertions(+), 15 deletions(-)

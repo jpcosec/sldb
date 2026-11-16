@@ -1,0 +1,25 @@
+name: materialization-oraculo-d2-test-component-spec-python
+path: desk/materializations/materialization-oraculo-d2-test-component-spec-python.md
+source_hash: 5070cbc026b462e890b97cb9c608087d0a4ad8389155ede9a8cff355f3d52f7f
+content_hash: 41ae644034b3f82797f85a4b50f77a8f05241b557dbcf6bc33cdd5f330be1698
+field_hashes:
+  id: e507e62809f7fdeb349ba5583d4bea96f3c110c46079916edfc49024958a6fb0
+  title: 05a8aefe8f252d85fee55e4292ac49f0e31265d08cac94d4f388f0c2158b66db
+  source_atoms: 7a17acba3453c05409f46701521cfae3b7afa33487946a4bb4ed131d643f8556
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 4021b23efdcaf2b93d0cc183cea7661b1e07883135c862a7022ce14b94fd8473
+  intent: 3fb9864004504c445eac249d9fb2f086892ef7bca4e5abdf37b42f8389f9f418
+  validation: f74066aa89dcd69f1a10b0ab8ed658ac2c41e129d858af36104bf177cde61f16
+  tags: 1f6879d3f31f56b2802c17ed6bd1ec91facdb8d554030fea048f5505d98e5e32
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:notations
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T09:31:39Z'
+  authority: generated
+  via: create_document

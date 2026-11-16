@@ -1,0 +1,7 @@
+Task: task-el-oráculo-de-paridad-de-d2-deja-de-importar-spec2viz-golden-congelado-en-tests-notations
+Title: El oráculo de paridad de D2 deja de importar spec2viz: golden congelado en tests/notations
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]

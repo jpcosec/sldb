@@ -1,0 +1,18 @@
+$ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q -rs tests/notations/test_component_spec_python.py
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 0.92s
+rc=0
+
+$ ! grep -n 'import.*spec2viz\|importorskip("spec2viz' tests/notations/test_component_spec_python.py
+rc=0
+
+$ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev python -c "import spec2viz"  (Done When: debe fallar)
+ModuleNotFoundError: No module named 'spec2viz'
+rc=1

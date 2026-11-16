@@ -1,0 +1,36 @@
+name: review-task-el-oráculo-de-paridad-de-d2-deja-de-importar-spec2viz-golden-congelado-en-tests-notations-evidence-atom-1
+path: desk/reviews/task-el-oráculo-de-paridad-de-d2-deja-de-importar-spec2viz-golden-congelado-en-tests-notations/evidence-atom-1.md
+source_hash: 5ea72c5c502b325fb94d779355d9c72c59019674f7ecc596d236e9660e6bcac5
+content_hash: f715e2fda814a0666f23bf2ba2c5164b45bc4721e0a96841befbfbe16f632fff
+field_hashes:
+  id: ac5bb3fd13a4a896ebd39b812249aedafb1500875117f56dfeb34f6f88b14770
+  title: 7faaa528ef9dd5903b1db4119959c3bdc99c3db111af8dc6358d45964291654c
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: c833c202b5b45ac10909767bb422916db457ddd48188a4ee591f0618893df0ba
+  value: f411686f1407555eae29b1335be8c47acd207fd2846ffb557fbd0b72be777f02
+  subject: 26f99a3dc577d2e83d19ce90aad29af5c22b178193c036bf57d910d054e12354
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 073daa09da69ad4e451b9df69b03deaf4ac09cf8a02210a82428ed6133481055
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: a2d6411e8f8a6b89a61fbfd14bf99151a713a60c1673fa3c0ba190a60c153b24
+  created_at: aeff035d128627a875e154293c4d62f47abd3949f2da4a90f556a4593cb3f820
+  disposed_at: aeff035d128627a875e154293c4d62f47abd3949f2da4a90f556a4593cb3f820
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: f5b3bafc6dd48c5549f10b64a1bd323fc87d148c15355038381b048617974565
+  disposition: 643f5a8d7671515d4602d5f7d1773d6924de98fffd080cc06995e498632d02c4
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T09:33:30Z'
+  authority: generated
+  via: save_document_payload

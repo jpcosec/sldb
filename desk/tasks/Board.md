@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T09:27:00Z'
+  at: '2026-11-16T09:34:47Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -29,7 +29,6 @@ tasks:
 - desk/tasks/task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida.md
 - desk/tasks/task-el-emparejamiento-de-átomos-de-sldb-api-matching-pasa-a-su-propio-eje-y-recuperacion-vuelve-a-ser-un.md
 - desk/tasks/task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con.md
-- desk/tasks/task-el-oráculo-de-paridad-de-d2-deja-de-importar-spec2viz-golden-congelado-en-tests-notations.md
 - desk/tasks/task-label-key-de-sldb-api-matching-trata-el-guion-bajo-como-separador-igual-que-normkey-del-catálogo.md
 - desk/tasks/task-sldb-api-notations-reexporta-lo-que-specir-importa-hoy-de-módulos-internos-estilos-paletas-errores-m.md
 - desk/tasks/task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding.md
@@ -132,7 +131,6 @@ _Generated from the task references above._
 - V0: benchmark fijo de velocidad (sldb bench) y punto de partida [draft] - Agregar a sldb el verbo 'sldb bench', que copia desks a un directorio de trabajo, mide en frío y en caliente tiempo de pared, CPU y RSS máximo de stores update (sin cambios y con un documento cambiado), stores check, stores build --check, deskops doctor, deskops status y el arranque de ambos CLI, y entrega JSON más una tabla; y dejar el punto de partida medido en reports/velocidad-baseline-20261115.md.
 - El emparejamiento de átomos de sldb.api.matching pasa a su propio eje y recuperacion vuelve a ser un puerto puro [draft] - El emparejamiento de átomos (explicit_atoms, explicit_refs, atom_*, coverage*, spec_view*, store_reader, store_documents, store_edges, matching_findings, unknown_atom_error) vive en un eje propio en contracts/layers.toml; recuperacion vuelve a sus 4 dependencias medidas y sigue siendo extraíble.
 - Los specs de docs/architecture/spec2viz se construyen con specir catalog build y se sincronizan con sldb notations sync --catalog [draft] - docs/architecture/spec2viz/vistas.yml y sus specs se construyen con specir catalog build y se sincronizan al store con sldb notations sync --catalog; ninguna instrucción ni contrato de sldb invoca spec2viz para ellos.
-- El oráculo de paridad de D2 deja de importar spec2viz: golden congelado en tests/notations [draft] - La comparación de paridad corre siempre contra un golden versionado en tests/ y el archivo de test no importa spec2viz en ninguna rama.
 - label_key de sldb.api.matching trata el guion bajo como separador, igual que normKey del catálogo [draft] - label_key("post_published") devuelve "post published" y, en general, label_key produce la misma clave que normKey para letras, dígitos, espacios, guiones bajos y puntuación.
 - sldb.api.notations reexporta lo que specIR importa hoy de módulos internos (estilos, paletas, errores, modelos de spec y rutas del catálogo) [draft] - Todos los nombres listados en Scope se importan desde sldb.api.notations y están en su __all__; specIR puede quitar sus excepciones de import sin cambiar comportamiento.
 - sldb notations validate valida una notación, una paleta o un spec por nombre o ruta e imprime findings [draft] - `sldb notations validate <nombre|ruta>` detecta si el objetivo es una notación, una paleta o un spec, corre la validación que sldb ya tiene para ese tipo y devuelve findings en el formato de findings de sldb, con exit 0 si no hay errores y 1 si los hay.

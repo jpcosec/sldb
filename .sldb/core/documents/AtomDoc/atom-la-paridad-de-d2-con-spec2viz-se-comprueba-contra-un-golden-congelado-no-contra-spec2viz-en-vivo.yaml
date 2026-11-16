@@ -1,0 +1,23 @@
+name: atom-la-paridad-de-d2-con-spec2viz-se-comprueba-contra-un-golden-congelado-no-contra-spec2viz-en-vivo
+path: desk/atoms/atom-la-paridad-de-d2-con-spec2viz-se-comprueba-contra-un-golden-congelado-no-contra-spec2viz-en-vivo.md
+source_hash: 9ad4d3b668047287bd7f68eeaa65d1c578d327df944a482a90bc8fed222a6ddf
+content_hash: 9d943099aaa5211d75708f894341ee5e71ea4ce184dd298dbb56b06b201ad848
+field_hashes:
+  id: f411686f1407555eae29b1335be8c47acd207fd2846ffb557fbd0b72be777f02
+  title: 7845323db8f7d386004d292e780e6921140378335adebfb6fe058e9986a43947
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: 1cf4debb6b057a6f130cea2ab95a9092257cd720cf8254015e63cadefd356e5c
+  tags: 1f6879d3f31f56b2802c17ed6bd1ec91facdb8d554030fea048f5505d98e5e32
+  provenance: 4021b23efdcaf2b93d0cc183cea7661b1e07883135c862a7022ce14b94fd8473
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:notations
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-16T09:31:17Z'
+  authority: generated
+  via: create_document
