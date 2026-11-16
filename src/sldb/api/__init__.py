@@ -22,6 +22,7 @@ from sldb.api.documents.select_documents import select_documents
 from sldb.api.documents.selector import Selector
 from sldb.api.documents.document_reference import DocumentReference
 from sldb.api.documents.document_serialization import serialize_document
+from sldb.api.documents.extract_payload import extract_payload
 from sldb.api.documents.payload_path_reading import deep_get, ensure_list
 from sldb.api.documents.payload_path_writing import deep_delete, deep_set
 from sldb.api.documents.payload_save import save_document_payload
@@ -119,6 +120,7 @@ from sldb.api.model_registry.registration_query import is_model_registered, regi
 from sldb.api.stores.linked_store import LinkedStore
 from sldb.api.stores.migrate_hash_names import migrate_store_hash_names
 from sldb.api.stores.open_store import open_store
+from sldb.api.stores.read_store import read_store, store_is_prepared
 from sldb.api.stores.store_check import check_store
 from sldb.api.stores.store_fingerprint import store_fingerprint
 from sldb.api.stores.store_links import store_links
@@ -164,7 +166,7 @@ __all__ = [
     "edges_to", "edit_model_metadata", "edit_model_template", "ensure_list", "extract_document_payload",
     "field_node_id", "init_relations", "init_store", "journal", "kind", "link_store", "unlink_store",
     "load_edge_index", "leaf_paths", "load_runtime_documents", "migrate_store_hash_names",
-    "load_registered_model", "locate_model_source", "model_node_id", "open_store",
+    "load_registered_model", "locate_model_source", "model_node_id", "open_store", "read_store", "store_is_prepared", "extract_payload",
     "promote_model_draft", "rebuild_edges", "reindex_model", "relation_type_node_id",
     "remove_model_field", "render_document_markdown", "render_model_template",
     "resolve_model_ref", "runtime_document", "save_document_payload", "search",

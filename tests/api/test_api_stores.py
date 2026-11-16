@@ -1,14 +1,24 @@
-"""`sldb.api` store operations: open, link, refresh indexes; and the `sldb.cli` bridges over them."""
+"""`sldb.api` store operations: open, read, link, refresh indexes; and the `sldb.cli` bridges over them."""
 
 from __future__ import annotations
 
+from pathlib import Path
+
 import pytest
 
-from sldb.api import link_store, open_store, update_store_indexes
+from sldb.api import extract_payload, link_store, open_store, read_store, store_is_prepared, track_document_file, update_store_indexes
+from sldb.api.stores.indexed_documents import indexed_documents
+from sldb.runtime.validation import extract_model_data
+from sldb.store.io import load_documents_index, load_models_index, load_semantic_index
+from sldb.store.io.utils import yaml_dump
+from sldb.store.layout import legacy_semantic_index_path, legacy_store_index_path, store_index_path
 from sldb.cli import main as cli_main
 from sldb.cli.store_context import get_store_context
 from sldb.core.exceptions import SLDBStoreError
 from sldb.store.io import load_store_index
+
+from tests.api.conftest import MODULE, PAYLOAD
+from tests.store.test_documents_shards import _store
 
 
 def test_open_store_resolves_store_and_project_root(api_store):
@@ -69,3 +79,73 @@ def test_scaffold_store_and_build_store_are_public_and_bridged_by_the_cli(api_st
     assert build_store(api_store.store)["scaffold"] == {"created": [], "rewritten": [], "present": [], "conflicts": []}
     assert cli_main(["stores", "scaffold", "--store", str(api_store.store), "--format", "json"]) == 0
     assert "created" in capsys.readouterr().out
+
+
+def _snapshot(root: Path) -> set[tuple[str, int, int]]:
+    """(path, mtime_ns, size) of every file under `root`."""
+    return {(str(p), p.stat().st_mtime_ns, p.stat().st_size) for p in root.rglob("*") if p.is_file()}
+
+
+def _legacy_store(tmp_path: Path) -> Path:
+    """A root-level legacy store, built as `tests/store/test_legacy_layout_migration.py` does."""
+    (tmp_path / "built").mkdir()
+    built, built_root = _store(tmp_path / "built", 3)
+    store = tmp_path / "legacy" / ".sldb"
+    (store / "models").mkdir(parents=True)
+    (store / "documents").mkdir()
+    index = load_store_index(built)
+    for model in index.models:
+        model_index = load_models_index(built_root / model.models_index)
+        documents = load_documents_index(built_root / model_index.documents_index)
+        (store / "documents" / f"{model.name}.yaml").write_text(
+            yaml_dump({"documents": [doc.model_dump() for doc in documents.documents]}), encoding="utf-8"
+        )
+        data = model_index.model_dump()
+        data["documents_index"] = f".sldb/documents/{model.name}.yaml"
+        data.pop("sections_index", None)
+        (store / "models" / f"{model.name}.yaml").write_text(yaml_dump(data), encoding="utf-8")
+        model.models_index = f".sldb/models/{model.name}.yaml"
+    legacy_semantic_index_path(store).write_text(yaml_dump(load_semantic_index(built).model_dump()), encoding="utf-8")
+    legacy_store_index_path(store).write_text(yaml_dump(index.model_dump()), encoding="utf-8")
+    return store
+
+
+def test_read_store_writes_nothing_on_a_prepared_store(api_store):
+    open_store(api_store.store)
+    before = _snapshot(api_store.root)
+    assert store_is_prepared(api_store.store)
+    location = read_store(api_store.store)
+    assert (location.store_path, location.project_root) == (api_store.store.resolve(), api_store.root.resolve())
+    assert _snapshot(api_store.root) == before
+
+
+def test_read_store_refuses_an_unprepared_store_and_leaves_it_unmigrated(tmp_path):
+    store = _legacy_store(tmp_path)
+    before = _snapshot(store.parent)
+    assert not store_is_prepared(store)
+    with pytest.raises(SLDBStoreError, match="store not prepared: run `sldb stores update`"):
+        read_store(store)
+    assert _snapshot(store.parent) == before
+    assert legacy_store_index_path(store).exists() and not store_index_path(store).exists()
+
+
+def test_store_is_prepared_is_false_without_a_store(tmp_path):
+    assert not store_is_prepared(tmp_path / ".sldb")
+
+
+def test_read_store_sees_a_document_added_by_another_open_store(api_store):
+    first = read_store(api_store.store)
+    assert [d["name"] for d in indexed_documents(first.store_path)] == ["login"]
+    path = api_store.write_document("logout", {**PAYLOAD, "title": "Broken logout"})
+    track_document_file(api_store.store, "TicketDoc", path, "logout", api_store.pythonpath)
+    second = read_store(api_store.store)
+    assert sorted(d["name"] for d in indexed_documents(second.store_path)) == ["login", "logout"]
+
+
+def test_extract_payload_matches_extract_model_data(api_store):
+    from sldb.api import resolve_model_ref
+
+    model_type = resolve_model_ref(f"{MODULE}:TicketDoc", api_store.pythonpath)
+    markdown = (api_store.root / "login.md").read_text(encoding="utf-8")
+    assert extract_payload(model_type, markdown) == extract_model_data(model_type, markdown)
+    assert extract_payload(model_type, markdown)["title"] == PAYLOAD["title"]

@@ -154,3 +154,7 @@ empty and `predicates_changed` false, while `scaffold` (not applied), `undeclare
   `include_conflicts`, always present. Each `store/include-conflict` prints as an
   `error: [store/include-conflict] <path>: ...` line after `built:` and makes the exit 1.
   The counts in the `built:` line do not change.
+
+## Reading a store: `open_store` and `read_store`
+
+`sldb.api.open_store` migrates the store's layout when needed (even with `mode="readonly"`, which only allows the global-store fallback); `sldb.api.read_store` never writes: it starts a fresh operation over a store whose layout is already canonical (`store_is_prepared`) and otherwise raises `SLDBStoreError` (``store not prepared: run `sldb stores update` ``), so a reader such as a GET never migrates the store it reads.
