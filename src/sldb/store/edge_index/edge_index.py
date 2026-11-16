@@ -2,11 +2,33 @@
 
 from __future__ import annotations
 
-from pydantic import BaseModel, Field, PrivateAttr
+import re
 
-from sldb.store.edge_index.node_ids import as_node_id
+from pydantic import BaseModel, Field, PrivateAttr, model_validator
+
+from sldb.store.edge_index.node_ids import RELATION_MODEL, as_node_id
 from sldb.store.edge_index.unresolved_reference import UnresolvedReference
 from sldb.store.models import EdgeNodeRecord, EdgeRecord
+
+
+ENDPOINT_NOT_A_NODE = "endpoint-not-a-node"
+# The one shape `resolve._authored` gives an entry of `EdgeIndex.problems`.
+_ENDPOINT_PROBLEM = re.compile(r"^relation '(?P<doc>.*?)': (?:source|target) '.*' is not a tracked document$")
+
+
+class EdgeProblem(BaseModel):
+    """One entry of `EdgeIndex.problems`, structured: a consumer reads the fields instead of
+    parsing the text."""
+
+    kind: str = Field(description="What went wrong; `endpoint-not-a-node` for an authored edge whose end is not a node.")
+    document: str = Field(description="Export id of the document that declared the edge (`RelationDoc:<name>`); empty if the text names none.")
+    detail: str = Field(description="The same text as the matching entry of `problems`.")
+
+
+def edge_problem(text: str) -> EdgeProblem:
+    """The structured form of one `problems` entry."""
+    match = _ENDPOINT_PROBLEM.match(text)
+    return EdgeProblem(kind=ENDPOINT_NOT_A_NODE, document=f"{RELATION_MODEL}:{match['doc']}" if match else "", detail=text)
 
 
 class EdgeIndex(BaseModel):
@@ -16,11 +38,20 @@ class EdgeIndex(BaseModel):
     nodes: dict[str, EdgeNodeRecord] = Field(default_factory=dict, description="Every node by id; the same id contributed twice is one node.")
     edges: list[EdgeRecord] = Field(default_factory=list, description="Every edge, cross-document rules applied (inherited conditions, reverse edges, edges to nothing dropped).")
     problems: list[str] = Field(default_factory=list, description="Authored edges left out because an endpoint is not a node; reported, never stored.")
+    problem_details: list[EdgeProblem] = Field(default_factory=list, description="`problems`, one EdgeProblem per entry and in its order: {kind, document, detail}.")
     stale: list[str] = Field(default_factory=list, description="Export ids of tracked documents whose shard is missing, built from another hash_c or EDGE_INDEX_VERSION, from a file since edited outside sldb, or under another contract_signature of the model: run the rebuild.")
     payload_fields: dict[str, list[str]] = Field(default_factory=dict, description="Per model, the fields a `payload` facet filter may name (`ModelEdges.projected_fields`); a filter naming none of them is rejected.")
     unresolved_references: list[UnresolvedReference] = Field(default_factory=list, description="Declared reference and containment values that name no document; inspected, never stored as edges.")
     _out: dict[str, list[EdgeRecord]] | None = PrivateAttr(default=None)
     _in: dict[str, list[EdgeRecord]] | None = PrivateAttr(default=None)
+
+    @model_validator(mode="after")
+    def _details_follow_problems(self) -> "EdgeIndex":
+        """`problem_details` is derived from `problems` wherever the index is built (composed,
+        or read back from a composed index saved before the field existed)."""
+        if [d.detail for d in self.problem_details] != self.problems:
+            self.problem_details = [edge_problem(p) for p in self.problems]
+        return self
 
     def edges_from(self, node_id: str, relation: str | None = None) -> list[EdgeRecord]:
         """Edges leaving `node_id`, of one relation or of all."""

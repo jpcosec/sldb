@@ -138,6 +138,19 @@ def test_untracking_a_document_drops_its_shard_and_reports_the_orphan(world: Edg
     assert api.check_edges(world.store).errors == ["relation 'b1-t12': target 'Table:t12' is not a tracked document"]
 
 
+def test_problem_details_structure_each_problem(world: EdgeWorld):
+    world.relation("orphan", "Booking:b1", "Table:nowhere", "assigned_to")
+    api.untrack_document(world.store, "t12", world.py)
+    index = api.load_edge_index(world.store)
+    assert len(index.problems) == 2
+    assert len(index.problem_details) == len(index.problems)
+    assert [d.detail for d in index.problem_details] == index.problems
+    assert {d.kind for d in index.problem_details} == {"endpoint-not-a-node"}
+    assert sorted(d.document for d in index.problem_details) == ["RelationDoc:b1-t12", "RelationDoc:orphan"]
+    reread = api.EdgeIndex.model_validate(index.model_dump(exclude={"problem_details"}))
+    assert reread.problem_details == index.problem_details
+
+
 def test_undirected_types_read_both_ways_and_bad_classes_are_reported(world: EdgeWorld):
     world.relation_type("near", ["Table"], ["Table"], direction="undirected")
     world.relation("t12-t14", "Table:t12", "Table:t14", "near")

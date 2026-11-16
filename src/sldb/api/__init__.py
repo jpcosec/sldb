@@ -17,7 +17,7 @@ from sldb.api.documents.delete_document import delete_document
 from sldb.api.documents.move_document import move_document
 from sldb.api.documents.transaction import RollbackError, Transaction, transaction
 from sldb.api.documents import document_ast, build_document_ir_json, leaf_paths, runtime_document, extract_document_payload, render_document_markdown, render_model_template
-from sldb.api.documents.runtime_documents import load_runtime_documents
+from sldb.api.documents.runtime_documents import InvalidDocument, RuntimeDocuments, load_runtime_documents
 from sldb.api.documents.select_documents import select_documents
 from sldb.api.documents.selector import Selector
 from sldb.api.documents.document_reference import DocumentReference
@@ -165,7 +165,7 @@ __all__ = [
     "doc_node_id", "document_ast", "edge_node", "edge_nodes_of_type", "edges_from",
     "edges_to", "edit_model_metadata", "edit_model_template", "ensure_list", "extract_document_payload",
     "field_node_id", "init_relations", "init_store", "journal", "kind", "link_store", "unlink_store",
-    "load_edge_index", "leaf_paths", "load_runtime_documents", "migrate_store_hash_names",
+    "load_edge_index", "leaf_paths", "load_runtime_documents", "RuntimeDocuments", "InvalidDocument", "migrate_store_hash_names",
     "load_registered_model", "locate_model_source", "model_node_id", "open_store", "read_store", "store_is_prepared", "extract_payload",
     "promote_model_draft", "rebuild_edges", "reindex_model", "relation_type_node_id",
     "remove_model_field", "render_document_markdown", "render_model_template",

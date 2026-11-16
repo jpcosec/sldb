@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from functools import partial
 from pathlib import Path
 
 from pydantic import ValidationError
@@ -35,12 +36,16 @@ def _load_doc(doc, root, model_type, m_entry, s_name, s_path, codec: StoreCodec 
     return cached_document(doc, root, s_path, s_name, m_entry.name, model_type, lambda: _extract_doc(doc, root, model_type, m_entry, s_name, s_path, codec))
 
 
-def _load_accepted(*args) -> RuntimeDocument | None:
+def _load_accepted(*args, rejected: list[tuple[str, str, str]] | None = None) -> RuntimeDocument | None:
     """`_load_doc`, None for a document its model rejects: `stores check` names it once, as
-    `store/doc-invalid` (inbox 3895e9f7 H1), and its scans read the rest."""
+    `store/doc-invalid` (inbox 3895e9f7 H1), and its scans read the rest. A caller that wants
+    them named passes `rejected`: each one is added as (path, model, message)."""
     try:
         return _load_doc(*args)
-    except ValidationError:
+    except ValidationError as exc:
+        if rejected is not None:
+            doc, m_entry = args[0], args[3]
+            rejected.append((str(doc.path), m_entry.name, str(exc)))
         return None
 
 
@@ -60,9 +65,9 @@ def _resolve_model_type(resolver, model_ref: str, p_path, store_root: Path):
     return None
 
 
-def _load_one(s_path: Path, s_name: str, resolver, p_path, codec: StoreCodec = default_codec, accepted_only: bool = False) -> list[RuntimeDocument]:
+def _load_one(s_path: Path, s_name: str, resolver, p_path, codec: StoreCodec = default_codec, accepted_only: bool = False, rejected: list[tuple[str, str, str]] | None = None) -> list[RuntimeDocument]:
     root, docs = project_root(s_path), []
-    load = _load_accepted if accepted_only else _load_doc
+    load = partial(_load_accepted, rejected=rejected) if accepted_only else _load_doc
     for m in load_store_index(s_path).models:
         m_type = _resolve_model_type(resolver, m.model_ref, p_path, root)
         if m_type is None:
@@ -72,15 +77,16 @@ def _load_one(s_path: Path, s_name: str, resolver, p_path, codec: StoreCodec = d
     return docs
 
 
-def load_runtime_documents(store_path: Path, resolve_model_ref, pythonpath: str | None = None, include_linked: bool = False, codec: StoreCodec = default_codec, store_name: str = "local", accepted_only: bool = False) -> list[RuntimeDocument]:
+def load_runtime_documents(store_path: Path, resolve_model_ref, pythonpath: str | None = None, include_linked: bool = False, codec: StoreCodec = default_codec, store_name: str = "local", accepted_only: bool = False, rejected: list[tuple[str, str, str]] | None = None) -> list[RuntimeDocument]:
     """The tracked documents of a store, extracted. With the default codec the load is cached
     by the state of the files it comes from (sldb.store.runtime_cache), so repeated queries
     do not read the store again. The list is fresh per call; the documents are shared.
     `store_name` is the name the documents carry: the alias when a linked store is read alone.
     `accepted_only` leaves out each document its model rejects instead of raising (uncached:
-    `stores check` scans, inbox 3895e9f7 H1)."""
+    `stores check` scans, inbox 3895e9f7 H1); with `rejected` it also adds each one left out
+    as (path relative to its project root, model, message)."""
     def one(path: Path, name: str) -> list[RuntimeDocument]:
-        loader = lambda: _load_one(path, name, resolve_model_ref, pythonpath, codec, accepted_only)  # noqa: E731
+        loader = lambda: _load_one(path, name, resolve_model_ref, pythonpath, codec, accepted_only, rejected)  # noqa: E731
         return cached_store(path, name, pythonpath, loader) if codec is default_codec and not accepted_only else loader()
 
     return _load_federated_documents(store_path, one) if include_linked else list(one(store_path, store_name))

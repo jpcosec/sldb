@@ -13,6 +13,8 @@ from sldb.cli.commands.fields_save import save_payload
 from sldb.core.exceptions import SLDBError, SLDBPayloadSaveError, SLDBStoreError, SLDBValidationError
 from sldb.store.query import load_runtime_documents
 
+from tests.store.invalid_memo_store import store_with_invalid  # noqa: F401 - the fixture
+
 from .conftest import PAYLOAD
 
 
@@ -96,3 +98,26 @@ def test_move_document_refuses_a_taken_destination_without_moving(api_store):
     with pytest.raises(SLDBStoreError, match="already exists"):
         api.move_document(api_store.store, "login", "taken.md", api_store.pythonpath)
     assert (api_store.root / "login.md").exists()
+
+
+def test_load_runtime_documents_skip_returns_the_sound_ones_and_names_the_invalid(store_with_invalid):
+    root, sp, py = store_with_invalid
+    loaded = api.load_runtime_documents(sp, py, on_invalid="skip")
+    assert isinstance(loaded, api.RuntimeDocuments)
+    assert [d.name for d in loaded.documents] == ["c"]
+    assert [(i.path, i.model) for i in loaded.invalid] == [("a.md", "Memo"), ("b.md", "Memo")]
+    assert all(isinstance(i, api.InvalidDocument) and "status bad is not a status" in i.error for i in loaded.invalid)
+
+
+def test_load_runtime_documents_raise_names_the_path_of_the_invalid_document(store_with_invalid):
+    root, sp, py = store_with_invalid
+    with pytest.raises(SLDBValidationError, match=r"(?s)^a\.md:.*status bad is not a status") as raised:
+        api.load_runtime_documents(sp, py)
+    assert isinstance(raised.value.__cause__, ValidationError)
+
+
+def test_load_runtime_documents_default_still_returns_a_list(api_store):
+    docs = api.load_runtime_documents(api_store.store, api_store.pythonpath)
+    assert isinstance(docs, list) and docs
+    skipped = api.load_runtime_documents(api_store.store, api_store.pythonpath, on_invalid="skip")
+    assert [d.name for d in skipped.documents] == [d.name for d in docs] and skipped.invalid == []
