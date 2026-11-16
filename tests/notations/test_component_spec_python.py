@@ -1,9 +1,13 @@
 """Component spec of a Python tree from `sldb.code.scan_tree` (`component_spec_from_python`).
 
-spec2viz has no tests for its `python_ast` generator: the comparison test runs both on the same
-small tree and asserts the same modules, classes and `defines` relations. Skipped without the
+Parity with spec2viz's `python_ast` generator is checked against a frozen golden
+(`goldens/component_spec_python_spec2viz.json`: its modules, classes and `defines` on TREE, generated once
+from the spec2viz commit in `_source`), so the test runs without spec2viz installed. Skipped without the
 `[code]` extra (tree-sitter); the extra-missing alert is tested by simulating its absence.
 """
+import json
+from pathlib import Path
+
 import pytest
 import yaml
 
@@ -13,6 +17,7 @@ from sldb.code.runtime import available
 from sldb.models.notation.diagram_specs.component import ComponentDiagram
 
 needs_code = pytest.mark.skipif(not available(), reason="tree-sitter runtime not installed (extra [code])")
+SPEC2VIZ_GOLDEN = Path(__file__).parent / "goldens" / "component_spec_python_spec2viz.json"
 
 TREE = {
     "pkg/__init__.py": "",
@@ -43,10 +48,11 @@ def _defined(spec: dict) -> tuple[dict, dict, set]:
 
 @needs_code
 def test_matches_spec2viz_on_modules_classes_and_defines(tree):
-    python_ast = pytest.importorskip("spec2viz.generators.python_ast")
+    golden = json.loads(SPEC2VIZ_GOLDEN.read_text(encoding="utf-8"))
     spec, findings = component_spec_from_python(tree)
     validate_spec(ComponentDiagram.model_validate(spec))
-    assert _defined(spec) == _defined(python_ast.generate_python_ast_spec(tree))
+    modules, classes, defines = _defined(spec)
+    assert {"modules": modules, "classes": classes, "defines": sorted(map(list, defines))} == {k: golden[k] for k in ("modules", "classes", "defines")}
     assert _defined(spec)[1] == {"class_pkg_a_A": "A", "class_pkg_a_Z": "Z", "class_pkg_sub_b_Thing": "Thing", "class_other_x_X": "X"}
     assert [(f.level, f.code, f.subject) for f in findings] == [("alert", "component-spec/syntax-error", "pkg/bad.py")]
 

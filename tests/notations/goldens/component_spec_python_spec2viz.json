@@ -1,0 +1,35 @@
+{
+  "_source": "91ba1d0ccc14716c7ad63538a1757639ab9e8c94",
+  "classes": {
+    "class_other_x_X": "X",
+    "class_pkg_a_A": "A",
+    "class_pkg_a_Z": "Z",
+    "class_pkg_sub_b_Thing": "Thing"
+  },
+  "defines": [
+    [
+      "module_other_x",
+      "class_other_x_X"
+    ],
+    [
+      "module_pkg_a",
+      "class_pkg_a_A"
+    ],
+    [
+      "module_pkg_a",
+      "class_pkg_a_Z"
+    ],
+    [
+      "module_pkg_sub_b",
+      "class_pkg_sub_b_Thing"
+    ]
+  ],
+  "modules": {
+    "module_other_x": "other.x",
+    "module_pkg_a": "pkg.a",
+    "module_pkg_bad": "pkg.bad",
+    "module_pkg_lazy": "pkg.lazy",
+    "module_pkg_sub_b": "pkg.sub.b",
+    "module_pkg_typed": "pkg.typed"
+  }
+}
