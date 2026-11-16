@@ -1,0 +1,25 @@
+name: materialization-mcp-gancho-server
+path: desk/materializations/materialization-mcp-gancho-server.md
+source_hash: 7e6eaea79d888db9ecafbdb56920375cf7fab59fb449bfa99ca2681145259f59
+content_hash: 49146067a2790f8b0e1a7830a139afbf359a514ffe0c693b63cf08c8f171dd36
+field_hashes:
+  id: d7c67688e93f7641ec569407af36fa38783c9c722d700a06b7f036af159257e9
+  title: 321602be4bb0d4d09b9cef54e1f441d32fadf6899a65790476e54e93373cad96
+  source_atoms: d08abf8a1ea7c663c0bfd8e97b938a4ea9bc29a4b9fcbe5baf4c004b445068fe
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: f0f06a3354f8577e88f11d9d29bf1ceb401f4e35b0b752f569ad9ba2b144bbe6
+  intent: 268397edc051b407772580b44fa95f37bb097e229c0ae7852fc5fe36d0a8f82e
+  validation: 87620cf2771e783266e9c06880be574a692d6d8f5c2c1b8b22c333f5a65adf4f
+  tags: 35a97c7a70322fb86371ff71b1fb31b21721fa8b1bd62d16604c8b4cdb3f8e60
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:mcp
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T10:52:24Z'
+  authority: generated
+  via: create_document

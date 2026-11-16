@@ -1,0 +1,9 @@
+Task: task-sldb-mcp-gancho-público-de-validadores-de-lote-que-corren-antes-de-propose-changes-y-apply-changes
+Title: sldb mcp: gancho público de validadores de lote que corren antes de propose_changes y apply_changes
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective pills:
+- desk/contexts/pill-pill-forma-del-rechazo-de-dominio-en-sldb-mcp.md
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]

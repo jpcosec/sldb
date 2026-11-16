@@ -1,0 +1,33 @@
+$ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev --extra mcp pytest -q tests/mcp/test_extension.py
+error: Extra `mcp` is not defined in the `optional-dependencies` table for `structuredlanguagedb`
+rc=2
+$ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev --extra mcp pytest -q tests/mcp/test_write_tools.py
+error: Extra `mcp` is not defined in the `optional-dependencies` table for `structuredlanguagedb`
+rc=2
+
+# uv run --frozen no conoce el extra mcp (uv.lock, modificado por otro, no lo trae); sin él falta anyio/mcp. Respaldo del brief:
+$ TMPDIR=/dev/shm uvx --from "pytest>=8" --with-editable ".[mcp,code]" pytest -q tests/mcp/test_extension.py
+Downloading cryptography (4.5MiB)
+ Downloaded cryptography
+Installed 44 packages in 29ms
+........                                                                 [100%]
+=============================== warnings summary ===============================
+../../../cache/uv/archive-v0/Tj3YiSk5dwfB4JV1/lib/python3.13/site-packages/_pytest/config/__init__.py:1636
+  /mnt/ssd/cache/uv/archive-v0/Tj3YiSk5dwfB4JV1/lib/python3.13/site-packages/_pytest/config/__init__.py:1636: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+8 passed, 1 warning in 12.65s
+rc=0
+$ TMPDIR=/dev/shm uvx --from "pytest>=8" --with-editable ".[mcp,code]" pytest -q tests/mcp/test_write_tools.py
+........x                                                                [100%]
+=============================== warnings summary ===============================
+../../../cache/uv/archive-v0/Tj3YiSk5dwfB4JV1/lib/python3.13/site-packages/_pytest/config/__init__.py:1636
+  /mnt/ssd/cache/uv/archive-v0/Tj3YiSk5dwfB4JV1/lib/python3.13/site-packages/_pytest/config/__init__.py:1636: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+8 passed, 1 xfailed, 1 warning in 7.27s
+rc=0

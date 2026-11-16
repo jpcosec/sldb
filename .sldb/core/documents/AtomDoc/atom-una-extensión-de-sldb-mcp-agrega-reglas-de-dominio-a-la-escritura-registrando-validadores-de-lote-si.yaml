@@ -1,0 +1,23 @@
+name: atom-una-extensión-de-sldb-mcp-agrega-reglas-de-dominio-a-la-escritura-registrando-validadores-de-lote-si
+path: desk/atoms/atom-una-extensión-de-sldb-mcp-agrega-reglas-de-dominio-a-la-escritura-registrando-validadores-de-lote-si.md
+source_hash: a730be9c7569c63881991cef2ab7bca01130092b6221312631e5ee2c7a94481a
+content_hash: 5f222b39b2e8ecd4e54b2a83f2b3f15dde0ff1a1db25f7bec1fea94071d6788a
+field_hashes:
+  id: cc768a4e2ef57d340cc40c9a0752c79c67c033787cce4c36ff7ff5407dcf0a73
+  title: e191db95e1af5b1b2c2d96857191da19e1582be9279d985b351061e0dedbd1f0
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: 7ae0d41a241a937e3b3d40996cd3d32ef52bf8c756cefb0ec26af051e7a8e55c
+  tags: 35a97c7a70322fb86371ff71b1fb31b21721fa8b1bd62d16604c8b4cdb3f8e60
+  provenance: b54caef3e5f0e80f5b18ad0514009050e64a8dc461ed10e587cd02f906941cb5
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:mcp
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-16T10:51:16Z'
+  authority: generated
+  via: create_document

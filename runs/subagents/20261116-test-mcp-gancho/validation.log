@@ -1,0 +1,532 @@
+### TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/mcp/test_extension.py
+EEEEFEEF                                                                 [100%]
+==================================== ERRORS ====================================
+______ ERROR at setup of test_the_extension_tools_join_the_built_in_ones _______
+
+extended_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-249/mcp-extension0/world')
+
+    @pytest.fixture(scope="module")
+    def extended(extended_copy: Path) -> Iterator[McpSession]:
+        """The server at level 1 with the example extension, over its own copy."""
+>       with served(extended_copy, "--level", "1", "--actor", WRITER, "--extension", SPEC, extra_path=(HERE,)) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/test_extension.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-249/mcp-extension0/world')
+extra_path = (PosixPath('/mnt/ssd/proyectos/SLDB_1/sldb/tests/mcp'),)
+options = ('--level', '1', '--actor', 'agent:sldb-mcp-tests', '--extension', 'example_extension:register')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+____ ERROR at setup of test_an_extension_tool_pages_like_the_built_in_ones _____
+
+extended_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-249/mcp-extension0/world')
+
+    @pytest.fixture(scope="module")
+    def extended(extended_copy: Path) -> Iterator[McpSession]:
+        """The server at level 1 with the example extension, over its own copy."""
+>       with served(extended_copy, "--level", "1", "--actor", WRITER, "--extension", SPEC, extra_path=(HERE,)) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/test_extension.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-249/mcp-extension0/world')
+extra_path = (PosixPath('/mnt/ssd/proyectos/SLDB_1/sldb/tests/mcp'),)
+options = ('--level', '1', '--actor', 'agent:sldb-mcp-tests', '--extension', 'example_extension:register')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_ ERROR at setup of test_an_extension_tool_sees_the_level_and_the_actor_of_the_server _
+
+extended_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-249/mcp-extension0/world')
+
+    @pytest.fixture(scope="module")
+    def extended(extended_copy: Path) -> Iterator[McpSession]:
+        """The server at level 1 with the example extension, over its own copy."""
+>       with served(extended_copy, "--level", "1", "--actor", WRITER, "--extension", SPEC, extra_path=(HERE,)) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/test_extension.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-249/mcp-extension0/world')
+extra_path = (PosixPath('/mnt/ssd/proyectos/SLDB_1/sldb/tests/mcp'),)
+options = ('--level', '1', '--actor', 'agent:sldb-mcp-tests', '--extension', 'example_extension:register')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_______ ERROR at setup of test_an_extension_tool_inherits_the_signal_log _______
+
+extended_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-249/mcp-extension0/world')
+
+    @pytest.fixture(scope="module")
+    def extended(extended_copy: Path) -> Iterator[McpSession]:
+        """The server at level 1 with the example extension, over its own copy."""
+>       with served(extended_copy, "--level", "1", "--actor", WRITER, "--extension", SPEC, extra_path=(HERE,)) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/test_extension.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-249/mcp-extension0/world')
+extra_path = (PosixPath('/mnt/ssd/proyectos/SLDB_1/sldb/tests/mcp'),)
+options = ('--level', '1', '--actor', 'agent:sldb-mcp-tests', '--extension', 'example_extension:register')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_ ERROR at setup of test_a_validator_error_blocks_propose_and_apply_and_writes_nothing _
+
+extended_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-249/mcp-extension0/world')
+
+    @pytest.fixture(scope="module")
+    def extended(extended_copy: Path) -> Iterator[McpSession]:
+        """The server at level 1 with the example extension, over its own copy."""
+>       with served(extended_copy, "--level", "1", "--actor", WRITER, "--extension", SPEC, extra_path=(HERE,)) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/test_extension.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-249/mcp-extension0/world')
+extra_path = (PosixPath('/mnt/ssd/proyectos/SLDB_1/sldb/tests/mcp'),)
+options = ('--level', '1', '--actor', 'agent:sldb-mcp-tests', '--extension', 'example_extension:register')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_ ERROR at setup of test_a_validator_alert_lets_the_batch_through_and_rides_in_the_answer _
+
+extended_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-249/mcp-extension0/world')
+
+    @pytest.fixture(scope="module")
+    def extended(extended_copy: Path) -> Iterator[McpSession]:
+        """The server at level 1 with the example extension, over its own copy."""
+>       with served(extended_copy, "--level", "1", "--actor", WRITER, "--extension", SPEC, extra_path=(HERE,)) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/test_extension.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-249/mcp-extension0/world')
+extra_path = (PosixPath('/mnt/ssd/proyectos/SLDB_1/sldb/tests/mcp'),)
+options = ('--level', '1', '--actor', 'agent:sldb-mcp-tests', '--extension', 'example_extension:register')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+=================================== FAILURES ===================================
+____________ test_an_extension_that_does_not_exist_stops_the_server ____________
+
+extended_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-249/mcp-extension0/world')
+
+    def test_an_extension_that_does_not_exist_stops_the_server(extended_copy: Path) -> None:
+        for spec in ("no_such_module_for_sldb:register", "example_extension:no_such_function", "not-a-spec"):
+            done = subprocess.run([sys.executable, "-m", "sldb", "mcp", "--store", str(extended_copy / ".sldb"), "--extension", spec], capture_output=True, text=True, timeout=120, cwd=extended_copy, env=server_env((HERE,)))
+>           assert done.returncode != 0 and spec.split(":")[0] in done.stderr + done.stdout, (spec, done.stderr)
+E           AssertionError: ('no_such_module_for_sldb:register', "sldb mcp needs the optional `mcp` extra: install it with `pip install 'structuredLanguageDB[mcp]'` (or `uv pip install 'mcp>=2.2'`).
+E             ")
+E           assert (2 != 0 and 'no_such_module_for_sldb' in ("sldb mcp needs the optional `mcp` extra: install it with `pip install 'structuredLanguageDB[mcp]'` (or `uv pip install 'mcp>=2.2'`).\n" + ''))
+E            +  where 2 = CompletedProcess(args=['/mnt/ssd/proyectos/SLDB_1/sldb/.venv/bin/python', '-m', 'sldb', 'mcp', '--store', '/dev/shm/py...e optional `mcp` extra: install it with `pip install 'structuredLanguageDB[mcp]'` (or `uv pip install 'mcp>=2.2'`).\n").returncode
+E            +  and   "sldb mcp needs the optional `mcp` extra: install it with `pip install 'structuredLanguageDB[mcp]'` (or `uv pip install 'mcp>=2.2'`).\n" = CompletedProcess(args=['/mnt/ssd/proyectos/SLDB_1/sldb/.venv/bin/python', '-m', 'sldb', 'mcp', '--store', '/dev/shm/py...e optional `mcp` extra: install it with `pip install 'structuredLanguageDB[mcp]'` (or `uv pip install 'mcp>=2.2'`).\n").stderr
+E            +  and   '' = CompletedProcess(args=['/mnt/ssd/proyectos/SLDB_1/sldb/.venv/bin/python', '-m', 'sldb', 'mcp', '--store', '/dev/shm/py...e optional `mcp` extra: install it with `pip install 'structuredLanguageDB[mcp]'` (or `uv pip install 'mcp>=2.2'`).\n").stdout
+
+tests/mcp/test_extension.py:67: AssertionError
+__________ test_without_validators_propose_and_apply_answer_as_before __________
+
+built_world = PosixPath('/dev/shm/pytest-of-robocop/pytest-249/mcp-world0/world')
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x7b704166df30>, _basetemp=PosixPath('/dev/shm/pytest-of-robocop/pytest-249'), _retention_count=3, _retention_policy='all')
+
+    def test_without_validators_propose_and_apply_answer_as_before(built_world: Path, tmp_path_factory: pytest.TempPathFactory) -> None:
+        root = copy_of(built_world, tmp_path_factory, "mcp-no-validators")
+>       with served(root, "--level", "1", "--actor", WRITER) as plain:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/test_extension.py:111: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-249/mcp-no-validators0/world')
+extra_path = (), options = ('--level', '1', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/mcp/test_extension.py::test_an_extension_that_does_not_exist_stops_the_server
+FAILED tests/mcp/test_extension.py::test_without_validators_propose_and_apply_answer_as_before
+ERROR tests/mcp/test_extension.py::test_the_extension_tools_join_the_built_in_ones
+ERROR tests/mcp/test_extension.py::test_an_extension_tool_pages_like_the_built_in_ones
+ERROR tests/mcp/test_extension.py::test_an_extension_tool_sees_the_level_and_the_actor_of_the_server
+ERROR tests/mcp/test_extension.py::test_an_extension_tool_inherits_the_signal_log
+ERROR tests/mcp/test_extension.py::test_a_validator_error_blocks_propose_and_apply_and_writes_nothing
+ERROR tests/mcp/test_extension.py::test_a_validator_alert_lets_the_batch_through_and_rides_in_the_answer
+2 failed, 1 warning, 6 errors in 6.76s
+rc=1
+### TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/mcp/test_write_tools.py
+EEEEEEEEx                                                                [100%]
+==================================== ERRORS ====================================
+__________________ ERROR at setup of test_cycle_on_a_document __________________
+
+write_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-250/mcp-write0/world')
+
+    @pytest.fixture(scope="session")
+    def writer(write_copy: Path) -> Iterator[McpSession]:
+        """The server at write level 2 (content and rules as data) over the write copy."""
+>       with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-250/mcp-write0/world')
+extra_path = (), options = ('--level', '2', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+___________________ ERROR at setup of test_cycle_on_an_edge ____________________
+
+write_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-250/mcp-write0/world')
+
+    @pytest.fixture(scope="session")
+    def writer(write_copy: Path) -> Iterator[McpSession]:
+        """The server at write level 2 (content and rules as data) over the write copy."""
+>       with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-250/mcp-write0/world')
+extra_path = (), options = ('--level', '2', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_ ERROR at setup of test_a_change_to_a_store_that_moved_since_the_proposal_is_rejected _
+
+write_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-250/mcp-write0/world')
+
+    @pytest.fixture(scope="session")
+    def writer(write_copy: Path) -> Iterator[McpSession]:
+        """The server at write level 2 (content and rules as data) over the write copy."""
+>       with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-250/mcp-write0/world')
+extra_path = (), options = ('--level', '2', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_____________ ERROR at setup of test_an_edited_proposal_is_refused _____________
+
+write_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-250/mcp-write0/world')
+
+    @pytest.fixture(scope="session")
+    def writer(write_copy: Path) -> Iterator[McpSession]:
+        """The server at write level 2 (content and rules as data) over the write copy."""
+>       with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-250/mcp-write0/world')
+extra_path = (), options = ('--level', '2', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_____ ERROR at setup of test_an_error_rule_refuses_the_change_and_is_named _____
+
+write_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-250/mcp-write0/world')
+
+    @pytest.fixture(scope="session")
+    def writer(write_copy: Path) -> Iterator[McpSession]:
+        """The server at write level 2 (content and rules as data) over the write copy."""
+>       with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-250/mcp-write0/world')
+extra_path = (), options = ('--level', '2', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+___________ ERROR at setup of test_an_alert_rule_is_reported_by_name ___________
+
+write_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-250/mcp-write0/world')
+
+    @pytest.fixture(scope="session")
+    def writer(write_copy: Path) -> Iterator[McpSession]:
+        """The server at write level 2 (content and rules as data) over the write copy."""
+>       with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-250/mcp-write0/world')
+extra_path = (), options = ('--level', '2', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_____ ERROR at setup of test_an_edge_against_its_relation_type_is_reported _____
+
+write_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-250/mcp-write0/world')
+
+    @pytest.fixture(scope="session")
+    def writer(write_copy: Path) -> Iterator[McpSession]:
+        """The server at write level 2 (content and rules as data) over the write copy."""
+>       with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-250/mcp-write0/world')
+extra_path = (), options = ('--level', '2', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+_ ERROR at setup of test_cardinality_and_condition_of_a_declared_type_are_reported _
+
+write_copy = PosixPath('/dev/shm/pytest-of-robocop/pytest-250/mcp-write0/world')
+
+    @pytest.fixture(scope="session")
+    def writer(write_copy: Path) -> Iterator[McpSession]:
+        """The server at write level 2 (content and rules as data) over the write copy."""
+>       with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/mcp/conftest.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/home/robocop/.local/share/uv/python/cpython-3.13.18-linux-x86_64-gnu/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/dev/shm/pytest-of-robocop/pytest-250/mcp-write0/world')
+extra_path = (), options = ('--level', '2', '--actor', 'agent:sldb-mcp-tests')
+
+    @contextmanager
+    def served(root: Path, *options: str, extra_path: tuple[Path, ...] = ()) -> Iterator[McpSession]:
+        """A session with `python -m sldb mcp --store <root>/.sldb <options>`, launched by stdio."""
+>       from anyio.from_thread import start_blocking_portal
+E       ModuleNotFoundError: No module named 'anyio'
+
+tests/mcp/mcp_session.py:65: ModuleNotFoundError
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+ERROR tests/mcp/test_write_tools.py::test_cycle_on_a_document - ModuleNotFoun...
+ERROR tests/mcp/test_write_tools.py::test_cycle_on_an_edge - ModuleNotFoundEr...
+ERROR tests/mcp/test_write_tools.py::test_a_change_to_a_store_that_moved_since_the_proposal_is_rejected
+ERROR tests/mcp/test_write_tools.py::test_an_edited_proposal_is_refused - Mod...
+ERROR tests/mcp/test_write_tools.py::test_an_error_rule_refuses_the_change_and_is_named
+ERROR tests/mcp/test_write_tools.py::test_an_alert_rule_is_reported_by_name
+ERROR tests/mcp/test_write_tools.py::test_an_edge_against_its_relation_type_is_reported
+ERROR tests/mcp/test_write_tools.py::test_cardinality_and_condition_of_a_declared_type_are_reported
+1 xfailed, 1 warning, 8 errors in 3.66s
+rc=1
+### nota: el entorno uv run --frozen no trae el extra mcp; grep de mcp en pyproject/uv.lock:
+43:mcp = [
+44:    "mcp>=2.2",
+0
+0
+### TMPDIR=/dev/shm uvx --from 'pytest>=8' --with-editable '.[mcp,code]' pytest -q tests/mcp/test_extension.py
+........                                                                 [100%]
+=============================== warnings summary ===============================
+../../../cache/uv/archive-v0/Tj3YiSk5dwfB4JV1/lib/python3.13/site-packages/_pytest/config/__init__.py:1636
+  /mnt/ssd/cache/uv/archive-v0/Tj3YiSk5dwfB4JV1/lib/python3.13/site-packages/_pytest/config/__init__.py:1636: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+8 passed, 1 warning in 13.13s
+rc=0
+### TMPDIR=/dev/shm uvx --from 'pytest>=8' --with-editable '.[mcp,code]' pytest -q tests/mcp/test_write_tools.py
+........x                                                                [100%]
+=============================== warnings summary ===============================
+../../../cache/uv/archive-v0/Tj3YiSk5dwfB4JV1/lib/python3.13/site-packages/_pytest/config/__init__.py:1636
+  /mnt/ssd/cache/uv/archive-v0/Tj3YiSk5dwfB4JV1/lib/python3.13/site-packages/_pytest/config/__init__.py:1636: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+8 passed, 1 xfailed, 1 warning in 9.05s
+rc=0
+### caso borde del tester: /dev/shm/tester-mcp-gancho/edge.py
+OK   propose rechaza con n=1: 1 domain check(s) failed
+OK   findings incluyen error y alerta
+OK   corren todos los validadores en orden: ['err', 'alert']
+OK   propose pasa Change tipado: ['UpdateDocument']
+OK   no sella ni escribe
+OK   dry run trae domain_alerts
+OK   apply rechaza y recibe BatchChange: ['BatchChange']
+OK   apply rechazado no escribe ninguno de los dos
+OK   sealer.check corre antes que los validadores (ValueError)
+OK   _check_path corre antes que los validadores (ValueError: zz: 'item/zz.py' is not a Markdown document; no tool writes )
+OK   lista vacía se rechaza antes que los validadores
+OK   apply con solo alertas escribe y devuelve domain_alerts: applied=True
+OK   context vacío: respuesta como antes
+OK   sin context: respuesta como antes
+TOTAL PASA 14/14
+rc=0
+### -v de los tres casos nuevos
+================== 3 passed, 5 deselected, 1 warning in 8.99s ==================
+### alcance: git diff --stat
+ .sldb/core/models/RunDoc.yaml         |  6 ++--
+ .sldb/core/store_index.yaml           |  2 +-
+ .sldb/store.yaml                      |  4 +++
+ CHANGELOG.md                          |  1 +
+ docs/architecture/mcp.md              | 29 ++++++++++++++++++
+ src/sldb/api/documents/apply_batch.py | 12 +++++---
+ src/sldb/mcp/context.py               | 10 +++++-
+ src/sldb/mcp/extension.py             |  7 +++++
+ src/sldb/mcp/server.py                |  5 +--
+ src/sldb/mcp/write/tools.py           | 39 ++++++++++++++++++++---
+ src/sldb/store/io/lock.py             | 23 +++++++++++++-
+ tests/mcp/example_extension.py        | 19 +++++++++++-
+ tests/mcp/test_extension.py           | 54 ++++++++++++++++++++++++++++++--
+ uv.lock                               | 58 +++++++++++++++++++++++++++++++++--
+ 14 files changed, 248 insertions(+), 21 deletions(-)

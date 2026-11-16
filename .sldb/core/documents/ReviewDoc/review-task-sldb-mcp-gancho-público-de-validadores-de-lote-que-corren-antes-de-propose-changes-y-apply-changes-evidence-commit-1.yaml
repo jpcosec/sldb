@@ -1,0 +1,36 @@
+name: review-task-sldb-mcp-gancho-público-de-validadores-de-lote-que-corren-antes-de-propose-changes-y-apply-changes-evidence-commit-1
+path: desk/reviews/task-sldb-mcp-gancho-público-de-validadores-de-lote-que-corren-antes-de-propose-changes-y-apply-changes/evidence-commit-1.md
+source_hash: a6a634e457c274ed0652b495c2ab92fdc1e2dbb0c0b61064fb16474e64051b15
+content_hash: 84208167fe54baad19a36a21743a6bf9f5ac153f1d983d4ef8c7cbc3c25a7360
+field_hashes:
+  id: 1ef568bcccd505d0346d561cec6f535a48f0826e79920f20eaa8b2767e289850
+  title: 3abb4a695b24238e51bfa39bd18bd8148cfa4c0e2441d6fe8318f802cb1fb698
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: 5ea9c58673a69c87d0e5540a6f9978aad8f8e0a0b9ce3471cff139c730d97888
+  value: db4deb3f5d7372c5bca51ba7f30aaea046564c0b368bb31c7c397c2fe96e96bc
+  subject: bfd323cd36a40073b9e41bb75b7357e2ce69fda9d0b3361fd0ef1adb51d09460
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 1230cc3dc20426d8fbef31e857474a423f7a5b885f11f8edf1fe62ec89690ec5
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 8932ea4108fb408e3fe1b313dc1db51302c2ed8f1aa3c2cdc2c9024636abf365
+  created_at: ca3499028e02c0cb596a0664ce357a44549114b78d9a1697f70716e5e94966af
+  disposed_at: ca3499028e02c0cb596a0664ce357a44549114b78d9a1697f70716e5e94966af
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: bd06ab6554b23dbbae3ea96c53ecf49f1a9fa4e33a096b7315b821d96799fea6
+  disposition: fa5c7284520a2387e238ac5df2d8e510a03cba40296753486bca83a8687af3cb
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T10:55:15Z'
+  authority: generated
+  via: save_document_payload
