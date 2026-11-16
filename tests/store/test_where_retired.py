@@ -2,9 +2,13 @@
 
 Two greps, as the acceptance fixes them. The identifiers `where_parse` and `FieldCondition`
 (substrings, prose included: they are code names) appear nowhere in `src/` or `docs/`; the
-eight old operator names, as whole words, appear in no fenced block or inline code span of a
-Markdown file of `docs/`. The one exception is the rows of the historical equivalence table of
+eight old operator names appear in no fenced block or inline code span of a Markdown file of
+`docs/`. The one exception is the rows of the historical equivalence table of
 `docs/architecture/rules-language.md`, under a heading that says "Histórico".
+
+Seven of them count as whole words. `contains` is also the name of the containment edge relation
+(`sldb edges --relation contains`), so it counts only used as a predicate operator: a field, then
+`contains`, then the start of a value (`status contains "x"`), or as an operator key (`contains:`).
 """
 
 from __future__ import annotations
@@ -15,7 +19,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 HISTORIC_DOC = ROOT / "docs" / "architecture" / "rules-language.md"
 IDENTIFIERS = re.compile(r"where_parse|FieldCondition")
-OPERATORS = re.compile(r"(?<!\w)(eq|ne|gt|lt|contains|starts_with|is_null|is_not_null)(?!\w)")
+OPERATORS = re.compile(r"(?<!\w)(eq|ne|gt|lt|starts_with|is_null|is_not_null)(?!\w)")
+PREDICATE_CONTAINS = re.compile(r"(?<![\w.])[A-Za-z_][\w.]*\s+contains\s+(\"|\x27|\d|\[|[A-Za-z_])|(?<!\w)contains\s*:")
 INLINE = re.compile(r"(`+)(.+?)\1", re.S)
 HEADING = re.compile(r"^(#{1,6})\s")
 
@@ -65,6 +70,12 @@ def _code(lines: list[str]) -> list[tuple[int, str]]:
     return found
 
 
+def _old_operators(code: str) -> list[str]:
+    """The old operators a code fragment uses; `contains` only as a predicate, not as the edge relation."""
+    found = [m.group(1) for m in OPERATORS.finditer(code)]
+    return found + ["contains"] * len(PREDICATE_CONTAINS.findall(code))
+
+
 def _files(*folders: str):
     for folder in folders:
         yield from (p for p in sorted((ROOT / folder).rglob("*")) if p.is_file() and "__pycache__" not in p.parts)
@@ -84,5 +95,15 @@ def test_no_old_operator_in_the_code_of_docs():
     for path in (p for p in _files("docs") if p.suffix == ".md"):
         lines = path.read_text(encoding="utf-8").splitlines()
         historic = _historic_rows(path, lines)
-        hits += [f"{path.relative_to(ROOT)}:{n}: {m.group(1)}" for n, code in _code(lines) if n not in historic for m in OPERATORS.finditer(code)]
+        hits += [f"{path.relative_to(ROOT)}:{n}: {op}" for n, code in _code(lines) if n not in historic for op in _old_operators(code)]
     assert hits == []
+
+
+def test_contains_as_edge_relation_is_not_an_old_operator():
+    for code in ("contains", "sldb edges --relation contains", "la relación contains"):
+        assert _old_operators(code) == [], code
+
+
+def test_contains_as_predicate_is_an_old_operator():
+    assert _old_operators('status contains "x"') == ["contains"]
+    assert _old_operators("contains: foo") == ["contains"]
