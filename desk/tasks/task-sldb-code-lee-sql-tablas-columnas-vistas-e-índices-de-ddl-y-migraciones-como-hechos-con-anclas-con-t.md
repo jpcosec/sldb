@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T20:09:07Z'
+  at: '2026-11-16T20:29:10Z'
   authority: generated
   via: save_document_payload
 id: task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t
@@ -54,6 +54,8 @@ _State what is in scope and what is out of scope._
 Entra: agregar tree-sitter-sql>=0.3 (la versión 0.3.13 está en PyPI) al extra code de pyproject.toml y regenerar uv.lock; un módulo nuevo lang_sql.py en el paquete sldb.code con la query y los readers de CREATE TABLE, CREATE VIEW y CREATE INDEX, con las columnas como hijos de su tabla. qualified_name: <tabla> y <tabla>.<columna>. Si un archivo de migraciones define dos veces la misma tabla, la segunda lleva el sufijo ~2, como ya hace Ids con nombres repetidos. docstring: un comentario -- inmediatamente anterior a la sentencia. kind: table, column, view, index, module. El dispatch por extensión agrega .sql; find_files incluye .sql solo si la gramática está. code_ref acepta .sql. Fixtures en tests/fixtures/treesitter/ con una migración de dos tablas y una vista; tests de intact/changed/lost/reconnected que se saltan sin la gramática. CHANGELOG.md. No entra: ALTER TABLE ni el estado acumulado de varias migraciones (cada archivo se lee por sí solo); dialectos más allá de lo que la gramática tree-sitter-sql reconoce; TS/TSX (tarea de la que depende).
 
 Precisiones (JP, 2026-11-16): el dialecto objetivo es PostgreSQL, que es el que se usa. Los fixtures son DDL de Postgres: CREATE TABLE IF NOT EXISTS, tipos serial/bigserial/jsonb/timestamptz, nombres calificados por esquema (public.users), CREATE INDEX CONCURRENTLY, CREATE VIEW y CREATE MATERIALIZED VIEW (kind view). El qualified_name conserva el esquema si viene escrito (public.users, public.users.email) y si no va sin él. Lo que tree-sitter-sql no reconozca de Postgres se salta con un hecho menos, nunca con error. Las constraints de tabla (PRIMARY KEY, FOREIGN KEY, UNIQUE al final de CREATE TABLE) no son columnas. Comentario --: solo las líneas -- contiguas inmediatamente encima de la sentencia, sin línea en blanco en medio.
+
+Precisiones (intento 3): el símbolo del ancla es el qualified_name tal cual queda en el hecho: code:<ruta>.sql::public.users si la sentencia escribe public.users, y code:<ruta>.sql::users si no lo escribe. Las columnas no tienen docstring propio. Varias líneas -- contiguas se unen con salto de línea, sin el prefijo -- ni los espacios de los extremos. El fixture cubre CREATE VIEW y CREATE MATERIALIZED VIEW, las dos con kind view. Las vistas y los índices también se anclan (code:<ruta>.sql::<vista> y ::<índice>); los tests de intact/changed/lost/reconnected se exigen sobre tabla y columna. El sufijo ~2, ~3, etc. aplica a tablas, vistas e índices repetidos en el mismo archivo, y sus columnas cuelgan del nombre con sufijo. Si tree-sitter-sql no reconoce una sentencia, se omite la sentencia completa. parse_code_ref y el dispatch por extensión ya quedan generalizados por B2: aquí solo se agrega .sql a la lista que dejó B2.
 
 ## Implementation Path
 

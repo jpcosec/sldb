@@ -1,0 +1,25 @@
+name: materialization-inverso-batch-inverse
+path: desk/materializations/materialization-inverso-batch-inverse.md
+source_hash: 8a27fa4e742b1889e310b551c1dfe7503bade92b7f8ed7a5ca48a864ee42ccd9
+content_hash: 3a84feb966d2432d21ffe0c6ee83dedf30e7ced1a5b60794ce2914936e1fd83a
+field_hashes:
+  id: 18eb6c6911fe6040b7f010a4535bbb37d097244ff57d3348d332464a981d9e84
+  title: daa5dbc32f7a3710b6a3ac20ef1000ff787e130842f513319006155923e7a6b7
+  source_atoms: e14cec67fbd15d33fa7658e380ae2c43252eb3182144d5b7360ff6d413a42a0d
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 23389bcf09966cf16ecb6cb10416698951f0b68157fca91007f4dfd80050777f
+  intent: 69916fb0c6c6eb66fd94d6857598604aa21c309867ddd06337d08ec5d0c3324e
+  validation: b73bbb9326a01ab35454bdbe94a03a479664aaabd3516871d46df5706158efa7
+  tags: ce6608cc96b60f46695457bfecedc9657839e9d31d6a3071314ead34490cf2a6
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:batch
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T20:32:11Z'
+  authority: generated
+  via: create_document

@@ -1,0 +1,36 @@
+name: review-task-apply-batch-devuelve-el-lote-inverso-con-guardas-deshacer-es-de-sldb-inbox-20261115-123855-evidence-commit-1
+path: desk/reviews/task-apply-batch-devuelve-el-lote-inverso-con-guardas-deshacer-es-de-sldb-inbox-20261115-123855/evidence-commit-1.md
+source_hash: 4b6cfe3ad1667ba6b3090d23110d7efee78ec12ca01ba913105e645337c14715
+content_hash: 4ac7e7e1781dcca32795144f6fb7455386c671acc6d123b544d6a190b421fc7a
+field_hashes:
+  id: e99392f52e8156322be869e4badcd052e0f1edcf3ce7e1628ef2741e61f10dcb
+  title: 1152d8ff813e3da1ec64dfecdd5f687ee282d9874d1ee03917e88ec99645dfe3
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: 5ea9c58673a69c87d0e5540a6f9978aad8f8e0a0b9ce3471cff139c730d97888
+  value: 9df13ce099914ad276bf44f4d59f607dddaf9efddf378f116c8e07e1019d95fd
+  subject: 43f5c2e5b0c74f6abcd3bd3eb973d0e0eec205bf3779bc55f8d5416b7dd2ace1
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: d5cedcec0dbccfc2c51c46bd51ce134fe88beec7cc13be72a4bce19ed4dae316
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 67e32cd54e4d8a3e22a3125e5f7d2995048556a52ed2dd5f51b842eada0b5bbc
+  created_at: 3f459f40da371823c80cae18b771e7bc9025e0d5052e3febef34d600630ac52a
+  disposed_at: 3f459f40da371823c80cae18b771e7bc9025e0d5052e3febef34d600630ac52a
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 4aeffdb500ac3a27a9571be68d316c4b64d9805b86a06e7a412bb76954f26015
+  disposition: 813a17d48d68ffe4b81512b23d1abf0f095e35eb2914ce95e7e88df3f8e871ab
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T20:34:09Z'
+  authority: generated
+  via: create_document

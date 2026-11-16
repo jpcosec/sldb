@@ -1,0 +1,36 @@
+name: review-task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t-preflight-2
+path: desk/reviews/task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t/preflight-2.md
+source_hash: c0f2bd71cce6670dee341626564e37949e15a8f391628a839033c0ab58ad4be3
+content_hash: 102494e2649ef01c88cc26d61b068261db6fa9429fd9daacc5e3d26be84021db
+field_hashes:
+  id: 594304b650b782f883c0d344a0e488a0781961ef646af631b9cbae8a54468341
+  title: cd745945be4bfdc22f74298e6e434c475173c933876fa856c66cd12eda09c748
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: f3f7f5c98b93e70b4bfce97bd8dcd3c924e50fb38a80e081fef3e06115ec630a
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 97a328db525e99e8af68b38a3fd59c328a648a7577eab82f79bdaf8911528e9c
+  input_sha256: 1a936b790d1be0d83b28e131380e2ee914dbe209d621476e3ae74cc264da87d0
+  output_sha256: 3ff3b8997c96e3899f64fd5db7627f35fc0405ebbd9b11a69307c6aae766e08c
+  verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
+  reason: f34400c4864ded0a7d89473afcb8cb3cb6c89c43df57340602ad3af1b5caffb9
+  created_at: ee2ed08a3febf8558d2493657f6749499b31cba8245b26e45e16d3525b5d702f
+  disposed_at: 8729cc2553b4159c59b66dd0e8dd516da08f153d738912a0612e144a6f62455d
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 6664418f9b38afac4a499734ade2d55f294ed132f5f44feca9842c5f4e7cbe45
+  disposition: 8b4fa05f8baa332dd4858070c439f4551c051cc3873f38621f9b6f74d62d1e87
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T20:28:12Z'
+  authority: generated
+  via: save_document_payload
