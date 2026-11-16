@@ -289,6 +289,7 @@ include:
   - desk/inbox/20261115-193320-suggestion-ir-pide-exportar-desde-sldb-api-notations-los-modelos-de-spec-de-d3-y-guardar-style-y-entity-en-specdoc.md
   - desk/inbox/20261115-195349-suggestion-ir-pide-exportar-desde-sldb-api-notations-resolve-style-load-palette-notationerror-anydiagram-diagramtype-y-diagramstoreenvelope.md
   - desk/inbox/20261115-203456-suggestion-code-scan-tree-nested-imports-component-spec-from-python-no-ve-los-from-imports-anidados.md
+  - desk/inbox/20261115-195033-unclear-un-store-por-rama-no-hay-forma-de-unir-dos-stores-al-mergear.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
