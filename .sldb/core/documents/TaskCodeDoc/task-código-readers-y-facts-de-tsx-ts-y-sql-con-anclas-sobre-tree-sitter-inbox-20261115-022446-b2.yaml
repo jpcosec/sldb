@@ -1,24 +1,24 @@
 name: task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2
 path: desk/tasks/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2.md
-source_hash: dad3824510935dff02e7cbb2ef476ad974157f259bfecb17bf02cb3e76ebae5e
-content_hash: a3acb7e535406a3ca81656507dcb6369e0e670c1f9cef02b16288a0ec84d465b
+source_hash: c2260288861a186ff7e1d224fc5a8f9038ccc7f6e7d33edbfb1049b9feed6f22
+content_hash: dcf32edb761358e693e21729b890b7b9cd2a35a2aaa36c722554f1f374a99b21
 field_hashes:
-  title: 8c29b6781ff51d3949c1b7b5ba02b8d29c12b58738a746cc2675018c5e0b223d
+  title: 1885d8ee27d80a13259d79b4507edd6250cd55107ef8748f1047e54c73a7cd74
   id: ed05d8d980b99b08e224dc91c7be71a3c469b32c47116af31bc04494f157877d
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 1909ad266d9aa6280e5e1b78401029ff6fd7a392073485048c7e9a2cafcd28a2
   goal: 84ebe067548ded25925f2701a56a10cfdd8fad2aa58e147cf24a6273195f93ad
-  scope: c8f22f69ab2525c9a13fd86bc6f97721cf25b10e2177347821ed62630bb2a70a
+  scope: 2bccb22d5c1e484e2659026ed50465d4537d4fd2e13617a7c426a34c4e3b20ca
   references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  implementation_path: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  validation: 2db25073ac6505f7dfa614261babf778eafa3fa2a63b10ac69dae9c673103dac
+  files: b7502a3e9419eec4e0435a3b3b7aa18fbf0c4b871ededa7be3e6c36a6b26eeab
+  implementation_path: 88072df46d30e9574e5887d4a8ea525ea0dc683d542feca507f9f4ada3dd8cf4
+  validation: 261da64932063d4186028dd9cb632d18abb366b51b56188664069f94ae4b9762
   done_when: 90b8e367c9aaadb6008f49e788642855b457bf9344754a0293e477d2fb41755c
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -26,6 +26,7 @@ field_hashes:
   atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - artifact:task
+- host:robocop2
 - representation.markdown
 - source.document.markdown
 - type.workflow.task
@@ -33,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-15T15:52:44Z'
+  at: '2026-11-16T16:16:44Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

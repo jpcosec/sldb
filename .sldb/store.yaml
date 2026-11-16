@@ -488,6 +488,10 @@ include:
     name: run-deskops-e-8ceadfbae763
   - path: runs/subagents/20261116-test-c4-sections/run.md
     name: run-deskops-t-ca6d4d0b8fa2
+  - path: runs/subagents/20261116-exec-c5-mcp/run.md
+    name: run-deskops-e-7075fd60583b
+  - path: runs/subagents/20261116-test-c5-mcp/run.md
+    name: run-deskops-t-7ff569d1fb68
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -764,6 +768,7 @@ include:
   - desk/materializations/materialization-c2-referrers-rewrite-plan.md
   - desk/materializations/materialization-c3-createpin-create-document.md
   - desk/materializations/materialization-c4-sections-section-sync.md
+  - desk/materializations/materialization-c5-mcp-tools.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -1389,6 +1394,14 @@ include:
     name: review-task-clean-code-tras-sections-rebuild-process-model-sections-con-10-líneas-de-lógica-como-máximo-evidence-atom-1
   - path: desk/reviews/task-clean-code-tras-sections-rebuild-process-model-sections-con-10-líneas-de-lógica-como-máximo/evidence-materialization-1.md
     name: review-task-clean-code-tras-sections-rebuild-process-model-sections-con-10-líneas-de-lógica-como-máximo-evidence-materialization-1
+  - path: desk/reviews/task-clean-code-tras-el-gancho-de-sldb-mcp-propose-changes-con-10-líneas-de-lógica-como-máximo/evidence-tests-1.md
+    name: review-task-clean-code-tras-el-gancho-de-sldb-mcp-propose-changes-con-10-líneas-de-lógica-como-máximo-evidence-tests-1
+  - path: desk/reviews/task-clean-code-tras-el-gancho-de-sldb-mcp-propose-changes-con-10-líneas-de-lógica-como-máximo/evidence-commit-1.md
+    name: review-task-clean-code-tras-el-gancho-de-sldb-mcp-propose-changes-con-10-líneas-de-lógica-como-máximo-evidence-commit-1
+  - path: desk/reviews/task-clean-code-tras-el-gancho-de-sldb-mcp-propose-changes-con-10-líneas-de-lógica-como-máximo/evidence-atom-1.md
+    name: review-task-clean-code-tras-el-gancho-de-sldb-mcp-propose-changes-con-10-líneas-de-lógica-como-máximo-evidence-atom-1
+  - path: desk/reviews/task-clean-code-tras-el-gancho-de-sldb-mcp-propose-changes-con-10-líneas-de-lógica-como-máximo/evidence-materialization-1.md
+    name: review-task-clean-code-tras-el-gancho-de-sldb-mcp-propose-changes-con-10-líneas-de-lógica-como-máximo-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -1418,11 +1431,12 @@ include:
   - desk/tasks/task-átomos-del-catálogo-sin-rutas-absolutas-atom-payload-y-store-documents-emiten-la-ruta-relativa-al-pr.md
   - desk/tasks/task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto.md
   - desk/tasks/task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup.md
-  - desk/tasks/task-clean-code-tras-el-gancho-de-sldb-mcp-propose-changes-con-10-líneas-de-lógica-como-máximo.md
   - desk/tasks/task-clean-code-tras-sldb-version-source-revision-con-10-líneas-de-lógica-como-máximo.md
   - desk/tasks/task-la-puerta-de-afirmaciones-vuelve-a-verde-el-changelog-no-nombra-la-ruta-inexistente-docs-architectur.md
   - desk/tasks/task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y.md
   - desk/tasks/task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable.md
+  - desk/tasks/task-sldb-serve-list-views-deja-de-componer-el-índice-federado-de-toda-la-máquina-y-compose-edge-index-co.md
+  - desk/tasks/task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t.md
 - model: TaskDebugDoc
   paths:
   - desk/tasks/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024.md

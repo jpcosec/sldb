@@ -1,0 +1,9 @@
+Task: task-clean-code-tras-el-gancho-de-sldb-mcp-propose-changes-con-10-líneas-de-lógica-como-máximo
+Title: Clean code tras el gancho de sldb mcp: propose_changes con 10 líneas de lógica como máximo
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective atoms:
+- atom-una-extensión-de-sldb-mcp-agrega-reglas-de-dominio-a-la-escritura-registrando-validadores-de-lote-si
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]

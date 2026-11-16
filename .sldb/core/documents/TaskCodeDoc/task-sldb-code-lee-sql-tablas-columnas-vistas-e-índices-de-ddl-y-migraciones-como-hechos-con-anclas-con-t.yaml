@@ -1,0 +1,39 @@
+name: task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t
+path: desk/tasks/task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t.md
+source_hash: e6cdaf564059d3bb5ebc6ea3df97f480d80c46859b3effdbbbfc726710181757
+content_hash: 3914fdd9afdff179111755d4ef64b28147b294eed50bfeafe962942928b5242b
+field_hashes:
+  title: 2832b67ee42bee72584ec50249ee9dd1b491563f98b77899f4ebaf9f15a1440b
+  id: 37c4941889df7ef349f3b4d9464829d4d8d752566cca1d8b49f1cdb84143a942
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 8ed409f00ec57743c2c8444c2ed94c02bc01b7610c29e3346cd72dcfc9882a9b
+  goal: df6d67fc6df85f1a585cf4f4469b828d660f93f386c62228d5f652343d636e0a
+  scope: a308a460c2040b8f4be2dbe46952b64890c6252e65c4b1f020923b8a369dcb45
+  references: 63fff60fb714bac47581dee7e7b86c88be8bd7f22e6ba5eefa5c9cc298deb182
+  depends_on: cf489a935866cc7848c3d223af222a9026102210bae368ed949526fa7f9d1042
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 480cd4d5d36a1007452eb39397c2be1eeac808c43eea72d0ee5a097b2c8bde12
+  implementation_path: 424c0b0dc74b08efbbcb7472a0ff0bc043a92bd75e0c67ece3c78286adfed2ab
+  validation: 8b2d199a6a4b4a0349305a02405da53d8e6f04099642ffe4c99857b9df126043
+  done_when: 5de810673d1b4f3723e5417cf38e18710d79e0604d18dbac1698bd1f547c577f
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: d8c16a988a6698ef91b6fff2c4313fe7528789cc26df59c5ba62c94577b96e2b
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T16:30:43Z'
+  authority: generated
+  via: create_document
