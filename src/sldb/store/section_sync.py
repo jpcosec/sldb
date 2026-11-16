@@ -7,6 +7,7 @@ it, split out to keep both files under this project's own line-count rule."""
 from __future__ import annotations
 
 import logging
+import os
 from pathlib import Path
 
 from sldb.store import documents_hash
@@ -27,7 +28,10 @@ def process_model_sections(m_entry, root, report, store_path: Path | None, proce
     key = section_cache_key(m_idx)
     if store_path and built_cache.get(store_path, "sections_shards", m_entry.name, key) is not None and _shards_kept(sections_shards_dir(store_path, m_entry.name), m_idx):
         return
+    start = len(report.missing_paths)
     current = _sync_model_sections(store_path, m_entry, m_idx, root, report, process_doc_sections)
+    if missing := report.missing_paths[start:]:
+        logger.warning(missing_summary({m_entry.name: len(missing)}, missing))
     _mark_has_sections(store_path, m_entry, m_idx, root, current)
     if store_path:
         built_cache.put(store_path, "sections_shards", m_entry.name, key, True)
@@ -59,17 +63,25 @@ def _sync_one_section(store_path, doc, m_entry, root, report, process_doc_sectio
     if unreadable_reason(root, d_path) is not None:
         return False  # not read (source_read): `stores check` and `stores update` name it
     if not d_path.exists():
-        _missing_doc(doc, d_path, report)
+        _missing_doc(doc, d_path, root, report)
         return False
     if do_sync:
         sync_doc_shard(store_path, doc, d_path, m_entry, report, process_doc_sections)
     return True
 
 
-def _missing_doc(doc, d_path, report) -> None:
+def _missing_doc(doc, d_path, root, report) -> None:
+    """Counted and listed, not logged: a store whose generated documents (say
+    `knowledge/symbols/`, ignored by git) are absent printed one line per document on every
+    write; `process_model_sections` logs one summary line instead."""
     report.docs_skipped_missing += 1
     report.verbose.append(f"sections: {doc.name} — missing file {d_path}")
-    logger.warning(f"Sections rebuild: doc '{doc.name}' missing at {d_path}")
+    report.missing_paths.append(Path(os.path.relpath(d_path, root)).as_posix())
+
+
+def missing_summary(per_model: dict[str, int], paths: list[str]) -> str:
+    models = ", ".join(f"{name}: {n}" for name, n in sorted(per_model.items()))
+    return f"Sections rebuild: {len(paths)} documents missing on disk ({models}); e.g. {', '.join(sorted(paths)[:3])}"
 
 
 def _shards_kept(shards_dir: Path, m_idx) -> bool:

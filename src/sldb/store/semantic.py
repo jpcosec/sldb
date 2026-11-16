@@ -30,6 +30,7 @@ class RebuildReport:
     headings_no_map: int = 0
     models_unresolved: list[str] = field(default_factory=list)  # skipped: their class does not import
     verbose: list[str] = field(default_factory=list)
+    missing_paths: list[str] = field(default_factory=list)  # project-relative; logged once per sections pass
 
 
 def _sync_model(store_path, m_entry, root, resolver, py_path, report, new_tags: set) -> None:
