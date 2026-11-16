@@ -1,0 +1,40 @@
+name: task-decisión-de-jp-arreglar-en-sldb-las-referencias-por-ruta-que-no-resuelven-a-través-de-un-store-enlaz
+path: desk/tasks/task-decisión-de-jp-arreglar-en-sldb-las-referencias-por-ruta-que-no-resuelven-a-través-de-un-store-enlaz.md
+source_hash: 3bdd429f109d571e5598da44ac77b16f5f43534292f3416f489a56e4a22de013
+content_hash: f3009137d25e55e57c5e3c024609d951424010ed7213014affe44aa24ecb0ea7
+field_hashes:
+  title: 759289f8aea8eff76f6e5e53bd06c7b6634ed241b4e63d88328ea09ae0523a79
+  id: 1fcd711e0298d1291422a1fa6c56490e18cd3ace901174b05aee2cd782550bde
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: b5fa041b9237d375345ae620dbb5e7bf613ceec1d37f271b07b5ba2b4ba60f0b
+  goal: f5cbd9c6b722d735aa913b8a90e9dfc3ceb2a27de251ce5f5e8112fe0b87ae58
+  scope: 8e144082fc324319800e2b698c38d560d96f1710b40bd7868504dc4d71b554a5
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 1d8fc283be374884f5b2cf7b1c26d4c9589acbc1efb0739381b56ab967c7c931
+  implementation_path: 4234bc976e44fda8f8a656f73f362a287024875f32d1eb0ceaea4772e5447f51
+  validation: 5c21af1a9c7f6239e3b0c82f9b4dad182467895c0a05f95d549eb044625a20be
+  done_when: 18ec5aaf8bd9e239e69551e8b3058167c013195488bd17b1c0f073316c040cd5
+  task_type: a4df8849de4c7c42dff3bfe95bbeb8759b5ca37238136b51e418b9d2f5ef311c
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  from_drawer: 68de3c26bedf76176bc8900ed57a114140f77c459d5ab4f5af624699a752da75
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T08:48:04Z'
+  authority: generated
+  via: save_document_payload

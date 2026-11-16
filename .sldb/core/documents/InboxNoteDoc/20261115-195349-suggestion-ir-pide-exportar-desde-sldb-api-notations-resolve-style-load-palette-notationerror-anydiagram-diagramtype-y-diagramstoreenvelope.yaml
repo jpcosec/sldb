@@ -1,13 +1,15 @@
 name: 20261115-195349-suggestion-ir-pide-exportar-desde-sldb-api-notations-resolve-style-load-palette-notationerror-anydiagram-diagramtype-y-diagramstoreenvelope
 path: desk/inbox/20261115-195349-suggestion-ir-pide-exportar-desde-sldb-api-notations-resolve-style-load-palette-notationerror-anydiagram-diagramtype-y-diagramstoreenvelope.md
-source_hash: a1e6dcf125bef824a4d7735789f80372a9367aa304e74e10573a113aecb0cc41
-content_hash: 485a70a8ef0de5487f9fccd44a76a4585ec445a6423c94d2f50b9406ce5a379e
+source_hash: ffdfc1dd8cccac23a4be5c89bc0b92d0f5e73b538e8d097a43c6987d4d485175
+content_hash: fb2491e08d52aa838c22d9746611dc6fe8e9d9fb684489fcddc9d53c70b6b4e3
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: 550d163360fb940289c037848ad4fa36fe070120cd2ed38aff13268762fe7d72
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 51f2f5c8ccc0bb8e31d05deb448dba1805783a96573f2715ab35e5ce2b351335
   title: c3c301f3a64baf343131892eb8d1a08d21c80871551ff5477445a04592bc1297
   body: 9d3b15c5ba6fb69860404a3738dbb19790cf488b40a11b419891c1e01ec31cf6
 semantic_tags:
@@ -15,4 +17,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-16T08:23:01Z'
+  authority: generated
+  via: save_document_payload

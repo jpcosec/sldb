@@ -1,0 +1,39 @@
+name: task-create-document-pinnea-las-anclas-a-documentos-igual-que-save-document-payload
+path: desk/tasks/task-create-document-pinnea-las-anclas-a-documentos-igual-que-save-document-payload.md
+source_hash: 61d5a7091970d4b1f03154b1916204c84767125e83de043a37650785ca69f735
+content_hash: 5b3e79fee11803dc31abd466f2e29a5fcea495859a9462abc6516d2422bb8489
+field_hashes:
+  title: a186734bf96e97d13503f357ddff2fa3e2bb328a5f8b263948bff046cd5e8c92
+  id: c17a9415749314f85773720e1d50b9f6fdf16fe8e379957135078e10df042170
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 373e3e78a4997fefefa9dbc50cb9f8e7b993050a5a565dae5881386506e6e114
+  goal: 32370d7a57e5405dd5bf5e83543ce3956680f8c89f28e682b155f25d26d3c2c8
+  scope: 10a1d98b2b43af1d32a3f217054cd1ba77a6ac44bd92357e722ce0862ad9ce1f
+  references: 1df96653958799c7f2d368280861fd0c772f4478cac50416e687657f45b57bd9
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 03d90b8b0b55294738b12758280f5caf2c4f3ac297cd0a57f02782eb32b9b859
+  implementation_path: 18d5d7d6f9836b98f5a4ca074c5d205a57503b428510d769d339a260cdd1f974
+  validation: 32598c0629358a70f0e246e93df1f3ef0718484b14d322c05084731aa71b7515
+  done_when: e5b6a78dbce90e48e61ac9d462a65eacaeece60ef98639b624518901c0ba1cb6
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T05:10:14Z'
+  authority: generated
+  via: save_document_payload

@@ -1,0 +1,27 @@
+name: pill-pill-una-carga-del-índice-en-attach-atom-edges
+path: desk/contexts/pill-pill-una-carga-del-índice-en-attach-atom-edges.md
+source_hash: 6c486d1b54d3c4b49500c952318968cae5908df4fa95c6f9a64e81b9289c2a71
+content_hash: f83ad2643eb6e6b7fe2c093e175a4573d5d0da3ef9619d45d20486667054037c
+field_hashes:
+  title: ad10fba055428496a5112e95b1a256b007e4d3dfc706e39385bf5478301de150
+  id: 008c51d26347aa474a15a71a773d389675bc669db98027676da9074f38f3639b
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: 13ed58b158e444920537de7a47c67c3a369860c864f694d43e7650a2fbaf8929
+  tags: eba3e04dedbc71d662afad768cce456eb93e4d6b45e163b5719ea634e6d3786e
+  what: 48fa4c8471a7b4be965c604094ec005d63e409c2efe07da1a17d99f3fa29b765
+  why: 367817a6fa5b5554632fc21169784b67d4169ac7d42084827d0b4fd03572f540
+  when: 27f39d26c98d5796fb5468d47a128e4ce44f57dd19e64eef027424db72b9e291
+  where: df23a0846d7082f637b4bad800a45d0b6ca076f20ce00e891bb1bf45fe72b7b5
+  how: 15d98c76d5be8a6aeb53db1d59bdc64db48468d5fff88c03bb9156914219a0ec
+  how_not: f47097e41d6f82b472e98b71e7ad5f5db7e69760c7c2ed7cd56043d20f8d9a8d
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- topic:context-review
+- type.workflow.pill
+- workspace.desk
+provenance:
+  by: agent
+  at: '2026-11-16T07:40:03Z'
+  authority: generated
+  via: create_document

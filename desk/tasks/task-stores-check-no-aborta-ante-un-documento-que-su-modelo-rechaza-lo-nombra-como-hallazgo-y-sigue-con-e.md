@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-12T00:50:55Z'
+  at: '2026-11-16T08:52:44Z'
   authority: generated
   via: save_document_payload
 id: task-stores-check-no-aborta-ante-un-documento-que-su-modelo-rechaza-lo-nombra-como-hallazgo-y-sigue-con-e
@@ -27,7 +27,8 @@ task_type: task.debug
 inherits_from: []
 inherit_acceptance_context: false
 atoms: []
-from_drawer: desk/drawer/tasks/task-stores-check-aborta-en-el-primer-documento-inv-lido-toda-escritura-re-extrae-el-modelo-entero-rollback-incompleto-hallado-por-el-task-debug-de-estados-heredados-de-deskops.md
+from_drawer: drawer task-stores-check-aborta-en-el-primer-documento-inv-lido-toda-escritura-re-extrae-el-modelo-entero-rollback-incompleto-hallado-por-el-task-debug-de-estados-heredados-de-deskops
+  (retirado en el triaje 2026-11-16; contenido en git antes del commit del triaje)
 ---
 
 # stores check no aborta ante un documento que su modelo rechaza: lo nombra como hallazgo y sigue con el resto (H1 de la nota 3895e9f7); H2 y H3 quedan con tests de regresión

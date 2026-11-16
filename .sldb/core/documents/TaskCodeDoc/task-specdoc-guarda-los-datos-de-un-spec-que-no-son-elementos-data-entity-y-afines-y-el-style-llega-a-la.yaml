@@ -1,0 +1,39 @@
+name: task-specdoc-guarda-los-datos-de-un-spec-que-no-son-elementos-data-entity-y-afines-y-el-style-llega-a-la
+path: desk/tasks/task-specdoc-guarda-los-datos-de-un-spec-que-no-son-elementos-data-entity-y-afines-y-el-style-llega-a-la.md
+source_hash: 087360d33bf76c6cdd0ac05152433e99bd5fe674de95eadae9151a1a3a517f6b
+content_hash: d7ec94f4548c33af72a1399de53a7ff6840842b8cc170ec0b03db9a08a7698c1
+field_hashes:
+  title: 9f5149785200340e313ce76a257bd0ae9a5ffc5a83aeff5be546f868dce83527
+  id: ba26020600153c0f4ecb8fcf7ac8e862ac70b1815f38c68659a8a3d1ebfed9b2
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 681cce8c017199a22ee878db10432a0d405a7a16ceb308517951d843698a902f
+  goal: c5b6bca9518f5fbc0f882815791e3e64ae235f23e261953fcd665a6001f384ab
+  scope: ca524a491d31149e55d8adf4e4ee27655e4205c88fcdfdd8decc31973af04e2a
+  references: 215bf500729184927f19fe0ff27eb480eb3e6e17306b355bfb22796676c11a5c
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: b300289e89838154ad9236de080b9c4e199980eb9cad2c23aef11e9d7220ce6a
+  files: 4f5ca4008725741777daf0486238ea1c1c5753a9d7a892007af77656b3bb3385
+  implementation_path: 4170136907c3cd9a7afb543c08f6bffe0ca561f4cda4991cc66613a9895c61ef
+  validation: e22ad020293716b9f693f9e5eeded9abf4fdb00807854f4a1df128fb510a5985
+  done_when: ef464b5d1fabb549200a7d85f1ae7904ac6553108e985f3656b79f02dc7a25b2
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: d2ea6cb43b487e304da12b0e3f573b382b474c95920303bc9b3eb4f6e56504ac
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T08:16:08Z'
+  authority: generated
+  via: save_document_payload

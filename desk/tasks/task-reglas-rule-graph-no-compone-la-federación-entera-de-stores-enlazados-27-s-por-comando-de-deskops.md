@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-10T03:35:35Z'
+  at: '2026-11-16T08:51:49Z'
   authority: generated
   via: save_document_payload
 id: task-reglas-rule-graph-no-compone-la-federación-entera-de-stores-enlazados-27-s-por-comando-de-deskops
@@ -24,7 +24,8 @@ task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
 atoms: []
-from_drawer: desk/drawer/tasks/task-rule-graph-compone-la-federaci-n-entera-de-stores-enlazados-en-cada-llamada-27-s-por-comando-de-deskops.md
+from_drawer: drawer task-rule-graph-compone-la-federaci-n-entera-de-stores-enlazados-en-cada-llamada-27-s-por-comando-de-deskops
+  (retirado en el triaje 2026-11-16; contenido en git antes del commit del triaje)
 ---
 
 # reglas: rule_graph no compone la federación entera de stores enlazados (27 s por comando de deskops)
@@ -57,7 +58,7 @@ PRECISIONES (coordinador del plan de deskops, 2026-11-10; decisión revisable):
 s1 (medición antes y después): con el store del desk de deskops (copia en /dev/shm de ~/proyectos/SLDB_1/deskops/.sldb con sus enlaces) medir rule_graph frío y caliente, load_edge_index(True/False) y el número de nodos, y un comando de deskops (deskops show task <una tarea> --root <copia>) con PYTHONPATH a esta rama. Antes: 27 s frío. Objetivo: rule_graph < 1 s y el comando de deskops < 2 s.
 s2 (diseño, a elegir por el worker y explicado en el informe): (a) componer los stores enlazados solo si alguna regla del store tiene un camino que puede salir del store; si todas las reglas son locales, se usa load_edge_index(store, False). (b) Componer solo los documentos enlazados que los documentos locales referencian (vecinos a un paso o el cierre de los caminos de las reglas), sin cargar la federación entera. (c) Una caché en disco del índice compuesto, invalidada por las firmas de los shards de cada store. La preferida es (a) o (b), porque son correctas por construcción. (c) solo si (a) y (b) no alcanzan, con invalidación probada.
 s3 (findings idénticos): sobre copias de los stores de los 6 desks (deskops, sldb, spec2viz, scion, pron, graph_ui), sldb rules check sin --subject y rules explain de las reglas de activación de deskops sobre cada tarea activa dan exactamente lo mismo antes y después. Un test nuevo fija un caso con un camino de regla que cruza a un store enlazado: tiene que seguir viéndolo.
-s4 (tests, de a uno): el test nuevo, tests/api/test_rules_evaluation.py, tests/api/test_transaction.py, tests/api/test_transaction_rules_dirty.py, tests/test_rules_language_spec.py y tests/test_clean_code_rules.py. Prueba del consumidor: con deskops main (copia en /dev/shm) y PYTHONPATH a esta rama de sldb, tests/test_activation_rules.py y tests/test_lifecycle_end_to_end.py de deskops pasan enteros, cada uno en menos de 90 s.
+s4 (tests, de a uno): el test nuevo, tests/api/test_rules_evaluation.py, tests/api/test_transaction.py, tests/api/test_transaction_rules_dirty.py, tests/test_rules_language_spec.py y tests/test_clean_code_rules.py. Prueba del consumidor: con deskops main (copia en /dev/shm) y PYTHONPATH a esta rama de sldb, test_activation_rules del repo deskops y test_lifecycle_end_to_end del repo deskops de deskops pasan enteros, cada uno en menos de 90 s.
 s5 (sin tocar deskops): el arreglo es de sldb. El worker no escribe en deskops.
 
 PRECISIONES DEL PREFLIGHT (review-...-preflight-1, 2026-11-10):

@@ -1,0 +1,27 @@
+name: pill-pill-standards-md-es-un-documento-modelado
+path: desk/contexts/pill-pill-standards-md-es-un-documento-modelado.md
+source_hash: 63816a7be2cff674b2de522b7f81074ab3ab08063aa2c0c4041e66c0c83b8b80
+content_hash: ec8e5b975d4346499fde3ee34aca88ec776232cf8ae6fcc8679b264b1cbb1f60
+field_hashes:
+  title: ff57c1351a9a1e5b2b0a211cce5bef8d4cc8241df6a1fad5da5ad943182c6a63
+  id: 0ed3e83ad143895389740bbc59b50fc0d318f07be2b848c4d487822666f86681
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: 9fa9b355006eef7706938cd2dbe9270abeb222be022b8724f19646ff4e86ab24
+  tags: eba3e04dedbc71d662afad768cce456eb93e4d6b45e163b5719ea634e6d3786e
+  what: 48fa4c8471a7b4be965c604094ec005d63e409c2efe07da1a17d99f3fa29b765
+  why: 367817a6fa5b5554632fc21169784b67d4169ac7d42084827d0b4fd03572f540
+  when: 27f39d26c98d5796fb5468d47a128e4ce44f57dd19e64eef027424db72b9e291
+  where: 97ed2f966695599ee251ba86304f3ee9927e9f4b335fb61c47ca40be294f13dd
+  how: c3fc1261c642f1145a4e98ce1d14ad26f2e6ef4461efab6ec3bcbecb66ce1876
+  how_not: f47097e41d6f82b472e98b71e7ad5f5db7e69760c7c2ed7cd56043d20f8d9a8d
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- topic:context-review
+- type.workflow.pill
+- workspace.desk
+provenance:
+  by: agent
+  at: '2026-11-16T07:55:57Z'
+  authority: generated
+  via: create_document

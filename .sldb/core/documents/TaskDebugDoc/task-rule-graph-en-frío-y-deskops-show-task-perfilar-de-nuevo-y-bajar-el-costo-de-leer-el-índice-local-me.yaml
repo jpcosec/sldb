@@ -1,0 +1,40 @@
+name: task-rule-graph-en-frío-y-deskops-show-task-perfilar-de-nuevo-y-bajar-el-costo-de-leer-el-índice-local-me
+path: desk/tasks/task-rule-graph-en-frío-y-deskops-show-task-perfilar-de-nuevo-y-bajar-el-costo-de-leer-el-índice-local-me.md
+source_hash: 71105082b43ed21c896162ada8bbb1a95599a57ebaa5a27a611828430514c56e
+content_hash: 87620f5e5d789cf309e4ea24a2506b6f3dad544d96cab338e586452b2481bc9b
+field_hashes:
+  title: 3845b2f1261162430879296aca83c6407cd1115e134230667fe02448ed71d706
+  id: e875bc50ecda9edbc4bbf12aebeb1375e767450c568f799ed525833baa6f08ad
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 6b240ce74e45176453693a0f747effea9c1cd2a48d97ee51557d4403c6d8341f
+  goal: 3edf63636e72a13d4b4a799622772967f1052edff8c56a5e7421ec65be72299a
+  scope: a9f4b0ea6298775f886bb20e61a6cbbae31c8a7881a2e7425d41f6c01fa3d510
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: add898ea8c1a382da5a34ffde3b2deabb95e7c00f8b7a2bf39698ec4923767db
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: de350345ec647dc641b21dc73056818ff4385023ccabedbc80dd236e87af0867
+  implementation_path: 5f260ccd64fb572bba50b072a6307cb0794e099784316561c24f454fa6977d65
+  validation: 3b98316ebd200555e957beaac251208d5af1c8d40f4ce4d0cf84a644581525a1
+  done_when: 466aae68e624ee35cbfa50bfbb92a53df02714181c71dd75791a05ac6cdc14b4
+  task_type: 17aef8a679138336d87167505c61b03a7bc28c9a12b1ccf78947b619d28fae69
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  from_drawer: 11323178c9a56cb95e4bae6012197c744ee3fe497b1da348fbd548140dd13f5b
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T08:47:35Z'
+  authority: generated
+  via: save_document_payload

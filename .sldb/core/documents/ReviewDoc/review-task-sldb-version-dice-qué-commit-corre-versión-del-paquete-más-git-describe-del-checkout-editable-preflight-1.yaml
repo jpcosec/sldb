@@ -1,0 +1,36 @@
+name: review-task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable-preflight-1
+path: desk/reviews/task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable/preflight-1.md
+source_hash: 160138005ee09e42bc338d16740074029d3d7ee3ee498687b093006b2d16353f
+content_hash: 1793d117ea6345bd0a764132a577878d13d911cf6122c1fad639901b68625b0f
+field_hashes:
+  id: 84bd01457d5d3a7c3daa75f30ccfc75715ce1ef3884d3513112866c69648838b
+  title: 44d040908c44bd772417386d48e74f45b159a3a777033f035ac042cc9080e3d2
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 6a559d447da397bdaee1e15d75eb90fbb15b10bac7f91ebc8ba43429a937d159
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 08351de9e27646b5bc0ae518e9a2ba4e5ddcbb62187cd12bd04571add6d9f732
+  input_sha256: 50a92237a5434005e985e1bd6a6a04386c3cc646dd32df66b3a0b93dc5366524
+  output_sha256: d6fcc148bda7216dbd9c22c0232b399c12778f0289671a80c9a856ebd860aec4
+  verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
+  reason: 305ef688ce37f7203894299af4945bdc73b64d810b162796410eda74a98dc5c9
+  created_at: c6c50609b3b8f84e431a785732858ad5ff0c8edfadcf3efaa91455dfc137628e
+  disposed_at: f112f1747a7c2ffd338ea5fc76f91435b39f84d9489c67c3b5ca20fc43796ab7
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 3379aefab14450a5a1f661f2aa3f0b66fae7c9a8790447675158cea22081ce09
+  disposition: aca3e348619780916b47c2745341979cd86c6c3f4da083a3d81c0ae22cbe1f14
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T06:06:49Z'
+  authority: generated
+  via: save_document_payload

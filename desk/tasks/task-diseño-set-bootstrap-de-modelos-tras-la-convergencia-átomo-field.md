@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T08:43:00Z'
+  authority: generated
+  via: save_document_payload
 id: task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field
 status: draft
 summary: ''
@@ -17,7 +22,8 @@ task_type: task.docs
 inherits_from: []
 inherit_acceptance_context: false
 atoms: []
-from_drawer: desk/drawer/tasks/task-atomo-y-field-convergieron-falta-un-set-bootstrap.md
+from_drawer: drawer task-atomo-y-field-convergieron-falta-un-set-bootstrap (retirado
+  en el triaje 2026-11-16; contenido en git antes del commit del triaje)
 ---
 
 # Diseño: set bootstrap de modelos tras la convergencia átomo/field

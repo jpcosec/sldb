@@ -1,0 +1,36 @@
+name: review-task-rule-graph-en-frío-y-deskops-show-task-perfilar-de-nuevo-y-bajar-el-costo-de-leer-el-índice-local-me-preflight-1
+path: desk/reviews/task-rule-graph-en-frío-y-deskops-show-task-perfilar-de-nuevo-y-bajar-el-costo-de-leer-el-índice-local-me/preflight-1.md
+source_hash: b5bf3f202f50db34373439eccaff7f74a2624a4f1dde2e1947b1df26fbfafb3c
+content_hash: 7ce410231cd2ae789ff52fae2a1c55e1984442b1bf186f13770bcaced7faac91
+field_hashes:
+  id: d2b5cfc4d0232c7fe1c901481a3862363abb77255d05a3384d6dbb6b67acc7c6
+  title: 03ef391894098cb548fae280cc2bf771cb9633db1b89d263229d0a180b8849e0
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: cd89661a485f4b31a87ed5946c9d5422ba8f2867ab85aa8123a4e4ddfd5c90ee
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 7f9f9298b39f681cf95a0f4a6eeaed83393c6ec9289dca1c52b5f3ad2940daba
+  input_sha256: 0954717fa4f74b81cdff978e356b4c0ff04eeeacae905760347cae5342aa4c18
+  output_sha256: 3783ab09fb27d31f751d79066908aacac6a439dd4c2c50b4103bf9ffce780771
+  verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
+  reason: 305ef688ce37f7203894299af4945bdc73b64d810b162796410eda74a98dc5c9
+  created_at: fd4028e0194ed10bf808dee230ab65b6a636d5e369a9d255db94183efda19515
+  disposed_at: 4b3f2e2c81abfd2ed81ce3ae7800c43f2338be4a03834e7322d0b1260d408249
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: ae3baa310a84cf45a31dc29717abeca619b5c086258f5dbc4fd3bc261489e7fc
+  disposition: aca3e348619780916b47c2745341979cd86c6c3f4da083a3d81c0ae22cbe1f14
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T05:45:18Z'
+  authority: generated
+  via: save_document_payload

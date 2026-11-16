@@ -1,13 +1,15 @@
 name: inbox-note-sldb-stores-add-guarda-siempre-el-enlace-relativo-no-resuelve-desde-worktrees-un-nivel-más-hondo
 path: desk/inbox/inbox-note-sldb-stores-add-guarda-siempre-el-enlace-relativo-no-resuelve-desde-worktrees-un-nivel-más-hondo.md
-source_hash: fa30639a20c18b203bd72db52026340b41a080528304fd937058a08b708af706
-content_hash: 7ab2bcfe7133865fad846f6a9f80519fa8283ba5795661df87bb104e18264528
+source_hash: 40d3d7ba47808807aded3e2bf38b82be14a1c2d4d6fe2c876dac85ebca347c65
+content_hash: f724b9d6841925631c58fee597b39b8a1d29aabb9f9176db7cff3c836a2810fc
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: f4a2eec9b5734c37e246678816f0b307c59c117a7dc74691342c9b86ff80e169
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: e882ba0ed94bf08ddea044aaa4bab46885415b5ddd0bb51fa9590ded6cd6d5de
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 1eb5ea8e6219b7420d7cd7307f72fa3234f4f272598cf3bb15a2f49aa44649df
   title: 266bea863c3d90dce24d3117087f731211d8fdff89d424dafe89322662565647
   body: 29db4b797492634d59eecfa45cf7c4bed34b1dd294bf2364b31ef78a66a9b728
 semantic_tags:
@@ -17,6 +19,6 @@ semantic_tags:
 - workspace.desk.inbox
 provenance:
   by: agent
-  at: '2026-11-10T21:31:25Z'
+  at: '2026-11-16T08:30:24Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

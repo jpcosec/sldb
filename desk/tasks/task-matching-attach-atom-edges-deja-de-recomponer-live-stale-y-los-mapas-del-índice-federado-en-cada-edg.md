@@ -1,0 +1,76 @@
+---
+sldb:
+  by: agent
+  at: '2026-11-16T08:14:08Z'
+  authority: generated
+  via: save_document_payload
+id: task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg
+status: draft
+summary: ''
+tags:
+- workspace:desk
+- artifact:task
+- host:robocop2
+current_node: ritual-execution
+history: []
+references:
+- desk/inbox/20261115-224941-suggestion-matching-edges-catalog-build-con-tomos-tarda-minutos-porque-cada-edges-of-recompone-live-stale-y-mapas-del-ndice-federado.md
+depends_on: []
+pills:
+- desk/contexts/pill-pill-una-carga-del-índice-en-attach-atom-edges.md
+files:
+- src/sldb/api/matching/store_reader.py
+- src/sldb/api/matching/store_edges.py
+- src/sldb/store/edge_index/composed_reading.py
+- tests/matching/test_matching_refs.py
+- CHANGELOG.md
+task_type: task.debug
+inherits_from: []
+inherit_acceptance_context: false
+atoms:
+- atom-un-escaneo-por-documento-se-cachea-por-lo-que-lo-determina-texto-contrato-y-lector
+---
+
+# matching: attach_atom_edges deja de recomponer live-stale y los mapas del índice federado en cada edges_of (catalog build con átomos en minutos)
+
+## Rationale
+
+_Explain why this task exists or the business driver behind it._
+
+IR13 midió que `specir catalog build --config <project.yml de ejemplo del catálogo en las fixtures visuales del repo IR>` (repo IR) no termina en 300 s; el tiempo es de sldb. cProfile: 146 de 149 s en sldb.api.matching.attach_atom_edges -> StoreReader.edges_of (31 llamadas) -> store_edges.edges_of -> edges_from + edges_to -> load_edge_index (62 llamadas, ~1,1 s cada una). compose_edge_index acierta la caché _COMPOSED, pero with_live_stale corre stale_of_facts en cada llamada y el model_copy resultante reconstruye los mapas (_ensure_maps). Origen: desk/inbox/20261115-224941-suggestion-matching-edges-catalog-build-con-tomos-tarda-minutos-porque-cada-edges-of-recompone-live-stale-y-mapas-del-ndice-federado.md.
+
+## Goal
+
+_Describe the concrete result this task must produce._
+
+attach_atom_edges sobre N referencias llama a load_edge_index a lo sumo 2 veces por llamada (una con enlaces y otra sin ellos, si hacen falta las dos) y no recalcula live-stale ni los mapas por cada referencia; el catalog build de IR de la nota termina en menos de 60 s con el mismo resultado.
+
+## Scope
+
+_State what is in scope and what is out of scope._
+
+Entra, en este orden: (1) reproducir con un test de rendimiento acotado en tests/matching/ que cuenta llamadas (monkeypatch de load_edge_index o de stale_of_facts con un contador) para 10 referencias sobre un store de prueba y falla si load_edge_index se llama más de 2 veces; (2) arreglar en src/sldb/api/matching/store_reader.py (StoreReader, líneas 45-57) para que cargue el índice una vez por store y resuelva edges_from y edges_to de cada referencia sobre ese índice ya cargado, en lugar de llamar store_edges.edges_of por referencia; (3) solo si (2) no basta para la meta, memoizar with_live_stale en src/sldb/store/edge_index/composed_reading.py (líneas 43-47) por firma de shards y stats de fuentes. Medición antes y después con el comando de IR de la nota (cd al repo IR, timeout 300) y guardada en el informe del ejecutor. CHANGELOG.md. No entra: cambiar la semántica de stale (sigue reportando las ediciones externas), tocar compose.py salvo que (3) lo exija, ni la configuración de federación del store de IR (la doble federación deskops/sldb de SLDB_1 y ~/herramientas es configuración de IR, no código de sldb).
+
+Precisiones (preflight-1): la meta es una carga por store y por llamada a attach_atom_edges; el test admite 2 porque edges_from y edges_to pueden necesitar el índice con y sin enlaces. Si se llega al paso (3), la clave de la memoización es (store_path, shards_signature(store_path), tupla ordenada de (ruta, mtime_ns, tamaño) de los archivos trackeados) y la caché vive en el proceso. "Mismo resultado" es igualdad de las aristas devueltas por attach_atom_edges antes y después, comparadas como conjuntos en el test. El comando de la nota es `cd /mnt/ssd/proyectos/SLDB_1/IR && timeout 300 specir catalog build --config <ruta del project.yml de ejemplo que cita la nota>`; la ruta exacta se copia de la nota de origen (references). El store de prueba del test contador se arma como en tests/matching/test_matching_refs.py.
+
+Convenciones (valen para todo el contrato): la entrada de CHANGELOG.md es una línea en español bajo el encabezado "## 0.1.13 — not released yet", con el estilo de las entradas vecinas. El commit lo hace el coordinador con deskops closeout commit (mensaje "<título corto de la tarea>"); el ejecutor no hace push. El informe del ejecutor es runs/subagents/<run-dir>/result-summary.md y ahí va todo lo que el contrato manda "anotar en el informe". Los números de línea citados son orientativos a HEAD 7288d93e: se localiza por nombre de función. Un aviso con deskops message send --to <repo> lleva como título el de la tarea y como cuerpo qué cambió y el commit; si el comando responde que el repo no está registrado, el aviso va como línea "Aviso a <repo>: ..." en el informe. "Un store de prueba" se arma con las fixtures o helpers que ya usa el archivo de test nombrado (leerlo primero); si no hay, con sldb.api (stores init, add_model, create_document) en tmp_path.
+
+## Implementation Path
+
+_Outline the expected implementation route or affected surface._
+
+1) Leer src/sldb/api/matching/store_reader.py, src/sldb/api/matching/store_edges.py (línea 28), src/sldb/api/edges/edge_reading.py (edges_from línea 45, edges_to línea 61), src/sldb/store/edge_index/compose.py (línea 48), composed_reading.py (43-47) y edge_index.py (_ensure_maps, línea 43). 2) Test contador que falla hoy. 3) Cambio en StoreReader. 4) Medir; si no alcanza, memoización del paso (3). 5) Correr los tests de Validation.
+
+## Validation
+
+_List the checks required before this task can close._
+
+- TMPDIR=/dev/shm pytest -q tests/matching/
+- TMPDIR=/dev/shm pytest -q tests/api/test_api_edges.py
+- TMPDIR=/dev/shm pytest -q tests/store/test_live_stale_security.py
+
+## Done When
+
+_Name the observable condition that makes the task complete._
+
+El test contador pasa (load_edge_index a lo sumo 2 veces para 10 referencias); los tres comandos de Validation pasan; la medición del catalog build de IR antes/después queda en el informe con el después bajo 60 s; commit.

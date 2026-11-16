@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-12T02:26:13Z'
+  at: '2026-11-16T08:52:16Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-sldb-create-document-y-track-document-file-evalúan-las-reglas-on-write-h4-declare-write-conserva-la
 status: draft
 summary: ''
@@ -30,7 +30,8 @@ task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
 atoms: []
-from_drawer: desk/drawer/tasks/task-on-write-no-se-eval-a-en-create-document-ni-en-track-document-file.md
+from_drawer: drawer task-on-write-no-se-eval-a-en-create-document-ni-en-track-document-file
+  (retirado en el triaje 2026-11-16; contenido en git antes del commit del triaje)
 ---
 
 # sldb: create_document y track_document_file evalúan las reglas on_write (H4), declare --write conserva la declaración de tags (H5), la familia de tags da su evaluación estructurada (H6) y se documenta qué documentos ve (H7)

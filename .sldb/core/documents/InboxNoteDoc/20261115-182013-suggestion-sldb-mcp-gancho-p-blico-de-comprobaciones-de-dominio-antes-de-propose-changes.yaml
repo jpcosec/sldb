@@ -1,13 +1,15 @@
 name: 20261115-182013-suggestion-sldb-mcp-gancho-p-blico-de-comprobaciones-de-dominio-antes-de-propose-changes
 path: desk/inbox/20261115-182013-suggestion-sldb-mcp-gancho-p-blico-de-comprobaciones-de-dominio-antes-de-propose-changes.md
-source_hash: 2c65ae295d89d56373e03e49b7608cd09d1e0bceccd7cf56aad729625c4f756b
-content_hash: 6377770114df0a7492817641f1712e9cb9dcda9dc4dbe5d5a44555d5fa174e8b
+source_hash: b8a1323ed9041667b46a682f07c00cd2562f3af6004be7ef521a4f1e1ad90a67
+content_hash: 0f6c7c2b8ebf3469862921b5859beacc0ac986f62fd1f63a765a4bc4e551c54e
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: e94ef09763b65a5e7c36daee48465b537e70ee9b084179b5e8a10dce8c8b4146
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: b9f2ea3d6be83684a6276cf7ba1769b59b8bb694e6a6ba3d4817298d0f3e8fec
   title: c787e34f27f73d424a28584ef1435a9017a98f89d7b4f36722edb3b0ccf012a5
   body: a62edbdcf9926517613e94f6fbf6a1b21cacdc9e3b7197535180fdd0fe087cd2
 semantic_tags:
@@ -15,4 +17,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-16T08:22:02Z'
+  authority: generated
+  via: save_document_payload

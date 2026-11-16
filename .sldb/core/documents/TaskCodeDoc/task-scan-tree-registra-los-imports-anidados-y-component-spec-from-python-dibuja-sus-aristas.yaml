@@ -1,0 +1,39 @@
+name: task-scan-tree-registra-los-imports-anidados-y-component-spec-from-python-dibuja-sus-aristas
+path: desk/tasks/task-scan-tree-registra-los-imports-anidados-y-component-spec-from-python-dibuja-sus-aristas.md
+source_hash: 468586224befdcf741504394fede260d77552bcc304a247262590ac9876d52a4
+content_hash: 2bb1960f8d66dff72461f2f7b2dc79e817ba742d84f5154445f59e3babed310f
+field_hashes:
+  title: 60d99941fcbe06e8727334cdac1f53c91c0b38d8b6e25163154fc1f275f51b61
+  id: e75a7e45d8bf096d04835cddfc2b58e7e8f28f5fc4479653d4dd78295cbfa80e
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: c9c0c1d106c527f66405a366f75f8540e31598278b14760ce3d75f1108843eeb
+  goal: 820681e3fe9aa1330729006e6739d47b4a497e446744e1f11c237909dbd6116b
+  scope: 018b7bc3a13ed667041028dea584de7a65a34b97c710483656a595d39c297e90
+  references: 0ca4aa2e0fbf5f81b49f45b169b910445e8494e96b6150f03ce2438a3d07f318
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 7f55189d3c77b5fe4a7831ac7a6d48ae82fd2c3e295e8711554b23216180d99f
+  files: b0884bf4d40f89b4fa7728fad2f1a9e6dd94b4e785c498d4c67e1afe67482570
+  implementation_path: 71606c7eb8fb847315a9e49b9ff7005679a5781aa9ab372ee5a16b7028153c18
+  validation: ead55c3b25728d3867d4c5247d495ec78aee06ab7b0521540b16b2e0808ea951
+  done_when: 61fcd3db3105db8d74ee3b0b6fb5b61625d59627c07cbae81ff50bbd51e52c70
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: d8c16a988a6698ef91b6fff2c4313fe7528789cc26df59c5ba62c94577b96e2b
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T07:36:21Z'
+  authority: generated
+  via: save_document_payload

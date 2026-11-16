@@ -1,0 +1,40 @@
+name: task-docs-show-sobre-un-store-enlazado-dice-que-no-pudo-importar-el-modelo-en-vez-de-unknown-document-tar
+path: desk/tasks/task-docs-show-sobre-un-store-enlazado-dice-que-no-pudo-importar-el-modelo-en-vez-de-unknown-document-tar.md
+source_hash: 5b86e19d04914ee77871657f456f7a142c6a5bba38c84fbb643ee54ac7f4850e
+content_hash: 6ff31fe308e4ef9edf3adf7c8424a3b08bbde0334016b2e79f25287cea5ea383
+field_hashes:
+  title: effb51b1f5397aa20992d7208aa4c6b1dbfce73283cd75746ca3ed5236890034
+  id: a9cc24d906461dcf3b5104fbd2ac31927dc6de0737edcb80412f8ae9f4905ed5
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 3d8031eaefa473e686c26b2d660c969250af0cbbec28c8cc3b89887f1788058c
+  goal: c0569625632e38663b4b5f0ce8ed6b018a9249f9adf42dd1f99aff5ac9fc0d7a
+  scope: 24a8e5d677c450ee6b425bb1a3635ad9b46d4cf70591e350d55d0bf23bbd80bd
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 0d41ae70501ec56f0fff69cfe8c536c7e859531b0ea60c7c92467e42d4ba4671
+  implementation_path: 08d550c6e17efc315f92846b830cf595052c6f0b71c12afdff638307c31fbee7
+  validation: 246c7de3de6b8bbf934062ed3fc52738d5df40712b19b10a13b2e0cdf1323364
+  done_when: 160fe786fa16183add38a13543fb206de4d50a9773e2b5bba7648482ae5c5f92
+  task_type: 17aef8a679138336d87167505c61b03a7bc28c9a12b1ccf78947b619d28fae69
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: b719dff7ba29a9b4c373d38987edc21d1ebffff33635122665a4f8aa4abf51c8
+  from_drawer: 0e7604077c3630323413db8f4f5e980051de29258e44bc5d6412ff340ec37de9
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T08:46:40Z'
+  authority: generated
+  via: save_document_payload

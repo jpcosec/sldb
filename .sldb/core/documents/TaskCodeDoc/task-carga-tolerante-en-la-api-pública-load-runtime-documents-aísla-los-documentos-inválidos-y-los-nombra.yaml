@@ -1,0 +1,39 @@
+name: task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra
+path: desk/tasks/task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra.md
+source_hash: d3af6f2be085e87da8165df5a38de38d30a04fe5c5c6361e9348d4c47e8dd32b
+content_hash: a9438d421c46648188244e529e4c9465a4ced66285fdef13679d91fab6c1af5b
+field_hashes:
+  title: 15cb996a477fc4b32dd0e490c85131a629f4443182d3c3f8a47e580ab2ed2601
+  id: e1584d2be265648c1e7a95ffd0cf45934e99024a436e1b02c3c19a0a84dfade0
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 5e3e31719e8cf6e04ecf4c390fd28d05e809a5f9e114180437e89521d799e57c
+  goal: 90bf34c5d4eddd68a6d6ea6c2e0274d9ae4229e6ca24c2bda0966b34caa20f4f
+  scope: 8a744b73895a2a7f42c70ebc5c55a122c637140c9dbe04163a53259d03d3f4e9
+  references: 6719dae787fa63963def8e595f557804026c9d89dc91e68f41dba3e227b3684a
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: c3d78a85f6ddb34b376bae0cd9326213edc4783cdd2e9adfd4b07049ae9d9053
+  files: 519756ae5cbdf8245ff3f35ff6c629d935eb9273eeab157ab4da351a5a99407d
+  implementation_path: 61023ed9ee56042b4c7848febe763986fbb465ed59cbb3f210ba64c5536578ab
+  validation: 046ca01ba7842f3d6b98a08b8d31bcc0a3789dfd149f2ba5e81fcf6db867558b
+  done_when: 2bbb4ccfa72b5346d7eb170354d991adaf7e17d96feb28ad9c1a03a37ab1093b
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: b719dff7ba29a9b4c373d38987edc21d1ebffff33635122665a4f8aa4abf51c8
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T07:42:45Z'
+  authority: generated
+  via: save_document_payload

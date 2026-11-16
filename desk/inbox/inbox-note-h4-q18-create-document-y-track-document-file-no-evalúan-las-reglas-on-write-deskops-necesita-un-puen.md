@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-11T15:23:48Z'
+  at: '2026-11-16T08:29:01Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 # unclear | suggestion
 kind: suggestion
 # e.g., other_repo
@@ -13,9 +13,11 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-11-11T18:00:00'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-11-16T05:28:44'
 ---
 
 # H4 (q18): create_document y track_document_file no evalúan las reglas on_write; deskops necesita un puente para el chequeo de padres de dominio

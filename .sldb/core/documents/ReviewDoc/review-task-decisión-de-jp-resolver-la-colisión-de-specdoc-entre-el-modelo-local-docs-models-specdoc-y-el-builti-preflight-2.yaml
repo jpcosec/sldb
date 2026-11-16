@@ -1,0 +1,36 @@
+name: review-task-decisión-de-jp-resolver-la-colisión-de-specdoc-entre-el-modelo-local-docs-models-specdoc-y-el-builti-preflight-2
+path: desk/reviews/task-decisión-de-jp-resolver-la-colisión-de-specdoc-entre-el-modelo-local-docs-models-specdoc-y-el-builti/preflight-2.md
+source_hash: d864c8e7c78bb3493c8850408cb4c2f1becfff42814917f8bdb78e0911d9ff37
+content_hash: 051a3699c182110f1981c90db3f98d7a7452f28d619cc4a3fe25228ab6139873
+field_hashes:
+  id: dbb742de3d380c5d31d4cbf376e2dd14f267c109de48ffbc3ed3302ec2d67920
+  title: 0562730cb9b850039a0a00e973ee5742ddaf404cc5511f37cef8d826fafe4c93
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: db3719bc017046649fc3d1ce5c91d87950ea40cf999a5e639b233d503752bd01
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 9ebe39b7026f79d2900e5888b63eb777aba636c50ebc4bdd7cafa80c1d433e05
+  input_sha256: 875a16e9877c00b4a1f9c49a02f61d05afdd07516ac79acf3aff5e3651da12cf
+  output_sha256: 4e0f961f85e32c017e06cb55d39beba39a6251904fe6346f1fd67f634d2b1361
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 942dcdce76af19deec361f3014ff77c897ad88d819327beceac50f9343027ed4
+  created_at: 64f4139708792eb568b5fc71592a66c1a6e6be0bb527c93a5f0c92e48be4317c
+  disposed_at: fa944fdd6801c424d4e62b6137e7ea09f8b3aef3e2e5a778514551cbc6f29525
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 3facc8e22e4dd9a3c0f76f2579016c07ced0439c581147fe704fc11393a46803
+  disposition: 7cd419429e99ba5ed8715f356ac5c73354ccffa6b8d589d1e73e396d11b0dca1
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T06:58:30Z'
+  authority: generated
+  via: save_document_payload

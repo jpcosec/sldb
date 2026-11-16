@@ -1,0 +1,39 @@
+name: task-átomos-del-catálogo-sin-rutas-absolutas-atom-payload-y-store-documents-emiten-la-ruta-relativa-al-pr
+path: desk/tasks/task-átomos-del-catálogo-sin-rutas-absolutas-atom-payload-y-store-documents-emiten-la-ruta-relativa-al-pr.md
+source_hash: 1f641a605277f983aad1e9125d2c7639d62e57ebbc876b6dc0a0b408970d2570
+content_hash: 24dafc1e4f534a9576cdd7dab860e3e42051dff40b0de1c5c39cb582f69648ed
+field_hashes:
+  title: 233d92173f4475138bec36771c2536c432b3722955b5941055f881e0940a16e2
+  id: b1c595ff543163c7186522146d33e7c56c4ccfec62a1b8f656b361960fc0a00a
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 10cb2516e63d1046b02fdf0c710cb4a5d919fd7471960bf6759288d0e65e4214
+  goal: 08064a6eb2276cf16dce20a0986619b19750b2840814dbb0ba2d1666c476c9af
+  scope: f36d298e9cd8ec1ac574b44e9d5556990e3bd0c4b173b121857f2bbe26e62793
+  references: 9266b2af85f320f67a698e3ad895864235b0568fc31288b00e6d09296785118b
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 9e60baace988e16be8ce9fb2e7a6d16a438c2eceab04b20f150506b1b0c769b1
+  implementation_path: bae9849cf0ff149a9d260d4469d893b0ed8bc86818fa441fcf31f3dc47d3019e
+  validation: e8bcc1a08f44617c3ca80b7074e7c6027408e8e962d15a654112bb8294f655fb
+  done_when: 3539778ae340a5352fd89d4efd5fda424dca376e2a4788466d69e981e9df3339
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T07:35:20Z'
+  authority: generated
+  via: save_document_payload

@@ -1,0 +1,27 @@
+name: pill-pill-validar-el-enlace-guardando-el-texto-tal-cual
+path: desk/contexts/pill-pill-validar-el-enlace-guardando-el-texto-tal-cual.md
+source_hash: 1d4e43bd4f19c418498929c2a5683795971ecf670dd3067398d23640a7696e4a
+content_hash: bf8a0b061b755730c091fbba9510443b6094a1b1ebcc8aef56166f0b56343cf0
+field_hashes:
+  title: d082ed36b2faa147c0fd282aeb6efe5ffd92f88d7ebc90d294fe95f16ac4f6b1
+  id: 57a2f03aa9e11a76b81474a226ee5d2c78933a35e401573b938eac63d6b36a73
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: 71b33d7928dd90226c4566eea36755d0a1ca02487cfa7dd06f61434cbf3cec91
+  tags: eba3e04dedbc71d662afad768cce456eb93e4d6b45e163b5719ea634e6d3786e
+  what: 48fa4c8471a7b4be965c604094ec005d63e409c2efe07da1a17d99f3fa29b765
+  why: 367817a6fa5b5554632fc21169784b67d4169ac7d42084827d0b4fd03572f540
+  when: 27f39d26c98d5796fb5468d47a128e4ce44f57dd19e64eef027424db72b9e291
+  where: f86fcaa63924af6c23ac667a0d4e6aff9a000572b9d6f8a3f6676cc80b621828
+  how: 1889c5bfdbec4191a320afb264db8be322dfadeb771e3f9dbffe421c23dab914
+  how_not: f47097e41d6f82b472e98b71e7ad5f5db7e69760c7c2ed7cd56043d20f8d9a8d
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- topic:context-review
+- type.workflow.pill
+- workspace.desk
+provenance:
+  by: agent
+  at: '2026-11-16T07:48:29Z'
+  authority: generated
+  via: create_document

@@ -1,0 +1,36 @@
+name: review-task-átomos-del-catálogo-sin-rutas-absolutas-atom-payload-y-store-documents-emiten-la-ruta-relativa-al-pr-preflight-2
+path: desk/reviews/task-átomos-del-catálogo-sin-rutas-absolutas-atom-payload-y-store-documents-emiten-la-ruta-relativa-al-pr/preflight-2.md
+source_hash: fd5fc78a9875a9a4c338e0887d09e30148efdf3c086f896cf66d3bdec7860c21
+content_hash: ac64b32889f239de7ab9799d93c33be64e66ea23093b39284cde4bb4de905754
+field_hashes:
+  id: d7dbbbe753b5819420f9c51a157693af8459fc01194e7c413d09063dde307a07
+  title: 71bbaa7ddc794efeff1d0c8e399a22fef79eda77aecc8a08d837abef1f618bb9
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: c3b784ac2fba19039f0fe217de2e56e61018c86bbc88c9d17f067614637d3dfa
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 2e6c4b5028df66e022fc589784777a1f74abc2750ad80852b8c71fc3a6a1aab4
+  input_sha256: 29444c67759c854b3d41e0c7a3faf1e98a495c63589db94a04ed4a683467c7c9
+  output_sha256: 4d85c1b9df4856eadc18c7519d1dd5f8b6123648f95f7cad7d041078a4f072c7
+  verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
+  reason: 3376713b1f92979e8844b8a476c57470441c2e3c32aa5cf78a9a26bc8143a8a5
+  created_at: a19e8219bfbb60b2d80d14b639f13e91c0ea7a06fb2be6c92dbb8e3e276c5f54
+  disposed_at: 1520d4d33bf77352e692d483a59512fcfcdcee7f75d70d515895b4b6a53244f1
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 65207cfdabf5ede95b913d59bb0168d6b142357136c58940b081c4fd0693deb5
+  disposition: 1d30d785f7c18d3a04a3cad203603765233f6d206dbecac0d424ae1593472ed1
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T07:34:52Z'
+  authority: generated
+  via: save_document_payload

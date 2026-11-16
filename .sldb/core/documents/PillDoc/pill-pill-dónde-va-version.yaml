@@ -1,0 +1,27 @@
+name: pill-pill-dónde-va-version
+path: desk/contexts/pill-pill-dónde-va-version.md
+source_hash: 75f50dfe12431094b67f47288ea3d6f7312968eb051fe663a1db67b6ff5a2c26
+content_hash: a80dc3c7f28871a71247f8e07414b75ecf88fd766ca7898cc7e0d14ac5131e00
+field_hashes:
+  title: 7c144fad58b1bc0538229c06bb6f3ac6c7e316f868f692f3b1a4e6cebf071f2f
+  id: b611663f4d935166d6d4b5eb6b5dc53f78971ae1dc394cebc5c94d5e85d1d874
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: c92e9244d9ac017f866df23b0a4a69c8345f0d0cf8dd0168ecaf5dc6468af963
+  tags: eba3e04dedbc71d662afad768cce456eb93e4d6b45e163b5719ea634e6d3786e
+  what: 48fa4c8471a7b4be965c604094ec005d63e409c2efe07da1a17d99f3fa29b765
+  why: 367817a6fa5b5554632fc21169784b67d4169ac7d42084827d0b4fd03572f540
+  when: 27f39d26c98d5796fb5468d47a128e4ce44f57dd19e64eef027424db72b9e291
+  where: 4f3584f50bbd04a3c9e057c315f92fbba1222f8cf5e6d2f3d68c6ca48b7b262f
+  how: a9706d957aacefbb839b738d593e05e773e6d4e8b7c8761e2e65c6d8c8c1fc12
+  how_not: f47097e41d6f82b472e98b71e7ad5f5db7e69760c7c2ed7cd56043d20f8d9a8d
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- topic:context-review
+- type.workflow.pill
+- workspace.desk
+provenance:
+  by: agent
+  at: '2026-11-16T07:44:26Z'
+  authority: generated
+  via: create_document

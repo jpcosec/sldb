@@ -1,0 +1,39 @@
+name: task-el-oráculo-de-paridad-de-d2-deja-de-importar-spec2viz-golden-congelado-en-tests-notations
+path: desk/tasks/task-el-oráculo-de-paridad-de-d2-deja-de-importar-spec2viz-golden-congelado-en-tests-notations.md
+source_hash: c15a76cba5b25d87b2064ce9cc404360c5a7dfb89381b113292c17c1c9692d0e
+content_hash: d029e923fd6bd1eb0edd7d878efc1b897375124314c699ab300d453156811c88
+field_hashes:
+  title: d79537b0c9c4379759f4c739c41ade568e0a7e8dbe2f8794f78571836dac63ae
+  id: 107701f2890c5a92696bc07749ad76aa9b562495b0210637a9e1dad6bb87f326
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 813355578d76aaa498083a7baaa2611f8e3465546bd85c95c3425e4e4859d6bf
+  goal: 09177be805a193fd3018aaa227c5a6a9e349ac76f136b3e5bd4c581d789aa365
+  scope: 573605779b1b7b5fa81b5a9273c5ee4b48a2169bea2f53d6c94dcca8530614d8
+  references: 036393dc0f29bafc946ad6f319de9619f06a4180e3c57e24e6e7b46cc88a12f9
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 85fd61daa87e75f70c138f005c228895406aa4d96c1ac402f0a39fcaec9b511d
+  implementation_path: 5f3c4099c4d22cd93c1937f5e7e0db25ad6455d9e591afe404c1b81aa7d6b548
+  validation: 1d57fde3c90d1fe58cf68e45d6b0746177763aea28e230f99a2a90360f1c6797
+  done_when: 7a19d1a87fe577950b3fd3f6f695cb2671eda0a3018303af7e6c903abf8ea498
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T06:18:23Z'
+  authority: generated
+  via: save_document_payload

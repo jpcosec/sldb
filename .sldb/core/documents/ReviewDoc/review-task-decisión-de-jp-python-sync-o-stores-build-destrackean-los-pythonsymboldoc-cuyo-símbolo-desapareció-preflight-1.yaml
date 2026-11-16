@@ -1,0 +1,36 @@
+name: review-task-decisión-de-jp-python-sync-o-stores-build-destrackean-los-pythonsymboldoc-cuyo-símbolo-desapareció-preflight-1
+path: desk/reviews/task-decisión-de-jp-python-sync-o-stores-build-destrackean-los-pythonsymboldoc-cuyo-símbolo-desapareció/preflight-1.md
+source_hash: ce20ec1a2539a9f58cc4e295d2c06354c80ca7d61e7f1a2b3d282f91ac6933ca
+content_hash: c0f508ad795130dba5ce6b7ea04143b93b1823ef37a614d424b330d9b547e42e
+field_hashes:
+  id: bc7e01da87a7a66662b7eb4cd01bde9aa94e1b104b4f17a89fbf367344d32d40
+  title: 675f6c843a3967a96d821f16dcabbac838f70ddb913e98fbfa90f08923189d47
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: db2c5fdb08d41797febbc5e9126f5948050b691662627b1a63d3dc7f1198c0c4
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: ced8627b69473930b429e7693f631f14da8878bae4db2556ad3b5685cd17609e
+  input_sha256: 07f2cbf3dbb96086e54576272eb5147daa1aabff365611791e2a87ab56bcb185
+  output_sha256: 8b103df66c2e490a3bc80e84ac21aaee1a2a13f87b8b44d1361a40295eb2da1d
+  verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
+  reason: 305ef688ce37f7203894299af4945bdc73b64d810b162796410eda74a98dc5c9
+  created_at: 6093d53ce9dbf4913671152d264e329b6bab4fe21f83968aa7ffad253effeafc
+  disposed_at: a38c6719619335d2200494f5a666a57dcf9f9482acd3b6af1d52edaf8c8a7bd4
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 3f371dec853252875d8ec50f73600eb238e9661820e5435f0f41939cd374ceb7
+  disposition: aca3e348619780916b47c2745341979cd86c6c3f4da083a3d81c0ae22cbe1f14
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T05:20:59Z'
+  authority: generated
+  via: save_document_payload

@@ -1,0 +1,20 @@
+name: inbox-note-h11-sola-sobre-main-rompe-tres-tests-de-rollback-de-transacciones
+path: desk/inbox/inbox-note-h11-sola-sobre-main-rompe-tres-tests-de-rollback-de-transacciones.md
+source_hash: 70b69b2e1f617cd54292cd871db7ede2cbbfe6b7dda0b74a71c77178ed395080
+content_hash: e61ae326b988d3e2672b7040e7499887f2034e83f123f23fa8109c10e740016b
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: 37590103db2cfc509a52b076d454b334dbf3479fa536a00116b30d2d0a655433
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 3f31ea178bdb1760bbbcabbf8ee0170bd05890c6f3335eda2f67b1c689b698ed
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 192dd0c58220d5d0a2d1e85049146ac6a1ca1b54b8b9c4c2fd60702a2fda3cf0
+  title: f8294c4b3ed51aad56facdd30f61b98d0cdd754e54f91f908fb9acf89f357312
+  body: 9c98f4123083caba9dada9d8b5578a096d8a071f2baae60f049fa985439e65e9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

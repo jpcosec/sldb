@@ -1,13 +1,15 @@
 name: 20261106-152834-unclear-specdoc-el-modelo-local-docs-models-specdoc-colisiona-con-el-builtin-sldb-models-notation-models-specdoc-tras-sv01
 path: desk/inbox/20261106-152834-unclear-specdoc-el-modelo-local-docs-models-specdoc-colisiona-con-el-builtin-sldb-models-notation-models-specdoc-tras-sv01.md
-source_hash: 09df2f3ba875d7d41f7bba1b15ef90ee2cb7de01fafe58bc06fecc7f3a15fd06
-content_hash: 3503ec939174f19b96e7ea775ecb2fe39c66d380347de4e0dd1df253d386f582
+source_hash: 368d78d929b68639b481da1f5b5246832341c638b02db52bc3e232678be14c9c
+content_hash: 41028b6d57fa7187bcaef60be851a52d71cb25e846746bd76e921b8da75c3173
 field_hashes:
   kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
   sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: b8f1a6b122b3d327e6fcc4761773375b1751aa45ca1aea7e2c6f6c6095b73d91
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 418abdba90fe5ad9ebc8d20e223ff9642f6dcb3f5e5104b9dab960745b1ea52d
   title: c871e2493edd6d26caa55938c6efef1748db35cc23de1a7447e6735b7c93dbd2
   body: 672c8e6aae88779024569aa560bb003cb394e2a57d64e53ef6897c14bd0c3148
 semantic_tags:
@@ -15,4 +17,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-16T08:19:03Z'
+  authority: generated
+  via: save_document_payload

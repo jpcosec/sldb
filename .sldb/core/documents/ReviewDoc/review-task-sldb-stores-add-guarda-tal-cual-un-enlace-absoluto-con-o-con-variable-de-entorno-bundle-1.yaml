@@ -1,0 +1,36 @@
+name: review-task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno-bundle-1
+path: desk/reviews/task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno/bundle-1.md
+source_hash: 49192d5da98c82d2d8a534aa5dd76cf5afd7db14d47912ff24db524df3d16392
+content_hash: 20af92a9d2551337daaf50371ab38775fbf4ec7498a7016e55c4b59457400262
+field_hashes:
+  id: 1af651383c92e09025d3908d5641e1d3aeb2be899795769f5826bd962fec20d9
+  title: 9d39b3fae52e181c9172ad0337ef9cb8123771e73ad485546df9db6e4a403c30
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 95671190c5d01cf8f6205a1f0001b7345f255593c98e72f2e1f165fd265429a8
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: b65880b83a724ff20ce9d0d105fafa7c55c13afed1e081134e9716af2846e2df
+  input_sha256: 07f38395128c9ac450180c684a0b30adda9f34297e133e45684e233dab6a021a
+  output_sha256: fde859d0438abcc31c6c3029c956e1993d5ea292d4b73c6774f01a516ac11665
+  verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
+  reason: d3c2cfdd8af996ebe2f4fbb4248fc55925496df61aac9f23f9058afa845ad7d0
+  created_at: fff9afa790566811e3cee9ccef6f2660fb6e81cb8324ddaa109af5847892f01f
+  disposed_at: d09c4d59261fc3c348667bd661f5c8becdc0f0887ccf0d4fd095de71ee682aa4
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 1f09288b1401be729b07b2bfd993a867883d223ffb02966208becb0431c973be
+  disposition: 4888d36d64efe8e1a81dbb31712b7b5d54ccad13f7526a4888bde445ca069925
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T07:48:09Z'
+  authority: generated
+  via: save_document_payload

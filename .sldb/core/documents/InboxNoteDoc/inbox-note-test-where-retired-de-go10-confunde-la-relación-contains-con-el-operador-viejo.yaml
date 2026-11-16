@@ -1,0 +1,20 @@
+name: inbox-note-test-where-retired-de-go10-confunde-la-relación-contains-con-el-operador-viejo
+path: desk/inbox/inbox-note-test-where-retired-de-go10-confunde-la-relación-contains-con-el-operador-viejo.md
+source_hash: 8dd4fb4ec956e166dfe21c1be9debb5655b7bae994e6f498901b39978337d1c8
+content_hash: 847973c23c8466de6aa2536dfe0a83840abcdb22b9b743f6a5450411221c98e7
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 8436e6797c14129573d35db50608848f0eb1b31c43f4af6cfc37762818b1d891
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 6b6d961b8e44b134c5bbae0875bbe101cc2df52de6a6780c8d6244d79511303d
+  title: f198f0fd68ea5f8f422937bb36bc9d8e43264c786f84c43bb05e6b1de67081e1
+  body: fe3ce583c4eae1f4363491d4656055b4ff4d730d5f7239953701fda52a230999
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

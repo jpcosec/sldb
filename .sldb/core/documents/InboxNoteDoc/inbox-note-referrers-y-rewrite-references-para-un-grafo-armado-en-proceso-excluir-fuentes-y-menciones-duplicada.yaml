@@ -1,13 +1,15 @@
 name: inbox-note-referrers-y-rewrite-references-para-un-grafo-armado-en-proceso-excluir-fuentes-y-menciones-duplicada
 path: desk/inbox/inbox-note-referrers-y-rewrite-references-para-un-grafo-armado-en-proceso-excluir-fuentes-y-menciones-duplicada.md
-source_hash: 62aee44cbb8e232bf9bfbe0d7ee65dc0c9772de55eab96ff3f05a90757d5601b
-content_hash: 30aadbf14b05ad227eafb5789f5ddc34594235f29e3323bf7fbe3b40a993daa3
+source_hash: 11b9d0e2e3b263ff695ce33afd70724d5a5ab84a7a6a00a7cc99e1a4f8e0a7b8
+content_hash: df54aa3f4d8357aafd569066d456cb5f3d813a7813e65b16701929a234a7e7a3
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: cc8432a307c6f6fb7c81f357372b5bf77375fa6c3e6b2e48987d6e8687494600
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 09fad73b0f4b70f096626c36f3629d40368e4e6ec558dd31ae6e1ed825bb3056
   title: 98e69be9ade23d7f6c9c39b0f54535ff766a912c9cd60398e71be158460968a7
   body: ed56df2e6bbd626a94f7d8c83d62845a02081e5ba79afe99f4aa036a0bdea0a7
 semantic_tags:
@@ -17,6 +19,6 @@ semantic_tags:
 - workspace.desk.inbox
 provenance:
   by: agent
-  at: '2026-11-11T12:45:17Z'
+  at: '2026-11-16T08:29:43Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

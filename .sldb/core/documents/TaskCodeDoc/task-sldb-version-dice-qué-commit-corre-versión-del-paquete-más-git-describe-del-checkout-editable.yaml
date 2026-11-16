@@ -1,0 +1,39 @@
+name: task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable
+path: desk/tasks/task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable.md
+source_hash: 23e66ed7e5db4c0993b50ced7a9497357227879817b03f8af8a9450f45081af1
+content_hash: 2c896e21928cccbeb243d2fba7b84f9d815036a8842c09730b7d43350d5e1386
+field_hashes:
+  title: 9d518add8282ea8ab5d08b9d0f17dc44ad8cdf42d72d208b504c82cc592346c3
+  id: e309373f421d0dfe497fd746fc25d53b91043f7776ffeeafcba2e48bd4bc8340
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 91cfdd7997575fa813f3def168cc2dbfc1c69b40241935730926030cbf971cfe
+  goal: 320fdf8389bd0278e1f5e01edb5b5ca5aa0ee9b8f0ab07447ed88c257d0d438e
+  scope: 9726940abce9e46aa624a6b10910c67cbf8315143ce9bc21ec3178b6f24601ee
+  references: fb6397929a9aea55ca7b61165262157bc377383acd679904174bbf3c8ab3bf12
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: bfd4376f6e1d78cc380f7a2ccfeffefc03adc6f786feeccab206f99c87d57d78
+  files: 9b972dea69132801717a621e3f69a86218a2a7b86bcb125c108289e015bbdb8d
+  implementation_path: ff35bc659e518396b7bf415ff908b98311c57b132d9d8b69a0e453a9dbc67b35
+  validation: 8db8511a561bb2bacba09973129be3ceeb5f3075e20df9bba9e5e7eb3106155f
+  done_when: 7c3586f1519023a40049164819364e92aabd5b7e37def38eea480c446528c364
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T07:44:47Z'
+  authority: generated
+  via: save_document_payload

@@ -1,0 +1,39 @@
+name: task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n
+path: desk/tasks/task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n.md
+source_hash: 3d2fde30924facadcbb7ca3d6befdd8254ea3cce47b1cd094cf89bfdd1fb6b1f
+content_hash: 38bfa5aa9574250cf00064f85b38053b98e47fed8a5addc06c91d6caeb05382b
+field_hashes:
+  title: 47fff2617bb1b02da537e69aff6b94e31ee6f651e644bab3a7eb5c91caa60d42
+  id: 6353655b95e24965025cdaa440574fc5acd115fe797d6222233138eef78b1ba4
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: a973d21ebbfd9f2622a3f4778bf3b83b3805218bf6389c29eef5ed4416b9a9f8
+  goal: efbb7a9ae2951a7ed2499480510b29bdbbd08c64b17495e2f12ca7831335abf9
+  scope: c9bd1f3dfda3205ea86eeadc046a575a4a0ce9617eb00c48b118c700edb2df69
+  references: d5728387051b98d02b3f69cabad437ef088e656b8a1a35fc45095bfa5b9f5945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 6a42d97ec62605916e5d5c64dacdb58bd1eb2ba5e11f9851f77c915635d1650d
+  implementation_path: 070be7f8edfb1a929872a07b1c974612bc2ee134074664c5bcada8ff70d2b889
+  validation: 29a43af6163eba529b59f92d5e5b1a58ecc3262e6e6ad6274c4107c7885c4456
+  done_when: 4aa36be49a3377c8e3e070d4e363a1369ad4236f00b6e8010b66235a8e14fc4f
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: c04a8bc257e114857ce0263b20014eb9e5c2591416be4a0af014fd4c87c2983d
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T05:32:46Z'
+  authority: generated
+  via: save_document_payload

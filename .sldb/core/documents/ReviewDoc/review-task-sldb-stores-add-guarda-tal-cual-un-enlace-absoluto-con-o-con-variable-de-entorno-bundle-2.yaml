@@ -1,0 +1,36 @@
+name: review-task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno-bundle-2
+path: desk/reviews/task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno/bundle-2.md
+source_hash: 6aa2165d1cf8f017c68beeb0d8f3c2a065a6acab7328a135e60b5292cc4e1d2f
+content_hash: ee470ae5aa046bde7a0c9a29476bf35f82429c0ee81fb2d04fc761295581d8cd
+field_hashes:
+  id: 369697d588686955be5b394a802875076c1b429e0557dcdd7665bd8897168390
+  title: 9d39b3fae52e181c9172ad0337ef9cb8123771e73ad485546df9db6e4a403c30
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 95671190c5d01cf8f6205a1f0001b7345f255593c98e72f2e1f165fd265429a8
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 07bca251769a4b76aacae44b80ae5575ca242c71754f5b1e1576697f5e6e1783
+  input_sha256: 44e23625f524f7255d8cc4a5bddb94b383ec36aa97d313456c7ac420fbee19e9
+  output_sha256: ea2eb00489715d6ff51b7c544b9952ca4301210f80660e1e6cc9897727034cc6
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 4d0d6c62612217c8ff267ef555029dbc13bcea1e412e6f86b1d86395f54b79c6
+  created_at: c4d5b2ff0b57590c6704c39cb63982488fd8ce0852ddb508024e277dcc516c41
+  disposed_at: c3855ee1e4f41dad21724300fddb27a0a9c1699731cd17e9874c08bd7bb3b326
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 5688494633f1586d99b8fd1d714afb2d71584f5d0054946b7e4d86b2c4f7bdd9
+  disposition: 051f056ccd67cbfaaae00b77507ff48df64049cd38b1d0f50a0cde0096f0147a
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T08:11:59Z'
+  authority: generated
+  via: save_document_payload

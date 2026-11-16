@@ -1,0 +1,27 @@
+name: pill-pill-campo-data-de-specdoc
+path: desk/contexts/pill-pill-campo-data-de-specdoc.md
+source_hash: b3d168bd98a869d57d8ec3714c62723d3e66ef5a0367c9f98fd1e9ef060f99ec
+content_hash: 8179b0d4fd0230c7349405455c011fdc69c3464ec20fc7b84ab254739583b397
+field_hashes:
+  title: a3e696ad2f1d0c7526cca6bbc9cf1c0a9613bd99921195dfa1af269beca37b80
+  id: 35c33efae42eee0184073bcf6bf43b16e51ad99ad736c883b712b06b49150a56
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: b3cecad2f52998e8b089edd3670945ab4dac200e62e33252e9079523b6a59494
+  tags: eba3e04dedbc71d662afad768cce456eb93e4d6b45e163b5719ea634e6d3786e
+  what: 48fa4c8471a7b4be965c604094ec005d63e409c2efe07da1a17d99f3fa29b765
+  why: 367817a6fa5b5554632fc21169784b67d4169ac7d42084827d0b4fd03572f540
+  when: 27f39d26c98d5796fb5468d47a128e4ce44f57dd19e64eef027424db72b9e291
+  where: 5b989b4313afcde71491de761c7395c0c34f750257c79aab09f03f12527b87cb
+  how: 8727f29d50ff6c35d1b3fbb2da5b43035eb5605ca9ea93443bf085b1a3644661
+  how_not: f47097e41d6f82b472e98b71e7ad5f5db7e69760c7c2ed7cd56043d20f8d9a8d
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- topic:context-review
+- type.workflow.pill
+- workspace.desk
+provenance:
+  by: agent
+  at: '2026-11-16T07:39:03Z'
+  authority: generated
+  via: create_document

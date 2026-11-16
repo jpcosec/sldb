@@ -1,0 +1,27 @@
+name: pill-pill-dónde-se-agrupan-los-ausentes-de-sections-rebuild
+path: desk/contexts/pill-pill-dónde-se-agrupan-los-ausentes-de-sections-rebuild.md
+source_hash: c875c1fcb30c52793ce6cfa70c916b9c4b8cc0f13dd9ef211ce6858d4d6e9589
+content_hash: 3c0314681094a7e3b8da485442a057f37df09728cc1e97876b960df9bfd7f991
+field_hashes:
+  title: 5728e88eb9e0dc8fcdae194ef2f9cf3d5b6ff69ca9a4fce8e41d5f37df657441
+  id: 7c566b10c67f9f9b20d5aa771581fd9ea317650d40a46f7b847f040394e5d5da
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: 6efcaaea23d5a057089598b2fb212c68914a8910d47815d0bc74ed03c3a7d7b2
+  tags: eba3e04dedbc71d662afad768cce456eb93e4d6b45e163b5719ea634e6d3786e
+  what: 48fa4c8471a7b4be965c604094ec005d63e409c2efe07da1a17d99f3fa29b765
+  why: 367817a6fa5b5554632fc21169784b67d4169ac7d42084827d0b4fd03572f540
+  when: 27f39d26c98d5796fb5468d47a128e4ce44f57dd19e64eef027424db72b9e291
+  where: 947c42a7ba2e901ab1e2cab112b3a1b2c0355f979109787b254866755e00a7f3
+  how: 462bbd17357f0686a861561ef882ecb573405fbbe0bed2e9162908d2636f4663
+  how_not: f47097e41d6f82b472e98b71e7ad5f5db7e69760c7c2ed7cd56043d20f8d9a8d
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- topic:context-review
+- type.workflow.pill
+- workspace.desk
+provenance:
+  by: agent
+  at: '2026-11-16T07:41:04Z'
+  authority: generated
+  via: create_document

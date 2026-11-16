@@ -1,0 +1,40 @@
+name: task-r6-el-tokenizer-y-el-parser-del-lenguaje-de-reglas-bajan-a-core-para-cerrar-la-arista-de-capas-model
+path: desk/tasks/task-r6-el-tokenizer-y-el-parser-del-lenguaje-de-reglas-bajan-a-core-para-cerrar-la-arista-de-capas-model.md
+source_hash: 69742f383e265a5581f0ba3e8521769d8c946d3833bf48be2faa551262585cce
+content_hash: f63be6ca5a4723e438485d8ac7bc1eabae837c56908f0d98d40a6b11611ddda9
+field_hashes:
+  title: c34a6ff6f3e50f9b7302daea120d4d049077bce260d8b25c24a7fd5eda73d722
+  id: ef017a387c9bb24c032f11574aab10bd5a3e01193bf78d1cf02d755b57e26dc5
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 892de3702f1c7decd346e6b085a5b4b8b489224121f1b62fdaa7fd9dc9170877
+  goal: 1dfa522867cabc118ce4207e62aaa2a2d2c942c67a24ec879bdace25ef109394
+  scope: 10ff16f9ed8dd68c6ec07ca77e77367c2cec1da0fbe8855f51936d8940584f70
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 5a0806b2bc15d8d7fd1900f238111160cfc540f72612f09b869b1f53263bb236
+  files: 25e6e7c35e004c21e236856d1de09bd242bfffb02f15a8907612e9d819cca7fc
+  implementation_path: 050147ca71eb125b2a838aa8ab6b945472c871a7ca75f424e0b9e3f7332fa4e8
+  validation: 4d25013b51a29f055e8b7ecc819a8bfd61f3ae56ae4548db0d1c93cc66913b27
+  done_when: 3971b3999b9623b7c11b0fd63817c8beac76b6676d52417882331b301b8e554b
+  task_type: d0b4cbfeadc448bca1492079dfd36948fd84b4ae366c521b0e71add2bea3fa86
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: e455945df478e21cdf173d93dd9921385e08248be64ae893a43168c9cbe1c519
+  from_drawer: 32df7e8d5bad09deef4a5b66e92e7c12faa3cff282a1f719c25eca5f781b58c6
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T08:49:57Z'
+  authority: generated
+  via: save_document_payload

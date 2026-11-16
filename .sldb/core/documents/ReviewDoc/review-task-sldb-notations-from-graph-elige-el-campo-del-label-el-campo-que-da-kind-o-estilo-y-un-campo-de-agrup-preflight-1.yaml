@@ -1,0 +1,36 @@
+name: review-task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup-preflight-1
+path: desk/reviews/task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup/preflight-1.md
+source_hash: 815a82251f9f41f6940e3bc679d5d7739a2adf08a56e57defba5891214393c87
+content_hash: 8c4ba9550574cf21294f37cc2e7e45721e8f9bb0a108e5a755446bc6fd6810dd
+field_hashes:
+  id: cb88f25fae8be6161f52e30f16a90db4678b4cf51517d2141947f2a7f66bf5c2
+  title: 2426153a9f302241304cac38600ca997706530eb22b78afb84ef8eb12d8209b2
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: ff01a4e1deb340836a3594484070dd03adb029d09a3e9fa1c2eaf4bb56b78932
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 83c5f1f46094e579cdf1ad2e756d4d5b0dca52e8f26994944dc227c67d2c4989
+  input_sha256: 711468654f3714db5bcfcff401a70e55075e23a5f54487881c956931afb29ee1
+  output_sha256: 281aae8fa5d0c0d92ddc4306ac984e198296f44b8920b9ef337b7ce6ed14206a
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: a02d0773d081c2f18941fb6ebae2cbf435ccc6946754fd6a81ef0633b68d27d9
+  created_at: f3be97ef8210f0d7cb13fdeb0de3270343bc7fb50525301afc10adf415c2b5e7
+  disposed_at: 56696cb4116a6c5049f195115b2b8d47b4d9bebe36e0681b3a05eca9ce219983
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: d6ad4fa2cfc4a4e016b5968f9bd4b266c1a35eaad144e95c0d9554b098e61d11
+  disposition: 6e43232d1e20687eb3ec6ef9d12100c189f942807307808bf7d510b4a72c10d1
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T07:04:55Z'
+  authority: generated
+  via: save_document_payload

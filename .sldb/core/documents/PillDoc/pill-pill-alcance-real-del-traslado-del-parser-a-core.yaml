@@ -1,0 +1,27 @@
+name: pill-pill-alcance-real-del-traslado-del-parser-a-core
+path: desk/contexts/pill-pill-alcance-real-del-traslado-del-parser-a-core.md
+source_hash: 2ecccc89de40364be807cadda64fdcaf41ef686dd14d381a47cdb0f637d971cd
+content_hash: 9c55d5ff460f50b273a417d21e581a77a5d8a9d5f5ccd091b8d13da72d4e5395
+field_hashes:
+  title: 82c9fb278bdc91a8904951998b2ca8d005fa2c9743107c9eea3042efcc635514
+  id: ebc48727d315f6b4879cba8be919fbc6c6936817363783118626b3e63f980d37
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: c75a4e0bfad6a4d1d0facb266e6888c8f05204d1f05eeb84c4bf58b270be3743
+  tags: eba3e04dedbc71d662afad768cce456eb93e4d6b45e163b5719ea634e6d3786e
+  what: 48fa4c8471a7b4be965c604094ec005d63e409c2efe07da1a17d99f3fa29b765
+  why: 367817a6fa5b5554632fc21169784b67d4169ac7d42084827d0b4fd03572f540
+  when: 27f39d26c98d5796fb5468d47a128e4ce44f57dd19e64eef027424db72b9e291
+  where: fe0b950412a5d0442bdd96dad44fcfc02d5b8eca4ead08ec1f23762ec4279f14
+  how: 70c19cb17e65647690bca8121efece32b758811ea744370b0265c11693a4e152
+  how_not: f47097e41d6f82b472e98b71e7ad5f5db7e69760c7c2ed7cd56043d20f8d9a8d
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- topic:context-review
+- type.workflow.pill
+- workspace.desk
+provenance:
+  by: agent
+  at: '2026-11-16T07:54:56Z'
+  authority: generated
+  via: create_document

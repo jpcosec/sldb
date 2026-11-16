@@ -1,0 +1,36 @@
+name: review-task-decisión-de-jp-arreglar-en-sldb-las-referencias-por-ruta-que-no-resuelven-a-través-de-un-store-enlaz-preflight-1
+path: desk/reviews/task-decisión-de-jp-arreglar-en-sldb-las-referencias-por-ruta-que-no-resuelven-a-través-de-un-store-enlaz/preflight-1.md
+source_hash: f5a4347c19555a8bf3b745ea0e09654bfdc3d02a70b617df12b60c0df2561698
+content_hash: c04b90e205db47c26c4f1367e14d30061f8193d7ab75c29265992ed2621a439e
+field_hashes:
+  id: f45d46bd8a99128aa483b485434ac409ad01d9103ca6168c436cde032cc42df0
+  title: 95950f704e417cbbec30834c0c213f59e370ed7d6b74a568a18061f10cb62fa7
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 2154806e4f3aca164a638a81d43298778bf2ca2c2ffeba52de3c83c3028e379d
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 81dc77624306d840d6f6bc7b44898a447049fe51b8cebd7faa3ab37bf4f73c66
+  input_sha256: 2dbe53fce22e60658cec4337d972ebd47c5047dc947d042cb39de560726e2910
+  output_sha256: bc4af3898e8c5a0d75a0891abce2270c4e12e4e98fb6cd58604e8422dda65631
+  verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
+  reason: 305ef688ce37f7203894299af4945bdc73b64d810b162796410eda74a98dc5c9
+  created_at: 637ac0d657be13965fb13ca1113c889f52a22ea5f83b8ae550b744cb8b25e7bf
+  disposed_at: e3416ba61ac377a90fa9c4bd9d1bc26dc8b8cf9e9329061e7ad16ffb8af3a117
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 5a7c84c9ae95d1413d1ff0ce1d771274407695df686f7124f9e6e641a089cef2
+  disposition: aca3e348619780916b47c2745341979cd86c6c3f4da083a3d81c0ae22cbe1f14
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T05:13:17Z'
+  authority: generated
+  via: save_document_payload

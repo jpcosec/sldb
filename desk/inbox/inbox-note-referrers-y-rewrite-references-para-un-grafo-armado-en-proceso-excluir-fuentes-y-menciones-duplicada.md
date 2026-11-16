@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-11T12:45:17Z'
+  at: '2026-11-16T08:29:43Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 # unclear | suggestion
 kind: suggestion
 # e.g., other_repo
@@ -13,9 +13,11 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-11-11T15:00:00'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-11-16T05:29:26'
 ---
 
 # referrers y rewrite_references para un grafo armado en proceso, excluir fuentes y menciones duplicadas en frontmatter (H-a..H-c de CC35c de deskops)

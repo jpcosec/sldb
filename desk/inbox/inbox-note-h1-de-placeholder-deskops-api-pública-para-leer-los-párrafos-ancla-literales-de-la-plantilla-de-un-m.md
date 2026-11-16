@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-12T00:36:42Z'
+  at: '2026-11-16T08:28:16Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 # unclear | suggestion
 kind: suggestion
 # e.g., other_repo
@@ -13,9 +13,11 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-11-12T00:36:39'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-11-16T05:27:57'
 ---
 
 # H1 de placeholder (deskops): API pública para leer los párrafos ancla literales de la plantilla de un modelo

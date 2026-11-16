@@ -1,0 +1,39 @@
+name: task-decisión-de-jp-qué-de-las-vistas-de-deskops-h1-h8-de-cc34-expresa-la-viewdoc-de-sldb-y-qué-queda-com
+path: desk/tasks/task-decisión-de-jp-qué-de-las-vistas-de-deskops-h1-h8-de-cc34-expresa-la-viewdoc-de-sldb-y-qué-queda-com.md
+source_hash: 9dfd15262d5e4f499c51dfe88deaa7c04d5ea3eea0b3fe507a2d093399cd1519
+content_hash: 6c4d7fe250a69b97f42d44db53684ab5ff65363c5591a570f40414efced935f7
+field_hashes:
+  title: 4032143d6373d93f41bf4d647fd10cf1fc4e8e64322e402a7c389ed8f81fe797
+  id: e1bbe82bd25bcb84421e15b7f230e0848ceaf9608f6494e7abe1de08266d40d4
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 87b55e55936956633008dad6300204106e05f66c4d6b444e631d02cd6edaad0b
+  goal: 6e949fc5fa7ed5ba9a50204c50732f86fdf12ee6bd6d80acd27698ca487d2126
+  scope: 564001e34d339d2544eac1b4c16e469ce62f266454981359da518cfda8ac3755
+  references: a2a5c33d220665e12c8a99276fff50f4906f42421e3a8092d44eed8512c3f161
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 3e1b23f33861527178b4e1f52f6af98c51948beb13cbef81a0f5534d0287fc05
+  implementation_path: 1ee6eefd20d5ada018829181197b6903590f94d146600d494d800a508697ea9a
+  validation: 4893ce03850716de4fd35058fe52e1ffc4d439c95aea209b001744f880fae37c
+  done_when: 880a1baf42f08edae65322bcc5c7eb7ca05659c82edb43d89adc65b0330b6ed1
+  task_type: a4df8849de4c7c42dff3bfe95bbeb8759b5ca37238136b51e418b9d2f5ef311c
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 77fb7390ef5614171a38bf3e41bf0215e9ddbe3207a02cffc95a18801383df13
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T05:22:00Z'
+  authority: generated
+  via: save_document_payload

@@ -1,13 +1,15 @@
 name: 20261115-022430-suggestion-specir-dry-run-p-blico-de-apply-batch
 path: desk/inbox/20261115-022430-suggestion-specir-dry-run-p-blico-de-apply-batch.md
-source_hash: 5bfe7313349b71fb4b57d93c6f0e04e8216e92dd197ca9248f8a9ee0be48c3cb
-content_hash: f929e062ac3c66995a905ca789b7706ecad147fe7d74148b1a6fa589c01c9313
+source_hash: bd9cac4eaa5be0a71b52cf12556387b9dbbb3dcdcdc1c21f438366940dbaf845
+content_hash: 5388c02a6e123525c9f9b623675d60e06607711c8ff2d44d81039b205b8011cd
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: 04949285ec972081cadc1b701f27b927f6cec8bbb7d021a6efdfe4c77565809d
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: b59b24c1639d422038ce8652f7cab44ed1f2fde1940f6c7669218bd13977a403
   title: f8680dac460b8fdedd7999ed4e7bb8d0ea9f3894ad42b50cc84b02c98d294f39
   body: ef91a4572d4d50315d74d74df9db688e0316abea81123bbde799d8e7573f363f
 semantic_tags:
@@ -15,4 +17,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-16T08:20:23Z'
+  authority: generated
+  via: save_document_payload

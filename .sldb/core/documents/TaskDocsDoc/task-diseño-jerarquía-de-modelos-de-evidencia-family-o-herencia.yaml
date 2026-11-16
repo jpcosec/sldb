@@ -1,7 +1,7 @@
 name: task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia
 path: desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
-source_hash: 302a5db83e1c86b5e5f518f06f6bada945a32aea09a1c202edd863307d24b7e3
-content_hash: dcb7e74b3725f57a1b02e80a9cc342a985b04a63ba26ecb70e2ca06972a94b3a
+source_hash: 9202bfaefb8b4102a102bde1ff5df3e5aee69cce1b4628a4bc3bcd777708f44d
+content_hash: 1893ad9e335a53265bc7a78d0523eeb386985ae40dc5eafc5e32491d14b8db7b
 field_hashes:
   title: d3adefcedf9e8d4744e429cdf382e2bd86a19e46e582f830a3279c93dd2e1e9e
   id: 04eced991074a0b6180a71d993d4fe188e5f253711bd01659bdedb15af94d4d4
@@ -12,7 +12,7 @@ field_hashes:
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: cb52f0607493d5153a152d1443b40bdd6089e299d6aa56019a2d8dc9c79711ca
   goal: 0cc2642f40f95ba60a002060e4a38463a408ff206a676d7dfb9c5c6944f04ee8
-  scope: 9cc498cde453427b066b808b0c78a64bb4bc0cb8631cf61112746233f5d784d8
+  scope: bfe016b2702868aba0ec22814e0e10dfe3fc10785be54fe67dcfa314ef86f870
   references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -24,7 +24,7 @@ field_hashes:
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
   atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  from_drawer: c8f2e256306a3a2a5cf5084d54be3c3c49b106e4a9a8d0a5a0bb306c320f0767
+  from_drawer: 3414c371e799d6c293e8cab42c8168f303e7d29640cf35c144e9375be420ac6d
 semantic_tags:
 - artifact:task
 - representation.markdown
@@ -32,4 +32,8 @@ semantic_tags:
 - type.workflow.task
 - workspace.desk
 - workspace:desk
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-16T08:51:21Z'
+  authority: generated
+  via: save_document_payload

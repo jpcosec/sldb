@@ -1,0 +1,27 @@
+name: pill-pill-salida-y-orden-de-sldb-notations-validate
+path: desk/contexts/pill-pill-salida-y-orden-de-sldb-notations-validate.md
+source_hash: 6abf2f42c78a9b9a58d5d3d25ecb9e59967cc1086afd63574a2569b35c61d137
+content_hash: 54d5cf121562182dc16e462c2365cc039e5325c7e29a91a5e8a5a3d0e1e857e7
+field_hashes:
+  title: eab9b8a6c5af42897891a664c7bf85ec115c9ba0de76108a3b0a7762957f9bc4
+  id: 59b148c83b580cc793a608a4ca5d2d44119c0b8bac540b4cf3850fa26a047979
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: 3f0ae246d0502796cf739cec0aa5711c93fb6bb61425b9d694a2234d9b993fae
+  tags: eba3e04dedbc71d662afad768cce456eb93e4d6b45e163b5719ea634e6d3786e
+  what: 48fa4c8471a7b4be965c604094ec005d63e409c2efe07da1a17d99f3fa29b765
+  why: 367817a6fa5b5554632fc21169784b67d4169ac7d42084827d0b4fd03572f540
+  when: 27f39d26c98d5796fb5468d47a128e4ce44f57dd19e64eef027424db72b9e291
+  where: 7293d28406d5e64cadb94516c6c48722e336caac86f1bd73abaa497737bea6a9
+  how: 53ed02872a74ecbec9601bfd35a8cc196064013a8426d04336b8c08a03175f71
+  how_not: f47097e41d6f82b472e98b71e7ad5f5db7e69760c7c2ed7cd56043d20f8d9a8d
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- topic:context-review
+- type.workflow.pill
+- workspace.desk
+provenance:
+  by: agent
+  at: '2026-11-16T07:37:41Z'
+  authority: generated
+  via: create_document

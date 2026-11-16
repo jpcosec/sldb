@@ -1,13 +1,15 @@
 name: 20261115-015936-suggestion-specir-check-edges-clasifica-como-stale-propio-los-stale-de-stores-enlazados-cuyo-nombre-lleva
 path: desk/inbox/20261115-015936-suggestion-specir-check-edges-clasifica-como-stale-propio-los-stale-de-stores-enlazados-cuyo-nombre-lleva.md
-source_hash: 03f902fa6f95dc1e28a0d55af7a4f70db1398694950d826a8df498568f2adca9
-content_hash: a018c1739f9bb803361cc6f4963c561650bfabd843de2b7329e0d6f2191e38ff
+source_hash: 0149939c4e6f0ca0b279a77fa23000f5a01ac285533b94d638c01247c3ef3e82
+content_hash: 4edc34396b9715d443f2e7921969b57d864b4231a38119e3d8fde321c62e93de
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: c9853bcde247ec295f2f1d9fb5d392355e12ebf7736ff85140e556fd3bd409d9
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 7ee3b2e9035a2c11d1677c385652ef82cf1178b451f42b70c6384908abd34ddb
   title: f3fd242297371d5b667ccee3ba29ee325fc14d267bf627044cae46d29df887b0
   body: 0bbfb0791a89236c6f5d4a84e13fa4312deefaacf9cb6d5586082b9a5b8b112b
 semantic_tags:
@@ -15,4 +17,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-16T08:20:04Z'
+  authority: generated
+  via: save_document_payload

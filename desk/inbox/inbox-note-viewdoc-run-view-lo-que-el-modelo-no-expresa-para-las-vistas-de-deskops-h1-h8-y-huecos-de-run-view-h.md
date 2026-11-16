@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-11T10:47:49Z'
+  at: '2026-11-16T08:31:27Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 # unclear | suggestion
 kind: suggestion
 # e.g., other_repo
@@ -13,9 +13,11 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-11-11T13:00:00'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-11-16T05:31:09'
 ---
 
 # ViewDoc/run_view: lo que el modelo no expresa para las vistas de deskops (H1-H8) y huecos de run_view (H11 rendimiento, H12 caché borrada, H13 revision)

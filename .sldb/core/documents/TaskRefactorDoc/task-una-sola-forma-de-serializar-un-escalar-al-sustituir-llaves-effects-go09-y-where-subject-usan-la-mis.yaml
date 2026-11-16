@@ -1,0 +1,40 @@
+name: task-una-sola-forma-de-serializar-un-escalar-al-sustituir-llaves-effects-go09-y-where-subject-usan-la-mis
+path: desk/tasks/task-una-sola-forma-de-serializar-un-escalar-al-sustituir-llaves-effects-go09-y-where-subject-usan-la-mis.md
+source_hash: 47294c0ebdd0780934e4a55e1c3e60fc57ff64307eb0ac87548d698b82643c51
+content_hash: de96ffca1220d66a5845ee1488307727a1af2467ddbf5f88665ac983153ab5c4
+field_hashes:
+  title: c6710e2b00ffe415734eb3ad5b99f257d9f99c7f7483ebb32850453dbaf88bd4
+  id: 9ce7dd15d0e34ca4838a1b44891b3aa321294c96a2d19670543c79a53185b364
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: cd513e59fd85268f30a340fdc61c0b991495ac2a7dc04340c5ffbe753d4fa438
+  goal: 846cece9bd3312a6d9088a78be23ca4c277279b7b95b65cb4cd7445ce55a1d07
+  scope: a2f4e3c34bffe4dda715bab446209644b25b196967e41653fdb0f4c53d26bc82
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: d39ad4c26e22aeb9a0be87befcf29f7c8a55cc750904de5d14a019b4a9eeff29
+  implementation_path: b19d587bc66e40bdfb4a8c49bd5102cdf1f0d71ad54d084d665cdcb9be2dd615
+  validation: 2e7d1a12d6533679eb7931e68b620a19a03176ee0724135becccb8c6eb5109e8
+  done_when: bab8bfc68ae10077f929dcc2796cf75deb4e25e191afafcdc7957af97a8a1c91
+  task_type: d0b4cbfeadc448bca1492079dfd36948fd84b4ae366c521b0e71add2bea3fa86
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 65d8be632df5b3987168b5cc21ed4015a3969444b6a3a3685e083dac27eaf539
+  from_drawer: e00d786012e6cfe5524cf00711ca2f7aa7b8b9e54f789f2c1db83ae525221524
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T08:47:07Z'
+  authority: generated
+  via: save_document_payload

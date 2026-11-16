@@ -1,0 +1,36 @@
+name: review-task-r6-el-tokenizer-y-el-parser-del-lenguaje-de-reglas-bajan-a-core-para-cerrar-la-arista-de-capas-model-preflight-1
+path: desk/reviews/task-r6-el-tokenizer-y-el-parser-del-lenguaje-de-reglas-bajan-a-core-para-cerrar-la-arista-de-capas-model/preflight-1.md
+source_hash: 912e7d6995850cbbce518d8e7b28c36c1da88dca8bfb48a446cb9c2131228058
+content_hash: 2daeccd9af2f83f5ef1df8c14443aafecdc60b75eac07f0c1a2093c7461ed322
+field_hashes:
+  id: 235900eb28c2cb8a67a58f1ea74f0e9e7c16e84dd99ce7dc5c7b2debe607f6b4
+  title: 6c6c72e094178070327c03342a9ec8112ff29733460a78efafb193dd9d4e0609
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 5dc421272c866fb3a065ec11be199c90f7bbcf7169c6ac5e5394a78ef9a2e8b4
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 6525990f5e20f3a48a9180965e8fc8f3bf7966c2d164dbd8b31ad65609954f6e
+  input_sha256: c8a2cbd25ea5357fc11b028360020baa7c59822a93cb77ac2fe3b0ec7ce72d43
+  output_sha256: 4a0069285f21c57e7e3ea7f0109ed200bee4e44a67b64d8e7c4b4166cba7a675
+  verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
+  reason: 305ef688ce37f7203894299af4945bdc73b64d810b162796410eda74a98dc5c9
+  created_at: 55f8d26f04086936e9063ea5374ccbd8e6d8caf6328972a598155698cbf6ccee
+  disposed_at: fd30e02b32b9d9fb41dbc1f5ebe48660d163514cfdda84075856f752347eb345
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: f75edae8fef7418cb06f5a839f8f011723b40efe54055d789249d835a7602e2e
+  disposition: aca3e348619780916b47c2745341979cd86c6c3f4da083a3d81c0ae22cbe1f14
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T05:39:31Z'
+  authority: generated
+  via: save_document_payload

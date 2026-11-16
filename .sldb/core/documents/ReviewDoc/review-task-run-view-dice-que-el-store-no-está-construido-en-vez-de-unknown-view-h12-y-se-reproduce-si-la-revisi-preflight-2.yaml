@@ -1,0 +1,36 @@
+name: review-task-run-view-dice-que-el-store-no-está-construido-en-vez-de-unknown-view-h12-y-se-reproduce-si-la-revisi-preflight-2
+path: desk/reviews/task-run-view-dice-que-el-store-no-está-construido-en-vez-de-unknown-view-h12-y-se-reproduce-si-la-revisi/preflight-2.md
+source_hash: 065075a58f4dadd5403a95db1054a9175bd7b5728f3566272c2a703260084217
+content_hash: 8ffdd3194cc36e80affae81e6f07d772a18b9962c0633f618b9c9ba6fcd6fb9c
+field_hashes:
+  id: 598897d7a8a15ae312b20f4bb35c24c43110743f7f31c01cd0b9b07b5632217b
+  title: f8623477e36d2d8d11f4e518bc67e1cb072219cd7aab9a166d2310dde9a04780
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 127e43943b7a01d92ba53606bb71ff9fb3a34e0a64e1d0e8ccd3569f9dbd8c37
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 9c5b8087aa9096c49c7bdf80720c7d5537280e088e3ae371e9837621935ca753
+  input_sha256: e0195ebf189bd7260468668152c4ac7d862b679e2c8b60fd8cf11c63a4e82a25
+  output_sha256: 31ed8987114a5a38ce85f3d18927d122667697cc3909d50cac2328a1a80aa796
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: a02d0773d081c2f18941fb6ebae2cbf435ccc6946754fd6a81ef0633b68d27d9
+  created_at: 025ea447b072120227e4536956514fe932bf73b1864ceb8776cf8633d7542c79
+  disposed_at: 863b273a25b17e840ef0602ec366e6f0da4a49d7e1a2c04c1fd33f8376a303e2
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 271ee7bc549bdcb12d9faa8f8c45e427372b5b3e984738c63b9380a62328fe0f
+  disposition: 6e43232d1e20687eb3ec6ef9d12100c189f942807307808bf7d510b4a72c10d1
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T06:57:29Z'
+  authority: generated
+  via: save_document_payload

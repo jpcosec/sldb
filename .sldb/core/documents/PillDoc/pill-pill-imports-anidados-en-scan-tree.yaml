@@ -1,0 +1,27 @@
+name: pill-pill-imports-anidados-en-scan-tree
+path: desk/contexts/pill-pill-imports-anidados-en-scan-tree.md
+source_hash: 822ad637a1f032c5eeaf87f80d38aa9d55b16493d814aa6962ab34e5a50d33c4
+content_hash: 389a818adc08f35ec32060721d72c089c9550e3ad97540731f98d3c9c24c6c70
+field_hashes:
+  title: 31cb3e515af965eed5dc9a50d3135307103ebe0fc2f1f09fefb1649becf3872f
+  id: 3b4ae8240a91e201da1b84e683f90c68f35c95a3bdec8e3952da556acfb2faf5
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: f83a7a4b7505a869286b2c898989ec3bac4d65c99e3395bfdc089a4fe084b6fa
+  tags: eba3e04dedbc71d662afad768cce456eb93e4d6b45e163b5719ea634e6d3786e
+  what: 48fa4c8471a7b4be965c604094ec005d63e409c2efe07da1a17d99f3fa29b765
+  why: 367817a6fa5b5554632fc21169784b67d4169ac7d42084827d0b4fd03572f540
+  when: 27f39d26c98d5796fb5468d47a128e4ce44f57dd19e64eef027424db72b9e291
+  where: 80da9f0e167f0c8fccf0955132a644baad5b8962f391a834d1e9addf7b975515
+  how: e5096a337fa65d32b43bf9a6ab4a0db87f6f32e5b0bc61486ace0d688d95c0f3
+  how_not: f47097e41d6f82b472e98b71e7ad5f5db7e69760c7c2ed7cd56043d20f8d9a8d
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- topic:context-review
+- type.workflow.pill
+- workspace.desk
+provenance:
+  by: agent
+  at: '2026-11-16T07:36:00Z'
+  authority: generated
+  via: create_document

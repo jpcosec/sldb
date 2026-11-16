@@ -1,0 +1,36 @@
+name: review-task-decisión-de-jp-dónde-vive-un-hook-que-bloquea-write-edit-sobre-rutas-trackeadas-por-un-store-de-sldb-preflight-1
+path: desk/reviews/task-decisión-de-jp-dónde-vive-un-hook-que-bloquea-write-edit-sobre-rutas-trackeadas-por-un-store-de-sldb/preflight-1.md
+source_hash: e3e3cfef7b451532109ddf29b1cb58b928fa8d39036bce7a4d36e01f1cea4906
+content_hash: 956bfa3f2a259dd5a51fe9e1c637ac2c6eb771b6154cc4775e83769217565de7
+field_hashes:
+  id: f468aaaacdfa3d925e1941c15d5a6b5e19d01e6c64166433093c1673c7c340eb
+  title: 4fce16cdb5aca6e30b7c7087a4ce5b0005edabe8e19e1906e6bfcab021e3793e
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 684979855b03118d30c6e616960e0b765f533dd4210f77dd05e0fc96692db328
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 6788878c2aec25075e8ee9649a9d37aaf757a880d9f2f205bb7839ce5a81fdcd
+  input_sha256: b1cd0aabb97e1f5ada4ad035ed576b006bbb4215a088f38dcc50577ec023611b
+  output_sha256: aee1567fae99a450aebc2af1c4793658ca98f403e32c8f59cafae27515524914
+  verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
+  reason: 305ef688ce37f7203894299af4945bdc73b64d810b162796410eda74a98dc5c9
+  created_at: 44932b9e548283ce68a9e49f6740e2d6eed84e2b2694f2b59bd95a75a3a452ad
+  disposed_at: 0b0bf100559dd9d28856fc802e9268e7d7f6ab10c9a0bc02b7f79a4decbd4c7a
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: d91648a09afc3aa4f3069db8954df590822b9803ca879d05cb5dc2e7dcc9effe
+  disposition: aca3e348619780916b47c2745341979cd86c6c3f4da083a3d81c0ae22cbe1f14
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T05:18:31Z'
+  authority: generated
+  via: save_document_payload

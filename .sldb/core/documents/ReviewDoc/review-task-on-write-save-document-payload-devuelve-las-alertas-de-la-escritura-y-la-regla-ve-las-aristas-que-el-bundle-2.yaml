@@ -1,0 +1,36 @@
+name: review-task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el-bundle-2
+path: desk/reviews/task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el/bundle-2.md
+source_hash: 3beccaf0f1b3e8635964d18ee1694ae578d2c8e3469ba5bbb06955d7445798d9
+content_hash: c1996225bacba252cd7f4c8ef6d50bda4aae71c660eae2e3df604e8a8a93ba8c
+field_hashes:
+  id: 948d5412d198b9e41075f6df74717842cd407b6e1f0543c258bf93a3ae34a3d9
+  title: b9048346d8eee6c39a749396ee9b365b5a0b6897e1f9616090034842c5f5b24e
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 2f0d370262a0235d266b2d9e5f51f6471a76e6a30f8874ccfba5f86fd55e9971
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: ce0ed7596a2411ab93e627d32cf5da3a0f03e3478390569759afdad00a93a3c7
+  input_sha256: ab6876082e8f8b49ea10479fc6f58f6f1e744fcbc9764b088269352fb109a9c2
+  output_sha256: de4c99b3b314ad4de9b88435d924a85b70ed0ac6780f21087a4225e21b81ecb8
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 4d0d6c62612217c8ff267ef555029dbc13bcea1e412e6f86b1d86395f54b79c6
+  created_at: 988ca8651e1c860881c3d783007ef5a0ec2a7d30734e8d9d1cf4899c13ea879a
+  disposed_at: 6cffb58ffa6439098650c3420c70dd297a605e3314fdf324867edd0815aa7b00
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 03fb1bf7e23506fb4b6f512c122cbf2f4c089954453850b8c0260f160e992ae8
+  disposition: 051f056ccd67cbfaaae00b77507ff48df64049cd38b1d0f50a0cde0096f0147a
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T08:12:21Z'
+  authority: generated
+  via: save_document_payload

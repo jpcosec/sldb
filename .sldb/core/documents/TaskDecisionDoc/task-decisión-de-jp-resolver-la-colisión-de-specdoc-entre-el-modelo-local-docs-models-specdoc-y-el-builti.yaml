@@ -1,0 +1,39 @@
+name: task-decisión-de-jp-resolver-la-colisión-de-specdoc-entre-el-modelo-local-docs-models-specdoc-y-el-builti
+path: desk/tasks/task-decisión-de-jp-resolver-la-colisión-de-specdoc-entre-el-modelo-local-docs-models-specdoc-y-el-builti.md
+source_hash: a7c32d552e4f3f9db7f23312d1ab370ab0b6df54c31c0af7eaa500dbf5497ce3
+content_hash: b70de9f4652395ef6c60ffae65714b228ba3a22901f4462a879a44c2d3f4c59a
+field_hashes:
+  title: c05e813bde466f090f4d63c18f31274713d02fdf1755b802c83d2c57f280efb1
+  id: 0bcec5790e4bb07530dd87c24a671bceb1953ce40d09930b59296ada60b43c07
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 63921b561cbc70bef8909b1f21e3f74f1b965856178552e01ea8799d71fb7d45
+  goal: 491cc531d6782f51d96941c8a36b22edf2b1da18d6a499953f7991ec0f4e84b0
+  scope: a2861f29881cbf970dff391456d78263ea0c701a3e7a38ee704840350fe4d6ee
+  references: be3c6363dea4c26d41a5c435c64ed2d806c09524ce3b42f15f19acd579276052
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 2d18ccadfbd644b7dde86b1755f6bf836bc2842a00e056c846cb6b3b40177ea4
+  implementation_path: 1753a0bd19f372a813b894fff1fb926d4ac50eda8e179e3c39bf0241c26ea0be
+  validation: 75d2e748cc0c0e6a45b391f82f7ca0b3c24500d5df06a51421ffd87cc5b0312d
+  done_when: e5754ffb55b79104e8e99da0a88a41568224725e5dfa4c761472432bc9947af0
+  task_type: a4df8849de4c7c42dff3bfe95bbeb8759b5ca37238136b51e418b9d2f5ef311c
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T05:23:26Z'
+  authority: generated
+  via: save_document_payload

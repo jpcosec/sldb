@@ -1,0 +1,36 @@
+name: review-task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra-bundle-2
+path: desk/reviews/task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra/bundle-2.md
+source_hash: bf6a1bb9099d35207263a676d82ba2c2b7226666034a8616cfc2c5aab62cf8c6
+content_hash: 3634c152ddc8a8749f8b6fbd79c767033b3180f6bfac15b705baf0081299e397
+field_hashes:
+  id: 732af7cbe55da677131ddced9853298c513541b2fd1ec5c9b70e5580941ec73a
+  title: 5d9c96a66bd65c1c2d73e86c11d56ac72b094de9f5bf16399eb3a30042381b00
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: ad9a830bc046d5773687f537c72ba0146a8884f917ebd4f3b2c6c49862f013a4
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 5e3f8643640ebeaabc232aed0aadde526c713707fdbfb1b38ebf1a80ef26d90d
+  input_sha256: 56e945ca2ae02af2ec2a2a3d62facd6f2852fb68cfe972e788a692296a5b675e
+  output_sha256: a67b1c05236101120d63894007c373f1470c89af250f5aa55c9d0cf8109a8c1a
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 4d0d6c62612217c8ff267ef555029dbc13bcea1e412e6f86b1d86395f54b79c6
+  created_at: be03300146d29713b7ca3d2a562414c6e6c225d534bda5fdab46c15550f03e8b
+  disposed_at: 73820e36bd272955c0b363b96593ea807bf9914d8234cdcf0d66a70a04e2f1f7
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 2f785c1628f2a30814b9d8c379906b7c388c0db3e1a9f328c218781a8bae4ebf
+  disposition: 051f056ccd67cbfaaae00b77507ff48df64049cd38b1d0f50a0cde0096f0147a
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T08:10:05Z'
+  authority: generated
+  via: save_document_payload

@@ -8,9 +8,11 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-11-09T14:26:16'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-11-16T05:26:06'
 ---
 
 # Cada escritura en el desk de sldb imprime miles de líneas Sections rebuild missing de knowledge/symbols

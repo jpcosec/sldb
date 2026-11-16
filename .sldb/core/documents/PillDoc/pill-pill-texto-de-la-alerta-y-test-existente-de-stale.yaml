@@ -1,0 +1,27 @@
+name: pill-pill-texto-de-la-alerta-y-test-existente-de-stale
+path: desk/contexts/pill-pill-texto-de-la-alerta-y-test-existente-de-stale.md
+source_hash: 778dde8301d4365dae485044a1483a4dfdfdfdbcb319b5e70968526bad1602c5
+content_hash: f283164675e3960e74ba13ed91e1effdffef56e6933de4f233f096300269e626
+field_hashes:
+  title: c444035b0b151b82cbe6f6172267c3be8e84e97f38a5beb7e6247c6b3cc93c32
+  id: 781e2b473fc624800a4f599ce3cb983c03a7c905c3e4ccf2797596edbdb1f7f3
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: 0a08fd5963e20842c13a9acb8f6735a415394c3873009001bcadd1a146a95d48
+  tags: eba3e04dedbc71d662afad768cce456eb93e4d6b45e163b5719ea634e6d3786e
+  what: 48fa4c8471a7b4be965c604094ec005d63e409c2efe07da1a17d99f3fa29b765
+  why: 367817a6fa5b5554632fc21169784b67d4169ac7d42084827d0b4fd03572f540
+  when: 27f39d26c98d5796fb5468d47a128e4ce44f57dd19e64eef027424db72b9e291
+  where: 983bf9c54b1811f5e147442c05c62e071e4030a4df8c2a46f90b4cd3f749d1f5
+  how: 76635f21aa986690d1036d5b050866d83b46a0f78d5f155cf66a3f60c632f5bd
+  how_not: f47097e41d6f82b472e98b71e7ad5f5db7e69760c7c2ed7cd56043d20f8d9a8d
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- topic:context-review
+- type.workflow.pill
+- workspace.desk
+provenance:
+  by: agent
+  at: '2026-11-16T07:45:27Z'
+  authority: generated
+  via: create_document

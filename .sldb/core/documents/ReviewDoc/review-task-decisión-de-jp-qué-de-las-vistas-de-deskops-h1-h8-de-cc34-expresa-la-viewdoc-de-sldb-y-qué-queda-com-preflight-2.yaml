@@ -1,0 +1,36 @@
+name: review-task-decisión-de-jp-qué-de-las-vistas-de-deskops-h1-h8-de-cc34-expresa-la-viewdoc-de-sldb-y-qué-queda-com-preflight-2
+path: desk/reviews/task-decisión-de-jp-qué-de-las-vistas-de-deskops-h1-h8-de-cc34-expresa-la-viewdoc-de-sldb-y-qué-queda-com/preflight-2.md
+source_hash: f19893c638f4174831b3df8402419841538b08a3b23435604b130ee8a656c0a1
+content_hash: 5f95d5eba8bd9ebb93e626c3c7e10e0e31c2719a393a2317332f252db34c50ef
+field_hashes:
+  id: 30995bafa68e24ae621ddfd87c14ce64a5dc17578982b14c6e208ce6c9c1db21
+  title: bf64293f1c675566042a60993cb41872446b61bc53dca524f5f5263962b48715
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 382cbded525917049f50b5bbc11841b6f067bbb7cb27d994e06e79112e2064be
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: b2c94d0a6223a5c02f024e127cf23fb6215a249d595420d90e46c68366a498b5
+  input_sha256: 94e3286f0816b2eb6938afc759e19302a34339a2487216e58a724061a33049a5
+  output_sha256: d95a97ea01675fb29ab0cec78a0221b2347a26152939c7e87f9826ab3fb983ae
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 942dcdce76af19deec361f3014ff77c897ad88d819327beceac50f9343027ed4
+  created_at: 5d99baf34425060c9853d16cff02d67f8d3001922a950e5b82ae87b33d3fac5e
+  disposed_at: a09e36bde4640c40f9f9d0fe9fc4da3cfcf3632aa873af58a6031c45ad6c629c
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 9ca70c1e0474e768015433c3e656f19bfa843838a04d3025c38c69505b55015c
+  disposition: 7cd419429e99ba5ed8715f356ac5c73354ccffa6b8d589d1e73e396d11b0dca1
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T06:57:50Z'
+  authority: generated
+  via: save_document_payload

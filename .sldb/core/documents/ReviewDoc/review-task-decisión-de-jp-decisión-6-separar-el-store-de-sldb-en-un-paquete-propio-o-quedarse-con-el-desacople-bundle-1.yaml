@@ -1,0 +1,36 @@
+name: review-task-decisión-de-jp-decisión-6-separar-el-store-de-sldb-en-un-paquete-propio-o-quedarse-con-el-desacople-bundle-1
+path: desk/reviews/task-decisión-de-jp-decisión-6-separar-el-store-de-sldb-en-un-paquete-propio-o-quedarse-con-el-desacople/bundle-1.md
+source_hash: 88acfd18efe9a12c04fc32dcd27a7e58a78505700f3ea35bbb439f7853a26f5d
+content_hash: f7740334cdeed9ed6f3bbe9e3f40232d8eb83ba6648977ee60d08cf5696fd9a0
+field_hashes:
+  id: 2c527db97068148909b372ba795dc55da7e2554c8d9468e37b17307feca15e74
+  title: c067c8709375765b40ef73dd3864b8f4ba7202d74fa6ac21d1fc1fb17a26c702
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: b9149e469c5652ead22b548d3d6f0a30b29e8354f4ced22f0b999b40fa041e7b
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 392a936ced766511612375f4142f03585c4f2069a99dff792762038c136a293d
+  input_sha256: 3e898c5d2b1df7dcaa89acc6feee02955ee047b4c2f4d641ac948a347b669d0b
+  output_sha256: 94d6d1c1a568d0a7396fa26ea8818160c949254b941aa905dcfe520d7bb88852
+  verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
+  reason: d3c2cfdd8af996ebe2f4fbb4248fc55925496df61aac9f23f9058afa845ad7d0
+  created_at: 52a4a786ecbadf7f6d33a924736f9d3497488351b0eefe416a31ff28caaa0c34
+  disposed_at: 0259afcb26f32edc33f55b657aaf0ddd3a760e93101b6e64496f67eabbadfaa5
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: e9cabfb4180fc1461635433b29ab9ba340d15be76238dae2ac675a87caed9dba
+  disposition: 4888d36d64efe8e1a81dbb31712b7b5d54ccad13f7526a4888bde445ca069925
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T07:55:37Z'
+  authority: generated
+  via: save_document_payload

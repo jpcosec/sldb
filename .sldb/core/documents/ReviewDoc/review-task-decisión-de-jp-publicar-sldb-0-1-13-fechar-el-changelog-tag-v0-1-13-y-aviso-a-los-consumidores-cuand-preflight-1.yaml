@@ -1,0 +1,36 @@
+name: review-task-decisión-de-jp-publicar-sldb-0-1-13-fechar-el-changelog-tag-v0-1-13-y-aviso-a-los-consumidores-cuand-preflight-1
+path: desk/reviews/task-decisión-de-jp-publicar-sldb-0-1-13-fechar-el-changelog-tag-v0-1-13-y-aviso-a-los-consumidores-cuand/preflight-1.md
+source_hash: 2c30abb416b7b4f1c5b82cef147b0f405a4df91b7aa3700940a2f93862d043ac
+content_hash: f3fc25435a38a7769d38ae5a7821f1bb1b318e5fb8e0c4583a398710a4389d1d
+field_hashes:
+  id: ebd87166d211d85ac7844db7d3cfe8fb687a9a3850b172e4ed7119e242767ce6
+  title: 19dbbe8313966fa357a1325a728d734170b76a0dd68e6f6809c66e004aaea72a
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 18f87150ec81991f053a240e375f7798d125ffffa35a741a02ecc3f94f1feec1
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 2a420b5146b67136476938f9646b15dcf8a67747020f533b0257abf4c7b77f56
+  input_sha256: 333b426366c09d41d704005c826073ca1e27fdd3c1f05e8e451527aca6cb3132
+  output_sha256: 8928f8167cfc7d0f08f9a6121c53e8dae0f9f566d810fe5bb419e95832a3ccfa
+  verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
+  reason: 305ef688ce37f7203894299af4945bdc73b64d810b162796410eda74a98dc5c9
+  created_at: d69fa1351352955357fe2f5966df23119058ede5fa26deeef3c0eb7db5eddbfa
+  disposed_at: 1f7b90c7b10bba233c38eea4656d5cd0b240288e81766796c7ef80ad7d2970a1
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 27f3864ece3869d084a3008a1277a1b3db18c8f5511ab262ba6453ad1ef6bbe7
+  disposition: aca3e348619780916b47c2745341979cd86c6c3f4da083a3d81c0ae22cbe1f14
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T05:19:44Z'
+  authority: generated
+  via: save_document_payload

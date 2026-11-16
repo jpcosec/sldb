@@ -8,9 +8,11 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-11-11T08:00:00'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-11-16T05:26:49'
 ---
 
 # EdgeIndex.stale (GO04 d7eefdeb) manda a reconstruir, pero rebuild_edges no resuelve una edición externa

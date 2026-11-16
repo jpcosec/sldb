@@ -1,13 +1,15 @@
 name: inbox-note-h5-h7-de-cc35d-resto-de-deskops-stores-declare-write-conserva-tag-namespaces-y-tag-models-evaluación
 path: desk/inbox/inbox-note-h5-h7-de-cc35d-resto-de-deskops-stores-declare-write-conserva-tag-namespaces-y-tag-models-evaluación.md
-source_hash: 19824dc6428251777a12265d8bc50a24f93af636c88732088052de19b9d2203a
-content_hash: d9a48bf13ce1abb8125e84a3bbb1da8cc2928b47101a4afe5125b32062c8861c
+source_hash: a3a28c811cb944810e6ba58f1187b6a7934f32487b6406e37935bc2398e9f1f2
+content_hash: 59608d3a38b780a82e474de383761f0e07f1a8a3d5f7073e35c922a7136e3dcb
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: 43a33a51069b329de150a8286d28b078b417876a2e1f313717af1bf2318767bf
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 5e6029a985b5d8567aad22b2f50d1dea1168e1e9db0a5f44fb45e14d9f47e5d8
   title: d6ee01d3746950dd41acb3e70447c0801675044bba182646b5386fd30451115e
   body: 252ca02f9c3ca866920e72cf96e80063a6ca2c22e17b01b9d9b871b647ec7948
 semantic_tags:
@@ -17,6 +19,6 @@ semantic_tags:
 - workspace.desk.inbox
 provenance:
   by: agent
-  at: '2026-11-11T18:02:19Z'
+  at: '2026-11-16T08:29:22Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

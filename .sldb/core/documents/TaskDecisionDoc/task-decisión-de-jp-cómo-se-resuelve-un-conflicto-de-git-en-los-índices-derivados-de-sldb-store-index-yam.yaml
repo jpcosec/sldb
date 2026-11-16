@@ -1,0 +1,39 @@
+name: task-decisión-de-jp-cómo-se-resuelve-un-conflicto-de-git-en-los-índices-derivados-de-sldb-store-index-yam
+path: desk/tasks/task-decisión-de-jp-cómo-se-resuelve-un-conflicto-de-git-en-los-índices-derivados-de-sldb-store-index-yam.md
+source_hash: bbd668e367f1c46fd046776cadd9b313c1c39a29511851314661de9a661d1005
+content_hash: 49136f2f3e0f4e9cdf77de30f485830c05513d28e1cb221db6730daa39d1b363
+field_hashes:
+  title: 7c4758822c21ffdacb675b1c9693a1d3d28941483e53320ef3d60bd840e90cc7
+  id: 6f07f1ffebbfdc6990c0aeac9ce042c8754fff0750b2c54dad5a227579e2cc9b
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 86c05469bebec61fe13c784fe17b0a1c227f99bde6cd441a14d538419579c4cf
+  goal: 5dfb2a640fec957cdb862665ec40746b63cce3e7c25b6f130ec295e6c64818a2
+  scope: 507f210137cd8d2c5cc01905ed1a4f22b941284fd2e77cebc763d5c309c57431
+  references: 1946e32248dd4dfbc433de4052c8d86f0c5716cd6f90b032a2a710c682a8de20
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: ca1bc85d20ce3be07a5dcdc8e3906c56f03b34893453d380c78a395123d5a4c2
+  implementation_path: a351945ea294f55cda1c1b9c81214bdcb4a60c0e576a56e45ad471d2d6a05c86
+  validation: 9c54fdce18fed35a6e4f0469d5978f2adefe452cd7e08df03a9e086ee8599d9a
+  done_when: 52a3ecbba4f5e8510e8650f76839ddbfe0ed2576aff6f077202d850b01b34b20
+  task_type: a4df8849de4c7c42dff3bfe95bbeb8759b5ca37238136b51e418b9d2f5ef311c
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 1da9ce13915be9bf3cd374f21234b9fff7abe63caffe365d5ae45125fa44e9b6
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T05:14:49Z'
+  authority: generated
+  via: save_document_payload

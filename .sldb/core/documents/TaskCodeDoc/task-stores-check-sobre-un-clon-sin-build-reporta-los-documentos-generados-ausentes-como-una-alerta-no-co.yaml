@@ -1,0 +1,40 @@
+name: task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co
+path: desk/tasks/task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co.md
+source_hash: b73e190c7a4a1dff6810581b3e3cef26667d8db0020b2862ee52222a5fe3ea81
+content_hash: 69e8e3bb4c1c6faf04e6a3eabe99fb0f0f75fe5e633308e70bbe47fffe8d7491
+field_hashes:
+  title: f084909f37713d4fd55b39bf45d49d70c752466ae4fdb766f56201304493c8fc
+  id: 7c0fe3c2dabd7779000e91d20c0f6c5bf199d6f9fdcd96b7b66e4c93418ba33b
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 24f9d4c13f12d7ba19208014706bba00ee2ace904771b4105eaf443e778ccf69
+  goal: 0ea8a5f487a184e734bae1c3c3f00ae2d72615c6f33d6b8a886f63544c17f0e6
+  scope: c21ae74341b9a1721457b2b3fdfdf9d167f58bdd4abd7151b73fe1b590110e6a
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 5f24b153431d659e2922aba6b9cd322f98a91425f875edc0f8993e0374b330a2
+  implementation_path: 92b9d91d8efa72ad9b3d6efe6734d9a5d80f559d15bcd51815a2abe94fa8e76e
+  validation: 839b17b9f4848aff997133d587719b6df42458c60714db5acd87a5278903853c
+  done_when: 66120c9111b1216a691bfbb3a5855f22d8f33a0eba5b441a9ad174736e848b71
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 71a1e4546b30022c09f8b619ecfe8054c140e42ff661e4d1218069f224226d76
+  from_drawer: c676636cbde624db6a160869fad121c22c2f7a483564b2ba54028f0b02db8932
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T08:49:29Z'
+  authority: generated
+  via: save_document_payload

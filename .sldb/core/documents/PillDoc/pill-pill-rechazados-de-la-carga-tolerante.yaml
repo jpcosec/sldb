@@ -1,0 +1,27 @@
+name: pill-pill-rechazados-de-la-carga-tolerante
+path: desk/contexts/pill-pill-rechazados-de-la-carga-tolerante.md
+source_hash: 771a824496fb242ba81fe3491dac08543e0de23942a6478c06b21e79e7b9a0f4
+content_hash: 4eea3106ca99a622e0ecb3aafc96d8da089267360b059aaf25d38fbffb796988
+field_hashes:
+  title: 519ba777f552aac72d4a955d9f424ea34a69078b84e422e979710c1b6fbe4197
+  id: 642cbaeb2ef316ab0dcf958a4678c49d1c7452cf22b590a15f0f7e131e2c28b7
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: 4dcf7e257a4776c7e31d5560f7e6bc73a0402769136adb8dc1a319012070eded
+  tags: eba3e04dedbc71d662afad768cce456eb93e4d6b45e163b5719ea634e6d3786e
+  what: 48fa4c8471a7b4be965c604094ec005d63e409c2efe07da1a17d99f3fa29b765
+  why: 367817a6fa5b5554632fc21169784b67d4169ac7d42084827d0b4fd03572f540
+  when: 27f39d26c98d5796fb5468d47a128e4ce44f57dd19e64eef027424db72b9e291
+  where: 416070dbf7f33a46c9fe827872455d7937d8792b1355cfbc99ae1249b0c2c283
+  how: b3161e4c03b5d9cfc77677ad6166413c7bbbd6c4bb30fc7ba768a334f44a6ce9
+  how_not: f47097e41d6f82b472e98b71e7ad5f5db7e69760c7c2ed7cd56043d20f8d9a8d
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- topic:context-review
+- type.workflow.pill
+- workspace.desk
+provenance:
+  by: agent
+  at: '2026-11-16T07:42:25Z'
+  authority: generated
+  via: create_document

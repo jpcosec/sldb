@@ -1,0 +1,40 @@
+name: task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el
+path: desk/tasks/task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el.md
+source_hash: 7484eac3b6037f1e8b130bab3fcb6daea8220f0e565dc72015be212efed994fa
+content_hash: a86a2adc3660c5c315f3bf7db9c0cdd5a8f16ea9952aac725dfe4fb637d49222
+field_hashes:
+  title: 29a20744f491f94f5de573515341c292674c8f1385b26f7bfc2efbdfbf5c5d83
+  id: b8372e4b27ea9e9c1f3d6449c386013d53604cf101850a669bdbb2c90017cd82
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 0b9887b3171ea24d0c64b0da741f604c6b76d509388be99ca38ac2f33965cc59
+  goal: 66fddd634e42051b083ff5e8d71bc761e4b85a5f40dee332336c48c9051b59c2
+  scope: 746c25c429afa147922d7eea7ebe7e7a5f55324fb953f18d7d15c41f31d54353
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 22386c38abbece83e996faf6bd2a96e5d37d673647361d48644d87ad83207668
+  files: 9a055351366459edebe2122bb43758557eec95af4027309d3a4806450d8364a1
+  implementation_path: f5254a1c2cf20504de6da8d8219c46ea54ad1f48d693d77b895c12e2e480075a
+  validation: 43b7e7b23a80e9a98bd8e3ec6a9da27be83dc31496da4466bf2798f27a12ac0f
+  done_when: 62df8767fb59358ed3221a533e4dd4b2b391842e8a74eda49442933017166ebb
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 65d8be632df5b3987168b5cc21ed4015a3969444b6a3a3685e083dac27eaf539
+  from_drawer: 2b2bbc3467ab4df5bb51888defe263f43f33afeb15a62e3445f4d55e23907f94
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T08:48:32Z'
+  authority: generated
+  via: save_document_payload

@@ -1,0 +1,27 @@
+name: pill-pill-forma-del-rechazo-de-dominio-en-sldb-mcp
+path: desk/contexts/pill-pill-forma-del-rechazo-de-dominio-en-sldb-mcp.md
+source_hash: a88bcc851f3449f0535f7c31666a52e54e359e8bef482bbfaa079c4e326daad2
+content_hash: 9f76cf4097f6f9eb5710b3b9d8fea5793157981a9421794d04e730dbf8a59ced
+field_hashes:
+  title: 486e43c6e81da325681f02f70ac34367f1081a450a572dfff25d4cae0fce0f24
+  id: 98884fc36b0bb434687a7f405cb7db3379cb370f5fb57c09e0f006ae9a5de2eb
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
+  summary: e0dbab8747cfc48a963749517aab759912d81ffd2d034b4b73c3a3682dc6da8a
+  tags: eba3e04dedbc71d662afad768cce456eb93e4d6b45e163b5719ea634e6d3786e
+  what: 48fa4c8471a7b4be965c604094ec005d63e409c2efe07da1a17d99f3fa29b765
+  why: 367817a6fa5b5554632fc21169784b67d4169ac7d42084827d0b4fd03572f540
+  when: 27f39d26c98d5796fb5468d47a128e4ce44f57dd19e64eef027424db72b9e291
+  where: 6306e3923c4401677ac4bb0f6960eecceeb94f829483a9c4d39b2ddfd2ea0d61
+  how: 50749638c3c2ce9dfce67bf1e231cfa0e0413e5ba948cbc5d147ce78685f867b
+  how_not: f47097e41d6f82b472e98b71e7ad5f5db7e69760c7c2ed7cd56043d20f8d9a8d
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- topic:context-review
+- type.workflow.pill
+- workspace.desk
+provenance:
+  by: agent
+  at: '2026-11-16T07:43:25Z'
+  authority: generated
+  via: create_document

@@ -1,0 +1,39 @@
+name: task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc
+path: desk/tasks/task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc.md
+source_hash: bd76f1c5410eb1def62ca9db8288a57e49efa5c1f2da23a8d09266796ee95212
+content_hash: c3dcfa6274ecd0ad7fb94044a04d1f551ffb8578af09183df90062eb19fe99cf
+field_hashes:
+  title: eadf3c4187c625647f0a022f3b09a367fbf05404e77829b166b8725f7ce2be85
+  id: 3f162f69944a4ce007f9c7db60ac646fb21e17a96182f5f448f78d2cbc202ac7
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 36a0814e7113e530ef15ff2e7f1e6f5ab05f00c9250bd8a46000aca23607a793
+  goal: 6e3fcd8b71bd29ea1a3df779ea2904b38c609346f6c23e745883dd857d268698
+  scope: 5ab9c319bc261a4096df41a39321f124b783c564801bff1409e7bebed03adce6
+  references: 503bf7b3151cda654e41730145dfb1d1bca8661c9020abc651a67f2aa232c38a
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 81ed6d2e01ef1f111504bb610ff9144b0a7552ba40d35d8fc14cc7c085bfb299
+  implementation_path: a2c5f32e91ba012dcba8eb1edcd2aa8584a71cdc829306f6178ee9f5feb46532
+  validation: 24d20ce62ca86d1b3a7c2dc4796133694735bbd163db85a8ba58101e85eb4d20
+  done_when: a4f149535219d210442fc06bd297d7fa31cf7dafd76819412967a391f317fac7
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T05:37:08Z'
+  authority: generated
+  via: save_document_payload

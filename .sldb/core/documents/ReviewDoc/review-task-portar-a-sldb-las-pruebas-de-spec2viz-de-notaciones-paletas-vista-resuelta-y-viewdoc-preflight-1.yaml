@@ -1,0 +1,36 @@
+name: review-task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc-preflight-1
+path: desk/reviews/task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc/preflight-1.md
+source_hash: f9afb6b8519795faad0b344a6c14196a3559eb4079671ea6215dec87a4b2169d
+content_hash: 63b75ccad26ec7db9ec7a8188ac1469887fad03c9254eeecac89be85ccba5526
+field_hashes:
+  id: 197ee20795615d24c083a5c0f0443ebacb7248a1361b796e465e9b19356b0d63
+  title: 09ee5e43095bb242a1c6ab6ff765663e308460e67ea8c95e95a273902ad7ea2b
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 271e794c8445a299e5c13878b029d4dd30caeb87ad3cf766bd7981ed7731dbd5
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 78caa9ebe948503dde6e6b991be9fa524ac38d28bc02792e623ae781b2a83038
+  input_sha256: 936a99b389959d6da78ade37b1090cf1a7bd2777b17aeb5dae03515a260cd369
+  output_sha256: 02120438800d0dbb7b54654cdf97aac3afdcdd4a655f2024fc3a6158c7051cfd
+  verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
+  reason: 305ef688ce37f7203894299af4945bdc73b64d810b162796410eda74a98dc5c9
+  created_at: c9e4d091f4b9d1abce093b4fcc0b6f9ebeae64bb9d8b4da51a764e0d1bacad99
+  disposed_at: 96d0cfc5e918b1151311a60b5daa9a1eca6e86284738cfd8df2636b1d2ba448c
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 0d5af517c2aeb9162a97fa22e6632cf26836fe733de0bb0518e450aefbc63c40
+  disposition: aca3e348619780916b47c2745341979cd86c6c3f4da083a3d81c0ae22cbe1f14
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T05:37:40Z'
+  authority: generated
+  via: save_document_payload

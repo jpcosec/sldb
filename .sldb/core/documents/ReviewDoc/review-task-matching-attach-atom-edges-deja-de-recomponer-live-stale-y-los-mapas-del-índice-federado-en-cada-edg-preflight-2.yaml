@@ -1,0 +1,36 @@
+name: review-task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg-preflight-2
+path: desk/reviews/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg/preflight-2.md
+source_hash: bb919a1e968c85bfac384136dec39d69fb5f6f2707cd74859d964f96990a03ff
+content_hash: 40938f5f09f1ba9c06674138424965390f6ab7286c554bf0f0ab4a08372cd9e0
+field_hashes:
+  id: c95ad0e836b7c7e515016730f0dae1ed4bf52e9ef9089ce87738da35a9081937
+  title: 94b75c3e9013339d62e0ff57acd6186710f61164849eb523228cbccd90bdab00
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: c3cc66cf012bec94d2e7df98038713c49fd7ce975a4a64edf4efdf8ec76d2f36
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 77ca11cd27ee8b1e2f81711d2d79749cc7209092aee7af4d8a02aa3568f30791
+  input_sha256: 8545f3ef5e845a10679fb2a13e0ce5cf7dd1eeb0393c756023023600303e344f
+  output_sha256: e3dd27ee315c9073b24e0898e221ba97890836d62d4d3f0d80037674bd6748cc
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: a02d0773d081c2f18941fb6ebae2cbf435ccc6946754fd6a81ef0633b68d27d9
+  created_at: c30b1f71f47f8e82fa55f12ac64a5d89957e6e116ffe0b7c43d8535c77f954fb
+  disposed_at: 25c7c2c22af4c3af5b087df9356a467c6f47131d36988102490271dd2325fac7
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 73add466fb54af7b1b97b75c81181e89cfcee80d2b0659880169df9169938993
+  disposition: 6e43232d1e20687eb3ec6ef9d12100c189f942807307808bf7d510b4a72c10d1
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T06:53:26Z'
+  authority: generated
+  via: save_document_payload

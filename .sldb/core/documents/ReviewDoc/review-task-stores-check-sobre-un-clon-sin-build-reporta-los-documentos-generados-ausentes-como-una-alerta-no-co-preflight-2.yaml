@@ -1,0 +1,36 @@
+name: review-task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co-preflight-2
+path: desk/reviews/task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co/preflight-2.md
+source_hash: ed69794c380f864aded02e5fdb96d69d5fb3e600b24c7ee5adb552d8c7e534ee
+content_hash: cdfd5151551ff4b660dd2c2648351989b9cf65a99b4502428f33c0bdbebb3b52
+field_hashes:
+  id: 3627a456cacb303b71d7950f5cf285be7b7076ddfa3b8feeede0c7aa63b7e523
+  title: 509dc42a6fad199972b77b3cab59f74bba644d721b2f78f30a7ec1ac59bdde60
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: d4e8ade99b570300ceca44a30a09fc70a6861f8849cbbef66517fcdc80b2f750
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: b6322a152e8650ea37b048f0541bbd69389d924cae04beb266d099dd94033cee
+  input_sha256: 864b4b5e7f4c6cba1f1b4be8797692d0446f3b594121aaa76f374a9b29fae58e
+  output_sha256: 815e4d6e91c2c4b7f9c47e40aa0a7ff8b2b695a5b0396a912109dfad07b483de
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: fe7c554bcd4338ada5fff2eccf0a8e4c645a3b31b2fc10e89ec80161095b58f2
+  created_at: 66ccb19bd5359b89a15a73c2fd694f92c08b1bb5786daacb5d5648b7e5c27b29
+  disposed_at: d5d3445dbd96186eb96caedf007b0e3e08b23f805a528850a601d01903292a5a
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 7abfb01ca2715bfb70bbd54e7f784054a7685a61aaccaf403089f7c091bf09bb
+  disposition: ceca02ed647a3103149d5df9523cfd0af4486022e99d8b5ebf87ea20bb2e43d1
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T07:02:25Z'
+  authority: generated
+  via: save_document_payload

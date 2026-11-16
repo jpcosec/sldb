@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-11T18:02:19Z'
+  at: '2026-11-16T08:29:22Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 # unclear | suggestion
 kind: suggestion
 # e.g., other_repo
@@ -13,9 +13,11 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-11-11T18:02:17'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-11-16T05:29:05'
 ---
 
 # H5-H7 de CC35d resto de deskops: stores declare --write conserva tag_namespaces y tag_models, evaluación estructurada de la familia de tags, y la familia solo ve documentos indexados

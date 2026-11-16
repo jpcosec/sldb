@@ -1,7 +1,7 @@
 name: task-sldb-create-document-y-track-document-file-evalúan-las-reglas-on-write-h4-declare-write-conserva-la
 path: desk/tasks/task-sldb-create-document-y-track-document-file-evalúan-las-reglas-on-write-h4-declare-write-conserva-la.md
-source_hash: aefa4b1e2ac165f5ae41912cf6341d322ccd7e2dbd717ec8143e1f77eb61a882
-content_hash: 0eb3fc37789d729b1358d7d196c148ea64e5f6d6ae072509b9639e59bdd23adf
+source_hash: 883b564877638bdf820e078ddafc4f68fcfcd37448ea90442225919383e6f61d
+content_hash: a1cdf7959d84cd98cb328f6b42a766f28b7cb6fe232463fb8ca3452b52f53d4a
 field_hashes:
   title: febd45f051d5a2e17ac59a498e62680fa3f33eab4531bccef73e493ea4a6e917
   id: 15cbdf3aead514c408acd30b4738cd3be578f5d61c44e718196f459cc363db78
@@ -24,7 +24,7 @@ field_hashes:
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
   atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  from_drawer: 123247c8c90d27face6a8d5ad54bef98057684402fda86fbcd9b4f310b8f831b
+  from_drawer: c41e0fa5091bc8240a73977495d54bdfc71b4c46ac9b96acc8455918a7ed73f6
 semantic_tags:
 - artifact:task
 - representation.markdown
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-12T02:26:13Z'
+  at: '2026-11-16T08:52:16Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

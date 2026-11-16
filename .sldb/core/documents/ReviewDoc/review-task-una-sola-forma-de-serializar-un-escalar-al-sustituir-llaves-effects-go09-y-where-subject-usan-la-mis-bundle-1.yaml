@@ -1,0 +1,36 @@
+name: review-task-una-sola-forma-de-serializar-un-escalar-al-sustituir-llaves-effects-go09-y-where-subject-usan-la-mis-bundle-1
+path: desk/reviews/task-una-sola-forma-de-serializar-un-escalar-al-sustituir-llaves-effects-go09-y-where-subject-usan-la-mis/bundle-1.md
+source_hash: d65be9408f8c817d5140810cc8a0678ffde372be3dee97a1e376f8b405192a84
+content_hash: afe1bf64438c7be413f4470c1e7e93f31e476d8db76fca56d08f62117810e963
+field_hashes:
+  id: ddda15d339d68d83f8437e073b0904e877efc6a1b8715f6c7a2b6e9e4c5aaf17
+  title: 9a614d4f6a80ec440e0ba8c403f8623b24e6b27e56f98262f12fe4cfd86e7c68
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 0548de97c2eb21aa24d97b6f1214594cf2a62b278fff90886403e0b92bb28b18
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: a36659f74ae39c01365c124ce8d260eec0b4c519c72a400bc5e86f2752a742db
+  input_sha256: 19238096e54d569357d1d6ab29671dcdf914cad8fb2d82e3cd8fe90cea2f469b
+  output_sha256: 3a6fac49cab5b4d8f7ef7a3850abf7b895eae19265661e4126e8abe23257f108
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: db3e58cfa84c417bda7da0d66aa7fa92302a8c74538438cb0a0b85498e0ae695
+  created_at: 54593310f87e03c71c9bef9f460b94efb9a3335f7203fd4309b3a185e74bbd08
+  disposed_at: eeea486ff06253d4a61cd9b7c152e05d21bb97eccd6f78a6afeadefaf09828f7
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: f62b44389cc1fbea0ad7b6f437502fac0d42b1dc50e3292b764f2ca49abf32c5
+  disposition: e3c0027c17732a644ad8ea18cf8982f018e22a8effc48c6b157c83297b5cf93b
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T07:51:33Z'
+  authority: generated
+  via: save_document_payload

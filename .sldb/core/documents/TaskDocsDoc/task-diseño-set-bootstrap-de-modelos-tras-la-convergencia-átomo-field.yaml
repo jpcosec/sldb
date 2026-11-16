@@ -1,7 +1,7 @@
 name: task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field
 path: desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
-source_hash: 0d83c717aeaebfaf06e49905c09c08f3b8da3a8c682a6cb5fa48664d7a0e7a71
-content_hash: 32ef7109863ee45b61855c15fd5e042254bd0b8d93fc26bd84ae45003b45c591
+source_hash: a0f165e69df2051fecf1daedb23abaccd3c9a2f5a0b2183494bee28413435b4e
+content_hash: d4bde5aaa6a246eb9f516b5c7a0c296ee58b2aa1ee09ed9d1b06d0f6f794a950
 field_hashes:
   title: cb7c6eccff7def108b6ad36f2909dc82620644842565b637988fa4ed996c1d2f
   id: aa8cd2cc57b2280791ee36a0414d93c37c8be58962ef85d3f18531ecd28a4a30
@@ -24,7 +24,7 @@ field_hashes:
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
   atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  from_drawer: 7def1f3ecd27a899cfafc302e6471e7b0de9fe81d386697fdea6e2903701ecf7
+  from_drawer: 62463deffcda91c24827198cb46e2c34ed038c531542e323288a88b1412485d2
 semantic_tags:
 - artifact:task
 - representation.markdown
@@ -32,4 +32,8 @@ semantic_tags:
 - type.workflow.task
 - workspace.desk
 - workspace:desk
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-16T08:43:00Z'
+  authority: generated
+  via: save_document_payload
