@@ -30,11 +30,16 @@ def release_workdir(workdir: Path, names: list[str]) -> None:
 
 
 def copy_desk(source: Path, workdir: Path, name: str) -> Path:
-    """Clone `source` (its committed HEAD) into `workdir/name`; the source is only read."""
+    """Copy the working tree of `source` into `workdir/name`, without its `.sldb_cache`.
+
+    The working tree and not a clone: generated documents (the sldb store's
+    `knowledge/symbols/`, about 3300 files) are ignored by git and a clone would measure
+    a store with them missing. The source is only read.
+    """
     target = workdir / name
     if target.exists():
         shutil.rmtree(target)
-    subprocess.run(["git", "clone", "-q", "--no-hardlinks", str(source), str(target)], check=True)
+    shutil.copytree(source, target, symlinks=True, ignore=shutil.ignore_patterns(".sldb_cache"))
     return target
 
 

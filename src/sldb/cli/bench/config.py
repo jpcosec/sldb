@@ -23,12 +23,15 @@ class BenchConfig:
     timeout: float = 7200.0
     keep: bool = False
     touch: dict[str, str] = field(default_factory=dict)
+    #: Copied next to the desks (so a store's relative links resolve) but not measured.
+    siblings: dict[str, Path] = field(default_factory=dict)
 
     @classmethod
     def from_args(cls, args) -> "BenchConfig":
         return cls(desks=_pairs(args.desk, lambda v: Path(v).resolve()), workdir=_workdir(args.workdir), deskops=_deskops(args.deskops),
                    ops=parse_ops(args.ops), modes=_modes(args.modes), repeat=max(1, args.repeat),
-                   timeout=args.timeout, keep=args.keep, touch=_pairs(args.touch or [], str))
+                   timeout=args.timeout, keep=args.keep, touch=_pairs(args.touch or [], str),
+                   siblings=_pairs(args.sibling or [], lambda v: Path(v).resolve()))
 
 
 def _pairs(items: list[str], kind) -> dict:

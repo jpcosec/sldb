@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-16T01:06:19Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-bench
 system: sldb
 command_path: bench
 synopsis: Measure sldb and deskops speed on desk copies, cold and warm.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#bench; contract-sha256:66d5f1c579f8762ed524aa3e752a0cab4dacfd13c4709816e98680ece8eca2d6
+provenance: parser:sldb.cli.parser:build_parser#bench; contract-sha256:1b6930c6452fd920d19abedf653de000d967c6c361ff8f6772a226689cd45222
 ---
 
 # bench
@@ -103,6 +108,19 @@ Not documented.
       "action": "argparse._AppendAction",
       "const": "null",
       "help": "Document changed by update-one (default: first tracked .md)."
+    },
+    {
+      "names": [
+        "--sibling"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._AppendAction",
+      "const": "null",
+      "help": "Copied beside the desks for relative store links, not measured."
     },
     {
       "names": [

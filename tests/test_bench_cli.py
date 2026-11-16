@@ -23,13 +23,14 @@ def _repo(path):
 
 def test_bench_measures_cold_and_warm_and_cleans_its_workdir(tmp_path, capsys):
     source, work, out = _repo(tmp_path / "demo"), tmp_path / "work", tmp_path / "bench.json"
-    argv = ["bench", "--desk", f"demo={source}", "--ops", "sldb-help,deskops-help", "--deskops", "/bin/true",
+    argv = ["bench", "--desk", f"demo={source}", "--sibling", f"other={_repo(tmp_path / 'other')}", "--ops", "sldb-help,deskops-help", "--deskops", "/bin/true",
             "--workdir", str(work), "--output", str(out)]
     assert main(argv) == 0
     payload = json.loads(out.read_text(encoding="utf-8"))
     assert {(r["op"], r["mode"]) for r in payload["summary"]} == {(o, m) for o in ("sldb-help", "deskops-help") for m in ("cold", "warm")}
     assert all(r["rc"] == 0 for r in payload["results"])
-    assert payload["meta"]["desks"]["demo"]["sha"] != "unknown"
+    assert payload["meta"]["desks"]["demo"]["sha"] != "unknown" and "other" in payload["meta"]["desks"]
+    assert {r["desk"] for r in payload["results"]} == {"-"}
     assert "| - | sldb-help | cold |" in capsys.readouterr().out
     assert not work.exists()
 
@@ -42,6 +43,6 @@ def test_bench_refuses_a_foreign_non_empty_workdir(tmp_path):
 
 def test_bench_rejects_desk_names_that_are_not_one_plain_segment(tmp_path):
     args = SimpleNamespace(desk=["../x=/tmp"], workdir=str(tmp_path), deskops="/bin/true", ops=None,
-                           modes="cold", repeat=1, timeout=1.0, keep=False, touch=None)
+                           modes="cold", repeat=1, timeout=1.0, keep=False, touch=None, sibling=None)
     with pytest.raises(ValueError, match="plain NAME"):
         BenchConfig.from_args(args)

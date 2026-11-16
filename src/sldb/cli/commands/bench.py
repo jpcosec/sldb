@@ -22,7 +22,7 @@ class BenchCLI:
             payload = self._measure(config)
         finally:
             if not config.keep:
-                release_workdir(config.workdir, list(config.desks))
+                release_workdir(config.workdir, [*config.desks, *config.siblings])
         return self._emit(payload, args)
 
     def _measure(self, config: Any) -> dict:
@@ -30,8 +30,8 @@ class BenchCLI:
         from sldb.cli.bench.meta import bench_meta
         from sldb.cli.bench.report import summarize
         from sldb.cli.bench.runner import BenchRunner
-        copies = {name: copy_desk(src, config.workdir, name) for name, src in config.desks.items()}
-        meta, runner = bench_meta(config.desks, config.deskops), BenchRunner(config, copies)
+        copies = {name: copy_desk(src, config.workdir, name) for name, src in {**config.siblings, **config.desks}.items()}
+        meta, runner = bench_meta({**config.siblings, **config.desks}, config.deskops), BenchRunner(config, {n: copies[n] for n in config.desks})
         results = runner.run()
         meta["touched"] = {d: str(p.relative_to(copies[d])) if p else None for d, p in runner.touched.items()}
         meta["protocol"] = {"ops": list(config.ops), "modes": list(config.modes), "repeat": config.repeat, "workdir": str(config.workdir)}

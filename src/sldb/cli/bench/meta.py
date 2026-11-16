@@ -16,12 +16,18 @@ _PROBE = "import sldb, deskops; print(sldb.__file__); print(deskops.__file__)"
 def bench_meta(desks: dict[str, Path], deskops: str) -> dict:
     return {"started": datetime.now(timezone.utc).isoformat(timespec="seconds"), "machine": machine(),
             "sldb": {"src": str(SLDB_SRC), "sha": git_sha(SLDB_SRC)}, "deskops": deskops_meta(deskops),
-            "desks": {name: {"source": str(path), "sha": git_sha(path)} for name, path in desks.items()}}
+            "desks": {name: {"source": str(path), "sha": git_sha(path), "dirty": git_dirty(path)} for name, path in desks.items()}}
 
 
 def git_sha(path: Path) -> str:
     out = subprocess.run(["git", "-C", str(path), "rev-parse", "HEAD"], capture_output=True, text=True)
     return out.stdout.strip() or "unknown"
+
+
+def git_dirty(path: Path) -> int:
+    """Uncommitted paths in the copied working tree: the copy is HEAD plus these."""
+    out = subprocess.run(["git", "-C", str(path), "status", "--porcelain"], capture_output=True, text=True)
+    return len(out.stdout.splitlines())
 
 
 def machine() -> dict:

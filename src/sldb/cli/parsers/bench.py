@@ -3,7 +3,7 @@ import argparse
 
 from sldb.cli.bench.operations import ALL_OPS, DEFAULT_OPS
 
-_EPILOG = """Each --desk is cloned (git clone --no-hardlinks, committed HEAD) into WORKDIR/NAME; the
+_EPILOG = """Each --desk's working tree is copied (without .sldb_cache) into WORKDIR/NAME; the
 source is only read. Cold: .sldb_cache of the copy and WORKDIR/xdg (the XDG_CACHE_HOME of
 every child) are deleted before each measured run. Warm: one unmeasured run first.
 sldb runs from the sldb running this command; deskops runs as installed, as a consumer.
@@ -26,6 +26,7 @@ def add_bench_commands(s: argparse._SubParsersAction) -> None:
 
 def _add_places(p: argparse.ArgumentParser) -> None:
     p.add_argument("--touch", action="append", metavar="NAME=PATH", help="Document changed by update-one (default: first tracked .md).")
+    p.add_argument("--sibling", action="append", metavar="NAME=PATH", help="Copied beside the desks for relative store links, not measured.")
     p.add_argument("--workdir", help="Where the copies go (default: $TMPDIR/sldb-bench); deleted at the end.")
     p.add_argument("--keep", action="store_true", help="Keep the work directory.")
     p.add_argument("--deskops", help="deskops executable (default: the one on PATH).")
