@@ -7,6 +7,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Iterable
 
+from sldb.store.edge_index.compose_lock import compose_lock
 from sldb.store.edge_index.composed_reading import read_or_compose, with_live_stale
 from sldb.store.edge_index.composition_targets import resolve_composition_edges
 from sldb.store.edge_index.doc_anchor_states import with_anchor_states
@@ -44,8 +45,18 @@ def compose_edge_index(store_path: Path, include_linked: bool = True, exclude_ta
     signature = tuple(shards_signature(path) for path, _ in stores)
     hit = _COMPOSED.get(key)
     if hit is None or hit[0] != signature:
-        hit = _COMPOSED[key] = (signature, *read_or_compose(stores, include_linked, frozenset(exclude_tags), model_type_of, _compose))
+        hit = _composed_once(key, signature, stores, include_linked, model_type_of)
     return with_live_stale(hit[1], stores, hit[2], model_type_of)
+
+
+def _composed_once(key: tuple, signature: tuple, stores: list, include_linked: bool, model_type_of: ModelTypeOf | None) -> tuple:
+    """Composed under the key's lock, looked up again inside: a caller that waited for another's
+    composition of these very shards takes it instead of composing its own."""
+    with compose_lock(key):
+        hit = _COMPOSED.get(key)
+        if hit is None or hit[0] != signature:
+            hit = _COMPOSED[key] = (signature, *read_or_compose(stores, include_linked, key[2], model_type_of, _compose))
+        return hit
 
 
 def invalidate_composed_edge_indexes() -> None:

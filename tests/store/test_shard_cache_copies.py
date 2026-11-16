@@ -49,3 +49,28 @@ def test_fields_update_leaves_the_store_passing(tmp_path: Path):
     assert sldb_main(["fields", "update", "docs/NoteDoc/note/body", '"new body"', "--store", sp, "--pythonpath", pp]) == 0
     assert "new body" in (tmp_path / "note.md").read_text()
     assert sldb_main(["stores", "check", "--store", sp, "--pythonpath", pp, "--quiet"]) == 0
+
+
+def test_concurrent_cold_compositions_of_one_key_compose_once(tmp_path: Path, monkeypatch):
+    import threading
+    import time
+
+    from sldb.store.edge_index import compose
+
+    assert sldb_main(["stores", "init", "--path", str(tmp_path)]) == 0
+    composed, real = [], compose._compose
+
+    def counted(*args):
+        composed.append(1)
+        time.sleep(0.2)
+        return real(*args)
+
+    monkeypatch.setattr(compose, "_compose", counted)
+    compose.invalidate_composed_edge_indexes()
+    start = threading.Barrier(8)
+    threads = [threading.Thread(target=lambda: (start.wait(), compose.compose_edge_index(tmp_path / ".sldb", False))) for _ in range(8)]
+    for thread in threads:
+        thread.start()
+    for thread in threads:
+        thread.join()
+    assert len(composed) == 1

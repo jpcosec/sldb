@@ -112,3 +112,15 @@ def test_a_linked_view_file_swapped_for_a_symlink_out_of_its_root_is_not_read(st
     path.symlink_to(outside)
     with pytest.raises(SLDBDocumentTargetError, match="outside-root"):
         api.run_view(a.store, "board")
+
+
+def test_list_views_never_composes_the_federated_index(stores, monkeypatch) -> None:
+    a, _ = stores
+    a.doc("ViewDoc", "mine", board("mine", "Mine"))
+
+    def refuse(*args, **kwargs):
+        raise AssertionError("list_views composed the edge index")
+
+    monkeypatch.setattr("sldb.api.edges.edge_reading.compose_edge_index", refuse)
+    monkeypatch.setattr("sldb.store.edge_index.compose.compose_edge_index", refuse)
+    assert [(v["name"], v["title"]) for v in api.list_views(a.store)] == [("board", "Board"), ("mine", "Mine")]

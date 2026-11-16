@@ -1,8 +1,9 @@
 """The composed views a store holds (GD25, q11), and the loading of one ViewDoc by name.
 
 A ViewDoc is read from its own file through its model (the index's projection keeps no
-nested `sections`); the `ViewDoc` nodes of the composed index (the store's and its linked
-stores', H9) say which exist, `view_source` which one a name means and where its file is."""
+nested `sections`); the `ViewDoc` nodes of the store's and its linked stores' ViewDoc shards
+(H9, `view_nodes`: the federated index is never composed to list) say which exist,
+`view_source` which one a name means and where its file is."""
 
 from __future__ import annotations
 
@@ -10,9 +11,9 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
-from sldb.api.edges.edge_reading import load_edge_index
 from sldb.api.stores.open_store import open_store
-from sldb.api.views.view_source import VIEW_MODEL, bare_name, qualified_name, read_view_node, readable_view_node, view_node
+from sldb.api.views.view_nodes import view_nodes
+from sldb.api.views.view_source import bare_name, qualified_name, read_view_node, readable_view_node, view_node
 from sldb.core.exceptions import SLDBValidationError
 from sldb.models.notation.view_doc import ViewDoc
 
@@ -21,8 +22,7 @@ def list_views(store: str | Path | None) -> list[dict[str, Any]]:
     """`[{name, title, params, sections: [key...]}]` of the ViewDocs with sections, local and
     linked, by name; a linked view whose name another view also has is listed `<link>:<name>`.
     The projection views (no sections) are listed by `list_projection_views` (SV02)."""
-    index = load_edge_index(open_store(store, mode="readonly").store_path, include_linked=True)
-    nodes = index.nodes_of_type(VIEW_MODEL)
+    nodes = view_nodes(open_store(store, mode="readonly").store_path)
     clashes = Counter(n.semantics["export_id"] for n in nodes)
     named = [(listed_name(n, clashes), view) for n in nodes if (view := readable_view_node(n)) is not None]  # a refused path is warned, not listed
     return [summary(name, view) for name, view in sorted(named, key=lambda nv: nv[0]) if view.sections]
