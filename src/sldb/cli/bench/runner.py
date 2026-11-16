@@ -8,7 +8,7 @@ from sldb.cli.bench.config import BenchConfig
 from sldb.cli.bench.desks import pick_document, purge_caches, touch_document
 from sldb.cli.bench.environment import argv_for, env_for
 from sldb.cli.bench.measure import run_measured
-from sldb.cli.bench.operations import GLOBAL_OPS
+from sldb.cli.bench.operations import GLOBAL_OPS, PRIME
 
 
 class BenchRunner:
@@ -31,7 +31,7 @@ class BenchRunner:
 
     def _op(self, op: str, desk: str, copy: Path | None, mode: str) -> list[dict]:
         if mode == "warm":
-            self._once(op, desk, copy)
+            self._once(PRIME.get(op, op), desk, copy)
         samples = []
         for n in range(self.config.repeat):
             if mode == "cold":

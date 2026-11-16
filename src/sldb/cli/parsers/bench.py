@@ -5,7 +5,7 @@ from sldb.cli.bench.operations import ALL_OPS, DEFAULT_OPS
 
 _EPILOG = """Each --desk's working tree is copied (without .sldb_cache) into WORKDIR/NAME; the
 source is only read. Cold: .sldb_cache of the copy and WORKDIR/xdg (the XDG_CACHE_HOME of
-every child) are deleted before each measured run. Warm: one unmeasured run first.
+every child) are deleted before each measured run. Warm: one unmeasured run first (for build-check, a stores update).
 sldb runs from the sldb running this command; deskops runs as installed, as a consumer.
 
 Example:

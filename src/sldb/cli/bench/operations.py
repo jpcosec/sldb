@@ -19,6 +19,11 @@ COMMANDS = {
     "status": ("deskops", ["status", "--root", "."]),
 }
 
+#: What warms an operation before its warm samples, when it is not the operation itself:
+#: a warm `build-check` is one after `stores update` filled the caches, not after another
+#: 50-minute rebuild.
+PRIME = {"build-check": "update-noop"}
+
 
 def parse_ops(spec: str | None) -> tuple[str, ...]:
     """`a,b,c` to an ordered tuple, rejecting unknown names; empty means the default set."""

@@ -46,3 +46,13 @@ def test_bench_rejects_desk_names_that_are_not_one_plain_segment(tmp_path):
                            modes="cold", repeat=1, timeout=1.0, keep=False, touch=None, sibling=None)
     with pytest.raises(ValueError, match="plain NAME"):
         BenchConfig.from_args(args)
+
+
+def test_warm_build_check_is_primed_by_stores_update_not_by_another_rebuild(tmp_path, monkeypatch):
+    from sldb.cli.bench import runner as runner_module
+    from sldb.cli.bench.runner import BenchRunner
+    seen = []
+    monkeypatch.setattr(runner_module, "run_measured", lambda argv, *a: seen.append(argv[3:]) or {"rc": 0})
+    config = BenchConfig(desks={"d": tmp_path}, workdir=tmp_path / "w", deskops="/bin/true", ops=("build-check",), modes=("warm",))
+    BenchRunner(config, {"d": tmp_path}).run()
+    assert seen == [["stores", "update"], ["stores", "build", "--check"]]
