@@ -1,0 +1,487 @@
+=== pytest -q tests/api/test_anchors.py
+.............                                                            [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+13 passed, 1 warning in 1.35s
+rc=0
+=== pytest -q tests/selfdoc/test_treesitter_symbols.py
+.............                                                            [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+13 passed, 1 warning in 0.11s
+rc=0
+=== pytest -q tests/selfdoc/test_fingerprints.py
+....                                                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 0.03s
+rc=0
+=== pytest -q tests/test_clean_code_rules.py
+........................................................................ [  6%]
+........................................................................ [ 12%]
+........................................................................ [ 18%]
+........................................................................ [ 24%]
+........................................................................ [ 30%]
+........................................................................ [ 36%]
+........................................................................ [ 42%]
+........................................................................ [ 48%]
+........................................................................ [ 54%]
+........................................................................ [ 61%]
+........................................................................ [ 67%]
+........................................................................ [ 73%]
+........................................................................ [ 79%]
+........................................................................ [ 85%]
+........................................................................ [ 91%]
+........................................................................ [ 97%]
+............................                                             [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1180 passed, 2 warnings in 3.15s
+rc=0
+=== bash tools/check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   222 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 952 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 123 símbolos pedidos, 592 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+rc=0
+=== REGRESIONES VECINAS
+=== pytest -q tests/api/test_anchors.py
+.............                                                            [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+13 passed, 1 warning in 1.30s
+rc=0
+=== pytest -q tests/notations/test_component_spec_python.py
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 1.10s
+rc=0
+=== pytest -q tests/selfdoc/test_fingerprints.py
+....                                                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 0.06s
+rc=0
+=== pytest -q tests/selfdoc/test_treesitter_agreement.py
+..                                                                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 0.12s
+rc=0
+=== pytest -q tests/selfdoc/test_treesitter_symbols.py
+.............                                                            [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+13 passed, 1 warning in 0.08s
+rc=0
+NOTA: las líneas rc= de la sección REGRESIONES VECINAS de arriba son el rc de un echo; los rc reales de pytest fueron 0 en los 5 archivos (se repiten abajo).
+=== pytest -q tests/api/test_api_edges.py
+................                                                         [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+16 passed, 1 warning in 10.67s
+rc=0
+=== pytest -q tests/api/test_doc_anchors.py
+......................                                                   [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+22 passed, 1 warning in 1.93s
+rc=0
+=== pytest -q tests/api/test_graph_source_parity.py
+.............                                                            [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+13 passed, 1 warning in 2.70s
+rc=0
+=== pytest -q tests/api/test_referrers.py
+............                                                             [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+12 passed, 1 warning in 2.74s
+rc=0
+=== pytest -q tests/api/test_rules_end_to_end.py
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 1.68s
+rc=0
+=== pytest -q tests/api/test_rules_evaluation.py
+............                                                             [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+12 passed, 1 warning in 9.14s
+rc=0
+=== pytest -q tests/api/test_tags.py
+....................................                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+36 passed, 1 warning in 14.16s
+rc=0
+=== pytest -q tests/api/test_tags_scope.py
+...........                                                              [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+11 passed, 1 warning in 4.40s
+rc=0
+=== pytest -q tests/test_literal_paragraph_anchor.py
+........                                                                 [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+8 passed, 1 warning in 0.68s
+rc=0
+=== (rerun rc) tests/api/test_anchors.py
+.............                                                            [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+13 passed, 1 warning in 1.41s
+rc=0
+=== (rerun rc) tests/notations/test_component_spec_python.py
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 0.94s
+rc=0
+=== (rerun rc) tests/selfdoc/test_fingerprints.py
+....                                                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 0.03s
+rc=0
+=== (rerun rc) tests/selfdoc/test_treesitter_agreement.py
+..                                                                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 0.07s
+rc=0
+=== (rerun rc) tests/selfdoc/test_treesitter_symbols.py
+.............                                                            [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+13 passed, 1 warning in 0.11s
+rc=0
+=== SONDAS DEL TESTER (/dev/shm/b2sqlt)
+--- /dev/shm/b2sqlt/proj/m/c01.sql
+CREATE TABLE "app_author" ("id" bigint NOT NULL PRIMARY KEY, "name" varchar(100) NOT NULL);
+--- /dev/shm/b2sqlt/proj/m/c02.sql
+CREATE TABLE app_author (id bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, name varchar(100) NOT NULL);
+--- /dev/shm/b2sqlt/proj/m/c03.sql
+CREATE TABLE app_book (pages integer NOT NULL CHECK (pages >= 0));
+--- /dev/shm/b2sqlt/proj/m/c04.sql
+CREATE TABLE app_book (title varchar(200), author_id bigint, CONSTRAINT app_book_uniq UNIQUE (title, author_id));
+--- /dev/shm/b2sqlt/proj/m/c05.sql
+CREATE TABLE app_ed (year integer NOT NULL, CONSTRAINT year_ok CHECK (year > 1900));
+--- /dev/shm/b2sqlt/proj/m/c06.sql
+BEGIN;
+CREATE TABLE a (x int);
+COMMIT;
+--- /dev/shm/b2sqlt/proj/m/c07.sql
+CREATE INDEX "app_book_author_id_idx" ON "app_book" ("author_id");
+--- /dev/shm/b2sqlt/proj/m/c08.sql
+CREATE INDEX app_tag_slug_like ON app_tag (slug varchar_pattern_ops);
+--- /dev/shm/b2sqlt/proj/m/c09.sql
+CREATE TABLE app_tag (slug varchar(50) NOT NULL UNIQUE);
+--- /dev/shm/b2sqlt/proj/m/c10.sql
+CREATE TABLE a (x int, UNIQUE (x));
+--- /dev/shm/b2sqlt/proj/m/c11.sql
+CREATE TABLE a (x int, CONSTRAINT a_pk PRIMARY KEY (x));
+--- /dev/shm/b2sqlt/proj/m/c12.sql
+CREATE TABLE "public"."users" ("email" text);
+--- /dev/shm/b2sqlt/proj/m/c13.sql
+ALTER TABLE a ADD CONSTRAINT f FOREIGN KEY (x) REFERENCES b (id) DEFERRABLE INITIALLY DEFERRED;
+CREATE TABLE z (x int);
+--- /dev/shm/b2sqlt/proj/m/c14.sql
+--
+-- Create model Author
+--
+CREATE TABLE z (x int);
+--- /dev/shm/b2sqlt/proj/m/dj_nobegin.sql
+-- Django 6.1.3
+CREATE TABLE "app_author" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "name" varchar(100) NOT NULL);
+CREATE TABLE "app_book" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "title" varchar(200) NOT NULL, "pages" integer NOT NULL CHECK ("pages" >= 0), "author_id" bigint NOT NULL, "slug" varchar(50) NOT NULL UNIQUE, CONSTRAINT "pages_ok" CHECK ("pages" >= 1), CONSTRAINT "slug_pages_uniq" UNIQUE ("slug", "pages"));
+ALTER TABLE "app_book" ADD CONSTRAINT "app_book_title_author_id_f24131bb_uniq" UNIQUE ("title", "author_id");
+ALTER TABLE "app_book" ADD CONSTRAINT "app_book_author_id_980d3e25_fk_app_author_id" FOREIGN KEY ("author_id") REFERENCES "app_author" ("id") DEFERRABLE INITIALLY DEFERRED;
+CREATE INDEX "app_book_author_id_980d3e25" ON "app_book" ("author_id");
+CREATE INDEX "app_book_slug_780ddf03_like" ON "app_book" ("slug" varchar_pattern_ops);
+--- /dev/shm/b2sqlt/proj/m/dj_real.sql
+-- Django 6.1.3
+BEGIN;
+CREATE TABLE "app_author" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "name" varchar(100) NOT NULL);
+CREATE TABLE "app_book" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "title" varchar(200) NOT NULL, "pages" integer NOT NULL CHECK ("pages" >= 0), "author_id" bigint NOT NULL, "slug" varchar(50) NOT NULL UNIQUE, CONSTRAINT "pages_ok" CHECK ("pages" >= 1), CONSTRAINT "slug_pages_uniq" UNIQUE ("slug", "pages"));
+ALTER TABLE "app_book" ADD CONSTRAINT "app_book_title_author_id_f24131bb_uniq" UNIQUE ("title", "author_id");
+ALTER TABLE "app_book" ADD CONSTRAINT "app_book_author_id_980d3e25_fk_app_author_id" FOREIGN KEY ("author_id") REFERENCES "app_author" ("id") DEFERRABLE INITIALLY DEFERRED;
+CREATE INDEX "app_book_author_id_980d3e25" ON "app_book" ("author_id");
+CREATE INDEX "app_book_slug_780ddf03_like" ON "app_book" ("slug" varchar_pattern_ops);
+COMMIT;
+--- /dev/shm/b2sqlt/proj/m/django.sql
+BEGIN;
+--
+-- Create model Author
+--
+CREATE TABLE "app_author" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "name" varchar(100) NOT NULL);
+--
+-- Create model Book
+--
+CREATE TABLE "app_book" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "title" varchar(200) NOT NULL, "pages" integer NOT NULL CHECK ("pages" >= 0), "author_id" bigint NOT NULL, CONSTRAINT "app_book_title_author_id_uniq" UNIQUE ("title", "author_id"));
+CREATE TABLE "app_ed" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "year" integer NOT NULL, CONSTRAINT "year_ok" CHECK ("year" > 1900));
+CREATE TABLE "app_tag" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "slug" varchar(50) NOT NULL UNIQUE);
+ALTER TABLE "app_book" ADD CONSTRAINT "app_book_author_id_fk_app_author_id" FOREIGN KEY ("author_id") REFERENCES "app_author" ("id") DEFERRABLE INITIALLY DEFERRED;
+CREATE INDEX "app_book_author_id_idx" ON "app_book" ("author_id");
+CREATE INDEX "app_tag_slug_like" ON "app_tag" ("slug" varchar_pattern_ops);
+COMMIT;
+--- /dev/shm/b2sqlt/proj/m/edge.sql
+-- detached
+
+CREATE TABLE t (a int);
+CREATE TABLE t (a int, b text); -- trailing
+-- doc of v
+CREATE VIEW t AS SELECT 1;
+CREATE UNIQUE INDEX IF NOT EXISTS ix ON t (a);
+CREATE INDEX ON t (b);
+CREATE TABLE s.x (c int, CONSTRAINT x_pk PRIMARY KEY (c));
+CREATE TABLE y (d int CONSTRAINT y_d_chk CHECK (d > 0));
+--- probe.py
+## m/c01.sql
+module m.c01 m.c01 None {'start_line': 1, 'end_line': 1}
+table "app_author" m.c01."app_author" None {'start_line': 1, 'end_line': 1}
+column "app_author"."id" m.c01."app_author"."id" None {'start_line': 1, 'end_line': 1}
+column "app_author"."name" m.c01."app_author"."name" None {'start_line': 1, 'end_line': 1}
+## m/c02.sql
+module m.c02 m.c02 None {'start_line': 1, 'end_line': 1}
+## m/c03.sql
+module m.c03 m.c03 None {'start_line': 1, 'end_line': 1}
+table app_book m.c03.app_book None {'start_line': 1, 'end_line': 1}
+column app_book.pages m.c03.app_book.pages None {'start_line': 1, 'end_line': 1}
+## m/c04.sql
+module m.c04 m.c04 None {'start_line': 1, 'end_line': 1}
+## m/c05.sql
+module m.c05 m.c05 None {'start_line': 1, 'end_line': 1}
+table app_ed m.c05.app_ed None {'start_line': 1, 'end_line': 1}
+column app_ed.year m.c05.app_ed.year None {'start_line': 1, 'end_line': 1}
+## m/c06.sql
+module m.c06 m.c06 None {'start_line': 1, 'end_line': 3}
+## m/c07.sql
+module m.c07 m.c07 None {'start_line': 1, 'end_line': 1}
+## m/c08.sql
+module m.c08 m.c08 None {'start_line': 1, 'end_line': 1}
+index app_tag_slug_like m.c08.app_tag_slug_like None {'start_line': 1, 'end_line': 1}
+## m/c09.sql
+module m.c09 m.c09 None {'start_line': 1, 'end_line': 1}
+table app_tag m.c09.app_tag None {'start_line': 1, 'end_line': 1}
+column app_tag.slug m.c09.app_tag.slug None {'start_line': 1, 'end_line': 1}
+## m/c10.sql
+module m.c10 m.c10 None {'start_line': 1, 'end_line': 1}
+table a m.c10.a None {'start_line': 1, 'end_line': 1}
+column a.x m.c10.a.x None {'start_line': 1, 'end_line': 1}
+## m/c11.sql
+module m.c11 m.c11 None {'start_line': 1, 'end_line': 1}
+table a m.c11.a None {'start_line': 1, 'end_line': 1}
+column a.x m.c11.a.x None {'start_line': 1, 'end_line': 1}
+## m/c12.sql
+module m.c12 m.c12 None {'start_line': 1, 'end_line': 1}
+table "public"."users" m.c12."public"."users" None {'start_line': 1, 'end_line': 1}
+column "public"."users"."email" m.c12."public"."users"."email" None {'start_line': 1, 'end_line': 1}
+## m/c13.sql
+module m.c13 m.c13 None {'start_line': 1, 'end_line': 2}
+table z m.c13.z None {'start_line': 2, 'end_line': 2}
+column z.x m.c13.z.x None {'start_line': 2, 'end_line': 2}
+## m/c14.sql
+module m.c14 m.c14 None {'start_line': 1, 'end_line': 4}
+table z m.c14.z 'Create model Author' {'start_line': 4, 'end_line': 4}
+column z.x m.c14.z.x None {'start_line': 4, 'end_line': 4}
+## m/dj_nobegin.sql
+module m.dj_nobegin m.dj_nobegin None {'start_line': 1, 'end_line': 7}
+## m/dj_real.sql
+module m.dj_real m.dj_real None {'start_line': 1, 'end_line': 9}
+## m/django.sql
+module m.django m.django None {'start_line': 1, 'end_line': 15}
+## m/edge.sql
+module m.edge m.edge None {'start_line': 1, 'end_line': 10}
+table t m.edge.t None {'start_line': 3, 'end_line': 3}
+column t.a m.edge.t.a None {'start_line': 3, 'end_line': 3}
+table t~2 m.edge.t~2 None {'start_line': 4, 'end_line': 4}
+column t~2.a m.edge.t~2.a None {'start_line': 4, 'end_line': 4}
+column t~2.b m.edge.t~2.b None {'start_line': 4, 'end_line': 4}
+view t~3 m.edge.t~3 'doc of v' {'start_line': 6, 'end_line': 6}
+index ix m.edge.ix None {'start_line': 7, 'end_line': 7}
+table s.x m.edge.s.x None {'start_line': 9, 'end_line': 9}
+column s.x.c m.edge.s.x.c None {'start_line': 9, 'end_line': 9}
+--- tree.py
+BEGIN; CREATE TABLE a (x int); COMMIT;
+  False (program (transaction (keyword_begin) (statement (create_table (keyword_create) (keyword_table) (object_reference name: (identifier)) (column_definitions (column_definition name: (identifier) type: (int (keyword_int)))))) (keyword_commit)))
+CREATE INDEX "ix" ON "t" ("c");
+  False (program (statement (create_index (keyword_create) (keyword_index) column: (literal) (keyword_on) (object_reference name: (identifier)) (index_fields (field column: (literal))))))
+CREATE TABLE a (id bigint GENERATED BY DEFAULT AS IDENTITY);
+  True (program (statement (create_table (keyword_create) (keyword_table) (object_reference name: (identifier)) (column_definitions (column_definition name: (identifier) type: (bigint (keyword_bigint)) (ERROR (keyword_generated) (keyword_default)) (keyword_as) (field name: (identifier)))))))
+CREATE TABLE a (x int, CONSTRAINT u UNIQUE (x));
+  True (program (statement (create_table (keyword_create) (keyword_table) (object_reference name: (identifier)) (column_definitions (column_definition name: (identifier) type: (int (keyword_int))) (ERROR (keyword_constraint) (identifier))))))
+--- anchor.py
+OK code:m/c01.sql::"app_author" table
+OK code:m/c01.sql::"app_author"."id" column
+ERR code:m/c01.sql::app_author ValueError no symbol 'app_author' in m/c01.sql (or the file is missing)
+OK code:m/c12.sql::"public"."users"."email" column
+--- hechos .py/TS HEAD vs cambio: iguales (5596 src, 64 fixtures)

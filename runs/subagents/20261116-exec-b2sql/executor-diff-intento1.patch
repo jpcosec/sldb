@@ -1,0 +1,474 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 0b374276..da574203 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -4,6 +4,7 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
+ 
+ ## 0.1.13 — not released yet (no tag, not on PyPI)
+ 
++- `sldb.code` lee SQL: tablas, columnas, vistas e índices de DDL y migraciones PostgreSQL como hechos con anclas (task `task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t`, parte SQL de B2; nota del inbox `20261115-022446`, precisiones de JP del 2026-11-16). El extra `code` suma `tree-sitter-sql>=0.3` (uv.lock con 0.3.13). Módulos nuevos `src/sldb/code/lang_sql.py` (`scan_sql_file`), `sql_readers.py` y `sql_fingerprints.py`; `runtime.GRAMMARS` gana `.sql`, `scan_file` despacha `.sql` a `scan_sql_file`, `find_files` incluye `.sql` solo si la gramática está y `code_ref` acepta `.sql`. Cada archivo se lee por sí solo (sin `ALTER TABLE` ni estado entre migraciones): el módulo (qualified_name la ruta sin extensión, `imports` vacío), y por cada `CREATE TABLE`, `CREATE VIEW`, `CREATE MATERIALIZED VIEW` (las dos `view`) y `CREATE INDEX` un hecho `table`, `view` o `index` cuyo qualified_name es el nombre tal como se escribe (`public.users` o `users`); las columnas de una tabla son hechos `column` `<tabla>.<columna>` contenidos en ella, y las constraints de tabla no son columnas. Un objeto repetido en el mismo archivo lleva `~2`, `~3` (de `Ids`) y sus columnas cuelgan del nombre con sufijo. `doc` son las líneas `--` contiguas justo encima de la sentencia, unidas por salto de línea; `signature` es el texto normalizado del `CREATE` o de la definición de columna. Una sentencia que tree-sitter-sql no reconoce no deja ningún hecho. Las anclas `code:<ruta>.sql::<qualified_name>` de tabla, columna, vista, índice y módulo se registran (`recorded_with` termina en `, sql)`) y `check_anchors` las informa intact, changed, lost o reconnected. Fixture `tests/fixtures/treesitter/sql/migrations/0001_initial.sql`; tests en `tests/selfdoc/test_treesitter_symbols.py` y `tests/api/test_anchors.py`, que se saltan sin la gramática.
+ - `sldb.code` lee el frontend: TypeScript y JavaScript (`.ts`, `.tsx`, `.js`, `.jsx`) con un mismo reader sobre tree-sitter-typescript (task `task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2`, parte TS de B2; nota del inbox `20261115-022446`, decisión de JP del 2026-11-15 y foco en el frontend del 2026-11-16; SQL va en la tarea hermana). El extra `code` gana `tree-sitter-typescript>=0.23` (lock con 0.23.2). `sldb/code/runtime.py` tiene un runtime por gramática elegido por la extensión (`grammar_of`): `.py` con tree-sitter-python, `.ts` con la gramática `typescript` y `.tsx`, `.js` y `.jsx` con la `tsx`; `runtime`, `available` y `parse` reciben la ruta o la extensión (por omisión `.py`). Módulos nuevos: `sldb/code/lang_ts.py` (`scan_ts_file`), `sldb/code/ts_readers.py` (declaraciones del nivel superior, kind, JSDoc, signature, imports), `sldb/code/ts_fingerprints.py` (las mismas cuatro huellas con el `_sha` y el recorrido de tokens de `fingerprints.py`) y `sldb/code/files.py` (`find_files`, que sale de `scan.py`, incluye los archivos TS/JS solo si la gramática está y no recorre `node_modules`). `scan_file` despacha por extensión. Hechos con la forma de los de Python: `module`, y por cada declaración del nivel superior (exportada o no) `component` (nombre con mayúscula y un nodo JSX en cualquier punto), `hook` (`use` + mayúscula), `type` (type alias o interface, solo en `.ts` y `.tsx`) o `function`; un `export default` sin nombre toma el último segmento del módulo; los reexports no crean hechos; el doc es el último `/** */` que cierra en la línea anterior. `parse_code_ref` acepta las cuatro extensiones y `record_anchor` registra `recorded_with` con la gramática usada (`treesitter-symbols/1 (tree-sitter-typescript 0.23.2, tsx)`); para `.py` no cambia. `NORMALIZATION` sigue en 1 y la salida de los `.py` es la misma. Fixtures en `tests/fixtures/treesitter/frontend/` y pruebas en `tests/selfdoc/test_treesitter_symbols.py` y `tests/api/test_anchors.py` (ancla de componente `.tsx` intact, changed, reconnected y lost; ancla de función `.js` intact; sin la gramática TS se sigue escaneando `.py`).
+ - Caminos explicados en el grafo (task `task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3`, decisión de JP del 2026-11-15 para las reglas e impacto de specIR, IR10): `graph_path` y `graph_paths` de `sldb.api.graph` ganan `explain: bool = False`. Con `explain=True`, `graph_path` devuelve `{"path": [ids], "steps": [...]}` (o None) y `graph_paths` una lista de esos dicts; hay un step por par consecutivo, `{"source", "target", "edges"}`, y cada arista es `{"relation", "direction" (forward|backward), "provenance": {"origin", "relation_doc" (solo con origin relation_doc), "field" (solo con origin schema), "from_store" (solo si viene de un store enlazado)}}`, sin las claves ausentes y sin `evidence`. Si varias aristas que pasan el filtro de relaciones unen el tramo se listan todas, por precedencia relation_doc > schema > structural > alias, un origin desconocido al final, y en empate por relation y luego relation_doc o field; la arista espejo de una relación no dirigida (`metadata.reverse`) no se lista aparte: es su arista directa con direction backward. Lo calcula el módulo nuevo `src/sldb/store/graph/analysis/path_steps.py` (`explain_path`, `explained_path`, `explained_paths`), detrás del protocolo `GraphBackend` como las operaciones `path_explained` y `paths_explained` de `src/sldb/store/graph/backend/networkx_backend.py`. `sldb graph path --explain` (también con `--all`) lo imprime desde el módulo nuevo `src/sldb/cli/commands/graph_path_print.py`, y `GET /graph/path?explain=1` de `sldb serve` agrega `steps` junto a `path`. Sin `explain` nada cambia: las operaciones `path` y `paths`, la salida de la CLI y los goldens de `tests/fixtures/graph_goldens/` siguen iguales. Tests en `tests/api/test_api_graph_analysis.py`, incluido el índice del propio repo (los rituales del desk: execution → testing → closeout por RelationDoc).
+ - `apply_batch` devuelve el lote inverso: deshacer es de sldb, no de los consumidores (task `task-apply-batch-devuelve-el-lote-inverso-con-guardas-deshacer-es-de-sldb-inbox-20261115-123855`, nota del inbox `20261115-123855`, decisión de JP del 2026-11-15). `BatchReport` gana `inverse: list[dict]` (por defecto `[]`), en la forma que acepta `apply_batch`, así que deshacer es `apply_batch(store, report.inverse)`: un create se invierte en delete, un update en update con el payload previo completo, un delete en create con el modelo, la ruta y el payload previos, un move en move de vuelta, y track y untrack entre sí; las aristas van igual, sobre sus documentos de relación. Cada cambio del inverso sobre un documento que el lote dejó trackeado lleva el `expected_source_hash` que el lote dejó, así que deshacer tras una escritura ajena es `ConflictError` en la prevalidación, sin escritura parcial; si el documento borrado ya lo recreó otro, el rechazo es el `SLDBStoreError` de la prevalidación (ya trackeado, o el archivo existe). El inverso se arma con payloads, no con los snapshots de bytes de `Transaction` (que siguen solo para el rollback): un documento canónico vuelve byte a byte salvo la procedencia del front matter (`sldb.by/at/via`), que se sella como en cualquier escritura. Módulo nuevo `src/sldb/api/documents/batch_inverse.py`: `before` anota, bajo el cerrojo del store y antes de la transacción, modelo, ruta y payload previos de cada cambio; `inverse` arma el lote después de la transacción y todavía bajo el cerrojo. `apply_batch` (`src/sldb/api/documents/apply_batch.py`) devuelve `BatchReport(saved, inverse)`. La tool `undo_changes` de `sldb mcp` sigue pendiente; ahora puede apoyarse en esto. Tests: `tests/api/test_transaction.py::test_applying_the_inverse_puts_payloads_entries_and_bytes_back`, `test_the_inverse_after_another_write_is_a_conflict_and_writes_nothing`.
+diff --git a/pyproject.toml b/pyproject.toml
+index 9f79423c..73db4fb7 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -47,6 +47,7 @@ code = [
+     "tree-sitter>=0.25",
+     "tree-sitter-python>=0.23",
+     "tree-sitter-typescript>=0.23",
++    "tree-sitter-sql>=0.3",
+ ]
+ dev = [
+     "scipy>=1.10",
+diff --git a/src/sldb/code/files.py b/src/sldb/code/files.py
+index 5e3dfcce..25dd20a5 100644
+--- a/src/sldb/code/files.py
++++ b/src/sldb/code/files.py
+@@ -1,4 +1,4 @@
+-"""The source files a scan reads: every `.py`, plus `.ts`, `.tsx`, `.js` and `.jsx` when their grammar is installed."""
++"""The source files a scan reads: every `.py`, plus `.ts`, `.tsx`, `.js`, `.jsx` and `.sql` when their grammar is installed."""
+ 
+ from __future__ import annotations
+ 
+@@ -12,7 +12,7 @@ _SKIP = {"__pycache__", "node_modules"}
+ 
+ def find_files(root: Path) -> list[str]:
+     """Relative paths with `/`, sorted by their parts; `__pycache__` and `node_modules` are not walked."""
+-    suffixes = (".py",) + (TS_SUFFIXES if available(".ts") else ())
++    suffixes = (".py",) + (TS_SUFFIXES if available(".ts") else ()) + ((".sql",) if available(".sql") else ())
+     out = []
+     for base, dirs, files in os.walk(root):
+         dirs[:] = sorted(d for d in dirs if d not in _SKIP)
+diff --git a/src/sldb/code/lang_sql.py b/src/sldb/code/lang_sql.py
+new file mode 100644
+index 00000000..f20c9db6
+--- /dev/null
++++ b/src/sldb/code/lang_sql.py
+@@ -0,0 +1,56 @@
++"""SQL (`.sql`, PostgreSQL DDL and migrations) into facts of the same form as Python's and TS's:
++the module, then each table, view and index in source order, a table's columns right after it
++(readers in `sql_readers`). Each file is read on its own: no `ALTER TABLE`, no state across migrations.
++
++The module's qualified name is its path without extension, like `py_module_name`. An object's
++qualified name is its name as written (`public.users` or `users`), a column's is `<table>.<column>`;
++an object repeated in the same file takes `~2`, `~3` from `Ids`, and its columns hang from the
++suffixed name. The anchor symbol is that qualified name. `imports` is always empty.
++"""
++
++from __future__ import annotations
++
++import hashlib
++from pathlib import Path
++from typing import Any
++
++from sldb.code.facts import fact, rels
++from sldb.code.ids import Ids
++from sldb.code.imports import py_module_name
++from sldb.code.readers import text
++from sldb.code.runtime import parse
++from sldb.code.sql_fingerprints import sql_fingerprints
++from sldb.code.sql_readers import KINDS, columns, creations, sql_doc, sql_norm
++
++
++def scan_sql_file(rel: str, root: Path, idgen: Ids) -> list[dict[str, Any]]:
++    src = (root / rel).read_bytes()
++    rootn, module = parse(src, rel).root_node, py_module_name(rel)
++    ctx = {"rel": rel, "module": module, "src": src, "digest": "sha256:" + hashlib.sha256(src).hexdigest(), "mid": idgen.take(module or "__init__"), "ids": idgen}
++    facts, local = [_module_fact(rootn, ctx)], Ids()
++    for stmt, node, name in creations(rootn):
++        facts += _object_facts(stmt, node, name, local.take(text(name, src)), ctx)
++    return facts
++
++
++def _module_fact(rootn: Any, ctx: dict[str, Any]) -> dict[str, Any]:
++    module, nlines = ctx["module"], len(ctx["src"].decode("utf-8", "replace").splitlines())
++    return fact(id=ctx["mid"], kind="module", name=module.rsplit(".", 1)[-1] if module else "__init__", qualified_name=module, path=ctx["rel"],
++                span={"start_line": 1, "end_line": max(nlines, 1)}, source_hash=ctx["digest"], doc=None, relations=rels(None, []),
++                attrs={"native_kind": rootn.type, "module": module, "imports": [], "nested_imports": [], "has_error": rootn.has_error},
++                fingerprints=sql_fingerprints(rootn, None, None, ctx["src"]))
++
++
++def _object_facts(stmt: Any, node: Any, name: Any, qualified: str, ctx: dict[str, Any]) -> list[dict[str, Any]]:
++    """The table, view or index, then (for a table) its columns, contained in it."""
++    obj = _fact(node, name, KINDS[node.type], qualified, sql_doc(stmt, ctx["src"]), ctx["mid"], ctx)
++    cols = [(col, cname, f"{qualified}.{text(cname, ctx['src'])}") for col, cname in columns(node)]
++    return [obj] + [_fact(col, cname, "column", q, None, obj["id"], ctx) for col, cname, q in cols]
++
++
++def _fact(node: Any, name: Any, kind: str, qualified: str, doc: str | None, owner: str, ctx: dict[str, Any]) -> dict[str, Any]:
++    module, src = ctx["module"], ctx["src"]
++    return fact(id=ctx["ids"].take(f"{module}.{qualified}" if module else qualified), kind=kind, name=text(name, src).rsplit(".", 1)[-1], qualified_name=qualified,
++                path=ctx["rel"], span={"start_line": node.start_point[0] + 1, "end_line": node.end_point[0] + 1}, source_hash=ctx["digest"],
++                signature=sql_norm(node, src), doc=doc, relations=rels(owner), attrs={"native_kind": node.type, "module": module},
++                fingerprints=sql_fingerprints(node, name, doc, src))
+diff --git a/src/sldb/code/runtime.py b/src/sldb/code/runtime.py
+index 63ba5343..16ee940b 100644
+--- a/src/sldb/code/runtime.py
++++ b/src/sldb/code/runtime.py
+@@ -2,7 +2,7 @@
+ 
+ One runtime per grammar, chosen by the file's extension: `.py` reads with tree-sitter-python;
+ `.ts` with the `typescript` grammar of tree-sitter-typescript, and `.tsx`, `.js` and `.jsx` with
+-its `tsx` grammar, which parses JavaScript too.
++its `tsx` grammar, which parses JavaScript too; `.sql` with tree-sitter-sql.
+ """
+ 
+ from __future__ import annotations
+@@ -13,7 +13,7 @@ from typing import Any
+ 
+ _TSX = ("tsx", "tree_sitter_typescript", "language_tsx")
+ GRAMMARS = {".py": ("python", "tree_sitter_python", "language"), ".ts": ("typescript", "tree_sitter_typescript", "language_typescript"),
+-            ".tsx": _TSX, ".js": _TSX, ".jsx": _TSX}
++            ".tsx": _TSX, ".js": _TSX, ".jsx": _TSX, ".sql": ("sql", "tree_sitter_sql", "language")}
+ TS_SUFFIXES = (".ts", ".tsx", ".js", ".jsx")
+ _RUNTIME: dict[str, tuple[Any, Any]] = {}
+ 
+diff --git a/src/sldb/code/scan.py b/src/sldb/code/scan.py
+index ec110e48..4fb4b128 100644
+--- a/src/sldb/code/scan.py
++++ b/src/sldb/code/scan.py
+@@ -1,4 +1,4 @@
+-"""Scan source files into symbol facts; `.ts`, `.tsx`, `.js` and `.jsx` go to `lang_ts`. A Python
++"""Scan source files into symbol facts; `.ts`, `.tsx`, `.js` and `.jsx` go to `lang_ts`, `.sql` to `lang_sql`. A Python
+ file gives its module, classes, functions and methods, each with its qualified name, span, docstring, signature and fingerprints (from kimun's adapter).
+ 
+ A definition under `if`, `try` or any statement other than a class or function body is not
+@@ -17,6 +17,7 @@ from sldb.code.fingerprints import fingerprints
+ from sldb.code.ids import Ids
+ from sldb.code.imports import py_imports, py_module_name, py_nested_imports
+ from sldb.code.readers import field_text, py_doc, py_end_line, py_native_kind, py_signature
++from sldb.code.lang_sql import scan_sql_file
+ from sldb.code.lang_ts import scan_ts_file
+ from sldb.code.runtime import TS_SUFFIXES, parse, runtime
+ 
+@@ -34,8 +35,8 @@ def scan_tree(root: Path) -> list[dict[str, Any]]:
+ 
+ def scan_file(rel: str, root: Path, idgen: Ids | None = None) -> list[dict[str, Any]]:
+     """The facts of one file: the module first, then its definitions in source order."""
+-    if rel.endswith(TS_SUFFIXES):
+-        return scan_ts_file(rel, root, idgen or Ids())
++    if rel.endswith(TS_SUFFIXES + (".sql",)):
++        return (scan_sql_file if rel.endswith(".sql") else scan_ts_file)(rel, root, idgen or Ids())
+     src, idgen = (root / rel).read_bytes(), idgen or Ids()
+     rootn, module = parse(src).root_node, py_module_name(rel)
+     digest = "sha256:" + hashlib.sha256(src).hexdigest()
+diff --git a/src/sldb/code/sql_fingerprints.py b/src/sldb/code/sql_fingerprints.py
+new file mode 100644
+index 00000000..c20fb7f2
+--- /dev/null
++++ b/src/sldb/code/sql_fingerprints.py
+@@ -0,0 +1,21 @@
++"""The four fingerprints of a SQL object, over the same hashing and token walk as Python's
++(`fingerprints.py`, normalization 1): `signature` is the whole `CREATE` statement (or column
++definition), whitespace collapsed; `shape` the same with the name taken out; `docstring` the `--`
++comment; `body` the leaf tokens after the name, without comments. The module's signature is
++`module` and its body is the whole file.
++"""
++
++from __future__ import annotations
++
++from typing import Any
++
++from sldb.code.fingerprints import _sha, _tokens
++from sldb.code.sql_readers import sql_norm
++
++
++def sql_fingerprints(node: Any, name: Any, doc: str | None, src: bytes) -> dict[str, str | None]:
++    signature = sql_norm(node, src) if name is not None else "module"
++    shape = signature.replace(sql_norm(name, src), "_", 1) if name is not None else signature
++    after = [c for c in node.children if name is None or c.start_byte >= name.end_byte]
++    body = [t for c in after for t in _tokens(c, src, None)]
++    return {"signature": _sha(signature), "shape": _sha(shape), "docstring": _sha(doc) if doc is not None else None, "body": _sha(" ".join(body))}
+diff --git a/src/sldb/code/sql_readers.py b/src/sldb/code/sql_readers.py
+new file mode 100644
+index 00000000..1dfecb43
+--- /dev/null
++++ b/src/sldb/code/sql_readers.py
+@@ -0,0 +1,54 @@
++"""Readers over tree-sitter-sql nodes (PostgreSQL DDL): the `CREATE` statements, their names, columns and `--` comments.
++
++A statement counts only when tree-sitter-sql parses it without error; one it does not recognize
++gives no fact at all. `CREATE TABLE`, `CREATE VIEW`, `CREATE MATERIALIZED VIEW` and `CREATE INDEX`
++are read; the name keeps its schema when written (`public.users`). A table's columns are its
++`column_definition`s; table constraints (`PRIMARY KEY (...)`, `FOREIGN KEY`, `UNIQUE` at the end) are not columns.
++"""
++
++from __future__ import annotations
++
++from typing import Any
++
++from sldb.code.readers import text
++
++KINDS = {"create_table": "table", "create_view": "view", "create_materialized_view": "view", "create_index": "index"}
++_NAMES = {"create_index": "identifier"}
++
++
++def creations(root: Any) -> list[tuple[Any, Any, Any]]:
++    """`(statement, create node, name node)` of each clean top-level `CREATE` the grammar recognizes, in source order."""
++    out = []
++    for stmt in root.named_children:
++        if stmt.type != "statement" or stmt.has_error:
++            continue
++        for node in (n for n in stmt.named_children if n.type in KINDS):
++            name = next((c for c in node.named_children if c.type == _NAMES.get(node.type, "object_reference")), None)
++            out += [(stmt, node, name)] if name is not None else []
++    return out
++
++
++def columns(node: Any) -> list[tuple[Any, Any]]:
++    """`(column_definition, name node)` of a `CREATE TABLE`, in order."""
++    defs = next((c for c in node.named_children if c.type == "column_definitions"), None)
++    kids = defs.named_children if defs is not None else []
++    return [(c, c.child_by_field_name("name")) for c in kids if c.type == "column_definition" and c.child_by_field_name("name") is not None]
++
++
++def sql_doc(stmt: Any, src: bytes) -> str | None:
++    """The `--` lines right above `stmt`, contiguous and each on its own line, joined by newlines without `--`."""
++    lines, cur, row = [], stmt.prev_sibling, stmt.start_point[0]
++    while cur is not None and cur.type == "comment" and text(cur, src).startswith("--") and cur.end_point[0] + 1 == row and _own_line(cur):
++        lines.insert(0, text(cur, src)[2:].strip())
++        row, cur = cur.start_point[0], cur.prev_sibling
++    return "\n".join(lines).strip() or None
++
++
++def _own_line(comment: Any) -> bool:
++    prev = comment.prev_sibling
++    return prev is None or prev.end_point[0] < comment.start_point[0]
++
++
++def sql_norm(node: Any, src: bytes) -> str:
++    """The node's text with whitespace collapsed (no requoting: in SQL `"x"` is an identifier)."""
++    return " ".join(text(node, src).split())
+diff --git a/src/sldb/models/code_ref.py b/src/sldb/models/code_ref.py
+index 322e390e..8891618a 100644
+--- a/src/sldb/models/code_ref.py
++++ b/src/sldb/models/code_ref.py
+@@ -1,5 +1,5 @@
+-"""`code:<path>::<qualified_name>`: an anchor's reference to a Python, TypeScript or JavaScript symbol
+-(`.py`, `.ts`, `.tsx`, `.js`, `.jsx`), by name, never by line.
++"""`code:<path>::<qualified_name>`: an anchor's reference to a Python, TypeScript, JavaScript or SQL symbol
++(`.py`, `.ts`, `.tsx`, `.js`, `.jsx`, `.sql`), by name, never by line.
+ 
+ `<path>` is relative to the project root, with `/`; `<qualified_name>` is the lexical owner
+ chain the tree-sitter scanner emits (`Class.method`, `function.nested`), empty for the module
+@@ -10,7 +10,7 @@ from __future__ import annotations
+ 
+ PREFIX = "code:"
+ SEPARATOR = "::"
+-SUFFIXES = (".py", ".ts", ".tsx", ".js", ".jsx")
++SUFFIXES = (".py", ".ts", ".tsx", ".js", ".jsx", ".sql")
+ 
+ 
+ def parse_code_ref(ref: str) -> tuple[str, str] | None:
+diff --git a/tests/api/test_anchors.py b/tests/api/test_anchors.py
+index 0e8c57fc..eec9c4ac 100644
+--- a/tests/api/test_anchors.py
++++ b/tests/api/test_anchors.py
+@@ -173,5 +173,63 @@ def test_python_anchors_keep_their_recorded_with_and_ts_refs_parse(world):
+ 
+     root, _store = world
+     assert record_anchor(root, REF)["recorded_with"].startswith("treesitter-symbols/1 (tree-sitter-python ") and record_anchor(root, REF)["recorded_with"].endswith(")")
+-    assert [parse_code_ref(f"code:a/b{ext}::X") for ext in (".ts", ".tsx", ".js", ".jsx")] == [(f"a/b{ext}", "X") for ext in (".ts", ".tsx", ".js", ".jsx")]
++    assert [parse_code_ref(f"code:a/b{ext}::X") for ext in (".ts", ".tsx", ".js", ".jsx", ".sql")] == [(f"a/b{ext}", "X") for ext in (".ts", ".tsx", ".js", ".jsx", ".sql")]
+     assert parse_code_ref("code:a/b.css::X") is None
++
++
++DDL = ("-- Accounts.\nCREATE TABLE IF NOT EXISTS public.users (\n    id bigserial PRIMARY KEY,\n    email text NOT NULL UNIQUE,\n    profile jsonb\n);\n\n"
++       "CREATE TABLE orders (id serial, total numeric(10, 2), PRIMARY KEY (id));\n\n"
++       "CREATE MATERIALIZED VIEW totals AS SELECT sum(total) AS total FROM orders;\n\nCREATE INDEX CONCURRENTLY orders_total_idx ON orders (total);\n")
++needs_sql = pytest.mark.skipif(not available(".sql"), reason="tree-sitter-sql not installed (extra [code])")
++
++
++@pytest.fixture
++def db(tmp_path):
++    root = tmp_path / "db"
++    (root / "migrations").mkdir(parents=True)
++    (root / "migrations" / "0001_initial.sql").write_text(DDL, encoding="utf-8")
++    store = api.init_store(root).store_path
++    api.add_model(store, "sldb.models.code_anchor_doc:CodeAnchorDoc")
++    yield root, store
++    for name in [m for m in sys.modules if m.startswith("tmpdocs")]:
++        del sys.modules[name]
++
++
++def _sql_anchor(db, symbol: str) -> dict:
++    root, store = db
++    recorded = record_anchor(root, f"code:migrations/0001_initial.sql::{symbol}")
++    write_anchor(store, None, root / "anchors" / "a.md", recorded, f"{symbol} is in the schema")
++    return recorded
++
++
++def _rewrite(db, old: str, new: str) -> None:
++    (db[0] / "migrations" / "0001_initial.sql").write_text(DDL.replace(old, new), encoding="utf-8")
++
++
++@needs_sql
++@pytest.mark.parametrize(("symbol", "kind", "edit", "rename", "to"), [
++    ("public.users", "table", ("profile jsonb", "profile json"), ("public.users", "public.people"), "public.people"),
++    ("public.users.email", "column", ("NOT NULL UNIQUE", "NOT NULL"), ("email text", "mail text"), "public.users.mail"),
++])
++def test_a_sql_table_and_column_anchor_are_intact_changed_reconnected_and_lost(db, symbol, kind, edit, rename, to):
++    recorded = _sql_anchor(db, symbol)
++    assert recorded["kind"] == kind and recorded["recorded_with"].startswith("treesitter-symbols/1 (tree-sitter-sql ") and recorded["recorded_with"].endswith(", sql)")
++    assert _state(db[1]) == (AnchorState.INTACT, [])
++    _rewrite(db, *edit)
++    assert _state(db[1]) == (AnchorState.CHANGED, ["signature", "body"])
++    _rewrite(db, *rename)
++    [report] = check_anchors(db[1])
++    assert (report.state, report.to) == (AnchorState.RECONNECTED, f"code:migrations/0001_initial.sql::{to}")
++    _rewrite(db, DDL.split("\n\n")[0], "")
++    [report] = check_anchors(db[1])
++    assert report.state is AnchorState.LOST and report.candidates == []
++
++
++@needs_sql
++def test_sql_views_indexes_and_the_module_are_anchored_too(db):
++    root, store = db
++    assert [record_anchor(root, f"code:migrations/0001_initial.sql::{s}")["kind"] for s in ("totals", "orders_total_idx", "orders.total", "")] == ["view", "index", "column", "module"]
++    with pytest.raises(ValueError, match="no symbol 'users'"):
++        record_anchor(root, "code:migrations/0001_initial.sql::users")
++    write_anchor(store, None, root / "anchors" / "v.md", record_anchor(root, "code:migrations/0001_initial.sql::totals"), "totals sums orders")
++    assert [r.state.value for r in check_anchors(store)] == ["intact"]
+diff --git a/tests/fixtures/treesitter/sql/migrations/0001_initial.sql b/tests/fixtures/treesitter/sql/migrations/0001_initial.sql
+new file mode 100644
+index 00000000..98ce574b
+--- /dev/null
++++ b/tests/fixtures/treesitter/sql/migrations/0001_initial.sql
+@@ -0,0 +1,27 @@
++-- Initial schema (PostgreSQL).
++
++-- Accounts of the app.
++-- One row per person.
++CREATE TABLE IF NOT EXISTS public.users (
++    id bigserial PRIMARY KEY,
++    email text NOT NULL UNIQUE,
++    profile jsonb,
++    created_at timestamptz DEFAULT now()
++);
++
++CREATE TABLE orders (
++    id serial,
++    user_id bigint REFERENCES public.users (id),
++    total numeric(10, 2) NOT NULL,
++    PRIMARY KEY (id),
++    FOREIGN KEY (user_id) REFERENCES public.users (id),
++    UNIQUE (user_id, id)
++);
++
++-- Users with a profile.
++CREATE VIEW active_users AS SELECT id, email FROM public.users WHERE profile IS NOT NULL;
++
++-- Totals per user, refreshed nightly.
++CREATE MATERIALIZED VIEW order_totals AS SELECT user_id, sum(total) AS total FROM orders GROUP BY user_id;
++
++CREATE INDEX CONCURRENTLY orders_user_idx ON orders (user_id);
+diff --git a/tests/selfdoc/test_treesitter_symbols.py b/tests/selfdoc/test_treesitter_symbols.py
+index ab96434b..bb698b1d 100644
+--- a/tests/selfdoc/test_treesitter_symbols.py
++++ b/tests/selfdoc/test_treesitter_symbols.py
+@@ -154,3 +154,60 @@ def test_without_the_ts_grammar_python_still_scans(monkeypatch, tmp_path):
+     shutil.copytree(FRONTEND, tmp_path / "front")
+     (tmp_path / "front" / "m.py").write_text("def f(): pass\n", encoding="utf-8")
+     assert not rt.available(".tsx") and sorted(f["id"] for f in scan_tree(tmp_path / "front")) == ["m", "m.f"]
++
++
++SQL = Path(__file__).parent.parent / "fixtures" / "treesitter" / "sql"
++needs_sql = pytest.mark.skipif(not available(".sql"), reason="tree-sitter-sql not installed (extra [code])")
++
++
++@pytest.fixture
++def sql_facts():
++    from sldb.code.scan import scan_tree
++
++    return {f["id"].removeprefix("migrations.0001_initial."): f for f in scan_tree(SQL)}
++
++
++@needs_sql
++def test_sql_tables_columns_views_and_index_of_a_postgres_migration(sql_facts):
++    kinds = {i: f["kind"] for i, f in sql_facts.items()}
++    assert kinds == {"migrations.0001_initial": "module", "public.users": "table", "public.users.id": "column", "public.users.email": "column",
++                     "public.users.profile": "column", "public.users.created_at": "column", "orders": "table", "orders.id": "column",
++                     "orders.user_id": "column", "orders.total": "column", "active_users": "view", "order_totals": "view", "orders_user_idx": "index"}, "constraints are not columns"
++    users, email = sql_facts["public.users"], sql_facts["public.users.email"]
++    assert (users["name"], users["qualified_name"], email["name"], email["qualified_name"]) == ("users", "public.users", "email", "public.users.email")
++    assert sql_facts["orders"]["qualified_name"] == "orders" and sql_facts["migrations.0001_initial"]["qualified_name"] == "migrations.0001_initial"
++    assert email["relations"] == [{"type": "contained-in", "target": "migrations.0001_initial.public.users"}]
++    assert (sql_facts["order_totals"]["attrs"]["native_kind"], sql_facts["active_users"]["attrs"]["native_kind"]) == ("create_materialized_view", "create_view")
++
++
++@needs_sql
++def test_sql_comments_signatures_spans_and_imports(sql_facts):
++    assert sql_facts["public.users"]["doc"] == "Accounts of the app.\nOne row per person.", "contiguous -- lines, not the one after a blank line"
++    assert (sql_facts["orders"]["doc"], sql_facts["public.users.email"]["doc"], sql_facts["order_totals"]["doc"]) == (None, None, "Totals per user, refreshed nightly.")
++    assert sql_facts["public.users.email"]["signature"] == "email text NOT NULL UNIQUE" and sql_facts["public.users"]["span"] == {"start_line": 5, "end_line": 10}
++    assert sql_facts["orders_user_idx"]["signature"] == "CREATE INDEX CONCURRENTLY orders_user_idx ON orders (user_id)"
++    assert sql_facts["migrations.0001_initial"]["attrs"]["imports"] == [] and sql_facts["migrations.0001_initial"]["relations"] == []
++    assert all(set(f["fingerprints"]) == {"signature", "shape", "docstring", "body"} for f in sql_facts.values())
++
++
++@needs_sql
++def test_sql_repeated_objects_take_a_suffix_and_unparsed_statements_give_nothing(tmp_path):
++    from sldb.code.scan import scan_tree
++
++    (tmp_path / "m.sql").write_text("CREATE TABLE t (a int);\nCREATE TABLE t (a int, b int);\nCREATE TABLE bad (a int, CONSTRAINT k UNIQUE (a));\n"
++                                    "CREATE INDEX i ON t (a);\nCREATE INDEX i ON t (b);\n", encoding="utf-8")
++    facts = {f["id"]: f for f in scan_tree(tmp_path)}
++    assert sorted(facts) == ["m", "m.i", "m.i~2", "m.t", "m.t.a", "m.t~2", "m.t~2.a", "m.t~2.b"], "no fact of `bad`, not even its columns"
++    assert (facts["m.t~2"]["qualified_name"], facts["m.t~2.b"]["qualified_name"], facts["m.i~2"]["qualified_name"]) == ("t~2", "t~2.b", "i~2")
++
++
++def test_without_the_sql_grammar_sql_files_are_not_scanned(monkeypatch, tmp_path):
++    import sldb.code.runtime as rt
++    from sldb.code.scan import scan_tree
++
++    real = rt.importlib.import_module
++    monkeypatch.setattr(rt, "_RUNTIME", {})
++    monkeypatch.setattr(rt.importlib, "import_module", lambda name: (_ for _ in ()).throw(ImportError(name, name=name)) if name == "tree_sitter_sql" else real(name))
++    shutil.copytree(SQL, tmp_path / "db")
++    (tmp_path / "db" / "m.py").write_text("def f(): pass\n", encoding="utf-8")
++    assert not rt.available(".sql") and sorted(f["id"] for f in scan_tree(tmp_path / "db")) == ["m", "m.f"]
+diff --git a/uv.lock b/uv.lock
+index 5219f991..9dab339d 100644
+--- a/uv.lock
++++ b/uv.lock
+@@ -1151,6 +1151,7 @@ click = [
+ code = [
+     { name = "tree-sitter" },
+     { name = "tree-sitter-python" },
++    { name = "tree-sitter-sql" },
+     { name = "tree-sitter-typescript" },
+ ]
+ dev = [
+@@ -1184,6 +1185,7 @@ requires-dist = [
+     { name = "scipy", marker = "extra == 'graph'", specifier = ">=1.10" },
+     { name = "tree-sitter", marker = "extra == 'code'", specifier = ">=0.25" },
+     { name = "tree-sitter-python", marker = "extra == 'code'", specifier = ">=0.23" },
++    { name = "tree-sitter-sql", marker = "extra == 'code'", specifier = ">=0.3" },
+     { name = "tree-sitter-typescript", marker = "extra == 'code'", specifier = ">=0.23" },
+ ]
+ provides-extras = ["click", "graph", "mcp", "code", "dev"]
+@@ -1236,6 +1238,22 @@ wheels = [
+     { url = "https://files.pythonhosted.org/packages/07/19/4b5569d9b1ebebb5907d11554a96ef3fa09364a30fcfabeff587495b512f/tree_sitter_python-0.25.0-cp310-abi3-win_arm64.whl", hash = "sha256:0fbf6a3774ad7e89ee891851204c2e2c47e12b63a5edbe2e9156997731c128bb", size = 74169, upload-time = "2025-09-11T06:47:56.747Z" },
+ ]
+ 
++[[package]]
++name = "tree-sitter-sql"
++version = "0.3.13"
++source = { registry = "https://pypi.org/simple" }
++sdist = { url = "https://files.pythonhosted.org/packages/48/eb/6471aecccf74ef4db33628c9f93d87f8975ecf1c768ff7ae5753956813c7/tree_sitter_sql-0.3.13.tar.gz", hash = "sha256:51d7839f7d29f6bc3814d128dc54dc890908450bce99f48ba2d20dbe33dbe061", size = 2828744, upload-time = "2026-11-10T20:17:22.806Z" }
++wheels = [
++    { url = "https://files.pythonhosted.org/packages/03/43/ad594d4b57bcd103c00ca57b2d3fffb235f538270ce412d233804d7a8374/tree_sitter_sql-0.3.13-cp310-abi3-macosx_10_9_x86_64.whl", hash = "sha256:37f526282e06abefc395dd4e3d4dee3c3ae9a5a71abdf8c0b6a0c3949b4f58e8", size = 950081, upload-time = "2026-11-10T20:17:12.263Z" },
++    { url = "https://files.pythonhosted.org/packages/6c/94/6457c360ad33dde3800ee3728588ee2fd18688ec24cae64f00233687a751/tree_sitter_sql-0.3.13-cp310-abi3-macosx_11_0_arm64.whl", hash = "sha256:37261808e55a88457c02fe4844ed87d20cd9ba18c997244538a3c5cd3e508408", size = 1052361, upload-time = "2026-11-10T20:17:13.74Z" },
++    { url = "https://files.pythonhosted.org/packages/3f/31/ff23443c92ab3c3137227b1305a770903331a85b007230ccd7d15c422738/tree_sitter_sql-0.3.13-cp310-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:4ea67aed3f04534421aac7e3a414649088fe0a1ff65283e81cbb5cf22ddb01c0", size = 1009927, upload-time = "2026-11-10T20:17:14.829Z" },
++    { url = "https://files.pythonhosted.org/packages/ed/ff/c8650b1d47d8ffeed7750938cd85cd1c85cb4d0213790bf6a8f9d49837f3/tree_sitter_sql-0.3.13-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:86569da8c728a73859b41477eff2dbdc2a2c31da77a1eda9328b27d3c2dbd7ce", size = 1009810, upload-time = "2026-11-10T20:17:16.033Z" },
++    { url = "https://files.pythonhosted.org/packages/0b/34/7b4d2b59611c26e6cf989d18a83140c4222d04886091dd432c4e447ed3fb/tree_sitter_sql-0.3.13-cp310-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:262e174ff5810e206deeb1c64ef46028c6f1700ee4e5224ae749461da0c1b743", size = 1009647, upload-time = "2026-11-10T20:17:17.78Z" },
++    { url = "https://files.pythonhosted.org/packages/86/b1/a1d926708b6805198e24c9db3ccfa74a139338ad2357c7862b296cb11071/tree_sitter_sql-0.3.13-cp310-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:162920facbfefb619d2d374dd14c7ad86147fe875742e8557404fb26271c1933", size = 1008564, upload-time = "2026-11-10T20:17:19.251Z" },
++    { url = "https://files.pythonhosted.org/packages/a3/11/6ca77ea378761c5a58563da7c6fee27cbbe4db0a19be0968a909a3a77413/tree_sitter_sql-0.3.13-cp310-abi3-win_amd64.whl", hash = "sha256:3adea682a2567435965fbc37ce0daf1d05a0ef71f3d3fdd466470041c9245fad", size = 945282, upload-time = "2026-11-10T20:17:20.321Z" },
++    { url = "https://files.pythonhosted.org/packages/67/9b/dedc8ca28727b53fd801c393b660db4d02a87c69f5997f0620acc2263166/tree_sitter_sql-0.3.13-cp310-abi3-win_arm64.whl", hash = "sha256:8d401fe5ccb108670e0165313ce63e6b54bcd916e42a3c53b6b6f2b67772ec6b", size = 946556, upload-time = "2026-11-10T20:17:21.461Z" },
++]
++
+ [[package]]
+ name = "tree-sitter-typescript"
+ version = "0.23.2"
