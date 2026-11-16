@@ -1,0 +1,18 @@
+name: 20261116-094415-unclear-models-validate-falla-con-no-module-named-deskops-base-para-modelos-deskops-models
+path: desk/inbox/20261116-094415-unclear-models-validate-falla-con-no-module-named-deskops-base-para-modelos-deskops-models.md
+source_hash: 4fba77d6ba494e229f42f1bd4d5afc1fbd585ca7048651c3fb998f3eb1c6b876
+content_hash: 24665704ef7bd3fce84ceb27413008303078c4c06595cfcaf40cec7feef49f92
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: e710514e29fab1ba3c04f75397d61d649da0270012ce642af2775691b57f6e9c
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 52945c9519099589546e35e914e804f274dc17a0de4dbd308cb0b3a2dcf6d100
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: 9bd7ad65221b9079c5cf39a3a3a79d0a58a1dd93665c6c59f2548e0769818d5c
+  body: 00595370aac62b9cb1a01b80f84f0c64f4582af66eba2ea436c5e2c5fb87772a
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

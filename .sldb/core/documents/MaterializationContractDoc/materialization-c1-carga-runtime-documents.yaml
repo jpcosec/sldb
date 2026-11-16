@@ -1,0 +1,25 @@
+name: materialization-c1-carga-runtime-documents
+path: desk/materializations/materialization-c1-carga-runtime-documents.md
+source_hash: f076a267e389aa3e54c09dd4f3da6d478667bc614e050f5166815ca1c96fc8d7
+content_hash: c700a9d7fede95cb2982be31d8abb3bc43fef5092d16c0b8d05424c673f05577
+field_hashes:
+  id: 7f9e7fa3c5b75400c7df2d92bf4b8e7f4fa6ef434f901071c9030d2ed96d9710
+  title: 656cb5d6e44b5b47f5d8cafc5f9517c952edac311994804d1d125ea2168e3e06
+  source_atoms: c726d4ae7528633a16502869ae847ae34d10f3c1473c7a3a9ace0766c7509021
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: f60e5110dd0d5b7d14083218bef7610f690da815ae72da5ac67e6fa44e114042
+  intent: f0960a8140eab73a9e2a02a37b87c77b6b90b18ce46139ec945afd465a6082c7
+  validation: 458ced5176287c5cc6be0da3850a08c199d7b76bf1015673292b31db8f37fb56
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T14:52:07Z'
+  authority: generated
+  via: create_document

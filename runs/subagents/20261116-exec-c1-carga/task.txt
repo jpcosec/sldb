@@ -1,0 +1,9 @@
+Task: task-clean-code-tras-carga-tolerante-edge-index-py-y-runtime-documents-py-con-una-clase-cada-uno-y-query
+Title: Clean code tras carga-tolerante: edge_index.py y runtime_documents.py con una clase cada uno y query.py bajo 80 líneas
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective atoms:
+- atom-cargar-un-store-por-la-api-pública-no-aborta-por-un-documento-inválido-on-invalid-skip-devuelve-los
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]

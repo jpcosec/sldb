@@ -1,0 +1,36 @@
+name: review-task-clean-code-tras-carga-tolerante-edge-index-py-y-runtime-documents-py-con-una-clase-cada-uno-y-query-evidence-materialization-1
+path: desk/reviews/task-clean-code-tras-carga-tolerante-edge-index-py-y-runtime-documents-py-con-una-clase-cada-uno-y-query/evidence-materialization-1.md
+source_hash: 3d613535c551f6838a7c59204cd3dbf70a208a591a3542a902a743f5ac0fa3dc
+content_hash: c14c927b30c7518a8bca5357a9c177bec95030efca25552da790e8c7c668fd34
+field_hashes:
+  id: d6af2820f01e0d8d21ea8adf9dc24373859b1a258137c41c02f581480cca7bc8
+  title: 42bfd1ee906dec701052cd3de94887d57091f89b12e670a746b49df33b10fd9c
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: 4a6e727d6f3dbc0e953774bba6365fcb6e8e0774c79b166552b7191811941212
+  subject: 64751c9913575dc3d892eb44c237227cb3d7260349bfe7d6ff8d7ab5965e0e70
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 675f0e24c9d4c0d8d34818b0d83aacedacc5f4d5a1633b18228f77646919e765
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: d46764976c8b44d48606b8aa316d334560c68ecdf371cca025a5c564c94284f5
+  created_at: 995d1c4f12edf5ca951ccf5746573b026cb937082ff59b995430e921cf273bc5
+  disposed_at: 995d1c4f12edf5ca951ccf5746573b026cb937082ff59b995430e921cf273bc5
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 6a39123d4cfeab974bcf166cb2b27943c5daea334be1ccab8e9f311af14e596e
+  disposition: 8c1665232cbb7beb0078f0a68717f7f613b0102af9c65bf428aa3fd6ec6f0bd0
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T14:55:06Z'
+  authority: generated
+  via: save_document_payload

@@ -472,6 +472,10 @@ include:
     name: run-deskops-e-9c1e01636d14
   - path: runs/subagents/20261116-exec-contract-signature/run.md
     name: run-deskops-e-a7eadfe52463
+  - path: runs/subagents/20261116-exec-c1-carga/run.md
+    name: run-deskops-e-bdda64e24677
+  - path: runs/subagents/20261116-test-c1-carga/run.md
+    name: run-deskops-t-f7923f75b516
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -736,6 +740,12 @@ include:
   - desk/materializations/materialization-referrers-rewrite-references.md
   - desk/materializations/materialization-referrers-test-referrers.md
   - desk/materializations/materialization-referrers-test-rewrite-references.md
+  - desk/materializations/materialization-c1-carga-edge-index.md
+  - desk/materializations/materialization-c1-carga-edge-problem.md
+  - desk/materializations/materialization-c1-carga-runtime-documents.md
+  - desk/materializations/materialization-c1-carga-invalid-document.md
+  - desk/materializations/materialization-c1-carga-query.md
+  - desk/materializations/materialization-c1-carga-accepted-load.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -1329,6 +1339,14 @@ include:
     name: review-task-la-puerta-de-afirmaciones-vuelve-a-verde-el-changelog-no-nombra-la-ruta-inexistente-docs-architectur-bundle-2
   - path: desk/reviews/task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable/bundle-2.md
     name: review-task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable-bundle-2
+  - path: desk/reviews/task-clean-code-tras-carga-tolerante-edge-index-py-y-runtime-documents-py-con-una-clase-cada-uno-y-query/evidence-tests-1.md
+    name: review-task-clean-code-tras-carga-tolerante-edge-index-py-y-runtime-documents-py-con-una-clase-cada-uno-y-query-evidence-tests-1
+  - path: desk/reviews/task-clean-code-tras-carga-tolerante-edge-index-py-y-runtime-documents-py-con-una-clase-cada-uno-y-query/evidence-commit-1.md
+    name: review-task-clean-code-tras-carga-tolerante-edge-index-py-y-runtime-documents-py-con-una-clase-cada-uno-y-query-evidence-commit-1
+  - path: desk/reviews/task-clean-code-tras-carga-tolerante-edge-index-py-y-runtime-documents-py-con-una-clase-cada-uno-y-query/evidence-atom-1.md
+    name: review-task-clean-code-tras-carga-tolerante-edge-index-py-y-runtime-documents-py-con-una-clase-cada-uno-y-query-evidence-atom-1
+  - path: desk/reviews/task-clean-code-tras-carga-tolerante-edge-index-py-y-runtime-documents-py-con-una-clase-cada-uno-y-query/evidence-materialization-1.md
+    name: review-task-clean-code-tras-carga-tolerante-edge-index-py-y-runtime-documents-py-con-una-clase-cada-uno-y-query-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -1358,7 +1376,6 @@ include:
   - desk/tasks/task-átomos-del-catálogo-sin-rutas-absolutas-atom-payload-y-store-documents-emiten-la-ruta-relativa-al-pr.md
   - desk/tasks/task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto.md
   - desk/tasks/task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup.md
-  - desk/tasks/task-clean-code-tras-carga-tolerante-edge-index-py-y-runtime-documents-py-con-una-clase-cada-uno-y-query.md
   - desk/tasks/task-clean-code-tras-referrers-referrers-py-bajo-80-líneas-y-rewrite-references-con-10-líneas-de-lógica-c.md
   - desk/tasks/task-clean-code-tras-create-pin-create-document-con-10-líneas-de-lógica-como-máximo.md
   - desk/tasks/task-clean-code-tras-sections-rebuild-process-model-sections-con-10-líneas-de-lógica-como-máximo.md

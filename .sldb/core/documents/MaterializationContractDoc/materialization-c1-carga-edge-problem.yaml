@@ -1,0 +1,25 @@
+name: materialization-c1-carga-edge-problem
+path: desk/materializations/materialization-c1-carga-edge-problem.md
+source_hash: 944df6746b0053262975bbecbc29d63d63d922826e5d13f45efe65a6ba9b9cbe
+content_hash: 7f9c36be527c6ef94cb59d67b181e3035541af7a56536432e70077a98c2fb350
+field_hashes:
+  id: 62e2127190ccdbf07af65fae4df3c22321aa3b7c4639c6757875481171d67ca2
+  title: 9c24ca80ffcdc55db34ad3c4555f589c4c0a006c72ffb003bcf6dfb388768b5a
+  source_atoms: c726d4ae7528633a16502869ae847ae34d10f3c1473c7a3a9ace0766c7509021
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 625ed84e996348c8f45c5a236cebaf0c25b5ec56d39b67356e39a9dc7270f741
+  intent: 8528bd7f0a750682766b806c3cf556bd744f5f20fd25f575c10ef573cd87ee85
+  validation: 458ced5176287c5cc6be0da3850a08c199d7b76bf1015673292b31db8f37fb56
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T14:51:43Z'
+  authority: generated
+  via: create_document
