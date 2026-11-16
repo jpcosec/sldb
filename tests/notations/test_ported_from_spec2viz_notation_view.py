@@ -1,0 +1,263 @@
+"""Portado de spec2viz tests/test_notation_view.py: `resolve_view`, el unico interprete del
+contrato de notacion, contra un store real, con `sldb.api.notations`.
+
+Los specs del repo de spec2viz (docs/architecture/vistas.yml y docs/architecture/spec2viz/*.yml)
+estan copiados con su nombre y ruta original en tests/notations/fixtures/; los de
+spec2viz/tests/fixtures ya existian identicos en tests/fixtures/specs/.
+
+Casos no portados (o portados en parte), con su motivo:
+- test_class_view_picks_glyphs_by_where_and_links_by_relation: la rama `else` de
+  `relation_doc_has_attributes()` (sldb < 0.1.11) no aplica; sldb siempre tiene RelationDoc con
+  atributos, asi que se exige esa rama.
+- test_cli_view, salida de error: `sldb notations view` sale con SystemExit(mensaje) en vez de
+  exit 1 + texto; se porta con pytest.raises(SystemExit).
+"""
+import json
+import shutil
+from pathlib import Path
+
+import pytest
+import yaml
+
+import sldb.api as sldb_api
+from sldb.api.notations import SpecSync, ViewError, flatten, fragments_of, lookup, render_template, resolve_view, sync_catalog
+from sldb.cli import main
+
+FIXTURES = Path(__file__).parent / "fixtures"
+
+
+def _in_project(tmp_path: Path, rel: str) -> Path:
+    """Copia de un spec de fixtures (o de vistas.yml con todos los specs que lista) dentro del
+    proyecto temporal, con la misma ruta relativa: la sincronizacion escribe los nodos junto al
+    spec, y deben quedar bajo la raiz del store."""
+    source = FIXTURES / rel
+    if source.name == "vistas.yml":
+        shutil.copytree(source.parent, tmp_path / rel.rsplit("/", 1)[0], dirs_exist_ok=True,
+                        ignore=shutil.ignore_patterns("sldb", "*.md", "*.html", "*.svg", "*.puml", "*.mmd"))
+    else:
+        (tmp_path / rel).parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, tmp_path / rel)
+    return tmp_path / rel
+
+
+CLASSES = {
+    "id": "shapes", "title": "Shapes", "type": "class", "version": "1",
+    "data": {
+        "classes": {
+            "Shape": {"kind": "interface", "methods": [{"name": "area", "returns": "float"}]},
+            "Base": {"kind": "abstract", "attributes": [{"name": "name", "type": "str"}]},
+            "Circle": {"label": "Circle", "attributes": [{"name": "r", "type": "float"}], "methods": [{"name": "area", "returns": "float"}]},
+        },
+        "relations": [
+            {"from": "Circle", "to": "Base", "relation": "inheritance"},
+            {"from": "Base", "to": "Shape", "relation": "realization"},
+            {"from": "Circle", "to": "Shape", "relation": "composition", "label": "parts", "from_multiplicity": "1", "to_multiplicity": "1..*"},
+        ],
+    },
+}
+MACHINE = {
+    "id": "door", "title": "Door", "type": "state", "version": "1",
+    "data": {
+        "entity": "Door", "initial": "closed",
+        "states": [
+            {"id": "closed", "label": "Closed"},
+            {"id": "open", "label": "Open", "contains": ["ajar", "wide"]},
+            {"id": "ajar", "label": "Ajar"},
+            {"id": "wide", "label": "Wide open"},
+        ],
+        "transitions": [
+            {"from": "closed", "to": "open", "on": "push", "guard": "unlocked"},
+            {"from": "open", "to": "closed", "on": "pull"},
+            {"from": "wide", "to": "closed", "on": "slam"},  # cruza el borde del compuesto
+        ],
+    },
+}
+
+
+@pytest.fixture
+def project(tmp_path):
+    sldb_api.init_store(tmp_path)
+    (tmp_path / "docs").mkdir()
+    (tmp_path / "docs" / "shapes.yml").write_text(yaml.safe_dump(CLASSES), encoding="utf-8")
+    (tmp_path / "docs" / "door.yml").write_text(yaml.safe_dump(MACHINE), encoding="utf-8")
+    return tmp_path
+
+
+def test_pure_helpers():
+    payload = {"title": "A", "kind": "", "data": {"initial": True, "attributes": [1], "title": "shadow"}}
+    assert flatten(payload)["initial"] is True and flatten(payload)["title"] == "A"
+    assert lookup(payload, "data.attributes") == [1] and lookup(payload, "data.nope.x") is None
+    assert render_template("{title} <{kind}> {missing} {data.initial}", payload) == "A <> True"
+
+
+def test_class_view_picks_glyphs_by_where_and_links_by_relation(project):
+    store = project / ".sldb"
+    SpecSync(store).sync(project / "docs" / "shapes.yml")
+    view = resolve_view(store, "shapes")
+    assert view["notation"] == "NotationDoc:uml-class" and view["layout"] == {"kind": "graph", "direction": "TB"}
+    nodes = {n["doc"].split(".")[-1]: n for n in view["nodes"]}
+    assert nodes["Shape"]["glyph"] == "GlyphDoc:uml-class.interface" and nodes["Shape"]["keyword"] == "«interface»"
+    assert nodes["Base"]["glyph"] == "GlyphDoc:uml-class.abstract" and nodes["Base"]["label_style"] == "italic"
+    assert nodes["Circle"]["glyph"] == "GlyphDoc:uml-class.class" and nodes["Circle"]["label"] == "Circle"
+    assert [c["path"] for c in nodes["Circle"]["compartments"]] == ["data.attributes", "data.methods"]
+    assert nodes["Circle"]["compartments"][0]["items"] == [{"name": "r", "type": "float"}]
+    assert [c["path"] for c in nodes["Shape"]["compartments"]] == ["data.methods"]  # sin atributos no hay compartimento
+    links = {(l["source"].split(".")[-1], l["target"].split(".")[-1]): l for l in view["links"]}
+    assert links[("Circle", "Base")]["target_end"] == "hollow-triangle" and links[("Circle", "Base")]["line"] == "solid"
+    assert links[("Base", "Shape")]["line"] == "dashed"
+    assert links[("Circle", "Shape")]["source_end"] == "filled-diamond" and links[("Circle", "Shape")]["label"] == "parts"
+    assert all(l["draw"] == "line" and l["doc"].startswith("RelationDoc:shapes.") for l in view["links"])
+    assert view["skipped"] == [] and view["fragments"] == []
+    composition = links[("Circle", "Shape")]
+    assert composition["data"] == {"from_multiplicity": "1", "to_multiplicity": "1..*", "label": "parts"}
+    assert (composition["source_label"], composition["target_label"]) == ("1", "1..*")
+
+
+def test_state_view_nests_contains_and_marks_initial(project):
+    store = project / ".sldb"
+    SpecSync(store).sync(project / "docs" / "door.yml")
+    view = resolve_view(store, "SpecDoc:door")
+    nodes = {n["doc"].split(".")[-1]: n for n in view["nodes"]}
+    assert nodes["open"]["glyph"] == "GlyphDoc:statechart.composite" and nodes["ajar"]["glyph"] == "GlyphDoc:statechart.state"
+    assert nodes["closed"]["markers"] == [{"id": "initial", "shape": "filled-circle"}] and nodes["open"]["markers"] == []
+    nests = sorted((l["source"].split(".")[-1], l["target"].split(".")[-1]) for l in view["links"] if l["draw"] == "nest")
+    assert nests == [("open", "ajar"), ("open", "wide")] and all(l["doc"] is None for l in view["links"] if l["draw"] == "nest")
+    lines = {(l["source"].split(".")[-1], l["target"].split(".")[-1]): l["label"] for l in view["links"] if l["draw"] == "line"}
+    assert lines == {("closed", "open"): "push [unlocked]", ("open", "closed"): "pull", ("wide", "closed"): "slam"}
+
+
+def test_repo_pilot_with_a_composite_state_resolves_nest_and_a_crossing_transition(tmp_path):
+    """El piloto que graph_ui usa para dibujar `nest`: un compuesto y una transicion que sale de el."""
+    sldb_api.init_store(tmp_path)
+    SpecSync(tmp_path / ".sldb").sync(_in_project(tmp_path, "docs/architecture/spec2viz/state-diagram-sync-lifecycle.yml"))
+    view = resolve_view(tmp_path / ".sldb", "state.diagram-sync-lifecycle")
+    nests = sorted((l["source"].split(".")[-1], l["target"].split(".")[-1]) for l in view["links"] if l["draw"] == "nest")
+    assert nests == [("syncing", "indexing"), ("syncing", "validating"), ("syncing", "writing")]
+    crossing = [l for l in view["links"] if l["draw"] == "line" and l["source"].endswith(".validating") and l["target"].endswith(".failed")]
+    assert len(crossing) == 1 and crossing[0]["label"] == "load() raises [spec invalid]"
+    nodes = {n["doc"].split(".")[-1]: n for n in view["nodes"]}
+    assert nodes["syncing"]["glyph"] == "GlyphDoc:statechart.composite" and nodes["idle"]["markers"][0]["id"] == "initial"
+    assert view["skipped"] == []
+
+
+def test_fragments_group_consecutive_messages():
+    links = [
+        {"order": 1, "data": {}}, {"order": 2, "data": {"group": "loop"}}, {"order": 3, "data": {"group": "loop"}},
+        {"order": 4, "data": {"group": "alt"}}, {"order": 5, "data": {}}, {"order": 6, "data": {"group": "alt"}}, {"order": 0, "data": {"group": "x"}},
+    ]
+    assert fragments_of(links) == [
+        {"label": "", "kind": "loop", "group": "loop", "orders": [2, 3]},
+        {"label": "", "kind": "alt", "group": "alt", "orders": [4]},
+        {"label": "", "kind": "alt", "group": "alt", "orders": [6]},
+    ]
+    assert fragments_of([{"order": 1, "data": {"group": "Loop for each spec"}}, {"order": 2, "data": {"group": "retries"}}]) == [
+        {"label": "for each spec", "kind": "loop", "group": "Loop for each spec", "orders": [1]},
+        {"label": "retries", "kind": "group", "group": "retries", "orders": [2]},
+    ]
+
+
+def test_repo_sequence_pilot_has_loop_and_alt_fragments(tmp_path):
+    sldb_api.init_store(tmp_path)
+    SpecSync(tmp_path / ".sldb").sync(_in_project(tmp_path, "docs/architecture/spec2viz/sequence-sync-pipeline.yml"))
+    view = resolve_view(tmp_path / ".sldb", "sequence.sync-pipeline")
+    kinds = [(f["kind"], f["label"]) for f in view["fragments"]]
+    assert kinds == [("loop", "for each spec"), ("alt", "the diagram type has a notation"), ("loop", "for each spec")]
+    loop = view["fragments"][0]
+    by_order = {l["order"]: l for l in view["links"]}
+    participants = {by_order[o][end].split(".")[-1] for o in loop["orders"] for end in ("source", "target")}
+    assert len(participants) >= 3 and view["skipped"] == []
+
+
+def test_view_errors(project):
+    store = project / ".sldb"
+    with pytest.raises(ViewError, match="not in the store"):
+        resolve_view(store, "nope")
+    SpecSync(store).sync(project / "docs" / "door.yml", notation="none")
+    with pytest.raises(ViewError, match="has no notation"):
+        resolve_view(store, "door")
+
+
+def test_cli_view(project, capsys):
+    store = project / ".sldb"
+    SpecSync(store).sync(project / "docs" / "shapes.yml")
+    assert main(["notations", "view", "shapes", "--store", str(store)]) == 0
+    view = json.loads(capsys.readouterr().out)
+    assert view["spec"] == "SpecDoc:shapes" and len(view["nodes"]) == 3 and len(view["links"]) == 3
+    with pytest.raises(SystemExit, match="not in the store"):
+        main(["notations", "view", "nope", "--store", str(store)])
+
+
+def test_every_catalog_spec_resolves_under_its_builtin_notation(tmp_path):
+    """El catalogo entero: cada spec de vistas.yml se sincroniza y resuelve sin skipped."""
+    sldb_api.init_store(tmp_path)
+    store = tmp_path / ".sldb"
+    reports = sync_catalog(SpecSync(store), _in_project(tmp_path, "docs/architecture/vistas.yml"))
+    assert len(reports) >= 9 and all(r.edge_errors == [] for r in reports)
+    seen_types = set()
+    for report in reports:
+        if report.spec_id.startswith("catalog "):  # el informe de reconciliacion del catalogo (solo sldb)
+            continue
+        view = resolve_view(store, report.spec_id)
+        seen_types.add(view["diagram_type"])
+        assert view["skipped"] == [], (report.spec_id, view["skipped"])
+        assert view["nodes"] and all(n["glyph"] for n in view["nodes"])
+    assert {"component", "sequence", "state", "activity", "class", "component_view_matrix"} <= seen_types
+    spec_doc = next(d for d in sldb_api.load_runtime_documents(store, None, include_linked=False) if str(d.model_name) == "SpecDoc" and d.name == "component.spec2viz-architecture")
+    assert spec_doc.payload["category"] == "Arquitectura de Módulos" and spec_doc.payload["nav"] == "Módulos"
+
+
+def test_component_wildcard_link_and_sequence_order(tmp_path):
+    sldb_api.init_store(tmp_path)
+    store = tmp_path / ".sldb"
+    (tmp_path / "arq.yml").write_text(yaml.safe_dump({
+        "id": "arq", "title": "Arq", "type": "component", "version": "1",
+        "data": {"nodes": {"cli": {"label": "CLI", "kind": "entry", "contains": ["core"]}, "core": {"label": "Core"}, "db": {"label": "DB", "kind": "boundary"}},
+                 "edges": [{"from": "core", "to": "db", "relation": "reads(sql)", "label": "rows"}, {"from": "cli", "to": "core", "relation": "uses"}]}}), encoding="utf-8")
+    (tmp_path / "seq.yml").write_text(yaml.safe_dump({
+        "id": "seq", "title": "Seq", "type": "sequence", "version": "1",
+        "data": {"participants": [{"id": "U", "kind": "actor"}, {"id": "S", "kind": "component"}],
+                 "messages": [{"from": "U", "to": "S", "message": "first"}, {"from": "S", "to": "U", "message": "second", "kind": "return"}, {"from": "U", "to": "S", "message": "third", "kind": "async"}]}}), encoding="utf-8")
+    sync = SpecSync(store)
+    sync.sync(tmp_path / "arq.yml")
+    sync.sync(tmp_path / "seq.yml")
+
+    arq = resolve_view(store, "arq")
+    nodes = {n["element"]: n for n in arq["nodes"]}
+    assert nodes["cli"]["glyph"] == "GlyphDoc:component.entry" and nodes["db"]["glyph"] == "GlyphDoc:component.boundary" and nodes["core"]["collection"] == "nodes"
+    links = [(l["source"].split(".")[-1], l["target"].split(".")[-1], l["relation"], l["draw"], l["label"], l["order"]) for l in arq["links"]]
+    assert links == [("cli", "core", "contains", "nest", "", 0), ("core", "db", "reads_sql", "line", "reads_sql rows", 1), ("cli", "core", "uses", "line", "uses", 2)]
+    assert all(l["link"] == "LinkDoc:component.relation" for l in arq["links"] if l["draw"] == "line")
+
+    seq = resolve_view(store, "seq")
+    assert seq["layout"] == {"kind": "lanes", "direction": "LR"}
+    assert [(l["order"], l["relation"], l["line"], l["target_end"], l["label"]) for l in seq["links"]] == [
+        (1, "sends", "solid", "filled-arrow", "first"), (2, "returns", "dashed", "open-arrow", "second"), (3, "sends_async", "solid", "open-arrow", "third")]
+    assert {n["element"]: n["glyph"].split(".")[-1] for n in seq["nodes"]} == {"U": "actor", "S": "participant"}
+
+
+def test_activity_and_matrix_views(tmp_path):
+    sldb_api.init_store(tmp_path)
+    store = tmp_path / ".sldb"
+    sync = SpecSync(store)
+    sync.sync(_in_project(tmp_path, "docs/architecture/spec2viz/activity-render-error-handling.yml"))
+    matrix = tmp_path / "tests" / "fixtures" / "matrix.quotation-view.yml"
+    matrix.parent.mkdir(parents=True)
+    shutil.copy2(Path(__file__).parent.parent / "fixtures" / "specs" / "matrix.quotation-view.yml", matrix)
+    sync.sync(matrix)
+
+    act = resolve_view(store, "activity.render-error-handling")
+    glyphs = {n["element"]: n["glyph"].split(".")[-1] for n in act["nodes"]}
+    assert glyphs["__initial"] == "start" and glyphs["receive_paths"] == "action" and glyphs["iterate_path"] == "decision"
+    assert glyphs["try_render"] == "action" and glyphs["__final"] == "end" and glyphs["done"] == "action"
+    start = next(n for n in act["nodes"] if n["element"] == "__initial")
+    assert start["label"] == ""  # label: "" explicito en el glifo: sin rotulo
+    branch = next(l for l in act["links"] if l["relation"] == "branch" and l["source"].endswith(".iterate_path") and l["target"].endswith(".try_render"))
+    assert branch["label"] == "[has_next]" and act["skipped"] == []
+
+    mat = resolve_view(store, "matrix.quotation-view")
+    assert mat["layout"] == {"kind": "grid"}
+    stages = [n for n in mat["nodes"] if n["collection"] == "stages"]
+    assert [s["data"]["order"] for s in stages] == [1, 2, 3, 4, 5] and stages[0]["glyph"] == "GlyphDoc:component-view-matrix.stage"
+    cells = [l for l in mat["links"] if l["draw"] == "cell"]
+    nests = [l for l in mat["links"] if l["draw"] == "nest"]
+    assert cells and nests and all(c["label"] == "quotation" for c in cells) and mat["skipped"] == []
