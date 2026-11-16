@@ -70,6 +70,17 @@ def test_docstrings_signatures_and_relations(facts):
     assert facts["pkg.mod"]["source_hash"].startswith("sha256:") and facts["pkg"]["name"] == "pkg"
 
 
+def test_nested_imports_are_a_separate_attr(facts, tmp_path):
+    from sldb.code.scan import scan_tree
+
+    assert facts["pkg.mod"]["attrs"]["imports"] == [".", "..a", "__future__", "os,sys"] and facts["pkg.mod"]["attrs"]["nested_imports"] == []
+    (tmp_path / "lazy.py").write_text("import os\nif TYPE_CHECKING:\n    from a.b import C\ntry:\n    import json, sys as s\nexcept ImportError: pass\n"
+                                      "class K:\n    def m(self):\n        from . import x\n        with ctx():\n            import os\n", encoding="utf-8")
+    lazy = next(f for f in scan_tree(tmp_path) if f["id"] == "lazy")
+    assert lazy["attrs"]["imports"] == ["os"] and [r["target"] for r in lazy["relations"]] == ["os"], "attrs.imports y facts.rels sin cambios"
+    assert lazy["attrs"]["nested_imports"] == [".", "a.b", "json,sys", "os"]
+
+
 def test_docstring_forms_and_duplicate_ids(tmp_path):
     from sldb.code.scan import scan_tree
 

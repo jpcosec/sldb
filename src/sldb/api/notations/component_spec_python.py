@@ -3,7 +3,8 @@
 Replaces spec2viz's `generate_python_ast_spec` without its own `ast` walk: the modules, their
 top-level classes and their imports come from `sldb.code`, the only place that reads Python.
 A node `module` per module (`__init__.py` skipped), `class` per top-level class, `defines`
-from module to class, `imports` per resolved import, and `external` for undeclared targets.
+from module to class, `imports` per resolved imported module (top-level and nested imports,
+one edge per pair), and `external` for undeclared targets.
 """
 
 from __future__ import annotations
@@ -52,7 +53,7 @@ def _module_elements(module: dict, classes: list[dict], elements: list[dict], re
     if module["attrs"].get("has_error"):
         return [syntax_error(module["path"])]
     _class_elements(name, safe_id, classes, elements, relations)
-    relations += [{"source": safe_id, "target": f"module_{_sanitize_id(t)}", "kind": "imports"} for t in _imports(name, module["attrs"]["imports"])]
+    relations += [{"source": safe_id, "target": f"module_{_sanitize_id(t)}", "kind": "imports"} for t in _imports(name, module["attrs"]["imports"] + module["attrs"].get("nested_imports", []))]
     return []
 
 
@@ -64,9 +65,9 @@ def _class_elements(name: str, safe_id: str, classes: list[dict], elements: list
 
 
 def _imports(module: str, imports: list[str]) -> list[str]:
-    """Each imported module, relative ones resolved against `module`'s package."""
+    """Each imported module once, in first-seen order, relative ones resolved against `module`'s package."""
     targets = [_resolve(module, name) for entry in imports for name in entry.split(",")]
-    return [t for t in targets if t]
+    return list(dict.fromkeys(t for t in targets if t))
 
 
 def _resolve(module: str, target: str) -> str | None:

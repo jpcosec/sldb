@@ -20,6 +20,9 @@ TREE = {
                 "class A:\n    class Inner: pass\n    def m(self): pass\nif True:\n    class Hidden: pass\ndef f(): pass\nclass Z: pass\n",
     "pkg/sub/b.py": "from __future__ import annotations\nfrom pkg.a import A\nclass Thing(A): pass\n",
     "pkg/bad.py": "class Ok: pass\ndef broken(:\n",
+    "pkg/lazy.py": "def f():\n    from pkg.sub import b\nif False:\n    import json\n",
+    "pkg/typed.py": "import os\nfrom typing import TYPE_CHECKING\nif TYPE_CHECKING:\n    from pkg.a import A\n    import os\n"
+                    "def g():\n    import os\n    from .sub.b import Thing\n",
     "other/x.py": "class X: pass\n",
 }
 
@@ -56,6 +59,18 @@ def test_imports_are_resolved_and_undeclared_targets_are_external(tree):
     assert {("module_pkg_a", "module_os"), ("module_pkg_a", "module_json"), ("module_pkg_a", "module_sys")} <= imports
     assert spec["data"]["nodes"]["module_os"] == {"label": "os", "kind": "external"}
     assert "module_other_x" not in spec["data"]["nodes"] and spec["id"] == "p"
+    validate_spec(ComponentDiagram.model_validate(spec))
+
+
+@needs_code
+def test_nested_imports_draw_one_edge_per_pair(tree):
+    spec, _ = component_spec_from_python(tree, root_package="pkg")
+    edges = [(e["from"], e["to"]) for e in spec["data"]["edges"] if e["relation"] == "imports"]
+    # `from pkg.sub import b` names the module `pkg.sub`, like the same import at the top level of pkg/a.py
+    assert ("module_pkg_lazy", "module_pkg_sub") in edges and ("module_pkg_lazy", "module_json") in edges  # en def y bajo if
+    typed = [t for s, t in edges if s == "module_pkg_typed"]
+    assert sorted(typed) == ["module_os", "module_pkg_a", "module_pkg_sub_b", "module_typing"]  # TYPE_CHECKING, def, relativo; os una vez
+    assert len(edges) == len(set(edges))
     validate_spec(ComponentDiagram.model_validate(spec))
 
 

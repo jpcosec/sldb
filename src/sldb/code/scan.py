@@ -15,7 +15,7 @@ from typing import Any
 from sldb.code.facts import fact, key_of, rels
 from sldb.code.fingerprints import fingerprints
 from sldb.code.ids import Ids
-from sldb.code.imports import py_imports, py_module_name
+from sldb.code.imports import py_imports, py_module_name, py_nested_imports
 from sldb.code.readers import field_text, py_doc, py_end_line, py_native_kind, py_signature
 from sldb.code.runtime import parse, runtime
 
@@ -55,10 +55,10 @@ def scan_file(rel: str, root: Path, idgen: Ids | None = None) -> list[dict[str, 
 
 def _module_fact(mid: str, module: str, rel: str, rootn: Any, src: bytes, digest: str) -> dict[str, Any]:
     nlines = len(src.decode("utf-8", "replace").splitlines())
-    imports = sorted(py_imports(rootn, src))
+    imports, nested = sorted(py_imports(rootn, src)), sorted(py_nested_imports(rootn, src))
     return fact(id=mid, kind="module", name=module.rsplit(".", 1)[-1] if module else "__init__", qualified_name=module, path=rel,
                 span={"start_line": 1, "end_line": max(nlines, 1)}, source_hash=digest, doc=py_doc(rootn, src), relations=rels(None, imports),
-                attrs={"native_kind": rootn.type, "module": module, "imports": imports, "has_error": rootn.has_error}, fingerprints=fingerprints(rootn, src))
+                attrs={"native_kind": rootn.type, "module": module, "imports": imports, "nested_imports": nested, "has_error": rootn.has_error}, fingerprints=fingerprints(rootn, src))
 
 
 def _captures(rootn: Any) -> dict[tuple, tuple[str, Any]]:
