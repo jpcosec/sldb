@@ -1,0 +1,36 @@
+name: review-task-la-puerta-de-afirmaciones-vuelve-a-verde-el-changelog-no-nombra-la-ruta-inexistente-docs-architectur-evidence-materialization-1
+path: desk/reviews/task-la-puerta-de-afirmaciones-vuelve-a-verde-el-changelog-no-nombra-la-ruta-inexistente-docs-architectur/evidence-materialization-1.md
+source_hash: 7ee9c22854dca3ff46b1923d695a52f620eb1bd395547c32cb7b86b9a3d5120f
+content_hash: 74de67aeba3c2f4efc21b8e4146aee6fbb6c85d08be629c21e984f0019a55f35
+field_hashes:
+  id: ad64e1a02e1accbacdc301708e8e69773d75d1e8ac994535ce3dc8c59b5d09cd
+  title: c889d8a82e83a5cd5bbf3b8e26770d378dd79e1b508a440ad114b21783f1a932
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: f2036554fa646859f33edb324c1c37c68359525f5290d4313bb61b728ac24629
+  subject: 556645b5f378e4264dda6048628c28877d4d92406c80d90d04ddffb8ae0f9dea
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: c62b472454e96ffd46a942d90648da0a96f9c6c971ae51d6a1fdf0e733ea82d1
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: b4f5c1f6cfd52991e1c20d9128802d5994fb90984ee22e158e479eac0b2ff9f1
+  created_at: 5347f4bf2f2191b099932f57af08bc5cfa99c58913af39de5ddec5136f9f8117
+  disposed_at: 5347f4bf2f2191b099932f57af08bc5cfa99c58913af39de5ddec5136f9f8117
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: ba6545e0e2ccdbb91126fa3a5a9860acf5d1ab40a0dae8fd3484e48b35e58c2e
+  disposition: 54c18b6c179cae9e83ce27117d453cf2b91cf2643414ab4171718c2db444fc0d
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T17:02:28Z'
+  authority: generated
+  via: save_document_payload

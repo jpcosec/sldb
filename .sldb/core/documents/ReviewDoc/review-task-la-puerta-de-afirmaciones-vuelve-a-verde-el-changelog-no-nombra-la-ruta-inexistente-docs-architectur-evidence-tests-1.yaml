@@ -1,0 +1,36 @@
+name: review-task-la-puerta-de-afirmaciones-vuelve-a-verde-el-changelog-no-nombra-la-ruta-inexistente-docs-architectur-evidence-tests-1
+path: desk/reviews/task-la-puerta-de-afirmaciones-vuelve-a-verde-el-changelog-no-nombra-la-ruta-inexistente-docs-architectur/evidence-tests-1.md
+source_hash: ef9ea998cb82c0b7bf2846ef992d9be62804e09fa5f25c0817fa045428601f41
+content_hash: 29851a72df65a7dd244e0ae81c41bb0fdd722c2facaa0d1dcd1c20f9a6e0710b
+field_hashes:
+  id: 6e1a46f36cb37f640e49cdba370372f4ba716919d1237fe1b071fe2839c550e8
+  title: fca39f3697ef45534049e28cea20064c61b62a69e072fa1cf3a08c4f67ffa8be
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: 68f05093bc600659c0aecd265fad80c71a658cc857e91cdfeeee782eb670c200
+  value: 369d06b0bc4bdd23b5e816bd9c29d3e6aebf9f69cafe935977f952892fe1387a
+  subject: 556645b5f378e4264dda6048628c28877d4d92406c80d90d04ddffb8ae0f9dea
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: cb2adf81a650ca7a83dad650ece8cc82be49d611d659f6a08597aea8442a05a9
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: a3d27d81ff2a36011d3739e6de246c9dd8e67b0072867e98303f5932c4850ce3
+  created_at: 5347f4bf2f2191b099932f57af08bc5cfa99c58913af39de5ddec5136f9f8117
+  disposed_at: 5347f4bf2f2191b099932f57af08bc5cfa99c58913af39de5ddec5136f9f8117
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 2f96bf18f03f6c25d27599b37a038557076315a5e39f9240924b13b3cbf3de95
+  disposition: 842aad45801c9c5e6017212fc611d197bde9e10ec6bc9568e137142b2d4fc499
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T17:01:36Z'
+  authority: generated
+  via: save_document_payload

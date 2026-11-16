@@ -1,0 +1,9 @@
+Task: task-la-puerta-de-afirmaciones-vuelve-a-verde-el-changelog-no-nombra-la-ruta-inexistente-docs-architectur
+Title: La puerta de afirmaciones vuelve a verde: el CHANGELOG no nombra como ruta un vistas.yml que no existe
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective atoms:
+- atom-las-pruebas-de-notaciones-paletas-vista-resuelta-y-viewdoc-que-tenía-spec2viz-viven-en-sldb-y-solo-i
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
