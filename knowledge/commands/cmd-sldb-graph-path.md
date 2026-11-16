@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T20:51:56Z'
+  at: '2026-11-16T21:14:48Z'
   authority: generated
   via: save_document_payload
 id: cmd-sldb-graph-path
@@ -9,7 +9,7 @@ system: sldb
 command_path: graph path
 synopsis: How two nodes are connected.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#graph path; contract-sha256:4ef7402c8b1d75f62cbc864bda3f9153b254b0c3aa912d57ac8eeaf1d5da8825
+provenance: parser:sldb.cli.parser:build_parser#graph path; contract-sha256:422b5c7230c2a5c6307a0c2b8dd2007b5d4ff90a74811ed38e26dfd0f40440c9
 ---
 
 # graph path
@@ -121,6 +121,19 @@ Not documented.
       "action": "argparse._StoreAction",
       "const": "null",
       "help": "With --all, how many routes to print (default 10)"
+    },
+    {
+      "names": [
+        "--explain"
+      ],
+      "required": false,
+      "default": "false",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "argparse._StoreTrueAction",
+      "const": "true",
+      "help": "Print each hop with its edges: relation, direction and provenance"
     },
     {
       "names": [

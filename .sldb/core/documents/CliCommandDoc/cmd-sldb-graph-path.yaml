@@ -1,7 +1,7 @@
 name: cmd-sldb-graph-path
 path: knowledge/commands/cmd-sldb-graph-path.md
-source_hash: 7916fc8f7990f01c208d7b98d80593a3b2ae7d56dcb1da71387100309e7bb9ac
-content_hash: ac4ac98707d9ff649239e1d7be2c15ce83655b116906c1b434e304058f796b78
+source_hash: a6687ade4107c3085c2ffb6b4b34412529bd46e7170607720b0f00e8311edfb0
+content_hash: 715d29010f8b90cec35f64f4ee2b5275bb12f926f806ce527d64c63aef6f49b5
 field_hashes:
   id: ada6bf9094f14849e35c9ab2ee7f4eb2cbd2282f9e2a97953775263a5d82131d
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,10 +9,10 @@ field_hashes:
   synopsis: b1d261c81d6ff16b8cf67d8e465bf937ad16e7352ee57dbaea9572003438d218
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: 1c49e011640d6abe8fb0899e362d332bb21db7cb1a205e17bc3aaddadc555783
+  arguments: b7f167059604f738bd98896b9f4d9dc7828ec75c1cfad958da8e20a381aa9978
   usage: 100a1124db760399653be6fd2d51a697b36f1fadee0214d3454b3880a46387a5
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: c72ff6f01592c3295bcd07acde29d82d761998091973646bf3f1f04ccc4bda44
+  provenance: 6c2ee855f86c7067a9c15431bcc4f7f7091f74244d683bdbd23628afad837a67
 semantic_tags:
 - representation.markdown
 - source.document.markdown
@@ -20,6 +20,6 @@ semantic_tags:
 - workspace.knowledge.commands
 provenance:
   by: agent
-  at: '2026-11-16T20:51:56Z'
+  at: '2026-11-16T21:14:48Z'
   authority: generated
   via: save_document_payload
