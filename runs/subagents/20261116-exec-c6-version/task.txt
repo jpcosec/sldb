@@ -1,0 +1,9 @@
+Task: task-clean-code-tras-sldb-version-source-revision-con-10-líneas-de-lógica-como-máximo
+Title: Clean code tras sldb --version: source_revision con 10 líneas de lógica como máximo
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective atoms:
+- atom-sldb-version-dice-la-versión-del-paquete-y-desde-un-checkout-git-el-describe-y-la-ruta-del-checkout
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
