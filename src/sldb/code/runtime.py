@@ -2,7 +2,7 @@
 
 One runtime per grammar, chosen by the file's extension: `.py` reads with tree-sitter-python;
 `.ts` with the `typescript` grammar of tree-sitter-typescript, and `.tsx`, `.js` and `.jsx` with
-its `tsx` grammar, which parses JavaScript too.
+its `tsx` grammar, which parses JavaScript too; `.sql` with tree-sitter-sql.
 """
 
 from __future__ import annotations
@@ -13,7 +13,7 @@ from typing import Any
 
 _TSX = ("tsx", "tree_sitter_typescript", "language_tsx")
 GRAMMARS = {".py": ("python", "tree_sitter_python", "language"), ".ts": ("typescript", "tree_sitter_typescript", "language_typescript"),
-            ".tsx": _TSX, ".js": _TSX, ".jsx": _TSX}
+            ".tsx": _TSX, ".js": _TSX, ".jsx": _TSX, ".sql": ("sql", "tree_sitter_sql", "language")}
 TS_SUFFIXES = (".ts", ".tsx", ".js", ".jsx")
 _RUNTIME: dict[str, tuple[Any, Any]] = {}
 

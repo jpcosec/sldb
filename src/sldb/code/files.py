@@ -1,4 +1,4 @@
-"""The source files a scan reads: every `.py`, plus `.ts`, `.tsx`, `.js` and `.jsx` when their grammar is installed."""
+"""The source files a scan reads: every `.py`, plus `.ts`, `.tsx`, `.js`, `.jsx` and `.sql` when their grammar is installed."""
 
 from __future__ import annotations
 
@@ -12,7 +12,7 @@ _SKIP = {"__pycache__", "node_modules"}
 
 def find_files(root: Path) -> list[str]:
     """Relative paths with `/`, sorted by their parts; `__pycache__` and `node_modules` are not walked."""
-    suffixes = (".py",) + (TS_SUFFIXES if available(".ts") else ())
+    suffixes = (".py",) + (TS_SUFFIXES if available(".ts") else ()) + ((".sql",) if available(".sql") else ())
     out = []
     for base, dirs, files in os.walk(root):
         dirs[:] = sorted(d for d in dirs if d not in _SKIP)

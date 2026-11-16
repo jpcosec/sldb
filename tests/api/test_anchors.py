@@ -3,6 +3,7 @@ anchoring.md §3, the error-versus-alert split, and no alert ever silent."""
 from __future__ import annotations
 
 import json
+import shutil
 import sys
 from pathlib import Path
 
@@ -173,5 +174,77 @@ def test_python_anchors_keep_their_recorded_with_and_ts_refs_parse(world):
 
     root, _store = world
     assert record_anchor(root, REF)["recorded_with"].startswith("treesitter-symbols/1 (tree-sitter-python ") and record_anchor(root, REF)["recorded_with"].endswith(")")
-    assert [parse_code_ref(f"code:a/b{ext}::X") for ext in (".ts", ".tsx", ".js", ".jsx")] == [(f"a/b{ext}", "X") for ext in (".ts", ".tsx", ".js", ".jsx")]
+    assert [parse_code_ref(f"code:a/b{ext}::X") for ext in (".ts", ".tsx", ".js", ".jsx", ".sql")] == [(f"a/b{ext}", "X") for ext in (".ts", ".tsx", ".js", ".jsx", ".sql")]
     assert parse_code_ref("code:a/b.css::X") is None
+
+
+DDL = ("-- Accounts.\nCREATE TABLE IF NOT EXISTS public.users (\n    id bigserial PRIMARY KEY,\n    email text NOT NULL UNIQUE,\n    profile jsonb\n);\n\n"
+       "CREATE TABLE orders (id serial, total numeric(10, 2), PRIMARY KEY (id));\n\n"
+       "CREATE MATERIALIZED VIEW totals AS SELECT sum(total) AS total FROM orders;\n\nCREATE INDEX CONCURRENTLY orders_total_idx ON orders (total);\n")
+needs_sql = pytest.mark.skipif(not available(".sql"), reason="tree-sitter-sql not installed (extra [code])")
+
+
+@pytest.fixture
+def db(tmp_path):
+    root = tmp_path / "db"
+    (root / "migrations").mkdir(parents=True)
+    (root / "migrations" / "0001_initial.sql").write_text(DDL, encoding="utf-8")
+    store = api.init_store(root).store_path
+    api.add_model(store, "sldb.models.code_anchor_doc:CodeAnchorDoc")
+    yield root, store
+    for name in [m for m in sys.modules if m.startswith("tmpdocs")]:
+        del sys.modules[name]
+
+
+def _sql_anchor(db, symbol: str) -> dict:
+    root, store = db
+    recorded = record_anchor(root, f"code:migrations/0001_initial.sql::{symbol}")
+    write_anchor(store, None, root / "anchors" / "a.md", recorded, f"{symbol} is in the schema")
+    return recorded
+
+
+def _rewrite(db, old: str, new: str) -> None:
+    (db[0] / "migrations" / "0001_initial.sql").write_text(DDL.replace(old, new), encoding="utf-8")
+
+
+@needs_sql
+@pytest.mark.parametrize(("symbol", "kind", "edit", "rename", "to"), [
+    ("public.users", "table", ("profile jsonb", "profile json"), ("public.users", "public.people"), "public.people"),
+    ("public.users.email", "column", ("NOT NULL UNIQUE", "NOT NULL"), ("email text", "mail text"), "public.users.mail"),
+])
+def test_a_sql_table_and_column_anchor_are_intact_changed_reconnected_and_lost(db, symbol, kind, edit, rename, to):
+    recorded = _sql_anchor(db, symbol)
+    assert recorded["kind"] == kind and recorded["recorded_with"].startswith("treesitter-symbols/1 (tree-sitter-sql ") and recorded["recorded_with"].endswith(", sql)")
+    assert _state(db[1]) == (AnchorState.INTACT, [])
+    _rewrite(db, *edit)
+    assert _state(db[1]) == (AnchorState.CHANGED, ["signature", "body"])
+    _rewrite(db, *rename)
+    [report] = check_anchors(db[1])
+    assert (report.state, report.to) == (AnchorState.RECONNECTED, f"code:migrations/0001_initial.sql::{to}")
+    _rewrite(db, DDL.split("\n\n")[0], "")
+    [report] = check_anchors(db[1])
+    assert report.state is AnchorState.LOST and report.candidates == []
+
+
+@needs_sql
+def test_sql_views_indexes_and_the_module_are_anchored_too(db):
+    root, store = db
+    assert [record_anchor(root, f"code:migrations/0001_initial.sql::{s}")["kind"] for s in ("totals", "orders_total_idx", "orders.total", "")] == ["view", "index", "column", "module"]
+    with pytest.raises(ValueError, match="no symbol 'users'"):
+        record_anchor(root, "code:migrations/0001_initial.sql::users")
+    write_anchor(store, None, root / "anchors" / "v.md", record_anchor(root, "code:migrations/0001_initial.sql::totals"), "totals sums orders")
+    assert [r.state.value for r in check_anchors(store)] == ["intact"]
+
+
+@needs_sql
+def test_anchors_on_a_django_sqlmigrate_migration_use_the_unquoted_names(tmp_path):
+    root = tmp_path / "dj"
+    shutil.copytree(Path(__file__).parent.parent / "fixtures" / "treesitter" / "sql" / "django", root / "m")
+    store = api.init_store(root).store_path
+    api.add_model(store, "sldb.models.code_anchor_doc:CodeAnchorDoc")
+    kinds = [record_anchor(root, f"code:m/0001_initial.sql::{s}")["kind"] for s in ("app_book", "app_book.title", "app_book_author_id_980d3e25")]
+    assert kinds == ["table", "column", "index"]
+    write_anchor(store, None, root / "anchors" / "b.md", record_anchor(root, "code:m/0001_initial.sql::app_book.title"), "books have a title")
+    assert [r.state.value for r in check_anchors(store)] == ["intact"]
+    for name in [m for m in sys.modules if m.startswith("tmpdocs")]:
+        del sys.modules[name]

@@ -1,4 +1,4 @@
-"""Scan source files into symbol facts; `.ts`, `.tsx`, `.js` and `.jsx` go to `lang_ts`. A Python
+"""Scan source files into symbol facts; `.ts`, `.tsx`, `.js` and `.jsx` go to `lang_ts`, `.sql` to `lang_sql`. A Python
 file gives its module, classes, functions and methods, each with its qualified name, span, docstring, signature and fingerprints (from kimun's adapter).
 
 A definition under `if`, `try` or any statement other than a class or function body is not
@@ -17,6 +17,7 @@ from sldb.code.fingerprints import fingerprints
 from sldb.code.ids import Ids
 from sldb.code.imports import py_imports, py_module_name, py_nested_imports
 from sldb.code.readers import field_text, py_doc, py_end_line, py_native_kind, py_signature
+from sldb.code.lang_sql import scan_sql_file
 from sldb.code.lang_ts import scan_ts_file
 from sldb.code.runtime import TS_SUFFIXES, parse, runtime
 
@@ -34,8 +35,8 @@ def scan_tree(root: Path) -> list[dict[str, Any]]:
 
 def scan_file(rel: str, root: Path, idgen: Ids | None = None) -> list[dict[str, Any]]:
     """The facts of one file: the module first, then its definitions in source order."""
-    if rel.endswith(TS_SUFFIXES):
-        return scan_ts_file(rel, root, idgen or Ids())
+    if rel.endswith(TS_SUFFIXES + (".sql",)):
+        return (scan_sql_file if rel.endswith(".sql") else scan_ts_file)(rel, root, idgen or Ids())
     src, idgen = (root / rel).read_bytes(), idgen or Ids()
     rootn, module = parse(src).root_node, py_module_name(rel)
     digest = "sha256:" + hashlib.sha256(src).hexdigest()
