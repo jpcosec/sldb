@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T20:46:36Z'
+  at: '2026-11-16T23:22:28Z'
   authority: generated
   via: save_document_payload
 id: cmd-sldb-docs-track
@@ -14,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#docs track; contract-sha256:36df920ecf47ac3888620c147a632b4ae26370a66261b4692a0d284c60b84bcd
+provenance: parser:sldb.cli.parser:build_parser#docs track; contract-sha256:bdcde5565b6fa972c415d574f09c2b8d2d9bdde8f35506fe384459d3d9165fce
 ---
 
 # docs track
@@ -138,7 +138,7 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'track'. It p
       "value_type": null,
       "action": "argparse._StoreTrueAction",
       "const": "true",
-      "help": ""
+      "help": "Skip the round-trip check; a doc already tracked at this same path is re-indexed from the file"
     }
   ],
   "exclusive_groups": []
