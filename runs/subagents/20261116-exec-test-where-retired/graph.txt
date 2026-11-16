@@ -1,0 +1,5 @@
+Missing graph references:
+- missing_declared_target: task:task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field -> desk/drawer/plans/grafo-operable/dag.yaml
+  provenance: desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md:line:64:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+1 missing, 0 informational

@@ -1,0 +1,36 @@
+name: review-task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains-evidence-atom-1
+path: desk/reviews/task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains/evidence-atom-1.md
+source_hash: 060550d822ed3caf423562dc9342e3d3ca5dc6b44772b4e4600e4f1a7c69acaa
+content_hash: b9c807797b3e5c1007414699ee1f8aadb840a4e5ada7e289215f6c5b9c15b3c1
+field_hashes:
+  id: d26983b1a2886765b00eab5aac04abb22df15053912815cca259d93b1b0c0ef3
+  title: a2ee8f59c4c8c45b2f96448c09169963e1f418497c7df5ec33a57c07b694fd74
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: c833c202b5b45ac10909767bb422916db457ddd48188a4ee591f0618893df0ba
+  value: e5d3f5364b340b2b7db770a93b262dc482c1e32c0361f60cb7e97f67f11e37af
+  subject: dedee0e489231f8f07106322ddfc97adaad6f41522d7a325e90b9ae50f8bbb72
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: ee8a653f87c903853f9a9a12c825b734de37ccbc2ef2f9978df98b694acfe3ed
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 15571f6ae2eeff1d4b291e9ad46cbf47bc0fb5778868476796b2352a21d34cb6
+  created_at: 48385900f6e56feae98454fecf80669dc5ba1f271bde4956481ee397d76b2aa9
+  disposed_at: 48385900f6e56feae98454fecf80669dc5ba1f271bde4956481ee397d76b2aa9
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 61c89af7e597778d2b4734934545d0f7419926f000d41aa1763a527e4709eab7
+  disposition: 66ee75641164288376c075a88cd34901795b2b3aa4ee7d5f874d05189e83ca8f
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-16T09:14:24Z'
+  authority: generated
+  via: save_document_payload

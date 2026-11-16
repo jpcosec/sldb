@@ -1,0 +1,52 @@
+== git diff --stat (task files) ==
+ CHANGELOG.md                      |  1 +
+ tests/store/test_where_retired.py | 29 +++++++++++++++++++++++++----
+ 2 files changed, 26 insertions(+), 4 deletions(-)
+== CHANGELOG context ==
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 776d2960..4b79b8ea 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -6,0 +7 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
++- test_where_retired ya no confunde la relación contains con el operador viejo (task `task-test-where-retired`, nota del inbox `test-where-retired-de-go10-confunde-la-relación-contains-con-el-opera
+== pytest ==
+....                                                                     [100%]
+=============================== warnings summary ===============================
+../../../cache/uv/archive-v0/gknaFI31U0-fOsMN/lib/python3.13/site-packages/_pytest/config/__init__.py:1636
+  /mnt/ssd/cache/uv/archive-v0/gknaFI31U0-fOsMN/lib/python3.13/site-packages/_pytest/config/__init__.py:1636: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 0.32s
+rc=0
+== pytest -v ==
+========================= 4 passed, 1 warning in 0.33s =========================
+== tester script ==
+OK  PREDICATE_CONTAINS.pattern == scope
+OK  OPERATORS pattern without contains
+OK  _old_operators("sldb edges --relation contains") == []
+OK  _old_operators('status contains "x"') == ['contains']
+OK  eq whole word counts
+OK  eq inside word does not count
+OK  ne whole word counts
+OK  ne inside word does not count
+OK  gt whole word counts
+OK  gt inside word does not count
+OK  lt whole word counts
+OK  lt inside word does not count
+OK  starts_with whole word counts
+OK  starts_with inside word does not count
+OK  is_null whole word counts
+OK  is_null inside word does not count
+OK  is_not_null whole word counts
+OK  is_not_null inside word does not count
+OK  'a.b contains 3' -> ['contains'] (got ['contains'])
+OK  'tags contains [1]' -> ['contains'] (got ['contains'])
+OK  'x contains y' -> ['contains'] (got ['contains'])
+OK  'contains:' -> ['contains'] (got ['contains'])
+OK  '`contains`' -> [] (got [])
+OK  "status eq 'a'" -> ['eq'] (got ['eq'])
+OK  old regex makes edge-relation test fail (AssertionError: contains)
+ALL OK
+rc=0

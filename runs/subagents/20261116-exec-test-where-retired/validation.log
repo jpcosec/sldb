@@ -1,0 +1,23 @@
+$ TMPDIR=/dev/shm pytest -q tests/store/test_where_retired.py
+/bin/bash: line 20: pytest: command not found
+rc=127
+$ TMPDIR=/dev/shm pytest -q tests/store/test_where_retired.py   (pytest = .venv/bin/pytest; pytest no está en PATH, primer intento rc=127)
+/bin/bash: line 3: .venv/bin/pytest: No such file or directory
+rc=127
+
+$ TMPDIR=/dev/shm uvx --from "pytest>=8" pytest -q tests/store/test_where_retired.py   (pytest aislado de uvx: el .venv del repo no tiene paquetes; no se sincroniza para no tocar uv.lock ajeno)
+Installed 5 packages in 49ms
+....                                                                     [100%]
+=============================== warnings summary ===============================
+../../../cache/uv/archive-v0/gknaFI31U0-fOsMN/lib/python3.13/site-packages/_pytest/config/__init__.py:1636
+  /mnt/ssd/cache/uv/archive-v0/gknaFI31U0-fOsMN/lib/python3.13/site-packages/_pytest/config/__init__.py:1636: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 0.35s
+rc=0
+
+$ python3 -c (comprobación literal de done_when)
+[] ['contains']
+rc=0

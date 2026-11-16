@@ -414,6 +414,10 @@ include:
     name: run-sldb-close-serve
   - path: runs/subagents/20261029-125456-task-cerrar-task-store-generalize/run.md
     name: run-sldb-close-generalize
+  - path: runs/subagents/20261116-exec-test-where-retired/run.md
+    name: run-deskops-e-f61ad438e462
+  - path: runs/subagents/20261116-test-test-where-retired/run.md
+    name: run-deskops-t-e73d2fad915b
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -613,6 +617,7 @@ include:
   - desk/materializations/materialization-link-missing-commands-stores-build-check.md
   - desk/materializations/materialization-link-missing-commands-stores-link-alert.md
   - desk/materializations/materialization-link-missing-store-test-stores-build.md
+  - desk/materializations/materialization-go10-test-where-retired-contains-en-contexto-de-predicado.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -1038,6 +1043,20 @@ include:
     name: review-task-r6-el-tokenizer-y-el-parser-del-lenguaje-de-reglas-bajan-a-core-para-cerrar-la-arista-de-capas-model-bundle-2
   - path: desk/reviews/task-decisión-de-jp-decisión-6-separar-el-store-de-sldb-en-un-paquete-propio-o-quedarse-con-el-desacople/bundle-2.md
     name: review-task-decisión-de-jp-decisión-6-separar-el-store-de-sldb-en-un-paquete-propio-o-quedarse-con-el-desacople-bundle-2
+  - path: desk/reviews/task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains/evidence-tests-1.md
+    name: review-task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains-evidence-tests-1
+  - path: desk/reviews/task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains/evidence-commit-1.md
+    name: review-task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains-evidence-commit-1
+  - path: desk/reviews/task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains/evidence-materialization-1.md
+    name: review-task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains-evidence-materialization-1
+  - path: desk/reviews/task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains/evidence-tests-2.md
+    name: review-task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains-evidence-tests-2
+  - path: desk/reviews/task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains/evidence-commit-2.md
+    name: review-task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains-evidence-commit-2
+  - path: desk/reviews/task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains/evidence-atom-1.md
+    name: review-task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains-evidence-atom-1
+  - path: desk/reviews/task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains/evidence-materialization-2.md
+    name: review-task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains-evidence-materialization-2
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -1054,7 +1073,6 @@ include:
   - desk/tasks/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2.md
   - desk/tasks/task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3.md
   - desk/tasks/task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida.md
-  - desk/tasks/task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains.md
   - desk/tasks/task-scan-tree-registra-los-imports-anidados-y-component-spec-from-python-dibuja-sus-aristas.md
   - desk/tasks/task-el-oráculo-de-paridad-de-d2-deja-de-importar-spec2viz-golden-congelado-en-tests-notations.md
   - desk/tasks/task-label-key-de-sldb-api-matching-trata-el-guion-bajo-como-separador-igual-que-normkey-del-catálogo.md

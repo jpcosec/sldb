@@ -1,0 +1,7 @@
+Task: task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains
+Title: test_where_retired distingue el operador viejo contains de la relación de aristas contains
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]

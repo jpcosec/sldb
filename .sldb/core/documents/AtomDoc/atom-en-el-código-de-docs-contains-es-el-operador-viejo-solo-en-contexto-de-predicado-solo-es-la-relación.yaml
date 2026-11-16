@@ -1,0 +1,23 @@
+name: atom-en-el-código-de-docs-contains-es-el-operador-viejo-solo-en-contexto-de-predicado-solo-es-la-relación
+path: desk/atoms/atom-en-el-código-de-docs-contains-es-el-operador-viejo-solo-en-contexto-de-predicado-solo-es-la-relación.md
+source_hash: 3b9f4847d10a2a072293b0fa34e2e2ecb8bed996d3df351b5af4d2a6df4b680b
+content_hash: 7138ae7582f88e3e2ee5ebbfcbe48111cb91a4a0eb5c13514f8832aec01b1def
+field_hashes:
+  id: e5d3f5364b340b2b7db770a93b262dc482c1e32c0361f60cb7e97f67f11e37af
+  title: d9ebcff4eb6c6ce989eeca2d571dcd822a60abf3484d28d2d5dd59d3f66e3207
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: 30a6c96face5d00e282c0c28c9549edd9f1ae8286bd89d1742105e0384bb7b45
+  tags: 65c656fe0d1e646666a5fafe94d872923824df40dcbe1b7eed59e7f33e445551
+  provenance: 9f573bcfc946c3d670ec4b6ebe2b923bfe7db13a5bdf79e89cdb947ef1a45d9f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:rules-language
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-16T09:12:45Z'
+  authority: generated
+  via: create_document

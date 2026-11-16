@@ -1,0 +1,25 @@
+name: materialization-go10-test-where-retired-contains-en-contexto-de-predicado
+path: desk/materializations/materialization-go10-test-where-retired-contains-en-contexto-de-predicado.md
+source_hash: a4d7f99f24dbeae26891b202d5691ad2e81c74bc61093503fbc60079a89b27ea
+content_hash: 8a1c0c17101897343c2b7094c3b050901796cfa95ae6fde606a41f1aceeff792
+field_hashes:
+  id: 67600db28350a7155caa2979f37339ea15570a0850c453aec7a5e0a8551242a9
+  title: 0093c5a0ad3d685d66b59470649e044478a0c7d3d836f1886ebf2fffd4c2b190
+  source_atoms: ea4dee02f517e54e7ee89f27c5b8e60b615b18f6377ec43f13109c6d6ea0b560
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 9f573bcfc946c3d670ec4b6ebe2b923bfe7db13a5bdf79e89cdb947ef1a45d9f
+  intent: a63dd8590a86f1de34ce5540c9d541249f653bdc1514cba525c67027220d4871
+  validation: bc40ec89afdde46a6c9c3aef03edd4237688a6f19a2ad075ffc514f8b0a904a0
+  tags: 65c656fe0d1e646666a5fafe94d872923824df40dcbe1b7eed59e7f33e445551
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:rules-language
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T09:13:11Z'
+  authority: generated
+  via: create_document
