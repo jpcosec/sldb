@@ -293,6 +293,7 @@ include:
   - desk/inbox/20261115-215007-suggestion-ir13b-pide-exportar-desde-sldb-api-notations-los-errores-de-rutas-del-cat-logo-default-notations-builtin-notations-y-resolve-catalog-path.md
   - desk/inbox/20261115-224828-suggestion-ir13-pide-migrar-lo-que-queda-de-sldb-sobre-spec2viz-or-culo-de-d2-vistas-yml-identity-toml.md
   - desk/inbox/20261115-224941-suggestion-matching-edges-catalog-build-con-tomos-tarda-minutos-porque-cada-edges-of-recompone-live-stale-y-mapas-del-ndice-federado.md
+  - desk/inbox/20261115-195033-unclear-un-store-por-rama-no-hay-forma-de-unir-dos-stores-al-mergear.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
