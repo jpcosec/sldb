@@ -3,8 +3,8 @@ model_ref: sldb.models.relation_doc:RelationDoc
 path: src/sldb/models/relation_doc.py
 documents_index: .sldb/core/documents/RelationDoc.yaml
 sections_index: .sldb/runtime/sections/RelationDoc.yaml
-model_hash: e5f0cfc6dcdcd4b190e1c3aaa35b9e8c920c634775029b45ae6674f136e5c953
-roster_hash: d9e415f219db59220f0407771b6e5ab0a666ed5a1f44a5cd8b552f25d137ddbb
+model_hash: 1f3ca85d4281b8109f7a706e302a73d3935c9096f1f98ebcbb866cdc1b9bf936
+roster_hash: ac83a74a59bec9a42a2a0cf3b20adcde3f677149500e7bd81d9f1c0c56bd6232
 contract_hash: a71cc04505ddc23c00b8a9ff917e000e955fe11de68ddbaeb08da2bb1e68c9a6
 documents_count: 3
 version: 1
