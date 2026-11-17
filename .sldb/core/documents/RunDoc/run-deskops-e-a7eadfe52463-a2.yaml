@@ -1,0 +1,32 @@
+name: run-deskops-e-a7eadfe52463-a2
+path: runs/subagents/20261116-exec-contract-signature-i2/run.md
+source_hash: 4fa8218f37e67fa65747437687cf54e4493e242aeb4e32b6c12b10a3e3941594
+content_hash: 95a843dc61d696d134dfe58e017a478c205591e6a2c88c465322043b8f7bd8c4
+field_hashes:
+  id: bb2c2c9f7f08740cfe3c0a2d9f40d5f66ff4c9678c5802c05a07d90dcbf9f045
+  title: f0e8c0e9ea154c3bd86524d0a2a1fd5870b819d255e64ff1af8dd8c1018fb9e8
+  summary: 7fd92d5a07165ad7e6c88a9dfb63534b343bd813f84f0cdec3302c7daece474e
+  task_id: b41df4f4bac752d088b0035b7b8f27e3030f040d9c3a1b0a112e716de5aaaaea
+  role_id: cceb5990692aa96751fe6e202ebc9a5dcc0a31d3c664560d73a36c4cba729394
+  kind: 96c81898a4d63d912d0cee94085ed295aa48c71cce6e2a1afc001676d9dde766
+  run_dir: a6580bbca1b076de70a6b2403c3f5fcbe19163f9e8babd153471a2e89e1707ea
+  herdr_pane_id: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  session_path: fbdc8fbf80dd522920f529176086ea536b84208838a77e502d217b0c44e959a6
+  session_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  started_at: a3c2a09b287028a391a5f1b7c0284fa73d683f02ee394f1cc043d2591164fde9
+  ended_at: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  outcome: de2bc7968076346e1ae2e62d3fd6385361b3855025678cd2732d9132eb9965cb
+  commit_sha: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 82b76cc5dace91279820eb1061e36da0b31e379da526bb858ab6e54f6cff9ca8
+semantic_tags:
+- representation.markdown
+- runtime:scion
+- source.document.markdown
+- system:deskops
+- type.workflow.run
+- workspace.desk.runs
+provenance:
+  by: agent
+  at: '2026-11-17T00:33:44Z'
+  authority: generated
+  via: create_document

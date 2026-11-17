@@ -1,0 +1,25 @@
+name: materialization-contract-signature-i2-test-doc-anchors
+path: desk/materializations/materialization-contract-signature-i2-test-doc-anchors.md
+source_hash: 3fe7c605d0e0cff91e66ff0125290498c6ad2fa140677689e389863514f25541
+content_hash: 439a124cf95cf5f94843bbdf0df45e07886583527fb7cf2064daa90250cc7ec5
+field_hashes:
+  id: 194e06f25b6e9ec2ab896b1a2f4fb1f7ed86df60d4ac4053a22d58ad7dbd758d
+  title: 57be006615bc6c596527458587b758b12c32c8badefae5c593798a09f7e4be3c
+  source_atoms: fc27372a842c7b4e4986bf80ef4f02e59d0c40299088517bec364dc47a88577f
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 3989058a47c617cf7bed3e9a9f6fdac0a94b9940dfb25e804740279738ad4805
+  intent: f3064ccc4d21405ea085fa32705b4e52c73ae8afbeff84f236bc8f09133801be
+  validation: f49bc2ea105b48ac88089af119bbf3e511752ddf74cbf1882a0dbbf24271e817
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T01:06:05Z'
+  authority: generated
+  via: create_document

@@ -1,0 +1,10 @@
+Task: task-contract-signature-cubre-indexed-doc-anchors-y-contract-y-un-campo-no-puede-ser-a-la-vez-referencia
+Title: contract_signature cubre __indexed__, __doc_anchors__ y __contract__, y un campo no puede ser a la vez referencia y ancla
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+From drawer: drawer task-anclas-a-documentos-doc-anchors-fuera-de-la-firma-de-contrato-y-aristas-duplicadas-con-references (retirado en el triaje 2026-11-16; contenido en git antes del commit del triaje)
+Effective atoms:
+- atom-lo-que-la-clase-declara-se-relee-cada-vez-que-el-store-firma-el-modelo
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]

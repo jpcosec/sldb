@@ -1,0 +1,36 @@
+name: review-task-contract-signature-cubre-indexed-doc-anchors-y-contract-y-un-campo-no-puede-ser-a-la-vez-referencia-evidence-materialization-1
+path: desk/reviews/task-contract-signature-cubre-indexed-doc-anchors-y-contract-y-un-campo-no-puede-ser-a-la-vez-referencia/evidence-materialization-1.md
+source_hash: 12f83f7cfe10d9d559b1f17ede9863551e254483cec220f29abf880426021bc3
+content_hash: 996ac35f234a9a4384985f1ccd58f8c1381ad9b019ba137d2d884876b1777b5f
+field_hashes:
+  id: 6cf5894efcc53b9b7069756c9c1a4e53c344db2f468e1662f6fb3dd53ed18e80
+  title: 5e5ca536ed5875867e77f9ac65f8d913cab4dcf49fbc12aa06a1740dd508d87d
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: 3397325679e16014fc1aaf82231452dd162049aa8f695d5af51500d8a08a5026
+  subject: 615b682efe844fcc8f9e6d92051467e1b8974485f6a86b1ca79141cc9c4aec9a
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 1fa23cfa433734e4f226b4f9632c4d0077d35be64c32e063dd9a426b1f943470
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 7565c080cfa88c2b55feefe0f8bee90e091f5729e599fa224bd213622b10d003
+  created_at: 855a93fd1b986cbb3d326b195447d8cad52b03bd346fca1cc211e16dbbccbf5f
+  disposed_at: 855a93fd1b986cbb3d326b195447d8cad52b03bd346fca1cc211e16dbbccbf5f
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 16c7405b3e944a19b0d3d4db5670b13c9297e3be39d0b2562fe0b82633f8dcbf
+  disposition: 8a92d8493ef0f3b188e31685a6d909fc44711f72a4d160f5ae7fe0787ea8fcf2
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T01:07:28Z'
+  authority: generated
+  via: create_document

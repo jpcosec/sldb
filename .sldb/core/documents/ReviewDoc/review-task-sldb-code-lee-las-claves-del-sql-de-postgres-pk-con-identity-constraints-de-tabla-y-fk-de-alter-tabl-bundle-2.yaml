@@ -1,0 +1,36 @@
+name: review-task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl-bundle-2
+path: desk/reviews/task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl/bundle-2.md
+source_hash: 86fd2bd016dea52cc496d10d172afc5a46d65b9c2b2a69f3eea2d07bc3bca0e8
+content_hash: 9da58fba576460f222d77bdf34f2ab516e2d8ea08345fccd978bbf07bb910475
+field_hashes:
+  id: 71c24a893982efdd41271ba941beb52221c07376fc77cdf3348f3bc4d60b5c14
+  title: 873e4b85c83c9b950ffddea754b77159f34831fbee5b0882b8d103619c4ced0c
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: faab03d2efb67dee4e3b3eea062c70e335ac168e62dfda2110fc726b47a9c603
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 222b193d0ff48d832d96d031dc35ffceafb7aef744210326f43bca065c63de02
+  input_sha256: 8e07491ff1828671d6c20792c81ed61f4f719deb6f3d6fcd87d0f99d5991a07c
+  output_sha256: 22c724822faec728b0d2857252dded55e4bb6cfe69f4bba9a3dfc3821576e162
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 4a10abb3b36e4237f7e3489377969ef7f6c3a22b8f55a0421d95f8a4b8926013
+  created_at: f3705a1d56105bce3f21ab3f09e6d8a9ec97e4ab4c17ce48cc52cefdf0a0bedb
+  disposed_at: abef037c919a6c3c7bbc7f5ee254da9ba53243688cb0e8314b57628a27578350
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 39db630f775f4d5aee2ed1bad4dc78cd67ef147778134953a2a5ec10af22fa0e
+  disposition: 9f642631b73f06703fd3ff858fa4884b2303200bef2a14f5a3ad4b1ede7a747e
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T01:02:38Z'
+  authority: generated
+  via: save_document_payload

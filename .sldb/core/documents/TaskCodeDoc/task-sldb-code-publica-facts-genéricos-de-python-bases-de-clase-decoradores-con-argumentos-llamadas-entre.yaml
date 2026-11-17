@@ -1,0 +1,39 @@
+name: task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre
+path: desk/tasks/task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre.md
+source_hash: af4ae49d8666863b9709a030cee50be83ac091c3f1b0639a6758588881499973
+content_hash: 50e1e9643975353b06207be0a0b693352ab384950e7a5eb1f57eba69fd2512f3
+field_hashes:
+  title: a5c6eabd9161d8b062b4a1e46a217b385a2aed49b119cc5f5e535d860af08eec
+  id: 4ccef91acf80c03537a012562d50983bdbfe269bf01dd8e5c5500adb6818d509
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: a69e4a4302a83843005f68dd77216033de367822f1792b8342d97fe68df0c378
+  goal: 030af82074788468bb7c6532ecc75c4f5add1c050272dbf706e3998d7d2ceebf
+  scope: b8481fd33a282066a17403200d253a98170a1478374ed16746c80e03b79943bc
+  references: 45dc626c8b991be7079ea9e53e9d4a47dd64a6c8f819cac48e97b8a403626449
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: cefbe0da31baaaa0a0f1c63b6a23dced80eadc40da9a331f942ac1918f258ce9
+  implementation_path: 9b0a35f32ba59099f538c0b1e6a538e78e6ea231495232fe49ac3780710bc5cc
+  validation: 305d67fd032eea2545eb11267a8e96531fff968e2247df8900b90f12e2ddb705
+  done_when: 6a2ba5d775a1353b70f62125e8e9bb290d298dd67fdbbf1eadc2afcd0c02fec8
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T00:43:55Z'
+  authority: generated
+  via: save_document_payload

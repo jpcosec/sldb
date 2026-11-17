@@ -1,0 +1,25 @@
+name: materialization-contract-signature-i2-edge-node-record
+path: desk/materializations/materialization-contract-signature-i2-edge-node-record.md
+source_hash: 4e2af05ffb83dfde9b80b3a0ef12fc6d4e7b3bb25c28efbefc11456e62aac2a3
+content_hash: 1fb38f082c9cbac04adf636f5d07c6628f6d0497f623c1105bebf334e7b983b3
+field_hashes:
+  id: c60ff0d2564a21fa453d3c3444cb6e6390f36c1b747f3a4b264140351149897c
+  title: a80d1bedbc11984e9cb49ff57ad7fc7b8f5756f39d0f401bfc807af8e6b05acc
+  source_atoms: fc27372a842c7b4e4986bf80ef4f02e59d0c40299088517bec364dc47a88577f
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 3bc7dd316cc9179ae3d39feab26505331aed43e966db3a2ded019fd72acc8d52
+  intent: 1a280582752d65bdcd81e26c5fa1e9486a9882160f1be588beec9c8f827b7fe3
+  validation: f49bc2ea105b48ac88089af119bbf3e511752ddf74cbf1882a0dbbf24271e817
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T01:04:55Z'
+  authority: generated
+  via: create_document
