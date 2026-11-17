@@ -15,6 +15,7 @@ from sldb.store.model_origin import add_owner_import_roots
 from sldb.store.runtime_cache_signature import new_operation
 
 NOT_PREPARED = "store not prepared: run `sldb stores update`"
+NOT_FOUND = "store not found"
 
 
 def store_is_prepared(store: Path) -> bool:
@@ -44,11 +45,14 @@ def read_store(store: str | Path | None = None) -> StoreLocation:
         The resolved store directory and its project root.
 
     Raises:
-        SLDBStoreError: When no store can be found, or when its layout is not canonical
-            ("store not prepared: run `sldb stores update`").
+        SLDBStoreError: "store not found: <path>" when no store can be found or its directory
+            does not exist, and "store not prepared: run `sldb stores update` (<path>)" when the
+            store exists but has no index or its layout is not canonical.
     """
     store_path = _resolve_store_arg(str(store)) if store else _find_default_store("readonly")
     root = project_root(store_path)
+    if not Path(store_path).is_dir():
+        raise SLDBStoreError(f"{NOT_FOUND}: {store_path}")
     if not store_is_prepared(store_path):
         raise SLDBStoreError(f"{NOT_PREPARED} ({store_path})")
     add_owner_import_roots(store_path)  # inherited models import from their owner

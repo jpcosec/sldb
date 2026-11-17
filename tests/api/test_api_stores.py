@@ -133,6 +133,21 @@ def test_store_is_prepared_is_false_without_a_store(tmp_path):
     assert not store_is_prepared(tmp_path / ".sldb")
 
 
+def test_read_store_says_not_found_when_the_store_directory_does_not_exist(tmp_path):
+    store = tmp_path / ".sldb"
+    with pytest.raises(SLDBStoreError, match=r"^store not found: ") as error:
+        read_store(store)
+    assert str(store.resolve()) in str(error.value) and "not prepared" not in str(error.value)
+    assert not store.exists()
+
+
+def test_read_store_says_not_prepared_when_the_store_exists_without_its_index(tmp_path):
+    store = tmp_path / ".sldb"
+    store.mkdir()
+    with pytest.raises(SLDBStoreError, match=r"^store not prepared: run `sldb stores update` \("):
+        read_store(store)
+
+
 def test_read_store_sees_a_document_added_by_another_open_store(api_store):
     first = read_store(api_store.store)
     assert [d["name"] for d in indexed_documents(first.store_path)] == ["login"]
