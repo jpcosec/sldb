@@ -552,6 +552,10 @@ include:
     name: run-deskops-e-a7eadfe52463-a2
   - path: runs/subagents/20261116-test-contract-signature-i2/run.md
     name: run-deskops-t-2fcaf5e3932d
+  - path: runs/subagents/20261116-exec-k1/run.md
+    name: run-deskops-e-7f02ec7518c9
+  - path: runs/subagents/20261116-test-k1/run.md
+    name: run-deskops-t-69a960ddb28e
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -909,6 +913,12 @@ include:
   - desk/materializations/materialization-contract-signature-i2-doc-anchor-value.md
   - desk/materializations/materialization-contract-signature-i2-test-payload-projection.md
   - desk/materializations/materialization-contract-signature-i2-test-doc-anchors.md
+  - desk/materializations/materialization-k1-code-init.md
+  - desk/materializations/materialization-k1-code-facts.md
+  - desk/materializations/materialization-k1-requested-files.md
+  - desk/materializations/materialization-k1-anchors-init.md
+  - desk/materializations/materialization-k1-layers.md
+  - desk/materializations/materialization-k1-test-anchors.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -1736,6 +1746,14 @@ include:
     name: review-task-contract-signature-cubre-indexed-doc-anchors-y-contract-y-un-campo-no-puede-ser-a-la-vez-referencia-evidence-atom-1
   - path: desk/reviews/task-contract-signature-cubre-indexed-doc-anchors-y-contract-y-un-campo-no-puede-ser-a-la-vez-referencia/evidence-materialization-1.md
     name: review-task-contract-signature-cubre-indexed-doc-anchors-y-contract-y-un-campo-no-puede-ser-a-la-vez-referencia-evidence-materialization-1
+  - path: desk/reviews/task-sldb-api-expone-los-facts-de-código-de-un-archivo-o-de-un-árbol-con-span-y-source-hash-y-write-ancho/evidence-tests-1.md
+    name: review-task-sldb-api-expone-los-facts-de-código-de-un-archivo-o-de-un-árbol-con-span-y-source-hash-y-write-ancho-evidence-tests-1
+  - path: desk/reviews/task-sldb-api-expone-los-facts-de-código-de-un-archivo-o-de-un-árbol-con-span-y-source-hash-y-write-ancho/evidence-commit-1.md
+    name: review-task-sldb-api-expone-los-facts-de-código-de-un-archivo-o-de-un-árbol-con-span-y-source-hash-y-write-ancho-evidence-commit-1
+  - path: desk/reviews/task-sldb-api-expone-los-facts-de-código-de-un-archivo-o-de-un-árbol-con-span-y-source-hash-y-write-ancho/evidence-atom-1.md
+    name: review-task-sldb-api-expone-los-facts-de-código-de-un-archivo-o-de-un-árbol-con-span-y-source-hash-y-write-ancho-evidence-atom-1
+  - path: desk/reviews/task-sldb-api-expone-los-facts-de-código-de-un-archivo-o-de-un-árbol-con-span-y-source-hash-y-write-ancho/evidence-materialization-1.md
+    name: review-task-sldb-api-expone-los-facts-de-código-de-un-archivo-o-de-un-árbol-con-span-y-source-hash-y-write-ancho-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -1761,7 +1779,6 @@ include:
   - desk/tasks/task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto.md
   - desk/tasks/task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup.md
   - desk/tasks/task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable.md
-  - desk/tasks/task-sldb-api-expone-los-facts-de-código-de-un-archivo-o-de-un-árbol-con-span-y-source-hash-y-write-ancho.md
   - desk/tasks/task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl.md
   - desk/tasks/task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre.md
   - desk/tasks/task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam.md

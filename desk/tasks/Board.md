@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T01:08:53Z'
+  at: '2026-11-17T01:25:23Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -54,7 +54,6 @@ tasks:
 - desk/tasks/task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto.md
 - desk/tasks/task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup.md
 - desk/tasks/task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable.md
-- desk/tasks/task-sldb-api-expone-los-facts-de-código-de-un-archivo-o-de-un-árbol-con-span-y-source-hash-y-write-ancho.md
 - desk/tasks/task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl.md
 - desk/tasks/task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre.md
 - desk/tasks/task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam.md
@@ -147,7 +146,6 @@ _Generated from the task references above._
 - raw_atoms_by_view: si se pasa atoms_dir, ese directorio manda para todas las vistas y nunca entran átomos de un store ajeno [draft] - raw_atoms_by_view(views, atoms_dir=d) devuelve para todas las vistas los átomos de d y no consulta ningún store; sin atoms_dir, el comportamiento es el de hoy.
 - sldb notations from-graph elige el campo del label, el campo que da kind o estilo y un campo de agrupación [draft] - from-graph acepta --label-field <campo>, --kind-field <campo|tag:<namespace>> y --group-field <campo|tag:<namespace>>; con ellos, el label del nodo es el valor de ese campo del payload (o el id si falta), el kind es el valor del campo o del tag con ese namespace (o el modelo si falta), y los nodos con el mismo valor de agrupación quedan dentro de un nodo contenedor con aristas contains.
 - Separar el store en .sldb_store (todo lo versionado: store.yaml y core/) y .sldb_cache (todo lo regenerable), con stores migrate-layout, lectura del layout viejo y migración del ecosistema [draft] - Un store nuevo se crea en .sldb_store/ (store.yaml, core/ y README.md, todo versionado) con su cache en .sldb_cache/ (todo regenerable e ignorado); `sldb stores migrate-layout` lleva un store del layout viejo al nuevo con git mv; todo comando de sldb sigue leyendo un store en .sldb/ (layout viejo) con una alerta que dice que se migre; el store de sldb está migrado; y cada repo del ecosistema que tiene store recibió por inbox el aviso con el comando.
-- sldb.api expone los facts de código de un archivo o de un árbol, con span y source_hash, y write_anchor es público (C1, C2 y C5 de IR) [draft] - specIR obtiene con una sola llamada pública de sldb.api los facts de un archivo o de un árbol del proyecto, cada uno con path, span (líneas de inicio y fin), source_hash del archivo, kind, qualified_name, signature, doc, relations y attrs, y puede escribir un ancla con write_anchor importado desde sldb.api.anchors.
 - sldb.code lee las claves del SQL de Postgres: PK con IDENTITY, constraints de tabla y FK de ALTER TABLE ADD CONSTRAINT (C4 de IR) [draft] - Sobre una migración de sqlmigrate de Django para Postgres, sldb.code publica la columna id con su tipo y marca de clave primaria, y un hecho por cada clave (primaria, foránea y única) con sus columnas y, en las foráneas, la tabla y columnas referenciadas, incluidas las que vienen de ALTER TABLE ADD CONSTRAINT.
 - sldb.code publica facts genéricos de Python: bases de clase, decoradores con argumentos, llamadas entre símbolos y asignaciones de clase con llamada (C3 de IR, parte genérica) [draft] - Los facts de Python llevan, sin conocer ningún framework: las bases de cada clase, los decoradores de cada definición con sus argumentos, las llamadas que hace cada función o método a otros nombres, y las asignaciones a nivel de módulo o de clase cuyo valor es una llamada (nombre, función llamada y argumentos), incluidas las de una clase anidada como Meta; con eso specIR reconstruye rutas, campos, serializers y cadenas de llamadas de un proyecto Django/DRF.
 - sldb.code publica facts genéricos de TS, TSX, JS y JSX: llamadas entre símbolos, llamadas HTTP como llamadas y handlers JSX (C3 de IR para IR09) [draft] - Los facts de TS, TSX, JS y JSX llevan las llamadas que hace cada función, componente o hook (fetch(...), axios.get(...), api.posts.create(...) y llamadas a otros símbolos) con su primer argumento literal si lo hay, y los atributos JSX que ligan un evento a un handler (onClick={handleSave}), sin conocer ningún framework.

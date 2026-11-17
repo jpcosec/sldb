@@ -1,0 +1,215 @@
+### TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/api/test_anchors.py
+......................                                                   [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+22 passed, 1 warning in 2.18s
+rc=0
+### TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/selfdoc/test_treesitter_symbols.py
+..............                                                           [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+14 passed, 1 warning in 0.11s
+rc=0
+### TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/test_clean_code_rules.py
+........................................................................ [  6%]
+........................................................................ [ 12%]
+........................................................................ [ 18%]
+........................................................................ [ 24%]
+........................................................................ [ 30%]
+........................................................................ [ 36%]
+........................................................................ [ 42%]
+........................................................................ [ 48%]
+........................................................................ [ 54%]
+........................................................................ [ 60%]
+........................................................................ [ 66%]
+........................................................................ [ 72%]
+........................................................................ [ 78%]
+........................................................................ [ 84%]
+........................................................................ [ 90%]
+........................................................................ [ 96%]
+.........................................                                [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1193 passed, 2 warnings in 3.10s
+rc=0
+### TMPDIR=/dev/shm uv run --frozen --extra code --extra dev bash tools/check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   225 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  ERROR  archivo versionado sin clasificar en la raíz: AGENTS.md — decide si es producto, autoaplicación o ajeno
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+FAIL: identidad — 10 paquetes de producto, 19 modelos clasificados, 1 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 963 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 123 símbolos pedidos, 594 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[31mFALLAN: identidad[0m
+rc=1
+### (extra/vecinos) TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/test_store_seams.py
+F.                                                                       [100%]
+=================================== FAILURES ===================================
+________ test_only_the_seams_import_the_core_the_models_or_the_runtime _________
+
+    def test_only_the_seams_import_the_core_the_models_or_the_runtime():
+>       assert _offenders(LOWER, skip_seams=True) == []
+E       AssertionError: assert ['io/derived_...e.exceptions'] == []
+E         
+E         Left contains one more item: 'io/derived_guard.py: sldb.core.exceptions'
+E         Use -v to get more diff
+
+tests/test_store_seams.py:36: AssertionError
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_store_seams.py::test_only_the_seams_import_the_core_the_models_or_the_runtime
+1 failed, 1 passed, 1 warning in 0.49s
+rc=1
+### (extra/vecinos) TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/api/test_doc_anchors.py
+........................                                                 [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+24 passed, 1 warning in 1.99s
+rc=0
+### (extra/vecinos) TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/selfdoc/test_docstring_metadata.py
+..............                                                           [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+14 passed, 1 warning in 0.88s
+rc=0
+### (borde) script /dev/shm/test-k1-scripts/edges.py (fixture IR blog_app + bordes)
+import os, sys, tempfile, pathlib, json
+from sldb.api.code import code_facts
+from sldb.api.anchors import write_anchor
+import sldb.api.anchors as A, sldb.api.code as C
+print("write_anchor in __all__:", "write_anchor" in A.__all__, "| code_facts in __all__:", C.__all__)
+from sldb.code.scan import scan_tree
+IR = "/mnt/ssd/proyectos/SLDB_1/IR/tests/fixtures/blog_app"
+out = code_facts(IR)
+bad = [f["id"] for f in out["facts"] if not f.get("span") or not f.get("source_hash") or not f["source_hash"].startswith("sha256:") or f["span"]["start_line"] < 1 or f["span"]["end_line"] < f["span"]["start_line"]]
+paths = sorted({f["path"] for f in out["facts"]})
+print("IR: facts", len(out["facts"]), "files", len(paths), "skipped", out["skipped"], "bad", bad)
+print("IR kinds:", sorted({f["kind"] for f in out["facts"]}))
+print("IR sql files:", [p for p in paths if p.endswith(".sql")], "abs/backslash paths:", [p for p in paths if p.startswith("/") or "\\" in p])
+print("IR == scan_tree (by id):", sorted(out["facts"], key=lambda f: f["id"]) == scan_tree(pathlib.Path(IR)))
+keys = {"path","span","source_hash","kind","qualified_name","signature","doc","relations","attrs"}
+print("IR all keys present:", all(keys <= f.keys() for f in out["facts"]))
+import hashlib
+h = {p: "sha256:" + hashlib.sha256(open(os.path.join(IR, p), "rb").read()).hexdigest() for p in paths}
+print("IR source_hash == sha256 of bytes:", all(f["source_hash"] == h[f["path"]] for f in out["facts"]))
+# root as str relative, cwd change
+os.chdir(os.path.dirname(IR)); r = code_facts("blog_app", ["sql"]); print("relative root str, dir 'sql':", len(r["facts"]), r["skipped"])
+# subset ids vs tree ids
+sub = code_facts(IR, ["blog"]); tree_ids = {f["id"] for f in out["facts"]}
+print("subset ids subset of tree ids:", all(f["id"] in tree_ids for f in sub["facts"]))
+d = pathlib.Path(tempfile.mkdtemp(dir="/dev/shm"))
+(d/"a").mkdir(); (d/"a/m.py").write_text("def f():\n    pass\n"); (d/"b").mkdir(); (d/"b/m.py").write_text("def f():\n    pass\n")
+(d/"empty.py").write_text(""); (d/"x.jsx").write_text("export function C(){ return <div/> }\n"); (d/"y.ts").write_text("export const y: number = 1;\n")
+(d/"z.js").write_text("export function z(){}\n"); (d/"notes.txt").write_text("hi")
+os.symlink("/etc", d/"link_out")
+t = code_facts(d); print("dup qualnames across files ids:", sorted(f["id"] for f in t["facts"] if f["qualified_name"]=="f"))
+s1 = code_facts(d, ["b/m.py"]); print("subset b/m.py ids:", [f["id"] for f in s1["facts"]], "(tree ids differ?)")
+print("empty file:", [ (f["kind"], f["span"], f["source_hash"][:15]) for f in code_facts(d, ["empty.py"])["facts"]])
+print("jsx/ts/js kinds:", sorted({(f["path"], f["kind"]) for f in t["facts"] if f["path"][-3:] in (".ts", ".js", "jsx")}))
+print("txt explicit:", code_facts(d, ["notes.txt"]))
+print("paths=[]:", code_facts(d, []))
+for p in (["link_out/hosts"], "a/m.py", ["a/m.py\x00"]):
+    try: print(repr(p), "->", code_facts(d, p)); 
+    except Exception as e: print(repr(p), "->", type(e).__name__, e)
+--- salida
+write_anchor in __all__: True | code_facts in __all__: ['code_facts']
+IR: facts 33 files 13 skipped [] bad []
+IR kinds: ['class', 'column', 'function', 'index', 'method', 'module', 'table']
+IR sql files: ['sql/blog_0001_initial.sql'] abs/backslash paths: []
+IR == scan_tree (by id): True
+IR all keys present: True
+IR source_hash == sha256 of bytes: True
+relative root str, dir 'sql': 8 []
+subset ids subset of tree ids: True
+dup qualnames across files ids: ['a.m.f', 'b.m.f']
+subset b/m.py ids: ['b.m', 'b.m.f'] (tree ids differ?)
+empty file: [('module', {'start_line': 1, 'end_line': 1}, 'sha256:e3b0c442')]
+jsx/ts/js kinds: [('x.jsx', 'component'), ('x.jsx', 'module'), ('y.ts', 'module'), ('z.js', 'function'), ('z.js', 'module')]
+txt explicit: {'facts': [], 'skipped': ['notes.txt']}
+paths=[]: {'facts': [], 'skipped': []}
+['link_out/hosts'] -> ValueError link_out/hosts: outside root /dev/shm/tmpz7gtf6kp
+'a/m.py' -> ValueError /: absolute path; code_facts paths are relative to root
+['a/m.py\x00'] -> ValueError lstat: embedded null character in path
+### (base HEAD a3a091ee, clon limpio en /dev/shm/test-k1-clone) check.sh --fast
+PASS núcleo, PASS capas, FAIL identidad (AGENTS.md), PASS ejes, PASS superficie (omitida)
+### (base HEAD, git archive en /dev/shm/test-k1-head) pytest -q tests/test_store_seams.py
+1 failed, 1 passed — misma falla: io/derived_guard.py: sldb.core.exceptions
+### pytest -q tests/test_clean_code_rules.py -k 'api/code or ...'
+3 passed (los 3 archivos nuevos de src/sldb/api/code/ están cubiertos)

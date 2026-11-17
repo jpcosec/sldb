@@ -1,0 +1,23 @@
+name: atom-sldb-api-code-code-facts-es-la-api-pública-de-los-facts-de-código
+path: desk/atoms/atom-sldb-api-code-code-facts-es-la-api-pública-de-los-facts-de-código.md
+source_hash: b3527f27dd5eb7f9bfb6640f8548d26cf989694db302fa67e6a198925ddbd823
+content_hash: fd47f879f4678d6510972531ef00868628b9944eada764259af90644bef87123
+field_hashes:
+  id: 279347f9b6d11bd80d9b6a5429ddb79853670556a2b1113ee9cfc26ad0a3e4ee
+  title: bc7224e13c9bf0252370b1db07f0aa4ecd3a27e9804ed46afcccb1479d0e43bf
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: 467938996d7d758d1f5046ab399ed875d2938bb48e060dfc1e96f41883791ced
+  tags: 31506c064612c9d3967862e44c9997bd808f51edfbc4030d1c5772f29f5b992f
+  provenance: 34a56c84cece7d1520dd99f0cec394262aed54dae7406442405ba0df33658474
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:code
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-17T01:17:30Z'
+  authority: generated
+  via: create_document
