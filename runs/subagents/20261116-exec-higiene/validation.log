@@ -1,0 +1,195 @@
+$ cd .. && TMPDIR=/dev/shm deskops graph missing --root sldb
+No missing graph references found.
+rc=0
+
+$ cd .. && TMPDIR=/dev/shm deskops list tasks --root sldb
+task-api-pública-búsqueda-rankeada-escrituras-recientes-y-store-hash-como-precondición-atómica-brechas-de | draft | ritual-execution
+task-apply-batch-aristas-validadas-antes-de-escribir-alertas-on-write-en-batchreport-rules-check-sobre-re | draft | ritual-execution
+task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430 | draft | ritual-execution
+task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2 | draft | ritual-execution
+task-decisión-de-jp-arreglar-en-sldb-las-referencias-por-ruta-que-no-resuelven-a-través-de-un-store-enlaz | draft | ritual-execution
+task-decisión-de-jp-cómo-se-resuelve-un-conflicto-de-git-en-los-índices-derivados-de-sldb-store-index-yam | draft | ritual-execution
+task-decisión-de-jp-decisión-6-separar-el-store-de-sldb-en-un-paquete-propio-o-quedarse-con-el-desacople | draft | ritual-execution
+task-decisión-de-jp-dónde-vive-un-hook-que-bloquea-write-edit-sobre-rutas-trackeadas-por-un-store-de-sldb | draft | ritual-execution
+task-decisión-de-jp-publicar-sldb-0-1-13-fechar-el-changelog-tag-v0-1-13-y-aviso-a-los-consumidores-cuand | draft | ritual-execution
+task-decisión-de-jp-python-sync-o-stores-build-destrackean-los-pythonsymboldoc-cuyo-símbolo-desapareció | draft | ritual-execution
+task-decisión-de-jp-qué-de-las-vistas-de-deskops-h1-h8-de-cc34-expresa-la-viewdoc-de-sldb-y-qué-queda-com | draft | ritual-execution
+task-decisión-de-jp-resolver-la-colisión-de-specdoc-entre-el-modelo-local-docs-models-specdoc-y-el-builti | draft | ritual-execution
+task-decisión-de-jp-si-sldb-agrega-un-ast-intermedio-entre-marcador-y-campo-y-clases-anidadas-en-un-docum | draft | ritual-execution
+task-declared-target-nodes-acepta-un-directorio-existente-como-target-declarado-de-una-materialización | draft | ritual-execution
+task-declaredfiletargets-lee-campos-lista-y-no-aplica-las-exclusiones-a-lo-que-se-declara-para-que-un-des | draft | ritual-execution
+task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia | draft | ritual-execution
+task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field | draft | ritual-execution
+task-docs-list-y-docs-show-leen-la-misma-fuente-no-se-lista-un-documento-que-show-no-encuentra-unknown-do | draft | ritual-execution
+task-docs-show-sobre-un-store-enlazado-dice-que-no-pudo-importar-el-modelo-en-vez-de-unknown-document-tar | draft | ritual-execution
+task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for | draft | ritual-execution
+task-edgeindex-stale-manda-a-la-operación-correcta-una-edición-externa-se-resuelve-con-sldb-stores-update | draft | ritual-execution
+task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent | draft | ritual-execution
+task-el-emparejamiento-de-átomos-de-sldb-api-matching-pasa-a-su-propio-eje-y-recuperacion-vuelve-a-ser-un | draft | ritual-execution
+task-el-parámetro-actor-de-la-api-de-escritura-se-respeta-en-lugar-de-aceptarse-e-ignorarse | draft | ritual-execution
+task-el-scan-de-enlaces-ignora-el-contenido-de-los-bloques-de-código-fenced-e-inline-y-no-los-informa-com | draft | ritual-execution
+task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato | draft | ritual-execution
+task-el-valor-de-un-campo-se-renderiza-literal-render-model-markdown-deja-de-pasar-los-valores-del-usuari | draft | ritual-execution
+task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder | draft | ritual-execution
+task-higiene-del-desk-de-sldb-cerrar-con-closeout-resolved-by-citando-el-sha-las-tareas-abiertas-cuyo-tra | draft | ritual-execution
+task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a | draft | ritual-execution
+task-la-documentación-de-sldb-serve-nombra-todas-sus-rutas-http-con-un-chequeo-que-lo-mantiene | draft | ritual-execution
+task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid | draft | ritual-execution
+task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar | draft | ritual-execution
+task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest | draft | ritual-execution
+task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con | draft | ritual-execution
+task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024 | draft | ritual-execution
+task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg | draft | ritual-execution
+task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el | draft | ritual-execution
+task-pron-contra-sldb-deshacer-restaura-el-hash-del-mundo-untrack-track-recupera-el-documento-y-find-con | draft | ritual-execution
+task-r6-el-tokenizer-y-el-parser-del-lenguaje-de-reglas-bajan-a-core-para-cerrar-la-arista-de-capas-model | draft | ritual-execution
+task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto | draft | ritual-execution
+task-read-store-distingue-un-store-inexistente-store-not-found-de-uno-sin-preparar-store-not-prepared | draft | ritual-execution
+task-reglas-rule-graph-no-compone-la-federación-entera-de-stores-enlazados-27-s-por-comando-de-deskops | draft | ritual-execution
+task-reproducir-si-sldb-docs-update-reescribe-índices-de-documentos-ajenos-al-que-actualiza-reviewdoc-de | draft | ritual-execution
+task-rule-graph-en-frío-y-deskops-show-task-perfilar-de-nuevo-y-bajar-el-costo-de-leer-el-índice-local-me | draft | ritual-execution
+task-run-view-dice-que-el-store-no-está-construido-en-vez-de-unknown-view-h12-y-se-reproduce-si-la-revisi | draft | ritual-execution
+task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable | draft | ritual-execution
+task-sldb-api-expone-render-con-roundtrip-renderizar-el-payload-de-un-modelo-a-markdown-y-validar-que-vue | draft | ritual-execution
+task-sldb-api-notations-reexporta-lo-que-specir-importa-hoy-de-módulos-internos-estilos-paletas-errores-m | draft | ritual-execution
+task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam | draft | ritual-execution
+task-sldb-create-document-y-track-document-file-evalúan-las-reglas-on-write-h4-declare-write-conserva-la | draft | ritual-execution
+task-sldb-docs-track-canonical-un-markdown-escrito-a-mano-se-lleva-a-su-render-canónico-con-el-diff-a-la | draft | ritual-execution
+task-sldb-escucha-suscripciones-y-stream-de-eventos-de-escritura-inbox-20261114-115028 | draft | ritual-execution
+task-sldb-models-validate-importa-los-modelos-de-deskops-models-como-lo-hacen-extract-y-render-no-module | draft | ritual-execution
+task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup | draft | ritual-execution
+task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding | draft | ritual-execution
+task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno | draft | ritual-execution
+task-sldb-stores-remove-quita-el-enlace-también-de-la-declaración-store-yaml-así-otra-sesión-no-lo-reintr | draft | ritual-execution
+task-sldb-views-run-board-en-menos-de-1-s-caché-de-disco-de-los-shards-de-documentos-para-select-document | draft | ritual-execution
+task-specdoc-guarda-los-datos-de-un-spec-que-no-son-elementos-data-entity-y-afines-y-el-style-llega-a-la | draft | ritual-execution
+task-store-index-yaml-no-guarda-rutas-absolutas-de-máquina-para-los-modelos-que-vienen-de-un-paquete-mode | draft | ritual-execution
+task-stores-check-no-aborta-ante-un-documento-que-su-modelo-rechaza-lo-nombra-como-hallazgo-y-sigue-con-e | draft | ritual-execution
+task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co | draft | ritual-execution
+task-surface-dev-prosa-generada-con-marca-y-hash-de-sus-átomos-de-origen-y-extractor-externo-de-átomos-pr | draft | ritual-execution
+task-sw1-documentación-y-arranque-de-surface-al-día-con-el-workbench-readme-maqueta-histórica-tareas-t7-t | draft | ritual-execution
+task-sw10-la-cabecera-del-workbench-muestra-la-ruta-del-documento-en-el-disco-como-carpetas-desplegables | draft | ritual-execution
+task-sw11-el-panel-izquierdo-del-workbench-muestra-el-grafo-de-documentos-relacionados-con-el-abierto-al | draft | ritual-execution
+task-sw2-la-edición-en-el-lugar-confirma-con-enter-o-falla-cerrada-sin-autoridad-conocida-y-muestra-la-op | draft | ritual-execution
+task-sw3-las-referencias-abren-la-vista-que-corresponde-a-su-modelo-el-árbol-enfoca-en-vez-de-navegar-y-l | draft | ritual-execution
+task-sw4a-sldb-serve-expone-escribir-un-anclaje-y-leer-su-estado-y-la-cobertura-por-fuente-sobre-la-api-p | draft | ritual-execution
+task-sw4b-surface-ancla-de-verdad-por-las-rutas-de-sldb-serve-borra-el-cálculo-local-de-anclajes-y-muestr | draft | ritual-execution
+task-sw5-el-dueño-de-un-modelo-sale-de-describe-model-model-ref-y-los-modelos-de-deskops-dicen-gestionado | draft | ritual-execution
+task-sw6-el-workbench-vuelve-a-la-ui-de-deskops-y-muestra-gates-y-evidencia-de-la-tarea-desde-deskops-vie | draft | ritual-execution
+task-sw7-model-studio-edita-campos-existentes-crea-modelos-deja-que-sldb-compruebe-los-slots-de-la-planti | draft | ritual-execution
+task-sw8-decisión-de-jp-qué-queda-de-la-superficie-anterior-de-surface-vistas-legacy-stores-demo-y-caso-l | draft | ritual-execution
+task-sw9-aceptación-del-workbench-sobre-el-desk-real-vistas-flujos-atajos-colores-y-enlace-desde-deskops | draft | ritual-execution
+task-sw9-primera-pasada-capturas-y-tiempos-de-las-cuatro-vistas-del-workbench-sobre-df3903db-para-que-jp | draft | ritual-execution
+task-una-sola-forma-de-serializar-un-escalar-al-sustituir-llaves-effects-go09-y-where-subject-usan-la-mis | draft | ritual-execution
+task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida | draft | ritual-execution
+task-átomos-del-catálogo-sin-rutas-absolutas-atom-payload-y-store-documents-emiten-la-ruta-relativa-al-pr | draft | ritual-execution
+rc=0
+
+$ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/store/test_doc_invalid_check.py
+..                                                                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 3.57s
+rc=0
+
+$ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/store/test_doc_invalid_writes.py
+........                                                                 [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+8 passed, 1 warning in 20.30s
+rc=0
+
+$ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/test_clean_code_rules.py
+........................................................................ [  5%]
+........................................................................ [ 11%]
+........................................................................ [ 17%]
+........................................................................ [ 23%]
+........................................................................ [ 29%]
+........................................................................ [ 35%]
+........................................................................ [ 41%]
+........................................................................ [ 47%]
+........................................................................ [ 53%]
+........................................................................ [ 59%]
+........................................................................ [ 65%]
+........................................................................ [ 71%]
+........................................................................ [ 77%]
+........................................................................ [ 83%]
+........................................................................ [ 89%]
+........................................................................ [ 95%]
+..................................................                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1202 passed, 2 warnings in 6.76s
+rc=0
+
+$ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev bash tools/check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   225 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 972 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 123 símbolos pedidos, 594 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+rc=0
+

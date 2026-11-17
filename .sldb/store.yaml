@@ -338,6 +338,7 @@ include:
   - desk/inbox/20261117-021700-suggestion-el-scan-de-enlaces-cuenta-enlaces-dentro-de-bloques-de-c-digo.md
   - desk/inbox/20261117-080455-suggestion-docs-track-force-re-indexa-sin-validar-pedido-de-un-re-index-que-valide.md
   - desk/inbox/20261117-080724-suggestion-project-graph-de-deskops-destinos-de-h1-que-declaredfiletargets-no-puede-declarar-y-closed-sin-cuerpo-h2.md
+  - desk/inbox/20261117-092921-suggestion-procesos-hu-rfanos-de-test-second-process-with-the-s-apply-batch-con-hold-en-dev-shm.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -631,6 +632,8 @@ include:
     name: run-deskops-e-7015d1ec50ff
   - path: runs/subagents/20261116-test-undo/run.md
     name: run-deskops-t-80f4da96f310
+  - path: runs/subagents/20261116-exec-higiene/run.md
+    name: run-deskops-e-93fa3c35f7e4
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md

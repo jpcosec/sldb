@@ -1,0 +1,18 @@
+name: 20261117-092921-suggestion-procesos-hu-rfanos-de-test-second-process-with-the-s-apply-batch-con-hold-en-dev-shm
+path: desk/inbox/20261117-092921-suggestion-procesos-hu-rfanos-de-test-second-process-with-the-s-apply-batch-con-hold-en-dev-shm.md
+source_hash: 729e5342f44ccb09009c670709836e2d4b963ba7f29bda5bc77696f004816858
+content_hash: e0cff62e1eb257ce3ff0a2b1bbe281a3a5543f0100b6de2c6d47e03d83c7a6a6
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: e1a2389c275b3f69e1dc45fee014bc1ae9e933e48ad736bb08f4789dcd3498e2
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: bdb6ab2fc7f102dcc4e78485eb2455ffe893333f956d350eb0eb8bdb7e2dfb70
+  body: d000069ddb2e782491de6de25e73e81e06757128003bfe4b8c6103621355962f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null
