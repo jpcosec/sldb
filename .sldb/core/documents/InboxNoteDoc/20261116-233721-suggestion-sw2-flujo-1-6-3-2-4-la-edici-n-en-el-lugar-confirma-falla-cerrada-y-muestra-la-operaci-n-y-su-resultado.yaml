@@ -1,0 +1,18 @@
+name: 20261116-233721-suggestion-sw2-flujo-1-6-3-2-4-la-edici-n-en-el-lugar-confirma-falla-cerrada-y-muestra-la-operaci-n-y-su-resultado
+path: desk/inbox/20261116-233721-suggestion-sw2-flujo-1-6-3-2-4-la-edici-n-en-el-lugar-confirma-falla-cerrada-y-muestra-la-operaci-n-y-su-resultado.md
+source_hash: d821766390d7930f2cce32e291696dc1247dba7aee069b51f90711557df1bc08
+content_hash: c2da0834454882a273cd8c47cb425944fa66e080b65293992839f97152168a85
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 14bff84003889deaca7d3429a55e6838e0ea5807294b0b6486b5c442a5fe39fc
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: dfc1256c4de66329a07f57112f502593d346b5047a104a51a95e028344ba56c8
+  body: cc830922f59e5a9d7b34268eb76e491621124c8c6486c206f8209b7ca137ab41
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

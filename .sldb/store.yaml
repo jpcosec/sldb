@@ -322,6 +322,15 @@ include:
   - desk/inbox/20261116-223438-suggestion-save-document-payload-y-apply-batch-update-borran-en-silencio-contenido-que-el-modelo-no-declara-ws47-del-drawer-de-deskops.md
   - desk/inbox/20261116-224143-unclear-store-index-yaml-versionado-guarda-path-absolutos-de-modelos-de-paquete-de-sldb-home-jp-mnt-ssd-herramientas.md
   - desk/inbox/20261116-230448-suggestion-aviso-el-alias-deskops-inbox-se-retir-usar-deskops-message.md
+  - desk/inbox/20261116-233646-suggestion-sw1-documentaci-n-y-arranque-de-surface-al-d-a-con-el-workbench.md
+  - desk/inbox/20261116-233721-suggestion-sw2-flujo-1-6-3-2-4-la-edici-n-en-el-lugar-confirma-falla-cerrada-y-muestra-la-operaci-n-y-su-resultado.md
+  - desk/inbox/20261116-233748-suggestion-sw3-navegaci-n-1-3-2-2-7-las-referencias-abren-la-vista-que-corresponde-a-su-modelo-y-la-paleta-busca-por-s-mbolo-y-hash.md
+  - desk/inbox/20261116-233813-suggestion-sw4-flujo-3-6-4-anclar-de-verdad-hoy-crear-atomdoc-y-anclar-no-guarda-un-anclaje-y-el-estado-del-anclaje-se-calcula-en-la-ui.md
+  - desk/inbox/20261116-233840-suggestion-sw5-autoridad-por-modelo-4-el-due-o-del-modelo-sale-de-describe-model-y-los-modelos-de-deskops-muestran-el-verbo.md
+  - desk/inbox/20261116-233905-suggestion-sw6-marco-de-deskops-2-3-4-3-5-el-workbench-se-abre-desde-la-ui-de-deskops-vuelve-a-ella-y-muestra-el-estado-de-workflow-que-entrega-deskops.md
+  - desk/inbox/20261116-233931-suggestion-sw7-flujo-4-6-4-studio-model-studio-edita-campos-existentes-crea-modelos-y-confirma-antes-de-promover.md
+  - desk/inbox/20261116-233957-suggestion-sw8-decisi-n-de-jp-task-decision-qu-queda-de-la-superficie-anterior-de-surface-y-de-sus-stores-demo.md
+  - desk/inbox/20261116-234023-suggestion-sw9-aceptaci-n-sobre-el-desk-real-2-4-y-capturas-para-el-repaso-de-ui-con-jp.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc

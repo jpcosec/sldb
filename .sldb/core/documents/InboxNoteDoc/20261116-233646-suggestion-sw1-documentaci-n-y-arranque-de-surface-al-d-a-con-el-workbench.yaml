@@ -1,0 +1,18 @@
+name: 20261116-233646-suggestion-sw1-documentaci-n-y-arranque-de-surface-al-d-a-con-el-workbench
+path: desk/inbox/20261116-233646-suggestion-sw1-documentaci-n-y-arranque-de-surface-al-d-a-con-el-workbench.md
+source_hash: c37d13cbf936f270ea8dfc3caa19229e73aebfbb758c197e8fe8d4b74e7865a0
+content_hash: b4c2a798132612d9da32329e5e7a9dbf9a9e6bf9cef13cf4b4449044f10b3125
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: d777cfcbb4dd84d7f6f3b62b05b62b7b5637b1f9090fdd03947de4736b19aa64
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: bba12b94ef5d3b7197a750f6920d1f4e45690d33e23105e53a6b0770d5b6942d
+  body: b70009e4e261f205aab91a5496d8180cd0f56087e803fc11fe8f4ea5c9cdf30b
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null
