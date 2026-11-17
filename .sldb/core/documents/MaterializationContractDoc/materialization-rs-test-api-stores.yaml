@@ -1,0 +1,25 @@
+name: materialization-rs-test-api-stores
+path: desk/materializations/materialization-rs-test-api-stores.md
+source_hash: 204e7f94adc6c45067317e52c3ed43753c5d7d5699da243d3a1d2c3db8203c22
+content_hash: 5e2d90495eedd16a4791942cf1f13c517706044be745c75a1a6e0740906f2f26
+field_hashes:
+  id: 1a71ac3ed06cb5024eb8fa6c5cc658479a6a7ab2f8b972bb051fbbadf5be3109
+  title: 3fc136ad5e5ebf65f01f58d00ce3fda3d034aa65cae01d944abacd04b925fd31
+  source_atoms: 9e7e0049b91e872eb49ed56a3cb982646bb0c967242913936b3e5a408ab36e88
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 98fee8040a1bb64d08892f66d3223a8b9ea1f8bcd5e5f223fac62b12b14fdcdf
+  intent: 4e3ecdaf6ba94c831f3521de35e7b83ea4f6239c874a8f633c88e5307f092c14
+  validation: d9a504775d66bdee716177a67fe2a74d17eb082d3fcc40f3c7496b54db5f4fbe
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T14:10:07Z'
+  authority: generated
+  via: create_document

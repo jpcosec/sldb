@@ -646,6 +646,10 @@ include:
     name: run-deskops-e-cdb27fa3f0f8
   - path: runs/subagents/20261116-test-orph/run.md
     name: run-deskops-t-7b2e60544646
+  - path: runs/subagents/20261116-exec-rs/run.md
+    name: run-deskops-e-4301e4e74c7c
+  - path: runs/subagents/20261116-test-rs/run.md
+    name: run-deskops-t-18a9a68f5d3b
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -1073,6 +1077,8 @@ include:
   - desk/materializations/materialization-k4-nc-postform.md
   - desk/materializations/materialization-k4-nc-test-treesitter-symbols.md
   - desk/materializations/materialization-orph-test-apply-batch-lock.md
+  - desk/materializations/materialization-rs-read-store.md
+  - desk/materializations/materialization-rs-test-api-stores.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2026,6 +2032,14 @@ include:
     name: review-task-test-apply-batch-lock-no-deja-procesos-huérfanos-el-segundo-proceso-termina-siempre-falle-o-venza-el-evidence-atom-1
   - path: desk/reviews/task-test-apply-batch-lock-no-deja-procesos-huérfanos-el-segundo-proceso-termina-siempre-falle-o-venza-el/evidence-materialization-1.md
     name: review-task-test-apply-batch-lock-no-deja-procesos-huérfanos-el-segundo-proceso-termina-siempre-falle-o-venza-el-evidence-materialization-1
+  - path: desk/reviews/task-read-store-distingue-un-store-inexistente-store-not-found-de-uno-sin-preparar-store-not-prepared/evidence-tests-1.md
+    name: review-task-read-store-distingue-un-store-inexistente-store-not-found-de-uno-sin-preparar-store-not-prepared-evidence-tests-1
+  - path: desk/reviews/task-read-store-distingue-un-store-inexistente-store-not-found-de-uno-sin-preparar-store-not-prepared/evidence-commit-1.md
+    name: review-task-read-store-distingue-un-store-inexistente-store-not-found-de-uno-sin-preparar-store-not-prepared-evidence-commit-1
+  - path: desk/reviews/task-read-store-distingue-un-store-inexistente-store-not-found-de-uno-sin-preparar-store-not-prepared/evidence-atom-1.md
+    name: review-task-read-store-distingue-un-store-inexistente-store-not-found-de-uno-sin-preparar-store-not-prepared-evidence-atom-1
+  - path: desk/reviews/task-read-store-distingue-un-store-inexistente-store-not-found-de-uno-sin-preparar-store-not-prepared/evidence-materialization-1.md
+    name: review-task-read-store-distingue-un-store-inexistente-store-not-found-de-uno-sin-preparar-store-not-prepared-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -2079,7 +2093,6 @@ include:
   - desk/tasks/task-sw9-aceptación-del-workbench-sobre-el-desk-real-vistas-flujos-atajos-colores-y-enlace-desde-deskops.md
   - desk/tasks/task-sw10-la-cabecera-del-workbench-muestra-la-ruta-del-documento-en-el-disco-como-carpetas-desplegables.md
   - desk/tasks/task-sw11-el-panel-izquierdo-del-workbench-muestra-el-grafo-de-documentos-relacionados-con-el-abierto-al.md
-  - desk/tasks/task-read-store-distingue-un-store-inexistente-store-not-found-de-uno-sin-preparar-store-not-prepared.md
   - desk/tasks/task-el-scan-de-enlaces-ignora-el-contenido-de-los-bloques-de-código-fenced-e-inline-y-no-los-informa-com.md
   - desk/tasks/task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for.md
   - desk/tasks/task-declaredfiletargets-lee-campos-lista-y-no-aplica-las-exclusiones-a-lo-que-se-declara-para-que-un-des.md

@@ -1,0 +1,23 @@
+name: atom-read-store-dice-store-not-found-si-el-sldb-no-existe-y-store-not-prepared-si-le-falta-el-índice
+path: desk/atoms/atom-read-store-dice-store-not-found-si-el-sldb-no-existe-y-store-not-prepared-si-le-falta-el-índice.md
+source_hash: 2bd758174a93c0b1fc4906e81b68291d48454cfe8549c64df11ae9c46cef41eb
+content_hash: 943f8fbe50a51c9a3b511e8933854d3c8ec24c333ca520119a0a090b4fd77eb5
+field_hashes:
+  id: 3b63627b7050d34115cb0c14a53fc7b2549f4e3fd9b7536e50f851c19169b47d
+  title: 8686a609b15b5496d7eada2d88586868dcdc7dfeb5e4d31fedec5b14a84528c9
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: 92c098e2e9936e546a2583cf56b33b0c5bb55528ff2a3ba6b284feeb493c9f5e
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+  provenance: 22ff8fe54c4cd512f5bc04b671e1091bd6ba52f63a11b8fab61177dce7bc9bae
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-17T14:09:07Z'
+  authority: generated
+  via: create_document

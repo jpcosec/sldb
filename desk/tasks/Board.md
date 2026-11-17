@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T14:02:25Z'
+  at: '2026-11-17T14:13:53Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -82,7 +82,6 @@ tasks:
 - desk/tasks/task-sw8-decisión-de-jp-qué-queda-de-la-superficie-anterior-de-surface-vistas-legacy-stores-demo-y-caso-l.md
 - desk/tasks/task-sw10-la-cabecera-del-workbench-muestra-la-ruta-del-documento-en-el-disco-como-carpetas-desplegables.md
 - desk/tasks/task-sw11-el-panel-izquierdo-del-workbench-muestra-el-grafo-de-documentos-relacionados-con-el-abierto-al.md
-- desk/tasks/task-read-store-distingue-un-store-inexistente-store-not-found-de-uno-sin-preparar-store-not-prepared.md
 - desk/tasks/task-el-scan-de-enlaces-ignora-el-contenido-de-los-bloques-de-código-fenced-e-inline-y-no-los-informa-com.md
 - desk/tasks/task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for.md
 - desk/tasks/task-declaredfiletargets-lee-campos-lista-y-no-aplica-las-exclusiones-a-lo-que-se-declara-para-que-un-des.md
@@ -203,7 +202,6 @@ _Generated from the task references above._
 - SW8, decisión de JP: qué queda de la superficie anterior de surface (vistas legacy, stores demo y caso Levira, T8 identidad de sección) [draft] - JP decide: (A) qué vistas legacy se retiran y cuáles sobreviven dentro del Workbench; (B) si los stores demo y el código del caso Levira quedan como fixture de desarrollo o se retiran con la maqueta; (C) si T8 sigue como tarea de sldb o se descarta. La decisión queda escrita y de ella salen las tareas de retiro.
 - SW10: la cabecera del Workbench muestra la ruta del documento en el disco como carpetas desplegables navegables [draft] - La cabecera muestra la ruta real del documento abierto: la raíz del store y cada carpeta son segmentos que abren un panel con sus subcarpetas (con la cantidad de documentos) y sus documentos; un clic abre el documento; el nombre del archivo al final abre ⌘K; funciona con teclado y mouse y una ruta de 150 caracteres no desborda la cabecera a 1280 px.
 - SW11: el panel izquierdo del Workbench muestra el grafo de documentos relacionados con el abierto al centro, desde lo que entrega sldb [draft] - Con un documento que tiene relaciones entrantes y salientes en un store real, el panel muestra ambas con el documento al centro (1 y 2 saltos), un clic en un vecino lo abre, un documento sin relaciones lo dice, hay un tope de nodos para documentos muy referenciados, y ningún vecino sale de parseo en la UI.
-- read_store distingue un store inexistente ('store not found') de uno sin preparar ('store not prepared') [draft] - read_store lanza SLDBStoreError 'store not found: <ruta>' cuando no existe el directorio del store, y conserva 'store not prepared: run sldb stores update (<ruta>)' cuando el store existe pero le falta el índice.
 - El scan de enlaces ignora el contenido de los bloques de código (fenced e inline) y no los informa como enlaces rotos [draft] - El scan de enlaces de sldb (comando sldb links y la API que usa) no cuenta como enlace nada que esté dentro de un bloque de código cercado ni de un código en línea; los enlaces reales se siguen detectando igual.
 - docs track --reindex re-indexa un documento ya trackeado validándolo, sin saltar el round-trip como --force [draft] - docs track --reindex (y track_document_file(..., reindex=True)) re-indexa desde el archivo un documento ya trackeado en la misma ruta, como --force, pero corre las mismas validaciones que un track normal: si el archivo no valida falla con el error de validación y deja el índice como estaba. --force no cambia.
 - DeclaredFileTargets lee campos lista y no aplica las exclusiones a lo que se declara, para que un destino que existe no cuente como faltante [draft] - Un destino declarado por DeclaredFileTargets, venga de un campo escalar o de un campo lista, que es un archivo existente del proyecto se vuelve nodo aunque esté bajo una exclusión; y hay una forma declarativa de que las menciones de LineMentions a archivos existentes del proyecto no cuenten como faltantes.
