@@ -1,0 +1,23 @@
+name: atom-toda-función-pública-de-escritura-de-sldb-api-que-recibe-actor-lo-lleva-al-sello-sldb-by-o-declara-e
+path: desk/atoms/atom-toda-función-pública-de-escritura-de-sldb-api-que-recibe-actor-lo-lleva-al-sello-sldb-by-o-declara-e.md
+source_hash: 06ed85ae98d90c3ded704f98882ba379fbae943590a7f691193531454cefb252
+content_hash: 3a8e93a182519f761c866deb7a8d060b01263a62d7136bb54ec708da538643f6
+field_hashes:
+  id: 5764e7dfd2501cd3272b09654817f93fac5f43b4344a6af90477614a07c46a95
+  title: ef18e26c9778df6ef494bac790d922601b844895dd0e1b8a65aeb5e185d661e6
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: 3e58d069ea506a608e42a115f3852faf64f953b8ee0de52c4d467a23a38d19de
+  tags: 5eb52ac3aca619406d5f9905ae5ec9fbc7689e9f71f0f90681b13d902d0e9131
+  provenance: 635f9d58e100ab07832476cb41d32770349eef3cb43a93e27837d6e850cdcc08
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:provenance
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-17T15:45:06Z'
+  authority: generated
+  via: create_document

@@ -1,0 +1,25 @@
+name: materialization-actor-dag-writes
+path: desk/materializations/materialization-actor-dag-writes.md
+source_hash: 77a6598bae9bb0256ac55907cb4a9a99bbc30e223c98bdda63eac1defe012b21
+content_hash: a9b371a1d9223851c7d582358b114209c2202c478f354d06b9b997771c245b43
+field_hashes:
+  id: a6ed59c3be23d498c41c121663c943fa71f362860f1071a260f5e517d0265de7
+  title: e5794b7ea5be6a7cfa7e2a48c2b1c005751f3261aef8a0a7dea041cde142d75a
+  source_atoms: 6c7fa5f72b2e80ad88db37adf392bdf98b9bd9a6c79c9d71bf1c295828c31d8f
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 18d11957017b1df7d216b38bece6ec5b2f851f0cbbf44df8eb0f9e67e1deed24
+  intent: 156dcd769a82cfc67b627f33adbebc06e91334356abb8e2537443c66d1c3dd6b
+  validation: 5fe348632e5f61cd53b36e7ceea3c73147a79360af6a9b0da87994dfc40fd3fc
+  tags: 5eb52ac3aca619406d5f9905ae5ec9fbc7689e9f71f0f90681b13d902d0e9131
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:provenance
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T15:46:00Z'
+  authority: generated
+  via: create_document

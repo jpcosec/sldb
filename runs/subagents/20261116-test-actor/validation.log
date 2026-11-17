@@ -1,0 +1,366 @@
+=== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/api/test_provenance.py
+..........                                                               [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+10 passed, 1 warning in 0.97s
+rc=0
+=== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/api/test_anchors.py
+.......................                                                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+23 passed, 1 warning in 1.71s
+rc=0
+=== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/api/test_api_documents.py
+.................                                                        [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+17 passed, 1 warning in 0.95s
+rc=0
+=== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/test_clean_code_rules.py
+........................................................................ [  5%]
+........................................................................ [ 11%]
+........................................................................ [ 17%]
+........................................................................ [ 23%]
+........................................................................ [ 29%]
+........................................................................ [ 35%]
+........................................................................ [ 41%]
+........................................................................ [ 47%]
+........................................................................ [ 53%]
+........................................................................ [ 59%]
+........................................................................ [ 65%]
+........................................................................ [ 71%]
+........................................................................ [ 77%]
+........................................................................ [ 83%]
+........................................................................ [ 89%]
+........................................................................ [ 95%]
+......................................................                   [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1206 passed, 2 warnings in 2.84s
+rc=0
+=== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev bash tools/check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   225 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 976 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 124 símbolos pedidos, 594 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+rc=0
+=== REGRESIONES VECINAS (worktree)
+=== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/api/test_api_semantic.py
+........                                                                 [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+8 passed, 1 warning in 0.68s
+rc=0
+=== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/api/test_doc_anchors.py
+........................                                                 [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+24 passed, 1 warning in 1.83s
+rc=0
+=== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/api/test_graph_source_parity.py
+.............                                                            [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+13 passed, 1 warning in 2.50s
+rc=0
+=== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/api/test_rewrite_references.py
+.....................                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+21 passed, 1 warning in 6.30s
+rc=0
+=== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/api/test_tags.py
+....................................                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+36 passed, 1 warning in 11.84s
+rc=0
+=== INVENTARIO propio (ast, src/sldb/api, públicas con actor)
+actor.py:15:set_actor used=True
+anchors/anchor_docs.py:37:record_reconnection used=True
+anchors/anchor_docs.py:50:write_anchor used=True
+documents/create_document.py:26:create_document used=True
+documents/delete_document.py:12:delete_document used=True
+documents/payload_save.py:15:save_document_payload used=True
+documents/payload_save_steps.py:83:write_rendered_document used=True
+documents/provenance_stamp.py:20:stamped used=True
+documents/provenance_stamp.py:30:stamped_file used=True
+documents/track_document_file.py:22:track_document_file used=False
+documents/untrack_document.py:29:untrack_document used=False
+model_create/create_model.py:21:create_model used=True
+model_drafts/backfill.py:58:apply_backfill used=True
+model_drafts/draft_validation.py:34:promote_model_draft used=True
+model_registry/add_model.py:18:add_model used=False
+model_registry/inherit_model.py:21:inherit_model used=False
+model_registry/reindex_model.py:17:reindex_model used=False
+model_registry/remove_model.py:20:remove_model used=False
+notations/notation_sync.py:32:sync_palette used=True
+notations/notation_sync.py:37:sync_notation used=True
+notations/projection_save.py:36:save_projection_view used=True
+notations/spec_sync.py:56:sync_spec used=True
+semantic/dag_writes.py:19:add_semantic_parent used=False
+semantic/dag_writes.py:30:remove_semantic_parent used=False
+semantic/dag_writes.py:41:add_semantic_equivalence used=False
+=== SOLO DOCSTRINGS (ast sin docstrings HEAD vs worktree)
+src/sldb/api/semantic/dag_writes.py SOLO DOCSTRINGS
+src/sldb/api/documents/delete_document.py SOLO DOCSTRINGS
+=== MUTACIÓN: record_reconnection vuelve a actor=None -> inventario
+anchors/anchor_docs.py:37:record_reconnection used=False
+anchors/anchor_docs.py:50:write_anchor used=True
+=== PROBE sello actor=X (worktree)
+{
+ "sldb_file": "/mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/__init__.py",
+ "create_document": [
+  "x:create_document",
+  "create_document"
+ ],
+ "save_document_payload": [
+  "x:save_document_payload",
+  "save_document_payload"
+ ],
+ "stamped": [
+  "x:stamped"
+ ],
+ "stamped_file": [
+  "x:stamped_file"
+ ],
+ "promote_model_draft(backfill)": [
+  "x:promote_model_draft",
+  "backfill_document"
+ ],
+ "write_anchor/create": [
+  "x:write_anchor/create",
+  "create_document"
+ ],
+ "write_anchor/re-record": [
+  "x:write_anchor/re-record",
+  "save_document_payload"
+ ],
+ "record_reconnection": [
+  "x:record_reconnection",
+  "save_document_payload"
+ ],
+ "edge:set_actor+write_anchor(None)": [
+  "human:proc",
+  "save_document_payload"
+ ],
+ "edge:explicit>set_actor": [
+  "x:explicit_over_proc",
+  "save_document_payload"
+ ],
+ "edge:SLDB_ACTOR+write_anchor/create(None)": [
+  "human:env",
+  "create_document"
+ ]
+}
+=== PROBE sello actor=None (worktree)
+{
+ "sldb_file": "/mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/__init__.py",
+ "create_document": [
+  "agent",
+  "create_document"
+ ],
+ "save_document_payload": [
+  "agent",
+  "save_document_payload"
+ ],
+ "stamped": [
+  "agent"
+ ],
+ "stamped_file": [
+  "agent"
+ ],
+ "promote_model_draft(backfill)": [
+  "agent",
+  "backfill_document"
+ ],
+ "write_anchor/create": [
+  "agent",
+  "create_document"
+ ],
+ "write_anchor/re-record": [
+  "agent",
+  "save_document_payload"
+ ],
+ "record_reconnection": [
+  "agent",
+  "save_document_payload"
+ ],
+ "edge:set_actor+write_anchor(None)": [
+  "human:proc",
+  "save_document_payload"
+ ],
+ "edge:SLDB_ACTOR+write_anchor/create(None)": [
+  "human:env",
+  "create_document"
+ ]
+}
+=== PROBE sello actor=None (HEAD, git archive en /dev/shm/tact/head)
+{
+ "sldb_file": "/dev/shm/tact/head/src/sldb/__init__.py",
+ "create_document": [
+  "agent",
+  "create_document"
+ ],
+ "save_document_payload": [
+  "agent",
+  "save_document_payload"
+ ],
+ "stamped": [
+  "agent"
+ ],
+ "stamped_file": [
+  "agent"
+ ],
+ "promote_model_draft(backfill)": [
+  "agent",
+  "backfill_document"
+ ],
+ "write_anchor/create": [
+  "agent",
+  "create_document"
+ ],
+ "write_anchor/re-record": [
+  "agent",
+  "save_document_payload"
+ ],
+ "record_reconnection": [
+  "agent",
+  "save_document_payload"
+ ],
+ "edge:set_actor+write_anchor(None)": [
+  "human:proc",
+  "save_document_payload"
+ ],
+ "edge:SLDB_ACTOR+write_anchor/create(None)": [
+  "human:env",
+  "create_document"
+ ]
+}
+=== diff None worktree vs HEAD (sin sldb_file)
+IGUALES
+=== PROBE2 notaciones/vistas
+  "x:sync_notation",
+  "x:sync_palette"
+ ],
+ "x:save_projection_view": [
+  "x:save_projection_view"
+ ],
+ "none:sync_palette+sync_notation by": [
+  "agent",
+  "sldb"
+ ],
+ "none:save_projection_view": [
+  "agent"
+ ]
+}
+after init: []
+agent-signed: sldb/relation_types/applies_to_source.md init_relations
+agent-signed: sldb/relation_types/applies_to_target.md init_relations
+agent-signed: sldb/relation_types/composes.md init_relations
+agent-signed: sldb/relation_types/contains.md init_relations
+agent-signed: sldb/relation_types/extends.md init_relations
+agent-signed: sldb/relation_types/has_document.md init_relations
+agent-signed: sldb/relation_types/has_field.md init_relations
+agent-signed: sldb/relation_types/has_model.md init_relations
+agent-signed: sldb/relation_types/has_section.md init_relations
+agent-signed: sldb/relation_types/links_to.md init_relations
+agent-signed: sldb/relation_types/names.md init_relations
+agent-signed: sldb/relation_types/references.md init_relations
+agent-signed: sldb/relation_types/semantic_equivalent.md init_relations
+agent-signed: sldb/relation_types/semantic_parent.md init_relations
+agent-signed: sldb/relation_types/tagged_as.md init_relations

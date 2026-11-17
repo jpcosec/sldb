@@ -1,0 +1,25 @@
+name: materialization-actor-delete-document
+path: desk/materializations/materialization-actor-delete-document.md
+source_hash: abc52be69e92881589bf9a74862c4a8dcb8d89b63cc163104279d0d4dcb4b3c2
+content_hash: e061421e5793290eb6d6e6da7ed62bbc3eb74005734ee6f07a2dc640c73aa1de
+field_hashes:
+  id: 60de17fd071b694bd966d17faaf525c7a9e44d82acb9c3dc610adddfbb90eeed
+  title: 1fd944fe5dcf3848e1f6bde95809460339dbec3e19ee01b98e85448ef78b85ce
+  source_atoms: 6c7fa5f72b2e80ad88db37adf392bdf98b9bd9a6c79c9d71bf1c295828c31d8f
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: f942ecdf1bcf3a2017a7ebb9232dda3aefc38800482e016a0e4576ef61b7f52f
+  intent: bee83253a69bb0d344a847fe8f947f1bb26c00c0baa1b1a88b43919284a74d08
+  validation: 5fe348632e5f61cd53b36e7ceea3c73147a79360af6a9b0da87994dfc40fd3fc
+  tags: 5eb52ac3aca619406d5f9905ae5ec9fbc7689e9f71f0f90681b13d902d0e9131
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:provenance
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T15:46:25Z'
+  authority: generated
+  via: create_document

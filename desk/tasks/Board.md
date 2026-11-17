@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T15:32:44Z'
+  at: '2026-11-17T15:49:46Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -66,7 +66,6 @@ tasks:
 - desk/tasks/task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a.md
 - desk/tasks/task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato.md
 - desk/tasks/task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest.md
-- desk/tasks/task-el-parámetro-actor-de-la-api-de-escritura-se-respeta-en-lugar-de-aceptarse-e-ignorarse.md
 - desk/tasks/task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent.md
 - desk/tasks/task-sw1-documentación-y-arranque-de-surface-al-día-con-el-workbench-readme-maqueta-histórica-tareas-t7-t.md
 - desk/tasks/task-sw9-primera-pasada-capturas-y-tiempos-de-las-cuatro-vistas-del-workbench-sobre-df3903db-para-que-jp.md
@@ -185,7 +184,6 @@ _Generated from the task references above._
 - La doc del árbol del CLI cubre todos los subcomandos y grupos, y selfdoc check detecta cuando falta alguno [draft] - current-cli-tree.md lista todos los grupos y subcomandos que define el parser de sldb, y selfdoc check falla nombrando cada grupo o subcomando del parser que la doc no menciona (y cada uno que la doc nombra y ya no existe).
 - El tercer valor del lenguaje de predicados (incomplete) se demuestra alcanzable con un test sobre datos reales o se retira [draft] - O hay un test que, con un store real armado en tmp_path, obtiene incomplete de una evaluación pública (where o rules check) y documenta cuándo ocurre; o incomplete se retira del lenguaje, de la API y de la doc sin cambiar los resultados true/false existentes.
 - Limpieza de cáscaras vacías de la API y de los residuos de kgdb (graph parser, help_texts_graph, ingest_sldb, python_source_graph) [draft] - Cada uno de esos archivos y cada cáscara vacía de sldb.api queda borrado si nada lo usa, o reducido a lo que se usa, sin cambiar ningún comportamiento observable (CLI, API pública, tests).
-- El parámetro actor de la API de escritura se respeta en lugar de aceptarse e ignorarse [draft] - Toda función pública de escritura que acepta actor lo pasa hasta donde se registra la procedencia (sello sldb.by del documento), de modo que un documento escrito con actor=X queda firmado por X; ninguna lo descarta.
 - El conjunto de documentos sucios se persiste en .sldb_cache para que el modo incremental funcione entre corridas (V2) [draft] - El conjunto de documentos sucios se guarda en .sldb_cache (regenerable, sin versionar) y una corrida nueva lo lee, de modo que una actualización incremental en un proceso nuevo procesa solo lo que cambió; si el archivo falta o está corrupto, se vuelve al cálculo completo sin error.
 - SW1: documentación y arranque de surface como la UI de SLDB (README, maqueta histórica, tareas T7-T9 y puerto configurable documentado) [draft] - surface tiene un README que la presenta como la UI de SLDB para cualquier store y describe cómo levantarla; las referencias a la maqueta están corregidas o marcadas como históricas; docs/surface/tasks/README.md dice el estado real de T7, T8 y T9; el puerto de vite es configurable (variable de entorno, con un valor por defecto) y está documentado, sin strictPort.
 - SW9, primera pasada: capturas y tiempos de las cuatro vistas del Workbench sobre df3903db, para que JP vea el punto de partida [draft] - En runs/ queda un índice con capturas y tiempos de las cuatro vistas (#/workbench, #/diagram, #/source, #/studio), con las lentes lectura y fierros, sobre documentos reales de un store SLDB real (el del repo), tomadas en df3903db.

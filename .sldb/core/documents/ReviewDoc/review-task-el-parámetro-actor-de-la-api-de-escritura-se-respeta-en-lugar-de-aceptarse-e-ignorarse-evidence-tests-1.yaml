@@ -1,0 +1,37 @@
+name: review-task-el-parámetro-actor-de-la-api-de-escritura-se-respeta-en-lugar-de-aceptarse-e-ignorarse-evidence-tests-1
+path: desk/reviews/task-el-parámetro-actor-de-la-api-de-escritura-se-respeta-en-lugar-de-aceptarse-e-ignorarse/evidence-tests-1.md
+source_hash: 0befcd5c97424f16b826ccc30b3d2dd9c426f050230376e7c3b35c3f13616048
+content_hash: 6d723006bb7a5987e86f1707acce42bdbb50c11cc9ec09c1c2be4dc1ebc929ca
+field_hashes:
+  id: 345c24833949ba2043d8a5f1d6d5a10220d6b2d529d77624071f03354decc095
+  title: ceb67c71f3545fba13f2e6089483d1a778406774d0bf2709b85770acb069d3db
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: 68f05093bc600659c0aecd265fad80c71a658cc857e91cdfeeee782eb670c200
+  value: 0379ed641d933b1b7960b75b183abc9e70fdc0044d58b3fd1f87ae2983417a84
+  subject: 328c59ef1c23020162fef7135a4edccf6a1ce5aae8fbb79ad0930b959505a8e5
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 9793ac34b24851731c4c9ea2d3f00071f6e1c3f2765ee6104efc83f5d6fb802f
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 05a7e281c39be31a15825fb976a1d59e4cf9b30c498dde4a54b67ff2a72f5f95
+  created_at: c5c7d28919db9b7356f2e4fcbf92fc5e521a2d965d8a9f676d362bf8fb8e40c8
+  disposed_at: c5c7d28919db9b7356f2e4fcbf92fc5e521a2d965d8a9f676d362bf8fb8e40c8
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 147437932eb28a05f4e229521d7383755528169e522a2a53ceeee2ee53a37458
+  disposition: 18aebe6acea932718ce28d2194891e33307e887c08ccdaf3662891e6cb9cfe36
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T15:47:50Z'
+  authority: generated
+  via: create_document
