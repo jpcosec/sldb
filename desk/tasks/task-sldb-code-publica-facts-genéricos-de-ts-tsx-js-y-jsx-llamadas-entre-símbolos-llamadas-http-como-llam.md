@@ -1,12 +1,20 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T00:45:14Z'
+  at: '2026-11-17T11:51:11Z'
   authority: generated
   via: save_document_payload
 id: task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam
 status: draft
-summary: ''
+summary: 'BLOQUEADA 2026-11-17 tras 2 ciclos de corrección (tester FALLA en intento
+  1, c1 y c2). Resuelto: await, type args, espacios, cadenas en varias líneas, ''()'',
+  ''(fn)'', ''[]'', first_arg y handlers; facts existentes idénticos a HEAD. Pendiente:
+  cuando el objeto de la cadena es un array, binario, new o literal, el nombre sale
+  como texto sin espacios y puede ser erróneo (new Set(xs) -> newSet(xs); (a ?? []).map
+  -> a??[].map; ''a b''.split -> ''ab''.split): 123 de unos 2000 nombres en tres frontends
+  reales. Propuesta: un ciclo más con marcadores fijos para esas expresiones ([...],
+  (expr), (lit)) en ts_callee.py; necesita OK del supervisor. Diff guardado en runs/subagents/20261116-exec-k4-c2/executor-diff-c3ts-c2.patch
+  (reaplicable); informes en runs/subagents/20261116-test-k4*/.'
 tags:
 - workspace:desk
 - artifact:task
@@ -51,6 +59,8 @@ _State what is in scope and what is out of scope._
 Entra: (1) relación calls desde cada función, componente o hook hacia cada nombre llamado (texto calificado tal cual); attrs.calls con {func, line, first_arg} donde first_arg es el texto de un primer argumento literal (string o template sin expresiones) o null. (2) attrs.handlers en componentes: lista de {element, attribute, handler} para atributos JSX que empiezan por on y cuyo valor es un identificador o una llamada; relación calls también hacia ese handler. (3) Mismas convenciones de forma que la tarea de Python (si esa ya cerró, seguir su forma exacta). Fixture con un componente que hace fetch y axios y tiene un botón con onClick; tests. CHANGELOG. No entra: interpretar REST ni frameworks, resolver imports, Python.
 
 Precisiones (intento 2): esta tarea depende de la de facts genéricos de Python y sigue su forma exacta para calls, attrs.calls y kwargs cuando aplique. El destino de una relación calls es el texto completo de la expresión llamada como un solo nombre (api.posts.create, axios.get, fetch), sin partirlo. first_arg es el valor del literal sin comillas ni backticks (/api/posts, no '/api/posts'); un template con expresiones da null. element es el nombre del tag JSX tal como está escrito (button, Button, Form.Item). Los readers nuevos van en módulos nuevos del paquete sldb.code; están autorizados aunque no figuren en files.
+
+Precisiones (corrección 2, tras dos testers): forma canónica del nombre de una llamada (name en attrs.calls y destino de la relación calls). Se arma desde el árbol, no desde el texto: identificadores y nombres de propiedad unidos por '.' (con '?.' y '!' si están escritos), sin espacios ni saltos de línea, sin await y sin argumentos de tipo. Si un tramo de la cadena es a su vez una llamada, se escribe con '()' sin sus argumentos (fetch(url).then(cb).then -> fetch().then().then; (await listDocuments(m)).slice -> listDocuments().slice). Una función anónima o una IIFE como objeto se escribe '(fn)'. Un acceso por índice se escribe '[]'. Los handlers JSX son atributos 'on' seguidos de mayúscula. El diff de los intentos anteriores está en el árbol o en runs/subagents/20261116-exec-k4-c1/ y es el punto de partida.
 
 ## Implementation Path
 

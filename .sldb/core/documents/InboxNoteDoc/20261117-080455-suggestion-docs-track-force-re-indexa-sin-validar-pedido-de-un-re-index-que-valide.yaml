@@ -1,13 +1,15 @@
 name: 20261117-080455-suggestion-docs-track-force-re-indexa-sin-validar-pedido-de-un-re-index-que-valide
 path: desk/inbox/20261117-080455-suggestion-docs-track-force-re-indexa-sin-validar-pedido-de-un-re-index-que-valide.md
-source_hash: df72f9124b8c94b6c1d9e2ff65a310fb11363fbd5c87b23af908dbfd90a2106c
-content_hash: 7db45b48480d3908a6825533e6259cc2d7a9281e8c6d3382376f2ef388984307
+source_hash: a6f9f1e2bbaff90d31a7f952428e233d0968081ba1d20602b0c1ec87b6d50844
+content_hash: 0444190474e09d1a3e77761361080921588abb655ca20d9b9b9c85da621cbf0f
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: e710514e29fab1ba3c04f75397d61d649da0270012ce642af2775691b57f6e9c
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: 5bbc6c96751d1f61ee0aba84115f7cbb315caae32e8c2d0b3e082774a0fb386a
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: f8bca65114902b9bd9204f3d60808b55eb4385806f9f05fa6514df3f73440e42
   title: acf147c6b334514d7330b262b8e25b3bf294053633f1000ac6d1dd85721eb900
   body: 87ca974acc2060e1aa08c51b14f41348e90b9b9a0df4f26c65e827cfd51e4d10
 semantic_tags:
@@ -15,4 +17,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-17T11:20:11Z'
+  authority: generated
+  via: save_document_payload

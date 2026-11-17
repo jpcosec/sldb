@@ -1,13 +1,15 @@
 name: 20261117-080724-suggestion-project-graph-de-deskops-destinos-de-h1-que-declaredfiletargets-no-puede-declarar-y-closed-sin-cuerpo-h2
 path: desk/inbox/20261117-080724-suggestion-project-graph-de-deskops-destinos-de-h1-que-declaredfiletargets-no-puede-declarar-y-closed-sin-cuerpo-h2.md
-source_hash: b3e6c8de7f7a06fc3455b319c39cdf5fb5b8a049de85a44c7e67c36efc932a75
-content_hash: c2adc7e44763911b5c5088608adeb95e1eeeecaf469df38e47f71347414e7e1a
+source_hash: c189cdf2bad6b09bb4828b05c8d2299453e990cf40ad20bf0dfe664f7182c520
+content_hash: 037587884b4513d03c6be69141e15e8bbcd134cc0ecc2f341f4dc3b00d77ac2b
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: 07f3c31dc88cda67b7aa25c967c0fd4c352e07ca001ae72702fa2bcb4559bb74
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 7e71748f3292b6e45a503502d2026ec7bc07d218a7c888e24b08368888f6763d
   title: 0ec2cde07d814018bad536454096797c324884d1ba5e3b40951d579d119f948c
   body: 7a07983d794bf0d9620a65dd57ce46ec8fb897103dad0537349114ccdbc2a9b0
 semantic_tags:
@@ -15,4 +17,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-17T11:20:46Z'
+  authority: generated
+  via: save_document_payload

@@ -1,0 +1,25 @@
+name: materialization-undo-apply
+path: desk/materializations/materialization-undo-apply.md
+source_hash: 00a9b848d19b5ce93cd36c9d9326f03d1ecf8e61de10a558bbcb9c83911d6606
+content_hash: 2fe59ca9198f69aebdbe50ffb36d3bc61156431f902351173c6bbc19258e7da9
+field_hashes:
+  id: 6ea2d279e72cf6a8ed81d2aabf2d33678b1bae1523dcd8d60448cf5e44a8e14b
+  title: e655193738ef6a0069cb21ab12b4c996374745c46477ede4b87f3da0c1145786
+  source_atoms: d6f12e608acb019d241beadea68e48ab6d1c3bf732337a9cc21c600334dc01f7
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: db609aafa74ba541510e060280d67373dea491a06d65b1bbbdb481266b70bfe5
+  intent: c0c9652f232a5f513a5b2f7845f18993b47a6865ba34f09a996cb5f8dd479744
+  validation: 55cbee6cf46c3a28d76fc2c5cbfff72d9e63dcdb2a7a7e2bb3b26d302af1ad50
+  tags: 35a97c7a70322fb86371ff71b1fb31b21721fa8b1bd62d16604c8b4cdb3f8e60
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:mcp
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T12:15:46Z'
+  authority: generated
+  via: create_document

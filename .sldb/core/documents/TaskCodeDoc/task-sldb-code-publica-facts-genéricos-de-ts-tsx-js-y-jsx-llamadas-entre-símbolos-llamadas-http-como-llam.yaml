@@ -1,18 +1,18 @@
 name: task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam
 path: desk/tasks/task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam.md
-source_hash: 2540ef67cda2e9e0214c7abad1f5ac4168076d5ee259f5464efb0c611edeb8d4
-content_hash: 5eaf63b6bb802c61d01b25f513c0a756f8b0c78884ef54a73a181147ae84569c
+source_hash: 52cc9feeb5bfda93797b4c69bf11a714a43746d6dad73ffaba1bd75490cb333e
+content_hash: c7bab3aec6d2259ff93dec31c9830c6cf7f7e55216f0c16cd201490796d4ae2f
 field_hashes:
   title: aa26c0a51d0a3ebb84d5820c93c3c08a355ac650bbb6459e7ba687c37ea3ebb7
   id: d05b1ad3bd76d8874035c54383bfe39efe0bf49d416351c116d1c1c0407ab799
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
-  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  summary: 8a5ce32483b6162d74b9dc740cb0592b4042f9be39fa888341ad9ca1633ace03
   tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 0117d2a6628dfe6537bfbb8ed35524bc73908da74c145c3b6f2454c9ca6aaeb2
   goal: 289b3ed862e59e5dd180dcd2fb91a392b5864836d1b526ffa030bccd45c45043
-  scope: 1db1191914299ef0b4f20e4e19b849550f4090c3cae61f921395b0ff791d1603
+  scope: d0f7ac52cb04a13bf83cdadb9d28192da4feadfa2d3432dbf854fbafc995cf8a
   references: 45dc626c8b991be7079ea9e53e9d4a47dd64a6c8f819cac48e97b8a403626449
   depends_on: f976bd0fa0f02637a91d0addfd068a281600fe4c9c259bc5fba0873c8c89157c
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-17T00:45:14Z'
+  at: '2026-11-17T11:51:11Z'
   authority: generated
   via: save_document_payload

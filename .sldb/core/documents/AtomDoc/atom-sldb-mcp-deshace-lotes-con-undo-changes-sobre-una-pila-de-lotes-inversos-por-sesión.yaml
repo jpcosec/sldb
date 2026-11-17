@@ -1,0 +1,23 @@
+name: atom-sldb-mcp-deshace-lotes-con-undo-changes-sobre-una-pila-de-lotes-inversos-por-sesión
+path: desk/atoms/atom-sldb-mcp-deshace-lotes-con-undo-changes-sobre-una-pila-de-lotes-inversos-por-sesión.md
+source_hash: f4d1f6e8e70fdf4539457cb7bec3c2ca4a60be40260844e21a67518f0a0f3a19
+content_hash: 1086addcf00a044fc5a634e330190f6798949b3e1a223644469930ab9bc6d87d
+field_hashes:
+  id: 3c6e4c2e18efe9825c86c54f35b4bdc0a74e8d6fb7d0664721d240a2b8e57be8
+  title: 31b350b0a28ee8dd0928b71f1262dcc0f00832d5255d5eb61c9d502a3c2bbb09
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: 1854fe55d2c91485c2e28ebf2240f6cd34f66a15ce2d9207fa68fe86dea96fdb
+  tags: 35a97c7a70322fb86371ff71b1fb31b21721fa8b1bd62d16604c8b4cdb3f8e60
+  provenance: e251b3c6f1ec6c2cd02e5c4ef030249e64d910ee3271b1b609d6e1c2b80c4573
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:mcp
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-17T12:12:04Z'
+  authority: generated
+  via: create_document

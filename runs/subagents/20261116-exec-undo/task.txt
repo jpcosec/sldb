@@ -1,0 +1,9 @@
+Task: task-sldb-mcp-sirve-undo-changes-apply-changes-guarda-el-lote-inverso-de-cada-lote-en-una-pila-de-la-sesi
+Title: sldb mcp sirve undo_changes: apply_changes guarda el lote inverso de cada lote en una pila de la sesión y undo_changes lo aplica con guardas (IR04b)
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective atoms:
+- atom-apply-batch-devuelve-en-batchreport-inverse-el-lote-que-lo-deshace-con-guardas
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]

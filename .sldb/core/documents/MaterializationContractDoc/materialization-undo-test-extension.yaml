@@ -1,0 +1,25 @@
+name: materialization-undo-test-extension
+path: desk/materializations/materialization-undo-test-extension.md
+source_hash: 527288fb09c46fd32a6526287246a6f9c083cbaf34a00b4400bdc3baa26b10c1
+content_hash: 336e40f3f7a549759ae6838f5051ed0c7e9a0c865a42669394b18493e2cb189b
+field_hashes:
+  id: bb42b3b30f1082c3078d07ef0457f8ca14f583b9559f9e8b1ba1d6186d985879
+  title: 545d8b457dae6db1c360347eb2b93c36410fc4ad44e30bc48d5acd27c5273cd1
+  source_atoms: d6f12e608acb019d241beadea68e48ab6d1c3bf732337a9cc21c600334dc01f7
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 8f6f886914e0065144a26ef61005fdf3891cf3f0260968791eb2aef55de05f92
+  intent: a1a28d0ec724349d8224d421df82e910103bd5fd471bd8d63e0cce68f1680ae3
+  validation: 55cbee6cf46c3a28d76fc2c5cbfff72d9e63dcdb2a7a7e2bb3b26d302af1ad50
+  tags: 35a97c7a70322fb86371ff71b1fb31b21721fa8b1bd62d16604c8b4cdb3f8e60
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:mcp
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T12:17:24Z'
+  authority: generated
+  via: create_document

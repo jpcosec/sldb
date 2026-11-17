@@ -1,0 +1,297 @@
+=== $ uv run --frozen --extra code --extra dev --extra mcp pytest -q tests/mcp/test_write_tools.py
+........x....                                                            [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+12 passed, 1 xfailed, 1 warning in 21.06s
+=== rc=0
+=== $ uv run --frozen --extra code --extra dev --extra mcp pytest -q tests/mcp/test_signals.py
+..........                                                               [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+10 passed, 1 warning in 8.39s
+=== rc=0
+=== $ uv run --frozen --extra code --extra dev --extra mcp pytest -q tests/mcp/test_dry_run.py
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 4.95s
+=== rc=0
+=== $ uv run --frozen --extra code --extra dev pytest -q tests/test_clean_code_rules.py
+........................................................................ [  5%]
+........................................................................ [ 11%]
+........................................................................ [ 17%]
+........................................................................ [ 23%]
+........................................................................ [ 29%]
+........................................................................ [ 35%]
+........................................................................ [ 41%]
+........................................................................ [ 47%]
+........................................................................ [ 53%]
+........................................................................ [ 59%]
+........................................................................ [ 65%]
+........................................................................ [ 71%]
+........................................................................ [ 77%]
+........................................................................ [ 83%]
+........................................................................ [ 89%]
+........................................................................ [ 95%]
+..................................................                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1202 passed, 2 warnings in 2.59s
+=== rc=0
+=== $ uv run --frozen --extra code --extra dev bash tools/check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   225 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 972 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 123 símbolos pedidos, 594 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+=== rc=0
+##### REGRESIONES VECINAS (tests/mcp archivo por archivo)
+=== $ uv run --frozen --extra code --extra dev --extra mcp pytest -q tests/mcp/test_cli_mcp.py
+...                                                                      [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+3 passed, 1 warning in 9.88s
+=== rc=0
+=== $ uv run --frozen --extra code --extra dev --extra mcp pytest -q tests/mcp/test_dry_run.py
+.                                                                        [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 12.30s
+=== rc=0
+=== $ uv run --frozen --extra code --extra dev --extra mcp pytest -q tests/mcp/test_extension.py
+........                                                                 [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+8 passed, 1 warning in 37.54s
+=== rc=0
+=== $ uv run --frozen --extra code --extra dev --extra mcp pytest -q tests/mcp/test_mutability.py
+.......                                                                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+7 passed, 1 warning in 32.46s
+=== rc=0
+=== $ uv run --frozen --extra code --extra dev --extra mcp pytest -q tests/mcp/test_no_writes.py
+..                                                                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 17.28s
+=== rc=0
+=== $ uv run --frozen --extra code --extra dev --extra mcp pytest -q tests/mcp/test_read_tools.py
+..............                                                           [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+14 passed, 1 warning in 15.42s
+=== rc=0
+=== $ uv run --frozen --extra code --extra dev --extra mcp pytest -q tests/mcp/test_signals.py
+..........                                                               [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+10 passed, 1 warning in 25.55s
+=== rc=0
+=== $ uv run --frozen --extra code --extra dev --extra mcp pytest -q tests/mcp/test_write_tools.py
+........x....                                                            [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+12 passed, 1 xfailed, 1 warning in 60.66s (0:01:00)
+=== rc=0
+##### PRUEBAS PROPIAS DEL TESTER (/dev/shm/undo-tester/test_undo_tester.py)
+____________ test_failed_apply_does_not_push_and_bad_steps_refused _____________
+PASSED ../../../../../dev/shm/undo-tester/test_undo_tester.py::test_foreign_write_then_undo_is_stale_and_writes_nothing
+PASSED ../../../../../dev/shm/undo-tester/test_undo_tester.py::test_new_server_has_no_stack
+PASSED ../../../../../dev/shm/undo-tester/test_undo_tester.py::test_two_live_sessions_do_not_share_the_stack
+PASSED ../../../../../dev/shm/undo-tester/test_undo_tester.py::test_failed_apply_does_not_push_and_bad_steps_refused
+PASSED ../../../../../dev/shm/undo-tester/test_undo_tester.py::test_level_1_serves_undo_and_undo_is_not_redoable
+FAILED ../../../../../dev/shm/undo-tester/test_undo_tester.py::test_e2e_two_batches_undo2_is_byte_identical
+1 failed, 5 passed in 53.73s
+##### DIFERENCIA BYTE A BYTE tras apply x2 + undo_changes(2) (solo líneas distintas)
+### .sldb/core/documents/Item/i0.yaml
+--- 
++++ 
+@@ -3 +3 @@
+-source_hash: 297d749a58eed7f2de8c0d9395d0bb3bf658d40ce8e43c1d8c24b929922fc414
++source_hash: dd6478eacea9e2c06ee33c3335b178380e2223cdc3d99cea848ab2e6a84b41a3
+@@ -15,2 +15,2 @@
+-  by: agent
+-  at: '2026-11-17T12:09:24Z'
++  by: agent:sldb-mcp-tests
++  at: '2026-11-17T12:09:38Z'
+@@ -18 +18 @@
+-  via: create_document
++  via: save_document_payload
+### .sldb/core/documents/Item/i1.yaml
+--- 
++++ 
+@@ -3 +3 @@
+-source_hash: 4c873f81388d7456bd25e21efad126f184b38897cd63bfb0d4c026b6f5d2f6eb
++source_hash: 07591261fdd7c6947fe82aadc42a692cca0933ef19713d8ba4313bd6cec5af08
+@@ -15,2 +15,2 @@
+-  by: agent
+-  at: '2026-11-17T12:09:24Z'
++  by: agent:sldb-mcp-tests
++  at: '2026-11-17T12:09:39Z'
+@@ -18 +18 @@
+-  via: create_document
++  via: save_document_payload
+### .sldb/core/documents/Item/i9.yaml
+--- 
++++ 
+@@ -3 +3 @@
+-source_hash: f2d14f0360752e87425cd1a9f6765ea24a9c6dc58413459b9539ec422ab6c03a
++source_hash: 34e9cb26fe04f53f53d3a4ce3a2ff0955bd231c7a120d44ad1e2f500e3c46782
+@@ -15,2 +15,2 @@
+-  by: agent
+-  at: '2026-11-17T12:09:25Z'
++  by: agent:sldb-mcp-tests
++  at: '2026-11-17T12:09:38Z'
+### .sldb/core/models/Item.yaml
+--- 
++++ 
+@@ -6,2 +6,2 @@
+-model_hash: 6f2d5aa639a4ab1cdbbccc311f5438103b37cd7d9b0242e803153e2e135915fd
+-roster_hash: cdb9fa18db5c20d354f525ac8cc545126d514e5d4fc9d1b99b559b730bc5e9cd
++model_hash: 9c88ccacb932e5398752215d07e47e6b31b3a76f840bb37253956e951c4d5c00
++roster_hash: ebbb0d7962e9209edeede31b0af51410561531f7ed913dc3a9fbb14f8206ba29
+### .sldb/core/store_index.yaml
+--- 
++++ 
+@@ -150 +150 @@
+-store_hash: f3986e15808bb8f6978786ca6cb2725aabb4198b062c88639e79dfc652e27dd6
++store_hash: ddd131c310dde12c1d14a8a92b0748ba4a015e316332208be9e6c6a4c2ff241f
+### item/i0.md
+--- 
++++ 
+@@ -3,2 +3,2 @@
+-  by: agent
+-  at: '2026-11-17T12:09:24Z'
++  by: agent:sldb-mcp-tests
++  at: '2026-11-17T12:09:38Z'
+@@ -6 +6 @@
+-  via: create_document
++  via: save_document_payload
+### item/i1.md
+--- 
++++ 
+@@ -3,2 +3,2 @@
+-  by: agent
+-  at: '2026-11-17T12:09:24Z'
++  by: agent:sldb-mcp-tests
++  at: '2026-11-17T12:09:39Z'
+@@ -6 +6 @@
+-  via: create_document
++  via: save_document_payload
+### item/i9.md
+--- 
++++ 
+@@ -3,2 +3,2 @@
+-  by: agent
+-  at: '2026-11-17T12:09:25Z'
++  by: agent:sldb-mcp-tests
++  at: '2026-11-17T12:09:38Z'

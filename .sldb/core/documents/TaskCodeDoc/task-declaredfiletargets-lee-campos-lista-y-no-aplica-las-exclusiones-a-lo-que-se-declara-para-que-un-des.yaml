@@ -1,0 +1,39 @@
+name: task-declaredfiletargets-lee-campos-lista-y-no-aplica-las-exclusiones-a-lo-que-se-declara-para-que-un-des
+path: desk/tasks/task-declaredfiletargets-lee-campos-lista-y-no-aplica-las-exclusiones-a-lo-que-se-declara-para-que-un-des.md
+source_hash: 348964f7e513a7a9db5fa18b119c7af5bcf2420791a568e5be3808a712e6f313
+content_hash: 9782ae8ba1e184f3fff3ffad72620ab40ce2509ce74b413aa4b7011b0dc7fc36
+field_hashes:
+  title: ae0618b86b106a09cf20400bb34940a66dea1a7ae5c8d8a3cf8ea0905d09ec11
+  id: 4027ca130c8bb291367d201baff1315c27431e8bc15efe2ab6fc6c0bbe979e05
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 5cdf0c20daa1ceac01379dee5a3df7887eec90b6b6a7b49f0a431885a5611ce4
+  goal: 61d4aa43a89da16444715077d90e4049d2ca85df1ac26eef1d30838078eb0111
+  scope: 10e49a13f832b1263c568fee62245e45aba857663523dcbeb8fcc3bb1c4b38d5
+  references: ada328d1a7fe61e0878ca912d9c5b2e3f814cb6ac6baf0f75b0495391d14734a
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 7d0ccd7e5d25ef7ae52a02c510fb77c0fa7dda3306dafc35496c6c91e046d411
+  implementation_path: 3a1d83e00661f4e4a00b55f92f5504ca4a7ebf774a5e6915732e63a3dc22787d
+  validation: 0ecabb1899e087bd710a3c4c4a464e06cceb318c1286ae874ba263a89ecc44e3
+  done_when: 7aa5c42b7670f4981897cecffaffa26bdb332e6f9336cf795197a8ebf5e3acfc
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T11:19:25Z'
+  authority: generated
+  via: create_document

@@ -1,0 +1,37 @@
+name: review-task-sldb-mcp-sirve-undo-changes-apply-changes-guarda-el-lote-inverso-de-cada-lote-en-una-pila-de-la-sesi-evidence-tests-1
+path: desk/reviews/task-sldb-mcp-sirve-undo-changes-apply-changes-guarda-el-lote-inverso-de-cada-lote-en-una-pila-de-la-sesi/evidence-tests-1.md
+source_hash: 3b63d0d8ad8b6622b026d57c36e66446b75bd620019efc23cf7032a3e585a0df
+content_hash: 3485999c182ce9974de4491dacf90584da01f0d4d5dc909091c32e1ee3807fb9
+field_hashes:
+  id: f89191aae04e7852b96ee3d4ff2950131a3600507ca50ff0220d6a21f46b5e0d
+  title: d4f4176612a1c2c429da7eda779a4d2e689b6125ca3f4ef97c0608f9f331e78f
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: 68f05093bc600659c0aecd265fad80c71a658cc857e91cdfeeee782eb670c200
+  value: f7dbe169a2576b2c455ed7ca3f97cc353579cf4530b959b22e591adb0132dbf4
+  subject: d0b9a1f85663944be37eceb0a61614eca1e750c772d78e95536a6dbf2d5c3d00
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: ba55c38297dcbe452a0abc8e228f36e7e6b534017e3e83a1ca153a5999f4c709
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 18ef95e0aa7cd829d7dd79623e348340b9ef0fefebc30da4598fb61d087d63ba
+  created_at: fb8bae5f7b93688f8bb053dc478da8122bae559b3ca068d617085759c51b9971
+  disposed_at: fb8bae5f7b93688f8bb053dc478da8122bae559b3ca068d617085759c51b9971
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 29bbb0a11119b66886f2faee79e50858b7f535d3e3da8bb6fa6cd946ac84209e
+  disposition: c14d4025828afa4028f454ba98fd3cb13374439ae6a655bf33b2e0d1f08337d6
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T12:21:11Z'
+  authority: generated
+  via: create_document

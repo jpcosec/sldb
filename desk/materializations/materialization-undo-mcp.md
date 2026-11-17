@@ -1,0 +1,24 @@
+---
+sldb:
+  by: agent
+  at: '2026-11-17T12:12:45Z'
+  authority: generated
+  via: create_document
+id: materialization-undo-mcp
+title: undo mcp
+source_atoms:
+- atom-sldb-mcp-deshace-lotes-con-undo-changes-sobre-una-pila-de-lotes-inversos-por-sesión
+target_kind: doc
+target_identity: docs/architecture/mcp.md
+validation:
+- TMPDIR=/dev/shm uv run --frozen --extra code --extra dev --extra mcp pytest -q tests/mcp/test_write_tools.py
+tags:
+- system:sldb
+- topic:mcp
+---
+
+# undo mcp
+
+## Intent
+
+materializa en docs/architecture/mcp.md el atom atom-sldb-mcp-deshace-lotes-con-undo-changes-sobre-una-pila-de-lotes-inversos-por-sesión

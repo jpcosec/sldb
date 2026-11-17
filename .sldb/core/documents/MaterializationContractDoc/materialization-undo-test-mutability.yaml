@@ -1,0 +1,25 @@
+name: materialization-undo-test-mutability
+path: desk/materializations/materialization-undo-test-mutability.md
+source_hash: 21347235ead5b3338bb947f871e83eaf7584981e38cb0f28eda107b70a07a5ac
+content_hash: 28fd1adfa8711e6ecf549c6a3641a80ea85fcd9503a6bbcf80540bf52d9f0fab
+field_hashes:
+  id: 665e5f37e2b9a8f6b868812fad889602561b715f397120861386eea2e0fc1259
+  title: c9cc6e36c8a08bd91a3a4a1d67aebf6a3c242a0b3ae22e066a35bba9c0b6614b
+  source_atoms: d6f12e608acb019d241beadea68e48ab6d1c3bf732337a9cc21c600334dc01f7
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: cfc2e2be5b8f6fd65d68af1cb4aeed9955f24b1e0ae74d42b4a5490994a92fcc
+  intent: 5d8a7177fd4119116bbeaa12350941d2ce72b568abe151a7c958040f569e3976
+  validation: 55cbee6cf46c3a28d76fc2c5cbfff72d9e63dcdb2a7a7e2bb3b26d302af1ad50
+  tags: 35a97c7a70322fb86371ff71b1fb31b21721fa8b1bd62d16604c8b4cdb3f8e60
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:mcp
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T12:17:53Z'
+  authority: generated
+  via: create_document
