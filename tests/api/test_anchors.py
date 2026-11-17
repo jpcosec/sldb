@@ -11,10 +11,14 @@ import pytest
 
 import sldb.api as api
 from sldb.api.anchors import check_anchors, record_anchor
-from sldb.api.anchors.anchor_docs import write_anchor
+from sldb.api.anchors import write_anchor
+from sldb.api.code import code_facts
 from sldb.cli import main as cli_main
 from sldb.models.anchor_state import AnchorState
 from sldb.code.runtime import available
+from sldb.code.scan import scan_tree
+
+code_facts_module = sys.modules["sldb.api.code.code_facts"]
 
 pytestmark = pytest.mark.skipif(not available(), reason="tree-sitter runtime not installed (extra [code])")
 
@@ -248,3 +252,63 @@ def test_anchors_on_a_django_sqlmigrate_migration_use_the_unquoted_names(tmp_pat
     assert [r.state.value for r in check_anchors(store)] == ["intact"]
     for name in [m for m in sys.modules if m.startswith("tmpdocs")]:
         del sys.modules[name]
+
+
+@pytest.fixture
+def mixed(tmp_path):
+    root = tmp_path / "mixed"
+    for rel, text in {"src/x.py": CODE, "web/card.tsx": TSX, "migrations/0001_initial.sql": DDL, "README.md": "# r\n",
+                      "web/node_modules/dep/index.js": "export const x = 1;\n", "src/broken.py": "def f(:\n    pass\n"}.items():
+        (root / rel).parent.mkdir(parents=True, exist_ok=True)
+        (root / rel).write_text(text, encoding="utf-8")
+    return root
+
+
+@needs_ts
+@needs_sql
+def test_code_facts_of_the_tree_are_those_of_scan_tree_by_path_then_position_each_with_span_and_source_hash(mixed):
+    out = code_facts(mixed)
+    assert out["skipped"] == []
+    assert sorted(out["facts"], key=lambda f: f["id"]) == scan_tree(mixed)
+    paths = [f["path"] for f in out["facts"]]
+    assert list(dict.fromkeys(paths)) == ["migrations/0001_initial.sql", "src/broken.py", "src/x.py", "web/card.tsx"]
+    assert paths == sorted(paths, key=lambda r: tuple(r.split("/")))
+    for f in out["facts"]:
+        assert f["span"]["start_line"] >= 1 and f["span"]["end_line"] >= f["span"]["start_line"] and f["source_hash"].startswith("sha256:")
+    x = [f for f in out["facts"] if f["path"] == "src/x.py"]
+    assert [f["qualified_name"] for f in x] == ["src.x", "K", "K.m", "free"] and x[2]["span"] == {"start_line": 4, "end_line": 7}
+    assert {f["kind"] for f in out["facts"]} >= {"module", "class", "method", "function", "table", "column", "view", "index"}
+    assert next(f for f in out["facts"] if f["path"] == "src/broken.py")["attrs"]["has_error"] is True
+
+
+@needs_ts
+@needs_sql
+def test_code_facts_of_files_and_directories_count_a_repeated_path_once(mixed):
+    out = code_facts(mixed, ["web", "src/x.py", "./src/x.py", "src/../src/x.py"])
+    assert list(dict.fromkeys(f["path"] for f in out["facts"])) == ["src/x.py", "web/card.tsx"]
+    assert all(f["relations"] is not None and "signature" in f and "doc" in f for f in out["facts"])
+    assert code_facts(mixed, ["src/x.py"])["facts"] == [f for f in code_facts(mixed)["facts"] if f["path"] == "src/x.py"]
+
+
+@pytest.mark.parametrize(("path", "message"), [
+    ("/etc/hosts", "absolute path"), ("../outside.py", "outside root"), ("src/missing.py", "no such file"),
+])
+def test_code_facts_rejects_a_bad_path_naming_it_before_scanning(mixed, monkeypatch, path, message):
+    monkeypatch.setattr(code_facts_module, "scan_file", lambda *a: pytest.fail("scanned before checking the paths"))
+    with pytest.raises(ValueError, match=message) as exc:
+        code_facts(mixed, ["src/x.py", path])
+    assert path in str(exc.value)
+
+
+def test_code_facts_skips_the_files_without_a_grammar(mixed, monkeypatch):
+    monkeypatch.setattr(code_facts_module, "available", lambda path=".py": not path.endswith((".sql", ".tsx")))
+    out = code_facts(mixed, [".", "README.md"])
+    assert out["skipped"] == ["README.md", "migrations/0001_initial.sql", "web/card.tsx"]
+    assert {f["path"] for f in out["facts"]} == {"src/broken.py", "src/x.py"}
+
+
+@pytest.mark.parametrize("missing", ["span", "source_hash"])
+def test_code_facts_raises_on_a_fact_without_span_or_source_hash(mixed, monkeypatch, missing):
+    monkeypatch.setattr(code_facts_module, "scan_file", lambda rel, root, idgen: [{"id": "bad", "path": rel, "span": {"start_line": 1, "end_line": 1}, "source_hash": "sha256:0", missing: None}])
+    with pytest.raises(RuntimeError, match="fact bad of src/x.py"):
+        code_facts(mixed, ["src/x.py"])

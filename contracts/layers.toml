@@ -422,9 +422,9 @@ note = "no importa nada de sldb: es la superficie de entrada del código, como `
 
 [[axis]]
 id = "anclaje"
-paths = ["api/anchors"]
+paths = ["api/anchors", "api/code"]
 external = []
-does = "anclar una afirmación a un símbolo de código: grabar lo visto, comprobarlo, reconectar lo que se movió"
+does = "anclar una afirmación a un símbolo de código: grabar lo visto, comprobarlo, reconectar lo que se movió; y exponer los facts de código con su span y source_hash"
 identity = false
 
 [[axis]]
