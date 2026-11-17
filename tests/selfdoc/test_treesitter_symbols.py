@@ -488,3 +488,198 @@ def test_without_the_sql_grammar_sql_files_are_not_scanned(monkeypatch, tmp_path
     shutil.copytree(SQL, tmp_path / "db")
     (tmp_path / "db" / "m.py").write_text("def f(): pass\n", encoding="utf-8")
     assert not rt.available(".sql") and sorted(f["id"] for f in scan_tree(tmp_path / "db")) == ["m", "m.f"]
+
+
+BLOG = Path(__file__).parent.parent / "fixtures" / "treesitter" / "blog_app"
+
+
+@pytest.fixture
+def blog():
+    """The facts of IR's Django/DRF blog (a copy of IR's `tests/fixtures/blog_app`), through `sldb.api.code.code_facts`."""
+    from sldb.api.code import code_facts
+
+    return {f["id"]: f for f in code_facts(BLOG)["facts"]}
+
+
+def _call(f):
+    return f["attrs"]["call"]
+
+
+def test_blog_bases_are_extends_relations_as_written(blog):
+    for fid, base in [("blog.models.Post", "models.Model"), ("blog.views.PostViewSet", "viewsets.ModelViewSet"), ("blog.serializers.PostSerializer", "serializers.ModelSerializer")]:
+        assert {"type": "extends", "target": base} in blog[fid]["relations"] and blog[fid]["attrs"]["bases"] == [base], fid
+    assert blog["blog.models.Post.Meta"]["attrs"]["bases"] == [] and blog["blog.models.Post.Status"]["attrs"]["bases"] == ["models.TextChoices"]
+
+
+def test_blog_action_decorator_carries_its_arguments(blog):
+    assert blog["blog.views.PostViewSet.publish"]["attrs"]["decorators"] == [{"name": "action", "args": [], "kwargs": {"detail": "True", "methods": "['post']"}}]
+    assert blog["blog.views.PostViewSet.perform_create"]["attrs"]["decorators"] == []
+
+
+def test_blog_call_chain_handler_method_function(blog):
+    handler, method = blog["blog.views.PostViewSet.publish"], blog["blog.models.Post.publish"]
+    assert {"name": "post.publish", "line": 24} in handler["attrs"]["calls"] and {"type": "calls", "target": "post.publish"} in handler["relations"]
+    assert {"name": "can_publish", "line": 26} in method["attrs"]["calls"] and {"type": "calls", "target": "can_publish"} in method["relations"]
+    assert [c["name"] for c in method["attrs"]["calls"]] == ["can_publish", "PermissionError", "timezone.now", "self.save"], "source order, one per call"
+    assert blog["blog.models.can_publish"]["kind"] == "function" and blog["blog.models.can_publish"]["attrs"]["calls"] == [{"name": "user.has_perm", "line": 35}]
+
+
+def test_blog_model_fields_and_meta_are_assignments(blog):
+    author, status = blog["blog.models.Post.author"], blog["blog.models.Post.status"]
+    assert author["kind"] == "assignment" and author["qualified_name"] == "Post.author" and author["relations"] == [{"type": "contained-in", "target": "blog.models.Post"}]
+    assert _call(author) == {"func": "models.ForeignKey", "args": ["settings.AUTH_USER_MODEL"], "kwargs": {"on_delete": "models.PROTECT", "related_name": "'posts'"}}
+    assert _call(status) == {"func": "models.CharField", "args": [], "kwargs": {"max_length": "16", "choices": "Status.choices", "default": "Status.DRAFT"}}
+    assert _call(blog["blog.models.Post.title"]) == {"func": "models.CharField", "args": [], "kwargs": {"max_length": "200"}}
+    assert blog["blog.models.Post.Meta.db_table"]["attrs"]["value"] == "'posts'"
+    assert blog["blog.models.Post.Meta.db_table"]["relations"] == [{"type": "contained-in", "target": "blog.models.Post.Meta"}]
+    assert blog["blog.models.Post.Status.DRAFT"]["attrs"]["items"] == [{"value": "'draft'"}, {"value": "'Draft'"}]
+
+
+def test_blog_serializer_meta_model_and_fields(blog):
+    assert blog["blog.serializers.PostSerializer.Meta.model"]["attrs"]["value"] == "Post"
+    fields = blog["blog.serializers.PostSerializer.Meta.fields"]["attrs"]
+    assert fields["items"][:2] == [{"value": "'id'"}, {"value": "'author'"}] and len(fields["items"]) == 6
+    assert fields["value"] == "['id', 'author', 'title', 'body', 'status', 'published_at']"
+    assert _call(blog["blog.views.PostViewSet.queryset"]) == {"func": "Post.objects.all", "args": [], "kwargs": {}}
+
+
+def test_blog_urls_path_and_router_register(blog):
+    register = blog["blog.urls.router.register"]
+    assert (register["kind"], register["name"], register["qualified_name"]) == ("call", "router.register", "router.register")
+    assert _call(register) == {"func": "router.register", "args": ["'posts'", "PostViewSet"], "kwargs": {"basename": "'post'"}}
+    assert _call(blog["blog.urls.router"]) == {"func": "SimpleRouter", "args": [], "kwargs": {"trailing_slash": "False"}}
+    assert blog["blog.urls.urlpatterns"]["attrs"]["value"] == "router.urls"
+    assert blog["blogsite.urls.urlpatterns"]["attrs"] == {"native_kind": "assignment", "module": "blogsite.urls", "items": [{"func": "path", "args": ["''", "include('blog.urls')"], "kwargs": {}}]}
+
+
+STATEMENTS = '''"""Doc."""
+reg.add("a")
+reg.add("b", *rest, **more)
+X: int = 1
+a = b = 2
+obj.attr = 3
+if True:
+    hidden = f()
+
+
+@deco
+@route("/x", methods=("GET",))
+def view(): return [g(h(y)) for y in ys]
+
+
+class C(Base, metaclass=Meta):
+    def m(self):
+        def inner(): nested()
+        return self.n()
+'''
+
+
+def test_statements_and_calls_edge_cases(tmp_path):
+    from sldb.code.scan import scan_tree
+
+    (tmp_path / "mod.py").write_text(STATEMENTS, encoding="utf-8")
+    facts = {f["id"]: f for f in scan_tree(tmp_path)}
+    assert sorted(i for i in facts if facts[i]["kind"] in ("call", "assignment")) == ["mod.X", "mod.a", "mod.b", "mod.reg.add", "mod.reg.add~2"], "attribute and if-nested statements are not facts"
+    assert _call(facts["mod.reg.add~2"]) == {"func": "reg.add", "args": ["'b'", "*rest", "**more"], "kwargs": {}}
+    assert facts["mod.X"]["attrs"]["value"] == "1" and facts["mod.X"]["span"] == {"start_line": 4, "end_line": 4}
+    assert facts["mod.view"]["attrs"]["decorators"] == [{"name": "deco", "args": [], "kwargs": {}}, {"name": "route", "args": ["'/x'"], "kwargs": {"methods": "('GET',)"}}]
+    assert [c["name"] for c in facts["mod.view"]["attrs"]["calls"]] == ["g", "h"]
+    assert [r for r in facts["mod.C"]["relations"] if r["type"] == "extends"] == [{"type": "extends", "target": "Base"}]
+    assert facts["mod.C.m"]["attrs"]["calls"] == [{"name": "self.n", "line": 19}], "a nested def's calls are its own"
+    assert facts["mod.C.m.inner"]["attrs"]["calls"] == [{"name": "nested", "line": 18}]
+
+
+def test_new_facts_leave_existing_fingerprints_and_normalization_alone(facts):
+    from sldb.code.fingerprints import NORMALIZATION
+
+    assert NORMALIZATION == 1, "kinds and attrs were added; no existing fact changed shape"
+    assert set(facts["pkg.mod.K.m"]["fingerprints"]) == {"signature", "shape", "docstring", "body"}
+
+
+def _clashing_tree(root):
+    """`pkg/__init__.py` names an assignment, a module call and a class attribute like a sibling module or a method."""
+    (root / "pkg").mkdir()
+    (root / "pkg" / "__init__.py").write_text("x = 1\ny = make()\nregister(x)\nclass K:\n    m = 1\n    def m(self): pass\n", encoding="utf-8")
+    for name, body in [("x", "def f(): pass\n"), ("y", "class C:\n    y = 2\n"), ("register", "")]:
+        (root / "pkg" / f"{name}.py").write_text(body, encoding="utf-8")
+
+
+def test_a_module_assignment_named_like_a_sibling_module_does_not_take_its_id(tmp_path):
+    from sldb.api.code import code_facts
+    from sldb.code.scan import scan_file, scan_tree
+
+    (tmp_path / "pkg").mkdir()
+    (tmp_path / "pkg" / "__init__.py").write_text("x = 1\n", encoding="utf-8")
+    (tmp_path / "pkg" / "x.py").write_text("def f(): pass\n", encoding="utf-8")
+    for facts in ({f["id"]: f for f in scan_tree(tmp_path)}, {f["id"]: f for f in code_facts(tmp_path)["facts"]}):
+        assert {i: f["kind"] for i, f in facts.items()} == {"pkg": "module", "pkg.x": "module", "pkg.x.f": "function", "pkg.x~2": "assignment"}
+        assert facts["pkg.x.f"]["relations"] == [{"type": "contained-in", "target": "pkg.x"}] and facts["pkg.x~2"]["path"] == "pkg/__init__.py"
+    assert [f["id"] for f in scan_file("pkg/__init__.py", tmp_path)] == ["pkg", "pkg.x"], "alone, a file's late ids are given before returning"
+
+
+def test_with_clashes_existing_ids_are_those_of_a_scan_without_the_new_kinds(tmp_path, monkeypatch):
+    import sldb.code.scan as scan
+    from sldb.api.code import code_facts
+
+    _clashing_tree(tmp_path)
+    old = {"module", "class", "function", "method"}
+    new = [{f["id"]: f["kind"] for f in run() if f["kind"] in old} for run in (lambda: scan.scan_tree(tmp_path), lambda: code_facts(tmp_path)["facts"])]
+    late = {f["id"]: f["kind"] for f in scan.scan_tree(tmp_path) if f["kind"] not in old}
+    monkeypatch.setattr(scan, "statement_facts", lambda *a: [])
+    assert new[0] == new[1] == {f["id"]: f["kind"] for f in scan.scan_tree(tmp_path)}
+    assert late == {"pkg.x~2": "assignment", "pkg.y~2": "assignment", "pkg.register~2": "call", "pkg.K.m~2": "assignment", "pkg.y.C.y": "assignment"}
+
+
+URLS = '''from django.conf import settings
+from django.conf.urls.static import static
+from django.urls import path
+
+urlpatterns = [path("a/", a)]
+urlpatterns += [path("b/", b), path("c/", c)]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+count = 0
+count -= 1
+
+
+class Post(models.Model):
+    created = updated = models.DateTimeField(auto_now=True)
+    x = obj.attr = y = 3
+    p, q = f()
+    z: int
+'''
+
+
+@pytest.fixture
+def urls(tmp_path):
+    from sldb.code.scan import scan_tree
+
+    (tmp_path / "urls.py").write_text(URLS, encoding="utf-8")
+    return {f["id"]: f for f in scan_tree(tmp_path)}
+
+
+def _attrs(f):
+    return {k: v for k, v in f["attrs"].items() if k not in ("native_kind", "module")}
+
+
+def test_an_augmented_list_assignment_gives_its_items_and_its_operator(urls):
+    first, more = urls["urls.urlpatterns"], urls["urls.urlpatterns~2"]
+    assert _attrs(first) == {"items": [{"func": "path", "args": ["'a/'", "a"], "kwargs": {}}]} and "op" not in first["attrs"]
+    assert (more["kind"], more["name"], more["attrs"]["native_kind"]) == ("assignment", "urlpatterns", "augmented_assignment")
+    assert _attrs(more) == {"op": "+=", "items": [{"func": "path", "args": ["'b/'", "b"], "kwargs": {}}, {"func": "path", "args": ["'c/'", "c"], "kwargs": {}}]}
+    assert more["span"] == {"start_line": 6, "end_line": 6} and more["relations"] == [{"type": "contained-in", "target": "urls"}]
+
+
+def test_an_augmented_call_assignment_gives_its_call_and_any_operator_is_kept(urls):
+    static = {"func": "static", "args": ["settings.MEDIA_URL"], "kwargs": {"document_root": "settings.MEDIA_ROOT"}}
+    assert _attrs(urls["urls.urlpatterns~3"]) == {"op": "+=", "call": static}
+    assert _attrs(urls["urls.count"]) == {"value": "0"} and _attrs(urls["urls.count~2"]) == {"op": "-=", "value": "1"}
+
+
+def test_a_chained_assignment_gives_one_fact_per_name_with_the_same_value(urls):
+    field = {"func": "models.DateTimeField", "args": [], "kwargs": {"auto_now": "True"}}
+    for name in ("created", "updated"):
+        f = urls[f"urls.Post.{name}"]
+        assert (f["kind"], f["name"], f["qualified_name"], _attrs(f)) == ("assignment", name, f"Post.{name}", {"call": field})
+        assert f["relations"] == [{"type": "contained-in", "target": "urls.Post"}] and f["span"] == {"start_line": 13, "end_line": 13}
+    assert _attrs(urls["urls.Post.x"]) == _attrs(urls["urls.Post.y"]) == {"value": "3"}
+    assert sorted(i for i in urls if i.startswith("urls.Post.")) == ["urls.Post.created", "urls.Post.updated", "urls.Post.x", "urls.Post.y"], "an attribute or tuple target and a bare annotation are not facts"

@@ -23,7 +23,7 @@ def code_facts(root: str | Path, paths: list[str] | None = None) -> dict[str, li
     files = requested_files(root, paths)
     readable = [rel for rel in files if _has_grammar(rel)]
     idgen = Ids()
-    facts = [f for rel in readable for f in scan_file(rel, root, idgen)]
+    facts = idgen.flush([f for rel in readable for f in scan_file(rel, root, idgen)])
     for f in facts:
         _require_anchor(f)
     return {"facts": facts, "skipped": sorted(set(files) - set(readable), key=lambda r: tuple(r.split("/")))}

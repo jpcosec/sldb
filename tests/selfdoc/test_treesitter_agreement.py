@@ -16,7 +16,7 @@ FIXTURES = Path(__file__).resolve().parents[1] / "fixtures" / "treesitter"
 def _ts(root: Path) -> dict[str, dict]:
     from sldb.code.scan import scan_tree
 
-    return {f["id"].split("~")[0]: f for f in scan_tree(root) if f["kind"] != "module" and "~" not in f["id"]}
+    return {f["id"].split("~")[0]: f for f in scan_tree(root) if f["kind"] in ("class", "function", "method") and "~" not in f["id"]}
 
 
 def _ast(root: Path) -> dict[str, dict]:
