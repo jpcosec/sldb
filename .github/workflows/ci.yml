@@ -52,15 +52,16 @@ jobs:
         run: |
           python -m pip install -e "sldb[dev,click,code,mcp]"
           python -m pip install -e "pron[mcp]"
+      - name: Build deskops' store when it declares one
+        # deskops still versions its .sldb/core/; once it moves to .sldb/store.yaml, build it.
+        # Runs before pron's world: pron links deskops as ../deskops/.sldb.
+        working-directory: deskops
+        run: if [ -f .sldb/store.yaml ]; then sldb stores build; fi
       - name: Prepare pron's store
         # pron keeps .sldb/ out of git and builds it with its own CLI; a store.yaml generator
         # runs only sldb subcommands, by design.
         working-directory: pron
         run: make world
-      - name: Build deskops' store when it declares one
-        # deskops still versions its .sldb/core/; once it moves to .sldb/store.yaml, build it.
-        working-directory: deskops
-        run: if [ -f .sldb/store.yaml ]; then sldb stores build; fi
       - name: Rebuild sldb's store from its sources
         working-directory: sldb
         run: sldb stores build --check
