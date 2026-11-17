@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T12:35:15Z'
+  at: '2026-11-17T12:37:07Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -64,7 +64,6 @@ tasks:
 - desk/tasks/task-docs-list-y-docs-show-leen-la-misma-fuente-no-se-lista-un-documento-que-show-no-encuentra-unknown-do.md
 - desk/tasks/task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid.md
 - desk/tasks/task-store-index-yaml-no-guarda-rutas-absolutas-de-máquina-para-los-modelos-que-vienen-de-un-paquete-mode.md
-- desk/tasks/task-higiene-del-desk-de-sldb-cerrar-con-closeout-resolved-by-citando-el-sha-las-tareas-abiertas-cuyo-tra.md
 - desk/tasks/task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a.md
 - desk/tasks/task-la-documentación-de-sldb-serve-nombra-todas-sus-rutas-http-con-un-chequeo-que-lo-mantiene.md
 - desk/tasks/task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato.md
@@ -188,7 +187,6 @@ _Generated from the task references above._
 - docs list y docs show leen la misma fuente: no se lista un documento que show no encuentra (Unknown document target) [draft] - docs list y docs show coinciden: todo nombre que lista docs list se puede mostrar con docs show, o docs list lo marca como no resoluble con su causa.
 - La escritura por campos (save_document_payload y el update de apply_batch) falla nombrando el contenido que se perdería en vez de borrarlo en silencio [draft] - Una escritura por campos sobre un documento cuyo archivo actual tiene ruido estructural o frontmatter no declarado falla antes de escribir, con un error que nombra lo que se perdería, y deja el archivo intacto; los documentos limpios se escriben igual que hoy.
 - store_index.yaml no guarda rutas absolutas de máquina para los modelos que vienen de un paquete (model_ref) [draft] - Para un modelo declarado por model_ref de un paquete importable, store_index.yaml no guarda una ruta absoluta de la máquina (la omite o guarda una relativa a la raíz del proyecto si está dentro de él), y cargar el store en otra máquina funciona igual.
-- Higiene del desk de sldb: cerrar con closeout resolved-by, citando el sha, las tareas abiertas cuyo trabajo ya está integrado en main [draft] - Toda tarea abierta cuyo goal y done_when ya se cumplen en origin/main queda cerrada con deskops closeout en modo resolved-by citando el sha que la resolvió; las que no, siguen abiertas con una línea en el informe que dice por qué.
 - La doc del árbol del CLI cubre todos los subcomandos y grupos, y selfdoc check detecta cuando falta alguno [draft] - current-cli-tree.md lista todos los grupos y subcomandos que define el parser de sldb, y selfdoc check falla nombrando cada grupo o subcomando del parser que la doc no menciona (y cada uno que la doc nombra y ya no existe).
 - La documentación de sldb serve nombra todas sus rutas HTTP, con un chequeo que lo mantiene [draft] - Un documento de sldb lista cada ruta de sldb serve (método, path, parámetros y qué devuelve en una línea), y un test falla si una ruta del código no está en el documento o viceversa.
 - El tercer valor del lenguaje de predicados (incomplete) se demuestra alcanzable con un test sobre datos reales o se retira [draft] - O hay un test que, con un store real armado en tmp_path, obtiene incomplete de una evaluación pública (where o rules check) y documenta cuándo ocurre; o incomplete se retira del lenguaje, de la API y de la doc sin cambiar los resultados true/false existentes.
