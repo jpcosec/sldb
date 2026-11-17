@@ -98,3 +98,65 @@ def test_the_cli_actor_flag_and_the_env_sign_every_write(api_store, capsys, monk
     assert cli_main(["docs", "show", "login", *args, "--format", "json"]) == 0
     shown = json.loads(capsys.readouterr().out)["document"]
     assert shown["provenance"]["by"] == "human:cli" and shown["provenance"]["declared"] is True
+
+
+ANCHOR_CODE = 'def one(x):\n    """One doc."""\n    return x\n\n\ndef two(x):\n    """Two doc."""\n    return x\n'
+
+
+@pytest.fixture
+def anchored(tmp_path, monkeypatch):
+    from sldb.code.runtime import available
+
+    if not available():
+        pytest.skip("tree-sitter runtime not installed (extra [code])")
+    monkeypatch.delenv("SLDB_ACTOR", raising=False)
+    root = tmp_path / "repo"
+    (root / "src").mkdir(parents=True)
+    (root / "src" / "x.py").write_text(ANCHOR_CODE, encoding="utf-8")
+    store = api.init_store(root).store_path
+    api.add_model(store, "sldb.models.code_anchor_doc:CodeAnchorDoc")
+    return root, store
+
+
+def test_write_anchor_signs_with_its_actor_when_it_creates_and_when_it_re_records(anchored):
+    from sldb.api.anchors import record_anchor, write_anchor
+
+    root, store = anchored
+    path = root / "anchors" / "one.md"
+    block = record_anchor(root, "code:src/x.py::one")
+    write_anchor(store, None, path, block, "one returns x", actor="agent:anchor")
+    assert (provenance_of(path.read_text(encoding="utf-8")).by, provenance_of(path.read_text(encoding="utf-8")).via) == ("agent:anchor", "create_document")
+    write_anchor(store, None, path, block, "one echoes x", actor="human:jp")
+    assert (provenance_of(path.read_text(encoding="utf-8")).by, provenance_of(path.read_text(encoding="utf-8")).via) == ("human:jp", "save_document_payload")
+    write_anchor(store, None, path, block, "one is identity")
+    assert provenance_of(path.read_text(encoding="utf-8")).by == "agent", "actor=None signs as before: the process actor"
+
+
+def test_a_reconnection_is_signed_by_the_actor_it_is_given(anchored):
+    from sldb.api.anchors import record_anchor, write_anchor
+    from sldb.api.anchors.anchor_docs import anchor_documents, record_reconnection
+
+    root, store = anchored
+    write_anchor(store, None, root / "anchors" / "one.md", record_anchor(root, "code:src/x.py::one"), "one returns x")
+    [doc] = anchor_documents(store, None)
+    record_reconnection(store, None, doc, "code:src/x.py::two", actor="agent:reconnect")
+    text = (root / "anchors" / "one.md").read_text(encoding="utf-8")
+    assert provenance_of(text).by == "agent:reconnect" and "code:src/x.py::two" in text
+
+
+def test_no_public_write_function_drops_its_actor_without_saying_so():
+    """Every public function of sldb.api taking `actor` passes it on, or its docstring says why
+    it is not recorded (no document to sign)."""
+    import ast
+    import re
+    from pathlib import Path
+
+    silent = []
+    for path in sorted(Path(api.__file__).parent.rglob("*.py")):
+        for node in ast.walk(ast.parse(path.read_text(encoding="utf-8"))):
+            if isinstance(node, ast.FunctionDef) and not node.name.startswith("_") and "actor" in [a.arg for a in node.args.args + node.args.kwonlyargs]:
+                passed = any(isinstance(n, ast.Name) and n.id == "actor" and isinstance(n.ctx, ast.Load) for n in ast.walk(node))
+                said = re.search(r"(not|no longer) recorded", " ".join((ast.get_docstring(node) or "").split()))
+                if not passed and not said:
+                    silent.append(f"{path.name}:{node.name}")
+    assert silent == []

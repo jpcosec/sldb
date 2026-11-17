@@ -34,28 +34,29 @@ def anchor_documents(store: str | Path | None, pythonpath: str | None) -> list[A
     return [AnchorDocument(root, d.name, d.path, dict(d.payload)) for d in docs if d.model_name == MODEL]
 
 
-def record_reconnection(store: str | Path | None, pythonpath: str | None, doc: AnchorDocument, to: str) -> None:
+def record_reconnection(store: str | Path | None, pythonpath: str | None, doc: AnchorDocument, to: str, actor: str | None = None) -> None:
     """The anchor now points at `to`, and its signature and shape are the new name's (the
     docstring and body it saw stay: a body that moved is still reported); where it pointed
-    before stays in `history`."""
+    before stays in `history`. The rewrite is signed by `actor` (None: the process actor)."""
     from sldb.api.anchors.record_anchor import record_anchor
 
     now = record_anchor(doc.root, to)["seen"]
     seen = {**doc.payload.get("seen", {}), "signature": now["signature"], "shape": now["shape"]}
     event = {"event": "reconnected", "from": doc.payload["ref"], "to": to, "at": _now()}
     payload = {**doc.payload, "ref": to, "seen": seen, "history": [*doc.payload.get("history", []), event]}
-    save_document_payload(store, MODEL, doc.name, payload, pythonpath, actor=None)
+    save_document_payload(store, MODEL, doc.name, payload, pythonpath, actor=actor)
 
 
-def write_anchor(store: str | Path | None, pythonpath: str | None, path: Path, block: dict[str, Any], claim: str, name: str | None = None) -> Any:
-    """Create the anchor document, or re-record an existing one (its claim and history kept)."""
+def write_anchor(store: str | Path | None, pythonpath: str | None, path: Path, block: dict[str, Any], claim: str, name: str | None = None, actor: str | None = None) -> Any:
+    """Create the anchor document, or re-record an existing one (its claim and history kept),
+    signed by `actor` (None: the process actor, as any document write)."""
     from sldb.api.documents.create_document import create_document
 
     existing = next((d for d in anchor_documents(store, pythonpath) if (project_root(open_store(store, mode="readonly").store_path) / d.path).resolve() == path.resolve()), None)
     if existing is None:
-        return create_document(store, MODEL, path, {**block, "claim": claim, "history": [{"event": "recorded", "at": _now()}]}, name, pythonpath)
+        return create_document(store, MODEL, path, {**block, "claim": claim, "history": [{"event": "recorded", "at": _now()}]}, name, pythonpath, actor)
     payload = {**existing.payload, **block, "claim": claim or existing.payload.get("claim", ""), "history": [*existing.payload.get("history", []), {"event": "recorded", "at": _now()}]}
-    return save_document_payload(store, MODEL, existing.name, payload, pythonpath)
+    return save_document_payload(store, MODEL, existing.name, payload, pythonpath, actor)
 
 
 def _now() -> str:

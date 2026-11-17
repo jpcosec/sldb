@@ -18,6 +18,7 @@ from sldb.store.io import load_semantic_dag
 
 def add_semantic_parent(store: str | Path | None, tag: str, parent: str, actor: str | None = None) -> bool:
     """Declare `tag` a kind of `parent`. True when the DAG changed, False when it already said so.
+    `actor` is not recorded: the DAG is no document and has no provenance block to sign.
 
     Raises:
         SLDBStoreError: When either tag is unknown, or the edge would close a cycle.
@@ -28,6 +29,7 @@ def add_semantic_parent(store: str | Path | None, tag: str, parent: str, actor: 
 
 def remove_semantic_parent(store: str | Path | None, tag: str, parent: str, actor: str | None = None) -> bool:
     """Undeclare it. True when the DAG changed.
+    `actor` is not recorded: the DAG is no document and has no provenance block to sign.
 
     Raises:
         SLDBStoreError: When the parent is the one the tag's own name implies.
@@ -38,7 +40,9 @@ def remove_semantic_parent(store: str | Path | None, tag: str, parent: str, acto
 
 def add_semantic_equivalence(store: str | Path | None, local_tag: str, global_tag: str, actor: str | None = None) -> bool:
     """Map a local tag to a global one, for `gse.` across linked stores. True when the DAG
-    changed. The store function this wraps existed for a long time with no caller at all."""
+    changed. The store function this wraps existed for a long time with no caller at all.
+    `actor` is not recorded: the DAG is no document and has no provenance block to sign.
+    """
     sp = open_store(store).store_path
     return _refreshing(sp, lambda: _add_equivalence(sp, local_tag, global_tag))
 
