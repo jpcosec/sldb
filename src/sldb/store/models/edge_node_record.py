@@ -20,7 +20,7 @@ class EdgeNodeRecord(BaseModel):
     payload: dict[str, Any] = Field(default_factory=dict, description="A document's projected payload: its top-level fields holding a scalar or a list of scalars (or exactly the model's `__indexed__`); nested values are left out. Empty on any other node.")
     field_hashes: dict[str, str] = Field(default_factory=dict, description="A document's whole field_hashes map, as its index entry records it. Empty on any other node.")
     source_hash: str = Field(default="", description="A document's source_hash (hash_c) the node was built from. Empty on any other node.")
-    contract_signature: str = Field(default="", description="sha256 of the model's fields, __references__, __containment__ and __compositions__ names the node was built under; empty when the model could not be loaded, or on any other node.")
+    contract_signature: str = Field(default="", description="sha256 of the model's fields, __references__, __containment__, __compositions__, __indexed__, __doc_anchors__ and __contract__ names the node was built under; empty when the model could not be loaded, or on any other node.")
 
     @model_serializer(mode="wrap")
     def _drop_empty_projection(self, handler: Any) -> Any:

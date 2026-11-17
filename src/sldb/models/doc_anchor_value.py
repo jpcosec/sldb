@@ -66,11 +66,14 @@ def check_from_items(items: list[str]) -> list[str]:
 
 def definition_problems(model_type: Any) -> list[str]:
     """What a model class declares wrongly about anchors: a field with the reserved suffix, an
-    `__doc_anchors__` name that is not a field, or a field that is not str or list[str]."""
+    `__doc_anchors__` name that is not a field, a field that is not str or list[str], or a field
+    also declared in `__references__` (it would give two edges)."""
     fields = model_type.model_fields
     reserved = [f"field '{n}' ends in the reserved suffix '{STATE_SUFFIX}'" for n in fields if n.endswith(STATE_SUFFIX)]
     named = getattr(model_type, "__doc_anchors__", None) or []
-    return reserved + [problem for n in named if (problem := _field_problem(fields, n))]
+    references = set(getattr(model_type, "__references__", None) or [])
+    both = [f"field '{n}' is declared in both __references__ and __doc_anchors__" for n in named if n in references]
+    return reserved + [problem for n in named if (problem := _field_problem(fields, n))] + both
 
 
 def _field_problem(fields: dict[str, Any], name: str) -> str | None:

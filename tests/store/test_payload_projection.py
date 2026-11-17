@@ -199,6 +199,21 @@ def test_a_new_references_entry_is_stale_and_the_rebuild_takes_it(world):
     assert api.edge_node(sp, "Ticket:a").contract_signature == contract_signature(sys.modules[MODULE].Ticket)
 
 
+def test_a_new_indexed_is_stale_and_the_rebuild_projects_the_new_field(world):
+    tmp_path, _, sp, py = world
+    _write_models(tmp_path, extra='__indexed__ = ["status"]')
+    assert sorted(api.load_edge_index(sp).stale) == ["Ticket:a", "Ticket:b"]
+    api.rebuild_edges(sp, py)
+    assert api.load_edge_index(sp).stale == []
+    assert api.edge_node(sp, "Ticket:a").payload == {"status": "open"}
+    _write_models(tmp_path, extra='__indexed__ = ["status", "priority"]')
+    assert sorted(api.load_edge_index(sp).stale) == ["Ticket:a", "Ticket:b"]
+    api.rebuild_edges(sp, py)
+    assert api.load_edge_index(sp).stale == []
+    assert api.edge_node(sp, "Ticket:a").payload == {"priority": 2, "status": "open"}
+    assert api.edge_node(sp, "Ticket:a").contract_signature == contract_signature(sys.modules[MODULE].Ticket)
+
+
 def test_a_version_4_shard_is_stale_on_open_and_rebuilt_on_the_next_write(world):
     _, root, sp, py = world
     path = edges_shard_path(sp, "Ticket", "a")
@@ -246,9 +261,11 @@ def test_projected_fields_and_the_signature_follow_the_class(tmp_path):
         ticket = api.resolve_model_ref(f"{MODULE}:Ticket", str(tmp_path))
         assert indexed_fields(ticket) is None
         assert projected_fields(ticket) == ["labels", "priority", "status", "title"]
-        before = contract_signature(ticket)
-        ticket.__containment__ = {"steps": ["Ticket"]}
-        assert contract_signature(ticket) != before
+        signatures = [contract_signature(ticket)]
+        for attr, value in (("__containment__", {"steps": ["Ticket"]}), ("__indexed__", ["status"]), ("__doc_anchors__", ["title"]), ("__contract__", ["title"])):
+            setattr(ticket, attr, value)
+            signatures.append(contract_signature(ticket))
+        assert len(set(signatures)) == len(signatures)
     finally:
         sys.path.remove(str(tmp_path))
         sys.modules.pop(MODULE, None)

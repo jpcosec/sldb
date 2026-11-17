@@ -230,6 +230,7 @@ def test_the_accepted_forms_and_from_items_that_are_not_doc_anchors(world: World
         ('__doc_anchors__ = ["ghost"]\n    title: str = Field(description="Title.")', "ghost"),
         ('__doc_anchors__ = ["meta"]\n    meta: dict = Field(default_factory=dict, description="Nested.")', "meta"),
         ('subject__anchor_state: str = Field(default="", description="Reserved.")', "reserved suffix"),
+        ('__references__ = ["about"]\n    __doc_anchors__ = ["about"]\n    about: str = Field(default="", description="Both.")', "'about' is declared in both __references__ and __doc_anchors__"),
     ],
 )
 def test_an_invalid_model_definition_is_refused_when_loaded(tmp_path: Path, body: str, reason: str) -> None:
@@ -251,3 +252,53 @@ def test_optional_str_and_list_fields_are_valid_anchor_fields() -> None:
     from sldb.store.model_contract import doc_anchor_fields
 
     assert doc_anchor_fields(Fine) == ["one", "many"]
+
+
+LATE = "sldb_go07_late_anchor_models"
+LATE_MODELS = '''from pydantic import Field
+from sldb import StructuredNLDoc
+
+
+class Target(StructuredNLDoc):
+    __template__ = "# ⸢rev•title⸥"
+    title: str = Field(description="Title.")
+
+
+class Pointer(StructuredNLDoc):
+    {anchors}
+    __template__ = "---\\nabout: ⸢rev•about⸥\\n---\\n\\n# ⸢rev•title⸥"
+    title: str = Field(description="Title.")
+    about: str = Field(default="", description="Another document.")
+'''
+
+
+def test_doc_anchors_added_to_a_model_with_indexed_documents_is_stale_and_the_rebuild_adds_the_edge(tmp_path: Path) -> None:
+    from sldb.store.runtime_cache import invalidate_runtime_cache
+
+    def write(anchors: str) -> None:
+        (tmp_path / f"{LATE}.py").write_text(LATE_MODELS.format(anchors=anchors), encoding="utf-8")
+        sys.modules.pop(LATE, None)
+        invalidate_runtime_cache()
+
+    write("")
+    py = str(tmp_path)
+    sys.path.insert(0, py)
+    try:
+        root = tmp_path / "world"
+        root.mkdir()
+        store = api.init_store(root).store_path
+        for model in ("Target", "Pointer"):
+            api.add_model(store, f"{LATE}:{model}", py)
+        api.create_document(store, "Target", root / "t.md", {"title": "t"}, "t", py)
+        api.create_document(store, "Pointer", root / "p.md", {"title": "p", "about": "doc:Target:t"}, "p", py)
+        assert api.edges_from(store, "Pointer:p", "references") == []
+        assert api.load_edge_index(store).stale == []
+        write('__doc_anchors__ = ["about"]')
+        assert api.load_edge_index(store).stale == ["Pointer:p"]
+        api.rebuild_edges(store, py)
+        assert api.load_edge_index(store).stale == []
+        edges = api.edges_from(store, "Pointer:p", "references")
+        assert [(e.target, e.metadata["field"]) for e in edges] == [("sldb://document/Target:t", "about")]
+    finally:
+        sys.path.remove(py)
+        sys.modules.pop(LATE, None)

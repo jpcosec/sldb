@@ -88,8 +88,10 @@ def projected_fields(model_type: Any) -> list[str]:
 
 def contract_signature(model_type: Any) -> str:
     """sha256 of the canonical JSON (sorted keys, UTF-8, no spaces) of the model's field names
-    (inherited included) and its `__references__`, `__containment__`, `__compositions__` names;
-    "" when the class could not be loaded."""
+    (inherited included) and its `__references__`, `__containment__`, `__compositions__`,
+    `__indexed__`, `__doc_anchors__` and `__contract__` names (each key always present, [] when the
+    class declares none); "" when the class could not be loaded. Any of them moving leaves the
+    model's document shards stale, so the rebuild reprojects them."""
     import hashlib
     import json
 
@@ -99,7 +101,7 @@ def contract_signature(model_type: Any) -> str:
     return hashlib.sha256(json.dumps(body, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")).hexdigest()
 
 
-_DECLARED = ("references", "containment", "compositions")
+_DECLARED = ("references", "containment", "compositions", "indexed", "doc_anchors", "contract")
 
 
 def _check_indexed(model_type: Any, name: str) -> None:
