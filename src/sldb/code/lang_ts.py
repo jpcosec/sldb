@@ -1,7 +1,9 @@
 """TypeScript and JavaScript (`.ts`, `.tsx`, `.js`, `.jsx`) into facts of the same form as Python's: the
 module, then its top-level declarations in source order (components, hooks, types and functions; rules
 in `ts_readers`). One reader for the four; the grammar comes from the extension (`runtime.grammar_of`).
-The module's qualified name is its path without extension, like `py_module_name`; a symbol's id is
+A function, hook or component also carries its calls (`attrs.calls`, `ts_calls`) and a component its
+JSX event handlers (`attrs.handlers`, `ts_jsx`), with one `calls` relation per distinct called name
+or handler. The module's qualified name is its path without extension, like `py_module_name`; a symbol's id is
 `module.name`, and a repeated id takes the `~2`, `~3` suffix from `Ids`.
 """
 
@@ -15,7 +17,9 @@ from sldb.code.facts import fact, rels
 from sldb.code.ids import Ids
 from sldb.code.imports import py_module_name
 from sldb.code.runtime import parse
+from sldb.code.ts_calls import body_calls, body_nodes
 from sldb.code.ts_fingerprints import ts_fingerprints
+from sldb.code.ts_jsx import jsx_handlers
 from sldb.code.ts_readers import declarations, jsdoc, kind_of, ts_imports, ts_signature
 
 
@@ -40,8 +44,22 @@ def _module_fact(rootn: Any, ctx: dict[str, Any]) -> dict[str, Any]:
 
 
 def _definition_fact(name: str, node: Any, fn: Any, doc: str | None, idgen: Ids, ctx: dict[str, Any]) -> dict[str, Any]:
-    module, src = ctx["module"], ctx["src"]
-    return fact(id=idgen.take(f"{module}.{name}" if module else name), kind=kind_of(name, node, fn), name=name, qualified_name=name, path=ctx["rel"],
+    module, src, kind = ctx["module"], ctx["src"], kind_of(name, node, fn)
+    extra_rels, extra_attrs = _extras(kind, fn, src)
+    return fact(id=idgen.take(f"{module}.{name}" if module else name), kind=kind, name=name, qualified_name=name, path=ctx["rel"],
                 span={"start_line": node.start_point[0] + 1, "end_line": node.end_point[0] + 1}, source_hash=ctx["digest"],
-                signature=ts_signature(name, fn, src), doc=doc, relations=rels(ctx["mid"]),
-                attrs={"native_kind": (fn if fn is not None else node).type, "module": module}, fingerprints=ts_fingerprints(name, node, fn, doc, src))
+                signature=ts_signature(name, fn, src), doc=doc, relations=sorted(rels(ctx["mid"]) + extra_rels, key=lambda r: (r["type"], r["target"])),
+                attrs={"native_kind": (fn if fn is not None else node).type, "module": module, **extra_attrs}, fingerprints=ts_fingerprints(name, node, fn, doc, src))
+
+
+def _extras(kind: str, fn: Any, src: bytes) -> tuple[list[dict[str, str]], dict[str, Any]]:
+    """The `calls` relations and `attrs.calls` (and a component's `attrs.handlers`); nothing for a type.
+    Only a canonical name is a `calls` target: a handler that is a call is among `calls` too, so one
+    named like a non-canonical call is not."""
+    if fn is None:
+        return [], {}
+    nodes = body_nodes(fn)
+    calls, handlers = body_calls(nodes, src), jsx_handlers(nodes, src) if kind == "component" else None
+    loose = {c["name"] for c in calls if not c["canonical"]}
+    targets = {c["name"] for c in calls if c["canonical"]} | {h["handler"] for h in handlers or [] if h["handler"] not in loose}
+    return [{"type": "calls", "target": t} for t in sorted(targets)], {"calls": calls, **({"handlers": handlers} if handlers is not None else {})}

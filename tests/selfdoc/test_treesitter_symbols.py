@@ -122,7 +122,7 @@ def test_ts_kinds_names_and_top_level_only(ts_facts):
     assert (ts_facts["src.useToggle.useToggle"]["kind"], ts_facts["src.useToggle.Pair"]["kind"]) == ("hook", "type")
     assert (ts_facts["src.util.double"]["kind"], ts_facts["src.Panel.Panel"]["kind"]) == ("function", "component")
     assert ts_facts["src.App"]["kind"] == "module" and ts_facts["src.App"]["qualified_name"] == "src.App" and ts_facts["src.App.Button"]["qualified_name"] == "Button"
-    assert ts_facts["src.App.Button"]["relations"] == [{"type": "contained-in", "target": "src.App"}]
+    assert ts_facts["src.App.Button"]["relations"] == [{"type": "calls", "target": "inner"}, {"type": "contained-in", "target": "src.App"}]
 
 
 @needs_ts
@@ -136,6 +136,93 @@ def test_ts_jsdoc_signature_span_and_imports(ts_facts):
 
 
 @needs_ts
+def test_ts_component_calls_fetch_and_axios_with_their_literal_url_and_its_handlers():
+    from sldb.api.code import code_facts
+
+    facts = {f["id"]: f for f in code_facts(FRONTEND)["facts"]}
+    form = facts["src.PostForm.PostForm"]
+    assert form["kind"] == "component" and form["attrs"]["calls"] == [
+        {"name": "fetch", "line": 10, "first_arg": "/api/posts", "canonical": True}, {"name": "axios.get", "line": 11, "first_arg": "/api/posts", "canonical": True},
+        {"name": "axios.delete", "line": 12, "first_arg": None, "canonical": True}, {"name": "validate", "line": 19, "first_arg": None, "canonical": True},
+        {"name": "track", "line": 19, "first_arg": "blur", "canonical": True}], "source order; a template with ${} has no first_arg; the nested `local` is not walked"
+    assert form["attrs"]["handlers"] == [{"element": "button", "attribute": "onClick", "handler": "handleSave"},
+                                         {"element": "Form.Item", "attribute": "onChange", "handler": "validate"},
+                                         {"element": "Form.Item", "attribute": "onBlur", "handler": "track"}], "props.onFocus is no handler"
+    assert [r["target"] for r in form["relations"] if r["type"] == "calls"] == ["axios.delete", "axios.get", "fetch", "handleSave", "track", "validate"]
+    assert facts["src.PostForm.handleSave"]["attrs"] == {"native_kind": "function_declaration", "module": "src.PostForm",
+                                                         "calls": [{"name": "api.posts.create", "line": 6, "first_arg": None, "canonical": True}]}, "not a component: no handlers"
+
+
+@needs_ts
+def test_ts_calls_of_hooks_and_arrows_handlers_in_blocks_and_types_without_calls(ts_facts, tmp_path):
+    from sldb.code.scan import scan_tree
+
+    assert [c["name"] for c in ts_facts["src.App.useCounter"]["attrs"]["calls"]] == ["React.useState", "setN"], "an arrow inside is walked"
+    assert ts_facts["src.Panel.Panel"]["attrs"]["calls"] == [{"name": "double", "line": 4, "first_arg": None, "canonical": True}] and ts_facts["src.Panel.Panel"]["attrs"]["handlers"] == []
+    assert "calls" not in ts_facts["src.App.Mode"]["attrs"] and ts_facts["src.App.Mode"]["relations"] == [{"type": "contained-in", "target": "src.App"}]
+    (tmp_path / "B.jsx").write_text("const B = () => <a onClick={() => { go(1); }} onX='s' onY={function () { h`t`; }} {...p} />;\n", encoding="utf-8")
+    b = {f["id"]: f for f in scan_tree(tmp_path)}["B.B"]
+    assert b["attrs"]["handlers"] == [{"element": "a", "attribute": "onClick", "handler": "go"}, {"element": "a", "attribute": "onY", "handler": "h"}]
+    assert b["attrs"]["calls"] == [{"name": "go", "line": 1, "first_arg": None, "canonical": True}, {"name": "h", "line": 1, "first_arg": "t", "canonical": True}]
+
+
+@needs_ts
+def test_ts_generic_calls_drop_type_arguments_and_await_and_only_on_uppercase_is_an_event(tmp_path):
+    from sldb.code.scan import scan_tree
+
+    (tmp_path / "api.ts").write_text("export async function load() {\n  await get<Foo>('/x');\n  api.get<T>('/y');\n"
+                                     "  get<T>(`/z`);\n  await api.posts.list<P[]>('/p');\n  return new Foo('/n');\n}\n", encoding="utf-8")
+    (tmp_path / "C.tsx").write_text("export const C = () => <i only={x} on={y} onClick={z} />;\n", encoding="utf-8")
+    facts = {f["id"]: f for f in scan_tree(tmp_path)}
+    assert facts["api.load"]["attrs"]["calls"] == [
+        {"name": "get", "line": 2, "first_arg": "/x", "canonical": True}, {"name": "api.get", "line": 3, "first_arg": "/y", "canonical": True},
+        {"name": "get", "line": 4, "first_arg": "/z", "canonical": True}, {"name": "api.posts.list", "line": 5, "first_arg": "/p", "canonical": True}], "no await, no <T>; new is no call"
+    assert [r["target"] for r in facts["api.load"]["relations"] if r["type"] == "calls"] == ["api.get", "api.posts.list", "get"]
+    assert facts["C.C"]["attrs"]["handlers"] == [{"element": "i", "attribute": "onClick", "handler": "z"}], "only and on are no event"
+
+
+@needs_ts
+def test_ts_call_names_are_canonical_from_the_tree_with_no_whitespace(tmp_path):
+    from sldb.code.scan import scan_tree
+
+    (tmp_path / "E.tsx").write_text(
+        "export async function f() {\n  client\n    .documents()\n    .then(cb);\n"
+        "  a?.b('/opt'); a!.c(1); a?.[0](); x[1].y();\n  (await listDocuments(m)).slice(0);\n"
+        "  fetch(url).then((r) => r.json()).then(cb);\n  (async () => { await g(); })();\n"
+        "  results.filter((r) => r.model === m).map(fn); (x as any).z(); new Foo().bar();\n}\n"
+        "export const B = () => <a onClick={() => client\n  .save()} />;\n", encoding="utf-8")
+    facts = {f["id"]: f for f in scan_tree(tmp_path)}
+    names = [c["name"] for c in facts["E.f"]["attrs"]["calls"]]
+    assert names == ["client.documents().then", "client.documents", "a?.b", "a!.c", "a?.[]", "x[].y",
+                     "listDocuments().slice", "listDocuments", "fetch().then().then", "fetch().then", "fetch", "r.json",
+                     "(fn)", "g", "results.filter().map", "results.filter", "x.z", "new Foo().bar"]
+    assert facts["E.f"]["attrs"]["calls"][2] == {"name": "a?.b", "line": 5, "first_arg": "/opt", "canonical": True}
+    assert not [t for f in facts.values() for t in [r["target"] for r in f["relations"]] if " " in t or "await" in t or "new" in t]
+    assert [c["canonical"] for c in facts["E.f"]["attrs"]["calls"]] == [True] * 17 + [False], "a chain from new is not canonical"
+    assert facts["E.B"]["attrs"]["handlers"] == [{"element": "a", "attribute": "onClick", "handler": "client.save"}]
+
+
+@needs_ts
+@needs_ts
+def test_ts_chains_from_new_binary_literal_or_array_are_not_canonical_and_give_no_relation(tmp_path):
+    from sldb.code.scan import scan_tree
+
+    (tmp_path / "N.tsx").write_text("export async function n() {\n  new Set<string>(xs).has(1);\n  (a  ??\n   []).map(f);\n"
+                                    "  'a b'.split(' ');\n  [...x].sort();\n  (await [y]).at(0);\n  ok();\n}\n"
+                                    "export const H = () => <a onClick={() => [z].forEach(f)} />;\n", encoding="utf-8")
+    facts = {f["id"]: f for f in scan_tree(tmp_path)}
+    assert facts["N.n"]["attrs"]["calls"] == [
+        {"name": "new Set(xs).has", "line": 2, "first_arg": None, "canonical": False},
+        {"name": "(a ?? []).map", "line": 3, "first_arg": None, "canonical": False},
+        {"name": "'a b'.split", "line": 5, "first_arg": " ", "canonical": False},
+        {"name": "[...x].sort", "line": 6, "first_arg": None, "canonical": False},
+        {"name": "([y]).at", "line": 7, "first_arg": None, "canonical": False},
+        {"name": "ok", "line": 8, "first_arg": None, "canonical": True}], "collapsed text, no await, no type args"
+    assert [r["target"] for r in facts["N.n"]["relations"] if r["type"] == "calls"] == ["ok"]
+    assert facts["N.H"]["attrs"]["handlers"] == [{"element": "a", "attribute": "onClick", "handler": "[z].forEach"}]
+    assert [r["type"] for r in facts["N.H"]["relations"]] == ["contained-in"], "a non-canonical handler gets no relation"
+
+
 def test_ts_types_only_in_ts_and_same_module_names_take_a_suffix(tmp_path):
     from sldb.code.scan import scan_tree
 
