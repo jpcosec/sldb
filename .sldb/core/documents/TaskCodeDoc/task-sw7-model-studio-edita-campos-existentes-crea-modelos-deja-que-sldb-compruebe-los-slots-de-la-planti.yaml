@@ -1,0 +1,40 @@
+name: task-sw7-model-studio-edita-campos-existentes-crea-modelos-deja-que-sldb-compruebe-los-slots-de-la-planti
+path: desk/tasks/task-sw7-model-studio-edita-campos-existentes-crea-modelos-deja-que-sldb-compruebe-los-slots-de-la-planti.md
+source_hash: 1665a1fe1bdbd5801aacbde328383e9a92ff1c2d1e0928975dd6bd49539769e9
+content_hash: c5440fd35aa9d99b3449c7008acd257691986b45ebc2e86a3d31c0f868851092
+field_hashes:
+  title: e4af5afe0f0cffaf20921eeb6c495bffbc7d862243d28413b0f5a18364f00785
+  id: ecaee70aea4afa0a58faf89731f2414dce7044f10d79cdb87e377dca2a879841
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 47a6eea7321adf55827c2fa93b3b94852948a8eaebdf088feba7bde08f9f236f
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: e38d03ba79c3d3929e07d85249ceab45d4c4e65df992f0249441ba1892c08ada
+  goal: 5a64ce10d50bbd4c4b2d7952616346fcc89f9d834d41f6c434dd5a968cdf7ca5
+  scope: d89703b81b063c10553ccfccd8cc3c2479be35a34016326beaa2a046766ca12a
+  references: ce98a7188b7a198d72d20401fea271fd5a3fcfe941bf7072581e116e07b0dc3f
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 3f84f1a79efeeff8a4dfe25a0f8c9f90bdf971f8da1bd1dd12fb4503c02bc592
+  implementation_path: 5d9eab3337731a88f7ae15dd57a76f36e4220a9372e9a371c5959d8e05e33658
+  validation: ddb08d8ad334e6fb5098b3f91da8c4b89b973e971419617f83c5d9040420a634
+  done_when: 7f7850bd94cd2b4e539f947a8b0554d954af183fd7203c76ece846e8342e232d
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- area:surface
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T02:51:56Z'
+  authority: generated
+  via: create_document

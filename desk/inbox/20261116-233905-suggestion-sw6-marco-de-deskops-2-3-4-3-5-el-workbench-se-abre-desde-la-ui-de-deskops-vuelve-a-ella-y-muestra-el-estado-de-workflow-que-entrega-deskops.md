@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-17T03:10:32Z'
+  authority: generated
+  via: save_document_payload
 # unclear | suggestion
 kind: suggestion
 # e.g., other_repo
@@ -8,9 +13,11 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-11-16T23:39:05'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-11-17T00:09:58'
 ---
 
 # SW6 · Marco de deskops (§2, §3.4, §3.5): el Workbench se abre desde la UI de deskops, vuelve a ella y muestra el estado de workflow que entrega deskops.

@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-17T03:08:02Z'
+  authority: generated
+  via: save_document_payload
 # unclear | suggestion
 kind: suggestion
 # e.g., other_repo
@@ -8,9 +13,11 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-11-16T23:37:48'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-11-17T00:07:21'
 ---
 
 # SW3 · Navegación (§1.3, §2.2, §7): las referencias abren la vista que corresponde a su modelo y la paleta busca por símbolo y hash.

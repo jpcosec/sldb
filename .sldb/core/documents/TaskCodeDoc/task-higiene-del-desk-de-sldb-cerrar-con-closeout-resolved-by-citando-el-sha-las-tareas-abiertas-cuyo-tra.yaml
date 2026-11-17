@@ -1,0 +1,39 @@
+name: task-higiene-del-desk-de-sldb-cerrar-con-closeout-resolved-by-citando-el-sha-las-tareas-abiertas-cuyo-tra
+path: desk/tasks/task-higiene-del-desk-de-sldb-cerrar-con-closeout-resolved-by-citando-el-sha-las-tareas-abiertas-cuyo-tra.md
+source_hash: b44ba40176110dbb449b6081638fefb89cd6aa0b7a579011721c4e1fb72c7449
+content_hash: f5385a96f77e06d8ecda5c0feed8b0dc77543f6e84eb112a0b041a9adc927c2e
+field_hashes:
+  title: 4f1bf244706a7dc4dd2d09bcf37a58ae02567d7194294dd5a158ebd3542cb994
+  id: 25b1e1c089278a3df19a6a147faca44ded382a99d419a27e144e1272d75d708e
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: f1b6745debe0289124c57731562d63289d4e785eeab50f69dea7fc4b8b1204aa
+  goal: 758fe3232c11437eee056a891a91a29a5dede93425bf0cbe35d27fc0956fcf4c
+  scope: 736384a01cef62d277aa9605128f2e70c2a8f5e1854747ce9c9d8727af47cbaa
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: de1f28dc1beebe5a9b559c2c888f2cca6718cbf01a13e1a469de0fe5595be273
+  implementation_path: 784fe40d4c037126310953e98ac1b8de6dd72b890c4dc8e07f42dc3a7733330d
+  validation: 064efa6cabce5d20d5110ae18f55640f7ffc0f7cfa00b17255abc79012f5aed4
+  done_when: a18c19b703417eebe8fd423ab84a3f290e0cf08b0697e0e3c8f0ea6ba7d46de4
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T02:43:45Z'
+  authority: generated
+  via: create_document

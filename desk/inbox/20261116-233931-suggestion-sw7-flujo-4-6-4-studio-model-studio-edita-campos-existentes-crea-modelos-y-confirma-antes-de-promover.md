@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-17T03:11:15Z'
+  authority: generated
+  via: save_document_payload
 # unclear | suggestion
 kind: suggestion
 # e.g., other_repo
@@ -8,9 +13,11 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-11-16T23:39:31'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-11-17T00:10:38'
 ---
 
 # SW7 · Flujo 4 (§6, §4 Studio): Model Studio edita campos existentes, crea modelos y confirma antes de promover.

@@ -1,13 +1,15 @@
 name: 20261116-233905-suggestion-sw6-marco-de-deskops-2-3-4-3-5-el-workbench-se-abre-desde-la-ui-de-deskops-vuelve-a-ella-y-muestra-el-estado-de-workflow-que-entrega-deskops
 path: desk/inbox/20261116-233905-suggestion-sw6-marco-de-deskops-2-3-4-3-5-el-workbench-se-abre-desde-la-ui-de-deskops-vuelve-a-ella-y-muestra-el-estado-de-workflow-que-entrega-deskops.md
-source_hash: c4ff1fd6431f2de2aa78546f4b50a942a5f63a8355ef494c8306e72734cc8d4a
-content_hash: 725452c243a79d866f9097be7abd2e6e9c14bf05f6ceda4e4c305a1d6bfd4fef
+source_hash: 05350ad40a73cb8b31d9fef2cc0cc1632558f964697299ec3833b9ff1a6582d7
+content_hash: f5318c5643d29378c73410541cadd61829178236ad8f188a2653b9ce9452c863
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: 4106a5e3ed5e75b2ff92e024e66e6c4f312e8525e2585486a447ba2a593397d1
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: d2de79b70117f9c0942d9be3debe8dd64aded5e151c6636c05d2f17ff6dd37b1
   title: 3ad9d2e509c50c5240ed6e443a8448f1130e7efa9773066c835adb2a681e0df0
   body: 76eeee6cfad63fd22c570db6f6410e75455c250bcfbce93adcf24bc0188eee6f
 semantic_tags:
@@ -15,4 +17,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-17T03:10:32Z'
+  authority: generated
+  via: save_document_payload

@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-17T03:07:12Z'
+  authority: generated
+  via: save_document_payload
 # unclear | suggestion
 kind: suggestion
 # e.g., other_repo
@@ -8,9 +13,11 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-11-16T23:37:21'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-11-17T00:06:33'
 ---
 
 # SW2 · Flujo 1 (§6, §3.2, §4): la edición en el lugar confirma, falla cerrada y muestra la operación y su resultado.

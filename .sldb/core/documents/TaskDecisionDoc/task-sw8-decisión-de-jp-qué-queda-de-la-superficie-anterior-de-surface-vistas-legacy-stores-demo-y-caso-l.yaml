@@ -1,0 +1,40 @@
+name: task-sw8-decisión-de-jp-qué-queda-de-la-superficie-anterior-de-surface-vistas-legacy-stores-demo-y-caso-l
+path: desk/tasks/task-sw8-decisión-de-jp-qué-queda-de-la-superficie-anterior-de-surface-vistas-legacy-stores-demo-y-caso-l.md
+source_hash: 7b8268731df6270325bb2aca92f79f998845fadd175d19dc4dc5f279229f41d0
+content_hash: 1d0061e15890434951f59d8c129125cfc842692b58df780f0c5768184e4d8c25
+field_hashes:
+  title: 111a949c3e7ef18e54cdac664001a4484654ffdb6d08d9b8cff9f512437cac21
+  id: 6e24665dabf917937e978b7982f19bf30d758c456352ba22f9ce01d8a74ad5da
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 47a6eea7321adf55827c2fa93b3b94852948a8eaebdf088feba7bde08f9f236f
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 476d379243b8d8ec620670884149a57043f3de0adc8417658da0d8fe6ff85647
+  goal: 00d4c10e1fcc746f92ee2e34362db64a86d785e8a3111d0f4776a9330edd0ab1
+  scope: 29736f18d187204092efccdedc9860b599d85cb954731bcea2519548b92f7c23
+  references: 64d23ff590de0502828aec9ac54a76bbb708373a39ddf51d7850311eef0eebec
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 806824121964d2634dc0a989070f63e50854356410ff54bb01126a68329c00fb
+  implementation_path: f1b7f9fdb4dda7cc53b21c2f25290575a975cf0e63b943425c7809196e81c4b9
+  validation: 8505f58e7e1728edd4b45622150124aebf3b73c6035d08c0d8d0f707af87985e
+  done_when: 1187d1f32754a0656f0a58c8c425feef8a00463bc477352ee6b49cd160d23a66
+  task_type: a4df8849de4c7c42dff3bfe95bbeb8759b5ca37238136b51e418b9d2f5ef311c
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- area:surface
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T03:02:17Z'
+  authority: generated
+  via: create_document
