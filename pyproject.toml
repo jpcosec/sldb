@@ -49,6 +49,9 @@ code = [
     "tree-sitter-typescript>=0.23",
     "tree-sitter-sql>=0.3",
 ]
+postgres = [
+    "pglast>=7",
+]
 dev = [
     "scipy>=1.10",
     "build>=1.2",

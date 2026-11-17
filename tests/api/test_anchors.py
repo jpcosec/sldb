@@ -2,6 +2,7 @@
 anchoring.md §3, the error-versus-alert split, and no alert ever silent."""
 from __future__ import annotations
 
+import importlib.util
 import json
 import shutil
 import sys
@@ -186,6 +187,7 @@ DDL = ("-- Accounts.\nCREATE TABLE IF NOT EXISTS public.users (\n    id bigseria
        "CREATE TABLE orders (id serial, total numeric(10, 2), PRIMARY KEY (id));\n\n"
        "CREATE MATERIALIZED VIEW totals AS SELECT sum(total) AS total FROM orders;\n\nCREATE INDEX CONCURRENTLY orders_total_idx ON orders (total);\n")
 needs_sql = pytest.mark.skipif(not available(".sql"), reason="tree-sitter-sql not installed (extra [code])")
+needs_pg = pytest.mark.skipif(not available(".sql") or importlib.util.find_spec("pglast") is None, reason="pglast not installed (extra [postgres])")
 
 
 @pytest.fixture
@@ -250,6 +252,22 @@ def test_anchors_on_a_django_sqlmigrate_migration_use_the_unquoted_names(tmp_pat
     assert kinds == ["table", "column", "index"]
     write_anchor(store, None, root / "anchors" / "b.md", record_anchor(root, "code:m/0001_initial.sql::app_book.title"), "books have a title")
     assert [r.state.value for r in check_anchors(store)] == ["intact"]
+    for name in [m for m in sys.modules if m.startswith("tmpdocs")]:
+        del sys.modules[name]
+
+
+@needs_pg
+def test_a_sql_key_and_the_identity_id_are_anchored_and_a_changed_key_is_reported(tmp_path):
+    root, fk = tmp_path / "dj", "app_book.app_book_author_id_980d3e25_fk_app_author_id"
+    shutil.copytree(Path(__file__).parent.parent / "fixtures" / "treesitter" / "sql" / "django", root / "m")
+    store = api.init_store(root).store_path
+    api.add_model(store, "sldb.models.code_anchor_doc:CodeAnchorDoc")
+    assert [record_anchor(root, f"code:m/0001_initial.sql::{s}")["kind"] for s in (fk, "app_book.id", "app_book.slug_pages_uniq")] == ["constraint", "column", "constraint"]
+    write_anchor(store, None, root / "anchors" / "k.md", record_anchor(root, f"code:m/0001_initial.sql::{fk}"), "a book has an author")
+    assert [r.state.value for r in check_anchors(store)] == ["intact"]
+    sql = root / "m" / "0001_initial.sql"
+    sql.write_text(sql.read_text(encoding="utf-8").replace('REFERENCES "app_author" ("id")', 'REFERENCES "app_author" ("name")'), encoding="utf-8")
+    assert [r.state.value for r in check_anchors(store)] == ["changed"]
     for name in [m for m in sys.modules if m.startswith("tmpdocs")]:
         del sys.modules[name]
 
