@@ -1,0 +1,37 @@
+name: review-task-higiene-del-desk-de-sldb-cerrar-con-closeout-resolved-by-citando-el-sha-las-tareas-abiertas-cuyo-tra-preflight-1
+path: desk/reviews/task-higiene-del-desk-de-sldb-cerrar-con-closeout-resolved-by-citando-el-sha-las-tareas-abiertas-cuyo-tra/preflight-1.md
+source_hash: 5aa906113fdbfc0acf309ada1b6227245281248df9a18c00a8f88df4ecd602a4
+content_hash: dc08b525a33deae96b627cee3fc0127d63f175ff97cde84c25d800df7eb1ada9
+field_hashes:
+  id: ce50d06acae30a02686783a219f2083f9dc2b2c12d3ffda2fba34eb622a26aea
+  title: e5bacce552cb4ca67494c5271c7e38e3470af27b62ef9541b0847cf813f18bfd
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: ad2579218afc85e4d43e1bc91e7402ba727abc7784e70fb7c6f42272cb182a9b
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: d0d83eaaa069c7776736a67168f933bdd709c167bb3d952de718f3f23f7e230f
+  input_sha256: 76b1f025a5670b2af24691a4933f518c22721c3c71f4e98f9c1c5c8e0bc7c7d1
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 4d95204751c98bd4f66bd15895fae95bf357f993e39828b0f62191a9b20365ee
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: fdafaf4984812f9373da4d7d83f7648c1a1d534debf117ecf212d0120da56be2
+  created_at: 3f1ad2901c7d86a7bf6066cbc377de098a4c670056f1f764c4679afa17e3738e
+  disposed_at: b4047da1d0c17e7073f50d8317c6510f55ab9ad1aecd597dd47c5fca107b15de
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 19296ca28b20e414d25a1f38bb0f70545091700b1bc0db5e8693963da889afda
+  disposition: c2f785670a5677b2ec13c62047e1234a382965210aca2383797f3af430def4b7
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T06:39:50Z'
+  authority: generated
+  via: save_document_payload

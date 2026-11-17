@@ -1,7 +1,7 @@
 name: task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre
 path: desk/tasks/task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre.md
-source_hash: af4ae49d8666863b9709a030cee50be83ac091c3f1b0639a6758588881499973
-content_hash: 50e1e9643975353b06207be0a0b693352ab384950e7a5eb1f57eba69fd2512f3
+source_hash: decb00a6c3535d0dd5a5b658b39c78e026fca18939ed58691878a27bc25c6865
+content_hash: c03ecf0983684269d906156ba6d533f7c50ef0564a710c31190be72f7a8178e1
 field_hashes:
   title: a5c6eabd9161d8b062b4a1e46a217b385a2aed49b119cc5f5e535d860af08eec
   id: 4ccef91acf80c03537a012562d50983bdbfe269bf01dd8e5c5500adb6818d509
@@ -12,7 +12,7 @@ field_hashes:
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: a69e4a4302a83843005f68dd77216033de367822f1792b8342d97fe68df0c378
   goal: 030af82074788468bb7c6532ecc75c4f5add1c050272dbf706e3998d7d2ceebf
-  scope: b8481fd33a282066a17403200d253a98170a1478374ed16746c80e03b79943bc
+  scope: a267395e37d8214dd01358130bc6aa0e2f034accb97b5a9309e2fe988686e62f
   references: 45dc626c8b991be7079ea9e53e9d4a47dd64a6c8f819cac48e97b8a403626449
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-17T00:43:55Z'
+  at: '2026-11-17T07:38:22Z'
   authority: generated
   via: save_document_payload

@@ -1,7 +1,7 @@
 name: task-sw9-aceptación-del-workbench-sobre-el-desk-real-vistas-flujos-atajos-colores-y-enlace-desde-deskops
 path: desk/tasks/task-sw9-aceptación-del-workbench-sobre-el-desk-real-vistas-flujos-atajos-colores-y-enlace-desde-deskops.md
-source_hash: 5241478f0d061d26738d0c74999fe93e1eececd876a9d4c8967c23af2689340e
-content_hash: d7d95fdbb35b3e17df1b050eafcf5042cf621ec0510a364bd3ad864ca093adc9
+source_hash: 49d43f78895f0d1e129a0f2083705772f45f2847816732ab14af6e13c2906cff
+content_hash: fa21b6bb0c62b99a39c8bf93cbd8958be4cca890879cf18d9ab155378fb3c133
 field_hashes:
   title: 0a0bd2f75f5af1192a4985f6a6001b974165165dab0d56d3dedb8dc007997e2a
   id: 22b2c55bb6c6d2a476bb2b03d74d4ae3e1be1f14ae0d64125f1a080ade7d773d
@@ -11,10 +11,10 @@ field_hashes:
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 39334b1a446aa4de93b90b80d00409c69273a9364fc52650daaf9a2399d8cbcd
-  goal: 67ce1224b255fc91e420cfa9c461f84cb360a1a8c7a6dd7c23db5156182ed08c
-  scope: fb829c279d9418219ddc7bdcc2c6a6fda6f3a3a29fbcf2312c3ff3932f4f582a
+  goal: c5fa76d5871bf460bde7f626623f99adaca197811125e64012e71cdf3ebd9b26
+  scope: a74fa23d304b7f09c52a4e4bdb947e12a5fd96f3e6ef3572bad255bf68f51e38
   references: f1ae9dfa6fa1bd45998cbc7e537841b45c0dcce4c7899b80fcac56c2ff9b589d
-  depends_on: 043c08bd4d935bace1cc82aa53a9e20542d9b15c8e17f8e83ae9f04bc9b04e2c
+  depends_on: 07d8bafc513d6d71b076a9921052cc3a4c1be994ed8e7e5c5660760fea1d907f
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 601f2f135aa09036006c22a2ce279586cc8a9a7559e217607c05da655916d8da
   implementation_path: 7478c57e978f82131d1735ff6e5cfe1b28225e406b4516e2398599c00c211c1b
@@ -35,6 +35,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-17T03:05:49Z'
+  at: '2026-11-17T04:17:28Z'
   authority: generated
   via: save_document_payload

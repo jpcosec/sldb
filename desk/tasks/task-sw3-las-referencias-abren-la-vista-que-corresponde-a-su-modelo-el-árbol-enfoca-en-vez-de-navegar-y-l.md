@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T03:03:32Z'
+  at: '2026-11-17T04:05:17Z'
   authority: generated
   via: save_document_payload
 id: task-sw3-las-referencias-abren-la-vista-que-corresponde-a-su-modelo-el-árbol-enfoca-en-vez-de-navegar-y-l
@@ -50,6 +50,8 @@ Un ref a un diagrama abre el Inspector y uno a una fuente abre Extracción y Anc
 _State what is in scope and what is out of scope._
 
 Entra: los cinco puntos en ProsaWorkbenchView.tsx, TopologyMindmap.tsx, Spec2VizInspectorView.tsx, WorkbenchShell.tsx y main.tsx; la vista que corresponde a un modelo se decide con lo que entrega sldb (familia o bases de describe_model), no con una lista de nombres en la UI: si falta el dato, nota a sldb; tests de ruteo por tipo de destino, de foco de sección y de búsqueda por símbolo y hash. No entra: autoridad (SW5).
+
+Precisión de JP (2026-11-17, prevalece sobre lo anterior): el Workbench de sldb/surface es LA UI de SLDB, general y autónoma para cualquier store SLDB; no es una superficie de la UI de deskops. La §2 del manual (que lo presenta como superficie de deskops) está desactualizada y no es premisa de este contrato. Principios firmes: papel con fierros ocultables, toda escritura tiene nombre, la UI no calcula. Nada del Workbench depende de que exista un desk.
 
 ## Implementation Path
 

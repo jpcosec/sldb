@@ -1,0 +1,37 @@
+name: review-task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl-evidence-commit-1
+path: desk/reviews/task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl/evidence-commit-1.md
+source_hash: d7a12bde958b33ccff72102744b988be1fa8f9499573d3f41f936508c9113cf6
+content_hash: 5195d38092ad51acdea06215a7eb41748679ad9427b7343686d8e05b56f3f7b5
+field_hashes:
+  id: b4d9140c3e36e47b6985397890f2b2e41745731811a9f46bc42d1bd45e77efc7
+  title: 9e20488b6b1d76bb92fd3cebb93163b67783d9fc50c9f2a5306476d330e89001
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: 5ea9c58673a69c87d0e5540a6f9978aad8f8e0a0b9ce3471cff139c730d97888
+  value: ecada51344afdf1072747b3ff3b2875592caf39a9ef9ccb35b9b023868e36f76
+  subject: 70386674c7a2fb0170b8f9535b8b7ac85472a7f41704ca2af824de2c43564f9f
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: a4cff5565ceeadb4e7febc2b4f8ce217d6683c60306211393b8818f50b412198
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: e597f3d4142fbe101843fc224acd4af47562cdede14522e82a62e5cbea0276aa
+  created_at: 8e9a1ca17463d6f003b9e4c29a2c8fc303ef601939ac370422bcdfddaf543390
+  disposed_at: 8e9a1ca17463d6f003b9e4c29a2c8fc303ef601939ac370422bcdfddaf543390
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 7e4915c47e6feaed28530166020f7e87d21d085cf21e585b892ffee71119b240
+  disposition: 6a5a760cbc4d1ed16379b294394c8156f211e7d8801471c09ecee172d0796f79
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T08:12:55Z'
+  authority: generated
+  via: create_document

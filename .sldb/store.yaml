@@ -331,6 +331,11 @@ include:
   - desk/inbox/20261116-233931-suggestion-sw7-flujo-4-6-4-studio-model-studio-edita-campos-existentes-crea-modelos-y-confirma-antes-de-promover.md
   - desk/inbox/20261116-233957-suggestion-sw8-decisi-n-de-jp-task-decision-qu-queda-de-la-superficie-anterior-de-surface-y-de-sus-stores-demo.md
   - desk/inbox/20261116-234023-suggestion-sw9-aceptaci-n-sobre-el-desk-real-2-4-y-capturas-para-el-repaso-de-ui-con-jp.md
+  - desk/inbox/20261117-011458-suggestion-sw10-cabecera-del-workbench-la-ruta-del-documento-debe-ser-un-navegador-de-disco.md
+  - desk/inbox/20261117-011531-suggestion-sw11-panel-izquierdo-del-workbench-ver-el-grafo-de-documentos-relacionados-centrado-en-el-documento-abierto.md
+  - desk/inbox/20261117-015212-suggestion-render-model-markdown-interpreta-como-jinja-el-valor-de-los-campos-llaves-dobles-rompen-expresiones-se-evaluan.md
+  - desk/inbox/20261117-021515-suggestion-read-store-dice-store-not-prepared-para-un-store-inexistente.md
+  - desk/inbox/20261117-021700-suggestion-el-scan-de-enlaces-cuenta-enlaces-dentro-de-bloques-de-c-digo.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -572,6 +577,34 @@ include:
     name: run-deskops-e-0a2c935f6993
   - path: runs/subagents/20261116-test-j02c1/run.md
     name: run-deskops-t-d1b6e7f699fb
+  - path: runs/subagents/20261116-exec-k2/run.md
+    name: run-deskops-e-aaf14ca96f71
+  - path: runs/subagents/20261116-test-k2/run.md
+    name: run-deskops-t-9676f952c667
+  - path: runs/subagents/20261116-exec-k2-c1/run.md
+    name: run-deskops-e-aaf14ca96f71-a2
+  - path: runs/subagents/20261116-test-k2-c1/run.md
+    name: run-deskops-t-9676f952c667-a2
+  - path: runs/subagents/20261116-exec-k2-c2/run.md
+    name: run-deskops-e-764590554721
+  - path: runs/subagents/20261116-test-k2-c2/run.md
+    name: run-deskops-t-1ad7afff3591
+  - path: runs/subagents/20261116-exec-k3/run.md
+    name: run-deskops-e-e737091e8bcb
+  - path: runs/subagents/20261116-test-k3/run.md
+    name: run-deskops-t-5f3f1737becc
+  - path: runs/subagents/20261116-exec-k3-c1/run.md
+    name: run-deskops-e-e737091e8bcb-a2
+  - path: runs/subagents/20261116-test-k3-c1/run.md
+    name: run-deskops-t-5f3f1737becc-a2
+  - path: runs/subagents/20261116-exec-k2-pg/run.md
+    name: run-deskops-e-67dedd6aa01e
+  - path: runs/subagents/20261116-test-k2-pg/run.md
+    name: run-deskops-t-ea7b55aab3a8
+  - path: runs/subagents/20261116-exec-k2-pg-c1/run.md
+    name: run-deskops-e-67dedd6aa01e-a2
+  - path: runs/subagents/20261116-test-k2-pg-c1/run.md
+    name: run-deskops-t-ea7b55aab3a8-a2
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -938,6 +971,19 @@ include:
   - desk/materializations/materialization-j02c1-derived-guard.md
   - desk/materializations/materialization-j02c1-check-identity.md
   - desk/materializations/materialization-j02c1-test-update-fault-tolerance.md
+  - desk/materializations/materialization-k2-pg-pyproject.md
+  - desk/materializations/materialization-k2-pg-uv.md
+  - desk/materializations/materialization-k2-pg-lang-sql.md
+  - desk/materializations/materialization-k2-pg-sql-readers.md
+  - desk/materializations/materialization-k2-pg-sql-fact.md
+  - desk/materializations/materialization-k2-pg-sql-names.md
+  - desk/materializations/materialization-k2-pg-sql-pg.md
+  - desk/materializations/materialization-k2-pg-sql-pg-keys.md
+  - desk/materializations/materialization-k2-pg-sql-pg-tokens.md
+  - desk/materializations/materialization-k2-pg-test-anchors.md
+  - desk/materializations/materialization-k2-pg-test-treesitter-symbols.md
+  - desk/materializations/materialization-k2-pg-0001-initial.md
+  - desk/materializations/materialization-k2-pg-blog-0001-initial.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -1781,6 +1827,38 @@ include:
     name: review-task-corrección-de-j02-agents-md-clasificado-en-la-puerta-de-identidad-y-derived-guard-sin-importar-el-nú-evidence-atom-1
   - path: desk/reviews/task-corrección-de-j02-agents-md-clasificado-en-la-puerta-de-identidad-y-derived-guard-sin-importar-el-nú/evidence-materialization-1.md
     name: review-task-corrección-de-j02-agents-md-clasificado-en-la-puerta-de-identidad-y-derived-guard-sin-importar-el-nú-evidence-materialization-1
+  - path: desk/reviews/task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone/preflight-1.md
+    name: review-task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone-preflight-1
+  - path: desk/reviews/task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl/preflight-3.md
+    name: review-task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl-preflight-3
+  - path: desk/reviews/task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl/bundle-3.md
+    name: review-task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl-bundle-3
+  - path: desk/reviews/task-higiene-del-desk-de-sldb-cerrar-con-closeout-resolved-by-citando-el-sha-las-tareas-abiertas-cuyo-tra/preflight-1.md
+    name: review-task-higiene-del-desk-de-sldb-cerrar-con-closeout-resolved-by-citando-el-sha-las-tareas-abiertas-cuyo-tra-preflight-1
+  - path: desk/reviews/task-sldb-mcp-sirve-undo-changes-apply-changes-guarda-el-lote-inverso-de-cada-lote-en-una-pila-de-la-sesi/preflight-1.md
+    name: review-task-sldb-mcp-sirve-undo-changes-apply-changes-guarda-el-lote-inverso-de-cada-lote-en-una-pila-de-la-sesi-preflight-1
+  - path: desk/reviews/task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone/bundle-1.md
+    name: review-task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone-bundle-1
+  - path: desk/reviews/task-higiene-del-desk-de-sldb-cerrar-con-closeout-resolved-by-citando-el-sha-las-tareas-abiertas-cuyo-tra/bundle-1.md
+    name: review-task-higiene-del-desk-de-sldb-cerrar-con-closeout-resolved-by-citando-el-sha-las-tareas-abiertas-cuyo-tra-bundle-1
+  - path: desk/reviews/task-sldb-mcp-sirve-undo-changes-apply-changes-guarda-el-lote-inverso-de-cada-lote-en-una-pila-de-la-sesi/bundle-1.md
+    name: review-task-sldb-mcp-sirve-undo-changes-apply-changes-guarda-el-lote-inverso-de-cada-lote-en-una-pila-de-la-sesi-bundle-1
+  - path: desk/reviews/task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl/preflight-4.md
+    name: review-task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl-preflight-4
+  - path: desk/reviews/task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl/bundle-4.md
+    name: review-task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl-bundle-4
+  - path: desk/reviews/task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre/preflight-3.md
+    name: review-task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre-preflight-3
+  - path: desk/reviews/task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre/bundle-3.md
+    name: review-task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre-bundle-3
+  - path: desk/reviews/task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl/evidence-tests-1.md
+    name: review-task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl-evidence-tests-1
+  - path: desk/reviews/task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl/evidence-commit-1.md
+    name: review-task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl-evidence-commit-1
+  - path: desk/reviews/task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl/evidence-atom-1.md
+    name: review-task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl-evidence-atom-1
+  - path: desk/reviews/task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl/evidence-materialization-1.md
+    name: review-task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -1806,7 +1884,6 @@ include:
   - desk/tasks/task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto.md
   - desk/tasks/task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup.md
   - desk/tasks/task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable.md
-  - desk/tasks/task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl.md
   - desk/tasks/task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre.md
   - desk/tasks/task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam.md
   - desk/tasks/task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone.md
@@ -1838,6 +1915,11 @@ include:
   - desk/tasks/task-sw4a-sldb-serve-expone-escribir-un-anclaje-y-leer-su-estado-y-la-cobertura-por-fuente-sobre-la-api-p.md
   - desk/tasks/task-sw4b-surface-ancla-de-verdad-por-las-rutas-de-sldb-serve-borra-el-cálculo-local-de-anclajes-y-muestr.md
   - desk/tasks/task-sw9-aceptación-del-workbench-sobre-el-desk-real-vistas-flujos-atajos-colores-y-enlace-desde-deskops.md
+  - desk/tasks/task-el-valor-de-un-campo-se-renderiza-literal-render-model-markdown-deja-de-pasar-los-valores-del-usuari.md
+  - desk/tasks/task-sw10-la-cabecera-del-workbench-muestra-la-ruta-del-documento-en-el-disco-como-carpetas-desplegables.md
+  - desk/tasks/task-sw11-el-panel-izquierdo-del-workbench-muestra-el-grafo-de-documentos-relacionados-con-el-abierto-al.md
+  - desk/tasks/task-read-store-distingue-un-store-inexistente-store-not-found-de-uno-sin-preparar-store-not-prepared.md
+  - desk/tasks/task-el-scan-de-enlaces-ignora-el-contenido-de-los-bloques-de-código-fenced-e-inline-y-no-los-informa-com.md
 - model: TaskDebugDoc
   paths:
   - desk/tasks/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024.md

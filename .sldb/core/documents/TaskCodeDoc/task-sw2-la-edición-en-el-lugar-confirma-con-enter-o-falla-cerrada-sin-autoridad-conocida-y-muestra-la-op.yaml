@@ -1,7 +1,7 @@
 name: task-sw2-la-edición-en-el-lugar-confirma-con-enter-o-falla-cerrada-sin-autoridad-conocida-y-muestra-la-op
 path: desk/tasks/task-sw2-la-edición-en-el-lugar-confirma-con-enter-o-falla-cerrada-sin-autoridad-conocida-y-muestra-la-op.md
-source_hash: d5b8bf68e67803e34d98395afe5915baad9184e61b7c7eb2f6c42d5a6bea327b
-content_hash: 295d6fc202b4beaaedb34d45ce0e634295868eb3927c671f1eeacf72b151410d
+source_hash: 1bbfa6d67ff616956949961ece758cdc5889459ae1bbdc8b332b005ea467d618
+content_hash: d01c577b8d2d126a4c02d3a488f6086b2c67c18c67a832efaf2a444b015e2d3a
 field_hashes:
   title: cbacb473315394e12efc494a86c8bec94043fe0ef8807b0c204336d72bbecaff
   id: 4b3595a4d6b3b16df6fc64a07468ca0f9ad980fd1a1edb12d8030e35e7e41b92
@@ -12,7 +12,7 @@ field_hashes:
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 7595bb5ff2ec7d8d558d4f933cce7340e2a389f81e7881d52f674b7b732d6238
   goal: 368f7a60965ab023668a8a2054fcc831b18dd8ca65b5b7268b5320f9ebfc8d11
-  scope: a021947f4de74baf563a6c341612c464fb950e9e5a99fe9b3f51be22869edb2e
+  scope: e9ca22a445652dc9edf8b77c919929dd97baf088d73214231817f6450be1e228
   references: 85e6fd2dc787b6733fa9a04ea0578015a3963cff401d45b0c6bb3e4aa475d775
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -35,6 +35,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-17T02:52:51Z'
+  at: '2026-11-17T04:04:46Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

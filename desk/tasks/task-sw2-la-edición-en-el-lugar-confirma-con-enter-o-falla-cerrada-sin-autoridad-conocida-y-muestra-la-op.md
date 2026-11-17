@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T02:52:51Z'
+  at: '2026-11-17T04:04:46Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-sw2-la-edición-en-el-lugar-confirma-con-enter-o-falla-cerrada-sin-autoridad-conocida-y-muestra-la-op
 status: draft
 summary: ''
@@ -47,6 +47,8 @@ Enter confirma en campos de una línea y ⌘↵ en los de bloque; sin autoridad 
 _State what is in scope and what is out of scope._
 
 Entra: los cinco puntos de la nota en ProsaWorkbenchView.tsx, WorkbenchShell.tsx y react/useDocumentEditor.ts, con tests de vitest contra el cliente inyectable (sin mocks de módulo). No entra: verbos de deskops y 'gestionado por deskops' (SW5, SW6).
+
+Precisión de JP (2026-11-17, prevalece sobre lo anterior): el Workbench de sldb/surface es LA UI de SLDB, general y autónoma para cualquier store SLDB; no es una superficie de la UI de deskops. La §2 del manual (que lo presenta como superficie de deskops) está desactualizada y no es premisa de este contrato. Principios firmes: papel con fierros ocultables, toda escritura tiene nombre, la UI no calcula. Nada del Workbench depende de que exista un desk.
 
 ## Implementation Path
 

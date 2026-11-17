@@ -1,9 +1,9 @@
 name: task-sw1-documentación-y-arranque-de-surface-al-día-con-el-workbench-readme-maqueta-histórica-tareas-t7-t
 path: desk/tasks/task-sw1-documentación-y-arranque-de-surface-al-día-con-el-workbench-readme-maqueta-histórica-tareas-t7-t.md
-source_hash: e737df5f993c621297040f2b5385e2c26531a9c0d11556aab436a55cb4fa3b83
-content_hash: 4b641743c61e4a2ded0e9f9a172cb6bd224be8afd165141a517a96793d244e42
+source_hash: cdbdb38ea1cdf75fe78544af252a272f7008d6074b8eff8e0029c45fad12f4c7
+content_hash: 24d8d84f2f636b166fe957dbbfdb8668b56773778955479f370f8ffdcb2885b2
 field_hashes:
-  title: af2218d8b8975ae70e80cb195f4f1d4567bb24f37e68ba4b07924425ed381b6a
+  title: cbdadd4d24418bcf079f08e7a29d060c817b3006a9838aea1b7f23dcbda676a8
   id: 0bc7ad05fa9740fc17ff0289eeb209fcc9ea31115197abb94852a9c1aea3fde7
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
@@ -11,15 +11,15 @@ field_hashes:
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 7198928778c70739db9b60cb93d5da46dbaca67ff8c837fb09d4600cdebfc041
-  goal: c4047c1fffe0075f4a6a94f11c996617e4753f716ac270718c75bbf5cb687a2e
-  scope: a6daec9394aeb3004e9b9ed4dc095d1760eb02b76465352361af05cdac72bb5c
+  goal: 9aa971d2c69e645c173e9d01201f853bbed3de63f4cb42c5c4e4a571c9d556b1
+  scope: c01667c64956113f52139d0790ddbdefb11d650e77b798a11d9374e4cad9f77b
   references: 3719bea184aa32445335449759e842fb8c5d4b3694fed4cfa9e499c1994edde1
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 72097569d68e52d01f077dfb8004d8b5b70b6ae6906b743c37e087fb2170d2cb
   implementation_path: 99f2ba2143bb417fb522ab2344702d1197574f8f01c21e814dafcd8823571dc0
   validation: ddb08d8ad334e6fb5098b3f91da8c4b89b973e971419617f83c5d9040420a634
-  done_when: eaa7953c176108aebfc5ac3e2e96a6d429d7fcf5ca8befc243c9195fe382e1d7
+  done_when: c09313d580e67e77e2b34e6e1138da6f2914729f17de742c989610216f0bb343
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
@@ -35,6 +35,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-17T02:50:17Z'
+  at: '2026-11-17T04:10:31Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

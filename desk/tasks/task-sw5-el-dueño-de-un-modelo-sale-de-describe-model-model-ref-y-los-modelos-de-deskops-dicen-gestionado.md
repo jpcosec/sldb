@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T03:04:04Z'
+  at: '2026-11-17T04:12:09Z'
   authority: generated
   via: save_document_payload
 id: task-sw5-el-dueño-de-un-modelo-sale-de-describe-model-model-ref-y-los-modelos-de-deskops-dicen-gestionado
@@ -29,7 +29,7 @@ inherit_acceptance_context: false
 atoms: []
 ---
 
-# SW5: el dueño de un modelo sale de describe_model (model_ref) y los modelos de deskops dicen 'gestionado por deskops' con su verbo
+# SW5: quién puede editar cada documento sale de lo que entrega sldb (describe_model), sin listas de modelos en la UI; 'gestionado por deskops' es un caso particular
 
 ## Rationale
 
@@ -41,13 +41,17 @@ core/authority.ts decide qué modelos son de deskops con una lista fija de nombr
 
 _Describe the concrete result this task must produce._
 
-La autoridad y el dueño de cada modelo salen de describe_model (model_ref modulo:Clase) en un solo lugar; un campo de un modelo de deskops se ve como solo lectura con el texto 'gestionado por deskops' y el verbo (por ejemplo deskops edit task <id> <campo>); Model Studio usa la misma fuente.
+La UI decide si un campo es editable solo con lo que entrega sldb (autoridad y model_ref de describe_model), en un solo lugar y sin listas de nombres de modelos; cuando sldb dice que un modelo lo gestiona otro sistema (por ejemplo deskops), el campo se ve de solo lectura con el texto y el verbo que sldb o el modelo declaren; Model Studio usa la misma fuente.
 
 ## Scope
 
 _State what is in scope and what is out of scope._
 
 Entra: core/authority.ts, ProsaWorkbenchView.tsx y ModelStudioView.tsx; confirmar si model_ref alcanza para modelos builtin de sldb, de deskops, del store local y las especializaciones de un desk; si no alcanza, nota a sldb y no ampliar la lista; tests de authority con model_ref reales del store del repo (TaskDoc, PillDoc, un modelo local y uno builtin de sldb) y un test de vista que encuentra el texto y el verbo en un campo de TaskDoc. No entra: ejecutar el verbo (SW6).
+
+Precisión de JP (2026-11-17, prevalece sobre lo anterior): el Workbench de sldb/surface es LA UI de SLDB, general y autónoma para cualquier store SLDB; no es una superficie de la UI de deskops. La §2 del manual (que lo presenta como superficie de deskops) está desactualizada y no es premisa de este contrato. Principios firmes: papel con fierros ocultables, toda escritura tiene nombre, la UI no calcula. Nada del Workbench depende de que exista un desk.
+
+Decisión abierta (JP no la marcó como compromiso): si la autoridad se define por modelo. Esta tarea implementa la regla general con lo que sldb entrega hoy; si para un caso hace falta un dato que sldb no da, se manda nota a sldb y el caso queda de solo lectura con el motivo, sin inventar una regla en la UI.
 
 ## Implementation Path
 

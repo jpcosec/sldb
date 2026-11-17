@@ -1,7 +1,7 @@
 name: task-sw9-primera-pasada-capturas-y-tiempos-de-las-cuatro-vistas-del-workbench-sobre-df3903db-para-que-jp
 path: desk/tasks/task-sw9-primera-pasada-capturas-y-tiempos-de-las-cuatro-vistas-del-workbench-sobre-df3903db-para-que-jp.md
-source_hash: 6292832d297ff2070d38bfcf6ff11506d1e96b6cf31eed69856861416b74b1dc
-content_hash: 028a9700939c4defc6faeec596fa851b2e3f48b3392f5e0a92fd267db6fb3dfb
+source_hash: 247d42ce2183d70717e626b9735c1a8931341a57f909610e4cfb83b60f46e9bc
+content_hash: e2eef08bfa124228bb56d242d13789c859cf83e4e14d8bd816b20fb0d47fb540
 field_hashes:
   title: ca1ef8ff777221d0b1ee365362329942d35b2d8f88d0ef4f663f30ef8182f1f4
   id: 49771e3e709d2b4f313f43c8752f9aee5dec5461fd2729b5a782a50536270178
@@ -11,8 +11,8 @@ field_hashes:
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 4d9234df84c1aeaa50a2fa2f2d283b4f2723f4b8bc8de2fb3ef7c8fb75cae549
-  goal: cc49bad2745db446d7fec6ca895ef1e9aebbf3cd51eff91b4cfb309b0ef69865
-  scope: 45d7e5ce452e067e79c912deafd082edffb9dc35df14cb41285b864a0b21ef50
+  goal: 901bf5d2d8bf6255ba2de71a115deae314b5706bb84de929accc1e1a1f697f2e
+  scope: 609949d490700b84a75109fcb82b3e66816de06ae8e6b9814b18e6e60514b3ad
   references: f1ae9dfa6fa1bd45998cbc7e537841b45c0dcce4c7899b80fcac56c2ff9b589d
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -35,6 +35,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-17T02:51:06Z'
+  at: '2026-11-17T04:16:14Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

@@ -1,0 +1,9 @@
+Task: task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl
+Title: sldb.code lee las claves del SQL de Postgres con el parser real de Postgres (pglast, extra postgres): PK con IDENTITY, constraints de tabla y FK de ALTER TABLE ADD CONSTRAINT (C4 de IR)
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective atoms:
+- atom-sldb-code-lee-ddl-de-postgres-y-migraciones-de-sqlmigrate-como-hechos-de-tablas-columnas-vistas-e-ín
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]

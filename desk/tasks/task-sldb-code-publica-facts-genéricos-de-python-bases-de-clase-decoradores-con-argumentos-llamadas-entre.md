@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T00:43:55Z'
+  at: '2026-11-17T07:38:22Z'
   authority: generated
   via: save_document_payload
 id: task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre
@@ -49,6 +49,8 @@ _State what is in scope and what is out of scope._
 Entra: (1) relación extends desde la clase hacia cada base escrita (texto calificado tal cual, p. ej. models.Model). (2) attrs.decorators: lista de {name, args, kwargs} con los argumentos como texto normalizado. (3) relación calls desde cada función o método hacia cada nombre llamado (texto calificado tal cual: self.publish, Post.objects.create, can_publish), sin resolver tipos; attrs.calls con línea de cada llamada. (4) un kind nuevo assignment para asignaciones de nivel de módulo o de clase (incluida una clase anidada como Meta) cuyo valor es una llamada o un literal simple: name, attrs.call {func, args, kwargs} o attrs.value, contenido en su clase o módulo; así salen urlpatterns = [path(...)], router.register(...) como llamada de módulo (kind call, con func y args), title = models.CharField(max_length=200, choices=...), model = Post y fields = [...]. (5) NORMALIZATION: si cambia la forma de los facts existentes, se sube y se dice en el CHANGELOG. Fixture de Django/DRF mínimo en tests/fixtures/treesitter/ con models, serializers, views con @action, urls con path() y router.register(), y tests. CHANGELOG. No entra: interpretar Django o DRF (es specIR), resolver tipos o imports de las llamadas, TS/JS (otra tarea).
 
 Precisiones (intento 2): (a) Una sentencia de módulo o de clase que es solo una llamada (router.register(...)) es un hecho kind call con attrs.call {func, args, kwargs}. Una asignación (nombre = valor) es kind assignment: si el valor es una llamada, attrs.call; si es una lista o tupla, attrs.items con un elemento por ítem, cada uno {func, args, kwargs} si es llamada o {value} si no (así urlpatterns = [path(...), path(...)] da dos ítems); si es un literal simple, attrs.value. (b) Literal simple: str, bytes, int, float, bool, None, un nombre o atributo con puntos (model = Post) y listas o tuplas de esos (fields = ["id", "title"]). Lo que no sea llamada, lista/tupla ni literal simple da attrs.value con su texto. (c) Todo texto de bases, func, args, kwargs y value se normaliza con py_norm, la misma función que usa signature; kwargs es un dict nombre -> texto. (d) El hecho call de módulo se nombra por su func con sufijo ~N si se repite.
+
+Precisiones (corrección 2, tras dos testers): (1) Los facts nuevos (assignment, call) toman su id después de todos los existentes (Ids.take_late y flush), en scan_tree, scan_file y code_facts; los facts que ya existían conservan el id de HEAD. (2) Una asignación aumentada (nombre += valor y los demás operadores) también es kind assignment, con attrs.op igual al operador ('+=') y el valor leído igual que en '=' (call, items o value); así urlpatterns += [path(...)] da sus ítems. (3) Una asignación encadenada (a = b = valor) da un fact por cada nombre, con el mismo valor. (4) Lo que siga fuera queda documentado en el docstring de py_statements.py. El diff de los intentos anteriores está guardado en runs/subagents/20261116-exec-k3-c1/executor-diff-c3py-c1.patch y es el punto de partida.
 
 ## Implementation Path
 

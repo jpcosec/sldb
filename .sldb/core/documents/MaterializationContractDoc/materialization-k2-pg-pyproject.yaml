@@ -1,0 +1,25 @@
+name: materialization-k2-pg-pyproject
+path: desk/materializations/materialization-k2-pg-pyproject.md
+source_hash: adaa6b6562b499ff8a29e465d6fd54a36d0d93bffe6d88f4a9183e59393271c5
+content_hash: f4c287c2f717d6d47381dbcb6b585d6fff71150225639d0308933b612fe57106
+field_hashes:
+  id: 647674b75678358840e882c5177a3b494662083ccad6754cf6eaafa873848ad7
+  title: d99c2d1e741c515e310099db721caf0bbc044d2cbeece36a9e210b9c37b321e7
+  source_atoms: 6b261b3db53131f24894c9b1ef3865abca5d2e1ea1cf41d544159145285aa5a1
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 9c6cd9431da5c16d2ee820ad552f266833f2ce755f554cbf9ffc5e0d3ccf1504
+  intent: c41ea578165396e49fbf3d4764f6bc53ea700a0893aa3837ff5d88d49081a62b
+  validation: 20b34d78413f6e53e46c306227760e5df7f471f58b58b09472dee64874779001
+  tags: 31506c064612c9d3967862e44c9997bd808f51edfbc4030d1c5772f29f5b992f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:code
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T08:06:46Z'
+  authority: generated
+  via: create_document

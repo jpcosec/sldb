@@ -1,7 +1,7 @@
 name: task-sw4b-surface-ancla-de-verdad-por-las-rutas-de-sldb-serve-borra-el-cálculo-local-de-anclajes-y-muestr
 path: desk/tasks/task-sw4b-surface-ancla-de-verdad-por-las-rutas-de-sldb-serve-borra-el-cálculo-local-de-anclajes-y-muestr.md
-source_hash: b164a07a482960d665bb805e3fd8d362cf1df17482bc494a2e1d9ce0c28fa45d
-content_hash: 9fdb0e230dc42253b38cef81aa47df1d427291f7377cac67a572049f6b4205b2
+source_hash: a46cf46a74938cd9880908bf3e54d6b727a478f55ba725fac2268066dacc9c56
+content_hash: fc08b8502061d81f9049a7ad74f5846f46e4d52e19dc7f2e452139d487d1f2d1
 field_hashes:
   title: 1be6b73a9311b5fe2929261299a90fb60776bebc71fc42fa94fb108a2684d393
   id: 7639a52f8282f463f0a69d9d1d7846074b43996316c5ffa3e8c3638b013b29ce
@@ -12,7 +12,7 @@ field_hashes:
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: f11f37ef74986f97d09663f6f9d50375dc2166515dcf80eaa394dac7166d52c7
   goal: 8be4e36bc76d0c1ea8f938e9a18ddbc964cebf33de62f29b13380d538d2959d7
-  scope: e5ccef45903990ba0671661d2b43a9a28cf6852218de284f62e9c86be0e31374
+  scope: 910f651de128da319dd3de73fac9f982c73a383fe513f224091e44000855d195
   references: 98d91106bef820f4383f057d21bd994878eae3d1b518e60acbce73dade279ea2
   depends_on: b4694bb83597ac932c02f8ac713c09c7e21eeadebc3adb54d927ae4042b0b11a
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -35,6 +35,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-17T03:05:19Z'
+  at: '2026-11-17T04:06:55Z'
   authority: generated
   via: save_document_payload

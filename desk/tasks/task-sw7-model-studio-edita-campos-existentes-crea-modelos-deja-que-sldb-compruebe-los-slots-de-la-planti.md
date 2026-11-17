@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T02:51:56Z'
+  at: '2026-11-17T04:04:15Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-sw7-model-studio-edita-campos-existentes-crea-modelos-deja-que-sldb-compruebe-los-slots-de-la-planti
 status: draft
 summary: ''
@@ -47,6 +47,8 @@ Model Studio edita tipo y descripción de un campo existente, ofrece los tipos q
 _State what is in scope and what is out of scope._
 
 Entra: ModelStudioView.tsx, model-studio-logic.ts y core/client.ts (método para POST /models/create) en surface/src; quitar el parseo local de marcadores si duplica a sldb; si sldb no devuelve la comprobación de slots, mandar nota a sldb y dejar el control deshabilitado con el motivo; tests de vista contra el cliente inyectable (sin mocks de módulo, como exige check-layers). Los modelos builtin de sldb y deskops siguen en solo lectura. No entra: archivos de SW2 a SW6.
+
+Precisión de JP (2026-11-17, prevalece sobre lo anterior): el Workbench de sldb/surface es LA UI de SLDB, general y autónoma para cualquier store SLDB; no es una superficie de la UI de deskops. La §2 del manual (que lo presenta como superficie de deskops) está desactualizada y no es premisa de este contrato. Principios firmes: papel con fierros ocultables, toda escritura tiene nombre, la UI no calcula. Nada del Workbench depende de que exista un desk.
 
 ## Implementation Path
 

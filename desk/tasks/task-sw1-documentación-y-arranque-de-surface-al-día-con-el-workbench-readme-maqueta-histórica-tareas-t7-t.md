@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T02:50:17Z'
+  at: '2026-11-17T04:10:31Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-sw1-documentación-y-arranque-de-surface-al-día-con-el-workbench-readme-maqueta-histórica-tareas-t7-t
 status: draft
 summary: ''
@@ -27,7 +27,7 @@ inherit_acceptance_context: false
 atoms: []
 ---
 
-# SW1: documentación y arranque de surface al día con el Workbench (README, maqueta histórica, tareas T7-T9 y puerto fijo 5174)
+# SW1: documentación y arranque de surface como la UI de SLDB (README, maqueta histórica, tareas T7-T9 y puerto configurable documentado)
 
 ## Rationale
 
@@ -39,13 +39,15 @@ La UI de deskops enlaza a http://127.0.0.1:5174/#/workbench?doc=TaskDoc:<id>&len
 
 _Describe the concrete result this task must produce._
 
-surface tiene un README que describe lo que hay y cómo levantarlo, las referencias a la maqueta están corregidas o marcadas como históricas, docs/surface/tasks/README.md dice el estado real de T7, T8 y T9, y vite sirve siempre en el puerto 5174 con strictPort.
+surface tiene un README que la presenta como la UI de SLDB para cualquier store y describe cómo levantarla; las referencias a la maqueta están corregidas o marcadas como históricas; docs/surface/tasks/README.md dice el estado real de T7, T8 y T9; el puerto de vite es configurable (variable de entorno, con un valor por defecto) y está documentado, sin strictPort.
 
 ## Scope
 
 _State what is in scope and what is out of scope._
 
-Entra: README de surface (cuatro vistas, lentes, #/legacy, proxies /sldb y /desk, contrato de capas, cómo levantarla contra un sldb serve real y contra el store demo de scripts/setup_workbench_demo_store.py); corregir o marcar como históricas las referencias a la maqueta; actualizar docs/surface/tasks/README.md; server.port 5174 con strictPort en surface/vite.config.ts, documentado. No entra: cambios de comportamiento fuera del puerto.
+Entra: README de surface (cuatro vistas, lentes, #/legacy, proxies /sldb y /desk, contrato de capas, cómo levantarla contra un sldb serve real y contra el store demo de scripts/setup_workbench_demo_store.py); corregir o marcar como históricas las referencias a la maqueta; actualizar docs/surface/tasks/README.md; puerto configurable por variable de entorno en surface/vite.config.ts, sin strictPort, documentado (en robocop2 se usa 5174; en la máquina de JP ese puerto lo ocupa otro proyecto). No entra: cambios de comportamiento fuera del puerto.
+
+Precisión de JP (2026-11-17, prevalece sobre lo anterior): el Workbench de sldb/surface es LA UI de SLDB, general y autónoma para cualquier store SLDB; no es una superficie de la UI de deskops. La §2 del manual (que lo presenta como superficie de deskops) está desactualizada y no es premisa de este contrato. Principios firmes: papel con fierros ocultables, toda escritura tiene nombre, la UI no calcula. Nada del Workbench depende de que exista un desk.
 
 ## Implementation Path
 
@@ -64,4 +66,4 @@ _List the checks required before this task can close._
 
 _Name the observable condition that makes the task complete._
 
-Los comandos de Validation pasan; npm run dev sirve en 5174 y falla si el puerto está ocupado; el README describe las cuatro vistas y cómo levantar la UI; commit.
+Los comandos de Validation pasan; con la variable de entorno del puerto, npm run dev sirve en ese puerto y sin ella en el valor por defecto documentado; el README presenta la UI de SLDB y cómo levantarla contra un sldb serve real y contra el store demo; commit.

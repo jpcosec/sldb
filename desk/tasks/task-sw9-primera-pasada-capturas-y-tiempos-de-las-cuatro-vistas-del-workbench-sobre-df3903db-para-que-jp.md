@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T02:51:06Z'
+  at: '2026-11-17T04:16:14Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-sw9-primera-pasada-capturas-y-tiempos-de-las-cuatro-vistas-del-workbench-sobre-df3903db-para-que-jp
 status: draft
 summary: ''
@@ -38,13 +38,15 @@ JP quiere ver el estado de partida del Workbench antes de los arreglos de la ser
 
 _Describe the concrete result this task must produce._
 
-En runs/ queda un índice con capturas y tiempos de las cuatro vistas (#/workbench, #/diagram, #/source, #/studio), con las lentes lectura y fierros, sobre documentos reales del store del repo, tomadas en df3903db.
+En runs/ queda un índice con capturas y tiempos de las cuatro vistas (#/workbench, #/diagram, #/source, #/studio), con las lentes lectura y fierros, sobre documentos reales de un store SLDB real (el del repo), tomadas en df3903db.
 
 ## Scope
 
 _State what is in scope and what is out of scope._
 
 Entra: solo el punto 1 de SW9: levantar sldb serve sobre una copia del store del repo en /dev/shm y surface en el puerto que use la configuración de df3903db; con playwright y chromium sin interfaz, abrir cada vista y lente sobre documentos reales, medir el tiempo de carga y de cada llamada /sldb (incluida la carga inicial de /graph completo) y sacar una captura por vista y lente. No entra: los flujos, los atajos, los colores ni el enlace desde deskops (son de SW9 completa); arreglar nada; escribir en el desk real.
+
+Precisión de JP (2026-11-17, prevalece sobre lo anterior): el Workbench de sldb/surface es LA UI de SLDB, general y autónoma para cualquier store SLDB; no es una superficie de la UI de deskops. La §2 del manual (que lo presenta como superficie de deskops) está desactualizada y no es premisa de este contrato. Principios firmes: papel con fierros ocultables, toda escritura tiene nombre, la UI no calcula. Nada del Workbench depende de que exista un desk.
 
 ## Implementation Path
 

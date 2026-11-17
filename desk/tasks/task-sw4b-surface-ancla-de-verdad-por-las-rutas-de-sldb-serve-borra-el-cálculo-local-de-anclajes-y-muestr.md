@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T03:05:19Z'
+  at: '2026-11-17T04:06:55Z'
   authority: generated
   via: save_document_payload
 id: task-sw4b-surface-ancla-de-verdad-por-las-rutas-de-sldb-serve-borra-el-cálculo-local-de-anclajes-y-muestr
@@ -49,6 +49,8 @@ Crear un átomo desde una selección guarda su anclaje con offsets por sldb serv
 _State what is in scope and what is out of scope._
 
 Entra: SourceAnchoringView.tsx, anchoring-coverage.ts, core/similarity.ts, core/client.ts y ProsaWorkbenchView.tsx; borrar el cálculo local; tests de vista contra el cliente inyectable. No entra: rutas de sldb (SW4a).
+
+Precisión de JP (2026-11-17, prevalece sobre lo anterior): el Workbench de sldb/surface es LA UI de SLDB, general y autónoma para cualquier store SLDB; no es una superficie de la UI de deskops. La §2 del manual (que lo presenta como superficie de deskops) está desactualizada y no es premisa de este contrato. Principios firmes: papel con fierros ocultables, toda escritura tiene nombre, la UI no calcula. Nada del Workbench depende de que exista un desk.
 
 ## Implementation Path
 

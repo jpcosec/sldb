@@ -1,0 +1,25 @@
+name: materialization-k2-pg-test-anchors
+path: desk/materializations/materialization-k2-pg-test-anchors.md
+source_hash: b57701bc23405420daade54d2600d418837d5ba606687fcc44fe8d7de5e923d0
+content_hash: 41a134d519e87e99e7fead23898c9c455a146f823ab0c7f3db7309c24f7ab42e
+field_hashes:
+  id: 478d601ddac743827485ed14cc833761aa5770189f8462c1e3de0977872987d7
+  title: 7dea7a2e112b7413c70cd702ef39fdc08cea372c1a38695ee699e0f01c6a9f6f
+  source_atoms: 6b261b3db53131f24894c9b1ef3865abca5d2e1ea1cf41d544159145285aa5a1
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: d6fcbb3586fbb96b0863e3187fefc87df8c7bea439ac11a479c61e5372470e09
+  intent: 2292416ccbc1e602c083b2cc36d0fbb74046a4b66df422c33c755ef8687c8b89
+  validation: 20b34d78413f6e53e46c306227760e5df7f471f58b58b09472dee64874779001
+  tags: 31506c064612c9d3967862e44c9997bd808f51edfbc4030d1c5772f29f5b992f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:code
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T08:10:34Z'
+  authority: generated
+  via: create_document

@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T03:04:40Z'
+  at: '2026-11-17T04:13:54Z'
   authority: generated
   via: save_document_payload
 id: task-sw6-el-workbench-vuelve-a-la-ui-de-deskops-y-muestra-gates-y-evidencia-de-la-tarea-desde-deskops-vie
@@ -17,7 +17,7 @@ history: []
 references:
 - desk/inbox/20261116-233905-suggestion-sw6-marco-de-deskops-2-3-4-3-5-el-workbench-se-abre-desde-la-ui-de-deskops-vuelve-a-ella-y-muestra-el-estado-de-workflow-que-entrega-deskops.md
 depends_on:
-- task-sw5-el-dueño-de-un-modelo-sale-de-describe-model-model-ref-y-los-modelos-de-deskops-dicen-gestionado
+- task-sw9-aceptación-del-workbench-sobre-el-desk-real-vistas-flujos-atajos-colores-y-enlace-desde-deskops
 pills: []
 files:
 - surface/src/app/WorkbenchShell.tsx
@@ -28,7 +28,7 @@ inherit_acceptance_context: false
 atoms: []
 ---
 
-# SW6: el Workbench vuelve a la UI de deskops y muestra gates y evidencia de la tarea desde deskops view; pide a deskops y graph_ui las operaciones que faltan
+# SW6 (opcional, al final de la serie): caso de uso con deskops: volver a la UI de deskops y mostrar gates y evidencia de una tarea desde deskops view
 
 ## Rationale
 
@@ -47,6 +47,10 @@ Con lo que ya existe: enlace de regreso a la UI de deskops (a la tarea si el doc
 _State what is in scope and what is out of scope._
 
 Entra: cortes (a) y (b) de la nota: enlace de regreso, lectura de /desk/api/view/task, controles deshabilitados con motivo, y notas a deskops (contrato deskops-ui) y a graph_ui (servidor) pidiendo deskops next, ejecución de verbos y conteo y commit de cambios; tests de vista. No entra: la paleta de verbos (corte c, cuando existan las operaciones).
+
+Precisión de JP (2026-11-17, prevalece sobre lo anterior): el Workbench de sldb/surface es LA UI de SLDB, general y autónoma para cualquier store SLDB; no es una superficie de la UI de deskops. La §2 del manual (que lo presenta como superficie de deskops) está desactualizada y no es premisa de este contrato. Principios firmes: papel con fierros ocultables, toda escritura tiene nombre, la UI no calcula. Nada del Workbench depende de que exista un desk.
+
+Caso de uso opcional (JP 2026-11-17): va al final de la serie y no bloquea ninguna otra tarea. Todo lo de esta tarea se activa solo si hay un desk disponible; sin desk, el Workbench funciona igual y estos controles no aparecen.
 
 ## Implementation Path
 

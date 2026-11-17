@@ -1,0 +1,23 @@
+name: atom-con-el-extra-postgres-las-claves-del-ddl-de-postgres-se-leen-con-el-parser-real-de-postgres-pglast
+path: desk/atoms/atom-con-el-extra-postgres-las-claves-del-ddl-de-postgres-se-leen-con-el-parser-real-de-postgres-pglast.md
+source_hash: 21cca54e7a0e7de57f7622f39d0e3a3481b00362189e3ce6ce2dfcc86ef89b41
+content_hash: 659d107205a382a3e7ca10f9362ba79b96432c46e94348b70e4db8764365103d
+field_hashes:
+  id: 5622a9a752a2b1e7bc4aec235e51396f842d94c7c0000cee48613109387622c8
+  title: 27ca83dfa7964329eb9de904f8209b1e9e1c6b765927878f00bd836e4343d85d
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: 5613e29204ab07eab3ba6c754f991507eef0894edfad941de5e99cf390b3d3c2
+  tags: 31506c064612c9d3967862e44c9997bd808f51edfbc4030d1c5772f29f5b992f
+  provenance: e60e300166044ecf9f3c0530b65227e91e8f086de92a43098352ed99cc2316c1
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:code
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-17T08:06:21Z'
+  authority: generated
+  via: create_document

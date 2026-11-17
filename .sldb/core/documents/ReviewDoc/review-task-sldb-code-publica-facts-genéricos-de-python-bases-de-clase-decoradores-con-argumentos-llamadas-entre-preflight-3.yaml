@@ -1,0 +1,37 @@
+name: review-task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre-preflight-3
+path: desk/reviews/task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre/preflight-3.md
+source_hash: 184c0f2d6b39befaeba903b9b1682e72d57a5850e0a965924df81c669540f097
+content_hash: 1b61fdec581e98d298acc93dea133f5a8d063ab181325199e21bb50131a835b4
+field_hashes:
+  id: b3c6a54ed777a7f3e93c4cc43603dc192d9fa0d765dedd2762936d864182819d
+  title: 6de58b0c5a391134a9163225d2879419aed65c4b449ee30e2611b3610a9ef1fd
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 66c345b965379b38736e03c21e972446ebaa175c7288fd12351574b6dee108d3
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: c061916979ababaed64b68895be03a0b5f1eb62f97e3b4ecaab98a0f0dd572c6
+  input_sha256: 6144972680c481a6f0a30178972163e557d9b5284dca1fd0817e8fd35504ab31
+  contract_sha256: 38036f09f6c11fa83ded41a0121d5a1a8d37ee56d3c892ddf0a3bc98df34f7a1
+  output_sha256: be43409f34198b95029913e5ed95a7a7744a762e1a572138395b4c72ee2f682b
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: bf585a5518626e7339ef5cedd242afd9da76eb55ed23507884f8d8ecbe43570c
+  created_at: 85b230279b924db407c25de20d8c79c9712f87c8c36ae2cdac54517d770a6254
+  disposed_at: b09ae932b4d6e92dee742327d2f3ca458ea5da07f98c6aca0409c3db71b4d0ef
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: f8982e22c53196fcea9e346a591231c16bc74a08386cfd68915f769e1e81b870
+  disposition: b9b0664dc1acbbb79dcc415a915d4e2bdb1bf53326341664df3c8168dc16fe2a
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T07:40:31Z'
+  authority: generated
+  via: save_document_payload

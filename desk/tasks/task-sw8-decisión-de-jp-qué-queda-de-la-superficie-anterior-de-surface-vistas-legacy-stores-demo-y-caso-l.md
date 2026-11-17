@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T03:02:17Z'
+  at: '2026-11-17T04:08:29Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-sw8-decisión-de-jp-qué-queda-de-la-superficie-anterior-de-surface-vistas-legacy-stores-demo-y-caso-l
 status: draft
 summary: ''
@@ -45,6 +45,8 @@ JP decide: (A) qué vistas legacy se retiran y cuáles sobreviven dentro del Wor
 _State what is in scope and what is out of scope._
 
 Entra: presentar a JP las tres preguntas con lo que hay hoy (sin recomendación vinculante del coordinador), registrar el recibo owner y, cuando JP disponga, crear las tareas de retiro o conservación. No entra: borrar nada antes de la decisión.
+
+Precisión de JP (2026-11-17, prevalece sobre lo anterior): el Workbench de sldb/surface es LA UI de SLDB, general y autónoma para cualquier store SLDB; no es una superficie de la UI de deskops. La §2 del manual (que lo presenta como superficie de deskops) está desactualizada y no es premisa de este contrato. Principios firmes: papel con fierros ocultables, toda escritura tiene nombre, la UI no calcula. Nada del Workbench depende de que exista un desk.
 
 ## Implementation Path
 

@@ -1,7 +1,7 @@
 name: task-sw3-las-referencias-abren-la-vista-que-corresponde-a-su-modelo-el-árbol-enfoca-en-vez-de-navegar-y-l
 path: desk/tasks/task-sw3-las-referencias-abren-la-vista-que-corresponde-a-su-modelo-el-árbol-enfoca-en-vez-de-navegar-y-l.md
-source_hash: 7422ca1e0b40d629a4497e5f5c23beedcf410f7d2b5bcf376eb631ef569379e5
-content_hash: d92fb0eb81f985b0ab89125e3d80b6266070aefd545d4bcdb8d9c6ce69ffdb2e
+source_hash: 055a7e55d2d28ab5de1aa080b16216f51ffc62a21668ca3030ee391f74f8a025
+content_hash: 4d582e4f7955bebdbd213b4699cc86e3a1b0a7221c65e85c29614262eb4d2a4a
 field_hashes:
   title: ff3a21992074f6fb0adb896fb5090a0725d1850f0f9558258fb504d55b97f37d
   id: c6131ed97cbd12a4d94d68ede121a9f9dd52c3769a16b3ea0d0b2b42c3501862
@@ -12,7 +12,7 @@ field_hashes:
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 0d4329236a2ae87be6379d6a3eddfbac60704ef258f111f8f12ca0cb2143dc8c
   goal: f7d7bb63fa138d26ec8d4d807768195f86a18fca501d766e206e70b7f95660d1
-  scope: 71b1b9e9718fcc396ef74d3e0b38f29cbbb50b9012c8b20d33480bb3e24e520d
+  scope: 206d3b76a016e12778cec6c1173d5ae39b4ea03778fde3016ffa328713423690
   references: 1ca22b443e041a90b6ae630ef1c47a5b1838842f9058f791c76bdb40ca5f9730
   depends_on: 8d96cd9ba9e1b3694f51cbde6ddbd884d231649965cc5cd7e4c56865f147edfe
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -35,6 +35,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-17T03:03:32Z'
+  at: '2026-11-17T04:05:17Z'
   authority: generated
   via: save_document_payload

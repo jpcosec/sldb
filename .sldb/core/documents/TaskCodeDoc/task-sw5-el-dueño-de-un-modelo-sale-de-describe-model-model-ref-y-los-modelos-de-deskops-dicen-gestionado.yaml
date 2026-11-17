@@ -1,9 +1,9 @@
 name: task-sw5-el-dueño-de-un-modelo-sale-de-describe-model-model-ref-y-los-modelos-de-deskops-dicen-gestionado
 path: desk/tasks/task-sw5-el-dueño-de-un-modelo-sale-de-describe-model-model-ref-y-los-modelos-de-deskops-dicen-gestionado.md
-source_hash: 05578599168b2638b3be0159e100af118fb168f14e5fb5bd1430fa6aebd90ef7
-content_hash: e90f2e8d4b24be525b80985e4f49a0ace704a975844d4c3885c6af264412d4a1
+source_hash: 3a5dc314f1163eba10678664d3d2a0c145c5060269c7189e230430a030ccc10a
+content_hash: 1430afe74806698377c8f78b6ef98e6839ba6bff44782a340d56895dc4b87276
 field_hashes:
-  title: 46f033831b7b9540e18ce6a5ab2a535b1a814fba45397b4c0092d761f4f0337a
+  title: c38f3ef4205fb1916234123b2ed3a2b04264d28f89e24d208fa8a8b4b7604027
   id: e660fed3537f3b423e84c1a743c8182bfb9c1171bda2aa62626c9d90346a4d86
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
@@ -11,8 +11,8 @@ field_hashes:
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: b68bd4c56f4ac498b5abd0aeef29f10fa2bc2ecdf66174b4617a91f5c2cf5ba0
-  goal: 90dd482dd2adfce917bccbe21b41288e07b07752e9c4d5260b3f5982b4f3a10b
-  scope: a1efa90da04862fb985a10b2abd31f39c78591c8e88092b2415b1fe48b2a51b6
+  goal: 7431c4066f66d3b290b5e05e68ba10fa43d06f8c06c5c1d5c7eac1457138d836
+  scope: 2ecebf53ff7c30fbe31837d33cb0fe1ae0e4c217a649a23dd9c5143be8eb6c54
   references: 96d7f2938c05aebbc708a3884cc0b6d057c7e6976b4f4f4244d4bc990b07692d
   depends_on: 8bc6ebf865e5f53cf971a40094b9e51e5a6581f8bebeb0ef0d622b3bc302f6a1
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -35,6 +35,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-17T03:04:04Z'
+  at: '2026-11-17T04:12:09Z'
   authority: generated
   via: save_document_payload

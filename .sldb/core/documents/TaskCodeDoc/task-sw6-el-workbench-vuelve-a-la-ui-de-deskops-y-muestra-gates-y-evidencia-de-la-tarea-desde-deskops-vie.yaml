@@ -1,9 +1,9 @@
 name: task-sw6-el-workbench-vuelve-a-la-ui-de-deskops-y-muestra-gates-y-evidencia-de-la-tarea-desde-deskops-vie
 path: desk/tasks/task-sw6-el-workbench-vuelve-a-la-ui-de-deskops-y-muestra-gates-y-evidencia-de-la-tarea-desde-deskops-vie.md
-source_hash: a4c386a5f4dd436e9a911dd75ab13e3950e8df1bcecb67a1a561df539a13839f
-content_hash: 806e7fdfd049bccb12bf24476f79c70b381a372630f3a3d60519ca372ffefd67
+source_hash: e28c09cc17e75ea132159ef25828a4fb92bf47701f3efb5f173025b5a793e737
+content_hash: 299c28e24a6bcf5418dad5059e0634ef3dcc9dbacfa5e7684e034a68c36ff8f2
 field_hashes:
-  title: db6e7c4ec3742d891ffe6ab3ff30984c48a4be6df11b536caff14e223b7507a4
+  title: 9d06266de00c4c9b239df474192e35aae5366062933a3138d98fb864951f5600
   id: 06be12cd30a148c56aed0f7a2459c731f0797d1634faf2bdba7d59d43cb9d0a2
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
@@ -12,9 +12,9 @@ field_hashes:
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 711918ce5f793125f0c1c74dafd26a630a486fba200baad256907b7f33d7c19b
   goal: 67ef18aa27d9b45819d9c9c57fb50bef3d61ce72f3164bbd4e2276de982c9877
-  scope: 9d0993672d9b0d579ae0124a91738532ef677200a5d3481de3cbb2e3bfa98df5
+  scope: 2f6d28c524cfa29e1925db7c56105779ecbefdbc139733e28ccf78f5f5d7e82c
   references: 910530408d7d476ecb2be7744cf2f929d31497c2431a0e7ec7a8fc51467fc249
-  depends_on: e346493f8f59a8a5ec078c1825d415ab64b95867e5ebfd87bdf2b7cf5acfac93
+  depends_on: 2b5439c2080492b527085c3ede8662231ed8b778596dab2022516fc618d20edd
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 86f276f8d8750d41ecef58974966be3f3b27dc38cf9400437f5888897a802e8b
   implementation_path: 8902a6d050cdf378ad95f3df9c7b70413480b18bcb7a40d2b198cd713a48586e
@@ -35,6 +35,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-17T03:04:40Z'
+  at: '2026-11-17T04:13:54Z'
   authority: generated
   via: save_document_payload

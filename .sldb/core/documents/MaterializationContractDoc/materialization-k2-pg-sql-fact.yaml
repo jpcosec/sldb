@@ -1,0 +1,25 @@
+name: materialization-k2-pg-sql-fact
+path: desk/materializations/materialization-k2-pg-sql-fact.md
+source_hash: 2b109cf5ea63d0b1eee03db89f426707e629d337f3cb1ba1fc65201ebf989788
+content_hash: fec8d5cd792955f9454402dd026c1df6ed68a676906c08319e6b3b53978b884c
+field_hashes:
+  id: 38ac2f6f1eec0781b95c6aa909b570cda7220537e3555809148528d7b8e602db
+  title: cf6ffbdc134566b11b1acea3980e49b942a71d8df420ec59c56a3c385b1fa5cc
+  source_atoms: 6b261b3db53131f24894c9b1ef3865abca5d2e1ea1cf41d544159145285aa5a1
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: d4321531ee13195fb2f4e26f30c2d6501c1e1b0da255481c2545274b589de61e
+  intent: c48687c92fac51e8738b052f0824d0191d3f21bf49a67517c7f04cd497132f34
+  validation: 20b34d78413f6e53e46c306227760e5df7f471f58b58b09472dee64874779001
+  tags: 31506c064612c9d3967862e44c9997bd808f51edfbc4030d1c5772f29f5b992f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:code
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T08:08:30Z'
+  authority: generated
+  via: create_document

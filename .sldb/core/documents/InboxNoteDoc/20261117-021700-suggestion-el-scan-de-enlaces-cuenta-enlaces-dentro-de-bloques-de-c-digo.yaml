@@ -1,0 +1,24 @@
+name: 20261117-021700-suggestion-el-scan-de-enlaces-cuenta-enlaces-dentro-de-bloques-de-c-digo
+path: desk/inbox/20261117-021700-suggestion-el-scan-de-enlaces-cuenta-enlaces-dentro-de-bloques-de-c-digo.md
+source_hash: b9bf60df1cd501c3f1782899ad5f2da29d0c92391bb5db96894f4e6270475ea3
+content_hash: cf45d6d6674ae6d6e7e88a2115b8faf9193a28a6ac1520405e2e2f4b52c144e3
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: e710514e29fab1ba3c04f75397d61d649da0270012ce642af2775691b57f6e9c
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 1cecc6945b45485c5d165e4c3967fe4186898987084dd7d3be246ea1a74fd3f5
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 0591ee4ec1038b69fb01fbf4dd4e237d5ee4a166410802a523a3fd16937b23d8
+  title: b766c4ab128b9cde17218dde613599d55d9953f8f73fba830ee0a96f2b605b77
+  body: 3291d844b56806f55574cdf8d4f1692f9f3e9b47715f85d1f9f208b517897430
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance:
+  by: agent
+  at: '2026-11-17T06:38:54Z'
+  authority: generated
+  via: save_document_payload

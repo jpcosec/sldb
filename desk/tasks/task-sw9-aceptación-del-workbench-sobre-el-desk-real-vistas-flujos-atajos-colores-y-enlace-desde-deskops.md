@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T03:05:49Z'
+  at: '2026-11-17T04:17:28Z'
   authority: generated
   via: save_document_payload
 id: task-sw9-aceptación-del-workbench-sobre-el-desk-real-vistas-flujos-atajos-colores-y-enlace-desde-deskops
@@ -22,7 +22,6 @@ depends_on:
 - task-sw3-las-referencias-abren-la-vista-que-corresponde-a-su-modelo-el-árbol-enfoca-en-vez-de-navegar-y-l
 - task-sw4b-surface-ancla-de-verdad-por-las-rutas-de-sldb-serve-borra-el-cálculo-local-de-anclajes-y-muestr
 - task-sw5-el-dueño-de-un-modelo-sale-de-describe-model-model-ref-y-los-modelos-de-deskops-dicen-gestionado
-- task-sw6-el-workbench-vuelve-a-la-ui-de-deskops-y-muestra-gates-y-evidencia-de-la-tarea-desde-deskops-vie
 - task-sw7-model-studio-edita-campos-existentes-crea-modelos-deja-que-sldb-compruebe-los-slots-de-la-planti
 pills: []
 files:
@@ -45,13 +44,17 @@ JP va a repasar la UI y necesita una matriz de aceptación con capturas sobre el
 
 _Describe the concrete result this task must produce._
 
-En runs/ queda un índice con la matriz vista x flujo (PASA o FALLA con severidad), tiempos y capturas por vista y lente, cubriendo los cinco puntos de la nota; las fallas nuevas quedan como notas a este desk.
+En runs/ queda un índice con la matriz vista x flujo (PASA o FALLA con severidad), tiempos y capturas por vista y lente sobre stores SLDB reales (el del repo sirve) y no solo sobre un desk; las fallas nuevas quedan como notas a este desk.
 
 ## Scope
 
 _State what is in scope and what is out of scope._
 
 Entra: los cinco puntos de la nota (vistas con lentes y tiempos; los cuatro flujos de §6 escribiendo solo en una copia del store en /dev/shm; atajos de §7; colores de papel contra src/styles/paper-tokens.css y los hex a mano; enlace desde la UI de deskops con un id real y con uno inexistente, que debe reportarse como falla si cae en silencio), con playwright y chromium sin interfaz, sldb serve sobre el store real y surface en 5174. No entra: arreglar fallas (van como notas).
+
+Precisión de JP (2026-11-17, prevalece sobre lo anterior): el Workbench de sldb/surface es LA UI de SLDB, general y autónoma para cualquier store SLDB; no es una superficie de la UI de deskops. La §2 del manual (que lo presenta como superficie de deskops) está desactualizada y no es premisa de este contrato. Principios firmes: papel con fierros ocultables, toda escritura tiene nombre, la UI no calcula. Nada del Workbench depende de que exista un desk.
+
+El punto 5 (enlace desde la UI de deskops) es opcional: se prueba solo si la UI de deskops está disponible y no es criterio de aceptación de la UI de SLDB.
 
 ## Implementation Path
 
