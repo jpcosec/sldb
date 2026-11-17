@@ -1,0 +1,19 @@
+name: 20261117-135338-suggestion-ir04b-undo-changes-de-sldb-mcp-falla-tras-re-sellar-procedencia-stale-imposible-de-satisfacer-steps-2-escribe-a-medias
+path: desk/inbox/20261117-135338-suggestion-ir04b-undo-changes-de-sldb-mcp-falla-tras-re-sellar-procedencia-stale-imposible-de-satisfacer-steps-2-escribe-a-medias.md
+source_hash: bf8224ff1a5b04533552c005ca0b2d6aff2f6a7793e6dc3593cf541773bdeccb
+content_hash: b634182e5a9fd5a967ab103b769b9478fa5f3264d7c086bef67d62c292b7f1be
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 7da94c2a4ddf89c325c48b59229a5dcf47dd36ec3b3d207fa1a7d5c8f49acb40
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: 1a959d2caf4c359bf8869a2114b13ed19cb30c6564333021420e223b4e8061e5
+  body: 43dbbe7200a95c237b1273f4431257c75532fb7f5985bb8d618150c1fdfbe0ef
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null
