@@ -41,6 +41,7 @@ EXEMPT = {
     "src", "tests", "docs", "tools", "scripts", "build", "dist", "uv.lock",
     "pyproject.toml", "README.md", "CHANGELOG.md", "LICENSE", "standards.md",
     "propuesta",
+    "AGENTS.md",  # AGENTS.md: guía de procedimientos para agentes (merge de .sldb); no es parte del sistema.
 }
 
 

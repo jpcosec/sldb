@@ -7,7 +7,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Callable, TypeVar
 
-from sldb.core.exceptions import SLDBStoreError
+from sldb.store.exceptions import SLDBStoreError
 
 T = TypeVar("T")
 CONFLICT_PREFIXES = ("<<<<<<<", "|||||||", "=======", ">>>>>>>")
