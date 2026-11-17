@@ -1,0 +1,25 @@
+name: materialization-k3-c2-test-treesitter-agreement
+path: desk/materializations/materialization-k3-c2-test-treesitter-agreement.md
+source_hash: 28f55137bf102ed8a156942a52e19e695864a95f1bf9c47052e701f16a48c9de
+content_hash: abd98de3dc51402c3f82cc8b016bc750f0a428769c30cf6820f6961ac0b03bce
+field_hashes:
+  id: 5f9d15548a9380c5aeec9143b547e4ee89d40bf985d9b2e3cd1ce34929569e00
+  title: f75b0debc1bdd87ca9fdf664a0107993e5fd84152aedfaa276c5fed39b7c4d01
+  source_atoms: 3db713efb03159c36c025b705d2df798b090ea97631a7f90f9f3e8a6fe8537e4
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 46de122249acecb7b42cefd78714cf804eb310209d03c6b279a95a5f0abe2ca1
+  intent: 22b0f176e74e434f8cec08f541ca38edc9da3917e0573d44c338b8f8980aaacd
+  validation: 56e9318c93aaa907670aa69adb6a44e07228d7e046c4266af1ea8e512f741af8
+  tags: 31506c064612c9d3967862e44c9997bd808f51edfbc4030d1c5772f29f5b992f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:code
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T08:28:18Z'
+  authority: generated
+  via: create_document

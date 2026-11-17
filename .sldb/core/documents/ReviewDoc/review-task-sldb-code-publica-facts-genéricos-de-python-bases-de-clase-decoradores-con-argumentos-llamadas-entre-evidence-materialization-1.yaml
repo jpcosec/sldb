@@ -1,0 +1,37 @@
+name: review-task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre-evidence-materialization-1
+path: desk/reviews/task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre/evidence-materialization-1.md
+source_hash: 7fb49a75304b4b51cf51307accfee851817381fdd7be3157a145946c5bb9fce6
+content_hash: 18d1172a3fa83aa4ee52ffb1ae2dfec618aac3b279f20e0165db9ed45adb57d4
+field_hashes:
+  id: 79b661c177ea097dbd1b2f1fcbd22159aed7707f3c23f8d336e00574c16122ec
+  title: 0076d93f7d563d305700d3db1abef7dec2e46258b190084605ba1444e42ee2eb
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: 3a032fcdb54e976cb462422807f0453419392b396ed7cbb9eaccccb0af51656c
+  subject: 66c345b965379b38736e03c21e972446ebaa175c7288fd12351574b6dee108d3
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: bbdd6816316f5036174495031bf37c7b2e226bcc93988cc69a2aba1572a3295e
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: ac1c45c90b8be1932b81f96e6dc4be6e9c428b74f72d9f9c369f696ba0ea1736
+  created_at: 99badd492bfa1bb5e223cc860d6a263e943ad8e12942285f1b8d0d07ec6abcf0
+  disposed_at: 99badd492bfa1bb5e223cc860d6a263e943ad8e12942285f1b8d0d07ec6abcf0
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 563415cc07b286ac1dacc7034de83c30ce3968df37f7e7be733998d547c89d99
+  disposition: 34f74328e30c1901800c7739ec34759076aec7db3af6507d45c4a69c387edabb
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T08:36:58Z'
+  authority: generated
+  via: create_document

@@ -1,0 +1,7 @@
+Task: task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre
+Title: sldb.code publica facts genéricos de Python: bases de clase, decoradores con argumentos, llamadas entre símbolos y asignaciones de clase con llamada (C3 de IR, parte genérica)
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]

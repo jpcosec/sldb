@@ -1,0 +1,25 @@
+name: materialization-k3-c2-test-treesitter-symbols
+path: desk/materializations/materialization-k3-c2-test-treesitter-symbols.md
+source_hash: 014ae901dcb1ce02cb6f573604023f3b596d00ed911b012d20efee19dfb87624
+content_hash: 0c116ba4a593cd156702d6a1db463e0c5c3ffd5b9feb5fb7fc33342b2cda7a43
+field_hashes:
+  id: 59bdb59589135ea375dc4ac59cfae252cf8f4c5d57d67c3e3d16d02bb2c8d607
+  title: bda7afa2090d63b175e92da6d34086894e4a2af8cd39dbd9d57a5d966f64e3a5
+  source_atoms: 3db713efb03159c36c025b705d2df798b090ea97631a7f90f9f3e8a6fe8537e4
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 67f8da032dd9f97c869850d4fa0c3634bd01d4db275119df80863303d23ca990
+  intent: 3a7a775ba7ceebb19b2255a260f62685dea8931855f9caf49538a5a6e56a56b7
+  validation: 56e9318c93aaa907670aa69adb6a44e07228d7e046c4266af1ea8e512f741af8
+  tags: 31506c064612c9d3967862e44c9997bd808f51edfbc4030d1c5772f29f5b992f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:code
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T08:28:42Z'
+  authority: generated
+  via: create_document

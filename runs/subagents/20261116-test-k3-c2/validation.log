@@ -1,0 +1,264 @@
+=== pytest -q tests/selfdoc/test_treesitter_symbols.py
+.............................................                            [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+45 passed, 1 warning in 0.66s
+rc=0
+=== pytest -q tests/selfdoc/test_treesitter_agreement.py
+..                                                                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 0.12s
+rc=0
+=== pytest -q tests/selfdoc/test_fingerprints.py
+....                                                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 0.03s
+rc=0
+=== pytest -q tests/notations/test_component_spec_python.py
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 0.86s
+rc=0
+=== pytest -q tests/api/test_anchors.py
+.......................                                                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+23 passed, 1 warning in 1.35s
+rc=0
+=== pytest -q tests/test_clean_code_rules.py
+........................................................................ [  5%]
+........................................................................ [ 11%]
+........................................................................ [ 17%]
+........................................................................ [ 23%]
+........................................................................ [ 29%]
+........................................................................ [ 35%]
+........................................................................ [ 41%]
+........................................................................ [ 47%]
+........................................................................ [ 53%]
+........................................................................ [ 59%]
+........................................................................ [ 65%]
+........................................................................ [ 71%]
+........................................................................ [ 77%]
+........................................................................ [ 83%]
+........................................................................ [ 89%]
+........................................................................ [ 95%]
+.................................................                        [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1201 passed, 2 warnings in 2.60s
+rc=0
+=== bash tools/check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   224 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 971 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 123 símbolos pedidos, 594 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+rc=0
+
+=== Sondas de ids HEAD vs árbol (probe.py/cmp.py, /dev/shm/k3t3)
+OK  /dev/shm/k3t-edge/t old=8 missing=[] extra=[] changed=[] scan_file_ids_eq=True record_anchor_eq=True code_facts==scan_tree(new)=True head_cf==st=True none_ids=0 new_facts=6
+OK  /dev/shm/k3t3/trees/attr old=4 missing=[] extra=[] changed=[] scan_file_ids_eq=True record_anchor_eq=True code_facts==scan_tree(new)=True head_cf==st=True none_ids=0 new_facts=3
+OK  /dev/shm/k3t3/trees/aug old=4 missing=[] extra=[] changed=[] scan_file_ids_eq=True record_anchor_eq=True code_facts==scan_tree(new)=True head_cf==st=True none_ids=0 new_facts=2
+OK  /dev/shm/k3t3/trees/callsub old=3 missing=[] extra=[] changed=[] scan_file_ids_eq=True record_anchor_eq=True code_facts==scan_tree(new)=True head_cf==st=True none_ids=0 new_facts=1
+OK  /dev/shm/k3t3/trees/chain old=5 missing=[] extra=[] changed=[] scan_file_ids_eq=True record_anchor_eq=True code_facts==scan_tree(new)=True head_cf==st=True none_ids=0 new_facts=4
+OK  /dev/shm/k3t3/trees/clash old=3 missing=[] extra=[] changed=[] scan_file_ids_eq=True record_anchor_eq=True code_facts==scan_tree(new)=True head_cf==st=True none_ids=0 new_facts=1
+OK  /dev/shm/k3t3/trees/dj old=4 missing=[] extra=[] changed=[] scan_file_ids_eq=True record_anchor_eq=True code_facts==scan_tree(new)=True head_cf==st=True none_ids=0 new_facts=18
+OK  /dev/shm/k3t3/trees/nested old=6 missing=[] extra=[] changed=[] scan_file_ids_eq=True record_anchor_eq=True code_facts==scan_tree(new)=True head_cf==st=True none_ids=0 new_facts=2
+OK  /dev/shm/k3t3/trees/rootinit old=3 missing=[] extra=[] changed=[] scan_file_ids_eq=True record_anchor_eq=True code_facts==scan_tree(new)=True head_cf==st=True none_ids=0 new_facts=1
+OK  /mnt/ssd/proyectos/SLDB_1/sldb/src/sldb old=5707 missing=[] extra=[] changed=[] scan_file_ids_eq=True record_anchor_eq=True code_facts==scan_tree(new)=True head_cf==st=True none_ids=0 new_facts=1940
+OK  /mnt/ssd/proyectos/SLDB_1/sldb/tests/fixtures/treesitter/blog_app old=26 missing=[] extra=[] changed=[] scan_file_ids_eq=True record_anchor_eq=True code_facts==scan_tree(new)=True head_cf==st=True none_ids=0 new_facts=39
+OK  /mnt/ssd/proyectos/SLDB_1/sldb/tests/fixtures/treesitter/frontend/ old=7 missing=[] extra=[] changed=[] scan_file_ids_eq=True record_anchor_eq=True code_facts==scan_tree(new)=True head_cf==st=True none_ids=0 new_facts=9
+OK  /mnt/ssd/proyectos/SLDB_1/sldb/tests/fixtures/treesitter/pytree/ old=28 missing=[] extra=[] changed=[] scan_file_ids_eq=True record_anchor_eq=True code_facts==scan_tree(new)=True head_cf==st=True none_ids=0 new_facts=3
+OK  /mnt/ssd/proyectos/SLDB_1/sldb/tests/fixtures/treesitter/pytree_ts/ old=20 missing=[] extra=[] changed=[] scan_file_ids_eq=True record_anchor_eq=True code_facts==scan_tree(new)=True head_cf==st=True none_ids=0 new_facts=3
+OK  /mnt/ssd/proyectos/SLDB_1/sldb/tests/fixtures/treesitter/sql/ old=3 missing=[] extra=[] changed=[] scan_file_ids_eq=True record_anchor_eq=True code_facts==scan_tree(new)=True head_cf==st=True none_ids=0 new_facts=41
+BAD trees: 0
+=== TS/SQL kinds HEAD vs árbol
+OK  /dev/shm/k3t-edge/t 0
+OK  /dev/shm/k3t3/trees/attr 0
+OK  /dev/shm/k3t3/trees/aug 0
+OK  /dev/shm/k3t3/trees/callsub 0
+OK  /dev/shm/k3t3/trees/chain 0
+OK  /dev/shm/k3t3/trees/clash 0
+OK  /dev/shm/k3t3/trees/dj 0
+OK  /dev/shm/k3t3/trees/nested 0
+OK  /dev/shm/k3t3/trees/rootinit 0
+OK  /mnt/ssd/proyectos/SLDB_1/sldb/src/sldb 0
+OK  /mnt/ssd/proyectos/SLDB_1/sldb/tests/fixtures/treesitter/blog_app 9
+OK  /mnt/ssd/proyectos/SLDB_1/sldb/tests/fixtures/treesitter/frontend/ 9
+OK  /mnt/ssd/proyectos/SLDB_1/sldb/tests/fixtures/treesitter/pytree/ 0
+OK  /mnt/ssd/proyectos/SLDB_1/sldb/tests/fixtures/treesitter/pytree_ts/ 0
+OK  /mnt/ssd/proyectos/SLDB_1/sldb/tests/fixtures/treesitter/sql/ 41
+=== SQL/pglast C4 en test_treesitter_symbols (-k 'sql or pg or postgres')
+10 passed, 35 deselected, 1 warning in 0.15s
+=== edge.py trees/dj
+models module {"native_kind": "module", "imports": ["django.db"], "nested_imports": [], "has_error": false} [{'type': 'imports', 'target': 'django.db'}]
+models.Post class {"native_kind": "ClassDef", "decorators": [], "bases": ["models.Model"]} [{'type': 'extends', 'target': 'models.Model'}]
+models.Post.Meta class {"native_kind": "ClassDef", "decorators": [], "bases": []} []
+models.Post.Meta.db_table assignment {"native_kind": "assignment", "value": "'blog_post'"} []
+models.Post.Meta.ordering assignment {"native_kind": "augmented_assignment", "op": "+=", "items": [{"value": "'-id'"}], "value": "['-id']"} []
+models.Post.count assignment {"native_kind": "assignment", "value": "0"} []
+models.Post.count~2 assignment {"native_kind": "augmented_assignment", "op": "+=", "value": "1"} []
+models.Post.count~3 assignment {"native_kind": "augmented_assignment", "op": "*=", "value": "2"} []
+models.Post.created assignment {"native_kind": "assignment", "call": {"func": "models.DateTimeField", "args": [], "kwargs": {"auto_now": "True"}}} []
+models.Post.flags assignment {"native_kind": "augmented_assignment", "op": "|=", "value": "FLAG"} []
+models.Post.n assignment {"native_kind": "assignment", "value": "0"} []
+models.Post.updated assignment {"native_kind": "assignment", "call": {"func": "models.DateTimeField", "args": [], "kwargs": {"auto_now": "True"}}} []
+models.Post.x assignment {"native_kind": "assignment", "value": "3"} []
+models.Post.y assignment {"native_kind": "assignment", "value": "3"} []
+urls module {"native_kind": "module", "imports": ["django.conf", "django.conf.urls.static", "django.urls", "rest_framework.routers"], "nested_imports": [], "has_error": false} [{'type': 'imports', 'target': 'django.conf'}, {'type': 'imports', 'target': 'django.conf.urls.static'}, {'type': 'imports', 'target': 'django.urls'}, {'type': 'imports', 'target': 'rest_framework.routers'}]
+urls.router assignment {"native_kind": "assignment", "call": {"func": "DefaultRouter", "args": [], "kwargs": {}}} []
+urls.router.register call {"native_kind": "call", "call": {"func": "router.register", "args": ["r\"posts\"", "PostViewSet"], "kwargs": {"basename": "'post'"}}} []
+urls.urlpatterns assignment {"native_kind": "assignment", "items": [{"func": "path", "args": ["'admin/'", "admin.site.urls"], "kwargs": {}}, {"func": "path", "args": ["'api/'", "include(router.urls)"], "kwargs": {}}]} []
+urls.urlpatterns~2 assignment {"native_kind": "augmented_assignment", "op": "+=", "items": [{"func": "path", "args": ["'b/'", "b"], "kwargs": {}}, {"func": "path", "args": ["'c/'", "c"], "kwargs": {}}]} []
+urls.urlpatterns~3 assignment {"native_kind": "augmented_assignment", "op": "+=", "call": {"func": "static", "args": ["settings.MEDIA_URL"], "kwargs": {"document_root": "settings.MEDIA_ROOT"}}} []
+urls.urlpatterns~4 assignment {"native_kind": "augmented_assignment", "op": "+=", "value": "router.urls"} []
+urls.urlpatterns~5 assignment {"native_kind": "assignment", "value": "urlpatterns + [path('d/', d)]"} []
+=== edge.py trees/aug
+pkg module {"native_kind": "module", "imports": [], "nested_imports": [], "has_error": false} []
+pkg.k function {"native_kind": "FunctionDef", "decorators": [], "calls": []} []
+pkg.k~2 assignment {"native_kind": "augmented_assignment", "op": "-=", "call": {"func": "f", "args": [], "kwargs": {}}} []
+pkg.x module {"native_kind": "module", "imports": [], "nested_imports": [], "has_error": false} []
+pkg.x.f function {"native_kind": "FunctionDef", "decorators": [], "calls": []} []
+pkg.x~2 assignment {"native_kind": "augmented_assignment", "op": "+=", "value": "1"} []
+=== edge.py trees/chain
+m module {"native_kind": "module", "imports": [], "nested_imports": [], "has_error": false} []
+m.A class {"native_kind": "ClassDef", "decorators": [], "bases": []} []
+m.A.a method {"native_kind": "FunctionDef", "decorators": [], "calls": []} []
+m.A.a~2 assignment {"native_kind": "assignment", "value": "1"} []
+m.A.b method {"native_kind": "FunctionDef", "decorators": [], "calls": []} []
+m.A.b~2 assignment {"native_kind": "assignment", "value": "1"} []
+m.c function {"native_kind": "FunctionDef", "decorators": [], "calls": []} []
+m.c~2 assignment {"native_kind": "assignment", "call": {"func": "make", "args": [], "kwargs": {}}} []
+m.d assignment {"native_kind": "assignment", "call": {"func": "make", "args": [], "kwargs": {}}} []
+=== edge.py trees/attr
+m module {"native_kind": "module", "imports": [], "nested_imports": [], "has_error": false} []
+m.A class {"native_kind": "ClassDef", "decorators": [], "bases": []} []
+m.A.foo method {"native_kind": "FunctionDef", "decorators": [], "calls": []} []
+m.A.foo~2 assignment {"native_kind": "assignment", "value": "1"} []
+m.main function {"native_kind": "FunctionDef", "decorators": [], "calls": []} []
+m.main~2 call {"native_kind": "call", "call": {"func": "main", "args": [], "kwargs": {}}} []
+m.main~3 assignment {"native_kind": "assignment", "value": "3"} []
+=== edge.py trees2 (decoradores de clase, anotadas, if DEBUG)
+x.admin module {"native_kind": "module", "imports": ["django.contrib"], "nested_imports": [], "has_error": false} [{'type': 'imports', 'target': 'django.contrib'}]
+x.admin.PostAdmin class {"native_kind": "ClassDef", "decorators": [{"name": "admin.register", "args": ["Post"], "kwargs": {"site": "s"}}], "bases": ["admin.ModelAdmin"]} [{'type': 'extends', 'target': 'admin.ModelAdmin'}]
+x.admin.PostAdmin.list_display assignment {"native_kind": "assignment", "items": [{"value": "'id'"}, {"value": "'title'"}], "value": "('id', 'title')"} []
+x.admin.PostAdmin.p method {"native_kind": "FunctionDef", "decorators": [{"name": "property", "args": [], "kwargs": {}}, {"name": "functools.lru_cache", "args": [], "kwargs": {"maxsize": "None"}}], "calls": [{"name": "helper", "line": 8}, {"name": "self.q", "line": 8}]} [{'type': 'calls', 'target': 'helper'}, {'type': 'calls', 'target': 'self.q'}]
+x.admin.PostAdmin.title assignment {"native_kind": "assignment", "call": {"func": "Field", "args": [], "kwargs": {"default": "'x'", "max_length": "3"}}} []
+
+=== Store/selfdoc/spec en copias (store.sh)
+/dev/shm/k3t3/store-old/src/sldb/code/scan.py
+--- stores update
+rc=1
+Semantic index: 0 processed, 0 missing
+Sections index: 3873 processed, 0 missing, 0 empty, 0 unparseable headings
+Command exited with non-zero status 1
+63.74 s
+--- selfdoc check
+rc=0
+    }
+  ]
+}
+--- spec
+['id', 'title', 'type', 'version', 'data'] 0
+---
+/dev/shm/k3t3/store-new/src/sldb/code/scan.py
+--- stores update
+rc=1
+Semantic index: 0 processed, 0 missing
+Sections index: 3873 processed, 0 missing, 0 empty, 0 unparseable headings
+Command exited with non-zero status 1
+66.53 s
+--- selfdoc check
+rc=0
+    }
+  ]
+}
+--- spec
+['id', 'title', 'type', 'version', 'data'] 0
+.sldb idénticos
+.sldb_cache idénticos
+selfdoc logs idénticos
+Skipped broken models: InboxNoteDoc, TaskDoc, BoardDoc, PillDoc, AnchorDoc, ProjectionDoc, MoveDoc, AtomDoc, RitualDoc, RepositoryDoc, RoleDoc, StepDoc, ProtoAtomDoc, CrossroadDoc, MaterializationContractDoc, RunDoc, RuntimeProfileDoc, DeskFAQDoc, ReviewDoc, TaskAggregateDoc, TaskCodeDoc, TaskDebugDoc, TaskDecisionDoc, TaskDocsDoc, TaskExternalDoc, TaskRefactorDoc
+spec store-old: escáner HEAD == escáner nuevo
+spec store-new: escáner HEAD == escáner nuevo

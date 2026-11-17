@@ -605,6 +605,10 @@ include:
     name: run-deskops-e-67dedd6aa01e-a2
   - path: runs/subagents/20261116-test-k2-pg-c1/run.md
     name: run-deskops-t-ea7b55aab3a8-a2
+  - path: runs/subagents/20261116-exec-k3-c2/run.md
+    name: run-deskops-e-fc2bbe7745a8
+  - path: runs/subagents/20261116-test-k3-c2/run.md
+    name: run-deskops-t-e9903b561d98
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -984,6 +988,28 @@ include:
   - desk/materializations/materialization-k2-pg-test-treesitter-symbols.md
   - desk/materializations/materialization-k2-pg-0001-initial.md
   - desk/materializations/materialization-k2-pg-blog-0001-initial.md
+  - desk/materializations/materialization-k3-c2-code-facts.md
+  - desk/materializations/materialization-k3-c2-ids.md
+  - desk/materializations/materialization-k3-c2-scan.md
+  - desk/materializations/materialization-k3-c2-test-treesitter-agreement.md
+  - desk/materializations/materialization-k3-c2-test-treesitter-symbols.md
+  - desk/materializations/materialization-k3-c2-py-calls.md
+  - desk/materializations/materialization-k3-c2-py-module.md
+  - desk/materializations/materialization-k3-c2-py-statements.md
+  - desk/materializations/materialization-k3-c2-readers.md
+  - desk/materializations/materialization-k3-c2-blog-init.md
+  - desk/materializations/materialization-k3-c2-apps.md
+  - desk/materializations/materialization-k3-c2-0001-initial.md
+  - desk/materializations/materialization-k3-c2-migrations-init.md
+  - desk/materializations/materialization-k3-c2-models.md
+  - desk/materializations/materialization-k3-c2-serializers.md
+  - desk/materializations/materialization-k3-c2-blog-urls.md
+  - desk/materializations/materialization-k3-c2-views.md
+  - desk/materializations/materialization-k3-c2-blogsite-init.md
+  - desk/materializations/materialization-k3-c2-settings.md
+  - desk/materializations/materialization-k3-c2-blogsite-urls.md
+  - desk/materializations/materialization-k3-c2-manage.md
+  - desk/materializations/materialization-k3-c2-blog-0001-initial.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -1859,6 +1885,14 @@ include:
     name: review-task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl-evidence-atom-1
   - path: desk/reviews/task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl/evidence-materialization-1.md
     name: review-task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl-evidence-materialization-1
+  - path: desk/reviews/task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre/evidence-tests-1.md
+    name: review-task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre-evidence-tests-1
+  - path: desk/reviews/task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre/evidence-commit-1.md
+    name: review-task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre-evidence-commit-1
+  - path: desk/reviews/task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre/evidence-atom-1.md
+    name: review-task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre-evidence-atom-1
+  - path: desk/reviews/task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre/evidence-materialization-1.md
+    name: review-task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -1884,7 +1918,6 @@ include:
   - desk/tasks/task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto.md
   - desk/tasks/task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup.md
   - desk/tasks/task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable.md
-  - desk/tasks/task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre.md
   - desk/tasks/task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam.md
   - desk/tasks/task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone.md
   - desk/tasks/task-sldb-mcp-sirve-undo-changes-apply-changes-guarda-el-lote-inverso-de-cada-lote-en-una-pila-de-la-sesi.md

@@ -1,0 +1,25 @@
+name: materialization-k3-c2-blogsite-urls
+path: desk/materializations/materialization-k3-c2-blogsite-urls.md
+source_hash: ee7f87f68cf9d6b1d099c3614f6dc381323fb47583de690bbf1354a67ff528b3
+content_hash: 00f5d54bfd9d99a3446ed21461eb62f7330cbf5dd3710d01daea9981ef98ba31
+field_hashes:
+  id: 1110731799eb52072cbd68fc80d9d04a78987f344744f6b95daa8baf318616ed
+  title: 4a8f534231f1f34a485926f84ac4f4d8dae4ac5abcd04c248477a8f3f4d658dd
+  source_atoms: 3db713efb03159c36c025b705d2df798b090ea97631a7f90f9f3e8a6fe8537e4
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: c9af4a4cb47cb27f6c59ab36d997fde463f088d343c96e738acd420d4cfc06d0
+  intent: c7b9facefc623b2ae498ed1c1507f43decbdfaf3acb0f1380d94e8cf0e88bf9d
+  validation: 56e9318c93aaa907670aa69adb6a44e07228d7e046c4266af1ea8e512f741af8
+  tags: 31506c064612c9d3967862e44c9997bd808f51edfbc4030d1c5772f29f5b992f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:code
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T08:34:42Z'
+  authority: generated
+  via: create_document
