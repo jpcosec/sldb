@@ -1,0 +1,36 @@
+name: review-task-corrección-de-j02-agents-md-clasificado-en-la-puerta-de-identidad-y-derived-guard-sin-importar-el-nú-evidence-materialization-1
+path: desk/reviews/task-corrección-de-j02-agents-md-clasificado-en-la-puerta-de-identidad-y-derived-guard-sin-importar-el-nú/evidence-materialization-1.md
+source_hash: f3b355753ef38c02349fb8fce1dbc928dff0bef5e9c40ad2b0270eb8868bd1f6
+content_hash: 05182196c27338b581c07b40df94c8ef17950d5d2c4d0b255c3d1ce2ccf535ca
+field_hashes:
+  id: ab22d7c57221f6e60fcaff16117e7045e615f8de073825582074616bc38d80a1
+  title: 45bc13296fc4441baa3a256cd09463a23f60013cb33ff87e33bcc1a49884d8d8
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: 30c8311f0d85e0c0e361dc00018fb7adc2f738829a3919411cd7a57a8bc16859
+  subject: 46a42c3df18b5d17fc203266a80aadf3ffb1b6eb8c5a1e7f975d528fe79465bb
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: a5c8fcafd7244ebc79d5d551f6714d111178d9a11d3fa181665a8f091745d438
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: e13d9a88bbf90d39535b7640a55a6b8a67750219b575011265a4d7207eb5d739
+  created_at: cb948437b1f3addd11235d1060d14868329c515c6ee1148bfc8f5814df7ff6ea
+  disposed_at: cb948437b1f3addd11235d1060d14868329c515c6ee1148bfc8f5814df7ff6ea
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 03daece1ce42f98cf92347b76941210f34a45fa398f539a7f61bad62b7b4be4e
+  disposition: a957adc19d814523195b051af3961186deffc2954a693a166838cac108b6b781
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T02:31:25Z'
+  authority: generated
+  via: create_document

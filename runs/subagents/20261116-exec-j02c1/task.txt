@@ -1,0 +1,9 @@
+Task: task-corrección-de-j02-agents-md-clasificado-en-la-puerta-de-identidad-y-derived-guard-sin-importar-el-nú
+Title: Corrección de j02: AGENTS.md clasificado en la puerta de identidad y derived_guard sin importar el núcleo fuera de los seams
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective atoms:
+- atom-un-conflicto-de-git-en-los-índices-derivados-de-sldb-se-resuelve-con-el-merge-driver-y-sldb-stores-r
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]

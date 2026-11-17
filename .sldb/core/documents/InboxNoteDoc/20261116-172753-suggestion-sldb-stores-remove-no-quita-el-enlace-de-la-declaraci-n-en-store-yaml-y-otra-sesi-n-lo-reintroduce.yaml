@@ -1,13 +1,15 @@
 name: 20261116-172753-suggestion-sldb-stores-remove-no-quita-el-enlace-de-la-declaraci-n-en-store-yaml-y-otra-sesi-n-lo-reintroduce
 path: desk/inbox/20261116-172753-suggestion-sldb-stores-remove-no-quita-el-enlace-de-la-declaraci-n-en-store-yaml-y-otra-sesi-n-lo-reintroduce.md
-source_hash: 1c44fc3727c72d0692e626e8d080219d92ba3fa48bab07bb0cb1d00fd97277dc
-content_hash: ca96aa535872315c3124a8d5dc62f91185f659cf7c74f7e23b172fd0dffccd49
+source_hash: 11c282af114d2069d8dd18d2b2e5604c4d5bee85c07b0fec58641de885e447fc
+content_hash: 26a8bc282b3061cec311dee3c0011e4e25d46f196ff2987466a4df33a12e1c5b
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: a60b21600d949dc4ea9f64ab764c1d613e00ed50ddbbea0841c1285610b1ee74
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 9a137a047f290b2ec5c0db75afe97169aed4a2aaf7a445b47927f46d0eaf72a3
   title: da6becc62a709c83d16a906d7aa8d9bad34ee552deb7bacd54cd1b4f72b141ac
   body: beb91d8be8229719fa5bc39d3970c47f0877180073fd1c60dfdd7cffde4ed196
 semantic_tags:
@@ -15,4 +17,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-17T02:04:15Z'
+  authority: generated
+  via: save_document_payload

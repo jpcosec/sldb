@@ -1,0 +1,39 @@
+name: task-sldb-mcp-sirve-undo-changes-apply-changes-guarda-el-lote-inverso-de-cada-lote-en-una-pila-de-la-sesi
+path: desk/tasks/task-sldb-mcp-sirve-undo-changes-apply-changes-guarda-el-lote-inverso-de-cada-lote-en-una-pila-de-la-sesi.md
+source_hash: 29a2f811a438255f73afc0107db8e37ac6e8d3207c59d6c3d14bff7fdd4b49d8
+content_hash: a589be807199d56b03e7ded90b94d64c92047d9feead3f23cbb9d01e8a205323
+field_hashes:
+  title: c00d74ef8bf8a3239522cd38ba8b36f02b5dcd5a348b9fdbff63bc1260d6b5db
+  id: d1f6ec564f4b0f2670f72cd57570bfedb3e2893c49810fa40701b1c79ad874be
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: c05ce115b31d06f53b4cfc7724fc1d231c232d8c54b33599c8b1da9b7ea46f6b
+  goal: b4222b408b8b65116a62e79a6098601be134f28475d609e345984d2ea1866b81
+  scope: b41d001b1e4bdafb76464ca159cb2a235112accd54a2bef5bc86dd2f6bbb75b3
+  references: f6fcb001882c9ae59638a7b9afb2f07e3b1c647941c25bdc51cf9c5a1ac260b0
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 8b9895fa385987c2f973d0cafda14658977f8b0a4a6f05398ddc91758fb7fc6f
+  implementation_path: 05ab1005741488679a76113f1de4e73ffa70dad457548b4529fdaa8b8f1936f4
+  validation: f7f6fd090acf64e946fec2b26e2b54912ecdd914802b6d42b4a0f18057493746
+  done_when: 3147956b53a534c57f38b3738d2986159cdd01a3dd8e534b337a3f179cf65b66
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: e14cec67fbd15d33fa7658e380ae2c43252eb3182144d5b7360ff6d413a42a0d
+semantic_tags:
+- artifact:task
+- host:robocop2
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T01:34:47Z'
+  authority: generated
+  via: create_document

@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T01:25:23Z'
+  at: '2026-11-17T02:33:32Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -57,7 +57,18 @@ tasks:
 - desk/tasks/task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl.md
 - desk/tasks/task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre.md
 - desk/tasks/task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam.md
-- desk/tasks/task-corrección-de-j02-agents-md-clasificado-en-la-puerta-de-identidad-y-derived-guard-sin-importar-el-nú.md
+- desk/tasks/task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone.md
+- desk/tasks/task-sldb-mcp-sirve-undo-changes-apply-changes-guarda-el-lote-inverso-de-cada-lote-en-una-pila-de-la-sesi.md
+- desk/tasks/task-pron-contra-sldb-deshacer-restaura-el-hash-del-mundo-untrack-track-recupera-el-documento-y-find-con.md
+- desk/tasks/task-sldb-models-validate-importa-los-modelos-de-deskops-models-como-lo-hacen-extract-y-render-no-module.md
+- desk/tasks/task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder.md
+- desk/tasks/task-sldb-stores-remove-quita-el-enlace-también-de-la-declaración-store-yaml-así-otra-sesión-no-lo-reintr.md
+- desk/tasks/task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar.md
+- desk/tasks/task-declared-target-nodes-acepta-un-directorio-existente-como-target-declarado-de-una-materialización.md
+- desk/tasks/task-sldb-api-expone-render-con-roundtrip-renderizar-el-payload-de-un-modelo-a-markdown-y-validar-que-vue.md
+- desk/tasks/task-docs-list-y-docs-show-leen-la-misma-fuente-no-se-lista-un-documento-que-show-no-encuentra-unknown-do.md
+- desk/tasks/task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid.md
+- desk/tasks/task-store-index-yaml-no-guarda-rutas-absolutas-de-máquina-para-los-modelos-que-vienen-de-un-paquete-mode.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -149,4 +160,15 @@ _Generated from the task references above._
 - sldb.code lee las claves del SQL de Postgres: PK con IDENTITY, constraints de tabla y FK de ALTER TABLE ADD CONSTRAINT (C4 de IR) [draft] - Sobre una migración de sqlmigrate de Django para Postgres, sldb.code publica la columna id con su tipo y marca de clave primaria, y un hecho por cada clave (primaria, foránea y única) con sus columnas y, en las foráneas, la tabla y columnas referenciadas, incluidas las que vienen de ALTER TABLE ADD CONSTRAINT.
 - sldb.code publica facts genéricos de Python: bases de clase, decoradores con argumentos, llamadas entre símbolos y asignaciones de clase con llamada (C3 de IR, parte genérica) [draft] - Los facts de Python llevan, sin conocer ningún framework: las bases de cada clase, los decoradores de cada definición con sus argumentos, las llamadas que hace cada función o método a otros nombres, y las asignaciones a nivel de módulo o de clase cuyo valor es una llamada (nombre, función llamada y argumentos), incluidas las de una clase anidada como Meta; con eso specIR reconstruye rutas, campos, serializers y cadenas de llamadas de un proyecto Django/DRF.
 - sldb.code publica facts genéricos de TS, TSX, JS y JSX: llamadas entre símbolos, llamadas HTTP como llamadas y handlers JSX (C3 de IR para IR09) [draft] - Los facts de TS, TSX, JS y JSX llevan las llamadas que hace cada función, componente o hook (fetch(...), axios.get(...), api.posts.create(...) y llamadas a otros símbolos) con su primer argumento literal si lo hay, y los atributos JSX que ligan un evento a un handler (onClick={handleSave}), sin conocer ningún framework.
-- Corrección de j02: AGENTS.md clasificado en la puerta de identidad y derived_guard sin importar el núcleo fuera de los seams [draft] - tools/check.sh --fast y tests/test_store_seams.py pasan con j02 integrado, sin cambiar el comportamiento del merge driver, de rebuild-index ni del error que nombra el comando.
+- component_spec_from_python lee solo .py: los .js vendorizados o minificados del árbol ya no dan component-spec/syntax-error (regresión de B2) [draft] - component_spec_from_python construye el spec solo a partir de los archivos .py del árbol, como antes de B2; ningún archivo de otro lenguaje produce hallazgos en ese spec.
+- sldb mcp sirve undo_changes: apply_changes guarda el lote inverso de cada lote en una pila de la sesión y undo_changes lo aplica con guardas (IR04b) [draft] - En una sesión de sldb mcp, cada apply_changes exitoso apila su report.inverse; undo_changes deshace el último lote aplicado (o los N últimos) aplicando su inverso con apply_batch, con las mismas guardas: si alguien escribió entre medio, se rechaza con ConflictError sin escritura parcial y el lote queda en la pila.
+- pron contra sldb: deshacer restaura el hash del mundo, untrack + track recupera el documento y find con where en un mundo solo vuelve a encontrar [draft] - Cada uno de los tres síntomas queda clasificado con evidencia como regresión de sldb (y arreglado aquí con test) o como cambio de contrato (documentado en el CHANGELOG, con la forma que pron debe adoptar), y las pruebas de pron nombradas en la nota pasan contra este sldb salvo las que dependan de un cambio de contrato que pron deba adoptar.
+- sldb models validate importa los modelos de deskops.models:* como lo hacen extract y render (No module named deskops.base) [draft] - sldb models validate <Modelo> importa el modelo con la misma resolución que extract y render, y valida los modelos de deskops.models:* sin error de import.
+- Higiene del CLI para sldb-ui: fields update/append con --string y --format, inbox --show con error por stderr e inbox --store sin .sldb que falla [draft] - fields update y append aceptan --string (el valor se toma literal, sin YAML) y --format json|text|yaml como el resto de comandos; inbox --show de una nota inexistente escribe el error por stderr con exit distinto de 0; inbox con un --store que no contiene .sldb falla con un error que lo dice y no escribe nada.
+- sldb stores remove quita el enlace también de la declaración store.yaml, así otra sesión no lo reintroduce [draft] - sldb stores remove <alias> deja el enlace fuera del índice y de la declaración store.yaml en una sola operación, bajo el lock del store; un store sin store.yaml se comporta como hoy.
+- La regla builtin tag_namespace:domain sugiere un fix concreto en stores check (qué namespace declarar o qué tag cambiar) [draft] - Cada hallazgo de la regla builtin tag_namespace:domain trae en fix un texto accionable: el namespace a declarar en la política del store (con el comando o la clave exacta) o los tags válidos de ese namespace.
+- declared_target_nodes acepta un directorio existente como target declarado de una materialización [draft] - Un target declarado que es un directorio existente del proyecto produce un nodo del grafo (de directorio) y graph missing no lo reporta; un directorio inexistente sigue siendo missing.
+- sldb.api expone render con roundtrip: renderizar el payload de un modelo a Markdown y validar que vuelve igual antes de escribir [draft] - Una función pública de sldb.api.documents recibe un modelo (registrado, por nombre, o la clase) y un payload, devuelve el Markdown renderizado y el resultado del roundtrip (ok y diferencias), sin escribir nada; graph_ui puede dejar de importar sldb.runtime.validation.
+- docs list y docs show leen la misma fuente: no se lista un documento que show no encuentra (Unknown document target) [draft] - docs list y docs show coinciden: todo nombre que lista docs list se puede mostrar con docs show, o docs list lo marca como no resoluble con su causa.
+- La escritura por campos (save_document_payload y el update de apply_batch) falla nombrando el contenido que se perdería en vez de borrarlo en silencio [draft] - Una escritura por campos sobre un documento cuyo archivo actual tiene ruido estructural o frontmatter no declarado falla antes de escribir, con un error que nombra lo que se perdería, y deja el archivo intacto; los documentos limpios se escriben igual que hoy.
+- store_index.yaml no guarda rutas absolutas de máquina para los modelos que vienen de un paquete (model_ref) [draft] - Para un modelo declarado por model_ref de un paquete importable, store_index.yaml no guarda una ruta absoluta de la máquina (la omite o guarda una relativa a la raíz del proyecto si está dentro de él), y cargar el store en otra máquina funciona igual.

@@ -1,0 +1,24 @@
+name: 20261116-223438-suggestion-save-document-payload-y-apply-batch-update-borran-en-silencio-contenido-que-el-modelo-no-declara-ws47-del-drawer-de-deskops
+path: desk/inbox/20261116-223438-suggestion-save-document-payload-y-apply-batch-update-borran-en-silencio-contenido-que-el-modelo-no-declara-ws47-del-drawer-de-deskops.md
+source_hash: d8c86263987d684a0ea2d213361295916cfc9b3ec1fee37306fc120043b0d5de
+content_hash: 5ad83d43adfb272a46edde29136d20a97176f31db7b1fac4514a4dde06cab59d
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 421b47f56a83d0bc8bc8bd1b3a38c67ddb3d62731c8619b102e23a54bed36b6f
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: b6530e63f4dacf3812621e604121b3e153fb42768fd6b8e254f2ce720da69a16
+  title: 33298e8281850ab98c8ad8a079e6f5b2fbe3ddb7ae0b1555c6a8735b6615f334
+  body: 3d140e19f6b7c4715cbc06c247ff4d2813f3686d4ec73a904c730704a27aaf85
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance:
+  by: agent
+  at: '2026-11-17T02:18:22Z'
+  authority: generated
+  via: save_document_payload

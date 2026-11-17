@@ -1,13 +1,15 @@
 name: 20261116-101851-suggestion-sldb-serve-list-views-compone-el-ndice-federado-de-toda-la-m-quina-en-fr-o-y-sin-lock-2-5-gb-por-proceso
 path: desk/inbox/20261116-101851-suggestion-sldb-serve-list-views-compone-el-ndice-federado-de-toda-la-m-quina-en-fr-o-y-sin-lock-2-5-gb-por-proceso.md
-source_hash: 714b1a74cabad54330080b76648ad466ca74b14db88e091313981b02a9cbe9c0
-content_hash: 825fb6df8b4f740c5dea8817b33142324efb93a97ce15a982abc75f30f5a245a
+source_hash: 995b4b5cb074c5e1c10a035cf86c71126faff2845ad83fbb8e157466372133d1
+content_hash: 2665bf5eba3483f2b4212b2f564cbeb5b5dc9593b65ad05fc80764d0efe2cb05
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: 1d147ab379788e0277ce278d918ca7cf9e0572dffeefc59e10d282ef146bd45c
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: 3318d70deaa7b7e3558f85fa5d1e1e03a1745ac9159715a089ff538f6ae2e8a9
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: bf97790d8410eb43a0e70205b4db277e74e1256db61e8ef2b872e891f117bc72
   title: b5386079850dff55b3ee00da675101e9c6986d0383ed0fe421fb29f4a17fd1aa
   body: 38b37844cbed663b123953e688e21b655e2f34a914b793ffa97ce6b38bdb91dc
 semantic_tags:
@@ -15,4 +17,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-17T02:03:29Z'
+  authority: generated
+  via: save_document_payload

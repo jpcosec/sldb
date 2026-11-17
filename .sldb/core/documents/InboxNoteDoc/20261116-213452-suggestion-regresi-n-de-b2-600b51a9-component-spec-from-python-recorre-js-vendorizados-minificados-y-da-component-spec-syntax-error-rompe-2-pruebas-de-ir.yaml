@@ -1,13 +1,15 @@
 name: 20261116-213452-suggestion-regresi-n-de-b2-600b51a9-component-spec-from-python-recorre-js-vendorizados-minificados-y-da-component-spec-syntax-error-rompe-2-pruebas-de-ir
 path: desk/inbox/20261116-213452-suggestion-regresi-n-de-b2-600b51a9-component-spec-from-python-recorre-js-vendorizados-minificados-y-da-component-spec-syntax-error-rompe-2-pruebas-de-ir.md
-source_hash: fca556b18b9288f43911bd1b229dc7da78c05031d57fdba5620dba62082d0bf9
-content_hash: c01d5bbdcf9729aa623bfa020ff583cbe93db680e21621ed1099bf7dae8cabd2
+source_hash: b9449231c7ab24a4d95900c64d1520cf0fecd8db5a118898a379a95757e79c5e
+content_hash: 120d4298f93949963b499b0491cbbc0a282fbefed451cd89cc743f64d1502b8a
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: 2eb0ae2e2817212a9645b7c49f3ca5891bec8a046fc15945f8d4639520f1b93c
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 962b28ff02cacfac6fd63ba06d3d9765ea71e8fd2e2553a838750598d99403dc
   title: bbbf0b05e24ead2aacd6f5d5644570ceb934354c13704c6a9ec2123a79cb8093
   body: 8266f18e4d067f00c5184351ec0a803162a4822ea9ee64907cafe356f75d714c
 semantic_tags:
@@ -15,4 +17,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-17T02:05:32Z'
+  authority: generated
+  via: save_document_payload

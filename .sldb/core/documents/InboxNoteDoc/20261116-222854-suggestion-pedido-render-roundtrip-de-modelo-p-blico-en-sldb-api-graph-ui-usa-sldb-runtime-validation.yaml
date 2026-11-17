@@ -1,0 +1,24 @@
+name: 20261116-222854-suggestion-pedido-render-roundtrip-de-modelo-p-blico-en-sldb-api-graph-ui-usa-sldb-runtime-validation
+path: desk/inbox/20261116-222854-suggestion-pedido-render-roundtrip-de-modelo-p-blico-en-sldb-api-graph-ui-usa-sldb-runtime-validation.md
+source_hash: 231bb3a8ec899609f58e6b7a310ea6d662bf201d8dd80d1fa626777c41c7bc04
+content_hash: bcd63e41c8612bf5bf5cb31eaacc58b27746f7e931b0143fa34d4b238fb8994b
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: 1d147ab379788e0277ce278d918ca7cf9e0572dffeefc59e10d282ef146bd45c
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 3960019e74e908b07d6ffd9f317674024df6abb1c3ed77c086dbdb81bf0c9709
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 07cbff10fddbca48afaee806f442f318a4a9a22876b22fbbb1fef5f29050c413
+  title: f3875d15932d61a242e808d1cfc87ea06f1b439e67136824d1653b4f6806c102
+  body: dcec83307e769985e15850f400343763af7ccdfc2c6f0271c8e5eafe91774ee5
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance:
+  by: agent
+  at: '2026-11-17T02:16:55Z'
+  authority: generated
+  via: save_document_payload

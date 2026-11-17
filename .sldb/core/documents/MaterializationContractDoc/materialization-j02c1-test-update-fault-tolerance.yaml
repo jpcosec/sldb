@@ -1,0 +1,25 @@
+name: materialization-j02c1-test-update-fault-tolerance
+path: desk/materializations/materialization-j02c1-test-update-fault-tolerance.md
+source_hash: 7333f544fb86412ee24f2e0d36b3fe9d5945ecdb859f5f2b2b530bb1c5823869
+content_hash: 4533d65827c9b916002e1a8d392fc27138ead9304078d3659e7ee87807cb0f93
+field_hashes:
+  id: b7ce881194e9d7da3383f0dea705171ebb587c98c8c8ae19c7f5b82c73d5e93c
+  title: a3698aea2dba1ccc347308d2bb7a248f6cb9caa4aa57e29959610bc2fafd6459
+  source_atoms: b4d0f31ba446debf7e8f414fbed60b72c610088a50c361f62b31be7f4ee13906
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: b4ee469836bc8472e1fa2f1bb4db61a6b80a6f784c2b257394d1947d78791370
+  intent: 0e79b42763b3eef2dc4658a6b093924ee38a6386f771228f0d95d401260d6cb5
+  validation: 4ec1238cbe4373f0a93e56e6cc8a0de925213523c26c38fdcc9aef587ce0212a
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T02:27:23Z'
+  authority: generated
+  via: create_document
