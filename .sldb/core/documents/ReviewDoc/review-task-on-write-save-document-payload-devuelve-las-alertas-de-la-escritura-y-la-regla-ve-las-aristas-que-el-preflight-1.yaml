@@ -1,7 +1,7 @@
 name: review-task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el-preflight-1
 path: desk/reviews/task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el/preflight-1.md
 source_hash: 472d8a74070e6272e0d000d8e0b370a83fcbf317cd0d3febf5f61a4b98b6e688
-content_hash: 873498ff1ccd3ae3dca4c0d3b1e834fa25e452e48b7357ab87e0971d8ca5b0b9
+content_hash: fa6fca4416ba0248c912383fc32b1a5857ceae433c4e67b0dff06f78c11ae6de
 field_hashes:
   id: 349c114eaf99aca0384e4d35f7a17118049b0d9149bc302a16bbd48f61523b55
   title: 090bbf9c62bad49d5bf571c3efa6f25047399ce6f94fd27dc29857f34a359bd5
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 016a733ed1e96c19e64dbcab68bcb59b693b5229c377c344b7a8acea3f4c78b3
   input_sha256: 396045f4aadb10231a2c569041d8220153e5b1d77116ec3f8e5d12e10404e0a1
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 268f9975b3bcec1f3c56538a70ddef9af8d3992418022e4b5010ac410698b5f2
   verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
   reason: 305ef688ce37f7203894299af4945bdc73b64d810b162796410eda74a98dc5c9

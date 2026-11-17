@@ -1,7 +1,7 @@
 name: review-task-docs-track-force-sobre-un-documento-ya-trackeado-en-la-misma-ruta-lo-re-indexa-desde-el-archivo-en-l-evidence-materialization-1
 path: desk/reviews/task-docs-track-force-sobre-un-documento-ya-trackeado-en-la-misma-ruta-lo-re-indexa-desde-el-archivo-en-l/evidence-materialization-1.md
 source_hash: b32e9832327b149036b3661a26738a11c462141dbb3be49ee0c87814b80d50cc
-content_hash: 7cac3102771bd37e8688f0e500b155e6c227df4013610b7717cb17fc64de767a
+content_hash: 6d1845a6968d3c1b5cb22257476868d9c2eb7797751103e4e34ca5554a35a109
 field_hashes:
   id: 854d37f951f23e7f0e6447756e0c6661b68c2f714950048aee6831866dc66d52
   title: 9908499508d3a669c899e1e285d234b8679d9456fcb616c1063a9b2e926f08a1
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   input_sha256: dade4f6ae8ed02f98c6d5982d6c680b4260cf2ca3c394cd4021c246576a01d48
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: f3ef778aa9e26ac663e35efd767b898aea90bcd08bd07bfbc65fbfbbfab1d00a

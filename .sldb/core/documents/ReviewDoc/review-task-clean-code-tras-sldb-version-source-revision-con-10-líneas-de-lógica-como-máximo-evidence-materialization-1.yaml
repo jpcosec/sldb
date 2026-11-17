@@ -1,7 +1,7 @@
 name: review-task-clean-code-tras-sldb-version-source-revision-con-10-líneas-de-lógica-como-máximo-evidence-materialization-1
 path: desk/reviews/task-clean-code-tras-sldb-version-source-revision-con-10-líneas-de-lógica-como-máximo/evidence-materialization-1.md
 source_hash: da4dc946e19c0ed00ba37ec75b58d6578fbb93137ba8d9fd7ac81aed4cd93f3e
-content_hash: f66af2867f7d110150fd0985c4c510e6bd8df318ccf79cbf338d06eff6d51918
+content_hash: d746ca01dc97628cd5914e253c7b2e6660e84bc8b4c2c2c96c2e002ed5bdc4cf
 field_hashes:
   id: 7f8dca7d457142015d27f9f12ec98287f68def14b35105a5e56bf604d4a48b61
   title: 6e76d337e03cc6491e7b64e022e05c51513786b4bdc3cf65f86221818bbb450a
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   input_sha256: f4d66229a6106ba76cdcc26a506c571b4ca04351c77a64a51efa034d64c48bd5
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: 6152ec011fa8fb43c40771b5d292094c452b70d54f728001734d54915603507d

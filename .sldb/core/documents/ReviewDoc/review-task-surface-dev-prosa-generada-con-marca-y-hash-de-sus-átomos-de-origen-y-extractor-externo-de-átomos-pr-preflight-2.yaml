@@ -1,7 +1,7 @@
 name: review-task-surface-dev-prosa-generada-con-marca-y-hash-de-sus-átomos-de-origen-y-extractor-externo-de-átomos-pr-preflight-2
 path: desk/reviews/task-surface-dev-prosa-generada-con-marca-y-hash-de-sus-átomos-de-origen-y-extractor-externo-de-átomos-pr/preflight-2.md
 source_hash: 10d58fba6f73597de4e7dcad0ebbf1b62769080cf69b2115c1920532baa52b12
-content_hash: 5535f62686427dbb4fa0ae1aa0f1e1382177c908416877055c0f29e2bef93422
+content_hash: 0169f136b08981ed66e786f7dfe7f274c3d1fe9775c6a74404f96ddf40931dfb
 field_hashes:
   id: 27fbbe71ef4154b3641a902d990f458a958bf57c51590b28edd95ef6797488c6
   title: 6fd47f1a560d64219f17de53f785f9004e97ee497703a19b12c0002214721eea
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 26e9be2529430be37dc572ad38d26c28890af3dc2808f47190341a097ee1be5b
   input_sha256: 81c32bf6b58acdcf5119c52038f84bfef552f2d6c330f025b37138a96bd60c20
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 4d6095ea8c2cb104b957a0e215819f7db6b9910164ebc84e893392aa91f49ebb
   verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
   reason: 6e2d067a724039ded26563553f537a0bd4f23b5390b707e6cc26a51feafac6c2

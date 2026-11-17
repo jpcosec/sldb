@@ -1,7 +1,7 @@
 name: review-task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl-preflight-2
 path: desk/reviews/task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl/preflight-2.md
 source_hash: 04fb362cdd122bfe2399a31b1addebed7de3c60900ed151e4a8209f04bc28f7f
-content_hash: 9b9ee0cc9673f8d1f2137123b98433b70e210391a6c2fae6ce85692ee925b99a
+content_hash: 8a0cedaad61d1bafe1bbfa4fa37073f4b8d8c6cabe9ac22d5902a57a6e89ba8b
 field_hashes:
   id: 055c20dc5e528d9f74e109b73cd70dc50d0dcd8d805948269b8b46b296c4db41
   title: 469816386e6111526b56d0551b5e781df47864054e2dbc85962fd33809050631
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: b2793292394cfce95cae3416c0f49e222db68aa6da243ffbc6b548c036062f33
   input_sha256: 34ee193319920b1f2cda6886294c4a3aacb63654b3762418636cc90b854a1b15
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: f7ca5b6149160816301b60488bef93fa3bba6f66dd017846cdd39f1d9507ffa3
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: 4a10abb3b36e4237f7e3489377969ef7f6c3a22b8f55a0421d95f8a4b8926013

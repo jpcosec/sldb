@@ -1,7 +1,7 @@
 name: review-task-seguridad-resto-2-las-lecturas-y-escrituras-de-documentos-trackeados-que-quedan-edges-records-views-reproduction-1
 path: desk/reviews/task-seguridad-resto-2-las-lecturas-y-escrituras-de-documentos-trackeados-que-quedan-edges-records-views/reproduction-1.md
 source_hash: 882e50925b8872b7b19871ed478e21ba0adb0c28f0c4ee3c60c14158627254cb
-content_hash: 97965ad5bc9059f486501ff360db725aeda628c6f1eda92836c81a15f47ca8ad
+content_hash: ce2f2ef153faf189c3337c14c2068f8095d99d97464ca0fc577602b3a3ae4ac7
 field_hashes:
   id: 5716ade7ff492fb2a17396ffa724dd844693569cf8486562b22db53d40818bef
   title: e4ca12deea4074e2b015db7dc057681f0e4eaea22d7fe8d0637b59df12e414c4
@@ -14,6 +14,7 @@ field_hashes:
   actor: d8118dff4b4f05ead1700220929618d164af018ee7c6e347eeb481ec63f69521
   run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   input_sha256: 684413afa8c6be666d98c7f19eb52c1f8c6a933105bd8347199c085d18ba8bf7
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   verdict: 12adac54ac6f7140109391b670b3cbcd51f083d8f5ee62ce26857c794ed67d36
   reason: 5b9c5109197410e1c224e1cde2aceb1863e871a5807cb50b41807f2a896aa374

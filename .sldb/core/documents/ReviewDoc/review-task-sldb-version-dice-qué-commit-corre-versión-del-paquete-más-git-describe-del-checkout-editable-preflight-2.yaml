@@ -1,7 +1,7 @@
 name: review-task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable-preflight-2
 path: desk/reviews/task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable/preflight-2.md
 source_hash: 46e8e7254500079396aaaffe0ccd8473d7ae8b9036beb8fa8474b8e7787b4c9d
-content_hash: 9d3da8f71ebafae6250ab368b6c32e03b89bdabfb7de73e568a6a36672dddae4
+content_hash: b088a3e6f3bd1099ff2f101de1c5f8b3d33b1262860b7d6d9550cb454153fdfa
 field_hashes:
   id: 9357253a3fcafa80d9727e579e47be8a5a83c42463a07afcd5d86f79e941afbc
   title: 44d040908c44bd772417386d48e74f45b159a3a777033f035ac042cc9080e3d2
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: d15173189bc87283f48e782c8042e745854f7633fa688639c98aff12579029ff
   input_sha256: 1a572d1a975aa7e49c5479b64f327b02ba61983e9f2a10e8be576297857436f5
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 7be8574f535f7f90c0f59879c09973b884b0a625205c33d39200a68c4f2cb18d
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: a02d0773d081c2f18941fb6ebae2cbf435ccc6946754fd6a81ef0633b68d27d9

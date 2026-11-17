@@ -1,7 +1,7 @@
 name: review-task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding-preflight-1
 path: desk/reviews/task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding/preflight-1.md
 source_hash: cb87abd3bd2d2227c8ded773c880399b28b935077f680f3a578649fe49e3f8ea
-content_hash: 26b7553b3d31a8cb4dece7f7ef26baaaeecc8535bb12cacdde734a3ab96fe7f1
+content_hash: 874d1f861e12da1c9c7fffbafeb7eddb317ccd6a44399b98b35a43a63634ee2c
 field_hashes:
   id: f0dc87557047351da2165d2ff303d66e7155311c02d8eec70ae3dc2c81335a7a
   title: 96fff2134ec7157c616507439a24178e1ec5fbcd1d0c9786e1f9f148359a467f
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 05eeb936ed8d4150bcdd9e014d0f18fa85e5eb55b77b3759803aefff952d7fde
   input_sha256: 027104e1f73477f83f302ab9a9a2b98f94f5fc154331001765c52471a77b7cd7
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: bb99847772244111d9cd86731dc7adebb868250b595cc33a48cf94985b3f4f29
   verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
   reason: 305ef688ce37f7203894299af4945bdc73b64d810b162796410eda74a98dc5c9

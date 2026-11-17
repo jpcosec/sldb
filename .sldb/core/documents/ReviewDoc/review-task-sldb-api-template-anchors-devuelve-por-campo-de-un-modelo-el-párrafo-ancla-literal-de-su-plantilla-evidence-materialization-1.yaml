@@ -1,7 +1,7 @@
 name: review-task-sldb-api-template-anchors-devuelve-por-campo-de-un-modelo-el-párrafo-ancla-literal-de-su-plantilla-evidence-materialization-1
 path: desk/reviews/task-sldb-api-template-anchors-devuelve-por-campo-de-un-modelo-el-párrafo-ancla-literal-de-su-plantilla/evidence-materialization-1.md
 source_hash: fc319d0a7d4463b0250a831c970ec044ee735b36e9f6d0dec9ff5e1aa479da57
-content_hash: f571b68c83beddd694416f80e33c642d74125d23857273015abacaf7dd8cf8ef
+content_hash: dc03ecc49a2d84c8e2f0c2c232b7030220d7e49ffaa57939c40d48e5656af3ff
 field_hashes:
   id: b904baaed21d70c42e5f451f71fbfdc5d18936e078ef49346f5de797ed9d22f2
   title: 20fe5c6e0b6ff5b5fbd24e7f2ad714c5fcc42e5844f0b686f94f230f32afacb7
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   input_sha256: 77be28bf905c90dce266780feea4724e88a9f621d767ff3bb52468c6d9565e9c
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: ce1a7b3334101fc1508a3d8b6778f02fea0c6159d2cd281d68c06e09d321e75f

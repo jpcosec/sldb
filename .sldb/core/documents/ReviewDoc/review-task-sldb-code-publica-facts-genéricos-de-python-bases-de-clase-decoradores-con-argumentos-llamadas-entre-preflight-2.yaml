@@ -1,7 +1,7 @@
 name: review-task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre-preflight-2
 path: desk/reviews/task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre/preflight-2.md
 source_hash: f2e9d1eb246146595c9ea2b2d4cf08d4562ef86606dc81eeb5ec2a5fa7313f06
-content_hash: 1082d4629941071b1e4985d19cf78263a1308786dccdae1277c847efab5e0132
+content_hash: aece7a4f3875b14d7321a0562d436635ed15050aa995a28c8f0b0912b2d886e3
 field_hashes:
   id: c6fb7a04f658d733b2f7859e736c2e6828b31ab7ac4cb064cf7b389ceb3664ed
   title: 6de58b0c5a391134a9163225d2879419aed65c4b449ee30e2611b3610a9ef1fd
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: b9fa345d3cd6ce4c3a0941ea01346289ae341dea90b2da449d557a1e7b291da6
   input_sha256: 89487512bd088f9dc04d475ac8830edad1711ae2359ad7f8c1bd4e63d39800f2
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 59bf2faa07aa9a28f3a6ef99cfe845a9470f1481ff7eb3df496e2e4c462b1699
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: 4a10abb3b36e4237f7e3489377969ef7f6c3a22b8f55a0421d95f8a4b8926013

@@ -1,7 +1,7 @@
 name: review-task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra-evidence-tests-1
 path: desk/reviews/task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra/evidence-tests-1.md
 source_hash: 09eaebab6dec93c07a2defeeb5e52c537517bd7bbe6ea3188dc20f7431c8a810
-content_hash: 367f50d4dcff24c34f603ccc4a1c478f019aabb1d8278e60d16531b31dc597ab
+content_hash: 29fb7ec54402b00ccb688fd385488c0155bbfcc0fb250fc24bc42c269dc48a6f
 field_hashes:
   id: e330506a165facac555875c3675c45c4841203ff227439f8bba400e27d77d3d3
   title: c15387b455129141864993ab820c9738b6e5b2542a6648a7ed9253de08f49f90
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   input_sha256: 354deb799b541c367885557c2749d98f5c01ff247058fe5aecf76428efe42c62
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: f772e01c43c79e2d6156dfda99eb5da0125498e7b123316837a946939afab8df

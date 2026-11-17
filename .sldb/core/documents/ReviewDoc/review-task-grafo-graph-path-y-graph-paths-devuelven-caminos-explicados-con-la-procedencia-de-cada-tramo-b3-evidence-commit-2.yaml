@@ -1,7 +1,7 @@
 name: review-task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3-evidence-commit-2
 path: desk/reviews/task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3/evidence-commit-2.md
 source_hash: de6da48bde5abfea0f069edc4a817a1de53c8953e43e259cb5553d4fc535fcc1
-content_hash: b4048b8d3444665bc4d15738c0436a81ff48e6a5fa46189053c2476b09b9bd73
+content_hash: 2e65f85936beff27afde3fa101a895cdc44a6c17ba27de8eeccff7fd362e875d
 field_hashes:
   id: 1f707ff55f575425ea3fed91eb64a933e92713d7159acd4605c0abbf0fd87fa4
   title: 07ccc2cbe721fc9dff25f90b80cf30382561219ae1039ce61ca76a9aad9ea4c6
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   input_sha256: 4f9c6eb23a40b66f506f0a27c3d170afcaeb78a17fa85422f00350681bbc925c
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: 5f9685dec0efed8372981b26d7edf6ea77a040db59a433dc07c47de236b80e8d

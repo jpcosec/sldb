@@ -1,7 +1,7 @@
 name: review-task-contract-signature-cubre-indexed-doc-anchors-y-contract-y-un-campo-no-puede-ser-a-la-vez-referencia-preflight-1
 path: desk/reviews/task-contract-signature-cubre-indexed-doc-anchors-y-contract-y-un-campo-no-puede-ser-a-la-vez-referencia/preflight-1.md
 source_hash: 794406ded798af3c0b8aba698e95ca6bf27871d13770ea311a5e251a47bcd0e8
-content_hash: 83cc8d1a897c45135201c89484b6ca475100e8df7e6f75fe17252ef4fd297c7d
+content_hash: 659784fb93df2494d92831068b06d638576a06b0816aec5ebac8b89e53acb0c0
 field_hashes:
   id: 302d30427dd78fe3db7198499e92630262d6074f8fb4edc0d0ada51e566ca76d
   title: ea0ee3e317172f65d35d8594a8774577369581118179af4a19dcf33a6f1b83c0
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 41359de5df68697b5ddc07f246fbe27eec8acfde51ed517fd448c8b6a6c45076
   input_sha256: 248f6e0e287a2f8b423f4bc93d15c15244d89de265430097ceae436a4bf2f58d
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 06ae570b0813342a22bdcdd24dd999dbf5760301fd95de0c94bc6b8ac68680f5
   verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
   reason: 305ef688ce37f7203894299af4945bdc73b64d810b162796410eda74a98dc5c9

@@ -1,7 +1,7 @@
 name: review-task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains-preflight-1
 path: desk/reviews/task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains/preflight-1.md
 source_hash: 2a9f35a966b321c1a6308282f70fe7e1e17b41c4406d955085cb58a6f20ab89e
-content_hash: 63b02d20b8ce2e9155af9764ef8802ef3f8a104bfbb251b36c433205efe2f32b
+content_hash: cd816c87c7ea11f7f14706b794eead518034eab634a3a6457a14c5917fe4b02b
 field_hashes:
   id: f5c55fb3f7306d288cd3e9dad7ce3554ced9e1061ac346d04a8460a0849867f0
   title: b77af5ebd625bfdf2757c6bf1f528c45a27cb7baf6c8f706e827f32e981b7ec8
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: f9b0304569df5167bdc04e99d990e5409d86cb1a7442d033c1711f17ddcc3596
   input_sha256: c34654c17a80d7cb3e3a3d202a79ef0aa4a3a8e5201d9cb5b527e22a1776926e
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 15870ed78aa50bcfb6ac6c46fa7b84516f46a8a14675007c7b7ad1e1e47a60d7
   verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
   reason: 00e37ac172f128fb84c0d283be78d1316128940b1229f23eb26ce0b99e21b955

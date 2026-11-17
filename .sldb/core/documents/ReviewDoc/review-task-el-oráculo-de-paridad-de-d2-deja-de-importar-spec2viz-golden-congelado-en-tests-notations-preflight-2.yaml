@@ -1,7 +1,7 @@
 name: review-task-el-oráculo-de-paridad-de-d2-deja-de-importar-spec2viz-golden-congelado-en-tests-notations-preflight-2
 path: desk/reviews/task-el-oráculo-de-paridad-de-d2-deja-de-importar-spec2viz-golden-congelado-en-tests-notations/preflight-2.md
 source_hash: e9da7bfd88f44d59c3a6cb4f2ed2fef4f2c3bc1762d3589a684f15c6efccecd1
-content_hash: 7a12b5cfcee9422b195eaf33f46400d91148260772518062d307c8f48913966e
+content_hash: 39358435925db5f0e85f5b54398e47544b7a8c949ad575572a64554daf226903
 field_hashes:
   id: de8fad8ba17a3229c4230d134e2dc96169d1550996771bcfc99c1617434fed2d
   title: 1a05976ea1c0638e804ffad3a2f0a834ba8e69e7865c6abf416a1e5158683fb1
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: d9fb45668b3eb552f11c49954f58fd4c09e15f3a9a00df9d19906a67800ece69
   input_sha256: 65a3602f499e224877788c44bffb33a1865abe8926a1f827ea1f6cb272367728
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: f6c318193ed1a1b4e34141ee79fc8903612f556a00e70d5cb266dac5599a475a
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: a02d0773d081c2f18941fb6ebae2cbf435ccc6946754fd6a81ef0633b68d27d9

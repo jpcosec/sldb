@@ -1,7 +1,7 @@
 name: review-task-la-puerta-de-afirmaciones-vuelve-a-verde-el-changelog-no-nombra-la-ruta-inexistente-docs-architectur-bundle-1
 path: desk/reviews/task-la-puerta-de-afirmaciones-vuelve-a-verde-el-changelog-no-nombra-la-ruta-inexistente-docs-architectur/bundle-1.md
 source_hash: 8e67344b58e282d7e032d5f230e5cff9d307f383bec51c2e0007f9e837208116
-content_hash: 587af11e5f071a51454186136bf9aaffd69ac7383932e90c52fa374563e1ac9a
+content_hash: e28c09b77227af813f6bb54d96995ae15a8d3815b1bd1bb5819cc10a45531ed8
 field_hashes:
   id: ac173517dc47c7cad9a399b66082a3f5826ef35cc5ab3780007583e9006da6d0
   title: 1afc064a88ecc364670f103505da99dc1a563ab6835c97e6ae95c0c814772bf7
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: e25cb8bb1ba195962c65326502c41f81d8771ed7320a61005d2cf014b5997ac1
   input_sha256: ce39cac187b2efd895de6996f44801708d13a99a9cf9f52dbbad7a05b9de3a28
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 33707e72a663b27e16878082bf57cc44acb555ac405c4dea1e9e2d00dae3d379
   verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
   reason: fdcb98ef2a417f4e545d45cde55f03c7ad68ee8fd1724cb79045e3fc96780a66

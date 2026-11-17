@@ -1,7 +1,7 @@
 name: review-task-stores-check-no-aborta-ante-un-documento-que-su-modelo-rechaza-lo-nombra-como-hallazgo-y-sigue-con-e-bundle-1
 path: desk/reviews/task-stores-check-no-aborta-ante-un-documento-que-su-modelo-rechaza-lo-nombra-como-hallazgo-y-sigue-con-e/bundle-1.md
 source_hash: 4ff27dc6f7b7afe3a2fdf3a67a9417528aca6ca236164396305fcbcd64285760
-content_hash: 78cfa497663a535ab656109708bb7b4b96db665f30df297ab02ccb19f59697c0
+content_hash: 4919d717876f0c2bca9b2b8bf7a03773d80f2a704f0061c1c738210b772bad16
 field_hashes:
   id: 9fa2a8cbb7baa088634c7d92258cc8b9ebdb631cf42a53cac21b99ac2e31eceb
   title: 8d34fe260be5718c806c66da75959b1d3cc2a345e2e54d4aa6018611a2a10347
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 8e072da367fb89d0a2451a568408d52ce45c47503fc91295c26dbfe28a09998b
   input_sha256: 0fdf87b6d9b4dd45d162176c78fbfab1f76dda9dcdbc8e72b765d219b4bc31cc
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 12760162d89f94e1949b2bdf5947a53d3cdeca6b5d7a18df92a9b4a94e1cb01f
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: 01f7f2c7f3de119bc502a80557d9a8a007078f05112bd12a1e2d74e8d81dfa79

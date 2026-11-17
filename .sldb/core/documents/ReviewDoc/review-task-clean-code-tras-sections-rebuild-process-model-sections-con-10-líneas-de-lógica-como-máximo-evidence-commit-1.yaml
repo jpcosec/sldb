@@ -1,7 +1,7 @@
 name: review-task-clean-code-tras-sections-rebuild-process-model-sections-con-10-líneas-de-lógica-como-máximo-evidence-commit-1
 path: desk/reviews/task-clean-code-tras-sections-rebuild-process-model-sections-con-10-líneas-de-lógica-como-máximo/evidence-commit-1.md
 source_hash: 8d6deb5451f192c2e5c278553ffec2bf3396c479bd24c0a809aeb430ad15ca4e
-content_hash: aa8e85887b64961fb233c465e94162b9181e12647b0b783eb4993eeaddb2c5d3
+content_hash: bd1cdb9c92c6bd4a61bfda6385fa9730c1acf80d06b0d93883049f3f8b875f64
 field_hashes:
   id: 31ac12e62c8f1731838576fe04bf74dbcdc819139d3a7d8d47b4bf88dd87fbc1
   title: ebc222a60651e0d7e63a9a660994a036c1eec165168193a6525568af8590df59
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   input_sha256: a53fb78558d085e3f55b25791cb3702e8c0be8f675868d34e6cfd6a9ba5679a6
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: 283a29c4daf29fb80e24391734f9997b2227ac3ec87c6339c2b84e7c12748f37

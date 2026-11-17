@@ -1,7 +1,7 @@
 name: review-task-sldb-api-expone-los-facts-de-código-de-un-archivo-o-de-un-árbol-con-span-y-source-hash-y-write-ancho-bundle-1
 path: desk/reviews/task-sldb-api-expone-los-facts-de-código-de-un-archivo-o-de-un-árbol-con-span-y-source-hash-y-write-ancho/bundle-1.md
 source_hash: 54c458e119f740392bea36ea32650973f0153d596103a767d19a0099bc8b55a3
-content_hash: 8918eead351cdbfee802dc8e3937dff5794859c0fe5c654eb4fe0f5e5e473711
+content_hash: dc26ab4f7b1bb2211e703ca678ed19ea53045ed75bf1d7f3560e06eb82932085
 field_hashes:
   id: 908dacf2c79fe59e0866695fb047757c0451a128aa699db2ca884c5a63d55a48
   title: 72a532820be91d1f988bc0797024d0405f1b74f347289306279653cc13574a27
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 0edcc3987641d810926660392c65a5e7a22e4df69d4bf31d1b037ffd0be28b39
   input_sha256: 761ee85303f2675e58469c333a81178191f15b54f172d2f08001507eafbe3a10
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 2451e60d02a51aa4a2110951eb930e172626d1a125a477a63aac115ff2b03fe8
   verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
   reason: 90c6dbc8bad252c7329e7dcbaad9c4bfc7986332eed6bd51764ad7665cd6edaa

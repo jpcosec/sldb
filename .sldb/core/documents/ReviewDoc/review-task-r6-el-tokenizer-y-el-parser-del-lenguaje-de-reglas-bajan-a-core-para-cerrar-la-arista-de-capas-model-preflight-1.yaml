@@ -1,7 +1,7 @@
 name: review-task-r6-el-tokenizer-y-el-parser-del-lenguaje-de-reglas-bajan-a-core-para-cerrar-la-arista-de-capas-model-preflight-1
 path: desk/reviews/task-r6-el-tokenizer-y-el-parser-del-lenguaje-de-reglas-bajan-a-core-para-cerrar-la-arista-de-capas-model/preflight-1.md
 source_hash: 912e7d6995850cbbce518d8e7b28c36c1da88dca8bfb48a446cb9c2131228058
-content_hash: 2daeccd9af2f83f5ef1df8c14443aafecdc60b75eac07f0c1a2093c7461ed322
+content_hash: c5f08d4c4cd2284105752b25f4e15a223f886530b5a199fc602224a669c418f0
 field_hashes:
   id: 235900eb28c2cb8a67a58f1ea74f0e9e7c16e84dd99ce7dc5c7b2debe607f6b4
   title: 6c6c72e094178070327c03342a9ec8112ff29733460a78efafb193dd9d4e0609
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 6525990f5e20f3a48a9180965e8fc8f3bf7966c2d164dbd8b31ad65609954f6e
   input_sha256: c8a2cbd25ea5357fc11b028360020baa7c59822a93cb77ac2fe3b0ec7ce72d43
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 4a0069285f21c57e7e3ea7f0109ed200bee4e44a67b64d8e7c4b4166cba7a675
   verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
   reason: 305ef688ce37f7203894299af4945bdc73b64d810b162796410eda74a98dc5c9

@@ -1,7 +1,7 @@
 name: review-task-reproducir-si-sldb-docs-update-reescribe-índices-de-documentos-ajenos-al-que-actualiza-reviewdoc-de-preflight-1
 path: desk/reviews/task-reproducir-si-sldb-docs-update-reescribe-índices-de-documentos-ajenos-al-que-actualiza-reviewdoc-de/preflight-1.md
 source_hash: e41578918ec89e168b9d197a3c33ef6e8130bc1b457e0d164637bff0b695f646
-content_hash: eeab1fe817e626c0785b9bf285ec5f95f224e84b7ba810eed512be7230dad6d9
+content_hash: 242cf04fff0911e6a583b48875d174899e0edaaa9832a407780098681c4835ca
 field_hashes:
   id: 1021b635e16a12dfdefcba7c77d1ceec14de6019b5ec92b12bb59ee95be63bf3
   title: 95e83d0cf61fb4b037d53b1a89e2a9593107af437db017382ab4dae7ba95dfea
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 5267d689357b83c511f14ad2c2c79d5ed979800cf9fee9c85b4311877471de75
   input_sha256: faeb4e21bd2d8d5895396e926bbed1755d3187709304bb6ee13057378d249e9a
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 9b5ffcd8ea01fcfc853a30fcc511dbb754cc22a88456ac27b9e68285c01e5af6
   verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
   reason: 305ef688ce37f7203894299af4945bdc73b64d810b162796410eda74a98dc5c9

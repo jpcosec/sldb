@@ -1,7 +1,7 @@
 name: review-task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t-bundle-3
 path: desk/reviews/task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t/bundle-3.md
 source_hash: 8a3dc2c6e70e75fe286dbf9872160f76098fe80e055705c87c8ecc99457f05b5
-content_hash: 214e34b1bc9fde7440d7f5697f97ca4229a935fc4d718070950893334134f40c
+content_hash: d832386e3f44141226aba8b8ccfa140275aee402b750bd80cde0d31cdb614c15
 field_hashes:
   id: 214ded65fda64de9409208bcf56e2527aba7638b622dda38e3d7b1c809d12837
   title: a576b7b3b91340fcd4c0d79e548533a0c88126cb7885f0a614eff20a0a10a6bb
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 5df7ccd344bc5cd777e06a13ef7ecc57897c4a0746423b4490eb3c39fc76247a
   input_sha256: 45ed06392140b68e0a130c6df8fd718d053cb4c664859136c8ea068643d7e5a1
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 98b88dd8ceec043b58985963647ab0a394a69b3e8bea6d3813224357e6d0b080
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: d5a239f046cec38122e762603434b406d45d6c80eb207d54741d1268efd4c2c4

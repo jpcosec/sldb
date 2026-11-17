@@ -1,17 +1,20 @@
 name: review-task-un-documento-en-el-glob-de-un-modelo-padre-y-en-los-paths-de-un-modelo-hijo-se-trackea-una-sola-vez-bundle-1
 path: desk/reviews/task-un-documento-en-el-glob-de-un-modelo-padre-y-en-los-paths-de-un-modelo-hijo-se-trackea-una-sola-vez/bundle-1.md
 source_hash: e389c9c212d9a7c19a8da9f3c999ca16e423543747c0232ca9a610960ca3502a
-content_hash: 23591a70a34c94244b2f82d725df2d71a9da15a55d7969b35df38e1bac3e5f96
+content_hash: 28f7554b5b133986998178f08208362fafcf4fdc9a50c8ca93df8d8654299c7e
 field_hashes:
   id: 9978d87429424df4fa29651c029b531f35aaaf5239a6381d5891a5a38c8ee355
   title: 71487dcc1f716eab61f86717ce75a2e5200e2627e96f408bf15567c34bce9486
   kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   subject: 5a675c8f29d13abd762456bcd839965367551988c380269272fca803419218a9
   subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: f36d021201ef48f7a2c97c0df11339ec19bfe8b24e8a9046c3cdfbde1835f50c
   input_sha256: 3b01f80ff5513fc49d5218cb86d1eb1aaf376661135c7c2ab4ae30b2b9a1d3b0
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 7a97af1177a165d132a6d4de860ba3f9679c589253c2abedd07ead789e8b5079
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: 6e1c86ff8602ade723984f9b0cd687ac5fb93a0a9ebe644aa03b091a70abb9b4

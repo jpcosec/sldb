@@ -1,7 +1,7 @@
 name: review-task-referrers-y-rewrite-references-aceptan-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-duplican-men-preflight-2
 path: desk/reviews/task-referrers-y-rewrite-references-aceptan-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-duplican-men/preflight-2.md
 source_hash: d7659ae254e2ceb253401e78be53f5aad10fdb1a20ed8c46e74df8c6f345fdc2
-content_hash: 4e4e771be87771c0b7d3fab376e6f16ea60899c18e0b5db738929ba6ce512886
+content_hash: 790bd534bc2b32ab96d4fbf229bb09563c94af903f87f98c757c2f934a65328c
 field_hashes:
   id: f049d3d443cf8942467dd26a0a7b1ec1f3b6d87908e91cfb0f3c74027dd7119a
   title: cf3c58ca02eb4e5fc956fad0d18ea1e66b14d87e51f8892d0d0e338acd356d06
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: e5dfacdf8f2e508ae519de9f2126f994320ef4c6f1e20ec96674a9b148753fa8
   input_sha256: 3205c56c430a3c9ff6227f7cb10de8f919a048a69c9ab752aea582995e2b2aa6
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 212c5fd95e1f18b5ef16665cbe8117a1d0279ff64f40cb6e30fe60b3f574b603
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: d13b510452d5fe810faa4d6a24850a81b30592810fc6d33149767965385ea1a0

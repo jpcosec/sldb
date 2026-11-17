@@ -1,7 +1,7 @@
 name: review-task-una-escritura-en-un-store-con-documentos-generados-ausentes-no-imprime-una-línea-por-cada-uno-sectio-evidence-tests-1
 path: desk/reviews/task-una-escritura-en-un-store-con-documentos-generados-ausentes-no-imprime-una-línea-por-cada-uno-sectio/evidence-tests-1.md
 source_hash: 0392db91ca3a879f77b05a4d3aa2526795e64a84cc427fb613032ed6e6fad09f
-content_hash: 9aba67474a3d78d6e5fa3825b9ccec82bf7a4c10dd1772b420d0e6870374dd70
+content_hash: 12ed0f0737869de5ebdc1b517035ccbb28099eac20162955f79c909213055d9c
 field_hashes:
   id: 87278a48177db7faaea4cfa0f2831c97c20a466ea6908f18443855bb92c96df3
   title: fe5bcc35b355efd39e1bd304c28894baf928cb95c80c2039d759de1ca490993e
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   input_sha256: 741b5fd12593ba35d22ab9e63af94221c6eb1cf98fb24dd5af44a387114b2a1b
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: 0ebcf16db44b879e5a90cbc7add1349fd424e3fa2f9dae199ffed187d6f8eeef

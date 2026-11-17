@@ -1,7 +1,7 @@
 name: review-task-decisión-de-jp-dónde-vive-un-hook-que-bloquea-write-edit-sobre-rutas-trackeadas-por-un-store-de-sldb-preflight-2
 path: desk/reviews/task-decisión-de-jp-dónde-vive-un-hook-que-bloquea-write-edit-sobre-rutas-trackeadas-por-un-store-de-sldb/preflight-2.md
 source_hash: 5da4e62116ba4da8a2c7d051d80f74dee16faa58a1df7a6c090a4d9effc84ebd
-content_hash: 2394a1276f97250f9ba244142def8e47bce49ff87c7068c32f059639e0afaac0
+content_hash: 9f4e887a291994bc013bab1cd69086d6f0ecf9f1d5cc45d49e86b8fb9ea66e1b
 field_hashes:
   id: ac1349689b0bd47f173e0d723f812d87aaba2565a6e39e7f9a0b6a3e638dca4d
   title: 4fce16cdb5aca6e30b7c7087a4ce5b0005edabe8e19e1906e6bfcab021e3793e
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 4639aa71dcddf612de8bacaa3a202b29c472906d83c3f50822d27b513e1343f3
   input_sha256: 1c97f5019657018f26e1f9f8671d9274c3a37d758d673ba435e786d1ddc9e732
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 6f3ff66d64bf3edefa118d78f09904ca496590c7468e5e23cce3065a89902782
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: 942dcdce76af19deec361f3014ff77c897ad88d819327beceac50f9343027ed4

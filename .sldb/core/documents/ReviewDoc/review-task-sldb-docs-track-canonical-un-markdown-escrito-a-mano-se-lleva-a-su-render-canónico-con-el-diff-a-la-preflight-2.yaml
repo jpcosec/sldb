@@ -1,7 +1,7 @@
 name: review-task-sldb-docs-track-canonical-un-markdown-escrito-a-mano-se-lleva-a-su-render-canónico-con-el-diff-a-la-preflight-2
 path: desk/reviews/task-sldb-docs-track-canonical-un-markdown-escrito-a-mano-se-lleva-a-su-render-canónico-con-el-diff-a-la/preflight-2.md
 source_hash: 041c912aedccf12905557c8b610f5340d227fac5913a44b2716566763fbe6e7a
-content_hash: 4ba7d1bac1ccfecca629c55f454327c4cd2101b6b0f536fde2f94c85ddd6ab95
+content_hash: b191965983d46cc5cc9d7619e2f0cb67a52563e4dbaced0ab38a2908e8a594c4
 field_hashes:
   id: 1a50d593fc4dd3d6fb4a3a81829226cda9a67638abaac375f9c7673908dedd8e
   title: 684689b7313b25e816c58e46edca3a7d11356eb107c53a99b178ba7f3752462f
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: c4ef293697c67c61377757372b4f1168c3749bd0f2fc221d086b2d776c3e73e2
   input_sha256: 46b9155c80cf4d68b25c87c3df5d802a679998652b418b93d7cfa13c92ba3596
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 39b7ccfe5d24ce11065f05e2465861d53982322bcdc61a1ca80b2772e17587cd
   verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
   reason: 907a324946fc86bc6dc203be9e7399c50ad4034da027db6f37ea00dc096774b3

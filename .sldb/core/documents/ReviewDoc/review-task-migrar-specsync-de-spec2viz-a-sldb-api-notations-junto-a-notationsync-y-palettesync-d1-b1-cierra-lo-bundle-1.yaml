@@ -1,7 +1,7 @@
 name: review-task-migrar-specsync-de-spec2viz-a-sldb-api-notations-junto-a-notationsync-y-palettesync-d1-b1-cierra-lo-bundle-1
 path: desk/reviews/task-migrar-specsync-de-spec2viz-a-sldb-api-notations-junto-a-notationsync-y-palettesync-d1-b1-cierra-lo/bundle-1.md
 source_hash: b79be911b05f8efba62a018b2f69883eed72ea9cd81d74e05e50a3e47cba9e65
-content_hash: bb540b442d2f2f7952f6386863a073d2e97002299c8e0d80c8f9a5af1a6a6433
+content_hash: c1c95f8d1238be2f18d0c798453fe20679bb901b3e34e2e8931b9d9a4aacb9bb
 field_hashes:
   id: 88d0e4025cff6d81a437edbdb64996a5ad89650018face7040b67a0fff8daccd
   title: 6436a414ceadbdfd92a7cfb82847ca7ae45bec79710d928ca4f7e97151b4ad13
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 290c1b62b19833fd46e1ba93d84e94cdf6afd6a6798c72e9d60526ae7fb45fe5
   input_sha256: bbfe56cd405a6786097c591297551dacf31ffdf89a5b56b748719cacdafd4d8f
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 1e656a3d7f1263e5682123deb6ca03fbe65bf2c2059adb0ad88e93edefe10e1d
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: ef2699111f70a7a2d872f055e4ac717e9046cb7e08cd5c114340cb5b20f4cb4e

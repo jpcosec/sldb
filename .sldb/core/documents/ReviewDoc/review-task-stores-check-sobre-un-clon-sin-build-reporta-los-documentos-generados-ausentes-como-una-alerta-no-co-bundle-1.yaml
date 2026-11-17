@@ -1,7 +1,7 @@
 name: review-task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co-bundle-1
 path: desk/reviews/task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co/bundle-1.md
 source_hash: b37f68eabf16e4bc076ec0aa69b9e80f2db867232d9cff9e07a57392b5435970
-content_hash: 5e98d0053c393a7849ae9b4e68f5068d9f650cc99719fd86c4f46f7583a32754
+content_hash: 28a3000a06cb42bc80d2c582e660efa28502d3803f5a9d26484fc29bc25d4e74
 field_hashes:
   id: 8eee368619c43f35618dff9080a42e39dff7f025a8e342390891aba3c6957456
   title: 8345894404a63c82c430f5a5e1614ec2ff1c545243f606d8ba0789ecfb8bc84a
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 3b36b502a0ddbb2ab6bf100188d2dd4df922227666c501c96fb4132f8ac83c8d
   input_sha256: c6662efcedecf423e7d0490aa3e258cab2fa139aa48449ab16c66a632359c43a
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: e2157131a4f5e7591f70cb063ef475c9f9983e43918bec58ced06e282852b294
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: db3e58cfa84c417bda7da0d66aa7fa92302a8c74538438cb0a0b85498e0ae695

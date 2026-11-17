@@ -1,7 +1,7 @@
 name: review-task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc-bundle-1
 path: desk/reviews/task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc/bundle-1.md
 source_hash: 05df6cd2afa9ebcf5d1004f22d9102a6f496353d6bfae5b739d640478a176f7d
-content_hash: a4f03fd79ebcbc3a8f614f370100afe8d830d7d855cc21fa7855aba81f6e07c1
+content_hash: 3b25601014309f28be0097a4089e8470138070b4473df6155e7048ba9d25d148
 field_hashes:
   id: 38c2d5535e6f95bf3b2974921647c320e2ef7e24cfb188a2604369f3ea386e9d
   title: 008658415f3bcec62b1fc47fb91375e2277e31803e75dca48ce3df3a264ddbbb
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 1891b010c03a247b297045710e75b916f0d5fc76d4742f32b673659c41cc5da4
   input_sha256: 5cf5041045bde53ab5105dd41b2c38fae294fa324acc5fc188c78a52c209f5a8
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: fdbe04ee37ff0e1ac0e8644f5707aa2d11e228e960b8932869d4918f2807f4c1
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: db3e58cfa84c417bda7da0d66aa7fa92302a8c74538438cb0a0b85498e0ae695

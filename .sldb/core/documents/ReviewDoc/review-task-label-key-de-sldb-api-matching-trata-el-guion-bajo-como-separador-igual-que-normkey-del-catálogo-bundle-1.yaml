@@ -1,7 +1,7 @@
 name: review-task-label-key-de-sldb-api-matching-trata-el-guion-bajo-como-separador-igual-que-normkey-del-catálogo-bundle-1
 path: desk/reviews/task-label-key-de-sldb-api-matching-trata-el-guion-bajo-como-separador-igual-que-normkey-del-catálogo/bundle-1.md
 source_hash: 85d60a40db57eb68456cf33ddf3f4d0c2d488e1a48ad85c4320b41ae677518f8
-content_hash: 20bcf4fcb158e50a41681c234f57ae07c47bbd74f8c0da80f3df46b9a64b8dd7
+content_hash: 79fcda3a974ff66b779b85a8cc4df7c8a4f0801d62722cb4d890df5283c628a8
 field_hashes:
   id: af91d61468e82f47a2ee142d0ececaa7b540224e0b927982ed5f088250aa6157
   title: 688276885c5435dc1af86a41ce17ab282f77df88f2377ab10e7c095faabd7b13
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 36dac2ab82bb7fb1b4ba51d4b4930c8e9a813c94be0f353bf6aa73aa4a2cb932
   input_sha256: 5db81deb4ad29ca86940dad5aa565c4bce836514e88592921bf5f3e152ebd8e1
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: cfe6a604b90078d2b6766de1700559cd7957a16dde100169310c67766f3ecc25
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: db3e58cfa84c417bda7da0d66aa7fa92302a8c74538438cb0a0b85498e0ae695

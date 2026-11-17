@@ -1,7 +1,7 @@
 name: review-task-migrar-a-sldb-los-modelos-de-spec-por-tipo-de-diagrama-de-spec2viz-con-carga-y-validación-junto-a-sp-bundle-1
 path: desk/reviews/task-migrar-a-sldb-los-modelos-de-spec-por-tipo-de-diagrama-de-spec2viz-con-carga-y-validación-junto-a-sp/bundle-1.md
 source_hash: e9168b653ed68db674fb49ca5cf4e9a313524602e0c4a4de5506535543e3a765
-content_hash: 5754753c5fe5e0812e2875de7d0bd50da0249c030e19ceb3feecab9418a6a530
+content_hash: 78668f76af90d73455ef8f5e3cf68a91bd452219c0eb39e3c002f5818cac106c
 field_hashes:
   id: cb39163302e236508e227d5b9e2ac9098284eec5d3cf48513967d2d83359603f
   title: 93834a7a35ff8399b9966783e8e3d77593631d18ed358a1035f04cdf6d0a8f99
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 78e574f2994bbe786749c8d53755ce520a03a431aa1d1dd78a7fb3caab8f7895
   input_sha256: 388c9a31984b511b1c761591d09e0f411fe5d6ce69f96f9c7be7b5f3295078fb
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: b946a1e5648d7f6a10ba145ff704441d77a8756ee5ac03d13af959717de3d4cc
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: 10c13070ce6e635a758c25357326788d8d6de503043bb9009c8508ca9517f984

@@ -1,7 +1,7 @@
 name: review-task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno-preflight-2
 path: desk/reviews/task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno/preflight-2.md
 source_hash: 5dd3e2dec1d247c77ba38e041257c20bbbd17962458772408668e465f09ce26d
-content_hash: dd4cb192408e8a60a573b93fc23c02cd748b8de81cd5a86939636a71db1ef2ac
+content_hash: 9674570c6a7e35ff7eee365aaa272b558f9bd2c8eec7ae1bdfc290736de7cd06
 field_hashes:
   id: 5ff81443a4657126d5dcb3dda0bb3a19673ec6d77ac47e096db8ce0010376353
   title: db01f678b64580caab5dbcfed0fc766134effb58e4cdbe10b02b6be0ba2dff8d
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 03b44c776add81b5e6ac0d5d7c3c9e4308f3d46540275445f392aff8a94b0cf7
   input_sha256: 0edaf3b3a71df0da16fd910ecd81910da3723794986aaa59f40d7e57f8f160c6
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 5e97e6608c71499985e806f78cb7de56c31b4eaaf5a6fea09bdafc6dff47ed9f
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: a02d0773d081c2f18941fb6ebae2cbf435ccc6946754fd6a81ef0633b68d27d9

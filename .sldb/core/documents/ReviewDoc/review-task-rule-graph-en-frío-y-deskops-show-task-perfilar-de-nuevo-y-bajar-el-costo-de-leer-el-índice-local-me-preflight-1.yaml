@@ -1,7 +1,7 @@
 name: review-task-rule-graph-en-frío-y-deskops-show-task-perfilar-de-nuevo-y-bajar-el-costo-de-leer-el-índice-local-me-preflight-1
 path: desk/reviews/task-rule-graph-en-frío-y-deskops-show-task-perfilar-de-nuevo-y-bajar-el-costo-de-leer-el-índice-local-me/preflight-1.md
 source_hash: b5bf3f202f50db34373439eccaff7f74a2624a4f1dde2e1947b1df26fbfafb3c
-content_hash: 7ce410231cd2ae789ff52fae2a1c55e1984442b1bf186f13770bcaced7faac91
+content_hash: 219b0375ec6c4aa98167b8cf25d25f3320a98f6b9f06a4cf145cf6af6e938a0c
 field_hashes:
   id: d2b5cfc4d0232c7fe1c901481a3862363abb77255d05a3384d6dbb6b67acc7c6
   title: 03ef391894098cb548fae280cc2bf771cb9633db1b89d263229d0a180b8849e0
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 7f9f9298b39f681cf95a0f4a6eeaed83393c6ec9289dca1c52b5f3ad2940daba
   input_sha256: 0954717fa4f74b81cdff978e356b4c0ff04eeeacae905760347cae5342aa4c18
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 3783ab09fb27d31f751d79066908aacac6a439dd4c2c50b4103bf9ffce780771
   verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
   reason: 305ef688ce37f7203894299af4945bdc73b64d810b162796410eda74a98dc5c9

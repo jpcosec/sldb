@@ -1,7 +1,7 @@
 name: review-task-una-sola-forma-de-serializar-un-escalar-al-sustituir-llaves-effects-go09-y-where-subject-usan-la-mis-preflight-2
 path: desk/reviews/task-una-sola-forma-de-serializar-un-escalar-al-sustituir-llaves-effects-go09-y-where-subject-usan-la-mis/preflight-2.md
 source_hash: aa6051f44414a0ed09ad4a8cbd9f8e8753802c0821d3aa46c841445f51e6fcb2
-content_hash: 079fdad65c2c8b2e998a15a12558f9bd25806bd0dfe448b4fe966c221383d387
+content_hash: 36dfb58db1f2286479e829d9c3069cee90a0d9f3d7626fded57204172c526447
 field_hashes:
   id: fcf2113a8c2d737e2e5d38604c96b4154a0c28bf1321c20edf8070331e4daf98
   title: 873a998a1ae02e30138506f68570e95796bb3273d1a39e3ae62fc4c92c6c6786
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 007fbd5add11ce3f4e16e47e99735aebf98dbf3ec5366b43523995243aceb7ab
   input_sha256: 7180323c4c651d623608e427eeeaab4e6f1e617128f63c6fc3e33a0ed3e9a906
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: d1e35b53a28ca98aa2be61ebb02161ffe3246c53740df3ea78f32bdd6beb1849
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: a02d0773d081c2f18941fb6ebae2cbf435ccc6946754fd6a81ef0633b68d27d9

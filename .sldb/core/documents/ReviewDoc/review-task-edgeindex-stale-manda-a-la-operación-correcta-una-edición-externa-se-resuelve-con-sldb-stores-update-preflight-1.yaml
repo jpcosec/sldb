@@ -1,7 +1,7 @@
 name: review-task-edgeindex-stale-manda-a-la-operación-correcta-una-edición-externa-se-resuelve-con-sldb-stores-update-preflight-1
 path: desk/reviews/task-edgeindex-stale-manda-a-la-operación-correcta-una-edición-externa-se-resuelve-con-sldb-stores-update/preflight-1.md
 source_hash: f10275892ecb70029d608f8608b5cd87c665cc72ae3519e00d6eca0f0d7ff6a8
-content_hash: d5d674e5328fba3fb6b2ecd1a47edc70356c2d29b04c7a04ee4f52b0fafcd602
+content_hash: ecbc1617c792a920fac6ebf4f8c3faefd883f71926a80de5c2bfb03e96a55504
 field_hashes:
   id: 475028a22205926501bb4f9b449ba7d2ef0a6485f5ecfe19ef5748c7c033ae81
   title: fc5c79414693d4a411bc7cc03d51bb7c89b9a7340272075d7e91cf7ea5e960d0
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 1319faca918696c483327a229da0a853cf256fcdffa4e688df6138d2b3a7912c
   input_sha256: a916b5039f8c5ffdc9ba93b1cd0b2fdc655848a49ee652bbe20f29ef4d822e31
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 8b1f7013a8d644f324e2393440432619a576c513959bad514b8e63088842cf2a
   verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
   reason: 305ef688ce37f7203894299af4945bdc73b64d810b162796410eda74a98dc5c9

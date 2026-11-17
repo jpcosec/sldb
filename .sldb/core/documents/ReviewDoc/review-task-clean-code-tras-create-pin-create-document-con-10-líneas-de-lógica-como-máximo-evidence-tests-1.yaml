@@ -1,7 +1,7 @@
 name: review-task-clean-code-tras-create-pin-create-document-con-10-líneas-de-lógica-como-máximo-evidence-tests-1
 path: desk/reviews/task-clean-code-tras-create-pin-create-document-con-10-líneas-de-lógica-como-máximo/evidence-tests-1.md
 source_hash: b86242626d47c71d3bdf7f01547ae806d82182491eaf37d5138d414641adf57a
-content_hash: 20a2c37c369d10184dbbf81d3970c6ac9d30095a8ed33c98285e9d6bbdd8d1e8
+content_hash: 672e3efbbf8232dd8c5ce2e24a87af96e8bed4eece7b9d6931074201141f9c08
 field_hashes:
   id: 2f44bde601bf01ed459e45e7008f68aafb1c3c9da422ac8df76994213529f36c
   title: 292235670d3df438f2ed2cf88af790685619027c97495cd46ebb163baa9e5add
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   input_sha256: cb2adf81a650ca7a83dad650ece8cc82be49d611d659f6a08597aea8442a05a9
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: a3d27d81ff2a36011d3739e6de246c9dd8e67b0072867e98303f5932c4850ce3

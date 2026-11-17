@@ -1,7 +1,7 @@
 name: review-task-docs-show-sobre-un-store-enlazado-dice-que-no-pudo-importar-el-modelo-en-vez-de-unknown-document-tar-preflight-2
 path: desk/reviews/task-docs-show-sobre-un-store-enlazado-dice-que-no-pudo-importar-el-modelo-en-vez-de-unknown-document-tar/preflight-2.md
 source_hash: 8f5390b8e2f075180e3feb02864f2ec21f892d63daa7e6ac975d37e8e4352aee
-content_hash: d6c73f918b9c7ca3f9dc53969535f6656090bf04e61b0fd9cb76508edff180cf
+content_hash: 6fa336e9d1234bb90d2df687f408c63ff56c35dd99c9f2d9f0b92d1cbd511078
 field_hashes:
   id: 32d537464efab8a2764d10474780711010e6e4b9eebbebda9f7fde48933526f1
   title: 42a00948f5f1d1372aacbb9fbf3e4e3b4485c98fb8324f91fcbe6a55de7661dd
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: d6922e4735a9ed8258333576d0d95b9207eea83a5fbc54b4aea2ef30d9cd577d
   input_sha256: ca5416e07b6e0e728ff72fe950dd4f3e11925405488fa0eb55ef2aea62667d70
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 15e51c5402abd742d1cda0d6e2e80a763e1f055d010b9445785f14ecd093cd5b
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: a02d0773d081c2f18941fb6ebae2cbf435ccc6946754fd6a81ef0633b68d27d9

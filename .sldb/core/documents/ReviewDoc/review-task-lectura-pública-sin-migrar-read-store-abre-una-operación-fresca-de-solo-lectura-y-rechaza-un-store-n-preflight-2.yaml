@@ -1,7 +1,7 @@
 name: review-task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n-preflight-2
 path: desk/reviews/task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n/preflight-2.md
 source_hash: f257351dfcf788688ee8fe44956749bcbb51d07521ddf488ad9fce831e2876c0
-content_hash: 41efbbd6a997b656e1f2d12cc04ad97cbe60c3893d370848aacde61df69af392
+content_hash: 5a72eaed175243402e1bfe336af5c9f58355d36af05b7db1960a815cbf2f47e7
 field_hashes:
   id: 658e18d7ca527ba1948a7324a77602fd7c1c35a425e61245c612fc2d578d06a7
   title: 6aa9bda7ad50c44622b5808fd4592bfdac3d6a3e94ff455aaac28f3a19835fe4
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 28a64a33399dfffc69e1b73f96e103a3e4b18f80c85037cad93af41c914af00b
   input_sha256: 00235fa10b5359fa33e14b7e6a22c60a823161d392d2bb26eb25831ecec9063d
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 7f8ac8a8314de49eb8ecb3b3786bfd4686edeac7cd1d073de13d21bee3201380
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: a02d0773d081c2f18941fb6ebae2cbf435ccc6946754fd6a81ef0633b68d27d9

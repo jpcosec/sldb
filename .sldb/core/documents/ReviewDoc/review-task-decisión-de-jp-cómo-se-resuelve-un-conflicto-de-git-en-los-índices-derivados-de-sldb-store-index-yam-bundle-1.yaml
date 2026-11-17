@@ -1,7 +1,7 @@
 name: review-task-decisión-de-jp-cómo-se-resuelve-un-conflicto-de-git-en-los-índices-derivados-de-sldb-store-index-yam-bundle-1
 path: desk/reviews/task-decisión-de-jp-cómo-se-resuelve-un-conflicto-de-git-en-los-índices-derivados-de-sldb-store-index-yam/bundle-1.md
 source_hash: bd1170f4abe03a00d397ae007634c64fad44aa612b1541e5f24bd90b1fffd3d7
-content_hash: 4eb613f94d5ad09b45a086fe409fb00dfd17bed9dbff3141ed11110c01412e6f
+content_hash: 6e5fc0a30a0286af6e0eaacb044647b5b200063558d054963311da79b90ff032
 field_hashes:
   id: 111e0c5f5b6694074f77ecd8ae38395839713a74314b7100998c78045a5a46f5
   title: da1a65c4cb85f352df848a606bf4d75e37dcce68da3a33e71fc3c781b20e196d
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: b288b33a843e37eea4bd57a9a829b7d980959ba6afe1a39f176fc06777f9a69f
   input_sha256: 4c0a4b769f6fdc105a350ce51cd3c1324e9ae64e294e0fe229571e28bf521a15
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: f00d4c65da438580e319b6f11bebec18d03a7ad05cb812872ec8fd340e159b5f
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: db3e58cfa84c417bda7da0d66aa7fa92302a8c74538438cb0a0b85498e0ae695

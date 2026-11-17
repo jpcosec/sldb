@@ -1,7 +1,7 @@
 name: review-task-create-document-pinnea-las-anclas-a-documentos-igual-que-save-document-payload-preflight-1
 path: desk/reviews/task-create-document-pinnea-las-anclas-a-documentos-igual-que-save-document-payload/preflight-1.md
 source_hash: b7e50c1d9b57b607ba11afe3ad18c622df09e09fdf686e4a3ecca4881fe580ec
-content_hash: 5470ceb3f033b2fc80d8345b5db1a01988f313b7bdc8e8c0da37ec0a3c834416
+content_hash: 974fca61c1d5af0fd5629c0c21d2003dfbca799e92eb6266814e8d286dce815e
 field_hashes:
   id: 3749d025def49fcd261dcf5ea01efe6c76e7793de864222131926aa1e115fd66
   title: 1fa61d537649992af4a42cc6278e931d3571676f605e59f0badba322e01290c3
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: e9fb8f1e1185bdab0ea305b722bb1276fd109138d9a68a969797adf561f5cf2d
   input_sha256: f3baa9ea0118775d0c6d33f1e2d6efb066ad0e2754fd9d51ea63ca79f10792eb
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 3c127593c1614712be4391d6813afef421dc3e6c19d9b3dbe25dde67d64d4f99
   verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
   reason: 305ef688ce37f7203894299af4945bdc73b64d810b162796410eda74a98dc5c9

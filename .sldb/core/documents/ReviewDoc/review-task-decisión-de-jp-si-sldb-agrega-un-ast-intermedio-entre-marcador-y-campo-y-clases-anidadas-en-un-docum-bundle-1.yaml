@@ -1,7 +1,7 @@
 name: review-task-decisión-de-jp-si-sldb-agrega-un-ast-intermedio-entre-marcador-y-campo-y-clases-anidadas-en-un-docum-bundle-1
 path: desk/reviews/task-decisión-de-jp-si-sldb-agrega-un-ast-intermedio-entre-marcador-y-campo-y-clases-anidadas-en-un-docum/bundle-1.md
 source_hash: 4bddeac2e7b1b99107a7e91a4300ae3b1c9f64357d613235acda0155530556ac
-content_hash: 3737b1f07a9a6d3a345de554226205642a549b8a86c5685e2e87c08732010775
+content_hash: 9d38b51f83e98f451e2f5aae15f8ebc21724d7e36d3deaf30af1c275e1d939ff
 field_hashes:
   id: 21ea743550d9e5bf7d37043ac18d3e515a98bc1893c27b7ef11e432841543c43
   title: 31855e12230bf6562d1d552cf026826c0a3dbbd4f9129e371beaaa540e5af394
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: f7350df2df97860b71fe82ce14b5da1b456e0dddadf297a6e3b4ec07101418a9
   input_sha256: e01e604dc7e4f4a288a784814b290432a4b912d875803c9610a68d5e88abca78
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 5afa7c29a1df15e8b687de2ce587a906afdabc8f864e06f043c473823b34c2c2
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: db3e58cfa84c417bda7da0d66aa7fa92302a8c74538438cb0a0b85498e0ae695

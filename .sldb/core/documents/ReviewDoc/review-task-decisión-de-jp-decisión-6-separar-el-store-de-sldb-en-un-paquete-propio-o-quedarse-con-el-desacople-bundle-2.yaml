@@ -1,7 +1,7 @@
 name: review-task-decisión-de-jp-decisión-6-separar-el-store-de-sldb-en-un-paquete-propio-o-quedarse-con-el-desacople-bundle-2
 path: desk/reviews/task-decisión-de-jp-decisión-6-separar-el-store-de-sldb-en-un-paquete-propio-o-quedarse-con-el-desacople/bundle-2.md
 source_hash: 293bd63e27cb316c71373368937454c64a120c0844a51791bec15533d1958008
-content_hash: e0cf66836e1314ecc260c2e6985e91f9415d666b7b4b777ecbc16631457d0435
+content_hash: e737d750a3b0ea64e142516b55049bea1cb01bdd74206ee0290ea83bda842dd5
 field_hashes:
   id: addc27b28c40dfacf5a0919323e24183d34471203cfec3225f0238c68444007e
   title: c067c8709375765b40ef73dd3864b8f4ba7202d74fa6ac21d1fc1fb17a26c702
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: b2a2d08fde0e6b33212797366ebd90c34eaf90e138a81e22cd842584e11828ad
   input_sha256: 05c7745ddb4cb5daa67959aaded737ae53e1d1ee92b643895fc952bce94fe8e0
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 110c744c0db6d717d48fe345e9984b7322826033d4c772b4cdf581b4d4be9d8b
   verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
   reason: 869bb6fcf2435f97b6053e55ac21882015e4b002e7b2171ea6b348c05b4f0af1

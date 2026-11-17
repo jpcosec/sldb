@@ -1,7 +1,7 @@
 name: review-task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y-evidence-materialization-2
 path: desk/reviews/task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y/evidence-materialization-2.md
 source_hash: a675d46ae281b0d660e45e4910b96321560696a6c648bb806fbd10c3e9b4dffd
-content_hash: 3ed2827fa374390bd1e6310fe92728c217445a63948b4e8f9140bbde07ccecf7
+content_hash: f5519d3dcd7cff02686c2d3306494f9cb6bba956aa62eace0761b16f6623b966
 field_hashes:
   id: bdce1e7e4347da963707d26297781e574d7d88912c5dcfb8e8984338b3f29550
   title: 1d549fa604764c3b6d48864591eecc457cc937b114745e1769c2acdd6df97b9a
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   input_sha256: a3c1ecb7fd0725bfda77519257a56b136b34eb3dbfa99821cefe263500727911
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: fd98a1da576d53eab9338a3208fcb885827aa6024ac6ff792271382ce1f7f165

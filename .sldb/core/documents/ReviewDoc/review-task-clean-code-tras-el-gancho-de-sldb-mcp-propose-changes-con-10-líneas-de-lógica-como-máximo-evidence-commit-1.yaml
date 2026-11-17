@@ -1,7 +1,7 @@
 name: review-task-clean-code-tras-el-gancho-de-sldb-mcp-propose-changes-con-10-líneas-de-lógica-como-máximo-evidence-commit-1
 path: desk/reviews/task-clean-code-tras-el-gancho-de-sldb-mcp-propose-changes-con-10-líneas-de-lógica-como-máximo/evidence-commit-1.md
 source_hash: 704c53b69f7497a6c06b8c95e3c1cd9f95e2f35a66afd0fe2ce06e102f83493e
-content_hash: 94221237243e4bdd1ff7c00f8de1c57d2d4244d5c873d724cc5578e4a2129ad6
+content_hash: c71059b4ccdc9eb086b7984ee0a2a9b7cef93570661e05ea5672dcfe8088caa9
 field_hashes:
   id: e3385e9b1bb1e6ec04125c047de06f40aa0961a70a78418e0243449829988b31
   title: 22547d429b9ef8c10a88ef30cd12a7b2db9cdbafc14d1c4a5184366c464f083d
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   input_sha256: de9140e327f6662a988c8bb1bf7fd11b1dc07eb8bcf7158fc6557667bfc2ff09
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: 467b4433ca4fb8ef0c418d90ef00392b382e14e2d9e934e1363fccf3e4c5d721

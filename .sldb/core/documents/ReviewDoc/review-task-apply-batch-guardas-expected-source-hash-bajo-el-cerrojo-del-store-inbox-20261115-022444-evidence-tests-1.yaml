@@ -1,7 +1,7 @@
 name: review-task-apply-batch-guardas-expected-source-hash-bajo-el-cerrojo-del-store-inbox-20261115-022444-evidence-tests-1
 path: desk/reviews/task-apply-batch-guardas-expected-source-hash-bajo-el-cerrojo-del-store-inbox-20261115-022444/evidence-tests-1.md
 source_hash: a41b9931917d4e86bdfa7d7e08e72c785a88a075c0b9579258f55d78c7513ede
-content_hash: d43b766d2cd3fa6425716afdb31993fef118fbb0a28804f4bdc2a48e067985f3
+content_hash: ecdb0cd3ca73047d9cab1466e05782ade8181711df77865714632641cb4f869d
 field_hashes:
   id: 99e20c9ca0df01b9fd357858b4bd271745696ac516e7f298d39273bcaa699cdb
   title: 2fdad30d41444e0f02ff4ad308f9f55a808be2456cc90cd19c37cc969d2ce853
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   input_sha256: 09d0d7554170813aa83e8d3a4a7459f40421e415881da8af686decbb49d52e07
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: a938d548980713d06610fab290a9315266322b0d0d9662a04f5562fabdcc3da1

@@ -1,7 +1,7 @@
 name: review-task-sldb-create-document-y-track-document-file-evalúan-las-reglas-on-write-h4-declare-write-conserva-la-preflight-1
 path: desk/reviews/task-sldb-create-document-y-track-document-file-evalúan-las-reglas-on-write-h4-declare-write-conserva-la/preflight-1.md
 source_hash: bb424da1856a17659b28561acbdbaa28dac80410bbe31a276abe7d3215b3afab
-content_hash: 68645cbc5313a2bac0221fd89cc033a5bc0412745d98be5ba836dde14e61f109
+content_hash: 2ab980cf2b01817a003173cce0dcbe53a768a38c67c606602b3ed886498479ad
 field_hashes:
   id: 7865b924d34b22400a5cc9fd6f429a3e2349be73e9fbce679157d1a93871f171
   title: a4b19ca3a2a77b35aed5eb1cf951bda0784f76577d08997587a590935b5b3cae
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 636c3321202cef6357929bc18bbc83af30341ec32581c01d6126e2366a8568aa
   input_sha256: 54162b47de3927aa207dddcc9a2315f8acc2fc20b3df8c6118c54586c54b9bc8
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 87752d52b4f2d37001ee36928253bff02dffe431fdff537bfae5acd05c731da9
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: 5cbb74f62ce83bf2b7c4a15982ec59238fc3eca217d529c58a7f9f6c82176d11

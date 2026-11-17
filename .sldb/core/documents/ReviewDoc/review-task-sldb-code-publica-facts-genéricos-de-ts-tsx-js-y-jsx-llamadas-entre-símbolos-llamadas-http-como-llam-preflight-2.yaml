@@ -1,7 +1,7 @@
 name: review-task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam-preflight-2
 path: desk/reviews/task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam/preflight-2.md
 source_hash: c26d021884e81c47e188cfcefb32736c5c5dbf8945c655013ef5ee12e2c5d4ec
-content_hash: 7c5a6a374ad46f521bb964cb9f01fce4c2e8ae737baf31936c963f2404714f10
+content_hash: 795e387b2ad1a41c876b29f85c6fb8fb151012db2d99a753364b44ef103a5a21
 field_hashes:
   id: e02d81fdd4e0c5b317642e955715bc19bf40d0e4051c4868cbb7249cf4d0d727
   title: 432a1a8b34be547532daac7c97e13fbba879bf7f41b139134cdcc60fdc5ed8f4
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 9f1140a484e22deab085b119e01356175566b74efb070dd7d6572cfdd7f19408
   input_sha256: 4f3e6bf77cadca4851d323276a29ef80eb895a2987c1f57102d5f3c0bbb35503
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 6f0ca39fcde1499e3f22e0123683e0ebc8c1b4d68caf80d6d691d0d72afcf0b6
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: 4a10abb3b36e4237f7e3489377969ef7f6c3a22b8f55a0421d95f8a4b8926013

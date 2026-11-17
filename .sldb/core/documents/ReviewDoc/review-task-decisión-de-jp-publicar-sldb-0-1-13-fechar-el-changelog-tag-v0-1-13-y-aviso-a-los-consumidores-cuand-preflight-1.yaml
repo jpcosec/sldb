@@ -1,7 +1,7 @@
 name: review-task-decisión-de-jp-publicar-sldb-0-1-13-fechar-el-changelog-tag-v0-1-13-y-aviso-a-los-consumidores-cuand-preflight-1
 path: desk/reviews/task-decisión-de-jp-publicar-sldb-0-1-13-fechar-el-changelog-tag-v0-1-13-y-aviso-a-los-consumidores-cuand/preflight-1.md
 source_hash: 2c30abb416b7b4f1c5b82cef147b0f405a4df91b7aa3700940a2f93862d043ac
-content_hash: f3fc25435a38a7769d38ae5a7821f1bb1b318e5fb8e0c4583a398710a4389d1d
+content_hash: 433ee6adf3f9daa793a6b0ab38787cf5f24474b1a7cb0a9a5249442439908f4e
 field_hashes:
   id: ebd87166d211d85ac7844db7d3cfe8fb687a9a3850b172e4ed7119e242767ce6
   title: 19dbbe8313966fa357a1325a728d734170b76a0dd68e6f6809c66e004aaea72a
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 2a420b5146b67136476938f9646b15dcf8a67747020f533b0257abf4c7b77f56
   input_sha256: 333b426366c09d41d704005c826073ca1e27fdd3c1f05e8e451527aca6cb3132
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 8928f8167cfc7d0f08f9a6121c53e8dae0f9f566d810fe5bb419e95832a3ccfa
   verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
   reason: 305ef688ce37f7203894299af4945bdc73b64d810b162796410eda74a98dc5c9

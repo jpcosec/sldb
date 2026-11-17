@@ -1,7 +1,7 @@
 name: review-task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida-preflight-1
 path: desk/reviews/task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida/preflight-1.md
 source_hash: 7d8760a5b4c01cfda63794dfd5e3baa152beaf3b32bb367e0ead44ad0644a01c
-content_hash: 37e2e5c71dbf5fbad2b3212e3cc4f0830356300a57941b9321a308f1a8e7c69b
+content_hash: 9e7e30b37725022862abe51fd390e70cdcec8b0de454247091b8fbd37ac07fbb
 field_hashes:
   id: 2ce3024d5d2a0d92404baba722a03395d7021a98771c71bab94ab0ddeb6386e8
   title: 1ad2d646e54ad07f982ed1adfa5d476a3abbcf58fbc922cf82140e480c1ae017
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: cec01b50d00c2e1469a66eb6acf200c8410803eaebf9f0e3d3cba2279bf394aa
   input_sha256: 3dd76ef1102633085b31bec5141e73b764832e01ce136b189396e992d40741fb
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: d21aad755515dc803b9d5c95adb02043903f46b47ec992a5fd74db3877ab045b
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: 1e4f5fa44bb2b845bb76d6d93505a10ee29b3669c5b03547e9fe46dd254fa027

@@ -1,7 +1,7 @@
 name: review-task-decisión-de-jp-qué-de-las-vistas-de-deskops-h1-h8-de-cc34-expresa-la-viewdoc-de-sldb-y-qué-queda-com-bundle-1
 path: desk/reviews/task-decisión-de-jp-qué-de-las-vistas-de-deskops-h1-h8-de-cc34-expresa-la-viewdoc-de-sldb-y-qué-queda-com/bundle-1.md
 source_hash: 1778ca45d7d6fa9ebabfa83bd0571340a3d7a35ebb5c6b62e08629600d61f038
-content_hash: 32aa21a40f033e8aa9ba323dbf313557093bce5547ecf8c244340dc8f498b6c2
+content_hash: 9bf6ecdc9d0e3e4018baf1fb0ffba85ee359d930bdcb1965dc9ea23e01ba898b
 field_hashes:
   id: 69046ab2a8fd40c3a9c3d3aad2d9f713b6e15a263e7cfc80a233ac5fc91219c3
   title: 69d8ba99510731b4bcd67410832d4e5cd863acf3ae0d11d5837418b4a6ac444a
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 7536ae67e16f9635164531bf0dfbad6f9757fc1fbf547269dfc28eacf577371a
   input_sha256: f5b6cc868d4329a8ccca6eb25dce0a2d9c5313a0b44a4069f0ade0f858002788
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 6ae5f0b756ad6149c5fbcb249306b753e10fe8f6e9acdadfe06fecd6599d3d8f
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: db3e58cfa84c417bda7da0d66aa7fa92302a8c74538438cb0a0b85498e0ae695

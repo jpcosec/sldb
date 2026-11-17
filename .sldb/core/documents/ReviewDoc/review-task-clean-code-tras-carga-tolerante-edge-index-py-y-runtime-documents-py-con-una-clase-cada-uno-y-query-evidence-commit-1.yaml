@@ -1,7 +1,7 @@
 name: review-task-clean-code-tras-carga-tolerante-edge-index-py-y-runtime-documents-py-con-una-clase-cada-uno-y-query-evidence-commit-1
 path: desk/reviews/task-clean-code-tras-carga-tolerante-edge-index-py-y-runtime-documents-py-con-una-clase-cada-uno-y-query/evidence-commit-1.md
 source_hash: 7539de409cb23d4a8b78263173d87fad7849869b5f634a8eae42a35e00c09b33
-content_hash: 6cb157b106de5706da69454842f5b435769a7da1f3f4ef8bf23cc0420d5807d8
+content_hash: a613c29cf965d0a5ba2374eb07c31dfdde254ad7de85b43ca8e016a2784696e5
 field_hashes:
   id: 10dc0676874df6425485df1e4c3a75a55405dede4f07a54df322db453cb57e8f
   title: 3c8b455233431f765db5beac2e4acdb78a1f6aa47b64c58c46d2549ce9ba8043
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   input_sha256: 0cd5b6a2ea99e9540513d6f33b6086a2fd1966dbe1a1f82e6a1f477c1e5c3d1c
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: 91471f87f066a54f271bd5985a72b9d155f079a599bd2a289c36e7c513a73261

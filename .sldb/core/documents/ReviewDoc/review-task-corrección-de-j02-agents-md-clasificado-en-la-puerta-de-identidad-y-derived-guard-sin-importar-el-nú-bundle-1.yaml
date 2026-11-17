@@ -1,7 +1,7 @@
 name: review-task-corrección-de-j02-agents-md-clasificado-en-la-puerta-de-identidad-y-derived-guard-sin-importar-el-nú-bundle-1
 path: desk/reviews/task-corrección-de-j02-agents-md-clasificado-en-la-puerta-de-identidad-y-derived-guard-sin-importar-el-nú/bundle-1.md
 source_hash: 7bd1872575f801aca0efe389cf5e1d4a02b3f73d47da7e40b8ff6761f648aeb7
-content_hash: 4037722383b9a2521be8fb3973b76f118b929c789585e9951b3d2f9a097486d6
+content_hash: 9d1b4690e737fb1a40e6af78f3d32e9e82e02c6478dd3ad153539c2ce5329dd3
 field_hashes:
   id: a1e5be6a28c78d6c035d6a12e802a6d9a99fea49599290ba68aec1a51ab5de33
   title: 452e65f1ba3f1f6f8b722602f89d23acd9a9ec9537e183dc3cb0bec5682dd62e
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 7663a38def87d7bd7c29325a2a55f29b730e15db5e08c2f0dbd5da95814001ad
   input_sha256: 75f8749d047406d2e7b45260e679cb9e5d9c725818fab7f84091c350e1750f72
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: b5ffac84774c42ec0a8633ce82141d9ccb7f7a5bc7247ca7249c78e17cddc44a
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: 4a10abb3b36e4237f7e3489377969ef7f6c3a22b8f55a0421d95f8a4b8926013

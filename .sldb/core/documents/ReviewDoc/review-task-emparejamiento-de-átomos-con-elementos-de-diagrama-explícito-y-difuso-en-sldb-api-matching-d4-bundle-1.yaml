@@ -1,7 +1,7 @@
 name: review-task-emparejamiento-de-átomos-con-elementos-de-diagrama-explícito-y-difuso-en-sldb-api-matching-d4-bundle-1
 path: desk/reviews/task-emparejamiento-de-átomos-con-elementos-de-diagrama-explícito-y-difuso-en-sldb-api-matching-d4/bundle-1.md
 source_hash: 9f7656de7b606ede79dadb883c87b50e9d17a653fc6d79405644c0d692fab7cf
-content_hash: b6e4bf85083c6ad8c87a19449bbdb6e5558e13d97f43e6b21e2a9259109b0798
+content_hash: 82a393bf6844ec37decad58d841fcf9afef139c392055d6b45d3c6df70a6d004
 field_hashes:
   id: 8551c5aac2ee6ed10d47437faf3d190590fd912e0e0730aed74edd269fc6de6a
   title: 933f15007bd1066e0bba69762d0ca7b2e20a3be7beb1c231b4be5e686dce40ed
@@ -14,6 +14,7 @@ field_hashes:
   actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   run_dir: 3f465352aece00e8e20318ebcda80cc2b7198497eb27201da33b65c440151b79
   input_sha256: 7f41964e63704a373fc5e34f1c567d1bf42c4772ef956d06a62fd8a04b02bcc3
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   output_sha256: 1202f1e1a0f3a13b9116cd3958359f111319c85614d05a0bdcaf5084c84e1b8d
   verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
   reason: 68ea7c336e57ee3b5777b3357e39795f150608099d64f5985c45d8a18291ccdc
