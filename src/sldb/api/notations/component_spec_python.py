@@ -4,7 +4,8 @@ Replaces spec2viz's `generate_python_ast_spec` without its own `ast` walk: the m
 top-level classes and their imports come from `sldb.code`, the only place that reads Python.
 A node `module` per module (`__init__.py` skipped), `class` per top-level class, `defines`
 from module to class, `imports` per resolved imported module (top-level and nested imports,
-one edge per pair), and `external` for undeclared targets.
+one edge per pair), and `external` for undeclared targets. Only `.py` files are scanned: the `.ts`, `.js` or `.sql`
+files that `scan_tree` also reads (a vendored, minified `.js`) give no node and no finding.
 """
 
 from __future__ import annotations
@@ -13,8 +14,10 @@ from pathlib import Path
 
 from sldb.api.notations.component_spec_findings import code_extra_missing, syntax_error
 from sldb.api.notations.component_spec_python_build import _build_spec, _sanitize_id
+from sldb.code.files import find_files
+from sldb.code.ids import Ids
 from sldb.code.runtime import available
-from sldb.code.scan import scan_tree
+from sldb.code.scan import scan_file
 from sldb.core.finding import Finding
 
 
@@ -26,9 +29,15 @@ def component_spec_from_python(src_dir: str | Path, project_id: str = "project",
     elements: list[dict] = []
     relations: list[dict] = []
     findings: list[Finding] = []
-    for module, classes in _modules(scan_tree(Path(src_dir)), root_package):
+    for module, classes in _modules(_python_facts(Path(src_dir)), root_package):
         findings += _module_elements(module, classes, elements, relations)
     return _build_spec(project_id, title, elements, relations), findings
+
+
+def _python_facts(root: Path) -> list[dict]:
+    """The facts of the `.py` files under `root`, in one id space, like `scan_tree` restricted to Python."""
+    ids = Ids()
+    return ids.flush([f for rel in find_files(root) if rel.endswith(".py") for f in scan_file(rel, root, ids)])
 
 
 def _modules(facts: list[dict], root_package: str | None) -> list[tuple[dict, list[dict]]]:

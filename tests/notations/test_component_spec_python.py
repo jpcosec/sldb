@@ -81,6 +81,17 @@ def test_nested_imports_draw_one_edge_per_pair(tree):
 
 
 @needs_code
+def test_only_python_files_make_the_spec(tree):
+    """A vendored, minified `.js` that does not parse adds no node and no finding (regression of B2)."""
+    before = component_spec_from_python(tree, root_package="pkg")
+    (tree / "pkg" / "vendor").mkdir()
+    (tree / "pkg" / "vendor" / "production.min.js").write_text("!function(e){var t=(;}}{)(", encoding="utf-8")
+    (tree / "pkg" / "util.ts").write_text("export class U {}\n", encoding="utf-8")
+    assert component_spec_from_python(tree, root_package="pkg") == before
+    assert [f.subject for f in before[1]] == ["pkg/bad.py"]
+
+
+@needs_code
 def test_write_component_spec_and_cli_python(tree, tmp_path, capsys):
     out = tmp_path / "out" / "arch.yml"
     assert main(["notations", "from-graph", "--python", str(tree), "--id", "arch", "--output", str(out)]) == 0
