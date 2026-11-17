@@ -1,0 +1,193 @@
+=== pytest -q tests/api/test_apply_batch_lock.py
+....                                                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 5.72s
+rc=0
+=== pytest -q tests/test_clean_code_rules.py
+........................................................................ [  5%]
+........................................................................ [ 11%]
+........................................................................ [ 17%]
+........................................................................ [ 23%]
+........................................................................ [ 29%]
+........................................................................ [ 35%]
+........................................................................ [ 41%]
+........................................................................ [ 47%]
+........................................................................ [ 53%]
+........................................................................ [ 59%]
+........................................................................ [ 65%]
+........................................................................ [ 71%]
+........................................................................ [ 77%]
+........................................................................ [ 83%]
+........................................................................ [ 89%]
+........................................................................ [ 95%]
+......................................................                   [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1206 passed, 2 warnings in 2.49s
+rc=0
+=== bash tools/check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   225 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 976 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 123 símbolos pedidos, 594 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+rc=0
+
+########## Casos forzados (copia /dev/shm/torph/repo = HEAD + test del ejecutor; tests/api/test_orph_{assert,hang}.py = variantes con assert False / sleep 600 tras 'started')
+=== A: assert failure
+pytest rc=1
+E       AssertionError: forced assert failure
+1 failed, 3 deselected, 1 warning in 1.35s
+live after A: []
+=== B: SIGINT
+before: [245586 245385 S 1;245731 245385 S 0;]
+pytest rc=2
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! KeyboardInterrupt !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+live after B: []
+=== C1: pytest-timeout --timeout=5 (signal method) on hanging test
+during: [246710 246634 S 1;246740 246634 S 0;]
+pytest rc=1
+E       Failed: Timeout (>5.0s) from pytest-timeout.
+1 failed, 3 deselected, 1 warning in 5.09s
+live after C1: []
+=== D (kill -9 al pytest padre)
+before: [248084 247923 S 3;248199 247923 S 2;]
+pytest rc=137
+right after: [248084 1 S 3;248199 1 S 2;]
+=== C2 (pytest-timeout --timeout=5 --timeout-method=thread)
+before: [248083 247944 S 3;248192 247944 S 2;]
+pytest rc=1
+right after: [248083 1 S 4;248192 1 S 4;]
+=== C3 (kill -TERM al pytest padre)
+before: [248104 247925 S 3;248228 247925 S 1;]
+pytest rc=143
+right after: [248104 1 S 3;248228 1 S 2;]
+=== D2 (kill -9 al pytest padre)
+before: [260117 260031 S 3;260252 260031 S 2;]
+pytest rc=137
+parent dead at +2s after ready
+right after: [260117 1 S 3;260252 1 S 2;]
+children gone at +118s after parent death (+120s after ready); left: []
+(D, C2, C3: marks 'entered' 120 s después de 'ready' en los tres → el retenedor salió por el tope y el segundo entró y terminó; ps posterior vacío)
+
+=== D2 marcas
+-rw-r--r-- 1 robocop robocop   1 2026-11-17 10:55:25.672743803 -0300 entered
+-rw-r--r-- 1 robocop robocop   1 2026-11-17 10:53:25.631413517 -0300 ready
+-rw-r--r-- 1 robocop robocop   1 2026-11-17 10:53:26.723009465 -0300 started
+
+=== C1 salida
+=========================== short test summary info ============================
+FAILED tests/api/test_orph_hang.py::test_second_process_with_the_same_guard_conflicts_and_leaves_no_partial_write
+1 failed, 3 deselected, 1 warning in 5.09s
+
+########## (3) cerrojo quitado en apply_batch (copia /dev/shm/torph/repo-nolock)
+F...                                                                     [100%]
+=================================== FAILURES ===================================
+_ test_second_process_with_the_same_guard_conflicts_and_leaves_no_partial_write _
+
+api_store = <api.conftest.ApiStore object at 0x7f53c417f4d0>
+tmp_path = PosixPath('/dev/shm/torph/bt-NL/test_second_process_with_the_s0')
+spawn = <function _processes.<locals>.spawn at 0x7f53c40bd120>
+
+    def test_second_process_with_the_same_guard_conflicts_and_leaves_no_partial_write(api_store, tmp_path, spawn):
+        source_hash = _shard(api_store, "login").source_hash
+        first = spawn("1", "Winner", source_hash)
+        _wait_for(tmp_path / "ready")
+        assert (tmp_path / "ready").exists(), first.communicate(timeout=60)
+        second = spawn("0", "Loser", source_hash)
+        _wait_for(tmp_path / "started")
+        assert (tmp_path / "started").exists(), second.communicate(timeout=60)
+        time.sleep(1.0)
+>       assert not (tmp_path / "entered").exists()  # the second waits on the lock before prevalidating
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: assert not True
+E        +  where True = exists()
+E        +    where exists = (PosixPath('/dev/shm/torph/bt-NL/test_second_process_with_the_s0') / 'entered').exists
+
+tests/api/test_apply_batch_lock.py:110: AssertionError
+=============================== warnings summary ===============================
+../../../../mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/api/test_apply_batch_lock.py::test_second_process_with_the_same_guard_conflicts_and_leaves_no_partial_write
+1 failed, 3 passed, 1 warning in 5.60s
+
+########## Caso extra: mutación sin child.kill() en _processes (copia repo-nokill)
+E       RuntimeError: simulated failure of the test, before marks/go
+E           subprocess.TimeoutExpired: Command '['/mnt/ssd/proyectos/SLDB_1/sldb/.venv/bin/python', '-c', '\nimport sys, time\nfrom pathlib import Path\nimport sldb.api as api\nimport sldb.api.documents.apply_batch as ab\nfrom sldb.core.exceptions import ConflictError\n\nstore, pythonpath, hold, mar
+FAILED tests/api/test_apply_batch_lock.py::test_a_failing_test_leaves_no_child_alive
+1 failed, 3 deselected, 1 warning in 31.46s
+live right after: 2 hijos (ppid 1); salieron solos por el tope ~88 s después
+
+########## Alcance / regresiones
+.sldb/core/models/RunDoc.yaml
+.sldb/core/store_index.yaml
+.sldb/store.yaml
+tests/api/test_apply_batch_lock.py
+módulos src cambiados: ninguno → sin tests vecinos que correr
+
+########## ps final de mis pruebas
+(vacío)

@@ -1,0 +1,37 @@
+name: review-task-test-apply-batch-lock-no-deja-procesos-huérfanos-el-segundo-proceso-termina-siempre-falle-o-venza-el-evidence-tests-1
+path: desk/reviews/task-test-apply-batch-lock-no-deja-procesos-huérfanos-el-segundo-proceso-termina-siempre-falle-o-venza-el/evidence-tests-1.md
+source_hash: 145dd443843d3f5bc9bb493c0b1a851a4d1feb4362f15659342632a15aa45864
+content_hash: f96dc338fefe94b2a25bad987fe1732920c735609d5de3fb9d4252bc8bcaca61
+field_hashes:
+  id: f52d902c7f375c095753d207d6f67c1a9b568f43807e7e591d74071fec755000
+  title: d21a76514dc425c6e180d74fa784c71af10bae9f6c1b20e9f94bac8c3a713907
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: 68f05093bc600659c0aecd265fad80c71a658cc857e91cdfeeee782eb670c200
+  value: 354bfa3b9fe402ac777f8d9dd09d82f90c97002663acefc53a406db59ddf9d03
+  subject: 339b94423e53c0a23da84aa2dd6454d1ad1b26e0c65009a0208d54f7293a6965
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: a1cb84bd47d8ad9748292f315799934cbb38b9860bfbabf75ba1b3957c9267a2
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: a938d548980713d06610fab290a9315266322b0d0d9662a04f5562fabdcc3da1
+  created_at: b4dbcce94d57fe9cb143ad290a704606f1aa2e8473584d859d6dd0ed2e7c26ec
+  disposed_at: b4dbcce94d57fe9cb143ad290a704606f1aa2e8473584d859d6dd0ed2e7c26ec
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: b99471c22990120391bf29ffccf690177a288a5ed311fba6988599453e10980e
+  disposition: 2573c28d3b9ea0ea781c8bbcbce1e2ff2a39dd341da4113d04147b00de633d94
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T14:00:18Z'
+  authority: generated
+  via: create_document

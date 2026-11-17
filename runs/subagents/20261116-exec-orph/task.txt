@@ -1,0 +1,9 @@
+Task: task-test-apply-batch-lock-no-deja-procesos-huérfanos-el-segundo-proceso-termina-siempre-falle-o-venza-el
+Title: test_apply_batch_lock no deja procesos huérfanos: el segundo proceso termina siempre, falle o venza el test
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective atoms:
+- atom-apply-batch-prevalida-y-escribe-bajo-el-cerrojo-del-store-y-rechaza-con-conflicterror-un-guarda-obso
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]

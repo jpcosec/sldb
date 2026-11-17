@@ -1,0 +1,25 @@
+name: materialization-orph-test-apply-batch-lock
+path: desk/materializations/materialization-orph-test-apply-batch-lock.md
+source_hash: 6afef583ce258a04e42b63ff0ef85b9226b8cfeaa58b14098e26920623478b34
+content_hash: 248f63663c595509fc67a896c2b3b789e4c132903dbc825b042173193b57eb52
+field_hashes:
+  id: 36880522fcd03a42c7cfd607e60f17beda807132a5bc9b6a3f62279568b653ad
+  title: b0357fa49170a90a6c73cab9c7289c46ef0823989d07887f34829903e03c717a
+  source_atoms: 0fc2c200fb841ffc1a754965bb1c6e92a7b55f561e0cb67f183cddd09f269813
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 67fcc03e2ea6d5bdd8dbe00f02eafb581d4b793ca5f7cd031d1eb9b9dcee67cf
+  intent: 17db3157c387af3299adf47c91b6ca78b67fb413c9d803932b1b99952dab0c17
+  validation: 8f29ad27076078893c7256b7601d800fd395ce3f000f7bf14e0737254c0143e2
+  tags: 75da8c415dfdb85c80acbaced9ae893849e885b205751f60e09dac270108576d
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store-lock
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T13:59:16Z'
+  authority: generated
+  via: create_document

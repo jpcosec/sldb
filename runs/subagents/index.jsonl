@@ -102,3 +102,4 @@
 {"task_id": "task-higiene-del-desk-de-sldb-cerrar-con-closeout-resolved-by-citando-el-sha-las-tareas-abiertas-cuyo-tra", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}
 {"task_id": "task-el-valor-de-un-campo-se-renderiza-literal-render-model-markdown-deja-de-pasar-los-valores-del-usuari", "run_id": "deskops-e-08683ea7876c", "run_dir": "runs/subagents/20261116-exec-jinja", "session_sha256": null, "commit": null}
 {"task_id": "task-sldb-code-publica-facts-gen\u00e9ricos-de-ts-tsx-js-y-jsx-llamadas-entre-s\u00edmbolos-llamadas-http-como-llam", "run_id": "deskops-e-c92b7022cf97", "run_dir": "runs/subagents/20261116-exec-k4-nc", "session_sha256": null, "commit": null}
+{"task_id": "task-test-apply-batch-lock-no-deja-procesos-hu\u00e9rfanos-el-segundo-proceso-termina-siempre-falle-o-venza-el", "run_id": "deskops-e-cdb27fa3f0f8", "run_dir": "runs/subagents/20261116-exec-orph", "session_sha256": null, "commit": null}
