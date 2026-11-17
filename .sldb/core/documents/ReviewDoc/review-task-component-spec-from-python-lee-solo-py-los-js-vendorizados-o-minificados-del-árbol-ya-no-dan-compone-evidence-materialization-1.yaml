@@ -1,0 +1,37 @@
+name: review-task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone-evidence-materialization-1
+path: desk/reviews/task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone/evidence-materialization-1.md
+source_hash: 8f3f6ced83f82031097c1c573174b23de33395999b623d27b795c7996e17fe28
+content_hash: feb606faf605f14e362b67e7bf444d91cadc4d064368f1a9e0bb112a9d80ad69
+field_hashes:
+  id: 385bea74f9b623c010a3adbb3418c209f17beff3868476a462c21d1b2a1d3f5d
+  title: db3731c6e6d22729a7948068a0ef1d39da40255370467abf4a0b29c92d035d46
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: 5712a5a6c366fc34d0003ea28dc1092fab910cf184602b09b40074c6b821e9e1
+  subject: 0811bbf099041a174de0e5df9c7ea3f1887ad856eb565e942a5c1eb2c3e998e6
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 08beb80b19d6ea7ccec099bfe92a8352554259810d01cb274bf9eaf5475b3087
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: aab5c0eb94dd9eaeedca08dfc5bc79cda25400d4a1afb0bdad0723af35e25333
+  created_at: e6090008781e9d3c3e608989a381e4085491c3a0bd9740759760851534e079a1
+  disposed_at: e6090008781e9d3c3e608989a381e4085491c3a0bd9740759760851534e079a1
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: efb6cbff9d08f341735a690993a6ce49b4ebc026df8e7d04bece819a8ad904ee
+  disposition: 13e5ebc5237e80679d1866e5a6359c9f8bc9feb40d985a3edfbd07691a9d72c1
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T11:14:28Z'
+  authority: generated
+  via: create_document

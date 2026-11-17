@@ -1,0 +1,25 @@
+name: materialization-b2reg-component-spec-python
+path: desk/materializations/materialization-b2reg-component-spec-python.md
+source_hash: 2d95991635b5980ea87020e22b8f4394943a77dfd12dfc12cd8b1ae397178f6b
+content_hash: cab74ccbaf81962f190430362cc440619eeb4a6c073ba7cf3e24c99e02c7759e
+field_hashes:
+  id: f29843d71e776e60e76dd6c4017a850edc8b4a7deda15df81b018ca3e688080d
+  title: a3f8ddba9aa29d695a20846e9351fab9fd7065360a5a73f1f6f4ba8fe9b40614
+  source_atoms: 64a38b8f706ff2107fbb1f4948c4825818af60df91b7044b035d62ed01906a58
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 0dae1ed08e242170d317de1e065ffcbc409a2934a46e513dd2563a9e4595dc2a
+  intent: 700412b56e5a85e55bb09b9c48c5cff4ddfc2eb002bf501f279b564c1cd661ad
+  validation: f74066aa89dcd69f1a10b0ab8ed658ac2c41e129d858af36104bf177cde61f16
+  tags: 1f6879d3f31f56b2802c17ed6bd1ec91facdb8d554030fea048f5505d98e5e32
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:notations
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T11:10:56Z'
+  authority: generated
+  via: create_document

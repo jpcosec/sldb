@@ -1,0 +1,37 @@
+name: review-task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone-evidence-atom-1
+path: desk/reviews/task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone/evidence-atom-1.md
+source_hash: 09ec8ad34eae1c485e2476d42eb55598ccfcc7ca3200774657d0f51d757f4774
+content_hash: b9ffb8f5f3e31497bc780584239e38eace224760706fdb7a3b32d2f0af605416
+field_hashes:
+  id: e2e552799ad06f1e803e8620c5485d9ebe9a1cb3939f2c61816c1d67ec6b1433
+  title: b782d912ec141a6b5d84a015b1d87c423b16ff2fa431cd2efdda8d21b7161703
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: c833c202b5b45ac10909767bb422916db457ddd48188a4ee591f0618893df0ba
+  value: d628ddabe2498ee25cf8b2abcd253b8a8c7d66a614f4f79f702929d8a11aabcf
+  subject: 0811bbf099041a174de0e5df9c7ea3f1887ad856eb565e942a5c1eb2c3e998e6
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: db4d7c9a31963c74a8916b1643b67bbba1a77c54b0a20fae376078a5d4a4a502
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 605dcc1f34450d77b856a0e69959f79cbc4c0bde9548490598327cba4437b08a
+  created_at: e6090008781e9d3c3e608989a381e4085491c3a0bd9740759760851534e079a1
+  disposed_at: e6090008781e9d3c3e608989a381e4085491c3a0bd9740759760851534e079a1
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: a0f794999479398af50b9dac90bce340b2c08aa3c91a2256e29f9ce2673fce8b
+  disposition: ace87d8d48449f23ad3df7983c463b27c7e0ebb690c6493df528e2e6d93728ae
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T11:14:14Z'
+  authority: generated
+  via: create_document

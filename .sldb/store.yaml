@@ -336,6 +336,8 @@ include:
   - desk/inbox/20261117-015212-suggestion-render-model-markdown-interpreta-como-jinja-el-valor-de-los-campos-llaves-dobles-rompen-expresiones-se-evaluan.md
   - desk/inbox/20261117-021515-suggestion-read-store-dice-store-not-prepared-para-un-store-inexistente.md
   - desk/inbox/20261117-021700-suggestion-el-scan-de-enlaces-cuenta-enlaces-dentro-de-bloques-de-c-digo.md
+  - desk/inbox/20261117-080455-suggestion-docs-track-force-re-indexa-sin-validar-pedido-de-un-re-index-que-valide.md
+  - desk/inbox/20261117-080724-suggestion-project-graph-de-deskops-destinos-de-h1-que-declaredfiletargets-no-puede-declarar-y-closed-sin-cuerpo-h2.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -609,6 +611,10 @@ include:
     name: run-deskops-e-fc2bbe7745a8
   - path: runs/subagents/20261116-test-k3-c2/run.md
     name: run-deskops-t-e9903b561d98
+  - path: runs/subagents/20261116-exec-b2reg/run.md
+    name: run-deskops-e-55d271007190
+  - path: runs/subagents/20261116-test-b2reg/run.md
+    name: run-deskops-t-4b0ad6f4233f
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -1010,6 +1016,8 @@ include:
   - desk/materializations/materialization-k3-c2-blogsite-urls.md
   - desk/materializations/materialization-k3-c2-manage.md
   - desk/materializations/materialization-k3-c2-blog-0001-initial.md
+  - desk/materializations/materialization-b2reg-component-spec-python.md
+  - desk/materializations/materialization-b2reg-test-component-spec-python.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -1893,6 +1901,14 @@ include:
     name: review-task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre-evidence-atom-1
   - path: desk/reviews/task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre/evidence-materialization-1.md
     name: review-task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre-evidence-materialization-1
+  - path: desk/reviews/task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone/evidence-tests-1.md
+    name: review-task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone-evidence-tests-1
+  - path: desk/reviews/task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone/evidence-commit-1.md
+    name: review-task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone-evidence-commit-1
+  - path: desk/reviews/task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone/evidence-atom-1.md
+    name: review-task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone-evidence-atom-1
+  - path: desk/reviews/task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone/evidence-materialization-1.md
+    name: review-task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -1919,7 +1935,6 @@ include:
   - desk/tasks/task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup.md
   - desk/tasks/task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable.md
   - desk/tasks/task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam.md
-  - desk/tasks/task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone.md
   - desk/tasks/task-sldb-mcp-sirve-undo-changes-apply-changes-guarda-el-lote-inverso-de-cada-lote-en-una-pila-de-la-sesi.md
   - desk/tasks/task-pron-contra-sldb-deshacer-restaura-el-hash-del-mundo-untrack-track-recupera-el-documento-y-find-con.md
   - desk/tasks/task-sldb-models-validate-importa-los-modelos-de-deskops-models-como-lo-hacen-extract-y-render-no-module.md

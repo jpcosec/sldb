@@ -1,0 +1,23 @@
+name: atom-el-spec-de-componentes-desde-python-lee-solo-archivos-py-aunque-el-árbol-tenga-otros-lenguajes
+path: desk/atoms/atom-el-spec-de-componentes-desde-python-lee-solo-archivos-py-aunque-el-árbol-tenga-otros-lenguajes.md
+source_hash: 0e8f5443a0b0e5d9e9fdc5e4f7e89f9d24b4fa3fb2f8b6b70fdc1c7ee724bd44
+content_hash: f28a8b09eec7f3eabc5be5e1e38d8c19a3988da2a45e552fa18cbade0e1bc9e5
+field_hashes:
+  id: d628ddabe2498ee25cf8b2abcd253b8a8c7d66a614f4f79f702929d8a11aabcf
+  title: 9c982ff3141db5011201148eb575948aed23e4a371545081b98ffd48410c234b
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: 2437c5829052af92eb52e6d355e00f7ce41366f9dfd8976eda82ca8ae9b3e65a
+  tags: 1f6879d3f31f56b2802c17ed6bd1ec91facdb8d554030fea048f5505d98e5e32
+  provenance: 04cdd40bbea098bd2ea8630727f1918f8ca03685df6c15a2283b92f115afb742
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:notations
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-17T11:10:06Z'
+  authority: generated
+  via: create_document

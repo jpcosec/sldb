@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T11:02:13Z'
+  at: '2026-11-17T11:17:01Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -55,7 +55,6 @@ tasks:
 - desk/tasks/task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup.md
 - desk/tasks/task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable.md
 - desk/tasks/task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam.md
-- desk/tasks/task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone.md
 - desk/tasks/task-sldb-mcp-sirve-undo-changes-apply-changes-guarda-el-lote-inverso-de-cada-lote-en-una-pila-de-la-sesi.md
 - desk/tasks/task-pron-contra-sldb-deshacer-restaura-el-hash-del-mundo-untrack-track-recupera-el-documento-y-find-con.md
 - desk/tasks/task-sldb-models-validate-importa-los-modelos-de-deskops-models-como-lo-hacen-extract-y-render-no-module.md
@@ -179,7 +178,6 @@ _Generated from the task references above._
 - sldb notations from-graph elige el campo del label, el campo que da kind o estilo y un campo de agrupación [draft] - from-graph acepta --label-field <campo>, --kind-field <campo|tag:<namespace>> y --group-field <campo|tag:<namespace>>; con ellos, el label del nodo es el valor de ese campo del payload (o el id si falta), el kind es el valor del campo o del tag con ese namespace (o el modelo si falta), y los nodos con el mismo valor de agrupación quedan dentro de un nodo contenedor con aristas contains.
 - Separar el store en .sldb_store (todo lo versionado: store.yaml y core/) y .sldb_cache (todo lo regenerable), con stores migrate-layout, lectura del layout viejo y migración del ecosistema [draft] - Un store nuevo se crea en .sldb_store/ (store.yaml, core/ y README.md, todo versionado) con su cache en .sldb_cache/ (todo regenerable e ignorado); `sldb stores migrate-layout` lleva un store del layout viejo al nuevo con git mv; todo comando de sldb sigue leyendo un store en .sldb/ (layout viejo) con una alerta que dice que se migre; el store de sldb está migrado; y cada repo del ecosistema que tiene store recibió por inbox el aviso con el comando.
 - sldb.code publica facts genéricos de TS, TSX, JS y JSX: llamadas entre símbolos, llamadas HTTP como llamadas y handlers JSX (C3 de IR para IR09) [draft] - Los facts de TS, TSX, JS y JSX llevan las llamadas que hace cada función, componente o hook (fetch(...), axios.get(...), api.posts.create(...) y llamadas a otros símbolos) con su primer argumento literal si lo hay, y los atributos JSX que ligan un evento a un handler (onClick={handleSave}), sin conocer ningún framework.
-- component_spec_from_python lee solo .py: los .js vendorizados o minificados del árbol ya no dan component-spec/syntax-error (regresión de B2) [draft] - component_spec_from_python construye el spec solo a partir de los archivos .py del árbol, como antes de B2; ningún archivo de otro lenguaje produce hallazgos en ese spec.
 - sldb mcp sirve undo_changes: apply_changes guarda el lote inverso de cada lote en una pila de la sesión y undo_changes lo aplica con guardas (IR04b) [draft] - En una sesión de sldb mcp, cada apply_changes exitoso apila su report.inverse; undo_changes deshace el último lote aplicado (o los N últimos) aplicando su inverso con apply_batch, con las mismas guardas: si alguien escribió entre medio, se rechaza con ConflictError sin escritura parcial y el lote queda en la pila.
 - pron contra sldb: deshacer restaura el hash del mundo, untrack + track recupera el documento y find con where en un mundo solo vuelve a encontrar [draft] - Cada uno de los tres síntomas queda clasificado con evidencia como regresión de sldb (y arreglado aquí con test) o como cambio de contrato (documentado en el CHANGELOG, con la forma que pron debe adoptar), y las pruebas de pron nombradas en la nota pasan contra este sldb salvo las que dependan de un cambio de contrato que pron deba adoptar.
 - sldb models validate importa los modelos de deskops.models:* como lo hacen extract y render (No module named deskops.base) [draft] - sldb models validate <Modelo> importa el modelo con la misma resolución que extract y render, y valida los modelos de deskops.models:* sin error de import.

@@ -1,0 +1,18 @@
+name: 20261117-080724-suggestion-project-graph-de-deskops-destinos-de-h1-que-declaredfiletargets-no-puede-declarar-y-closed-sin-cuerpo-h2
+path: desk/inbox/20261117-080724-suggestion-project-graph-de-deskops-destinos-de-h1-que-declaredfiletargets-no-puede-declarar-y-closed-sin-cuerpo-h2.md
+source_hash: b3e6c8de7f7a06fc3455b319c39cdf5fb5b8a049de85a44c7e67c36efc932a75
+content_hash: c2adc7e44763911b5c5088608adeb95e1eeeecaf469df38e47f71347414e7e1a
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 07f3c31dc88cda67b7aa25c967c0fd4c352e07ca001ae72702fa2bcb4559bb74
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: 0ec2cde07d814018bad536454096797c324884d1ba5e3b40951d579d119f948c
+  body: 7a07983d794bf0d9620a65dd57ce46ec8fb897103dad0537349114ccdbc2a9b0
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null
