@@ -17,8 +17,8 @@ The level is the operator's (`--level`), never a tool argument, and levels are c
 | level | serves |
 | --- | --- |
 | 0 (default) | the eleven read tools and `list_signals`, all read-only |
-| 1 content | adds `propose_changes` and `apply_changes` for documents of registered models and authored edges (`RelationDoc`) |
-| 2 rules as data | the same two tools may also write `RelationTypeDoc` and `RuleDoc` |
+| 1 content | adds `propose_changes`, `apply_changes` and `undo_changes` for documents of registered models and authored edges (`RelationDoc`) |
+| 2 rules as data | the same tools may also write `RelationTypeDoc` and `RuleDoc` |
 
 Models as Python code (level 3) are never served: no tool writes a Python module.
 
@@ -58,11 +58,25 @@ log lives in the cache (`sldb.store.layout.cache_dir`), next to `.sldb_cache/rul
 `.sldb_cache/composed`: it is derived, ignored by git, and not store state, so recording a signal
 at level 0 writes no tracked document and no linked store. There is no rotation yet.
 
-## Undo (pending)
+## Undo
 
-`undo_changes` is declared and not served: `apply_batch` does not yet return the inverse batch
-with guards (inbox request 20261115-123855; undo belongs to sldb). Calling it answers
-`not_implemented` and is logged. When the request is resolved the tool re-applies the inverse.
+`undo_changes(steps=1)` (level 1 and up) undoes the last `steps` proposals `apply_changes` applied
+in this session. Every applied batch pushes its `BatchReport.inverse` onto a stack that lives in the
+server session (`WriteTools.undo`, an `sldb.mcp.write.undo.UndoStack`): in memory, one per session,
+not persisted, with no redo. Undoing goes newest first and hands each inverse to `apply_batch`
+unchanged, so it carries the guards the batch left: when someone else wrote one of those
+documents since, `apply_batch` raises `ConflictError` and that inverse writes nothing.
+
+- Done: `{"applied": true, "undone": n, "batches": [{"applied", "saved", "changes"}], "remaining": m, "pending": [...]}`.
+  An undone batch leaves the stack.
+- Refused: `rejected: "stale"` (with `document`) or SLDB's refusal (`rules`, or its error's class).
+  The undo stops at that batch: the newer ones already undone stay undone (`undone`, `written`
+  true if any), and the batch that failed and the older ones stay in the stack (`remaining`).
+- More steps than the stack holds, or fewer than one: `rejected: "nothing_to_undo"`, nothing
+  written, the stack untouched.
+
+There is no dry run: `apply_changes` has none either. At level 0 calling `undo_changes` is an
+`unknown_tool` signal whose explanation names the write level it needs.
 
 ## Extension point
 

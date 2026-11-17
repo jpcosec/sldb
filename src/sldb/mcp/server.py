@@ -1,8 +1,8 @@
 """The sldb MCP server over stdio: `sldb mcp --store <project>/.sldb --level 0|1|2 --actor <who>`.
 
 Level 0 (the default) serves the read tools and `list_signals`, all read-only: none writes to
-the store or to its linked stores. `--level 1` (content) adds `propose_changes` and
-`apply_changes`; `--level 2` also lets them write the store's rules as data. The level is the
+the store or to its linked stores. `--level 1` (content) adds `propose_changes`,
+`apply_changes` and `undo_changes`; `--level 2` also lets them write the store's rules as data. The level is the
 operator's, never a tool argument. A consumer adds tools of its own with `--extension
 module:function` or `build_server(..., extensions=[...])`. Every tool returns structured JSON."""
 
@@ -31,7 +31,8 @@ INSTRUCTIONS = (
 WRITE_INSTRUCTIONS = (
     " Writing is two steps: propose_changes (typed changes; writes nothing and answers what "
     "would be written) and apply_changes (the proposal exactly as returned; applied whole or "
-    "not at all, or rejected with its cause)."
+    "not at all, or rejected with its cause). undo_changes undoes the last batches this session "
+    "applied, guarded: a document someone else wrote since refuses it."
 )
 
 

@@ -9,7 +9,7 @@ from typing import Any
 import pytest
 
 from mcp_helpers import an_item, files, page_items, tracked, valid_edge
-from mcp_session import WRITER
+from mcp_session import WRITER, served, tree_digest
 from mcp_world import front_matter
 
 EDGE_PENDING = "edge_validation_before_write"
@@ -165,3 +165,74 @@ def test_an_edge_against_its_relation_type_is_refused_before_writing(writer, wri
     finally:
         if answer["applied"]:
             applied(writer, [{"action": "retract_edge", "name": wrong["name"]}])
+
+
+def retitled(item: dict[str, Any], title: str) -> list[dict[str, Any]]:
+    """The change that sets an item's title."""
+    return [{"action": "update", "model": item["model"], "name": item["name"], "fields": {"title": title}}]
+
+
+def two_items(session, root: Path) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Two different items of the world, read."""
+    return an_item(session, root), an_item(session, root, with_dependency=False)
+
+
+def written_by_someone_else(root: Path, changes: list[dict[str, Any]]) -> None:
+    """Apply `changes` from another server process, the way another client would."""
+    with served(root, "--level", "2", "--actor", WRITER) as other:
+        applied(other, changes)
+
+
+def test_undo_changes_is_served_and_puts_the_store_back(write_copy: Path) -> None:
+    with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+        assert "undo_changes" in {t.name for t in session.list_tools()}
+        item, other = two_items(session, write_copy)
+        export_ids = {r["export_id"] for r in page_items(session, "select_documents", model=item["model"])}
+        name = "item-undone"
+        applied(session, [{"action": "create", "model": item["model"], "name": name, "payload": {**item["payload"], "title": "To be undone", "depends_on": []}, "path": f"item/{name}.md"}])
+        applied(session, retitled(item, "undone title"))
+        applied(session, retitled(other, "undone too"))
+        one = session.call("undo_changes")
+        assert one["applied"] is True and one["undone"] == 1 and one["remaining"] == 2, one
+        assert session.call("read_document", ref=other["export_id"])["payload"] == other["payload"]
+        two = session.call("undo_changes", steps=2)
+        assert two["applied"] is True and two["undone"] == 2 and two["remaining"] == 0, two
+        assert session.call("read_document", ref=item["export_id"])["payload"] == item["payload"]
+        assert {r["export_id"] for r in page_items(session, "select_documents", model=item["model"])} == export_ids
+        assert not (write_copy / f"item/{name}.md").exists()
+
+
+def test_undo_after_someone_else_wrote_is_a_conflict_and_writes_nothing(write_copy: Path) -> None:
+    with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+        item = an_item(session, write_copy)
+        applied(session, retitled(item, "mine"))
+        written_by_someone_else(write_copy, retitled(item, "someone else's"))
+        before = tree_digest(write_copy)
+        stale = session.call("undo_changes")
+        assert stale["applied"] is False and stale["rejected"] == "stale" and stale["written"] is False, stale
+        assert stale["undone"] == 0 and stale["remaining"] == 1 and stale["document"] == item["name"], stale
+        assert tree_digest(write_copy) == before, "a refused undo changed a file"
+        assert session.call("read_document", ref=item["export_id"], field="title")["value"] == "someone else's"
+
+
+def test_undo_of_several_stops_at_the_first_that_fails(write_copy: Path) -> None:
+    with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+        item, other = two_items(session, write_copy)
+        applied(session, retitled(item, "first, then overwritten"))
+        applied(session, retitled(other, "second, undone"))
+        written_by_someone_else(write_copy, retitled(item, "overwritten"))
+        answer = session.call("undo_changes", steps=2)
+        assert answer["applied"] is False and answer["rejected"] == "stale" and answer["document"] == item["name"], answer
+        assert answer["undone"] == 1 and answer["written"] is True and answer["remaining"] == 1, answer
+        assert session.call("read_document", ref=other["export_id"])["payload"] == other["payload"]
+        assert session.call("read_document", ref=item["export_id"], field="title")["value"] == "overwritten"
+        assert session.call("undo_changes")["rejected"] == "stale", "the failed batch left the stack"
+
+
+def test_undo_with_nothing_to_undo_is_a_clear_refusal(write_copy: Path) -> None:
+    with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+        before = tree_digest(write_copy)
+        answer = session.call("undo_changes")
+        assert answer["applied"] is False and answer["rejected"] == "nothing_to_undo" and answer["written"] is False, answer
+        assert answer["remaining"] == 0 and "0 applied batch(es)" in answer["explanation"], answer
+        assert tree_digest(write_copy) == before

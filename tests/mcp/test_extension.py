@@ -33,7 +33,7 @@ def extended(extended_copy: Path) -> Iterator[McpSession]:
 
 def test_the_extension_tools_join_the_built_in_ones(extended) -> None:
     names = {t.name for t in extended.list_tools()}
-    assert names == TOOLS | {"propose_changes", "apply_changes"} | EXTENSION_TOOLS
+    assert names == TOOLS | {"propose_changes", "apply_changes", "undo_changes"} | EXTENSION_TOOLS
     described = next(t for t in extended.list_tools() if t.name == "count_by_model")
     assert described.description and described.output_schema is not None
 

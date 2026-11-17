@@ -24,8 +24,4 @@ PENDING = {
         "what": "the on_write alerts of a write in apply_batch's answer: SLDB hands them only to in-process listeners, so apply_changes re-reads them with rules_check, which cannot take a document that is not a node of the edge index (a RelationDoc) as subject; those alerts are not reported",
         "note": "sldb:20261115-022655-suggestion-specir-validar-aristas-antes-de-escribir-y-devolver-las-alertas-on-write-de-apply-batch",
     },
-    "undo": {
-        "what": "undo_changes: apply_batch does not return the inverse batch with guards yet, so the MCP does not serve the tool; calling it is logged as a not_implemented signal",
-        "note": "sldb:20261115-123855-suggestion-specir-apply-batch-devuelve-el-lote-inverso-con-guardas-deshacer-en-sldb",
-    },
 }

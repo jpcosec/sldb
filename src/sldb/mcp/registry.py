@@ -27,3 +27,4 @@ def register_write(server: SignalServer, writes: WriteTools) -> None:
     """The write tools. A call above the server's level is refused before anything is read."""
     server.add_tool(writes.propose_changes, annotations=PROPOSES)
     server.add_tool(writes.apply_changes, annotations=WRITES)
+    server.add_tool(writes.undo.undo_changes, annotations=WRITES)

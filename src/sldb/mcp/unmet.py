@@ -10,7 +10,7 @@ from sldb.mcp.signals import PENDING_TOOLS, settle
 from sldb.mcp.signals.catalog import NOT_IMPLEMENTED, UNKNOWN_ARGUMENT, UNKNOWN_TOOL
 
 #: The least write level that serves each write tool.
-LEVEL_TOOLS = {"propose_changes": 1, "apply_changes": 1}
+LEVEL_TOOLS = {"propose_changes": 1, "apply_changes": 1, "undo_changes": 1}
 
 
 def why_missing(context: ServerContext, name: str) -> str:

@@ -11,7 +11,7 @@ from mcp_helpers import an_item
 from mcp_session import server_env, tree_digest
 from test_read_tools import TOOLS
 
-WRITE_TOOLS = {"propose_changes", "apply_changes"}
+WRITE_TOOLS = {"propose_changes", "apply_changes", "undo_changes"}
 #: A change on a rule document that names nothing the store has: evaluating it at all would
 #: answer "not registered" or "not a document", not the level.
 RULE_CHANGES = [

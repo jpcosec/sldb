@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 import sldb.api as api
 from sldb.mcp.addresses import document_address
@@ -11,6 +11,9 @@ from sldb.mcp.changes import EDGE_MODEL, BatchChange, Proposal
 from sldb.mcp.write.findings import edge_findings, on_write_alerts
 from sldb.mcp.write.pending import PENDING
 from sldb.mcp.write.pendings import edge_pending, level_pending
+
+if TYPE_CHECKING:
+    from sldb.mcp.write.undo import UndoStack
 
 
 def rejected(cause: str, explanation: str, **detail: Any) -> dict[str, Any]:
@@ -45,12 +48,14 @@ def applied(store_path: Path, proposal: Proposal, report: Any) -> dict[str, Any]
     return {"applied": True, "saved": list(report.saved), "documents": [written_row(store_path, c) for c in written], "deleted": deleted, "alerts": on_write_alerts(store_path, written), "edge_findings": edge_findings(store_path, edges), "pending": pending}
 
 
-def run_batch(store_path: Path, proposal: Proposal) -> dict[str, Any]:
-    """`apply_batch` on the proposal, answered as applied, stale or refused."""
+def run_batch(store_path: Path, proposal: Proposal, undo: UndoStack) -> dict[str, Any]:
+    """`apply_batch` on the proposal, answered as applied, stale or refused; an applied batch's
+    inverse goes onto the session's undo stack."""
     try:
         report = api.apply_batch(store_path, [c.batch_form() for c in proposal.changes])
     except api.ConflictError as error:
         return rejected("stale", f"the store changed after the proposal was made: {error} Read it again and propose anew.", document=error.ref)
     except Exception as error:
         return refusal(error)
+    undo.push(report.inverse)
     return applied(store_path, proposal, report)

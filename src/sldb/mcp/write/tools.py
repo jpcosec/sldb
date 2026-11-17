@@ -11,6 +11,7 @@ from sldb.mcp.changes import Change, Proposal, Sealer, model_of
 from sldb.mcp.mutability import CONTENT, model_level, require, server_level
 from sldb.mcp.write import apply, pendings, propose
 from sldb.mcp.write.pending import PENDING
+from sldb.mcp.write.undo import UndoStack
 
 if TYPE_CHECKING:
     from sldb.mcp.context import ServerContext
@@ -21,7 +22,8 @@ DEFAULT_ACTOR = "agent:sldb-mcp"
 
 
 class WriteTools:
-    """`propose_changes` (the dry run) and `apply_changes` (whole or nothing), through `sldb.api`."""
+    """`propose_changes` (the dry run) and `apply_changes` (whole or nothing), through `sldb.api`;
+    `undo` keeps the session's inverse batches and serves `undo_changes`."""
 
     def __init__(self, store: str | Path, level: int, actor: str | None = None, context: ServerContext | None = None) -> None:
         self.level = server_level(level)
@@ -31,6 +33,7 @@ class WriteTools:
         set_actor(self.actor)
         self.sealer = Sealer()
         self.context = context
+        self.undo = UndoStack(self.store_path, self.level)
 
     def propose_changes(self, changes: list[Change]) -> dict[str, Any]:
         """Dry run: turn typed changes (create/update/delete a document, assert_edge/retract_edge)
@@ -51,7 +54,7 @@ class WriteTools:
         findings = self._domain_findings(proposal.changes)
         if self._has_errors(findings):
             return self._domain_rejected(findings)
-        return self._with_alerts(apply.run_batch(self.store_path, proposal), findings)
+        return self._with_alerts(apply.run_batch(self.store_path, proposal, self.undo), findings)
 
     def _seal(self, changes: list[Change]) -> Proposal:
         """The sealed proposal: each change as a batch change against the store's current fingerprint."""

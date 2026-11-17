@@ -34,7 +34,7 @@ def newest(session, count: int = 1) -> list[dict[str, Any]]:
 
 def test_the_catalog_is_closed() -> None:
     assert set(CLASSES) == CLOSED_CATALOG
-    assert "undo_changes" in PENDING_TOOLS
+    assert "undo_changes" not in PENDING_TOOLS, "undo_changes is served from write level 1"
 
 
 def test_unknown_names_are_signals_and_not_errors(mcp, store_copy: Path) -> None:
@@ -99,14 +99,14 @@ def test_an_unknown_argument_is_a_signal_and_nothing_runs(mcp, store_copy: Path)
     assert entry["tool"] == "select_documents" and entry["arguments"] == {"modle": "Item"} and entry["signal_class"] == "unknown_argument"
 
 
-def test_undo_changes_is_a_not_implemented_signal(mcp) -> None:
+def test_undo_changes_at_level_0_is_a_signal_that_names_the_level(mcp) -> None:
     assert "undo_changes" not in {t.name for t in mcp.list_tools()}
-    result = raw_call(mcp, "undo_changes", proposal={})
+    result = raw_call(mcp, "undo_changes", steps=1)
     assert result.is_error is False
     answer = result.structured_content
-    assert answer["signal"] == "not_implemented" and "20261115-123855" in answer["explanation"]
+    assert answer["signal"] == "unknown_tool" and "needs write level 1" in answer["explanation"], answer
     entry = newest(mcp)[0]
-    assert (entry["tool"], entry["signal_class"]) == ("undo_changes", "not_implemented")
+    assert (entry["tool"], entry["signal_class"]) == ("undo_changes", "unknown_tool")
 
 
 def test_a_found_answer_logs_nothing(mcp, store_copy: Path) -> None:
