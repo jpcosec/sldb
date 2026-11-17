@@ -1,0 +1,25 @@
+name: materialization-j02-derived-recovery
+path: desk/materializations/materialization-j02-derived-recovery.md
+source_hash: 87d724ade1e4d0253fa53a5e2a8268b4602a4bf604b172ef687ee7cbc6c2ba48
+content_hash: f0729502e2a15d54482d9424db3f44a3796f70a34985c4998ea15ccb37584f58
+field_hashes:
+  id: 760ad41474ae15a26478638297280d1838bea190c48e4003354de21702c30366
+  title: 7295e22501c497ff1b732c31a972f92903f0c3b592032e401877b0545d3d5128
+  source_atoms: b4d0f31ba446debf7e8f414fbed60b72c610088a50c361f62b31be7f4ee13906
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 0a3b97c2272bc20436c29b93a100ec9efb737cf042ddd941fb83e97080273a83
+  intent: 2b55e557acc3c1c71aaed0b98a2ef385f330e2d3f0b07e431a4e9e1bfbe823ec
+  validation: 7778d0da6874b373f51eef7d64b4bd4ad4c4d5f30669cfbfc9d1986d8b835f59
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T00:05:09Z'
+  authority: generated
+  via: create_document

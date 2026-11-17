@@ -1,0 +1,25 @@
+name: materialization-j02-commands-stores-merge
+path: desk/materializations/materialization-j02-commands-stores-merge.md
+source_hash: f46f1a959c0463536ea6eb108d00ffba1d2a93b35946d80ac3b808b7c28b1cc8
+content_hash: 20f9aa9d3c0fc8f4d37407fe7e05159752bf1f4dbd8a0baf05fdedf022441005
+field_hashes:
+  id: cb9633a8e4ab2347161e5b95b6b6279edd7abe28f4e31fb761062364b5b9cd13
+  title: 43f196910750b0785bac1112f561c3ad00d7dc2d8bfee5fb0222094b4e404d94
+  source_atoms: b4d0f31ba446debf7e8f414fbed60b72c610088a50c361f62b31be7f4ee13906
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: dbe493955538281f501d12b3f874144e647d97a6da6db60fe80a95a097deeea6
+  intent: c0ecd88a57fc3cab07c4da64d0cdbfc103961098a9c7b00683433ec60ba41f4f
+  validation: 7778d0da6874b373f51eef7d64b4bd4ad4c4d5f30669cfbfc9d1986d8b835f59
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T00:07:30Z'
+  authority: generated
+  via: create_document

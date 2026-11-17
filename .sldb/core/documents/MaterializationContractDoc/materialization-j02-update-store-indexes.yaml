@@ -1,0 +1,25 @@
+name: materialization-j02-update-store-indexes
+path: desk/materializations/materialization-j02-update-store-indexes.md
+source_hash: 43ef282c494df384aa41a86e400e5dd470b4dd4bf355dd7189c9b019f98219fc
+content_hash: 20b59cc0fc331fcb1d767823c244bb78a60445659fc8c121cac855bbb6af702c
+field_hashes:
+  id: 767eff705ff7e8fa489ea2ada21495f529e36a948068dce8e8f278b9d20869e5
+  title: 32b837bc70ff36bb6e7587083e181cca39096741b220497e8903a1af2fe24f21
+  source_atoms: b4d0f31ba446debf7e8f414fbed60b72c610088a50c361f62b31be7f4ee13906
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: fe433c2a57ad2507154bbd92782823af2b56dac98ef3f50e75206719ff387555
+  intent: 6520e54f43d2ee0c003e2feff265f002e3db11848841b38b860d0ae930c69ff4
+  validation: 8d80f909cfa0493d67e29464dc2979c0c6aff5901e7e35bc8021e0b0b8c761ef
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T00:15:04Z'
+  authority: generated
+  via: create_document

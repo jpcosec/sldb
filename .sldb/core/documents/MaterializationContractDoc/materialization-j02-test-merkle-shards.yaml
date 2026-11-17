@@ -1,0 +1,25 @@
+name: materialization-j02-test-merkle-shards
+path: desk/materializations/materialization-j02-test-merkle-shards.md
+source_hash: dec018f446e74868a5a8564dcb86494bf5beaea09f574498763c7025f9936bf3
+content_hash: 05f1828b10c53dd71acec87ea67df460896a95b5ea07e174968fb18d4ac6127a
+field_hashes:
+  id: 1c4f81b72196c04396e148f60545d81fe4d4f0dee63b08e03a6e6a28cd62cdec
+  title: 4d258ec341917141ec70735abf9a7f13e1379d048e12f4c1ae02935e59d18c0e
+  source_atoms: b4d0f31ba446debf7e8f414fbed60b72c610088a50c361f62b31be7f4ee13906
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: fe89926a67277148383f00d587bac2b9730e0d65eb78534825a46d955c474e23
+  intent: 8b9be73a27ec6d9c2cb42b57a0d1f4a48af72d541c08033c880c71e6cd8c719e
+  validation: 7778d0da6874b373f51eef7d64b4bd4ad4c4d5f30669cfbfc9d1986d8b835f59
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T00:02:45Z'
+  authority: generated
+  via: create_document

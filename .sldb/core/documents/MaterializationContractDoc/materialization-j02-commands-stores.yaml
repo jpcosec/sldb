@@ -1,0 +1,25 @@
+name: materialization-j02-commands-stores
+path: desk/materializations/materialization-j02-commands-stores.md
+source_hash: d0dea9e3be5325795eb3d6600a80bae00a3f6395086bdbd622eb1374de87b3ab
+content_hash: f55ae9f1ec654a648dfc6bf2486c3eaa8368b523a5daf7cc2cddd7eb94fcbdeb
+field_hashes:
+  id: 422f8a448dac0837a2373173b7835a8e40f6f70f0f6557989f3887128edd37c5
+  title: 296188d63aefe2658ead37fd6070d104037ef10b54e931c189421c6f3f514493
+  source_atoms: b4d0f31ba446debf7e8f414fbed60b72c610088a50c361f62b31be7f4ee13906
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: be674e16154be04d28e3134daeb1eb2c282ff20472276ef13af0035155410c50
+  intent: 952cd3b7e40f345d629d35db012eb1fa479645cdcc5d34b157fd83297d525262
+  validation: 7778d0da6874b373f51eef7d64b4bd4ad4c4d5f30669cfbfc9d1986d8b835f59
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T00:00:29Z'
+  authority: generated
+  via: create_document

@@ -1,0 +1,25 @@
+name: materialization-j02-rebuild-index
+path: desk/materializations/materialization-j02-rebuild-index.md
+source_hash: 7e997eb07563a5b947ba63becc4bd6fca372f9ae2413aabf953a1dd70f85b762
+content_hash: 74f73a16e4e4ec6c267d1e9a975163a41287c45528a384b5d919c58d65d494f8
+field_hashes:
+  id: 903465bca40d2ed5d99eea20966f75a953e33e4c723d8f507aa73bd077d2574e
+  title: 8228260036e17cf2ffabdaa3d7cdeaced2be1645cd8871979c7ad30edcd49f12
+  source_atoms: b4d0f31ba446debf7e8f414fbed60b72c610088a50c361f62b31be7f4ee13906
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: d932cce712ccbbd5aeb3ded80453ff738fa73660bf7642082c14820ae4941c41
+  intent: 6c73d51dc1bd51bba02d5b5b58aa16caf33eb9f63fa9323076bfb139653ebf62
+  validation: 7778d0da6874b373f51eef7d64b4bd4ad4c4d5f30669cfbfc9d1986d8b835f59
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T00:06:34Z'
+  authority: generated
+  via: create_document

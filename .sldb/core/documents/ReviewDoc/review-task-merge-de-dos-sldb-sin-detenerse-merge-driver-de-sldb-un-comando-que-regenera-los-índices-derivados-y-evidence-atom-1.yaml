@@ -1,0 +1,36 @@
+name: review-task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y-evidence-atom-1
+path: desk/reviews/task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y/evidence-atom-1.md
+source_hash: e4369e7d0c71eb5b505cfe68f844961cca727a422a8cf52fb4f2f9d7ca52aa61
+content_hash: 038c4ae779e4ff2e7c6e06cc7d9478f6d39316f89fd2161d27806eba7bdc6231
+field_hashes:
+  id: 6655106663d3cdd4e4119efa6bda4b6388e2de1c22ece10ef3c6ff2150399fdf
+  title: ee7b17c8af6d2d8a9cab4d2bcd6fb948abf5b7c9f294857bb2ee14e1cfdb51cf
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: c833c202b5b45ac10909767bb422916db457ddd48188a4ee591f0618893df0ba
+  value: a18fa7347c1ec4272045f85206feff58e946784522b4e1db04a598900e7271f6
+  subject: 2da412b83b5a82bf74040299d52060787d20f675a326d950facf50270561065e
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: e431b8c06c9d963e7b1cbdfb4ff2ef980d202c33ec69c4f00702b20f96e4006e
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
+  reason: 60d6089a2f250c430e3a32efa4d5534eab29af2da56b3dfb4f1ff46d1487e103
+  created_at: 80a5145b9359a899509910bd440b5beb423b1a8190480b70df1bc2d95b0f48fd
+  disposed_at: 80a5145b9359a899509910bd440b5beb423b1a8190480b70df1bc2d95b0f48fd
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 990c0729aba0e3904679fbca4901f55564d68e23958dd44794d2ba9ae34640d5
+  disposition: e8b8b423503b1cfe621a4ba3747fbb66106cd4b107a0ead6e4966bf0922b8255
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T00:10:03Z'
+  authority: generated
+  via: create_document

@@ -316,6 +316,7 @@ include:
   - desk/inbox/20261116-172753-suggestion-sldb-stores-remove-no-quita-el-enlace-de-la-declaraci-n-en-store-yaml-y-otra-sesi-n-lo-reintroduce.md
   - desk/inbox/20261116-184421-unclear-ir04b-undo-changes-lo-sirve-sldb-mcp-o-es-una-extensi-n-de-specir-qui-n-guarda-la-pila-de-lotes-inversos-de-la-sesi-n.md
   - desk/inbox/20261116-193112-suggestion-una-ruta-de-archivo-versionado-no-es-extremo-v-lido-de-relationdoc-deskops-atoms-citations-no-puede-registrar-citas-como-aristas.md
+  - desk/inbox/20261116-211648-suggestion-ir08-ir09-bloqueadas-b2-lee-ts-tsx-js-jsx-y-sql-pero-sldb-api-no-expone-los-facts-c1-c5.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -541,6 +542,10 @@ include:
     name: run-deskops-e-90f36a61abe4
   - path: runs/subagents/20261116-test-b2sql-c1/run.md
     name: run-deskops-t-ad9f049e2cf8
+  - path: runs/subagents/20261116-exec-j02/run.md
+    name: run-deskops-e-d029d60e0080
+  - path: runs/subagents/20261116-test-j02/run.md
+    name: run-deskops-t-1324db7bbee4
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -874,6 +879,25 @@ include:
   - desk/materializations/materialization-b2sql-c1-test-treesitter-symbols.md
   - desk/materializations/materialization-b2sql-c1-django-0001-initial.md
   - desk/materializations/materialization-b2sql-c1-migrations-0001-initial.md
+  - desk/materializations/materialization-j02-versionado-y-colaboracion.md
+  - desk/materializations/materialization-j02-store-init.md
+  - desk/materializations/materialization-j02-commands-stores.md
+  - desk/materializations/materialization-j02-parsers-stores.md
+  - desk/materializations/materialization-j02-init.md
+  - desk/materializations/materialization-j02-test-merkle-shards.md
+  - desk/materializations/materialization-j02-test-update-fault-tolerance.md
+  - desk/materializations/materialization-j02-agents.md
+  - desk/materializations/materialization-j02-branch-stores.md
+  - desk/materializations/materialization-j02-conflict-sides.md
+  - desk/materializations/materialization-j02-derived-recovery.md
+  - desk/materializations/materialization-j02-merge-driver.md
+  - desk/materializations/materialization-j02-merge-driver-install.md
+  - desk/materializations/materialization-j02-rebuild-index.md
+  - desk/materializations/materialization-j02-store-file-merge.md
+  - desk/materializations/materialization-j02-commands-stores-merge.md
+  - desk/materializations/materialization-j02-parsers-stores-merge.md
+  - desk/materializations/materialization-j02-derived-guard.md
+  - desk/materializations/materialization-j02-update-store-indexes.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -1647,6 +1671,16 @@ include:
     name: review-task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t-evidence-atom-1
   - path: desk/reviews/task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t/evidence-materialization-1.md
     name: review-task-sldb-code-lee-sql-tablas-columnas-vistas-e-índices-de-ddl-y-migraciones-como-hechos-con-anclas-con-t-evidence-materialization-1
+  - path: desk/reviews/task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y/evidence-tests-1.md
+    name: review-task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y-evidence-tests-1
+  - path: desk/reviews/task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y/evidence-commit-1.md
+    name: review-task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y-evidence-commit-1
+  - path: desk/reviews/task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y/evidence-atom-1.md
+    name: review-task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y-evidence-atom-1
+  - path: desk/reviews/task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y/evidence-materialization-1.md
+    name: review-task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y-evidence-materialization-1
+  - path: desk/reviews/task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y/evidence-materialization-2.md
+    name: review-task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y-evidence-materialization-2
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -1672,7 +1706,6 @@ include:
   - desk/tasks/task-átomos-del-catálogo-sin-rutas-absolutas-atom-payload-y-store-documents-emiten-la-ruta-relativa-al-pr.md
   - desk/tasks/task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto.md
   - desk/tasks/task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup.md
-  - desk/tasks/task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y.md
   - desk/tasks/task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable.md
 - model: TaskDebugDoc
   paths:

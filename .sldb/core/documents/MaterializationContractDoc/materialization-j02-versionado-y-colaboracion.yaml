@@ -1,0 +1,25 @@
+name: materialization-j02-versionado-y-colaboracion
+path: desk/materializations/materialization-j02-versionado-y-colaboracion.md
+source_hash: c784bae31db5e366ac75758190299eb67ce93cbe4035db3b5798c20758cbef76
+content_hash: 2d30813c0d0ea0c5b6d7435dd2f447a4c7ce3a516729e5635c6cc67855a04035
+field_hashes:
+  id: 05cca31a0552b689cf79f41cad37ce945a4cdcfc6f76e63d47f4dfe3efc4034b
+  title: 440155ead47caf2192c541cb3483b1f41b86f88fc9c6967e38911661e7fc14f8
+  source_atoms: b4d0f31ba446debf7e8f414fbed60b72c610088a50c361f62b31be7f4ee13906
+  target_kind: bc0f43f548d6cd00dd5cc626a2e75c8454853828c86074d136cd4de2381ea142
+  target_identity: 4ee35876b77a602d809998643483ebb036a9205eae3920df06d80c5df81e45f6
+  intent: 30fd46131faeb8f6c6758049da72cbec18c2576a1020828a9ba79f1196edb544
+  validation: 7778d0da6874b373f51eef7d64b4bd4ad4c4d5f30669cfbfc9d1986d8b835f59
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-16T23:58:53Z'
+  authority: generated
+  via: create_document

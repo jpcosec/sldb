@@ -1,0 +1,36 @@
+name: review-task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y-evidence-materialization-1
+path: desk/reviews/task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y/evidence-materialization-1.md
+source_hash: 30bd01b55efcdedd21f7a3c09760a2df6334ce1356d9bf6a602d929a7a39f387
+content_hash: b5e5ced67227e54bfb75a0a53827e0d787c1aebc7b8c1fbb42c48a623ea7e63b
+field_hashes:
+  id: 641e4d32684c7ccda9f3984591d23be6d893492aa0584d87f2e8e970bbae291a
+  title: 1d549fa604764c3b6d48864591eecc457cc937b114745e1769c2acdd6df97b9a
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: 764f95492d5539d779295a6221db9d166c74614915d0d6733651aa9e762798e5
+  subject: 2da412b83b5a82bf74040299d52060787d20f675a326d950facf50270561065e
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: bb298a73f92be4c74437e150dc879cda90a8bc59d573ebf643f94c10128420fb
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
+  reason: 60d6089a2f250c430e3a32efa4d5534eab29af2da56b3dfb4f1ff46d1487e103
+  created_at: 80a5145b9359a899509910bd440b5beb423b1a8190480b70df1bc2d95b0f48fd
+  disposed_at: 80a5145b9359a899509910bd440b5beb423b1a8190480b70df1bc2d95b0f48fd
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: a8b81f6737e1bb1d62fff79b684bf0cab258f4a8b7e6515c8aad2b8d37d0086b
+  disposition: e8b8b423503b1cfe621a4ba3747fbb66106cd4b107a0ead6e4966bf0922b8255
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T00:10:14Z'
+  authority: generated
+  via: create_document

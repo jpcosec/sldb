@@ -1,0 +1,25 @@
+name: materialization-j02-derived-guard
+path: desk/materializations/materialization-j02-derived-guard.md
+source_hash: 0e013737f3b0e27058015d1f7525a6ec948483448248c0dd42f27dfa261a6bb1
+content_hash: 8f5959501e5138666bdeb1cb2bab4a0e2cc14e0100a33b7f5aca7c3d23fe6044
+field_hashes:
+  id: 30d76a4d457518976ec42c50841923184398f03b9ea91aa946ab5b974d110b94
+  title: 15d3c8c58485b101939e612b035d94ac0807c36c3017465ced2620a813bf30c9
+  source_atoms: b4d0f31ba446debf7e8f414fbed60b72c610088a50c361f62b31be7f4ee13906
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: deb0f2883bd89d1a69686bfde6202f1773ee7a3311045461b9032dfe1ba082d2
+  intent: 0c5faf4dbc7cf22c98da3651d20479c7d125982570efe23627b20b6da0d59b00
+  validation: 7778d0da6874b373f51eef7d64b4bd4ad4c4d5f30669cfbfc9d1986d8b835f59
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T00:08:29Z'
+  authority: generated
+  via: create_document

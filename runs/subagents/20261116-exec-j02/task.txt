@@ -1,0 +1,9 @@
+Task: task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y
+Title: Merge de dos .sldb sin detenerse: merge driver de sldb, un comando que regenera los índices derivados y un error que dice exactamente qué correr (une la decisión de JP y H2 de velocidad-hooks)
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective atoms:
+- atom-the-store-is-sldb-versioned-plus-sldb-cache-regenerable-ignored-git-history-is-the-past
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
