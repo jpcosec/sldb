@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T13:14:27Z'
+  at: '2026-11-17T13:26:52Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 # review-<task>-<kind>-<n>
 id: review-task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam-preflight-4
 # preflight | bundle | reproduction | goldens | owner | node | evidence
@@ -26,14 +26,17 @@ input_sha256: 1de8514bc75d43d7214f9829bec64e742a54d9512060c96b1636c44500cb2e84
 contract_sha256: 02e69c64f9dbb67a257dc6ca3504639291ce37b83bb29ff83d07c57de5a3f39a
 output_sha256: 5b69ba2ee77876ae8c6bcce8be0f03b3941acf13f51ea8495753c18a316b63a0
 # pending | accepted | rejected | incomplete
-verdict: pending
-reason: 'Decisión del supervisor: los nombres no canónicos se emiten con canonical:
-  false y no entran en la relación calls; done_when ajustado.'
+verdict: accepted
+reason: Decisión del supervisor. La tarea está operativa (summary actualizado). La
+  clave del ítem es name, como en Python. El punto de partida es runs/subagents/20261116-exec-k4-c2/executor-diff-c3ts-c2.patch.
+  Los tres frontends reales son UIs/graph_ui/apps/knowledge-workbench/src, sldb/surface/src
+  y UIs/marcado-ui/src del workspace, en solo lectura. El aviso a IR lo manda el coordinador
+  por inbox.
 # ISO 8601 timestamp
 created_at: '2026-11-17T13:14:23.049531+00:00'
 # ISO 8601 timestamp, empty while pending
-disposed_at: ''
-disposed_by: ''
+disposed_at: '2026-11-17T13:26:17.105849+00:00'
+disposed_by: sldb
 # e.g. workspace:desk
 tags:
 - workspace:desk
@@ -50,3 +53,5 @@ preflight review; engine runtime-pi-deepseek-flash; evidence under runs/subagent
 ## Disposition
 
 _Record the verdict rationale and who disposed of the review._
+
+Verdict accepted: Decisión del supervisor. La tarea está operativa (summary actualizado). La clave del ítem es name, como en Python. El punto de partida es runs/subagents/20261116-exec-k4-c2/executor-diff-c3ts-c2.patch. Los tres frontends reales son UIs/graph_ui/apps/knowledge-workbench/src, sldb/surface/src y UIs/marcado-ui/src del workspace, en solo lectura. El aviso a IR lo manda el coordinador por inbox.

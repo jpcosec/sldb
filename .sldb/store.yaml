@@ -638,6 +638,10 @@ include:
     name: run-deskops-e-08683ea7876c
   - path: runs/subagents/20261116-test-jinja/run.md
     name: run-deskops-t-c929c5b2583b
+  - path: runs/subagents/20261116-exec-k4-nc/run.md
+    name: run-deskops-e-c92b7022cf97
+  - path: runs/subagents/20261116-test-k4-nc/run.md
+    name: run-deskops-t-ff9633b313a5
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -1056,6 +1060,14 @@ include:
   - desk/materializations/materialization-undo-undo.md
   - desk/materializations/materialization-jinja-base.md
   - desk/materializations/materialization-jinja-test-list-items-round-trip.md
+  - desk/materializations/materialization-k4-nc-lang-ts.md
+  - desk/materializations/materialization-k4-nc-ts-callee.md
+  - desk/materializations/materialization-k4-nc-ts-calls.md
+  - desk/materializations/materialization-k4-nc-ts-jsx.md
+  - desk/materializations/materialization-k4-nc-ts-loose.md
+  - desk/materializations/materialization-k4-nc-ts-readers.md
+  - desk/materializations/materialization-k4-nc-postform.md
+  - desk/materializations/materialization-k4-nc-test-treesitter-symbols.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -1993,6 +2005,14 @@ include:
     name: review-task-el-valor-de-un-campo-se-renderiza-literal-render-model-markdown-deja-de-pasar-los-valores-del-usuari-evidence-atom-1
   - path: desk/reviews/task-el-valor-de-un-campo-se-renderiza-literal-render-model-markdown-deja-de-pasar-los-valores-del-usuari/evidence-materialization-2.md
     name: review-task-el-valor-de-un-campo-se-renderiza-literal-render-model-markdown-deja-de-pasar-los-valores-del-usuari-evidence-materialization-2
+  - path: desk/reviews/task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam/evidence-tests-1.md
+    name: review-task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam-evidence-tests-1
+  - path: desk/reviews/task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam/evidence-commit-1.md
+    name: review-task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam-evidence-commit-1
+  - path: desk/reviews/task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam/evidence-atom-1.md
+    name: review-task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam-evidence-atom-1
+  - path: desk/reviews/task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam/evidence-materialization-1.md
+    name: review-task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -2018,7 +2038,6 @@ include:
   - desk/tasks/task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto.md
   - desk/tasks/task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup.md
   - desk/tasks/task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable.md
-  - desk/tasks/task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam.md
   - desk/tasks/task-pron-contra-sldb-deshacer-restaura-el-hash-del-mundo-untrack-track-recupera-el-documento-y-find-con.md
   - desk/tasks/task-sldb-models-validate-importa-los-modelos-de-deskops-models-como-lo-hacen-extract-y-render-no-module.md
   - desk/tasks/task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder.md

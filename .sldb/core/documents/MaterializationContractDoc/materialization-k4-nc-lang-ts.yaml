@@ -1,0 +1,25 @@
+name: materialization-k4-nc-lang-ts
+path: desk/materializations/materialization-k4-nc-lang-ts.md
+source_hash: 3aae8de2d98244b72d22c2b4d0378ee4d4e069c1bcf2a1e8f23a0c46b9191cff
+content_hash: 80a92749a85aa854489c40f28787d7d92fae75e585dfa32a8018ae1c65c469f7
+field_hashes:
+  id: bcf60c08d440fd14d9d83c765cc83a8c5e1ce35767a9e7786bb6878587611414
+  title: 9bc359302ae0e7dfb41bf2f905b938c4ed3cb8cb688e53d9c2d15e95bb6591ca
+  source_atoms: b2a3e0f120bb2d9d229b6fbd5ad6356dbf10c187833f922a4a41db4881361e4e
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 4e930f1c96c62561ac1bc69a6c24767da5a50275b2ae0b754ab3f414fdf590d3
+  intent: 0c40c0b3f635a710548e61b76ca07f0a7eff09f432896bb41f0ebcfb52506224
+  validation: 56e9318c93aaa907670aa69adb6a44e07228d7e046c4266af1ea8e512f741af8
+  tags: 31506c064612c9d3967862e44c9997bd808f51edfbc4030d1c5772f29f5b992f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:code
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T13:38:04Z'
+  authority: generated
+  via: create_document

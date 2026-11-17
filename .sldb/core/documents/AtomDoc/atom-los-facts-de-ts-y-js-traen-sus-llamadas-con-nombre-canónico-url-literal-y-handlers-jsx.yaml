@@ -1,0 +1,23 @@
+name: atom-los-facts-de-ts-y-js-traen-sus-llamadas-con-nombre-canónico-url-literal-y-handlers-jsx
+path: desk/atoms/atom-los-facts-de-ts-y-js-traen-sus-llamadas-con-nombre-canónico-url-literal-y-handlers-jsx.md
+source_hash: 7883b03d783a1c37999e6cda350a66eb79b476efac34ae2ba40c3e85c8b9650f
+content_hash: bc42fe645b793c4f0849678fb0425b24ea1fc2365621ef6b7dd78253a7f797f4
+field_hashes:
+  id: 09d590c99088cc6ac5963e20d7d7938ac1c611ba027025f7905765eae9bd3bac
+  title: e162f74e4e65a0e27421fe7cfa10242f7df931706c342d8d7e52193d1ee1689c
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: af9ee356e186407aafce4277a80c4cc6da01e59478c306ce53bbabd701a88208
+  tags: 31506c064612c9d3967862e44c9997bd808f51edfbc4030d1c5772f29f5b992f
+  provenance: c35092678721c4cbeed72dc54fdfd37007292dc39552df0beb045de1e2c5e647
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:code
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-17T13:37:38Z'
+  authority: generated
+  via: create_document

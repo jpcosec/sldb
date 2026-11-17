@@ -1,0 +1,9 @@
+Task: task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam
+Title: sldb.code publica facts genéricos de TS, TSX, JS y JSX: llamadas entre símbolos, llamadas HTTP como llamadas y handlers JSX (C3 de IR para IR09)
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective atoms:
+- atom-sldb-code-lee-ts-tsx-js-y-jsx-con-un-mismo-reader-y-ancla-sus-símbolos
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]

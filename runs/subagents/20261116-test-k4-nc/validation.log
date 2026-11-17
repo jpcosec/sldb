@@ -1,0 +1,221 @@
+### pytest -q tests/selfdoc/test_treesitter_symbols.py
+..................................................                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+50 passed, 1 warning in 0.85s
+rc=0
+### pytest -q tests/api/test_anchors.py
+.......................                                                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+23 passed, 1 warning in 1.64s
+rc=0
+### pytest -q tests/selfdoc/test_fingerprints.py
+....                                                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 0.05s
+rc=0
+### pytest -q tests/test_clean_code_rules.py
+........................................................................ [  5%]
+........................................................................ [ 11%]
+........................................................................ [ 17%]
+........................................................................ [ 23%]
+........................................................................ [ 29%]
+........................................................................ [ 35%]
+........................................................................ [ 41%]
+........................................................................ [ 47%]
+........................................................................ [ 53%]
+........................................................................ [ 59%]
+........................................................................ [ 65%]
+........................................................................ [ 71%]
+........................................................................ [ 77%]
+........................................................................ [ 83%]
+........................................................................ [ 89%]
+........................................................................ [ 95%]
+......................................................                   [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1206 passed, 2 warnings in 2.71s
+rc=0
+### check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   225 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 976 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 123 símbolos pedidos, 594 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+rc=0
+### vecinos (importan lang_ts: solo test_treesitter_symbols, ya corrido; extra: usuarios de scan_tree/code_facts)
+### pytest -q tests/api/test_anchors.py
+.......................                                                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+23 passed, 1 warning in 1.61s
+rc=0
+### pytest -q tests/notations/test_component_spec_python.py
+......                                                                   [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+6 passed, 1 warning in 1.20s
+rc=0
+### pytest -q tests/selfdoc/test_treesitter_agreement.py
+..                                                                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 0.12s
+rc=0
+### pytest -q tests/selfdoc/test_treesitter_symbols.py
+..................................................                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+50 passed, 1 warning in 0.76s
+rc=0
+### fixture PostForm.tsx
+src.PostForm.PostForm component [{'name': 'fetch', 'line': 10, 'first_arg': '/api/posts', 'canonical': True}, {'name': 'axios.get', 'line': 11, 'first_arg': '/api/posts', 'canonical': True}, {'name': 'axios.delete', 'line': 12, 'first_arg': None, 'canonical': True}, {'name': 'validate', 'line': 19, 'first_arg': None, 'canonical': True}, {'name': 'track', 'line': 19, 'first_arg': 'blur', 'canonical': True}] [{'element': 'button', 'attribute': 'onClick', 'handler': 'handleSave'}, {'element': 'Form.Item', 'attribute': 'onChange', 'handler': 'validate'}, {'element': 'Form.Item', 'attribute': 'onBlur', 'handler': 'track'}] ['axios.delete', 'axios.get', 'fetch', 'handleSave', 'track', 'validate']
+src.PostForm.handleSave function [{'name': 'api.posts.create', 'line': 6, 'first_arg': None, 'canonical': True}] None ['api.posts.create']
+/mnt/ssd/proyectos/SLDB_1/UIs/graph_ui/apps/knowledge-workbench/src: facts=179 calls=460 canon=450 non=10 distinct_non=10 bad=0 target_bad=0 handlers=32
+/mnt/ssd/proyectos/SLDB_1/sldb/surface/src: facts=752 calls=3361 canon=3249 non=112 distinct_non=105 bad=0 target_bad=0 handlers=213
+/mnt/ssd/proyectos/SLDB_1/UIs/marcado-ui/src: facts=120 calls=461 canon=447 non=14 distinct_non=14 bad=0 target_bad=0 handlers=88
+=== muestra 10 no canónicos
+--- UIs/marcado-ui/src/lib/marcado.ts:148  name='/^\\s{6}-\\s+type:\\s+/.test'
+    src: if (/^\s{6}-\s+type:\s+/.test(line)) { | if (currentEdge?.type && currentEdge.from && currentEdge.to && currentNamespace) { | edges.push(currentEdge as GraphEdge);
+--- sldb/surface/src/workbench/Spec2VizInspectorView.tsx:182  name='(view?.notation ?? "—").replace'
+    src: ◇ SPEC2VIZ DIAGRAM CANVAS · NOTATION: {(view?.notation ?? "—").replace(/^NotationDoc:/, "")} | </span> | </h2>
+--- sldb/surface/src/views/ExtractionView.tsx:150  name='/^[a-zA-Z0-9][a-zA-Z0-9_-]*$/.test'
+    src: <button type="button" className="btn btn--primary" disabled={!/^[a-zA-Z0-9][a-zA-Z0-9_-]*$/.test(id)} onClick={() => void create()}> | Crear {model} | </button>
+--- sldb/surface/src/workbench/ModelStudioView.tsx:586  name='(report.warnings ?? []).map'
+    src: {(report.warnings ?? []).map((w, i) => ( | <li key={i} className="ms-muted"> | aviso: {w}
+--- sldb/surface/src/views/DistillView.tsx:183  name='(current?.fields ?? []).map(similarityQuery).filter'
+    src: const texts = (current?.fields ?? []).map(similarityQuery).filter((text): text is string => text !== null); | return [...new Set(texts)]; | }, [current]);
+--- sldb/surface/src/core/distill.ts:127  name='/\\(it\\s+"it"\\s+([^\\s)]+)\\)\\s+([^\\s)]+)/.exec'
+    src: const match = /\(it\s+"it"\s+([^\s)]+)\)\s+([^\s)]+)/.exec(expression); | if (!match) return {}; | return { model: match[1], field: match[2] };
+--- sldb/surface/src/react/editors/EnumSelect.tsx:5  name='(schema?.enum ?? [value]).map'
+    src: const options = (schema?.enum ?? [value]).map(String); | const current = value === null || value === undefined ? "" : String(value); | return (
+--- sldb/surface/src/core/atoms.ts:507  name='(v === undefined ? [] : Array.isArray(v) ? v : [v]).map'
+    src: const asList = (v: string | string[] | undefined): string[] => (v === undefined ? [] : Array.isArray(v) ? v : [v]).map((x) => x.trim()).filter(Boolean); | const bases = asList(filters.base).map((b) => b.toLowerCase()); | const tagList = asList(filters.tag);
+--- UIs/graph_ui/apps/knowledge-workbench/src/pages/ReaderView.tsx:35  name='[...new Set(data.atoms.flatMap((a) => a.tags))].sort'
+    src: () => [...new Set(data.atoms.flatMap((a) => a.tags))].sort(), | [data.atoms], | );
+--- sldb/surface/src/core/similarity.ts:26  name='[...hits].sort'
+    src: return [...hits].sort((a, b) => b.score - a.score); | } | 
+### HEAD vs árbol (cmp.py, facts sin attrs.calls/handlers ni relaciones calls TS): 1428 facts, IDENTICOS (cmp rc=0)
+### casos borde Edge.tsx
+## src.Edge.Comp component
+   26 'new Foo().go' False None
+   28 'save' True None
+   29 'setV' True None
+   30 'run' True None
+  H {'element': 'A', 'attribute': 'onClick', 'handler': 'new Foo().go'}
+  H {'element': 'B', 'attribute': 'onX', 'handler': 'h4'}
+  H {'element': 'D', 'attribute': 'onChange', 'handler': 'setV'}
+  H {'element': 'E', 'attribute': 'onClick', 'handler': 'run'}
+  REL ['h4', 'run', 'save', 'setV']
+## src.Edge.useEdge hook
+   2 'a' True None
+   3 'a.b' True None
+   4 'a!.c' True None
+   5 '([] as Array<string>).map' False None
+   6 '[1] // comentario .map' False None
+   8 "'a b'.split" False ' '
+   9 '/a b/.test' False None
+   10 '`t ${a}`.trim' False None
+   11 '([y]).at' False None
+   12 'new Foo().bar' False None
+   13 'sql' True 'select 1'
+   14 'fetch' True '/a  b'
+   15 'fetch' True None
+   16 'fetch' True 'a\\"b'
+   17 'a[].b' True None
+   18 '(fn)' True None
+   19 '(fn)' True None
+   21 'this.y.z' True None
+   22 "import('./m').then" False None
+   22 'import' False './m'
+  REL ['(fn)', 'a', 'a!.c', 'a.b', 'a[].b', 'fetch', 'sql', 'this.y.z']

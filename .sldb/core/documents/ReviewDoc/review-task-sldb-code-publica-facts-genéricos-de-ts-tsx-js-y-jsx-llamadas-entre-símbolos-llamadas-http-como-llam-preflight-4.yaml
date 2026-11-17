@@ -1,7 +1,7 @@
 name: review-task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam-preflight-4
 path: desk/reviews/task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam/preflight-4.md
-source_hash: 10dfafb16eb773e9977267769983f5ab4cb529b57367a390b1d69eaea51cdab7
-content_hash: 583e165b53e073480041319436ffc909571d50779904e0e7bfe82aca9829bc18
+source_hash: 91b125cc89eebe5f7e6a69dfb1ed4d5adf9eed8b51ea3c39523a802e930c97e5
+content_hash: 5a2be9bae6c7b1a1a6e7e253eb3855c22f9db4d6a0bd7e67e0e5f022f0b6f173
 field_hashes:
   id: 0b4dd0b88e1a4f3fa43881bb51c4a0c0cf4ad367e5adacb5b2a9a933cd1f17fe
   title: 432a1a8b34be547532daac7c97e13fbba879bf7f41b139134cdcc60fdc5ed8f4
@@ -16,13 +16,13 @@ field_hashes:
   input_sha256: b819f3559a873efa34ce9baa0c10eefecffc8ba99beb3f55e3f0a37ea1d7cb5c
   contract_sha256: 8449a6cb399ad569936fe8af71c752d35f0fdc7a6b3d69fba89fca4c1c1e5e33
   output_sha256: 89e31453bd1045bc5160ab09da1827378f65af8c24d2ef1a048900eca5b1784f
-  verdict: 12adac54ac6f7140109391b670b3cbcd51f083d8f5ee62ce26857c794ed67d36
-  reason: 4a45c814eff2d31304c91f072b74a9c08e529a46293e3a7f2bd4656571c70769
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 3a12ee65bd0a0f4082285647a48af6e57b838a0cb336782f7d8e5242839c1f83
   created_at: 106a7146388b88b3083deb86dcc468906819d2b9b6476f1448106f4c08407be7
-  disposed_at: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  disposed_by: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposed_at: bdb0e4745155e78dc0002483c5e410828fabe726ff9d997774f8590de9ecd030
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: e47edaf19da841ad8009dda736c29cbece7990ba74bc2c2d69e8120533a38386
-  disposition: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposition: 5388a11f7208e5cfd41104f75d1805bf196f8c96e430600543c1cabbfceaa846
   tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
 semantic_tags:
 - representation.markdown
@@ -32,6 +32,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-17T13:14:27Z'
+  at: '2026-11-17T13:26:52Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

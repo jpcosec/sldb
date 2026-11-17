@@ -1,0 +1,25 @@
+name: materialization-k4-nc-ts-readers
+path: desk/materializations/materialization-k4-nc-ts-readers.md
+source_hash: 6ee1978cd7fff27eef560f8ba8c4da245cbd8d83ddb50ac91df084729af9fc71
+content_hash: 22380f53ffec802543625bb4991c14d365bc3890f2b500bb4487aaf1f7849f83
+field_hashes:
+  id: e9ecc43ba58aa4e762e04763827d91c4c0e6bd72badfe2eae5910e9fd653542a
+  title: b125f2c79a33c4d03289e14718d2592493dca13a0f113f87329619db5f1fb98f
+  source_atoms: b2a3e0f120bb2d9d229b6fbd5ad6356dbf10c187833f922a4a41db4881361e4e
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 83428986cfe7acbd19c8826853872b4ddc49af83308f3edc2a775bbeb6faccda
+  intent: 5fde7fe7e5f21662a1891f5414246f5b06fc4d95189f67902308e8467d3dc4d2
+  validation: 56e9318c93aaa907670aa69adb6a44e07228d7e046c4266af1ea8e512f741af8
+  tags: 31506c064612c9d3967862e44c9997bd808f51edfbc4030d1c5772f29f5b992f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:code
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T13:40:17Z'
+  authority: generated
+  via: create_document
