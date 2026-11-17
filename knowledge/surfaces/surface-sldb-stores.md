@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T21:09:34Z'
+  at: '2026-11-17T00:23:41Z'
   authority: generated
   via: save_document_payload
 id: surface-sldb-stores
@@ -13,7 +13,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_surface
-provenance: parser:sldb.cli.parser:build_parser#stores; contract-sha256:b7c34da2ed8ce91171dcf2d8791e274228c4ba2f3f8019f3802d03c8cc8eee1d
+provenance: parser:sldb.cli.parser:build_parser#stores; contract-sha256:072bd44ee824eca49bacc3f47d703f9a1f60ce6f1f6482456496ddce32c9645b
 ---
 
 # stores
@@ -34,8 +34,10 @@ Registered under src/sldb/cli/parsers/ as the 'stores' subparser. Each command d
 - sldb stores declare
 - sldb stores init
 - sldb stores list
+- sldb stores merge-driver
 - sldb stores migrate-hashes
 - sldb stores migrate-layout
+- sldb stores rebuild-index
 - sldb stores reconcile
 - sldb stores remove
 - sldb stores scaffold

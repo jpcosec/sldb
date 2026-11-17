@@ -1,0 +1,21 @@
+name: cmd-sldb-stores-rebuild-index
+path: knowledge/commands/cmd-sldb-stores-rebuild-index.md
+source_hash: 53b8c094cff513733f8a85f35768624a585bc6606a941334688634d381f89e1f
+content_hash: 61992f6c24f1af31dba3a832b61b68e0d7538e7657f9867511d68af6da12ef86
+field_hashes:
+  id: 438058d9bce3540d398b96deb9b7072cacb57db13337d1909bb0b9a0bb6bc000
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  command_path: 43eb98c581376b4a2f227a0d8a7b744590d6eb77a405f75fd0918c5a48fe3bbe
+  synopsis: b6cb8199033d1b6ed65650cd70b21f688927fd5833ee0a9542979da3ce55d7a5
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  arguments: 0923f899d702d22cfcd0ae9871ea41f780b4e8056b8a0e66a17d30dbc4cd6f02
+  usage: 5fd0ec30dbd2e40586c5ae26b426f3016251a1558dcfc69b3792054d3634f1d0
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: 1f91faf77afda80aa23dcf5585aa888ad55cdcf3289934419526c640eadc930a
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.cli_command
+- workspace.knowledge.commands
+provenance: null

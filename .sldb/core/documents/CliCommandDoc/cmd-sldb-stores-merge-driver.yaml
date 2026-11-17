@@ -1,0 +1,21 @@
+name: cmd-sldb-stores-merge-driver
+path: knowledge/commands/cmd-sldb-stores-merge-driver.md
+source_hash: a19749d642fbeff58bf19296a871aa67cd0030b9f6516fa02ba9b24bbb2e77a4
+content_hash: b3c365450c07c7bce8bac6d2c96a474fc514d553cb4446762d8e8ef18ce5bc12
+field_hashes:
+  id: 26b9c68005da5e38e96fce5729262944acf906fec4d27d8bbecbfd1b54ded3b5
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  command_path: a2df2f8b9ac254a0bf50b4b7a9a7a4adedaac1a7ee65e0df9c21cf8212b5b293
+  synopsis: 104aca90e6d5fbabb09f05589a90e22c037e35e24a9b23ff5011b6d7922461b9
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  arguments: d3ed0223a1f07c2b9143562b9d9a2fdd3deb1eea86a49c03301c7b0c97e5bc3b
+  usage: c2bca65390e975c015ba544f4c50c6ad9740e9e64497bd144fe2bb342a4f60a3
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: b1919493fba154a3d25c5fd49e66227a1d6931e3ed9d379b3d8bbff7c42436bd
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.cli_command
+- workspace.knowledge.commands
+provenance: null

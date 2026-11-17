@@ -1,16 +1,16 @@
 name: surface-sldb-stores
 path: knowledge/surfaces/surface-sldb-stores.md
-source_hash: 0676baa7bb00cece8ef65134d8d0461aa17fcd5a11fe1d7de59f1d1bb5ca1149
-content_hash: bb9455e8eb0362b5ba97215e0ca598d26a8d2481fa4a9449a6669de8a8dede97
+source_hash: 420fb28deb9351630f64579c2fe3058e904992e7498076960ef57eb7cb80ec13
+content_hash: 7a348d5dd57cb2d9fbbd14c67b048a24069e9a951f419aae1748e84848decd49
 field_hashes:
   id: 59d1fa6c6915367ebb020c515e1d2a99ab2694155b78aa85813b6a06e397dd87
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   surface: df2ac53e58a92ed79bb444b775147ee52affacea62e9d5a75a215ae502e407e1
   purpose: 1665949de44662ce8d6f6bbb876fa1ec9c47f4e7bbf3b55a6b1a43a9b3fd6827
   how_it_works: 5b19afcb90f211d004a3df033b7573827417e44703c894136c4248c441260e47
-  commands: a87bff1c4abecc5b3f3de3b3f7d728fb9c24c36d814b14ef6b125fb0e6a0ac80
+  commands: dcc7b1407ea2ebe77fb34b1fb57b5882c8b252f97cef69ab868c9e966f00cb7f
   tags: 28e2d739923a919405b798242e5394dda38832570ee573367673daed32bb183f
-  provenance: 177e737b2c1fb97f1f14f94a37e5d7dcce279757efa7d1e63dd9197805f04da9
+  provenance: 5bc17f7b99367c74696813a59a0dc7d82999e4814fe14882cb56ad294d96a52c
 semantic_tags:
 - domain:retrieval
 - entity:cli_surface
@@ -23,6 +23,6 @@ semantic_tags:
 - workspace.knowledge.surfaces
 provenance:
   by: agent
-  at: '2026-11-16T21:09:34Z'
+  at: '2026-11-17T00:23:41Z'
   authority: generated
   via: save_document_payload
