@@ -1,0 +1,7 @@
+Task: task-el-scan-de-enlaces-ignora-el-contenido-de-los-bloques-de-código-fenced-e-inline-y-no-los-informa-com
+Title: El scan de enlaces ignora el contenido de los bloques de código (fenced e inline) y no los informa como enlaces rotos
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]

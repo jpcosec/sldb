@@ -1,0 +1,23 @@
+name: atom-sldb-links-extrae-los-enlaces-del-árbol-de-markdown-it-y-no-cuenta-nada-que-esté-en-código-cercado-i
+path: desk/atoms/atom-sldb-links-extrae-los-enlaces-del-árbol-de-markdown-it-y-no-cuenta-nada-que-esté-en-código-cercado-i.md
+source_hash: 2eeef6b96b6117adbc59e56045065028befc94e1844cec9be05bea945e65da95
+content_hash: fe8e3697bf7b53a6104651657519a7f88c040c1f0cff8f52ece2ce48aac1ea49
+field_hashes:
+  id: d900bd0651b4b77144757c5f2df39fc25bfd53ec9045aae5d23b7f7937f25a02
+  title: ec521112a3c45846875dd97af27c69c64f3df3f1629d7f35a9e9812d1dad9f03
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: a3c1874cb66365a2265dccfe9dc90e9d028200abed764684755b4fece395cefc
+  tags: a3d7d1f549fa73f9187b888c134a63ca73ee05baf2f99d444bf123faa20c90a7
+  provenance: 41ec3b7d1027fd4f233d6e309fc3a4787135d1ccb8e5195d6b602dfd840c59d4
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:links
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-17T16:32:34Z'
+  authority: generated
+  via: create_document

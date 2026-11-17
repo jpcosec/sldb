@@ -1,0 +1,37 @@
+name: review-task-el-scan-de-enlaces-ignora-el-contenido-de-los-bloques-de-código-fenced-e-inline-y-no-los-informa-com-evidence-materialization-1
+path: desk/reviews/task-el-scan-de-enlaces-ignora-el-contenido-de-los-bloques-de-código-fenced-e-inline-y-no-los-informa-com/evidence-materialization-1.md
+source_hash: c7073cdd7b6388247b05bb9bd26988e3fd9a7a2684eb26371e24cdd2d1e63d82
+content_hash: 6b7cf2a45e1f23804e7bcd44ce712dc8b4c98f932384434a7a3fb3e16538d939
+field_hashes:
+  id: 9bcd8efbba91c8b0a44681e3ba6ff6d5e1468f522bd52ae530110e0e9dc28c90
+  title: 554839fbe47e31d8bf20122285bb15f4f676ec7f3e4b5a0076271c86fa420f13
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: 1fd6e1d22869e98dbefa5a2ad1217fa2ffcdf7a46c75f4958a73233dca716f63
+  subject: 841f4b5a8284944ad640923c2944049f345ffa39f13e758389db0a231c3b6624
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: cf4a357c0b8b5ff24327d35e077a93a8b33e688ac348a3cf56001a6ee4ddcb95
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 5712c8a94acabfe8e6e9236c349e111df2de3ac2f5a45c690e001a09f82f682c
+  created_at: 9fd2adb82c6bcde75a8131671b03e4a460c3abeae06e8b7586d8b1044d78bcfb
+  disposed_at: 9fd2adb82c6bcde75a8131671b03e4a460c3abeae06e8b7586d8b1044d78bcfb
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: a9b3f46ec9bb190b669da0d717e56c50e745e65b79dbfe315ad644b600cb388d
+  disposition: f9f5ac44a1c50bc065c4a9081122656eac8dbf024e347713a7f1c6bc68354bbf
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T16:37:16Z'
+  authority: generated
+  via: create_document

@@ -1,0 +1,446 @@
+=== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/test_links.py
+......................                                                   [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+22 passed, 1 warning in 2.29s
+=== rc=0
+=== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/test_links_batch_cli.py
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 2.28s
+=== rc=0
+=== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/test_clean_code_rules.py
+........................................................................ [  5%]
+........................................................................ [ 11%]
+........................................................................ [ 17%]
+........................................................................ [ 23%]
+........................................................................ [ 29%]
+........................................................................ [ 35%]
+........................................................................ [ 41%]
+........................................................................ [ 47%]
+........................................................................ [ 53%]
+........................................................................ [ 59%]
+........................................................................ [ 65%]
+........................................................................ [ 71%]
+........................................................................ [ 77%]
+........................................................................ [ 83%]
+........................................................................ [ 89%]
+........................................................................ [ 95%]
+.......................................................                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1207 passed, 2 warnings in 2.66s
+=== rc=0
+=== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev bash tools/check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   226 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 977 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 124 símbolos pedidos, 594 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+=== rc=0
+=== [cambio] pytest -q tests/test_cli_reconciliation.py
+...                                                                      [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+3 passed, 1 warning in 1.03s
+=== rc=0
+=== [cambio] pytest -q tests/test_composition_sections.py
+.......                                                                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+7 passed, 1 warning in 0.32s
+=== rc=0
+=== [cambio] pytest -q tests/store/test_semantic_rebuild.py
+..........                                                               [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+10 passed, 1 warning in 1.03s
+=== rc=0
+=== bordes e1.py (copia de los scripts de test-lk/-c1/-c2, sin code_mask)
+ok   list + indented code after item para: got=['real'] exp=['real'] offsets_ok=True
+ok   list nested para 4sp: got=['inlist'] exp=['inlist'] offsets_ok=True
+ok   indented code after list ends: got=[] exp=[] offsets_ok=True
+ok   fence ~~~ : got=['b'] exp=['b'] offsets_ok=True
+ok   fence 4 backticks w/ ``` inside: got=['b'] exp=['b'] offsets_ok=True
+ok   fence 5 tildes closed by 3 not: got=['b'] exp=['b'] offsets_ok=True
+ok   unclosed fence: got=['b'] exp=['b'] offsets_ok=True
+ok   double backtick with one inside: got=['b'] exp=['b'] offsets_ok=True
+ok   link glued before fence: got=['b'] exp=['b'] offsets_ok=True
+ok   link glued after fence: got=['b'] exp=['b'] offsets_ok=True
+ok   link glued to inline code: got=['b'] exp=['b'] offsets_ok=True
+ok   link wrapping code: got=['b', 'c'] exp=['b', 'c'] offsets_ok=True
+ok   fence in list indented 4 (CommonMark: code): got=['b'] exp=['b'] offsets_ok=True
+ok   fence in list indented 2: got=['b'] exp=['b'] offsets_ok=True
+ok   fence in blockquote: got=['b'] exp=['b'] offsets_ok=True
+ok   escaped backticks are not code: got=['b'] exp=['b'] offsets_ok=True
+ok   fence close w/ info is not close: got=['b'] exp=['b'] offsets_ok=True
+ok   CRLF fence via API: got=['b'] exp=['b'] offsets_ok=True
+ok   CRLF inline across paragraph: got=['b'] exp=['b'] offsets_ok=True
+ok   4sp-indented ``` is code not fence: got=['b'] exp=['b'] offsets_ok=True
+ok   transclusion in fence: got=['b'] exp=['b'] offsets_ok=True
+ok   predicate in inline code: got=['b'] exp=['b'] offsets_ok=True
+INFO html <code>: got=['a', 'b'] exp=None offsets_ok=True
+fails 0
+=== rc=0
+=== bordes e2.py (copia de los scripts de test-lk/-c1/-c2, sin code_mask)
+ok   '- item\n\n        [[code8]]\n\n- b [[real]]\n' got ['real'] ref ['real']
+ok   '- item\n  - sub\n\n          [[c]]\n' got [] ref []
+ok   '\\`[[b]]\\`\n' got ['b'] ref ['b']
+ok   '```\r\n[[a]]\r\n```\r\n[[b]]\r\n' got ['b'] ref ['b']
+ok   '1. a\n   1. b\n\n          [[c]]\n\n   [[p]]\n' got ['p'] ref ['p']
+ok   '10. a\n\n         [[c]]\n\n     [[p]]\n' got ['p'] ref ['p']
+ok   '1) a\n\n       [[c]]\n' got [] ref []
+ok   '- a\n  - b\n    - c\n\n            [[code]]\n\n        [[para]]\n' got ['para'] ref ['para']
+ok   '- a\n\n      [[x]]\n' got [] ref []
+ok   '-    a\n\n         [[x]]\n' got [] ref []
+ok   '-     a\n\n      [[x]]\n' got [] ref []
+ok   '- a\n\n    [[x]]\n- b\n\n        [[y]]\n' got ['x'] ref ['x']
+ok   '* a\n\n  + b\n\n          [[y]]\n' got [] ref []
+ok   '- a\n\n[[out]]\n\n    [[code]]\n' got ['out'] ref ['out']
+ok   '-\n  foo\n\n      [[c]]\n' got [] ref []
+ok   '- a\n\n\t\t[[c]]\n' got [] ref []
+ok   '- a\n\n  ```\n  [[f]]\n  ```\n[[r]]\n' got ['r'] ref ['r']
+ok   '- ```\n  [[f]]\n  ```\n[[r]]\n' got ['r'] ref ['r']
+ok   '- a\n  - b\n\n        ```\n        [[f]]\n        ```\n' got [] ref []
+ok   '> ```\n> [[f]]\n> ```\n' got [] ref []
+ok   '2. a\n\n       [[c]]\n' got [] ref []
+ok   '\\\\`[[a]]` [[b]]\n' got ['b'] ref ['b']
+ok   '\\\\\\`[[a]]` [[b]]\n' got ['a', 'b'] ref ['a', 'b']
+ok   '`a\\`[[b]]` [[c]]\n' got ['b', 'c'] ref ['b', 'c']
+ok   '\\``[[a]]``\n' got ['a'] ref ['a']
+ok   '``\\`[[a]]`` [[b]]\n' got ['b'] ref ['b']
+ok   'a\\\n`[[x]]`\n' got [] ref []
+ok   '```\r\n[[a]]\n```\r\n[[b]]\n' got ['b'] ref ['b']
+ok   '~~~\n[[a]]\r\n~~~\r\n[[b]]\r\n' got ['b'] ref ['b']
+ok   '`[[a]]\r\n\n[[b]]` [[c]]\n' got ['a', 'b', 'c'] ref ['a', 'b', 'c']
+ok   '- i\r\n\r\n        [[c]]\r\n\r\n[[r]]\r\n' got ['r'] ref ['r']
+ok   'x\r\n\r\n    [[c]]\r\n[[d]]\n' got ['d'] ref ['d']
+ok   '\\`[[b]]\\`\r\n```\r\n[[a]]\r\n```  \r\n[[z]]\n' got ['b', 'z'] ref ['b', 'z']
+diffs 0
+=== rc=0
+=== bordes e2b.py (copia de los scripts de test-lk/-c1/-c2, sin code_mask)
+['real'] ['real'] '1. ```python\n   x = 1\n   ```\n\nVer [[real]].\n'
+['real', 'otro'] ['real', 'otro'] '- ```\n  code\n  ```\n\nVer [[real]] y [[otro]].\n'
+['item'] ['item'] '- ```bash\n  echo [[x]]\n  ```\n- [[item]]\n'
+['r'] ['r'] '> ```\n> [[f]]\n> ```\n\n[[r]]\n'
+['r'] ['r'] '> ```py\n> a\n\n[[r]]\n'
+=== rc=0
+=== bordes edges.py (copia de los scripts de test-lk/-c1/-c2, sin code_mask)
+ok   ind-li '- item\n\n        [[c]]\n\n- b [[r]]\n' got ['r'] cm ['r']
+ok   ind-sub3 '- a\n  - b\n    - c\n\n            [[code]]\n\n        [[para]]\n' got ['para'] cm ['para']
+ok   ind-ol-paren '1) item\n\n       [[c]]\n\n2) [[r]]\n' got ['r'] cm ['r']
+ok   ind-ol-10 '10. item\n\n        [[c]]\n\n    [[p]]\n' got ['p'] cm ['p']
+ok   ind-gap5 '-     [[x]]\n\n  [[y]]\n' got ['y'] cm ['y']
+ok   ind-tab '-\titem\n\n\t\t[[c]]\n\n[[r]]\n' got ['r'] cm ['r']
+ok   ind-empty-item '-\n\n    [[x]]\n' got [] cm []
+ok   ind-after-list '- a\n\n[[t]]\n\n    [[c]]\n' got ['t'] cm ['t']
+ok   ind-plus '+ a\n\n      [[c]]\n' got [] cm []
+ok   esc1 '\\`[[b]]\\`\n' got ['b'] cm ['b']
+ok   esc2 '\\\\`[[a]]` [[b]]\n' got ['b'] cm ['b']
+ok   esc3 '\\\\\\`[[a]]` [[b]]\n' got ['a', 'b'] cm ['a', 'b']
+ok   esc-in-span '`a\\` [[b]]` [[c]]\n' got ['b', 'c'] cm ['b', 'c']
+ok   esc-double '\\``[[a]]`` [[b]]\n' got ['a', 'b'] cm ['a', 'b']
+ok   esc-run '``x`` \\``[[a]]``\n' got ['a'] cm ['a']
+ok   crlf-fence '```\r\n[[a]]\r\n```\r\n[[b]]\r\n' got ['b'] cm ['b']
+ok   crlf-tilde '~~~ \r\n[[a]]\r\n~~~\r\n[[b]]\r\n' got ['b'] cm ['b']
+ok   crlf-mixed '```\n[[a]]\r\n```\r\n[[b]]\n' got ['b'] cm ['b']
+ok   crlf-ind-li '- i\r\n\r\n        [[c]]\r\n\r\n[[r]]\r\n' got ['r'] cm ['r']
+ok   crlf-blank-inline '`[[a]]\r\n\r\n[[b]]` [[c]]\r\n' got ['a', 'b', 'c'] cm ['a', 'b', 'c']
+ok   crlf-item-fence '- ```\r\n  [[x]]\r\n  ```\r\n[[r]]\r\n' got ['r'] cm ['r']
+ok   f1 '1. ```python\n   x = 1\n   ```\n\nVer [[real]].\n' got ['real'] cm ['real']
+ok   f2 '- ```\n  code\n  ```\n\nVer [[real]] y [[otro]].\n' got ['real', 'otro'] cm ['real', 'otro']
+ok   f3 '- ```bash\n  echo [[x]]\n  ```\n- [[item]]\n' got ['item'] cm ['item']
+ok   f4 '- ```\n  [[f]]\n  ```\n[[r]]\n' got ['r'] cm ['r']
+ok   f5-star-tilde '* ~~~\n  [[x]]\n  ~~~\n* [[y]]\n' got ['y'] cm ['y']
+ok   f6-paren '1) ~~~~\n   [[x]]\n   ~~~\n   ~~~~\n[[y]]\n' got ['y'] cm ['y']
+ok   f7-nested-markers '- 1. ```\n     [[x]]\n     ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f8-sub '- a\n  - ```\n    [[x]]\n    ```\n  [[y]]\n' got ['y'] cm ['y']
+ok   f9-close-shallow '- ```\n  [[x]]\n```\n[[y]]\n' got [] cm []
+ok   f10-close-deep '- ```\n  [[x]]\n      ```\n  [[y]]\n  ```\n[[z]]\n' got ['z'] cm ['z']
+ok   f11-blank-inside '- ```\n  [[x]]\n\n  [[w]]\n  ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f12-gap2 '-  ```\n   [[x]]\n   ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f13-lazy '- ```\n[[x]]\n[[y]]\n' got ['x', 'y'] cm ['x', 'y']
+ok   f14-10item '10. ```\n    [[x]]\n    ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f15-backtick-info '- ```a`b\n  [[x]]\n' got ['x'] cm ['x']
+ok   f16-hr '- - -\n```\n[[x]]\n```\n[[y]]\n' got ['y'] cm ['y']
+ok   f17-gap5 '-     ```\n  [[x]]\n' got ['x'] cm ['x']
+ok   f18-orphan-close-top '   ```\n[[x]]\n' got [] cm []
+ok   f19-ol-start '3. ```\n   [[x]]\n   ```\n4. [[y]]\n' got ['y'] cm ['y']
+ok   f20-quote '> - ```\n>   [[x]]\n>   ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f21-two-items '- ```\n  [[a]]\n- ```\n  [[b]]\n  ```\n[[c]]\n' got ['c'] cm ['c']
+ok   f22-indent-item '   - ```\n     [[x]]\n     ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f23-fence-after-para-in-item '- texto\n  ```\n  [[x]]\n  ```\n  [[y]]\n' got ['y'] cm ['y']
+total 44 diffs 0
+=== rc=0
+=== bordes e3c.py (copia de los scripts de test-lk/-c1/-c2, sin code_mask)
+ok   ind-li '- item\n\n        [[c]]\n\n- b [[r]]\n' got ['r'] cm ['r']
+ok   ind-sub3 '- a\n  - b\n    - c\n\n            [[code]]\n\n        [[para]]\n' got ['para'] cm ['para']
+ok   ind-ol-paren '1) item\n\n       [[c]]\n\n2) [[r]]\n' got ['r'] cm ['r']
+ok   ind-ol-10 '10. item\n\n        [[c]]\n\n    [[p]]\n' got ['p'] cm ['p']
+ok   ind-gap5 '-     [[x]]\n\n  [[y]]\n' got ['y'] cm ['y']
+ok   ind-tab '-\titem\n\n\t\t[[c]]\n\n[[r]]\n' got ['r'] cm ['r']
+ok   ind-empty-item '-\n\n    [[x]]\n' got [] cm []
+ok   ind-after-list '- a\n\n[[t]]\n\n    [[c]]\n' got ['t'] cm ['t']
+ok   ind-plus '+ a\n\n      [[c]]\n' got [] cm []
+ok   esc1 '\\`[[b]]\\`\n' got ['b'] cm ['b']
+ok   esc2 '\\\\`[[a]]` [[b]]\n' got ['b'] cm ['b']
+ok   esc3 '\\\\\\`[[a]]` [[b]]\n' got ['a', 'b'] cm ['a', 'b']
+ok   esc-in-span '`a\\` [[b]]` [[c]]\n' got ['b', 'c'] cm ['b', 'c']
+ok   esc-double '\\``[[a]]`` [[b]]\n' got ['a', 'b'] cm ['a', 'b']
+ok   esc-run '``x`` \\``[[a]]``\n' got ['a'] cm ['a']
+ok   crlf-fence '```\r\n[[a]]\r\n```\r\n[[b]]\r\n' got ['b'] cm ['b']
+ok   crlf-tilde '~~~ \r\n[[a]]\r\n~~~\r\n[[b]]\r\n' got ['b'] cm ['b']
+ok   crlf-mixed '```\n[[a]]\r\n```\r\n[[b]]\n' got ['b'] cm ['b']
+ok   crlf-ind-li '- i\r\n\r\n        [[c]]\r\n\r\n[[r]]\r\n' got ['r'] cm ['r']
+ok   crlf-blank-inline '`[[a]]\r\n\r\n[[b]]` [[c]]\r\n' got ['a', 'b', 'c'] cm ['a', 'b', 'c']
+ok   crlf-item-fence '- ```\r\n  [[x]]\r\n  ```\r\n[[r]]\r\n' got ['r'] cm ['r']
+ok   f1 '1. ```python\n   x = 1\n   ```\n\nVer [[real]].\n' got ['real'] cm ['real']
+ok   f2 '- ```\n  code\n  ```\n\nVer [[real]] y [[otro]].\n' got ['real', 'otro'] cm ['real', 'otro']
+ok   f3 '- ```bash\n  echo [[x]]\n  ```\n- [[item]]\n' got ['item'] cm ['item']
+ok   f4 '- ```\n  [[f]]\n  ```\n[[r]]\n' got ['r'] cm ['r']
+ok   f5-star-tilde '* ~~~\n  [[x]]\n  ~~~\n* [[y]]\n' got ['y'] cm ['y']
+ok   f6-paren '1) ~~~~\n   [[x]]\n   ~~~\n   ~~~~\n[[y]]\n' got ['y'] cm ['y']
+ok   f7-nested-markers '- 1. ```\n     [[x]]\n     ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f8-sub '- a\n  - ```\n    [[x]]\n    ```\n  [[y]]\n' got ['y'] cm ['y']
+ok   f9-close-shallow '- ```\n  [[x]]\n```\n[[y]]\n' got [] cm []
+ok   f10-close-deep '- ```\n  [[x]]\n      ```\n  [[y]]\n  ```\n[[z]]\n' got ['z'] cm ['z']
+ok   f11-blank-inside '- ```\n  [[x]]\n\n  [[w]]\n  ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f12-gap2 '-  ```\n   [[x]]\n   ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f13-lazy '- ```\n[[x]]\n[[y]]\n' got ['x', 'y'] cm ['x', 'y']
+ok   f14-10item '10. ```\n    [[x]]\n    ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f15-backtick-info '- ```a`b\n  [[x]]\n' got ['x'] cm ['x']
+ok   f16-hr '- - -\n```\n[[x]]\n```\n[[y]]\n' got ['y'] cm ['y']
+ok   f17-gap5 '-     ```\n  [[x]]\n' got ['x'] cm ['x']
+ok   f18-orphan-close-top '   ```\n[[x]]\n' got [] cm []
+ok   f19-ol-start '3. ```\n   [[x]]\n   ```\n4. [[y]]\n' got ['y'] cm ['y']
+ok   f20-quote '> - ```\n>   [[x]]\n>   ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f21-two-items '- ```\n  [[a]]\n- ```\n  [[b]]\n  ```\n[[c]]\n' got ['c'] cm ['c']
+ok   f22-indent-item '   - ```\n     [[x]]\n     ```\n[[y]]\n' got ['y'] cm ['y']
+ok   f23-fence-after-para-in-item '- texto\n  ```\n  [[x]]\n  ```\n  [[y]]\n' got ['y'] cm ['y']
+total 44 diffs 0
+ok   span-cross-item 'Usa el carácter ` para abrir código; ver [[real]].\n- otro ` suelto en un ítem\n' got ['real'] cm ['real'] HEAD ['real']
+ok   span-cross-heading 'Un ` suelto y [[real]].\n# Título con ` suelto\n' got ['real'] cm ['real'] HEAD ['real']
+ok   span-cross-quote 'Un ` suelto y [[real]].\n> cita con ` suelto\n' got ['real'] cm ['real'] HEAD ['real']
+ok   span-cross-fence 'Un ` suelto y [[real]].\n```\nx ` y\n```\n' got ['real'] cm ['real'] HEAD ['real']
+ok   span-cross-items '- uno ` y [[real]]\n- dos ` y\n' got ['real'] cm ['real'] HEAD ['real']
+ok   span-cross-hr 'Un ` y [[real]]\n***\notro `\n' got ['real'] cm ['real'] HEAD ['real']
+ok   span-in-fence-close '```\na ` b\n```\nVer [[real]] y ` suelto\n\n' got ['real'] cm ['real'] HEAD ['real']
+=== rc=0
+=== fuzz.py seed 1 (20000 docs, contra markdown-it-py commonmark)
+N 20000 loss 10 extra 8
+LOSS '- ---[[b]]10) \r\n10) ' got [] cm ['b']
+LOSS '---[[b]]* 10) txt txt ---- \n---- ' got [] cm ['b']
+LOSS '---[[b]]\n---\r\n\r\n[[a2]]    [[a2]]* ' got ['a2', 'a2'] cm ['b', 'a2', 'a2']
+LOSS '- 1. ---    pytxt           > [[b]]\n\n\\`* ' got [] cm ['b']
+LOSS '- ---[[a1]]---- ```    ---* \n\n\n\n10) ````\r\n' got [] cm ['a1']
+LOSS '---* ---> [[b]]\n\ntxt 10) 10) \n\n---\n\npy``````' got [] cm ['b']
+LOSS '---[[b]]\r\n---\n\t*         1. \n\n\n````> ~~~\\`1. ' got [] cm ['b']
+LOSS '---  ````[[b]][[a3]]    1. ~~~txt * \n---\n\n\t`\n\n' got [] cm ['b', 'a3']
+LOSS '- ---\t```[[b]]  1. 10) `---\n- - txt 1. ````---' got [] cm ['b']
+LOSS '---10) ````---[[a5]]\ntxt 1. \ttxt \n\n> \n\\````[[b]]\r\n\n1. >   \n---' got ['b'] cm ['a5', 'b']
+EXTRA '- ---\\`[[b]]- \n1. \n\\`[[b]]\n\t> txt *     \t`' got ['b'] cm ['b', 'b']
+EXTRA '---\\`[[b]]``````\n\n* [[b]]    ```txt \n\\`\\`\n\n---' got ['b'] cm ['b', 'b']
+EXTRA '---  * * > \\`      \t\tpy````* > \r\n\n\n\t[[a4]]`````\n---' got ['a4'] cm []
+EXTRA '- ---    `txt [[a1]][[a1]]txt 1. \n`[[a1]]\\`> [[a1]]py' got ['a1'] cm ['a1', 'a1']
+EXTRA '---`````````\n`\n````\n\n---    \\`\n    [[b]]~~~\ntxt \n------\n' got ['b'] cm []
+EXTRA '---~~~~~~1. \r\n\r\n\t> [[b]]py\n\n---\n1. > \n\n[[b]]\n\n```\n\n[[b]]10) * ' got ['b', 'b'] cm ['b']
+EXTRA '---\n\n  ```  - ------[[b]]\r\n10)   `10) \n---\n\n10)     \t    ~~~- \r\n' got ['b'] cm []
+EXTRA '---\t    1. txt [[a3]]\n\n\\`\r\n1. 10) * ~~~10) [[b]]~~~[[a3]]- 1. \r\n---\n' got ['b', 'a3'] cm ['a3']
+=== rc=0
+=== fuzz.py seed 2 (20000 docs, contra markdown-it-py commonmark)
+N 20000 loss 11 extra 8
+LOSS '---```````  1. [[a3]]\r\n---    \n\n' got [] cm ['a3']
+LOSS '- ---    > [[a3]]1. - py\n\n```~~~  ' got [] cm ['a3']
+LOSS '- ---txt     ~~~---py[[b]]\r\n    \n\n\n`' got [] cm ['b']
+LOSS '---[[b]]txt \r\n`````  ---~~~    ---\n---\n' got [] cm ['b']
+LOSS '- ---\t`\n`txt > 1. \r\n\n\n    - [[a3]][[b]]---\r\n\\`' got [] cm ['a3', 'b']
+LOSS '---[[b]]\n---\n````10) - 1. 1. ````- \\`````- \n\n````10) ' got [] cm ['b']
+LOSS '- ---1. [[a4]]    txt \n\n1. \ntxt \n`---        txt [[b]]~~~' got ['b'] cm ['a4', 'b']
+LOSS '- - ---[[a0]]  \t[[b]]> [[a0]]````    \n10) ~~~1. \n    ~~~\t```py' got [] cm ['a0', 'b', 'a0']
+LOSS '- ---````[[a2]]\n1. 10) txt \n  1. \\``\r\n      \\`[[b]]txt ````    ' got ['b'] cm ['a2', 'b']
+LOSS '- ---```[[a2]]\\`- [[b]]~~~`\t[[a2]]~~~~~~> ````1. 1. `  ---  \n\n1. ' got [] cm ['a2', 'b']
+LOSS '- ---``````~~~txt * [[a1]]10) 10) \n[[b]]\\`\n\n\t1. ```\t- ````- \n\n\n* * ' got ['b'] cm ['a1', 'b']
+EXTRA '- ---  - \\`[[a1]]````1. \n[[a1]]\\`py\n' got ['a1'] cm ['a1', 'a1']
+EXTRA '- ---[[a4]]> \\`- \n\n[[b]]- - py```[[a4]][[b]]    ' got ['b', 'a4', 'b'] cm ['a4', 'b', 'a4', 'b']
+EXTRA '---\n1. > \n10) \t`\n\r\n*   `````- [[b]]\n  ---\n[[a3]]  ' got ['b', 'a3'] cm ['a3']
+EXTRA '---```---````txt - ````\r\n\r\n\t\t  py````[[b]]\n\n> * `\n\n\n\n---\t' got ['b'] cm []
+EXTRA '---`\t\n  10)     ```[[b]]~~~~~~````1. `\n---\n\n````\n\n````[[a4]]* ' got ['b'] cm []
+EXTRA '---````---\t> \t  py[[a5]]* ```- [[a5]]```\t\\`\n\n\\`\\``\n\n---\n\n[[a5]]' got ['a5'] cm ['a5', 'a5']
+EXTRA '---pytxt > [[b]]~~~* \ntxt ````---\r\n```  ```~~~`\r\n[[b]][[a5]]\n---' got ['b', 'a5'] cm ['b', 'b', 'a5']
+EXTRA '-   ---1. \\`* ```[[b]]\n\n\n[[b]][[b]]1. [[b]]10) txt   [[a3]]```[[a3]]\r\n\n\n' got ['b', 'b', 'b', 'a3', 'a3'] cm ['b', 'b', 'b', 'b', 'a3', 'a3']
+=== rc=0
+=== fuzz3.py seed 1 (20000 docs; multiconjunto; causa)
+seed 1 N 20000 {('extra', 'front_matter_linea0'): 5, ('loss', 'front_matter_linea0'): 13}
+('extra', 'front_matter_linea0') '---  * * > \\`      \t\tpy````* > \r\n\n\n\t[[a4]]`````\n---' new ['a4'] cm []
+('extra', 'front_matter_linea0') '---`````````\n`\n````\n\n---    \\`\n    [[b]]~~~\ntxt \n------\n' new ['b'] cm []
+('extra', 'front_matter_linea0') '---~~~~~~1. \r\n\r\n\t> [[b]]py\n\n---\n1. > \n\n[[b]]\n\n```\n\n[[b]]10) * ' new ['b', 'b'] cm ['b']
+('extra', 'front_matter_linea0') '---\n\n  ```  - ------[[b]]\r\n10)   `10) \n---\n\n10)     \t    ~~~- \r\n' new ['b'] cm []
+('loss', 'front_matter_linea0') '- ---[[b]]10) \r\n10) ' new [] cm ['b']
+('loss', 'front_matter_linea0') '---[[b]]* 10) txt txt ---- \n---- ' new [] cm ['b']
+('loss', 'front_matter_linea0') '---[[b]]\n---\r\n\r\n[[a2]]    [[a2]]* ' new ['a2', 'a2'] cm ['b', 'a2', 'a2']
+('loss', 'front_matter_linea0') '- 1. ---    pytxt           > [[b]]\n\n\\`* ' new [] cm ['b']
+=== rc=0
+=== fuzz3.py seed 2 (20000 docs; multiconjunto; causa)
+seed 2 N 20000 {('loss', 'front_matter_linea0'): 16, ('extra', 'front_matter_linea0'): 3}
+('loss', 'front_matter_linea0') '---```````  1. [[a3]]\r\n---    \n\n' new [] cm ['a3']
+('loss', 'front_matter_linea0') '- ---    > [[a3]]1. - py\n\n```~~~  ' new [] cm ['a3']
+('loss', 'front_matter_linea0') '- ---txt     ~~~---py[[b]]\r\n    \n\n\n`' new [] cm ['b']
+('loss', 'front_matter_linea0') '- ---  - \\`[[a1]]````1. \n[[a1]]\\`py\n' new ['a1'] cm ['a1', 'a1']
+('extra', 'front_matter_linea0') '---\n1. > \n10) \t`\n\r\n*   `````- [[b]]\n  ---\n[[a3]]  ' new ['b', 'a3'] cm ['a3']
+('extra', 'front_matter_linea0') '---```---````txt - ````\r\n\r\n\t\t  py````[[b]]\n\n> * `\n\n\n\n---\t' new ['b'] cm []
+('extra', 'front_matter_linea0') '---`\t\n  10)     ```[[b]]~~~~~~````1. `\n---\n\n````\n\n````[[a4]]* ' new ['b'] cm []
+=== rc=0
+=== fuzz3.py seed 3 (20000 docs; multiconjunto; causa)
+seed 3 N 20000 {('loss', 'front_matter_linea0'): 19, ('extra', 'front_matter_linea0'): 4}
+('loss', 'front_matter_linea0') '-   ---[[b]]\n---    \n\n`[[a0]]' new ['a0'] cm ['b', 'a0']
+('loss', 'front_matter_linea0') '---~~~    [[b]]\n---\n10) > \n10) ````\n\n`* ' new [] cm ['b']
+('loss', 'front_matter_linea0') '-   ---`py1. ```---\\`[[a4]]\n1. txt \n\n[[b]]' new ['b'] cm ['a4', 'b']
+('loss', 'front_matter_linea0') '- ---[[b]]`~~~\npy  * \r\n[[a2]]>     [[b]]txt ' new ['a2', 'b'] cm ['b', 'a2', 'b']
+('extra', 'front_matter_linea0') '---\n\n\t[[b]][[b]]````  \n  ````~~~[[a6]]```\r\n\n---\n\n' new ['b', 'b', 'a6'] cm ['a6']
+('extra', 'front_matter_linea0') '---\n\n\r\n\\`    py[[a4]]\n\r\n* 1. ~~~\n```\n10) py* [[a4]]\n\n\n\n---\n  ' new ['a4', 'a4'] cm ['a4']
+('extra', 'front_matter_linea0') '- ---~~~\n    - ~~~~~~txt `  [[a6]]\\`- > \n\n> \n[[a6]]* \n1. [[b]]    ' new ['a6', 'a6', 'b'] cm ['a6', 'b']
+('extra', 'front_matter_linea0') '---    ~~~    \r\n[[b]]~~~    txt 10) \n\n~~~[[b]]\r\n------  \n\n> py\t- txt py' new ['b', 'b'] cm ['b']
+=== rc=0
+=== corpus: dump HEAD (git archive HEAD en /dev/shm/lkmd-t/base) y cambio, 3 corridas en frío cada uno
+/dev/shm/lkmd-t/base/src files 1987 links 326 time_s 0.322
+/mnt/ssd/proyectos/SLDB_1/sldb/src files 1987 links 286 time_s 0.642
+/dev/shm/lkmd-t/base/src files 1987 links 326 time_s 0.319
+/mnt/ssd/proyectos/SLDB_1/sldb/src files 1987 links 286 time_s 0.622
+/dev/shm/lkmd-t/base/src files 1987 links 326 time_s 0.363
+/mnt/ssd/proyectos/SLDB_1/sldb/src files 1987 links 286 time_s 0.654
+=== corpus cmp
+CHANGELOG.md lost 8 gained 0 lost_real {}
+docs/architecture/current-system-overview.md lost 2 gained 0 lost_real {}
+docs/architecture/graph-backend.md lost 2 gained 0 lost_real {}
+docs/atoms/compose-vs-recover.atom.md lost 2 gained 0 lost_real {}
+docs/atoms/predicate-links.atom.md lost 4 gained 0 lost_real {}
+docs/composition_modes.md lost 2 gained 0 lost_real {}
+docs/documentation-review.md lost 2 gained 0 lost_real {}
+docs/faq.md lost 3 gained 0 lost_real {}
+docs/user-manual.md lost 3 gained 0 lost_real {}
+knowledge/commands/cmd-sldb-docs-compose.md lost 1 gained 0 lost_real {}
+knowledge/commands/cmd-sldb-predicates-add.md lost 1 gained 0 lost_real {}
+propuesta/06-NIVELES-NO-SON-UNIDADES.md lost 1 gained 0 lost_real {}
+propuesta/09-DUDAS-CERRADAS.md lost 1 gained 0 lost_real {}
+runs/subagents/20261104-grafo-operable-context-reviews/context-review/task-go10-retiro-de-where-parse-y-fieldcondition/bundle/2edc398bc240ee0cb8180fd3bbc9f5aa9ba9f399d7730d02979a2a2547e79200/attempt-1/input.md lost 2 gained 0 lost_real {}
+runs/subagents/20261116-test-b2sql-c1/result-summary.md lost 1 gained 0 lost_real {}
+runs/subagents/secrest2-worker-report.md lost 2 gained 0 lost_real {}
+runs/subagents/sldb-ci-worker-report.md lost 3 gained 0 lost_real {}
+files 1987 changed 17 links HEAD 326 new 286 lost 40 gained 0 lost_real 0 reordered_same_set 0
+=== rc=0
+=== borde propio fm.py (front_matter en línea 0)
+ok   fm-normal '---\ntitle: x [[fm]]\n---\n\nTexto [[a]] y `[[c]]`\n' new ['fm', 'a'] cm ['fm', 'a']
+ok   fm-sin-cierre '---\n\n# T\n\nTexto [[a]]\n' new ['a'] cm ['a']
+ok   hr-con-texto-l0 '--- [[b]]\n\nTexto [[a]]\n' new ['b', 'a'] cm ['b', 'a']
+DIFF hr-pegado-l0+cierre '---[[b]]\n---\n\n[[a]]\n' new ['a'] cm ['b', 'a']
+DIFF item-l0-guiones '- --- nota [[b]]\n- otro [[c]]\n' new ['c'] cm ['b', 'c']
+ok   item-l0-no-fm '- nota --- [[b]]\n' new ['b'] cm ['b']
+ok   linea1-guiones 'Intro\n--- [[b]]\n' new ['b'] cm ['b']
+=== rc=0
+=== corpus: .md cuya línea 0 abre front matter con texto detrás
+=== fin
+=== fixprobe (front_matter por líneas fuente) seed 1
+seed 1 N 20000 {('extra', 'front_matter_linea0'): 6}
+('extra', 'front_matter_linea0') '---  * * > \\`      \t\tpy````* > \r\n\n\n\t[[a4]]`````\n---' new ['a4'] cm []
+('extra', 'front_matter_linea0') '- ---    `txt [[a1]][[a1]]txt 1. \n`[[a1]]\\`> [[a1]]py' new ['a1', 'a1', 'a1'] cm ['a1', 'a1']
+('extra', 'front_matter_linea0') '---`````````\n`\n````\n\n---    \\`\n    [[b]]~~~\ntxt \n------\n' new ['b'] cm []
+('extra', 'front_matter_linea0') '---~~~~~~1. \r\n\r\n\t> [[b]]py\n\n---\n1. > \n\n[[b]]\n\n```\n\n[[b]]10) * ' new ['b', 'b'] cm ['b']
+=== rc=0
+=== fixprobe (front_matter por líneas fuente) seed 2
+seed 2 N 20000 {('extra', 'front_matter_linea0'): 8, ('loss', 'front_matter_linea0'): 1}
+('extra', 'front_matter_linea0') '-   `---```txt [[a6]]`  \t\r\n`    * \n\n- ````\n\t[[b]]' new ['a6'] cm []
+('extra', 'front_matter_linea0') '---\n1. > \n10) \t`\n\r\n*   `````- [[b]]\n  ---\n[[a3]]  ' new ['b', 'a3'] cm ['a3']
+('extra', 'front_matter_linea0') '---1. \t> ````> \t[[b]]10) \n```\r\n\n\n> ```[[b]]\\`* \ntxt \n---' new ['b', 'b'] cm ['b']
+('extra', 'front_matter_linea0') '---```---````txt - ````\r\n\r\n\t\t  py````[[b]]\n\n> * `\n\n\n\n---\t' new ['b'] cm []
+('loss', 'front_matter_linea0') '- ---\t`\n`txt > 1. \r\n\n\n    - [[a3]][[b]]---\r\n\\`' new [] cm ['a3', 'b']
+=== rc=0
+=== fixprobe (front_matter por líneas fuente) seed 3
+seed 3 N 20000 {('extra', 'front_matter_linea0'): 5}
+('extra', 'front_matter_linea0') '-     ---[[a5]]\n[[b]]> ---* `        \n```\r\n> > ' new ['a5', 'b'] cm ['b']
+('extra', 'front_matter_linea0') '---\n\n\t[[b]][[b]]````  \n  ````~~~[[a6]]```\r\n\n---\n\n' new ['b', 'b', 'a6'] cm ['a6']
+('extra', 'front_matter_linea0') '---\n\n\r\n\\`    py[[a4]]\n\r\n* 1. ~~~\n```\n10) py* [[a4]]\n\n\n\n---\n  ' new ['a4', 'a4'] cm ['a4']
+('extra', 'front_matter_linea0') '- ---~~~\n    - ~~~~~~txt `  [[a6]]\\`- > \n\n> \n[[a6]]* \n1. [[b]]    ' new ['a6', 'a6', 'b'] cm ['a6', 'b']
+=== rc=0
+=== escapes/énfasis: cambio
+[('[p:: [[q\\*r]]]', 'q\\*r', 'p', 'predicate_link'), ('[[a\\_b]]', 'a\\_b', None, 'link'), ('[[*e*]]', '*e*', None, 'link'), ('[[a\\]]', 'a\\', None, 'link'), ('[[x**y**z]]', 'x**y**z', None, 'link'), ('![[~~s~~]]', '~~s~~', None, 'transclusion'), ('[[a&amp;b]]', 'a&amp;b', None, 'link'), ('[[\\[x]]', '\\[x', None, 'link')]
+=== escapes/énfasis: HEAD
+[('[p:: [[q\\*r]]]', 'q\\*r', 'p', 'predicate_link'), ('[[a\\_b]]', 'a\\_b', None, 'link'), ('[[*e*]]', '*e*', None, 'link'), ('[[a\\]]', 'a\\', None, 'link'), ('[[x**y**z]]', 'x**y**z', None, 'link'), ('![[~~s~~]]', '~~s~~', None, 'transclusion'), ('[[a&amp;b]]', 'a&amp;b', None, 'link'), ('[[\\[x]]', '\\[x', None, 'link')]
