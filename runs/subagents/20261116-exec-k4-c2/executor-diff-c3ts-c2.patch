@@ -1,0 +1,353 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index ff59ab18..3c226887 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -4,6 +4,7 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
+ 
+ ## 0.1.13 — not released yet (no tag, not on PyPI)
+ 
++- `sldb.code` publica facts genéricos de TS, TSX, JS y JSX sin conocer ningún framework (task `task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam`, C3 de IR para IR09; nota del inbox `20261116-211648`), con la forma de la parte Python. Cada `function`, `hook` o `component` lleva `attrs.calls`, un `{name, line, first_arg}` por llamada de su cuerpo en orden de fuente (`line` absoluta en el archivo), y una relación `calls` por destino distinto. `name` es la expresión llamada completa, sin partirla ni resolver imports (`fetch`, `axios.get`, `api.posts.create`), en una forma canónica que se arma desde el árbol y no desde el texto: identificadores y propiedades unidos por `.` (`?.` y `!` si están escritos), sin espacios ni saltos de línea (`client\n  .documents()` da `client.documents`), sin `await` y sin argumentos de tipo (`await get<T>('/x')` y `api.get<T>('/y')` dan `get` y `api.get`). Un tramo de la cadena que es a su vez una llamada se escribe `()` sin sus argumentos (`fetch(url).then(cb).then(f)` da `fetch().then().then`; `(await listDocuments(m)).slice(0)` da `listDocuments().slice`; un `new Foo()` en la cadena da `Foo()`), una función anónima o una IIFE da `(fn)` y un acceso por índice da `[]` (`x[1].y` da `x[].y`). Los handlers JSX usan la misma forma. `first_arg` es el valor de un primer argumento string o template sin `${...}`, sin comillas ni backticks (`/api/posts`); si no, `null`. Como un `def` anidado en Python, una declaración `function`, generadora o `class` anidada no se recorre; una arrow o function expression sí (callbacks, handlers inline), como un `lambda`. `new X()` no es llamada. Un `type` o `interface` no lleva `calls`. Cada `component` lleva además `attrs.handlers`: un `{element, attribute, handler}` por atributo JSX cuyo nombre es `on` seguido de mayúscula (`onClick` sí, `only` no) y cuyo valor es `{identificador}` (`onClick={handleSave}` da `handleSave`), `{llamada(...)}` o una función cuyo cuerpo es una llamada (`{() => save(x)}` da `save`); `element` es el tag tal como está escrito (`button`, `Form.Item`). Un `{props.onFocus}`, un string o un spread no son handler. Cada handler suma su relación `calls`. Readers nuevos en `sldb/code/ts_calls.py`, `sldb/code/ts_callee.py` y `sldb/code/ts_jsx.py`; salen por `scan_tree`, `scan_file` y `sldb.api.code.code_facts`. No hay kinds nuevos: los ids, spans y huellas de los facts TS no cambian (solo se agregan relaciones y atributos), los de `.py` y SQL tampoco, y `NORMALIZATION` sigue en 1; las anclas TS no cambian de estado. Fixture nuevo `tests/fixtures/treesitter/frontend/src/PostForm.tsx` (fetch, axios y un botón con `onClick`).
+ - `component_spec_from_python` vuelve a leer solo los `.py` del árbol (task `task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone`, regresión de B2 que reportó IR; nota del inbox `20261116-213452`). Desde B2 `scan_tree` recorre también `.ts`, `.tsx`, `.js`, `.jsx` y `.sql`, y un `.js` vendorizado y minificado que no parsea daba un hallazgo `component-spec/syntax-error`. Ahora el generador escanea con `scan_file` solo los `.py` que lista `find_files`, en un mismo espacio de ids; un archivo de otro lenguaje no da nodo ni hallazgo. `scan_tree` no cambia para `code_facts` ni las anclas. El spec de `src/sldb` es el mismo que en HEAD.
+ - `sldb.code` publica facts genéricos de Python sin conocer ningún framework (task `task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre`, C3 de IR, parte genérica; nota del inbox `20261116-211648`). Cada clase lleva una relación `extends` por base escrita y `attrs.bases` en orden; cada clase, función o método lleva `attrs.decorators` (`{name, args, kwargs}`); cada función o método lleva `attrs.calls` (`{name, line}` por llamada de su cuerpo, sin entrar en un `def` o `class` anidado) y una relación `calls` por destino distinto, con el texto calificado tal cual (`self.publish`, `Post.objects.create`), sin resolver tipos ni imports. Dos kinds nuevos en el nivel de módulo y en el cuerpo de cada clase que es fact (una `Meta` anidada también; no bajo `if`, `try` ni funciones):
+   - `assignment`: `nombre = valor` o `nombre: T = valor`. Si el valor es una llamada, `attrs.call` `{func, args, kwargs}`; si es lista o tupla, `attrs.items` con un `{func, args, kwargs}` o `{value}` por ítem, más `attrs.value` cuando ningún ítem es llamada; si no, `attrs.value` con su texto. Una asignación aumentada (`+=` y los demás operadores) también es `assignment`, con `attrs.op` (`'+='`) y el valor leído igual: `urlpatterns += [path(...)]` da sus ítems y `urlpatterns += static(...)` su `attrs.call`, como un `assignment` más de `urlpatterns` con `~N`. Una asignación encadenada (`created = updated = models.DateTimeField(...)`) da un fact por nombre con el mismo valor.
+diff --git a/src/sldb/code/lang_ts.py b/src/sldb/code/lang_ts.py
+index 2bc33be4..c6801400 100644
+--- a/src/sldb/code/lang_ts.py
++++ b/src/sldb/code/lang_ts.py
+@@ -1,7 +1,9 @@
+ """TypeScript and JavaScript (`.ts`, `.tsx`, `.js`, `.jsx`) into facts of the same form as Python's: the
+ module, then its top-level declarations in source order (components, hooks, types and functions; rules
+ in `ts_readers`). One reader for the four; the grammar comes from the extension (`runtime.grammar_of`).
+-The module's qualified name is its path without extension, like `py_module_name`; a symbol's id is
++A function, hook or component also carries its calls (`attrs.calls`, `ts_calls`) and a component its
++JSX event handlers (`attrs.handlers`, `ts_jsx`), with one `calls` relation per distinct called name
++or handler. The module's qualified name is its path without extension, like `py_module_name`; a symbol's id is
+ `module.name`, and a repeated id takes the `~2`, `~3` suffix from `Ids`.
+ """
+ 
+@@ -15,7 +17,9 @@ from sldb.code.facts import fact, rels
+ from sldb.code.ids import Ids
+ from sldb.code.imports import py_module_name
+ from sldb.code.runtime import parse
++from sldb.code.ts_calls import body_calls, body_nodes
+ from sldb.code.ts_fingerprints import ts_fingerprints
++from sldb.code.ts_jsx import jsx_handlers
+ from sldb.code.ts_readers import declarations, jsdoc, kind_of, ts_imports, ts_signature
+ 
+ 
+@@ -40,8 +44,19 @@ def _module_fact(rootn: Any, ctx: dict[str, Any]) -> dict[str, Any]:
+ 
+ 
+ def _definition_fact(name: str, node: Any, fn: Any, doc: str | None, idgen: Ids, ctx: dict[str, Any]) -> dict[str, Any]:
+-    module, src = ctx["module"], ctx["src"]
+-    return fact(id=idgen.take(f"{module}.{name}" if module else name), kind=kind_of(name, node, fn), name=name, qualified_name=name, path=ctx["rel"],
++    module, src, kind = ctx["module"], ctx["src"], kind_of(name, node, fn)
++    extra_rels, extra_attrs = _extras(kind, fn, src)
++    return fact(id=idgen.take(f"{module}.{name}" if module else name), kind=kind, name=name, qualified_name=name, path=ctx["rel"],
+                 span={"start_line": node.start_point[0] + 1, "end_line": node.end_point[0] + 1}, source_hash=ctx["digest"],
+-                signature=ts_signature(name, fn, src), doc=doc, relations=rels(ctx["mid"]),
+-                attrs={"native_kind": (fn if fn is not None else node).type, "module": module}, fingerprints=ts_fingerprints(name, node, fn, doc, src))
++                signature=ts_signature(name, fn, src), doc=doc, relations=sorted(rels(ctx["mid"]) + extra_rels, key=lambda r: (r["type"], r["target"])),
++                attrs={"native_kind": (fn if fn is not None else node).type, "module": module, **extra_attrs}, fingerprints=ts_fingerprints(name, node, fn, doc, src))
++
++
++def _extras(kind: str, fn: Any, src: bytes) -> tuple[list[dict[str, str]], dict[str, Any]]:
++    """The `calls` relations and `attrs.calls` (and a component's `attrs.handlers`); nothing for a type."""
++    if fn is None:
++        return [], {}
++    nodes = body_nodes(fn)
++    calls, handlers = body_calls(nodes, src), jsx_handlers(nodes, src) if kind == "component" else None
++    targets = {c["name"] for c in calls} | {h["handler"] for h in handlers or []}
++    return [{"type": "calls", "target": t} for t in sorted(targets)], {"calls": calls, **({"handlers": handlers} if handlers is not None else {})}
+diff --git a/src/sldb/code/ts_callee.py b/src/sldb/code/ts_callee.py
+new file mode 100644
+index 00000000..3b4d069d
+--- /dev/null
++++ b/src/sldb/code/ts_callee.py
+@@ -0,0 +1,61 @@
++"""The canonical name of a called TypeScript/JavaScript expression, built from the tree, not the text:
++identifiers and property names joined by `.` (`?.` and `!` when written), with no whitespace, no
++`await` and no type arguments (`client\\n  .documents` gives `client.documents`). A link of the chain
++that is itself a call is written `()` without its arguments (`fetch(url).then(cb).then` gives
++`fetch().then().then`; `(await listDocuments(m)).slice` gives `listDocuments().slice`); a `new X()`
++link is written like a call, `X()`. An anonymous function or IIFE as object is `(fn)`; an index
++access is `[]` (`?.[]` when optional). Parentheses, `await`, `as`/`satisfies` and `x<T>` are seen
++through. Any other expression (a literal) is its text without whitespace.
++"""
++
++from __future__ import annotations
++
++from typing import Any
++
++from sldb.code.readers import text
++
++_LEAVES = {"identifier", "property_identifier", "private_property_identifier", "this", "super"}
++_FUNCTIONS = {"arrow_function", "function_expression", "function", "generator_function"}
++_SEEN_THROUGH = {"await_expression", "parenthesized_expression", "as_expression", "satisfies_expression", "instantiation_expression"}
++
++
++def call_name(node: Any, src: bytes) -> str:
++    """The canonical name of `node` (the `function` field of a call, or a link of its chain)."""
++    kind = node.type
++    if kind in _LEAVES:
++        return text(node, src)
++    if kind in _FUNCTIONS:
++        return "(fn)"
++    if kind in _SEEN_THROUGH and node.named_child_count:
++        return call_name(node.named_children[0], src)
++    build = _BUILDERS.get(kind)
++    return build(node, src) if build is not None else "".join(text(node, src).split())
++
++
++def _optional(node: Any) -> bool:
++    return any(c.type == "optional_chain" for c in node.children)
++
++
++def _member(node: Any, src: bytes) -> str:
++    dot = "?." if _optional(node) else "."
++    return call_name(node.child_by_field_name("object"), src) + dot + text(node.child_by_field_name("property"), src)
++
++
++def _subscript(node: Any, src: bytes) -> str:
++    return call_name(node.child_by_field_name("object"), src) + ("?.[]" if _optional(node) else "[]")
++
++
++def _call(node: Any, src: bytes) -> str:
++    return call_name(node.child_by_field_name("function"), src) + "()"
++
++
++def _new(node: Any, src: bytes) -> str:
++    return call_name(node.child_by_field_name("constructor"), src) + "()"
++
++
++def _non_null(node: Any, src: bytes) -> str:
++    return call_name(node.named_children[0], src) + "!"
++
++
++_BUILDERS = {"member_expression": _member, "subscript_expression": _subscript, "call_expression": _call,
++             "new_expression": _new, "non_null_expression": _non_null}
+diff --git a/src/sldb/code/ts_calls.py b/src/sldb/code/ts_calls.py
+new file mode 100644
+index 00000000..b2448357
+--- /dev/null
++++ b/src/sldb/code/ts_calls.py
+@@ -0,0 +1,51 @@
++"""Calls in TypeScript/JavaScript source as text, with no type or import resolved, in the form of
++Python's (`py_calls`): the calls a function, hook or component makes (`fetch`, `axios.get`,
++`api.posts.create`), one `{name, line, first_arg}` per call in source order. `name` is the whole
++called expression, unsplit, in the canonical form of `ts_callee` (built from the tree: no whitespace,
++no `await`, no type arguments, `()` for a call in the chain, `(fn)`, `[]`); `first_arg` is a first
++argument that is a string or a template without `${...}`, without its quotes or backticks (escapes
++as written), else None. Like a
++nested `def` in Python, a nested `function`, generator or `class` declaration is not walked; an
++arrow function or function expression is (a callback, an inline handler), like a `lambda`. `new X()`
++is not a call.
++"""
++
++from __future__ import annotations
++
++from typing import Any
++
++from sldb.code.readers import first_statement, text
++from sldb.code.ts_callee import call_name
++
++_NESTED = {"function_declaration", "generator_function_declaration", "class_declaration", "class"}
++_LITERALS = {"string", "template_string"}
++
++
++def body_nodes(fn: Any) -> list[Any]:
++    """The nodes of a function's body in source order (pre-order), without entering a nested declaration."""
++    out, stack = [], [fn.child_by_field_name("body")]
++    while stack:
++        n = stack.pop()
++        if n is None or n.type in _NESTED:
++            continue
++        out.append(n)
++        stack.extend(reversed(n.named_children))
++    return out
++
++
++def callee(call: Any, src: bytes) -> str:
++    """The canonical name of the `function` field (`ts_callee`); the grammar reads `await f<T>(...)` as
++    a call whose function is `await f`, and `call_name` sees through that `await`."""
++    return call_name(call.child_by_field_name("function"), src)
++
++
++def first_arg(call: Any, src: bytes) -> str | None:
++    args = call.child_by_field_name("arguments")
++    lit = first_statement(args) if args is not None and args.type == "arguments" else args
++    if lit is None or lit.type not in _LITERALS or any(c.type == "template_substitution" for c in lit.named_children):
++        return None
++    return text(lit, src)[1:-1]
++
++
++def body_calls(nodes: list[Any], src: bytes) -> list[dict[str, Any]]:
++    return [{"name": callee(n, src), "line": n.start_point[0] + 1, "first_arg": first_arg(n, src)} for n in nodes if n.type == "call_expression"]
+diff --git a/src/sldb/code/ts_jsx.py b/src/sldb/code/ts_jsx.py
+new file mode 100644
+index 00000000..a0847a86
+--- /dev/null
++++ b/src/sldb/code/ts_jsx.py
+@@ -0,0 +1,47 @@
++"""The JSX attributes of a component that bind an event to a handler, without knowing any framework:
++an attribute whose name is `on` followed by an uppercase letter (`onClick`, not `only`) and whose
++value is `{identifier}` (`onClick={handleSave}` gives `handleSave`), `{call(...)}` or a function whose
++body is a call (`{() => save(x)}`, `{() => { save(x); }}`), which give the called expression (`save`). Anything else (a member
++expression, a string, a spread) is not a handler. `element` is the tag's name as written
++(`button`, `Button`, `Form.Item`).
++"""
++
++from __future__ import annotations
++
++from typing import Any
++
++from sldb.code.readers import field_text, first_statement, text
++from sldb.code.ts_calls import callee
++
++_FUNCTIONS = {"arrow_function", "function_expression", "function"}
++
++
++def jsx_handlers(nodes: list[Any], src: bytes) -> list[dict[str, str]]:
++    """`{element, attribute, handler}` of each handler attribute among `nodes`, in source order."""
++    out = []
++    for n in nodes:
++        name = text(n.named_children[0], src) if n.type == "jsx_attribute" else ""
++        handler = _handler(n.named_children[-1], src) if _is_event(name) and n.named_child_count == 2 else None
++        if handler is not None:
++            out.append({"element": field_text(n.parent, src, "name"), "attribute": name, "handler": handler})
++    return out
++
++
++def _is_event(name: str) -> bool:
++    return name.startswith("on") and name[2:3].isupper()
++
++
++def _handler(value: Any, src: bytes) -> str | None:
++    expr = first_statement(value) if value.type == "jsx_expression" else None
++    if expr is not None and expr.type in _FUNCTIONS:
++        expr = _inner_call(expr.child_by_field_name("body"))
++    if expr is None or expr.type not in ("identifier", "call_expression"):
++        return None
++    return text(expr, src) if expr.type == "identifier" else callee(expr, src)
++
++
++def _inner_call(body: Any) -> Any:
++    """A function body's call: the body itself, or a block whose first statement is a call."""
++    stmt = first_statement(body) if body is not None and body.type == "statement_block" else body
++    inner = first_statement(stmt) if stmt is not None and stmt.type == "expression_statement" else stmt
++    return inner if inner is not None and inner.type == "call_expression" else None
+diff --git a/tests/fixtures/treesitter/frontend/src/PostForm.tsx b/tests/fixtures/treesitter/frontend/src/PostForm.tsx
+new file mode 100644
+index 00000000..192339f6
+--- /dev/null
++++ b/tests/fixtures/treesitter/frontend/src/PostForm.tsx
+@@ -0,0 +1,23 @@
++import axios from "axios";
++import { api } from "./api";
++
++/** Saves a post. */
++export function handleSave(title: string) {
++  return api.posts.create(title);
++}
++
++export function PostForm({ id, props }: { id: number; props: any }) {
++  const posts = fetch("/api/posts");
++  axios.get(`/api/posts`);
++  axios.delete(`/api/posts/${id}`);
++  function local() {
++    return fetch("/hidden");
++  }
++  return (
++    <form>
++      <button onClick={handleSave}>{posts.length}</button>
++      <Form.Item onChange={() => validate(id)} onBlur={track("blur")} title="t" />
++      <input onFocus={props.onFocus} />
++    </form>
++  );
++}
+diff --git a/tests/selfdoc/test_treesitter_symbols.py b/tests/selfdoc/test_treesitter_symbols.py
+index 84fe39ca..de9e63e1 100644
+--- a/tests/selfdoc/test_treesitter_symbols.py
++++ b/tests/selfdoc/test_treesitter_symbols.py
+@@ -122,7 +122,7 @@ def test_ts_kinds_names_and_top_level_only(ts_facts):
+     assert (ts_facts["src.useToggle.useToggle"]["kind"], ts_facts["src.useToggle.Pair"]["kind"]) == ("hook", "type")
+     assert (ts_facts["src.util.double"]["kind"], ts_facts["src.Panel.Panel"]["kind"]) == ("function", "component")
+     assert ts_facts["src.App"]["kind"] == "module" and ts_facts["src.App"]["qualified_name"] == "src.App" and ts_facts["src.App.Button"]["qualified_name"] == "Button"
+-    assert ts_facts["src.App.Button"]["relations"] == [{"type": "contained-in", "target": "src.App"}]
++    assert ts_facts["src.App.Button"]["relations"] == [{"type": "calls", "target": "inner"}, {"type": "contained-in", "target": "src.App"}]
+ 
+ 
+ @needs_ts
+@@ -135,6 +135,72 @@ def test_ts_jsdoc_signature_span_and_imports(ts_facts):
+     assert all(set(f["fingerprints"]) == {"signature", "shape", "docstring", "body"} for f in ts_facts.values())
+ 
+ 
++@needs_ts
++def test_ts_component_calls_fetch_and_axios_with_their_literal_url_and_its_handlers():
++    from sldb.api.code import code_facts
++
++    facts = {f["id"]: f for f in code_facts(FRONTEND)["facts"]}
++    form = facts["src.PostForm.PostForm"]
++    assert form["kind"] == "component" and form["attrs"]["calls"] == [
++        {"name": "fetch", "line": 10, "first_arg": "/api/posts"}, {"name": "axios.get", "line": 11, "first_arg": "/api/posts"},
++        {"name": "axios.delete", "line": 12, "first_arg": None}, {"name": "validate", "line": 19, "first_arg": None},
++        {"name": "track", "line": 19, "first_arg": "blur"}], "source order; a template with ${} has no first_arg; the nested `local` is not walked"
++    assert form["attrs"]["handlers"] == [{"element": "button", "attribute": "onClick", "handler": "handleSave"},
++                                         {"element": "Form.Item", "attribute": "onChange", "handler": "validate"},
++                                         {"element": "Form.Item", "attribute": "onBlur", "handler": "track"}], "props.onFocus is no handler"
++    assert [r["target"] for r in form["relations"] if r["type"] == "calls"] == ["axios.delete", "axios.get", "fetch", "handleSave", "track", "validate"]
++    assert facts["src.PostForm.handleSave"]["attrs"] == {"native_kind": "function_declaration", "module": "src.PostForm",
++                                                         "calls": [{"name": "api.posts.create", "line": 6, "first_arg": None}]}, "not a component: no handlers"
++
++
++@needs_ts
++def test_ts_calls_of_hooks_and_arrows_handlers_in_blocks_and_types_without_calls(ts_facts, tmp_path):
++    from sldb.code.scan import scan_tree
++
++    assert [c["name"] for c in ts_facts["src.App.useCounter"]["attrs"]["calls"]] == ["React.useState", "setN"], "an arrow inside is walked"
++    assert ts_facts["src.Panel.Panel"]["attrs"]["calls"] == [{"name": "double", "line": 4, "first_arg": None}] and ts_facts["src.Panel.Panel"]["attrs"]["handlers"] == []
++    assert "calls" not in ts_facts["src.App.Mode"]["attrs"] and ts_facts["src.App.Mode"]["relations"] == [{"type": "contained-in", "target": "src.App"}]
++    (tmp_path / "B.jsx").write_text("const B = () => <a onClick={() => { go(1); }} onX='s' onY={function () { h`t`; }} {...p} />;\n", encoding="utf-8")
++    b = {f["id"]: f for f in scan_tree(tmp_path)}["B.B"]
++    assert b["attrs"]["handlers"] == [{"element": "a", "attribute": "onClick", "handler": "go"}, {"element": "a", "attribute": "onY", "handler": "h"}]
++    assert b["attrs"]["calls"] == [{"name": "go", "line": 1, "first_arg": None}, {"name": "h", "line": 1, "first_arg": "t"}]
++
++
++@needs_ts
++def test_ts_generic_calls_drop_type_arguments_and_await_and_only_on_uppercase_is_an_event(tmp_path):
++    from sldb.code.scan import scan_tree
++
++    (tmp_path / "api.ts").write_text("export async function load() {\n  await get<Foo>('/x');\n  api.get<T>('/y');\n"
++                                     "  get<T>(`/z`);\n  await api.posts.list<P[]>('/p');\n  return new Foo('/n');\n}\n", encoding="utf-8")
++    (tmp_path / "C.tsx").write_text("export const C = () => <i only={x} on={y} onClick={z} />;\n", encoding="utf-8")
++    facts = {f["id"]: f for f in scan_tree(tmp_path)}
++    assert facts["api.load"]["attrs"]["calls"] == [
++        {"name": "get", "line": 2, "first_arg": "/x"}, {"name": "api.get", "line": 3, "first_arg": "/y"},
++        {"name": "get", "line": 4, "first_arg": "/z"}, {"name": "api.posts.list", "line": 5, "first_arg": "/p"}], "no await, no <T>; new is no call"
++    assert [r["target"] for r in facts["api.load"]["relations"] if r["type"] == "calls"] == ["api.get", "api.posts.list", "get"]
++    assert facts["C.C"]["attrs"]["handlers"] == [{"element": "i", "attribute": "onClick", "handler": "z"}], "only and on are no event"
++
++
++@needs_ts
++def test_ts_call_names_are_canonical_from_the_tree_with_no_whitespace(tmp_path):
++    from sldb.code.scan import scan_tree
++
++    (tmp_path / "E.tsx").write_text(
++        "export async function f() {\n  client\n    .documents()\n    .then(cb);\n"
++        "  a?.b('/opt'); a!.c(1); a?.[0](); x[1].y();\n  (await listDocuments(m)).slice(0);\n"
++        "  fetch(url).then((r) => r.json()).then(cb);\n  (async () => { await g(); })();\n"
++        "  results.filter((r) => r.model === m).map(fn); (x as any).z(); new Foo().bar();\n}\n"
++        "export const B = () => <a onClick={() => client\n  .save()} />;\n", encoding="utf-8")
++    facts = {f["id"]: f for f in scan_tree(tmp_path)}
++    names = [c["name"] for c in facts["E.f"]["attrs"]["calls"]]
++    assert names == ["client.documents().then", "client.documents", "a?.b", "a!.c", "a?.[]", "x[].y",
++                     "listDocuments().slice", "listDocuments", "fetch().then().then", "fetch().then", "fetch", "r.json",
++                     "(fn)", "g", "results.filter().map", "results.filter", "x.z", "Foo().bar"]
++    assert facts["E.f"]["attrs"]["calls"][2] == {"name": "a?.b", "line": 5, "first_arg": "/opt"}
++    assert not [t for f in facts.values() for t in [r["target"] for r in f["relations"]] if " " in t or "await" in t]
++    assert facts["E.B"]["attrs"]["handlers"] == [{"element": "a", "attribute": "onClick", "handler": "client.save"}]
++
++
+ @needs_ts
+ def test_ts_types_only_in_ts_and_same_module_names_take_a_suffix(tmp_path):
+     from sldb.code.scan import scan_tree

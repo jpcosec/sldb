@@ -1,0 +1,288 @@
+### pytest -q tests/selfdoc/test_treesitter_symbols.py
+.................................................                        [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+49 passed, 1 warning in 2.04s
+rc=0
+### pytest -q tests/api/test_anchors.py
+.......................                                                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+23 passed, 1 warning in 1.97s
+rc=0
+### pytest -q tests/selfdoc/test_fingerprints.py
+....                                                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 0.05s
+rc=0
+### pytest -q tests/test_clean_code_rules.py
+........................................................................ [  5%]
+........................................................................ [ 11%]
+........................................................................ [ 17%]
+........................................................................ [ 23%]
+........................................................................ [ 29%]
+........................................................................ [ 35%]
+........................................................................ [ 41%]
+........................................................................ [ 47%]
+........................................................................ [ 53%]
+........................................................................ [ 59%]
+........................................................................ [ 65%]
+........................................................................ [ 71%]
+........................................................................ [ 77%]
+........................................................................ [ 83%]
+........................................................................ [ 89%]
+........................................................................ [ 95%]
+....................................................                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1204 passed, 2 warnings in 3.74s
+rc=0
+### bash tools/check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   224 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 974 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 123 símbolos pedidos, 594 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+rc=0
+
+### regresiones vecinas: grep -rlE 'lang_ts|ts_calls|ts_jsx|ts_callee' tests
+tests/selfdoc/test_treesitter_symbols.py
+(test_treesitter_symbols.py ya corrido arriba: 49 passed)
+
+### /dev/shm/k4t3-scripts/probe.py -> probe.out
+== ../UIs/graph_ui/apps/knowledge-workbench/src: facts=179 names=862 distinct=237 whitespace=0 await=0 typeargs=0 noncanonical=8
+   NONCANON "['mock','sldb'].map" App.tsx:44
+   NONCANON 'body.documents??[].filter().map' api/sldb.ts:162
+   NONCANON 'body.documents??[].filter' api/sldb.ts:162
+   NONCANON '[section.heading,...atoms.map((a)=>`${a.title}${a.answer}`)].join' lib/analysis.ts:94
+   NONCANON '[...source.anchored].sort' lib/queries.ts:91
+   NONCANON "[...newSet(data.atoms.flatMap((a)=>a.tags.map((t)=>`${t.split(':')[0]}:`)))].sort" pages/ComposerView.tsx:36
+   NONCANON '[...newSet(data.atoms.flatMap((a)=>a.tags))].sort' pages/ReaderView.tsx:35
+   NONCANON '[...src.anchored,{span,atomId:id}].sort' store/knowledge-store.ts:139
+   (): 35 (fn): 0 []: 2
+== surface/src: facts=752 names=5953 distinct=1565 whitespace=0 await=0 typeargs=0 noncanonical=101
+   NONCANON '/anchor/i.test' core/anchors.ts:111
+   NONCANON 'draft[field.name]??"".trim' core/anchors.ts:169
+   NONCANON '/^-?\\d+$/.test' core/anchors.ts:180
+   NONCANON '[...byGroup.keys()].sort' core/atom-graph.ts:112
+   NONCANON '/^rel-(\\d+)$/.exec' core/atom-graph.ts:400
+   NONCANON '[...names].sort' core/atom-graph.ts:280
+   NONCANON '/^\\d+$/.test' core/atom-report.ts:82
+   NONCANON '/^([a-zá-ú]+):(.+)$/i.exec' core/atom-report.ts:105
+   NONCANON '/[.!?…]$/.test' core/atom-report.ts:234
+   NONCANON '/^##(.+?)\\s*$/.exec' core/atom-report.ts:368
+   NONCANON '/^#(.+?)\\s*$/.exec' core/atom-report.ts:376
+   NONCANON '[...cuts].sort' core/atom-text.ts:68
+   NONCANON '[...level.values()].sort().map' core/atoms.ts:252
+   NONCANON '[...level.values()].sort' core/atoms.ts:252
+   NONCANON 'v===undefined?[]:Array.isArray(v)?v:[v].map().filter' core/atoms.ts:507
+   NONCANON 'v===undefined?[]:Array.isArray(v)?v:[v].map' core/atoms.ts:507
+   NONCANON '`${a.text}${a.quote}${a.tags.join("")}`.toLowerCase().includes' core/atoms.ts:529
+   NONCANON '`${a.text}${a.quote}${a.tags.join("")}`.toLowerCase' core/atoms.ts:529
+   NONCANON '/^a(\\d+)$/.exec' core/atoms.ts:570
+   NONCANON '[...newSet(queryResults)].filter' core/atoms.ts:377
+   NONCANON '/^(.+)_query$/.exec' core/atoms.ts:158
+   NONCANON 'subOrder.get(b)??[].map' core/caso.ts:127
+   NONCANON '/\\s/.test' core/distill.ts:114
+   NONCANON '[...groups.values()].map().filter().map().sort' core/distill.ts:271
+   NONCANON '[...groups.values()].map().filter().map' core/distill.ts:271
+   (): 188 (fn): 1 []: 19
+== ../UIs/marcado-ui/src: facts=120 names=888 distinct=268 whitespace=0 await=0 typeargs=0 noncanonical=14
+   NONCANON '/\\.md$/i.test' App.tsx:867
+   NONCANON '[...nodes].sort().map' components/workspace-navigator.tsx:155
+   NONCANON '[...nodes].sort' components/workspace-navigator.tsx:155
+   NONCANON '[severity,code].filter().join' lib/marcado-runtime.ts:244
+   NONCANON '[severity,code].filter' lib/marcado-runtime.ts:244
+   NONCANON "`${prefix}—${message||''}`.trim" lib/marcado-runtime.ts:245
+   NONCANON 'exported.ranges??[].map' lib/marcado-runtime.ts:117
+   NONCANON "[...(exported.diagnostics??[]).map((entry)=>formatDiagnostic(entry.code,entry.message,entry.severity)),...((exported.validation?.blocking??[]).map((entry)=>formatDiagnostic(entry.code,entry.message,'error'))),...((exported.validation?.lint??[]).map((entry)=>formatDiagnostic(entry.code,entry.message,'warning'))),].filter" lib/marcado-runtime.ts:146
+   NONCANON 'exported.diagnostics??[].map' lib/marcado-runtime.ts:147
+   NONCANON 'exported.validation?.blocking??[].map' lib/marcado-runtime.ts:148
+   NONCANON 'exported.validation?.lint??[].map' lib/marcado-runtime.ts:149
+   NONCANON '/^\\s{6}-\\s+type:\\s+/.test' lib/marcado.ts:148
+   NONCANON '/^\\s{2,}/.test' lib/marcado.ts:289
+   NONCANON '["marker-highlight",...namespaces.map((namespace)=>`marker-highlight-${namespace}`)].join' lib/marker-render.ts:18
+   (): 20 (fn): 0 []: 6
+== /dev/shm/k4t-fe: facts=4 names=49 distinct=17 whitespace=0 await=0 typeargs=0 noncanonical=0
+   (): 2 (fn): 1 []: 0
+== /dev/shm/k4t-aw: facts=2 names=5 distinct=2 whitespace=0 await=0 typeargs=0 noncanonical=0
+   (): 0 (fn): 0 []: 0
+
+### /dev/shm/k4t3-scripts/noncanon.py -> noncanon.out
+{'distinct_noncanon': 129, 'with_arrow': 7, 'with_call_args': 20, 'with_newX_glued': 4, 'with_??': 31, 'regex/str/template': 50, 'array': 45}
+with_arrow | ('[section.heading,...atoms.map((a)=>`${a.title}${a.answer}`)].join', '../UIs/graph_ui/apps/knowledge-workbench/src/lib/analysis.ts:94')
+with_arrow | ("[...newSet(data.atoms.flatMap((a)=>a.tags.map((t)=>`${t.split(':')[0]}:`)))].sort", '../UIs/graph_ui/apps/knowledge-workbench/src/pages/ComposerView.tsx:36')
+with_arrow | ('[...newSet(data.atoms.flatMap((a)=>a.tags))].sort', '../UIs/graph_ui/apps/knowledge-workbench/src/pages/ReaderView.tsx:35')
+with_call_args | ('[section.heading,...atoms.map((a)=>`${a.title}${a.answer}`)].join', '../UIs/graph_ui/apps/knowledge-workbench/src/lib/analysis.ts:94')
+with_call_args | ("[...newSet(data.atoms.flatMap((a)=>a.tags.map((t)=>`${t.split(':')[0]}:`)))].sort", '../UIs/graph_ui/apps/knowledge-workbench/src/pages/ComposerView.tsx:36')
+with_call_args | ('[...newSet(data.atoms.flatMap((a)=>a.tags))].sort', '../UIs/graph_ui/apps/knowledge-workbench/src/pages/ReaderView.tsx:35')
+with_newX_glued | ("[...newSet(data.atoms.flatMap((a)=>a.tags.map((t)=>`${t.split(':')[0]}:`)))].sort", '../UIs/graph_ui/apps/knowledge-workbench/src/pages/ComposerView.tsx:36')
+with_newX_glued | ('[...newSet(data.atoms.flatMap((a)=>a.tags))].sort', '../UIs/graph_ui/apps/knowledge-workbench/src/pages/ReaderView.tsx:35')
+with_newX_glued | ('[...newSet(queryResults)].filter', 'surface/src/core/atoms.ts:377')
+with_?? | ('body.documents??[].filter', '../UIs/graph_ui/apps/knowledge-workbench/src/api/sldb.ts:162')
+with_?? | ('body.documents??[].filter().map', '../UIs/graph_ui/apps/knowledge-workbench/src/api/sldb.ts:162')
+with_?? | ('m[1]??"".split', 'surface/src/workbench/model-studio-logic.ts:37')
+regex/str/template | ('/\\s/.test', 'surface/src/core/distill.ts:114')
+regex/str/template | ('`${doc.id}${titleOf(doc)}${doc.model_name}`.toLowerCase().includes', 'surface/src/views/Sidebar.tsx:21')
+regex/str/template | ('/\\(it\\s+"it"\\s+([^\\s)]+)\\)\\s+([^\\s)]+)/.exec', 'surface/src/core/distill.ts:127')
+array | ('[...src.anchored,{span,atomId:id}].sort', '../UIs/graph_ui/apps/knowledge-workbench/src/store/knowledge-store.ts:139')
+array | ('[section.heading,...atoms.map((a)=>`${a.title}${a.answer}`)].join', '../UIs/graph_ui/apps/knowledge-workbench/src/lib/analysis.ts:94')
+array | ("[...newSet(data.atoms.flatMap((a)=>a.tags.map((t)=>`${t.split(':')[0]}:`)))].sort", '../UIs/graph_ui/apps/knowledge-workbench/src/pages/ComposerView.tsx:36')
+
+### /dev/shm/k4t3-scripts/edge.py -> edge.out
+src.E.Comp component
+  call {"name": "save", "line": 22, "first_arg": null}
+  call {"name": "log", "line": 22, "first_arg": null}
+  call {"name": "run", "line": 22, "first_arg": null}
+  call {"name": "props.onChange", "line": 23, "first_arg": null}
+  handler {'element': 'button', 'attribute': 'onSubmit', 'handler': 'go'}
+  handler {'element': 'button', 'attribute': 'onC', 'handler': 'log'}
+  handler {'element': 'Form.Item', 'attribute': 'onChange', 'handler': 'props.onChange'}
+  handler {'element': 'svg:rect', 'attribute': 'onClick', 'handler': 'z'}
+  rels ['go', 'log', 'props.onChange', 'run', 'save', 'z']
+src.E.f function
+  call {"name": "fetch", "line": 2, "first_arg": "/a"}
+  call {"name": "fetch", "line": 3, "first_arg": "/b"}
+  call {"name": "fetch", "line": 4, "first_arg": "/c"}
+  call {"name": "fetch", "line": 5, "first_arg": null}
+  call {"name": "fetch", "line": 6, "first_arg": null}
+  call {"name": "fetch", "line": 7, "first_arg": null}
+  call {"name": "fetch", "line": 8, "first_arg": null}
+  call {"name": "fetch", "line": 9, "first_arg": "it's \\\"q\\\""}
+  call {"name": "fetch", "line": 10, "first_arg": "/g"}
+  call {"name": "(fn)", "line": 11, "first_arg": null}
+  call {"name": "Set().has", "line": 12, "first_arg": null}
+  call {"name": "exported.ranges??[].map", "line": 13, "first_arg": null}
+  call {"name": "[...newSet(xs)].sort", "line": 14, "first_arg": null}
+  call {"name": "\"ab\".split", "line": 15, "first_arg": " "}
+  call {"name": "obj[]", "line": 16, "first_arg": null}
+  call {"name": "this.save", "line": 17, "first_arg": "/t"}
+  call {"name": "a", "line": 18, "first_arg": null}
+  rels ['"ab".split', '(fn)', 'Set().has', '[...newSet(xs)].sort', 'a', 'exported.ranges??[].map', 'fetch', 'obj[]', 'this.save']
+
+### /dev/shm/k4t3-scripts/cmp.py -> cmp.out
+/dev/shm/k4t3-head/src/sldb/__init__.py
+/mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/__init__.py
+## tests/fixtures
+head1.json facts 182 182 changed {'tsx': 8, 'ts': 1, 'jsx': 1, 'js': 1} unexpected 0
+/dev/shm/k4t3-head/src/sldb/__init__.py
+/mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/__init__.py
+## src
+head2.json facts 7674 7674 changed {} unexpected 0
+/dev/shm/k4t3-head/src/sldb/__init__.py
+/mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/__init__.py
+## ../UIs/graph_ui/apps/knowledge-workbench/src
+head3.json facts 179 179 changed {'tsx': 79, 'ts': 35} unexpected 0
+/dev/shm/k4t3-head/src/sldb/__init__.py
+/mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/__init__.py
+## surface/src
+head4.json facts 752 752 changed {'ts': 270, 'tsx': 184} unexpected 0
+/dev/shm/k4t3-head/src/sldb/__init__.py
+/mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/__init__.py
+## ../UIs/marcado-ui/src
+head5.json facts 120 120 changed {'tsx': 36, 'ts': 38} unexpected 0
+/dev/shm/k4t3-head/src/sldb/__init__.py
+/mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/__init__.py
+## /dev/shm/k4t-fe
+head6.json facts 4 4 changed {'tsx': 3} unexpected 0
+sql facts 54
+py call keys {('line', 'name')} ts call keys {('first_arg', 'line', 'name')}
+py rel calls example {'target': 'PermissionError', 'type': 'calls'}
+
+### /dev/shm/k4t3-edge/src/E.tsx
+     1	export async function f(u: string) {
+     2	  fetch('/a');
+     3	  fetch("/b", { method: "POST" });
+     4	  fetch(`/c`);
+     5	  fetch(`/d/${u}`);
+     6	  fetch(u);
+     7	  fetch();
+     8	  fetch('/e' + u);
+     9	  fetch("it's \"q\"");
+    10	  fetch(/*c*/ '/g');
+    11	  ((x) => x)(1);
+    12	  new Set([1]).has(1);
+    13	  (exported.ranges ?? []).map(fn);
+    14	  [...new Set(xs)].sort();
+    15	  "a b".split(" ");
+    16	  obj['k'](1);
+    17	  this.save('/t');
+    18	  a?.();
+    19	}
+    20	export function Comp({ p }: any) {
+    21	  return (<div>
+    22	    <button onClick={this.handleSave} onSubmit={go} onkeyup={k} onBlur={async () => await save(1)} onA={() => {}} onB={x ? a : b} onC={() => { log(); run(); }} onD="s" onE onF={handlers.open} />
+    23	    <Form.Item onChange={(e) => props.onChange(e)} />
+    24	    <svg:rect onClick={z} />
+    25	    <></>
+    26	  </div>);
+    27	}

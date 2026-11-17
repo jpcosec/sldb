@@ -1,0 +1,184 @@
+=== pytest -q tests/selfdoc/test_treesitter_symbols.py
+...............................................                          [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+47 passed, 1 warning in 0.69s
+rc=0
+=== pytest -q tests/api/test_anchors.py
+.......................                                                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+23 passed, 1 warning in 1.42s
+rc=0
+=== pytest -q tests/selfdoc/test_fingerprints.py
+....                                                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 0.03s
+rc=0
+=== pytest -q tests/test_clean_code_rules.py
+........................................................................ [  5%]
+........................................................................ [ 11%]
+........................................................................ [ 17%]
+........................................................................ [ 23%]
+........................................................................ [ 29%]
+........................................................................ [ 35%]
+........................................................................ [ 41%]
+........................................................................ [ 47%]
+........................................................................ [ 53%]
+........................................................................ [ 59%]
+........................................................................ [ 65%]
+........................................................................ [ 71%]
+........................................................................ [ 77%]
+........................................................................ [ 83%]
+........................................................................ [ 89%]
+........................................................................ [ 95%]
+...................................................                      [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1203 passed, 2 warnings in 2.58s
+rc=0
+=== bash tools/check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   224 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 973 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 123 símbolos pedidos, 594 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+rc=0
+=== vecino pytest -q tests/notations/test_component_spec_python.py
+......                                                                   [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+6 passed, 1 warning in 1.02s
+rc=0
+=== vecino pytest -q tests/selfdoc/test_treesitter_agreement.py
+..                                                                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 0.10s
+rc=0
+=== HEAD vs cambio (scan_tree, /dev/shm/k4t-scripts/cmp.py)
+tests/fixtures/treesitter facts new/old 182 182 only-new [] only-old []
+  changed 11 by-ext {'tsx': 8, 'jsx': 1, 'ts': 1, 'js': 1} bad 0
+src facts new/old 7661 7661 only-new [] only-old []
+  changed 0 by-ext {} bad 0
+/mnt/ssd/proyectos/SLDB_1/UIs/graph_ui/apps/knowledge-workbench/src facts new/old 179 179 only-new [] only-old []
+  changed 114 by-ext {'tsx': 79, 'ts': 35} bad 0
+surface/src facts new/old 752 752 only-new [] only-old []
+  changed 454 by-ext {'tsx': 184, 'ts': 270} bad 0
+/mnt/ssd/proyectos/SLDB_1/UIs/marcado-ui/src facts new/old 120 120 only-new [] only-old []
+  changed 74 by-ext {'tsx': 36, 'ts': 38} bad 0
+=== repro await get<T> (/dev/shm/k4t-aw)
+src.api.load function {"calls": [{"name": "await get", "line": 2, "first_arg": "/typed"}, {"name": "get", "line": 3, "first_arg": "/plain"}, {"name": "await api.posts.list", "line": 4, "first_arg": "/posts"}], "handlers": null} ['await api.posts.list', 'await get', 'get']
+=== frontend sintético (/dev/shm/k4t-fe/src/Posts.tsx)
+src.Posts.Page component {"calls": [{"name": "console.log", "line": 41, "first_arg": null}], "handlers": [{"element": "Posts", "attribute": "onSelect", "handler": "console.log"}]} ['console.log']
+src.Posts.Posts component {"calls": [{"name": "usePosts", "line": 13, "first_arg": "/api/posts"}, {"name": "axios.post", "line": 15, "first_arg": "/api/posts/delete"}, {"name": "useEffect", "line": 17, "first_arg": null}, {"name": "fetch", "line": 18, "first_arg": "/api/ping"}, {"name": "axios.post", "line": 19, "first_arg": "/api/log"}, {"name": "api.get", "line": 20, "first_arg": "/plain"}, {"name": "fetch", "line": 21, "first_arg": null}, {"name": "fetch", "line": 22, "first_arg": null}, {"name": "(async () => { await fetch('/iife'); })", "line": 24, "first_arg": null}, {"name": "fetch", "line": 24, "first_arg": "/iife"}, {"name": "posts.map", "line": 28, "first_arg": null}, {"name": "onSelect", "line": 29, "first_arg": null}, {"name": "remove", "line": 30, "first_arg": null}, {"name": "save", "line": 31, "first_arg": null}, {"name": "setOpen", "line": 32, "first_arg": null}, {"name": "save", "line": 32, "first_arg": null}], "handlers": [{"element": "li", "attribute": "onClick", "handler": "onSelect"}, {"element": "li", "attribute": "onDoubleClick", "handler": "remove"}, {"element": "Item.Row", "attribute": "onRemove", "handler": "remove"}, {"element": "Item.Row", "attribute": "onSelect", "handler": "onSelect"}, {"element": "Item.Row", "attribute": "only", "handler": "x"}, {"element": "button", "attribute": "onClick", "handler": "setOpen"}, {"element": "span", "attribute": "onClick", "handler": "inner"}]} ["(async () => { await fetch('/iife'); })", 'api.get', 'axios.post', 'fetch', 'inner', 'onSelect', 'posts.map', 'remove', 'save', 'setOpen', 'useEffect', 'usePosts', 'x']
+src.Posts.usePosts hook {"calls": [{"name": "useState", "line": 5, "first_arg": null}, {"name": "useEffect", "line": 6, "first_arg": null}, {"name": "fetch(url).then((r) => r.json()).then", "line": 7, "first_arg": null}, {"name": "fetch(url).then", "line": 7, "first_arg": null}, {"name": "fetch", "line": 7, "first_arg": null}, {"name": "r.json", "line": 7, "first_arg": null}], "handlers": null} ['fetch', 'fetch(url).then', 'fetch(url).then((r) => r.json()).then', 'r.json', 'useEffect', 'useState']
+=== frontends reales
+/mnt/ssd/proyectos/SLDB_1/UIs/graph_ui/apps/knowledge-workbench/src calls 460 with first_arg 97 handlers 32
+  callee con '=>' o >60 chars: 22 ['homes.filter((h) => h.score > 0).sort', 'k.atoms .filter((a) => a.id !== exclude) .map', 'knownTags .filter((t) => !tags.includes(t)) .slice', 'binding.atomIds.map((id) => atomById(k, id)).filter']
+  attrs 'on' sin mayúscula: []
+  sample handlers: [{'element': 'button', 'attribute': 'onClick', 'handler': 'setView'}, {'element': 'button', 'attribute': 'onClick', 'handler': 'useSource'}, {'element': 'input', 'attribute': 'onChange', 'handler': 'setQ'}, {'element': 'button', 'attribute': 'onClick', 'handler': 'openAtom'}]
+  sample fetch-like: [{'name': 'await get', 'line': 82, 'first_arg': '/models'}, {'name': 'await get', 'line': 159, 'first_arg': '/stores/check'}]
+surface/src calls 3361 with first_arg 241 handlers 213
+  callee con '=>' o >60 chars: 94 ['tokens.map((t) => t.raw).join', 'frases.map((f) => f.texto).join', 'neighbours.map((n) => n.model).join', 'edge.links.map((l) => l.via).filter']
+  attrs 'on' sin mayúscula: []
+  sample handlers: [{'element': 'span', 'attribute': 'onClick', 'handler': 'openPalette'}, {'element': 'button', 'attribute': 'onClick', 'handler': 'openPalette'}, {'element': 'button', 'attribute': 'onClick', 'handler': 'openPalette'}, {'element': 'ProsaWorkbenchView', 'attribute': 'onSelectDoc', 'handler': 'navigate'}]
+  sample fetch-like: [{'name': 'request', 'line': 146, 'first_arg': '/schema'}, {'name': 'await request', 'line': 147, 'first_arg': '/graph'}, {'name': 'post', 'line': 150, 'first_arg': '/extract/segments'}, {'name': 'post', 'line': 151, 'first_arg': '/save'}]
+/mnt/ssd/proyectos/SLDB_1/UIs/marcado-ui/src calls 461 with first_arg 37 handlers 88
+  callee con '=>' o >60 chars: 9 ['active.map((marker) => marker.key).join', 'value.replaceAll(\'&\', \'&amp;\').replaceAll(\'"\', \'&quot;\').replaceAll', "workspaceEntries .filter((entry) => entry.origin === 'bundled') .map", 'workspaceEntries .filter((entry) => Boolean(readStoredSource(entry.slug))) .map']
+  attrs 'on' sin mayúscula: []
+  sample handlers: [{'element': 'button', 'attribute': 'onClick', 'handler': 'onClick'}, {'element': 'EntryActionCard', 'attribute': 'onClick', 'handler': 'handleOpenFile'}, {'element': 'UploadActionCard', 'attribute': 'onChange', 'handler': 'handleUpload'}, {'element': 'EntryActionCard', 'attribute': 'onClick', 'handler': 'handleOpenSample'}]
+  sample fetch-like: [{'name': 'requestedPath.split', 'line': 471, 'first_arg': '/'}, {'name': 'nextPath.split', 'line': 491, 'first_arg': '/'}, {'name': 'path.split', 'line': 116, 'first_arg': '/'}, {'name': 'fetch', 'line': 176, 'first_arg': '/api/marcado/export'}]
+api/sldb.ts {'name': 'await get', 'line': 82, 'first_arg': '/models'}
+api/sldb.ts {'name': 'await get', 'line': 159, 'first_arg': '/stores/check'}
+api/sldb.ts {'name': 'await get', 'line': 133, 'first_arg': None}
+api/sldb.ts {'name': 'await get', 'line': 101, 'first_arg': None}
+store/knowledge-store.ts {'name': 'new Date().toISOString', 'line': 208, 'first_arg': None}
+core/anchors.ts {'name': 'new RegExp(pattern).test', 'line': 158, 'first_arg': None}
+core/client.ts {'name': 'await request', 'line': 147, 'first_arg': '/graph'}
+core/client.ts {'name': 'await request', 'line': 152, 'first_arg': None}
+core/client.ts {'name': 'await request', 'line': 153, 'first_arg': None}
+core/client.ts {'name': 'await request', 'line': 166, 'first_arg': '/graph/isolated'}
+core/client.ts {'name': 'await request', 'line': 167, 'first_arg': None}
+core/client.ts {'name': 'await request', 'line': 169, 'first_arg': '/models'}
+core/client.ts {'name': 'await request', 'line': 171, 'first_arg': None}
+views/router.ts {'name': 'new URLSearchParams(query).get', 'line': 22, 'first_arg': 'atom'}

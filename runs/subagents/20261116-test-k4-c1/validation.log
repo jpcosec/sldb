@@ -1,0 +1,259 @@
+=== pytest -q tests/selfdoc/test_treesitter_symbols.py
+................................................                         [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+48 passed, 1 warning in 0.96s
+rc=0
+=== pytest -q tests/api/test_anchors.py
+.......................                                                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+23 passed, 1 warning in 1.90s
+rc=0
+=== pytest -q tests/selfdoc/test_fingerprints.py
+....                                                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 0.05s
+rc=0
+=== pytest -q tests/test_clean_code_rules.py
+........................................................................ [  5%]
+........................................................................ [ 11%]
+........................................................................ [ 17%]
+........................................................................ [ 23%]
+........................................................................ [ 29%]
+........................................................................ [ 35%]
+........................................................................ [ 41%]
+........................................................................ [ 47%]
+........................................................................ [ 53%]
+........................................................................ [ 59%]
+........................................................................ [ 65%]
+........................................................................ [ 71%]
+........................................................................ [ 77%]
+........................................................................ [ 83%]
+........................................................................ [ 89%]
+........................................................................ [ 95%]
+...................................................                      [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1203 passed, 2 warnings in 4.26s
+rc=0
+=== bash tools/check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   224 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 973 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 123 símbolos pedidos, 594 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+rc=0
+=== regresiones vecinas: grep -rlE 'lang_ts|ts_calls|ts_jsx' tests -> tests/selfdoc/test_treesitter_symbols.py (ya corrido arriba, 48 passed)
+=== sondas corrección 1
+== ../UIs/graph_ui/apps/knowledge-workbench/src: distinct calls=456 leading-await=0 await-inside=1 typeargs=0 ws-no-parens=6 ws-with-parens=32
+   await-inside api/sldb.ts 173 '(await listDocuments(model)).slice'
+   ws-no-parens lib/analysis.ts 69 'k.atoms .filter'
+   ws-no-parens lib/analysis.ts 18 'text .toLowerCase'
+   ws-no-parens pages/ComposerView.tsx 176 'data.atoms .filter'
+   ws-no-parens pages/ReaderView.tsx 169 'knownTags .filter'
+   ws-no-parens store/knowledge-store.ts 12 'text .toLowerCase'
+   ws-no-parens store/knowledge-store.ts 139 '[...src.anchored, { span, atomId: id }].sort'
+   ws-with-parens App.tsx 44 "(['mock', 'sldb'] as const).map"
+   ws-with-parens api/sldb.ts 162 '(body.documents ?? []) .filter((d) => d.content_ok === false || d.fields_ok === false) .map'
+   ws-with-parens api/sldb.ts 162 '(body.documents ?? []) .filter'
+   ws-with-parens api/sldb.ts 104 'results.filter((r) => r.model === model.name && r.doc).map'
+== surface/src: distinct calls=3295 leading-await=0 await-inside=2 typeargs=0 ws-no-parens=38 ws-with-parens=190
+   await-inside views/DistillView.tsx 86 "(async () => { setPhase({ status: 'running' }); for (const query of pending) { const result = await "
+   await-inside views/TrayView.tsx 66 '(async () => { const pending = entries.filter((e) => !cache.current.has(e.doc)); for (const e of pen'
+   ws-no-parens app/WorkbenchShell.tsx 82 'client .documents'
+   ws-no-parens app/WorkbenchShell.tsx 99 'client .modelsCatalog'
+   ws-no-parens core/anchors.ts 82 'value .normalize'
+   ws-no-parens core/anchors.ts 241 'anchors .filter'
+   ws-no-parens core/anchors.ts 150 'trimmed .split'
+   ws-no-parens core/atom-groups.ts 19 'tag .trim'
+   ws-with-parens app/WorkbenchShell.tsx 82 'client .documents() .then((items: GraphDocument[]) => { setDocuments(items ?? []); setStoreStatus({ '
+   ws-with-parens app/WorkbenchShell.tsx 82 'client .documents() .then'
+   ws-with-parens app/WorkbenchShell.tsx 99 'client .modelsCatalog() .then((res: ModelCatalogEntry[]) => { setModels(res ?? []); }) .catch'
+   ws-with-parens app/WorkbenchShell.tsx 99 'client .modelsCatalog() .then'
+== ../UIs/marcado-ui/src: distinct calls=457 leading-await=0 await-inside=0 typeargs=0 ws-no-parens=5 ws-with-parens=17
+   ws-no-parens App.tsx 131 'workspaceEntries .filter'
+   ws-no-parens App.tsx 145 'workspaceEntries .filter'
+   ws-no-parens components/workspace-navigator.tsx 155 '[...nodes] .sort'
+   ws-no-parens lib/marcado-runtime.ts 244 '[severity, code].filter'
+   ws-no-parens lib/marcado-runtime.ts 245 "`${prefix} — ${message || ''}`.trim"
+   ws-with-parens App.tsx 131 "workspaceEntries .filter((entry) => entry.origin === 'bundled') .map"
+   ws-with-parens App.tsx 145 'workspaceEntries .filter((entry) => Boolean(readStoredSource(entry.slug))) .map'
+   ws-with-parens components/document-workspace.tsx 437 'visibleMarkers.slice(0, 6).map'
+   ws-with-parens components/workspace-navigator.tsx 155 "[...nodes] .sort((a, b) => { if (a.kind !== b.kind) return a.kind === 'folder' ? -1 : 1; return a.pa"
+== /dev/shm/k4t-fe: distinct calls=23 leading-await=0 await-inside=1 typeargs=0 ws-no-parens=0 ws-with-parens=2
+   await-inside src/Posts.tsx 24 "(async () => { await fetch('/iife'); })"
+   ws-with-parens src/Posts.tsx 24 "(async () => { await fetch('/iife'); })"
+   ws-with-parens src/Posts.tsx 7 'fetch(url).then((r) => r.json()).then'
+== /dev/shm/k4t-aw: distinct calls=3 leading-await=0 await-inside=0 typeargs=0 ws-no-parens=0 ws-with-parens=0
+=== cmp HEAD
+head mod /dev/shm/k4t2-head/src/sldb/__init__.py | work mod /mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/__init__.py
+tests/fixtures: head=182 work=182 only_head=0 only_work=0 changed_by_ext={'tsx': 8, 'jsx': 1, 'ts': 1, 'js': 1} unexpected={}
+src: head=7662 work=7662 only_head=0 only_work=0 changed_by_ext={} unexpected={}
+../UIs/graph_ui/apps/knowledge-workbench/src: head=179 work=179 only_head=0 only_work=0 changed_by_ext={'tsx': 79, 'ts': 35} unexpected={}
+surface/src: head=752 work=752 only_head=0 only_work=0 changed_by_ext={'tsx': 184, 'ts': 270} unexpected={}
+../UIs/marcado-ui/src: head=120 work=120 only_head=0 only_work=0 changed_by_ext={'tsx': 36, 'ts': 38} unexpected={}
+=== edge /dev/shm/k4t2-edge
+{
+ "id": "src.E.E",
+ "calls": [
+  {
+   "name": "client .documents() .then",
+   "line": 2,
+   "first_arg": null
+  },
+  {
+   "name": "client .documents",
+   "line": 2,
+   "first_arg": null
+  },
+  {
+   "name": "(await listDocuments(m)).slice",
+   "line": 5,
+   "first_arg": null
+  },
+  {
+   "name": "listDocuments",
+   "line": 5,
+   "first_arg": null
+  },
+  {
+   "name": "a?.b",
+   "line": 6,
+   "first_arg": "/opt"
+  },
+  {
+   "name": "a!.c",
+   "line": 7,
+   "first_arg": "/bang"
+  },
+  {
+   "name": "api.get",
+   "line": 8,
+   "first_arg": "/obj"
+  }
+ ],
+ "handlers": [
+  {
+   "element": "div",
+   "attribute": "onClick",
+   "handler": "x"
+  },
+  {
+   "element": "div",
+   "attribute": "onSubmit",
+   "handler": "go"
+  }
+ ],
+ "rels": [
+  {
+   "type": "calls",
+   "target": "(await listDocuments(m)).slice"
+  },
+  {
+   "type": "calls",
+   "target": "a!.c"
+  },
+  {
+   "type": "calls",
+   "target": "a?.b"
+  },
+  {
+   "type": "calls",
+   "target": "api.get"
+  },
+  {
+   "type": "calls",
+   "target": "client .documents"
+  },
+  {
+   "type": "calls",
+   "target": "client .documents() .then"
+  },
+  {
+   "type": "calls",
+   "target": "go"
+  },
+  {
+   "type": "calls",
+   "target": "listDocuments"
+  },
+  {
+   "type": "calls",
+   "target": "x"
+  },
+  {
+   "type": "contained-in",
+   "target": "src.E"
+  }
+ ]
+}
