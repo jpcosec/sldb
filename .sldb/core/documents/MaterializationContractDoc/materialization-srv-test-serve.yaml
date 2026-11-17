@@ -1,0 +1,25 @@
+name: materialization-srv-test-serve
+path: desk/materializations/materialization-srv-test-serve.md
+source_hash: 359ae9185bb37ac3ed2091bdd9b5158648e7528289f7fb1d2782c2f54fa3b616
+content_hash: 7e7d1ad2a0bf7d98710126a502951555438eaa2f7c95fa54d6f58abe10eeb831
+field_hashes:
+  id: e0c1314ac190d819b542cec90eb2b6eed4a81670c5f94a0dc4e1b3d899cb136b
+  title: bd5bf0e0ff7d61207c1a177b1af835d3eb8455a76254eb60720161ae297adb9d
+  source_atoms: a61f46e74059d7931fa10d995968b1d867efa19f0ac24312a28d2cc2696f61d3
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 3a584461ed101708eb6f62849ac0939e0625d9bc88e6d057a4caa6264515c349
+  intent: df6e6210972bcfd3e20256e651d3cd7826a64f62492731a9f46ea99f24ca4baa
+  validation: be197f9fe73c1c04c7f2d432664e47991cf4c304063611ad08b22ca83a7ece8f
+  tags: 115ea3ed3d938506565c5776443b635b44cd3c52f54e82bc73054dc0b7460937
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:serve
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T15:29:15Z'
+  authority: generated
+  via: create_document

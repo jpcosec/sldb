@@ -1,0 +1,230 @@
+=== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/test_serve.py
+...............................................................          [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+63 passed, 1 warning in 55.44s
+rc=0
+=== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/test_clean_code_rules.py
+........................................................................ [  5%]
+........................................................................ [ 11%]
+........................................................................ [ 17%]
+........................................................................ [ 23%]
+........................................................................ [ 29%]
+........................................................................ [ 35%]
+........................................................................ [ 41%]
+........................................................................ [ 47%]
+........................................................................ [ 53%]
+........................................................................ [ 59%]
+........................................................................ [ 65%]
+........................................................................ [ 71%]
+........................................................................ [ 77%]
+........................................................................ [ 83%]
+........................................................................ [ 89%]
+........................................................................ [ 95%]
+......................................................                   [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1206 passed, 2 warnings in 3.31s
+rc=0
+=== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev bash tools/check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   225 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 976 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 124 símbolos pedidos, 594 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+rc=0
+
+=== mutaciones (/dev/shm/t547-scripts/mutate.sh)
+### M0 copia sin cambios (control)
+1 passed, 62 deselected, 1 warning in 1.68s
+1
+### M1 ruta GET nueva en routes.py (_dispatch_reader)
+>       assert code - manual == set(), f"rutas de sldb serve que el manual no nombra: {sorted(code - manual)}"
+E       AssertionError: rutas de sldb serve que el manual no nombra: ['GET /nuevo-get']
+E       assert {'GET /nuevo-get'} == set()
+tests/test_serve.py:1663: AssertionError
+1 failed, 62 deselected, 1 warning in 1.72s
+1
+### M2 ruta POST nueva en routes.py (dispatch_post)
+>       assert code - manual == set(), f"rutas de sldb serve que el manual no nombra: {sorted(code - manual)}"
+E       AssertionError: rutas de sldb serve que el manual no nombra: ['POST /nuevo-post']
+E       assert {'POST /nuevo-post'} == set()
+tests/test_serve.py:1663: AssertionError
+1 failed, 62 deselected, 1 warning in 2.18s
+1
+### M3 ruta GET nueva en models_routes._GET_ROUTES
+>       assert code - manual == set(), f"rutas de sldb serve que el manual no nombra: {sorted(code - manual)}"
+E       AssertionError: rutas de sldb serve que el manual no nombra: ['GET /models/nueva']
+E       assert {'GET /models/nueva'} == set()
+tests/test_serve.py:1663: AssertionError
+1 failed, 62 deselected, 1 warning in 1.87s
+1
+### M4 ruta POST nueva en docs_routes._ACTION_ROUTES
+>       assert code - manual == set(), f"rutas de sldb serve que el manual no nombra: {sorted(code - manual)}"
+E       AssertionError: rutas de sldb serve que el manual no nombra: ['POST /docs/nueva']
+E       assert {'POST /docs/nueva'} == set()
+tests/test_serve.py:1663: AssertionError
+1 failed, 62 deselected, 1 warning in 1.84s
+### M5 quitar fila POST /save del manual
+>       assert code - manual == set(), f"rutas de sldb serve que el manual no nombra: {sorted(code - manual)}"
+E       AssertionError: rutas de sldb serve que el manual no nombra: ['POST /save']
+E       assert {'POST /save'} == set()
+tests/test_serve.py:1663: AssertionError
+1 failed, 62 deselected, 1 warning in 1.79s
+### M6 quitar fila GET /views/<name> del manual
+>       assert code - manual == set(), f"rutas de sldb serve que el manual no nombra: {sorted(code - manual)}"
+E       AssertionError: rutas de sldb serve que el manual no nombra: ['GET /views/<name>']
+E       assert {'GET /views/<name>'} == set()
+tests/test_serve.py:1663: AssertionError
+1 failed, 62 deselected, 1 warning in 1.84s
+### M7 método equivocado en el manual (POST /similar)
+>       assert code - manual == set(), f"rutas de sldb serve que el manual no nombra: {sorted(code - manual)}"
+E       AssertionError: rutas de sldb serve que el manual no nombra: ['GET /similar']
+E       assert {'GET /similar'} == set()
+tests/test_serve.py:1663: AssertionError
+1 failed, 62 deselected, 1 warning in 1.68s
+### M8 errata en el path del manual
+>       assert code - manual == set(), f"rutas de sldb serve que el manual no nombra: {sorted(code - manual)}"
+E       AssertionError: rutas de sldb serve que el manual no nombra: ['GET /similar']
+E       assert {'GET /similar'} == set()
+tests/test_serve.py:1663: AssertionError
+1 failed, 62 deselected, 1 warning in 1.82s
+### M9 fila sin backticks en el manual (se ignora?)
+>       assert code - manual == set(), f"rutas de sldb serve que el manual no nombra: {sorted(code - manual)}"
+E       AssertionError: rutas de sldb serve que el manual no nombra: ['GET /similar']
+E       assert {'GET /similar'} == set()
+tests/test_serve.py:1663: AssertionError
+1 failed, 62 deselected, 1 warning in 1.95s
+### M10 fila duplicada en el manual
+1 passed, 62 deselected, 1 warning in 1.77s
+### M11 módulo *_routes.py NUEVO con dict propio despachado por prefijo (borde)
+1 passed, 62 deselected, 1 warning in 1.80s
+
+=== sonda en vivo (/dev/shm/t547-scripts/probe.py)
+filas del manual: 57 GET 40 POST 17
+Initialized store at /dev/shm/tmp1tbqge1m/.sldb
+Registered 'SimpleBook'
+Tracked 'book'
+ok      400 GET /ast
+ok      400 GET /corpus/rank
+ok      200 GET /docs/select
+ok      400 GET /document
+ok      400 GET /document/ir
+ok      400 GET /document/segments
+ok      200 GET /edges
+ok      400 GET /edges/node
+ok      400 GET /edges/nodes
+ok      400 GET /edges/referrers
+ok      400 GET /extract
+ok      400 GET /fields
+ok      400 GET /find
+ok      200 GET /graph
+ok      200 GET /graph/central
+ok      200 GET /graph/components
+ok      200 GET /graph/cycles
+ok      200 GET /graph/isolated
+ok      400 GET /graph/neighborhood
+ok      400 GET /graph/path
+ok      200 GET /health
+ok      200 GET /lint
+ok      200 GET /models
+ok      400 GET /models/detail
+ok      200 GET /notations
+ok      400 GET /notations/view
+ok      400 GET /project-graph/edges
+ok      400 GET /project-graph/missing
+ok      400 GET /project-graph/nodes
+ok      400 GET /render
+ok      200 GET /schema
+ok      400 GET /sections
+ok      200 GET /semantic-export
+ok      400 GET /similar
+ok      200 GET /stores
+ok      200 GET /stores/check
+ok      200 GET /views
+ok      404 GET /views/<name>
+ok      200 GET /views/projection
+ok      400 GET /views/projection/evaluate
+ok      400 POST /docs
+ok      400 POST /docs/create
+ok      500 POST /docs/track
+ok      404 POST /docs/untrack
+ok      400 POST /edges/rewrite
+ok      400 POST /extract/segments
+ok      400 POST /models/create
+ok      400 POST /models/fields-add
+ok      400 POST /models/fields-remove
+ok      400 POST /models/metadata-edit
+ok      400 POST /models/promote
+ok      400 POST /models/template-edit
+ok      400 POST /models/validate
+ok      400 POST /notations/resolve
+ok      500 POST /save
+ok      400 POST /views/projection/evaluate
+ok      400 POST /views/projection/save
+neg 404 GET /nope -> b'{"ok": false, "error": "Unknown route: /nope"}'
+neg 404 POST /nope -> b'{"ok": false, "error": "Unknown route: /nope"}'
+neg 404 GET /save -> b'{"ok": false, "error": "Unknown route: /save"}'
+neg 404 POST /similar -> b'{"ok": false, "error": "Unknown route: /similar"}'
+neg 404 GET /views/a/b -> b'{"ok": false, "error": "Unknown route: /views/a/b"}'
+neg 404 POST /models/detail -> b'{"ok": false, "error": "Unknown route: /models/detail"}'
+neg 404 GET /graph/nope -> b'{"ok": false, "error": "Unknown route: /graph/nope"}'
+RUTAS DEL MANUAL NO SERVIDAS: []

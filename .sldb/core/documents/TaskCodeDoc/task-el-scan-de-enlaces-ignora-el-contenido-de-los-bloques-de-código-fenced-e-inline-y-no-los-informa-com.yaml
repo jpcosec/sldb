@@ -1,7 +1,7 @@
 name: task-el-scan-de-enlaces-ignora-el-contenido-de-los-bloques-de-código-fenced-e-inline-y-no-los-informa-com
 path: desk/tasks/task-el-scan-de-enlaces-ignora-el-contenido-de-los-bloques-de-código-fenced-e-inline-y-no-los-informa-com.md
-source_hash: b0adf63718ce1f3f7912f06539d6e47c56abf2d3c326c209f05f573b116e73b8
-content_hash: b7ee9028ccf35fa076dbdce570fc5ff469e8b85d7098bb4611dbb382e10099c9
+source_hash: 4150c86da1a89f54ab3848b200e8b72306ecd7f298deab2bd1316291a022484a
+content_hash: 0c9bb5ceca1c784a2b91e63aefe8dff9f08bc0c5432b023f40adfd5c8e2aff8e
 field_hashes:
   title: 93873df67428210c3f4933b362f88aa9b7244aca035c8820f716392f9a84887e
   id: 5278f41d3de7d8e2de80896560a1361bbffa6161fdde5da9be64183d3e21d2d1
@@ -12,7 +12,7 @@ field_hashes:
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 31060f068f1c27786ddfd6f39badd62c0caa7fc3d9102062be4329e567485f14
   goal: 5c7a320237d3c571134f5b9695c343ddd8aaa0f3677fa3077550ca7086691918
-  scope: 92ac892fd03a271e5e593fe0f71dba40249b5e6217db3ee1bd69fefbd1fa313a
+  scope: eb65643c192f23311864b7b3fc6437716bbcefb4d6552a4766cfa2431e5c5d79
   references: 7c05291b08a673cd84081c682b544981f9a57f784d7d76d9bf0067e12a665379
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-17T06:37:39Z'
+  at: '2026-11-17T14:48:10Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T02:44:41Z'
+  at: '2026-11-17T15:12:40Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a
 status: draft
 summary: ''
@@ -46,6 +46,10 @@ current-cli-tree.md lista todos los grupos y subcomandos que define el parser de
 _State what is in scope and what is out of scope._
 
 Entra: (1) un chequeo en selfdoc que recorre el árbol de argparse de sldb y lo compara con los comandos nombrados en current-cli-tree.md, con hallazgos accionables; (2) completar current-cli-tree.md (si es generable desde el parser, generarlo y que el chequeo compare con lo generado); (3) tests en tests/selfdoc/. CHANGELOG. No entra: reescribir las descripciones de cada comando más allá de una línea.
+
+Precisiones (coordinador, bundle-1): la doc sigue escrita a mano, no se genera. El chequeo extrae de current-cli-tree.md los comandos que aparecen como `sldb <grupo> [<subcomando>]` en spans de código y los compara con el árbol argparse; los alias registrados en el parser cuentan como válidos y no hace falta listarlos. Cada hallazgo usa el formato de hallazgos que selfdoc check ya emite y hace que el comando salga con rc distinto de 0. Los tests van en tests/selfdoc/test_parser.py (existe): uno que borra la línea de un subcomando en una copia de la doc y otro que agrega un comando inexistente; los dos fallan nombrando el comando.
+
+Precisiones (coordinador, bundle-2; reemplazan lo dicho en bundle-1 sobre spans): la doc sigue escrita a mano y no se genera; esto prevalece sobre 'si es generable'. El chequeo lee el bloque de árbol ```text de current-cli-tree.md (líneas con ├──, └── o │) y arma el conjunto de rutas grupo/subcomando por indentación; lo compara con el árbol argparse sin contar alias ni 'help'. Cada diferencia es un hallazgo de severidad error con el formato que selfdoc check ya usa, y hace que report.ok sea falso. El conjunto exacto lo da el parser, no las cifras aproximadas del Rationale.
 
 ## Implementation Path
 

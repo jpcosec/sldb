@@ -1,0 +1,37 @@
+name: review-task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a-bundle-3
+path: desk/reviews/task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a/bundle-3.md
+source_hash: b119aac8401cec2d574d639929d7b52f062a6cb36cccccbc079eeaf23975e735
+content_hash: a866f84f7cb1ba385f340c0da578eaf709d5ab11dbb45f80d1dc29f0a78a8c57
+field_hashes:
+  id: a606f7fd169583b3b5bc8ceadeb20d8d8a496b73abe83ea524933881c2c76db9
+  title: c868628c84db802309c2fe095611b9993fb0013dcad03c972856d65e467d6e4a
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 9a5c83fd34eae0098185caa014a931e32fe5afe1bb2c0d002ceb0f0fd785f48e
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: db64eda3a7bf06a0ecb8b6e7220a52b8545fc6f28ce1b0f9d80cfbad335413a8
+  input_sha256: 2c5edc1fbd2a6614aac255f1e5dd49bf78475eaa56b0da6d8e6785a11c695eda
+  contract_sha256: ecc80b4353c9d600509bf38a2575d780205dbcd0f64da9bfca8dbbf429bf966a
+  output_sha256: 62221908f4d019b7d55a5734d97cd493ba93e50f766052c07dc4e45769bbb952
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 16cfdb5b79ca727e9e1b03dc41951e9afb5d1c6c9ac03923312bd7af1a08ef1d
+  created_at: f8a08042759c878f59e44ade3e1080c002f9a3e3acad8ed093d987fc9174137e
+  disposed_at: 8fb2244038091e2f1f2a1538ed53840bd2e4dd085f15c7c8f36d1346ff8d6232
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 7d71106f7c71ef87d103743108e0bcc5f50120a6630314e774003836567ff0ac
+  disposition: 3c2c38c1a352bf72aed4378725a59bb52ef3870915ce5c0cbaddd7301c792818
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T15:20:37Z'
+  authority: generated
+  via: save_document_payload

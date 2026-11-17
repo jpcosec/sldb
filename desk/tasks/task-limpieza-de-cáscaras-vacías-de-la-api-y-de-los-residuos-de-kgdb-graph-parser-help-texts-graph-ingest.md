@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T02:47:01Z'
+  at: '2026-11-17T15:02:32Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest
 status: draft
 summary: ''
@@ -48,6 +48,8 @@ Cada uno de esos archivos y cada cáscara vacía de sldb.api queda borrado si na
 _State what is in scope and what is out of scope._
 
 Entra: para cada archivo nombrado y cada módulo de src/sldb/api que no tenga lógica propia, buscar usuarios (grep de imports, entrada del CLI, selfdoc) y borrarlo o reducirlo; mantener la API pública declarada en los __all__; anotar en result-summary.md cada archivo con su decisión y su evidencia. CHANGELOG. No entra: cambiar comandos del CLI ni la API pública.
+
+Precisiones (coordinador, bundle-1): cáscara = módulo de src/sldb/api cuyo cuerpo solo tiene docstring, imports, reexports o __all__. Uso = cualquier import o referencia por nombre en src/, tests/, tools/, docs/ o en los entry points de pyproject.toml. Un módulo usado solo para reexportar parte de la API pública declarada en un __all__ se conserva. No se retira ningún subcomando del CLI; en src/sldb/cli/parsers/stores.py solo salen funciones o constantes sin uso. result-summary.md del run-dir lleva la tabla archivo -> borrado|reducido|conservado con la evidencia de grep.
 
 ## Implementation Path
 

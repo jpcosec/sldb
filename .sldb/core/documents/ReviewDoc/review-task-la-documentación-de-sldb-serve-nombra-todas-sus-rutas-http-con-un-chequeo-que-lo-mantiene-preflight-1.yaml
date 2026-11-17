@@ -1,0 +1,37 @@
+name: review-task-la-documentación-de-sldb-serve-nombra-todas-sus-rutas-http-con-un-chequeo-que-lo-mantiene-preflight-1
+path: desk/reviews/task-la-documentación-de-sldb-serve-nombra-todas-sus-rutas-http-con-un-chequeo-que-lo-mantiene/preflight-1.md
+source_hash: 5217c276b3904b0c9d1daf96a5c2b7ee9908f082ba61aacd216abe2c636d052f
+content_hash: b286a428acd9aa50dd1346b63bd4bf7ae95caf0ad1c5f29515b5834ab889598f
+field_hashes:
+  id: 24dcdfeaa26bd6fa0f8d2ef6c924c353a55ade73f684a7ab7ba2d5681ec79078
+  title: 4ec149ce8450825ee15d7f38312b4422b033be57453c838e90f9a1652f793461
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 952cb07794523436f5e79be1f467c0722f38a347d02f44aade65eb393720af76
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 63baf424687048b196304d3db8dc6c6630d870c0ad850583a0c70f4bda3d4a8d
+  input_sha256: ebae3d26404079331995bdf1e6a3825eded42afadfb32ce9eb978e3fa6ae3e94
+  contract_sha256: cef1a4c922a11069da81cb324ad3f41db5bd41f2e01d505f4901acb4f6634f34
+  output_sha256: 484b9d141c30bdbe2d1900a1509bb542487f7d108b7beb039e45dec927843b7c
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: abcdb4a7977a24c99cf6e37b38f81c0f9f8cc7697a75dcad513ab52769b70a18
+  created_at: 5c7c7189854d452dee0067cc750e0ad2cebce9b2c590965486de727001509c7d
+  disposed_at: fd1a95f00f921f8b743385bbb50086ba0d77db579b6f027ab0b3ef26ec73c357
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 3d5e8c7431faddddfda38c652195483fb71d3ae186884a5ba77c2fdfbd400ba6
+  disposition: 27ce2565807fc9cdcab502b1563c5601638d9c6483e2fb58927590340257d98c
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T14:53:17Z'
+  authority: generated
+  via: save_document_payload

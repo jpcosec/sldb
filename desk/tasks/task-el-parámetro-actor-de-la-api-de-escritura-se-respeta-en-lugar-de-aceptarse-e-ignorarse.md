@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T02:47:46Z'
+  at: '2026-11-17T14:59:08Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-el-parámetro-actor-de-la-api-de-escritura-se-respeta-en-lugar-de-aceptarse-e-ignorarse
 status: draft
 summary: ''
@@ -46,6 +46,8 @@ Toda función pública de escritura que acepta actor lo pasa hasta donde se regi
 _State what is in scope and what is out of scope._
 
 Entra: inventario de las funciones con parámetro actor; ver cómo se forma el sello de procedencia (docs/architecture/provenance.md y el código que lo escribe); pasar actor hasta ahí en cada camino, incluido anchor_docs.write_anchor; tests en tests/api/test_provenance.py. Si alguna no puede respetarlo, se documenta en su docstring y en result-summary.md. CHANGELOG. No entra: cambiar el formato del sello.
+
+Precisiones (coordinador, bundle-1): el inventario sale de grep de 'actor' en src/sldb/api; cuenta toda función sin _ inicial que escribe documentos o el índice. write_anchor gana actor: str | None = None como último parámetro y lo pasa a create_document y a save_document_payload. actor=None deja el sello exactamente como hoy (el valor por defecto actual de sldb.by). La lista de funciones y las excepciones van en result-summary.md del run-dir. docs/architecture/provenance.md se lee como referencia y no se cambia.
 
 ## Implementation Path
 

@@ -1,0 +1,23 @@
+name: atom-la-tabla-de-la-sección-10-del-manual-es-la-lista-de-rutas-http-de-sldb-serve-y-un-test-la-compara-co
+path: desk/atoms/atom-la-tabla-de-la-sección-10-del-manual-es-la-lista-de-rutas-http-de-sldb-serve-y-un-test-la-compara-co.md
+source_hash: 82431a656a58fc4cca3ceae72998c8b592f045c0ca03850cf96857eb180c4958
+content_hash: 571e7e729454902357a22e983feb22c91795a2052fe6c6b9f33cf050af307410
+field_hashes:
+  id: b5d11a2732eb751762f3a6d1a727e885af7f08a498541da7309e051f826b82ab
+  title: 7cb9bec2e671d1d85b6a619d062f64425eb400013838b57fa534ceb0c8bc3803
+  five_wh_one_plus: 0ac5b48a10a651e75b01f8d26468c18977ea336c90a9607a6163d0d330a4bb40
+  answer: 902d9265954cdb56b3552cd0c7a4a40bc2b694eb49aae39599224ef2f310b3e1
+  tags: 115ea3ed3d938506565c5776443b635b44cd3c52f54e82bc73054dc0b7460937
+  provenance: d237673c707bbc5041ab64b9f68c5a35049d28928cf4c14b0f11dce1b47bf4c9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:serve
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-17T15:28:08Z'
+  authority: generated
+  via: create_document

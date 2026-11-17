@@ -1,7 +1,7 @@
 name: task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a
 path: desk/tasks/task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a.md
-source_hash: 5f9d8fdc389c4be468a12260bb5eb9d105cd681d98ab199a8b2e0b5557a980e9
-content_hash: ea1031c0adae3b858be58bb7f1b8f0018b90a29e9dad788da5b547c8d74707af
+source_hash: 23777acf98f78ac12cc46d0413300c912c22717c5d2226bd3a9813ae4a6967e9
+content_hash: 035a62995a0d24849050ea63cbda7f564af134b04c378d7cae0bbff314acb87a
 field_hashes:
   title: fbe6cba4aa443ec4c54a449e35e05667f6d0435505ef55df94478a92f6fbdb30
   id: 17c1c4d26b80deae169913e0b234fa24bf62c2d3d7d3e7b3e1b1c13fc7e47a80
@@ -12,7 +12,7 @@ field_hashes:
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: d840db9737a12ac1de537a2fdfae7ec8c6ea39a1b57167a370a7212fc4260daf
   goal: c4e339ff4786095e544f7be3d826d8352b36dd5f9f696a4d80357f49b2264811
-  scope: 8b2c2d30bdf246debd601eca4a1243009ede40255822c0e45d56de2178445a7b
+  scope: 6ce7772cdd161c5566c23b8352c8eeaec75ea9e9f373a04cf2a26bd3c0ce9a02
   references: 90223701b5666d03e274053a3185d4c9353192288783f6dfc7a23b8ea9d78955
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-17T02:44:41Z'
+  at: '2026-11-17T15:12:40Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

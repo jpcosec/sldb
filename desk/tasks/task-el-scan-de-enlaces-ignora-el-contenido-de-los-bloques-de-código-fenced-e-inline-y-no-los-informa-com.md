@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T06:37:39Z'
+  at: '2026-11-17T14:48:10Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-el-scan-de-enlaces-ignora-el-contenido-de-los-bloques-de-código-fenced-e-inline-y-no-los-informa-com
 status: draft
 summary: ''
@@ -46,6 +46,8 @@ El scan de enlaces de sldb (comando sldb links y la API que usa) no cuenta como 
 _State what is in scope and what is out of scope._
 
 Entra: encontrar el parser de enlaces que usa src/sldb/cli/commands/links.py y excluir los bloques de código cercados (con backticks o tildes) y el código en línea; tests en tests/test_links.py con un documento que tiene enlaces reales y ejemplos dentro de bloques de código. CHANGELOG. No entra: otros tipos de referencia.
+
+Precisiones (coordinador, corrección 2, 2026-11-17): un fence puede abrirse en la misma línea que el marcador de un ítem de lista ("- ```", "1. ```python", "* ~~~"); su apertura se mide en la columna de contenido del ítem y su cierre puede venir indentado a esa columna. Un cierre indentado sin apertura vista no abre un bloque nuevo que se trague el resto del archivo. Tests: los cuatro casos de runs/subagents/20261116-test-lk-c1/result-summary.md (dos con enlaces reales después del bloque y dos con [[...]] dentro del bloque), cada uno contrastado con markdown-it-py commonmark si está instalado.
 
 ## Implementation Path
 

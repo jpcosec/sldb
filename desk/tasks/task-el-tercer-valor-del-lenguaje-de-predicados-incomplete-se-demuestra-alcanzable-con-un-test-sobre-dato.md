@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T02:46:15Z'
+  at: '2026-11-17T15:13:46Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato
 status: draft
 summary: ''
@@ -22,6 +22,7 @@ files:
 - docs/architecture/rules-language.md
 - tests/test_predicates_cli.py
 - CHANGELOG.md
+- tests/api/test_rules_evaluation.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
@@ -47,6 +48,10 @@ O hay un test que, con un store real armado en tmp_path, obtiene incomplete de u
 _State what is in scope and what is out of scope._
 
 Entra: buscar todos los productores y consumidores de incomplete; intentar construir el caso real; decidir con evidencia en result-summary.md; implementar la opción elegida con tests en tests/test_predicates_cli.py o tests/api/test_rules_evaluation.py; actualizar docs/architecture/rules-language.md. CHANGELOG. No entra: otros cambios del lenguaje.
+
+Precisiones (coordinador, bundle-1): dato real = un store armado con la API pública en tmp_path; vale un store enlazado que después se borra o se renombra para que quede no disponible. Primero se intenta demostrar; solo si en result-summary.md queda la evidencia de que ningún camino público lo produce (grep de cada sitio que emite incomplete y por qué no se alcanza), se retira. El retiro abarca GraphBackend.eval, StructuredQuery, el tipo de holds, los tests de especificación que lo nombran y docs/architecture/rules-language.md; si el hash del contrato GO02 de esa doc cambia, se actualiza con el mecanismo que check.sh --fast señala. Línea base: los tests existentes pasan sin cambiar sus valores esperados true/false. tests/api/test_rules_evaluation.py existe y se amplía.
+
+Precisiones (coordinador, bundle-2): si se retira incomplete, toda evaluación que hoy lo devolvería devuelve false, que es lo que ya da hoy cuando compose_edge_index descarta las aristas hacia nodos que no existen (H4). El test de alcance o de retiro va en tests/api/test_rules_evaluation.py, que se agrega a files; tests/test_predicates_cli.py solo se ajusta si nombra incomplete. El índice se compone después de dejar no disponible el store enlazado.
 
 ## Implementation Path
 

@@ -1,7 +1,7 @@
 name: task-el-parámetro-actor-de-la-api-de-escritura-se-respeta-en-lugar-de-aceptarse-e-ignorarse
 path: desk/tasks/task-el-parámetro-actor-de-la-api-de-escritura-se-respeta-en-lugar-de-aceptarse-e-ignorarse.md
-source_hash: ad4f0ba911d7ffcda0e93fd228205aa1575f00dfb1e23fd31a29ee446c9c11ee
-content_hash: 825af9813a8ff8b3e77b6c88303c9cdad99ea8b45fd72a737f1f4b49db155766
+source_hash: ebaec4ac57b9f85a5ce9f154cc5fcb9ed2b770a8314e8a6bc884c1d28b0daa52
+content_hash: c961beb1c0495a063b05c43c57dce020376b9ffd6dc2b87d1ff4a339034cbe3e
 field_hashes:
   title: 252f786994f1750aab29f95331a9285c70be6a0cdb44280bfa2cccf81e186626
   id: eab5690f8d91af2a0a21026435771eb4fba02cafcdb0d05c782f8b7244d4efa3
@@ -12,7 +12,7 @@ field_hashes:
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 95d69699bea5733e1ec7816031a7f912efc8082b0cbf4262198ce5c56c7fa069
   goal: ab5e0d7ad8c1e58c19a285ee7f6f3cc10f05368d40af8ec12af4d1b8abd0a7be
-  scope: ce3587d1986216852de797f798f30579097964306625e81b319c240942916be1
+  scope: 05753b9c3b17db7f8b204e4fabeeaa57ef700eeda8c6cd33059bfa76b4fb8795
   references: b7d8c28a73054824ada1615d1e6309fc32ed92cba747526349e9ecaae652a571
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-17T02:47:46Z'
+  at: '2026-11-17T14:59:08Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

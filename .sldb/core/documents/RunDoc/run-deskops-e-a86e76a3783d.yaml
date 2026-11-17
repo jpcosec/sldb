@@ -1,0 +1,32 @@
+name: run-deskops-e-a86e76a3783d
+path: runs/subagents/20261116-exec-lk-c2/run.md
+source_hash: 50dcea6d11867c0e4fcdc5777e9f701324d8eedcd500338d315e2b28b70e4233
+content_hash: 0f4643471dff5742fb70da44b149d3c56eefc04bd2dd21af8941838019efb382
+field_hashes:
+  id: 4399ab7442a90d77f0204dd25368d56c5838c0fa36e4f262e0acf1204c8026bf
+  title: d6ce5f6ddd828d6f1af10ebebcc2edca131929fd5ffeb3ac8472b80d9ef94d9a
+  summary: f2b3217f05b29d913a4348ac86feabe809b7a186604833eb7b6780a8371575f3
+  task_id: 5278f41d3de7d8e2de80896560a1361bbffa6161fdde5da9be64183d3e21d2d1
+  role_id: cceb5990692aa96751fe6e202ebc9a5dcc0a31d3c664560d73a36c4cba729394
+  kind: 96c81898a4d63d912d0cee94085ed295aa48c71cce6e2a1afc001676d9dde766
+  run_dir: 3984c56139461c88bb7b16b2e96d9af0bf6aeaa72b5aa949e791fd426482042d
+  herdr_pane_id: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  session_path: 947899b4615d462cf0c3f38ddeea9982e81582e9e30eb537acb95a8b51c91c8a
+  session_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  started_at: 52f80546f003153bd367f2a1f79b0178edcb8f6b67db7e4f3f95301e881fd5c8
+  ended_at: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  outcome: de2bc7968076346e1ae2e62d3fd6385361b3855025678cd2732d9132eb9965cb
+  commit_sha: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 82b76cc5dace91279820eb1061e36da0b31e379da526bb858ab6e54f6cff9ca8
+semantic_tags:
+- representation.markdown
+- runtime:scion
+- source.document.markdown
+- system:deskops
+- type.workflow.run
+- workspace.desk.runs
+provenance:
+  by: agent
+  at: '2026-11-17T14:55:10Z'
+  authority: generated
+  via: create_document

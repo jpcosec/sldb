@@ -1,7 +1,7 @@
 name: task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato
 path: desk/tasks/task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato.md
-source_hash: 78bbca218beff59eb9cf8475fb6d43328579893977023f710ecce24f43411c0b
-content_hash: 1da76c075ddb988884f4987de749e17415af2c9682c11861d5f18e75f20f5a5b
+source_hash: 62933d6d7e31e830d4325da6c1950b4fae5bbbba73012493f0e276597baa6ac0
+content_hash: c9763a033fc15e9e2cc57f1915c218bc2e27d3c8a0012e520421c64bd67addd3
 field_hashes:
   title: 293e96bf59633aeb2dc71cd97aeb290cda9378b2c72cab739fcf70baa37ce522
   id: b08ac5bd64e5e777e26898b1cfee6b439b3a909537b8387523a0ea56541300ee
@@ -12,11 +12,11 @@ field_hashes:
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 8ab9db0147ca4153cc13f83437260962dfe03bc9db78d76436de613c9117315f
   goal: 6495fa828bdf6671995f102eb4a3ca62266d5b940f94bf9576912f9c000d8dae
-  scope: 97d117495816f585b68290c3aa77f6186be31a502a44b57da7955b2696cc5c5d
+  scope: de1f4b8553b7da54a741692583d4ffa71ec8f68e14e9dd4e49495cdcd29614c1
   references: 47b9b63d66f226cd5f1a9b22159097119842862f70c15e7e8b04c60aa4899461
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  files: f2398566f7df1f664d75df4c992ed427a8196af19c336c7e56d8aa31339b4060
+  files: a1bf0876077ad6b376dc08607b6863d12f1aa60e519d8635772667d9fb7a401b
   implementation_path: d1ce2a2ca099c690567055d1a0cba83e72c289def0c7efd6b2d01807036ecc77
   validation: 11785b9d62f14a073d297370ab93eeb546715cd502560170acd801f5f2bafa51
   done_when: 1052298e30f3a6d5352e9a6f24a4032eaf549d885eb44d08c4fd08dc6270e91b
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-17T02:46:15Z'
+  at: '2026-11-17T15:13:46Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

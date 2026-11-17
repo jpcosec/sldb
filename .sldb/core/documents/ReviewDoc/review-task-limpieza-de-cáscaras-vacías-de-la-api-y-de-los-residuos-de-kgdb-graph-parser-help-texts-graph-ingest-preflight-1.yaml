@@ -1,0 +1,37 @@
+name: review-task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest-preflight-1
+path: desk/reviews/task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest/preflight-1.md
+source_hash: b751f71360882a336f027d4fd850bbbeea63dbaad837dd4af3167299f187a53f
+content_hash: 4207fea00717118088caaec4ac29b20dd83e36fa05333f8c4441966c062aac84
+field_hashes:
+  id: 99749d445901339657500c7a85c5fa746c124a45c372b668a3f780d4bfc557f3
+  title: 55812e679ae5a1ea696a33622aa1ac4a51eab65bb281b161af9e43c55de45f94
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 272d6f905aa737a6faac5753849567b893dc799bbcde278961049661ac302d0f
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: b93397e27872690641b3b0a6dde96ba8e9c99ae742abd581320138acc5033233
+  input_sha256: 1c86222075b05dac4b30ca1dfa02a2994fb02c80004fb6162ea48c49fb81c520
+  contract_sha256: 9172c8f3d0b8a2e79025ce2b61eb30b25fba73a18338d57cb9a74ea3fe1f30dd
+  output_sha256: 7f246ea3ed08ced588d3256e9df56002e734531f486dee04274cf11abe5d8a00
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: abcdb4a7977a24c99cf6e37b38f81c0f9f8cc7697a75dcad513ab52769b70a18
+  created_at: 4c709d87a5182419eeec35fceb28437c6529c24bc024651429126c19b09bb5a6
+  disposed_at: 5140aa3c09f9e7a97d6d85bc73628758b933d20a355dda0374c5b371111a98d8
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: c404e6a3bf3924956c1569a1b53dd57fe3d8ee71162627e97d16291377d3f2ab
+  disposition: 27ce2565807fc9cdcab502b1563c5601638d9c6483e2fb58927590340257d98c
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T14:53:54Z'
+  authority: generated
+  via: save_document_payload

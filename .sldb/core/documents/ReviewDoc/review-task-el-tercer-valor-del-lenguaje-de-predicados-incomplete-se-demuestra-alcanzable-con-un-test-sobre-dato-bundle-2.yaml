@@ -1,0 +1,37 @@
+name: review-task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato-bundle-2
+path: desk/reviews/task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato/bundle-2.md
+source_hash: 59109bed75ed38ccf969c37bc406eae587738e5bf243ecebf693512bcda2fd90
+content_hash: 394c23c00967f2923975d476366299cc12c6ab78bb0d0228b6419acd0e2f3c3d
+field_hashes:
+  id: bf9d3e007149bc1e85e6b88dd12d87f381ecd2f43c89da35e40c55f7dcb4de20
+  title: c23ed63f6d5a26b0851b12678565209c22f1a988f980929e284108c123ae6652
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: c447b14469f909f29a8678e26fc35d8355804ec0cbf34fa4d535d6a0baa70a06
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 6bfe5937c2655155eb835e4301a4c0b390835111dfd99193075375cb31b45b19
+  input_sha256: e45fe5f8e88cbd0d13238a04b8e84393e4d2f3292cae27b4cbd46f1c30fcedb0
+  contract_sha256: e3c642c6033c6a2db7737b78b0076c4c40889b4fe2fa170592dc2eeb4ea5b5a5
+  output_sha256: 2b61671c72c0936392725ddebae99183e74434e8ff09be0e175d910d1b9e44c8
+  verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
+  reason: 984d7de07d4cc41831d59c217cba4541d8c4f08c0e9f6ed03b838d5eb74bb93c
+  created_at: 615d3fe7e73f06de837ecbff12dc0fe83798b00f86eff9448e4405ea06b804ce
+  disposed_at: 97a3ac8387bf73a274b7cca3a50fde7c5d5de6bbadab2543c83f85eccc395d42
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 47b4fe1631486934d0abaace97ef870cb0b9491cb30eaab4d1a1e4e50e29cd38
+  disposition: 7117bb6804ea7c07027cc788b16591e5bd1f3f88064c3ec3470c93bc116210f8
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T15:11:26Z'
+  authority: generated
+  via: save_document_payload

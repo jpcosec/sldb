@@ -1,7 +1,7 @@
 name: task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent
 path: desk/tasks/task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent.md
-source_hash: 612d3d4c935c513e3c676bd9bc4b4d641e9c2aa2f8aef03e1cd491dd645486ad
-content_hash: 015655fe17dd51f7ed9b61a48d223a07d896d1b1a36876b4d94512fe61dd3353
+source_hash: 2978b9a0f140f965f3d8246ac5be55e5f5369d53b9172c9ef500b75c94ddb045
+content_hash: 83b386402190503f2669a15d65dc3a1fbf74bc331818a99dae84a20e3fa564b9
 field_hashes:
   title: 9ca786082290cc59cc3be297d59befa2929e07cf8ad277607f4e34de4466ee90
   id: a7a4eaf357e149cdeed202adce4e285795d711bba04ff5428145ba45538f8ef1
@@ -12,7 +12,7 @@ field_hashes:
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 4bd41fcdc5cb2e8043f855800a855c0008b35daeb5719f1cf550ccab65dddaff
   goal: a1879f8ab78bdd7faf00b8e1d939006385fe410033afb85e0c9739f40497e49d
-  scope: d5c4b495b115b41c9d3f5c83823604fe6167c702041fe19d03bad4f048e826fc
+  scope: 7663daf90e78c2ba7d440f8560e80f853686d1e4a65894a08c2682e0a13342c0
   references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-17T02:48:38Z'
+  at: '2026-11-17T15:14:25Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
