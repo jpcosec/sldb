@@ -11,6 +11,8 @@ from sldb.core.renderer_engine.jinja_trailing import unshield_trailing_newline
 from sldb.core.renderer_engine.python_expr import PythonExpressionRenderer
 from sldb.core.renderer_engine.table_markdown import format_table_cell, is_table_marker, render_markdown_table, table_columns
 
+_REF = "{{ _sldb_marker_values[%d] }}"
+
 
 class BaseRenderer:
     """
@@ -23,15 +25,17 @@ class BaseRenderer:
         self.recorder = recorder
 
     def replace_markers(self, text: str, data: dict[str, Any]) -> str:
-        lines = []
-        for line in text.split("\n"):
-            if self._is_absent_optional_line(line, data):
-                continue
-            lines.append(re.sub(r"⸢([^⸥]+)⸥", lambda m: self._sub_marker(m, data), line))
-        source = "\n".join(lines)
-        if self.recorder is not None:
-            source = unshield_trailing_newline(source)
-        return self.jinja_env.from_string(source).render(**data)
+        values: list[str] = []
+        kept = [line for line in text.split("\n") if not self._is_absent_optional_line(line, data)]
+        source = "\n".join(re.sub(r"⸢([^⸥]+)⸥", lambda m: self._bind(m, data, values), line) for line in kept)
+        if values and source.endswith(_REF % (len(values) - 1)):
+            values[-1] = unshield_trailing_newline(values[-1]).removesuffix("\n")
+        return self.jinja_env.from_string(source).render({**data, "_sldb_marker_values": values})
+
+    def _bind(self, match: re.Match, data: dict[str, Any], values: list[str]) -> str:
+        """Keep a marker's value out of the template: Jinja prints it from the context, never compiles it."""
+        values.append(self._sub_marker(match, data))
+        return _REF % (len(values) - 1)
 
     def _is_absent_optional_line(self, line: str, data: dict[str, Any]) -> bool:
         """An optrev marker whose value is None leaves NO trace in the render:

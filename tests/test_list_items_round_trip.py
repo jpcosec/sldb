@@ -49,3 +49,26 @@ def test_a_value_after_a_label_is_not_escaped():
     """`- run: ```bash` is no fence: only a value that opens its item is escaped."""
     md = render_model_markdown(Labelled, {"title": "t", "validation": ["```bash"]})
     assert "- run: ```bash" in md
+
+
+class Scoped(StructuredNLDoc):
+    __template__ = "# ⸢rev•title⸥\n\n## Scope\n\n⸢rev•scope⸥\n\n## Steps\n\n- ⸢rev,list•steps⸥\n"
+    title: str = Field(description="Title.")
+    scope: str = Field(description="Free text.")
+    steps: list[str] = Field(default_factory=list, description="Items.")
+
+
+JINJA_LOOKALIKES = [
+    "docker inspect --format {{.State.Health.Status}} web", "texto {{a fin", "texto {{{a fin",
+    "this is not valid json {{{", "valor {{ 7*7 }} y {# oculto #} fin", "{% if true %}x{% endif %}",
+    "{% for i in range(3) %}{{ i }}{% endfor %}", "{% raw %}{{ x }}{% endraw %}", "a}} b}}} {a} %} #}",
+    "el campo ⸢rev•title⸥ queda literal", "100% ## {%- x -%}",
+]
+
+
+@pytest.mark.parametrize("value", JINJA_LOOKALIKES)
+def test_a_value_is_never_compiled_as_jinja(value):
+    """Only the model's template is Jinja: a field's value is stored and read back byte for byte."""
+    md = render_model_markdown(Scoped, {"title": value, "scope": value, "steps": [value, "after"]})
+    assert extract_model_data(Scoped, md) == {"title": value, "scope": value, "steps": [value, "after"]}, md
+    assert md.count(value) == 3
