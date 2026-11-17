@@ -1,0 +1,25 @@
+name: materialization-jinja-test-list-items-round-trip
+path: desk/materializations/materialization-jinja-test-list-items-round-trip.md
+source_hash: eb32cfc8de1b762c8748236a4c287ca8709167718f6fc1dc9bb33194cab72a11
+content_hash: 4d6a4d452d5949159cfdc42c0a25122a3827af2ce17947beef9497fb5c45802c
+field_hashes:
+  id: 05de420dafa680ea29190b861ab815144f8016fb82603c5bb8408bac8f76be51
+  title: 5cc7279741f5b8d7e78135effa06d7c0b4f3dfc05637995dbdca456e097e85c7
+  source_atoms: 919903ce0016ed46ba16b7a26b55f73e8b8d57bd08ab820626c52746ba8f06b2
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 1fd7221aee034c85d382ef6659b0881fbdb542a22584ad2c1495d047b67f3211
+  intent: 1649a972b4f64832911969e37ab636aed0b5c811f70c12b8b34fbf5151ff4b5a
+  validation: e40fdf69f9544a0917efa5ac63decdd11851d28ad4003f3ce38133cf1d074347
+  tags: 6be5cb29f1eb6de6963665cecd2d91601c97dc574fd59631089f7355c04ce50b
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:render
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-17T13:20:27Z'
+  authority: generated
+  via: create_document

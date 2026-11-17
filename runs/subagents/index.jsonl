@@ -100,3 +100,4 @@
 {"task_id": "task-sldb-mcp-sirve-undo-changes-apply-changes-guarda-el-lote-inverso-de-cada-lote-en-una-pila-de-la-sesi", "run_id": "deskops-e-7015d1ec50ff", "run_dir": "runs/subagents/20261116-exec-undo", "session_sha256": null, "commit": null}
 {"task_id": "task-stores-check-no-aborta-ante-un-documento-que-su-modelo-rechaza-lo-nombra-como-hallazgo-y-sigue-con-e", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}
 {"task_id": "task-higiene-del-desk-de-sldb-cerrar-con-closeout-resolved-by-citando-el-sha-las-tareas-abiertas-cuyo-tra", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}
+{"task_id": "task-el-valor-de-un-campo-se-renderiza-literal-render-model-markdown-deja-de-pasar-los-valores-del-usuari", "run_id": "deskops-e-08683ea7876c", "run_dir": "runs/subagents/20261116-exec-jinja", "session_sha256": null, "commit": null}

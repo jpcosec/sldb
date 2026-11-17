@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T11:51:11Z'
+  at: '2026-11-17T13:12:27Z'
   authority: generated
   via: save_document_payload
 id: task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam
@@ -62,6 +62,8 @@ Precisiones (intento 2): esta tarea depende de la de facts genéricos de Python 
 
 Precisiones (corrección 2, tras dos testers): forma canónica del nombre de una llamada (name en attrs.calls y destino de la relación calls). Se arma desde el árbol, no desde el texto: identificadores y nombres de propiedad unidos por '.' (con '?.' y '!' si están escritos), sin espacios ni saltos de línea, sin await y sin argumentos de tipo. Si un tramo de la cadena es a su vez una llamada, se escribe con '()' sin sus argumentos (fetch(url).then(cb).then -> fetch().then().then; (await listDocuments(m)).slice -> listDocuments().slice). Una función anónima o una IIFE como objeto se escribe '(fn)'. Un acceso por índice se escribe '[]'. Los handlers JSX son atributos 'on' seguidos de mayúscula. El diff de los intentos anteriores está en el árbol o en runs/subagents/20261116-exec-k4-c1/ y es el punto de partida.
 
+Decisión del supervisor (2026-11-17, prevalece): no se busca la forma canónica de los nombres cuya cadena empieza en un array, una expresión binaria, un new, un literal u otra expresión que no sea identificador, this, super, llamada, miembro, índice, non-null o función. Esas llamadas se emiten igual en attrs.calls con canonical: false y name igual al texto de la expresión llamada con cada tramo de espacios en blanco colapsado a un solo espacio (no borrado), sin await ni type args; las canónicas llevan canonical: true. La relación calls solo se emite para nombres canónicos, para no poner en el grafo destinos que no son símbolos. Nada se omite en silencio. Canonizarlos queda para una tarea aparte de baja prioridad. El punto de partida es el diff guardado en runs/subagents/20261116-exec-k4-c2/executor-diff-c3ts-c2.patch.
+
 ## Implementation Path
 
 _Outline the expected implementation route or affected surface._
@@ -82,4 +84,4 @@ _List the checks required before this task can close._
 
 _Name the observable condition that makes the task complete._
 
-Los comandos de Validation pasan; sobre el fixture salen las llamadas fetch y axios con su URL literal, la llamada del componente a su handler y el handler onClick en attrs.handlers; las anclas TS existentes no cambian de estado; CHANGELOG y commit; aviso a IR.
+Los comandos de Validation pasan; sobre el fixture salen las llamadas fetch y axios con su URL literal, la llamada del componente a su handler y el handler onClick en attrs.handlers; en los tres frontends reales del workspace (solo lectura) todo name canónico cumple la forma canónica y todo name no canónico lleva canonical: false, sin espacios dobles, sin await y sin type args; ningún destino de la relación calls es no canónico; las anclas TS existentes no cambian de estado; CHANGELOG y commit; aviso a IR.

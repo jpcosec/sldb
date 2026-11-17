@@ -1,0 +1,1593 @@
+=== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/test_cli_v2.py
+...........................................                              [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+43 passed, 1 warning in 11.32s
+rc=0
+=== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/api/test_api_documents.py
+.................                                                        [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+17 passed, 1 warning in 1.04s
+rc=0
+=== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/api/test_structural_noise.py
+..........                                                               [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+10 passed, 1 warning in 0.53s
+rc=0
+=== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/test_clean_code_rules.py
+........................................................................ [  5%]
+........................................................................ [ 11%]
+........................................................................ [ 17%]
+........................................................................ [ 23%]
+........................................................................ [ 29%]
+........................................................................ [ 35%]
+........................................................................ [ 41%]
+........................................................................ [ 47%]
+........................................................................ [ 53%]
+........................................................................ [ 59%]
+........................................................................ [ 65%]
+........................................................................ [ 71%]
+........................................................................ [ 77%]
+........................................................................ [ 83%]
+........................................................................ [ 89%]
+........................................................................ [ 95%]
+..................................................                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1202 passed, 2 warnings in 3.29s
+rc=0
+=== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev bash tools/check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   225 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 972 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 123 símbolos pedidos, 594 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+rc=0
+=== $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/test_list_items_round_trip.py
+........................                                                 [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+24 passed, 1 warning in 0.38s
+rc=0
+=== REGRESIONES VECINAS (archivo por archivo, árbol con el cambio)
+=== tests/api/test_model_metadata_drafts.py
+........                                                                 [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+8 passed, 1 warning in 1.14s
+rc=0
+=== tests/api/test_on_write_entering.py
+.......                                                                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+7 passed, 1 warning in 3.94s
+rc=0
+=== tests/api/test_select_documents.py
+...................                                                      [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+19 passed, 1 warning in 3.79s
+rc=0
+=== tests/notations/test_notation_models_and_builtins.py
+...............                                                          [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+15 passed, 1 warning in 0.78s
+rc=0
+=== tests/segments/test_field_transclusion_and_diagram_segments.py
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 1.79s
+rc=0
+=== tests/selfdoc/test_python_scanner.py
+.......                                                                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+7 passed, 1 warning in 0.41s
+rc=0
+=== tests/selfdoc/test_sync.py
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 2.07s
+rc=0
+=== tests/store/test_contract_in_model_node.py
+.............                                                            [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+13 passed, 1 warning in 1.46s
+rc=0
+=== tests/store/test_optional_field_hash_neutral.py
+............                                                             [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+12 passed, 1 warning in 0.27s
+rc=0
+=== tests/store/test_unresolved_model_check.py
+..                                                                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 0.73s
+rc=0
+=== tests/store/test_upgrade_compat.py
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 1.14s
+rc=0
+=== tests/test_composition.py
+....                                                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 0.26s
+rc=0
+=== tests/test_document_segments.py
+...                                                                      [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+3 passed, 1 warning in 86.29s (0:01:26)
+rc=0
+=== tests/test_extraction_segments.py
+......                                                                   [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+6 passed, 1 warning in 0.65s
+rc=0
+=== tests/test_last_section_kept.py
+..                                                                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 0.19s
+rc=0
+=== tests/test_literal_paragraph_anchor.py
+........                                                                 [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+8 passed, 1 warning in 0.65s
+rc=0
+=== tests/test_relation_models.py
+....                                                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 0.69s
+rc=0
+=== tests/test_segment_structure.py
+......                                                                   [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+6 passed, 1 warning in 0.65s
+rc=0
+=== tests/test_standalone.py
+.............................                                            [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+29 passed, 1 warning in 1.34s
+rc=0
+=== tests/test_store_readme_doc.py
+..                                                                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 0.23s
+rc=0
+=== REPRO deskops (deskops init fresco en /dev/shm, edit task scope) HEAD vs cambio
+init rc=0
+add rc=0
+[head] rc=3 ALTERADO | in=<docker inspect --format {{.State.Health.Status}} web> | md=<s> | TemplateSyntaxError: u
+[head] rc=3 ALTERADO | in=<texto {{a fin> | md=<s> | TemplateSyntaxError: expected toke
+[head] rc=3 ALTERADO | in=<texto {{{a fin> | md=<s> | TemplateSyntaxError: expected toke
+[head] rc=3 ALTERADO | in=<this is not valid json {{{> | md=<s> | TemplateSyntaxError: u
+[head] rc=0 ALTERADO | in=<valor {{ 7*7 }} y {# oculto #} fin> | md=<valor 49 y  fin> | 
+[head] rc=0 ALTERADO | in=<{% if x %}a{% endif %} {% raw %}r{% endraw %}> | md=< r> | 
+[head] rc=0 LITERAL | in=<b }} c }}} %} #}> | md=<b }} c }}} %} #}> | 
+[head] rc=0 LITERAL | in=<x {a} y> | md=<x {a} y> | 
+[head] rc=3 ALTERADO | in=<fin con llaves {{> | md=<x {a} y> | TemplateSyntaxError: u
+init rc=0
+add rc=0
+[new] rc=0 LITERAL | in=<docker inspect --format {{.State.Health.Status}} web> | md=<docker inspect --format {{.State.Health.Status}} web> | 
+[new] rc=0 LITERAL | in=<texto {{a fin> | md=<texto {{a fin> | 
+[new] rc=0 LITERAL | in=<texto {{{a fin> | md=<texto {{{a fin> | 
+[new] rc=0 LITERAL | in=<this is not valid json {{{> | md=<this is not valid json {{{> | 
+[new] rc=0 LITERAL | in=<valor {{ 7*7 }} y {# oculto #} fin> | md=<valor {{ 7*7 }} y {# oculto #} fin> | 
+[new] rc=0 LITERAL | in=<{% if x %}a{% endif %} {% raw %}r{% endraw %}> | md=<{% if x %}a{% endif %} {% raw %}r{% endraw %}> | 
+[new] rc=0 LITERAL | in=<b }} c }}} %} #}> | md=<b }} c }}} %} #}> | 
+[new] rc=0 LITERAL | in=<x {a} y> | md=<x {a} y> | 
+[new] rc=0 LITERAL | in=<fin con llaves {{> | md=<fin con llaves {{> | 
+=== REPRO deskops: copia del store de deskops (e471caf8) en /dev/shm, edit task + show; message send en desk fresco
+[head] edit rc=3 TemplateSyntaxError: unexpected '.' (rerun with --debug for the traceback)
+  extract scope == input: False | scope= "Entra: AGENTS.md, README.md y el git mv de la carpeta de la skill de opencode. Sale: .claude/skills/deskops-workflow (y
+[head] message send rc=3 TemplateSyntaxError: unexpected end of template, expected ':'. (rerun with --de
+  cuerpo literal: NO
+[new] edit rc=0 
+  extract scope == input: True | scope= 'docker inspect --format {{.State.Health.Status}} web; valor {{ 7*7 }} y {# oculto #} fin {% raw %}'
+[new] message send rc=0 
+  cuerpo literal en desk/inbox: sí
+=== CASOS BORDE DEL TESTER /dev/shm/tj/edge/test_edge_jinja.py [new]
+........FFFF..                                                           [100%]
+=================================== FAILURES ===================================
+________ test_spans_cover_literal_value[valor {{ 7*7 }} y {# c #} fin] _________
+
+v = 'valor {{ 7*7 }} y {# c #} fin'
+
+    @pytest.mark.parametrize("v", V)
+    def test_spans_cover_literal_value(v):
+        data = {"title": "t", "a": v, "b": v + " último"}
+        text, spans = render_with_spans(Two, data)
+        assert text == render_model_markdown(Two, data)
+        got = {m.get("field", m.get("name")): text[s:e] for m, s, e in spans}
+>       assert v in got.values() and (v + " último") in got.values(), (got, spans[:3])
+E       AssertionError: ({None: 'valor {{ 7*7 }} y {# c #} fin último'}, [({'path': 'title', 'marker': 'rev', 'traits': [], '_order': 0}, 2, 3...': 'rev', 'traits': [], '_order': 1}, 11, 40), ({'path': 'b', 'marker': 'optrev', 'traits': [], '_order': 2}, 48, 84)])
+E       assert ('valor {{ 7*7 }} y {# c #} fin' in dict_values(['valor {{ 7*7 }} y {# c #} fin último']))
+E        +  where dict_values(['valor {{ 7*7 }} y {# c #} fin último']) = <built-in method values of dict object at 0x711fe364f400>()
+E        +    where <built-in method values of dict object at 0x711fe364f400> = {None: 'valor {{ 7*7 }} y {# c #} fin último'}.values
+
+/dev/shm/tj/edge/test_edge_jinja.py:45: AssertionError
+__________________ test_spans_cover_literal_value[texto {{{a] __________________
+
+v = 'texto {{{a'
+
+    @pytest.mark.parametrize("v", V)
+    def test_spans_cover_literal_value(v):
+        data = {"title": "t", "a": v, "b": v + " último"}
+        text, spans = render_with_spans(Two, data)
+        assert text == render_model_markdown(Two, data)
+        got = {m.get("field", m.get("name")): text[s:e] for m, s, e in spans}
+>       assert v in got.values() and (v + " último") in got.values(), (got, spans[:3])
+E       AssertionError: ({None: 'texto {{{a último'}, [({'path': 'title', 'marker': 'rev', 'traits': [], '_order': 0}, 2, 3), ({'path': 'a', '...': 'rev', 'traits': [], '_order': 1}, 11, 21), ({'path': 'b', 'marker': 'optrev', 'traits': [], '_order': 2}, 29, 46)])
+E       assert ('texto {{{a' in dict_values(['texto {{{a último']))
+E        +  where dict_values(['texto {{{a último']) = <built-in method values of dict object at 0x711fe369a780>()
+E        +    where <built-in method values of dict object at 0x711fe369a780> = {None: 'texto {{{a último'}.values
+
+/dev/shm/tj/edge/test_edge_jinja.py:45: AssertionError
+__________________ test_spans_cover_literal_value[{% raw %}x] __________________
+
+v = '{% raw %}x'
+
+    @pytest.mark.parametrize("v", V)
+    def test_spans_cover_literal_value(v):
+        data = {"title": "t", "a": v, "b": v + " último"}
+        text, spans = render_with_spans(Two, data)
+        assert text == render_model_markdown(Two, data)
+        got = {m.get("field", m.get("name")): text[s:e] for m, s, e in spans}
+>       assert v in got.values() and (v + " último") in got.values(), (got, spans[:3])
+E       AssertionError: ({None: '{% raw %}x último'}, [({'path': 'title', 'marker': 'rev', 'traits': [], '_order': 0}, 2, 3), ({'path': 'a', '...': 'rev', 'traits': [], '_order': 1}, 11, 21), ({'path': 'b', 'marker': 'optrev', 'traits': [], '_order': 2}, 29, 46)])
+E       assert ('{% raw %}x' in dict_values(['{% raw %}x último']))
+E        +  where dict_values(['{% raw %}x último']) = <built-in method values of dict object at 0x711fe360a7c0>()
+E        +    where <built-in method values of dict object at 0x711fe360a7c0> = {None: '{% raw %}x último'}.values
+
+/dev/shm/tj/edge/test_edge_jinja.py:45: AssertionError
+____________________ test_spans_cover_literal_value[fin {{] ____________________
+
+v = 'fin {{'
+
+    @pytest.mark.parametrize("v", V)
+    def test_spans_cover_literal_value(v):
+        data = {"title": "t", "a": v, "b": v + " último"}
+        text, spans = render_with_spans(Two, data)
+        assert text == render_model_markdown(Two, data)
+        got = {m.get("field", m.get("name")): text[s:e] for m, s, e in spans}
+>       assert v in got.values() and (v + " último") in got.values(), (got, spans[:3])
+E       AssertionError: ({None: 'fin {{ último'}, [({'path': 'title', 'marker': 'rev', 'traits': [], '_order': 0}, 2, 3), ({'path': 'a', 'marker': 'rev', 'traits': [], '_order': 1}, 11, 17), ({'path': 'b', 'marker': 'optrev', 'traits': [], '_order': 2}, 25, 38)])
+E       assert ('fin {{' in dict_values(['fin {{ último']))
+E        +  where dict_values(['fin {{ último']) = <built-in method values of dict object at 0x711fe364eb40>()
+E        +    where <built-in method values of dict object at 0x711fe364eb40> = {None: 'fin {{ último'}.values
+
+/dev/shm/tj/edge/test_edge_jinja.py:45: AssertionError
+=========================== short test summary info ============================
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_spans_cover_literal_value[valor {{ 7*7 }} y {# c #} fin]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_spans_cover_literal_value[texto {{{a]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_spans_cover_literal_value[{% raw %}x]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_spans_cover_literal_value[fin {{]
+4 failed, 10 passed in 0.46s
+=== CASOS BORDE DEL TESTER /dev/shm/tj/edge/test_edge_jinja.py [head]
+FFFFFFFFFFFFF.                                                           [100%]
+=================================== FAILURES ===================================
+____________ test_table_cell_literal[valor {{ 7*7 }} y {# c #} fin] ____________
+
+v = 'valor {{ 7*7 }} y {# c #} fin'
+
+    @pytest.mark.parametrize("v", V)
+    def test_table_cell_literal(v):
+        data = {"title": "t", "tasks": [{"name": v, "status": "ok " + v}]}
+        md = render_model_markdown(Tab, data)
+>       assert v in md and "49" not in md, md
+E       AssertionError: # t
+E         
+E         ## Tasks
+E         
+E         | name | status |
+E         | --- | --- |
+E         | valor 49 y  fin | ok valor 49 y  fin |
+E       assert ('valor {{ 7*7 }} y {# c #} fin' in '# t\n\n## Tasks\n\n| name | status |\n| --- | --- |\n| valor 49 y  fin | ok valor 49 y  fin |')
+
+/dev/shm/tj/edge/test_edge_jinja.py:23: AssertionError
+_____________________ test_table_cell_literal[texto {{{a] ______________________
+
+v = 'texto {{{a'
+
+    @pytest.mark.parametrize("v", V)
+    def test_table_cell_literal(v):
+        data = {"title": "t", "tasks": [{"name": v, "status": "ok " + v}]}
+>       md = render_model_markdown(Tab, data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/dev/shm/tj/edge/test_edge_jinja.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/dev/shm/tj/head/src/sldb/runtime/validation.py:68: in render_model_markdown
+    def render_model_markdown(m: type[StructuredNLDoc], d: dict[str, Any], ref_root: Path | None = None) -> str: return Validator(m).render(d, ref_root)
+                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/runtime/validation.py:22: in render
+    return self.renderer.render(self.model_type(**data), ref_root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:31: in render
+    raw = self.render_raw(model, ref_root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:43: in render_raw
+    return "\n\n".join(self._render_blocks(blocks, template.splitlines(), data))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:50: in _render_blocks
+    rendered = self._render_block(block, template_lines, data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:58: in _render_block
+    return self._dispatch_render(handler_key, block, block_text, data, start_line)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:67: in _dispatch_render
+    return self.yaml_renderer.replace_markers(block_text, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer_engine/base.py:34: in replace_markers
+    return self.jinja_env.from_string(source).render(**data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:1111: in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+                               ^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:771: in compile
+    self.handle_exception(source=source_hint)
+.venv/lib/python3.13/site-packages/jinja2/environment.py:942: in handle_exception
+    raise rewrite_traceback_stack(source=source)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   jinja2.exceptions.TemplateSyntaxError: expected token ':', got 'texto'
+
+<unknown>:3: TemplateSyntaxError
+_____________________ test_table_cell_literal[{% raw %}x] ______________________
+
+v = '{% raw %}x'
+
+    @pytest.mark.parametrize("v", V)
+    def test_table_cell_literal(v):
+        data = {"title": "t", "tasks": [{"name": v, "status": "ok " + v}]}
+>       md = render_model_markdown(Tab, data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/dev/shm/tj/edge/test_edge_jinja.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/dev/shm/tj/head/src/sldb/runtime/validation.py:68: in render_model_markdown
+    def render_model_markdown(m: type[StructuredNLDoc], d: dict[str, Any], ref_root: Path | None = None) -> str: return Validator(m).render(d, ref_root)
+                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/runtime/validation.py:22: in render
+    return self.renderer.render(self.model_type(**data), ref_root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:31: in render
+    raw = self.render_raw(model, ref_root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:43: in render_raw
+    return "\n\n".join(self._render_blocks(blocks, template.splitlines(), data))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:50: in _render_blocks
+    rendered = self._render_block(block, template_lines, data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:58: in _render_block
+    return self._dispatch_render(handler_key, block, block_text, data, start_line)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:67: in _dispatch_render
+    return self.yaml_renderer.replace_markers(block_text, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer_engine/base.py:34: in replace_markers
+    return self.jinja_env.from_string(source).render(**data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:1111: in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+                               ^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:771: in compile
+    self.handle_exception(source=source_hint)
+.venv/lib/python3.13/site-packages/jinja2/environment.py:942: in handle_exception
+    raise rewrite_traceback_stack(source=source)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   jinja2.exceptions.TemplateSyntaxError: Missing end of raw directive
+
+<unknown>:3: TemplateSyntaxError
+_______________________ test_table_cell_literal[fin {{] ________________________
+
+v = 'fin {{'
+
+    @pytest.mark.parametrize("v", V)
+    def test_table_cell_literal(v):
+        data = {"title": "t", "tasks": [{"name": v, "status": "ok " + v}]}
+>       md = render_model_markdown(Tab, data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/dev/shm/tj/edge/test_edge_jinja.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/dev/shm/tj/head/src/sldb/runtime/validation.py:68: in render_model_markdown
+    def render_model_markdown(m: type[StructuredNLDoc], d: dict[str, Any], ref_root: Path | None = None) -> str: return Validator(m).render(d, ref_root)
+                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/runtime/validation.py:22: in render
+    return self.renderer.render(self.model_type(**data), ref_root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:31: in render
+    raw = self.render_raw(model, ref_root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:43: in render_raw
+    return "\n\n".join(self._render_blocks(blocks, template.splitlines(), data))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:50: in _render_blocks
+    rendered = self._render_block(block, template_lines, data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:58: in _render_block
+    return self._dispatch_render(handler_key, block, block_text, data, start_line)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:67: in _dispatch_render
+    return self.yaml_renderer.replace_markers(block_text, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer_engine/base.py:34: in replace_markers
+    return self.jinja_env.from_string(source).render(**data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:1111: in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+                               ^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:771: in compile
+    self.handle_exception(source=source_hint)
+.venv/lib/python3.13/site-packages/jinja2/environment.py:942: in handle_exception
+    raise rewrite_traceback_stack(source=source)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   jinja2.exceptions.TemplateSyntaxError: unexpected '|'
+
+<unknown>:3: TemplateSyntaxError
+_________ test_multiline_and_last_value[valor {{ 7*7 }} y {# c #} fin] _________
+
+v = 'valor {{ 7*7 }} y {# c #} fin'
+
+    @pytest.mark.parametrize("v", V)
+    def test_multiline_and_last_value(v):
+        multi = f"línea 1 {v}\n\nlínea 3 {{% endif %}}"
+        for data in ({"title": v, "a": multi, "b": multi}, {"title": v, "a": multi}, {"title": v, "a": "x", "b": v}):
+>           md = render_model_markdown(Two, data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/dev/shm/tj/edge/test_edge_jinja.py:36: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/dev/shm/tj/head/src/sldb/runtime/validation.py:68: in render_model_markdown
+    def render_model_markdown(m: type[StructuredNLDoc], d: dict[str, Any], ref_root: Path | None = None) -> str: return Validator(m).render(d, ref_root)
+                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/runtime/validation.py:22: in render
+    return self.renderer.render(self.model_type(**data), ref_root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:31: in render
+    raw = self.render_raw(model, ref_root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:43: in render_raw
+    return "\n\n".join(self._render_blocks(blocks, template.splitlines(), data))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:50: in _render_blocks
+    rendered = self._render_block(block, template_lines, data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:58: in _render_block
+    return self._dispatch_render(handler_key, block, block_text, data, start_line)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:67: in _dispatch_render
+    return self.yaml_renderer.replace_markers(block_text, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer_engine/base.py:34: in replace_markers
+    return self.jinja_env.from_string(source).render(**data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:1111: in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+                               ^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:771: in compile
+    self.handle_exception(source=source_hint)
+.venv/lib/python3.13/site-packages/jinja2/environment.py:942: in handle_exception
+    raise rewrite_traceback_stack(source=source)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endif'.
+
+<unknown>:3: TemplateSyntaxError
+__________________ test_multiline_and_last_value[texto {{{a] ___________________
+
+v = 'texto {{{a'
+
+    @pytest.mark.parametrize("v", V)
+    def test_multiline_and_last_value(v):
+        multi = f"línea 1 {v}\n\nlínea 3 {{% endif %}}"
+        for data in ({"title": v, "a": multi, "b": multi}, {"title": v, "a": multi}, {"title": v, "a": "x", "b": v}):
+>           md = render_model_markdown(Two, data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/dev/shm/tj/edge/test_edge_jinja.py:36: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/dev/shm/tj/head/src/sldb/runtime/validation.py:68: in render_model_markdown
+    def render_model_markdown(m: type[StructuredNLDoc], d: dict[str, Any], ref_root: Path | None = None) -> str: return Validator(m).render(d, ref_root)
+                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/runtime/validation.py:22: in render
+    return self.renderer.render(self.model_type(**data), ref_root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:31: in render
+    raw = self.render_raw(model, ref_root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:43: in render_raw
+    return "\n\n".join(self._render_blocks(blocks, template.splitlines(), data))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:50: in _render_blocks
+    rendered = self._render_block(block, template_lines, data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:58: in _render_block
+    return self._dispatch_render(handler_key, block, block_text, data, start_line)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:67: in _dispatch_render
+    return self.yaml_renderer.replace_markers(block_text, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer_engine/base.py:34: in replace_markers
+    return self.jinja_env.from_string(source).render(**data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:1111: in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+                               ^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:771: in compile
+    self.handle_exception(source=source_hint)
+.venv/lib/python3.13/site-packages/jinja2/environment.py:942: in handle_exception
+    raise rewrite_traceback_stack(source=source)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   jinja2.exceptions.TemplateSyntaxError: unexpected end of template, expected ':'.
+
+<unknown>:1: TemplateSyntaxError
+__________________ test_multiline_and_last_value[{% raw %}x] ___________________
+
+v = '{% raw %}x'
+
+    @pytest.mark.parametrize("v", V)
+    def test_multiline_and_last_value(v):
+        multi = f"línea 1 {v}\n\nlínea 3 {{% endif %}}"
+        for data in ({"title": v, "a": multi, "b": multi}, {"title": v, "a": multi}, {"title": v, "a": "x", "b": v}):
+>           md = render_model_markdown(Two, data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/dev/shm/tj/edge/test_edge_jinja.py:36: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/dev/shm/tj/head/src/sldb/runtime/validation.py:68: in render_model_markdown
+    def render_model_markdown(m: type[StructuredNLDoc], d: dict[str, Any], ref_root: Path | None = None) -> str: return Validator(m).render(d, ref_root)
+                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/runtime/validation.py:22: in render
+    return self.renderer.render(self.model_type(**data), ref_root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:31: in render
+    raw = self.render_raw(model, ref_root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:43: in render_raw
+    return "\n\n".join(self._render_blocks(blocks, template.splitlines(), data))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:50: in _render_blocks
+    rendered = self._render_block(block, template_lines, data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:58: in _render_block
+    return self._dispatch_render(handler_key, block, block_text, data, start_line)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:67: in _dispatch_render
+    return self.yaml_renderer.replace_markers(block_text, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer_engine/base.py:34: in replace_markers
+    return self.jinja_env.from_string(source).render(**data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:1111: in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+                               ^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:771: in compile
+    self.handle_exception(source=source_hint)
+.venv/lib/python3.13/site-packages/jinja2/environment.py:942: in handle_exception
+    raise rewrite_traceback_stack(source=source)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   jinja2.exceptions.TemplateSyntaxError: Missing end of raw directive
+
+<unknown>:1: TemplateSyntaxError
+____________________ test_multiline_and_last_value[fin {{] _____________________
+
+v = 'fin {{'
+
+    @pytest.mark.parametrize("v", V)
+    def test_multiline_and_last_value(v):
+        multi = f"línea 1 {v}\n\nlínea 3 {{% endif %}}"
+        for data in ({"title": v, "a": multi, "b": multi}, {"title": v, "a": multi}, {"title": v, "a": "x", "b": v}):
+>           md = render_model_markdown(Two, data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/dev/shm/tj/edge/test_edge_jinja.py:36: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/dev/shm/tj/head/src/sldb/runtime/validation.py:68: in render_model_markdown
+    def render_model_markdown(m: type[StructuredNLDoc], d: dict[str, Any], ref_root: Path | None = None) -> str: return Validator(m).render(d, ref_root)
+                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/runtime/validation.py:22: in render
+    return self.renderer.render(self.model_type(**data), ref_root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:31: in render
+    raw = self.render_raw(model, ref_root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:43: in render_raw
+    return "\n\n".join(self._render_blocks(blocks, template.splitlines(), data))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:50: in _render_blocks
+    rendered = self._render_block(block, template_lines, data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:58: in _render_block
+    return self._dispatch_render(handler_key, block, block_text, data, start_line)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:67: in _dispatch_render
+    return self.yaml_renderer.replace_markers(block_text, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer_engine/base.py:34: in replace_markers
+    return self.jinja_env.from_string(source).render(**data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:1111: in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+                               ^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:771: in compile
+    self.handle_exception(source=source_hint)
+.venv/lib/python3.13/site-packages/jinja2/environment.py:942: in handle_exception
+    raise rewrite_traceback_stack(source=source)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   jinja2.exceptions.TemplateSyntaxError: unexpected 'end of template'
+
+<unknown>:1: TemplateSyntaxError
+________ test_spans_cover_literal_value[valor {{ 7*7 }} y {# c #} fin] _________
+
+v = 'valor {{ 7*7 }} y {# c #} fin'
+
+    @pytest.mark.parametrize("v", V)
+    def test_spans_cover_literal_value(v):
+        data = {"title": "t", "a": v, "b": v + " último"}
+        text, spans = render_with_spans(Two, data)
+        assert text == render_model_markdown(Two, data)
+        got = {m.get("field", m.get("name")): text[s:e] for m, s, e in spans}
+>       assert v in got.values() and (v + " último") in got.values(), (got, spans[:3])
+E       AssertionError: ({None: 'valor 49 y  fin último'}, [({'path': 'title', 'marker': 'rev', 'traits': [], '_order': 0}, 2, 3), ({'path': '...': 'rev', 'traits': [], '_order': 1}, 11, 26), ({'path': 'b', 'marker': 'optrev', 'traits': [], '_order': 2}, 34, 56)])
+E       assert ('valor {{ 7*7 }} y {# c #} fin' in dict_values(['valor 49 y  fin último']))
+E        +  where dict_values(['valor 49 y  fin último']) = <built-in method values of dict object at 0x7aa16fb2e340>()
+E        +    where <built-in method values of dict object at 0x7aa16fb2e340> = {None: 'valor 49 y  fin último'}.values
+
+/dev/shm/tj/edge/test_edge_jinja.py:45: AssertionError
+__________________ test_spans_cover_literal_value[texto {{{a] __________________
+
+v = 'texto {{{a'
+
+    @pytest.mark.parametrize("v", V)
+    def test_spans_cover_literal_value(v):
+        data = {"title": "t", "a": v, "b": v + " último"}
+>       text, spans = render_with_spans(Two, data)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/dev/shm/tj/edge/test_edge_jinja.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/dev/shm/tj/head/src/sldb/core/segments/instrumented_render.py:25: in render_with_spans
+    text = renderer.render(model_type(**payload), ref_root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:31: in render
+    raw = self.render_raw(model, ref_root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:43: in render_raw
+    return "\n\n".join(self._render_blocks(blocks, template.splitlines(), data))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:50: in _render_blocks
+    rendered = self._render_block(block, template_lines, data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:58: in _render_block
+    return self._dispatch_render(handler_key, block, block_text, data, start_line)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:67: in _dispatch_render
+    return self.yaml_renderer.replace_markers(block_text, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer_engine/base.py:34: in replace_markers
+    return self.jinja_env.from_string(source).render(**data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:1111: in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+                               ^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:771: in compile
+    self.handle_exception(source=source_hint)
+.venv/lib/python3.13/site-packages/jinja2/environment.py:942: in handle_exception
+    raise rewrite_traceback_stack(source=source)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   jinja2.exceptions.TemplateSyntaxError: unexpected char '\ue002' at 13
+
+<unknown>:1: TemplateSyntaxError
+__________________ test_spans_cover_literal_value[{% raw %}x] __________________
+
+v = '{% raw %}x'
+
+    @pytest.mark.parametrize("v", V)
+    def test_spans_cover_literal_value(v):
+        data = {"title": "t", "a": v, "b": v + " último"}
+>       text, spans = render_with_spans(Two, data)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/dev/shm/tj/edge/test_edge_jinja.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/dev/shm/tj/head/src/sldb/core/segments/instrumented_render.py:25: in render_with_spans
+    text = renderer.render(model_type(**payload), ref_root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:31: in render
+    raw = self.render_raw(model, ref_root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:43: in render_raw
+    return "\n\n".join(self._render_blocks(blocks, template.splitlines(), data))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:50: in _render_blocks
+    rendered = self._render_block(block, template_lines, data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:58: in _render_block
+    return self._dispatch_render(handler_key, block, block_text, data, start_line)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:67: in _dispatch_render
+    return self.yaml_renderer.replace_markers(block_text, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer_engine/base.py:34: in replace_markers
+    return self.jinja_env.from_string(source).render(**data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:1111: in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+                               ^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:771: in compile
+    self.handle_exception(source=source_hint)
+.venv/lib/python3.13/site-packages/jinja2/environment.py:942: in handle_exception
+    raise rewrite_traceback_stack(source=source)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   jinja2.exceptions.TemplateSyntaxError: Missing end of raw directive
+
+<unknown>:1: TemplateSyntaxError
+____________________ test_spans_cover_literal_value[fin {{] ____________________
+
+v = 'fin {{'
+
+    @pytest.mark.parametrize("v", V)
+    def test_spans_cover_literal_value(v):
+        data = {"title": "t", "a": v, "b": v + " último"}
+>       text, spans = render_with_spans(Two, data)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/dev/shm/tj/edge/test_edge_jinja.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/dev/shm/tj/head/src/sldb/core/segments/instrumented_render.py:25: in render_with_spans
+    text = renderer.render(model_type(**payload), ref_root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:31: in render
+    raw = self.render_raw(model, ref_root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:43: in render_raw
+    return "\n\n".join(self._render_blocks(blocks, template.splitlines(), data))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:50: in _render_blocks
+    rendered = self._render_block(block, template_lines, data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:58: in _render_block
+    return self._dispatch_render(handler_key, block, block_text, data, start_line)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:67: in _dispatch_render
+    return self.yaml_renderer.replace_markers(block_text, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer_engine/base.py:34: in replace_markers
+    return self.jinja_env.from_string(source).render(**data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:1111: in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+                               ^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:771: in compile
+    self.handle_exception(source=source_hint)
+.venv/lib/python3.13/site-packages/jinja2/environment.py:942: in handle_exception
+    raise rewrite_traceback_stack(source=source)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   jinja2.exceptions.TemplateSyntaxError: unexpected char '\ue002' at 9
+
+<unknown>:1: TemplateSyntaxError
+____________________ test_value_named_like_internal_context ____________________
+
+    def test_value_named_like_internal_context():
+        md = render_model_markdown(Two, {"title": "_sldb_marker_values", "a": "{{ _sldb_marker_values }}"})
+>       assert "{{ _sldb_marker_values }}" in md
+E       AssertionError: assert '{{ _sldb_marker_values }}' in '# _sldb_marker_values\n\n## A\n\n\n\n## B'
+
+/dev/shm/tj/edge/test_edge_jinja.py:49: AssertionError
+=========================== short test summary info ============================
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_table_cell_literal[valor {{ 7*7 }} y {# c #} fin]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_table_cell_literal[texto {{{a]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_table_cell_literal[{% raw %}x]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_table_cell_literal[fin {{]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_multiline_and_last_value[valor {{ 7*7 }} y {# c #} fin]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_multiline_and_last_value[texto {{{a]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_multiline_and_last_value[{% raw %}x]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_multiline_and_last_value[fin {{]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_spans_cover_literal_value[valor {{ 7*7 }} y {# c #} fin]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_spans_cover_literal_value[texto {{{a]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_spans_cover_literal_value[{% raw %}x]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_spans_cover_literal_value[fin {{]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_value_named_like_internal_context
+13 failed, 1 passed in 0.96s
+=== CASOS BORDE (test de spans corregido: clave path) [new]
+..............                                                           [100%]
+14 passed in 0.44s
+=== CASOS BORDE (test de spans corregido: clave path) [head]
+FFFFFFFFFFFFF.                                                           [100%]
+=================================== FAILURES ===================================
+____________ test_table_cell_literal[valor {{ 7*7 }} y {# c #} fin] ____________
+
+v = 'valor {{ 7*7 }} y {# c #} fin'
+
+    @pytest.mark.parametrize("v", V)
+    def test_table_cell_literal(v):
+        data = {"title": "t", "tasks": [{"name": v, "status": "ok " + v}]}
+        md = render_model_markdown(Tab, data)
+>       assert v in md and "49" not in md, md
+E       AssertionError: # t
+E         
+E         ## Tasks
+E         
+E         | name | status |
+E         | --- | --- |
+E         | valor 49 y  fin | ok valor 49 y  fin |
+E       assert ('valor {{ 7*7 }} y {# c #} fin' in '# t\n\n## Tasks\n\n| name | status |\n| --- | --- |\n| valor 49 y  fin | ok valor 49 y  fin |')
+
+/dev/shm/tj/edge/test_edge_jinja.py:23: AssertionError
+_____________________ test_table_cell_literal[texto {{{a] ______________________
+
+v = 'texto {{{a'
+
+    @pytest.mark.parametrize("v", V)
+    def test_table_cell_literal(v):
+        data = {"title": "t", "tasks": [{"name": v, "status": "ok " + v}]}
+>       md = render_model_markdown(Tab, data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/dev/shm/tj/edge/test_edge_jinja.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/dev/shm/tj/head/src/sldb/runtime/validation.py:68: in render_model_markdown
+    def render_model_markdown(m: type[StructuredNLDoc], d: dict[str, Any], ref_root: Path | None = None) -> str: return Validator(m).render(d, ref_root)
+                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/runtime/validation.py:22: in render
+    return self.renderer.render(self.model_type(**data), ref_root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:31: in render
+    raw = self.render_raw(model, ref_root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:43: in render_raw
+    return "\n\n".join(self._render_blocks(blocks, template.splitlines(), data))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:50: in _render_blocks
+    rendered = self._render_block(block, template_lines, data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:58: in _render_block
+    return self._dispatch_render(handler_key, block, block_text, data, start_line)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:67: in _dispatch_render
+    return self.yaml_renderer.replace_markers(block_text, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer_engine/base.py:34: in replace_markers
+    return self.jinja_env.from_string(source).render(**data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:1111: in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+                               ^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:771: in compile
+    self.handle_exception(source=source_hint)
+.venv/lib/python3.13/site-packages/jinja2/environment.py:942: in handle_exception
+    raise rewrite_traceback_stack(source=source)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   jinja2.exceptions.TemplateSyntaxError: expected token ':', got 'texto'
+
+<unknown>:3: TemplateSyntaxError
+_____________________ test_table_cell_literal[{% raw %}x] ______________________
+
+v = '{% raw %}x'
+
+    @pytest.mark.parametrize("v", V)
+    def test_table_cell_literal(v):
+        data = {"title": "t", "tasks": [{"name": v, "status": "ok " + v}]}
+>       md = render_model_markdown(Tab, data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/dev/shm/tj/edge/test_edge_jinja.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/dev/shm/tj/head/src/sldb/runtime/validation.py:68: in render_model_markdown
+    def render_model_markdown(m: type[StructuredNLDoc], d: dict[str, Any], ref_root: Path | None = None) -> str: return Validator(m).render(d, ref_root)
+                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/runtime/validation.py:22: in render
+    return self.renderer.render(self.model_type(**data), ref_root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:31: in render
+    raw = self.render_raw(model, ref_root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:43: in render_raw
+    return "\n\n".join(self._render_blocks(blocks, template.splitlines(), data))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:50: in _render_blocks
+    rendered = self._render_block(block, template_lines, data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:58: in _render_block
+    return self._dispatch_render(handler_key, block, block_text, data, start_line)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:67: in _dispatch_render
+    return self.yaml_renderer.replace_markers(block_text, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer_engine/base.py:34: in replace_markers
+    return self.jinja_env.from_string(source).render(**data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:1111: in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+                               ^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:771: in compile
+    self.handle_exception(source=source_hint)
+.venv/lib/python3.13/site-packages/jinja2/environment.py:942: in handle_exception
+    raise rewrite_traceback_stack(source=source)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   jinja2.exceptions.TemplateSyntaxError: Missing end of raw directive
+
+<unknown>:3: TemplateSyntaxError
+_______________________ test_table_cell_literal[fin {{] ________________________
+
+v = 'fin {{'
+
+    @pytest.mark.parametrize("v", V)
+    def test_table_cell_literal(v):
+        data = {"title": "t", "tasks": [{"name": v, "status": "ok " + v}]}
+>       md = render_model_markdown(Tab, data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/dev/shm/tj/edge/test_edge_jinja.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/dev/shm/tj/head/src/sldb/runtime/validation.py:68: in render_model_markdown
+    def render_model_markdown(m: type[StructuredNLDoc], d: dict[str, Any], ref_root: Path | None = None) -> str: return Validator(m).render(d, ref_root)
+                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/runtime/validation.py:22: in render
+    return self.renderer.render(self.model_type(**data), ref_root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:31: in render
+    raw = self.render_raw(model, ref_root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:43: in render_raw
+    return "\n\n".join(self._render_blocks(blocks, template.splitlines(), data))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:50: in _render_blocks
+    rendered = self._render_block(block, template_lines, data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:58: in _render_block
+    return self._dispatch_render(handler_key, block, block_text, data, start_line)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:67: in _dispatch_render
+    return self.yaml_renderer.replace_markers(block_text, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer_engine/base.py:34: in replace_markers
+    return self.jinja_env.from_string(source).render(**data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:1111: in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+                               ^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:771: in compile
+    self.handle_exception(source=source_hint)
+.venv/lib/python3.13/site-packages/jinja2/environment.py:942: in handle_exception
+    raise rewrite_traceback_stack(source=source)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   jinja2.exceptions.TemplateSyntaxError: unexpected '|'
+
+<unknown>:3: TemplateSyntaxError
+_________ test_multiline_and_last_value[valor {{ 7*7 }} y {# c #} fin] _________
+
+v = 'valor {{ 7*7 }} y {# c #} fin'
+
+    @pytest.mark.parametrize("v", V)
+    def test_multiline_and_last_value(v):
+        multi = f"línea 1 {v}\n\nlínea 3 {{% endif %}}"
+        for data in ({"title": v, "a": multi, "b": multi}, {"title": v, "a": multi}, {"title": v, "a": "x", "b": v}):
+>           md = render_model_markdown(Two, data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/dev/shm/tj/edge/test_edge_jinja.py:36: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/dev/shm/tj/head/src/sldb/runtime/validation.py:68: in render_model_markdown
+    def render_model_markdown(m: type[StructuredNLDoc], d: dict[str, Any], ref_root: Path | None = None) -> str: return Validator(m).render(d, ref_root)
+                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/runtime/validation.py:22: in render
+    return self.renderer.render(self.model_type(**data), ref_root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:31: in render
+    raw = self.render_raw(model, ref_root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:43: in render_raw
+    return "\n\n".join(self._render_blocks(blocks, template.splitlines(), data))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:50: in _render_blocks
+    rendered = self._render_block(block, template_lines, data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:58: in _render_block
+    return self._dispatch_render(handler_key, block, block_text, data, start_line)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:67: in _dispatch_render
+    return self.yaml_renderer.replace_markers(block_text, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer_engine/base.py:34: in replace_markers
+    return self.jinja_env.from_string(source).render(**data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:1111: in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+                               ^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:771: in compile
+    self.handle_exception(source=source_hint)
+.venv/lib/python3.13/site-packages/jinja2/environment.py:942: in handle_exception
+    raise rewrite_traceback_stack(source=source)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endif'.
+
+<unknown>:3: TemplateSyntaxError
+__________________ test_multiline_and_last_value[texto {{{a] ___________________
+
+v = 'texto {{{a'
+
+    @pytest.mark.parametrize("v", V)
+    def test_multiline_and_last_value(v):
+        multi = f"línea 1 {v}\n\nlínea 3 {{% endif %}}"
+        for data in ({"title": v, "a": multi, "b": multi}, {"title": v, "a": multi}, {"title": v, "a": "x", "b": v}):
+>           md = render_model_markdown(Two, data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/dev/shm/tj/edge/test_edge_jinja.py:36: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/dev/shm/tj/head/src/sldb/runtime/validation.py:68: in render_model_markdown
+    def render_model_markdown(m: type[StructuredNLDoc], d: dict[str, Any], ref_root: Path | None = None) -> str: return Validator(m).render(d, ref_root)
+                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/runtime/validation.py:22: in render
+    return self.renderer.render(self.model_type(**data), ref_root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:31: in render
+    raw = self.render_raw(model, ref_root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:43: in render_raw
+    return "\n\n".join(self._render_blocks(blocks, template.splitlines(), data))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:50: in _render_blocks
+    rendered = self._render_block(block, template_lines, data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:58: in _render_block
+    return self._dispatch_render(handler_key, block, block_text, data, start_line)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:67: in _dispatch_render
+    return self.yaml_renderer.replace_markers(block_text, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer_engine/base.py:34: in replace_markers
+    return self.jinja_env.from_string(source).render(**data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:1111: in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+                               ^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:771: in compile
+    self.handle_exception(source=source_hint)
+.venv/lib/python3.13/site-packages/jinja2/environment.py:942: in handle_exception
+    raise rewrite_traceback_stack(source=source)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   jinja2.exceptions.TemplateSyntaxError: unexpected end of template, expected ':'.
+
+<unknown>:1: TemplateSyntaxError
+__________________ test_multiline_and_last_value[{% raw %}x] ___________________
+
+v = '{% raw %}x'
+
+    @pytest.mark.parametrize("v", V)
+    def test_multiline_and_last_value(v):
+        multi = f"línea 1 {v}\n\nlínea 3 {{% endif %}}"
+        for data in ({"title": v, "a": multi, "b": multi}, {"title": v, "a": multi}, {"title": v, "a": "x", "b": v}):
+>           md = render_model_markdown(Two, data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/dev/shm/tj/edge/test_edge_jinja.py:36: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/dev/shm/tj/head/src/sldb/runtime/validation.py:68: in render_model_markdown
+    def render_model_markdown(m: type[StructuredNLDoc], d: dict[str, Any], ref_root: Path | None = None) -> str: return Validator(m).render(d, ref_root)
+                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/runtime/validation.py:22: in render
+    return self.renderer.render(self.model_type(**data), ref_root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:31: in render
+    raw = self.render_raw(model, ref_root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:43: in render_raw
+    return "\n\n".join(self._render_blocks(blocks, template.splitlines(), data))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:50: in _render_blocks
+    rendered = self._render_block(block, template_lines, data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:58: in _render_block
+    return self._dispatch_render(handler_key, block, block_text, data, start_line)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:67: in _dispatch_render
+    return self.yaml_renderer.replace_markers(block_text, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer_engine/base.py:34: in replace_markers
+    return self.jinja_env.from_string(source).render(**data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:1111: in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+                               ^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:771: in compile
+    self.handle_exception(source=source_hint)
+.venv/lib/python3.13/site-packages/jinja2/environment.py:942: in handle_exception
+    raise rewrite_traceback_stack(source=source)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   jinja2.exceptions.TemplateSyntaxError: Missing end of raw directive
+
+<unknown>:1: TemplateSyntaxError
+____________________ test_multiline_and_last_value[fin {{] _____________________
+
+v = 'fin {{'
+
+    @pytest.mark.parametrize("v", V)
+    def test_multiline_and_last_value(v):
+        multi = f"línea 1 {v}\n\nlínea 3 {{% endif %}}"
+        for data in ({"title": v, "a": multi, "b": multi}, {"title": v, "a": multi}, {"title": v, "a": "x", "b": v}):
+>           md = render_model_markdown(Two, data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/dev/shm/tj/edge/test_edge_jinja.py:36: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/dev/shm/tj/head/src/sldb/runtime/validation.py:68: in render_model_markdown
+    def render_model_markdown(m: type[StructuredNLDoc], d: dict[str, Any], ref_root: Path | None = None) -> str: return Validator(m).render(d, ref_root)
+                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/runtime/validation.py:22: in render
+    return self.renderer.render(self.model_type(**data), ref_root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:31: in render
+    raw = self.render_raw(model, ref_root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:43: in render_raw
+    return "\n\n".join(self._render_blocks(blocks, template.splitlines(), data))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:50: in _render_blocks
+    rendered = self._render_block(block, template_lines, data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:58: in _render_block
+    return self._dispatch_render(handler_key, block, block_text, data, start_line)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:67: in _dispatch_render
+    return self.yaml_renderer.replace_markers(block_text, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer_engine/base.py:34: in replace_markers
+    return self.jinja_env.from_string(source).render(**data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:1111: in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+                               ^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:771: in compile
+    self.handle_exception(source=source_hint)
+.venv/lib/python3.13/site-packages/jinja2/environment.py:942: in handle_exception
+    raise rewrite_traceback_stack(source=source)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   jinja2.exceptions.TemplateSyntaxError: unexpected 'end of template'
+
+<unknown>:1: TemplateSyntaxError
+________ test_spans_cover_literal_value[valor {{ 7*7 }} y {# c #} fin] _________
+
+v = 'valor {{ 7*7 }} y {# c #} fin'
+
+    @pytest.mark.parametrize("v", V)
+    def test_spans_cover_literal_value(v):
+        data = {"title": "t", "a": v, "b": v + " último"}
+        text, spans = render_with_spans(Two, data)
+        assert text == render_model_markdown(Two, data)
+        got = {m["path"]: text[s:e] for m, s, e in spans}
+>       assert got["a"] == v and got["b"] == v + " último", (got, spans[:3])
+E       AssertionError: ({'title': 't', 'a': 'valor 49 y  fin', 'b': 'valor 49 y  fin último'}, [({'path': 'title', 'marker': 'rev', 'traits':...': 'rev', 'traits': [], '_order': 1}, 11, 26), ({'path': 'b', 'marker': 'optrev', 'traits': [], '_order': 2}, 34, 56)])
+E       assert ('valor 49 y  fin' == 'valor {{ 7*7...y {# c #} fin'
+E         
+E         - valor {{ 7*7 }} y {# c #} fin
+E         + valor 49 y  fin)
+
+/dev/shm/tj/edge/test_edge_jinja.py:45: AssertionError
+__________________ test_spans_cover_literal_value[texto {{{a] __________________
+
+v = 'texto {{{a'
+
+    @pytest.mark.parametrize("v", V)
+    def test_spans_cover_literal_value(v):
+        data = {"title": "t", "a": v, "b": v + " último"}
+>       text, spans = render_with_spans(Two, data)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/dev/shm/tj/edge/test_edge_jinja.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/dev/shm/tj/head/src/sldb/core/segments/instrumented_render.py:25: in render_with_spans
+    text = renderer.render(model_type(**payload), ref_root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:31: in render
+    raw = self.render_raw(model, ref_root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:43: in render_raw
+    return "\n\n".join(self._render_blocks(blocks, template.splitlines(), data))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:50: in _render_blocks
+    rendered = self._render_block(block, template_lines, data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:58: in _render_block
+    return self._dispatch_render(handler_key, block, block_text, data, start_line)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:67: in _dispatch_render
+    return self.yaml_renderer.replace_markers(block_text, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer_engine/base.py:34: in replace_markers
+    return self.jinja_env.from_string(source).render(**data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:1111: in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+                               ^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:771: in compile
+    self.handle_exception(source=source_hint)
+.venv/lib/python3.13/site-packages/jinja2/environment.py:942: in handle_exception
+    raise rewrite_traceback_stack(source=source)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   jinja2.exceptions.TemplateSyntaxError: unexpected char '\ue002' at 13
+
+<unknown>:1: TemplateSyntaxError
+__________________ test_spans_cover_literal_value[{% raw %}x] __________________
+
+v = '{% raw %}x'
+
+    @pytest.mark.parametrize("v", V)
+    def test_spans_cover_literal_value(v):
+        data = {"title": "t", "a": v, "b": v + " último"}
+>       text, spans = render_with_spans(Two, data)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/dev/shm/tj/edge/test_edge_jinja.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/dev/shm/tj/head/src/sldb/core/segments/instrumented_render.py:25: in render_with_spans
+    text = renderer.render(model_type(**payload), ref_root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:31: in render
+    raw = self.render_raw(model, ref_root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:43: in render_raw
+    return "\n\n".join(self._render_blocks(blocks, template.splitlines(), data))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:50: in _render_blocks
+    rendered = self._render_block(block, template_lines, data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:58: in _render_block
+    return self._dispatch_render(handler_key, block, block_text, data, start_line)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:67: in _dispatch_render
+    return self.yaml_renderer.replace_markers(block_text, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer_engine/base.py:34: in replace_markers
+    return self.jinja_env.from_string(source).render(**data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:1111: in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+                               ^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:771: in compile
+    self.handle_exception(source=source_hint)
+.venv/lib/python3.13/site-packages/jinja2/environment.py:942: in handle_exception
+    raise rewrite_traceback_stack(source=source)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   jinja2.exceptions.TemplateSyntaxError: Missing end of raw directive
+
+<unknown>:1: TemplateSyntaxError
+____________________ test_spans_cover_literal_value[fin {{] ____________________
+
+v = 'fin {{'
+
+    @pytest.mark.parametrize("v", V)
+    def test_spans_cover_literal_value(v):
+        data = {"title": "t", "a": v, "b": v + " último"}
+>       text, spans = render_with_spans(Two, data)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/dev/shm/tj/edge/test_edge_jinja.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/dev/shm/tj/head/src/sldb/core/segments/instrumented_render.py:25: in render_with_spans
+    text = renderer.render(model_type(**payload), ref_root)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:31: in render
+    raw = self.render_raw(model, ref_root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:43: in render_raw
+    return "\n\n".join(self._render_blocks(blocks, template.splitlines(), data))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:50: in _render_blocks
+    rendered = self._render_block(block, template_lines, data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:58: in _render_block
+    return self._dispatch_render(handler_key, block, block_text, data, start_line)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer.py:67: in _dispatch_render
+    return self.yaml_renderer.replace_markers(block_text, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/dev/shm/tj/head/src/sldb/core/renderer_engine/base.py:34: in replace_markers
+    return self.jinja_env.from_string(source).render(**data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:1111: in from_string
+    return cls.from_code(self, self.compile(source), gs, None)
+                               ^^^^^^^^^^^^^^^^^^^^
+.venv/lib/python3.13/site-packages/jinja2/environment.py:771: in compile
+    self.handle_exception(source=source_hint)
+.venv/lib/python3.13/site-packages/jinja2/environment.py:942: in handle_exception
+    raise rewrite_traceback_stack(source=source)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   ???
+E   jinja2.exceptions.TemplateSyntaxError: unexpected char '\ue002' at 9
+
+<unknown>:1: TemplateSyntaxError
+____________________ test_value_named_like_internal_context ____________________
+
+    def test_value_named_like_internal_context():
+        md = render_model_markdown(Two, {"title": "_sldb_marker_values", "a": "{{ _sldb_marker_values }}"})
+>       assert "{{ _sldb_marker_values }}" in md
+E       AssertionError: assert '{{ _sldb_marker_values }}' in '# _sldb_marker_values\n\n## A\n\n\n\n## B'
+
+/dev/shm/tj/edge/test_edge_jinja.py:49: AssertionError
+=========================== short test summary info ============================
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_table_cell_literal[valor {{ 7*7 }} y {# c #} fin]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_table_cell_literal[texto {{{a]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_table_cell_literal[{% raw %}x]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_table_cell_literal[fin {{]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_multiline_and_last_value[valor {{ 7*7 }} y {# c #} fin]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_multiline_and_last_value[texto {{{a]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_multiline_and_last_value[{% raw %}x]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_multiline_and_last_value[fin {{]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_spans_cover_literal_value[valor {{ 7*7 }} y {# c #} fin]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_spans_cover_literal_value[texto {{{a]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_spans_cover_literal_value[{% raw %}x]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_spans_cover_literal_value[fin {{]
+FAILED ../../../../../dev/shm/tj/edge/test_edge_jinja.py::test_value_named_like_internal_context
+13 failed, 1 passed in 0.93s
+=== GREP caminos Jinja en src/sldb
+src/sldb/cli/commands/models_template.py:44:    def _get_template_assign_node(self, class_node: ast.ClassDef, class_name: str) -> ast.Assign:
+src/sldb/core/renderer.py:4:from jinja2 import Environment
+src/sldb/core/renderer.py:19:        self.jinja_env = Environment(autoescape=False)
+src/sldb/core/renderer_engine/base.py:7:from jinja2 import Environment
+src/sldb/core/renderer_engine/base.py:33:        return self.jinja_env.from_string(source).render({**data, "_sldb_marker_values": values})
+=== diff --stat
+ ...e-s\303\255mbolos-llamadas-http-como-llam.yaml" | 10 +++++-----
+ .sldb/core/models/ReviewDoc.yaml                   |  6 +++---
+ .sldb/core/models/RunDoc.yaml                      |  6 +++---
+ .sldb/core/models/TaskCodeDoc.yaml                 |  4 ++--
+ .sldb/core/store_index.yaml                        |  2 +-
+ .sldb/store.yaml                                   | 20 +++++++++++++++++++
+ CHANGELOG.md                                       |  1 +
+ ...tre-s\303\255mbolos-llamadas-http-como-llam.md" |  6 ++++--
+ src/sldb/core/renderer_engine/base.py              | 22 ++++++++++++---------
+ tests/test_list_items_round_trip.py                | 23 ++++++++++++++++++++++
+ 10 files changed, 75 insertions(+), 25 deletions(-)
+=== .sldb diff (ajeno: registro de reviews/runs del desk)
+--- a/.sldb/store.yaml
++++ b/.sldb/store.yaml
++  - path: runs/subagents/20261116-exec-jinja/run.md
++    name: run-deskops-e-08683ea7876c
++  - path: runs/subagents/20261116-test-jinja/run.md
++    name: run-deskops-t-c929c5b2583b
++  - path: desk/reviews/task-el-scan-de-enlaces-ignora-el-contenido-de-los-bloques-de-código-fenced-e-inline-y-no-los-informa-com/preflight-1.md
++    name: review-task-el-scan-de-enlaces-ignora-el-contenido-de-los-bloques-de-código-fenced-e-inline-y-no-los-informa-com-preflight-1
++  - path: desk/reviews/task-el-valor-de-un-campo-se-renderiza-literal-render-model-markdown-deja-de-pasar-los-valores-del-usuari/preflight-1.md
++    name: review-task-el-valor-de-un-campo-se-renderiza-literal-render-model-markdown-deja-de-pasar-los-valores-del-usuari-preflight-1
++  - path: desk/reviews/task-read-store-distingue-un-store-inexistente-store-not-found-de-uno-sin-preparar-store-not-prepared/preflight-1.md
++    name: review-task-read-store-distingue-un-store-inexistente-store-not-found-de-uno-sin-preparar-store-not-prepared-preflight-1
++  - path: desk/reviews/task-test-apply-batch-lock-no-deja-procesos-huérfanos-el-segundo-proceso-termina-siempre-falle-o-venza-el/preflight-1.md
++    name: review-task-test-apply-batch-lock-no-deja-procesos-huérfanos-el-segundo-proceso-termina-siempre-falle-o-venza-el-preflight-1
++  - path: desk/reviews/task-el-scan-de-enlaces-ignora-el-contenido-de-los-bloques-de-código-fenced-e-inline-y-no-los-informa-com/bundle-1.md
++    name: review-task-el-scan-de-enlaces-ignora-el-contenido-de-los-bloques-de-código-fenced-e-inline-y-no-los-informa-com-bundle-1
++  - path: desk/reviews/task-el-valor-de-un-campo-se-renderiza-literal-render-model-markdown-deja-de-pasar-los-valores-del-usuari/bundle-1.md
++    name: review-task-el-valor-de-un-campo-se-renderiza-literal-render-model-markdown-deja-de-pasar-los-valores-del-usuari-bundle-1
++  - path: desk/reviews/task-read-store-distingue-un-store-inexistente-store-not-found-de-uno-sin-preparar-store-not-prepared/bundle-1.md
++    name: review-task-read-store-distingue-un-store-inexistente-store-not-found-de-uno-sin-preparar-store-not-prepared-bundle-1

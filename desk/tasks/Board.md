@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T12:37:07Z'
+  at: '2026-11-17T13:24:58Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -81,7 +81,6 @@ tasks:
 - desk/tasks/task-sw4b-surface-ancla-de-verdad-por-las-rutas-de-sldb-serve-borra-el-cálculo-local-de-anclajes-y-muestr.md
 - desk/tasks/task-sw9-aceptación-del-workbench-sobre-el-desk-real-vistas-flujos-atajos-colores-y-enlace-desde-deskops.md
 - desk/tasks/task-sw8-decisión-de-jp-qué-queda-de-la-superficie-anterior-de-surface-vistas-legacy-stores-demo-y-caso-l.md
-- desk/tasks/task-el-valor-de-un-campo-se-renderiza-literal-render-model-markdown-deja-de-pasar-los-valores-del-usuari.md
 - desk/tasks/task-sw10-la-cabecera-del-workbench-muestra-la-ruta-del-documento-en-el-disco-como-carpetas-desplegables.md
 - desk/tasks/task-sw11-el-panel-izquierdo-del-workbench-muestra-el-grafo-de-documentos-relacionados-con-el-abierto-al.md
 - desk/tasks/task-read-store-distingue-un-store-inexistente-store-not-found-de-uno-sin-preparar-store-not-prepared.md
@@ -89,6 +88,7 @@ tasks:
 - desk/tasks/task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for.md
 - desk/tasks/task-declaredfiletargets-lee-campos-lista-y-no-aplica-las-exclusiones-a-lo-que-se-declara-para-que-un-des.md
 - desk/tasks/task-test-apply-batch-lock-no-deja-procesos-huérfanos-el-segundo-proceso-termina-siempre-falle-o-venza-el.md
+- desk/tasks/task-baja-prioridad-canonizar-los-nombres-de-llamada-ts-js-cuya-cadena-empieza-en-un-array-binario-new-o.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -204,7 +204,6 @@ _Generated from the task references above._
 - SW4b: surface ancla de verdad por las rutas de sldb serve, borra el cálculo local de anclajes y muestra changed como alerta [draft] - Crear un átomo desde una selección guarda su anclaje con offsets por sldb serve; el estado y la cobertura se leen de sldb (sin indexOf en surface); el umbral es 75 %, los parecidos enlazan al átomo y el mensaje muestra el porcentaje; changed se muestra como alerta (no error, no bloquea) en la ficha, en la lente Fierros y en el panel de cobertura, también al editar un átomo transcluido.
 - SW9: aceptación del Workbench sobre el desk real (vistas, flujos, atajos, colores y enlace desde deskops) con capturas para el repaso de UI con JP [draft] - En runs/ queda un índice con la matriz vista x flujo (PASA o FALLA con severidad), tiempos y capturas por vista y lente sobre stores SLDB reales (el del repo sirve) y no solo sobre un desk; las fallas nuevas quedan como notas a este desk.
 - SW8, decisión de JP: qué queda de la superficie anterior de surface (vistas legacy, stores demo y caso Levira, T8 identidad de sección) [draft] - JP decide: (A) qué vistas legacy se retiran y cuáles sobreviven dentro del Workbench; (B) si los stores demo y el código del caso Levira quedan como fixture de desarrollo o se retiran con la maqueta; (C) si T8 sigue como tarea de sldb o se descarta. La decisión queda escrita y de ella salen las tareas de retiro.
-- El valor de un campo se renderiza literal: render_model_markdown deja de pasar los valores del usuario por Jinja [draft] - El valor de un campo se guarda literal, byte a byte, y vuelve igual en extract; solo la plantilla del modelo es Jinja. Ningún valor con llaves, porcentajes o almohadillas cambia el render ni lo rompe.
 - SW10: la cabecera del Workbench muestra la ruta del documento en el disco como carpetas desplegables navegables [draft] - La cabecera muestra la ruta real del documento abierto: la raíz del store y cada carpeta son segmentos que abren un panel con sus subcarpetas (con la cantidad de documentos) y sus documentos; un clic abre el documento; el nombre del archivo al final abre ⌘K; funciona con teclado y mouse y una ruta de 150 caracteres no desborda la cabecera a 1280 px.
 - SW11: el panel izquierdo del Workbench muestra el grafo de documentos relacionados con el abierto al centro, desde lo que entrega sldb [draft] - Con un documento que tiene relaciones entrantes y salientes en un store real, el panel muestra ambas con el documento al centro (1 y 2 saltos), un clic en un vecino lo abre, un documento sin relaciones lo dice, hay un tope de nodos para documentos muy referenciados, y ningún vecino sale de parseo en la UI.
 - read_store distingue un store inexistente ('store not found') de uno sin preparar ('store not prepared') [draft] - read_store lanza SLDBStoreError 'store not found: <ruta>' cuando no existe el directorio del store, y conserva 'store not prepared: run sldb stores update (<ruta>)' cuando el store existe pero le falta el índice.
@@ -212,3 +211,4 @@ _Generated from the task references above._
 - docs track --reindex re-indexa un documento ya trackeado validándolo, sin saltar el round-trip como --force [draft] - docs track --reindex (y track_document_file(..., reindex=True)) re-indexa desde el archivo un documento ya trackeado en la misma ruta, como --force, pero corre las mismas validaciones que un track normal: si el archivo no valida falla con el error de validación y deja el índice como estaba. --force no cambia.
 - DeclaredFileTargets lee campos lista y no aplica las exclusiones a lo que se declara, para que un destino que existe no cuente como faltante [draft] - Un destino declarado por DeclaredFileTargets, venga de un campo escalar o de un campo lista, que es un archivo existente del proyecto se vuelve nodo aunque esté bajo una exclusión; y hay una forma declarativa de que las menciones de LineMentions a archivos existentes del proyecto no cuenten como faltantes.
 - test_apply_batch_lock no deja procesos huérfanos: el segundo proceso termina siempre, falle o venza el test [draft] - Cada proceso que lanza test_apply_batch_lock.py termina siempre al salir del test (pase, falle o venza), y la espera del archivo de señal tiene un tope; un test que falla no deja ningún proceso vivo.
+- Baja prioridad: canonizar los nombres de llamada TS/JS cuya cadena empieza en un array, binario, new o literal (hoy canonical: false) [draft] - Los nombres de llamada que hoy salen con canonical: false tienen una forma canónica definida y documentada (por ejemplo marcadores fijos [...] para arrays, (expr) para binarios, Clase() para new y (lit) para literales) y salen con canonical: true y en la relación calls si nombran un símbolo.

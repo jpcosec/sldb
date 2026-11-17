@@ -1,0 +1,37 @@
+name: review-task-el-valor-de-un-campo-se-renderiza-literal-render-model-markdown-deja-de-pasar-los-valores-del-usuari-evidence-tests-2
+path: desk/reviews/task-el-valor-de-un-campo-se-renderiza-literal-render-model-markdown-deja-de-pasar-los-valores-del-usuari/evidence-tests-2.md
+source_hash: 78e0bbedc5092393d412bdfc1b8fd41de184f0ef9334b2b59c049986373295e9
+content_hash: caf6b0ea4495ccfc9509cd76f64f6b4274fc96c1b39920251e0f95c7ca99e84e
+field_hashes:
+  id: 55669637ee4c3ff456100fe35fc4b4d93d108d53e1d44afd6e7d2dd5287ceed4
+  title: 270767d0d590cc1d5908bd8ea3a1e7e7871b4c5d6185d82301add0b837ec50aa
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: 68f05093bc600659c0aecd265fad80c71a658cc857e91cdfeeee782eb670c200
+  value: 60320ca12ff1ff25d6d1f41cbf214f22e224985b7600f49c188e786abbd7290c
+  subject: ef1975852a0ea056e134b544ec111ea5899ea1624c0c174c9a88de9fde0362e3
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 9f27b4df821e1e93ec0861d3a2f0b1535e25d36b0e813070e4d235af66025c9d
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: e08b210d28cf38289ada8d4209dc4c0ed109e49eebe46bb86bd3ff249e8066ab
+  created_at: ed8ed300744332c857d71d4aabfc0de78d5ca26f3c8fb88082b041a1f1332d33
+  disposed_at: ed8ed300744332c857d71d4aabfc0de78d5ca26f3c8fb88082b041a1f1332d33
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: e1f2f0fa10ee00d9382d6ff044da3d360cc9af745b08817a93f8f188486ee266
+  disposition: f31f8a35dcc14e486d7e381ae53722d1e84788630f9c813893d8d63b13d1549d
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-17T13:21:58Z'
+  authority: generated
+  via: create_document

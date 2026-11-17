@@ -1,7 +1,7 @@
 name: task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam
 path: desk/tasks/task-sldb-code-publica-facts-genéricos-de-ts-tsx-js-y-jsx-llamadas-entre-símbolos-llamadas-http-como-llam.md
-source_hash: 52cc9feeb5bfda93797b4c69bf11a714a43746d6dad73ffaba1bd75490cb333e
-content_hash: c7bab3aec6d2259ff93dec31c9830c6cf7f7e55216f0c16cd201490796d4ae2f
+source_hash: f100a362924b22cd920bb2f17c481d4fe87c802d56b30f47fe6df785851fb7d1
+content_hash: 3f409830f6e66a6aa809c15e184fd053d430b0f52d9003d7c28824d0a0a1644a
 field_hashes:
   title: aa26c0a51d0a3ebb84d5820c93c3c08a355ac650bbb6459e7ba687c37ea3ebb7
   id: d05b1ad3bd76d8874035c54383bfe39efe0bf49d416351c116d1c1c0407ab799
@@ -12,14 +12,14 @@ field_hashes:
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 0117d2a6628dfe6537bfbb8ed35524bc73908da74c145c3b6f2454c9ca6aaeb2
   goal: 289b3ed862e59e5dd180dcd2fb91a392b5864836d1b526ffa030bccd45c45043
-  scope: d0f7ac52cb04a13bf83cdadb9d28192da4feadfa2d3432dbf854fbafc995cf8a
+  scope: 790c4930e9364cd758efca9b899f4f358cb9241cf6910035a0044df3dafee5ef
   references: 45dc626c8b991be7079ea9e53e9d4a47dd64a6c8f819cac48e97b8a403626449
   depends_on: f976bd0fa0f02637a91d0addfd068a281600fe4c9c259bc5fba0873c8c89157c
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 155935936a82a2e2f2ad3b93f91b44146d92019e9d869eb06c320f701debdf03
   implementation_path: 78e5d37fe489db30c7f4d2ff6a6156229a1b8bdbf91914cfe551cefb954c10e9
   validation: f4cca0562c8acba47c98ebc8176d3891538c2ff16d5ae376eed8bea29167dd43
-  done_when: 1744c7f85c7c157200cca8e33ea75516a453051f35c37b437bfbd3358dd84c48
+  done_when: 9ed358a2e8f12dd1cfb18b051e4d5d7d18ce37b2fd477f08c0e3f15a08b68de6
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-17T11:51:11Z'
+  at: '2026-11-17T13:12:27Z'
   authority: generated
   via: save_document_payload
