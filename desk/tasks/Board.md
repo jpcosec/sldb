@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T12:33:52Z'
+  at: '2026-11-17T12:35:15Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -89,6 +89,7 @@ tasks:
 - desk/tasks/task-el-scan-de-enlaces-ignora-el-contenido-de-los-bloques-de-código-fenced-e-inline-y-no-los-informa-com.md
 - desk/tasks/task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for.md
 - desk/tasks/task-declaredfiletargets-lee-campos-lista-y-no-aplica-las-exclusiones-a-lo-que-se-declara-para-que-un-des.md
+- desk/tasks/task-test-apply-batch-lock-no-deja-procesos-huérfanos-el-segundo-proceso-termina-siempre-falle-o-venza-el.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -212,3 +213,4 @@ _Generated from the task references above._
 - El scan de enlaces ignora el contenido de los bloques de código (fenced e inline) y no los informa como enlaces rotos [draft] - El scan de enlaces de sldb (comando sldb links y la API que usa) no cuenta como enlace nada que esté dentro de un bloque de código cercado ni de un código en línea; los enlaces reales se siguen detectando igual.
 - docs track --reindex re-indexa un documento ya trackeado validándolo, sin saltar el round-trip como --force [draft] - docs track --reindex (y track_document_file(..., reindex=True)) re-indexa desde el archivo un documento ya trackeado en la misma ruta, como --force, pero corre las mismas validaciones que un track normal: si el archivo no valida falla con el error de validación y deja el índice como estaba. --force no cambia.
 - DeclaredFileTargets lee campos lista y no aplica las exclusiones a lo que se declara, para que un destino que existe no cuente como faltante [draft] - Un destino declarado por DeclaredFileTargets, venga de un campo escalar o de un campo lista, que es un archivo existente del proyecto se vuelve nodo aunque esté bajo una exclusión; y hay una forma declarativa de que las menciones de LineMentions a archivos existentes del proyecto no cuenten como faltantes.
+- test_apply_batch_lock no deja procesos huérfanos: el segundo proceso termina siempre, falle o venza el test [draft] - Cada proceso que lanza test_apply_batch_lock.py termina siempre al salir del test (pase, falle o venza), y la espera del archivo de señal tiene un tope; un test que falla no deja ningún proceso vivo.
