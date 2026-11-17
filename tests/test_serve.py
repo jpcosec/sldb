@@ -1612,3 +1612,65 @@ def test_views_routes_refuse_and_leave_the_projection_routes_as_they_were(view_w
         assert status == 400 and body == {"ok": False, "error": "Missing parameter: view (or ref)"}
     finally:
         _stop(server, thread)
+
+
+# ── docs/user-manual.md §10 lista todas las rutas de sldb serve ──────────────
+
+def _dict_routes() -> set[str]:
+    """Las rutas que los módulos de serve registran en dicts o tuplas, importadas."""
+    from sldb.cli.serve import docs_routes, document_routes, edges_routes, graph_routes, models_routes, notations_routes, project_graph_routes
+    get = {*edges_routes.EDGE_ROUTES, *graph_routes.GRAPH_ROUTES, *project_graph_routes.PROJECT_GRAPH_ROUTES, *document_routes.DOCUMENT_ROUTES, *models_routes._GET_ROUTES}
+    post = {*models_routes._POST_ROUTES, *docs_routes._ACTION_ROUTES}
+    keyed = {*notations_routes._NOTATION_ROUTES, *notations_routes._VIEW_ROUTES}
+    return {f"GET {r}" for r in get} | {f"POST {r}" for r in post} | {f"{m} {r}" for m, r in keyed}
+
+
+def _dispatcher_routes() -> set[str]:
+    """Las rutas que `routes.py` despacha sin dict importable: los `route == "/x"` (o `!=`)
+    y las claves del dict local de `dispatch_get`, leídos con `ast`. `dispatch_post` es POST."""
+    import ast
+    import inspect
+
+    from sldb.cli.serve import routes
+
+    found = set()
+    for fn in ast.parse(inspect.getsource(routes)).body:
+        method = "POST" if getattr(fn, "name", "") == "dispatch_post" else "GET"
+        for node in ast.walk(fn):
+            if isinstance(node, ast.Compare) and isinstance(node.left, ast.Name) and node.left.id == "route" and isinstance(node.ops[0], (ast.Eq, ast.NotEq)):
+                found |= {f"{method} {c.value}" for c in node.comparators if isinstance(c, ast.Constant)}
+            if isinstance(node, ast.Dict):
+                found |= {f"{method} {k.value}" for k in node.keys if isinstance(k, ast.Constant) and str(k.value).startswith("/")}
+    return found
+
+
+# La única ruta con un tramo variable: `views_routes.dispatch_views` toma el nombre de
+# `route.removeprefix("/views/")`.
+_PATH_PARAM_ROUTES = {"GET /views/<name>"}
+
+
+def _manual_routes() -> set[str]:
+    """La primera columna (`MÉTODO /path`) de la tabla de rutas de §10 del manual."""
+    text = (Path(__file__).parent.parent / "docs" / "user-manual.md").read_text(encoding="utf-8")
+    section = text.split("### HTTP (`sldb serve`)", 1)[1].split("\n### ", 1)[0]
+    cells = [line.split("|")[1].strip() for line in section.splitlines() if line.startswith("| `")]
+    return {cell.strip("`") for cell in cells}
+
+
+def test_user_manual_lists_every_serve_route() -> None:
+    code = _dict_routes() | _dispatcher_routes() | _PATH_PARAM_ROUTES
+    manual = _manual_routes()
+    assert code - manual == set(), f"rutas de sldb serve que el manual no nombra: {sorted(code - manual)}"
+    assert manual - code == set(), f"rutas del manual que sldb serve no registra: {sorted(manual - code)}"
+
+
+def test_documented_path_param_route_is_served(tmp_path: Path) -> None:
+    """`GET /views/<name>` no es una ruta desconocida: un nombre que no existe es 404 de vista."""
+    store = _build_store(tmp_path)
+    server, thread, base = _serve(store)
+    try:
+        status, body = _request_json(f"{base}/views/no-such-view", expected_error=404)
+    finally:
+        _stop(server, thread)
+    assert status == 404
+    assert "Unknown route" not in body["error"]

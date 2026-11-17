@@ -667,8 +667,71 @@ uno.
 
 ### HTTP (`sldb serve`)
 
-`/document/ir`, `/save` (con `expected` → **409** en conflicto), `/edges/node`,
-`/graph/*`, `/find`, `/models/detail`.
+Todas las rutas que registra `src/sldb/cli/serve/`, una por fila. Las respuestas son
+JSON; un error es `{"ok": false, "error": ...}` con su status (400 parámetro faltante o
+inválido, 404 desconocido, 409 conflicto o ambiguo, 422 contenido que el modelo
+rechaza). `tests/test_serve.py::test_user_manual_lists_every_serve_route` compara esta
+tabla con las rutas del código, en las dos direcciones.
+
+| Ruta | Parámetros | Devuelve |
+|---|---|---|
+| `GET /health` | — | `{status: ok\|degraded, findings, action}`: el veredicto del store y la acción que implica |
+| `GET /schema` | — | un modelo por modelo registrado (campos, dunders, defaults); los que no cargan, declarados |
+| `GET /graph` | — | todos los documentos trackeados, más los modelos cuyos documentos faltan |
+| `GET /semantic-export` | — | el payload `sldb_kgdb_semantic_export` desde los índices persistidos |
+| `GET /edges` | `from` o `to`, `relation`, `include_linked`; sin `from`/`to`: `id` opcional | `{edges}`: aristas crudas de un nodo, o las de documento a documento |
+| `GET /edges/node` | `id` | `{node}`; 404 si el nodo no existe |
+| `GET /edges/nodes` | `type` | `{nodes}` de ese tipo |
+| `GET /edges/referrers` | `target` | la lista de `sldb edges referrers --format json` |
+| `GET /graph/neighborhood` | `node`, `depth` (1) | `{nodes}` a esa distancia |
+| `GET /graph/path` | `source`, `target`, `explain` | el camino entre los dos nodos; 404 si no hay |
+| `GET /graph/cycles` | `limit` (10) | `{cycles}` |
+| `GET /graph/components` | — | `{components}` |
+| `GET /graph/central` | `limit` (20) | `{central: [{node, score}]}` |
+| `GET /graph/isolated` | — | `{isolated}` |
+| `GET /project-graph/nodes` | `kind` | lo que imprime `sldb graph project nodes --format json` |
+| `GET /project-graph/edges` | exactamente uno de `from` y `to` | lo que imprime `sldb graph project edges --format json` |
+| `GET /project-graph/missing` | — | lo que imprime `sldb graph project missing --format json` |
+| `GET /document` | `id` | el documento trackeado con su `ir`; 404 si no existe, 422 si el IR no se construye |
+| `GET /document/ir` | `id` | solo el IR del documento |
+| `GET /document/segments` | `id` | los `DocumentSegments` del documento; 422 si no renderiza |
+| `GET /docs/select` | `ref`, `prefix`, `path_glob`, `model`, `where`, `include_linked`, `one` | lo que `sldb docs select`; 404/409 (con `candidates`) con `one` |
+| `GET /models` | — | `{models}`: el catálogo de modelos registrados con versión y conteo de documentos |
+| `GET /models/detail` | `model` | `{ok, model}`: la descripción del modelo |
+| `GET /lint` | — | `{problems: [{kind, severity, doc, detail}], count}` de store, aristas y links |
+| `GET /notations` | — | `{ok, ...}`: notaciones y paletas builtin más las del store |
+| `GET /notations/view` | `spec` | `{ok, ...}`: la vista resuelta de esa spec |
+| `GET /views/projection` | — | `{ok, views}`: las vistas de proyección del store |
+| `GET /views/projection/evaluate` | `view` (o `ref`, `name`) | `{ok, ...}`: la vista evaluada |
+| `GET /views` | — | `{views}`, como `sldb views list --format json` |
+| `GET /views/<name>` | los parámetros de la vista (`k=v`) | lo que `sldb views run <name> --format json`, con `ETag`; 304 con `If-None-Match` |
+| `GET /stores` | — | `{store, root, model_count, doc_count, hash_a, stores}` |
+| `GET /stores/check` | — | la verificación de `sldb stores check` (`root_ok`, `summary`, `models`, documentos desviados) |
+| `GET /corpus/rank` | `q`, `k` (5), `threshold`, `among`, `fields`, `refresh` | `{hits}` por similitud; 409 `not_indexed` sin índice y sin `refresh` |
+| `GET /similar` | `id`, `relations`, `limit` (10), `types` | `{similar: [[nodo, compartidos]]}` |
+| `GET /fields` | `doc`, `path`, `index` | los campos del documento con `leaf_paths`, o el valor de un path |
+| `GET /sections` | `doc` | `{doc, sections}` desde el IR del documento |
+| `GET /ast` | `doc` | el árbol normalizado, como `sldb ast show` |
+| `GET /find` | `q`, `in`, `type`, `where`, `select`, `limit`, `regex`, `fuzzy`, `global` | los resultados de `sldb find` |
+| `GET /extract` | `doc`, `format` (`json`\|`yaml`) | `{doc, payload}` |
+| `GET /render` | `doc`, `format` (`md`\|`html`); o `model` | `{doc, format, markdown}`, o `{model, template}` |
+| `POST /edges/rewrite` | body `{target, replacement, dry_run}` | el reporte de `sldb edges rewrite --format json` |
+| `POST /models/create` | body `{name, fields, template, base, target_package, ...metadata}` | `{ok, ...}` con el registro del borrador |
+| `POST /models/fields-add` | body `{model, field_name, field_type, description, default}` | el borrador con el campo nuevo |
+| `POST /models/fields-remove` | body `{model, field_name}` | el borrador sin ese campo |
+| `POST /models/metadata-edit` | body `{model, containment, references, compositions, semantics, authority}` | el borrador con la metadata editada |
+| `POST /models/template-edit` | body `{model, content}` | el borrador con la plantilla nueva |
+| `POST /models/validate` | body `{model}` | el reporte de validación del borrador |
+| `POST /models/promote` | body `{model, backfill}` | el reporte de la promoción |
+| `POST /docs` | body `{model, name, payload}` | `{ok, id, version}`: crea y trackea un documento |
+| `POST /docs/create` | body `{model, name, payload, path}` | `{ok, doc}`: el documento creado |
+| `POST /docs/track` | body `{model, path, name}` | `{ok, doc}`: el archivo existente, trackeado |
+| `POST /docs/untrack` | body `{name}` | `{ok, doc}`: lo deja de trackear sin borrar el archivo |
+| `POST /extract/segments` | body `{model, markdown}` | los segmentos del markdown leído como ese modelo; 404 modelo, 422 contenido |
+| `POST /notations/resolve` | body `{notation, docs, relations, spec_style}` | `{ok, ...}`: los documentos con la notación aplicada |
+| `POST /views/projection/evaluate` | body `{view}` o `{ref}` | `{ok, ...}`: la vista evaluada |
+| `POST /views/projection/save` | body `{name, view}` | `{ok, ...}`: la vista guardada |
+| `POST /save` | body `{doc, payload}` o `{changes: [...]}` (con `expected` → **409** en conflicto) | `{ok, doc}` o `{ok, saved}`; un lote se aplica entero o se revierte |
 
 ### Primitivos sueltos
 
@@ -798,6 +861,7 @@ Correcciones que salieron de esa auditoria:
 Verificado en vivo y sin cambios: los 4 hashes y sus alias, `Field(description)`
 obligatorio, `render` no se extrae, los 11 relation types builtin, los campos de
 `RelationTypeDoc`, `{Modelo+}` recorriendo el MRO sin registrar la base, la cita
-de `text_id`, los limites de composicion, los 6 endpoints HTTP, `/save`
+de `text_id`, los limites de composicion, las rutas HTTP de la tabla de la
+seccion 10 (que un test compara con el codigo), `/save`
 devolviendo 409 real ante `expected` distinto, y las 5 fricciones de la seccion
 13.
