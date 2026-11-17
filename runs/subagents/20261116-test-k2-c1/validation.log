@@ -1,0 +1,288 @@
+### $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/selfdoc/test_treesitter_symbols.py
+....................                                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+20 passed, 1 warning in 0.41s
+### rc=0
+### $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/api/test_anchors.py
+.......................                                                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+23 passed, 1 warning in 1.56s
+### rc=0
+### $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/selfdoc/test_fingerprints.py
+....                                                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 0.09s
+### rc=0
+### $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev pytest -q tests/test_clean_code_rules.py
+........................................................................ [  6%]
+........................................................................ [ 12%]
+........................................................................ [ 18%]
+........................................................................ [ 24%]
+........................................................................ [ 30%]
+........................................................................ [ 36%]
+........................................................................ [ 42%]
+........................................................................ [ 48%]
+........................................................................ [ 54%]
+........................................................................ [ 60%]
+........................................................................ [ 66%]
+........................................................................ [ 72%]
+........................................................................ [ 78%]
+........................................................................ [ 84%]
+........................................................................ [ 90%]
+........................................................................ [ 96%]
+............................................                             [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1196 passed, 2 warnings in 2.86s
+### rc=0
+### $ TMPDIR=/dev/shm uv run --frozen --extra code --extra dev bash tools/check.sh --fast
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   224 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 966 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 123 símbolos pedidos, 594 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+### rc=0
+
+### Regresiones vecinas (archivo por archivo, trabajo vs HEAD de git archive)
+WORK tests/selfdoc/test_treesitter_symbols.py: 20 passed, 1 warning in 0.74s
+WORK tests/api/test_anchors.py: 23 passed, 1 warning in 2.64s
+WORK tests/notations/test_component_spec_python.py: 5 passed, 1 warning in 1.34s
+WORK tests/selfdoc/test_treesitter_agreement.py: 2 passed, 1 warning in 0.14s
+WORK tests/selfdoc/test_fingerprints.py: 4 passed, 1 warning in 0.84s
+HEAD tests/selfdoc/test_treesitter_symbols.py: 14 passed, 1 warning in 0.13s
+HEAD tests/api/test_anchors.py: 22 passed, 1 warning in 2.49s
+HEAD tests/notations/test_component_spec_python.py: 5 passed, 1 warning in 1.17s
+HEAD tests/selfdoc/test_treesitter_agreement.py: 2 passed, 1 warning in 0.09s
+HEAD tests/selfdoc/test_fingerprints.py: 4 passed, 1 warning in 0.04s
+
+### .py/TS: md5 de los hechos no-.sql, HEAD vs trabajo (5737 hechos)
+2c788f217513105dc5a31f5f0bca6c2d  /dev/shm/k2c1t/head.json
+2c788f217513105dc5a31f5f0bca6c2d  /dev/shm/k2c1t/work.json
+
+### sonda mig/edge.sql
+CREATE TABLE public.parent (id integer NOT NULL, code text, CONSTRAINT parent_pkey PRIMARY KEY (id));
+CREATE TABLE "My Schema"."Child Table" ("Id" integer, "parent id" integer, note text -- primary key unique
+, tag text CHECK (tag <> 'primary key unique'), PRIMARY KEY ("Id"), UNIQUE (note), UNIQUE (tag));
+ALTER TABLE ONLY public.parent ADD CONSTRAINT parent_code_key UNIQUE (code);
+ALTER TABLE IF EXISTS "My Schema"."Child Table" ADD CONSTRAINT "child→parent fk" FOREIGN KEY ("parent id") REFERENCES public.parent (id) ON DELETE CASCADE DEFERRABLE INITIALLY DEFERRED;
+alter table public.parent add constraint parent_self_fk foreign key (code) references public.parent;
+ALTER TABLE public.parent ADD CONSTRAINT a_uniq UNIQUE (id), ADD CONSTRAINT b_uniq UNIQUE (code);
+ALTER TABLE public.parent ADD COLUMN extra int;
+ALTER TABLE public.parent ADD PRIMARY KEY (id);
+ALTER TABLE public.parent ADD CONSTRAINT chk CHECK (id > 0);
+ALTER TABLE ghost ADD CONSTRAINT ghost_fk FOREIGN KEY (x) REFERENCES public.parent (id);
+CREATE TABLE odd ("a)b" int, UNIQUE ("a)b"));
+CREATE TABLE weird (id int, "unique" int, "primary key" int);
+--- salida
+module mig.edge mig.edge
+table public.parent mig.edge.public.parent
+column public.parent.id {"type": "integer"} rels= [] in= ['mig.edge.public.parent']
+column public.parent.code {"type": "text"} rels= [] in= ['mig.edge.public.parent']
+constraint public.parent.parent_pkey {"constraint_type": "primary_key", "columns": ["id"]} rels= [] in= ['mig.edge.public.parent']
+table My Schema.Child Table mig.edge.My Schema.Child Table
+column My Schema.Child Table.Id {"type": "integer"} rels= [] in= ['mig.edge.My Schema.Child Table']
+column My Schema.Child Table.parent id {"type": "integer"} rels= [] in= ['mig.edge.My Schema.Child Table']
+column My Schema.Child Table.note {"type": "text"} rels= [] in= ['mig.edge.My Schema.Child Table']
+column My Schema.Child Table.tag {"type": "text"} rels= [] in= ['mig.edge.My Schema.Child Table']
+constraint My Schema.Child Table.pk {"constraint_type": "primary_key", "columns": ["Id"]} rels= [] in= ['mig.edge.My Schema.Child Table']
+constraint My Schema.Child Table.unique {"constraint_type": "unique", "columns": ["note"]} rels= [] in= ['mig.edge.My Schema.Child Table']
+constraint My Schema.Child Table.unique~2 {"constraint_type": "unique", "columns": ["tag"]} rels= [] in= ['mig.edge.My Schema.Child Table']
+constraint public.parent.parent_code_key {"constraint_type": "unique", "columns": ["code"]} rels= [] in= ['mig.edge.public.parent']
+constraint My Schema.Child Table.child→parent fk {"constraint_type": "foreign_key", "columns": ["parent id"], "references": {"table": "public.parent", "columns": ["id"]}} rels= [{'type': 'references', 'target': 'mig.edge.public.parent'}] in= ['mig.edge.My Schema.Child Table']
+constraint public.parent.parent_self_fk {"constraint_type": "foreign_key", "columns": ["code"], "references": {"table": "public.parent", "columns": []}} rels= [{'type': 'references', 'target': 'mig.edge.public.parent'}] in= ['mig.edge.public.parent']
+constraint public.parent.a_uniq {"constraint_type": "unique", "columns": ["id"]} rels= [] in= ['mig.edge.public.parent']
+constraint public.parent.b_uniq {"constraint_type": "unique", "columns": ["code"]} rels= [] in= ['mig.edge.public.parent']
+constraint ghost.ghost_fk {"constraint_type": "foreign_key", "columns": ["x"], "references": {"table": "public.parent", "columns": ["id"]}} rels= [{'type': 'references', 'target': 'mig.edge.public.parent'}] in= ['mig.edge']
+table odd mig.edge.odd
+column odd.a)b {"type": "int"} rels= [] in= ['mig.edge.odd']
+constraint odd.unique {"constraint_type": "unique", "columns": ["a)b"]} rels= [] in= ['mig.edge.odd']
+table weird mig.edge.weird
+column weird.id {"type": "int"} rels= [] in= ['mig.edge.weird']
+column weird.unique {"type": "int"} rels= [] in= ['mig.edge.weird']
+column weird.primary key {"type": "int"} rels= [] in= ['mig.edge.weird']
+
+### sonda mig/shop_0001.sql
+BEGIN;
+--
+-- Create model Category
+--
+CREATE TABLE "shop_category" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "name" varchar(50) NOT NULL UNIQUE);
+--
+-- Create model Tag
+--
+CREATE TABLE "shop_tag" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "label" varchar(20) NOT NULL);
+--
+-- Create model Product
+--
+CREATE TABLE "shop_product" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "sku" varchar(20) NOT NULL, "region" varchar(5) NOT NULL, "price" numeric(8, 2) NOT NULL, "category_id" bigint NOT NULL, "owner_id" integer NULL, CONSTRAINT "uniq_cat_sku" UNIQUE ("category_id", "sku"), CONSTRAINT "price_pos" CHECK ("price" >= 0));
+CREATE TABLE "shop_product_tags" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "product_id" bigint NOT NULL, "tag_id" bigint NOT NULL);
+CREATE INDEX "shop_category_name_11b68823_like" ON "shop_category" ("name" varchar_pattern_ops);
+ALTER TABLE "shop_product" ADD CONSTRAINT "shop_product_sku_region_4470a054_uniq" UNIQUE ("sku", "region");
+ALTER TABLE "shop_product" ADD CONSTRAINT "shop_product_category_id_14d7eea8_fk_shop_category_id" FOREIGN KEY ("category_id") REFERENCES "shop_category" ("id") DEFERRABLE INITIALLY DEFERRED;
+ALTER TABLE "shop_product" ADD CONSTRAINT "shop_product_owner_id_c7c481d9_fk_auth_user_id" FOREIGN KEY ("owner_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED;
+CREATE INDEX "shop_product_category_id_14d7eea8" ON "shop_product" ("category_id");
+CREATE INDEX "shop_product_owner_id_c7c481d9" ON "shop_product" ("owner_id");
+ALTER TABLE "shop_product_tags" ADD CONSTRAINT "shop_product_tags_product_id_tag_id_a244154e_uniq" UNIQUE ("product_id", "tag_id");
+ALTER TABLE "shop_product_tags" ADD CONSTRAINT "shop_product_tags_product_id_9a158885_fk_shop_product_id" FOREIGN KEY ("product_id") REFERENCES "shop_product" ("id") DEFERRABLE INITIALLY DEFERRED;
+ALTER TABLE "shop_product_tags" ADD CONSTRAINT "shop_product_tags_tag_id_dd30c4fb_fk_shop_tag_id" FOREIGN KEY ("tag_id") REFERENCES "shop_tag" ("id") DEFERRABLE INITIALLY DEFERRED;
+CREATE INDEX "shop_product_tags_product_id_9a158885" ON "shop_product_tags" ("product_id");
+CREATE INDEX "shop_product_tags_tag_id_dd30c4fb" ON "shop_product_tags" ("tag_id");
+COMMIT;
+--- salida
+module mig.shop_0001 mig.shop_0001
+table shop_category mig.shop_0001.shop_category
+column shop_category.id {"type": "bigint", "primary_key": true, "identity": true, "parse_partial": true} rels= [] in= ['mig.shop_0001.shop_category']
+column shop_category.name {"type": "varchar(50)", "unique": true} rels= [] in= ['mig.shop_0001.shop_category']
+table shop_tag mig.shop_0001.shop_tag
+column shop_tag.id {"type": "bigint", "primary_key": true, "identity": true, "parse_partial": true} rels= [] in= ['mig.shop_0001.shop_tag']
+column shop_tag.label {"type": "varchar(20)"} rels= [] in= ['mig.shop_0001.shop_tag']
+table shop_product mig.shop_0001.shop_product
+column shop_product.id {"type": "bigint", "primary_key": true, "identity": true, "parse_partial": true} rels= [] in= ['mig.shop_0001.shop_product']
+column shop_product.sku {"type": "varchar(20)"} rels= [] in= ['mig.shop_0001.shop_product']
+column shop_product.region {"type": "varchar(5)"} rels= [] in= ['mig.shop_0001.shop_product']
+column shop_product.price {"type": "numeric(8, 2)"} rels= [] in= ['mig.shop_0001.shop_product']
+column shop_product.category_id {"type": "bigint"} rels= [] in= ['mig.shop_0001.shop_product']
+column shop_product.owner_id {"type": "integer"} rels= [] in= ['mig.shop_0001.shop_product']
+constraint shop_product.uniq_cat_sku {"constraint_type": "unique", "columns": ["category_id", "sku"]} rels= [] in= ['mig.shop_0001.shop_product']
+table shop_product_tags mig.shop_0001.shop_product_tags
+column shop_product_tags.id {"type": "bigint", "primary_key": true, "identity": true, "parse_partial": true} rels= [] in= ['mig.shop_0001.shop_product_tags']
+column shop_product_tags.product_id {"type": "bigint"} rels= [] in= ['mig.shop_0001.shop_product_tags']
+column shop_product_tags.tag_id {"type": "bigint"} rels= [] in= ['mig.shop_0001.shop_product_tags']
+index shop_category_name_11b68823_like mig.shop_0001.shop_category_name_11b68823_like
+constraint shop_product.shop_product_sku_region_4470a054_uniq {"constraint_type": "unique", "columns": ["sku", "region"]} rels= [] in= ['mig.shop_0001.shop_product']
+constraint shop_product.shop_product_category_id_14d7eea8_fk_shop_category_id {"constraint_type": "foreign_key", "columns": ["category_id"], "references": {"table": "shop_category", "columns": ["id"]}} rels= [{'type': 'references', 'target': 'mig.shop_0001.shop_category'}] in= ['mig.shop_0001.shop_product']
+constraint shop_product.shop_product_owner_id_c7c481d9_fk_auth_user_id {"constraint_type": "foreign_key", "columns": ["owner_id"], "references": {"table": "auth_user", "columns": ["id"]}} rels= [] in= ['mig.shop_0001.shop_product']
+index shop_product_category_id_14d7eea8 mig.shop_0001.shop_product_category_id_14d7eea8
+index shop_product_owner_id_c7c481d9 mig.shop_0001.shop_product_owner_id_c7c481d9
+constraint shop_product_tags.shop_product_tags_product_id_tag_id_a244154e_uniq {"constraint_type": "unique", "columns": ["product_id", "tag_id"]} rels= [] in= ['mig.shop_0001.shop_product_tags']
+constraint shop_product_tags.shop_product_tags_product_id_9a158885_fk_shop_product_id {"constraint_type": "foreign_key", "columns": ["product_id"], "references": {"table": "shop_product", "columns": ["id"]}} rels= [{'type': 'references', 'target': 'mig.shop_0001.shop_product'}] in= ['mig.shop_0001.shop_product_tags']
+constraint shop_product_tags.shop_product_tags_tag_id_dd30c4fb_fk_shop_tag_id {"constraint_type": "foreign_key", "columns": ["tag_id"], "references": {"table": "shop_tag", "columns": ["id"]}} rels= [{'type': 'references', 'target': 'mig.shop_0001.shop_tag'}] in= ['mig.shop_0001.shop_product_tags']
+index shop_product_tags_product_id_9a158885 mig.shop_0001.shop_product_tags_product_id_9a158885
+index shop_product_tags_tag_id_dd30c4fb mig.shop_0001.shop_product_tags_tag_id_dd30c4fb
+
+### sonda mig/edge2.sql
+CREATE TABLE "p""q" ("i""d" int NOT NULL, code text, CONSTRAINT "p""k" PRIMARY KEY ("i""d"), UNIQUE ("a""b", code));
+CREATE TABLE c (id int, pid int, k text);
+ALTER TABLE c ADD COLUMN z int, ADD CONSTRAINT c_k_uniq UNIQUE (k);
+ALTER TABLE c ADD CONSTRAINT c_id_uniq UNIQUE (id), DROP COLUMN z;
+ALTER TABLE c ADD CONSTRAINT c_pid_fk FOREIGN KEY (pid) REFERENCES "p""q" ("i""d") ON DELETE CASCADE;
+ALTER TABLE c ADD CONSTRAINT c_pid_fk2 FOREIGN KEY (pid) REFERENCES c ON DELETE CASCADE ON UPDATE SET NULL;
+ALTER TABLE c ADD CONSTRAINT c_pid_fk3 FOREIGN KEY (pid) REFERENCES c (id) ON DELETE CASCADE, ADD CONSTRAINT c_pk PRIMARY KEY (id);
+ALTER TABLE c ADD CONSTRAINT c_pk2 PRIMARY KEY (id);
+CREATE TABLE d (id int, pid int, FOREIGN KEY (pid) REFERENCES c (id) ON DELETE CASCADE, FOREIGN KEY (id) REFERENCES c ON DELETE SET NULL, PRIMARY KEY (id));
+ALTER TABLE d ADD CONSTRAINT d_fk_ref_nocols FOREIGN KEY (pid) REFERENCES c;
+ALTER TABLE d ADD CONSTRAINT d_after UNIQUE (pid);
+--- salida
+module mig.edge2 mig.edge2
+table p mig.edge2.p
+column p.i {"type": "\"d\"", "parse_partial": true} rels= [] in= ['mig.edge2.p']
+column p.code {"type": "text"} rels= [] in= ['mig.edge2.p']
+constraint p.unique {"constraint_type": "unique", "columns": ["a", "b", "code"]} rels= [] in= ['mig.edge2.p']
+table c mig.edge2.c
+column c.id {"type": "int"} rels= [] in= ['mig.edge2.c']
+column c.pid {"type": "int"} rels= [] in= ['mig.edge2.c']
+column c.k {"type": "text"} rels= [] in= ['mig.edge2.c']
+constraint c.c_k_uniq {"constraint_type": "unique", "columns": ["k"]} rels= [] in= ['mig.edge2.c']
+constraint c.c_id_uniq {"constraint_type": "unique", "columns": ["id"]} rels= [] in= ['mig.edge2.c']
+constraint c.c_pid_fk {"constraint_type": "foreign_key", "columns": ["pid"], "references": {"table": "p", "columns": []}} rels= [{'type': 'references', 'target': 'mig.edge2.p'}] in= ['mig.edge2.c']
+constraint c.c_pid_fk2 {"constraint_type": "foreign_key", "columns": ["pid"], "references": {"table": "c", "columns": []}} rels= [{'type': 'references', 'target': 'mig.edge2.c'}] in= ['mig.edge2.c']
+constraint c.c_pid_fk3 {"constraint_type": "foreign_key", "columns": ["pid"], "references": {"table": "c", "columns": ["id"]}} rels= [{'type': 'references', 'target': 'mig.edge2.c'}] in= ['mig.edge2.c']
+constraint c.c_pk {"constraint_type": "primary_key", "columns": ["id"]} rels= [] in= ['mig.edge2.c']
+constraint c.c_pk2 {"constraint_type": "primary_key", "columns": ["id"]} rels= [] in= ['mig.edge2.c']
+table d mig.edge2.d
+column d.id {"type": "int"} rels= [] in= ['mig.edge2.d']
+column d.pid {"type": "int"} rels= [] in= ['mig.edge2.d']
+constraint d.fk {"constraint_type": "foreign_key", "columns": ["pid"], "references": {"table": "c", "columns": ["id"]}} rels= [{'type': 'references', 'target': 'mig.edge2.c'}] in= ['mig.edge2.d']
+constraint d.fk~2 {"constraint_type": "foreign_key", "columns": ["id"]} rels= [] in= ['mig.edge2.d']
+constraint d.pk {"constraint_type": "primary_key", "columns": ["id"]} rels= [] in= ['mig.edge2.d']
+constraint d.d_fk_ref_nocols {"constraint_type": "foreign_key", "columns": ["pid"], "references": {"table": "c", "columns": []}} rels= [{'type': 'references', 'target': 'mig.edge2.c'}] in= ['mig.edge2.d']
+constraint d.d_after {"constraint_type": "unique", "columns": ["pid"]} rels= [] in= ['mig.edge2.d']
+
+### sonda mig/edge3.sql
+CREATE TABLE t (x int, y int, UNIQUE ("a""b", x));
+ALTER TABLE t ADD CONSTRAINT f FOREIGN KEY (x) REFERENCES t ("a""b");
+ALTER TABLE t ADD CONSTRAINT "g""h" UNIQUE (y);
+CREATE TABLE d (id int, FOREIGN KEY (id) REFERENCES t);
+CREATE TABLE e (id int, CONSTRAINT e_fk FOREIGN KEY (id) REFERENCES t, CONSTRAINT e_u UNIQUE (id));
+CREATE TABLE f2 (id int, FOREIGN KEY (id) REFERENCES t ON DELETE CASCADE);
+--- salida
+module mig.edge3 mig.edge3
+table t mig.edge3.t
+column t.x {"type": "int"} rels= [] in= ['mig.edge3.t']
+column t.y {"type": "int"} rels= [] in= ['mig.edge3.t']
+constraint t.unique {"constraint_type": "unique", "columns": ["a", "b", "x"]} rels= [] in= ['mig.edge3.t']
+constraint t.f {"constraint_type": "foreign_key", "columns": ["x"], "references": {"table": "t", "columns": ["a", "b"]}} rels= [{'type': 'references', 'target': 'mig.edge3.t'}] in= ['mig.edge3.t']
+table d mig.edge3.d
+column d.id {"type": "int"} rels= [] in= ['mig.edge3.d']
+constraint d.fk {"constraint_type": "foreign_key", "columns": ["id"]} rels= [] in= ['mig.edge3.d']
+table e mig.edge3.e
+column e.id {"type": "int"} rels= [] in= ['mig.edge3.e']
+constraint e.e_fk {"constraint_type": "foreign_key", "columns": ["id"], "references": {"table": "t", "columns": []}} rels= [{'type': 'references', 'target': 'mig.edge3.t'}] in= ['mig.edge3.e']
+table f2 mig.edge3.f2
+column f2.id {"type": "int"} rels= [] in= ['mig.edge3.f2']
+constraint f2.fk {"constraint_type": "foreign_key", "columns": ["id"]} rels= [] in= ['mig.edge3.f2']

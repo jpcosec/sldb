@@ -1,0 +1,348 @@
+=== pytest -q tests/selfdoc/test_treesitter_symbols.py
+........................                                                 [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+24 passed, 1 warning in 1.63s
+rc=0
+=== pytest -q tests/api/test_anchors.py
+.......................                                                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+23 passed, 1 warning in 2.36s
+rc=0
+=== pytest -q tests/selfdoc/test_fingerprints.py
+....                                                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 0.54s
+rc=0
+=== pytest -q tests/test_clean_code_rules.py
+........................................................................ [  6%]
+........................................................................ [ 12%]
+........................................................................ [ 18%]
+........................................................................ [ 24%]
+........................................................................ [ 30%]
+........................................................................ [ 36%]
+........................................................................ [ 42%]
+........................................................................ [ 48%]
+........................................................................ [ 54%]
+........................................................................ [ 60%]
+........................................................................ [ 66%]
+........................................................................ [ 72%]
+........................................................................ [ 78%]
+........................................................................ [ 84%]
+........................................................................ [ 90%]
+........................................................................ [ 96%]
+..............................................                           [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1198 passed, 2 warnings in 3.65s
+rc=0
+=== bash tools/check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   224 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 968 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 123 símbolos pedidos, 594 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+rc=0
+=== vecino (trabajo) pytest -q tests/selfdoc/test_treesitter_agreement.py
+..                                                                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 0.10s
+rc=0
+=== vecino (trabajo) pytest -q tests/selfdoc/test_component_spec_python.py
+ERROR: file or directory not found: tests/selfdoc/test_component_spec_python.py
+
+
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 warning in 0.00s
+rc=4
+=== sonda a5.sql
+CREATE TABLE t (id int PRIMARY KEY);
+CREATE TABLE a5 (id int, x int, CONSTRAINT a5_fk FOREIGN KEY (x) REFERENCES t);
+a5.a5 table a5 {} 
+a5.a5.id column id {"type": "int"} 
+a5.a5.x column x {"type": "int"} 
+a5.t table t {} 
+a5.t.id column id {"type": "int", "primary_key": true} 
+=== sonda a8.sql
+CREATE TABLE t (id int PRIMARY KEY);
+CREATE TABLE a8 (id int, x int, CONSTRAINT a8_fk FOREIGN KEY (x) REFERENCES t (id), CONSTRAINT a8_c CHECK (x > 0));
+a8.a8 table a8 {} 
+a8.a8.id column id {"type": "int"} 
+a8.a8.x column x {"type": "int"} 
+a8.t table t {} 
+a8.t.id column id {"type": "int", "primary_key": true} 
+=== sonda u1.sql
+CREATE TABLE "p" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "a" int NOT NULL, "b" int NOT NULL, CONSTRAINT "uniq_ab" UNIQUE ("a", "b"), CONSTRAINT "a_pos" CHECK ("a" >= 0));
+u1.p table p {} 
+u1.p.a column a {"type": "int"} 
+u1.p.b column b {"type": "int"} 
+u1.p.id column id {"type": "bigint", "primary_key": true, "identity": true, "parse_partial": true} 
+=== sonda b2.sql
+CREATE TABLE "x""y" ("c""1" int, c2 int);
+CREATE TABLE w (k int, "c""1" int);
+b2.w table w {} 
+b2.w.c"1 column c"1 {"type": null} 
+b2.w.k column k {"type": "int"} 
+b2.x"y table x"y {} 
+b2.x"y.c"1 column c"1 {"type": null} 
+b2.x"y.c2 column c2 {"type": "int"} 
+=== sondas a-d,n
+## a
+a.a1 table a1 {} 
+a.a1.fk constraint fk {"constraint_type": "foreign_key", "columns": ["x"], "references": {"table": "t", "columns": []}} ['a.t']
+a.a1.id column id {"type": "int"} 
+a.a1.x column x {"type": "int"} 
+a.a2 table a2 {} 
+a.a2.fk constraint fk {"constraint_type": "foreign_key", "columns": ["x"], "references": {"table": "t", "columns": []}} ['a.t']
+a.a2.id column id {"type": "int"} 
+a.a2.pk constraint pk {"constraint_type": "primary_key", "columns": ["id"]} 
+a.a2.x column x {"type": "int"} 
+a.a3 table a3 {} 
+a.a3.id column id {"type": "int"} 
+a.a3.x column x {"type": "int"} 
+a.a4 table a4 {} 
+a.a4.id column id {"type": "int"} 
+a.a4.x column x {"type": "int"} 
+a.t table t {} 
+a.t.id column id {"type": "int", "primary_key": true} 
+## b
+b.x"y table x"y {} 
+b.x"y.c"1 column c"1 {"type": null} 
+b.x"y.c2 column c2 {"type": "int"} 
+b.x"y.f"k constraint f"k {"constraint_type": "foreign_key", "columns": ["c2"], "references": {"table": "x\"y", "columns": ["c\"1"]}} ['b.x"y']
+b.x"y.k"1 constraint k"1 {"constraint_type": "unique", "columns": ["c\"1", "c2"]} 
+b.z table z {} 
+b.z.q column q {"type": "int"} 
+b.z.z"fk constraint z"fk {"constraint_type": "foreign_key", "columns": ["q"], "references": {"table": "x\"y", "columns": ["c\"1"]}} ['b.x"y']
+## c
+c.c1 table c1 {} 
+c.c1.id column id {"type": "int"} 
+c.c1.uid column uid {"type": "int", "references": {"table": "u", "columns": []}} ['c.u']
+c.c1.vid column vid {"type": "int", "references": {"table": "u", "columns": ["id"]}} ['c.u']
+c.c1.wid column wid {"type": "int", "references": {"table": "public.u", "columns": ["id"]}} 
+c.c2 table c2 {} 
+c.c2.id column id {"type": "bigint", "primary_key": true, "identity": true, "parse_partial": true} 
+c.c2.u_id column u_id {"type": "int", "references": {"table": "u", "columns": ["id"]}} ['c.u']
+c.u table u {} 
+c.u.id column id {"type": "int", "primary_key": true} 
+## d
+d.d table d {} 
+d.d.a column a {"type": "int"} 
+d.d.b column b {"type": "int"} 
+d.d.c column c {"type": "int"} 
+d.d.fk constraint fk {"constraint_type": "foreign_key", "columns": ["a"], "references": {"table": "d", "columns": ["b"]}} ['d.d']
+d.d.fk~2 constraint fk {"constraint_type": "foreign_key", "columns": ["c"], "references": {"table": "d", "columns": ["a"]}} ['d.d']
+d.d.pk constraint pk {"constraint_type": "primary_key", "columns": ["c"]} 
+d.d.unique constraint unique {"constraint_type": "unique", "columns": ["a"]} 
+d.d.unique~2 constraint unique {"constraint_type": "unique", "columns": ["b"]} 
+d.e table e {} 
+d.e.a column a {"type": "int"} 
+d.e.unique constraint unique {"constraint_type": "unique", "columns": ["a"]} 
+d.e.unique~2 constraint unique {"constraint_type": "unique", "columns": ["a"]} 
+## n
+n.n1 table n1 {} 
+n.n1.id column id {"type": "bigint", "primary_key": true, "identity": true} 
+n.n1.note column note {"type": "text"} 
+n.n2 table n2 {} 
+n.n2.id column id {"type": "bigint", "identity": true, "parse_partial": true} 
+n.n2.s column s {"type": "text", "parse_partial": true} 
+n.n2.t column t {"type": "text", "unique": true} 
+n.n3 table n3 {} 
+n.n3.code column code {"type": "text", "unique": true} 
+n.n3.id column id {"type": "serial", "primary_key": true} 
+n.n3.n3_code_u constraint n3_code_u {"constraint_type": "unique", "columns": ["code", "id"]} 
+n.n4 table n4 {} 
+n.n4.id column id {"type": "int"} 
+n.n4.n4_pk constraint n4_pk {"constraint_type": "primary_key", "columns": ["id"]} 
+## a5
+a5.a5 table a5 {} 
+a5.a5.id column id {"type": "int"} 
+a5.a5.x column x {"type": "int"} 
+## a6
+a6.a6 table a6 {} 
+a6.a6.id column id {"type": "int"} 
+a6.a6.x column x {"type": "int"} 
+## a7
+a7.a7 table a7 {} 
+a7.a7.fk constraint fk {"constraint_type": "foreign_key", "columns": ["x"], "references": {"table": "public.t", "columns": []}} 
+a7.a7.id column id {"type": "int"} 
+a7.a7.x column x {"type": "int"} 
+## a8
+a8.a8 table a8 {} 
+a8.a8.id column id {"type": "int"} 
+a8.a8.x column x {"type": "int"} 
+## n5
+n5.n4 table n4 {} 
+n5.n4.id column id {"type": "int"} 
+n5.n4.n4_u constraint n4_u {"constraint_type": "unique", "columns": ["id"]} 
+## b2
+b2.w table w {} 
+b2.w.c"1 column c"1 {"type": null} 
+b2.w.k column k {"type": "int"} 
+b2.x"y table x"y {} 
+b2.x"y.c"1 column c"1 {"type": null} 
+b2.x"y.c2 column c2 {"type": "int"} 
+## u4
+u4.p table p {} 
+u4.p.a column a {"type": "int"} 
+u4.p.id column id {"type": "bigint", "primary_key": true, "identity": true, "parse_partial": true} 
+(la ruta anterior era errónea; se repite con la correcta)
+=== vecino (trabajo) pytest -q tests/notations/test_component_spec_python.py
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 0.99s
+rc=0
+=== vecino (trabajo) pytest -q tests/selfdoc/test_treesitter_agreement.py
+..                                                                       [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 0.09s
+rc=0
+=== HEAD pytest -q tests/selfdoc/test_treesitter_symbols.py
+..............                                                           [100%]
+=============================== warnings summary ===============================
+../../../../mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+14 passed, 1 warning in 0.11s
+rc=0
+=== HEAD pytest -q tests/api/test_anchors.py
+......................                                                   [100%]
+=============================== warnings summary ===============================
+../../../../mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+22 passed, 1 warning in 1.63s
+rc=0
+=== HEAD pytest -q tests/notations/test_component_spec_python.py
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+../../../../mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 1.05s
+rc=0
+=== HEAD pytest -q tests/selfdoc/test_treesitter_agreement.py
+..                                                                       [100%]
+=============================== warnings summary ===============================
+../../../../mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 0.08s
+rc=0
+=== HEAD pytest -q tests/selfdoc/test_fingerprints.py
+....                                                                     [100%]
+=============================== warnings summary ===============================
+../../../../mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 0.05s
+rc=0

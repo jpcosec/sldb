@@ -1,0 +1,643 @@
+### uv run --frozen --extra code --extra postgres --extra dev pytest -q tests/selfdoc/test_treesitter_symbols.py
+..............................                                           [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+30 passed, 1 warning in 0.20s
+### rc=0
+
+### uv run --frozen --extra code --extra postgres --extra dev pytest -q tests/api/test_anchors.py
+.......................                                                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+23 passed, 1 warning in 1.34s
+### rc=0
+
+### uv run --frozen --extra code --extra postgres --extra dev pytest -q tests/selfdoc/test_fingerprints.py
+....                                                                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 0.03s
+### rc=0
+
+### uv run --frozen --extra code --extra postgres --extra dev pytest -q tests/test_clean_code_rules.py
+........................................................................ [  6%]
+........................................................................ [ 12%]
+........................................................................ [ 18%]
+........................................................................ [ 24%]
+........................................................................ [ 30%]
+........................................................................ [ 36%]
+........................................................................ [ 42%]
+........................................................................ [ 48%]
+........................................................................ [ 54%]
+........................................................................ [ 60%]
+........................................................................ [ 66%]
+........................................................................ [ 72%]
+........................................................................ [ 78%]
+........................................................................ [ 84%]
+........................................................................ [ 90%]
+........................................................................ [ 96%]
+..............................................                           [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1198 passed, 2 warnings in 2.21s
+### rc=0
+
+### uv run --frozen --extra code --extra postgres --extra dev bash tools/check.sh --fast
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   224 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 968 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 123 símbolos pedidos, 594 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+### rc=0
+
+### uv run --frozen --extra code --extra dev pytest -q tests/selfdoc/test_treesitter_symbols.py
+..............................                                           [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+30 passed, 1 warning in 0.16s
+### rc=0
+
+### uv run --frozen --extra code --extra dev pytest -q tests/test_clean_code_rules.py
+........................................................................ [  6%]
+........................................................................ [ 12%]
+........................................................................ [ 18%]
+........................................................................ [ 24%]
+........................................................................ [ 30%]
+........................................................................ [ 36%]
+........................................................................ [ 42%]
+........................................................................ [ 48%]
+........................................................................ [ 54%]
+........................................................................ [ 60%]
+........................................................................ [ 66%]
+........................................................................ [ 72%]
+........................................................................ [ 78%]
+........................................................................ [ 84%]
+........................................................................ [ 90%]
+........................................................................ [ 96%]
+..............................................                           [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1198 passed, 2 warnings in 2.18s
+### rc=0
+
+### uv run --frozen --extra code --extra dev bash tools/check.sh --fast
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   224 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 968 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 123 símbolos pedidos, 594 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+### rc=0
+
+### uv run --exact --frozen --extra code --extra dev python -c import importlib.util;print('pglast', importlib.util.find_spec('pglast'))
+Uninstalled 1 package in 1ms
+pglast None
+### rc=0
+
+### uv run --exact --frozen --extra code --extra dev pytest -q tests/selfdoc/test_treesitter_symbols.py tests/api/test_anchors.py tests/selfdoc/test_fingerprints.py
+..........ss..s.ssssssssssss................s............                [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /mnt/ssd/proyectos/SLDB_1/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+41 passed, 16 skipped, 1 warning in 1.28s
+### rc=0
+
+########## REGRESIONES VECINAS (trabajo, con extra postgres)
+### tests/selfdoc/test_treesitter_symbols.py
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+30 passed, 1 warning in 0.17s
+### tests/api/test_anchors.py
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+23 passed, 1 warning in 1.39s
+### tests/selfdoc/test_fingerprints.py
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 0.04s
+### tests/notations/test_component_spec_python.py
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 0.84s
+### tests/selfdoc/test_treesitter_agreement.py
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 0.08s
+########## REGRESIONES VECINAS (HEAD vía git archive en /dev/shm/k2pgt/head, PYTHONPATH=head/src)
+/dev/shm/k2pgt/head/src/sldb/__init__.py
+### HEAD tests/selfdoc/test_treesitter_symbols.py
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+14 passed, 1 warning in 0.10s
+### HEAD tests/api/test_anchors.py
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+22 passed, 1 warning in 1.52s
+### HEAD tests/selfdoc/test_fingerprints.py
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 0.04s
+### HEAD tests/notations/test_component_spec_python.py
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 0.83s
+### HEAD tests/selfdoc/test_treesitter_agreement.py
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 0.05s
+
+########## SONDAS: bordes de testers anteriores con extra (edges1 = edge/edge2/edge3, edges2 = v_*)
+Installed 1 package in 2ms
+===== edge.sql
+  table My Schema.Child Table {"native_kind": "create_table"} in=edge 
+  column My Schema.Child Table.Id {"native_kind": "column_definition", "type": "integer"} in=My Schema.Child Table 
+  constr My Schema.Child Table.child→parent fk {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["parent id"], "references": {"table": "public.parent", "columns": ["id"]}} in=My Schema.Child Table -> public.parent
+  column My Schema.Child Table.note {"native_kind": "column_definition", "type": "text"} in=My Schema.Child Table 
+  column My Schema.Child Table.parent id {"native_kind": "column_definition", "type": "integer"} in=My Schema.Child Table 
+  constr My Schema.Child Table.pk {"native_kind": "Constraint", "constraint_type": "primary_key", "columns": ["Id"]} in=My Schema.Child Table 
+  column My Schema.Child Table.tag {"native_kind": "column_definition", "type": "text"} in=My Schema.Child Table 
+  constr My Schema.Child Table.unique {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["note"]} in=My Schema.Child Table 
+  constr My Schema.Child Table.unique~2 {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["tag"]} in=My Schema.Child Table 
+  constr ghost.ghost_fk {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["x"], "references": {"table": "public.parent", "columns": ["id"]}} in=edge -> public.parent
+  table odd {"native_kind": "create_table"} in=edge 
+  column odd.a)b {"native_kind": "column_definition", "type": "int"} in=odd 
+  constr odd.unique {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["a)b"]} in=odd 
+  table public.parent {"native_kind": "create_table"} in=edge 
+  constr public.parent.a_uniq {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["id"]} in=public.parent 
+  constr public.parent.b_uniq {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["code"]} in=public.parent 
+  column public.parent.code {"native_kind": "column_definition", "type": "text"} in=public.parent 
+  column public.parent.id {"native_kind": "column_definition", "type": "integer"} in=public.parent 
+  constr public.parent.parent_code_key {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["code"]} in=public.parent 
+  constr public.parent.parent_pkey {"native_kind": "Constraint", "constraint_type": "primary_key", "columns": ["id"]} in=public.parent 
+  constr public.parent.parent_self_fk {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["code"], "references": {"table": "public.parent", "columns": []}} in=public.parent -> public.parent
+  constr public.parent.pk {"native_kind": "Constraint", "constraint_type": "primary_key", "columns": ["id"]} in=public.parent 
+  table weird {"native_kind": "create_table"} in=edge 
+  column weird.id {"native_kind": "column_definition", "type": "int"} in=weird 
+  column weird.primary key {"native_kind": "column_definition", "type": "int"} in=weird 
+  column weird.unique {"native_kind": "column_definition", "type": "int"} in=weird 
+===== edge2.sql
+  table c {"native_kind": "create_table"} in=edge2 
+  constr c.c_id_uniq {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["id"]} in=c 
+  constr c.c_k_uniq {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["k"]} in=c 
+  constr c.c_pid_fk {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["pid"], "references": {"table": "p\"q", "columns": ["i\"d"]}} in=c -> p"q
+  constr c.c_pid_fk2 {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["pid"], "references": {"table": "c", "columns": []}} in=c -> c
+  constr c.c_pid_fk3 {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["pid"], "references": {"table": "c", "columns": ["id"]}} in=c -> c
+  constr c.c_pk {"native_kind": "Constraint", "constraint_type": "primary_key", "columns": ["id"]} in=c 
+  constr c.c_pk2 {"native_kind": "Constraint", "constraint_type": "primary_key", "columns": ["id"]} in=c 
+  column c.id {"native_kind": "column_definition", "type": "int"} in=c 
+  column c.k {"native_kind": "column_definition", "type": "text"} in=c 
+  column c.pid {"native_kind": "column_definition", "type": "int"} in=c 
+  table d {"native_kind": "create_table"} in=edge2 
+  constr d.d_after {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["pid"]} in=d 
+  constr d.d_fk_ref_nocols {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["pid"], "references": {"table": "c", "columns": []}} in=d -> c
+  constr d.fk {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["pid"], "references": {"table": "c", "columns": ["id"]}} in=d -> c
+  constr d.fk~2 {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["id"], "references": {"table": "c", "columns": []}} in=d -> c
+  column d.id {"native_kind": "column_definition", "type": "int"} in=d 
+  column d.pid {"native_kind": "column_definition", "type": "int"} in=d 
+  constr d.pk {"native_kind": "Constraint", "constraint_type": "primary_key", "columns": ["id"]} in=d 
+  table p"q {"native_kind": "create_table"} in=edge2 
+  column p"q.code {"native_kind": "column_definition", "type": "text"} in=p"q 
+  column p"q.i"d {"native_kind": "ColumnDef", "type": "int", "parse_partial": true} in=p"q 
+  constr p"q.p"k {"native_kind": "Constraint", "constraint_type": "primary_key", "columns": ["i\"d"]} in=p"q 
+  constr p"q.unique {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["a\"b", "code"]} in=p"q 
+===== edge3.sql
+  table d {"native_kind": "create_table"} in=edge3 
+  constr d.fk {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["id"], "references": {"table": "t", "columns": []}} in=d -> t
+  column d.id {"native_kind": "column_definition", "type": "int"} in=d 
+  table e {"native_kind": "create_table"} in=edge3 
+  constr e.e_fk {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["id"], "references": {"table": "t", "columns": []}} in=e -> t
+  constr e.e_u {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["id"]} in=e 
+  column e.id {"native_kind": "column_definition", "type": "int"} in=e 
+  table f2 {"native_kind": "create_table"} in=edge3 
+  constr f2.fk {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["id"], "references": {"table": "t", "columns": []}} in=f2 -> t
+  column f2.id {"native_kind": "column_definition", "type": "int"} in=f2 
+  table t {"native_kind": "create_table"} in=edge3 
+  constr t.f {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["x"], "references": {"table": "t", "columns": ["a\"b"]}} in=t -> t
+  constr t.g"h {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["y"]} in=t 
+  constr t.unique {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["a\"b", "x"]} in=t 
+  column t.x {"native_kind": "column_definition", "type": "int"} in=t 
+  column t.y {"native_kind": "column_definition", "type": "int"} in=t 
+===== v_a.sql
+  table a1 {"native_kind": "create_table"} in=v_a 
+  constr a1.fk {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["x"], "references": {"table": "t", "columns": []}} in=a1 -> t
+  column a1.id {"native_kind": "column_definition", "type": "int"} in=a1 
+  column a1.x {"native_kind": "column_definition", "type": "int"} in=a1 
+  table a2 {"native_kind": "create_table"} in=v_a 
+  constr a2.fk {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["x"], "references": {"table": "t", "columns": []}} in=a2 -> t
+  column a2.id {"native_kind": "column_definition", "type": "int"} in=a2 
+  constr a2.pk {"native_kind": "Constraint", "constraint_type": "primary_key", "columns": ["id"]} in=a2 
+  column a2.x {"native_kind": "column_definition", "type": "int"} in=a2 
+  table a3 {"native_kind": "create_table"} in=v_a 
+  constr a3.a3_fk {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["x"], "references": {"table": "t", "columns": []}} in=a3 -> t
+  column a3.id {"native_kind": "column_definition", "type": "int"} in=a3 
+  constr a3.unique {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["id"]} in=a3 
+  column a3.x {"native_kind": "column_definition", "type": "int"} in=a3 
+  table a4 {"native_kind": "create_table"} in=v_a 
+  constr a4.a4_fk {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["x"], "references": {"table": "public.t", "columns": []}} in=a4 
+  column a4.id {"native_kind": "column_definition", "type": "int"} in=a4 
+  column a4.x {"native_kind": "column_definition", "type": "int"} in=a4 
+  table t {"native_kind": "create_table"} in=v_a 
+  column t.id {"native_kind": "column_definition", "type": "int", "primary_key": true} in=t 
+===== v_a5.sql
+  table a5 {"native_kind": "create_table"} in=v_a5 
+  constr a5.a5_fk {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["x"], "references": {"table": "t", "columns": []}} in=a5 -> t
+  column a5.id {"native_kind": "column_definition", "type": "int"} in=a5 
+  column a5.x {"native_kind": "column_definition", "type": "int"} in=a5 
+  table t {"native_kind": "create_table"} in=v_a5 
+  column t.id {"native_kind": "column_definition", "type": "int", "primary_key": true} in=t 
+===== v_a6.sql
+  table a6 {"native_kind": "create_table"} in=v_a6 
+  constr a6.a6_fk {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["x"], "references": {"table": "public.t", "columns": []}} in=a6 
+  column a6.id {"native_kind": "column_definition", "type": "int"} in=a6 
+  column a6.x {"native_kind": "column_definition", "type": "int"} in=a6 
+  table t {"native_kind": "create_table"} in=v_a6 
+  column t.id {"native_kind": "column_definition", "type": "int", "primary_key": true} in=t 
+===== v_a7.sql
+  table a7 {"native_kind": "create_table"} in=v_a7 
+  constr a7.fk {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["x"], "references": {"table": "public.t", "columns": []}} in=a7 
+  column a7.id {"native_kind": "column_definition", "type": "int"} in=a7 
+  column a7.x {"native_kind": "column_definition", "type": "int"} in=a7 
+  table t {"native_kind": "create_table"} in=v_a7 
+  column t.id {"native_kind": "column_definition", "type": "int", "primary_key": true} in=t 
+===== v_a8.sql
+  table a8 {"native_kind": "create_table"} in=v_a8 
+  constr a8.a8_fk {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["x"], "references": {"table": "t", "columns": ["id"]}} in=a8 -> t
+  column a8.id {"native_kind": "column_definition", "type": "int"} in=a8 
+  column a8.x {"native_kind": "column_definition", "type": "int"} in=a8 
+  table t {"native_kind": "create_table"} in=v_a8 
+  column t.id {"native_kind": "column_definition", "type": "int", "primary_key": true} in=t 
+===== v_b.sql
+  table x"y {"native_kind": "create_table"} in=v_b 
+  column x"y.c"1 {"native_kind": "column_definition", "type": "int"} in=x"y 
+  column x"y.c2 {"native_kind": "column_definition", "type": "int"} in=x"y 
+  constr x"y.f"k {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["c2"], "references": {"table": "x\"y", "columns": ["c\"1"]}} in=x"y -> x"y
+  constr x"y.k"1 {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["c\"1", "c2"]} in=x"y 
+  table z {"native_kind": "create_table"} in=v_b 
+  column z.q {"native_kind": "column_definition", "type": "int"} in=z 
+  constr z.z"fk {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["q"], "references": {"table": "x\"y", "columns": ["c\"1"]}} in=z -> x"y
+===== v_b2.sql
+  table w {"native_kind": "create_table"} in=v_b2 
+  column w.c"1 {"native_kind": "column_definition", "type": "int"} in=w 
+  column w.k {"native_kind": "column_definition", "type": "int"} in=w 
+  table x"y {"native_kind": "create_table"} in=v_b2 
+  column x"y.c"1 {"native_kind": "column_definition", "type": "int"} in=x"y 
+  column x"y.c2 {"native_kind": "column_definition", "type": "int"} in=x"y 
+===== v_c.sql
+  table c1 {"native_kind": "create_table"} in=v_c 
+  column c1.id {"native_kind": "column_definition", "type": "int"} in=c1 
+  column c1.uid {"native_kind": "column_definition", "type": "int", "references": {"table": "u", "columns": []}} in=c1 -> u
+  column c1.vid {"native_kind": "column_definition", "type": "int", "references": {"table": "u", "columns": ["id"]}} in=c1 -> u
+  column c1.wid {"native_kind": "column_definition", "type": "int", "references": {"table": "public.u", "columns": ["id"]}} in=c1 
+  table c2 {"native_kind": "create_table"} in=v_c 
+  column c2.id {"native_kind": "ColumnDef", "type": "bigint", "primary_key": true, "identity": true, "parse_partial": true} in=c2 
+  column c2.u_id {"native_kind": "column_definition", "type": "int", "references": {"table": "u", "columns": ["id"]}} in=c2 -> u
+  table u {"native_kind": "create_table"} in=v_c 
+  column u.id {"native_kind": "column_definition", "type": "int", "primary_key": true} in=u 
+===== v_d.sql
+  table d {"native_kind": "create_table"} in=v_d 
+  column d.a {"native_kind": "column_definition", "type": "int"} in=d 
+  column d.b {"native_kind": "column_definition", "type": "int"} in=d 
+  column d.c {"native_kind": "column_definition", "type": "int"} in=d 
+  constr d.fk {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["a"], "references": {"table": "d", "columns": ["b"]}} in=d -> d
+  constr d.fk~2 {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["c"], "references": {"table": "d", "columns": ["a"]}} in=d -> d
+  constr d.pk {"native_kind": "Constraint", "constraint_type": "primary_key", "columns": ["c"]} in=d 
+  constr d.unique {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["a"]} in=d 
+  constr d.unique~2 {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["b"]} in=d 
+  table e {"native_kind": "create_table"} in=v_d 
+  column e.a {"native_kind": "column_definition", "type": "int"} in=e 
+  constr e.unique {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["a"]} in=e 
+  constr e.unique~2 {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["a"]} in=e 
+===== v_n.sql
+  table n1 {"native_kind": "create_table"} in=v_n 
+  column n1.id {"native_kind": "column_definition", "type": "bigint", "primary_key": true, "identity": true} in=n1 
+  column n1.note {"native_kind": "column_definition", "type": "text"} in=n1 
+  table n2 {"native_kind": "create_table"} in=v_n 
+  column n2.id {"native_kind": "ColumnDef", "type": "bigint", "identity": true, "parse_partial": true} in=n2 
+  column n2.s {"native_kind": "ColumnDef", "type": "text", "parse_partial": true} in=n2 
+  column n2.t {"native_kind": "column_definition", "type": "text", "unique": true} in=n2 
+  table n3 {"native_kind": "create_table"} in=v_n 
+  column n3.code {"native_kind": "column_definition", "type": "text", "unique": true} in=n3 
+  column n3.id {"native_kind": "column_definition", "type": "serial", "primary_key": true} in=n3 
+  constr n3.n3_code_u {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["code", "id"]} in=n3 
+  table n4 {"native_kind": "create_table"} in=v_n 
+  column n4.id {"native_kind": "column_definition", "type": "int"} in=n4 
+  constr n4.n4_pk {"native_kind": "Constraint", "constraint_type": "primary_key", "columns": ["id"]} in=n4 
+  constr n4.n4_u {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["id"]} in=n4 
+===== v_n5.sql
+  table n4 {"native_kind": "create_table"} in=v_n5 
+  column n4.id {"native_kind": "column_definition", "type": "int"} in=n4 
+  constr n4.n4_u {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["id"]} in=n4 
+===== v_u1.sql
+  table p {"native_kind": "create_table"} in=v_u1 
+  column p.a {"native_kind": "column_definition", "type": "int"} in=p 
+  column p.b {"native_kind": "column_definition", "type": "int"} in=p 
+  column p.id {"native_kind": "ColumnDef", "type": "bigint", "primary_key": true, "identity": true, "parse_partial": true} in=p 
+  constr p.uniq_ab {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["a", "b"]} in=p 
+===== v_u2.sql
+  table p {"native_kind": "create_table"} in=v_u2 
+  column p.a {"native_kind": "column_definition", "type": "int"} in=p 
+  column p.b {"native_kind": "column_definition", "type": "int"} in=p 
+  column p.id {"native_kind": "ColumnDef", "type": "bigint", "primary_key": true, "identity": true, "parse_partial": true} in=p 
+  constr p.uniq_ab {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["a", "b"]} in=p 
+===== v_u3.sql
+  table p {"native_kind": "create_table"} in=v_u3 
+  column p.a {"native_kind": "column_definition", "type": "int"} in=p 
+  column p.b {"native_kind": "column_definition", "type": "int"} in=p 
+  column p.id {"native_kind": "ColumnDef", "type": "bigint", "primary_key": true, "identity": true, "parse_partial": true} in=p 
+  constr p.uniq_ab {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["a", "b"]} in=p 
+===== v_u4.sql
+  table p {"native_kind": "create_table"} in=v_u4 
+  column p.a {"native_kind": "column_definition", "type": "int"} in=p 
+  column p.id {"native_kind": "ColumnDef", "type": "bigint", "primary_key": true, "identity": true, "parse_partial": true} in=p 
+  constr p.uniq_a {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["a"]} in=p 
+########## SONDAS: sqlmigrate real shop_0001 + fixtures de Django
+===== shop_0001.sql
+  table shop_category {"native_kind": "create_table"} in=shop_0001 
+  column shop_category.id {"native_kind": "ColumnDef", "type": "bigint", "primary_key": true, "identity": true, "parse_partial": true} in=shop_category 
+  column shop_category.name {"native_kind": "column_definition", "type": "varchar(50)", "unique": true} in=shop_category 
+  index shop_category_name_11b68823_like {"native_kind": "create_index"} in=shop_0001 
+  table shop_product {"native_kind": "create_table"} in=shop_0001 
+  column shop_product.category_id {"native_kind": "column_definition", "type": "bigint"} in=shop_product 
+  column shop_product.id {"native_kind": "ColumnDef", "type": "bigint", "primary_key": true, "identity": true, "parse_partial": true} in=shop_product 
+  column shop_product.owner_id {"native_kind": "column_definition", "type": "integer"} in=shop_product 
+  column shop_product.price {"native_kind": "column_definition", "type": "numeric(8, 2)"} in=shop_product 
+  column shop_product.region {"native_kind": "column_definition", "type": "varchar(5)"} in=shop_product 
+  constr shop_product.shop_product_category_id_14d7eea8_fk_shop_category_id {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["category_id"], "references": {"table": "shop_category", "columns": ["id"]}} in=shop_product -> shop_category
+  constr shop_product.shop_product_owner_id_c7c481d9_fk_auth_user_id {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["owner_id"], "references": {"table": "auth_user", "columns": ["id"]}} in=shop_product 
+  constr shop_product.shop_product_sku_region_4470a054_uniq {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["sku", "region"]} in=shop_product 
+  column shop_product.sku {"native_kind": "column_definition", "type": "varchar(20)"} in=shop_product 
+  constr shop_product.uniq_cat_sku {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["category_id", "sku"]} in=shop_product 
+  index shop_product_category_id_14d7eea8 {"native_kind": "create_index"} in=shop_0001 
+  index shop_product_owner_id_c7c481d9 {"native_kind": "create_index"} in=shop_0001 
+  table shop_product_tags {"native_kind": "create_table"} in=shop_0001 
+  column shop_product_tags.id {"native_kind": "ColumnDef", "type": "bigint", "primary_key": true, "identity": true, "parse_partial": true} in=shop_product_tags 
+  column shop_product_tags.product_id {"native_kind": "column_definition", "type": "bigint"} in=shop_product_tags 
+  constr shop_product_tags.shop_product_tags_product_id_9a158885_fk_shop_product_id {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["product_id"], "references": {"table": "shop_product", "columns": ["id"]}} in=shop_product_tags -> shop_product
+  constr shop_product_tags.shop_product_tags_product_id_tag_id_a244154e_uniq {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["product_id", "tag_id"]} in=shop_product_tags 
+  constr shop_product_tags.shop_product_tags_tag_id_dd30c4fb_fk_shop_tag_id {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["tag_id"], "references": {"table": "shop_tag", "columns": ["id"]}} in=shop_product_tags -> shop_tag
+  column shop_product_tags.tag_id {"native_kind": "column_definition", "type": "bigint"} in=shop_product_tags 
+  index shop_product_tags_product_id_9a158885 {"native_kind": "create_index"} in=shop_0001 
+  index shop_product_tags_tag_id_dd30c4fb {"native_kind": "create_index"} in=shop_0001 
+  table shop_tag {"native_kind": "create_table"} in=shop_0001 
+  column shop_tag.id {"native_kind": "ColumnDef", "type": "bigint", "primary_key": true, "identity": true, "parse_partial": true} in=shop_tag 
+  column shop_tag.label {"native_kind": "column_definition", "type": "varchar(20)"} in=shop_tag 
+===== 0001_initial.sql
+  table app_author {"native_kind": "create_table"} in=0001_initial 
+  column app_author.created_at {"native_kind": "column_definition", "type": "timestamp with time zone"} in=app_author 
+  column app_author.id {"native_kind": "ColumnDef", "type": "bigint", "primary_key": true, "identity": true, "parse_partial": true} in=app_author 
+  column app_author.name {"native_kind": "column_definition", "type": "varchar(100)"} in=app_author 
+  column app_author.profile {"native_kind": "column_definition", "type": "jsonb"} in=app_author 
+  table app_book {"native_kind": "create_table"} in=0001_initial 
+  constr app_book.app_book_author_id_980d3e25_fk_app_author_id {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["author_id"], "references": {"table": "app_author", "columns": ["id"]}} in=app_book -> app_author
+  constr app_book.app_book_title_author_id_f24131bb_uniq {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["title", "author_id"]} in=app_book 
+  column app_book.author_id {"native_kind": "column_definition", "type": "bigint"} in=app_book 
+  column app_book.id {"native_kind": "ColumnDef", "type": "bigint", "primary_key": true, "identity": true, "parse_partial": true} in=app_book 
+  column app_book.pages {"native_kind": "column_definition", "type": "integer"} in=app_book 
+  column app_book.slug {"native_kind": "column_definition", "type": "varchar(50)", "unique": true} in=app_book 
+  constr app_book.slug_pages_uniq {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["slug", "pages"]} in=app_book 
+  column app_book.title {"native_kind": "column_definition", "type": "varchar(200)"} in=app_book 
+  index app_book_author_id_980d3e25 {"native_kind": "create_index"} in=0001_initial 
+  index app_book_slug_780ddf03_like {"native_kind": "create_index"} in=0001_initial 
+  index app_book_title_idx {"native_kind": "create_index"} in=0001_initial 
+===== blog_0001_initial.sql
+  table posts {"native_kind": "create_table"} in=blog_0001_initial 
+  column posts.author_id {"native_kind": "column_definition", "type": "integer"} in=posts 
+  column posts.body {"native_kind": "column_definition", "type": "text"} in=posts 
+  column posts.id {"native_kind": "ColumnDef", "type": "bigint", "primary_key": true, "identity": true, "parse_partial": true} in=posts 
+  constr posts.posts_author_id_099b8aca_fk_auth_user_id {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["author_id"], "references": {"table": "auth_user", "columns": ["id"]}} in=posts 
+  column posts.published_at {"native_kind": "column_definition", "type": "timestamp with time zone"} in=posts 
+  column posts.status {"native_kind": "column_definition", "type": "varchar(16)"} in=posts 
+  column posts.title {"native_kind": "column_definition", "type": "varchar(200)"} in=posts 
+  index posts_author_id_099b8aca {"native_kind": "create_index"} in=blog_0001_initial 
+########## FIXTURE de HEAD (CHECK antes de UNIQUE) con el código nuevo y extra
+===== head_0001_initial.sql
+  table app_author {"native_kind": "create_table"} in=head_0001_initial 
+  column app_author.created_at {"native_kind": "column_definition", "type": "timestamp with time zone"} in=app_author 
+  column app_author.id {"native_kind": "ColumnDef", "type": "bigint", "primary_key": true, "identity": true, "parse_partial": true} in=app_author 
+  column app_author.name {"native_kind": "column_definition", "type": "varchar(100)"} in=app_author 
+  column app_author.profile {"native_kind": "column_definition", "type": "jsonb"} in=app_author 
+  table app_book {"native_kind": "create_table"} in=head_0001_initial 
+  constr app_book.app_book_author_id_980d3e25_fk_app_author_id {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["author_id"], "references": {"table": "app_author", "columns": ["id"]}} in=app_book -> app_author
+  constr app_book.app_book_title_author_id_f24131bb_uniq {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["title", "author_id"]} in=app_book 
+  column app_book.author_id {"native_kind": "column_definition", "type": "bigint"} in=app_book 
+  column app_book.id {"native_kind": "ColumnDef", "type": "bigint", "primary_key": true, "identity": true, "parse_partial": true} in=app_book 
+  column app_book.pages {"native_kind": "column_definition", "type": "integer"} in=app_book 
+  column app_book.slug {"native_kind": "column_definition", "type": "varchar(50)", "unique": true} in=app_book 
+  constr app_book.slug_pages_uniq {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["slug", "pages"]} in=app_book 
+  column app_book.title {"native_kind": "column_definition", "type": "varchar(200)"} in=app_book 
+  index app_book_author_id_980d3e25 {"native_kind": "create_index"} in=head_0001_initial 
+  index app_book_slug_780ddf03_like {"native_kind": "create_index"} in=head_0001_initial 
+  index app_book_title_idx {"native_kind": "create_index"} in=head_0001_initial 
+########## COMPARACIÓN HEAD / sin extra / con extra (corpus src + fixtures HEAD y trabajo + sondas)
+nopg vs head (sin keys_partial) idénticos: True | tablas con keys_partial: 36
+difs: []
+keys_partial solo en tablas: True valores: {True}
+no-.sql: head 5815 pg 5815 idénticos: True | exts: Counter({'py': 5783, 'tsx': 18, 'ts': 6, 'jsx': 4, 'js': 4})
+sql head 240 pg 355
+########## SONDAS PROPIAS (pg_dump, COPY, multibyte, tipos)
+===== data_copy.sql
+  table public.t {"native_kind": "create_table", "keys_partial": true} in=data_copy 
+  column public.t.id {"native_kind": "column_definition"} in=public.t 
+  column public.t.v {"native_kind": "column_definition"} in=public.t 
+===== dump_nometa.sql
+  table public.author {"native_kind": "create_table"} in=dump_nometa 
+  constr public.author.author_pkey {"native_kind": "Constraint", "constraint_type": "primary_key", "columns": ["id"]} in=public.author 
+  column public.author.id {"native_kind": "column_definition", "type": "bigint"} in=public.author 
+  column public.author.name {"native_kind": "column_definition", "type": "character varying(100)"} in=public.author 
+  table public.book {"native_kind": "create_table"} in=dump_nometa 
+  column public.book.author_id {"native_kind": "column_definition", "type": "bigint"} in=public.book 
+  constr public.book.book_author_id_fk {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["author_id"], "references": {"table": "public.author", "columns": ["id"]}} in=public.book -> public.author
+  constr public.book.book_pkey {"native_kind": "Constraint", "constraint_type": "primary_key", "columns": ["id"]} in=public.book 
+  column public.book.id {"native_kind": "column_definition", "type": "bigint"} in=public.book 
+===== dump_s.sql
+  table public.author {"native_kind": "create_table"} in=dump_s 
+  constr public.author.author_pkey {"native_kind": "Constraint", "constraint_type": "primary_key", "columns": ["id"]} in=public.author 
+  column public.author.id {"native_kind": "column_definition", "type": "bigint"} in=public.author 
+  column public.author.name {"native_kind": "column_definition", "type": "character varying(100)"} in=public.author 
+  table public.book {"native_kind": "create_table"} in=dump_s 
+  column public.book.author_id {"native_kind": "column_definition", "type": "bigint"} in=public.book 
+  constr public.book.book_author_id_fk {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["author_id"], "references": {"table": "public.author", "columns": ["id"]}} in=public.book -> public.author
+  constr public.book.book_pkey {"native_kind": "Constraint", "constraint_type": "primary_key", "columns": ["id"]} in=public.book 
+  column public.book.id {"native_kind": "column_definition", "type": "bigint"} in=public.book 
+===== mb.sql
+  table café {"native_kind": "create_table"} in=mb 
+  constr café.café_ü_fk {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["ü_id"], "references": {"table": "café", "columns": ["id"]}} in=café -> café
+  column café.id {"native_kind": "ColumnDef", "type": "bigint", "primary_key": true, "identity": true, "parse_partial": true} in=café 
+  column café.naïve {"native_kind": "column_definition", "type": "varchar(10)", "unique": true} in=café 
+  column café.ü_id {"native_kind": "column_definition", "type": "bigint"} in=café 
+  constr café.ü😀k {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["naïve", "ü_id"]} in=café 
+===== types.sql
+  table bad {"native_kind": "create_table", "keys_partial": true} in=types 
+  column bad.id {"native_kind": "column_definition"} in=bad 
+  column bad.x {"native_kind": "column_definition"} in=bad 
+  constr mixed.m_u {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["id"]} in=types 
+  table tas {"native_kind": "create_table", "keys_partial": true} in=types 
+  table tif {"native_kind": "create_table"} in=types 
+  column tif.id {"native_kind": "column_definition", "type": "int", "primary_key": true} in=tif 
+  constr tif.tif_fk {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["id"], "references": {"table": "tu", "columns": []}} in=tif -> tu
+  constr tif.tif_u {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["id"]} in=tif 
+  constr tif.tif_u2 {"native_kind": "Constraint", "constraint_type": "unique", "columns": []} in=tif 
+  table tpart {"native_kind": "create_table"} in=types 
+  column tpart.id {"native_kind": "column_definition", "type": "int"} in=tpart 
+  column tpart.k {"native_kind": "column_definition", "type": "int"} in=tpart 
+  constr tpart.pk {"native_kind": "Constraint", "constraint_type": "primary_key", "columns": ["id", "k"]} in=tpart 
+  table tu {"native_kind": "create_table"} in=types 
+  column tu.id {"native_kind": "column_definition", "type": "int"} in=tu 
+  constr tu.pk {"native_kind": "Constraint", "constraint_type": "primary_key", "columns": ["id"]} in=tu 
+  table ty {"native_kind": "create_table"} in=types 
+  column ty.a {"native_kind": "ColumnDef", "type": "character varying(20)", "unique": true, "parse_partial": true} in=ty 
+  column ty.b {"native_kind": "column_definition", "type": "double precision[]"} in=ty 
+  column ty.c {"native_kind": "ColumnDef", "type": "numeric(10, 2)", "parse_partial": true} in=ty 
+  column ty.d {"native_kind": "column_definition", "type": "timestamp(3) with time zone"} in=ty 
+  column ty.e {"native_kind": "column_definition", "type": "int"} in=ty 
+  column ty.f {"native_kind": "column_definition", "type": "int"} in=ty 
+  constr ty.fk {"native_kind": "Constraint", "constraint_type": "foreign_key", "columns": ["e", "f"], "references": {"table": "ty", "columns": ["id", "e"]}} in=ty -> ty
+  column ty.id {"native_kind": "ColumnDef", "type": "int", "primary_key": true, "parse_partial": true} in=ty 
+  constr ty.pk {"native_kind": "Constraint", "constraint_type": "primary_key", "columns": ["e", "f"]} in=ty 
+  constr ty.unique {"native_kind": "Constraint", "constraint_type": "unique", "columns": ["e"]} in=ty 
+== head mixed.sql [('module', 'mixed', {'has_error': False, 'parse_errors': False}), ('table', 'Mixed', {}), ('column', 'Mixed.Id', {})]
+== head part.sql [('module', 'part', {'has_error': False, 'parse_errors': True}), ('table', 'tp1', {}), ('column', 'tp1.Id', {})]
+== nopg mixed.sql [('module', 'mixed', {'has_error': False, 'parse_errors': False}), ('table', 'Mixed', {}), ('column', 'Mixed.Id', {})]
+== nopg part.sql [('module', 'part', {'has_error': False, 'parse_errors': True}), ('table', 'tp1', {'keys_partial': True}), ('column', 'tp1.Id', {})]
+== pg mixed.sql [('module', 'mixed', {'has_error': False, 'parse_errors': False}), ('table', 'Mixed', {}), ('column', 'Mixed.Id', {}), ('constraint', 'mixed.m_u', {})]
+== pg part.sql [('module', 'part', {'has_error': False, 'parse_errors': True}), ('table', 'tp1', {})]
+########## DEFECTO: archivo Latin-1 (con extra)
+== shift
+module shift shift {'start_line': 1, 'end_line': 3} None {'native_kind': 'program', 'imports': [], 'nested_imports': [], 'has_error': False, 'parse_errors': True}
+table a a {'start_line': 1, 'end_line': 2} 'CREATE TABLE a (id int PRIMARY KEY, x int, -- comentario: a�o a�o a�o a�o a�o a�o a�o a�o a�o a�o a�o a�o a�o a�o a�o a�o a�o a�o a�o a�o CONSTRAINT a_u UNIQUE (x))' {'native_kind': 'create_table'}
+constraint a.a_u a_u {'start_line': 3, 'end_line': 3} 'b (k int, CONSTRAINT b_f' {'native_kind': 'Constraint', 'constraint_type': 'unique', 'columns': ['x']}
+column a.id id {'start_line': 1, 'end_line': 1} 'id int PRIMARY KEY' {'native_kind': 'column_definition', 'type': 'int', 'primary_key': True}
+column a.x x {'start_line': 1, 'end_line': 1} 'x int' {'native_kind': 'column_definition', 'type': 'int'}
+table b b {'start_line': 3, 'end_line': 3} 'CREATE TABLE b (k int, CONSTRAINT b_fk FOREIGN KEY (k) REFERENCES a (id))' {'native_kind': 'create_table'}
+constraint b.a_u a_u {'start_line': 3, 'end_line': 3} 'b (k int, CONSTRAINT b_f' {'native_kind': 'Constraint', 'constraint_type': 'unique', 'columns': ['x']}
+column b.id id {'start_line': 1, 'end_line': 1} 'id int PRIMARY KEY' {'native_kind': 'ColumnDef', 'type': 'int', 'primary_key': True, 'parse_partial': True}
+column b.x x {'start_line': 1, 'end_line': 1} 'x int' {'native_kind': 'ColumnDef', 'type': 'int', 'parse_partial': True}
+== shift_utf8
+module shift_utf8 shift_utf8 {'start_line': 1, 'end_line': 3} None {'native_kind': 'program', 'imports': [], 'nested_imports': [], 'has_error': False, 'parse_errors': True}
+table a a {'start_line': 1, 'end_line': 2} 'CREATE TABLE a (id int PRIMARY KEY, x int, -- comentario: año año año año año año año año año año año año año año año año año año año año CONSTRAINT a_u UNIQUE (x))' {'native_kind': 'create_table'}
+constraint a.a_u a_u {'start_line': 2, 'end_line': 2} 'CONSTRAINT a_u UNIQUE (x)' {'native_kind': 'Constraint', 'constraint_type': 'unique', 'columns': ['x']}
+column a.id id {'start_line': 1, 'end_line': 1} 'id int PRIMARY KEY' {'native_kind': 'column_definition', 'type': 'int', 'primary_key': True}
+column a.x x {'start_line': 1, 'end_line': 1} 'x int' {'native_kind': 'column_definition', 'type': 'int'}
+table b b {'start_line': 3, 'end_line': 3} 'CREATE TABLE b (k int, CONSTRAINT b_fk FOREIGN KEY (k) REFERENCES a (id))' {'native_kind': 'create_table'}
+constraint b.b_fk b_fk {'start_line': 3, 'end_line': 3} 'CONSTRAINT b_fk FOREIGN KEY (k) REFERENCES a (id)' {'native_kind': 'Constraint', 'constraint_type': 'foreign_key', 'columns': ['k'], 'references': {'table': 'a', 'columns': ['id']}}
+column b.k k {'start_line': 3, 'end_line': 3} 'k int' {'native_kind': 'column_definition', 'type': 'int'}
+== latin1
+module latin1 latin1 {'start_line': 1, 'end_line': 3} None {'native_kind': 'program', 'imports': [], 'nested_imports': [], 'has_error': False, 'parse_errors': True}
+table author author {'start_line': 2, 'end_line': 2} 'CREATE TABLE "author" ("id" bigint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "name" varchar(100) NOT NULL UNIQUE, "owner_id" int NOT NULL, CONSTRAINT "author_uq" UNIQUE ("name", "owner_id"))' {'native_kind': 'create_table'}
+constraint author.author_owner_fk author_owner_fk {'start_line': 3, 'end_line': 4} 'AINT "author_owner_fk" FOREIGN KEY ("owner_id") REFERENCES "author" ("id");' {'native_kind': 'Constraint', 'constraint_type': 'foreign_key', 'columns': ['owner_id'], 'references': {'table': 'author', 'columns': ['id']}}
+constraint author.author_uq author_uq {'start_line': 2, 'end_line': 3} 'AINT "author_uq" UNIQUE ("name", "owner_id")); ALT' {'native_kind': 'Constraint', 'constraint_type': 'unique', 'columns': ['name', 'owner_id']}
+column author.id id {'start_line': 2, 'end_line': 2} 'igint NOT NULL PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY, "nam' {'native_kind': 'ColumnDef', 'type': 'bigint', 'primary_key': True, 'identity': True, 'parse_partial': True}
+column author.name name {'start_line': 2, 'end_line': 2} 'varchar(100) NOT NULL UNIQUE, "own' {'native_kind': 'ColumnDef', 'type': 'varchar(100)', 'unique': True, 'parse_partial': True}
+column author.owner_id owner_id {'start_line': 2, 'end_line': 2} '_id" int NOT NULL, CONS' {'native_kind': 'ColumnDef', 'type': 'int', 'parse_partial': True}
+== HEAD y sin extra
+== head shift.sql [('module', 'shift', {'has_error': False, 'parse_errors': True}), ('table', 'a', {}), ('column', 'a.id', {}), ('column', 'a.x', {}), ('table', 'b', {}), ('column', 'b.k', {})]
+== head latin1.sql [('module', 'latin1', {'has_error': False, 'parse_errors': True}), ('table', 'author', {}), ('column', 'author.name', {}), ('column', 'author.owner_id', {})]
+== nopg shift.sql [('module', 'shift', {'has_error': False, 'parse_errors': True}), ('table', 'a', {'keys_partial': True}), ('column', 'a.id', {}), ('column', 'a.x', {}), ('table', 'b', {'keys_partial': True}), ('column', 'b.k', {})]
+== nopg latin1.sql [('module', 'latin1', {'has_error': False, 'parse_errors': True}), ('table', 'author', {'keys_partial': True}), ('column', 'author.name', {}), ('column', 'author.owner_id', {})]
