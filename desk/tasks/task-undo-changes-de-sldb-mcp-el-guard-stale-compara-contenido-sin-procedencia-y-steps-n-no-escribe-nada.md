@@ -1,25 +1,31 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-18T23:17:22Z'
+  at: '2026-11-18T23:45:41Z'
   authority: generated
   via: save_document_payload
 id: task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-testing
+history:
+- task_activates
+references:
+- src/sldb/mcp/write/undo.py
+- src/sldb/api/documents/apply_batch.py
+- tests/mcp/test_write_tools.py
+- 389868dc8ff40f87c7700175ed1f76f15cf22fc6
 depends_on: []
 pills: []
 files: []
 task_type: task.debug
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-undo-changes-de-sldb-mcp-restaura-el-mismo-contenido-salvo-procedencia-y-deshace-n-lotes-todo-o-nada
 ---
 
 # undo_changes de sldb mcp: el guard stale compara contenido sin procedencia y steps=N no escribe nada si rechaza un paso
