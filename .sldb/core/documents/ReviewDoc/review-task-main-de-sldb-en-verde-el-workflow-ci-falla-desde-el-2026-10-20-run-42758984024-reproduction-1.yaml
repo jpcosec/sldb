@@ -1,0 +1,37 @@
+name: review-task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024-reproduction-1
+path: desk/reviews/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024/reproduction-1.md
+source_hash: 955ba185ddc319d987ee5b8b0a26eec9cd3ab8cb77e6ac0adc60a4e5e66db09d
+content_hash: e4e177d382bfbae8533028e9cecd88307a18962af516b76f6a511549d420c8e3
+field_hashes:
+  id: 3319eb6798fc372d3fbf1a6ddc5b6ab9c090a17ea1f29c926dbdaa171dd396f0
+  title: edd6fee302c6125b6072ebff3ad52b80423e037a221607f41c089853535b4fb5
+  kind: 368fe53d1f06908176884aa53b85fb3135f2431d04d9892f2b26b178bfe9c736
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 3a43b5f20d6ac3e0bbfb79c77fd28c1be936aff80660f475347152405f8d348d
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 11e25bab0df4bb9f63c6dde985fea5de0ef16abdb2ec640dc08e7e97ec6b1d15
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: e44c6957bc637baf549a4e5de4bb667151e04699efcfbf5f740c932febf84529
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: ac8fe9e1d6ab79bb8d3a8b22faa2eca9f62cefdefc4ce0170c4cc46d919a407b
+  created_at: 06d86a3100172de7b6e33c1c1b0553f0dd48383f05e8ecaa60a4a2469627b171
+  disposed_at: 6a46ac7e85aee56037cf88d374020d533ae46071c86d2a32684842a74d3d78b7
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: dbc5f284f9145280c03d88caa7719cc8ba62aab0ad9d82a53eaaaecb1d392dc0
+  disposition: 097ad2de2c257f55c1895068feb04cba51f963ef441eaea128c289db41fc4d39
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-18T04:22:59Z'
+  authority: generated
+  via: save_document_payload
