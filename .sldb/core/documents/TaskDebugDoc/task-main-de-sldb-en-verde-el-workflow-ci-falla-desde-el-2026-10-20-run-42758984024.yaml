@@ -1,7 +1,7 @@
 name: task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024
 path: desk/tasks/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024.md
-source_hash: 37afa9ef0b641233801f5b83c26e22646b0e3aef5a94f8388348195d06f24cc3
-content_hash: 9f8b4f840f89bb0cd0dd74de7c74db84fffba86dd873cfce1aae78e2999465ac
+source_hash: 13b6b6cdc7ea150e38240cf3fadcc6a52a18fb2019ad25a6e4aa3f64fe3e106c
+content_hash: c270bab42dc7b949cf85b5136ea59d56075e44253a58eaaa1b1591ff298834af
 field_hashes:
   title: bf7299fc29b8856618b2bae04e85460fb5294735295c05f76b01a660e0b0f8f0
   id: 1de65054b5183d7d7f15fa81f09a8553c4207bdd8324ad2c8d9d5a1eabe0be5e
@@ -12,14 +12,14 @@ field_hashes:
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 1d073c477f4cc312b42e47767ae49fb9145df3797146c5aa097cc694c7f6eb1d
   goal: 73b888ed31047b2fd5699dc49f3b4c2ae1aee9a07007d42e6877ea7e5c549f13
-  scope: c2e4b1037dd767c1695e9a32b1ceace608d3bc516e936d7732b21b1637f1a915
-  references: 1bc265f3eac94057e5d73951336b923423ca7f3009c21d17c0bee7e907faa878
+  scope: a0c5b5e4786d7c36d47029ed8aa798730c2406f71adcf04884f083ed37b5a9ca
+  references: e787a3f3acaa9a35624bfdbc2ab9f2f7a7675c10f2872af78d658608d8366939
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  files: f860fdd4fa48ca48f6475fd562135c5000cd7771be7273cb190369ca88d023b7
-  implementation_path: 78c3f2c85c5ec43e2debd20291864017be7df2063b7dc16a6b8c40678294d12f
-  validation: df7689e5b4699d504973b356e0b3609e6d3664956af021c0fc9958913aac08be
-  done_when: 3718b1a9d0adfe18c7ed06331c1eecfbbdccca1782ba4b5464eb767be8546c78
+  files: 7eef045d845a2caa5e3491e33164b383f24b2710068870143508345ff29a9612
+  implementation_path: cf56a9e626947808f4c324709dad6a3591e88eb0e33d06fba77a077652153b29
+  validation: 0b785a30886e9616a41d2e45273877556870b4c4d22914df5f6471c62d69f2b5
+  done_when: eb6ada666b851d95b7666bd62704af4ff0eac16ea5fdcf4f63b72cec7830d6be
   task_type: 17aef8a679138336d87167505c61b03a7bc28c9a12b1ccf78947b619d28fae69
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
@@ -33,6 +33,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-18T03:43:26Z'
+  at: '2026-11-18T04:11:40Z'
   authority: generated
   via: save_document_payload
