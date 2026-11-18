@@ -1,0 +1,8 @@
+sldb e7cc3761 deskops 97bf1a4f pron a0c4100; knowledge/symbols: 0 archivos
+deskops-build rc=0 18 s
+pron-world rc=0 405 s
+sldb-build-check-keep rc=0 7373 s
+selfdoc-en-copia rc=0 5 s
+total pasos del job store: 7801 s
+
+Criterio de p3: un solo build completo (sldb-build-check-keep) y un total de 7801 s frente a un build de referencia de 110 min (6600 s), medido sin knowledge/symbols en esta misma máquina el 2026-11-18 (local-repro-store-job.log). Ratio 1,18 <= 1,2: cumple. El CI real (run 44253024186) tardó 1 h 20 min en el job store.
