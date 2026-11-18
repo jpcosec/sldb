@@ -63,15 +63,24 @@ at level 0 writes no tracked document and no linked store. There is no rotation 
 `undo_changes(steps=1)` (level 1 and up) undoes the last `steps` proposals `apply_changes` applied
 in this session. Every applied batch pushes its `BatchReport.inverse` onto a stack that lives in the
 server session (`WriteTools.undo`, an `sldb.mcp.write.undo.UndoStack`): in memory, one per session,
-not persisted, with no redo. Undoing goes newest first and hands each inverse to `apply_batch`
-unchanged, so it carries the guards the batch left: when someone else wrote one of those
-documents since, `apply_batch` raises `ConflictError` and that inverse writes nothing.
+not persisted, with no redo.
+
+Contract: **same content, provenance aside**. Undoing is a new write, so it re-stamps `sldb.at`,
+`sldb.via` and the hashes derived from them; what comes back is the content. The inverse is guarded
+by `expected_content_hash` (`sldb.api.documents.content_hash.document_content_hash`: the document
+text without its `sldb` provenance block), not by `expected_source_hash`, so a document someone
+changed and put back to the content the batch left is not stale. `expected_source_hash` and the
+provenance format are unchanged for every other caller.
+
+`steps=N` is whole or nothing: the N inverses, newest first, go through `sldb.api.apply_batches` as
+one chain under one store lock and in one transaction, each prevalidated against the state the
+previous one leaves (so a chain may edit the same document twice). If any is refused nothing is
+written and the stack is untouched.
 
 - Done: `{"applied": true, "undone": n, "batches": [{"applied", "saved", "changes"}], "remaining": m, "pending": [...]}`.
-  An undone batch leaves the stack.
-- Refused: `rejected: "stale"` (with `document`) or SLDB's refusal (`rules`, or its error's class).
-  The undo stops at that batch: the newer ones already undone stay undone (`undone`, `written`
-  true if any), and the batch that failed and the older ones stay in the stack (`remaining`).
+  The undone batches leave the stack.
+- Refused: `rejected: "stale"` (with `document`) or SLDB's refusal (`rules`, or its error's class),
+  with `written: false`, `undone: 0` and every batch still in the stack (`remaining`).
 - More steps than the stack holds, or fewer than one: `rejected: "nothing_to_undo"`, nothing
   written, the stack untouched.
 

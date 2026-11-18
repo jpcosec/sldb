@@ -215,18 +215,40 @@ def test_undo_after_someone_else_wrote_is_a_conflict_and_writes_nothing(write_co
         assert session.call("read_document", ref=item["export_id"], field="title")["value"] == "someone else's"
 
 
-def test_undo_of_several_stops_at_the_first_that_fails(write_copy: Path) -> None:
+def test_undo_of_a_document_that_went_back_to_the_content_the_batch_left_is_not_stale(write_copy: Path) -> None:
+    with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+        item = an_item(session, write_copy)
+        applied(session, retitled(item, "mine"))
+        written_by_someone_else(write_copy, retitled(item, "someone else's"))
+        written_by_someone_else(write_copy, retitled(item, "mine"))  # same content, new provenance
+        answer = session.call("undo_changes")
+        assert answer["applied"] is True and answer["undone"] == 1 and answer["remaining"] == 0, answer
+        assert session.call("read_document", ref=item["export_id"])["payload"] == item["payload"]
+
+
+def test_undo_of_several_is_whole_or_nothing(write_copy: Path) -> None:
     with served(write_copy, "--level", "2", "--actor", WRITER) as session:
         item, other = two_items(session, write_copy)
-        applied(session, retitled(item, "first, then overwritten"))
-        applied(session, retitled(other, "second, undone"))
-        written_by_someone_else(write_copy, retitled(item, "overwritten"))
+        applied(session, retitled(item, "first") + retitled(other, "first too"))
+        applied(session, retitled(item, "second"))  # the newer batch edits a document of the older one
+        written_by_someone_else(write_copy, retitled(other, "overwritten"))  # the older one is now stale
+        before = tree_digest(write_copy)
         answer = session.call("undo_changes", steps=2)
-        assert answer["applied"] is False and answer["rejected"] == "stale" and answer["document"] == item["name"], answer
-        assert answer["undone"] == 1 and answer["written"] is True and answer["remaining"] == 1, answer
-        assert session.call("read_document", ref=other["export_id"])["payload"] == other["payload"]
-        assert session.call("read_document", ref=item["export_id"], field="title")["value"] == "overwritten"
-        assert session.call("undo_changes")["rejected"] == "stale", "the failed batch left the stack"
+        assert answer["applied"] is False and answer["rejected"] == "stale" and answer["document"] == other["name"], answer
+        assert answer["written"] is False and answer["undone"] == 0 and answer["remaining"] == 2, answer
+        assert tree_digest(write_copy) == before, "a refused chain changed a file"
+        assert session.call("read_document", ref=item["export_id"], field="title")["value"] == "second"
+        assert session.call("undo_changes")["applied"] is True, "the stack was left intact"
+
+
+def test_undo_of_a_chain_over_the_same_document_applies_step_by_step(write_copy: Path) -> None:
+    with served(write_copy, "--level", "2", "--actor", WRITER) as session:
+        item = an_item(session, write_copy)
+        applied(session, retitled(item, "one"))
+        applied(session, retitled(item, "two"))
+        answer = session.call("undo_changes", steps=2)
+        assert answer["applied"] is True and answer["undone"] == 2 and answer["remaining"] == 0, answer
+        assert session.call("read_document", ref=item["export_id"])["payload"] == item["payload"]
 
 
 def test_undo_with_nothing_to_undo_is_a_clear_refusal(write_copy: Path) -> None:

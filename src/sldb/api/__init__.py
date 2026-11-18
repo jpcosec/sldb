@@ -10,7 +10,7 @@ CLI command does (`open_store`), returns a pydantic model instead of printing, a
 from __future__ import annotations
 
 from sldb.api.anchors.check_doc_anchors import check_doc_anchors
-from sldb.api.documents.apply_batch import apply_batch
+from sldb.api.documents.apply_batch import apply_batch, apply_batches
 from sldb.api.documents.batch_report import BatchReport
 from sldb.api.documents.create_document import create_document
 from sldb.api.documents.delete_document import delete_document
@@ -178,7 +178,7 @@ __all__ = [
     "DocRefStatus", "doc_exists", "doc_status", "tracked_documents", "AmbiguousDocument", "indexed_model_bases", "resolve_indexed_document", "split_doc_ref", "store_links",
     "WherePredicateError", "apply_effects", "edges_blocked", "edges_holding", "effects_of", "on_check_findings", "refuse_unknown_family", "rules_check", "rules_explain", "rules_on_check", "transition_findings", "remove_model", "where_matches", "inherit_model", "is_model_registered", "registered_models",
     "StructuredNLDoc", "UnresolvedReference", "unresolved_references",
-    "BatchReport", "ConflictError", "RollbackError", "Transaction", "apply_batch", "move_document", "transaction",
+    "BatchReport", "ConflictError", "RollbackError", "Transaction", "apply_batch", "apply_batches", "move_document", "transaction",
     "ScaffoldReport", "Seed", "StoreDeclaration", "build_store", "scaffold_store",
     "ProjectGraph", "ProjectGraphConfig", "project_graph",
     "Referrer", "RewriteReport", "referrers", "rewrite_references",

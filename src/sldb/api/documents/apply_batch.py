@@ -34,12 +34,12 @@ def apply_batch(store: str | Path | None, changes: list[dict[str, Any]], pythonp
             (`create`, `update`, `move`, `delete`, `track`, `untrack`), and by action `model`
             (create, track), `payload` (create, update), `path` (move, track; optional for
             create, else the model's default directory), and the guards `expected_source_hash`
-            and `expected` (the full current payload) on any action over a tracked document.
+            `expected_content_hash` (the text without its provenance block) and `expected` (the full current payload) on any action over a tracked document.
         pythonpath: Directory to import the store's model modules from.
 
     Returns:
         The ids applied, in order, and `inverse`: the batch that undoes this one, guarded by
-        the source hashes this one left (`apply_batch(store, report.inverse)` puts it back).
+        the content hashes this one left (`apply_batch(store, report.inverse)` puts it back).
 
     Raises:
         SLDBValidationError: A malformed change, or a payload the model rejects (G4).
@@ -53,11 +53,26 @@ def apply_batch(store: str | Path | None, changes: list[dict[str, Any]], pythonp
     """
     location = open_store(store)
     with store_lock(location.store_path, wait=True):  # guards are checked and writes made under one lock
-        plan = sorted(prevalidate_changes(location, changes, pythonpath), key=lambda change: _ORDER[change["action"]])
-        prior = before(location, plan, pythonpath)  # what each change replaces, read under the lock
         with transaction(location.store_path, pythonpath) as tx:
-            saved = [_applied(tx, change) for change in plan]
-        return BatchReport(saved=saved, inverse=inverse(location, prior))
+            return _run(location, tx, changes, pythonpath)
+
+
+def apply_batches(store: str | Path | None, batches: list[list[dict[str, Any]]], pythonpath: str | None = None) -> list[BatchReport]:
+    """Apply `batches` one after the other in one transaction under one lock: each batch is
+    prevalidated against the state the previous one left, and if any raises, nothing of any
+    of them stays written (the exception is `apply_batch`'s). One report per batch, in order.
+    This is what lets a chain of inverses touching the same document be checked step by step."""
+    location = open_store(store)
+    with store_lock(location.store_path, wait=True):
+        with transaction(location.store_path, pythonpath) as tx:
+            return [_run(location, tx, changes, pythonpath) for changes in batches]
+
+
+def _run(location: Any, tx: Transaction, changes: list[dict[str, Any]], pythonpath: str | None) -> BatchReport:
+    plan = sorted(prevalidate_changes(location, changes, pythonpath), key=lambda change: _ORDER[change["action"]])
+    prior = before(location, plan, pythonpath)  # what each change replaces, read under the lock
+    saved = [_applied(tx, change) for change in plan]
+    return BatchReport(saved=saved, inverse=inverse(location, prior))
 
 
 def _applied(tx: Transaction, change: dict[str, Any]) -> str:

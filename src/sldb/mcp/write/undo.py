@@ -24,29 +24,24 @@ class UndoStack:
         self.batches.append(list(inverse))
 
     def undo_changes(self, steps: int = 1) -> dict[str, Any]:
-        """Undo the last `steps` proposals apply_changes applied in this session, newest first: each
-        one's inverse batch goes through apply_batch with the guards it left, whole or nothing. A
-        batch someone else wrote over since is refused (`stale`) with nothing of it written; the
-        undo stops there, what was undone stays undone and that batch and the older ones stay."""
+        """Undo the last `steps` proposals apply_changes applied in this session, newest first. The
+        contract is 'same content, provenance aside': undoing is a new write, so it re-stamps
+        `sldb.at`, `sldb.via` and what derives from them. Each inverse is guarded by the content the
+        batch left (the document without its provenance block), so a document someone changed and
+        put back to that content is not stale. The `steps` inverses are applied as one chain, under
+        one lock and in one transaction, each checked against the state the previous one leaves:
+        whole or nothing. If any is refused (`stale`), nothing is written (`written: False`) and the
+        stack stays as it was."""
         require(self.level, CONTENT, "undo_changes")
         if steps < 1 or steps > len(self.batches):
             return rejected("nothing_to_undo", f"asked to undo {steps} batch(es); this session has {len(self.batches)} applied batch(es) left to undo (the stack is per session and in memory)", undone=0, remaining=len(self.batches))
-        undone: list[dict[str, Any]] = []
-        for _ in range(steps):
-            step = self._undo_last()
-            if not step["applied"]:
-                return {**step, "written": bool(undone), "undone": len(undone), "batches": undone, "remaining": len(self.batches)}
-            undone.append(step)
-        return {"applied": True, "undone": len(undone), "batches": undone, "remaining": len(self.batches), "pending": [PENDING["guards_in_transaction"]]}
-
-    def _undo_last(self) -> dict[str, Any]:
-        """Apply the newest inverse batch; it leaves the stack only once it was written."""
-        inverse = self.batches[-1]
+        chain = list(reversed(self.batches[-steps:]))
         try:
-            report = api.apply_batch(self.store_path, inverse)
+            reports = api.apply_batches(self.store_path, chain)
         except api.ConflictError as error:
-            return rejected("stale", f"the store changed after that batch was applied: {error} It stays in the stack.", document=error.ref)
+            return rejected("stale", f"the store changed after that batch was applied: {error} Nothing was written; the stack is untouched.", document=error.ref, undone=0, remaining=len(self.batches))
         except Exception as error:
-            return refusal(error)
-        self.batches.pop()
-        return {"applied": True, "saved": list(report.saved), "changes": inverse}
+            return {**refusal(error), "undone": 0, "remaining": len(self.batches)}
+        del self.batches[-steps:]
+        undone = [{"applied": True, "saved": list(report.saved), "changes": changes} for report, changes in zip(reports, chain)]
+        return {"applied": True, "undone": len(undone), "batches": undone, "remaining": len(self.batches), "pending": [PENDING["guards_in_transaction"]]}

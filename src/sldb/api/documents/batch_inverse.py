@@ -1,18 +1,20 @@
 """The batch that undoes a batch (`BatchReport.inverse`): `before` notes, under the store lock and
 before the transaction, what each change will replace; `inverse` turns that, after the writes and
 still under the lock, into changes `apply_batch` accepts. Every change over a document the batch
-left tracked is guarded by the `expected_source_hash` it left, so undoing after someone else's
+left tracked is guarded by the `expected_content_hash` it left (the document without its provenance block), so undoing after someone else's
 write is a `ConflictError` with nothing written; recreating a deleted document someone else
 recreated is the prevalidation's `SLDBStoreError` (already tracked, or file exists).
 
 It is built from payloads, not from the transaction's byte snapshots: a canonical document comes
 back byte for byte, its front-matter provenance (`sldb.by/at/via`) aside, and the undo is written
-and stamped like any other write."""
+and stamped like any other write: the contract is 'same content, provenance aside', and the
+guard compares content, so a document that went back to the content the batch left is not stale."""
 
 from __future__ import annotations
 
 from typing import Any
 
+from sldb.api.documents.content_hash import document_content_hash
 from sldb.api.documents.batch_prevalidate import current_payload
 from sldb.api.documents.document_lookup import find_doc
 from sldb.api.stores.store_location import StoreLocation
@@ -49,7 +51,7 @@ def _undo(location: StoreLocation, noted: dict[str, Any]) -> dict[str, Any]:
     action = noted["action"]
     undo = {"id": noted["id"], "action": _UNDO[action], **{key: noted[key] for key in _CARRY[action]}}
     if action in _GUARDED:  # the batch left it tracked: guard the undo with the hash it left
-        undo["expected_source_hash"] = _tracked(location, noted["id"])[1].source_hash
+        undo["expected_content_hash"] = document_content_hash(location, _tracked(location, noted["id"])[1])
     return undo
 
 

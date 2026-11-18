@@ -6,6 +6,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
+from sldb.api.documents.content_hash import document_content_hash
 from sldb.api.documents.document_lookup import find_doc
 from sldb.api.documents.payload_save_steps import model_class
 from sldb.api.documents.transaction_paths import default_document_path, inside
@@ -67,7 +68,7 @@ def _check_tracked(location: StoreLocation, change: dict[str, Any], existing: tu
     if existing is None:
         raise SLDBStoreError(f"Doc '{change['id']}' not found.")
     m_entry, doc = existing
-    check_guards(location, m_entry, doc, change.get("expected_source_hash"), change.get("expected"), pythonpath)
+    check_guards(location, m_entry, doc, change.get("expected_source_hash"), change.get("expected"), pythonpath, change.get("expected_content_hash"))
     if change.get("model") not in (None, m_entry.name):
         raise SLDBValidationError(f"{change['id']}: a document cannot change model.")
     if change["action"] == "update":
@@ -102,10 +103,15 @@ def check_roundtrip(model_type: type, change: dict[str, Any], root: Path) -> Non
         raise SLDBValidationError(f"{change['id']}: payload does not round-trip under {model_type.__name__}.", details)
 
 
-def check_guards(location: StoreLocation, m_entry: Any, doc: Any, expected_source_hash: str | None, expected: Any, pythonpath: str | None) -> None:
-    """`expected_source_hash` first, then `expected` against the current payload (q15)."""
+def check_guards(location: StoreLocation, m_entry: Any, doc: Any, expected_source_hash: str | None, expected: Any, pythonpath: str | None, expected_content_hash: str | None = None) -> None:
+    """`expected_source_hash` first, then `expected_content_hash` (the text without its provenance
+    block), then `expected` against the current payload (q15)."""
     if expected_source_hash is not None and doc.source_hash != expected_source_hash:
         raise ConflictError(doc.name, expected_source_hash, doc.source_hash)
+    if expected_content_hash is not None:
+        actual_hash = document_content_hash(location, doc)
+        if actual_hash != expected_content_hash:
+            raise ConflictError(doc.name, expected_content_hash, actual_hash)
     if expected is not None:
         actual = current_payload(location, m_entry.name, doc.name, pythonpath)
         if actual != expected:
