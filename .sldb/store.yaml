@@ -2167,6 +2167,8 @@ include:
     name: review-task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024-preflight-2
   - path: desk/reviews/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024/preflight-3.md
     name: review-task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024-preflight-3
+  - path: desk/reviews/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024/preflight-4.md
+    name: review-task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024-preflight-4
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
