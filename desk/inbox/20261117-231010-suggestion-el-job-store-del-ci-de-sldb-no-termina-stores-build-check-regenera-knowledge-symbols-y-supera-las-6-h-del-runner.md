@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-18T23:13:25Z'
+  authority: generated
+  via: save_document_payload
 # unclear | suggestion
 kind: suggestion
 # e.g., other_repo
@@ -8,11 +13,15 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-11-17T23:10:10'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-11-18T20:13:04'
 # why the note was acknowledged; empty when no reason was given
-ack_reason: ''
+ack_reason: 'Resuelta por task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024:
+  stores build --check --keep y un solo build en el job store (7cf254f6, e7cc3761;
+  closeout f9a676be). CI 44253024186 en verde.'
 ---
 
 # El job store del CI de sldb no termina: stores build --check regenera knowledge/symbols y supera las 6 h del runner

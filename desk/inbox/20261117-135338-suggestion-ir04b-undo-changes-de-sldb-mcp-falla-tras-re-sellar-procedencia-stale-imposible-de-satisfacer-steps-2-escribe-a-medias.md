@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-18T23:14:58Z'
+  authority: generated
+  via: save_document_payload
 # unclear | suggestion
 kind: suggestion
 # e.g., other_repo
@@ -8,11 +13,14 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-11-17T13:53:38'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-11-18T20:14:36'
 # why the note was acknowledged; empty when no reason was given
-ack_reason: ''
+ack_reason: 'Convertida en tarea de sldb (undo_changes: guard stale sin procedencia,
+  steps=N atómico, contrato ''mismo contenido salvo procedencia'').'
 ---
 
 # IR04b: undo_changes de sldb mcp falla tras re-sellar procedencia (stale imposible de satisfacer, steps=2 escribe a medias)

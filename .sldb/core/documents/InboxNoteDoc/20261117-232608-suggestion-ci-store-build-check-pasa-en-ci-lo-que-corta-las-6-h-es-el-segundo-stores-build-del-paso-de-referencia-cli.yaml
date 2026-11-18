@@ -1,14 +1,16 @@
 name: 20261117-232608-suggestion-ci-store-build-check-pasa-en-ci-lo-que-corta-las-6-h-es-el-segundo-stores-build-del-paso-de-referencia-cli
 path: desk/inbox/20261117-232608-suggestion-ci-store-build-check-pasa-en-ci-lo-que-corta-las-6-h-es-el-segundo-stores-build-del-paso-de-referencia-cli.md
-source_hash: e2e6673639ddd8288f6cabbf83266b81165b500fe8a43506d9fc3cad829faba7
-content_hash: 5a8114c439720295bedbe85dbc749aefafc8376f482c27234d627d6468a60b2d
+source_hash: 4a8251bdc78b3f67e3a67b5e1a15be0045350365534250a485acb2b6126161cc
+content_hash: c82c3c41bc5a0b0ef128286662d4c3c1c44a0475d018b6f7b3dbfbb91476907b
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: bc6df9c6a01376309203e8d52656108fb2aed123b09279321397dbf04a9795dd
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
-  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 6adab5e16203af22eb79b3d635f539c6df7e000b36cdfc3a5e1c5f9ac429c426
+  ack_reason: bfcd3cfc64df0243f8c383033b094d8d8ef843d35998fdc08af313380cba8e55
   title: 5a1c0d36d1923e7dcf61d89d73598777beea94ef1b2a3f6d9248a35e7889b486
   body: e331a5b2d178be210b8d0e986fadcbea9829f8f1d359133b9371b5ecec988ae1
 semantic_tags:
@@ -16,4 +18,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-18T23:13:00Z'
+  authority: generated
+  via: save_document_payload
