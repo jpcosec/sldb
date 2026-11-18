@@ -1,17 +1,18 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-18T04:17:27Z'
+  at: '2026-11-18T04:32:53Z'
   authority: generated
   via: save_document_payload
 id: task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
+current_node: ritual-testing
+history:
+- task_activates
 references:
 - desk/inbox/20261117-231010-suggestion-el-job-store-del-ci-de-sldb-no-termina-stores-build-check-regenera-knowledge-symbols-y-supera-las-6-h-del-runner.md
 - desk/inbox/20261117-232608-suggestion-ci-store-build-check-pasa-en-ci-lo-que-corta-las-6-h-es-el-segundo-stores-build-del-paso-de-referencia-cli.md

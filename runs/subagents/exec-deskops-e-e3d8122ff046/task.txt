@@ -1,0 +1,7 @@
+Task: task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024
+Title: main de sldb en verde: el workflow CI falla desde el 2026-10-20 (run 42758984024)
+Status: draft
+Current node: ritual-execution
+Task type: task.debug
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
