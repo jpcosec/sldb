@@ -2165,6 +2165,8 @@ include:
     name: review-task-el-scan-de-enlaces-ignora-el-contenido-de-los-bloques-de-código-fenced-e-inline-y-no-los-informa-com-evidence-materialization-1
   - path: desk/reviews/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024/preflight-2.md
     name: review-task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024-preflight-2
+  - path: desk/reviews/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024/preflight-3.md
+    name: review-task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024-preflight-3
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
