@@ -1,0 +1,206 @@
+
+$ (cd /tmp/keep-contract-fgdb7474/project && python -m sldb stores init)
+rc=0
+stdout:
+Initialized store at /tmp/keep-contract-fgdb7474/project/.sldb
+
+$ (cd /tmp/keep-contract-fgdb7474/project && python -m sldb selfdoc sync --factory selfdoc_test_factory:build --system widget)
+rc=0
+stdout:
+{
+  "ok": true,
+  "documents": 2,
+  "missing": [],
+  "changed": [],
+  "untracked": [],
+  "stale_indexes": [],
+  "removed": [],
+  "renamed": [],
+  "semantic_gaps": 0,
+  "graph_stale": [],
+  "graph_errors": [],
+  "undeclared": 0,
+  "unexplained": [],
+  "unresolved_references": [],
+  "purpose_conflicts": [],
+  "metadata_errors": [],
+  "written": 2,
+  "errors": [],
+  "alerts": []
+}
+stderr:
+Registered 'CliCommandDoc'
+Registered 'CliCommandDoc'
+Registered 'SurfaceDoc'
+Registered 'SurfaceDoc'
+
+$ (cd /tmp/keep-contract-fgdb7474/project && python -m sldb stores declare --write)
+rc=0
+stdout:
+Wrote /tmp/keep-contract-fgdb7474/project/.sldb/store.yaml
+
+=== PASS case: plain --check vs --check --keep ===
+
+$ (cd /tmp/keep-contract-fgdb7474/project && python -m sldb stores build --check --format json)
+rc=0
+stdout:
+{
+  "ok": true,
+  "integrity_exit": 0,
+  "undeclared": [],
+  "missing": [],
+  "differences": [],
+  "errors": [],
+  "alerts": [
+    {
+      "level": "alert",
+      "code": "build/link-missing",
+      "subject": "ghost",
+      "what": "declared link path ../ghost/.sldb has no store; the build goes on without it",
+      "fix": "check out the linked repository next to this one",
+      "document": null
+    }
+  ]
+}
+
+$ (cd /tmp/keep-contract-fgdb7474/project && python -m sldb stores build --check --keep /tmp/keep-contract-fgdb7474/keep-pass --format json)
+rc=0
+stdout:
+{
+  "ok": true,
+  "integrity_exit": 0,
+  "undeclared": [],
+  "missing": [],
+  "differences": [],
+  "errors": [],
+  "alerts": [
+    {
+      "level": "alert",
+      "code": "build/link-missing",
+      "subject": "ghost",
+      "what": "declared link path ../ghost/.sldb has no store; the build goes on without it",
+      "fix": "check out the linked repository next to this one",
+      "document": null
+    }
+  ],
+  "kept": "/tmp/keep-contract-fgdb7474/keep-pass/tmp/keep-contract-fgdb7474/project"
+}
+plain keys: ['alerts', 'differences', 'errors', 'integrity_exit', 'missing', 'ok', 'undeclared']
+kept keys: ['alerts', 'differences', 'errors', 'integrity_exit', 'kept', 'missing', 'ok', 'undeclared']
+alerts plain: [{'level': 'alert', 'code': 'build/link-missing', 'subject': 'ghost', 'what': 'declared link path ../ghost/.sldb has no store; the build goes on without it', 'fix': 'check out the linked repository next to this one', 'document': None}]
+alerts kept : [{'level': 'alert', 'code': 'build/link-missing', 'subject': 'ghost', 'what': 'declared link path ../ghost/.sldb has no store; the build goes on without it', 'fix': 'check out the linked repository next to this one', 'document': None}]
+result equal except 'kept': True
+kept copy: /tmp/keep-contract-fgdb7474/keep-pass/tmp/keep-contract-fgdb7474/project
+kept copy has .sldb/store.yaml: True
+
+$ (cd /tmp/keep-contract-fgdb7474/project && python -m sldb stores check --store /tmp/keep-contract-fgdb7474/keep-pass/tmp/keep-contract-fgdb7474/project/.sldb)
+rc=0
+stdout:
+PASS: store integrity — 2 documents in 2 models
+stores check on kept copy rc: 0
+
+=== existing EMPTY DIR ===
+
+$ (cd /tmp/keep-contract-fgdb7474/project && python -m sldb stores build --check --keep /tmp/keep-contract-fgdb7474/keep-empty --format json)
+rc=0
+stdout:
+{
+  "ok": true,
+  "integrity_exit": 0,
+  "undeclared": [],
+  "missing": [],
+  "differences": [],
+  "errors": [],
+  "alerts": [
+    {
+      "level": "alert",
+      "code": "build/link-missing",
+      "subject": "ghost",
+      "what": "declared link path ../ghost/.sldb has no store; the build goes on without it",
+      "fix": "check out the linked repository next to this one",
+      "document": null
+    }
+  ],
+  "kept": "/tmp/keep-contract-fgdb7474/keep-empty/tmp/keep-contract-fgdb7474/project"
+}
+empty dir still exists: True copy exists: True
+
+=== NON-EMPTY DIR ===
+
+$ (cd /tmp/keep-contract-fgdb7474/project && python -m sldb stores build --check --keep /tmp/keep-contract-fgdb7474/keep-nonempty)
+rc=2
+stderr:
+Error: --keep /tmp/keep-contract-fgdb7474/keep-nonempty is not empty (or not a directory); give a new or empty directory
+non-empty rc: 2 intact: True entries: ['stale.txt']
+
+=== --keep WITHOUT --check ===
+
+$ (cd /tmp/keep-contract-fgdb7474/project && python -m sldb stores build --keep /tmp/keep-contract-fgdb7474/keep-no-check)
+rc=2
+stderr:
+Error: --keep only works with --check
+no-check rc: 2 dir created: False
+
+=== FAIL case: plain --check vs --check --keep ===
+
+$ (cd /tmp/keep-contract-fgdb7474/project && python -m sldb stores build --check --format json)
+rc=1
+stdout:
+{
+  "ok": false,
+  "integrity_exit": 0,
+  "undeclared": [],
+  "missing": [],
+  "differences": [
+    "only local: ('CliCommandDoc', 'knowledge/commands/cmd-widget-run.md', 'cmd-widget-run')",
+    "only local: ('SurfaceDoc', 'knowledge/surfaces/surface-widget-run.md', 'surface-widget-run')"
+  ],
+  "errors": [],
+  "alerts": [
+    {
+      "level": "alert",
+      "code": "build/link-missing",
+      "subject": "ghost",
+      "what": "declared link path ../ghost/.sldb has no store; the build goes on without it",
+      "fix": "check out the linked repository next to this one",
+      "document": null
+    }
+  ]
+}
+
+$ (cd /tmp/keep-contract-fgdb7474/project && python -m sldb stores build --check --keep /tmp/keep-contract-fgdb7474/keep-fail --format json)
+rc=1
+stdout:
+{
+  "ok": false,
+  "integrity_exit": 0,
+  "undeclared": [],
+  "missing": [],
+  "differences": [
+    "only local: ('CliCommandDoc', 'knowledge/commands/cmd-widget-run.md', 'cmd-widget-run')",
+    "only local: ('SurfaceDoc', 'knowledge/surfaces/surface-widget-run.md', 'surface-widget-run')"
+  ],
+  "errors": [],
+  "alerts": [
+    {
+      "level": "alert",
+      "code": "build/link-missing",
+      "subject": "ghost",
+      "what": "declared link path ../ghost/.sldb has no store; the build goes on without it",
+      "fix": "check out the linked repository next to this one",
+      "document": null
+    }
+  ],
+  "kept": "/tmp/keep-contract-fgdb7474/keep-fail/tmp/keep-contract-fgdb7474/project"
+}
+plain rc: 1 kept rc: 1
+plain undeclared: []
+kept undeclared : []
+plain missing: [] kept missing: []
+plain only-local: ["only local: ('CliCommandDoc', 'knowledge/commands/cmd-widget-run.md', 'cmd-widget-run')", "only local: ('SurfaceDoc', 'knowledge/surfaces/surface-widget-run.md', 'surface-widget-run')"]
+kept only-local : ["only local: ('CliCommandDoc', 'knowledge/commands/cmd-widget-run.md', 'cmd-widget-run')", "only local: ('SurfaceDoc', 'knowledge/surfaces/surface-widget-run.md', 'surface-widget-run')"]
+alerts equal: True
+failure result equal except 'kept': True
+failed check left copy: True
+
+BASE: /tmp/keep-contract-fgdb7474

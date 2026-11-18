@@ -1,0 +1,12 @@
+--- _copy_path vs CI cd ---
+_copy_path: /tmp/runner-temp/sldb-built/tmp/wt-7cf
+expected  : /tmp/runner-temp/sldb-built/tmp/wt-7cf
+same      : True
+--- shell expansion ---
+/tmp/runner-temp/sldb-built/tmp/wt-7cf
+--- stores build occurrences in ci.yml ---
+59:        run: if [ -f .sldb/store.yaml ]; then sldb stores build; fi
+68:        run: sldb stores build --check --keep "$RUNNER_TEMP/sldb-built"
+--- selfdoc step ---
+70:        # no second build: selfdoc check reads the copy the step above kept (it sits under
+73:        run: cd "$RUNNER_TEMP/sldb-built$PWD" && sldb selfdoc check

@@ -1,0 +1,22 @@
+$ git show -s --format="%H%n%P%n%s" 7cf254f6
+7cf254f65ee322e041bf600347bbddacbcfb091b
+8420dd3aeab873b0ca7928cc44c381f97dc09113
+ci: el job store hace un solo build (stores build --check --keep DIR + selfdoc check sobre la copia)
+
+$ git show --stat --oneline 7cf254f6
+7cf254f6 ci: el job store hace un solo build (stores build --check --keep DIR + selfdoc check sobre la copia)
+ .github/workflows/ci.yml                           |   8 +-
+ .../CliCommandDoc/cmd-sldb-stores-build.yaml       |  10 +-
+ .../cmd-sldb-stores-merge-driver.yaml              |  14 ++-
+ .sldb/core/models/CliCommandDoc.yaml               |   4 +-
+ CHANGELOG.md                                       |   1 +
+ knowledge/commands/cmd-sldb-stores-build.md        |  17 ++-
+ knowledge/commands/cmd-sldb-stores-merge-driver.md |   9 +-
+ src/sldb/cli/commands/stores_build.py              |   6 +-
+ src/sldb/cli/commands/stores_build_check.py        |  35 +++++-
+ src/sldb/cli/parsers/stores.py                     |   1 +
+ tests/store/test_stores_build.py                   | 139 +++++++++++++++++++++
+ 11 files changed, 220 insertions(+), 24 deletions(-)
+
+$ git cat-file -t 7cf254f6
+commit

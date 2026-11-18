@@ -1,0 +1,232 @@
+...........................FFFFFFFF                                      [100%]
+=================================== FAILURES ===================================
+_ test_keep_leaves_the_rebuilt_copy_with_a_usable_store_after_a_passing_check __
+
+tmp_path = PosixPath('/tmp/pytest-of-scion/pytest-4/test_keep_leaves_the_rebuilt_c0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x74f019a67150>
+capsys = <_pytest.capture.CaptureFixture object at 0x74f0198615d0>
+
+    def test_keep_leaves_the_rebuilt_copy_with_a_usable_store_after_a_passing_check(tmp_path, monkeypatch, capsys):
+        root = _widget_project(tmp_path, monkeypatch, capsys, "p")
+        keep = tmp_path / "kept"
+>       assert cli_main(["stores", "build", "--check", "--keep", str(keep)]) == 0
+E       AssertionError: assert 2 == 0
+E        +  where 2 = cli_main(['stores', 'build', '--check', '--keep', '/tmp/pytest-of-scion/pytest-4/test_keep_leaves_the_rebuilt_c0/kept'])
+
+/tmp/wt-prev/tests/store/test_stores_build.py:461: AssertionError
+----------------------------- Captured stderr call -----------------------------
+usage: sldb stores build [-h] [--store STORE] [--check]
+                         [--format {text,json,yaml}]
+sldb stores build: error: unrecognized arguments: --keep /tmp/pytest-of-scion/pytest-4/test_keep_leaves_the_rebuilt_c0/kept
+________________ test_keep_leaves_the_copy_when_the_check_fails ________________
+
+tmp_path = PosixPath('/tmp/pytest-of-scion/pytest-4/test_keep_leaves_the_copy_when0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x74f0193f7bd0>
+capsys = <_pytest.capture.CaptureFixture object at 0x74f01972fdd0>
+
+    def test_keep_leaves_the_copy_when_the_check_fails(tmp_path, monkeypatch, capsys):
+        root = _widget_project(tmp_path, monkeypatch, capsys, "p")
+        declaration = load_declaration(root / ".sldb")
+        declaration.include = []  # the tracked documents are now undeclared: the check fails
+        save_declaration(root / ".sldb", declaration)
+        _git(root, "add", "-A")
+        _git(root, "commit", "-qm", "undeclare")
+        keep = tmp_path / "kept"
+>       assert cli_main(["stores", "build", "--check", "--keep", str(keep)]) == 1
+E       AssertionError: assert 2 == 1
+E        +  where 2 = cli_main(['stores', 'build', '--check', '--keep', '/tmp/pytest-of-scion/pytest-4/test_keep_leaves_the_copy_when0/kept'])
+
+/tmp/wt-prev/tests/store/test_stores_build.py:476: AssertionError
+----------------------------- Captured stderr call -----------------------------
+usage: sldb stores build [-h] [--store STORE] [--check]
+                         [--format {text,json,yaml}]
+sldb stores build: error: unrecognized arguments: --keep /tmp/pytest-of-scion/pytest-4/test_keep_leaves_the_copy_when0/kept
+___________________ test_keep_without_check_is_a_usage_error ___________________
+
+tmp_path = PosixPath('/tmp/pytest-of-scion/pytest-4/test_keep_without_check_is_a_u0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x74f019c26270>
+capsys = <_pytest.capture.CaptureFixture object at 0x74f019678a50>
+
+    def test_keep_without_check_is_a_usage_error(tmp_path, monkeypatch, capsys):
+        root = _widget_project(tmp_path, monkeypatch, capsys, "p")
+        keep = tmp_path / "kept"
+        assert cli_main(["stores", "build", "--keep", str(keep)]) != 0
+        assert not keep.exists()
+>       assert "--keep only works with --check" in capsys.readouterr().err
+E       AssertionError: assert '--keep only works with --check' in 'usage: sldb stores build [-h] [--store STORE] [--check]\n                         [--format {text,json,yaml}]\nsldb stores build: error: unrecognized arguments: --keep /tmp/pytest-of-scion/pytest-4/test_keep_without_check_is_a_u0/kept\n'
+E        +  where 'usage: sldb stores build [-h] [--store STORE] [--check]\n                         [--format {text,json,yaml}]\nsldb stores build: error: unrecognized arguments: --keep /tmp/pytest-of-scion/pytest-4/test_keep_without_check_is_a_u0/kept\n' = CaptureResult(out='', err='usage: sldb stores build [-h] [--store STORE] [--check]\n                         [--format...res build: error: unrecognized arguments: --keep /tmp/pytest-of-scion/pytest-4/test_keep_without_check_is_a_u0/kept\n').err
+E        +    where CaptureResult(out='', err='usage: sldb stores build [-h] [--store STORE] [--check]\n                         [--format...res build: error: unrecognized arguments: --keep /tmp/pytest-of-scion/pytest-4/test_keep_without_check_is_a_u0/kept\n') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x74f019678a50>.readouterr
+
+/tmp/wt-prev/tests/store/test_stores_build.py:486: AssertionError
+_______________ test_keep_refuses_a_directory_that_is_not_empty ________________
+
+tmp_path = PosixPath('/tmp/pytest-of-scion/pytest-4/test_keep_refuses_a_directory_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x74f019e94ec0>
+capsys = <_pytest.capture.CaptureFixture object at 0x74f019628550>
+
+    def test_keep_refuses_a_directory_that_is_not_empty(tmp_path, monkeypatch, capsys):
+        _widget_project(tmp_path, monkeypatch, capsys, "p")
+        keep = tmp_path / "kept"
+        keep.mkdir()
+        (keep / "stale.txt").write_text("x", encoding="utf-8")
+        assert cli_main(["stores", "build", "--check", "--keep", str(keep)]) != 0
+>       assert "not empty" in capsys.readouterr().err
+E       AssertionError: assert 'not empty' in 'usage: sldb stores build [-h] [--store STORE] [--check]\n                         [--format {text,json,yaml}]\nsldb stores build: error: unrecognized arguments: --keep /tmp/pytest-of-scion/pytest-4/test_keep_refuses_a_directory_0/kept\n'
+E        +  where 'usage: sldb stores build [-h] [--store STORE] [--check]\n                         [--format {text,json,yaml}]\nsldb stores build: error: unrecognized arguments: --keep /tmp/pytest-of-scion/pytest-4/test_keep_refuses_a_directory_0/kept\n' = CaptureResult(out='', err='usage: sldb stores build [-h] [--store STORE] [--check]\n                         [--format...res build: error: unrecognized arguments: --keep /tmp/pytest-of-scion/pytest-4/test_keep_refuses_a_directory_0/kept\n').err
+E        +    where CaptureResult(out='', err='usage: sldb stores build [-h] [--store STORE] [--check]\n                         [--format...res build: error: unrecognized arguments: --keep /tmp/pytest-of-scion/pytest-4/test_keep_refuses_a_directory_0/kept\n') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x74f019628550>.readouterr
+
+/tmp/wt-prev/tests/store/test_stores_build.py:495: AssertionError
+________________ test_keep_accepts_an_existing_empty_directory _________________
+
+tmp_path = PosixPath('/tmp/pytest-of-scion/pytest-4/test_keep_accepts_an_existing_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x74f019eebee0>
+capsys = <_pytest.capture.CaptureFixture object at 0x74f019eb0bd0>
+
+    def test_keep_accepts_an_existing_empty_directory(tmp_path, monkeypatch, capsys):
+        root = _widget_project(tmp_path, monkeypatch, capsys, "p")
+        keep = tmp_path / "kept"
+        keep.mkdir()
+>       assert cli_main(["stores", "build", "--check", "--keep", str(keep)]) == 0
+E       AssertionError: assert 2 == 0
+E        +  where 2 = cli_main(['stores', 'build', '--check', '--keep', '/tmp/pytest-of-scion/pytest-4/test_keep_accepts_an_existing_0/kept'])
+
+/tmp/wt-prev/tests/store/test_stores_build.py:503: AssertionError
+----------------------------- Captured stderr call -----------------------------
+usage: sldb stores build [-h] [--store STORE] [--check]
+                         [--format {text,json,yaml}]
+sldb stores build: error: unrecognized arguments: --keep /tmp/pytest-of-scion/pytest-4/test_keep_accepts_an_existing_0/kept
+_______________ test_keep_does_not_change_what_the_check_reports _______________
+
+tmp_path = PosixPath('/tmp/pytest-of-scion/pytest-4/test_keep_does_not_change_what0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x74f019ba7380>
+capsys = <_pytest.capture.CaptureFixture object at 0x74f019714050>
+
+    def test_keep_does_not_change_what_the_check_reports(tmp_path, monkeypatch, capsys):
+        root = _widget_project(tmp_path, monkeypatch, capsys, "p")
+        assert cli_main(["stores", "build", "--check", "--format", "json"]) == 0
+        plain = json.loads(capsys.readouterr().out)
+>       assert cli_main(["stores", "build", "--check", "--format", "json", "--keep", str(tmp_path / "kept")]) == 0
+E       AssertionError: assert 2 == 0
+E        +  where 2 = cli_main(['stores', 'build', '--check', '--format', 'json', '--keep', ...])
+
+/tmp/wt-prev/tests/store/test_stores_build.py:511: AssertionError
+----------------------------- Captured stderr call -----------------------------
+usage: sldb stores build [-h] [--store STORE] [--check]
+                         [--format {text,json,yaml}]
+sldb stores build: error: unrecognized arguments: --keep /tmp/pytest-of-scion/pytest-4/test_keep_does_not_change_what0/kept
+_ test_selfdoc_check_on_the_kept_copy_equals_the_one_after_an_in_place_build[clean] _
+
+tmp_path = PosixPath('/tmp/pytest-of-scion/pytest-4/test_selfdoc_check_on_the_kept0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x74f019eeae40>
+capsys = <_pytest.capture.CaptureFixture object at 0x74f019173f50>
+stale = False
+
+    @pytest.mark.parametrize("stale", [False, True], ids=["clean", "stale-reference"])
+    def test_selfdoc_check_on_the_kept_copy_equals_the_one_after_an_in_place_build(tmp_path, monkeypatch, capsys, stale):
+        """The job's second step moves from `stores build && selfdoc check` (a second build) to
+        `selfdoc check` run inside the copy `--keep` left: same exit and same findings."""
+        in_place = _widget_project(tmp_path, monkeypatch, capsys, "a")
+        kept_from = _widget_project(tmp_path, monkeypatch, capsys, "b")
+        if stale:
+            _stale_reference(in_place)
+            _stale_reference(kept_from)
+        monkeypatch.chdir(in_place)
+        assert cli_main(["stores", "build"]) == 0
+        capsys.readouterr()
+        expected = _selfdoc_check(in_place, monkeypatch, capsys)
+    
+        monkeypatch.chdir(kept_from)
+        keep = tmp_path / "kept"
+        cli_main(["stores", "build", "--check", "--keep", str(keep)])
+        capsys.readouterr()
+>       got = _selfdoc_check(_kept_copy(keep, kept_from), monkeypatch, capsys)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/tmp/wt-prev/tests/store/test_stores_build.py:543: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/tmp/wt-prev/tests/store/test_stores_build.py:447: in _selfdoc_check
+    monkeypatch.chdir(root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <_pytest.monkeypatch.MonkeyPatch object at 0x74f019eeae40>
+path = PosixPath('/tmp/pytest-of-scion/pytest-4/test_selfdoc_check_on_the_kept0/kept/tmp/pytest-of-scion/pytest-4/test_selfdoc_check_on_the_kept0/b')
+
+    def chdir(self, path: str | os.PathLike[str]) -> None:
+        """Change the current working directory to the specified path.
+    
+        :param path:
+            The path to change into.
+        """
+        if self._cwd is None:
+            self._cwd = os.getcwd()
+>       os.chdir(path)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-scion/pytest-4/test_selfdoc_check_on_the_kept0/kept/tmp/pytest-of-scion/pytest-4/test_selfdoc_check_on_the_kept0/b'
+
+/workspace/sldb/.venv/lib/python3.13/site-packages/_pytest/monkeypatch.py:387: FileNotFoundError
+_ test_selfdoc_check_on_the_kept_copy_equals_the_one_after_an_in_place_build[stale-reference] _
+
+tmp_path = PosixPath('/tmp/pytest-of-scion/pytest-4/test_selfdoc_check_on_the_kept1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x74f0191fdcc0>
+capsys = <_pytest.capture.CaptureFixture object at 0x74f01943f750>, stale = True
+
+    @pytest.mark.parametrize("stale", [False, True], ids=["clean", "stale-reference"])
+    def test_selfdoc_check_on_the_kept_copy_equals_the_one_after_an_in_place_build(tmp_path, monkeypatch, capsys, stale):
+        """The job's second step moves from `stores build && selfdoc check` (a second build) to
+        `selfdoc check` run inside the copy `--keep` left: same exit and same findings."""
+        in_place = _widget_project(tmp_path, monkeypatch, capsys, "a")
+        kept_from = _widget_project(tmp_path, monkeypatch, capsys, "b")
+        if stale:
+            _stale_reference(in_place)
+            _stale_reference(kept_from)
+        monkeypatch.chdir(in_place)
+        assert cli_main(["stores", "build"]) == 0
+        capsys.readouterr()
+        expected = _selfdoc_check(in_place, monkeypatch, capsys)
+    
+        monkeypatch.chdir(kept_from)
+        keep = tmp_path / "kept"
+        cli_main(["stores", "build", "--check", "--keep", str(keep)])
+        capsys.readouterr()
+>       got = _selfdoc_check(_kept_copy(keep, kept_from), monkeypatch, capsys)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/tmp/wt-prev/tests/store/test_stores_build.py:543: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/tmp/wt-prev/tests/store/test_stores_build.py:447: in _selfdoc_check
+    monkeypatch.chdir(root)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <_pytest.monkeypatch.MonkeyPatch object at 0x74f0191fdcc0>
+path = PosixPath('/tmp/pytest-of-scion/pytest-4/test_selfdoc_check_on_the_kept1/kept/tmp/pytest-of-scion/pytest-4/test_selfdoc_check_on_the_kept1/b')
+
+    def chdir(self, path: str | os.PathLike[str]) -> None:
+        """Change the current working directory to the specified path.
+    
+        :param path:
+            The path to change into.
+        """
+        if self._cwd is None:
+            self._cwd = os.getcwd()
+>       os.chdir(path)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-scion/pytest-4/test_selfdoc_check_on_the_kept1/kept/tmp/pytest-of-scion/pytest-4/test_selfdoc_check_on_the_kept1/b'
+
+/workspace/sldb/.venv/lib/python3.13/site-packages/_pytest/monkeypatch.py:387: FileNotFoundError
+=============================== warnings summary ===============================
+../../workspace/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /workspace/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/store/test_stores_build.py::test_keep_leaves_the_rebuilt_copy_with_a_usable_store_after_a_passing_check
+FAILED tests/store/test_stores_build.py::test_keep_leaves_the_copy_when_the_check_fails
+FAILED tests/store/test_stores_build.py::test_keep_without_check_is_a_usage_error
+FAILED tests/store/test_stores_build.py::test_keep_refuses_a_directory_that_is_not_empty
+FAILED tests/store/test_stores_build.py::test_keep_accepts_an_existing_empty_directory
+FAILED tests/store/test_stores_build.py::test_keep_does_not_change_what_the_check_reports
+FAILED tests/store/test_stores_build.py::test_selfdoc_check_on_the_kept_copy_equals_the_one_after_an_in_place_build[clean]
+FAILED tests/store/test_stores_build.py::test_selfdoc_check_on_the_kept_copy_equals_the_one_after_an_in_place_build[stale-reference]
+8 failed, 27 passed, 1 warning in 42.04s

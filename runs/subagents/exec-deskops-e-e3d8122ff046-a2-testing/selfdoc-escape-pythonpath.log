@@ -1,0 +1,84 @@
+
+$ (cd /tmp/escape-pythonpath-komk8zsb/project && python -m sldb stores init)
+rc= 0
+Initialized store at /tmp/escape-pythonpath-komk8zsb/project/.sldb
+
+$ (cd /tmp/escape-pythonpath-komk8zsb/project && python -m sldb selfdoc sync --factory ext_factory:build --pythonpath ext --system widget)
+rc= 0
+{
+  "ok": true,
+  "documents": 2,
+  "missing": [],
+  "changed": [],
+  "untracked": [],
+  "stale_indexes": [],
+  "removed": [],
+  "renamed": [],
+  "semantic_gaps": 0,
+  "graph_stale": [],
+  "graph_errors": [],
+  "undeclared": 0,
+  "unexplained": [],
+  "unresolved_references": [],
+  "purpose_conflicts": [],
+  "metadata_errors": [],
+  "written": 2,
+  "errors": [],
+  "alerts": []
+}
+stderr: Registered 'CliCommandDoc'
+Registered 'CliCommandDoc'
+Registered 'SurfaceDoc'
+Registered 'SurfaceDoc'
+
+$ (cd /tmp/escape-pythonpath-komk8zsb/project && python -m sldb stores declare --write)
+rc= 0
+Wrote /tmp/escape-pythonpath-komk8zsb/project/.sldb/store.yaml
+
+$ (cd /tmp/escape-pythonpath-komk8zsb/project && python -m sldb stores build)
+rc= 0
+built: links: 0, models: 0, tracked: 0, generated: 0, undeclared: 0, missing: 0
+
+$ (cd /tmp/escape-pythonpath-komk8zsb/project && python -m sldb selfdoc check --factory ext_factory:build --pythonpath ext --system widget)
+rc= 0
+{
+  "ok": true,
+  "documents": 2,
+  "missing": [],
+  "changed": [],
+  "untracked": [],
+  "stale_indexes": [],
+  "removed": [],
+  "renamed": [],
+  "semantic_gaps": 0,
+  "graph_stale": [],
+  "graph_errors": [],
+  "undeclared": 0,
+  "unexplained": [],
+  "unresolved_references": [],
+  "purpose_conflicts": [],
+  "metadata_errors": [],
+  "written": 0,
+  "errors": [],
+  "alerts": []
+}
+
+$ (cd /tmp/escape-pythonpath-komk8zsb/project && python -m sldb stores build --check --keep /tmp/escape-pythonpath-komk8zsb/kept)
+rc= 0
+PASS: the sources rebuild the store
+  stores check exit: 0
+  kept: /tmp/escape-pythonpath-komk8zsb/kept/tmp/escape-pythonpath-komk8zsb/project
+
+copy: /tmp/escape-pythonpath-komk8zsb/kept/tmp/escape-pythonpath-komk8zsb/project
+copy's ext symlink: True target: ../external
+copy ext exists: False
+
+$ (cd /tmp/escape-pythonpath-komk8zsb/kept/tmp/escape-pythonpath-komk8zsb/project && python -m sldb selfdoc check --factory ext_factory:build --pythonpath ext --system widget)
+rc= 1
+
+stderr: Unexpected: No module named 'ext_factory'
+
+expected parsed: {"alerts": [], "changed": [], "documents": 2, "errors": [], "graph_errors": [], "graph_stale": [], "metadata_errors": [], "missing": [], "ok": true, "purpose_conflicts": [], "removed": [], "renamed": [], "semantic_gaps": 0, "stale_indexes": [], "undeclared": 0, "unexplained": [], "unresolved_references": [], "untracked": [], "written": 0}
+got parsed: null
+equal: False
+BASE: /tmp/escape-pythonpath-komk8zsb
