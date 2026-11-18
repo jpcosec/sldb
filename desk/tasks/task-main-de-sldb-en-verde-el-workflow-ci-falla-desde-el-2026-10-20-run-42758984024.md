@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-10T08:38:07Z'
+  at: '2026-11-18T03:43:26Z'
   authority: generated
   via: save_document_payload
 id: task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024
@@ -12,7 +12,9 @@ tags:
 - artifact:task
 current_node: ritual-execution
 history: []
-references: []
+references:
+- desk/inbox/20261117-231010-suggestion-el-job-store-del-ci-de-sldb-no-termina-stores-build-check-regenera-knowledge-symbols-y-supera-las-6-h-del-runner.md
+- desk/inbox/20261117-232608-suggestion-ci-store-build-check-pasa-en-ci-lo-que-corta-las-6-h-es-el-segundo-stores-build-del-paso-de-referencia-cli.md
 depends_on: []
 pills: []
 files:
@@ -51,7 +53,6 @@ Run 42758984024 (c1f41105). Job test, paso 'Structural gates' (tools/check.sh --
 ## Implementation Path
 
 _Outline the expected implementation route or affected surface._
-
 
 PRECISIONES DE PROMOCIÓN (2026-11-10, coordinador del plan de deskops):
 p1 (método, regla del dueño): por cada fallo, primero se reproduce y se escribe la causa raíz con evidencia (archivo, línea y el commit que lo introdujo, por git log/blame); recién entonces se arregla. Nunca skip, xfail, relajar un gate estructural ni bajar un umbral. Lo que falta clasificar se clasifica: a los 24 archivos sin eje se les da su eje, los 3 modelos sin clasificar entran en el contrato y los grados de dependencia de grafo, notación y núcleo se corrigen. Si un gate está mal (su expectativa quedó vieja), el informe lo prueba y se corrige el gate con su causa escrita.
