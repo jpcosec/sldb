@@ -21,50 +21,21 @@ import io
 import json
 import shutil
 import subprocess
-import sys
-import tempfile
 from pathlib import Path
 from typing import Any
 
 from sldb.api.stores.declared_includes import tracked_rows
-from sldb.api.stores.store_declaration import declared_store, load_declaration
+from sldb.api.stores.store_declaration import load_declaration
 from sldb.api.stores.unread_documents import unread_declared
 from sldb.cli.commands.stores_link_alert import link_missing_alert
-from sldb.cli.output_format import emit
-from sldb.core.finding import Finding, alert, error
+from sldb.core.finding import alert, error
 from sldb.store.io import invalidate_index_cache
 from sldb.store.layout import store_exists
 
 ALWAYS_DERIVED = (".sldb/core/", ".sldb_cache/")
 
 
-def check_command(args: Any) -> int:
-    store, root = declared_store(args.store)
-    keep = getattr(args, "keep", None)
-    if keep:
-        scratch = _keep_directory(Path(keep))
-        if scratch is None:
-            return 2
-        report = {**check_build(store, root, scratch), "kept": str(_copy_path(root, scratch))}
-    else:
-        with tempfile.TemporaryDirectory(prefix="sldb-build-check-") as tmp:
-            report = check_build(store, root, Path(tmp))
-    emit(report, args.format, _summary(report))
-    _report_alerts(report, args.format)
-    return 0 if report["ok"] else 1
-
-
-def _keep_directory(keep: Path) -> Path | None:
-    """`--keep DIR`: DIR must not exist or be empty (the copy stays there, pass or fail)."""
-    keep = keep.resolve()
-    if keep.exists() and (not keep.is_dir() or any(keep.iterdir())):
-        print(f"Error: --keep {keep} is not empty (or not a directory); give a new or empty directory", file=sys.stderr)
-        return None
-    keep.mkdir(parents=True, exist_ok=True)
-    return keep
-
-
-def _copy_path(root: Path, scratch: Path) -> Path:
+def copy_path(root: Path, scratch: Path) -> Path:
     """Where the copy of the project at `root` sits under `scratch`."""
     return scratch.joinpath(*root.resolve().parts[1:])
 
@@ -73,7 +44,7 @@ def check_build(store: Path, root: Path, scratch: Path) -> dict[str, Any]:
     """Build a copy of the sources under `scratch` and compare it with the local store."""
     from sldb.cli.commands.stores_build import build_store
 
-    copy = _prepared_copy(store, root, _copy_path(root, scratch))
+    copy = _prepared_copy(store, root, copy_path(root, scratch))
     built_store = copy / store.relative_to(root)
     built = build_store(built_store, copy)
     integrity, checked = _integrity(built_store)
@@ -85,12 +56,6 @@ def check_build(store: Path, root: Path, scratch: Path) -> dict[str, Any]:
 
 def _behind(difference: str) -> dict:
     return alert("build/local-behind", difference.removeprefix("only rebuilt: "), "the sources rebuild it and the local store does not track it", "sldb stores build").as_dict()
-
-
-def _report_alerts(report: dict, fmt: str) -> None:
-    from sldb.cli import alert_sink
-
-    alert_sink.report([Finding(**a) for a in report["alerts"]], text=fmt not in ("json", "yaml"))
 
 
 def _prepared_copy(store: Path, root: Path, copy: Path) -> Path:
@@ -140,11 +105,3 @@ def _differences(store: Path, root: Path, built_store: Path, copy: Path, generat
     local = {r for r in tracked_rows(store, root) if not r[1].startswith(generated or ("\0",))}
     rebuilt = {r for r in tracked_rows(built_store, copy) if not r[1].startswith(generated or ("\0",))}
     return [f"only local: {r}" for r in sorted(local - rebuilt)] + [f"only rebuilt: {r}" for r in sorted(rebuilt - local)]
-
-
-def _summary(report: dict[str, Any]) -> str:
-    head = "PASS: the sources rebuild the store" if report["ok"] else "FAIL: the sources do not rebuild the store"
-    lines = [head, f"  stores check exit: {report['integrity_exit']}"] + ([f"  kept: {report['kept']}"] if report.get("kept") else []) + [f"  error: [{e['code']}] {e['subject']}: {e['what']}" for e in report["errors"]]
-    lines += [f"  undeclared: {p}" for p in report["undeclared"]] + [f"  declared, no file: {p}" for p in report["missing"]]
-    lines += [f"  {d}" for d in report["differences"][:50]]
-    return "\n".join(lines)

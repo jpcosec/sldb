@@ -40,12 +40,19 @@ def build_store(store: Path, root: Path) -> dict[str, Any]:
 
 def build_command(args: Any) -> int:
     if getattr(args, "keep", None) and not args.check:
-        print("Error: --keep only works with --check", file=sys.stderr)
-        return 2
+        return _keep_without_check()
     if args.check:
-        from sldb.cli.commands.stores_build_check import check_command
-
+        from sldb.cli.commands.stores_build_check_command import check_command
         return check_command(args)
+    return _build_in_place(args)
+
+
+def _keep_without_check() -> int:
+    print("Error: --keep only works with --check", file=sys.stderr)
+    return 2
+
+
+def _build_in_place(args: Any) -> int:
     store, root = declared_store(args.store)
     report = build_store(store, root)
     emit(report, args.format, _summary(report))
