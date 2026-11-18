@@ -1,0 +1,7 @@
+$ bash tools/check.sh --fast            -> rc 0 (núcleo aislado, capas, identidad, ejes, superficie: PASS)
+$ python -m pytest -q -p no:cacheprovider tests/store/test_stores_build.py   -> 35 passed
+$ python -m pytest -q -p no:cacheprovider tests/selfdoc/test_sync.py         -> 5 passed
+$ python -m pytest -q -p no:cacheprovider tests/selfdoc/test_preflight.py    -> 4 passed
+$ sldb selfdoc check (repo real, tras selfdoc sync)                          -> ok: true, changed: []
+Entorno: venv del repo roto en el contenedor (ruta /home/robocop); se usó el python de ~/.local/share/uv/tools/structuredlanguagedb con pytest puro-python enlazado vía PYTHONPATH. TMPDIR=/tmp.
+Los tests nuevos fallaron antes de implementar (7 failed: la opción no existía).
