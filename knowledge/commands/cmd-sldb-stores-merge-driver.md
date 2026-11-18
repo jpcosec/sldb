@@ -1,10 +1,15 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-18T04:51:30Z'
+  authority: generated
+  via: save_document_payload
 id: cmd-sldb-stores-merge-driver
 system: sldb
 command_path: stores merge-driver
 synopsis: Git merge driver for .sldb/ files; --install registers it in this clone.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#stores merge-driver; contract-sha256:e2e70da81e7785cd28acffeadfde4eeaa20cdb79f786bc5f1cc65a06747b72a9
+provenance: parser:sldb.cli.parser:build_parser#stores merge-driver; contract-sha256:6e11246f3f48d8a8dbab79101487559f5c3648e25285716facbb1a0741ce8570
 ---
 
 # stores merge-driver
@@ -43,7 +48,7 @@ Not documented.
       "names": [
         "files"
       ],
-      "required": true,
+      "required": false,
       "default": "null",
       "choices": null,
       "nargs": "*",

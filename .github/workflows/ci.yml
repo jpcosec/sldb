@@ -63,9 +63,11 @@ jobs:
         working-directory: pron
         run: make world
       - name: Rebuild sldb's store from its sources
+        # the one full build of the job: --keep leaves the rebuilt copy for the next step
         working-directory: sldb
-        run: sldb stores build --check
+        run: sldb stores build --check --keep "$RUNNER_TEMP/sldb-built"
       - name: Check generated CLI reference
-        # needs the store built: the reference documents are tracked in it
+        # no second build: selfdoc check reads the copy the step above kept (it sits under
+        # the keep directory at the project's own absolute path, and holds the tracked reference documents)
         working-directory: sldb
-        run: sldb stores build && sldb selfdoc check
+        run: cd "$RUNNER_TEMP/sldb-built$PWD" && sldb selfdoc check

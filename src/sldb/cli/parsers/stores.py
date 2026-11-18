@@ -87,6 +87,7 @@ def _build(s):
     b = s.add_parser("build", help="Rebuild the store from .sldb/store.yaml, the tracked Markdown and the models.")
     b.add_argument("--store", help="Store path")
     b.add_argument("--check", action="store_true", help="Rebuild a scratch copy of the sources and compare, writing nothing here")
+    b.add_argument("--keep", metavar="DIR", help="With --check: build the copy in DIR (new or empty) and leave it there, pass or fail, for a later step to read (sldb selfdoc check) without a second build")
     b.add_argument("--format", choices=("text", "json", "yaml"), default="text")
 
 def _scaffold(s):

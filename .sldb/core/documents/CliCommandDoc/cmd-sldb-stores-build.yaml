@@ -1,7 +1,7 @@
 name: cmd-sldb-stores-build
 path: knowledge/commands/cmd-sldb-stores-build.md
-source_hash: 946f58b35bd5eb1bff92e91425bbb6a4499a6b47343dc045217325fbba0f1747
-content_hash: e89597ec7b8619b0193732549f1509f2f89aa9f8ad5bb6be627455a07ee382a8
+source_hash: 4028421467202ee26aeda93dc10445195c194d20baa5de72c69a9ac0cbda38ef
+content_hash: 18efd79f1faa5a43537966bc1ba2565f6d83ec00150a4e03a770998aff51428e
 field_hashes:
   id: ecddcb82232149d03eacbeea61ef66197dbeecc088c615ecc7d94b75d8df3f7a
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,10 +9,10 @@ field_hashes:
   synopsis: 956523cac6bd6069aa51ce638ec7a2bd1f1649c4004777fdeb307933e83bd424
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: 5a6546b7917430f2a3d2634e914310e0e092248eaa802fab06a89c55f3077a8c
+  arguments: be9d44a779c6844d71d61b9e1451029219c36b2f8130a6a9589e13b7560bb3a1
   usage: 96164fe11066ef0224cd80c52ba3bb9931b2cc309b4a3465ee5f12c71c2e8ba3
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 637a8e3c32ef9e075caa44b3da76f4fd8793b447d54e97e7c80d5afb579cd861
+  provenance: 85508824149da256ca7f89e75dc27ef2a8d205cf4df3258932a3ae994f74d44c
 semantic_tags:
 - representation.markdown
 - source.document.markdown
@@ -20,6 +20,6 @@ semantic_tags:
 - workspace.knowledge.commands
 provenance:
   by: agent
-  at: '2026-11-16T21:10:04Z'
+  at: '2026-11-18T04:50:36Z'
   authority: generated
   via: save_document_payload

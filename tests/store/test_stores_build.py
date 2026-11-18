@@ -405,3 +405,142 @@ def test_declare_keeps_a_glob_whose_generated_files_are_not_on_disk_yet(tmp_path
     shutil.rmtree(root / "gen")
     assert cli_main(["stores", "declare", "--store", str(store), "--write"]) == 0
     assert load_declaration(store).include == [{"model": "TaskDoc", "glob": "gen/*.md"}, {"model": "TaskDoc", "paths": ["task.md"]}]
+
+
+# --- `stores build --check --keep DIR`: one build that verifies and leaves the rebuilt copy ---
+
+FACTORY = (
+    "import argparse\nDEFAULT = 3\n"
+    "def build():\n"
+    "    parser = argparse.ArgumentParser(prog='widget')\n"
+    "    sub = parser.add_subparsers(dest='command')\n"
+    "    run = sub.add_parser('run', help='Run a widget.')\n"
+    "    run.add_argument('--limit', type=int, default=DEFAULT)\n"
+    "    return parser\n"
+)
+SELFDOC = ["--factory", "selfdoc_test_factory:build", "--system", "widget"]
+
+
+def _git(root, *args):
+    subprocess.run(["git", "-c", "user.email=t@t", "-c", "user.name=t", *args], cwd=root, check=True, capture_output=True)
+
+
+def _widget_project(tmp_path, monkeypatch, capsys, name):
+    """A small project whose declared store tracks selfdoc reference documents, committed in git."""
+    root = tmp_path / name
+    root.mkdir()
+    monkeypatch.chdir(root)
+    (root / "selfdoc_test_factory.py").write_text(FACTORY, encoding="utf-8")
+    (root / ".gitignore").write_text(".sldb_cache/\n__pycache__/\n", encoding="utf-8")
+    sys.modules.pop("selfdoc_test_factory", None)
+    assert cli_main(["stores", "init"]) == 0
+    assert cli_main(["selfdoc", "sync", *SELFDOC]) == 0
+    assert cli_main(["stores", "declare", "--write"]) == 0
+    _git(root, "init", "-q")
+    _git(root, "add", "-A")
+    _git(root, "commit", "-qm", "project")
+    capsys.readouterr()
+    return root
+
+
+def _selfdoc_check(root, monkeypatch, capsys):
+    monkeypatch.chdir(root)
+    sys.modules.pop("selfdoc_test_factory", None)
+    code = cli_main(["selfdoc", "check", *SELFDOC])
+    out = capsys.readouterr().out
+    return code, json.loads(out[: out.rindex("}") + 1]) if "{" in out else None
+
+
+def _kept_copy(keep, root):
+    return keep.joinpath(*root.resolve().parts[1:])
+
+
+def test_keep_leaves_the_rebuilt_copy_with_a_usable_store_after_a_passing_check(tmp_path, monkeypatch, capsys):
+    root = _widget_project(tmp_path, monkeypatch, capsys, "p")
+    keep = tmp_path / "kept"
+    assert cli_main(["stores", "build", "--check", "--keep", str(keep)]) == 0
+    capsys.readouterr()
+    copy = _kept_copy(keep, root)
+    assert (copy / ".sldb" / "store.yaml").is_file()
+    assert cli_main(["stores", "check", "--store", str(copy / ".sldb")]) == 0
+
+
+def test_keep_leaves_the_copy_when_the_check_fails(tmp_path, monkeypatch, capsys):
+    root = _widget_project(tmp_path, monkeypatch, capsys, "p")
+    declaration = load_declaration(root / ".sldb")
+    declaration.include = []  # the tracked documents are now undeclared: the check fails
+    save_declaration(root / ".sldb", declaration)
+    _git(root, "add", "-A")
+    _git(root, "commit", "-qm", "undeclare")
+    keep = tmp_path / "kept"
+    assert cli_main(["stores", "build", "--check", "--keep", str(keep)]) == 1
+    capsys.readouterr()
+    assert (_kept_copy(keep, root) / ".sldb" / "store.yaml").is_file()
+
+
+def test_keep_without_check_is_a_usage_error(tmp_path, monkeypatch, capsys):
+    root = _widget_project(tmp_path, monkeypatch, capsys, "p")
+    keep = tmp_path / "kept"
+    assert cli_main(["stores", "build", "--keep", str(keep)]) != 0
+    assert not keep.exists()
+    assert "--keep only works with --check" in capsys.readouterr().err
+
+
+def test_keep_refuses_a_directory_that_is_not_empty(tmp_path, monkeypatch, capsys):
+    _widget_project(tmp_path, monkeypatch, capsys, "p")
+    keep = tmp_path / "kept"
+    keep.mkdir()
+    (keep / "stale.txt").write_text("x", encoding="utf-8")
+    assert cli_main(["stores", "build", "--check", "--keep", str(keep)]) != 0
+    assert "not empty" in capsys.readouterr().err
+    assert [p.name for p in keep.iterdir()] == ["stale.txt"]
+
+
+def test_keep_accepts_an_existing_empty_directory(tmp_path, monkeypatch, capsys):
+    root = _widget_project(tmp_path, monkeypatch, capsys, "p")
+    keep = tmp_path / "kept"
+    keep.mkdir()
+    assert cli_main(["stores", "build", "--check", "--keep", str(keep)]) == 0
+    assert (_kept_copy(keep, root) / ".sldb" / "store.yaml").is_file()
+
+
+def test_keep_does_not_change_what_the_check_reports(tmp_path, monkeypatch, capsys):
+    root = _widget_project(tmp_path, monkeypatch, capsys, "p")
+    assert cli_main(["stores", "build", "--check", "--format", "json"]) == 0
+    plain = json.loads(capsys.readouterr().out)
+    assert cli_main(["stores", "build", "--check", "--format", "json", "--keep", str(tmp_path / "kept")]) == 0
+    kept = json.loads(capsys.readouterr().out)
+    assert kept.pop("kept") == str(_kept_copy(tmp_path / "kept", root))
+    assert kept == plain
+
+
+def _stale_reference(root):
+    """The CLI reference document of `widget run` records a default the parser no longer has."""
+    path = root / "knowledge" / "commands" / "cmd-widget-run.md"
+    path.write_text(path.read_text(encoding="utf-8").replace('"default": "3"', '"default": "9"'), encoding="utf-8")
+    _git(root, "add", "-A")
+    _git(root, "commit", "-qm", "stale reference")
+
+
+@pytest.mark.parametrize("stale", [False, True], ids=["clean", "stale-reference"])
+def test_selfdoc_check_on_the_kept_copy_equals_the_one_after_an_in_place_build(tmp_path, monkeypatch, capsys, stale):
+    """The job's second step moves from `stores build && selfdoc check` (a second build) to
+    `selfdoc check` run inside the copy `--keep` left: same exit and same findings."""
+    in_place = _widget_project(tmp_path, monkeypatch, capsys, "a")
+    kept_from = _widget_project(tmp_path, monkeypatch, capsys, "b")
+    if stale:
+        _stale_reference(in_place)
+        _stale_reference(kept_from)
+    monkeypatch.chdir(in_place)
+    assert cli_main(["stores", "build"]) == 0
+    capsys.readouterr()
+    expected = _selfdoc_check(in_place, monkeypatch, capsys)
+
+    monkeypatch.chdir(kept_from)
+    keep = tmp_path / "kept"
+    cli_main(["stores", "build", "--check", "--keep", str(keep)])
+    capsys.readouterr()
+    got = _selfdoc_check(_kept_copy(keep, kept_from), monkeypatch, capsys)
+
+    assert got == expected
+    assert (got[1]["changed"] != []) is stale

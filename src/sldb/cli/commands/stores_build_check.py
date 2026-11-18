@@ -8,6 +8,10 @@ fails when the build fails, the built store does not pass `stores check`, a trac
 is not declared, or what the copy tracks (model, path, name) differs from the local store. A
 declared link whose store is absent (a sibling repository not checked out) is an alert that
 names the link and its path, not a failure.
+
+`--keep DIR` builds the copy in DIR (new or empty) instead of a temporary directory and leaves it there,
+pass or fail, so a later step (`sldb selfdoc check`) reads the rebuilt store without a second build.
+The copy is at DIR plus the project's absolute path; the report's `kept` names it. The verdict is the same.
 """
 
 from __future__ import annotations
@@ -17,6 +21,7 @@ import io
 import json
 import shutil
 import subprocess
+import sys
 import tempfile
 from pathlib import Path
 from typing import Any
@@ -35,18 +40,40 @@ ALWAYS_DERIVED = (".sldb/core/", ".sldb_cache/")
 
 def check_command(args: Any) -> int:
     store, root = declared_store(args.store)
-    with tempfile.TemporaryDirectory(prefix="sldb-build-check-") as scratch:
-        report = check_build(store, root, Path(scratch))
+    keep = getattr(args, "keep", None)
+    if keep:
+        scratch = _keep_directory(Path(keep))
+        if scratch is None:
+            return 2
+        report = {**check_build(store, root, scratch), "kept": str(_copy_path(root, scratch))}
+    else:
+        with tempfile.TemporaryDirectory(prefix="sldb-build-check-") as tmp:
+            report = check_build(store, root, Path(tmp))
     emit(report, args.format, _summary(report))
     _report_alerts(report, args.format)
     return 0 if report["ok"] else 1
+
+
+def _keep_directory(keep: Path) -> Path | None:
+    """`--keep DIR`: DIR must not exist or be empty (the copy stays there, pass or fail)."""
+    keep = keep.resolve()
+    if keep.exists() and (not keep.is_dir() or any(keep.iterdir())):
+        print(f"Error: --keep {keep} is not empty (or not a directory); give a new or empty directory", file=sys.stderr)
+        return None
+    keep.mkdir(parents=True, exist_ok=True)
+    return keep
+
+
+def _copy_path(root: Path, scratch: Path) -> Path:
+    """Where the copy of the project at `root` sits under `scratch`."""
+    return scratch.joinpath(*root.resolve().parts[1:])
 
 
 def check_build(store: Path, root: Path, scratch: Path) -> dict[str, Any]:
     """Build a copy of the sources under `scratch` and compare it with the local store."""
     from sldb.cli.commands.stores_build import build_store
 
-    copy = _prepared_copy(store, root, scratch.joinpath(*root.resolve().parts[1:]))
+    copy = _prepared_copy(store, root, _copy_path(root, scratch))
     built_store = copy / store.relative_to(root)
     built = build_store(built_store, copy)
     integrity, checked = _integrity(built_store)
@@ -117,7 +144,7 @@ def _differences(store: Path, root: Path, built_store: Path, copy: Path, generat
 
 def _summary(report: dict[str, Any]) -> str:
     head = "PASS: the sources rebuild the store" if report["ok"] else "FAIL: the sources do not rebuild the store"
-    lines = [head, f"  stores check exit: {report['integrity_exit']}"] + [f"  error: [{e['code']}] {e['subject']}: {e['what']}" for e in report["errors"]]
+    lines = [head, f"  stores check exit: {report['integrity_exit']}"] + ([f"  kept: {report['kept']}"] if report.get("kept") else []) + [f"  error: [{e['code']}] {e['subject']}: {e['what']}" for e in report["errors"]]
     lines += [f"  undeclared: {p}" for p in report["undeclared"]] + [f"  declared, no file: {p}" for p in report["missing"]]
     lines += [f"  {d}" for d in report["differences"][:50]]
     return "\n".join(lines)

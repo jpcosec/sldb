@@ -4,11 +4,12 @@
 makes the store match the declaration: links, models, predicates, generators (such as
 `selfdoc python-sync`), the tracked files, then the indexes. `build --check` does it in a
 scratch copy of the sources and fails when that copy is not a valid store, or when what it
-tracks differs from the local store.
+tracks differs from the local store. `--keep DIR` leaves that copy in DIR.
 """
 
 from __future__ import annotations
 
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -38,6 +39,9 @@ def build_store(store: Path, root: Path) -> dict[str, Any]:
 
 
 def build_command(args: Any) -> int:
+    if getattr(args, "keep", None) and not args.check:
+        print("Error: --keep only works with --check", file=sys.stderr)
+        return 2
     if args.check:
         from sldb.cli.commands.stores_build_check import check_command
 

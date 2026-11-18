@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T21:10:04Z'
+  at: '2026-11-18T04:50:36Z'
   authority: generated
   via: save_document_payload
 id: cmd-sldb-stores-build
@@ -9,7 +9,7 @@ system: sldb
 command_path: stores build
 synopsis: Rebuild the store from .sldb/store.yaml, the tracked Markdown and the models.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#stores build; contract-sha256:17ec9bef6dade13079f77c29ce3befe2425d7e0167fc16b1a3f933e3545fa93e
+provenance: parser:sldb.cli.parser:build_parser#stores build; contract-sha256:b6f1d432dcd3c9d6f0212e1ad6fe098ca213b5526f8feca565bc15813b1abdef
 ---
 
 # stores build
@@ -69,6 +69,19 @@ Not documented.
       "action": "argparse._StoreTrueAction",
       "const": "true",
       "help": "Rebuild a scratch copy of the sources and compare, writing nothing here"
+    },
+    {
+      "names": [
+        "--keep"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "With --check: build the copy in DIR (new or empty) and leave it there, pass or fail, for a later step to read (sldb selfdoc check) without a second build"
     },
     {
       "names": [
