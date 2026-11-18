@@ -2201,6 +2201,8 @@ include:
     name: review-task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024-evidence-atom-1
   - path: desk/reviews/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024/evidence-materialization-2.md
     name: review-task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024-evidence-materialization-2
+  - path: desk/reviews/task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada/preflight-1.md
+    name: review-task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada-preflight-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

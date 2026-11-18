@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-18T23:14:20Z'
+  at: '2026-11-18T23:17:22Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada
 status: draft
 summary: ''
@@ -46,7 +46,7 @@ Dentro: el código de undo_changes de sldb mcp y la pila de lotes inversos de ap
 
 _Outline the expected implementation route or affected surface._
 
-p1: reproducir los dos defectos en tests del repo, primero fallando: (a) un lote que se deshace después de un cambio ajeno revertido al contenido esperado; (b) dos lotes encadenados y steps=2, que hoy escriben a medias. Basarse en IR/tests/test_mcp_undo.py y en undo-run3.log, citando archivo y línea del guard y de la pila. p2: el guard compara un hash del contenido sin procedencia (reutilizar la función de sldb que ya calcula el hash de contenido si existe; si no, una sola función nueva). p3: steps=N valida todos los pasos en memoria, encadenando el estado esperado, antes de la primera escritura, y escribe bajo el cerrojo del store. p4: documentar el contrato de undo ('mismo contenido salvo procedencia') donde está la doc de undo_changes, y CHANGELOG. p5: avisar a IR por deskops message send con el commit, para que IR04b siga.
+Ubicaciones (sldb en el HEAD local al despachar): la pila es UndoStack en src/sldb/mcp/write/undo.py (undo_changes y _undo_last, con rejected('stale', ...) en la línea 48). El guard del inverso lo pone _undo en src/sldb/api/documents/batch_inverse.py (líneas 51-52: undo['expected_source_hash'] = source_hash del documento rastreado, que incluye la procedencia). apply_batch en src/sldb/api/documents/apply_batch.py chequea los guards y escribe bajo store_lock(location.store_path, wait=True) (línea 55), todo o nada. Hoy el docstring de UndoStack.undo_changes documenta a propósito el comportamiento parcial ('what was undone stays undone'); esta tarea lo cambia a atómico. La evidencia de IR está en /mnt/ssd/proyectos/SLDB_1/IR/runs/subagents/deskops-e-674fcb14989b-a2/ (result-summary.md, undo-run3.log) y /mnt/ssd/proyectos/SLDB_1/IR/tests/test_mcp_undo.py (sin commit en IR). p1: dos tests nuevos en tests/mcp que fallen antes: (a) inverso guardado, cambio ajeno por api.apply_batch y reversión al contenido anterior, y después undo_changes debe aplicar (hoy da stale); (b) dos lotes donde el segundo edita un documento del primero; undo_changes(steps=2) con un rechazo forzado en el más viejo debe responder written: False y dejar el store y la pila como estaban. p2 (guard): el guard del inverso compara el contenido sin el bloque de procedencia. No hay hoy una función de hash de contenido de documento (api/views/view_revision.content_hash es de vistas), así que se crea una sola en src/sldb/api/documents (hash del payload sin el bloque sldb de procedencia); el inverso guarda ese valor y apply_batch lo chequea como guard nuevo ('expected_content_hash'), sin cambiar expected_source_hash para los demás llamadores. p3 (steps=N): encadenar los N inversos, del más nuevo al más viejo, en una sola llamada a apply_batch, que ya es todo o nada bajo un cerrojo, y sacarlos de la pila solo si se aplicó. Con el guard de contenido, cada inverso más viejo espera el contenido que deja el más nuevo. p4: docs/architecture/mcp.md (la sección de undo) y el docstring de undo_changes documentan el contrato 'mismo contenido salvo procedencia' y el todo o nada de steps; CHANGELOG. p5: el ejecutor corre solo tests/mcp y los tests de los archivos que toque; la suite completa (pytest -n 4 y sldb selfdoc check) la corre integrate. p6: después de su commit con Task-Id, avisa a IR con: deskops message send --root /mnt/ssd/proyectos/SLDB_1/sldb --to IR --kind suggestion --title 'sldb: undo_changes con guard de contenido y steps atómico (IR04b)' '<sha corto del commit, qué cambió y el contrato>'.
 
 ## Validation
 
