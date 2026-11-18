@@ -26,3 +26,7 @@ knowledge/symbols/
 .kgdb/
 
 .DS_Store
+
+# cola del host y logs de los post-hooks de deskops (salida de ejecución, no se versiona)
+runs/queue/
+runs/hooks/
