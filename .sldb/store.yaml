@@ -340,6 +340,7 @@ include:
   - desk/inbox/20261117-080724-suggestion-project-graph-de-deskops-destinos-de-h1-que-declaredfiletargets-no-puede-declarar-y-closed-sin-cuerpo-h2.md
   - desk/inbox/20261117-092921-suggestion-procesos-hu-rfanos-de-test-second-process-with-the-s-apply-batch-con-hold-en-dev-shm.md
   - desk/inbox/20261117-135338-suggestion-ir04b-undo-changes-de-sldb-mcp-falla-tras-re-sellar-procedencia-stale-imposible-de-satisfacer-steps-2-escribe-a-medias.md
+  - desk/inbox/20261117-231010-suggestion-el-job-store-del-ci-de-sldb-no-termina-stores-build-check-regenera-knowledge-symbols-y-supera-las-6-h-del-runner.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc

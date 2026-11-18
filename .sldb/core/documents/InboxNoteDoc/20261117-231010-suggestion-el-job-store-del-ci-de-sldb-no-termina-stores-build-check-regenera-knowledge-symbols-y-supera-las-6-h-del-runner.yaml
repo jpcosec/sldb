@@ -1,0 +1,19 @@
+name: 20261117-231010-suggestion-el-job-store-del-ci-de-sldb-no-termina-stores-build-check-regenera-knowledge-symbols-y-supera-las-6-h-del-runner
+path: desk/inbox/20261117-231010-suggestion-el-job-store-del-ci-de-sldb-no-termina-stores-build-check-regenera-knowledge-symbols-y-supera-las-6-h-del-runner.md
+source_hash: 6ba9fb1cede88a361eb54090b029f4456562cb4a97cae5c306255582e4ee0f23
+content_hash: ab0ae16e9e251e7420c9e4ec61ff3f4f9207aebf560c03c61888f47d6f5eec11
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 91c0ce65010647083043353ebb589d823ea91e0f643d45b57e682c53d5acb512
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: 641fd3e7450181538f53f689a0881dbe7ab3c45c7bb1b95b7582a10130e5a457
+  body: 4195f539c46fbe6389e1c7f28759715a20257d2d9598030755a18ab89ce0ac9d
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null
