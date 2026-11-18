@@ -1,31 +1,35 @@
+Task: task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada
+Title: undo_changes de sldb mcp: el guard stale compara contenido sin procedencia y steps=N no escribe nada si rechaza un paso
+Status: draft
+Current node: ritual-execution
+Task type: task.debug
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-18T23:45:41Z'
+  at: '2026-11-18T23:17:22Z'
   authority: generated
   via: save_document_payload
 id: task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada
-status: active
+status: draft
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-testing
-history:
-- task_activates
-references:
-- src/sldb/mcp/write/undo.py
-- src/sldb/api/documents/apply_batch.py
-- tests/mcp/test_write_tools.py
-- 389868dc8ff40f87c7700175ed1f76f15cf22fc6
+current_node: ritual-execution
+history: []
+references: []
 depends_on: []
 pills: []
 files: []
 task_type: task.debug
 inherits_from: []
 inherit_acceptance_context: false
-atoms:
-- atom-undo-changes-de-sldb-mcp-restaura-el-mismo-contenido-salvo-procedencia-y-deshace-n-lotes-todo-o-nada
+atoms: []
 ---
 
 # undo_changes de sldb mcp: el guard stale compara contenido sin procedencia y steps=N no escribe nada si rechaza un paso
@@ -65,3 +69,12 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 Los dos tests nuevos fallan antes y pasan después, la suite completa de sldb pasa (la corre integrate) e IR recibió la nota con el commit.
+
+## Entrega del ejecutor
+
+Al terminar, commitea solo los archivos que cambiaste para la tarea, nombrados uno por uno (los mismos que listas en result-summary.md):
+
+    git add <ruta> <ruta> ...
+    git commit -m "<resumen>" -m "Task-Id: task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada"
+
+Nunca uses `git add -A`, `git add -u` sobre todo el arbol ni `git stash`: puede haber trabajo ajeno sin commitear. No hagas push. Recien despues ejecuta `deskops advance task`.

@@ -1,0 +1,53 @@
+---
+sldb:
+  by: agent
+  at: '2026-11-18T23:44:12Z'
+  authority: generated
+  via: create_document
+# review-<task>-<kind>-<n>
+id: review-task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada-evidence-tests-1
+# preflight | bundle | reproduction | goldens | owner | node | evidence
+kind: evidence
+# kind evidence only: tests | commit | atom | materialization | document | external
+fact: tests
+# kind evidence only: what the producer verified, one item per line
+value: tests/mcp/test_write_tools.py
+# doc:<Model>:<id> or empty for reviews of plan nodes
+subject: doc:TaskDebugDoc:task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada@sha256:03971e586400cdd5311cd85f5b50174bef860bfd7af2e1bd7d3723dd4c9f7b37
+# <plan>/dag.yaml#node:<ID>; empty when subject names a document
+subject_ref: ''
+# RuntimeProfileDoc name or "human"
+engine: deskops-closeout
+actor: sldb
+# Run evidence directory under runs/, relative to the project root
+run_dir: ''
+input_sha256: b442df5f47b56c24ded912ecad604c936f54cae6ffeafb1a906a11f3fae445fc
+# preflight/bundle: SHA-256 of the input with the TaskDoc replaced by its __contract__ digest
+contract_sha256: ''
+output_sha256: ''
+# pending | accepted | rejected | incomplete
+verdict: accepted
+reason: 'verified: tests tests/mcp/test_write_tools.py'
+# ISO 8601 timestamp
+created_at: '2026-11-18T23:44:09.076838+00:00'
+# ISO 8601 timestamp, empty while pending
+disposed_at: '2026-11-18T23:44:09.076838+00:00'
+disposed_by: sldb
+# e.g. workspace:desk
+tags:
+- workspace:desk
+---
+
+# Closeout evidence tests of task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada
+
+## Summary
+
+_Summarize what was reviewed and the evidence this receipt records._
+
+closeout verify checked tests: tests/mcp/test_write_tools.py
+
+## Disposition
+
+_Record the verdict rationale and who disposed of the review._
+
+Verdict accepted: verified: tests tests/mcp/test_write_tools.py

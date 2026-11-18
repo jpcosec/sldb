@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-18T23:14:31Z'
+  at: '2026-11-18T23:49:30Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -82,7 +82,6 @@ tasks:
 - desk/tasks/task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for.md
 - desk/tasks/task-declaredfiletargets-lee-campos-lista-y-no-aplica-las-exclusiones-a-lo-que-se-declara-para-que-un-des.md
 - desk/tasks/task-baja-prioridad-canonizar-los-nombres-de-llamada-ts-js-cuya-cadena-empieza-en-un-array-binario-new-o.md
-- desk/tasks/task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -199,4 +198,3 @@ _Generated from the task references above._
 - docs track --reindex re-indexa un documento ya trackeado validándolo, sin saltar el round-trip como --force [draft] - docs track --reindex (y track_document_file(..., reindex=True)) re-indexa desde el archivo un documento ya trackeado en la misma ruta, como --force, pero corre las mismas validaciones que un track normal: si el archivo no valida falla con el error de validación y deja el índice como estaba. --force no cambia.
 - DeclaredFileTargets lee campos lista y no aplica las exclusiones a lo que se declara, para que un destino que existe no cuente como faltante [draft] - Un destino declarado por DeclaredFileTargets, venga de un campo escalar o de un campo lista, que es un archivo existente del proyecto se vuelve nodo aunque esté bajo una exclusión; y hay una forma declarativa de que las menciones de LineMentions a archivos existentes del proyecto no cuenten como faltantes.
 - Baja prioridad: canonizar los nombres de llamada TS/JS cuya cadena empieza en un array, binario, new o literal (hoy canonical: false) [draft] - Los nombres de llamada que hoy salen con canonical: false tienen una forma canónica definida y documentada (por ejemplo marcadores fijos [...] para arrays, (expr) para binarios, Clase() para new y (lit) para literales) y salen con canonical: true y en la relación calls si nombran un símbolo.
-- undo_changes de sldb mcp: el guard stale compara contenido sin procedencia y steps=N no escribe nada si rechaza un paso [draft] - (1) El contrato de undo queda documentado como 'mismo contenido salvo procedencia': deshacer es una escritura nueva y re-sella sldb.at, via y los hashes derivados. (2) El guard stale de undo compara el contenido del documento sin el bloque de procedencia, así que un documento que volvió al contenido esperado ya no queda stale. (3) undo_changes(steps=N) valida la cadena entera antes de escribir: cada paso se compara contra el estado que dejaría el paso anterior y, si alguno se rechaza, no se escribe nada (written: False) y la pila queda intacta.

@@ -1,0 +1,5 @@
+Missing graph references:
+- missing_declared_target: task:task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada -> test_file:tests/test_mcp_undo.py
+  provenance: desk/tasks/task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada.md:line:31:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+1 missing, 0 informational

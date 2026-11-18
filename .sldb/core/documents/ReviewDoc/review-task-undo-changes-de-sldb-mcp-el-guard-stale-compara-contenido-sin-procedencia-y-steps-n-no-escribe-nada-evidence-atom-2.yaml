@@ -1,0 +1,37 @@
+name: review-task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada-evidence-atom-2
+path: desk/reviews/task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada/evidence-atom-2.md
+source_hash: 9b33e6a7ed87f1e1be3eaaef8d0ffd67d8bd9a3e216ba56354728f2b3032b50a
+content_hash: 173ba14af487536b307cfefce4e0b34a795d93405c1baa50db037b4e7b3b37ca
+field_hashes:
+  id: 44fd2eb9950fce8361de45fc1a6ecd9f905f9b2eb3eed7eec26a99bcea2a7036
+  title: 69db2bdc2824a2c3e8bc8e78a83b8450a6695450a0ffc022e4eae4b81e114824
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: c833c202b5b45ac10909767bb422916db457ddd48188a4ee591f0618893df0ba
+  value: 74d4f2e16b57e78e5c8231b54d341a072334c4a23474f58a86dfba1cb149253e
+  subject: 30caa064b71200fd52e4b9732500f78ca4eaecce17b03563818689e916de16c4
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 312cb8138e5d6ffe0322708190ee8983a5422a47f820049f6f60854b8e186939
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: a82930792e899ed67d0d71450c737ba3d2f01cceb3aace1891926a446e5a6c34
+  created_at: a810a89118ea728e058b066f63ba3804d69c85ba681f7e794106884173d3da05
+  disposed_at: a810a89118ea728e058b066f63ba3804d69c85ba681f7e794106884173d3da05
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 9c3c72b0954bc90733b53d82a29cad16195d5ca06537e938c06a2c7025d68937
+  disposition: eee5fc828713ac70124beb3273be689cd399adbee580612b30485bf24a8add1e
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-18T23:46:13Z'
+  authority: generated
+  via: create_document

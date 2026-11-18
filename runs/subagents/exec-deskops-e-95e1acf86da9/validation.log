@@ -1,0 +1,3 @@
+python -m pytest -q -p no:cacheprovider tests/mcp -> 59 passed, 1 xfailed (exit 0)
+python -m pytest -q -p no:cacheprovider tests/api/test_transaction.py test_write_paths_validate.py test_on_write_entering.py test_apply_batch_lock.py -> 31 passed (exit 0)
+New undo tests fail with the old src (3 failed) and pass with the change.
