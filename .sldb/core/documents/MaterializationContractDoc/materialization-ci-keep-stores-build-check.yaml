@@ -1,0 +1,25 @@
+name: materialization-ci-keep-stores-build-check
+path: desk/materializations/materialization-ci-keep-stores-build-check.md
+source_hash: 07a5883f7b5946530f1dcd9591a4cc647c7eddbeddae053a53f17eea17e97649
+content_hash: c77872dcd7f579bdcc09f05aa83a6da4ba90cbf81d036404e81d68cc4e1e6283
+field_hashes:
+  id: 90b74ed67484eddda557948aaf8af18d8d6001f32844edcece59eca86b46c55f
+  title: 992382dc7e36a178ae7f96ff67019ed21791b13bdfe3c8299d230fcb51558199
+  source_atoms: 473768aa6a34077068533902b94e55f436f405921cb4b61c0e4c40203491806d
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 43e8fc11b51cdb9a01858078c726f2a594cc09e64f2161f7d9ab1a8cefd91a6b
+  intent: 7a001381fb80fcb6524b70915c43b767b04d4513053a35ab2a532e5e64857e93
+  validation: 9ff99f9d83e932e4d37848fce7e972912618c28cb77301102153ae8872de6a5b
+  tags: b139c39af89f646f6ddbd34b9faebeb0b1f37fbd0af0ffb76c8aa85aa8faf865
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:ci
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-18T08:07:38Z'
+  authority: generated
+  via: create_document

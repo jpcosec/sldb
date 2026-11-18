@@ -1,0 +1,23 @@
+name: atom-stores-build-check-keep-dir-conserva-la-copia-verificada-y-el-job-store-del-ci-construye-el-store-un
+path: desk/atoms/atom-stores-build-check-keep-dir-conserva-la-copia-verificada-y-el-job-store-del-ci-construye-el-store-un.md
+source_hash: 4f3020232fc6e598ad247b6809648444e128348ec34980aaaa3f5a888bc29ac4
+content_hash: e060fd7b6d477ba45407f74d65994c3442045b71729bbc9fbacc4e0ab09ce755
+field_hashes:
+  id: f18a9ce6ad2a215675880e87d3fe110bccf006a92ea21b080ed08dc866de97c8
+  title: b5b925904d04453060a604b47123c85358fcc03743c78db915ac5db46f158d39
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: b8f3231ef627ed70eff6485d06b316ba082829c5af98528010dcf0370d0fab54
+  tags: e41be9a6efa05dab37eb241d5f06d8e3099aaf77629703a1958b17be7fd88d41
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:ci
+- topic:stores
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-18T08:05:33Z'
+  authority: generated
+  via: create_document

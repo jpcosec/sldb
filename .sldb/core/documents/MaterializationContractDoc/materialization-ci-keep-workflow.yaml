@@ -1,0 +1,25 @@
+name: materialization-ci-keep-workflow
+path: desk/materializations/materialization-ci-keep-workflow.md
+source_hash: 98b64ccecd0df15750c40b6ce030f8af34807337db9dc5d910eba4ac5552f209
+content_hash: 48061aa15209cea1d17964f0a83a4875bb6f20ff9329427877a0769f147598d4
+field_hashes:
+  id: 39c589f014260aac72039645caa137f6f01327f9f7f3d5b401d11ad21f1fe2bd
+  title: e695b18cff8e9bf2c888b137c03a838622c47e0a16631c578a8037f0504aa17f
+  source_atoms: 473768aa6a34077068533902b94e55f436f405921cb4b61c0e4c40203491806d
+  target_kind: 48882ab48bfdf3bef2fe65e3304e91ccfd8f74e357c183367ad6fe903fe0e697
+  target_identity: 076a7f31c830ce1bf908391da844392f9aeda8b41ee6636a4198d9ce6e832bae
+  intent: 10802121d2798f2439587dc884920ae8a39acd23c776b2a11b425ea8bfe3f048
+  validation: 591fc6045158e88dcb4e2d2d0d4a4eef2b378f2d49a8dac4d9fc3825483b961c
+  tags: b139c39af89f646f6ddbd34b9faebeb0b1f37fbd0af0ffb76c8aa85aa8faf865
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:ci
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-18T08:06:30Z'
+  authority: generated
+  via: create_document

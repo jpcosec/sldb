@@ -1,0 +1,58 @@
+---
+sldb:
+  by: agent
+  at: '2026-11-18T08:03:01Z'
+  authority: generated
+  via: create_document
+# review-<task>-<kind>-<n>
+id: review-task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024-evidence-commit-1
+# preflight | bundle | reproduction | goldens | owner | node | evidence
+kind: evidence
+# kind evidence only: tests | commit | atom | materialization | document | external
+fact: commit
+# kind evidence only: what the producer verified, one item per line
+value: '7cf254f65ee322e041bf600347bbddacbcfb091b
+
+  e7cc37611aa140b3a973eaf57b93b9bbadcdab06'
+# doc:<Model>:<id> or empty for reviews of plan nodes
+subject: doc:TaskDebugDoc:task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024@sha256:085e7ec806e8bef54a0b67219a8e69b7b22c0296f91feb7e5dcc8411ed5959a5
+# <plan>/dag.yaml#node:<ID>; empty when subject names a document
+subject_ref: ''
+# RuntimeProfileDoc name or "human"
+engine: deskops-closeout
+actor: sldb
+# Run evidence directory under runs/, relative to the project root
+run_dir: ''
+input_sha256: 0153434a377e749317ea365510499107170de35fdeddf8b0a78485209b31db1c
+# preflight/bundle: SHA-256 of the input with the TaskDoc replaced by its __contract__ digest
+contract_sha256: ''
+output_sha256: ''
+# pending | accepted | rejected | incomplete
+verdict: accepted
+reason: 'verified: commit 7cf254f65ee322e041bf600347bbddacbcfb091b
+
+  e7cc37611aa140b3a973eaf57b93b9bbadcdab06'
+# ISO 8601 timestamp
+created_at: '2026-11-18T08:02:40.860604+00:00'
+# ISO 8601 timestamp, empty while pending
+disposed_at: '2026-11-18T08:02:40.860604+00:00'
+disposed_by: sldb
+# e.g. workspace:desk
+tags:
+- workspace:desk
+---
+
+# Closeout evidence commit of task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024
+
+## Summary
+
+_Summarize what was reviewed and the evidence this receipt records._
+
+closeout verify checked commit: 7cf254f65ee322e041bf600347bbddacbcfb091b, e7cc37611aa140b3a973eaf57b93b9bbadcdab06
+
+## Disposition
+
+_Record the verdict rationale and who disposed of the review._
+
+Verdict accepted: verified: commit 7cf254f65ee322e041bf600347bbddacbcfb091b
+e7cc37611aa140b3a973eaf57b93b9bbadcdab06

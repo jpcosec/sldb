@@ -107,3 +107,4 @@
 {"task_id": "task-la-documentaci\u00f3n-de-sldb-serve-nombra-todas-sus-rutas-http-con-un-chequeo-que-lo-mantiene", "run_id": "deskops-e-aa0321c9f2c0", "run_dir": "runs/subagents/20261116-exec-srv", "session_sha256": null, "commit": null}
 {"task_id": "task-el-par\u00e1metro-actor-de-la-api-de-escritura-se-respeta-en-lugar-de-aceptarse-e-ignorarse", "run_id": "deskops-e-13131c57ccbe", "run_dir": "runs/subagents/20261116-exec-actor", "session_sha256": null, "commit": null}
 {"task_id": "task-el-scan-de-enlaces-ignora-el-contenido-de-los-bloques-de-c\u00f3digo-fenced-e-inline-y-no-los-informa-com", "run_id": "deskops-e-2793fe94705d", "run_dir": "runs/subagents/20261116-exec-lk-md", "session_sha256": null, "commit": null}
+{"task_id": "task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024", "run_id": "exec-deskops-e-e3d8122ff046-a2", "run_dir": "runs/subagents/exec-deskops-e-e3d8122ff046-a2", "session_sha256": null, "commit": null}
