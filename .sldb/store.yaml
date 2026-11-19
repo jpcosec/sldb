@@ -2299,6 +2299,10 @@ include:
     name: review-task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid-evidence-atom-2
   - path: desk/reviews/task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid/evidence-materialization-2.md
     name: review-task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid-evidence-materialization-2
+  - path: desk/reviews/task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder/preflight-1.md
+    name: review-task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder-preflight-1
+  - path: desk/reviews/task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder/bundle-1.md
+    name: review-task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder-bundle-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
