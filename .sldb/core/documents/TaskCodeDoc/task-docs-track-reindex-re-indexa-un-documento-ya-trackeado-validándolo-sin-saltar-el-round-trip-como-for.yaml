@@ -1,7 +1,7 @@
 name: task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for
 path: desk/tasks/task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for.md
-source_hash: 195c7cb3c8250258fcdad47799bf73deb0d7a218a9dfb9bab3833c2faffe7ad0
-content_hash: 28592e0b3eafeed64d56c4c29bdd4ade116a1e01aef1df3401976358eb70057a
+source_hash: 3f2b6e249e599aa51dd5eed1b4d905d3cce50353f1e37a240da43b4e6b4a8a57
+content_hash: 7a94b198a340c12c6fe05a39a2f2f7de258fcbd9cee542161050707e4f99d66c
 field_hashes:
   title: cbc01db03e653a0160d86939d63c438c8cdc51ce93ce3f40ca48fdf80cbf0768
   id: 05780a10ee4ade31e1e56ad755269dfe8f79602478410f4dcd1e7e86210c6247
@@ -17,7 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 9d1c4e3d62bffa6b24956166028098867ea19c8f0c701422ad68b9d22dd9003f
-  implementation_path: 76959204252aab920615b4e06c9631b409818dbab3bdc8ebb34159e91b3669b8
+  implementation_path: b99fda4fbc569f08a94f703694c7610c9d6dd2fca613b52fe33debf8fcb78369
   validation: 1a257a447dfd38f505788877c9026f630b421a6f0cf8c146098ae4d8ee688e2e
   done_when: a580bd906574aaeb0ea380fbeec5bea0a9344c766f9e39e1588ad9b1a707c493
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-17T11:18:28Z'
+  at: '2026-11-19T10:43:21Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

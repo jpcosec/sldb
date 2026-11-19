@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T11:18:28Z'
+  at: '2026-11-19T10:43:21Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for
 status: draft
 summary: ''
@@ -54,7 +54,7 @@ Entra: el flag --reindex en el parser y el comando de docs track, el parámetro 
 
 _Outline the expected implementation route or affected surface._
 
-1) Leer track_document_file.py, ops.py (camino de force de la tarea CI2) y el parser de docs track. 2) Implementar. 3) Tests. 4) Validation.
+1) Leer src/sldb/api/documents/track_document_file.py, src/sldb/store/ops.py (StoreOperations.track y el camino de force de la tarea CI2) y el parser y el comando de docs track. 2) Tests que fallen antes, en tests/api/test_api_documents.py: --reindex sobre un documento ya trackeado y válido lo re-indexa; sobre uno cuyo archivo no valida falla con el error de validación y el índice queda byte a byte igual; --reindex con --force da un error claro; --force no cambia. 3) Implementar. 4) Como hay un flag nuevo (--reindex), correr 'PYTHONPATH=src sldb selfdoc sync' y commitear la referencia CLI que regenere; después 'PYTHONPATH=src sldb selfdoc check' en 0. 5) CHANGELOG. 6) quick_gates del desk (bash tools/check.sh --fast) en 0 antes del commit, con rutas nombradas y Task-Id.
 
 ## Validation
 
