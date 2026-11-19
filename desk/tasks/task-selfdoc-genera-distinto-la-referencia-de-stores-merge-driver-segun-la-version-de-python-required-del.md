@@ -1,25 +1,30 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-19T08:58:50Z'
+  at: '2026-11-19T10:08:29Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-selfdoc-genera-distinto-la-referencia-de-stores-merge-driver-segun-la-version-de-python-required-del
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-testing
+history:
+- task_activates
+references:
+- src/sldb/selfdoc/arguments.py
+- tests/selfdoc/test_argument_required.py
+- dbb314cecade242a4cda6e7f767490774ca010e5
 depends_on: []
 pills: []
 files: []
 task_type: task.debug
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-selfdoc-normaliza-el-required-de-los-posicionales-nargs-para-que-la-referencia-no-dependa-del-parche
 ---
 
 # selfdoc genera distinto la referencia de stores merge-driver según la versión de python (required del argumento files)

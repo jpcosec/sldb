@@ -1,0 +1,25 @@
+name: materialization-selfdoc-required-estable-test-argument-required
+path: desk/materializations/materialization-selfdoc-required-estable-test-argument-required.md
+source_hash: 8f89b416f9ef0f0eca7bb7f38c6738b3a382712bae048934caeb5722ddd26e59
+content_hash: a6c9ad5cf5cc3d55eefe70ce9ecbc73eae12ab775c8517efe27e7bc4d8bdfced
+field_hashes:
+  id: 48f42119d9a0a8e359f24447faae95a95b9da8516de6247355a4cfb40b6f5d3b
+  title: 737767141439ae753fc90652de23545601ed0cb359fbab4b7ed5754ea4a9081f
+  source_atoms: 09697dd22652167bd554b85c2f408bbdb92d394e706224c9781a329a397b5433
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 1eed01e548661bb55b7c58c710dd1b8f85fdb1f5786222d3c302a7e7089a301d
+  intent: a5ba8607851f220d2f586354502cbb94c1f94f20ab71ed641337ea1bf6417028
+  validation: 7fff3a413378450daf2609260a883de61075d682b45d89e76a64181e5ef664b3
+  tags: 03dbfed5686b2d24ba2c7b45d3f22d3fdb9d74900145311e72116f30df7a24dc
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:selfdoc
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-19T10:09:24Z'
+  authority: generated
+  via: create_document

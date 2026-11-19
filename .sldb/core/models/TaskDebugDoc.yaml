@@ -3,8 +3,8 @@ model_ref: deskops.models:TaskDebugDoc
 path: ''
 documents_index: .sldb/core/documents/TaskDebugDoc.yaml
 sections_index: .sldb/runtime/sections/TaskDebugDoc.yaml
-model_hash: 27fab5a6984099715594c979de4cfc995666c1a81b24c7ac0fffe4a8743d6689
-roster_hash: 63d99efa3fcbb000ec669fafece6747bcab1fbc49778a773410ff478bedefc95
+model_hash: 99f7f5403f578699b097d9686a9b8c3b98898810349f42c8ffcbf4d5b78db6a6
+roster_hash: 4d976a234c6bd9de16194b440b3461dc7c7989c898ea6d681276d985e46d2c15
 contract_hash: 53dbba942bb0773e4fe6563cadaa9247a0005c0c727262091b284445ab5ae667
 documents_count: 7
 version: 1

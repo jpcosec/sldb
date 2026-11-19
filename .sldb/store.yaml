@@ -722,6 +722,10 @@ include:
     name: run-deskops-e-e2793c478ec4
   - path: runs/subagents/exec-deskops-t-fbb0c630900a-testing/run.md
     name: run-deskops-t-fbb0c630900a
+  - path: runs/subagents/exec-deskops-e-e76b738b842b/run.md
+    name: run-deskops-e-e76b738b842b
+  - path: runs/subagents/exec-deskops-t-04a7e510ab49-testing/run.md
+    name: run-deskops-t-04a7e510ab49
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -1172,6 +1176,8 @@ include:
   - desk/materializations/materialization-escritura-sin-perdida-test-structural-noise.md
   - desk/materializations/materialization-cli-higiene-inbox-create.md
   - desk/materializations/materialization-cli-higiene-inbox-parse.md
+  - desk/materializations/materialization-selfdoc-required-estable-arguments.md
+  - desk/materializations/materialization-selfdoc-required-estable-test-argument-required.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2329,6 +2335,12 @@ include:
     name: review-task-selfdoc-genera-distinto-la-referencia-de-stores-merge-driver-segun-la-version-de-python-required-del-preflight-1
   - path: desk/reviews/task-selfdoc-genera-distinto-la-referencia-de-stores-merge-driver-segun-la-version-de-python-required-del/bundle-1.md
     name: review-task-selfdoc-genera-distinto-la-referencia-de-stores-merge-driver-segun-la-version-de-python-required-del-bundle-1
+  - path: desk/reviews/task-selfdoc-genera-distinto-la-referencia-de-stores-merge-driver-segun-la-version-de-python-required-del/evidence-tests-1.md
+    name: review-task-selfdoc-genera-distinto-la-referencia-de-stores-merge-driver-segun-la-version-de-python-required-del-evidence-tests-1
+  - path: desk/reviews/task-selfdoc-genera-distinto-la-referencia-de-stores-merge-driver-segun-la-version-de-python-required-del/evidence-commit-1.md
+    name: review-task-selfdoc-genera-distinto-la-referencia-de-stores-merge-driver-segun-la-version-de-python-required-del-evidence-commit-1
+  - path: desk/reviews/task-selfdoc-genera-distinto-la-referencia-de-stores-merge-driver-segun-la-version-de-python-required-del/evidence-atom-1.md
+    name: review-task-selfdoc-genera-distinto-la-referencia-de-stores-merge-driver-segun-la-version-de-python-required-del-evidence-atom-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
