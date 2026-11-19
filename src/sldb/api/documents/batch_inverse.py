@@ -15,7 +15,7 @@ from __future__ import annotations
 from typing import Any
 
 from sldb.api.documents.content_hash import document_content_hash
-from sldb.api.documents.batch_prevalidate import current_payload
+from sldb.api.documents.batch_guards import current_payload
 from sldb.api.documents.document_lookup import find_doc
 from sldb.api.stores.store_location import StoreLocation
 from sldb.core.exceptions import SLDBError

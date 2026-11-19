@@ -7,7 +7,7 @@ import hashlib
 from pathlib import Path
 from typing import Any
 
-from sldb.api.documents.batch_prevalidate import check_guards
+from sldb.api.documents.batch_guards import check_guards
 from sldb.api.documents.create_document import create_document
 from sldb.api.documents.delete_document import delete_document
 from sldb.api.documents.document_lookup import find_doc

@@ -36,12 +36,19 @@ class UndoStack:
         if steps < 1 or steps > len(self.batches):
             return rejected("nothing_to_undo", f"asked to undo {steps} batch(es); this session has {len(self.batches)} applied batch(es) left to undo (the stack is per session and in memory)", undone=0, remaining=len(self.batches))
         chain = list(reversed(self.batches[-steps:]))
+        reports = self._apply_chain(chain)
+        if isinstance(reports, dict):
+            return reports
+        del self.batches[-steps:]
+        undone = [{"applied": True, "saved": list(report.saved), "changes": changes} for report, changes in zip(reports, chain)]
+        return {"applied": True, "undone": len(undone), "batches": undone, "remaining": len(self.batches), "pending": [PENDING["guards_in_transaction"]]}
+
+    def _apply_chain(self, chain: list[list[dict[str, Any]]]) -> list[Any] | dict[str, Any]:
+        """The chain through `api.apply_batches` (one transaction, whole or nothing), or the refusal
+        when it fails: nothing written and the stack untouched."""
         try:
-            reports = api.apply_batches(self.store_path, chain)
+            return api.apply_batches(self.store_path, chain)
         except api.ConflictError as error:
             return rejected("stale", f"the store changed after that batch was applied: {error} Nothing was written; the stack is untouched.", document=error.ref, undone=0, remaining=len(self.batches))
         except Exception as error:
             return {**refusal(error), "undone": 0, "remaining": len(self.batches)}
-        del self.batches[-steps:]
-        undone = [{"applied": True, "saved": list(report.saved), "changes": changes} for report, changes in zip(reports, chain)]
-        return {"applied": True, "undone": len(undone), "batches": undone, "remaining": len(self.batches), "pending": [PENDING["guards_in_transaction"]]}
