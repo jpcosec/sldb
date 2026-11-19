@@ -342,6 +342,7 @@ include:
   - desk/inbox/20261117-135338-suggestion-ir04b-undo-changes-de-sldb-mcp-falla-tras-re-sellar-procedencia-stale-imposible-de-satisfacer-steps-2-escribe-a-medias.md
   - desk/inbox/20261117-231010-suggestion-el-job-store-del-ci-de-sldb-no-termina-stores-build-check-regenera-knowledge-symbols-y-supera-las-6-h-del-runner.md
   - desk/inbox/20261117-232608-suggestion-ci-store-build-check-pasa-en-ci-lo-que-corta-las-6-h-es-el-segundo-stores-build-del-paso-de-referencia-cli.md
+  - desk/inbox/20261118-205708-unclear-queue-20261118t235001z-integrate-task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc

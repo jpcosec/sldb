@@ -1,0 +1,25 @@
+name: 20261118-205708-unclear-queue-20261118t235001z-integrate-task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada
+path: desk/inbox/20261118-205708-unclear-queue-20261118t235001z-integrate-task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada.md
+source_hash: e8a08682bf4dbb5c187f779567c9c57e57c75a7c1380c195ad99caba50193eff
+content_hash: de6e2d41bbc112d3777c4029d73868e3777d1d7289d3ba73202334aaaf5d514a
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: d1f257c9234a997fec37de096d8f09f2f49954f92789afd0b43e90c27fae8bea
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: eac379238eaefc0da62bb85a41f093ea8049707aa7e5c8de3f79e4d4f9827867
+  ack_reason: 50a3f2752273b442bb264b9a1b7c326e43471d57ab28b52b2db31813d7b18a83
+  title: 105942012f358566498abd262458b200c45ab9b98f7199519e43d4b49d4c47ba
+  body: 30bc68418ec2fde9d0f239b0fd0954e3e1d3ce08b7bee6ddefa9d9661757087d
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance:
+  by: agent
+  at: '2026-11-19T00:01:34Z'
+  authority: generated
+  via: save_document_payload
