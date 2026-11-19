@@ -1,0 +1,37 @@
+name: review-task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430-preflight-1
+path: desk/reviews/task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430/preflight-1.md
+source_hash: 2ffcc6869605bcb8092ebbcabe9b377139d2afb5af15cc23fc799288b5579b2f
+content_hash: 4067647750e74285bbb865016ebf60d52dca790e931c216d329fb86f74a4afb1
+field_hashes:
+  id: 0b552c46ffed8087a2181ad31ddf6f06e5cb05c4ef6b275482dfb81757fc0cbf
+  title: 958ef20ca739e5b99d0b7e5a834a9fda57b5518f6db4367a464aec434c94f096
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 658df0ee174ec1da24bdee447295698871ca55bcd4fee19031c1ab8827b84dee
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 7d8cb446dcd0ca93eac2beed619a18b9593736ff0ba971b55b33f40f1d0e05c0
+  input_sha256: e7af0aa8ac7e35b53077f8ecb22421e60db676c27a5c59e210bb31d7b41d174a
+  contract_sha256: c4a378c47e14b0295818471cdd3e01b160c45bb72bfc96ae8025073b0d0f1b1e
+  output_sha256: 83cf45c49124924c402291a44ec7df171ce88616a360a055eb0695df96492342
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 361f0c7370b8c68505dddb0a7182799dd208050eebdd3b6722616421faefa4e9
+  created_at: 12abeaafbb9943380fb00fa0f047210a152b0fd359ee6001be5547c23d316564
+  disposed_at: e6cf012fd39068932391ac8174afac4cc1c66e17ae25a86f4f5d01feb711e81e
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: b8235e39adf19a651b4e63d68466cf0c885304360dd676332a19b760a8e2ed08
+  disposition: da12844a3638e54fafc0a1630d931477fc2541e192ab643a498bb559c7cc9cf0
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-19T04:16:02Z'
+  authority: generated
+  via: save_document_payload

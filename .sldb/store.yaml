@@ -2222,6 +2222,10 @@ include:
     name: review-task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada-evidence-atom-1
   - path: desk/reviews/task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada/evidence-atom-2.md
     name: review-task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada-evidence-atom-2
+  - path: desk/reviews/task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430/preflight-1.md
+    name: review-task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430-preflight-1
+  - path: desk/reviews/task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430/bundle-1.md
+    name: review-task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430-bundle-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
