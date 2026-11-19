@@ -1728,3 +1728,19 @@ def test_version_with_git_shows_describe_in_parenthesis(monkeypatch, capsys):
     out = capsys.readouterr().out
     assert out.startswith(f"sldb {pv.package_version()} ")
     assert "(v0.1.13-1-gabc at " in out
+
+
+def test_docs_list_marks_what_docs_show_cannot_find(tmp_path, capsys):
+    store, pythonpath = _setup_store(tmp_path)
+    args = ["--store", str(store)]
+    capsys.readouterr()
+    assert cli_main(["docs", "list", "--format", "json", *args]) == 0
+    assert "unresolvable" not in json.loads(capsys.readouterr().out)["documents"][0]
+    (store.parent / "roadmap.md").unlink()  # still in the index: list names it, show cannot read it
+    assert cli_main(["docs", "list", "--format", "json", *args]) == 0
+    listed = json.loads(capsys.readouterr().out)["documents"]
+    assert [(d["name"], d["unresolvable"]) for d in listed] == [(listed[0]["name"], "file-missing")]
+    with pytest.raises(SystemExit, match="Unknown document target"):
+        cli_main(["docs", "show", listed[0]["name"], *args, "--pythonpath", pythonpath])
+    assert cli_main(["docs", "list", *args]) == 0
+    assert "[unresolvable: file-missing]" in capsys.readouterr().out

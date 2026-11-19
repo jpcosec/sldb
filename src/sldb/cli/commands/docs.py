@@ -13,6 +13,7 @@ from sldb.cli.commands.links import LinkCLI
 from sldb.cli.graph_ops import ast_for_target
 from sldb.cli.store_context import get_store_context
 from sldb.api.stores.indexed_documents import indexed_documents
+from sldb.api.stores.unresolvable_documents import unresolvable_documents
 
 class DocsCLI:
     """Plural docs surface for the redesigned CLI."""
@@ -54,7 +55,8 @@ class DocsCLI:
             int: Exit code.
         """
         sp, _root = get_store_context(args.store, mode="readonly")
-        docs = indexed_documents(sp)
+        causes = unresolvable_documents(sp)
+        docs = [{**d, "unresolvable": causes[(d["model"], d["name"])]} if (d["model"], d["name"]) in causes else d for d in indexed_documents(sp)]
         return self._render_docs(args.format, {"store": str(sp), "documents": docs}, docs, sp)
 
     def _render_docs(self, fmt: str, payload: dict[str, Any], docs: list[dict[str, str]], sp: Any) -> int:
@@ -63,5 +65,5 @@ class DocsCLI:
         elif not docs: print(f"No tracked documents in {sp}")
         else:
             print(f"Tracked documents in {sp}:")
-            [print(f"- {i['name']} ({i['model']}) -> {i['path']}") for i in docs]
+            [print(f"- {i['name']} ({i['model']}) -> {i['path']}" + (f" [unresolvable: {i['unresolvable']}]" if "unresolvable" in i else "")) for i in docs]
         return 0
