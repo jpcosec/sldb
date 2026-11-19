@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-15T15:51:39Z'
+  at: '2026-11-19T04:13:45Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430
 status: draft
 summary: ''
@@ -46,15 +46,15 @@ Pedido del inbox sldb 20261115-022430 (dry_run público de apply_batch). Verific
 
 _Outline the expected implementation route or affected surface._
 
-
+Ubicaciones (sldb HEAD al despachar): apply_batch en src/sldb/api/documents/apply_batch.py:27 (y apply_batches en :60, que encadena lotes en una transacción); la prevalidación es prevalidate_changes en src/sldb/api/documents/batch_prevalidate.py:22 (forma, modelo, round-trip, destinos) y los guards están en batch_guards.py; sldb.api exporta apply_batch y apply_batches (src/sldb/api/__init__.py:13). El dry run del MCP es propose_changes en src/sldb/mcp/write/tools.py:38. p1: test que falla antes: apply_batch(store, changes, dry_run=True) con un lote válido devuelve un BatchReport con saved vacío y applied=False (o el campo que se agregue, documentado) sin escribir nada: los archivos del store y del proyecto quedan byte a byte iguales. Con un lote inválido levanta el mismo error que apply_batch sin dry_run, también sin escribir. p2: implementar dry_run=False por defecto en apply_batch, con la misma prevalidación bajo el cerrojo, que vuelve antes de abrir la transacción; apply_batches no cambia. p3: si propose_changes reimplementa la prevalidación, que use apply_batch(dry_run=True); si ya usa prevalidate_changes, dejarlo y decirlo en el informe. p4: docstring de apply_batch, docs/architecture/mcp.md si propose_changes cambia, y CHANGELOG. p5: quick_gates del desk (bash tools/check.sh --fast) antes del commit, que lleva rutas nombradas y Task-Id.
 
 ## Validation
 
 _List the checks required before this task can close._
 
-- TMPDIR=/dev/shm pytest -q de los archivos tocados, uno a la vez
-- tools/check.sh
-- sldb stores build --check
+- TMPDIR=/tmp python -m pytest -q -p no:cacheprovider tests/api
+- TMPDIR=/tmp python -m pytest -q -p no:cacheprovider tests/mcp
+- bash tools/check.sh --fast
 
 ## Done When
 

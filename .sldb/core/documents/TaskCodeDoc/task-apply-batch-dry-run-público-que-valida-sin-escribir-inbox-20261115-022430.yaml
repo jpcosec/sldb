@@ -1,7 +1,7 @@
 name: task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430
 path: desk/tasks/task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430.md
-source_hash: 037f5c143828cd13ed63f3ad62672d3b3a7eabbe5c1be7e7683f4ee72fc7719d
-content_hash: 5b52ce72671f43f0b18295f8a17ffb236836db6176b8aba885bb1f8dfbcd6ae0
+source_hash: 5e5f6fd36fc194c6ba02414965437971ad6b3a05dea5034a9f866b344a55b6e4
+content_hash: 778c676225eeca513e36dda9a77c7dfe75ae1929105d910c7d7b3e230138b20f
 field_hashes:
   title: 25095f2b2ed6fadc4cef91c8f67cf69e99422fe9639a617fd1f1a8740f565da8
   id: 6b9898834053a3b25490e7819a78bccefca5f3f7260e1181e95a3b29a5f0a731
@@ -17,8 +17,8 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  implementation_path: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  validation: 2db25073ac6505f7dfa614261babf778eafa3fa2a63b10ac69dae9c673103dac
+  implementation_path: b94a3a699e057c42ba1b2f94dfd34f59d70841988ebcad1633d0db7854eaae03
+  validation: 3f62560fbacc8c61176d2a0505b1387fe59ca03f8d214df06becb37a49f8999d
   done_when: b32c952bbb905ed71dcbf5c2ee26c85e03cd5f7a947aa478b705572d91ae720a
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -33,6 +33,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-15T15:51:39Z'
+  at: '2026-11-19T04:13:45Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
