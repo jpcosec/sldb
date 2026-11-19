@@ -5,6 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
+from sldb.api.documents.lossy_overwrite import refuse_lossy_overwrite
 from sldb.api.documents.document_reference import DocumentReference
 from sldb.api.documents.doc_anchor_pinning import pin_payload
 from sldb.api.documents.payload_save_steps import check_rules_on_write, load_document_entry, load_model_indexes, model_class, render_checked, save_document_indexes, write_rendered_document
@@ -30,6 +31,8 @@ def save_document_payload(store: str | Path | None, model_name: str, document_na
     Raises:
         SLDBPayloadSaveError: When the model or document is not registered, or the rendered
             Markdown does not round-trip back to the payload.
+        SLDBValidationError: When the file's current text carries headings or frontmatter keys the
+            model does not declare (the write would lose them); nothing is written.
         SLDBStoreError: When a RuleDoc's subject names a model the store does not register.
         SLDBRuleViolationError: When an `on_write` rule of severity error fails on the payload
             (after its anchors are pinned); nothing is written.
@@ -43,6 +46,7 @@ def save_document_payload(store: str | Path | None, model_name: str, document_na
 
 
 def _save(location, idx, m_idx, m_entry, doc_entry, model_type, payload, pythonpath, actor) -> None:
+    refuse_lossy_overwrite(location.store_path, location.project_root, doc_entry, model_type)
     payload = pin_payload(location.store_path, model_type, payload)
     check_rules_on_write(location.store_path, model_type, f"{m_entry.name}:{doc_entry.name}", payload)
     rendered = render_checked(model_type, payload, location.project_root)

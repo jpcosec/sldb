@@ -270,3 +270,12 @@ def test_the_inverse_after_another_write_is_a_conflict_and_writes_nothing(api_st
         api.apply_batch(api_store.store, report.inverse, api_store.pythonpath)
     assert info.value.ref == "login"
     assert _files(api_store.root) == touched
+
+
+def test_apply_batch_update_over_a_file_with_extra_frontmatter_fails_without_partial_write(api_store):
+    path = api_store.root / "login.md"
+    path.write_text("---\nstray: 1\n---\n\n" + path.read_text(encoding="utf-8"), encoding="utf-8")
+    before = _files(api_store.root)
+    with pytest.raises(SLDBValidationError, match="stray"):
+        api.apply_batch(api_store.store, [{"id": "login", "action": "update", "payload": {**PAYLOAD, "title": "New"}}], api_store.pythonpath)
+    assert _files(api_store.root) == before

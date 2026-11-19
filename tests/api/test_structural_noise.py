@@ -195,3 +195,42 @@ def test_stores_check_prints_every_noisy_heading_not_just_a_count(noise_store, c
     out = capsys.readouterr().out
     assert "alert: [store/structural-noise] NoteDoc:noisy" in out
     assert "## Entidades" in out and "## Medicion 1" in out
+
+
+def _tracked_note(noise_store):
+    """Track a clean note as NoteWithSections and return its path."""
+    path = noise_store.write("held", CLEAN)
+    track_document_file(noise_store.store, "NoteWithSections", path, pythonpath=noise_store.pythonpath)
+    return path
+
+
+def _save(noise_store, title: str = "Alpha"):
+    from sldb.api import save_document_payload
+
+    return save_document_payload(noise_store.store, "NoteWithSections", "held", {"title": title, "body": "b"}, noise_store.pythonpath)
+
+
+def test_save_refuses_a_file_whose_headings_the_model_does_not_declare(noise_store):
+    """A field write over a file with undeclared headings fails naming them, file intact."""
+    path = _tracked_note(noise_store)
+    path.write_text(path.read_text(encoding="utf-8") + "\n## Extra\n\nlost\n", encoding="utf-8")
+    before = path.read_bytes()
+    with pytest.raises(SLDBValidationError, match="## Extra"):
+        _save(noise_store)
+    assert path.read_bytes() == before
+
+
+def test_save_refuses_a_file_with_undeclared_frontmatter(noise_store):
+    """Frontmatter the model does not declare is named, not dropped."""
+    path = _tracked_note(noise_store)
+    path.write_text("---\nstray: 1\n---\n\n" + CLEAN, encoding="utf-8")
+    before = path.read_bytes()
+    with pytest.raises(SLDBValidationError, match="stray"):
+        _save(noise_store)
+    assert path.read_bytes() == before
+
+
+def test_save_still_writes_a_clean_document(noise_store):
+    path = _tracked_note(noise_store)
+    _save(noise_store, "Gamma")
+    assert "Gamma" in path.read_text(encoding="utf-8")
