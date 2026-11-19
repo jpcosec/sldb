@@ -1,0 +1,2 @@
+python -m pytest -q tests/api/test_structural_noise.py tests/api/test_transaction.py -> rc 0 (31 passed)
+bash tools/check.sh --fast -> rc 0

@@ -1,0 +1,9 @@
+Task: task-el-guard-de-escritura-por-campos-refuse-lossy-overwrite-rechaza-headings-no-declarados-que-viven-den
+Title: El guard de escritura por campos (refuse_lossy_overwrite) rechaza headings no declarados que viven dentro del valor de un campo y sobreviven a la escritura
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .

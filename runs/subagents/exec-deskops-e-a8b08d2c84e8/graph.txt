@@ -1,0 +1,8 @@
+Missing graph references:
+- missing_declared_target: task:task-el-guard-de-escritura-por-campos-refuse-lossy-overwrite-rechaza-headings-no-declarados-que-viven-den -> test_file:tests/test_promotion_nesting.py
+  provenance: desk/tasks/task-el-guard-de-escritura-por-campos-refuse-lossy-overwrite-rechaza-headings-no-declarados-que-viven-den.md:line:31:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- missing_declared_target: task:task-el-guard-de-escritura-por-campos-refuse-lossy-overwrite-rechaza-headings-no-declarados-que-viven-den -> test_file:tests/test_promotion_nesting.py
+  provenance: desk/tasks/task-el-guard-de-escritura-por-campos-refuse-lossy-overwrite-rechaza-headings-no-declarados-que-viven-den.md:line:61:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+2 missing, 0 informational

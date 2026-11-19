@@ -1,0 +1,37 @@
+name: review-task-el-guard-de-escritura-por-campos-refuse-lossy-overwrite-rechaza-headings-no-declarados-que-viven-den-evidence-tests-1
+path: desk/reviews/task-el-guard-de-escritura-por-campos-refuse-lossy-overwrite-rechaza-headings-no-declarados-que-viven-den/evidence-tests-1.md
+source_hash: 4a98f7ef584780a0a9c0e4bff1afa766658e4990cad8515737280b92c6e5b7e3
+content_hash: 5e726c0321abc78e0a943face856aa4fcbd4d99fb4db91082abcfa028d6eb01b
+field_hashes:
+  id: 4745092d987e81ec9788d02e347c5602df3cbe1035e3f134505a92f23e4e8f1c
+  title: 279054fba0b6629da847375dc49c8f6b74fe06412b6dd384f0c80d933d0eb27f
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: 68f05093bc600659c0aecd265fad80c71a658cc857e91cdfeeee782eb670c200
+  value: 1bb32749696fff7b1b6190d326cc2aa51073ed2f8df554ce6242e4984826e839
+  subject: 1d0acc2f9f44a51436829fe71684b38277faa682f3f830911e890a5ad7bad578
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 750c1c3459f973cb55c86a4471e69bf606528edf6cb45bc111407a06389f2d42
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 80363eafc1d018e8c759879565b6a6aba5b30d7e3b00d7a969ae2891e12f6b63
+  created_at: 1b8d3dc4a8baec810296bc6347137ac466c116a4fc6eb639a0e01ac5550fd113
+  disposed_at: 1b8d3dc4a8baec810296bc6347137ac466c116a4fc6eb639a0e01ac5550fd113
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 0d4d97afde6816c56ac5e8747ba8c442cf9111c18d79becdb7834078bc92af8a
+  disposition: 2f302084a5473fe21ffaabbd48da4b0d07f4ad1b991a6a877548eb8dab53c808
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-19T14:27:25Z'
+  authority: generated
+  via: create_document
