@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-19T09:44:40Z'
+  at: '2026-11-19T09:46:17Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 # review-<task>-<kind>-<n>
 id: review-task-selfdoc-genera-distinto-la-referencia-de-stores-merge-driver-segun-la-version-de-python-required-del-preflight-1
 # preflight | bundle | reproduction | goldens | owner | node | evidence
@@ -26,13 +26,29 @@ input_sha256: 0d44c78b55e91ad2a3be8f06f756d1b8f95852d0439c83aa3ed71199f295051d
 contract_sha256: 36f78368c52080078b3db224454227948719e87557c6e2f11b18e5faeade97d2
 output_sha256: ea842fc5e72f6e6567f49558a3055065167a5814a77883cb91e959522865b227
 # pending | accepted | rejected | incomplete
-verdict: pending
-reason: ''
+verdict: accepted
+reason: 'Aceptado. Resoluciones del coordinador: 1) El ejecutor ya corre en el contenedor
+  scion con el venv /tmp/ws-venv (uv python 3.12; ''python --version'' da la versión
+  exacta): reproduce ahí imprimiendo action.required del argumento files de stores
+  merge-driver y lo compara con runs/subagents/20261119-repro-selfdoc-python/host.txt
+  (host, python 3.12.3: files, nargs ''*'', required True). 2) La normalización va
+  en la función de selfdoc que convierte una acción de argparse en el registro de
+  la referencia (el ejecutor la cita con archivo y línea). Para posicionales, required
+  se deriva de nargs (''*'' y ''?'' dan false, cualquier otro da true); para opcionales
+  se usa action.required como hoy. Así host y contenedor coinciden. Test unitario
+  de esa función con un posicional nargs=''*'' y uno sin nargs. 3) argparse no se
+  toca. 4) quick_gates es bash tools/check.sh --fast. 5) En el contenedor: PYTHONPATH=src
+  python -m sldb selfdoc sync y después git diff -- knowledge/commands; la referencia
+  que cambie por la regla se commitea. El integrador corre selfdoc check en el host
+  al integrar. 6) Alcance: el campo required, que es el observado. El ejecutor compara
+  todo knowledge/commands entre la referencia regenerada en el contenedor y la commiteada
+  (generada en el host) y reporta cualquier otra diferencia, sin arreglarla. Bundle
+  1: ver la resolución 2.'
 # ISO 8601 timestamp
 created_at: '2026-11-19T09:44:19.578688+00:00'
 # ISO 8601 timestamp, empty while pending
-disposed_at: ''
-disposed_by: ''
+disposed_at: '2026-11-19T09:45:55.749706+00:00'
+disposed_by: sldb
 # e.g. workspace:desk
 tags:
 - workspace:desk
@@ -49,3 +65,5 @@ preflight review; engine runtime-pi-deepseek-flash; evidence under runs/subagent
 ## Disposition
 
 _Record the verdict rationale and who disposed of the review._
+
+Verdict accepted: Aceptado. Resoluciones del coordinador: 1) El ejecutor ya corre en el contenedor scion con el venv /tmp/ws-venv (uv python 3.12; 'python --version' da la versión exacta): reproduce ahí imprimiendo action.required del argumento files de stores merge-driver y lo compara con runs/subagents/20261119-repro-selfdoc-python/host.txt (host, python 3.12.3: files, nargs '*', required True). 2) La normalización va en la función de selfdoc que convierte una acción de argparse en el registro de la referencia (el ejecutor la cita con archivo y línea). Para posicionales, required se deriva de nargs ('*' y '?' dan false, cualquier otro da true); para opcionales se usa action.required como hoy. Así host y contenedor coinciden. Test unitario de esa función con un posicional nargs='*' y uno sin nargs. 3) argparse no se toca. 4) quick_gates es bash tools/check.sh --fast. 5) En el contenedor: PYTHONPATH=src python -m sldb selfdoc sync y después git diff -- knowledge/commands; la referencia que cambie por la regla se commitea. El integrador corre selfdoc check en el host al integrar. 6) Alcance: el campo required, que es el observado. El ejecutor compara todo knowledge/commands entre la referencia regenerada en el contenedor y la commiteada (generada en el host) y reporta cualquier otra diferencia, sin arreglarla. Bundle 1: ver la resolución 2.

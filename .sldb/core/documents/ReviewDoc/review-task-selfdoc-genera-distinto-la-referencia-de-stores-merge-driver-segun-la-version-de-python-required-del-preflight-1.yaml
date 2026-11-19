@@ -1,7 +1,7 @@
 name: review-task-selfdoc-genera-distinto-la-referencia-de-stores-merge-driver-segun-la-version-de-python-required-del-preflight-1
 path: desk/reviews/task-selfdoc-genera-distinto-la-referencia-de-stores-merge-driver-segun-la-version-de-python-required-del/preflight-1.md
-source_hash: 5b25c7614fe689f7fb7bb26bfa6993ebd9a55e1be27b2cffb53ccda13beab5e5
-content_hash: fd0736357b4de0e4646225a75811db7af107b9a5628f1cbd9be1982bba207005
+source_hash: 5d72132c69bc0498d6bd4b7b57ebaf4b7a1c1c58c7176da6be78fe6b551d9eb9
+content_hash: 1547c56ba6e35ead5eaa2d334afc0d980a87d12585d47d12f7d1bde668bc60f9
 field_hashes:
   id: 8544bcdd28a2c50cb5796e39e7a7dd87f301841c87a3146196cfc41aea73f066
   title: 64f40dcd20684e3ef15eeb349b6811fcb78b79449903a018dbe20285fd5c26b4
@@ -16,13 +16,13 @@ field_hashes:
   input_sha256: 8cbc7b9cdb04cc3c40fe272fbfc4a44aa534ee9d9b93ca0e976703ac8ec6c84d
   contract_sha256: 5f7418a586c5cdeedc6a4d0e9ebbc093c29efadf0b60dc43e2aed88db302f931
   output_sha256: 048d2a5fb8b203bc0157b8f3b2864bcbe523b48014605ba3c0a3a9af1f137540
-  verdict: 12adac54ac6f7140109391b670b3cbcd51f083d8f5ee62ce26857c794ed67d36
-  reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: d41effc7d76f418305af9002c35054234b099a204fa51561f0db8d67d2895274
   created_at: 44eef1ac30ffa9bf2ec991e55a1459f7be7241e52aee412254eac22767d5a1c3
-  disposed_at: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  disposed_by: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposed_at: 52a284ce0f7897a39f66fcf0e83955292768d826238a7f6429d56ac916ef010d
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 3eb56651bd2f800444bafafd076a0467897ea3e6af80e96fc58cce5217ef7232
-  disposition: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposition: d984b84e008ea3a84ebc9c3aaaef04f2bad88749b9ea2e7f2f43a5aa4dd24435
   tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
 semantic_tags:
 - representation.markdown
@@ -32,6 +32,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-19T09:44:40Z'
+  at: '2026-11-19T09:46:17Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
