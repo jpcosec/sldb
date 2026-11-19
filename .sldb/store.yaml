@@ -344,6 +344,7 @@ include:
   - desk/inbox/20261117-232608-suggestion-ci-store-build-check-pasa-en-ci-lo-que-corta-las-6-h-es-el-segundo-stores-build-del-paso-de-referencia-cli.md
   - desk/inbox/20261118-205708-unclear-queue-20261118t235001z-integrate-task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada.md
   - desk/inbox/20261119-084950-unclear-queue-20261119t114901z-dispatch-executor-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qu-namespace-declarar.md
+  - desk/inbox/20261119-114028-unclear-queue-20261119t143238z-integrate-task-el-guard-de-escritura-por-campos-refuse-lossy-overwrite-rechaza-headings-no-declarados-que-viven-den.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -2430,6 +2431,10 @@ include:
     name: review-task-el-guard-de-escritura-por-campos-refuse-lossy-overwrite-rechaza-headings-no-declarados-que-viven-den-evidence-atom-1
   - path: desk/reviews/task-el-guard-de-escritura-por-campos-refuse-lossy-overwrite-rechaza-headings-no-declarados-que-viven-den/evidence-materialization-1.md
     name: review-task-el-guard-de-escritura-por-campos-refuse-lossy-overwrite-rechaza-headings-no-declarados-que-viven-den-evidence-materialization-1
+  - path: desk/reviews/task-sldb-create-document-y-track-document-file-evalúan-las-reglas-on-write-h4-declare-write-conserva-la/preflight-2.md
+    name: review-task-sldb-create-document-y-track-document-file-evalúan-las-reglas-on-write-h4-declare-write-conserva-la-preflight-2
+  - path: desk/reviews/task-sldb-create-document-y-track-document-file-evalúan-las-reglas-on-write-h4-declare-write-conserva-la/bundle-2.md
+    name: review-task-sldb-create-document-y-track-document-file-evalúan-las-reglas-on-write-h4-declare-write-conserva-la-bundle-2
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -2437,7 +2442,6 @@ include:
 - model: TaskCodeDoc
   paths:
   - desk/tasks/task-reglas-rule-graph-no-compone-la-federación-entera-de-stores-enlazados-27-s-por-comando-de-deskops.md
-  - desk/tasks/task-sldb-create-document-y-track-document-file-evalúan-las-reglas-on-write-h4-declare-write-conserva-la.md
   - desk/tasks/task-apply-batch-aristas-validadas-antes-de-escribir-alertas-on-write-en-batchreport-rules-check-sobre-re.md
   - desk/tasks/task-api-pública-búsqueda-rankeada-escrituras-recientes-y-store-hash-como-precondición-atómica-brechas-de.md
   - desk/tasks/task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida.md
