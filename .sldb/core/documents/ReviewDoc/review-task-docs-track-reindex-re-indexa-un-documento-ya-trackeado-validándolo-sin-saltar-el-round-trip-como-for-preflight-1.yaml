@@ -1,0 +1,37 @@
+name: review-task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for-preflight-1
+path: desk/reviews/task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for/preflight-1.md
+source_hash: 0b253bcb645efecc7059c21d182b4877322898b1e8b4e6bb7902044f0c7cda79
+content_hash: ecd04fe153f416c5980e17c1ced6e93ced838d6db6857a008b27880be3948a72
+field_hashes:
+  id: cd5e8d2d1492d4eae87fdc7ff5aa7efadb1e8d5b821fb1cb896f69b78e21829f
+  title: ba7cf11c0818d858fb3d8610395e7f335d20c5dc9b07ad7fc55077873545e031
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: b81d8e0d49173e47392757fb448835d6ae5df044794fe2005798d83e6698e7a0
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 0b7550ba41f935b544bba3311afed9518912435cd09cb6092cf0d2f675faf4a4
+  input_sha256: e97191bf72b1c015bdd04b249d0ea03af99430a4978c899cbbd0cccc553e1b16
+  contract_sha256: ed7bc8705d9636d85aacaff30d4568fde21143eb39b6019848b61f1e6a430364
+  output_sha256: 7deea0f17c049c2f26978640765298a3d45156e7e99a753b4d280a597a6e18e8
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: e33770966df55be15ea250d92cc579d428dfdfc2c2cad2b382fc87980a6f47db
+  created_at: 742c7a552e9cc4763e9ae1a59a656392c51cf9300de64ca1e02e81042192fa30
+  disposed_at: 554f753288ccfd5141e0d58dec7ac13d71edb964c33f001cfe0110e20bbe1e30
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 67fdebd0010bae8527962c3827642fe604b11e6a483e5297291fa34d011bd488
+  disposition: de051d518aa6ddf602b2c93590531deb6ae122839b78a5593946a1848c9e697a
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-19T10:45:38Z'
+  authority: generated
+  via: save_document_payload
