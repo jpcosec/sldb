@@ -35,7 +35,7 @@ class NodeLookup:
             return None  # prose, not a reference
         if candidate in self.ids_by_name:
             return self.ids_by_name[candidate]
-        node = self.by_path.get(candidate.removeprefix("./"))
+        node = self.by_path.get(_node_path(candidate))
         if node is not None:
             return node.id
         stem = PurePosixPath(candidate).stem
@@ -48,13 +48,13 @@ class NodeLookup:
             return False
         if "/" in candidate or ":" in candidate:
             return True
-        return PurePosixPath(candidate).stem in self.ids_by_name or candidate in self.by_path
+        return PurePosixPath(candidate).stem in self.ids_by_name or _node_path(candidate) in self.by_path
 
     def target_id(self, target: str) -> str:
         """The id a declared target stands for: `kind:id` as is, a node's path as its id, else a missing id."""
         if ":" in target:
             return target
-        node = self.by_path.get(target.removeprefix("./"))
+        node = self.by_path.get(_node_path(target))
         return node.id if node is not None else self.missing_target_id(target)
 
     def missing_target_id(self, target: str) -> str:
@@ -65,3 +65,8 @@ class NodeLookup:
         parts = PurePosixPath(path).parts
         kind = next((rule.kind for rule in self.missing_kinds if rule.matches(parts, path)), None)
         return f"{kind}:{path}" if kind else path
+
+
+def _node_path(value: str) -> str:
+    """A declared path as a node's path: no leading `./`, no trailing `/` (a directory declared with or without it)."""
+    return value.removeprefix("./").rstrip("/")

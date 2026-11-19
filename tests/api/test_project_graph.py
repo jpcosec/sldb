@@ -265,3 +265,14 @@ def test_a_declared_directory_is_a_node_and_a_missing_one_stays_missing(project:
     assert nodes["source_file:generated"].file_kind == "directory"
     assert nodes["source_file:generated"].provenance.source_kind == "declared_target"
     assert "source_file:nowhere" not in nodes
+
+
+def test_a_declared_directory_with_or_without_a_trailing_slash_is_not_missing(project: Path) -> None:
+    config = CONFIG.model_copy(update={"reference_fields": (*CONFIG.reference_fields, ReferenceField(path=("dir",), default_role="mentions"), ReferenceField(path=("gone",), default_role="mentions"))})
+    _write(project / "cards" / "card-d.md", "---\nid: card-d\ntarget: generated/\ndir: generated/\n---\n\n# Card D\n")
+    _write(project / "cards" / "card-f.md", "---\nid: card-f\ndir: generated\ngone: nowhere/\n---\n\n# Card F\n")
+    extraction = ProjectGraph(project, config).extraction()
+    missing = {(m.source_id, m.target_id.rstrip("/")) for m in extraction.missing_targets if m.source_id in {"card:card-d", "card:card-f"}}
+    assert missing == {("card:card-f", "nowhere")}
+    reached = {(e.source_id, e.target_id) for e in extraction.edges}
+    assert {("card:card-d", "source_file:generated"), ("card:card-f", "source_file:generated")} <= reached
