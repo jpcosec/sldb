@@ -1,0 +1,37 @@
+name: review-task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder-evidence-atom-2
+path: desk/reviews/task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder/evidence-atom-2.md
+source_hash: 112ee4e34ee8393e203a9c0a3e0ebc0f4b1dff8530328cc9b4c9be2377689fc1
+content_hash: be93e09200f46bfc7457de153f7a6227b62320ea132f858d29dd81557df8e0f7
+field_hashes:
+  id: 276e789ccd1c95201ed9fd8b5c03f0dec496b6d0dcbf0792a5df53cd7532d9b7
+  title: 0290a648fd5dd0e6d397331c3623634255383ce1701f4dc10196d12243998f70
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: c833c202b5b45ac10909767bb422916db457ddd48188a4ee591f0618893df0ba
+  value: 9eb626bd7f163bf63c05bd9677614f368ee584babc253841452bc9bb8ef12f41
+  subject: 6033d5f98a2dcfc29548ff6462d738617462b97b687b4bc2c6d9f0512f75034c
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: ee3ca19dfd8bc0ce6485be0deaeee3f91d125d86a80481ec696460eb771457ea
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 9ee32a5ca61ad1b7a4663e5509eabd8ce71c8c4ab6b17e66c5e4caba5c3c55cf
+  created_at: ba6727233986e0d24e1ebbeeca45d5892bf3a73d45f5ccb27cdb2987e11eb842
+  disposed_at: ba6727233986e0d24e1ebbeeca45d5892bf3a73d45f5ccb27cdb2987e11eb842
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 6ca55346708ae12374504112a52a46fa53bfc31ca3a49a9cf8bfc7845f92d147
+  disposition: 72c233c9cf6a0c7336f8db431be36a78c1c30b372dc209fcb3ed1f787fe3a065
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-19T09:03:20Z'
+  authority: generated
+  via: create_document

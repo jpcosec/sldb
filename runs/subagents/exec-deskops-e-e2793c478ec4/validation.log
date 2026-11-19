@@ -1,0 +1,3 @@
+pytest tests/test_cli_v2.py tests/test_address_surface.py tests/test_clean_code_rules.py -> 1270 passed, rc 0
+PYTHONPATH=src sldb selfdoc check -> rc 0
+bash tools/check.sh --fast -> rc 0

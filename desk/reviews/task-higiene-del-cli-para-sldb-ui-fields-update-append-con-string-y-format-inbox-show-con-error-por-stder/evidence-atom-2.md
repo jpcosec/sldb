@@ -1,0 +1,53 @@
+---
+sldb:
+  by: agent
+  at: '2026-11-19T09:03:20Z'
+  authority: generated
+  via: create_document
+# review-<task>-<kind>-<n>
+id: review-task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder-evidence-atom-2
+# preflight | bundle | reproduction | goldens | owner | node | evidence
+kind: evidence
+# kind evidence only: tests | commit | atom | materialization | document | external
+fact: atom
+# kind evidence only: what the producer verified, one item per line
+value: atom-fields-update-y-append-aceptan-string-y-format-e-inbox-reporta-por-stderr-y-no-escribe-sin-store
+# doc:<Model>:<id> or empty for reviews of plan nodes
+subject: doc:TaskCodeDoc:task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder@sha256:cb51fd864a3598898ab34f81490365cd618fb8962fcb9c6f276cf755b4fba31a
+# <plan>/dag.yaml#node:<ID>; empty when subject names a document
+subject_ref: ''
+# RuntimeProfileDoc name or "human"
+engine: deskops-closeout
+actor: sldb
+# Run evidence directory under runs/, relative to the project root
+run_dir: ''
+input_sha256: aa4f9d775e6b27c34e5545624144151534dff5efa0c3d5d6dcfe662bf6c2a2f8
+# preflight/bundle: SHA-256 of the input with the TaskDoc replaced by its __contract__ digest
+contract_sha256: ''
+output_sha256: ''
+# pending | accepted | rejected | incomplete
+verdict: accepted
+reason: 'verified: atom atom-fields-update-y-append-aceptan-string-y-format-e-inbox-reporta-por-stderr-y-no-escribe-sin-store'
+# ISO 8601 timestamp
+created_at: '2026-11-19T09:03:15.914331+00:00'
+# ISO 8601 timestamp, empty while pending
+disposed_at: '2026-11-19T09:03:15.914331+00:00'
+disposed_by: sldb
+# e.g. workspace:desk
+tags:
+- workspace:desk
+---
+
+# Closeout evidence atom of task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder
+
+## Summary
+
+_Summarize what was reviewed and the evidence this receipt records._
+
+closeout verify checked atom: atom-fields-update-y-append-aceptan-string-y-format-e-inbox-reporta-por-stderr-y-no-escribe-sin-store
+
+## Disposition
+
+_Record the verdict rationale and who disposed of the review._
+
+Verdict accepted: verified: atom atom-fields-update-y-append-aceptan-string-y-format-e-inbox-reporta-por-stderr-y-no-escribe-sin-store

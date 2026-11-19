@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-19T08:59:01Z'
+  at: '2026-11-19T09:06:37Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -52,7 +52,6 @@ tasks:
 - desk/tasks/task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable.md
 - desk/tasks/task-pron-contra-sldb-deshacer-restaura-el-hash-del-mundo-untrack-track-recupera-el-documento-y-find-con.md
 - desk/tasks/task-sldb-models-validate-importa-los-modelos-de-deskops-models-como-lo-hacen-extract-y-render-no-module.md
-- desk/tasks/task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder.md
 - desk/tasks/task-sldb-stores-remove-quita-el-enlace-también-de-la-declaración-store-yaml-así-otra-sesión-no-lo-reintr.md
 - desk/tasks/task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar.md
 - desk/tasks/task-declared-target-nodes-acepta-un-directorio-existente-como-target-declarado-de-una-materialización.md
@@ -165,7 +164,6 @@ _Generated from the task references above._
 - Separar el store en .sldb_store (todo lo versionado: store.yaml y core/) y .sldb_cache (todo lo regenerable), con stores migrate-layout, lectura del layout viejo y migración del ecosistema [draft] - Un store nuevo se crea en .sldb_store/ (store.yaml, core/ y README.md, todo versionado) con su cache en .sldb_cache/ (todo regenerable e ignorado); `sldb stores migrate-layout` lleva un store del layout viejo al nuevo con git mv; todo comando de sldb sigue leyendo un store en .sldb/ (layout viejo) con una alerta que dice que se migre; el store de sldb está migrado; y cada repo del ecosistema que tiene store recibió por inbox el aviso con el comando.
 - pron contra sldb: deshacer restaura el hash del mundo, untrack + track recupera el documento y find con where en un mundo solo vuelve a encontrar [draft] - Cada uno de los tres síntomas queda clasificado con evidencia como regresión de sldb (y arreglado aquí con test) o como cambio de contrato (documentado en el CHANGELOG, con la forma que pron debe adoptar), y las pruebas de pron nombradas en la nota pasan contra este sldb salvo las que dependan de un cambio de contrato que pron deba adoptar.
 - sldb models validate importa los modelos de deskops.models:* como lo hacen extract y render (No module named deskops.base) [draft] - sldb models validate <Modelo> importa el modelo con la misma resolución que extract y render, y valida los modelos de deskops.models:* sin error de import.
-- Higiene del CLI para sldb-ui: fields update/append con --string y --format, inbox --show con error por stderr e inbox --store sin .sldb que falla [active] - fields update y append aceptan --string (el valor se toma literal, sin YAML) y --format json|text|yaml como el resto de comandos; inbox --show de una nota inexistente escribe el error por stderr con exit distinto de 0; inbox con un --store que no contiene .sldb falla con un error que lo dice y no escribe nada.
 - sldb stores remove quita el enlace también de la declaración store.yaml, así otra sesión no lo reintroduce [draft] - sldb stores remove <alias> deja el enlace fuera del índice y de la declaración store.yaml en una sola operación, bajo el lock del store; un store sin store.yaml se comporta como hoy.
 - La regla builtin tag_namespace:domain sugiere un fix concreto en stores check (qué namespace declarar o qué tag cambiar) [draft] - Cada hallazgo de la regla builtin tag_namespace:domain trae en fix un texto accionable: el namespace a declarar en la política del store (con el comando o la clave exacta) o los tags válidos de ese namespace.
 - declared_target_nodes acepta un directorio existente como target declarado de una materialización [draft] - Un target declarado que es un directorio existente del proyecto produce un nodo del grafo (de directorio) y graph missing no lo reporta; un directorio inexistente sigue siendo missing.

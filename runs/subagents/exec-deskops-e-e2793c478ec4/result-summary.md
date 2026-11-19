@@ -1,0 +1,5 @@
+# Result
+Implemented --string/--format on fields update/append, inbox --show error to stderr (rc 1), inbox --store without .sldb fails. Tests added in tests/test_cli_v2.py, CHANGELOG, selfdoc regenerated (also picked up pre-existing drift for docs-list and stores-merge-driver).
+Files:
+- src/sldb/cli/commands/fields_mutate.py src/sldb/cli/commands/fields_save.py src/sldb/cli/commands/inbox_core.py src/sldb/cli/commands/inbox_show.py src/sldb/cli/commands/help_texts_find.py src/sldb/cli/parsers/fields.py tests/test_cli_v2.py CHANGELOG.md .sldb/core/models/CliCommandDoc.yaml .sldb/core/documents/CliCommandDoc/cmd-sldb-docs-list.yaml .sldb/core/documents/CliCommandDoc/cmd-sldb-fields-append.yaml .sldb/core/documents/CliCommandDoc/cmd-sldb-fields-update.yaml .sldb/core/documents/CliCommandDoc/cmd-sldb-stores-merge-driver.yaml knowledge/commands/cmd-sldb-docs-list.md knowledge/commands/cmd-sldb-fields-append.md knowledge/commands/cmd-sldb-fields-update.md knowledge/commands/cmd-sldb-stores-merge-driver.md
+Pending: notify sldb-ui (coordinator).
