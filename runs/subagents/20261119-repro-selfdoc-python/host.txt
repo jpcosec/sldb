@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/__init__.py", line 2, in <module>
+    from sldb.core.data_extractor import DataExtractor
+  File "/mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/core/data_extractor.py", line 3, in <module>
+    from sldb.core.extractor.recipe_matcher import RecipeMatcher
+  File "/mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/core/extractor/recipe_matcher.py", line 3, in <module>
+    from sldb.core.node_handler import SharedNodeHandler
+  File "/mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/core/node_handler.py", line 3, in <module>
+    from sldb.core.handlers.router import SharedNodeHandler as SharedNodeHandler
+  File "/mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/core/handlers/router.py", line 4, in <module>
+    from sldb.core.handlers.list import ListNodeHandler
+  File "/mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/core/handlers/list.py", line 6, in <module>
+    from sldb.core.handlers.utils import parse_marker
+  File "/mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/core/handlers/utils.py", line 2, in <module>
+    from sldb.core.contracts import Marker
+  File "/mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/core/contracts/__init__.py", line 1, in <module>
+    from .marker import Marker, parse_marker, recipe_is_optional
+  File "/mnt/ssd/proyectos/SLDB_1/sldb/src/sldb/core/contracts/marker.py", line 2, in <module>
+    from pydantic import BaseModel, Field
+ModuleNotFoundError: No module named 'pydantic'
