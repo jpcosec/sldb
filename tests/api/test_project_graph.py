@@ -256,3 +256,12 @@ def test_the_existing_cache_invalidation_drops_the_memoized_graph(declared_proje
     assert api.project_graph(store) is first
     invalidate_composed_edge_indexes()
     assert api.project_graph(store) is not first
+
+
+def test_a_declared_directory_is_a_node_and_a_missing_one_stays_missing(project: Path) -> None:
+    _write(project / "cards" / "card-d.md", "---\nid: card-d\ntarget: generated/\n---\n\n# Card D\n")
+    _write(project / "cards" / "card-e.md", "---\nid: card-e\ntarget: nowhere\n---\n\n# Card E\n")
+    nodes = {node.id: node for node in extract_file_nodes(project, CONFIG)}
+    assert nodes["source_file:generated"].file_kind == "directory"
+    assert nodes["source_file:generated"].provenance.source_kind == "declared_target"
+    assert "source_file:nowhere" not in nodes

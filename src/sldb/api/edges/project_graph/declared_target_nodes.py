@@ -1,4 +1,4 @@
-"""Files that documents declare in a frontmatter field, made nodes so references resolve."""
+"""Files and directories that documents declare in a frontmatter field, made nodes so references resolve."""
 
 from __future__ import annotations
 
@@ -45,18 +45,19 @@ class DeclaredTargetNodes:
         return sorted(path for path in directory.rglob(declaration.pattern) if path.is_file()) if directory.exists() else []
 
     def _declared_path(self, document: Path, field: str) -> str | None:
-        """The declared repo-relative file, when it is a plain path to an existing project file."""
+        """The declared repo-relative file or directory, when it is a plain path to an existing one in the project."""
         value = _field_value(self.root, document, field)
-        normalized = value.removeprefix("./") if value else ""
+        normalized = value.removeprefix("./").rstrip("/") if value else ""
         if not normalized or normalized.startswith("/") or ".." in PurePosixPath(normalized).parts or ":" in normalized:
             return None
-        if not (self.root / normalized).resolve().is_relative_to(self.root) or not (self.root / normalized).is_file():
+        if not (self.root / normalized).resolve().is_relative_to(self.root) or not (self.root / normalized).exists():
             return None
         return None if self.exclusions.excludes(PurePosixPath(normalized).as_posix()) else normalized
 
     def _node(self, path: str, declaration: DeclaredFileTargets) -> FileNode:
         provenance = NodeProvenance(path=path, source_kind=declaration.source_kind, extractor=self.extractor)
-        return FileNode(id=f"{declaration.kind}:{path}", kind=declaration.kind, identity=path, path=path, file_kind=declaration.file_kind, provenance=provenance)
+        file_kind = "directory" if (self.root / path).is_dir() else declaration.file_kind
+        return FileNode(id=f"{declaration.kind}:{path}", kind=declaration.kind, identity=path, path=path, file_kind=file_kind, provenance=provenance)
 
 
 def _field_value(root: Path, document: Path, field: str) -> str | None:
