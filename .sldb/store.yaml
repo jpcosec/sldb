@@ -2361,6 +2361,14 @@ include:
     name: review-task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for-evidence-atom-1
   - path: desk/reviews/task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for/evidence-materialization-1.md
     name: review-task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for-evidence-materialization-1
+  - path: desk/reviews/task-declared-target-nodes-acepta-un-directorio-existente-como-target-declarado-de-una-materialización/preflight-1.md
+    name: review-task-declared-target-nodes-acepta-un-directorio-existente-como-target-declarado-de-una-materialización-preflight-1
+  - path: desk/reviews/task-declared-target-nodes-acepta-un-directorio-existente-como-target-declarado-de-una-materialización/bundle-1.md
+    name: review-task-declared-target-nodes-acepta-un-directorio-existente-como-target-declarado-de-una-materialización-bundle-1
+  - path: desk/reviews/task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar/preflight-1.md
+    name: review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-preflight-1
+  - path: desk/reviews/task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar/bundle-1.md
+    name: review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-bundle-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
