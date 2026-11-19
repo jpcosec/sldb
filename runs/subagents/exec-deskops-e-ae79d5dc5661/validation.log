@@ -1,0 +1,5 @@
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1263 passed, 2 warnings in 9.03s
+pytest rc=
+bash tools/check.sh --fast rc=0
