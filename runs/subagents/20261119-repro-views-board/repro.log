@@ -1,0 +1,8 @@
+### 2026-11-19, coordinador. sldb 452f1878 (herramientas), deskops ef84b70d, desk de deskops en su checkout. Proceso nuevo cada vez; carga: 9.69 8.21 9.20
+### comando: python -m sldb views run board (cwd deskops), stdout descartado
+caliente 1: 2.54 s rc=0
+caliente 2: 2.44 s rc=0
+caliente 3: 2.48 s rc=0
+frío (sin .sldb_cache ni XDG cache): 32.61 s rc=1
+import sldb.api (importtime, última línea): import time:       536 |     614823 | sldb.api
+stderr: Unknown view: board
