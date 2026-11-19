@@ -1,0 +1,19 @@
+name: 20261119-154109-suggestion-el-merge-driver-de-sldb-deber-a-instalarse-solo-al-preparar-un-store
+path: desk/inbox/20261119-154109-suggestion-el-merge-driver-de-sldb-deber-a-instalarse-solo-al-preparar-un-store.md
+source_hash: 840018d6273c6904b627a6b9f99af9435a3d2d5cff8f363adf02ab00e64f8918
+content_hash: e782bbf07b019842e7fe0cffe1a116fc5bb75c7be2831eeae862dc2413ab896f
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: b72b303da41e847659fed144b8351ee99056287a7d1f45dd343d7f6ddc79f30c
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: 9bff13371da8af7a53457e307a4eff1010932a2e89d63e5393b360a4f3b87019
+  body: 30618d66465babcb35568dbf2ef0a532887913ddeb2f2f0e6c7fa8c5d5599e8b
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

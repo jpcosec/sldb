@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-19T17:08:05Z'
+  at: '2026-11-19T18:44:51Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -71,6 +71,7 @@ tasks:
 - desk/tasks/task-sw11-el-panel-izquierdo-del-workbench-muestra-el-grafo-de-documentos-relacionados-con-el-abierto-al.md
 - desk/tasks/task-declaredfiletargets-lee-campos-lista-y-no-aplica-las-exclusiones-a-lo-que-se-declara-para-que-un-des.md
 - desk/tasks/task-baja-prioridad-canonizar-los-nombres-de-llamada-ts-js-cuya-cadena-empieza-en-un-array-binario-new-o.md
+- desk/tasks/task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -176,3 +177,4 @@ _Generated from the task references above._
 - SW11: el panel izquierdo del Workbench muestra el grafo de documentos relacionados con el abierto al centro, desde lo que entrega sldb [draft] - Con un documento que tiene relaciones entrantes y salientes en un store real, el panel muestra ambas con el documento al centro (1 y 2 saltos), un clic en un vecino lo abre, un documento sin relaciones lo dice, hay un tope de nodos para documentos muy referenciados, y ningún vecino sale de parseo en la UI.
 - DeclaredFileTargets lee campos lista y no aplica las exclusiones a lo que se declara, para que un destino que existe no cuente como faltante [draft] - Un destino declarado por DeclaredFileTargets, venga de un campo escalar o de un campo lista, que es un archivo existente del proyecto se vuelve nodo aunque esté bajo una exclusión; y hay una forma declarativa de que las menciones de LineMentions a archivos existentes del proyecto no cuenten como faltantes.
 - Baja prioridad: canonizar los nombres de llamada TS/JS cuya cadena empieza en un array, binario, new o literal (hoy canonical: false) [draft] - Los nombres de llamada que hoy salen con canonical: false tienen una forma canónica definida y documentada (por ejemplo marcadores fijos [...] para arrays, (expr) para binarios, Clase() para new y (lit) para literales) y salen con canonical: true y en la relación calls si nombran un símbolo.
+- sldb move mueve un archivo o directorio con git mv y actualiza en el mismo repo el store y las referencias a la ruta vieja [draft] - sldb move <origen> <destino> [--store S] [--dry-run] [--format text|json] mueve un archivo o un directorio dentro del proyecto. (1) Si el origen está versionado en git, usa git mv, así git registra el renombre; si no, mueve en disco. (2) Los documentos trackeados que se mueven siguen trackeados con el mismo nombre, como hace move_document. (3) En los documentos trackeados del store del proyecto, todo valor de campo que sea exactamente la ruta vieja, o que empiece por la ruta vieja más '/' cuando el origen es un directorio, pasa a la ruta nueva, escrito por la API de campos de sldb y no como texto. (4) En los archivos Markdown del repo, los links relativos e inline a la ruta vieja apuntan a la nueva. (5) Todo pasa en una Transaction: si algo falla, el árbol y el store quedan como estaban. (6) --dry-run lista lo que movería y cada referencia que reescribiría (documento, campo y valor viejo y nuevo, o archivo y línea) sin tocar nada. La salida json da esa misma lista.
