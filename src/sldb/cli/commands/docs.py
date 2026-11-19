@@ -55,7 +55,7 @@ class DocsCLI:
             int: Exit code.
         """
         sp, _root = get_store_context(args.store, mode="readonly")
-        causes = unresolvable_documents(sp)
+        causes = unresolvable_documents(sp, getattr(args, "pythonpath", None))
         docs = [{**d, "unresolvable": causes[(d["model"], d["name"])]} if (d["model"], d["name"]) in causes else d for d in indexed_documents(sp)]
         return self._render_docs(args.format, {"store": str(sp), "documents": docs}, docs, sp)
 

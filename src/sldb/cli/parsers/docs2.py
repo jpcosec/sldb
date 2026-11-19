@@ -29,6 +29,7 @@ def _recover(s):
 def _list(s):
     l = s.add_parser("list", help="List tracked documents.")
     l.add_argument("--store", help="Store path")
+    l.add_argument("--pythonpath", help="Project path; a model that does not import from it or the store root is marked unresolvable")
     l.add_argument("--format", choices=("text", "json", "yaml"), default="text")
 
 def _compose(s):

@@ -1744,3 +1744,19 @@ def test_docs_list_marks_what_docs_show_cannot_find(tmp_path, capsys):
         cli_main(["docs", "show", listed[0]["name"], *args, "--pythonpath", pythonpath])
     assert cli_main(["docs", "list", *args]) == 0
     assert "[unresolvable: file-missing]" in capsys.readouterr().out
+
+
+def test_docs_list_marks_a_document_whose_model_does_not_import(tmp_path, capsys, monkeypatch):
+    store, pythonpath = _setup_store(tmp_path)
+    args = ["--store", str(store)]
+    capsys.readouterr()
+    assert cli_main(["docs", "list", "--format", "json", *args, "--pythonpath", pythonpath]) == 0
+    assert "unresolvable" not in json.loads(capsys.readouterr().out)["documents"][0]
+    sys.modules.pop("cli_v2_models", None)
+    monkeypatch.setattr(sys, "path", [p for p in sys.path if not (Path(p) / "cli_v2_models.py").exists()])  # earlier tests leave their dirs on sys.path
+    assert cli_main(["docs", "list", "--format", "json", *args]) == 0  # no pythonpath: the model is not found
+    listed = json.loads(capsys.readouterr().out)["documents"]
+    assert [d["unresolvable"] for d in listed] == ["model-not-importable"]
+    sys.modules.pop("cli_v2_models", None)
+    with pytest.raises(SystemExit, match="Unknown document target"):
+        cli_main(["docs", "show", listed[0]["name"], *args])
