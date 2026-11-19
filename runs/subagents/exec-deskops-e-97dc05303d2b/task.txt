@@ -1,0 +1,11 @@
+Task: task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for
+Title: docs track --reindex re-indexa un documento ya trackeado validándolo, sin saltar el round-trip como --force
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective atoms:
+- atom-track-con-force-re-indexa-desde-el-archivo-un-documento-ya-trackeado-en-la-misma-ruta
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .

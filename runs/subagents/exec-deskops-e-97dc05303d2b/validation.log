@@ -1,0 +1,8 @@
+21 passed, 1 warning in 1.20s
+7 passed, 1 warning in 3.74s
+5 passed, 1 warning in 1.90s
+1212 passed, 2 warnings in 1.81s
+bash tools/check.sh --fast rc=0
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m

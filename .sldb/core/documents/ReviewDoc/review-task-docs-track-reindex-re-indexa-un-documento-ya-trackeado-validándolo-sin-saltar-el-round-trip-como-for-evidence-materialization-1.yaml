@@ -1,0 +1,37 @@
+name: review-task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for-evidence-materialization-1
+path: desk/reviews/task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for/evidence-materialization-1.md
+source_hash: 2e655796999c89fcee33766e89f39262c376bc4a523b918d1df5ab6480a9f9da
+content_hash: 6eca4d7edb18cbc6a7ee18bc64d7429f62fac4d5c9acb6bfca4c854685135184
+field_hashes:
+  id: 73125ef8aa0b0b74ca183140cd45042f9ce36dbb527325cb0adb73b2bbeba8dc
+  title: 46d2a00cb927b36cf5b490e0ce8e5b651622be614b71497462d7ba0fc2cd0014
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: 0fd43f45a1e80e595daf9f5248638e96db026abc420524bc993505a655491199
+  subject: b81d8e0d49173e47392757fb448835d6ae5df044794fe2005798d83e6698e7a0
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: d6e26bee7528a7ef8742fd0f3ea9a6298f8ecbdd5c2d58b7204ecf515dd2bdd6
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 3e4a505d0adbc1401662a00af5b375564c30a48b01a11fa3a1d52705451f3a1b
+  created_at: 59e4b48f9e2832af46e365ab0a2c3209a9d4cdc86c618fcd9405245f985ea8f0
+  disposed_at: 59e4b48f9e2832af46e365ab0a2c3209a9d4cdc86c618fcd9405245f985ea8f0
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 7cf3e725b62c87af7b707499d2c15365f61aaee4e45e1138518bea5ebec4b290
+  disposition: 5cb9edc59c5126482773214eb8bdb5e5693dbee6d772d4aabd981cbfe99d4ade
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-19T11:01:37Z'
+  authority: generated
+  via: create_document

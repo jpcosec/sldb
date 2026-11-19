@@ -1,0 +1,122 @@
+===== .venv/bin/python -m pytest -q tests/api/test_api_documents.py -p no:cacheprovider --no-header =====
+.....................                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /workspace/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+21 passed, 1 warning in 2.14s
+RC=0
+
+===== .venv/bin/python -m pytest -q tests/api/test_on_write_entering.py -p no:cacheprovider --no-header =====
+.......                                                                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /workspace/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+7 passed, 1 warning in 7.44s
+RC=0
+
+===== .venv/bin/python -m pytest -q tests/test_links_batch_cli.py -p no:cacheprovider --no-header =====
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /workspace/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 2.01s
+RC=0
+
+===== .venv/bin/python -m pytest -q tests/test_clean_code_rules.py -p no:cacheprovider --no-header =====
+........................................................................ [ 77%]
+........................................................................ [ 83%]
+........................................................................ [ 89%]
+........................................................................ [ 95%]
+............................................................             [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /workspace/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+.venv/lib/python3.13/site-packages/_pytest/python.py:124
+  /workspace/sldb/.venv/lib/python3.13/site-packages/_pytest/python.py:124: PytestRemovedIn10Warning: Passing a non-Collection iterable to parametrize is deprecated.
+  Test: tests/test_clean_code_rules.py::test_clean_code_rules, argvalues type: generator
+  Please convert to a list or tuple.
+  See https://docs.pytest.org/en/stable/deprecations.html#parametrize-iterators
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1212 passed, 2 warnings in 2.49s
+RC=0
+
+===== .venv/bin/python -m pytest -q tests/test_cli_v2.py tests/test_cli_every_command_has_a_handler.py tests/test_cli_format_coverage.py -p no:cacheprovider --no-header =====
+.......................................................                  [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464
+  /workspace/sldb/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+55 passed, 1 warning in 11.35s
+RC=0
+
+===== PATH=.venv/bin:$PATH bash tools/check.sh --fast =====
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 981 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 124 símbolos pedidos, 595 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+RC=0
+
+===== .venv/bin/python -m sldb selfdoc check =====
+{
+  "ok": true,
+  "documents": 164,
+  "missing": [],
+  "changed": [],
+  "untracked": [],
+  "stale_indexes": [],
+  "removed": [],
+  "renamed": [],
+  "semantic_gaps": 0,
+  "graph_stale": [],
+  "graph_errors": [],
+  "undeclared": 0,
+  "unexplained": [],
+  "unresolved_references": [],
+  "purpose_conflicts": [],
+  "metadata_errors": [],
+  "written": 0,
+  "errors": [],
+  "alerts": []
+}
+RC=0
