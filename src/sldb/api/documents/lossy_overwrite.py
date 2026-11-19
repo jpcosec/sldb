@@ -25,27 +25,36 @@ def refuse_lossy_overwrite(store_path: Path, root: Path, doc_entry: DocumentEntr
     Raises:
         SLDBValidationError: Naming the undeclared headings or keys that would be lost.
     """
-    from sldb.models.provenance import Provenance
-
     current = guarded_text(root, root / doc_entry.path)
     if current is None:
         return
     report = find_structural_noise(model_type, current, doc_entry.name)
+    lost = _lost_headings(report.undeclared, rendered)
+    if lost:
+        _refuse_lost_headings(store_path, model_type, report, lost)
+    _refuse_lost_keys(model_type, current, rendered, doc_entry.name)
+
+
+def _lost_headings(undeclared: list[str], rendered: str) -> list[str]:
+    """The undeclared heading lines `rendered` does not keep, counting repeats."""
     kept = Counter(format_heading(lv, ti) for lv, ti in scan_headings(rendered))
     lost = []
-    for line in report.undeclared:
+    for line in undeclared:
         if kept[line] > 0:
             kept[line] -= 1
         else:
             lost.append(line)
-    if lost:
-        lost_report = StructuralNoiseReport(document=report.document, model=report.model, undeclared=lost, narrative=report.narrative)
-        authority, declared = Provenance.of_model(model_type)
-        subject = Subject(authority=authority, declared=declared, narrative=lost_report.narrative)
-        if Policy.of_store(store_path).response("structural-noise", lost_report.model, subject) not in ("allow", "ignore"):
-            raise SLDBValidationError(lost_report.message(), lost_report.details())
-    _refuse_lost_keys(model_type, current, rendered, doc_entry.name)
+    return lost
 
+
+def _refuse_lost_headings(store_path: Path, model_type: type, report: StructuralNoiseReport, lost: list[str]) -> None:
+    from sldb.models.provenance import Provenance
+
+    lost_report = StructuralNoiseReport(document=report.document, model=report.model, undeclared=lost, narrative=report.narrative)
+    authority, declared = Provenance.of_model(model_type)
+    subject = Subject(authority=authority, declared=declared, narrative=lost_report.narrative)
+    if Policy.of_store(store_path).response("structural-noise", lost_report.model, subject) not in ("allow", "ignore"):
+        raise SLDBValidationError(lost_report.message(), lost_report.details())
 
 def _refuse_lost_keys(model_type: type, current: str, rendered: str, name: str) -> None:
     keys = [k for k in undeclared_frontmatter_keys(model_type, current) if k not in _frontmatter_keys(rendered, load_yaml=True)]
