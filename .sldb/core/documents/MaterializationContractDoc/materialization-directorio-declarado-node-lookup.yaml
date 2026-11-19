@@ -1,0 +1,25 @@
+name: materialization-directorio-declarado-node-lookup
+path: desk/materializations/materialization-directorio-declarado-node-lookup.md
+source_hash: f667c341b7e5fb87f0346cff8b2f21790eaf2497cf7a99fffe00d322070b57a3
+content_hash: 1d22150ebc289982a342ff81d5b58bfb45a452b9e3f14453a31bed6e572e8d41
+field_hashes:
+  id: 2a42c7f1f5085b24e91288b2965d2d2acbb8e546d6d5d2b15fa0c2b78f435a1b
+  title: 90784f4abad841bff2dcbf1cd9e1b4c183b8175bdc2e12a7f6825ead9011ac47
+  source_atoms: 44ce70596edb8c24f29e0148e109840fb8092955542f7819140688670d35544d
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: a0f7ae437e65f07fb626294eedcba0d1c46b47f485f88b05888dc22526735001
+  intent: d4964cf774811bd3fef4c70de75d2d7cdd80d60563392e8572f944d26ca09975
+  validation: 3dbd6c58f8ca96ff5c6c557ea7b04eb87d3b265713f4e2e102409f74c59490f9
+  tags: 7a63f38b746315facc253bb99ed43c6e92fa7645b4127405e1ec66a7bc715d10
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:graph
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-19T12:12:05Z'
+  authority: generated
+  via: create_document

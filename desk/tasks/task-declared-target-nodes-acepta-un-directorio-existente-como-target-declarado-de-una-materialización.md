@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-19T12:00:50Z'
+  at: '2026-11-19T12:11:10Z'
   authority: generated
   via: save_document_payload
 id: task-declared-target-nodes-acepta-un-directorio-existente-como-target-declarado-de-una-materialización
@@ -11,7 +11,7 @@ tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
-current_node: ritual-execution
+current_node: ritual-testing
 history:
 - task_activates
 - 'task_returns_to_execution: Tester deskops-t-492f877ef22e FALLA sobre 6f14a3b5 (informe
@@ -25,8 +25,13 @@ history:
   o sin barra el directorio resuelva; y que el test ejecute graph.extraction().missing_targets
   (o deskops graph missing) y no solo extract_file_nodes, cubriendo ''dir'', ''dir/''
   y un directorio inexistente que siga en missing.'
+- task_activates
 references:
-- desk/inbox/20261116-054845-suggestion-declared-target-nodes-aceptar-un-directorio-como-target-declarado.md
+- src/sldb/api/edges/project_graph/declared_target_nodes.py
+- src/sldb/api/edges/project_graph/node_lookup.py
+- tests/api/test_project_graph.py
+- 6f14a3b537c4e3f2d72dbdee1880fbe3a2c465fb
+- 4bd45239b03272d062ab9c5b5ba3f82871f73e6c
 depends_on: []
 pills: []
 files:
@@ -36,7 +41,8 @@ files:
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-un-directorio-existente-declarado-como-target-de-una-materializacion-es-un-nodo-del-grafo-con-o-sin
 ---
 
 # declared_target_nodes acepta un directorio existente como target declarado de una materialización

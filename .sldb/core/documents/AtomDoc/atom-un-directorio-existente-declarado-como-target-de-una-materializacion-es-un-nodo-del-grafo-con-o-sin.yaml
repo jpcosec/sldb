@@ -1,0 +1,22 @@
+name: atom-un-directorio-existente-declarado-como-target-de-una-materializacion-es-un-nodo-del-grafo-con-o-sin
+path: desk/atoms/atom-un-directorio-existente-declarado-como-target-de-una-materializacion-es-un-nodo-del-grafo-con-o-sin.md
+source_hash: 47753d2aadd7c270275edae53aa908be9d947d505ed2f8d0ce4f21a03821dd7d
+content_hash: a0acbac3bf012b9f9d9cde8b4aa25e3d70ec95e2315c00590fdbce95f99b12c5
+field_hashes:
+  id: bcfdb034c55b21c6fd79bcf61a8718e3845c09041f9f4dbcdbdbc950a5fdfe14
+  title: f32be79d7d5a171affd743cfb55ef350b8fe1778fda7a389e8858197e4d1ab4e
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 1b13dad4e19ba26062f8d187f69324ecc8cd48f75684a8114dbd4f7a33271342
+  tags: 7a63f38b746315facc253bb99ed43c6e92fa7645b4127405e1ec66a7bc715d10
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:graph
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-19T12:10:15Z'
+  authority: generated
+  via: create_document
