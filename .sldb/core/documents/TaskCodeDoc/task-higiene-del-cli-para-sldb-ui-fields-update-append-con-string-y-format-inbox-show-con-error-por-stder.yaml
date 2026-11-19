@@ -1,7 +1,7 @@
 name: task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder
 path: desk/tasks/task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder.md
-source_hash: 28b5c479e37efd5902fff271c979732bd2d9d9261c369889fe741b05fec21ca7
-content_hash: 9860161530f5a383792be64ba03408346a46da5c2dd6af70ee86834d8d95e59d
+source_hash: e88b69de9ee89a67d40ffee99e6a86eb747e584e0c9f71fca9a74a3be833f5cd
+content_hash: 4e847e937f3816efb1e6fc9b2a7f51047382c5c595bc025f27b4399c60aedcad
 field_hashes:
   title: 3ef9d5c414be416d03054ff474e3325026e61812b01b0780114f71452c19fce0
   id: 2dafe4c7e81f459ce0ec644b8a2856c2bc7e9303aebd7f18dc8aebca85e0a284
@@ -17,7 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 398f2a47849ded5c3f776f97dc5f6c2fb163d51939ccffe543487fa60dbeb7e4
-  implementation_path: fb871577b24b2c30cbe3017e66b818d015bffeed9fbd9cb40d764c23a0e053e4
+  implementation_path: 5f337bc743c80188ce1c00b16e90ac6b1559826afb7a40b8db042fb2b8ea043d
   validation: d20b276d5a8424ac90a5ca09deca23b0f722a3ff6fa77742df24e2defa7521a7
   done_when: 5ceef45f784a8e848864276288a91e35cf4f5ab27bfb097022923f9fae91bcd8
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-17T02:22:04Z'
+  at: '2026-11-19T08:43:22Z'
   authority: generated
   via: save_document_payload

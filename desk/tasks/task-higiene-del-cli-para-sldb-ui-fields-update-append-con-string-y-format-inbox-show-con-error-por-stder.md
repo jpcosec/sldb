@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T02:22:04Z'
+  at: '2026-11-19T08:43:22Z'
   authority: generated
   via: save_document_payload
 id: task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder
@@ -53,7 +53,7 @@ Entra: esos cuatro cambios en los parsers y comandos de fields e inbox, su ayuda
 
 _Outline the expected implementation route or affected surface._
 
-1) Leer los parsers y comandos de fields e inbox (src/sldb/cli/commands/inbox_create.py, inbox_parse.py y los de fields). 2) Implementar. 3) Tests. 4) Validation.
+1) Leer los parsers y comandos de fields e inbox (src/sldb/cli/commands/inbox_create.py, inbox_parse.py y los de fields). 2) Implementar los cuatro cambios. 3) Tests en tests/test_cli_v2.py, uno por cambio, que fallen antes. 4) Como hay flags nuevos (--string, --format), correr 'PYTHONPATH=src sldb selfdoc sync' y commitear la referencia CLI que regenere; después 'PYTHONPATH=src sldb selfdoc check' en 0 (integrate lo exige). 5) CHANGELOG. 6) quick_gates del desk (bash tools/check.sh --fast) en 0 antes del commit, con rutas nombradas y Task-Id.
 
 ## Validation
 
