@@ -27,6 +27,7 @@ def _track(s):
     t.add_argument("--store", help="Store path")
     t.add_argument("--pythonpath", help="Project path")
     t.add_argument("--force", action="store_true", help="Skip the round-trip check; a doc already tracked at this same path is re-indexed from the file")
+    t.add_argument("--reindex", action="store_true", help="Re-index a doc already tracked at this same path from the file, validating it like a normal track (unlike --force); not with --force")
 
 def _update(s):
     u = s.add_parser("update", help="Update doc content.")

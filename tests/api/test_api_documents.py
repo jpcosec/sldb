@@ -164,3 +164,34 @@ def test_track_force_twice_without_changes_is_idempotent(api_store):
     assert _index_state(api_store) == state and declaration.read_bytes() == before
     assert before.count(b"login.md") <= 1
     assert api.check_store(api_store.store, api_store.root, api_store.pythonpath)["ok"]
+
+
+def _reindex(api_store, **kw):
+    return api.track_document_file(api_store.store, "TicketDoc", "login.md", "login", api_store.pythonpath, reindex=True, **kw)
+
+
+def test_track_reindex_reindexes_a_valid_edited_file(api_store):
+    api_store.write_document("login", {**PAYLOAD, "title": "Edited for reindex"})
+    assert _reindex(api_store).name == "login"
+    assert _title(api_store, "login") == "Edited for reindex"
+    assert api.check_store(api_store.store, api_store.root, api_store.pythonpath)["ok"]
+
+
+def test_track_reindex_of_an_invalid_file_fails_and_leaves_the_index_as_it_was(api_store):
+    (api_store.root / "login.md").write_text("---\n: [broken\n---\n\n# nope\n", encoding="utf-8")
+    before = _index_state(api_store)
+    with pytest.raises((SLDBValidationError, ValidationError)):  # the same error a normal track gives
+        _reindex(api_store)
+    assert _index_state(api_store) == before
+    _retrack(api_store)  # --force still skips the validation
+
+
+def test_track_reindex_on_an_untracked_document_behaves_as_track(api_store):
+    api_store.write_document("fresh", PAYLOAD)
+    tracked = api.track_document_file(api_store.store, "TicketDoc", "fresh.md", pythonpath=api_store.pythonpath, reindex=True)
+    assert tracked.name == "fresh"
+
+
+def test_track_reindex_with_force_is_refused_clearly(api_store):
+    with pytest.raises(SLDBError, match="--reindex and --force cannot be combined"):
+        _reindex(api_store, force=True)

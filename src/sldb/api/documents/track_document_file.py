@@ -13,13 +13,13 @@ from sldb.api.stores.policy import Policy
 from sldb.api.documents.frontmatter_keys import refuse_undeclared_frontmatter
 from sldb.api.model_registry.model_reference import resolve_model_ref
 from sldb.api.stores.open_store import open_store
-from sldb.core.exceptions import SLDBValidationError
+from sldb.core.exceptions import SLDBError, SLDBValidationError
 from sldb.runtime.validation import validate_model_input_roundtrip
 from sldb.store.ops import track_document
 from sldb.store.source_read import read_source_text, refuse_unreadable
 
 
-def track_document_file(store: str | Path | None, model_name: str, path: str | Path, name: str | None = None, pythonpath: str | None = None, force: bool = False, actor: str | None = None) -> DocumentReference:
+def track_document_file(store: str | Path | None, model_name: str, path: str | Path, name: str | None = None, pythonpath: str | None = None, force: bool = False, actor: str | None = None, reindex: bool = False) -> DocumentReference:
     """Index a Markdown file as a document of a model.
 
     Args:
@@ -32,6 +32,10 @@ def track_document_file(store: str | Path | None, model_name: str, path: str | P
             already tracked with this model and name at this same path is re-indexed from the
             file's current content instead of refused (one at another path is still refused: use move).
         actor: Optional caller label; accepted for compatibility, no longer recorded (the journal was retired on 2026-11-04).
+        reindex: Like `force` for a document already tracked at this same path (it is re-indexed from the
+            file), but the file is validated as in a normal track; if it does not validate the error is
+            raised and the index is left as it was. On an untracked document it behaves as track. Not
+            combinable with `force`.
 
     Returns:
         The tracked document.
@@ -41,17 +45,22 @@ def track_document_file(store: str | Path | None, model_name: str, path: str | P
             and `force` is False, or when it is tracked at another path.
         SLDBValidationError: When the file does not round-trip, or when it carries
             headings the model does not declare, and `force` is False.
+        SLDBError: When `reindex` and `force` are both set.
     """
+    _refuse_both(force, reindex)
     location = open_store(store)
     registered = load_registered_model(location.store_path, model_name, pythonpath)
     doc_path = _resolve_path(path, location.project_root)
     doc_name = name or doc_path.stem
     text = read_source_text(doc_path)
-    if not force:
-        _refuse_unfit(registered.model_type, text, doc_name, location.store_path)
+    _refuse_unfit(registered.model_type, text, doc_name, location.store_path) if not force else None
     check_entering_text(location.store_path, registered.model_type, registered.entry.name, doc_name, text, force)
-    _track(location.store_path, location.project_root, registered, doc_path, doc_name, pythonpath, force)
+    _track(location.store_path, location.project_root, registered, doc_path, doc_name, pythonpath, force or reindex)
     return DocumentReference(model=registered.entry.name, name=doc_name, path=doc_path)
+
+
+def _refuse_both(force: bool, reindex: bool) -> None:
+    if reindex and force: raise SLDBError("--reindex and --force cannot be combined: --reindex validates the file, --force skips the round-trip.")
 
 
 def _resolve_path(raw: str | Path, root: Path) -> Path:

@@ -1,7 +1,7 @@
 name: cmd-sldb-docs-track
 path: knowledge/commands/cmd-sldb-docs-track.md
-source_hash: 03b06497881dcb08bbe994d15b3ad65e1af07f3baf4f4e0b9ed02fa8386abba4
-content_hash: 4e4a69e14d0ff269ea440ba51af30e411838586b69e7691967df6264cb006b73
+source_hash: 9a8f077a995501efa96cf07d0849553d1d3ac7550329116da8a9292b41ac6936
+content_hash: a4ef9f9d76b2ff66c16018526d3be0c4a14aef0af3a3280e49b1e96c6af0b0e6
 field_hashes:
   id: 2b4312e586760a81f2ef2fb1d9d8c80060c2d81ac00226e8ac479d3e274fb2b2
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,10 +9,10 @@ field_hashes:
   synopsis: eb35730b4d5f58aa06d30d380b37c21ab562f031d9fb1b6b41c1623d96250b63
   purpose: 68ac31018205259be7a9bacc232d917ea7bc786323ec562334a28daf2f3832f3
   how_it_works: 33d5f0c42f48a98c685cbc2d5df3c96804148e95511260aa7c9838e663ba0c9e
-  arguments: 9bb343e4e589350ae89a32e78a0bf9dd567112a4eb724102f70c22e37058cb06
+  arguments: 4388eb5d1ba04b6c0d8efed4b6a53bea0618ada6c48060fbfc9211777ac0a1b5
   usage: 7e66f8fbfc6f92dd2309706f0222364210bfc7d2ab1866351be3ea6e9c52fdd1
   tags: 699c2cfd1a5b0cb746c8dfb0f4de3ed26435e62c74e179332ed04ad4f2591c91
-  provenance: 0873afa9d058e86fa7da2a1ff09c0a8bacaa2327f60ea2d05c9bfdf46dbff517
+  provenance: c694499d6e36177eb6ef6542d9a50d640df3405fbde3444830b0fc8f533eace4
 semantic_tags:
 - domain:retrieval
 - entity:cli_command
@@ -25,6 +25,6 @@ semantic_tags:
 - workspace.knowledge.commands
 provenance:
   by: agent
-  at: '2026-11-16T23:22:28Z'
+  at: '2026-11-19T10:49:15Z'
   authority: generated
   via: save_document_payload

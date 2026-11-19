@@ -50,7 +50,7 @@ class DocCLI:
     def track(self, args: Any) -> int:
         if getattr(args, "glob", None): return track_glob(args)
         if not args.path: raise SLDBError("docs track needs a path or --glob.")
-        tracked = track_document_file(args.store, args.model, args.path, args.name, args.pythonpath, args.force)
+        tracked = track_document_file(args.store, args.model, args.path, args.name, args.pythonpath, args.force, reindex=getattr(args, "reindex", False))
         print(f"Tracked '{tracked.name}'")
         return 0
 

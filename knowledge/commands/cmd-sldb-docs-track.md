@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T23:22:28Z'
+  at: '2026-11-19T10:49:15Z'
   authority: generated
   via: save_document_payload
 id: cmd-sldb-docs-track
@@ -14,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#docs track; contract-sha256:bdcde5565b6fa972c415d574f09c2b8d2d9bdde8f35506fe384459d3d9165fce
+provenance: parser:sldb.cli.parser:build_parser#docs track; contract-sha256:0630fbedeb6ac73ab6d943f40407539eb071e2f41a62d9fab69ba8d1c0d9cbe3
 ---
 
 # docs track
@@ -139,6 +139,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'track'. It p
       "action": "argparse._StoreTrueAction",
       "const": "true",
       "help": "Skip the round-trip check; a doc already tracked at this same path is re-indexed from the file"
+    },
+    {
+      "names": [
+        "--reindex"
+      ],
+      "required": false,
+      "default": "false",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "argparse._StoreTrueAction",
+      "const": "true",
+      "help": "Re-index a doc already tracked at this same path from the file, validating it like a normal track (unlike --force); not with --force"
     }
   ],
   "exclusive_groups": []
