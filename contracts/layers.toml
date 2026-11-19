@@ -613,7 +613,7 @@ cuts = [
 [[unit]]
 id = "persistencia"
 axes = ["persistencia", "consulta", "federacion", "cache", "codec", "migracion", "bitacora", "semantica", "indice_de_aristas"]
-needs = 24  # medido 2026-11-11 (secrest): lecturas de documentos trackeados por la guarda lectura_de_fuentes; antes 22. 2026-11-11 (seguridad live_stale): aristas nuevas hacia el eje lectura_de_fuentes; antes 21. 2026-11-10 (main-de-sldb-en-verde): GO05 api/where.py → op_aristas, GD23 query_engine/document_selection.py → op_modelos; antes 19/36
+needs = 25  # medido 2026-11-19 (H11b): consulta lee la caché de filas de documentos por cache_keys del índice de aristas (store/query_engine/document_rows_disk.py); antes 24. medido 2026-11-11 (secrest): lecturas de documentos trackeados por la guarda lectura_de_fuentes; antes 22. 2026-11-11 (seguridad live_stale): aristas nuevas hacia el eje lectura_de_fuentes; antes 21. 2026-11-10 (main-de-sldb-en-verde): GO05 api/where.py → op_aristas, GD23 query_engine/document_selection.py → op_modelos; antes 19/36
 needed_by = 49  # medido 2026-11-15 (D1): find_store de la sincronizacion de specs reutiliza store/resolver.py (vistas → federacion, api/notations/spec_refs.py); antes 48. medido 2026-11-15 (sldb mcp): el eje mcp lee por store/layout.py (cache_dir del log de señales); antes 47. medido 2026-11-10: GO07, GD23, GD24 (op_documentos y anclaje → codec, consulta, indice_de_aristas) y los ejes reglas y vistas_compuestas; antes 19/36
 why = "el centro de gravedad del sistema: 110 aristas entran desde los ejes de operación"
 
@@ -621,7 +621,7 @@ why = "el centro de gravedad del sistema: 110 aristas entran desde los ejes de o
 id = "grafo"
 axes = ["grafo"]
 needs = 5  # GO03: eval de store/graph/backend reutiliza el parser where de store/query_engine
-needed_by = 8  # medido 2026-11-10 (main-de-sldb-en-verde): GO06 contrato (models/rule_doc.py:62), GD25 vocabulario_visual (models/notation/view_doc_checks.py:61), reglas y vistas_compuestas; antes 4 (GO05)
+needed_by = 9  # medido 2026-11-19 (H11b): semantica carga networkx por el import perezoso del grafo (store/semantic_dag_graph.py → graph/analysis/lazy_networkx.py); antes 8. medido 2026-11-10 (main-de-sldb-en-verde): GO06 contrato (models/rule_doc.py:62), GD25 vocabulario_visual (models/notation/view_doc_checks.py:61), reglas y vistas_compuestas; antes 4 (GO05)
 extractable_today = false
 why = """
 Unidad propia: 33 archivos, 28 de ellos autónomos. Necesita 7 imports de cuatro

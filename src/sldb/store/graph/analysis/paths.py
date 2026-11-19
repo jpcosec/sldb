@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-import networkx as nx
+from sldb.store.graph.analysis.lazy_networkx import nx
 
 from sldb.store.graph.analysis.nx_graph import to_networkx
 

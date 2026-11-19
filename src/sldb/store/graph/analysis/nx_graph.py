@@ -7,7 +7,7 @@ it. Nodes keep their class and semantics; every edge keys on its relation name, 
 
 from __future__ import annotations
 
-import networkx as nx
+from sldb.store.graph.analysis.lazy_networkx import nx
 
 from sldb.store.graph.analysis.relations import resolve
 

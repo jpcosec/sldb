@@ -12,7 +12,7 @@ has always been able to hold one, and nothing could see it.
 
 from __future__ import annotations
 
-import networkx as nx
+from sldb.store.graph.analysis.lazy_networkx import nx
 
 
 def dag_graph(dag) -> nx.DiGraph:

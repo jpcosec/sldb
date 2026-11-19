@@ -72,7 +72,7 @@ def load_declaration(store_path: Path) -> StoreDeclaration:
     path = declaration_path(store_path)
     if not path.is_file():
         raise FileNotFoundError(f"{path} does not exist: run `sldb stores declare --write` first")
-    definition = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    definition = yaml.load(path.read_text(encoding="utf-8"), Loader=getattr(yaml, "CSafeLoader", yaml.SafeLoader)) or {}  # safe_load with libyaml when present
     if definition.get("graph_backend", "networkx") != "networkx":  # a backend this phase cannot run
         raise ValueError(f'graph_backend {definition["graph_backend"]} no admitido; admitidos: ["networkx"]')
     return StoreDeclaration.model_validate(definition)

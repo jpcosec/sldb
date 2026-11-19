@@ -136,6 +136,24 @@ Another key, a missing or unreadable file is a miss: the shards are read as befo
 rewritten. The files a document moved to from outside sldb (`stale`) are checked on every read
 against the files on disk, as before.
 
+The document rows `select_documents` chooses from (each tracked document's `export_id`, model,
+name, path and the model's bases) are kept the same way (H11b): `.sldb_cache/document_rows/<id>.json`
+of the calling store, plain JSON, never executed. Its key is stats only, so the document shards it
+spares are not read to check it: per store, the store index's stat, each model index's stat and
+roster hash, the stat of each model's document-shard directory (a write is a rename), and this
+sldb's index version. Any difference, a missing, corrupt or foreign file is a miss: the shards are
+read as before and the file rewritten. A document written, tracked or removed is seen by the next
+run. A document edited in place without a rename and with the same model index is the one case the
+stats cannot tell (the same limit as the composed index).
+
+Measured on the H11 benchmark layout (deskops ef84b70d, `sldb views run board`, new process,
+median of 5, store built): 2.16 s before H11b, 1.44 s after. Of that, `import sldb.api` is 0.45 s
+(0.54 s before: `networkx` is imported on first use, `sldb/store/graph/analysis/lazy_networkx.py`)
+and `store.yaml` is read with libyaml. The first run after `stores build` (no disk cache) takes
+6.5 s (6.7 s before). The under-1-s goal is not reached: what remains is the import of the
+package's pydantic models (0.45 s), the composed index JSON (0.13 s), `live_stale` over 1,325
+documents (0.3 s under profile) and the view itself.
+
 ## CLI and HTTP
 
 - `sldb views run NAME [--param k=v ...] [--store] [--pythonpath] [--format]`: the result

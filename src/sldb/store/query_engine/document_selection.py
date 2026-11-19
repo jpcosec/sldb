@@ -16,6 +16,7 @@ from typing import Any, Callable
 from sldb.store.io import load_documents_index, load_models_index, load_store_index
 from sldb.store.layout import project_root
 from sldb.store.model_origin import owner_entry
+from sldb.store.query_engine.document_rows_disk import load_rows, rows_key, save_rows
 from sldb.store.query_engine.document_selection_filters import keep_matching, prefix_tier
 
 ROW_KEYS = ("export_id", "model", "name", "path")
@@ -50,10 +51,13 @@ def select_rows(
 
 def candidates(store_path: Path, include_linked: bool, alias: str | None) -> list[dict[str, Any]]:
     """Every tracked document of the store, then of its direct links (all of them, or `alias`)."""
-    rows = store_rows(store_path, None)
-    for path, name in linked_stores(store_path):
-        if include_linked or name == alias:
-            rows += store_rows(path, name)
+    stores = [(store_path, None)] + [(path, name) for path, name in linked_stores(store_path) if include_linked or name == alias]
+    key = rows_key(stores)
+    kept = load_rows(store_path, key)
+    if kept is not None:
+        return kept
+    rows = [row for path, name in stores for row in store_rows(path, name)]
+    save_rows(store_path, key, rows)
     return rows
 
 
