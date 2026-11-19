@@ -1,0 +1,38 @@
+name: task-el-guard-de-escritura-por-campos-refuse-lossy-overwrite-rechaza-headings-no-declarados-que-viven-den
+path: desk/tasks/task-el-guard-de-escritura-por-campos-refuse-lossy-overwrite-rechaza-headings-no-declarados-que-viven-den.md
+source_hash: 5f18f86d88625d41bdc30c5c357a9c9308e9686bdba98f404d1689c53a769137
+content_hash: a27adda9156d093138a44edc591ac20d7971901a09b324c3e33384a202d5bc1c
+field_hashes:
+  title: 626d57c5f1ddc96190356b27eb51fb54da790d39376524f334b301acefad923f
+  id: 1bbbac476cef11b42094f6c8d75be8e452fb48403ebebc0e267e01e5d79e0730
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 80b9af72876839be682ef62cb3c52d49964f20ebaab0fa406edd757816b42efa
+  goal: 42934ddfd9960106c7ca20e0702fa125b630f7513d565b08f4d0cb8c22ee1665
+  scope: 21714230273c4950ebca652ec515d5890370950da978ace007235e3dd8540e12
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  implementation_path: 82c04670afbc3d9f7a6fe2e1650b0e43140ef5e0ae48a4c14bdc1ad119de1078
+  validation: 21f253b7176f382e12661d6c7bcdc981480b2ca4fd9aa83a0f282d00cc0aa51b
+  done_when: fd13fc2d7ed7eb750d20eedb1fa0835191384432bac14d8c729a51984ac335d3
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- artifact:task
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-19T14:07:11Z'
+  authority: generated
+  via: create_document
