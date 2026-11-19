@@ -1,0 +1,25 @@
+name: materialization-escritura-sin-perdida-test-structural-noise
+path: desk/materializations/materialization-escritura-sin-perdida-test-structural-noise.md
+source_hash: 209f9237ef0711eda5ed7b22c4fda9ee4f90974ec5b266f86a975ec7fffdcdfc
+content_hash: 882759d8a09107dd6ce5f3f416adc774caf0f62d2e6d5649bad0f90dde9b17b2
+field_hashes:
+  id: 3a731602253afcafade7e22646343d0796562d677a1c1af15e17c4ef9950aa3d
+  title: d1123ca554fc44f2dc47ecd1799c5ec4ec80556486eb50b0fe6e808bf71ca971
+  source_atoms: 2eefba946302d01dbad57b6c479503dfa913edbb41e3b9461be405bdd1ebc702
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: ae58e3061ae23395d22d4bc920986cc76cce86d38562212f1f67198bb95c34c9
+  intent: 7eabea64fc6be1298736d964e045d97ed7c7d2a1b01d1b9a2f38672b58e20ee2
+  validation: c886310da85714e880d8d6f6b428d9acc1f2af194135f3b0fb60be75993f1a9c
+  tags: 9ed245d89a5461418c0f9edae2610fe45da71c47626c7c760f3c8ae535e6bc7a
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:api
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-19T08:00:38Z'
+  authority: generated
+  via: create_document

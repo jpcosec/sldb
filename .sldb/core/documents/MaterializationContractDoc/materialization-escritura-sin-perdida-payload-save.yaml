@@ -1,0 +1,25 @@
+name: materialization-escritura-sin-perdida-payload-save
+path: desk/materializations/materialization-escritura-sin-perdida-payload-save.md
+source_hash: 8959465387482d62a4c09550ec568b42a78d3991bb6bf95d7f082899a6ea8fbf
+content_hash: be241ba94e28e658ef9058534eb1519dcdd32bf3c8ec1ced3ef09e290df5f9f0
+field_hashes:
+  id: ca746bd9cb3e1bbea7f9de355591133ea37be5efa753ca8e98f5b21480540f0e
+  title: cfc6acee8b637baf5b75b64854d5b826d3820454796ef3c99bea6116f5a8b943
+  source_atoms: 2eefba946302d01dbad57b6c479503dfa913edbb41e3b9461be405bdd1ebc702
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: be384b5e14599c7197e22adda9ec4c20c0dcbd03b054c268ea430a792c139dce
+  intent: 54d9315fa6a79fa0ee8e57f71e6062f0a5c12a0c7d4a70cba02e8fcae7962228
+  validation: c886310da85714e880d8d6f6b428d9acc1f2af194135f3b0fb60be75993f1a9c
+  tags: 9ed245d89a5461418c0f9edae2610fe45da71c47626c7c760f3c8ae535e6bc7a
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:api
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-19T07:59:39Z'
+  authority: generated
+  via: create_document

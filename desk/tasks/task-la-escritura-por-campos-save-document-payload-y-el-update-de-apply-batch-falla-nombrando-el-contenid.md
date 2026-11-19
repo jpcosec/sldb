@@ -1,20 +1,24 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T02:12:10Z'
+  at: '2026-11-19T07:57:53Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
-current_node: ritual-execution
-history: []
+current_node: ritual-testing
+history:
+- task_activates
 references:
-- desk/inbox/20261116-223438-suggestion-save-document-payload-y-apply-batch-update-borran-en-silencio-contenido-que-el-modelo-no-declara-ws47-del-drawer-de-deskops.md
+- src/sldb/api/documents/lossy_overwrite.py
+- tests/api/test_structural_noise.py
+- tests/api/test_transaction.py
+- 6a4e5ec5b53cef87912df4667c67f133bed54c95
 depends_on: []
 pills: []
 files:
@@ -26,7 +30,8 @@ files:
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-una-escritura-por-campos-falla-antes-de-borrar-ruido-estructural-o-frontmatter-no-declarado-del-arch
 ---
 
 # La escritura por campos (save_document_payload y el update de apply_batch) falla nombrando el contenido que se perdería en vez de borrarlo en silencio

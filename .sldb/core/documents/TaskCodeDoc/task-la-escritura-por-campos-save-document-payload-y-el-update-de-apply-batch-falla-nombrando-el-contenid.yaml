@@ -1,19 +1,19 @@
 name: task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid
 path: desk/tasks/task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid.md
-source_hash: ab8064b0be1fec62ba49693e7a6a80c5d32fb817f96d22b30b839f72d535b67d
-content_hash: 53e0853249ac0ade4a36ae2e482ff71bf2517c9483326fcf0cf836e311c1268d
+source_hash: 751f70f444a554db52f9fab579c12dee3d2b3bb955e05ba9f846567ff95beb25
+content_hash: 16d2dd69df6e67630bec0e6f3ca087869a6c4b96519d9e7e4c21441c056948e3
 field_hashes:
   title: 62e56acad1954d0e2376cb131d6e125549ef555380024300f618a7433b6fd1b7
   id: 98a0b2b169e531758df30c2fc3e60b7e96e11276262928c406c043ba348b18e8
-  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
-  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
-  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  current_node: d10f5286503cbf750af0584acaec732741c2d9cfbae2a6d5b8ce45b8bf83b79d
+  history: f89b8fd2ac9e43a24ba505d162381268ed901d0695f62c6ad8ec2c62718dfa1c
   why: 0623e89efb49ec7183525494024b1894e1b775a97b2d417fe23752ef5e3477b4
   goal: a2198ae3e8a0c417e3a76e77d66552ea1f0ba308303d36e07de1d3f62d945919
   scope: 40f58d773531625d2a6cac00fe51d30fe90196518e033b72d3324acb57aa36f5
-  references: 9b6c91541cedd6fb5e13277f6e9ea85b5fc267b715afe596712ac83d00a028f4
+  references: 8f3bfa32c98857b3805d90eaf440856f665f7e9e94bc0f07aaa599ff3d440872
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 3eae6c49a59219e9e3fd0a5e35bdd4dcfd78798163d86b32e109186a92699031
@@ -23,7 +23,7 @@ field_hashes:
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
-  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  atoms: 2eefba946302d01dbad57b6c479503dfa913edbb41e3b9461be405bdd1ebc702
 semantic_tags:
 - artifact:task
 - host:robocop2
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-17T02:12:10Z'
+  at: '2026-11-19T07:57:53Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

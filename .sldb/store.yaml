@@ -714,6 +714,10 @@ include:
     name: run-deskops-e-27bdb1a142bd
   - path: runs/subagents/exec-deskops-t-766003e5d562-testing/run.md
     name: run-deskops-t-766003e5d562
+  - path: runs/subagents/exec-deskops-e-ae79d5dc5661/run.md
+    name: run-deskops-e-ae79d5dc5661
+  - path: runs/subagents/exec-deskops-t-63756f852b2d-testing/run.md
+    name: run-deskops-t-63756f852b2d
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -1159,6 +1163,9 @@ include:
   - desk/materializations/materialization-ci-keep-stores-build-check-command.md
   - desk/materializations/materialization-ci-keep-parser-stores.md
   - desk/materializations/materialization-ci-keep-test-stores-build.md
+  - desk/materializations/materialization-escritura-sin-perdida-payload-save.md
+  - desk/materializations/materialization-escritura-sin-perdida-payload-save-steps.md
+  - desk/materializations/materialization-escritura-sin-perdida-test-structural-noise.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2280,6 +2287,18 @@ include:
     name: review-task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid-preflight-1
   - path: desk/reviews/task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid/bundle-1.md
     name: review-task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid-bundle-1
+  - path: desk/reviews/task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid/evidence-tests-1.md
+    name: review-task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid-evidence-tests-1
+  - path: desk/reviews/task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid/evidence-commit-1.md
+    name: review-task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid-evidence-commit-1
+  - path: desk/reviews/task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid/evidence-atom-1.md
+    name: review-task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid-evidence-atom-1
+  - path: desk/reviews/task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid/evidence-materialization-1.md
+    name: review-task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid-evidence-materialization-1
+  - path: desk/reviews/task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid/evidence-atom-2.md
+    name: review-task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid-evidence-atom-2
+  - path: desk/reviews/task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid/evidence-materialization-2.md
+    name: review-task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid-evidence-materialization-2
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
