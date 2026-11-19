@@ -1,0 +1,22 @@
+name: atom-los-hallazgos-builtin-tag-namespace-traen-un-fix-accionable
+path: desk/atoms/atom-los-hallazgos-builtin-tag-namespace-traen-un-fix-accionable.md
+source_hash: 338f76718e70087275199eb85444fb6de9e40cb83916995acbc8e3bd3bb56141
+content_hash: d8cbae92559a1413df279b46a57f370178b47e10e32651695bbb94e9cda4d610
+field_hashes:
+  id: 5a707fbf49c37be9216a7e11dc7ea4428aef8afc5215acb99e1909af0918a77e
+  title: 434b3dfb9508d9c27a5191f3b4f23c61dd618b86350fd08831b4567945d6dc16
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 4f4851cc4e9ccf9c70554a6a27bde3343a3ecd53317cfee49e5ccfa795d6ee1d
+  tags: f855862d71cef60088bda336585c6ef7dcda73ce4335c7bf397a0adb870c1c50
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:tags
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-19T12:42:09Z'
+  authority: generated
+  via: create_document

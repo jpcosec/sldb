@@ -1,0 +1,25 @@
+name: materialization-fix-tag-namespace-test-tags
+path: desk/materializations/materialization-fix-tag-namespace-test-tags.md
+source_hash: 71ae6bb041ae196d018c3f8c58d4858ed01a66603053b493af9b494d2b2e12a6
+content_hash: 2b3aa5446625867a60f2808895d52db6bd67e525d371e9d2ba94bb3914ee6651
+field_hashes:
+  id: 17e7d40af04d1f053b6100f700a61e80be0d93f5ef92e0031341b76fdb5562dc
+  title: dd873f2cf8413f17e141bfe14916cf7952d1557ac9cf48d5dc79cabc88ad6286
+  source_atoms: b7bf21968ac93f76b0e4a0c20842af82a5d304f4f06916388d4a4dd42edf219b
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 5d2eca0bf4ec10513b313f5b4741064697864533c551c87cd3cb4537a9ba8b25
+  intent: e5adcb21ccbe8072904665b26b3f78ebf237414afd3400431fb0ec565f76babb
+  validation: 18a4e47f1bb5722b87da05d7368f928e87c10abae5ab148d645e61ef8f6dffc2
+  tags: f855862d71cef60088bda336585c6ef7dcda73ce4335c7bf397a0adb870c1c50
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:tags
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-19T12:43:58Z'
+  authority: generated
+  via: create_document

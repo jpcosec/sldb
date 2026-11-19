@@ -1,30 +1,34 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T01:44:27Z'
+  at: '2026-11-19T12:45:56Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
-current_node: ritual-execution
-history: []
+current_node: ritual-testing
+history:
+- task_activates
 references:
-- desk/inbox/20261116-214137-suggestion-stores-check-errores-rules-builtin-tag-namespace-domain-llegan-con-fix-vac-o.md
+- src/sldb/api/rules/builtin_tag_findings.py
+- tests/api/test_tags.py
+- 1398def0224c0185922ad3709050c1966fa5aed3
 depends_on: []
 pills: []
 files:
 - src/sldb/api/rules/builtin_tag_findings.py
-- tests/api/test_rules_evaluation.py
+- tests/api/test_tags.py
 - CHANGELOG.md
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-los-hallazgos-builtin-tag-namespace-traen-un-fix-accionable
 ---
 
 # La regla builtin tag_namespace:domain sugiere un fix concreto en stores check (qué namespace declarar o qué tag cambiar)

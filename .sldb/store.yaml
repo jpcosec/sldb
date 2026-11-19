@@ -739,6 +739,10 @@ include:
     name: run-deskops-e-b1aa0bc85d34-a2
   - path: runs/subagents/exec-deskops-t-492f877ef22e-a2-testing/run.md
     name: run-deskops-t-492f877ef22e-a2
+  - path: runs/subagents/exec-deskops-e-3f55d98569b3/run.md
+    name: run-deskops-e-3f55d98569b3
+  - path: runs/subagents/exec-deskops-t-86a415ef62a2-testing/run.md
+    name: run-deskops-t-86a415ef62a2
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -1198,6 +1202,8 @@ include:
   - desk/materializations/materialization-directorio-declarado-declared-target-nodes.md
   - desk/materializations/materialization-directorio-declarado-node-lookup.md
   - desk/materializations/materialization-directorio-declarado-test-project-graph.md
+  - desk/materializations/materialization-fix-tag-namespace-builtin-tag-findings.md
+  - desk/materializations/materialization-fix-tag-namespace-test-tags.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2389,6 +2395,22 @@ include:
     name: review-task-declared-target-nodes-acepta-un-directorio-existente-como-target-declarado-de-una-materialización-evidence-atom-1
   - path: desk/reviews/task-declared-target-nodes-acepta-un-directorio-existente-como-target-declarado-de-una-materialización/evidence-materialization-1.md
     name: review-task-declared-target-nodes-acepta-un-directorio-existente-como-target-declarado-de-una-materialización-evidence-materialization-1
+  - path: desk/reviews/task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar/evidence-tests-1.md
+    name: review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-tests-1
+  - path: desk/reviews/task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar/evidence-commit-1.md
+    name: review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-commit-1
+  - path: desk/reviews/task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar/evidence-atom-1.md
+    name: review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-atom-1
+  - path: desk/reviews/task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar/evidence-materialization-1.md
+    name: review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-materialization-1
+  - path: desk/reviews/task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar/evidence-tests-2.md
+    name: review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-tests-2
+  - path: desk/reviews/task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar/evidence-commit-2.md
+    name: review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-commit-2
+  - path: desk/reviews/task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar/evidence-atom-2.md
+    name: review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-atom-2
+  - path: desk/reviews/task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar/evidence-materialization-2.md
+    name: review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-materialization-2
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
