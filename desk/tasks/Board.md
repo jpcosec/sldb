@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-19T06:31:57Z'
+  at: '2026-11-19T07:23:35Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -17,7 +17,6 @@ tasks:
 - desk/tasks/task-sldb-views-run-board-en-menos-de-1-s-caché-de-disco-de-los-shards-de-documentos-para-select-document.md
 - desk/tasks/task-apply-batch-aristas-validadas-antes-de-escribir-alertas-on-write-en-batchreport-rules-check-sobre-re.md
 - desk/tasks/task-api-pública-búsqueda-rankeada-escrituras-recientes-y-store-hash-como-precondición-atómica-brechas-de.md
-- desk/tasks/task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2.md
 - desk/tasks/task-sldb-escucha-suscripciones-y-stream-de-eventos-de-escritura-inbox-20261114-115028.md
 - desk/tasks/task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida.md
 - desk/tasks/task-el-emparejamiento-de-átomos-de-sldb-api-matching-pasa-a-su-propio-eje-y-recuperacion-vuelve-a-ser-un.md
@@ -131,7 +130,6 @@ _Generated from the task references above._
 - sldb views run board en menos de 1 s: caché de disco de los shards de documentos para select_documents y costo del import de sldb.api (H11b) [draft] - sldb views run board, con el store construido y en un proceso nuevo, tarda menos de 1 s (mediana de 3) sobre el layout del benchmark de H11; el resultado y la revision de la vista no cambian, y un documento escrito o cambiado se nota en la siguiente corrida.
 - apply_batch: aristas validadas antes de escribir, alertas on_write en BatchReport, rules_check sobre RelationDoc y via/authority (inbox 20261115-022655) [draft] - Cerrar los cuatro puntos del pedido.
 - API pública: búsqueda rankeada, escrituras recientes y store_hash como precondición atómica (brechas de IR01, inbox 20261114-074447) [draft] - Resolver o documentar con decisión cada brecha.
-- check_edges clasifica como stale propio los de stores enlazados cuyo nombre lleva dos puntos (inbox 20261115-015936) [draft] - Clasificar el stale por el store dueño del nodo, no por el conteo de ':'.
 - sldb escucha: suscripciones y stream de eventos de escritura (inbox 20261114-115028) [draft] - Decidir la forma antes de implementar y dejar la implementación como tareas.
 - V0: benchmark fijo de velocidad (sldb bench) y punto de partida [draft] - Agregar a sldb el verbo 'sldb bench', que copia desks a un directorio de trabajo, mide en frío y en caliente tiempo de pared, CPU y RSS máximo de stores update (sin cambios y con un documento cambiado), stores check, stores build --check, deskops doctor, deskops status y el arranque de ambos CLI, y entrega JSON más una tabla; y dejar el punto de partida medido en reports/velocidad-baseline-20261115.md.
 - El emparejamiento de átomos de sldb.api.matching pasa a su propio eje y recuperacion vuelve a ser un puerto puro [draft] - El emparejamiento de átomos (explicit_atoms, explicit_refs, atom_*, coverage*, spec_view*, store_reader, store_documents, store_edges, matching_findings, unknown_atom_error) vive en un eje propio en contracts/layers.toml; recuperacion vuelve a sus 4 dependencias medidas y sigue siendo extraíble.

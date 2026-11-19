@@ -1,0 +1,11 @@
+Missing graph references:
+- missing_declared_target: task:task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2 -> test_file:tests/test_api_edges.py
+  provenance: desk/tasks/task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2.md:line:49:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- missing_declared_target: task:task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2 -> test_file:tests/test_api_edges.py
+  provenance: desk/tasks/task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2.md:line:55:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- missing_declared_target: task:task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2 -> test_file:tests/test_edge_effects.py
+  provenance: desk/tasks/task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2.md:line:56:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+3 missing, 0 informational

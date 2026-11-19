@@ -1,0 +1,40 @@
+$ python -m pytest -q -p no:cacheprovider tests/api/test_api_edges.py
+=============================== warnings summary ===============================
+../../../../../tmp/ws-venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1636
+  /tmp/ws-venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1636: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+17 passed, 1 warning in 19.00s
+rc=0
+$ python -m pytest -q -p no:cacheprovider tests/api/test_inherit_model.py
+=============================== warnings summary ===============================
+../../../../../tmp/ws-venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1636
+  /tmp/ws-venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1636: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+14 passed, 1 warning in 4.66s
+rc=0
+$ python -m pytest -q -p no:cacheprovider tests/test_edge_effects.py
+=============================== warnings summary ===============================
+../../../../../tmp/ws-venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1636
+  /tmp/ws-venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1636: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 warning in 0.00s
+rc=4
+$ bash tools/check.sh --fast
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 124 símbolos pedidos, 595 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+rc=0

@@ -1,0 +1,37 @@
+name: review-task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2-evidence-tests-1
+path: desk/reviews/task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2/evidence-tests-1.md
+source_hash: 3296a5ba0fc0136207bd33778528b8f2598c147a6f579eececb7d6f26a64e05a
+content_hash: 67dc90047c12d545e6954febe9d044cdaa6d80efd254a4e74ecdb42caa168f3d
+field_hashes:
+  id: f5357cc79f6701e4f51e1c3273f9a6ce5b9475efe0cf5bda8343197d8149e50e
+  title: abd1b0bf2090af17f426d961e4adf45e4496de57ae7df6d52d34f2bce17b387a
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: 68f05093bc600659c0aecd265fad80c71a658cc857e91cdfeeee782eb670c200
+  value: 2e27ab0aa299d6cdd3a2fa9bfe61884eb798f106ceca326e11612814b1bb5878
+  subject: 2af388d5b5e3746433cfed61431685f03b6ab1aa998f5e7b4e3cc9f754945925
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 9557e5f114c57c26a25df45955474f82d426434d7546b7eb5859fb9d9e4a6186
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: f103c739af8356b17c05f197fd3cc737884e529a6286ecea3f03832ecc021f9a
+  created_at: 8fd4e5e4042d312efc62b45c3be89e5151c3bb35748513cd9932efce842f4934
+  disposed_at: 8fd4e5e4042d312efc62b45c3be89e5151c3bb35748513cd9932efce842f4934
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: ccb23373c4d9c210129331f8c016fe1ec8dd63b7170fb8414589b196492b8b8e
+  disposition: 61089529f8e4a90b4d9bc21f68bcd54c466ae7b04cb08a1f6e9ad2d401ea7cf8
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-19T07:18:11Z'
+  authority: generated
+  via: create_document
