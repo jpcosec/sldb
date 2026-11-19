@@ -1,15 +1,15 @@
 name: task-declared-target-nodes-acepta-un-directorio-existente-como-target-declarado-de-una-materialización
 path: desk/tasks/task-declared-target-nodes-acepta-un-directorio-existente-como-target-declarado-de-una-materialización.md
-source_hash: 35263e953c9fe6c52faf89f6ca1e5f008851296bb9f4a363d8b9b6d4c2022754
-content_hash: 2a4574bfb874a3edc5d1ab437d281435526f234dd305c13f84b0d710ee535a80
+source_hash: d9cf5e75cf504b2659333ad65daf085dec6196bf32d0b282abe736d530c6a470
+content_hash: d7a09f9afde3884ceed641d6a310c890f2b36a58cc611ac817a6468c1da4b612
 field_hashes:
   title: 7737883e7865fb157f71c3f9c6a473713e28e8966c07a66bfa3929beb2cf7f2c
   id: f182977184dd6237daf8a8104ef92ff44fc12eb1e47c7401851d1dbb8f270363
-  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
-  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  history: 382935a7a1dc38aa1c3f6f7d861902e12780f10ce3350853e0d0038ed5beef5e
   why: 64fac0d0b8e4da604b3a94e2d0aa333cc2a9200f27967b35def121f4c42638fc
   goal: bc88d46ec8d4f19729cc7147cc3ed114c14436f99abedb1585886890b485190f
   scope: b6a2f9f8e95fe40f32632a9adf3fbf6f8f6a59744fa400a6801ce408e06bb181
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-17T01:47:21Z'
+  at: '2026-11-19T12:00:50Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

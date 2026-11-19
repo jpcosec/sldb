@@ -1,18 +1,30 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T01:47:21Z'
+  at: '2026-11-19T12:00:50Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-declared-target-nodes-acepta-un-directorio-existente-como-target-declarado-de-una-materialización
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
 current_node: ritual-execution
-history: []
+history:
+- task_activates
+- 'task_returns_to_execution: Tester deskops-t-492f877ef22e FALLA sobre 6f14a3b5 (informe
+  y boundary.log en runs/subagents/exec-deskops-t-492f877ef22e-testing/). Con ''target:
+  generated'' el nodo se crea y graph missing queda vacío, pero con ''target: generated/''
+  (barra final, la variante del test nuevo) graph missing sigue reportando ''generated/'':
+  declared_target_nodes normaliza la ruta del nodo quitando la ''/'', y la resolución
+  de referencias (NodeLookup) busca el nombre con la barra. Reproducido también con
+  deskops graph missing y target_identity ''pkg/sub/'' (rc 1). Intento 2: que la resolución
+  de un target declarado normalice la ''/'' final igual que el nodo, para que con
+  o sin barra el directorio resuelva; y que el test ejecute graph.extraction().missing_targets
+  (o deskops graph missing) y no solo extract_file_nodes, cubriendo ''dir'', ''dir/''
+  y un directorio inexistente que siga en missing.'
 references:
 - desk/inbox/20261116-054845-suggestion-declared-target-nodes-aceptar-un-directorio-como-target-declarado.md
 depends_on: []
