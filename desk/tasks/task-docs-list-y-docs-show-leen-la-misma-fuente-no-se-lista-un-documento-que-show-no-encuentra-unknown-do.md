@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-19T06:13:33Z'
+  at: '2026-11-19T06:27:07Z'
   authority: generated
   via: save_document_payload
 id: task-docs-list-y-docs-show-leen-la-misma-fuente-no-se-lista-un-documento-que-show-no-encuentra-unknown-do
@@ -11,7 +11,7 @@ tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
-current_node: ritual-execution
+current_node: ritual-testing
 history:
 - task_activates
 - 'task_returns_to_execution: Tester deskops-t-32f0e140e7fc FALLA sobre 9fbb1b77 (informe
@@ -25,8 +25,12 @@ history:
   con el mismo pythonpath que usa docs show), con un test sobre un store de prueba
   cuyo model_ref no se importa, y verificar contra /mnt/ssd/proyectos/SLDB_1/UIs/sldb-ui
   si existe.'
+- task_activates
 references:
-- desk/inbox/20261116-222911-unclear-docs-list-incluye-un-documento-que-docs-show-no-encuentra-unknown-document-target.md
+- src/sldb/api/stores/unresolvable_documents.py
+- tests/test_cli_v2.py
+- 9fbb1b776ee4a0f8e8d2c2b10c378af52d5258f2
+- 011e0da8656616c68b5cee812f12a20f73657208
 depends_on: []
 pills: []
 files:
@@ -36,7 +40,8 @@ files:
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-docs-list-marca-con-su-causa-los-documentos-que-docs-show-no-puede-resolver
 ---
 
 # docs list y docs show leen la misma fuente: no se lista un documento que show no encuentra (Unknown document target)
