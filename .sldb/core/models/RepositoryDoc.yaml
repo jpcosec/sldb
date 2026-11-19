@@ -3,10 +3,10 @@ model_ref: deskops.models:RepositoryDoc
 path: ''
 documents_index: .sldb/core/documents/RepositoryDoc.yaml
 sections_index: .sldb/runtime/sections/RepositoryDoc.yaml
-model_hash: 26a8483831d579391f94b07c6a719a2a44e5a9242755b4483f3a14186200b2de
-roster_hash: c2d3a1e69407f2dcb001c525b925e15a31a2faca4229e96746a3abec8800a1da
+model_hash: df3928ec990629de1288c8317d7ff56ed7b9874237e49695e44bcb1ff2dd6a96
+roster_hash: f3e26d7314f07cdc819d8a9b00dffc56c2db75401696ab8f745c6e6840cd65b9
 contract_hash: 4e3d7ee7a6c1475b5bd6a9cce0510dfc1b7d7e3ede1f63f68f797108a5a817cc
-documents_count: 6
+documents_count: 7
 version: 1
 canonical: false
 family: null
