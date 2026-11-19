@@ -1,0 +1,9 @@
+target='pkg/sub' graph-missing rc=0
+No missing graph references found.
+target='pkg/sub/' graph-missing rc=1
+Missing graph references:
+- missing_declared_target: materialization:materialization-directory -> pkg/sub/
+  provenance: desk/materializations/materialization-directory.md:frontmatter
+  reason: declared target was not found among extracted graph nodes
+1 missing, 0 informational
+rc=0

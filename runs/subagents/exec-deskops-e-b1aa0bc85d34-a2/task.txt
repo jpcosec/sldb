@@ -1,0 +1,9 @@
+Task: task-declared-target-nodes-acepta-un-directorio-existente-como-target-declarado-de-una-materialización
+Title: declared_target_nodes acepta un directorio existente como target declarado de una materialización
+Status: active
+Current node: ritual-execution
+Task type: task.code
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .

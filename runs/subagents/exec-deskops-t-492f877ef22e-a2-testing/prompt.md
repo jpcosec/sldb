@@ -1,7 +1,17 @@
+Task: task-declared-target-nodes-acepta-un-directorio-existente-como-target-declarado-de-una-materialización
+Title: declared_target_nodes acepta un directorio existente como target declarado de una materialización
+Status: active
+Current node: ritual-testing
+Task type: task.code
+Lifecycle gates:
+- task_hands_to_closeout -> ritual-closeout: open [nonempty(validation)]
+  post-hook evento-para-el-coordinador: sh -c mkdir -p runs/hooks && printf '%s %s %s %s->%s\n' "$(date -u +%FT%TZ)" "$DESKOPS_TASK_ID" "$DESKOPS_TRANSITION" "$DESKOPS_FROM_NODE" "$DESKOPS_TO_NODE" >> runs/hooks/events.log
+  post-hook encola-reap-del-tester: deskops queue add dispatch-reap --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-19T12:11:10Z'
+  at: '2026-11-19T12:04:06Z'
   authority: generated
   via: save_document_payload
 id: task-declared-target-nodes-acepta-un-directorio-existente-como-target-declarado-de-una-materialización
@@ -27,11 +37,7 @@ history:
   y un directorio inexistente que siga en missing.'
 - task_activates
 references:
-- src/sldb/api/edges/project_graph/declared_target_nodes.py
-- src/sldb/api/edges/project_graph/node_lookup.py
-- tests/api/test_project_graph.py
-- 6f14a3b537c4e3f2d72dbdee1880fbe3a2c465fb
-- 4bd45239b03272d062ab9c5b5ba3f82871f73e6c
+- desk/inbox/20261116-054845-suggestion-declared-target-nodes-aceptar-un-directorio-como-target-declarado.md
 depends_on: []
 pills: []
 files:
@@ -41,8 +47,7 @@ files:
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms:
-- atom-un-directorio-existente-declarado-como-target-de-una-materializacion-es-un-nodo-del-grafo-con-o-sin
+atoms: []
 ---
 
 # declared_target_nodes acepta un directorio existente como target declarado de una materialización
@@ -85,3 +90,22 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 Los comandos de Validation pasan con los tests nuevos; CHANGELOG y commit; aviso a deskops.
+
+## Como probar (tester)
+
+Ubica el trabajo del ejecutor:
+
+    git log -1 --format=%H --grep "Task-Id: task-declared-target-nodes-acepta-un-directorio-existente-como-target-declarado-de-una-materialización"   # commit del ejecutor
+    git show --name-only <commit>                           # sus archivos
+
+Los tests a correr son los archivos tests/*.py de ese commit, mas tests/test_<modulo>.py cuando exista para cada modulo de codigo tocado; de a uno, con `TMPDIR=/tmp python -m pytest -q <archivo>`. No corras la suite completa: la corre integrate en el host.
+
+Escribe result-summary.md con el veredicto PASA o FALLA en la primera linea.
+
+## Gates rapidos del desk
+
+Antes del veredicto corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Si termina con rc distinto de 0 el veredicto es FALLA.

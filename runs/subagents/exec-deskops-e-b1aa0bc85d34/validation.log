@@ -1,0 +1,2 @@
+pytest tests/api/test_project_graph.py tests/api/test_project_graph_config.py tests/test_clean_code_rules.py -> rc 0 (1237 passed)
+bash tools/check.sh --fast -> rc 0
