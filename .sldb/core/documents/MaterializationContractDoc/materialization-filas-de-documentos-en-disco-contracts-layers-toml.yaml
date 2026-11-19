@@ -1,0 +1,25 @@
+name: materialization-filas-de-documentos-en-disco-contracts-layers-toml
+path: desk/materializations/materialization-filas-de-documentos-en-disco-contracts-layers-toml.md
+source_hash: 6a2618f1b1ef4ad72f66b40bdcfe8204867660ea750bb751cceca950d642e8f7
+content_hash: bd9d3a22276b2a69a79751c96a7a2fc864bf180a5793b9b03670c65e168ca1d1
+field_hashes:
+  id: c36968f14ca55e97e2cf1af2c8b24177526d70ac833eb18dfefab4f138a1f639
+  title: 35e2dd3f28e9535b8fbe53765a59e942db64127193e91582f3ad7da044950e2b
+  source_atoms: 7cb23df083b98b54bf26722e74fa03374c60c34878f67c65180db8859ffe7e03
+  target_kind: 48882ab48bfdf3bef2fe65e3304e91ccfd8f74e357c183367ad6fe903fe0e697
+  target_identity: 3d9a7334295fc418060224504e0f99bb2dc73d9c0633a977ed8121a0803ce91e
+  intent: bd64e4b40f881e9e38c5611971c54a8de28e82b1a4819abbf6da7e66e5e39197
+  validation: 2ecda700b4a9d3b2681378e840a3dbe776706a6137e6c1ea25255b3073932602
+  tags: ae1dad02a9944a7e426c0f25d3c2e37892718d6c04c70f1f2df87e56c338d16f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:views
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-19T16:56:36Z'
+  authority: generated
+  via: create_document

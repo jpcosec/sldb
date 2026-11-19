@@ -1,0 +1,22 @@
+name: atom-select-documents-guarda-en-disco-las-filas-de-documentos-para-que-una-vista-no-reparsee-los-shards-e
+path: desk/atoms/atom-select-documents-guarda-en-disco-las-filas-de-documentos-para-que-una-vista-no-reparsee-los-shards-e.md
+source_hash: c3fa4b308a526afc2846f1d66abd775be1804524b70a9f86c875c5df1dce0c28
+content_hash: 42dc729aaacc77d6df100e56674682af05239bbec61c28f6dd6f91eef53d4736
+field_hashes:
+  id: d79460b5cad692215aab09c655478a11ca244016b9dc5379841064343ebd406d
+  title: 7ea66227cc795434eef5ba9259edebc85d1d867626e50832c9522d3e6fdee37d
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: b41dd9f918163c6a683967aefedbca3bf52c66cb78be36a1f1123220666fa3ff
+  tags: ae1dad02a9944a7e426c0f25d3c2e37892718d6c04c70f1f2df87e56c338d16f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:views
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-19T16:54:45Z'
+  authority: generated
+  via: create_document

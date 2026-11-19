@@ -748,6 +748,10 @@ include:
     name: run-deskops-e-a8b08d2c84e8
   - path: runs/subagents/exec-deskops-t-03790f9a4d76-testing/run.md
     name: run-deskops-t-03790f9a4d76
+  - path: runs/subagents/exec-deskops-e-417ece12b2b1/run.md
+    name: run-deskops-e-417ece12b2b1
+  - path: runs/subagents/exec-deskops-t-10685d679a98-testing/run.md
+    name: run-deskops-t-10685d679a98
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -1212,6 +1216,20 @@ include:
   - desk/materializations/materialization-guard-sin-perdida-lossy-overwrite.md
   - desk/materializations/materialization-guard-sin-perdida-payload-save.md
   - desk/materializations/materialization-guard-sin-perdida-test-structural-noise.md
+  - desk/materializations/materialization-filas-de-documentos-en-disco-contracts-layers-toml.md
+  - desk/materializations/materialization-filas-de-documentos-en-disco-docs-architecture-views-md.md
+  - desk/materializations/materialization-filas-de-documentos-en-disco-src-sldb-api-stores-store-declaration-py.md
+  - desk/materializations/materialization-filas-de-documentos-en-disco-src-sldb-store-graph-analysis-centrality-py.md
+  - desk/materializations/materialization-filas-de-documentos-en-disco-src-sldb-store-graph-analysis-components-py.md
+  - desk/materializations/materialization-filas-de-documentos-en-disco-src-sldb-store-graph-analysis-cycles-py.md
+  - desk/materializations/materialization-filas-de-documentos-en-disco-src-sldb-store-graph-analysis-lazy-networkx-py.md
+  - desk/materializations/materialization-filas-de-documentos-en-disco-src-sldb-store-graph-analysis-nx-graph-py.md
+  - desk/materializations/materialization-filas-de-documentos-en-disco-src-sldb-store-graph-analysis-order-py.md
+  - desk/materializations/materialization-filas-de-documentos-en-disco-src-sldb-store-graph-analysis-paths-py.md
+  - desk/materializations/materialization-filas-de-documentos-en-disco-src-sldb-store-query-engine-document-rows-disk-py.md
+  - desk/materializations/materialization-filas-de-documentos-en-disco-src-sldb-store-query-engine-document-selection-py.md
+  - desk/materializations/materialization-filas-de-documentos-en-disco-src-sldb-store-semantic-dag-graph-py.md
+  - desk/materializations/materialization-filas-de-documentos-en-disco-tests-api-test-select-documents-disk-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2437,6 +2455,14 @@ include:
     name: review-task-sldb-create-document-y-track-document-file-evalúan-las-reglas-on-write-h4-declare-write-conserva-la-bundle-2
   - path: desk/reviews/task-sldb-views-run-board-en-menos-de-1-s-caché-de-disco-de-los-shards-de-documentos-para-select-document/reproduction-2.md
     name: review-task-sldb-views-run-board-en-menos-de-1-s-caché-de-disco-de-los-shards-de-documentos-para-select-document-reproduction-2
+  - path: desk/reviews/task-sldb-views-run-board-en-menos-de-1-s-caché-de-disco-de-los-shards-de-documentos-para-select-document/evidence-tests-1.md
+    name: review-task-sldb-views-run-board-en-menos-de-1-s-caché-de-disco-de-los-shards-de-documentos-para-select-document-evidence-tests-1
+  - path: desk/reviews/task-sldb-views-run-board-en-menos-de-1-s-caché-de-disco-de-los-shards-de-documentos-para-select-document/evidence-commit-1.md
+    name: review-task-sldb-views-run-board-en-menos-de-1-s-caché-de-disco-de-los-shards-de-documentos-para-select-document-evidence-commit-1
+  - path: desk/reviews/task-sldb-views-run-board-en-menos-de-1-s-caché-de-disco-de-los-shards-de-documentos-para-select-document/evidence-atom-1.md
+    name: review-task-sldb-views-run-board-en-menos-de-1-s-caché-de-disco-de-los-shards-de-documentos-para-select-document-evidence-atom-1
+  - path: desk/reviews/task-sldb-views-run-board-en-menos-de-1-s-caché-de-disco-de-los-shards-de-documentos-para-select-document/evidence-materialization-1.md
+    name: review-task-sldb-views-run-board-en-menos-de-1-s-caché-de-disco-de-los-shards-de-documentos-para-select-document-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

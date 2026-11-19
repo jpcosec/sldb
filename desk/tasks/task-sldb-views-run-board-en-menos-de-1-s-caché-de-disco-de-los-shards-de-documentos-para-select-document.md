@@ -1,33 +1,45 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-12T03:38:09Z'
+  at: '2026-11-19T16:56:08Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-sldb-views-run-board-en-menos-de-1-s-caché-de-disco-de-los-shards-de-documentos-para-select-document
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-testing
+history:
+- task_activates
+references:
+- src/sldb/store/query_engine/document_rows_disk.py
+- tests/api/test_select_documents_disk.py
+- d3568eea674b1e89a758c4a755ea168b343e3a5a
 depends_on: []
 pills: []
 files:
-- src/sldb/api/documents/select_documents.py
-- src/sldb/api/views/
-- src/sldb/store/io/
-- src/sldb/store/edge_index/
-- tests/
-- docs/architecture/views.md
-- CHANGELOG.md
 - contracts/layers.toml
+- docs/architecture/views.md
+- src/sldb/api/stores/store_declaration.py
+- src/sldb/store/graph/analysis/centrality.py
+- src/sldb/store/graph/analysis/components.py
+- src/sldb/store/graph/analysis/cycles.py
+- src/sldb/store/graph/analysis/lazy_networkx.py
+- src/sldb/store/graph/analysis/nx_graph.py
+- src/sldb/store/graph/analysis/order.py
+- src/sldb/store/graph/analysis/paths.py
+- src/sldb/store/query_engine/document_rows_disk.py
+- src/sldb/store/query_engine/document_selection.py
+- src/sldb/store/semantic_dag_graph.py
+- tests/api/test_select_documents_disk.py
+- CHANGELOG.md
 task_type: task.debug
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-select-documents-guarda-en-disco-las-filas-de-documentos-para-que-una-vista-no-reparsee-los-shards-e
 ---
 
 # sldb views run board en menos de 1 s: caché de disco de los shards de documentos para select_documents y costo del import de sldb.api (H11b)

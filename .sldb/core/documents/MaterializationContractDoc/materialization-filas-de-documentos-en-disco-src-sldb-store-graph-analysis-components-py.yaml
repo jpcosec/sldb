@@ -1,0 +1,25 @@
+name: materialization-filas-de-documentos-en-disco-src-sldb-store-graph-analysis-components-py
+path: desk/materializations/materialization-filas-de-documentos-en-disco-src-sldb-store-graph-analysis-components-py.md
+source_hash: d2eaf966d85c6162dd72fcefda56fd6f89f08cc5341eccc022b6691a5e1386f1
+content_hash: beaf4f3ce76c1c295dc3afa3d7a90045ab68e124703c65d3a9040c82729ed6d1
+field_hashes:
+  id: a5bf551315c722b2ad72756a8f3332d8710a556ce56aa1943f78ed55819a703d
+  title: 367405cb6da0032001d75c8c399c87793efd3bc385a9c2aac26bbb9e35be67bd
+  source_atoms: 7cb23df083b98b54bf26722e74fa03374c60c34878f67c65180db8859ffe7e03
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: cc83a132e1631598d033bd829a6509093d4bc1cb3fc6b18723507fda161a202a
+  intent: 70158c1f220c5776878adfad36f1bae6b207619826ef429da63351e3fd4dca5d
+  validation: 2ecda700b4a9d3b2681378e840a3dbe776706a6137e6c1ea25255b3073932602
+  tags: ae1dad02a9944a7e426c0f25d3c2e37892718d6c04c70f1f2df87e56c338d16f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:views
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-19T16:58:31Z'
+  authority: generated
+  via: create_document
