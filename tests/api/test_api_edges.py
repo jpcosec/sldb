@@ -190,6 +190,19 @@ def test_linked_store_documents_come_back_qualified(world: EdgeWorld, tmp_path: 
     assert api.load_edge_index(world.store, include_linked=False).node("annex:Table:t99") is None
 
 
+def test_check_edges_tells_own_stale_from_linked_by_owner_not_by_colons(world: EdgeWorld, tmp_path: Path):
+    """A document name with ':' made the colon count cross own and linked stale ids."""
+    other = EdgeWorld(tmp_path, "other")
+    other.create("Table", "x:y", {"title": "Theirs", "capacity": 2, "notes": ""})
+    api.link_store(world.store, other.store, "annex")
+    world.create("Table", "p:q", {"title": "Mine", "capacity": 2, "notes": ""})
+    edges_shard_path(other.store, "Table", "x:y").unlink()
+    edges_shard_path(world.store, "Table", "p:q").unlink()
+    report = api.check_edges(world.store, include_linked=True)
+    assert report.stale == ["Table:p:q"] and report.linked_stale == ["annex:Table:x:y"]
+    assert api.check_edges(world.store, include_linked=False).stale == ["Table:p:q"]
+
+
 def test_init_relations_is_idempotent(world: EdgeWorld):
     report = api.init_relations(world.store, world.py)
     assert (report.models_added, report.types_written, report.predicates_added) == ([], [], [])
