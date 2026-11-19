@@ -1,0 +1,37 @@
+name: review-task-selfdoc-genera-distinto-la-referencia-de-stores-merge-driver-segun-la-version-de-python-required-del-reproduction-2
+path: desk/reviews/task-selfdoc-genera-distinto-la-referencia-de-stores-merge-driver-segun-la-version-de-python-required-del/reproduction-2.md
+source_hash: a87b28375f1e626cb1b92eacc44e4fdf5c49652099a12ba75e5574516a801d64
+content_hash: 2080782459c3132951468820e7d639cc85b62fc8b32882ee1dc9550c7f361a38
+field_hashes:
+  id: b5329346279dac690b5b05afdbf9e8cbc808814a583dbfff444a42c2a1f4fad8
+  title: cc0b394964e26ba070b99aea171963b43763ac3cb67def096a2975040420ce7f
+  kind: 368fe53d1f06908176884aa53b85fb3135f2431d04d9892f2b26b178bfe9c736
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 8d688dace21bd8cc7a274b1e83c123ad2af95be70627fbcad48f6b3a83675179
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 11e25bab0df4bb9f63c6dde985fea5de0ef16abdb2ec640dc08e7e97ec6b1d15
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: dcd66b7f06e69ffac6d947d7cf35ab5d02db79a10df00ff61ede9e159f5047b0
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 5601141e046659bcfb8759be1ac5be41af22f85ea835ab2bf5de9035ddcb9a75
+  created_at: 4442b597d9d6ac7946b1c2a6aeb74dac77982687e2c1eb55a785278d7fd7b7f2
+  disposed_at: 41d8a222cf9ea17ee384436372e6f4edf7239eb258ce94c8dba53f4297d90e93
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 988b270b7475f0006830f3cdb36e94a48cc871e0a041cbc72c35610405612944
+  disposition: 3eb8e048f25d5d8c4c787dfaf8638a4cb9f1aa424a69123392c78347d9850fef
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-19T09:44:59Z'
+  authority: generated
+  via: save_document_payload
