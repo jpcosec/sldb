@@ -2238,6 +2238,10 @@ include:
     name: review-task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430-evidence-atom-1
   - path: desk/reviews/task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430/evidence-tests-2.md
     name: review-task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430-evidence-tests-2
+  - path: desk/reviews/task-docs-list-y-docs-show-leen-la-misma-fuente-no-se-lista-un-documento-que-show-no-encuentra-unknown-do/preflight-1.md
+    name: review-task-docs-list-y-docs-show-leen-la-misma-fuente-no-se-lista-un-documento-que-show-no-encuentra-unknown-do-preflight-1
+  - path: desk/reviews/task-docs-list-y-docs-show-leen-la-misma-fuente-no-se-lista-un-documento-que-show-no-encuentra-unknown-do/bundle-1.md
+    name: review-task-docs-list-y-docs-show-leen-la-misma-fuente-no-se-lista-un-documento-que-show-no-encuentra-unknown-do-bundle-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
