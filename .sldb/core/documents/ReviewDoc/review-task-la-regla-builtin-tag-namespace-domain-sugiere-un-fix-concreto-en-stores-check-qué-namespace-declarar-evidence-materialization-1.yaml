@@ -1,0 +1,37 @@
+name: review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-materialization-1
+path: desk/reviews/task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar/evidence-materialization-1.md
+source_hash: 3f62260f192f2c271eb6aac13a59789b33dbd62316e4da6dcfb966f521e56825
+content_hash: 3bae9a63ee1c47ab1a81815fb10bf0d0449847b30d26ab1a043cdf5549e7c6c0
+field_hashes:
+  id: dd819fa863f6ed8a7253c3aa0360ed08a4cb41d9f44456c68268691c11717249
+  title: 2e9d434be46ad37c28983ae7fc09889c93becfcf43c7eaccbc80c611025fb203
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: 472a6c26ef58042e6a8bcfa2a571143016facce03fb7181d5daaf59403bc8554
+  subject: d742121d526f58990105b4e1523e8b5b8672d7f99a7ef22f20ac69f15621fe1c
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 01a8be89a5d153f8fa965b17fb28eb3455c0baa9c4835e156ebe60ae8f4727de
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d5a7606c75f86f5046e5c8312a9819e4778be8ab33a7e8950d62f7ba620684fe
+  reason: 60d6089a2f250c430e3a32efa4d5534eab29af2da56b3dfb4f1ff46d1487e103
+  created_at: a26ffb6db124563dd0254950f5f33585895493ad555106de64a36953d9bedb14
+  disposed_at: a26ffb6db124563dd0254950f5f33585895493ad555106de64a36953d9bedb14
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 832ce0994e9db0ea11c87d55302681d6b3021f684c75e83abb9c06aabc553d9e
+  disposition: e8b8b423503b1cfe621a4ba3747fbb66106cd4b107a0ead6e4966bf0922b8255
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-19T12:45:02Z'
+  authority: generated
+  via: create_document

@@ -1,0 +1,2 @@
+pytest -q tests/api/test_tags.py tests/api/test_rules_evaluation.py tests/test_clean_code_rules.py: rc 0 (1261 passed)
+bash tools/check.sh --fast: rc 0
