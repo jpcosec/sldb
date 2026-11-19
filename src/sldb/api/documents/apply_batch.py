@@ -24,7 +24,7 @@ _APPLY: dict[str, Callable[[Transaction, dict[str, Any]], Any]] = {
 }
 
 
-def apply_batch(store: str | Path | None, changes: list[dict[str, Any]], pythonpath: str | None = None) -> BatchReport:
+def apply_batch(store: str | Path | None, changes: list[dict[str, Any]], pythonpath: str | None = None, dry_run: bool = False) -> BatchReport:
     """Prevalidate `changes` and apply them in one transaction, creates and tracks first, then
     updates, moves, and last untracks and deletes (request order within each group).
 
@@ -36,9 +36,14 @@ def apply_batch(store: str | Path | None, changes: list[dict[str, Any]], pythonp
             create, else the model's default directory), and the guards `expected_source_hash`
             `expected_content_hash` (the text without its provenance block) and `expected` (the full current payload) on any action over a tracked document.
         pythonpath: Directory to import the store's model modules from.
+        dry_run: Only prevalidate (shape, model, payload round-trip, guards, targets) under the
+            lock and return before opening the transaction: nothing is written, the `on_write`
+            rules are not evaluated, and the errors are the ones a real apply raises.
 
     Returns:
-        The ids applied, in order, and `inverse`: the batch that undoes this one, guarded by
+        With `dry_run`: a report with `applied=False`, `saved` and `inverse` empty and `planned`
+        the ids in the order a real apply would write them.
+        Otherwise the ids applied, in order, and `inverse`: the batch that undoes this one, guarded by
         the content hashes this one left (`apply_batch(store, report.inverse)` puts it back).
 
     Raises:
@@ -53,6 +58,8 @@ def apply_batch(store: str | Path | None, changes: list[dict[str, Any]], pythonp
     """
     location = open_store(store)
     with store_lock(location.store_path, wait=True):  # guards are checked and writes made under one lock
+        if dry_run:
+            return BatchReport(saved=[], applied=False, planned=[c["id"] for c in _plan(location, changes, pythonpath)])
         with transaction(location.store_path, pythonpath) as tx:
             return _run(location, tx, changes, pythonpath)
 
@@ -69,10 +76,14 @@ def apply_batches(store: str | Path | None, batches: list[list[dict[str, Any]]],
 
 
 def _run(location: Any, tx: Transaction, changes: list[dict[str, Any]], pythonpath: str | None) -> BatchReport:
-    plan = sorted(prevalidate_changes(location, changes, pythonpath), key=lambda change: _ORDER[change["action"]])
+    plan = _plan(location, changes, pythonpath)
     prior = before(location, plan, pythonpath)  # what each change replaces, read under the lock
     saved = [_applied(tx, change) for change in plan]
     return BatchReport(saved=saved, inverse=inverse(location, prior))
+
+
+def _plan(location: Any, changes: list[dict[str, Any]], pythonpath: str | None) -> list[dict[str, Any]]:
+    return sorted(prevalidate_changes(location, changes, pythonpath), key=lambda change: _ORDER[change["action"]])
 
 
 def _applied(tx: Transaction, change: dict[str, Any]) -> str:
