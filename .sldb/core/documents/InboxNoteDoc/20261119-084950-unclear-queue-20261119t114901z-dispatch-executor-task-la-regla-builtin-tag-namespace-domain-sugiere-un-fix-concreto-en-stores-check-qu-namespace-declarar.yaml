@@ -1,0 +1,25 @@
+name: 20261119-084950-unclear-queue-20261119t114901z-dispatch-executor-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qu-namespace-declarar
+path: desk/inbox/20261119-084950-unclear-queue-20261119t114901z-dispatch-executor-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qu-namespace-declarar.md
+source_hash: 3407d6e7de6c6d4cbecefc2d3d618321dad10314d0f174db3811cc8641651e08
+content_hash: 9aa8b29d85f23f1ea96aa3a8ee92019d73433b07854b391e69f73dcef54e370c
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 03491c9e1a9bd85143341a5b2b4e2da403ea75ea1144798df63d85b7e1c79b94
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 15eac1fc9636425a7e8522e975c7aa7b2ce0d04d7adeb8cd9e432aa37780d90f
+  ack_reason: 75ae9b1103116bbaffbfc115e42bf2313883eccd285080683fb19a8624e37c7c
+  title: e51b6eefd02d300ea36db9a1d0dad61c1ac4a8b32415a534f8817cb5d0c93f99
+  body: e5d32ff01525042c5602a1e4080acc9492c047d50c7294df80dcc1c14157e777
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance:
+  by: agent
+  at: '2026-11-19T11:50:50Z'
+  authority: generated
+  via: save_document_payload
