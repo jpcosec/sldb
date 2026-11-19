@@ -710,6 +710,10 @@ include:
     name: run-deskops-e-d851d336340b-a2
   - path: runs/subagents/exec-deskops-t-32f0e140e7fc-a2-testing/run.md
     name: run-deskops-t-32f0e140e7fc-a2
+  - path: runs/subagents/exec-deskops-e-27bdb1a142bd/run.md
+    name: run-deskops-e-27bdb1a142bd
+  - path: runs/subagents/exec-deskops-t-766003e5d562-testing/run.md
+    name: run-deskops-t-766003e5d562
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -2266,6 +2270,12 @@ include:
     name: review-task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2-bundle-1
   - path: desk/reviews/task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2/reproduction-2.md
     name: review-task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2-reproduction-2
+  - path: desk/reviews/task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2/evidence-tests-1.md
+    name: review-task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2-evidence-tests-1
+  - path: desk/reviews/task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2/evidence-commit-1.md
+    name: review-task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2-evidence-commit-1
+  - path: desk/reviews/task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2/evidence-atom-1.md
+    name: review-task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2-evidence-atom-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

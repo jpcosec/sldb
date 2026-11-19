@@ -1,25 +1,30 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-19T06:45:29Z'
+  at: '2026-11-19T07:17:41Z'
   authority: generated
   via: save_document_payload
 id: task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-testing
+history:
+- task_activates
+references:
+- src/sldb/api/edges/check_edges.py
+- tests/api/test_api_edges.py
+- 8955eb0461cfd9c197c9e5efc956b03dd48d523b
 depends_on: []
 pills: []
 files: []
 task_type: task.debug
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-check-edges-separa-el-stale-propio-del-de-los-stores-enlazados-por-el-store-dueno-del-nodo-no-por-la
 ---
 
 # check_edges clasifica como stale propio los de stores enlazados cuyo nombre lleva dos puntos (inbox 20261115-015936)

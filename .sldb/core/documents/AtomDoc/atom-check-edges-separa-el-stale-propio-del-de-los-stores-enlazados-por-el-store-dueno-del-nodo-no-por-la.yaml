@@ -1,0 +1,22 @@
+name: atom-check-edges-separa-el-stale-propio-del-de-los-stores-enlazados-por-el-store-dueno-del-nodo-no-por-la
+path: desk/atoms/atom-check-edges-separa-el-stale-propio-del-de-los-stores-enlazados-por-el-store-dueno-del-nodo-no-por-la.md
+source_hash: a7c9abb5f063be1f14fe1fa560c8f401702ccf20fdf5b526f960d9166eaf703a
+content_hash: f8b5a5e75fe9e6f66eca113f82a1639303eb7325648ed6c7aa2035b819e858a1
+field_hashes:
+  id: 0b6e597d539adf8e3d32fca94d413f86d3b05ea8104f4bf9229402d759d43eff
+  title: 83a8e063f00d46a2b1ff2e932c1d275abedf9dd6093e3d551b5b816bf02f2af9
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: b0c8a8eb42f297a7eff06d2108fccd18ab4b5e58af0eef07e2786fde791f8f8a
+  tags: d5490c0e400cc4a4b0f1e92060ddff2e1fcfc065ffb5dae0758654068d26896c
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:edges
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-19T07:16:48Z'
+  authority: generated
+  via: create_document
