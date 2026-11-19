@@ -1,21 +1,24 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-19T08:43:22Z'
+  at: '2026-11-19T09:00:22Z'
   authority: generated
   via: save_document_payload
 id: task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
-current_node: ritual-execution
-history: []
+current_node: ritual-testing
+history:
+- task_activates
 references:
-- desk/drawer/tasks/task-fields-update-parsea-el-valor-como-yaml-y-el-inbox-no-tiene-promote-matriz-ux-de-sldb-ui.md
-- desk/inbox/20261116-094415-unclear-models-validate-falla-con-no-module-named-deskops-base-para-modelos-deskops-models.md
+- src/sldb/cli/commands/fields_mutate.py
+- tests/test_cli_v2.py
+- 1c6d26eeecafd6a00101ba247e8a43a4fa4c3722
+- 98ae6cc66f49587fee9c82be1c2585c75f40755c
 depends_on: []
 pills: []
 files:
@@ -26,7 +29,8 @@ files:
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-fields-update-y-append-aceptan-string-y-format-e-inbox-reporta-por-stderr-y-no-escribe-sin-store
 ---
 
 # Higiene del CLI para sldb-ui: fields update/append con --string y --format, inbox --show con error por stderr e inbox --store sin .sldb que falla

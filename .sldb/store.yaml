@@ -718,6 +718,10 @@ include:
     name: run-deskops-e-ae79d5dc5661
   - path: runs/subagents/exec-deskops-t-63756f852b2d-testing/run.md
     name: run-deskops-t-63756f852b2d
+  - path: runs/subagents/exec-deskops-e-e2793c478ec4/run.md
+    name: run-deskops-e-e2793c478ec4
+  - path: runs/subagents/exec-deskops-t-fbb0c630900a-testing/run.md
+    name: run-deskops-t-fbb0c630900a
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -1166,6 +1170,8 @@ include:
   - desk/materializations/materialization-escritura-sin-perdida-payload-save.md
   - desk/materializations/materialization-escritura-sin-perdida-payload-save-steps.md
   - desk/materializations/materialization-escritura-sin-perdida-test-structural-noise.md
+  - desk/materializations/materialization-cli-higiene-inbox-create.md
+  - desk/materializations/materialization-cli-higiene-inbox-parse.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2303,6 +2309,18 @@ include:
     name: review-task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder-preflight-1
   - path: desk/reviews/task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder/bundle-1.md
     name: review-task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder-bundle-1
+  - path: desk/reviews/task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder/evidence-tests-1.md
+    name: review-task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder-evidence-tests-1
+  - path: desk/reviews/task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder/evidence-commit-1.md
+    name: review-task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder-evidence-commit-1
+  - path: desk/reviews/task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder/evidence-atom-1.md
+    name: review-task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder-evidence-atom-1
+  - path: desk/reviews/task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder/evidence-materialization-1.md
+    name: review-task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder-evidence-materialization-1
+  - path: desk/reviews/task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder/evidence-atom-2.md
+    name: review-task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder-evidence-atom-2
+  - path: desk/reviews/task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder/evidence-materialization-2.md
+    name: review-task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder-evidence-materialization-2
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -2362,6 +2380,7 @@ include:
   - desk/tasks/task-run-view-dice-que-el-store-no-está-construido-en-vez-de-unknown-view-h12-y-se-reproduce-si-la-revisi.md
   - desk/tasks/task-docs-show-sobre-un-store-enlazado-dice-que-no-pudo-importar-el-modelo-en-vez-de-unknown-document-tar.md
   - desk/tasks/task-rule-graph-en-frío-y-deskops-show-task-perfilar-de-nuevo-y-bajar-el-costo-de-leer-el-índice-local-me.md
+  - desk/tasks/task-selfdoc-genera-distinto-la-referencia-de-stores-merge-driver-segun-la-version-de-python-required-del.md
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md

@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-19T08:05:10Z'
+  at: '2026-11-19T08:59:01Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -78,6 +78,7 @@ tasks:
 - desk/tasks/task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for.md
 - desk/tasks/task-declaredfiletargets-lee-campos-lista-y-no-aplica-las-exclusiones-a-lo-que-se-declara-para-que-un-des.md
 - desk/tasks/task-baja-prioridad-canonizar-los-nombres-de-llamada-ts-js-cuya-cadena-empieza-en-un-array-binario-new-o.md
+- desk/tasks/task-selfdoc-genera-distinto-la-referencia-de-stores-merge-driver-segun-la-version-de-python-required-del.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -164,7 +165,7 @@ _Generated from the task references above._
 - Separar el store en .sldb_store (todo lo versionado: store.yaml y core/) y .sldb_cache (todo lo regenerable), con stores migrate-layout, lectura del layout viejo y migración del ecosistema [draft] - Un store nuevo se crea en .sldb_store/ (store.yaml, core/ y README.md, todo versionado) con su cache en .sldb_cache/ (todo regenerable e ignorado); `sldb stores migrate-layout` lleva un store del layout viejo al nuevo con git mv; todo comando de sldb sigue leyendo un store en .sldb/ (layout viejo) con una alerta que dice que se migre; el store de sldb está migrado; y cada repo del ecosistema que tiene store recibió por inbox el aviso con el comando.
 - pron contra sldb: deshacer restaura el hash del mundo, untrack + track recupera el documento y find con where en un mundo solo vuelve a encontrar [draft] - Cada uno de los tres síntomas queda clasificado con evidencia como regresión de sldb (y arreglado aquí con test) o como cambio de contrato (documentado en el CHANGELOG, con la forma que pron debe adoptar), y las pruebas de pron nombradas en la nota pasan contra este sldb salvo las que dependan de un cambio de contrato que pron deba adoptar.
 - sldb models validate importa los modelos de deskops.models:* como lo hacen extract y render (No module named deskops.base) [draft] - sldb models validate <Modelo> importa el modelo con la misma resolución que extract y render, y valida los modelos de deskops.models:* sin error de import.
-- Higiene del CLI para sldb-ui: fields update/append con --string y --format, inbox --show con error por stderr e inbox --store sin .sldb que falla [draft] - fields update y append aceptan --string (el valor se toma literal, sin YAML) y --format json|text|yaml como el resto de comandos; inbox --show de una nota inexistente escribe el error por stderr con exit distinto de 0; inbox con un --store que no contiene .sldb falla con un error que lo dice y no escribe nada.
+- Higiene del CLI para sldb-ui: fields update/append con --string y --format, inbox --show con error por stderr e inbox --store sin .sldb que falla [active] - fields update y append aceptan --string (el valor se toma literal, sin YAML) y --format json|text|yaml como el resto de comandos; inbox --show de una nota inexistente escribe el error por stderr con exit distinto de 0; inbox con un --store que no contiene .sldb falla con un error que lo dice y no escribe nada.
 - sldb stores remove quita el enlace también de la declaración store.yaml, así otra sesión no lo reintroduce [draft] - sldb stores remove <alias> deja el enlace fuera del índice y de la declaración store.yaml en una sola operación, bajo el lock del store; un store sin store.yaml se comporta como hoy.
 - La regla builtin tag_namespace:domain sugiere un fix concreto en stores check (qué namespace declarar o qué tag cambiar) [draft] - Cada hallazgo de la regla builtin tag_namespace:domain trae en fix un texto accionable: el namespace a declarar en la política del store (con el comando o la clave exacta) o los tags válidos de ese namespace.
 - declared_target_nodes acepta un directorio existente como target declarado de una materialización [draft] - Un target declarado que es un directorio existente del proyecto produce un nodo del grafo (de directorio) y graph missing no lo reporta; un directorio inexistente sigue siendo missing.
@@ -190,3 +191,4 @@ _Generated from the task references above._
 - docs track --reindex re-indexa un documento ya trackeado validándolo, sin saltar el round-trip como --force [draft] - docs track --reindex (y track_document_file(..., reindex=True)) re-indexa desde el archivo un documento ya trackeado en la misma ruta, como --force, pero corre las mismas validaciones que un track normal: si el archivo no valida falla con el error de validación y deja el índice como estaba. --force no cambia.
 - DeclaredFileTargets lee campos lista y no aplica las exclusiones a lo que se declara, para que un destino que existe no cuente como faltante [draft] - Un destino declarado por DeclaredFileTargets, venga de un campo escalar o de un campo lista, que es un archivo existente del proyecto se vuelve nodo aunque esté bajo una exclusión; y hay una forma declarativa de que las menciones de LineMentions a archivos existentes del proyecto no cuenten como faltantes.
 - Baja prioridad: canonizar los nombres de llamada TS/JS cuya cadena empieza en un array, binario, new o literal (hoy canonical: false) [draft] - Los nombres de llamada que hoy salen con canonical: false tienen una forma canónica definida y documentada (por ejemplo marcadores fijos [...] para arrays, (expr) para binarios, Clase() para new y (lit) para literales) y salen con canonical: true y en la relación calls si nombran un símbolo.
+- selfdoc genera distinto la referencia de stores merge-driver según la versión de python (required del argumento files) [draft] - La referencia que genera selfdoc para un argumento no depende de la versión de python: el valor de 'required' (y cualquier otro campo derivado de argparse que cambie entre versiones) se normaliza o se deriva del parser de forma estable, y selfdoc check da 0 tanto en el host como en el contenedor scion.

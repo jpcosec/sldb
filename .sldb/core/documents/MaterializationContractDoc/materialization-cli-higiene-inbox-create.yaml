@@ -1,0 +1,25 @@
+name: materialization-cli-higiene-inbox-create
+path: desk/materializations/materialization-cli-higiene-inbox-create.md
+source_hash: d68cd31990edcc1e91411efbcd80fb5bd3d2f550075babdffe2760fcab98e0a2
+content_hash: 67ef7cf928b068d64b81807ea2bca1a324d7c72aaa7f3234d5adb10b5d5c1444
+field_hashes:
+  id: 9d9947a087158fe8991ef3646f06e21ce787908daf96ff0ccbf128c03b5f4756
+  title: 2b72910c090536322242b4199bc0c84e818c16d25a2894f1ec8314d92234ff70
+  source_atoms: fb870e060461a83ee728173c37b0e29a8cb1c34ff3e51e7e3a1242833b951f5d
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 27cf10a2dec89390a127e19a0cb831f7e17b7b5d85e7c945cabb920c17df6a7e
+  intent: 8cf23a69f04975cbfbd69e82b5cbf3efe399cb8210b0cd0420a64a948701a21d
+  validation: d53a6446604d2669ea882e7720270831a8c755961efdde2ee865375f2ab609e1
+  tags: 7c16fe67e0216c2fb354b044f93d4cca5adbf8d378e15b3cc0b9b94051a10d68
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:cli
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-19T09:02:14Z'
+  authority: generated
+  via: create_document

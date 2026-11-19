@@ -1,0 +1,22 @@
+name: atom-fields-update-y-append-aceptan-string-y-format-e-inbox-reporta-por-stderr-y-no-escribe-sin-store
+path: desk/atoms/atom-fields-update-y-append-aceptan-string-y-format-e-inbox-reporta-por-stderr-y-no-escribe-sin-store.md
+source_hash: 17ff0b0bec9d1785a407f8b159ecb675c492ecf82373e485bd609b7c730cd67c
+content_hash: cf91eb4090fda3d99b72759777b4b14890c9e7fbcf27cb0c522993df520d2b4c
+field_hashes:
+  id: 9eb626bd7f163bf63c05bd9677614f368ee584babc253841452bc9bb8ef12f41
+  title: 72efb6df08c1ad822773053b76f812a989cd0dd48a973673c89b1983868684d8
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 397f073f05e84760d32d7e2bd00cde0989699b9f76ae0ca6b4e93713924b4907
+  tags: 7c16fe67e0216c2fb354b044f93d4cca5adbf8d378e15b3cc0b9b94051a10d68
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:cli
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-19T08:59:28Z'
+  authority: generated
+  via: create_document
