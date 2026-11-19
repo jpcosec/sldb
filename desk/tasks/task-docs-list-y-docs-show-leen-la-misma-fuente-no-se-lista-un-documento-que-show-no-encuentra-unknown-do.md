@@ -1,18 +1,30 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T02:09:28Z'
+  at: '2026-11-19T06:13:33Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-docs-list-y-docs-show-leen-la-misma-fuente-no-se-lista-un-documento-que-show-no-encuentra-unknown-do
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
 current_node: ritual-execution
-history: []
+history:
+- task_activates
+- 'task_returns_to_execution: Tester deskops-t-32f0e140e7fc FALLA sobre 9fbb1b77 (informe
+  en runs/subagents/exec-deskops-t-32f0e140e7fc-testing/result-summary.md). El fix
+  solo marca archivos ausentes o ilegibles. En el store real de UIs/sldb-ui el nombre
+  edge-task-v8-link-resolver-scan-classify-resolve-recover-execution-to-activate sigue
+  listado sin marca: su .md y su YAML del índice existen, pero el modelo deskops.models:EdgeDoc
+  no se puede importar (SLDBModelError: Attribute ''EdgeDoc'' not found in ''deskops.models''),
+  así que load_runtime_documents no lo carga y docs show da Unknown document target.
+  Intento 2: marcar también la causa model-not-importable (resolviendo el model_ref
+  con el mismo pythonpath que usa docs show), con un test sobre un store de prueba
+  cuyo model_ref no se importa, y verificar contra /mnt/ssd/proyectos/SLDB_1/UIs/sldb-ui
+  si existe.'
 references:
 - desk/inbox/20261116-222911-unclear-docs-list-incluye-un-documento-que-docs-show-no-encuentra-unknown-document-target.md
 depends_on: []
