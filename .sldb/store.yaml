@@ -2289,7 +2289,6 @@ include:
   - desk/tasks/task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar.md
   - desk/tasks/task-declared-target-nodes-acepta-un-directorio-existente-como-target-declarado-de-una-materialización.md
   - desk/tasks/task-sldb-api-expone-render-con-roundtrip-renderizar-el-payload-de-un-modelo-a-markdown-y-validar-que-vue.md
-  - desk/tasks/task-docs-list-y-docs-show-leen-la-misma-fuente-no-se-lista-un-documento-que-show-no-encuentra-unknown-do.md
   - desk/tasks/task-la-escritura-por-campos-save-document-payload-y-el-update-de-apply-batch-falla-nombrando-el-contenid.md
   - desk/tasks/task-store-index-yaml-no-guarda-rutas-absolutas-de-máquina-para-los-modelos-que-vienen-de-un-paquete-mode.md
   - desk/tasks/task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a.md

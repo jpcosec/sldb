@@ -1,0 +1,2 @@
+pytest -q tests/test_cli_v2.py tests/api/test_select_documents.py tests/test_clean_code_rules.py -> rc 0 (1274 passed)
+bash tools/check.sh --fast -> rc 0 (TODAS LAS PUERTAS PASAN)

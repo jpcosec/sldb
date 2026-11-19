@@ -1,7 +1,17 @@
+Task: task-docs-list-y-docs-show-leen-la-misma-fuente-no-se-lista-un-documento-que-show-no-encuentra-unknown-do
+Title: docs list y docs show leen la misma fuente: no se lista un documento que show no encuentra (Unknown document target)
+Status: active
+Current node: ritual-testing
+Task type: task.code
+Lifecycle gates:
+- task_hands_to_closeout -> ritual-closeout: open [nonempty(validation)]
+  post-hook evento-para-el-coordinador: sh -c mkdir -p runs/hooks && printf '%s %s %s %s->%s\n' "$(date -u +%FT%TZ)" "$DESKOPS_TASK_ID" "$DESKOPS_TRANSITION" "$DESKOPS_FROM_NODE" "$DESKOPS_TO_NODE" >> runs/hooks/events.log
+  post-hook encola-reap-del-tester: deskops queue add dispatch-reap --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-19T06:27:07Z'
+  at: '2026-11-19T06:05:54Z'
   authority: generated
   via: save_document_payload
 id: task-docs-list-y-docs-show-leen-la-misma-fuente-no-se-lista-un-documento-que-show-no-encuentra-unknown-do
@@ -14,23 +24,8 @@ tags:
 current_node: ritual-testing
 history:
 - task_activates
-- 'task_returns_to_execution: Tester deskops-t-32f0e140e7fc FALLA sobre 9fbb1b77 (informe
-  en runs/subagents/exec-deskops-t-32f0e140e7fc-testing/result-summary.md). El fix
-  solo marca archivos ausentes o ilegibles. En el store real de UIs/sldb-ui el nombre
-  edge-task-v8-link-resolver-scan-classify-resolve-recover-execution-to-activate sigue
-  listado sin marca: su .md y su YAML del índice existen, pero el modelo deskops.models:EdgeDoc
-  no se puede importar (SLDBModelError: Attribute ''EdgeDoc'' not found in ''deskops.models''),
-  así que load_runtime_documents no lo carga y docs show da Unknown document target.
-  Intento 2: marcar también la causa model-not-importable (resolviendo el model_ref
-  con el mismo pythonpath que usa docs show), con un test sobre un store de prueba
-  cuyo model_ref no se importa, y verificar contra /mnt/ssd/proyectos/SLDB_1/UIs/sldb-ui
-  si existe.'
-- task_activates
 references:
-- src/sldb/api/stores/unresolvable_documents.py
-- tests/test_cli_v2.py
-- 9fbb1b776ee4a0f8e8d2c2b10c378af52d5258f2
-- 011e0da8656616c68b5cee812f12a20f73657208
+- desk/inbox/20261116-222911-unclear-docs-list-incluye-un-documento-que-docs-show-no-encuentra-unknown-document-target.md
 depends_on: []
 pills: []
 files:
@@ -40,8 +35,7 @@ files:
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms:
-- atom-docs-list-marca-con-su-causa-los-documentos-que-docs-show-no-puede-resolver
+atoms: []
 ---
 
 # docs list y docs show leen la misma fuente: no se lista un documento que show no encuentra (Unknown document target)
@@ -84,3 +78,22 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 Los comandos de Validation pasan con el test nuevo; result-summary.md explica de dónde salía el nombre fantasma; CHANGELOG y commit; aviso a sldb-ui.
+
+## Como probar (tester)
+
+Ubica el trabajo del ejecutor:
+
+    git log -1 --format=%H --grep "Task-Id: task-docs-list-y-docs-show-leen-la-misma-fuente-no-se-lista-un-documento-que-show-no-encuentra-unknown-do"   # commit del ejecutor
+    git show --name-only <commit>                           # sus archivos
+
+Los tests a correr son los archivos tests/*.py de ese commit, mas tests/test_<modulo>.py cuando exista para cada modulo de codigo tocado; de a uno, con `TMPDIR=/tmp python -m pytest -q <archivo>`. No corras la suite completa: la corre integrate en el host.
+
+Escribe result-summary.md con el veredicto PASA o FALLA en la primera linea.
+
+## Gates rapidos del desk
+
+Antes del veredicto corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Si termina con rc distinto de 0 el veredicto es FALLA.

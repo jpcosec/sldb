@@ -1,0 +1,3 @@
+pytest -q tests/test_cli_v2.py tests/api/test_select_documents.py tests/test_clean_code_rules.py -> rc 0 (1275 passed)
+bash tools/check.sh --fast -> rc 0
+sldb docs list --store .sldb --format json (UIs/sldb-ui) -> edge-task-v8-...-execution-to-activate now has unresolvable=model-not-importable (339 of 769 marked)
