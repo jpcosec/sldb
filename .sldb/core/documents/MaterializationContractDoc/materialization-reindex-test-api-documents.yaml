@@ -1,0 +1,25 @@
+name: materialization-reindex-test-api-documents
+path: desk/materializations/materialization-reindex-test-api-documents.md
+source_hash: 673abdfc78dd01c30adffe7861fc289c567512a32e6986082f56222ee379bca0
+content_hash: f8fb120771adebf46b22d95e1a9477b8d6438c57c9ba83a4bcea6bb46be67465
+field_hashes:
+  id: 60acf559e7b781fe711c81f80fb9342238ff093e6b0db5cc9068a5eda3114672
+  title: 2dded92b36d36c9a25b2aaa4cadb741bef7093cd783f35d14ea007275d40da7f
+  source_atoms: 4a62349f43bb223ac6f3751f9db8725a5e4d11893a5729d839085cd6e1ee6d7a
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: e82ec921845ccdb4ebe5c77bfc91c51b3a1b408d75607841a1713499ac31fe4e
+  intent: b9344c05b5c6e57519a6c5d9400858c203f209084b0d1f9be735cb0e3fb039e2
+  validation: 1053877e43ace12bb5f6d6d60a51fa8782e10261e4a1db02484b127ca33fb981
+  tags: 7c16fe67e0216c2fb354b044f93d4cca5adbf8d378e15b3cc0b9b94051a10d68
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:cli
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-19T11:00:34Z'
+  authority: generated
+  via: create_document

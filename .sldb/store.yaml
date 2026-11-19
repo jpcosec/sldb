@@ -726,6 +726,10 @@ include:
     name: run-deskops-e-e76b738b842b
   - path: runs/subagents/exec-deskops-t-04a7e510ab49-testing/run.md
     name: run-deskops-t-04a7e510ab49
+  - path: runs/subagents/exec-deskops-e-97dc05303d2b/run.md
+    name: run-deskops-e-97dc05303d2b
+  - path: runs/subagents/exec-deskops-t-1feb4e1db3a0-testing/run.md
+    name: run-deskops-t-1feb4e1db3a0
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -1178,6 +1182,10 @@ include:
   - desk/materializations/materialization-cli-higiene-inbox-parse.md
   - desk/materializations/materialization-selfdoc-required-estable-arguments.md
   - desk/materializations/materialization-selfdoc-required-estable-test-argument-required.md
+  - desk/materializations/materialization-reindex-track-document-file.md
+  - desk/materializations/materialization-reindex-doc.md
+  - desk/materializations/materialization-reindex-docs1.md
+  - desk/materializations/materialization-reindex-test-api-documents.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2345,6 +2353,14 @@ include:
     name: review-task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for-preflight-1
   - path: desk/reviews/task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for/bundle-1.md
     name: review-task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for-bundle-1
+  - path: desk/reviews/task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for/evidence-tests-1.md
+    name: review-task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for-evidence-tests-1
+  - path: desk/reviews/task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for/evidence-commit-1.md
+    name: review-task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for-evidence-commit-1
+  - path: desk/reviews/task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for/evidence-atom-1.md
+    name: review-task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for-evidence-atom-1
+  - path: desk/reviews/task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for/evidence-materialization-1.md
+    name: review-task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

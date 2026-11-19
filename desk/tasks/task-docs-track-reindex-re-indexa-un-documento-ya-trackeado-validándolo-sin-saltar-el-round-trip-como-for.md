@@ -1,20 +1,23 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-19T10:43:21Z'
+  at: '2026-11-19T10:58:42Z'
   authority: generated
   via: save_document_payload
 id: task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
-current_node: ritual-execution
-history: []
+current_node: ritual-testing
+history:
+- task_activates
 references:
-- desk/inbox/20261117-080455-suggestion-docs-track-force-re-indexa-sin-validar-pedido-de-un-re-index-que-valide.md
+- src/sldb/api/documents/track_document_file.py
+- tests/api/test_api_documents.py
+- 5d0ef9be125f1795815aaed7f997ec9df96b55e4
 depends_on: []
 pills: []
 files:
@@ -27,7 +30,7 @@ task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
 atoms:
-- atom-track-con-force-re-indexa-desde-el-archivo-un-documento-ya-trackeado-en-la-misma-ruta
+- atom-docs-track-reindex-re-indexa-un-documento-trackeado-validandolo-a-diferencia-de-force
 ---
 
 # docs track --reindex re-indexa un documento ya trackeado validándolo, sin saltar el round-trip como --force
