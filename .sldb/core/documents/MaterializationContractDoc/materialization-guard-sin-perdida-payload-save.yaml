@@ -1,0 +1,25 @@
+name: materialization-guard-sin-perdida-payload-save
+path: desk/materializations/materialization-guard-sin-perdida-payload-save.md
+source_hash: bbd26c5da17bfbd3ea984b8eb006708e6b02611b189e6669e5889f53c0235760
+content_hash: 4a136fb209922683df640903b7b8b76c36ed66ec202d859bebaaca7d247d2e80
+field_hashes:
+  id: 421a18c07c69900f7eab0ff728a8f077c7b344830775e3c698aaf37b44effd33
+  title: 7fd0e06be1c90ecc965a558de645b60c34f518d1de90940477c8f1c97894b155
+  source_atoms: b9cfffea9476790e0c9a84de4346dc7891f414fe14b70582631157b84e1fe657
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: be384b5e14599c7197e22adda9ec4c20c0dcbd03b054c268ea430a792c139dce
+  intent: fbe8fa103e1bc371e746220a071292ec1bd1debac69938615997d4c5f02b396f
+  validation: c886310da85714e880d8d6f6b428d9acc1f2af194135f3b0fb60be75993f1a9c
+  tags: bf55c42c4fdeaa287deec1d3536d9fd2fb7bfaace04a6c45dfb7c4a08ad6d6b6
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:documents
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-19T14:26:25Z'
+  authority: generated
+  via: create_document

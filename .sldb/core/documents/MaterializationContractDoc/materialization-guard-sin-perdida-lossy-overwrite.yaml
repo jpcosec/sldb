@@ -1,0 +1,25 @@
+name: materialization-guard-sin-perdida-lossy-overwrite
+path: desk/materializations/materialization-guard-sin-perdida-lossy-overwrite.md
+source_hash: 15a8ab2ffcaeef7f3b15613b5738c4902526407820949aa238a53c09a4189c9f
+content_hash: 4b025af0d623760c123b67a2e0beac9c76641b461b3fd2f0cc2d1c4e6aa6578a
+field_hashes:
+  id: 745c389d3292fa633015c60a5d3ba47cb3eab380b744530a029f8190b80934f4
+  title: b2269331793d5f8f4750cb76cc799dc95acc3072c6305354c03db1727bde6fcc
+  source_atoms: b9cfffea9476790e0c9a84de4346dc7891f414fe14b70582631157b84e1fe657
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 6341df168fb2985bdeb98af4a67ee8a119cd3a2bcb0413f5f70fec161b99f2ca
+  intent: 94677752d28cd59df062d38ab50ce6f071da54cf4ffcad7057bad346fde3298e
+  validation: c886310da85714e880d8d6f6b428d9acc1f2af194135f3b0fb60be75993f1a9c
+  tags: bf55c42c4fdeaa287deec1d3536d9fd2fb7bfaace04a6c45dfb7c4a08ad6d6b6
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:documents
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-19T14:25:56Z'
+  authority: generated
+  via: create_document

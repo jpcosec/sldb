@@ -1,25 +1,35 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-19T14:07:11Z'
+  at: '2026-11-19T14:25:29Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-el-guard-de-escritura-por-campos-refuse-lossy-overwrite-rechaza-headings-no-declarados-que-viven-den
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-testing
+history:
+- task_activates
+references:
+- src/sldb/api/documents/lossy_overwrite.py
+- src/sldb/api/documents/payload_save.py
+- tests/api/test_structural_noise.py
+- 9e168c33deac9f077bfed425cd4a37df0127b1d2
 depends_on: []
 pills: []
-files: []
+files:
+- src/sldb/api/documents/lossy_overwrite.py
+- src/sldb/api/documents/payload_save.py
+- tests/api/test_structural_noise.py
+- CHANGELOG.md
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-la-escritura-por-campos-rechaza-solo-los-headings-o-claves-que-perderia
 ---
 
 # El guard de escritura por campos (refuse_lossy_overwrite) rechaza headings no declarados que viven dentro del valor de un campo y sobreviven a la escritura
