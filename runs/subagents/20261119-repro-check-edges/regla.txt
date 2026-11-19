@@ -1,0 +1,4 @@
+'TaskDoc:task-a'                         regla=propio    verdad=propio
+'TaskDoc:task:con:dos-puntos'            regla=propio    verdad=propio
+'otro:TaskDoc:task-a'                    regla=enlazado  verdad=enlazado
+'otro:TaskDoc:task:con-dos-puntos'       regla=propio    verdad=enlazado

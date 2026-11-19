@@ -1,0 +1,3 @@
+# Reproducción (integrador, 2026-11-19, sldb HEAD 524a21c1)
+
+src/sldb/api/edges/check_edges.py:29 separa los stale de los stores enlazados con `[s for s in index.stale if s.count(":") == 2]`. Un id propio es `Model:nombre` y uno enlazado es `store:Model:nombre` (federation.qualify_id, src/sldb/store/edge_index/federation.py:30-38). Si el nombre lleva ':', el conteo se equivoca en los dos sentidos: un documento propio con un ':' en el nombre cuenta como enlazado, y uno enlazado con ':' en el nombre cuenta como propio. regla.txt muestra la regla aplicada a los cuatro casos. El inbox original es 20261115-015936.

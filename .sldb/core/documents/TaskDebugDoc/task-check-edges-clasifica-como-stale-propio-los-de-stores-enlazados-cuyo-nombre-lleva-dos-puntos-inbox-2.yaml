@@ -1,7 +1,7 @@
 name: task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2
 path: desk/tasks/task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2.md
-source_hash: 29fa2f618ee38a02a26385ea175635ae83a36fb8624367e843d17103422abad3
-content_hash: b1326a911b6ae9fadac53bd04859de84d553a29a50910efd8943d1ad20f4d320
+source_hash: c4f7b6fb99d8418c5ce457aae95d81af9f6f8c4b00bd4eb5db85fa0bd09eda09
+content_hash: 8dbb7c9e227d485f832fae9928c3c256edcdc4e9f2baee4fe84e6b31f7d6c39a
 field_hashes:
   title: 07422f4566736c73d75f3938fdd00b68064833eae7e5dce1a045a1e30077ee52
   id: b9e5e75821d196a8686321f6d208d87288d2868b4ee5fef00d61c734618e518a
@@ -17,8 +17,8 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  implementation_path: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  validation: 2db25073ac6505f7dfa614261babf778eafa3fa2a63b10ac69dae9c673103dac
+  implementation_path: a15a2119af7af363b46c5c8bc09415f90f87264cb4cd0ef746cad00b110fb724
+  validation: da4bd521e1d92ddd5d8b8d6cf144e657aa24ac343449c9c042c4630a56bc0602
   done_when: e2a1c496855cb42fc3128cdc13cbf2e6941a5d8f4b750a3989f00f16f45eb2ba
   task_type: 17aef8a679138336d87167505c61b03a7bc28c9a12b1ccf78947b619d28fae69
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -33,6 +33,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-15T15:52:16Z'
+  at: '2026-11-19T06:45:29Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
