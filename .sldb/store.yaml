@@ -698,6 +698,10 @@ include:
     name: run-deskops-e-95e1acf86da9
   - path: runs/subagents/exec-deskops-t-26f319f55c52-testing/run.md
     name: run-deskops-t-26f319f55c52
+  - path: runs/subagents/exec-deskops-e-f0e5dbb109f3/run.md
+    name: run-deskops-e-f0e5dbb109f3
+  - path: runs/subagents/exec-deskops-t-336d69094d54-testing/run.md
+    name: run-deskops-t-336d69094d54
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -2226,6 +2230,14 @@ include:
     name: review-task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430-preflight-1
   - path: desk/reviews/task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430/bundle-1.md
     name: review-task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430-bundle-1
+  - path: desk/reviews/task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430/evidence-tests-1.md
+    name: review-task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430-evidence-tests-1
+  - path: desk/reviews/task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430/evidence-commit-1.md
+    name: review-task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430-evidence-commit-1
+  - path: desk/reviews/task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430/evidence-atom-1.md
+    name: review-task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430-evidence-atom-1
+  - path: desk/reviews/task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430/evidence-tests-2.md
+    name: review-task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430-evidence-tests-2
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

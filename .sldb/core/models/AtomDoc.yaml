@@ -3,10 +3,10 @@ model_ref: deskops.models:AtomDoc
 path: ''
 documents_index: .sldb/core/documents/AtomDoc.yaml
 sections_index: .sldb/runtime/sections/AtomDoc.yaml
-model_hash: 63a80e620bdbef87133167f1cdcdacadca81cc42d343e03f34db33b8662b56ac
-roster_hash: 4cea74d4f0c68761b282a172e0619129826c770d183c5d07c592d8d17192a7bc
+model_hash: e0a0a8c33525ef3a24948c64beba0e122b56c862cfce958e4606cd32dd0e0e25
+roster_hash: 794129a3f75d8fd10dfcef1b6fa9664e5835ca8f451261d5038ba0d0dbd7dea7
 contract_hash: ee1a85c1da9ee8ba88d3094404d7771d03e738aad81a0995067fd55369e8b939
-documents_count: 74
+documents_count: 75
 version: 1
 canonical: false
 family: null

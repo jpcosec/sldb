@@ -1,25 +1,30 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-19T04:13:45Z'
+  at: '2026-11-19T04:40:15Z'
   authority: generated
   via: save_document_payload
 id: task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-testing
+history:
+- task_activates
+references:
+- src/sldb/api/documents/apply_batch.py
+- tests/api/test_apply_batch_dry_run.py
+- 29c0a85725c47cb27ec460d13be6e54210b3f38e
 depends_on: []
 pills: []
 files: []
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-apply-batch-con-dry-run-valida-un-lote-completo-sin-escribir-y-devuelve-lo-mismo-que-una-corrida-rea
 ---
 
 # apply_batch: dry_run público que valida sin escribir (inbox 20261115-022430)
