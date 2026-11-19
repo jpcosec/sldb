@@ -1760,3 +1760,54 @@ def test_docs_list_marks_a_document_whose_model_does_not_import(tmp_path, capsys
     sys.modules.pop("cli_v2_models", None)
     with pytest.raises(SystemExit, match="Unknown document target"):
         cli_main(["docs", "show", listed[0]["name"], *args])
+
+
+def _field_args(verb, value, store, pythonpath, *extra):
+    return ["fields", verb, "docs/roadmap/status", value, "--store", str(store), "--pythonpath", pythonpath, *extra]
+
+
+def test_fields_update_string_keeps_the_value_literal(tmp_path, capsys):
+    store, pythonpath = _setup_store(tmp_path)
+    assert cli_main(_field_args("update", "Uno: dos", store, pythonpath, "--string")) == 0
+    capsys.readouterr()
+    assert cli_main(["fields", "show", "docs/roadmap/status", "--store", str(store), "--pythonpath", pythonpath]) == 0
+    assert json.loads(capsys.readouterr().out)["value"] == "Uno: dos"
+
+
+def test_fields_append_string_keeps_the_value_literal(tmp_path, capsys):
+    store, pythonpath = _setup_store(tmp_path)
+    args = ["fields", "append", "docs/roadmap/tasks", "[a: b]", "--string", "--store", str(store), "--pythonpath", pythonpath]
+    assert cli_main(args) == 0
+    capsys.readouterr()
+    assert cli_main(["fields", "show", "docs/roadmap/tasks", "--store", str(store), "--pythonpath", pythonpath]) == 0
+    assert "[a: b]" in json.loads(capsys.readouterr().out)["value"]
+
+
+def test_fields_update_and_append_accept_format(tmp_path, capsys):
+    store, pythonpath = _setup_store(tmp_path)
+    capsys.readouterr()
+    assert cli_main(_field_args("update", '"accepted"', store, pythonpath, "--format", "json")) == 0
+    payload = json.loads(capsys.readouterr().out)
+    assert payload["saved"] is True and payload["field"] == "status"
+    args = ["fields", "append", "docs/roadmap/tasks", '"x"', "--format", "yaml", "--store", str(store), "--pythonpath", pythonpath]
+    assert cli_main(args) == 0
+    assert "saved: true" in capsys.readouterr().out
+
+
+def test_inbox_show_unknown_note_errors_on_stderr(tmp_path, capsys):
+    desk_root = tmp_path / "desk"
+    desk_root.mkdir()
+    assert cli_main(["inbox", "--show", "nope", "--desk-root", str(desk_root)]) != 0
+    captured = capsys.readouterr()
+    assert captured.out == ""
+    assert "Unknown inbox note: nope" in captured.err
+
+
+def test_inbox_store_without_sldb_fails_and_writes_nothing(tmp_path, capsys):
+    plain = tmp_path / "plain"
+    plain.mkdir()
+    with pytest.raises(SystemExit) as exc:
+        cli_main(["inbox", "A note that must not land anywhere at all.", "--store", str(plain)])
+    assert ".sldb" in str(exc.value)
+    assert not (tmp_path / "desk").exists()
+    assert not (plain / "desk").exists()

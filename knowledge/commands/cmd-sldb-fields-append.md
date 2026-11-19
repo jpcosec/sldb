@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T20:49:29Z'
+  at: '2026-11-19T08:51:48Z'
   authority: generated
   via: save_document_payload
 id: cmd-sldb-fields-append
@@ -14,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#fields append; contract-sha256:f67df8e8e4826ae37f64683d343e0b492698c9535d73faf6fece099cf4efeb2e
+provenance: parser:sldb.cli.parser:build_parser#fields append; contract-sha256:c7e59cf45cda1e5b15e2eb94a0eeadf74751479287118e5579cf2f0561b8b9a9
 ---
 
 # fields append
@@ -100,6 +100,36 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'append'. It 
       "action": "argparse._StoreAction",
       "const": "null",
       "help": "Project path"
+    },
+    {
+      "names": [
+        "--string"
+      ],
+      "required": false,
+      "default": "false",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "argparse._StoreTrueAction",
+      "const": "true",
+      "help": "Take the value as literal text, without JSON/YAML parsing"
+    },
+    {
+      "names": [
+        "--format"
+      ],
+      "required": false,
+      "default": "\"text\"",
+      "choices": [
+        "\"text\"",
+        "\"json\"",
+        "\"yaml\""
+      ],
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": ""
     }
   ],
   "exclusive_groups": []

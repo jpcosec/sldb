@@ -75,6 +75,7 @@ Examples:
   sldb fields show models/Book
   sldb fields show docs/my-book/title
   sldb fields update docs/my-book/title 'Updated title'
+  sldb fields update docs/my-book/title 'Uno: dos' --string   # literal text, no YAML parsing
   sldb fields append docs/my-book/tasks '{"title":"Fix bug","status":"open"}'
   sldb fields clean docs/my-book/tasks --dedupe --drop-empty
 

@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T20:50:16Z'
+  at: '2026-11-19T08:51:57Z'
   authority: generated
   via: save_document_payload
 id: cmd-sldb-fields-update
@@ -14,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#fields update; contract-sha256:4cc3d7ff473486744f5ebd82d3d90696077dfa6a9340981c5e4747188b75260c
+provenance: parser:sldb.cli.parser:build_parser#fields update; contract-sha256:33734e5a070af3ffb8f1a13da8525162990f936f93960a4221c5bfd39fd1950e
 ---
 
 # fields update
@@ -100,6 +100,36 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'update'. It 
       "action": "argparse._StoreAction",
       "const": "null",
       "help": "Project path"
+    },
+    {
+      "names": [
+        "--string"
+      ],
+      "required": false,
+      "default": "false",
+      "choices": null,
+      "nargs": 0,
+      "value_type": null,
+      "action": "argparse._StoreTrueAction",
+      "const": "true",
+      "help": "Take the value as literal text, without JSON/YAML parsing"
+    },
+    {
+      "names": [
+        "--format"
+      ],
+      "required": false,
+      "default": "\"text\"",
+      "choices": [
+        "\"text\"",
+        "\"json\"",
+        "\"yaml\""
+      ],
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": ""
     }
   ],
   "exclusive_groups": []

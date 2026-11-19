@@ -1,7 +1,7 @@
 name: cmd-sldb-fields-update
 path: knowledge/commands/cmd-sldb-fields-update.md
-source_hash: cf8fdff3f172f8f4949abe62ed28a3d870ecc1a6e9006a9ae676dffb8ef64abf
-content_hash: e5e00b5014a78f2dc82e800d6edb9e8cab3c94ec3287c77733727e011bb034c5
+source_hash: 89424b1996e6c14d20adeb82182fb313a03865f18d16f475a266ad1bccd9fe38
+content_hash: f6c28da2062db1bf2def6414d307cff6e33ac3ef4615bfa7b2b56265b6db9fba
 field_hashes:
   id: 279af67a11f5259f2cefbf82d7c2df82c0fbe2a4c3b15f42619a84fc968708f2
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,10 +9,10 @@ field_hashes:
   synopsis: 71060b462f3d44a6a551bf80e6e0b09c9b42574c7eebea2da1dcb676afe6ab19
   purpose: 998eb32a72affbea560dcd30aecbabb0923603234642244792f6a2344c9f60f5
   how_it_works: d28c82762eda0166285925712e8230a1a5a2e93fdac993efff247174b641211c
-  arguments: dbec5545e5dd477add548a27b274eaebf40529b0b5ee041398c31f50713cb760
+  arguments: 0c722841dbc6a1affbf65f82de744ca09eb9c35978c4ad274052f67f9fd19479
   usage: 0b61cb793b93b118fbd3a1202db28b745961423b556a7f246cb03b679bc7fa9a
   tags: 699c2cfd1a5b0cb746c8dfb0f4de3ed26435e62c74e179332ed04ad4f2591c91
-  provenance: 35d4e269a8a201b8257c159ecda1086268171722a03db1be7891dca4deec2304
+  provenance: 4bc90873f567c8bb61123eef453684576e192f08aa59f62635c7951559f1d543
 semantic_tags:
 - domain:retrieval
 - entity:cli_command
@@ -25,6 +25,6 @@ semantic_tags:
 - workspace.knowledge.commands
 provenance:
   by: agent
-  at: '2026-11-16T20:50:16Z'
+  at: '2026-11-19T08:51:57Z'
   authority: generated
   via: save_document_payload

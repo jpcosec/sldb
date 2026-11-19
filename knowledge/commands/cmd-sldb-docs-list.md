@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T20:45:56Z'
+  at: '2026-11-19T08:51:18Z'
   authority: generated
   via: save_document_payload
 id: cmd-sldb-docs-list
@@ -14,7 +14,7 @@ tags:
 - kind:software
 - impl:external
 - entity:cli_command
-provenance: parser:sldb.cli.parser:build_parser#docs list; contract-sha256:c7435593d6c2ade293c518eda560028860a72b11b4b4b3a90a41e23c72356d6b
+provenance: parser:sldb.cli.parser:build_parser#docs list; contract-sha256:243b7bea09e47612013c06d5d89ec3d6508ffa56b5d5bdadf40bb8ca627d8388
 ---
 
 # docs list
@@ -61,6 +61,19 @@ Implemented under src/sldb/cli/parsers/ as the argparse subcommand 'list'. It pa
       "action": "argparse._StoreAction",
       "const": "null",
       "help": "Store path"
+    },
+    {
+      "names": [
+        "--pythonpath"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Project path; a model that does not import from it or the store root is marked unresolvable"
     },
     {
       "names": [

@@ -29,6 +29,9 @@ def _cruds(s):
         cmd.add_argument("value", help="Inline YAML/JSON value")
         cmd.add_argument("--store", help="Store path")
         cmd.add_argument("--pythonpath", help="Project path")
+        if n in ("update", "append"):
+            cmd.add_argument("--string", action="store_true", help="Take the value as literal text, without JSON/YAML parsing")
+            cmd.add_argument("--format", choices=("text", "json", "yaml"), default="text")
 
 def _clean(s):
     c = s.add_parser("clean", help="Clean a list field.")
