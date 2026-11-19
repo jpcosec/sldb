@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-19T15:47:39Z'
+  at: '2026-11-19T17:08:05Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -12,7 +12,6 @@ scope: sldb-local-desk
 tasks:
 - desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
 - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
-- desk/tasks/task-sldb-views-run-board-en-menos-de-1-s-caché-de-disco-de-los-shards-de-documentos-para-select-document.md
 - desk/tasks/task-apply-batch-aristas-validadas-antes-de-escribir-alertas-on-write-en-batchreport-rules-check-sobre-re.md
 - desk/tasks/task-api-pública-búsqueda-rankeada-escrituras-recientes-y-store-hash-como-precondición-atómica-brechas-de.md
 - desk/tasks/task-sldb-escucha-suscripciones-y-stream-de-eventos-de-escritura-inbox-20261114-115028.md
@@ -118,7 +117,6 @@ _Generated from the task references above._
 
 - Diseño: set bootstrap de modelos tras la convergencia átomo/field [draft] - Un documento de decisión en docs/ (SpecDoc o PlanDoc trackeado) que evalúe la propuesta de siete modelos, diga qué se adopta, qué no y por qué, con ejemplos de cada modelo sobre documentos reales del store.
 - Diseño: jerarquía de modelos de evidencia (__family__ o herencia) [draft] - Un documento de decisión en docs/ que compare __family__ vs herencia de clases para los modelos de evidencia, con la recomendación y sus consecuencias para deskops (RunDoc, materializaciones, closeout_evidence).
-- sldb views run board en menos de 1 s: caché de disco de los shards de documentos para select_documents y costo del import de sldb.api (H11b) [draft] - sldb views run board, con el store construido y en un proceso nuevo, tarda menos de 1 s (mediana de 3) sobre el layout del benchmark de H11; el resultado y la revision de la vista no cambian, y un documento escrito o cambiado se nota en la siguiente corrida.
 - apply_batch: aristas validadas antes de escribir, alertas on_write en BatchReport, rules_check sobre RelationDoc y via/authority (inbox 20261115-022655) [draft] - Cerrar los cuatro puntos del pedido.
 - API pública: búsqueda rankeada, escrituras recientes y store_hash como precondición atómica (brechas de IR01, inbox 20261114-074447) [draft] - Resolver o documentar con decisión cada brecha.
 - sldb escucha: suscripciones y stream de eventos de escritura (inbox 20261114-115028) [draft] - Decidir la forma antes de implementar y dejar la implementación como tareas.

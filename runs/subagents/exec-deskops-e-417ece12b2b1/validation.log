@@ -1,0 +1,5 @@
+$ bash tools/check.sh --fast            -> rc 0
+$ pytest tests/test_clean_code_rules.py -> 1214 passed
+$ pytest tests/api/test_select_documents_disk.py -> 6 passed
+$ pytest test_select_documents/test_views/test_run_view_reads/test_views_linked/test_api_graph_analysis -> 59 passed
+$ suite completa, un archivo por vez (suite.log, 233 archivos): todo rc 0 salvo tests/mcp/* (falta del extra `mcp` en el venv del ejecutor); con `pip install -e .[mcp]` los 8 archivos de tests/mcp pasan.

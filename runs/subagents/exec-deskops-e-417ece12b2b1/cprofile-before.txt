@@ -1,0 +1,325 @@
+view board revision 987a5d4d8e83
+board:
+  rows (1)
+    BoardDoc:Board
+tasks:
+  ritual-execution (39)
+    TaskCodeDoc:task-advance-y-closeout-no-derraman-reglas-de-activacion-ni-runtimes-centrales-sin-trackear-en-el-desk-co
+    TaskDocsDoc:task-agents-md-readme-md-y-la-carpeta-de-la-skill-de-opencode-dejan-de-nombrar-use-spec2viz-y-pasan-a-use
+    TaskCodeDoc:task-borrar-el-detector-legacy-de-related-atoms-y-los-alias-scaffold-desk-y-ensure-lifecycle-graph-que-no
+    TaskCodeDoc:task-borrar-la-migracion-de-task-type-viejo-legacy-task-type-keys-y-migrate-task-types-y-sus-tests
+    TaskCodeDoc:task-build-neighbours-de-absolute-paths-resuelve-el-path-del-registro-con-resolve-registered-root-y-expan
+    TaskDocsDoc:task-cc51-docs-config-vs-code-md-con-la-medicion-de-lineas-de-codigo-frente-a-configuracion-y-el-inventar
+    TaskCodeDoc:task-cc52-suite-doctor-y-board-verdes-en-los-6-desks-con-tiempos-de-view-board-medidos-en-robocop2
+    TaskDocsDoc:task-cc53-docs-configuration-md-explica-que-es-configuracion-y-como-se-declara-un-tipo-de-tarea-nuevo-con
+    TaskCodeDoc:task-closeout-commit-stagea-solo-lo-que-escribio-el-cierre-sin-git-add-a-sobre-sldb-y-sin-nothing-staged
+    TaskDebugDoc:task-closeout-reconoce-una-materialization-declarada-sobre-un-golden-en-tests-fixtures-sin-dejar-entrar-e
+    TaskCodeDoc:task-deskops-declara-el-namespace-de-tags-host-para-marcar-en-que-maquina-corre-cada-tarea
+    TaskCodeDoc:task-deskops-status-deja-de-ser-solo-un-aviso-deprecated-y-entrega-el-estado-rapido-del-desk
+    TaskCodeDoc:task-doctor-dice-de-que-tarea-es-cada-cambio-sin-commitear-en-sldb-checkout-atrasado
+    TaskCodeDoc:task-doctor-no-alerta-como-lost-los-recibos-de-una-tarea-cerrada
+    TaskCodeDoc:task-el-runtime-profile-traduce-los-tools-del-roledoc-al-vocabulario-de-claude-y-el-alias-de-modelo-sale
+    TaskCodeDoc:task-graph-export-y-self-reflection-escriben-su-salida-derivada-en-sldb-cache-y-no-en-sldb-runtime
+    TaskCodeDoc:task-graph-missing-separa-los-archivos-que-una-tarea-abierta-va-a-crear-de-las-referencias-rotas-reales
+    TaskDebugDoc:task-huecos-de-atomos-de-la-auditoria-de-chatbot-infra-renombrar-id-retire-de-atomos-validate-all-y-edita
+    TaskCodeDoc:task-inbox-y-drawer-quedan-trackeados-en-el-store-del-desk-y-las-vistas-los-leen-del-store-h10-de-cc34
+    TaskCodeDoc:task-init-en-un-worktree-usa-el-nombre-del-repo-y-doctor-lee-el-pythonpath-del-store
+    TaskDecisionDoc:task-jp-confirma-o-revierte-do4-review-record-acepta-preflight-y-bundle-humanos-solo-para-quickstart-y-e2
+    TaskDecisionDoc:task-jp-decide-como-se-alimenta-deskops-atoms-split-por-el-cli-opcion-a-b-o-c
+    TaskDecisionDoc:task-jp-decide-el-release-0-2-0-de-deskops-y-que-hacer-con-el-tag-v0-2-0-prematuro
+    TaskDecisionDoc:task-jp-decide-si-deskops-adopta-d4-pr-en-taskdoc-y-d5-kind-alert-en-el-inbox-del-spec-de-governance
+    TaskDecisionDoc:task-jp-decide-si-deskops-promote-inbox-to-drawer-task-se-retira
+    TaskDecisionDoc:task-jp-decide-si-el-plan-workspace-documental-se-retira-con-sus-67-fichas-o-se-rescatan-nodos
+    TaskDecisionDoc:task-jp-fija-n-la-meta-de-lineas-de-python-de-deskops-que-exige-cc51
+    TaskDocsDoc:task-la-guia-versionada-de-deskops-dice-que-los-cambios-solo-de-desk-van-en-el-checkout-principal-sin-wor
+    TaskDocsDoc:task-la-skill-el-ritual-drawer-triage-y-la-ayuda-de-promote-dicen-que-una-nota-del-inbox-que-es-trabajo-s
+    TaskCodeDoc:task-la-suite-de-deskops-en-un-solo-proceso-cabe-en-memorymax-2g-fixture-autouse-limpia-los-caches-global
+    TaskDocsDoc:task-los-4-atomos-de-salud-del-desk-dejan-de-dar-store-structural-noise-en-sldb-stores-check
+    TaskDocsDoc:task-los-rituales-context-review-y-phase-nombran-deskops-review-y-la-regla-de-activacion-como-gate-de-la
+    TaskDocsDoc:task-readme-y-docs-dejan-de-nombrar-spec-artifacts-spec-fields-y-specregistry-borrados-en-cc30
+    TaskCodeDoc:task-rol-de-desk-hitl-about-faq-y-doctor-documentan-cada-carpeta-del-desk-y-doctor-avisa-si-hitl-tiene-ar
+    TaskCodeDoc:task-rundoc-por-intento-identidad-propia-intencion-y-confirmacion-de-dispatch-separadas-y-el-closeout-act
+    TaskCodeDoc:task-runtime-template-de-scion-image-resources-y-volumes-van-en-un-archivo-config-y-el-tipo-de-hijo-sale
+    TaskCodeDoc:task-se-borra-el-camino-legacy-de-deskops-message-y-el-escenario-e2e-inbox-to-task-usa-deskops-message-li
+    TaskCodeDoc:task-supertareas-y-alta-en-lote-campo-parent-en-taskdoc-y-add-task-from-yaml-con-varias-tareas
+    TaskExternalDoc:task-traderbot-y-sldb-migran-sus-task-type-viejos-con-deskops-desk-update-apply
+  ritual-testing (0)
+  ritual-closeout (0)
+pills:
+  rows (29)
+    PillDoc:pill-001-task-closure-commit
+    PillDoc:pill-005-subagent-execution
+    PillDoc:pill-006-self-described-store-layout
+    PillDoc:pill-007-phase-gated-task-flow
+    PillDoc:pill-008-kgdb-sldb-boundary
+    PillDoc:pill-009-source-file-graph-traceability
+    PillDoc:pill-010-graph-runtime-output-policy
+    PillDoc:pill-011-self-reflection-noise-control
+    PillDoc:pill-012-create-operations-transactional-rollback
+    PillDoc:pill-atom-lifecycle-preserves-provenance-and-materialization-links
+    PillDoc:pill-board-routed-pills-stay-minimal-and-reusable
+    PillDoc:pill-canonical-desk-identity-enables-horizontal-routing
+    PillDoc:pill-cli-gaps-become-tracked-work
+    PillDoc:pill-closeout-knowledge-gates-require-traceable-evidence
+    PillDoc:pill-cross-desk-inbox-needs-delivery-verification-and-follow-up
+    PillDoc:pill-doctor-separates-desk-repair-from-sldb-health
+    PillDoc:pill-drift-checks-are-review-surfaces-not-mutators
+    PillDoc:pill-durable-pill-knowledge-graduates-to-atoms-at-closeout
+    PillDoc:pill-legacy-desk-formats-need-explicit-adaptation
+    PillDoc:pill-list-surfaces-must-expose-malformed-docs
+    PillDoc:pill-machine-readable-cli-output-needs-stable-contract
+    PillDoc:pill-materialization-contracts-declare-source-intent-and-target
+    PillDoc:pill-operational-cli-grammar-follows-spoken-workflow
+    PillDoc:pill-pattern-supervisor-playbook-buenas-tareas-bundle-contexto-cero-y-frontera-de-modelos
+    PillDoc:pill-phase-closeout-reconciles-pills-and-surfaces-next-work
+    PillDoc:pill-project-local-config-carries-version-and-sandbox-policy
+    PillDoc:pill-ready-phases-prove-dependencies-and-non-overlap
+    PillDoc:pill-real-cli-surfaces-prove-operator-contracts
+    PillDoc:pill-zero-context-preflight-precedes-executor
+atoms:
+  rows (176)
+    AtomDoc:atom-001-self-described-store-layout
+    AtomDoc:atom-atom-folder-axis-is-one-configurable-tag-namespace
+    AtomDoc:atom-atom-lifecycle-includes-validate-and-delete-with-inbound-reference-guard
+    AtomDoc:atom-atom-lifecycle-is-complete-create-from-source-split-merge
+    AtomDoc:atom-canonical-project-identity-resolves-through-a-shared-registry-resolver
+    AtomDoc:atom-cero-instancias-de-un-modelo-no-prueba-ausencia-de-la-capacidad
+    AtomDoc:atom-closeout-evidence-is-declared-at-task-creation-and-verified-exactly
+    AtomDoc:atom-closeout-resolved-by-cierra-una-tarea-cuyo-trabajo-ya-entró-por-pr
+    AtomDoc:atom-closeout-verify-cubre-los-archivos-bajo-un-directorio-target-sea-nodo-del-grafo-o-missing
+    AtomDoc:atom-closeout-verify-escribe-recibos-de-evidencia-como-reviewdoc-kind-evidence
+    AtomDoc:atom-closing-commits-are-tool-made-and-run-linked
+    AtomDoc:atom-contenedores-scion-venv-propio-con-uv-python-3-12-via-a
+    AtomDoc:atom-cross-desk-inbox-delivery-is-verifiable-and-acknowledgeable
+    AtomDoc:atom-declared-materialization-targets-are-graph-nodes
+    AtomDoc:atom-desk-health-delegates-store-diagnostics-to-sldb
+    AtomDoc:atom-desk-health-is-measured-by-cli-diagnostics
+    AtomDoc:atom-desk-health-is-workspace-integrity-state
+    AtomDoc:atom-desk-repair-is-owned-by-deskops
+    AtomDoc:atom-desk-workspaces-classify-as-absent-empty-legacy-or-current
+    AtomDoc:atom-deskops-architecture
+    AtomDoc:atom-deskops-imports-sldb-cli-helpers-from-their-current-modules
+    AtomDoc:atom-deskops-message-es-el-unico-comando-de-mensajeria-del-desk
+    AtomDoc:atom-deskops-models-are-sldb-documents
+    AtomDoc:atom-deskops-reads-and-writes-through-sldb
+    AtomDoc:atom-deskops-resuelve-documentos-por-los-selectores-de-sldb
+    AtomDoc:atom-deskops-review-record-deja-recibos-reproduction-goldens-y-owner-sin-modelo
+    AtomDoc:atom-deskops-should-read-through-sldb-compositions
+    AtomDoc:atom-deskops-still-reads-workflow-surfaces-as-files-where-it-could-compose-them
+    AtomDoc:atom-deskops
+    AtomDoc:atom-do-not-atomize-a-coherent-deliverable-into-disconnected-tasks
+    AtomDoc:atom-do-not-use-instructional-text-as-model-documentation
+    AtomDoc:atom-doctor-separates-unmodeled-desk-surfaces-from-broken-tracking
+    AtomDoc:atom-domain-crossroads-are-mandatory-parents
+    AtomDoc:atom-drift-checks-are-review-surfaces-not-mutators
+    AtomDoc:atom-el-gate-de-tests-del-closeout-acepta-py-bajo-cualquier-tests-del-repo-o-declarados-en-files
+    AtomDoc:atom-el-store-de-deskops-no-federa-el-store-de-spec2viz
+    AtomDoc:atom-en-deskops-el-store-de-sldb-se-versiona-entero-y-solo-la-caché-se-ignora
+    AtomDoc:atom-git-ignored-skill-trees-need-tracked-drift-guards
+    AtomDoc:atom-instructional-text-makes-a-template-self-sufficient
+    AtomDoc:atom-la-consistencia-del-ciclo-de-vida-de-una-tarea-es-un-validador-de-taskdoc
+    AtomDoc:atom-la-estructura-inicial-de-un-desk-se-declara-en-el-paquete-de-deskops-y-la-aplica-sldb
+    AtomDoc:atom-las-transiciones-del-ciclo-de-vida-de-una-tarea-son-aristas-con-efectos-declarados
+    AtomDoc:atom-los-gates-de-activación-de-cada-tipo-de-tarea-son-ruledoc-semilla
+    AtomDoc:atom-los-ids-que-deskops-deriva-de-un-título-se-pliegan-a-ascii-y-los-ids-existentes-con-tilde-siguen-val
+    AtomDoc:atom-materializations-are-projections-not-read-surfaces
+    AtomDoc:atom-multi-surface-drift-is-a-core-workflow-failure-mode
+    AtomDoc:atom-operations-py-es-una-fachada-y-cada-artefacto-declara-su-forma-en-su-modelo
+    AtomDoc:atom-promotion-flattens-structured-source-sections-into-task-fields
+    AtomDoc:atom-protoatoms-are-free-atoms-captured-before-typing
+    AtomDoc:atom-queue-run-deja-en-pending-un-trabajo-cuyo-codigo-de-salida-esta-en-retry-exit-codes
+    AtomDoc:atom-repo-register-accepts-explicit-path-and-registry-errors-name-the-fix
+    AtomDoc:atom-review-attestations-state-only-what-was-actually-read
+    AtomDoc:atom-role-prompts-are-tracked-documents-agent-files-are-materializations
+    AtomDoc:atom-role-tool-boundaries-and-evidence-surface
+    AtomDoc:atom-separar-procedencia-exige-comparar-todas-las-columnas-contra-la-versión-previa
+    AtomDoc:atom-sldb-extraction-reads-values-relative-to-the-template-s-own-text
+    AtomDoc:atom-sldb-template-markers-declare-where-each-field-lives
+    AtomDoc:atom-stale-state-causes-agent-hallucination
+    AtomDoc:atom-subagent-runs-are-linked-to-session-logs-by-hash
+    AtomDoc:atom-task-bundles-are-tracked-in-the-store-at-creation-time
+    AtomDoc:atom-templates-are-defined-as-model-strings
+    AtomDoc:atom-the-deskops-ui-reads-the-desk-only-through-deskops-view-and-writes-only-through-deskops-operations
+    AtomDoc:atom-toda-escritura-de-deskops-pasa-por-la-transacción-de-sldb
+    AtomDoc:atom-todo-sustantivo-de-primer-nivel-del-cli-de-deskops-está-clasificado-una-sola-vez-en-su-gramática
+    AtomDoc:atom-typing-a-protoatom-keeps-a-redirect-stub
+    AtomDoc:atom-un-archivo-de-codigo-cita-los-atomos-que-implementa-y-deskops-atoms-citations-lo-comprueba
+    AtomDoc:atom-un-cambio-de-contrato-de-un-modelo-se-registra-a-propósito-en-el-snapshot-y-en-el-store
+    AtomDoc:atom-un-límite-de-intentos-no-autoriza-aceptar-una-contradicción
+    AtomDoc:atom-un-pass-focal-no-prueba-el-resto-del-artefacto
+    AtomDoc:atom-un-repo-con-tests-en-otro-lenguaje-declara-su-evidencia-de-closeout-con-un-test-py-que-corre-la-suit
+    AtomDoc:atom-una-disposicion-lee-toda-la-salida-del-revisor
+    AtomDoc:atom-una-invariante-de-un-solo-documento-vive-como-validador-de-su-modelo
+    AtomDoc:atom-workflow-role-model-routing
+    AtomDoc:atom-atom-references-carry-roles
+    AtomDoc:atom-atoms-distill-project-knowledge
+    AtomDoc:atom-big-documents-need-explicit-modeling-strategy
+    AtomDoc:atom-diagrams-project-knowledge-relations
+    AtomDoc:atom-docs-materialize-atoms-for-humans
+    AtomDoc:atom-drift-checks-compare-atoms-materializations-implementation
+    AtomDoc:atom-extensibility-is-a-contract
+    AtomDoc:atom-implementation-feedback-refines-atoms
+    AtomDoc:atom-knowledge-graph-connects-desk-and-source-files
+    AtomDoc:atom-main-docs-are-composed-materializations
+    AtomDoc:atom-materialization-contracts-bind-source-output-validation
+    AtomDoc:atom-materialization-metadata-is-not-atom-content
+    AtomDoc:atom-materializations-declare-source-atoms
+    AtomDoc:atom-networkx-is-first-graph-runtime
+    AtomDoc:atom-promotion-needs-explicit-criteria
+    AtomDoc:atom-raw-signals-need-distillation-before-formalization
+    AtomDoc:atom-reverse-traceability-is-derived
+    AtomDoc:atom-self-reflection-is-a-feedback-loop
+    AtomDoc:atom-sldb-semantics-are-graph-inputs
+    AtomDoc:atom-source-file-relations-make-knowledge-actionable
+    AtomDoc:atom-specs-formalize-atoms-as-contracts
+    AtomDoc:atom-agents-read-by-decision-need
+    AtomDoc:atom-agents-read-through-semantic-tools
+    AtomDoc:atom-atom-candidates-come-from-durable-answers
+    AtomDoc:atom-atoms-answer-one-question
+    AtomDoc:atom-atoms-are-stable-documentation-core
+    AtomDoc:atom-automatic-routines-vs-llm-tasks
+    AtomDoc:atom-available-tasks-are-board-routed-work
+    AtomDoc:atom-board-context-uses-portable-document-names
+    AtomDoc:atom-changes-flow-through-tasks-and-pills
+    AtomDoc:atom-cheap-zero-context-reviews-test-the-brief-recursively
+    AtomDoc:atom-clean-agents-start-from-minimum-workflow-set
+    AtomDoc:atom-clean-code-reduces-knowledge-drift
+    AtomDoc:atom-clean-subagent-ambiguity-review
+    AtomDoc:atom-cli-gaps-become-tracked-work
+    AtomDoc:atom-cli-is-thin-over-primitives-and-sldb
+    AtomDoc:atom-cli-mutation-testing-uses-sandbox-desk-roots
+    AtomDoc:atom-cli-should-match-spoken-workflow-language
+    AtomDoc:atom-closeout-validates-knowledge-surfaces
+    AtomDoc:atom-code-changes-close-with-tests-and-commit
+    AtomDoc:atom-codebase-surfaces-generate-atom-candidates
+    AtomDoc:atom-create-operations-should-rollback-on-failure
+    AtomDoc:atom-desk-is-document-data-only
+    AtomDoc:atom-desk-test-root-precedence-is-explicit
+    AtomDoc:atom-deskops-automates-repeated-workflow-obligations
+    AtomDoc:atom-deskops-owns-workflow-not-document-infrastructure
+    AtomDoc:atom-diagrams-generate-operational-models
+    AtomDoc:atom-divide-and-conquer-persisted-operations
+    AtomDoc:atom-docs-are-human-facing-atom-materializations
+    AtomDoc:atom-documents-point-to-atoms
+    AtomDoc:atom-drawer-is-not-active-work
+    AtomDoc:atom-drawers-feed-tasks-through-promotion
+    AtomDoc:atom-ease-of-use-requires-progressive-disclosure
+    AtomDoc:atom-every-change-needs-descriptive-commit
+    AtomDoc:atom-failed-sldb-paths-become-sldb-inbox-issues
+    AtomDoc:atom-field-oriented-document-composition
+    AtomDoc:atom-first-safe-action-follows-read-route
+    AtomDoc:atom-git-history-is-the-past
+    AtomDoc:atom-git-is-explanatory-surface-for-changes
+    AtomDoc:atom-inbox-is-coordination-intake
+    AtomDoc:atom-inbox-routes-external-needs-toward-work
+    AtomDoc:atom-kgdb-owns-relations-between-knowledge-surfaces
+    AtomDoc:atom-large-worktree-changes-need-explanatory-slices
+    AtomDoc:atom-message-is-the-cross-desk-transport-verb
+    AtomDoc:atom-non-durable-notes-do-not-become-atoms
+    AtomDoc:atom-operational-primitives-model
+    AtomDoc:atom-orphan-artifacts-are-knowledge-system-failures
+    AtomDoc:atom-phase-closeout-reconciles-pills-and-next-work
+    AtomDoc:atom-phase-gates-prevent-agent-skipping
+    AtomDoc:atom-phases-are-dependency-layers-of-tasks
+    AtomDoc:atom-pills-are-reusable-across-tasks
+    AtomDoc:atom-pills-are-transient
+    AtomDoc:atom-pills-carry-transitional-task-knowledge
+    AtomDoc:atom-pills-end-as-atoms-docs-or-deletion
+    AtomDoc:atom-pills-index-existing-and-bound-future-context
+    AtomDoc:atom-pills-reference-not-copy
+    AtomDoc:atom-primitives-encode-operational-rules
+    AtomDoc:atom-raw-file-reads-flatten-knowledge-layers
+    AtomDoc:atom-real-cli-surfaces-prove-workflow-behavior
+    AtomDoc:atom-rendered-diagrams-are-projections
+    AtomDoc:atom-repo-artifacts-need-atom-traceability
+    AtomDoc:atom-reports-capture-evidence-and-next-decision-surface
+    AtomDoc:atom-reports-carry-minimal-reproduction-evidence
+    AtomDoc:atom-review-status-preserves-current-dispositions
+    AtomDoc:atom-rituals-precede-routines
+    AtomDoc:atom-routine-based-task-execution
+    AtomDoc:atom-scion-coordinator-progresses-authorized-work
+    AtomDoc:atom-self-generating-spec-derived-cli
+    AtomDoc:atom-sldb-is-read-write-edit-surface
+    AtomDoc:atom-spec-driven-artifact-architecture
+    AtomDoc:atom-spec-fields-compile-into-model-fields
+    AtomDoc:atom-spec-to-visualization-pipeline
+    AtomDoc:atom-spec2viz-mirrors-sldb-for-diagrams
+    AtomDoc:atom-task-board-phases
+    AtomDoc:atom-task-closeout-checks-pill-knowledge-graduation
+    AtomDoc:atom-task-lifecycle-is-cli-runnable-end-to-end
+    AtomDoc:atom-tasks-enable-zero-context-subagents
+    AtomDoc:atom-unwritten-knowledge-belongs-in-atoms-or-materializations
+    AtomDoc:atom-upstream-routing-needs-convenient-command
+    AtomDoc:atom-used-source-artifacts-are-deleted
+    AtomDoc:atom-work-is-board-routed-to-preserve-intent
+    AtomDoc:atom-workflow-surfaces-have-operational-lifetimes
+    AtomDoc:atom-workflow-vocabulary-separates-knowledge-and-work
+         5759047 function calls (5562615 primitive calls) in 3.610 seconds
+
+   Ordered by: cumulative time
+   List reduced from 5424 to 60 due to restriction <60>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    3.616    3.616 <frozen runpy>:201(run_module)
+   2126/2    0.041    0.000    3.615    1.807 {built-in method builtins.exec}
+        1    0.000    0.000    3.319    3.319 <frozen runpy>:65(_run_code)
+        1    0.000    0.000    3.319    3.319 /dev/shm/h11b/sldb/src/sldb/__main__.py:1(<module>)
+        1    0.000    0.000    3.092    3.092 /dev/shm/h11b/sldb/src/sldb/cli/main.py:11(main)
+        1    0.000    0.000    2.658    2.658 /dev/shm/h11b/sldb/src/sldb/cli/dispatcher.py:80(run)
+        1    0.000    0.000    2.589    2.589 /dev/shm/h11b/sldb/src/sldb/cli/dispatcher.py:95(_dispatch)
+        1    0.000    0.000    2.589    2.589 /dev/shm/h11b/sldb/src/sldb/cli/commands/views.py:19(run)
+        1    0.000    0.000    2.589    2.589 /dev/shm/h11b/sldb/src/sldb/cli/commands/views.py:25(run_view)
+        1    0.000    0.000    2.589    2.589 /dev/shm/h11b/sldb/src/sldb/api/views/run_view.py:25(run_view)
+        4    0.000    0.000    1.787    0.447 /dev/shm/h11b/sldb/src/sldb/api/views/run_view.py:47(run_section)
+        4    0.000    0.000    1.231    0.308 /dev/shm/h11b/sldb/src/sldb/api/views/view_rows.py:16(section_rows)
+        4    0.000    0.000    1.230    0.307 /dev/shm/h11b/sldb/src/sldb/api/documents/select_documents.py:23(select_documents)
+        4    0.000    0.000    1.096    0.274 /dev/shm/h11b/sldb/src/sldb/store/query_engine/document_selection.py:24(select_rows)
+  1811/88    0.008    0.000    1.061    0.012 <frozen importlib._bootstrap>:1349(_find_and_load)
+  1751/37    0.007    0.000    1.060    0.029 <frozen importlib._bootstrap>:1304(_find_and_load_unlocked)
+  1721/39    0.005    0.000    1.057    0.027 <frozen importlib._bootstrap>:911(_load_unlocked)
+  1681/39    0.003    0.000    1.056    0.027 <frozen importlib._bootstrap_external>:993(exec_module)
+     1355    0.009    0.000    1.056    0.001 /tmp/ws-venv/lib/python3.12/site-packages/yaml/__init__.py:74(load)
+  3583/72    0.002    0.000    1.055    0.015 <frozen importlib._bootstrap>:480(_call_with_frames_removed)
+     1355    0.204    0.000    1.038    0.001 /tmp/ws-venv/lib/python3.12/site-packages/yaml/constructor.py:47(get_single_data)
+        4    0.000    0.000    1.017    0.254 /dev/shm/h11b/sldb/src/sldb/store/query_engine/document_selection.py:51(candidates)
+        4    0.004    0.001    1.012    0.253 /dev/shm/h11b/sldb/src/sldb/store/query_engine/document_selection.py:67(store_rows)
+      108    0.000    0.000    0.999    0.009 /dev/shm/h11b/sldb/src/sldb/store/io/__init__.py:93(load_documents_index)
+      108    0.001    0.000    0.998    0.009 /dev/shm/h11b/sldb/src/sldb/store/io/documents_index.py:33(load)
+       84    0.003    0.000    0.988    0.012 /dev/shm/h11b/sldb/src/sldb/store/documents_hash.py:109(entries_of)
+       84    0.000    0.000    0.957    0.011 /dev/shm/h11b/sldb/src/sldb/store/documents_hash.py:66(_get)
+       21    0.000    0.000    0.932    0.044 /dev/shm/h11b/sldb/src/sldb/store/documents_hash.py:56(_compose)
+       21    0.003    0.000    0.932    0.044 /dev/shm/h11b/sldb/src/sldb/store/io/shard_compose.py:53(compose_documents_entries)
+     1326    0.002    0.000    0.902    0.001 /dev/shm/h11b/sldb/src/sldb/store/io/shards.py:98(load_document_shard)
+   127/27    0.000    0.000    0.887    0.033 {built-in method builtins.__import__}
+     1326    0.002    0.000    0.852    0.001 /dev/shm/h11b/sldb/src/sldb/store/io/shards.py:31(_cached_shard)
+     1326    0.003    0.000    0.713    0.001 /dev/shm/h11b/sldb/src/sldb/store/io/shards.py:35(_cached_instance)
+     1325    0.007    0.000    0.700    0.001 /dev/shm/h11b/sldb/src/sldb/store/io/shards.py:102(<lambda>)
+        1    0.000    0.000    0.694    0.694 /dev/shm/h11b/sldb/src/sldb/api/views/view_reading.py:22(__init__)
+        1    0.000    0.000    0.694    0.694 /dev/shm/h11b/sldb/src/sldb/api/edges/edge_reading.py:14(load_edge_index)
+        1    0.000    0.000    0.661    0.661 /dev/shm/h11b/sldb/src/sldb/store/edge_index/compose.py:26(compose_edge_index)
+     1353    0.002    0.000    0.653    0.000 /dev/shm/h11b/sldb/src/sldb/store/io/utils.py:30(yaml_load)
+      245    0.000    0.000    0.556    0.002 /dev/shm/h11b/sldb/src/sldb/api/views/run_view.py:57(add_row_keys)
+1753/1341    0.020    0.000    0.482    0.000 {built-in method builtins.__build_class__}
+        2    0.000    0.000    0.406    0.203 /tmp/ws-venv/lib/python3.12/site-packages/yaml/__init__.py:117(safe_load)
+      119    0.000    0.000    0.396    0.003 /dev/shm/h11b/sldb/src/sldb/api/views/view_reading.py:61(project)
+        1    0.000    0.000    0.396    0.396 /dev/shm/h11b/sldb/src/sldb/api/views/view_reading.py:69(declares_project_graph)
+        1    0.000    0.000    0.396    0.396 /dev/shm/h11b/sldb/src/sldb/api/stores/store_declaration.py:70(load_declaration)
+      209    0.006    0.000    0.392    0.002 /tmp/ws-venv/lib/python3.12/site-packages/pydantic/_internal/_model_construction.py:89(__new__)
+        2    0.000    0.000    0.388    0.194 /tmp/ws-venv/lib/python3.12/site-packages/yaml/composer.py:29(get_single_node)
+        2    0.000    0.000    0.388    0.194 /tmp/ws-venv/lib/python3.12/site-packages/yaml/composer.py:50(compose_document)
+   4819/2    0.010    0.000    0.388    0.194 /tmp/ws-venv/lib/python3.12/site-packages/yaml/composer.py:63(compose_node)
+    887/2    0.005    0.000    0.388    0.194 /tmp/ws-venv/lib/python3.12/site-packages/yaml/composer.py:117(compose_mapping_node)
+    43/11    0.001    0.000    0.378    0.034 /tmp/ws-venv/lib/python3.12/site-packages/yaml/composer.py:99(compose_sequence_node)
+    15351    0.007    0.000    0.354    0.000 /tmp/ws-venv/lib/python3.12/site-packages/yaml/parser.py:94(check_event)
+        1    0.000    0.000    0.351    0.351 /dev/shm/h11b/sldb/src/sldb/cli/main.py:23(_take_actor)
+        1    0.000    0.000    0.351    0.351 /dev/shm/h11b/sldb/src/sldb/api/__init__.py:1(<module>)
+        1    0.000    0.000    0.342    0.342 /dev/shm/h11b/sldb/src/sldb/store/edge_index/compose.py:52(_composed_once)
+        1    0.006    0.006    0.342    0.342 /dev/shm/h11b/sldb/src/sldb/store/edge_index/composed_reading.py:17(read_or_compose)
+        1    0.000    0.000    0.317    0.317 /dev/shm/h11b/sldb/src/sldb/store/edge_index/composed_reading.py:43(with_live_stale)
+        1    0.001    0.001    0.317    0.317 /dev/shm/h11b/sldb/src/sldb/store/edge_index/live_stale.py:56(stale_of_facts)
+     1325    0.003    0.000    0.311    0.000 /dev/shm/h11b/sldb/src/sldb/store/edge_index/live_stale.py:72(_moved)
+     1355    0.006    0.000    0.302    0.000 /tmp/ws-venv/lib/python3.12/site-packages/yaml/constructor.py:54(construct_document)
+1565/1136    0.002    0.000    0.299    0.000 <frozen importlib._bootstrap>:1390(_handle_fromlist)
+
+
+
