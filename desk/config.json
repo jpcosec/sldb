@@ -6,6 +6,7 @@
     "templates_dir": "/home/robocop/.scion/project-configs/sldb-1__b0899ed7/.scion/templates",
     "context_file": "/mnt/ssd/proyectos/SLDB_1/.bootstrap/sldb-scion-context.json",
     "roles_root": "/mnt/ssd/proyectos/SLDB_1/deskops",
+    "quick_gates": ["bash", "tools/check.sh", "--fast"],
     "roles": {
       "executor": {
         "role": "deskops-executor",
