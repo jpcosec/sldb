@@ -234,3 +234,24 @@ def test_save_still_writes_a_clean_document(noise_store):
     path = _tracked_note(noise_store)
     _save(noise_store, "Gamma")
     assert "Gamma" in path.read_text(encoding="utf-8")
+
+
+def test_save_keeps_a_heading_that_lives_inside_a_field_value(noise_store):
+    """A '### Sub' inside a field's value survives the render, so it does not block the write."""
+    from sldb.api import save_document_payload
+
+    path = _tracked_note(noise_store)
+    body = "intro\n\n### Sub\n\ndetail"
+    save_document_payload(noise_store.store, "NoteWithSections", "held", {"title": "Alpha", "body": body}, noise_store.pythonpath)
+    assert "### Sub" in path.read_text(encoding="utf-8")
+    save_document_payload(noise_store.store, "NoteWithSections", "held", {"title": "Beta", "body": body}, noise_store.pythonpath)
+    text = path.read_text(encoding="utf-8")
+    assert "Beta" in text and "### Sub" in text
+
+
+def test_save_still_refuses_a_heading_outside_every_field(noise_store):
+    """An undeclared heading the render drops is still named and refused (6a4e5ec5)."""
+    path = _tracked_note(noise_store)
+    path.write_text(path.read_text(encoding="utf-8") + "\n## Extra\n\nlost\n", encoding="utf-8")
+    with pytest.raises(SLDBValidationError, match="## Extra"):
+        _save(noise_store)

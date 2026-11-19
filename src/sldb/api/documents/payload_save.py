@@ -46,10 +46,10 @@ def save_document_payload(store: str | Path | None, model_name: str, document_na
 
 
 def _save(location, idx, m_idx, m_entry, doc_entry, model_type, payload, pythonpath, actor) -> None:
-    refuse_lossy_overwrite(location.store_path, location.project_root, doc_entry, model_type)
     payload = pin_payload(location.store_path, model_type, payload)
     check_rules_on_write(location.store_path, model_type, f"{m_entry.name}:{doc_entry.name}", payload)
     rendered = render_checked(model_type, payload, location.project_root)
+    refuse_lossy_overwrite(location.store_path, location.project_root, doc_entry, model_type, rendered)
     refuse_unknown_family(location.store_path, model_type, payload, pythonpath)
     write_rendered_document(location.project_root, doc_entry, model_type, rendered, actor=actor, store_path=location.store_path)
     save_document_indexes(location.store_path, location.project_root, idx, m_idx, m_entry, doc_entry, pythonpath, model_type)
