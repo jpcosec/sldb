@@ -42,10 +42,21 @@ def _names(graph: RuleGraph, node: str) -> list[str]:
     return sorted({namespace for namespace, _ in namespaced_tags(payload_of(graph, node))})
 
 
-
-
 def _finding(graph: RuleGraph, name: str, found: dict[str, Any]) -> Finding:
     from sldb.api.rules.rules_check import explanation
 
     what = explanation({"name": PREFIX + name}, found)
-    return Finding("error", f"rules/{PREFIX}{name}", found["node"], what, "", graph.semantics(found["node"]).get("path"))
+    return Finding("error", f"rules/{PREFIX}{name}", found["node"], what, _fix(graph, name, found), graph.semantics(found["node"]).get("path"))
+
+
+def _fix(graph: RuleGraph, name: str, found: dict[str, Any]) -> str:
+    """What to do about a failing evaluation: declare the namespace, or anchor what is missing."""
+    seen = found["seen"]
+    if "missing" in seen:
+        anchored = tag_rules(graph.store_path)[name].anchored_by
+        where = f"a {anchored['model']} document whose `{anchored['field']}` anchors it"
+        return f"Create {where} for each of: {', '.join(seen['missing'])}; or change the tags {', '.join(seen['tags'])} of {found['node']} to anchored ones."
+    declared = ", ".join(seen.get("declared", [])) or "none"
+    tags = ", ".join(seen.get("tags", []))
+    return (f"Declare the namespace `{name}` under `tag_namespaces` in .sldb/store.yaml (`- name: {name}`), "
+            f"or change the tags {tags} of {found['node']} to a declared namespace (declared: {declared}; `sldb tags namespaces` lists them).")

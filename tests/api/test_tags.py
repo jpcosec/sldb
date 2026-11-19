@@ -158,6 +158,13 @@ def test_a_tag_of_an_undeclared_namespace_is_refused(placed: World) -> None:
     assert str(refused.value) == 'rules/builtin:tag_namespace:otro: namespace declared (seen: {"declared":["area","flat","free"],"namespace":"otro","tags":["otro:x"]})'
 
 
+def test_an_undeclared_namespace_finding_names_the_namespace_to_declare(placed: World) -> None:
+    with pytest.raises(SLDBRuleViolationError) as refused:
+        placed.save("n1", ["area:a.b", "otro:x"])
+    fix = refused.value.findings[0].fix
+    assert "`tag_namespaces`" in fix and "`- name: otro`" in fix and "declared: area, flat, free" in fix
+
+
 def test_the_namespace_is_cut_at_the_first_colon_and_an_unanchored_namespace_only_needs_declaring(placed: World) -> None:
     placed.save("n1", ["free:a.b:c"])
     with pytest.raises(SLDBRuleViolationError) as refused:
@@ -207,7 +214,7 @@ def test_tags_check_finds_a_document_created_without_its_anchor(placed: World, c
     and `stores check` report the orphan, with the same finding."""
     placed.orphan("n2", ["area:c"])
     [found] = api.tag_check(placed.store)
-    assert found.as_dict() == {"level": "error", "code": "rules/builtin:tag_namespace:area", "subject": "Note:n2", "fix": "", "document": "n2.md",
+    assert found.as_dict() == {"level": "error", "code": "rules/builtin:tag_namespace:area", "subject": "Note:n2", "fix": "Create a Anchor document whose `tag` anchors it for each of: area:c; or change the tags area:c of Note:n2 to anchored ones.", "document": "n2.md",
                                "what": 'each prefix anchored by Anchor.tag (seen: {"missing":["area:c"],"namespace":"area","tags":["area:c"]})'}
     assert api.rules_check(placed.store) == [found] == api.rules_check(placed.store, "Note:n2", placed.py)
     assert [f.code for f in api.on_check_findings(placed.store, placed.py)] == ["rules/builtin:tag_namespace:area"]
