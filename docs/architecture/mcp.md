@@ -65,8 +65,8 @@ in this session. Every applied batch pushes its `BatchReport.inverse` onto a sta
 server session (`WriteTools.undo`, an `sldb.mcp.write.undo.UndoStack`): in memory, one per session,
 not persisted, with no redo.
 
-Contract: **same content, provenance aside**. Undoing is a new write, so it re-stamps `sldb.at`,
-`sldb.via` and the hashes derived from them; what comes back is the content. The inverse is guarded
+Contract: **same content, provenance aside**. Undoing is a new write, so it re-stamps the `at` and `via` fields
+of the `sldb` block and the hashes derived from them; what comes back is the content. The inverse is guarded
 by `expected_content_hash` (`sldb.api.documents.content_hash.document_content_hash`: the document
 text without its `sldb` provenance block), not by `expected_source_hash`, so a document someone
 changed and put back to the content the batch left is not stale. `expected_source_hash` and the
