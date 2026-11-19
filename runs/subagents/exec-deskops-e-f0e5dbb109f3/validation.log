@@ -1,0 +1,46 @@
+$ python -m pytest -q -p no:cacheprovider tests/api
+........................................................................ [ 68%]
+........................................................................ [ 79%]
+........................................................................ [ 90%]
+..........................................................               [100%]
+=============================== warnings summary ===============================
+../../../../../tmp/ws-venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1636
+  /tmp/ws-venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1636: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+602 passed, 32 skipped, 1 warning in 291.89s (0:04:51)
+rc=0
+$ python -m pytest -q -p no:cacheprovider tests/mcp
+ERROR tests/mcp/test_signals.py::test_a_found_answer_logs_nothing - ModuleNot...
+ERROR tests/mcp/test_signals.py::test_the_log_is_not_the_stores_state - Modul...
+ERROR tests/mcp/test_signals.py::test_the_writer_signs_its_signals_and_a_missing_level_is_explained
+ERROR tests/mcp/test_write_tools.py::test_cycle_on_a_document - ModuleNotFoun...
+ERROR tests/mcp/test_write_tools.py::test_cycle_on_an_edge - ModuleNotFoundEr...
+ERROR tests/mcp/test_write_tools.py::test_a_change_to_a_store_that_moved_since_the_proposal_is_rejected
+ERROR tests/mcp/test_write_tools.py::test_an_edited_proposal_is_refused - Mod...
+ERROR tests/mcp/test_write_tools.py::test_an_error_rule_refuses_the_change_and_is_named
+ERROR tests/mcp/test_write_tools.py::test_an_alert_rule_is_reported_by_name
+ERROR tests/mcp/test_write_tools.py::test_an_edge_against_its_relation_type_is_reported
+ERROR tests/mcp/test_write_tools.py::test_cardinality_and_condition_of_a_declared_type_are_reported
+8 failed, 5 passed, 1 xfailed, 1 warning, 46 errors in 14.47s
+rc=1
+$ bash tools/check.sh --fast
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 979 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   2 de 4 consumidores presentes: deskops, spec2viz
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  33 símbolos pedidos sin puerta que los declare
+PASS: superficie — 124 símbolos pedidos, 595 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[32mTODAS LAS PUERTAS PASAN[0m
+rc=0
+
+$ (extra mcp installed in venv) python -m pytest -q -p no:cacheprovider tests/mcp
+59 passed, 1 xfailed
+rc=0 (the earlier rc=1 was the missing mcp extra: anyio)

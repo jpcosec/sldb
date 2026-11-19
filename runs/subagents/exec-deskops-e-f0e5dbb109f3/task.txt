@@ -1,0 +1,9 @@
+Task: task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430
+Title: apply_batch: dry_run público que valida sin escribir (inbox 20261115-022430)
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .

@@ -1,7 +1,17 @@
+Task: task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430
+Title: apply_batch: dry_run público que valida sin escribir (inbox 20261115-022430)
+Status: active
+Current node: ritual-testing
+Task type: task.code
+Lifecycle gates:
+- task_hands_to_closeout -> ritual-closeout: open [nonempty(validation)]
+  post-hook evento-para-el-coordinador: sh -c mkdir -p runs/hooks && printf '%s %s %s %s->%s\n' "$(date -u +%FT%TZ)" "$DESKOPS_TASK_ID" "$DESKOPS_TRANSITION" "$DESKOPS_FROM_NODE" "$DESKOPS_TO_NODE" >> runs/hooks/events.log
+  post-hook encola-reap-del-tester: deskops queue add dispatch-reap --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-19T04:40:15Z'
+  at: '2026-11-19T04:29:51Z'
   authority: generated
   via: save_document_payload
 id: task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430
@@ -13,18 +23,14 @@ tags:
 current_node: ritual-testing
 history:
 - task_activates
-references:
-- src/sldb/api/documents/apply_batch.py
-- tests/api/test_apply_batch_dry_run.py
-- 29c0a85725c47cb27ec460d13be6e54210b3f38e
+references: []
 depends_on: []
 pills: []
 files: []
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms:
-- atom-apply-batch-con-dry-run-valida-un-lote-completo-sin-escribir-y-devuelve-lo-mismo-que-una-corrida-rea
+atoms: []
 ---
 
 # apply_batch: dry_run público que valida sin escribir (inbox 20261115-022430)
@@ -66,3 +72,22 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 apply_batch(dry_run=True) devuelve el mismo veredicto que la aplicación real sin escribir; tests y CHANGELOG; suite de a un archivo, tools/check.sh y stores build --check.
+
+## Como probar (tester)
+
+Ubica el trabajo del ejecutor:
+
+    git log -1 --format=%H --grep "Task-Id: task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430"   # commit del ejecutor
+    git show --name-only <commit>                           # sus archivos
+
+Los tests a correr son los archivos tests/*.py de ese commit, mas tests/test_<modulo>.py cuando exista para cada modulo de codigo tocado; de a uno, con `TMPDIR=/tmp python -m pytest -q <archivo>`. No corras la suite completa: la corre integrate en el host.
+
+Escribe result-summary.md con el veredicto PASA o FALLA en la primera linea.
+
+## Gates rapidos del desk
+
+Antes del veredicto corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Si termina con rc distinto de 0 el veredicto es FALLA.
