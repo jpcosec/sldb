@@ -1,0 +1,37 @@
+name: review-task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer-preflight-1
+path: desk/reviews/task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer/preflight-1.md
+source_hash: ade9366470128ac27d7c51fba3ff15d715f9c4827c41b030b242de9ae4b830c0
+content_hash: 6e1a09ca666d7bb936a0806f6e65de22047c42d4be0909ec90a99a20c6ec1951
+field_hashes:
+  id: 37408e766d6059b96e1a3a1ac2b8c8045c1f05fe53edb072672d3625123fb64f
+  title: cff91cf5de30b52c59c7a99dff083c842b2fa7e687d56e1a401b4bb9d747a74c
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 0522efdb87944b4232f8c9d25976161c8cb16957742d476253c1a1835d56396a
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 85b3c09b129edb23c9d3a31df9ba45638bb21f0267758facd67207159fcb3b9e
+  input_sha256: 4f8bcd5493edbb2570f5ba3e642ea5ce5d7c3872c3919ade3a6cf8f732097ffc
+  contract_sha256: 061e48f72f9280ca2860c811d460b98e0baceea778dcf5ec9eae613c03060959
+  output_sha256: 65e92f9657977bca730dd9573810ef7d7a8f6632e5b76fe5284a74f1e54e4b09
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 171ce6ba4d91822d0de34dad56281df2faf9c700387eced994388c1a98802415
+  created_at: 8787ca1a71f436049dcdced19ff4049b7922ca34e70a8f19c2a1c3073b6ceaa2
+  disposed_at: 39f18b7ccb6e51013e6691e63e2cdbcee9119f9376748e9d16456945cf77fa8b
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 52fd9ab0c2f809c0c571c31633b041f3e5c691ada96c0348b6d7cc0e1b55bfe9
+  disposition: 21df8b42fe2474fe4ea70862aa5b9336792bb002598b53416718374f3a1b464b
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-19T18:47:28Z'
+  authority: generated
+  via: save_document_payload
