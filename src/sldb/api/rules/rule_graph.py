@@ -20,13 +20,12 @@ from typing import Any
 from sldb.api.edges.edge_reading import load_edge_index
 from sldb.api.graph.analyze import backend_for
 from sldb.api.rules.rule_reach import needs_linked
+from sldb.api.rules.rule_view import declared_view, unindexed
 from sldb.api.stores.open_store import open_store
 from sldb.store.edge_index.node_ids import bare, kind
 from sldb.store.graph.backend.index_view import index_view
 from sldb.store.graph.language.predicate_api import node_finding
-from sldb.store.graph.language.predicate_view import edge, node as view_node, with_node
-
-_DECLARED = ("references", "contains")
+from sldb.store.graph.language.predicate_view import with_node
 
 
 @dataclass(frozen=True)
@@ -50,31 +49,11 @@ class RuleGraph:
 
     def located(self, node: str) -> tuple[dict[str, Any], dict[str, Any]]:
         """The graph view and the element of `node` an evaluation reads (the override's payload)."""
-        known = self._view["node"](node) or self._unindexed(node)
+        known = self._view["node"](node) or unindexed(self.store_path, node)
         if self.override is None or node != self.override[0]:
             return self._view, known
         item = {**known, "payload": self.override[1]}
-        return with_node(self._declared_view(), item), item
-
-    def _declared_view(self) -> dict[str, Any]:
-        """The index's view, where the declared edges of the `declared` node are the new ones."""
-        view = self._view
-        if self.declared is None:
-            return view
-        node, new = self.declared
-        added = [edge(bare(e.source), e.relation, bare(e.target), e.metadata.get("field"), e.metadata.get("declared")) for e in new]
-        replaced = lambda e: e["source"] == node and e["type"] in _DECLARED  # noqa: E731
-        out = lambda i: [e for e in view["out"](i) if not replaced(e)] + [e for e in added if e["source"] == i]  # noqa: E731
-        into = lambda i: [e for e in view["in"](i) if not replaced(e)] + [e for e in added if e["target"] == i]  # noqa: E731
-        return {**view, "out": out, "in": into}
-
-    def _unindexed(self, node: str) -> dict[str, Any]:
-        """A document the index does not hold yet: its family from the store's model registry
-        (`indexed_model_bases`, no class imported), so `model <= Base` reads as for an indexed one."""
-        from sldb.api.stores.resolve_indexed_document import indexed_model_bases
-
-        model = node.rsplit(":", 1)[0].rsplit(":", 1)[-1]
-        return view_node(node, model, {}, indexed_model_bases(self.store_path).get(model, []))
+        return with_node(declared_view(self._view, self.declared), item), item
 
     def with_payload(self, node: str, payload: dict[str, Any]) -> "RuleGraph":
         """This graph, with `node` reading `payload` (its model and edges stay the index's)."""

@@ -39,13 +39,23 @@ def check_on_write(store_path: Path, model_type: type, node: str, payload: dict[
         return []
     graph, read = rule_graph(store_path, None), anchored(store_path, model_type, payload)
     graph = graph.with_edges(node, payload_edges(node, model_type, payload))
-    found = payload_findings(graph, "on_write", node, read) if declared else []
-    errors, alerts = split(found + family_findings(graph.with_payload(node, read), [node]))
-    mark_dirty(store_path, graph.index, node)
-    route(alerts)
+    errors, alerts = split(_write_findings(graph, node, read, declared))
+    _settle(store_path, graph, node, alerts)
     if errors:
         raise SLDBRuleViolationError(errors)
     return [a.as_dict() for a in alerts]
+
+
+def _settle(store_path: Path, graph: Any, node: str, alerts: list[Any]) -> None:
+    """The document and its neighbours enter the dirty set; the alerts are routed."""
+    mark_dirty(store_path, graph.index, node)
+    route(alerts)
+
+
+def _write_findings(graph: Any, node: str, read: dict[str, Any], declared: bool) -> list[Any]:
+    """The `on_write` findings of the RuleDocs (when declared) plus the built-in tag family."""
+    found = payload_findings(graph, "on_write", node, read) if declared else []
+    return found + family_findings(graph.with_payload(node, read), [node])
 
 
 def payload_edges(node: str, model_type: type, payload: dict[str, Any]) -> list[Any]:
