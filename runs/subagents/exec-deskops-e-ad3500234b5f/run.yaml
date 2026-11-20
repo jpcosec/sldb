@@ -1,0 +1,5 @@
+run_dir: runs/subagents/exec-deskops-e-ad3500234b5f
+run_id: run-deskops-e-ad3500234b5f
+session: null
+session_sha256: null
+task_id: task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el

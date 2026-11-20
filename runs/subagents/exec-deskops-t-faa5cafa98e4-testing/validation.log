@@ -1,0 +1,31 @@
+# Testing task-on-write-save-document-payload-devuelve-las-alertas...
+# Commit ejecutor: 0f91540dfbaee9a0eae95b2c0a20b71db0ad1d78
+# Python: /workspace/sldb/.venv/bin/python (3.13.18); /tmp/ws-venv no existía.
+
+tests/api/test_rules.py -> 14 passed
+tests/api/test_on_write_entering.py -> 8 passed
+tests/api/test_rules_evaluation.py -> 12 passed
+tests/api/test_rules.py + tests/api/test_on_write_entering.py (TMPDIR=/dev/shm) -> 22 passed
+tests/matching/test_matching_refs.py -> 11 passed
+tests/notations/test_notations_from_graph_cli.py -> 9 passed
+tests/store/test_diagnostics.py -> 17 passed
+tests/notations/test_component_spec_graph.py -> 16 passed
+tests/test_serve_stores_check.py -> 2 passed
+tests/api/test_rewrite_references.py -> 21 passed
+
+bash tools/check.sh --fast -> rc 1
+  PASS nucleo aislado
+  PASS capas
+  FAIL identidad: "directorio versionado sin clasificar en la raiz: workbench_demo"
+  PASS ejes
+  PASS superficie
+# La falla de identidad es preexistente (workbench_demo ya versionado en 562847e2;
+# tambien falla en el commit padre 5900a3eb).
+
+Probe with_payload:
+  rule_graph(store).with_payload("X:x1", payload_con_depends_on).holds(count(...)) -> holds=false
+  rule_graph(store).with_edges(...).with_payload(...).holds(count(...)) -> holds=true
+
+Probe route:
+  save_document_payload(alert on_write) -> DocumentReference.alerts contiene rules/closed
+  listener instalado en finding_route recibe la misma alerta

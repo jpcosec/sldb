@@ -1,0 +1,37 @@
+name: review-task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el-evidence-materialization-1
+path: desk/reviews/task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el/evidence-materialization-1.md
+source_hash: 17192183f115954e3c80c85a23bca8af18a5f557cb96fa8028981310abb14cf1
+content_hash: 474f4a40501cb56695f8c1bd8ad134b5bc81d8e9cd832668aba4c2da2a0dcdbf
+field_hashes:
+  id: 1bae023729ae61828df1fedfcafc2401b6347eb2789c652e604055b8f5a1d640
+  title: 77601b5700eae9c275caab88cc7026a83af6fd9b1b7e5c6873dac08e3685d96d
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: c8a1cb7dfae97ac47c20770d5dbbb697e3e711559fe0daf7e33ae5a6ddf640c5
+  subject: c692490304a0be7ca6309a7ce9d2e63b8eb6053a1b51f6c699d2b70c80ecda5e
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: c66c779bf8744f6a06955a1e0bc52e49b61662fa77a6a87822013e71bfc1d989
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 6f131be87423696ede2f79b5a8d328c83a4686f04a9ed49e2a8b08f9552d74e1
+  created_at: 9dc0836f524321be728c1edea3290b5fdb8a8d24f2accadffb372308a3cbbc06
+  disposed_at: 9dc0836f524321be728c1edea3290b5fdb8a8d24f2accadffb372308a3cbbc06
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 8748339ee6291b98372b560f0683431dec02e86e044c647a247100928f787c98
+  disposition: 29c825cc55ddb128f9525c66ee38c0a28cc9f59311c20b5d3f70992322b3464a
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-20T13:05:33Z'
+  authority: generated
+  via: create_document

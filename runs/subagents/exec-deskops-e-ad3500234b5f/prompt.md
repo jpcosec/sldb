@@ -1,45 +1,50 @@
+Task: task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el
+Title: on_write: save_document_payload devuelve las alertas de la escritura y la regla ve las aristas que el payload nuevo declara
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+From drawer: drawer task-on-write-alerts-sin-listener-se-pierden-por-la-api-y-la-regla-ve-las-aristas-previas-a-la-escritura (retirado en el triaje 2026-11-16; contenido en git antes del commit del triaje)
+Effective pills:
+- desk/contexts/pill-pill-regla-de-aristas-en-el-test-de-on-write.md
+Effective atoms:
+- atom-sldb-evaluates-declared-rules-consumers-author-them
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-20T13:00:16Z'
+  at: '2026-11-16T08:48:32Z'
   authority: generated
   via: save_document_payload
 id: task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el
-status: active
+status: draft
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
-current_node: ritual-testing
-history:
-- task_activates
-references:
-- src/sldb/api/documents/document_reference.py
-- src/sldb/api/documents/payload_save.py
-- src/sldb/api/documents/payload_save_steps.py
-- src/sldb/api/rules/rule_graph.py
-- src/sldb/api/rules/rules_on_write.py
-- tests/api/test_on_write_entering.py
-- tests/api/test_rules.py
-- 0f91540dfbaee9a0eae95b2c0a20b71db0ad1d78
+current_node: ritual-execution
+history: []
+references: []
 depends_on: []
 pills:
 - desk/contexts/pill-pill-regla-de-aristas-en-el-test-de-on-write.md
 files:
-- CHANGELOG.md
-- src/sldb/api/documents/document_reference.py
-- src/sldb/api/documents/payload_save.py
-- src/sldb/api/documents/payload_save_steps.py
-- src/sldb/api/rules/rule_graph.py
 - src/sldb/api/rules/rules_on_write.py
-- tests/api/test_on_write_entering.py
+- src/sldb/api/rules/rule_graph.py
+- src/sldb/api/documents/payload_save.py
+- src/sldb/core/finding_route.py
 - tests/api/test_rules.py
+- tests/api/test_on_write_entering.py
+- CHANGELOG.md
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
 atoms:
-- atom-save-document-payload-devuelve-las-alertas-on-write-de-la-escritura-y-la-regla-ve-las-aristas-del-pa
+- atom-sldb-evaluates-declared-rules-consumers-author-them
 from_drawer: drawer task-on-write-alerts-sin-listener-se-pierden-por-la-api-y-la-regla-ve-las-aristas-previas-a-la-escritura
   (retirado en el triaje 2026-11-16; contenido en git antes del commit del triaje)
 ---
@@ -87,3 +92,20 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 Los tres comandos pasan con los tests nuevos; DocumentReference.alerts existe y viene vacía cuando no hay reglas; CHANGELOG y commit; aviso a deskops con deskops message send --to deskops.
+
+## Entrega del ejecutor
+
+Al terminar, commitea solo los archivos que cambiaste para la tarea, nombrados uno por uno (los mismos que listas en result-summary.md):
+
+    git add <ruta> <ruta> ...
+    git commit -m "<resumen>" -m "Task-Id: task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el"
+
+Nunca uses `git add -A`, `git add -u` sobre todo el arbol ni `git stash`: puede haber trabajo ajeno sin commitear. No hagas push. Recien despues ejecuta `deskops advance task`.
+
+## Gates rapidos del desk
+
+Antes del commit corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Debe terminar con rc 0 antes de commitear; si falla, corrige y repite. Anota el comando y su rc en validation.log.

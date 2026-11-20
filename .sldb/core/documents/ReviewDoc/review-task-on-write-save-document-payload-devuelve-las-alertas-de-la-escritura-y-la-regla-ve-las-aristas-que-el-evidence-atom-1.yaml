@@ -1,0 +1,37 @@
+name: review-task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el-evidence-atom-1
+path: desk/reviews/task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el/evidence-atom-1.md
+source_hash: 5bdb6a02de678fa40f892b40e7620b5145c044ca238c5e222dcf3b2e5d877f2b
+content_hash: 26ee0ee1bc3fc43f286cd8426869807d79f18a597edd5bcb29cad056647da183
+field_hashes:
+  id: 4d38e4cdc2b49c58141177fb279b86519fa754720d3838dc1216ec6d02797f0e
+  title: 75e8971ca05e65fa9255fe36f4001f21f072134e3275cf8a1c56e85636dbf5a9
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: c833c202b5b45ac10909767bb422916db457ddd48188a4ee591f0618893df0ba
+  value: 2d63fd5beebc3f9820191fb41af884dcf1e314efb49036395f0bef2e4c052be8
+  subject: c692490304a0be7ca6309a7ce9d2e63b8eb6053a1b51f6c699d2b70c80ecda5e
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: ec68d879d555feba10a664ce75c22cfadf7ac7c499ae3358b5d99b17e01e76f0
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: c225cca2bd7afae8042dd88e66757d6471ca8849db5a1937dd3e9765d76979eb
+  created_at: 9dc0836f524321be728c1edea3290b5fdb8a8d24f2accadffb372308a3cbbc06
+  disposed_at: 9dc0836f524321be728c1edea3290b5fdb8a8d24f2accadffb372308a3cbbc06
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 06310e113b188e618a5ebb5a45ef99396df507d39eff41da92a076bce2b2b2d6
+  disposition: d63127992bee9c21fcaa005edf30f7add2f676a52c9b65e36fa5aac094aa0e39
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-20T13:05:21Z'
+  authority: generated
+  via: create_document

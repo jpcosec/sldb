@@ -1,0 +1,14 @@
+Task: task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el
+Title: on_write: save_document_payload devuelve las alertas de la escritura y la regla ve las aristas que el payload nuevo declara
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+From drawer: drawer task-on-write-alerts-sin-listener-se-pierden-por-la-api-y-la-regla-ve-las-aristas-previas-a-la-escritura (retirado en el triaje 2026-11-16; contenido en git antes del commit del triaje)
+Effective pills:
+- desk/contexts/pill-pill-regla-de-aristas-en-el-test-de-on-write.md
+Effective atoms:
+- atom-sldb-evaluates-declared-rules-consumers-author-them
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .
