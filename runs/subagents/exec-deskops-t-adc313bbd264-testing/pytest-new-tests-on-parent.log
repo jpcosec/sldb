@@ -1,0 +1,10 @@
+$ PYTHONPATH=src TMPDIR=/tmp /mnt/ssd/proyectos/SLDB_1/sldb/.venv/bin/python -m pytest -q -p no:cacheprovider tests/api/test_api_stores.py -k keeps_
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/api/test_api_stores.py::test_stores_add_keeps_an_absolute_path_absolute
+FAILED tests/api/test_api_stores.py::test_stores_add_keeps_a_home_path_as_written_and_reads_it_with_home
+FAILED tests/api/test_api_stores.py::test_stores_add_keeps_a_variable_path_as_written_and_reads_it_with_the_variable
+3 failed, 1 passed, 14 deselected, 1 warning in 0.88s
+rc(from pytest)

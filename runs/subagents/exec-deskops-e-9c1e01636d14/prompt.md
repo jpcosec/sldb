@@ -1,11 +1,25 @@
+Task: task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno
+Title: sldb stores add guarda tal cual un enlace absoluto, con ~ o con variable de entorno
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Effective pills:
+- desk/contexts/pill-pill-validar-el-enlace-guardando-el-texto-tal-cual.md
+Effective atoms:
+- atom-una-operación-de-sldb-se-ancla-al-store-más-cercano-no-al-directorio-desde-donde-se-corre
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-20T17:34:21Z'
+  at: '2026-11-16T11:40:33Z'
   authority: generated
   via: save_document_payload
 id: task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno
-status: active
+status: draft
 summary: 'BLOQUEADA (2026-11-16, ejecución): el contrato hace que toda ruta absoluta
   se guarde absoluta y eso rompe la portabilidad que hoy da stores add. Fallan 3 tests
   de tests/store/test_stores_build.py, y probablemente test_cli_store y test_export_contract_frozen,
@@ -17,28 +31,18 @@ tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
-current_node: ritual-testing
-history:
-- task_activates
+current_node: ritual-execution
+history: []
 references:
-- docs/architecture/store-declaration.md
-- src/sldb/api/stores/link_store.py
-- src/sldb/cli/commands/store_add.py
-- src/sldb/store/query.py
-- tests/api/test_api_stores.py
-- tests/store/test_stores_build.py
-- 94d9f554f4f68556bb8d011046ccb72dccceafb2
+- desk/inbox/inbox-note-sldb-stores-add-guarda-siempre-el-enlace-relativo-no-resuelve-desde-worktrees-un-nivel-más-hondo.md
 depends_on: []
 pills:
 - desk/contexts/pill-pill-validar-el-enlace-guardando-el-texto-tal-cual.md
 files:
-- CHANGELOG.md
-- docs/architecture/store-declaration.md
 - src/sldb/api/stores/link_store.py
-- src/sldb/cli/commands/store_add.py
 - src/sldb/store/query.py
 - tests/api/test_api_stores.py
-- tests/store/test_stores_build.py
+- CHANGELOG.md
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
@@ -89,3 +93,20 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 Los tres comandos pasan con los cuatro casos nuevos; CHANGELOG y doc; commit; aviso a AntonIA con deskops message send --to AntonIA (si ese repo no está registrado para el envío, el aviso va como línea "Aviso a AntonIA" en el informe de cierre).
+
+## Entrega del ejecutor
+
+Al terminar, commitea solo los archivos que cambiaste para la tarea, nombrados uno por uno (los mismos que listas en result-summary.md):
+
+    git add <ruta> <ruta> ...
+    git commit -m "<resumen>" -m "Task-Id: task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno"
+
+Nunca uses `git add -A`, `git add -u` sobre todo el arbol ni `git stash`: puede haber trabajo ajeno sin commitear. No hagas push. Recien despues ejecuta `deskops advance task`.
+
+## Gates rapidos del desk
+
+Antes del commit corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Debe terminar con rc 0 antes de commitear; si falla, corrige y repite. Anota el comando y su rc en validation.log.

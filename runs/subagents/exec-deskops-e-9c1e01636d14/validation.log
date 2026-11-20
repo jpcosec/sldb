@@ -1,0 +1,6 @@
+pytest -q tests/api/test_api_stores.py -> rc 0 (18 passed)
+pytest -q tests/api/test_unlink_store.py -> rc 0 (5 passed)
+pytest -q tests/store/test_stores_build.py -> rc 0 (35 passed)
+pytest -q tests/store/test_cli_store.py -> rc 0 (38 passed); test_export_contract_frozen.py 4 passed; tests/test_linked_structural.py 1 passed
+bash tools/check.sh --fast -> rc 1: solo falla "identidad": directorio versionado sin clasificar en la raíz: workbench_demo (ajeno a esta tarea; ver check-fast.log). Las demás compuertas PASS.
+commit: 94d9f554 (autorizado)

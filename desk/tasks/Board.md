@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-20T17:00:40Z'
+  at: '2026-11-20T17:41:52Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -24,7 +24,6 @@ tasks:
 - desk/tasks/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg.md
 - desk/tasks/task-edgeindex-stale-manda-a-la-operación-correcta-una-edición-externa-se-resuelve-con-sldb-stores-update.md
 - desk/tasks/task-reproducir-si-sldb-docs-update-reescribe-índices-de-documentos-ajenos-al-que-actualiza-reviewdoc-de.md
-- desk/tasks/task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno.md
 - desk/tasks/task-run-view-dice-que-el-store-no-está-construido-en-vez-de-unknown-view-h12-y-se-reproduce-si-la-revisi.md
 - desk/tasks/task-decisión-de-jp-qué-de-las-vistas-de-deskops-h1-h8-de-cc34-expresa-la-viewdoc-de-sldb-y-qué-queda-com.md
 - desk/tasks/task-decisión-de-jp-publicar-sldb-0-1-13-fechar-el-changelog-tag-v0-1-13-y-aviso-a-los-consumidores-cuand.md
@@ -126,7 +125,6 @@ _Generated from the task references above._
 - matching: attach_atom_edges deja de recomponer live-stale y los mapas del índice federado en cada edges_of (catalog build con átomos en minutos) [draft] - attach_atom_edges sobre N referencias llama a load_edge_index a lo sumo 2 veces por llamada (una con enlaces y otra sin ellos, si hacen falta las dos) y no recalcula live-stale ni los mapas por cada referencia; el catalog build de IR de la nota termina en menos de 60 s con el mismo resultado.
 - EdgeIndex.stale manda a la operación correcta: una edición externa se resuelve con sldb stores update, no con edges rebuild [draft] - Los tres textos nombran `sldb stores update` (API update_store_indexes) como la operación que resuelve un documento stale por edición externa, y un test prueba que después de stores update el documento editado sale de stale.
 - Reproducir si sldb docs update reescribe índices de documentos ajenos al que actualiza (ReviewDoc de un store enlazado con otro contrato) [draft] - Saber, con un test que lo prueba, si `sldb docs update <doc>` sobre un store que enlaza a otro store cuyo modelo rechaza algunos de sus documentos modifica algún archivo fuera del documento actualizado, su shard y los índices derivados del store (store_index.yaml y models/<Modelo>.yaml del modelo del documento).
-- sldb stores add guarda tal cual un enlace absoluto, con ~ o con variable de entorno [active] - `sldb stores add <ruta>` guarda la ruta como la escribió el usuario si empieza por /, ~ o $ (absoluta, home o variable de entorno) y relativa a la raíz del proyecto en cualquier otro caso (como hoy); la lectura expande ~ y variables de entorno al resolver el enlace.
 - run_view dice que el store no está construido en vez de Unknown view (H12) y se reproduce si la revision depende de cachés del proceso (H13) [draft] - (H12) run_view sobre un store cuyo índice compuesto está vacío o sin construir lanza SLDBStoreError con "store index not built: run `sldb stores build`" en lugar de "Unknown view"; (H13) un test dice si la revision cambia entre el proceso que escribió y uno nuevo, y si cambia, la revision deja de depender de cachés en memoria.
 - Decisión de JP: qué de las vistas de deskops (H1-H8 de CC34) expresa la ViewDoc de sldb y qué queda como agregado del consumidor [draft] - JP decide, para cada una de H1-H8, "sldb" (la ViewDoc lo expresa y se crea una tarea de código en sldb) o "consumidor" (deskops lo agrega fuera de run_view y quita la marca "pendiente de sldb Hn"); la decisión queda escrita en docs/architecture/views.md, sección "Decisión H1-H8 (CC34)", con la fecha y una línea por hipótesis.
 - Decisión de JP: publicar sldb 0.1.13 (fechar el CHANGELOG, tag v0.1.13 y aviso a los consumidores) cuando la suite conjunta esté verde [draft] - JP decide si se publica 0.1.13 y cuándo; si dice que sí, el encabezado 0.1.13 de CHANGELOG.md queda fechado, el tag v0.1.13 está en origin y deskops, graph_ui y spec2viz recibieron el aviso; si dice que no o "más adelante", la decisión y su condición quedan escritas en CHANGELOG.md bajo el encabezado 0.1.13 como línea "Release: <decisión de JP, fecha>".
