@@ -1,25 +1,45 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-20T07:56:29Z'
+  at: '2026-11-20T10:14:08Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-testing
+history:
+- task_activates
+references:
+- src/sldb/api/stores/ensure_merge_driver.py
+- src/sldb/api/stores/store_surroundings.py
+- src/sldb/cli/commands/store_init.py
+- src/sldb/cli/commands/stores_build.py
+- src/sldb/cli/commands/stores_scaffold.py
+- tests/api/test_gitignore_policy.py
+- tests/store/test_merge_driver_auto_install.py
+- tests/store/test_migrate_layout.py
+- 9007f78a22569244709af77779847e14a4d57b2e
 depends_on: []
 pills: []
-files: []
+files:
+- CHANGELOG.md
+- src/sldb/api/stores/ensure_merge_driver.py
+- src/sldb/api/stores/store_surroundings.py
+- src/sldb/cli/commands/store_init.py
+- src/sldb/cli/commands/stores_build.py
+- src/sldb/cli/commands/stores_scaffold.py
+- tests/api/test_gitignore_policy.py
+- tests/store/test_merge_driver_auto_install.py
+- tests/store/test_migrate_layout.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-los-comandos-cli-de-stores-instalan-solos-el-merge-driver-de-sldb-y-stores-check-avisa-si-falta
 ---
 
 # Merge driver automático, intento nuevo: se instala desde los comandos CLI de stores, no desde la API que usan las transacciones

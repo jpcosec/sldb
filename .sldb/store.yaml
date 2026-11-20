@@ -779,6 +779,10 @@ include:
     name: run-deskops-e-7b45b951426a-a2
   - path: runs/subagents/exec-deskops-t-00b2a8821cd7-a2-testing/run.md
     name: run-deskops-t-00b2a8821cd7-a2
+  - path: runs/subagents/exec-deskops-e-2946f0280e83/run.md
+    name: run-deskops-e-2946f0280e83
+  - path: runs/subagents/exec-deskops-t-81480618a15e-testing/run.md
+    name: run-deskops-t-81480618a15e
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -1290,6 +1294,14 @@ include:
   - desk/materializations/materialization-move-tests-cli-init-py.md
   - desk/materializations/materialization-move-tests-cli-move-repo-py.md
   - desk/materializations/materialization-move-tests-cli-test-move-cli-py.md
+  - desk/materializations/materialization-stores-src-sldb-api-stores-ensure-merge-driver-py.md
+  - desk/materializations/materialization-stores-src-sldb-api-stores-store-surroundings-py.md
+  - desk/materializations/materialization-stores-src-sldb-cli-commands-store-init-py.md
+  - desk/materializations/materialization-stores-src-sldb-cli-commands-stores-build-py.md
+  - desk/materializations/materialization-stores-src-sldb-cli-commands-stores-scaffold-py.md
+  - desk/materializations/materialization-stores-tests-api-test-gitignore-policy-py.md
+  - desk/materializations/materialization-stores-tests-store-test-merge-driver-auto-install-py.md
+  - desk/materializations/materialization-stores-tests-store-test-migrate-layout-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2569,6 +2581,14 @@ include:
     name: review-task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu-preflight-1
   - path: desk/reviews/task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu/bundle-1.md
     name: review-task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu-bundle-1
+  - path: desk/reviews/task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu/evidence-tests-1.md
+    name: review-task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu-evidence-tests-1
+  - path: desk/reviews/task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu/evidence-commit-1.md
+    name: review-task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu-evidence-commit-1
+  - path: desk/reviews/task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu/evidence-atom-1.md
+    name: review-task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu-evidence-atom-1
+  - path: desk/reviews/task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu/evidence-materialization-1.md
+    name: review-task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

@@ -1,0 +1,22 @@
+name: atom-los-comandos-cli-de-stores-instalan-solos-el-merge-driver-de-sldb-y-stores-check-avisa-si-falta
+path: desk/atoms/atom-los-comandos-cli-de-stores-instalan-solos-el-merge-driver-de-sldb-y-stores-check-avisa-si-falta.md
+source_hash: ede98958fd4bf03b514312c101971175fa1b1142889c768793299a7d8b56bcfa
+content_hash: 84e5e477e25b1900fc88f29849504c14286ceb1e0fa8fa4b5cb9cec68488eb31
+field_hashes:
+  id: 02b9b823c31688bda3640036f337543d6d112612694f344ee22a8f2b0b42de15
+  title: 813887bc73950a162bdd29961d2180e2e190d2764233b84b72f56783ec556a59
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 7d46da5d17f38fe4a2deefa8380f47a80ab1229dfaca648d7828d20126e10824
+  tags: dc6cb10d5b02dd7e84f396d4d539d877efe2563f35c4138c90600b588d782f63
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:stores
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-20T10:12:43Z'
+  authority: generated
+  via: create_document
