@@ -1,0 +1,37 @@
+name: review-task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu-bundle-1
+path: desk/reviews/task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu/bundle-1.md
+source_hash: 68346f64d4988808d2225cead15f6bfe595858b94b4cc8a55239262edaee276b
+content_hash: a9247eda583d7228b66294598a8354ecbf7d0ca0210f77a03af1a08054420575
+field_hashes:
+  id: 44480ebf3649a2bf50fdf873950e147b3cdd19b9183e849723d3788af9330cb4
+  title: 421857985301dcc3a1ac1726743d52bf37ed8c7aa62fec3c5473b8866eb02fd8
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 73ad1744a15c7724d4351220d9b03841505fe3d5585d33db07af0df75bdea3c9
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: a20df7c315e9f29ed68cf9c5ead39e37d2210a9b0d37ff21067a3d6c04ee5962
+  input_sha256: d7fccc50119c94f114854a4432a4f3212c9cdd57a19e8c98af6ec5db01f15d5b
+  contract_sha256: 74d68c9d46b60b3507bb97881cc5d6c65b224e9231364662315bda095128a871
+  output_sha256: a7fe1df8b9c41efcca707201b7894f9c898f00a7699b84ff0c84c8caab6b55c4
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 9d7e5f8732d05416eeb37bfc6e3c838d4fa3c64b6bc24acecb8de977d842a633
+  created_at: 62b8599627633824b3660f83bc9f124da62ee0f136b1c12a7258c2f1f642480e
+  disposed_at: 6e55f728bf7800ec20d2ff75a817571ef152446fe38edfffe354d96cfdc59574
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 90bd20ab4aff54f34ab555d1ae151926c7a6fa5efed92dc492625ac6ed2055e6
+  disposition: 1cd3b2db3e0f1da87fd8838caf279a4dd94c69ba76caef49546625122ba30877
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-20T07:59:37Z'
+  authority: generated
+  via: save_document_payload
