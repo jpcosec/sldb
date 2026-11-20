@@ -1,0 +1,25 @@
+name: materialization-cache-contracts-layers-toml
+path: desk/materializations/materialization-cache-contracts-layers-toml.md
+source_hash: 2f0679072d4ab42e4f348d4991fba06f924b15a0feab427367ff51a4dc12bcff
+content_hash: 8d221752c80e92f5f81d7f9f34f28684caf33c9574b14845effc7e4a4014f689
+field_hashes:
+  id: cf220b248524cde3b6412f4038138d7c4bae93a73fc4d4512e45938980327577
+  title: 1d97677e6e3beb70de6c8e7a6bb88308c68e31371e76828d9fd74ff4d87f5376
+  source_atoms: b32e840caf3d8fdfcb28c5b7045f7201cd297a66d76e083665a84986bb000642
+  target_kind: 48882ab48bfdf3bef2fe65e3304e91ccfd8f74e357c183367ad6fe903fe0e697
+  target_identity: 3d9a7334295fc418060224504e0f99bb2dc73d9c0633a977ed8121a0803ce91e
+  intent: 9853757fa8d632f94030091572ad20061384483a1ba2116486fd3c820d01a800
+  validation: 2ecda700b4a9d3b2681378e840a3dbe776706a6137e6c1ea25255b3073932602
+  tags: 899427a04a75f813bed1870f1116435622584b11fe84783b0904d8e88f1ed770
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:cache
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-20T03:38:56Z'
+  authority: generated
+  via: create_document

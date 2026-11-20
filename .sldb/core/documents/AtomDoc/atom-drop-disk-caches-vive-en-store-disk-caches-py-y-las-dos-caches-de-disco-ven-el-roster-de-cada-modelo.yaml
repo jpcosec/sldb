@@ -1,0 +1,22 @@
+name: atom-drop-disk-caches-vive-en-store-disk-caches-py-y-las-dos-caches-de-disco-ven-el-roster-de-cada-modelo
+path: desk/atoms/atom-drop-disk-caches-vive-en-store-disk-caches-py-y-las-dos-caches-de-disco-ven-el-roster-de-cada-modelo.md
+source_hash: a702c043f7b4b67ca128a2fd25b05c1e50105f5468341d1c3206f402ebdd6ade
+content_hash: 5a6aff6d7f8dcb576512628ac9e285938b0b904625ed23d21a6780cf0a6eb3e3
+field_hashes:
+  id: 6135351e900499525de6078ded505dc7f78d966b093c706d3e980a7832cd0571
+  title: 326f5f57b9325373cbc812924552a3d05f6d0a49900c7c0d4faf57f6588033a9
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 2547c1745ed7a8e7cf0ca7281f7f51ede56550a305492bd7d115a491f4b46dce
+  tags: 899427a04a75f813bed1870f1116435622584b11fe84783b0904d8e88f1ed770
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:cache
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-20T03:36:59Z'
+  authority: generated
+  via: create_document

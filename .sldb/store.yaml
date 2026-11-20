@@ -764,6 +764,10 @@ include:
     name: run-deskops-t-763c9629fc61
   - path: runs/subagents/exec-deskops-t-b83af2b6f9cd-testing/run.md
     name: run-deskops-t-b83af2b6f9cd
+  - path: runs/subagents/exec-deskops-e-5e587a8becac/run.md
+    name: run-deskops-e-5e587a8becac
+  - path: runs/subagents/exec-deskops-t-7734a5c49e32-testing/run.md
+    name: run-deskops-t-7734a5c49e32
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -1247,6 +1251,11 @@ include:
   - desk/materializations/materialization-cache-ve-reescritura-src-sldb-store-edge-index-composed-disk-py.md
   - desk/materializations/materialization-cache-ve-reescritura-src-sldb-store-layout-py.md
   - desk/materializations/materialization-cache-ve-reescritura-tests-api-test-select-documents-disk-py.md
+  - desk/materializations/materialization-cache-contracts-layers-toml.md
+  - desk/materializations/materialization-cache-src-sldb-api-stores-build-store-py.md
+  - desk/materializations/materialization-cache-src-sldb-store-disk-caches-py.md
+  - desk/materializations/materialization-cache-src-sldb-store-layout-py.md
+  - desk/materializations/materialization-cache-tests-api-test-select-documents-disk-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2498,6 +2507,18 @@ include:
     name: review-task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen-evidence-atom-1
   - path: desk/reviews/task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen/evidence-materialization-1.md
     name: review-task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen-evidence-materialization-1
+  - path: desk/reviews/task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees/preflight-1.md
+    name: review-task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees-preflight-1
+  - path: desk/reviews/task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees/bundle-1.md
+    name: review-task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees-bundle-1
+  - path: desk/reviews/task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees/evidence-tests-1.md
+    name: review-task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees-evidence-tests-1
+  - path: desk/reviews/task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees/evidence-commit-1.md
+    name: review-task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees-evidence-commit-1
+  - path: desk/reviews/task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees/evidence-atom-1.md
+    name: review-task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees-evidence-atom-1
+  - path: desk/reviews/task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees/evidence-materialization-1.md
+    name: review-task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

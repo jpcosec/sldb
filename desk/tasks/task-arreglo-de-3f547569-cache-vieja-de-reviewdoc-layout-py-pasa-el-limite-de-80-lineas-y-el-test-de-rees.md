@@ -1,25 +1,38 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-20T03:13:33Z'
+  at: '2026-11-20T03:38:26Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-testing
+history:
+- task_activates
+references:
+- src/sldb/api/stores/build_store.py
+- src/sldb/store/disk_caches.py
+- src/sldb/store/layout.py
+- tests/api/test_select_documents_disk.py
+- 3c04f6f9dac7d159dff0f61d8349dd31857cbd29
 depends_on: []
 pills: []
-files: []
+files:
+- CHANGELOG.md
+- contracts/layers.toml
+- src/sldb/api/stores/build_store.py
+- src/sldb/store/disk_caches.py
+- src/sldb/store/layout.py
+- tests/api/test_select_documents_disk.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-drop-disk-caches-vive-en-store-disk-caches-py-y-las-dos-caches-de-disco-ven-el-roster-de-cada-modelo
 ---
 
 # Arreglo de 3f547569 (caché vieja de ReviewDoc): layout.py pasa el límite de 80 líneas y el test de reescritura en el mismo tick falla en una copia limpia
