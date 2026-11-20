@@ -753,6 +753,10 @@ include:
     name: run-deskops-e-417ece12b2b1
   - path: runs/subagents/exec-deskops-t-10685d679a98-testing/run.md
     name: run-deskops-t-10685d679a98
+  - path: runs/subagents/exec-deskops-e-ebc18df48f15/run.md
+    name: run-deskops-e-ebc18df48f15
+  - path: runs/subagents/exec-deskops-e-ebc18df48f15-a2/run.md
+    name: run-deskops-e-ebc18df48f15-a2
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -2468,6 +2472,8 @@ include:
     name: review-task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer-preflight-1
   - path: desk/reviews/task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer/bundle-1.md
     name: review-task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer-bundle-1
+  - path: desk/reviews/task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen/reproduction-1.md
+    name: review-task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen-reproduction-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -2521,6 +2527,7 @@ include:
   - desk/tasks/task-run-view-dice-que-el-store-no-está-construido-en-vez-de-unknown-view-h12-y-se-reproduce-si-la-revisi.md
   - desk/tasks/task-docs-show-sobre-un-store-enlazado-dice-que-no-pudo-importar-el-modelo-en-vez-de-unknown-document-tar.md
   - desk/tasks/task-rule-graph-en-frío-y-deskops-show-task-perfilar-de-nuevo-y-bajar-el-costo-de-leer-el-índice-local-me.md
+  - desk/tasks/task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen.md
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md

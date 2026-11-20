@@ -1,0 +1,10 @@
+### 2026-11-20, coordinador. sldb 40bff94e (herramientas), repo sldb HEAD bc05f2ab.
+### 1) En el repo, con su .sldb_cache: deskops next <tarea sldb move> --root .
+Blocked by:
+- error: [rules/rule-activation-task-code] TaskCodeDoc:task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer: Una tarea task.code se activa con recibos preflight y bundle aceptados e intactos y sus dependencias cerradas. | any(^subject: anchor_state = "intact" and verdict = "accepted" and kind = "preflight") (seen: {})
+### Recibos en disco:
+desk/reviews/task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer/bundle-1.md verdict: accepted
+desk/reviews/task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer/preflight-1.md verdict: accepted
+### 2) Mismo HEAD en un worktree limpio de /dev/shm, con el diff sin commitear aplicado (git diff | git apply), XDG_CACHE_HOME nuevo y sin .sldb_cache: 'Blocked by' aparece 0 veces (la tarea activa).
+### 3) 'sldb stores build --store .sldb' en el repo no lo arregla: después sigue bloqueada (1).
+### Conclusión: el .sldb_cache del repo da una vista vieja de los ReviewDoc (los recibos fueron aceptados con 'deskops review dispose' el 2026-11-19 a las 18:48 UTC). Sospecha: la caché de filas de documentos de d3568eea (document_rows_disk.py) o la caché compuesta del índice de aristas de H11.
