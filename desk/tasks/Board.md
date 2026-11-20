@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-20T03:03:44Z'
+  at: '2026-11-20T03:13:44Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -72,6 +72,7 @@ tasks:
 - desk/tasks/task-declaredfiletargets-lee-campos-lista-y-no-aplica-las-exclusiones-a-lo-que-se-declara-para-que-un-des.md
 - desk/tasks/task-baja-prioridad-canonizar-los-nombres-de-llamada-ts-js-cuya-cadena-empieza-en-un-array-binario-new-o.md
 - desk/tasks/task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer.md
+- desk/tasks/task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -178,3 +179,4 @@ _Generated from the task references above._
 - DeclaredFileTargets lee campos lista y no aplica las exclusiones a lo que se declara, para que un destino que existe no cuente como faltante [draft] - Un destino declarado por DeclaredFileTargets, venga de un campo escalar o de un campo lista, que es un archivo existente del proyecto se vuelve nodo aunque esté bajo una exclusión; y hay una forma declarativa de que las menciones de LineMentions a archivos existentes del proyecto no cuenten como faltantes.
 - Baja prioridad: canonizar los nombres de llamada TS/JS cuya cadena empieza en un array, binario, new o literal (hoy canonical: false) [draft] - Los nombres de llamada que hoy salen con canonical: false tienen una forma canónica definida y documentada (por ejemplo marcadores fijos [...] para arrays, (expr) para binarios, Clase() para new y (lit) para literales) y salen con canonical: true y en la relación calls si nombran un símbolo.
 - sldb move mueve un archivo o directorio con git mv y actualiza en el mismo repo el store y las referencias a la ruta vieja [active] - sldb move <origen> <destino> [--store S] [--dry-run] [--format text|json] mueve un archivo o un directorio dentro del proyecto. (1) Si el origen está versionado en git, usa git mv, así git registra el renombre; si no, mueve en disco. (2) Los documentos trackeados que se mueven siguen trackeados con el mismo nombre, como hace move_document. (3) En los documentos trackeados del store del proyecto, todo valor de campo que sea exactamente la ruta vieja, o que empiece por la ruta vieja más '/' cuando el origen es un directorio, pasa a la ruta nueva, escrito por la API de campos de sldb y no como texto. (4) En los archivos Markdown del repo, los links relativos e inline a la ruta vieja apuntan a la nueva. (5) Todo pasa en una Transaction: si algo falla, el árbol y el store quedan como estaban. (6) --dry-run lista lo que movería y cada referencia que reescribiría (documento, campo y valor viejo y nuevo, o archivo y línea) sin tocar nada. La salida json da esa misma lista.
+- Arreglo de 3f547569 (caché vieja de ReviewDoc): layout.py pasa el límite de 80 líneas y el test de reescritura en el mismo tick falla en una copia limpia [draft] - La suite completa de sldb pasa en una copia limpia con pytest -n 4: layout.py queda en 80 líneas efectivas o menos, sin subir el límite (drop_disk_caches pasa a un módulo propio o junto a las cachés que borra), y la caché ve de verdad una reescritura in place dentro del mismo tick de reloj, en cualquier proceso y orden. Si el test asumía algo falso, se corrige el arreglo, no se debilita el test.

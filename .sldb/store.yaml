@@ -346,6 +346,7 @@ include:
   - desk/inbox/20261119-084950-unclear-queue-20261119t114901z-dispatch-executor-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qu-namespace-declarar.md
   - desk/inbox/20261119-114028-unclear-queue-20261119t143238z-integrate-task-el-guard-de-escritura-por-campos-refuse-lossy-overwrite-rechaza-headings-no-declarados-que-viven-den.md
   - desk/inbox/20261119-154109-suggestion-el-merge-driver-de-sldb-deber-a-instalarse-solo-al-preparar-un-store.md
+  - desk/inbox/20261120-001200-unclear-queue-20261120t030350z-integrate-task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -2543,6 +2544,7 @@ include:
   - desk/tasks/task-declaredfiletargets-lee-campos-lista-y-no-aplica-las-exclusiones-a-lo-que-se-declara-para-que-un-des.md
   - desk/tasks/task-baja-prioridad-canonizar-los-nombres-de-llamada-ts-js-cuya-cadena-empieza-en-un-array-binario-new-o.md
   - desk/tasks/task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer.md
+  - desk/tasks/task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees.md
 - model: TaskDebugDoc
   paths:
   - desk/tasks/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg.md
