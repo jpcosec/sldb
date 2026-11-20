@@ -1,25 +1,46 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-20T13:36:05Z'
+  at: '2026-11-20T14:44:31Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-testing
+history:
+- task_activates
+references:
+- src/sldb/api/notations/component_spec_build.py
+- src/sldb/api/notations/component_spec_graph.py
+- src/sldb/api/rules/rule_graph.py
+- src/sldb/api/rules/rule_view.py
+- src/sldb/api/rules/rules_on_write.py
+- src/sldb/api/stores/store_check.py
+- src/sldb/api/stores/store_check_summary.py
+- src/sldb/store/diagnostics.py
+- src/sldb/store/diagnostics_models/verdict_notes.py
+- 6fd0a971a65943c0a5151d25b0700c524acc95f1
 depends_on: []
 pills: []
-files: []
+files:
+- src/sldb/api/notations/component_spec_build.py
+- src/sldb/api/notations/component_spec_graph.py
+- src/sldb/api/rules/rule_graph.py
+- src/sldb/api/rules/rule_view.py
+- src/sldb/api/rules/rules_on_write.py
+- src/sldb/api/stores/store_check.py
+- src/sldb/api/stores/store_check_summary.py
+- src/sldb/store/diagnostics.py
+- src/sldb/store/diagnostics_models/verdict_notes.py
 task_type: task.refactor
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-cinco-archivos-de-0f91540d-se-partieron-para-cumplir-las-reglas-de-codigo-limpio
 ---
 
 # Reglas de código limpio de 0f91540d: cinco archivos pasan los límites (rule_graph, rules_on_write, component_spec_graph, store_check, diagnostics)

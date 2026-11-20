@@ -1,0 +1,25 @@
+name: materialization-clean-code-src-sldb-api-stores-store-check-py
+path: desk/materializations/materialization-clean-code-src-sldb-api-stores-store-check-py.md
+source_hash: 18ac60f1efe01f9c01499ed85292f4466a907cef5e6d6d20a842cd8ee6b92267
+content_hash: 3688dbf1c533d952dd0481f8179b7958d03173079bca628a583961436cea14e8
+field_hashes:
+  id: 32148f7aee6deee21b489797a1df843110444d7893bcabc2169dae1eb7895caa
+  title: 2cda6fd265a1b7f668a6d2ef64c089ba17110d1ef99fdf8e78862412a37eba50
+  source_atoms: a3e3be83f1a1ff3a0522331d6de62ba5d4b16adb1c1a5f5e04f81b1ef270431d
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: fd8f2c5c8c085889f797a7fa19ebf48e6bd47246327007266240fdf974a610f0
+  intent: 0bd6f433600844ba8406235d0b05b8a481feade30283aea8586f76680c7e710d
+  validation: 161fe2e964d0d35cabb3bda00c49a2378dd3be6b739b41b64a7212f2a0d5d8e3
+  tags: 84d69304938d6a6b165c2866b8fdfc357467faff2e0ed60f781ca063b860d5fb
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:clean-code
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-20T14:47:23Z'
+  authority: generated
+  via: create_document

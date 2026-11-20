@@ -1,29 +1,29 @@
 name: task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo
 path: desk/tasks/task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo.md
-source_hash: fcc67eef3ee7a80222912ba9ef87a57c17b5521712900859824965426c82c543
-content_hash: 61fa855c60469996cc6f1e15fe2606b0dc232fb7aff620e03559a9385e8a4728
+source_hash: 933810cb2cdadc9f7cdd5e16d77c7d74fc4df489825a5fb4efd58cf7ed456928
+content_hash: 5fda3897a893fe69cd6e760cf50f91dce9f65f64bf160282a8290dc97231221e
 field_hashes:
   title: 65b8a2797f0ed65f8aff7c59a364f2d4399dd5e4c240c545131c099cce5fe4b1
   id: 781d00433f49787cc5eed7158a7ae04a6f9f0800ff6077ad51cd150ed8729e0d
-  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
-  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
-  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  current_node: d10f5286503cbf750af0584acaec732741c2d9cfbae2a6d5b8ce45b8bf83b79d
+  history: f89b8fd2ac9e43a24ba505d162381268ed901d0695f62c6ad8ec2c62718dfa1c
   why: f067797b43ee20819e923b645c3caf4cd54ae8647798dd04c5badf716e893272
   goal: fb552bf55a1e1cb2bfc07be45b0919037edf769863db3782e860713ebede75f5
   scope: 916197f45d1cddae223635961913a53071165f91448f93370a72a72fb056b4e1
-  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  references: 51005bff278f5d9fc64f499ec30856f9ae8101d4ddbaffb03ddf83a0b5ba050e
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 5450f2f9690dd86bdd190b6f2ba3ade0436adf970fb7391d925a2bc27d4388a5
   implementation_path: 942a0d23ad99542c17e0381571a9a737add9e838ddc138bc7953f807b151b531
   validation: 161fe2e964d0d35cabb3bda00c49a2378dd3be6b739b41b64a7212f2a0d5d8e3
   done_when: b82231a8677f193943db2072d713ce2d086f13e88196c6396b907445b12ccdae
   task_type: d0b4cbfeadc448bca1492079dfd36948fd84b4ae366c521b0e71add2bea3fa86
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
-  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  atoms: a3e3be83f1a1ff3a0522331d6de62ba5d4b16adb1c1a5f5e04f81b1ef270431d
 semantic_tags:
 - artifact:task
 - representation.markdown
@@ -33,6 +33,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-20T13:36:05Z'
+  at: '2026-11-20T14:44:31Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

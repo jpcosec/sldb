@@ -807,6 +807,8 @@ include:
     name: run-deskops-t-adc313bbd264
   - path: runs/subagents/exec-deskops-e-9af1f5c9e2ab/run.md
     name: run-deskops-e-9af1f5c9e2ab
+  - path: runs/subagents/exec-deskops-t-35c6f2d4111e-testing/run.md
+    name: run-deskops-t-35c6f2d4111e
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -1333,6 +1335,15 @@ include:
   - desk/materializations/materialization-rules-src-sldb-api-rules-rules-on-write-py.md
   - desk/materializations/materialization-rules-tests-api-test-on-write-entering-py.md
   - desk/materializations/materialization-rules-tests-api-test-rules-py.md
+  - desk/materializations/materialization-clean-code-src-sldb-api-notations-component-spec-build-py.md
+  - desk/materializations/materialization-clean-code-src-sldb-api-notations-component-spec-graph-py.md
+  - desk/materializations/materialization-clean-code-src-sldb-api-rules-rule-graph-py.md
+  - desk/materializations/materialization-clean-code-src-sldb-api-rules-rule-view-py.md
+  - desk/materializations/materialization-clean-code-src-sldb-api-rules-rules-on-write-py.md
+  - desk/materializations/materialization-clean-code-src-sldb-api-stores-store-check-py.md
+  - desk/materializations/materialization-clean-code-src-sldb-api-stores-store-check-summary-py.md
+  - desk/materializations/materialization-clean-code-src-sldb-store-diagnostics-py.md
+  - desk/materializations/materialization-clean-code-src-sldb-store-diagnostics-models-verdict-notes-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2634,6 +2645,14 @@ include:
     name: review-task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo-bundle-1
   - path: desk/reviews/task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo/goldens-1.md
     name: review-task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo-goldens-1
+  - path: desk/reviews/task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo/evidence-tests-1.md
+    name: review-task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo-evidence-tests-1
+  - path: desk/reviews/task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo/evidence-commit-1.md
+    name: review-task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo-evidence-commit-1
+  - path: desk/reviews/task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo/evidence-atom-1.md
+    name: review-task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo-evidence-atom-1
+  - path: desk/reviews/task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo/evidence-materialization-1.md
+    name: review-task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

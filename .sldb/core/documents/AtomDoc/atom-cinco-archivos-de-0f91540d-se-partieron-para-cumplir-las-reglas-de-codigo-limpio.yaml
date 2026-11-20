@@ -1,0 +1,22 @@
+name: atom-cinco-archivos-de-0f91540d-se-partieron-para-cumplir-las-reglas-de-codigo-limpio
+path: desk/atoms/atom-cinco-archivos-de-0f91540d-se-partieron-para-cumplir-las-reglas-de-codigo-limpio.md
+source_hash: 9fd1df242fc7c143900afdb7514db97fea0d8f851c586bac72e79907c1c370a1
+content_hash: 8184734e3d35adabecb824c36003d84cc1c7bd7a54b9f99fd0ba53ee6d006d68
+field_hashes:
+  id: f6f027f7b969d9e2d5c8334f6b9a7b2de445fe5fb6a042412fafee45a0857c1d
+  title: cdd5472d0740698a30d82c2376015f2b2d92c5ab09856cf15a568805322c3087
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: df1cad2e23d0d69966afed02f76b6877e5256be9f175bde880f2932e59f7cae3
+  tags: 84d69304938d6a6b165c2866b8fdfc357467faff2e0ed60f781ca063b860d5fb
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:clean-code
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-20T14:43:07Z'
+  authority: generated
+  via: create_document
