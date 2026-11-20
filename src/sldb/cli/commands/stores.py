@@ -69,13 +69,19 @@ class StoresCLI:
         
         return self._print_text_list(sp, stores)
 
+    @staticmethod
+    def _link_note(item: dict[str, str]) -> str:
+        if item["status"] != "ok":
+            return f"  [{item['status']}: {item['resolved']}]"
+        return f"  [found by name on this machine: {item['resolved']}]" if item.get("by") == "name" else ""
+
     def _print_text_list(self, sp: Any, stores: list[dict[str, str]]) -> int:
         if not stores:
             print(f"No federated stores linked in {sp}")
             return 0
         print(f"Federated stores in {sp}:")
         for item in stores:
-            state = "" if item["status"] == "ok" else f"  [{item['status']}: {item['resolved']}]"
+            state = self._link_note(item)
             print(f"- {item['name']} -> {item['path']}{state}")
         return 0
 

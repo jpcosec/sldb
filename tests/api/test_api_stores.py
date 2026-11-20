@@ -214,3 +214,86 @@ def test_stores_add_keeps_a_relative_path_relative_to_the_root(api_store, tmp_pa
     rel = _add_link(api_store, "other/.sldb")
     assert rel == os.path.relpath(other, api_store.root)
     assert _linked(api_store) == [other.resolve()]
+
+
+def _named_store(tmp_path: Path, name: str) -> Path:
+    home = tmp_path / name
+    home.mkdir(parents=True)
+    assert cli_main(["stores", "init", "--path", str(home)]) == 0
+    return home / ".sldb"
+
+
+def _know(catalog: Path, name: str, store: Path) -> None:
+    assert cli_main(["stores", "add", str(store), "--name", name, "--store", str(catalog)]) == 0
+
+
+def _catalog(tmp_path: Path, monkeypatch, *known: tuple[str, Path]) -> Path:
+    """A machine catalog (the global store) that knows the given `(name, .sldb)` stores."""
+    catalog = _named_store(tmp_path, "machine")
+    monkeypatch.setattr("sldb.store.catalog._catalog_path", lambda: catalog.resolve())
+    for name, store in known:
+        _know(catalog, name, store)
+    return catalog
+
+
+def _link_from_another_machine(api_store, tmp_path: Path, name: str = "shared") -> Path:
+    """A link versioned elsewhere: the store exists here, the recorded path points nowhere."""
+    from sldb.store.io import save_store_index
+
+    other = _named_store(tmp_path, "other")
+    _know(api_store.store, name, other)
+    index = load_store_index(api_store.store)
+    index.stores = [s.model_copy(update={"path": "../../somewhere/else/.sldb"}) if s.name == name else s for s in index.stores]
+    save_store_index(api_store.store, index)
+    return other
+
+
+def test_a_link_whose_path_is_not_here_resolves_by_the_name_the_machine_knows(api_store, tmp_path, monkeypatch):
+    from sldb.api.stores.store_links import find_link
+    from sldb.store.query import _linked_stores
+
+    other = _link_from_another_machine(api_store, tmp_path)
+    catalog = _catalog(tmp_path, monkeypatch)
+    assert find_link(api_store.store.resolve(), "shared")["status"] == "missing"
+    assert _linked_stores(api_store.store.resolve()) == []
+    _know(catalog, "shared", other)
+    link = find_link(api_store.store.resolve(), "shared")
+    assert (link["status"], link["by"], link["resolved"], link["path"]) == ("ok", "name", str(other.resolve()), "../../somewhere/else/.sldb")
+    assert _linked_stores(api_store.store.resolve()) == [(other.resolve(), "shared")]
+
+
+def test_the_recorded_path_wins_over_the_catalog_when_a_store_is_there(api_store, tmp_path, monkeypatch):
+    from sldb.store.query import _linked_stores
+
+    other = _named_store(tmp_path, "other")
+    _know(api_store.store, "shared", other)
+    _catalog(tmp_path, monkeypatch, ("shared", _named_store(tmp_path, "twin")))
+    assert _linked_stores(api_store.store.resolve()) == [(other.resolve(), "shared")]
+
+
+def test_two_stores_under_one_name_in_the_catalog_are_not_chosen_between(api_store, tmp_path, monkeypatch):
+    from sldb.api.stores.store_links import find_link
+    from sldb.store.io import save_store_index
+    from sldb.store.models import StoreEntry
+
+    other = _link_from_another_machine(api_store, tmp_path)
+    catalog = _catalog(tmp_path, monkeypatch)
+    index = load_store_index(catalog)
+    index.stores = [StoreEntry(name="shared", path=str(other)), StoreEntry(name="shared", path=str(_named_store(tmp_path, "twin")))]
+    save_store_index(catalog, index)
+    assert find_link(api_store.store.resolve(), "shared")["status"] == "missing"
+
+
+def test_a_build_keeps_the_declared_path_when_the_store_is_found_by_name(api_store, tmp_path, monkeypatch):
+    from sldb.store.query import _linked_stores
+
+    other = _named_store(tmp_path, "other")
+    _know(api_store.store, "shared", other)
+    assert cli_main(["stores", "declare", "--write", "--store", str(api_store.store)]) == 0
+    declaration = api_store.store / "store.yaml"
+    recorded = next(s.path for s in load_store_index(api_store.store).stores)
+    declaration.write_text(declaration.read_text(encoding="utf-8").replace(recorded, "../../somewhere/else/.sldb"), encoding="utf-8")
+    _catalog(tmp_path, monkeypatch, ("shared", other))
+    assert cli_main(["stores", "build", "--store", str(api_store.store)]) == 0
+    assert [(s.name, s.path) for s in load_store_index(api_store.store).stores] == [("shared", "../../somewhere/else/.sldb")]
+    assert _linked_stores(api_store.store.resolve()) == [(other.resolve(), "shared")]

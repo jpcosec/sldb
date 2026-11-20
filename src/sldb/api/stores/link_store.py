@@ -12,21 +12,9 @@ from sldb.api.stores.unlink_store import drop_link
 from sldb.core.exceptions import SLDBStoreError
 from sldb.store.io import load_store_index, save_store_index
 from sldb.store.layout import store_exists
+from sldb.store.link_path import expand_link_path, kept_as_written  # noqa: F401 - re-exported for existing importers
 from sldb.store.models.store_entry import StoreEntry
 from sldb.store.models.store_index import StoreIndex
-
-
-KEPT_PREFIXES = ("/", "~", "$")
-
-
-def expand_link_path(text: str) -> str:
-    """Expand `~` and environment variables in a link path as written."""
-    return os.path.expandvars(os.path.expanduser(text))
-
-
-def kept_as_written(raw: str | None) -> bool:
-    """True when the user's text starts with `/`, `~` or `$` and is recorded unchanged."""
-    return bool(raw) and raw.startswith(KEPT_PREFIXES)
 
 
 def link_store(store: str | Path | None, other_store: str | Path, name: str | None = None, replace: bool = False, *, raw: str | None = None) -> LinkedStore:
@@ -102,7 +90,7 @@ def record_store_link(sp: Path, root: Path, other: Path, name: str, *, raw: str 
     """
     idx = load_store_index(sp)
     _check_store_linked(idx, name)
-    rel = raw if kept_as_written(raw) else os.path.relpath(other, root)
+    rel = raw if raw and kept_as_written(raw) else os.path.relpath(other, root)
     idx.stores.append(StoreEntry(name=name, path=rel))
     save_store_index(sp, idx)
     return rel

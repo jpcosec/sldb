@@ -99,9 +99,11 @@ def _visit_federated_store(item, pending, visited, documents, load_one) -> None:
 
 
 def _linked_stores(store_path: Path) -> list[tuple[Path, str]]:
+    from sldb.store.link_path import resolve_link
+
     root = project_root(store_path)
-    links = [(_resolve_path(root, os.path.expandvars(os.path.expanduser(e.path))), e.name) for e in load_store_index(store_path).stores]
-    return [(path.resolve(), name) for path, name in links if store_exists(path)]
+    found = [(resolve_link(root, entry.name, entry.path), entry.name) for entry in load_store_index(store_path).stores]
+    return [(path, name) for path, name in found if store_exists(path)]
 
 
 from sldb.store.query_engine.structural import (  # noqa: E402

@@ -451,7 +451,7 @@ note = "aquí viven las decisiones que los diagnosticadores encontraron solo en 
 
 [[axis]]
 id = "federacion"
-paths = ["store/catalog.py", "store/resolver.py", "store/facade.py", "store/query.py", "store/predicates.py"]
+paths = ["store/catalog.py", "store/link_path.py", "store/resolver.py", "store/facade.py", "store/query.py", "store/predicates.py"]
 external = []
 does = "encontrar almacenes, resolver entre varios y ofrecer la fachada de consulta"
 identity = false

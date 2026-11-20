@@ -14,12 +14,14 @@ from sldb.api.model_registry.inherit_model import inherit_model
 from sldb.api.stores.declared_files import declared_files, rule_rows
 from sldb.api.stores.declared_includes import tracked_rows
 from sldb.api.stores.include_resolution import include_conflicts, store_bases
-from sldb.api.stores.link_store import link_store
+from sldb.api.stores.link_store import record_store_link
+from sldb.api.stores.unlink_store import drop_link
 from sldb.api.stores.store_declaration import StoreDeclaration
 from sldb.api.documents.track_document_file import track_document_file
 from sldb.store.io import load_store_index, save_store_index
 from sldb.store.model_import_root import import_root
 from sldb.store.layout import store_exists
+from sldb.store.link_path import resolve_link, resolve_link_path
 from sldb.store.models import PredicateEntry
 from sldb.api.stores.unread_documents import warn_unread
 
@@ -33,13 +35,21 @@ def apply_links(store_path: Path, root: Path, declaration: StoreDeclaration) -> 
     absent = {link["name"] for link in missing_links(root, declaration)}
     changed = [link for link in declaration.links if current.get(link["name"]) != link["path"] and link["name"] not in absent]
     for link in changed:
-        link_store(store_path, root / link["path"], link["name"], replace=link["name"] in current)
+        _record_declared(store_path, root, link, known=link["name"] in current)
     return [link["name"] for link in changed]
 
 
 def missing_links(root: Path, declaration: StoreDeclaration) -> list[dict[str, str]]:
     """Declared links whose store does not exist, as `{name, path}`: an alert, not an error."""
-    return [{"name": link["name"], "path": link["path"]} for link in declaration.links if not store_exists(root / link["path"])]
+    return [{"name": link["name"], "path": link["path"]} for link in declaration.links if not store_exists(resolve_link(root, link["name"], link["path"]))]
+
+
+def _record_declared(store_path: Path, root: Path, link: dict[str, str], known: bool) -> None:
+    """Record a declared link with its path as declared: where the store is on this machine
+    (that path, or the catalog's entry for its name) is resolved on every read, not stored."""
+    if known:
+        drop_link(store_path, link["name"])
+    record_store_link(store_path, root, resolve_link_path(root, link["path"]), link["name"], raw=link["path"])
 
 
 def apply_models(store_path: Path, root: Path, declaration: StoreDeclaration) -> list[str]:

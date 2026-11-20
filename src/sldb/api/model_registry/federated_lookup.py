@@ -13,6 +13,7 @@ from sldb.store.model_import_root import import_root
 from sldb.api.model_registry.model_reference import add_import_roots, resolve_model_ref
 from sldb.store.io import load_store_index
 from sldb.store.layout import project_root, store_exists
+from sldb.store.link_path import resolve_link
 from sldb.store.resolver import ancestor_stores
 
 
@@ -31,8 +32,7 @@ def _get_linked_store_candidate(registry_store: Path, store_alias: str) -> Path 
     linked = next((e for e in registry_index.stores if e.name == store_alias), None)
     if linked is None:
         return None
-    linked_path = Path(linked.path)
-    candidate = (linked_path if linked_path.is_absolute() else registry_root / linked_path).resolve()
+    candidate = resolve_link(registry_root, store_alias, linked.path)
     return candidate if store_exists(candidate) else None
 
 
