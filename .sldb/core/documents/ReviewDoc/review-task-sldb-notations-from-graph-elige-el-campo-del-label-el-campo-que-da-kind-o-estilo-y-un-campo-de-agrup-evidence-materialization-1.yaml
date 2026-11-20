@@ -1,0 +1,37 @@
+name: review-task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup-evidence-materialization-1
+path: desk/reviews/task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup/evidence-materialization-1.md
+source_hash: 7d6876e35a0191498055eb777131cc2be34ec974073806e185d049d43c501144
+content_hash: 1e55b4af6277a87c48593a144ea0e5d6dd105ac1f69615c61b2485c7d4a19c32
+field_hashes:
+  id: 15eb74bb189410a0fba980b72e79c6b61fe9d56e51189479d01191f331f94465
+  title: debadab4c7d04aa1fa731a74d9af66711727b39d3cd0a3773503591c4f49cd02
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: fee39a246cc62e4af74d95c52700bbc4626f6d6d947d3f08b56e08c7c9ceed2e
+  subject: 45c24c08566e92bb53cd89be25dc6e701b719b9a7c2e8f86c426644cdbbcb57f
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 1de1d6333f75b793503b23e6d5e64d48123ede8e92adcc496ed3d263ceb1904e
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: a34dbe03d5640e082e039d8de312291375be4b0d9c2f3eadb77f863acd9ededc
+  created_at: 87e903a84f8484033f62f675dec786e1ca87d57d3647fbf11958d88a3a498b0b
+  disposed_at: 87e903a84f8484033f62f675dec786e1ca87d57d3647fbf11958d88a3a498b0b
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: ef9f43843c4e854c2fdc5e8218d4691e887faf9f1232251585fd9155dce5cc55
+  disposition: e29b4d8dec97922467e9f4e586ae0afad7810b0d9bbd9313e8635092f59fa050
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-20T16:05:52Z'
+  authority: generated
+  via: create_document

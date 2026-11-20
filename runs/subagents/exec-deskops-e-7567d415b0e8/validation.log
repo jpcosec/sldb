@@ -1,0 +1,4 @@
+$ python -m pytest -q -p no:cacheprovider tests/notations/test_notations_from_graph_cli.py tests/notations/test_component_spec_graph.py
+25 passed -> rc 0
+$ bash tools/check.sh --fast
+rc 1: FAIL identidad — "directorio versionado sin clasificar en la raíz: workbench_demo" (commit 562847e2, preexistente, ajeno a la tarea). Las demás capas PASS. Salida: check.out

@@ -1,39 +1,41 @@
+Task: task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup
+Title: sldb notations from-graph elige el campo del label, el campo que da kind o estilo y un campo de agrupación
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-20T16:02:30Z'
+  at: '2026-11-16T06:20:19Z'
   authority: generated
-  via: save_document_payload
+  via: create_document
 id: task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup
-status: active
+status: draft
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
-current_node: ritual-testing
-history:
-- task_activates
+current_node: ritual-execution
+history: []
 references:
-- src/sldb/api/notations/component_spec_fields.py
-- src/sldb/api/notations/component_spec_graph.py
-- src/sldb/cli/commands/notations_from_graph.py
-- src/sldb/cli/parsers/notations.py
-- tests/notations/test_notations_from_graph_cli.py
-- 0f91540dfbaee9a0eae95b2c0a20b71db0ad1d78
+- desk/inbox/20261116-004723-suggestion-sldb-notations-from-graph-elegir-campo-para-label-kind-estilo-y-agrupaci-n-heredado-de-spec2viz.md
 depends_on: []
 pills: []
 files:
-- src/sldb/api/notations/component_spec_fields.py
-- src/sldb/api/notations/component_spec_graph.py
 - src/sldb/cli/commands/notations_from_graph.py
 - src/sldb/cli/parsers/notations.py
 - tests/notations/test_notations_from_graph_cli.py
+- CHANGELOG.md
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms:
-- atom-sldb-notations-from-graph-elige-el-campo-del-label-y-el-que-da-kind-o-estilo
+atoms: []
 ---
 
 # sldb notations from-graph elige el campo del label, el campo que da kind o estilo y un campo de agrupación
@@ -76,3 +78,20 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 Los dos comandos pasan con los tests nuevos; sin flags la salida no cambia; CHANGELOG y commit.
+
+## Entrega del ejecutor
+
+Al terminar, commitea solo los archivos que cambiaste para la tarea, nombrados uno por uno (los mismos que listas en result-summary.md):
+
+    git add <ruta> <ruta> ...
+    git commit -m "<resumen>" -m "Task-Id: task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup"
+
+Nunca uses `git add -A`, `git add -u` sobre todo el arbol ni `git stash`: puede haber trabajo ajeno sin commitear. No hagas push. Recien despues ejecuta `deskops advance task`.
+
+## Gates rapidos del desk
+
+Antes del commit corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Debe terminar con rc 0 antes de commitear; si falla, corrige y repite. Anota el comando y su rc en validation.log.
