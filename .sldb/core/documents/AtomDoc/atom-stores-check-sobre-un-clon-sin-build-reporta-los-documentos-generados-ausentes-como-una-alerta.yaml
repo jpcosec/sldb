@@ -1,0 +1,22 @@
+name: atom-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta
+path: desk/atoms/atom-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta.md
+source_hash: c5f0b63e8a720626d36329d733a20e1fef63f2b1738032ce0f208ca0064ab70e
+content_hash: e6e348821c83568569cc06fef82089e4924f49f89601b256111e57e4e632c591
+field_hashes:
+  id: 802b4af0c9b20736ff2595f7f9e95a94f297ab5c11f2b4d2798dd053f229e507
+  title: bc3d3a495101cd95c94f6a8409a96a926ea19dce0d2ad8d3aa492aa3ee352422
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 87e0ecaae6d2b01a377741c4181194282117a267c89f9ed3da54b41695bb8c1e
+  tags: dc6cb10d5b02dd7e84f396d4d539d877efe2563f35c4138c90600b588d782f63
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:stores
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-20T16:28:14Z'
+  authority: generated
+  via: create_document

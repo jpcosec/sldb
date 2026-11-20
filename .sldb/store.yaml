@@ -1352,6 +1352,14 @@ include:
   - desk/materializations/materialization-notations-src-sldb-cli-commands-notations-from-graph-py.md
   - desk/materializations/materialization-notations-src-sldb-cli-parsers-notations-py.md
   - desk/materializations/materialization-notations-tests-notations-test-notations-from-graph-cli-py.md
+  - desk/materializations/materialization-stores-src-sldb-api-stores-store-check-py.md
+  - desk/materializations/materialization-stores-src-sldb-api-stores-store-findings-py.md
+  - desk/materializations/materialization-stores-src-sldb-cli-commands-store-check-py.md
+  - desk/materializations/materialization-stores-src-sldb-cli-serve-lint-routes-py.md
+  - desk/materializations/materialization-stores-src-sldb-cli-serve-stores-check-py.md
+  - desk/materializations/materialization-stores-src-sldb-store-diagnostics-py.md
+  - desk/materializations/materialization-stores-src-sldb-store-diagnostics-models-model-diagnosis-py.md
+  - desk/materializations/materialization-stores-tests-store-test-diagnostics-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2679,6 +2687,18 @@ include:
     name: review-task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup-evidence-atom-1
   - path: desk/reviews/task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup/evidence-materialization-1.md
     name: review-task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup-evidence-materialization-1
+  - path: desk/reviews/task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co/evidence-tests-1.md
+    name: review-task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co-evidence-tests-1
+  - path: desk/reviews/task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co/evidence-commit-1.md
+    name: review-task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co-evidence-commit-1
+  - path: desk/reviews/task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co/evidence-materialization-1.md
+    name: review-task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co-evidence-materialization-1
+  - path: desk/reviews/task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co/evidence-commit-2.md
+    name: review-task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co-evidence-commit-2
+  - path: desk/reviews/task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co/evidence-atom-1.md
+    name: review-task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co-evidence-atom-1
+  - path: desk/reviews/task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co/evidence-materialization-2.md
+    name: review-task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co-evidence-materialization-2
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-20T12:13:28Z'
+  at: '2026-11-20T16:29:41Z'
   authority: generated
   via: save_document_payload
 id: task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co
@@ -14,19 +14,33 @@ tags:
 current_node: ritual-testing
 history:
 - task_activates
-references: []
+references:
+- src/sldb/api/stores/store_check.py
+- src/sldb/api/stores/store_findings.py
+- src/sldb/cli/commands/store_check.py
+- src/sldb/cli/serve/lint_routes.py
+- src/sldb/cli/serve/stores_check.py
+- src/sldb/store/diagnostics.py
+- src/sldb/store/diagnostics_models/model_diagnosis.py
+- tests/store/test_diagnostics.py
+- 0f91540dfbaee9a0eae95b2c0a20b71db0ad1d78
+- 07450d10542ba9b884149c1cea928ff8e582adfc
 depends_on: []
 pills: []
 files:
-- src/sldb/store/diagnostics.py
 - src/sldb/api/stores/store_check.py
+- src/sldb/api/stores/store_findings.py
+- src/sldb/cli/commands/store_check.py
+- src/sldb/cli/serve/lint_routes.py
+- src/sldb/cli/serve/stores_check.py
+- src/sldb/store/diagnostics.py
+- src/sldb/store/diagnostics_models/model_diagnosis.py
 - tests/store/test_diagnostics.py
-- CHANGELOG.md
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
 atoms:
-- atom-lo-que-el-código-dice-de-sí-mismo-se-publica-con-lo-que-no-se-pudo-probar-a-la-vista
+- atom-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta
 from_drawer: drawer task-stores-check-sobre-un-clon-sin-build-da-rc-1-con-2453-errores-missing-de-pythonsymboldoc-generados-y-tapa-los-errores-reales
   (retirado en el triaje 2026-11-16; contenido en git antes del commit del triaje)
 ---

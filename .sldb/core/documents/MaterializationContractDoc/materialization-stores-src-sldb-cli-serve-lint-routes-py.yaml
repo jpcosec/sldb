@@ -1,0 +1,25 @@
+name: materialization-stores-src-sldb-cli-serve-lint-routes-py
+path: desk/materializations/materialization-stores-src-sldb-cli-serve-lint-routes-py.md
+source_hash: 3ffe9831a220812afca9cb1b53534846bc16b2a8759b7d29077220a5a589259c
+content_hash: e219b6dffdf26fe22c115c0276708867196064c42581dadea94423af2afd4e64
+field_hashes:
+  id: 0e0c3de32b033ba968f34c0e57cb1998ee2b2811bda7edc71a9c9afb182b73c6
+  title: 6d43ed6a62e5e03989546a05a2feae5d2652a92be2a228949d0c7dd4586e7679
+  source_atoms: 0a09b32195ea6ad226f34ab8e46a364b6a905714e397100425cd54bbb8fcf38a
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 4991cded2602972e7e9d3b21cdf46b50182aa5b62d6dadef958ebe84b210499b
+  intent: e35a8a40a39e72e7d24ddc67e6ff2cb7bc383d2a779a687d67de200ff14b76a3
+  validation: 6ccf04c06761afac393d55366052e09fd1870cc8ffe43d8e30eab93ae3e25b00
+  tags: dc6cb10d5b02dd7e84f396d4d539d877efe2563f35c4138c90600b588d782f63
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:stores
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-20T16:31:39Z'
+  authority: generated
+  via: create_document
