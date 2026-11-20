@@ -1,17 +1,18 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-19T18:44:40Z'
+  at: '2026-11-20T02:45:36Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
+current_node: ritual-testing
+history:
+- task_activates
 references: []
 depends_on: []
 pills: []

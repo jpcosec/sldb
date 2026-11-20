@@ -3,10 +3,10 @@ model_ref: sldb.models.knowledge_surface:PythonSymbolDoc
 path: src/sldb/models/python_symbol_doc.py
 documents_index: .sldb/core/documents/PythonSymbolDoc.yaml
 sections_index: .sldb/runtime/sections/PythonSymbolDoc.yaml
-model_hash: ebb8c5241590b537b9ecab6a8584224f758b9806ac3bba26d511ec1013b24bbc
-roster_hash: ea86d50e7b12fba4f21547af421a679c5023793b3c392908a4322badfe8c95bb
+model_hash: 40f0a101365a4b8b0fde7178546870425ba36e8c24e752cec1804c53948a5934
+roster_hash: 421f6f3563762ca8ee6cdd967df978629ca9c47ef8af2272b74f684b84c6c6cc
 contract_hash: c3b15d84e6f87b9e3171fb2745e524dc4c6cbcfc315cff88e88368c4c3c6eeef
-documents_count: 2452
+documents_count: 2540
 version: 1
 canonical: false
 family: null

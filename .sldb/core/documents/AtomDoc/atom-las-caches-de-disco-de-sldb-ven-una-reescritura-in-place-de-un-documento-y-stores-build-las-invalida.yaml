@@ -1,0 +1,22 @@
+name: atom-las-caches-de-disco-de-sldb-ven-una-reescritura-in-place-de-un-documento-y-stores-build-las-invalida
+path: desk/atoms/atom-las-caches-de-disco-de-sldb-ven-una-reescritura-in-place-de-un-documento-y-stores-build-las-invalida.md
+source_hash: 31ac7f168b49d43fc7e3dc389e2d3c2e9fc81cda3a4b88ae2f09759d6a2fc212
+content_hash: 26d5e2f75d9bc1bcc1d0a08eb7961a9808327dd9a50e506aef1a71b8d90bce2b
+field_hashes:
+  id: 1e8070d1e48e094d8415eb3a4e2f38700f6462a9692e763a2fad1ee885cbe03a
+  title: 493d948181f8be45ece1221461e36ef3710fcad6ad782c1aec0af1e899a70baf
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 5d995dead8016c3e6937ba0487515c99080034778a4e438238af40a48c531e78
+  tags: 899427a04a75f813bed1870f1116435622584b11fe84783b0904d8e88f1ed770
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:cache
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-20T02:53:49Z'
+  authority: generated
+  via: create_document

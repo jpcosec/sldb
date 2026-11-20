@@ -1,15 +1,15 @@
 name: task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer
 path: desk/tasks/task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer.md
-source_hash: 27bf196c5d6346d19d936f4e81a980c91572949f2d4e44d4e9e9a1f40e7cf15a
-content_hash: 187ca75e909800ea3a34a558e9da3e7e664553afbd93d2b8b86088ac9d456b43
+source_hash: 5522534006cff5d138945623d63044a2e3bd522f2ca48f4b44c6094b022d0bfa
+content_hash: 130e38cb9c6013ca83bc4434b9e585b73baa58b9532f5573c70fbb78b96b6da1
 field_hashes:
   title: 21cc2bc5281f87ea750b4f1858632377eb42af598d1264768acd63b21d838032
   id: ee58aa0dc22067ef42fc4ab82881cfee319c20bb2f205efce7d2ae4eeb03f5de
-  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
-  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
-  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  current_node: d10f5286503cbf750af0584acaec732741c2d9cfbae2a6d5b8ce45b8bf83b79d
+  history: f89b8fd2ac9e43a24ba505d162381268ed901d0695f62c6ad8ec2c62718dfa1c
   why: df7afbbc6ff8807b9371c747b5a806515cbe9f1071a1c9c2e483c5ebbabb74b4
   goal: fecb51411c6d0241c4c073d3b3d7f1557c3f45e36539bc2b2df9521d3d0c655f
   scope: fe4a4ba2dce2b59c615e861793ecd8398b346b101b9a202161a77da54bcac13d
@@ -33,6 +33,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-19T18:44:40Z'
+  at: '2026-11-20T02:45:36Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

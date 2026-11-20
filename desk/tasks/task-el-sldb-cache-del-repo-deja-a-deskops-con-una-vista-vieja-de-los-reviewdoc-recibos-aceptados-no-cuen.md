@@ -1,25 +1,39 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-20T01:40:46Z'
+  at: '2026-11-20T02:55:27Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-testing
+history:
+- task_activates
+references:
+- src/sldb/api/stores/build_store.py
+- src/sldb/store/edge_index/cache_keys.py
+- src/sldb/store/edge_index/composed_disk.py
+- src/sldb/store/layout.py
+- tests/api/test_select_documents_disk.py
+- 3f547569b90fc28aa3d5ef5be5ea20ca2b9d61ea
 depends_on: []
 pills: []
-files: []
+files:
+- CHANGELOG.md
+- src/sldb/api/stores/build_store.py
+- src/sldb/store/edge_index/cache_keys.py
+- src/sldb/store/edge_index/composed_disk.py
+- src/sldb/store/layout.py
+- tests/api/test_select_documents_disk.py
 task_type: task.debug
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-las-caches-de-disco-de-sldb-ven-una-reescritura-in-place-de-un-documento-y-stores-build-las-invalida
 ---
 
 # El .sldb_cache del repo deja a deskops con una vista vieja de los ReviewDoc: recibos aceptados no cuentan para activar una tarea

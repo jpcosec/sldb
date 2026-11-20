@@ -757,6 +757,12 @@ include:
     name: run-deskops-e-ebc18df48f15
   - path: runs/subagents/exec-deskops-e-ebc18df48f15-a2/run.md
     name: run-deskops-e-ebc18df48f15-a2
+  - path: runs/subagents/exec-deskops-e-2d196cc0ac15/run.md
+    name: run-deskops-e-2d196cc0ac15
+  - path: runs/subagents/exec-deskops-t-763c9629fc61-testing/run.md
+    name: run-deskops-t-763c9629fc61
+  - path: runs/subagents/exec-deskops-t-b83af2b6f9cd-testing/run.md
+    name: run-deskops-t-b83af2b6f9cd
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -1235,6 +1241,11 @@ include:
   - desk/materializations/materialization-filas-de-documentos-en-disco-src-sldb-store-query-engine-document-selection-py.md
   - desk/materializations/materialization-filas-de-documentos-en-disco-src-sldb-store-semantic-dag-graph-py.md
   - desk/materializations/materialization-filas-de-documentos-en-disco-tests-api-test-select-documents-disk-py.md
+  - desk/materializations/materialization-cache-ve-reescritura-src-sldb-api-stores-build-store-py.md
+  - desk/materializations/materialization-cache-ve-reescritura-src-sldb-store-edge-index-cache-keys-py.md
+  - desk/materializations/materialization-cache-ve-reescritura-src-sldb-store-edge-index-composed-disk-py.md
+  - desk/materializations/materialization-cache-ve-reescritura-src-sldb-store-layout-py.md
+  - desk/materializations/materialization-cache-ve-reescritura-tests-api-test-select-documents-disk-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2474,6 +2485,18 @@ include:
     name: review-task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer-bundle-1
   - path: desk/reviews/task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen/reproduction-1.md
     name: review-task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen-reproduction-1
+  - path: desk/reviews/task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen/preflight-1.md
+    name: review-task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen-preflight-1
+  - path: desk/reviews/task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen/bundle-1.md
+    name: review-task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen-bundle-1
+  - path: desk/reviews/task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen/evidence-tests-1.md
+    name: review-task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen-evidence-tests-1
+  - path: desk/reviews/task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen/evidence-commit-1.md
+    name: review-task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen-evidence-commit-1
+  - path: desk/reviews/task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen/evidence-atom-1.md
+    name: review-task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen-evidence-atom-1
+  - path: desk/reviews/task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen/evidence-materialization-1.md
+    name: review-task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

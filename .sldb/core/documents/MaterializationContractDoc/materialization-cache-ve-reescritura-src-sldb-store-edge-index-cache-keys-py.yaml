@@ -1,0 +1,25 @@
+name: materialization-cache-ve-reescritura-src-sldb-store-edge-index-cache-keys-py
+path: desk/materializations/materialization-cache-ve-reescritura-src-sldb-store-edge-index-cache-keys-py.md
+source_hash: ef12e6e12bfad5dddd67d579c2c89570e3ec9771167e196c137bef80456b5d4f
+content_hash: 94fa06adc6b85c2d56a8ffbe9dfc5af90b02dfedb02d84bb889aae9f043b189b
+field_hashes:
+  id: 83a4e8d0bcfcc61e93bab86928ed9b7403727c943b98af2a8f96112d06b1f377
+  title: 152edb0baf89d911abdca56cab02603db032a769fe67b93816e0cbb6c2375150
+  source_atoms: 24014ca93b71775190bbf9d22b824055f1beab5f86abe8c8f99e7481e4e4cb2d
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 59ba5c1c4717affe25266ac8536a95940c4bb631af7559959bf10b4fd004fee0
+  intent: b0e648b97c6795292e9ffed837a4a47a35cf7d33008a0b312fcfe2808dc84015
+  validation: 2ecda700b4a9d3b2681378e840a3dbe776706a6137e6c1ea25255b3073932602
+  tags: 899427a04a75f813bed1870f1116435622584b11fe84783b0904d8e88f1ed770
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:cache
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-20T02:56:29Z'
+  authority: generated
+  via: create_document

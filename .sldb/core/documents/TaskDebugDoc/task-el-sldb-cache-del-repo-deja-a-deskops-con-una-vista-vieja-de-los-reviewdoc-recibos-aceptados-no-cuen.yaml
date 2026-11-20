@@ -1,29 +1,29 @@
 name: task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen
 path: desk/tasks/task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen.md
-source_hash: ef52aad69db063946d17942de858e44183b523b1b710f360ef7da8427452b363
-content_hash: 6eef56ef16a118fd750a2de16749406022f19513743be8f0ecc3f1f7b8cb6f18
+source_hash: 0fcae87b95287d9c33c724d8d7b9d76c837b66792b6385aa7c974fad9570b478
+content_hash: 9555a85b92d2e1506b4df75a0b1e43c581249b87c521b1acbd78be69010bfb0d
 field_hashes:
   title: 3eca4c7e7314c7786b4c8341f8e40f3310f624f0d1df9f46799e2bcef0917b3e
   id: 5f89cccd3d127fb0b16e7b63b573415d8d017adda01b64252915cc02f3555dc0
-  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
-  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
-  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  current_node: d10f5286503cbf750af0584acaec732741c2d9cfbae2a6d5b8ce45b8bf83b79d
+  history: f89b8fd2ac9e43a24ba505d162381268ed901d0695f62c6ad8ec2c62718dfa1c
   why: f8c84b92ae1ffb4ba5f0b4eb88cbd269c85c8d7571904af87155269c2cf253e6
   goal: 8dffd0bee1275193703695c0a14a3f431abc98fa00aeb522cf74779c1bd35e83
   scope: 37c3b6abae5cc4a74ff45e63b9b48d28e1b7500c504b61c9f6b7a22fe5acd2d3
-  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  references: a7f1702bfb90f13f6d92f0c4c471088a7d7091e12b0e916507778658b8451f12
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 569fe615f440ec71b849001af834a76a1c28a2db70631e02be44a3f3bf923114
   implementation_path: 33cc8f7588d6d5205f2c153ed18dfa7f244c1bc3a0f8697b18714ae02d7d09e4
   validation: 2ecda700b4a9d3b2681378e840a3dbe776706a6137e6c1ea25255b3073932602
   done_when: 568a457dbaca7106cf1be81d0bc4fed85c375ccd03c7f9da94c49e5932e569d3
   task_type: 17aef8a679138336d87167505c61b03a7bc28c9a12b1ccf78947b619d28fae69
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
-  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  atoms: 24014ca93b71775190bbf9d22b824055f1beab5f86abe8c8f99e7481e4e4cb2d
 semantic_tags:
 - artifact:task
 - representation.markdown
@@ -33,6 +33,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-20T01:40:46Z'
+  at: '2026-11-20T02:55:27Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
