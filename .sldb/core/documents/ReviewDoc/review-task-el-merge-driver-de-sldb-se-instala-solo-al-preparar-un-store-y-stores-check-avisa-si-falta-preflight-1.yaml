@@ -1,0 +1,37 @@
+name: review-task-el-merge-driver-de-sldb-se-instala-solo-al-preparar-un-store-y-stores-check-avisa-si-falta-preflight-1
+path: desk/reviews/task-el-merge-driver-de-sldb-se-instala-solo-al-preparar-un-store-y-stores-check-avisa-si-falta/preflight-1.md
+source_hash: a0bed52df8f4a52c0976f3846b3a0441e38c8f56925d18fe42b0230d3f83dab9
+content_hash: 6f3b014688c0ed15396527c5299d87eb47c71fb3cef0883bf973b310ed4a6f5c
+field_hashes:
+  id: 24ef71b37c4277248846d89bfc0a0cad898327883f3b5605818b58791068b0ee
+  title: b719350c39b079d831d7f72869a61a7b8b8cf904ae51154dd2e497eafd38b561
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 0aa603dc74a6186c8c3295d0c706700dc5b20f7566def29a2f03c87e5ca3950b
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: ee8dd9312bd62e04e48692c47c19dc72556c4c841dfb0d87b46ccdf5dd279606
+  input_sha256: d052a7ca7a5bec40a0374e344619aef87165871588045e3d5caa6a4008580c63
+  contract_sha256: 50eebb866172ed6ddffd95fb11745764606838c9e3d45629fc0a778e2de28356
+  output_sha256: 57993d943bcdc4f88409974f8961171eed48ee7c6827ed813b0ee570ff48360f
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 13152c90895b7573eb5dc6a77f760909e9e2f686c0baed0d107e4c08e7d77726
+  created_at: c075542a4a0d2bdf0ab6cec6c71fdddd384a1936502e2fdfd26cd193d78ab5bf
+  disposed_at: 6ba4340cdcbd5e5d89d2081214720160d80d3d01ef6b10b26e8648ad56466e72
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: b2d7a7d56a90d75f5c5a1112114e87e88aa7df9b867a4aae43b6c7b703353acd
+  disposition: 7d6e04da671d7815bea788759a695007993acc9bd008668e3c390ab9b5e302a7
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-20T06:46:34Z'
+  authority: generated
+  via: save_document_payload
