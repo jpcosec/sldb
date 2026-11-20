@@ -805,6 +805,8 @@ include:
     name: run-deskops-t-e1f80eb6a0cf
   - path: runs/subagents/exec-deskops-t-adc313bbd264-testing/run.md
     name: run-deskops-t-adc313bbd264
+  - path: runs/subagents/exec-deskops-e-9af1f5c9e2ab/run.md
+    name: run-deskops-e-9af1f5c9e2ab
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -2630,6 +2632,8 @@ include:
     name: review-task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo-preflight-1
   - path: desk/reviews/task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo/bundle-1.md
     name: review-task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo-bundle-1
+  - path: desk/reviews/task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo/goldens-1.md
+    name: review-task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo-goldens-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

@@ -1,0 +1,8 @@
+### Línea base del refactor (2026-11-20): suite completa de sldb sobre 130f2330 (contiene 0f91540d), corrida por integrate.
+FAILED tests/test_clean_code_rules.py::test_clean_code_rules[sldb/store/diagnostics.py]
+FAILED tests/test_clean_code_rules.py::test_clean_code_rules[sldb/api/stores/store_check.py]
+FAILED tests/test_clean_code_rules.py::test_clean_code_rules[sldb/api/rules/rules_on_write.py]
+FAILED tests/test_clean_code_rules.py::test_clean_code_rules[sldb/api/rules/rule_graph.py]
+FAILED tests/test_clean_code_rules.py::test_clean_code_rules[sldb/api/notations/component_spec_graph.py]
+5 failed, 3172 passed, 94 skipped, 1 xfailed, 9 warnings in 227.50s (0:03:47)
+### El refactor no cambia comportamiento: tras él, esta misma suite tiene que dar los 3172 passed y 0 failed (los 5 FAILED de test_clean_code_rules desaparecen). Tests de comportamiento de las cuatro tareas: tests/api/test_on_write_entering.py, tests/api/test_rules.py, tests/matching/test_matching_refs.py, tests/notations/test_notations_from_graph_cli.py, tests/store/test_diagnostics.py, sin cambiar asserts.
