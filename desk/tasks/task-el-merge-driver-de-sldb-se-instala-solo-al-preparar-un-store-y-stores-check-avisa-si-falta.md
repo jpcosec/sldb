@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-20T07:13:17Z'
+  at: '2026-11-20T07:42:11Z'
   authority: generated
   via: save_document_payload
 id: task-el-merge-driver-de-sldb-se-instala-solo-al-preparar-un-store-y-stores-check-avisa-si-falta
@@ -10,9 +10,23 @@ summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-testing
+current_node: ritual-execution
 history:
 - task_activates
+- 'task_returns_to_execution: Regresión en el consumidor, detectada por el coordinador
+  al correr la suite de deskops contra 68d4ee1d: tests/test_transaction.py::test_split_restores_source_and_store_when_the_second_atom_create_fails
+  de deskops falla 3 de 3 con este commit y pasa 3 de 3 sin él (sldb fd3c024b). Causa:
+  el split de deskops hace un build del store dentro de una Transaction; ensure_merge_driver,
+  llamado desde build_store/init_store/scaffold_store de la API, escribe .gitattributes
+  y la config de git fuera del snapshot de la transacción, y el rollback no lo deshace.
+  Después del split fallido, ''stores check'' ya no da lo mismo que antes, porque
+  cambia la lista de alerts. Intento 2: la instalación automática va solo en los comandos
+  CLI (''sldb stores init'', ''sldb stores scaffold'', ''sldb stores build'', en src/sldb/cli/commands/),
+  no en las funciones de API que usan las transacciones y deskops. El hallazgo merge-driver-missing
+  de stores check se queda, porque solo lee. Test: un build o init por la API dentro
+  de una Transaction que falla no deja .gitattributes ni merge.sldb.* nuevos; los
+  tests actuales del CLI siguen pasando. Antes de entregar, correr también ese test
+  de deskops con PYTHONPATH a este sldb si el contenedor tiene deskops (/workspace/deskops).'
 references: []
 depends_on: []
 pills: []

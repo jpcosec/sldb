@@ -1,15 +1,15 @@
 name: task-el-merge-driver-de-sldb-se-instala-solo-al-preparar-un-store-y-stores-check-avisa-si-falta
 path: desk/tasks/task-el-merge-driver-de-sldb-se-instala-solo-al-preparar-un-store-y-stores-check-avisa-si-falta.md
-source_hash: a77a02893e9a5230d60873d796b6bc8611df7f78028af1c60bbc733ac1643933
-content_hash: fd9c32c2b4aeb206048973aa9a3556d660d87cbef7c790a6c43db49c927ff6e1
+source_hash: 9d38663bfe63e4a26f81d6feabaddcb2a898ab3945b32cd27d005bf0780b2e64
+content_hash: 728169b877012a61d01f525ee99b62e480fcfd0e82db4264f444de09e4ecbd06
 field_hashes:
   title: 8125a31622efce6c054b63b4836c5d4644d661e7039a643db2ab881d34e20775
   id: a4f5e46308ec4c331381a84483437d0b44a2f9f39a8d6761cefd4fc388a34995
-  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
-  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  history: 4853a2c2f7d78872edb7a1eff2ede5d1c0e164fa4536c66c27dcfd75eb2fd5f4
   why: 3fcbdc759ac39844cbb90b5ae49336b349343406cf9d4230eac9f1ab7c9f665a
   goal: e1f9cc5971a811a3d2ecf423d7ceb8f1a6ffbca961dbd2483a81cb0d9e37ea79
   scope: 2d6e56c805f01c8f91faf66897018e3cb9b09f8f38573fbf936d31ca217042c7
@@ -33,6 +33,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-20T06:43:39Z'
+  at: '2026-11-20T07:42:11Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
