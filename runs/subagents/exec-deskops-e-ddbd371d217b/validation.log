@@ -1,0 +1,2 @@
+TMPDIR=/dev/shm pytest -q tests/store/test_diagnostics.py tests/test_serve_stores_check.py -> rc 0 (19 passed)
+bash tools/check.sh --fast -> rc 1 (FALLAN: identidad — "directorio versionado sin clasificar en la raíz: workbench_demo"; preexistente, commit 562847e2, ajeno a esta tarea). Salida: /dev/shm/fast.out

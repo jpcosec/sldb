@@ -1,46 +1,44 @@
+Task: task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co
+Title: stores check sobre un clon sin build reporta los documentos generados ausentes como una alerta, no como miles de errores
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+From drawer: drawer task-stores-check-sobre-un-clon-sin-build-da-rc-1-con-2453-errores-missing-de-pythonsymboldoc-generados-y-tapa-los-errores-reales (retirado en el triaje 2026-11-16; contenido en git antes del commit del triaje)
+Effective atoms:
+- atom-lo-que-el-código-dice-de-sí-mismo-se-publica-con-lo-que-no-se-pudo-probar-a-la-vista
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-20T16:29:41Z'
+  at: '2026-11-16T08:49:29Z'
   authority: generated
   via: save_document_payload
 id: task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co
-status: active
+status: draft
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
-current_node: ritual-testing
-history:
-- task_activates
-references:
-- src/sldb/api/stores/store_check.py
-- src/sldb/api/stores/store_findings.py
-- src/sldb/cli/commands/store_check.py
-- src/sldb/cli/serve/lint_routes.py
-- src/sldb/cli/serve/stores_check.py
-- src/sldb/store/diagnostics.py
-- src/sldb/store/diagnostics_models/model_diagnosis.py
-- tests/store/test_diagnostics.py
-- 0f91540dfbaee9a0eae95b2c0a20b71db0ad1d78
-- 07450d10542ba9b884149c1cea928ff8e582adfc
+current_node: ritual-execution
+history: []
+references: []
 depends_on: []
 pills: []
 files:
-- src/sldb/api/stores/store_check.py
-- src/sldb/api/stores/store_findings.py
-- src/sldb/cli/commands/store_check.py
-- src/sldb/cli/serve/lint_routes.py
-- src/sldb/cli/serve/stores_check.py
 - src/sldb/store/diagnostics.py
-- src/sldb/store/diagnostics_models/model_diagnosis.py
+- src/sldb/api/stores/store_check.py
 - tests/store/test_diagnostics.py
+- CHANGELOG.md
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
 atoms:
-- atom-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta
+- atom-lo-que-el-código-dice-de-sí-mismo-se-publica-con-lo-que-no-se-pudo-probar-a-la-vista
 from_drawer: drawer task-stores-check-sobre-un-clon-sin-build-da-rc-1-con-2453-errores-missing-de-pythonsymboldoc-generados-y-tapa-los-errores-reales
   (retirado en el triaje 2026-11-16; contenido en git antes del commit del triaje)
 ---
@@ -87,3 +85,20 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 Los dos comandos pasan con el test nuevo; en un clon limpio sin build stores check sale con 0 errores de PythonSymbolDoc y una alerta store/generated-missing; el informe lista las alertas de selfdoc check; CHANGELOG y commit.
+
+## Entrega del ejecutor
+
+Al terminar, commitea solo los archivos que cambiaste para la tarea, nombrados uno por uno (los mismos que listas en result-summary.md):
+
+    git add <ruta> <ruta> ...
+    git commit -m "<resumen>" -m "Task-Id: task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co"
+
+Nunca uses `git add -A`, `git add -u` sobre todo el arbol ni `git stash`: puede haber trabajo ajeno sin commitear. No hagas push. Recien despues ejecuta `deskops advance task`.
+
+## Gates rapidos del desk
+
+Antes del commit corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Debe terminar con rc 0 antes de commitear; si falla, corrige y repite. Anota el comando y su rc en validation.log.

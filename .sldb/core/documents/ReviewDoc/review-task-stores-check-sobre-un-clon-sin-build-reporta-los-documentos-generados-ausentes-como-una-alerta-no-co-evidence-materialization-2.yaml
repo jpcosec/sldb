@@ -1,0 +1,37 @@
+name: review-task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co-evidence-materialization-2
+path: desk/reviews/task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co/evidence-materialization-2.md
+source_hash: f582b0f56a6d6107050df6db0ea7ee630650c004f9e4941f4c592741603ca430
+content_hash: bb25a902fbb24bb33fc25cff88fc47cf914cbafb700296d4d654458b58e125f8
+field_hashes:
+  id: e9d1da576a849f07fe2cb62956e6bb9bca7c1e6a47b4a36652a43347d81da78a
+  title: ecb0e43d920ad3306cdc12329f742b4fbb68ec200149fe14afbc95548c0083ae
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: 85f96e260cc99ba316b27932cfd76b947654b3b20962770525c2169f61226a05
+  subject: 8eeece6d566ed3d112ff0c48d9e20973d524512ce8fc4b145cb9eadd1b119cdf
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 0eb516472f05af023a73c9b46e90ae52824b3bb98f8fc0f280ef6e6033b1bdae
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 7c9f9f637613161d53782ce92a70a19038232640c52b96f75ebfc784498914b7
+  created_at: dbdd750fce35cf37bc767f17016e08da3ba9cab2d9d18d33cc3f68c0384fcce9
+  disposed_at: dbdd750fce35cf37bc767f17016e08da3ba9cab2d9d18d33cc3f68c0384fcce9
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 1734d194e2a9a089f8485dc4b4d8962ea5784e0d5e4c9df354c8a4794126dc37
+  disposition: 48e6053c44aa28514affea4a9d2e5543b33676075a1193d0802aa66f61f42a8a
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-20T16:34:52Z'
+  authority: generated
+  via: create_document

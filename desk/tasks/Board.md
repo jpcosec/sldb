@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-20T16:11:00Z'
+  at: '2026-11-20T17:00:40Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -37,7 +37,6 @@ tasks:
 - desk/tasks/task-sldb-docs-track-canonical-un-markdown-escrito-a-mano-se-lleva-a-su-render-canónico-con-el-diff-a-la.md
 - desk/tasks/task-decisión-de-jp-dónde-vive-un-hook-que-bloquea-write-edit-sobre-rutas-trackeadas-por-un-store-de-sldb.md
 - desk/tasks/task-decisión-de-jp-python-sync-o-stores-build-destrackean-los-pythonsymboldoc-cuyo-símbolo-desapareció.md
-- desk/tasks/task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co.md
 - desk/tasks/task-r6-el-tokenizer-y-el-parser-del-lenguaje-de-reglas-bajan-a-core-para-cerrar-la-arista-de-capas-model.md
 - desk/tasks/task-decisión-de-jp-decisión-6-separar-el-store-de-sldb-en-un-paquete-propio-o-quedarse-con-el-desacople.md
 - desk/tasks/task-surface-dev-prosa-generada-con-marca-y-hash-de-sus-átomos-de-origen-y-extractor-externo-de-átomos-pr.md
@@ -140,7 +139,6 @@ _Generated from the task references above._
 - sldb docs track --canonical: un Markdown escrito a mano se lleva a su render canónico, con el diff a la vista, antes de trackearlo [draft] - `sldb docs track <ruta> --model <M> --canonical` extrae el payload del archivo, lo renderiza con el modelo, imprime el diff unificado entre el archivo y el render canónico, reescribe el archivo con el render canónico y lo trackea; si el payload no se puede extraer o no valida, no escribe nada y sale con 1 mostrando el error. Sin --canonical, track se comporta como hoy.
 - Decisión de JP: dónde vive un hook que bloquea Write/Edit sobre rutas trackeadas por un store de sldb [draft] - JP decide (a) sldb ofrece `sldb guard-path` y un ejemplo de hook documentado, y se crea su tarea de código; (b) el hook vive solo en ~/setup y sldb no cambia; o (c) no se hace. La decisión queda en docs/user-manual.md, sección "Escritura por agentes", con fecha.
 - Decisión de JP: python-sync o stores build destrackean los PythonSymbolDoc cuyo símbolo desapareció [draft] - JP decide (a) python-sync destrackea los PythonSymbolDoc de su system cuyo símbolo ya no existe y conserva los documentos de comandos y superficies escritos por personas; (b) también destrackea los de comandos y superficies; o (c) se mantiene la retención y solo se reportan. La decisión queda en docs/self-documentation.md, sección "Símbolos que desaparecen", y si es (a) o (b) se crea la tarea de código que cambia report.py y test_sync.py.
-- stores check sobre un clon sin build reporta los documentos generados ausentes como una alerta, no como miles de errores [active] - En un store cuyo store.yaml declara rutas derived, un documento trackeado ausente cuya ruta cae bajo una de ellas no es error: stores check emite una sola alerta store/generated-missing con el número y el modelo ("2453 PythonSymbolDoc documents are generated and not on disk: run `sldb stores build`"), sigue reportando como error cualquier otro ausente, y su exit code depende solo de los errores.
 - R6: el tokenizer y el parser del lenguaje de reglas bajan a core para cerrar la arista de capas models -> store [draft] - predicate_tokens, predicate_cursor, predicate_parser y predicate_ast viven en un paquete de core (sldb.core.rules_language), sldb.store.graph.language los reexporta con los mismos nombres, rule_doc._parse importa de core, y contracts/layers.toml ya no tiene la excepción upward [models, store] ni el pending R6; python tools/check_layers.py pasa.
 - Decisión de JP (decisión 6): separar el store de sldb en un paquete propio o quedarse con el desacople interno [draft] - JP toma la decisión 6: (a) separar: se crea la tarea de refactor que inyecta las tres costuras y crea el paquete con su pyproject y su suite; o (b) quedarse con el desacople interno. La decisión queda escrita en docs/architecture/store-extraction-proposal.md, sección "Decisión 6", con fecha, y desk/STANDARDS.md:19 deja de decir que está pendiente (vía la CLI que corresponda o en el commit del doc si STANDARDS.md no es un documento modelado).
 - Surface dev: prosa generada con marca y hash de sus átomos de origen, y extractor externo de átomos propuesto (decisiones 3 y 4 de OPERACIONALIZACION-VISTAS §6) [draft] - En los stores de surface/dev, un documento de prosa generada guarda la marca generado y el sha256 de los source_hash de sus átomos de origen, y una función de lectura dice si está desactualizado; un extractor por línea de comandos escribe AtomDoc nuevos con status propuesto sin modificar ninguno confirmado; §6 del doc dice que las cuatro decisiones están tomadas y dónde quedó cada una.
