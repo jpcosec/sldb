@@ -26,7 +26,7 @@ def save_document_payload(store: str | Path | None, model_name: str, document_na
         actor: Optional caller label, stamped into the document's provenance block.
 
     Returns:
-        The document written.
+        The document written; its `alerts` carry the `on_write` alerts of the write.
 
     Raises:
         SLDBPayloadSaveError: When the model or document is not registered, or the rendered
@@ -41,15 +41,16 @@ def save_document_payload(store: str | Path | None, model_name: str, document_na
     idx, m_entry, m_idx = load_model_indexes(location.store_path, location.project_root, model_name)
     doc_entry = load_document_entry(location.store_path, m_entry.name, document_name)
     model_type = model_class(m_entry.model_ref, pythonpath, location.project_root)
-    _save(location, idx, m_idx, m_entry, doc_entry, model_type, payload, pythonpath, actor)
-    return DocumentReference(model=m_entry.name, name=doc_entry.name, path=location.project_root / doc_entry.path)
+    alerts = _save(location, idx, m_idx, m_entry, doc_entry, model_type, payload, pythonpath, actor)
+    return DocumentReference(model=m_entry.name, name=doc_entry.name, path=location.project_root / doc_entry.path, alerts=alerts)
 
 
-def _save(location, idx, m_idx, m_entry, doc_entry, model_type, payload, pythonpath, actor) -> None:
+def _save(location, idx, m_idx, m_entry, doc_entry, model_type, payload, pythonpath, actor) -> list[dict[str, Any]]:
     payload = pin_payload(location.store_path, model_type, payload)
-    check_rules_on_write(location.store_path, model_type, f"{m_entry.name}:{doc_entry.name}", payload)
+    alerts = check_rules_on_write(location.store_path, model_type, f"{m_entry.name}:{doc_entry.name}", payload)
     rendered = render_checked(model_type, payload, location.project_root)
     refuse_lossy_overwrite(location.store_path, location.project_root, doc_entry, model_type, rendered)
     refuse_unknown_family(location.store_path, model_type, payload, pythonpath)
     write_rendered_document(location.project_root, doc_entry, model_type, rendered, actor=actor, store_path=location.store_path)
     save_document_indexes(location.store_path, location.project_root, idx, m_idx, m_entry, doc_entry, pythonpath, model_type)
+    return alerts

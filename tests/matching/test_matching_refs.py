@@ -128,3 +128,19 @@ def test_build_atoms_by_view_uses_store_scoped_payload(matching_store):
     entry = atoms_by_view["view-1"]["atomo y"]
     assert entry["title"] == "Atomo Y" and "atomo" in entry["aliases"] and "oc" in entry["aliases"]
     assert entry["atoms"]["what"]["id"] == "atom-y" and entry["atoms"]["what"]["body"] == "Respuesta Y"
+
+
+def test_raw_atoms_by_view_atoms_dir_rules_every_view_and_no_store_is_read(matching_store, tmp_path):
+    from sldb.api.matching import raw_atoms_by_view
+
+    atoms = tmp_path / "atoms"
+    atoms.mkdir()
+    (atoms / "atom-z.md").write_text("---\ntitle: Atomo Z\nfive_wh_one_plus: what\nid: atom-z\n---\nCuerpo de atom-z.\n", encoding="utf-8")
+    views = [_view(matching_store), SpecView(key="v2", id="v2", specs=[], store=None)]
+    with_dir, _ = raw_atoms_by_view(views, atoms)
+    assert {k: set(v) for k, v in with_dir.items()} == {"v1": {"atomo z"}, "v2": {"atomo z"}}
+    reader = StoreReader()
+    raw_atoms_by_view(views, atoms, reader)
+    assert reader._docs == {}
+    without_dir, _ = raw_atoms_by_view(views)
+    assert "atomo y" in without_dir["v1"] and "atomo z" not in without_dir["v1"] and without_dir["v2"] == {}

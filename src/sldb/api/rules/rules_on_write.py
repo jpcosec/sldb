@@ -23,22 +23,36 @@ from sldb.api.rules.rules_on_transition import has_rules, payload_findings
 from sldb.core.exceptions import SLDBRuleViolationError
 from sldb.core.finding import split
 from sldb.core.finding_route import route
+from sldb.store.edge_index.declared_references import declared_reference_edges
+from sldb.store.edge_index.doc_anchor_edges import doc_anchor_edges
+from sldb.store.edge_index.node_ids import doc_node_id
 from sldb.store.edge_index.doc_anchor_states import SUFFIX, field_states, store_current
 from sldb.store.model_contract import doc_anchor_fields
 
 
-def check_on_write(store_path: Path, model_type: type, node: str, payload: dict[str, Any]) -> None:
-    """Evaluate the `on_write` rules on `node` (`Model:name`) as `payload`; raise on an error."""
+def check_on_write(store_path: Path, model_type: type, node: str, payload: dict[str, Any]) -> list[dict[str, Any]]:
+    """Evaluate the `on_write` rules on `node` (`Model:name`) as `payload`; raise on an error.
+
+    Returns the alerts of the write as `Finding.as_dict()` (they are also routed)."""
     declared = has_rules(store_path)
     if not declared and not tag_rules(store_path):
-        return
+        return []
     graph, read = rule_graph(store_path, None), anchored(store_path, model_type, payload)
+    graph = graph.with_edges(node, payload_edges(node, model_type, payload))
     found = payload_findings(graph, "on_write", node, read) if declared else []
     errors, alerts = split(found + family_findings(graph.with_payload(node, read), [node]))
     mark_dirty(store_path, graph.index, node)
     route(alerts)
     if errors:
         raise SLDBRuleViolationError(errors)
+    return [a.as_dict() for a in alerts]
+
+
+def payload_edges(node: str, model_type: type, payload: dict[str, Any]) -> list[Any]:
+    """The outgoing edges `payload` declares (`__references__`, `__containment__`, `__doc_anchors__`),
+    built as the edge index builds them for a document."""
+    model, name = node.rsplit(":", 1)
+    return declared_reference_edges(model, name, model_type, payload) + doc_anchor_edges(doc_node_id(node), model_type, payload)
 
 
 def anchored(store_path: Path, model_type: type, payload: dict[str, Any]) -> dict[str, Any]:

@@ -19,13 +19,14 @@ from sldb.core.finding import Finding
 def raw_atoms_by_view(
     views: list[SpecView], atoms_dir: Path | None = None, reader: StoreReader | None = None
 ) -> tuple[dict[str, dict[str, dict]], list[Finding]]:
-    """`vista -> payload` del store de cada vista; las vistas sin átomos toman los de `atoms_dir`."""
+    """`vista -> payload`: con `atoms_dir`, los átomos de esa carpeta para todas las vistas (no se consulta ningún store); sin él, los del store de cada vista."""
     reader = reader or StoreReader()
-    atoms_by_view = {view.key: reader.atoms(view.store) if view.store is not None else {} for view in views}
     findings: list[Finding] = []
     if atoms_dir:
-        fallback = json.loads(parse_atoms(atoms_dir, findings))
-        atoms_by_view.update({view.key: fallback for view in views if not atoms_by_view.get(view.key)})
+        payload = json.loads(parse_atoms(atoms_dir, findings))
+        atoms_by_view = {view.key: payload for view in views}
+    else:
+        atoms_by_view = {view.key: reader.atoms(view.store) if view.store is not None else {} for view in views}
     return atoms_by_view, [*reader.findings, *findings]
 
 

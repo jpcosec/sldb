@@ -6,7 +6,9 @@ local document reads exactly as it would in the composed one.
 
 `with_payload(node, payload)` is the same graph where `node` reads `payload` instead of its
 projection (GO08: the payload a write is about to persist, or the subject a transition reads);
-paths still follow the index's edges."""
+`with_edges(node, edges)` replaces the declared outgoing edges (`references` / `contains` of
+origin `schema`) of `node` with `edges`, the ones the new payload declares; paths follow the
+index's edges otherwise."""
 
 from __future__ import annotations
 
@@ -22,7 +24,9 @@ from sldb.api.stores.open_store import open_store
 from sldb.store.edge_index.node_ids import bare, kind
 from sldb.store.graph.backend.index_view import index_view
 from sldb.store.graph.language.predicate_api import node_finding
-from sldb.store.graph.language.predicate_view import node as view_node, with_node
+from sldb.store.graph.language.predicate_view import edge, node as view_node, with_node
+
+_DECLARED = ("references", "contains")
 
 
 @dataclass(frozen=True)
@@ -35,6 +39,7 @@ class RuleGraph:
     store_path: Path
     override: tuple[str, dict[str, Any]] | None = None
     linked: bool = True
+    declared: tuple[str, tuple[Any, ...]] | None = None
 
     def holds(self, predicate: str, node: str) -> dict[str, Any]:
         """The eval finding (node, holds, clause, seen) of `predicate` on the document `node`."""
@@ -49,7 +54,19 @@ class RuleGraph:
         if self.override is None or node != self.override[0]:
             return self._view, known
         item = {**known, "payload": self.override[1]}
-        return with_node(self._view, item), item
+        return with_node(self._declared_view(), item), item
+
+    def _declared_view(self) -> dict[str, Any]:
+        """The index's view, where the declared edges of the `declared` node are the new ones."""
+        view = self._view
+        if self.declared is None:
+            return view
+        node, new = self.declared
+        added = [edge(bare(e.source), e.relation, bare(e.target), e.metadata.get("field"), e.metadata.get("declared")) for e in new]
+        replaced = lambda e: e["source"] == node and e["type"] in _DECLARED  # noqa: E731
+        out = lambda i: [e for e in view["out"](i) if not replaced(e)] + [e for e in added if e["source"] == i]  # noqa: E731
+        into = lambda i: [e for e in view["in"](i) if not replaced(e)] + [e for e in added if e["target"] == i]  # noqa: E731
+        return {**view, "out": out, "in": into}
 
     def _unindexed(self, node: str) -> dict[str, Any]:
         """A document the index does not hold yet: its family from the store's model registry
@@ -62,6 +79,10 @@ class RuleGraph:
     def with_payload(self, node: str, payload: dict[str, Any]) -> "RuleGraph":
         """This graph, with `node` reading `payload` (its model and edges stay the index's)."""
         return replace(self, override=(node, payload))
+
+    def with_edges(self, node: str, edges: list[Any]) -> "RuleGraph":
+        """This graph, where the declared outgoing edges of `node` are `edges` (the payload's)."""
+        return replace(self, declared=(node, tuple(edges)))
 
     @cached_property
     def index_documents(self) -> list[str]:

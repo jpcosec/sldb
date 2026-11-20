@@ -301,3 +301,30 @@ def test_json_carries_both_letter_and_semantic_keys(tmp_path, capsys):
     assert payload["hash_a_ok"] == payload["root_ok"]
     assert payload["damaged"] == 1
     assert "explain" in doc and "stores update" in doc["explain"]
+
+
+def test_missing_under_derived_is_one_alert_and_other_missing_stays_an_error(tmp_path):
+    """3 tracked documents absent under `derived: [gen/]` -> one alert saying 3; the 1 outside is an error."""
+    from sldb.api.stores.store_check import all_findings, derived_prefixes
+    from sldb.api.stores.store_declaration import StoreDeclaration, save_declaration
+
+    _make_store(tmp_path)
+    (tmp_path / "gen").mkdir()
+    for name in ("a", "b", "c"):
+        (tmp_path / "gen" / f"{name}.md").write_text(f"# {name}\n", encoding="utf-8")
+        cli_main(["docs", "track", str(tmp_path / "gen" / f"{name}.md"), "--model", CheckDoc.__name__, "--store", str(tmp_path / ".sldb"), "--pythonpath", _PYTHONPATH])
+    (tmp_path / "genx.md").write_text("# x\n", encoding="utf-8")  # a prefix by text, not by path component
+    cli_main(["docs", "track", str(tmp_path / "genx.md"), "--model", CheckDoc.__name__, "--store", str(tmp_path / ".sldb"), "--pythonpath", _PYTHONPATH])
+    save_declaration(tmp_path / ".sldb", StoreDeclaration(derived=["gen/"]))
+    for gone in ("gen/a.md", "gen/b.md", "gen/c.md", "genx.md"):
+        (tmp_path / gone).unlink()
+
+    store = tmp_path / ".sldb"
+    assert derived_prefixes(store) == ["gen/"]
+    result = diagnose_store(store, resolve_model_ref, tmp_path, pythonpath=_PYTHONPATH, derived=derived_prefixes(store))
+    findings = all_findings(result, store, tmp_path, _PYTHONPATH)
+    generated = [f for f in findings if f.code == "store/generated-missing"]
+    assert [(f.level, f.subject) for f in generated] == [("alert", "CheckDoc")]
+    assert generated[0].what == "3 CheckDoc documents are generated and not on disk: run `sldb stores build`"
+    assert [f.subject for f in findings if f.code == "store/missing"] == ["CheckDoc:genx"]
+    assert [f for f in findings if f.level == "error" and f.code == "store/missing"] == [f for f in findings if f.code == "store/missing"]

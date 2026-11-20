@@ -87,3 +87,65 @@ def test_cli_from_graph_reports_dangling_edges_on_stderr(tmp_path, capsys):
     captured = capsys.readouterr()
     assert "alert: [component-spec/dangling-edge] sldb://document/AtomDoc:atom-x -> sldb://document/Ghost:g" in captured.err
     _validated(yaml.safe_load(captured.out))
+
+
+_REPO_MODEL = '''from pydantic import Field
+from sldb import StructuredNLDoc
+
+
+class RepoDoc(StructuredNLDoc):
+    __template__ = """# ⸢rev•title⸥
+
+## Tags
+
+- ⸢rev,list•tags⸥
+""".strip()
+    title: str = Field(description="Repository title.")
+    tags: list[str] = Field(description="Tags.")
+'''
+_REPOS = {"repo-a1": ("Alpha one", "system:a"), "repo-a2": ("Alpha two", "system:a"), "repo-b1": ("Beta one", "system:b"), "repo-none": ("No system", "area:x")}
+
+
+def _repo_store(tmp_path):
+    from sldb import api
+
+    (tmp_path / "from_graph_repo_models.py").write_text(_REPO_MODEL, encoding="utf-8")
+    root = tmp_path / "project"
+    root.mkdir()
+    store = api.init_store(root).store_path
+    api.add_model(store, "from_graph_repo_models:RepoDoc", str(tmp_path))
+    for name, (title, tag) in _REPOS.items():
+        api.create_document(store, "RepoDoc", root / f"{name}.md", {"title": title, "tags": [tag]}, name, str(tmp_path))
+    return store
+
+
+def _documents(capsys):
+    nodes = yaml.safe_load(capsys.readouterr().out)["data"]["nodes"]
+    return {k: n for k, n in nodes.items() if k.startswith("document_")}
+
+
+def test_from_graph_store_label_and_kind_fields(tmp_path, capsys):
+    store = _repo_store(tmp_path)
+    assert main(["notations", "from-graph", "--store", str(store), "--model", "RepoDoc", "--label-field", "title", "--kind-field", "tag:system"]) == 0
+    nodes = _documents(capsys)
+    pairs = {(n["label"], n["kind"]) for n in nodes.values()}
+    assert pairs == {("Alpha one", "a"), ("Alpha two", "a"), ("Beta one", "b"), ("No system", "RepoDoc")}
+
+
+def test_from_graph_store_group_field_makes_containers(tmp_path, capsys):
+    store = _repo_store(tmp_path)
+    assert main(["notations", "from-graph", "--store", str(store), "--model", "RepoDoc", "--label-field", "title", "--group-field", "tag:system"]) == 0
+    spec = yaml.safe_load(capsys.readouterr().out)
+    nodes = spec["data"]["nodes"]
+    groups = {n["label"]: n["contains"] for n in nodes.values() if n["kind"] == "group"}
+    assert set(groups) == {"a", "b"} and len(groups["a"]) == 2 and len(groups["b"]) == 1
+    assert {nodes[m]["label"] for m in groups["a"]} == {"Alpha one", "Alpha two"}
+    _validated(spec)
+
+
+def test_from_graph_without_field_flags_is_unchanged(tmp_path, capsys):
+    store = _repo_store(tmp_path)
+    assert main(["notations", "from-graph", "--store", str(store), "--model", "RepoDoc"]) == 0
+    nodes = _documents(capsys)
+    assert all(n["kind"] == "RepoDoc" for n in nodes.values()) and not any("contains" in n for n in nodes.values())
+    assert {n["label"] for n in nodes.values()} == set(_REPOS)

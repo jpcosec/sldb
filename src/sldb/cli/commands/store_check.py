@@ -16,13 +16,13 @@ from sldb.core.finding import split
 
 
 def check_store(args: Any) -> int:
-    from sldb.api.stores.store_check import all_findings
+    from sldb.api.stores.store_check import all_findings, derived_prefixes
     from sldb.store.diagnostics import diagnose_store
     from sldb.cli.model_utils import resolve_model_ref
     sp, root = get_store_context(args.store, mode="readonly")
     if _unbuilt(sp, args.format):
         return 1
-    res = diagnose_store(sp, resolve_model_ref, root, pythonpath=args.pythonpath)
+    res = diagnose_store(sp, resolve_model_ref, root, pythonpath=args.pythonpath, derived=derived_prefixes(sp))
     findings = all_findings(res, sp, root, args.pythonpath)
     _print(res, findings, args.format, getattr(args, "quiet", False))
     return exit_after_apply(findings, sp, args)

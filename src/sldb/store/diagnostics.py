@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any, Callable, Optional
+from typing import Any, Callable, Optional, Sequence
 
 from sldb.store.field_set_drift import document_drifted
 from sldb.store.diagnostics_models.text_history import with_history
@@ -91,7 +91,14 @@ def _note(content_ok: bool, fields_ok: bool, contract_ok: bool) -> DiagnosisNote
         return DiagnosisNote.BENIGN_MUTATION
     return DiagnosisNote.CONTRACT_MUTATION if not contract_ok and content_ok else DiagnosisNote.DATA_MUTATION
 
-def _diagnose_model(model_entry, root, pythonpath, resolve_model_ref: Callable) -> tuple[ModelDiagnosis, ModelsIndex]:
+def _is_generated_missing(doc, root: Path, derived: Sequence[str]) -> bool:
+    """A tracked document under a declared `derived` path that is not on disk: a generator writes it."""
+    parts = Path(doc.path).parts
+    under = any(parts[: len(Path(d).parts)] == Path(d).parts for d in derived if Path(d).parts)
+    return under and not (root / doc.path).exists()
+
+
+def _diagnose_model(model_entry, root, pythonpath, resolve_model_ref: Callable, derived: Sequence[str] = ()) -> tuple[ModelDiagnosis, ModelsIndex]:
     """The model node, split into the two children that can move it: its document roster and
     its contract. Attributing the node to one of them is the whole point of storing both."""
     models_idx = load_models_index(root / model_entry.models_index)
@@ -100,21 +107,26 @@ def _diagnose_model(model_entry, root, pythonpath, resolve_model_ref: Callable) 
     legacy = legacy_contract(models_idx, model_type)
     drifted = any(document_drifted(d, root, model_type) for d in docs_idx.documents)  # see sldb.store.field_set_drift
     contract_ok = (legacy or not contract_moved(models_idx, model_type)) and not drifted
-    doc_diagnoses = [_with_history(_diagnose_doc(d, root, model_type, contract_ok), root) for d in docs_idx.documents]
+    generated = [d for d in docs_idx.documents if derived and _is_generated_missing(d, root, derived)]
+    present = [d for d in docs_idx.documents if d not in generated]
+    doc_diagnoses = [_with_history(_diagnose_doc(d, root, model_type, contract_ok), root) for d in present]
     roster_ok = hash_documents_index(docs_idx) == models_idx.roster_hash
-    return ModelDiagnosis(name=models_idx.name, roster_ok=roster_ok, contract_ok=contract_ok, legacy_contract=legacy, resolved=model_type is not None, source_path=models_idx.path, documents=doc_diagnoses), models_idx
+    return ModelDiagnosis(name=models_idx.name, roster_ok=roster_ok, contract_ok=contract_ok, legacy_contract=legacy, resolved=model_type is not None, source_path=models_idx.path, documents=doc_diagnoses, generated_missing=len(generated)), models_idx
 
 def _with_history(doc: DocumentDiagnosis, root: Path) -> DocumentDiagnosis:
     """The text's git history, except for a path sldb would not read (nothing to compare)."""
     return doc if doc.note in (DiagnosisNote.PATH_OUTSIDE_ROOT, DiagnosisNote.SYMLINK_NOT_READ) else with_history(doc, root)
 
 
-def diagnose_store(store_path: Path, resolve_model_ref: Callable, project_root: Optional[Path] = None, pythonpath: Optional[str] = None) -> StoreDiagnosis:
-    """Diagnoses the integrity of the entire store."""
+def diagnose_store(store_path: Path, resolve_model_ref: Callable, project_root: Optional[Path] = None, pythonpath: Optional[str] = None, derived: Sequence[str] = ()) -> StoreDiagnosis:
+    """Diagnoses the integrity of the entire store.
+
+    `derived` are the declared generated path prefixes: a tracked document missing under one is
+    counted (`ModelDiagnosis.generated_missing`), not diagnosed as missing."""
     root = project_root or store_project_root(store_path)
     add_owner_import_roots(store_path)  # inherited models import from their owner
     store_index = load_store_index(store_path)
-    diagnoses = [_diagnose_model(m, root, pythonpath, resolve_model_ref) for m in store_index.models]
+    diagnoses = [_diagnose_model(m, root, pythonpath, resolve_model_ref, derived) for m in store_index.models]
     model_diagnoses = [d[0] for d in diagnoses]
     loaded_models_indices = [d[1] for d in diagnoses]
     return StoreDiagnosis(root_ok=hash_models_layer(loaded_models_indices) == store_index.hash_a, models=model_diagnoses)

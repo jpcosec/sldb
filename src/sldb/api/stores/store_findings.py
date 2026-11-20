@@ -39,7 +39,14 @@ def _model_findings(model: Any) -> list[Finding]:
         found.append(alert("store/roster-stale", model.name, model.explain(), _UPDATE))
     elif model.legacy_contract:
         found.append(alert("store/legacy-contract", model.name, model.explain(), _UPDATE))
-    return found + [f for doc in model.documents if (f := _document_finding(model.name, doc))]
+    found += [f for doc in model.documents if (f := _document_finding(model.name, doc))]
+    return found + _generated_missing(model)
+
+
+def _generated_missing(model: Any) -> list[Finding]:
+    """One alert for the model's generated documents not on disk (a clone before `stores build`)."""
+    n = getattr(model, "generated_missing", 0)
+    return [alert("store/generated-missing", model.name, f"{n} {model.name} documents are generated and not on disk: run `sldb stores build`", "sldb stores build")] if n else []
 
 
 def _unresolved(model: Any) -> Finding:

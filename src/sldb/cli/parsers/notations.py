@@ -62,6 +62,9 @@ def _from_graph_filters(p: argparse.ArgumentParser) -> None:
     p.add_argument("--relation", dest="relations", action="append", default=[], help="Keep only these relations; repeatable. Overrides the default exclusions")
     p.add_argument("--exclude-relation", dest="exclude_relations", action="append", default=[], help="Drop this relation; repeatable. Default: structural relations")
     p.add_argument("--drop-isolated", action="store_true", help="Drop nodes left without edges after filtering")
+    p.add_argument("--label-field", help="Payload field that gives each document node its label (default: the document id). Needs --store; a --snapshot has no payload, only the id and the model")
+    p.add_argument("--kind-field", help="Payload field, or tag:<namespace> (the first tag '<namespace>:x' gives 'x'), that gives each document node its kind (default: the model). Needs --store")
+    p.add_argument("--group-field", help="Payload field or tag:<namespace>: documents with the same value go into one container node (kind 'group') with contains edges. Needs --store")
     p.add_argument("--module-prefix", dest="module_prefixes", action="append", default=[], help="Keep only Python nodes of this module or below; repeatable. With --python, the one root package")
 
 

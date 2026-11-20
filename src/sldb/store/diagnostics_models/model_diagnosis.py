@@ -45,6 +45,7 @@ class ModelDiagnosis:
     resolved: bool = True   # False when the class cannot be imported: fields were not re-extracted
     source_path: str = ""   # the .py the contract is declared in: what to open when it moved
     documents: list[DocumentDiagnosis] = field(default_factory=list)
+    generated_missing: int = 0   # tracked documents under a declared `derived` path, not on disk: not diagnosed
 
     @property
     def hash_b_ok(self) -> bool:

@@ -72,3 +72,13 @@ def test_a_store_without_on_write_rules_creates_as_before(world: World) -> None:
     world.rule("closed")
     world.doc("X", "x3", OPEN)
     assert _tracked(world, "x3")
+
+
+def test_an_on_write_rule_sees_the_edges_the_new_payload_declares(world: World) -> None:
+    world.rule("linked", moment="on_write", condition='count(depends_on: title != "") > 0')
+    with pytest.raises(SLDBRuleViolationError, match="rules/linked"):
+        world.save("X", "x1", {"title": "x1", "status": "open"})
+    world.save("X", "x1", {"title": "x1", "status": "open", "depends_on": "X:x2"})
+    with pytest.raises(SLDBRuleViolationError, match="rules/linked"):
+        world.save("X", "x1", {"title": "x1", "status": "open"})
+    assert api.edge_node(world.store, "X:x1").payload["depends_on"] == "X:x2"

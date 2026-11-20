@@ -37,9 +37,9 @@ def dispatch_lint(
 def _store_problems(store_path: Path, root: Path, pythonpath: str) -> list[JsonDict]:
     """Every finding of `stores check`, an error as `error` and an alert as `warning`
     (anchoring.md §4), plus each reformatted document as a `warning`."""
-    from sldb.api.stores.store_check import all_findings
+    from sldb.api.stores.store_check import all_findings, derived_prefixes
 
-    diagnosis = diagnose_store(store_path, resolve_model_ref, root, pythonpath)
+    diagnosis = diagnose_store(store_path, resolve_model_ref, root, pythonpath, derived=derived_prefixes(store_path))
     problems = [_problem("store", "error" if f.level == "error" else "warning", f.document, f"{f.subject}: {f.what}") for f in all_findings(diagnosis, store_path, root, pythonpath)]
     return problems + [_reformatted(m, d) for m, d in diagnosis.reformatted_documents]
 

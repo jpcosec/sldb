@@ -15,6 +15,16 @@ from pathlib import Path
 from typing import Any
 
 
+def derived_prefixes(store_path: Path) -> list[str]:
+    """The declared `derived` path prefixes of the store; none when it has no readable declaration."""
+    from sldb.api.stores.store_declaration import load_declaration
+
+    try:
+        return list(load_declaration(store_path).derived)
+    except (OSError, ValueError):
+        return []
+
+
 def check_store(store_path: Path, project_root: Path, pythonpath: str | None = None) -> dict[str, Any]:
     """Run the CLI's store integrity check and summarize it."""
     from sldb.api.model_registry.model_reference import resolve_model_ref
@@ -23,7 +33,7 @@ def check_store(store_path: Path, project_root: Path, pythonpath: str | None = N
     from sldb.api.model_registry.model_reference import same_model_class
     from sldb.store.model_origin import shadowed_models
 
-    diagnosis = diagnose_store(store_path, resolve_model_ref, project_root, pythonpath=pythonpath)
+    diagnosis = diagnose_store(store_path, resolve_model_ref, project_root, pythonpath=pythonpath, derived=derived_prefixes(store_path))
     return {**check_report(diagnosis, structural_noise(store_path, project_root, pythonpath), all_findings(diagnosis, store_path, project_root, pythonpath)), "shadowed_models": shadowed_models(store_path, lambda a, b: same_model_class(a, b, pythonpath)), "broken_links": _broken_links(store_path), "gitignore_policy": _gitignore(store_path), "rewrite_loss": _rewrite_loss(store_path, project_root, pythonpath)}
 
 
