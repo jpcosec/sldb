@@ -1,0 +1,37 @@
+name: review-task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto-evidence-tests-1
+path: desk/reviews/task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto/evidence-tests-1.md
+source_hash: f6269e7242b8e94e90fc4864a979cec8aad5f6cfbd84397c92cb19fd1e84c0c8
+content_hash: d78fe60b4fdfd2c81ab90ab793af70ae6ebb420c944f2f27f06911fc0d19a41c
+field_hashes:
+  id: d77858344499fdde290d2ddc75752fc7aa848171e8e6f3bfa5cae0ed3cdece31
+  title: 46177793a9cd875c9d553afb661838e3149b4f0a6a1328ef8a5a95347456c68d
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: 68f05093bc600659c0aecd265fad80c71a658cc857e91cdfeeee782eb670c200
+  value: 6789e883c0f5a00ea42ec1f1308bfa3bf5876b956fa0b4cb78ccdaf1f71c92d3
+  subject: 47d713b175c558486a2c1b32563bf71eb338cc9f5b0fc633aeb2f0bdc9c88ceb
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 246b7b7eade3bcab30b3a4404de0f30734791e97ca07c192918a4a07058d9808
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: fcb65cff6ee357159dfd4015497b4a07b839578b0d4a32a836850aff3d1671f8
+  created_at: 51f737269d373163fbef1b6e5f6394b334ae2f4e3f704736df117a424933da2b
+  disposed_at: 51f737269d373163fbef1b6e5f6394b334ae2f4e3f704736df117a424933da2b
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 5bd554fc2e8036839dcfc87eec2a90c8ff01adce3e09d365da97afbeb944432d
+  disposition: ef0e6e8104e6ef7fde215a9bd17e6f2a81d0fe114438b1b9a62987e581faadd9
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-20T15:30:57Z'
+  authority: generated
+  via: create_document

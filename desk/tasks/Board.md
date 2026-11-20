@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-20T15:15:52Z'
+  at: '2026-11-20T15:55:35Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -43,7 +43,6 @@ tasks:
 - desk/tasks/task-surface-dev-prosa-generada-con-marca-y-hash-de-sus-átomos-de-origen-y-extractor-externo-de-átomos-pr.md
 - desk/tasks/task-decisión-de-jp-si-sldb-agrega-un-ast-intermedio-entre-marcador-y-campo-y-clases-anidadas-en-un-docum.md
 - desk/tasks/task-átomos-del-catálogo-sin-rutas-absolutas-atom-payload-y-store-documents-emiten-la-ruta-relativa-al-pr.md
-- desk/tasks/task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto.md
 - desk/tasks/task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup.md
 - desk/tasks/task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable.md
 - desk/tasks/task-pron-contra-sldb-deshacer-restaura-el-hash-del-mundo-untrack-track-recupera-el-documento-y-find-con.md
@@ -148,7 +147,6 @@ _Generated from the task references above._
 - Surface dev: prosa generada con marca y hash de sus átomos de origen, y extractor externo de átomos propuesto (decisiones 3 y 4 de OPERACIONALIZACION-VISTAS §6) [draft] - En los stores de surface/dev, un documento de prosa generada guarda la marca generado y el sha256 de los source_hash de sus átomos de origen, y una función de lectura dice si está desactualizado; un extractor por línea de comandos escribe AtomDoc nuevos con status propuesto sin modificar ninguno confirmado; §6 del doc dice que las cuatro decisiones están tomadas y dónde quedó cada una.
 - Decisión de JP: si sldb agrega un AST intermedio entre marcador y campo y clases anidadas en un documento (dos features del drawer) [draft] - JP decide una de: (a) no se hacen (se retiran las dos features); (b) se hace solo (2), clases anidadas sobre listas y tablas, sin AST intermedio; (c) se hacen las dos juntas. La decisión queda en docs/architecture/model-authoring.md, sección "AST intermedio y clases anidadas", con fecha, y si no es (a) se crea la tarea de diseño correspondiente.
 - Átomos del catálogo sin rutas absolutas: atom_payload y store_documents emiten la ruta relativa al proyecto y no la del store [draft] - El payload de átomos y las filas de store_documents traen "path" relativo a la raíz del proyecto del store que tiene el documento (con "/" como separador) y ya no traen la ruta absoluta del store; un catálogo construido con ellos no contiene "/mnt/" ni "/home/".
-- raw_atoms_by_view: si se pasa atoms_dir, ese directorio manda para todas las vistas y nunca entran átomos de un store ajeno [active] - raw_atoms_by_view(views, atoms_dir=d) devuelve para todas las vistas los átomos de d y no consulta ningún store; sin atoms_dir, el comportamiento es el de hoy.
 - sldb notations from-graph elige el campo del label, el campo que da kind o estilo y un campo de agrupación [active] - from-graph acepta --label-field <campo>, --kind-field <campo|tag:<namespace>> y --group-field <campo|tag:<namespace>>; con ellos, el label del nodo es el valor de ese campo del payload (o el id si falta), el kind es el valor del campo o del tag con ese namespace (o el modelo si falta), y los nodos con el mismo valor de agrupación quedan dentro de un nodo contenedor con aristas contains.
 - Separar el store en .sldb_store (todo lo versionado: store.yaml y core/) y .sldb_cache (todo lo regenerable), con stores migrate-layout, lectura del layout viejo y migración del ecosistema [draft] - Un store nuevo se crea en .sldb_store/ (store.yaml, core/ y README.md, todo versionado) con su cache en .sldb_cache/ (todo regenerable e ignorado); `sldb stores migrate-layout` lleva un store del layout viejo al nuevo con git mv; todo comando de sldb sigue leyendo un store en .sldb/ (layout viejo) con una alerta que dice que se migre; el store de sldb está migrado; y cada repo del ecosistema que tiene store recibió por inbox el aviso con el comando.
 - pron contra sldb: deshacer restaura el hash del mundo, untrack + track recupera el documento y find con where en un mundo solo vuelve a encontrar [draft] - Cada uno de los tres síntomas queda clasificado con evidencia como regresión de sldb (y arreglado aquí con test) o como cambio de contrato (documentado en el CHANGELOG, con la forma que pron debe adoptar), y las pruebas de pron nombradas en la nota pasan contra este sldb salvo las que dependan de un cambio de contrato que pron deba adoptar.

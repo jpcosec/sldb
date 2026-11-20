@@ -1,0 +1,2 @@
+TMPDIR=/dev/shm python -m pytest -q tests/matching/  -> rc 0 (32 passed)
+bash tools/check.sh --fast -> rc 1 (FALLAN: identidad: "directorio versionado sin clasificar en la raíz: workbench_demo"; ajeno a esta tarea)

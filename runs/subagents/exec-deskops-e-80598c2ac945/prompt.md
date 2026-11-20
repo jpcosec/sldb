@@ -1,33 +1,40 @@
+Task: task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto
+Title: raw_atoms_by_view: si se pasa atoms_dir, ese directorio manda para todas las vistas y nunca entran átomos de un store ajeno
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-20T15:29:30Z'
+  at: '2026-11-16T06:19:51Z'
   authority: generated
-  via: save_document_payload
+  via: create_document
 id: task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto
-status: active
+status: draft
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
-current_node: ritual-testing
-history:
-- task_activates
+current_node: ritual-execution
+history: []
 references:
-- src/sldb/api/matching/atoms_by_view.py
-- tests/matching/test_matching_refs.py
-- 0f91540dfbaee9a0eae95b2c0a20b71db0ad1d78
+- desk/inbox/20261116-004642-suggestion-sldb-notations-atoms-dir-no-manda-el-resolver-trae-tomos-de-un-store-ajeno-heredado-de-spec2viz-que-se-retira.md
 depends_on: []
 pills: []
 files:
 - src/sldb/api/matching/atoms_by_view.py
 - tests/matching/test_matching_refs.py
+- CHANGELOG.md
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms:
-- atom-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas
+atoms: []
 ---
 
 # raw_atoms_by_view: si se pasa atoms_dir, ese directorio manda para todas las vistas y nunca entran átomos de un store ajeno
@@ -69,3 +76,20 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 tests/matching/ pasa con el test nuevo; CHANGELOG y commit; aviso a IR con deskops message send --to IR (si no está registrado, línea "Aviso a IR" en result-summary.md).
+
+## Entrega del ejecutor
+
+Al terminar, commitea solo los archivos que cambiaste para la tarea, nombrados uno por uno (los mismos que listas en result-summary.md):
+
+    git add <ruta> <ruta> ...
+    git commit -m "<resumen>" -m "Task-Id: task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto"
+
+Nunca uses `git add -A`, `git add -u` sobre todo el arbol ni `git stash`: puede haber trabajo ajeno sin commitear. No hagas push. Recien despues ejecuta `deskops advance task`.
+
+## Gates rapidos del desk
+
+Antes del commit corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Debe terminar con rc 0 antes de commitear; si falla, corrige y repite. Anota el comando y su rc en validation.log.

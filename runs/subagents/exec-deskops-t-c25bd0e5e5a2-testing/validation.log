@@ -1,0 +1,27 @@
+Entorno: /tmp/ws-venv no existe en este contenedor; se usó /workspace/sldb/.venv (Python 3.13.18), PATH=/workspace/sldb/.venv/bin:$PATH.
+Commit del ejecutor (trailer): eb42a49ef62a74a9250f2157e1c93dc3d34d1b3e (vacío; el código de la tarea quedó en 0f91540dfbaee9a0eae95b2c0a20b71db0ad1d78).
+
+$ TMPDIR=/dev/shm python -m pytest -q tests/matching/
+32 passed, 1 warning in 3.12s
+rc=0
+
+$ TMPDIR=/tmp python -m pytest -q tests/matching/test_matching_refs.py
+11 passed, 1 warning in 5.36s
+rc=0
+
+$ TMPDIR=/tmp python -m pytest -q tests/matching/test_matching_refs.py -k atoms_dir_rules
+1 passed, 10 deselected, 1 warning in 0.77s
+rc=0
+
+$ TMPDIR=/tmp python -m pytest -q tests/matching/test_matching_explicit.py
+15 passed, 1 warning in 0.12s
+rc=0
+
+$ bash tools/check.sh --fast
+PASS: núcleo aislado
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+FAIL: identidad — "directorio versionado sin clasificar en la raíz: workbench_demo"
+PASS: ejes — 32 declarados, 996 archivos mapeados, 0 violaciones
+PASS: superficie — 125 símbolos pedidos, 597 declarados, 0 violaciones
+FALLAN: identidad
+rc=1
