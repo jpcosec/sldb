@@ -102,11 +102,14 @@ def test_a_rewrite_in_place_inside_one_clock_tick_is_seen_by_the_next_process(an
 
     from tests.api.test_doc_anchors import ACCEPTED
 
-    code = ("import sys, json; sys.path.insert(0, sys.argv[2]); from sldb.api import select_documents\n"
+    import sldb
+
+    own_src = str(Path(sldb.__file__).resolve().parent.parent)  # the sldb under test, not an editable install of another checkout
+    code = ("import sys, json; sys.path[:0] = [sys.argv[2], sys.argv[4]]; from sldb.api import select_documents\n"
             "print(json.dumps([r['export_id'] for r in select_documents(sys.argv[1], {'model': 'TaskDoc', 'where': sys.argv[3]})]))")
 
     def read() -> list[str]:
-        out = subprocess.run([sys.executable, "-c", code, str(anchors_world.store), anchors_world.py, ACCEPTED], capture_output=True, text=True, check=True)
+        out = subprocess.run([sys.executable, "-c", code, str(anchors_world.store), anchors_world.py, ACCEPTED, own_src], capture_output=True, text=True, check=True)
         return json.loads(out.stdout)
 
     anchors_world.create("Review", "r1", {"title": "r", "subject": "doc:TaskDoc:b", "verdict": "pending"})

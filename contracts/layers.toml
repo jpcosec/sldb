@@ -429,7 +429,7 @@ identity = false
 
 [[axis]]
 id = "cache"
-paths = ["store/built_cache.py", "store/runtime_cache.py", "store/runtime_cache_disk.py", "store/runtime_cache_signature.py", "store/user_cache.py", "store/derived_rebuild.py"]
+paths = ["store/built_cache.py", "store/disk_caches.py", "store/runtime_cache.py", "store/runtime_cache_disk.py", "store/runtime_cache_signature.py", "store/user_cache.py", "store/derived_rebuild.py"]
 external = []
 does = "memorizar lo derivado y saber cuándo invalidarlo"
 identity = false

@@ -16,7 +16,8 @@ from sldb.api.stores.scaffold_store import scaffold_store
 from sldb.api.stores.store_declaration import StoreDeclaration, declared_store, load_declaration
 from sldb.api.stores.store_skeleton import write_empty_store
 from sldb.api.stores.update_store_indexes import update_store_indexes
-from sldb.store.layout import drop_disk_caches, store_exists
+from sldb.store.disk_caches import drop_disk_caches
+from sldb.store.layout import store_exists
 
 Generate = Callable[[Path, Path, StoreDeclaration], list[str]]
 
