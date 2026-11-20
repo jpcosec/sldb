@@ -10,7 +10,7 @@ from sldb.api.stores.link_store import record_store_link as _link_store  # noqa:
 from sldb.api.stores.unlink_store import unlink_store
 
 def add_store(args: Any) -> int:
-    linked = link_store(args.store, args.path, args.name, replace=getattr(args, "replace", False))
+    linked = link_store(args.store, args.path, args.name, replace=getattr(args, "replace", False), raw=str(args.path))
     print(f"Linked '{linked.name}' at {linked.path}")
     return 0
 

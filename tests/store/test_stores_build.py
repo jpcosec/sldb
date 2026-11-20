@@ -1,6 +1,7 @@
 """`stores declare` / `stores build`: the derived store comes back from what the store declares."""
 from __future__ import annotations
 
+import os
 import shutil
 import subprocess
 import sys
@@ -230,7 +231,7 @@ def test_the_check_reaches_a_link_that_climbs_more_than_one_level(tmp_path, caps
     owner = tmp_path / "owner"
     owner.mkdir()
     assert cli_main(["stores", "init", "--path", str(owner)]) == 0
-    assert cli_main(["stores", "add", str(owner / ".sldb"), "--name", "owner", "--store", str(store)]) == 0
+    assert cli_main(["stores", "add", os.path.relpath(owner / ".sldb"), "--name", "owner", "--store", str(store)]) == 0
     save_declaration(store, declare_store(store, root))
     assert load_declaration(store).links[0]["path"] == "../../../owner/.sldb"
     (root / ".gitignore").write_text(".sldb_cache/\n", encoding="utf-8")
@@ -248,7 +249,7 @@ def _linked_then_removed(tmp_path, capsys):
     sibling = tmp_path / "sibling"
     sibling.mkdir()
     assert cli_main(["stores", "init", "--path", str(sibling)]) == 0
-    assert cli_main(["stores", "add", str(sibling / ".sldb"), "--name", "sibling", "--store", str(store)]) == 0
+    assert cli_main(["stores", "add", os.path.relpath(sibling / ".sldb"), "--name", "sibling", "--store", str(store)]) == 0
     save_declaration(store, declare_store(store, root))
     shutil.rmtree(sibling)
     (root / ".gitignore").write_text(".sldb_cache/\n", encoding="utf-8")
@@ -317,7 +318,7 @@ def test_declare_write_keeps_an_authored_glob_and_adds_only_what_is_missing(tmp_
     owner = tmp_path / "owner"
     owner.mkdir()
     assert cli_main(["stores", "init", "--path", str(owner)]) == 0
-    assert cli_main(["stores", "add", str(owner / ".sldb"), "--name", "owner", "--store", str(store)]) == 0
+    assert cli_main(["stores", "add", os.path.relpath(owner / ".sldb"), "--name", "owner", "--store", str(store)]) == 0
     (root / "late.md").write_text("# Late\n\n## Overview\n\nBody\n", encoding="utf-8")
     assert cli_main(["docs", "track", str(root / "late.md"), "--model", "TaskDoc", "--store", str(store), "--pythonpath", str(root)]) == 0
     assert cli_main(["stores", "declare", "--store", str(store), "--write"]) == 0
@@ -379,7 +380,7 @@ def test_inheriting_a_model_declares_it_with_its_origin(tmp_path, capsys):
     try:
         assert cli_main(["stores", "init", "--path", str(owner)]) == 0
         assert cli_main(["models", "add", ref, "--store", str(owner / ".sldb"), "--pythonpath", str(owner)]) == 0
-        assert cli_main(["stores", "add", str(owner / ".sldb"), "--name", "owner", "--store", str(store)]) == 0
+        assert cli_main(["stores", "add", os.path.relpath(owner / ".sldb"), "--name", "owner", "--store", str(store)]) == 0
         assert cli_main(["models", "inherit", "owner:NoteDoc", "--store", str(store), "--pythonpath", str(root)]) == 0
         declared = {m["name"]: m for m in load_declaration(store).models}
         assert declared["NoteDoc"] == {"name": "NoteDoc", "model_ref": ref, "origin": "owner"}

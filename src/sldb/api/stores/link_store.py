@@ -16,7 +16,20 @@ from sldb.store.models.store_entry import StoreEntry
 from sldb.store.models.store_index import StoreIndex
 
 
-def link_store(store: str | Path | None, other_store: str | Path, name: str | None = None, replace: bool = False) -> LinkedStore:
+KEPT_PREFIXES = ("/", "~", "$")
+
+
+def expand_link_path(text: str) -> str:
+    """Expand `~` and environment variables in a link path as written."""
+    return os.path.expandvars(os.path.expanduser(text))
+
+
+def kept_as_written(raw: str | None) -> bool:
+    """True when the user's text starts with `/`, `~` or `$` and is recorded unchanged."""
+    return bool(raw) and raw.startswith(KEPT_PREFIXES)
+
+
+def link_store(store: str | Path | None, other_store: str | Path, name: str | None = None, replace: bool = False, *, raw: str | None = None) -> LinkedStore:
     """Record another store as linked into `store`.
 
     Args:
@@ -24,6 +37,8 @@ def link_store(store: str | Path | None, other_store: str | Path, name: str | No
         other_store: Path of the `.sldb` directory to link.
         name: Alias for the link; defaults to the name of the directory holding `other_store`.
         replace: Point a link already recorded under that name at `other_store` instead.
+        raw: The path as the user wrote it. When it starts with `/`, `~` or `$` it is recorded
+            as written (checks use its expansion); otherwise the link is relative to the root.
 
     Returns:
         The link as recorded in the store index.
@@ -33,14 +48,14 @@ def link_store(store: str | Path | None, other_store: str | Path, name: str | No
             the name is invalid, reserved (`local`) or already linked (and not `replace`).
     """
     location = open_store(store)
-    other = Path(other_store).resolve()
+    other = Path(expand_link_path(raw) if raw is not None else other_store).resolve()
     _check_other_exists(other)
     _check_not_self(location.store_path, other)
     link_name = name or other.parent.name
     _check_link_name(link_name)
     if replace and any(s.name == link_name for s in load_store_index(location.store_path).stores):
         drop_link(location.store_path, link_name)
-    path = record_store_link(location.store_path, location.project_root, other, link_name)
+    path = record_store_link(location.store_path, location.project_root, other, link_name, raw=raw)
     return LinkedStore(name=link_name, path=path)
 
 
@@ -68,7 +83,7 @@ def _check_store_linked(idx: StoreIndex, name: str) -> None:
         raise SLDBStoreError(f"Store '{name}' already linked.")
 
 
-def record_store_link(sp: Path, root: Path, other: Path, name: str) -> str:
+def record_store_link(sp: Path, root: Path, other: Path, name: str, *, raw: str | None = None) -> str:
     """Append a link entry to the store index without checking that `other` exists.
 
     Args:
@@ -76,17 +91,18 @@ def record_store_link(sp: Path, root: Path, other: Path, name: str) -> str:
         root: The linking store's project root.
         other: Resolved `.sldb` directory being linked.
         name: Alias for the link.
+        raw: The path as the user wrote it; kept unchanged if it starts with `/`, `~` or `$`.
 
     Returns:
-        The path recorded for the link, always relative to `root` so the link survives a
-        checkout of both repos at another location.
+        The path recorded: `raw` as written when it starts with `/`, `~` or `$`, otherwise
+        relative to `root` so the link survives a checkout at another location.
 
     Raises:
         SLDBStoreError: When the name is already linked.
     """
     idx = load_store_index(sp)
     _check_store_linked(idx, name)
-    rel = os.path.relpath(other, root)
+    rel = raw if kept_as_written(raw) else os.path.relpath(other, root)
     idx.stores.append(StoreEntry(name=name, path=rel))
     save_store_index(sp, idx)
     return rel

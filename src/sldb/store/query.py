@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from functools import partial
 from pathlib import Path
 
@@ -99,11 +100,8 @@ def _visit_federated_store(item, pending, visited, documents, load_one) -> None:
 
 def _linked_stores(store_path: Path) -> list[tuple[Path, str]]:
     root = project_root(store_path)
-    return [
-        (_resolve_path(root, entry.path).resolve(), entry.name)
-        for entry in load_store_index(store_path).stores
-        if store_exists(_resolve_path(root, entry.path))
-    ]
+    links = [(_resolve_path(root, os.path.expandvars(os.path.expanduser(e.path))), e.name) for e in load_store_index(store_path).stores]
+    return [(path.resolve(), name) for path, name in links if store_exists(path)]
 
 
 from sldb.store.query_engine.structural import (  # noqa: E402

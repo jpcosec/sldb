@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 import pytest
@@ -164,3 +165,52 @@ def test_extract_payload_matches_extract_model_data(api_store):
     markdown = (api_store.root / "login.md").read_text(encoding="utf-8")
     assert extract_payload(model_type, markdown) == extract_model_data(model_type, markdown)
     assert extract_payload(model_type, markdown)["title"] == PAYLOAD["title"]
+
+
+def _other_store(tmp_path: Path) -> Path:
+    other = tmp_path / "other"
+    other.mkdir()
+    assert cli_main(["stores", "init", "--path", str(other)]) == 0
+    return other / ".sldb"
+
+
+def _add_link(api_store, text: str, *extra: str) -> str:
+    assert cli_main(["stores", "add", text, "--name", "other", "--store", str(api_store.store), *extra]) == 0
+    return load_store_index(api_store.store).stores[0].path
+
+
+def _linked(api_store) -> list[Path]:
+    from sldb.store.query import _linked_stores
+
+    return [p for p, _ in _linked_stores(api_store.store)]
+
+
+def test_stores_add_keeps_an_absolute_path_absolute(api_store, tmp_path):
+    other = _other_store(tmp_path)
+    assert _add_link(api_store, str(other)) == str(other)
+    assert _linked(api_store) == [other.resolve()]
+
+
+def test_stores_add_keeps_a_home_path_as_written_and_reads_it_with_home(api_store, tmp_path, monkeypatch):
+    other = _other_store(tmp_path)
+    monkeypatch.setenv("HOME", str(tmp_path))
+    assert _add_link(api_store, "~/other/.sldb") == "~/other/.sldb"
+    assert _linked(api_store) == [other.resolve()]
+
+
+def test_stores_add_keeps_a_variable_path_as_written_and_reads_it_with_the_variable(api_store, tmp_path, monkeypatch):
+    other = _other_store(tmp_path)
+    monkeypatch.setenv("SLDB_TEST_ROOT", str(tmp_path))
+    assert _add_link(api_store, "$SLDB_TEST_ROOT/other/.sldb") == "$SLDB_TEST_ROOT/other/.sldb"
+    assert _linked(api_store) == [other.resolve()]
+    assert _add_link(api_store, "${SLDB_TEST_ROOT}/other/.sldb", "--replace") == "${SLDB_TEST_ROOT}/other/.sldb"
+    assert cli_main(["stores", "remove", "other", "--store", str(api_store.store)]) == 0
+    assert load_store_index(api_store.store).stores == []
+
+
+def test_stores_add_keeps_a_relative_path_relative_to_the_root(api_store, tmp_path, monkeypatch):
+    other = _other_store(tmp_path)
+    monkeypatch.chdir(tmp_path)
+    rel = _add_link(api_store, "other/.sldb")
+    assert rel == os.path.relpath(other, api_store.root)
+    assert _linked(api_store) == [other.resolve()]

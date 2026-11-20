@@ -8,6 +8,16 @@ node GD26 of the plan `generalizar-desde-deskops`, `folders` and `seeds`. A decl
 without those two keys is read and written exactly as before: both are left out of the dump
 when empty.
 
+## Links: how `sldb stores add` records the path
+
+`sldb stores add <path>` decides the stored form from the text as the user wrote it: a path
+starting with `/` (absolute), `~` (including `~user`) or `$` (`$VAR` or `${VAR}`) is stored
+unchanged; any other text is stored relative to the project root, as before. Reading a link
+expands `~` and environment variables before resolving it. Use an absolute or variable form
+when clones and worktrees sit at different depths, so one versioned link resolves in both.
+Links already stored are not migrated, and a literal `$` in a folder name is not supported.
+`stores remove` and `stores add --replace` work with any of the three forms.
+
 ## `folders` and `seeds`
 
 A consumer that keeps its working tree in a store (deskops keeps a desk) needs the tree to
