@@ -1,0 +1,3 @@
+pytest tests/store tests/api/test_gitignore_policy.py tests/api/test_scaffold_store.py tests/api/test_api_stores.py tests/test_clean_code_rules.py -> 1727 passed
+deskops: PYTHONPATH=sldb/src pytest tests/test_transaction.py -k second_atom_create_fails -> 1 passed
+bash tools/check.sh --fast -> rc=1, solo 'identidad' (workbench_demo, excepcion autorizada)

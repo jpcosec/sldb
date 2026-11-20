@@ -1,0 +1,37 @@
+name: review-task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu-evidence-materialization-1
+path: desk/reviews/task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu/evidence-materialization-1.md
+source_hash: f0da5664686e6ceacc604aef9e89d5d9247ffdd757edd5c7f87193dd221a8bbd
+content_hash: e6cc465c1196d8742f88003553dcb300aca4d53f15a74805050020b7f6cb29d3
+field_hashes:
+  id: e95352fee324239cdc51bf0926c2f26cbaae1ee4efb90b538765de1e8d816a52
+  title: 6571b45c9d761539eb7920cc436c3f0ddef4bbc5582247ab6e346b8ef74f83f5
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: 698be4ca49cd2d41448f9fc5c107f6285e8302caefff133f73dcfcfc26185178
+  subject: 435ec5152896d293a2aeb0ebfdf884f1031e86a3fbc2f2d49272d6c2033c26de
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 128a8d741f26966f49ebfe1acbbe6dfab8592f62720e8450b051f1c43aa5e393
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: c721d38df3b7eb5f3019af3e319df65634543662110d58e3d82565e933f0a62a
+  created_at: 15cd16513c4fb0a09c6db91d2fa137676fe900dae6ac3c441449bd48bdc02256
+  disposed_at: 15cd16513c4fb0a09c6db91d2fa137676fe900dae6ac3c441449bd48bdc02256
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 40525e09335c1f1aa7b4b0658f5214da00236bffe156ffe956833f2a10cd6605
+  disposition: 889555776c74c9c15322bbda8fc675939a4f7cf60b515c7a5694ca066c714de4
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-20T10:18:52Z'
+  authority: generated
+  via: create_document

@@ -1,0 +1,11 @@
+Missing graph references:
+- missing_declared_target: task:task-el-merge-driver-de-sldb-se-instala-solo-al-preparar-un-store-y-stores-check-avisa-si-falta -> test_file:tests/test_transaction.py
+  provenance: desk/tasks/task-el-merge-driver-de-sldb-se-instala-solo-al-preparar-un-store-y-stores-check-avisa-si-falta.md:line:17:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- missing_declared_target: task:task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu -> test_file:tests/test_transaction.py
+  provenance: desk/tasks/task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu.md:line:31:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- missing_declared_target: task:task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu -> test_file:tests/test_transaction.py
+  provenance: desk/tasks/task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu.md:line:49:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+3 missing, 0 informational

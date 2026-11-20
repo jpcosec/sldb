@@ -1,45 +1,35 @@
+Task: task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu
+Title: Merge driver automático, intento nuevo: se instala desde los comandos CLI de stores, no desde la API que usan las transacciones
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-20T10:14:08Z'
+  at: '2026-11-20T07:56:29Z'
   authority: generated
-  via: save_document_payload
+  via: create_document
 id: task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu
-status: active
+status: draft
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-testing
-history:
-- task_activates
-references:
-- src/sldb/api/stores/ensure_merge_driver.py
-- src/sldb/api/stores/store_surroundings.py
-- src/sldb/cli/commands/store_init.py
-- src/sldb/cli/commands/stores_build.py
-- src/sldb/cli/commands/stores_scaffold.py
-- tests/api/test_gitignore_policy.py
-- tests/store/test_merge_driver_auto_install.py
-- tests/store/test_migrate_layout.py
-- 9007f78a22569244709af77779847e14a4d57b2e
+current_node: ritual-execution
+history: []
+references: []
 depends_on: []
 pills: []
-files:
-- CHANGELOG.md
-- src/sldb/api/stores/ensure_merge_driver.py
-- src/sldb/api/stores/store_surroundings.py
-- src/sldb/cli/commands/store_init.py
-- src/sldb/cli/commands/stores_build.py
-- src/sldb/cli/commands/stores_scaffold.py
-- tests/api/test_gitignore_policy.py
-- tests/store/test_merge_driver_auto_install.py
-- tests/store/test_migrate_layout.py
+files: []
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms:
-- atom-los-comandos-cli-de-stores-instalan-solos-el-merge-driver-de-sldb-y-stores-check-avisa-si-falta
+atoms: []
 ---
 
 # Merge driver automático, intento nuevo: se instala desde los comandos CLI de stores, no desde la API que usan las transacciones
@@ -79,3 +69,20 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 Los tests de p3 pasan; el commit existe con Task-Id; la suite completa de sldb la corre integrate y el integrador corre la de deskops.
+
+## Entrega del ejecutor
+
+Al terminar, commitea solo los archivos que cambiaste para la tarea, nombrados uno por uno (los mismos que listas en result-summary.md):
+
+    git add <ruta> <ruta> ...
+    git commit -m "<resumen>" -m "Task-Id: task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu"
+
+Nunca uses `git add -A`, `git add -u` sobre todo el arbol ni `git stash`: puede haber trabajo ajeno sin commitear. No hagas push. Recien despues ejecuta `deskops advance task`.
+
+## Gates rapidos del desk
+
+Antes del commit corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Debe terminar con rc 0 antes de commitear; si falla, corrige y repite. Anota el comando y su rc en validation.log.
