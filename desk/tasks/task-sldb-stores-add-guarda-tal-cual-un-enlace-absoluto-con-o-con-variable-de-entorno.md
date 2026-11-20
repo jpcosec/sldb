@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-20T12:43:26Z'
+  at: '2026-11-20T17:34:21Z'
   authority: generated
   via: save_document_payload
 id: task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno
@@ -21,15 +21,24 @@ current_node: ritual-testing
 history:
 - task_activates
 references:
-- desk/inbox/inbox-note-sldb-stores-add-guarda-siempre-el-enlace-relativo-no-resuelve-desde-worktrees-un-nivel-más-hondo.md
+- docs/architecture/store-declaration.md
+- src/sldb/api/stores/link_store.py
+- src/sldb/cli/commands/store_add.py
+- src/sldb/store/query.py
+- tests/api/test_api_stores.py
+- tests/store/test_stores_build.py
+- 94d9f554f4f68556bb8d011046ccb72dccceafb2
 depends_on: []
 pills:
 - desk/contexts/pill-pill-validar-el-enlace-guardando-el-texto-tal-cual.md
 files:
+- CHANGELOG.md
+- docs/architecture/store-declaration.md
 - src/sldb/api/stores/link_store.py
+- src/sldb/cli/commands/store_add.py
 - src/sldb/store/query.py
 - tests/api/test_api_stores.py
-- CHANGELOG.md
+- tests/store/test_stores_build.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false

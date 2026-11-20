@@ -1,7 +1,7 @@
 name: task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno
 path: desk/tasks/task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno.md
-source_hash: 6b482a6bd2c74c277b90ceb99fbd418fd0d0e49b3eee7b14eab88a8782351cb2
-content_hash: 91d8416fc474ea6dea0016c81faf0fec3b6d3f91b7b56af1bd921d208af9cce9
+source_hash: 5af94d6c15bfd9147e47d86c178f6ab4d2592730604b0bc93707d274914537cb
+content_hash: 17f141ea043180df3fba79446905be2598a16b736a43d61c2cbf5f0ce39e9034
 field_hashes:
   title: dfe14a54c647504d100708a0dc2e9f6c76cf538a184df260fabae9d4fc1661fa
   id: 8354b675e17497448fdd9f99d1119da4cedb74470faa42199eeef965bbf63244
@@ -13,10 +13,10 @@ field_hashes:
   why: 87e589fcf4d0950bc6d3849640b53b65b8c883f04acb52adfa8937473eaade04
   goal: 36bb7fff6fc3eaedce23b6794205df73c4cad051394f6b44933917d79ed3b40f
   scope: 4392e7dc8a5093fb486f75fd645e7de996810e8c7dac7491eba637341eb400ce
-  references: 01a09b7b8e75c5fb85cdaacc11995b83695a843982d83f9cace3ef2c022fa54c
+  references: 91ed1eb409bea0fff448123195e3672832f810943ab44dbd8cfe4a3c07544c22
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 94668e1e062fc08afdbbbc0deb809ad807d699de6efc4c239252440bba9e3ca5
-  files: 36b2b52197acad520b1b32036475fe0d1381d209691ce92cf843c528851b4b15
+  files: a76081abdbe24ee91c76e4eefb311990cc283e24f13dfa745e34715f2d8162ca
   implementation_path: 2f57f6ac7cba985d97d47db66ba3ff730d074fda44ceaabfe93e5a79242540ec
   validation: a6df032d7fee4322a2e337b1d9de1d66252fbfa10b0a9f72bb5a6774a6eedcca
   done_when: 5c571584fffd0cc02f98f2105b08b4bee8a44bf0127960cc493252c28ff34925
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-20T12:43:26Z'
+  at: '2026-11-20T17:34:21Z'
   authority: generated
   via: save_document_payload

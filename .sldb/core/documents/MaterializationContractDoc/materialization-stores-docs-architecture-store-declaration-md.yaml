@@ -1,0 +1,25 @@
+name: materialization-stores-docs-architecture-store-declaration-md
+path: desk/materializations/materialization-stores-docs-architecture-store-declaration-md.md
+source_hash: 8607d793c8514c69209e273f070831abd079630938cb4ec82bd6c3ccde236a65
+content_hash: e92ee76214bc4f971c0c4c797d9d7b301789351767ccc0006dfca24114d4b309
+field_hashes:
+  id: 69f10dfcb51f16a77c1b3598de4112f60104a2c13009b1b2e45db419c7d129bc
+  title: 9deb659544e380bba0edd54e08927c927e92bdaf886f172aae312b4eed9cf5ae
+  source_atoms: b7d867309ad83c95d87611e7cfa95330b8c65bc6b63fd0931816abc6aa940219
+  target_kind: 5310eeb1d153dad19cd89e627b129d763e0cb2029f901c1a54fcc70478405c04
+  target_identity: 0bc93469817f8ec79621e7e5c9ec1fb9036fafb036e2afc92c2d38cd2fa31d5b
+  intent: dbfbd03e24a27ef1025d1b40fc355a264844b6d9d8b8e5a9b4cd793401ab6538
+  validation: 704ea81fe000f789b6a7fdb4b374621c7841d63f68244bbb07d6efa8c1c7cd9c
+  tags: dc6cb10d5b02dd7e84f396d4d539d877efe2563f35c4138c90600b588d782f63
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:stores
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-20T17:34:50Z'
+  authority: generated
+  via: create_document

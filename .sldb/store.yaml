@@ -1360,6 +1360,12 @@ include:
   - desk/materializations/materialization-stores-src-sldb-store-diagnostics-py.md
   - desk/materializations/materialization-stores-src-sldb-store-diagnostics-models-model-diagnosis-py.md
   - desk/materializations/materialization-stores-tests-store-test-diagnostics-py.md
+  - desk/materializations/materialization-stores-docs-architecture-store-declaration-md.md
+  - desk/materializations/materialization-stores-src-sldb-api-stores-link-store-py.md
+  - desk/materializations/materialization-stores-src-sldb-cli-commands-store-add-py.md
+  - desk/materializations/materialization-stores-src-sldb-store-query-py.md
+  - desk/materializations/materialization-stores-tests-api-test-api-stores-py.md
+  - desk/materializations/materialization-stores-tests-store-test-stores-build-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2699,6 +2705,14 @@ include:
     name: review-task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co-evidence-atom-1
   - path: desk/reviews/task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co/evidence-materialization-2.md
     name: review-task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co-evidence-materialization-2
+  - path: desk/reviews/task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno/evidence-tests-1.md
+    name: review-task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno-evidence-tests-1
+  - path: desk/reviews/task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno/evidence-commit-1.md
+    name: review-task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno-evidence-commit-1
+  - path: desk/reviews/task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno/evidence-atom-1.md
+    name: review-task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno-evidence-atom-1
+  - path: desk/reviews/task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno/evidence-materialization-1.md
+    name: review-task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
