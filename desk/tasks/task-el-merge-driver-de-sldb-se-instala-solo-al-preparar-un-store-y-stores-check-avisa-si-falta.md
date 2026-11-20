@@ -1,17 +1,18 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-20T06:43:39Z'
+  at: '2026-11-20T07:13:17Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-el-merge-driver-de-sldb-se-instala-solo-al-preparar-un-store-y-stores-check-avisa-si-falta
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
+current_node: ritual-testing
+history:
+- task_activates
 references: []
 depends_on: []
 pills: []

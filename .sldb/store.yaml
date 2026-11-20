@@ -771,6 +771,8 @@ include:
     name: run-deskops-e-5e587a8becac
   - path: runs/subagents/exec-deskops-t-7734a5c49e32-testing/run.md
     name: run-deskops-t-7734a5c49e32
+  - path: runs/subagents/exec-deskops-e-7b45b951426a/run.md
+    name: run-deskops-e-7b45b951426a
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -2626,6 +2628,7 @@ include:
   - desk/tasks/task-decisión-de-jp-decisión-6-separar-el-store-de-sldb-en-un-paquete-propio-o-quedarse-con-el-desacople.md
   - desk/tasks/task-decisión-de-jp-si-sldb-agrega-un-ast-intermedio-entre-marcador-y-campo-y-clases-anidadas-en-un-docum.md
   - desk/tasks/task-sw8-decisión-de-jp-qué-queda-de-la-superficie-anterior-de-surface-vistas-legacy-stores-demo-y-caso-l.md
+  - desk/tasks/task-clasificar-workbench-demo-en-contracts-identity-toml-producto-autoaplicacion-o-ajeno-la-puerta-ident.md
 - model: RuleDoc
   paths:
   - desk/lifecycle/rule-activation-task-aggregate.md
