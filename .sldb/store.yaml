@@ -2550,7 +2550,6 @@ include:
   - desk/tasks/task-run-view-dice-que-el-store-no-está-construido-en-vez-de-unknown-view-h12-y-se-reproduce-si-la-revisi.md
   - desk/tasks/task-docs-show-sobre-un-store-enlazado-dice-que-no-pudo-importar-el-modelo-en-vez-de-unknown-document-tar.md
   - desk/tasks/task-rule-graph-en-frío-y-deskops-show-task-perfilar-de-nuevo-y-bajar-el-costo-de-leer-el-índice-local-me.md
-  - desk/tasks/task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen.md
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md

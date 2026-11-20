@@ -1,0 +1,37 @@
+name: review-task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen-evidence-materialization-1
+path: desk/reviews/task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen/evidence-materialization-1.md
+source_hash: 29f2ab44c50856067694c070bc637baa3ac1b97711d3fc7f5d4d27bba8f5c0e3
+content_hash: 36ed99f62c3907a4ad2c449b6b658c6129f39b0cccda23512d117411c84182e7
+field_hashes:
+  id: b313afcb75075cfa8c7c2340c4055a3e447ac9cde78f17d3851a936e69895df4
+  title: f1564fec03db407c996c5a69ba931b54922209396b70d332d1ae116be2b4fd1a
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: b9696ac3d7bf698e7126ab7d6daf190d6cb4521c127f3bd57125da87a0eec0d4
+  subject: 1aa7f4db8ea1dddc560e8c9509230f8d5c7e22e688f69e6eb6d30d29eb2ab6e6
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: fdb6ed73dc24df9aaa4c8f03a1d830b0b7d69fd44c38a4b85129274acf0e78c5
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: d835e1ef710d42cba0d60d532f6fc05144452ae5aa842da719adbca90ec921b7
+  created_at: 14e578357d90393b9823757fc8bf4eec4aa0a24943518cd70fc094df03ffb7c5
+  disposed_at: 14e578357d90393b9823757fc8bf4eec4aa0a24943518cd70fc094df03ffb7c5
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 346beb7519a76a696ebe0dbf17810d9b400a35b09511042fc786e144ba79ccbd
+  disposition: 189696e41f76bdd64a43060d86fe019692151e79370473491e00578b6148dd8b
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-20T02:58:59Z'
+  authority: generated
+  via: create_document

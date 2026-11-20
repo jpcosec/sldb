@@ -122,3 +122,4 @@
 {"task_id": "task-sldb-create-document-y-track-document-file-eval\u00faan-las-reglas-on-write-h4-declare-write-conserva-la", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}
 {"task_id": "task-reglas-rule-graph-no-compone-la-federaci\u00f3n-entera-de-stores-enlazados-27-s-por-comando-de-deskops", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "resolved-by", "commit": null}
 {"task_id": "task-sldb-views-run-board-en-menos-de-1-s-cach\u00e9-de-disco-de-los-shards-de-documentos-para-select-document", "run_id": "run-deskops-e-417ece12b2b1", "run_dir": "runs/subagents/exec-deskops-e-417ece12b2b1", "session_sha256": null, "commit": null}
+{"task_id": "task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen", "run_id": "run-deskops-e-2d196cc0ac15", "run_dir": "runs/subagents/exec-deskops-e-2d196cc0ac15", "session_sha256": null, "commit": null}

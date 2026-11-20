@@ -1,39 +1,35 @@
+Task: task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen
+Title: El .sldb_cache del repo deja a deskops con una vista vieja de los ReviewDoc: recibos aceptados no cuentan para activar una tarea
+Status: draft
+Current node: ritual-execution
+Task type: task.debug
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-20T02:55:27Z'
+  at: '2026-11-20T01:40:46Z'
   authority: generated
-  via: save_document_payload
+  via: create_document
 id: task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen
-status: active
+status: draft
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-testing
-history:
-- task_activates
-references:
-- src/sldb/api/stores/build_store.py
-- src/sldb/store/edge_index/cache_keys.py
-- src/sldb/store/edge_index/composed_disk.py
-- src/sldb/store/layout.py
-- tests/api/test_select_documents_disk.py
-- 3f547569b90fc28aa3d5ef5be5ea20ca2b9d61ea
+current_node: ritual-execution
+history: []
+references: []
 depends_on: []
 pills: []
-files:
-- CHANGELOG.md
-- src/sldb/api/stores/build_store.py
-- src/sldb/store/edge_index/cache_keys.py
-- src/sldb/store/edge_index/composed_disk.py
-- src/sldb/store/layout.py
-- tests/api/test_select_documents_disk.py
+files: []
 task_type: task.debug
 inherits_from: []
 inherit_acceptance_context: false
-atoms:
-- atom-las-caches-de-disco-de-sldb-ven-una-reescritura-in-place-de-un-documento-y-stores-build-las-invalida
+atoms: []
 ---
 
 # El .sldb_cache del repo deja a deskops con una vista vieja de los ReviewDoc: recibos aceptados no cuentan para activar una tarea
@@ -73,3 +69,20 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 El test nuevo pasa; con este sldb, deskops next de la tarea de sldb move en el repo real ya no está bloqueado; la suite completa la corre integrate y el integrador corre también la de deskops.
+
+## Entrega del ejecutor
+
+Al terminar, commitea solo los archivos que cambiaste para la tarea, nombrados uno por uno (los mismos que listas en result-summary.md):
+
+    git add <ruta> <ruta> ...
+    git commit -m "<resumen>" -m "Task-Id: task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen"
+
+Nunca uses `git add -A`, `git add -u` sobre todo el arbol ni `git stash`: puede haber trabajo ajeno sin commitear. No hagas push. Recien despues ejecuta `deskops advance task`.
+
+## Gates rapidos del desk
+
+Antes del commit corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Debe terminar con rc 0 antes de commitear; si falla, corrige y repite. Anota el comando y su rc en validation.log.
