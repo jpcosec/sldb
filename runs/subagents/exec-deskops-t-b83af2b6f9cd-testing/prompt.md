@@ -1,7 +1,17 @@
+Task: task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer
+Title: sldb move mueve un archivo o directorio con git mv y actualiza en el mismo repo el store y las referencias a la ruta vieja
+Status: active
+Current node: ritual-testing
+Task type: task.code
+Lifecycle gates:
+- task_hands_to_closeout -> ritual-closeout: open [nonempty(validation)]
+  post-hook evento-para-el-coordinador: sh -c mkdir -p runs/hooks && printf '%s %s %s %s->%s\n' "$(date -u +%FT%TZ)" "$DESKOPS_TASK_ID" "$DESKOPS_TRANSITION" "$DESKOPS_FROM_NODE" "$DESKOPS_TO_NODE" >> runs/hooks/events.log
+  post-hook encola-reap-del-tester: deskops queue add dispatch-reap --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-20T04:30:13Z'
+  at: '2026-11-20T02:45:36Z'
   authority: generated
   via: save_document_payload
 id: task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer
@@ -13,60 +23,14 @@ tags:
 current_node: ritual-testing
 history:
 - task_activates
-references:
-- src/sldb/api/__init__.py
-- src/sldb/api/documents/move_document.py
-- src/sldb/api/documents/move_path.py
-- src/sldb/api/documents/move_path_apply.py
-- src/sldb/api/documents/move_path_fields.py
-- src/sldb/api/documents/move_path_files.py
-- src/sldb/api/documents/move_path_links.py
-- src/sldb/api/documents/move_path_plan.py
-- src/sldb/api/documents/move_path_remap.py
-- src/sldb/api/documents/move_path_report.py
-- src/sldb/api/documents/move_path_resolve.py
-- src/sldb/api/documents/relocate_file.py
-- src/sldb/cli/commands/help_texts_short.py
-- src/sldb/cli/commands/move.py
-- src/sldb/cli/dispatcher.py
-- src/sldb/cli/parsers/project.py
-- tests/api/test_move_path.py
-- tests/cli/__init__.py
-- tests/cli/move_repo.py
-- tests/cli/test_move_cli.py
-- bc05f2ab4d1fccca0f3dc22d0a2f7b201ad382c0
+references: []
 depends_on: []
 pills: []
-files:
-- CHANGELOG.md
-- docs/architecture/transactions.md
-- knowledge/commands/cmd-sldb-move.md
-- knowledge/surfaces/surface-sldb-move.md
-- src/sldb/api/__init__.py
-- src/sldb/api/documents/move_document.py
-- src/sldb/api/documents/move_path.py
-- src/sldb/api/documents/move_path_apply.py
-- src/sldb/api/documents/move_path_fields.py
-- src/sldb/api/documents/move_path_files.py
-- src/sldb/api/documents/move_path_links.py
-- src/sldb/api/documents/move_path_plan.py
-- src/sldb/api/documents/move_path_remap.py
-- src/sldb/api/documents/move_path_report.py
-- src/sldb/api/documents/move_path_resolve.py
-- src/sldb/api/documents/relocate_file.py
-- src/sldb/cli/commands/help_texts_short.py
-- src/sldb/cli/commands/move.py
-- src/sldb/cli/dispatcher.py
-- src/sldb/cli/parsers/project.py
-- tests/api/test_move_path.py
-- tests/cli/__init__.py
-- tests/cli/move_repo.py
-- tests/cli/test_move_cli.py
+files: []
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms:
-- atom-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-reescribe-en-el-mismo-repo-las-referencias-a-la
+atoms: []
 ---
 
 # sldb move mueve un archivo o directorio con git mv y actualiza en el mismo repo el store y las referencias a la ruta vieja
@@ -106,3 +70,22 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 Los tests nuevos pasan, selfdoc check y tools/check.sh --fast dan 0, y la suite completa la corre integrate. El integrador corre además la suite de deskops contra este sldb antes de integrar.
+
+## Como probar (tester)
+
+Ubica el trabajo del ejecutor:
+
+    git log -1 --format=%H --grep "Task-Id: task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer"   # commit del ejecutor
+    git show --name-only <commit>                           # sus archivos
+
+Los tests a correr son los archivos tests/*.py de ese commit, mas tests/test_<modulo>.py cuando exista para cada modulo de codigo tocado; de a uno, con `TMPDIR=/tmp python -m pytest -q <archivo>`. No corras la suite completa: la corre integrate en el host.
+
+Escribe result-summary.md con el veredicto PASA o FALLA en la primera linea.
+
+## Gates rapidos del desk
+
+Antes del veredicto corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Si termina con rc distinto de 0 el veredicto es FALLA.

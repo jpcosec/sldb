@@ -1,0 +1,41 @@
+# Validation — exec-deskops-t-b83af2b6f9cd-testing
+# Fecha: 2026-11-20
+# Commit ejecutor: bc05f2ab4d1fccca0f3dc22d0a2f7b201ad382c0
+# HEAD al probar: 3f547569b90fc28aa3d5ef5be5ea20ca2b9d61ea
+# Intérprete: /mnt/ssd/proyectos/SLDB_1/sldb/.venv/bin/python (Python 3.13.18)
+# Nota: /tmp/ws-venv no existe en el host; se usó el .venv del repo (mismas dependencias).
+# El código de src/ y tests/ es idéntico entre bc05f2ab y HEAD.
+
+$ TMPDIR=/tmp .venv/bin/python -m pytest -q -p no:cacheprovider tests/api/test_move_path.py
+9 passed, 1 warning in 4.21s
+rc=0
+
+$ TMPDIR=/tmp .venv/bin/python -m pytest -q -p no:cacheprovider tests/cli/test_move_cli.py
+3 passed, 1 warning in 3.12s
+rc=0
+
+$ TMPDIR=/tmp .venv/bin/python -m pytest -q -p no:cacheprovider tests/api/test_api_documents.py
+21 passed, 1 warning in 6.02s
+rc=0
+
+$ TMPDIR=/tmp .venv/bin/python -m pytest -q -p no:cacheprovider tests/api/test_transaction.py
+16 passed, 1 warning in 6.77s
+rc=0
+
+$ TMPDIR=/tmp .venv/bin/python -m pytest -q -p no:cacheprovider tests/test_cli_every_command_has_a_handler.py tests/test_cli_format_coverage.py tests/test_cli_envelope.py tests/test_cli_reconciliation.py
+18 passed, 1 warning in 4.66s
+rc=0
+
+$ PATH="$PWD/.venv/bin:$PATH" PYTHONPATH=src .venv/bin/python -m sldb selfdoc check
+{"ok": true, "documents": 166, "missing": [], "changed": [], "untracked": [], "stale_indexes": [], "removed": [], "renamed": [], "semantic_gaps": 0, "graph_stale": [], "graph_errors": [], "undeclared": 0, "unexplained": [], "unresolved_references": [], "purpose_conflicts": [], "metadata_errors": [], "written": 0, "errors": [], "alerts": []}
+rc=0
+
+$ PATH="$PWD/.venv/bin:$PATH" bash tools/check.sh --fast
+PASS: núcleo aislado — 83 módulos cargados
+PASS: capas — 10 paquetes, 37 aristas, 0 violaciones, 8 ciclos contados
+PASS: identidad — 10 paquetes de producto, 19 modelos clasificados, 0 violaciones
+PASS: ejes — 32 declarados, 993 archivos mapeados, 0 violaciones
+PASS: superficie — 124 símbolos pedidos, 597 declarados, 0 violaciones
+omitidas (--fast): afirmaciones pruebas selfdoc
+TODAS LAS PUERTAS PASAN
+rc=0

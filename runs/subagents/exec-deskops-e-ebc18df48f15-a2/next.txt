@@ -1,0 +1,36 @@
+Task: task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer
+Title: sldb move mueve un archivo o directorio con git mv y actualiza en el mismo repo el store y las referencias a la ruta vieja
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Phase: execution
+Required ritual:
+- desk/rituals/execution.md
+Required pills:
+- desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
+- desk/contexts/pill-keep-sldb-generic-and-move-workflow-behavior-toward-deskops.md
+- desk/contexts/pill-keep-template-markers-reversible-at-the-document-boundary.md
+- desk/contexts/pill-model-registration-must-be-queryable.md
+- desk/contexts/pill-put-a-small-onboarding-surface-before-the-deep-system.md
+- desk/contexts/pill-sldb-cli-errors-must-stay-actionable-and-machine-safe.md
+- desk/contexts/pill-store-health-is-owned-by-sldb.md
+- desk/contexts/pill-stores-init-must-be-idempotent-and-fail-safely.md
+- desk/contexts/pill-keep-the-text-layer-and-the-graph-layer-separate-inside-sldb.md
+- desk/contexts/pill-context-pills-carry-reasoning-not-a-copy-of-code-or-docs.md
+Next actions:
+1. Make the active task, scope, touched files, and validation targets explicit.
+2. Run a fresh-context subagent review.
+3. Bind matching board and task pills.
+4. Start implementation only after the initialization gate is satisfied.
+Advance when:
+- Execution gate obligations are recorded or satisfied.
+Post-hooks:
+- task_activates:
+  - encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  - encola-tester: deskops queue add dispatch-tester --root .
+Blocked by:
+- error: [rules/rule-activation-task-code] TaskCodeDoc:task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer: Una tarea task.code se activa con recibos preflight y bundle aceptados e intactos y sus dependencias cerradas. | any(^subject: anchor_state = "intact" and verdict = "accepted" and kind = "preflight") (seen: {})
+Sources:
+- task: desk/tasks/task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer.md
+- board: desk/tasks/Board.md
+- workflow: deskops/spec/workflows/task_lifecycle.yaml
