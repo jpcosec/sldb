@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-20T13:26:02Z'
+  at: '2026-11-20T13:36:15Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -71,6 +71,7 @@ tasks:
 - desk/tasks/task-declaredfiletargets-lee-campos-lista-y-no-aplica-las-exclusiones-a-lo-que-se-declara-para-que-un-des.md
 - desk/tasks/task-baja-prioridad-canonizar-los-nombres-de-llamada-ts-js-cuya-cadena-empieza-en-un-array-binario-new-o.md
 - desk/tasks/task-clasificar-workbench-demo-en-contracts-identity-toml-producto-autoaplicacion-o-ajeno-la-puerta-ident.md
+- desk/tasks/task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -176,3 +177,4 @@ _Generated from the task references above._
 - DeclaredFileTargets lee campos lista y no aplica las exclusiones a lo que se declara, para que un destino que existe no cuente como faltante [draft] - Un destino declarado por DeclaredFileTargets, venga de un campo escalar o de un campo lista, que es un archivo existente del proyecto se vuelve nodo aunque esté bajo una exclusión; y hay una forma declarativa de que las menciones de LineMentions a archivos existentes del proyecto no cuenten como faltantes.
 - Baja prioridad: canonizar los nombres de llamada TS/JS cuya cadena empieza en un array, binario, new o literal (hoy canonical: false) [draft] - Los nombres de llamada que hoy salen con canonical: false tienen una forma canónica definida y documentada (por ejemplo marcadores fijos [...] para arrays, (expr) para binarios, Clase() para new y (lit) para literales) y salen con canonical: true y en la relación calls si nombran un símbolo.
 - Clasificar workbench_demo en contracts/identity.toml (producto, autoaplicación o ajeno): la puerta identidad de check.sh está en rojo [draft] - JP o el dueño de surface decide qué es workbench_demo: producto (sldb lo distribuye), autoaplicación (sldb usado sobre sí mismo) o ajeno (va en contract foreign, o se mueve fuera de la raíz, por ejemplo bajo surface/), y se clasifica en contracts/identity.toml. Con eso, check.sh --fast vuelve a 0.
+- Reglas de código limpio de 0f91540d: cinco archivos pasan los límites (rule_graph, rules_on_write, component_spec_graph, store_check, diagnostics) [draft] - tests/test_clean_code_rules.py pasa entero sin subir límites, partiendo funciones y moviendo código a módulos nuevos donde haga falta, con el mismo comportamiento: los tests de las cuatro tareas (tests/api/test_on_write_entering.py, tests/api/test_rules.py, tests/matching/test_matching_refs.py, tests/notations/test_notations_from_graph_cli.py, tests/store/test_diagnostics.py) siguen en verde sin cambiar sus asserts. Un módulo nuevo fuera de una carpeta con eje se declara en contracts/layers.toml.

@@ -353,6 +353,7 @@ include:
   - desk/inbox/20261120-073229-unclear-queue-20261120t102406z-integrate-task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu.md
   - desk/inbox/20261120-074138-unclear-queue-20261120t103500z-integrate-task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu.md
   - desk/inbox/20261120-085342-unclear-queue-20261120t115041z-dispatch-executor-task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno.md
+  - desk/inbox/20261120-103433-unclear-queue-20261120t132608z-integrate-task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -2716,6 +2717,7 @@ include:
   - desk/tasks/task-el-emparejamiento-de-átomos-de-sldb-api-matching-pasa-a-su-propio-eje-y-recuperacion-vuelve-a-ser-un.md
   - desk/tasks/task-una-sola-forma-de-serializar-un-escalar-al-sustituir-llaves-effects-go09-y-where-subject-usan-la-mis.md
   - desk/tasks/task-r6-el-tokenizer-y-el-parser-del-lenguaje-de-reglas-bajan-a-core-para-cerrar-la-arista-de-capas-model.md
+  - desk/tasks/task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo.md
 graph_backend: networkx
 policy: {}
 tag_models:

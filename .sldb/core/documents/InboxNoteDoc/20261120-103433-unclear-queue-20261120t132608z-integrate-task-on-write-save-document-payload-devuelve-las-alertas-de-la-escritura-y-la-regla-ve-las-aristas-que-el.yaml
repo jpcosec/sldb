@@ -1,0 +1,19 @@
+name: 20261120-103433-unclear-queue-20261120t132608z-integrate-task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el
+path: desk/inbox/20261120-103433-unclear-queue-20261120t132608z-integrate-task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el.md
+source_hash: ec7f7c33b6c465059075352ebde3b80318bb5119219cecc964fe8379522d3ddd
+content_hash: b516066bd195176b2f612dacab5248578a2f836fad1bc1fc21a6f2b75886c1a5
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 9caba4af48bc6b30c7b086e1ce7d4fcf73fa9f850e4621659ca919a745d943d2
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: 5b57c6a78e87f3ecdf778cb2df21c22c77c211a4408bf453685d026f4a99c041
+  body: 9c96f6cf67d613b49644ef46a522bc672c71aed9b11682b404415377d268dc8d
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null
