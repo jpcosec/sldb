@@ -1,0 +1,22 @@
+name: atom-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-reescribe-en-el-mismo-repo-las-referencias-a-la
+path: desk/atoms/atom-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-reescribe-en-el-mismo-repo-las-referencias-a-la.md
+source_hash: 4daba12cb926b77acfb214c29c98fdae3cc6bcdfbf628d4e81044b243a4ffbd2
+content_hash: 0785a896e057f0de4fab92147e1c5495d95d3272020cb3bd785cec7d7f2d1937
+field_hashes:
+  id: 659a8ef0c2cb3a3b7896a96bb6075ce5588009a99b40d4d9d3d1733f55098860
+  title: 682f7b3f752ec376ec140dd2afb90282ade031f4384edc2be916a13ca36427fb
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: df5b811dd742c6bc1a996b023e574febc9a5c3e3736afac2382805a4ef2175c7
+  tags: 7c16fe67e0216c2fb354b044f93d4cca5adbf8d378e15b3cc0b9b94051a10d68
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:cli
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-20T04:28:26Z'
+  authority: generated
+  via: create_document

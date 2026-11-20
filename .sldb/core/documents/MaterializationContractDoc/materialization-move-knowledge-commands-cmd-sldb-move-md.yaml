@@ -1,0 +1,25 @@
+name: materialization-move-knowledge-commands-cmd-sldb-move-md
+path: desk/materializations/materialization-move-knowledge-commands-cmd-sldb-move-md.md
+source_hash: 7550599832370fea109e900c80d1047566b76171e95f927489d109e07c0322c0
+content_hash: a8fffc02f36ae92e3bb2e6f6ece6565589bcb60879d2d9f93e5e2dadc0dcf116
+field_hashes:
+  id: 66a69a625f631a7c8cdbd7d0ad41bfa463da93712be404a3b03deb3b281dac0e
+  title: 39a8a5a8f89fb795e2a09560e1a6baf075ce7d068c6b3d833bea0adf72990331
+  source_atoms: c63e8bec8e224a08699cf5fd292846404f1dd82ce90c40576914b2eaf09d1b5e
+  target_kind: 5310eeb1d153dad19cd89e627b129d763e0cb2029f901c1a54fcc70478405c04
+  target_identity: 1a3050ef8bd19d27b5012a67d2fce8a965aa94e66eef1783c775eabdc337ce0a
+  intent: 08243e579082bd05ccf2f9b22043381d31e15a49c007b9119bc0ee2420b818f4
+  validation: a7a529634144db5438d6aeb74d9921ea5aa1a2d51108052760b6c5b79bafa1a3
+  tags: 7c16fe67e0216c2fb354b044f93d4cca5adbf8d378e15b3cc0b9b94051a10d68
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:cli
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-20T04:31:16Z'
+  authority: generated
+  via: create_document

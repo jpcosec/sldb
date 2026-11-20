@@ -348,6 +348,7 @@ include:
   - desk/inbox/20261119-154109-suggestion-el-merge-driver-de-sldb-deber-a-instalarse-solo-al-preparar-un-store.md
   - desk/inbox/20261119-220305-unclear-revisar-las-l-neas-de-gitignore-que-pone-init.md
   - desk/inbox/20261120-001200-unclear-queue-20261120t030350z-integrate-task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen.md
+  - desk/inbox/20261120-005541-unclear-queue-20261120t034559z-integrate-task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -1257,6 +1258,29 @@ include:
   - desk/materializations/materialization-cache-src-sldb-store-disk-caches-py.md
   - desk/materializations/materialization-cache-src-sldb-store-layout-py.md
   - desk/materializations/materialization-cache-tests-api-test-select-documents-disk-py.md
+  - desk/materializations/materialization-move-docs-architecture-transactions-md.md
+  - desk/materializations/materialization-move-knowledge-commands-cmd-sldb-move-md.md
+  - desk/materializations/materialization-move-knowledge-surfaces-surface-sldb-move-md.md
+  - desk/materializations/materialization-move-src-sldb-api-init-py.md
+  - desk/materializations/materialization-move-src-sldb-api-documents-move-document-py.md
+  - desk/materializations/materialization-move-src-sldb-api-documents-move-path-py.md
+  - desk/materializations/materialization-move-src-sldb-api-documents-move-path-apply-py.md
+  - desk/materializations/materialization-move-src-sldb-api-documents-move-path-fields-py.md
+  - desk/materializations/materialization-move-src-sldb-api-documents-move-path-files-py.md
+  - desk/materializations/materialization-move-src-sldb-api-documents-move-path-links-py.md
+  - desk/materializations/materialization-move-src-sldb-api-documents-move-path-plan-py.md
+  - desk/materializations/materialization-move-src-sldb-api-documents-move-path-remap-py.md
+  - desk/materializations/materialization-move-src-sldb-api-documents-move-path-report-py.md
+  - desk/materializations/materialization-move-src-sldb-api-documents-move-path-resolve-py.md
+  - desk/materializations/materialization-move-src-sldb-api-documents-relocate-file-py.md
+  - desk/materializations/materialization-move-src-sldb-cli-commands-help-texts-short-py.md
+  - desk/materializations/materialization-move-src-sldb-cli-commands-move-py.md
+  - desk/materializations/materialization-move-src-sldb-cli-dispatcher-py.md
+  - desk/materializations/materialization-move-src-sldb-cli-parsers-project-py.md
+  - desk/materializations/materialization-move-tests-api-test-move-path-py.md
+  - desk/materializations/materialization-move-tests-cli-init-py.md
+  - desk/materializations/materialization-move-tests-cli-move-repo-py.md
+  - desk/materializations/materialization-move-tests-cli-test-move-cli-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2520,6 +2544,14 @@ include:
     name: review-task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees-evidence-atom-1
   - path: desk/reviews/task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees/evidence-materialization-1.md
     name: review-task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees-evidence-materialization-1
+  - path: desk/reviews/task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer/evidence-tests-1.md
+    name: review-task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer-evidence-tests-1
+  - path: desk/reviews/task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer/evidence-commit-1.md
+    name: review-task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer-evidence-commit-1
+  - path: desk/reviews/task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer/evidence-atom-1.md
+    name: review-task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer-evidence-atom-1
+  - path: desk/reviews/task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer/evidence-materialization-1.md
+    name: review-task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
