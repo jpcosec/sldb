@@ -1,0 +1,9 @@
+Task: task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees
+Title: Arreglo de 3f547569 (caché vieja de ReviewDoc): layout.py pasa el límite de 80 líneas y el test de reescritura en el mismo tick falla en una copia limpia
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .

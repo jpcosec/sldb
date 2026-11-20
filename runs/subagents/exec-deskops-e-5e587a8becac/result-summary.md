@@ -1,0 +1,6 @@
+# Resultado
+Causa de la falla 2: el test lanza un subproceso con sys.executable y solo antepone la carpeta de modelos al sys.path; con sldb instalado editable desde el repo principal (.venv de integrate) el subproceso importaba el sldb del repo principal, no el de la copia limpia. No es de reloj ni de orden (no se reproduce en copia limpia aquí). Arreglo: el subproceso antepone el src del sldb bajo prueba; el test no se debilita.
+Falla 1: drop_disk_caches pasa de store/layout.py a src/sldb/store/disk_caches.py (layout.py ya no tiene límite excedido); build_store.py importa del módulo nuevo; contracts/layers.toml asigna disk_caches.py al eje de cachés.
+Archivos: CHANGELOG.md contracts/layers.toml src/sldb/api/stores/build_store.py src/sldb/store/layout.py src/sldb/store/disk_caches.py tests/api/test_select_documents_disk.py
+Validación: ver validation.log. Revisar: que la hipótesis (sldb del repo principal en el subproceso) cuadra con el log de integrate (Python 3.12.3 /mnt/ssd/.../.venv); el atom desk/atoms/atom-las-caches-... aún menciona layout.py (no se editó a mano).
+Nota: el commit usó identidad temporal (-c user.name=deskops-executor) porque git no tenía identidad; commit 3c04f6f9. 'deskops advance' corrió antes del commit por un encadenado fallido; el estado final es el mismo.

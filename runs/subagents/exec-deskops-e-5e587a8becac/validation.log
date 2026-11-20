@@ -1,0 +1,5 @@
+python -m pytest -q -p no:cacheprovider tests/api/test_select_documents_disk.py tests/test_clean_code_rules.py -> 1234 passed (rc 0)
+same with -n 4 -> 1234 passed (rc 0)
+test_a_rewrite_in_place... x20 seguidas -> 20 passed
+python -m pytest -n 4 tests/api en copia limpia (git archive HEAD, antes del arreglo) -> 633 passed (no reproduce)
+bash tools/check.sh --fast -> rc=0 (primer intento rc=1: archivo sin eje store/disk_caches.py; corregido en contracts/layers.toml)
