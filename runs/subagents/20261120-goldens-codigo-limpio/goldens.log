@@ -6,3 +6,4 @@ FAILED tests/test_clean_code_rules.py::test_clean_code_rules[sldb/api/rules/rule
 FAILED tests/test_clean_code_rules.py::test_clean_code_rules[sldb/api/notations/component_spec_graph.py]
 5 failed, 3172 passed, 94 skipped, 1 xfailed, 9 warnings in 227.50s (0:03:47)
 ### El refactor no cambia comportamiento: tras él, esta misma suite tiene que dar los 3172 passed y 0 failed (los 5 FAILED de test_clean_code_rules desaparecen). Tests de comportamiento de las cuatro tareas: tests/api/test_on_write_entering.py, tests/api/test_rules.py, tests/matching/test_matching_refs.py, tests/notations/test_notations_from_graph_cli.py, tests/store/test_diagnostics.py, sin cambiar asserts.
+### Resultado tras el refactor (6fd0a971): suite de deskops contra este sldb 1265 passed; tester: test_clean_code_rules 1232 passed y los cinco archivos de tests de las cuatro tareas en verde sin cambiar asserts.

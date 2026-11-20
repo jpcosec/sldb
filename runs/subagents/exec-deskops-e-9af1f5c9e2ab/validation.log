@@ -1,0 +1,2 @@
+python -m pytest -q -p no:cacheprovider tests/test_clean_code_rules.py + 5 test files + tests/store: rc=0 (1732 passed)
+bash tools/check.sh --fast: rc=1, only gate failing: identidad (workbench_demo, authorized exception); all others PASS

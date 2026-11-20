@@ -1,0 +1,37 @@
+name: review-task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo-evidence-materialization-1
+path: desk/reviews/task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo/evidence-materialization-1.md
+source_hash: 2ef897236214b494ac6f970a394327556c23babad1edaacd771bc5461a8cae13
+content_hash: 450ccd749a33bc2651bfb7c38fbcd46a2d2a255db2935168d455947ffbdbdb9f
+field_hashes:
+  id: 17c8da6a106be7e99164da09493e66fe3a80d4ec72bd932e7a5e4fa36f5b4711
+  title: d5feef78a0f39cdc5d4e1eb5cfbde89b5d7aadda8024572a9977f3ddee465c01
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: 1b365e75baeb6194f970c0054f6ff6a266b779721bbf3a9d13c0f19ca03e6aae
+  subject: 8a03802cb3790465485bf399b9b45018ca2720c39a1cb7fee04c34214723ef00
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 107c19686fc89707ea87cb7e7c5c015ffbccc63fdb830fb44ed0519e1dd04301
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 6a8f9bfdf2ade557d75af9fbb1b705c569458d6c7f3ad427ce4c858174a0367b
+  created_at: ad977d171887885c278207ecae09951b82a8284f1f4be7576441389c7345fb2c
+  disposed_at: ad977d171887885c278207ecae09951b82a8284f1f4be7576441389c7345fb2c
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: f7d4c4a601c0c829b09b0ccbf8c58c35e5c0c9bebb51e327869bb7573c780939
+  disposition: 0a21e8171e1b2ca1ba87dad3b2f874d8f3bdd0f66afb96e41a2f07dfe57eded8
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-20T14:49:51Z'
+  authority: generated
+  via: create_document

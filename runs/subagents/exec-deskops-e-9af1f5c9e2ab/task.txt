@@ -1,0 +1,9 @@
+Task: task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo
+Title: Reglas de código limpio de 0f91540d: cinco archivos pasan los límites (rule_graph, rules_on_write, component_spec_graph, store_check, diagnostics)
+Status: draft
+Current node: ritual-execution
+Task type: task.refactor
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .
