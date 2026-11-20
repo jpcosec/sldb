@@ -1,15 +1,15 @@
 name: task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup
 path: desk/tasks/task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup.md
-source_hash: bf7b168a5df79d94ca0c55a68b08c7b8dddb1677d9209f0e2358ed43354b43da
-content_hash: 9e4d2ce82349443137e145027402b4ff5b37a7e893234445d364b432e07ba9f0
+source_hash: 6c2b6f3e65c1cb238ba0310b114f96fa8b6c4f72224932242bf23b70a40428b1
+content_hash: 1a1236e5d29c92bad482c22e76fd404a12e0ab49bde8e69b2c6315638d52d294
 field_hashes:
   title: 7c8bf7e8852d9dd2b458a2bac81d55e77e2053cadc5bc124d5e408ee869dbe47
   id: 66227f3c9d4f2f2a181d2b404438a98853fb9341ee9b79236d405c57cd80e080
-  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
-  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
-  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  current_node: d10f5286503cbf750af0584acaec732741c2d9cfbae2a6d5b8ce45b8bf83b79d
+  history: f89b8fd2ac9e43a24ba505d162381268ed901d0695f62c6ad8ec2c62718dfa1c
   why: d14e1994d7d3ee527c96fd89508e7f4ee19f46cf4e7238b6ce56158bad899799
   goal: 072797537adfcb49f076039042dc76ecee78de3778bb6b502e21262640853c3a
   scope: 295a497d4ead9b91fa204e45b42c3e42219455d33521ca35f7b889f88c49d12f
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-16T06:20:19Z'
+  at: '2026-11-20T12:14:59Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

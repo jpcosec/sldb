@@ -1,0 +1,22 @@
+name: atom-save-document-payload-devuelve-las-alertas-on-write-de-la-escritura-y-la-regla-ve-las-aristas-del-pa
+path: desk/atoms/atom-save-document-payload-devuelve-las-alertas-on-write-de-la-escritura-y-la-regla-ve-las-aristas-del-pa.md
+source_hash: dfbd909639ac65f1c382301915192758fd92931da759524587b4286d440c90f4
+content_hash: b7eeab37fbc08984dec452af5c5385ad9b8e41cc3b4d2409b649bfc9ce88b555
+field_hashes:
+  id: 2d63fd5beebc3f9820191fb41af884dcf1e314efb49036395f0bef2e4c052be8
+  title: 4cfc59adc9e28bbb9fec6a0e3e6bd5b5ed3b222a5c3a31af7248bb00ee890505
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 37c50310aa50e473288e4fe187f657e40a5c942c13778c93cbf18c30b1be7aa5
+  tags: 009267aef00920e49a7d2599b803a2558cedbf3f9d3e30fef63bc9c79a57960f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:rules
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-20T12:58:32Z'
+  authority: generated
+  via: create_document

@@ -1,15 +1,15 @@
 name: task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co
 path: desk/tasks/task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co.md
-source_hash: b73e190c7a4a1dff6810581b3e3cef26667d8db0020b2862ee52222a5fe3ea81
-content_hash: 69e8e3bb4c1c6faf04e6a3eabe99fb0f0f75fe5e633308e70bbe47fffe8d7491
+source_hash: 73cdab65f0b121ff2217fce00c624da32a9492d08cb4b44d206a9c94f91b275b
+content_hash: 167e0565703daf11f772aff946c64a93c77d81d883c10e3b5fc59d5f38e96ae0
 field_hashes:
   title: f084909f37713d4fd55b39bf45d49d70c752466ae4fdb766f56201304493c8fc
   id: 7c0fe3c2dabd7779000e91d20c0f6c5bf199d6f9fdcd96b7b66e4c93418ba33b
-  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
-  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
-  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  current_node: d10f5286503cbf750af0584acaec732741c2d9cfbae2a6d5b8ce45b8bf83b79d
+  history: f89b8fd2ac9e43a24ba505d162381268ed901d0695f62c6ad8ec2c62718dfa1c
   why: 24f9d4c13f12d7ba19208014706bba00ee2ace904771b4105eaf443e778ccf69
   goal: 0ea8a5f487a184e734bae1c3c3f00ae2d72615c6f33d6b8a886f63544c17f0e6
   scope: c21ae74341b9a1721457b2b3fdfdf9d167f58bdd4abd7151b73fe1b590110e6a
@@ -35,6 +35,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-16T08:49:29Z'
+  at: '2026-11-20T12:13:28Z'
   authority: generated
   via: save_document_payload

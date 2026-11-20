@@ -1,35 +1,45 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T08:48:32Z'
+  at: '2026-11-20T13:00:16Z'
   authority: generated
   via: save_document_payload
 id: task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-testing
+history:
+- task_activates
+references:
+- src/sldb/api/documents/document_reference.py
+- src/sldb/api/documents/payload_save.py
+- src/sldb/api/documents/payload_save_steps.py
+- src/sldb/api/rules/rule_graph.py
+- src/sldb/api/rules/rules_on_write.py
+- tests/api/test_on_write_entering.py
+- tests/api/test_rules.py
+- 0f91540dfbaee9a0eae95b2c0a20b71db0ad1d78
 depends_on: []
 pills:
 - desk/contexts/pill-pill-regla-de-aristas-en-el-test-de-on-write.md
 files:
-- src/sldb/api/rules/rules_on_write.py
-- src/sldb/api/rules/rule_graph.py
-- src/sldb/api/documents/payload_save.py
-- src/sldb/core/finding_route.py
-- tests/api/test_rules.py
-- tests/api/test_on_write_entering.py
 - CHANGELOG.md
+- src/sldb/api/documents/document_reference.py
+- src/sldb/api/documents/payload_save.py
+- src/sldb/api/documents/payload_save_steps.py
+- src/sldb/api/rules/rule_graph.py
+- src/sldb/api/rules/rules_on_write.py
+- tests/api/test_on_write_entering.py
+- tests/api/test_rules.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
 atoms:
-- atom-sldb-evaluates-declared-rules-consumers-author-them
+- atom-save-document-payload-devuelve-las-alertas-on-write-de-la-escritura-y-la-regla-ve-las-aristas-del-pa
 from_drawer: drawer task-on-write-alerts-sin-listener-se-pierden-por-la-api-y-la-regla-ve-las-aristas-previas-a-la-escritura
   (retirado en el triaje 2026-11-16; contenido en git antes del commit del triaje)
 ---

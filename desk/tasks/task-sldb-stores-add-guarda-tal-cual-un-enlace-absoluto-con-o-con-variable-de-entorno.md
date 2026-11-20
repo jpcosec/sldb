@@ -1,11 +1,11 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T11:40:33Z'
+  at: '2026-11-20T12:43:26Z'
   authority: generated
   via: save_document_payload
 id: task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno
-status: draft
+status: active
 summary: 'BLOQUEADA (2026-11-16, ejecución): el contrato hace que toda ruta absoluta
   se guarde absoluta y eso rompe la portabilidad que hoy da stores add. Fallan 3 tests
   de tests/store/test_stores_build.py, y probablemente test_cli_store y test_export_contract_frozen,
@@ -17,8 +17,9 @@ tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
-current_node: ritual-execution
-history: []
+current_node: ritual-testing
+history:
+- task_activates
 references:
 - desk/inbox/inbox-note-sldb-stores-add-guarda-siempre-el-enlace-relativo-no-resuelve-desde-worktrees-un-nivel-más-hondo.md
 depends_on: []

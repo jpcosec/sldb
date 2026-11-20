@@ -351,6 +351,8 @@ include:
   - desk/inbox/20261120-005541-unclear-queue-20261120t034559z-integrate-task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees.md
   - desk/inbox/20261120-015312-unclear-queue-20261120t044848z-integrate-task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer.md
   - desk/inbox/20261120-073229-unclear-queue-20261120t102406z-integrate-task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu.md
+  - desk/inbox/20261120-074138-unclear-queue-20261120t103500z-integrate-task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu.md
+  - desk/inbox/20261120-085342-unclear-queue-20261120t115041z-dispatch-executor-task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -510,8 +512,6 @@ include:
     name: run-deskops-e-ca9ebf095f85
   - path: runs/subagents/20261116-test-referrers/run.md
     name: run-deskops-t-5182291d0393
-  - path: runs/subagents/20261116-exec-stores-add/run.md
-    name: run-deskops-e-9c1e01636d14
   - path: runs/subagents/20261116-exec-contract-signature/run.md
     name: run-deskops-e-a7eadfe52463
   - path: runs/subagents/20261116-exec-c1-carga/run.md
@@ -784,6 +784,24 @@ include:
     name: run-deskops-e-2946f0280e83
   - path: runs/subagents/exec-deskops-t-81480618a15e-testing/run.md
     name: run-deskops-t-81480618a15e
+  - path: runs/subagents/exec-deskops-e-ad3500234b5f/run.md
+    name: run-deskops-e-ad3500234b5f
+  - path: runs/subagents/exec-deskops-e-80598c2ac945/run.md
+    name: run-deskops-e-80598c2ac945
+  - path: runs/subagents/exec-deskops-e-7567d415b0e8/run.md
+    name: run-deskops-e-7567d415b0e8
+  - path: runs/subagents/exec-deskops-e-ddbd371d217b/run.md
+    name: run-deskops-e-ddbd371d217b
+  - path: runs/subagents/exec-deskops-t-4acf262f1c95-testing/run.md
+    name: run-deskops-t-4acf262f1c95
+  - path: runs/subagents/exec-deskops-t-c25bd0e5e5a2-testing/run.md
+    name: run-deskops-t-c25bd0e5e5a2
+  - path: runs/subagents/exec-deskops-e-9c1e01636d14/run.md
+    name: run-deskops-e-9c1e01636d14
+  - path: runs/subagents/exec-deskops-t-faa5cafa98e4-testing/run.md
+    name: run-deskops-t-faa5cafa98e4
+  - path: runs/subagents/exec-deskops-t-e1f80eb6a0cf-testing/run.md
+    name: run-deskops-t-e1f80eb6a0cf
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -1303,6 +1321,13 @@ include:
   - desk/materializations/materialization-stores-tests-api-test-gitignore-policy-py.md
   - desk/materializations/materialization-stores-tests-store-test-merge-driver-auto-install-py.md
   - desk/materializations/materialization-stores-tests-store-test-migrate-layout-py.md
+  - desk/materializations/materialization-rules-src-sldb-api-documents-document-reference-py.md
+  - desk/materializations/materialization-rules-src-sldb-api-documents-payload-save-py.md
+  - desk/materializations/materialization-rules-src-sldb-api-documents-payload-save-steps-py.md
+  - desk/materializations/materialization-rules-src-sldb-api-rules-rule-graph-py.md
+  - desk/materializations/materialization-rules-src-sldb-api-rules-rules-on-write-py.md
+  - desk/materializations/materialization-rules-tests-api-test-on-write-entering-py.md
+  - desk/materializations/materialization-rules-tests-api-test-rules-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2590,6 +2615,14 @@ include:
     name: review-task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu-evidence-atom-1
   - path: desk/reviews/task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu/evidence-materialization-1.md
     name: review-task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu-evidence-materialization-1
+  - path: desk/reviews/task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el/evidence-tests-1.md
+    name: review-task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el-evidence-tests-1
+  - path: desk/reviews/task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el/evidence-commit-1.md
+    name: review-task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el-evidence-commit-1
+  - path: desk/reviews/task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el/evidence-atom-1.md
+    name: review-task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el-evidence-atom-1
+  - path: desk/reviews/task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el/evidence-materialization-1.md
+    name: review-task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
