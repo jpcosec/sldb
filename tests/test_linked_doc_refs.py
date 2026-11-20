@@ -53,7 +53,7 @@ def test_a_new_store_and_a_store_that_only_links_pass_check(tmp_path: Path):
 
 def test_a_link_is_recorded_relative_even_outside_the_project(linked):
     a, _ = linked
-    assert store_links(a) == [{"name": "b", "path": "../b/.sldb", "resolved": str((a.parent.parent / "b" / ".sldb").resolve()), "status": "ok"}]
+    assert store_links(a) == [{"name": "b", "path": "../b/.sldb", "resolved": str((a.parent.parent / "b" / ".sldb").resolve()), "status": "ok", "by": "path"}]
 
 
 @pytest.mark.parametrize("name", ["local", "has space", "-dash", "a:b", "a/b"])

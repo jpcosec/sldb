@@ -13,6 +13,7 @@ from pathlib import Path
 from sldb.core.exceptions import SLDBStoreError
 from sldb.store.io import load_store_index
 from sldb.store.layout import project_root, store_exists
+from sldb.store.link_path import resolve_link
 from sldb.store.resolver import ancestor_stores, find_project_store, global_store_path
 
 logger = logging.getLogger(__name__)
@@ -38,10 +39,9 @@ def _find_default_store(mode: str) -> Path:
     return _handle_global_store(global_store, mode, cwd)
 
 
-def _resolve_linked_path(linked_path: Path, local_root: Path, store_arg: str) -> Path:
+def _resolve_linked_path(linked_path: str, local_root: Path, store_arg: str) -> Path:
     """Absolute path of a linked store entry, which must exist."""
-    resolved = linked_path if linked_path.is_absolute() else (local_root / linked_path)
-    resolved = resolved.resolve()
+    resolved = resolve_link(local_root, store_arg, linked_path)
     if not store_exists(resolved):
         raise SLDBStoreError(f"Linked store '{store_arg}' does not exist at {resolved}.")
     return resolved
@@ -52,7 +52,7 @@ def _get_linked_store(registry_store: Path, store_arg: str) -> Path | None:
     linked = next((entry for entry in load_store_index(registry_store).stores if entry.name == store_arg), None)
     if linked is None:
         return None
-    return _resolve_linked_path(Path(linked.path), project_root(registry_store), store_arg)
+    return _resolve_linked_path(linked.path, project_root(registry_store), store_arg)
 
 
 def _alias_registries() -> list[Path]:

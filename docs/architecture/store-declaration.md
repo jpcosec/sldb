@@ -8,7 +8,23 @@ node GD26 of the plan `generalizar-desde-deskops`, `folders` and `seeds`. A decl
 without those two keys is read and written exactly as before: both are left out of the dump
 when empty.
 
-## Links: how `sldb stores add` records the path
+## Links: a store is linked by name; the path is where it was
+
+The **name** is the linked store's identity: it is what addresses use (`name:st.{Model}.doc`), what an
+inherited model records as its `origin`, and it is the same on every machine. The **path** is where that
+store's repository was when the link was recorded, which belongs to each machine. So a link is read in
+two steps (`sldb.store.link_path.resolve_link`):
+
+1. the recorded path, when a store is there;
+2. else the store this machine's catalog knows under that name. The catalog is the global store
+   (`~/.sldb`): `sldb stores init` registers every store under the home directory by the name of its
+   project directory, and `sldb stores add <path> --name <name> --store ~/.sldb` records any other.
+   Two existing stores under one name are not chosen between: the link stays `missing`.
+
+`sldb stores list` shows `[found by name on this machine: <path>]` when step 2 answered. `stores build`
+records the path as declared and never rewrites it for the machine it runs on.
+
+How the path itself is recorded:
 
 `sldb stores add <path>` decides the stored form from the text as the user wrote it: a path
 starting with `/` (absolute), `~` (including `~user`) or `$` (`$VAR` or `${VAR}`) is stored
