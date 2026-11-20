@@ -5,6 +5,7 @@ from __future__ import annotations
 import shutil
 from pathlib import Path
 
+from sldb.api.stores.ensure_merge_driver import ensure_merge_driver
 from sldb.api.stores.gitignore_lines import ensure_cache_ignored
 from sldb.api.stores.store_location import StoreLocation
 from sldb.api.stores.store_skeleton import register_in_global_catalog, write_empty_store
@@ -36,6 +37,7 @@ def init_store(path: str | Path = ".", force: bool = False) -> StoreLocation:
     _write_or_undo(store_path)
     ensure_cache_ignored(root / ".gitignore")
     register_in_global_catalog(store_path)
+    ensure_merge_driver(store_path)
     return StoreLocation(store_path=store_path, project_root=root)
 
 

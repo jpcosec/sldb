@@ -8,6 +8,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from sldb.api.documents.transaction import Transaction, transaction
+from sldb.api.stores.ensure_merge_driver import ensure_merge_driver
 from sldb.api.stores.scaffold_report import ScaffoldReport
 from sldb.api.stores.scaffold_sources import seed_bytes
 from sldb.api.stores.seed import Seed
@@ -40,6 +41,7 @@ def scaffold_store(store: str | Path | None, *, declaration: StoreDeclaration | 
         report.add(outcome, relative)
     if apply:
         _apply(store_path, root, templates, plan)
+        ensure_merge_driver(store_path)
     return report
 
 

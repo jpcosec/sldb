@@ -31,7 +31,7 @@ def unbuilt(store_path: Path) -> Finding | None:
 def surroundings_findings(store_path: Path, root: Path, pythonpath: str | None) -> list[Finding]:
     if found := unbuilt(store_path):
         return [found]
-    return [*_links(store_path), *_include_conflicts(store_path, root), *_noise(store_path, root, pythonpath), *_rewrite_loss(store_path, root, pythonpath), *_shadowed(store_path, pythonpath), *_gitignore(store_path)]
+    return [*_links(store_path), *_include_conflicts(store_path, root), *_noise(store_path, root, pythonpath), *_rewrite_loss(store_path, root, pythonpath), *_shadowed(store_path, pythonpath), *_gitignore(store_path), *_merge_driver(store_path)]
 
 
 def _links(store_path: Path) -> list[Finding]:
@@ -91,3 +91,9 @@ def _gitignore(store_path: Path) -> list[Finding]:
     if not policy["cache_ignored"]:
         found.append(alert("stores/cache_not_ignored", ".gitignore", "`.sldb_cache/` is not ignored by git: it is regenerable and must not be versioned", "add the line `.sldb_cache/` to the root .gitignore (`sldb stores init` and `sldb stores migrate-layout` write it)"))
     return found
+
+
+def _merge_driver(store_path: Path) -> list[Finding]:
+    from sldb.api.stores.ensure_merge_driver import merge_driver_finding
+
+    return merge_driver_finding(Path(store_path))

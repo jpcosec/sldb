@@ -10,6 +10,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any, Callable
 
+from sldb.api.stores.ensure_merge_driver import ensure_merge_driver
 from sldb.api.stores.include_resolution import conflict_finding, include_conflicts
 from sldb.api.stores.apply_declaration import apply_includes, apply_links, apply_models, apply_predicates, missing_declared, missing_links, undeclared
 from sldb.api.stores.scaffold_store import scaffold_store
@@ -50,6 +51,7 @@ def build_store(store: str | Path | None, *, apply: bool = True, generate: Gener
 def _built(store_path: Path, root: Path, declaration: StoreDeclaration, generate: Generate | None) -> dict[str, Any]:
     if not store_exists(store_path):
         write_empty_store(store_path)
+    ensure_merge_driver(store_path)
     report = {"links": apply_links(store_path, root, declaration), "models": apply_models(store_path, root, declaration)}
     report["predicates_changed"] = apply_predicates(store_path, declaration)
     report.update(_track(store_path, root, declaration, generate))
