@@ -5,13 +5,17 @@ from __future__ import annotations
 
 from typing import Any
 
+from sldb.api.stores.ensure_merge_driver import ensure_merge_driver
 from sldb.api.stores.scaffold_report import ScaffoldReport
 from sldb.api.stores.scaffold_store import scaffold_store
+from sldb.api.stores.store_declaration import declared_store
 from sldb.cli.output_format import emit
 
 
 def scaffold_command(args: Any) -> int:
     report = scaffold_store(args.store, apply=args.apply)
+    if args.apply:
+        ensure_merge_driver(declared_store(args.store)[0])
     emit(report.model_dump(), args.format, _summary(report))
     return 1 if report.conflicts else 0
 

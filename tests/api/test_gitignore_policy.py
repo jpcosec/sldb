@@ -23,6 +23,10 @@ def _repo(tmp_path, gitignore: str | None):
     return init_store(tmp_path).store_path
 
 
+def _codes(payload) -> list[str]:
+    return [a["code"] for a in payload["alerts"]]
+
+
 def _check(sp, capsys) -> tuple[int, dict]:
     code = main(["stores", "check", "--store", str(sp), "--format", "json"])
     return code, json.loads(capsys.readouterr().out)
@@ -49,7 +53,8 @@ def test_a_repo_that_ignores_the_cache_and_versions_the_store_is_fine(tmp_path, 
     sp = _repo(tmp_path, None)
     assert check_store(sp, tmp_path)["gitignore_policy"] == {"core_ignored": False, "declaration_ignored": False, "cache_ignored": True, "ok": True}
     code, payload = _check(sp, capsys)
-    assert code == 0 and payload["errors"] == [] and payload["alerts"] == []
+    assert code == 0 and payload["errors"] == []
+    assert _codes(payload) == ["merge-driver-missing"]  # init_store (API) does not install the driver; the CLI does
 
 
 def test_core_ignored_is_an_error(tmp_path, capsys):
@@ -74,7 +79,7 @@ def test_the_cache_not_ignored_is_an_alert(tmp_path, capsys):
     (tmp_path / ".gitignore").write_text("# nothing here\n", encoding="utf-8")
     code, payload = _check(sp, capsys)
     assert code == 0 and payload["errors"] == []
-    assert [a["code"] for a in payload["alerts"]] == ["stores/cache_not_ignored"]
+    assert _codes(payload) == ["stores/cache_not_ignored", "merge-driver-missing"]
     main(["stores", "check", "--store", str(sp)])
     assert "alert: [stores/cache_not_ignored] .gitignore" in capsys.readouterr().out
 
@@ -82,7 +87,8 @@ def test_the_cache_not_ignored_is_an_alert(tmp_path, capsys):
 def test_any_rule_that_covers_the_cache_counts(tmp_path, capsys):
     sp = _repo(tmp_path, ".sldb_cache\n")
     code, payload = _check(sp, capsys)
-    assert code == 0 and payload["alerts"] == []
+    assert code == 0
+    assert _codes(payload) == ["merge-driver-missing"]  # no cache_not_ignored alert: the rule covers the cache
 
 
 def test_outside_git_there_is_no_policy(tmp_path, capsys):

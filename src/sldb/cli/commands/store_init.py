@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Any
 import sys
 from sldb.api.stores.init_store import StoreInitError, init_store as create_store
+from sldb.api.stores.ensure_merge_driver import ensure_merge_driver
 from sldb.store.layout import store_exists
 from sldb.api.stores.branch_stores import branches_with_store
 
@@ -27,5 +28,6 @@ def _create(root: Path, force: bool) -> int:
     except StoreInitError as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 2 if exc.precondition else 1
+    ensure_merge_driver(created.store_path)
     print(f"Initialized store at {created.store_path}")
     return 0

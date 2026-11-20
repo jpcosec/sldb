@@ -16,6 +16,7 @@ import pytest
 
 from sldb import api
 from sldb.api.stores.migrate_layout import migrate_layout
+from sldb.api.stores.merge_driver_install import install_merge_driver
 from sldb.cli import main
 from sldb.store.io import invalidate_index_cache
 from sldb.store.layout import cache_dir, runtime_dir
@@ -109,6 +110,7 @@ def test_the_migrated_store_checks_clean_and_rebuilds(old_store, capsys):
     sp, root = old_store
     assert main(["stores", "migrate-layout", "--store", str(sp)]) == 0
     capsys.readouterr()
+    install_merge_driver(sp)  # the API no longer installs it; the repo of this fixture is not prepared by the CLI
     assert main(["stores", "check", "--store", str(sp), "--pythonpath", str(sp.parent.parent), "--quiet"]) == 0
     assert "alert:" not in capsys.readouterr().out
     shutil.rmtree(root / ".sldb_cache")

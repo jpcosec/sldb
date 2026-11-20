@@ -14,6 +14,7 @@ from pathlib import Path
 from typing import Any
 
 from sldb.api.stores.build_store import build_store as api_build_store
+from sldb.api.stores.ensure_merge_driver import ensure_merge_driver
 from sldb.api.stores.declare_store import declare_store
 from sldb.api.stores.store_declaration import declared_store, save_declaration
 from sldb.cli.commands.stores_build_generators import run_generators
@@ -55,6 +56,7 @@ def _keep_without_check() -> int:
 def _build_in_place(args: Any) -> int:
     store, root = declared_store(args.store)
     report = build_store(store, root)
+    ensure_merge_driver(store)
     emit(report, args.format, _summary(report))
     return 1 if report["undeclared"] or report["missing"] or report["include_conflicts"] else 0
 
