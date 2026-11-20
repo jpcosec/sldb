@@ -1,0 +1,18 @@
+name: 20261119-220305-unclear-revisar-las-l-neas-de-gitignore-que-pone-init
+path: desk/inbox/20261119-220305-unclear-revisar-las-l-neas-de-gitignore-que-pone-init.md
+source_hash: 8751f9fe7bca38626e6465e09589b5793664db395f1b94bec683707d428224b3
+content_hash: 42924d975c1bf10ada392478a7f23af42a5c2c1f1a6036049c0e2a183d1be843
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: 49dd79627e3243e8e87555525170fa5e0ddaec5c52fcf2b43276109105b58663
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 745762630950b3c1f5a73ac0ce4f040177f4acfea7743eaad1ce11e1bc3c88f9
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  title: ad2146405135406e3ac9786ade7bb411dfb6eb9db2afefe862bee1bea40e702d
+  body: 5cace0ec3867e8b6d492459e029eaf8386619414a396a5b3a463e7ca94078168
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

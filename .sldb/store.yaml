@@ -346,6 +346,7 @@ include:
   - desk/inbox/20261119-084950-unclear-queue-20261119t114901z-dispatch-executor-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qu-namespace-declarar.md
   - desk/inbox/20261119-114028-unclear-queue-20261119t143238z-integrate-task-el-guard-de-escritura-por-campos-refuse-lossy-overwrite-rechaza-headings-no-declarados-que-viven-den.md
   - desk/inbox/20261119-154109-suggestion-el-merge-driver-de-sldb-deber-a-instalarse-solo-al-preparar-un-store.md
+  - desk/inbox/20261119-220305-unclear-revisar-las-l-neas-de-gitignore-que-pone-init.md
   - desk/inbox/20261120-001200-unclear-queue-20261120t030350z-integrate-task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen.md
 - model: MoveDoc
   glob: ledger/*.md
