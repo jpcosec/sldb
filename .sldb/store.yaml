@@ -1345,6 +1345,8 @@ include:
   - desk/materializations/materialization-clean-code-src-sldb-api-stores-store-check-summary-py.md
   - desk/materializations/materialization-clean-code-src-sldb-store-diagnostics-py.md
   - desk/materializations/materialization-clean-code-src-sldb-store-diagnostics-models-verdict-notes-py.md
+  - desk/materializations/materialization-matching-src-sldb-api-matching-atoms-by-view-py.md
+  - desk/materializations/materialization-matching-tests-matching-test-matching-refs-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2656,6 +2658,14 @@ include:
     name: review-task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo-evidence-materialization-1
   - path: desk/reviews/task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo/goldens-2.md
     name: review-task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo-goldens-2
+  - path: desk/reviews/task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto/evidence-tests-1.md
+    name: review-task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto-evidence-tests-1
+  - path: desk/reviews/task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto/evidence-commit-1.md
+    name: review-task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto-evidence-commit-1
+  - path: desk/reviews/task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto/evidence-atom-1.md
+    name: review-task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto-evidence-atom-1
+  - path: desk/reviews/task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto/evidence-materialization-1.md
+    name: review-task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

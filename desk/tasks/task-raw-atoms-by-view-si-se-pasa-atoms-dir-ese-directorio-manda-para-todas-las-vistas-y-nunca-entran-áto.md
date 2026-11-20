@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-20T12:13:55Z'
+  at: '2026-11-20T15:29:30Z'
   authority: generated
   via: save_document_payload
 id: task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto
@@ -15,17 +15,19 @@ current_node: ritual-testing
 history:
 - task_activates
 references:
-- desk/inbox/20261116-004642-suggestion-sldb-notations-atoms-dir-no-manda-el-resolver-trae-tomos-de-un-store-ajeno-heredado-de-spec2viz-que-se-retira.md
+- src/sldb/api/matching/atoms_by_view.py
+- tests/matching/test_matching_refs.py
+- 0f91540dfbaee9a0eae95b2c0a20b71db0ad1d78
 depends_on: []
 pills: []
 files:
 - src/sldb/api/matching/atoms_by_view.py
 - tests/matching/test_matching_refs.py
-- CHANGELOG.md
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas
 ---
 
 # raw_atoms_by_view: si se pasa atoms_dir, ese directorio manda para todas las vistas y nunca entran átomos de un store ajeno

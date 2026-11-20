@@ -1,0 +1,22 @@
+name: atom-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas
+path: desk/atoms/atom-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas.md
+source_hash: 32ac1ad903e39905e4aae2e303e0af4641ecbbe7d1ee6cb6af005cc198e0e4e5
+content_hash: b50aeca2a3c35eb27f84495bf3099af6720aee60e022af17412927ec97f32535
+field_hashes:
+  id: c9a60465ac8ebb541a22ed92c7312214668ba038c5600f056486e4c4cafc5ff5
+  title: f3bdd216b3a4a87b73f22ec424fb6d30cde06d86e605a0bb7e8dc8f1f3055b11
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: afde652924e0853c97153f771be2fc674180c8432b186f8d1be8b7203d957d98
+  tags: eb83724b5baf1b29134e16e6d88549ccfcadf25fdd746fa5711565c67f1ca1e6
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:matching
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-20T15:28:06Z'
+  authority: generated
+  via: create_document

@@ -1,0 +1,25 @@
+name: materialization-matching-tests-matching-test-matching-refs-py
+path: desk/materializations/materialization-matching-tests-matching-test-matching-refs-py.md
+source_hash: aa2f091d65f0839941092525ad16c722a695cbe6f28dbf84a287c21539febb26
+content_hash: e0fee30cf680dffbcdb680729694594fbb965010ca2c74c9247ef52e37b77676
+field_hashes:
+  id: 7d1a42c6afda95df0f1e548a3ae0f879df4ceb2e5a9638d784a7155520a741e0
+  title: 660d530ca23eb71e4541655b3d24b34e41808ca338219b466ae360bc0fc0bbb6
+  source_atoms: 1fdd42c1c70a44a9d711355a457ce156435e27cea1522ed59489282c2534c906
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 4e872d3968db3ed08936199d8cb72db73d4912269346914859b988d312f1f48b
+  intent: 52f6d6d79f95278140b33670bb1e5d33a2de9829a50986f0b55d03750ed95dee
+  validation: 7bbc55024a1516fc2e2b766e1b5864aa7f1e844851b2408ebeb9b21467b6095f
+  tags: eb83724b5baf1b29134e16e6d88549ccfcadf25fdd746fa5711565c67f1ca1e6
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:matching
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-20T15:30:24Z'
+  authority: generated
+  via: create_document
