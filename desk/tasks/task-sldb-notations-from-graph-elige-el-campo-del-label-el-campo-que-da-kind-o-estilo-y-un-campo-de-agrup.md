@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-20T12:14:59Z'
+  at: '2026-11-20T16:02:30Z'
   authority: generated
   via: save_document_payload
 id: task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup
@@ -15,18 +15,25 @@ current_node: ritual-testing
 history:
 - task_activates
 references:
-- desk/inbox/20261116-004723-suggestion-sldb-notations-from-graph-elegir-campo-para-label-kind-estilo-y-agrupaci-n-heredado-de-spec2viz.md
-depends_on: []
-pills: []
-files:
+- src/sldb/api/notations/component_spec_fields.py
+- src/sldb/api/notations/component_spec_graph.py
 - src/sldb/cli/commands/notations_from_graph.py
 - src/sldb/cli/parsers/notations.py
 - tests/notations/test_notations_from_graph_cli.py
-- CHANGELOG.md
+- 0f91540dfbaee9a0eae95b2c0a20b71db0ad1d78
+depends_on: []
+pills: []
+files:
+- src/sldb/api/notations/component_spec_fields.py
+- src/sldb/api/notations/component_spec_graph.py
+- src/sldb/cli/commands/notations_from_graph.py
+- src/sldb/cli/parsers/notations.py
+- tests/notations/test_notations_from_graph_cli.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-sldb-notations-from-graph-elige-el-campo-del-label-y-el-que-da-kind-o-estilo
 ---
 
 # sldb notations from-graph elige el campo del label, el campo que da kind o estilo y un campo de agrupación

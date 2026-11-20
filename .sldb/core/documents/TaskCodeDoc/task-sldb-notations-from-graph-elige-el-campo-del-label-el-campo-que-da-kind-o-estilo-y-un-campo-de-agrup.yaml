@@ -1,7 +1,7 @@
 name: task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup
 path: desk/tasks/task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup.md
-source_hash: 6c2b6f3e65c1cb238ba0310b114f96fa8b6c4f72224932242bf23b70a40428b1
-content_hash: 1a1236e5d29c92bad482c22e76fd404a12e0ab49bde8e69b2c6315638d52d294
+source_hash: d04110c7d51b17bc800ef2a23b62859b4f0278e64bbf66da6b665d5e5669fd18
+content_hash: 1b58f2f28676ab28bd9217f81ec0b7394ad8e608980ed096dbcd9ffc59ca7f34
 field_hashes:
   title: 7c8bf7e8852d9dd2b458a2bac81d55e77e2053cadc5bc124d5e408ee869dbe47
   id: 66227f3c9d4f2f2a181d2b404438a98853fb9341ee9b79236d405c57cd80e080
@@ -13,17 +13,17 @@ field_hashes:
   why: d14e1994d7d3ee527c96fd89508e7f4ee19f46cf4e7238b6ce56158bad899799
   goal: 072797537adfcb49f076039042dc76ecee78de3778bb6b502e21262640853c3a
   scope: 295a497d4ead9b91fa204e45b42c3e42219455d33521ca35f7b889f88c49d12f
-  references: 8c5ad2351f5aa26f97a02cf4127b3709793bc5e4c8e614d03c38fd3e71e1dbc1
+  references: ddffdbb7f4bff390327c62ed5d3640ea78a881b148aa402ddbfb68b6a44753ab
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  files: acfd88eecc4ec6c73b773ff08a06deeab7299b88eb61d8f8eed8e4077e58e864
+  files: e8b630851907f11eda0c245e1285bcbe031fa4fb2f0a0bd520e1acaadd3fd37c
   implementation_path: 3e6cd20583aa5ebf9e7d072e1fc74725737dda107d2a21505ba2479d57db57ce
   validation: f7739615b57697f45851f5c1e4b289f4295774e11496d8c6fa36a26d9bec019a
   done_when: f3d844a9aec492cde4e55db0c746a1b5ac3c064144b2d791c27705ecbe877482
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
-  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  atoms: d8deb5a4bc8bc8bce1e4e5cec5d9d6ba030f4bbad6263c9c990a22982ffd5140
 semantic_tags:
 - artifact:task
 - host:robocop2
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-20T12:14:59Z'
+  at: '2026-11-20T16:02:30Z'
   authority: generated
   via: save_document_payload

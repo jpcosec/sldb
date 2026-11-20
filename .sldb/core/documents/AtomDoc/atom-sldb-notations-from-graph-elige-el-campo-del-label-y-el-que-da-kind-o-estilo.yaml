@@ -1,0 +1,22 @@
+name: atom-sldb-notations-from-graph-elige-el-campo-del-label-y-el-que-da-kind-o-estilo
+path: desk/atoms/atom-sldb-notations-from-graph-elige-el-campo-del-label-y-el-que-da-kind-o-estilo.md
+source_hash: d5b07d2119c1723390448d9fcac372e18e775912f57784b8a5fc9ec1aa762ad9
+content_hash: b5aec569c42430426e170c470fd661ca6af78c4b839b11900edca17c8a5b6e0e
+field_hashes:
+  id: 516480fcc07ea29f89fa26f6a48f39e089822dcee650f49c1e1dcdcf8cc99978
+  title: de390d414339e50b5ad4ebc78793b07eaa1cf67812c773cacd194eb8e1aab6eb
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 5e90232ae45cbbd16b3ed529aa257aac22da334cf7cf81d96242596838b28971
+  tags: 1f6879d3f31f56b2802c17ed6bd1ec91facdb8d554030fea048f5505d98e5e32
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:notations
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-20T16:01:07Z'
+  authority: generated
+  via: create_document
