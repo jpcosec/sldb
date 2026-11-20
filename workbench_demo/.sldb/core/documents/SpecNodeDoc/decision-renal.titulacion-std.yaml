@@ -1,0 +1,27 @@
+name: decision-renal.titulacion-std
+path: diagrams/decision-renal.titulacion-std.md
+source_hash: 4371a8ef81393ca0c20e8277b5b80f27f374e6000ee1b3e6812bf033c9d0b988
+content_hash: 3482acd53dc185abe527e3b9a568f5df22a042cfd6f5a858600bc3d723274fdc
+field_hashes:
+  id: 3e7fe8f4d67ac4410b6a12d12486736ec7c6d5ab1c67a5d0f1b225eff2588bd3
+  title: 886fd608b8d4218e8a91a2f796e7bf7cb4d7f3ab358841122bec9d849851474c
+  spec: 404caab2811d67b79d9099ed855e8e1af294ddc139e1ccc2bf17e1019fa35869
+  element: 6f805843384264babdd58933289a3661ed9ea9894e9a3b63ea6b8b652f0e0f30
+  kind: 6b6fdce2c6f9762666c2e6dd00b3a89831d3b2f9ec0bfa4054bf88fa9b45fad6
+  collection: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  refs: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  atom_refs: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  contains: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  data: 44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a
+  description: 5fbc96f3baf1b92d82a1064166df054dbe0fe9cce34b271715a15d43ab449e54
+semantic_tags:
+- layer.topology
+- representation.markdown
+- source.document.markdown
+- system.spec2viz
+- type.architecture.spec.node
+provenance:
+  by: agent
+  at: '2026-11-06T19:40:34Z'
+  authority: generated
+  via: create_document

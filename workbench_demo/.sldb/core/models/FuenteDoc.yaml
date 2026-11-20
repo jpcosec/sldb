@@ -1,0 +1,16 @@
+name: FuenteDoc
+model_ref: workbench_demo.models:FuenteDoc
+path: models.py
+documents_index: .sldb/core/documents/FuenteDoc.yaml
+sections_index: .sldb/runtime/sections/FuenteDoc.yaml
+model_hash: 69d1e0a3de3a8b02e5cb5c45bec6d0af1a5c9fb2c3d677675a8d8a50f401ff0a
+roster_hash: 2080919cf38dbbf0d410cc8403780425c34a8ac5e702aa25ce12b97796a0e07d
+contract_hash: 3903f8d0a467c5fcce4f84908d45a5372baeca22757315260004a43f36467c4f
+documents_count: 1
+version: 1
+canonical: false
+family: null
+semantics:
+- representation.markdown
+- source.document.markdown
+base_models: []

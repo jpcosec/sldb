@@ -1,0 +1,24 @@
+name: reltype-sends
+path: sldb/relation_types/sends.md
+source_hash: e444ba400e736a9df64a09fbfcac9944256a66f0f91f1c01f37f348eee471e7e
+content_hash: eda45a08df5ef44454d44a759b4f9f3e524ef5afffadd50d4d92a1df87778619
+field_hashes:
+  title: 514aa25f2df0d5491f40614a98bcd4d548a8d84866347177c7b8cd504db60452
+  name: 514aa25f2df0d5491f40614a98bcd4d548a8d84866347177c7b8cd504db60452
+  direction: bc5965e31ad9b9fbdee7d03f2a8a26540c86629ea7b2abb3eb4cf2ac5e63a18b
+  cardinality: 3ea55382070a4f53a291448ffcb0ca975ac9b850f2514acbd418f89c891c1ffd
+  axis: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  source_types: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  target_types: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  condition: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  description: a95af1b4b73b0161d683424f791f15161ed93dfbabc48e6b208f2190b8d4c683
+semantic_tags:
+- layer.topology
+- representation.markdown
+- source.document.markdown
+- type.relation.type
+provenance:
+  by: sldb
+  at: '2026-11-06T19:44:51Z'
+  authority: generated
+  via: create_document

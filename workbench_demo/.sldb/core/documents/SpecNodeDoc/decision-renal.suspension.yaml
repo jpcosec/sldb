@@ -1,0 +1,27 @@
+name: decision-renal.suspension
+path: diagrams/decision-renal.suspension.md
+source_hash: 263148edefbd2ca5570907b3c8459ea4cbb4391314c4e1a2ab7ffe47b7a8b905
+content_hash: 386fad9928dbe440b71cd4bf2098aa365643fbf7c844cde565c310e607714345
+field_hashes:
+  id: 54f87a5e2cf655f984bbaf197644b1412faa077b4e3bfe5e65063b10fbef1402
+  title: bf793103b7b13bb43caa4571d61d86ef29caedeac225d423e622784946a95013
+  spec: 404caab2811d67b79d9099ed855e8e1af294ddc139e1ccc2bf17e1019fa35869
+  element: 5e320919e33a33f015ca217a116536130910f84898fbc70dfe28a3e787a73a5e
+  kind: 6b6fdce2c6f9762666c2e6dd00b3a89831d3b2f9ec0bfa4054bf88fa9b45fad6
+  collection: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  refs: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  atom_refs: 3d641ffd192554c1540099bea694b5db286151d8fa33dc73d7fd20f0a6050e99
+  contains: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  data: 44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a
+  description: 90d8676db365f82e43520257db5442ae46323fc0e9fc40c0d768360e1d52ac36
+semantic_tags:
+- layer.topology
+- representation.markdown
+- source.document.markdown
+- system.spec2viz
+- type.architecture.spec.node
+provenance:
+  by: agent
+  at: '2026-11-06T19:40:33Z'
+  authority: generated
+  via: create_document

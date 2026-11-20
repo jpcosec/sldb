@@ -1,0 +1,19 @@
+name: GlyphDoc
+model_ref: sldb.models.notation_models:GlyphDoc
+path: /home/jp/proyectos/SLDB_1/sldb/src/sldb/models/notation/glyph_doc.py
+documents_index: .sldb/core/documents/GlyphDoc.yaml
+sections_index: .sldb/runtime/sections/GlyphDoc.yaml
+model_hash: 5918e717b8ceed001633657f0cf0fe9305ef4a6830d7c27466460538fbcb0e44
+roster_hash: b6a345fa6d7f145a913d072128c44dbe3b1058f397df6ed6a2de040e4f51a27b
+contract_hash: 12fbcca0e44927651637a84e2ef4b17b50b6e11d4a8665dc95d5037ae48b9e07
+documents_count: 27
+version: 1
+canonical: false
+family: null
+semantics:
+- layer.presentation
+- representation.markdown
+- source.document.markdown
+- system.spec2viz
+- type.notation.glyph
+base_models: []

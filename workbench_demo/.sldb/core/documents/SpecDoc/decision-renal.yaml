@@ -1,0 +1,28 @@
+name: decision-renal
+path: diagrams/decision-renal.md
+source_hash: 04e157013d086b64b497240276d586351cb267401b83d3c53bc5dbdcfc5daedd
+content_hash: 1b4d04e33f90e9021f970b822554deec8bb29364cf4b2e5f8a26922ae1ef8df5
+field_hashes:
+  id: 62647ab72ba3792d652dcd34fe3be292262b64690acd18ac3b9ec32818ad4b4b
+  title: e100439e74435aee9f3069f7793d4ceb1981545db0e2f49f482f0e6d3a749c42
+  diagram_type: 00091aa568cb13873d1e8b761941b4ab506f6fc56867b6d5a6f4fc8c8539d810
+  version: a51162aeeb057ca4e3df627977231de20b581f0d0d418ca3a111bc0e408ac6cc
+  spec_path: d0dcc26ed4d93dc3c568706723213467f3fe7a23be696bef89cb618975f4496d
+  sha256: b4b16dad390bac4c7ce42014c594fa668910b49ec1b7771a17891c187d71e0ab
+  nodes: f2e393bfaafec201902d734522e6660c125c115099ed35745584b74bf15cb4dd
+  notation: 47770d4a6f8bca730a18d37857bae09f6fd927fc99dfdb1104ed77170999fdd3
+  category: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  nav: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  description: 6407af8ddfede5adc47a9a09ebec642f8c90a71f41e555219ad4e8b78767008e
+semantic_tags:
+- layer.topology
+- representation.markdown
+- source.document.markdown
+- system.spec2viz
+- type.architecture.spec
+provenance:
+  by: agent
+  at: '2026-11-06T19:40:33Z'
+  authority: generated
+  via: create_document

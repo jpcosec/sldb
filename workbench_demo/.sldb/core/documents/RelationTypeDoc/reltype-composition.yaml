@@ -1,0 +1,24 @@
+name: reltype-composition
+path: sldb/relation_types/composition.md
+source_hash: 705585935b3b8664cfffd4bab05adc13c1d7d3e631d199d51a5174480a93af0f
+content_hash: db18f3a4e7e078f9441e60b368d9048f2f1d34bea805d00dda0b9a2493fab1ba
+field_hashes:
+  title: ee4da04c2f4755a40f1816b91b93640b25cf7a5de198b7c626ae828b7119a378
+  name: ee4da04c2f4755a40f1816b91b93640b25cf7a5de198b7c626ae828b7119a378
+  direction: bc5965e31ad9b9fbdee7d03f2a8a26540c86629ea7b2abb3eb4cf2ac5e63a18b
+  cardinality: 3ea55382070a4f53a291448ffcb0ca975ac9b850f2514acbd418f89c891c1ffd
+  axis: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  source_types: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  target_types: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  condition: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  description: 135f34644633203a24c8487dd55e13a6f5de513a5adcdb3a110b04272c43a8a7
+semantic_tags:
+- layer.topology
+- representation.markdown
+- source.document.markdown
+- type.relation.type
+provenance:
+  by: sldb
+  at: '2026-11-06T19:44:50Z'
+  authority: generated
+  via: create_document

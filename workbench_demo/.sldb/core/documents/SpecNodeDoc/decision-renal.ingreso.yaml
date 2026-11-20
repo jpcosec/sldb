@@ -1,0 +1,27 @@
+name: decision-renal.ingreso
+path: diagrams/decision-renal.ingreso.md
+source_hash: 249a52fb8c6690c96cdf89e4bb9126da94d083462221705fe1ad3bf95bb6c91d
+content_hash: 2479854a49ea1e2ae546a1285c79393d9623a1d90b00c1c6600348caa3106cf0
+field_hashes:
+  id: cdfb2bf75ab1d4976fa428119aadc57259a4818e140c28180be52140a8468af5
+  title: bac830927ca6ef994f63fd3b3ad6c779daf6cddac54c20621b5c47f11c411e69
+  spec: 404caab2811d67b79d9099ed855e8e1af294ddc139e1ccc2bf17e1019fa35869
+  element: 96f62cb52e43d90be44b9f359e98171b1d5fbd8db754a5b2b7f2d87a61796442
+  kind: 4f1cf8d86a66caf554db9ac662dfe98a531cc614c2c4309a5e04c5f74912d3fd
+  collection: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  refs: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  atom_refs: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  contains: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  data: 44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a
+  description: a61096b60ab1df40b69c3608ce152f46c54fa18e7ff6c0fcc87fade383b7aa2a
+semantic_tags:
+- layer.topology
+- representation.markdown
+- source.document.markdown
+- system.spec2viz
+- type.architecture.spec.node
+provenance:
+  by: agent
+  at: '2026-11-06T19:40:33Z'
+  authority: generated
+  via: create_document

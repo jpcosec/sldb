@@ -1,0 +1,24 @@
+name: reltype-transitions_to
+path: sldb/relation_types/transitions_to.md
+source_hash: d6b31207668c0574014b0188f3c6eedd547de2a8be70048b75188c698e798199
+content_hash: c5dad511d09f932627d0eed277f88fd3dbcf25819c610303e12ab5b5da76daf5
+field_hashes:
+  title: 28bd9b3da8f636e17ce2ec3811abebeff4a370a7f2cfb9e2080617063a2c0e87
+  name: 28bd9b3da8f636e17ce2ec3811abebeff4a370a7f2cfb9e2080617063a2c0e87
+  direction: bc5965e31ad9b9fbdee7d03f2a8a26540c86629ea7b2abb3eb4cf2ac5e63a18b
+  cardinality: 3ea55382070a4f53a291448ffcb0ca975ac9b850f2514acbd418f89c891c1ffd
+  axis: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  source_types: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  target_types: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  condition: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  description: 0371b8a10674ac1576a1784c6b52bc71686e82b71b6882089f64c96acf0710ba
+semantic_tags:
+- layer.topology
+- representation.markdown
+- source.document.markdown
+- type.relation.type
+provenance:
+  by: sldb
+  at: '2026-11-06T19:44:49Z'
+  authority: generated
+  via: create_document

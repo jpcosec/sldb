@@ -1,0 +1,24 @@
+name: reltype-next
+path: sldb/relation_types/next.md
+source_hash: 0108e2483533d770ea74b1f75ec16d920a4e5995b29c49ffabe74ac202fea9de
+content_hash: 6aedc1c1479605014130c5d2ed9c55f2509a2d008d94108636fc0b1d40159326
+field_hashes:
+  title: ca1733b5cdea2efcd28cb357b253498f97440592edd06d89895c4abcb5cfaae5
+  name: ca1733b5cdea2efcd28cb357b253498f97440592edd06d89895c4abcb5cfaae5
+  direction: bc5965e31ad9b9fbdee7d03f2a8a26540c86629ea7b2abb3eb4cf2ac5e63a18b
+  cardinality: 3ea55382070a4f53a291448ffcb0ca975ac9b850f2514acbd418f89c891c1ffd
+  axis: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  source_types: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  target_types: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  condition: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  description: d76ae9cf0c95044aa4385432ec2e8ffe7e1f9ced16fc9c945c0df00fffd4e2f7
+semantic_tags:
+- layer.topology
+- representation.markdown
+- source.document.markdown
+- type.relation.type
+provenance:
+  by: sldb
+  at: '2026-11-06T19:40:32Z'
+  authority: generated
+  via: create_document

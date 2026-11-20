@@ -1,0 +1,17 @@
+name: InformeDoc
+model_ref: workbench_demo.models:InformeDoc
+path: models.py
+documents_index: .sldb/core/documents/InformeDoc.yaml
+sections_index: .sldb/runtime/sections/InformeDoc.yaml
+model_hash: fe90d349f5ea7638b4ff40091ef1dc8c1387adc5ec2fd1c551e13b028a02314d
+roster_hash: e3be817ab378039d3d363056fbd9051889f296c4af7ac779790752970687149a
+contract_hash: d8e97bdd69e1d8e82d3e2c0fa4b375193a8f131652bf997fdf34e01e371cb012
+documents_count: 1
+version: 1
+canonical: false
+family: null
+semantics:
+- domain.clinical.protocol
+- representation.markdown
+- source.document.markdown
+base_models: []

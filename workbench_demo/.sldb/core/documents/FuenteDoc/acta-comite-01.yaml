@@ -1,0 +1,17 @@
+name: acta-comite-01
+path: acta-comite-01.md
+source_hash: c87233a797530f67ddb6a06b99d5dbb2c2d7f9dac57ee352c36453f681d2bd73
+content_hash: e4984a501917b76fbf8f211e05773f249add88bbf013a0fd91d082b2df6d5ae3
+field_hashes:
+  title: 4e81054240ab3d70399e6809272fce4d64411b98da4818329a5857c8c596f8ec
+  fecha: 1778f9f78b7259121030c21480277aed369174e3ecc33a86e3ebffe208861fa2
+  autor: 0e28c9b0d6e0c3b34511a079157eb8275c957968e9842f91388388a071cc0dda
+  texto: 93bb967e285cf48d5c48a3dc8a218e38b54b34296c095c3187d31169eb6a4889
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+provenance:
+  by: agent
+  at: '2026-11-06T19:40:33Z'
+  authority: source_raw
+  via: create_document

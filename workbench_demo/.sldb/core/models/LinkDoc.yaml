@@ -1,0 +1,19 @@
+name: LinkDoc
+model_ref: sldb.models.notation_models:LinkDoc
+path: /home/jp/proyectos/SLDB_1/sldb/src/sldb/models/notation/link_doc.py
+documents_index: .sldb/core/documents/LinkDoc.yaml
+sections_index: .sldb/runtime/sections/LinkDoc.yaml
+model_hash: bcc606a67610f2cc8f176dcdebd8ce90c5948dbc6bc1e0dddcc50b88807195d8
+roster_hash: e9bfad238d5c1b2facd795a766d2e55d88aff2d2add98b4ce501dc4df630cd87
+contract_hash: cdbc3b7b68e151ec986a4f20d3efbcc4d323f5132fb3ca72d75e5682c225bc41
+documents_count: 23
+version: 1
+canonical: false
+family: null
+semantics:
+- layer.presentation
+- representation.markdown
+- source.document.markdown
+- system.spec2viz
+- type.notation.link
+base_models: []

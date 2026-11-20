@@ -1,0 +1,19 @@
+name: PaletteDoc
+model_ref: sldb.models.notation_models:PaletteDoc
+path: /home/jp/proyectos/SLDB_1/sldb/src/sldb/models/notation/palette_doc.py
+documents_index: .sldb/core/documents/PaletteDoc.yaml
+sections_index: .sldb/runtime/sections/PaletteDoc.yaml
+model_hash: e2ae09efccf539f42e09ff20264e4803549b0c1c140463b349263e9d866f3008
+roster_hash: 5bfa81e90837c14473b53e1ccb41be4a13e722725b60c6d28e61176885ca3693
+contract_hash: 935c38e413d042a910e2046c8439fb57438f4d9202d3d7a5fbd304b0b46cd250
+documents_count: 1
+version: 1
+canonical: false
+family: null
+semantics:
+- layer.presentation
+- representation.markdown
+- source.document.markdown
+- system.spec2viz
+- type.palette.vocabulary
+base_models: []

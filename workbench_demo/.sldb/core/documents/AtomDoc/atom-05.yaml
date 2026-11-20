@@ -1,0 +1,19 @@
+name: atom-05
+path: atom-05.md
+source_hash: 8028ae39e051fb648f54215feb443b7c4c3e1f38e5ed488e887e2035f95c92dc
+content_hash: c9b0622645f122532b36089fb690db3e83d0963008d4eae7bb4584b6095d6b60
+field_hashes:
+  title: 0f5c25602e7bc0b5b1347c98178fbefbe47c8a7f40e0850bbe59859c50e4ac2d
+  estado: b622e1001774f1e4d0506c091d86c7151d86479f86de78cab8b9af052cd7b3f2
+  autor: eb1486915ab66f7e74781f7705f4aa35e3b5eb07a198b77b65b1e0cdf0e50b68
+  fuente_ref: 6dc356f0dce6d6ef40bd9333249fe91f2b6362e00f33399541ccd2d111345318
+  cuerpo: f15a82da80d4589fbb28da83ad8b6db7c201b9b8883969cf895b27706b95f5ba
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.clinical.atom
+provenance:
+  by: agent
+  at: '2026-11-06T19:40:33Z'
+  authority: authored
+  via: create_document

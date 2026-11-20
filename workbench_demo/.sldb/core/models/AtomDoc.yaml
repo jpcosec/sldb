@@ -1,0 +1,17 @@
+name: AtomDoc
+model_ref: workbench_demo.models:AtomDoc
+path: models.py
+documents_index: .sldb/core/documents/AtomDoc.yaml
+sections_index: .sldb/runtime/sections/AtomDoc.yaml
+model_hash: cbe4703ebcd5bd888e4a4250a5a9a5d845d7b39c5bf85a7be0c7ca56b8e63507
+roster_hash: 2bea4d16ff3e26edcbff26bd2b39b7964fdbd16f3b19e5dc664d1fd146a7ef5d
+contract_hash: c0c4c539a25865698de7ef0d35d42c55e98518d5972277cfe84ecb54a95a0abe
+documents_count: 3
+version: 1
+canonical: false
+family: null
+semantics:
+- representation.markdown
+- source.document.markdown
+- type.clinical.atom
+base_models: []

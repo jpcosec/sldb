@@ -1,0 +1,22 @@
+name: doc-levira-fase2
+path: informe-clinico.md
+source_hash: 860bbfc38905e351704f19546cd3e3f8c6ebda5f38bfb4fa21f1be77e3e7815b
+content_hash: ec166703cb359d681d77febafee080650e04dbf9a180df776f77cb05f8786d98
+field_hashes:
+  title: 8e91ecf9a01e3dd6cee78ca8b90ea37a2687d585311e702bf8b3c28c61569b12
+  version: 3d639ed1cefb616c161c8abe034cc45200fa9ad016c41d0fd8a145bfbdce395d
+  fuente_ref: 6dc356f0dce6d6ef40bd9333249fe91f2b6362e00f33399541ccd2d111345318
+  objetivo: 7cdedbdda0af468843e30c3bbbd4652da48e25f40d2279d850c4d2b73dcd9a84
+  criterios: 9ef47265e6d896021aa55193952694b32b59c2d0635ead14765b720765d9de09
+  decision_spec: 404caab2811d67b79d9099ed855e8e1af294ddc139e1ccc2bf17e1019fa35869
+  tabla_dosis: 522e7e3c63cb1b0f5f89f3dc7f2deaaa14fdd0e471fddcb3708e7233dd5eada5
+  tolerancia: 01379637825a47a11780e060b68efd35b132fec3304d6b6870b0174b1bed95c7
+semantic_tags:
+- domain.clinical.protocol
+- representation.markdown
+- source.document.markdown
+provenance:
+  by: agent:workbench-assistant
+  at: '2026-11-17T13:18:30Z'
+  authority: authored
+  via: save_document_payload

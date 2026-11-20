@@ -1,0 +1,19 @@
+name: atom-07
+path: atom-07.md
+source_hash: 6723fd0f765e81882aba12910cd25a81b492bdc50078b64a1bae870165ec5167
+content_hash: 118ce8d0bf952b627766a34176e0a6c8f1ddecaa84ad3fe4ea25dc258712fcee
+field_hashes:
+  title: 8e73df35e7547b76ac8f363d6ea0c76ad61218d6afb0b0ac7974df0942f35afe
+  estado: b622e1001774f1e4d0506c091d86c7151d86479f86de78cab8b9af052cd7b3f2
+  autor: 67038af84ca638b4db6c061c99b587981c9c7e0a303a4951469e3af55b361a91
+  fuente_ref: 6dc356f0dce6d6ef40bd9333249fe91f2b6362e00f33399541ccd2d111345318
+  cuerpo: 63e06869fc4f4545b41890bc265b3f1cb0b51feac7a90abd28fff3f3321df9db
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.clinical.atom
+provenance:
+  by: agent
+  at: '2026-11-06T19:40:33Z'
+  authority: authored
+  via: create_document

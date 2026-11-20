@@ -1,0 +1,27 @@
+name: decision-renal.eval-crcl
+path: diagrams/decision-renal.eval-crcl.md
+source_hash: 106e664b05076f70fc140c6c1513922e128436343afa13ae0d03458bc2273e40
+content_hash: b15e2b3fef05438ea81247fabe42a5a7ac4dd191a40e6f03a5c61792ce37948a
+field_hashes:
+  id: 5fd56ce09a71bd00507d15931a2f4243e79105c8b0e2bd3a5979153d0b1c7488
+  title: a4452d8dda30f2c269bc9147ea420c2a9e50c3ebb27e57c9c48a7696f36424b6
+  spec: 404caab2811d67b79d9099ed855e8e1af294ddc139e1ccc2bf17e1019fa35869
+  element: f594a7d868dbec24e6090f4c910a55a72647c2de02eb54a034dbd6ba78b8c2a3
+  kind: 0807ce842aee519403b764131eee1dc3a4848c949a635ffabbf343abab61198e
+  collection: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  refs: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  atom_refs: 3d641ffd192554c1540099bea694b5db286151d8fa33dc73d7fd20f0a6050e99
+  contains: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  data: 44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a
+  description: 3dd776555e525b2c658268b7e22e2904a3cb85bacf249b8cac62c3f28830bcd3
+semantic_tags:
+- layer.topology
+- representation.markdown
+- source.document.markdown
+- system.spec2viz
+- type.architecture.spec.node
+provenance:
+  by: agent
+  at: '2026-11-06T19:40:33Z'
+  authority: generated
+  via: create_document

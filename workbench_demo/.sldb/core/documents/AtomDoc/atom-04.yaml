@@ -1,0 +1,19 @@
+name: atom-04
+path: atom-04.md
+source_hash: 6a89b16ef298dc3e92324bae55191e7c4fd5230f35dd06bea1a4432eb05e52e2
+content_hash: 02d888d8a9524ce3374a00092d8eafd72b8d423cfdc5db0293e059a54de7cf67
+field_hashes:
+  title: bb228b41ee0693014c2b2fd65780cbc7a3fd5f09be898a219679b8fce8da6d2b
+  estado: b622e1001774f1e4d0506c091d86c7151d86479f86de78cab8b9af052cd7b3f2
+  autor: 67038af84ca638b4db6c061c99b587981c9c7e0a303a4951469e3af55b361a91
+  fuente_ref: 6dc356f0dce6d6ef40bd9333249fe91f2b6362e00f33399541ccd2d111345318
+  cuerpo: c9e617ea6aaf1b140b6a6d4e1356bcdcfffbe453c2c14448f484d171b4fa53ae
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.clinical.atom
+provenance:
+  by: agent
+  at: '2026-11-06T19:44:08Z'
+  authority: authored
+  via: save_document_payload

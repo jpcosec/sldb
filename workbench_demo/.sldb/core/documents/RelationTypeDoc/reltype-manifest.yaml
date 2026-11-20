@@ -1,0 +1,24 @@
+name: reltype-manifest
+path: sldb/relation_types/manifest.md
+source_hash: 492e08c906cc09f7ea896e965e5a2966329daf3fe72202d713b9343dbf3b282b
+content_hash: cced810800400e8678232f642dd2948ddad5b7cba5e4080dec5f04850c78a7cd
+field_hashes:
+  title: 6af63d73c1c48f3b42b6e926fb67507cfe1ca255e96c7cf120a1cea4d23622e4
+  name: 6af63d73c1c48f3b42b6e926fb67507cfe1ca255e96c7cf120a1cea4d23622e4
+  direction: bc5965e31ad9b9fbdee7d03f2a8a26540c86629ea7b2abb3eb4cf2ac5e63a18b
+  cardinality: 3ea55382070a4f53a291448ffcb0ca975ac9b850f2514acbd418f89c891c1ffd
+  axis: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  source_types: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  target_types: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  condition: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  description: 29a713dfbfacd9c4cceac68fea231037561b71688af2d941935e70f8cebad723
+semantic_tags:
+- layer.topology
+- representation.markdown
+- source.document.markdown
+- type.relation.type
+provenance:
+  by: sldb
+  at: '2026-11-06T19:44:48Z'
+  authority: generated
+  via: create_document

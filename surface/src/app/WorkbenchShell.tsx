@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { createHttpClient, type SldbClient } from "../core/client";
 import type { GraphDocument, ModelCatalogEntry } from "../core/contract";
+import type { AssistantClient } from "../core/assistant";
+import { WorkbenchAssist } from "./WorkbenchAssist";
 import { SldbProvider } from "../react/context";
 import { ProsaWorkbenchView, type WorkbenchLens } from "../workbench/ProsaWorkbenchView";
 import { Spec2VizInspectorView } from "../workbench/Spec2VizInspectorView";
@@ -16,6 +18,8 @@ import {
 export interface WorkbenchShellProps {
   baseUrl?: string;
   client?: SldbClient;
+  /** Cliente del asistente; por defecto el puente local `/assistant`. */
+  assistantClient?: AssistantClient;
 }
 
 /** Vista a la que lleva una lente de prosa: conserva diagram/source; desde studio vuelve al workbench. */
@@ -31,6 +35,7 @@ function docTitle(doc: GraphDocument): string {
 export const WorkbenchShell: React.FC<WorkbenchShellProps> = ({
   baseUrl = "/sldb",
   client: injectedClient,
+  assistantClient,
 }) => {
   const client = useMemo(
     () => injectedClient ?? createHttpClient(baseUrl),
@@ -43,6 +48,8 @@ export const WorkbenchShell: React.FC<WorkbenchShellProps> = ({
   const [documents, setDocuments] = useState<GraphDocument[]>([]);
   const [models, setModels] = useState<ModelCatalogEntry[]>([]);
   const [paletteOpen, setPaletteOpen] = useState(false);
+  // Sube cuando el asistente escribe en el store: las vistas se vuelven a montar y releen.
+  const [viewEpoch, setViewEpoch] = useState(0);
   const [paletteQuery, setPaletteQuery] = useState("");
   const [storeStatus, setStoreStatus] = useState<
     { kind: "loading" } | { kind: "synced" } | { kind: "error"; message: string }
@@ -401,6 +408,7 @@ export const WorkbenchShell: React.FC<WorkbenchShellProps> = ({
         {/* Active View Body */}
         {route.view === "workbench" && (
           <ProsaWorkbenchView
+            key={`ProsaWorkbenchView-${viewEpoch}`}
             docId={activeDocItem?.id ?? route.doc ?? ""}
             documents={documents}
             models={models}
@@ -416,6 +424,7 @@ export const WorkbenchShell: React.FC<WorkbenchShellProps> = ({
 
         {route.view === "diagram" && (
           <Spec2VizInspectorView
+            key={`Spec2VizInspectorView-${viewEpoch}`}
             client={client}
             documents={documents}
             activeSpecId={route.spec}
@@ -431,6 +440,7 @@ export const WorkbenchShell: React.FC<WorkbenchShellProps> = ({
 
         {route.view === "source" && (
           <SourceAnchoringView
+            key={`SourceAnchoringView-${viewEpoch}`}
             client={client}
             documents={documents}
             activeSourceId={route.doc}
@@ -442,6 +452,7 @@ export const WorkbenchShell: React.FC<WorkbenchShellProps> = ({
 
         {route.view === "studio" && (
           <ModelStudioView
+            key={`ModelStudioView-${viewEpoch}`}
             client={client}
             documents={documents}
             activeModelName={route.model ?? activeDocItem?.model_name ?? null}
@@ -449,6 +460,27 @@ export const WorkbenchShell: React.FC<WorkbenchShellProps> = ({
             onModelsMutated={refreshStore}
           />
         )}
+
+        <WorkbenchAssist
+          assistantClient={assistantClient}
+          context={{
+            view: route.view,
+            lens: route.view === "studio" ? null : route.lens,
+            doc: activeDocItem?.id ?? route.doc,
+            model: route.view === "studio" ? (route.model ?? activeDocItem?.model_name ?? null) : (activeDocItem?.model_name ?? null),
+            path: activeDocItem?.path ?? null,
+            spec: route.view === "diagram" ? route.spec : null,
+            node: route.view === "diagram" ? route.node : null,
+          }}
+          contextLabel={`${crumb.collection} / ${crumb.id} · ${contextPill}`}
+          onStoreChanged={() => {
+            refreshStore();
+            setViewEpoch((n) => n + 1);
+          }}
+          onTourGo={(step) => {
+            if (step.view) navigate(step.lens ? { view: step.view, lens: step.lens } : { view: step.view });
+          }}
+        />
 
         {/* Command Palette Modal (⌘K) */}
         {paletteOpen && (

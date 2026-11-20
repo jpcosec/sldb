@@ -1,0 +1,25 @@
+---
+sldb:
+  by: sldb
+  at: '2026-11-06T19:44:49Z'
+  authority: generated
+  via: create_document
+id: deployment.connection
+notation: NotationDoc:deployment
+relation: '*'
+relation_type: ''
+model: ''
+draw: line
+line: solid
+source_end: none
+target_end: none
+label: '{data.label} {data.protocol}'
+source_label: ''
+target_label: ''
+ends: {}
+form: (relation *)
+---
+
+# Connection
+
+## Description
