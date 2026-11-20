@@ -12,7 +12,7 @@ import os
 from pathlib import Path
 from typing import Any
 
-from sldb.store.edge_index.cache_keys import edge_shard_version
+from sldb.store.edge_index.cache_keys import edge_shard_version, roster_state
 from sldb.store.edge_index.edge_index import EdgeIndex
 from sldb.store.edge_index.live_stale import ModelTypeOf
 from sldb.store.edge_index.shard_signature import shards_signature
@@ -42,10 +42,10 @@ def release_persistence(store_path: Path) -> None:
 def disk_key(stores: list[tuple[Path, str | None]], include_linked: bool, exclude_tags: frozenset[str], model_type_of: ModelTypeOf | None) -> dict[str, Any]:
     """What a composed index depends on: every federated store's shard and document-shard
     state (the signature `compose_edge_index` already keeps in memory, without this process's
-    rebuild counter) and, for the derived anchor states, the models' contracts."""
+    rebuild counter, and each model's roster hash: a document rewritten in place moves it) and, for the derived anchor states, the models' contracts."""
     key = {
         "format": FORMAT, "edges": edge_shard_version(), "linked": include_linked, "tags": sorted(exclude_tags),
-        "stores": [[str(p), n, list(shards_signature(p)[1:]), _documents_state(p)] for p, n in stores],
+        "stores": [[str(p), n, list(shards_signature(p)[1:]), _documents_state(p), roster_state(p)] for p, n in stores],
         "contracts": None if model_type_of is None else [_stamp(p, model_type_of) for p, _ in stores],
     }
     return json.loads(json.dumps(key))  # as a file reads it back: lists, not tuples

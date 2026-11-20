@@ -16,7 +16,7 @@ from sldb.api.stores.scaffold_store import scaffold_store
 from sldb.api.stores.store_declaration import StoreDeclaration, declared_store, load_declaration
 from sldb.api.stores.store_skeleton import write_empty_store
 from sldb.api.stores.update_store_indexes import update_store_indexes
-from sldb.store.layout import store_exists
+from sldb.store.layout import drop_disk_caches, store_exists
 
 Generate = Callable[[Path, Path, StoreDeclaration], list[str]]
 
@@ -53,6 +53,7 @@ def _built(store_path: Path, root: Path, declaration: StoreDeclaration, generate
     report["predicates_changed"] = apply_predicates(store_path, declaration)
     report.update(_track(store_path, root, declaration, generate))
     update_store_indexes(store_path, str(root))
+    drop_disk_caches(store_path)  # the build leaves the disk caches coherent: they are rebuilt from what it wrote
     report.update(_pending(store_path, root, declaration, apply=True))
     return report
 

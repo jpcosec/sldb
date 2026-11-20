@@ -143,3 +143,11 @@ def store_exists(store_path: Path) -> bool:
         store_index_path(store_path).exists()
         or legacy_store_index_path(store_path).exists()
     )
+
+
+def drop_disk_caches(store_path: Path) -> None:
+    """Forget what earlier processes kept on disk of the store's composed edge index and of its
+    document rows (H11, H11b): the next read builds them again from the shards."""
+    for kind in ("composed", "document_rows"):
+        for path in (cache_dir(store_path) / kind).glob("*.json"):
+            path.unlink(missing_ok=True)

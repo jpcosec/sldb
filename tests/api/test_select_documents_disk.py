@@ -8,6 +8,7 @@ from pathlib import Path
 
 from sldb.api import select_documents, track_document_file
 from tests.api.test_select_documents import store  # noqa: F401  (the fixture)
+from tests.api.test_doc_anchors import world as anchors_world  # noqa: F401  (the fixture)
 from tests.api.test_views import world  # noqa: F401  (the fixture)
 
 
@@ -79,3 +80,58 @@ def test_a_view_gives_the_same_result_and_revision_with_and_without_the_file(wor
     assert api.run_view(world.store, "tablero") == first
     world.save("Item", "i4", {"title": "I4", "status": "open", "owner": "ana", "stage": "Stage:open", "depends_on": []})
     assert api.run_view(world.store, "tablero")["revision"] != first["revision"]
+
+
+def _stamps(store_path: Path) -> dict[Path, tuple[int, int]]:
+    """The mtimes of every directory and top-level file of the edge shards and of the document shards."""
+    found: dict[Path, tuple[int, int]] = {}
+    index = store_path / "core" / "store_index.yaml"
+    found[index] = (index.stat().st_atime_ns, index.stat().st_mtime_ns)
+    for base in (store_path.parent / ".sldb_cache" / "edges", store_path / "core" / "documents"):
+        found[base] = (base.stat().st_atime_ns, base.stat().st_mtime_ns)
+        for entry in base.iterdir():
+            found[entry] = (entry.stat().st_atime_ns, entry.stat().st_mtime_ns)
+    return found
+
+
+def test_a_rewrite_in_place_inside_one_clock_tick_is_seen_by_the_next_process(anchors_world) -> None:
+    """An in-place rewrite (a verdict written on a receipt) moves no directory the keys look at when
+    the clock did not move: the caches must still see the new field in a process that did not write it."""
+    import subprocess
+    import sys
+
+    from tests.api.test_doc_anchors import ACCEPTED
+
+    code = ("import sys, json; sys.path.insert(0, sys.argv[2]); from sldb.api import select_documents\n"
+            "print(json.dumps([r['export_id'] for r in select_documents(sys.argv[1], {'model': 'TaskDoc', 'where': sys.argv[3]})]))")
+
+    def read() -> list[str]:
+        out = subprocess.run([sys.executable, "-c", code, str(anchors_world.store), anchors_world.py, ACCEPTED], capture_output=True, text=True, check=True)
+        return json.loads(out.stdout)
+
+    anchors_world.create("Review", "r1", {"title": "r", "subject": "doc:TaskDoc:b", "verdict": "pending"})
+    assert read() == []
+    before = _stamps(anchors_world.store)
+    anchors_world.save("Review", "r1", {"title": "r", "subject": "doc:TaskDoc:b", "verdict": "accepted"})
+    import os
+    for path, (atime, mtime) in before.items():  # the clock did not move
+        os.utime(path, ns=(atime, mtime))
+    assert read() == ["TaskDoc:b"]
+
+
+def test_a_store_build_leaves_no_disk_cache_of_the_old_state(store: Path) -> None:
+    from sldb.api import build_store
+    from sldb.api.stores.declare_store import declare_store
+    from sldb.api.stores.store_declaration import save_declaration
+
+    _rows(store)
+    cache = store.parent / ".sldb_cache"
+    (cache / "composed").mkdir(exist_ok=True)
+    (cache / "composed" / "old.json").write_text("{}", encoding="utf-8")
+    assert list((cache / "document_rows").glob("*.json"))
+    save_declaration(store, declare_store(store, store.parent))
+    build_store(store)
+    assert not list((cache / "composed").glob("*.json"))
+    assert not list((cache / "document_rows").glob("*.json"))
+    assert _rows(store)  # and the next read rebuilds it
+    assert len(list((cache / "document_rows").glob("*.json"))) == 1
