@@ -15,6 +15,8 @@ from sldb.api.documents.batch_report import BatchReport
 from sldb.api.documents.create_document import create_document
 from sldb.api.documents.delete_document import delete_document
 from sldb.api.documents.move_document import move_document
+from sldb.api.documents.move_path import move_path
+from sldb.api.documents.move_path_report import MovePathReport
 from sldb.api.documents.transaction import RollbackError, Transaction, transaction
 from sldb.api.documents import document_ast, build_document_ir_json, leaf_paths, runtime_document, extract_document_payload, render_document_markdown, render_model_template
 from sldb.api.documents.runtime_documents import InvalidDocument, RuntimeDocuments, load_runtime_documents
@@ -178,7 +180,7 @@ __all__ = [
     "DocRefStatus", "doc_exists", "doc_status", "tracked_documents", "AmbiguousDocument", "indexed_model_bases", "resolve_indexed_document", "split_doc_ref", "store_links",
     "WherePredicateError", "apply_effects", "edges_blocked", "edges_holding", "effects_of", "on_check_findings", "refuse_unknown_family", "rules_check", "rules_explain", "rules_on_check", "transition_findings", "remove_model", "where_matches", "inherit_model", "is_model_registered", "registered_models",
     "StructuredNLDoc", "UnresolvedReference", "unresolved_references",
-    "BatchReport", "ConflictError", "RollbackError", "Transaction", "apply_batch", "apply_batches", "move_document", "transaction",
+    "BatchReport", "ConflictError", "RollbackError", "Transaction", "apply_batch", "apply_batches", "move_document", "move_path", "MovePathReport", "transaction",
     "ScaffoldReport", "Seed", "StoreDeclaration", "build_store", "scaffold_store",
     "ProjectGraph", "ProjectGraphConfig", "project_graph",
     "Referrer", "RewriteReport", "referrers", "rewrite_references",

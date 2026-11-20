@@ -135,6 +135,19 @@ under `include.paths` leaves its place and comes back at the end of its model's 
   was dispatched, so that part is not implemented nor tested here (TaskDoc q10).
 - Deferred writes (GP2) and exposing `write_file` over HTTP.
 
+## Moving a path: `move_path`
+
+`sldb move SOURCE DESTINATION [--dry-run] [--format text|json]` (`sldb.api.move_path`) moves a
+file or a directory in one transaction. The file moves with `git mv` when git versions it
+(`relocate_file`; `move_document` uses it too), else on disk. In order: (1) every field value of a
+tracked document equal to the old path, or under it plus `/` for a directory, is written with
+`tx.update`; (2) the inline Markdown links of the repo's `.md` files that resolve to the old path
+are rewritten (a tracked document goes through untrack, write, track); (3) each file moves, a
+tracked one with `tx.move`. A failure puts the moved files back (and the git index with them)
+before the transaction restores the store. `--dry-run` runs only the planning and reports each
+file, field (`document`, `field`, `old`, `new`) and link (`file`, `line`, `old`, `new`). Out of
+scope: other repos or linked stores, reference-style link definitions, free text.
+
 ## Measurement
 
 Wall time of one `POST /save` with 20 updates on a 20-document store, served with

@@ -1,0 +1,21 @@
+name: cmd-sldb-move
+path: knowledge/commands/cmd-sldb-move.md
+source_hash: 207d4134176e510daa549d68e226f78abd0affcd424ca29d16db90a3205c0f41
+content_hash: bdded7227e7604a47833eb6d38d8b0cdad719e534790e2943754613bd4d3907e
+field_hashes:
+  id: fbfce8e279e8c66d69ecde75092da7ceaf9305c3732765b6336bd7547efb4956
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  command_path: c1becffaa3515c695c890a2330d8f07dc5e8247db6f2bb20f0dae89f94761791
+  synopsis: 8c18be3174b7c8a7f489e5c68eec882d4d3b1d56cc38082a0500459a02e1ed78
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  arguments: 7f8366e1cf957205c5dca397c95e384c10ca53692d6b782de9db7b08d082b7ab
+  usage: 5edb4945bac7a48bb8477dfe9c0506d1ff7af929f83739c30e422e78afd470e7
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: a2ba497a1fadf90a3fefc7d50a5e16f7c35fe296b86ab9fc9261276a25f6e2e6
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.cli_command
+- workspace.knowledge.commands
+provenance: null

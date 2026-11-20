@@ -1,0 +1,19 @@
+name: surface-sldb-move
+path: knowledge/surfaces/surface-sldb-move.md
+source_hash: 557eaac9856266265102ed433de658b2720d9db537bfdb93dcf1f7221da1d7a0
+content_hash: aeed0b006ce1687b730bc13b03a0a29892e9643f7889a1d1eabb723bf9bc9fdc
+field_hashes:
+  id: e581f146920db6f6d5bd07d6c17ce3fd23d2323a8f5134a6e1fb5215c08530fe
+  system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  surface: c1becffaa3515c695c890a2330d8f07dc5e8247db6f2bb20f0dae89f94761791
+  purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
+  commands: 30284ad9d145dc5815997950a2415026c69e7047ecd702f6da43ca0a89a4e50d
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  provenance: a2ba497a1fadf90a3fefc7d50a5e16f7c35fe296b86ab9fc9261276a25f6e2e6
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.knowledge.surface
+- workspace.knowledge.surfaces
+provenance: null

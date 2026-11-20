@@ -17,13 +17,13 @@ class CLI:
     def _load_1(self):
         from sldb.cli.commands.basic import BasicCLI
         from sldb.cli.commands.init import InitCLI
+        from sldb.cli.commands.move import MoveCLI
         from sldb.cli.commands.help import HelpCLI
         from sldb.cli.commands.faq import FAQCLI
         from sldb.cli.commands.inbox import InboxCLI
         from sldb.cli.commands.explore import ExploreCLI
         self.handlers.update({"extract": BasicCLI().extract, "render": BasicCLI().render, "validate": BasicCLI().validate})
-        self.handlers.update({"init": InitCLI().init, "example": InitCLI().example, "help": HelpCLI().run})
-        self.handlers.update({"faq": FAQCLI().run, "inbox": InboxCLI().run, "explore": ExploreCLI().run})
+        self.handlers.update({"init": InitCLI().init, "example": InitCLI().example, "move": MoveCLI().run, "help": HelpCLI().run, "faq": FAQCLI().run, "inbox": InboxCLI().run, "explore": ExploreCLI().run})
 
     def _load_2(self):
         from sldb.cli.commands.ast import ASTCLI

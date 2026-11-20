@@ -6,6 +6,7 @@ from pathlib import Path
 
 from sldb.api.documents.document_lookup import find_doc
 from sldb.api.documents.document_reference import DocumentReference
+from sldb.api.documents.relocate_file import relocate_file
 from sldb.api.documents.track_document_file import track_document_file
 from sldb.api.documents.transaction_paths import inside
 from sldb.api.documents.untrack_document import untrack_document
@@ -17,7 +18,7 @@ from sldb.store.io import load_store_index
 def move_document(store: str | Path | None, ref: str, new_path: str | Path, pythonpath: str | None = None) -> DocumentReference:
     """Move a document's file to `new_path` and re-track it under its current name.
 
-    The document keeps its name and model, so edges pointing at it (`Model:name`) keep
+    The file moves with `git mv` when git versions it (git then records a rename). The document keeps its name and model, so edges pointing at it (`Model:name`) keep
     resolving; its derived indexes are rebuilt from the new path.
 
     Args:
@@ -39,8 +40,7 @@ def move_document(store: str | Path | None, ref: str, new_path: str | Path, pyth
     m_entry, _, doc = find_doc(location.store_path, location.project_root, load_store_index(location.store_path), ref)
     target = _destination(location.project_root, new_path)
     untracked = untrack_document(location.store_path, doc.name, pythonpath)
-    target.parent.mkdir(parents=True, exist_ok=True)
-    untracked.path.rename(target)
+    relocate_file(untracked.path, target)
     return track_document_file(location.store_path, m_entry.name, target, doc.name, pythonpath, force=True)
 
 
