@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-20T06:44:16Z'
+  authority: generated
+  via: save_document_payload
 # unclear | suggestion
 kind: suggestion
 # e.g., other_repo
@@ -8,11 +13,14 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-11-19T15:41:09'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-11-20T03:43:54'
 # why the note was acknowledged; empty when no reason was given
-ack_reason: ''
+ack_reason: 'Convertida en tarea: el merge driver de sldb se instala solo al preparar
+  un store y stores check avisa si falta.'
 ---
 
 # El merge driver de .sldb debería instalarse solo al preparar un store

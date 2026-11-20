@@ -1,0 +1,19 @@
+name: 20261120-015312-unclear-queue-20261120t044848z-integrate-task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer
+path: desk/inbox/20261120-015312-unclear-queue-20261120t044848z-integrate-task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer.md
+source_hash: db7aa80fe3cef053519987e7a7566ccf64dd6c599d52e884da8e4ab394b0dbeb
+content_hash: d8367274111d1dfa3b25fa4dfd4304f0356c97a2e76fe9ffc249435bd0010818
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: b13d8e8d0af9bcb66a8f5bc6b946dfbdb3565310dd70dfeba6b3fd864c429e88
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: 9a3873d665b58fbfc9276893913d4ce1dada2825d3d18a9121839ad4f2ee7f95
+  body: 300c9cfaf73f5ef2c0df0f5d64eecb80f032deeae9ea541eb70fd0330e2a1029
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null
