@@ -775,6 +775,10 @@ include:
     name: run-deskops-e-7b45b951426a
   - path: runs/subagents/exec-deskops-t-00b2a8821cd7-testing/run.md
     name: run-deskops-t-00b2a8821cd7
+  - path: runs/subagents/exec-deskops-e-7b45b951426a-a2/run.md
+    name: run-deskops-e-7b45b951426a-a2
+  - path: runs/subagents/exec-deskops-t-00b2a8821cd7-a2-testing/run.md
+    name: run-deskops-t-00b2a8821cd7-a2
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -2607,6 +2611,7 @@ include:
   - desk/tasks/task-declaredfiletargets-lee-campos-lista-y-no-aplica-las-exclusiones-a-lo-que-se-declara-para-que-un-des.md
   - desk/tasks/task-baja-prioridad-canonizar-los-nombres-de-llamada-ts-js-cuya-cadena-empieza-en-un-array-binario-new-o.md
   - desk/tasks/task-el-merge-driver-de-sldb-se-instala-solo-al-preparar-un-store-y-stores-check-avisa-si-falta.md
+  - desk/tasks/task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu.md
 - model: TaskDebugDoc
   paths:
   - desk/tasks/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg.md

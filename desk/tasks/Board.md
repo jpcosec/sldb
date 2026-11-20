@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-20T07:13:52Z'
+  at: '2026-11-20T07:56:54Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -73,6 +73,7 @@ tasks:
 - desk/tasks/task-baja-prioridad-canonizar-los-nombres-de-llamada-ts-js-cuya-cadena-empieza-en-un-array-binario-new-o.md
 - desk/tasks/task-el-merge-driver-de-sldb-se-instala-solo-al-preparar-un-store-y-stores-check-avisa-si-falta.md
 - desk/tasks/task-clasificar-workbench-demo-en-contracts-identity-toml-producto-autoaplicacion-o-ajeno-la-puerta-ident.md
+- desk/tasks/task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -180,3 +181,4 @@ _Generated from the task references above._
 - Baja prioridad: canonizar los nombres de llamada TS/JS cuya cadena empieza en un array, binario, new o literal (hoy canonical: false) [draft] - Los nombres de llamada que hoy salen con canonical: false tienen una forma canónica definida y documentada (por ejemplo marcadores fijos [...] para arrays, (expr) para binarios, Clase() para new y (lit) para literales) y salen con canonical: true y en la relación calls si nombran un símbolo.
 - El merge driver de sldb se instala solo al preparar un store y stores check avisa si falta [active] - (1) init_store y scaffold_store (sldb stores init/scaffold) y build_store (sldb stores build) llaman a install_merge_driver cuando el store está dentro de un repo git. Es idempotente; fuera de git no hacen nada, y si git falla avisan sin romper el comando. (2) sldb stores check informa un hallazgo 'merge-driver-missing' (nivel warning, con fix: 'sldb stores merge-driver --install') cuando el store está en un repo git y faltan las líneas de .gitattributes o las claves merge.sldb.* de la config.
 - Clasificar workbench_demo en contracts/identity.toml (producto, autoaplicación o ajeno): la puerta identidad de check.sh está en rojo [draft] - JP o el dueño de surface decide qué es workbench_demo: producto (sldb lo distribuye), autoaplicación (sldb usado sobre sí mismo) o ajeno (va en contract foreign, o se mueve fuera de la raíz, por ejemplo bajo surface/), y se clasifica en contracts/identity.toml. Con eso, check.sh --fast vuelve a 0.
+- Merge driver automático, intento nuevo: se instala desde los comandos CLI de stores, no desde la API que usan las transacciones [draft] - (1) 'sldb stores init', 'sldb stores scaffold' y 'sldb stores build' (los comandos de src/sldb/cli/commands/) instalan el merge driver cuando el store está en un repo git, con ensure_merge_driver/install_merge_driver: idempotente, sin nada fuera de git, y con aviso por stderr sin romper si git falla. Las funciones de API (init_store, scaffold_store, build_store) no lo instalan. (2) 'sldb stores check' da el alert stores/merge_driver_missing con el fix 'sldb stores merge-driver --install' cuando falta. (3) Los tests de tests/api/test_gitignore_policy.py que preparan un repo git con la API y comparan alerts esperan ahora también ese alert (es el comportamiento nuevo pedido). Si un test solo quiere aislar otra regla, que instale el driver antes o filtre por código, sin debilitar lo que verifica.

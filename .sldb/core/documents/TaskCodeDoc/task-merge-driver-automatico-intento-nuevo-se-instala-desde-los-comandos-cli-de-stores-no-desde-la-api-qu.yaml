@@ -1,0 +1,38 @@
+name: task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu
+path: desk/tasks/task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu.md
+source_hash: f0ed9ac18b2d6efb790327afc742285a398d7c8b3aee472c8168cf1ecc01970b
+content_hash: 066fc32725cf8fc8e3e76437458905cf37808288ba8ca89b3f67e17ad73e2e46
+field_hashes:
+  title: 5e9abb6aa26f44c2e43e5fabe1697c1888273676c7143282b2b9c70c8c53dded
+  id: 0715750a8cb825c948330270a75155da9550b4b9de510cdc2f3e3782784ad2c5
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 0f105c74eef898f70096b2612abb864473479f37a58e6fe0618e8b1bd74eda4c
+  goal: fc5993f9f6904d11078316c3668ae6dec383ccfe92d880fa0f66a6b934908b3c
+  scope: 100487d044144167c9fe99074ddfb3f69b031bd05cd5bfed2616263faf778bd9
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  implementation_path: 51a195514d70f71a9d66636ffabbb8586243ecb2d36fb3adc47f07da33e28d2a
+  validation: 06d35d8c7ae101847bbe024009591adef2f0f211dab3f0bd08213e6fe5d23fdf
+  done_when: 21b2abdf8e6bc0f5c3bdbcb71348d6cdd60dbaeff3ec1b2fe2b57bf568d4da42
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- artifact:task
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-20T07:56:29Z'
+  authority: generated
+  via: create_document

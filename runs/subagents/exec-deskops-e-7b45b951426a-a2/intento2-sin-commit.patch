@@ -1,0 +1,248 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 7fd7c694..e1a189fc 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -4,7 +4,7 @@ Version note (2026-09-13, updated 2026-10-18): `pyproject.toml` declares `0.1.12
+ 
+ ## 0.1.13 — not released yet (no tag, not on PyPI)
+ 
+-- El merge driver de sldb se instala solo al preparar un store y `stores check` avisa si falta (task `task-el-merge-driver-de-sldb-se-instala-solo-al-preparar-un-store-y-stores-check-avisa-si-falta`; pedido de JP, 2026-11-19). `init_store`, `scaffold_store` (con `apply`) y `build_store` (con `apply`) llaman a `install_merge_driver` cuando el store está dentro de un repo git (módulo nuevo `sldb.api.stores.ensure_merge_driver`): idempotente, no hace nada fuera de git y, si git falla, avisa por stderr sin romper el comando. `sldb stores check` suma el hallazgo `merge-driver-missing` (alert, fix `sldb stores merge-driver --install`) cuando faltan las líneas de `.gitattributes` o las claves `merge.sldb.*`. Tests: `tests/store/test_merge_driver_auto_install.py`.
++- El merge driver de sldb se instala solo al preparar un store y `stores check` avisa si falta (task `task-el-merge-driver-de-sldb-se-instala-solo-al-preparar-un-store-y-stores-check-avisa-si-falta`; pedido de JP, 2026-11-19). `sldb stores init`, `sldb stores scaffold --apply` y `sldb stores build` (los comandos CLI, no las funciones de API `init_store`/`scaffold_store`/`build_store`, que usan las transacciones de deskops y cuyo rollback no deshace `.gitattributes` ni la config de git) llaman a `install_merge_driver` cuando el store está dentro de un repo git (módulo nuevo `sldb.api.stores.ensure_merge_driver`): idempotente, no hace nada fuera de git y, si git falla, avisa por stderr sin romper el comando. `sldb stores check` suma el hallazgo `merge-driver-missing` (alert, fix `sldb stores merge-driver --install`) cuando faltan las líneas de `.gitattributes` o las claves `merge.sldb.*`. Tests: `tests/store/test_merge_driver_auto_install.py`.
+ - Arreglo de la caché de disco compuesta (task `task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees`): `drop_disk_caches` pasa de `sldb/store/layout.py` (que superaba las 80 líneas efectivas) a `sldb/store/disk_caches.py`; y el test de reescritura en el mismo tick lanzaba su subproceso con el `sldb` de la instalación editable del repo principal, no con el de la copia bajo prueba, así que fallaba en una copia limpia: ahora el subproceso importa el `sldb` del propio test. Sin cambios de comportamiento ni de límites.
+ - La caché compuesta del índice de aristas en disco (`.sldb_cache/composed`) incluye ahora el `roster_hash` de cada modelo en su clave, así que un documento reescrito en su sitio (un veredicto escrito en un ReviewDoc) se ve en el siguiente proceso aunque ningún stat de directorio se haya movido; `stores build` borra las cachés de disco `composed` y `document_rows` y las regenera en la siguiente lectura (task `task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen`).
+ - `sldb move <origen> <destino> [--store S] [--dry-run] [--format text|json]` y `sldb.api.move_path` (task `task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer`; pedido de JP, 2026-11-19). Mueve un archivo o directorio del proyecto con `git mv` (si git lo versiona; así git ve un renombre, no un borrado y un alta) o en disco, y en una sola `Transaction`: los documentos trackeados que se mueven siguen trackeados con su nombre (`move_document`, que ahora también usa `git mv`); todo valor de campo de un documento trackeado que es exactamente la ruta vieja, o que empieza por ella más `/` si es un directorio (`dir` no toca `dirzero`), pasa a la ruta nueva, escrito por `Transaction.update`; los links Markdown inline relativos a la ruta vieja de los `.md` del repo apuntan a la nueva (se respetan `#ancla`, `./`, bloques de código y URLs). Si algo falla, el árbol, el índice de git y el store quedan como estaban. `--dry-run` lista cada archivo, cada campo (documento, campo, valor viejo y nuevo) y cada link (archivo, línea) sin tocar nada; `--format json` imprime esa lista. Fuera: otros repos o stores enlazados, y texto libre que no sea el valor completo de un campo o el destino de un link. Tests: `tests/api/test_move_path.py`, `tests/cli/test_move_cli.py`. Referencia CLI regenerada con `selfdoc sync`.
+diff --git a/src/sldb/api/stores/build_store.py b/src/sldb/api/stores/build_store.py
+index a99b9d1a..b3b5fb6b 100644
+--- a/src/sldb/api/stores/build_store.py
++++ b/src/sldb/api/stores/build_store.py
+@@ -10,7 +10,6 @@ from __future__ import annotations
+ from pathlib import Path
+ from typing import Any, Callable
+ 
+-from sldb.api.stores.ensure_merge_driver import ensure_merge_driver
+ from sldb.api.stores.include_resolution import conflict_finding, include_conflicts
+ from sldb.api.stores.apply_declaration import apply_includes, apply_links, apply_models, apply_predicates, missing_declared, missing_links, undeclared
+ from sldb.api.stores.scaffold_store import scaffold_store
+@@ -51,7 +50,6 @@ def build_store(store: str | Path | None, *, apply: bool = True, generate: Gener
+ def _built(store_path: Path, root: Path, declaration: StoreDeclaration, generate: Generate | None) -> dict[str, Any]:
+     if not store_exists(store_path):
+         write_empty_store(store_path)
+-    ensure_merge_driver(store_path)
+     report = {"links": apply_links(store_path, root, declaration), "models": apply_models(store_path, root, declaration)}
+     report["predicates_changed"] = apply_predicates(store_path, declaration)
+     report.update(_track(store_path, root, declaration, generate))
+diff --git a/src/sldb/api/stores/ensure_merge_driver.py b/src/sldb/api/stores/ensure_merge_driver.py
+index dda0d44d..d0b14dfe 100644
+--- a/src/sldb/api/stores/ensure_merge_driver.py
++++ b/src/sldb/api/stores/ensure_merge_driver.py
+@@ -1,5 +1,6 @@
+ """The merge driver of a store inside a git repository: installed when the store is prepared
+-(`init_store`, `scaffold_store`, `build_store`) and reported by `stores check` when it is missing."""
++by the CLI commands (`stores init`, `scaffold`, `build`; never by the API functions, which
++transactions call and roll back) and reported by `stores check` when it is missing."""
+ 
+ from __future__ import annotations
+ 
+diff --git a/src/sldb/api/stores/init_store.py b/src/sldb/api/stores/init_store.py
+index a67d5891..3d8a8f2e 100644
+--- a/src/sldb/api/stores/init_store.py
++++ b/src/sldb/api/stores/init_store.py
+@@ -5,7 +5,6 @@ from __future__ import annotations
+ import shutil
+ from pathlib import Path
+ 
+-from sldb.api.stores.ensure_merge_driver import ensure_merge_driver
+ from sldb.api.stores.gitignore_lines import ensure_cache_ignored
+ from sldb.api.stores.store_location import StoreLocation
+ from sldb.api.stores.store_skeleton import register_in_global_catalog, write_empty_store
+@@ -37,7 +36,6 @@ def init_store(path: str | Path = ".", force: bool = False) -> StoreLocation:
+     _write_or_undo(store_path)
+     ensure_cache_ignored(root / ".gitignore")
+     register_in_global_catalog(store_path)
+-    ensure_merge_driver(store_path)
+     return StoreLocation(store_path=store_path, project_root=root)
+ 
+ 
+diff --git a/src/sldb/api/stores/scaffold_store.py b/src/sldb/api/stores/scaffold_store.py
+index b4d16573..1025f28b 100644
+--- a/src/sldb/api/stores/scaffold_store.py
++++ b/src/sldb/api/stores/scaffold_store.py
+@@ -8,7 +8,6 @@ from __future__ import annotations
+ from pathlib import Path
+ 
+ from sldb.api.documents.transaction import Transaction, transaction
+-from sldb.api.stores.ensure_merge_driver import ensure_merge_driver
+ from sldb.api.stores.scaffold_report import ScaffoldReport
+ from sldb.api.stores.scaffold_sources import seed_bytes
+ from sldb.api.stores.seed import Seed
+@@ -41,7 +40,6 @@ def scaffold_store(store: str | Path | None, *, declaration: StoreDeclaration |
+         report.add(outcome, relative)
+     if apply:
+         _apply(store_path, root, templates, plan)
+-        ensure_merge_driver(store_path)
+     return report
+ 
+ 
+diff --git a/src/sldb/cli/commands/store_init.py b/src/sldb/cli/commands/store_init.py
+index 918038a2..d27cadac 100644
+--- a/src/sldb/cli/commands/store_init.py
++++ b/src/sldb/cli/commands/store_init.py
+@@ -4,6 +4,7 @@ from pathlib import Path
+ from typing import Any
+ import sys
+ from sldb.api.stores.init_store import StoreInitError, init_store as create_store
++from sldb.api.stores.ensure_merge_driver import ensure_merge_driver
+ from sldb.store.layout import store_exists
+ from sldb.api.stores.branch_stores import branches_with_store
+ 
+@@ -27,5 +28,6 @@ def _create(root: Path, force: bool) -> int:
+     except StoreInitError as exc:
+         print(f"error: {exc}", file=sys.stderr)
+         return 2 if exc.precondition else 1
++    ensure_merge_driver(created.store_path)
+     print(f"Initialized store at {created.store_path}")
+     return 0
+diff --git a/src/sldb/cli/commands/stores_build.py b/src/sldb/cli/commands/stores_build.py
+index b78fa36c..e856d254 100644
+--- a/src/sldb/cli/commands/stores_build.py
++++ b/src/sldb/cli/commands/stores_build.py
+@@ -14,6 +14,7 @@ from pathlib import Path
+ from typing import Any
+ 
+ from sldb.api.stores.build_store import build_store as api_build_store
++from sldb.api.stores.ensure_merge_driver import ensure_merge_driver
+ from sldb.api.stores.declare_store import declare_store
+ from sldb.api.stores.store_declaration import declared_store, save_declaration
+ from sldb.cli.commands.stores_build_generators import run_generators
+@@ -55,6 +56,7 @@ def _keep_without_check() -> int:
+ def _build_in_place(args: Any) -> int:
+     store, root = declared_store(args.store)
+     report = build_store(store, root)
++    ensure_merge_driver(store)
+     emit(report, args.format, _summary(report))
+     return 1 if report["undeclared"] or report["missing"] or report["include_conflicts"] else 0
+ 
+diff --git a/src/sldb/cli/commands/stores_scaffold.py b/src/sldb/cli/commands/stores_scaffold.py
+index 2166f628..6e7a33e2 100644
+--- a/src/sldb/cli/commands/stores_scaffold.py
++++ b/src/sldb/cli/commands/stores_scaffold.py
+@@ -5,13 +5,17 @@ from __future__ import annotations
+ 
+ from typing import Any
+ 
++from sldb.api.stores.ensure_merge_driver import ensure_merge_driver
+ from sldb.api.stores.scaffold_report import ScaffoldReport
+ from sldb.api.stores.scaffold_store import scaffold_store
++from sldb.api.stores.store_declaration import declared_store
+ from sldb.cli.output_format import emit
+ 
+ 
+ def scaffold_command(args: Any) -> int:
+     report = scaffold_store(args.store, apply=args.apply)
++    if args.apply:
++        ensure_merge_driver(declared_store(args.store)[0])
+     emit(report.model_dump(), args.format, _summary(report))
+     return 1 if report.conflicts else 0
+ 
+diff --git a/tests/store/test_merge_driver_auto_install.py b/tests/store/test_merge_driver_auto_install.py
+index 10d3ca95..3fc874b7 100644
+--- a/tests/store/test_merge_driver_auto_install.py
++++ b/tests/store/test_merge_driver_auto_install.py
+@@ -3,7 +3,8 @@ from __future__ import annotations
+ 
+ import subprocess
+ 
+-from sldb.api import build_store, check_store, init_store, scaffold_store
++from sldb.api import build_store, check_store, init_store
++from sldb.cli import main as cli
+ from sldb.api.stores.store_declaration import save_declaration
+ from sldb.api.stores.declare_store import declare_store
+ 
+@@ -36,7 +37,7 @@ def _codes(root):
+ 
+ def test_init_installs_the_driver_in_a_git_repo(tmp_path):
+     root = _repo(tmp_path)
+-    init_store(root)
++    assert cli(["stores", "init", "--path", str(root)]) == 0
+     assert (root / ".gitattributes").read_text(encoding="utf-8").splitlines() == LINES
+     assert _driver(root) == "sldb stores merge-driver %O %A %B %P"
+ 
+@@ -46,7 +47,7 @@ def test_scaffold_apply_installs_the_driver(tmp_path):
+     init_store(root)
+     save_declaration(root / ".sldb", declare_store(root / ".sldb", root))
+     _uninstall(root)
+-    scaffold_store(root / ".sldb", apply=True)
++    assert cli(["stores", "scaffold", "--store", str(root / ".sldb"), "--apply"]) == 0
+     assert (root / ".gitattributes").read_text(encoding="utf-8").splitlines() == LINES
+     assert _driver(root)
+ 
+@@ -56,17 +57,17 @@ def test_build_installs_the_driver_and_twice_does_not_duplicate(tmp_path):
+     init_store(root)
+     save_declaration(root / ".sldb", declare_store(root / ".sldb", root))
+     _uninstall(root)
+-    build_store(root / ".sldb")
+-    build_store(root / ".sldb")
+-    init_store(root, force=True)
++    assert cli(["stores", "build", "--store", str(root / ".sldb")]) == 0
++    assert cli(["stores", "build", "--store", str(root / ".sldb")]) == 0
++    assert cli(["stores", "init", "--path", str(root), "--force"]) == 0
+     assert (root / ".gitattributes").read_text(encoding="utf-8").splitlines() == LINES
+     assert _driver(root)
+ 
+ 
+ def test_outside_git_init_and_build_work_and_write_no_gitattributes(tmp_path):
+-    init_store(tmp_path)
++    assert cli(["stores", "init", "--path", str(tmp_path)]) == 0
+     save_declaration(tmp_path / ".sldb", declare_store(tmp_path / ".sldb", tmp_path))
+-    build_store(tmp_path / ".sldb")
++    assert cli(["stores", "build", "--store", str(tmp_path / ".sldb")]) == 0
+     assert not (tmp_path / ".gitattributes").exists()
+     codes, _ = _codes(tmp_path)
+     assert "merge-driver-missing" not in codes
+@@ -74,7 +75,7 @@ def test_outside_git_init_and_build_work_and_write_no_gitattributes(tmp_path):
+ 
+ def test_check_reports_a_missing_driver_until_it_is_installed(tmp_path):
+     root = _repo(tmp_path)
+-    init_store(root)
++    assert cli(["stores", "init", "--path", str(root)]) == 0
+     assert "merge-driver-missing" not in _codes(root)[0]
+     _uninstall(root)
+     codes, report = _codes(root)
+@@ -95,6 +96,16 @@ def test_a_git_failure_only_warns(tmp_path, capsys, monkeypatch):
+         raise RuntimeError("git exploded")
+ 
+     monkeypatch.setattr("sldb.api.stores.ensure_merge_driver.install_merge_driver", boom)
+-    init_store(root)
++    assert cli(["stores", "init", "--path", str(root)]) == 0
+     assert "could not install the sldb merge driver" in capsys.readouterr().err
+     assert (root / ".sldb").is_dir()
++
++
++def test_api_init_and_build_leave_git_untouched(tmp_path):
++    """The API functions (used inside deskops transactions) never write .gitattributes or merge.sldb.*."""
++    root = _repo(tmp_path)
++    init_store(root)
++    save_declaration(root / ".sldb", declare_store(root / ".sldb", root))
++    build_store(root / ".sldb")
++    assert not (root / ".gitattributes").exists()
++    assert _driver(root) == ""
+diff --git a/tests/store/test_migrate_layout.py b/tests/store/test_migrate_layout.py
+index 8851a9bd..382ac7fa 100644
+--- a/tests/store/test_migrate_layout.py
++++ b/tests/store/test_migrate_layout.py
+@@ -16,6 +16,7 @@ import pytest
+ 
+ from sldb import api
+ from sldb.api.stores.migrate_layout import migrate_layout
++from sldb.api.stores.merge_driver_install import install_merge_driver
+ from sldb.cli import main
+ from sldb.store.io import invalidate_index_cache
+ from sldb.store.layout import cache_dir, runtime_dir
+@@ -109,6 +110,7 @@ def test_the_migrated_store_checks_clean_and_rebuilds(old_store, capsys):
+     sp, root = old_store
+     assert main(["stores", "migrate-layout", "--store", str(sp)]) == 0
+     capsys.readouterr()
++    install_merge_driver(sp)  # the API no longer installs it; the repo of this fixture is not prepared by the CLI
+     assert main(["stores", "check", "--store", str(sp), "--pythonpath", str(sp.parent.parent), "--quiet"]) == 0
+     assert "alert:" not in capsys.readouterr().out
+     shutil.rmtree(root / ".sldb_cache")

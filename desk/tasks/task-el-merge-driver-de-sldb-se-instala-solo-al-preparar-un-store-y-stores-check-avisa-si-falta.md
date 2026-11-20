@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-20T07:42:11Z'
+  at: '2026-11-20T07:51:23Z'
   authority: generated
   via: save_document_payload
 id: task-el-merge-driver-de-sldb-se-instala-solo-al-preparar-un-store-y-stores-check-avisa-si-falta
@@ -10,7 +10,7 @@ summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
+current_node: ritual-testing
 history:
 - task_activates
 - 'task_returns_to_execution: Regresión en el consumidor, detectada por el coordinador
@@ -27,6 +27,7 @@ history:
   de una Transaction que falla no deja .gitattributes ni merge.sldb.* nuevos; los
   tests actuales del CLI siguen pasando. Antes de entregar, correr también ese test
   de deskops con PYTHONPATH a este sldb si el contenedor tiene deskops (/workspace/deskops).'
+- task_activates
 references: []
 depends_on: []
 pills: []
