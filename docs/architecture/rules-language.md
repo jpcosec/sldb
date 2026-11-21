@@ -2,7 +2,8 @@
 
 Estado (2026-11-07): contrato de semántica del nodo GO02 del plan
 `desk/drawer/plans/grafo-operable`, implementado por GO05; GO10 retiró los lenguajes viejos. Fija la gramática, los caminos,
-la semántica trivaluada, el formato de explicación, el hash de contrato y la firma de
+la semántica bivaluada (el tercer valor `incomplete` se retiró; ver la nota de retiro en la
+sección 3), el formato de explicación, el hash de contrato y la firma de
 evaluación del lenguaje único de predicados de sldb. Los ejemplos de este documento son los
 tests de especificación de `tests/test_rules_language_spec.py` (verdes desde GO05); la
 implementación, la API y la CLI se describen en la sección 9.
