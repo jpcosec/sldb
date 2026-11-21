@@ -1,0 +1,131 @@
+# validation.log — tester deskops-t-f61116693c0a
+# fecha: 2026-11-21T12:54:51Z
+# commit del ejecutor: 5f5eed9d8a1f0073a04f6679853e5bdda68bad6b
+# /tmp/ws-venv no existía; se creó como symlink a /workspace/sldb/.venv (Python 3.13.18)
+
+## pytest (de a un archivo, TMPDIR=/tmp)
+
+$ TMPDIR=/tmp /tmp/ws-venv/bin/python -m pytest -q tests/test_cli_v2.py
+  50 passed, 1 warning in 19.75s
+  rc=0
+
+$ TMPDIR=/tmp /tmp/ws-venv/bin/python -m pytest -q tests/test_store_seams.py
+  2 passed, 1 warning in 1.12s
+  rc=0
+
+$ TMPDIR=/tmp /tmp/ws-venv/bin/python -m pytest -q tests/store/test_graph_backend.py
+  9 passed, 1 warning in 29.56s
+  rc=0
+
+$ TMPDIR=/tmp /tmp/ws-venv/bin/python -m pytest -q tests/test_clean_code_rules.py
+  1235 passed, 2 warnings in 6.25s
+  rc=0
+
+$ TMPDIR=/tmp /tmp/ws-venv/bin/python -m pytest -q tests/test_relation_models.py
+  4 passed, 1 warning in 0.64s
+  rc=0
+
+$ TMPDIR=/tmp /tmp/ws-venv/bin/python -m pytest -q tests/api/test_api_models.py
+  6 passed, 1 warning in 0.58s
+  rc=0
+
+$ TMPDIR=/tmp /tmp/ws-venv/bin/python -m pytest -q tests/api/test_api_model_drafts.py
+  10 passed, 1 warning in 1.01s
+  rc=0
+
+$ TMPDIR=/tmp /tmp/ws-venv/bin/python -m pytest -q tests/api/test_model_metadata_drafts.py
+  8 passed, 1 warning in 1.53s
+  rc=0
+
+$ TMPDIR=/tmp /tmp/ws-venv/bin/python -m pytest -q tests/api/test_store_ast_unimportable_model.py
+  1 passed, 1 warning in 0.09s
+  rc=0
+
+$ TMPDIR=/tmp /tmp/ws-venv/bin/python -m pytest -q tests/segments/test_field_transclusion_and_diagram_segments.py
+  5 passed, 1 warning in 2.77s
+  rc=0
+
+$ TMPDIR=/tmp /tmp/ws-venv/bin/python -m pytest -q tests/test_document_segments.py
+  3 passed, 1 warning in 159.80s
+  rc=0
+
+$ TMPDIR=/tmp /tmp/ws-venv/bin/python -m pytest -q tests/test_extraction_segments.py
+  6 passed, 1 warning in 0.50s
+  rc=0
+
+$ TMPDIR=/tmp /tmp/ws-venv/bin/python -m pytest -q tests/test_segment_structure.py
+  6 passed, 1 warning in 0.53s
+  rc=0
+
+$ TMPDIR=/tmp /tmp/ws-venv/bin/python -m pytest -q tests/api/test_field_blocks.py
+  2 passed, 1 warning in 0.03s
+  rc=0
+
+$ TMPDIR=/tmp /tmp/ws-venv/bin/python -m pytest -q tests/api/test_machine_editor_schema.py
+  7 skipped, 1 warning in 0.03s
+  rc=0
+
+$ TMPDIR=/tmp /tmp/ws-venv/bin/python -m pytest -q tests/security/test_guard_segments.py
+  3 passed, 1 warning in 4.13s
+  rc=0
+
+$ TMPDIR=/tmp /tmp/ws-venv/bin/python -m pytest -q tests/test_serve.py
+  1 failed, 62 passed, 1 warning in 50.39s (fallo PREEXISTENTE: test_batch_save_partial_failure_rolls_back, HTTP 409 en vez de 500; también falla en b2843fdc)
+  rc=1
+
+## Reproducción del fallo de test_serve en el padre (sin cambios del ejecutor)
+$ git archive b2843fdc | tar -x -C /tmp/sldb-parent
+$ cd /tmp/sldb-parent && TMPDIR=/tmp PYTHONPATH=/tmp/sldb-parent/src /workspace/sldb/.venv/bin/python -m pytest -q tests/test_serve.py::test_batch_save_partial_failure_rolls_back
+  1 failed (HTTPError 409: Conflict), rc=1 — preexistente, ajeno al commit 5f5eed9d
+
+## Gate rápido del desk
+$ PATH=/tmp/ws-venv/bin:$PATH TMPDIR=/tmp bash tools/check.sh --fast
+
+── núcleo aislado ──
+PASS: núcleo aislado — 83 módulos cargados
+
+── capas ──
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   242 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 38 aristas, 0 violaciones, 8 ciclos contados
+
+── identidad ──
+  ERROR  directorio versionado sin clasificar en la raíz: workbench_demo — decide si es producto, autoaplicación o ajeno
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+FAIL: identidad — 10 paquetes de producto, 19 modelos clasificados, 1 violaciones
+
+── ejes ──
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 1001 archivos mapeados, 0 violaciones
+
+── superficie ──
+  nota   1 de 3 consumidores presentes: deskops
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  34 símbolos pedidos sin puerta que los declare
+PASS: superficie — 124 símbolos pedidos, 597 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+FALLAN: identidad
+rc=1 (FAIL identidad: workbench_demo)
+

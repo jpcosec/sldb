@@ -1,7 +1,17 @@
+Task: task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest
+Title: Limpieza de cáscaras vacías de la API y de los residuos de kgdb (graph parser, help_texts_graph, ingest_sldb, python_source_graph)
+Status: active
+Current node: ritual-testing
+Task type: task.code
+Lifecycle gates:
+- task_hands_to_closeout -> ritual-closeout: open [nonempty(validation)]
+  post-hook evento-para-el-coordinador: sh -c mkdir -p runs/hooks && printf '%s %s %s %s->%s\n' "$(date -u +%FT%TZ)" "$DESKOPS_TASK_ID" "$DESKOPS_TRANSITION" "$DESKOPS_FROM_NODE" "$DESKOPS_TO_NODE" >> runs/hooks/events.log
+  post-hook encola-reap-del-tester: deskops queue add dispatch-reap --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-21T13:22:38Z'
+  at: '2026-11-21T12:43:20Z'
   authority: generated
   via: save_document_payload
 id: task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest
@@ -14,35 +24,20 @@ tags:
 current_node: ritual-testing
 history:
 - task_activates
-references:
-- src/sldb/api/model_registry/describe_model.py
-- src/sldb/api/records/utils.py
-- src/sldb/api/schema/field_descriptor.py
-- src/sldb/api/schema/field_kinds.py
-- src/sldb/api/segments/extracted_field.py
-- src/sldb/api/segments/field_segment.py
-- src/sldb/api/segments/payload_values.py
-- src/sldb/cli/serve/schema.py
-- src/sldb/models/field_schema/descriptor.py
-- 5f5eed9d8a1f0073a04f6679853e5bdda68bad6b
+references: []
 depends_on: []
 pills: []
 files:
+- src/sldb/cli/parsers/graph.py
+- src/sldb/cli/parsers/stores.py
+- src/sldb/cli/commands/help_texts_graph.py
+- src/sldb/store/graph/ingest_sldb.py
+- src/sldb/selfdoc/python_source_graph.py
 - CHANGELOG.md
-- src/sldb/api/model_registry/describe_model.py
-- src/sldb/api/records/utils.py
-- src/sldb/api/schema/field_descriptor.py
-- src/sldb/api/schema/field_kinds.py
-- src/sldb/api/segments/extracted_field.py
-- src/sldb/api/segments/field_segment.py
-- src/sldb/api/segments/payload_values.py
-- src/sldb/cli/serve/schema.py
-- src/sldb/models/field_schema/descriptor.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms:
-- atom-se-retiraron-las-cascaras-vacias-de-la-api-y-los-re-exports-sin-uso
+atoms: []
 ---
 
 # Limpieza de cáscaras vacías de la API y de los residuos de kgdb (graph parser, help_texts_graph, ingest_sldb, python_source_graph)
@@ -88,3 +83,22 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 Los comandos de Validation pasan; result-summary.md tiene la tabla archivo -> borrado, reducido o conservado (evidencia); CHANGELOG y commit.
+
+## Como probar (tester)
+
+Ubica el trabajo del ejecutor:
+
+    git log -1 --format=%H --grep "Task-Id: task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest"   # commit del ejecutor
+    git show --name-only <commit>                           # sus archivos
+
+Los tests a correr son los archivos tests/*.py de ese commit, mas tests/test_<modulo>.py cuando exista para cada modulo de codigo tocado; de a uno, con `TMPDIR=/tmp python -m pytest -q <archivo>`. No corras la suite completa: la corre integrate en el host.
+
+Escribe result-summary.md con el veredicto PASA o FALLA en la primera linea.
+
+## Gates rapidos del desk
+
+Antes del veredicto corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Si termina con rc distinto de 0 el veredicto es FALLA.

@@ -1,0 +1,60 @@
+$ pytest -q tests/test_cli_v2.py
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+50 passed, 1 warning in 13.12s
+rc=0
+$ pytest -q tests/test_store_seams.py
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2 passed, 1 warning in 0.56s
+rc=0
+$ pytest -q tests/store/test_graph_backend.py
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+8 passed, 1 skipped, 1 warning in 4.88s
+rc=0
+$ pytest -q tests/test_clean_code_rules.py
+    metafunc.parametrize(*marker.args, **marker.kwargs, _param_mark=marker)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1235 passed, 2 warnings in 2.58s
+rc=0
+$ pytest -q tests/test_relation_models.py
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 passed, 1 warning in 0.56s
+rc=0
+$ pytest -q tests/segments
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+5 passed, 1 warning in 2.76s
+rc=0
+$ pytest -q tests/api
+FAILED tests/api/test_transaction_rules_dirty.py::test_a_stale_source_hash_after_a_write_is_a_conflict_not_a_rollback_error
+FAILED tests/api/test_transaction_rules_dirty.py::test_an_absent_dirty_set_stays_absent_after_a_failed_transaction
+FAILED tests/api/test_write_paths_validate.py::test_transaction_rejects_what_the_model_rejects_and_rolls_back
+16 failed, 627 passed, 32 skipped, 1 warning in 401.77s (0:06:41)
+rc=0
+$ bash tools/check.sh --fast
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 1001 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  aviso  ninguno de los 3 consumidores está en /mnt/ssd/proyectos/SLDB_1/sldb/.worktrees
+  aviso  la superficie no se comprueba en esta corrida
+PASS: superficie — omitida por falta de consumidores
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[31mFALLAN: identidad[0m
+rc=
+check.sh --fast: rc=1 (FAIL identidad: workbench_demo sin clasificar, preexistente en HEAD, ajeno a la tarea)
