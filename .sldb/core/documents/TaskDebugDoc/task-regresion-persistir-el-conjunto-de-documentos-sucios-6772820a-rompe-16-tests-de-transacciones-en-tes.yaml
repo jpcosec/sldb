@@ -1,0 +1,38 @@
+name: task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes
+path: desk/tasks/task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes.md
+source_hash: 659564e6a2b7623462e078bb5c2420ee136e3552c5020647893bcd17b4047c2a
+content_hash: 3caa5e85889f102e476a5c465beb72c9c244051cd1cd38a72de15190f892b171
+field_hashes:
+  title: da17c79498982bcf71f7d24baa8b4d6d8c6697e74ca0fb1d420bfad7c51fa64d
+  id: 66f5b1b147ebbd9aa45511eff00836cf56a494c80c2ce1a1048817db8bf92159
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 67c4f88810e5aedc4cddcd439327d10f1dda1e00865133ace32c2d236c08e3ee
+  goal: 7267d7acc0c4d5891aafa15b9b9ca4e1fd33985e8a443e0dae95178200c49acd
+  scope: a452ca213876691867133efe0f2388be7eeecd7fd0823866ff8425a8c11984dd
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  implementation_path: d2568f891904acf6ec0640ab0ec3267e9d96117dbae86d83a985cd5594a681ff
+  validation: 5505ac28e2eeb9f441367c88687f5b53b2e98fdd8d38bbed27feffdec1a3a100
+  done_when: 6e7dd64d1fe139f02ee3875d0c42b99f2b7773b5a9ad9d892a92937d40729c7f
+  task_type: 17aef8a679138336d87167505c61b03a7bc28c9a12b1ccf78947b619d28fae69
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- artifact:task
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-21T12:47:13Z'
+  authority: generated
+  via: create_document

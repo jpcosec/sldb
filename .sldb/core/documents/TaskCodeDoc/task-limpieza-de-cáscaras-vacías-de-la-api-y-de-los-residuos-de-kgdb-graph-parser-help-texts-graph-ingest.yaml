@@ -1,15 +1,15 @@
 name: task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest
 path: desk/tasks/task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest.md
-source_hash: df3988b3b5671519f8afed9f25e8bd76a0fbb69e9aa30ec1027e8eaa0d451f50
-content_hash: 2b7b2198c3854bd01cb4f3cde3d31100c5272883fd0160f694fee79044a1b1f5
+source_hash: bf356eb4a3675aafe8d07ff5db27f82c6466118047beefe419f0d86f67f56e89
+content_hash: d2c834f619701656e11fa747d5590fa7db106b94155e91cf8a71794a3f797d22
 field_hashes:
   title: ec2838a7e0cfa767da89010f7ca6fc1f16a75f01ab92803662748550a19c9f98
   id: 5578d21de2b31253bfbc9bfe651f850e336d1080dbe6e90eb03535a0dcb0035f
-  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
-  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
-  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  current_node: d10f5286503cbf750af0584acaec732741c2d9cfbae2a6d5b8ce45b8bf83b79d
+  history: f89b8fd2ac9e43a24ba505d162381268ed901d0695f62c6ad8ec2c62718dfa1c
   why: b6d52d482921ff894bf57da0be9ea0ff7ff739f3689f1c761b9ac658ab2e100a
   goal: d1f4d15074a83105b237160cae35f3f0d9ebe3e99b06ad61db05bd49e3fcc816
   scope: 61562d820bc15a0dccdc6279bad1fc03c44e89db2664ed8ad6ef377ceeb6a481
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-17T15:02:32Z'
+  at: '2026-11-21T12:43:20Z'
   authority: generated
   via: save_document_payload

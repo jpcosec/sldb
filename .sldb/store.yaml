@@ -893,6 +893,8 @@ include:
     name: run-deskops-e-416610580daa
   - path: runs/subagents/exec-deskops-t-b261fef7cc21-testing/run.md
     name: run-deskops-t-b261fef7cc21
+  - path: runs/subagents/exec-deskops-e-6c49014f890c/run.md
+    name: run-deskops-e-6c49014f890c
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -2952,6 +2954,7 @@ include:
   - desk/tasks/task-run-view-dice-que-el-store-no-está-construido-en-vez-de-unknown-view-h12-y-se-reproduce-si-la-revisi.md
   - desk/tasks/task-docs-show-sobre-un-store-enlazado-dice-que-no-pudo-importar-el-modelo-en-vez-de-unknown-document-tar.md
   - desk/tasks/task-rule-graph-en-frío-y-deskops-show-task-perfilar-de-nuevo-y-bajar-el-costo-de-leer-el-índice-local-me.md
+  - desk/tasks/task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes.md
 - model: BoardDoc
   paths:
   - desk/tasks/Board.md
