@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-21T08:21:33Z'
+  at: '2026-11-21T08:29:39Z'
   authority: generated
   via: save_document_payload
 id: task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato
@@ -11,7 +11,7 @@ tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
-current_node: ritual-execution
+current_node: ritual-testing
 history:
 - task_activates
 - 'task_returns_to_execution: Tester deskops-t-dd3a304c7b74 FALLA. La roja de ''identidad''
@@ -27,6 +27,7 @@ history:
   ese test desde el padre (git show HEAD~1:tests/api/test_rules.py) sin tocar el resto;
   correr tests/api/test_rules.py, tests/api/test_rules_evaluation.py y tests/test_rules_language_spec.py.
   Commit desde tu worktree con ''git commit -- <rutas>'' y trailer Task-Id.'
+- task_activates
 references:
 - docs/architecture/rules-language.md
 depends_on: []
