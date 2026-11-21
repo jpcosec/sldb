@@ -1,0 +1,19 @@
+name: 20261120-194256-suggestion-ci-de-main-en-rojo-workbench-demo-sin-clasificar-y-un-test-de-ts
+path: desk/inbox/20261120-194256-suggestion-ci-de-main-en-rojo-workbench-demo-sin-clasificar-y-un-test-de-ts.md
+source_hash: f5d382f759526a7cd8f4530ffb62d99f2c08a6780972a892cd3ad1738aace8f9
+content_hash: 50aa4c80b8c5a621b6ce53c6c1c3741d0d4420bc020baf3fd20d81e83738fe45
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: 3c894b699286d85f1511fdbcb79fa8e20b368f377466132c43b01c94611d9e89
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 9e7a33ba75ad2decc57e8b4ed8d743f9bffe29e123e37151d49bd922078493d6
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: 3aee2d54ca7b3c7299d20e2e4c9d05c87cbf4005dbd83ee7746c7dc4c8fbac81
+  body: 4b574a6ceddb44eca1173e6ff9f93a1b117be02c19e20aa241cb312985a70881
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

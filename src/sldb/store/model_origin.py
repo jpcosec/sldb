@@ -18,6 +18,7 @@ from typing import Any
 
 from sldb.store.io import load_store_index
 from sldb.store.layout import project_root, store_exists
+from sldb.store.link_path import resolve_link
 from sldb.store.model_import_root import import_root
 
 
@@ -27,8 +28,8 @@ def linked_store(store_path: Path, alias: str) -> Path | None:
     link = next((s for s in load_store_index(store_path).stores if s.name == alias), None)
     if link is None:
         return None
-    candidate = Path(link.path) if Path(link.path).is_absolute() else root / link.path
-    return candidate.resolve() if store_exists(candidate) else None
+    candidate = resolve_link(root, alias, link.path)
+    return candidate if store_exists(candidate) else None
 
 
 def owner_entry(store_path: Path, entry: Any) -> tuple[Path, Any] | None:
