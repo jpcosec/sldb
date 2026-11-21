@@ -1,0 +1,19 @@
+name: 20261121-125951-unclear-queue-20261121t155138z-integrate-task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato
+path: desk/inbox/20261121-125951-unclear-queue-20261121t155138z-integrate-task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato.md
+source_hash: 3151df120f9cbc0fd36731b76ddeaf243b9d8fb133b073dc1d3a7248cbe86f58
+content_hash: b34f7c56861c6ecaa1622c32c6c696430057e76adec6d0b18105d83da5b9c8e0
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: f8725b615f0ac3ff21c3c0dc64599e9d42af3da4667341404c0dff23705d1f89
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: 78a538c977fd82b38fd7a0b3230b41c6bfb6bdf38f338806edf64d9e311527aa
+  body: 5e216ca18e57a380043f3ceb7d26fdc580cb1625cd52f8dddb3d7bc1b69d4a19
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

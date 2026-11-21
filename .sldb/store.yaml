@@ -369,6 +369,7 @@ include:
   - desk/inbox/20261121-021151-unclear-queue-20261121t050324z-integrate-task-sldb-notations-validate-valida-una-notaci-n-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding.md
   - desk/inbox/20261121-032515-suggestion-trabajo-de-surface-562847e2-entr-a-main-sin-tarea-ni-suite-completa-gitattributes-y-herdr-coordination-md.md
   - desk/inbox/20261121-053226-unclear-queue-20261121t083005z-dispatch-reap-task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato.md
+  - desk/inbox/20261121-125951-unclear-queue-20261121t155138z-integrate-task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -1481,8 +1482,6 @@ include:
   - desk/materializations/materialization-store-tests-store-test-merkle-operation-cache-py.md
   - desk/materializations/materialization-api-src-sldb-api-model-registry-describe-model-py.md
   - desk/materializations/materialization-api-src-sldb-api-records-utils-py.md
-  - desk/materializations/materialization-api-src-sldb-api-schema-field-descriptor-py.md
-  - desk/materializations/materialization-api-src-sldb-api-schema-field-kinds-py.md
   - desk/materializations/materialization-api-src-sldb-api-segments-extracted-field-py.md
   - desk/materializations/materialization-api-src-sldb-api-segments-field-segment-py.md
   - desk/materializations/materialization-api-src-sldb-api-segments-payload-values-py.md
