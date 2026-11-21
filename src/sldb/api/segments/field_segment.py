@@ -25,7 +25,7 @@ class FieldSegment(BaseModel):
     traits: list[str] = Field(default_factory=list, description="Marker traits declared in the template, such as 'yaml' or 'table'.")
     editable: bool = Field(description="Whether the template lets the value be edited; true for rev and optrev markers.")
     display: Literal["inline", "block"] = Field(description="Whether the field owns its own block of the document or sits inside a line.")
-    kind: str | None = Field(default=None, description="Input kind of the field per sldb.api.schema.field_kinds; None for composed pieces' inner fields.")
+    kind: str | None = Field(default=None, description="Input kind of the field per sldb.models.field_schema.kinds; None for composed pieces' inner fields.")
     value: Any = Field(default=None, description="The typed value behind the surface; the UI edits this, not the text.")
     source: SourceRef | None = Field(default=None, description="Origin document when the value comes from a composed piece; None when it is the document's own.")
     composition: CompositionSpec | None = Field(default=None, description="Composition declaration when this field assembles other documents; None otherwise.")

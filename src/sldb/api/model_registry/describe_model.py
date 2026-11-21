@@ -9,7 +9,7 @@ from sldb.api.model_registry.model_document_summary import ModelDocumentSummary
 from sldb.api.model_registry.model_field_summary import ModelFieldSummary
 from sldb.api.model_registry.model_class_attrs import draft_status, model_class_attrs
 from sldb.api.model_registry.model_reference import resolve_model_ref
-from sldb.api.schema.field_kinds import annotation_name
+from sldb.models.field_schema.kinds import annotation_name
 from sldb.api.stores.open_store import open_store
 from sldb.core.exceptions import SLDBModelError
 from sldb.models.structured_doc import StructuredNLDoc

@@ -1,6 +1,6 @@
 """The plain descriptor of one model field that sldb serve's schema endpoint returns.
 
-Moved here from `sldb.api.schema.field_descriptor` (and before that `sldb.cli.serve.schema`), which re-export
+Moved here from the former `sldb.api.schema.field_descriptor` (and before that `sldb.cli.serve.schema`), which no longer exists
 these names: the store describes fields too, and must not reach up into the operations layer.
 """
 

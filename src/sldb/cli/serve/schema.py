@@ -14,8 +14,7 @@ from typing import Any
 
 from pydantic_core import PydanticUndefined
 
-from sldb.api.schema.field_descriptor import add_enum_values, field_descriptor  # noqa: F401 - moved to sldb.api.schema
-from sldb.api.schema.field_kinds import enum_values, field_kind, list_kind, scalar_kind, unwrap_annotation  # noqa: F401 - moved to sldb.api.schema
+from sldb.models.field_schema.descriptor import field_descriptor
 from sldb.api.schema.store_schema import StoreSchema
 from sldb.api.schema.unavailable_model import UnavailableModel
 from sldb.cli.model_utils import resolve_model_ref

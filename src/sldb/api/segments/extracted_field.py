@@ -19,6 +19,6 @@ class ExtractedField(BaseModel):
     traits: list[str] = Field(default_factory=list, description="Marker traits declared in the template.")
     editable: bool = Field(description="Whether the template lets the value be edited; true for rev and optrev.")
     display: Literal["inline", "block"] = Field(description="Whether the field owns its own block or sits inside a line.")
-    kind: str | None = Field(default=None, description="Input kind of the field per sldb.api.schema.field_kinds.")
+    kind: str | None = Field(default=None, description="Input kind of the field per sldb.models.field_schema.kinds.")
     value: Any = Field(default=None, description="The typed value behind the surface.")
     alignment: Literal["exact", "approximate"] = Field(description="'exact' when both borders fell on text identical to the canonical render, else 'approximate'.")

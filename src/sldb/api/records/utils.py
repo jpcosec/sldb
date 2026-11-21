@@ -1,7 +1,7 @@
 import re
 from typing import Any
 from sldb.core.ir import SourceSpan, SurfaceNode
-from sldb.api.schema.field_kinds import annotation_name as _annotation_name  # noqa: F401 - moved to sldb.api.schema
+from sldb.models.field_schema.kinds import annotation_name as _annotation_name
 
 def _slugify(text: str) -> str:
     slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")

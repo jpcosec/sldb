@@ -2,7 +2,7 @@
 
 Segment paths use the ``sldb fields`` space (``tags/0``, ``steps/2/title``), so
 lookups walk a payload one slash-separated part at a time. The kind comes from
-:mod:`sldb.api.schema.field_kinds` on the root field, then narrows for list
+:mod:`sldb.models.field_schema.kinds` on the root field, then narrows for list
 items: one item of a ``stringlist`` is a ``string``, not a list.
 """
 
@@ -10,7 +10,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from sldb.api.schema.field_kinds import field_kind, unwrap_annotation
+from sldb.models.field_schema.kinds import field_kind, unwrap_annotation
 
 ITEM_KINDS = {"stringlist": "string", "enumlist": "enum"}
 
@@ -61,7 +61,7 @@ def kind_at(model_type: type, path: str) -> str:
         path: Slash-separated field address, such as ``tags/0``.
 
     Returns:
-        A kind from ``sldb.api.schema.field_kinds``, or ``"unknown"``.
+        A kind from ``sldb.models.field_schema.kinds``, or ``"unknown"``.
     """
     parts = path.split("/")
     info = model_type.model_fields.get(parts[0])
