@@ -1,17 +1,18 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-21T02:15:41Z'
+  at: '2026-11-21T02:33:17Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
+current_node: ritual-testing
+history:
+- task_activates
 references: []
 depends_on: []
 pills: []

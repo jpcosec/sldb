@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-21T02:23:08Z'
+  at: '2026-11-21T02:43:17Z'
   authority: generated
   via: save_document_payload
 id: task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding
@@ -11,9 +11,22 @@ tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
-current_node: ritual-testing
+current_node: ritual-execution
 history:
 - task_activates
+- 'task_returns_to_execution: Tester deskops-t-75dc71f8a2cd-a2 FALLA sobre 672f8793
+  (be78baa9 en la rama). El rojo de ''identidad'' por workbench_demo es la excepción
+  autorizada, pero hay un defecto real: un nombre que existe solo en el store se detecta
+  como conocido y después se valida con load_notation(nombre) o load_palette(nombre),
+  que solo resuelven builtin o archivo, así que una notación o paleta válida del store
+  da un ''-invalid'' falso con exit 1. Intento 2: para un nombre encontrado en el
+  store, resolver su archivo con sldb.api.select_documents(store, {''ref'': nombre,
+  ''model'': <NotationDoc o PaletteDoc>}, expect=''one'') (fila con path) y validar
+  ese archivo con load_notation/load_palette por ruta, relativa a la raíz del proyecto
+  del store. Agregar un test con una notación y una paleta válidas que existen solo
+  en un store temporal (exit 0) y una inválida del store (exit 1). Correr tests/notations/test_notations_validate_cli.py
+  y test_notations_sync_spec_cli.py. Commit desde tu worktree con ''git commit --
+  <rutas>'' y trailer Task-Id.'
 references:
 - desk/inbox/20261115-192054-suggestion-sldb-notations-validar-una-notaci-n-una-paleta-o-un-spec-por-nombre-o-ruta-desde-la-cli.md
 depends_on: []

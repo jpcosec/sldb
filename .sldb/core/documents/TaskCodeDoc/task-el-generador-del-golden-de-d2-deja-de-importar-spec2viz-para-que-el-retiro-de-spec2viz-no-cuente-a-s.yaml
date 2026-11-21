@@ -1,15 +1,15 @@
 name: task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s
 path: desk/tasks/task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s.md
-source_hash: 888d0430b329c434913bacfee67f4cf014861d156e83d39a4d861e58fe8cd7c4
-content_hash: cea686b70bb098fed4614da4c765839a9535a0a356185b4846de6b61e6d9582b
+source_hash: 525436575cd784951ecbaeb4026ca2f48493bddeac2a12876b12bd9147ee545f
+content_hash: 204633260c0adf1058a3107f05812eab16a8b8bb8b46abba5de7c7c013af2c4b
 field_hashes:
   title: 6a7c39aaf141f92d33647460467764b1a7b0d95dd1f2e85eed63510e165ecfdf
   id: 8d1a29d7334301ba51b49fbdf9ed9a353516f364995118ac8ca6ee2ec2db2163
-  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
-  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
-  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  current_node: d10f5286503cbf750af0584acaec732741c2d9cfbae2a6d5b8ce45b8bf83b79d
+  history: f89b8fd2ac9e43a24ba505d162381268ed901d0695f62c6ad8ec2c62718dfa1c
   why: b9ec4ae311ed9c2d20a2ac2d889e209c8e94ada9180996c9b8d3d268a14d1f91
   goal: 2937457c7e8318ade6dc31a4f27dd062d7537fa1cd08ab8e8e5a6d0c01c42c56
   scope: b466fe801647e83043d131a38d00a0055134f82e31b897343985c0e335eef6a6
@@ -33,6 +33,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-21T02:15:41Z'
+  at: '2026-11-21T02:33:17Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
