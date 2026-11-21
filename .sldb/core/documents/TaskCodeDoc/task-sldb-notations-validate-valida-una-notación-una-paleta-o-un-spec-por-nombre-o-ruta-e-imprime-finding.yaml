@@ -1,7 +1,7 @@
 name: task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding
 path: desk/tasks/task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding.md
-source_hash: e4982dffbed63226a3f662b1610e4bc20173e0dc062cfc33597be5900ba6a57a
-content_hash: 8a2f237c5b2f1b13e6c40a38d564b0afa1644afd00302dfcc95274661f99fbeb
+source_hash: a0e4e86281a60da7a97626ade5e50e707b213addb2b77c176ac4006797de6c71
+content_hash: be1f57318ccd09f0480dc2e7a485c170c77507bc4d8954502bb9e48b27a2bc0e
 field_hashes:
   title: 8ce831137654e9867adba8daa63173c6560adb30ba0689b0440707e8cfb20381
   id: 12c3fc5eb163a3d4c2971d969ed8cbed4f6093edcc4a0cb84ac04f446a4cd6e2
@@ -13,10 +13,10 @@ field_hashes:
   why: e03ff780f98863c10c92bfd3e0e7a48ba629bff3e41f01449477b5fc00bbc84e
   goal: 3e960a1ee0ea59ab4836dd85cba9a68ab06e8e294040b243af89494cc0b40ba9
   scope: 27a4a81667abd430252403aa756e16a8a52010426a9b062ad80073e870a41992
-  references: 503bf7b3151cda654e41730145dfb1d1bca8661c9020abc651a67f2aa232c38a
+  references: b2bad5157a967414ea7fa34cc68c60ab92369b175f738b8f1011b1bbda35f3d9
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: c62901254a1191880f3506bc44ff42fe523edf7c615bb239a76b7b73f368afae
-  files: 4380b80a0e15bbf172844c98d1bd3f6822bf94e09f95eb658a45145d032c406c
+  files: ed097dd79625748c26bf76ed0aba8b22fad238f97261460c7dd407e4527a2494
   implementation_path: 436bd0315de877a26cc2128c9a2017c1bc9f00fe3cec132bca817a59456888f4
   validation: caea8e9bd3a4114c15882b552fdc13a4e8352aeb80f38b7eaaa81cbc2362c37c
   done_when: 4f6b0dd15930f337cb8e154d8c73872684590286a7e3865752919a53ec0e1925
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-21T02:53:13Z'
+  at: '2026-11-21T03:51:56Z'
   authority: generated
   via: save_document_payload

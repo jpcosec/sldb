@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-21T02:53:13Z'
+  at: '2026-11-21T03:51:56Z'
   authority: generated
   via: save_document_payload
 id: task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding
@@ -29,15 +29,27 @@ history:
   <rutas>'' y trailer Task-Id.'
 - task_activates
 references:
-- desk/inbox/20261115-192054-suggestion-sldb-notations-validar-una-notaci-n-una-paleta-o-un-spec-por-nombre-o-ruta-desde-la-cli.md
+- knowledge/commands/cmd-sldb-notations-from-graph.md
+- knowledge/commands/cmd-sldb-notations-validate.md
+- knowledge/surfaces/surface-sldb-notations.md
+- src/sldb/cli/commands/notations.py
+- src/sldb/cli/commands/notations_validate.py
+- src/sldb/cli/parsers/notations.py
+- tests/notations/test_notations_validate_cli.py
+- 5c1740d2c4e9fddb06b7d6d56e68528314e63a00
+- 672f8793f6180192179c34b1339af6c3be1c18b6
 depends_on: []
 pills:
 - desk/contexts/pill-pill-salida-y-orden-de-sldb-notations-validate.md
 files:
-- src/sldb/cli/parsers/notations.py
-- src/sldb/cli/commands/notations.py
-- tests/notations/test_notations_sync_spec_cli.py
 - CHANGELOG.md
+- knowledge/commands/cmd-sldb-notations-from-graph.md
+- knowledge/commands/cmd-sldb-notations-validate.md
+- knowledge/surfaces/surface-sldb-notations.md
+- src/sldb/cli/commands/notations.py
+- src/sldb/cli/commands/notations_validate.py
+- src/sldb/cli/parsers/notations.py
+- tests/notations/test_notations_validate_cli.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false

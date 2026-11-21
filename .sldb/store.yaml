@@ -1390,6 +1390,11 @@ include:
   - desk/materializations/materialization-notations-tests-notations-test-component-spec-python-py.md
   - desk/materializations/materialization-notations-src-sldb-cli-commands-notations-validate-py.md
   - desk/materializations/materialization-notations-src-sldb-cli-commands-notations-validate-store-py.md
+  - desk/materializations/materialization-notations-knowledge-commands-cmd-sldb-notations-from-graph-md.md
+  - desk/materializations/materialization-notations-knowledge-commands-cmd-sldb-notations-validate-md.md
+  - desk/materializations/materialization-notations-knowledge-surfaces-surface-sldb-notations-md.md
+  - desk/materializations/materialization-notations-src-sldb-cli-commands-notations-py.md
+  - desk/materializations/materialization-notations-tests-notations-test-notations-validate-cli-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2771,6 +2776,14 @@ include:
     name: review-task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio-evidence-atom-1
   - path: desk/reviews/task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio/evidence-materialization-1.md
     name: review-task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio-evidence-materialization-1
+  - path: desk/reviews/task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding/evidence-tests-1.md
+    name: review-task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding-evidence-tests-1
+  - path: desk/reviews/task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding/evidence-commit-1.md
+    name: review-task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding-evidence-commit-1
+  - path: desk/reviews/task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding/evidence-atom-1.md
+    name: review-task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding-evidence-atom-1
+  - path: desk/reviews/task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding/evidence-materialization-1.md
+    name: review-task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

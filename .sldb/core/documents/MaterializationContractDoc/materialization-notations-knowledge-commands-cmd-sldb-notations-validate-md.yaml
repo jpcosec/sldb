@@ -1,0 +1,25 @@
+name: materialization-notations-knowledge-commands-cmd-sldb-notations-validate-md
+path: desk/materializations/materialization-notations-knowledge-commands-cmd-sldb-notations-validate-md.md
+source_hash: c138eb03daeffb09908969ba3c5ac70502eeacfd9d499be63ef054b69071b292
+content_hash: 91475969596a430dcba056b85dcf7b888f7a20e6c562e4aa42d2f95cd964a572
+field_hashes:
+  id: 9e4af39bf2cbac887eb39987d03f9354b6bda09af279f9dc93bf1f22d70b8ae1
+  title: c2931fff25d7262d66e38d15aa0f87a0c9090e1a4e5616547796611b678fff36
+  source_atoms: 575730cac9e4440044f3842e500fdc36d80968b38a9f297512174455d1753885
+  target_kind: 5310eeb1d153dad19cd89e627b129d763e0cb2029f901c1a54fcc70478405c04
+  target_identity: b6816961610ecef9fa14f1e7355cf16fcb601aa8446d9474fe842110d6cbf713
+  intent: c9d2886c2af7f6f49bfdc8f6c09c4d71087cc832eb05d447450601bd974794e0
+  validation: be8b3f52a41dfc25ff68a02cc87d4e270c5fdf0a28b07463fcec66abf89127f0
+  tags: 1f6879d3f31f56b2802c17ed6bd1ec91facdb8d554030fea048f5505d98e5e32
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:notations
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-21T03:52:54Z'
+  authority: generated
+  via: create_document
