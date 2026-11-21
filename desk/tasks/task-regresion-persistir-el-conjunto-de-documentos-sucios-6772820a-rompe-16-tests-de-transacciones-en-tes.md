@@ -1,25 +1,34 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-21T12:47:13Z'
+  at: '2026-11-21T14:27:02Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-testing
+history:
+- task_activates
+references:
+- src/sldb/api/documents/transaction_state.py
+- src/sldb/store/documents_dirty.py
+- src/sldb/store/documents_dirty_persist.py
+- 4b44a43af41c3634c78ac9a1ea106764450c9e34
 depends_on: []
 pills: []
-files: []
+files:
+- src/sldb/api/documents/transaction_state.py
+- src/sldb/store/documents_dirty.py
+- src/sldb/store/documents_dirty_persist.py
 task_type: task.debug
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-el-rollback-de-una-transaccion-restaura-el-conjunto-sucio-persistido
 ---
 
 # Regresión: persistir el conjunto de documentos sucios (6772820a) rompe 16 tests de transacciones en tests/api

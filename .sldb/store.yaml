@@ -899,6 +899,8 @@ include:
     name: run-deskops-t-f61116693c0a
   - path: runs/subagents/exec-deskops-e-4ea8e4d4dc22/run.md
     name: run-deskops-e-4ea8e4d4dc22
+  - path: runs/subagents/exec-deskops-t-80b425f8c32e-testing/run.md
+    name: run-deskops-t-80b425f8c32e
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -1486,6 +1488,7 @@ include:
   - desk/materializations/materialization-api-src-sldb-api-segments-payload-values-py.md
   - desk/materializations/materialization-api-src-sldb-cli-serve-schema-py.md
   - desk/materializations/materialization-api-src-sldb-models-field-schema-descriptor-py.md
+  - desk/materializations/materialization-store-src-sldb-api-documents-transaction-state-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2934,6 +2937,14 @@ include:
     name: review-task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest-evidence-materialization-1
   - path: desk/reviews/task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes/reproduction-1.md
     name: review-task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes-reproduction-1
+  - path: desk/reviews/task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes/evidence-tests-1.md
+    name: review-task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes-evidence-tests-1
+  - path: desk/reviews/task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes/evidence-commit-1.md
+    name: review-task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes-evidence-commit-1
+  - path: desk/reviews/task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes/evidence-atom-1.md
+    name: review-task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes-evidence-atom-1
+  - path: desk/reviews/task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes/evidence-materialization-1.md
+    name: review-task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
