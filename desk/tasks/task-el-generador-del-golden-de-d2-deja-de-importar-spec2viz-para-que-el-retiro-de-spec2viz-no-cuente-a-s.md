@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-21T02:33:17Z'
+  at: '2026-11-21T02:51:27Z'
   authority: generated
   via: save_document_payload
 id: task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s
@@ -13,14 +13,18 @@ tags:
 current_node: ritual-testing
 history:
 - task_activates
-references: []
+references:
+- tests/notations/test_component_spec_python.py
+- cfa6477b814bb65b6f34e090bd4ea4fcb61bbc82
 depends_on: []
 pills: []
-files: []
+files:
+- tests/notations/test_component_spec_python.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-el-generador-del-golden-de-d2-se-retiro-de-runs-porque-importaba-spec2viz
 ---
 
 # El generador del golden de D2 deja de importar spec2viz, para que el retiro de spec2viz no cuente a sldb como consumidor

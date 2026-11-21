@@ -824,6 +824,8 @@ include:
     name: run-deskops-t-75dc71f8a2cd-a2
   - path: runs/subagents/exec-deskops-t-79c0e68938b0-testing/run.md
     name: run-deskops-t-79c0e68938b0
+  - path: runs/subagents/exec-deskops-e-8eb91b4956b3-a2/run.md
+    name: run-deskops-e-8eb91b4956b3-a2
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -1380,6 +1382,7 @@ include:
   - desk/materializations/materialization-stores-src-sldb-store-query-py.md
   - desk/materializations/materialization-stores-tests-api-test-api-stores-py.md
   - desk/materializations/materialization-stores-tests-store-test-stores-build-py.md
+  - desk/materializations/materialization-notations-tests-notations-test-component-spec-python-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2735,6 +2738,20 @@ include:
     name: review-task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s-preflight-1
   - path: desk/reviews/task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s/bundle-1.md
     name: review-task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s-bundle-1
+  - path: desk/reviews/task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s/evidence-tests-1.md
+    name: review-task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s-evidence-tests-1
+  - path: desk/reviews/task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s/evidence-commit-1.md
+    name: review-task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s-evidence-commit-1
+  - path: desk/reviews/task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s/evidence-atom-1.md
+    name: review-task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s-evidence-atom-1
+  - path: desk/reviews/task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s/evidence-tests-2.md
+    name: review-task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s-evidence-tests-2
+  - path: desk/reviews/task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s/evidence-commit-2.md
+    name: review-task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s-evidence-commit-2
+  - path: desk/reviews/task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s/evidence-atom-2.md
+    name: review-task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s-evidence-atom-2
+  - path: desk/reviews/task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s/evidence-materialization-1.md
+    name: review-task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
