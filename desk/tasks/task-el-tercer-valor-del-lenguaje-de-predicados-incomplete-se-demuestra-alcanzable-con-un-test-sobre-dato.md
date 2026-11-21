@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-21T08:29:39Z'
+  at: '2026-11-21T15:34:51Z'
   authority: generated
   via: save_document_payload
 id: task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato
@@ -29,19 +29,59 @@ history:
   Commit desde tu worktree con ''git commit -- <rutas>'' y trailer Task-Id.'
 - task_activates
 references:
+- docs/architecture/graph-backend.md
 - docs/architecture/rules-language.md
+- docs/architecture/rules.md
+- knowledge/commands/cmd-sldb-rules-explain.md
+- src/sldb/api/rules/fixpoint.py
+- src/sldb/api/rules/rule_subjects.py
+- src/sldb/api/rules/rules_check.py
+- src/sldb/api/rules/rules_explain.py
+- src/sldb/api/where.py
+- src/sldb/cli/commands/rules.py
+- src/sldb/cli/parsers/rules.py
+- src/sldb/models/rule_doc.py
+- src/sldb/store/graph/backend/index_view.py
+- src/sldb/store/graph/language/predicate_eval.py
+- src/sldb/store/graph/language/predicate_explain.py
+- src/sldb/store/graph/language/predicate_paths.py
+- src/sldb/store/graph/language/predicate_reach.py
+- src/sldb/store/graph/language/predicate_view.py
+- tests/api/test_rules.py
+- tests/api/test_rules_evaluation.py
+- tests/test_rules_language_spec.py
+- 1d31c3d8e3c7a6dba59e44f2ea9e77fcf8ae840b
+- 22cfafb2c29e62a391d23be53d690a21955fe0ee
 depends_on: []
 pills: []
 files:
-- src/sldb/api/where.py
-- docs/architecture/rules-language.md
-- tests/test_predicates_cli.py
 - CHANGELOG.md
+- docs/architecture/graph-backend.md
+- docs/architecture/rules-language.md
+- docs/architecture/rules.md
+- knowledge/commands/cmd-sldb-rules-explain.md
+- src/sldb/api/rules/fixpoint.py
+- src/sldb/api/rules/rule_subjects.py
+- src/sldb/api/rules/rules_check.py
+- src/sldb/api/rules/rules_explain.py
+- src/sldb/api/where.py
+- src/sldb/cli/commands/rules.py
+- src/sldb/cli/parsers/rules.py
+- src/sldb/models/rule_doc.py
+- src/sldb/store/graph/backend/index_view.py
+- src/sldb/store/graph/language/predicate_eval.py
+- src/sldb/store/graph/language/predicate_explain.py
+- src/sldb/store/graph/language/predicate_paths.py
+- src/sldb/store/graph/language/predicate_reach.py
+- src/sldb/store/graph/language/predicate_view.py
+- tests/api/test_rules.py
 - tests/api/test_rules_evaluation.py
+- tests/test_rules_language_spec.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-incomplete-se-retira-del-lenguaje-de-predicados-de-sldb
 ---
 
 # El tercer valor del lenguaje de predicados (incomplete) se demuestra alcanzable con un test sobre datos reales o se retira

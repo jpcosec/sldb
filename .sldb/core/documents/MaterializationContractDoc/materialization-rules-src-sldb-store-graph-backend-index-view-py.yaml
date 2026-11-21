@@ -1,0 +1,25 @@
+name: materialization-rules-src-sldb-store-graph-backend-index-view-py
+path: desk/materializations/materialization-rules-src-sldb-store-graph-backend-index-view-py.md
+source_hash: d685ff9cfdfd3448bb8d03fdd6276be9e93435931d64ec28b9b86d6601234404
+content_hash: d6151c6917adcd0f6c3df24672a0c107c670fe9889f3f4143ebf41f0347743dc
+field_hashes:
+  id: ce6675c40976f09fb14fe6355111e5e4361737eeb799e88d59d61981873848c9
+  title: dab31a768bf5410bf50acd4dee6658ff7704e069d253133848d83de861bf697d
+  source_atoms: 4585fed544f317b34584ac49084697c69296b866e28529f62cd5df9ef0e5bf04
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: f69cd8beb6f79177fecc314aca48020798f65c35de39f213812b68b01e955763
+  intent: 40c961b1603f4279a4cb8192c14046cf225ec57a32f7a09acf4a707a8e1936fc
+  validation: a5d947866195acf9848e6fc04d0ca3034eba4a6e7c700d1e2eb5f8373a8f2a32
+  tags: 009267aef00920e49a7d2599b803a2558cedbf3f9d3e30fef63bc9c79a57960f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:rules
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-21T15:40:44Z'
+  authority: generated
+  via: create_document

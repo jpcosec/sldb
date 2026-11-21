@@ -1489,6 +1489,25 @@ include:
   - desk/materializations/materialization-api-src-sldb-cli-serve-schema-py.md
   - desk/materializations/materialization-api-src-sldb-models-field-schema-descriptor-py.md
   - desk/materializations/materialization-store-src-sldb-api-documents-transaction-state-py.md
+  - desk/materializations/materialization-rules-docs-architecture-graph-backend-md.md
+  - desk/materializations/materialization-rules-docs-architecture-rules-md.md
+  - desk/materializations/materialization-rules-knowledge-commands-cmd-sldb-rules-explain-md.md
+  - desk/materializations/materialization-rules-src-sldb-api-rules-fixpoint-py.md
+  - desk/materializations/materialization-rules-src-sldb-api-rules-rule-subjects-py.md
+  - desk/materializations/materialization-rules-src-sldb-api-rules-rules-check-py.md
+  - desk/materializations/materialization-rules-src-sldb-api-rules-rules-explain-py.md
+  - desk/materializations/materialization-rules-src-sldb-api-where-py.md
+  - desk/materializations/materialization-rules-src-sldb-cli-commands-rules-py.md
+  - desk/materializations/materialization-rules-src-sldb-cli-parsers-rules-py.md
+  - desk/materializations/materialization-rules-src-sldb-models-rule-doc-py.md
+  - desk/materializations/materialization-rules-src-sldb-store-graph-backend-index-view-py.md
+  - desk/materializations/materialization-rules-src-sldb-store-graph-language-predicate-eval-py.md
+  - desk/materializations/materialization-rules-src-sldb-store-graph-language-predicate-explain-py.md
+  - desk/materializations/materialization-rules-src-sldb-store-graph-language-predicate-paths-py.md
+  - desk/materializations/materialization-rules-src-sldb-store-graph-language-predicate-reach-py.md
+  - desk/materializations/materialization-rules-src-sldb-store-graph-language-predicate-view-py.md
+  - desk/materializations/materialization-rules-tests-api-test-rules-evaluation-py.md
+  - desk/materializations/materialization-rules-tests-test-rules-language-spec-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2945,6 +2964,14 @@ include:
     name: review-task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes-evidence-atom-1
   - path: desk/reviews/task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes/evidence-materialization-1.md
     name: review-task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes-evidence-materialization-1
+  - path: desk/reviews/task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato/evidence-tests-1.md
+    name: review-task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato-evidence-tests-1
+  - path: desk/reviews/task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato/evidence-commit-1.md
+    name: review-task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato-evidence-commit-1
+  - path: desk/reviews/task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato/evidence-atom-1.md
+    name: review-task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato-evidence-atom-1
+  - path: desk/reviews/task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato/evidence-materialization-1.md
+    name: review-task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

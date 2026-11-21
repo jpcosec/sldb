@@ -1,0 +1,22 @@
+name: atom-incomplete-se-retira-del-lenguaje-de-predicados-de-sldb
+path: desk/atoms/atom-incomplete-se-retira-del-lenguaje-de-predicados-de-sldb.md
+source_hash: 7cf383339ff9d032fd955334ebbdd8ce8ea5d1127cec059535903ec2cf234de3
+content_hash: 2a61fbc0d2cbf6083bd8888cb647d6beb0c844f55fd6d556fa94e7667df7efed
+field_hashes:
+  id: 3c4fa0d2122394c94bd57c70f97e048b2caf0ba4c0e3f60fc3c66f8522a68b26
+  title: 4a75ff3d92e934cf5dfa353120682d2059abded855b46ef210e9b6549646623c
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 3d894a6fa02fc93de86c780ad13559d4e164a1e2789b019dfac175e66c40de6e
+  tags: 009267aef00920e49a7d2599b803a2558cedbf3f9d3e30fef63bc9c79a57960f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:rules
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-21T15:33:24Z'
+  authority: generated
+  via: create_document
