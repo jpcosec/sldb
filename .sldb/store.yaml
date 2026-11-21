@@ -2859,6 +2859,10 @@ include:
     name: review-task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con-evidence-commit-1
   - path: desk/reviews/task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con/evidence-document-1.md
     name: review-task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con-evidence-document-1
+  - path: desk/reviews/task-rules-language-md-la-cabecera-describe-la-semantica-bivaluada-incomplete-retirado/preflight-1.md
+    name: review-task-rules-language-md-la-cabecera-describe-la-semantica-bivaluada-incomplete-retirado-preflight-1
+  - path: desk/reviews/task-rules-language-md-la-cabecera-describe-la-semantica-bivaluada-incomplete-retirado/bundle-1.md
+    name: review-task-rules-language-md-la-cabecera-describe-la-semantica-bivaluada-incomplete-retirado-bundle-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
