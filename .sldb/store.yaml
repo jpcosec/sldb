@@ -812,6 +812,8 @@ include:
     name: run-deskops-e-9af1f5c9e2ab
   - path: runs/subagents/exec-deskops-t-35c6f2d4111e-testing/run.md
     name: run-deskops-t-35c6f2d4111e
+  - path: runs/subagents/exec-deskops-e-8eb91b4956b3/run.md
+    name: run-deskops-e-8eb91b4956b3
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -2719,6 +2721,10 @@ include:
     name: review-task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding-preflight-3
   - path: desk/reviews/task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding/bundle-3.md
     name: review-task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding-bundle-3
+  - path: desk/reviews/task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s/preflight-1.md
+    name: review-task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s-preflight-1
+  - path: desk/reviews/task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s/bundle-1.md
+    name: review-task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s-bundle-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
