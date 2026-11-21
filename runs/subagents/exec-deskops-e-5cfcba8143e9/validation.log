@@ -1,0 +1,2 @@
+pytest -q tests/api/test_rules_evaluation.py tests/api/test_rules.py tests/test_rules_language_spec.py tests/test_predicates_cli.py tests/test_clean_code_rules.py -> rc 0 (1316 passed)
+bash tools/check.sh --fast (worktree) -> rc 1: FAIL identidad: "directorio versionado sin clasificar en la raíz: workbench_demo" (tracked at HEAD since 562847e2, not touched by this task). capas/ejes/etc PASS; GO02 hash no complaint.

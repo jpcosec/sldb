@@ -1,0 +1,3 @@
+pytest tests/api/test_rules.py tests/api/test_rules_evaluation.py tests/test_rules_language_spec.py: 78 passed
+sldb selfdoc check: 0 alertas
+bash tools/check.sh --fast: rc=1, solo identidad por workbench_demo (excepción autorizada f055723d)

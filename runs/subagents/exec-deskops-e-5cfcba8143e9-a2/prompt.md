@@ -1,7 +1,17 @@
+Task: task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato
+Title: El tercer valor del lenguaje de predicados (incomplete) se demuestra alcanzable con un test sobre datos reales o se retira
+Status: active
+Current node: ritual-execution
+Task type: task.code
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-21T15:34:51Z'
+  at: '2026-11-21T08:21:33Z'
   authority: generated
   via: save_document_payload
 id: task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato
@@ -11,7 +21,7 @@ tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
-current_node: ritual-testing
+current_node: ritual-execution
 history:
 - task_activates
 - 'task_returns_to_execution: Tester deskops-t-dd3a304c7b74 FALLA. La roja de ''identidad''
@@ -27,61 +37,20 @@ history:
   ese test desde el padre (git show HEAD~1:tests/api/test_rules.py) sin tocar el resto;
   correr tests/api/test_rules.py, tests/api/test_rules_evaluation.py y tests/test_rules_language_spec.py.
   Commit desde tu worktree con ''git commit -- <rutas>'' y trailer Task-Id.'
-- task_activates
 references:
-- docs/architecture/graph-backend.md
 - docs/architecture/rules-language.md
-- docs/architecture/rules.md
-- knowledge/commands/cmd-sldb-rules-explain.md
-- src/sldb/api/rules/fixpoint.py
-- src/sldb/api/rules/rule_subjects.py
-- src/sldb/api/rules/rules_check.py
-- src/sldb/api/rules/rules_explain.py
-- src/sldb/api/where.py
-- src/sldb/cli/commands/rules.py
-- src/sldb/cli/parsers/rules.py
-- src/sldb/models/rule_doc.py
-- src/sldb/store/graph/backend/index_view.py
-- src/sldb/store/graph/language/predicate_eval.py
-- src/sldb/store/graph/language/predicate_explain.py
-- src/sldb/store/graph/language/predicate_paths.py
-- src/sldb/store/graph/language/predicate_reach.py
-- src/sldb/store/graph/language/predicate_view.py
-- tests/api/test_rules.py
-- tests/api/test_rules_evaluation.py
-- tests/test_rules_language_spec.py
-- 1d31c3d8e3c7a6dba59e44f2ea9e77fcf8ae840b
-- 22cfafb2c29e62a391d23be53d690a21955fe0ee
 depends_on: []
 pills: []
 files:
-- CHANGELOG.md
-- docs/architecture/graph-backend.md
-- docs/architecture/rules-language.md
-- docs/architecture/rules.md
-- knowledge/commands/cmd-sldb-rules-explain.md
-- src/sldb/api/rules/fixpoint.py
-- src/sldb/api/rules/rule_subjects.py
-- src/sldb/api/rules/rules_check.py
-- src/sldb/api/rules/rules_explain.py
 - src/sldb/api/where.py
-- src/sldb/cli/commands/rules.py
-- src/sldb/cli/parsers/rules.py
-- src/sldb/models/rule_doc.py
-- src/sldb/store/graph/backend/index_view.py
-- src/sldb/store/graph/language/predicate_eval.py
-- src/sldb/store/graph/language/predicate_explain.py
-- src/sldb/store/graph/language/predicate_paths.py
-- src/sldb/store/graph/language/predicate_reach.py
-- src/sldb/store/graph/language/predicate_view.py
-- tests/api/test_rules.py
+- docs/architecture/rules-language.md
+- tests/test_predicates_cli.py
+- CHANGELOG.md
 - tests/api/test_rules_evaluation.py
-- tests/test_rules_language_spec.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms:
-- atom-incomplete-se-retira-del-lenguaje-de-predicados-de-sldb
+atoms: []
 ---
 
 # El tercer valor del lenguaje de predicados (incomplete) se demuestra alcanzable con un test sobre datos reales o se retira
@@ -128,3 +97,28 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 Los comandos de Validation pasan; result-summary.md explica la decisión con evidencia; CHANGELOG y commit.
+
+## Entrega del ejecutor
+
+Al terminar, commitea solo los archivos que cambiaste para la tarea, nombrados uno por uno (los mismos que listas en result-summary.md):
+
+    git add <ruta> <ruta> ...
+    git commit -m "<resumen>" -m "Task-Id: task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato"
+
+Nunca uses `git add -A`, `git add -u` sobre todo el arbol ni `git stash`: puede haber trabajo ajeno sin commitear. No hagas push. Recien despues ejecuta `deskops advance task`.
+
+## Gates rapidos del desk
+
+Antes del commit corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Debe terminar con rc 0 antes de commitear; si falla, corrige y repite. Anota el comando y su rc en validation.log.
+
+## Tu worktree
+
+Tu codigo vive en un worktree propio, en la rama `deskops/deskops-e-5cfcba8143e9-a2`:
+
+    /mnt/ssd/proyectos/SLDB_1/sldb/.worktrees/deskops-e-5cfcba8143e9-a2
+
+Haz `cd` ahi: edita, corre los tests y commitea ahi (git add / git commit), no en el checkout principal /mnt/ssd/proyectos/SLDB_1/sldb. Las operaciones de desk (`deskops ... --root /mnt/ssd/proyectos/SLDB_1/sldb`, evidencia en runs/subagents/..., `deskops advance task`) siguen usando el checkout principal. Al terminar, reap trae tus commits a la rama principal y borra el worktree.

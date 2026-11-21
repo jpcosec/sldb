@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-21T14:32:19Z'
+  at: '2026-11-21T15:51:32Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -45,7 +45,6 @@ tasks:
 - desk/tasks/task-sldb-stores-remove-quita-el-enlace-también-de-la-declaración-store-yaml-así-otra-sesión-no-lo-reintr.md
 - desk/tasks/task-sldb-api-expone-render-con-roundtrip-renderizar-el-payload-de-un-modelo-a-markdown-y-validar-que-vue.md
 - desk/tasks/task-store-index-yaml-no-guarda-rutas-absolutas-de-máquina-para-los-modelos-que-vienen-de-un-paquete-mode.md
-- desk/tasks/task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato.md
 - desk/tasks/task-sw1-documentación-y-arranque-de-surface-al-día-con-el-workbench-readme-maqueta-histórica-tareas-t7-t.md
 - desk/tasks/task-sw9-primera-pasada-capturas-y-tiempos-de-las-cuatro-vistas-del-workbench-sobre-df3903db-para-que-jp.md
 - desk/tasks/task-sw7-model-studio-edita-campos-existentes-crea-modelos-deja-que-sldb-compruebe-los-slots-de-la-planti.md
@@ -143,7 +142,6 @@ _Generated from the task references above._
 - sldb stores remove quita el enlace también de la declaración store.yaml, así otra sesión no lo reintroduce [draft] - sldb stores remove <alias> deja el enlace fuera del índice y de la declaración store.yaml en una sola operación, bajo el lock del store; un store sin store.yaml se comporta como hoy.
 - sldb.api expone render con roundtrip: renderizar el payload de un modelo a Markdown y validar que vuelve igual antes de escribir [draft] - Una función pública de sldb.api.documents recibe un modelo (registrado, por nombre, o la clase) y un payload, devuelve el Markdown renderizado y el resultado del roundtrip (ok y diferencias), sin escribir nada; graph_ui puede dejar de importar sldb.runtime.validation.
 - store_index.yaml no guarda rutas absolutas de máquina para los modelos que vienen de un paquete (model_ref) [draft] - Para un modelo declarado por model_ref de un paquete importable, store_index.yaml no guarda una ruta absoluta de la máquina (la omite o guarda una relativa a la raíz del proyecto si está dentro de él), y cargar el store en otra máquina funciona igual.
-- El tercer valor del lenguaje de predicados (incomplete) se demuestra alcanzable con un test sobre datos reales o se retira [active] - O hay un test que, con un store real armado en tmp_path, obtiene incomplete de una evaluación pública (where o rules check) y documenta cuándo ocurre; o incomplete se retira del lenguaje, de la API y de la doc sin cambiar los resultados true/false existentes.
 - SW1: documentación y arranque de surface como la UI de SLDB (README, maqueta histórica, tareas T7-T9 y puerto configurable documentado) [draft] - surface tiene un README que la presenta como la UI de SLDB para cualquier store y describe cómo levantarla; las referencias a la maqueta están corregidas o marcadas como históricas; docs/surface/tasks/README.md dice el estado real de T7, T8 y T9; el puerto de vite es configurable (variable de entorno, con un valor por defecto) y está documentado, sin strictPort.
 - SW9, primera pasada: capturas y tiempos de las cuatro vistas del Workbench sobre df3903db, para que JP vea el punto de partida [draft] - En runs/ queda un índice con capturas y tiempos de las cuatro vistas (#/workbench, #/diagram, #/source, #/studio), con las lentes lectura y fierros, sobre documentos reales de un store SLDB real (el del repo), tomadas en df3903db.
 - SW7: Model Studio edita campos existentes, crea modelos, deja que sldb compruebe los slots de la plantilla y confirma el plan antes de promover [draft] - Model Studio edita tipo y descripción de un campo existente, ofrece los tipos que pide §6, crea modelos por POST /models/create, muestra la comprobación de slots que devuelve sldb (POST /models/validate) sin parsear la plantilla en la UI, pide confirmación con el plan de backfill antes de promover y guarda la plantilla con ⌘↵.
