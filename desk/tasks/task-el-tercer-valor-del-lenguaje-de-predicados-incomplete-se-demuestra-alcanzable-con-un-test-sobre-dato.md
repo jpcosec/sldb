@@ -1,18 +1,32 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T15:13:46Z'
+  at: '2026-11-21T08:21:33Z'
   authority: generated
   via: save_document_payload
 id: task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
 current_node: ritual-execution
-history: []
+history:
+- task_activates
+- 'task_returns_to_execution: Tester deskops-t-dd3a304c7b74 FALLA. La roja de ''identidad''
+  por workbench_demo es la excepción autorizada (f055723d), pero hay dos defectos
+  reales. (a) Doc incompleta: docs/architecture/graph-backend.md:44 y 51-52 siguen
+  describiendo ''incomplete'' como vigente, y knowledge/commands/cmd-sldb-rules-explain.md:10,20
+  y knowledge/symbols/python-sldb-sldb-api-rules-rules_explain-explain_exit.md siguen
+  diciendo ''2 incomplete''. sldb selfdoc check da selfdoc/changed en cmd-sldb-rules-explain.md.
+  (b) El commit borró tests/api/test_rules.py::test_save_document_payload_returns_the_on_write_alerts_without_a_listener,
+  ajeno al retiro (el tester lo reconstruyó y pasa contra el commit). Intento 2: corregir
+  graph-backend.md; regenerar los knowledge con ''sldb selfdoc sync'' (no a mano)
+  hasta que ''sldb selfdoc check'' quede sin alertas sobre esos archivos; restaurar
+  ese test desde el padre (git show HEAD~1:tests/api/test_rules.py) sin tocar el resto;
+  correr tests/api/test_rules.py, tests/api/test_rules_evaluation.py y tests/test_rules_language_spec.py.
+  Commit desde tu worktree con ''git commit -- <rutas>'' y trailer Task-Id.'
 references:
 - docs/architecture/rules-language.md
 depends_on: []
