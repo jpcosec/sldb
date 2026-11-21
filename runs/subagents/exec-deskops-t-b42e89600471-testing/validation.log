@@ -1,0 +1,35 @@
+Tester validation log
+=====================
+Task: task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio
+Executor commit: fb321318b5972d07ea9109477024036c5f5c4d04
+Changed files:
+  src/sldb/cli/commands/notations_validate.py
+  src/sldb/cli/commands/notations_validate_store.py
+Python: .venv/bin/python (3.13.18), pytest 9.1.1, TMPDIR=/tmp
+
+1) tests/test_clean_code_rules.py
+   1234 passed, 2 warnings, rc=0
+2) tests/notations/test_notations_validate_cli.py
+   11 passed, 1 warning, rc=0
+3) tests/notations/test_notations_sync_spec_cli.py
+   4 passed, 1 warning, rc=0
+4) Validation command (combined)
+   TMPDIR=/tmp .venv/bin/python -m pytest -q -p no:cacheprovider tests/test_clean_code_rules.py tests/notations/test_notations_validate_cli.py
+   1245 passed, 2 warnings, rc=0
+
+Clean-code metrics of touched modules:
+  notations_validate.py: _check_store_document removed; validate_target 5 logic lines; file 78 effective lines (<=80)
+  notations_validate_store.py: _check_store_document 10 logic lines (<=10); file 36 effective lines (<=80)
+
+Behavior review:
+  validate_target preserves order (ambiguity alert before the finding) and file/name branching.
+  Store lookup/validation code moved verbatim into notations_validate_store.py; helpers only extract
+  _store_payload and _check_palette_payload. No behavior change observed.
+
+5) bash tools/check.sh --fast (venv in PATH)
+   rc=1. Only failing gate: "identidad" due to
+   "directorio versionado sin clasificar en la raíz: workbench_demo"
+   This is the exception autorizada named in the task. Other gates PASS:
+   núcleo aislado, capas, ejes, superficie.
+
+Verdict: PASA

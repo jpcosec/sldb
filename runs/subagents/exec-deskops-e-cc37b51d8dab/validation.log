@@ -1,0 +1,4 @@
+pytest tests/test_clean_code_rules.py -> 1234 passed (rc 0)
+pytest tests/notations/test_notations_validate_cli.py -> 11 passed (rc 0)
+pytest tests/notations/test_notations_sync_spec_cli.py -> 4 passed (rc 0)
+bash tools/check.sh --fast -> rc 1, only 'identidad' fails (workbench_demo, authorized exception)

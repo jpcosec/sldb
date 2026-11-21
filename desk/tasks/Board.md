@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-21T03:03:36Z'
+  at: '2026-11-21T03:28:56Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -67,7 +67,6 @@ tasks:
 - desk/tasks/task-declaredfiletargets-lee-campos-lista-y-no-aplica-las-exclusiones-a-lo-que-se-declara-para-que-un-des.md
 - desk/tasks/task-baja-prioridad-canonizar-los-nombres-de-llamada-ts-js-cuya-cadena-empieza-en-un-array-binario-new-o.md
 - desk/tasks/task-clasificar-workbench-demo-en-contracts-identity-toml-producto-autoaplicacion-o-ajeno-la-puerta-ident.md
-- desk/tasks/task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -169,4 +168,3 @@ _Generated from the task references above._
 - DeclaredFileTargets lee campos lista y no aplica las exclusiones a lo que se declara, para que un destino que existe no cuente como faltante [draft] - Un destino declarado por DeclaredFileTargets, venga de un campo escalar o de un campo lista, que es un archivo existente del proyecto se vuelve nodo aunque esté bajo una exclusión; y hay una forma declarativa de que las menciones de LineMentions a archivos existentes del proyecto no cuenten como faltantes.
 - Baja prioridad: canonizar los nombres de llamada TS/JS cuya cadena empieza en un array, binario, new o literal (hoy canonical: false) [draft] - Los nombres de llamada que hoy salen con canonical: false tienen una forma canónica definida y documentada (por ejemplo marcadores fijos [...] para arrays, (expr) para binarios, Clase() para new y (lit) para literales) y salen con canonical: true y en la relación calls si nombran un símbolo.
 - Clasificar workbench_demo en contracts/identity.toml (producto, autoaplicación o ajeno): la puerta identidad de check.sh está en rojo [draft] - JP o el dueño de surface decide qué es workbench_demo: producto (sldb lo distribuye), autoaplicación (sldb usado sobre sí mismo) o ajeno (va en contract foreign, o se mueve fuera de la raíz, por ejemplo bajo surface/), y se clasifica en contracts/identity.toml. Con eso, check.sh --fast vuelve a 0.
-- notations validate: _check_store_document baja a 10 líneas de lógica (regla de código limpio) [draft] - src/sldb/cli/commands/notations_validate.py cumple tests/test_clean_code_rules.py: _check_store_document queda en 10 líneas de lógica o menos, partiéndola en funciones auxiliares privadas en el mismo archivo (o en un módulo hermano si el archivo pasa de 80 líneas efectivas), sin cambiar el comportamiento.
