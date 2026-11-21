@@ -1,18 +1,19 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-21T02:14:57Z'
+  at: '2026-11-21T02:23:08Z'
   authority: generated
   via: save_document_payload
 id: task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
-current_node: ritual-execution
-history: []
+current_node: ritual-testing
+history:
+- task_activates
 references:
 - desk/inbox/20261115-192054-suggestion-sldb-notations-validar-una-notaci-n-una-paleta-o-un-spec-por-nombre-o-ruta-desde-la-cli.md
 depends_on: []
