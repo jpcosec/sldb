@@ -9,15 +9,16 @@ sldb
 ├── extract / render / validate
 ├── init / example
 ├── stores
-│   └── init / add / check / update / semantic-map / semantic-export / list
+│   └── init / add / check / update / semantic-map / semantic-export / list / build / declare / merge-driver / migrate-hashes / migrate-layout / rebuild-index / reconcile / remove / scaffold
 ├── models
-│   ├── add / update / list / show / validate / create
+│   ├── add / update / list / show / validate / create / check / inherit / remove
+│   ├── metadata edit
 │   ├── template show / edit
 │   └── fields add / remove
 ├── predicates
-│   └── add / list / show / validate / remove
+│   └── add / list / show / validate / remove / export / sync
 ├── docs
-│   └── create / track / update / untrack / delete / show / recover / list / compose / explore
+│   └── create / track / update / untrack / delete / show / recover / list / compose / explore / exists / history / replace / select
 ├── fields
 │   └── show / query / create / update / remove / append / clean
 ├── sections
@@ -27,10 +28,35 @@ sldb
 │   └── show / schema
 ├── explore / inbox / lint
 ├── serve
+├── anchors
+│   └── check / record
+├── bench
+├── edges
+│   └── init / rebuild / check / show / referrers / rewrite / unresolved
+├── graph
+│   ├── list / get / query / similar / central / components / cycles / neighborhood / order / path / ingest-sldb
+│   ├── project edges / nodes / missing
+│   └── snapshot save / load
+├── journal
+│   └── show / verify
+├── mcp
+├── move
+├── notations
+│   └── list / resolve / sync / validate / view / from-graph
+├── rules
+│   └── check / explain
+├── semantic
+│   ├── show
+│   ├── equivalent add
+│   └── parent add / remove
+├── tags
+│   └── check / namespaces / tree
+├── views
+│   └── list / run
 ├── selfdoc
-│   └── scan / sync / check
+│   └── scan / sync / check / python-scan / python-sync / python-check
 └── legacy
-    └── ls / get / glob / find
+    └── ls / get / glob / find / compose / recover
 ```
 
 ## Command Groups

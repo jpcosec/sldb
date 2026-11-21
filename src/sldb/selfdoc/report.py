@@ -26,7 +26,7 @@ class DocumentationReport(BaseModel):
     ``inspect_documents`` fills the findings and the CLI prints them as JSON, with
     each one as an error or an alert (``sldb.selfdoc.report_findings``). ``ok``
     controls the exit status of check, sync and their Python variants: it is false
-    only on an error (malformed metadata, a source graph missing or unreadable).
+    only on an error (malformed metadata, a source graph missing or unreadable, a command path the CLI tree document omits or still lists).
     Stale or ungenerated documents, stale hashes and rename hints are alerts: the
     source moved, the command exits 0, and the JSON lists them under ``alerts``.
     Removed documents are retained; rename candidates are heuristic hints without a
@@ -49,9 +49,11 @@ class DocumentationReport(BaseModel):
     unresolved_references: list[str] = Field(default_factory=list, description="Annotation references no import or definition resolves, as path:line: name.")
     purpose_conflicts: list[str] = Field(default_factory=list, description="Symbol documents whose authored purpose differs from their docstring's first paragraph; kept until reconciled by hand.")
     metadata_errors: list[str] = Field(default_factory=list, description="Malformed docstring metadata and duplicate declared ids, as path:line: problem; python-sync writes nothing while any remain.")
+    cli_tree_missing: list[str] = Field(default_factory=list, description="Parser command paths the CLI tree document does not list.")
+    cli_tree_stale: list[str] = Field(default_factory=list, description="Command paths the CLI tree document lists and the parser no longer defines.")
     written: int = Field(default=0, description="Markdown documents written by sync.")
 
     @property
     def ok(self) -> bool:
         """Whether no error was found; alerts (stale documents, hashes, graph) do not count."""
-        return not (self.metadata_errors or self.graph_errors)
+        return not (self.metadata_errors or self.graph_errors or self.cli_tree_missing or self.cli_tree_stale)

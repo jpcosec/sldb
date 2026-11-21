@@ -9,11 +9,15 @@ from sldb.cli.commands import selfdoc_python
 from sldb.cli.selfdoc_context import documentation_store, load_parser
 from sldb.cli.selfdoc_inspect import inspect_documents
 from sldb.cli.selfdoc_write import write_documents
+from sldb.selfdoc.cli_tree import compare
+from sldb.selfdoc.report_findings import CLI_TREE
 from sldb.selfdoc.materialize import plan_documents
 from sldb.selfdoc.parser import ParserScanner
 from sldb.selfdoc.python_materialize import plan_python_documents
 from sldb.selfdoc.python_scanner import PythonScanner
 from sldb.store.resolver import find_local_store
+
+_OWN_FACTORY = "sldb.cli.parser:build_parser"
 
 
 class SelfdocCLI:
@@ -82,8 +86,18 @@ class SelfdocCLI:
             plans = plan_documents(records, args.system, args.factory, output)
             report = inspect_documents(plans, store, root, output, args.system)
             report.written = written
+        return self._finish(args, root, report)
+
+    def _finish(self, args, root, report) -> int:
+        self._check_cli_tree(args, root, report)
         _print_report(report)
         return 0 if report.ok else 1
+
+    def _check_cli_tree(self, args, root, report) -> None:
+        """Compare sldb's own parser with its hand-written tree document (when the project has one)."""
+        document = root / CLI_TREE
+        if args.factory == _OWN_FACTORY and document.is_file():
+            report.cli_tree_missing, report.cli_tree_stale = compare(load_parser(args.factory, root, args.pythonpath), document)
 
 def _print_report(report) -> None:
     """The report as JSON, its alerts in it and by every other route (`sldb.cli.alert_sink`)."""

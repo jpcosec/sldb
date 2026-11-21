@@ -9,6 +9,8 @@ from __future__ import annotations
 from sldb.core.finding import Finding, alert, error
 
 _SYNC = "sldb selfdoc sync (python-sync for the Python variants)"
+CLI_TREE = "docs/architecture/current-cli-tree.md"
+_TREE_FIX = f"edit the tree block in {CLI_TREE} by hand"
 _ALERTS = (
     ("missing", "selfdoc/missing", "not generated yet"),
     ("changed", "selfdoc/changed", "its generated fields are stale"),
@@ -23,6 +25,8 @@ def report_findings(report) -> list[Finding]:
     """Every finding of `report`, errors first."""
     errors = [error("selfdoc/metadata", "docstring", m) for m in report.metadata_errors]
     errors += [error("selfdoc/graph", g, "the source graph is missing or unreadable", _SYNC) for g in report.graph_errors]
+    errors += [error("selfdoc/cli-tree-missing", p, f"the parser defines it and {CLI_TREE} does not list it", _TREE_FIX) for p in report.cli_tree_missing]
+    errors += [error("selfdoc/cli-tree-stale", p, f"{CLI_TREE} lists it and the parser no longer defines it", _TREE_FIX) for p in report.cli_tree_stale]
     alerts = [alert(code, subject, what, _SYNC) for field, code, what in _ALERTS for subject in getattr(report, field)]
     return errors + alerts + [alert("selfdoc/renamed", r.get("from", "?"), f"maybe renamed to {r.get('to', '?')} (an unverified hint)") for r in report.renamed]
 
