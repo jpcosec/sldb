@@ -29,6 +29,13 @@ def _add_sync(sub: argparse._SubParsersAction) -> None:
     _store_args(p_sync)
 
 
+def _add_validate(sub: argparse._SubParsersAction) -> None:
+    p = sub.add_parser("validate", help="Validate a notation, a palette or a spec by name or path; print findings.")
+    p.add_argument("target", help="Builtin or store name, or a YAML/JSON file (palette, spec or notation)")
+    p.add_argument("--json", action="store_true", help="Print the findings as JSON")
+    _store_args(p)
+
+
 def _add_view(sub: argparse._SubParsersAction) -> None:
     p_view = sub.add_parser("view", help="Resolve a SpecDoc or projection view.")
     p_view.add_argument("spec", help="SpecDoc reference (e.g. SpecDoc:arch or arch) or ViewDoc reference")
@@ -69,8 +76,8 @@ def _from_graph_filters(p: argparse.ArgumentParser) -> None:
 
 
 def add_notations_group(s: argparse._SubParsersAction) -> None:
-    """Register `notations list|sync|view|resolve|from-graph`."""
+    """Register `notations list|sync|validate|view|resolve|from-graph`."""
     p = s.add_parser("notations", help="Visual notations, palettes, views and diagram resolver.")
     sub = p.add_subparsers(dest="notations_command", required=True)
-    for add in (_add_list, _add_sync, _add_view, _add_resolve, _add_from_graph):
+    for add in (_add_list, _add_sync, _add_validate, _add_view, _add_resolve, _add_from_graph):
         add(sub)

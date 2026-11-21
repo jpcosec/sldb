@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T20:59:22Z'
+  at: '2026-11-21T02:21:47Z'
   authority: generated
   via: save_document_payload
 id: cmd-sldb-notations-from-graph
@@ -10,7 +10,7 @@ command_path: notations from-graph
 synopsis: Compile an sldb graph (snapshot JSON or store index) or a Python tree into
   a component spec.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#notations from-graph; contract-sha256:883f7ff655c808d577a8e988db17619899deec863e9352d49dc171e2a6a15121
+provenance: parser:sldb.cli.parser:build_parser#notations from-graph; contract-sha256:0c840f2c2e96d75e0f140a0657f02a25a02eb3e564572bffa8253584e5f98168
 ---
 
 # notations from-graph
@@ -148,6 +148,45 @@ Not documented.
       "action": "argparse._StoreTrueAction",
       "const": "true",
       "help": "Drop nodes left without edges after filtering"
+    },
+    {
+      "names": [
+        "--label-field"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Payload field that gives each document node its label (default: the document id). Needs --store; a --snapshot has no payload, only the id and the model"
+    },
+    {
+      "names": [
+        "--kind-field"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Payload field, or tag:<namespace> (the first tag '<namespace>:x' gives 'x'), that gives each document node its kind (default: the model). Needs --store"
+    },
+    {
+      "names": [
+        "--group-field"
+      ],
+      "required": false,
+      "default": "null",
+      "choices": null,
+      "nargs": null,
+      "value_type": null,
+      "action": "argparse._StoreAction",
+      "const": "null",
+      "help": "Payload field or tag:<namespace>: documents with the same value go into one container node (kind 'group') with contains edges. Needs --store"
     },
     {
       "names": [

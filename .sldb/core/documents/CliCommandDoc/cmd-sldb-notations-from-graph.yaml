@@ -1,7 +1,7 @@
 name: cmd-sldb-notations-from-graph
 path: knowledge/commands/cmd-sldb-notations-from-graph.md
-source_hash: 8b6ac2b7d2f9ea36cb36535e10a3c298b579aa3197c62c098b075ed38854c78e
-content_hash: d677c7e420b88113f5eb0da4985055ab981e0b4eab4da2d679ebd20e4df9f9cb
+source_hash: a9bbc2c36aacb2e8219b2e4c5635ce78246bb9b2051b593ac5f396f34dcfdeb5
+content_hash: af96f8ce319098cb34705f9344f4a3126c6c68d4f3ae2e8a781795bafc212ae5
 field_hashes:
   id: 30273d15b30b46b471eb92b14c78576878e7d15badd20b6a964a3419ad53109e
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,10 +9,10 @@ field_hashes:
   synopsis: a216681366aee68c86c4cff4028cb224c105db32622ef9d71659c74307dc5029
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
-  arguments: 6df09058965173f56746d41b82a6f7acecc8b9e1ee0750640a429fa32dd44eda
+  arguments: 083816a7797b073f9048fec5bd5d717d6e8cbcf22e18caac4e0c9779a3204f0b
   usage: b32e2ea23f45b576ce9d44ea79900d6b2fafb5afe88d00b59f29232aff226bb1
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: c6bd94bb6b59e7ee1bc3f940646bcdc596ae571b686e0df612e0b42648d1f9e2
+  provenance: ca822219340d9f1fbf64b506079ddd47dff45ef0c759ec8317411415aa1e6214
 semantic_tags:
 - representation.markdown
 - source.document.markdown
@@ -20,6 +20,6 @@ semantic_tags:
 - workspace.knowledge.commands
 provenance:
   by: agent
-  at: '2026-11-16T20:59:22Z'
+  at: '2026-11-21T02:21:47Z'
   authority: generated
   via: save_document_payload

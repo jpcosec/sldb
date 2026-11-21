@@ -16,6 +16,7 @@ from sldb.api import (
 from sldb.api.notations.notation_listing import list_notations
 from sldb.cli.commands.notations_from_graph import from_graph
 from sldb.cli.commands.notations_spec_sync import is_spec_sync, spec_sync
+from sldb.cli.commands.notations_validate import validate
 
 
 class NotationsCLI:
@@ -23,7 +24,7 @@ class NotationsCLI:
 
     def run(self, args: Any) -> int:
         """Dispatch to the handler of `args.notations_command`."""
-        handler = {"list": self._list, "sync": self._sync, "view": self._view, "resolve": self._resolve, "from-graph": from_graph}
+        handler = {"list": self._list, "sync": self._sync, "validate": validate, "view": self._view, "resolve": self._resolve, "from-graph": from_graph}
         return handler[args.notations_command](args)
 
     def _dump(self, payload: Any) -> int:
