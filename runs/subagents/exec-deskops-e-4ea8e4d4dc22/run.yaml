@@ -1,0 +1,5 @@
+run_dir: runs/subagents/exec-deskops-e-4ea8e4d4dc22
+run_id: run-deskops-e-4ea8e4d4dc22
+session: null
+session_sha256: null
+task_id: task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes

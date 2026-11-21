@@ -1,0 +1,2 @@
+pytest -n 4 tests/api tests/store/test_merkle_operation_cache.py: rc=0 (652 passed, 32 skipped)
+bash tools/check.sh --fast: rc=1, solo identidad por workbench_demo (excepción autorizada f055723d)

@@ -1,0 +1,10 @@
+Task: task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes
+Title: Regresión: persistir el conjunto de documentos sucios (6772820a) rompe 16 tests de transacciones en tests/api
+Status: draft
+Current node: ritual-execution
+Task type: task.debug
+Lifecycle gates:
+- task_activates -> ritual-testing: closed [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .
+  blocked by: error: [rules/rule-activation-task-debug] TaskDebugDoc:task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes: Una tarea task.debug se activa con recibos preflight y reproduction aceptados e intactos y sus dependencias cerradas. | any(^subject: anchor_state = "intact" and verdict = "accepted" and kind = "reproduction") (seen: {}) (witness: ReviewDoc:review-task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes-bundle-1 {"kind":"bundle"})

@@ -1,7 +1,17 @@
+Task: task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes
+Title: Regresión: persistir el conjunto de documentos sucios (6772820a) rompe 16 tests de transacciones en tests/api
+Status: active
+Current node: ritual-testing
+Task type: task.debug
+Lifecycle gates:
+- task_hands_to_closeout -> ritual-closeout: open [nonempty(validation)]
+  post-hook evento-para-el-coordinador: sh -c mkdir -p runs/hooks && printf '%s %s %s %s->%s\n' "$(date -u +%FT%TZ)" "$DESKOPS_TASK_ID" "$DESKOPS_TRANSITION" "$DESKOPS_FROM_NODE" "$DESKOPS_TO_NODE" >> runs/hooks/events.log
+  post-hook encola-reap-del-tester: deskops queue add dispatch-reap --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-21T14:27:02Z'
+  at: '2026-11-21T14:14:55Z'
   authority: generated
   via: save_document_payload
 id: task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes
@@ -13,22 +23,14 @@ tags:
 current_node: ritual-testing
 history:
 - task_activates
-references:
-- src/sldb/api/documents/transaction_state.py
-- src/sldb/store/documents_dirty.py
-- src/sldb/store/documents_dirty_persist.py
-- 4b44a43af41c3634c78ac9a1ea106764450c9e34
+references: []
 depends_on: []
 pills: []
-files:
-- src/sldb/api/documents/transaction_state.py
-- src/sldb/store/documents_dirty.py
-- src/sldb/store/documents_dirty_persist.py
+files: []
 task_type: task.debug
 inherits_from: []
 inherit_acceptance_context: false
-atoms:
-- atom-el-rollback-de-una-transaccion-restaura-el-conjunto-sucio-persistido
+atoms: []
 ---
 
 # Regresión: persistir el conjunto de documentos sucios (6772820a) rompe 16 tests de transacciones en tests/api
@@ -68,3 +70,22 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 python -m pytest -q -n 4 tests/api da 0 fallas y tests/store/test_merkle_operation_cache.py pasa.
+
+## Como probar (tester)
+
+Ubica el trabajo del ejecutor:
+
+    git log -1 --format=%H --grep "Task-Id: task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes"   # commit del ejecutor
+    git show --name-only <commit>                           # sus archivos
+
+Los tests a correr son los archivos tests/*.py de ese commit, mas tests/test_<modulo>.py cuando exista para cada modulo de codigo tocado; de a uno, con `TMPDIR=/tmp python -m pytest -q <archivo>`. No corras la suite completa: la corre integrate en el host.
+
+Escribe result-summary.md con el veredicto PASA o FALLA en la primera linea.
+
+## Gates rapidos del desk
+
+Antes del veredicto corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Si termina con rc distinto de 0 el veredicto es FALLA.

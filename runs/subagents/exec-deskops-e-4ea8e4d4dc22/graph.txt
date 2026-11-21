@@ -1,0 +1,44 @@
+Missing graph references:
+- missing_declared_target: config_file:.worktrees/deskops-e-4ea8e4d4dc22/.sldb/core/documents/ReviewDoc/review-task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1-bundle-1.yaml -> task:task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1
+  provenance: .worktrees/deskops-e-4ea8e4d4dc22/.sldb/core/documents/ReviewDoc/review-task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1-bundle-1.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-4ea8e4d4dc22/.sldb/core/documents/ReviewDoc/review-task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1-preflight-1.yaml -> task:task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1
+  provenance: .worktrees/deskops-e-4ea8e4d4dc22/.sldb/core/documents/ReviewDoc/review-task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1-preflight-1.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-4ea8e4d4dc22/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-bundle-1.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-4ea8e4d4dc22/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-bundle-1.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-4ea8e4d4dc22/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-atom-1.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-4ea8e4d4dc22/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-atom-1.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-4ea8e4d4dc22/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-atom-2.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-4ea8e4d4dc22/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-atom-2.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-4ea8e4d4dc22/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-commit-1.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-4ea8e4d4dc22/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-commit-1.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-4ea8e4d4dc22/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-commit-2.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-4ea8e4d4dc22/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-commit-2.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-4ea8e4d4dc22/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-materialization-1.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-4ea8e4d4dc22/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-materialization-1.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-4ea8e4d4dc22/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-materialization-2.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-4ea8e4d4dc22/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-materialization-2.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-4ea8e4d4dc22/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-tests-1.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-4ea8e4d4dc22/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-tests-1.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-4ea8e4d4dc22/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-tests-2.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-4ea8e4d4dc22/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-tests-2.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-4ea8e4d4dc22/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-preflight-1.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-4ea8e4d4dc22/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-preflight-1.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: materialization:materialization-api-src-sldb-api-schema-field-descriptor-py -> src/sldb/api/schema/field_descriptor.py
+  provenance: desk/materializations/materialization-api-src-sldb-api-schema-field-descriptor-py.md:frontmatter
+  reason: declared target was not found among extracted graph nodes
+- missing_declared_target: materialization:materialization-api-src-sldb-api-schema-field-kinds-py -> src/sldb/api/schema/field_kinds.py
+  provenance: desk/materializations/materialization-api-src-sldb-api-schema-field-kinds-py.md:frontmatter
+  reason: declared target was not found among extracted graph nodes
+14 missing, 0 informational
