@@ -1,0 +1,25 @@
+name: materialization-selfdoc-src-sldb-selfdoc-report-findings-py
+path: desk/materializations/materialization-selfdoc-src-sldb-selfdoc-report-findings-py.md
+source_hash: de2dcd0f3cd24b25597aedf3250297987482b24acd90559f0643cbb6c039e0ba
+content_hash: 37f4104e5dcf8f7c161003c71872d6ebd5a8e1efd890aad826f9fe0cda2e3a02
+field_hashes:
+  id: 638f4a9511b2575a3cc16801aabb4548d97044f523630df955b4b64d1b6816af
+  title: 02fac43f1d293617d5eb44f0f30a9c2c8163d1792c668a84760e81c872e161d5
+  source_atoms: 6b0c1c2285d0511c71ab6badf1ce0f5917e4c6196845bac59b98145c7b0d7016
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 7571f87672e1ceeba39e018014c504e4dcc39ad481ab05c5cec37e208972c457
+  intent: 11b6fda09020f351ee03459b20232cc99791d0b6a83bb239b0c71fcf9edfb3dd
+  validation: dcd61c21641539d420f55a3b9d34d155d0eab9358383a86336ecd728d8ce9640
+  tags: 03dbfed5686b2d24ba2c7b45d3f22d3fdb9d74900145311e72116f30df7a24dc
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:selfdoc
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-21T10:23:51Z'
+  authority: generated
+  via: create_document

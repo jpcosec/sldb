@@ -1,0 +1,25 @@
+name: materialization-selfdoc-docs-architecture-current-cli-tree-md
+path: desk/materializations/materialization-selfdoc-docs-architecture-current-cli-tree-md.md
+source_hash: ef8fd42044df287df354369e5b5ed8fe978b3f2acfe845e760f368d7c3854345
+content_hash: 9f161faf0f04b0a71ea8d009b608da77902f02214267b43471259c842a04725c
+field_hashes:
+  id: 758876278696b1a84c9c29a3cdde529ab4be0adf420cc64560e034ecc43d03c7
+  title: fc5d59eae0dcc385195e10d27501e5a32e5c3f01ca14bc72b87b114022a247c8
+  source_atoms: 6b0c1c2285d0511c71ab6badf1ce0f5917e4c6196845bac59b98145c7b0d7016
+  target_kind: 5310eeb1d153dad19cd89e627b129d763e0cb2029f901c1a54fcc70478405c04
+  target_identity: 3d2032b987b75d3ea8264e8af3f826f8b51b13ceb3a7dc13cf204b4652c023ee
+  intent: 37a90d168dbd2be2e33f67d0aea0863567d3aa0f61932944f43b326028403afb
+  validation: dcd61c21641539d420f55a3b9d34d155d0eab9358383a86336ecd728d8ce9640
+  tags: 03dbfed5686b2d24ba2c7b45d3f22d3fdb9d74900145311e72116f30df7a24dc
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:selfdoc
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-21T10:21:54Z'
+  authority: generated
+  via: create_document

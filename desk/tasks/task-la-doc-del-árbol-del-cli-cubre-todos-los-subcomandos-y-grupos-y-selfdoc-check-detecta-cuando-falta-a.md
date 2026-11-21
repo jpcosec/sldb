@@ -1,30 +1,42 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T15:12:40Z'
+  at: '2026-11-21T10:21:26Z'
   authority: generated
   via: save_document_payload
 id: task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
-current_node: ritual-execution
-history: []
+current_node: ritual-testing
+history:
+- task_activates
 references:
 - docs/architecture/current-cli-tree.md
+- src/sldb/cli/commands/selfdoc.py
+- src/sldb/selfdoc/cli_tree.py
+- src/sldb/selfdoc/report.py
+- src/sldb/selfdoc/report_findings.py
+- tests/selfdoc/test_parser.py
+- b8e564c2956f1bf7f0ba8d1d942862231a85bf1f
 depends_on: []
 pills: []
 files:
+- CHANGELOG.md
 - docs/architecture/current-cli-tree.md
 - src/sldb/cli/commands/selfdoc.py
-- CHANGELOG.md
+- src/sldb/selfdoc/cli_tree.py
+- src/sldb/selfdoc/report.py
+- src/sldb/selfdoc/report_findings.py
+- tests/selfdoc/test_parser.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-selfdoc-check-compara-el-arbol-de-argparse-con-current-cli-tree-md
 ---
 
 # La doc del árbol del CLI cubre todos los subcomandos y grupos, y selfdoc check detecta cuando falta alguno
