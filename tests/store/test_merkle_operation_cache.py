@@ -166,3 +166,57 @@ def test_dirty_namespaces_are_independent(tmp_path: Path):
     documents_hash.clear_dirty(store, "Note", "semantic")
     assert documents_hash.dirty_names(store, "Note", "semantic") == set()
     assert documents_hash.dirty_names(store, "Note", "sections") == {"note-0"}  # untouched
+
+
+def _dirty_file(store: Path) -> Path:
+    from sldb.store.layout import cache_dir
+
+    return cache_dir(store) / "documents_dirty.json"
+
+
+def _in_new_process(store: Path, code: str) -> str:
+    import subprocess
+    import sys
+
+    script = f"from pathlib import Path\nfrom sldb.store import documents_hash\nstore = Path({str(store)!r})\n{code}"
+    import os
+
+    import sldb
+
+    env = {**os.environ, "PYTHONPATH": str(Path(sldb.__file__).parent.parent)}  # the sldb under test, not an installed one
+    done = subprocess.run([sys.executable, "-c", script], capture_output=True, text=True, check=True, env=env)
+    return done.stdout.strip()
+
+
+def test_a_new_process_sees_the_dirty_set_of_the_previous_one(tmp_path: Path):
+    from sldb.store.models import DocumentEntry
+
+    store, _ = _store(tmp_path, 3)
+    entry = DocumentEntry(name="note-0", path="note-0.md", hash_c="x", hash_d="y")
+    documents_hash.clear_dirty(store, "Note", "semantic")
+    documents_hash.note(store, "Note", entry)
+    assert _dirty_file(store).exists()
+    out = _in_new_process(store, "print(sorted(documents_hash.dirty_names(store, 'Note', 'semantic') or ['NONE']))")
+    assert out == "['note-0']"
+    out = _in_new_process(store, "print(documents_hash.dirty_names(store, 'Other', 'semantic'))")
+    assert out == "None"  # no baseline for a model never cleared: full computation
+
+
+def test_a_corrupt_dirty_file_falls_back_to_the_full_computation(tmp_path: Path):
+    store, _ = _store(tmp_path, 2)
+    documents_hash.clear_dirty(store, "Note", "semantic")
+    for bad in ("{not json", '{"signature": "[]"}', '{"signature": "[]", "entries": [["Note", "semantic", [1]]]}', "[]"):
+        _dirty_file(store).write_text(bad, encoding="utf-8")
+        out = _in_new_process(store, "print(documents_hash.dirty_names(store, 'Note', 'semantic'))")
+        assert out == "None", bad
+        assert not _dirty_file(store).exists()
+
+
+def test_a_changed_store_signature_invalidates_the_dirty_file(tmp_path: Path):
+    store, root = _store(tmp_path, 2)
+    documents_hash.clear_dirty(store, "Note", "semantic")
+    assert _dirty_file(store).exists()
+    (root / "note-0.md").write_text("# Opcache note 0\n\n## Body\n\nEdited behind sldb's back\n", encoding="utf-8")
+    out = _in_new_process(store, "print(documents_hash.dirty_names(store, 'Note', 'semantic'))")
+    assert out == "None"
+    assert not _dirty_file(store).exists()
