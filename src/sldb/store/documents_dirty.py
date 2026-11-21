@@ -44,6 +44,15 @@ def clear_all() -> None:
     _LOADED.clear()
 
 
+def reload(s_path: Path) -> None:
+    """Forget this store's in-memory sets so the next read takes them from the persisted file
+    (a transaction's rollback restores the file; memory must not outlive it)."""
+    key = str(s_path)
+    for k in [k for k in _DIRTY if k[0] == key]:
+        del _DIRTY[k]
+    _LOADED.discard(key)
+
+
 def names(s_path: Path, model_name: str, namespace: str) -> set[str] | None:
     _load(s_path)
     known = _DIRTY.get((str(s_path), model_name, namespace))

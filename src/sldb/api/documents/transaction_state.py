@@ -10,6 +10,7 @@ from sldb.api.documents.transaction_paths import inside, store_signatures, unsna
 from sldb.api.model_registry.model_files import forget_store_caches
 from sldb.api.rules.rule_cache import DIRTY, rules_dir
 from sldb.api.stores.store_location import StoreLocation
+from sldb.store import documents_dirty, documents_dirty_persist
 from sldb.store.edge_index.compose import invalidate_composed_edge_indexes
 from sldb.store.io import invalidate_index_cache
 from sldb.store.io.rollback import RollbackError, restore_all, snapshot
@@ -20,15 +21,15 @@ class TransactionState:
     """One store's open transaction: `depth` counts the nested `with` blocks sharing it, `saved`
     holds the first-seen bytes (or absence) of each file touched, `models` the models whose
     caches a rollback forgets, and `signatures` the store as it was on entry, to catch a file
-    moved without a snapshot. The rules dirty set is snapshotted on entry: any `on_write` of
-    the transaction may rewrite it (GO08)."""
+    moved without a snapshot. The rules dirty set and the persisted document dirty set are
+    snapshotted on entry: any write of the transaction may rewrite them (GO08)."""
 
     def __init__(self, location: StoreLocation, pythonpath: str | None) -> None:
         self.location, self.pythonpath, self.depth = location, pythonpath, 0
         self.saved: dict[Path, bytes | None] = {}
         self.models: set[str] = set()
         self.signatures = store_signatures(location.store_path)
-        self.remember([rules_dir(location.store_path) / f"{DIRTY}.json"])
+        self.remember([rules_dir(location.store_path) / f"{DIRTY}.json", documents_dirty_persist.file_path(location.store_path)])
 
     @property
     def store_path(self) -> Path:
@@ -61,8 +62,17 @@ class TransactionState:
         new, changed = unsnapshotted_drift(self.signatures, self.store_path, self.saved)
         failed += [path for path in new if not _unlink(path)] + changed
         self.forget_caches()
+        failed += self._restore_dirty_file()
         if failed:
             raise RollbackError([self.relative(path) for path in failed]) from original
+
+    def _restore_dirty_file(self) -> list[Path]:
+        """Forgetting the model caches may rewrite the persisted document dirty set from memory:
+        put its first-seen bytes back last and make memory read them again."""
+        path = documents_dirty_persist.file_path(self.store_path)
+        failed = restore_all({path: self.saved[path]}) if path in self.saved else []
+        documents_dirty.reload(self.store_path)
+        return failed
 
     def forget_caches(self) -> None:
         """The existing invalidation functions, so no in-memory copy outlives the restore."""

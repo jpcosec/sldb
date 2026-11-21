@@ -29,6 +29,10 @@ def _signature(s_path: Path) -> str | None:
         return None
 
 
+def file_path(s_path: Path) -> Path:
+    return _file(s_path)
+
+
 def delete(s_path: Path) -> None:
     try:
         with store_lock(s_path, wait=True):
