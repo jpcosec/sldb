@@ -1,0 +1,50 @@
+# Reproducción de la regresión de 6772820a (coordinador, 2026-11-21)
+comando: python -m pytest -q -p no:cacheprovider -n 4 tests/api/test_transaction_rules_dirty.py tests/api/test_transaction.py tests/api/test_write_paths_validate.py
+== 6772820a~1 (cc7f30f8)
+25 passed, 5 warnings in 6.07s
+== 6772820a (6772820a)
+        failed = restore_all(self.saved)
+        failed += [path for path in new if not _unlink(path)] + changed
+        if failed:
+>           raise RollbackError([self.relative(path) for path in failed]) from original
+>               raise RuntimeError("outer failed")
+E               RuntimeError: outer failed
+original = RuntimeError('outer failed')
+        failed = restore_all(self.saved)
+        failed += [path for path in new if not _unlink(path)] + changed
+        if failed:
+>           raise RollbackError([self.relative(path) for path in failed]) from original
+_____________ test_a_failed_move_puts_the_file_and_the_entry_back ______________
+linked_store = (PosixPath('/dev/shm/pytest-of-robocop/pytest-146/popen-gw3/test_a_failed_move_puts_the_fi0/world'), PosixPath('/dev/s...led_move_puts_the_fi0/world/.sldb'), '/dev/shm/pytest-of-robocop/pytest-146/popen-gw3/test_a_failed_move_puts_the_fi0')
+    def test_a_failed_move_puts_the_file_and_the_entry_back(linked_store):
+linked_store = (PosixPath('/dev/shm/pytest-of-robocop/pytest-146/popen-gw3/test_a_failed_move_puts_the_fi0/world'), PosixPath('/dev/s...led_move_puts_the_fi0/world/.sldb'), '/dev/shm/pytest-of-robocop/pytest-146/popen-gw3/test_a_failed_move_puts_the_fi0')
+    def test_a_failed_move_puts_the_file_and_the_entry_back(linked_store):
+        failed = restore_all(self.saved)
+        failed += [path for path in new if not _unlink(path)] + changed
+        if failed:
+>           raise RollbackError([self.relative(path) for path in failed]) from original
+        failed = restore_all(self.saved)
+        failed += [path for path in new if not _unlink(path)] + changed
+        if failed:
+>           raise RollbackError([self.relative(path) for path in failed]) from original
+_______ test_an_absent_dirty_set_stays_absent_after_a_failed_transaction _______
+    def test_an_absent_dirty_set_stays_absent_after_a_failed_transaction(world: World) -> None:
+    def test_an_absent_dirty_set_stays_absent_after_a_failed_transaction(world: World) -> None:
+        failed = restore_all(self.saved)
+        failed += [path for path in new if not _unlink(path)] + changed
+        if failed:
+>           raise RollbackError([self.relative(path) for path in failed]) from original
+        failed = restore_all(self.saved)
+        failed += [path for path in new if not _unlink(path)] + changed
+        if failed:
+>           raise RollbackError([self.relative(path) for path in failed]) from original
+FAILED tests/api/test_transaction.py::test_a_batch_whose_third_change_fails_leaves_bytes_entries_and_index_as_before
+FAILED tests/api/test_transaction.py::test_a_failure_during_the_rollback_is_raised_with_the_unrestored_paths
+FAILED tests/api/test_transaction.py::test_nested_transactions_the_inner_ending_well_and_the_outer_failing_revert_both
+FAILED tests/api/test_transaction.py::test_a_failed_move_puts_the_file_and_the_entry_back
+FAILED tests/api/test_transaction_rules_dirty.py::test_an_own_error_is_raised_and_the_dirty_set_and_document_are_restored
+FAILED tests/api/test_transaction.py::test_apply_batch_update_over_a_file_with_extra_frontmatter_fails_without_partial_write
+FAILED tests/api/test_transaction_rules_dirty.py::test_an_absent_dirty_set_stays_absent_after_a_failed_transaction
+FAILED tests/api/test_transaction_rules_dirty.py::test_a_stale_source_hash_after_a_write_is_a_conflict_not_a_rollback_error
+FAILED tests/api/test_write_paths_validate.py::test_transaction_rejects_what_the_model_rejects_and_rolls_back
+9 failed, 16 passed, 5 warnings in 3.72s
