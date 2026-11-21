@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-21T06:47:23Z'
+  at: '2026-11-21T07:29:17Z'
   authority: generated
   via: save_document_payload
 id: task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con
@@ -13,14 +13,22 @@ tags:
 current_node: ritual-testing
 history:
 - task_activates
-references: []
+references:
+- contracts/identity.toml
+- docs/architecture/code-docstring-indexing-handoff.md
+- docs/architecture/spec2viz/python-ast.md
+- 9adfdbce11592d7ba51f703c7eb30caa059d8e96
 depends_on: []
 pills: []
-files: []
+files:
+- contracts/identity.toml
+- docs/architecture/code-docstring-indexing-handoff.md
+- docs/architecture/spec2viz/python-ast.md
 task_type: task.docs
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-la-arquitectura-de-spec2viz-en-sldb-ya-no-nombra-a-spec2viz-como-consumidor-ni-lo-invoca
 ---
 
 # Los specs de docs/architecture/spec2viz se construyen con specir catalog build y se sincronizan con sldb notations sync --catalog

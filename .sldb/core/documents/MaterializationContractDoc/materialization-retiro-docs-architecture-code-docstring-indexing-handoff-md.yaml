@@ -1,0 +1,25 @@
+name: materialization-retiro-docs-architecture-code-docstring-indexing-handoff-md
+path: desk/materializations/materialization-retiro-docs-architecture-code-docstring-indexing-handoff-md.md
+source_hash: e2db92faaf3c643adf40c0bfeb12d47bd5df31e358afc1de07b4b5b5928b2795
+content_hash: 3bd536fbab734e63dc3af5d0b22f4afa2b32c72f1f2199510bcb84f7adaa6bb5
+field_hashes:
+  id: f3d179f813fc82f12da9f1e9b2b4634ff603e391fabb3855c6de7e931539f021
+  title: 19bfc5e10f3101d553f1a8f85513dbda64ebe7b5af9d0abfaa1e354e29ff674f
+  source_atoms: fff66509104bf5292a0deee4af4aaafd127d02a8dcc377526a1a9c2a37a55a08
+  target_kind: 5310eeb1d153dad19cd89e627b129d763e0cb2029f901c1a54fcc70478405c04
+  target_identity: 35a3a6d2b098a289cdeafa6157501ea8a31f4152376e09daea9e855e254f70f2
+  intent: e585c0c83e4d098989459d8e0290a993b54b1af37095a4b9fc3fc120391e62d7
+  validation: 55d45860b3ebc909a2ef74b821a2646fc1ad6b9b9b62ba8502c73be7c1c1434f
+  tags: aa6fb748368c07a3bf059a4aacd8ed0241cb2f5759233ef390ccff5b1de953da
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:retiro
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-21T07:30:23Z'
+  authority: generated
+  via: create_document

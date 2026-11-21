@@ -1,0 +1,22 @@
+name: atom-la-arquitectura-de-spec2viz-en-sldb-ya-no-nombra-a-spec2viz-como-consumidor-ni-lo-invoca
+path: desk/atoms/atom-la-arquitectura-de-spec2viz-en-sldb-ya-no-nombra-a-spec2viz-como-consumidor-ni-lo-invoca.md
+source_hash: d14a461235df118bd38e9d3e3b9a0d7304ecf1d62db60d718920b63790f3a34e
+content_hash: c1507a2d1937e0f8598c99cf113003afad26fb69577a450c9b229f8f3198b12b
+field_hashes:
+  id: 5c8f786ad7789224908c48f17efb89b26f11487389ae17f466b4b5617272ba94
+  title: d0679b65d853470e3e7f488dfc1be08e746fa8073001a3149ba764cd751094cd
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 1cf306389bcb7a08454b40858643fc01824ba32620d6c2ba9811135395632c68
+  tags: aa6fb748368c07a3bf059a4aacd8ed0241cb2f5759233ef390ccff5b1de953da
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:retiro
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-21T07:27:35Z'
+  authority: generated
+  via: create_document

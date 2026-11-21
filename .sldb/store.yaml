@@ -1438,6 +1438,9 @@ include:
   - desk/materializations/materialization-notations-knowledge-surfaces-surface-sldb-notations-md.md
   - desk/materializations/materialization-notations-src-sldb-cli-commands-notations-py.md
   - desk/materializations/materialization-notations-tests-notations-test-notations-validate-cli-py.md
+  - desk/materializations/materialization-retiro-contracts-identity-toml.md
+  - desk/materializations/materialization-retiro-docs-architecture-code-docstring-indexing-handoff-md.md
+  - desk/materializations/materialization-retiro-docs-architecture-spec2viz-python-ast-md.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2845,6 +2848,10 @@ include:
     name: review-task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest-preflight-2
   - path: desk/reviews/task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest/bundle-3.md
     name: review-task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest-bundle-3
+  - path: desk/reviews/task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con/evidence-commit-1.md
+    name: review-task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con-evidence-commit-1
+  - path: desk/reviews/task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con/evidence-document-1.md
+    name: review-task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con-evidence-document-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

@@ -1,0 +1,25 @@
+name: materialization-retiro-contracts-identity-toml
+path: desk/materializations/materialization-retiro-contracts-identity-toml.md
+source_hash: 689413ecf68762dbb86f08dc9b09f29cd7b8c0a9113f99c33c697aa560eef54d
+content_hash: 1137b16d58dd5e905b0cb59413535ad659fdbfadb40354776f5dc12e45e6b5d6
+field_hashes:
+  id: b99fb760e22bc569e70811abe6af683d144af18df93b3ebe1f797b588083468f
+  title: db95cadc189929d83849ede0e9a86954eb5fba6e51b9b80d4ec88204dac98a24
+  source_atoms: fff66509104bf5292a0deee4af4aaafd127d02a8dcc377526a1a9c2a37a55a08
+  target_kind: 48882ab48bfdf3bef2fe65e3304e91ccfd8f74e357c183367ad6fe903fe0e697
+  target_identity: 0e691d1d5fc349426e11799babdee3d113eecc2b1983453fb245ad3cc26efc5a
+  intent: 56021c307afe9cf5bf4337e5809989c2629d823da785fdc2db973551c3ca2711
+  validation: 55d45860b3ebc909a2ef74b821a2646fc1ad6b9b9b62ba8502c73be7c1c1434f
+  tags: aa6fb748368c07a3bf059a4aacd8ed0241cb2f5759233ef390ccff5b1de953da
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:retiro
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-21T07:29:50Z'
+  authority: generated
+  via: create_document

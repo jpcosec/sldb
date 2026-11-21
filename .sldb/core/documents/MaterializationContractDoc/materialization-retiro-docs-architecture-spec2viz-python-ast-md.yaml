@@ -1,0 +1,25 @@
+name: materialization-retiro-docs-architecture-spec2viz-python-ast-md
+path: desk/materializations/materialization-retiro-docs-architecture-spec2viz-python-ast-md.md
+source_hash: 610af6ec5afb0edbfdc6dbda4faa0d047d7c8467599e2af6099e1eae5e1b47c2
+content_hash: aa88aecebfb6decca38a4f44747863f1ed42a7fe450c8ac0714569c696d40496
+field_hashes:
+  id: 7b9707f5a4873847e5842a38129cff280fac02fe356561204dcbb4e5297f1b2c
+  title: 3053f17bc8db1bf147d929235fb2649404868380126a77506c83afd46c806a8f
+  source_atoms: fff66509104bf5292a0deee4af4aaafd127d02a8dcc377526a1a9c2a37a55a08
+  target_kind: 5310eeb1d153dad19cd89e627b129d763e0cb2029f901c1a54fcc70478405c04
+  target_identity: c58745ab3752de42c1926e75508438e35ce2a73e7d59f0a00b5f12693c2654e5
+  intent: 824ef91ace5ee6733ce8c0318f2068939ae4a77e6de1e5fd6c51acfcca54f049
+  validation: 55d45860b3ebc909a2ef74b821a2646fc1ad6b9b9b62ba8502c73be7c1c1434f
+  tags: aa6fb748368c07a3bf059a4aacd8ed0241cb2f5759233ef390ccff5b1de953da
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:retiro
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-21T07:30:56Z'
+  authority: generated
+  via: create_document
