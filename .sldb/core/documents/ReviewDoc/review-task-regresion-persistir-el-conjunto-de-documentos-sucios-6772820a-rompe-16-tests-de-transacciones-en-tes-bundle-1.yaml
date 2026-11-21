@@ -1,0 +1,37 @@
+name: review-task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes-bundle-1
+path: desk/reviews/task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes/bundle-1.md
+source_hash: e1f7d71159964b383664677688f7baf7141c82a694896cd9d1af84063bba4318
+content_hash: eb689984bbd8393963eb33695bd8f5d74918ec0d27ed0e8447771619656d3a1b
+field_hashes:
+  id: e1dd83959c0fb5aa327bfc2e939775c11c54a1ae6932b4a68019791ca911ced3
+  title: 0297ef1c0467aed1997df215cd7afafe7f20cbfae6c2fd66da92d30ad4f6e637
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: e8c04773bdb942f17c770dc0fa6db7ef21191aeaf3bde113869ad11c0b313669
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 2030fa299ea1384ea65e290b8cf20e4ac34d0a06c2dd5208b7faac4a0379f8ca
+  input_sha256: 00e54995ff4bbb2eca419ea40f9ca6a3cb1138628df9e87a11971cb8438a458b
+  contract_sha256: d2e6b39d0821e46a21ec804a938a57a8838d44757bb3b2e25d6a6d4b90103816
+  output_sha256: 5c1a677243d32555e6bcdf261614090d4779b46cd6a46b15e3d7c97d688bd70a
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: cba3d7157bb524841046246fedc471992edcead8b33207f1c1a460f131a50620
+  created_at: cc05eba5793614896c461a37a26909840c5bf4d4e0a55fab18b7ff1f860ee74c
+  disposed_at: ac8651486d7bbfd8835de96ded9f4e1468fa89069d94ae636d2bdc5225c75045
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: f16fa347a29d12b74d9413a0dc7b3d0a57f4f2ed24d4aff63957e4738e46e62f
+  disposition: 9e7b5ad5a5064b2bfe6929bfe89ed0e882305dd204d1692e74e4f4c6f27e213e
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-21T12:51:29Z'
+  authority: generated
+  via: save_document_payload
