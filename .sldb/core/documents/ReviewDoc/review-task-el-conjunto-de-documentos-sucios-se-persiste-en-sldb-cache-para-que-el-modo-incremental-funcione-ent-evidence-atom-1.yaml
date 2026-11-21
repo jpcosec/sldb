@@ -1,0 +1,37 @@
+name: review-task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent-evidence-atom-1
+path: desk/reviews/task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent/evidence-atom-1.md
+source_hash: a3bbee6059a6edf171edad53ae50173ed39be38871cd2684fb4cc3ec0830920d
+content_hash: 0fed5c54e30e096820f8397e2e54ebd9e9b7399516fc7837f60b4a4dc7c71486
+field_hashes:
+  id: 137c210a4ace6cc04d734d4aa09c87fd88e8d7a93aa5143e5ee74e11fab4650a
+  title: 230a2d5d6dab55949926edbafdced4550f4f2eaeeeab65a9eef54d7f9aff0e53
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: c833c202b5b45ac10909767bb422916db457ddd48188a4ee591f0618893df0ba
+  value: fad54ab2e7ee1b57bfe76fc89e3321a55388e6d195cf9124e4e48f383b49a1b4
+  subject: 35c75e4cfbd47707a3ee2d8c703f82a7fc3e47d85c12f5da4792381d6604c01c
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: de6bf0caf0c768f67689aea77a1e250bff73a200e2a9bed6450964a319a43bd5
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 91b63ca3395227480855824a1d885f6ea492975a2297f25be736f183c51e1650
+  created_at: cdf3b81e0e34ca519721dbc3566c6ff25313b43d68e77bcec8bb65a15d7d2de6
+  disposed_at: cdf3b81e0e34ca519721dbc3566c6ff25313b43d68e77bcec8bb65a15d7d2de6
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: b256a91a569a2750f3dd2a36227bb12e575d37a39d6a45c78240897325939d9a
+  disposition: 17b922232597b68774e306480a90914ee0b4ffea3b879944e347b3adfdff78e9
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-21T12:17:28Z'
+  authority: generated
+  via: create_document

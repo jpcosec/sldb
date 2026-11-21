@@ -1,7 +1,17 @@
+Task: task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent
+Title: El conjunto de documentos sucios se persiste en .sldb_cache para que el modo incremental funcione entre corridas (V2)
+Status: active
+Current node: ritual-testing
+Task type: task.code
+Lifecycle gates:
+- task_hands_to_closeout -> ritual-closeout: open [nonempty(validation)]
+  post-hook evento-para-el-coordinador: sh -c mkdir -p runs/hooks && printf '%s %s %s %s->%s\n' "$(date -u +%FT%TZ)" "$DESKOPS_TASK_ID" "$DESKOPS_TRANSITION" "$DESKOPS_FROM_NODE" "$DESKOPS_TO_NODE" >> runs/hooks/events.log
+  post-hook encola-reap-del-tester: deskops queue add dispatch-reap --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-21T12:14:37Z'
+  at: '2026-11-21T11:44:31Z'
   authority: generated
   via: save_document_payload
 id: task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent
@@ -14,25 +24,17 @@ tags:
 current_node: ritual-testing
 history:
 - task_activates
-references:
-- contracts/layers.toml
-- src/sldb/store/documents_dirty.py
-- src/sldb/store/documents_dirty_persist.py
-- tests/store/test_merkle_operation_cache.py
-- 6772820a48ee1f43a57a32bc9a45c3509400af38
+references: []
 depends_on: []
 pills: []
 files:
-- CHANGELOG.md
-- contracts/layers.toml
 - src/sldb/store/documents_dirty.py
-- src/sldb/store/documents_dirty_persist.py
 - tests/store/test_merkle_operation_cache.py
+- CHANGELOG.md
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms:
-- atom-el-conjunto-de-documentos-sucios-se-persiste-en-sldb
+atoms: []
 ---
 
 # El conjunto de documentos sucios se persiste en .sldb_cache para que el modo incremental funcione entre corridas (V2)
@@ -80,3 +82,22 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 Los comandos de Validation pasan con los tests nuevos; CHANGELOG y commit.
+
+## Como probar (tester)
+
+Ubica el trabajo del ejecutor:
+
+    git log -1 --format=%H --grep "Task-Id: task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent"   # commit del ejecutor
+    git show --name-only <commit>                           # sus archivos
+
+Los tests a correr son los archivos tests/*.py de ese commit, mas tests/test_<modulo>.py cuando exista para cada modulo de codigo tocado; de a uno, con `TMPDIR=/tmp python -m pytest -q <archivo>`. No corras la suite completa: la corre integrate en el host.
+
+Escribe result-summary.md con el veredicto PASA o FALLA en la primera linea.
+
+## Gates rapidos del desk
+
+Antes del veredicto corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Si termina con rc distinto de 0 el veredicto es FALLA.

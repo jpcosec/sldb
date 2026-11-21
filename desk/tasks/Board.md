@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-21T10:49:31Z'
+  at: '2026-11-21T12:21:49Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -47,7 +47,6 @@ tasks:
 - desk/tasks/task-store-index-yaml-no-guarda-rutas-absolutas-de-máquina-para-los-modelos-que-vienen-de-un-paquete-mode.md
 - desk/tasks/task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato.md
 - desk/tasks/task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest.md
-- desk/tasks/task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent.md
 - desk/tasks/task-sw1-documentación-y-arranque-de-surface-al-día-con-el-workbench-readme-maqueta-histórica-tareas-t7-t.md
 - desk/tasks/task-sw9-primera-pasada-capturas-y-tiempos-de-las-cuatro-vistas-del-workbench-sobre-df3903db-para-que-jp.md
 - desk/tasks/task-sw7-model-studio-edita-campos-existentes-crea-modelos-deja-que-sldb-compruebe-los-slots-de-la-planti.md
@@ -147,7 +146,6 @@ _Generated from the task references above._
 - store_index.yaml no guarda rutas absolutas de máquina para los modelos que vienen de un paquete (model_ref) [draft] - Para un modelo declarado por model_ref de un paquete importable, store_index.yaml no guarda una ruta absoluta de la máquina (la omite o guarda una relativa a la raíz del proyecto si está dentro de él), y cargar el store en otra máquina funciona igual.
 - El tercer valor del lenguaje de predicados (incomplete) se demuestra alcanzable con un test sobre datos reales o se retira [active] - O hay un test que, con un store real armado en tmp_path, obtiene incomplete de una evaluación pública (where o rules check) y documenta cuándo ocurre; o incomplete se retira del lenguaje, de la API y de la doc sin cambiar los resultados true/false existentes.
 - Limpieza de cáscaras vacías de la API y de los residuos de kgdb (graph parser, help_texts_graph, ingest_sldb, python_source_graph) [draft] - Cada uno de esos archivos y cada cáscara vacía de sldb.api queda borrado si nada lo usa, o reducido a lo que se usa, sin cambiar ningún comportamiento observable (CLI, API pública, tests).
-- El conjunto de documentos sucios se persiste en .sldb_cache para que el modo incremental funcione entre corridas (V2) [draft] - El conjunto de documentos sucios se guarda en .sldb_cache (regenerable, sin versionar) y una corrida nueva lo lee, de modo que una actualización incremental en un proceso nuevo procesa solo lo que cambió; si el archivo falta o está corrupto, se vuelve al cálculo completo sin error.
 - SW1: documentación y arranque de surface como la UI de SLDB (README, maqueta histórica, tareas T7-T9 y puerto configurable documentado) [draft] - surface tiene un README que la presenta como la UI de SLDB para cualquier store y describe cómo levantarla; las referencias a la maqueta están corregidas o marcadas como históricas; docs/surface/tasks/README.md dice el estado real de T7, T8 y T9; el puerto de vite es configurable (variable de entorno, con un valor por defecto) y está documentado, sin strictPort.
 - SW9, primera pasada: capturas y tiempos de las cuatro vistas del Workbench sobre df3903db, para que JP vea el punto de partida [draft] - En runs/ queda un índice con capturas y tiempos de las cuatro vistas (#/workbench, #/diagram, #/source, #/studio), con las lentes lectura y fierros, sobre documentos reales de un store SLDB real (el del repo), tomadas en df3903db.
 - SW7: Model Studio edita campos existentes, crea modelos, deja que sldb compruebe los slots de la plantilla y confirma el plan antes de promover [draft] - Model Studio edita tipo y descripción de un campo existente, ofrece los tipos que pide §6, crea modelos por POST /models/create, muestra la comprobación de slots que devuelve sldb (POST /models/validate) sin parsear la plantilla en la UI, pide confirmación con el plan de backfill antes de promover y guarda la plantilla con ⌘↵.

@@ -1,0 +1,6 @@
+pytest tests/store/test_merkle_operation_cache.py -> rc 0 (9 passed)
+pytest tests/store/test_runtime_wiped.py -> rc 0
+pytest tests/store/test_edges_follow_the_contract.py -> rc 0
+pytest tests/test_clean_code_rules.py -> rc 0 (1237 passed)
+bash tools/check.sh --fast -> rc 1: unico fallo "directorio versionado sin clasificar en la raiz: workbench_demo" (identidad). Preexistente: falla igual en el checkout principal sin mis cambios.
+bash tools/check.sh --fast -> rc 1 solo por identidad/workbench_demo (excepcion autorizada)
