@@ -868,6 +868,8 @@ include:
     name: run-deskops-e-cc37b51d8dab
   - path: runs/subagents/exec-deskops-t-b42e89600471-testing/run.md
     name: run-deskops-t-b42e89600471
+  - path: runs/subagents/exec-deskops-e-352ad61c83c5/run.md
+    name: run-deskops-e-352ad61c83c5
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -2825,6 +2827,10 @@ include:
     name: review-task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con-preflight-1
   - path: desk/reviews/task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con/bundle-1.md
     name: review-task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con-bundle-1
+  - path: desk/reviews/task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida/preflight-2.md
+    name: review-task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida-preflight-2
+  - path: desk/reviews/task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida/bundle-2.md
+    name: review-task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida-bundle-2
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

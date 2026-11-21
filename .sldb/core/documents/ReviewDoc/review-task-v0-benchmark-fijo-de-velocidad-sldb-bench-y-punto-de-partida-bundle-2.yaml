@@ -1,0 +1,37 @@
+name: review-task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida-bundle-2
+path: desk/reviews/task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida/bundle-2.md
+source_hash: 648442e25441785d45af5fcb2e06157b92fe8c7e1de7bbbab88cdf5808e3c1e0
+content_hash: 74a3a1f7f9cb256ff149ff198f3a57d675120f4d96e8dc39b081db837825283e
+field_hashes:
+  id: 7cac1ad9c8e14dd2bbaa45b75ee08e594e8909eb95e92049a025eeb97b32f757
+  title: 6f6aec15ae0a42b501928857e7dbc77dc77d45cfac15bad94286dcb00c832486
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 8a34ceadfb9d4d49d04e1dec25ab9a6eeb14edb58bc2aa0a0cf33a8df5ef0c7b
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 1c5fceca04ac8454cceb3120ccca5423fcb475c627f7d338bf9db3ffb9c32155
+  input_sha256: eefaa68a2d5d36a47a992af82e2e03713bfafdb327625567823cc0dd1de8bdca
+  contract_sha256: 173bc172811776032676ef12041f9cb9e634180770e2ea7a2ec4da0f41de1fde
+  output_sha256: 55d797c8cb77db9cc775d62332bbf9d49b74ad7bc174437a7b35003a1249e71d
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: daa89f3f0b9eb0b75b9fbb890d9c93fa484f336dc107a21973b54b431d67ed8d
+  created_at: dab819a0b8d9a01fbbefd85cf738263a5cb53fa659b28b35ee206db6eab5ab1b
+  disposed_at: 0fef60d20aaf17a55b092270045bbde5ec6f111be4455aee627a336eb2040965
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: dbc4b22d623448e13f100f5bdff79f3015cf4871deb2bb429ef32eb10497b7ae
+  disposition: 8d28ddd98a92be8f4b8b471fc0be8999c16a914aebdcb581964b9ad8a11a5ea2
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-21T06:45:01Z'
+  authority: generated
+  via: save_document_payload
