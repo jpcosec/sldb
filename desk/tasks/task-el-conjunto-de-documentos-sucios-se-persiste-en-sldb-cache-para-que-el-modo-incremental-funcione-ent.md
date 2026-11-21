@@ -1,29 +1,38 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T15:14:25Z'
+  at: '2026-11-21T12:14:37Z'
   authority: generated
   via: save_document_payload
 id: task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-testing
+history:
+- task_activates
+references:
+- contracts/layers.toml
+- src/sldb/store/documents_dirty.py
+- src/sldb/store/documents_dirty_persist.py
+- tests/store/test_merkle_operation_cache.py
+- 6772820a48ee1f43a57a32bc9a45c3509400af38
 depends_on: []
 pills: []
 files:
-- src/sldb/store/documents_dirty.py
-- tests/store/test_merkle_operation_cache.py
 - CHANGELOG.md
+- contracts/layers.toml
+- src/sldb/store/documents_dirty.py
+- src/sldb/store/documents_dirty_persist.py
+- tests/store/test_merkle_operation_cache.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-el-conjunto-de-documentos-sucios-se-persiste-en-sldb
 ---
 
 # El conjunto de documentos sucios se persiste en .sldb_cache para que el modo incremental funcione entre corridas (V2)

@@ -1,0 +1,25 @@
+name: materialization-store-src-sldb-store-documents-dirty-py
+path: desk/materializations/materialization-store-src-sldb-store-documents-dirty-py.md
+source_hash: abb56305bcbb90df7a09a0a4fdada309488cba477bf96c4e200adf34b6a9988a
+content_hash: 4bbf2c7e9650cc7ed052394397f0fa08db06ad6a2d3e422ddc13bc49ea87f5ab
+field_hashes:
+  id: 245cb4cd2d56d14fb6485b38e4af67ab96e1f68fcb2b19136f65d53ba94af90c
+  title: 4abdcc51605e3a1da8ba7e96af07e87236df4e028f35c65813a48ba249796678
+  source_atoms: e52327595b31cd5b1ce208156f435ea60eebd90e4fb2493ee7a8bee89b9bd74e
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 4adb0f0fd571e7030825112df6a26f889907862f3b6607a652593e4c0ce5187a
+  intent: 385ef53d8c0809d77da4fd2694521135580e98c5fbad9cf5f049226e27655f0c
+  validation: 7f4c2274fcfd20eb48a11c5b5a02567840bf69b4d58ff6f07d8634debf620da3
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-21T12:15:35Z'
+  authority: generated
+  via: create_document

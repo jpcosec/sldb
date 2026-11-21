@@ -1,0 +1,22 @@
+name: atom-el-conjunto-de-documentos-sucios-se-persiste-en-sldb
+path: desk/atoms/atom-el-conjunto-de-documentos-sucios-se-persiste-en-sldb.md
+source_hash: f929c6c4a0f1c878ad2d42ff04a4f7a19a8360a684ad1b39094a9b9e67169dba
+content_hash: 601f572a03552fb1182606b71b18594e84652c4a1d28eba386382a0609d6b3cd
+field_hashes:
+  id: fad54ab2e7ee1b57bfe76fc89e3321a55388e6d195cf9124e4e48f383b49a1b4
+  title: 11eaaf15812d5cecc65ae215c080f5c11a7e63576eab1e2a8fdfd49957713f2a
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: fba2fb585e54ed509541fd22f49871c8bfcaec57d5dbdbe66140bd52ca928858
+  tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:store
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-21T12:13:11Z'
+  authority: generated
+  via: create_document

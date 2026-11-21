@@ -889,6 +889,10 @@ include:
     name: run-deskops-e-639ba0c2591d
   - path: runs/subagents/exec-deskops-t-927f7e20a320-testing/run.md
     name: run-deskops-t-927f7e20a320
+  - path: runs/subagents/exec-deskops-e-416610580daa/run.md
+    name: run-deskops-e-416610580daa
+  - path: runs/subagents/exec-deskops-t-b261fef7cc21-testing/run.md
+    name: run-deskops-t-b261fef7cc21
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -1463,6 +1467,10 @@ include:
   - desk/materializations/materialization-selfdoc-src-sldb-selfdoc-report-findings-py.md
   - desk/materializations/materialization-selfdoc-tests-selfdoc-test-parser-py.md
   - desk/materializations/materialization-rules-docs-architecture-rules-language-md.md
+  - desk/materializations/materialization-store-contracts-layers-toml.md
+  - desk/materializations/materialization-store-src-sldb-store-documents-dirty-py.md
+  - desk/materializations/materialization-store-src-sldb-store-documents-dirty-persist-py.md
+  - desk/materializations/materialization-store-tests-store-test-merkle-operation-cache-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2889,6 +2897,14 @@ include:
     name: review-task-rules-language-md-la-cabecera-describe-la-semantica-bivaluada-incomplete-retirado-evidence-commit-1
   - path: desk/reviews/task-rules-language-md-la-cabecera-describe-la-semantica-bivaluada-incomplete-retirado/evidence-document-1.md
     name: review-task-rules-language-md-la-cabecera-describe-la-semantica-bivaluada-incomplete-retirado-evidence-document-1
+  - path: desk/reviews/task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent/evidence-tests-1.md
+    name: review-task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent-evidence-tests-1
+  - path: desk/reviews/task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent/evidence-commit-1.md
+    name: review-task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent-evidence-commit-1
+  - path: desk/reviews/task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent/evidence-atom-1.md
+    name: review-task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent-evidence-atom-1
+  - path: desk/reviews/task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent/evidence-materialization-1.md
+    name: review-task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
