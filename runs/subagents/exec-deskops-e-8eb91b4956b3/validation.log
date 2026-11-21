@@ -1,0 +1,3 @@
+pytest -q tests/notations/test_notations_validate_cli.py tests/notations/test_notations_sync_spec_cli.py -> rc 0 (12 passed)
+sldb selfdoc check -> rc 0
+bash tools/check.sh --fast -> rc 1: only 'identidad' (workbench_demo, authorized exception); all else PASS

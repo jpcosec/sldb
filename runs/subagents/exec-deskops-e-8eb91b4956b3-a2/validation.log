@@ -1,0 +1,2 @@
+TMPDIR=/tmp python -m pytest -q tests/notations/test_notations_validate_cli.py tests/notations/test_notations_sync_spec_cli.py -> rc 0 (15 passed)
+bash tools/check.sh --fast -> rc 1: solo 'identidad' (workbench_demo, excepción autorizada); resto PASS
