@@ -1,15 +1,15 @@
 name: task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con
 path: desk/tasks/task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con.md
-source_hash: a521b84dc0d0e8cb5101701af3f5bdcbbb021946fd10afa15a2f2a4f3951227a
-content_hash: d9f28edb3b80545c8de05a9f8719794e958dbb511f5e2ba08219fe31229ce2b7
+source_hash: 74d3261181216d9fe544e1be72c64ee39fa53db36958ed6691b02fb8b220ba83
+content_hash: 67a136eafef9f4ad067687d9c79ee0515fe3069b24e72c81191d9e013f00c673
 field_hashes:
   title: 38105c065355bf6d276bd81388867caf4ff76d2872924a60066c0bb8df7c3708
   id: 6877f23c08948125f164bf0465dc67988d0a148f3200a256782df29571d89720
-  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
-  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
-  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  current_node: d10f5286503cbf750af0584acaec732741c2d9cfbae2a6d5b8ce45b8bf83b79d
+  history: f89b8fd2ac9e43a24ba505d162381268ed901d0695f62c6ad8ec2c62718dfa1c
   why: a37f4a7f6cdf067adbfe80f86df156feed1aecc9a3da12fb26c66cf309b7d9fc
   goal: fc075c4cb51cf4fb50cb946eda89a2649cf6725c859ffcdf3a7b313e29c1166d
   scope: 7e1836618343e1ab4f8888c39f6d363b329da133f2b0f92c990e39e9bf6d8760
@@ -33,6 +33,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-16T02:20:11Z'
+  at: '2026-11-21T06:47:23Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

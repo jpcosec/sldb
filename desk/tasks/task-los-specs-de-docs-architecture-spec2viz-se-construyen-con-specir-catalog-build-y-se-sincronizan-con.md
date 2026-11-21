@@ -1,17 +1,18 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T02:20:11Z'
+  at: '2026-11-21T06:47:23Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
+current_node: ritual-testing
+history:
+- task_activates
 references: []
 depends_on: []
 pills: []

@@ -2831,6 +2831,8 @@ include:
     name: review-task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida-preflight-2
   - path: desk/reviews/task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida/bundle-2.md
     name: review-task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida-bundle-2
+  - path: desk/reviews/task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato/preflight-2.md
+    name: review-task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato-preflight-2
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
