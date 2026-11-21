@@ -1,0 +1,19 @@
+name: 20261120-212548-suggestion-sldb-api-load-runtime-documents-omite-en-silencio-los-modelos-que-no-resuelven
+path: desk/inbox/20261120-212548-suggestion-sldb-api-load-runtime-documents-omite-en-silencio-los-modelos-que-no-resuelven.md
+source_hash: 4e2c9b442de36f315005e7da886727a472b4a391948ae06672f4e187a2fcc4c4
+content_hash: 5ba922847cbeb1f32ec6e86bfa6c6711e164b89c1183361889c6e6293d7f03af
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 8147f855c21bfede24a9772a1b3e3356959665bcfd7450275b0b405a981c9e91
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: 196eca30109a4521d7a6dd673548e47298130e3b89a44e6e93c225694f30fdd0
+  body: a326638e655ffb76493ee7c5aa3cf3f55129061b8263199d5c38fed6ee709f2a
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null
