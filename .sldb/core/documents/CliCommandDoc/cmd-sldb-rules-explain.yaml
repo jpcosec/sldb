@@ -1,18 +1,18 @@
 name: cmd-sldb-rules-explain
 path: knowledge/commands/cmd-sldb-rules-explain.md
-source_hash: 2510a4ab6d00d75fac9c7c4f948d9d0d1067926fb2c822aaee3a41987eebc9e9
-content_hash: 2fed5c4c86aa7ec6b5f00d03078418a8892bbe268a4589151ac794c49372e849
+source_hash: f49bba85facb7ea3993e18f2c568f70e1f67d6d1ac2960f1b1bd5b7d6396f858
+content_hash: 0ee7a71560871f8048bbf7cac97f261a107b4155001a38b130b6793448f79e89
 field_hashes:
   id: fda9fa363df8c3fa46845b2aa62d973940939fa225d7d29f8925169734b04e3e
   system: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   command_path: ae25a2463c29583d865da15a81f91ecc21f57aa4f451b3c0c97d5774ea0291e0
-  synopsis: 910f0d611581f8e582c6442c1f4a747fa5064fbf5d5dbc87595e28a450af742b
+  synopsis: f3e9ec44bad30712c3be6674cdf5fd870db5ee491e1df8e44b0f84e0cdbdde04
   purpose: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   how_it_works: 2d598f2539d9bbee05ef7c04fc6dfa570c178c33e9f54b470d19662867c00f8c
   arguments: dce601499e2acef0d72890beaa0e15bc3e73011d70210309df3e4b815b30841d
   usage: eb4474f63ad65e878f5e3273132ac8cab88e2bfd465f9e85895706d9159ee96b
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  provenance: 6568d7d64361a99d46b304eb361c445e2ca5cccad408006d3ba3b5bceb95ca28
+  provenance: e683521ad7e304e7f1dbbbd8fa076162828f2d147f4ec32ee605e468ab6f4f67
 semantic_tags:
 - representation.markdown
 - source.document.markdown
@@ -20,6 +20,6 @@ semantic_tags:
 - workspace.knowledge.commands
 provenance:
   by: agent
-  at: '2026-11-16T21:04:42Z'
+  at: '2026-11-21T08:27:48Z'
   authority: generated
   via: save_document_payload

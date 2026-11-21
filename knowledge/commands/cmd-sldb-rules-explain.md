@@ -1,23 +1,23 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T21:04:42Z'
+  at: '2026-11-21T08:27:48Z'
   authority: generated
   via: save_document_payload
 id: cmd-sldb-rules-explain
 system: sldb
 command_path: rules explain
-synopsis: The eval finding of one rule on one document; exit 0 true, 1 false, 2 incomplete,
-  3 not applicable.
+synopsis: The eval finding of one rule on one document; exit 0 true, 1 false, 3 not
+  applicable.
 tags: []
-provenance: parser:sldb.cli.parser:build_parser#rules explain; contract-sha256:d85ab27aafb8ab7592421e061dfcf208443925e27dbda8bc04a8693c7a57c016
+provenance: parser:sldb.cli.parser:build_parser#rules explain; contract-sha256:22f4cdd996301640a6f074bb650dfbc61251d68d71f53c7dbbc9e45926b42b03
 ---
 
 # rules explain
 
 ## Synopsis
 
-The eval finding of one rule on one document; exit 0 true, 1 false, 2 incomplete, 3 not applicable.
+The eval finding of one rule on one document; exit 0 true, 1 false, 3 not applicable.
 
 ## Purpose
 

@@ -151,3 +151,12 @@ def test_a_rule_about_an_unregistered_model_is_refused_when_written(world: World
     with pytest.raises(SLDBStoreError, match="Model 'Missing' not registered."):
         world.rule("bad", subject="model <= Missing")
     assert not (world.root / "rules" / "bad.md").exists()
+
+
+def test_save_document_payload_returns_the_on_write_alerts_without_a_listener(world: World, monkeypatch) -> None:
+    monkeypatch.setattr("sldb.core.finding_route._LISTENERS", [])
+    assert api.save_document_payload(world.store, "X", "x1", {"title": "x1", "status": "open"}, world.py).alerts == []
+    world.rule("closed", moment="on_write", severity="alert")
+    saved = api.save_document_payload(world.store, "X", "x1", {"title": "x1", "status": "review"}, world.py)
+    assert [(a["level"], a["code"], a["subject"]) for a in saved.alerts] == [("alert", "rules/closed", "X:x1")]
+    assert api.edge_node(world.store, "X:x1").payload["status"] == "review"

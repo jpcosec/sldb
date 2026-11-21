@@ -41,15 +41,15 @@ cambiar ninguna respuesta.
 
 Evalúa el lenguaje entero de [`rules-language.md`](rules-language.md): booleanos, caminos
 (`campo`, `rel:<tipo>`, `^`, clausura `+`), cuantificadores `any`/`all`/`none`, `count`,
-sustitución `{campo}` desde el sujeto e `incomplete` en el borde de links. El predicado llega
+sustitución `{campo}` desde el sujeto. El predicado llega
 como texto (se parsea, `WherePredicateError` si no parsea) o ya parseado (`Predicate`, de
 `sldb.store.graph.language`).
 
 `NetworkXBackend` arma sobre el índice cargado la vista mínima del lenguaje
 (`backend/index_view.py`): los documentos por `export_id`, su payload (la proyección de
 `load`, o la que el shard lleva), su familia (`base_models` de los nodos de modelo,
-transitivamente) y las aristas del índice (`field` y `declared` de `metadata`; `unavailable`
-marca un elemento `incomplete`). El mismo evaluador corre sobre el grafo de los tests
+transitivamente) y las aristas del índice (`field` y `declared` de `metadata`; las aristas hacia
+nodos que no existen se descartan). El mismo evaluador corre sobre el grafo de los tests
 (`eval_predicate`) y da los mismos findings.
 
 - **Con sujeto** (payload o `export_id`): un finding. Un `export_id` sin proyección cargada
