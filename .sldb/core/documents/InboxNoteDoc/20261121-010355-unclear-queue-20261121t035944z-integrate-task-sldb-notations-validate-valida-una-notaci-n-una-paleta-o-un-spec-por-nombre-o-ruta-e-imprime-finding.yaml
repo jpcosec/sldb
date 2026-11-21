@@ -1,0 +1,19 @@
+name: 20261121-010355-unclear-queue-20261121t035944z-integrate-task-sldb-notations-validate-valida-una-notaci-n-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding
+path: desk/inbox/20261121-010355-unclear-queue-20261121t035944z-integrate-task-sldb-notations-validate-valida-una-notaci-n-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding.md
+source_hash: 7998838b8434255a62a58bf99cb92ad690d9f90afc51a6a81f63ed8eb8b2d1bf
+content_hash: 0dac36beea5121f14eb51147c39a09de2d73847936d637dccde357e13f24ef40
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 5fb6aa8df1996eac9217a9364dd91b018f60c476242ac9e581e2fa7b42e5c603
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: 1e249c357102daa6dc89cd8f26e5b8aa22cc8baeab9a21c5234d77a7d7cc5d97
+  body: 27b7b3c07edee80714729dca669be4ada4922d143ccf1e463e53eca8d3270e9d
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

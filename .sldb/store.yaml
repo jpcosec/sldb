@@ -360,6 +360,7 @@ include:
   - desk/inbox/20261120-232514-unclear-queue-20261121t022332z-dispatch-reap-task-sldb-notations-validate-valida-una-notaci-n-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding.md
   - desk/inbox/20261120-233125-unclear-queue-20261121t022558z-dispatch-reap-task-sldb-notations-validate-valida-una-notaci-n-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding.md
   - desk/inbox/20261120-235443-unclear-queue-20261121t025326z-dispatch-tester-task-sldb-notations-validate-valida-una-notaci-n-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding.md
+  - desk/inbox/20261121-010355-unclear-queue-20261121t035944z-integrate-task-sldb-notations-validate-valida-una-notaci-n-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
