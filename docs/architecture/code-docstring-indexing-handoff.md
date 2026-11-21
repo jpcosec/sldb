@@ -75,7 +75,7 @@ SLDB: `selfdoc/python_scanner.py`, `selfdoc/python_symbol.py`, `selfdoc/python_m
 
 Graph-layer contracts (formerly the sibling kgdb package): `relation_doc.py`, `relation_type_doc.py`, and `builtin.py` under `src/sldb`. Python containment is not a currently shipped builtin; reuse the registry mechanism, not model-only `extends` for code classes.
 
-spec2viz: run `spec2viz diagram schema --type component`. The local sibling source is `spec2viz/spec2viz/models/component.py`; existing curated examples are in `docs/architecture/spec2viz/`. Preserve node/edge meanings through an adapter; do not create a parallel semantic taxonomy or match curated nodes by fuzzy labels.
+spec2viz: run `specir diagram schema`. The local sibling source is `spec2viz/spec2viz/models/component.py`; existing curated examples are in `docs/architecture/spec2viz/`. Preserve node/edge meanings through an adapter; do not create a parallel semantic taxonomy or match curated nodes by fuzzy labels.
 
 ## Delivery checkpoint
 

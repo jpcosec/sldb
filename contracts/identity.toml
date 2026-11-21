@@ -296,7 +296,7 @@ producto —describe cualquier código Python— pero sabe dónde escribe *acá*
 # ---------------------------------------------------------------------------
 
 [surface]
-consumers = ["deskops", "spec2viz", "hum-scrapper", "ontology"]
+consumers = ["deskops", "hum-scrapper", "ontology"]
 symbols_requested = 53
 already_exported = 32
 note = """
