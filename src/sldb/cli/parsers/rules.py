@@ -18,7 +18,7 @@ def _check(s):
     _common(c)
 
 def _explain(s):
-    e = s.add_parser("explain", formatter_class=argparse.RawDescriptionHelpFormatter, help="The eval finding of one rule on one document; exit 0 true, 1 false, 2 incomplete, 3 not applicable.",
+    e = s.add_parser("explain", formatter_class=argparse.RawDescriptionHelpFormatter, help="The eval finding of one rule on one document; exit 0 true, 1 false, 3 not applicable.",
                      epilog="Example:\n  sldb rules explain RuleDoc:needs-owner TaskDoc:task-a --format json")
     e.add_argument("rule", help="RuleDoc:<name>, <name> or the rule's path")
     e.add_argument("subject", help="Model:name, store:Model:name or the document's path")

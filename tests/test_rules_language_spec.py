@@ -232,12 +232,12 @@ def test_count_omits_missing_document_reference():
     assert _holds("all(depends_on: status = \"closed\")", graph, "Task:a") == "true"
 
 
-def test_count_with_incomplete_element_is_incomplete():
+def test_count_over_a_link_to_a_missing_document_counts_nothing():
     graph = _graph(
         {"Task:a": _doc()},
-        [_edge("Task:a", "external_link", "Other:Doc:x", unavailable=True)],
+        [_edge("Task:a", "external_link", "Other:Doc:x")],
     )
-    assert _holds("count(rel:external_link: status = \"open\") = 0", graph, "Task:a") == "incomplete"
+    assert _holds("count(rel:external_link: status = \"open\") = 0", graph, "Task:a") == "true"
 
 
 def test_substitution_from_subject_payload():
@@ -327,12 +327,12 @@ def test_transitive_closure_inverse():
     assert _holds('any(^subject+: verdict = "accepted")', graph, "Task:a") == "true"
 
 
-def test_linked_store_unavailable_is_incomplete():
+def test_linked_store_unavailable_reads_as_a_missing_document():
     graph = _graph(
         {"Task:a": _doc()},
-        [_edge("Task:a", "external_link", "Other:Doc:x", unavailable=True)],
+        [_edge("Task:a", "external_link", "Other:Doc:x")],
     )
-    assert _holds('any(rel:external_link: status = "open")', graph, "Task:a") == "incomplete"
+    assert _holds('any(rel:external_link: status = "open")', graph, "Task:a") == "false"
 
 
 # --- (d) explanation and (f) eval signature ---------------------------------------------

@@ -160,8 +160,7 @@ Ejemplos. La notación `A --depends_on--> B` es una arista `references` del camp
 | sustitución con campo no escalar | `capacity >= {party_size}` | sujeto `{capacity: 6, party_size: [4]}` | `false` |
 | llaves dentro de un literal | `label = "{party_size}"` | sujeto `{label: "{party_size}", party_size: 4}` | `true` (no se sustituye) |
 | referencia a documento inexistente | `count(depends_on: has(status)) = 0` | `A --depends_on--> DocumentoQueNoExiste` | `true` (la referencia se omite) |
-| referencia a store enlazado no disponible | `any(rel:external_link: status = "open")` | arista hacia un documento de un store que no se puede abrir | `incomplete` |
-| `count` con elemento incomplete | `count(rel:external_link: status = "open") = 0` | igual que la fila anterior | `incomplete` |
+| referencia a store enlazado no disponible | `any(rel:external_link: status = "open")` | arista hacia un documento de un store que no se puede abrir | `false` (se lee como documento inexistente) |
 
 ## 3. Semántica (c)
 
@@ -169,64 +168,32 @@ Dentro de un store, el lenguaje es bivaluado y de mundo cerrado: lo que no está
 no existe. Es un subconjunto de Datalog estratificado, sin funciones salvo las comparaciones
 y con negación solo estratificada. El evaluador no inventa hechos ni persiste resultados.
 
-Hay dos ausencias que no se confunden:
+Un documento al que no se llega no existe para el lenguaje, sea porque nunca estuvo en el
+store o porque cae en un store enlazado que ya no se puede abrir: la referencia no produce
+elemento y el documento se omite del conjunto alcanzado por el camino. Por eso `all` sobre
+el conjunto vacío es `true`, `any` es `false` y `count` vale `0`.
 
-- **Documento inexistente dentro de un store disponible:** la referencia no produce
-  elemento. El documento se omite del conjunto alcanzado por el camino. Por eso `all` sobre
-  el conjunto vacío es `true`, `any` es `false` y `count` vale `0`.
-- **Referencia que cae en un store enlazado que no se puede abrir al evaluar:** el elemento
-  no se conoce. El resultado es `incomplete`, no `false`.
+Los valores son dos, `true` y `false`, con la lógica booleana habitual. Los cuantificadores
+son generalizaciones de `or` y `and`: `any` sobre el vacío es `false`, `all` sobre el vacío
+es `true` y `none(c: p)` es `not any(c: p)`. `count(c: p) cmp n` compara el número `k` de
+elementos con `p` verdadero: `true` si `k cmp n`, `false` si no.
 
-`incomplete` se combina con la lógica trivaluada de Kleene fuerte. Los valores son `true`
-(T), `false` (F) e `incomplete` (I).
-
-| `p` | `q` | `p and q` | `p or q` |
-|---|---|---|---|
-| T | T | T | T |
-| T | F | F | T |
-| T | I | I | T |
-| F | T | F | T |
-| F | F | F | F |
-| F | I | F | I |
-| I | T | I | T |
-| I | F | F | I |
-| I | I | I | I |
-
-| `p` | `not p` |
-|---|---|
-| T | F |
-| F | T |
-| I | I |
-
-Los cuantificadores son generalizaciones de `or` y `and`. Las columnas son excluyentes:
-«algún I, sin T» significa elementos I y F, sin ningún T; «algún I, sin F» significa
-elementos I y T, sin ningún F; «algún I con T y F» significa que hay de los tres valores; «todos I» significa que todos los elementos alcanzados son I.
-
-| Forma | Conjunto vacío | Todos T | Todos F | Mezcla de T y F | Todos I | Algún I, sin T | Algún I, sin F | Algún I con T y F |
-|---|---|---|---|---|---|---|---|---|
-| `any(c: p)` | F | T | F | T | I | I | T | T |
-| `all(c: p)` | T | T | F | F | I | F | I | F |
-| `none(c: p)` = `not any(c: p)` | T | F | T | F | I | I | F | F |
-
-La comparación con `count` también es trivaluada:
-
-| Elementos alcanzados por el camino | `count(c: p)` | `count(c: p) cmp n` |
-|---|---|---|
-| Ningún elemento I | entero `k`: número de elementos con `p = T` | T si `k cmp n`; F si no |
-| Algún elemento I | I | I |
-
-Cualquier comparación u operador con un operando `incomplete` es
-`incomplete`, y un predicado evaluado sobre un elemento `incomplete` es `incomplete`.
-
-Una regla de severidad `error` cuyo resultado es `incomplete` falla con explicación
-`"incomplete"`; una regla `alert` lo reporta como alerta.
+**Retirado: `incomplete`.** Una versión anterior de este contrato tenía un tercer valor,
+`incomplete` (Kleene fuerte), para una referencia a un store enlazado no disponible. Ningún
+camino público lo producía: el índice compuesto no marca ninguna arista como no disponible
+y descarta las aristas hacia nodos que no existen (el test
+`tests/api/test_rules_evaluation.py::test_a_reference_to_a_linked_store_that_is_gone_is_false_never_incomplete`
+borra un store enlazado y evalúa `where` y `rules check`: `false`, nunca `incomplete`). Se
+retiró del lenguaje, de `GraphBackend.eval`, de `rules check` (ya no existe el código
+`rules/<nombre>/incomplete`) y de `rules explain` (sale 0, 1 o 3; ya no 2). Toda evaluación
+que lo habría devuelto devuelve `false`, que es lo que ya daba.
 
 ## 4. Formato de explicación (d)
 
 La evaluación produce findings con cuatro claves:
 
 - `node`: el documento evaluado (su `Model:name`).
-- `holds`: `true`, `false` o `incomplete`.
+- `holds`: `true` o `false`.
 - `clause`: la cláusula textual que decidió el resultado.
 - `seen`: mapa `campo → valor leído` de las hojas de esa cláusula.
 
@@ -250,8 +217,7 @@ Regla de `seen` (p4):
 - En un cuantificador, las hojas del elemento testigo: el primero que falsa un `all` o el
   primero que cumple un `any` (para `none`, el primero que cumple su `any` interno).
 
-Una hoja `incomplete` aporta el valor `{"incomplete": "<referencia no resuelta>"}`. El
-finding (`node`, `holds`, `clause`, `seen`) viaja en el envelope de la CLI. El comando
+El finding (`node`, `holds`, `clause`, `seen`) viaja en el envelope de la CLI. El comando
 concreto y la clave exacta del envelope son de GO06 (hipótesis H10), no de este contrato.
 
 ## 5. Hash de contrato (e)
@@ -304,8 +270,8 @@ Cada finding tiene `node`, `holds`, `clause` y `seen`, como en la sección 4.
   **intersección** de sus familias (p5).
 - Una referencia a un documento inexistente se omite del conjunto alcanzado por un camino
   (sección 3): `all` sobre vacío es `true`, `any` es `false` y `count` es `0`.
-- Una referencia a un store enlazado no disponible produce `incomplete` en la hoja y se
-  propaga con Kleene.
+- Una referencia a un store enlazado no disponible se omite igual que un documento
+  inexistente.
 
 ## 7. Tabla de equivalencia
 
@@ -353,16 +319,14 @@ puede ajustarlo sin cambiar la semántica de las secciones anteriores.
   parseado, sujeto opcional)`, no la ruta del módulo ni la forma de pasar el grafo.
 - **H2. Grafo de los tests.** Los tests representan el store como un diccionario
   `{"nodes": {id: {"model": ..., "payload": ..., "base_models"?: [...]}}, "edges": [{"source",
-  "type", "target", "field"?, "unavailable"?}]}`. La familia de `model <= X` sale de
+  "type", "target", "field"? }]}`. La familia de `model <= X` sale de
   `base_models` del nodo (GO05 p9). El objeto real es el índice compuesto / `GraphBackend`
   de GO03: allí la familia sale de `base_models` de los nodos de modelo, transitivamente.
 - **H3. Sujeto de `eval`.** Los tests pasan como sujeto el identificador `Model:name` del
   nodo. GO03 admite además el payload y el `export_id` con proyección.
-- **H4. `incomplete` por store no disponible.** Los tests marcan la arista con
-  `"unavailable": True`; en el índice real la marca es `metadata.unavailable` de la arista.
-  Hoy `compose_edge_index` descarta las aristas hacia nodos que no existen, así que una
-  referencia a un store enlazado que no se pudo abrir se lee como documento inexistente
-  hasta que el índice la marque.
+- **H4. Store no disponible.** `incomplete` se retiró (sección 3). `compose_edge_index`
+  descarta las aristas hacia nodos que no existen, así que una referencia a un store
+  enlazado que no se pudo abrir se lee como documento inexistente.
 - **H5. Separación de pasos.** El contrato no fija cómo se concatenan varios pasos de un
   camino. Se propone `.` (`depends_on.rel:tipo`), sin afectar los ejemplos de un solo paso.
 - **H6. `^` sobre relaciones.** Se interpreta que `^` también invierte un paso `rel:<tipo>`,
@@ -401,10 +365,10 @@ puede ajustarlo sin cambiar la semántica de las secciones anteriores.
 
 - **Lenguaje:** `src/sldb/store/graph/language/`: tokens, parser (`parse_predicate(texto) ->
   Predicate`, el tipo público parseado: `text` y `root`), átomos y términos, caminos
-  (`predicate_paths`, `predicate_reach`), evaluador con Kleene fuerte (`predicate_eval`,
+  (`predicate_paths`, `predicate_reach`), evaluador booleano (`predicate_eval`,
   `predicate_explain`) y la vista mínima de grafo (`predicate_view`: por nodo `model`,
   `base_models`, `payload`; aristas salientes y entrantes con `field`, `type` y
-  `unavailable`). `sldb.store.query_engine.rules` es la fachada de los tests de spec
+  `declared`). `sldb.store.query_engine.rules` es la fachada de los tests de spec
   (`parse_predicate`, `eval_predicate`, `contract_hash`).
 - **API única:** `GraphBackend.eval` (sobre la vista del índice compuesto,
   `backend/index_view.py`), `sldb.api.where.where_matches` (un payload suelto),

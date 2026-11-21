@@ -6,10 +6,10 @@ other rules' results. GO05's evaluator already computes them semi-naively
 element already seen is never expanded again, so it ends on a cycle; the sets live in memory
 for one evaluation and are never stored. GO08 reuses it.
 
-`witness` names the element behind a false (or incomplete) top-level quantifier, over that same
+`witness` names the element behind a false top-level quantifier, over that same
 reach, with what it read: the first that falsifies an `all`, satisfies a `none`'s inner `any`,
 or, for a false `any` (which the language explains with `seen: {}`, rules-language.md H16), the
-first reached, since each one falsifies it; for an incomplete one, the first incomplete. The
+first reached, since each one falsifies it. The
 finding's `seen` keeps the language's field -> value map (§4); the witness goes in its `what`.
 """
 
@@ -33,7 +33,7 @@ def witness(graph: Any, predicate: str, found: dict[str, Any]) -> tuple[str, dic
         return None
     view, item = graph.located(found["node"])
     ctx = {"view": view, "subst": {name: item["payload"].get(name) for name in substitutions(root)}}
-    wanted = None if found["holds"] == "incomplete" else _WANTED[quant[2]]
+    wanted = _WANTED[quant[2]]
     results = ((element["id"], evaluate(quant[4], element, ctx)) for element in reach(view, item, quant[3]))
     return next(((node, result[2]) for node, result in results if result[0] is wanted), None)
 

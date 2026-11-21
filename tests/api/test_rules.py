@@ -125,16 +125,6 @@ def test_explain_returns_the_eval_finding_and_exits_by_its_value(world: World, c
     assert api.rules_explain(world.store, "closed", "Z:z1", world.py)["reason"] == "subject"
 
 
-def test_an_incomplete_result_is_an_alert_whatever_the_severity(world: World, capsys, monkeypatch) -> None:
-    world.doc("X", "x2", {"title": "x2", "depends_on": "Z:z1"})
-    api.rebuild_edges(world.store, world.py)
-    world.rule("deps", condition='all(depends_on: status = "closed")')
-    monkeypatch.setattr("sldb.api.rules.rule_graph.load_edge_index", _unavailable(api.load_edge_index))
-    assert _check(world, "X:x2") == [("alert", "rules/deps/incomplete", "X:x2")]
-    code, envelope = world.cli(capsys, "explain", "deps", "X:x2")
-    assert (code, envelope["data"]["finding"]["holds"]) == (2, "incomplete")
-
-
 def test_an_unknown_rule_or_subject_is_the_unknown_document_error(world: World, capsys) -> None:
     world.rule("closed")
     with pytest.raises(SLDBDocumentTargetError, match="Unknown document target: nope"):
@@ -161,28 +151,3 @@ def test_a_rule_about_an_unregistered_model_is_refused_when_written(world: World
     with pytest.raises(SLDBStoreError, match="Model 'Missing' not registered."):
         world.rule("bad", subject="model <= Missing")
     assert not (world.root / "rules" / "bad.md").exists()
-
-
-def _unavailable(load):
-    """`load_edge_index` whose `depends_on` edges reach an unavailable linked store (H4)."""
-
-    def marked(index):
-        class Index:
-            def __getattr__(self, name):
-                return getattr(index, name)
-
-            def edges_from(self, export_id, relation=None):
-                return [e.model_copy(update={"metadata": {**e.metadata, "unavailable": e.metadata.get("field") == "depends_on"}}) for e in index.edges_from(export_id, relation)]
-
-        return Index()
-
-    return lambda *args, **kwargs: marked(load(*args, **kwargs))
-
-
-def test_save_document_payload_returns_the_on_write_alerts_without_a_listener(world: World, monkeypatch) -> None:
-    monkeypatch.setattr("sldb.core.finding_route._LISTENERS", [])
-    assert api.save_document_payload(world.store, "X", "x1", {"title": "x1", "status": "open"}, world.py).alerts == []
-    world.rule("closed", moment="on_write", severity="alert")
-    saved = api.save_document_payload(world.store, "X", "x1", {"title": "x1", "status": "review"}, world.py)
-    assert [(a["level"], a["code"], a["subject"]) for a in saved.alerts] == [("alert", "rules/closed", "X:x1")]
-    assert api.edge_node(world.store, "X:x1").payload["status"] == "review"

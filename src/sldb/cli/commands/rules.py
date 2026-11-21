@@ -2,7 +2,7 @@
 
 `check` reports every failing rule as a `Finding` by the one channel (`sldb.cli.alert_sink`) and
 exits 1 only when one is an error. `explain` prints the eval finding of one rule on one document
-and exits with its value: 0 true, 1 false, 2 incomplete, 3 when the rule does not apply.
+and exits with its value: 0 true, 1 false, 3 when the rule does not apply.
 """
 
 from __future__ import annotations

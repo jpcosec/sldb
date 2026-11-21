@@ -1,7 +1,7 @@
 """The minimal graph view the evaluator reads (p8): nodes, and edges out of and into a node.
 
 A view is a dict of four callables: `node(id)` (a node dict or None), `out(id)` and `in(id)`
-(edge dicts: `source`, `type`, `target`, `field`, `declared`, `unavailable`) and `ids()` (the
+(edge dicts: `source`, `type`, `target`, `field`, `declared`) and `ids()` (the
 documents of the domain). `graph_view` builds it from the test graph of rules-language.md §8
 (H2); `NetworkXBackend` builds one over the composed index (`backend/index_view.py`).
 """
@@ -22,15 +22,15 @@ def node(node_id: str, model: str | None, payload: dict, base_models=(), name: s
     return {"id": node_id, "model": model, "base_models": list(base_models), "payload": payload, "name": node_id.rsplit(":", 1)[-1] if name is None else name}
 
 
-def edge(source: str, type_: str, target: str, field: str | None = None, declared: Any = None, unavailable: bool = False) -> dict[str, Any]:
+def edge(source: str, type_: str, target: str, field: str | None = None, declared: Any = None) -> dict[str, Any]:
     """An edge of a view; `declared` is the value the origin's field wrote (default: target)."""
-    return {"source": source, "type": type_, "target": target, "field": field, "declared": target if declared is None else declared, "unavailable": unavailable}
+    return {"source": source, "type": type_, "target": target, "field": field, "declared": target if declared is None else declared}
 
 
 def graph_view(graph: dict) -> dict[str, Any]:
-    """The view of `{nodes: {id: {model, payload, base_models?}}, edges: [{source, type, target, field?, unavailable?}]}`."""
+    """The view of `{nodes: {id: {model, payload, base_models?}}, edges: [{source, type, target, field?}]}`."""
     nodes = {i: node(i, n.get("model"), dict(n.get("payload") or {}), n.get("base_models") or ()) for i, n in graph.get("nodes", {}).items()}
-    edges = [edge(e["source"], e["type"], e["target"], e.get("field"), e.get("declared"), bool(e.get("unavailable"))) for e in graph.get("edges", [])]
+    edges = [edge(e["source"], e["type"], e["target"], e.get("field"), e.get("declared")) for e in graph.get("edges", [])]
     return make_view(nodes, edges)
 
 

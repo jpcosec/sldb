@@ -2,7 +2,7 @@
 
 A rule is a local RuleDoc (or a document of a submodel of it), read from the edge index's
 projection. It applies to a document when the document is in the family of its `subject` and
-its `where` (if any) holds `true` on it; `false` or `incomplete` means it does not apply.
+its `where` (if any) holds `true` on it; `false` means it does not apply.
 """
 
 from __future__ import annotations

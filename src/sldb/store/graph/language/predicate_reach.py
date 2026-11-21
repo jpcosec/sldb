@@ -1,7 +1,7 @@
 """One path step over a graph view: the elements it reaches, closure included.
 
-A reference to a document the view does not hold is dropped (closed world, §3); an edge marked
-`unavailable` (a linked store that cannot be opened) yields an incomplete element. Crossing a
+A reference to a document the view does not hold is dropped (closed world, §3), a linked store
+that cannot be opened included: the language has two values. Crossing a
 field `F` of the origin whose payload carries `F__anchor_state` exposes, on each element
 reached, that entry under the name `anchor_state` (element `i` of a list field reads entry `i`;
 a scalar field reads the scalar). Crossing `^F` the entry is read from the element reached,
@@ -31,7 +31,7 @@ def _closure(view: dict, origin: dict, step: tuple) -> list[dict]:
             if element["id"] not in visited:
                 visited.add(element["id"])
                 found.append(element)
-                queue += [] if element.get("incomplete") else [element]
+                queue.append(element)
     return found
 
 
@@ -45,8 +45,6 @@ def _edges(view: dict, node_id: str, step: tuple) -> list[dict]:
 
 def _element(view: dict, origin: dict, edge: dict, step: tuple) -> dict | None:
     target = edge["source"] if step[2] else edge["target"]
-    if edge.get("unavailable"):
-        return {"id": target, "incomplete": target}
     node = view["node"](target)
     alias = _alias(node if step[2] else origin, edge, step)
     if node is None or alias is _NO_ALIAS:

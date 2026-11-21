@@ -42,17 +42,11 @@ def _names(cur: list) -> list[tuple[str, str]]:
 
 
 def reach(view: dict, item: dict, path: tuple) -> list[dict]:
-    """The elements a path reaches from `item`; an unavailable one is an incomplete element."""
+    """The elements a path reaches from `item`."""
     frontier = [item]
     for step in path:
-        frontier = _dedupe([el for origin in frontier for el in _from(view, origin, step)])
+        frontier = _dedupe([el for origin in frontier for el in reach_step(view, origin, step)])
     return frontier
-
-
-def _from(view: dict, origin: dict, step: tuple) -> list[dict]:
-    if origin.get("incomplete"):
-        return [origin]
-    return reach_step(view, origin, step)
 
 
 def _dedupe(items: list[dict]) -> list[dict]:

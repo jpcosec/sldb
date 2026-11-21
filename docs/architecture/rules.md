@@ -18,7 +18,7 @@ cualquier documento (`sldb docs create RuleDoc ...` o `sldb.api.create_document`
 |---|---|---|
 | `title` | texto | El título (H1). |
 | `subject` | texto | La familia de la regla: `model <= X`, o una conjunción de nivel superior de términos `model <= X` (la intersección de sus familias, `rules-language.md` §6). |
-| `where` | texto, opcional | Predicado que se evalúa sobre cada miembro de la familia antes de la condición. `false` o `incomplete` = la regla no aplica a ese documento. |
+| `where` | texto, opcional | Predicado que se evalúa sobre cada miembro de la familia antes de la condición. `false` = la regla no aplica a ese documento. |
 | `condition` | texto | El predicado que debe cumplir cada documento al que la regla aplica. |
 | `severity` | `error` \| `alert` | El nivel del finding cuando la condición da `false`. |
 | `moment` | `on_write` \| `on_transition` \| `on_check` | Cuándo se evalúa (§9). `rules check` sin `--subject` corre solo `on_check`. |
@@ -67,13 +67,13 @@ sldb rules check [--subject DOC] [--store S] [--pythonpath P] [--format text|jso
   (relativa a la raíz del proyecto o absoluta; también `name`, `Model/name` y `alias:ruta`).
 - **Sin `--subject`:** evalúa las reglas `on_check` sobre cada documento **local** al que
   aplican (los stores enlazados no se recorren).
-- Solo los resultados `false` e `incomplete` se convierten en `Finding` de
+- Solo el resultado `false` se convierte en `Finding` de
   `sldb.core.finding`, que sale por el canal de siempre (`sldb.cli.alert_sink`):
 
 | Campo de `Finding` | Valor |
 |---|---|
-| `level` | La severidad de la regla si la condición da `false`; `alert` si da `incomplete`, sea cual sea la severidad. |
-| `code` | `rules/<nombre>` si `false`; `rules/<nombre>/incomplete` si `incomplete`. `<nombre>` es el nombre del documento RuleDoc. |
+| `level` | La severidad de la regla. |
+| `code` | `rules/<nombre>`. `<nombre>` es el nombre del documento RuleDoc. |
 | `subject` | El nodo evaluado: el `Model:name` del documento (`store:Model:name` si es de un store enlazado). |
 | `what` | `<clause> (seen: <seen>)`, con `seen` en JSON compacto (claves ordenadas, `ensure_ascii=False`). Con `message`: `<message> \| <clause> (seen: <seen>)`. Si la cláusula que decidió es un cuantificador de nivel superior con testigo, sigue ` (witness: <Model:name> <seen del testigo>)` (§9.5). |
 | `fix` | `""`: la regla no prescribe remedio. |
@@ -112,14 +112,13 @@ Cuando la regla no aplica al sujeto, no hay finding de eval, solo el motivo:
 ```
 
 `reason` es `subject` si el documento no está en la familia (`detail` = el `subject` de la
-regla) o `where` si el `where` dio `false` o `incomplete` (`detail` = la `clause` del `where`
+regla) o `where` si el `where` dio `false` (`detail` = la `clause` del `where`
 que lo decidió).
 
 | `holds` | exit |
 |---|---|
 | `true` | 0 |
 | `false` | 1 |
-| `incomplete` | 2 |
 | la regla no aplica | 3 |
 
 La severidad no afecta el exit de `explain`.
@@ -253,8 +252,7 @@ persisten. GO08 lo reutiliza (`fixpoint.py`).
 Como `seen` del lenguaje no nombra elementos (rules-language.md §4, H16), el `what` de un
 finding decidido por un cuantificador de nivel superior agrega el **testigo**:
 ` (witness: <Model:name> <su seen>)`, el primer elemento alcanzado que falsea un `all`, cumple
-el `any` interno de un `none` o, en un `any` falso, el primero alcanzado (todos lo falsean);
-en un `incomplete`, el primero incompleto. Sin elementos no hay testigo.
+el `any` interno de un `none` o, en un `any` falso, el primero alcanzado (todos lo falsean). Sin elementos no hay testigo.
 
 ### 9.6 `sldb edges check`
 

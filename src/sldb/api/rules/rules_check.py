@@ -1,9 +1,8 @@
 """`sldb rules check`: the local rules evaluated, each failure a core `Finding` (GO06).
 
 With a subject, every rule that applies to that document, of any moment; without one, the
-`on_check` rules over every local document they apply to. Only `false` and `incomplete` become
-findings: `false` at the rule's severity with code `rules/<name>`, `incomplete` always an alert
-with code `rules/<name>/incomplete`. Nothing of the result is stored. The built-in family
+`on_check` rules over every local document they apply to. Only `false` becomes a
+finding, at the rule's severity with code `rules/<name>`. Nothing of the result is stored. The built-in family
 `builtin:tag_namespace:*` (GD27) follows the RuleDocs' findings, on the same documents.
 """
 
@@ -39,11 +38,8 @@ def rule_finding(graph: RuleGraph, rule: dict[str, Any], node: str) -> Finding |
     found = graph.holds(rule["condition"], node)
     if found["holds"] == "true":
         return None
-    incomplete = found["holds"] == "incomplete"
-    level = "alert" if incomplete else rule.get("severity", "error")
-    code = f"rules/{rule['name']}" + ("/incomplete" if incomplete else "")
     named = witness(graph, rule["condition"], found)
-    return Finding(level, code, node, explanation(rule, found, named), "", graph.semantics(node).get("path"))
+    return Finding(rule.get("severity", "error"), f"rules/{rule['name']}", node, explanation(rule, found, named), "", graph.semantics(node).get("path"))
 
 
 def explanation(rule: dict[str, Any], found: dict[str, Any], named: tuple[str, dict] | None = None) -> str:

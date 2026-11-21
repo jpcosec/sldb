@@ -16,7 +16,7 @@ from sldb.api.rules.builtin_tag_rules import PREFIX, explain
 from sldb.api.rules.rule_graph import rule_graph
 from sldb.api.rules.rule_subjects import applies, resolve_rule, subject_in
 
-EXITS = {"true": 0, "false": 1, "incomplete": 2}
+EXITS = {"true": 0, "false": 1}
 NOT_APPLIED_EXIT = 3
 
 
@@ -35,5 +35,5 @@ def rules_explain(store: str | Path | None, rule: str, subject: str, pythonpath:
 
 
 def explain_exit(answer: dict[str, Any]) -> int:
-    """0 true, 1 false, 2 incomplete, 3 when the rule does not apply; severity never counts."""
+    """0 true, 1 false, 3 when the rule does not apply; severity never counts."""
     return EXITS[answer["finding"]["holds"]] if "finding" in answer else NOT_APPLIED_EXIT

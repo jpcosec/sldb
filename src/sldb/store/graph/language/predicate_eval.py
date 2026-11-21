@@ -1,7 +1,6 @@
 """Evaluate a parsed predicate on one element of a graph view: `(value, clause, seen)`.
 
-An element is a node of the view (`id`, `model`, `base_models`, `payload`, `name`) or an
-incomplete one (`{"id", "incomplete"}`), on which every predicate is `incomplete` (§3).
+An element is a node of the view (`id`, `model`, `base_models`, `payload`, `name`).
 `ctx` carries the view (paths read it) and the subject's `{field}` values.
 """
 
@@ -13,9 +12,7 @@ from sldb.store.graph.language.predicate_paths import reach
 
 
 def evaluate(node: tuple, item: dict, ctx: dict) -> tuple:
-    """`(True | False | None, clause, seen)` for one tree node on one element."""
-    if item.get("incomplete"):
-        return None, node[1], {"incomplete": item["incomplete"]}
+    """`(True | False, clause, seen)` for one tree node on one element."""
     return _EVALUATORS[node[0]](node, item, ctx)
 
 
@@ -26,7 +23,7 @@ def _leaf(node: tuple, item: dict, ctx: dict) -> tuple:
 
 def _not(node: tuple, item: dict, ctx: dict) -> tuple:
     value, _, seen = evaluate(node[2], item, ctx)
-    return (None if value is None else not value), node[1], seen
+    return not value, node[1], seen
 
 
 def _junction(node: tuple, item: dict, ctx: dict) -> tuple:

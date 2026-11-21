@@ -37,7 +37,7 @@ message: ⸢rev•message⸥
 
     title: str = Field(description="Rule title shown as the H1 heading.")
     subject: str = Field(description="The family the rule is about: `model <= X`, or a top-level conjunction of such terms (the intersection of their families).")
-    where: str = Field(default="", description="Optional predicate evaluated on each member of the family first; false or incomplete means the rule does not apply to that document.")
+    where: str = Field(default="", description="Optional predicate evaluated on each member of the family first; false means the rule does not apply to that document.")
     condition: str = Field(description="The predicate every document the rule applies to must satisfy (docs/architecture/rules-language.md).")
     severity: Literal["error", "alert"] = Field(description="Level of the finding a false condition produces; an error fails `sldb rules check`.")
     moment: Literal["on_write", "on_transition", "on_check"] = Field(description="When the rule is evaluated; `sldb rules check` without --subject runs only the on_check rules.")

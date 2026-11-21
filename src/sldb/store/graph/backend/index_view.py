@@ -4,7 +4,7 @@ Document nodes are named by export id (`Model:name`). A node's payload is its pr
 entry (`load(index, projection)`), else the projection its shard carries (GO04); its family is
 its model and every base the model nodes name (`base_models`, transitively). The domain of a
 subject-less `eval` is the projection's documents, or every document node when no projection
-was loaded (h1). An edge whose metadata says `unavailable` reaches an incomplete element (H4).
+was loaded (h1).
 """
 
 from __future__ import annotations
@@ -53,4 +53,4 @@ def _edges(index: Any, export_id: str, direction: str) -> list[dict[str, Any]]:
 
 def _edge(record: Any) -> dict[str, Any]:
     meta = record.metadata
-    return edge(bare(record.source), record.relation, bare(record.target), meta.get("field"), meta.get("declared"), bool(meta.get("unavailable")))
+    return edge(bare(record.source), record.relation, bare(record.target), meta.get("field"), meta.get("declared"))

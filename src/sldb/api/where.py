@@ -57,7 +57,7 @@ def where_records(records: list, expression: str, store: str | Path | None, pyth
 
     A document record is evaluated by the language on its payload (plus `sldb`, its
     provenance), with paths over the store's index; it is kept only when `holds` is `true`
-    (an `incomplete` does not match). Its finding is in `findings`. Field and section records
+   . Its finding is in `findings`. Field and section records
     keep their own `--where` reading (`RecordFilters`)."""
     view = store_view(store, include_linked) if has_paths(expression) else EMPTY_VIEW
     found = {id(r): document_finding(expression, _record_node(r), view) for r in records if r.kind == "doc"}

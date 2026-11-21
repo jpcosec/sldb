@@ -22,6 +22,8 @@ import pytest
 from sldb import api
 from sldb.cli import main
 from sldb.core.exceptions import SLDBRuleViolationError
+from sldb.api.where import where_findings
+from sldb.store.edge_index.compose import invalidate_composed_edge_indexes
 from sldb.store.layout import cache_dir
 
 on_check_module = importlib.import_module("sldb.api.rules.rules_on_check")
@@ -243,3 +245,39 @@ def test_edges_check_fails_on_a_condition_that_does_not_parse(world: World, caps
     assert "State:done -[moves_to]-> sldb://document/State:open: condition does not parse" in error
     envelope = world.envelope(capsys, "edges", "check", pythonpath=False)
     assert (envelope["ok"], envelope["exit"]) == (False, 1)
+
+
+def test_a_reference_to_a_linked_store_that_is_gone_is_false_never_incomplete(world: World, tmp_path: Path) -> None:
+    """The language has two values (rules-language.md H4): no public path yields a third.
+
+    A linked store holds `far`; `near` references it; the linked store is then deleted, which is
+    the only way a reference can become unavailable. The composed index drops the edge, so the
+    reference reads as a missing document: `any` is false, `all` vacuously true, and `rules
+    check` reports an ordinary error, never `rules/<name>/incomplete`.
+    """
+    other = tmp_path / "other"
+    other.mkdir()
+    linked = api.init_store(other).store_path
+    for ref in (f"{MODULE}:X", f"{MODULE}:Sub", f"{MODULE}:State"):
+        api.add_model(linked, ref, world.py)
+    api.init_relations(linked, world.py)
+    api.create_document(linked, "X", other / "far.md", {"title": "far", "status": "open"}, "far", world.py)
+    api.rebuild_edges(linked, world.py)
+    api.link_store(world.store, linked, name="other")
+    world.doc("X", "near", {"title": "near", "status": "open", "depends_on": "other:X:far"})
+    api.rebuild_edges(world.store, world.py)
+    world.rule("deps", where='title = "near"', condition='any(depends_on: status = "open")', moment="on_check")
+    assert api.rules_on_check(world.store) == []
+
+    shutil.rmtree(linked)
+    invalidate_composed_edge_indexes()
+    index = api.load_edge_index(world.store)
+    assert not [e for e in index.edges if e.metadata.get("unavailable")]
+    assert not [e for e in index.edges_from("X:near") if e.relation == "references"]
+
+    holds = {where_findings(world.store, cond, "X:near", include_linked=True)[0]["holds"] for cond in (
+        'any(depends_on: status = "open")', 'all(depends_on: status = "open")', 'none(depends_on: status = "open")',
+        'count(depends_on: status = "open") = 1')}
+    assert holds <= {"true", "false"}
+    assert where_findings(world.store, 'any(depends_on: status = "open")', "X:near", include_linked=True)[0]["holds"] == "false"
+    assert [(f.level, f.code, f.subject) for f in api.rules_on_check(world.store)] == [("error", "rules/deps", "X:near")]
