@@ -870,6 +870,8 @@ include:
     name: run-deskops-t-b42e89600471
   - path: runs/subagents/exec-deskops-e-352ad61c83c5/run.md
     name: run-deskops-e-352ad61c83c5
+  - path: runs/subagents/exec-deskops-t-4712fb5e88d6-testing/run.md
+    name: run-deskops-t-4712fb5e88d6
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -2833,6 +2835,10 @@ include:
     name: review-task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida-bundle-2
   - path: desk/reviews/task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato/preflight-2.md
     name: review-task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato-preflight-2
+  - path: desk/reviews/task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a/preflight-2.md
+    name: review-task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a-preflight-2
+  - path: desk/reviews/task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent/preflight-2.md
+    name: review-task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent-preflight-2
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
