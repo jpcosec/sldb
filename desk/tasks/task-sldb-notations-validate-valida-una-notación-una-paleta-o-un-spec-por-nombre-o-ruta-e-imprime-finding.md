@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-21T02:43:17Z'
+  at: '2026-11-21T02:53:13Z'
   authority: generated
   via: save_document_payload
 id: task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding
@@ -11,7 +11,7 @@ tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
-current_node: ritual-execution
+current_node: ritual-testing
 history:
 - task_activates
 - 'task_returns_to_execution: Tester deskops-t-75dc71f8a2cd-a2 FALLA sobre 672f8793
@@ -27,6 +27,7 @@ history:
   en un store temporal (exit 0) y una inválida del store (exit 1). Correr tests/notations/test_notations_validate_cli.py
   y test_notations_sync_spec_cli.py. Commit desde tu worktree con ''git commit --
   <rutas>'' y trailer Task-Id.'
+- task_activates
 references:
 - desk/inbox/20261115-192054-suggestion-sldb-notations-validar-una-notaci-n-una-paleta-o-un-spec-por-nombre-o-ruta-desde-la-cli.md
 depends_on: []

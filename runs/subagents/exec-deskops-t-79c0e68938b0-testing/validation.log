@@ -1,0 +1,30 @@
+# Testing — task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz...
+# Fecha: 2026-11-21
+# Entorno: /tmp/ws-venv -> /workspace/sldb/.venv (no existía; symlink fuera del repo)
+#          PATH=/tmp/ws-venv/bin:$PATH TMPDIR=/tmp, cwd=/workspace/sldb
+
+git log -1 --format=%H --grep "Task-Id: task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s"
+-> cfa6477b814bb65b6f34e090bd4ea4fcb61bbc82
+
+git show --name-only --format="" cfa6477b
+-> runs/subagents/20261116-exec-oraculo-d2/README.md      (nuevo, 3 líneas)
+-> runs/subagents/20261116-exec-oraculo-d2/gen_golden.py  (borrado, 16 líneas)
+
+grep -rn gen_golden src tests -> sin coincidencias (rc 1)
+grep -rnE '^\s*(from|import)\s+spec2viz' --include='*.py' (todo el repo, sin .git/.venv) -> sin coincidencias (rc 1)
+runs/subagents/20261116-exec-oraculo-d2/gen_golden.py -> no existe
+README.md menciona spec2viz solo como procedencia histórica; no importa el módulo.
+
+TMPDIR=/tmp PATH=/tmp/ws-venv/bin:$PATH python -m pytest -q -p no:cacheprovider tests/notations/test_component_spec_python.py
+-> 6 passed, 1 warning (rc 0)
+
+PATH=/tmp/ws-venv/bin:$PATH TMPDIR=/tmp bash tools/check.sh --fast
+-> rc 1
+   PASS núcleo aislado
+   PASS capas
+   FAIL identidad — "directorio versionado sin clasificar en la raíz: workbench_demo"
+   PASS ejes
+   PASS superficie
+   (omitidas: afirmaciones, pruebas, selfdoc)
+   Causa ajena al commit: cfa6477b no toca workbench_demo ni contracts/identity.toml;
+   workbench_demo ya estaba versionado y sin clasificar. Regla del rol: rc != 0 => FALLA.

@@ -1,0 +1,37 @@
+name: review-task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s-evidence-atom-2
+path: desk/reviews/task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s/evidence-atom-2.md
+source_hash: 4f706b5d532cbe6265f564bc44115621afd3a01143efeb3a0b8b5bc63f432618
+content_hash: 1ccbc09517d2472213d9c7d11167220d28f7b915a737b5a19d85a6b62e8c632c
+field_hashes:
+  id: a17a30478408462574db41f4d99c0c331c8d3b978b70da40612331e48a167fef
+  title: e9450ab366d67d1db480d3e27b640b571bfe77d01ec307fe9cb8d8a6388c5623
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: c833c202b5b45ac10909767bb422916db457ddd48188a4ee591f0618893df0ba
+  value: 75e80beff27af0db010fee0a93601a82e3dbfb424eedcd78a03e2753a4afdbcf
+  subject: 755f5402379f7dca1f78d5995ad821781a9169bf12464a4d79ae0e0087072e8b
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: f1a8c22f5b6f6f31c60de38aacce4ad6d9852dae63f4d6a5544b993191e655cb
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: f9d9a961e76fb6132e24a5de4c3618b9436cab63cfde7ff799e9c989482227f0
+  created_at: d74fc3708c403523b287eaf08966f8f5e225f44cf6e3fcbaeb64b905301c670c
+  disposed_at: d74fc3708c403523b287eaf08966f8f5e225f44cf6e3fcbaeb64b905301c670c
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: d546e5c30410630a352fa8558599dc791cd19928fa76bc1e1f8c6df8968e6b01
+  disposition: dc1a23c5f122fa9d70584bbc774c47366dfc2da125d7d379f4a903d3b8398328
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-21T02:52:51Z'
+  authority: generated
+  via: create_document

@@ -1,0 +1,25 @@
+$ pytest tests/notations/test_component_spec_python.py
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 5 skipped, 1 warning in 1.46s
+rc=0
+$ bash tools/check.sh --fast
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 1000 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  aviso  ninguno de los 4 consumidores está en /mnt/ssd/proyectos/SLDB_1/sldb/.worktrees
+  aviso  la superficie no se comprueba en esta corrida
+PASS: superficie — omitida por falta de consumidores
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[31mFALLAN: identidad[0m
+rc=
+rc check.sh --fast = 1 (FAIL: identidad, workbench_demo sin clasificar; preexistente)
