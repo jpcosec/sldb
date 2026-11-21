@@ -1,0 +1,14 @@
+### Verificación del coordinador sobre 28696cf5 (worktree limpio), 2026-11-21: los dos intentos de tester se gastaron (el 1 era un tester prematuro detenido)
+== tests/notations/test_notations_validate_cli.py
+11 passed, 1 warning in 8.36s
+== tests/notations/test_notations_sync_spec_cli.py
+4 passed, 1 warning in 9.08s
+== test_clean_code_rules
+1 failed, 1232 passed, 2 warnings in 4.33s
+== selfdoc check
+0
+== check.sh --fast
+PASS: capas — 10 paquetes, 38 aristas, 0 violaciones, 8 ciclos contados
+FAIL: identidad — 10 paquetes de producto, 19 modelos clasificados, 1 violaciones
+PASS: ejes — 32 declarados, 1000 archivos mapeados, 0 violaciones
+PASS: superficie — omitida por falta de consumidores
