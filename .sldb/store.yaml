@@ -1475,6 +1475,15 @@ include:
   - desk/materializations/materialization-store-src-sldb-store-documents-dirty-py.md
   - desk/materializations/materialization-store-src-sldb-store-documents-dirty-persist-py.md
   - desk/materializations/materialization-store-tests-store-test-merkle-operation-cache-py.md
+  - desk/materializations/materialization-api-src-sldb-api-model-registry-describe-model-py.md
+  - desk/materializations/materialization-api-src-sldb-api-records-utils-py.md
+  - desk/materializations/materialization-api-src-sldb-api-schema-field-descriptor-py.md
+  - desk/materializations/materialization-api-src-sldb-api-schema-field-kinds-py.md
+  - desk/materializations/materialization-api-src-sldb-api-segments-extracted-field-py.md
+  - desk/materializations/materialization-api-src-sldb-api-segments-field-segment-py.md
+  - desk/materializations/materialization-api-src-sldb-api-segments-payload-values-py.md
+  - desk/materializations/materialization-api-src-sldb-cli-serve-schema-py.md
+  - desk/materializations/materialization-api-src-sldb-models-field-schema-descriptor-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2913,6 +2922,14 @@ include:
     name: review-task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes-preflight-1
   - path: desk/reviews/task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes/bundle-1.md
     name: review-task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes-bundle-1
+  - path: desk/reviews/task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest/evidence-tests-1.md
+    name: review-task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest-evidence-tests-1
+  - path: desk/reviews/task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest/evidence-commit-1.md
+    name: review-task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest-evidence-commit-1
+  - path: desk/reviews/task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest/evidence-atom-1.md
+    name: review-task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest-evidence-atom-1
+  - path: desk/reviews/task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest/evidence-materialization-1.md
+    name: review-task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

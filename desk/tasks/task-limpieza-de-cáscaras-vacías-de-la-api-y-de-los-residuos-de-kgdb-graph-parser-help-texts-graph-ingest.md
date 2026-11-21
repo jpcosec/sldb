@@ -1,32 +1,48 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-17T15:02:32Z'
+  at: '2026-11-21T13:22:38Z'
   authority: generated
   via: save_document_payload
 id: task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-testing
+history:
+- task_activates
+references:
+- src/sldb/api/model_registry/describe_model.py
+- src/sldb/api/records/utils.py
+- src/sldb/api/schema/field_descriptor.py
+- src/sldb/api/schema/field_kinds.py
+- src/sldb/api/segments/extracted_field.py
+- src/sldb/api/segments/field_segment.py
+- src/sldb/api/segments/payload_values.py
+- src/sldb/cli/serve/schema.py
+- src/sldb/models/field_schema/descriptor.py
+- 5f5eed9d8a1f0073a04f6679853e5bdda68bad6b
 depends_on: []
 pills: []
 files:
-- src/sldb/cli/parsers/graph.py
-- src/sldb/cli/parsers/stores.py
-- src/sldb/cli/commands/help_texts_graph.py
-- src/sldb/store/graph/ingest_sldb.py
-- src/sldb/selfdoc/python_source_graph.py
 - CHANGELOG.md
+- src/sldb/api/model_registry/describe_model.py
+- src/sldb/api/records/utils.py
+- src/sldb/api/schema/field_descriptor.py
+- src/sldb/api/schema/field_kinds.py
+- src/sldb/api/segments/extracted_field.py
+- src/sldb/api/segments/field_segment.py
+- src/sldb/api/segments/payload_values.py
+- src/sldb/cli/serve/schema.py
+- src/sldb/models/field_schema/descriptor.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-se-retiraron-las-cascaras-vacias-de-la-api-y-los-re-exports-sin-uso
 ---
 
 # Limpieza de cáscaras vacías de la API y de los residuos de kgdb (graph parser, help_texts_graph, ingest_sldb, python_source_graph)

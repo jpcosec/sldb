@@ -1,7 +1,7 @@
 name: task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest
 path: desk/tasks/task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest.md
-source_hash: bf356eb4a3675aafe8d07ff5db27f82c6466118047beefe419f0d86f67f56e89
-content_hash: d2c834f619701656e11fa747d5590fa7db106b94155e91cf8a71794a3f797d22
+source_hash: 78210e54a6627f5a242d4429c82aa408ebe6ccb349868f1cbed00a12951b4f20
+content_hash: aae895eec7ee3c4bdecee803d06e8734a60cdbf35edb97d8143b57a137eb2beb
 field_hashes:
   title: ec2838a7e0cfa767da89010f7ca6fc1f16a75f01ab92803662748550a19c9f98
   id: 5578d21de2b31253bfbc9bfe651f850e336d1080dbe6e90eb03535a0dcb0035f
@@ -13,17 +13,17 @@ field_hashes:
   why: b6d52d482921ff894bf57da0be9ea0ff7ff739f3689f1c761b9ac658ab2e100a
   goal: d1f4d15074a83105b237160cae35f3f0d9ebe3e99b06ad61db05bd49e3fcc816
   scope: 61562d820bc15a0dccdc6279bad1fc03c44e89db2664ed8ad6ef377ceeb6a481
-  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  references: b9ece23f1421dc74cdbf15db764d984bbec5a8a8706891a53251855ea8e2f45e
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  files: 0468060b2a02d514fef03cd94363c9f824c2121e26b446cac0b30546b0430ec1
+  files: cb231ceca863890f2f5b2f8804398f66e1853a6774130dc82d3067defcf253a8
   implementation_path: 99b466d3fed5521dd7d0185b57dbbe28dd2d72f8573b5fc06af7f18e8a3afc44
   validation: 8e5447c596dcb1c042569a7ca543f91b7910d7512cd8e0729280d90d8eff5aba
   done_when: f720f96b1d05c3936e2db95743d49b0b9cb36fac50e7fe12a785dd8b80f9eba1
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
-  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  atoms: d77eb9626735f779fdca1b27083b39b446bd1ca941c601c29746e53fd4ea4b58
 semantic_tags:
 - artifact:task
 - host:robocop2
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-21T12:43:20Z'
+  at: '2026-11-21T13:22:38Z'
   authority: generated
   via: save_document_payload
