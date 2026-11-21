@@ -1,0 +1,2 @@
+sldb notations sync --catalog docs/architecture/spec2viz/vistas.yml --check -> rc=0 (4 Valid)
+bash tools/check.sh --fast -> rc=1: solo falla identidad por workbench_demo (excepción autorizada f055723d); resto PASS

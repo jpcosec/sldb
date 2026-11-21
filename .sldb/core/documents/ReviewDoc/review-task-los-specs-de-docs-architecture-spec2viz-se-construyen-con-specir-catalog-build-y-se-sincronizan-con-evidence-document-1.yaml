@@ -1,0 +1,37 @@
+name: review-task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con-evidence-document-1
+path: desk/reviews/task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con/evidence-document-1.md
+source_hash: d7047d83a99d81ba69b4dde91a2d076b70810577178768ac5c001863df943bdb
+content_hash: d8323e9cb9e6105bc04e515f180fa4369cb5fcd00484bd5383a0d0ad2c3da440
+field_hashes:
+  id: f58c7346ea1d2961fb78c60efb308e646c55928d2925de48e70b90e8e7a9f955
+  title: b327227b204f497c2d5643b8a1f16824af65bb4204405eb56eb7c2b77872c6d1
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: 64ac8e615520cd1ae43ab0d47cfc9e750a82d13f9c47d468dab7cd8c982b7859
+  value: 9a1174adf74cff546928fb23ed7d6c4e1c4e0217d20a4fc5ec8c69ff171715f1
+  subject: 27cd75f21c19c8eaf504a355cce14c57042ac806cf8fd1c42ef0de7187da5849
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: ede012ebed92628b63f478a3065d94143bb3c8848b836e556dd83f8fd280ea3e
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 55466264f1e209cf2b4e30c344e76ed0e9fd68b15830d73043781cd5164ba730
+  created_at: 07b463ef20ad30e5fb719ee68484aecac05ec1aa489281a817430e277fa334d3
+  disposed_at: 07b463ef20ad30e5fb719ee68484aecac05ec1aa489281a817430e277fa334d3
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: d3df0f492cfe64280512899c42f704cb0e8c4d3675d8d1cb4c385c2fa696b392
+  disposition: d8c0e09531e23143b87c1c4c3e3aeb40a7f4a64a94fb1544c8fef30297f53294
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-21T07:31:41Z'
+  authority: generated
+  via: create_document

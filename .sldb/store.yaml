@@ -1445,7 +1445,6 @@ include:
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
   - desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
-  - desk/tasks/task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con.md
 - model: ReviewDoc
   paths:
   - path: desk/reviews/task-gd23/preflight-1.md

@@ -1,34 +1,35 @@
+Task: task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con
+Title: Los specs de docs/architecture/spec2viz se construyen con specir catalog build y se sincronizan con sldb notations sync --catalog
+Status: draft
+Current node: ritual-execution
+Task type: task.docs
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-21T07:29:17Z'
+  at: '2026-11-16T02:20:11Z'
   authority: generated
-  via: save_document_payload
+  via: create_document
 id: task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con
-status: active
+status: draft
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-testing
-history:
-- task_activates
-references:
-- contracts/identity.toml
-- docs/architecture/code-docstring-indexing-handoff.md
-- docs/architecture/spec2viz/python-ast.md
-- 9adfdbce11592d7ba51f703c7eb30caa059d8e96
+current_node: ritual-execution
+history: []
+references: []
 depends_on: []
 pills: []
-files:
-- contracts/identity.toml
-- docs/architecture/code-docstring-indexing-handoff.md
-- docs/architecture/spec2viz/python-ast.md
+files: []
 task_type: task.docs
 inherits_from: []
 inherit_acceptance_context: false
-atoms:
-- atom-la-arquitectura-de-spec2viz-en-sldb-ya-no-nombra-a-spec2viz-como-consumidor-ni-lo-invoca
+atoms: []
 ---
 
 # Los specs de docs/architecture/spec2viz se construyen con specir catalog build y se sincronizan con sldb notations sync --catalog
@@ -68,3 +69,28 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 grep de spec2viz en las instrucciones de build de docs/architecture/spec2viz y en contracts/identity.toml sin coincidencias de invocación; sldb notations sync --catalog --check limpio.
+
+## Entrega del ejecutor
+
+Al terminar, commitea solo los archivos que cambiaste para la tarea, nombrados uno por uno (los mismos que listas en result-summary.md):
+
+    git add <ruta> <ruta> ...
+    git commit -m "<resumen>" -m "Task-Id: task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con"
+
+Nunca uses `git add -A`, `git add -u` sobre todo el arbol ni `git stash`: puede haber trabajo ajeno sin commitear. No hagas push. Recien despues ejecuta `deskops advance task`.
+
+## Gates rapidos del desk
+
+Antes del commit corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Debe terminar con rc 0 antes de commitear; si falla, corrige y repite. Anota el comando y su rc en validation.log.
+
+## Tu worktree
+
+Tu codigo vive en un worktree propio, en la rama `deskops/deskops-e-352ad61c83c5`:
+
+    /mnt/ssd/proyectos/SLDB_1/sldb/.worktrees/deskops-e-352ad61c83c5
+
+Haz `cd` ahi: edita, corre los tests y commitea ahi (git add / git commit), no en el checkout principal /mnt/ssd/proyectos/SLDB_1/sldb. Las operaciones de desk (`deskops ... --root /mnt/ssd/proyectos/SLDB_1/sldb`, evidencia en runs/subagents/..., `deskops advance task`) siguen usando el checkout principal. Al terminar, reap trae tus commits a la rama principal y borra el worktree.
