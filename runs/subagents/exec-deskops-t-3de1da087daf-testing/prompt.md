@@ -1,7 +1,17 @@
+Task: task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a
+Title: La doc del árbol del CLI cubre todos los subcomandos y grupos, y selfdoc check detecta cuando falta alguno
+Status: active
+Current node: ritual-testing
+Task type: task.code
+Lifecycle gates:
+- task_hands_to_closeout -> ritual-closeout: open [nonempty(validation)]
+  post-hook evento-para-el-coordinador: sh -c mkdir -p runs/hooks && printf '%s %s %s %s->%s\n' "$(date -u +%FT%TZ)" "$DESKOPS_TASK_ID" "$DESKOPS_TRANSITION" "$DESKOPS_FROM_NODE" "$DESKOPS_TO_NODE" >> runs/hooks/events.log
+  post-hook encola-reap-del-tester: deskops queue add dispatch-reap --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-21T10:21:26Z'
+  at: '2026-11-21T10:13:59Z'
   authority: generated
   via: save_document_payload
 id: task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a
@@ -16,27 +26,16 @@ history:
 - task_activates
 references:
 - docs/architecture/current-cli-tree.md
-- src/sldb/cli/commands/selfdoc.py
-- src/sldb/selfdoc/cli_tree.py
-- src/sldb/selfdoc/report.py
-- src/sldb/selfdoc/report_findings.py
-- tests/selfdoc/test_parser.py
-- b8e564c2956f1bf7f0ba8d1d942862231a85bf1f
 depends_on: []
 pills: []
 files:
-- CHANGELOG.md
 - docs/architecture/current-cli-tree.md
 - src/sldb/cli/commands/selfdoc.py
-- src/sldb/selfdoc/cli_tree.py
-- src/sldb/selfdoc/report.py
-- src/sldb/selfdoc/report_findings.py
-- tests/selfdoc/test_parser.py
+- CHANGELOG.md
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms:
-- atom-selfdoc-check-compara-el-arbol-de-argparse-con-current-cli-tree-md
+atoms: []
 ---
 
 # La doc del árbol del CLI cubre todos los subcomandos y grupos, y selfdoc check detecta cuando falta alguno
@@ -83,3 +82,22 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 Los comandos de Validation pasan; borrar una línea de current-cli-tree.md hace fallar selfdoc check nombrando el comando; CHANGELOG y commit.
+
+## Como probar (tester)
+
+Ubica el trabajo del ejecutor:
+
+    git log -1 --format=%H --grep "Task-Id: task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a"   # commit del ejecutor
+    git show --name-only <commit>                           # sus archivos
+
+Los tests a correr son los archivos tests/*.py de ese commit, mas tests/test_<modulo>.py cuando exista para cada modulo de codigo tocado; de a uno, con `TMPDIR=/tmp python -m pytest -q <archivo>`. No corras la suite completa: la corre integrate en el host.
+
+Escribe result-summary.md con el veredicto PASA o FALLA en la primera linea.
+
+## Gates rapidos del desk
+
+Antes del veredicto corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Si termina con rc distinto de 0 el veredicto es FALLA.

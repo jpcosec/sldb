@@ -2902,7 +2902,6 @@ include:
   - desk/tasks/task-sldb-stores-remove-quita-el-enlace-también-de-la-declaración-store-yaml-así-otra-sesión-no-lo-reintr.md
   - desk/tasks/task-sldb-api-expone-render-con-roundtrip-renderizar-el-payload-de-un-modelo-a-markdown-y-validar-que-vue.md
   - desk/tasks/task-store-index-yaml-no-guarda-rutas-absolutas-de-máquina-para-los-modelos-que-vienen-de-un-paquete-mode.md
-  - desk/tasks/task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a.md
   - desk/tasks/task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato.md
   - desk/tasks/task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest.md
   - desk/tasks/task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent.md

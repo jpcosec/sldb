@@ -1,0 +1,4 @@
+pytest -q tests/selfdoc/test_parser.py tests/test_clean_code_rules.py -> rc 0 (1243 passed)
+pytest -q tests/selfdoc -> rc 0
+python -m sldb selfdoc check -> rc 0 (cli_tree_missing/stale vacíos; alerta preexistente selfdoc/changed de cmd-sldb-rules-explain)
+bash tools/check.sh --fast -> rc 1: FAIL identidad "directorio versionado sin clasificar en la raíz: workbench_demo" (preexistente, ajeno a la tarea; las demás secciones PASS)

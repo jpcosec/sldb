@@ -1,0 +1,9 @@
+Task: task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a
+Title: La doc del árbol del CLI cubre todos los subcomandos y grupos, y selfdoc check detecta cuando falta alguno
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .

@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-21T09:43:53Z'
+  at: '2026-11-21T10:28:04Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -45,7 +45,6 @@ tasks:
 - desk/tasks/task-sldb-stores-remove-quita-el-enlace-también-de-la-declaración-store-yaml-así-otra-sesión-no-lo-reintr.md
 - desk/tasks/task-sldb-api-expone-render-con-roundtrip-renderizar-el-payload-de-un-modelo-a-markdown-y-validar-que-vue.md
 - desk/tasks/task-store-index-yaml-no-guarda-rutas-absolutas-de-máquina-para-los-modelos-que-vienen-de-un-paquete-mode.md
-- desk/tasks/task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a.md
 - desk/tasks/task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato.md
 - desk/tasks/task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest.md
 - desk/tasks/task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent.md
@@ -147,7 +146,6 @@ _Generated from the task references above._
 - sldb stores remove quita el enlace también de la declaración store.yaml, así otra sesión no lo reintroduce [draft] - sldb stores remove <alias> deja el enlace fuera del índice y de la declaración store.yaml en una sola operación, bajo el lock del store; un store sin store.yaml se comporta como hoy.
 - sldb.api expone render con roundtrip: renderizar el payload de un modelo a Markdown y validar que vuelve igual antes de escribir [draft] - Una función pública de sldb.api.documents recibe un modelo (registrado, por nombre, o la clase) y un payload, devuelve el Markdown renderizado y el resultado del roundtrip (ok y diferencias), sin escribir nada; graph_ui puede dejar de importar sldb.runtime.validation.
 - store_index.yaml no guarda rutas absolutas de máquina para los modelos que vienen de un paquete (model_ref) [draft] - Para un modelo declarado por model_ref de un paquete importable, store_index.yaml no guarda una ruta absoluta de la máquina (la omite o guarda una relativa a la raíz del proyecto si está dentro de él), y cargar el store en otra máquina funciona igual.
-- La doc del árbol del CLI cubre todos los subcomandos y grupos, y selfdoc check detecta cuando falta alguno [draft] - current-cli-tree.md lista todos los grupos y subcomandos que define el parser de sldb, y selfdoc check falla nombrando cada grupo o subcomando del parser que la doc no menciona (y cada uno que la doc nombra y ya no existe).
 - El tercer valor del lenguaje de predicados (incomplete) se demuestra alcanzable con un test sobre datos reales o se retira [active] - O hay un test que, con un store real armado en tmp_path, obtiene incomplete de una evaluación pública (where o rules check) y documenta cuándo ocurre; o incomplete se retira del lenguaje, de la API y de la doc sin cambiar los resultados true/false existentes.
 - Limpieza de cáscaras vacías de la API y de los residuos de kgdb (graph parser, help_texts_graph, ingest_sldb, python_source_graph) [draft] - Cada uno de esos archivos y cada cáscara vacía de sldb.api queda borrado si nada lo usa, o reducido a lo que se usa, sin cambiar ningún comportamiento observable (CLI, API pública, tests).
 - El conjunto de documentos sucios se persiste en .sldb_cache para que el modo incremental funcione entre corridas (V2) [draft] - El conjunto de documentos sucios se guarda en .sldb_cache (regenerable, sin versionar) y una corrida nueva lo lee, de modo que una actualización incremental en un proceso nuevo procesa solo lo que cambió; si el archivo falta o está corrupto, se vuelve al cálculo completo sin error.
