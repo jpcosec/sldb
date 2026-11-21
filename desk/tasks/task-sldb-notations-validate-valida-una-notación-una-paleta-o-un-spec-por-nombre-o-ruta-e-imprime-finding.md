@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T08:13:38Z'
+  at: '2026-11-21T02:14:57Z'
   authority: generated
   via: save_document_payload
 id: task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding
@@ -58,7 +58,7 @@ Convenciones (valen para todo el contrato): la entrada de CHANGELOG.md es una l�
 
 _Outline the expected implementation route or affected surface._
 
-1) Leer src/sldb/cli/parsers/notations.py y src/sldb/cli/commands/notations.py para copiar el patrón de un subcomando con --store y --format. 2) Escribir la detección de tipo. 3) Convertir las excepciones y los resultados de check_palette/validate_spec en findings (buscar el tipo Finding que usan otros comandos, p. ej. stores check). 4) Tests con tmp_path. 5) CHANGELOG.
+1) Leer src/sldb/cli/parsers/notations.py y src/sldb/cli/commands/notations.py (patrón de sync, flag --json). 2) Detección de tipo según las precisiones (2) y (3). 3) Findings según (4) y (5). 4) Tests nuevos en tests/notations/test_notations_validate_cli.py: una notación, una paleta y un spec válidos (exit 0); uno inválido de cada tipo (exit 1 y su finding); un nombre builtin; --json; el caso de nombre en dos tipos (alert, exit 0). 5) selfdoc sync y commitear la referencia; 'selfdoc check' en 0. 6) CHANGELOG. 7) quick_gates (bash tools/check.sh --fast): verde salvo 'identidad' por workbench_demo (excepción autorizada; decisión aparte). 8) Commit con 'git commit -- <rutas>' y trailer Task-Id. Precisiones del coordinador (2026-11-21, resuelven el bundle-2 y mandan sobre el pill pill-salida-y-orden-de-sldb-notations-validate donde choquen). (1) Salida: el flag es --json (store_true), como 'sldb notations sync'; no se agrega --format. Sin --json, texto de una línea por finding; con --json, la lista de findings como JSON (Finding de src/sldb/core/finding.py, as_dict). (2) Detección por ruta para .json: se carga como JSON y se aplica la misma regla que al YAML: clave 'palette' o 'colors' en la raíz es paleta; clave 'type' de diagrama (la que lee load_spec de sldb/api/notations/spec_models.py) es spec; lo demás se intenta como notación con load_notation. (3) Por nombre: notaciones con builtin_notations() (sldb/notations/notation_files.py) y las del store; paletas con builtin_palettes() (sldb/notations/palette_files.py) y las del store. (4) Si el nombre existe en dos tipos, se valida primero la notación y se emite un finding de nivel alert que lo dice; las alertas no cambian el exit code (0 sin errores, 1 con alguno). (5) Validación: check_palette (palette_checks.py) para paletas, load_spec y validate_spec para specs, load_notation para notaciones; cada excepción o problema es un finding de nivel error con code 'notations/<tipo>-invalid', el mensaje de la excepción y la ruta. (6) Done When: los tests de tests/notations/test_notations_validate_cli.py (nuevo) y tests/notations/test_notations_sync_spec_cli.py pasan, 'sldb notations --help' lista validate, la referencia de CLI está regenerada con selfdoc sync y commiteada, y CHANGELOG tiene su línea. El commit lo hace el ejecutor desde su worktree con 'git commit -- <rutas>' y el trailer Task-Id.
 
 ## Validation
 
