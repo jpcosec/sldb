@@ -2753,6 +2753,10 @@ include:
     name: review-task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s-evidence-atom-2
   - path: desk/reviews/task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s/evidence-materialization-1.md
     name: review-task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s-evidence-materialization-1
+  - path: desk/reviews/task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio/preflight-1.md
+    name: review-task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio-preflight-1
+  - path: desk/reviews/task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio/bundle-1.md
+    name: review-task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio-bundle-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
