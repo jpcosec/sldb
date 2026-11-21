@@ -54,16 +54,20 @@ def _kinds_of_file(path: Path) -> list[str]:
     return ["notation"]
 
 
-def _store_names(store: str | None, model: str) -> set[str]:
+_STORE_MODELS = {"notation": "NotationDoc", "palette": "PaletteDoc"}
+
+
+def _store_has(store: str | None, kind: str, name: str) -> bool:
+    """True when the store tracks a `NotationDoc`/`PaletteDoc` called `name` (its file is not read)."""
     if not store:
-        return set()
+        return False
     import sldb.api as api
 
     try:
-        docs = api.load_runtime_documents(Path(store), None, include_linked=False)
+        rows = api.select_documents(store, {"model": _STORE_MODELS[kind]})
     except Exception:
-        return set()
-    return {str(d.name) for d in docs if str(d.model_name) == model}
+        return False
+    return any(row["name"] == name for row in rows)
 
 
 def _kinds_of_name(name: str, store: str | None) -> list[str]:
@@ -71,19 +75,55 @@ def _kinds_of_name(name: str, store: str | None) -> list[str]:
     from sldb.notations.palette_files import builtin_palettes
 
     kinds = []
-    if name in _store_names(store, "NotationDoc") or name in builtin_notations():
+    if _store_has(store, "notation", name) or name in builtin_notations():
         kinds.append("notation")
-    if name in _store_names(store, "PaletteDoc") or name in builtin_palettes():
+    if _store_has(store, "palette", name) or name in builtin_palettes():
         kinds.append("palette")
     return kinds
 
 
-def _run_check(kind: str, target: str) -> Finding | None:
+def _check_store_document(kind: str, name: str, store: str) -> None:
+    """Validate a document that lives only in the store.
+
+    A store document is a markdown file whose front matter is the payload (a notation's glyphs
+    and links are separate documents), so `load_notation`/`load_palette` cannot read it by path.
+    The store's own model validates it; a palette payload is then rebuilt as a `PaletteSpec`
+    and checked like a palette file (contrast included).
+    """
+    import sldb.api as api
+
+    model = _STORE_MODELS[kind]
+    row = api.select_documents(store, {"ref": f"{model}:{name}", "model": model}, expect="one")[0]
     try:
-        _CHECKS[kind](target)
+        docs = api.load_runtime_documents(Path(store), None, include_linked=False)
+        payload = next(d.payload for d in docs if str(d.model_name) == model and str(d.name) == name)
+        if kind == "palette":
+            from sldb.notations.palette_checks import check_palette
+            from sldb.notations.palette_spec import PaletteSpec
+
+            check_palette(PaletteSpec.model_validate({k: v for k, v in dict(payload).items() if k != "id"}))
+    except Exception as exc:
+        raise ValueError(f"{row['path']}: {exc}") from exc
+
+
+def _run_check(kind: str, target: str, store: str | None = None) -> Finding | None:
+    try:
+        if kind in _STORE_MODELS and _store_has(store, kind, target) and not _builtin_or_file(kind, target):
+            _check_store_document(kind, target, str(store))
+        else:
+            _CHECKS[kind](target)
     except Exception as exc:  # every loader raises its own typed error; each one is a finding
         return error(f"notations/{kind}-invalid", target, str(exc))
     return None
+
+
+def _builtin_or_file(kind: str, target: str) -> bool:
+    from sldb.notations.notation_files import builtin_notations
+    from sldb.notations.palette_files import builtin_palettes
+
+    if Path(target).is_file():
+        return True
+    return target in (builtin_notations() if kind == "notation" else builtin_palettes())
 
 
 def validate_target(target: str, store: str | None = None) -> tuple[list[Finding], bool]:
@@ -98,7 +138,7 @@ def validate_target(target: str, store: str | None = None) -> tuple[list[Finding
     findings: list[Finding] = []
     if len(kinds) > 1 and not path.is_file():
         findings.append(alert("notations/ambiguous-name", target, f"{target!r} exists as {' and '.join(kinds)}; validating the {kinds[0]}", "pass a path to validate the other one"))
-    found = _run_check(kinds[0], target)
+    found = _run_check(kinds[0], target, store)
     if found:
         findings.append(found)
     return findings, True
