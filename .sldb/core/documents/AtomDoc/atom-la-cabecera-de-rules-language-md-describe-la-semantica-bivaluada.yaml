@@ -1,0 +1,22 @@
+name: atom-la-cabecera-de-rules-language-md-describe-la-semantica-bivaluada
+path: desk/atoms/atom-la-cabecera-de-rules-language-md-describe-la-semantica-bivaluada.md
+source_hash: 63bb3e5975e2b11bf1a99823478455ffc2d7264a5101f4baada9861fd644eeed
+content_hash: b05fd7f4330e52bb0f4858a1aeaa2494842cc4c12d88e16b213f4c223285107f
+field_hashes:
+  id: 88a8bb8ee31cfc2410fc7aa734611d3c0af404396ea5fedf567c4eb7e6c3167c
+  title: 5915812aa0e5f53c24a068d1a6d28eba2d36b1e780873223b57200bdccdb6a53
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 900d9f1bd0f6be534521458837ad796f7e0dbf73cea0d3a29850bf22569559eb
+  tags: 009267aef00920e49a7d2599b803a2558cedbf3f9d3e30fef63bc9c79a57960f
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:rules
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-21T10:42:18Z'
+  authority: generated
+  via: create_document

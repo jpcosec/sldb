@@ -885,6 +885,10 @@ include:
     name: run-deskops-e-b6f9a76678a1
   - path: runs/subagents/exec-deskops-t-3de1da087daf-testing/run.md
     name: run-deskops-t-3de1da087daf
+  - path: runs/subagents/exec-deskops-e-639ba0c2591d/run.md
+    name: run-deskops-e-639ba0c2591d
+  - path: runs/subagents/exec-deskops-t-927f7e20a320-testing/run.md
+    name: run-deskops-t-927f7e20a320
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -1458,6 +1462,7 @@ include:
   - desk/materializations/materialization-selfdoc-src-sldb-selfdoc-report-py.md
   - desk/materializations/materialization-selfdoc-src-sldb-selfdoc-report-findings-py.md
   - desk/materializations/materialization-selfdoc-tests-selfdoc-test-parser-py.md
+  - desk/materializations/materialization-rules-docs-architecture-rules-language-md.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2881,6 +2886,10 @@ include:
     name: review-task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a-evidence-atom-1
   - path: desk/reviews/task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a/evidence-materialization-1.md
     name: review-task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a-evidence-materialization-1
+  - path: desk/reviews/task-rules-language-md-la-cabecera-describe-la-semantica-bivaluada-incomplete-retirado/evidence-commit-1.md
+    name: review-task-rules-language-md-la-cabecera-describe-la-semantica-bivaluada-incomplete-retirado-evidence-commit-1
+  - path: desk/reviews/task-rules-language-md-la-cabecera-describe-la-semantica-bivaluada-incomplete-retirado/evidence-document-1.md
+    name: review-task-rules-language-md-la-cabecera-describe-la-semantica-bivaluada-incomplete-retirado-evidence-document-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

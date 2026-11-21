@@ -1,29 +1,29 @@
 name: task-rules-language-md-la-cabecera-describe-la-semantica-bivaluada-incomplete-retirado
 path: desk/tasks/task-rules-language-md-la-cabecera-describe-la-semantica-bivaluada-incomplete-retirado.md
-source_hash: f06fddd13972e7a5545e80c120a51b576362be973cd39ffaa1a97ff51723a7b0
-content_hash: 321b5c9d7f9a6ef17e0b632e2fa0e55bb0af98be50260540e66f89fc3ef1d8ad
+source_hash: 818460eaf8d30741c82867ad577d03e4ea93b6cdd25dfbbaa503589f7b34b066
+content_hash: cdad5fdfff4f905bfdcdb0cb79d8a08373a1e2852cce00dfed07babb8ef941c2
 field_hashes:
   title: 3e012a166f101fd6aaa7a8fc52637b04a7cc9052d5d790dc58f6994dfd0b697f
   id: d7759f906bd6965878e9ba2b073ab2ed99731df00469a2142d5989c8f6b31b13
-  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
-  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
-  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  current_node: d10f5286503cbf750af0584acaec732741c2d9cfbae2a6d5b8ce45b8bf83b79d
+  history: f89b8fd2ac9e43a24ba505d162381268ed901d0695f62c6ad8ec2c62718dfa1c
   why: 690cd8abe9844db1f556b8b715acc33c2b06fd36446ae34694b3affe22bfd178
   goal: 9c04fed749a7c27668208573fa7edd3d21fe7db56dff08eafb106d85227aca4b
   scope: f73e3dc60e6a18d585f21bebffb2de95123b6fe176155f2e578f7e01514ffd80
-  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  references: 874c9d87a6d1c811e7db616d705b94a50656c1dcab0b65feadd72da202ee4794
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 47b9b63d66f226cd5f1a9b22159097119842862f70c15e7e8b04c60aa4899461
   implementation_path: bd0447f7e83cdf136db278cceb2f06db56da9428d814215b31d9c1fbdd2c2cba
   validation: 27b63a6c3d445168799c6c4efe08af95929feb4a7fc31f55dd210c5d0f5b09d6
   done_when: 3dd23b2005f09309959882f9509c4636a5a7789cd45372fd75487fb78c0d001b
   task_type: 8dbc7ea3fc2d737a841f8f9a89de6dd4bd2ca7fdc77434a53400db8767ba695d
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
-  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  atoms: ce4aa34b11c964db639fc2f9f9a9d371c6821a4b46f8a441352d5a76b6d50191
 semantic_tags:
 - artifact:task
 - representation.markdown
@@ -33,6 +33,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-21T09:43:26Z'
+  at: '2026-11-21T10:43:45Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

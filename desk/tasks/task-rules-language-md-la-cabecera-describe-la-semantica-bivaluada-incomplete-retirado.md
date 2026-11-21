@@ -1,25 +1,30 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-21T09:43:26Z'
+  at: '2026-11-21T10:43:45Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-rules-language-md-la-cabecera-describe-la-semantica-bivaluada-incomplete-retirado
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-testing
+history:
+- task_activates
+references:
+- docs/architecture/rules-language.md
+- 73f9639ca9e821147a6c7c2192eab35b736d1413
 depends_on: []
 pills: []
-files: []
+files:
+- docs/architecture/rules-language.md
 task_type: task.docs
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-la-cabecera-de-rules-language-md-describe-la-semantica-bivaluada
 ---
 
 # rules-language.md: la cabecera describe la semántica bivaluada (incomplete retirado)
