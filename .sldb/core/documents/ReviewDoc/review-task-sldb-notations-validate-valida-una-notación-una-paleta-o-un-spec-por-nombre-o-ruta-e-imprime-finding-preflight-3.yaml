@@ -1,7 +1,7 @@
 name: review-task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding-preflight-3
 path: desk/reviews/task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding/preflight-3.md
-source_hash: c1b0a9c7f86bce9d9f16f9168548c81fc61d908d7ee8b34fbf772c12cf31fcb9
-content_hash: 66a5769f081cd420bdf2ee6fc3f0e0f60174e49754c17dca0295e8145df77254
+source_hash: b0fe105e1da9826be34754e02f7d531aa3bdb3cb4ef8f2279c7b769b0cb8a805
+content_hash: 603948d960797bc1ac1538cd0ef204304237a20a008ae927c24a3c9c5290fa25
 field_hashes:
   id: d061e2be105bb0f866c24e72860053f8372c6078aad0b0490628c3b29ae02d92
   title: 96fff2134ec7157c616507439a24178e1ec5fbcd1d0c9786e1f9f148359a467f
@@ -16,13 +16,13 @@ field_hashes:
   input_sha256: 3e1f3d3dbd203d4f99542128cc2c5050bf5f95058586d4b47f32bed4eba94462
   contract_sha256: cd9d94b0ea62f7180498138aa605fae9dd33e3f81e0b92dbbfbe98afa7010675
   output_sha256: fd3d85d13d540969d616d81afd48b6086d1b9537dd364a2a4d30d41b8b41055a
-  verdict: 12adac54ac6f7140109391b670b3cbcd51f083d8f5ee62ce26857c794ed67d36
-  reason: b3793d1a374914dade0ba8a649041e1876acba441403b458b1f4e9c49448a4d1
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: cf5692adee44865995b78a0899581ba6061c720c9d8bdcf33d0bdcc75377ffeb
   created_at: 252b518b49160a868bd9b7868e7894f61feea30c04123c9ff21fd8d0612bd0d8
-  disposed_at: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  disposed_by: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposed_at: 72baa5561832da13fe34f59f40475978f1a7e9ae60512f710f2b77ffc755dff6
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 6b194751007b551dada8818c513679f98718cefb17a2a0b78e9e15de6e0b89d5
-  disposition: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposition: 1b88aa2d56d9f51249723e4a0ba2e0f73005e07c0a4155e626ccdbef00571774
   tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
 semantic_tags:
 - representation.markdown
@@ -32,6 +32,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-21T02:15:38Z'
+  at: '2026-11-21T02:17:19Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
