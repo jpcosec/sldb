@@ -1,0 +1,25 @@
+name: 20261121-032515-suggestion-trabajo-de-surface-562847e2-entr-a-main-sin-tarea-ni-suite-completa-gitattributes-y-herdr-coordination-md
+path: desk/inbox/20261121-032515-suggestion-trabajo-de-surface-562847e2-entr-a-main-sin-tarea-ni-suite-completa-gitattributes-y-herdr-coordination-md.md
+source_hash: 5c286502b58b4a7002a57c67f44044a3e33da47872b4fe38b182b34d3449c5d1
+content_hash: 5bae8e94defd16c5ce83db04ae5280ed4c23a6ff9de0ab3a39dc7fc9b89aa099
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 1ae6aa6e8b7106597526b3d3f0e7b3826dfcb832a57a5c2c1e1d7980065e082b
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 400b5f7d4a24654a50a9012be5121a1168a6295a1d07c68ce99e5aac6a62f0d3
+  ack_reason: 91be6a969b1747f51ff239fc47a81b456a322de0a30f0fd9827499abc257597a
+  title: 64eac65d4044826f98ed6581fe10c97a88fc014a6eb535d5ab4af038be977e84
+  body: b8b60ab17d6f7c65063e42ccdd5078eb839467f454c4aba0105d6d9c821e76df
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance:
+  by: agent
+  at: '2026-11-21T06:31:43Z'
+  authority: generated
+  via: save_document_payload

@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-21T06:29:22Z'
+  authority: generated
+  via: save_document_payload
 # unclear | suggestion
 kind: unclear
 # e.g., other_repo
@@ -8,11 +13,15 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-11-21T01:14:50'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-11-21T03:28:59'
 # why the note was acknowledged; empty when no reason was given
-ack_reason: ''
+ack_reason: 'Resuelta: la tarea sldb-notations-validate se reintentó, cerró (closeout
+  651a42a0) e integró (merge e7e348f1, en origin/main 64c810b0); los integrate fallidos
+  de la cola quedaron superados.'
 ---
 
 # queue: 20261121T040950Z-integrate-task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding

@@ -366,6 +366,8 @@ include:
   - desk/inbox/20261120-194304-suggestion-versionar-sldb-y-fijarlo-en-quienes-lo-usan.md
   - desk/inbox/20261121-011013-suggestion-el-merge-driver-no-qued-instalado-en-el-clon-principal-de-sldb-pese-al-auto-install.md
   - desk/inbox/20261121-011450-unclear-queue-20261121t040950z-integrate-task-sldb-notations-validate-valida-una-notaci-n-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding.md
+  - desk/inbox/20261121-021151-unclear-queue-20261121t050324z-integrate-task-sldb-notations-validate-valida-una-notaci-n-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding.md
+  - desk/inbox/20261121-032515-suggestion-trabajo-de-surface-562847e2-entr-a-main-sin-tarea-ni-suite-completa-gitattributes-y-herdr-coordination-md.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -2819,6 +2821,10 @@ include:
     name: review-task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding-evidence-atom-1
   - path: desk/reviews/task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding/evidence-materialization-1.md
     name: review-task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding-evidence-materialization-1
+  - path: desk/reviews/task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con/preflight-1.md
+    name: review-task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con-preflight-1
+  - path: desk/reviews/task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con/bundle-1.md
+    name: review-task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con-bundle-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -2860,6 +2866,7 @@ include:
   - desk/tasks/task-baja-prioridad-canonizar-los-nombres-de-llamada-ts-js-cuya-cadena-empieza-en-un-array-binario-new-o.md
   - desk/tasks/task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding.md
   - desk/tasks/task-el-merge-driver-de-sldb-se-instala-solo-en-un-clon-que-tiene-las-lineas-de-gitattributes-pero-no-la.md
+  - desk/tasks/task-respaldar-562847e2-surface-asistente-tour-y-workbench-demo-con-la-suite-completa-y-sldb-stores-build.md
 - model: TaskDebugDoc
   paths:
   - desk/tasks/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg.md

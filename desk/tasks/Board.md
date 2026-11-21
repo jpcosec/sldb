@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-21T04:16:38Z'
+  at: '2026-11-21T06:30:39Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -67,6 +67,7 @@ tasks:
 - desk/tasks/task-baja-prioridad-canonizar-los-nombres-de-llamada-ts-js-cuya-cadena-empieza-en-un-array-binario-new-o.md
 - desk/tasks/task-clasificar-workbench-demo-en-contracts-identity-toml-producto-autoaplicacion-o-ajeno-la-puerta-ident.md
 - desk/tasks/task-el-merge-driver-de-sldb-se-instala-solo-en-un-clon-que-tiene-las-lineas-de-gitattributes-pero-no-la.md
+- desk/tasks/task-respaldar-562847e2-surface-asistente-tour-y-workbench-demo-con-la-suite-completa-y-sldb-stores-build.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -168,3 +169,4 @@ _Generated from the task references above._
 - Baja prioridad: canonizar los nombres de llamada TS/JS cuya cadena empieza en un array, binario, new o literal (hoy canonical: false) [draft] - Los nombres de llamada que hoy salen con canonical: false tienen una forma canónica definida y documentada (por ejemplo marcadores fijos [...] para arrays, (expr) para binarios, Clase() para new y (lit) para literales) y salen con canonical: true y en la relación calls si nombran un símbolo.
 - Clasificar workbench_demo en contracts/identity.toml (producto, autoaplicación o ajeno): la puerta identidad de check.sh está en rojo [draft] - JP o el dueño de surface decide qué es workbench_demo: producto (sldb lo distribuye), autoaplicación (sldb usado sobre sí mismo) o ajeno (va en contract foreign, o se mueve fuera de la raíz, por ejemplo bajo surface/), y se clasifica en contracts/identity.toml. Con eso, check.sh --fast vuelve a 0.
 - El merge driver de sldb se instala solo en un clon que tiene las líneas de .gitattributes pero no la config de git [draft] - Cualquier comando de sldb que abra un store dentro de un repo git cuyo .gitattributes tenga líneas merge=sldb, y cuya config no tenga merge.sldb.driver, instala las claves de git (lo mismo que hace --install con la config, sin tocar .gitattributes) y lo dice una vez por stderr. stores check emite un alert stores/merge-driver-missing si no pudo instalarlo.
+- Respaldar 562847e2 (surface: asistente, tour y workbench_demo) con la suite completa y sldb stores build --check, e ignorar .herdr-coordination.md [draft] - Dejar constancia verificada de que main con 562847e2 pasa la suite completa de sldb (pytest -n 4) y sldb stores build --check; corregir lo que falle por ese commit; agregar .herdr-coordination.md al .gitignore de sldb.
