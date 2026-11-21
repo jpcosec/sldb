@@ -1,25 +1,32 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-21T03:03:26Z'
+  at: '2026-11-21T03:21:16Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-testing
+history:
+- task_activates
+references:
+- src/sldb/cli/commands/notations_validate.py
+- src/sldb/cli/commands/notations_validate_store.py
+- fb321318b5972d07ea9109477024036c5f5c4d04
 depends_on: []
 pills: []
-files: []
+files:
+- src/sldb/cli/commands/notations_validate.py
+- src/sldb/cli/commands/notations_validate_store.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-notations-validate-respeta-las-reglas-de-codigo-limpio
 ---
 
 # notations validate: _check_store_document baja a 10 líneas de lógica (regla de código limpio)

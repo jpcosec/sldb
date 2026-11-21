@@ -1,0 +1,25 @@
+name: materialization-notations-src-sldb-cli-commands-notations-validate-store-py
+path: desk/materializations/materialization-notations-src-sldb-cli-commands-notations-validate-store-py.md
+source_hash: 168a8519addb587664226c241ff1f0d3e820564e5f6a7c9859cb65d18700a6e4
+content_hash: f2eb8b2edab59883b53e8056e6af6e9413481c3e8823aec3d96a888233f08908
+field_hashes:
+  id: 8ebe6a4b15bbbf1b9fe38aa9d5f1ed332162a5f162f22c0665e97136ac8b9384
+  title: 4a024abd638925862fc60a274e2ea48d453736c59835d13dbeed7b7be0f4820d
+  source_atoms: 64aa7176ecb74babc94ed467aead46b184481a64f5fcfb7b1d14b05312f4454f
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 291a40f8c15ad207378769b624c3b33f9647fe37304642ce93f7d96327a11256
+  intent: 940e34720d5c9ca183872ed48fca4a8058dd82109003a5b869e91576eeff1760
+  validation: 161fe2e964d0d35cabb3bda00c49a2378dd3be6b739b41b64a7212f2a0d5d8e3
+  tags: 1f6879d3f31f56b2802c17ed6bd1ec91facdb8d554030fea048f5505d98e5e32
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:notations
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-21T03:22:14Z'
+  authority: generated
+  via: create_document

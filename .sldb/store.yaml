@@ -827,6 +827,10 @@ include:
     name: run-deskops-t-79c0e68938b0
   - path: runs/subagents/exec-deskops-e-8eb91b4956b3-a2/run.md
     name: run-deskops-e-8eb91b4956b3-a2
+  - path: runs/subagents/exec-deskops-e-cc37b51d8dab/run.md
+    name: run-deskops-e-cc37b51d8dab
+  - path: runs/subagents/exec-deskops-t-b42e89600471-testing/run.md
+    name: run-deskops-t-b42e89600471
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -1384,6 +1388,8 @@ include:
   - desk/materializations/materialization-stores-tests-api-test-api-stores-py.md
   - desk/materializations/materialization-stores-tests-store-test-stores-build-py.md
   - desk/materializations/materialization-notations-tests-notations-test-component-spec-python-py.md
+  - desk/materializations/materialization-notations-src-sldb-cli-commands-notations-validate-py.md
+  - desk/materializations/materialization-notations-src-sldb-cli-commands-notations-validate-store-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -2757,6 +2763,14 @@ include:
     name: review-task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio-preflight-1
   - path: desk/reviews/task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio/bundle-1.md
     name: review-task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio-bundle-1
+  - path: desk/reviews/task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio/evidence-tests-1.md
+    name: review-task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio-evidence-tests-1
+  - path: desk/reviews/task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio/evidence-commit-1.md
+    name: review-task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio-evidence-commit-1
+  - path: desk/reviews/task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio/evidence-atom-1.md
+    name: review-task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio-evidence-atom-1
+  - path: desk/reviews/task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio/evidence-materialization-1.md
+    name: review-task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

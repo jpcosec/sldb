@@ -1,0 +1,22 @@
+name: atom-notations-validate-respeta-las-reglas-de-codigo-limpio
+path: desk/atoms/atom-notations-validate-respeta-las-reglas-de-codigo-limpio.md
+source_hash: 48fcd2a3aeed99bf43e51ae215e31c960e8e3a28dac7c4f13dfede9774b0965a
+content_hash: 0e64b219e15222cc02ca483d3242a30deea83832c013497ffdc3d3445160d945
+field_hashes:
+  id: f097668a2410d89b37f8f4bf7cb55fd74c211801547a165cdc847edb7b5eaacc
+  title: 364afe57f81e08abfd7f6281a7eca6cb1d0c670c0abe36ed535adf59d822c420
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 2f85a4ed4b3c64da1d274fb3b59b6a78cc60e1b5a12c195eeb731bf71d82dc2a
+  tags: 1f6879d3f31f56b2802c17ed6bd1ec91facdb8d554030fea048f5505d98e5e32
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:notations
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-21T03:19:51Z'
+  authority: generated
+  via: create_document
