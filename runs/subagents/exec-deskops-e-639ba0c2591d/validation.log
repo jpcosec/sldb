@@ -1,0 +1,3 @@
+pytest tests/test_rules_language_spec.py: rc 0 (52 passed)
+sldb selfdoc check: sin alertas
+bash tools/check.sh --fast: solo falla identidad (excepcion autorizada f055723d)

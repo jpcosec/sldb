@@ -1,7 +1,17 @@
+Task: task-rules-language-md-la-cabecera-describe-la-semantica-bivaluada-incomplete-retirado
+Title: rules-language.md: la cabecera describe la semántica bivaluada (incomplete retirado)
+Status: active
+Current node: ritual-testing
+Task type: task.docs
+Lifecycle gates:
+- task_hands_to_closeout -> ritual-closeout: open [nonempty(validation)]
+  post-hook evento-para-el-coordinador: sh -c mkdir -p runs/hooks && printf '%s %s %s %s->%s\n' "$(date -u +%FT%TZ)" "$DESKOPS_TASK_ID" "$DESKOPS_TRANSITION" "$DESKOPS_FROM_NODE" "$DESKOPS_TO_NODE" >> runs/hooks/events.log
+  post-hook encola-reap-del-tester: deskops queue add dispatch-reap --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-21T10:43:45Z'
+  at: '2026-11-21T10:34:34Z'
   authority: generated
   via: save_document_payload
 id: task-rules-language-md-la-cabecera-describe-la-semantica-bivaluada-incomplete-retirado
@@ -13,18 +23,14 @@ tags:
 current_node: ritual-testing
 history:
 - task_activates
-references:
-- docs/architecture/rules-language.md
-- 73f9639ca9e821147a6c7c2192eab35b736d1413
+references: []
 depends_on: []
 pills: []
-files:
-- docs/architecture/rules-language.md
+files: []
 task_type: task.docs
 inherits_from: []
 inherit_acceptance_context: false
-atoms:
-- atom-la-cabecera-de-rules-language-md-describe-la-semantica-bivaluada
+atoms: []
 ---
 
 # rules-language.md: la cabecera describe la semántica bivaluada (incomplete retirado)
@@ -64,3 +70,22 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 git grep -n -i 'trivaluad' -- docs/ knowledge/ no devuelve afirmaciones vigentes, y tests/test_rules_language_spec.py pasa.
+
+## Como probar (tester)
+
+Ubica el trabajo del ejecutor:
+
+    git log -1 --format=%H --grep "Task-Id: task-rules-language-md-la-cabecera-describe-la-semantica-bivaluada-incomplete-retirado"   # commit del ejecutor
+    git show --name-only <commit>                           # sus archivos
+
+Los tests a correr son los archivos tests/*.py de ese commit, mas tests/test_<modulo>.py cuando exista para cada modulo de codigo tocado; de a uno, con `TMPDIR=/tmp python -m pytest -q <archivo>`. No corras la suite completa: la corre integrate en el host.
+
+Escribe result-summary.md con el veredicto PASA o FALLA en la primera linea.
+
+## Gates rapidos del desk
+
+Antes del veredicto corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Si termina con rc distinto de 0 el veredicto es FALLA.
