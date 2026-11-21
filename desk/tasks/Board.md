@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-21T07:37:30Z'
+  at: '2026-11-21T09:43:53Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -67,6 +67,7 @@ tasks:
 - desk/tasks/task-clasificar-workbench-demo-en-contracts-identity-toml-producto-autoaplicacion-o-ajeno-la-puerta-ident.md
 - desk/tasks/task-el-merge-driver-de-sldb-se-instala-solo-en-un-clon-que-tiene-las-lineas-de-gitattributes-pero-no-la.md
 - desk/tasks/task-respaldar-562847e2-surface-asistente-tour-y-workbench-demo-con-la-suite-completa-y-sldb-stores-build.md
+- desk/tasks/task-rules-language-md-la-cabecera-describe-la-semantica-bivaluada-incomplete-retirado.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -147,7 +148,7 @@ _Generated from the task references above._
 - sldb.api expone render con roundtrip: renderizar el payload de un modelo a Markdown y validar que vuelve igual antes de escribir [draft] - Una función pública de sldb.api.documents recibe un modelo (registrado, por nombre, o la clase) y un payload, devuelve el Markdown renderizado y el resultado del roundtrip (ok y diferencias), sin escribir nada; graph_ui puede dejar de importar sldb.runtime.validation.
 - store_index.yaml no guarda rutas absolutas de máquina para los modelos que vienen de un paquete (model_ref) [draft] - Para un modelo declarado por model_ref de un paquete importable, store_index.yaml no guarda una ruta absoluta de la máquina (la omite o guarda una relativa a la raíz del proyecto si está dentro de él), y cargar el store en otra máquina funciona igual.
 - La doc del árbol del CLI cubre todos los subcomandos y grupos, y selfdoc check detecta cuando falta alguno [draft] - current-cli-tree.md lista todos los grupos y subcomandos que define el parser de sldb, y selfdoc check falla nombrando cada grupo o subcomando del parser que la doc no menciona (y cada uno que la doc nombra y ya no existe).
-- El tercer valor del lenguaje de predicados (incomplete) se demuestra alcanzable con un test sobre datos reales o se retira [draft] - O hay un test que, con un store real armado en tmp_path, obtiene incomplete de una evaluación pública (where o rules check) y documenta cuándo ocurre; o incomplete se retira del lenguaje, de la API y de la doc sin cambiar los resultados true/false existentes.
+- El tercer valor del lenguaje de predicados (incomplete) se demuestra alcanzable con un test sobre datos reales o se retira [active] - O hay un test que, con un store real armado en tmp_path, obtiene incomplete de una evaluación pública (where o rules check) y documenta cuándo ocurre; o incomplete se retira del lenguaje, de la API y de la doc sin cambiar los resultados true/false existentes.
 - Limpieza de cáscaras vacías de la API y de los residuos de kgdb (graph parser, help_texts_graph, ingest_sldb, python_source_graph) [draft] - Cada uno de esos archivos y cada cáscara vacía de sldb.api queda borrado si nada lo usa, o reducido a lo que se usa, sin cambiar ningún comportamiento observable (CLI, API pública, tests).
 - El conjunto de documentos sucios se persiste en .sldb_cache para que el modo incremental funcione entre corridas (V2) [draft] - El conjunto de documentos sucios se guarda en .sldb_cache (regenerable, sin versionar) y una corrida nueva lo lee, de modo que una actualización incremental en un proceso nuevo procesa solo lo que cambió; si el archivo falta o está corrupto, se vuelve al cálculo completo sin error.
 - SW1: documentación y arranque de surface como la UI de SLDB (README, maqueta histórica, tareas T7-T9 y puerto configurable documentado) [draft] - surface tiene un README que la presenta como la UI de SLDB para cualquier store y describe cómo levantarla; las referencias a la maqueta están corregidas o marcadas como históricas; docs/surface/tasks/README.md dice el estado real de T7, T8 y T9; el puerto de vite es configurable (variable de entorno, con un valor por defecto) y está documentado, sin strictPort.
@@ -168,3 +169,4 @@ _Generated from the task references above._
 - Clasificar workbench_demo en contracts/identity.toml (producto, autoaplicación o ajeno): la puerta identidad de check.sh está en rojo [draft] - JP o el dueño de surface decide qué es workbench_demo: producto (sldb lo distribuye), autoaplicación (sldb usado sobre sí mismo) o ajeno (va en contract foreign, o se mueve fuera de la raíz, por ejemplo bajo surface/), y se clasifica en contracts/identity.toml. Con eso, check.sh --fast vuelve a 0.
 - El merge driver de sldb se instala solo en un clon que tiene las líneas de .gitattributes pero no la config de git [draft] - Cualquier comando de sldb que abra un store dentro de un repo git cuyo .gitattributes tenga líneas merge=sldb, y cuya config no tenga merge.sldb.driver, instala las claves de git (lo mismo que hace --install con la config, sin tocar .gitattributes) y lo dice una vez por stderr. stores check emite un alert stores/merge-driver-missing si no pudo instalarlo.
 - Respaldar 562847e2 (surface: asistente, tour y workbench_demo) con la suite completa y sldb stores build --check, e ignorar .herdr-coordination.md [draft] - Dejar constancia verificada de que main con 562847e2 pasa la suite completa de sldb (pytest -n 4) y sldb stores build --check; corregir lo que falle por ese commit; agregar .herdr-coordination.md al .gitignore de sldb.
+- rules-language.md: la cabecera describe la semántica bivaluada (incomplete retirado) [draft] - La cabecera de docs/architecture/rules-language.md (líneas 3-8) dice 'la semántica bivaluada' en lugar de 'la semántica trivaluada', y agrega una frase que remite a la nota de retiro de incomplete en §3. Además, git grep -n -i 'trivaluad' -- docs/ knowledge/ no devuelve ninguna afirmación vigente; las menciones históricas tienen que decir que es historia.
