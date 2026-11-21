@@ -357,6 +357,7 @@ include:
   - desk/inbox/20261120-115642-unclear-queue-20261120t145228z-integrate-task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo.md
   - desk/inbox/20261120-205449-suggestion-ning-n-comando-de-sldb-repara-un-shard-de-documento-sldb-que-git-dej-en-conflicto.md
   - desk/inbox/20261120-212548-suggestion-sldb-api-load-runtime-documents-omite-en-silencio-los-modelos-que-no-resuelven.md
+  - desk/inbox/20261120-232514-unclear-queue-20261121t022332z-dispatch-reap-task-sldb-notations-validate-valida-una-notaci-n-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -814,6 +815,8 @@ include:
     name: run-deskops-t-35c6f2d4111e
   - path: runs/subagents/exec-deskops-e-8eb91b4956b3/run.md
     name: run-deskops-e-8eb91b4956b3
+  - path: runs/subagents/exec-deskops-e-363cfe992a69/run.md
+    name: run-deskops-e-363cfe992a69
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
