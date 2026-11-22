@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import re
+import re
 from collections import Counter
 from pathlib import Path
 
@@ -20,7 +22,8 @@ def refuse_lossy_overwrite(store_path: Path, root: Path, doc_entry: DocumentEntr
     now carries and the model does not declare (headings or frontmatter keys).
 
     Only what is lost is refused: an undeclared heading that lives inside a field's value and
-    survives in `rendered` (the text about to be written) does not block the write.
+    survives in `rendered` (the text about to be written) does not block the write, and neither
+    does one whose text under it (whitespace-normalized) is present in `rendered`.
 
     Raises:
         SLDBValidationError: Naming the undeclared headings or keys that would be lost.
@@ -29,7 +32,7 @@ def refuse_lossy_overwrite(store_path: Path, root: Path, doc_entry: DocumentEntr
     if current is None:
         return
     report = find_structural_noise(model_type, current, doc_entry.name)
-    lost = _lost_headings(report.undeclared, rendered)
+    lost = _without_kept_content(_lost_headings(report.undeclared, rendered), current, rendered)
     if lost:
         _refuse_lost_headings(store_path, model_type, report, lost)
     _refuse_lost_keys(model_type, current, rendered, doc_entry.name)
@@ -45,6 +48,74 @@ def _lost_headings(undeclared: list[str], rendered: str) -> list[str]:
         else:
             lost.append(line)
     return lost
+
+
+_HEADING_LINE = re.compile(r"^(#{1,6})[ \t]+(.+?)[ \t#]*$")
+
+
+def _squash(text: str) -> str:
+    return " ".join(text.split())
+
+
+def _heading_bodies(markdown: str) -> dict[str, list[str]]:
+    """The text under each heading line (up to the next heading), whitespace-normalized."""
+    bodies: dict[str, list[str]] = {}
+    key, buf, fenced = None, [], False
+    for line in markdown.splitlines():
+        if line.lstrip().startswith(("```", "~~~")):
+            fenced = not fenced
+        match = None if fenced else _HEADING_LINE.match(line)
+        if match:
+            if key is not None:
+                bodies.setdefault(key, []).append(_squash(" ".join(buf)))
+            key, buf = format_heading(len(match.group(1)), match.group(2).strip()), []
+        elif key is not None:
+            buf.append(line)
+    if key is not None:
+        bodies.setdefault(key, []).append(_squash(" ".join(buf)))
+    return bodies
+
+
+def _without_kept_content(lost: list[str], current: str, rendered: str) -> list[str]:
+    """Drop the lost headings whose text is still present in `rendered` (in a field or as a paragraph)."""
+    if not lost:
+        return lost
+    bodies, target = _heading_bodies(current), _squash(rendered)
+    return [line for line in lost if not all(body in target for body in bodies.get(line, [""]))]
+
+
+_HEADING_LINE = re.compile(r"^(#{1,6})[ \t]+(.+?)[ \t#]*$")
+
+
+def _squash(text: str) -> str:
+    return " ".join(text.split())
+
+
+def _heading_bodies(markdown: str) -> dict[str, list[str]]:
+    """The text under each heading line (up to the next heading), whitespace-normalized."""
+    bodies: dict[str, list[str]] = {}
+    key, buf, fenced = None, [], False
+    for line in markdown.splitlines():
+        if line.lstrip().startswith(("```", "~~~")):
+            fenced = not fenced
+        match = None if fenced else _HEADING_LINE.match(line)
+        if match:
+            if key is not None:
+                bodies.setdefault(key, []).append(_squash(" ".join(buf)))
+            key, buf = format_heading(len(match.group(1)), match.group(2).strip()), []
+        elif key is not None:
+            buf.append(line)
+    if key is not None:
+        bodies.setdefault(key, []).append(_squash(" ".join(buf)))
+    return bodies
+
+
+def _without_kept_content(lost: list[str], current: str, rendered: str) -> list[str]:
+    """Drop the lost headings whose text is still present in `rendered` (in a field or as a paragraph)."""
+    if not lost:
+        return lost
+    bodies, target = _heading_bodies(current), _squash(rendered)
+    return [line for line in lost if not all(body in target for body in bodies.get(line, [""]))]
 
 
 def _refuse_lost_headings(store_path: Path, model_type: type, report: StructuralNoiseReport, lost: list[str]) -> None:
