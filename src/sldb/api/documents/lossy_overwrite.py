@@ -2,13 +2,11 @@
 
 from __future__ import annotations
 
-import re
-import re
 from collections import Counter
 from pathlib import Path
 
 from sldb.api.documents.frontmatter_keys import _frontmatter_keys, undeclared_frontmatter_keys
-from sldb.api.documents.heading_scan import format_heading, scan_headings
+from sldb.api.documents.heading_scan import format_heading, scan_heading_bodies, scan_headings
 from sldb.api.documents.structural_noise import find_structural_noise
 from sldb.api.documents.structural_noise_report import StructuralNoiseReport
 from sldb.api.stores.policy import Policy, Subject
@@ -50,72 +48,25 @@ def _lost_headings(undeclared: list[str], rendered: str) -> list[str]:
     return lost
 
 
-_HEADING_LINE = re.compile(r"^(#{1,6})[ \t]+(.+?)[ \t#]*$")
-
-
 def _squash(text: str) -> str:
     return " ".join(text.split())
 
 
-def _heading_bodies(markdown: str) -> dict[str, list[str]]:
-    """The text under each heading line (up to the next heading), whitespace-normalized."""
-    bodies: dict[str, list[str]] = {}
-    key, buf, fenced = None, [], False
-    for line in markdown.splitlines():
-        if line.lstrip().startswith(("```", "~~~")):
-            fenced = not fenced
-        match = None if fenced else _HEADING_LINE.match(line)
-        if match:
-            if key is not None:
-                bodies.setdefault(key, []).append(_squash(" ".join(buf)))
-            key, buf = format_heading(len(match.group(1)), match.group(2).strip()), []
-        elif key is not None:
-            buf.append(line)
-    if key is not None:
-        bodies.setdefault(key, []).append(_squash(" ".join(buf)))
-    return bodies
-
-
 def _without_kept_content(lost: list[str], current: str, rendered: str) -> list[str]:
-    """Drop the lost headings whose text is still present in `rendered` (in a field or as a paragraph)."""
+    """Drop the lost headings whose text is still present in `rendered` (in a field or as a paragraph).
+
+    Fails closed: a heading whose body could not be computed is never counted as kept.
+    """
     if not lost:
         return lost
-    bodies, target = _heading_bodies(current), _squash(rendered)
-    return [line for line in lost if not all(body in target for body in bodies.get(line, [""]))]
+    bodies, target = scan_heading_bodies(current), _squash(rendered)
+    return [line for line in lost if not _body_kept(bodies.get(line), target)]
 
 
-_HEADING_LINE = re.compile(r"^(#{1,6})[ \t]+(.+?)[ \t#]*$")
-
-
-def _squash(text: str) -> str:
-    return " ".join(text.split())
-
-
-def _heading_bodies(markdown: str) -> dict[str, list[str]]:
-    """The text under each heading line (up to the next heading), whitespace-normalized."""
-    bodies: dict[str, list[str]] = {}
-    key, buf, fenced = None, [], False
-    for line in markdown.splitlines():
-        if line.lstrip().startswith(("```", "~~~")):
-            fenced = not fenced
-        match = None if fenced else _HEADING_LINE.match(line)
-        if match:
-            if key is not None:
-                bodies.setdefault(key, []).append(_squash(" ".join(buf)))
-            key, buf = format_heading(len(match.group(1)), match.group(2).strip()), []
-        elif key is not None:
-            buf.append(line)
-    if key is not None:
-        bodies.setdefault(key, []).append(_squash(" ".join(buf)))
-    return bodies
-
-
-def _without_kept_content(lost: list[str], current: str, rendered: str) -> list[str]:
-    """Drop the lost headings whose text is still present in `rendered` (in a field or as a paragraph)."""
-    if not lost:
-        return lost
-    bodies, target = _heading_bodies(current), _squash(rendered)
-    return [line for line in lost if not all(body in target for body in bodies.get(line, [""]))]
+def _body_kept(found: list[str] | None, target: str) -> bool:
+    if not found:
+        return False
+    return all(_squash(body) in target for body in found)
 
 
 def _refuse_lost_headings(store_path: Path, model_type: type, report: StructuralNoiseReport, lost: list[str]) -> None:
@@ -126,6 +77,7 @@ def _refuse_lost_headings(store_path: Path, model_type: type, report: Structural
     subject = Subject(authority=authority, declared=declared, narrative=lost_report.narrative)
     if Policy.of_store(store_path).response("structural-noise", lost_report.model, subject) not in ("allow", "ignore"):
         raise SLDBValidationError(lost_report.message(), lost_report.details())
+
 
 def _refuse_lost_keys(model_type: type, current: str, rendered: str, name: str) -> None:
     keys = [k for k in undeclared_frontmatter_keys(model_type, current) if k not in _frontmatter_keys(rendered, load_yaml=True)]

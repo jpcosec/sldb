@@ -26,3 +26,23 @@ def test_an_undeclared_heading_whose_text_is_lost_still_blocks_the_write(api_sto
     _with_extra(api_store, "something only the heading carries")
     with pytest.raises(SLDBValidationError, match="Extra"):
         api.save_document_payload(api_store.store, "TicketDoc", "login", {**PAYLOAD, "title": "Lost"}, api_store.pythonpath)
+
+
+def _append(api_store, block: str):
+    path = api_store.root / "login.md"
+    path.write_text(path.read_text(encoding="utf-8") + block, encoding="utf-8")
+
+
+@pytest.mark.parametrize("block", ["\nSetext Extra\n------------\n\n{}\n", "\n---\n\n   ## Indented Extra\n\n{}\n"])
+def test_setext_and_indented_headings_whose_text_is_lost_block_the_write(api_store, block):
+    _append(api_store, block.format("content only here"))
+    with pytest.raises(SLDBValidationError, match="Extra"):
+        api.save_document_payload(api_store.store, "TicketDoc", "login", {**PAYLOAD, "title": "Lost"}, api_store.pythonpath)
+
+
+@pytest.mark.parametrize("block", ["\nSetext Extra\n------------\n\n{}\n", "\n---\n\n   ## Indented Extra\n\n{}\n"])
+def test_setext_and_indented_headings_whose_text_survives_do_not_block_the_write(api_store, block):
+    _append(api_store, block.format("auth"))
+    api.save_document_payload(api_store.store, "TicketDoc", "login", {**PAYLOAD, "title": "Kept"}, api_store.pythonpath)
+    text = (api_store.root / "login.md").read_text(encoding="utf-8")
+    assert "# Kept" in text and "Extra" not in text and "- auth" in text

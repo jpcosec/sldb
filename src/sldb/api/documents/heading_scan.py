@@ -28,6 +28,25 @@ def scan_headings(markdown: str) -> list[tuple[int, str]]:
     return [pair for pair in found if pair is not None]
 
 
+def scan_heading_bodies(markdown: str) -> dict[str, list[str]]:
+    """The raw text under each heading (up to the next heading), keyed by its `format_heading` line.
+
+    Read from the same AST as `scan_headings`, so ATX, setext and indented headings all
+    get their real body. A heading repeated in the document appends one body per occurrence.
+    """
+    lines = markdown.splitlines()
+    heads = []
+    for node in AST_Handler().split_nodes(markdown):
+        pair = _heading_of(node)
+        if pair is not None and node.map:
+            heads.append((format_heading(*pair), node.map[0], node.map[1]))
+    bodies: dict[str, list[str]] = {}
+    for i, (key, _start, end) in enumerate(heads):
+        stop = heads[i + 1][1] if i + 1 < len(heads) else len(lines)
+        bodies.setdefault(key, []).append("\n".join(lines[end:stop]))
+    return bodies
+
+
 def _heading_of(node) -> tuple[int, str] | None:
     """The `(level, title)` of a heading node, or None when it is not a heading."""
     if not _HEADING_TAG.fullmatch(node.tag or ""):
