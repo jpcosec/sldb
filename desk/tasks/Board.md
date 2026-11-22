@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-22T12:16:02Z'
+  at: '2026-11-22T13:21:19Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -64,7 +64,6 @@ tasks:
 - desk/tasks/task-el-merge-driver-de-sldb-se-instala-solo-en-un-clon-que-tiene-las-lineas-de-gitattributes-pero-no-la.md
 - desk/tasks/task-respaldar-562847e2-surface-asistente-tour-y-workbench-demo-con-la-suite-completa-y-sldb-stores-build.md
 - desk/tasks/task-el-guard-de-sobrescritura-con-perdida-acepta-quitar-un-encabezado-no-declarado-si-su-contenido-queda.md
-- desk/tasks/task-heading-scan-scan-heading-bodies-baja-a-10-lineas-de-logica-regla-de-codigo-limpio.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -163,4 +162,3 @@ _Generated from the task references above._
 - El merge driver de sldb se instala solo en un clon que tiene las líneas de .gitattributes pero no la config de git [draft] - Cualquier comando de sldb que abra un store dentro de un repo git cuyo .gitattributes tenga líneas merge=sldb, y cuya config no tenga merge.sldb.driver, instala las claves de git (lo mismo que hace --install con la config, sin tocar .gitattributes) y lo dice una vez por stderr. stores check emite un alert stores/merge-driver-missing si no pudo instalarlo.
 - Respaldar 562847e2 (surface: asistente, tour y workbench_demo) con la suite completa y sldb stores build --check, e ignorar .herdr-coordination.md [draft] - Dejar constancia verificada de que main con 562847e2 pasa la suite completa de sldb (pytest -n 4) y sldb stores build --check; corregir lo que falle por ese commit; agregar .herdr-coordination.md al .gitignore de sldb.
 - El guard de sobrescritura con pérdida acepta quitar un encabezado no declarado si su contenido queda en un campo del texto nuevo [active] - refuse_lossy_overwrite no rechaza la escritura cuando cada encabezado no declarado que se pierde tiene su contenido (el texto bajo el encabezado, normalizado en espacios) presente en el texto renderizado nuevo: en el valor de algún campo o como párrafo. Sigue rechazando si se pierde contenido. Un test cubre los dos casos, y la limpieza de ruido estructural de un documento con un '## Tags' cuyo contenido ya está en el campo tags pasa por 'sldb fields set' o 'deskops edit atom'.
-- heading_scan: scan_heading_bodies baja a 10 líneas de lógica (regla de código limpio) [draft] - src/sldb/api/documents/heading_scan.py cumple tests/test_clean_code_rules.py: scan_heading_bodies queda en 10 líneas de lógica o menos, partiéndola en una auxiliar privada del mismo archivo, sin cambiar el comportamiento.

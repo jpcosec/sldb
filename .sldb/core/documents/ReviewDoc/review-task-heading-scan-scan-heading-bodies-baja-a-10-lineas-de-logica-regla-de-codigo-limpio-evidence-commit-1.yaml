@@ -1,0 +1,37 @@
+name: review-task-heading-scan-scan-heading-bodies-baja-a-10-lineas-de-logica-regla-de-codigo-limpio-evidence-commit-1
+path: desk/reviews/task-heading-scan-scan-heading-bodies-baja-a-10-lineas-de-logica-regla-de-codigo-limpio/evidence-commit-1.md
+source_hash: c136ee49ef956242636a37636ae90aa075a5a59d1a513a0a48b33b9fb8379760
+content_hash: 2ad1c52c042b6a1ba8e677c0a29060b6741ebfed0b3794d019d86f4269b7843a
+field_hashes:
+  id: ca4b18090b82f4a0ad1c34f4a05aee4a85418bb6dd9b2e7d36dd0958373b9b0b
+  title: f0956c1bde21e91f6a520638b3ab10da97b2c62dc25cd581392bd3e05316adc1
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: 5ea9c58673a69c87d0e5540a6f9978aad8f8e0a0b9ce3471cff139c730d97888
+  value: f2d3751f9eb7c79dc6d900e7dee57fa69d3eddb7a44c742f033ccc8423c71078
+  subject: 0f0035262f79cd5c324ca6d76859958f3e1a2db485614fcb7d9154af2e52e74e
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 95c7f94022b690900adae16b56a8a26443d1b88242626575d7983914ab118969
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: f5c36147ea46a8c7f99eb7d5c85f38253ffd389b77b09ed59c5fae05c59fad18
+  created_at: ab21db8e931b4447fc11d0850899d0d947b8172a8e0b6ec628b326215a47d6f5
+  disposed_at: ab21db8e931b4447fc11d0850899d0d947b8172a8e0b6ec628b326215a47d6f5
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 986eacf9bfc9244413e998893e06cda2d9a85509f737e2bde638f9522c2fb8f4
+  disposition: 019737a5c3671ba00a2fdd1a561b9ba4f4e079dffd5c9cbf605d51e66b12732c
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-22T13:18:44Z'
+  authority: generated
+  via: create_document

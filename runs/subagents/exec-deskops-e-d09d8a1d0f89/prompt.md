@@ -1,30 +1,35 @@
+Task: task-heading-scan-scan-heading-bodies-baja-a-10-lineas-de-logica-regla-de-codigo-limpio
+Title: heading_scan: scan_heading_bodies baja a 10 líneas de lógica (regla de código limpio)
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-22T13:17:29Z'
+  at: '2026-11-22T12:15:35Z'
   authority: generated
-  via: save_document_payload
+  via: create_document
 id: task-heading-scan-scan-heading-bodies-baja-a-10-lineas-de-logica-regla-de-codigo-limpio
-status: active
+status: draft
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-testing
-history:
-- task_activates
-references:
-- src/sldb/api/documents/heading_scan.py
-- 8d69e3a1f8caefa9174ad76b0358b50faf36715d
+current_node: ritual-execution
+history: []
+references: []
 depends_on: []
 pills: []
-files:
-- src/sldb/api/documents/heading_scan.py
+files: []
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms:
-- atom-scan-heading-bodies-cumple-la-regla-de-codigo-limpio
+atoms: []
 ---
 
 # heading_scan: scan_heading_bodies baja a 10 líneas de lógica (regla de código limpio)
@@ -64,3 +69,28 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 Los tres archivos de tests pasan.
+
+## Entrega del ejecutor
+
+Al terminar, commitea solo los archivos que cambiaste para la tarea, nombrados uno por uno (los mismos que listas en result-summary.md):
+
+    git add <ruta> <ruta> ...
+    git commit -m "<resumen>" -m "Task-Id: task-heading-scan-scan-heading-bodies-baja-a-10-lineas-de-logica-regla-de-codigo-limpio"
+
+Nunca uses `git add -A`, `git add -u` sobre todo el arbol ni `git stash`: puede haber trabajo ajeno sin commitear. No hagas push. Recien despues ejecuta `deskops advance task`.
+
+## Gates rapidos del desk
+
+Antes del commit corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Debe terminar con rc 0 antes de commitear; si falla, corrige y repite. Anota el comando y su rc en validation.log.
+
+## Tu worktree
+
+Tu codigo vive en un worktree propio, en la rama `deskops/deskops-e-d09d8a1d0f89`:
+
+    /mnt/ssd/proyectos/SLDB_1/sldb/.worktrees/deskops-e-d09d8a1d0f89
+
+Haz `cd` ahi: edita, corre los tests y commitea ahi (git add / git commit), no en el checkout principal /mnt/ssd/proyectos/SLDB_1/sldb. Las operaciones de desk (`deskops ... --root /mnt/ssd/proyectos/SLDB_1/sldb`, evidencia en runs/subagents/..., `deskops advance task`) siguen usando el checkout principal. Al terminar, reap trae tus commits a la rama principal y borra el worktree.
