@@ -1,25 +1,30 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-22T12:15:35Z'
+  at: '2026-11-22T13:17:29Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-heading-scan-scan-heading-bodies-baja-a-10-lineas-de-logica-regla-de-codigo-limpio
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-testing
+history:
+- task_activates
+references:
+- src/sldb/api/documents/heading_scan.py
+- 8d69e3a1f8caefa9174ad76b0358b50faf36715d
 depends_on: []
 pills: []
-files: []
+files:
+- src/sldb/api/documents/heading_scan.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-scan-heading-bodies-cumple-la-regla-de-codigo-limpio
 ---
 
 # heading_scan: scan_heading_bodies baja a 10 líneas de lógica (regla de código limpio)
