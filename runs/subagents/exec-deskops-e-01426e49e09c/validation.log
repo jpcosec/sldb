@@ -1,0 +1,3 @@
+TMPDIR=/tmp python -m pytest -q -p no:cacheprovider -n 4 tests/api -> rc 0 (645 passed, 32 skipped)
+new test fails on old guard (1 failed) and passes with fix
+bash tools/check.sh --fast -> rc 1: only 'identidad' red (workbench_demo), authorized exception f055723d

@@ -1,0 +1,2 @@
+pytest -n 4 tests/api tests/test_extraction_segments.py: rc 0 (655 passed, 32 skipped)
+bash tools/check.sh --fast: rc 1, solo falla 'identidad' por workbench_demo (excepcion autorizada f055723d)
