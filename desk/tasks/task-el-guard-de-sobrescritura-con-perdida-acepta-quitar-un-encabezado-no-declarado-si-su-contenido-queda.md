@@ -1,17 +1,51 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-22T11:14:03Z'
+  at: '2026-11-22T11:53:39Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-el-guard-de-sobrescritura-con-perdida-acepta-quitar-un-encabezado-no-declarado-si-su-contenido-queda
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
 current_node: ritual-execution
-history: []
+history:
+- task_activates
+- 'task_returns_to_execution: Tester deskops-t-3fca8df15867 FALLA. La roja de ''identidad''
+  por workbench_demo es la excepción autorizada y el tester tampoco la usó como motivo.
+  El bloqueante es real.
+
+
+  _heading_bodies reconoce solo encabezados ATX en la columna 0 (_HEADING_LINE = ^(#{1,6})...).
+  En cambio scan_headings, que alimenta report.undeclared, usa el AST de Markdown
+  y también ve encabezados setext e indentados. Para esos, bodies.get(line, [""])
+  cae en el default [""], y all(body in target ...) con "" siempre da verdadero: el
+  guard los toma por conservados y deja perder su cuerpo.
+
+
+  Reproducción del tester con TicketDoc: ''## Tags'' declarado, más un encabezado
+  setext h2 no declarado (''Lost Section'' subrayado con guiones) con ''content only
+  here'' debajo. save_document_payload con title, status y tags guarda sin error y
+  el contenido se pierde.
+
+
+  Intento 2:
+
+  1. Que los cuerpos salgan del mismo escaneo que scan_headings: el AST, con sus rangos
+  de líneas. Así cada encabezado que reporta como no declarado tiene su cuerpo real,
+  sea ATX, setext o indentado.
+
+  2. Un encabezado perdido sin cuerpo encontrado no puede contar como conservado.
+  Si no se pudo calcular su cuerpo, se rechaza (falla cerrado).
+
+  3. Agregar los tests de setext e indentado (rechazo cuando el cuerpo se pierde,
+  aceptación cuando sobrevive), además de los dos que ya hay.
+
+  4. Correr tests/api completo con -n 4 y tests/test_extraction_segments.py.
+
+  5. Commit desde tu worktree con ''git commit -- <rutas>'' y el trailer Task-Id.'
 references: []
 depends_on: []
 pills: []
