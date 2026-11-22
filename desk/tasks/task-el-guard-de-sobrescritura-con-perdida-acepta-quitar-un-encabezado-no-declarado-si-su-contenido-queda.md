@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-22T12:05:17Z'
+  at: '2026-11-22T13:57:03Z'
   authority: generated
   via: save_document_payload
 id: task-el-guard-de-sobrescritura-con-perdida-acepta-quitar-un-encabezado-no-declarado-si-su-contenido-queda
@@ -47,14 +47,24 @@ history:
 
   5. Commit desde tu worktree con ''git commit -- <rutas>'' y el trailer Task-Id.'
 - task_activates
-references: []
+references:
+- src/sldb/api/documents/heading_scan.py
+- src/sldb/api/documents/lossy_overwrite.py
+- tests/api/test_lossy_overwrite_content.py
+- 074bc3bc9754d1b2407ebcd4e27abee477964b34
+- 291910691e0904df644b876c836f1104f749bb13
 depends_on: []
 pills: []
-files: []
+files:
+- CHANGELOG.md
+- src/sldb/api/documents/heading_scan.py
+- src/sldb/api/documents/lossy_overwrite.py
+- tests/api/test_lossy_overwrite_content.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-el-guard-de-sobrescritura-con-perdida-acepta-quitar-un-encabezado-no-declarado-si-su-contenido-queda
 ---
 
 # El guard de sobrescritura con pérdida acepta quitar un encabezado no declarado si su contenido queda en un campo del texto nuevo

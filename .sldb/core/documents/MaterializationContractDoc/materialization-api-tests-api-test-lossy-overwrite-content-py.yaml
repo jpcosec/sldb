@@ -1,0 +1,25 @@
+name: materialization-api-tests-api-test-lossy-overwrite-content-py
+path: desk/materializations/materialization-api-tests-api-test-lossy-overwrite-content-py.md
+source_hash: 708206a14f13f1ea1a65df221eb970d9c681293cc7557bf89208aae94864bd25
+content_hash: 5193e496c6f14a8a428753bce8b3406b02d6a69cfd887f163e33ad1101585d01
+field_hashes:
+  id: b76bf42b3483498beb1c5bf74d3e44d5fc0036ade9479a5aa96f1d284470b599
+  title: 545a8daff7e2051143af994e6f5439186487d39b6fed010a8c474379e2aa1abf
+  source_atoms: d7d53066b3479da32a44c4eab69018f3b993e8a1b9909e5169aa7537bc68f2ba
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 387e21a781af19a59efe808715f41fe352e32df4b9139afeb24d46af31084f9a
+  intent: 84f7d0693bad128e11abdbe3fac4789b3c5a4a308c7fa58c799d2155b0e8379d
+  validation: e620db28ceee7d769ff559eb40249ebd191e06040e5b57b09a05135b0195a851
+  tags: 9ed245d89a5461418c0f9edae2610fe45da71c47626c7c760f3c8ae535e6bc7a
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:api
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-22T13:58:04Z'
+  authority: generated
+  via: create_document

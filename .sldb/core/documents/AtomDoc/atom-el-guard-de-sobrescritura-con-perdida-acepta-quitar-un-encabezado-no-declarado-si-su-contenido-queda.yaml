@@ -1,0 +1,22 @@
+name: atom-el-guard-de-sobrescritura-con-perdida-acepta-quitar-un-encabezado-no-declarado-si-su-contenido-queda
+path: desk/atoms/atom-el-guard-de-sobrescritura-con-perdida-acepta-quitar-un-encabezado-no-declarado-si-su-contenido-queda.md
+source_hash: b10791e096d68985237e5a860aadef7bd8ff17d247547f6f5e17a864b9b4d082
+content_hash: 6fb299bcdbbda91117e71ef1cc77e3a5e672c8d5c66464cc2efb39232a8053f0
+field_hashes:
+  id: 53c8f15638214ca3f52d9260c6dc9b25f099f3eec5b0f33319beed9b81a36df1
+  title: e8369f153c63fdd17eeb095181867b230133368be8d870342f2452d883943e76
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 88b4b30f6ce38f5de359e5061ea4fab375a87c35c46d3c04f41463ef547a9391
+  tags: 9ed245d89a5461418c0f9edae2610fe45da71c47626c7c760f3c8ae535e6bc7a
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:api
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-22T13:55:34Z'
+  authority: generated
+  via: create_document
