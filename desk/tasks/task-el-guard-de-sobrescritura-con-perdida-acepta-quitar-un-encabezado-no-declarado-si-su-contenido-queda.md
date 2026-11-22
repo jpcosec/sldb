@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-22T11:53:39Z'
+  at: '2026-11-22T12:05:17Z'
   authority: generated
   via: save_document_payload
 id: task-el-guard-de-sobrescritura-con-perdida-acepta-quitar-un-encabezado-no-declarado-si-su-contenido-queda
@@ -10,7 +10,7 @@ summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
+current_node: ritual-testing
 history:
 - task_activates
 - 'task_returns_to_execution: Tester deskops-t-3fca8df15867 FALLA. La roja de ''identidad''
@@ -46,6 +46,7 @@ history:
   4. Correr tests/api completo con -n 4 y tests/test_extraction_segments.py.
 
   5. Commit desde tu worktree con ''git commit -- <rutas>'' y el trailer Task-Id.'
+- task_activates
 references: []
 depends_on: []
 pills: []
