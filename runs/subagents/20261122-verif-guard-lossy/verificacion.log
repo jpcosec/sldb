@@ -1,0 +1,6 @@
+### Verificación del coordinador sobre 074bc3bc, 2026-11-22: el reap perdió el commit del intento 2 y el tester a2 probó main sin él
+== tests/api/test_lossy_overwrite_content.py 6 passed, 1 warning in 0.34s
+== tests/test_extraction_segments.py 6 passed, 1 warning in 0.61s
+== tests/test_clean_code_rules.py 1 failed, 1234 passed, 2 warnings in 2.64s
+== tests/api -n 4: 649 passed, 32 skipped, 5 warnings in 96.85s (0:01:36)
+== reproducción setext del tester: ver tests setext/indentado en test_lossy_overwrite_content.py
