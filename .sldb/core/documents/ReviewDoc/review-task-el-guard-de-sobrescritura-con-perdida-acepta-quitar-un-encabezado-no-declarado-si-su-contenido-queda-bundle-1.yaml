@@ -1,0 +1,37 @@
+name: review-task-el-guard-de-sobrescritura-con-perdida-acepta-quitar-un-encabezado-no-declarado-si-su-contenido-queda-bundle-1
+path: desk/reviews/task-el-guard-de-sobrescritura-con-perdida-acepta-quitar-un-encabezado-no-declarado-si-su-contenido-queda/bundle-1.md
+source_hash: 4f01b7ba82be8d9ca3051d29b8730ff2b9ffbbb4089676bebea36c8c1171e144
+content_hash: 728d1f9e41e5eaefe66f97733533b7c1e028f25e9c9d46632dc8cb70ad2becaa
+field_hashes:
+  id: b558e110a8c0989adca6b4727676516c3aea2fecaae9f3d872b7e02e8ede739f
+  title: d8e48f6cad1e0da006e7b1280d8cebf1ce5421cadea3f6d7ba42b91ec748034d
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: eab973641a85d52a427ce93ead0a537c0d173b0941419a1dc740e078dbf682cd
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 2b183820c7f2567b65ee5ee79527f618dea43ae993644f9f97b98de80e705edc
+  input_sha256: 97ea4d7c40ce16a2c65473576543998d12ca384ff1bb4aeb4cb9aac01d04693b
+  contract_sha256: 97df5368ef7122de6cad1c314ba420721b2a4a0fad5e56db318ec9a33f5ecc91
+  output_sha256: c1a0246547c7e7720c2d78fa7e98fa92518448805f9b7d887700c668f8380f4d
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 2e75d4aabb658537a82b6727915091bed4aabb45a8cb48d3a283d53adb89e269
+  created_at: cbea323dc2d46ce98aa54e4321e03c3b61e015dd1fb43dc4acad859145cf720e
+  disposed_at: eb40c46d74a2fbc78c4e6c8091726f741db186ee354c83c4658f4ecceb0f7ce5
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: cd2c9d3cf9bb826bbd16499879446e1e5d0debaafddf54622ca6a59e7d8e9fb5
+  disposition: cdc4a90796e10154fc4309c8f84c36638aeb3ffda87e8243a14aa6c79a8d4207
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-22T11:17:51Z'
+  authority: generated
+  via: save_document_payload
