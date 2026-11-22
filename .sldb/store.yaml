@@ -370,6 +370,10 @@ include:
   - desk/inbox/20261121-032515-suggestion-trabajo-de-surface-562847e2-entr-a-main-sin-tarea-ni-suite-completa-gitattributes-y-herdr-coordination-md.md
   - desk/inbox/20261121-053226-unclear-queue-20261121t083005z-dispatch-reap-task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato.md
   - desk/inbox/20261121-125951-unclear-queue-20261121t155138z-integrate-task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato.md
+  - desk/inbox/20261122-185316-suggestion-selfdoc-python-scan-m-dulos-sin-s-mbolos-imports-anidados-reexportes-y-repos-hermanos.md
+  - desk/inbox/20261122-185348-unclear-docs-update-y-models-add-con-un-store-enlazado-roto-reescriben-lo-de-deskops.md
+  - desk/inbox/20261122-185413-suggestion-referencias-declaradas-a-rutas-de-c-digo-y-tipo-de-relaci-n.md
+  - desk/inbox/20261122-185439-suggestion-stores-check-filtrado-por-modelo-y-docs-update-parcial.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc

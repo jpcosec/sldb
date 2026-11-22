@@ -1,0 +1,19 @@
+name: 20261122-185348-unclear-docs-update-y-models-add-con-un-store-enlazado-roto-reescriben-lo-de-deskops
+path: desk/inbox/20261122-185348-unclear-docs-update-y-models-add-con-un-store-enlazado-roto-reescriben-lo-de-deskops.md
+source_hash: bb8e6f1eac8134a5668dcd59b317912616f79ba8481a5fad9fa3d6f82905f9bc
+content_hash: cbfb24136ed2880359466b22456e71bd4d622a5b9ecbf4ea2fcd67aca436f588
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: 3de70cf70279bf4007e59f692f29fcc3ecc50b263bdbbd26b8ff821d5f9c0aad
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 352e5fe922d85aadb152050bd863df6fdfe011fbf30f1110e96b23f172e0691b
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: 86d22769b6ff1e381eac8c83fbedf32c1141f44d9f8c481fe375b22b0411952c
+  body: ce376879e3c9e824440f3b1b792105a83ec5cbeadfddd72b79be55e33fb38bb9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

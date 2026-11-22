@@ -1,0 +1,19 @@
+name: 20261122-185316-suggestion-selfdoc-python-scan-m-dulos-sin-s-mbolos-imports-anidados-reexportes-y-repos-hermanos
+path: desk/inbox/20261122-185316-suggestion-selfdoc-python-scan-m-dulos-sin-s-mbolos-imports-anidados-reexportes-y-repos-hermanos.md
+source_hash: d642ef9b363714be178dbbfe3556009ad54cd5a1ffd5d5dd44ba6d7e949007d4
+content_hash: a2283a2d079dc1d7a9f634adab79a44e14d5588b48222b9b03749dd65622aaac
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: 3de70cf70279bf4007e59f692f29fcc3ecc50b263bdbbd26b8ff821d5f9c0aad
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 3790ab0ae99d4ce9f0bcfe486c1f78dfa70a615ad1d43a656d86d68114199270
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: b58d042d5275f76753b28a3824e3de082b32aca1c28f0d7087eab454a37d1f9c
+  body: 04ae82e0e46f9169429ad1ed5e8bb245b9ec15fe47654a12f6151072262d5796
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

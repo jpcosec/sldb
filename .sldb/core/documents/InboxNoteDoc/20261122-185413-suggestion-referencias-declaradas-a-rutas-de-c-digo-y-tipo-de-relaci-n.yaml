@@ -1,0 +1,19 @@
+name: 20261122-185413-suggestion-referencias-declaradas-a-rutas-de-c-digo-y-tipo-de-relaci-n
+path: desk/inbox/20261122-185413-suggestion-referencias-declaradas-a-rutas-de-c-digo-y-tipo-de-relaci-n.md
+source_hash: 9f89f50413defce9196fc80ce8d1f05bf6441f88fc25cd616c7e162a970c6c0f
+content_hash: 9b105dcc25f3f4322236b97628d56cd7f624f58d103c4109e9aa60fd312ec67b
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: 3de70cf70279bf4007e59f692f29fcc3ecc50b263bdbbd26b8ff821d5f9c0aad
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: cfdf0a84a0fa70794180ccaff7797aea754e6733cb1eb28fe56f7aca2606a0cf
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: 199faaabbdc823531bfc31d93cb758b3e4534d6c7ed301c579fbd03562d59069
+  body: a00f5e2dd32859a6c259d2dd2d7936928ef886f19a535edf078fd50147482f1a
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null
