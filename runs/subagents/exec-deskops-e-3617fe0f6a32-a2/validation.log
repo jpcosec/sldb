@@ -1,0 +1,28 @@
+$ pytest -q -p no:cacheprovider tests/matching/
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+33 passed, 1 warning in 4.90s
+rc=0
+$ pytest -q -p no:cacheprovider tests/api/test_api_edges.py
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+17 passed, 1 warning in 25.94s
+rc=0
+$ pytest -q -p no:cacheprovider tests/store/test_live_stale_security.py
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+8 passed, 1 warning in 7.49s
+rc=0
+$ bash tools/check.sh --fast
+
+[1m── superficie ──[0m
+  aviso  ninguno de los 3 consumidores está en /mnt/ssd/proyectos/SLDB_1/sldb/.worktrees
+  aviso  la superficie no se comprueba en esta corrida
+PASS: superficie — omitida por falta de consumidores
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[31mFALLAN: identidad[0m
+rc=
+(intento 2) pytest tests/matching/ -> 33 passed, rc=0 (tras el arreglo del test)
+mutación: 'if key not in self._index' -> 'if True' => el test contador FALLA; restaurado => pasa
+tools/check.sh --fast: rc 1 por 'identidad' (workbench_demo sin clasificar), preexistente y ajeno (ver intento 1)

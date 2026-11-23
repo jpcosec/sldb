@@ -1,0 +1,13 @@
+Task: task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg
+Title: matching: attach_atom_edges deja de recomponer live-stale y los mapas del índice federado en cada edges_of (catalog build con átomos en minutos)
+Status: active
+Current node: ritual-testing
+Task type: task.debug
+Effective pills:
+- desk/contexts/pill-pill-una-carga-del-índice-en-attach-atom-edges.md
+Effective atoms:
+- atom-un-escaneo-por-documento-se-cachea-por-lo-que-lo-determina-texto-contrato-y-lector
+Lifecycle gates:
+- task_hands_to_closeout -> ritual-closeout: open [nonempty(validation)]
+  post-hook evento-para-el-coordinador: sh -c mkdir -p runs/hooks && printf '%s %s %s %s->%s\n' "$(date -u +%FT%TZ)" "$DESKOPS_TASK_ID" "$DESKOPS_TRANSITION" "$DESKOPS_FROM_NODE" "$DESKOPS_TO_NODE" >> runs/hooks/events.log
+  post-hook encola-reap-del-tester: deskops queue add dispatch-reap --root .

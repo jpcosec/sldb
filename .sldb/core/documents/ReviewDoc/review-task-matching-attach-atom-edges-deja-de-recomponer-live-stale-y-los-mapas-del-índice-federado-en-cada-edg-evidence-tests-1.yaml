@@ -1,0 +1,37 @@
+name: review-task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg-evidence-tests-1
+path: desk/reviews/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg/evidence-tests-1.md
+source_hash: 4f1517d1fc8815e5eb751df9f90edfe092656dcb6e744562e4b8bc1b5c106254
+content_hash: c96d2974209d4ef75a6940da6fad2a9945e30bdea989a6ea9e4ef615d3fcf6ea
+field_hashes:
+  id: 7d674e5e73455bba02a778078f89afcd6a206bf36cf8c466fffd3a3f19b91e69
+  title: a32634c80fcfd456ba08f07cb33cb2e0c103534699abf3b7324f5d8624cd4360
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: 68f05093bc600659c0aecd265fad80c71a658cc857e91cdfeeee782eb670c200
+  value: f8a67b7dbab06614af73b601e3934b0d6c8413a5e5674d0ab23a1fb7252fb9c7
+  subject: aece3e44655690cc5b0c3fa09fae9c7e68d37e56c34c9f065a1487e284625e98
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 02de232cc2925cc49d719b55085d6309d5826a7b0bd87180ea4b91d98cf3baee
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 9f96667ff0ea7e04179a96f9952aa77101383f76a23a01455cd73d8fa1913ffb
+  created_at: 60be22d809b02314cb2ad86f45f29d0fe03bd0f6bfdb341285a8e1beb4d64b59
+  disposed_at: 60be22d809b02314cb2ad86f45f29d0fe03bd0f6bfdb341285a8e1beb4d64b59
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 57f484567bd2f4b381de7df80fdf719d273c42ed1b16348f86c59ace45ea2cd2
+  disposition: 4a9cac793a285e99260bf045db0caabfcb434bacf9587b3e5adc979db5e200a0
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-23T22:30:02Z'
+  authority: generated
+  via: create_document

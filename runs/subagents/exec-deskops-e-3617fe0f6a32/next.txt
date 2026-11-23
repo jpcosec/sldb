@@ -1,0 +1,34 @@
+Task: task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg
+Title: matching: attach_atom_edges deja de recomponer live-stale y los mapas del índice federado en cada edges_of (catalog build con átomos en minutos)
+Status: active
+Current node: ritual-testing
+Task type: task.debug
+Phase: testing
+Required ritual:
+- desk/rituals/testing.md
+Required pills:
+- desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
+- desk/contexts/pill-keep-sldb-generic-and-move-workflow-behavior-toward-deskops.md
+- desk/contexts/pill-keep-template-markers-reversible-at-the-document-boundary.md
+- desk/contexts/pill-model-registration-must-be-queryable.md
+- desk/contexts/pill-put-a-small-onboarding-surface-before-the-deep-system.md
+- desk/contexts/pill-sldb-cli-errors-must-stay-actionable-and-machine-safe.md
+- desk/contexts/pill-store-health-is-owned-by-sldb.md
+- desk/contexts/pill-stores-init-must-be-idempotent-and-fail-safely.md
+- desk/contexts/pill-keep-the-text-layer-and-the-graph-layer-separate-inside-sldb.md
+- desk/contexts/pill-context-pills-carry-reasoning-not-a-copy-of-code-or-docs.md
+- desk/contexts/pill-pill-una-carga-del-índice-en-attach-atom-edges.md
+Next actions:
+1. Confirm the handoff names the contract, touched files, and pill guardrails.
+2. Add or update relevant tests.
+3. Run the smallest relevant test scope, then broader validation if shared behavior changed.
+Advance when:
+- Relevant tests pass and the testing-to-closeout handoff is explicit.
+Post-hooks:
+- task_hands_to_closeout:
+  - evento-para-el-coordinador: sh -c mkdir -p runs/hooks && printf '%s %s %s %s->%s\n' "$(date -u +%FT%TZ)" "$DESKOPS_TASK_ID" "$DESKOPS_TRANSITION" "$DESKOPS_FROM_NODE" "$DESKOPS_TO_NODE" >> runs/hooks/events.log
+  - encola-reap-del-tester: deskops queue add dispatch-reap --root .
+Sources:
+- task: desk/tasks/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg.md
+- board: desk/tasks/Board.md
+- workflow: deskops/spec/workflows/task_lifecycle.yaml

@@ -1,0 +1,21 @@
+$ pytest -q -p no:cacheprovider tests/matching/
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+33 passed, 1 warning in 3.90s
+rc=0
+$ pytest -q -p no:cacheprovider tests/api/test_api_edges.py
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+17 passed, 1 warning in 22.68s
+rc=0
+$ pytest -q -p no:cacheprovider tests/store/test_live_stale_security.py
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+8 passed, 1 warning in 6.89s
+rc=0
+$ bash tools/check.sh --fast
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[31mFALLAN: identidad[0m
+rc=1
+rc=1 (bash tools/check.sh --fast: FAIL identidad, workbench_demo sin clasificar, preexistente, ajeno a la tarea; el resto PASS)

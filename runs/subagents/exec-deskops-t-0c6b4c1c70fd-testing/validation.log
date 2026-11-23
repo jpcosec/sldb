@@ -1,0 +1,111 @@
+# Validación tester — task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg
+
+Fecha: 2026-11-23
+Entorno: /tmp/ws-venv no existe en este host; se usó /workspace/sldb/.venv (Python 3.13.18, pytest 9.1.1).
+TMPDIR=/tmp y PYTEST_ADDOPTS="--basetemp=/tmp/pytest-deskops-t-0c6b4c1c70fd*" en todas las corridas.
+
+## 1. Localización del trabajo del ejecutor
+
+$ git log -1 --format=%H --grep "Task-Id: task-matching-attach-atom-edges-...-en-cada-edg"
+(vacío: ningún commit lleva ese Task-Id)
+
+$ git log --all --oneline --grep "Task-Id: task-matching-attach" -i
+(vacío)
+
+$ git log --all --oneline --since="2026-11-22" -- src/sldb/api/matching/store_reader.py src/sldb/store/edge_index/composed_reading.py tests/matching/
+(vacío: los archivos de la tarea no se tocaron)
+
+$ git branch -a
+* main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/main
+  remotes/origin/wt/stores-add-as-written
+(no hay rama deskops/... de un ejecutor)
+
+$ git worktree list
+/workspace/sldb  498afcda [main]
+(no hay worktree del ejecutor)
+
+$ git status --porcelain tests/ src/ CHANGELOG.md
+(vacío: no hay cambios sin commitear en el código ni en los tests ni en el CHANGELOG)
+
+$ find runs/subagents -maxdepth 1 -name 'exec-deskops-t-0c6b4c1c70fd*'
+runs/subagents/exec-deskops-t-0c6b4c1c70fd-testing
+(solo existe el run del tester; no hay run de ejecutor ni result-summary.md del ejecutor)
+
+Conclusión: no existe trabajo del ejecutor que verificar.
+
+## 2. Test contador exigido por el contrato
+
+El contrato exige (1) un test en tests/matching/ con monkeypatch de load_edge_index o
+stale_of_facts que falle si load_edge_index se llama más de 2 veces para 10 referencias.
+Ese test NO existe en el árbol:
+
+$ ls tests/matching/
+conftest.py  test_matching_coverage.py  test_matching_explicit.py  test_matching_fuzzy.py  test_matching_refs.py
+
+$ grep -rn "load_edge_index" tests/matching/
+(sin coincidencias)
+
+## 3. Reproducción del contador sobre el código actual (HEAD 498afcda)
+
+Test temporal tests/matching/test_zz_tmp_counter.py (creado y BORRADO tras la corrida; no queda
+en el árbol). Usa la fixture matching_store de tests/matching/conftest.py y monkeypatchea
+sldb.api.edges.edge_reading.load_edge_index con un contador; llama a attach_atom_edges con una
+vista de 10 átomos explícitos en un mismo store.
+
+$ TMPDIR=/tmp .venv/bin/python -m pytest -q -s tests/matching/test_zz_tmp_counter.py
+load_edge_index calls: 20
+FAILED tests/matching/test_zz_tmp_counter.py::test_counter_load_edge_index_for_ten_refs
+E  AssertionError: load_edge_index llamado 20 veces para 10 refs
+E  assert 20 <= 2
+1 failed, 1 warning in 0.43s
+RC=1
+
+El contador da 20 = 2 (edges_from + edges_to) x 10 referencias. La meta era <= 2 por llamada a
+attach_atom_edges. El arreglo del paso (2) (una carga por store en StoreReader) y, si hiciera
+falta, la memoización de with_live_stale del paso (3), no están hechos.
+
+## 4. Tests de Validation de la tarea sobre el estado actual (línea base)
+
+$ TMPDIR=/tmp .venv/bin/python -m pytest -q tests/matching/
+32 passed, 1 warning in 3.53s
+RC=0
+
+$ TMPDIR=/tmp .venv/bin/python -m pytest -q tests/api/test_api_edges.py
+17 passed, 1 warning in 27.29s
+RC=0
+
+$ TMPDIR=/tmp .venv/bin/python -m pytest -q tests/store/test_live_stale_security.py
+8 passed, 1 warning in 7.89s
+RC=0
+
+Pasan en la línea base, pero no verifican el cambio de rendimiento porque el cambio no existe.
+
+## 5. Gate rápido del desk
+
+$ export PATH=/workspace/sldb/.venv/bin:$PATH
+$ bash tools/check.sh --fast
+PASS: núcleo aislado — 83 módulos cargados
+PASS: capas — 10 paquetes, 38 aristas, 0 violaciones, 8 ciclos contados
+FAIL: identidad — 10 paquetes de producto, 19 modelos clasificados, 1 violaciones
+  ERROR directorio versionado sin clasificar en la raíz: workbench_demo
+PASS: ejes — 32 declarados, 1001 archivos mapeados, 0 violaciones
+PASS: superficie — 128 símbolos pedidos, 597 declarados, 0 violaciones
+omitidas (--fast): afirmaciones pruebas selfdoc
+FALLAN: identidad
+RC=1
+
+La única puerta que falla es `identidad` por `workbench_demo`, una condición preexistente del
+árbol (no hay ningún cambio del ejecutor que la cause). Se registra porque el gate rápido no da
+rc 0.
+
+## 6. Medición del catalog build de IR
+
+No realizada: sin implementación no hay "después" que medir. El contrato exige la medición
+antes/después en el informe del ejecutor y el después bajo 60 s; no hay informe del ejecutor.
+
+## 7. CHANGELOG
+
+$ git diff -- CHANGELOG.md
+(vacío: no hay entrada nueva para esta tarea)

@@ -1,0 +1,12 @@
+Task: task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg
+Title: matching: attach_atom_edges deja de recomponer live-stale y los mapas del índice federado en cada edges_of (catalog build con átomos en minutos)
+Status: ready_for_testing
+Current node: ritual-closeout
+Task type: task.debug
+Effective pills:
+- desk/contexts/pill-pill-una-carga-del-índice-en-attach-atom-edges.md
+Effective atoms:
+- atom-un-escaneo-por-documento-se-cachea-por-lo-que-lo-determina-texto-contrato-y-lector
+Lifecycle gates:
+- task_completes -> complete: closed [status = "ready_for_testing"]
+  blocked by: error: [rules/rule-closeout-task-debug] TaskDebugDoc:task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg: Una tarea task.debug se cierra con recibos evidence aceptados e intactos de tests, commit y atom o materialization (los escribe deskops closeout verify). | any(^subject: kind = "evidence" and fact = "tests" and anchor_state = "intact" and verdict = "accepted") (seen: {}) (witness: ReviewDoc:review-task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg-bundle-1 {"kind":"bundle"})
