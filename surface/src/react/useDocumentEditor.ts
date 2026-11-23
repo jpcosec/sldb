@@ -19,7 +19,7 @@ export type SaveState =
   | { status: "saving"; key: string }
   | { status: "saved"; at: number }
   | { status: "conflict"; message: string; doc: string; path: string; value: unknown }
-  | { status: "error"; message: string; key: string };
+  | { status: "error"; message: string; key: string; httpStatus?: number };
 
 export const editKey = (target: WriteTarget, path: string) => `${target.doc}::${path}`;
 
@@ -74,8 +74,8 @@ export function useDocumentEditor(id: string) {
         if (error instanceof SaveConflictError) {
           setSave({ status: "conflict", message: error.message, doc: target.doc, path, value });
         } else {
-          const message = error instanceof SldbHttpError ? error.message : String(error);
-          setSave({ status: "error", message, key });
+          const message = error instanceof Error ? error.message : String(error);
+          setSave({ status: "error", message, key, httpStatus: error instanceof SldbHttpError ? error.status : undefined });
         }
       }
     },

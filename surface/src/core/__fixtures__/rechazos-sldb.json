@@ -1,0 +1,184 @@
+{
+  "obligatorio_vacio": {
+    "status": 422,
+    "body": {
+      "ok": false,
+      "error": "color: 1 validation error for ServicioDoc\nnombre\n  String should have at least 1 character [type=string_too_short, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_too_short"
+    }
+  },
+  "obligatorio_ausente": {
+    "status": 422,
+    "body": {
+      "ok": false,
+      "error": "color: 1 validation error for ServicioDoc\ncategoria\n  Field required [type=missing, input_value={'nombre': 'Color', 'orde...escripcion': 'Tintura.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/missing"
+    }
+  },
+  "obligatorio_null": {
+    "status": 422,
+    "body": {
+      "ok": false,
+      "error": "color: 1 validation error for ServicioDoc\ndescripcion\n  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_type"
+    }
+  },
+  "texto_por_numero": {
+    "status": 422,
+    "body": {
+      "ok": false,
+      "error": "color: 1 validation error for ServicioDoc\norden\n  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='diez', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/int_parsing"
+    }
+  },
+  "texto_por_numero_rango": {
+    "status": 422,
+    "body": {
+      "ok": false,
+      "error": "color: 1 validation error for ServicioDoc\nduracion_min\n  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='una hora', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/int_parsing"
+    }
+  },
+  "decimal_por_entero": {
+    "status": 422,
+    "body": {
+      "ok": false,
+      "error": "color: 1 validation error for ServicioDoc\norden\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=10.5, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.14/v/int_from_float"
+    }
+  },
+  "bajo_minimo": {
+    "status": 422,
+    "body": {
+      "ok": false,
+      "error": "color: 1 validation error for ServicioDoc\nduracion_min\n  Input should be greater than or equal to 5 [type=greater_than_equal, input_value=2, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.14/v/greater_than_equal"
+    }
+  },
+  "sobre_maximo": {
+    "status": 422,
+    "body": {
+      "ok": false,
+      "error": "color: 1 validation error for ServicioDoc\nduracion_min\n  Input should be less than or equal to 720 [type=less_than_equal, input_value=5000, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.14/v/less_than_equal"
+    }
+  },
+  "opcion_no_permitida_union": {
+    "status": 422,
+    "body": {
+      "ok": false,
+      "error": "color: 2 validation errors for ServicioDoc\nprecio.int\n  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='gratis', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/int_parsing\nprecio.literal['a cotizar']\n  Input should be 'a cotizar' [type=literal_error, input_value='gratis', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/literal_error"
+    }
+  },
+  "texto_por_booleano": {
+    "status": 422,
+    "body": {
+      "ok": false,
+      "error": "color: 1 validation error for ServicioDoc\nvisible\n  Input should be a valid boolean, unable to interpret input [type=bool_parsing, input_value='quizás', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/bool_parsing"
+    }
+  },
+  "texto_por_lista": {
+    "status": 422,
+    "body": {
+      "ok": false,
+      "error": "color: 1 validation error for ServicioDoc\nquienes\n  Input should be a valid list [type=list_type, input_value='Ana', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/list_type"
+    }
+  },
+  "patron_telefono": {
+    "status": 422,
+    "body": {
+      "ok": false,
+      "error": "negocio: 1 validation error for NegocioDoc\ntelefono\n  String should match pattern '^(\\+\\d{8,15})?$' [type=string_pattern_mismatch, input_value='22 333', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_pattern_mismatch"
+    }
+  },
+  "patron_moneda": {
+    "status": 422,
+    "body": {
+      "ok": false,
+      "error": "negocio: 1 validation error for NegocioDoc\nmoneda\n  String should match pattern '^[A-Z]{3}$' [type=string_pattern_mismatch, input_value='pesos', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_pattern_mismatch"
+    }
+  },
+  "dos_errores": {
+    "status": 422,
+    "body": {
+      "ok": false,
+      "error": "color: 2 validation errors for ServicioDoc\nnombre\n  String should have at least 1 character [type=string_too_short, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_too_short\nduracion_min\n  Input should be greater than or equal to 5 [type=greater_than_equal, input_value=1, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.14/v/greater_than_equal"
+    }
+  },
+  "anidado_horario": {
+    "status": 422,
+    "body": {
+      "ok": false,
+      "error": "horario: 1 validation error for HorarioDoc\natencion.lun.0\n  String should match pattern '^([01]\\d|2[0-3]):[0-5]\\d-([01]\\d|2[0-3]):[0-5]\\d$' [type=string_pattern_mismatch, input_value='25:00-26:00', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_pattern_mismatch"
+    }
+  },
+  "anidado_tipo": {
+    "status": 422,
+    "body": {
+      "ok": false,
+      "error": "ana: 1 validation error for ProfesionalDoc\nhorario_propio.lun\n  Input should be a valid list [type=list_type, input_value='mañana', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/list_type"
+    }
+  },
+  "conflicto": {
+    "status": 409,
+    "body": {
+      "ok": false,
+      "error": "color cambió en SLDB. Recarga para evitar sobrescribirlo."
+    }
+  },
+  "cambio_de_tipo": {
+    "status": 400,
+    "body": {
+      "ok": false,
+      "error": "No se puede cambiar la clase de un documento existente."
+    }
+  },
+  "nombre_ya_usado": {
+    "status": 409,
+    "body": {
+      "ok": false,
+      "error": "Ya existe el documento color."
+    }
+  },
+  "crear_faltan_obligatorios": {
+    "status": 422,
+    "body": {
+      "ok": false,
+      "error": "nuevo-1: 5 validation errors for ServicioDoc\ncategoria\n  Field required [type=missing, input_value={'nombre': 'Nuevo'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/missing\norden\n  Field required [type=missing, input_value={'nombre': 'Nuevo'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/missing\nduracion_min\n  Field required [type=missing, input_value={'nombre': 'Nuevo'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/missing\nprecio\n  Field required [type=missing, input_value={'nombre': 'Nuevo'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/missing\ndescripcion\n  Field required [type=missing, input_value={'nombre': 'Nuevo'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/missing"
+    }
+  },
+  "crear_nombre_vacio": {
+    "status": 422,
+    "body": {
+      "ok": false,
+      "error": "servicio: 6 validation errors for ServicioDoc\nnombre\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/missing\ncategoria\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/missing\norden\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/missing\nduracion_min\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/missing\nprecio\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/missing\ndescripcion\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/missing"
+    }
+  },
+  "crear_id_invalido": {
+    "status": 400,
+    "body": {
+      "ok": false,
+      "error": "El ID nuevo solo admite letras, números, guiones y guiones bajos."
+    }
+  },
+  "crear_tipo_inexistente": {
+    "status": 409,
+    "body": {
+      "ok": false,
+      "error": "Model 'NoExisteDoc' not registered."
+    }
+  },
+  "borrar_conflicto": {
+    "status": 409,
+    "body": {
+      "ok": false,
+      "error": "ana cambió en SLDB. Recarga para evitar sobrescribirlo."
+    }
+  },
+  "borrar_inexistente": {
+    "status": 409,
+    "body": {
+      "ok": false,
+      "error": "fantasma cambió en SLDB. Recarga para evitar sobrescribirlo."
+    }
+  },
+  "validador_propio": {
+    "status": 422,
+    "body": {
+      "ok": false,
+      "error": "horario: 1 validation error for HorarioDoc\natencion.lun\n  Value error, el tramo \"19:00-10:00\" cierra antes de abrir o no dura nada: va como apertura-cierre, por ejemplo \"10:00-19:00\" [type=value_error, input_value=['19:00-10:00'], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+    }
+  }
+}

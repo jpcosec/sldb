@@ -35,7 +35,7 @@ export type LayoutUnit =
 export function isBlockField(segment: FieldSegment): boolean {
   return (
     segment.display === "block" ||
-    segment.composition !== undefined ||
+    segment.composition != null ||
     segment.children.some((child) => child.type === "composition")
   );
 }

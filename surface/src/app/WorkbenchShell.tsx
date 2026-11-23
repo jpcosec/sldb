@@ -2,8 +2,11 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { createHttpClient, type SldbClient } from "../core/client";
 import type { GraphDocument, ModelCatalogEntry } from "../core/contract";
 import type { AssistantClient } from "../core/assistant";
+import { canonicalRef, docRef, findDocument, parseRef } from "../core/doc-ref";
+import { businessName } from "../core/wiki-index";
 import { WorkbenchAssist } from "./WorkbenchAssist";
 import { SldbProvider } from "../react/context";
+import type { SubirImagen } from "../core/imagenes";
 import { ProsaWorkbenchView, type WorkbenchLens } from "../workbench/ProsaWorkbenchView";
 import { Spec2VizInspectorView } from "../workbench/Spec2VizInspectorView";
 import { SourceAnchoringView, isNamedSourceModel, rankSources } from "../workbench/SourceAnchoringView";
@@ -20,6 +23,8 @@ export interface WorkbenchShellProps {
   client?: SldbClient;
   /** Cliente del asistente; por defecto el puente local `/assistant`. */
   assistantClient?: AssistantClient;
+  /** Cómo se sube una imagen para un texto; ausente si quien sirve la superficie no guarda imágenes. */
+  subirImagen?: SubirImagen;
 }
 
 /** Vista a la que lleva una lente de prosa: conserva diagram/source; desde studio vuelve al workbench. */
@@ -36,6 +41,7 @@ export const WorkbenchShell: React.FC<WorkbenchShellProps> = ({
   baseUrl = "/sldb",
   client: injectedClient,
   assistantClient,
+  subirImagen,
 }) => {
   const client = useMemo(
     () => injectedClient ?? createHttpClient(baseUrl),
@@ -85,24 +91,7 @@ export const WorkbenchShell: React.FC<WorkbenchShellProps> = ({
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
 
-  const refreshStore = useCallback(() => {
-    client
-      .documents()
-      .then((items: GraphDocument[]) => {
-        setDocuments(items ?? []);
-        setStoreStatus({ kind: "synced" });
-        const preferred =
-          items?.find((d: GraphDocument) => d.model_name.toLowerCase().includes("informe")) ?? items?.[0];
-        if (preferred) {
-          setRoute((prev) => (prev.doc ? prev : { ...prev, doc: preferred.id }));
-        }
-      })
-      .catch((error: unknown) => {
-        setStoreStatus({
-          kind: "error",
-          message: error instanceof Error ? error.message : "SLDB no respondió",
-        });
-      });
+  const refreshStore = useCallback((): Promise<void> => {
     client
       .modelsCatalog()
       .then((res: ModelCatalogEntry[]) => {
@@ -111,11 +100,28 @@ export const WorkbenchShell: React.FC<WorkbenchShellProps> = ({
       .catch(() => {
         /* ignore */
       });
+    return client
+      .documents()
+      .then((items: GraphDocument[]) => {
+        setDocuments(items ?? []);
+        setStoreStatus({ kind: "synced" });
+        const preferred =
+          items?.find((d: GraphDocument) => d.model_name.toLowerCase().includes("informe")) ?? items?.[0];
+        if (preferred) {
+          setRoute((prev) => (prev.doc ? prev : { ...prev, doc: docRef(preferred, items) }));
+        }
+      })
+      .catch((error: unknown) => {
+        setStoreStatus({
+          kind: "error",
+          message: error instanceof Error ? error.message : "SLDB no respondió",
+        });
+      });
     // Solo depende del cliente: `/graph` trae el store entero y no se vuelve a pedir al navegar.
   }, [client]);
 
   useEffect(() => {
-    refreshStore();
+    void refreshStore();
   }, [refreshStore]);
 
   // Global keyboard shortcuts (1, 2, 3 lenses + Cmd/Ctrl+K Command Palette)
@@ -154,8 +160,8 @@ export const WorkbenchShell: React.FC<WorkbenchShellProps> = ({
 
   const activeDocItem = useMemo(() => {
     if (route.doc) {
-      const clean = route.doc.includes(":") ? route.doc.split(":")[1]! : route.doc;
-      const found = documents.find((d) => d.id === route.doc || d.id === clean);
+      // `Tipo/nombre` (o `Tipo:nombre`) nombra esa página y no su homónima de otro tipo.
+      const found = findDocument(documents, route.doc);
       if (found) return found;
     }
     return (
@@ -164,6 +170,20 @@ export const WorkbenchShell: React.FC<WorkbenchShellProps> = ({
       null
     );
   }, [documents, route.doc]);
+
+  // La wiki de un negocio (un store con su página `NegocioDoc`) se lee en Lectura sin maquinaria:
+  // la barra muestra el nombre del negocio; breadcrumb de SLDB, contrato, sync y ⌘K quedan en Fierros.
+  const negocio = useMemo(() => businessName(documents), [documents]);
+  const esWiki = negocio !== null || models.some((m) => m.name === "NegocioDoc");
+  const wikiLectura = esWiki && route.view === "workbench" && route.lens === "lectura";
+
+  useEffect(() => {
+    if (typeof document !== "undefined" && negocio) document.title = negocio;
+  }, [negocio]);
+
+  // Una dirección con tipo (`Tipo/nombre`) se resuelve contra los documentos del store: hasta que
+  // lleguen no se pide la página, para no pedirla con una forma que no es la suya.
+  const refPendiente = storeStatus.kind === "loading" && route.doc !== null && parseRef(route.doc).model !== null;
 
   const handleSelectLens = (lens: WorkbenchLens | "esquema") => {
     if (lens === "esquema") {
@@ -286,7 +306,9 @@ export const WorkbenchShell: React.FC<WorkbenchShellProps> = ({
       onSelect: openSource,
     });
   }
-  if (route.view === "workbench" && activeDocItem) {
+  if (wikiLectura) {
+    contextActions.length = 0;
+  } else if (route.view === "workbench" && activeDocItem) {
     contextActions.push({
       label: `contrato ${activeDocItem.model_name} ↗`,
       title: "Abrir el contrato del modelo en Studio",
@@ -312,15 +334,22 @@ export const WorkbenchShell: React.FC<WorkbenchShellProps> = ({
     contextActions.push({
       label: "volver al documento ↗",
       title: "Volver a la prosa del documento activo",
-      onSelect: () => navigate({ view: "workbench", doc: activeDocItem.id }),
+      onSelect: () => navigate({ view: "workbench", doc: docRef(activeDocItem, documents) }),
     });
   }
 
   return (
-    <SldbProvider client={client}>
+    <SldbProvider client={client} subirImagen={subirImagen}>
       <div className="wb-shell" data-testid="sldb-workbench-shell">
         {/* Topbar Stitch (44px): breadcrumb + pill · lentes · acciones + sync + ⌘K */}
-        <header className="wb-topbar" data-testid="wb-topbar">
+        <header className={`wb-topbar ${wikiLectura ? "wb-topbar--wiki" : ""}`} data-testid="wb-topbar">
+          {wikiLectura ? (
+            <div className="wb-topbar-left">
+              <span className="wb-wiki-nombre" data-testid="wiki-business-name">
+                {negocio ?? "La wiki de tu negocio"}
+              </span>
+            </div>
+          ) : (
           <div className="wb-topbar-left">
             <nav className="wb-breadcrumb" aria-label="Ruta del documento">
               <span
@@ -349,10 +378,22 @@ export const WorkbenchShell: React.FC<WorkbenchShellProps> = ({
               {contextPill}
             </span>
           </div>
+          )}
 
           <div className="wb-topbar-right">
             <nav className="wb-lens-nav" aria-label="Lentes del Workbench">
-              {lensItems.map((item, idx) => (
+              {wikiLectura && (
+                <button
+                  type="button"
+                  className="wb-lens-link"
+                  title="Tecla 2: la estructura de la página y sus metadatos de SLDB"
+                  data-testid="wiki-ver-estructura"
+                  onClick={() => handleSelectLens("fierros")}
+                >
+                  Ver estructura
+                </button>
+              )}
+              {!wikiLectura && lensItems.map((item, idx) => (
                 <React.Fragment key={item.id}>
                   {idx > 0 && <span className="wb-lens-dot">·</span>}
                   <button
@@ -380,19 +421,27 @@ export const WorkbenchShell: React.FC<WorkbenchShellProps> = ({
               </button>
             ))}
 
-            <span
-              className="wb-mono"
-              data-testid="sldb-sync-badge"
-              title={storeStatus.kind === "error" ? storeStatus.message : undefined}
-            >
-              {storeStatus.kind === "synced"
-                ? "[ Sincronizado con .sldb ]"
-                : storeStatus.kind === "loading"
-                  ? "[ Leyendo .sldb… ]"
-                  : "[ Sin conexión con .sldb ]"}
-            </span>
+            {wikiLectura ? (
+              storeStatus.kind === "error" && (
+                <span data-testid="sldb-sync-badge" title={storeStatus.message}>
+                  Sin conexión con la wiki
+                </span>
+              )
+            ) : (
+              <span
+                className="wb-mono"
+                data-testid="sldb-sync-badge"
+                title={storeStatus.kind === "error" ? storeStatus.message : undefined}
+              >
+                {storeStatus.kind === "synced"
+                  ? "[ Sincronizado con .sldb ]"
+                  : storeStatus.kind === "loading"
+                    ? "[ Leyendo .sldb… ]"
+                    : "[ Sin conexión con .sldb ]"}
+              </span>
+            )}
 
-            <button
+            {!wikiLectura && <button
               type="button"
               className="wb-btn wb-mono"
               style={{ fontSize: 11, padding: "3px 8px" }}
@@ -401,24 +450,25 @@ export const WorkbenchShell: React.FC<WorkbenchShellProps> = ({
               title="Command Palette"
             >
               ⌘K
-            </button>
+            </button>}
           </div>
         </header>
 
         {/* Active View Body */}
-        {route.view === "workbench" && (
+        {route.view === "workbench" && !refPendiente && (
           <ProsaWorkbenchView
             key={`ProsaWorkbenchView-${viewEpoch}`}
-            docId={activeDocItem?.id ?? route.doc ?? ""}
+            docId={activeDocItem ? docRef(activeDocItem, documents) : (route.doc ?? "")}
             documents={documents}
             models={models}
             lens={route.lens}
-            onSelectDoc={(docId: string) => navigate({ view: "workbench", doc: docId })}
+            onSelectDoc={(docId: string) => navigate({ view: "workbench", doc: canonicalRef(documents, docId) })}
             onInspectDiagram={(specId: string, nodeDoc?: string) =>
               navigate({ view: "diagram", spec: specId, node: nodeDoc ?? null })
             }
             onOpenSource={(sourceDocId: string) => navigate({ view: "source", doc: sourceDocId })}
             onOpenStudio={(modelName: string) => navigate({ view: "studio", model: modelName })}
+            onDocumentsMutated={refreshStore}
           />
         )}
 
@@ -562,7 +612,7 @@ export const WorkbenchShell: React.FC<WorkbenchShellProps> = ({
                       } else if (doc.model_name === "SpecDoc") {
                         navigate({ view: "diagram", spec: doc.id });
                       } else {
-                        navigate({ view: "workbench", doc: doc.id });
+                        navigate({ view: "workbench", doc: docRef(doc, documents) });
                       }
                       setPaletteOpen(false);
                     }}

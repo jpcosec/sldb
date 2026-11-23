@@ -208,6 +208,26 @@ describe("WorkbenchShell", () => {
     window.history.replaceState(null, "", "#/");
   });
 
+  it("la dirección con Tipo/nombre abre esa página: calificada si el nombre se repite, por su nombre si es único", async () => {
+    const client = createFakeWorkbenchClient();
+    const base = await client.documents();
+    vi.mocked(client.documents).mockResolvedValue([
+      ...base,
+      { id: "corte", model_name: "ServicioDoc", path: "servicios/corte.md", payload: { nombre: "Corte" } },
+      { id: "corte", model_name: "ProfesionalDoc", path: "equipo/corte.md", payload: { nombre: "Corte" } },
+    ]);
+    window.history.replaceState(null, "", "#/workbench?doc=ProfesionalDoc/corte");
+    const { unmount } = render(<WorkbenchShell client={client} />);
+    await waitFor(() => expect(client.segments).toHaveBeenLastCalledWith("ProfesionalDoc/corte"));
+    expect(topbar().getByText("ProfesionalDoc")).toBeTruthy();
+    unmount();
+
+    window.history.replaceState(null, "", "#/workbench?doc=InformeDoc/rep-01");
+    render(<WorkbenchShell client={client} />);
+    await waitFor(() => expect(client.segments).toHaveBeenLastCalledWith("rep-01"));
+    expect(client.segments).not.toHaveBeenCalledWith("InformeDoc/rep-01");
+  });
+
   it("renders the Stitch topbar without the 4 CRUD tabs", async () => {
     const client = createFakeWorkbenchClient();
     render(<WorkbenchShell client={client} />);
@@ -362,6 +382,38 @@ describe("WorkbenchShell", () => {
     fireEvent.click(screen.getByTestId("breadcrumb-doc-switch"));
     const palette = await screen.findByTestId("command-palette-modal");
     expect((within(palette).getByRole("textbox") as HTMLInputElement).value).toBe("InformeDoc");
+  });
+
+  it("wiki de un negocio en Lectura: la barra muestra el nombre del negocio y esconde la maquinaria", async () => {
+    const client = createFakeWorkbenchClient();
+    (client.documents as ReturnType<typeof vi.fn>).mockResolvedValue([
+      { id: "negocio", model_name: "NegocioDoc", path: "negocio.md", payload: { nombre: "Peluquería Rayén" } },
+      { id: "horario", model_name: "HorarioDoc", path: "horario.md", payload: {} },
+    ]);
+    window.history.replaceState(null, "", "#/workbench?doc=horario");
+    render(<WorkbenchShell client={client} />);
+
+    expect((await screen.findByTestId("wiki-business-name")).textContent).toBe("Peluquería Rayén");
+    expect(document.title).toBe("Peluquería Rayén");
+    expect(topbar().queryByText("sldb")).toBeNull();
+    expect(topbar().queryByText("HorarioDoc")).toBeNull();
+    expect(screen.queryByTestId("breadcrumb-doc-switch")).toBeNull();
+    expect(screen.queryByTestId("wb-context-pill")).toBeNull();
+    expect(screen.queryByTestId("sldb-sync-badge")).toBeNull();
+    expect(screen.queryByTestId("open-command-palette-btn")).toBeNull();
+    expect(topbar().queryByRole("button", { name: /contrato/ })).toBeNull();
+    expect(topbar().queryByRole("button", { name: "Esquema" })).toBeNull();
+
+    // Los fierros siguen a un clic (o tecla 2): ahí vuelve la barra de SLDB completa.
+    fireEvent.click(screen.getByTestId("wiki-ver-estructura"));
+    expect(screen.queryByTestId("wiki-business-name")).toBeNull();
+    expect(screen.getByTestId("breadcrumb-doc-switch").textContent).toContain("horario");
+    expect(topbar().getByText("HorarioDoc")).toBeTruthy();
+    expect(screen.getByTestId("wb-context-pill").textContent).toBe("prosa · fierros visibles");
+    expect(lens("[ Estructura / Fierros ]").getAttribute("aria-pressed")).toBe("true");
+    expect(screen.getByTestId("sldb-sync-badge").textContent).toBe("[ Sincronizado con .sldb ]");
+    fireEvent.click(lens("Lectura"));
+    expect(screen.getByTestId("wiki-business-name").textContent).toBe("Peluquería Rayén");
   });
 
   it("does not claim sync when the store does not answer", async () => {

@@ -71,7 +71,7 @@ function renderUnit(unit: LayoutUnit, key: number, props: DocumentSurfaceProps):
 }
 
 function isComposition(segment: FieldSegment): boolean {
-  return segment.composition !== undefined || segment.children.some((c) => c.type === "composition");
+  return segment.composition != null || segment.children.some((c) => c.type === "composition");
 }
 
 function renderPieces(pieces: InlinePiece[], context: EditorContext, props: DocumentSurfaceProps): ReactNode {

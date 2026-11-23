@@ -19,7 +19,7 @@ interface ComposerProps {
 }
 
 export function ComposerView({ data, surface, commitList }: ComposerProps) {
-  const compositions = data.segments.filter((s): s is FieldSegment => s.type === "field" && s.composition !== undefined);
+  const compositions = data.segments.filter((s): s is FieldSegment => s.type === "field" && s.composition != null);
   if (compositions.length === 0) {
     return <p className="empty-state">Este documento no compone otros. La composición se declara en el modelo con <code>__compositions__</code>.</p>;
   }

@@ -432,7 +432,7 @@ function specView(): ResolvedNotationView {
 }
 
 describe("ProsaWorkbenchView · B3 errores de guardado y expected", () => {
-  it("un error al guardar se muestra como alerta en el header", async () => {
+  it("un error al guardar se muestra como alerta junto al campo que falló, con el mensaje del servidor", async () => {
     mount("fierros", { saveError: new Error("SLDB respondió 500") });
     await ready();
     fireEvent.click(await screen.findByRole("button", { name: "Síntesis clínica ejecutiva." }));
@@ -441,7 +441,10 @@ describe("ProsaWorkbenchView · B3 errores de guardado y expected", () => {
     fireEvent.blur(area);
     const alert = await screen.findByTestId("prosa-save-error");
     expect(alert.getAttribute("role")).toBe("alert");
-    expect(alert.textContent).toMatch(/Error al guardar.*SLDB respondió 500/);
+    expect(alert.textContent).toMatch(/No se guardó este cambio.*SLDB respondió 500/);
+    // El aviso queda en el bloque del field `resumen`, no en el encabezado de la página.
+    expect(alert.closest(".wb-block-with-gutter")?.textContent).toContain("field: resumen");
+    expect(alert.closest("header")).toBeNull();
     expect(screen.queryByText(/✓ sincronizado/)).toBeNull();
   });
 
@@ -496,24 +499,31 @@ describe("ProsaWorkbenchView · B4 título editable", () => {
     expect(h1.textContent).toBe("Informe renal");
   });
 
-  it("sin `title` en el payload: el h1 muestra el id y no es editable", async () => {
+  it("sin `title` en el payload: el h1 muestra el título literal de la página, no su id, y no es editable", async () => {
     mount("lectura", { payload: { criterios: ["AtomDoc:atom-04"] } });
     await ready();
     const h1 = screen.getByRole("heading", { level: 1 });
-    expect(h1.textContent).toBe("informe-1");
+    expect(h1.textContent).toBe("Informe renal");
     expect(within(h1).queryByRole("button")).toBeNull();
   });
 });
 
 describe("ProsaWorkbenchView · B5 sin datos inventados", () => {
-  it("muestra el estado solo si el payload lo trae", async () => {
+  it("lectura: no muestra la línea de metadatos (modelo, estado, path)", async () => {
     mount("lectura");
+    await ready();
+    expect(screen.queryByText(/InformeDoc ·/)).toBeNull();
+    expect(screen.queryByText(/path:/)).toBeNull();
+  });
+
+  it("fierros: muestra el estado solo si el payload lo trae", async () => {
+    mount("fierros");
     await ready();
     expect(screen.getByText(/InformeDoc · Borrador ·/)).toBeTruthy();
   });
 
   it("sin status/estado no inventa 'En revisión'", async () => {
-    mount("lectura", { payload: { title: "Informe renal" } });
+    mount("fierros", { payload: { title: "Informe renal" } });
     await ready();
     expect(screen.queryByText(/En revisión/)).toBeNull();
     expect(screen.getByText(/^InformeDoc ·$/)).toBeTruthy();

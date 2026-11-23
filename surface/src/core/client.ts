@@ -50,6 +50,7 @@ export class SaveConflictError extends SldbHttpError {
 export interface SldbClient {
   schema(): Promise<SchemaResponse>;
   documents(): Promise<GraphDocument[]>;
+  /** `id`: el nombre del documento, o `Tipo/nombre` si el nombre se repite entre tipos (`core/doc-ref`). */
   document(id: string): Promise<StoredDocument>;
   segments(id: string): Promise<DocumentSegments>;
   extract(model: string, markdown: string): Promise<ExtractionSegments>;

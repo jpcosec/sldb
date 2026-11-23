@@ -5,18 +5,21 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import type { GraphDocument, SchemaField, SchemaModel } from "../core/contract";
 import type { SldbClient } from "../core/client";
+import type { SubirImagen } from "../core/imagenes";
 import { rootOf } from "../core/paths";
 import { defaultEditors, type EditorRegistry } from "./editors/registry";
 
 interface SldbContextValue {
   client: SldbClient;
   editors: EditorRegistry;
+  /** Cómo se sube una imagen para un texto; ausente si quien sirve la superficie no guarda imágenes. */
+  subirImagen?: SubirImagen;
 }
 
 const SldbContext = createContext<SldbContextValue | null>(null);
 
-export function SldbProvider({ client, editors, children }: { client: SldbClient; editors?: EditorRegistry; children: ReactNode }) {
-  const value = useMemo(() => ({ client, editors: editors ?? defaultEditors }), [client, editors]);
+export function SldbProvider({ client, editors, subirImagen, children }: { client: SldbClient; editors?: EditorRegistry; subirImagen?: SubirImagen; children: ReactNode }) {
+  const value = useMemo(() => ({ client, editors: editors ?? defaultEditors, subirImagen }), [client, editors, subirImagen]);
   return <SldbContext.Provider value={value}>{children}</SldbContext.Provider>;
 }
 

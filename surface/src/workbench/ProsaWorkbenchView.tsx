@@ -1,7 +1,8 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { resolveFieldAuthority } from "../core/authority";
+import { SldbHttpError } from "../core/client";
 import type {
   AuthorityKind,
   CompositionPiece,
@@ -13,8 +14,16 @@ import type {
   ResolvedNotationView,
   SegmentTableData,
 } from "../core/contract";
+import { canonicalRef, docRef, parseRef, qualifiedRef, refFor, sameDocument } from "../core/doc-ref";
 import { layoutSegments, type InlinePiece, type LayoutUnit } from "../core/layout";
-import { useSldb } from "../react/context";
+import { rootOf } from "../core/paths";
+import { buildWikiIndex, humanize, type WikiCreatable } from "../core/wiki-index";
+import { useSchema, useSldb } from "../react/context";
+import { conImagen, markdownDeImagen } from "../core/imagenes";
+import { AvisoGuardado } from "./AvisoGuardado";
+import { NuevaPagina } from "./NuevaPagina";
+import { WikiIndex } from "./WikiIndex";
+import { Ficha, ValorEditable, rotulo, tieneEstructura, valorDe, type CampoEsquema } from "./Ficha";
 import { useDocumentEditor } from "../react/useDocumentEditor";
 import { NotationSvgCanvas } from "./NotationSvgCanvas";
 import { TopologyMindmap } from "./TopologyMindmap";
@@ -31,6 +40,8 @@ export interface ProsaWorkbenchViewProps {
   onOpenSource(sourceDocId: string): void;
   onOpenStudio(modelName: string): void;
   onDirtyChange?(dirty: boolean): void;
+  /** Se creó o se quitó una página: quien monta la vista vuelve a leer los documentos del store. */
+  onDocumentsMutated?(): void | Promise<void>;
 }
 
 function parseDocRef(
@@ -51,21 +62,55 @@ function parseDocRef(
   return null;
 }
 
+/** La referencia de un enlace: con su tipo si el enlace lo trae (quien navega la deja en su forma canónica). */
+const linkRef = (parsed: { model: string | null; docId: string }) =>
+  parsed.model ? qualifiedRef(parsed.model, parsed.docId) : parsed.docId;
+
+/** Los fields que una unidad dibuja en la hoja (por su raíz): ahí se muestra el rechazo de un guardado. */
+function rootsOfUnit(unit: LayoutUnit, titleField: string | null): string[] {
+  const ofPieces = (pieces: InlinePiece[]) =>
+    pieces.flatMap((p) => (p.kind === "field" ? [rootOf(p.segment.path)] : []));
+  if (unit.unit === "frontmatter") {
+    return unit.rows.filter((row) => row.key !== titleField && row.key !== "sldb").flatMap((row) => ofPieces(row.pieces));
+  }
+  if (unit.unit === "block") return [rootOf(unit.segment.path)];
+  if (unit.unit === "list") return unit.items.flatMap(ofPieces);
+  if (unit.unit === "line") {
+    if (unit.kind.type === "fence" || (unit.kind.type === "heading" && unit.kind.level === 1)) return [];
+    return ofPieces(unit.pieces);
+  }
+  return [];
+}
+
 export function ProsaWorkbenchView({
   docId,
   lens,
   documents,
   models,
-  onSelectDoc,
+  onSelectDoc: selectRef,
   onInspectDiagram,
   onOpenSource,
   onOpenStudio,
+  onDocumentsMutated,
 }: ProsaWorkbenchViewProps) {
   const { client } = useSldb();
-  const { data, loadError, save, commit } = useDocumentEditor(docId);
+  // Toda navegación sale con la referencia canónica: el nombre, o `Tipo/nombre` si el nombre se repite.
+  const onSelectDoc = useCallback((ref: string) => selectRef(canonicalRef(documents, ref)), [selectRef, documents]);
+  const resolveRef = useCallback((model: string | null, name: string) => refFor(documents, name, model), [documents]);
+  const { data, loadError, save, commit, dismiss } = useDocumentEditor(docId);
+  const schema = useSchema();
   const [hoveredRefDoc, setHoveredRefDoc] = useState<string | null>(null);
   const [modelDetail, setModelDetail] = useState<ModelDescription | null>(null);
   const [edges, setEdges] = useState<Edge[]>([]);
+  // Página nueva en curso (lente Lectura) y quitar la página abierta: ambas son operaciones de `POST /save`.
+  const [creating, setCreating] = useState<WikiCreatable | null>(null);
+  const [removal, setRemoval] = useState<
+    { status: "idle" } | { status: "confirming" } | { status: "removing" } | { status: "error"; message: string; httpStatus?: number }
+  >({ status: "idle" });
+
+  useEffect(() => {
+    setRemoval({ status: "idle" });
+  }, [docId]);
 
   useEffect(() => {
     if (!data?.model) return;
@@ -108,7 +153,8 @@ export function ProsaWorkbenchView({
   /** `content_hash` del documento (`GET /documents`): el `expected` que compara `POST /save`. */
   const expectedVersion = useMemo(() => {
     if (!data) return null;
-    const doc = documents.find((d) => d.id === data.doc || d.id === data.id);
+    const doc =
+      documents.find((d) => d.id === data.doc && d.model_name === data.model) ?? documents.find((d) => d.id === data.doc || d.id === data.id);
     return typeof doc?.version === "string" && doc.version ? doc.version.slice(0, 7) : null;
   }, [documents, data]);
   const modelRef = useMemo(
@@ -134,39 +180,20 @@ export function ProsaWorkbenchView({
     return Array.from(names).slice(0, 6);
   }, [edges, data?.doc, documents]);
 
-  if (loadError) {
-    return (
-      <div className="wb-split-38-62" data-testid="prosa-workbench-view">
-        <div style={{ padding: 32 }} className="wb-mono">
-          Error al cargar {docId}: {loadError}
-        </div>
-      </div>
-    );
-  }
+  const schemaModels = schema.status === "ready" ? schema.data.models : undefined;
+  const wikiGroups = useMemo(() => buildWikiIndex(documents, models, schemaModels ?? []), [documents, models, schemaModels]);
 
-  if (!data) {
-    return (
-      <div className="wb-split-38-62" data-testid="prosa-workbench-view">
-        <div style={{ padding: 32, color: "var(--wb-ink-muted)" }} className="wb-mono">
-          Cargando documento {docId}...
-        </div>
-      </div>
-    );
-  }
-
-  const docTitle = String(data.payload?.title ?? data.doc);
-  const rawEstado = data.payload?.estado ?? data.payload?.status;
-  const docEstado = typeof rawEstado === "string" && rawEstado.trim() ? rawEstado : null;
   const isFierros = lens === "fierros";
-  const hasTitleField = Object.prototype.hasOwnProperty.call(data.payload ?? {}, "title");
-  const titleCanEdit =
-    hasTitleField && resolveFieldAuthority(data.model, data.doc, "title", authority, modelRef).allowed;
-  const saveError =
-    save.status === "error" || save.status === "conflict" ? save.message : null;
+  const nuevaPagina = !isFierros ? creating : null;
 
-  return (
-    <div className="wb-split-38-62" data-testid="prosa-workbench-view">
-      {/* LEFT PANE (38%): 2D Spatial Mindmap + Bottom Schema Summary */}
+  const afterMutation = async (nextDoc: string | null) => {
+    await onDocumentsMutated?.();
+    if (nextDoc) onSelectDoc(nextDoc);
+  };
+
+  // El panel izquierdo: en Lectura, el índice de la wiki; en Fierros, el mapa del documento.
+  const left = isFierros ? (
+    data && (
       <TopologyMindmap
         data={data}
         documents={documents}
@@ -178,8 +205,141 @@ export function ProsaWorkbenchView({
         onOpenSource={onOpenSource}
         onOpenStudio={onOpenStudio}
       />
+    )
+  ) : (
+    <aside className="wb-pane-left-38 wb-pane-left-38--indice">
+      <WikiIndex
+        groups={wikiGroups}
+        activeDoc={data ? refFor(documents, data.doc, data.model) : docId || null}
+        creating={nuevaPagina?.model ?? null}
+        onSelectDoc={(id) => {
+          setCreating(null);
+          onSelectDoc(id);
+        }}
+        onCreate={setCreating}
+      />
+    </aside>
+  );
 
-      {/* RIGHT PANE (62%): Editorial Prose Sheet with Marginal Gutter */}
+  const frame = (sheet: React.ReactNode) => (
+    <div className="wb-split-38-62" data-testid="prosa-workbench-view">
+      {left}
+      {sheet}
+    </div>
+  );
+
+  if (nuevaPagina) {
+    return frame(
+      <section className="wb-pane-right-62">
+        <div className="wb-editorial-sheet--lectura">
+          <NuevaPagina
+            key={nuevaPagina.model}
+            tipo={nuevaPagina}
+            schema={schemaModels?.find((m) => m.id === nuevaPagina.model)}
+            onCancel={() => setCreating(null)}
+            onCreated={(id) => {
+              setCreating(null);
+              void afterMutation(refFor(documents, id, nuevaPagina.model));
+            }}
+          />
+        </div>
+      </section>,
+    );
+  }
+
+  if (!docId) {
+    return frame(
+      <div style={{ padding: 32, color: "var(--wb-ink-muted)" }} data-testid="prosa-sin-paginas">
+        {isFierros
+          ? "No hay ningún documento abierto."
+          : "Esta wiki todavía no tiene páginas. Agrega la primera desde el índice de la izquierda."}
+      </div>,
+    );
+  }
+
+  if (loadError) {
+    const nombre = parseRef(docId).name;
+    const repetida = documents.filter((d) => d.id === nombre).length > 1;
+    return frame(
+      <div style={{ padding: 32 }} className={isFierros ? "wb-mono" : undefined}>
+        Error al cargar {docId}: {loadError}
+        {repetida && (
+          <p data-testid="prosa-nombre-repetido">
+            Hay otra página llamada «{nombre}» en otro tipo y el servidor de la wiki no pudo abrir esta por separado. Avisa a
+            quien te da soporte: hay que cambiarle el nombre a una de las dos.
+          </p>
+        )}
+      </div>,
+    );
+  }
+
+  if (!data) {
+    return frame(
+      <div style={{ padding: 32, color: "var(--wb-ink-muted)" }} className={isFierros ? "wb-mono" : undefined}>
+        {isFierros ? `Cargando documento ${docId}...` : "Cargando la página…"}
+      </div>,
+    );
+  }
+
+  // El título de una página: su campo `title`; si no lo tiene, el título que escribe su template
+  // («Horario», «Identidad visual»); si el template titula con un campo, ese campo (`nombre`).
+  const hasText = (f: string) => typeof data.payload?.[f] === "string" && String(data.payload[f]).trim() !== "";
+  const h1 = units.find(
+    (u): u is Extract<LayoutUnit, { unit: "line" }> => u.unit === "line" && u.kind.type === "heading" && u.kind.level === 1,
+  );
+  const h1Literal = (h1?.pieces ?? []).map((p) => (p.kind === "text" ? p.text : "")).join("").trim();
+  const h1Text = (h1?.pieces ?? [])
+    .map((p) => (p.kind === "text" ? p.text : String(p.segment.value ?? p.segment.text)))
+    .join("")
+    .trim();
+  const titleField = hasText("title") ? "title" : h1Literal ? null : hasText("nombre") ? "nombre" : null;
+  const docTitle = titleField ? String(data.payload[titleField]) : h1Literal ? h1Text : humanize(data.doc);
+  const esquemaDe = (path: string): CampoEsquema | undefined =>
+    schema.status === "ready" ? (schema.data.field(data.model, path) as CampoEsquema | undefined) : undefined;
+  const rawEstado = data.payload?.estado ?? data.payload?.status;
+  const docEstado = typeof rawEstado === "string" && rawEstado.trim() ? rawEstado : null;
+  const titleCanEdit =
+    titleField !== null && resolveFieldAuthority(data.model, data.doc, titleField, authority, modelRef).allowed;
+
+  // El rechazo de un guardado se muestra junto al campo que falló; si ese campo no está en la hoja, arriba.
+  const failedPath =
+    save.status === "conflict" ? save.path : save.status === "error" ? save.key.slice(save.key.indexOf("::") + 2) : null;
+  const failedRoot = failedPath ? rootOf(failedPath) : null;
+  const aviso =
+    save.status === "error" || save.status === "conflict" ? (
+      <AvisoGuardado
+        titulo="No se guardó este cambio"
+        mensaje={save.message}
+        status={save.status === "conflict" ? 409 : save.httpStatus}
+        ayuda={(campo) => esquemaDe(campo)?.description}
+        fierros={isFierros}
+        onDismiss={dismiss}
+      />
+    ) : null;
+  const avisoUnit = aviso && failedRoot ? units.findIndex((u) => rootsOfUnit(u, titleField).includes(failedRoot)) : -1;
+
+  // Quitar la página: solo en tipos con varias páginas (un servicio, una persona) y con autoridad para escribir.
+  const allowsMany = wikiGroups.some((g) => g.creatable.some((c) => c.model === data.model));
+  const canRemove =
+    !isFierros && allowsMany && modelDetail !== null && resolveFieldAuthority(data.model, data.doc, "", authority, modelRef).allowed;
+  const remove = async () => {
+    setRemoval({ status: "removing" });
+    try {
+      await client.save([{ id: data.id, action: "delete", model: data.model, expected: data.payload }]);
+      const esta = { id: data.doc, model_name: data.model };
+      const quedan = documents.filter((d) => !sameDocument(d, esta));
+      const next = quedan.find((d) => d.model_name === data.model) ?? quedan[0];
+      await afterMutation(next ? docRef(next, quedan) : null);
+    } catch (error) {
+      setRemoval({
+        status: "error",
+        message: error instanceof Error ? error.message : String(error),
+        httpStatus: error instanceof SldbHttpError ? error.status : undefined,
+      });
+    }
+  };
+
+  return frame(
       <section className="wb-pane-right-62">
         <div className={isFierros ? "wb-editorial-sheet" : "wb-editorial-sheet--lectura"}>
           {/* Document Editorial Header */}
@@ -198,41 +358,33 @@ export function ProsaWorkbenchView({
               <InlineEditableProse
                 value={docTitle}
                 canEdit={titleCanEdit}
-                onCommit={(next) => void commit({ doc: data.id, model: data.model }, "title", next)}
+                onCommit={(next) => {
+                  if (titleField) void commit({ doc: data.id, model: data.model }, titleField, next);
+                }}
               />
             </h1>
-            <p
-              className="wb-mono"
-              style={{
-                fontSize: 11.5,
-                color: "var(--wb-ink-muted)",
-                margin: 0,
-              }}
-            >
-              {data.model} · {docEstado ? `${docEstado} · ` : ""}
-              <span style={{ color: "var(--wb-ink-tertiary)" }}>
-                path: {data.path || `${data.doc}.md`}
-              </span>
-              {save.status === "saving" && " · guardando..."}
-              {save.status === "saved" && " · ✓ sincronizado"}
-            </p>
-            {saveError && (
-              <div
-                role="alert"
+            {isFierros ? (
+              <p
                 className="wb-mono"
-                data-testid="prosa-save-error"
                 style={{
-                  marginTop: 10,
-                  padding: "6px 10px",
                   fontSize: 11.5,
-                  border: "1px solid var(--wb-ink)",
-                  color: "var(--wb-ink)",
-                  borderRadius: "var(--wb-radius)",
+                  color: "var(--wb-ink-muted)",
+                  margin: 0,
                 }}
               >
-                {save.status === "conflict" ? "✗ Conflicto al guardar" : "✗ Error al guardar"}: {saveError}
-              </div>
+                {data.model} · {docEstado ? `${docEstado} · ` : ""}
+                <span style={{ color: "var(--wb-ink-tertiary)" }}>
+                  path: {data.path || `${data.doc}.md`}
+                </span>
+                {save.status === "saving" && " · guardando..."}
+                {save.status === "saved" && " · ✓ sincronizado"}
+              </p>
+            ) : (
+              <p className="wb-guardado" aria-live="polite" data-testid="prosa-save-status">
+                {save.status === "saving" ? "Guardando…" : save.status === "saved" ? "Guardado ✓" : " "}
+              </p>
             )}
+            {avisoUnit < 0 && aviso}
           </header>
 
           {/* Document Body Segments via layoutSegments */}
@@ -247,10 +399,14 @@ export function ProsaWorkbenchView({
                 modelRef={modelRef}
                 lens={lens}
                 expectedVersion={expectedVersion}
+                titleField={titleField}
+                aviso={idx === avisoUnit && failedRoot ? { root: failedRoot, node: aviso } : null}
+                esquemaDe={esquemaDe}
                 onCommitField={(path, nextVal) =>
                   void commit({ doc: data.id, model: data.model }, path, nextVal)
                 }
                 onSelectDoc={onSelectDoc}
+                resolveRef={resolveRef}
                 onInspectDiagram={onInspectDiagram}
                 onOpenSource={onOpenSource}
                 onHoverRef={setHoveredRefDoc}
@@ -298,9 +454,31 @@ export function ProsaWorkbenchView({
               </div>
             </footer>
           )}
+
+          {canRemove && (
+            <footer className="wb-quitar" data-testid="quitar-pagina">
+              {removal.status === "idle" || removal.status === "error" ? (
+                <button type="button" className="wb-accion wb-accion--tenue" onClick={() => setRemoval({ status: "confirming" })}>
+                  Quitar esta página
+                </button>
+              ) : (
+                <div className="wb-quitar__confirmar" role="group" aria-label="Confirmar quitar la página">
+                  <span>¿Quitar «{docTitle}» de la wiki? No se puede deshacer.</span>
+                  <button type="button" className="wb-accion wb-accion--principal" disabled={removal.status === "removing"} onClick={() => void remove()}>
+                    {removal.status === "removing" ? "Quitando…" : "Sí, quitar"}
+                  </button>
+                  <button type="button" className="wb-accion" disabled={removal.status === "removing"} onClick={() => setRemoval({ status: "idle" })}>
+                    Cancelar
+                  </button>
+                </div>
+              )}
+              {removal.status === "error" && (
+                <AvisoGuardado testId="quitar-pagina-error" titulo="No se pudo quitar la página" mensaje={removal.message} status={removal.httpStatus} />
+              )}
+            </footer>
+          )}
         </div>
-      </section>
-    </div>
+      </section>,
   );
 }
 
@@ -312,8 +490,15 @@ interface RenderedLayoutUnitProps {
   modelRef?: string;
   lens: WorkbenchLens;
   expectedVersion: string | null;
+  /** El campo que ya se muestra como título de la página: no se repite en la ficha. */
+  titleField: string | null;
+  /** El rechazo del último guardado, si el campo que falló se dibuja en esta unidad. */
+  aviso: { root: string; node: React.ReactNode } | null;
+  esquemaDe: (path: string) => CampoEsquema | undefined;
   onCommitField: (path: string, value: unknown) => void;
   onSelectDoc: (id: string) => void;
+  /** La referencia de la página `name` de un tipo: con el tipo delante si el nombre se repite en el store. */
+  resolveRef: (model: string | null, name: string) => string;
   onInspectDiagram: (specId: string, nodeDoc?: string) => void;
   onOpenSource: (sourceDocId: string) => void;
   onHoverRef: (docId: string | null) => void;
@@ -327,8 +512,12 @@ const RenderedLayoutUnit: React.FC<RenderedLayoutUnitProps> = ({
   modelRef,
   lens,
   expectedVersion,
+  titleField,
+  aviso,
+  esquemaDe,
   onCommitField,
   onSelectDoc,
+  resolveRef,
   onInspectDiagram,
   onOpenSource,
   onHoverRef,
@@ -340,7 +529,16 @@ const RenderedLayoutUnit: React.FC<RenderedLayoutUnitProps> = ({
     ) : null;
 
   if (unit.unit === "frontmatter") {
-    return null;
+    return (
+      <Ficha
+        rows={unit.rows.filter((row) => row.key !== titleField)}
+        puedeEditar={(seg) => seg.editable && resolveFieldAuthority(modelName, docId, seg.path, authority, modelRef).allowed}
+        esquemaDe={esquemaDe}
+        conFierros={isFierros}
+        aviso={aviso}
+        onCommit={onCommitField}
+      />
+    );
   }
 
   if (unit.unit === "piece") {
@@ -349,6 +547,7 @@ const RenderedLayoutUnit: React.FC<RenderedLayoutUnitProps> = ({
         piece={unit.segment}
         lens={lens}
         onSelectDoc={onSelectDoc}
+        resolveRef={resolveRef}
         onOpenSource={onOpenSource}
         onHoverRef={onHoverRef}
       />
@@ -370,6 +569,7 @@ const RenderedLayoutUnit: React.FC<RenderedLayoutUnitProps> = ({
               piece={piece}
               lens={lens}
               onSelectDoc={onSelectDoc}
+              resolveRef={resolveRef}
               onOpenSource={onOpenSource}
               onHoverRef={onHoverRef}
             />
@@ -405,6 +605,20 @@ const RenderedLayoutUnit: React.FC<RenderedLayoutUnitProps> = ({
     // Editable or read-only prose field block
     const perm = resolveFieldAuthority(modelName, docId, seg.path, authority, modelRef);
     const canEdit = seg.editable && perm.allowed;
+    if (tieneEstructura(seg)) {
+      return (
+        <div className={isFierros ? "wb-block-with-gutter" : "wb-block-with-gutter--lectura"}>
+          {isFierros && (
+            <div className="wb-marginal-gutter">
+              field: {seg.path}
+              {saveSub(canEdit)}
+            </div>
+          )}
+          <ValorEditable value={valorDe(seg)} path={seg.path} etiqueta={rotulo(seg.path)} canEdit={canEdit} esquema={esquemaDe(seg.path)} kind={seg.kind} onCommit={onCommitField} />
+          {aviso?.node}
+        </div>
+      );
+    }
     return (
       <div
         className={
@@ -422,14 +636,17 @@ const RenderedLayoutUnit: React.FC<RenderedLayoutUnitProps> = ({
         <InlineEditableProse
           value={String(seg.value ?? seg.text)}
           canEdit={canEdit}
+          conImagenes
           onCommit={(val) => onCommitField(seg.path, val)}
         />
+        {aviso?.node}
       </div>
     );
   }
 
   if (unit.unit === "list") {
     return (
+      <>
       <ul
         style={{
           margin: "0 0 24px 0",
@@ -452,6 +669,8 @@ const RenderedLayoutUnit: React.FC<RenderedLayoutUnitProps> = ({
           </li>
         ))}
       </ul>
+      {aviso?.node}
+      </>
     );
   }
 
@@ -464,8 +683,14 @@ const RenderedLayoutUnit: React.FC<RenderedLayoutUnitProps> = ({
     return null;
   }
 
+  // Las cercas de un bloque de código (```yaml) son sintaxis del template, no contenido.
+  if (kind.type === "fence") {
+    return null;
+  }
+
   if (kind.type === "heading") {
     return (
+      <>
       <h2
         className="wb-serif"
         style={{
@@ -486,6 +711,8 @@ const RenderedLayoutUnit: React.FC<RenderedLayoutUnitProps> = ({
           onSelectDoc={onSelectDoc}
         />
       </h2>
+      {aviso?.node}
+      </>
     );
   }
 
@@ -521,6 +748,7 @@ const RenderedLayoutUnit: React.FC<RenderedLayoutUnitProps> = ({
       >
         <InlinePiecesRow
           pieces={pieces}
+          conImagenes
           docId={docId}
           modelName={modelName}
           authority={authority}
@@ -529,6 +757,7 @@ const RenderedLayoutUnit: React.FC<RenderedLayoutUnitProps> = ({
           onSelectDoc={onSelectDoc}
         />
       </div>
+      {aviso?.node}
     </div>
   );
 };
@@ -541,7 +770,9 @@ const InlinePiecesRow: React.FC<{
   modelRef?: string;
   onCommitField: (path: string, value: unknown) => void;
   onSelectDoc: (id: string) => void;
-}> = ({ pieces, docId, modelName, authority, modelRef, onCommitField, onSelectDoc }) => {
+  /** La fila es un párrafo del cuerpo (no un título ni un ítem de lista): a su texto se le pueden agregar imágenes. */
+  conImagenes?: boolean;
+}> = ({ pieces, docId, modelName, authority, modelRef, onCommitField, onSelectDoc, conImagenes }) => {
   return (
     <>
       {pieces.map((piece, i) => {
@@ -557,7 +788,7 @@ const InlinePiecesRow: React.FC<{
               type="button"
               className="wb-chip"
               style={{ cursor: "pointer", margin: "0 2px" }}
-              onClick={() => onSelectDoc(parsedRef.docId)}
+              onClick={() => onSelectDoc(linkRef(parsedRef))}
             >
               {parsedRef.field ? `${parsedRef.docId}#${parsedRef.field}` : parsedRef.docId}
             </button>
@@ -565,11 +796,15 @@ const InlinePiecesRow: React.FC<{
         }
         const perm = resolveFieldAuthority(modelName, docId, seg.path, authority, modelRef);
         const canEdit = seg.editable && perm.allowed;
+        if (tieneEstructura(seg)) {
+          return <ValorEditable key={i} value={valorDe(seg)} path={seg.path} etiqueta={rotulo(seg.path)} canEdit={canEdit} kind={seg.kind} onCommit={onCommitField} />;
+        }
         return (
           <InlineEditableProse
             key={i}
             value={String(seg.value ?? seg.text)}
             canEdit={canEdit}
+            conImagenes={conImagenes}
             onCommit={(val) => onCommitField(seg.path, val)}
           />
         );
@@ -582,16 +817,19 @@ const CompositionTransclusionBlock: React.FC<{
   piece: CompositionPiece;
   lens: WorkbenchLens;
   onSelectDoc: (id: string) => void;
+  resolveRef: (model: string | null, name: string) => string;
   onOpenSource: (sourceDocId: string) => void;
   onHoverRef: (docId: string | null) => void;
-}> = ({ piece, lens, onSelectDoc, onOpenSource, onHoverRef }) => {
+}> = ({ piece, lens, onSelectDoc, resolveRef, onOpenSource, onHoverRef }) => {
   const { client } = useSldb();
   const parsedRef = parseDocRef(piece.ref);
-  const childDocId = piece.source.doc
-    ? piece.source.doc.includes(":")
-      ? piece.source.doc.split(":")[1]!
-      : piece.source.doc
-    : parsedRef?.docId ?? "";
+  // La pieza nombra su documento como `Tipo:nombre`: el tipo solo viaja si el nombre se repite.
+  const origen = piece.source.doc ? /^(?:([^:]+):)?(.+)$/.exec(piece.source.doc) : null;
+  const childDocId = origen
+    ? resolveRef(origen[1] ?? null, origen[2]!)
+    : parsedRef
+      ? resolveRef(parsedRef.model, parsedRef.docId)
+      : "";
   const { data: childData, commit: commitChild } = useDocumentEditor(childDocId);
   // Sin describeModel resuelto no hay autoridad confirmada: la pieza queda de solo lectura.
   const [childContract, setChildContract] = useState<{
@@ -962,7 +1200,7 @@ const StructuredTableBlock: React.FC<{
                         <span
                           className="wb-chip"
                           style={{ cursor: "pointer" }}
-                          onClick={() => onSelectDoc(parsedRef.docId)}
+                          onClick={() => onSelectDoc(linkRef(parsedRef))}
                         >
                           {parsedRef.field
                             ? `${parsedRef.docId}#${parsedRef.field}`
@@ -986,17 +1224,40 @@ const StructuredTableBlock: React.FC<{
 const InlineEditableProse: React.FC<{
   value: string;
   canEdit: boolean;
+  /** Un texto del cuerpo de la página (una descripción): se le pueden agregar imágenes. */
+  conImagenes?: boolean;
   onCommit: (next: string) => void;
-}> = ({ value, canEdit, onCommit }) => {
+}> = ({ value, canEdit, conImagenes, onCommit }) => {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(value);
+  const { subirImagen } = useSldb();
+  const area = useRef<HTMLTextAreaElement>(null);
+  const eligiendo = useRef(false); // el diálogo de archivos le quita el foco al texto: eso no es terminar de editar
+  const [subida, setSubida] = useState<{ estado: "subiendo" } | { estado: "error"; mensaje: string } | null>(null);
+
+  const agregarImagen = async (archivo: File | undefined) => {
+    if (!archivo || !subirImagen) return;
+    setSubida({ estado: "subiendo" });
+    try {
+      const ruta = await subirImagen(archivo);
+      setDraft((actual) => conImagen(actual, markdownDeImagen(ruta, archivo.name), area.current?.selectionStart ?? actual.length));
+      setSubida(null);
+    } catch (error) {
+      setSubida({ estado: "error", mensaje: error instanceof Error ? error.message : "No se pudo subir la imagen." });
+    } finally {
+      eligiendo.current = false;
+      area.current?.focus();
+    }
+  };
 
   useEffect(() => {
     setDraft(value);
   }, [value]);
 
   const confirm = () => {
+    if (eligiendo.current) return;
     setEditing(false);
+    setSubida(null);
     const trimmed = draft.trim();
     if (trimmed && trimmed !== value) {
       onCommit(trimmed);
@@ -1006,7 +1267,7 @@ const InlineEditableProse: React.FC<{
   };
 
   // Un valor de varias líneas es Markdown del store (párrafos, listas, tablas GFM): se lee como tal.
-  const multiline = value.includes("\n");
+  const multiline = value.includes("\n") || /!\[[^\]]*\]\(/.test(value);
   const shown = multiline ? (
     <div className="wb-prose-md">
       <ReactMarkdown remarkPlugins={[remarkGfm]}>{value}</ReactMarkdown>
@@ -1038,8 +1299,14 @@ const InlineEditableProse: React.FC<{
   }
 
   return (
+    <>
     <textarea
+      ref={area}
       autoFocus
+      onFocus={(e) => {
+        // Se empieza a escribir al final del texto: ahí cae también una imagen si no se movió el cursor.
+        if (!eligiendo.current && e.target.selectionStart === 0 && e.target.selectionEnd === 0) e.target.setSelectionRange(e.target.value.length, e.target.value.length);
+      }}
       rows={Math.max(2, draft.split("\n").length, Math.ceil(draft.length / 72))}
       className="wb-textarea"
       style={{
@@ -1063,5 +1330,38 @@ const InlineEditableProse: React.FC<{
         }
       }}
     />
+    {conImagenes && subirImagen && (
+      <span className="wb-imagen-nueva">
+        {/* onMouseDown sin foco: el texto sigue en edición mientras se elige el archivo */}
+        <label className="wb-imagen-nueva__boton" onMouseDown={(e) => { e.preventDefault(); eligiendo.current = true; }}>
+          {subida?.estado === "subiendo" ? "Subiendo…" : "Agregar una imagen"}
+          <input
+            type="file"
+            accept="image/jpeg,image/png,image/webp,image/gif"
+            hidden
+            disabled={subida?.estado === "subiendo"}
+            onChange={(e) => {
+              const archivo = e.target.files?.[0];
+              e.target.value = "";
+              if (!archivo) {
+                eligiendo.current = false;
+                area.current?.focus();
+                return;
+              }
+              void agregarImagen(archivo);
+            }}
+            ref={(entrada) => {
+              // Cerrar el diálogo sin elegir nada: el texto sigue en edición.
+              if (entrada) entrada.oncancel = () => {
+                eligiendo.current = false;
+                area.current?.focus();
+              };
+            }}
+          />
+        </label>
+        {subida?.estado === "error" && <span className="wb-imagen-nueva__error" role="alert">{subida.mensaje}</span>}
+      </span>
+    )}
+    </>
   );
 };
