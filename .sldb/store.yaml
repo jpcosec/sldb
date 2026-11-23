@@ -372,6 +372,9 @@ include:
   - desk/inbox/20261121-125951-unclear-queue-20261121t155138z-integrate-task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato.md
   - desk/inbox/20261122-185348-unclear-docs-update-y-models-add-con-un-store-enlazado-roto-reescriben-lo-de-deskops.md
   - desk/inbox/20261122-185439-suggestion-stores-check-filtrado-por-modelo-y-docs-update-parcial.md
+  - desk/inbox/20261123-142527-suggestion-decisi-n-de-jp-el-grafo-de-sldb-pasa-a-un-motor-datalog-revierte-d5.md
+  - desk/inbox/20261123-142553-suggestion-jp-pide-ver-ahora-el-daemon-de-sldb.md
+  - desk/inbox/20261123-142617-suggestion-traer-a-surface-el-lector-de-documentos-de-minegocio-para-explorar-deskops.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -916,6 +919,8 @@ include:
     name: run-deskops-e-d09d8a1d0f89
   - path: runs/subagents/exec-deskops-t-c3a20297794c-testing/run.md
     name: run-deskops-t-c3a20297794c
+  - path: runs/subagents/exec-deskops-t-0c6b4c1c70fd-testing/run.md
+    name: run-deskops-t-0c6b4c1c70fd
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -3012,6 +3017,10 @@ include:
     name: review-task-el-guard-de-sobrescritura-con-perdida-acepta-quitar-un-encabezado-no-declarado-si-su-contenido-queda-evidence-atom-1
   - path: desk/reviews/task-el-guard-de-sobrescritura-con-perdida-acepta-quitar-un-encabezado-no-declarado-si-su-contenido-queda/evidence-materialization-1.md
     name: review-task-el-guard-de-sobrescritura-con-perdida-acepta-quitar-un-encabezado-no-declarado-si-su-contenido-queda-evidence-materialization-1
+  - path: desk/reviews/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg/reproduction-1.md
+    name: review-task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg-reproduction-1
+  - path: desk/reviews/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg/preflight-3.md
+    name: review-task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg-preflight-3
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
