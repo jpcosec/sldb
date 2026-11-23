@@ -936,6 +936,8 @@ include:
     name: run-deskops-e-2acaf8c0c65b
   - path: runs/subagents/exec-deskops-t-c3f4ecdef94f-testing/run.md
     name: run-deskops-t-c3f4ecdef94f
+  - path: runs/subagents/exec-deskops-t-0c6b4c1c70fd-a2-testing/run.md
+    name: run-deskops-t-0c6b4c1c70fd-a2
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -1544,6 +1546,32 @@ include:
   - desk/materializations/materialization-api-src-sldb-api-documents-heading-scan-py.md
   - desk/materializations/materialization-api-src-sldb-api-documents-lossy-overwrite-py.md
   - desk/materializations/materialization-api-tests-api-test-lossy-overwrite-content-py.md
+  - desk/materializations/materialization-surface-surface-src-app-workbenchshell-tsx.md
+  - desk/materializations/materialization-surface-surface-src-app-workbench-test-tsx.md
+  - desk/materializations/materialization-surface-surface-src-core-fixtures-rechazos-sldb-json.md
+  - desk/materializations/materialization-surface-surface-src-core-client-ts.md
+  - desk/materializations/materialization-surface-surface-src-core-doc-ref-test-ts.md
+  - desk/materializations/materialization-surface-surface-src-core-doc-ref-ts.md
+  - desk/materializations/materialization-surface-surface-src-core-imagenes-test-ts.md
+  - desk/materializations/materialization-surface-surface-src-core-imagenes-ts.md
+  - desk/materializations/materialization-surface-surface-src-core-layout-ts.md
+  - desk/materializations/materialization-surface-surface-src-core-rechazo-test-ts.md
+  - desk/materializations/materialization-surface-surface-src-core-rechazo-ts.md
+  - desk/materializations/materialization-surface-surface-src-core-wiki-index-test-ts.md
+  - desk/materializations/materialization-surface-surface-src-core-wiki-index-ts.md
+  - desk/materializations/materialization-surface-surface-src-main-tsx.md
+  - desk/materializations/materialization-surface-surface-src-react-documentsurface-tsx.md
+  - desk/materializations/materialization-surface-surface-src-react-context-tsx.md
+  - desk/materializations/materialization-surface-surface-src-react-usedocumenteditor-ts.md
+  - desk/materializations/materialization-surface-surface-src-styles-paper-tokens-css.md
+  - desk/materializations/materialization-surface-surface-src-views-composerview-tsx.md
+  - desk/materializations/materialization-surface-surface-src-workbench-avisoguardado-tsx.md
+  - desk/materializations/materialization-surface-surface-src-workbench-ficha-tsx.md
+  - desk/materializations/materialization-surface-surface-src-workbench-nuevapagina-tsx.md
+  - desk/materializations/materialization-surface-surface-src-workbench-prosaworkbenchview-test-tsx.md
+  - desk/materializations/materialization-surface-surface-src-workbench-prosaworkbenchview-tsx.md
+  - desk/materializations/materialization-surface-surface-src-workbench-wikiindex-tsx.md
+  - desk/materializations/materialization-surface-surface-src-workbench-wikilectura-test-tsx.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -3045,6 +3073,14 @@ include:
     name: review-task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb-preflight-1
   - path: desk/reviews/task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb/bundle-1.md
     name: review-task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb-bundle-1
+  - path: desk/reviews/task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer/evidence-tests-1.md
+    name: review-task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer-evidence-tests-1
+  - path: desk/reviews/task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer/evidence-commit-1.md
+    name: review-task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer-evidence-commit-1
+  - path: desk/reviews/task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer/evidence-atom-1.md
+    name: review-task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer-evidence-atom-1
+  - path: desk/reviews/task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer/evidence-materialization-1.md
+    name: review-task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
