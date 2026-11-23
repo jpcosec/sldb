@@ -1,0 +1,19 @@
+name: 20261121-210430-unclear-la-superficie-trata-todo-field-como-bloque-porque-el-servidor-manda-composition-null
+path: desk/inbox/20261121-210430-unclear-la-superficie-trata-todo-field-como-bloque-porque-el-servidor-manda-composition-null.md
+source_hash: ee114d23b73b0996c508c7902237b415f06e851b336ef281e16595f84e33bb84
+content_hash: b8d5aebed7ec57382e82ccdc84bda7e840a2a5784a76e34e1a6d9d35212117e3
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: ca986c860aa53cd9eb12b76615bb22aed19d8fd696fff6c629e13fc46d01ea10
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: feb70d26ec15b1d1abb6b365c8832f0798c642fd8206e9a139db80e7da0d27da
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: 2704765ba861fdd15b9491eebe8036e6c1ea9e7eb9db5bc0333eae5e1eb21085
+  body: 41cb50505f04c86d28bc99e060092e728352b30fff77acd7547d709f90ffccc2
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

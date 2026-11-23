@@ -1,0 +1,19 @@
+name: 20261121-213216-unclear-la-superficie-no-puede-saber-la-ruta-ni-la-cardinalidad-de-un-modelo-al-crear-un-documento
+path: desk/inbox/20261121-213216-unclear-la-superficie-no-puede-saber-la-ruta-ni-la-cardinalidad-de-un-modelo-al-crear-un-documento.md
+source_hash: 51d841d5b5c8c75483256c66c63f1dc869da1ef1371e9bc1db99dc944fe20412
+content_hash: c8a6c87e2d213e033258ee3f6c1f9e823414ac40b22de60c31a4bec8fbed6c20
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 5a3a66f25f75d244c0ea283507494bd2df67004474f9f3b48eb6ac77ef8891c0
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: eca9daa6d80c383800b821ace61e9df0f285dc80dfc4236dcadf243a4744cab6
+  body: af411b57d418c46b8b6a2b4017fc54ea51306ed7d304d66f0fd7925f51cf64bf
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null
