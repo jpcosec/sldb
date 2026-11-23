@@ -374,6 +374,12 @@ include:
   - desk/inbox/20261122-185348-unclear-docs-update-y-models-add-con-un-store-enlazado-roto-reescriben-lo-de-deskops.md
   - desk/inbox/20261122-185413-suggestion-referencias-declaradas-a-rutas-de-c-digo-y-tipo-de-relaci-n.md
   - desk/inbox/20261122-185439-suggestion-stores-check-filtrado-por-modelo-y-docs-update-parcial.md
+  - desk/inbox/20261121-204955-unclear-agregar-un-campo-con-default-a-un-modelo-invalida-los-documentos-existentes-y-fields-update-no-los-repara.md
+  - desk/inbox/20261121-210430-unclear-la-superficie-trata-todo-field-como-bloque-porque-el-servidor-manda-composition-null.md
+  - desk/inbox/20261121-213216-unclear-la-superficie-no-puede-saber-la-ruta-ni-la-cardinalidad-de-un-modelo-al-crear-un-documento.md
+  - desk/inbox/20261121-220138-unclear-sldb-serve-no-deja-leer-ni-reparar-nada-cuando-un-documento-del-store-es-invalido.md
+  - desk/inbox/20261122-232536-unclear-sldb-serve-no-ve-altas-hechas-por-otro-proceso-hasta-su-pr-ximo-guardado.md
+  - desk/inbox/20261122-233451-unclear-sldb-serve-document-y-save-no-resuelven-tipo-nombre-hom-nimos-entre-modelos.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
