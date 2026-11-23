@@ -387,6 +387,7 @@ include:
   - desk/inbox/20261123-161110-unclear-queue-20261123t191005z-dispatch-tester-task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-ndice-federado-en-cada-edg.md
   - desk/inbox/20261123-161742-unclear-queue-20261123t191007z-dispatch-reap-task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer.md
   - desk/inbox/20261123-162418-unclear-queue-20261123t191226z-dispatch-tester-task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-ndice-federado-en-cada-edg.md
+  - desk/inbox/20261123-163608-unclear-queue-20261123t191956z-dispatch-reap-task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -939,6 +940,8 @@ include:
     name: run-deskops-e-2acaf8c0c65b
   - path: runs/subagents/exec-deskops-t-c3f4ecdef94f-testing/run.md
     name: run-deskops-t-c3f4ecdef94f
+  - path: runs/subagents/exec-deskops-t-0c6b4c1c70fd-a2-testing/run.md
+    name: run-deskops-t-0c6b4c1c70fd-a2
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
