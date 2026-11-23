@@ -1533,6 +1533,7 @@ include:
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
   - desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
+  - desk/tasks/task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb.md
 - model: ReviewDoc
   paths:
   - path: desk/reviews/task-gd23/preflight-1.md
@@ -3067,6 +3068,7 @@ include:
   - desk/tasks/task-docs-update-y-models-add-sobre-un-store-con-un-enlace-roto-no-reescriben-los-metadatos-de-los-modelo.md
   - desk/tasks/task-los-ids-de-seccion-conservan-las-letras-con-tilde-y-sldb-inbox-no-deja-una-nota-sin-trackear-cuando.md
   - desk/tasks/task-stores-check-filtra-por-modelo-y-docs-update-acepta-un-payload-parcial-que-se-mezcla-con-el-document.md
+  - desk/tasks/task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer.md
 - model: TaskDebugDoc
   paths:
   - desk/tasks/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg.md

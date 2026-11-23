@@ -1,7 +1,7 @@
 name: repo-sldb-ui
 path: desk/registry/repo-sldb-ui.md
 source_hash: f91bc12bc0e9239f022ebffe16c0fe2993ea776054b1e117e63d40f92d2bf4f8
-content_hash: 0a007b7097f033bb2c1810734308a4398867a381cc9a121b0d39d80eb1949ff4
+content_hash: 64ff8929363a9fcd001d53f5b355332f8981aadb35028adf761315759d3b7327
 field_hashes:
   name: e710514e29fab1ba3c04f75397d61d649da0270012ce642af2775691b57f6e9c
   id: e710514e29fab1ba3c04f75397d61d649da0270012ce642af2775691b57f6e9c
@@ -9,6 +9,8 @@ field_hashes:
   status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
   description: 47350ecb9cf284fcb0c48710d411d7ed06f2e40e10f2c635783b582421746851
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  owns_paths: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  owns_topics: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

@@ -1,0 +1,25 @@
+name: 20261123-142527-suggestion-decisi-n-de-jp-el-grafo-de-sldb-pasa-a-un-motor-datalog-revierte-d5
+path: desk/inbox/20261123-142527-suggestion-decisi-n-de-jp-el-grafo-de-sldb-pasa-a-un-motor-datalog-revierte-d5.md
+source_hash: 7bc9e78f3fd95a5b55d87a10cf69a8120178d0feb4c0ac79012468c84a0a785b
+content_hash: d87bf05f6d37ca275b67bc063b2dfd49ffdf3c352c48c69662270b55d3d124f8
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 951399ef0279bb619f3489b9b2165863aee3b78189fe353771236c761a8dac84
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 4671122060e98b1d6e66ef5b0c6de15f9a41ab9e4e8caf6cfa2e1abcba0df194
+  ack_reason: ea464cd0f4f4ec50071c87d5a0ee5df0ab5b2710ff231aa8918da74bf4cfe006
+  title: 6b15f220d83580c7ead36fdcf6dc046fb8e24f9603c525edbd5b010232b29206
+  body: ea31b7954b0ea37581f900765932f5d3ce8241f35830e07253d02a0e5e301f55
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance:
+  by: agent
+  at: '2026-11-23T17:39:43Z'
+  authority: generated
+  via: save_document_payload

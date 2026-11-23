@@ -1,7 +1,7 @@
 name: repo-pron
 path: desk/registry/repo-pron.md
 source_hash: bba2853f6003f266848eda71160ae5d977572a4b31cab6e1ead86456320b26a6
-content_hash: 706aa5322e39cdb236fdf5135387adec36a450c5d7a32942c8479daaf6ac2717
+content_hash: a2bcb56457d2e266e5b06e6b9f7d46aa94320cfcdb5932943051ddbfa33d6e02
 field_hashes:
   name: 1e6e84d52f8d8e656cbd188d8ad739f7b63d1bbc367d69e60d7847878a083a95
   id: 1e6e84d52f8d8e656cbd188d8ad739f7b63d1bbc367d69e60d7847878a083a95
@@ -9,6 +9,8 @@ field_hashes:
   status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
   description: 5db7fea99f57ca6bd97a420ee1011563639be20e8dcbe0967e89d349e20e07c0
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  owns_paths: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  owns_topics: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

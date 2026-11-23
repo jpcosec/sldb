@@ -1,18 +1,19 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T08:14:08Z'
+  at: '2026-11-23T17:30:47Z'
   authority: generated
   via: save_document_payload
 id: task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
-current_node: ritual-execution
-history: []
+current_node: ritual-testing
+history:
+- task_activates
 references:
 - desk/inbox/20261115-224941-suggestion-matching-edges-catalog-build-con-tomos-tarda-minutos-porque-cada-edges-of-recompone-live-stale-y-mapas-del-ndice-federado.md
 depends_on: []

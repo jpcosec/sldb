@@ -1,7 +1,7 @@
 name: repo-sldb
 path: desk/registry/repo-sldb.md
 source_hash: 22114c04390da95ed27a770b1735b60b01d0bacd58dfcc4feee3e562cd5ec268
-content_hash: 7c3c5578b752a0d969883cce76d3faa6ebddea6605f8db266faa9051bb028f68
+content_hash: 4f9f2f5df1bb2a55fce40e36c907f2b01d000ea1039cd5077813d800d3df3f6b
 field_hashes:
   name: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   id: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -9,6 +9,8 @@ field_hashes:
   status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
   description: 85dbf5c827964fdbb597ee7b5a0f2d9d646f86dd4a9a5d2dc2b2e0c05039c483
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  owns_paths: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  owns_topics: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

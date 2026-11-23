@@ -1,7 +1,7 @@
 name: repo-scion
 path: desk/registry/repo-scion.md
 source_hash: 12fc6bf7f3a0886f3a6d91155b2b62dad9e5b6d436c49db0f004cec2eca8ac19
-content_hash: 8d7caa128bdb5c1653eb63349ebdb7fdd1e39f42672433560b25568cf8159912
+content_hash: 0bae5f0c0b067539db573d89b9d392d00a740adf6a66333792be38598ebc4c73
 field_hashes:
   name: 1321d9efcb48ac8350a2345a4fb62a20719e69787bd4152b777b80ff17daa46a
   id: 1321d9efcb48ac8350a2345a4fb62a20719e69787bd4152b777b80ff17daa46a
@@ -9,6 +9,8 @@ field_hashes:
   status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
   description: f85d6584428d61a8e2f3dd2e39aa24d84ac112a89d4d7250d4c7a355e7b02e9e
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  owns_paths: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  owns_topics: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

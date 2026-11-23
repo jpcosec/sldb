@@ -1,7 +1,7 @@
 name: repo-deskops
 path: desk/registry/repo-deskops.md
 source_hash: cd23a77a869a7e08aae88bf972bfe8d0b31f22628a7b0462916dd7bd93aa1877
-content_hash: 41ebd01e6f6f15ac87a330d62150a928290b765bec1161f265739cbef5e21ea9
+content_hash: 2441641e7b20f601ff6a243a2b821401c8a727cab9cfc4b6da262afd5025549e
 field_hashes:
   name: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
   id: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
@@ -9,6 +9,8 @@ field_hashes:
   status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
   description: f1abb7cf41d6b4703b3216ff4e812950ebc75240c64593d9dd53c0a52ead258a
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  owns_paths: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  owns_topics: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown
