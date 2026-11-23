@@ -159,13 +159,13 @@ def test_attach_atom_edges_loads_the_edge_index_at_most_twice_for_ten_refs(tmp_p
         attach_atom_edges(views, explicit, linked, reader, raw)
         return {a["id"]: {tuple(sorted(e.items())) for e in a["edges"]} for a in explicit["v1"]["cli"]["list"]}
 
-    from sldb.api.edges import edge_reading
+    from sldb.api.matching import store_edges
     calls = []
-    real = edge_reading.load_edge_index
-    monkeypatch.setattr(edge_reading, "load_edge_index", lambda *a, **k: calls.append(a) or real(*a, **k))
+    real = store_edges.load_edge_index
+    monkeypatch.setattr(store_edges, "load_edge_index", lambda *a, **k: calls.append(a) or real(*a, **k))
     result = edges_by_atom(StoreReader())
     assert len(result) == 10 and any(result.values())
-    assert len(calls) <= 2
+    assert 1 <= len(calls) <= 2
     from sldb.api.matching.store_edges import edges_of
     titles = {d["ref"]: d["title"] for d in store_documents(store)}
     assert result == {i: {tuple(sorted(e.items())) for e in edges_of(store, f"AtomDoc:{i}", titles)} for i in ids}
