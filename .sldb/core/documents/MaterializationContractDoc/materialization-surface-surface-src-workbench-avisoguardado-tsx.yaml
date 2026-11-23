@@ -1,0 +1,25 @@
+name: materialization-surface-surface-src-workbench-avisoguardado-tsx
+path: desk/materializations/materialization-surface-surface-src-workbench-avisoguardado-tsx.md
+source_hash: c46a92e9893cf8c665520df286d3e312ba6eaf0c7af86f2abd2af8704d7afa18
+content_hash: 4ea85800bbc019869c4780eb8401afbdde02b78fd06f32207bf204f0d015356c
+field_hashes:
+  id: d1b0a002e1780531468ba306cb7c18b3b38bfe2fb9500a601cabdff69d4adf34
+  title: d35926a5baae331c421fcf466c803635d08eab2cf86fdfdcd97d53998f6cb2f2
+  source_atoms: 2bc48b291f720e51f3278130604ca3b3dbe7bb86b0e0541873a4f316d754acfe
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: d630c937d67425d81ebbd4b7785b2b5b0af1c1ab781f01f469e5171dc8931bc7
+  intent: 56d18fe5c63272f163b718d4155a84c435b391e3417c13523f486100c2697944
+  validation: 5e80c64a49d809f690e85ede5c13e245b6ea546adb07e703f7da43f85ae43c95
+  tags: c3172eeb412a202a398645d59ff05d7f6268336a078d8088a335000e25377962
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:surface
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-23T18:45:38Z'
+  authority: generated
+  via: create_document

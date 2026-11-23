@@ -1,0 +1,25 @@
+name: materialization-surface-surface-src-core-imagenes-test-ts
+path: desk/materializations/materialization-surface-surface-src-core-imagenes-test-ts.md
+source_hash: 7fe28d0a85bd40a2df4b24e1f58799d7d093e0b14285e67f7b95d65771c6df4f
+content_hash: ea34a4d7a12012cfd236c1ae07ebb869a33dcb6bf0225522c8c1a5931d6e7de8
+field_hashes:
+  id: 15c18281fba1e3bb8996c404666fd6bd7fab4968cc9d877f5e3f169d799219ca
+  title: 14af6fcbf94a91f1e32b9967c90c77b4bd8e48450e2e9501e7b244b1c9c4467d
+  source_atoms: 2bc48b291f720e51f3278130604ca3b3dbe7bb86b0e0541873a4f316d754acfe
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: cc471087ca9a02c57e5b1530b67ee2873e5c2ad2af706ea890eda800ccc70548
+  intent: 2694d5daabe3537f6074e2f5fbf2457df40c0986b4ce0ee0ab47a398f4a99675
+  validation: 5e80c64a49d809f690e85ede5c13e245b6ea546adb07e703f7da43f85ae43c95
+  tags: c3172eeb412a202a398645d59ff05d7f6268336a078d8088a335000e25377962
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:surface
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-23T19:00:28Z'
+  authority: generated
+  via: save_document_payload

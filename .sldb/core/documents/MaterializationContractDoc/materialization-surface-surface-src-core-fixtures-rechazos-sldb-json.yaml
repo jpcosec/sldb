@@ -1,0 +1,25 @@
+name: materialization-surface-surface-src-core-fixtures-rechazos-sldb-json
+path: desk/materializations/materialization-surface-surface-src-core-fixtures-rechazos-sldb-json.md
+source_hash: 98726d5ae3668ab9afff014f686af6347cad5c18aa5b1ff70e55255f4eae41e4
+content_hash: 03f0fe30d99938c2406948d1325a7804a67605c525215cad6f47de89cd428a76
+field_hashes:
+  id: 1a27bb64b68316d8639a33b8fef3bb57c2ad9d56bf452bb9d3322ff53a36a115
+  title: 41c97a4458cd42962f5dbb1ed34fa38c179a77ff75aff531cb30601fd965ea9c
+  source_atoms: 2bc48b291f720e51f3278130604ca3b3dbe7bb86b0e0541873a4f316d754acfe
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: da0e069b90b97dda34096bd838f934ce2f74496fd9e82b07b5a6e0ef0ee2383f
+  intent: e4f1183dee606cb9d4af82e654f3c79aacf059e9867d9461ab23f1b4da66b7cf
+  validation: 5e80c64a49d809f690e85ede5c13e245b6ea546adb07e703f7da43f85ae43c95
+  tags: c3172eeb412a202a398645d59ff05d7f6268336a078d8088a335000e25377962
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:surface
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-23T18:35:19Z'
+  authority: generated
+  via: create_document

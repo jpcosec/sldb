@@ -1,0 +1,25 @@
+name: 20261123-161110-unclear-queue-20261123t191005z-dispatch-tester-task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-ndice-federado-en-cada-edg
+path: desk/inbox/20261123-161110-unclear-queue-20261123t191005z-dispatch-tester-task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-ndice-federado-en-cada-edg.md
+source_hash: 3e21e932b514dd6e1332d31efeed69e02294c605bced45810ee1b35684f267e7
+content_hash: 7a0605f0b43b562fda10a4788c89fed4e3ab309b6bcb3c3fb87f38f3f50aaf16
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 0cb76ba4c01d86722bc86e4e96fc7f3df95f3acfb64a551a16c7f305a34b82de
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 3d18b32cdd3e858d8570706a0d17c1335b098c000f9094991134bd6c2204a3c9
+  ack_reason: 90b450da99d788dfda68b92e04f54df972a96cd3e9ff7626de9a9ae57d80642a
+  title: 784b6731ff4c731561a828935ce1070fee17ea9365ccefcf0ba466389d5171fa
+  body: 0f1a586a89e6d9c3b8b278337d46c58bad25208d1898d261b743f4973af6bb38
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance:
+  by: agent
+  at: '2026-11-23T19:12:56Z'
+  authority: generated
+  via: save_document_payload

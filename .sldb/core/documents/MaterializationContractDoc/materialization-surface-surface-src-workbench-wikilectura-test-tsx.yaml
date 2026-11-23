@@ -1,0 +1,25 @@
+name: materialization-surface-surface-src-workbench-wikilectura-test-tsx
+path: desk/materializations/materialization-surface-surface-src-workbench-wikilectura-test-tsx.md
+source_hash: 6a2b963690dd76228b904f2514fb00f4e117aa6419bfc7f382243e574615434e
+content_hash: 4c87e3b4df9f1e841eadd8218ee1b71535cc5df386e896493387f2990c1ee562
+field_hashes:
+  id: f479a6943e4a0d6f86d9a73170d0f668a3475641aee6e4e3e4b83c976235d917
+  title: 3bfba25e050f70a07348598d9416d2ddd000e807486fa30b0d38a7dee0b6e5b2
+  source_atoms: 2bc48b291f720e51f3278130604ca3b3dbe7bb86b0e0541873a4f316d754acfe
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 6706e1805ed41ae7c6f61c3f862ab21072a9faaea0000379e8b8028d6d1c0039
+  intent: 2ad760770015497a2eaa5d2c09d3c0ec0730235f38a8b0e571a070bfc6cea5d9
+  validation: 5e80c64a49d809f690e85ede5c13e245b6ea546adb07e703f7da43f85ae43c95
+  tags: c3172eeb412a202a398645d59ff05d7f6268336a078d8088a335000e25377962
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:surface
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-23T19:02:49Z'
+  authority: generated
+  via: save_document_payload

@@ -1,0 +1,25 @@
+name: materialization-surface-surface-src-core-doc-ref-ts
+path: desk/materializations/materialization-surface-surface-src-core-doc-ref-ts.md
+source_hash: b54c9994ed6fe10567f960ccb9b4d7f55d06f82616488e7505cb8b1c2e88372a
+content_hash: 70871921695b794166422eca7226ade5aa487a277406ef7b74a29d144a8c3869
+field_hashes:
+  id: 0ed1e3a86bf0a2a477f58e40a9356c8d4813f4366b83150de523d0e67fbbeb71
+  title: 648d84927dd31d9ff6161f5c7d00806e01acb690e1e1f42c66d97753f50d1a72
+  source_atoms: 2bc48b291f720e51f3278130604ca3b3dbe7bb86b0e0541873a4f316d754acfe
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 3228f99e6e0fb16f87d96523bc9d7d269802bb3667df3ada339313ce649073bf
+  intent: f4eb5ccf362ef3fec39ce0677b15003e85662be271c7197ac03ab4132922b057
+  validation: 5e80c64a49d809f690e85ede5c13e245b6ea546adb07e703f7da43f85ae43c95
+  tags: c3172eeb412a202a398645d59ff05d7f6268336a078d8088a335000e25377962
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:surface
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-23T18:37:08Z'
+  authority: generated
+  via: create_document

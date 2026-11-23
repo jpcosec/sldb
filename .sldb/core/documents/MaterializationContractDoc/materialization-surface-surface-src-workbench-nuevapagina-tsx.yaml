@@ -1,0 +1,25 @@
+name: materialization-surface-surface-src-workbench-nuevapagina-tsx
+path: desk/materializations/materialization-surface-surface-src-workbench-nuevapagina-tsx.md
+source_hash: 3fae825ce2e13e20fb6a5990e09f8ac9241c69db209185483a825b3f3ff01aab
+content_hash: b4394e72d9845d36d3a391804f1eace31698627d1d751d2ff64152e12d0f5194
+field_hashes:
+  id: a6500b1ff16037542406bd9e160dc04e2c1435d1219b600bae5574ad77cdb1f1
+  title: 39de1db392b44e39eb6dfecb97fba76e56c2b58c2501500052c03b73c1de9c1c
+  source_atoms: 2bc48b291f720e51f3278130604ca3b3dbe7bb86b0e0541873a4f316d754acfe
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: fd0119503a542df884956e3dfba9cad97683254a1cf3728c317978f781216a6d
+  intent: ed6861242a69b9b42ae53b44ba161c7ac7fd859ca76ee2450469da1c06104818
+  validation: 5e80c64a49d809f690e85ede5c13e245b6ea546adb07e703f7da43f85ae43c95
+  tags: c3172eeb412a202a398645d59ff05d7f6268336a078d8088a335000e25377962
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:surface
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-23T18:46:50Z'
+  authority: generated
+  via: create_document

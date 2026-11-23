@@ -1,0 +1,37 @@
+name: review-task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer-evidence-materialization-1
+path: desk/reviews/task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer/evidence-materialization-1.md
+source_hash: abe6de0def31efc3a43cf5eee6bed34139016fc84d62361b0ac4f616a78a3b7e
+content_hash: 3d5b2367d26fb9778659a9ffbe3ee33c58b6b2adf8a7c67fed6ed3ec1669eb06
+field_hashes:
+  id: 22d2d4699fae6424ac141202719da87d128c609b187337a09a74ce6471a78ad9
+  title: 68487329fbd692c3260cb3813e8c3c2d2635d83311edb6585d3ffdc4be34bfd7
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: 203ed4238c2f38326adcd8aada87a6ec8f45b7ddb223f5955b2b9afd955fbb46
+  subject: 572c8739cbcfe9e70e45fc0c98d1d9daa1ea825149ca08d90876e86b6b0c51bc
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: f7d516c8283a8739081ffa86341e8c8f006d350223837d8e704cba5f9c60e26f
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 5afaf42cf597e10ba4cdf60509db8082cf0be4df1f79db60ad570b7d9f7986f2
+  created_at: 39285056f305fd961c332f82e1c3f0d4db0898ad0b2394b3b43f9d77956858ac
+  disposed_at: 39285056f305fd961c332f82e1c3f0d4db0898ad0b2394b3b43f9d77956858ac
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 897d748b8ca9dd6cc5be9cd1ed6bfb38df60c3ab12c470217893781eb80fb08f
+  disposition: 9175f047ee6a42a2dbad5debc6f8d89d29d045f2ca26cdb66eed9efd5c99cad4
+  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-23T18:50:21Z'
+  authority: generated
+  via: create_document

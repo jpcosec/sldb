@@ -1,0 +1,22 @@
+name: atom-surface-trae-el-lector-de-documentos-de-minegocio-para-explorar-el-store-de-deskops
+path: desk/atoms/atom-surface-trae-el-lector-de-documentos-de-minegocio-para-explorar-el-store-de-deskops.md
+source_hash: 8168c4598dcd4ed9917961fc894ffe074a687fefc2a0bc937feaf633700fc596
+content_hash: 4e49f5ecac23a5d81c93b14e74f9d5ba49b88a97069a48f9e99bc3b634d5f19b
+field_hashes:
+  id: d05475cdb3f3a5b5d78fe429d96407584dc199ce28119c5399660dc7db830c52
+  title: b4019f2765750ea6a66b01d772767be779ac25298ac0a48453e0d201ce76c63a
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: f3ad2c04240b6ff7a5f5dd3bd61e6e4ab2587b5dea59049fb0a987a62ad021a5
+  tags: c3172eeb412a202a398645d59ff05d7f6268336a078d8088a335000e25377962
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:surface
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-23T18:31:12Z'
+  authority: generated
+  via: create_document

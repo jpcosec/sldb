@@ -1,0 +1,25 @@
+name: 20261123-161742-unclear-queue-20261123t191007z-dispatch-reap-task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer
+path: desk/inbox/20261123-161742-unclear-queue-20261123t191007z-dispatch-reap-task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer.md
+source_hash: 31bba4439298f6ff0ad5dc73fae3624bc686c90bd969d7948b036beefece69e7
+content_hash: c152ba82fcf71f51699fc00fb9585cef65905011144f83d8bd9924c685c1de29
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 8c8a3c043bd5c40edd20c53c4b0e33d87d090a18d4928f9dcc4b33194f46184b
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: a056faa6bde034c0b6ae47149352a35a4bbc308ffd198375f014cb6e16352fad
+  ack_reason: 286211d711184baf3f94eee14224df4350ea54f5da4ff6622d2e295bb31264ea
+  title: e283c3f7e1b332db7424490d1ee8c2af96265454e125fe76747c7f2a3e08b7c2
+  body: 2491a0464d21420c0497fdae7612fb6812bf7dd9a822aa1a0f36d1312340b167
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance:
+  by: agent
+  at: '2026-11-23T19:20:44Z'
+  authority: generated
+  via: save_document_payload
