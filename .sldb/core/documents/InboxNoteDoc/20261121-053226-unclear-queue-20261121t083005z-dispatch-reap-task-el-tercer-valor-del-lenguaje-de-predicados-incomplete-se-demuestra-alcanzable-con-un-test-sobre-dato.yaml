@@ -1,14 +1,16 @@
 name: 20261121-053226-unclear-queue-20261121t083005z-dispatch-reap-task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato
 path: desk/inbox/20261121-053226-unclear-queue-20261121t083005z-dispatch-reap-task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato.md
-source_hash: e19cb2f1bdcf1c449d320a3094dd2264a9066341b66d83daeec45ff1c06bc376
-content_hash: 9cc7a8ee3595cdcbca54312e32532e72862c2fe50504722c48cadfff4f39ffee
+source_hash: 058a7888c1dd03906d50ba2f2423bca648d4b391b0f6127ec7307bd394a06923
+content_hash: 0624fd78db6896c7ce3979753e9e960165067d4344c6242443efa24fe377a254
 field_hashes:
   kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
   sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: 3c5227413a747785775a714e1fdcc96f4b53777d6e3eeacc75f294eabe092b9f
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
-  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 3414e8981fbf73b813501727121ecbca43056cc3be09a3956e61c99ed652366c
+  ack_reason: fe69a807a3cd8cdaa7b1011c57b1ce69a9438ac7cd0d1578cb4e1a21702baab7
   title: e3302f2843b1658c3db8c24e1ad87b44cdc4107b79122a9f5148ccb96c6b77e6
   body: 871eab8e567bddefaf49c4608b4f3b7568ef0b8ef136851ece62403c6dbfa24f
 semantic_tags:
@@ -16,4 +18,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-23T01:30:24Z'
+  authority: generated
+  via: save_document_payload

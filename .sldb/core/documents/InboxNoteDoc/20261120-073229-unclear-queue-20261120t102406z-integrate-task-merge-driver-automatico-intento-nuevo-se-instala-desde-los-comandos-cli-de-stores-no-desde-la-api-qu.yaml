@@ -1,14 +1,16 @@
 name: 20261120-073229-unclear-queue-20261120t102406z-integrate-task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu
 path: desk/inbox/20261120-073229-unclear-queue-20261120t102406z-integrate-task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu.md
-source_hash: aaf77c1c01d658cdca59fe40850dc927a735e9db6467d18c0437d51458e77dcd
-content_hash: d967fa22161cfd6c0e5cd90f960e100f8d9e626a16d91f77afa534dd6313dcb8
+source_hash: 72352260f1408e7d4eabee97237ba494526ff0623bf241286897b18cc873b64a
+content_hash: 524c6c26a628cc0d17b163fb33935e4b251f3ec519757e7aeef86b69e1432d9d
 field_hashes:
   kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
   sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: 697034224cf8d4edc0e950715cb4ec28f855d3fcd7a526d04699dc90c8dd03d4
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
-  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 1ff80b769a04fa394292dbb6efe483cbab10d0d94514ca4815c28e9999b97c33
+  ack_reason: ff4c45774fd5d9f2e934fb6332ebca04c7f983bb66a0dd3891d32b420d08d5c9
   title: 6c40ce837389284ca464d56d88958063e04ed9eebeb2a72ad628602bd4f5e81a
   body: d45668755a5858e99bf73c5a7b4d51593109b8e73dc28bbd0e9c843ab515c3ef
 semantic_tags:
@@ -16,4 +18,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-23T01:26:48Z'
+  authority: generated
+  via: save_document_payload

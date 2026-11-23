@@ -1,14 +1,16 @@
 name: 20261120-115642-unclear-queue-20261120t145228z-integrate-task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo
 path: desk/inbox/20261120-115642-unclear-queue-20261120t145228z-integrate-task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo.md
-source_hash: ee429a3c2f44eaa8782c7f74c0cd717f19a4dc57b33c41b4fc6033ae1db2961c
-content_hash: ad94e3aa92c48215f619de8377b0f0be22e0158affb8e3397382dc4e1ec22108
+source_hash: 355e75f5cae1c96d48a469f7c0bfd9d3cb58a24c572378452a3ba318bef95fa3
+content_hash: 75edecb96d9424360a9995322021d2a1d02e362c27e9362055d57dbe58806aba
 field_hashes:
   kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
   sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: 5d39f34fc6bc0b428f8b865898cab0ddf71e0d7515f4f2278280f87b9c8c25f8
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
-  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 68b58988496dd6eeb2b0583f1570c1eaab93e865b4be83da2c9de7d4143af7cc
+  ack_reason: dbc126d27a4fce6ac200e0af7439cb71287f242cdd151f30ec77c09dcb9017bd
   title: ac2815a510214eb3d1a8edfa22e0881d362c09eda85565710a7310401281c2b4
   body: fa10c7931e8d396c7e299b34870a2ecabda664a642e5c9591b91387a43252c74
 semantic_tags:
@@ -16,4 +18,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-23T01:28:52Z'
+  authority: generated
+  via: save_document_payload

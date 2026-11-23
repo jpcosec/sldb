@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-23T01:43:47Z'
+  authority: generated
+  via: save_document_payload
 # unclear | suggestion
 kind: suggestion
 # e.g., other_repo
@@ -8,11 +13,16 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-11-22T18:54:39'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-11-22T22:43:23'
 # why the note was acknowledged; empty when no reason was given
-ack_reason: ''
+ack_reason: 'Convertida en dos tareas. Puntos 3 y 4 (los slugs pierden las tildes
+  en _slugify; inbox escribe antes de trackear): task-los-ids-de-seccion-conservan-las-letras-con-tilde-y-sldb-inbox-no-deja-una-nota-sin-trackear-cuando.
+  Puntos 1 y 2 (no existen stores check --model ni docs update --merge en 6ab01b80):
+  task-stores-check-filtra-por-modelo-y-docs-update-acepta-un-payload-parcial-que-se-mezcla-con-el-document.'
 ---
 
 # stores check filtrado por modelo y docs update parcial

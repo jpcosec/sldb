@@ -1,14 +1,16 @@
 name: 20261120-005541-unclear-queue-20261120t034559z-integrate-task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees
 path: desk/inbox/20261120-005541-unclear-queue-20261120t034559z-integrate-task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees.md
-source_hash: 2b064e0de4918ff25c0cb55e197293b4fe1f6a51c904f8e88878c290637ebe7c
-content_hash: dc0a116625fcbf15f890e6a2f5d204e64d78b0a3d1bacdd66f6120424e126f8e
+source_hash: 3b724ae276756cad53d648bc31e9b210e61b728d446c51a132d0cba151dcc479
+content_hash: 57a36e609a9a27532ef6a082da3ff7d9ae2f93da17e59f03a5c2d31483b989ae
 field_hashes:
   kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
   sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: f49c34e8d1abbc208c4a036e48eb19ac95974db6372735c3b6f39326a35bef0e
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
-  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: dcc6d667b948a5b79a27ae2a8f26506b847ce57599e2ac6d194304cf0756229d
+  ack_reason: ef24c428f2eef55845e0ea67b3305d4a38c728b32103b390fff5086db96db6af
   title: 2bdcb809e815bcb6147186e1c146060120cd4e1a2ed85d2a55e6a11eada44a12
   body: cd48d2a5de15e7b0a35d93179430a68e6f6079dfea6adf1f0e09b43f7c800f4b
 semantic_tags:
@@ -16,4 +18,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-23T01:25:44Z'
+  authority: generated
+  via: save_document_payload

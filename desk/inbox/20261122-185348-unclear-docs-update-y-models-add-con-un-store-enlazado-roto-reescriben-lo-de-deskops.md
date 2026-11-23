@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-23T01:43:17Z'
+  authority: generated
+  via: save_document_payload
 # unclear | suggestion
 kind: unclear
 # e.g., other_repo
@@ -8,11 +13,15 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-11-22T18:53:48'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-11-22T22:42:53'
 # why the note was acknowledged; empty when no reason was given
-ack_reason: ''
+ack_reason: Convertida en la tarea task-docs-update-y-models-add-sobre-un-store-con-un-enlace-roto-no-reescriben-los-metadatos-de-los-modelo,
+  que primero lo reproduce porque el layout cambió desde el 04-11. La pregunta sobre
+  si el enlace roto es esperado es de la configuración de Chatbot_Infra, no de sldb.
 ---
 
 # docs update y models add con un store enlazado roto reescriben lo de deskops

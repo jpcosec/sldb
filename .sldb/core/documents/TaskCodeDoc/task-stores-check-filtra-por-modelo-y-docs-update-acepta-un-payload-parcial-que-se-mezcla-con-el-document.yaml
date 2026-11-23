@@ -1,0 +1,38 @@
+name: task-stores-check-filtra-por-modelo-y-docs-update-acepta-un-payload-parcial-que-se-mezcla-con-el-document
+path: desk/tasks/task-stores-check-filtra-por-modelo-y-docs-update-acepta-un-payload-parcial-que-se-mezcla-con-el-document.md
+source_hash: ac9ab9bb47844ae7757011b705ddf2f1a4b0e536e6a6751fb43dc496e0e43ff4
+content_hash: 877df008ddacae894f769e402081f7e900cc5e4b0d0a93e683365272818c6a15
+field_hashes:
+  title: d9c04b9f985bdff48864bdb605c0f5124189fd559ba9072d6f04031af9818f27
+  id: 6286a508a4c4c9797e387f5d782a8e0db11171661b3ed7b2a7ed4b796ddc5663
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 1a9c3d67bd2be72912207ee7fde3357cd9c6785b069294391b734a8d31659e57
+  goal: 0b8aac17d1aab037df9e94e6ccf3efb37d99680ac8512fddedd5b6e93df15cbb
+  scope: 547e9bcec0361f21748c24ea2bb09c28dca0832847797edda804cc162761016d
+  references: 16ad504dac11484a78c12ddcb690d6fc99d9228dd0f7ae7184ef7669d734be6f
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  implementation_path: 07ebb7523ac8de7acad78a82a1d1d31c227ac75fed1e2b85f6f862ebbc4635fc
+  validation: 509047f1aed169d47d7ba5a65a54797e794e4c1c13c08727029ae5dc6a9fa80c
+  done_when: 9d84bed738dd0b506945adad11ecbe6ab4c6dc5a7521812f83afc7a67f28047b
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- artifact:task
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-23T01:40:30Z'
+  authority: generated
+  via: save_document_payload

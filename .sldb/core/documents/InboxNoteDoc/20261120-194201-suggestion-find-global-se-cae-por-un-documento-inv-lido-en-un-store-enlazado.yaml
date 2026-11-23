@@ -1,14 +1,16 @@
 name: 20261120-194201-suggestion-find-global-se-cae-por-un-documento-inv-lido-en-un-store-enlazado
 path: desk/inbox/20261120-194201-suggestion-find-global-se-cae-por-un-documento-inv-lido-en-un-store-enlazado.md
-source_hash: 6a288cde074c5853fbd94c54ea39a2c4e4d3714a7e015efd7a3cc8447414bf94
-content_hash: ea25c7ad85d3411d6afd15810efa31d2da8ecd49f6c1644397653938c7dc81ae
+source_hash: 1257497e4c6cd593e84fb2817ce9cce1509af74c41c5570a89fae39cf25ba473
+content_hash: 2e58b4e9858bc839a84b07b1858d98039a94f894541f74b2c39b39a59a91794c
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: 3c894b699286d85f1511fdbcb79fa8e20b368f377466132c43b01c94611d9e89
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: 9b4923878bb145f811a9c7de2b335bd9473a596044dd3ed9abeaddd82537420f
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
-  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 4418db33c0ee978bbecea3650c6799f4c1f4c8f85624661820f6b0f1cab3b900
+  ack_reason: 4ad025521f3f8e6efd324d4da40c1d9b0f6916b6dfd083a96abf104a9a50a2de
   title: d25374da8da2a4a0f6300c210b395166c213f4839da7947b11f4d30d7e857006
   body: ffb10537775042ff7b3d326c8f3bf6edee905fef7723117901c2a7d4d2668811
 semantic_tags:
@@ -16,4 +18,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-23T01:41:51Z'
+  authority: generated
+  via: save_document_payload

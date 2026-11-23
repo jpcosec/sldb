@@ -1,14 +1,16 @@
 name: 20261120-205449-suggestion-ning-n-comando-de-sldb-repara-un-shard-de-documento-sldb-que-git-dej-en-conflicto
 path: desk/inbox/20261120-205449-suggestion-ning-n-comando-de-sldb-repara-un-shard-de-documento-sldb-que-git-dej-en-conflicto.md
-source_hash: f88c350de568f4a202f2eb8d78f3fbfda110b8fe8e3b70a0ad54f09c06fc25b1
-content_hash: 690dd053e0ea561110464b4221da40b3258bb83b9373cd148c6155867a470c09
+source_hash: d028ff2cef08fd53a58a21ba9d1ec4bd515bca451db769dc770284c85bf75546
+content_hash: 2fbca451efb4ca0855237072bc13e38498c95f6784dba335deb3cecbda841cac
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: 365b992d5367054e3e44c9be7d568cd4ca761f695495eb9392cb4c21a7be1ca8
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
-  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: ad0adb198b250bf95e6f18fc054fef449b2c1440c1d8e714f8b303884af3b4f1
+  ack_reason: b3a0b6b24fe3f74c49986ff8979e1198914940b398eff749c733557c39d83f3e
   title: e85535ac99471e880a78a899a512f65ee44ecf01db2c5643629b4e9a61497fbd
   body: b1680151fe2d6983643fe35a1dd4d4899f77f2ac05671f47291cccb574419008
 semantic_tags:
@@ -16,4 +18,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-23T01:42:18Z'
+  authority: generated
+  via: save_document_payload

@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-16T05:19:23Z'
+  at: '2026-11-23T01:23:45Z'
   authority: generated
   via: save_document_payload
 id: task-decisión-de-jp-publicar-sldb-0-1-13-fechar-el-changelog-tag-v0-1-13-y-aviso-a-los-consumidores-cuand
@@ -15,6 +15,7 @@ current_node: ritual-execution
 history: []
 references:
 - desk/inbox/20261018-123600-suggestion-release-0-1-13-pendiente-hasta-que-la-suite-completa-este-verde.md
+- desk/inbox/20261120-194304-suggestion-versionar-sldb-y-fijarlo-en-quienes-lo-usan.md
 depends_on:
 - task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024
 pills: []

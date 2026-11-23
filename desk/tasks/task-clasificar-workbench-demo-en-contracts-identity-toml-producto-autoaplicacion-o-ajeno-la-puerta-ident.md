@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-20T07:13:41Z'
+  at: '2026-11-23T01:23:13Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-clasificar-workbench-demo-en-contracts-identity-toml-producto-autoaplicacion-o-ajeno-la-puerta-ident
 status: draft
 summary: ''
@@ -12,7 +12,8 @@ tags:
 - artifact:task
 current_node: ritual-execution
 history: []
-references: []
+references:
+- desk/inbox/20261120-194256-suggestion-ci-de-main-en-rojo-workbench-demo-sin-clasificar-y-un-test-de-ts.md
 depends_on: []
 pills: []
 files: []

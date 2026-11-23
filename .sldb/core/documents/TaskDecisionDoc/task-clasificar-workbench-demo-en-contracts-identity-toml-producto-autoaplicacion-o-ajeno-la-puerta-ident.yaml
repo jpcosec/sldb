@@ -1,7 +1,7 @@
 name: task-clasificar-workbench-demo-en-contracts-identity-toml-producto-autoaplicacion-o-ajeno-la-puerta-ident
 path: desk/tasks/task-clasificar-workbench-demo-en-contracts-identity-toml-producto-autoaplicacion-o-ajeno-la-puerta-ident.md
-source_hash: 66b6ffdeb787512ee7eec1ef5fbbcbe5fcd1faf2a008c17c0cdbc0a97a9b8e63
-content_hash: 36ab8be4fcf5459fe311d42b4f847a729081caba72c0d54e195923995b40c148
+source_hash: 80dba72ce94cec79388fbc8e062163843037ed3d7131407e929e9541d4aa43ee
+content_hash: 229aa6c37a53ee371f8c107e49f51e308aecebcaf84541d3664aaa86910bd6f8
 field_hashes:
   title: b8f900fa475ffed37cc347ff194e8aaad9090a307ff6bd43234c62a888b7c47a
   id: ff2090c65d839ee73ca02cf6743d38ff94899ead212f3e65f7825d7ed66267cb
@@ -13,7 +13,7 @@ field_hashes:
   why: c356c00e7f06dddfb8b6337e1df306abd61eada11e04e31d98e11b99260e0fa3
   goal: 06dfe8b4bab85a48729687c4ae17dfc2d23c44ecd459c2494b0a3c399ba6267e
   scope: 1d30a1c472b633fda6411d60549d39069cf1653e419e67a52911e7d725464800
-  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  references: dbd4a006694e559334f65c4d83561c5192958c86c2de4838922c3390de441aba
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -33,6 +33,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-20T07:13:41Z'
+  at: '2026-11-23T01:23:13Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

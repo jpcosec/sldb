@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-23T01:42:48Z'
+  authority: generated
+  via: save_document_payload
 # unclear | suggestion
 kind: suggestion
 # e.g., other_repo
@@ -8,11 +13,15 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-11-20T21:25:48'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-11-22T22:42:24'
 # why the note was acknowledged; empty when no reason was given
-ack_reason: ''
+ack_reason: 'Convertida en la tarea task-load-runtime-documents-informa-los-modelos-que-no-pudo-resolver-en-vez-de-omitirlos-en-silencio.
+  Sigue en 6ab01b80: _resolve_model_type traga la excepción y _load_one hace continue.
+  Está relacionada con task-docs-show-sobre-un-store-enlazado-dice-que-no-pudo-importar-el-modelo-en-vez-de-unknown-document-tar.'
 ---
 
 # sldb.api.load_runtime_documents omite en silencio los modelos que no resuelven

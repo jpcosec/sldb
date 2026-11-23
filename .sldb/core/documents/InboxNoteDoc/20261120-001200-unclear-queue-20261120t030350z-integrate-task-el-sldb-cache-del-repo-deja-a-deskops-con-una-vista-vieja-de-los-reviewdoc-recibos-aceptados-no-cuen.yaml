@@ -1,14 +1,16 @@
 name: 20261120-001200-unclear-queue-20261120t030350z-integrate-task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen
 path: desk/inbox/20261120-001200-unclear-queue-20261120t030350z-integrate-task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen.md
-source_hash: 29d9fbf897993895ece16019925b9fdf75dbabf56e6fd197810f7e6c3ced8737
-content_hash: 528072177786c1529544683dcb04d027ca5f4624d5c9fbe3bc81d0908c0f3924
+source_hash: 8065428e3fbe1f740e32142ff7e350efde1e264fed31b72072a0f0b69755ebc9
+content_hash: 0e103e58c2f73c46f1eebccc69b4ecf433d156946557535354e68db19cbb2e20
 field_hashes:
   kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
   sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: f8f816f5692e6b9465634d7962ec40d7f398e4ca549f7a772ebb2630b6de3f22
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
-  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 43f7f1e7cbbbd42ffa61430df3f812191467526809bec57ce125dad3288a7797
+  ack_reason: 7eb3c777e7fe356f14493a7751285f367258cc52d92871db5b893ef39d9be1c5
   title: ad135290996ba19ae5f6b22e45a14f0f7038dbd5fbea10941c613d29a0db093b
   body: f608449f2978b4f4a0b79f1d38df110e1c106695a32c6cce6dc4e619ab8b4abd
 semantic_tags:
@@ -16,4 +18,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-23T01:25:13Z'
+  authority: generated
+  via: save_document_payload

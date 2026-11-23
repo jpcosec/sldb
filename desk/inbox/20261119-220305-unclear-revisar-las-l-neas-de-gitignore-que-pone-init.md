@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-23T01:41:22Z'
+  authority: generated
+  via: save_document_payload
 # unclear | suggestion
 kind: unclear
 # e.g., other_repo
@@ -8,9 +13,16 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-11-19T22:03:05'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-11-22T22:40:58'
+# why the note was acknowledged; empty when no reason was given
+ack_reason: 'Convertida en la tarea task-stores-check-avisa-cuando-el-gitignore-del-proyecto-todavia-ignora-sldb-runtime-o-sldb-core-layout-a.
+  Sigue en 6ab01b80: _OLD_SPLIT solo lo usa migrate-layout, y ni init ni check avisan.
+  La parte de .deskops.log es de deskops, que tiene su propia nota (deskops inbox
+  20261119-220154).'
 ---
 
 # revisar las líneas de .gitignore que pone init

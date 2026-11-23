@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-22T14:02:23Z'
+  at: '2026-11-23T01:40:01Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -63,6 +63,14 @@ tasks:
 - desk/tasks/task-clasificar-workbench-demo-en-contracts-identity-toml-producto-autoaplicacion-o-ajeno-la-puerta-ident.md
 - desk/tasks/task-el-merge-driver-de-sldb-se-instala-solo-en-un-clon-que-tiene-las-lineas-de-gitattributes-pero-no-la.md
 - desk/tasks/task-respaldar-562847e2-surface-asistente-tour-y-workbench-demo-con-la-suite-completa-y-sldb-stores-build.md
+- desk/tasks/task-stores-check-avisa-cuando-el-gitignore-del-proyecto-todavia-ignora-sldb-runtime-o-sldb-core-layout-a.md
+- desk/tasks/task-find-global-y-la-lectura-federada-de-registros-saltan-un-documento-invalido-de-un-store-enlazado-lo.md
+- desk/tasks/task-el-merge-driver-une-store-yaml-a-tres-vias-con-la-base-una-entrada-que-un-lado-quito-no-vuelve-y-se.md
+- desk/tasks/task-stores-rebuild-index-regenera-desde-su-fuente-los-shards-de-documento-que-git-dejo-con-marcadores-de.md
+- desk/tasks/task-load-runtime-documents-informa-los-modelos-que-no-pudo-resolver-en-vez-de-omitirlos-en-silencio.md
+- desk/tasks/task-docs-update-y-models-add-sobre-un-store-con-un-enlace-roto-no-reescriben-los-metadatos-de-los-modelo.md
+- desk/tasks/task-los-ids-de-seccion-conservan-las-letras-con-tilde-y-sldb-inbox-no-deja-una-nota-sin-trackear-cuando.md
+- desk/tasks/task-stores-check-filtra-por-modelo-y-docs-update-acepta-un-payload-parcial-que-se-mezcla-con-el-document.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -160,3 +168,11 @@ _Generated from the task references above._
 - Clasificar workbench_demo en contracts/identity.toml (producto, autoaplicación o ajeno): la puerta identidad de check.sh está en rojo [draft] - JP o el dueño de surface decide qué es workbench_demo: producto (sldb lo distribuye), autoaplicación (sldb usado sobre sí mismo) o ajeno (va en contract foreign, o se mueve fuera de la raíz, por ejemplo bajo surface/), y se clasifica en contracts/identity.toml. Con eso, check.sh --fast vuelve a 0.
 - El merge driver de sldb se instala solo en un clon que tiene las líneas de .gitattributes pero no la config de git [draft] - Cualquier comando de sldb que abra un store dentro de un repo git cuyo .gitattributes tenga líneas merge=sldb, y cuya config no tenga merge.sldb.driver, instala las claves de git (lo mismo que hace --install con la config, sin tocar .gitattributes) y lo dice una vez por stderr. stores check emite un alert stores/merge-driver-missing si no pudo instalarlo.
 - Respaldar 562847e2 (surface: asistente, tour y workbench_demo) con la suite completa y sldb stores build --check, e ignorar .herdr-coordination.md [draft] - Dejar constancia verificada de que main con 562847e2 pasa la suite completa de sldb (pytest -n 4) y sldb stores build --check; corregir lo que falle por ese commit; agregar .herdr-coordination.md al .gitignore de sldb.
+- stores check avisa cuando el .gitignore del proyecto todavía ignora .sldb/runtime/ o .sldb/core/ (layout anterior a c420809c) y nombra stores migrate-layout como arreglo [draft] - sldb stores check emite una alerta 'gitignore-old-layout' cuando el .gitignore de la raíz del proyecto tiene una línea que ignora .sldb/core o .sldb/runtime. La alerta nombra la línea y da como fix 'sldb stores migrate-layout'. Un .gitignore sin esas líneas no da alerta.
+- find --global y la lectura federada de registros saltan un documento inválido de un store enlazado, lo informan con su store y siguen [draft] - Con --global, find (y fields query --global y sections find --global, que pasan por la misma lectura) devuelve los resultados de los documentos válidos de todos los stores. Cada documento rechazado sale en un aviso por stderr con su store, su ruta y su modelo; rc 0 si no hubo otro error.
+- El merge driver une store.yaml a tres vías con la base: una entrada que un lado quitó no vuelve, y se quita del store.yaml la ruta resucitada que rompe el job store de CI [draft] - merge_driver une store.yaml a tres vías. Una ruta, un link, un modelo o un predicado que está en la base y que un lado quitó no aparece en el resultado. Lo que agregó cualquiera de los dos lados sí aparece. Además, .sldb/store.yaml ya no declara el .md retirado de notations validate, y 'sldb stores build --check' no reporta 'declared, no file'.
+- stores rebuild-index regenera desde su fuente los shards de documento que git dejó con marcadores de conflicto y quita los de documentos cuyo fuente ya no existe [draft] - Con un shard de documento con marcadores de conflicto, 'sldb stores rebuild-index' lo regenera desde su archivo fuente, como lo haría docs track --reindex. Si el fuente ya no existe, quita el shard y su entrada del índice. El comando reporta los shards reparados y quitados, y después stores check sale sin errores.
+- load_runtime_documents informa los modelos que no pudo resolver en vez de omitirlos en silencio [draft] - load_runtime_documents(..., on_invalid='skip') devuelve en RuntimeDocuments también los modelos que no resolvió: modelo, store y excepción original. Con on_invalid='raise' emite un warnings.warn por modelo no resuelto que nombra el model_ref y el store. La lista de documentos no cambia de forma.
+- docs update y models add sobre un store con un enlace roto no reescriben los metadatos de los modelos del store enlazado [draft] - Con un test se sabe si, en un store A con un enlace a un store B cuya ruta no existe, 'docs update' de un documento de A o 'models add' en A cambian alguna entrada de store_index.yaml o algún archivo de modelos o shards que pertenezca a modelos con origin B. Si los cambia, se arregla para que esas entradas queden byte a byte iguales.
+- Los ids de sección conservan las letras con tilde y sldb inbox no deja una nota sin trackear cuando falla el import del modelo [draft] - Los ids de sección conservan las letras Unicode: 'Qué hace y para quién' da 'qué-hace-y-para-quién', o la forma con acentos que ya use src/sldb/links/render.py::_slug; se elige una sola regla para ambos. Y sldb inbox no deja archivo si no puede trackear la nota: o valida y resuelve el modelo antes de escribir, o borra lo escrito y sale con error.
+- stores check filtra por modelo y docs update acepta un payload parcial que se mezcla con el documento [draft] - 'sldb stores check --model <Modelo>' (repetible) devuelve solo los hallazgos cuyo subject es un documento de esos modelos, o el modelo mismo. 'sldb docs update <doc> --merge' toma el payload actual del documento, le aplica las claves del payload dado (solo el primer nivel) y guarda el resultado con la validación y las reglas de siempre.

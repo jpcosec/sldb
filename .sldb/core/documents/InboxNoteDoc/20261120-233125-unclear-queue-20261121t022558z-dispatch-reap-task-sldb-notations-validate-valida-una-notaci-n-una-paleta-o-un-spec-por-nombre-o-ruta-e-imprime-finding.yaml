@@ -1,14 +1,16 @@
 name: 20261120-233125-unclear-queue-20261121t022558z-dispatch-reap-task-sldb-notations-validate-valida-una-notaci-n-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding
 path: desk/inbox/20261120-233125-unclear-queue-20261121t022558z-dispatch-reap-task-sldb-notations-validate-valida-una-notaci-n-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding.md
-source_hash: 172ed118b1a1eac8ad78a37bc1454f52ee54776b9104eb67c0740d9e32afc7d1
-content_hash: e37a892c20f3f63b66a5a2a3a9ae2c37a019f9418e74a787fb59fbb9d8bbea7c
+source_hash: a04e41207bde3590ea130b9b21f005a5785c0098fe62823034cc7e8957c8afd1
+content_hash: 0d8cb67cc1d83be2177731ad65cceeae07f9368d1d279b563a9103ac93b50991
 field_hashes:
   kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
   sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: d6a29c3cd938c6075a4e405a7c424c67277ed7d00c88c0d9838d40131a7f0680
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
-  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 479b8fbf534b94c7ed4d4904610ce00f2f37f19a19d94b718a422a536da6784e
+  ack_reason: 23604284178da7bd4c8e6d6330fe831416b9d83571dd868feba6639a73eef127
   title: 3d379fdaeaf3384c04b59663608ee58dce1b8bb7f2057be5d55bfbd962389560
   body: 8de184a71c33aea2b6e7b41f0f47af64882cef2e522cbffca49901415a29e3d3
 semantic_tags:
@@ -16,4 +18,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-23T01:29:22Z'
+  authority: generated
+  via: save_document_payload
