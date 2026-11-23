@@ -1,30 +1,34 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-23T17:30:47Z'
+  at: '2026-11-23T22:28:27Z'
   authority: generated
   via: save_document_payload
 id: task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg
-status: active
+status: ready_for_testing
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
 - host:robocop2
-current_node: ritual-testing
+current_node: ritual-closeout
 history:
 - task_activates
+- task_hands_to_closeout
 references:
-- desk/inbox/20261115-224941-suggestion-matching-edges-catalog-build-con-tomos-tarda-minutos-porque-cada-edges-of-recompone-live-stale-y-mapas-del-ndice-federado.md
+- src/sldb/api/matching/store_edges.py
+- src/sldb/api/matching/store_reader.py
+- tests/matching/test_matching_refs.py
+- 9d09537c8dc4a8cc3786a8a1bd9415db4bd3e12a
+- cb734536
 depends_on: []
 pills:
 - desk/contexts/pill-pill-una-carga-del-índice-en-attach-atom-edges.md
 files:
-- src/sldb/api/matching/store_reader.py
-- src/sldb/api/matching/store_edges.py
-- src/sldb/store/edge_index/composed_reading.py
-- tests/matching/test_matching_refs.py
 - CHANGELOG.md
+- src/sldb/api/matching/store_edges.py
+- src/sldb/api/matching/store_reader.py
+- tests/matching/test_matching_refs.py
 task_type: task.debug
 inherits_from: []
 inherit_acceptance_context: false

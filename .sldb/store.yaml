@@ -388,6 +388,7 @@ include:
   - desk/inbox/20261123-161742-unclear-queue-20261123t191007z-dispatch-reap-task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer.md
   - desk/inbox/20261123-162418-unclear-queue-20261123t191226z-dispatch-tester-task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-ndice-federado-en-cada-edg.md
   - desk/inbox/20261123-163608-unclear-queue-20261123t191956z-dispatch-reap-task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer.md
+  - desk/inbox/20261123-192609-unclear-queue-20261123t222252z-dispatch-tester-task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-ndice-federado-en-cada-edg.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -1578,6 +1579,8 @@ include:
   - desk/materializations/materialization-surface-surface-src-workbench-prosaworkbenchview-tsx.md
   - desk/materializations/materialization-surface-surface-src-workbench-wikiindex-tsx.md
   - desk/materializations/materialization-surface-surface-src-workbench-wikilectura-test-tsx.md
+  - desk/materializations/materialization-matching-src-sldb-api-matching-store-edges-py.md
+  - desk/materializations/materialization-matching-src-sldb-api-matching-store-reader-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -3087,6 +3090,14 @@ include:
     name: review-task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer-evidence-atom-1
   - path: desk/reviews/task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer/evidence-materialization-1.md
     name: review-task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer-evidence-materialization-1
+  - path: desk/reviews/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg/evidence-tests-1.md
+    name: review-task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg-evidence-tests-1
+  - path: desk/reviews/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg/evidence-commit-1.md
+    name: review-task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg-evidence-commit-1
+  - path: desk/reviews/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg/evidence-atom-1.md
+    name: review-task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg-evidence-atom-1
+  - path: desk/reviews/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg/evidence-materialization-1.md
+    name: review-task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

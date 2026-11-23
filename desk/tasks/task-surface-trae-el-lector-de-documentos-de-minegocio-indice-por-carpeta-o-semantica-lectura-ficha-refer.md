@@ -1,29 +1,80 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-23T17:56:19Z'
+  at: '2026-11-23T18:33:00Z'
   authority: generated
   via: save_document_payload
 id: task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer
-status: draft
+status: active
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-execution
-history: []
+current_node: ritual-testing
+history:
+- task_activates
 references:
-- desk/inbox/20261123-142617-suggestion-traer-a-surface-el-lector-de-documentos-de-minegocio-para-explorar-deskops.md
-- desk/inbox/20261121-210430-unclear-la-superficie-trata-todo-field-como-bloque-porque-el-servidor-manda-composition-null.md
-- desk/inbox/20261121-213216-unclear-la-superficie-no-puede-saber-la-ruta-ni-la-cardinalidad-de-un-modelo-al-crear-un-documento.md
-- desk/inbox/20261121-220138-unclear-sldb-serve-no-deja-leer-ni-reparar-nada-cuando-un-documento-del-store-es-invalido.md
+- surface/src/app/WorkbenchShell.tsx
+- surface/src/app/workbench.test.tsx
+- surface/src/core/__fixtures__/rechazos-sldb.json
+- surface/src/core/client.ts
+- surface/src/core/doc-ref.test.ts
+- surface/src/core/doc-ref.ts
+- surface/src/core/imagenes.test.ts
+- surface/src/core/imagenes.ts
+- surface/src/core/layout.ts
+- surface/src/core/rechazo.test.ts
+- surface/src/core/rechazo.ts
+- surface/src/core/wiki-index.test.ts
+- surface/src/core/wiki-index.ts
+- surface/src/main.tsx
+- surface/src/react/DocumentSurface.tsx
+- surface/src/react/context.tsx
+- surface/src/react/useDocumentEditor.ts
+- surface/src/styles/paper-tokens.css
+- surface/src/views/ComposerView.tsx
+- surface/src/workbench/AvisoGuardado.tsx
+- surface/src/workbench/Ficha.tsx
+- surface/src/workbench/NuevaPagina.tsx
+- surface/src/workbench/ProsaWorkbenchView.test.tsx
+- surface/src/workbench/ProsaWorkbenchView.tsx
+- surface/src/workbench/WikiIndex.tsx
+- surface/src/workbench/WikiLectura.test.tsx
+- 3cc5c36bfb4bf91e406bbf2129783d4c1a3376f1
 depends_on: []
 pills: []
-files: []
+files:
+- surface/src/app/WorkbenchShell.tsx
+- surface/src/app/workbench.test.tsx
+- surface/src/core/__fixtures__/rechazos-sldb.json
+- surface/src/core/client.ts
+- surface/src/core/doc-ref.test.ts
+- surface/src/core/doc-ref.ts
+- surface/src/core/imagenes.test.ts
+- surface/src/core/imagenes.ts
+- surface/src/core/layout.ts
+- surface/src/core/rechazo.test.ts
+- surface/src/core/rechazo.ts
+- surface/src/core/wiki-index.test.ts
+- surface/src/core/wiki-index.ts
+- surface/src/main.tsx
+- surface/src/react/DocumentSurface.tsx
+- surface/src/react/context.tsx
+- surface/src/react/useDocumentEditor.ts
+- surface/src/styles/paper-tokens.css
+- surface/src/views/ComposerView.tsx
+- surface/src/workbench/AvisoGuardado.tsx
+- surface/src/workbench/Ficha.tsx
+- surface/src/workbench/NuevaPagina.tsx
+- surface/src/workbench/ProsaWorkbenchView.test.tsx
+- surface/src/workbench/ProsaWorkbenchView.tsx
+- surface/src/workbench/WikiIndex.tsx
+- surface/src/workbench/WikiLectura.test.tsx
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-surface-trae-el-lector-de-documentos-de-minegocio-para-explorar-el-store-de-deskops
 ---
 
 # surface trae el lector de documentos de minegocio (indice por carpeta o semantica, lectura, ficha, referencias, rechazos legibles) para explorar el store de deskops

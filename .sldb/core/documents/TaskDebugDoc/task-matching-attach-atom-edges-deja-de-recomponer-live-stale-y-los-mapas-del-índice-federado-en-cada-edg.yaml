@@ -1,7 +1,7 @@
 name: task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg
 path: desk/tasks/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg.md
-source_hash: 7f35395b926bba1cf0bebff77d0a01b4f8e943fafe24153cad385b3d54c0772f
-content_hash: 030fc11e222b81f15d094c566610708fa50200a2b3971d5e3e1de77e945d4bc1
+source_hash: fb9db63f7cc80c74740fd23a2cb2186543e793b87a071721dbc62f21a73d0cc9
+content_hash: 1328a2a6bf2920bc8a669acaabee43ed8726c4879ef7320ca17f8c2d8370b1c6
 field_hashes:
   title: ce5514c8b982803be350937a5615570097a99ca89266653517048af2550120d6
   id: 9fcf00b3d3b359ba177248d89d1c821b194d0aae35e78f55acc251065e095b67
@@ -13,10 +13,10 @@ field_hashes:
   why: 70a7b50e8514b61f327f375c0600ff88319784aecf511c058482a22920a9176e
   goal: 1818b902762caf444da4a841ad05c183e7f1039a6a52116ed7ed7ca95d6dfea8
   scope: 4553376aba5a4b0eb1f5597864cbcbb1ec95ad9a660bd7a283cca0df43a4d66b
-  references: 67dad0e04d5eb63b89a915cee92cc372d72426b9513bb5027c4573f970cb4d36
+  references: 08e7d8d81b7b96596cd3a762c37935ea6c9e0f8aa12062a2eb8137130f675cf2
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: e012f5afb5cf688cf5b4a7bdb10bb76e45d4c2ca5ea74056d090538f35dd751a
-  files: 3afa0b846a52b24b57edc06aaf01ceb106beec3d6ae9d6e7dc19f92292524ec7
+  files: 3d46224ae2f40f4d65b8c922d5c8d2df4dd40b2347a0928824bc09d8b9393d60
   implementation_path: d8e29407c7ef00d86f06346b936a3a2d5277b523a364c84ec31132c7218f0cc5
   validation: e303cc82a68955b36e2f7eae8398fb1598a07a18c1007952073b5e86fb530a36
   done_when: eee2c6314d2518107891f0fb6c30c84ddcebd235e5ea8c154111b839dfa0f601
@@ -34,6 +34,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-23T18:03:26Z'
+  at: '2026-11-23T22:28:27Z'
   authority: generated
   via: save_document_payload
