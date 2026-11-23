@@ -12,7 +12,7 @@ from pathlib import Path
 from sldb.api.matching.atom_payload import atoms_from_documents
 from sldb.api.matching.matching_findings import finding
 from sldb.api.matching.store_documents import resolve_ref, store_documents
-from sldb.api.matching.store_edges import edges_of
+from sldb.api.matching.store_edges import edges_of_index, load_index
 from sldb.core.finding import Finding
 
 
@@ -25,6 +25,7 @@ class StoreReader:
         self._docs: dict[str, list[dict]] = {}
         self._edges: dict[tuple[str, str], list[dict]] = {}
         self._no_edges: set[str] = set()
+        self._index: dict[str, tuple] = {}
 
     def documents(self, store_path: Path) -> list[dict]:
         key = str(Path(store_path).resolve())
@@ -50,7 +51,10 @@ class StoreReader:
 
     def _read_edges(self, key: str, ref: str) -> list[dict]:
         try:
-            return edges_of(Path(key), ref, {doc["ref"]: doc["title"] for doc in self.documents(Path(key))})
+            if key not in self._index:
+                self._index[key] = (load_index(Path(key)), {doc["ref"]: doc["title"] for doc in self.documents(Path(key))})
+            index, titles = self._index[key]
+            return edges_of_index(index, ref, titles)
         except Exception as exc:
             self._no_edges.add(key)
             self.findings.append(finding("edges-unavailable", key, f"Edge index unavailable through SLDB, relations left out: {exc}", "sldb edges rebuild"))

@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from sldb.api.edges.edge_reading import edges_from, edges_to
+from sldb.api.edges.edge_reading import edges_from, edges_to, load_edge_index
 
 STRUCTURAL_RELATIONS = frozenset(
     {
@@ -34,3 +34,18 @@ def edges_of(store_path: Path, ref: str, titles: dict[str, str]) -> list[dict]:
         for record in records
         if record.relation not in STRUCTURAL_RELATIONS
     ]
+
+
+def edges_of_index(index, ref: str, titles: dict[str, str]) -> list[dict]:
+    """Lo mismo que `edges_of`, sobre un índice ya cargado (una carga por store, no por referencia)."""
+    return [
+        _edge(record, direction, titles)
+        for direction, records in (("out", index.edges_from(ref, None)), ("in", index.edges_to(ref, None)))
+        for record in records
+        if record.relation not in STRUCTURAL_RELATIONS
+    ]
+
+
+def load_index(store_path: Path):
+    """El índice de aristas del store con enlaces, el que leen `edges_from` y `edges_to`."""
+    return load_edge_index(store_path)

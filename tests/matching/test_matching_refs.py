@@ -144,3 +144,28 @@ def test_raw_atoms_by_view_atoms_dir_rules_every_view_and_no_store_is_read(match
     assert reader._docs == {}
     without_dir, _ = raw_atoms_by_view(views)
     assert "atomo y" in without_dir["v1"] and "atomo z" not in without_dir["v1"] and without_dir["v2"] == {}
+
+
+def test_attach_atom_edges_loads_the_edge_index_at_most_twice_for_ten_refs(tmp_path, store_factory, monkeypatch):
+    atoms = [{"name": f"atom-{i}", "id": f"atom-{i}", "title": f"A{i}", "five_wh_one_plus": "what", "tags": ["x:y"], "answer": "r"} for i in range(10)]
+    tasks = [{"name": f"task-{i}", "title": f"T{i}", "about": f"AtomDoc:atom-{i}"} for i in range(3)]
+    store = store_factory(tmp_path / "proj", atoms, tasks)
+    ids = [a["id"] for a in atoms]
+
+    def edges_by_atom(reader):
+        views = [_view(store, atoms=ids)]
+        raw, _ = build_atoms_by_view(views, reader=reader)
+        explicit, _complete, _findings, linked = build_explicit_atoms(views, raw)
+        attach_atom_edges(views, explicit, linked, reader, raw)
+        return {a["id"]: {tuple(sorted(e.items())) for e in a["edges"]} for a in explicit["v1"]["cli"]["list"]}
+
+    from sldb.api.edges import edge_reading
+    calls = []
+    real = edge_reading.load_edge_index
+    monkeypatch.setattr(edge_reading, "load_edge_index", lambda *a, **k: calls.append(a) or real(*a, **k))
+    result = edges_by_atom(StoreReader())
+    assert len(result) == 10 and any(result.values())
+    assert len(calls) <= 2
+    from sldb.api.matching.store_edges import edges_of
+    titles = {d["ref"]: d["title"] for d in store_documents(store)}
+    assert result == {i: {tuple(sorted(e.items())) for e in edges_of(store, f"AtomDoc:{i}", titles)} for i in ids}
