@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-23T17:38:15Z'
+  at: '2026-11-23T17:56:19Z'
   authority: generated
   via: save_document_payload
 id: task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer
@@ -14,6 +14,9 @@ current_node: ritual-execution
 history: []
 references:
 - desk/inbox/20261123-142617-suggestion-traer-a-surface-el-lector-de-documentos-de-minegocio-para-explorar-deskops.md
+- desk/inbox/20261121-210430-unclear-la-superficie-trata-todo-field-como-bloque-porque-el-servidor-manda-composition-null.md
+- desk/inbox/20261121-213216-unclear-la-superficie-no-puede-saber-la-ruta-ni-la-cardinalidad-de-un-modelo-al-crear-un-documento.md
+- desk/inbox/20261121-220138-unclear-sldb-serve-no-deja-leer-ni-reparar-nada-cuando-un-documento-del-store-es-invalido.md
 depends_on: []
 pills: []
 files: []

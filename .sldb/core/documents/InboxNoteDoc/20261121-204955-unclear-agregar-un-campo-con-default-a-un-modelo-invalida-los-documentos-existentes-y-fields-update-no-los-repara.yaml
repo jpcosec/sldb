@@ -1,14 +1,16 @@
 name: 20261121-204955-unclear-agregar-un-campo-con-default-a-un-modelo-invalida-los-documentos-existentes-y-fields-update-no-los-repara
 path: desk/inbox/20261121-204955-unclear-agregar-un-campo-con-default-a-un-modelo-invalida-los-documentos-existentes-y-fields-update-no-los-repara.md
-source_hash: ffc0499c3f2829bf80acad5e5bc49be03dfdbfa6b7c70b06db04b65babcc2992
-content_hash: 6b89796b5bb8f084b27eb255b987cbc37800f29e82266222ed9a611624399645
+source_hash: 4f1bccd1d450ad1cf3e08c001d0c1d051d81bf3a94090277a7d68ab50a35b0f7
+content_hash: e6829ed36ef77f4f97b6cf670b41c6a6ca09f090bcefaec526ae89a68098ec1f
 field_hashes:
   kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
   sender_project: ca986c860aa53cd9eb12b76615bb22aed19d8fd696fff6c629e13fc46d01ea10
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: 8fe8a17ab6a27cfffff40c59cd8ec8062a451eb1881136b79e3f72b460590801
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
-  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 4b558aed9c67b3343fc923992bfce56a42e0e13bde3d8588f1e33a0c79cde48f
+  ack_reason: 1acf023e8fc15facfc21bdad9b449da6a995880fd6ef474609c3c3a275854a78
   title: 8505b53f0f6a32594de209a60ee5e2f1e992f12c9a03633aa690852fd0b8902f
   body: bb9c50ac0ee4bf19c0fde98e5956587f28ee0c2b7ce3949325a7d2cceb2c73f6
 semantic_tags:
@@ -16,4 +18,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-23T17:59:37Z'
+  authority: generated
+  via: save_document_payload

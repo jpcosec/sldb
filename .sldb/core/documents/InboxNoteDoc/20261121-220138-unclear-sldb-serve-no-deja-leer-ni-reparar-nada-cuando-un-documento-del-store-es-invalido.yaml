@@ -1,14 +1,16 @@
 name: 20261121-220138-unclear-sldb-serve-no-deja-leer-ni-reparar-nada-cuando-un-documento-del-store-es-invalido
 path: desk/inbox/20261121-220138-unclear-sldb-serve-no-deja-leer-ni-reparar-nada-cuando-un-documento-del-store-es-invalido.md
-source_hash: 56f8ac73c6fad2cf20746604977f333b76ba2b81aa3b39e82e4a915f64ae6cd6
-content_hash: 9908e2066a2b250e504d0640cffa9a97b1990b7705ffd2bd6c44bb7370ef193e
+source_hash: cc3ca5a5e05c8f1161db1cbc687c88a911dbb55bc52b47af02372c0b0aba4b0d
+content_hash: 54d2693b53b3323f89ffb145060bc89c5b5896a60f7facb802f6a419f5d40943
 field_hashes:
   kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
   sender_project: ca986c860aa53cd9eb12b76615bb22aed19d8fd696fff6c629e13fc46d01ea10
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: 4b65a17510d40b5a9d59789bcfbd8b09a316e4c4a45e3a778db3a1b4f58acdc2
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
-  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 9ee0e1d043c06e3b987cb588d75e90c9c2dbd940f1b5ec2e8416cc7f99054ed0
+  ack_reason: f5dccb2a469594730be6195823d3a2c3bec473c263d8d73ac548470804de69ef
   title: b7e275db7532008f3ba5108b78eb754e520245f5fabc180fc0a90c348a3ae40a
   body: 5f29a263994c1c6b1624fc0da0b7ed7893ce33a163a24de98748f5c2c9d9f6e5
 semantic_tags:
@@ -16,4 +18,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-23T17:56:57Z'
+  authority: generated
+  via: save_document_payload

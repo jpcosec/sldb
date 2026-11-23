@@ -383,6 +383,7 @@ include:
   - desk/inbox/20261121-220138-unclear-sldb-serve-no-deja-leer-ni-reparar-nada-cuando-un-documento-del-store-es-invalido.md
   - desk/inbox/20261122-232536-unclear-sldb-serve-no-ve-altas-hechas-por-otro-proceso-hasta-su-pr-ximo-guardado.md
   - desk/inbox/20261122-233451-unclear-sldb-serve-document-y-save-no-resuelven-tipo-nombre-hom-nimos-entre-modelos.md
+  - desk/inbox/20261121-125747-unclear-fricciones-al-tipar-una-wiki-de-negocio-webprojects-agenda-wiki-paginas.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -3087,6 +3088,10 @@ include:
   - desk/tasks/task-los-ids-de-seccion-conservan-las-letras-con-tilde-y-sldb-inbox-no-deja-una-nota-sin-trackear-cuando.md
   - desk/tasks/task-stores-check-filtra-por-modelo-y-docs-update-acepta-un-payload-parcial-que-se-mezcla-con-el-document.md
   - desk/tasks/task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer.md
+  - desk/tasks/task-sldb-serve-tolera-documentos-invalidos-ve-altas-de-otros-procesos-y-resuelve-tipo-nombre-en-document.md
+  - desk/tasks/task-sldb-serve-manda-composition-de-cada-field-y-expone-por-modelo-la-ruta-y-la-cardinalidad-create-resp.md
+  - desk/tasks/task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas.md
+  - desk/tasks/task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p.md
 - model: TaskDebugDoc
   paths:
   - desk/tasks/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg.md

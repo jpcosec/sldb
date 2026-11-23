@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-23T17:59:37Z'
+  authority: generated
+  via: save_document_payload
 # unclear | suggestion
 kind: unclear
 # e.g., other_repo
@@ -8,11 +13,16 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-11-21T20:49:55'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-11-23T14:59:13'
 # why the note was acknowledged; empty when no reason was given
-ack_reason: ''
+ack_reason: convertida en task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p
+  (sesion de minegocio, triaje 2026-11-23); el lector de surface la referencia cuando
+  toca su pantalla
+# conversation thread/message the note came from, e.g. #hilo/1234
 ---
 
 # Agregar un campo con default a un modelo invalida los documentos existentes y fields update no los repara

@@ -1,14 +1,16 @@
 name: 20261122-233451-unclear-sldb-serve-document-y-save-no-resuelven-tipo-nombre-hom-nimos-entre-modelos
 path: desk/inbox/20261122-233451-unclear-sldb-serve-document-y-save-no-resuelven-tipo-nombre-hom-nimos-entre-modelos.md
-source_hash: 55d15845cb96493eca350f94a3465b4b85d0bd74cec2201f4169735343d5487e
-content_hash: d6fbef315493521ab52deeaede1b5f1531adedd4788cb55ca557db146283f74d
+source_hash: c35fb082884581a8f29b74a0a9aae89948dd7912607a8b9909d785824a4f87ab
+content_hash: 52cfb6bbbe0479fe27f95e34fbbb3077af8f781243e93d72a1c2b6bd6d7daa37
 field_hashes:
   kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
   sender_project: ca986c860aa53cd9eb12b76615bb22aed19d8fd696fff6c629e13fc46d01ea10
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: 3a0b1538176f5ebbd39f833cbb048cd71606341d3544df8f226787b1e9547c8e
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
-  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 40972d3b63b338624a5f390c7602263a13897b8ca52952bda717cb2c7f71e9aa
+  ack_reason: f5dccb2a469594730be6195823d3a2c3bec473c263d8d73ac548470804de69ef
   title: a47052a30cc3d0b554c1b89466574d2907f299cdb48ad40786358574aa4c2fc3
   body: a1fadb207b29be1a5803e0febcb7f301b93f7855ba0b0a545fdf3d28577f3bef
 semantic_tags:
@@ -16,4 +18,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-23T17:58:09Z'
+  authority: generated
+  via: save_document_payload

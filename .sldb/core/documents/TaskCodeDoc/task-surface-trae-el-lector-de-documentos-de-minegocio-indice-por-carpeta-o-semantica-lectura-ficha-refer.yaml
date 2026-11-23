@@ -1,7 +1,7 @@
 name: task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer
 path: desk/tasks/task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer.md
-source_hash: 477a8b21b419e8de88b550d7e265ab6e2778fea89c00a96c947aa06cbb1e62d0
-content_hash: 7ac629ba8b0ebb7338e78399938c290d062055e7ac246a3cb448d608a1025fe1
+source_hash: 50e98e057ccd1a07de8a9b118a4d21ea2fc18a315298439306c9c72cfa7617cd
+content_hash: 3e7aab29d283210966c4549f190fbd77a27d151fc816b51b330b6b8ba986b843
 field_hashes:
   title: a8478e79a8d06de37235e3fa83feff57dc16b9613dcecca27411712945e5df74
   id: 59f9af6fcbcf8b00d54014d6da35ce8eb9f332d1100103c03413ceb7d60c9ad0
@@ -13,7 +13,7 @@ field_hashes:
   why: dc541de2fa6adcc4301d293c1ad44679dc79876406c9ec5f3421dd9f99de2925
   goal: 3b3c0278ce70fcb25fb366e2b482e4c0b724daa87629b3faa44e20bd8f6aa9e8
   scope: d4f1ac272a8685753caa88e25b6a1faa6db18f47d601d1133754d6edfd91c2a2
-  references: 76e96818013b82610491a971d92681122fea6bbe9c3167d4515906ac0c1564b6
+  references: c266687fdaef6db25a124a370e1b31725111eb1d069916e00f58953feddafed6
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -33,6 +33,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-23T17:38:15Z'
+  at: '2026-11-23T17:56:19Z'
   authority: generated
   via: save_document_payload
