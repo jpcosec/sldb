@@ -1,0 +1,159 @@
+id: sldb-grafo-datalog-daemon
+revision: 1
+revision_note: 'Rev 1 (2026-11-24): plan inicial. Cubre juntas la reversion de D5 (motor Datalog duenio de las aristas) y el daemon residente de sldb, con la prueba de concepto de poc/informe.md. execution_authorized=false hasta que JP responda las cuatro task.decision.'
+status: draft
+as_of: '2026-11-24'
+source: dag.yaml es canonico; brief.md, alcance.md, decisiones.md y poc/informe.md son sus fuentes de contexto
+execution_authorized: false
+estimate_legend:
+  S: un entregable acotado, chico; no es promesa de tiempo
+  M: una capacidad o contrato acotado; se parte al promover si tiene mas de un entregable
+  L: toca el nucleo del store; se parte al promover
+gates:
+  G_MATCHING_FIRST:
+    title: task-matching-attach-atom-edges-deja-de-recomponer-live-stale cerrada
+    state: pending
+    resolver: Board de sldb; esa tarea va primero y este plan no la reemplaza ni la bloquea
+    evidence: 'pendiente: closeout de esa tarea en main de sldb'
+  G_ENGINE:
+    title: JP elige el motor
+    state: pending
+    resolver: task.decision P1 (decisiones.md)
+    evidence: 'pendiente; la prueba de concepto uso Cozo (poc/informe.md)'
+  G_OWNERSHIP:
+    title: JP fija hasta donde llega la propiedad del motor
+    state: pending
+    resolver: task.decision P2
+    evidence: pendiente
+  G_DAEMON_SHAPE:
+    title: JP fija la forma del daemon y el comportamiento sin el
+    state: pending
+    resolver: task.decision P3
+    evidence: pendiente
+  G_INVALIDATION:
+    title: JP fija como se invalida el indice
+    state: pending
+    resolver: task.decision P4
+    evidence: pendiente
+external_references:
+  poc:
+    status: done
+    note: poc/informe.md y poc/poc_datalog.py; Cozo sobre el indice federado real (39.639 nodos, 230.655 aristas)
+  grafo_operable:
+    status: delivered
+    note: desk/drawer/plans/grafo-operable; su D5 queda revertida (decisiones.md de este plan y de aquel)
+hierarchy:
+  root:
+    id: ROOT
+    title: Motor Datalog duenio de las aristas y daemon de sldb
+    owner_repo: sldb
+    scope: 'sldb guarda y consulta las aristas en un motor Datalog embebido y persistido, y un daemon residente opcional lo mantiene abierto para el CLI, sldb serve, deskops y specir; sin daemon todo funciona abriendo la base persistida en proceso.'
+    acceptance: 'Todos los hijos cerrados; goldens de graph, edges y where identicos a los previos al plan; la tabla de tiempos y memoria de poc/informe.md repetida sobre el codigo entregado; los gates G_ENGINE, G_OWNERSHIP, G_DAEMON_SHAPE y G_INVALIDATION satisfechos.'
+    children: [PK01, PK02, PK03]
+  packages:
+    - id: PK01
+      title: Decisiones y costura
+      node_role: aggregate
+      owner_repo: sldb
+      children: [DL01, DL02]
+      scope: 'Registrar las decisiones de JP y ampliar la costura GraphBackend para que el backend sea duenio del almacenamiento de aristas.'
+      acceptance: 'G_ENGINE, G_OWNERSHIP, G_DAEMON_SHAPE y G_INVALIDATION satisfechos y un backend Datalog con paridad de goldens.'
+    - id: PK02
+      title: Motor duenio de las aristas
+      node_role: aggregate
+      owner_repo: sldb
+      children: [DL03, DL04]
+      scope: 'Que compose, la federacion y el live stale lean y escriban en el motor persistido en vez de los shards YAML y el dict en memoria.'
+      acceptance: 'La apertura en frio de un indice federado ya construido tarda menos de 1 s y las consultas de aristas, recorrido y atomos dan las mismas respuestas que el camino anterior.'
+    - id: PK03
+      title: Daemon
+      node_role: aggregate
+      owner_repo: sldb
+      children: [DL05, DL06, DL07]
+      scope: 'Proceso residente, cliente con respaldo e invalidacion.'
+      acceptance: 'El cliente usa el daemon si responde y abre la base en proceso si no; una edicion externa del Markdown aparece como stale sin reiniciar el daemon.'
+tasks:
+  - id: DL01
+    title: Registrar las decisiones de JP sobre motor, propiedad, daemon e invalidacion
+    kind: decision
+    node_role: delivery
+    parent_id: PK01
+    owner_repo: sldb
+    estimate: S
+    depends_on: []
+    requires: []
+    scope: 'Cuando JP responda las cuatro task.decision (P1 a P4), editar los gates G_ENGINE, G_OWNERSHIP, G_DAEMON_SHAPE y G_INVALIDATION de este dag.yaml a satisfied con la respuesta como evidence, y ajustar los nodos DL02 a DL07 a lo decidido. No escribe codigo.'
+    acceptance: 'Los cuatro gates tienen state satisfied y evidence que cita la decision de JP; ningun nodo conserva una suposicion contraria a una respuesta.'
+    output_scope: desk/drawer/plans/grafo-datalog-daemon/dag.yaml, decisiones.md
+  - id: DL02
+    title: Backend Datalog tras la costura, con paridad
+    kind: code
+    node_role: delivery
+    parent_id: PK01
+    owner_repo: sldb
+    estimate: M
+    depends_on: [DL01]
+    requires: [G_ENGINE, G_OWNERSHIP]
+    scope: 'Segunda implementacion de GraphBackend sobre el motor elegido: load ingiere nodos y aristas, eval y analyze responden lo que hoy responde NetworkXBackend. Seleccion por graph_backend en store.yaml (valor nuevo admitido). Sin cambiar la salida de ningun comando; networkx sigue siendo el valor por defecto hasta DL04. Dependencia nueva declarada en pyproject.toml.'
+    acceptance: 'Los goldens de los seis comandos graph y los tests de eval son identicos con ambos backends; un test carga el indice del propio repo y compara aristas de un nodo, recorrido y atomos con el backend networkx; CHANGELOG y docs/architecture/graph-backend.md al dia.'
+    output_scope: src/sldb/store/graph/backend/, src/sldb/api/graph/, pyproject.toml, tests/, docs/architecture/graph-backend.md, CHANGELOG.md
+  - id: DL03
+    title: Almacen persistido de aristas en el motor
+    kind: code
+    node_role: delivery
+    parent_id: PK02
+    owner_repo: sldb
+    estimate: L
+    depends_on: [DL02]
+    requires: [G_OWNERSHIP, G_MATCHING_FIRST]
+    scope: 'El motor persistido (.sldb_cache, ignorado por git) guarda nodos, aristas y hechos de documento; compose_edge_index y la federacion leen de el, y las escrituras con dirty set actualizan solo lo movido. Los shards YAML siguen como fuente hasta que la decision P2 diga otra cosa. Reconstruible desde los shards y desde los documentos.'
+    acceptance: 'Reabrir la base ya construida y pedir las aristas de un nodo tarda menos de 0,1 s en el repo de sldb (medido con poc_datalog.py reopen); borrar la base la reconstruye con el mismo contenido; goldens identicos; una escritura de un documento actualiza solo sus aristas (prueba con contador de filas escritas).'
+    output_scope: src/sldb/store/edge_index/, src/sldb/store/graph/backend/, src/sldb/store/io/, tests/, docs/architecture/, CHANGELOG.md
+  - id: DL04
+    title: Live stale y emparejamiento de atomos como consultas del motor
+    kind: code
+    node_role: delivery
+    parent_id: PK02
+    owner_repo: sldb
+    estimate: M
+    depends_on: [DL03]
+    requires: [G_MATCHING_FIRST]
+    scope: 'with_live_stale, edges_of de StoreReader y attach_atom_edges consultan el motor; la comparacion de stats es una regla Datalog sobre hechos de documento y un relation de stats vivos. El Datalog queda como backend por defecto si la medicion de aceptacion lo justifica; si no, se deja opcional.'
+    acceptance: '50 consultas sueltas de aristas de atomos en el repo de sldb tardan menos de 1 s en total; stale da los mismos documentos que el camino anterior (0 en un arbol limpio, el moved en uno editado); tabla de poc/informe.md repetida y anotada en el TaskDoc.'
+    output_scope: src/sldb/store/edge_index/live_stale.py, src/sldb/api/matching/, tests/, CHANGELOG.md
+  - id: DL05
+    title: Daemon residente de sldb
+    kind: code
+    node_role: delivery
+    parent_id: PK03
+    owner_repo: sldb
+    estimate: L
+    depends_on: [DL03]
+    requires: [G_DAEMON_SHAPE]
+    scope: 'Proceso por proyecto (sldb daemon start|stop|status) con el motor abierto, escuchando en un socket Unix bajo .sldb_cache; protocolo de peticion y respuesta JSON para las lecturas de aristas, recorrido, atomos y stale. Un solo daemon por proyecto (lock), tope de memoria declarado y apagado ocioso. Memoria medida contra el tope de 8 GB libres de robocop2.'
+    acceptance: 'start/stop/status funcionan; un segundo start no duplica el proceso; RSS del daemon con el indice federado de sldb medido y anotado (referencia de la prueba: 0,4 a 0,6 GB sobre el arranque); el daemon se apaga solo tras el tiempo ocioso configurado.'
+    output_scope: src/sldb/daemon/, src/sldb/cli/commands/daemon.py, tests/, docs/architecture/daemon.md, CHANGELOG.md
+  - id: DL06
+    title: 'Cliente con respaldo: CLI, sldb serve, deskops y specir'
+    kind: code
+    node_role: delivery
+    parent_id: PK03
+    owner_repo: sldb
+    estimate: M
+    depends_on: [DL05]
+    requires: [G_DAEMON_SHAPE]
+    scope: 'Un cliente unico (sldb.daemon.client) que prueba el socket y, si no responde, abre la base persistida en proceso, y si tampoco existe, compone como hoy. El CLI y sldb serve lo usan; deskops y specir lo consumen por la misma API. Sin daemon (contenedores de ejecutor, tests) el comportamiento es identico al previo; ninguna prueba exige el daemon.'
+    acceptance: 'La suite completa pasa sin daemon; con daemon, un conjunto de comandos de lectura da la misma salida; matar el daemon a media sesion hace caer al respaldo sin error visible; nota a deskops y specir por el canal sancionado entre desks.'
+    output_scope: src/sldb/daemon/client.py, src/sldb/cli/, src/sldb/mcp/, tests/, docs/architecture/daemon.md, CHANGELOG.md
+  - id: DL07
+    title: Invalidacion con git y con las escrituras
+    kind: code
+    node_role: delivery
+    parent_id: PK03
+    owner_repo: sldb
+    estimate: M
+    depends_on: [DL05]
+    requires: [G_INVALIDATION]
+    scope: 'Segun la decision P4: las escrituras de sldb marcan el dirty set en el daemon; los cambios externos se detectan por HEAD y estado del arbol de git y por el stat de los archivos rastreados, sin reescanear todo en cada peticion. Interaccion con los hooks de git actuales documentada y probada.'
+    acceptance: 'Editar un Markdown rastreado fuera de sldb lo marca stale en la siguiente peticion sin reiniciar el daemon; un cambio de rama (checkout) invalida lo afectado; una peticion sin cambios no reescanea (medido: menos de 50 ms en el repo de sldb contra ~1 s de hoy).'
+    output_scope: src/sldb/daemon/, src/sldb/store/edge_index/, tests/, docs/architecture/daemon.md, CHANGELOG.md

@@ -1,0 +1,38 @@
+name: task-decision-para-jp-p1-que-motor-datalog-embebido-usa-sldb-cozo-datalevin-u-otro
+path: desk/tasks/task-decision-para-jp-p1-que-motor-datalog-embebido-usa-sldb-cozo-datalevin-u-otro.md
+source_hash: 9d21dc7a9a4a9b52014a9869ececa0e8ee7836623676b732ac84b2d8e2f454eb
+content_hash: acca5deec7dc93534866c85ebd28ac22f9135ee2248acf9709c06858eb6af6b7
+field_hashes:
+  title: e0ec28dbd1082564544c422f14b82b87b2eddbac9ee31ebba2e05792ee5cb3ff
+  id: c67a866c50bf7564331a6fae9d2398290db09f979ec4ff49ece441708a1e8534
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: ef26c7f75dc534f48ec13f1ec1e1c7c8ef27ebe96fff56f83c066be96c46d6c6
+  goal: 96ba87da0cc20c39bc98d2cb746395bad4152025687d4b219a6e4636b99c0eed
+  scope: cb6982143ed7ceaefaf1a458f41f5d5df3ec2c7ec8e03c778593be5f9a923746
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  implementation_path: c6dd9e2fa3e779881d2df5ee949a1efb863823ca26d09ad51918eb3eef1827ef
+  validation: 498145c3e6b5831f023a07f1c8ad208d38743e4a4db06b2dbb465c4230e8dcbb
+  done_when: 2865356eba5f159615de77ef2deafe5c13de80db55174ecb08ddc717581e0ae5
+  task_type: a4df8849de4c7c42dff3bfe95bbeb8759b5ca37238136b51e418b9d2f5ef311c
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- artifact:task
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-24T02:23:06Z'
+  authority: generated
+  via: create_document

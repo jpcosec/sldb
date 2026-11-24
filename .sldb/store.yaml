@@ -3176,6 +3176,10 @@ include:
   - desk/tasks/task-decisión-de-jp-si-sldb-agrega-un-ast-intermedio-entre-marcador-y-campo-y-clases-anidadas-en-un-docum.md
   - desk/tasks/task-sw8-decisión-de-jp-qué-queda-de-la-superficie-anterior-de-surface-vistas-legacy-stores-demo-y-caso-l.md
   - desk/tasks/task-clasificar-workbench-demo-en-contracts-identity-toml-producto-autoaplicacion-o-ajeno-la-puerta-ident.md
+  - desk/tasks/task-decision-para-jp-p1-que-motor-datalog-embebido-usa-sldb-cozo-datalevin-u-otro.md
+  - desk/tasks/task-decision-para-jp-p2-hasta-donde-llega-la-propiedad-del-motor-sobre-el-grafo.md
+  - desk/tasks/task-decision-para-jp-p3-forma-del-daemon-de-sldb-y-que-pasa-sin-el.md
+  - desk/tasks/task-decision-para-jp-p4-como-se-invalida-el-indice-del-daemon-con-git-y-con-las-escrituras.md
 - model: RuleDoc
   paths:
   - desk/lifecycle/rule-activation-task-aggregate.md

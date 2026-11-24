@@ -1,0 +1,18 @@
+{
+ "load_s": 3.042090145871043,
+ "rss_after_load_mb": 665.75390625,
+ "rss_base_mb": 61.734375,
+ "edges_of_node_s": 0.00046471087262034416,
+ "edges_of_node_n": 2557,
+ "traversal_s": 0.00027992669492959976,
+ "traversal_n": 68,
+ "atoms_n": 337,
+ "atoms_s": 0.0021615782752633095,
+ "atoms_per_call_compose_n": 50,
+ "atoms_per_call_compose_s": 49.08186457166448,
+ "stale_s": 27.063731946982443,
+ "stale_n": 0,
+ "stale_live_only_s": 0.9859969420358539,
+ "peak_mb": 1146.140625,
+ "rss_end_mb": 1146.140625
+}

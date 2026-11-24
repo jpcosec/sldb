@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-23T22:32:16Z'
+  at: '2026-11-24T02:24:53Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -76,6 +76,10 @@ tasks:
 - desk/tasks/task-sldb-serve-manda-composition-de-cada-field-y-expone-por-modelo-la-ruta-y-la-cardinalidad-create-resp.md
 - desk/tasks/task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas.md
 - desk/tasks/task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p.md
+- desk/tasks/task-decision-para-jp-p1-que-motor-datalog-embebido-usa-sldb-cozo-datalevin-u-otro.md
+- desk/tasks/task-decision-para-jp-p2-hasta-donde-llega-la-propiedad-del-motor-sobre-el-grafo.md
+- desk/tasks/task-decision-para-jp-p3-forma-del-daemon-de-sldb-y-que-pasa-sin-el.md
+- desk/tasks/task-decision-para-jp-p4-como-se-invalida-el-indice-del-daemon-con-git-y-con-las-escrituras.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -186,3 +190,7 @@ _Generated from the task references above._
 - sldb serve manda composition de cada field y expone por modelo la ruta y la cardinalidad; create respeta path [draft] - GET /document/segments distingue fields inline de bloques (composition presente solo en bloques, o un campo explicito); un endpoint de serve expone por modelo el patron de ruta y la cardinalidad declarados en el modelo; POST /save action create acepta path; la superficie usa ese dato y deja de tratar todo field como bloque.
 - Render y fields de sldb sin fricciones: None en rev y optrev, tablas vacias, dict de BaseModel y rutas relativas de docs create [draft] - Cada uno de los cinco casos tiene un test que hoy falla y pasa despues: rev None da null o error claro, optrev None se puede volver a poner con fields update, una tabla vacia no renderiza fila ni extrae dato, el warning falso desaparece, y docs create -o resuelve contra el cwd (o avisa).
 - Agregar un campo con default a un modelo no invalida los documentos existentes y fields update los puede reparar [draft] - Un documento sin la clave nueva toma el default del modelo al extraer y sigue valido; y fields update puede escribir un campo en un documento hoy invalido cuando la escritura lo deja valido.
+- Decision para JP P1: que motor Datalog embebido usa sldb (Cozo, Datalevin u otro) [draft] - Elegir el motor. Opciones: A) Cozo (cozo-embedded 0.7.6, cliente Python, Datalog con recursion y negacion estratificada, almacenamiento sqlite o rocksdb; medido: reabrir la base cargada 7 ms, 385 a 552 MB sobre el arranque); B) Datalevin (candidato de docs/architecture/graph-backend.md; sin cliente Python en PyPI, exige JVM o binario y un proceso aparte); C) quedarse en networkx y resolver la recomposicion con cache y daemon, sin motor Datalog. Recomendacion: A, con la salvedad de que la actividad reciente del proyecto Cozo no esta verificada.
+- Decision para JP P2: hasta donde llega la propiedad del motor sobre el grafo [draft] - Fijar el alcance. Opciones: A) el motor es duenio de las aristas y de eval; analyze (path, cycles, order, components, central, similar) migra despues, nodo a nodo, y networkx queda mientras tanto; B) el motor es duenio de todo y networkx se retira (analisis como reglas Datalog; central y similar no son consultas Datalog naturales); C) el motor solo reemplaza el cache de aristas (.sldb_cache) y GraphBackend queda como esta. Recomendacion: A.
+- Decision para JP P3: forma del daemon de sldb y que pasa sin el [draft] - Elegir la forma. Opciones: A) un daemon por proyecto en socket Unix bajo .sldb_cache, opcional; sin daemon (contenedores de ejecutor, tests) el cliente abre la base persistida en proceso y, si no existe, compone como hoy; B) sin daemon: solo base persistida abierta en proceso en cada invocacion (7 ms, sin proceso residente que gestionar); C) un daemon unico por usuario con varios proyectos (comparte memoria; mas riesgo con el tope de 8 GB libres de robocop2: 0,4 a 0,6 GB por indice federado de sldb). Recomendacion: A; B ya cubre la carga en frio si JP prefiere no gestionar procesos.
+- Decision para JP P4: como se invalida el indice del daemon con git y con las escrituras [draft] - Elegir el mecanismo. Opciones: A) dirty set avisado por las escrituras de sldb mas deteccion externa por HEAD y estado del arbol de git y stat de los archivos rastreados, sin reescanear todo por peticion; B) vigilante de archivos (inotify) en el daemon: reaccion inmediata, pero no cubre bien checkouts masivos ni sistemas de archivos de contenedores; C) revalidar por peticion con el escaneo actual (~1 s): simple y seguro, sin ganancia en stale. Recomendacion: A.
