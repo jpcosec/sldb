@@ -390,6 +390,8 @@ include:
   - desk/inbox/20261123-163608-unclear-queue-20261123t191956z-dispatch-reap-task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer.md
   - desk/inbox/20261123-192609-unclear-queue-20261123t222252z-dispatch-tester-task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-ndice-federado-en-cada-edg.md
   - desk/inbox/20261123-233550-unclear-queue-20261124t022239z-integrate-task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer.md
+  - desk/inbox/20261124-023754-suggestion-semantica-del-store-padres-declarados-solo-en-el-cache-namespace-sin-padre-y-migracion-de-tags-en-bloque.md
+  - desk/inbox/20261123-234134-unclear-queue-20261124t022723z-dispatch-reap-task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -1589,7 +1591,6 @@ include:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
   - desk/tasks/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field.md
   - desk/tasks/task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb.md
-  - desk/tasks/task-plan-del-drawer-grafo-datalog-daemon-motor-datalog-duenio-de-las-aristas-daemon-residente-y-decision.md
 - model: ReviewDoc
   paths:
   - path: desk/reviews/task-gd23/preflight-1.md
