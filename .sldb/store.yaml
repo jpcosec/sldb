@@ -392,6 +392,7 @@ include:
   - desk/inbox/20261123-233550-unclear-queue-20261124t022239z-integrate-task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer.md
   - desk/inbox/20261124-023754-suggestion-semantica-del-store-padres-declarados-solo-en-el-cache-namespace-sin-padre-y-migracion-de-tags-en-bloque.md
   - desk/inbox/20261123-234134-unclear-queue-20261124t022723z-dispatch-reap-task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb.md
+  - desk/inbox/20261124-000312-unclear-queue-20261124t024525z-dispatch-reap-task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -950,6 +951,8 @@ include:
     name: run-deskops-e-3617fe0f6a32-a2
   - path: runs/subagents/exec-deskops-e-26633313df8f/run.md
     name: run-deskops-e-26633313df8f
+  - path: runs/subagents/exec-deskops-e-26633313df8f-a2/run.md
+    name: run-deskops-e-26633313df8f-a2
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
