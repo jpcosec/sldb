@@ -1,17 +1,17 @@
 name: task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb
 path: desk/tasks/task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb.md
-source_hash: 60eb0efa8eca17d8b8ad1c5c33cf42823807a8505af5c57e5e2c20dbf4dc6d24
-content_hash: bbd2613a64cda6806e6adadecf2cfefbbaade3e17f0e13abcdcf9b5f11ea2665
+source_hash: a97f0c014ebc71cff2550e33d629baffaa34a834c2e9f7ba3f78ca211227a63a
+content_hash: da7afa7e28e0175494e9b14051da33972678aaac8c365833a1c60e1b11513ce8
 field_hashes:
   title: a5988fe594a7430cb3cc6b00449074243d2ed2741eec13bc72ab4a5a001f0567
   id: 78d13e99063a004498d64f76eb5884c2752acfbfbd652fc0b8d36e037b60fc43
-  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
-  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
-  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  current_node: d10f5286503cbf750af0584acaec732741c2d9cfbae2a6d5b8ce45b8bf83b79d
+  history: f89b8fd2ac9e43a24ba505d162381268ed901d0695f62c6ad8ec2c62718dfa1c
   why: 018e11600461ead9bbe93af03033a22cc6272c1d8d584fb9f25b35458558cb1a
-  goal: b7130de93e455d80ce061d3e155d864140122fbf1187e6c046dfc05c6dfdb0c0
+  goal: ece2d3a612f77d6f640ee5c71d3e52d44c2a77f3d84fa6c873decf8dca7b8df2
   scope: 82b2691824f5c861e092699e37cbbb4821f8060e090ff90bf2ca371ccff0f1b2
   references: e6782a4ce6b2651799b3eddff75a64702cd8bf827334a77fc2bec533d3c150a9
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
@@ -19,7 +19,7 @@ field_hashes:
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 41512515f1d4373d96aa9ef1c1f264b2a03bb2f63e4be0529623e864a0b2fee7
   validation: 195908336cb30a8f6ed82ae596c4f0a54895f5470ccc7c2a48d952e83adc0a44
-  done_when: 5fdfea8244d89c2c7710f4119b4bca4cf531b62e93eabb2ee62b6172ab287589
+  done_when: cba6b0751b11c557066ef4724db2a46a1ff2ccb3661787d0cd7037b648a4503d
   task_type: 8dbc7ea3fc2d737a841f8f9a89de6dd4bd2ca7fdc77434a53400db8767ba695d
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
@@ -33,6 +33,6 @@ semantic_tags:
 - workspace:desk
 provenance:
   by: agent
-  at: '2026-11-23T17:38:45Z'
+  at: '2026-11-24T02:36:22Z'
   authority: generated
   via: save_document_payload
