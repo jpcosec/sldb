@@ -1,14 +1,16 @@
 name: 20261123-192609-unclear-queue-20261123t222252z-dispatch-tester-task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-ndice-federado-en-cada-edg
 path: desk/inbox/20261123-192609-unclear-queue-20261123t222252z-dispatch-tester-task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-ndice-federado-en-cada-edg.md
-source_hash: 064238fe162fe1753ec6b72ba7c28b3737641eb594565b3bf52afc934ae16c08
-content_hash: aae6dc07f3b2b51b5ee60636fa66534c74e9c8ebfa0fec91d76265a4a51a8fd9
+source_hash: 897acfbd3f12cbae8ca3b26b1075b1dc0c7f82d3fbaccaf2237878e23b4f9100
+content_hash: dbfbdb88ee8fb8451a4d278275789c6f86cdc67e6f6ea7adf95589ccba22424b
 field_hashes:
   kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
   sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: d5ffd515ff4cbe7c54c2e76cf51d49239a799301b4cbdba512c915c15fd4210b
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
-  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 97c4e47bb1e13f5a0c0dbd902ed08b09b4ea825baa79794a2ef74fc643c6de49
+  ack_reason: e3f06d5c072a9815033e1feeda9f75d1663a988f213a6d752bfaf534958eb019
   title: 843db941859119ddb3639d7ae7bfe609c4dec4c0451d9fdd188218d1baa1b654
   body: b3388ac600b7d52ce43f3398eab89014a3fedf7bc390ded391987e9b68569031
 semantic_tags:
@@ -16,4 +18,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-24T02:41:26Z'
+  authority: generated
+  via: save_document_payload

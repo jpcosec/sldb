@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-24T02:36:22Z'
+  at: '2026-11-24T02:45:50Z'
   authority: generated
   via: save_document_payload
 id: task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb
@@ -37,7 +37,7 @@ Notas 20261123-142527-suggestion-decisi-n-de-jp-el-grafo-de-sldb-pasa-a-un-motor
 
 _Describe the concrete result this task must produce._
 
-Solo la prueba de concepto (atomizacion del coordinador, 2026-11-24): se elige un motor Datalog embebido con cliente Python (Datalevin y al menos otro), se carga el indice federado real de deskops y sldb como hechos y se miden aristas de un nodo, recorrido, emparejamiento de atomos y stale contra el camino actual, con RSS; scripts en reports/grafo-datalog-daemon-20261123/ y tabla en result-summary.md. El plan del drawer, el daemon y las task.decision salen en tareas aparte que dependen de esta.
+Existe desk/drawer/plans/grafo-datalog-daemon/ con alcance, brief, decisiones y dag.yaml que cubre las dos cosas juntas; decisiones.md de grafo-operable registra D5 revertida por JP el 2026-11-23; el plan trae los resultados de una prueba de concepto que carga el indice federado real en un motor Datalog embebido (Datalevin u otro con cliente Python) y mide aristas de un nodo, recorrido, emparejamiento de atomos y stale contra el camino actual; y cada decision de diseno abierta queda como una task.decision para JP.
 
 ## Scope
 
@@ -61,4 +61,4 @@ _List the checks required before this task can close._
 
 _Name the observable condition that makes the task complete._
 
-La tabla de tiempos y memoria de las cuatro consultas, motor contra camino actual, queda en el informe con el comando para repetirla; los scripts estan commiteados en reports/.
+El plan existe con dag.yaml valido (deskops review node puede leerlo); el informe trae la tabla de tiempos y memoria de la prueba de concepto contra el camino actual; D5 aparece como revertida con fecha y motivo; hay una task.decision por decision abierta, con opciones y recomendacion.

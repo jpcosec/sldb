@@ -1,14 +1,16 @@
 name: 20261123-233550-unclear-queue-20261124t022239z-integrate-task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer
 path: desk/inbox/20261123-233550-unclear-queue-20261124t022239z-integrate-task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer.md
-source_hash: 12c50c529c221012dab782a866d7dbe765cde874a16a5476330c5c0ef4679601
-content_hash: 6e357fe482cbb9717f5c3fc9d2d728c4f3bad9de72ff0d1ba9d06c477c554331
+source_hash: 001b2071a054a5fd9ebc181c26d9e90d3a900bf301786ee7abe858fd9ed4fad8
+content_hash: 30e1db42a032cd7c049dbf776376623d38a5bdd35fd79f8e928980392985f315
 field_hashes:
   kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
   sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   created_at: 3abb8a5b3dd272256c6cd529d8f7383ca8afafafa0b7c6dccd63a54abc7b0276
-  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
-  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: f560b6de5eeb9de38c1ec4082de75f93aaaadcc40086fd1cc449ed861ddef9e1
+  ack_reason: e3f06d5c072a9815033e1feeda9f75d1663a988f213a6d752bfaf534958eb019
   title: d997a3d8a9282ffda4884a88e63ecd1363ef77c36ea40af793ead7ddbb53b62e
   body: ad98e4b0a6d33850499ef06e12ed52543bdbbfa00e1d6d9816a180689de9a0d7
 semantic_tags:
@@ -16,4 +18,8 @@ semantic_tags:
 - source.document.markdown
 - type.desk.inbox-note
 - workspace.desk.inbox
-provenance: null
+provenance:
+  by: agent
+  at: '2026-11-24T02:40:39Z'
+  authority: generated
+  via: save_document_payload

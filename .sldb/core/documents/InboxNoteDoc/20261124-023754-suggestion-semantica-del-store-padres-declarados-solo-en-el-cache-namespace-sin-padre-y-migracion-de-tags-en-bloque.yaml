@@ -1,0 +1,21 @@
+name: 20261124-023754-suggestion-semantica-del-store-padres-declarados-solo-en-el-cache-namespace-sin-padre-y-migracion-de-tags-en-bloque
+path: desk/inbox/20261124-023754-suggestion-semantica-del-store-padres-declarados-solo-en-el-cache-namespace-sin-padre-y-migracion-de-tags-en-bloque.md
+source_hash: 7434203f0e9270312d3e2182663179ee4941126ef0b53176d8cbee37d11aa06e
+content_hash: f0c20089a6799a3bdb4c5b8b05050ebefb92c3594c85d82f9c3e08f1e90f0178
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 2335b71c76c9a9ac0b7cc0a37219000e0e36eaa7fb3b88df7ba712b4466b845c
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 264b2cdba3419f74a5a3a8d097b970bd567e9f2fc7c37ad4bd5df25f23997b5f
+  ack_reason: e3f06d5c072a9815033e1feeda9f75d1663a988f213a6d752bfaf534958eb019
+  title: f93d250298559b6de0d3fd6663916a7cc8f1344bb09913736d1e86bdd3706148
+  body: 69e1e1601dde84198ca8229257998b973b0a394b17fd5ddf845df9b23249f259
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null
