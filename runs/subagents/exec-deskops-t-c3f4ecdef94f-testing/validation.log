@@ -1,0 +1,48 @@
+# Validación — task-surface-trae-el-lector-de-documentos-de-minegocio-…
+# Commit del ejecutor: 3cc5c36bfb4bf91e406bbf2129783d4c1a3376f1
+# Fecha: 2026-11-23 (host /workspace == /mnt/ssd/proyectos/SLDB_1/sldb)
+
+## Dependencias
+cd surface && npm ci --no-audit --no-fund    -> rc 0 (306 paquetes; node_modules no versionado)
+
+## Validación propia de la tarea (Validation del prompt de la tarea)
+cd surface && npx tsc --noEmit               -> rc 0
+cd surface && npx vitest run                 -> rc 0  35 archivos, 471 tests
+cd surface && node scripts/check-layers.mjs  -> rc 0  76 módulos L0..L3, 0 violaciones
+
+## Tests de a uno (archivos nuevos/modificados por el commit)
+src/core/doc-ref.test.ts               -> 5 passed
+src/core/wiki-index.test.ts            -> 12 passed
+src/core/rechazo.test.ts               -> 18 passed
+src/core/imagenes.test.ts              -> 4 passed
+src/workbench/WikiLectura.test.tsx     -> 22 passed
+src/workbench/ProsaWorkbenchView.test.tsx -> 34 passed
+src/app/workbench.test.tsx             -> 14 passed
+
+## Gates rápidos del desk
+PATH=/workspace/sldb/.venv/bin:$PATH bash tools/check.sh --fast
+  núcleo aislado PASS; capas PASS; ejes PASS; superficie PASS
+  identidad FAIL: "directorio versionado sin clasificar en la raíz: workbench_demo"
+  rc 1
+
+  Preexistencia verificada: en un worktree detached del commit PADRE (b3df70da,
+  sin los cambios de surface), tools/check_identity.py falla IDÉNTICO (rc 1).
+  workbench_demo entró en 562847e2; el commit bajo test no toca contracts/identity.toml
+  ni workbench_demo (solo surface/). Hay tarea de decisión abierta:
+  task-clasificar-workbench-demo-… (desk/tasks/), que documenta la autorización del
+  coordinador para commitear con esa puerta en rojo, tarea por tarea.
+
+## pytest
+El commit no toca ningún archivo .py ni agrega tests/*.py; no hay pytest que correr.
+PYTEST_ADDOPTS se exportó igual según el instructivo.
+
+## Humo contra sldb serve sobre el store real de deskops
+PYTHONPATH=src .venv/bin/python -m sldb serve --port 8799 --store /mnt/ssd/proyectos/SLDB_1/deskops/.sldb --pythonpath /mnt/ssd/proyectos/SLDB_1/deskops
+  /health          -> 200 (arranque en frío ~45 s)
+  /schema          -> 200   89 KB   25 ms
+  /models          -> 200    7.6 KB 20 ms
+  /graph           -> 200 4527 KB 4.58–4.69 s (2085 documentos; 2 corridas)
+  /document?id=…   -> 200   41 KB   68 ms  (TaskCodeDoc real)
+  /document/segments?id=… -> 200 16 KB 23 ms
+El store de deskops no tiene ids duplicados (0 de 2085), así que docRef devuelve el
+nombre simple y las rutas de lectura responden.

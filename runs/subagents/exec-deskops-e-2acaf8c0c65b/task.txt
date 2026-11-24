@@ -1,0 +1,9 @@
+Task: task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer
+Title: surface trae el lector de documentos de minegocio (indice por carpeta o semantica, lectura, ficha, referencias, rechazos legibles) para explorar el store de deskops
+Status: draft
+Current node: ritual-execution
+Task type: task.code
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .

@@ -1,0 +1,5 @@
+cd surface && npx tsc --noEmit                      -> rc 0
+cd surface && npx vitest run                        -> rc 0 (35 archivos, 471 tests)
+cd surface && node scripts/check-layers.mjs         -> rc 0 (76 módulos, 0 violaciones)
+bash tools/check.sh --fast                          -> rc 1: FAIL identidad "directorio versionado sin clasificar en la raíz: workbench_demo"
+  (preexistente: mismo fallo en el checkout principal sin mis cambios; workbench_demo entra en 562847e2; fuera del alcance de la tarea)
