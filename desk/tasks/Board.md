@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-24T02:21:07Z'
+  at: '2026-11-24T02:22:34Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -75,6 +75,7 @@ tasks:
 - desk/tasks/task-sldb-serve-manda-composition-de-cada-field-y-expone-por-modelo-la-ruta-y-la-cardinalidad-create-resp.md
 - desk/tasks/task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas.md
 - desk/tasks/task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p.md
+- desk/tasks/task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -184,3 +185,4 @@ _Generated from the task references above._
 - sldb serve manda composition de cada field y expone por modelo la ruta y la cardinalidad; create respeta path [draft] - GET /document/segments distingue fields inline de bloques (composition presente solo en bloques, o un campo explicito); un endpoint de serve expone por modelo el patron de ruta y la cardinalidad declarados en el modelo; POST /save action create acepta path; la superficie usa ese dato y deja de tratar todo field como bloque.
 - Render y fields de sldb sin fricciones: None en rev y optrev, tablas vacias, dict de BaseModel y rutas relativas de docs create [draft] - Cada uno de los cinco casos tiene un test que hoy falla y pasa despues: rev None da null o error claro, optrev None se puede volver a poner con fields update, una tabla vacia no renderiza fila ni extrae dato, el warning falso desaparece, y docs create -o resuelve contra el cwd (o avisa).
 - Agregar un campo con default a un modelo no invalida los documentos existentes y fields update los puede reparar [draft] - Un documento sin la clave nueva toma el default del modelo al extraer y sigue valido; y fields update puede escribir un campo en un documento hoy invalido cuando la escritura lo deja valido.
+- El lector de surface queda sin residuos de minegocio: businessName, NegocioDoc y textos del negocio salen de wiki-index y sus tests [draft] - surface/src/core/wiki-index.ts y sus tests no nombran NegocioDoc, businessName ni textos del negocio; el titulo del indice sale de un dato generico (nombre del store o del documento raiz) con un texto de respaldo neutro; tsc, vitest y check-layers pasan.

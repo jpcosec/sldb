@@ -1,0 +1,38 @@
+name: task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa
+path: desk/tasks/task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa.md
+source_hash: 6c3e6d3a909a64a56c088d43958d1e715b90b6a9ae31f336c9355149bdcac887
+content_hash: 09d0b325141d83418c62fcefd9e0cbca316f31e00c0f034e0c0c8289d13ccb40
+field_hashes:
+  title: 98bf77b3242afe3eee07a56cc3e947ac0b4c1f13da773fd09b85992eec2681d2
+  id: 63bf43626283be1dd80b7c02b66430cb7bf1cb371eb82b42657459386cfbea3c
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: ac74bacf1cf896c1c5ab8b969d5b07cd1f847bb48ee8ed1200b1d9373c65eff5
+  goal: f43b9d134f92dc8128e59839dfa462c43cbc873a95c8567533903707840c108c
+  scope: b2ddbff0707106c7d13d305cf99df768136dbe8c4ee7eb325f7321b5b412e312
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  implementation_path: d10c0ac4ed348eac3f39a45a0d654c89fb1f173a8619f0984d141fed9c04c6aa
+  validation: 0667f396d13f583a006b3377057aaf916b90767cc3d6b7e2ec025e2f0c870353
+  done_when: 4af907b9091073cee752ac3a9eacbfbe172aac1b1db620848011e556a0e05944
+  task_type: d0b4cbfeadc448bca1492079dfd36948fd84b4ae366c521b0e71add2bea3fa86
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- artifact:task
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-24T02:22:22Z'
+  authority: generated
+  via: create_document
