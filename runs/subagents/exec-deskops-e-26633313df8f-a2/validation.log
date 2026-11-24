@@ -1,0 +1,3 @@
+deskops graph missing --root .   -> "No missing graph references found." rc=0
+bash tools/check.sh --fast       -> rc=1; unico fallo: identidad ("directorio versionado sin clasificar en la raiz: workbench_demo"), ajeno a los archivos de esta tarea (preexistente en HEAD). Resto PASS.
+git diff e5f7b702 -- desk/drawer -> vacio (portado identico)

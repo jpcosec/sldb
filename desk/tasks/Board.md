@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-24T07:15:58Z'
+  at: '2026-11-24T18:03:21Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -70,7 +70,6 @@ tasks:
 - desk/tasks/task-docs-update-y-models-add-sobre-un-store-con-un-enlace-roto-no-reescriben-los-metadatos-de-los-modelo.md
 - desk/tasks/task-los-ids-de-seccion-conservan-las-letras-con-tilde-y-sldb-inbox-no-deja-una-nota-sin-trackear-cuando.md
 - desk/tasks/task-stores-check-filtra-por-modelo-y-docs-update-acepta-un-payload-parcial-que-se-mezcla-con-el-document.md
-- desk/tasks/task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb.md
 - desk/tasks/task-sldb-serve-tolera-documentos-invalidos-ve-altas-de-otros-procesos-y-resuelve-tipo-nombre-en-document.md
 - desk/tasks/task-sldb-serve-manda-composition-de-cada-field-y-expone-por-modelo-la-ruta-y-la-cardinalidad-create-resp.md
 - desk/tasks/task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas.md
@@ -184,7 +183,6 @@ _Generated from the task references above._
 - docs update y models add sobre un store con un enlace roto no reescriben los metadatos de los modelos del store enlazado [draft] - Con un test se sabe si, en un store A con un enlace a un store B cuya ruta no existe, 'docs update' de un documento de A o 'models add' en A cambian alguna entrada de store_index.yaml o algún archivo de modelos o shards que pertenezca a modelos con origin B. Si los cambia, se arregla para que esas entradas queden byte a byte iguales.
 - Los ids de sección conservan las letras con tilde y sldb inbox no deja una nota sin trackear cuando falla el import del modelo [draft] - Los ids de sección conservan las letras Unicode: 'Qué hace y para quién' da 'qué-hace-y-para-quién', o la forma con acentos que ya use src/sldb/links/render.py::_slug; se elige una sola regla para ambos. Y sldb inbox no deja archivo si no puede trackear la nota: o valida y resuelve el modelo antes de escribir, o borra lo escrito y sale con error.
 - stores check filtra por modelo y docs update acepta un payload parcial que se mezcla con el documento [draft] - 'sldb stores check --model <Modelo>' (repetible) devuelve solo los hallazgos cuyo subject es un documento de esos modelos, o el modelo mismo. 'sldb docs update <doc> --merge' toma el payload actual del documento, le aplica las claves del payload dado (solo el primer nivel) y guarda el resultado con la validación y las reglas de siempre.
-- Plan del drawer: motor Datalog duenio de las aristas (revierte D5) y daemon residente de sldb, con prueba de concepto medida y decisiones para JP [active] - Existe desk/drawer/plans/grafo-datalog-daemon/ con alcance, brief, decisiones y dag.yaml que cubre las dos cosas juntas; decisiones.md de grafo-operable registra D5 revertida por JP el 2026-11-23; el plan trae los resultados de una prueba de concepto que carga el indice federado real en un motor Datalog embebido (Datalevin u otro con cliente Python) y mide aristas de un nodo, recorrido, emparejamiento de atomos y stale contra el camino actual; y cada decision de diseno abierta queda como una task.decision para JP.
 - sldb serve tolera documentos invalidos, ve altas de otros procesos y resuelve Tipo/nombre en document y save [draft] - sldb serve entrega los documentos sanos y nombra aparte los rechazados (como load_runtime_documents(on_invalid='skip')), deja abrir y reparar un documento rechazado; refleja altas, cambios y bajas hechos por otro proceso sin reiniciar ni guardar; acepta Tipo/nombre en /document, /document/ir, /document/segments y POST /save; el 422 de /save devuelve exc.errors() como details.
 - sldb serve manda composition de cada field y expone por modelo la ruta y la cardinalidad; create respeta path [draft] - GET /document/segments distingue fields inline de bloques (composition presente solo en bloques, o un campo explicito); un endpoint de serve expone por modelo el patron de ruta y la cardinalidad declarados en el modelo; POST /save action create acepta path; la superficie usa ese dato y deja de tratar todo field como bloque.
 - Render y fields de sldb sin fricciones: None en rev y optrev, tablas vacias, dict de BaseModel y rutas relativas de docs create [draft] - Cada uno de los cinco casos tiene un test que hoy falla y pasa despues: rev None da null o error claro, optrev None se puede volver a poner con fields update, una tabla vacia no renderiza fila ni extrae dato, el warning falso desaparece, y docs create -o resuelve contra el cwd (o avisa).

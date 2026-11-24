@@ -1,0 +1,34 @@
+Task: task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb
+Title: Plan del drawer: motor Datalog duenio de las aristas (revierte D5) y daemon residente de sldb, con prueba de concepto medida y decisiones para JP
+Status: draft
+Current node: ritual-execution
+Task type: task.docs
+Phase: execution
+Required ritual:
+- desk/rituals/execution.md
+Required pills:
+- desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
+- desk/contexts/pill-keep-sldb-generic-and-move-workflow-behavior-toward-deskops.md
+- desk/contexts/pill-keep-template-markers-reversible-at-the-document-boundary.md
+- desk/contexts/pill-model-registration-must-be-queryable.md
+- desk/contexts/pill-put-a-small-onboarding-surface-before-the-deep-system.md
+- desk/contexts/pill-sldb-cli-errors-must-stay-actionable-and-machine-safe.md
+- desk/contexts/pill-store-health-is-owned-by-sldb.md
+- desk/contexts/pill-stores-init-must-be-idempotent-and-fail-safely.md
+- desk/contexts/pill-keep-the-text-layer-and-the-graph-layer-separate-inside-sldb.md
+- desk/contexts/pill-context-pills-carry-reasoning-not-a-copy-of-code-or-docs.md
+Next actions:
+1. Make the active task, scope, touched files, and validation targets explicit.
+2. Run a fresh-context subagent review.
+3. Bind matching board and task pills.
+4. Start implementation only after the initialization gate is satisfied.
+Advance when:
+- Execution gate obligations are recorded or satisfied.
+Post-hooks:
+- task_activates:
+  - encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  - encola-tester: deskops queue add dispatch-tester --root .
+Sources:
+- task: desk/tasks/task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb.md
+- board: desk/tasks/Board.md
+- workflow: deskops/spec/workflows/task_lifecycle.yaml

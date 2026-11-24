@@ -1,0 +1,6 @@
+python poc/poc_datalog.py facts|current|cozo mem|cozo sqlite|reopen|report  -> rc 0 (resultados en poc/resultado-*.json)
+yaml.safe_load(dag.yaml) -> rc 0 (7 tareas, 5 gates)
+deskops graph missing --root <worktree> -> rc 0, "No missing graph references found"
+bash tools/check.sh --fast -> rc 1: FAIL identidad "directorio versionado sin clasificar en la raiz: workbench_demo".
+  Preexistente: el mismo rc 1 y el mismo error en el checkout principal sin mis cambios; no toca ningun archivo de esta tarea.
+  El resto de gates PASS. Commiteado con ese rc 1 conocido.

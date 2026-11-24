@@ -1,0 +1,165 @@
+# Validation log — tester 2026-11-24T17:42:33Z
+
+## Commit del ejecutor
+$ git log -1 --format=%H --grep "Task-Id: task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb"
+26993e7d2966997e4d8f97da1a212dad07529a15
+
+## Archivos del commit
+.sldb/core/documents/BoardDoc/Board.yaml
+.sldb/core/documents/TaskDecisionDoc/task-decision-para-jp-p1-que-motor-datalog-embebido-usa-sldb-cozo-datalevin-u-otro.yaml
+.sldb/core/documents/TaskDecisionDoc/task-decision-para-jp-p2-hasta-donde-llega-la-propiedad-del-motor-sobre-el-grafo.yaml
+.sldb/core/documents/TaskDecisionDoc/task-decision-para-jp-p3-forma-del-daemon-de-sldb-y-que-pasa-sin-el.yaml
+.sldb/core/documents/TaskDecisionDoc/task-decision-para-jp-p4-como-se-invalida-el-indice-del-daemon-con-git-y-con-las-escrituras.yaml
+.sldb/core/models/BoardDoc.yaml
+.sldb/core/models/TaskDecisionDoc.yaml
+.sldb/store.yaml
+desk/drawer/plans/grafo-datalog-daemon/alcance.md
+desk/drawer/plans/grafo-datalog-daemon/brief.md
+desk/drawer/plans/grafo-datalog-daemon/dag.yaml
+desk/drawer/plans/grafo-datalog-daemon/decisiones.md
+desk/drawer/plans/grafo-datalog-daemon/poc/informe.md
+desk/drawer/plans/grafo-datalog-daemon/poc/poc_datalog.py
+desk/drawer/plans/grafo-datalog-daemon/poc/resultado-actual.json
+desk/drawer/plans/grafo-datalog-daemon/poc/resultado-cozo-mem.json
+desk/drawer/plans/grafo-datalog-daemon/poc/resultado-cozo-sqlite.json
+desk/drawer/plans/grafo-operable/decisiones.md
+desk/tasks/Board.md
+desk/tasks/task-decision-para-jp-p1-que-motor-datalog-embebido-usa-sldb-cozo-datalevin-u-otro.md
+desk/tasks/task-decision-para-jp-p2-hasta-donde-llega-la-propiedad-del-motor-sobre-el-grafo.md
+desk/tasks/task-decision-para-jp-p3-forma-del-daemon-de-sldb-y-que-pasa-sin-el.md
+desk/tasks/task-decision-para-jp-p4-como-se-invalida-el-indice-del-daemon-con-git-y-con-las-escrituras.md
+
+## ¿tests/*.py o src/*.py en el commit?
+NINGUNO
+
+## deskops graph missing --root .
+Missing graph references:
+- missing_declared_target: config_file:.worktrees/deskops-e-26633313df8f/.sldb/core/documents/ReviewDoc/review-task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1-bundle-1.yaml -> task:task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1
+  provenance: .worktrees/deskops-e-26633313df8f/.sldb/core/documents/ReviewDoc/review-task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1-bundle-1.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-26633313df8f/.sldb/core/documents/ReviewDoc/review-task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1-preflight-1.yaml -> task:task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1
+  provenance: .worktrees/deskops-e-26633313df8f/.sldb/core/documents/ReviewDoc/review-task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1-preflight-1.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-26633313df8f/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-bundle-1.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-26633313df8f/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-bundle-1.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-26633313df8f/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-atom-1.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-26633313df8f/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-atom-1.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-26633313df8f/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-atom-2.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-26633313df8f/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-atom-2.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-26633313df8f/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-commit-1.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-26633313df8f/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-commit-1.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-26633313df8f/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-commit-2.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-26633313df8f/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-commit-2.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-26633313df8f/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-materialization-1.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-26633313df8f/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-materialization-1.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-26633313df8f/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-materialization-2.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-26633313df8f/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-materialization-2.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-26633313df8f/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-tests-1.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-26633313df8f/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-tests-1.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-26633313df8f/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-tests-2.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-26633313df8f/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-tests-2.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-26633313df8f/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-preflight-1.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-26633313df8f/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-preflight-1.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+12 missing, 0 informational (0 planned_target)
+
+## deskops list tasks (decisiones)
+task-decision-para-jp-p1-que-motor-datalog-embebido-usa-sldb-cozo-datalevin-u-otro | draft | ritual-execution
+task-decision-para-jp-p2-hasta-donde-llega-la-propiedad-del-motor-sobre-el-grafo | draft | ritual-execution
+task-decision-para-jp-p3-forma-del-daemon-de-sldb-y-que-pasa-sin-el | draft | ritual-execution
+task-decision-para-jp-p4-como-se-invalida-el-indice-del-daemon-con-git-y-con-las-escrituras | draft | ritual-execution
+
+## deskops review status
+task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb/preflight accepted           b7b2b51590d6
+task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb/bundle accepted           b0d4df288a80
+
+## dag.yaml: carga con el lector de deskops review node
+plan_id: sldb-grafo-datalog-daemon status: draft execution_authorized: False
+plan_nodes: ['ROOT', 'PK01', 'PK02', 'PK03', 'DL01', 'DL02', 'DL03', 'DL04', 'DL05', 'DL06', 'DL07']
+gates: ['G_DAEMON_SHAPE', 'G_ENGINE', 'G_INVALIDATION', 'G_MATCHING_FIRST', 'G_OWNERSHIP']
+
+## PoC: py_compile
+py_compile OK
+
+## PoC: report sobre los JSON comprometidos
+| Medida | Camino actual | Cozo mem | Cozo sqlite |
+|---|---|---|---|
+| Carga del indice federado (s) | 3.04 | 2.60 | 4.74 |
+| Aristas de un nodo, 5 repeticiones, mejor (s) | 0.0005 | 0.0066 | 0.0066 |
+| Recorrido: descendientes por la relacion mas poblada (s) | 0.0003 | 0.0006 | 0.0014 |
+| Emparejamiento de atomos, todos (337) en lote (s) | 0.0022 | 0.0117 | 0.0157 |
+| Emparejamiento de atomos, 50 llamadas sueltas (s) | 49.08 | 0.0084 | 0.0147 |
+| Stale (escaneo de stats + comparacion) (s) | 27.06 | 0.9870 | 1.06 |
+| RSS tras la carga, incremento sobre el arranque (MB) | 604.0 | 551.7 | 384.7 |
+| Pico RSS (MB) | 1146.1 | 779.6 | 688.5 |
+
+## PoC: facts (re-ejecutado)
+{"nodes": 39639, "edges": 229200, "docs": 7840, "stores": 4, "atoms": 337, "rel": "implements", "hub": "sldb://document/pron:SpecDoc:spec-11", "first_load_s": 36.22}
+
+## PoC: current (re-ejecutado; ver nota de timeout en result-summary)
+(ver /tmp/poc-current.log y /tmp/poc-current.json; el proceso se lanzó con timeout 1500)
+
+## bash tools/check.sh --fast
+
+[1m── núcleo aislado ──[0m
+PASS: núcleo aislado — 83 módulos cargados
+
+[1m── capas ──[0m
+  deuda  ciclo contado: core → models → runtime → core
+  deuda  ciclo contado: models → runtime → models
+  deuda  ciclo contado: core → models → store → core
+  deuda  ciclo contado: models → store → models
+  deuda  ciclo contado: core → models → store → runtime → core
+  deuda  ciclo contado: models → store → runtime → models
+  deuda  ciclo contado: core → runtime → core
+  deuda  ciclo contado: cli → selfdoc → cli
+  nota   242 imports diferidos (dentro de funciones), no bloquean pero suelen esquivar un ciclo
+  nota   4 reparaciones pendientes declaradas en el contrato; mientras existan, el orden de capas es aspiracional
+PASS: capas — 10 paquetes, 38 aristas, 0 violaciones, 8 ciclos contados
+
+[1m── identidad ──[0m
+  ERROR  directorio versionado sin clasificar en la raíz: workbench_demo — decide si es producto, autoaplicación o ajeno
+  deuda  2 cruces de frontera contados: código del producto que nombra contenido de este repositorio
+  deuda  mientras existan, «el producto es genérico» es aspiracional
+  deuda  6 huérfanos en la raíz, contados en el contrato con la acción pendiente de cada uno
+  nota   2 directorios declarados ajenos
+  nota   19 modelos del producto clasificados, 5 directorios de contenido vigilados
+  nota   2 de 4 reglas de rechazo no son mecanizables y quedan para revisión humana
+  nota   estado: activo (resuelto 2026-10-03); el congelamiento declarado no ocurrió
+FAIL: identidad — 10 paquetes de producto, 19 modelos clasificados, 1 violaciones
+
+[1m── ejes ──[0m
+  nota   el núcleo se parte cortando 4 aristas de peso total 6
+  nota   7 unidades viables, 2 extraíbles hoy: adaptadores, recuperacion
+  deuda  función `auditoria` ausente en 5 de 7 unidades
+  deuda  función `regulacion` ausente en 5 de 7 unidades
+  nota   6 ejes de identidad: superficie, representacion, render, contrato, runtime, identidad_y_hash
+  nota   26 de 32 ejes declaran carpetas enteras y absorben archivos nuevos sin avisar
+  deuda  2 deudas de eje declaradas: adaptador-sin-uso, superficie-autorada-unica
+PASS: ejes — 32 declarados, 1001 archivos mapeados, 0 violaciones
+
+[1m── superficie ──[0m
+  nota   1 de 3 consumidores presentes: deskops
+  aviso  la cifra total (53) no se comprueba: faltan hum-scrapper, ontology
+  deuda  4 imports de la interfaz desde código de producción
+  deuda  39 símbolos pedidos sin puerta que los declare
+PASS: superficie — 129 símbolos pedidos, 597 declarados, 0 violaciones
+
+omitidas (--fast): afirmaciones pruebas selfdoc
+[31mFALLAN: identidad[0m
+RC=1
+
+## PoC: current (re-ejecutado, terminó después de ~12,5 min)
+$ python poc_datalog.py current .sldb /tmp/poc-facts-test.pkl /tmp/poc-current-test.json
+{"load_s": 34.74103460693732, "rss_after_load_mb": 1114.01171875, "rss_base_mb": 66.328125, "edges_of_node_s": 0.0008404450491070747, "edges_of_node_n": 2557, "traversal_s": 0.00030587799847126007, "traversal_n": 68, "atoms_n": 337, "atoms_s": 0.0023902133107185364, "atoms_per_call_compose_n": 50, "atoms_per_call_compose_s": 756.885977068916, "stale_s": 0.6852112570777535, "stale_n": 0, "stale_live_only_s": 13.662839320022613, "peak_mb": 2072.50390625, "rss_end_mb": 1765.609375}
+
+Nota: en este contenedor el camino actual tarda 756,9 s en las 50 consultas sueltas (13,7 s por compose/live-stale), no los 49,08 s del informe; las respuestas coinciden (2.557 aristas, 68 descendientes, 337 átomos, 0 stale).

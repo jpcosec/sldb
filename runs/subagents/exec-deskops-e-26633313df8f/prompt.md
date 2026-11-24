@@ -1,41 +1,37 @@
+Task: task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb
+Title: Plan del drawer: motor Datalog duenio de las aristas (revierte D5) y daemon residente de sldb, con prueba de concepto medida y decisiones para JP
+Status: draft
+Current node: ritual-execution
+Task type: task.docs
+Lifecycle gates:
+- task_activates -> ritual-testing: open [(none)]
+  post-hook encola-reap-del-ejecutor: deskops queue add dispatch-reap --root .
+  post-hook encola-tester: deskops queue add dispatch-tester --root .
+
 ---
 sldb:
   by: agent
-  at: '2026-11-24T17:57:22Z'
+  at: '2026-11-23T17:38:45Z'
   authority: generated
   via: save_document_payload
 id: task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb
-status: ready_for_testing
+status: draft
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-closeout
-history:
-- task_activates
-- task_hands_to_closeout
+current_node: ritual-execution
+history: []
 references:
-- desk/drawer/plans/grafo-datalog-daemon/alcance.md
-- desk/drawer/plans/grafo-datalog-daemon/brief.md
-- desk/drawer/plans/grafo-datalog-daemon/dag.yaml
-- desk/drawer/plans/grafo-datalog-daemon/decisiones.md
-- desk/drawer/plans/grafo-datalog-daemon/poc/informe.md
-- desk/drawer/plans/grafo-operable/decisiones.md
-- 26993e7d2966997e4d8f97da1a212dad07529a15
+- desk/inbox/20261123-142527-suggestion-decisi-n-de-jp-el-grafo-de-sldb-pasa-a-un-motor-datalog-revierte-d5.md
+- desk/inbox/20261123-142553-suggestion-jp-pide-ver-ahora-el-daemon-de-sldb.md
 depends_on: []
 pills: []
-files:
-- desk/drawer/plans/grafo-datalog-daemon/alcance.md
-- desk/drawer/plans/grafo-datalog-daemon/brief.md
-- desk/drawer/plans/grafo-datalog-daemon/dag.yaml
-- desk/drawer/plans/grafo-datalog-daemon/decisiones.md
-- desk/drawer/plans/grafo-datalog-daemon/poc/informe.md
-- desk/drawer/plans/grafo-operable/decisiones.md
+files: []
 task_type: task.docs
 inherits_from: []
 inherit_acceptance_context: false
-atoms:
-- atom-plan-del-drawer-grafo-datalog-daemon-motor-datalog-duenio-de-las-aristas-daemon-residente-y-decision
+atoms: []
 ---
 
 # Plan del drawer: motor Datalog duenio de las aristas (revierte D5) y daemon residente de sldb, con prueba de concepto medida y decisiones para JP
@@ -75,3 +71,34 @@ _List the checks required before this task can close._
 _Name the observable condition that makes the task complete._
 
 El plan existe con dag.yaml valido (deskops review node puede leerlo); el informe trae la tabla de tiempos y memoria de la prueba de concepto contra el camino actual; D5 aparece como revertida con fecha y motivo; hay una task.decision por decision abierta, con opciones y recomendacion.
+
+## Entrega del ejecutor
+
+Al terminar, commitea solo los archivos que cambiaste para la tarea, nombrados uno por uno (los mismos que listas en result-summary.md):
+
+    git add <ruta> <ruta> ...
+    git commit -m "<resumen>" -m "Task-Id: task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb"
+
+Nunca uses `git add -A`, `git add -u` sobre todo el arbol ni `git stash`: puede haber trabajo ajeno sin commitear. No hagas push. Recien despues ejecuta `deskops advance task`.
+
+## Temporales de pytest
+
+Antes de cualquier pytest exporta, para que sus temporales caigan en el /tmp del contenedor (muere con el agente) y no en el /dev/shm del host:
+
+    export PYTEST_ADDOPTS="--basetemp=/tmp/pytest-deskops-e-26633313df8f"
+
+## Gates rapidos del desk
+
+Antes del commit corre, con el python del venv (/tmp/ws-venv en PATH):
+
+    bash tools/check.sh --fast
+
+Debe terminar con rc 0 antes de commitear; si falla, corrige y repite. Anota el comando y su rc en validation.log.
+
+## Tu worktree
+
+Tu codigo vive en un worktree propio, en la rama `deskops/deskops-e-26633313df8f`:
+
+    /mnt/ssd/proyectos/SLDB_1/sldb/.worktrees/deskops-e-26633313df8f
+
+Haz `cd` ahi: edita, corre los tests y commitea ahi (git add / git commit), no en el checkout principal /mnt/ssd/proyectos/SLDB_1/sldb. Las operaciones de desk (`deskops ... --root /mnt/ssd/proyectos/SLDB_1/sldb`, evidencia en runs/subagents/..., `deskops advance task`) siguen usando el checkout principal. Al terminar, reap trae tus commits a la rama principal y borra el worktree.
