@@ -1,28 +1,41 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-24T02:45:50Z'
+  at: '2026-11-24T17:57:22Z'
   authority: generated
   via: save_document_payload
 id: task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb
-status: active
+status: ready_for_testing
 summary: ''
 tags:
 - workspace:desk
 - artifact:task
-current_node: ritual-testing
+current_node: ritual-closeout
 history:
 - task_activates
+- task_hands_to_closeout
 references:
-- desk/inbox/20261123-142527-suggestion-decisi-n-de-jp-el-grafo-de-sldb-pasa-a-un-motor-datalog-revierte-d5.md
-- desk/inbox/20261123-142553-suggestion-jp-pide-ver-ahora-el-daemon-de-sldb.md
+- desk/drawer/plans/grafo-datalog-daemon/alcance.md
+- desk/drawer/plans/grafo-datalog-daemon/brief.md
+- desk/drawer/plans/grafo-datalog-daemon/dag.yaml
+- desk/drawer/plans/grafo-datalog-daemon/decisiones.md
+- desk/drawer/plans/grafo-datalog-daemon/poc/informe.md
+- desk/drawer/plans/grafo-operable/decisiones.md
+- 26993e7d2966997e4d8f97da1a212dad07529a15
 depends_on: []
 pills: []
-files: []
+files:
+- desk/drawer/plans/grafo-datalog-daemon/alcance.md
+- desk/drawer/plans/grafo-datalog-daemon/brief.md
+- desk/drawer/plans/grafo-datalog-daemon/dag.yaml
+- desk/drawer/plans/grafo-datalog-daemon/decisiones.md
+- desk/drawer/plans/grafo-datalog-daemon/poc/informe.md
+- desk/drawer/plans/grafo-operable/decisiones.md
 task_type: task.docs
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-plan-del-drawer-grafo-datalog-daemon-motor-datalog-duenio-de-las-aristas-daemon-residente-y-decision
 ---
 
 # Plan del drawer: motor Datalog duenio de las aristas (revierte D5) y daemon residente de sldb, con prueba de concepto medida y decisiones para JP

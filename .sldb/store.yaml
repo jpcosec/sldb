@@ -1591,6 +1591,12 @@ include:
   - desk/materializations/materialization-surface-surface-src-workbench-wikilectura-test-tsx.md
   - desk/materializations/materialization-matching-src-sldb-api-matching-store-edges-py.md
   - desk/materializations/materialization-matching-src-sldb-api-matching-store-reader-py.md
+  - desk/materializations/materialization-grafo-desk-drawer-plans-grafo-datalog-daemon-alcance-md.md
+  - desk/materializations/materialization-grafo-desk-drawer-plans-grafo-datalog-daemon-brief-md.md
+  - desk/materializations/materialization-grafo-desk-drawer-plans-grafo-datalog-daemon-dag-yaml.md
+  - desk/materializations/materialization-grafo-desk-drawer-plans-grafo-datalog-daemon-decisiones-md.md
+  - desk/materializations/materialization-grafo-desk-drawer-plans-grafo-datalog-daemon-poc-informe-md.md
+  - desk/materializations/materialization-grafo-desk-drawer-plans-grafo-operable-decisiones-md.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -3110,6 +3116,14 @@ include:
     name: review-task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg-evidence-materialization-1
   - path: desk/reviews/task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer/evidence-tests-2.md
     name: review-task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer-evidence-tests-2
+  - path: desk/reviews/task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb/evidence-commit-1.md
+    name: review-task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb-evidence-commit-1
+  - path: desk/reviews/task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb/evidence-document-1.md
+    name: review-task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb-evidence-document-1
+  - path: desk/reviews/task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb/evidence-commit-2.md
+    name: review-task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb-evidence-commit-2
+  - path: desk/reviews/task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb/evidence-document-2.md
+    name: review-task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb-evidence-document-2
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

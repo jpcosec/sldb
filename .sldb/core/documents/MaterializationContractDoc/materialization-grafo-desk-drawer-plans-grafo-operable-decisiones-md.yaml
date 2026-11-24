@@ -1,0 +1,25 @@
+name: materialization-grafo-desk-drawer-plans-grafo-operable-decisiones-md
+path: desk/materializations/materialization-grafo-desk-drawer-plans-grafo-operable-decisiones-md.md
+source_hash: 88d85d069fd6f8a4c66b15cc4f978965f77fae2b97ee6735df030b4250eaf7db
+content_hash: 1d643131593535ad14cf8a4fcc3c6ca684d68194825927536af717e3e690b3ae
+field_hashes:
+  id: 8c46f482ba3f3832399c50b6fb929cfe9284f3613d17b0d6ad196c9b2eb1eccf
+  title: 047a5af939c2de70e50dcad1cbc12ac326ff0493f3eb084cc7d5b71b9cb938e2
+  source_atoms: 589dffe814754dc26490bad8168e3ad0e4044750fc76e30dd2dfbccc01ee9d62
+  target_kind: 5310eeb1d153dad19cd89e627b129d763e0cb2029f901c1a54fcc70478405c04
+  target_identity: bc3fbfd0f56ce5d6036f8f62b8b50baaa04ed22fcd075eb47b0fab38f9e5dbf0
+  intent: 95c71c4cf29348d5e93f665fed13e4edc97a58c813cfe69409c837424e141f3e
+  validation: 337edbd00830dcca46e025b5c5969c0132b32b45a0a1af2b5c361ad5a30bd0f8
+  tags: 7cd4d54e33b37c289ff1b6bb142dc2be0b428528166bd01b33b9ccbca2b03966
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:grafo
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-24T18:00:41Z'
+  authority: generated
+  via: create_document

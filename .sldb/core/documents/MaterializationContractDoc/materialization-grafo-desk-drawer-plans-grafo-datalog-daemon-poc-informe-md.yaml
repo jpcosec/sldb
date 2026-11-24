@@ -1,0 +1,25 @@
+name: materialization-grafo-desk-drawer-plans-grafo-datalog-daemon-poc-informe-md
+path: desk/materializations/materialization-grafo-desk-drawer-plans-grafo-datalog-daemon-poc-informe-md.md
+source_hash: a199b56e8bf51bc66af5d53f3d434bb951e3051bba9ede40c24138b3589e4ad9
+content_hash: 5c1b2713ea17fae84086207f88d8270ef4caa9986560093f55182ea77a15101d
+field_hashes:
+  id: 1bb6d953c2e285d791f2e3a779235e779985238b3b219d473b11fd6627bea11b
+  title: ccf745046a38c620eca296b26a44406fab462612175cbe1fbdc928cac8cdbfd1
+  source_atoms: 589dffe814754dc26490bad8168e3ad0e4044750fc76e30dd2dfbccc01ee9d62
+  target_kind: 5310eeb1d153dad19cd89e627b129d763e0cb2029f901c1a54fcc70478405c04
+  target_identity: 4a86e5e0916433064e71c984011421e9f91a19bfff97fc4a70ae8e86bec5a54d
+  intent: 3620277d86406e5384b9976ee2b46bc4281bfd4cd08c6474411ae6ed51cadcd0
+  validation: 337edbd00830dcca46e025b5c5969c0132b32b45a0a1af2b5c361ad5a30bd0f8
+  tags: 7cd4d54e33b37c289ff1b6bb142dc2be0b428528166bd01b33b9ccbca2b03966
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:grafo
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-24T18:00:09Z'
+  authority: generated
+  via: create_document

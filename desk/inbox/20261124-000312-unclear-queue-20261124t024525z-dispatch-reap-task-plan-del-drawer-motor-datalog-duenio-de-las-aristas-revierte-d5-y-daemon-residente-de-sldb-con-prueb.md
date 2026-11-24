@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-24T07:08:50Z'
+  authority: generated
+  via: save_document_payload
 # unclear | suggestion
 kind: unclear
 # e.g., other_repo
@@ -8,11 +13,14 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-11-24T00:03:12'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-11-24T04:08:19'
 # why the note was acknowledged; empty when no reason was given
-ack_reason: ''
+ack_reason: el reap no pudo traer e5f7b702 por conflicto en el Board; el intento 2
+  porta el trabajo sobre main recreando las task.decision por CLI
 # conversation thread/message the note came from, e.g. #hilo/1234
 ---
 
