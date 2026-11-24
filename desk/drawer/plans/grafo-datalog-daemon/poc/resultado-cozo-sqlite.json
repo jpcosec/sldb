@@ -1,0 +1,20 @@
+{
+ "engine": "sqlite",
+ "rss_base_mb": 146.16796875,
+ "load_s": 4.74162709293887,
+ "rss_after_load_mb": 530.8984375,
+ "edges_of_node_s": 0.006611215882003307,
+ "edges_of_node_n": 2557,
+ "traversal_s": 0.0013622799888253212,
+ "traversal_n": 68,
+ "atoms_n": 337,
+ "atoms_s": 0.015695916954427958,
+ "atoms_per_call_compose_n": 50,
+ "atoms_per_call_compose_s": 0.014675775077193975,
+ "stale_scan_s": 0.910074959974736,
+ "stale_compare_s": 0.14855105988681316,
+ "stale_n": 0,
+ "stale_s": 1.0586260198615491,
+ "peak_mb": 688.46484375,
+ "rss_end_mb": 552.13671875
+}

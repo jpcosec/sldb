@@ -1,0 +1,38 @@
+name: task-decision-para-jp-p2-hasta-donde-llega-la-propiedad-del-motor-sobre-el-grafo
+path: desk/tasks/task-decision-para-jp-p2-hasta-donde-llega-la-propiedad-del-motor-sobre-el-grafo.md
+source_hash: a12df3d07c404229cdd94118749580030c9ea2d57a47d93355b2d8e383ad99a6
+content_hash: acdd3b50644788407b4b0854a5944e684183eebc3efc0259f72bbc612ef96ca8
+field_hashes:
+  title: cb96818c78666a4682ad97344201f044e1731c52532a2f6a3a4bd2f876c09170
+  id: f8fca57743108dfb4dea1dcb3be55afd9ae2a182e0e7c4016bdc127345a29f60
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 5e4abe6e205fbaf30f9e74b239842f964d948aafb99babcfdc59944941f83145
+  goal: d2cbbd38fd69c41bd5c84b4d8267b22599e9f7e82d4a535289854f878aefb85d
+  scope: add457b5e998c0f049c481b70f277c25e0bbf444b0dabcf257396389aa4ef51d
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  implementation_path: 2eb7313e07812d9bc32ce10dfb796786c06529a528b7e9680c6908b18923fd9c
+  validation: 498145c3e6b5831f023a07f1c8ad208d38743e4a4db06b2dbb465c4230e8dcbb
+  done_when: a44cf4faff2c5b3449f2832b6975b2e7243707be1f6727c605b24900fb1fcdc6
+  task_type: a4df8849de4c7c42dff3bfe95bbeb8759b5ca37238136b51e418b9d2f5ef311c
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- artifact:task
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+- workspace:desk
+provenance:
+  by: agent
+  at: '2026-11-24T07:15:13Z'
+  authority: generated
+  via: create_document

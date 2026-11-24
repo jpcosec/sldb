@@ -1,0 +1,20 @@
+{
+ "engine": "mem",
+ "rss_base_mb": 146.1171875,
+ "load_s": 2.59797248756513,
+ "rss_after_load_mb": 697.77734375,
+ "edges_of_node_s": 0.006571684032678604,
+ "edges_of_node_n": 2557,
+ "traversal_s": 0.0006364309228956699,
+ "traversal_n": 68,
+ "atoms_n": 337,
+ "atoms_s": 0.011663011740893126,
+ "atoms_per_call_compose_n": 50,
+ "atoms_per_call_compose_s": 0.008428988978266716,
+ "stale_scan_s": 0.8998474441468716,
+ "stale_compare_s": 0.0871432451531291,
+ "stale_n": 0,
+ "stale_s": 0.9869906893000007,
+ "peak_mb": 779.55078125,
+ "rss_end_mb": 717.05859375
+}
