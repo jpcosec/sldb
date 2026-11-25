@@ -1,0 +1,36 @@
+name: review-task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale-evidence-materialization-1
+path: desk/reviews/task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale/evidence-materialization-1.md
+source_hash: d5c0b2be1bd5a198c481c6deb1d89a0e09f48266090c9a9ccb860e9eded88f3d
+content_hash: eb0c9c1920ad03245be3414e3e9007e2d4a01cb2a37b6ce2f7089a48fac70c21
+field_hashes:
+  id: 95cdba6f0f3841646e5b20b9ea5042f00bacae66024c4089e8db8c3eaefc74e2
+  title: eef71a4b5666426a99e451268e380d5d291228e107cf6de5fd6c0bc2201e470e
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: 1ec7c0f63d7766456f4360e937efd0528e29b7b85bd6092541876ebb62e485cc
+  subject: 94eb025ded6cba56959cc82454f1633be4d92c02f476a4f5dba997bf1e0bd2ab
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: e4a5a632241dc9c8f42b2d9208c267e88be84d1a1d76deddd76a2b41bdae1b46
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 8de93799b2f858fb3dcbc87db1c749f3d1201b63db56902883f855d0f1f9c81e
+  created_at: db1900cd51f81439f420df87daa1dd1cadac0bd09058882af4acda9ba79ef95d
+  disposed_at: db1900cd51f81439f420df87daa1dd1cadac0bd09058882af4acda9ba79ef95d
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 78093454640077cff50d7064662d7df88e407534ff834be775aeeb79aae651f1
+  disposition: 8da7b488214ea897016d28ec9af0ba5137b655d72bad6485c0cf0c82645ecaca
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+provenance:
+  by: agent
+  at: '2026-11-25T22:43:48Z'
+  authority: generated
+  via: create_document

@@ -1,0 +1,2 @@
+python -m pytest -q tests/code tests/selfdoc  -> rc 0 (100 passed, 17 skipped)
+bash tools/check.sh --fast -> rc 0 (TODAS LAS PUERTAS PASAN)
