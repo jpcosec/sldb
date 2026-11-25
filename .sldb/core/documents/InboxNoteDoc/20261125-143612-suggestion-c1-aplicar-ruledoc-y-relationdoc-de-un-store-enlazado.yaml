@@ -1,0 +1,19 @@
+name: 20261125-143612-suggestion-c1-aplicar-ruledoc-y-relationdoc-de-un-store-enlazado
+path: desk/inbox/20261125-143612-suggestion-c1-aplicar-ruledoc-y-relationdoc-de-un-store-enlazado.md
+source_hash: 46f45c5195ab494816fa61fe164d3bc38351b7003a54561a6e45189c57a9df09
+content_hash: 1dc2080800779e02546cd9e6a0e947c23d8d5c2238d34b35ad69c6dca19c3ddf
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: ffb03b302fc8ad20536ea2dd28d4150939f940964846c7b29e6f3c646f9ef5de
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: 2deea7580effe01ea261be73142fcd2d15d2a528d94d671c84fe1783503e7d7a
+  body: 0d4bea55cbf45b4515485fce74afdb377cbacacb3c5793130a1e68a046c93134
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

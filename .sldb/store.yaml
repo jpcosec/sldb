@@ -403,6 +403,15 @@ include:
   - desk/inbox/20261125-032546-suggestion-sldb-serve-una-ruta-get-que-devuelva-de-un-codeanchordoc-las-lineas-de-su-fragmento-y-su-estado-vigente-o-cambiado.md
   - desk/inbox/20261125-114135-unclear-queue-20261125t143817z-dispatch-executor-task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura.md
   - desk/inbox/20261125-145224-suggestion-health-debe-traer-el-nombre-del-store.md
+  - desk/inbox/20261125-143612-suggestion-c1-aplicar-ruledoc-y-relationdoc-de-un-store-enlazado.md
+  - desk/inbox/20261125-143642-suggestion-c2-primitiva-tomar-transici-n-en-cli-y-api.md
+  - desk/inbox/20261125-143658-suggestion-c3-el-lenguaje-de-reglas-lee-el-ltimo-elemento-de-una-lista.md
+  - desk/inbox/20261125-143715-suggestion-c4-momento-on-delete-en-las-reglas.md
+  - desk/inbox/20261125-143731-suggestion-c5-punto-de-extensi-n-del-cli-de-sldb-para-los-verbos-de-un-plugin.md
+  - desk/inbox/20261125-143748-suggestion-c6-chequeo-y-arreglo-de-rutas-absolutas-en-campos-de-referencia.md
+  - desk/inbox/20261125-143805-suggestion-c7-api-p-blica-para-resolver-un-store-por-nombre-en-el-cat-logo-de-la-m-quina.md
+  - desk/inbox/20261125-143822-suggestion-c8-chequeo-el-store-corresponde-al-rbol-para-pre-commit-y-ci.md
+  - desk/inbox/20261125-143840-suggestion-c9-creaci-n-de-documentos-dirigida-por-el-esquema-del-modelo.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -3339,6 +3348,9 @@ include:
   - desk/tasks/task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e.md
   - desk/tasks/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra.md
   - desk/tasks/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest.md
+  - desk/tasks/task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas.md
+  - desk/tasks/task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p.md
+  - desk/tasks/task-la-puerta-identidad-de-tools-check-sh-clasifica-workbench-demo-store-demo-del-workbench-de-surface-e.md
 - model: TaskDebugDoc
   paths:
   - desk/tasks/task-reproducir-si-sldb-docs-update-reescribe-índices-de-documentos-ajenos-al-que-actualiza-reviewdoc-de.md
@@ -3365,6 +3377,7 @@ include:
   - desk/tasks/task-decision-para-jp-p2-hasta-donde-llega-la-propiedad-del-motor-sobre-el-grafo.md
   - desk/tasks/task-decision-para-jp-p3-forma-del-daemon-de-sldb-y-que-pasa-sin-el.md
   - desk/tasks/task-decision-para-jp-p4-como-se-invalida-el-indice-del-daemon-con-git-y-con-las-escrituras.md
+  - desk/tasks/task-clasificar-workbench-demo-en-contracts-identity-toml-producto-autoaplicacion-o-ajeno-la-puerta-ident.md
 - model: RuleDoc
   paths:
   - desk/lifecycle/rule-activation-task-aggregate.md
@@ -3388,6 +3401,7 @@ include:
   - desk/tasks/task-el-emparejamiento-de-átomos-de-sldb-api-matching-pasa-a-su-propio-eje-y-recuperacion-vuelve-a-ser-un.md
   - desk/tasks/task-una-sola-forma-de-serializar-un-escalar-al-sustituir-llaves-effects-go09-y-where-subject-usan-la-mis.md
   - desk/tasks/task-r6-el-tokenizer-y-el-parser-del-lenguaje-de-reglas-bajan-a-core-para-cerrar-la-arista-de-capas-model.md
+  - desk/tasks/task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa.md
 graph_backend: networkx
 policy: {}
 tag_models:
