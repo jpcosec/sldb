@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T05:33:09Z'
+  at: '2026-11-25T05:56:37Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -80,7 +80,6 @@ tasks:
 - desk/tasks/task-decision-para-jp-p4-como-se-invalida-el-indice-del-daemon-con-git-y-con-las-escrituras.md
 - desk/tasks/task-sldb-serve-ve-altas-cambios-y-bajas-hechos-por-otro-proceso-sin-reiniciar-cache-invalidado-por-firma.md
 - desk/tasks/task-sldb-serve-acepta-tipo-nombre-en-document-document-ir-document-segments-y-post-save-dos-homonimos-en.md
-- desk/tasks/task-el-422-de-post-save-de-sldb-serve-devuelve-exc-errors-como-details.md
 - desk/tasks/task-los-modelos-de-sldb-declaran-patron-de-ruta-y-cardinalidad-serve-los-expone-por-modelo-y-post-save-c.md
 - desk/tasks/task-surface-deja-de-tratar-todo-field-como-bloque-usa-composition-de-segments-y-la-ruta-y-cardinalidad-d.md
 - desk/tasks/task-una-tabla-vacia-no-renderiza-fila-ni-extrae-dato-y-el-marcador-rev-dict-con-un-basemodel-no-da-el-wa.md
@@ -194,7 +193,7 @@ _Generated from the task references above._
 - sldb serve tolera documentos invalidos, ve altas de otros procesos y resuelve Tipo/nombre en document y save [draft] - sldb serve entrega los documentos sanos y nombra aparte los rechazados (como load_runtime_documents(on_invalid='skip')), y deja abrir un documento rechazado para repararlo.
 - sldb serve manda composition de cada field y expone por modelo la ruta y la cardinalidad; create respeta path [draft] - GET /document/segments distingue fields inline de bloques: composition viene solo en bloques (o un campo explicito lo dice).
 - Render y fields de sldb sin fricciones: None en rev y optrev, tablas vacias, dict de BaseModel y rutas relativas de docs create [draft] - Contrato elegido: un marcador rev con valor None renderiza 'null' (y extract lo devuelve como None, round-trip), en vez de fallar; y un campo optrev que vale None se puede volver a poner con fields update <doc> <campo> <valor>.
-- Agregar un campo con default a un modelo no invalida los documentos existentes y fields update los puede reparar [draft] - Un documento sin la clave nueva toma el default del modelo al extraer y sigue valido.
+- Agregar un campo con default a un modelo no invalida los documentos existentes y fields update los puede reparar [active] - Un documento sin la clave nueva toma el default del modelo al extraer y sigue valido.
 - El lector de surface queda sin residuos de minegocio: businessName, NegocioDoc y textos del negocio salen de wiki-index y sus tests [draft] - surface/src no nombra NegocioDoc, businessName ni textos del negocio (fuera de WorkbenchShell.tsx, que no se toca). El titulo del indice de wiki-index sale del nombre del store (el ultimo segmento de la ruta del store que surface ya conoce); si no hay, el texto fijo 'Documentos'. tsc, vitest y check-layers pasan.
 - Decision para JP P1: que motor Datalog embebido usa sldb (Cozo, Datalevin u otro) [draft] - Elegir el motor. Opciones: A) Cozo (cozo-embedded 0.7.6, cliente Python, Datalog con recursion y negacion estratificada, almacenamiento sqlite o rocksdb; medido: reabrir la base cargada 7 ms, 385 a 552 MB sobre el arranque); B) Datalevin (candidato de docs/architecture/graph-backend.md; sin cliente Python en PyPI, exige JVM o binario y un proceso aparte); C) quedarse en networkx y resolver la recomposicion con cache y daemon, sin motor Datalog. Recomendacion: A, con la salvedad de que la actividad reciente del proyecto Cozo no esta verificada.
 - Decision para JP P2: hasta donde llega la propiedad del motor sobre el grafo [draft] - Fijar el alcance. Opciones: A) el motor es duenio de las aristas y de eval; analyze (path, cycles, order, components, central, similar) migra despues, nodo a nodo, y networkx queda mientras tanto; B) el motor es duenio de todo y networkx se retira (analisis como reglas Datalog; central y similar no son consultas Datalog naturales); C) el motor solo reemplaza el cache de aristas (.sldb_cache) y GraphBackend queda como esta. Recomendacion: A.
@@ -202,11 +201,10 @@ _Generated from the task references above._
 - Decision para JP P4: como se invalida el indice del daemon con git y con las escrituras [draft] - Elegir el mecanismo. Opciones: A) dirty set avisado por las escrituras de sldb mas deteccion externa por HEAD y estado del arbol de git y stat de los archivos rastreados, sin reescanear todo por peticion; B) vigilante de archivos (inotify) en el daemon: reaccion inmediata, pero no cubre bien checkouts masivos ni sistemas de archivos de contenedores; C) revalidar por peticion con el escaneo actual (~1 s): simple y seguro, sin ganancia en stale. Recomendacion: A.
 - sldb serve ve altas, cambios y bajas hechos por otro proceso sin reiniciar (cache invalidado por firma del store) [draft] - El cache de sldb serve se invalida cuando cambia la firma del store (mtime o hash de los shards), asi una alta, cambio o baja hecha por la API de Python con serve arriba aparece en la siguiente lectura.
 - sldb serve acepta Tipo/nombre en /document, /document/ir, /document/segments y POST /save (dos homonimos en modelos distintos) [draft] - Las rutas de documento de sldb serve aceptan un selector Tipo/nombre ademas del nombre, y dos documentos con el mismo nombre en modelos distintos se abren y se guardan cada uno.
-- El 422 de POST /save de sldb serve devuelve exc.errors() como details [active] - Cuando POST /save de sldb serve rechaza un documento por validacion de pydantic, responde 422 con un JSON cuya clave 'details' es exactamente la lista exc.errors() (serializable: loc, msg, type), ademas de lo que ya devuelve.
 - Los modelos de sldb declaran patron de ruta y cardinalidad, serve los expone por modelo y POST /save create acepta path [draft] - Un atributo de clase documentado declara en el modelo el patron de ruta y la cardinalidad; un endpoint de serve los expone por modelo; POST /save con action create acepta path y respeta el patron.
 - surface deja de tratar todo field como bloque: usa composition de segments y la ruta y cardinalidad del modelo [draft] - surface/src/core/layout.ts, react/DocumentSurface.tsx y views/ComposerView.tsx usan composition de /document/segments para decidir bloque o inline, y la ruta y cardinalidad del endpoint de modelos al crear.
 - Una tabla vacia no renderiza fila ni extrae dato, y el marcador rev,dict con un BaseModel no da el warning falso [draft] - Render y extract de tablas vacias no inventan fila ni dato, y resolver rev,dict sobre un BaseModel no emite el warning falso.
-- sldb docs create -o resuelve la ruta contra el cwd (o avisa) [draft] - Contrato elegido: sldb docs create -o <ruta relativa> resuelve la ruta contra el directorio actual del proceso (no contra la raiz del store) y escribe ahi.
+- sldb docs create -o resuelve la ruta contra el cwd (o avisa) [active] - Contrato elegido: sldb docs create -o <ruta relativa> resuelve la ruta contra el directorio actual del proceso (no contra la raiz del store) y escribe ahi.
 - fields update repara un documento hoy invalido cuando la escritura lo deja valido [draft] - fields update valida el resultado de la escritura, no el estado previo: puede escribir un campo en un documento invalido si con eso queda valido.
 - Los facts de handler JSX traen los atributos estaticos del elemento: data-testid, aria-label, role, name y type [draft] - Que cada handler JSX de code_facts lleve los atributos literales de su elemento, para derivar un localizador.
 - En un componente con varios handlers en linea, cada handler JSX nombra las llamadas que son suyas [draft] - Que code_facts diga que llamadas pertenecen a cada handler en linea, no solo la primera.

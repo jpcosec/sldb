@@ -1,0 +1,36 @@
+name: review-task-el-422-de-post-save-de-sldb-serve-devuelve-exc-errors-como-details-evidence-atom-1
+path: desk/reviews/task-el-422-de-post-save-de-sldb-serve-devuelve-exc-errors-como-details/evidence-atom-1.md
+source_hash: cd1671d4b13faa7edd05c075b848fe4d930f910abb66618ac146b4c439ba25cb
+content_hash: 5ad06c4a3e76a64163025f0ff718d58c1448c6dd037f24b1e6b1c04c3c01ca86
+field_hashes:
+  id: 2b3e3750526729c4bc3027bce0a512a83210ccc1e9521f672d3f85ef42a5b813
+  title: 76288aa488738ffc9b97057601a82c98060e04b25386a4a7c186c3d25a5f7ec3
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: c833c202b5b45ac10909767bb422916db457ddd48188a4ee591f0618893df0ba
+  value: 4d4d7caf60bf10cbf639cc319220bbd5148cb90f7adcc7669d8e8165af1ad920
+  subject: 8e0405f19745b40419338b81934f25d92aa21287b2a81248ffcc29a0baa11d27
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 54e3d0a9114f0f1534e3ecf26fafb529e2253ff240222cc00966e28c2a6e67b8
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 355769c2f277203dd8e8c11aec57dc1897735ab8b93a4d2957d402b8fba0ad20
+  created_at: 526d1a39e618c1dfbb12623820ae3c7c18fb7f0b527b74c4a1d6164a17edb05f
+  disposed_at: 526d1a39e618c1dfbb12623820ae3c7c18fb7f0b527b74c4a1d6164a17edb05f
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 59d5db666ec6d7c92c8b117d1f263d28a653dfc34d87f2c19e2208268c31d2b6
+  disposition: 86071a7ceada9ada53bd6879c90c8286787a3dca63582e5270b920d696679ca9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+provenance:
+  by: agent
+  at: '2026-11-25T05:48:30Z'
+  authority: generated
+  via: create_document

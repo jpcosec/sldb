@@ -1,0 +1,36 @@
+name: review-task-el-422-de-post-save-de-sldb-serve-devuelve-exc-errors-como-details-evidence-commit-1
+path: desk/reviews/task-el-422-de-post-save-de-sldb-serve-devuelve-exc-errors-como-details/evidence-commit-1.md
+source_hash: fac547f391dda89063768b82385cb9b7cca22f00e8e2324c76253895051b7b19
+content_hash: af5446c70fc082d0ccf33f1e4d905e69cf901172f13ef55f70262e64ae2e6f76
+field_hashes:
+  id: a3ae2274fc5aa23a584c92ace4863908adf0c91ee29b589e6b063c3f3626a956
+  title: ac77da46ad57c579c0c2d7c784b68282ee55861e32e10ce4908659a79e979955
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: 5ea9c58673a69c87d0e5540a6f9978aad8f8e0a0b9ce3471cff139c730d97888
+  value: e68b5cd2b2e272b03204a8ffb0dd7323b93eaccb4856d2469fbb331ce09dd93c
+  subject: 8e0405f19745b40419338b81934f25d92aa21287b2a81248ffcc29a0baa11d27
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 782dc539d02460fe50dae3a5f312e48a1b1bd8099a8b5a7f269a9d706407343d
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: d049763702ad5308f463771b899ff997af0ef562b9fba763c1faa723567d463d
+  created_at: 526d1a39e618c1dfbb12623820ae3c7c18fb7f0b527b74c4a1d6164a17edb05f
+  disposed_at: 526d1a39e618c1dfbb12623820ae3c7c18fb7f0b527b74c4a1d6164a17edb05f
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 8b52ba5b85394607ac2317763a0bdd04235e8600c06e49e6243e7a1f9f346c52
+  disposition: 16ff16953fb091376f71a5497595a96a18cef35fae75d7c2f1e3650082eb645c
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+provenance:
+  by: agent
+  at: '2026-11-25T05:48:18Z'
+  authority: generated
+  via: create_document

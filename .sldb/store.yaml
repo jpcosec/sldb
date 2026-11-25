@@ -395,6 +395,8 @@ include:
   - desk/inbox/20261124-000312-unclear-queue-20261124t024525z-dispatch-reap-task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb.md
   - desk/inbox/20261125-022841-suggestion-code-facts-ts-tsx-atributos-estaticos-del-elemento-con-handler-llamadas-por-handler-en-linea-y-metodo-del-segundo-argumento.md
   - desk/inbox/20261125-024344-unclear-queue-20261125t054159z-dispatch-reap-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa.md
+  - desk/inbox/20261125-024934-unclear-queue-20261125t054504z-dispatch-reap-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa.md
+  - desk/inbox/20261125-025528-unclear-queue-20261125t055007z-dispatch-reap-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -3258,7 +3260,6 @@ include:
   - desk/tasks/task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p.md
   - desk/tasks/task-sldb-serve-ve-altas-cambios-y-bajas-hechos-por-otro-proceso-sin-reiniciar-cache-invalidado-por-firma.md
   - desk/tasks/task-sldb-serve-acepta-tipo-nombre-en-document-document-ir-document-segments-y-post-save-dos-homonimos-en.md
-  - desk/tasks/task-el-422-de-post-save-de-sldb-serve-devuelve-exc-errors-como-details.md
   - desk/tasks/task-los-modelos-de-sldb-declaran-patron-de-ruta-y-cardinalidad-serve-los-expone-por-modelo-y-post-save-c.md
   - desk/tasks/task-surface-deja-de-tratar-todo-field-como-bloque-usa-composition-de-segments-y-la-ruta-y-cardinalidad-d.md
   - desk/tasks/task-una-tabla-vacia-no-renderiza-fila-ni-extrae-dato-y-el-marcador-rev-dict-con-un-basemodel-no-da-el-wa.md

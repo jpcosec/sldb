@@ -1,15 +1,15 @@
 name: task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p
 path: desk/tasks/task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p.md
-source_hash: 934942bb4f455a863cff54739d1abd63ac01ff5d9cb86499629ff54feedfba3a
-content_hash: a9d0542bfd86fb511b1447c8b2cfe8c2f88859bd829f94201207643012046c2e
+source_hash: 985d38079b46a015025fd9d5c683766b4f9d7f8a82ed7665f84cc918afac0789
+content_hash: e6b2ee9c75f669d356d92fff52219cdfadbb73633872d6da4787288c70e43f44
 field_hashes:
   title: 3641fbe469cccdbab1fd5e14d4cc787a19503419cc66f684b5df553af0d2221d
   id: acc77d149db2a80d855b448a14ec6ccbdfe1110def82818b8550285100f005e6
-  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  status: db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
-  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  current_node: d10f5286503cbf750af0584acaec732741c2d9cfbae2a6d5b8ce45b8bf83b79d
+  history: f89b8fd2ac9e43a24ba505d162381268ed901d0695f62c6ad8ec2c62718dfa1c
   why: 490f0ee809a8018496c69063789682a085925129a20f7e0a89fe4b013ab3e2e9
   goal: 17fd32893cf57303767cacb14faf5ccb8df54029c96f26175ec8462c57492713
   scope: e86f4dc88656e55b3c596775b311c43443280a46a09349de115f6c6e3110edb2
@@ -32,6 +32,6 @@ semantic_tags:
 - workspace.desk
 provenance:
   by: agent
-  at: '2026-11-25T03:50:21Z'
+  at: '2026-11-25T05:51:50Z'
   authority: generated
   via: save_document_payload
