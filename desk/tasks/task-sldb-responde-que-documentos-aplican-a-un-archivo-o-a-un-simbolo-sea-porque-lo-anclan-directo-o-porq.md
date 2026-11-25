@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T20:52:31Z'
+  at: '2026-11-25T21:34:26Z'
   authority: generated
   via: save_document_payload
 id: task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq
@@ -11,14 +11,36 @@ tags: []
 current_node: ritual-testing
 history:
 - task_activates
-references: []
+references:
+- contracts/layers.toml
+- src/sldb/api/__init__.py
+- src/sldb/api/anchors/__init__.py
+- src/sldb/api/anchors/resolve_pointers.py
+- src/sldb/api/anchors/tag_reach.py
+- src/sldb/mcp/read/tools.py
+- src/sldb/mcp/registry.py
+- src/sldb/models/code_anchor_doc.py
+- tests/mcp/test_read_tools.py
+- tests/test_where_pointers_resolve.py
+- f68074750918eb74b262ff15f27f1fc9be1e2e9e
 depends_on: []
 pills: []
-files: []
+files:
+- contracts/layers.toml
+- src/sldb/api/__init__.py
+- src/sldb/api/anchors/__init__.py
+- src/sldb/api/anchors/resolve_pointers.py
+- src/sldb/api/anchors/tag_reach.py
+- src/sldb/mcp/read/tools.py
+- src/sldb/mcp/registry.py
+- src/sldb/models/code_anchor_doc.py
+- tests/mcp/test_read_tools.py
+- tests/test_where_pointers_resolve.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-sldb-responde-que-documentos-aplican-a-un-archivo-o-simbolo
 ---
 
 # sldb responde qué documentos aplican a un archivo o a un símbolo, sea porque lo anclan directo o porque apuntan a una categoría que lo cubre

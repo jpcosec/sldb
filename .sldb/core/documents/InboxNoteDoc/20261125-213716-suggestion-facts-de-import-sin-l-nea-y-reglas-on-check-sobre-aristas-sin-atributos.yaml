@@ -1,0 +1,19 @@
+name: 20261125-213716-suggestion-facts-de-import-sin-l-nea-y-reglas-on-check-sobre-aristas-sin-atributos
+path: desk/inbox/20261125-213716-suggestion-facts-de-import-sin-l-nea-y-reglas-on-check-sobre-aristas-sin-atributos.md
+source_hash: 94e537e2c16a2815b5e6a69b4544882cceda1b8613a52b2a4a495c13eea15083
+content_hash: d5a1eee9c03c697c2facd3f23db705fc455c0bc8058833ac9879466fb52f3a3d
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: ae610d3d5445c7703502dd325aea1befe6fd309bcae655de32201bc70eac0453
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: 63d61a6f0f9388d066e347c89faff7d1ff24a11a00a933d98cc37e7c36565217
+  body: 77d6f990452d98678b2802ec8ae415b16684d01ac3f54c0e0a5c56546b715e67
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

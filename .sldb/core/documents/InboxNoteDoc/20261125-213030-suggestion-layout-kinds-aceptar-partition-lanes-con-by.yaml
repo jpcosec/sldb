@@ -1,0 +1,19 @@
+name: 20261125-213030-suggestion-layout-kinds-aceptar-partition-lanes-con-by
+path: desk/inbox/20261125-213030-suggestion-layout-kinds-aceptar-partition-lanes-con-by.md
+source_hash: c468e65b997274ad7702357bae485bc8e19367a127682c6d930c549dae8cc0f5
+content_hash: 57a9796ebe943e4afcaeb61ab596967ddc9b95dc3709162d350bc620fc11aa74
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: 1d147ab379788e0277ce278d918ca7cf9e0572dffeefc59e10d282ef146bd45c
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 900a10d410f6c23bc45b2d73e5642840fe6c98cf6902fb8587c790d952ba3fc4
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: d86a3ee2f7bc433198dbd14d52e88a0148cf7f23d40125797155342dde597f9b
+  body: b80e39db9b809a2d44d399ad09b50e2f19be86698c3da2d8c1fbead6170dcd1b
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

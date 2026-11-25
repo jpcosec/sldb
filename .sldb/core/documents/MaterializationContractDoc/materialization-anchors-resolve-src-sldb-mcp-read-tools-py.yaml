@@ -1,0 +1,25 @@
+name: materialization-anchors-resolve-src-sldb-mcp-read-tools-py
+path: desk/materializations/materialization-anchors-resolve-src-sldb-mcp-read-tools-py.md
+source_hash: 6ced504cc33f932716254a62eb68bdd9387c145fcb6479cccc9c9b6d28e5315c
+content_hash: e510223de77392df982a64cf49b406fcac75a91aa637330bdb218f1843612340
+field_hashes:
+  id: 453305177d50f60f202a541e591a923928d1fe478b25de51ad359adcfe9c87b2
+  title: ca02885707f089e4dd0cc19fc6fac36dcdf2240109fb69d95474878768ff3939
+  source_atoms: 667fef8527e3bacd6a647b2a48f03168a5220ced52332ad4b19ed41b94f3658d
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 3e6b8b7c30d1aea0a2a6879fbd93baf3b53830912742515b72a003385ea232a5
+  intent: 3ee2f4c3a1f3a53b82d4a4b1df79e81c4a6d30678b0f53d328551a85f89ca83c
+  validation: 626900b9d30ef4c44626d78b5003444223dedd36ced68700c3feee2198a67c6a
+  tags: 44dc16ed39bb8c46cba3bbb9d70129a016f2be4149f06ac6ca7dfab1e16b532e
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:anchors-resolve
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-25T21:38:58Z'
+  authority: generated
+  via: create_document

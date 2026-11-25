@@ -413,6 +413,8 @@ include:
   - desk/inbox/20261125-143822-suggestion-c8-chequeo-el-store-corresponde-al-rbol-para-pre-commit-y-ci.md
   - desk/inbox/20261125-143840-suggestion-c9-creaci-n-de-documentos-dirigida-por-el-esquema-del-modelo.md
   - desk/inbox/20261125-194644-unclear-code-facts-argumentos-de-las-llamadas-dentro-del-cuerpo-de-una-funci-n.md
+  - desk/inbox/20261125-213030-suggestion-layout-kinds-aceptar-partition-lanes-con-by.md
+  - desk/inbox/20261125-213716-suggestion-facts-de-import-sin-l-nea-y-reglas-on-check-sobre-aristas-sin-atributos.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -1705,6 +1707,16 @@ include:
   - desk/materializations/materialization-docs-create-cwd-src-sldb-cli-commands-doc-py.md
   - desk/materializations/materialization-docs-create-cwd-tests-test-cli-v2-py.md
   - desk/materializations/materialization-docs-create-cwd-tests-test-docs-create-output-path-py.md
+  - desk/materializations/materialization-anchors-resolve-contracts-layers-toml.md
+  - desk/materializations/materialization-anchors-resolve-src-sldb-api-init-py.md
+  - desk/materializations/materialization-anchors-resolve-src-sldb-api-anchors-init-py.md
+  - desk/materializations/materialization-anchors-resolve-src-sldb-api-anchors-resolve-pointers-py.md
+  - desk/materializations/materialization-anchors-resolve-src-sldb-api-anchors-tag-reach-py.md
+  - desk/materializations/materialization-anchors-resolve-src-sldb-mcp-read-tools-py.md
+  - desk/materializations/materialization-anchors-resolve-src-sldb-mcp-registry-py.md
+  - desk/materializations/materialization-anchors-resolve-src-sldb-models-code-anchor-doc-py.md
+  - desk/materializations/materialization-anchors-resolve-tests-mcp-test-read-tools-py.md
+  - desk/materializations/materialization-anchors-resolve-tests-test-where-pointers-resolve-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -3393,6 +3405,14 @@ include:
     name: review-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa-evidence-atom-1
   - path: desk/reviews/task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa/evidence-materialization-1.md
     name: review-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa-evidence-materialization-1
+  - path: desk/reviews/task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq/evidence-tests-1.md
+    name: review-task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq-evidence-tests-1
+  - path: desk/reviews/task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq/evidence-commit-1.md
+    name: review-task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq-evidence-commit-1
+  - path: desk/reviews/task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq/evidence-atom-1.md
+    name: review-task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq-evidence-atom-1
+  - path: desk/reviews/task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq/evidence-materialization-1.md
+    name: review-task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

@@ -1,0 +1,22 @@
+name: atom-sldb-responde-que-documentos-aplican-a-un-archivo-o-simbolo
+path: desk/atoms/atom-sldb-responde-que-documentos-aplican-a-un-archivo-o-simbolo.md
+source_hash: d5ae025ac23d186db16a3ec7ba443167c2115c5a66eeb5ab5c3925f597ffa2d6
+content_hash: 501e84f3622d5a3047f1ff5ce83dd2280363c9e92f4999c9cd47a93b71e2e81d
+field_hashes:
+  id: e90755249e070e23d03fdf7ffc6cbbc6d3f534bd3e63209edb36d40ce84398af
+  title: 575f209bf0016ac8b6062aa4f49797c83340d41d238d8ab41f5b26bcb5e0fee6
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 6f29f40d4731e5b876f5978733fa0909d7e46f93d4fd1491914084080c203b15
+  tags: 44dc16ed39bb8c46cba3bbb9d70129a016f2be4149f06ac6ca7dfab1e16b532e
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:anchors-resolve
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-25T21:32:19Z'
+  authority: generated
+  via: create_document
