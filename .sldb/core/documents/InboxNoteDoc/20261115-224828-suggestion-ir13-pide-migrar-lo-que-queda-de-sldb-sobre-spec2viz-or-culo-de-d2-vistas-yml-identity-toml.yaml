@@ -1,7 +1,7 @@
 name: 20261115-224828-suggestion-ir13-pide-migrar-lo-que-queda-de-sldb-sobre-spec2viz-or-culo-de-d2-vistas-yml-identity-toml
 path: desk/inbox/20261115-224828-suggestion-ir13-pide-migrar-lo-que-queda-de-sldb-sobre-spec2viz-or-culo-de-d2-vistas-yml-identity-toml.md
 source_hash: 5d73b13e8336346cf256bf851bac32e5b0d125263df45add2e270244bf3c3449
-content_hash: 2491157655013d7b6a54adab66628bc3f9a4a0111348dbdb5fef1f133bc69349
+content_hash: 399dbf59ba0ad17259c3aad714d65a1589210b729fbc19d58951fb951fd940c8
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: b29cbc1bdc291e71850cd9f27406f301892d0eed528b51f7e8921575bdd354fe
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: ff2cd81564381740ebf53e498c12ba35b2468ad89bcd3427d8c6403c77881801
   body: 8e901a5aa0def371e4827b8a3e30172dcf236dc7f4d51bc191227ff47bc3de45
 semantic_tags:

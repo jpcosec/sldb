@@ -1,7 +1,7 @@
 name: review-task-go09-transiciones-como-datos-de-la-arista-bundle-1
 path: desk/reviews/task-go09-transiciones-como-datos-de-la-arista/bundle-1.md
 source_hash: f3b431a55052be4827ea84a14e0bb7f373ea4a273de9850de5a773a9fc074029
-content_hash: 6f62b136423a4c36332bbd09348dd802b8ea51f01940e6b4b50b1d68c8405df6
+content_hash: dd6b1765b390f1e14dd566e6c87216c951e7a69ad5db1ca70f6ef9499733e0a3
 field_hashes:
   id: 886ae1c9c61796b8e2d790877aafe55ec55fbacd101a3fa86cd429c4ebc27f33
   title: 8f8b887bab0808cabbcd36b34e2089112ef635422d6503f30dbface8ec51ed7a
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 472eefc9ea90b55f5d075f52e2f768f6d7ed64ba2987ca96bc9bc8a72a9a26f8
   disposition: dbed340834948b4a79fdb254a71debbe85fbca579bf361670d2d6503479eda5d
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

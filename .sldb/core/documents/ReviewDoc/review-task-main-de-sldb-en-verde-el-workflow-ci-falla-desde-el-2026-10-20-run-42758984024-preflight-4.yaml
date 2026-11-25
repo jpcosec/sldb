@@ -1,7 +1,7 @@
 name: review-task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024-preflight-4
 path: desk/reviews/task-main-de-sldb-en-verde-el-workflow-ci-falla-desde-el-2026-10-20-run-42758984024/preflight-4.md
 source_hash: e0870b6a3155e2b7c2065ca37ecd32ff1564385f310acfe24f6f3be9c176ef36
-content_hash: 39a262f213557d4893835b1a131cb3534d4f1c4c82277872852c29889bdb1a56
+content_hash: 4e3f22a4467b8ddb9cf3a80df2d242ea12547bc6230a7a7cdfd9dedf4a7d6969
 field_hashes:
   id: 93502bbf264f07868390b1ed0f6d7ccf33715fbcb599a9f871af6fd98200430b
   title: c427cf69e7c204f9603bfb99760abfd45f8e15bdfdc13583b3acf1d3b5c7d417
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 1db7f15e3f4eb91d17ff4972e2cbd330d64371f23cd26b4812e33c80c1fce463
   disposition: d7fda09745cf594a24561668b3166d0419d5d644b6a18ea7265b3265ffa109e7
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

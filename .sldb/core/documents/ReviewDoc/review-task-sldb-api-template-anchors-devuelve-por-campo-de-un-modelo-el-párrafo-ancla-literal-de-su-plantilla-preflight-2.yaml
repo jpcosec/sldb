@@ -1,7 +1,7 @@
 name: review-task-sldb-api-template-anchors-devuelve-por-campo-de-un-modelo-el-párrafo-ancla-literal-de-su-plantilla-preflight-2
 path: desk/reviews/task-sldb-api-template-anchors-devuelve-por-campo-de-un-modelo-el-párrafo-ancla-literal-de-su-plantilla/preflight-2.md
 source_hash: 431dcc1522bfa566b76f923909ff35849a97b7b80771310883faaf014c77cb65
-content_hash: d18a8d439a6ae0c428b397c31f53bcab1aff64951a4a8d8eec68fd499398dbdf
+content_hash: 6f3677643da677ab6b55eae3959308ac4a87c204923b7cd6979e5e35e4385ff7
 field_hashes:
   id: 42c21db625cae16bf07cfef4d4547ab1a774a047ef756e25fddf0f994f3f5cc1
   title: d739d54c26fc5186e6298f09a9779a44de8d4978701eb80ab77dbea8716e69e5
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: ecd39161d1aea5ebf04760212967d57b1ddef1c467ba5417a3de8a5e3ac092f2
   disposition: 6e43232d1e20687eb3ec6ef9d12100c189f942807307808bf7d510b4a72c10d1
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

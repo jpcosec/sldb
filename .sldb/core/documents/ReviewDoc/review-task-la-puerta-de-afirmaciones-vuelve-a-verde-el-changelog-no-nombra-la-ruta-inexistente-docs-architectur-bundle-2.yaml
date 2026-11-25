@@ -1,7 +1,7 @@
 name: review-task-la-puerta-de-afirmaciones-vuelve-a-verde-el-changelog-no-nombra-la-ruta-inexistente-docs-architectur-bundle-2
 path: desk/reviews/task-la-puerta-de-afirmaciones-vuelve-a-verde-el-changelog-no-nombra-la-ruta-inexistente-docs-architectur/bundle-2.md
 source_hash: 800b4c5375676d8731339554f5e3fb062c16d5cf8dbc8011cf15c29b66366b8c
-content_hash: b83e5fd34c7eeb0341480d910de1d0659b619780858c36d85cd20027242f3166
+content_hash: 87a9d46a7abcdd783cf39f9be6a63a6538267885247a9e16531c3b9104393481
 field_hashes:
   id: 14fbbfcfe5aeddf32e08b14d09453e18f51170eaa02ce255fba46a575bc6ea4f
   title: 1afc064a88ecc364670f103505da99dc1a563ab6835c97e6ae95c0c814772bf7
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 28882d2cb4a724ef30155fff7b4f89ce4bfb7b2ace971ea68a813c9660686f05
   disposition: 0a8370961839b770658535bfa6a3baacad995369cfeef11ce8e947d5478e4b46
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

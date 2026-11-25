@@ -1,7 +1,7 @@
 name: review-task-sldb-create-document-y-track-document-file-evalúan-las-reglas-on-write-h4-declare-write-conserva-la-bundle-2
 path: desk/reviews/task-sldb-create-document-y-track-document-file-evalúan-las-reglas-on-write-h4-declare-write-conserva-la/bundle-2.md
 source_hash: 1e7e24226cfe81e89cf18c56535af48d56e3c73de17f39315406de80c3ad083e
-content_hash: 68f2bb0938980a0087d1ad47ff9bd0542edf1b6a73290826bc46753985b97485
+content_hash: 5af4fc8f424d9b7a408978faa95303d8ecbaaeea476a21a00b494acd9b661be2
 field_hashes:
   id: 47e2aec2621e6d211b7b48c75f95b82402def323cfe35efca3495fd5f8c97de4
   title: f6921e903e8213d854f73fb8b61aa80a81eb38478514fe57d2f1ac25c565da0a
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   summary: e656588ad6b8855989d027816d2636aaacb3a72a0290d49d6ffac7e86227fc1c
   disposition: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

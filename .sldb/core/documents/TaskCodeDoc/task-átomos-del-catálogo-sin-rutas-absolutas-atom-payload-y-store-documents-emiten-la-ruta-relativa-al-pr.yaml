@@ -1,13 +1,13 @@
 name: task-átomos-del-catálogo-sin-rutas-absolutas-atom-payload-y-store-documents-emiten-la-ruta-relativa-al-pr
 path: desk/tasks/task-átomos-del-catálogo-sin-rutas-absolutas-atom-payload-y-store-documents-emiten-la-ruta-relativa-al-pr.md
 source_hash: 1f641a605277f983aad1e9125d2c7639d62e57ebbc876b6dc0a0b408970d2570
-content_hash: 24dafc1e4f534a9576cdd7dab860e3e42051dff40b0de1c5c39cb582f69648ed
+content_hash: 046094d5fedefbcb85e34598d3c7c22910333bc9e786c61f97862c2677fce7c3
 field_hashes:
   title: 233d92173f4475138bec36771c2536c432b3722955b5941055f881e0940a16e2
   id: b1c595ff543163c7186522146d33e7c56c4ccfec62a1b8f656b361960fc0a00a
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  tags: 11bb1031122f37d8732140cbea164dabb926ef21d6bfde10ce845b776ef0913c
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 10cb2516e63d1046b02fdf0c710cb4a5d919fd7471960bf6759288d0e65e4214

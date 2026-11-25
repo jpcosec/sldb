@@ -1,13 +1,13 @@
 name: task-el-merge-driver-une-store-yaml-a-tres-vias-con-la-base-una-entrada-que-un-lado-quito-no-vuelve-y-se
 path: desk/tasks/task-el-merge-driver-une-store-yaml-a-tres-vias-con-la-base-una-entrada-que-un-lado-quito-no-vuelve-y-se.md
 source_hash: 22b42665f3b12d98a5f7d99a462b8e2b28a5bd87dd31481818d5abdaf6c0ddf8
-content_hash: 18f0a0455ab994b055027644c3c2285677da9c6339c7da0fa647aa58cc9e9ebc
+content_hash: 85ae3a48ffae32faecfd1d373671a43128c27f9061c4619afeb0767915c443c1
 field_hashes:
   title: 8ed90f0f5d01881886d3506e4087b343e118a0f7c100819953947eeb695fab5a
   id: 1b7297539cb28ccfc5feaf709eaff2dad05a10ced8189a735c9dc976076ceefe
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: fbb5dd82364538040731755bfbe74b945a77991ef36c55192a226ae56eac117b

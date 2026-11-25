@@ -1,7 +1,7 @@
 name: 20261116-004642-suggestion-sldb-notations-atoms-dir-no-manda-el-resolver-trae-tomos-de-un-store-ajeno-heredado-de-spec2viz-que-se-retira
 path: desk/inbox/20261116-004642-suggestion-sldb-notations-atoms-dir-no-manda-el-resolver-trae-tomos-de-un-store-ajeno-heredado-de-spec2viz-que-se-retira.md
 source_hash: 8f772e29c443830b5c96a6bd96b1cb04cb708f2bf8fd03ef15c0ba2bf1b94547
-content_hash: b4758416d5651b19e990565577d02880fa2c023ed1db75666d56c9a50d72bea9
+content_hash: 73dca4ad01f958aa2c37ed6debcf74d886c2ac02b258ba73f277a1a1d584338c
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: ceff6202e6805e3bc22d70f0f2e7fee9f6478bcff2cb6a60430793b5268a8e12
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: bb347ad0b4acbf0694ced5e843051d7caa8912a6fa58e84c2128ab1845c8c238
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: 270899b280a98e5db079e99e54aa2f44b441fdf091b7a0009a393a9e68cfc1b1
   body: 4666b50451aae0cf816234de85a7627d4bb55fe37f176d08e8a32fd4fb10416d
 semantic_tags:

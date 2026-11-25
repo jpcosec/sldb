@@ -1,7 +1,7 @@
 name: review-task-decisión-de-jp-dónde-vive-un-hook-que-bloquea-write-edit-sobre-rutas-trackeadas-por-un-store-de-sldb-bundle-1
 path: desk/reviews/task-decisión-de-jp-dónde-vive-un-hook-que-bloquea-write-edit-sobre-rutas-trackeadas-por-un-store-de-sldb/bundle-1.md
 source_hash: f0d0d035c85491007176e330141971796b8088a3407736377c4e2b29f25d3306
-content_hash: 81ae064d13f70b01bad46163410bd33fcfe8f1c56664cb601d64d9065b56dd55
+content_hash: a4e5916520ae9c380e8c5d12d71e2437c9506f769edfba477e2e0c8ceff25b67
 field_hashes:
   id: 076613be1eb3f73a348ef2b90515ab5b2c0de204016e30811b709f3f3af9df92
   title: e3834b8b6324daf4c8654acea2ed379c625b0d20e08fac2d363e80b097909e7d
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 85ce35614e6d3590c8cfd8376b722448d0e53ce4ed0efdfb7806ebd198565ebf
   disposition: e3c0027c17732a644ad8ea18cf8982f018e22a8effc48c6b157c83297b5cf93b
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

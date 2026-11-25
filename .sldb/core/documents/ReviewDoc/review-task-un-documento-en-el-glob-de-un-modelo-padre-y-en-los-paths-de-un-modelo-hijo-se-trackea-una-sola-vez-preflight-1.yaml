@@ -1,7 +1,7 @@
 name: review-task-un-documento-en-el-glob-de-un-modelo-padre-y-en-los-paths-de-un-modelo-hijo-se-trackea-una-sola-vez-preflight-1
 path: desk/reviews/task-un-documento-en-el-glob-de-un-modelo-padre-y-en-los-paths-de-un-modelo-hijo-se-trackea-una-sola-vez/preflight-1.md
 source_hash: 7f323c37ff5018e630de313a4ab1755931ba8fbd94295941d39899902fce34d5
-content_hash: b3d019fbbcfbbebadbe589e34abd8d2d654337aeaa7e119029cf76f5f4900565
+content_hash: 50bda5ae75ac5c21ef60f8df49a5700d19d8889ede119a0bebb5c4a75672ff4f
 field_hashes:
   id: 102c2cb99bc64c5f5cdfd0c11cfbee9bd008591114b362610e3b778c56520fd9
   title: f058545574bdcd4f3b56f0cd45878c567e75acdba57310cf5be5e69a0631664a
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 095651286072a56dfb2b37059e922104513138f43727bbd6a20c8b9c6a5746e8
   disposition: f50bc251247b31d0aacf44c9d6043cc54df13f4c39b9e3b93941a3dd3de64c44
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

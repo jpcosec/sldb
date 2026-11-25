@@ -1,7 +1,7 @@
 name: review-task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent-bundle-1
 path: desk/reviews/task-el-conjunto-de-documentos-sucios-se-persiste-en-sldb-cache-para-que-el-modo-incremental-funcione-ent/bundle-1.md
 source_hash: 9b5c38f6b8b0ceff9d190966cf7a9ed18be4f69c260f5a2a69169c7308ab805d
-content_hash: f3d0b5eea5d273abf3e58b0de31b31cedd2c84c8c14c6055b1cb7991dcbcb2a2
+content_hash: cdffa32f267a96bc56d22097c3d8738fbcff181923d5cd9a6d21679d53c8f594
 field_hashes:
   id: 19a8b4abc5eecb0871d442e3f22d1e644e389a998108398a83c23c3bb7392959
   title: be69ac2237779c44463e4712509a9bbabee9227b0edba8a007ba7cf00f6a460d
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 901f06e97dceb1a63de9092c8bd7c523c88d6b24d036a3661d799c4fd828c868
   disposition: b83fad87924b6c9779f93480f3f57e98b59dd55a39811900d7fa9e78869c8fe2
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

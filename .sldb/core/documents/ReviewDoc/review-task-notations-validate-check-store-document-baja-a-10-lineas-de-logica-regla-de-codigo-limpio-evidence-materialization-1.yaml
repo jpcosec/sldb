@@ -1,7 +1,7 @@
 name: review-task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio-evidence-materialization-1
 path: desk/reviews/task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio/evidence-materialization-1.md
 source_hash: 3a8cbc414c7bf81849f88d9a954c803906f93c84ecd9cf45752139e3ea979d6c
-content_hash: 061bf8f380843c8c91c77c649db337a32aea4cbdd8e9fca7d77cf326d89a2d94
+content_hash: 4e8221fec0ab7ed542b42c00e617c821197b80cbf959266abc4f83a6a944da9b
 field_hashes:
   id: f491113ca86f5a8fb1437b71a4b5e226938ef9bf5f7dfca4b2216cd20bb74249
   title: 5248f13cd9766dbd697862addaa63661f91f44166c959226fd413ddb228cb229
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: d3e61eca971d3ec29cd594859cf9767f6bc22e245fe659e6af08a28b9ad54a6e
   disposition: 9bd835f8fb9624504e3110d18b951b35cbb00b1fa7b271dc7a9729b43b6eebb0
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

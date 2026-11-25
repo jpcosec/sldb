@@ -1,7 +1,7 @@
 name: 20261116-233748-suggestion-sw3-navegaci-n-1-3-2-2-7-las-referencias-abren-la-vista-que-corresponde-a-su-modelo-y-la-paleta-busca-por-s-mbolo-y-hash
 path: desk/inbox/20261116-233748-suggestion-sw3-navegaci-n-1-3-2-2-7-las-referencias-abren-la-vista-que-corresponde-a-su-modelo-y-la-paleta-busca-por-s-mbolo-y-hash.md
 source_hash: 7332c7b47aeadb3ee6034d1c55b073abe548a62ee93ed676a104dd3c57d70008
-content_hash: 380fb85a9efae7cc93a510838963b6c0bdea826450d1109ecaecb1868295d86f
+content_hash: 2f961866f6a0be877095380d166ebe0cb11826830bdf9e04f85b58b6c17b5779
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: 36caaf3e9376fa65cd29a41e38083fab52a69cd0bb0c0454c34d6aa7050d0fd9
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: 305888e2bf56d93c0806d40ed88230c0f048dbf786400fda5643fa47f29516de
   body: 3da6ccda2b078e9f7fc996557e8a794bd5dff7d45ee1f7d18b069aad290e6c2c
 semantic_tags:

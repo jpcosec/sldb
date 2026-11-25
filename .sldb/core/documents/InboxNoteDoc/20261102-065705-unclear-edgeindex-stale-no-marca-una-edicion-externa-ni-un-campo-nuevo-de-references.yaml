@@ -1,7 +1,7 @@
 name: 20261102-065705-unclear-edgeindex-stale-no-marca-una-edicion-externa-ni-un-campo-nuevo-de-references
 path: desk/inbox/20261102-065705-unclear-edgeindex-stale-no-marca-una-edicion-externa-ni-un-campo-nuevo-de-references.md
 source_hash: a8487d880cb4982af276873145385294bb82e8298615dafa799f78a9fe750afd
-content_hash: 7c91ec79c4ca70e6f96b183daaae8e806f65d9290625506eb81db6d5e7fadd9d
+content_hash: b25bdce76d5fae09ed4a01b317ca1e651c071ad7f639a4a84b5a572037c07f84
 field_hashes:
   kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
   sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: 26d3478dcce1852a86c4441c2f1bac8342c1ab4fc1a5d9254c427fcd0083b478
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: 5727bb627600d7da7eee942c0641721346b2fd6e6c31f9c5405ad750b670dd4e
   body: 842879c58e92194b850fa0f4f5c29faace5194f11384922fbf23b6330098acce
 semantic_tags:

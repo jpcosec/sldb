@@ -1,7 +1,7 @@
 name: review-task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo-evidence-tests-1
 path: desk/reviews/task-reglas-de-codigo-limpio-de-0f91540d-cinco-archivos-pasan-los-limites-rule-graph-rules-on-write-compo/evidence-tests-1.md
 source_hash: 2492eb2319be05064f03cf29004639cf2f305ec0747a4ef7e36c577c7155dd05
-content_hash: a12ef67b0b05f3d52f8d709ebca3d6732e057ce7652b9be3517e02a3b9b161cc
+content_hash: 320edb5a6fad29058d153004f4c257607071b3310b0378550cba86d7575f5683
 field_hashes:
   id: cc0ae103bf75e1beb2f6c99c49678bfb34667bf1ee35776c690678558bbbdbe0
   title: 0ad73a5a9d03d89d9adaa4ec69d0ad4f7dbed7c527dee0157d0abcb18c4e2724
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 9d877a83947512c619c29ba67e52d3142cd6b34760ab1d9bf2f61c01b5e885f0
   disposition: 9abfde72cc2710e51a924841ac36f0113937bfaa01c2da8fe035f7799b18598e
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

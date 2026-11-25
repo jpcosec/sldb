@@ -1,7 +1,7 @@
 name: review-task-el-scan-de-enlaces-ignora-el-contenido-de-los-bloques-de-código-fenced-e-inline-y-no-los-informa-com-evidence-commit-1
 path: desk/reviews/task-el-scan-de-enlaces-ignora-el-contenido-de-los-bloques-de-código-fenced-e-inline-y-no-los-informa-com/evidence-commit-1.md
 source_hash: d2feb8e377f688a83209c16820cbe1f47a6306b1fd15cc90b03dcb20f746abb8
-content_hash: 8d302218967e810fcd90b12c225fa1540c21b08c8e8973ff0462f539ff8b05e4
+content_hash: ace177a8c6b2676659dea7b6478d533b3ac078f0bca50925da1fe641e8dda8ab
 field_hashes:
   id: 4dcad191dd7eed96a5ce2e42fb7c241a934173b33830c0d605d059fb7a433a62
   title: 924667f9b2b0ec1bb274f83d7fed416ab23d6891fa71086076d8cd5e4b8ec45e
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 6104bae461d7f22f4d3501d3e8eaadb7047ad63d7d7474b95c24bed31c21c205
   disposition: dbdb64f8b26890a41e088974a3d7f882864b008b19bc3dd485898e3c84d05ab1
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

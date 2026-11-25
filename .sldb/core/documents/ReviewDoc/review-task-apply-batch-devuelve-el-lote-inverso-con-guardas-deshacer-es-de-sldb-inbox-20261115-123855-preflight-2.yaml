@@ -1,7 +1,7 @@
 name: review-task-apply-batch-devuelve-el-lote-inverso-con-guardas-deshacer-es-de-sldb-inbox-20261115-123855-preflight-2
 path: desk/reviews/task-apply-batch-devuelve-el-lote-inverso-con-guardas-deshacer-es-de-sldb-inbox-20261115-123855/preflight-2.md
 source_hash: e2ba1512a6893379ca3b7f0308ea2148cfba88ce1b4b2920611f88264695b27d
-content_hash: 129f13d72b8b82530e7c1ede72bebb4c8b232f9b49284b5e821334e197f02faa
+content_hash: 1d5ffce4909f04cf9eb9feca7f93d1d06adb7128819160d8719d7ffc24837542
 field_hashes:
   id: 04e8980d73e770f640810d12a70093c88ef9e736a22f9b9b7866b50d52493d3a
   title: fa4977ceb50135ed4529d9abc1caa5768dcd2341eb16032419ba1548a8621335
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 86495c2860c5b5a96fddc1ce0d5bff6dbd0138900559648346945aca3a7a7b1b
   disposition: 980fbc616151bf3b361623f2c15d32facefb5704e79d7094784b697bca31d7ee
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

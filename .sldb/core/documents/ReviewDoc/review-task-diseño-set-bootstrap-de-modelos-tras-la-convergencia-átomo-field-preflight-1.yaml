@@ -1,7 +1,7 @@
 name: review-task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field-preflight-1
 path: desk/reviews/task-diseño-set-bootstrap-de-modelos-tras-la-convergencia-átomo-field/preflight-1.md
 source_hash: 3d26e53cbad53143fc0a8c384af921dc56f79e839ad52a93c673c62116eb83ce
-content_hash: 66f2bbd331bc5ed7388d397f2b060ec0690a5676929c42b7f66809e582c2f25f
+content_hash: 33e3495ebf66fbfbb73c5bde9eaa73a7f15dee7800d1d82073a585193a9b5c61
 field_hashes:
   id: 31eed0e63b9379129d33d912ce15b0cea2192cff9398066165e039261d36affd
   title: e90f08c11d8c04be64de459b137e484a657572f090e96b7d9f86f618486b5e6b
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: bb8851ae4e61330305cf089290b90aa83ca16865e0a0466d6922f7d1e88f7809
   disposition: 16ca10c8689ed9c3aa872f3e6779830bb680bdd00100f8bace04b7d8be422f2e
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

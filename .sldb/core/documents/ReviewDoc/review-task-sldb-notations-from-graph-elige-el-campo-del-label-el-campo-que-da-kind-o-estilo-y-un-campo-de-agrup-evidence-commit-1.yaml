@@ -1,7 +1,7 @@
 name: review-task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup-evidence-commit-1
 path: desk/reviews/task-sldb-notations-from-graph-elige-el-campo-del-label-el-campo-que-da-kind-o-estilo-y-un-campo-de-agrup/evidence-commit-1.md
 source_hash: a0da6f3fc46b0e025c6615662027628367a0526ddf28e89d7381e35c93d52bd0
-content_hash: 187b878d2c595c326ef1d19b9f6a7e2f91e385512c54efd55d46bcd8b7b21d28
+content_hash: 46e198d8b99f729432d9c56c6201debf3ad443b03ff89512ac552c3a13e03598
 field_hashes:
   id: e1da624169ea735450d8e37adc7db91b1b9f914ed14cb02b1e000994a795e896
   title: 236f8bef28a9cfec648d1fd61786c51487b77dccb207651d9772b3a3c5bdda10
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 901cd19eeb2912e46381dc3ec56a27de4905aab0775048aa4c73c0bb944f98a7
   disposition: 278e529e0f6432d76e8d35952deb92fc1870bf75126564401fffc464a2297c41
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

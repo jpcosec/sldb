@@ -1,7 +1,7 @@
 name: 20261116-053107-unclear-pron-contra-sldb-9f27733f-undo-no-restaura-el-hash-del-mundo-y-track-untrack-pierde-el-documento-table-77
 path: desk/inbox/20261116-053107-unclear-pron-contra-sldb-9f27733f-undo-no-restaura-el-hash-del-mundo-y-track-untrack-pierde-el-documento-table-77.md
 source_hash: 35fc0b5288919eb94340d1746ec40a326998260e84a815468d04d4b8c0997f0e
-content_hash: 00200a3c766232c4bb3a47171bd3f24023acb7b1e6a6cb3e3b7beb8d38f66e48
+content_hash: 3bfd7ece73556cd1aedf6c68b2a6d06fe41428efefe8bb83d2a7f93d771f5091
 field_hashes:
   kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
   sender_project: 8e7d42497d066cf2702e1aec85ede74beecbb16e002906840a4e20c4e1e3e0c7
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: 5099e2bc33aab0b2424ac5d7bb40d6d27ea27be88b7b2afc73a3be394ef5bc25
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: 5de49e8e79f007724ae21d734205a9dfa5ec6bc8e4f6c87fee4cf544cba9c873
   body: a20a95fda5c863ecc704e7696219c57d7aeb1677c00c769373bf2f4469d9d6ed
 semantic_tags:

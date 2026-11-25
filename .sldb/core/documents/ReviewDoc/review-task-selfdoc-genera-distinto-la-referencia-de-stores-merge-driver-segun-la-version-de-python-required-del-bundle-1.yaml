@@ -1,7 +1,7 @@
 name: review-task-selfdoc-genera-distinto-la-referencia-de-stores-merge-driver-segun-la-version-de-python-required-del-bundle-1
 path: desk/reviews/task-selfdoc-genera-distinto-la-referencia-de-stores-merge-driver-segun-la-version-de-python-required-del/bundle-1.md
 source_hash: 5a2d883943124048067db1ac11842511ee588c94aa8811fb1328ff415a8a15ae
-content_hash: d48885cdb525924df1d807003fd6b3e834c22e617a424ba0d23d9d6e987f74c5
+content_hash: f8273e32fe1bc970c09f418206e580aa25a3dd6022fdc5d4b5f79f14fe6fdd95
 field_hashes:
   id: b211f999a327704c6aef572f166574f3d5703caa65446e906f8d3b98487bd6fc
   title: 7c11389a2345ddca1da685d886cd7659de848cefa791e9f48c963e6e04469ac1
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: a4f8fe45cd7802030ab24963b10c2022ea1dc7f9a632d42d1adf4047b53cb5b2
   disposition: d984b84e008ea3a84ebc9c3aaaef04f2bad88749b9ea2e7f2f43a5aa4dd24435
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

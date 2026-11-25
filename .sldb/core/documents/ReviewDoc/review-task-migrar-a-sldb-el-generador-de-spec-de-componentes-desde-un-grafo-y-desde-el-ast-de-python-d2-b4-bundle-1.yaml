@@ -1,7 +1,7 @@
 name: review-task-migrar-a-sldb-el-generador-de-spec-de-componentes-desde-un-grafo-y-desde-el-ast-de-python-d2-b4-bundle-1
 path: desk/reviews/task-migrar-a-sldb-el-generador-de-spec-de-componentes-desde-un-grafo-y-desde-el-ast-de-python-d2-b4/bundle-1.md
 source_hash: 6906753ef116763c91e772539ce1895b30eb3f0a3ec89761737fa3f99b7e90a5
-content_hash: 1bafd1d34bfd3c1d277ef1cec0ec6c1e47bf70bfdcf925a2cc866db3d856d4f5
+content_hash: 26be62bfd67e13734888ef552137141ea8ac5237360ade02a2c7791f79a4b76f
 field_hashes:
   id: 5207affa60d07a0d671c9527a1b7f5f4f9829b9c262055a324c753a86be34db8
   title: f2e000f3e7145bc8058c4a48a66f1b4812655616591332b4834109cd7c6d1fb4
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 448ef4d059aa55e11ffa8e64b7b20185d776bc45d3fdc8abc4c9a6ba408f26ca
   disposition: 904201ac8c4e0d8debc8d5ef4e58ba34b6775a7f69f4c1a25a2ef36ae58d703a
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

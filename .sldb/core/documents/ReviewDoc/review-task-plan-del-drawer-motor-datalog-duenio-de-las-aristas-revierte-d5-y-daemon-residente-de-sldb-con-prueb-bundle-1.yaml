@@ -1,7 +1,7 @@
 name: review-task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb-bundle-1
 path: desk/reviews/task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb/bundle-1.md
 source_hash: bb19a0a100521e58469144889ebb50c4d65e2a6c6f955f22895611f2d7237d08
-content_hash: c23413f4b25196b1ecf27572d84d7bfb1bfa2970ee21defb3353e7f0e5f3404b
+content_hash: f4198a557a91ddcffd2f71dadf3a05df05364f1a016d62316533871d5abe20ae
 field_hashes:
   id: f55064aab6132ff296cb47f5b3cd92ded7aa9af79c6299c75632c9b511cbae47
   title: ed2199a3483511c15005b145fd0ef101c9a80be4308f666c041a901a7f94ff35
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: eb2dae37a70552ce8eb6878f63881a82ce877dd20e9947e70072ecbf8aead59f
   disposition: 7b1eaa3d0b0546d60dd9b5e1abce115ff9861ebf37f28d73ba66d03ab6da2def
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

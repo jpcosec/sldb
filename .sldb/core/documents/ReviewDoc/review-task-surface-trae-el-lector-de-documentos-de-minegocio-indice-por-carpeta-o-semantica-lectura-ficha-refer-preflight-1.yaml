@@ -1,7 +1,7 @@
 name: review-task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer-preflight-1
 path: desk/reviews/task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer/preflight-1.md
 source_hash: e1d4ad82fd31f31644ebbf6cc30a2f464557c311b28e523df17850f85a08e359
-content_hash: 92775d965f411e1cf481c7df870d66b3aef2bcf04bfe0bd37d1e5f5d5c1b9a83
+content_hash: 6788eb05183cc69ce37c726390085fd20a5d6d191f5affa52a62bffc89a86699
 field_hashes:
   id: a7a61f564f821d191022e9cfec13f78e1c3cfc643bb0a708aa727c9db13a4b5d
   title: 5f640f84ed435f44bfd5a8a7dea20fcabe4de3abbd1dfdf7ff3956f4d5467a19
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: bf46c56884f5b13396e1cd8e017ba0a200b8ab0db8d3af3171f9ce6a967b13f4
   disposition: c8bad632280fa95debfcd87f9a072c0a4dd259b09d6337384ade561d8040ace9
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

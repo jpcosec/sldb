@@ -1,7 +1,7 @@
 name: review-task-una-sola-forma-de-serializar-un-escalar-al-sustituir-llaves-effects-go09-y-where-subject-usan-la-mis-bundle-1
 path: desk/reviews/task-una-sola-forma-de-serializar-un-escalar-al-sustituir-llaves-effects-go09-y-where-subject-usan-la-mis/bundle-1.md
 source_hash: d65be9408f8c817d5140810cc8a0678ffde372be3dee97a1e376f8b405192a84
-content_hash: f35c510992624b74ee430baef77a5a259eac7ec763f824d3cc098ebefc1bee4f
+content_hash: 1b6879ef4fd19c67704b356f63071401ec0fd8c4b19b566688ad5ddf2d7fe8d6
 field_hashes:
   id: ddda15d339d68d83f8437e073b0904e877efc6a1b8715f6c7a2b6e9e4c5aaf17
   title: 9a614d4f6a80ec440e0ba8c403f8623b24e6b27e56f98262f12fe4cfd86e7c68
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: f62b44389cc1fbea0ad7b6f437502fac0d42b1dc50e3292b764f2ca49abf32c5
   disposition: e3c0027c17732a644ad8ea18cf8982f018e22a8effc48c6b157c83297b5cf93b
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

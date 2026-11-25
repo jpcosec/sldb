@@ -1,7 +1,7 @@
 name: review-task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl-evidence-atom-1
 path: desk/reviews/task-sldb-code-lee-las-claves-del-sql-de-postgres-pk-con-identity-constraints-de-tabla-y-fk-de-alter-tabl/evidence-atom-1.md
 source_hash: 8d2021569feca0563c23cb6b1c0b9785195017d034c0a6f2c0f3a2f0831f4fba
-content_hash: be84f04e453060b8fd23cea25923f944884a417348e62c3238adde65f744386e
+content_hash: 0f897a838a7676906653daa3147de19260351c4d0ca52279c07817e38614031c
 field_hashes:
   id: 2289d10c61ea55605b2350f3d3d9ad02ecf9e462284be1c6b7e2a9c36a25d4c9
   title: d5a30e15dcef8bd7e09900886fd402fcf37bf48bf6a49dffcd615c9b1877642c
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 667a753c1afeadbad9133e12be639403efcfae4abd19a5689030632b14a357b5
   disposition: 71fe5e88e932dd149ec4a85ed238498096ecf5e5068e3a3234354ddcaf68d6dd
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

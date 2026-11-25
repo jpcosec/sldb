@@ -1,7 +1,7 @@
 name: review-task-corrección-de-j02-agents-md-clasificado-en-la-puerta-de-identidad-y-derived-guard-sin-importar-el-nú-bundle-1
 path: desk/reviews/task-corrección-de-j02-agents-md-clasificado-en-la-puerta-de-identidad-y-derived-guard-sin-importar-el-nú/bundle-1.md
 source_hash: 7bd1872575f801aca0efe389cf5e1d4a02b3f73d47da7e40b8ff6761f648aeb7
-content_hash: 9d1b4690e737fb1a40e6af78f3d32e9e82e02c6478dd3ad153539c2ce5329dd3
+content_hash: a8b54c70bdd904f3263a01cede736672215d00c43ac633c9ed30514dd133810b
 field_hashes:
   id: a1e5be6a28c78d6c035d6a12e802a6d9a99fea49599290ba68aec1a51ab5de33
   title: 452e65f1ba3f1f6f8b722602f89d23acd9a9ec9537e183dc3cb0bec5682dd62e
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 6c8a452a08548f4af38272a1e84a359c7047a8bd0284e5646dedf4ee08f972bc
   disposition: 9f642631b73f06703fd3ff858fa4884b2303200bef2a14f5a3ad4b1ede7a747e
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

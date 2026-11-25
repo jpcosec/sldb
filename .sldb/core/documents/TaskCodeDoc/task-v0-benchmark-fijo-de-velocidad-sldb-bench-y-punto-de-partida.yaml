@@ -1,13 +1,13 @@
 name: task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida
 path: desk/tasks/task-v0-benchmark-fijo-de-velocidad-sldb-bench-y-punto-de-partida.md
 source_hash: 8db58b84fdb1d65ff3b787edf483355dc81725b899cdf72623b97f7a0134c928
-content_hash: 5945ae473b9348ca7cd4485f420fd645cbfb1fdc0306fd02a5160d30ac55deaa
+content_hash: 8eb755ab2f986d28ae880089c0c81cc159d3d533f97c7d439bf031868509669e
 field_hashes:
   title: d4011e74b903303eaa308ea5932c24ea6037f61ea044b086d064416d93f8cbe6
   id: 1c5ac9fdc75125478648c197504e37cbf87b98765678a25a3966b746065ead66
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: f83737b288bafd2e098febd4c6b4e10279818ad41f42f152ec1bf0312a505236

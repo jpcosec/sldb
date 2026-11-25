@@ -1,7 +1,7 @@
 name: review-task-el-guard-de-sobrescritura-con-perdida-acepta-quitar-un-encabezado-no-declarado-si-su-contenido-queda-bundle-1
 path: desk/reviews/task-el-guard-de-sobrescritura-con-perdida-acepta-quitar-un-encabezado-no-declarado-si-su-contenido-queda/bundle-1.md
 source_hash: 4f01b7ba82be8d9ca3051d29b8730ff2b9ffbbb4089676bebea36c8c1171e144
-content_hash: 728d1f9e41e5eaefe66f97733533b7c1e028f25e9c9d46632dc8cb70ad2becaa
+content_hash: 13348c85f8a9a63d11b29984d3075b99789858a145e9e2d422509e2d3cad4c1b
 field_hashes:
   id: b558e110a8c0989adca6b4727676516c3aea2fecaae9f3d872b7e02e8ede739f
   title: d8e48f6cad1e0da006e7b1280d8cebf1ce5421cadea3f6d7ba42b91ec748034d
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: cd2c9d3cf9bb826bbd16499879446e1e5d0debaafddf54622ca6a59e7d8e9fb5
   disposition: cdc4a90796e10154fc4309c8f84c36638aeb3ffda87e8243a14aa6c79a8d4207
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

@@ -1,7 +1,7 @@
 name: review-task-specdoc-guarda-los-datos-de-un-spec-que-no-son-elementos-data-entity-y-afines-y-el-style-llega-a-la-bundle-2
 path: desk/reviews/task-specdoc-guarda-los-datos-de-un-spec-que-no-son-elementos-data-entity-y-afines-y-el-style-llega-a-la/bundle-2.md
 source_hash: 15a6d2f99f6700e165207fae56e2663c97d8842e9b5656766743bb7d3f238fa7
-content_hash: cb0e2725e7569294831ce0f5389e182f64c5298631d1bac9902dafc4ca06d83d
+content_hash: ea0811490769b683ddaae807eed1f2544e9b613ab946ee65e7b25a7262a7871f
 field_hashes:
   id: 4a6cb5eecd2f9e8e28bef2f7a164d701c0ff2e65f015d88f517b9d1916113768
   title: 86fa0de408b886e74a3d97a8563595246dd4844c4924bea6e97e12ba66b5ae02
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 4a0a28a6f7345e0e34211eb7e42bf99d6bcce30cef5c6acb5f2cc4109cf89d79
   disposition: cce9296bf7a73a35f3b222433b0d0321115e95e008f6596e6997b00c6c8d5525
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

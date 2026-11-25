@@ -1,7 +1,7 @@
 name: review-task-run-view-no-compone-en-cada-proceso-el-índice-de-aristas-de-todos-los-stores-enlazados-sldb-views-ru-preflight-1
 path: desk/reviews/task-run-view-no-compone-en-cada-proceso-el-índice-de-aristas-de-todos-los-stores-enlazados-sldb-views-ru/preflight-1.md
 source_hash: fefec3a47c94fb76b38339241b8a3e8d25420c6080ddfc08e20e65e89b644a3b
-content_hash: 34642b25679f5e40e032e547b824d822e7346ff0252163d533bb4747034a8428
+content_hash: 3e4b69e1e73ff4c8d5fec2879ec8e3ae83133cc2b60323fa4903ead90e81e3c3
 field_hashes:
   id: ca17ae0fcfefa1d115c4dcee57ab7c90309a7c3d9c9a775d263d05e51d83e1b0
   title: 38cc62fc34d9dc7d36cd913c4027e5a9425994b3ab1dac5f0b557f928229f647
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: fee00ebfbe2cdb544f21d73294ac1f53777118def2be86258721fb72c9b3ea10
   disposition: 66d945ae7f31c223a6066eef38e0d4e9e357e4357042b83b807cd02ee7378e62
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

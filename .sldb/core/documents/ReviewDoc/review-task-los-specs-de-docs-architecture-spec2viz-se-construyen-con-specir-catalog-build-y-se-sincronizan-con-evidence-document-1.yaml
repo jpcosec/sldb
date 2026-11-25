@@ -1,7 +1,7 @@
 name: review-task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con-evidence-document-1
 path: desk/reviews/task-los-specs-de-docs-architecture-spec2viz-se-construyen-con-specir-catalog-build-y-se-sincronizan-con/evidence-document-1.md
 source_hash: d7047d83a99d81ba69b4dde91a2d076b70810577178768ac5c001863df943bdb
-content_hash: d8323e9cb9e6105bc04e515f180fa4369cb5fcd00484bd5383a0d0ad2c3da440
+content_hash: cc674d313f8337ca150a9e8a989a11dc6e2979fe797730291e9c9804517a8081
 field_hashes:
   id: f58c7346ea1d2961fb78c60efb308e646c55928d2925de48e70b90e8e7a9f955
   title: b327227b204f497c2d5643b8a1f16824af65bb4204405eb56eb7c2b77872c6d1
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: d3df0f492cfe64280512899c42f704cb0e8c4d3675d8d1cb4c385c2fa696b392
   disposition: d8c0e09531e23143b87c1c4c3e3aeb40a7f4a64a94fb1544c8fef30297f53294
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

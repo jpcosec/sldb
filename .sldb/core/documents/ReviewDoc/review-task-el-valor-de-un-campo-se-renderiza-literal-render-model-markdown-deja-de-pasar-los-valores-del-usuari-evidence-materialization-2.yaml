@@ -1,7 +1,7 @@
 name: review-task-el-valor-de-un-campo-se-renderiza-literal-render-model-markdown-deja-de-pasar-los-valores-del-usuari-evidence-materialization-2
 path: desk/reviews/task-el-valor-de-un-campo-se-renderiza-literal-render-model-markdown-deja-de-pasar-los-valores-del-usuari/evidence-materialization-2.md
 source_hash: b7f924a7b6d302c37c922a2841d2b9f6090ff88a25b23f609c12811f19e85c70
-content_hash: 44d27bf6b8bae21828f170e2926eabc795125e48801e7cf6af9830934ec85f65
+content_hash: 1949eb12053d70b286eb043ba7a9920f174e33bcb09c90486b72e458568e37c8
 field_hashes:
   id: f4e158aed203c4ca3de0b41c7818d57f051387481cf09c67d992c6d51e99e572
   title: e80afb6b1b02f1a27ed819a1a60ef74148959bb2c21c80a1da9718ad69b8def5
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: e9c2b0f017e3cdfbe0c0966b33b95712ab9b0c8fa8128bc1221aac824b29c858
   disposition: abb3a4cba91a1e46998d81d9098090948229739af3f6421ea1d4bc5718178c86
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

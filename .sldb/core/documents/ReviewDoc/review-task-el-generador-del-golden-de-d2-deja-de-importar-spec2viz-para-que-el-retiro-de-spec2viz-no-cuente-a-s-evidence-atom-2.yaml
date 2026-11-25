@@ -1,7 +1,7 @@
 name: review-task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s-evidence-atom-2
 path: desk/reviews/task-el-generador-del-golden-de-d2-deja-de-importar-spec2viz-para-que-el-retiro-de-spec2viz-no-cuente-a-s/evidence-atom-2.md
 source_hash: 4f706b5d532cbe6265f564bc44115621afd3a01143efeb3a0b8b5bc63f432618
-content_hash: 1ccbc09517d2472213d9c7d11167220d28f7b915a737b5a19d85a6b62e8c632c
+content_hash: c002bc31b8b39904b8f0f5ffba7eddf83992be4da47ae23d10e32e8dc408dca1
 field_hashes:
   id: a17a30478408462574db41f4d99c0c331c8d3b978b70da40612331e48a167fef
   title: e9450ab366d67d1db480d3e27b640b571bfe77d01ec307fe9cb8d8a6388c5623
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: d546e5c30410630a352fa8558599dc791cd19928fa76bc1e1f8c6df8968e6b01
   disposition: dc1a23c5f122fa9d70584bbc774c47366dfc2da125d7d379f4a903d3b8398328
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

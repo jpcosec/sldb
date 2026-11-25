@@ -1,7 +1,7 @@
 name: review-task-decisión-de-jp-arreglar-en-sldb-las-referencias-por-ruta-que-no-resuelven-a-través-de-un-store-enlaz-bundle-1
 path: desk/reviews/task-decisión-de-jp-arreglar-en-sldb-las-referencias-por-ruta-que-no-resuelven-a-través-de-un-store-enlaz/bundle-1.md
 source_hash: b644b0216feffd541b0b89526fe6aaef3904f0a929eaf10dd99e386de73ed75e
-content_hash: 6bf708c50bf9610a162cfdb6c6bcc88ed6935d2525d19d7933661a87d913156b
+content_hash: c90d251872d67c22ba8cbfb1fc73b70276de5f7e55b5775a4b0d9da0f38590f5
 field_hashes:
   id: 391d091e417136c695121a5894c54118c14445111f2cf10bc1faf4d9cd124dea
   title: 720278401dcf4f01aef24999e9d84b2db32af2d5b1f5e742e25babf8534150da
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 02a69116a48ece4c7e20ff2528daa681bf5d11b41f99d1065a1cc54d5241daf3
   disposition: e3c0027c17732a644ad8ea18cf8982f018e22a8effc48c6b157c83297b5cf93b
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

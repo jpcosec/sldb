@@ -1,7 +1,7 @@
 name: review-task-clean-code-tras-carga-tolerante-edge-index-py-y-runtime-documents-py-con-una-clase-cada-uno-y-query-evidence-commit-1
 path: desk/reviews/task-clean-code-tras-carga-tolerante-edge-index-py-y-runtime-documents-py-con-una-clase-cada-uno-y-query/evidence-commit-1.md
 source_hash: 7539de409cb23d4a8b78263173d87fad7849869b5f634a8eae42a35e00c09b33
-content_hash: a613c29cf965d0a5ba2374eb07c31dfdde254ad7de85b43ca8e016a2784696e5
+content_hash: f5fa190112e23e2ddf1094cc368eb852caf7c3a2abc2b5bf2ab6ebb986d643c4
 field_hashes:
   id: 10dc0676874df6425485df1e4c3a75a55405dede4f07a54df322db453cb57e8f
   title: 3c8b455233431f765db5beac2e4acdb78a1f6aa47b64c58c46d2549ce9ba8043
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 2b4b158fe7773643fb93c85ed7ffcacc1a4cf809d2d80a6f9b70cdc6d2ab16e9
   disposition: 1219a35e367fb41e1fa92a1be872e19a31cf75ff6a1c3b9040327f75fab2621b
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

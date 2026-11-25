@@ -1,7 +1,7 @@
 name: review-task-decisión-de-jp-python-sync-o-stores-build-destrackean-los-pythonsymboldoc-cuyo-símbolo-desapareció-preflight-2
 path: desk/reviews/task-decisión-de-jp-python-sync-o-stores-build-destrackean-los-pythonsymboldoc-cuyo-símbolo-desapareció/preflight-2.md
 source_hash: b6a52a95874093063b06c1eee2ffa7698576a381039d5016efff2e118732ea66
-content_hash: babdf0bffa5149d9456a7833776d111d7b6851125067aba699b315f2dc1ad54b
+content_hash: 8820c24f40ac77e928e2802c94cd562805d1cf73d72d39dca2fc536dab957c6e
 field_hashes:
   id: 8c93ea09b5ca0661ff7415d3364028b34c2a52cf890da2083111209dc0f6648f
   title: 675f6c843a3967a96d821f16dcabbac838f70ddb913e98fbfa90f08923189d47
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: f1ade3a8715e41fba82ed0ad45293eb1d74cdd47d89588ad803a0001d3d97f00
   disposition: 7cd419429e99ba5ed8715f356ac5c73354ccffa6b8d589d1e73e396d11b0dca1
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

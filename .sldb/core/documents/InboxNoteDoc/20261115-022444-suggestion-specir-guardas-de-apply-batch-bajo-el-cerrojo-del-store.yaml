@@ -1,7 +1,7 @@
 name: 20261115-022444-suggestion-specir-guardas-de-apply-batch-bajo-el-cerrojo-del-store
 path: desk/inbox/20261115-022444-suggestion-specir-guardas-de-apply-batch-bajo-el-cerrojo-del-store.md
 source_hash: 0562c9c98b765a1aeab4c1e114e620617b6c033a278375a1a6a9871a4b70883f
-content_hash: 716dcb492fd87ffe5e90acf092fafa4d6a4c6cac7b522f5fef4a3947da45335b
+content_hash: 2323971c55b265ab6fc37aa1164a47e69609cf42102a4e0b7091a7300d2454e4
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: 98204bd3ccb50e9d07d794546418417c3eca1f33588778c725c75ff800a1d5a6
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: 9d44a4f0c7dfe952a00b62837ced85a0387bb7991f48bab999370e7b7a74ebdc
   body: 0633f7037d9194cfbce89dd6e4d4c8c3cf843c3fceae109d14a72ab392c3f393
 semantic_tags:

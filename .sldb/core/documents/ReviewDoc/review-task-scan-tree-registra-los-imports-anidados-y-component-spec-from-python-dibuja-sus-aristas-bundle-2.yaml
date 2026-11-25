@@ -1,7 +1,7 @@
 name: review-task-scan-tree-registra-los-imports-anidados-y-component-spec-from-python-dibuja-sus-aristas-bundle-2
 path: desk/reviews/task-scan-tree-registra-los-imports-anidados-y-component-spec-from-python-dibuja-sus-aristas/bundle-2.md
 source_hash: bf1ca4c5e310de72ca43cf8b24692b3ea6dfb9eae2f7ddb2af09297868f5dd2d
-content_hash: 3a3f99c64374b4ec1fd6979727da9d7d3ff0aeb8f390a6af4e8e798464aac693
+content_hash: 95cdc072222f435f2637428900f0fd4513017948cc81197edfc5eb5e4d1ec919
 field_hashes:
   id: 0a2395ff8866312c780971e3618f79bb32c6d36dd3156fdd57ce7ec24adb0892
   title: 3b47ab0ceaad6a964f2bd4e7d1a19bb0d5b01f990c1315996110df5c08aed0cf
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 246897df8bf0c54db3a538526a61ec8e740aeae21e46976ca845abc49eec1108
   disposition: 051f056ccd67cbfaaae00b77507ff48df64049cd38b1d0f50a0cde0096f0147a
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

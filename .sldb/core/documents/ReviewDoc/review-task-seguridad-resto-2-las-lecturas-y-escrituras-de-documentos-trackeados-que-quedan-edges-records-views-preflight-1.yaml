@@ -1,7 +1,7 @@
 name: review-task-seguridad-resto-2-las-lecturas-y-escrituras-de-documentos-trackeados-que-quedan-edges-records-views-preflight-1
 path: desk/reviews/task-seguridad-resto-2-las-lecturas-y-escrituras-de-documentos-trackeados-que-quedan-edges-records-views/preflight-1.md
 source_hash: 5b5a5ce23cb10be35286512ad1d9e965c89381b73730245eb65524874ce598de
-content_hash: e08a98bfd8cb1d221e07bb94f1be4d3cb14f0fe465cc6a6e4fd0abb85708deb2
+content_hash: a6706a8050fcfb0bc7e0db4c4e8fb01e697e4f7c7c3ba4bb7a21c2171bd84115
 field_hashes:
   id: 27cd83b8b1d3c0a5eeaaf9defdcff9fb586dde3d192d157840cc4d97b7e810da
   title: 20e54a6f30e5c89f12e6e99dcc7ab7137d5e5d6dbea8be20ca868f6804f74374
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 203748283c17466ebd5e8bf4b2eac2db390b45b09d80ef39a3f866f1d2786cd0
   disposition: 9a440c81a0cab751ae8379a8db99fc604793cd31d041eb6053eaaa035607a996
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

@@ -1,7 +1,7 @@
 name: review-task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1-preflight-1
 path: desk/reviews/task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1/preflight-1.md
 source_hash: 952e13cb151aaa7d790e8998ed6f868f6780790d8a5c08b402dfad2f1c374764
-content_hash: bff2beb3c038a1d470579089bda4841756b34b0b483e3bec193c7e5edb4e9a11
+content_hash: b0cbe80a37f0d1b15a5d416938e95628161c498e93f0c1635d39e335adb6876b
 field_hashes:
   id: df664d0dc61272fb9456b05d287d218157cc441ee1f810f02ec7c1050accb131
   title: 8f4f4da32d2cff6f669c6ec7d3f8a80afa594a2399988e192985c0864dcb1a55
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 4abdaf1ea38e1974906712b2c1ec6f52e6a5fc201af5ba1c408b4e280c4cbe2b
   disposition: 63edb7dba01fcf89189f8896556f614f9146a3f8aaf3eeb47c01777c2ba0e62e
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

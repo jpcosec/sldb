@@ -1,7 +1,7 @@
 name: review-task-declared-target-nodes-acepta-un-directorio-existente-como-target-declarado-de-una-materialización-bundle-1
 path: desk/reviews/task-declared-target-nodes-acepta-un-directorio-existente-como-target-declarado-de-una-materialización/bundle-1.md
 source_hash: ff425877164f2a0d321cf1e218cdba6ef162187b72d0722b7056c9997faf59bf
-content_hash: 70205197ae53247e9acf0192e4d154ec791fc009180a919a3bf33e8e471684c8
+content_hash: 8411c7ffd27c7035572fadd5e4c929fbaac19bb30723311190484c8496d3cfac
 field_hashes:
   id: fe6cb4e224199fba56fbac33ba88efc597c37d2c16d0d025a9ff767b697f542b
   title: 780eafe96859c911e2e6d9f968c2ac9d7e6dabe13a305010f0f45c4c6056b882
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 02bfb9fe073c2b1f4e30343fc9960753acd9c9a0794ff52df2e94da4a38f31ff
   disposition: bbb53928343adfabdd7e081e1de086550496a2ac35965bd221e4e0c22e57dae2
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

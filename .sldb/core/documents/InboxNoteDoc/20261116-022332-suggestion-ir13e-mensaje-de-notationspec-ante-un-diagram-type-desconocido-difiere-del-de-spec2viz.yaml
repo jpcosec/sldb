@@ -1,7 +1,7 @@
 name: 20261116-022332-suggestion-ir13e-mensaje-de-notationspec-ante-un-diagram-type-desconocido-difiere-del-de-spec2viz
 path: desk/inbox/20261116-022332-suggestion-ir13e-mensaje-de-notationspec-ante-un-diagram-type-desconocido-difiere-del-de-spec2viz.md
 source_hash: dd95e061f4455a35cfa4e478c68b6e1687cc54f8c0f72b94f9fd83e6adc3817d
-content_hash: a588c8cb49d7a0ee9efa4399731f2b3d00ccfcc7d8de6374d8263bb5df0e834e
+content_hash: 873a23a4dc1c3a37c317e1a68040959d9946591f6aaaefd8e85c50215040dd0b
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: 3c760e26ccea2c4a3b38ca3fce551fb68e4ea9c4578c7f8fe699ae1254b6dda1
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: 251c87ee8c8bce76d9914dadc562c4ce0f9904c62c6dbc0dac5df02aab4180d5
   body: 27be55396359b4faae87af4825180b68fede04a5f25c912f08d76b34fd443051
 semantic_tags:

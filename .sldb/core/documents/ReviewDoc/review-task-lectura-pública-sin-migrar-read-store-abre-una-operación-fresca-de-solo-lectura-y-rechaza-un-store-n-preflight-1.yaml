@@ -1,7 +1,7 @@
 name: review-task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n-preflight-1
 path: desk/reviews/task-lectura-pública-sin-migrar-read-store-abre-una-operación-fresca-de-solo-lectura-y-rechaza-un-store-n/preflight-1.md
 source_hash: e1ac960e1b8f5c8a05bb115f29152e4d0b9620f72d9ad464adaee59e631c65b4
-content_hash: 3a64721c118b64a674dfd58721e75ee77587c97c9f05d188c439597dd1826be0
+content_hash: bb244350d709e83b19f47ef088599889e469dc8201fdf9d5cd7337f736fe6ff8
 field_hashes:
   id: 640dbb8878d14dded75364ca6e7e8016bf15222b63be152a773e2a63923bb582
   title: 6aa9bda7ad50c44622b5808fd4592bfdac3d6a3e94ff455aaac28f3a19835fe4
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: e6537cc3feef5281bc1a7336f4670100910d53877f43ecc26ca16e0161a49b39
   disposition: aca3e348619780916b47c2745341979cd86c6c3f4da083a3d81c0ae22cbe1f14
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

@@ -1,7 +1,7 @@
 name: review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-materialization-1
 path: desk/reviews/task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar/evidence-materialization-1.md
 source_hash: 3f62260f192f2c271eb6aac13a59789b33dbd62316e4da6dcfb966f521e56825
-content_hash: 3bae9a63ee1c47ab1a81815fb10bf0d0449847b30d26ab1a043cdf5549e7c6c0
+content_hash: c60051912527a1b22eae1b20ecc8326aad5ec1c1b296d1593e789e7bb1c6576f
 field_hashes:
   id: dd819fa863f6ed8a7253c3aa0360ed08a4cb41d9f44456c68268691c11717249
   title: 2e9d434be46ad37c28983ae7fc09889c93becfcf43c7eaccbc80c611025fb203
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 832ce0994e9db0ea11c87d55302681d6b3021f684c75e83abb9c06aabc553d9e
   disposition: e8b8b423503b1cfe621a4ba3747fbb66106cd4b107a0ead6e4966bf0922b8255
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

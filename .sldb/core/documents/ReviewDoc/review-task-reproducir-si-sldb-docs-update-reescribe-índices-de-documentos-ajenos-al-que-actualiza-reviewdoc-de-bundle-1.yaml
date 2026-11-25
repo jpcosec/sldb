@@ -1,7 +1,7 @@
 name: review-task-reproducir-si-sldb-docs-update-reescribe-índices-de-documentos-ajenos-al-que-actualiza-reviewdoc-de-bundle-1
 path: desk/reviews/task-reproducir-si-sldb-docs-update-reescribe-índices-de-documentos-ajenos-al-que-actualiza-reviewdoc-de/bundle-1.md
 source_hash: 63d64b2b076f4ba066756143a30bc270fb2a61afe574f740af3fe1f5365a4cff
-content_hash: 9a267a5818be0b12bd4eb26212ec4bb662da8f4a08793a03a722686eafa328ac
+content_hash: 0bb4ba8cd0d3f812bc8132db3292e1ad0f46a202c936ee8f8c806f1cb0042bc0
 field_hashes:
   id: 5405a8455215352c9d748c07b6701e307aa71b3eded0abe0286a9802a2e605fa
   title: d11f51bf0ed679e3f7b1d365c13f61678f0521de5e758599956e89c8f3251c8c
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 5e4e781be44ba61f70dabed26922d4bdb1d8745ffc7838be4e70aa0cc21aff76
   disposition: e3c0027c17732a644ad8ea18cf8982f018e22a8effc48c6b157c83297b5cf93b
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

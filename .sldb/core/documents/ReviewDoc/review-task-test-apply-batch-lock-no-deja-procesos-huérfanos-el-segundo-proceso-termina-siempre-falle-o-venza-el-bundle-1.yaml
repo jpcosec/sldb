@@ -1,7 +1,7 @@
 name: review-task-test-apply-batch-lock-no-deja-procesos-huérfanos-el-segundo-proceso-termina-siempre-falle-o-venza-el-bundle-1
 path: desk/reviews/task-test-apply-batch-lock-no-deja-procesos-huérfanos-el-segundo-proceso-termina-siempre-falle-o-venza-el/bundle-1.md
 source_hash: b75b32a90fea99619806b9aedd413ec6c64bcdc915efe01b92a9b06d663addda
-content_hash: a25eb302c2281a8eb88e87e521e4b9c1067a5a0f1a95b0e17d104957c94e2f5d
+content_hash: c86c9a230fd6aa3745f58fa0cf775684c86f4f1449d1db2d022c8e0fce83a99d
 field_hashes:
   id: 007b0a713c4c7857cd7e366880caf7fba4f3e07ff426d4119bb660da9768b94f
   title: 01908617d657a1cb2a4abb23c6ee4a9049271bf2eaf673ac7307b47c7360a4ef
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 741a228b029380ad2c51b90380d9111f32867ac4e94e019ec1459adaba79a7a1
   disposition: bbc5a9082e73801d3d6b2acf9bf70612531298d756786b8ea132e410c903eb29
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

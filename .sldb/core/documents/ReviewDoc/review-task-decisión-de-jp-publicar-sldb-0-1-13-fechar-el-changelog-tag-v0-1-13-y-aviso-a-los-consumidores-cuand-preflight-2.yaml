@@ -1,7 +1,7 @@
 name: review-task-decisión-de-jp-publicar-sldb-0-1-13-fechar-el-changelog-tag-v0-1-13-y-aviso-a-los-consumidores-cuand-preflight-2
 path: desk/reviews/task-decisión-de-jp-publicar-sldb-0-1-13-fechar-el-changelog-tag-v0-1-13-y-aviso-a-los-consumidores-cuand/preflight-2.md
 source_hash: 3ac9595042b0abcc12737e0c225c0bfa8dc1b93e287dc6047ed52bc272d46939
-content_hash: c3a153642a044a7149dc158619f780338218c4f44e6ba82b0242aa3b7301f7f2
+content_hash: f7bccbdf813b78e8b3d99bd7f4e7f1b73d018a007b4fe76b35269a2b189619f0
 field_hashes:
   id: 3806ba56f4659610652d8bf394a119036408eb25b44415ef977897504b7beaab
   title: 19dbbe8313966fa357a1325a728d734170b76a0dd68e6f6809c66e004aaea72a
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: e72efd350bc68a49ddab1ae68c1107a14888a31648714dfb8ad420b9c5c94186
   disposition: 7cd419429e99ba5ed8715f356ac5c73354ccffa6b8d589d1e73e396d11b0dca1
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

@@ -1,7 +1,7 @@
 name: review-task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430-bundle-1
 path: desk/reviews/task-apply-batch-dry-run-público-que-valida-sin-escribir-inbox-20261115-022430/bundle-1.md
 source_hash: 9d88c79ae9df90390fb5bb67a025c2a40863034790d6288d0b1585fdb97b7fcc
-content_hash: 40c3128ee1247629a6df662c594886b579b4f1834c50092469bd417584b579d0
+content_hash: 532cb943d7759117205e16f59c1dfa1c17ee8eec09436e9486d9b1e24cbce672
 field_hashes:
   id: 50555fc9eaee380e69834fd808fe2693f66668100cfb8f9e998581e3ddc69e02
   title: f67bcc206e2e35420f71d5431c705c85fdf15a10e002cda22fcf7bc0dfe2a460
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: d3776f5309e997af0daedbcd345d81a462b3fdfba99ef4b656b1966cea1db16b
   disposition: da12844a3638e54fafc0a1630d931477fc2541e192ab643a498bb559c7cc9cf0
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

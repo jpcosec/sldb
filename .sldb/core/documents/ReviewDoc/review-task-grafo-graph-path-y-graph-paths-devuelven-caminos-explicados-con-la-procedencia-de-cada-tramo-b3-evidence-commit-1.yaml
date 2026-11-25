@@ -1,7 +1,7 @@
 name: review-task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3-evidence-commit-1
 path: desk/reviews/task-grafo-graph-path-y-graph-paths-devuelven-caminos-explicados-con-la-procedencia-de-cada-tramo-b3/evidence-commit-1.md
 source_hash: 48a1bcef574ff19bca50251d8a3414276e479fe4f58c3f965190150360d694df
-content_hash: 6e491221e2bdb84df984808ea015a16183d50156dc18c34a31aefabe6782daf7
+content_hash: d6d3cac31251c56dd8181a234d649151acbb9b5e12fd6b4e134a238e435ded84
 field_hashes:
   id: f940cca77c717d5f83c15ea3fe263e1fe60435f2fb6ec56e616fdb19602d2ecf
   title: 07ccc2cbe721fc9dff25f90b80cf30382561219ae1039ce61ca76a9aad9ea4c6
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 214d851718173d451e9ba45655d1db19490bcfe0cf9fd3e81178a437296d8365
   disposition: 587f224a1765db072b00a6ab5f0ce8e1a2894e402c0f19caefa7e55ba0bb7536
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

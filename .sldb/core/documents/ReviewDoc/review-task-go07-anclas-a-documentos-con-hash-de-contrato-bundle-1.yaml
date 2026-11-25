@@ -1,7 +1,7 @@
 name: review-task-go07-anclas-a-documentos-con-hash-de-contrato-bundle-1
 path: desk/reviews/task-go07-anclas-a-documentos-con-hash-de-contrato/bundle-1.md
 source_hash: f91b1d684a58610558652f96c912b6ec6d97223e4562d2041e4528a7d415d724
-content_hash: bd547cd213642d2c8a9d83371e19b708e4fd0f20390a3cb8fd377cc95ee29236
+content_hash: 5239d85401466b64026b0dd6e1808803a54ed802e78f1cd42784fd23da4eeef3
 field_hashes:
   id: 4e44a7c80301c32e9d1a175d8cb684894164dd339706ac959f78192a9c5bd5de
   title: bac37ceafc2fc7ca54a9e35a1121166f0eb0726f11b4905b1b2573fd997ea475
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 629243f740d8361bb9927fc9f64be2d2515da93324ac20efd0655020d22c0e89
   disposition: fa67fdd872cb2432df36aa91e7de6d8b23089fe7999fef94edd3d40c89cbf641
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

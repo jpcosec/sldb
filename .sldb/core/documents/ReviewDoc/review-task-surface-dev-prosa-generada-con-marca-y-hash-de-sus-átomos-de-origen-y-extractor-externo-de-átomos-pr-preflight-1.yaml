@@ -1,7 +1,7 @@
 name: review-task-surface-dev-prosa-generada-con-marca-y-hash-de-sus-átomos-de-origen-y-extractor-externo-de-átomos-pr-preflight-1
 path: desk/reviews/task-surface-dev-prosa-generada-con-marca-y-hash-de-sus-átomos-de-origen-y-extractor-externo-de-átomos-pr/preflight-1.md
 source_hash: 0dbfa90e3d53f6d71ef1b79d1202c5ac0894dc717cf238efa62c48bb864f6907
-content_hash: 84a7c012922b4e57d02b8f2dd6ed995f766224153e50f26c79cc4590fd275fef
+content_hash: 26824a879d62f85ae4cce5589036ce0dd7c5717fdcdfc2a12e4a8a5fa3501753
 field_hashes:
   id: 48e5c19b94f5b117e91ba8d5e7bf2d3d556148cd3ea9e83cb4dacca1557cb285
   title: 6fd47f1a560d64219f17de53f785f9004e97ee497703a19b12c0002214721eea
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 08468333e3a60b7a5d979ea61e7937a45cf614ec90fcb39a984641fd375822c8
   disposition: aca3e348619780916b47c2745341979cd86c6c3f4da083a3d81c0ae22cbe1f14
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

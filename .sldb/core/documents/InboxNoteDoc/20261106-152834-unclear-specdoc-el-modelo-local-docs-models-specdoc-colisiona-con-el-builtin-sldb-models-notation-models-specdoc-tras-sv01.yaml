@@ -1,7 +1,7 @@
 name: 20261106-152834-unclear-specdoc-el-modelo-local-docs-models-specdoc-colisiona-con-el-builtin-sldb-models-notation-models-specdoc-tras-sv01
 path: desk/inbox/20261106-152834-unclear-specdoc-el-modelo-local-docs-models-specdoc-colisiona-con-el-builtin-sldb-models-notation-models-specdoc-tras-sv01.md
 source_hash: 368d78d929b68639b481da1f5b5246832341c638b02db52bc3e232678be14c9c
-content_hash: 41028b6d57fa7187bcaef60be851a52d71cb25e846746bd76e921b8da75c3173
+content_hash: 1c60a91de5ad5bfec0ee47de1ee96b5dd8956ccd0db870e956dad1f53c586488
 field_hashes:
   kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
   sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: 418abdba90fe5ad9ebc8d20e223ff9642f6dcb3f5e5104b9dab960745b1ea52d
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: c871e2493edd6d26caa55938c6efef1748db35cc23de1a7447e6735b7c93dbd2
   body: 672c8e6aae88779024569aa560bb003cb394e2a57d64e53ef6897c14bd0c3148
 semantic_tags:

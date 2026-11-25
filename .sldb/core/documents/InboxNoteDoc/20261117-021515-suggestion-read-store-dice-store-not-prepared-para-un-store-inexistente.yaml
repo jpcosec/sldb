@@ -1,7 +1,7 @@
 name: 20261117-021515-suggestion-read-store-dice-store-not-prepared-para-un-store-inexistente
 path: desk/inbox/20261117-021515-suggestion-read-store-dice-store-not-prepared-para-un-store-inexistente.md
 source_hash: a5e6b6549607ffc522ed25bb81a2200ba5ee45f1c67973612b61b4cee83292af
-content_hash: f95cd71c12f60cec545e78e9e720b74e9fe46e3d83552b0e137f084152a23ae6
+content_hash: c3193b00e64172ed151ef122c46f5735c0701ad39bcbe2882e3476450dbbaad3
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: 1d147ab379788e0277ce278d918ca7cf9e0572dffeefc59e10d282ef146bd45c
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: 102103b8eec560d0091b5d2abc37958666251b4d60cbc00fbb3575dfd711437f
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: 8e7724174b1688da7217395c42ee5442798741d37d840912c70fa6bc2f1eeed7
   body: 8c6886641847da2e5738fa6009b10c0f9436cad5400fd34e57df0b134d62bac2
 semantic_tags:

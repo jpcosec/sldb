@@ -1,7 +1,7 @@
 name: 20261115-224941-suggestion-matching-edges-catalog-build-con-tomos-tarda-minutos-porque-cada-edges-of-recompone-live-stale-y-mapas-del-ndice-federado
 path: desk/inbox/20261115-224941-suggestion-matching-edges-catalog-build-con-tomos-tarda-minutos-porque-cada-edges-of-recompone-live-stale-y-mapas-del-ndice-federado.md
 source_hash: 5c13fdab53b39e9db11995adc63e28cafd1156f8a68bf9b2af253b3f90e591a2
-content_hash: e5c5cd2e28acc53e48b051f4b30971f91a1808891cd53186b5a5a406b53ebd2e
+content_hash: 629152cbb5ad9f930ff61e5e8a5689c41b06bdb7adcde1a7a94801ebec133cdb
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: d2e5d8b8bc1ed526e50fa8fad97808fb489da92eca2004b9d3a231d3d4565bc0
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: 5f44e81dce730a97b8673687c3bf509e62d024d2955c363eb045ba947d1d27bd
   body: 8ea0176ebcfaeaea6923aefa42c2578c0f99ecb5f6d293da22b2f5c0545c6e3f
 semantic_tags:

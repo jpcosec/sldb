@@ -1,7 +1,7 @@
 name: review-task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest-bundle-1
 path: desk/reviews/task-limpieza-de-cáscaras-vacías-de-la-api-y-de-los-residuos-de-kgdb-graph-parser-help-texts-graph-ingest/bundle-1.md
 source_hash: 22d70d2c0542a78601a3f4a8fc70b3e066632c5ff487e5dca5237f64bc229fd6
-content_hash: 742e383ffd92eab079c3fe0df622d3ba2705903b2ef490f57c7df4386712fe53
+content_hash: 0ef4e859fe345c74c6b61bc7f6c40361a6f2c86cf195250fd2174b0b30eb6648
 field_hashes:
   id: 4312f870c462bb0e4eba03de4f5fa04c94fbf934c461394d45f0c84ad7271db2
   title: 4909cbf03e98c917b4629e97068493cfa0b1169addaa3c907adec98b130e8f3b
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: c03ac24899e71b220cd3147971cdcd36ccbf2c65dbf4bbdbe13166fc98801b5d
   disposition: d836de531a102634e6e28a49037f554718d395a3cdf00164594692f86d17dc03
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

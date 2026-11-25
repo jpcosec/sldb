@@ -1,7 +1,7 @@
 name: review-task-clean-code-tras-create-pin-create-document-con-10-líneas-de-lógica-como-máximo-preflight-1
 path: desk/reviews/task-clean-code-tras-create-pin-create-document-con-10-líneas-de-lógica-como-máximo/preflight-1.md
 source_hash: a3d0f750ec1f7b797f71c8f119d1c9a6d14e5e2319b4883383ee2a53d1468fa9
-content_hash: cb9d17838864c34917878cf0f1a7b340bd89c7e80fe0ea5e13284a646a445e5b
+content_hash: a5c5f1f3480b26b955917f6ab2a5c9e7dfc387e4f82d45de93b2c82bc66db4d1
 field_hashes:
   id: e6e00f1eed2340461e1e56c2c278b9e73e8ea7310da98dd92131c2773542f23b
   title: d5d12b55fcaae455af7b4f54f9856be989269896a9c905f9a14453817e845088
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 3284694493581e8e9754e0663cf0d46f04f6b5317f19979c054be7d1af09a9ff
   disposition: 498bec4d8fa0f44b7beba49a2bc0ddf3706790540a1259d45d3334beeec6c848
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

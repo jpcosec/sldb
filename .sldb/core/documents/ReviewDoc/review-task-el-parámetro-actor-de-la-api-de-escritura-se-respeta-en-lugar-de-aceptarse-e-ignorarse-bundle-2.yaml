@@ -1,7 +1,7 @@
 name: review-task-el-parámetro-actor-de-la-api-de-escritura-se-respeta-en-lugar-de-aceptarse-e-ignorarse-bundle-2
 path: desk/reviews/task-el-parámetro-actor-de-la-api-de-escritura-se-respeta-en-lugar-de-aceptarse-e-ignorarse/bundle-2.md
 source_hash: 00908ca25c79b17607318be6094318925912902de5b73f899c690c448c4ae856
-content_hash: 24912cc9792a87b6302f2896d5d897561caa00b75c62a8485fe2efba7c849fb7
+content_hash: e66698bbacba6a929bd4874c753f4be110dfa3801aa2beb8e5649e208161b470
 field_hashes:
   id: 01a9e93f29d0a4038b839a30d81b12f9cffa78969dfd7f6e05e0424c12ef761f
   title: f172ec1274b0eeba05e0c7e30c585c88e65991a8203f9bd38c9c76c0b2431242
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 08000b878691e313f157f814eb5ec670d56c58d126c9d0be70d9c90895b97163
   disposition: c2f330f3cc2007be3fdef800a065c68c0e56ed08d99945c9b4db7aefcf380f37
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

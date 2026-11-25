@@ -1,7 +1,7 @@
 name: 20261116-233646-suggestion-sw1-documentaci-n-y-arranque-de-surface-al-d-a-con-el-workbench
 path: desk/inbox/20261116-233646-suggestion-sw1-documentaci-n-y-arranque-de-surface-al-d-a-con-el-workbench.md
 source_hash: 39d77328f54a0ff7020fb3706efe57e97d16befad32b8e0a931090fef2b0400f
-content_hash: b23a2d6f60c16634761c8e0a61cd60e035974648af6a12997bfb39f79f797fe9
+content_hash: 7aec9aec0071331d5a2678f4498cde59584955a86c94153cec71e009f50a1984
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: 234040a47ce0b2f2e5e8f50b78f73dffe999c2b143a5ee2758540671313fc6d3
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: bba12b94ef5d3b7197a750f6920d1f4e45690d33e23105e53a6b0770d5b6942d
   body: b70009e4e261f205aab91a5496d8180cd0f56087e803fc11fe8f4ea5c9cdf30b
 semantic_tags:

@@ -1,7 +1,7 @@
 name: review-task-decisión-de-jp-cómo-se-resuelve-un-conflicto-de-git-en-los-índices-derivados-de-sldb-store-index-yam-bundle-1
 path: desk/reviews/task-decisión-de-jp-cómo-se-resuelve-un-conflicto-de-git-en-los-índices-derivados-de-sldb-store-index-yam/bundle-1.md
 source_hash: bd1170f4abe03a00d397ae007634c64fad44aa612b1541e5f24bd90b1fffd3d7
-content_hash: 6e5fc0a30a0286af6e0eaacb044647b5b200063558d054963311da79b90ff032
+content_hash: ec7cef1748dfbc03a4db87adb1309476bbbf16f2a9fbf9a8f28e2ca4beba6dbc
 field_hashes:
   id: 111e0c5f5b6694074f77ecd8ae38395839713a74314b7100998c78045a5a46f5
   title: da1a65c4cb85f352df848a606bf4d75e37dcce68da3a33e71fc3c781b20e196d
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 717160c19226636819660755b32145357cca097ce71a38d25a7f60687e1aaaa1
   disposition: e3c0027c17732a644ad8ea18cf8982f018e22a8effc48c6b157c83297b5cf93b
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

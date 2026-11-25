@@ -1,13 +1,13 @@
 name: task-sldb-models-validate-importa-los-modelos-de-deskops-models-como-lo-hacen-extract-y-render-no-module
 path: desk/tasks/task-sldb-models-validate-importa-los-modelos-de-deskops-models-como-lo-hacen-extract-y-render-no-module.md
 source_hash: 8c23086267defe9e175375da8d1664b2b8a56c12b3f6b975f97c113272dd264c
-content_hash: 041d54903d45947f1a55ffdaf8b76ba40a9c7e8789538c5f408127681cb4ccb9
+content_hash: 0dd9403728e2e8b129b1d259aa53f1664b49e9b3c950a41ae3529c44c0a54398
 field_hashes:
   title: 90f6703bb52365bcd16650b603fdc116ac585a044b343723b04f895eb0c47765
   id: b35536625006e9ccbb3489ef7c4e35178ae76139d5f9110dfdce98a7fc6fac3d
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  tags: 11bb1031122f37d8732140cbea164dabb926ef21d6bfde10ce845b776ef0913c
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: bd34d0bfb7960a5690411500e2eeb0314e1504f117a15fa2c6dff5751402e986

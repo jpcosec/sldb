@@ -1,7 +1,7 @@
 name: 20261115-215007-suggestion-ir13b-pide-exportar-desde-sldb-api-notations-los-errores-de-rutas-del-cat-logo-default-notations-builtin-notations-y-resolve-catalog-path
 path: desk/inbox/20261115-215007-suggestion-ir13b-pide-exportar-desde-sldb-api-notations-los-errores-de-rutas-del-cat-logo-default-notations-builtin-notations-y-resolve-catalog-path.md
 source_hash: 62972b1ea4a0e952b010fa9585691bf0422ff80de7c31683b69eb0bf82310962
-content_hash: f30040a3428e3d762e3d5a562aad56c3fe54302c5cc6be7507f4b1b8cd160d31
+content_hash: ce8227e6ea6889bd729c44a1ff9135e042b129cc243e79ed08a0a0415a927220
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: 3ad63063bc006d23926cd02737e67595aee80f5de01a791debd139ad7db3ef3b
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: e92838d5a1b8dcf0e86140f6c7fef457097ab220aedce62473fb5a0568ececc1
   body: aad76f16d2c63123836d85bd43840c96059c63b57c127f6a3769978e0c187097
 semantic_tags:

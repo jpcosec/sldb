@@ -1,7 +1,7 @@
 name: review-task-go05-lenguaje-de-predicados-unificado-preflight-1
 path: desk/reviews/task-go05-lenguaje-de-predicados-unificado/preflight-1.md
 source_hash: 6386fb809a5cd4c190b47fcf575855f57c79d7614ca22957b74a00ca3834785b
-content_hash: 0e98b84d2cb4eaea3050c329d68234489939b281e106be88ea5f4584c5cf83f0
+content_hash: 1f878e3b4313d64d99d2052ac8b7d5eab730c362587e3d6ed28c4a165e5ef6e3
 field_hashes:
   id: dafa17312918523a7de13c85fba1700249d2fa5dec95f9abc1c013606cbe524f
   title: a2e4aefc5599d0dee96889f1b4d94394607cd2565ebb94e02ef9226592145927
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: a02ea72d475ff85f008f6e6ebca43a16ed0e96b91e6653ae183068fc9dfda855
   disposition: d1095a3cce382abe3f900acf4cdf1abc0aa73dee8491bc710127c885eed734b6
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

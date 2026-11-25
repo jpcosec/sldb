@@ -1,7 +1,7 @@
 name: review-task-gd27-bundle-1
 path: desk/reviews/task-gd27/bundle-1.md
 source_hash: 5396075f3c4578009a37b62447306fe0c3c18a13b51e8fecdd7aa6424390b92e
-content_hash: a612ad60e80f5c5ba122f5a2ebf63ef27fcc4811d5861c35976cf2afb79b7649
+content_hash: 751ab5e21a23ad3ca8f750e36c0768e1b50caee1908755ccbd0b573bcab995bb
 field_hashes:
   id: b0bc5cddcbef42ed3921816db69798a2037c83a44d926ec903f0e9e009bccfc8
   title: 97cca3cc8fdb74fd11473894b332c3c2eef4f9b9364736405d336691ec1fe3b6
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 29a7b6b53a6505b826f371da2a403c8feb8457e6ffd47a54d450c785ae9d47a4
   disposition: 532d5762424fc4d925d732597e41c96b8225fd5543f63638bf7ccb1eb3711c51
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

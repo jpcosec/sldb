@@ -1,7 +1,7 @@
 name: 20261116-233905-suggestion-sw6-marco-de-deskops-2-3-4-3-5-el-workbench-se-abre-desde-la-ui-de-deskops-vuelve-a-ella-y-muestra-el-estado-de-workflow-que-entrega-deskops
 path: desk/inbox/20261116-233905-suggestion-sw6-marco-de-deskops-2-3-4-3-5-el-workbench-se-abre-desde-la-ui-de-deskops-vuelve-a-ella-y-muestra-el-estado-de-workflow-que-entrega-deskops.md
 source_hash: 05350ad40a73cb8b31d9fef2cc0cc1632558f964697299ec3833b9ff1a6582d7
-content_hash: f5318c5643d29378c73410541cadd61829178236ad8f188a2653b9ce9452c863
+content_hash: c5119c3f9aafa1ec7f91201eaf9dff3f594fed70b52396df98fdf92db2f961ce
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: d2de79b70117f9c0942d9be3debe8dd64aded5e151c6636c05d2f17ff6dd37b1
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: 3ad9d2e509c50c5240ed6e443a8448f1130e7efa9773066c835adb2a681e0df0
   body: 76eeee6cfad63fd22c570db6f6410e75455c250bcfbce93adcf24bc0188eee6f
 semantic_tags:

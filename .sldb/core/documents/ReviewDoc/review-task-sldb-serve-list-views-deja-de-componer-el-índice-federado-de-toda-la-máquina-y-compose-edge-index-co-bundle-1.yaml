@@ -1,7 +1,7 @@
 name: review-task-sldb-serve-list-views-deja-de-componer-el-índice-federado-de-toda-la-máquina-y-compose-edge-index-co-bundle-1
 path: desk/reviews/task-sldb-serve-list-views-deja-de-componer-el-índice-federado-de-toda-la-máquina-y-compose-edge-index-co/bundle-1.md
 source_hash: b96921e778babbeba38a6edd496162208f04d675f760dea7314793a89b94cbdc
-content_hash: 3f0bd222f2815ef3898f45115e12e238a493474c5397ce018df2976109dde630
+content_hash: 88e2057ddb6f7d89925a42409e09500480e2ddee013cccd4d99c0f35a9855f4b
 field_hashes:
   id: 923fd2ba4cdcb275fa5ae1481601454fa0982c8d94add93126d76b4d2bb82c46
   title: 0a66710cc91919f8b2b61435446948284d354b1129fb6bae3cfecc18de33e70d
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 2d2831d6ee0c4ec3540f87d81ef8d37c1ebe4b1ea1404f9b39153d9022100edf
   disposition: 980fbc616151bf3b361623f2c15d32facefb5704e79d7094784b697bca31d7ee
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

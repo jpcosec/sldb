@@ -1,7 +1,7 @@
 name: review-task-clean-code-tras-el-gancho-de-sldb-mcp-propose-changes-con-10-líneas-de-lógica-como-máximo-bundle-1
 path: desk/reviews/task-clean-code-tras-el-gancho-de-sldb-mcp-propose-changes-con-10-líneas-de-lógica-como-máximo/bundle-1.md
 source_hash: 441494378346f877028b74740e067426248611a30c5395263abab83c8c68632c
-content_hash: d2c8b53cedc337719a6cfafbc30ec6bd8a4ce2cd29ef44031af0a6f3c219b022
+content_hash: b7f9552a4274e310e7987c1934e8352730940a981933156245251833e591727a
 field_hashes:
   id: 91a6c7539991b39da0404bee6b0307eb0da28e931de9db16ba9ba4e43dafdd13
   title: 58197df3ab602d07cee26fe9d6f8dbdfe4030e88cc2d7b6eee4608beb452201a
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 35d41cf9bb545d127be16805b8364225908d3f557d8f2ba844b41c1ecd19fbc1
   disposition: 498bec4d8fa0f44b7beba49a2bc0ddf3706790540a1259d45d3334beeec6c848
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

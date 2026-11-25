@@ -1,7 +1,7 @@
 name: review-task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio-bundle-1
 path: desk/reviews/task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio/bundle-1.md
 source_hash: 561da579a1fff64ace75d74226712dd438db0ff91c5e38759f9ee25210147619
-content_hash: 91c0da07b3ec672746eefa789206dfb26bc583cf8fe208a9fe3e0af151cf510b
+content_hash: 056782d388a002789542b53e330576bd6a997019d2776548f049c773f36f52a6
 field_hashes:
   id: 3a97f5402d2706c4abdbd3711cdcec050aa510eb61703c42095350a99ff1ded3
   title: fe38dfcc3e7af919df8f7e90a09787819b57151cc867d3d04b4305ec599aad3b
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 8cbce604cda5dab24039d98955c9afd2152ec1d62fd9715b62fea035fe8d8ecf
   disposition: aac67989870e8605782bca0500833aee6a493cf279cd64250b3b6940ea1fc191
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

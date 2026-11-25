@@ -1,7 +1,7 @@
 name: review-task-átomos-del-catálogo-sin-rutas-absolutas-atom-payload-y-store-documents-emiten-la-ruta-relativa-al-pr-preflight-2
 path: desk/reviews/task-átomos-del-catálogo-sin-rutas-absolutas-atom-payload-y-store-documents-emiten-la-ruta-relativa-al-pr/preflight-2.md
 source_hash: fd5fc78a9875a9a4c338e0887d09e30148efdf3c086f896cf66d3bdec7860c21
-content_hash: 02179554b8db8aa9c67d8655ad8d5437808e332c93cb22d3ce99eb54d37d4489
+content_hash: 5f894ef910d8c7691992422c5590a9e3669c3d68df65f4597a38f8aeb151c918
 field_hashes:
   id: d7dbbbe753b5819420f9c51a157693af8459fc01194e7c413d09063dde307a07
   title: 71bbaa7ddc794efeff1d0c8e399a22fef79eda77aecc8a08d837abef1f618bb9
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 65207cfdabf5ede95b913d59bb0168d6b142357136c58940b081c4fd0693deb5
   disposition: 1d30d785f7c18d3a04a3cad203603765233f6d206dbecac0d424ae1593472ed1
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

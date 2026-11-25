@@ -1,13 +1,13 @@
 name: task-edgeindex-stale-manda-a-la-operación-correcta-una-edición-externa-se-resuelve-con-sldb-stores-update
 path: desk/tasks/task-edgeindex-stale-manda-a-la-operación-correcta-una-edición-externa-se-resuelve-con-sldb-stores-update.md
 source_hash: f6e1e4b19f9107814f45a2a38699bee9eecb8328b7d8e14e8df8dfdcee3cb48b
-content_hash: 35a0c04f41c3c7416b001563c4e0ee9d9eaa5233371608bdb6933410a219a796
+content_hash: 5c1383aa7da95054aa66559cd912701084ecb468373003e566b070634c9ffe6c
 field_hashes:
   title: bb88579ece63067425dffeb759e5d6228064b00969046c9828283e83f6bd7e0d
   id: a9212aac5464f9305466640dae7327f35f7db2ea4e9dabf7b33040680a1aabe2
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  tags: 11bb1031122f37d8732140cbea164dabb926ef21d6bfde10ce845b776ef0913c
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: cee0641a6f63e0decda62c8b3106a0384f977d52ab5d2e89abed5245c0572e67

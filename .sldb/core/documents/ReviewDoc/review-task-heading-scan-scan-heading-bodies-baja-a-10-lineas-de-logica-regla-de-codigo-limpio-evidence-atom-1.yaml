@@ -1,7 +1,7 @@
 name: review-task-heading-scan-scan-heading-bodies-baja-a-10-lineas-de-logica-regla-de-codigo-limpio-evidence-atom-1
 path: desk/reviews/task-heading-scan-scan-heading-bodies-baja-a-10-lineas-de-logica-regla-de-codigo-limpio/evidence-atom-1.md
 source_hash: e80e747d1e3aa8542877f0693b0dad113cc822d30560c048b343abfd6ff86572
-content_hash: f6fc2e53781bb79a9823a894bfda34903194ddad96255a71efcbf811237f0cd3
+content_hash: 52834b86927e4e8669a90f985b44af1f98e29200737f8416a1b4b1353f5d43aa
 field_hashes:
   id: 79ee228aaf14ba78f6ac9ac19142c3b9629f9f85dad5dd82dc89cba26521bb1f
   title: b3e440a4895c13024ec80a580fd7b605fc5ec83f78f2754bb6abf9a350728acf
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 6d138eeaf5788e5afd7350f2f34608fca9e586b7516ffc03d2435396deed3e03
   disposition: d95de29766ba219336b3d67e50c58204673804b0a466a5db3b871b5968a85739
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

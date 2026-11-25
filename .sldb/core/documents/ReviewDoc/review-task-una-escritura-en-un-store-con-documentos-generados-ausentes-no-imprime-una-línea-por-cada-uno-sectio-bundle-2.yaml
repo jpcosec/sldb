@@ -1,7 +1,7 @@
 name: review-task-una-escritura-en-un-store-con-documentos-generados-ausentes-no-imprime-una-línea-por-cada-uno-sectio-bundle-2
 path: desk/reviews/task-una-escritura-en-un-store-con-documentos-generados-ausentes-no-imprime-una-línea-por-cada-uno-sectio/bundle-2.md
 source_hash: 5240e9c90b995ed14262a34bf1881ab3f58ea9483a18aae728ccf347c6a7393d
-content_hash: 725e21d6686e9c8df20928968d6d007ab2afa1cfdb1d151f4d97792d7fe95241
+content_hash: 9e41242e953084911adc3e00248e501e519aec19e8a020008a0e9cfeb54a57e6
 field_hashes:
   id: 3c1b5ddd6315b74aff80eba6c55d1eb75ebd9bde8e16fb23396e15ffa3cd5d5e
   title: 5e2475c34e4c75d2760c1f30fdc8044a940d2ef360094786827bdc34b6bcde10
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 9470173093b50634f2a25b8ec96bd40aadb8f3cef11af10325b935e92a34a549
   disposition: 051f056ccd67cbfaaae00b77507ff48df64049cd38b1d0f50a0cde0096f0147a
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

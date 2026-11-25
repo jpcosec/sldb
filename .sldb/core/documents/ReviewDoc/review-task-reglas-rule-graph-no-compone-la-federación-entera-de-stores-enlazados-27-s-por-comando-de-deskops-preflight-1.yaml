@@ -1,7 +1,7 @@
 name: review-task-reglas-rule-graph-no-compone-la-federación-entera-de-stores-enlazados-27-s-por-comando-de-deskops-preflight-1
 path: desk/reviews/task-reglas-rule-graph-no-compone-la-federación-entera-de-stores-enlazados-27-s-por-comando-de-deskops/preflight-1.md
 source_hash: fe8b73cf71d67be98c7fd6c2719fa7d435eaedb7992d696cebaef7c24ac55bd4
-content_hash: e802a27b639341d0d6446759f9328ec528c30a601d4f850faf343d3ce62568c4
+content_hash: f46cba9f3f354c72bbfcd1a8d53a977d96aba2fb580c8eb81af303e75caca002
 field_hashes:
   id: e161e9b7d8cd6d3eda5b3763efc9090e6c0b929d0650dbf26828b188918e7357
   title: a4dc82d7fc5adf62cd76e54393bc3f60afbe5b4fb9b6005ad1c9264ee84a700e
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 28356426cd5b8b37330026b40f12b9bc1b7059349f1560f6b3a6ed078b859957
   disposition: ff91ad6e9b9af453c9d0244ed4609214e36694173c76ea61a678e0957e6bc963
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

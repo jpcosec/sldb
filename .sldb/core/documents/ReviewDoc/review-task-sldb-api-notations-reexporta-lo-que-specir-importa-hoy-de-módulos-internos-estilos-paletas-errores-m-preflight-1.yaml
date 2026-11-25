@@ -1,7 +1,7 @@
 name: review-task-sldb-api-notations-reexporta-lo-que-specir-importa-hoy-de-módulos-internos-estilos-paletas-errores-m-preflight-1
 path: desk/reviews/task-sldb-api-notations-reexporta-lo-que-specir-importa-hoy-de-módulos-internos-estilos-paletas-errores-m/preflight-1.md
 source_hash: dbc2ade6161ebea90111ee0b38046c340f2f522771496f4b36b46a8645ae3cf4
-content_hash: 669ee22b9db69c5aa3e8fe04fa7b0576285c44d22b5da1c5740ac95f5f53281c
+content_hash: 7fa7c784d5c0e5426a2c815217c74bea206bbe991d2a75c73a9525f80041d784
 field_hashes:
   id: 7d941957d6b9512f6d81be0ed5ce963ad9ee112a0ff2d85de8e65caf059822da
   title: f30bdb368cf5f3d9f68075e9b69adcaa7fcba87e630ea5f7b3ed76f5288f1e5d
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 05bcce0dbb9d4c15552523cfedccf110ee80df15bad5f71fca837be045acfa63
   disposition: aca3e348619780916b47c2745341979cd86c6c3f4da083a3d81c0ae22cbe1f14
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

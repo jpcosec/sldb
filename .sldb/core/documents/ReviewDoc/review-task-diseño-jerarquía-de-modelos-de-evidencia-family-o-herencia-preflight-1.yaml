@@ -1,7 +1,7 @@
 name: review-task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia-preflight-1
 path: desk/reviews/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia/preflight-1.md
 source_hash: 8fbb9a35acde819d176a7f5ad37e5aeadd6aea597c66e36ca9878c9ee1596575
-content_hash: 2bc80895d214240ea871dce5116a4c3744e45500c5c28b1a3f76ba9d33203e68
+content_hash: af782ee1ce84d2a3bdb89057a434dd78f68d6ca6ab5840c0d8bce58914863b4e
 field_hashes:
   id: b9cc6ec80d6cc633aa201615c0c7f557da828b2599a6982e9ae68140912e13ed
   title: a236eedf5b32b1c51a91c73dbd94da0e92ad90b3bb4e1a1744b75eb614dbb6c5
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 3383dc9be9c97c75643f5edacd4a7d0260a379837f64b50c7f7dd26fef6e3686
   disposition: 890f28e64d81608f00f6382a2740b6e70f944208645afbded7b68d48ba28fe9e
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

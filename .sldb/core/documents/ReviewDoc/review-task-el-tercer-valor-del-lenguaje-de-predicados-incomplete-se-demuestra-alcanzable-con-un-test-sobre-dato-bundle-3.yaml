@@ -1,7 +1,7 @@
 name: review-task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato-bundle-3
 path: desk/reviews/task-el-tercer-valor-del-lenguaje-de-predicados-incomplete-se-demuestra-alcanzable-con-un-test-sobre-dato/bundle-3.md
 source_hash: b64b8732cafb815334062d7d717993b3a7f9b93ef9b8a6227231bdd81159275a
-content_hash: 59038707dab7c0b5dd1402952097b96e73cf0efbc8f3eb3c0f32a42fa7ae9639
+content_hash: 93d135c648aad6853c79fbe0e4d399b4853b03149ac0b8dfde3ae6edb0decee6
 field_hashes:
   id: 0498d03513ac0b6e26b2dc3bf322698b28eedbb92d2f1b11f0f246137bb349fe
   title: c23ed63f6d5a26b0851b12678565209c22f1a988f980929e284108c123ae6652
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 5bc1540b091f401f2d8542c725e98786ac6fc68d7ce19573bcdb64007d508da8
   disposition: 394408166bdf0d539bf35b77ca4f24923130ec9e49eb17ea66a76c091814d959
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

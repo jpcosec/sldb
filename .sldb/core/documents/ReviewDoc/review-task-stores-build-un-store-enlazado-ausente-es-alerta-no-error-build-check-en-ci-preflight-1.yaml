@@ -1,7 +1,7 @@
 name: review-task-stores-build-un-store-enlazado-ausente-es-alerta-no-error-build-check-en-ci-preflight-1
 path: desk/reviews/task-stores-build-un-store-enlazado-ausente-es-alerta-no-error-build-check-en-ci/preflight-1.md
 source_hash: f6061503dbbe8ae32d16d67c27b73a35ac590290b5c98d87206e07f1b92c2de8
-content_hash: 2bbd96e64dc5992d10a22a7f1f74350f2f853b71f55af8383b4d8a928260344b
+content_hash: f0664e0437f4ab428e1dfdeb8194d405586b959d71e5655bd22cebce8a90e0e8
 field_hashes:
   id: cc99e9fd1b17b9a13dc10027df0b7127382fa8d87bb5d73ff40853ea2d93db27
   title: e81366bb5247afba9af401d934f8b56220057fcd8717534e8b4b4ca4812e5f5c
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 6c54867072dfd4b8a783b70b2f2c00b0deabb27ec393685080bec77939de8c6a
   disposition: 4b67725af6cd5683ce0b58be2e7a0e78475f1d6fcc04283c39033f835cbe0620
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

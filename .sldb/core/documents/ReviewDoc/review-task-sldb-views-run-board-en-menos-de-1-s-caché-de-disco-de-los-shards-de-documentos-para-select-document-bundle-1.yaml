@@ -1,7 +1,7 @@
 name: review-task-sldb-views-run-board-en-menos-de-1-s-caché-de-disco-de-los-shards-de-documentos-para-select-document-bundle-1
 path: desk/reviews/task-sldb-views-run-board-en-menos-de-1-s-caché-de-disco-de-los-shards-de-documentos-para-select-document/bundle-1.md
 source_hash: 7f07e080f448b5f7f5894d70e5a69ae5bfc0a9323d46c6752f1bd72ce63911ea
-content_hash: cf3050cec317d1edbfc0747c161fc2ad9739b2df103b4c5e4e176bd88b7256fb
+content_hash: ea52a0b09bd4e7a65b32cf5421a042e4c00453fcc0eda827b40a89b8e2a5fcdc
 field_hashes:
   id: bbbf03a4792abb97271d9f20d4217fe0c8d8783bd358e07d7bccf9314fab92b8
   title: e772e46af11921027e107e707e5c5f6b5235fb8bb1dcf412db69bba66dd115a9
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 62bf4cdb6436c23c213aece87b9df33828e1fa4090beb5bb3609ca2dedf7bad5
   disposition: 909bfa300e8f46489eb32bd30c97a24b9de859a4bee29d987bd5d29f8f4877fc
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

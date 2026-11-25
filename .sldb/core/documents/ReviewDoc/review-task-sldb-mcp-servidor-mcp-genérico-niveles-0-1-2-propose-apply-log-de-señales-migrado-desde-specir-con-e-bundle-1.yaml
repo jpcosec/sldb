@@ -1,7 +1,7 @@
 name: review-task-sldb-mcp-servidor-mcp-genérico-niveles-0-1-2-propose-apply-log-de-señales-migrado-desde-specir-con-e-bundle-1
 path: desk/reviews/task-sldb-mcp-servidor-mcp-genérico-niveles-0-1-2-propose-apply-log-de-señales-migrado-desde-specir-con-e/bundle-1.md
 source_hash: e0afd8b807406f4ed132919149c61a0e7f497c6beffb358b1bb6878fd458c83b
-content_hash: bc3407fdc8a0162c2bac06261d54f990f287945f1a0c72f5c40cf923f68f61f5
+content_hash: fd4249f1946f14a0323a69cb2aa3d8767c8da7a2098c7dcb6b5816205d19cfdc
 field_hashes:
   id: bf6e3d66ea6c41ded8c30d719eaf8f6c7a299d3e494b29335f17c54ea2416132
   title: 31e090d3c85b0e0de1aeb1fc00e621c27c7098e5aa9b3962940bf69b10c259c7
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: c208f18fb0cf02bb986535ff2e6e143a4d9775f6f8db44dc16b696225151349c
   disposition: 3166d38edb420ac969174781495f727b113435f10d5ae50a986731293c794f4a
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

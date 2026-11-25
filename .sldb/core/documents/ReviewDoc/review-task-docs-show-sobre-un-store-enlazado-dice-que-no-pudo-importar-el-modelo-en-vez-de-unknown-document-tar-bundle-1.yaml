@@ -1,7 +1,7 @@
 name: review-task-docs-show-sobre-un-store-enlazado-dice-que-no-pudo-importar-el-modelo-en-vez-de-unknown-document-tar-bundle-1
 path: desk/reviews/task-docs-show-sobre-un-store-enlazado-dice-que-no-pudo-importar-el-modelo-en-vez-de-unknown-document-tar/bundle-1.md
 source_hash: ef16038b65cd677a5ab7fa81161dcba6af29f622fe79efc607a975e07491ad55
-content_hash: e3cc271688d8bac61e2ec2fb07d80581977c94f88ad3fbd166a835a095b1721d
+content_hash: 9a8b5265068148b9ef8518dd75d7d942ffb85b7f7bc68c95df0b63d1948fa5ca
 field_hashes:
   id: 13c5bf27957d529552740fc18b7f5860a8b45b9e0f23a03d01617cf3fb7ba835
   title: 7a7f3be78b8a585a8cd4955813b832e47bf3fd1637cb0b97e3ab4c6772cf2017
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: eecf948528839e86ca5f688092595f21d8033cac38f9fff1436c626b5d86ea15
   disposition: e3c0027c17732a644ad8ea18cf8982f018e22a8effc48c6b157c83297b5cf93b
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

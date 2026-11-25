@@ -1,7 +1,7 @@
 name: review-task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen-bundle-1
 path: desk/reviews/task-el-sldb-cache-del-repo-deja-a-deskops-con-una-vista-vieja-de-los-reviewdoc-recibos-aceptados-no-cuen/bundle-1.md
 source_hash: 7e3f3fffa8c3548e80cdd820b64f63316d138fcd970603efa60b179bcdd17eb9
-content_hash: 5245c6b81ab7f1ddef7bdf5cb329c608f539f83d9d6efd2a0ae49a0d2aa951f4
+content_hash: 242cab272af598a5eb227523b0b763ac5474f5eccf2746902deb9b89dc075817
 field_hashes:
   id: d39e8c60639b78d33d9156a824a246fb40f29310073d63b44d25411998dc28d0
   title: edd809a0997692957e6730a420a73937fc870b415c8e209938bc12d56a9d2ece
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 12d97320ca0728cceca32be6e83819e5e04abdcefbaab11cdef46fb2af7e9383
   disposition: 8e8641df8ed06e94d2e2871e95d3dda71aa9cbce42b025b14b43e4ac038ea4d0
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

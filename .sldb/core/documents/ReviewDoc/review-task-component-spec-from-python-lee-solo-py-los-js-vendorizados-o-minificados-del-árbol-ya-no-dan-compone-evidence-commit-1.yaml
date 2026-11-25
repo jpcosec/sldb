@@ -1,7 +1,7 @@
 name: review-task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone-evidence-commit-1
 path: desk/reviews/task-component-spec-from-python-lee-solo-py-los-js-vendorizados-o-minificados-del-árbol-ya-no-dan-compone/evidence-commit-1.md
 source_hash: 2e8fd0d113d03c56ee8005e991975949b252967b38239d3499b0f270df5def2e
-content_hash: b940a55cef2d07e53b1951f8ab5778093772ca670ad2675ac4799e370d2eea79
+content_hash: 1b85f106e62fbc6ab03ac25103edff73df1b1cfd1ca68a05f716379e5e0187ab
 field_hashes:
   id: 0c9f1717a7050357326df415df78c5eb227168cba1e5e9f620a989940c31b737
   title: e121065ec507474484257b57e53fdeee87b7d2d3160faa442a79be37da8d7b7e
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 48179b355c20de8f6d3892e801374807679ea805c8d3e1eb2e248febb0e80011
   disposition: c1d43a1a43a97fef2faa7106e20b5fb18d40fb5ad45857b42371fc6b0e6c4861
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

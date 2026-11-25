@@ -1,7 +1,7 @@
 name: 20261116-213452-suggestion-regresi-n-de-b2-600b51a9-component-spec-from-python-recorre-js-vendorizados-minificados-y-da-component-spec-syntax-error-rompe-2-pruebas-de-ir
 path: desk/inbox/20261116-213452-suggestion-regresi-n-de-b2-600b51a9-component-spec-from-python-recorre-js-vendorizados-minificados-y-da-component-spec-syntax-error-rompe-2-pruebas-de-ir.md
 source_hash: b9449231c7ab24a4d95900c64d1520cf0fecd8db5a118898a379a95757e79c5e
-content_hash: 120d4298f93949963b499b0491cbbc0a282fbefed451cd89cc743f64d1502b8a
+content_hash: 0dc6131235f6918b9e8a24a91c45189ccd6a76d281b256136b6e8ef8ca56c504
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: 962b28ff02cacfac6fd63ba06d3d9765ea71e8fd2e2553a838750598d99403dc
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: bbbf0b05e24ead2aacd6f5d5644570ceb934354c13704c6a9ec2123a79cb8093
   body: 8266f18e4d067f00c5184351ec0a803162a4822ea9ee64907cafe356f75d714c
 semantic_tags:

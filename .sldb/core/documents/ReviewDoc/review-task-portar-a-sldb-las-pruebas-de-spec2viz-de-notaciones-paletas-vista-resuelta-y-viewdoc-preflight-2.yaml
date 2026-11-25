@@ -1,7 +1,7 @@
 name: review-task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc-preflight-2
 path: desk/reviews/task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc/preflight-2.md
 source_hash: 259fc150fdeb384687e5a3675f6c7de8e07314756b3e9ada3fbc6cc55a7c6aa4
-content_hash: bdc2c4c3749b07d02c6ebd014d90bddda8f0c1a7d05e59d20048e2854fc4b018
+content_hash: fcd2693096a4c700552bb64771aa361b12e4d8878c83887b904dbd63ad507bb7
 field_hashes:
   id: ac25da818a1fb856be08a8f2fb8edbc22c0a04f9e766ad0ec80d3b84688e3d6d
   title: 09ee5e43095bb242a1c6ab6ff765663e308460e67ea8c95e95a273902ad7ea2b
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: c15b47836f2c248ed2e635d82285d93abdeade4bd8a04c6d22c7e756de0803d5
   disposition: 6e43232d1e20687eb3ec6ef9d12100c189f942807307808bf7d510b4a72c10d1
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

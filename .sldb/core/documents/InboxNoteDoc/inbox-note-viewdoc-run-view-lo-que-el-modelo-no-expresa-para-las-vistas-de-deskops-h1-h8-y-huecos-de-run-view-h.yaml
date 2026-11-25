@@ -1,7 +1,7 @@
 name: inbox-note-viewdoc-run-view-lo-que-el-modelo-no-expresa-para-las-vistas-de-deskops-h1-h8-y-huecos-de-run-view-h
 path: desk/inbox/inbox-note-viewdoc-run-view-lo-que-el-modelo-no-expresa-para-las-vistas-de-deskops-h1-h8-y-huecos-de-run-view-h.md
 source_hash: 3bc89f61fbf9ea00a450fbd5e5a3a6fa146a22a12f225ee8ef97beccedda53a5
-content_hash: 624bece178cdd9d4c64886a30248454413cea913624da2140d70f85e0a7f0dc9
+content_hash: 4a0a081dbc6246c6356f1aa2818fa6294c40030141c7967f8e5b434bfcc5fef6
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: a8da4b5fe5173f1c0ba15fda88ac0f94c0b6183489e235f25e0a293b7745f27c
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: 1bd953c5d9e8a9b962b0d5e8899e19215b79b4059922f02168f501e1f22e9eb2
   body: edc410afad96e73b9ad4d89a27f4032336b5a594baccd3714290982c812d2f85
 semantic_tags:

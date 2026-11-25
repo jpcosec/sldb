@@ -1,13 +1,13 @@
 name: task-run-view-dice-que-el-store-no-está-construido-en-vez-de-unknown-view-h12-y-se-reproduce-si-la-revisi
 path: desk/tasks/task-run-view-dice-que-el-store-no-está-construido-en-vez-de-unknown-view-h12-y-se-reproduce-si-la-revisi.md
 source_hash: ceb2967a6358abebc1d9969e34acd5d80549be1feacf921ec4e142c507d24a1b
-content_hash: 2e45fa6cd743b985a61f05b1a9ff2588cbfeb3f39265bc7d148cbf41bc0b94e9
+content_hash: 332ba9230981995ec21e2577c88a42e7d1f0c12a2cf6b359d8d6b91ab449f289
 field_hashes:
   title: 8f2ae29f95fccdf405a7bc5cb3cedca41a9ef957d70e144e2db56222cd5daa30
   id: 9ee574804f37ae1e6b28b372b6d71bc944f7536a97792519b23c195488f6a26d
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  tags: 11bb1031122f37d8732140cbea164dabb926ef21d6bfde10ce845b776ef0913c
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: b77fe97745b98475a8f3bb4db9e6e8201c0b649626d360a593707364bedf5d97

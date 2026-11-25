@@ -1,7 +1,7 @@
 name: 20261115-022446-suggestion-specir-anclas-de-c-digo-para-tsx-y-sql
 path: desk/inbox/20261115-022446-suggestion-specir-anclas-de-c-digo-para-tsx-y-sql.md
 source_hash: 0e978be496114990897702352b071b0c8022e9f88428e0b260e412682f024d66
-content_hash: 3c3b3def84826ddc28fa5ea2e79acaf33968b0ac4a3fe3d405c55746afdefb01
+content_hash: cdf1c62bddc35bef9496838d6d1d8fb56e4988c22457186e1659a18a73eaa13c
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: bc9278ea3fce24f31d8c2abde0c4e10adedd9aeb316f52a3ff362f0d6e822294
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: 9668f371da8d37c6c277dbc072a8ae4b75b0c91a8ae8585b2b463e193ab51554
   body: 84dc877335d32f40173aac0d9592ad46e3b499588a168d153a73ed5ed75b6340
 semantic_tags:

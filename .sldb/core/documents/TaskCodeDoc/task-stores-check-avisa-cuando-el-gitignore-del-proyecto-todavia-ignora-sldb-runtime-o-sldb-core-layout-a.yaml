@@ -1,13 +1,13 @@
 name: task-stores-check-avisa-cuando-el-gitignore-del-proyecto-todavia-ignora-sldb-runtime-o-sldb-core-layout-a
 path: desk/tasks/task-stores-check-avisa-cuando-el-gitignore-del-proyecto-todavia-ignora-sldb-runtime-o-sldb-core-layout-a.md
 source_hash: 7c831febedf6e552bc3edf68c1177e8c160ecfc0cfcbacffd67df02fcb7427e3
-content_hash: 8ddc9919579688873661b8a9ff504d0c8f2fb92aa154224db9d2d47155846928
+content_hash: 1780461b08c7632a4d0a9a10ace422c47e30e4f0e30de8adf755e60793e61aa4
 field_hashes:
   title: 4f7b4d62b13309041a15e7d00d3a68f487c6249d709db49605aaa6d2d6baf486
   id: b14bcf14701e7be3a9a26c44f5da93d00445ae28e84ecd3e456d54a27d314f41
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: ce20db1d66b46bb3193dad6c6c5e492f00a3831b564398a03d84230796f76cdf

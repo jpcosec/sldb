@@ -1,7 +1,7 @@
 name: review-task-sldb-api-expone-los-facts-de-código-de-un-archivo-o-de-un-árbol-con-span-y-source-hash-y-write-ancho-evidence-materialization-1
 path: desk/reviews/task-sldb-api-expone-los-facts-de-código-de-un-archivo-o-de-un-árbol-con-span-y-source-hash-y-write-ancho/evidence-materialization-1.md
 source_hash: 4c59ac5ef1633b00ca177d81a2335dc6b51ca781dc04297f77c8da3368abb827
-content_hash: dbef3c22b84768dc1ba5008c84828547b845bdc006a2221cef87af0b41e670b1
+content_hash: d8be7e2964307edff5ab771695d0bb526a1c9de23f2e1bb6b4e5651fe76792bd
 field_hashes:
   id: 289192725a4b9c7f9c1ef53010a1a7cf22c779e9b685cddaf6b054dfaa2353de
   title: 39fa21bb565b8f2e34ce0329c1f1b632efaaef025d0f310af9190f043bb219ce
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 522eb64a1c2cd7c4e18ee85bcca1f6905659c5c8ea13f90ca4bfcaca6953e887
   disposition: aff0022d3ef03bcb2987cf2c2a8989c3e06f3b793e44e067ba8b5b2728a8ede9
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

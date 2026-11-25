@@ -1,7 +1,7 @@
 name: review-task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu-bundle-1
 path: desk/reviews/task-merge-driver-automatico-intento-nuevo-se-instala-desde-los-comandos-cli-de-stores-no-desde-la-api-qu/bundle-1.md
 source_hash: 68346f64d4988808d2225cead15f6bfe595858b94b4cc8a55239262edaee276b
-content_hash: a9247eda583d7228b66294598a8354ecbf7d0ca0210f77a03af1a08054420575
+content_hash: a78337f39e534ac5f68e4949f4bff1786e9e1d12f234ae3b7caa5110210042da
 field_hashes:
   id: 44480ebf3649a2bf50fdf873950e147b3cdd19b9183e849723d3788af9330cb4
   title: 421857985301dcc3a1ac1726743d52bf37ed8c7aa62fec3c5473b8866eb02fd8
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 90bd20ab4aff54f34ab555d1ae151926c7a6fa5efed92dc492625ac6ed2055e6
   disposition: 1cd3b2db3e0f1da87fd8838caf279a4dd94c69ba76caef49546625122ba30877
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

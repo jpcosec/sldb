@@ -1,7 +1,7 @@
 name: 20261115-193320-suggestion-ir-pide-exportar-desde-sldb-api-notations-los-modelos-de-spec-de-d3-y-guardar-style-y-entity-en-specdoc
 path: desk/inbox/20261115-193320-suggestion-ir-pide-exportar-desde-sldb-api-notations-los-modelos-de-spec-de-d3-y-guardar-style-y-entity-en-specdoc.md
 source_hash: 38705f884f45b88fffae8033a07ccbcff88adddfd16f7e7e27d9693a1217462a
-content_hash: 8a60f4a67a38127b86c386ab692624a28d3f1dbee3aa614e672abc774a4d2892
+content_hash: 46d2bcdffee7b7decc6a06129c472035c7728dd4461016cb2271c668b31705a4
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: 55755077b6b5dfafb6c990511cb27e8e1395714f7bee4e0bd560c824487a601a
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: 9ce33ea820769f1a86aa974c592729f3ff64aaf07f81955191bb08b251161311
   body: dac93e1afe8c27e7e6baab34945cb1dad9efd6b9f6f6ff4759979020e2fbe509
 semantic_tags:

@@ -1,7 +1,7 @@
 name: review-task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains-evidence-commit-2
 path: desk/reviews/task-test-where-retired-distingue-el-operador-viejo-contains-de-la-relación-de-aristas-contains/evidence-commit-2.md
 source_hash: 43587735a7530927007f97986856df12505dd8bb6ef7a846d1510abe56144502
-content_hash: 69d3a12f364e548cf85e6adb1e76957c64eabf89b14bfc32e91bae64c4d37e81
+content_hash: 68a3bf8a3100b0110990a435b9ddae24d51c4dc066aab3aa05952bf88ebb54db
 field_hashes:
   id: 3f49577887b91d33f6ded47be05009852e39d9a34aac1949b5d1dfedbd305131
   title: 7af3e516ce371b643ebfeadf3f5fb8c3749643428f909818cf1e4ed8bef8fb9d
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 23b79985970d22959b88592d411bd1027ba809b8343a6fbc03e3cad810dd44ad
   disposition: d3a70aa278f945a8256cf5b6c734b81d7f317bc64855dcf8bfc138d0e2faa4af
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

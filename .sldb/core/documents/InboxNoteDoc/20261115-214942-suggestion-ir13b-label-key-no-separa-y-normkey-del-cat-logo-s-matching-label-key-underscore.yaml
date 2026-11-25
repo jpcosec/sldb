@@ -1,7 +1,7 @@
 name: 20261115-214942-suggestion-ir13b-label-key-no-separa-y-normkey-del-cat-logo-s-matching-label-key-underscore
 path: desk/inbox/20261115-214942-suggestion-ir13b-label-key-no-separa-y-normkey-del-cat-logo-s-matching-label-key-underscore.md
 source_hash: 59a007433b08d5ff76149f0c39b429d99b99adfee3db13d57091dd24ba8b41f4
-content_hash: 041063b2bfd98780c0ddf24982cb27e4f718963f3933453c67066a526cb31528
+content_hash: f475e140d19d3d9717e2ef6d56cdc98f5ca8f7d08fa8b6c2fe058d56dc2f3d74
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: 6eb761939ceb42dbde4eb3757d2d95542e9b68a697343bcbf60d293e78a5d139
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: fd8087a3c2b48023905adab4ad7a2b6432ffe41a9a68cd59f919fcbf70fafed1
   body: 24f721ee5f9e94268582548b0001832bbdabad399a8ded169c489c768e785b3a
 semantic_tags:

@@ -1,7 +1,7 @@
 name: review-task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada-evidence-atom-1
 path: desk/reviews/task-undo-changes-de-sldb-mcp-el-guard-stale-compara-contenido-sin-procedencia-y-steps-n-no-escribe-nada/evidence-atom-1.md
 source_hash: 43e40f6323864094691822763544deda4213a2eafda587969b4cffdb208e833c
-content_hash: 08cbb91533c10d611e0122070d6bd629eb17d7dd3c6ca640120e8923d0643415
+content_hash: d9f8246c3dcca226dbf6674bf566d9421bc68637c3919a06b96e49e5d4bb25d1
 field_hashes:
   id: 5e0ecd257968130f1ee09805b069bde16b245c7d9cc39f9bcebc9c2920d7fc61
   title: 69db2bdc2824a2c3e8bc8e78a83b8450a6695450a0ffc022e4eae4b81e114824
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 016f5a0cf03b34eb1aa4d02cbfa2b17923078d23a98f4afe96d522682afeefec
   disposition: 5634fe6179c996c044d39bc40d985a417bf8d94e0f7a60cbd2a0a3eacdc91d4d
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

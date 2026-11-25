@@ -1,7 +1,7 @@
 name: review-task-el-guard-de-escritura-por-campos-refuse-lossy-overwrite-rechaza-headings-no-declarados-que-viven-den-bundle-1
 path: desk/reviews/task-el-guard-de-escritura-por-campos-refuse-lossy-overwrite-rechaza-headings-no-declarados-que-viven-den/bundle-1.md
 source_hash: 6c9efa03ff72c813e832410308b5d2fab40b86e352502415c32224d7f0382da1
-content_hash: 13b97464ecd34379c68b4ac01081001a34efd5572ec3d7093e316e90e5c9c7a3
+content_hash: 0e9b216fefeb2c2f80caea55d3d7fa7b8009247693b1ba74bf9437bfa0c5db23
 field_hashes:
   id: 846b965c57f241cbfa9cdd05a85615cc7f22a0911e9b2e0908ed9045e9b1dd44
   title: 692e65e6dce4315236dd5bd656450f0d719c237340c383be12405f4420eb6bf5
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 3664c270b92ea6dbda42f9798dca928118032fadbe055e22b17ca22ad99cd1e3
   disposition: 27a9b70fcb9f72d4ae4c992eefa803dcdb8b8baa5409652ec2f685da17aaeb86
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

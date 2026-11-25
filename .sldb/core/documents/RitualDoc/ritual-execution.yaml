@@ -1,13 +1,13 @@
 name: ritual-execution
 path: desk/rituals/execution.md
 source_hash: 46952294f72a606b916f3e7ac817aaaf4f3fd20f05303657f94c15993f89bc20
-content_hash: f815dfb5d00496a2b4310d97cfbb0b66e91717856e6a71725a969e0b04ee3097
+content_hash: 0d1061c44516791f76e4aad8aee6b47595f82022608b3997a711ecabb466af85
 field_hashes:
   title: 10398d2426a21f34536b73122a3f693045cbb38a3801379a86b079f52b5dee79
   id: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   status: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   current_node: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   purpose: e71995944c0c54b77632ceeda661a39b41d74276c90942351a809c8eed53fdc4
@@ -23,3 +23,4 @@ semantic_tags:
 - type.workflow.ritual
 - workspace.desk
 - workspace:desk
+provenance: null

@@ -1,7 +1,7 @@
 name: review-task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2-evidence-atom-1
 path: desk/reviews/task-check-edges-clasifica-como-stale-propio-los-de-stores-enlazados-cuyo-nombre-lleva-dos-puntos-inbox-2/evidence-atom-1.md
 source_hash: 8e0cf2964df2ed5d9b154683eee0cadac90ce39eb97b1e966409259f42a4d393
-content_hash: 7c9a5f83ac3d4799b39032e1f7d262bc556efcd1aa93fc421d935fade5b9fab9
+content_hash: e38bec9263da6aef01b925208e40ad54d4a15b985e470ab785e9b0576e0cc74e
 field_hashes:
   id: bc96fb756fe1fe0b21bc9c4a675a09fc5cc552783cf819085863fa952062893e
   title: 386550190a99dcdd551bda0b7c052e82098fb295644ca97d85c24a11c3c9c98c
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 6920772f80bacf186e97c6e988d84a6307d7aff7b2a32a7b693c09bf19a25a74
   disposition: 1ffe2577dc9ceeb341abf4f91842981d06948a9ee968b8131da9c58c9384bfcf
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

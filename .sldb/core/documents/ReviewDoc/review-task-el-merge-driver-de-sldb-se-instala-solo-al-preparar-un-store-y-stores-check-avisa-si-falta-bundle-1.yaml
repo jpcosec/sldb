@@ -1,7 +1,7 @@
 name: review-task-el-merge-driver-de-sldb-se-instala-solo-al-preparar-un-store-y-stores-check-avisa-si-falta-bundle-1
 path: desk/reviews/task-el-merge-driver-de-sldb-se-instala-solo-al-preparar-un-store-y-stores-check-avisa-si-falta/bundle-1.md
 source_hash: 6b261fa90ed3eba5fd9e9fa44a2851f57455c7a4d84fb08890cf313807f82d29
-content_hash: ea263cbb69cf849d0e9ac3a1605a7742f62f884450dae364321adbe4d9c75703
+content_hash: 5484c6f92e11b2ebe2327b5371bc978e052b5bd9323a182c000d2111c0595a36
 field_hashes:
   id: 482a5142514a2961375d996e0b98084c61da8a3b1d6c519b6ce9cc36bcb97122
   title: 6a06e4161ddf22b61181adbdd49fb4925b1edec0e932fb815058c94e85f49ee9
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 0a741c48458df241f8e65de9b3ec7060b63ccaa0901a00fe10db04e666c8dc0a
   disposition: 7d6e04da671d7815bea788759a695007993acc9bd008668e3c390ab9b5e302a7
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

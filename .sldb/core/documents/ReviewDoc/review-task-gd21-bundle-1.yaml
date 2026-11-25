@@ -1,7 +1,7 @@
 name: review-task-gd21-bundle-1
 path: desk/reviews/task-gd21/bundle-1.md
 source_hash: 5828f9858c8ba5bb2c8e7649ddfd4891bff9bfa2213d64b156cc0636655d01ad
-content_hash: 5904dcc348d06c744d3257c143fd24cd32282864bea972c19c45aab45294343e
+content_hash: 7706332babe756c24f482ad79c820e218a02de23c2d2332749384e960d128b96
 field_hashes:
   id: 5b78d486f234789a8527740f5a546558bfa3ceb1cc3e8e03436d481e7f3d0423
   title: f723423b643caad56164ac11597313a2ad83dda49c2e644a5afdae36d6d684c0
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: d0271a14e6fedb86c833abf9a88d9ed375a100351abf7731d712863bf76dd2c5
   disposition: 70fffbff60e761f5d23461143124937a2b26ce6c4e5e4d46fb4cdd2352c29469
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

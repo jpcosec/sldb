@@ -1,7 +1,7 @@
 name: review-task-gd26-bundle-1
 path: desk/reviews/task-gd26/bundle-1.md
 source_hash: 5988c9e7fd9790c9372258a4ebeba946158711ec391077ed87b851bc50a30176
-content_hash: efc05783aeaa3dd9f190d57e880a6591401662bfc95d164935fff6f22ca8ca82
+content_hash: 8eaf4ce96ac57d1337c88b6f086f57766cdde677892b2c18a08cc6583cef2645
 field_hashes:
   id: ba491e593623892062373b60e604a926d6799c2c2526f56bfa7b3b711c0b9767
   title: 411b9462132fb96182519746a9e7509c42758bdc8ed6e472c19b6eaaebac5cc0
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: d16794fe19dcfc24fdb247c6cb79d5782383c8551c01bac4c4fefabbc1e0c839
   disposition: 4602b775ca684ca8275aa064901a87780ba7ffe8e5e1b70b59e7bf401cd589aa
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

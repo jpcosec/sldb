@@ -1,7 +1,7 @@
 name: review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-preflight-1
 path: desk/reviews/task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar/preflight-1.md
 source_hash: 44686ccef867c241cc6e20a98f8bb362a585d48cc2c06656e1e74edca845e4a0
-content_hash: 369ec1f4c842418c763024f0d435ded5efe57336ccd51975adde199d4ab3d006
+content_hash: 2caead8e7bdd75acc83f0725d66067086c7876e9ce0dd41ff4fdb04bfb5fe3fd
 field_hashes:
   id: 17b43b49f252a6cce567932f0701a17f2c600926973fa8aaea4ef8a5f5ea18a7
   title: 3b7a91695e93d32b4265defbd7332c856d50f5486ccf4a70babdc1e1b54f7696
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 644338c21ee418fe36b446c0c084c32cc6dc9922ef73503b13c5055b4bd979b4
   disposition: 7c0e468404edac08a4807151c77a8a3edea1e26a3d9f57b94239e9607b92b785
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

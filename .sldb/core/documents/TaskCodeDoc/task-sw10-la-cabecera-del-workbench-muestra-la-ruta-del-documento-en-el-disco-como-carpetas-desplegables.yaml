@@ -1,13 +1,13 @@
 name: task-sw10-la-cabecera-del-workbench-muestra-la-ruta-del-documento-en-el-disco-como-carpetas-desplegables
 path: desk/tasks/task-sw10-la-cabecera-del-workbench-muestra-la-ruta-del-documento-en-el-disco-como-carpetas-desplegables.md
 source_hash: eb3591a8fdced2467d411e55394ab0fb6b17dca0fa682cb0580c149ca5281ccf
-content_hash: 304701659725db0ecac06cddf0be3ee8a25b5e53830139d74a61134a8620424f
+content_hash: d2457e9c4a72c411f8b7d8468f183577f7d3498488bdc38a25c52d610b99f5c0
 field_hashes:
   title: 551f7c59bf3831e0f694349aa67ec5d996f19ce0d08727a1db897eb529315f89
   id: f7ee59a7a135953e5ccedb16274c94d331986ded82854f09e72c6f7118e766a1
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  tags: 47a6eea7321adf55827c2fa93b3b94852948a8eaebdf088feba7bde08f9f236f
+  tags: 31376d0b4461ce3dbbcc34d0470e6fe206e3ae1ff8975d01f38b3255b7fb4b00
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 6780b62dc5080996d30419583b7338592925ca380837e9b7e192ee6959a0e143

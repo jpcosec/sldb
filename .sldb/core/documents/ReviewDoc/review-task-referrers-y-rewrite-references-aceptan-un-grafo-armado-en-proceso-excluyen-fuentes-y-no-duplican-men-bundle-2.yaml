@@ -1,7 +1,7 @@
 name: review-task-referrers-y-rewrite-references-aceptan-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-duplican-men-bundle-2
 path: desk/reviews/task-referrers-y-rewrite-references-aceptan-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-duplican-men/bundle-2.md
 source_hash: 279953b1d6fe1f3f17c587f0a0bad6b812a040f762b8cab8101ed3c877d57aa3
-content_hash: 6ef2b00efcb2e016500a5efa31aea858de485cf0ed22435cb8bafe3ee90ed99d
+content_hash: 4b67d0d428668ce9bc991533bd26430b7386207556de3b5cfadaa106ca3bb404
 field_hashes:
   id: 244a3a6fbf0bfa24c8ebb2e7d78095d25469572f2a948bf6392f525bca4c14db
   title: a26416fca7dd997a4fc4770ab65928cc46ab7d9f8394893909c0017cee360b57
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 78ab79056cd9d432955cb4517a225ce7093e1f155dcb471ffa22d13203e7e826
   disposition: 051f056ccd67cbfaaae00b77507ff48df64049cd38b1d0f50a0cde0096f0147a
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

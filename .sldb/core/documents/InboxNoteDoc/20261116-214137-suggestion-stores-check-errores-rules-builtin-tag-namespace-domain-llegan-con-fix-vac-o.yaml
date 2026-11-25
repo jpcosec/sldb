@@ -1,7 +1,7 @@
 name: 20261116-214137-suggestion-stores-check-errores-rules-builtin-tag-namespace-domain-llegan-con-fix-vac-o
 path: desk/inbox/20261116-214137-suggestion-stores-check-errores-rules-builtin-tag-namespace-domain-llegan-con-fix-vac-o.md
 source_hash: 6e95ebb0fd24f366ab3fbe30eaa611f524716000e1517ab60efc56bb7837aaa0
-content_hash: ec267f2a0110d8dd926be15a37d9478c914986f1b5ea968943054a3169b5dffe
+content_hash: faabd626b3a85b99657787ad1e08f40a8ddc67ca2f602b2f930d0d5dcb36da79
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: e710514e29fab1ba3c04f75397d61d649da0270012ce642af2775691b57f6e9c
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: 11c9815f56581ef978fe3b14cd512dc19e01928daa9863b9ade737487ee57ab9
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: c3b06ed1d816d8ce0f82a10a6fb74f5bf0fd98dc0d6dfde0fe74ba3a85f4f7db
   body: ad5db923d176902be1f429fc1653899062afc22cc510054b058e429a23fdf8d5
 semantic_tags:

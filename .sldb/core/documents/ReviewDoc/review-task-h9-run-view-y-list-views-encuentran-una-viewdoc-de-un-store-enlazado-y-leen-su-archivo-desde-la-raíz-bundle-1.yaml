@@ -1,7 +1,7 @@
 name: review-task-h9-run-view-y-list-views-encuentran-una-viewdoc-de-un-store-enlazado-y-leen-su-archivo-desde-la-raíz-bundle-1
 path: desk/reviews/task-h9-run-view-y-list-views-encuentran-una-viewdoc-de-un-store-enlazado-y-leen-su-archivo-desde-la-raíz/bundle-1.md
 source_hash: 09e254fec299a1fe40d43e36c5e9af0abb60055f726e52d4f0656703269a0856
-content_hash: e362375774aa24c58c8d639fbd037d2936053a7368b4bb39a20e9926b8efdab8
+content_hash: 37246dc02f6c31054266f81291b741784d60093df9cceec5b3449e7297262239
 field_hashes:
   id: 7abc65b7fb10c1a756b7b907a45135eeb692204ab80f99febc867f484a860a04
   title: dff0d441bb1f852664ef06c18ac05936502b9651ff31314c74a0ee151e4f56b2
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: f2d4bafa9655ed6a7eba1183439b45a0297ba0fe8cccd5ff56b218199c1cacf4
   disposition: cb347b5771dbc9f99b15eb22d02190e18ae9ae904e9351ab0212c7102c045c57
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

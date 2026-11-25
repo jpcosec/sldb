@@ -1,7 +1,7 @@
 name: review-task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto-bundle-1
 path: desk/reviews/task-raw-atoms-by-view-si-se-pasa-atoms-dir-ese-directorio-manda-para-todas-las-vistas-y-nunca-entran-áto/bundle-1.md
 source_hash: fa85802d5cc248b77c0598b280e8bfe502732b4df1a57f71c0af7afce5499a73
-content_hash: aec46f7a88e5726f26f194ae121b9b6928f16c9693a2a18eaf6c9bba18e88fdd
+content_hash: 5ec478b9d91ed4ab2ca4fb2a3ae84c6e7dbab80489a0d6943e99fb96f6992680
 field_hashes:
   id: c86c781c8d5de0a89b9fc72fde50540a7d7418561e06d1d3b061ef1b43c14005
   title: 1767f95983073e10ca19a6586b54dcffe7fcebecb152677b65dc0227b53d187e
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 4176dbf9b23bb2099050fd18f6719be3054af24d67e260e18902b07c6a7ddafa
   disposition: e3c0027c17732a644ad8ea18cf8982f018e22a8effc48c6b157c83297b5cf93b
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

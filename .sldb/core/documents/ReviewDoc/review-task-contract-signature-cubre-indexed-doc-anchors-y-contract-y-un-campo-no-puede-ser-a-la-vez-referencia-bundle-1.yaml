@@ -1,7 +1,7 @@
 name: review-task-contract-signature-cubre-indexed-doc-anchors-y-contract-y-un-campo-no-puede-ser-a-la-vez-referencia-bundle-1
 path: desk/reviews/task-contract-signature-cubre-indexed-doc-anchors-y-contract-y-un-campo-no-puede-ser-a-la-vez-referencia/bundle-1.md
 source_hash: 9291dfe1760f679a29d4f778f8ec6bade0e117cba504cdbb6faa25ef5e2e668e
-content_hash: b906c784178a9e49826a0401e5913d59d201ecd2eb8fceeface6c1af86893eab
+content_hash: 97bb7a3e4e8a0f4620a5a2dcfcb8b723fe5579fd2a23e0b269a7c19e556f3048
 field_hashes:
   id: 9177d31fc85777d9084f80e3261f3bb831886bfdaa0f3373e7aa9c62a61318fa
   title: e37b71918bbe7d15490d0bf412110695fcac63bb18fe5b23b0404f0bfb369445
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: ac453dde75ffb1709985725f4223836d03a82971a6ca5b286ae1567aae32f0ca
   disposition: e3c0027c17732a644ad8ea18cf8982f018e22a8effc48c6b157c83297b5cf93b
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

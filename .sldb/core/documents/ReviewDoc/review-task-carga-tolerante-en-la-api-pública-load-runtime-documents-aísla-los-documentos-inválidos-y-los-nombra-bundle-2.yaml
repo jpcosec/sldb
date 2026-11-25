@@ -1,7 +1,7 @@
 name: review-task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra-bundle-2
 path: desk/reviews/task-carga-tolerante-en-la-api-pública-load-runtime-documents-aísla-los-documentos-inválidos-y-los-nombra/bundle-2.md
 source_hash: bf6a1bb9099d35207263a676d82ba2c2b7226666034a8616cfc2c5aab62cf8c6
-content_hash: 120dbdcee500be061a9ada3d8dd15a06507c9c8f991c9785221deb55f0d6ff17
+content_hash: 7c722de71039cb617a6c1901060f2836306e332b9587db966dc442df5227c055
 field_hashes:
   id: 732af7cbe55da677131ddced9853298c513541b2fd1ec5c9b70e5580941ec73a
   title: 5d9c96a66bd65c1c2d73e86c11d56ac72b094de9f5bf16399eb3a30042381b00
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 2f785c1628f2a30814b9d8c379906b7c388c0db3e1a9f328c218781a8bae4ebf
   disposition: 051f056ccd67cbfaaae00b77507ff48df64049cd38b1d0f50a0cde0096f0147a
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

@@ -1,7 +1,7 @@
 name: review-task-apply-batch-guardas-expected-source-hash-bajo-el-cerrojo-del-store-inbox-20261115-022444-bundle-1
 path: desk/reviews/task-apply-batch-guardas-expected-source-hash-bajo-el-cerrojo-del-store-inbox-20261115-022444/bundle-1.md
 source_hash: 7f2be36b9067b64516a5a32d02242f7564dd28a608b3bf89bd5137d32af6e68a
-content_hash: 4ccb8bd62a5765b22d16358b9f1bb42cd98b5b2ea69f48958db1c56ba4c64421
+content_hash: a753123bec82806155cad2303fec16a957375d3669523fe94035ba96776442f5
 field_hashes:
   id: 01cbd66f69d84f2b41201c014ce2f917677a9a5fdece8c30358a5bed21a46d04
   title: 6001282eca43506204a3877ddef8d0424339d01e5fdbd4944b5c832fb63e2ca5
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: a7b70de7f7cfeeff4990f5f8644cf99d6f23655e196ec1fb32914755c71f2d59
   disposition: 7ea8ee00b60e1d903bd7fb6b4f26d0478e1c545f23a80c86e74d7997d37a0639
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

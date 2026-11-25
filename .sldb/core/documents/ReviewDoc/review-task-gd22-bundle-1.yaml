@@ -1,7 +1,7 @@
 name: review-task-gd22-bundle-1
 path: desk/reviews/task-gd22/bundle-1.md
 source_hash: 5f79eda119386dc9994a17a6bf7a971dc0cf3bc2ba0b634b0c0ff5d3f6531f20
-content_hash: 22565d3ac3ef40d50af7d61d18ff1955ad8bf49e06a61f135d09c336d9273eec
+content_hash: 41caf2b007d4ca514cf97dacfeba27a0f53eb9522138bb0dd4e14b9f247fc0dd
 field_hashes:
   id: beea8a91495cbb3397183abc93fff56e92992252cca5c9a9d26177d10b6aaa51
   title: cc90823393cf9b2ca6c538904b41141daf7aab787db74af1f2d3b96da54fa798
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 5fbb5ad83a9c483597778e826a361057d80824e18d4dc38a577c480a70db7ccf
   disposition: c112435e2024d6375195b830d8e9e2af51b3ec537310928587395ae9b11eb472
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

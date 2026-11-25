@@ -1,7 +1,7 @@
 name: review-task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre-preflight-2
 path: desk/reviews/task-sldb-code-publica-facts-genéricos-de-python-bases-de-clase-decoradores-con-argumentos-llamadas-entre/preflight-2.md
 source_hash: f2e9d1eb246146595c9ea2b2d4cf08d4562ef86606dc81eeb5ec2a5fa7313f06
-content_hash: aece7a4f3875b14d7321a0562d436635ed15050aa995a28c8f0b0912b2d886e3
+content_hash: fe2145daefddc5f9e73c2bfd97145493f7d3820810608ca4027963f5ec855db8
 field_hashes:
   id: c6fb7a04f658d733b2f7859e736c2e6828b31ab7ac4cb064cf7b389ceb3664ed
   title: 6de58b0c5a391134a9163225d2879419aed65c4b449ee30e2611b3610a9ef1fd
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 439fe20e186c418bf46a8670e8239bd3872a1c0ada9091972ac3630d7c75240c
   disposition: 9f642631b73f06703fd3ff858fa4884b2303200bef2a14f5a3ad4b1ede7a747e
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

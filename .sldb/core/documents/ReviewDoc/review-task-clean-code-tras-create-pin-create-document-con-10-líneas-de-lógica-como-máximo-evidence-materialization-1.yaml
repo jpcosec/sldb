@@ -1,7 +1,7 @@
 name: review-task-clean-code-tras-create-pin-create-document-con-10-líneas-de-lógica-como-máximo-evidence-materialization-1
 path: desk/reviews/task-clean-code-tras-create-pin-create-document-con-10-líneas-de-lógica-como-máximo/evidence-materialization-1.md
 source_hash: 7dfe5336ba4d48d15daa1e57b7e217db8379f28f5f1c8f4c23ed1c48fde0abb7
-content_hash: 0c80cf294416263205903200b1879ad36a62ad3060885a4c81db861c967993de
+content_hash: b93c99186a11273c0a809e1508f65e292b568602c3fd734077109df09f599ca3
 field_hashes:
   id: c260aeacb4a2e0893b6cc1094c0aa10e1c1f90d091800bf058db7d03854904c2
   title: e85eb3d37a80f94e89dd546a5c52ffcdd1caedf304da0a2f017d578c06255682
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 1232aae921f4cdacca31b6ac4110162b35af408a44076638d3124777d6076553
   disposition: 37ff56704bdd679c4e0d74caaf8029691a7e7aabec05ea3e0a7262c6d4c7193d
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

@@ -1,7 +1,7 @@
 name: review-task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for-bundle-1
 path: desk/reviews/task-docs-track-reindex-re-indexa-un-documento-ya-trackeado-validándolo-sin-saltar-el-round-trip-como-for/bundle-1.md
 source_hash: c4c2eb1821a95ec6f52002987c032e2f3af4aed5e6ebfd34a1e6d0576d54d6fb
-content_hash: 4cf4373ae372a41883542e8ed3247b215a2ce4013fa2b378d332a145ce681dcf
+content_hash: 75d37aad7b7c3757bb1b4823ea585f4f2f0ae65d58618464c600ce81a40299e7
 field_hashes:
   id: 569b669670dbeec2f1d2031a650ee47ae2f9c6d65a8065c074bbe6136bff2b09
   title: 0850ee4d5e6c63028efbc1de7bbe958d8d494e5f4c4f82df0e0c4cb6c4e65eb3
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 536ee62886b81444397b23636043c3c930d6a186d222fa1b9e4edcf1ceb47897
   disposition: de051d518aa6ddf602b2c93590531deb6ae122839b78a5593946a1848c9e697a
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

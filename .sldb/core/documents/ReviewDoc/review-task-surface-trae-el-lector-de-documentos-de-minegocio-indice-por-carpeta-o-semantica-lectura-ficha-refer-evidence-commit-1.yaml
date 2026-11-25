@@ -1,7 +1,7 @@
 name: review-task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer-evidence-commit-1
 path: desk/reviews/task-surface-trae-el-lector-de-documentos-de-minegocio-indice-por-carpeta-o-semantica-lectura-ficha-refer/evidence-commit-1.md
 source_hash: 902ab46835d61f3f537fd4375191f176270d5554243319d72fbd4fa3cdafcc1a
-content_hash: 6d6daa029471a82e7d98fee29a895a2c8a3700b834670435086d9c204f34191a
+content_hash: 3a22400514b19b1fb8f77347b728521832e42faaf93cb2fa953255f8469f72dc
 field_hashes:
   id: cfc2cb11441a28af09c33cece330c295eff108ea81d35ff0953d46b0d6f6d021
   title: a6230de45e1b8414dc3eb20f85bfa784554b602ad865117363730879bc3c1434
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 07db78ebe1c5037dc1399fcaaace7891cca9c6ae12dc9e1541691e358e59b6c1
   disposition: 7eeef6ca92ef6e4cb08ef2eb2c35b080a7452cb55fc7ee9c8f7684daa5b69864
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

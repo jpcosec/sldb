@@ -1,7 +1,7 @@
 name: review-task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y-bundle-1
 path: desk/reviews/task-merge-de-dos-sldb-sin-detenerse-merge-driver-de-sldb-un-comando-que-regenera-los-índices-derivados-y/bundle-1.md
 source_hash: 736186c292c18b8163fb0da618f3d347daaf1696f21afcf9bea6bc7ddf5b5689
-content_hash: 5b234b4aea09bcd5b4b02da17c328f963370b962cee0d9a0555a2de083ef6324
+content_hash: c908e7295ed9961c96b218767499a61e37e755805d1fbb064323ab25a43498af
 field_hashes:
   id: d40ea995b01a3eb83b9d05a7b821fad73e843fde2bd073cb08ad52d4bd40bf1b
   title: 5230a7ad92efdce495550a0791b440c0f3858cd4771b1058650e7ff3dcba09fc
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 3bef1dd427fd9a18ff18525386faf95fee7a9d54266d4e7c9ee0f4f766d773eb
   disposition: 498bec4d8fa0f44b7beba49a2bc0ddf3706790540a1259d45d3334beeec6c848
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

@@ -1,7 +1,7 @@
 name: 20261116-162239-unclear-docs-track-force-no-fuerza-sigue-diciendo-already-tracked
 path: desk/inbox/20261116-162239-unclear-docs-track-force-no-fuerza-sigue-diciendo-already-tracked.md
 source_hash: b532eee60f11c73b6beefddbd17fb61d9b8e43a167e643e2b30b1ee392612847
-content_hash: 81f0ecbed441e89d0abd8cbfc04d5daa7ad99ea765ed49e04fe5d72120940576
+content_hash: 11084903f79c56901957af0079129ebfeda2846d1a94f40f9d64874d3ed8cacf
 field_hashes:
   kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
   sender_project: e710514e29fab1ba3c04f75397d61d649da0270012ce642af2775691b57f6e9c
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: b7cf9db0cf304cafafee07d967bb83fb2f7c7f3cc808723c77baa813a7a39a7d
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: 07f2e283956fb40b1c5dcce3349c8502309fafb4cd9f0217b4c1a7abed98f640
   body: c0c145f9aa657eb495b3b8e9e747204aa6cc6920bef465a619a5202d8694ba1d
 semantic_tags:

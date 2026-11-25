@@ -1,13 +1,13 @@
 name: task-stores-rebuild-index-regenera-desde-su-fuente-los-shards-de-documento-que-git-dejo-con-marcadores-de
 path: desk/tasks/task-stores-rebuild-index-regenera-desde-su-fuente-los-shards-de-documento-que-git-dejo-con-marcadores-de.md
 source_hash: 7fca23f2e0cb750fcfacf2f15e99987ad05a0c10cc9621b6bbbdb39ade866ce2
-content_hash: e1f6b4574a11d8eef8452ca596d18e43a9bca83af0bf7d0c9afb103b72b14bf0
+content_hash: 50514cec78581d9912f4f30614b3ec1e735a73a0ec37688d4bf6684de9610842
 field_hashes:
   title: fcb1f7b8fa2ab07d5a9031eeba0f1337fc01ea3ef8c3f76c2cce5d6aac27d854
   id: a03be72da5526d74cf22670766359e4b031e935d9f717c46baa2ae2d62587ee9
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: ba62515afd574fb04a43d981456cb86e0a1b8807b635c5751f4144c092cc9f97

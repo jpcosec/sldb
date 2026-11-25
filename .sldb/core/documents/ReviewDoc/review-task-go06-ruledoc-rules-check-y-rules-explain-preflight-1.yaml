@@ -1,7 +1,7 @@
 name: review-task-go06-ruledoc-rules-check-y-rules-explain-preflight-1
 path: desk/reviews/task-go06-ruledoc-rules-check-y-rules-explain/preflight-1.md
 source_hash: 49a12483fe11e6a38640859f477d76374d28c42c8e0d579e865f6fdbbf206a6e
-content_hash: 324374e12c54041e62e43383c31c36c01003b07e08f3a375a1bd04f28abb702d
+content_hash: bfc1d32fb18aefb23d0b399310f48e523224e7e8acde6d2b6e366dd57207a90b
 field_hashes:
   id: 458ced3d8befb01781eed1d185e7c4f84042da9ed84b01ce1c32de202038c9c2
   title: 0b301c391b995d025e140a28388f55ba969aefa8b8d6bd6d649805a0e2c84690
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: dd5a86a53d5ad16756944209bf79c572ab833891a1afda6e3b8c9043e27911d7
   disposition: 49403ad7066d6af507b77d7d2daf43fb5b18fb7d89038fc85f6d874df002bb4c
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

@@ -1,7 +1,7 @@
 name: review-task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio-evidence-atom-1
 path: desk/reviews/task-notations-validate-check-store-document-baja-a-10-lineas-de-logica-regla-de-codigo-limpio/evidence-atom-1.md
 source_hash: 04e211e8cf860d79a1586a5562004001a3a5790873bbff6984feade0e8a8d913
-content_hash: c4831c6aa0687cab0cd9beecf45265eeab7d4d388ee4101fa7c38d615cab8eff
+content_hash: 0322ca18d85bfa637c12025cc8791d7f91e02bf9d6cce7b8f221c02485d2d67b
 field_hashes:
   id: 1a0998573c389404e156f024ba495d8cc45007d16ab889aafb97001855cad3db
   title: 2b7f95e678815487019e252b7e18fb7056a3f98891ad352c28661942722864fd
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: f3bcca45c5f40ea27c7fab4d7050b25fa9f3e763a7a5d330ead68ea30f93a24d
   disposition: 8574ccd6e48a522721ad7be190020f1e925fb59c6408a9d610057d1a05aae28e
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

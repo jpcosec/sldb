@@ -1,7 +1,7 @@
 name: review-task-rules-language-md-la-cabecera-describe-la-semantica-bivaluada-incomplete-retirado-preflight-1
 path: desk/reviews/task-rules-language-md-la-cabecera-describe-la-semantica-bivaluada-incomplete-retirado/preflight-1.md
 source_hash: bb66f81e2ec576aac1867fd12871d298d2aa6b67f7c74d9dbc3c66a11c5d5eca
-content_hash: 8e7cc79f0097605920e74b8c5fbc4a5397b1bc65001092950bb9eabd143ed2e8
+content_hash: eabda956588314a57f127a5cd665867df143f8199d44c43169ebb27c37a60762
 field_hashes:
   id: 0a2ce142c3256fbd0d7a199979c47e010d8aec4f4b186a76adc8f8199bf10680
   title: b45974fabd772ced36b58773407f3bebab50f115a0ebeb4946fad4e04dd14427
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 99ccd7ee6fc7b6fc16ba0c49c609b6dc9a2bfd0ffb22b9721b9e90d6a03927d1
   disposition: 4ed8adcc978810dee3f03857c927aa49f2d93a22b54d210a82aea12f9de69ca4
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

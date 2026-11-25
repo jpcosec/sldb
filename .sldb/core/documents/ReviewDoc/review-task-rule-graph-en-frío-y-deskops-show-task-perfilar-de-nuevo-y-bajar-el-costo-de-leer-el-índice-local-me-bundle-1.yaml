@@ -1,7 +1,7 @@
 name: review-task-rule-graph-en-frío-y-deskops-show-task-perfilar-de-nuevo-y-bajar-el-costo-de-leer-el-índice-local-me-bundle-1
 path: desk/reviews/task-rule-graph-en-frío-y-deskops-show-task-perfilar-de-nuevo-y-bajar-el-costo-de-leer-el-índice-local-me/bundle-1.md
 source_hash: 7e1e617c2e171bab0566b7d5c9779fa705b211010e9da1fb0a404fac7e487d1b
-content_hash: 3a7425a9caf9bf639f0ee8ca224acb1ed6400bcb6225320d8575c00f9bd00caf
+content_hash: 475f175bedb08108c0fa9156a6a9baa8076c247a068e8888f639f899d222f672
 field_hashes:
   id: 1dd106c4f38c96b59ae90d5e135b024f952edb85a10f0a7689c61d354cd3e5d5
   title: 55dc42b8d8bc8b54ec9b71f0f2620be38a4664aec4066e77d294430424d5f753
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 24b8d4ba1c4b635e7797b78c54f1832df7c22f803d198b835683a3cfc8fe6288
   disposition: e3c0027c17732a644ad8ea18cf8982f018e22a8effc48c6b157c83297b5cf93b
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

@@ -1,7 +1,7 @@
 name: 20261116-233840-suggestion-sw5-autoridad-por-modelo-4-el-due-o-del-modelo-sale-de-describe-model-y-los-modelos-de-deskops-muestran-el-verbo
 path: desk/inbox/20261116-233840-suggestion-sw5-autoridad-por-modelo-4-el-due-o-del-modelo-sale-de-describe-model-y-los-modelos-de-deskops-muestran-el-verbo.md
 source_hash: 5d8241d54dd261c1ff6d6d15a11b9075171dc6e0976c3f76ff9775a1a439e96d
-content_hash: bb0e7098f8a70f647f1d1a5ef9b318dd4ac8a4127e386890c89fa5575f506d1b
+content_hash: 0cfc7c94c928404723872a4f34e37d1181bb9afad54dc301bbc854a6cdf3c310
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: efc9c795277d5890e2e0688a93c419c175f3324b5596a137809bae568cee0d16
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: f31be68e4718a45c8738d7ba0a9005ac0b486d5f6c4e9326f73d94dfdbca5fc7
   body: f8b737a203aa2c9408b29ce3c0d4071297299b3a9e1e7d761267b125777bac99
 semantic_tags:

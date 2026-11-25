@@ -1,7 +1,7 @@
 name: review-task-edgeindex-stale-manda-a-la-operación-correcta-una-edición-externa-se-resuelve-con-sldb-stores-update-bundle-2
 path: desk/reviews/task-edgeindex-stale-manda-a-la-operación-correcta-una-edición-externa-se-resuelve-con-sldb-stores-update/bundle-2.md
 source_hash: 295db499b874739f2dad8943bf239f4f0ac52025b7669602b48fa94b5a4228ab
-content_hash: 94e0354d700e71b3388d20161ee41d98e1a5c74d22a771d92c4b0f794295d031
+content_hash: 08c0d45632f8a9ef956ff20669c5a360c304381b83a9a10427132d45d51d9a3b
 field_hashes:
   id: 424858d0008347e74878195c45b799e30ef5c3ea3ead3cd75920e3f9071b3210
   title: 30b8cd8fb084dd8f4e73099b918f37d1090d65a33aa2115a448be9219e441da8
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 491afecd59ee749e6d719b68eb131c74790289676220bf0166951aff71d62d24
   disposition: cce9296bf7a73a35f3b222433b0d0321115e95e008f6596e6997b00c6c8d5525
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

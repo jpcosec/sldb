@@ -1,7 +1,7 @@
 name: review-task-r6-el-tokenizer-y-el-parser-del-lenguaje-de-reglas-bajan-a-core-para-cerrar-la-arista-de-capas-model-preflight-2
 path: desk/reviews/task-r6-el-tokenizer-y-el-parser-del-lenguaje-de-reglas-bajan-a-core-para-cerrar-la-arista-de-capas-model/preflight-2.md
 source_hash: 8f97f3c225e176a4c5869fcbc1d1a959b0c34ab00d7a313cb221e71bc257dece
-content_hash: 6d111544b531437768e8fad0fcc3ad46ca078dbc0769670b0667bafb9b4621ca
+content_hash: ea49a34efe13665149047b1dc67a0e1badac9dfbeaeec6b1e6dc311092b9ed77
 field_hashes:
   id: a8fcde160b16a772f47e777d731c259a92b91cc6891512aba2b49bc3d9f48ce9
   title: 6c6c72e094178070327c03342a9ec8112ff29733460a78efafb193dd9d4e0609
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 8a5b18c7835be2a95d6f2d40a7f670a334242c91741f32f67816d7687ff226f6
   disposition: 6e43232d1e20687eb3ec6ef9d12100c189f942807307808bf7d510b4a72c10d1
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

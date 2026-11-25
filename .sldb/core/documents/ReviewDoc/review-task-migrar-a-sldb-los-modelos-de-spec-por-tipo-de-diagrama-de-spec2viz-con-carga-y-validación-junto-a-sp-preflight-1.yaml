@@ -1,7 +1,7 @@
 name: review-task-migrar-a-sldb-los-modelos-de-spec-por-tipo-de-diagrama-de-spec2viz-con-carga-y-validación-junto-a-sp-preflight-1
 path: desk/reviews/task-migrar-a-sldb-los-modelos-de-spec-por-tipo-de-diagrama-de-spec2viz-con-carga-y-validación-junto-a-sp/preflight-1.md
 source_hash: cead0f09b4454a20a7ec73a0d7e32abf8ad3ea20efe8e7384e7b9159b7d4630a
-content_hash: f34950ecd11963ed8a9fff148982b94e510be97f1591055cdc442c2ada9aded7
+content_hash: cba2cf288aa20b6dbe93f3efeb477cdbfe444e1436404158526bc15dab9dc959
 field_hashes:
   id: 79f630471e0b0e6f164bb102d642db8085b960e0c591cdd3f103dad08b5af56c
   title: a067e4aa116693e992f8f6cdeb039e800f36fe3a1340b3fa5e3c6e8ac666809e
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 886e43d0fb3968acf5c78e08437af43e18da99bcfac6b9c51ce9e603b27ece51
   disposition: 9ee02d99c4d34291cd111024c39a64696ce94a646d88a5ab9ce4bc6e7ffe55aa
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

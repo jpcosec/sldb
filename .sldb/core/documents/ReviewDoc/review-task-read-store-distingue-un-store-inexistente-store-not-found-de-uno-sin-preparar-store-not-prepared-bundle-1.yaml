@@ -1,7 +1,7 @@
 name: review-task-read-store-distingue-un-store-inexistente-store-not-found-de-uno-sin-preparar-store-not-prepared-bundle-1
 path: desk/reviews/task-read-store-distingue-un-store-inexistente-store-not-found-de-uno-sin-preparar-store-not-prepared/bundle-1.md
 source_hash: 27f131a4f349154cba0a797eb6494fa362902ae6741d6a3ae614acd7ef43107f
-content_hash: f863b7ea2408a4a217b1cbe2c22d499c2bc2660ea34245f17a74c5257a822a5f
+content_hash: 6b87dbc091f4c4b831f22d6f28c087b648f96d6ca854458cfd8e9a0be6389e01
 field_hashes:
   id: 6a94c53449d842f4143913282e8cc4e5c3be0dbe7de185a883835b90bb1b6984
   title: 464e955b13890c4809075b014c90cd9825e613cc23c0619d91485eaa66ff0439
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: b7450c0136e50042667965ee567f4c04285e2a92a2bfdcb3659698e166b7078f
   disposition: bbc5a9082e73801d3d6b2acf9bf70612531298d756786b8ea132e410c903eb29
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

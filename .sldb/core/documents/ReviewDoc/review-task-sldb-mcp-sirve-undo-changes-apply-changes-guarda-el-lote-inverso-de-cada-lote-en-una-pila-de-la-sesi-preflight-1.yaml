@@ -1,7 +1,7 @@
 name: review-task-sldb-mcp-sirve-undo-changes-apply-changes-guarda-el-lote-inverso-de-cada-lote-en-una-pila-de-la-sesi-preflight-1
 path: desk/reviews/task-sldb-mcp-sirve-undo-changes-apply-changes-guarda-el-lote-inverso-de-cada-lote-en-una-pila-de-la-sesi/preflight-1.md
 source_hash: cfa17cd3f0e28f5ca98e715f1c4a72ec1cf0e6fd690dabdf4fe4881b7b411dd5
-content_hash: a9fde18486f2a6a8641859bdeabbd5ab5f6e075a8f9ac5ffb265e3751abaeb78
+content_hash: a2f80c1c856ba27af90e73be9013c03034c39d970ebc77afdf8df22d3521cd70
 field_hashes:
   id: d0e254abb3e7a1d3f33d1aa0a9ed6fc054196a74628eb9d7e9c2011113f07644
   title: 1425d2024e21d2f991b07365eb5f608d96f2df37e10f40c4115f94e700ceae44
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: dd0dd06bc2dab8ab263a48a8ee234e95d09b1e98f2ded863a90d032a9a5bd134
   disposition: c2f785670a5677b2ec13c62047e1234a382965210aca2383797f3af430def4b7
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

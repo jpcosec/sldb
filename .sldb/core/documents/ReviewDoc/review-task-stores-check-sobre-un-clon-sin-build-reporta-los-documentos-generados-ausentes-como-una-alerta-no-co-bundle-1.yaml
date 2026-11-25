@@ -1,7 +1,7 @@
 name: review-task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co-bundle-1
 path: desk/reviews/task-stores-check-sobre-un-clon-sin-build-reporta-los-documentos-generados-ausentes-como-una-alerta-no-co/bundle-1.md
 source_hash: b37f68eabf16e4bc076ec0aa69b9e80f2db867232d9cff9e07a57392b5435970
-content_hash: 28a3000a06cb42bc80d2c582e660efa28502d3803f5a9d26484fc29bc25d4e74
+content_hash: b5a0abbfa54253ccdc6dff25269d631301ac22fe0e1eb3c64f07833f0e865c30
 field_hashes:
   id: 8eee368619c43f35618dff9080a42e39dff7f025a8e342390891aba3c6957456
   title: 8345894404a63c82c430f5a5e1614ec2ff1c545243f606d8ba0789ecfb8bc84a
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 1eeceb7e51088d761adb7ce22801071995667dc9ff318ad8678861b97173268e
   disposition: e3c0027c17732a644ad8ea18cf8982f018e22a8effc48c6b157c83297b5cf93b
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

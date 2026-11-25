@@ -1,7 +1,7 @@
 name: review-task-decisión-de-jp-resolver-la-colisión-de-specdoc-entre-el-modelo-local-docs-models-specdoc-y-el-builti-bundle-1
 path: desk/reviews/task-decisión-de-jp-resolver-la-colisión-de-specdoc-entre-el-modelo-local-docs-models-specdoc-y-el-builti/bundle-1.md
 source_hash: 5a0502ff9d38a497c195bd0070e233e7207ab0058683b5dfd12b64070ecb769e
-content_hash: 01036baddc49db68f988f77220d530be59106f5d680dd1614b627e61db89ecf7
+content_hash: 47b1230bcbb5a72507402f6f5abbbdf402313f6d4d1ff6659a47525108dd7ff6
 field_hashes:
   id: 47be78ec2cc560eb13d2e594f34df0e31e12127b65b675f76e809a99f5524330
   title: f006da6bf8884dcd21251d6f0a09b7ca695d5a63497b2e55f73e43744a6cc721
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 2871fef6570396b48070e77cb8b84b375f821dbb05a6d6ae79157edd1ebf8a9e
   disposition: e3c0027c17732a644ad8ea18cf8982f018e22a8effc48c6b157c83297b5cf93b
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

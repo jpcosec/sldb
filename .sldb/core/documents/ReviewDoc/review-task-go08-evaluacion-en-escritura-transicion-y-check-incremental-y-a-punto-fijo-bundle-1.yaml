@@ -1,7 +1,7 @@
 name: review-task-go08-evaluacion-en-escritura-transicion-y-check-incremental-y-a-punto-fijo-bundle-1
 path: desk/reviews/task-go08-evaluacion-en-escritura-transicion-y-check-incremental-y-a-punto-fijo/bundle-1.md
 source_hash: d77900ae1b32f56425e9a6f028bcf846c74db4f6c902885af4d64ee8a46f0389
-content_hash: e1f00cd9d64edd150e6839a6ce640575c3314fbf5eb4d6dd8eefbe48ef9ab6cd
+content_hash: cc27ad4fbcf5d9a8aa4df5f3ad0ce47dd8e78b3555da9370ece197be420afe6d
 field_hashes:
   id: 1949cd58ef7303659ff3aefad7fc7722381d8ee9e7504db02af6eccbcf9fe9c7
   title: 5d7524f79641dd282893e127aa5e30075ecea1428da5142952f04b699414b326
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: ab89eaf81da1197cc6a3992d38b5a28be4d6e8a9cfd183aa9ca0b4007e10d7d8
   disposition: d5cc62d7fb56aab279ec5d73c30bdd79d8047e2b74b427fdea71733a08eb268a
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

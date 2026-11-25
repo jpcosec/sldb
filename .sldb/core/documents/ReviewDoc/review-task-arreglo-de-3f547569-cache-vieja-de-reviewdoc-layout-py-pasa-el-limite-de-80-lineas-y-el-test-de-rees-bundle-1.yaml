@@ -1,7 +1,7 @@
 name: review-task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees-bundle-1
 path: desk/reviews/task-arreglo-de-3f547569-cache-vieja-de-reviewdoc-layout-py-pasa-el-limite-de-80-lineas-y-el-test-de-rees/bundle-1.md
 source_hash: d0796539280bda2765b67a05a59b4871a8535e7cf54deec7344aeff8dce484a0
-content_hash: 963d33295a720f5e093473aa1cb93f85d5594f405d85dee2cfec877ff7713b13
+content_hash: b39e175a0d3266fee3b09d09c30b257576b0ec738e458559e38026a8c12895fd
 field_hashes:
   id: 120b38924b358772663a2ee1832ca14dbe4649737f42c9c77c0b0b6b5c833af8
   title: 5ba3d0f19b6051b81ad9d8aaa740b0349b8204a9e686eddd4d14cf1b3d131947
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: b07966f6391cd45e82f50eeb4b7e0d46bfe97c63e352db3ec92ac7be958b1783
   disposition: 7be44cf118f05cae1508283f6581bbca692b3a90ff8038d6da73bd91dee26452
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

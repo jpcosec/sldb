@@ -1,7 +1,7 @@
 name: review-task-la-documentación-de-sldb-serve-nombra-todas-sus-rutas-http-con-un-chequeo-que-lo-mantiene-bundle-1
 path: desk/reviews/task-la-documentación-de-sldb-serve-nombra-todas-sus-rutas-http-con-un-chequeo-que-lo-mantiene/bundle-1.md
 source_hash: 61ef5b0e449c6bf7f8ce9d0c8587d9cc16e52c5f5d9610c6dd7431a0ffe946af
-content_hash: 92bd8c964a5f1a3455967e2ccb5e210fc1011741b0f9ea790778ce3d5a037fca
+content_hash: 7be6378b12c6784e8da8e6c27823bb80a193e4237d096c802be7c45ce0d63044
 field_hashes:
   id: c4cd5a50882fcc88cc789b9a27f7985215d5a1202fbcc8ce7fa9d07ea9f5bb68
   title: 0d8e7234a2810cf905fb52d9480a599f861a0a59323ab8e9095b0b4f48468062
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 33f85dd493d2f900e31fc29062011bbd6a201c034c6d6c6ee96c93aa0d1f0a67
   disposition: 23f205397fc66d393456166839d158faeab43f67defa5ae5a23ed9d81065c072
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

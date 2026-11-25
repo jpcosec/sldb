@@ -1,13 +1,13 @@
 name: task-sldb-docs-track-canonical-un-markdown-escrito-a-mano-se-lleva-a-su-render-canónico-con-el-diff-a-la
 path: desk/tasks/task-sldb-docs-track-canonical-un-markdown-escrito-a-mano-se-lleva-a-su-render-canónico-con-el-diff-a-la.md
 source_hash: 89aaff82208ea080fa5989ffa0aa10a0389ba29e6edef1b12420381229a69b4b
-content_hash: 2c1ccd14eaeece5e255bedf745a49050edadde7457f1cc9b5e938a8d704cdaf8
+content_hash: ec39c061239c275b935ab8561bff4b5270cc5f0e91f509e0590c0713ad1b2b50
 field_hashes:
   title: c35a485410d552c3b86a77317df6cb2587e7fc63d243f4b522e68afead637398
   id: 9b69bb5d21f3e0e86643c61e6b3c2fe5c5cada087dcee12c39f1729814fb16f5
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  tags: 11bb1031122f37d8732140cbea164dabb926ef21d6bfde10ce845b776ef0913c
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: fb007ca4ddeeeac2fd61034d69488aac4889e6be78175234f1c9f0b9fdd2b9ea

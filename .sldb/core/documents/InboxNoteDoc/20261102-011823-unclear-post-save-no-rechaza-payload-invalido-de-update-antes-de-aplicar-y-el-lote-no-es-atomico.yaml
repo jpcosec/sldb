@@ -1,7 +1,7 @@
 name: 20261102-011823-unclear-post-save-no-rechaza-payload-invalido-de-update-antes-de-aplicar-y-el-lote-no-es-atomico
 path: desk/inbox/20261102-011823-unclear-post-save-no-rechaza-payload-invalido-de-update-antes-de-aplicar-y-el-lote-no-es-atomico.md
 source_hash: d73c0e33bb5237f31f5fe02c3c4f29921e57cdbe07bbf4bd5b79c1d698ef4288
-content_hash: 726a60ebf31b35b81068c85bb2b8f129e899bb3d69abd8d6653ce4e36007357d
+content_hash: d35c0f64b6f8f68ab907edd6d1728509d63a3c66832ed3cc91fc9bb7e4bfa93c
 field_hashes:
   kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
   sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: 5678d898ff12965aa58c78e1846830f4b0a1e3c8427659b037351f14e0927a73
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: ea0f6a6451264c63974d7194762633a3ff4a7bfa67bb74bca1800c2f47f4d81b
   body: 8c79695280f18c93e0ebef78f9979f391edb2043a8e77a32f5dd2b9361092415
 semantic_tags:

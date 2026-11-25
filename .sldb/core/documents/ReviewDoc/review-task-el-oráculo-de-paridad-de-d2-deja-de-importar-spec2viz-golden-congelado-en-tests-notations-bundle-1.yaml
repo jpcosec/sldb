@@ -1,7 +1,7 @@
 name: review-task-el-oráculo-de-paridad-de-d2-deja-de-importar-spec2viz-golden-congelado-en-tests-notations-bundle-1
 path: desk/reviews/task-el-oráculo-de-paridad-de-d2-deja-de-importar-spec2viz-golden-congelado-en-tests-notations/bundle-1.md
 source_hash: 1da601f17b80ce0b2cd3ef4298ba0297e36a9828e7559f9b918f5692ab0a84b0
-content_hash: 101222c74053f0322fa694bcf8a5c77e53b4f77d83d9478641129d65b3a85773
+content_hash: 45f78a3417c686b6d4294fd988ceb3d6adcd3d60bd3f30506678364a867834fb
 field_hashes:
   id: 02b1f537d60a07826d73474c0ca09758c339b29710d1375744e328721391e08d
   title: 51adcc10574460513f0617245fa8678cc524c2fae523dc5fb6f45c71c77acba0
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 73fd24ae03a734b3c73b2abcd1718f6e46f89c55692a7aa616113b518509e569
   disposition: e3c0027c17732a644ad8ea18cf8982f018e22a8effc48c6b157c83297b5cf93b
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

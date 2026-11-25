@@ -1,7 +1,7 @@
 name: review-task-decisión-de-jp-qué-de-las-vistas-de-deskops-h1-h8-de-cc34-expresa-la-viewdoc-de-sldb-y-qué-queda-com-preflight-2
 path: desk/reviews/task-decisión-de-jp-qué-de-las-vistas-de-deskops-h1-h8-de-cc34-expresa-la-viewdoc-de-sldb-y-qué-queda-com/preflight-2.md
 source_hash: f19893c638f4174831b3df8402419841538b08a3b23435604b130ee8a656c0a1
-content_hash: 806ef21816823ffb5e71e4e704c49c07015e29b96c23f92053e49fc87206825d
+content_hash: eb1feec905bb21c0b2d3ccd28b9fd6d1aec85cbac625bfe5f46f4a1dc903bfb4
 field_hashes:
   id: 30995bafa68e24ae621ddfd87c14ce64a5dc17578982b14c6e208ce6c9c1db21
   title: bf64293f1c675566042a60993cb41872446b61bc53dca524f5f5263962b48715
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 9ca70c1e0474e768015433c3e656f19bfa843838a04d3025c38c69505b55015c
   disposition: 7cd419429e99ba5ed8715f356ac5c73354ccffa6b8d589d1e73e396d11b0dca1
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

@@ -1,7 +1,7 @@
 name: review-task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding-bundle-3
 path: desk/reviews/task-sldb-notations-validate-valida-una-notación-una-paleta-o-un-spec-por-nombre-o-ruta-e-imprime-finding/bundle-3.md
 source_hash: 66b5755fffc094afce378a30606fc99f09730556eec0f73322aaf63c7a049237
-content_hash: d2b0f70e9a23b6940a644b960faaa581378b3d22fedcddd0866578d6f8676aa7
+content_hash: 47c3a0b93abafaad87f6b26a1243c661a1cd1f0b8ec2a08d7d0b0534ec86066f
 field_hashes:
   id: b3f4a0f4fbf79d4ec34bae48e2ab4b533b59d695f5c81e40c9a5b4564287e2f6
   title: 8e5bfe813c316357b293387007f027fa26bd601ba55fef27c46dbc5dcbb3aab6
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 921f8e7358e5a9fb4a5ad7ed60682fe0807b2c72cb0965ff7c30c9e27e5b7c69
   disposition: 1b88aa2d56d9f51249723e4a0ba2e0f73005e07c0a4155e626ccdbef00571774
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

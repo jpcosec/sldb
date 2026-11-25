@@ -1,7 +1,7 @@
 name: 20261117-015212-suggestion-render-model-markdown-interpreta-como-jinja-el-valor-de-los-campos-llaves-dobles-rompen-expresiones-se-evaluan
 path: desk/inbox/20261117-015212-suggestion-render-model-markdown-interpreta-como-jinja-el-valor-de-los-campos-llaves-dobles-rompen-expresiones-se-evaluan.md
 source_hash: 802936e4d32ecfb4991f3282a30f6905ae0ef4f2bc87e481a137d54a8fe47028
-content_hash: ae7180b753a6d29d2e5d3ff06d9ac9d6d5c5aab5d4a521a3f26e993820711383
+content_hash: 780a82bedbfa96c712b14f9b7fed6f6b48ab19b7c4b9d14f6b3b4206673d1c03
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: f25c095eb953bb223c91f2cdb1f0c721c96217a22f557b49774e5998384c9fc9
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: 48660ee23c1394b5df96c6d6e470b79ade3902b7056a59340725d76b3961b0b4
   body: c4b534789b21d88011e297428065b5344e53977be727c3b923e2c8d5c5425729
 semantic_tags:

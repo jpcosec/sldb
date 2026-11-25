@@ -1,7 +1,7 @@
 name: review-task-migrar-specsync-de-spec2viz-a-sldb-api-notations-junto-a-notationsync-y-palettesync-d1-b1-cierra-lo-bundle-1
 path: desk/reviews/task-migrar-specsync-de-spec2viz-a-sldb-api-notations-junto-a-notationsync-y-palettesync-d1-b1-cierra-lo/bundle-1.md
 source_hash: b79be911b05f8efba62a018b2f69883eed72ea9cd81d74e05e50a3e47cba9e65
-content_hash: c1c95f8d1238be2f18d0c798453fe20679bb901b3e34e2e8931b9d9a4aacb9bb
+content_hash: 738ac2b3a6a56ae0c12f320c03c8bad1313097f8d641000cf36f816e919e9f4a
 field_hashes:
   id: 88d0e4025cff6d81a437edbdb64996a5ad89650018face7040b67a0fff8daccd
   title: 6436a414ceadbdfd92a7cfb82847ca7ae45bec79710d928ca4f7e97151b4ad13
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: deab2ed82e7b6b60a3fc72f170a7e5d1c33b30bcf4d18b6866770b0b5effda28
   disposition: d6416b8f47d08fdc5c7225f8725f6e7aa1d2d83a75a0175797fe083b4933d1dd
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

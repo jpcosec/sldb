@@ -1,7 +1,7 @@
 name: 20261116-211648-suggestion-ir08-ir09-bloqueadas-b2-lee-ts-tsx-js-jsx-y-sql-pero-sldb-api-no-expone-los-facts-c1-c5
 path: desk/inbox/20261116-211648-suggestion-ir08-ir09-bloqueadas-b2-lee-ts-tsx-js-jsx-y-sql-pero-sldb-api-no-expone-los-facts-c1-c5.md
 source_hash: 52a3153bd52421d632d3ca283e8bb13405b7c1712e102f1fca3c6044d956998e
-content_hash: d6beb1ae12cd98e19ca73f1c405558434036227befb0890811a4437884edefc5
+content_hash: a21568cf3298157c73b91174109887d1dab7d9bde6e4bfc03ec390670c5c3661
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: 55dd91981fc911fe7d79aba13bf2a3a22e32f1e783008fe5b8aee8375385e35f
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: e5eb206086f68067ca7beeed416737bddcebcca5e4765bbba6d360a47b48743b
   body: ad1fc1f18c5ed4183647733bfbfbdaec480ae25fc7fc69e07e44cff5f4fb491e
 semantic_tags:

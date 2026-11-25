@@ -1,7 +1,7 @@
 name: 20261102-081659-unclear-falta-forma-publica-de-abrir-operacion-de-lectura-sin-open-store
 path: desk/inbox/20261102-081659-unclear-falta-forma-publica-de-abrir-operacion-de-lectura-sin-open-store.md
 source_hash: c3e747e61deb67f12a546415dd82aa8dcd07d59a5054529e3e65a38dfff06534
-content_hash: 425da031adf9813578a6ce2a5658364f1ca4082a00f5b634b0e45afa86b70c4b
+content_hash: 1a2858acd5ae370aa8190cbea1bdc20b569bfb1836dedcd02c86145d59e33fd5
 field_hashes:
   kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
   sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: b45ad8d12662a2875e57158ab6f7e0e443adc6ccb97dcda67b2361e70edc012c
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: 7c364e1d098729162b74ca7390e723fdb7d838790518e0d0d74b1709e7161732
   body: a9b9ecdc1a4dbbc90e45736d447ed697e980189c72e3d6e8e354fc1887087661
 semantic_tags:

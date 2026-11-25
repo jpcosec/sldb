@@ -1,7 +1,7 @@
 name: review-task-emparejamiento-de-átomos-con-elementos-de-diagrama-explícito-y-difuso-en-sldb-api-matching-d4-preflight-1
 path: desk/reviews/task-emparejamiento-de-átomos-con-elementos-de-diagrama-explícito-y-difuso-en-sldb-api-matching-d4/preflight-1.md
 source_hash: 552f6c5d3e03c3d6115b5f6b9718ec8f55623f4c79f053e1d6f3e8f97515aa3b
-content_hash: bbde49fbefbd909428a5fd8272f5c31d4496aca79f259e0d17a4faeafbbe2976
+content_hash: 0984cad1fa8829cd9f567f9b9f6b2f6a288d450abd7da6f32b11e726682ea05a
 field_hashes:
   id: 83f62ae6258538a3456d7c2767d5a5d037e55bd475e40f82bb6fa5abc93a7d3c
   title: 0fee85b8db9cc3f49c2b45ed45e204e69b7d9cd3a403e5f6729b726dbaebb939
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: ec8048108f2cd3e09be683009499a76dc057807d8a1f6ba4593bf3dfe654a509
   disposition: b676e5da90b8daa8f5cebb8239c22582d8bf7db8867740e7def58116604508f6
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

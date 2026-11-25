@@ -1,7 +1,7 @@
 name: review-task-run-view-dice-que-el-store-no-está-construido-en-vez-de-unknown-view-h12-y-se-reproduce-si-la-revisi-bundle-1
 path: desk/reviews/task-run-view-dice-que-el-store-no-está-construido-en-vez-de-unknown-view-h12-y-se-reproduce-si-la-revisi/bundle-1.md
 source_hash: 3e285949ff84a2f7631161085eb96d15b01c94aa1f0fdb02d41eedbaf0641fbd
-content_hash: 418cd3dd94659482b8ce8e758cb61361487ec1d82f1d829d85553a9e05736cb7
+content_hash: 83412126075e440168ab29704b7faa80b65a6238cac7a44014b7e6a0a734b3b2
 field_hashes:
   id: be24d23d0c21a37efe4b225db62ebd6161055579aade19880f63a7d18a6b15be
   title: 09aeca017a412b72e157b1a301bb2f38b88772cc673a9e2ef5b469a5d79998c6
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 662621805cfe86731bf4ae576cdcffe0a300e39f0f03f8c7e978fbbde9417bbc
   disposition: e3c0027c17732a644ad8ea18cf8982f018e22a8effc48c6b157c83297b5cf93b
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

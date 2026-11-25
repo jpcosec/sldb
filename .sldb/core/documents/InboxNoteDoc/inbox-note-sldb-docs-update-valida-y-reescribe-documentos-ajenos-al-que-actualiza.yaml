@@ -1,7 +1,7 @@
 name: inbox-note-sldb-docs-update-valida-y-reescribe-documentos-ajenos-al-que-actualiza
 path: desk/inbox/inbox-note-sldb-docs-update-valida-y-reescribe-documentos-ajenos-al-que-actualiza.md
 source_hash: 4fcc17cc31de41b65896a0d41c61ac8972ac2ef9cb056cf919d63b136cd1c44b
-content_hash: 08964688cb9599bd86b93c2ce157944d53000da165d5476350058379f96655f8
+content_hash: 9f0f0ffe7977911b946a607d0b0a04af2b04f3a14b45ff59e0a1171e049a64c2
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: f4a2eec9b5734c37e246678816f0b307c59c117a7dc74691342c9b86ff80e169
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: bf7e04f7589aefe3a5f0401150c9450c00aa0a67f96071661d515e42320d33b9
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: 5f222d89d974e9de5a9089e3112b89a0c484da63c66d0a5064a79d3bec87bbd2
   body: 56babe0b82fd9356668c4b61c35b76e58125bfda9fe06955268ccbfabd0d4ed5
 semantic_tags:

@@ -1,7 +1,7 @@
 name: review-task-ci-el-test-de-graph-path-explicado-sobre-datos-reales-pasa-en-un-clon-limpio-sin-sldb-cache-ni-archi-bundle-1
 path: desk/reviews/task-ci-el-test-de-graph-path-explicado-sobre-datos-reales-pasa-en-un-clon-limpio-sin-sldb-cache-ni-archi/bundle-1.md
 source_hash: a3489620bbd3f1c26c7a314bc221f71848ddb00216751b405430f4549b497e43
-content_hash: d79626e5b208503f35ff52863507201db973fe75ac7af1ddb40a696cb3ac7525
+content_hash: 7a7fa349284f6332afc37fcc1f3d6317e70753b3f5989f7c084ecc4a3acee65f
 field_hashes:
   id: 3a74e7a4357077f7f54bbfa4fa12da010842e5be0ad4af0f4067e365c3ca6d4b
   title: d0f175ed39e3b15056b68fa6cf0f1a71921f95ae7aded4bed640dc39eaa2c033
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 751a661d36f585291187b26d530744f3bd467bf63e55233dbb8bebbd0ae3e31c
   disposition: c08e37c10be3e228d67e3b381b566c353cc9e2922e6ac4c2b4c08c78a3b02c69
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

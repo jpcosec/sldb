@@ -1,7 +1,7 @@
 name: review-task-clean-code-tras-referrers-referrers-py-bajo-80-líneas-y-rewrite-references-con-10-líneas-de-lógica-c-evidence-atom-1
 path: desk/reviews/task-clean-code-tras-referrers-referrers-py-bajo-80-líneas-y-rewrite-references-con-10-líneas-de-lógica-c/evidence-atom-1.md
 source_hash: c3c9d38a48e87dd870d51c34c98c9fca1b3bc0e77d00712d93ad0484d8e9cd46
-content_hash: ae7d31ce8c94e9737e7dcdc1f33cda575aef1686ba8681c3d384dab123e20363
+content_hash: 81d628d014f3b3f697962078107b25d6648954a8c336c68106f9955d279efeab
 field_hashes:
   id: 8497360d80d562cdfb0b42efc9d8e8a11e90781cd51eeed3133772641cb6efe5
   title: ab88cffc9c0c712aada97d73ce19a23551fbdc0624a1ecc98dca4cf6b3bda944
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 266dcbcdb3d71a6837a2983fd490d326a1c35611a3179ac1c1aa9607ed91fa5e
   disposition: aa97f7077dd808b8e075816ff54e92b10ca9a378cd3e717f114a4200a5a93d20
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

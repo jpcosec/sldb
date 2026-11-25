@@ -1,7 +1,7 @@
 name: inbox-note-edgeindex-stale-go04-d7eefdeb-manda-a-reconstruir-pero-rebuild-edges-no-resuelve-una-edición-externa
 path: desk/inbox/inbox-note-edgeindex-stale-go04-d7eefdeb-manda-a-reconstruir-pero-rebuild-edges-no-resuelve-una-edición-externa.md
 source_hash: eaa434bd2e470e8a1f60af0054a360193aa83126052d29758576ac838c08a176
-content_hash: 69764856fad03056a81d462abec7f8d6e3ea3039cfbce644a33f320e15ceb7b7
+content_hash: 20f7c10e246f9cb53e277fa22fe8baac3c269560541efd06148aa763d3653862
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: 1d147ab379788e0277ce278d918ca7cf9e0572dffeefc59e10d282ef146bd45c
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: 501f6ed25519a3893f782a5c403a295fcb0bfcca5f65df7913822111955e35f1
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: cecc89fbe7ca40328854e8ea8d4d637636ce32494cf4a3be4a9d654176fd03ea
   body: e847ecfafd5e8b80f09eda018aec35e0ab3bf4b6d58e0cef9ebdade80db8bda5
 semantic_tags:

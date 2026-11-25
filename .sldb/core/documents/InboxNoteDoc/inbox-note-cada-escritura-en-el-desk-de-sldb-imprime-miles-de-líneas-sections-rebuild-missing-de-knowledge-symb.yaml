@@ -1,7 +1,7 @@
 name: inbox-note-cada-escritura-en-el-desk-de-sldb-imprime-miles-de-líneas-sections-rebuild-missing-de-knowledge-symb
 path: desk/inbox/inbox-note-cada-escritura-en-el-desk-de-sldb-imprime-miles-de-líneas-sections-rebuild-missing-de-knowledge-symb.md
 source_hash: 61e0b2e14a7ee88a73006b505ea737f3f13225aa40a49283619292648ea441f1
-content_hash: a59aa5e2ad4a24f6c74492aedcc61605042b05371311099a7d68182dbfdb629b
+content_hash: 05aff0c41405806aa44ad8f52e948d2ed089cbe277e87a0ecb486e49d5dc1559
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: 19f32d3172310cb9352ff30ade97f370ef52142455582b8abe36df042bc25d12
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: 08a00fcfe72c2491147d7fed0233f2067e1832ab9702d3d924950b8a70af911d
   body: 2db0bf3141a11b7a56a3e881f5e8c1c8698f1524413d52ca4d0b5f443a456742
 semantic_tags:

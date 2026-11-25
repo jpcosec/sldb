@@ -1,7 +1,7 @@
 name: review-task-transacción-el-rollback-restaura-el-dirty-set-de-reglas-sldb-cache-rules-dirty-json-preflight-1
 path: desk/reviews/task-transacción-el-rollback-restaura-el-dirty-set-de-reglas-sldb-cache-rules-dirty-json/preflight-1.md
 source_hash: ba13c9be985a56ee16431ff592eddc0c73fd1f35994a76a1039498c707948855
-content_hash: 1d3ed156ab1a302da16a227fa58717fd67a418c9d8dcdc325935f64a805302a6
+content_hash: a859cf7761b9581211c33ed758ace15d5e47cfd338a2365cfb89190b6edf822e
 field_hashes:
   id: 832993badb7034a770ba4994ef3df607344765fe97108a8464771b26320a7e69
   title: d3977f995240daa2db5eb0b372e02940aaf36969f2a9efce68f06730d25dc122
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 931b89f81d9c0c2d97202fa8da81fc2277f4d8e908a72ce83aa3cb3f228f4ea2
   disposition: de9f445b537d2a90f234cfa719c8c05d128d7e5d3d6b8419e3ecd48705c71659
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

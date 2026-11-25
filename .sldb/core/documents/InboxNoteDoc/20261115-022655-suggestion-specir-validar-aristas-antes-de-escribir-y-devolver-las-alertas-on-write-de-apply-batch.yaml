@@ -1,7 +1,7 @@
 name: 20261115-022655-suggestion-specir-validar-aristas-antes-de-escribir-y-devolver-las-alertas-on-write-de-apply-batch
 path: desk/inbox/20261115-022655-suggestion-specir-validar-aristas-antes-de-escribir-y-devolver-las-alertas-on-write-de-apply-batch.md
 source_hash: d44d7718adc17ddb0dd490112a7d72b8650388286cc8fbf273d6e5f8ba7b2757
-content_hash: b06b63ed8e6a3eb9e8151dd8513950a84bf3d1800c26499bb7f3854ccd626771
+content_hash: ce1dd8d09682111aaedb2ef612c9df1e9b490ef3abbdf527db8402151e5bbe55
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: f75ffc9532f6531a53b7d77d3efbcc5b124920ec68f3cff1d552fc5573856a88
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: 6ca95b940a42af57e39e1e759c71a027ea263b7834bd8a52a2cd211ab44c1290
   body: 93ce569c953ca26f740f770580ba69ae03707445e856d82249afcf85a3c96da2
 semantic_tags:

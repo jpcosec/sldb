@@ -1,7 +1,7 @@
 name: review-task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a-bundle-2
 path: desk/reviews/task-la-doc-del-árbol-del-cli-cubre-todos-los-subcomandos-y-grupos-y-selfdoc-check-detecta-cuando-falta-a/bundle-2.md
 source_hash: e3e290cc9af4e15ce84ad9fca9a36aff4cf15412d18fe64937eb168e15f41359
-content_hash: c1360c3cee234e1469041e52679195532536caecbaeeb6b958a91b3797239f3e
+content_hash: 24a6b22992b540ea38590a9f859a19abccc7ca06a0f70adfef8da34007d06de5
 field_hashes:
   id: c232f9f99cb9606349463d4b2a51cc1f837707d68e71543491af21cb210b40ea
   title: c868628c84db802309c2fe095611b9993fb0013dcad03c972856d65e467d6e4a
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: e40d72a15400473661eee89b82fcd370421df8bdd4bc1d307ced962e481fb456
   disposition: 045ffb5c69510de11ecec3d4800a4ea9f44384338380f9a2db1cea1eb1e7a438
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

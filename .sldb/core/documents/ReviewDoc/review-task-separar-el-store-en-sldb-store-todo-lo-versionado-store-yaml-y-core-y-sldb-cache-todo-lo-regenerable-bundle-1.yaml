@@ -1,7 +1,7 @@
 name: review-task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable-bundle-1
 path: desk/reviews/task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable/bundle-1.md
 source_hash: 6fd63b05e0d84c71f999db9f506c3f738f16b8e0f467ea71599c24e302bf485b
-content_hash: 15f75253d8ba9f10dbfdd07a9e6d4edaeedd5968c528d94e4fc32d98222249cb
+content_hash: a47e744cfadff4e49c0f9a552f91879369b87d8fc9a647dd3786ec468e113b6c
 field_hashes:
   id: 9876a8342a0ecef408ca23dba4382858660efce894dc97acc092bac1822b928f
   title: c997573317e5648b34730afac6bdae3b232bc0f2742cecf76a5340a37686bb59
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 96bd24f96a0f986c3c294f3442464d91f3fe065545a77a3d411a85694518c43e
   disposition: ee7347dc4fe48a75c321ce9e48367ac3d6189d45942bed27604f19f410f0b5bb
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

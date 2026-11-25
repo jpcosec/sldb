@@ -1,7 +1,7 @@
 name: review-task-docs-track-force-sobre-un-documento-ya-trackeado-en-la-misma-ruta-lo-re-indexa-desde-el-archivo-en-l-bundle-1
 path: desk/reviews/task-docs-track-force-sobre-un-documento-ya-trackeado-en-la-misma-ruta-lo-re-indexa-desde-el-archivo-en-l/bundle-1.md
 source_hash: 178c9d499cb3878910d159313439676624cfd5c90f478d62376c7ca4374d3498
-content_hash: 8ddd67661bdcca5c2d094a6d3913897c1a74ad8685a5fd3caeca1c1ff89b1feb
+content_hash: f9efff258703a9471f3f5946a65b54ec11b7c0a27c1aa4a8f242c12c869aa030
 field_hashes:
   id: f8cc0c0d444241d155d36e99006779240f05707d31b202339904d8cff0f1e6eb
   title: 9ef16e1c2bd2261c2fa62492c57aad6ab9ea7a486d050086adede844f0a8f199
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 1377b981acde5cbfeb80857f6a233e755f65ba87353e9f578986138bbbfc9dc2
   disposition: c08e37c10be3e228d67e3b381b566c353cc9e2922e6ac4c2b4c08c78a3b02c69
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

@@ -1,13 +1,13 @@
 name: task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable
 path: desk/tasks/task-separar-el-store-en-sldb-store-todo-lo-versionado-store-yaml-y-core-y-sldb-cache-todo-lo-regenerable.md
 source_hash: e7d4c2d03636ac5a522f7cb8e02aabfc24ebb0e0448b586d21ce6e71c8d63150
-content_hash: 92409318042560cfd5d067eba3164354f22976477faadec9bac30a02f52bbc40
+content_hash: 18dc09344c2b5c49fd744aa997fc2905fee85682fd76a8fd7019176ca2fe384d
 field_hashes:
   title: 1c25b01c9aebcd852a10354300cebf3c8d7f7c3f342a9a399fd49b3737dfe7cc
   id: 77007d76366bebe4828503b09d09876b184ba2e2c81297d0733baa05f938d582
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  tags: cdc41ecb0faeea4fd54d89a0af9704fa317051793e9578e08cc68ba3342d3caa
+  tags: 11bb1031122f37d8732140cbea164dabb926ef21d6bfde10ce845b776ef0913c
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 3abc8e4a2ed62fb16692c494e9a5a744087c2c96104853195ea2442b755aa6b4

@@ -1,7 +1,7 @@
 name: inbox-note-g-consumer-cumplido-por-deskops-cc32-6afc78b0
 path: desk/inbox/inbox-note-g-consumer-cumplido-por-deskops-cc32-6afc78b0.md
 source_hash: 8862abcb96cbac5f461b3df55791e0165a8c399465c68ccac5b28f8c68196460
-content_hash: 21edcab1038f198de9c4383b9d85cceac0041159fafb0e500925abd1320ec350
+content_hash: 49e1db01eb1df52464dad1549ed0ad0071150b2a7cf8b124dbb1c58cbdc0fa28
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: 81d17a3141ad81cefb888908e894b23de99cb06b7f2ae9c640d66b85b116367d
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: 81cf264cb24f447cbbfe0d74e699bd1e6523fbfe39b9947c0789416ab0478757
   body: 47840eaeb17681ee9527b0302812a94ac56e9a65af48e0c5aa02b149648b032c
 semantic_tags:

@@ -1,7 +1,7 @@
 name: 20261116-094415-unclear-models-validate-falla-con-no-module-named-deskops-base-para-modelos-deskops-models
 path: desk/inbox/20261116-094415-unclear-models-validate-falla-con-no-module-named-deskops-base-para-modelos-deskops-models.md
 source_hash: c54d4e7ff043439534cf53145059f9e27cd156201d18545c0246760fb90ec9e8
-content_hash: 893ea32839329363eeaa59410665b9a91301cd83c19a6e375d2a97df7c45f49a
+content_hash: 9e92bf81fc2d7a6f401b86d933ae5d558bc122319da3f0a07c30523289d97ac1
 field_hashes:
   kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
   sender_project: e710514e29fab1ba3c04f75397d61d649da0270012ce642af2775691b57f6e9c
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: a7b1e1e47017e1ba14c579f0c93d706e6e49cc26bcbf86c60762ec00e2e265a4
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: 9bd7ad65221b9079c5cf39a3a3a79d0a58a1dd93665c6c59f2548e0769818d5c
   body: 00595370aac62b9cb1a01b80f84f0c64f4582af66eba2ea436c5e2c5fb87772a
 semantic_tags:

@@ -1,7 +1,7 @@
 name: review-task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg-evidence-commit-1
 path: desk/reviews/task-matching-attach-atom-edges-deja-de-recomponer-live-stale-y-los-mapas-del-índice-federado-en-cada-edg/evidence-commit-1.md
 source_hash: f16952323ebe381c04fbb3e1e1612f2278d2020fe789251caa503f43d4650db9
-content_hash: f0979095330161f0c9344c33f425dfdbd7f258f9fdce8bb143e53fb5ce8ace77
+content_hash: 88edadb0f1c4f1d81e0f81ba9c9f9971349dc2abb225f606460e19798fe052fa
 field_hashes:
   id: fa42937e9a63a294ee0af3b1cdc7a5852d3bc5c41ab66f9d2bd1a2adb6676498
   title: 127f3dadcf37169deb093b3460babb89ddbd3cb69ce60561879a4ed027adfc59
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: d1267336e5bbddc2ce8dd31a3960869b7a1ce5392112dd1244f0b23409778a6a
   disposition: 50b6275916f82caca63c9c71a0a95b8338397b3963c6c5ec489c9018e6e2b514
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

@@ -1,7 +1,7 @@
 name: review-task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes-evidence-tests-1
 path: desk/reviews/task-regresion-persistir-el-conjunto-de-documentos-sucios-6772820a-rompe-16-tests-de-transacciones-en-tes/evidence-tests-1.md
 source_hash: 829010acc90dbd0dc777b0b37b4cd4be7a9ef6ab8276679fdd318d298e45c4bf
-content_hash: 02863fbb8a4cdf73ec325a7e2fa38b3c717a84657e2d1ea101c582d4de3f7363
+content_hash: f74516b9645178427f6257889cb090cb9ee9bdf24ae6cbcc193f83b8ae2ba184
 field_hashes:
   id: c0cade1491663192150c50b57b9640d2f7fe45eb5489b1a826cc1f387865c3ca
   title: ab4eae5eb3ba6ee4263a22d27e2f793d41c6b55143b0c29dc550ba82c356135b
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 509cd62a95f592a5a732fa64ce1823f423deec4ad83ef07b477a7b74193ad543
   disposition: 1ec14207c959831b10c5bae85e6b4a2f7f758884c484f919e8fe116129a31056
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

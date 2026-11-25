@@ -1,7 +1,7 @@
 name: review-task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2-bundle-4
 path: desk/reviews/task-código-readers-y-facts-de-tsx-ts-y-sql-con-anclas-sobre-tree-sitter-inbox-20261115-022446-b2/bundle-4.md
 source_hash: b1dd48df2fdec8e932aca556b938bd0d8c7de075de298ca473d90c90b4b4a50d
-content_hash: 041db8ce32b43680c6a07069c63dfc52f36d2082eaad262af5149188e172d9df
+content_hash: a6738905e2c0642b2fef6954e15c41cde110be28aa9270894c8b4d289a7377d2
 field_hashes:
   id: 48fddff8d0d5de15da24ff212087ea40cca0efee25f5d41fb2bb0e0b57eeea44
   title: eb1b55fc7113f36ac68b73480e6c59bdb1d33f4bd7e228f7415d9f70c8b63d56
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: fecb5cd443e9bc42610959def8efb82e76a72899c1ed4c8a03333eea3c3956ef
   disposition: 736e320a5125e34a186287eb56e8e3c17d706c6ee6816ef2e470899ae321fcba
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

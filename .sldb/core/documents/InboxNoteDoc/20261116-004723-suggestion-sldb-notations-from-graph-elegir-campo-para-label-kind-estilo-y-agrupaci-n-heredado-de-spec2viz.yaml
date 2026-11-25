@@ -1,7 +1,7 @@
 name: 20261116-004723-suggestion-sldb-notations-from-graph-elegir-campo-para-label-kind-estilo-y-agrupaci-n-heredado-de-spec2viz
 path: desk/inbox/20261116-004723-suggestion-sldb-notations-from-graph-elegir-campo-para-label-kind-estilo-y-agrupaci-n-heredado-de-spec2viz.md
 source_hash: 8228f68f089394023996c75eb2e3b7c069fc441309b534354eaec6664e668fd9
-content_hash: b2d7b3209f310190e4dd34862dc85631ec57147e6dfb93f79a72f1f19ab9384d
+content_hash: 703b51ae46c0b7d04ae822c8e03c2ded6726120bfd9100e414f50d2385aa1a38
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: ceff6202e6805e3bc22d70f0f2e7fee9f6478bcff2cb6a60430793b5268a8e12
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: 7bc8bf973992c25973ed4dcf484ac1d2ecf1db31b4a4db7cb73d652d379e3076
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: 08c8bb6b81d6f3230a9890a63c7ddbcae7a59699c7fdcede32ab855e3433bbb5
   body: c53666cdf8e8c431563d805bdfb1fa58a6fdc467494af076a0011d167259f050
 semantic_tags:

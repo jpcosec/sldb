@@ -1,7 +1,7 @@
 name: review-task-go05-lenguaje-de-predicados-unificado-bundle-1
 path: desk/reviews/task-go05-lenguaje-de-predicados-unificado/bundle-1.md
 source_hash: b8498cf13f7f169ddb3b9defd64411104e2aeb9ca4efccfee81af2d27a992db4
-content_hash: 13c20405a7d5659e8b5e6fc2475d81c1c1c4f23e83e1c72ef180d46838e51bc4
+content_hash: 2852e17b0585f99bb6d2cade4ba0d8fd6101afc20328f6e4d43e701884b16b7a
 field_hashes:
   id: 920796cd2d3e98b8cc7b224e5d1592b1a138cef921e08081f9f050dc4c867319
   title: 8dbb243eb612030958b9beeed6568e08b14b8fc48a75be94568c1cd9bac584d1
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: e0cf3e8e2ee986bff221a09f32d35f6e15689b1021619e0a1aa8c13561c9746f
   disposition: f012301a69ad9e5f34d24f3a93138fd561704451afb11e31bede4d2483fb1226
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

@@ -1,7 +1,7 @@
 name: 20261116-234023-suggestion-sw9-aceptaci-n-sobre-el-desk-real-2-4-y-capturas-para-el-repaso-de-ui-con-jp
 path: desk/inbox/20261116-234023-suggestion-sw9-aceptaci-n-sobre-el-desk-real-2-4-y-capturas-para-el-repaso-de-ui-con-jp.md
 source_hash: 223f6e5d0155cfac1e417054faf9fc72d01323dee22d11833b21f898b9c2e8a4
-content_hash: 2399e9daa56247ea2127d7a1df3f32b45ac2b3661ec44c8d99c6cae9a0855052
+content_hash: 0c81969be41cae817454f8f34258a36f8832a29c07fbd4de4ae9594a1dd8b045
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: bd907937df61e074bd033da045027778ea44811489b395455535778cecd609a6
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: 594d3d95328ec9d95f1b34eb536d7dd99192f7b6973739d7bd583683c482cc63
   body: 6d98a48a95e30e579f42cef33146a63f82c4dc2d629af8cced8fff9df9e8ce26
 semantic_tags:

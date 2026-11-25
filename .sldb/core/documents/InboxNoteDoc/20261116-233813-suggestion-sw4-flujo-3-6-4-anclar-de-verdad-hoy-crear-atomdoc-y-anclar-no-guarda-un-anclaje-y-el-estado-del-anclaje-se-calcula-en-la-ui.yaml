@@ -1,7 +1,7 @@
 name: 20261116-233813-suggestion-sw4-flujo-3-6-4-anclar-de-verdad-hoy-crear-atomdoc-y-anclar-no-guarda-un-anclaje-y-el-estado-del-anclaje-se-calcula-en-la-ui
 path: desk/inbox/20261116-233813-suggestion-sw4-flujo-3-6-4-anclar-de-verdad-hoy-crear-atomdoc-y-anclar-no-guarda-un-anclaje-y-el-estado-del-anclaje-se-calcula-en-la-ui.md
 source_hash: 05e1b4e5def40dbef9095a1e354bf41d522e7b5df1bc3ff2bebf54b23e814342
-content_hash: fca1cdf5c734df368509b0a828a96d1a932e59b1286aca7075e65229631102c6
+content_hash: f5e108aae8f90ce4f6fb0890a38dec46b317b82d7863a222180f2f87f9d1b727
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: 0a5cb28a20a04745b87231c9f6e445c71b7451455e0de46ab917960e4ec50bf7
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: af0e9e893ba2563ca054cf954e670123021177d4a22191d483b84bed85215799
   body: 6020e657f72800273c5c24b3a8c135133518fec53614f342298e41b939b48fef
 semantic_tags:

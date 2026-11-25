@@ -1,13 +1,13 @@
 name: task-sldb-escucha-suscripciones-y-stream-de-eventos-de-escritura-inbox-20261114-115028
 path: desk/tasks/task-sldb-escucha-suscripciones-y-stream-de-eventos-de-escritura-inbox-20261114-115028.md
 source_hash: 7da6e94120914e1a50c5650c7a14c521279f11161f23832553706395df47b6c6
-content_hash: 2d6e017ba4c09f18267f381e97c6f6a87113e65c1fc00196e88a9811eab08cf1
+content_hash: 4527bcb58ef4f08d66f43bae59cec2f9ee8847646c78b412514b73ea536bec0f
 field_hashes:
   title: 78fd5872e65864ed681cfdce6da5b3bb6ae6705f098a4bbd58f806ed01bf8813
   id: cf08a247d3250ce81da72b7a8dc1f3f3a68875985855839f7d8f9fca1e527430
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 62d9d2871a62d4da89f8d96cd66c8c26e872cf1660785e7b208cd5b118bda205

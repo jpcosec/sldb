@@ -1,7 +1,7 @@
 name: review-task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable-evidence-tests-1
 path: desk/reviews/task-sldb-version-dice-qué-commit-corre-versión-del-paquete-más-git-describe-del-checkout-editable/evidence-tests-1.md
 source_hash: aa291d0a29b6ce9eb9c40d6f84b37952a68f1a7e99049a2e04710a2225443a07
-content_hash: da44e371aba9a28930c7c974a4ab3b7c13e7105d46ec937c8d27f3485a4a790a
+content_hash: f6e9b3702c96ac10f61b6dc34b191e08849ea7c4bd26afcd9c29d256f140aa21
 field_hashes:
   id: 27740f1e5afe1553f548a98fed0920db1ca19034d7c568e83e33591c9869fa25
   title: 19abaa113108483e30286fb4828531ea323ea1c06bf6b930dabf62e932b51b89
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 5d5032055771ec760b285656c8de57bc2acea17993d736f097f0d6ccb8426cc5
   disposition: cb82e232d7c3d03fac4d0cd09de731382e454de99d02a3f7482af83b8c35ae84
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

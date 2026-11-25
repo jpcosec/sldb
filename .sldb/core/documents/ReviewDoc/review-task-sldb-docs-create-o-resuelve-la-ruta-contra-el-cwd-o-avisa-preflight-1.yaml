@@ -1,0 +1,36 @@
+name: review-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa-preflight-1
+path: desk/reviews/task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa/preflight-1.md
+source_hash: d05f3d42cd3e4e29a704c1ec6ddffca8f22d7087ac63164962d2afda2e7d9815
+content_hash: 76cc288fbe11f0b27d972d4a82dc20ad165afb350fb0b3ff0c92175708e9fbef
+field_hashes:
+  id: 880b02c925d37110fbcfa5b13fe6f0087499ab3bd3ab95c45ccc87804e1067a1
+  title: c5538aed8343904a4c9c84dac1f88b631389fc345295415f3cbfa9ef44ff8c2f
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: e5cf13347de9a9fb8b926c09e9ef86ff32cf34fd7c508da069c638749cd72711
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 7f6272f4f5f2fb7395cec8abc1723a0d3f8ea33ffcefb7ae61e33e4544ab608a
+  input_sha256: 792ae7dae40e8cf818018611ba39e8505035e848af5cbe33203efdd0fad0a7dc
+  contract_sha256: d7949d8b28704d97c3c0ec5036070ce361ad1d0067b668586a191c6f425dc843
+  output_sha256: 29672bc4eed31a415d98d1e7cea8d02fc0e416c595e91a7baa8f9af21166300a
+  verdict: 12adac54ac6f7140109391b670b3cbcd51f083d8f5ee62ce26857c794ed67d36
+  reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  created_at: 78bac03da7c5728206f9d03df01c9fb32a82052a9b09bbe4e31015338b075f5d
+  disposed_at: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposed_by: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  summary: cea726bd60d5cfff5f51cc98f0a8d1904992dd13b0b16fb0859cf662311ef354
+  disposition: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+provenance:
+  by: agent
+  at: '2026-11-25T03:27:43Z'
+  authority: generated
+  via: create_document

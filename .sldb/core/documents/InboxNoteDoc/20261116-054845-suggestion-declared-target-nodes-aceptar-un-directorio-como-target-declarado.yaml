@@ -1,7 +1,7 @@
 name: 20261116-054845-suggestion-declared-target-nodes-aceptar-un-directorio-como-target-declarado
 path: desk/inbox/20261116-054845-suggestion-declared-target-nodes-aceptar-un-directorio-como-target-declarado.md
 source_hash: 1da25b7a7b79e3ea6827ab58b9f3ac755a528b7b5441d9d17053c10cbbebedb7
-content_hash: 02ee1465d0909ec68d6619425065c74b5bc4def75b4093ef93359ea07c058263
+content_hash: 4ce29c7238b3d05332e5524689ec9a779255a1c472b2cae74cf77b969fd0e4ad
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: 4dc2c22bc822b23c4d247a94b355fdf4467eb49d890260f4b8f86fa4a975062f
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: e364bfa72b939c90dc730e9854ec2a670b4740eb016dc05f092f3a496b2a3443
   body: 39508d61d83c95ebad80632b3caae139bb97ba0589f68968fbc79626adcb0955
 semantic_tags:

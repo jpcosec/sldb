@@ -1,7 +1,7 @@
 name: review-task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer-evidence-materialization-1
 path: desk/reviews/task-sldb-move-mueve-un-archivo-o-directorio-con-git-mv-y-actualiza-en-el-mismo-repo-el-store-y-las-refer/evidence-materialization-1.md
 source_hash: 7ae041f9f76dfd4b7febc3708d1872924daf9cf5cea8d188ab27f58864deae17
-content_hash: 88db1e91c7d0e02aed5827a930432110ca6d2bf20c558b19e393ce2a22e22f5b
+content_hash: e87a85198be287ce18850eb305eae92d280c3e6329a41718e97621a856a8cfc9
 field_hashes:
   id: 4d01a75c5986b1c03a5b35fd2c699008eddfd6238f6b5da640c2ad15280aca87
   title: cd63ae99c765f4e1cdda9f19198fb17e021a8ed347e9d82e003a26066990064e
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 6d207f83310b22ad3d255ede3db6c00621058b8acef7d873cce4356b9eb4238d
   disposition: 7a3442e7f5b7832c90253253ed62965e98399dc964263f232f862cd144e84771
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

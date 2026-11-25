@@ -1,7 +1,7 @@
 name: review-task-sldb-mcp-gancho-público-de-validadores-de-lote-que-corren-antes-de-propose-changes-y-apply-changes-preflight-1
 path: desk/reviews/task-sldb-mcp-gancho-público-de-validadores-de-lote-que-corren-antes-de-propose-changes-y-apply-changes/preflight-1.md
 source_hash: fee02e6168638044873732caae3c0442c3407509cc5f0c01080ddf4513726032
-content_hash: 8665475e70030216b9852801feeee1bf1c1199fec96617a9283f57d1d556cb93
+content_hash: c8557a62b9abf60212b7bfabc284b0e811c2aefef51452939f0b21c52fece145
 field_hashes:
   id: 7d90624a3811ee1ac84c57c5f6f708c0b25ad944e440f5281d027ac7ad3ba0f4
   title: c8c6b3d3f40a997aff8f73f5bdeec7444635cc9529ae37bf1fea7ed619bd6475
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 63130e4480206e2e7577f13bd2ca84aa4627916a5386d4f95a99ab2f5594a77a
   disposition: aca3e348619780916b47c2745341979cd86c6c3f4da083a3d81c0ae22cbe1f14
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

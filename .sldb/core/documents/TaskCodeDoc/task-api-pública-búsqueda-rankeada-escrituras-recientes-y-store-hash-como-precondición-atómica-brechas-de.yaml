@@ -1,13 +1,13 @@
 name: task-api-pública-búsqueda-rankeada-escrituras-recientes-y-store-hash-como-precondición-atómica-brechas-de
 path: desk/tasks/task-api-pública-búsqueda-rankeada-escrituras-recientes-y-store-hash-como-precondición-atómica-brechas-de.md
 source_hash: 24056df68ef8dad1a3c2b8378f8f514082fc2a28ae087d88d06ad7d5c285b719
-content_hash: 761c3767304eafc7ba0de1eeee13d84d9d226f3368b5b55c32c9eb2e7679dca6
+content_hash: 037b5e569783028544ff21342433c3ed58e7b8ff984b892897cf699b6a39b1ff
 field_hashes:
   title: 4daca56ba115ca2e572f59c5ce5da55bddc0aaf58c5b2fb02baad5977f65e302
   id: 8c5ddb722809413e087938772727c05f8c2710768547d31ad288b2bd8a57396a
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 38abee276776ab04e7f6520685736c8e573e4fe9ae9fc372e2664f6b65d8329a

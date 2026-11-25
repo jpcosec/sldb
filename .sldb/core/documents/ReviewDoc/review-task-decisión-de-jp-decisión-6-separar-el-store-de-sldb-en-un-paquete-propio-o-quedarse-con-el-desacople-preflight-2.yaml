@@ -1,7 +1,7 @@
 name: review-task-decisión-de-jp-decisión-6-separar-el-store-de-sldb-en-un-paquete-propio-o-quedarse-con-el-desacople-preflight-2
 path: desk/reviews/task-decisión-de-jp-decisión-6-separar-el-store-de-sldb-en-un-paquete-propio-o-quedarse-con-el-desacople/preflight-2.md
 source_hash: b3a770e34be0a40b353d4ffe24f28e11d912b7b8c282df8a4307b15e518a652f
-content_hash: eff423e3e775103cd3e222277e506361b799695fa771c6972976debb58428bcf
+content_hash: 28d1977c1a5dfe2b27265674cf60186d1a6b905ddf002eaeb0d88d318d8cfa8d
 field_hashes:
   id: 5e209515a372ff39a28e2e6ccd8911bfac1b0341c460aef01e80e8bba8a6a03a
   title: b13c68cbccc1a98f174f03bbe5dfd8d91185ed86d86bf87755f7b9dd88f65f19
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: a7cdc38149e35f2b7509b53b14a696ccb7856da70853e077668578ede3d9f5f7
   disposition: 7cd419429e99ba5ed8715f356ac5c73354ccffa6b8d589d1e73e396d11b0dca1
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

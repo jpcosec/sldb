@@ -1,7 +1,7 @@
 name: review-task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el-bundle-2
 path: desk/reviews/task-on-write-save-document-payload-devuelve-las-alertas-de-la-escritura-y-la-regla-ve-las-aristas-que-el/bundle-2.md
 source_hash: 3beccaf0f1b3e8635964d18ee1694ae578d2c8e3469ba5bbb06955d7445798d9
-content_hash: 428f73ccb211757102748de8dfd5b1d7c5ac7df32b3b7f3145fa7cf907740107
+content_hash: 1bdc7fdd93280296a6726bdb7570d3fbbf4e169ab691dfee7fbb8b1a37d13bea
 field_hashes:
   id: 948d5412d198b9e41075f6df74717842cd407b6e1f0543c258bf93a3ae34a3d9
   title: b9048346d8eee6c39a749396ee9b365b5a0b6897e1f9616090034842c5f5b24e
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 03fb1bf7e23506fb4b6f512c122cbf2f4c089954453850b8c0260f160e992ae8
   disposition: 051f056ccd67cbfaaae00b77507ff48df64049cd38b1d0f50a0cde0096f0147a
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

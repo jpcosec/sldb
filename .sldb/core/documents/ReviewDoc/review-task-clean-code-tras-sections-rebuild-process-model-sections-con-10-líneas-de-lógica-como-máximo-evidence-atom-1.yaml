@@ -1,7 +1,7 @@
 name: review-task-clean-code-tras-sections-rebuild-process-model-sections-con-10-líneas-de-lógica-como-máximo-evidence-atom-1
 path: desk/reviews/task-clean-code-tras-sections-rebuild-process-model-sections-con-10-líneas-de-lógica-como-máximo/evidence-atom-1.md
 source_hash: 969cd6c036aaff503477a4b2d6e432c603eb8a4ef48e87abee1bbddc9d42a1de
-content_hash: f7c598f1fa6474851344da5485233bd058127e494aa6cdc6c32f4cac7e80e949
+content_hash: cc51c0265aec9e68fa648327a6cfcafd05f433147020a0df5dfdc60e097b24a8
 field_hashes:
   id: 7d07b5b6281a70aeea365da238063f13f9f931925864bd521575f3ce4a50339d
   title: 6b26ce7a99057b744b51d2ca4a1c0af2cd861eec2ff208bf7ae06487755a9295
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 5b4fb641d78dc07110451a26fcb41de6cae329082dfee6e618a18c7e882620f0
   disposition: 8445da0134406bc323c124dac7bb84b79373cdd5506e101bf28b8aa883cb8402
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

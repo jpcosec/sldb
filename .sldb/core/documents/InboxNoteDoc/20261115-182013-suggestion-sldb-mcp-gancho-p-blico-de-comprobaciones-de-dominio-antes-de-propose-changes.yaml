@@ -1,7 +1,7 @@
 name: 20261115-182013-suggestion-sldb-mcp-gancho-p-blico-de-comprobaciones-de-dominio-antes-de-propose-changes
 path: desk/inbox/20261115-182013-suggestion-sldb-mcp-gancho-p-blico-de-comprobaciones-de-dominio-antes-de-propose-changes.md
 source_hash: b8a1323ed9041667b46a682f07c00cd2562f3af6004be7ef521a4f1e1ad90a67
-content_hash: 0f6c7c2b8ebf3469862921b5859beacc0ac986f62fd1f63a765a4bc4e551c54e
+content_hash: 6fcf1a43407a19ce59821d52e040dfb5081514461a8f3b3237774a54af1c129c
 field_hashes:
   kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
   sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: b9f2ea3d6be83684a6276cf7ba1769b59b8bb694e6a6ba3d4817298d0f3e8fec
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: c787e34f27f73d424a28584ef1435a9017a98f89d7b4f36722edb3b0ccf012a5
   body: a62edbdcf9926517613e94f6fbf6a1b21cacdc9e3b7197535180fdd0fe087cd2
 semantic_tags:

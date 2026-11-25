@@ -1,7 +1,7 @@
 name: 20261102-141033-unclear-adenda-al-intake-081659-open-store-readonly-sirve-para-ws13-2-sin-ser-api-universal-de-lectura
 path: desk/inbox/20261102-141033-unclear-adenda-al-intake-081659-open-store-readonly-sirve-para-ws13-2-sin-ser-api-universal-de-lectura.md
 source_hash: 3fd202156f697b90bdaeb266078eb8127dedc7a34b479ad2f6e9099dd724a3cf
-content_hash: ae5ebbab19b09fb3c66c6a24285b8c534a29710beeb4a1bb12bdaadb4c5ea618
+content_hash: 0ac0382d7ac8016a32cd1f9812193ca4b594aa47a816830659f158de39554fdf
 field_hashes:
   kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
   sender_project: 1d147ab379788e0277ce278d918ca7cf9e0572dffeefc59e10d282ef146bd45c
@@ -10,6 +10,7 @@ field_hashes:
   status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
   acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   acknowledged_at: 6c88d4b61da4197fc1456401a8ccfd5b0dfe007965ba2fe7d7ef31d518400758
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   title: 670c9d542bfa0ce06b5f8d8c512e4ae2fa259ae5d99b376b11d115aaf06a575e
   body: 761f63c84a47fddccde9a4a55e5d73ff6d2c3e64f7512ca927526acc3f6242fa
 semantic_tags:

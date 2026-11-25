@@ -1,7 +1,7 @@
 name: review-task-clean-code-tras-sldb-version-source-revision-con-10-líneas-de-lógica-como-máximo-bundle-1
 path: desk/reviews/task-clean-code-tras-sldb-version-source-revision-con-10-líneas-de-lógica-como-máximo/bundle-1.md
 source_hash: 5ba59e1d4d502906d906095b69249dd13306843bdf4a367bb59bf036f691482d
-content_hash: 1b65b790a611cf3f7298399866c3c4a9a253afb03193d1b64ff2eacc60142724
+content_hash: 7f82e168ff2309cff76044176ada1376f8dfd8607723b693893cc5142eeb0a06
 field_hashes:
   id: b820697f8a12664cd37f35910e2be0dd533bfa2ed8056cdb1c0d0cf78e9312e4
   title: 93a605d167d105a775b4c16697be870e2738c5f825930c564cd904aafb3d6dc6
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 539ae3466af37babcafc560cd0d6d35f4c06df45ba1bd86902b9fcbd4342b80a
   disposition: 498bec4d8fa0f44b7beba49a2bc0ddf3706790540a1259d45d3334beeec6c848
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

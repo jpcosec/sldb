@@ -1,7 +1,7 @@
 name: review-task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno-bundle-1
 path: desk/reviews/task-sldb-stores-add-guarda-tal-cual-un-enlace-absoluto-con-o-con-variable-de-entorno/bundle-1.md
 source_hash: 49192d5da98c82d2d8a534aa5dd76cf5afd7db14d47912ff24db524df3d16392
-content_hash: ead7a9ec124710e8c3ae407001952c38232e83c897791ffc9b6bad60e0704004
+content_hash: 9902e253fd4553e3731a817cc840894c6587074a53cda3744ad686821ea28254
 field_hashes:
   id: 1af651383c92e09025d3908d5641e1d3aeb2be899795769f5826bd962fec20d9
   title: 9d39b3fae52e181c9172ad0337ef9cb8123771e73ad485546df9db6e4a403c30
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 1f09288b1401be729b07b2bfd993a867883d223ffb02966208becb0431c973be
   disposition: 4888d36d64efe8e1a81dbb31712b7b5d54ccad13f7526a4888bde445ca069925
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

@@ -1,7 +1,7 @@
 name: review-task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder-bundle-1
 path: desk/reviews/task-higiene-del-cli-para-sldb-ui-fields-update-append-con-string-y-format-inbox-show-con-error-por-stder/bundle-1.md
 source_hash: 04ffbc2984ecf045645e619f38edcca90795f010954135f077b25dcf8cfcf4ef
-content_hash: 232ab1976d53b35adade553fabc4756248463bd94c7736d19473d52c8588814e
+content_hash: 4461470d5ab528d6f8eabbefaeda0bf5a465a85d71325adc44a4c1dc8df31673
 field_hashes:
   id: 8d5fae97a7ae827a389bb132ce5ee72483a73bf59c98e68209b75a1549a60e9a
   title: c19e303f65533d4de994a1903feed83227e68495096d3bbc6eefcfeda8c743e6
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: f6aa724368bdcd9cacfd9ec872d032083603c0cafcebc90d7e2d0f183d5aabbe
   disposition: 2a31309c73691af36aca25295b688798a4fc083b9c1852dad7fd8a106351ebb4
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

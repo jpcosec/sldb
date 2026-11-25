@@ -1,7 +1,7 @@
 name: review-task-higiene-del-desk-de-sldb-cerrar-con-closeout-resolved-by-citando-el-sha-las-tareas-abiertas-cuyo-tra-preflight-1
 path: desk/reviews/task-higiene-del-desk-de-sldb-cerrar-con-closeout-resolved-by-citando-el-sha-las-tareas-abiertas-cuyo-tra/preflight-1.md
 source_hash: 5aa906113fdbfc0acf309ada1b6227245281248df9a18c00a8f88df4ecd602a4
-content_hash: dc08b525a33deae96b627cee3fc0127d63f175ff97cde84c25d800df7eb1ada9
+content_hash: 83b1d7e969737e2b2e78c03597108c9042d07a0b9f7d76ef6f788092638eda97
 field_hashes:
   id: ce50d06acae30a02686783a219f2083f9dc2b2c12d3ffda2fba34eb622a26aea
   title: e5bacce552cb4ca67494c5271c7e38e3470af27b62ef9541b0847cf813f18bfd
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: 19296ca28b20e414d25a1f38bb0f70545091700b1bc0db5e8693963da889afda
   disposition: c2f785670a5677b2ec13c62047e1234a382965210aca2383797f3af430def4b7
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

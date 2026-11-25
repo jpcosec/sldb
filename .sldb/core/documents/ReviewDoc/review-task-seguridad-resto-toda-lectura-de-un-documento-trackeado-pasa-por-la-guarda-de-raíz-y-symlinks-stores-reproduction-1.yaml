@@ -1,7 +1,7 @@
 name: review-task-seguridad-resto-toda-lectura-de-un-documento-trackeado-pasa-por-la-guarda-de-raíz-y-symlinks-stores-reproduction-1
 path: desk/reviews/task-seguridad-resto-toda-lectura-de-un-documento-trackeado-pasa-por-la-guarda-de-raíz-y-symlinks-stores/reproduction-1.md
 source_hash: c63796a9697c29e2dc3521f395855e84d485c2034306eb2bbd4566fe079b1240
-content_hash: 75f9272c03e910c59ea2f40808a34131a4ffdf11d56cdda1e0690601ad887fc8
+content_hash: fa31c8349c396618c0c74e63932fb1585fe611f398c0fe5b12567524766c36c3
 field_hashes:
   id: 58b81a676e0ff5d0542ae362e04510e2e9668faf1bdb2ddf193bffb762103093
   title: 50ba2bd37f8b6dac1d6433d5745d3fd727ebf7e8519c7af27d415aa8f8fe20ad
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: f8f9d32000b5ea9a8a519ba79aaabc78248bfbcd66d44c2e770ed85507e083be
   disposition: 549cceb4736376cc94e68cb0098451cfb0dfe2713f4e5dadaa7584303aa97bcf
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

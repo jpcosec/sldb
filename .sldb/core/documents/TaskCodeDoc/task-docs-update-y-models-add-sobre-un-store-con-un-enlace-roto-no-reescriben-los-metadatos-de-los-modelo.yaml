@@ -1,13 +1,13 @@
 name: task-docs-update-y-models-add-sobre-un-store-con-un-enlace-roto-no-reescriben-los-metadatos-de-los-modelo
 path: desk/tasks/task-docs-update-y-models-add-sobre-un-store-con-un-enlace-roto-no-reescriben-los-metadatos-de-los-modelo.md
 source_hash: a07821bbd6aae72359567b4be7b974d5edd02fbd3b36d5ac36033c298709ff04
-content_hash: bbb0504e96b488f11506ebecffe249c1b6f9fbfabc49adda01e207007cfd8cf4
+content_hash: 309c684a8ed3fc3a7995d4520fb2121cfd119e017313924626646e64af71b03d
 field_hashes:
   title: 73a213e959091d3b376280f27adafd6fbbf4375eb0787f7d6826b6fe0aaa2747
   id: 6558f2629c4fb913aee7c61c5b05b4fd73ef68bc2937f46ed85d35cf25371cd1
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 7440aea992d97b4d107d400199fc12cfe37e32ce5860aec2cab3790882a55cf3

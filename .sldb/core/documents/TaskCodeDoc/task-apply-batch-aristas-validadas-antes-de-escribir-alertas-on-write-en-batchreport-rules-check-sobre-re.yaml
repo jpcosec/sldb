@@ -1,13 +1,13 @@
 name: task-apply-batch-aristas-validadas-antes-de-escribir-alertas-on-write-en-batchreport-rules-check-sobre-re
 path: desk/tasks/task-apply-batch-aristas-validadas-antes-de-escribir-alertas-on-write-en-batchreport-rules-check-sobre-re.md
 source_hash: 0317714e199657499d0ef9ef043a76f00a885f3a4bd2ff23daee53655576c7ff
-content_hash: 87b70c355adffc4e5afae2240338cc807e056c3282a8741e13221742d37a8387
+content_hash: 6283f823aa62db4b2df5387956b0a6fbb1d36a085ee81feda3f528418e50a6d3
 field_hashes:
   title: e62b4e564cea1e31607da129886f669cab11920a00aa7ca65436ea3e85636b1b
   id: 505b11a4582bce0336674fa4f5a7eda214f26a4093e7c40aa0adea69d6abdf35
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 1548b883e1cb4bf90ab5da298e8d9dc2b1f91d4f0b8073cc8e338c9723bb0e67

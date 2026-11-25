@@ -1,7 +1,7 @@
 name: review-task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc-evidence-commit-2
 path: desk/reviews/task-portar-a-sldb-las-pruebas-de-spec2viz-de-notaciones-paletas-vista-resuelta-y-viewdoc/evidence-commit-2.md
 source_hash: bf61c00f1c4a77c45f2f2cac4e9aa9e0291656e9e6094587f704b9cc94fc2492
-content_hash: f546f59565289acd2deddc8a0d8d7665b175c2a001e3c0ce57cdf41dda52c031
+content_hash: 3942868487607f8518a108fc21a30dea389af1ff545d9850f866648085b0cd4a
 field_hashes:
   id: e3c06861ddf5fbc189bbb522ff8a98e685defe8f913860445840198c6a81978a
   title: de05d95df707589dfb08e5f7cac3945485bd8ef054b3492f44343231d11b59ec
@@ -23,7 +23,7 @@ field_hashes:
   disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
   summary: edc21619ea82491f1dac918be6b93947bed1285a35761f7e86f6f3c03d9c4661
   disposition: 7bf1892994b820c72be5617674f5df5d91b35e7704bfa2e1700830cd712c708d
-  tags: 26f66ebae91f717518f0d0c6585e99f1cbd539bcb3504598ddeb732dec3a0af9
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown
