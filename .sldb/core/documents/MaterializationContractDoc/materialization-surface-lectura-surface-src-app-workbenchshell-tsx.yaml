@@ -1,0 +1,25 @@
+name: materialization-surface-lectura-surface-src-app-workbenchshell-tsx
+path: desk/materializations/materialization-surface-lectura-surface-src-app-workbenchshell-tsx.md
+source_hash: b10c9c62af4e341b0d7af10db7d4941d9d718f798a0acb4edce74beeda870c28
+content_hash: 637a34bd6e53dbbc10807bc61fb308ec801f5865ad278c1ca6968f89586f0fc6
+field_hashes:
+  id: 9e13f3370e58184b903160610bc86ade37fd1d0c23623a5103c8c17f109b9ad3
+  title: bead5cb1bc9ef6c3b16a0a5b4f788e8d86f735b88a64075a1f8b9f0727af7fb5
+  source_atoms: e56ab2693b24c86b40dbc00af78fda3aa3c22d492fad7937880038e19a1de9b2
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 846814698907db511ef4c00ed227f3570dbed79ca36e36e50a73b25b3c42ac2a
+  intent: 16e5685dd38ef6bcde8004ecd379582c447a1eb3e6d1747c74311bf3d0db2bda
+  validation: ca1e218089fd83909bdbcacb241d7bbbf5012c66677bb3cd99b09d226b9d091d
+  tags: 8a60d73dd19b816f4cf1a6b20b5d404fd602490307eccfd6aa947d9bee5826f2
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:surface-lectura
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-25T18:09:04Z'
+  authority: generated
+  via: create_document

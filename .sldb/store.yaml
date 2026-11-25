@@ -3318,6 +3318,14 @@ include:
     name: review-task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest-preflight-1
   - path: desk/reviews/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest/bundle-1.md
     name: review-task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest-bundle-1
+  - path: desk/reviews/task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura/evidence-tests-1.md
+    name: review-task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura-evidence-tests-1
+  - path: desk/reviews/task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura/evidence-commit-1.md
+    name: review-task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura-evidence-commit-1
+  - path: desk/reviews/task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura/evidence-atom-1.md
+    name: review-task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura-evidence-atom-1
+  - path: desk/reviews/task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura/evidence-materialization-1.md
+    name: review-task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

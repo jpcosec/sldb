@@ -1,15 +1,15 @@
 name: task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un
 path: desk/tasks/task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un.md
-source_hash: b374d0c756c26a01674e11aea83f1c1a6b5a2d88ab1ef64ff631b32da65b72cf
-content_hash: 85653a37843ef5fc8d57207be6e12dac9f21bb45bdeb59fcd636ff3331d03f5b
+source_hash: ed3e3ea1d319c2ebbc651bc67b25b751e971010ad28863b7077c1599e20e1a5f
+content_hash: 8b5efb0c394649359e9abffd11c8aa450faac7092be8a8660eb29e0a23f79ae7
 field_hashes:
   title: 6405497826b914fc8fe448af5e16e14bacde29a84c37c5aa4a69957f4f4e669c
   id: e5480ca54d7b5fcf884058559bfbce5112dbd10f9937aa318a04a60536668ac5
-  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  status: bcd94c594cf5d9863f2b143c7e4c8c150564556c8b8fccd3f0e2ea8fe2b32a44
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
   tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
-  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  current_node: 71574bcab867d8a2e20830806268bc698b67c239b762fe065d282e362267e872
+  history: 5e5f912dfd951bc27e8ab6d9693fb4ef1ab15074792771b91b7a7f78028c40ea
   why: 63445b059468adfaea9b35d7f4517dee9b62e4b004fe23fbf7177df866260f96
   goal: 6b3845a74249c248fc593e72c80ce132cb87a4bd3167ca54710105bbd75b0f8e
   scope: 6e6161080cbaa6e467057dfe55d61bb833cc353f1325e0969878b87b072b4453
@@ -32,6 +32,6 @@ semantic_tags:
 - workspace.desk
 provenance:
   by: agent
-  at: '2026-11-25T17:42:42Z'
+  at: '2026-11-25T18:13:13Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

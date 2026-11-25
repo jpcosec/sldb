@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T17:41:29Z'
+  at: '2026-11-25T18:02:57Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-docs-architecture-command-taxonomy-md-lista-cada-operacion-de-sldb-una-sola-vez-con-las-cuatro-caras
 status: draft
 summary: ''
@@ -45,6 +45,8 @@ Dentro: el documento docs/architecture/command-taxonomy.md y una prueba que lo m
 _Outline the expected implementation route or affected surface._
 
 Antes de crear nada, revisar si SurfaceDoc (knowledge/surfaces/) y sldb selfdoc ya guardan y chequean parte de esto, y decir en el documento qué se reutiliza. Leer el ADR y docs/architecture/mcp.md. Los nombres se sacan del código (sldb.api.__all__, el parser de la CLI, el enrutador de src/sldb/cli/serve, el registro de src/sldb/mcp), no a mano.
+
+Aclaraciones de la revisión: público = sldb.api.__all__; comando hoja = subcomando de argparse sin subcomandos propios (sin alias ni ocultos aparte; los ocultos van en la lista final); rutas = cada (método, path) de sldb serve, sin /docs, /openapi.json ni estáticos. Nivel de permiso con tres valores: lee, escribe-store, efecto-externo (git, red, procesos); una operación que lee y escribe es escribe-store. Nombre canónico en snake_case sustantivo_verbo (p. ej. documents_create); en empate, el nombre de sldb.api. Sin operación = nombre que es alias, ayuda o utilidad interna, con su motivo en una línea. SurfaceDoc/selfdoc: se citan como fuente cuando ya registran la operación; no se modifican. La aprobación de JP es posterior y fuera de esta tarea.
 
 ## Validation
 

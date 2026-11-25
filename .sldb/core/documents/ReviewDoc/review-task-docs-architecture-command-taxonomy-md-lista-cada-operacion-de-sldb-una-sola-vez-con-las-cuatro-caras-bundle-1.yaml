@@ -1,0 +1,36 @@
+name: review-task-docs-architecture-command-taxonomy-md-lista-cada-operacion-de-sldb-una-sola-vez-con-las-cuatro-caras-bundle-1
+path: desk/reviews/task-docs-architecture-command-taxonomy-md-lista-cada-operacion-de-sldb-una-sola-vez-con-las-cuatro-caras/bundle-1.md
+source_hash: 97b67e690432cf3b56ea44fad6b67bae5079b1b022e9791292969f76ba6128a3
+content_hash: 42aef521476cdb427cce8734178419ed823333c2668ab5425a32cfa5f3ff75ab
+field_hashes:
+  id: 3127a557545174787050e1607cb815631717d0f3661903eeae390779fa7442b8
+  title: 41bb28590edb9e4ba6050f709091cb9648f2d9b62882bd856cc981d0ebc89f21
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 2abd5a10492f7863ef660862490622ee28ef2d39b76926f8e07f509fbfab9c53
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 3b75a3a69ff8ec101907669c8f92652891d3c034ae4d6362a82a8179be69b5c0
+  input_sha256: ac5b3c43313c699b55b7a096bf4ae01ccad7f0d8a41458317ef8d441b5fa2d09
+  contract_sha256: dd2a8376c7b58aacf46e9698ef6f6e26ed3407d444c98bd6e728b50114bd2330
+  output_sha256: 059fa07af94e62fc635a753731e95a2a1c5ff1263d0942fd7fc6351b4be18f54
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: e264d08a466c1c2c30190eff1a4c4396e4d2f05f8d4efdf661018dacf7d4829a
+  created_at: e59e1abf9d3c2940a98e4064cdd07aca292e5434cbc9160230b1dc09fc27af44
+  disposed_at: 6fa91541ecf307a644a89eb60fc646794e61414b6eab6bda3bde8adab8171636
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 518f1be1629151e9973070aeefd2d3235f700fa55d0352a553d27703a4f44da0
+  disposition: 375dfc73f4bf7cdf3c82be2c2751581b2d1569faa618271808ed5582fbf336af
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+provenance:
+  by: agent
+  at: '2026-11-25T18:04:13Z'
+  authority: generated
+  via: save_document_payload

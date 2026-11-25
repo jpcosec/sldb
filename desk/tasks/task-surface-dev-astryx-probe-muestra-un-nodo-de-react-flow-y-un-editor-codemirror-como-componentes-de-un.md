@@ -1,15 +1,17 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T17:42:42Z'
+  at: '2026-11-25T18:13:13Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un
-status: draft
+status: ready_for_testing
 summary: ''
 tags: []
-current_node: ritual-execution
-history: []
+current_node: ritual-closeout
+history:
+- task_activates
+- task_hands_to_closeout
 references: []
 depends_on: []
 pills: []

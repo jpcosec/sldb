@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T17:39:31Z'
+  at: '2026-11-25T18:10:45Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond
 status: draft
 summary: ''
@@ -45,6 +45,8 @@ Dentro: src/sldb/mcp/write/ (propose, pendings, findings), src/sldb/mcp/changes/
 _Outline the expected implementation route or affected surface._
 
 Leer primero docs/architecture/rules.md, edges.md y mcp.md, y cómo check_edges decide que una relación es inválida. La validación previa usa esas mismas funciones sobre el estado que resultaría del lote; no se escribe un segundo validador.
+
+Aclaraciones de la revisión: Simular sin escribir: aplicar el lote sobre una copia en memoria de los documentos afectados (en el orden del lote; una relación puede apoyarse en otra del mismo lote) y correr sobre ella las mismas funciones de check_edges; si exigen store escrito, extraer la parte pura y que check_edges la siga usando. Hash = el root hash del store (store_index) antes y después: igual. Rechazo = la estructura de rechazo que propose_changes ya devuelve hoy, una entrada por violación con la relación (origen, tipo, destino) y el código de la violación (tipo, cardinalidad o condición). Si apply_batch ya tiene dry_run, devuelve los mismos rechazos; si no lo tiene, no se crea. 'Igual que antes' = mismo valor de retorno y mismas escrituras; los tests existentes de mcp/write siguen pasando. pendings: quitar la entrada que hoy marca la validación de relaciones como faltante. No poner Task-Id en el commit de código.
 
 ## Validation
 

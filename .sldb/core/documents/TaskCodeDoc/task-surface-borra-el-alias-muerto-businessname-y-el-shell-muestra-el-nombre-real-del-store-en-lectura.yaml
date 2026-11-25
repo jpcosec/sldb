@@ -1,7 +1,7 @@
 name: task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura
 path: desk/tasks/task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura.md
-source_hash: d0545ab8566d3fb41a2e5a7a6eb92350d8fd7602d8491d39cd228be82ce38562
-content_hash: 1072b32b07596a0049ab531cbe89c2b1f4357fab9a52d609a94c8c962b6165c9
+source_hash: 1edefa40a2da78a484944ea068b1545c0bb8bb6dcd596c399a9cccc81f98c739
+content_hash: cc4d024a2dc8760bca6269fe8dfa191b74a6c5957ea92d0ab80c3e628a8c60d2
 field_hashes:
   title: 73fdd3a76c0df4ca08e5e54e46267efcfb00738924c64dad9321d9bb75407ee5
   id: 0a10de42516e1f52afaf73a5112fbb4cc1e99786bf49e8f295a80bbba7fdae36
@@ -13,17 +13,17 @@ field_hashes:
   why: b39c07f8a69c8c31dd1fbb2ac4f38a59017f7fccbfc24aef629cb3cb264e2b3f
   goal: bf62ecf3d50c430996a8017f4a9cc5f622cdc652e0fb0edf399af16c8798d7f6
   scope: e092c38f6b77d207547e25715cc8c75d99beb511d3ede7158d0a667505d8086c
-  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  references: 886e78dad6d91388664d6d2b4afa6ed35fa8ed34675695ce7fdecb9ec78d57d3
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: d2e81eda82c201908ec43a68328d133430faef0fb92a5e702c1210c38855fdd4
   implementation_path: af93755d687f943ad7ec3ee88b5e15dbb7134d0b3358cfb6b43df08a69ae5838
   validation: 193e29e8ffb79e153033bfa8803e44a629f4bad953058762f380e34f6243b3e6
   done_when: 04f15592833dd5b3d2dbb08ce1b01199e3bbc37d64902bf8c3101747860b7d98
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
-  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  atoms: e56ab2693b24c86b40dbc00af78fda3aa3c22d492fad7937880038e19a1de9b2
 semantic_tags:
 - board.tareas
 - representation.markdown
@@ -32,6 +32,6 @@ semantic_tags:
 - workspace.desk
 provenance:
   by: agent
-  at: '2026-11-25T15:39:00Z'
+  at: '2026-11-25T18:08:31Z'
   authority: generated
   via: save_document_payload

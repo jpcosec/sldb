@@ -1,0 +1,36 @@
+name: review-task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per-bundle-1
+path: desk/reviews/task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per/bundle-1.md
+source_hash: ef183028a480e335a2330c597dbda8b10a9a497a25ec1bf4a265f131fd402b4a
+content_hash: 09022a64a458aa996fad1b2e928f03d1ba671384a0aa8951d3ad30f3423d785a
+field_hashes:
+  id: 095ff89a602be2dcc465fd06e004cbdcf527bd1465ad29afc619c303fa145d04
+  title: 73900ed7f86115841d1fdf47366d30516f6e09b593d2800f20f94be3393199b2
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 7c9b1658eb52d02e1821d811ab4c7baad91c366cd9baaada975850cf37f730b5
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 5bff055696c868984a1589f2ed053329422f2ef0ca951f8a92d48150bd09efae
+  input_sha256: e272dfe430014ff616303172e64f4c110d206688ba279eebec2afd5f33590586
+  contract_sha256: 65723a904f372bbad2949ac3bda8d1d255444fb4d57ee354c212cb03dafdfa32
+  output_sha256: ece9d5ad06eb55854fe84ddae4528491aa6c28e5ce0c95c8d736f2fd3b1842df
+  verdict: 12adac54ac6f7140109391b670b3cbcd51f083d8f5ee62ce26857c794ed67d36
+  reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  created_at: 0bfebbbbc820ac52d17646baa3422a347a8f8fd6bdd00c2de4b8b53823297a06
+  disposed_at: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposed_by: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  summary: 1634e6bc92982cb604809fa1db8e823c52e1bed3c6cbd3e5802abaa8673b63c8
+  disposition: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+provenance:
+  by: agent
+  at: '2026-11-25T18:04:28Z'
+  authority: generated
+  via: create_document

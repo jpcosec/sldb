@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T15:39:00Z'
+  at: '2026-11-25T18:08:31Z'
   authority: generated
   via: save_document_payload
 id: task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura
@@ -12,14 +12,23 @@ current_node: ritual-closeout
 history:
 - task_activates
 - task_hands_to_closeout
-references: []
+references:
+- surface/src/app/WorkbenchShell.tsx
+- surface/src/app/workbench.test.tsx
+- surface/src/core/client.ts
+- 35d35097fba74e27b26cc20c24aaf35b92df50af
+- 9384682f
 depends_on: []
 pills: []
-files: []
+files:
+- surface/src/app/WorkbenchShell.tsx
+- surface/src/app/workbench.test.tsx
+- surface/src/core/client.ts
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-lectura-de-surface-muestra-el-nombre-del-store-servido-y-no-queda-alias-businessname
 ---
 
 # surface borra el alias muerto businessName y el shell muestra el nombre real del store en Lectura

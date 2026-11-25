@@ -1,7 +1,7 @@
 name: task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond
 path: desk/tasks/task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond.md
-source_hash: 9a2c8412920e064c472adcb1f682ccec6567f8d6e49b79bfe38bbd0c158f506d
-content_hash: f9f65002d3212a8e414ee609845af275f0ae2f4b63103d21372bfc8411876d8d
+source_hash: b800101c6e06775c951fc9d56e4b50451ae2b093c9c5c034203b0d0113f372bc
+content_hash: b3b473fbfc81b86e076d51d49ab5575f46e59ed282a9e363a9473dda2a29c55d
 field_hashes:
   title: dcfd45daeecbdc3fa70326e80379bb90f6f4d17548408fbc8d3298f66055506a
   id: 133813335ba4ef3d6753340b0bfc42b35804c4028290eccd922675f7f1c69bf9
@@ -17,7 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  implementation_path: 8e9d2570f4502be48bacff4525008739743e113147872ae8d0992615b36a7fa1
+  implementation_path: f2f3726bc5e93ea2fa7e7d308fa094f53b97f812d80c12d5909362b7b6911969
   validation: 9e6c09175e97affdf06e03bae2d2870b3a37aa5d50c93680724c2448b79a4f6d
   done_when: 5c1e2ee47a384de0780937478b5dea4e4189df7d681370eb13761a3c1e673f67
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
@@ -32,6 +32,6 @@ semantic_tags:
 - workspace.desk
 provenance:
   by: agent
-  at: '2026-11-25T17:39:31Z'
+  at: '2026-11-25T18:10:45Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
