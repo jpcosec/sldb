@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T01:22:16Z'
+  at: '2026-11-25T03:48:54Z'
   authority: generated
   via: save_document_payload
 id: task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas
@@ -33,7 +33,7 @@ Nota 20261121-125747-unclear-fricciones-al-tipar-una-wiki-de-negocio-webprojects
 
 _Describe the concrete result this task must produce._
 
-Los marcadores rev y optrev con valor None: rev None renderiza null o da un error claro, y un optrev None se puede volver a poner con fields update.
+Contrato elegido: un marcador rev con valor None renderiza 'null' (y extract lo devuelve como None, round-trip), en vez de fallar; y un campo optrev que vale None se puede volver a poner con fields update <doc> <campo> <valor>.
 
 ## Scope
 
@@ -45,7 +45,7 @@ Render y extract de rev/optrev y fields update de un path con valor None, con te
 
 _Outline the expected implementation route or affected surface._
 
-1) Test de rev None y de optrev None reescrito por fields update, con un modelo minimo. 2) Arreglo. Correr solo ese test.
+1) Test NUEVO tests/test_rev_optrev_none.py con un modelo minimo (un campo rev Optional[str] y un campo optrev Optional[str]): (a) render de rev=None produce 'null' y extract lo devuelve None; (b) un documento con optrev None acepta fields update del campo a 'x' y el valor queda 'x'. 2) Arreglo en render/extract y fields update. Correr solo ese test.
 
 ## Validation
 

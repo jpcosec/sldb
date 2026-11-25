@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T01:25:48Z'
+  at: '2026-11-25T03:50:21Z'
   authority: generated
   via: save_document_payload
 id: task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p
@@ -45,7 +45,7 @@ Extraccion de frontmatter con defaults y un test. Fuera: fields update, migracio
 
 _Outline the expected implementation route or affected surface._
 
-1) Test: modelo registrado, documento existente, se agrega un campo con default; el documento sigue valido y trae el default. 2) Extraccion que aplica el default ausente. Correr solo el test.
+1) Test NUEVO tests/test_campo_con_default.py: un StructuredNLDoc minimo registrado en un store temporal, un documento escrito; se agrega al modelo el campo espera_segundos: int = 4 con su marcador rev; al re-extraer, el documento no esta en store/doc-invalid y su payload trae espera_segundos == 4. 2) Arreglo en la extraccion para aplicar el default de un campo ausente. Correr solo ese test. (fields update queda en la tarea hermana task-fields-update-repara-un-documento-hoy-invalido-cuando-la-escritura-lo-deja-valido.)
 
 ## Validation
 

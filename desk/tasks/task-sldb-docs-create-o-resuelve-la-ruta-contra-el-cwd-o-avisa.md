@@ -1,9 +1,9 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T01:23:17Z'
+  at: '2026-11-25T03:49:55Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa
 status: draft
 summary: ''
@@ -32,7 +32,7 @@ Nota de minegocio (sldb 61c5847f). Partida en 3 tareas chicas al replanificar en
 
 _Describe the concrete result this task must produce._
 
-docs create -o con una ruta relativa la resuelve contra el directorio actual, o avisa claramente si la resuelve contra otro lado.
+Contrato elegido: sldb docs create -o <ruta relativa> resuelve la ruta contra el directorio actual del proceso (no contra la raiz del store) y escribe ahi.
 
 ## Scope
 
@@ -44,7 +44,7 @@ El comando docs create y un test. Fuera: render y fields.
 
 _Outline the expected implementation route or affected surface._
 
-1) Test desde un cwd distinto de la raiz. 2) Arreglo. Correr solo ese test.
+1) Encontrar docs create en src/sldb/cli/ (grep -rn 'def.*create' src/sldb/cli/ | grep -i doc). 2) Test NUEVO tests/test_docs_create_output_path.py: store temporal, cwd = un subdirectorio del proyecto, docs create -o sub.md -> el archivo queda en <cwd>/sub.md. 3) Arreglo. Correr solo ese test.
 
 ## Validation
 

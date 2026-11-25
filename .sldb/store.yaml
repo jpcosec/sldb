@@ -3251,6 +3251,9 @@ include:
   - desk/tasks/task-una-tabla-vacia-no-renderiza-fila-ni-extrae-dato-y-el-marcador-rev-dict-con-un-basemodel-no-da-el-wa.md
   - desk/tasks/task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa.md
   - desk/tasks/task-fields-update-repara-un-documento-hoy-invalido-cuando-la-escritura-lo-deja-valido.md
+  - desk/tasks/task-los-facts-de-handler-jsx-traen-los-atributos-estaticos-del-elemento-data-testid-aria-label-role-name.md
+  - desk/tasks/task-en-un-componente-con-varios-handlers-en-linea-cada-handler-jsx-nombra-las-llamadas-que-son-suyas.md
+  - desk/tasks/task-los-facts-de-llamada-ts-traen-el-method-del-segundo-argumento-cuando-es-un-objeto-literal.md
 - model: TaskDebugDoc
   paths:
   - desk/tasks/task-reproducir-si-sldb-docs-update-reescribe-índices-de-documentos-ajenos-al-que-actualiza-reviewdoc-de.md

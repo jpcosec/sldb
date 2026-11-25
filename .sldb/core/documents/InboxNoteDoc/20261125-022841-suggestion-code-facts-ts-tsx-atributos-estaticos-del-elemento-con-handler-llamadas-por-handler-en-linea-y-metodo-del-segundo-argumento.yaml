@@ -1,0 +1,25 @@
+name: 20261125-022841-suggestion-code-facts-ts-tsx-atributos-estaticos-del-elemento-con-handler-llamadas-por-handler-en-linea-y-metodo-del-segundo-argumento
+path: desk/inbox/20261125-022841-suggestion-code-facts-ts-tsx-atributos-estaticos-del-elemento-con-handler-llamadas-por-handler-en-linea-y-metodo-del-segundo-argumento.md
+source_hash: 58884fdc54f95da26732a39ba3613e54202ffbf439aafb4e55839b5471ee296a
+content_hash: ffb383b3f77cd1731fdc7f005cb41abe3f9044ca5a49479adc64238a6667d3c6
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: e8bed4ed7348fa278c270df6dfb85b527fa88162a7e67b657d9a464b80e158ec
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 9e541588db1e6aecd4a54713b73c6f879413edeeb2ac65747082043fea7adba5
+  ack_reason: 475e741a716e9bd082a13af148653d3e43b6c0ccb772a75b2db0897f1343c24d
+  title: 628dd7275e6baa7b01b240cea41197ef9f5fa586a3beb02099121b250c3ab151
+  body: 95c36177ac68b1a84112c845843be503b563879b626d08b15103064ed5b7cb77
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance:
+  by: agent
+  at: '2026-11-25T05:33:47Z'
+  authority: generated
+  via: save_document_payload

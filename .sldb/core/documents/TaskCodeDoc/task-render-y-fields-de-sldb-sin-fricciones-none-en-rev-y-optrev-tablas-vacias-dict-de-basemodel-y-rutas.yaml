@@ -1,7 +1,7 @@
 name: task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas
 path: desk/tasks/task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas.md
-source_hash: e064f0174dcba0cc08797ddf8e1caa1cc52c6fe262fda91fb2ca01b8e366567d
-content_hash: 7857b541de4eab53fd84ef7fe8e1dcf2bdf6736c4ab2cc9cc40dea7dade5a92a
+source_hash: 4a048c7a2d85663db6ce565a6614a9c3a6b19bdfd9c7a3176f2fd2af2c18ec1b
+content_hash: 78fa2741b1bfa3adafa21930918505caafd0a5054e0a2bf450b977e5e90dac5d
 field_hashes:
   title: 9dd561f9784172c69c21d0b76e7f779f46fba140b5089861f60968bcf2bb5ab9
   id: 31c8d1b034a30a1770513bede67426aca47f860939b9a669b6ad2fbcb8fd04ed
@@ -11,13 +11,13 @@ field_hashes:
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: e00a968b948d64dcb1bb7fe6ad611f5a8d28f4e401f598e6c35355de3bb153db
-  goal: 8cd2467de86d922138a8e07d5756017771a8d86fb6d85c5bf996027ec8dd8245
+  goal: c2ca9468220396aeac7e97221e7805e902a19640cd11d4d6083ad27572f62984
   scope: 08fd41b6b18701a2a241dd51baefefbe377098061a5089a9bcbbd29c1a23fe61
   references: c5f009d3bfdf16b194e8ad40b41e42318ce04620b0427ae1006d295f434b2a16
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  implementation_path: 2ba11c86a488ac8f1bd714e2d726ecb50b107df7e29ac9c9764d65979ff7e0e7
+  implementation_path: e69058ef63fa6520a8e1264e6bc6640b1fe80fd69fe1bdad8cf9274f21c73847
   validation: 30f296dab2883acd605223e67bfa79fe9699bfed99cd8c52a861f16b37c24e9c
   done_when: 0a94f5fa5e48109cceeda996c42c12b4d2be72d1daf1f47fa8746135cd400e85
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
@@ -32,6 +32,6 @@ semantic_tags:
 - workspace.desk
 provenance:
   by: agent
-  at: '2026-11-25T01:22:16Z'
+  at: '2026-11-25T03:48:54Z'
   authority: generated
   via: save_document_payload
