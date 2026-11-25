@@ -1,0 +1,19 @@
+name: 20261125-024344-unclear-queue-20261125t054159z-dispatch-reap-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa
+path: desk/inbox/20261125-024344-unclear-queue-20261125t054159z-dispatch-reap-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa.md
+source_hash: 5f1ecd563cd897c8e0cd9c904836cfbdea5a79f22cf4b251f249208821030f89
+content_hash: 3808fcb1d3ae33f393ff13aa49ad1fed430e5640684e308184f04a1d2c371a0d
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: a8b4d4dc50615f023d9d6eb938f0ee102de65ecfbf670649c93538ff945ebb15
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: 54bad3b4300ecfcdee0a3a3de5841cd24aa15bb0888c55b0378708ee5fa96be5
+  body: 0218b567662cda47ca4777e3dc614c0a65bce09d66a1540ecce6e8baa4d07438
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

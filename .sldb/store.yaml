@@ -394,6 +394,7 @@ include:
   - desk/inbox/20261123-234134-unclear-queue-20261124t022723z-dispatch-reap-task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb.md
   - desk/inbox/20261124-000312-unclear-queue-20261124t024525z-dispatch-reap-task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb.md
   - desk/inbox/20261125-022841-suggestion-code-facts-ts-tsx-atributos-estaticos-del-elemento-con-handler-llamadas-por-handler-en-linea-y-metodo-del-segundo-argumento.md
+  - desk/inbox/20261125-024344-unclear-queue-20261125t054159z-dispatch-reap-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -1613,6 +1614,8 @@ include:
   - desk/materializations/materialization-grafo-desk-drawer-plans-grafo-datalog-daemon-poc-informe-md.md
   - desk/materializations/materialization-grafo-desk-drawer-plans-grafo-operable-decisiones-md.md
   - desk/materializations/materialization-identity-gate-contracts-identity-toml.md
+  - desk/materializations/materialization-serve-422-src-sldb-cli-serve-save-routes-py.md
+  - desk/materializations/materialization-serve-422-tests-test-serve-save-422-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -3195,6 +3198,14 @@ include:
     name: review-task-la-puerta-identidad-de-tools-check-sh-clasifica-workbench-demo-store-demo-del-workbench-de-surface-e-evidence-atom-1
   - path: desk/reviews/task-la-puerta-identidad-de-tools-check-sh-clasifica-workbench-demo-store-demo-del-workbench-de-surface-e/evidence-materialization-1.md
     name: review-task-la-puerta-identidad-de-tools-check-sh-clasifica-workbench-demo-store-demo-del-workbench-de-surface-e-evidence-materialization-1
+  - path: desk/reviews/task-el-422-de-post-save-de-sldb-serve-devuelve-exc-errors-como-details/evidence-tests-1.md
+    name: review-task-el-422-de-post-save-de-sldb-serve-devuelve-exc-errors-como-details-evidence-tests-1
+  - path: desk/reviews/task-el-422-de-post-save-de-sldb-serve-devuelve-exc-errors-como-details/evidence-commit-1.md
+    name: review-task-el-422-de-post-save-de-sldb-serve-devuelve-exc-errors-como-details-evidence-commit-1
+  - path: desk/reviews/task-el-422-de-post-save-de-sldb-serve-devuelve-exc-errors-como-details/evidence-atom-1.md
+    name: review-task-el-422-de-post-save-de-sldb-serve-devuelve-exc-errors-como-details-evidence-atom-1
+  - path: desk/reviews/task-el-422-de-post-save-de-sldb-serve-devuelve-exc-errors-como-details/evidence-materialization-1.md
+    name: review-task-el-422-de-post-save-de-sldb-serve-devuelve-exc-errors-como-details-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

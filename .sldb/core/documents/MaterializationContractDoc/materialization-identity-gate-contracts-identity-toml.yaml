@@ -1,0 +1,25 @@
+name: materialization-identity-gate-contracts-identity-toml
+path: desk/materializations/materialization-identity-gate-contracts-identity-toml.md
+source_hash: 3261958e70dd9f4e83c229acdb6ffaf0cee8048639ce91eb3eea571e2c14ad40
+content_hash: fb53992cdb22320c3745dc160d3448bcc9039ee8e876aafbcc795dae87464951
+field_hashes:
+  id: ed0d5adf7d0c2b54bbc1e9337be5e40e56e77d6ad132711cf6c141ce1b6871f4
+  title: ae501ec0fff6b1ed3e6662fc6d6dcb04cf7a72656b4c54350aaa4af9ef4625a9
+  source_atoms: bffd125d2573969fdf49ef7c8e859f93c1e75f0878d5117711d0f1262d24c719
+  target_kind: 48882ab48bfdf3bef2fe65e3304e91ccfd8f74e357c183367ad6fe903fe0e697
+  target_identity: 0e691d1d5fc349426e11799babdee3d113eecc2b1983453fb245ad3cc26efc5a
+  intent: 5620efe422bd346ee60b4ca00fd6baff284a8b1c51c5eae651311181023d4231
+  validation: 76659dd4fe4fdab9e2118c3577fbfba360664668bba136b6297af75675ad3015
+  tags: 724bf34fd5c12923632eaf5c2663de6cc4a4b580ed510236149380f8f3cee016
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:identity-gate
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-25T05:14:22Z'
+  authority: generated
+  via: create_document

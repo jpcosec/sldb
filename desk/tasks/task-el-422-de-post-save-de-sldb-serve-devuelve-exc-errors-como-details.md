@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T05:32:06Z'
+  at: '2026-11-25T05:46:01Z'
   authority: generated
   via: save_document_payload
 id: task-el-422-de-post-save-de-sldb-serve-devuelve-exc-errors-como-details
@@ -11,14 +11,20 @@ tags: []
 current_node: ritual-testing
 history:
 - task_activates
-references: []
+references:
+- src/sldb/cli/serve/save_routes.py
+- tests/test_serve_save_422.py
+- 373bb14d7ac41eba27aeeb2dd91f64446938e63e
 depends_on: []
 pills: []
-files: []
+files:
+- src/sldb/cli/serve/save_routes.py
+- tests/test_serve_save_422.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-el-422-de-post-save-de-sldb-serve-devuelve-exc-errors-como-details
 ---
 
 # El 422 de POST /save de sldb serve devuelve exc.errors() como details

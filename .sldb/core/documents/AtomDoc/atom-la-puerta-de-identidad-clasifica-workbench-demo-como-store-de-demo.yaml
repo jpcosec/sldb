@@ -1,0 +1,22 @@
+name: atom-la-puerta-de-identidad-clasifica-workbench-demo-como-store-de-demo
+path: desk/atoms/atom-la-puerta-de-identidad-clasifica-workbench-demo-como-store-de-demo.md
+source_hash: dd75bd7c87243b55a65d92dc80a531e91c0700c82398f945c7487bfab0ba50ad
+content_hash: 699b3da874b51aba12fb7840f8ffcba411648f13708132599c3ae167a112816f
+field_hashes:
+  id: 2b22a925a2266e1300fc6e6f1a639fbd058f089d0a59efd6255422213cfd6694
+  title: 699bd0dfc8348c54c6c50c779acf7b9350d9f936b497fe217586c17b288e6140
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: b7425b00f1b146d9e6846730bb39566f50c2423a77c10851f5d8392d56be3121
+  tags: 724bf34fd5c12923632eaf5c2663de6cc4a4b580ed510236149380f8f3cee016
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:identity-gate
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-25T05:12:25Z'
+  authority: generated
+  via: create_document

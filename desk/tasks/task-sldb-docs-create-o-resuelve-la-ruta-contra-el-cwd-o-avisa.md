@@ -1,15 +1,16 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T03:49:55Z'
+  at: '2026-11-25T05:41:19Z'
   authority: generated
   via: save_document_payload
 id: task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa
-status: draft
+status: active
 summary: ''
 tags: []
-current_node: ritual-execution
-history: []
+current_node: ritual-testing
+history:
+- task_activates
 references: []
 depends_on: []
 pills: []

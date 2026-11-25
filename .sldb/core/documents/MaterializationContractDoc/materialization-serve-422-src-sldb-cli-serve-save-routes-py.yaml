@@ -1,0 +1,25 @@
+name: materialization-serve-422-src-sldb-cli-serve-save-routes-py
+path: desk/materializations/materialization-serve-422-src-sldb-cli-serve-save-routes-py.md
+source_hash: 75d268f394a0690b54c17ebafccf687cd148201c5d73ac66bd66010a0126b515
+content_hash: 5da081c0f044664014e9d0c923ddffd681128a51a2bd904af15121b81a591ab9
+field_hashes:
+  id: 734afaccf99118590a582779cef6ecf1ee397ad1879ffd325c3fdecdc8b64194
+  title: 55e445a7970e151bf891e1264142bea8e3f6a19fa34232d21894dce1ee5b7c11
+  source_atoms: 579eda006412c3927a6cb29f58be20fdb292571d9a4dfab206135b0c5f4c8a94
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 16f5257a41843f941faf05d034e460fc6cc8161339318ef4bb1616fa9512ef94
+  intent: 504425ed5a677071270c389369545edfb00511eb836de4981bc93ea847d874a0
+  validation: b4b8f5e0c2fb7f739c4f4616d4d9270f272dc3a0d187ffd565ce11f7a247ae67
+  tags: cc09d446945b825ad9152103c4c0e22331c21d6f919cb181321d6fa5487e28fb
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:serve-422
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-25T05:46:36Z'
+  authority: generated
+  via: create_document
