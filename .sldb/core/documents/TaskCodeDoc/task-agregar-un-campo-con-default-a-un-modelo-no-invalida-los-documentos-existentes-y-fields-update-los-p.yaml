@@ -1,7 +1,7 @@
 name: task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p
 path: desk/tasks/task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p.md
-source_hash: 985d38079b46a015025fd9d5c683766b4f9d7f8a82ed7665f84cc918afac0789
-content_hash: e6b2ee9c75f669d356d92fff52219cdfadbb73633872d6da4787288c70e43f44
+source_hash: 2bcd777a1dc8963ddc3d157f25a92f722c86ff2da8d7bac9c3646644a36e0ea5
+content_hash: 4cb755d02942c8fce604a49c036fe93bfa661c47ff781ea8cc98c2985e93e5cf
 field_hashes:
   title: 3641fbe469cccdbab1fd5e14d4cc787a19503419cc66f684b5df553af0d2221d
   id: acc77d149db2a80d855b448a14ec6ccbdfe1110def82818b8550285100f005e6
@@ -13,17 +13,17 @@ field_hashes:
   why: 490f0ee809a8018496c69063789682a085925129a20f7e0a89fe4b013ab3e2e9
   goal: 17fd32893cf57303767cacb14faf5ccb8df54029c96f26175ec8462c57492713
   scope: e86f4dc88656e55b3c596775b311c43443280a46a09349de115f6c6e3110edb2
-  references: e0f0bf99cf7d94afba80382eefea9951c8f3d4772e10c8a7e642d70af6f12a80
+  references: 147309b9214e76c183e86b11f72ee3f32b2d2037608ac81aaec2c549419fdfee
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 631b184a0b5618cb9a7d8aa7e2cd368926f965d6c2111dc85a0816e34f47f848
   implementation_path: c49b66dcc83a7c0e88419fb3f4d8018e061a265fa95210f9ca725d8fa204d53e
   validation: 3ac605aba09571604247581258b12a2db27c3fbd5b30d5378ed735ee81a471d0
   done_when: 5a38a489d17fe56172b0eba171e6ccff1e47ffdd1bdbe8acc4182501f84896e6
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
-  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  atoms: c7c36e03da0f5f55218674775ad220eebd1ae344f53daac6c9935640b1f7af17
 semantic_tags:
 - board.tareas
 - representation.markdown
@@ -32,6 +32,6 @@ semantic_tags:
 - workspace.desk
 provenance:
   by: agent
-  at: '2026-11-25T05:51:50Z'
+  at: '2026-11-25T06:09:06Z'
   authority: generated
   via: save_document_payload

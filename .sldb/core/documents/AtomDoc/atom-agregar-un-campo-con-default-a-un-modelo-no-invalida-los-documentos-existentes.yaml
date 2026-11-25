@@ -1,0 +1,22 @@
+name: atom-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes
+path: desk/atoms/atom-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes.md
+source_hash: 55f10c19b258f04922b751ab9f81669afa565457593b763ad2c67f1031f4eba6
+content_hash: 26227616e1e019e71ab5bada899923a30daec3c817d11e65e8ae0d599d91af03
+field_hashes:
+  id: ce87ba2faf3df7e56681ee122b33e0b477ad8ec374e9abd9e651be8f4fd0fd5c
+  title: 1108c25d65633c630e4ca6689891f3909086e545172c7159ae43c3d279acc929
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 50acb952747f9d4ea9f72058812c3f7191e97b4c0198617093d355609f7247b9
+  tags: 81b18557203df11b7a4d633627ed1be06ac3248fc467e5d11ea060d007fb28a9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:campo-default
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-25T06:06:46Z'
+  authority: generated
+  via: create_document

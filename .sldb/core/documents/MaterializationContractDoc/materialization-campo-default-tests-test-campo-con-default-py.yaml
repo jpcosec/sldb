@@ -1,0 +1,25 @@
+name: materialization-campo-default-tests-test-campo-con-default-py
+path: desk/materializations/materialization-campo-default-tests-test-campo-con-default-py.md
+source_hash: caa1f212f568d2c305e312009edebb99f43bc91ad753fe98020ce970aebdd353
+content_hash: e3711e8b2c6669dbf7cdeec810e5d38a55757f11ce15e06a6425f034f8aff15b
+field_hashes:
+  id: 4fbb73ac688b589d54f18b4de68359294eed9fd54586651949fc73df7f26c9a4
+  title: 410c0210586eaf32ea5e61699c3b98bbe3e1fbde0b1884b6ef9025ee9aae1e39
+  source_atoms: c7c36e03da0f5f55218674775ad220eebd1ae344f53daac6c9935640b1f7af17
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 5fe5b3fa729e375ff08eb2c46d1923098207b937c53093e863eb1af42ab9afa8
+  intent: ec5df185b42366c2319c5b996281d2342bd12168aa658ca7e0cdce28a43b2f46
+  validation: ef1ca2c0a1385355274a8d86a95c2ee61c52824c90ce0a90ddf2488488955e79
+  tags: 81b18557203df11b7a4d633627ed1be06ac3248fc467e5d11ea060d007fb28a9
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:campo-default
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-25T06:11:10Z'
+  authority: generated
+  via: create_document

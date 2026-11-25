@@ -398,6 +398,7 @@ include:
   - desk/inbox/20261125-024934-unclear-queue-20261125t054504z-dispatch-reap-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa.md
   - desk/inbox/20261125-025528-unclear-queue-20261125t055007z-dispatch-reap-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa.md
   - desk/inbox/20261125-030337-suggestion-sldb-serve-acepta-extension-module-function-como-sldb-mcp-para-que-specir-registre-rutas-http-de-solo-lectura.md
+  - desk/inbox/20261125-031221-unclear-queue-20261125t054200z-dispatch-tester-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -1624,6 +1625,7 @@ include:
   - desk/materializations/materialization-serve-422-src-sldb-cli-serve-save-routes-py.md
   - desk/materializations/materialization-serve-422-tests-test-serve-save-422-py.md
   - desk/materializations/materialization-campo-default-src-sldb-runtime-validation-py.md
+  - desk/materializations/materialization-campo-default-tests-test-campo-con-default-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -3214,6 +3216,14 @@ include:
     name: review-task-el-422-de-post-save-de-sldb-serve-devuelve-exc-errors-como-details-evidence-atom-1
   - path: desk/reviews/task-el-422-de-post-save-de-sldb-serve-devuelve-exc-errors-como-details/evidence-materialization-1.md
     name: review-task-el-422-de-post-save-de-sldb-serve-devuelve-exc-errors-como-details-evidence-materialization-1
+  - path: desk/reviews/task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p/evidence-tests-1.md
+    name: review-task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p-evidence-tests-1
+  - path: desk/reviews/task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p/evidence-commit-1.md
+    name: review-task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p-evidence-commit-1
+  - path: desk/reviews/task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p/evidence-atom-1.md
+    name: review-task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p-evidence-atom-1
+  - path: desk/reviews/task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p/evidence-materialization-1.md
+    name: review-task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T05:56:37Z'
+  at: '2026-11-25T06:05:16Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -88,6 +88,7 @@ tasks:
 - desk/tasks/task-los-facts-de-handler-jsx-traen-los-atributos-estaticos-del-elemento-data-testid-aria-label-role-name.md
 - desk/tasks/task-en-un-componente-con-varios-handlers-en-linea-cada-handler-jsx-nombra-las-llamadas-que-son-suyas.md
 - desk/tasks/task-los-facts-de-llamada-ts-traen-el-method-del-segundo-argumento-cuando-es-un-objeto-literal.md
+- desk/tasks/task-sldb-serve-acepta-extension-module-function-y-la-extension-registra-rutas-get-de-solo-lectura-bajo-e.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -209,3 +210,4 @@ _Generated from the task references above._
 - Los facts de handler JSX traen los atributos estaticos del elemento: data-testid, aria-label, role, name y type [draft] - Que cada handler JSX de code_facts lleve los atributos literales de su elemento, para derivar un localizador.
 - En un componente con varios handlers en linea, cada handler JSX nombra las llamadas que son suyas [draft] - Que code_facts diga que llamadas pertenecen a cada handler en linea, no solo la primera.
 - Los facts de llamada TS traen el method del segundo argumento cuando es un objeto literal [draft] - Que una llamada request(path, {method: 'POST'}) o fetch(path, {method: 'POST'}) exponga method en su fact.
+- sldb serve acepta --extension MODULE:FUNCTION y la extension registra rutas GET de solo lectura bajo /ext/<nombre>/ [draft] - Que sldb serve cargue extensiones por nombre y les deje registrar rutas GET bajo un prefijo propio, con acceso al store servido.

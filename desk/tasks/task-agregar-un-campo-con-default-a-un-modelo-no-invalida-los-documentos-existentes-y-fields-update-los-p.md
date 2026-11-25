@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T05:51:50Z'
+  at: '2026-11-25T06:09:06Z'
   authority: generated
   via: save_document_payload
 id: task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p
@@ -12,14 +12,19 @@ current_node: ritual-testing
 history:
 - task_activates
 references:
-- desk/inbox/20261121-204955-unclear-agregar-un-campo-con-default-a-un-modelo-invalida-los-documentos-existentes-y-fields-update-no-los-repara.md
+- src/sldb/runtime/validation.py
+- tests/test_campo_con_default.py
+- 8074f488ab9a6d4575777f51af17c84b23943117
 depends_on: []
 pills: []
-files: []
+files:
+- src/sldb/runtime/validation.py
+- tests/test_campo_con_default.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes
 ---
 
 # Agregar un campo con default a un modelo no invalida los documentos existentes y fields update los puede reparar
