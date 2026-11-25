@@ -1,0 +1,36 @@
+name: review-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa-evidence-tests-1
+path: desk/reviews/task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa/evidence-tests-1.md
+source_hash: d1c98e28621462c35d1b4ade115966d47b32d7ec4ba9682022012794fae6b8b6
+content_hash: e639ece2351b874e32c539311346894d75c265d045a75e63a089b2a22fa0ad7c
+field_hashes:
+  id: d71e0c775b308b3d2ecf5bf1caaa6b4bc4d9d4e961b75fbfd2392c6b53675821
+  title: f1c28b63fbecbed69b2ecaf30f52a6c385aa821a8413ba04ecc83e5bf379ec58
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: 68f05093bc600659c0aecd265fad80c71a658cc857e91cdfeeee782eb670c200
+  value: f3cff6690e930940596fbbcb20d7fbba1c62a27bd37d364271598b73ae58f882
+  subject: 5e67b87d95fda7c05bcc6fc5d7e86d696a984e1840e98852aabb09dd6f7f858d
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 66e4cef54a45fc908846363c7be1299f63612a030aaaeefa40fc0b67128fca4f
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 958eae7c74d1020b0e82a13e18c0b6ce728c82f1d13a92d2b23c434d848b98b1
+  created_at: a35ae8cc89f5af8976b9d2f068706a6d9b7f2b0245ebd048b0bb5ad6c18c33ec
+  disposed_at: a35ae8cc89f5af8976b9d2f068706a6d9b7f2b0245ebd048b0bb5ad6c18c33ec
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: d9875d08d4de7502b1988bb5ef8addd7d60bf1767b278ba1814715153dea02ce
+  disposition: 7a56a638e1d2148a2151cc9c23607b4aaa55111c2ecbd29fc9036a39bfd3ed2e
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+provenance:
+  by: agent
+  at: '2026-11-25T21:17:11Z'
+  authority: generated
+  via: create_document

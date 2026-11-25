@@ -158,3 +158,4 @@
 {"task_id": "task-sldb-serve-acepta-extension-module-function-y-la-extension-registra-rutas-get-de-solo-lectura-bajo-e", "run_id": null, "run_dir": null, "session_sha256": null, "mode": "superseded", "commit": null}
 {"task_id": "task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura", "run_id": "run-deskops-e-d801f16f505e", "run_dir": "runs/subagents/exec-deskops-e-d801f16f505e", "session_sha256": null, "commit": null}
 {"task_id": "task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un", "run_id": "run-deskops-e-a30b7a6741aa", "run_dir": "runs/subagents/exec-deskops-e-a30b7a6741aa", "session_sha256": null, "commit": null}
+{"task_id": "task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa", "run_id": "run-deskops-e-c005784dc665", "run_dir": "runs/subagents/exec-deskops-e-c005784dc665", "session_sha256": null, "commit": null}

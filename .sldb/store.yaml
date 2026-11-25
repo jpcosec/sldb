@@ -3446,7 +3446,6 @@ include:
   - desk/tasks/task-los-modelos-de-sldb-declaran-patron-de-ruta-y-cardinalidad-serve-los-expone-por-modelo-y-post-save-c.md
   - desk/tasks/task-surface-deja-de-tratar-todo-field-como-bloque-usa-composition-de-segments-y-la-ruta-y-cardinalidad-d.md
   - desk/tasks/task-una-tabla-vacia-no-renderiza-fila-ni-extrae-dato-y-el-marcador-rev-dict-con-un-basemodel-no-da-el-wa.md
-  - desk/tasks/task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa.md
   - desk/tasks/task-fields-update-repara-un-documento-hoy-invalido-cuando-la-escritura-lo-deja-valido.md
   - desk/tasks/task-los-facts-de-handler-jsx-traen-los-atributos-estaticos-del-elemento-data-testid-aria-label-role-name.md
   - desk/tasks/task-en-un-componente-con-varios-handlers-en-linea-cada-handler-jsx-nombra-las-llamadas-que-son-suyas.md

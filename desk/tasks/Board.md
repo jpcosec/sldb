@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T19:29:19Z'
+  at: '2026-11-25T21:30:23Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -80,7 +80,6 @@ tasks:
 - desk/tasks/task-los-modelos-de-sldb-declaran-patron-de-ruta-y-cardinalidad-serve-los-expone-por-modelo-y-post-save-c.md
 - desk/tasks/task-surface-deja-de-tratar-todo-field-como-bloque-usa-composition-de-segments-y-la-ruta-y-cardinalidad-d.md
 - desk/tasks/task-una-tabla-vacia-no-renderiza-fila-ni-extrae-dato-y-el-marcador-rev-dict-con-un-basemodel-no-da-el-wa.md
-- desk/tasks/task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa.md
 - desk/tasks/task-fields-update-repara-un-documento-hoy-invalido-cuando-la-escritura-lo-deja-valido.md
 - desk/tasks/task-los-facts-de-handler-jsx-traen-los-atributos-estaticos-del-elemento-data-testid-aria-label-role-name.md
 - desk/tasks/task-en-un-componente-con-varios-handlers-en-linea-cada-handler-jsx-nombra-las-llamadas-que-son-suyas.md
@@ -208,7 +207,6 @@ _Generated from the task references above._
 - Los modelos de sldb declaran patron de ruta y cardinalidad, serve los expone por modelo y POST /save create acepta path [draft] - Un atributo de clase documentado declara en el modelo el patron de ruta y la cardinalidad; un endpoint de serve los expone por modelo; POST /save con action create acepta path y respeta el patron.
 - surface deja de tratar todo field como bloque: usa composition de segments y la ruta y cardinalidad del modelo [draft] - surface/src/core/layout.ts, react/DocumentSurface.tsx y views/ComposerView.tsx usan composition de /document/segments para decidir bloque o inline, y la ruta y cardinalidad del endpoint de modelos al crear.
 - Una tabla vacia no renderiza fila ni extrae dato, y el marcador rev,dict con un BaseModel no da el warning falso [draft] - Render y extract de tablas vacias no inventan fila ni dato, y resolver rev,dict sobre un BaseModel no emite el warning falso.
-- sldb docs create -o resuelve la ruta contra el cwd (o avisa) [active] - Contrato elegido: sldb docs create -o <ruta relativa> resuelve la ruta contra el directorio actual del proceso (no contra la raiz del store) y escribe ahi.
 - fields update repara un documento hoy invalido cuando la escritura lo deja valido [draft] - fields update valida el resultado de la escritura, no el estado previo: puede escribir un campo en un documento invalido si con eso queda valido.
 - Los facts de handler JSX traen los atributos estaticos del elemento: data-testid, aria-label, role, name y type [draft] - Que cada handler JSX de code_facts lleve los atributos literales de su elemento, para derivar un localizador.
 - En un componente con varios handlers en linea, cada handler JSX nombra las llamadas que son suyas [draft] - Que code_facts diga que llamadas pertenecen a cada handler en linea, no solo la primera.
@@ -221,5 +219,5 @@ _Generated from the task references above._
 - resolver una vista informa como hueco el documento que ningún glifo casa, en vez de fallar la vista entera [draft] - Que la vista se resuelva con los documentos que sí casan y que el resultado liste aparte los que no, con su id y su modelo.
 - una NotationDoc declara qué estándar implementa y sldb notations validate lo muestra [draft] - Un campo opcional en la notación con el nombre y la versión del estándar, validado y visible al listar y validar.
 - una regla puede preguntar por los tags semánticos del modelo de un documento y por los de sus ancestros en el DAG [draft] - Un predicado del lenguaje de reglas que sea verdadero cuando el modelo del documento tiene un tag dado o uno que desciende de él en el DAG semántico.
-- sldb responde qué documentos aplican a un archivo o a un símbolo, sea porque lo anclan directo o porque apuntan a una categoría que lo cubre [draft] - Dos operaciones de lectura: dado un puntero, qué documentos y qué código cubre; y dado un archivo o un símbolo, qué documentos apuntan a él, directo o a través de una categoría.
+- sldb responde qué documentos aplican a un archivo o a un símbolo, sea porque lo anclan directo o porque apuntan a una categoría que lo cubre [active] - Dos operaciones de lectura: dado un puntero, qué documentos y qué código cubre; y dado un archivo o un símbolo, qué documentos apuntan a él, directo o a través de una categoría.
 - los hechos de llamada de Python traen los argumentos literales, y de inner.add_parser("nodes", help="...") sale el nombre del comando y su ayuda [draft] - Que una llamada de Python lleve sus argumentos cuando son literales: los posicionales en orden y los nombrados por su nombre.
