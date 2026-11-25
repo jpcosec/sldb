@@ -402,6 +402,7 @@ include:
   - desk/inbox/20261125-143805-suggestion-c7-api-p-blica-para-resolver-un-store-por-nombre-en-el-cat-logo-de-la-m-quina.md
   - desk/inbox/20261125-143822-suggestion-c8-chequeo-el-store-corresponde-al-rbol-para-pre-commit-y-ci.md
   - desk/inbox/20261125-143840-suggestion-c9-creaci-n-de-documentos-dirigida-por-el-esquema-del-modelo.md
+  - desk/inbox/20261125-152845-unclear-el-prop-sito-de-cada-hash-del-store-no-est-en-un-solo-lugar-y-hay-docs-que-lo-contradicen.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
