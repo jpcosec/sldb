@@ -3479,6 +3479,14 @@ include:
     name: review-task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual-evidence-atom-2
   - path: desk/reviews/task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual/evidence-materialization-1.md
     name: review-task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual-evidence-materialization-1
+  - path: desk/reviews/task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond/preflight-2.md
+    name: review-task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond-preflight-2
+  - path: desk/reviews/task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond/bundle-2.md
+    name: review-task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond-bundle-2
+  - path: desk/reviews/task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e/preflight-2.md
+    name: review-task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e-preflight-2
+  - path: desk/reviews/task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e/bundle-2.md
+    name: review-task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e-bundle-2
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
