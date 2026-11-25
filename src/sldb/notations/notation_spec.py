@@ -58,7 +58,15 @@ class NotationSpec(BaseModel):
         # parametros reconocidos de kind graph: style layered|rings, ring_field para rings
         if v.get("style") not in (None, "layered", "rings"):
             raise ValueError(f"layout.style {v['style']!r} must be layered or rings")
-        return {"kind": kind, **{k: val for k, val in v.items() if k != "kind"}}
+        rest = {k: val for k, val in v.items() if k != "kind"}
+        if "by" in rest:
+            if kind != "partition-lanes":
+                raise ValueError("layout.by only applies to kind partition-lanes")
+            by = rest["by"]
+            if not isinstance(by, str) or not by.strip():
+                raise ValueError("layout.by must be a non-empty field name")
+            rest["by"] = by.strip()
+        return {"kind": kind, **rest}
 
     @model_validator(mode="after")
     def _consistent(self) -> "NotationSpec":

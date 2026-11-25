@@ -38,7 +38,7 @@ SHAPES = (
     "diamond", "filled-circle", "lifeline", "node-box", "rounded-box", "rounded-container", "row-header",
     "stick-figure", "cylinder", "queue", "cloud", "package", "note",
 )
-LAYOUT_KINDS = ("graph", "tree", "lanes", "grid", "axis", "manual")
+LAYOUT_KINDS = ("graph", "tree", "lanes", "grid", "axis", "manual", "partition-lanes")
 
 # relaciones que cada tipo de diagrama emite al sincronizar (`sldb_sync.spec_edges` mas
 # `contains`); None = relaciones libres, no se comprueban
