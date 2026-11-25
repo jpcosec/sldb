@@ -393,6 +393,7 @@ include:
   - desk/inbox/20261124-023754-suggestion-semantica-del-store-padres-declarados-solo-en-el-cache-namespace-sin-padre-y-migracion-de-tags-en-bloque.md
   - desk/inbox/20261123-234134-unclear-queue-20261124t022723z-dispatch-reap-task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb.md
   - desk/inbox/20261124-000312-unclear-queue-20261124t024525z-dispatch-reap-task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb.md
+  - desk/inbox/20261125-022841-suggestion-code-facts-ts-tsx-atributos-estaticos-del-elemento-con-handler-llamadas-por-handler-en-linea-y-metodo-del-segundo-argumento.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -963,6 +964,8 @@ include:
     name: run-deskops-e-891c1b240153
   - path: runs/subagents/exec-deskops-e-c005784dc665/run.md
     name: run-deskops-e-c005784dc665
+  - path: runs/subagents/exec-deskops-e-f58e82999753/run.md
+    name: run-deskops-e-f58e82999753
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
