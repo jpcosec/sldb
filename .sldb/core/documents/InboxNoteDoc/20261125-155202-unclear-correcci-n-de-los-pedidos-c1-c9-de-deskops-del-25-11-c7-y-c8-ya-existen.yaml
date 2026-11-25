@@ -1,0 +1,19 @@
+name: 20261125-155202-unclear-correcci-n-de-los-pedidos-c1-c9-de-deskops-del-25-11-c7-y-c8-ya-existen
+path: desk/inbox/20261125-155202-unclear-correcci-n-de-los-pedidos-c1-c9-de-deskops-del-25-11-c7-y-c8-ya-existen.md
+source_hash: 49e8aaf2f61f9e37e7802358287c345d2e0f5cc43f60dd1abb33874ba41d2046
+content_hash: 9190dc6896954b6a089b7e74d3fbaaacf060bf0a70475a90afb87b9aa93eb584
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: fd3b802bc0b9bf63ca72498f5c87f7b0283b9788a905acaf67e5a03b81a4f547
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: d97ebbc582b146d51b977254885388551e125ca91ca0c5311bd22dc0417db831
+  body: 1594b42ca63bdaba7cd20e634b3e7fd4fe332262f6abf6f1f53af0b4ccabe9fd
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null
