@@ -1,0 +1,25 @@
+/* React Flow reads --xy-*-props before its own defaults: point them at Astryx tokens.
+   No color literal here; light/dark follows Astryx's color-scheme. */
+.sldb-graph .react-flow {
+  --xy-background-color-props: var(--color-background-body);
+  --xy-background-pattern-color-props: var(--color-border);
+  --xy-node-background-color: var(--color-background-card);
+  --xy-node-color: var(--color-text-primary);
+  --xy-node-border: 1px solid var(--color-border-emphasized);
+  --xy-node-boxshadow-selected: 0 0 0 1px var(--color-accent);
+  --xy-handle-background-color: var(--color-accent);
+  --xy-handle-border-color: var(--color-background-card);
+  --xy-edge-stroke: var(--color-border-emphasized);
+  --xy-edge-stroke-selected: var(--color-accent);
+  --xy-controls-button-background-color-props: var(--color-background-surface);
+  --xy-controls-button-background-color-hover-props: var(--color-background-muted);
+  --xy-controls-button-color-props: var(--color-icon-primary);
+  --xy-controls-button-color-hover-props: var(--color-icon-primary);
+  --xy-controls-button-border-color-props: var(--color-border);
+  --xy-minimap-background-color-props: var(--color-background-surface);
+  font-family: inherit;
+}
+.sldb-graph .react-flow__node-default {
+  border-radius: var(--radius-md, 6px);
+  font-size: inherit;
+}

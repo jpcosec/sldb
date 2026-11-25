@@ -1,0 +1,47 @@
+{
+  "name": "@sldb/astryx-probe",
+  "version": "1.0.0",
+  "description": "Prueba: componentes de surface como paquete de integración de Astryx",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit && astryx integration check --strict",
+    "check": "astryx integration check",
+    "build": "vite build",
+    "dev": "vite"
+  },
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./components/SldbGraphCanvas": "./components/SldbGraphCanvas.tsx",
+    "./components/SldbTextEditor": "./components/SldbTextEditor.tsx"
+  },
+  "devDependencies": {
+    "@astryxdesign/cli": "^0.7.17",
+    "@astryxdesign/core": "^0.7.17",
+    "@types/react": "^19.3.3",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^6.0.3",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.2"
+  },
+  "dependencies": {
+    "@astryxdesign/theme-neutral": "^0.7.17",
+    "@codemirror/commands": "^6.11.2",
+    "@codemirror/lang-markdown": "^6.5.2",
+    "@codemirror/language": "^6.13.1",
+    "@codemirror/state": "^6.7.6",
+    "@codemirror/view": "^6.44.0",
+    "@heroicons/react": "^2.2.0",
+    "@stylexjs/stylex": "^0.19.2",
+    "@xstate/react": "^6.1.0",
+    "@xyflow/react": "^13.0.3",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "xstate": "^5.33.4"
+  },
+  "files": [
+    "components",
+    "lib",
+    "astryx.integration.mjs"
+  ]
+}

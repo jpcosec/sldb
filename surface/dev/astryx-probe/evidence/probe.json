@@ -1,0 +1,43 @@
+{
+ "light": {
+  "token_body": "rgba(0, 0, 0, 0)",
+  "token_surface_probe": "rgb(255, 255, 255)",
+  "token_card_probe": "rgb(255, 255, 255)",
+  "flow_bg": "rgba(0, 0, 0, 0)",
+  "node_bg": "rgb(255, 255, 255)",
+  "node_color": "rgb(0, 0, 0)",
+  "cm_bg": "rgb(255, 255, 255)",
+  "cm_color": "rgb(0, 0, 0)",
+  "anchor_bg": "rgb(250, 225, 158)",
+  "gutters": null,
+  "ctrl_btn": "rgb(254, 254, 254)",
+  "scheme": "light",
+  "dataTheme": "light",
+  "rfclass": "react-flow"
+ },
+ "dark": {
+  "token_body": "rgba(0, 0, 0, 0)",
+  "token_surface_probe": "rgb(38, 38, 38)",
+  "token_card_probe": "rgb(27, 27, 27)",
+  "flow_bg": "rgb(20, 20, 20)",
+  "node_bg": "rgb(27, 27, 27)",
+  "node_color": "rgb(255, 255, 255)",
+  "cm_bg": "rgb(38, 38, 38)",
+  "cm_color": "rgb(255, 255, 255)",
+  "anchor_bg": "rgb(69, 58, 28)",
+  "gutters": null,
+  "ctrl_btn": "rgb(43, 43, 43)",
+  "scheme": "dark",
+  "dataTheme": "dark",
+  "rfclass": "react-flow"
+ },
+ "flow": [
+  "editing",
+  "editing",
+  "validating",
+  "saved"
+ ],
+ "errs": [
+  "Failed to load resource: the server responded with a status of 404 (Not Found)"
+ ]
+}
