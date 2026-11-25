@@ -1,7 +1,7 @@
 name: task-la-puerta-identidad-de-tools-check-sh-clasifica-workbench-demo-store-demo-del-workbench-de-surface-e
 path: desk/tasks/task-la-puerta-identidad-de-tools-check-sh-clasifica-workbench-demo-store-demo-del-workbench-de-surface-e.md
-source_hash: b76e70d5732453091130f1de2107465a4bc32cacab19abf516f7da2be334a0ba
-content_hash: 0079bd573c7ee458371013340e881af5729f32010bced7a085486ac2f6cf6060
+source_hash: 56180f283f309d4add3d1dab2dbdb7410bbd8f2935d520b77c5aa5dafaaec431
+content_hash: d185dc69069022d24405f7b52a687ccdcc0abbe3f06576bd15e2ae9a096809d9
 field_hashes:
   title: 696f1cbf5f8b600db3bbea580f1da33c66d60c2b9f9ac106d54fbd5dfd9ff9c0
   id: d79614b6b8f1d2ab6d16d722557e7f929a33dce7d8f45e5fb683228871c97884
@@ -11,15 +11,15 @@ field_hashes:
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 741cf222f9f418a544a9f4307c8dd0ceb37ba6d802c3f741439e4357f318cebf
-  goal: 1a954a6946028a0bad31450797acc65438254d05c90d9b978c2e3eb4fc3e0552
-  scope: bf7a20ac7e73be957f6dcf708558c2bb2d63cacc01df0ac0a9ca5376fd4ca861
+  goal: 44288b4822f0f55fd850b6148e1dc88ae33963c0d3e7cd9c62a448a00cac9217
+  scope: 1da463b9975d68db3de63dcb0343e2082888016ccb479364035c94fb8c62574d
   references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  implementation_path: 39bd802277f366aca677a2293238cf2479d73af246893ae789142c30ee0d8a71
+  implementation_path: 5e448c219248684105ce424faff8d723df4e6240bba422bf31d5287628959420
   validation: a22ae1b87f4187ac90a89e407d90cf579f50b2ce0e1c2e1113cbbb59ea89ab4a
-  done_when: 0fcbfde88c1726801e765e9558ed8083090df7237d974d0c130e83864f7d3ecc
+  done_when: 270e026a0f839715878e2fc2e7e67e874221eee5447148084b89ed9f785f8869
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
@@ -32,6 +32,6 @@ semantic_tags:
 - workspace.desk
 provenance:
   by: agent
-  at: '2026-11-25T01:26:51Z'
+  at: '2026-11-25T02:32:01Z'
   authority: generated
   via: save_document_payload
