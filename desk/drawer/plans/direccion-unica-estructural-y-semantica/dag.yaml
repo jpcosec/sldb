@@ -1,0 +1,171 @@
+id: sldb-direccion-unica-estructural-y-semantica
+revision: 1
+revision_note: 'Rev 1 (2026-11-25): plan inicial tras la decision de JP sobre la direccion unica. Ningun nodo promovido.'
+status: accepted
+as_of: '2026-11-25'
+source: dag.yaml es canonico; README.md de esta carpeta y docs/architecture/one-address-grammar-two-spaces.md son su contexto
+execution_authorized: false
+estimate_legend:
+  S: un entregable acotado; del orden de una hora de trabajo de agente. No es promesa de tiempo
+  M: una capacidad o contrato acotado; del orden de medio dia. Se parte al promover si tiene mas de un entregable
+  L: toca el nucleo del store; del orden de uno a dos dias. Se parte al promover
+gates:
+  G_ORDER_WITH_ENGINE:
+    title: Orden entre el cambio de ids (AD04) y el almacen del motor Datalog (DL03 de grafo-datalog-daemon)
+    state: pending
+    resolver: JP
+    evidence: 'pendiente; los dos reescriben el almacenamiento del indice de aristas'
+  G_D4_D5:
+    title: JP confirma modelos calificados por store (D4) y aristas hacia cualquier direccion estructural (D5)
+    state: assumed
+    resolver: JP
+    evidence: 'JP aprobo la propuesta entera el 2026-11-25; D4 y D5 iban en ella como decisiones suyas'
+external_references:
+  adr:
+    status: accepted
+    note: docs/architecture/one-address-grammar-two-spaces.md
+  addressability_model:
+    status: current
+    note: docs/addressability_model.md define hoy st., se., gse. y el prefijo de store; AD01 lo reescribe
+  model_federation:
+    status: proposal
+    note: docs/architecture/model-federation-on-the-graph.md; AD05 ejecuta sus puntos 1, 3 y 4
+  grafo_datalog_daemon:
+    status: draft
+    note: desk/drawer/plans/grafo-datalog-daemon; su DL03 toca el mismo almacenamiento que AD04
+  taxonomia_fastmcp:
+    status: accepted_not_started
+    note: docs/architecture/one-command-taxonomy-served-by-fastmcp.md; una operacion de la taxonomia recibe una direccion
+hierarchy:
+  root:
+    id: ROOT
+    title: Una gramatica de direcciones con dos espacios bajo el store
+    owner_repo: sldb
+    scope: 'Toda cosa del store se nombra con una direccion estructural o semantica de una sola gramatica; el id de un nodo del grafo es su direccion estructural; las escrituras viejas se aceptan como entrada hasta que los consumidores migran y despues se retiran.'
+    acceptance: 'Todos los hijos cerrados; ningun comando, ruta ni tool imprime una direccion que no sea canonica; ningun repo del workspace escribe sldb://, st.{...} ni docs/... en codigo.'
+    children: [PK01, PK02, PK03]
+  packages:
+    - id: PK01
+      title: Gramatica y resolucion
+      node_role: aggregate
+      owner_repo: sldb
+      children: [AD01, AD02, AD03]
+    - id: PK02
+      title: El grafo usa la direccion
+      node_role: aggregate
+      owner_repo: sldb
+      children: [AD04, AD05, AD06]
+    - id: PK03
+      title: Caras y consumidores
+      node_role: aggregate
+      owner_repo: sldb
+      children: [AD07, AD08, AD09]
+tasks:
+  - id: AD01
+    title: Contrato de la gramatica de direcciones
+    kind: docs
+    node_role: delivery
+    parent_id: PK01
+    owner_repo: sldb
+    estimate: S
+    depends_on: []
+    requires: []
+    scope: 'Reescribir docs/addressability_model.md con la gramatica del ADR: las seis formas, el prefijo de store, que es direccion y que es ubicacion, familias y comodines, y la tabla de equivalencia con las cuatro escrituras viejas. Tests de especificacion que fijan cada ejemplo del documento (parsear, imprimir y volver a parsear da lo mismo); quedan en rojo hasta AD02.'
+    acceptance: 'Cada ejemplo del documento es un caso de tests/test_address_grammar_spec.py; el documento no nombra ninguna escritura vieja fuera de la tabla de equivalencia.'
+    output_scope: docs/addressability_model.md, tests/test_address_grammar_spec.py
+  - id: AD02
+    title: Parser y forma canonica de una direccion
+    kind: code
+    node_role: delivery
+    parent_id: PK01
+    owner_repo: sldb
+    estimate: M
+    depends_on: [AD01]
+    requires: []
+    scope: 'Un modulo de la capa store con el tipo direccion: parsear la forma canonica, imprimirla, y normalizar a ella las cuatro escrituras viejas (st.{Modelo}.doc.campo, docs/Modelo/doc/campo, Modelo:nombre, sldb://...). Sin tocar ningun llamador.'
+    acceptance: 'tests/test_address_grammar_spec.py en verde; cada escritura vieja de la tabla de AD01 normaliza a su canonica; una direccion mal formada es un error que la nombra.'
+    output_scope: src/sldb/store/, tests/
+  - id: AD03
+    title: Resolvedor unico de direcciones
+    kind: code
+    node_role: delivery
+    parent_id: PK01
+    owner_repo: sldb
+    estimate: M
+    depends_on: [AD02]
+    requires: []
+    scope: 'resolver(store, direccion) devuelve el modelo, el campo de modelo, el documento, la seccion, el valor o el conjunto que la direccion nombra, en el store local o en uno enlazado; una direccion semantica devuelve direcciones estructurales. Reemplaza los resolvedores que hoy tienen fields, sections, legacy y docs, sin cambiar la salida de esos comandos.'
+    acceptance: 'Los goldens de fields, sections, legacy y find son identicos; una seccion y un valor dentro de un documento se resuelven por la misma funcion; un solo punto del codigo convierte texto en direccion.'
+    output_scope: src/sldb/store/, src/sldb/api/, src/sldb/cli/, tests/
+  - id: AD04
+    title: El id de un nodo del grafo es su direccion estructural
+    kind: code
+    node_role: delivery
+    parent_id: PK02
+    owner_repo: sldb
+    estimate: L
+    depends_on: [AD02]
+    requires: [G_ORDER_WITH_ENGINE]
+    scope: 'node_ids.py emite direcciones canonicas en vez de sldb://; EDGE_INDEX_VERSION sube y los shards se reconstruyen; federation.qualify_id usa el prefijo de store de la gramatica; sldb:// se sigue aceptando como entrada. Los tipos de relacion y las anclas quedan direccionados como los documentos que son.'
+    acceptance: 'Ningun shard reconstruido contiene sldb://; borrar .sldb_cache y correr stores build deja el mismo grafo salvo los ids; los goldens de graph, edges y where cambian solo en los ids; el snapshot portable declara su version nueva.'
+    output_scope: src/sldb/store/edge_index/, src/sldb/store/graph/, src/sldb/api/, src/sldb/mcp/, tests/, CHANGELOG.md
+  - id: AD05
+    title: Un modelo se califica con el store dueno
+    kind: code
+    node_role: delivery
+    parent_id: PK02
+    owner_repo: sldb
+    estimate: M
+    depends_on: [AD04, AD06]
+    requires: [G_D4_D5]
+    scope: 'El nodo de un modelo lleva el store que lo define; un store que lo usa lo ve heredado (puntos 1, 3 y 4 de model-federation-on-the-graph.md). Dos clases con el mismo nombre en stores distintos son dos nodos.'
+    acceptance: 'En un store que enlaza a otro, la direccion del modelo heredado nombra al store dueno; un test con dos stores y un modelo del mismo nombre en cada uno da dos nodos y ninguna mezcla de campos.'
+    output_scope: src/sldb/store/edge_index/, src/sldb/api/model_registry/, tests/, docs/architecture/model-federation-on-the-graph.md
+  - id: AD06
+    title: Una arista puede terminar en una seccion o en un valor
+    kind: code
+    node_role: delivery
+    parent_id: PK02
+    owner_repo: sldb
+    estimate: M
+    depends_on: [AD04]
+    requires: [G_D4_D5]
+    scope: 'source_id y target_id de RelationDoc aceptan cualquier direccion estructural. El extremo es el nodo documento mas la ruta interna, guardada en la arista; la validacion contra RelationTypeDoc usa el modelo del documento del extremo. Una ruta que no existe en el documento es un problema de la arista.'
+    acceptance: 'Un RelationDoc entre un campo de un documento y un campo de otro se escribe, aparece en edges show con las dos rutas y se recorre; una ruta inexistente sale en edges check; las aristas de documento a documento no cambian.'
+    output_scope: src/sldb/models/relation_doc.py, src/sldb/store/edge_index/, src/sldb/api/edges/, tests/, docs/architecture/edges.md
+  - id: AD07
+    title: Todas las caras reciben e imprimen la direccion canonica
+    kind: code
+    node_role: delivery
+    parent_id: PK03
+    owner_repo: sldb
+    estimate: M
+    depends_on: [AD03, AD04]
+    requires: []
+    scope: 'La CLI, sldb serve y sldb mcp aceptan la direccion canonica en todo argumento que hoy recibe una de las escrituras viejas, e imprimen solo la canonica. Una escritura vieja en la entrada da un aviso de retiro. La direccion semantica sale de sldb legacy y queda disponible donde se lee o se busca.'
+    acceptance: 'Un test por cara recorre sus comandos, rutas y tools y no encuentra una direccion no canonica en ninguna salida; selfdoc check en verde.'
+    output_scope: src/sldb/cli/, src/sldb/mcp/, tests/, knowledge/commands/, README.md
+  - id: AD08
+    title: Los consumidores migran a la direccion canonica
+    kind: external
+    node_role: delivery
+    parent_id: PK03
+    owner_repo: sldb
+    estimate: M
+    depends_on: [AD04, AD07]
+    requires: []
+    scope: 'Una nota al inbox de cada repo (deskops message send --to <repo>) con la tabla de equivalencia y la version de sldb que trae el cambio: specIR, deskops, graph_ui y marcado. Cada repo migra en su propio plan; marcado ademas tiene el layout viejo (.sldb/runtime) y pasa por stores migrate-layout. sldb no edita esos repos.'
+    acceptance: 'Cuatro notas enviadas y contestadas; el CI de graph_ui en verde contra el main de sldb que trae AD04.'
+    output_scope: inbox de IR, deskops, UIs/graph_ui y UIs/marcado
+  - id: AD09
+    title: Retiro de las escrituras viejas y de sldb legacy
+    kind: code
+    node_role: delivery
+    parent_id: PK03
+    owner_repo: sldb
+    estimate: S
+    depends_on: [AD08]
+    requires: []
+    scope: 'Quitar la normalizacion de las cuatro escrituras viejas, el grupo legacy y los alias en singular que hablan direcciones. Una escritura vieja pasa a ser un error que nombra la canonica.'
+    acceptance: 'grep de sldb://, st.{ y docs/<Modelo>/ en src/ no encuentra codigo que las lea; el arbol de la CLI no tiene legacy.'
+    output_scope: src/sldb/, tests/, CHANGELOG.md
