@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T22:07:09Z'
+  at: '2026-11-25T22:49:27Z'
   authority: generated
   via: save_document_payload
 id: task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual
@@ -11,15 +11,23 @@ tags: []
 current_node: ritual-testing
 history:
 - task_activates
-references: []
+references:
+- src/sldb/notations/notation_constants.py
+- src/sldb/notations/notation_spec.py
+- tests/notations/test_layout_partition_lanes.py
+- 80e7fb7ae856542b26e4e4dc807e3d33ce4eecc8
 depends_on: []
 pills: []
-files: []
+files:
+- src/sldb/notations/notation_constants.py
+- src/sldb/notations/notation_spec.py
+- tests/notations/test_layout_partition_lanes.py
 pointers: []
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by
 ---
 
 # El layout de una NotationDoc acepta partition-lanes con by y la vista resuelta lo pasa tal cual
