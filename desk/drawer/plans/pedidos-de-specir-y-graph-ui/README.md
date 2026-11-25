@@ -170,3 +170,20 @@ El pedido 1 (`serve --extension`) deja de tener sentido cuando exista el paso 2.
 JP (2026-11-25): `sldb/surface` es el cascarón y monta el panel embebible de graph_ui; graph_ui
 conserva un ambiente local mínimo (explorador y editor de grafos). La pestaña "Grafo" de la maqueta
 de la superficie se reemplaza por ese panel. La UI de specIR es la superficie, el panel y un tema.
+
+### pron se archiva
+
+JP (2026-11-25): pron se archiva, igual que `sldb-ui`. Cierra las tres decisiones abiertas de
+arriba.
+
+- La edición por gestos de graph_ui escribe por sldb, sin pron.
+- Pasan a sldb, como parte de la taxonomía de comandos: rechazar una relación inválida antes de
+  escribirla; prevalidar un movimiento entero; registro persistente de movimientos y deshacer entre
+  sesiones.
+- No pasan: qué puede nombrar una sesión, las formas, el léxico, el diálogo y el planificador.
+  Quedan en el repo archivado como referencia. Simular el efecto de editar una regla, solo si
+  alguna vez se pide.
+- legos es un repo aparte y se migrará a Kimun cuando se retome; no frena el archivo.
+- `G_SLDB_PRON_MCP` queda reemplazado por esas tres capacidades dentro de la taxonomía.
+- Pendiente de ejecutar, sin tarea: sacar `pron.world.store.Store` del adaptador de graph_ui
+  (`sldb_adapter.py`), el aviso de archivo en el README de pron y su entrada en el registro.
