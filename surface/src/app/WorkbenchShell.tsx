@@ -44,12 +44,25 @@ export const WorkbenchShell: React.FC<WorkbenchShellProps> = ({
   client: injectedClient,
   assistantClient,
   subirImagen,
-  storePath,
+  storePath: storePathProp,
 }) => {
   const client = useMemo(
     () => injectedClient ?? createHttpClient(baseUrl),
     [injectedClient, baseUrl],
   );
+
+  // Ruta del store: la prop manda; si no, la que expone `GET /stores`. Mientras carga o si falla, `storeTitle` cae a "Documentos".
+  const [storePathServed, setStorePathServed] = useState<string | undefined>(undefined);
+  useEffect(() => {
+    if (storePathProp || typeof client.storeInfo !== "function") return;
+    let vivo = true;
+    client.storeInfo().then(
+      (info) => { if (vivo) setStorePathServed(info?.store); },
+      () => {},
+    );
+    return () => { vivo = false; };
+  }, [client, storePathProp]);
+  const storePath = storePathProp ?? storePathServed;
 
   const [route, setRoute] = useState<WorkbenchRouteState>(() =>
     parseWorkbenchHash(typeof window !== "undefined" ? window.location.hash : ""),

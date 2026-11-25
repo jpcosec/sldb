@@ -66,6 +66,8 @@ export interface SldbClient {
   rank(params: RankParams & { fields: true }): Promise<SimilarityResult<FieldRankHit>>;
   /** `GET /similar`: vecinos por grafo de un nodo (`Model:name`), con los mismos tres estados. */
   similar(id: string, opts?: { relations?: string[]; limit?: number; types?: string[] }): Promise<SimilarityResult<SimilarNode>>;
+  /** `GET /stores`: ruta del store que sirve `sldb serve` (`store`). */
+  storeInfo(): Promise<{ store: string; root?: string }>;
   /** `GET /stores/check`: integridad y divergencia modelo vs archivo en disco. */
   storesCheck(): Promise<StoresCheck>;
   /** Análisis que SLDB ya sirve; no se deriva nada de esto en el cliente. */
@@ -162,6 +164,7 @@ export function createHttpClient(baseUrl: string, fetchImpl: FetchLike = (i, ini
       if (opts.types?.length) q.set("types", opts.types.join(","));
       return similarity<SimilarNode>(fetchImpl, `${root}/similar?${q}`, (b) => ((b as { similar?: SimilarNode[] })?.similar ?? null));
     },
+    storeInfo: () => request<{ store: string; root?: string }>("/stores"),
     storesCheck: () => request<StoresCheck>("/stores/check"),
     lint: () => request<LintReport>("/lint"),
     isolated: async () => (await request<{ isolated: string[] }>("/graph/isolated")).isolated,

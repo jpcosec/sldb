@@ -391,6 +391,14 @@ describe("WorkbenchShell", () => {
     expect(screen.queryByTestId("open-command-palette-btn")).toBeNull();
   });
 
+  it("Lectura: sin prop storePath, el título sale de GET /stores", async () => {
+    const client = createFakeWorkbenchClient();
+    (client as unknown as { storeInfo: unknown }).storeInfo = vi.fn().mockResolvedValue({ store: "/datos/otro-store" });
+    window.history.replaceState(null, "", "#/workbench?lens=lectura");
+    render(<WorkbenchShell client={client} />);
+    await waitFor(() => expect(screen.getByTestId("wiki-titulo").textContent).toBe("otro-store"));
+  });
+
   it("does not claim sync when the store does not answer", async () => {
     const client = createFakeWorkbenchClient();
     (client.documents as ReturnType<typeof vi.fn>).mockRejectedValue(new Error("SLDB respondió 502"));
