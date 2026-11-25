@@ -1020,6 +1020,8 @@ include:
     name: run-deskops-e-2757adcb50b7
   - path: runs/subagents/exec-deskops-e-05461eadbe5b/run.md
     name: run-deskops-e-05461eadbe5b
+  - path: runs/subagents/exec-deskops-e-5c9941921c07/run.md
+    name: run-deskops-e-5c9941921c07
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -1674,6 +1676,8 @@ include:
   - desk/materializations/materialization-surface-lectura-surface-src-app-workbenchshell-tsx.md
   - desk/materializations/materialization-surface-lectura-surface-src-app-workbench-test-tsx.md
   - desk/materializations/materialization-surface-lectura-surface-src-core-client-ts.md
+  - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-resultado-md.md
+  - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-astryx-integration-mjs.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
