@@ -1,0 +1,36 @@
+name: review-task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra-bundle-2
+path: desk/reviews/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra/bundle-2.md
+source_hash: 744669d6a7f49d9abd747a543b170b36da826c0168296865c75b6927da174305
+content_hash: c624686e57c1548f03c25506b62c5c556fbfd9a264a55165e0a5b0fa43eccb5e
+field_hashes:
+  id: 84c430e848213a7f622c1d697e2d394e7638a7e2c14097e015556719393cdfd1
+  title: 995f214712fe53b0401e3a9c4cf4b8d5d01c1b5aa2b78c5d977bedc42bd9fe53
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: a8d8554cef1a8542f94baae6838990bae756cdb593ec5cb3d6e41bcd47050516
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 58872d661cd61f66490e90e4e653214ae09478da3aa78fb8a961dee23d36f7b7
+  input_sha256: 549dc6142dcbf0115205b57d3629d0b7dad63122182a47f064150e9471355a19
+  contract_sha256: 9cb4f963c6917e02d5e9c58f3ad334d6cc60789006c4624c1e3992b27e1fc81b
+  output_sha256: 40fd647a1a6f6981eb3bb7faf0f54a99a1d54e364dc95c564df500adfe98811d
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: abaaaebba44c7910c3a96aa4e0442d0aab504a27769a58091cdf37de031eacce
+  created_at: 5887f53da31bbea383d2feca2f2ed3dbea69372ea6ecf09529761dfc42fcc976
+  disposed_at: 6dab271a2283711501e2162a2f564c1a347a9305518ae3c681bbbd82c8846949
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 749fb112864eeb18cef0edd8ada6d6469da8b3c5c1e9a26f29ced392ce642541
+  disposition: 77e44e7b00302335cb0729683929219e105dc3d72c06abcc1e6d99a170b27371
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+provenance:
+  by: agent
+  at: '2026-11-25T21:05:52Z'
+  authority: generated
+  via: save_document_payload

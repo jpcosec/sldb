@@ -1,0 +1,19 @@
+name: 20261125-194644-unclear-code-facts-argumentos-de-las-llamadas-dentro-del-cuerpo-de-una-funci-n
+path: desk/inbox/20261125-194644-unclear-code-facts-argumentos-de-las-llamadas-dentro-del-cuerpo-de-una-funci-n.md
+source_hash: e2861e9900fbbfc99e2540d9943504ad0fc4ccfd8a3a82c799d99069cd9f9838
+content_hash: 1abe95850ba74c3bd7b37db1b1a8f9955cba26399ea1fdb16edf2fbab377a522
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 0511b227fa06433d710e7a65343aa9c1cf1fa414fb09b6f21e1692a7c0e0195e
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: 2a7c74ac929b891eff9c93084ba2fb2e96a6c23de12410881a3e90f57352c570
+  body: 93dcdd45c9a6704f678df6fdad8189779364ab589f8df0a84918e300b2587a78
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

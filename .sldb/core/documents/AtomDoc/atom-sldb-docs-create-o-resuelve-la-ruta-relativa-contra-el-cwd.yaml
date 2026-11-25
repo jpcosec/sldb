@@ -1,0 +1,22 @@
+name: atom-sldb-docs-create-o-resuelve-la-ruta-relativa-contra-el-cwd
+path: desk/atoms/atom-sldb-docs-create-o-resuelve-la-ruta-relativa-contra-el-cwd.md
+source_hash: e871b41c465f0ee669f3a9cf1a436c6222562f5b8858b37ca09ce5888add3512
+content_hash: a1e4a5bc2193b4e977c62f756367e7b7be977cd25e3207bd5e51b3c89cbc37db
+field_hashes:
+  id: bf3066c09a8bcf2e01b9ad4e439a0ba58a78c5b1b54af5df652542610e3d8919
+  title: ed7d8bbf5ceef0ff1306bc5997cb4331bda4d003a18cbb6b1bbacef1ef9078f8
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 4f9e9f3e602c97be5839f368de4e7ea58eb0cf18891cbcec39cb15fc792aee36
+  tags: 16c517d1951f97ec7729d2bcde407d049044cd42f4c78b5823cf295c25597276
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:docs-create-cwd
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-25T20:39:37Z'
+  authority: generated
+  via: create_document

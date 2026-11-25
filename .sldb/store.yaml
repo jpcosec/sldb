@@ -3385,6 +3385,14 @@ include:
     name: review-task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra-preflight-2
   - path: desk/reviews/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra/bundle-2.md
     name: review-task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra-bundle-2
+  - path: desk/reviews/task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa/evidence-tests-1.md
+    name: review-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa-evidence-tests-1
+  - path: desk/reviews/task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa/evidence-commit-1.md
+    name: review-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa-evidence-commit-1
+  - path: desk/reviews/task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa/evidence-atom-1.md
+    name: review-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa-evidence-atom-1
+  - path: desk/reviews/task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa/evidence-materialization-1.md
+    name: review-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md

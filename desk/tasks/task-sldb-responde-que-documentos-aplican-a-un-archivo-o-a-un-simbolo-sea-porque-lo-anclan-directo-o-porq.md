@@ -1,15 +1,16 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T19:12:17Z'
+  at: '2026-11-25T20:52:31Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq
-status: draft
+status: active
 summary: ''
 tags: []
-current_node: ritual-execution
-history: []
+current_node: ritual-testing
+history:
+- task_activates
 references: []
 depends_on: []
 pills: []
@@ -45,6 +46,8 @@ Dentro: sldb.api (anclas, árbol semántico, grafo) y la herramienta MCP que lo 
 _Outline the expected implementation route or affected surface._
 
 Leer docs/architecture/code-anchoring.md, anchoring.md, tags.md y selectors.md. Se compone con lo que existe (check_anchors, el árbol semántico, graph_path); no se escribe un segundo índice. La operación entra a la taxonomía de comandos (docs/architecture/one-command-taxonomy-served-by-fastmcp.md) con un solo nombre.
+
+Aclaraciones de la revisión: Una sola operación en sldb.api y una herramienta MCP con el mismo nombre canónico (proponer anchors_resolve en docs/architecture/command-taxonomy.md si ya existe; si no, dejarlo en result-summary), con dos direcciones según el argumento: target=archivo o símbolo -> documentos que lo cubren; document=<Modelo:id> -> archivos y símbolos que cubre. Símbolo en la forma que ya usa sldb para anclas de código (docs/architecture/code-anchoring.md, p. ej. ruta::Símbolo). Cobertura = anclas directas + documentos que llegan por tag, con descendientes transitivos (todo el subárbol del DAG, más equivalencias). Salida: lista de {doc (Modelo:id), via: 'direct' | 'tag:<tag>'} (o {path, symbol, via} en la otra dirección), ordenada por doc. Un puntero a un tag inexistente no es error: va en un campo unresolved con el tag y el documento que lo nombra. tests/test_where_pointers_resolve.py se crea con un store temporal de fixtures. No poner Task-Id en el commit de código.
 
 ## Validation
 

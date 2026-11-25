@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T05:41:19Z'
+  at: '2026-11-25T20:42:30Z'
   authority: generated
   via: save_document_payload
 id: task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa
@@ -11,14 +11,22 @@ tags: []
 current_node: ritual-testing
 history:
 - task_activates
-references: []
+references:
+- src/sldb/cli/commands/doc.py
+- tests/test_cli_v2.py
+- tests/test_docs_create_output_path.py
+- c5a5e2b02171db74a13ba64ea4b63590d8e0f3e0
 depends_on: []
 pills: []
-files: []
+files:
+- src/sldb/cli/commands/doc.py
+- tests/test_cli_v2.py
+- tests/test_docs_create_output_path.py
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-sldb-docs-create-o-resuelve-la-ruta-relativa-contra-el-cwd
 ---
 
 # sldb docs create -o resuelve la ruta contra el cwd (o avisa)

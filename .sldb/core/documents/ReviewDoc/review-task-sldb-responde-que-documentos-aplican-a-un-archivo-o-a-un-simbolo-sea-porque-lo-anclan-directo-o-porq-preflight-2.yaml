@@ -1,0 +1,36 @@
+name: review-task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq-preflight-2
+path: desk/reviews/task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq/preflight-2.md
+source_hash: 5f26b684feb87d449f8276b22b38420c67c75f28c9d8654bddec17f7b9691ba9
+content_hash: ee49f152250abdc0361443106434a4de22b343129fc01467e4ec4be4383fb219
+field_hashes:
+  id: 8a43c0e756ed4635cf8996834b95753b4f73869acac366025a912173168e008e
+  title: 54618f2cd49c8581239cf02833e58de8db08d034e903ef98d27b3ff93fd04bce
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 85167468c881cbf418eb87ee95cba63664e260ab6c35dd87a853f4cb736b8c80
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: cae66c5e9aa507d19ebe7ef15da9bcb33e6ae965208993cf298a920b83aba71d
+  input_sha256: 5fa0544229d3f0eb26a9049d379430b738851dac06bc1c424c086f607474c600
+  contract_sha256: c61df6863ff1245b7d0db2f9cc1b60b8c9548c8f2bfd91f97e724996c80ef335
+  output_sha256: 1fca00fee573ca697062a24d7ab011cea71890d9758dbbb1b15ca9f4974dde2b
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: abaaaebba44c7910c3a96aa4e0442d0aab504a27769a58091cdf37de031eacce
+  created_at: aaa8c77ff418bdeed70223fb22275b51b6b5cea0dc819195443bdd771fd2f3c6
+  disposed_at: 0757b8e73833f3829c31d6baae141db94f38df4c3fa5b08fdf7a8a919462d01d
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 0e243d12b347f58d2c661933155fef48866661ef9e6313d27e139ca03775c3c9
+  disposition: 77e44e7b00302335cb0729683929219e105dc3d72c06abcc1e6d99a170b27371
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+provenance:
+  by: agent
+  at: '2026-11-25T20:49:24Z'
+  authority: generated
+  via: save_document_payload
