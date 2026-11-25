@@ -983,6 +983,8 @@ include:
     name: run-deskops-t-79041272f6a9
   - path: runs/subagents/exec-deskops-e-b6060046cf05/run.md
     name: run-deskops-e-b6060046cf05
+  - path: runs/subagents/exec-deskops-e-b841e5a166bf/run.md
+    name: run-deskops-e-b841e5a166bf
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
