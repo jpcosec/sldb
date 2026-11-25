@@ -5,6 +5,7 @@ a definition's decorators and bases, and the calls a function's body makes (`sel
 
 from __future__ import annotations
 
+import ast
 from typing import Any
 
 from sldb.code.readers import field_text, first_statement, py_norm, text
@@ -12,12 +13,22 @@ from sldb.code.readers import field_text, first_statement, py_norm, text
 _NESTED = {"function_definition", "class_definition"}
 
 
+def py_arg(node: Any, src: bytes) -> dict[str, Any]:
+    """`{text, value}` of an argument that is a literal (str, number, bool, None, tuples, lists, dicts of those), else `{text, literal: false}`."""
+    t = py_norm(text(node, src))
+    try:
+        return {"text": t, "value": ast.literal_eval(text(node, src).strip())}
+    except (ValueError, SyntaxError, TypeError, MemoryError, RecursionError):
+        return {"text": t, "literal": False}
+
+
 def call_parts(call: Any, src: bytes) -> dict[str, Any]:
-    """`{func, args, kwargs}` of a `call` node; `*x`, `**x` and a generator argument go to `args` as text."""
+    """`{func, args, kwargs}` of a `call` node: `args` the positionals in order, `kwargs` name -> argument, each from `py_arg`.
+    `*x`, `**x`, f-strings and a generator argument are not literal."""
     arguments = call.child_by_field_name("arguments")
     items = [a for a in arguments.named_children if a.type != "comment"] if arguments.type == "argument_list" else [arguments]
-    kwargs = {field_text(a, src, "name"): py_norm(field_text(a, src, "value")) for a in items if a.type == "keyword_argument"}
-    args = [py_norm(text(a, src)) for a in items if a.type != "keyword_argument"]
+    kwargs = {field_text(a, src, "name"): py_arg(a.child_by_field_name("value"), src) for a in items if a.type == "keyword_argument"}
+    args = [py_arg(a, src) for a in items if a.type != "keyword_argument"]
     return {"func": py_norm(text(call.child_by_field_name("function"), src)), "args": args, "kwargs": kwargs}
 
 
@@ -45,14 +56,15 @@ def bases(node: Any, src: bytes) -> list[str]:
 
 
 def body_calls(node: Any, src: bytes) -> list[dict[str, Any]]:
-    """`{name, line}` of each call in a function's body in source order; a nested def or class is not walked."""
+    """`{name, line, args, kwargs}` of each call in a function's body in source order; a nested def or class is not walked."""
     out, stack = [], list(reversed(node.child_by_field_name("body").named_children))
     while stack:
         n = stack.pop()
         if n.type in _NESTED:
             continue
         if n.type == "call":
-            out.append({"name": py_norm(text(n.child_by_field_name("function"), src)), "line": n.start_point[0] + 1})
+            parts = call_parts(n, src)
+            out.append({"name": parts["func"], "line": n.start_point[0] + 1, "args": parts["args"], "kwargs": parts["kwargs"]})
         stack.extend(reversed(n.named_children))
     return out
 

@@ -2,6 +2,7 @@
 Skipped without the `[code]` extra."""
 from __future__ import annotations
 
+import ast
 import importlib.util
 import shutil
 from pathlib import Path
@@ -11,6 +12,14 @@ import pytest
 from sldb.code.runtime import available
 
 pytestmark = pytest.mark.skipif(not available(), reason="tree-sitter runtime not installed (extra [code])")
+
+def _lit(t):
+    return {"text": t, "value": ast.literal_eval(t)}
+
+
+def _ref(t):
+    return {"text": t, "literal": False}
+
 
 SOURCE = '''"""Mod doc."""
 import os, sys as s
@@ -599,24 +608,24 @@ def test_blog_bases_are_extends_relations_as_written(blog):
 
 
 def test_blog_action_decorator_carries_its_arguments(blog):
-    assert blog["blog.views.PostViewSet.publish"]["attrs"]["decorators"] == [{"name": "action", "args": [], "kwargs": {"detail": "True", "methods": "['post']"}}]
+    assert blog["blog.views.PostViewSet.publish"]["attrs"]["decorators"] == [{"name": "action", "args": [], "kwargs": {"detail": _lit("True"), "methods": _lit("['post']")}}]
     assert blog["blog.views.PostViewSet.perform_create"]["attrs"]["decorators"] == []
 
 
 def test_blog_call_chain_handler_method_function(blog):
     handler, method = blog["blog.views.PostViewSet.publish"], blog["blog.models.Post.publish"]
-    assert {"name": "post.publish", "line": 24} in handler["attrs"]["calls"] and {"type": "calls", "target": "post.publish"} in handler["relations"]
-    assert {"name": "can_publish", "line": 26} in method["attrs"]["calls"] and {"type": "calls", "target": "can_publish"} in method["relations"]
+    assert {"name": "post.publish", "line": 24, "args": [], "kwargs": {"by": _ref("request.user")}} in handler["attrs"]["calls"] and {"type": "calls", "target": "post.publish"} in handler["relations"]
+    assert {"name": "can_publish", "line": 26, "args": [_ref("by"), _ref("self")], "kwargs": {}} in method["attrs"]["calls"] and {"type": "calls", "target": "can_publish"} in method["relations"]
     assert [c["name"] for c in method["attrs"]["calls"]] == ["can_publish", "PermissionError", "timezone.now", "self.save"], "source order, one per call"
-    assert blog["blog.models.can_publish"]["kind"] == "function" and blog["blog.models.can_publish"]["attrs"]["calls"] == [{"name": "user.has_perm", "line": 35}]
+    assert blog["blog.models.can_publish"]["kind"] == "function" and blog["blog.models.can_publish"]["attrs"]["calls"] == [{"name": "user.has_perm", "line": 35, "args": [_lit("'blog.change_post'")], "kwargs": {}}]
 
 
 def test_blog_model_fields_and_meta_are_assignments(blog):
     author, status = blog["blog.models.Post.author"], blog["blog.models.Post.status"]
     assert author["kind"] == "assignment" and author["qualified_name"] == "Post.author" and author["relations"] == [{"type": "contained-in", "target": "blog.models.Post"}]
-    assert _call(author) == {"func": "models.ForeignKey", "args": ["settings.AUTH_USER_MODEL"], "kwargs": {"on_delete": "models.PROTECT", "related_name": "'posts'"}}
-    assert _call(status) == {"func": "models.CharField", "args": [], "kwargs": {"max_length": "16", "choices": "Status.choices", "default": "Status.DRAFT"}}
-    assert _call(blog["blog.models.Post.title"]) == {"func": "models.CharField", "args": [], "kwargs": {"max_length": "200"}}
+    assert _call(author) == {"func": "models.ForeignKey", "args": [_ref("settings.AUTH_USER_MODEL")], "kwargs": {"on_delete": _ref("models.PROTECT"), "related_name": _lit("'posts'")}}
+    assert _call(status) == {"func": "models.CharField", "args": [], "kwargs": {"max_length": _lit("16"), "choices": _ref("Status.choices"), "default": _ref("Status.DRAFT")}}
+    assert _call(blog["blog.models.Post.title"]) == {"func": "models.CharField", "args": [], "kwargs": {"max_length": _lit("200")}}
     assert blog["blog.models.Post.Meta.db_table"]["attrs"]["value"] == "'posts'"
     assert blog["blog.models.Post.Meta.db_table"]["relations"] == [{"type": "contained-in", "target": "blog.models.Post.Meta"}]
     assert blog["blog.models.Post.Status.DRAFT"]["attrs"]["items"] == [{"value": "'draft'"}, {"value": "'Draft'"}]
@@ -633,10 +642,10 @@ def test_blog_serializer_meta_model_and_fields(blog):
 def test_blog_urls_path_and_router_register(blog):
     register = blog["blog.urls.router.register"]
     assert (register["kind"], register["name"], register["qualified_name"]) == ("call", "router.register", "router.register")
-    assert _call(register) == {"func": "router.register", "args": ["'posts'", "PostViewSet"], "kwargs": {"basename": "'post'"}}
-    assert _call(blog["blog.urls.router"]) == {"func": "SimpleRouter", "args": [], "kwargs": {"trailing_slash": "False"}}
+    assert _call(register) == {"func": "router.register", "args": [_lit("'posts'"), _ref("PostViewSet")], "kwargs": {"basename": _lit("'post'")}}
+    assert _call(blog["blog.urls.router"]) == {"func": "SimpleRouter", "args": [], "kwargs": {"trailing_slash": _lit("False")}}
     assert blog["blog.urls.urlpatterns"]["attrs"]["value"] == "router.urls"
-    assert blog["blogsite.urls.urlpatterns"]["attrs"] == {"native_kind": "assignment", "module": "blogsite.urls", "items": [{"func": "path", "args": ["''", "include('blog.urls')"], "kwargs": {}}]}
+    assert blog["blogsite.urls.urlpatterns"]["attrs"] == {"native_kind": "assignment", "module": "blogsite.urls", "items": [{"func": "path", "args": [_lit("''"), _ref("include('blog.urls')")], "kwargs": {}}]}
 
 
 STATEMENTS = '''"""Doc."""
@@ -667,13 +676,13 @@ def test_statements_and_calls_edge_cases(tmp_path):
     (tmp_path / "mod.py").write_text(STATEMENTS, encoding="utf-8")
     facts = {f["id"]: f for f in scan_tree(tmp_path)}
     assert sorted(i for i in facts if facts[i]["kind"] in ("call", "assignment")) == ["mod.X", "mod.a", "mod.b", "mod.reg.add", "mod.reg.add~2"], "attribute and if-nested statements are not facts"
-    assert _call(facts["mod.reg.add~2"]) == {"func": "reg.add", "args": ["'b'", "*rest", "**more"], "kwargs": {}}
+    assert _call(facts["mod.reg.add~2"]) == {"func": "reg.add", "args": [_lit("'b'"), _ref("*rest"), _ref("**more")], "kwargs": {}}
     assert facts["mod.X"]["attrs"]["value"] == "1" and facts["mod.X"]["span"] == {"start_line": 4, "end_line": 4}
-    assert facts["mod.view"]["attrs"]["decorators"] == [{"name": "deco", "args": [], "kwargs": {}}, {"name": "route", "args": ["'/x'"], "kwargs": {"methods": "('GET',)"}}]
+    assert facts["mod.view"]["attrs"]["decorators"] == [{"name": "deco", "args": [], "kwargs": {}}, {"name": "route", "args": [_lit("'/x'")], "kwargs": {"methods": _lit("('GET',)")}}]
     assert [c["name"] for c in facts["mod.view"]["attrs"]["calls"]] == ["g", "h"]
     assert [r for r in facts["mod.C"]["relations"] if r["type"] == "extends"] == [{"type": "extends", "target": "Base"}]
-    assert facts["mod.C.m"]["attrs"]["calls"] == [{"name": "self.n", "line": 19}], "a nested def's calls are its own"
-    assert facts["mod.C.m.inner"]["attrs"]["calls"] == [{"name": "nested", "line": 18}]
+    assert facts["mod.C.m"]["attrs"]["calls"] == [{"name": "self.n", "line": 19, "args": [], "kwargs": {}}], "a nested def's calls are its own"
+    assert facts["mod.C.m.inner"]["attrs"]["calls"] == [{"name": "nested", "line": 18, "args": [], "kwargs": {}}]
 
 
 def test_new_facts_leave_existing_fingerprints_and_normalization_alone(facts):
@@ -750,20 +759,20 @@ def _attrs(f):
 
 def test_an_augmented_list_assignment_gives_its_items_and_its_operator(urls):
     first, more = urls["urls.urlpatterns"], urls["urls.urlpatterns~2"]
-    assert _attrs(first) == {"items": [{"func": "path", "args": ["'a/'", "a"], "kwargs": {}}]} and "op" not in first["attrs"]
+    assert _attrs(first) == {"items": [{"func": "path", "args": [_lit("'a/'"), _ref("a")], "kwargs": {}}]} and "op" not in first["attrs"]
     assert (more["kind"], more["name"], more["attrs"]["native_kind"]) == ("assignment", "urlpatterns", "augmented_assignment")
-    assert _attrs(more) == {"op": "+=", "items": [{"func": "path", "args": ["'b/'", "b"], "kwargs": {}}, {"func": "path", "args": ["'c/'", "c"], "kwargs": {}}]}
+    assert _attrs(more) == {"op": "+=", "items": [{"func": "path", "args": [_lit("'b/'"), _ref("b")], "kwargs": {}}, {"func": "path", "args": [_lit("'c/'"), _ref("c")], "kwargs": {}}]}
     assert more["span"] == {"start_line": 6, "end_line": 6} and more["relations"] == [{"type": "contained-in", "target": "urls"}]
 
 
 def test_an_augmented_call_assignment_gives_its_call_and_any_operator_is_kept(urls):
-    static = {"func": "static", "args": ["settings.MEDIA_URL"], "kwargs": {"document_root": "settings.MEDIA_ROOT"}}
+    static = {"func": "static", "args": [_ref("settings.MEDIA_URL")], "kwargs": {"document_root": _ref("settings.MEDIA_ROOT")}}
     assert _attrs(urls["urls.urlpatterns~3"]) == {"op": "+=", "call": static}
     assert _attrs(urls["urls.count"]) == {"value": "0"} and _attrs(urls["urls.count~2"]) == {"op": "-=", "value": "1"}
 
 
 def test_a_chained_assignment_gives_one_fact_per_name_with_the_same_value(urls):
-    field = {"func": "models.DateTimeField", "args": [], "kwargs": {"auto_now": "True"}}
+    field = {"func": "models.DateTimeField", "args": [], "kwargs": {"auto_now": _lit("True")}}
     for name in ("created", "updated"):
         f = urls[f"urls.Post.{name}"]
         assert (f["kind"], f["name"], f["qualified_name"], _attrs(f)) == ("assignment", name, f"Post.{name}", {"call": field})

@@ -136,6 +136,22 @@ usan (`kimun/test/fixtures/adapters/pytree`, `pytree_ts`). Por autorización del
 escáner ast de sldb. Las funciones de fingerprint por nodo son nuevas en sldb: el adaptador
 emite la firma y la docstring, pero no el texto del cuerpo.
 
+### Argumentos de una llamada de Python
+
+Los hechos de código de Python traen cada llamada como `{func, args, kwargs}` (`call_parts`, en
+`src/sldb/code/py_calls.py`); la misma forma sirve a los decoradores (`{name, args, kwargs}`), a los
+hechos `call` y `assignment` de módulo o clase, y a cada entrada de `attrs.calls` de una función
+(`{name, line, args, kwargs}`; la relación `calls` sigue siendo solo el destino). `args` es la lista de
+posicionales en orden y `kwargs` un dict nombre -> argumento. Cada argumento es:
+
+- `{"text": <texto normalizado por py_norm>, "value": <ast.literal_eval>}` si es literal (str, número,
+  bool, None, y tuplas, listas o dicts de literales), p. ej. `inner.add_parser("nodes", help="...")` da
+  `args[0] == {"text": "'nodes'", "value": "nodes"}` y `kwargs["help"]` con el texto de ayuda;
+- `{"text": <texto>, "literal": false}` si no lo es (variable, llamada, `*x`, `**x`, f-string).
+
+No se evalúa ninguna expresión ni se reconoce argparse o click: eso es de quien lee los hechos. Las
+huellas (`fingerprints.py`) no dependen de estos campos.
+
 ## 9. Las reglas, ejecutables
 
 Las reglas de [anchoring.md](anchoring.md) quedan en el código, no solo escritas:
