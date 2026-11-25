@@ -1,0 +1,25 @@
+name: 20261125-030337-suggestion-sldb-serve-acepta-extension-module-function-como-sldb-mcp-para-que-specir-registre-rutas-http-de-solo-lectura
+path: desk/inbox/20261125-030337-suggestion-sldb-serve-acepta-extension-module-function-como-sldb-mcp-para-que-specir-registre-rutas-http-de-solo-lectura.md
+source_hash: 2a8bef5f09c6170f6b44f1ecab5172021f82423d618dab69042cb3c9d38359b4
+content_hash: 975241d3a1ffc80cd60a6dd10bc4d15ca506d72e04b972a4bb1d5bb4f3405519
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: ed620a3ecacc2baf03414dad6eb403375678c80562d63ebe7188a91c10e47e29
+  status: 02e31f51aa8b1b6a622c4f7c30fab328d711cad4c9da74b9965ada8aa15d9df2
+  acknowledged_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  acknowledged_at: 7496204e939eb1692d457cf7aa44229e69f6b835e6b6d785918c46c2a7bbf692
+  ack_reason: 334d46f90410162bb3f63c53a51b8ed346ad25add35ef297838e542501338216
+  title: 8e14798678563cd377f955eb7d41b2f6e57d5fed2a835bd5fed08d07d166f52c
+  body: 00478af61cc1e4eafcdf4b7fa4b5724704cd2a6f6181028c142b0ec344083abc
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance:
+  by: agent
+  at: '2026-11-25T06:05:50Z'
+  authority: generated
+  via: save_document_payload
