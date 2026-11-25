@@ -96,3 +96,94 @@ tiene, y eso toca la edición por gestos de graph_ui.
 - **Si la edición de graph_ui escribe por sldb**, cuáles de las cosas que solo tiene pron pasan a
   sldb. La primera candidata es rechazar una arista inválida antes de escribirla.
 - **Si se toma `G_SLDB_PRON_MCP`** como tarea de sldb, y con qué alcance.
+
+## Segunda vuelta del 2026-11-25: frontera, notaciones y la API
+
+Decidido por JP en la conversación de delimitación. Manda sobre lo de arriba donde lo contradiga.
+
+### El contenido de las notaciones se va a specIR
+
+"Todo lo que sea modelo semántico → proyección de specs va a specIR; quizás el mecanismo de eso es
+de sldb."
+
+- **sldb conserva el mecanismo**: `NotationDoc`, `GlyphDoc`, `LinkDoc`, `SpecDoc`, `ViewDoc`,
+  resolver y validar.
+- **specIR recibe el contenido**: las notaciones de `src/sldb/notations/builtin/` (UML y las
+  demás), más BPMN, ORCA, IFML y capas; y las clases de spec por tipo de diagrama
+  (`sldb.models.notation.diagram_specs`).
+- El pedido 8 (BPMN) sale de esta lista. El pedido 12 se resuelve al revés: las clases se mudan en
+  vez de exportarse.
+- Sin revisar: `reflection` parece ser sldb dibujándose a sí mismo y se quedaría; sldb necesita
+  una notación mínima propia para sus pruebas (unas 10 usan las builtin).
+
+### El panel del nodo es de la superficie de sldb
+
+Ver el documento de un nodo, sus átomos y sus referencias es `sldb/surface`, no graph_ui. La
+superficie es la del documento; graph_ui es la del dibujo. Falta ordenar el resto de las
+interfaces (ver `UIs/graph_ui/desk/drawer/plans/fierros-hacia-afuera/`).
+
+### La API pasa a fastmcp, con una taxonomía de comandos primero
+
+JP: sldb creció sin planificar y no tiene una taxonomía de comandos; es el momento de corregirlo.
+Y quiere el paquete `fastmcp` (no el `MCPServer` del SDK oficial que sldb usa hoy) por cuatro
+razones: no mantener ese código, el "code mode", una interfaz a la que los agentes ya están
+acostumbrados, y un solo lugar declarativo para CLI, API y MCP.
+
+Medido el 2026-11-25:
+
+| Cara | Tamaño | Notas |
+|---|---|---|
+| `sldb.api` | 192 nombres públicos | |
+| CLI | unos 20 grupos | la ayuda de primer nivel no nombra `serve`, `notations`, `semantic`, `rules` ni `lint` |
+| `sldb serve` | unas 30 rutas, 45 archivos, 2.510 líneas | `http.server` a mano; sin extensiones, sin deshacer |
+| `sldb mcp` | 15 herramientas, unas 1.500 líneas | `MCPServer` del SDK `mcp` 2.2; solo stdio |
+
+Los nombres no coinciden entre caras, y cada cara cubre un subconjunto distinto.
+
+Lo verificado de fastmcp 4.2.6 en su documentación (gofastmcp.com, leída el 2026-11-25):
+
+- Depende del SDK `mcp` v2, el mismo que sldb ya usa; hay guía de migración desde `MCPServer`.
+- **Code mode** existe desde 3.1 y está marcado experimental: `transforms=[CodeMode()]`, extra
+  `fastmcp[code-mode]`. El cliente ve buscar, pedir esquema y ejecutar; el código solo puede
+  llamar herramientas, con los mismos permisos.
+- **CLI**: `fastmcp generate-cli` escribe un script con un subcomando por herramienta. Es un
+  cliente del servidor y es plano: no da grupos como `sldb docs create`.
+- **REST**: no genera rutas REST desde las herramientas. Una interfaz web habla MCP por HTTP (hay
+  guía de CORS) o se escriben rutas a mano con `custom_route`.
+- **Extensiones**: `mount(servidor, namespace=...)`; reemplazaría el mecanismo propio de sldb.
+- **Permisos**: por herramienta con `auth=`, pero stdio se salta esos chequeos. Los niveles 0, 1 y
+  2 de `sldb mcp` tendrían que hacerse con visibilidad por tags.
+
+JP (2026-11-25): esto queda en el drawer; no se parte todavía. Orden propuesto, sin tareas:
+
+1. Taxonomía: una tabla de operaciones (sustantivo y verbo, lectura o escritura, nivel) que junte
+   las cuatro caras y marque duplicados, huecos y renombres. Antes de crear nada, revisar si
+   `SurfaceDoc` y `sldb selfdoc` ya sirven para guardarla y chequearla.
+2. Un servidor fastmcp que declara cada operación una vez.
+3. `sldb/surface` y graph_ui pasan a ser clientes; se retira `sldb serve`.
+4. La CLI se deriva o se alinea con la taxonomía.
+
+El pedido 1 (`serve --extension`) deja de tener sentido cuando exista el paso 2.
+
+### La superficie es el cascarón
+
+JP (2026-11-25): `sldb/surface` es el cascarón y monta el panel embebible de graph_ui; graph_ui
+conserva un ambiente local mínimo (explorador y editor de grafos). La pestaña "Grafo" de la maqueta
+de la superficie se reemplaza por ese panel. La UI de specIR es la superficie, el panel y un tema.
+
+### pron se archiva
+
+JP (2026-11-25): pron se archiva, igual que `sldb-ui`. Cierra las tres decisiones abiertas de
+arriba.
+
+- La edición por gestos de graph_ui escribe por sldb, sin pron.
+- Pasan a sldb, como parte de la taxonomía de comandos: rechazar una relación inválida antes de
+  escribirla; prevalidar un movimiento entero; registro persistente de movimientos y deshacer entre
+  sesiones.
+- No pasan: qué puede nombrar una sesión, las formas, el léxico, el diálogo y el planificador.
+  Quedan en el repo archivado como referencia. Simular el efecto de editar una regla, solo si
+  alguna vez se pide.
+- legos es un repo aparte y se migrará a Kimun cuando se retome; no frena el archivo.
+- `G_SLDB_PRON_MCP` queda reemplazado por esas tres capacidades dentro de la taxonomía.
+- Pendiente de ejecutar, sin tarea: sacar `pron.world.store.Store` del adaptador de graph_ui
+  (`sldb_adapter.py`), el aviso de archivo en el README de pron y su entrada en el registro.

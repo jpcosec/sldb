@@ -3,9 +3,11 @@ status: proposed
 as_of: '2026-11-25'
 source: README.md de esta carpeta. Las tareas con `task` existen en desk/tasks del checkout de robocop2.
 decisions:
-  que-se-hace-con-pron: {state: open, options: ['retirarlo entero', 'dejarlo como capa de lenguaje y sacar su uso como puerta al store', 'dejarlo como está']}
-  que-pasa-a-sldb-de-lo-que-solo-tiene-pron: {state: open, depends_on: [que-se-hace-con-pron], first_candidate: 'rechazar una arista inválida antes de escribirla'}
-  tomar-g-sldb-pron-mcp: {state: open, note: 'Gate del plan de specIR; ninguna tarea de sldb lo toma'}
+  que-se-hace-con-pron: {state: decided, by: JP, 'on': '2026-11-25', decided: 'pron se archiva; legos se migrará a Kimun cuando se retome'}
+  que-pasa-a-sldb-de-lo-que-solo-tiene-pron: {state: decided, by: JP, 'on': '2026-11-25', decided: 'rechazar una relación inválida antes de escribirla, prevalidar un movimiento entero, registro persistente y deshacer entre sesiones'}
+  tomar-g-sldb-pron-mcp: {state: decided, by: JP, 'on': '2026-11-25', decided: 'reemplazado por esas tres capacidades dentro de la taxonomía de comandos'}
+  contenido-de-notaciones: {state: decided, by: JP, 'on': '2026-11-25', decided: 'el contenido va a specIR; sldb conserva el mecanismo'}
+  api-sobre-fastmcp: {state: decided, by: JP, 'on': '2026-11-25', decided: 'la API pasa a fastmcp con una taxonomía de comandos primero; queda en drawer, sin partir'}
 requests:
   serve-extension:
     title: sldb serve acepta --extension MODULE:FUNCTION
