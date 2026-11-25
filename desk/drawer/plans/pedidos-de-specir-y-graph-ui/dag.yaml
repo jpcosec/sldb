@@ -1,0 +1,60 @@
+id: pedidos-de-specir-y-graph-ui
+status: proposed
+as_of: '2026-11-25'
+source: README.md de esta carpeta. Las tareas con `task` existen en desk/tasks del checkout de robocop2.
+decisions:
+  que-se-hace-con-pron: {state: open, options: ['retirarlo entero', 'dejarlo como capa de lenguaje y sacar su uso como puerta al store', 'dejarlo como está']}
+  que-pasa-a-sldb-de-lo-que-solo-tiene-pron: {state: open, depends_on: [que-se-hace-con-pron], first_candidate: 'rechazar una arista inválida antes de escribirla'}
+  tomar-g-sldb-pron-mcp: {state: open, note: 'Gate del plan de specIR; ninguna tarea de sldb lo toma'}
+requests:
+  serve-extension:
+    title: sldb serve acepta --extension MODULE:FUNCTION
+    task: task-sldb-serve-acepta-extension-module-function-y-la-extension-registra-rutas-get-de-solo-lectura-bajo-e
+    asked_by: IR
+  cobertura-de-atomos:
+    title: Cobertura de átomos en el listado de specs y vistas de sldb serve
+    task: task-el-listado-de-specs-y-vistas-de-sldb-serve-trae-la-cobertura-de-atomos-de-cada-una
+    asked_by: IR
+  fragmento-y-estado-de-ancla:
+    title: Líneas del fragmento y estado de un CodeAnchorDoc por sldb serve
+    task: task-sldb-serve-devuelve-de-un-codeanchordoc-las-lineas-de-su-fragmento-y-su-estado-intact-changed-o-lost
+    asked_by: IR
+  atributos-del-handler:
+    title: Atributos estáticos del elemento en los facts de handler JSX
+    task: task-los-facts-de-handler-jsx-traen-los-atributos-estaticos-del-elemento-data-testid-aria-label-role-name
+    asked_by: IR
+  llamadas-por-handler:
+    title: Cada handler en línea nombra las llamadas que son suyas
+    task: task-en-un-componente-con-varios-handlers-en-linea-cada-handler-jsx-nombra-las-llamadas-que-son-suyas
+    asked_by: IR
+  method-del-segundo-argumento:
+    title: Los facts de llamada traen el method del segundo argumento
+    task: task-los-facts-de-llamada-ts-traen-el-method-del-segundo-argumento-cuando-es-un-objeto-literal
+    asked_by: IR
+  facts-de-htm:
+    title: Facts de component y handlers en plantillas htm
+    asked: false
+    asked_by: IR
+    why: 'Sobre frontends/mindmap de graph_ui salen 0 componentes; el render principal es graph_ui'
+  notacion-bpmn:
+    title: Notación BPMN (carriles, eventos, compuertas)
+    asked: false
+    asked_by: graph_ui
+    decided_by: 'JP 2026-11-25: BPMN va como notación en el render principal'
+  estandar-de-una-notacion:
+    title: Una notación declara qué estándar implementa
+    asked: false
+    asked_by: IR
+  documento-sin-glifo-como-hueco:
+    title: Un documento sin glifo se informa como hueco, no hace fallar la vista
+    asked: false
+    asked_by: IR
+  predicado-de-tags-semanticos:
+    title: Predicado de reglas sobre los tags semánticos del modelo y sus ancestros
+    asked: false
+    asked_by: IR
+  exportar-specs-y-notacion-en-la-api:
+    title: sldb.api exporta las clases de spec y los helpers de notación
+    asked: true
+    state: 'pedido el 2026-11-15 en dos notas, cerradas; el __init__ sigue sin exportarlas'
+    asked_by: IR
