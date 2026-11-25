@@ -401,6 +401,7 @@ include:
   - desk/inbox/20261125-031221-unclear-queue-20261125t054200z-dispatch-tester-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa.md
   - desk/inbox/20261125-032512-suggestion-sldb-serve-la-cobertura-de-atomos-de-cada-spec-o-vista-en-el-payload-de-notations-y-views.md
   - desk/inbox/20261125-032546-suggestion-sldb-serve-una-ruta-get-que-devuelva-de-un-codeanchordoc-las-lineas-de-su-fragmento-y-su-estado-vigente-o-cambiado.md
+  - desk/inbox/20261125-114135-unclear-queue-20261125t143817z-dispatch-executor-task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -991,6 +992,8 @@ include:
     name: run-deskops-e-0c6728c9fc59
   - path: runs/subagents/exec-deskops-t-78c922eaaaca-testing/run.md
     name: run-deskops-t-78c922eaaaca
+  - path: runs/subagents/exec-deskops-e-79b47ee47cee/run.md
+    name: run-deskops-e-79b47ee47cee
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -3258,6 +3261,10 @@ include:
     name: review-task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa-bundle-4
   - path: desk/reviews/task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa/goldens-1.md
     name: review-task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa-goldens-1
+  - path: desk/reviews/task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura/preflight-1.md
+    name: review-task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura-preflight-1
+  - path: desk/reviews/task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura/bundle-1.md
+    name: review-task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura-bundle-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
