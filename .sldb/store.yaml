@@ -412,6 +412,7 @@ include:
   - desk/inbox/20261125-143805-suggestion-c7-api-p-blica-para-resolver-un-store-por-nombre-en-el-cat-logo-de-la-m-quina.md
   - desk/inbox/20261125-143822-suggestion-c8-chequeo-el-store-corresponde-al-rbol-para-pre-commit-y-ci.md
   - desk/inbox/20261125-143840-suggestion-c9-creaci-n-de-documentos-dirigida-por-el-esquema-del-modelo.md
+  - desk/inbox/20261125-194644-unclear-code-facts-argumentos-de-las-llamadas-dentro-del-cuerpo-de-una-funci-n.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -1699,6 +1700,9 @@ include:
   - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-tests-saveflow-test-ts.md
   - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-tsconfig-json.md
   - desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-vite-config-ts.md
+  - desk/materializations/materialization-docs-create-cwd-src-sldb-cli-commands-doc-py.md
+  - desk/materializations/materialization-docs-create-cwd-tests-test-cli-v2-py.md
+  - desk/materializations/materialization-docs-create-cwd-tests-test-docs-create-output-path-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -3367,6 +3371,18 @@ include:
     name: review-task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq-preflight-1
   - path: desk/reviews/task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq/bundle-1.md
     name: review-task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq-bundle-1
+  - path: desk/reviews/task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq/preflight-2.md
+    name: review-task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq-preflight-2
+  - path: desk/reviews/task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq/bundle-2.md
+    name: review-task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq-bundle-2
+  - path: desk/reviews/task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per/preflight-2.md
+    name: review-task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per-preflight-2
+  - path: desk/reviews/task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per/bundle-2.md
+    name: review-task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per-bundle-2
+  - path: desk/reviews/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra/preflight-2.md
+    name: review-task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra-preflight-2
+  - path: desk/reviews/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra/bundle-2.md
+    name: review-task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra-bundle-2
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -3437,6 +3453,7 @@ include:
   - desk/tasks/task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p.md
   - desk/tasks/task-la-puerta-identidad-de-tools-check-sh-clasifica-workbench-demo-store-demo-del-workbench-de-surface-e.md
   - desk/tasks/task-sldb-responde-que-documentos-aplican-a-un-archivo-o-a-un-simbolo-sea-porque-lo-anclan-directo-o-porq.md
+  - desk/tasks/task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale.md
 - model: TaskDebugDoc
   paths:
   - desk/tasks/task-reproducir-si-sldb-docs-update-reescribe-índices-de-documentos-ajenos-al-que-actualiza-reviewdoc-de.md
