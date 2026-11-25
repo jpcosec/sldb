@@ -1,11 +1,11 @@
-"""Atoms with syntax of their own: `has`, `nonempty`, `model <=`, the quantifiers and `count`.
+"""Atoms with syntax of their own: `has`, `nonempty`, `model <=`, `model_tag`, the quantifiers and `count`.
 
 Anything else is a term operation (`in`, `~`, a comparison; `predicate_terms`).
 """
 
 from __future__ import annotations
 
-from sldb.store.graph.language.predicate_cursor import expect_ident, expect_op, is_op, keyword, peek, span, take
+from sldb.store.graph.language.predicate_cursor import expect_ident, expect_op, fail, is_op, keyword, peek, span, take
 from sldb.store.graph.language.predicate_paths import parse_path
 from sldb.store.graph.language.predicate_terms import comparison_operator, operation, term
 
@@ -41,6 +41,17 @@ def _model(cur: list) -> tuple:
     return ("leaf", span(cur, start), "model", (base,))
 
 
+def _model_tag(cur: list) -> tuple:
+    """`model_tag("tag")`: the document's model declares the tag or one that descends from it."""
+    start = take(cur).start
+    expect_op(cur, "(")
+    token = take(cur)
+    if token.kind != "literal":
+        fail(cur)
+    expect_op(cur, ")")
+    return ("leaf", span(cur, start), "model_tag", (token.value,))
+
+
 def _quantifier(cur: list) -> tuple:
     """`any(path: p)`, `all(path: p)`, `none(path: p)`."""
     start, kind = peek(cur).start, take(cur).value
@@ -66,4 +77,4 @@ def _path_and_body(cur: list) -> tuple:
     return path, body
 
 
-_CALLS = {"has": _field_call, "nonempty": _field_call, "count": _count, **{q: _quantifier for q in _QUANTIFIERS}}
+_CALLS = {"has": _field_call, "model_tag": _model_tag, "nonempty": _field_call, "count": _count, **{q: _quantifier for q in _QUANTIFIERS}}

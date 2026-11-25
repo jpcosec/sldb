@@ -12,6 +12,7 @@ from __future__ import annotations
 from typing import Any
 
 from sldb.store.edge_index.node_ids import bare, kind, model_node_id
+from sldb.store.graph.backend.index_semantics import index_semantics
 from sldb.store.graph.language.predicate_view import edge, node
 
 
@@ -20,7 +21,7 @@ def index_view(index: Any, projection: dict[str, dict[str, Any] | None] | None =
     docs = {bare(n.id): n for n in (index.nodes.values() if index is not None else ()) if kind(n.id) == "document"}
     payloads = projection if projection is not None else {i: n.payload for i, n in docs.items()}
     read = lambda i: _node(index, docs, payloads, i)  # noqa: E731
-    return {"node": read, "out": lambda i: _edges(index, i, "edges_from"), "in": lambda i: _edges(index, i, "edges_to"), "ids": lambda: sorted(payloads)}
+    return {"node": read, "out": lambda i: _edges(index, i, "edges_from"), "in": lambda i: _edges(index, i, "edges_to"), "ids": lambda: sorted(payloads), **index_semantics(index)}
 
 
 def _node(index: Any, docs: dict, payloads: dict, export_id: str) -> dict[str, Any] | None:

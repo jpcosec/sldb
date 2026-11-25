@@ -60,6 +60,13 @@ def _model(args: tuple, item: dict, ctx: dict) -> tuple[bool, dict[str, Any]]:
     return model is not None and (model == args[0] or args[0] in item.get("base_models", ())), {"model": model}
 
 
+def _model_tag(args: tuple, item: dict, ctx: dict) -> tuple[bool, dict[str, Any]]:
+    """The model's own tags meet the scope of the asked tag (itself, what descends, equivalents)."""
+    view, model = ctx["view"], item.get("model")
+    tags = sorted(view["model_tags"](model)) if model is not None else []
+    return bool(set(tags) & view["tag_scope"](args[0])), {"model": model, "model_tags": tags}
+
+
 def _in(args: tuple, item: dict, ctx: dict) -> tuple[bool, dict[str, Any]]:
     (left, left_seen), (right, right_seen) = resolve(args[0], item, ctx), resolve(args[1], item, ctx)
     try:
@@ -81,4 +88,4 @@ def _cmp(args: tuple, item: dict, ctx: dict) -> tuple[bool, dict[str, Any]]:
     return compare(left, args[1], right), {**left_seen, **right_seen}
 
 
-_LEAVES = {"has": _has, "nonempty": _nonempty, "model": _model, "in": _in, "regex": _regex, "cmp": _cmp}
+_LEAVES = {"has": _has, "nonempty": _nonempty, "model": _model, "model_tag": _model_tag, "in": _in, "regex": _regex, "cmp": _cmp}

@@ -10,11 +10,15 @@ from __future__ import annotations
 
 from typing import Any
 
+from sldb.store.graph.language.semantic_scope import dict_semantics
 
-def make_view(nodes: dict[str, dict], edges: list[dict]) -> dict[str, Any]:
-    """A view over node dicts by id and edge dicts."""
+
+def make_view(nodes: dict[str, dict], edges: list[dict], semantic: dict | None = None) -> dict[str, Any]:
+    """A view over node dicts by id and edge dicts. `semantic` is `{model_tags, parents,
+    equivalents}` (see `semantic_scope`); without it no model declares a tag."""
     out, into = _by(edges, "source"), _by(edges, "target")
-    return {"node": nodes.get, "out": lambda i: out.get(i, []), "in": lambda i: into.get(i, []), "ids": lambda: sorted(nodes)}
+    view = {"node": nodes.get, "out": lambda i: out.get(i, []), "in": lambda i: into.get(i, []), "ids": lambda: sorted(nodes)}
+    return {**view, **dict_semantics(semantic or {})}
 
 
 def node(node_id: str, model: str | None, payload: dict, base_models=(), name: str | None = None) -> dict[str, Any]:
@@ -31,7 +35,7 @@ def graph_view(graph: dict) -> dict[str, Any]:
     """The view of `{nodes: {id: {model, payload, base_models?}}, edges: [{source, type, target, field?}]}`."""
     nodes = {i: node(i, n.get("model"), dict(n.get("payload") or {}), n.get("base_models") or ()) for i, n in graph.get("nodes", {}).items()}
     edges = [edge(e["source"], e["type"], e["target"], e.get("field"), e.get("declared")) for e in graph.get("edges", [])]
-    return make_view(nodes, edges)
+    return make_view(nodes, edges, graph.get("semantic"))
 
 
 def with_node(view: dict[str, Any], replacement: dict) -> dict[str, Any]:

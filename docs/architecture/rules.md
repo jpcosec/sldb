@@ -41,7 +41,9 @@ Las invariantes de un documento son del modelo; las que dependen del store, de l
   `where`); `severity` y `moment` son `Literal`. Construir o escribir una RuleDoc mal formada
   levanta el `ValidationError` del modelo con el campo y el motivo, y no se escribe nada.
 - **Contra el store** (`sldb.api.rules.refuse_unknown_family`): cada `X` de `subject` debe
-  ser un modelo registrado. Si no, la escritura se rechaza con el error existente de sldb para
+  ser un modelo registrado, y cada tag de un `model_tag("T")` de `where` o `condition` debe
+  existir en el DAG semántico (`SLDBStoreError: Unknown semantic tag 'T' ...`, rules-language.md §1).
+  Lo primero: Si no, la escritura se rechaza con el error existente de sldb para
   modelo desconocido, `SLDBStoreError: Model 'X' not registered.`. Lo comprueban
   `create_document`, `save_document_payload` y `sldb docs update`, después de validar el
   payload y antes de escribir.

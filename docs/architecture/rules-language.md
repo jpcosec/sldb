@@ -16,7 +16,7 @@ viejos porque es la tabla histórica que GO10 exime del retiro.
 ## 1. Gramática (a)
 
 Un predicado es una expresión booleana. Las palabras `and`, `or`, `not`, `in`, `has`,
-`nonempty`, `model`, `any`, `all`, `none`, `count` y `rel` son sintaxis del lenguaje; los
+`nonempty`, `model`, `model_tag`, `any`, `all`, `none`, `count` y `rel` son sintaxis del lenguaje; los
 nombres de campo y de modelo son los del documento evaluado.
 
 ```
@@ -33,6 +33,7 @@ atom      := quantifier
            | "has(" campo ")"
            | "nonempty(" campo ")"
            | "model" "<=" nombre_modelo
+           | "model_tag(" cadena ")"
 quantifier:= ("any" | "all" | "none") "(" camino ":" expr ")"
 count_cmp := "count(" camino ":" expr ")" cmp term
 cmp       := "=" | "!=" | "<" | "<=" | ">" | ">="
@@ -58,6 +59,14 @@ Reglas de forma:
   todo parseo del lenguaje (`from sldb.api import WherePredicateError`).
 - `model <= X` es verdadero si el modelo del documento es `X` o hereda de `X` por
   `base_models` (la familia de `X`).
+- `model_tag("T")` es verdadero si el modelo del documento declara en `__semantics__` el tag
+  `T`, un tag que desciende de `T` en el DAG semántico (aristas `semantic_parent`, a cualquier
+  profundidad) o un tag equivalente a cualquiera de ellos (`semantic_equivalent`, que se lee
+  en los dos sentidos). La dirección importa: pedir el tag padre casa modelos con tags hijos,
+  no al revés. No se calcula otra jerarquía: es la que muestra `sldb semantic show`. Un
+  `model_tag` de una `RuleDoc` (en `where` o `condition`) cuyo tag no existe en el DAG es
+  error al escribir la regla (`SLDBStoreError: Unknown semantic tag 'T'`); no va en `subject`.
+  El `seen` del finding trae `model` y `model_tags` (los tags del modelo).
 - `has(f)` es verdadero si el campo está presente y su valor no es `None` ni la cadena
   vacía. `nonempty(f)` es verdadero si el valor existe y, siendo string, lista, diccionario,
   tupla o conjunto, no está vacío.
@@ -106,6 +115,19 @@ Pertenencia y expresiones regulares:
 | campo presente pero vacío | `has(status)` | `status: ""` | `false` |
 | colección no vacía | `nonempty(tags)` | `tags: ["x"]` | `true` |
 | colección vacía | `nonempty(tags)` | `tags: []` | `false` |
+| tag del modelo y descendientes | `model_tag("concept.base")` | modelo con tag `concept.base.child` (hijo de `concept.base`) | `true` |
+| tag del modelo, el propio | `model_tag("concept.base")` | modelo con tag `concept.base` | `true` |
+| tag equivalente | `model_tag("concept.base")` | modelo con tag `other.same`, equivalente a `concept.base` | `true` |
+| el hijo no casa al padre | `model_tag("concept.base.child")` | modelo con tag `concept.base` | `false` |
+| modelo sin relación | `model_tag("concept.base")` | modelo con tag `zzz.q` | `false` |
+
+Una regla por concepto, para todos los modelos que lo implementan:
+
+```yaml
+subject: model <= StructuredNLDoc
+where: model_tag("concept.base")
+condition: has(title)
+```
 
 ## 2. Caminos y cuantificadores (b)
 

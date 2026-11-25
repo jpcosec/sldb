@@ -4,7 +4,7 @@ The tree is plain tuples, tag first, each node carrying its clause (the source t
 parsed from) so an explanation can name what decided a result:
 
     ("and" | "or", clause, left, right)      ("not", clause, child)
-    ("leaf", clause, kind, args)             kind: has, nonempty, model, in, regex, cmp
+    ("leaf", clause, kind, args)             kind: has, nonempty, model, model_tag, in, regex, cmp
     ("quant", clause, any|all|none, path, body)
     ("count", clause, path, body, op, term)
 
@@ -73,3 +73,8 @@ def _terms(node: tuple) -> list[tuple]:
     if node[0] == "leaf" and node[2] in ("in", "cmp"):
         return [node[3][0], node[3][-1]]
     return [node[3][0]] if node[0] == "leaf" and node[2] == "regex" else []
+
+
+def model_tags_asked(root: tuple) -> list[str]:
+    """The tags `model_tag("...")` names, in order, without repeats."""
+    return list(dict.fromkeys(n[3][0] for n in walk(root) if n[0] == "leaf" and n[2] == "model_tag"))
