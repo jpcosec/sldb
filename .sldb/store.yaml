@@ -1008,6 +1008,8 @@ include:
     name: run-deskops-t-fcebfb9c80fb
   - path: runs/subagents/exec-deskops-e-d801f16f505e/run.md
     name: run-deskops-e-d801f16f505e
+  - path: runs/subagents/exec-deskops-t-1b08c45a3f10-testing/run.md
+    name: run-deskops-t-1b08c45a3f10
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -3279,6 +3281,14 @@ include:
     name: review-task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura-preflight-1
   - path: desk/reviews/task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura/bundle-1.md
     name: review-task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura-bundle-1
+  - path: desk/reviews/task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un/preflight-1.md
+    name: review-task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un-preflight-1
+  - path: desk/reviews/task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un/bundle-1.md
+    name: review-task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un-bundle-1
+  - path: desk/reviews/task-docs-architecture-command-taxonomy-md-lista-cada-operacion-de-sldb-una-sola-vez-con-las-cuatro-caras/preflight-1.md
+    name: review-task-docs-architecture-command-taxonomy-md-lista-cada-operacion-de-sldb-una-sola-vez-con-las-cuatro-caras-preflight-1
+  - path: desk/reviews/task-docs-architecture-command-taxonomy-md-lista-cada-operacion-de-sldb-una-sola-vez-con-las-cuatro-caras/bundle-1.md
+    name: review-task-docs-architecture-command-taxonomy-md-lista-cada-operacion-de-sldb-una-sola-vez-con-las-cuatro-caras-bundle-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
