@@ -12,6 +12,8 @@ import threading
 from pathlib import Path
 from typing import Any
 
+from pydantic import ValidationError
+
 from sldb.api.documents.apply_batch import apply_batch
 from sldb.cli.model_utils import resolve_model_ref
 from sldb.cli.serve.save_plan import bad, prevalidate
@@ -83,10 +85,20 @@ def apply_prepared(prepared: list[tuple[dict[str, Any], Any, Path | None]], stor
     except ConflictError as exc:
         return bad(f"{exc.ref} cambió en SLDB. Recarga para evitar sobrescribirlo.", 409)
     except (SLDBStoreError, SLDBValidationError) as exc:
-        return bad(str(exc), 422 if isinstance(exc, SLDBValidationError) else 409)
+        return validation_body(exc) if isinstance(exc, SLDBValidationError) else bad(str(exc), 409)
     except (Exception, SystemExit) as exc:
         return {"ok": False, "error": f"No se completó el guardado: {exc}", "rolled_back": True}, 500
     return {"ok": True, "saved": report.saved}, 200
+
+
+def validation_body(exc: SLDBValidationError) -> tuple[dict[str, Any], int]:
+    """422 body; when pydantic rejected the payload, `details` is its `errors()` list
+    (JSON-safe: no `ctx`/`input`/`url`, which may hold non-serializable objects)."""
+    body, status = bad(str(exc), 422)
+    cause = exc.__cause__
+    if isinstance(cause, ValidationError):
+        body["details"] = cause.errors(include_url=False, include_context=False, include_input=False)
+    return body, status
 
 
 def with_target(change: dict[str, Any], path: Path | None) -> dict[str, Any]:
