@@ -589,3 +589,12 @@ Task-Id: task-tighten-semantic-export-provenance-contract
 2026-11-25 11:07:58,213 - deskops - INFO - Advanced task task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa to node ritual-testing
 2026-11-25 14:56:55,853 - deskops - INFO - Advanced task task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura to node ritual-testing
 2026-11-25 15:39:35,521 - deskops - INFO - Advanced task task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura to node ritual-closeout
+2026-11-25 15:01:32,459 - deskops - INFO - Advanced task task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un to node ritual-testing
+2026-11-25 18:13:36,468 - deskops - INFO - Advanced task task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un to node ritual-closeout
+2026-11-25 15:14:49,852 - deskops - INFO - Task task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura reached the closure gate; deferring to closeout commit.
+2026-11-25 18:20:45,676 - deskops - INFO - Advanced task task-docs-architecture-command-taxonomy-md-lista-cada-operacion-de-sldb-una-sola-vez-con-las-cuatro-caras to node ritual-execution
+2026-11-25 18:34:15,512 - deskops - INFO - Advanced task task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond to node ritual-execution
+2026-11-25 18:36:52,824 - deskops - INFO - Advanced task task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e to node ritual-execution
+2026-11-25 18:46:59,477 - deskops - INFO - Advanced task task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest to node ritual-execution
+2026-11-25 18:48:10,184 - deskops - INFO - Advanced task task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest to node ritual-execution
+2026-11-25 15:49:57,344 - deskops - INFO - Task task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un reached the closure gate; deferring to closeout commit.

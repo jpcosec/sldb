@@ -1,0 +1,9 @@
+{
+  "key": "task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond/bundle",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "4cf5d84ecbf7230046250c783b9d115108685626018d4e5b2e29f10a5e93583d",
+  "output_sha256": "90e24208aae7270ce209e54c5a844498d50d0e829f4e6f3425a5fe40c4f45dc2",
+  "start": "2026-11-25T18:02:19.675259+00:00",
+  "end": "2026-11-25T18:02:32.104215+00:00"
+}

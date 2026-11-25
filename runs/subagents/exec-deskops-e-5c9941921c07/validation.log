@@ -1,0 +1,4 @@
+python -m pytest -q tests/test_rules_semantic_tag_predicate.py -> rc=0 (5 passed)
+python -m pytest -q tests -k rules --deselect tests/mcp/test_mutability.py -> rc=0 (1338 passed)
+  (tests/mcp/test_mutability.py errors: ModuleNotFoundError anyio, venv environment, unrelated)
+bash tools/check.sh --fast -> rc=0

@@ -1,0 +1,9 @@
+{
+  "key": "task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "76cd5c245252a90df14f2e45c988404aab0d254be7bd1ae5f421fa866c946768",
+  "output_sha256": "f679e38d3edf88c2994d1861c799eeb1f4ebb9f7d2bee504eba8b0613fe49c25",
+  "start": "2026-11-25T18:01:37.005300+00:00",
+  "end": "2026-11-25T18:01:46.545974+00:00"
+}

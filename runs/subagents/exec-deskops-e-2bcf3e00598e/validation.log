@@ -1,0 +1,3 @@
+$ python -m pytest -q -p no:cacheprovider tests/test_command_taxonomy.py   (in worktree)  -> rc 0, 8 passed
+$ bash tools/check.sh --fast  -> rc 0 (TODAS LAS PUERTAS PASAN)
+Negative check: removing the `stores_init` row made the test fail for api `init_store` and cli `stores init`.

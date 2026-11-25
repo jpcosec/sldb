@@ -1,0 +1,53 @@
+## main...origin/main [ahead 60]
+ M .deskops.log
+ M .sldb/core/documents/ReviewDoc/review-task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per-preflight-1.yaml
+ M .sldb/core/documents/TaskCodeDoc/task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per.yaml
+ M .sldb/core/models/ReviewDoc.yaml
+ M .sldb/core/models/TaskCodeDoc.yaml
+ M .sldb/core/store_index.yaml
+ M desk/reviews/task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per/preflight-1.md
+ M desk/tasks/task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per.md
+ M runs/subagents/exec-deskops-e-2bcf3e00598e/run.md
+ M runs/subagents/exec-deskops-e-a30b7a6741aa/run.md
+ M runs/subagents/exec-deskops-t-1b08c45a3f10-testing/run.md
+ M runs/subagents/exec-deskops-t-2f0c2d5efde8-testing/run.md
+?? .herdr-coordination.md
+?? .sldb/core/documents/ReviewDoc/review-task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura-evidence-atom-1.yaml
+?? .sldb/core/documents/ReviewDoc/review-task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura-evidence-commit-1.yaml
+?? .sldb/core/documents/ReviewDoc/review-task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura-evidence-materialization-1.yaml
+?? .sldb/core/documents/ReviewDoc/review-task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura-evidence-tests-1.yaml
+?? desk/reviews/task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura/evidence-atom-1.md
+?? desk/reviews/task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura/evidence-commit-1.md
+?? desk/reviews/task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura/evidence-materialization-1.md
+?? desk/reviews/task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura/evidence-tests-1.md
+?? runs/subagents/20261125-175659/
+?? runs/subagents/20261125-175827/
+?? runs/subagents/20261125-175921/
+?? runs/subagents/20261125-180001/
+?? runs/subagents/20261125-180135/
+?? runs/subagents/20261125-180217/
+?? runs/subagents/20261125-180249/
+?? runs/subagents/20261125-180339/
+?? runs/subagents/20261125-180434/
+?? runs/subagents/20261125-180521/
+?? runs/subagents/20261125-180604/
+?? runs/subagents/20261125-180650/
+?? runs/subagents/20261125-180730/
+?? runs/subagents/20261125-180819/
+?? runs/subagents/exec-deskops-e-2bcf3e00598e/board.txt
+?? runs/subagents/exec-deskops-e-2bcf3e00598e/git-status.txt
+?? runs/subagents/exec-deskops-e-2bcf3e00598e/graph.txt
+?? runs/subagents/exec-deskops-e-2bcf3e00598e/next.txt
+?? runs/subagents/exec-deskops-e-2bcf3e00598e/prompt.md
+?? runs/subagents/exec-deskops-e-2bcf3e00598e/task.txt
+?? runs/subagents/exec-deskops-e-a30b7a6741aa/board.txt
+?? runs/subagents/exec-deskops-e-a30b7a6741aa/git-status.txt
+?? runs/subagents/exec-deskops-e-a30b7a6741aa/graph.txt
+?? runs/subagents/exec-deskops-e-a30b7a6741aa/next.txt
+?? runs/subagents/exec-deskops-e-a30b7a6741aa/prompt.md
+?? runs/subagents/exec-deskops-e-a30b7a6741aa/result-summary.md
+?? runs/subagents/exec-deskops-e-a30b7a6741aa/task.txt
+?? runs/subagents/exec-deskops-e-a30b7a6741aa/validation.log
+?? runs/subagents/exec-deskops-t-1b08c45a3f10-testing/prompt.md
+?? runs/subagents/exec-deskops-t-1b08c45a3f10-testing/result-summary.md
+?? runs/subagents/exec-deskops-t-2f0c2d5efde8-testing/prompt.md

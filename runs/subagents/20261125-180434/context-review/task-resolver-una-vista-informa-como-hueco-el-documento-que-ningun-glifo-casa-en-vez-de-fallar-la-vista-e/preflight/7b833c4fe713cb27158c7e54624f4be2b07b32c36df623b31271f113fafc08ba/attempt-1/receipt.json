@@ -1,0 +1,9 @@
+{
+  "key": "task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "7b833c4fe713cb27158c7e54624f4be2b07b32c36df623b31271f113fafc08ba",
+  "output_sha256": "26d302cd5dae426a5d16f6f198ed29b85102e454604bfec4bb26fbd40954a847",
+  "start": "2026-11-25T18:04:37.205196+00:00",
+  "end": "2026-11-25T18:04:47.650122+00:00"
+}

@@ -1,0 +1,9 @@
+{
+  "key": "task-docs-architecture-command-taxonomy-md-lista-cada-operacion-de-sldb-una-sola-vez-con-las-cuatro-caras/preflight",
+  "technical_ok": true,
+  "returncode": 0,
+  "input_sha256": "4c893cf387291ea825dff1dd6ea7d880f1eb45bec376402e0676194485ddd0f6",
+  "output_sha256": "8ec943aa44c07c499ababf6706f14224cf5423d344f93fac25c1966661f90ba3",
+  "start": "2026-11-25T17:59:22.857050+00:00",
+  "end": "2026-11-25T17:59:32.670879+00:00"
+}

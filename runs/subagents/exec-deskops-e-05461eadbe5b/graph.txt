@@ -1,0 +1,120 @@
+Missing graph references:
+- missing_declared_target: config_file:.worktrees/deskops-e-05461eadbe5b/.sldb/core/documents/ReviewDoc/review-task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1-bundle-1.yaml -> task:task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1
+  provenance: .worktrees/deskops-e-05461eadbe5b/.sldb/core/documents/ReviewDoc/review-task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1-bundle-1.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-05461eadbe5b/.sldb/core/documents/ReviewDoc/review-task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1-preflight-1.yaml -> task:task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1
+  provenance: .worktrees/deskops-e-05461eadbe5b/.sldb/core/documents/ReviewDoc/review-task-gd27-para-deskops-anchored-by-con-valor-sin-namespace-y-alcance-de-las-reglas-de-tags-por-modelos-h1-preflight-1.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-05461eadbe5b/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-bundle-1.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-05461eadbe5b/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-bundle-1.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-05461eadbe5b/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-atom-1.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-05461eadbe5b/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-atom-1.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-05461eadbe5b/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-atom-2.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-05461eadbe5b/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-atom-2.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-05461eadbe5b/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-commit-1.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-05461eadbe5b/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-commit-1.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-05461eadbe5b/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-commit-2.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-05461eadbe5b/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-commit-2.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-05461eadbe5b/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-materialization-1.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-05461eadbe5b/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-materialization-1.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-05461eadbe5b/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-materialization-2.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-05461eadbe5b/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-materialization-2.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-05461eadbe5b/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-tests-1.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-05461eadbe5b/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-tests-1.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-05461eadbe5b/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-tests-2.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-05461eadbe5b/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-evidence-tests-2.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+- missing_declared_target: config_file:.worktrees/deskops-e-05461eadbe5b/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-preflight-1.yaml -> task:task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar
+  provenance: .worktrees/deskops-e-05461eadbe5b/.sldb/core/documents/ReviewDoc/review-task-la-regla-builtin-tag-namespace-domain-sugiere-un-fix-concreto-en-stores-check-qué-namespace-declarar-preflight-1.yaml:frontmatter
+  reason: declared target was not resolved by the sldb edge index (missing_document)
+Informational (archived records):
+- planned_target: task:task-docs-architecture-command-taxonomy-md-lista-cada-operacion-de-sldb-una-sola-vez-con-las-cuatro-caras -> doc:docs/architecture/command-taxonomy.md
+  provenance: desk/tasks/task-docs-architecture-command-taxonomy-md-lista-cada-operacion-de-sldb-una-sola-vez-con-las-cuatro-caras.md:line:23:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-docs-architecture-command-taxonomy-md-lista-cada-operacion-de-sldb-una-sola-vez-con-las-cuatro-caras -> doc:docs/architecture/command-taxonomy.md
+  provenance: desk/tasks/task-docs-architecture-command-taxonomy-md-lista-cada-operacion-de-sldb-una-sola-vez-con-las-cuatro-caras.md:line:41:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-docs-architecture-command-taxonomy-md-lista-cada-operacion-de-sldb-una-sola-vez-con-las-cuatro-caras -> test_file:tests/test_command_taxonomy.py
+  provenance: desk/tasks/task-docs-architecture-command-taxonomy-md-lista-cada-operacion-de-sldb-una-sola-vez-con-las-cuatro-caras.md:line:55:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-el-listado-de-specs-y-vistas-de-sldb-serve-trae-la-cobertura-de-atomos-de-cada-una -> test_file:tests/serve/test_listing_coverage.py
+  provenance: desk/tasks/task-el-listado-de-specs-y-vistas-de-sldb-serve-trae-la-cobertura-de-atomos-de-cada-una.md:line:47:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-el-listado-de-specs-y-vistas-de-sldb-serve-trae-la-cobertura-de-atomos-de-cada-una -> test_file:tests/serve/test_listing_coverage.py
+  provenance: desk/tasks/task-el-listado-de-specs-y-vistas-de-sldb-serve-trae-la-cobertura-de-atomos-de-cada-una.md:line:53:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-en-un-componente-con-varios-handlers-en-linea-cada-handler-jsx-nombra-las-llamadas-que-son-suyas -> test_file:tests/code/test_ts_handler_calls.py
+  provenance: desk/tasks/task-en-un-componente-con-varios-handlers-en-linea-cada-handler-jsx-nombra-las-llamadas-que-son-suyas.md:line:47:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-en-un-componente-con-varios-handlers-en-linea-cada-handler-jsx-nombra-las-llamadas-que-son-suyas -> test_file:tests/code/test_ts_handler_calls.py
+  provenance: desk/tasks/task-en-un-componente-con-varios-handlers-en-linea-cada-handler-jsx-nombra-las-llamadas-que-son-suyas.md:line:53:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-fields-update-repara-un-documento-hoy-invalido-cuando-la-escritura-lo-deja-valido -> test_file:tests/test_fields_update_repara.py
+  provenance: desk/tasks/task-fields-update-repara-un-documento-hoy-invalido-cuando-la-escritura-lo-deja-valido.md:line:54:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-los-facts-de-handler-jsx-traen-los-atributos-estaticos-del-elemento-data-testid-aria-label-role-name -> test_file:tests/code/test_ts_handler_attributes.py
+  provenance: desk/tasks/task-los-facts-de-handler-jsx-traen-los-atributos-estaticos-del-elemento-data-testid-aria-label-role-name.md:line:47:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-los-facts-de-handler-jsx-traen-los-atributos-estaticos-del-elemento-data-testid-aria-label-role-name -> test_file:tests/code/test_ts_handler_attributes.py
+  provenance: desk/tasks/task-los-facts-de-handler-jsx-traen-los-atributos-estaticos-del-elemento-data-testid-aria-label-role-name.md:line:53:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-los-facts-de-llamada-ts-traen-el-method-del-segundo-argumento-cuando-es-un-objeto-literal -> test_file:tests/code/test_ts_call_options.py
+  provenance: desk/tasks/task-los-facts-de-llamada-ts-traen-el-method-del-segundo-argumento-cuando-es-un-objeto-literal.md:line:47:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-los-facts-de-llamada-ts-traen-el-method-del-segundo-argumento-cuando-es-un-objeto-literal -> test_file:tests/code/test_ts_call_options.py
+  provenance: desk/tasks/task-los-facts-de-llamada-ts-traen-el-method-del-segundo-argumento-cuando-es-un-objeto-literal.md:line:53:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-los-modelos-de-sldb-declaran-patron-de-ruta-y-cardinalidad-serve-los-expone-por-modelo-y-post-save-c -> test_file:tests/test_serve_modelo_ruta_cardinalidad.py
+  provenance: desk/tasks/task-los-modelos-de-sldb-declaran-patron-de-ruta-y-cardinalidad-serve-los-expone-por-modelo-y-post-save-c.md:line:53:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond -> test_file:tests/test_mcp_propose_rejects_invalid_edges.py
+  provenance: desk/tasks/task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond.md:line:55:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e -> test_file:tests/test_view_reports_unmatched_documents.py
+  provenance: desk/tasks/task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e.md:line:55:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-sldb-serve-acepta-tipo-nombre-en-document-document-ir-document-segments-y-post-save-dos-homonimos-en -> test_file:tests/test_serve_tipo_nombre.py
+  provenance: desk/tasks/task-sldb-serve-acepta-tipo-nombre-en-document-document-ir-document-segments-y-post-save-dos-homonimos-en.md:line:53:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-sldb-serve-devuelve-de-un-codeanchordoc-las-lineas-de-su-fragmento-y-su-estado-intact-changed-o-lost -> test_file:tests/serve/test_anchor_route.py
+  provenance: desk/tasks/task-sldb-serve-devuelve-de-un-codeanchordoc-las-lineas-de-su-fragmento-y-su-estado-intact-changed-o-lost.md:line:47:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-sldb-serve-devuelve-de-un-codeanchordoc-las-lineas-de-su-fragmento-y-su-estado-intact-changed-o-lost -> test_file:tests/serve/test_anchor_route.py
+  provenance: desk/tasks/task-sldb-serve-devuelve-de-un-codeanchordoc-las-lineas-de-su-fragmento-y-su-estado-intact-changed-o-lost.md:line:53:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-sldb-serve-manda-composition-de-cada-field-y-expone-por-modelo-la-ruta-y-la-cardinalidad-create-resp -> test_file:tests/test_serve_segments_composition.py
+  provenance: desk/tasks/task-sldb-serve-manda-composition-de-cada-field-y-expone-por-modelo-la-ruta-y-la-cardinalidad-create-resp.md:line:55:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-sldb-serve-tolera-documentos-invalidos-ve-altas-de-otros-procesos-y-resuelve-tipo-nombre-en-document -> test_file:tests/test_serve_tolerante.py
+  provenance: desk/tasks/task-sldb-serve-tolera-documentos-invalidos-ve-altas-de-otros-procesos-y-resuelve-tipo-nombre-en-document.md:line:56:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-sldb-serve-ve-altas-cambios-y-bajas-hechos-por-otro-proceso-sin-reiniciar-cache-invalidado-por-firma -> test_file:tests/test_serve_cache_externo.py
+  provenance: desk/tasks/task-sldb-serve-ve-altas-cambios-y-bajas-hechos-por-otro-proceso-sin-reiniciar-cache-invalidado-por-firma.md:line:53:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra -> test_file:tests/test_notation_declares_standard.py
+  provenance: desk/tasks/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra.md:line:49:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra -> test_file:tests/test_notation_declares_standard.py
+  provenance: desk/tasks/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra.md:line:55:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest -> test_file:tests/test_rules_semantic_tag_predicate.py
+  provenance: desk/tasks/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest.md:line:55:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-una-tabla-vacia-no-renderiza-fila-ni-extrae-dato-y-el-marcador-rev-dict-con-un-basemodel-no-da-el-wa -> test_file:tests/test_tabla_vacia_y_rev_dict.py
+  provenance: desk/tasks/task-una-tabla-vacia-no-renderiza-fila-ni-extrae-dato-y-el-marcador-rev-dict-con-un-basemodel-no-da-el-wa.md:line:53:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per -> test_file:tests/test_mcp_undo_across_sessions.py
+  provenance: desk/tasks/task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per.md:line:49:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+- planned_target: task:task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per -> test_file:tests/test_mcp_undo_across_sessions.py
+  provenance: desk/tasks/task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per.md:line:55:source-file-reference
+  reason: declared target was not found among extracted graph nodes
+12 missing, 27 informational (27 planned_target)

@@ -1,0 +1,4 @@
+python -m pytest -q tests/test_view_reports_unmatched_documents.py -> rc 0 (6 passed)
+python -m pytest -q -n 4 tests -k "notation or view" -> 582 passed, 1 failed (clean_code projection_view: corregido), 1 error (anyio ausente en el venv, ajeno)
+python -m pytest -q -n 4 tests/test_clean_code_rules.py tests/test_view_reports_unmatched_documents.py tests/notations/test_notation_view_and_routes.py -> rc 0 (1250 passed)
+bash tools/check.sh --fast -> rc 0

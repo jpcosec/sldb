@@ -1,0 +1,92 @@
+## main...origin/main [ahead 66]
+ M .deskops.log
+ M .sldb/core/documents/ReviewDoc/review-task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e-bundle-1.yaml
+ M .sldb/core/documents/ReviewDoc/review-task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e-preflight-1.yaml
+ M .sldb/core/documents/ReviewDoc/review-task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra-bundle-1.yaml
+ M .sldb/core/documents/ReviewDoc/review-task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra-preflight-1.yaml
+ M .sldb/core/documents/ReviewDoc/review-task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest-bundle-1.yaml
+ M .sldb/core/documents/ReviewDoc/review-task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest-preflight-1.yaml
+ M .sldb/core/documents/RunDoc/run-deskops-e-05461eadbe5b.yaml
+ M .sldb/core/documents/RunDoc/run-deskops-e-2757adcb50b7.yaml
+ M .sldb/core/documents/RunDoc/run-deskops-e-5c9941921c07.yaml
+ M .sldb/core/documents/RunDoc/run-deskops-e-d801f16f505e.yaml
+ M .sldb/core/documents/TaskCodeDoc/task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un.yaml
+ M .sldb/core/documents/TaskCodeDoc/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra.yaml
+ M .sldb/core/documents/TaskCodeDoc/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest.yaml
+ M .sldb/core/models/AtomDoc.yaml
+ M .sldb/core/models/MaterializationContractDoc.yaml
+ M .sldb/core/models/ReviewDoc.yaml
+ M .sldb/core/models/RunDoc.yaml
+ M .sldb/core/models/TaskCodeDoc.yaml
+ M .sldb/core/store_index.yaml
+ M .sldb/store.yaml
+ M desk/reviews/task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e/bundle-1.md
+ M desk/reviews/task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e/preflight-1.md
+ M desk/reviews/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra/bundle-1.md
+ M desk/reviews/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra/preflight-1.md
+ M desk/reviews/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest/bundle-1.md
+ M desk/reviews/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest/preflight-1.md
+ M desk/reviews/task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per/bundle-1.md
+ M desk/tasks/task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e.md
+ M desk/tasks/task-surface-dev-astryx-probe-muestra-un-nodo-de-react-flow-y-un-editor-codemirror-como-componentes-de-un.md
+ M desk/tasks/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra.md
+ M desk/tasks/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest.md
+ M runs/subagents/exec-deskops-e-05461eadbe5b/run.md
+ M runs/subagents/exec-deskops-e-2757adcb50b7/run.md
+ M runs/subagents/exec-deskops-e-2bcf3e00598e/run.md
+ M runs/subagents/exec-deskops-e-5c9941921c07/run.md
+ M runs/subagents/exec-deskops-e-d801f16f505e/run.md
+ M runs/subagents/exec-deskops-t-1b08c45a3f10-testing/run.md
+ M runs/subagents/exec-deskops-t-2f0c2d5efde8-testing/run.md
+?? .herdr-coordination.md
+?? .sldb/core/documents/AtomDoc/atom-la-prueba-surface-dev-astryx-probe-responde-las-dudas-del-adr-de-surface-sobre-react-flow-y-codemirr.yaml
+?? .sldb/core/documents/MaterializationContractDoc/materialization-astryx-probe-surface-dev-astryx-probe-astryx-integration-mjs.yaml
+?? .sldb/core/documents/MaterializationContractDoc/materialization-astryx-probe-surface-dev-astryx-probe-components-sldbgraphcanvas-css.yaml
+?? .sldb/core/documents/MaterializationContractDoc/materialization-astryx-probe-surface-dev-astryx-probe-resultado-md.yaml
+?? desk/atoms/atom-la-prueba-surface-dev-astryx-probe-responde-las-dudas-del-adr-de-surface-sobre-react-flow-y-codemirr.md
+?? desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-astryx-integration-mjs.md
+?? desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-components-sldbgraphcanvas-css.md
+?? desk/materializations/materialization-astryx-probe-surface-dev-astryx-probe-resultado-md.md
+?? runs/subagents/20261125-175659/
+?? runs/subagents/20261125-175827/
+?? runs/subagents/20261125-175921/
+?? runs/subagents/20261125-180001/
+?? runs/subagents/20261125-180135/
+?? runs/subagents/20261125-180217/
+?? runs/subagents/20261125-180249/
+?? runs/subagents/20261125-180339/
+?? runs/subagents/20261125-180434/
+?? runs/subagents/20261125-180521/
+?? runs/subagents/20261125-180604/
+?? runs/subagents/20261125-180650/
+?? runs/subagents/20261125-180730/
+?? runs/subagents/20261125-180819/
+?? runs/subagents/exec-deskops-e-05461eadbe5b/board.txt
+?? runs/subagents/exec-deskops-e-05461eadbe5b/git-status.txt
+?? runs/subagents/exec-deskops-e-05461eadbe5b/graph.txt
+?? runs/subagents/exec-deskops-e-05461eadbe5b/next.txt
+?? runs/subagents/exec-deskops-e-05461eadbe5b/prompt.md
+?? runs/subagents/exec-deskops-e-05461eadbe5b/task.txt
+?? runs/subagents/exec-deskops-e-2757adcb50b7/prompt.md
+?? runs/subagents/exec-deskops-e-2bcf3e00598e/board.txt
+?? runs/subagents/exec-deskops-e-2bcf3e00598e/git-status.txt
+?? runs/subagents/exec-deskops-e-2bcf3e00598e/graph.txt
+?? runs/subagents/exec-deskops-e-2bcf3e00598e/next.txt
+?? runs/subagents/exec-deskops-e-2bcf3e00598e/prompt.md
+?? runs/subagents/exec-deskops-e-2bcf3e00598e/result-summary.md
+?? runs/subagents/exec-deskops-e-2bcf3e00598e/task.txt
+?? runs/subagents/exec-deskops-e-2bcf3e00598e/validation.log
+?? runs/subagents/exec-deskops-e-5c9941921c07/prompt.md
+?? runs/subagents/exec-deskops-e-a30b7a6741aa/board.txt
+?? runs/subagents/exec-deskops-e-a30b7a6741aa/git-status.txt
+?? runs/subagents/exec-deskops-e-a30b7a6741aa/graph.txt
+?? runs/subagents/exec-deskops-e-a30b7a6741aa/next.txt
+?? runs/subagents/exec-deskops-e-a30b7a6741aa/prompt.md
+?? runs/subagents/exec-deskops-e-a30b7a6741aa/result-summary.md
+?? runs/subagents/exec-deskops-e-a30b7a6741aa/task.txt
+?? runs/subagents/exec-deskops-e-a30b7a6741aa/validation.log
+?? runs/subagents/exec-deskops-t-1b08c45a3f10-testing/prompt.md
+?? runs/subagents/exec-deskops-t-1b08c45a3f10-testing/result-summary.md
+?? runs/subagents/exec-deskops-t-2f0c2d5efde8-testing/prompt.md
+?? runs/subagents/exec-deskops-t-2f0c2d5efde8-testing/result-summary.md
+?? runs/subagents/exec-deskops-t-2f0c2d5efde8-testing/validation.log
