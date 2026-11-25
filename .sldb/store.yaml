@@ -399,6 +399,8 @@ include:
   - desk/inbox/20261125-025528-unclear-queue-20261125t055007z-dispatch-reap-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa.md
   - desk/inbox/20261125-030337-suggestion-sldb-serve-acepta-extension-module-function-como-sldb-mcp-para-que-specir-registre-rutas-http-de-solo-lectura.md
   - desk/inbox/20261125-031221-unclear-queue-20261125t054200z-dispatch-tester-task-sldb-docs-create-o-resuelve-la-ruta-contra-el-cwd-o-avisa.md
+  - desk/inbox/20261125-032512-suggestion-sldb-serve-la-cobertura-de-atomos-de-cada-spec-o-vista-en-el-payload-de-notations-y-views.md
+  - desk/inbox/20261125-032546-suggestion-sldb-serve-una-ruta-get-que-devuelva-de-un-codeanchordoc-las-lineas-de-su-fragmento-y-su-estado-vigente-o-cambiado.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -979,6 +981,8 @@ include:
     name: run-deskops-t-1a73125cf1c4
   - path: runs/subagents/exec-deskops-t-79041272f6a9-testing/run.md
     name: run-deskops-t-79041272f6a9
+  - path: runs/subagents/exec-deskops-e-b6060046cf05/run.md
+    name: run-deskops-e-b6060046cf05
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -3224,6 +3228,10 @@ include:
     name: review-task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p-evidence-atom-1
   - path: desk/reviews/task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p/evidence-materialization-1.md
     name: review-task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p-evidence-materialization-1
+  - path: desk/reviews/task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa/preflight-3.md
+    name: review-task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa-preflight-3
+  - path: desk/reviews/task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa/bundle-3.md
+    name: review-task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa-bundle-3
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -3284,6 +3292,8 @@ include:
   - desk/tasks/task-en-un-componente-con-varios-handlers-en-linea-cada-handler-jsx-nombra-las-llamadas-que-son-suyas.md
   - desk/tasks/task-los-facts-de-llamada-ts-traen-el-method-del-segundo-argumento-cuando-es-un-objeto-literal.md
   - desk/tasks/task-sldb-serve-acepta-extension-module-function-y-la-extension-registra-rutas-get-de-solo-lectura-bajo-e.md
+  - desk/tasks/task-el-listado-de-specs-y-vistas-de-sldb-serve-trae-la-cobertura-de-atomos-de-cada-una.md
+  - desk/tasks/task-sldb-serve-devuelve-de-un-codeanchordoc-las-lineas-de-su-fragmento-y-su-estado-intact-changed-o-lost.md
 - model: TaskDebugDoc
   paths:
   - desk/tasks/task-reproducir-si-sldb-docs-update-reescribe-índices-de-documentos-ajenos-al-que-actualiza-reviewdoc-de.md
