@@ -3,10 +3,10 @@ model_ref: deskops.models:InboxNoteDoc
 path: ''
 documents_index: .sldb/core/documents/InboxNoteDoc.yaml
 sections_index: .sldb/runtime/sections/InboxNoteDoc.yaml
-model_hash: ce722a8eca2a6790cf089214182ec6262bf3eee03faeff80992f5890d69b7e07
-roster_hash: 1ffd560e800b4aee7904821098264e4e196787000bef7000ebdc0f80cfa03702
+model_hash: d7b94c1c200c7a385d8a816dc47ac2d7ad0e34b7af08a8718c4da317d0785a4b
+roster_hash: 0e6ccba19034f2dfe7d252828b8816de2df7e894be76132eec92101033824d25
 contract_hash: 923f97f6b3ed4ecde2d4880707b20bef4116f5de18e7aa2908f6b59e0b16bf47
-documents_count: 146
+documents_count: 147
 version: 1
 canonical: false
 family: null
