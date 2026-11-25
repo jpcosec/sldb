@@ -1,0 +1,19 @@
+name: 20261125-143642-suggestion-c2-primitiva-tomar-transici-n-en-cli-y-api
+path: desk/inbox/20261125-143642-suggestion-c2-primitiva-tomar-transici-n-en-cli-y-api.md
+source_hash: 5e6578d1151759b0361e7dc068f51843f7484947215d5f1585b6549ba086cbd1
+content_hash: 6b98c75079cae3a9e1f56c8129d7cefb2a722f5348dae01e5aa0c58656e9fb70
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 8ebf236f18e72397329c2dab4e12efc53c9384c71b9f2e32b27ce2f4177f50bf
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: fb66ae85291e7e13bfe529ee9e008639a6bc6265c9ea890af477305b68f709af
+  body: 6eb94580e6b3b8e32c157a84696cb66a21b47cfffe644c86d8bd85a39d976fc4
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

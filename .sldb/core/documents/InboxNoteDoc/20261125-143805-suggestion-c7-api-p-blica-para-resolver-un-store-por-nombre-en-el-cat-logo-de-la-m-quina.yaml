@@ -1,0 +1,19 @@
+name: 20261125-143805-suggestion-c7-api-p-blica-para-resolver-un-store-por-nombre-en-el-cat-logo-de-la-m-quina
+path: desk/inbox/20261125-143805-suggestion-c7-api-p-blica-para-resolver-un-store-por-nombre-en-el-cat-logo-de-la-m-quina.md
+source_hash: d89b975105cf875d0f1dae3a8b4e6cbb6fb57456fefc1defaf0f1f0baf147ef2
+content_hash: 6fab6c3ad4becfef0de59f5abce6df5b3dcfb76288b7161e72c4c263e0d9311a
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 5be55625411cf2306a41ec9accd7a9f5bebbcbef087f461c9f30a34660c51169
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: 6c3766a7efd5f5499ec4c2608e9b63dc0bf7cd859715b2d3e56a8d0d7b9de4bb
+  body: 32b2edc5912f38a8b5805f3a3be4fe58d69e638e6f9874fe7774c78825f955f7
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

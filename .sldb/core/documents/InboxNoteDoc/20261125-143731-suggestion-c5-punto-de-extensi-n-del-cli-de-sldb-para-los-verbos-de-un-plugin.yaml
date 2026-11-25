@@ -1,0 +1,19 @@
+name: 20261125-143731-suggestion-c5-punto-de-extensi-n-del-cli-de-sldb-para-los-verbos-de-un-plugin
+path: desk/inbox/20261125-143731-suggestion-c5-punto-de-extensi-n-del-cli-de-sldb-para-los-verbos-de-un-plugin.md
+source_hash: a255f48b871588d578618dac9d4720506c62d6285b29d465ea6c39f62fb8affc
+content_hash: 67c5420d5b55065568775e680c7a4d6565996db239e3b8f26f5d90324e55041f
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 544103d20c9e7c57d0dfbacd3b3bfa42bfbc0a8f91c8cf695b41f3278683f9b9
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: e10fb6079b289224b07531f56d4de0a8dd865eb65b300654ead9f5aa82d47c60
+  body: 59ba7bee4eba27b5a1a73f55469ec66d611e983ad96396fa29037dc77224b75a
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

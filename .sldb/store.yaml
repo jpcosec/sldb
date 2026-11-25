@@ -393,6 +393,15 @@ include:
   - desk/inbox/20261124-023754-suggestion-semantica-del-store-padres-declarados-solo-en-el-cache-namespace-sin-padre-y-migracion-de-tags-en-bloque.md
   - desk/inbox/20261123-234134-unclear-queue-20261124t022723z-dispatch-reap-task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb.md
   - desk/inbox/20261124-000312-unclear-queue-20261124t024525z-dispatch-reap-task-plan-del-drawer-motor-datalog-duenio-de-las-aristas-revierte-d5-y-daemon-residente-de-sldb-con-prueb.md
+  - desk/inbox/20261125-143612-suggestion-c1-aplicar-ruledoc-y-relationdoc-de-un-store-enlazado.md
+  - desk/inbox/20261125-143642-suggestion-c2-primitiva-tomar-transici-n-en-cli-y-api.md
+  - desk/inbox/20261125-143658-suggestion-c3-el-lenguaje-de-reglas-lee-el-ltimo-elemento-de-una-lista.md
+  - desk/inbox/20261125-143715-suggestion-c4-momento-on-delete-en-las-reglas.md
+  - desk/inbox/20261125-143731-suggestion-c5-punto-de-extensi-n-del-cli-de-sldb-para-los-verbos-de-un-plugin.md
+  - desk/inbox/20261125-143748-suggestion-c6-chequeo-y-arreglo-de-rutas-absolutas-en-campos-de-referencia.md
+  - desk/inbox/20261125-143805-suggestion-c7-api-p-blica-para-resolver-un-store-por-nombre-en-el-cat-logo-de-la-m-quina.md
+  - desk/inbox/20261125-143822-suggestion-c8-chequeo-el-store-corresponde-al-rbol-para-pre-commit-y-ci.md
+  - desk/inbox/20261125-143840-suggestion-c9-creaci-n-de-documentos-dirigida-por-el-esquema-del-modelo.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc

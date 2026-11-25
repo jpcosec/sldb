@@ -1,0 +1,19 @@
+name: 20261125-143748-suggestion-c6-chequeo-y-arreglo-de-rutas-absolutas-en-campos-de-referencia
+path: desk/inbox/20261125-143748-suggestion-c6-chequeo-y-arreglo-de-rutas-absolutas-en-campos-de-referencia.md
+source_hash: 55ee9b371a113ac83bb7e265701338389573f6d638d2c4139c06767164d3f7c3
+content_hash: 9b74cd577d0fc34b950f6e11e4b4dc8310fdfa0694ac9313d7140c9413f3d312
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 5febc7cbab2ee4c225b00c4b4163752ca3cb5bbe49848a011e8ac8d9e8d806d2
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: 826746a5e668447fe28962324d275e2995896d6d6e4f51d4ef1f8bcc2a8db845
+  body: c3b71282b28c0cf6ac376cfaf8b95b8be012bbdc01920df24647f9b6b152e96b
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

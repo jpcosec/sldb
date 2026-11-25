@@ -1,0 +1,19 @@
+name: 20261125-143715-suggestion-c4-momento-on-delete-en-las-reglas
+path: desk/inbox/20261125-143715-suggestion-c4-momento-on-delete-en-las-reglas.md
+source_hash: 7ff38295b179149b1767d353ffd9c6309e8d026de4d0fe1a59fb77712d3775af
+content_hash: 9a8bb864cdafb79e2859979cf2924814b775147f0534bc70aea59d6270dca010
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: be1a918d36a26b50ff05a32144905fa0851e3a2c55c93b05726d8a3bab97b3e7
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: e0ea5add63e9fafd7ee300747a4fe718e3619296d6cb287b8fffe3f6c15352bd
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: 2a476c1dc1f7f3c50d0700b55c40b63b21e5382388b0d483e46942ce1ee75cf2
+  body: f8038e02e0b1783f0e358b4b720a61df87571e973c9a75c90d8edde1a57017fd
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null
