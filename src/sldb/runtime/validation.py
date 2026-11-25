@@ -16,7 +16,15 @@ class Validator:
         return _recipes(self.model_type.__template__)
 
     def extract(self, markdown: str) -> dict[str, Any]:
-        return self.model_type(**self.data_extractor.extract_values(self.ast_handler.split_nodes(markdown), self._get_recipes(), raw_markdown=markdown)).model_dump(mode="json", exclude_none=True)
+        values = self.data_extractor.extract_values(self.ast_handler.split_nodes(markdown), self._get_recipes(), raw_markdown=markdown)
+        return self.model_type(**self._without_absent_defaults(values)).model_dump(mode="json", exclude_none=True)
+
+    def _without_absent_defaults(self, values: dict[str, Any]) -> dict[str, Any]:
+        """A field the document does not carry comes out of extraction as None; if the model gives
+        it a default, drop it so the default applies (a field added later does not invalidate the
+        documents written before it)."""
+        fields = self.model_type.model_fields
+        return {k: v for k, v in values.items() if not (v is None and k in fields and not fields[k].is_required())}
 
     def render(self, data: dict[str, Any], ref_root: Path | None = None) -> str:
         return self.renderer.render(self.model_type(**data), ref_root)
