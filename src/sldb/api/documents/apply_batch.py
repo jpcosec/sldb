@@ -6,6 +6,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any, Callable
 
+from sldb.api.documents.batch_edges import batch_edge_violations
 from sldb.api.documents.batch_inverse import before, inverse
 from sldb.api.documents.batch_prevalidate import prevalidate_changes
 from sldb.api.documents.batch_report import BatchReport
@@ -38,11 +39,14 @@ def apply_batch(store: str | Path | None, changes: list[dict[str, Any]], pythonp
         pythonpath: Directory to import the store's model modules from.
         dry_run: Only prevalidate (shape, model, payload round-trip, guards, targets) under the
             lock and return before opening the transaction: nothing is written, the `on_write`
-            rules are not evaluated, and the errors are the ones a real apply raises.
+            rules are not evaluated, and the errors are the ones a real apply raises. The edges
+            the batch creates or changes are checked against their relation types (classes,
+            cardinality, condition) on a copy of the edge index with the batch applied.
 
     Returns:
         With `dry_run`: a report with `applied=False`, `saved` and `inverse` empty and `planned`
-        the ids in the order a real apply would write them.
+        the ids in the order a real apply would write them, and `rejections` the edge violations
+        the batch would introduce (empty when it is valid).
         Otherwise the ids applied, in order, and `inverse`: the batch that undoes this one, guarded by
         the content hashes this one left (`apply_batch(store, report.inverse)` puts it back).
 
@@ -59,7 +63,8 @@ def apply_batch(store: str | Path | None, changes: list[dict[str, Any]], pythonp
     location = open_store(store)
     with store_lock(location.store_path, wait=True):  # guards are checked and writes made under one lock
         if dry_run:
-            return BatchReport(saved=[], applied=False, planned=[c["id"] for c in _plan(location, changes, pythonpath)])
+            plan = _plan(location, changes, pythonpath)
+            return BatchReport(saved=[], applied=False, planned=[c["id"] for c in plan], rejections=batch_edge_violations(location, plan))
         with transaction(location.store_path, pythonpath) as tx:
             return _run(location, tx, changes, pythonpath)
 

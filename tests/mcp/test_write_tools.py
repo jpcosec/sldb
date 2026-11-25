@@ -12,8 +12,6 @@ from mcp_helpers import an_item, files, page_items, tracked, valid_edge
 from mcp_session import WRITER, served, tree_digest
 from mcp_world import front_matter
 
-EDGE_PENDING = "edge_validation_before_write"
-
 
 def apply(session, changes: list[dict[str, Any]]) -> dict[str, Any]:
     """Propose `changes` and apply the proposal exactly as it came back."""
@@ -122,49 +120,13 @@ def test_an_alert_rule_is_reported_by_name(writer, write_copy: Path) -> None:
     assert {f"rules/{tracked(writer, write_copy, p)['name']}" for p in rules} <= codes, answer["alerts"]
 
 
-def test_an_edge_against_its_relation_type_is_reported(writer, write_copy: Path) -> None:
-    edge = valid_edge(write_copy, "edge-wrong-source")
-    allowed = front_matter(files(write_copy, "relationtypedoc")[0])["source_types"]
-    item = an_item(writer, write_copy)
-    assert item["model"] not in allowed
-    wrong = {**edge, "source": item["export_id"]}
-    proposal = writer.call("propose_changes", changes=[wrong])
-    assert any(p["note"].startswith("sldb:") for p in proposal["pending"] if EDGE_PENDING in p["what"] or "RelationTypeDoc" in p["what"])
-    answer = writer.call("apply_changes", proposal=proposal["proposal"])
-    try:
-        assert answer["applied"] is True
-        assert any("source_types" in f and item["export_id"] in f for f in answer["edge_findings"]), answer["edge_findings"]
-    finally:
-        applied(writer, [{"action": "retract_edge", "name": wrong["name"]}])
-
-
-def test_cardinality_and_condition_of_a_declared_type_are_reported(writer, write_copy: Path) -> None:
-    base = tracked(writer, write_copy, files(write_copy, "relationtypedoc")[0])
-    name = "one_to_one"
-    declared = {"action": "create", "model": "RelationTypeDoc", "name": f"type-{name}", "path": f"relationtypedoc/type-{name}.md", "payload": {**base["payload"], "name": name, "title": "One to one", "cardinality": "one_to_one", "target_types": []}}
-    applied(writer, [declared])
-    first, second = valid_edge(write_copy, "card-1"), valid_edge(write_copy, "card-2")
-    # Two targets for one source under a one_to_one type, the second with a condition that does not parse.
-    edges = [{**first, "relation_type": name}, {**second, "relation_type": name, "target": "Stage:review", "condition": "status = "}]
-    try:
-        findings = applied(writer, edges)["edge_findings"]
-        assert any(f"has 2 '{name}' targets but cardinality is one_to_one" in f for f in findings), findings
-        assert any("condition does not parse" in f for f in findings), findings
-    finally:
-        applied(writer, [{"action": "retract_edge", "name": e["name"]} for e in edges] + [{"action": "delete", "model": "RelationTypeDoc", "name": f"type-{name}"}])
-
-
-@pytest.mark.xfail(strict=True, reason="SLDB checks an edge against its RelationTypeDoc only after the write (check_edges); asked by note, see PENDING['edge_validation_before_write']")
 def test_an_edge_against_its_relation_type_is_refused_before_writing(writer, write_copy: Path) -> None:
     edge = valid_edge(write_copy, "edge-refused")
     item = an_item(writer, write_copy)
     wrong = {**edge, "source": item["export_id"]}
-    answer = apply(writer, [wrong])
-    try:
-        assert answer["applied"] is False and not (write_copy / wrong["path"]).exists()
-    finally:
-        if answer["applied"]:
-            applied(writer, [{"action": "retract_edge", "name": wrong["name"]}])
+    answer = writer.call("propose_changes", changes=[wrong])
+    assert answer["applied"] is False and answer["rejected"] == "edges" and not (write_copy / wrong["path"]).exists()
+    assert answer["findings"][0]["code"] == "types" and item["export_id"] in answer["findings"][0]["message"]
 
 
 def retitled(item: dict[str, Any], title: str) -> list[dict[str, Any]]:

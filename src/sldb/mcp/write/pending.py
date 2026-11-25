@@ -5,12 +5,8 @@ from __future__ import annotations
 
 PENDING = {
     "dry_run": {
-        "what": "a public dry run of apply_batch: propose_changes answers what would be written, but the prevalidation (model round-trip, guards, on_write rules, edge types) runs only when apply_changes calls apply_batch",
+        "what": "a public dry run of apply_batch: propose_changes answers what would be written, but the prevalidation (model round-trip, guards, on_write rules) runs only when apply_changes calls apply_batch",
         "note": "sldb:20261115-022430-suggestion-specir-dry-run-p-blico-de-apply-batch",
-    },
-    "edge_validation_before_write": {
-        "what": "an edge checked against its RelationTypeDoc (source and target types, cardinality, condition) before the RelationDoc is written: SLDB checks it only in check_edges, after the write, so apply_changes reports the violation instead of refusing it",
-        "note": "sldb:20261115-022655-suggestion-specir-validar-aristas-antes-de-escribir-y-devolver-las-alertas-on-write-de-apply-batch",
     },
     "store_hash_precondition": {
         "what": "the store's fingerprint as an atomic precondition of apply_batch (level 2): only the per-document guards protect the apply",

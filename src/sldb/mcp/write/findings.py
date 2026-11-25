@@ -33,7 +33,8 @@ def edge_marks(change: BatchChange) -> list[tuple[str, ...]]:
 
 def edge_findings(store_path: Path, edges: list[BatchChange]) -> list[str]:
     """The edge index's violations about the edges just written (SLDB checks edges only
-    after the write: see PENDING["edge_validation_before_write"])."""
+    after the write: a proposal's edges are refused before it, see `apply.edge_rejection`; what is
+    left here is what the batch's own violations could not name)."""
     if not edges:
         return []
     errors = api.check_edges(store_path, include_linked=False).errors

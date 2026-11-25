@@ -48,6 +48,13 @@ def _apply_rules(nodes: dict[str, EdgeNodeRecord], edges: list[EdgeRecord], rela
     return kept, problems
 
 
+def resolve_authored(e: EdgeRecord, nodes: dict[str, EdgeNodeRecord]) -> tuple[list[EdgeRecord], list[str]]:
+    """What one authored edge becomes once composed against `nodes` (the rules the index
+    applies): its edges (with the type's condition, axis and reverse) and the problems found."""
+    problems: list[str] = []
+    return _authored(e, nodes, relation_types_of(nodes).get(e.relation) or {}, problems), problems
+
+
 def _authored(e: EdgeRecord, nodes: dict[str, EdgeNodeRecord], rt: dict[str, Any], problems: list[str]) -> list[EdgeRecord]:
     for end, node_id in (("source", e.source), ("target", e.target)):
         if node_id not in nodes:

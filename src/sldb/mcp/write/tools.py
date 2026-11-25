@@ -44,7 +44,8 @@ class WriteTools:
         findings = self._domain_findings(changes)
         if self._has_errors(findings):
             return self._domain_rejected(findings)
-        return self._with_alerts(self._dry_run(self._seal(changes)), findings)
+        proposal = self._seal(changes)
+        return self._with_alerts(apply.edge_rejection(self.store_path, proposal) or self._dry_run(proposal), findings)
 
     def apply_changes(self, proposal: Proposal) -> dict[str, Any]:
         """Apply a proposal exactly as propose_changes returned it: whole, or nothing and why
@@ -54,7 +55,7 @@ class WriteTools:
         findings = self._domain_findings(proposal.changes)
         if self._has_errors(findings):
             return self._domain_rejected(findings)
-        return self._with_alerts(apply.run_batch(self.store_path, proposal, self.undo), findings)
+        return self._with_alerts(apply.edge_rejection(self.store_path, proposal) or apply.run_batch(self.store_path, proposal, self.undo), findings)
 
     def _seal(self, changes: list[Change]) -> Proposal:
         """The sealed proposal: each change as a batch change against the store's current fingerprint."""
@@ -87,7 +88,7 @@ class WriteTools:
     def _dry_run(self, proposal: Proposal) -> dict[str, Any]:
         """The answer of a dry run: the proposal and what it would write."""
         checked = "apply_batch prevalidates the whole batch (shape, registered model, payload round-trip, guards, free destination) and runs the on_write RuleDocs; nothing is written if any check fails"
-        pending = [PENDING["dry_run"], *pendings.edge_pending(proposal.changes), *pendings.level_pending(proposal.level)]
+        pending = [PENDING["dry_run"], *pendings.level_pending(proposal.level)]
         would = [propose.would_write(self.store_path, c) for c in proposal.changes]
         return {"dry_run": True, "written": False, "proposal": proposal.model_dump(mode="json"), "would_write": would, "checked_on_apply": checked, "pending": pending}
 

@@ -8,7 +8,7 @@ from typing import Any, Callable
 from sldb.store.edge_index.anchor_targets import anchor_targets
 from sldb.store.edge_index.node_ids import ANCHOR_TAG, RELATION_MODEL, RELATION_TYPE_MODEL, anchor_node_id, doc_node_id, model_node_id, relation_type_node_id
 from sldb.store.edge_index.records import edge
-from sldb.store.models import DocumentEntry, EdgeContribution, EdgeNodeRecord
+from sldb.store.models import DocumentEntry, EdgeContribution, EdgeNodeRecord, EdgeRecord
 
 Payload = dict[str, Any]
 
@@ -32,8 +32,13 @@ def _builder_for(model_name: str, doc: DocumentEntry) -> Callable[[DocumentEntry
 
 
 def _relation_type(doc: DocumentEntry, p: Payload) -> EdgeContribution:
+    return relation_type_contribution(doc.name, p)
+
+
+def relation_type_contribution(doc_name: str, p: Payload) -> EdgeContribution:
+    """The `relation_type` node a RelationTypeDoc payload declares, and its schema edges."""
     rid = relation_type_node_id(p["name"])
-    node = EdgeNodeRecord(id=rid, node_type="relation_type", semantics={**p, "doc": doc.name})
+    node = EdgeNodeRecord(id=rid, node_type="relation_type", semantics={**p, "doc": doc_name})
     edges = [edge(rid, model_node_id(cls), kind, "schema") for kind, key in (("applies_to_source", "source_types"), ("applies_to_target", "target_types")) for cls in p.get(key, [])]
     return EdgeContribution(nodes=[node], edges=edges)
 
@@ -41,11 +46,15 @@ def _relation_type(doc: DocumentEntry, p: Payload) -> EdgeContribution:
 def _relation(doc: DocumentEntry, p: Payload) -> EdgeContribution:
     """The authored edge, with its own condition; the type's condition, axis and direction are
     another document's and are applied when the index is composed."""
-    metadata = {"relation_doc": doc.name, "condition": p.get("condition") or "", "axis": ""}
+    return EdgeContribution(edges=[relation_edge(doc.name, p)])
+
+
+def relation_edge(doc_name: str, p: Payload) -> EdgeRecord:
+    """The authored edge a RelationDoc's payload declares, before the index is composed."""
+    metadata = {"relation_doc": doc_name, "condition": p.get("condition") or "", "axis": ""}
     if p.get("attributes"):
         metadata["attributes"] = dict(p["attributes"])  # an edge without them keeps its old shard
-    authored = edge(doc_node_id(p["source_id"]), doc_node_id(p["target_id"]), p["relation_type"], "relation_doc", **metadata)
-    return EdgeContribution(edges=[authored])
+    return edge(doc_node_id(p["source_id"]), doc_node_id(p["target_id"]), p["relation_type"], "relation_doc", **metadata)
 
 
 def _anchor(doc: DocumentEntry, p: Payload) -> EdgeContribution | None:
