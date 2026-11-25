@@ -1,0 +1,23 @@
+name: atom-los-hechos-de-llamada-de-python-traen-sus-argumentos-literales
+path: desk/atoms/atom-los-hechos-de-llamada-de-python-traen-sus-argumentos-literales.md
+source_hash: c3baff2a93cef9f0b1d661fa148cae2745598385f3dafff5d7991f124b308086
+content_hash: 6d2939f9f97ae08171e22c30c3304eb3a4726bce8202bc8d5a3999809144428a
+field_hashes:
+  id: fb6c73e842926301ce1131f95b6b1ae9d3794320a680729f5ccd27cdcf9e1c62
+  title: f79155548494449b8cbe6a11e1b7158401b29bb16762680a90f180fa29c7ccf8
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: 5c012dae95ed2db74d2c1ec9dae1e55ad2257e89e53f47050d7f82ef605eca9b
+  tags: 225bcbf2cf665cd32f42a80de1b1dde5ad027f605ff4bbc28dc7cae3de556bfc
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:py-call-args
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-25T22:23:40Z'
+  authority: generated
+  via: create_document

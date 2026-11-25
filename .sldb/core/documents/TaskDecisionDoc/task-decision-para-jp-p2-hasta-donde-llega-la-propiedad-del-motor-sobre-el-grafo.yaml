@@ -1,7 +1,7 @@
 name: task-decision-para-jp-p2-hasta-donde-llega-la-propiedad-del-motor-sobre-el-grafo
 path: desk/tasks/task-decision-para-jp-p2-hasta-donde-llega-la-propiedad-del-motor-sobre-el-grafo.md
 source_hash: a12df3d07c404229cdd94118749580030c9ea2d57a47d93355b2d8e383ad99a6
-content_hash: afe246909c00932e374a3fb4fe7c6fa0f895cc57a70479c9f618f3c1368706a5
+content_hash: 43ede6ba72c5d9f9ae58f923e58077d1196b0ea89c02d95be8fe6f251deaea66
 field_hashes:
   title: cb96818c78666a4682ad97344201f044e1731c52532a2f6a3a4bd2f876c09170
   id: f8fca57743108dfb4dea1dcb3be55afd9ae2a182e0e7c4016bdc127345a29f60
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 2eb7313e07812d9bc32ce10dfb796786c06529a528b7e9680c6908b18923fd9c
   validation: 498145c3e6b5831f023a07f1c8ad208d38743e4a4db06b2dbb465c4230e8dcbb
   done_when: a44cf4faff2c5b3449f2832b6975b2e7243707be1f6727c605b24900fb1fcdc6

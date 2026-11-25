@@ -1,7 +1,7 @@
 name: task-decision-para-jp-p3-forma-del-daemon-de-sldb-y-que-pasa-sin-el
 path: desk/tasks/task-decision-para-jp-p3-forma-del-daemon-de-sldb-y-que-pasa-sin-el.md
 source_hash: 554f6e9f6aba6f68cd0768bb63761e8240c75a6e376718023bab812be8207ffe
-content_hash: 8ccda8b507e19e9817d1c231559665aa62bdc260214580aa016bf327bbf45b81
+content_hash: fa72c5b7e9037278078977fed301e1fba31aeca0057c16b50ed4956dc85dbd97
 field_hashes:
   title: c9123196be86affa54e189e1c7a46fc2a585cb075c80a96546190aa3d86cfb52
   id: b301e5e3415a346181b3f297df96d1967b44e7a0bae19d2fb422a2711a1bc350
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 745d4e009a0ae756e9395cf8302532a93fe8d872c313288eb2c99a9019173880
   validation: 498145c3e6b5831f023a07f1c8ad208d38743e4a4db06b2dbb465c4230e8dcbb
   done_when: eca49fd5544dc60aed57b07fcc7e3b4d5c68b6ff43ceee668f9c4a0d0609618d

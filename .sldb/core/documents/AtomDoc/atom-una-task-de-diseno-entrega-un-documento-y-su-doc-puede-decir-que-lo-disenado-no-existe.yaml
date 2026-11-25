@@ -1,7 +1,7 @@
 name: atom-una-task-de-diseno-entrega-un-documento-y-su-doc-puede-decir-que-lo-disenado-no-existe
 path: desk/atoms/atom-una-task-de-diseno-entrega-un-documento-y-su-doc-puede-decir-que-lo-disenado-no-existe.md
 source_hash: 53a02e1ffb927ba3b86928017b6376d70b440a2f74bff015598bdeb1d36872f0
-content_hash: 32aca72c8726bbc21eeade429152409b2bd7690e2fb8ad1e37aab3d24ca49639
+content_hash: 240e11930f63ebccd49529e2244869aeb23c203324fccf42a984af049f86ada3
 field_hashes:
   id: 27ac9e064679f22e58e03a0293f67709ae6c73c1fe36d7c1795d5992f2a37c71
   title: c4eb9fb8f133baefe809f3bad7aef8ed0facb76893153cb41d74129b03604c6b
@@ -9,6 +9,7 @@ field_hashes:
   answer: 0e7a8290b2d4c971c109d2bc7233299bd9b5fbafb4f2488cc6b946ee65f802dd
   tags: b27d1eed3e66d6d16063e24598dfaf87cc7b5080e07b47ae1d81ee11bfa532dd
   provenance: 3dbe8b373d5d0b3b1891cec20cc6f0236ee8ce9e674e9f646fd5ef90e5c297f7
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown
@@ -19,3 +20,4 @@ semantic_tags:
 - topic:workflow
 - type.knowledge.atom
 - workspace.desk.atoms
+provenance: null

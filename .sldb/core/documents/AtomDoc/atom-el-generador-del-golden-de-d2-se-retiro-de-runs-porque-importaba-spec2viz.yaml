@@ -1,13 +1,14 @@
 name: atom-el-generador-del-golden-de-d2-se-retiro-de-runs-porque-importaba-spec2viz
 path: desk/atoms/atom-el-generador-del-golden-de-d2-se-retiro-de-runs-porque-importaba-spec2viz.md
 source_hash: b94cc12218d966d78819012a1c104d0c23efa80262fa214da2e64200b85c1e50
-content_hash: 878cb2f43d29833f321328888969889b048ed2b4ab17a5a7407379bc87ef01a9
+content_hash: 8ba05284f76d1ee913c8dab6c96db7d1806d63d3210dcbcbfe8152b08917b003
 field_hashes:
   id: 75e80beff27af0db010fee0a93601a82e3dbfb424eedcd78a03e2753a4afdbcf
   title: b219ad4c3cd48ea5c3122c1d894dfe854683c1ec72168ba08fb5bcd18f4cbcc0
   five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
   answer: a8d6396c6321152095dba63ff28b3e36f58a8e728dad1bbb6f16afbe96c9f2eb
   tags: 1f6879d3f31f56b2802c17ed6bd1ec91facdb8d554030fea048f5505d98e5e32
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

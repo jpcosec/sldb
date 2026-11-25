@@ -1,7 +1,7 @@
 name: atom-el-dueño-de-un-field-es-la-sección-del-template-que-lo-contiene-no-la-línea-donde-quedó-renderizado
 path: desk/atoms/atom-el-dueño-de-un-field-es-la-sección-del-template-que-lo-contiene-no-la-línea-donde-quedó-renderizado.md
 source_hash: 550ed5e9ec3c31170241a7c81ded07890f7dc44814295839e90ab0ddc783e0d9
-content_hash: ef01258a075e4e5270d819735b9678e25712de7731f52905676fe2ca5c473df7
+content_hash: e3e34bc8c48f4cb92532da10d63784ffa716b8ce032761e7da99d3593c531bc6
 field_hashes:
   id: 104416e0ab946a3c3f9b9324226ee650ad1d7a7a37c55fc5b2fa389d486d01e8
   title: 6342f8c76941432db4d01cd476bff77c4674b97a52ddab9b032f4aa1c69ec242
@@ -9,6 +9,7 @@ field_hashes:
   answer: 2beb21c9ef1337635ebbae6df88ef6ead6aaad375b6a0e319dfc4a0a4de47f92
   tags: 19e5eac2be4cd8f37a132a277e69c33661795d64cc67a3bb7d22a499ddc03c5d
   provenance: f2b1d4b5d24de69dd720de8549c34b09abf8fdb458604f08e7801bf5f02ee02d
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown
@@ -17,3 +18,4 @@ semantic_tags:
 - topic:sections
 - type.knowledge.atom
 - workspace.desk.atoms
+provenance: null

@@ -1,13 +1,14 @@
 name: atom-scan-heading-bodies-cumple-la-regla-de-codigo-limpio
 path: desk/atoms/atom-scan-heading-bodies-cumple-la-regla-de-codigo-limpio.md
 source_hash: 2d4a329b0cf1308c0849178bbcea6fa2a6ff5c1edfee2cf428b108930d04e243
-content_hash: ca2fec4190eda58d78e2176448d29472b5580ee5ddb1231f8347aa25ffa30da6
+content_hash: d3ef92d640a5bf7a9d64b23edd1edaaab4fef024aeac725f3fa2d5b4d4329230
 field_hashes:
   id: ccdab205dbb1be297eb1edd6f9add970e834a3f8303b1e0964603938cfaf6f28
   title: b94638430441db5759f704cbcdbd8b28f7e95034553e3882ca75ec152add1ed9
   five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
   answer: 807d5c5966bb90256042f2e390cae755f8fb795dcae49b3b9f967508573063be
   tags: 9ed245d89a5461418c0f9edae2610fe45da71c47626c7c760f3c8ae535e6bc7a
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

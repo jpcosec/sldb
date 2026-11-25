@@ -1,0 +1,19 @@
+name: 20261125-194300-unclear-c-mo-instala-un-plugin-sus-modelos-y-semillas-en-un-store
+path: desk/inbox/20261125-194300-unclear-c-mo-instala-un-plugin-sus-modelos-y-semillas-en-un-store.md
+source_hash: ec7162cdd66eca64db224bac367b64c0d8503d96d784ecbae23a375ea30bc4d8
+content_hash: 2f284d81806b150e0efa035480ba65875ed187021f1e659057aaa921d8d5aab0
+field_hashes:
+  kind: 683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a
+  sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 6760f039510cf42d3c765c5b6f8ecde6a2d36dde9f10591dd7d92e0cb03141ed
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: 6212dee170440b2e94e8790de01f4cd4f1aceecc6870dcf2ca91c97df1067ce9
+  body: 6443637910a86d218eaf2fa2445f34382005463948735dc15c23c502b7ab9927
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

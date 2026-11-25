@@ -1,7 +1,7 @@
 name: pill-keep-template-markers-reversible-at-the-document-boundary
 path: desk/contexts/pill-keep-template-markers-reversible-at-the-document-boundary.md
 source_hash: a7b3f826bfe59ee1fdfe125a25c9b2c0bd5d9d1eab66a6fdfb71e2ceb55ec07f
-content_hash: d1961792166e02d8dc6b67c54cda43c7a68a6ef93cda6bea9ac644333f706e8b
+content_hash: 9d24bbffa91b18d171c645f8ee76b5041cd76ea689b33f17eb44f8098d3f328f
 field_hashes:
   title: b83ed57fc313bd692aa53c9d8f3c129044fdee4bd768318f6ea765f3801786c8
   id: 8a40848c7cf7d190ce480ee8e01da17bd2683697570bf1db1e86333eca812eea
@@ -13,6 +13,7 @@ field_hashes:
   where: 008d6da0cbf40dfd6b7ef9bf4009579e6fbc1d4eeff31bd17efdb7e053ee4b74
   how: bb62f6c9ee1fba823707ef40139f1455ad5ede4136737de8c7d84e44ef6d7e4f
   how_not: 205725b8ac34bd5a942cc54797fb21fc9c9f06f43049aaf0581f3e3a52268a62
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - language:python
 - representation.markdown
@@ -22,3 +23,4 @@ semantic_tags:
 - topic:templates
 - type.workflow.pill
 - workspace.desk
+provenance: null

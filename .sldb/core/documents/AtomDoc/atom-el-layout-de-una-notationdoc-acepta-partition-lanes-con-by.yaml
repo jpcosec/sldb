@@ -1,0 +1,23 @@
+name: atom-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by
+path: desk/atoms/atom-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by.md
+source_hash: b8da474e07d1bad2c736ff05c2db60b7a2bf268b484ee9036eae769bc04ddbc1
+content_hash: d148775f698796276b169f59282d40fc18d01bcbc3a862de8823fbfe84d2042e
+field_hashes:
+  id: 4cf1496714cf214b53c857bebaba4de671bc785c40ef825917486567b63c2165
+  title: a15e0c69ec5351dff39cb250039e7aaee86b9c2e878aa34de40d58ab5f9a2622
+  five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
+  answer: dead8584659c1697fa8e5438db559255db5c9dccb282722ee2eb046e56d6667e
+  tags: d0f6a8e6f54617f25f2bbe5905f1e35ced62dc710488afb9383f56c754e0a8bb
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:layout-partition-lanes
+- type.knowledge.atom
+- workspace.desk.atoms
+provenance:
+  by: agent
+  at: '2026-11-25T22:28:00Z'
+  authority: generated
+  via: create_document

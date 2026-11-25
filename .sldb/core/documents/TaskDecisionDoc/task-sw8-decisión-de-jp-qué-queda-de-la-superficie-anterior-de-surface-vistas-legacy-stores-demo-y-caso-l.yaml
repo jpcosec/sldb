@@ -1,7 +1,7 @@
 name: task-sw8-decisión-de-jp-qué-queda-de-la-superficie-anterior-de-surface-vistas-legacy-stores-demo-y-caso-l
 path: desk/tasks/task-sw8-decisión-de-jp-qué-queda-de-la-superficie-anterior-de-surface-vistas-legacy-stores-demo-y-caso-l.md
 source_hash: 51f24fadf2aa3f36dd5d62e5b6a1e6d453832c51a6ed9d6c3afb0263dab246cb
-content_hash: d8796fe37cc408421379338decd813955febf33c9b041a8859970c3f715d7bd4
+content_hash: f4170098ecddbd5cf15c8a92fa9c98d930a9b54990423844a331314ea42837ff
 field_hashes:
   title: 111a949c3e7ef18e54cdac664001a4484654ffdb6d08d9b8cff9f512437cac21
   id: 6e24665dabf917937e978b7982f19bf30d758c456352ba22f9ce01d8a74ad5da
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 806824121964d2634dc0a989070f63e50854356410ff54bb01126a68329c00fb
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: f1b7f9fdb4dda7cc53b21c2f25290575a975cf0e63b943425c7809196e81c4b9
   validation: 8505f58e7e1728edd4b45622150124aebf3b73c6035d08c0d8d0f707af87985e
   done_when: 1187d1f32754a0656f0a58c8c425feef8a00463bc477352ee6b49cd160d23a66

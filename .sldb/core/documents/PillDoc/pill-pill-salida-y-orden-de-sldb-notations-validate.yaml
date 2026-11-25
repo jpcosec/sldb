@@ -1,7 +1,7 @@
 name: pill-pill-salida-y-orden-de-sldb-notations-validate
 path: desk/contexts/pill-pill-salida-y-orden-de-sldb-notations-validate.md
 source_hash: 6abf2f42c78a9b9a58d5d3d25ecb9e59967cc1086afd63574a2569b35c61d137
-content_hash: 54d5cf121562182dc16e462c2365cc039e5325c7e29a91a5e8a5a3d0e1e857e7
+content_hash: dde06fa873e6500bb93db9697bbc51ee5c4861ef607bc421eeb8c60693f02fba
 field_hashes:
   title: eab9b8a6c5af42897891a664c7bf85ec115c9ba0de76108a3b0a7762957f9bc4
   id: 59b148c83b580cc793a608a4ca5d2d44119c0b8bac540b4cf3850fa26a047979
@@ -14,6 +14,7 @@ field_hashes:
   where: 7293d28406d5e64cadb94516c6c48722e336caac86f1bd73abaa497737bea6a9
   how: 53ed02872a74ecbec9601bfd35a8cc196064013a8426d04336b8c08a03175f71
   how_not: f47097e41d6f82b472e98b71e7ad5f5db7e69760c7c2ed7cd56043d20f8d9a8d
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

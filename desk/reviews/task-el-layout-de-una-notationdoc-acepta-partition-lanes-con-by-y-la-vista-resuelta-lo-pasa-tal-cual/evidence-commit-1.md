@@ -1,0 +1,52 @@
+---
+sldb:
+  by: agent
+  at: '2026-11-25T22:30:44Z'
+  authority: generated
+  via: create_document
+# review-<task>-<kind>-<n>
+id: review-task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual-evidence-commit-1
+# preflight | bundle | reproduction | goldens | owner | node | evidence
+kind: evidence
+# kind evidence only: tests | commit | atom | materialization | document | external
+fact: commit
+# kind evidence only: what the producer verified, one item per line
+value: ''
+# doc:<Model>:<id> or empty for reviews of plan nodes
+subject: doc:TaskCodeDoc:task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual@sha256:6c7674bd2f8981206f5643074467eb4fa35f7efa384d62ff94ea8ae37ef55fbc
+# <plan>/dag.yaml#node:<ID>; empty when subject names a document
+subject_ref: ''
+# RuntimeProfileDoc name or "human"
+engine: deskops-closeout
+actor: sldb
+# Run evidence directory under runs/, relative to the project root
+run_dir: ''
+input_sha256: f0bdf697d771a1bfe928abed38146e210938fb1fc80f156c8818e6e2c1889e1d
+# preflight/bundle: SHA-256 of the input with the TaskDoc replaced by its __contract__ digest
+contract_sha256: ''
+output_sha256: ''
+# pending | accepted | rejected | incomplete
+verdict: rejected
+reason: No resolvable commit reference found.
+# ISO 8601 timestamp
+created_at: '2026-11-25T22:30:29.943587+00:00'
+# ISO 8601 timestamp, empty while pending
+disposed_at: '2026-11-25T22:30:29.943587+00:00'
+disposed_by: sldb
+# e.g. system:deskops
+tags: []
+---
+
+# Closeout evidence commit of task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual
+
+## Summary
+
+_Summarize what was reviewed and the evidence this receipt records._
+
+closeout verify checked commit: (nothing found)
+
+## Disposition
+
+_Record the verdict rationale and who disposed of the review._
+
+Verdict rejected: No resolvable commit reference found.

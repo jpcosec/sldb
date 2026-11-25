@@ -1,7 +1,7 @@
 name: task-reproducir-si-sldb-docs-update-reescribe-índices-de-documentos-ajenos-al-que-actualiza-reviewdoc-de
 path: desk/tasks/task-reproducir-si-sldb-docs-update-reescribe-índices-de-documentos-ajenos-al-que-actualiza-reviewdoc-de.md
 source_hash: 785ca4b630dc4e5969a04ae25cc13224c3ae46a67a8d6df5e8b48be4d664101c
-content_hash: 947eb3cbd4e9921664cdc7a8433bbfef2f80913113fea906ec171975b3e65bc0
+content_hash: 56fab5626a55be94c9e434fb8b3db0b5b4287533fb8531f5ee30379f83ff0111
 field_hashes:
   title: f17115783622dd30d7659499597af8b778f93ff69b57050092c224445926e9aa
   id: b1067b9e5b5752fbfbacedc47b7c24db0dfb279658f95c4d52a2b343f37ba81b
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 91d9db09fa2fec933d5b9d052fe7d8b844430c772827065948e219a022f87735
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 86f4b8e1d1418ab560a0f937dff2e1048393c194f5405065ce17e2289a5f0676
   validation: 5448a8131e7fd7de431b7b11dd61e0e891dfb2777a3a4b51ac244d329cfbc5a2
   done_when: 7a04adecaeda7d5c91d5a387dd2ff316dc3a72a09d706709aa1064b3b3f5c753

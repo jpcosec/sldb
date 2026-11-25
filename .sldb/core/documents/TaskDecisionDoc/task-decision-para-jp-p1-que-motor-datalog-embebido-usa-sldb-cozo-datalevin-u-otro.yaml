@@ -1,7 +1,7 @@
 name: task-decision-para-jp-p1-que-motor-datalog-embebido-usa-sldb-cozo-datalevin-u-otro
 path: desk/tasks/task-decision-para-jp-p1-que-motor-datalog-embebido-usa-sldb-cozo-datalevin-u-otro.md
 source_hash: 30030a57d346eb284365f5f97bd65ccf63601913db5a07948531d790554bb101
-content_hash: c10208f76d44947df4864f52a462b26df2709bbe2399d029e24055ea29e327cf
+content_hash: 73aaef0a4b582e4525c6208c63e7340262e9e43ba0aeee3e5a73dc0141eaa46e
 field_hashes:
   title: e0ec28dbd1082564544c422f14b82b87b2eddbac9ee31ebba2e05792ee5cb3ff
   id: c67a866c50bf7564331a6fae9d2398290db09f979ec4ff49ece441708a1e8534
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: c6dd9e2fa3e779881d2df5ee949a1efb863823ca26d09ad51918eb3eef1827ef
   validation: 498145c3e6b5831f023a07f1c8ad208d38743e4a4db06b2dbb465c4230e8dcbb
   done_when: 2865356eba5f159615de77ef2deafe5c13de80db55174ecb08ddc717581e0ae5

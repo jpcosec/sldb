@@ -1,7 +1,7 @@
 name: atom-un-lector-que-no-debe-escribir-abre-el-store-con-read-store-que-no-migra-y-rechaza-un-store-no-prepa
 path: desk/atoms/atom-un-lector-que-no-debe-escribir-abre-el-store-con-read-store-que-no-migra-y-rechaza-un-store-no-prepa.md
 source_hash: 6bfa3c0e61e9b0559814df9c8b574781dcb7d4901faae019b19fcaf324fc89f7
-content_hash: 8c70fb60d4acca1665e0af1cdd3e0dc91be5322aa306100e2500c0ca6b22ae3f
+content_hash: e8b791abfcfdf58edbeb15d8d65008b8fddd98b85f23941dcf272efe14e5db30
 field_hashes:
   id: 9260bfc83b3b38411159a645f81778fbadf98bb06fde566a55a471897e17a4df
   title: 1632c17b96cfd0c410df6eb4f1467fbbe14425d55fad528a81c7cab58470585c
@@ -9,6 +9,7 @@ field_hashes:
   answer: 62059796c9be3c55403aaf06d9d6254da47421b20c0414a6c3bfb8e80bc138b0
   tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
   provenance: 1121613cb84cf6e9dee3eaeffa559f1f9caf9bcb8114086093aaa6680221ecf5
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

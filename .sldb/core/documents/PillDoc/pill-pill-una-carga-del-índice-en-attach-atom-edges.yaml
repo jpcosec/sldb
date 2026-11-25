@@ -1,7 +1,7 @@
 name: pill-pill-una-carga-del-índice-en-attach-atom-edges
 path: desk/contexts/pill-pill-una-carga-del-índice-en-attach-atom-edges.md
 source_hash: 6c486d1b54d3c4b49500c952318968cae5908df4fa95c6f9a64e81b9289c2a71
-content_hash: f83ad2643eb6e6b7fe2c093e175a4573d5d0da3ef9619d45d20486667054037c
+content_hash: 2a4b0e9f8a0be19cbc55094b9b430b4c0f63df1d350e073502cdae9e4dcf8639
 field_hashes:
   title: ad10fba055428496a5112e95b1a256b007e4d3dfc706e39385bf5478301de150
   id: 008c51d26347aa474a15a71a773d389675bc669db98027676da9074f38f3639b
@@ -14,6 +14,7 @@ field_hashes:
   where: df23a0846d7082f637b4bad800a45d0b6ca076f20ce00e891bb1bf45fe72b7b5
   how: 15d98c76d5be8a6aeb53db1d59bdc64db48468d5fff88c03bb9156914219a0ec
   how_not: f47097e41d6f82b472e98b71e7ad5f5db7e69760c7c2ed7cd56043d20f8d9a8d
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

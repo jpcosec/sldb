@@ -1,13 +1,14 @@
 name: atom-undo-changes-de-sldb-mcp-restaura-el-mismo-contenido-salvo-procedencia-y-deshace-n-lotes-todo-o-nada
 path: desk/atoms/atom-undo-changes-de-sldb-mcp-restaura-el-mismo-contenido-salvo-procedencia-y-deshace-n-lotes-todo-o-nada.md
 source_hash: 39864e75e93efe53d15adabe7bbe2f12e5b4cac863b95fa3f6f5621ceda50a07
-content_hash: 8569a00ce16f4f1c2cb6c08417b0d05f213301cc5e5c98e8298429daa8111a3b
+content_hash: af80f3e8846b3c93eb2ef5311b3475d7593d54201909365ac5de785048afa8d4
 field_hashes:
   id: 74d4f2e16b57e78e5c8231b54d341a072334c4a23474f58a86dfba1cb149253e
   title: a779a809b57c9f682ea0bb0049435cd34faed619b970643f89ce426781385b92
   five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
   answer: 5474f72c4f7b50d2abe20111bbae88f11f04b722be6b0b91e83aa249fb34e6e6
   tags: 35a97c7a70322fb86371ff71b1fb31b21721fa8b1bd62d16604c8b4cdb3f8e60
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

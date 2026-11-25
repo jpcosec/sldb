@@ -1,0 +1,25 @@
+name: materialization-layout-partition-lanes-src-sldb-notations-notation-constants-py
+path: desk/materializations/materialization-layout-partition-lanes-src-sldb-notations-notation-constants-py.md
+source_hash: 2d899f45fd0e7b140b020d4ad0ca056f1ad6042163fc935243d6e5d59c90e8b9
+content_hash: 728f3dcda1d3ead5d5fbce2a4b03e680b0035f9fd078edc2aebd2c330febd9ca
+field_hashes:
+  id: 464649f261d3ead5317d7bcf524435d680afa4eddbfae483d9baf30def23a43a
+  title: 9171eebb7e8ed9cb06c5159d9834fea0223b9594c76c9518fc55e2b5ef3ab532
+  source_atoms: 262de4d9ae8b6161ace437aaf65b52461d9cfcb23815fa170959e844380b50ee
+  target_kind: 4a1933b06cf695fcff4acaba1fdbaa7f10ce109d3c7f57bbf62f6bb572658de8
+  target_identity: 40caf31a4cc23e1049e777a401ad56024078f75bf3f19d543b3684223281e66e
+  intent: aff713f8fc34c267e59ab55a109b7e7ce5dc8444b7d791c80a4a0066f1a1b0ca
+  validation: b4168e743be0f094e2f98f6b4c594c49a74547356e1e0ec4d1a3ad5656626b3f
+  tags: d0f6a8e6f54617f25f2bbe5905f1e35ced62dc710488afb9383f56c754e0a8bb
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:layout-partition-lanes
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-25T22:28:49Z'
+  authority: generated
+  via: create_document

@@ -1,7 +1,7 @@
 name: atom-un-conflicto-de-git-en-los-índices-derivados-de-sldb-se-resuelve-con-el-merge-driver-y-sldb-stores-r
 path: desk/atoms/atom-un-conflicto-de-git-en-los-índices-derivados-de-sldb-se-resuelve-con-el-merge-driver-y-sldb-stores-r.md
 source_hash: 63c51dc3d167af463480748174a7edbfb1bdb92c9277040b369d9b39ce114f11
-content_hash: dbd252c4d7d45a20605fb48baec7ef002b340aee92423656865078eeb5c7b2d2
+content_hash: d5f102cd0ffd39e82aa1b74a4106fa57edf41cf6fff229d27f3ab8777ac73a20
 field_hashes:
   id: e7b73aabfb85691a9a6938a678d07c1b2f3d8790640d6b11999ca4b5f59c1f56
   title: 1bd3a70feeded7cd0256b2e62c031b8158dcfe000628b4cad4187589d7e03d3a
@@ -9,6 +9,7 @@ field_hashes:
   answer: 0776982868370dd11e85d50b452f75daf6b665d11293585a610dcec0a493973f
   tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
   provenance: 5798112d30165193b674e1758f6c6e1aebc8b27cda513e2e254fc82d3a9d1159
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

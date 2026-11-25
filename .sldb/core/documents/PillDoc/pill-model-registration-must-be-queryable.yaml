@@ -1,7 +1,7 @@
 name: pill-model-registration-must-be-queryable
 path: desk/contexts/pill-model-registration-must-be-queryable.md
 source_hash: 15729cac74aec6fb7da7734a0dc8a5a7697d697966d1f46edb0966747cbf8689
-content_hash: cf158be87c8951a67c89de76c69f2cfe6fdc49aa0b49cf4414da130f02154a51
+content_hash: 57f2dc763f4c3fe70ef6e954c471b885adc4b6557cae615b1eb8dcfc02d8b972
 field_hashes:
   title: 048cdf0e39a641394c0507e0b58cdaad49fb73430f94a27709f74f147dc24234
   id: a31e43f849723235973e491ba56910f65d3b2114cd5cb867f36a114a298891d3
@@ -13,6 +13,7 @@ field_hashes:
   where: d00892258de2b05cd711236a6fc4e81ff0bf978a86077ea0ce4c559db0133890
   how: a72f75fb580996280dd290bdf78a408efe2657810c9e119a528dcff921fd7ee1
   how_not: 129f79ad2ef7a85fccf1d52a5ec03af80ecd8f3fcf3ef55e3d08369db92b8e46
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown
@@ -22,3 +23,4 @@ semantic_tags:
 - topic:query
 - type.workflow.pill
 - workspace.desk
+provenance: null

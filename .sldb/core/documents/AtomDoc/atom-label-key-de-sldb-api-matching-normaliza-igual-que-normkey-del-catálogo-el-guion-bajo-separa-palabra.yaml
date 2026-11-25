@@ -1,7 +1,7 @@
 name: atom-label-key-de-sldb-api-matching-normaliza-igual-que-normkey-del-catálogo-el-guion-bajo-separa-palabra
 path: desk/atoms/atom-label-key-de-sldb-api-matching-normaliza-igual-que-normkey-del-catálogo-el-guion-bajo-separa-palabra.md
 source_hash: fe988aea553c86a6121dad5a8433d5b8106c160b68ba365054058a35c73fc9a9
-content_hash: 4ee52907c4bf949aa54bea72c6a799fbfbf5df9aa993dfd7ef1e7020d15330a2
+content_hash: 1328c3311df2bd2f53bcd67ce5deb7bd6e56b2401836c712596e0d9da8d3020b
 field_hashes:
   id: 0b984e844efef0ae74abaf1dc44c41cf5f92ef0d75c90cf29a00a7312638e90b
   title: bfd8c18047cdd4a4481095370e8cd29dc855e93d7ab9ff13352bc17d3acbcff4
@@ -9,6 +9,7 @@ field_hashes:
   answer: c95906b5b17762024013c7a57578677c225df01bcc74e6ffe6933ce2771a06f5
   tags: eb83724b5baf1b29134e16e6d88549ccfcadf25fdd746fa5711565c67f1ca1e6
   provenance: 0ced068093fb5bf2208a402eba90f2fe73b50a5511dbf212970f9d07e3d4ac57
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

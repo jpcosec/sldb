@@ -1,7 +1,7 @@
 name: atom-una-reconstrucción-de-secciones-con-documentos-trackeados-ausentes-avisa-una-vez-por-modelo-con-el-n
 path: desk/atoms/atom-una-reconstrucción-de-secciones-con-documentos-trackeados-ausentes-avisa-una-vez-por-modelo-con-el-n.md
 source_hash: ef4a96d046f81444bb7595bd5ec4809a58639b336dd96bcc95287ae637f0d72a
-content_hash: d8a8697d6d52dc250dc687f87b574f57a704b2a231977f39a7b11a187c4a6f2e
+content_hash: 7e802010e52fc3c59238ca5e40064ca693c0cd1d305bda118d4efbc75a92ceec
 field_hashes:
   id: 41b3f980ab919515f62ce12f788b2dfed15a1c4595b4e69f03155fa1e82f7796
   title: fceedea2c9f5c6ba839c4aae6b1278d337d654a9f7332a472e46ad12f179ff25
@@ -9,6 +9,7 @@ field_hashes:
   answer: 890ad3688984d7b1f97ff23aa150c7a586332994b84369b72f27a58dd1fe5c4f
   tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
   provenance: e3fc7064d8312f94e4828a8cd22f811d9bec1602958d4ba2ce13a77e5cb2585b
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

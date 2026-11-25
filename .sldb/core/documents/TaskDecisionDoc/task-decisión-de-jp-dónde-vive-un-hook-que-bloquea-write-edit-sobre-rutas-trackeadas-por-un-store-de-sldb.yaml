@@ -1,7 +1,7 @@
 name: task-decisión-de-jp-dónde-vive-un-hook-que-bloquea-write-edit-sobre-rutas-trackeadas-por-un-store-de-sldb
 path: desk/tasks/task-decisión-de-jp-dónde-vive-un-hook-que-bloquea-write-edit-sobre-rutas-trackeadas-por-un-store-de-sldb.md
 source_hash: 3408f9af64f62a66bad23dc67518bb866fef248e51b761c837911e40579e19f5
-content_hash: 2d61f7ca98617cc8f52f66faf285207202b00a84088a5c40991472c32dbc282e
+content_hash: e0d3ca38d0bd3a6a2d008f306012dde33e5d1dce486d50cf343dd9f92c7ff6b6
 field_hashes:
   title: 0419838925491c4bb9b2907ff9a050732f18c11982c2a9922cb0893860c60ecf
   id: 248d230e14319c07c9f670f65a73c1e48df63c88b98dc0b7a7a0db611fa9d001
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 953364ef9437949491411af2dd7e4ae9cf3625d4e8fc8288fb65b512d11279dc
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: ccc5d200e0d291b1885cbaa8f92c2091f2b36c2234339985f1e24f838a09ff7e
   validation: 5961c7420f737fde9d15c1405f1c88aaedab144efe8d678bdeee8b26d9311b11
   done_when: fbf3c5713af7d2adc375f7c85bb59d2e492c762b540e44ec8cc944eadf991e80

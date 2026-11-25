@@ -1,7 +1,7 @@
 name: pill-sldb-cli-errors-must-stay-actionable-and-machine-safe
 path: desk/contexts/pill-sldb-cli-errors-must-stay-actionable-and-machine-safe.md
 source_hash: cfce8292ec99349a2f0b4e8860ddb4f8d195ba9e3a531f2a3c3e9d54106d6271
-content_hash: 6917d9342a8ed019f16918b32c430de651910a098fbe52a3f63e30e34ce432ed
+content_hash: 10fc578f98d2f08704967df3a04ce924b23016c00752ea5fe2f33c061b0113e7
 field_hashes:
   title: 2d45d0b81cb81e0e905fb5fe3191e6fa7cc014acd640c2fd6c189fd1c7c21b06
   id: 03ea33998714c5df3790714527e56a108dcc6bbb80e90177b140130f14dd04c3
@@ -13,6 +13,7 @@ field_hashes:
   where: 754d63d06aad2ce037108c9b5715a8ee24c77a2b5e87ce50a16434eb795e2bd2
   how: 7a410c46c09d7f8b5bca0d4cde92d6b40602b9cae31dd513b10d30a33e533b9c
   how_not: 7e69dba9d06db43ccfbae4eb85482fdb4988410fe823252ade35d1917aa02e6e
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - language:python
 - representation.markdown
@@ -22,3 +23,4 @@ semantic_tags:
 - topic:serialization
 - type.workflow.pill
 - workspace.desk
+provenance: null

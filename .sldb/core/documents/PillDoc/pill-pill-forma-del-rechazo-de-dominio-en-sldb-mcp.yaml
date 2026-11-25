@@ -1,7 +1,7 @@
 name: pill-pill-forma-del-rechazo-de-dominio-en-sldb-mcp
 path: desk/contexts/pill-pill-forma-del-rechazo-de-dominio-en-sldb-mcp.md
 source_hash: a88bcc851f3449f0535f7c31666a52e54e359e8bef482bbfaa079c4e326daad2
-content_hash: 9f76cf4097f6f9eb5710b3b9d8fea5793157981a9421794d04e730dbf8a59ced
+content_hash: 4a3328a7f7afb02fa57c13d391103e487eb94f83b77039e71fdb2ffb8c7b8660
 field_hashes:
   title: 486e43c6e81da325681f02f70ac34367f1081a450a572dfff25d4cae0fce0f24
   id: 98884fc36b0bb434687a7f405cb7db3379cb370f5fb57c09e0f006ae9a5de2eb
@@ -14,6 +14,7 @@ field_hashes:
   where: 6306e3923c4401677ac4bb0f6960eecceeb94f829483a9c4d39b2ddfd2ea0d61
   how: 50749638c3c2ce9dfce67bf1e231cfa0e0413e5ba948cbc5d147ce78685f867b
   how_not: f47097e41d6f82b472e98b71e7ad5f5db7e69760c7c2ed7cd56043d20f8d9a8d
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

@@ -1,7 +1,7 @@
 name: pill-pill-texto-de-la-alerta-y-test-existente-de-stale
 path: desk/contexts/pill-pill-texto-de-la-alerta-y-test-existente-de-stale.md
 source_hash: 778dde8301d4365dae485044a1483a4dfdfdfdbcb319b5e70968526bad1602c5
-content_hash: f283164675e3960e74ba13ed91e1effdffef56e6933de4f233f096300269e626
+content_hash: d487c8814041252e728b482912d29b3f0cde02e3b064c217f50e52141865f317
 field_hashes:
   title: c444035b0b151b82cbe6f6172267c3be8e84e97f38a5beb7e6247c6b3cc93c32
   id: 781e2b473fc624800a4f599ce3cb983c03a7c905c3e4ccf2797596edbdb1f7f3
@@ -14,6 +14,7 @@ field_hashes:
   where: 983bf9c54b1811f5e147442c05c62e071e4030a4df8c2a46f90b4cd3f749d1f5
   how: 76635f21aa986690d1036d5b050866d83b46a0f78d5f155cf66a3f60c632f5bd
   how_not: f47097e41d6f82b472e98b71e7ad5f5db7e69760c7c2ed7cd56043d20f8d9a8d
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

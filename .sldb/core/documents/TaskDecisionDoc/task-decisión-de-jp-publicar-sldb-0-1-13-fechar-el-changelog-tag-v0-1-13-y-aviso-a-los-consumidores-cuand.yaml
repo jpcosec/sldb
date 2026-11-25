@@ -1,7 +1,7 @@
 name: task-decisión-de-jp-publicar-sldb-0-1-13-fechar-el-changelog-tag-v0-1-13-y-aviso-a-los-consumidores-cuand
 path: desk/tasks/task-decisión-de-jp-publicar-sldb-0-1-13-fechar-el-changelog-tag-v0-1-13-y-aviso-a-los-consumidores-cuand.md
 source_hash: 9ce90019a9576cf120540b4b5efe42298d452c3bedc3bdf2605e4be68e8397a8
-content_hash: 532df19b23266fd72eb7a1723c7a66323f3eadb968afb3a3219c9480307c489b
+content_hash: c378216816a77fd313b92889d4810d50caed525532adab3618b2d04137f70650
 field_hashes:
   title: e8223b101f09b2bb43b33cbf74f4b5e39e55cf26a8938f1e236ea262a2143760
   id: c47c82e51dccbfd498bbe2d4b2de54a59df9dd100a586c89ef6cf6a5e3229986
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 10506f8c57cb032e4792fe2a7e49243d60089d1423b6ec05d474e80de18a0c0d
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: ff4e90b516be9b9f138c1b9703eb677dfe206db1f5280c902e87300afc1aaf77
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: c7f172421101fa62276b60f4da4ef9c934aa511f2423f995e704ce51b86e8e84
   validation: 69a70b2d0c96a54bba4ef545fcf4f37dcbb031f553dc4b17f4179505b9ed893d
   done_when: a30532aa5923b6967d03a0bb19dcab89f6b2ae808d3a4517b0756f1d85592ec4

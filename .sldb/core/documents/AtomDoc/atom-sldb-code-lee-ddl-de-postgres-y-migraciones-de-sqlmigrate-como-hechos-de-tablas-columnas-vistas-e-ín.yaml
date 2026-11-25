@@ -1,7 +1,7 @@
 name: atom-sldb-code-lee-ddl-de-postgres-y-migraciones-de-sqlmigrate-como-hechos-de-tablas-columnas-vistas-e-ín
 path: desk/atoms/atom-sldb-code-lee-ddl-de-postgres-y-migraciones-de-sqlmigrate-como-hechos-de-tablas-columnas-vistas-e-ín.md
 source_hash: 42fff65c4d49271b5f7058d71c37d3a0ec7a6114ece8de43fd127ab8850737b9
-content_hash: ee934df1a8da29046239071443d684032f54dfb7f4f0616391ed0f3f1d03ca6d
+content_hash: eb10d08595c5c71985fd841bb8db13aab8a43af9b0fd60a413088610076f9824
 field_hashes:
   id: 526669bb124374575e4164155f131c1cf1ed1b71c62880c3d6a8a69891791c67
   title: b1e78868bc33953af4f325d3d4cf2b428d7f88e269fd2232e80122fe2a0d02cb
@@ -9,6 +9,7 @@ field_hashes:
   answer: 8ddc9ff59e6371e650b15b8f469e9cb6a4a476574e5487202d1c847055085dd2
   tags: 31506c064612c9d3967862e44c9997bd808f51edfbc4030d1c5772f29f5b992f
   provenance: a8cc078620f0a8d5ed8f60819037ebd50ba3f7ccf822d5b13acc225a7c71d973
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

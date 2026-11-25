@@ -1,7 +1,7 @@
 name: task-el-emparejamiento-de-átomos-de-sldb-api-matching-pasa-a-su-propio-eje-y-recuperacion-vuelve-a-ser-un
 path: desk/tasks/task-el-emparejamiento-de-átomos-de-sldb-api-matching-pasa-a-su-propio-eje-y-recuperacion-vuelve-a-ser-un.md
 source_hash: 0a3988c36af41c074a763417f0c6e25d3324b2ef922c980b4f3ae9addef6a79b
-content_hash: 044bffe4eea7818e839b106695bee1837441dd12fb3492d6cfc54fb7c2f1736c
+content_hash: 53553b2b353d4a92a1d69de15c2858d954f2f39633020a0a8b0aa0042f47803b
 field_hashes:
   title: eceefb4ddc07f84fcb8ec70f1a5b76d30bad1bb9db900103024e77067f85f85d
   id: 9715b23c5cf7b83b5a6f972aa7b5ce3a947acb4c3ad55e56c8327099c31cecdf
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: b59bbfedb3324339e7890fb5e7b0e2d4b2c96eabbae115309719756ae26851b1
   validation: d616ff3e2b659dd920117eda02184b26438b19e6aa028f125a87efe361fb93ec
   done_when: 467f0e674a3ac03903c657526c5c585f579bfc116261d6eac40ad7d1f10f1966

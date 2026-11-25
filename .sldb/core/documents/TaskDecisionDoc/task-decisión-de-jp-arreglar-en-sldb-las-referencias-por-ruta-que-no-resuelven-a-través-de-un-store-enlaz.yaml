@@ -1,7 +1,7 @@
 name: task-decisión-de-jp-arreglar-en-sldb-las-referencias-por-ruta-que-no-resuelven-a-través-de-un-store-enlaz
 path: desk/tasks/task-decisión-de-jp-arreglar-en-sldb-las-referencias-por-ruta-que-no-resuelven-a-través-de-un-store-enlaz.md
 source_hash: 3bdd429f109d571e5598da44ac77b16f5f43534292f3416f489a56e4a22de013
-content_hash: ce4de8ce2a215f47d66e1a8e94c3403ccd60f1a0cd37b3e381d930d44d742c54
+content_hash: 8678f18a6f74624335881d8abc55e11d060d4dd177bad7a5c180c944e62e6729
 field_hashes:
   title: 759289f8aea8eff76f6e5e53bd06c7b6634ed241b4e63d88328ea09ae0523a79
   id: 1fcd711e0298d1291422a1fa6c56490e18cd3ace901174b05aee2cd782550bde
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 1d8fc283be374884f5b2cf7b1c26d4c9589acbc1efb0739381b56ab967c7c931
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 4234bc976e44fda8f8a656f73f362a287024875f32d1eb0ceaea4772e5447f51
   validation: 5c21af1a9c7f6239e3b0c82f9b4dad182467895c0a05f95d549eb044625a20be
   done_when: 18ec5aaf8bd9e239e69551e8b3058167c013195488bd17b1c0f073316c040cd5

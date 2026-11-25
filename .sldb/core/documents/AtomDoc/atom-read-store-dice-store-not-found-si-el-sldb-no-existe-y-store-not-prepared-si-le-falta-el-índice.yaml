@@ -1,7 +1,7 @@
 name: atom-read-store-dice-store-not-found-si-el-sldb-no-existe-y-store-not-prepared-si-le-falta-el-índice
 path: desk/atoms/atom-read-store-dice-store-not-found-si-el-sldb-no-existe-y-store-not-prepared-si-le-falta-el-índice.md
 source_hash: 2bd758174a93c0b1fc4906e81b68291d48454cfe8549c64df11ae9c46cef41eb
-content_hash: 943f8fbe50a51c9a3b511e8933854d3c8ec24c333ca520119a0a090b4fd77eb5
+content_hash: fd7c7c3a204c8fa050b03cc9ad08c06ba8038575396b19d4dae68c97863bc09d
 field_hashes:
   id: 3b63627b7050d34115cb0c14a53fc7b2549f4e3fd9b7536e50f851c19169b47d
   title: 8686a609b15b5496d7eada2d88586868dcdc7dfeb5e4d31fedec5b14a84528c9
@@ -9,6 +9,7 @@ field_hashes:
   answer: 92c098e2e9936e546a2583cf56b33b0c5bb55528ff2a3ba6b284feeb493c9f5e
   tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
   provenance: 22ff8fe54c4cd512f5bc04b671e1091bd6ba52f63a11b8fab61177dce7bc9bae
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

@@ -1,23 +1,35 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T19:29:07Z'
+  at: '2026-11-25T22:42:16Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale
-status: draft
+status: active
 summary: ''
 tags: []
-current_node: ritual-execution
-history: []
-references: []
+current_node: ritual-testing
+history:
+- task_activates
+references:
+- docs/architecture/code-anchoring.md
+- src/sldb/code/py_calls.py
+- tests/code/test_py_call_args.py
+- tests/selfdoc/test_treesitter_symbols.py
+- c2ee73402e7b7a775b11036058ce2669fb304a28
 depends_on: []
 pills: []
-files: []
+files:
+- docs/architecture/code-anchoring.md
+- src/sldb/code/py_calls.py
+- tests/code/test_py_call_args.py
+- tests/selfdoc/test_treesitter_symbols.py
+pointers: []
 task_type: task.code
 inherits_from: []
 inherit_acceptance_context: false
-atoms: []
+atoms:
+- atom-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by
 ---
 
 # los hechos de llamada de Python traen los argumentos literales, y de inner.add_parser("nodes", help="...") sale el nombre del comando y su ayuda
@@ -44,14 +56,13 @@ Dentro: src/sldb/code/ (py_calls y lo que arma la relación calls) y la document
 
 _Outline the expected implementation route or affected surface._
 
-Leer docs/architecture/code-anchoring.md y cómo quedó resuelto el pedido equivalente de TypeScript, para usar la misma forma. Un argumento que no es literal se informa como no literal, no se omite.
+Leer docs/architecture/code-anchoring.md. Hoy src/sldb/code/py_calls.py call_parts ya da {func, args, kwargs} con los argumentos como texto normalizado (py_norm); la relación calls del cuerpo de una función lleva solo el texto de la llamada. Forma nueva, la misma para args y kwargs: cada argumento es {"text": <texto py_norm>, "value": <valor de ast.literal_eval>} si es literal (str, número, bool, None, y tuplas, listas o dicts de literales), o {"text": <texto>, "literal": false} si no lo es (variable, llamada, *x, **x, f-string). args es la lista de posicionales en orden; kwargs, un dict nombre -> objeto. 1) Cambiar call_parts a esa forma y ajustar los que la usan (decorators y _decorator), para que todas las llamadas usen la misma. 2) Que cada entrada de la relación calls de una función lleve además args y kwargs con esa forma, sin cambiar la clave por la que se identifica la llamada. 3) No tocar src/sldb/code/fingerprints.py: las huellas no dependen de estos campos. 4) Documentar la forma en docs/architecture/code-anchoring.md, en la sección de hechos de código de Python. 5) Tests en tests/code/test_py_call_args.py (archivo nuevo; si tests/code no existe, crearlo con lo mínimo): add_parser de src/sldb/cli/parsers/graph_project.py trae args[0] == {text: '"nodes"', value: 'nodes'} y kwargs['help'] con value el texto de ayuda; f(x) da {text: 'x', literal: false}; un decorador con argumentos usa la misma forma. 6) Commit con prefijo feat:, sin trailer Task-Id. Correr el test nuevo, tests/selfdoc/test_fingerprints.py y los tests existentes que importen py_calls (grep -rl py_calls tests); la suite completa la corre el host.
 
 ## Validation
 
 _List the checks required before this task can close._
 
-- python -m pytest -q tests/test_python_call_literal_arguments.py
-- python -m pytest -q tests -k "code_facts or anchor"
+- python -m pytest -q tests/code/test_py_call_args.py tests/selfdoc/test_fingerprints.py
 
 ## Done When
 

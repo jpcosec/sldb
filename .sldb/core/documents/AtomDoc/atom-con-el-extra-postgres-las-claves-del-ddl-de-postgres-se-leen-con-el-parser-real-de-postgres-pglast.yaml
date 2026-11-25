@@ -1,7 +1,7 @@
 name: atom-con-el-extra-postgres-las-claves-del-ddl-de-postgres-se-leen-con-el-parser-real-de-postgres-pglast
 path: desk/atoms/atom-con-el-extra-postgres-las-claves-del-ddl-de-postgres-se-leen-con-el-parser-real-de-postgres-pglast.md
 source_hash: 21cca54e7a0e7de57f7622f39d0e3a3481b00362189e3ce6ce2dfcc86ef89b41
-content_hash: 659d107205a382a3e7ca10f9362ba79b96432c46e94348b70e4db8764365103d
+content_hash: 4b24e08af95d4c2c70805c4dad62aafe426c7ea04c5ef9cb6d1af3caebe7c616
 field_hashes:
   id: 5622a9a752a2b1e7bc4aec235e51396f842d94c7c0000cee48613109387622c8
   title: 27ca83dfa7964329eb9de904f8209b1e9e1c6b765927878f00bd836e4343d85d
@@ -9,6 +9,7 @@ field_hashes:
   answer: 5613e29204ab07eab3ba6c754f991507eef0894edfad941de5e99cf390b3d3c2
   tags: 31506c064612c9d3967862e44c9997bd808f51edfbc4030d1c5772f29f5b992f
   provenance: e60e300166044ecf9f3c0530b65227e91e8f086de92a43098352ed99cc2316c1
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

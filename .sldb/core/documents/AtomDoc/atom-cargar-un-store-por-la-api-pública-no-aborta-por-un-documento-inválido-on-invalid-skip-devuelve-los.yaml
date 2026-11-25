@@ -1,7 +1,7 @@
 name: atom-cargar-un-store-por-la-api-pública-no-aborta-por-un-documento-inválido-on-invalid-skip-devuelve-los
 path: desk/atoms/atom-cargar-un-store-por-la-api-pública-no-aborta-por-un-documento-inválido-on-invalid-skip-devuelve-los.md
 source_hash: f7078a1b9b58386762b25d6a8deb1b4044cb5972982569ee4579f02e11972805
-content_hash: 1ee1fdfb5de1cd9b8139a1deddcc9a8583ac79090468434e0f232b5be1600da5
+content_hash: af309798887ffc60299e7b53e5cc94592182684af60ae6f5075a62c45df9e38d
 field_hashes:
   id: 89ed8d31b27a7240d69425fe4319caf003a7a694a92fe3ec4ed45204971328d6
   title: 03454534a8798974bec4c9e8eb75b5cd8a80fc04bc7ee5077ad7ecd3f78e9791
@@ -9,6 +9,7 @@ field_hashes:
   answer: 7cc04d76384632f328b4cfae592a37dc88d87c213a0c481beb39300b07b91041
   tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
   provenance: f60e5110dd0d5b7d14083218bef7610f690da815ae72da5ac67e6fa44e114042
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

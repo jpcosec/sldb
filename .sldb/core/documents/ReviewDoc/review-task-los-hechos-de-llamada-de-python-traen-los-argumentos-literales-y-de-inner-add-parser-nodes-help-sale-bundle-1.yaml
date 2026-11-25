@@ -1,0 +1,36 @@
+name: review-task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale-bundle-1
+path: desk/reviews/task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale/bundle-1.md
+source_hash: 53859aee735e5512dc1b89ace2bd9e64f79f4fb66e6a04aecb48a837be985f81
+content_hash: 874dd174a9da4820bb395380c11b3b7e2127dcc1212b729cc16164d9987af7cd
+field_hashes:
+  id: f3ed7c7ed9fb2716f820b5ba3701204820371708d67bd79246059e8ae8d7e729
+  title: c3539b8e5984629ccfc769a7895b3e196a7025673b84c35bac48f4c0522037fd
+  kind: 4c522949265daa3973b2389b594a235b5c6e47c70d2af6e23bd14f8173f56280
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 2f3688408e36d6cf374ee4a34dedbaf0a302b7e1fd5d8803e3c669f57b55bf4f
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 0b6bbf7cf4390d6a6e610831ed1c0310e3ee0ec14178b08fcd89ea27c4f54687
+  input_sha256: 7f6c405d2d7e0002aee2d5a789defcccbd6356600a3121fc028707d24b358496
+  contract_sha256: 6d2d4f18eccf0b3a3f555a9ca7096f567b459ab31f45e2fb23ccf4481e963cea
+  output_sha256: 10d4f15fa251068dd4b94e1744702722cfa696dd75009e47b1adc1ff49c21b90
+  verdict: 12adac54ac6f7140109391b670b3cbcd51f083d8f5ee62ce26857c794ed67d36
+  reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  created_at: 117a2978c45e9b15622be05312e8d340bbef3a51b6b53eba1df51918ed080d29
+  disposed_at: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  disposed_by: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  summary: ffa94e93c3c7ebfdcaa112f8bd2aa27b637bcb727ddf1b503b9033b132646888
+  disposition: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+provenance:
+  by: agent
+  at: '2026-11-25T22:01:39Z'
+  authority: generated
+  via: create_document

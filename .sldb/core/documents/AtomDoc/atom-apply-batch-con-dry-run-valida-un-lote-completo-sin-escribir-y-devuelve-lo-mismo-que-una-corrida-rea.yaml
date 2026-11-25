@@ -1,13 +1,14 @@
 name: atom-apply-batch-con-dry-run-valida-un-lote-completo-sin-escribir-y-devuelve-lo-mismo-que-una-corrida-rea
 path: desk/atoms/atom-apply-batch-con-dry-run-valida-un-lote-completo-sin-escribir-y-devuelve-lo-mismo-que-una-corrida-rea.md
 source_hash: 0c72142b4d5775b4ae380e1608c6f1a54a5af6169e6bc41e65e9c17dde63b3b3
-content_hash: 314940ae51025097c2e9a12b64f3ee3e7906bf0ea81554c0bac67efe88e98b6e
+content_hash: 384ae30c5b7f3fc5fde1a674accc1142cb75cb522b3aafdbfb1d4dc3bcd91714
 field_hashes:
   id: 8277898ee17bc773c3c17012014c726266f7bc61a57321fc4a00335ba2ad3be2
   title: f13fc5202956b576e0e3bb0c4ad5e732b10ae5f4d2ca67f73bb6a4d1a95899b2
   five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
   answer: f7c9572fa4540d5c174dd9ab443f98ee83f3cb602dabfdfda331f6232e466d71
   tags: 9ed245d89a5461418c0f9edae2610fe45da71c47626c7c760f3c8ae535e6bc7a
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

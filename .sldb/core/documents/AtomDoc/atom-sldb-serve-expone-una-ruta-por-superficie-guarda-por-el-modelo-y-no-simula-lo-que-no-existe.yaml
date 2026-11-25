@@ -1,7 +1,7 @@
 name: atom-sldb-serve-expone-una-ruta-por-superficie-guarda-por-el-modelo-y-no-simula-lo-que-no-existe
 path: desk/atoms/atom-sldb-serve-expone-una-ruta-por-superficie-guarda-por-el-modelo-y-no-simula-lo-que-no-existe.md
 source_hash: 0b419f3029fce0e01c04cc203e19f97e68b8ac067b101317effedc5f1e708231
-content_hash: c4d94401c421c9f00b431bb9e2a0410e90e035a557088b947d048db7ae115883
+content_hash: 4c9c50d9412fb6976317a4086570ad1fbe112a9653199c360a1172fab5079467
 field_hashes:
   id: 6397ff47171bdb05bc1688431b063af00e58ae22338da547d9a6aaeb30108dd4
   title: 68300bd0a807e3c64bf4d94bd729b187c3c8a3f082ed6689fffbf93a5ae0a3d6
@@ -9,6 +9,7 @@ field_hashes:
   answer: 14620397106a17dc4e94b42b6e4526154a369c6b18e5e70c34fe16f9198e5883
   tags: 309c076953a7ff67f0ba80af97527d541c5d12e71dfc71e7884d6603cc6db005
   provenance: a60fb2e5ddf61a04095950bf60847ef64b73353ea6ae9f08d936029833666a62
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown
@@ -17,3 +18,4 @@ semantic_tags:
 - topic:serve
 - type.knowledge.atom
 - workspace.desk.atoms
+provenance: null

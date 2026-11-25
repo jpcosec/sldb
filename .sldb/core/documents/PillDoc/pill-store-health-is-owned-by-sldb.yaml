@@ -1,7 +1,7 @@
 name: pill-store-health-is-owned-by-sldb
 path: desk/contexts/pill-store-health-is-owned-by-sldb.md
 source_hash: 68b6c4401ffb223fc0d738e324ed807d66bd845183bf31cb7dd56755611355db
-content_hash: 959acadc6994219b802af751dead5578d43c81f9037f7e10f050214ca053dd41
+content_hash: 0a1883143b2aad43b4369f96662882873d0d2faf14d533a2bf9a34e9f87c6823
 field_hashes:
   title: 13b530fe68578b183f0c92c70e7e4d8bd4c8b33d2d2e22e556a20011080acb4b
   id: ec5f57385d983b851fb5fc918146bbb82c0bd9b8821eedc1687dcff852696f2b
@@ -13,6 +13,7 @@ field_hashes:
   where: 1be22e59d6ec4235a4e13f4dad84e07643ebdf7255a99220bcc7dfd4b38bae80
   how: 73be8418fe41125a39e6dedc2f32df452fb1a1f3ecf6e70268e513984290c937
   how_not: f428db09a25df3840e1a02d4c297b4f69836ec2bcb091d4c591a307b29574f95
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown
@@ -22,3 +23,4 @@ semantic_tags:
 - topic:store
 - type.workflow.pill
 - workspace.desk
+provenance: null

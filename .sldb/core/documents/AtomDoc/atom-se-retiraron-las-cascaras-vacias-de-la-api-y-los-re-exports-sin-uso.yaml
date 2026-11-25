@@ -1,13 +1,14 @@
 name: atom-se-retiraron-las-cascaras-vacias-de-la-api-y-los-re-exports-sin-uso
 path: desk/atoms/atom-se-retiraron-las-cascaras-vacias-de-la-api-y-los-re-exports-sin-uso.md
 source_hash: f8487ca99c9ad8c4cd16b72f841f23074b32e23c80a8881c44863a912f63b99e
-content_hash: 9f7bdd5c80d51bdbdfed81c70ac386902f9d5fadb7c7bc355c7374a570fb8353
+content_hash: 68d5929d109cfe2aebc00d0d49e34b366bdde7207d947b22ab041adda083a477
 field_hashes:
   id: fb58717a3d1557c95ef372bcf8c6cd571219531dc379206b5493efdcab3ba74f
   title: cf6f01a98a0b6e982012cfdc89c8b5f4e81705b6bb44f11ded0a84964debf500
   five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
   answer: 2cb84f311772f4255131b768e1f54e8ddf0e9deff2fb872d404f75f8ed6e9859
   tags: 9ed245d89a5461418c0f9edae2610fe45da71c47626c7c760f3c8ae535e6bc7a
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

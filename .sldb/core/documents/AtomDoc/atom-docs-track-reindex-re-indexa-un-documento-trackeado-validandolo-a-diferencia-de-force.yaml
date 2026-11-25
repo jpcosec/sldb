@@ -1,13 +1,14 @@
 name: atom-docs-track-reindex-re-indexa-un-documento-trackeado-validandolo-a-diferencia-de-force
 path: desk/atoms/atom-docs-track-reindex-re-indexa-un-documento-trackeado-validandolo-a-diferencia-de-force.md
 source_hash: 58504bae623498ea9163e9d9f4a544a3340ff27979cac1caa4cbc8b7624571fa
-content_hash: 901a1fa80fdde128f2e9c04312c646dd381abbbd8b4b89011f4d85467889208a
+content_hash: 0eb3da46770a9aa111df373062691c34cb97638a887fd39a5b83a63f952f346e
 field_hashes:
   id: 0d0f931bd9cdb5e929696d52bcd88620205347d9a5a6b16126fd56730c4487bd
   title: cf754cbbcbedca11e14e812be7c26056e41c2a1c828951a94fe2c8c17f5aef56
   five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
   answer: 44e7cc4fcfa775664c3d9aec6146b5494a6c6377d435914ede47dabd19885eae
   tags: 7c16fe67e0216c2fb354b044f93d4cca5adbf8d378e15b3cc0b9b94051a10d68
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

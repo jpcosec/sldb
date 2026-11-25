@@ -1,7 +1,7 @@
 name: atom-referrers-y-rewrite-references-trabajan-sobre-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-cuent
 path: desk/atoms/atom-referrers-y-rewrite-references-trabajan-sobre-un-grafo-armado-en-proceso-excluyen-fuentes-y-no-cuent.md
 source_hash: e0695db55852efc653b6c137a850edf8e28c31b02875906e5fd2d59370d982bf
-content_hash: 1c2fe72a0b65a4b9754ec3e6b81bd289d49ccf482c4d2bf16a1ae5640c37f527
+content_hash: 7a4f62422aa00b30fed7b679bbf147f7be735a1e95a01171edf4314a2ba89503
 field_hashes:
   id: 01c38b89d122f1c140378eca0ce22617954a234bf3583a88362370ebe31c8e43
   title: f33ced93743a313c05a668fa417429b5dee2fd1f3d09ea02aa3d5b22199152e0
@@ -9,6 +9,7 @@ field_hashes:
   answer: e10c6c00a4d448f7f554e6bedcf1cde8a1aca20bef9337a3e0c681bba877585c
   tags: 5b344ce5c5bf7bdb76ff874ca48cc365dc1ea363d087d8f5ac5e949e4226ff72
   provenance: 47326bb3e720eca85170c816e6d79fec497537ec3719fa8bcc14e8d74e81df4a
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

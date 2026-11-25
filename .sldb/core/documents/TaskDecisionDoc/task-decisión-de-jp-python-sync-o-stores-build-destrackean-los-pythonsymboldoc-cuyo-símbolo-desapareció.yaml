@@ -1,7 +1,7 @@
 name: task-decisión-de-jp-python-sync-o-stores-build-destrackean-los-pythonsymboldoc-cuyo-símbolo-desapareció
 path: desk/tasks/task-decisión-de-jp-python-sync-o-stores-build-destrackean-los-pythonsymboldoc-cuyo-símbolo-desapareció.md
 source_hash: 6fb3e7d4bcf14136ccc6fc42f9804c07cfba49517c907f46711ed3d0a98b682f
-content_hash: 6fb2533fe4c5b9fb6723bbf7f29c899d6305ff26a9727467337c5c7099185ddc
+content_hash: 799fa98f7acb9fbec5e2dbfb1183149b92f5b35f0e0e649bf8cf74b92123aced
 field_hashes:
   title: 056f67f1d1a7acbe3589abe9d0010730030e1be54a215d495e7e7682b71757b5
   id: 76a11c4d48b07b29344c3a69b6bc4299756a3beddb6f80c777868a70c1994223
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: a2749fc6992db7d0a46d1b4363e66b369d80ee8b9c27af77c3bd6ff8d6f92557
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: e1c4f9a8efa06c6cc728c32357bcf5a7c255b5e50cd9f08c30658cd7d95d031c
   validation: fcf8f6ee154666b5cc35571992810755298355c803c0a90dd64fd38d5c86d12d
   done_when: ebe1ce0bab043a0e2a534d80a86f72855c8bf2803d76cb0902f22dff46c1f7ff

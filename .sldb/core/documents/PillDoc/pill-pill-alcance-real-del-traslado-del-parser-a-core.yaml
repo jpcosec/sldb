@@ -1,7 +1,7 @@
 name: pill-pill-alcance-real-del-traslado-del-parser-a-core
 path: desk/contexts/pill-pill-alcance-real-del-traslado-del-parser-a-core.md
 source_hash: 2ecccc89de40364be807cadda64fdcaf41ef686dd14d381a47cdb0f637d971cd
-content_hash: 9c55d5ff460f50b273a417d21e581a77a5d8a9d5f5ccd091b8d13da72d4e5395
+content_hash: 028b868cefbbde64b257e598a3581019d651780f3b38b01b09e5315e55fcfd9e
 field_hashes:
   title: 82c9fb278bdc91a8904951998b2ca8d005fa2c9743107c9eea3042efcc635514
   id: ebc48727d315f6b4879cba8be919fbc6c6936817363783118626b3e63f980d37
@@ -14,6 +14,7 @@ field_hashes:
   where: fe0b950412a5d0442bdd96dad44fcfc02d5b8eca4ead08ec1f23762ec4279f14
   how: 70c19cb17e65647690bca8121efece32b758811ea744370b0265c11693a4e152
   how_not: f47097e41d6f82b472e98b71e7ad5f5db7e69760c7c2ed7cd56043d20f8d9a8d
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

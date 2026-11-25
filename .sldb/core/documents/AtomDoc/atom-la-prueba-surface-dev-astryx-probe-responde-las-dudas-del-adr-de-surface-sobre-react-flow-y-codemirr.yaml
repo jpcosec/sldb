@@ -1,13 +1,14 @@
 name: atom-la-prueba-surface-dev-astryx-probe-responde-las-dudas-del-adr-de-surface-sobre-react-flow-y-codemirr
 path: desk/atoms/atom-la-prueba-surface-dev-astryx-probe-responde-las-dudas-del-adr-de-surface-sobre-react-flow-y-codemirr.md
 source_hash: 674881bc14d44d63b85b56e8db0694e156549477438250bd3bb1eba878dce6ef
-content_hash: 548e4633d07de7c337c1a81b4670c975ae065e9ad22eb208818183cb77068b45
+content_hash: 04b955e160d5c546ff068ba2b39b4c106bf3394e825d14ee9f946060cb27e88b
 field_hashes:
   id: aab655abd3f605c04eb172ed3490cdc81f7365f8bfcf3073c45cf8df730dd587
   title: 4335f2b15d490356db47276fdd45af9f92854171594884afe28b1ad88a490ba8
   five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
   answer: 90b2c57ab2144b0a88cf5e2c4f670455e279445caa457ba55be1b7b05faeb0c2
   tags: aa8ea9adccaa844edda8d84f2331193bab61c50d9cac4b1c0ff1b25b35c21b91
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

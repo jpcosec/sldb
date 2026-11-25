@@ -1,7 +1,7 @@
 name: task-r6-el-tokenizer-y-el-parser-del-lenguaje-de-reglas-bajan-a-core-para-cerrar-la-arista-de-capas-model
 path: desk/tasks/task-r6-el-tokenizer-y-el-parser-del-lenguaje-de-reglas-bajan-a-core-para-cerrar-la-arista-de-capas-model.md
 source_hash: 69742f383e265a5581f0ba3e8521769d8c946d3833bf48be2faa551262585cce
-content_hash: f6848c6276a73c42a5e02309c94c2ee19c3cd5ec4f0ab3fcc1a140a9ff2c6953
+content_hash: b56aef4dd9925b61eaea66ec381b62082c0e959aea6b867faefaa14844bb4184
 field_hashes:
   title: c34a6ff6f3e50f9b7302daea120d4d049077bce260d8b25c24a7fd5eda73d722
   id: ef017a387c9bb24c032f11574aab10bd5a3e01193bf78d1cf02d755b57e26dc5
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 5a0806b2bc15d8d7fd1900f238111160cfc540f72612f09b869b1f53263bb236
   files: 25e6e7c35e004c21e236856d1de09bd242bfffb02f15a8907612e9d819cca7fc
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 050147ca71eb125b2a838aa8ab6b945472c871a7ca75f424e0b9e3f7332fa4e8
   validation: 4d25013b51a29f055e8b7ecc819a8bfd61f3ae56ae4548db0d1c93cc66913b27
   done_when: 3971b3999b9623b7c11b0fd63817c8beac76b6676d52417882331b301b8e554b

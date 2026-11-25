@@ -1,7 +1,7 @@
 name: pill-pill-grafo-en-proceso-para-referrers
 path: desk/contexts/pill-pill-grafo-en-proceso-para-referrers.md
 source_hash: b63c27509bcfc71a69587d21c4b5d43c960850bcb03277c578c65b6130485690
-content_hash: 7e3dc7c0a2a543734d4f7aa08b77f5d5e4ba3e2b50f2e335fe6095a25e3de238
+content_hash: 3931134f4563db50ab7c4c04f6f4601d3c59af5111c1745b4e41246f9cf05cb7
 field_hashes:
   title: 0965e24003e6c7cd70490d9993364731637bcd58bd83e54c034d13430117a94d
   id: fea75bc0d046eb3cca7fd47869d42ada85bfc909a9a3ba4622bf7553fc973451
@@ -14,6 +14,7 @@ field_hashes:
   where: 3166df7a0ce04fa47bc0bf3a01d46e1a26e22c3a82039953c1f5467a1480140a
   how: b5bc7ec12e591b01079ad3a87e8f7d7862ac5a74b1e0f7b1333bee8268fdd1b9
   how_not: f47097e41d6f82b472e98b71e7ad5f5db7e69760c7c2ed7cd56043d20f8d9a8d
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

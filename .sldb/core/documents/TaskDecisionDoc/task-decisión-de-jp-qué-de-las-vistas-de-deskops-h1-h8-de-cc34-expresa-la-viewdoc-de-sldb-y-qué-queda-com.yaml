@@ -1,7 +1,7 @@
 name: task-decisión-de-jp-qué-de-las-vistas-de-deskops-h1-h8-de-cc34-expresa-la-viewdoc-de-sldb-y-qué-queda-com
 path: desk/tasks/task-decisión-de-jp-qué-de-las-vistas-de-deskops-h1-h8-de-cc34-expresa-la-viewdoc-de-sldb-y-qué-queda-com.md
 source_hash: 9dfd15262d5e4f499c51dfe88deaa7c04d5ea3eea0b3fe507a2d093399cd1519
-content_hash: c457d483c4bfbee67afe88bb6da746502aed1b532d7f2f15ae381b6c5bc801ae
+content_hash: 0971ed398e572fe96589e52664272b202741fee5c8193706b816b494f44b79d9
 field_hashes:
   title: 4032143d6373d93f41bf4d647fd10cf1fc4e8e64322e402a7c389ed8f81fe797
   id: e1bbe82bd25bcb84421e15b7f230e0848ceaf9608f6494e7abe1de08266d40d4
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 3e1b23f33861527178b4e1f52f6af98c51948beb13cbef81a0f5534d0287fc05
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 1ee6eefd20d5ada018829181197b6903590f94d146600d494d800a508697ea9a
   validation: 4893ce03850716de4fd35058fe52e1ffc4d439c95aea209b001744f880fae37c
   done_when: 880a1baf42f08edae65322bcc5c7eb7ca05659c82edb43d89adc65b0330b6ed1

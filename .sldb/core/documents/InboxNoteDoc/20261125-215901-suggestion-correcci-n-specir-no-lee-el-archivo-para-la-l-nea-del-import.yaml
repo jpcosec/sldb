@@ -1,0 +1,19 @@
+name: 20261125-215901-suggestion-correcci-n-specir-no-lee-el-archivo-para-la-l-nea-del-import
+path: desk/inbox/20261125-215901-suggestion-correcci-n-specir-no-lee-el-archivo-para-la-l-nea-del-import.md
+source_hash: 6432a58b04081fc94bdcd42f61ca35cb0e9e377a27ad3eb6bda60ec016cc5666
+content_hash: 6c8bf87e335736416d0c7cc437700423945f448f165acc8ac5e3529d435a5518
+field_hashes:
+  kind: f4accece99081750b6b8b5089a3f24b11d5ceba70797c3eb49000d84b98344fc
+  sender_project: bedfd7658116eea0e9c6aa56c43288b769f14cc22546ef2cbac2588069909ad8
+  target_project: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  created_at: 2a263e8b1f95d8d7dabe2cfde3791beb3e7d025b463f05cb06d2ebb5dd5459db
+  status: 35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5
+  ack_reason: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  title: 91821eb102e795440de798790defaf4c2aeb5cb2af9c5b1ddfa36cec261e9cbe
+  body: 110cd20d3daad6ad1f8fa20a3d1758338639e54f6496ccc50087452599eabb9a
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.desk.inbox-note
+- workspace.desk.inbox
+provenance: null

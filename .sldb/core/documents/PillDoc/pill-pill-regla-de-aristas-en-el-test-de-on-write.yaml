@@ -1,7 +1,7 @@
 name: pill-pill-regla-de-aristas-en-el-test-de-on-write
 path: desk/contexts/pill-pill-regla-de-aristas-en-el-test-de-on-write.md
 source_hash: 5d99cac15fd8ddb734d81effcabadb1fc8e1655887196c5d72dc86996cd22909
-content_hash: 5522d46f70b24894014e58610c288c26d2427ec3cf263ec88a6ba79d7351297f
+content_hash: c7d59104f236a7955acaebe6cc289006c0e8c249184528ad3fe1c1af810c5ee7
 field_hashes:
   title: 0a84576205fbecb8486686fd3e195a1b3ade7c3ff47669a66560189bae8e9950
   id: e06cd5c23e7712206304d1b9c957362b681c1bde8e985c15ec13a69c3bfbe667
@@ -14,6 +14,7 @@ field_hashes:
   where: bdb63b51fa471ecf00736b5edcd27a5a407e51805bdb5dcb38c85c4fb00cccf0
   how: 84f877d54d732ebf508798d8e5fc5d7275a9debb47419c591724e84c0c83bedf
   how_not: f47097e41d6f82b472e98b71e7ad5f5db7e69760c7c2ed7cd56043d20f8d9a8d
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

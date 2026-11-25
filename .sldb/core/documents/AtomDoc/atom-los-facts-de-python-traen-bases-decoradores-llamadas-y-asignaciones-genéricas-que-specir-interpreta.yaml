@@ -1,7 +1,7 @@
 name: atom-los-facts-de-python-traen-bases-decoradores-llamadas-y-asignaciones-genéricas-que-specir-interpreta
 path: desk/atoms/atom-los-facts-de-python-traen-bases-decoradores-llamadas-y-asignaciones-genéricas-que-specir-interpreta.md
 source_hash: 7d013d13a808a91e03c139c9695c7c11e545d274c67d5f202434793645790f8e
-content_hash: 4821b277d4bf7226a50ef0e7dc18bf38a799e83210e674104eb61150451a0209
+content_hash: 17266b39187d05d09827d713485c312444723b30dbd79784f170b561c806738c
 field_hashes:
   id: 02aeaee1f420d8516be58c37ea1e3ceef70dbfc925d5cb4a9d878a77445d7437
   title: 113124897b4e5cb9bcfd95752f6a5ab053f8716a202f9c5758ed344143821d79
@@ -9,6 +9,7 @@ field_hashes:
   answer: 9c4b88b39f3faa07b47afcb3d596f1ef717be61887ea69b86fe446f14b1561ca
   tags: 31506c064612c9d3967862e44c9997bd808f51edfbc4030d1c5772f29f5b992f
   provenance: 7af05c30041c1c8ab0766820b1aad24636aeeffdcebad68823ab48ed4cbe5c6c
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

@@ -1,7 +1,7 @@
 name: pill-pill-validar-el-enlace-guardando-el-texto-tal-cual
 path: desk/contexts/pill-pill-validar-el-enlace-guardando-el-texto-tal-cual.md
 source_hash: 1d4e43bd4f19c418498929c2a5683795971ecf670dd3067398d23640a7696e4a
-content_hash: bf8a0b061b755730c091fbba9510443b6094a1b1ebcc8aef56166f0b56343cf0
+content_hash: 8d7e1c2b3196591d46e5b1f07ffb6ba18d1e5916d05b2554d0b6c1351ce8dc76
 field_hashes:
   title: d082ed36b2faa147c0fd282aeb6efe5ffd92f88d7ebc90d294fe95f16ac4f6b1
   id: 57a2f03aa9e11a76b81474a226ee5d2c78933a35e401573b938eac63d6b36a73
@@ -14,6 +14,7 @@ field_hashes:
   where: f86fcaa63924af6c23ac667a0d4e6aff9a000572b9d6f8a3f6676cc80b621828
   how: 1889c5bfdbec4191a320afb264db8be322dfadeb771e3f9dbffe421c23dab914
   how_not: f47097e41d6f82b472e98b71e7ad5f5db7e69760c7c2ed7cd56043d20f8d9a8d
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

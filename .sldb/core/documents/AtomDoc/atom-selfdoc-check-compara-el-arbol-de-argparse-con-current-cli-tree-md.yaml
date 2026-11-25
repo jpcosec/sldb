@@ -1,13 +1,14 @@
 name: atom-selfdoc-check-compara-el-arbol-de-argparse-con-current-cli-tree-md
 path: desk/atoms/atom-selfdoc-check-compara-el-arbol-de-argparse-con-current-cli-tree-md.md
 source_hash: d9e751980e0545476d1a7e9376ca576d1d50d84553191fff65f31bae95836585
-content_hash: cd03eb1b3451a7cf7fc9072dbb3a7ba362c5e95c5128f4b64cc9ca07fe5f40c7
+content_hash: c5d29d29d50dfaf55aef30b1280d37e2caa96ed597e02069f434cd40ebb0c2c6
 field_hashes:
   id: 0c45bfb4efb10c48d58eddda372483f1156e0fd26356bf1a1ef9912cbe9e4939
   title: 64fbd9b088fb74cb4b24f92b384038c6063000b859027bad1b90c4f18aa03ce5
   five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
   answer: a23f00d569947c1b536bf3055c0d129c42c53223f8b047f4e71af53140b304d3
   tags: 03dbfed5686b2d24ba2c7b45d3f22d3fdb9d74900145311e72116f30df7a24dc
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

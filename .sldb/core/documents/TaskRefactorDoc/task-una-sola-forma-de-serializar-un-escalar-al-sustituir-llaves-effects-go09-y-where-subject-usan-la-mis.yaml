@@ -1,7 +1,7 @@
 name: task-una-sola-forma-de-serializar-un-escalar-al-sustituir-llaves-effects-go09-y-where-subject-usan-la-mis
 path: desk/tasks/task-una-sola-forma-de-serializar-un-escalar-al-sustituir-llaves-effects-go09-y-where-subject-usan-la-mis.md
 source_hash: 47294c0ebdd0780934e4a55e1c3e60fc57ff64307eb0ac87548d698b82643c51
-content_hash: 2435ad760c6137a82827dac63391cbec9f2ab659cf71c7d89e2bef618ea82dad
+content_hash: c95ca45440471d31ebc070f1b7fc3ce87cb6896070b88a1c3bc50ea0278ec9fb
 field_hashes:
   title: c6710e2b00ffe415734eb3ad5b99f257d9f99c7f7483ebb32850453dbaf88bd4
   id: 9ce7dd15d0e34ca4838a1b44891b3aa321294c96a2d19670543c79a53185b364
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: d39ad4c26e22aeb9a0be87befcf29f7c8a55cc750904de5d14a019b4a9eeff29
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: b19d587bc66e40bdfb4a8c49bd5102cdf1f0d71ad54d084d665cdcb9be2dd615
   validation: 2e7d1a12d6533679eb7931e68b620a19a03176ee0724135becccb8c6eb5109e8
   done_when: bab8bfc68ae10077f929dcc2796cf75deb4e25e191afafcdc7957af97a8a1c91

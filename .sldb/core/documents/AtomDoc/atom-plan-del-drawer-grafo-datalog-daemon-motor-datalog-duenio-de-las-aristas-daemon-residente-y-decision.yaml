@@ -1,13 +1,14 @@
 name: atom-plan-del-drawer-grafo-datalog-daemon-motor-datalog-duenio-de-las-aristas-daemon-residente-y-decision
 path: desk/atoms/atom-plan-del-drawer-grafo-datalog-daemon-motor-datalog-duenio-de-las-aristas-daemon-residente-y-decision.md
 source_hash: ff1b5d69a8349467ae5262a36a903ffb2a3fe9217a020d77603f9a625d8e0d9c
-content_hash: b3d6dab6f3a189098d20f98cc01a4ad7331bd58b5d9023a30d722a8e2c2cb887
+content_hash: e1d314881a78de5b4e2ec677f1ca7626d3d286c2ca16590caa66c1ff58803b8a
 field_hashes:
   id: 51667956e7d88fd1ba800e37b7f9531334fe44be1e23b964d90006fd1769842d
   title: 833849a692073fbba577414bbf8e5af8f3cb266139d0bda5a5193c5644626e8a
   five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
   answer: 9dd58b5fb1ca0ee252e99dcb004fc2f3666e40a9d0f91a377abbf7941ae014bd
   tags: 7cd4d54e33b37c289ff1b6bb142dc2be0b428528166bd01b33b9ccbca2b03966
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

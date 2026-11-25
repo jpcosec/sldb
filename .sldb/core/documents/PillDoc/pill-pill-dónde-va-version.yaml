@@ -1,7 +1,7 @@
 name: pill-pill-dónde-va-version
 path: desk/contexts/pill-pill-dónde-va-version.md
 source_hash: 75f50dfe12431094b67f47288ea3d6f7312968eb051fe663a1db67b6ff5a2c26
-content_hash: a80dc3c7f28871a71247f8e07414b75ecf88fd766ca7898cc7e0d14ac5131e00
+content_hash: 5f032f4fc682ca6b38c8e619213646fc56f3d674551b96005981f20e3e61b615
 field_hashes:
   title: 7c144fad58b1bc0538229c06bb6f3ac6c7e316f868f692f3b1a4e6cebf071f2f
   id: b611663f4d935166d6d4b5eb6b5dc53f78971ae1dc394cebc5c94d5e85d1d874
@@ -14,6 +14,7 @@ field_hashes:
   where: 4f3584f50bbd04a3c9e057c315f92fbba1222f8cf5e6d2f3d68c6ca48b7b262f
   how: a9706d957aacefbb839b738d593e05e773e6d4e8b7c8761e2e65c6d8c8c1fc12
   how_not: f47097e41d6f82b472e98b71e7ad5f5db7e69760c7c2ed7cd56043d20f8d9a8d
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

@@ -1,7 +1,7 @@
 name: task-run-view-dice-que-el-store-no-está-construido-en-vez-de-unknown-view-h12-y-se-reproduce-si-la-revisi
 path: desk/tasks/task-run-view-dice-que-el-store-no-está-construido-en-vez-de-unknown-view-h12-y-se-reproduce-si-la-revisi.md
 source_hash: ceb2967a6358abebc1d9969e34acd5d80549be1feacf921ec4e142c507d24a1b
-content_hash: 332ba9230981995ec21e2577c88a42e7d1f0c12a2cf6b359d8d6b91ab449f289
+content_hash: a9d333ea25a8c5caeb97816be87b72668fbf6138ccd06ff9ab7dba083bb0cc83
 field_hashes:
   title: 8f2ae29f95fccdf405a7bc5cb3cedca41a9ef957d70e144e2db56222cd5daa30
   id: 9ee574804f37ae1e6b28b372b6d71bc944f7536a97792519b23c195488f6a26d
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: a41a3333013da410d3d8e83732bd5166f2d92e9b1178c3db9189dc4537b3397e
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 4bf168889742deb7af44a441a98dd85fe90eac97a99e95ee1bb59bf8a365f7f6
   validation: ac35412d05a57643d65a622c59f6e372eb5ef2fa99c7f9491c234eeeb3f9e64e
   done_when: 31a9f226e619a83fb3743b016e47f3276e0d3d23c646ed20e9c640c873a11a85

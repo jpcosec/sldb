@@ -1,7 +1,7 @@
 name: atom-sldb-api-template-anchors-dice-por-campo-de-un-modelo-el-párrafo-literal-de-la-plantilla-que-ancla-s
 path: desk/atoms/atom-sldb-api-template-anchors-dice-por-campo-de-un-modelo-el-párrafo-literal-de-la-plantilla-que-ancla-s.md
 source_hash: 14066ddf72de2d25918bfaa888b0b15a26cfc75ff2444cf3a64cfd201e372532
-content_hash: 1a043a7854ea2ace1861f10ce15af29907aef19e8d4327511108eb126efd3bf3
+content_hash: 3ab2576c89b75260ea791ebb2dc30f2549a0cda7e3d6ea15bfff9fbe481b6504
 field_hashes:
   id: 7eed94ec8683f4d484fa6c891ee27eebd0ce137ff53198c455afbab75b3a470b
   title: e6099ed34c9de3e371e0a89e663609b12bd4c394d83aa2bc77d37d024028e863
@@ -9,6 +9,7 @@ field_hashes:
   answer: ef68b4691a236e90a2e7b1405ecf8ec0492db8d9290f2921b167d961d0678302
   tags: 8b8810ef7c6153628ce6c39870800efb69ca9167d0a588378be249d01535e946
   provenance: 14162947373936a1fb3994043f50b2ea832e1c9ba99bb8e4b1b6b3a196e1be61
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

@@ -1,7 +1,7 @@
 name: atom-apply-batch-devuelve-en-batchreport-inverse-el-lote-que-lo-deshace-con-guardas
 path: desk/atoms/atom-apply-batch-devuelve-en-batchreport-inverse-el-lote-que-lo-deshace-con-guardas.md
 source_hash: 0b52750641322619dbd2be358d96d30191d0449aea7d3e4735e64dd53b2eb947
-content_hash: 014a67102c9592fc196f801cbccc1351b726653c0e5397f6a26cd7bb04ce1897
+content_hash: 7231d694560bdf1e858de2ea8c07bdf468b315a3c7fb36219f140e0b95ce525c
 field_hashes:
   id: bb0ddb2ddb2c9628a6065d83ac716b879d5aab4e5df9247e1cf3faf87c240bea
   title: 3381d22042dfcd1c1178eccf77fdf39900ba39f900265f0efbe74619cb9102e8
@@ -9,6 +9,7 @@ field_hashes:
   answer: 725da70f9926e27d37a91494230c9c67f9da8454b499dbd24fe96ae5806a7a92
   tags: ce6608cc96b60f46695457bfecedc9657839e9d31d6a3071314ead34490cf2a6
   provenance: 2300f7809829df79e245ca3592efdecb53142bf81cdec754cf258b5303499f0b
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

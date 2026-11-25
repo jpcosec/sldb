@@ -1,7 +1,7 @@
 name: atom-los-namespaces-de-tags-se-declaran-en-el-store-y-un-prefijo-necesita-su-documento-ancla
 path: desk/atoms/atom-los-namespaces-de-tags-se-declaran-en-el-store-y-un-prefijo-necesita-su-documento-ancla.md
 source_hash: 4adfe9f15b39b0a42ead1c10871823fad24a48a445b385cf735d7f1e54a33d00
-content_hash: 9be96e40982ef89731db6ba2babfbcbcded04538c93e3b07298b26d0ae7d3b2e
+content_hash: a064c9534034023f532a59ad265742aa427458db7ad88d77683759825f653bbd
 field_hashes:
   id: 7b88880af43339531882d55caf367d9515393260ccfb61b899aaa0f44229aaf7
   title: ec70233dca4124598952ae2691b045bfd301a4c29906b4d8494375f50d16177e
@@ -9,6 +9,7 @@ field_hashes:
   answer: 2cc33b16c4ab27d5979143e1e12c48651f866206d173a061a510c8e6b45b8e94
   tags: 012bcdc658d3eadb274f51c1114fb05aa128b6efcace2d2a54d68d0185b2cf97
   provenance: ac29751cafcc422ed1d3af0fee7547b1a8ffda4730bf37ddb316d4e0a0d484b1
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

@@ -1,7 +1,7 @@
 name: atom-un-mapa-de-hashes-vacio-significa-no-se-pudo-calcular-nunca-nada-cambio
 path: desk/atoms/atom-un-mapa-de-hashes-vacio-significa-no-se-pudo-calcular-nunca-nada-cambio.md
 source_hash: c0b0144b55acfa9015e03ccc87cfc24d7978d9d2ae5eb71944d704dbd990dba9
-content_hash: b98d0e1f14a4cae978cf9fb4afa35dbdd64a9df24baa239d1a6150bc50e35fd9
+content_hash: 2ebe150f98bda46509590b8dd02c5614cf54ec3292f8ed9e5c850e3eee778579
 field_hashes:
   id: 9bd002a3ad33d4883c46a7d0f91bb2c459283f874f20501f5394ed699d445544
   title: 81bdec965e78d56266572830fcaaae86fb069ffe7a0aa85685e8dd3d33ec90d2
@@ -9,6 +9,7 @@ field_hashes:
   answer: 191dce109e9830a09bc1e155357d6b52bfac9e3b06629a2fd6c9c6ab32f326fb
   tags: c23fc22c66b311cf7539d105939b42c7056aef1c8398b132265ef35369b38462
   provenance: bcfef747ce23efff4caaaa2a96a94768327bef897c8ace8658d063bb9bb4e26b
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown
@@ -19,3 +20,4 @@ semantic_tags:
 - topic:merkle-tree
 - type.knowledge.atom
 - workspace.desk.atoms
+provenance: null

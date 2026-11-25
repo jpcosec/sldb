@@ -1,7 +1,7 @@
 name: pill-pill-imports-anidados-en-scan-tree
 path: desk/contexts/pill-pill-imports-anidados-en-scan-tree.md
 source_hash: 822ad637a1f032c5eeaf87f80d38aa9d55b16493d814aa6962ab34e5a50d33c4
-content_hash: 389a818adc08f35ec32060721d72c089c9550e3ad97540731f98d3c9c24c6c70
+content_hash: c6e0b148fbafffe94c70a1f30a701ed840b3c693651b760a3116614ef726ad2e
 field_hashes:
   title: 31cb3e515af965eed5dc9a50d3135307103ebe0fc2f1f09fefb1649becf3872f
   id: 3b4ae8240a91e201da1b84e683f90c68f35c95a3bdec8e3952da556acfb2faf5
@@ -14,6 +14,7 @@ field_hashes:
   where: 80da9f0e167f0c8fccf0955132a644baad5b8962f391a834d1e9addf7b975515
   how: e5096a337fa65d32b43bf9a6ab4a0db87f6f32e5b0bc61486ace0d688d95c0f3
   how_not: f47097e41d6f82b472e98b71e7ad5f5db7e69760c7c2ed7cd56043d20f8d9a8d
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

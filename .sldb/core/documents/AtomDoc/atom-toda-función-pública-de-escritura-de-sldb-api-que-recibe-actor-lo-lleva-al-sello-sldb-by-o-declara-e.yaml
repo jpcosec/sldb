@@ -1,7 +1,7 @@
 name: atom-toda-función-pública-de-escritura-de-sldb-api-que-recibe-actor-lo-lleva-al-sello-sldb-by-o-declara-e
 path: desk/atoms/atom-toda-función-pública-de-escritura-de-sldb-api-que-recibe-actor-lo-lleva-al-sello-sldb-by-o-declara-e.md
 source_hash: 06ed85ae98d90c3ded704f98882ba379fbae943590a7f691193531454cefb252
-content_hash: 3a8e93a182519f761c866deb7a8d060b01263a62d7136bb54ec708da538643f6
+content_hash: 16eace316196f318b62fbefa977a3d754d83807135209997638e028bb647b13c
 field_hashes:
   id: 5764e7dfd2501cd3272b09654817f93fac5f43b4344a6af90477614a07c46a95
   title: ef18e26c9778df6ef494bac790d922601b844895dd0e1b8a65aeb5e185d661e6
@@ -9,6 +9,7 @@ field_hashes:
   answer: 3e58d069ea506a608e42a115f3852faf64f953b8ee0de52c4d467a23a38d19de
   tags: 5eb52ac3aca619406d5f9905ae5ec9fbc7689e9f71f0f90681b13d902d0e9131
   provenance: 635f9d58e100ab07832476cb41d32770349eef3cb43a93e27837d6e850cdcc08
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

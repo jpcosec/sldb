@@ -1,7 +1,7 @@
 name: atom-track-con-force-re-indexa-desde-el-archivo-un-documento-ya-trackeado-en-la-misma-ruta
 path: desk/atoms/atom-track-con-force-re-indexa-desde-el-archivo-un-documento-ya-trackeado-en-la-misma-ruta.md
 source_hash: ef608974aea643ce8289e8fda30572afe3dd4c7a93f1053df3654c4f432a37ee
-content_hash: 55c9819ba8fa0de7a531d0e5398ba27ff983aa58cb040057778ed810e2383ed0
+content_hash: ed00011bc9712597cdf4fd92108d5a6ba8555dd9c859409cfc3265ce41716e6d
 field_hashes:
   id: adf12af7efd92d785d6f9042a95393ed980efd41dc440431b6ea27d4fc4c91b6
   title: 4f4d8082dcae5b9c14bdb5c922d2f992a086e25e95160872c3d89f50fe06581c
@@ -9,6 +9,7 @@ field_hashes:
   answer: 286b07a90948f69bbc25e8bb7fabb0593fb31bc81964fc0461517306264c8c12
   tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
   provenance: fc74c3d8ebfb7d4e914c1736c780de77ae89b2ff91e483351a8ad013e8696646
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

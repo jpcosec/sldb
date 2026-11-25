@@ -1,7 +1,7 @@
 name: atom-una-operación-de-sldb-se-ancla-al-store-más-cercano-no-al-directorio-desde-donde-se-corre
 path: desk/atoms/atom-una-operación-de-sldb-se-ancla-al-store-más-cercano-no-al-directorio-desde-donde-se-corre.md
 source_hash: 72926690f28016020fdb70eb760f375e1a038dc4030db453bf84a3cea416199c
-content_hash: ebd7ac7ec84e56950ddec51b8a1fa5d656bc08934bf4876a22b2532ac58ff41b
+content_hash: 11e9c164835f0e582d0dfdd81e2d8d12b894279bba3635718f0615562b7b42eb
 field_hashes:
   id: a8e496e58502e49086e310b8ba7acdc7c4158a9e85b6e58a520541c13ecee169
   title: c5ca2f863612cfb8152d854c309e9dd46e924799fe6e5de73380fe368e5972bc
@@ -9,6 +9,7 @@ field_hashes:
   answer: 789d339bdfa7d159f281d0d68b97e15e14d83bc94731199faa3753cba590c69e
   tags: 2e624d52c16672258c12f7aa58c6e0d78ca01a0e45ff162ab3480162ee7cacd4
   provenance: 04b4c0a69face95502f28f045ddf0b70068b64435882e2ea82249ff007db502b
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown
@@ -17,3 +18,4 @@ semantic_tags:
 - topic:store-context
 - type.knowledge.atom
 - workspace.desk.atoms
+provenance: null

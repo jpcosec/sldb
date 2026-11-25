@@ -1,13 +1,14 @@
 name: atom-el-422-de-post-save-de-sldb-serve-devuelve-exc-errors-como-details
 path: desk/atoms/atom-el-422-de-post-save-de-sldb-serve-devuelve-exc-errors-como-details.md
 source_hash: ff1ecd80f780a79d65493c289b2ecf37532780f671ff80a6fcd22fe692dbedba
-content_hash: 12cb6cf52ef2cd1490528a19d01df92839c0dd2c46be779041b68d4b1dde9a05
+content_hash: a839d4c108267b393f751033aa0b06ef42e08cab4e9a8df170d13fb91b177b7c
 field_hashes:
   id: 4d4d7caf60bf10cbf639cc319220bbd5148cb90f7adcc7669d8e8165af1ad920
   title: 34c0314536b63b955af66ca766863fe9ec3c704ebad1744128f5b634d2d2d3f5
   five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
   answer: 5de10c4b39bea354196feda9c13678e365a3cacafcf53f38697928654138986e
   tags: cc09d446945b825ad9152103c4c0e22331c21d6f919cb181321d6fa5487e28fb
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

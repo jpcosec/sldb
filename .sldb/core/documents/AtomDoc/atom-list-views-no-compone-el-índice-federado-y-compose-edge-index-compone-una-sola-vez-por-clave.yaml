@@ -1,7 +1,7 @@
 name: atom-list-views-no-compone-el-índice-federado-y-compose-edge-index-compone-una-sola-vez-por-clave
 path: desk/atoms/atom-list-views-no-compone-el-índice-federado-y-compose-edge-index-compone-una-sola-vez-por-clave.md
 source_hash: f24c76bea074f7a1fae9efe4af95052905ff7ba57f1749afdb9a93b82aaac790
-content_hash: 70a9b7c9891ff92ff307a02f5f2efcd925f4f2cb783239da5639c337c2e2051a
+content_hash: f1bff038238cc482e36019bec64e991ff17f0eb6b40c76fc4b13d9aeccdb115f
 field_hashes:
   id: 3bdcfcfda05fb7b25d9c87bf53baf07ae2e94f2458fb52cc46cf569043fccb94
   title: f620a35d81c6eb183902e31acbf30415b59c72c841fc202c6f1c9e81dba3cbf3
@@ -9,6 +9,7 @@ field_hashes:
   answer: 225f64d5e505f37b3131213724a77c9a43672e218b090670664bd88d1e8421bc
   tags: 115ea3ed3d938506565c5776443b635b44cd3c52f54e82bc73054dc0b7460937
   provenance: 664bbead8f35cc13cf312be406df850f5dbb0d2c6a30a62373f0783ddb534e23
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

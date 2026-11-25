@@ -1,13 +1,14 @@
 name: atom-docs-list-marca-con-su-causa-los-documentos-que-docs-show-no-puede-resolver
 path: desk/atoms/atom-docs-list-marca-con-su-causa-los-documentos-que-docs-show-no-puede-resolver.md
 source_hash: deba6395d998c80a5903533fa9719831d4ecff187dd3a6fb1c813b94e806ba3c
-content_hash: f5e64aa7897cf7a25a751b689e904b00403cda24a009c04341d5719152d3eb0d
+content_hash: 2d2a6778f0c76342c3767782bed68df52d99a2462eadc38ad1ce035505b5aaaa
 field_hashes:
   id: 59247a722dfee2c0f303e5290b4be9ef10afdf30888ea261c8c0d14212a9dd80
   title: 8a294e8623ea4cb01edf6b09d61bddb88e36284e77e765361b1cc988f4d67193
   five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
   answer: 59393816121af9fc2faf5fa25767ab2dabd00885b49a9fd967558fe9ad446652
   tags: 7c16fe67e0216c2fb354b044f93d4cca5adbf8d378e15b3cc0b9b94051a10d68
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

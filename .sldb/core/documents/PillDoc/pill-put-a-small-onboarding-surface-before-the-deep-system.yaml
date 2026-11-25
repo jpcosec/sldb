@@ -1,7 +1,7 @@
 name: pill-put-a-small-onboarding-surface-before-the-deep-system
 path: desk/contexts/pill-put-a-small-onboarding-surface-before-the-deep-system.md
 source_hash: a0fb9eba42710083edae2bdbcede7ae2604bf2a4c6b405b6f344b2930c5ea62f
-content_hash: 9a804ff2b57ba0e9a26ab6bef899b57bd65ebd9a3860f60e06b866ea4c25d2cf
+content_hash: 4f81a37f6a33142f197eee4aac3dd6f2183a8e24183c838cf8d86e6f63c724a4
 field_hashes:
   title: aa2f8ceb1ca69cc1d441744837e6b4e935686de420ee967cbe9818c639c8bd34
   id: 20a63b648dee0e3ec5f997a29b1a8d62d226f023cbd9cbc38763701e03c49ebd
@@ -13,6 +13,7 @@ field_hashes:
   where: f33d7dc8cfef7ec1c15aea2eb61522289f028762b544ddb0e9df5c5f7165e992
   how: 8e32ae0aeca2982e5c4afee311e36977a32c2ceebae2ee12bbf759a734143462
   how_not: d80bc9dd140db4538dee6820b5fdb68fef515e07ffec3b58f6dd393b4a78e08d
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

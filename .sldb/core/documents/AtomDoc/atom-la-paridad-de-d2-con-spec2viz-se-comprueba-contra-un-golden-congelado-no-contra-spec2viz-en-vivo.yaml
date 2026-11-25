@@ -1,7 +1,7 @@
 name: atom-la-paridad-de-d2-con-spec2viz-se-comprueba-contra-un-golden-congelado-no-contra-spec2viz-en-vivo
 path: desk/atoms/atom-la-paridad-de-d2-con-spec2viz-se-comprueba-contra-un-golden-congelado-no-contra-spec2viz-en-vivo.md
 source_hash: 9ad4d3b668047287bd7f68eeaa65d1c578d327df944a482a90bc8fed222a6ddf
-content_hash: 9d943099aaa5211d75708f894341ee5e71ea4ce184dd298dbb56b06b201ad848
+content_hash: 6322fdd4d46549ca34108b7bb3a69574cc58f288a398a3075485d5e842e282e4
 field_hashes:
   id: f411686f1407555eae29b1335be8c47acd207fd2846ffb557fbd0b72be777f02
   title: 7845323db8f7d386004d292e780e6921140378335adebfb6fe058e9986a43947
@@ -9,6 +9,7 @@ field_hashes:
   answer: 1cf4debb6b057a6f130cea2ab95a9092257cd720cf8254015e63cadefd356e5c
   tags: 1f6879d3f31f56b2802c17ed6bd1ec91facdb8d554030fea048f5505d98e5e32
   provenance: 4021b23efdcaf2b93d0cc183cea7661b1e07883135c862a7022ce14b94fd8473
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

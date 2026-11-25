@@ -1,0 +1,25 @@
+name: materialization-py-call-args-docs-architecture-code-anchoring-md
+path: desk/materializations/materialization-py-call-args-docs-architecture-code-anchoring-md.md
+source_hash: f689bcf7536cb0de31843abe680f694c4528ba0f8387cc2b2715a75c9310d899
+content_hash: e01da597d46bb14f0b386ae28c41ab40bff3ebe455402c11d92defe637b69b61
+field_hashes:
+  id: 549d6937a00430bfd8a1bf0e2e99b38526531e19439746deead733d555af283c
+  title: fca0af57e9e0b09d310a766af7d73dc3a4099f3b09fe8db8f76d28d508824e64
+  source_atoms: 02262df6db7e014bbbdd765eefc72fb90742e29f345225ef9296df83a06aa395
+  target_kind: 5310eeb1d153dad19cd89e627b129d763e0cb2029f901c1a54fcc70478405c04
+  target_identity: d5c4b46f31638daabaed07a8429aee20d22a4444490af552cedb0175929ed2f0
+  intent: 8ff667eebc1523a8b2d12d7c6bf96c2ff948f2b14ef1601e5394fe1724dc3748
+  validation: f6ba7bb8d845460d79c5af062a874f4b5335b8d59748114e58fc227aa8c3d928
+  tags: 225bcbf2cf665cd32f42a80de1b1dde5ad027f605ff4bbc28dc7cae3de556bfc
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:py-call-args
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-25T22:24:30Z'
+  authority: generated
+  via: create_document

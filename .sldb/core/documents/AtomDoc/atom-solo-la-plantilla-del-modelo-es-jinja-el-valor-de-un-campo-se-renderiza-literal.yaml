@@ -1,7 +1,7 @@
 name: atom-solo-la-plantilla-del-modelo-es-jinja-el-valor-de-un-campo-se-renderiza-literal
 path: desk/atoms/atom-solo-la-plantilla-del-modelo-es-jinja-el-valor-de-un-campo-se-renderiza-literal.md
 source_hash: 4c6cffeb7c0a3595fb96524c158676dbb307f78f38da20ee1ac5ef44496eefa9
-content_hash: 28b721ef429288c510dffb9b39ceb09bba3b73f130fda31ee890c8ced4160761
+content_hash: e700aadfe376bc2b5c2b74c76979fbadec34c12e4774161b9700817f65e1f857
 field_hashes:
   id: a415640eb66bbfb9f92b76f896877260ead5c74c57fa75fba91129f5c624e39f
   title: dbc3d5941ff25b94df9bf55dfc8b8a051b3344ae54154b5e051b461149d94d40
@@ -9,6 +9,7 @@ field_hashes:
   answer: 4a75161e9ea987b5942472d45d9ce35c93fea3123000899ad4c7d4fdaf734ed9
   tags: 6be5cb29f1eb6de6963665cecd2d91601c97dc574fd59631089f7355c04ce50b
   provenance: 70ea985a70fd832252ac092b945c2cea34b56ef21c542525c23adcf6f696aadb
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

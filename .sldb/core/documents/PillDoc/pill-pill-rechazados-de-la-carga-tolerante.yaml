@@ -1,7 +1,7 @@
 name: pill-pill-rechazados-de-la-carga-tolerante
 path: desk/contexts/pill-pill-rechazados-de-la-carga-tolerante.md
 source_hash: 771a824496fb242ba81fe3491dac08543e0de23942a6478c06b21e79e7b9a0f4
-content_hash: 4eea3106ca99a622e0ecb3aafc96d8da089267360b059aaf25d38fbffb796988
+content_hash: fa74e34ecfe52acd2efe086f6f3327a98cd20ffb4bce84bd11db438c909b0978
 field_hashes:
   title: 519ba777f552aac72d4a955d9f424ea34a69078b84e422e979710c1b6fbe4197
   id: 642cbaeb2ef316ab0dcf958a4678c49d1c7452cf22b590a15f0f7e131e2c28b7
@@ -14,6 +14,7 @@ field_hashes:
   where: 416070dbf7f33a46c9fe827872455d7937d8792b1355cfbc99ae1249b0c2c283
   how: b3161e4c03b5d9cfc77677ad6166413c7bbbd6c4bb30fc7ba768a334f44a6ce9
   how_not: f47097e41d6f82b472e98b71e7ad5f5db7e69760c7c2ed7cd56043d20f8d9a8d
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

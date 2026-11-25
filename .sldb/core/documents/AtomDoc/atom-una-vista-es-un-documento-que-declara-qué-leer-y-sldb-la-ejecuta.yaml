@@ -1,7 +1,7 @@
 name: atom-una-vista-es-un-documento-que-declara-qué-leer-y-sldb-la-ejecuta
 path: desk/atoms/atom-una-vista-es-un-documento-que-declara-qué-leer-y-sldb-la-ejecuta.md
 source_hash: b1b75145eb3f835cfe37292363b7b273b96815db569a594c7a5bad577c411607
-content_hash: 3a13747c67d27037abb6a59864c5457e187341d23a9e8adf41e770ce5e01b7bd
+content_hash: 3cc8178098962945660e5984493a0156b70ef1489eec61124f1155d70c243c3b
 field_hashes:
   id: 72e22df7989cba3bb9076a6951f9fd719eab123ab702f0c91975f07df440cea7
   title: e430ebc5c38843e4414392c07c52e11be8ff1157d74cc932f2080f89d89a7333
@@ -9,6 +9,7 @@ field_hashes:
   answer: f6661304b9a3b21eb65673fff0821a12e582c864cf89a2553326e3fe4eb15e00
   tags: ae1dad02a9944a7e426c0f25d3c2e37892718d6c04c70f1f2df87e56c338d16f
   provenance: 2ce7a91ac35a2c26150f263d600547a9259c7d3675fe8c97691d1ea04c010068
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

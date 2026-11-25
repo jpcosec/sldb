@@ -1,13 +1,14 @@
 name: atom-lectura-de-surface-muestra-el-nombre-del-store-servido-y-no-queda-alias-businessname
 path: desk/atoms/atom-lectura-de-surface-muestra-el-nombre-del-store-servido-y-no-queda-alias-businessname.md
 source_hash: bc5b6670598a3e8ec790bae92b235141326291ef54138c37a2f8c114eb4f0826
-content_hash: 8ef2ea63feb0b92d7316648c8dd902674158cc6b3174a3f003447b5b5fbbe3c4
+content_hash: 68ed713aa181603544116cbaafa68785814258bbc82e9a29d2a9dcdc43f06290
 field_hashes:
   id: 8f4baa0909c9e359fa4ccc55e2169aa976aaf80a6f94dbc8b775097f9bb2ae53
   title: 17c383971b58ded4ebf145fbfc2e5e55526d6402bf84a56085af15e5531a51c6
   five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
   answer: 98f4424b86d1a1529b32f833bc627e89429ac836120e5fcf405da30c40722eee
   tags: 8a60d73dd19b816f4cf1a6b20b5d404fd602490307eccfd6aa947d9bee5826f2
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

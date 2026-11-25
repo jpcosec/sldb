@@ -1,7 +1,7 @@
 name: task-decisión-de-jp-decisión-6-separar-el-store-de-sldb-en-un-paquete-propio-o-quedarse-con-el-desacople
 path: desk/tasks/task-decisión-de-jp-decisión-6-separar-el-store-de-sldb-en-un-paquete-propio-o-quedarse-con-el-desacople.md
 source_hash: da73ab6cc82a84ad6670b43361cdd57acb4f71c0029d1a5fb2ae0e09175de8f6
-content_hash: a32fe1f577d4048bcf1da57e1ba1f54f217f53ab0b3131355c452797360d3bf1
+content_hash: 2ad1c3f37af13180c9f01656e2f6e465015f72b1d8e555d9dd304c98d345a9c5
 field_hashes:
   title: f3a1ffc381f502dd7f696a30a2630f1d06df45008643ef3db2a8466a89b8160f
   id: 9d0983763610544917682ed9b0eabcd1eae862d73ae0abdd1ad393e97eb15cfb
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: fa1216a41396ddce6083c6bbfcf8025c512b5f3d268b2fb2b91613bbc2910891
   files: 99e40e293ef21469e31d62a87f5b4a0ff36e483535ba0d6ac4084a93f3fe2613
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 8853fe05bdabe5517058f79bcc51ccb0e7e4ef80d19fddbbdfbeb09bfa52eb21
   validation: 4ebe2a72e8d7a96d018dcca0488cd236a9dd083ec6053e00fc34c97408adbc9d
   done_when: 4a838d94c32da8219b0826a1fdd31623d8fa0a822e207788fcec4df01a195406

@@ -1,7 +1,7 @@
 name: task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia
 path: desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
 source_hash: 9202bfaefb8b4102a102bde1ff5df3e5aee69cce1b4628a4bc3bcd777708f44d
-content_hash: 9a759930e1089f067f21747d349fa01a01fbc62a0ebc30c153e2cafb1f22008e
+content_hash: 185ab602e77ec2e5f459b1713792c74a7858e1e243c984ef3a396c0db79b91d7
 field_hashes:
   title: d3adefcedf9e8d4744e429cdf382e2bd86a19e46e582f830a3279c93dd2e1e9e
   id: 04eced991074a0b6180a71d993d4fe188e5f253711bd01659bdedb15af94d4d4
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 8e31320c79e37c05ffe1c0d0a0c0fcbf779d0793e7e4f7562efe416067f68dd3
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 5e04350104b03bf2de0ce8e82f073ee9b0876ebd92b65a984a3d664ae35cac23
   validation: 22e5f87338769390ef615f92b3bf8ff4bbbacfcb20d2d788f48a21a05c39e0b8
   done_when: 49a3634af2d89e373a6dff992387778bf0c009feb29e1585d96becf54e711e97

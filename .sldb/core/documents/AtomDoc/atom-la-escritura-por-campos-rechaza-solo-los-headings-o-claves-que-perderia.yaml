@@ -1,13 +1,14 @@
 name: atom-la-escritura-por-campos-rechaza-solo-los-headings-o-claves-que-perderia
 path: desk/atoms/atom-la-escritura-por-campos-rechaza-solo-los-headings-o-claves-que-perderia.md
 source_hash: 0140a9425029006cdf3034e73d662de7bb90b54a904d2fbfe9f99796adb21ca0
-content_hash: d37e7f25a5361e3d3f87ecd75cf0b06e5edf8c90c5b25bcdeb831452cfe77474
+content_hash: e11296ac6c56483a0d832646a01bcc924124525a13794be316cd8e48aad6f89a
 field_hashes:
   id: b7d251ede13b61418c692160995e09d495b3bb97607f7fef6196b3bd6ba90130
   title: dcf291022bbc21fa5da2cb7b0d75975ac9fe59672ca1abf3f5878b0c9edd88f0
   five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
   answer: 14fa02ac803823f59cdac7c72e5a1a0e2daa8c1c4881e95f1a004b59889b792c
   tags: bf55c42c4fdeaa287deec1d3536d9fd2fb7bfaace04a6c45dfb7c4a08ad6d6b6
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

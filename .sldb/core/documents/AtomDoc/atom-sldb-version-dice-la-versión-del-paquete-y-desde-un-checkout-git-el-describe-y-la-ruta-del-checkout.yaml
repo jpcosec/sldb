@@ -1,7 +1,7 @@
 name: atom-sldb-version-dice-la-versión-del-paquete-y-desde-un-checkout-git-el-describe-y-la-ruta-del-checkout
 path: desk/atoms/atom-sldb-version-dice-la-versión-del-paquete-y-desde-un-checkout-git-el-describe-y-la-ruta-del-checkout.md
 source_hash: 83851a3d640ee80dbdca24451384599ba1af9b0fc1f6ec088224461da98fa539
-content_hash: ff1522ec0a706f256a816f6b2cfce1cda3c65adbdd483e577fc81adecb1a201c
+content_hash: c520b8201d08eaccd17d23bd695ea3eb3bb137327330c762d8ee9506912709a2
 field_hashes:
   id: fe1878e6adddeffaae96d94399b3cfad7a10edc4f2ff0b4953e47349e316881a
   title: cae88892b1c8a20b3644fbf0c1b34918db7011e22ad2fbe9aaae43e3d3c69b54
@@ -9,6 +9,7 @@ field_hashes:
   answer: b22dd77d583c923b72595c4231e3088280876a6d0e89e2f3bac1c710736eb14c
   tags: 7c16fe67e0216c2fb354b044f93d4cca5adbf8d378e15b3cc0b9b94051a10d68
   provenance: 574a5436858503ed575faeee2c7a96168650260b9dad11b6749dcb3e8ef2a0c4
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

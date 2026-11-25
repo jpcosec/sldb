@@ -1,7 +1,7 @@
 name: pill-keep-sldb-generic-and-move-workflow-behavior-toward-deskops
 path: desk/contexts/pill-keep-sldb-generic-and-move-workflow-behavior-toward-deskops.md
 source_hash: 5d75606deae98b7bb4f552cf9a68eeab588397d531e8f2cb312e7c43fa561641
-content_hash: 189df71c23e98c680b3a552c73ccc8ba0a3317258653bdb39b3af5e3d0b5bb88
+content_hash: fe092e0266b030af8fa5a005bb48cf6d3a34e7f485151317a0c3ed472a2a7b2b
 field_hashes:
   title: 6fa7931bc42b736ae912d6f9353b5e7e28aa000ade8e636cccd18f9600dbb18f
   id: 8fccfe032ff690b231ce5ed56f15bb164d88cf4c6a18c5265c2e34933e488464
@@ -13,6 +13,7 @@ field_hashes:
   where: ccfe14096726774b0f1c46875e0013f7034e59307179811ac64e3af70313522d
   how: b68661b402db2663846bc745135c7e7c07b3a66040cab927833b60fbea11c47f
   how_not: d1dcd6c39958d997c5998eb2e0b441058e81b1b13ed15573898f70281866435a
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

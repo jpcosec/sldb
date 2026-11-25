@@ -1,7 +1,7 @@
 name: atom-las-referencias-entrantes-de-un-documento-se-consultan-y-se-reescriben-en-sldb-todo-o-nada
 path: desk/atoms/atom-las-referencias-entrantes-de-un-documento-se-consultan-y-se-reescriben-en-sldb-todo-o-nada.md
 source_hash: a8f4c477d57f8b380a50fe216b2ca25283911c7d33fd7f29cfbed891841e1c1f
-content_hash: e2d4999b0c7f6752685fabb7947bd35f16b66a871d872581dcb8c8b99fecefc0
+content_hash: b1066b60b9a56f27376c6bc90a494bdb1e29e8f82eab3d23bdfc453203175c03
 field_hashes:
   id: 26370af943d6c384665ab3b52f04d69d5b15dd52d45f4a292cfc0a44808d855d
   title: 0e7eb1a126a4dbc63ab8ec6975b022103a9e061f55b74de40fad17705fe0ff46
@@ -9,6 +9,7 @@ field_hashes:
   answer: c2580abee8cc6fadfbac2e2513eab8bb8bcc52a9c6013a421bbc56ea1c936684
   tags: 5b344ce5c5bf7bdb76ff874ca48cc365dc1ea363d087d8f5ac5e949e4226ff72
   provenance: 65e141fa4212c201c3461898b9f148ea9f58ced36a7a5abd168a0a63d32b5239
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

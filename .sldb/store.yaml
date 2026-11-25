@@ -416,6 +416,8 @@ include:
   - desk/inbox/20261125-213030-suggestion-layout-kinds-aceptar-partition-lanes-con-by.md
   - desk/inbox/20261125-213716-suggestion-facts-de-import-sin-l-nea-y-reglas-on-check-sobre-aristas-sin-atributos.md
   - desk/inbox/20261125-215901-suggestion-correcci-n-specir-no-lee-el-archivo-para-la-l-nea-del-import.md
+  - desk/inbox/20261125-194300-unclear-c-mo-instala-un-plugin-sus-modelos-y-semillas-en-un-store.md
+  - desk/inbox/20261125-194328-unclear-surface-un-plugin-declara-como-dato-la-composici-n-de-una-pantalla.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
@@ -1726,6 +1728,13 @@ include:
   - desk/materializations/materialization-anchors-resolve-src-sldb-models-code-anchor-doc-py.md
   - desk/materializations/materialization-anchors-resolve-tests-mcp-test-read-tools-py.md
   - desk/materializations/materialization-anchors-resolve-tests-test-where-pointers-resolve-py.md
+  - desk/materializations/materialization-py-call-args-docs-architecture-code-anchoring-md.md
+  - desk/materializations/materialization-py-call-args-src-sldb-code-py-calls-py.md
+  - desk/materializations/materialization-py-call-args-tests-code-test-py-call-args-py.md
+  - desk/materializations/materialization-py-call-args-tests-selfdoc-test-treesitter-symbols-py.md
+  - desk/materializations/materialization-layout-partition-lanes-src-sldb-notations-notation-constants-py.md
+  - desk/materializations/materialization-layout-partition-lanes-src-sldb-notations-notation-spec-py.md
+  - desk/materializations/materialization-layout-partition-lanes-tests-notations-test-layout-partition-lanes-py.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -3442,6 +3451,26 @@ include:
     name: review-task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale-preflight-3
   - path: desk/reviews/task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale/bundle-3.md
     name: review-task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale-bundle-3
+  - path: desk/reviews/task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale/evidence-tests-1.md
+    name: review-task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale-evidence-tests-1
+  - path: desk/reviews/task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale/evidence-commit-1.md
+    name: review-task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale-evidence-commit-1
+  - path: desk/reviews/task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale/evidence-atom-1.md
+    name: review-task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale-evidence-atom-1
+  - path: desk/reviews/task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual/evidence-tests-1.md
+    name: review-task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual-evidence-tests-1
+  - path: desk/reviews/task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual/evidence-commit-1.md
+    name: review-task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual-evidence-commit-1
+  - path: desk/reviews/task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual/evidence-atom-1.md
+    name: review-task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual-evidence-atom-1
+  - path: desk/reviews/task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale/evidence-tests-2.md
+    name: review-task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale-evidence-tests-2
+  - path: desk/reviews/task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale/evidence-commit-2.md
+    name: review-task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale-evidence-commit-2
+  - path: desk/reviews/task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale/evidence-atom-2.md
+    name: review-task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale-evidence-atom-2
+  - path: desk/reviews/task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale/evidence-materialization-1.md
+    name: review-task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale-evidence-materialization-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
@@ -3557,6 +3586,8 @@ include:
   - desk/lifecycle/rule-closeout-task-docs.md
   - desk/lifecycle/rule-closeout-task-external.md
   - desk/lifecycle/rule-closeout-task-refactor.md
+  - desk/lifecycle/rule-adr-owner-receipt.md
+  - desk/lifecycle/rule-adr-supersedes.md
 - model: TaskRefactorDoc
   paths:
   - desk/tasks/task-el-emparejamiento-de-átomos-de-sldb-api-matching-pasa-a-su-propio-eje-y-recuperacion-vuelve-a-ser-un.md
@@ -3568,7 +3599,11 @@ policy: {}
 tag_models:
 - AtomDoc
 - ProtoAtomDoc
+- TaskDoc
 tag_namespaces:
+- name: artifact
+  hierarchical: false
+  folder_axis: false
 - name: domain
   hierarchical: true
   folder_axis: false
@@ -3576,12 +3611,21 @@ tag_namespaces:
     model: CrossroadDoc
     field: path
     value: bare
+- name: host
+  hierarchical: false
+  folder_axis: false
 - name: layer
   hierarchical: true
+  folder_axis: false
+- name: source
+  hierarchical: false
   folder_axis: false
 - name: system
   hierarchical: true
   folder_axis: false
 - name: topic
   hierarchical: true
+  folder_axis: false
+- name: workspace
+  hierarchical: false
   folder_axis: false

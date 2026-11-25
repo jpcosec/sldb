@@ -1,4 +1,9 @@
 ---
+sldb:
+  by: agent
+  at: '2026-11-25T21:51:33Z'
+  authority: generated
+  via: save_document_payload
 # unclear | suggestion
 kind: suggestion
 # e.g., other_repo
@@ -8,11 +13,13 @@ target_project: sldb
 # ISO 8601 timestamp
 created_at: '2026-11-25T21:30:30'
 # open | closed
-status: open
+status: closed
 # project identity that acknowledged the note
+acknowledged_by: sldb
 # ISO 8601 timestamp, set when acknowledged
+acknowledged_at: '2026-11-25T18:51:07'
 # why the note was acknowledged; empty when no reason was given
-ack_reason: ''
+ack_reason: Tarea task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual
 # conversation thread/message the note came from, e.g. #hilo/1234
 ---
 

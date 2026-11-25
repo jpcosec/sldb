@@ -1,7 +1,7 @@
 name: pill-keep-sldb-cli-output-tied-to-document-contracts
 path: desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
 source_hash: c760bd01f1001cf4c7ff8fc0682ea7607f878f3c9b71e2406a7db41c1cd98e2d
-content_hash: c2f0bd3ca553ec8e973d345e899cae505b08a58de19dccd54782231076c64d7a
+content_hash: 3a6ee87dc1d92e396c7cd719113364a368340afd6cb52ba38aae694a38c4f34b
 field_hashes:
   title: 52366a5ea77c7225af664d2e9024111a23ddf81aa9ed28d3b71b7648abd8869f
   id: c466fbfa4b50694bbbdf1b7574fade6296f5b34b3dd21eab25fa284554c05370
@@ -13,6 +13,7 @@ field_hashes:
   where: c7fa9f593b4f94a35a8a463c5d4ad144270e56b4a9c193f21782d6d37dd3ca4a
   how: 7297a2c44876f7fd59a6551954cc6cf51e8d778aacbbc6d0d3127f3cf9b328a1
   how_not: 4d982c242fdb6f0960e99c4d2e322a3c47b8ef80a017b8468218cd5496af4cf3
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - language:python
 - representation.markdown
@@ -22,3 +23,4 @@ semantic_tags:
 - topic:documents
 - type.workflow.pill
 - workspace.desk
+provenance: null

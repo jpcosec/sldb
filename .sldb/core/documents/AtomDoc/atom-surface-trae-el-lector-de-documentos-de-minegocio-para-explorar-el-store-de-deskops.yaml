@@ -1,13 +1,14 @@
 name: atom-surface-trae-el-lector-de-documentos-de-minegocio-para-explorar-el-store-de-deskops
 path: desk/atoms/atom-surface-trae-el-lector-de-documentos-de-minegocio-para-explorar-el-store-de-deskops.md
 source_hash: 8168c4598dcd4ed9917961fc894ffe074a687fefc2a0bc937feaf633700fc596
-content_hash: 4e49f5ecac23a5d81c93b14e74f9d5ba49b88a97069a48f9e99bc3b634d5f19b
+content_hash: 5f92860d912f6fb0d8f0ebfd41262397155b75287cb7013be4b75e8eac165849
 field_hashes:
   id: d05475cdb3f3a5b5d78fe429d96407584dc199ce28119c5399660dc7db830c52
   title: b4019f2765750ea6a66b01d772767be779ac25298ac0a48453e0d201ce76c63a
   five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
   answer: f3ad2c04240b6ff7a5f5dd3bd61e6e4ab2587b5dea59049fb0a987a62ad021a5
   tags: c3172eeb412a202a398645d59ff05d7f6268336a078d8088a335000e25377962
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

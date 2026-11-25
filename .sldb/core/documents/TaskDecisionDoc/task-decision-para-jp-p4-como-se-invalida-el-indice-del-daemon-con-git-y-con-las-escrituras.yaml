@@ -1,7 +1,7 @@
 name: task-decision-para-jp-p4-como-se-invalida-el-indice-del-daemon-con-git-y-con-las-escrituras
 path: desk/tasks/task-decision-para-jp-p4-como-se-invalida-el-indice-del-daemon-con-git-y-con-las-escrituras.md
 source_hash: b09355b7b7fd14e5f731c1fcabee7b3bc849ac325c04ce41c09698ed6e9d9874
-content_hash: af7db953506f00fd70e7e8b698e14106f24b37c1b717dbff69a57d2693ced3b2
+content_hash: 5b65a0c9a5c6da0cd6458f83ae9529caaf2c5fd99d9127448e31a7829a9899cc
 field_hashes:
   title: eb01914914ac45bf4b3ed10b28a4c5ec4b8d9409e2d8a8e5efe611f9089fdf23
   id: 43e191f13eeca5b69d75d2d99d7b8364210974adb9cbf5a9f037d4c131e89aa7
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 774bf8f3b899123ada6e8651e443ae3179ecd36881aa21468bf4d1f56beedebc
   validation: 498145c3e6b5831f023a07f1c8ad208d38743e4a4db06b2dbb465c4230e8dcbb
   done_when: 8da52dc55d05e8e7d16676cbcbd1257bf5ce9487014e8051a3219137c91ed2ca

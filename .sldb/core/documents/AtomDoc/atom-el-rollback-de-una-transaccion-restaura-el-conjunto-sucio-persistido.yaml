@@ -1,13 +1,14 @@
 name: atom-el-rollback-de-una-transaccion-restaura-el-conjunto-sucio-persistido
 path: desk/atoms/atom-el-rollback-de-una-transaccion-restaura-el-conjunto-sucio-persistido.md
 source_hash: 14a807b373ce29403bd63ab79ecfdcbd0c4ade6eaf9cf97b8b6443df08b0d72c
-content_hash: e5df3dfc054e5489ce30fd57443e032f54ab0afef9551c5d00b8b7eadc920065
+content_hash: 37f73255aadc1da2a849459f521bdfa6e6a2212431073e4f502ce7a397881028
 field_hashes:
   id: 49f5c0ff13d881cee8a8e6fadb34655c4c415521e8ba357ad54a473aa9230ab2
   title: 461a7ae1648fee2a3381d1cd30a6b82539e5d996573b985853eb9eb9892c552a
   five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
   answer: 7dfb106626f5aa8ae1d4c919066d058fd19263aa4442a37b5b3601b88d1d0614
   tags: 94e767260e33577a0b2c2a737e517c203ec938f38e44be177f79ffd8c488c9af
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

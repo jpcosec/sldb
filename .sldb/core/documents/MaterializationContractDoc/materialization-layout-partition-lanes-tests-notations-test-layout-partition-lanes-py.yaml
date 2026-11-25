@@ -1,0 +1,25 @@
+name: materialization-layout-partition-lanes-tests-notations-test-layout-partition-lanes-py
+path: desk/materializations/materialization-layout-partition-lanes-tests-notations-test-layout-partition-lanes-py.md
+source_hash: 83e55d51e45ba5c8e4c0b6244ae8150e9fe0e147dc8842146e691cbd3becf981
+content_hash: b2001c71a0c99110fc0e925b7556f3f1cfe8967356f482debd9aa0c4c0fb86e0
+field_hashes:
+  id: b7a568a0ebabb1980bc28dceca1b9177497e86e0c390a9707842ce8ebfb0d3ec
+  title: 973cc4d02c8c03dce1ff4466c49d61a15eb62d6b4d2100f9aed1f87aaafd522d
+  source_atoms: 262de4d9ae8b6161ace437aaf65b52461d9cfcb23815fa170959e844380b50ee
+  target_kind: 4d967a30111bf29f0eba01c448b375c1629b2fed01cdfcc3aed91f1b57d5dd5e
+  target_identity: 00012d8ffb8c8de476a9578d00d70d1baf459dba2bbef10d2d0e49a25792a260
+  intent: 36660e02bfc37639e6915aa5c9ac9851c248cc2264e5894526e7738b4707fa8f
+  validation: b4168e743be0f094e2f98f6b4c594c49a74547356e1e0ec4d1a3ad5656626b3f
+  tags: d0f6a8e6f54617f25f2bbe5905f1e35ced62dc710488afb9383f56c754e0a8bb
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- system:sldb
+- topic:layout-partition-lanes
+- type.knowledge.materialization_contract
+- workspace.desk.materializations
+provenance:
+  by: agent
+  at: '2026-11-25T22:29:55Z'
+  authority: generated
+  via: create_document

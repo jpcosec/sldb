@@ -1,7 +1,7 @@
 name: atom-una-extensión-de-sldb-mcp-agrega-reglas-de-dominio-a-la-escritura-registrando-validadores-de-lote-si
 path: desk/atoms/atom-una-extensión-de-sldb-mcp-agrega-reglas-de-dominio-a-la-escritura-registrando-validadores-de-lote-si.md
 source_hash: a730be9c7569c63881991cef2ab7bca01130092b6221312631e5ee2c7a94481a
-content_hash: 5f222b39b2e8ecd4e54b2a83f2b3f15dde0ff1a1db25f7bec1fea94071d6788a
+content_hash: edcd6e15f94fdbf25d393ce6967c75094e5163179b43c0049133f87c6094df0f
 field_hashes:
   id: cc768a4e2ef57d340cc40c9a0752c79c67c033787cce4c36ff7ff5407dcf0a73
   title: e191db95e1af5b1b2c2d96857191da19e1582be9279d985b351061e0dedbd1f0
@@ -9,6 +9,7 @@ field_hashes:
   answer: 7ae0d41a241a937e3b3d40996cd3d32ef52bf8c756cefb0ec26af051e7a8e55c
   tags: 35a97c7a70322fb86371ff71b1fb31b21721fa8b1bd62d16604c8b4cdb3f8e60
   provenance: b54caef3e5f0e80f5b18ad0514009050e64a8dc461ed10e587cd02f906941cb5
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

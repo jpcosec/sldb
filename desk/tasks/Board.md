@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T21:49:10Z'
+  at: '2026-11-25T21:50:50Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -93,6 +93,7 @@ tasks:
 - desk/tasks/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra.md
 - desk/tasks/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest.md
 - desk/tasks/task-los-hechos-de-llamada-de-python-traen-los-argumentos-literales-y-de-inner-add-parser-nodes-help-sale.md
+- desk/tasks/task-el-layout-de-una-notationdoc-acepta-partition-lanes-con-by-y-la-vista-resuelta-lo-pasa-tal-cual.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -219,3 +220,4 @@ _Generated from the task references above._
 - una NotationDoc declara qué estándar implementa y sldb notations validate lo muestra [draft] - Un campo opcional en la notación con el nombre y la versión del estándar, validado y visible al listar y validar.
 - una regla puede preguntar por los tags semánticos del modelo de un documento y por los de sus ancestros en el DAG [draft] - Un predicado del lenguaje de reglas que sea verdadero cuando el modelo del documento tiene un tag dado o uno que desciende de él en el DAG semántico.
 - los hechos de llamada de Python traen los argumentos literales, y de inner.add_parser("nodes", help="...") sale el nombre del comando y su ayuda [draft] - Que una llamada de Python lleve sus argumentos cuando son literales: los posicionales en orden y los nombrados por su nombre.
+- El layout de una NotationDoc acepta partition-lanes con by y la vista resuelta lo pasa tal cual [draft] - Una NotationDoc puede declarar layout {kind: partition-lanes, by: <nombre de campo>} y sldb la valida y la entrega igual en la vista resuelta.

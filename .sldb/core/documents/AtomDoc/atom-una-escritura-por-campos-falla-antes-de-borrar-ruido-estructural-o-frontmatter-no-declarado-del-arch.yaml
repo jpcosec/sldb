@@ -1,13 +1,14 @@
 name: atom-una-escritura-por-campos-falla-antes-de-borrar-ruido-estructural-o-frontmatter-no-declarado-del-arch
 path: desk/atoms/atom-una-escritura-por-campos-falla-antes-de-borrar-ruido-estructural-o-frontmatter-no-declarado-del-arch.md
 source_hash: cc7825c583b29c4bf6585f2bb650c0157b5928879a1169955126856ae2ce633d
-content_hash: 628a4127605ed0db2b598936a009b90eed9e444ddf9f7b460b93ffe41f4c1d2d
+content_hash: 23c5c002c2e15eb29312e6ce2006ac69b1a0c7d4cbb771918a2e50a197972e55
 field_hashes:
   id: 4995fe072146bf765f0ba9d89a8ef66266a72db1c1aea96d45503ebbd01dc79c
   title: e08c71e9477384f35969178ce34e18accf484df4bfcc380ab75ec4c9f16af2d4
   five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
   answer: 00b91aa89315128edbefc1ef8c137da1d34715712ab32c0031d70e207e7848db
   tags: 9ed245d89a5461418c0f9edae2610fe45da71c47626c7c760f3c8ae535e6bc7a
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

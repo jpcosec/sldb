@@ -1,7 +1,7 @@
 name: task-decisión-de-jp-si-sldb-agrega-un-ast-intermedio-entre-marcador-y-campo-y-clases-anidadas-en-un-docum
 path: desk/tasks/task-decisión-de-jp-si-sldb-agrega-un-ast-intermedio-entre-marcador-y-campo-y-clases-anidadas-en-un-docum.md
 source_hash: 33d0ca8794e0b82037adfdf948fb427fb0a5875af8a2996b7ec69c865d5f386d
-content_hash: 0b4d1064000af04dc8e3fba0749a3c5fec40c09ea6dc27cc9d8b8152dea3f5fd
+content_hash: 92e1e0d9818921ac7b3c0d05b3392427f1584e5a4a9894fed1cf9fc62e1c9a27
 field_hashes:
   title: 738c8b5afddc67a9e06677193eaf4536004a674cca9567807d7251fc4722c0a8
   id: b612fc501e2e772b2ce5b0eac83f09287eb226af4412ad94df7e16f27f9bf890
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: eb5fae9d23f8755019a8ab18f9bc24bef85ea0a5b017b712c6d565e6c20c0f80
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 0ed07c692005a00bbf8350c8c12fffaa5045538e7b599125df9a2e7547b4f52c
   validation: edb7187f14b4376158e6d8389e7a71021d81e4617f5c8ddd994e873e7b1e6219
   done_when: f8cae952eefef0e697e667676b2e2e16aab3f65936e511b7c23887fffe595b4a

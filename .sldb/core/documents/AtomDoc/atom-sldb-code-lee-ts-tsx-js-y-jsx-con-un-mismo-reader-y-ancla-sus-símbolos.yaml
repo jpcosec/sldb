@@ -1,7 +1,7 @@
 name: atom-sldb-code-lee-ts-tsx-js-y-jsx-con-un-mismo-reader-y-ancla-sus-símbolos
 path: desk/atoms/atom-sldb-code-lee-ts-tsx-js-y-jsx-con-un-mismo-reader-y-ancla-sus-símbolos.md
 source_hash: 059bd02c4947f14421e74c3ea2bf7f7a7eba47845c5a52f072d2266044f8519b
-content_hash: 62a949ea7ec6c82ace1213434dff9a273a55b04b7d57bdefe7fe4abf47b68584
+content_hash: 20fea28f8b158b3c24bebab54239493b1e2a186207a3ec77e4e1ea709ff06e85
 field_hashes:
   id: e89fe9863aa3af6fd1c8fed96348970789b676d741c243b445df7f65681c994d
   title: cc272a3e27a02bdc9cf5289c039433c28248415476f436fdbdbf06e755f13e6e
@@ -9,6 +9,7 @@ field_hashes:
   answer: 65f343e3bf20c504cf195a01552f40ec483565a1f4a2d49da68de15e423806a5
   tags: 31506c064612c9d3967862e44c9997bd808f51edfbc4030d1c5772f29f5b992f
   provenance: d75e6ba8d1da793a58ad3e2a93ae88c3715740faffaf56a44bb67111414bcbd8
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

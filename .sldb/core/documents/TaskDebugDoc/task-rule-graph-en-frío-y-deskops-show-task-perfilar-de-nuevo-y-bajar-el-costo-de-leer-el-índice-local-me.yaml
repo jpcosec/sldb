@@ -1,7 +1,7 @@
 name: task-rule-graph-en-frío-y-deskops-show-task-perfilar-de-nuevo-y-bajar-el-costo-de-leer-el-índice-local-me
 path: desk/tasks/task-rule-graph-en-frío-y-deskops-show-task-perfilar-de-nuevo-y-bajar-el-costo-de-leer-el-índice-local-me.md
 source_hash: 71105082b43ed21c896162ada8bbb1a95599a57ebaa5a27a611828430514c56e
-content_hash: f625437236bc016fcffc4d250ff4205dc97d28ef1f66f2f5287d708af41037f2
+content_hash: 9cc435077121c7e8076ad180bd557c3ac8f6060a76f5a2c08f4b5d4538c9c0e0
 field_hashes:
   title: 3845b2f1261162430879296aca83c6407cd1115e134230667fe02448ed71d706
   id: e875bc50ecda9edbc4bbf12aebeb1375e767450c568f799ed525833baa6f08ad
@@ -17,6 +17,7 @@ field_hashes:
   depends_on: add898ea8c1a382da5a34ffde3b2deabb95e7c00f8b7a2bf39698ec4923767db
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: de350345ec647dc641b21dc73056818ff4385023ccabedbc80dd236e87af0867
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   implementation_path: 5f260ccd64fb572bba50b072a6307cb0794e099784316561c24f454fa6977d65
   validation: 3b98316ebd200555e957beaac251208d5af1c8d40f4ce4d0cf84a644581525a1
   done_when: 466aae68e624ee35cbfa50bfbb92a53df02714181c71dd75791a05ac6cdc14b4

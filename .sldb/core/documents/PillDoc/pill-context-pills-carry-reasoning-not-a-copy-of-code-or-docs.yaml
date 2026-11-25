@@ -1,7 +1,7 @@
 name: pill-context-pills-carry-reasoning-not-a-copy-of-code-or-docs
 path: desk/contexts/pill-context-pills-carry-reasoning-not-a-copy-of-code-or-docs.md
 source_hash: abdca5f59069fda48f47ff40c5c5a7546edff9455612e08709c0a4a0315cc452
-content_hash: 4f30ed6af9680a17252be4fa357db638fc609cbe3d47d77ddd5194493be4570e
+content_hash: 7cd52717fc72f7f3e25818698338adb470b55e06b45757064b2f13cb0ae9a396
 field_hashes:
   title: e85d87274f55588aa5c90a69e2b7a746c945cbf4e40735b6b871ba1cae25e635
   id: db9d041754e65db95c30d3474825360459080ef7e651359a2cb5bc2da4f7b620
@@ -14,6 +14,7 @@ field_hashes:
   where: 09385a15eadbda0a13bb605388d53b468290c3f9f7b89ba096114758d1ab4063
   how: 817c27c8827434a87e2f3715ecf9cd4f96d25d8bcf9590609c1a97cf6c385d0f
   how_not: c0ee75acb8170084babd603e11e770b62b88c9dd91c9431078b57ec02b284d86
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown

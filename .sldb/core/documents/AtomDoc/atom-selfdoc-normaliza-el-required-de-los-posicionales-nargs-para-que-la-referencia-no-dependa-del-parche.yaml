@@ -1,13 +1,14 @@
 name: atom-selfdoc-normaliza-el-required-de-los-posicionales-nargs-para-que-la-referencia-no-dependa-del-parche
 path: desk/atoms/atom-selfdoc-normaliza-el-required-de-los-posicionales-nargs-para-que-la-referencia-no-dependa-del-parche.md
 source_hash: 086eb99a143fa7d1b2334a59f2bb84ee2ba7bb6c8c56ea8d84eeaff4acc1bd63
-content_hash: 4673d45015828c75d01d86ba6d399fa5c897ea5935da2a2806bd4b2bbcd2b5d4
+content_hash: fa42140d338be0c604170d4fca616b0cb90c8fe925d73f466499f6b3ffe70484
 field_hashes:
   id: 00a0ac34874c1995901d1e941f0e16097e03c6cdde6219738106b2c9b2f607ec
   title: 3edf99d407776aee964f1902c16c08f7b509e751c4d8193c7c0dc82f2d2e9f17
   five_wh_one_plus: 5cada7d158df7d5d2f211af6f0f652e095e9f6ed1f2f2da0bd61ecab7e8ee74f
   answer: ce5dd1867b9ef9903539cb7ad24ab53edab0be08e758c382162ec05ed5255155
   tags: 03dbfed5686b2d24ba2c7b45d3f22d3fdb9d74900145311e72116f30df7a24dc
+  pointers: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
 - representation.markdown
 - source.document.markdown
