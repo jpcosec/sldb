@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T12:43:06Z'
+  at: '2026-11-25T14:29:27Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -71,7 +71,6 @@ tasks:
 - desk/tasks/task-stores-check-filtra-por-modelo-y-docs-update-acepta-un-payload-parcial-que-se-mezcla-con-el-document.md
 - desk/tasks/task-sldb-serve-tolera-documentos-invalidos-ve-altas-de-otros-procesos-y-resuelve-tipo-nombre-en-document.md
 - desk/tasks/task-sldb-serve-manda-composition-de-cada-field-y-expone-por-modelo-la-ruta-y-la-cardinalidad-create-resp.md
-- desk/tasks/task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa.md
 - desk/tasks/task-decision-para-jp-p1-que-motor-datalog-embebido-usa-sldb-cozo-datalevin-u-otro.md
 - desk/tasks/task-decision-para-jp-p2-hasta-donde-llega-la-propiedad-del-motor-sobre-el-grafo.md
 - desk/tasks/task-decision-para-jp-p3-forma-del-daemon-de-sldb-y-que-pasa-sin-el.md
@@ -89,6 +88,7 @@ tasks:
 - desk/tasks/task-sldb-serve-acepta-extension-module-function-y-la-extension-registra-rutas-get-de-solo-lectura-bajo-e.md
 - desk/tasks/task-el-listado-de-specs-y-vistas-de-sldb-serve-trae-la-cobertura-de-atomos-de-cada-una.md
 - desk/tasks/task-sldb-serve-devuelve-de-un-codeanchordoc-las-lineas-de-su-fragmento-y-su-estado-intact-changed-o-lost.md
+- desk/tasks/task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura.md
 # List of pill-xxx paths
 pills:
 - desk/contexts/pill-keep-sldb-cli-output-tied-to-document-contracts.md
@@ -193,7 +193,6 @@ _Generated from the task references above._
 - stores check filtra por modelo y docs update acepta un payload parcial que se mezcla con el documento [draft] - 'sldb stores check --model <Modelo>' (repetible) devuelve solo los hallazgos cuyo subject es un documento de esos modelos, o el modelo mismo. 'sldb docs update <doc> --merge' toma el payload actual del documento, le aplica las claves del payload dado (solo el primer nivel) y guarda el resultado con la validación y las reglas de siempre.
 - sldb serve tolera documentos invalidos, ve altas de otros procesos y resuelve Tipo/nombre en document y save [draft] - sldb serve entrega los documentos sanos y nombra aparte los rechazados (como load_runtime_documents(on_invalid='skip')), y deja abrir un documento rechazado para repararlo.
 - sldb serve manda composition de cada field y expone por modelo la ruta y la cardinalidad; create respeta path [draft] - GET /document/segments distingue fields inline de bloques: composition viene solo en bloques (o un campo explicito lo dice).
-- El lector de surface queda sin residuos de minegocio: businessName, NegocioDoc y textos del negocio salen de wiki-index y sus tests [draft] - surface/src no nombra NegocioDoc, businessName ni textos del negocio (fuera de WorkbenchShell.tsx, que no se toca). El titulo del indice de wiki-index sale del nombre del store (el ultimo segmento de la ruta del store que surface ya conoce); si no hay, el texto fijo 'Documentos'. tsc, vitest y check-layers pasan.
 - Decision para JP P1: que motor Datalog embebido usa sldb (Cozo, Datalevin u otro) [draft] - Elegir el motor. Opciones: A) Cozo (cozo-embedded 0.7.6, cliente Python, Datalog con recursion y negacion estratificada, almacenamiento sqlite o rocksdb; medido: reabrir la base cargada 7 ms, 385 a 552 MB sobre el arranque); B) Datalevin (candidato de docs/architecture/graph-backend.md; sin cliente Python en PyPI, exige JVM o binario y un proceso aparte); C) quedarse en networkx y resolver la recomposicion con cache y daemon, sin motor Datalog. Recomendacion: A, con la salvedad de que la actividad reciente del proyecto Cozo no esta verificada.
 - Decision para JP P2: hasta donde llega la propiedad del motor sobre el grafo [draft] - Fijar el alcance. Opciones: A) el motor es duenio de las aristas y de eval; analyze (path, cycles, order, components, central, similar) migra despues, nodo a nodo, y networkx queda mientras tanto; B) el motor es duenio de todo y networkx se retira (analisis como reglas Datalog; central y similar no son consultas Datalog naturales); C) el motor solo reemplaza el cache de aristas (.sldb_cache) y GraphBackend queda como esta. Recomendacion: A.
 - Decision para JP P3: forma del daemon de sldb y que pasa sin el [draft] - Elegir la forma. Opciones: A) un daemon por proyecto en socket Unix bajo .sldb_cache, opcional; sin daemon (contenedores de ejecutor, tests) el cliente abre la base persistida en proceso y, si no existe, compone como hoy; B) sin daemon: solo base persistida abierta en proceso en cada invocacion (7 ms, sin proceso residente que gestionar); C) un daemon unico por usuario con varios proyectos (comparte memoria; mas riesgo con el tope de 8 GB libres de robocop2: 0,4 a 0,6 GB por indice federado de sldb). Recomendacion: A; B ya cubre la carga en frio si JP prefiere no gestionar procesos.
@@ -211,3 +210,4 @@ _Generated from the task references above._
 - sldb serve acepta --extension MODULE:FUNCTION y la extension registra rutas GET de solo lectura bajo /ext/<nombre>/ [draft] - Que sldb serve cargue extensiones por nombre y les deje registrar rutas GET bajo un prefijo propio, con acceso al store servido.
 - El listado de specs y vistas de sldb serve trae la cobertura de atomos de cada una [draft] - Que cada entrada de /notations (specs) y /views traiga covered y total de atomos, calculados por sldb.
 - sldb serve devuelve de un CodeAnchorDoc las lineas de su fragmento y su estado intact, changed o lost [draft] - Una ruta GET de solo lectura que, dado un anchor, devuelva ruta, rango, lineas del fragmento con contexto y su estado.
+- surface borra el alias muerto businessName y el shell muestra el nombre real del store en Lectura [draft] - Que surface/src no nombre businessName ni negocio y que la barra de Lectura muestre el nombre del store servido.

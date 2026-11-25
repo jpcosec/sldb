@@ -1,0 +1,36 @@
+name: review-task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa-preflight-4
+path: desk/reviews/task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa/preflight-4.md
+source_hash: 62bfe361006ddb257f6949028b9ee54d1e83c77e30ed56564f1e91100fcfaa01
+content_hash: df0e3ca8254fbc240b0105e74ff4c14efcc2264c9e4f0697e52b58f69947885f
+field_hashes:
+  id: d293a05d12904f4c4e78711d64fc8a57c434ea7ac2c5b128e57ae0fd21c12411
+  title: 0ef4c3556ecd57cf0df390dbb61f22b7524ef4c54e9d4876013f7c46c9aa5d0b
+  kind: b7aa467a101908787d614f7bfc1dadd75a976b85a3bf6022dd451c30158bbff2
+  fact: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  value: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  subject: 23634bdfe913665de239f6e2206dfa6abbb9e0b38abc25f81601b7aacfac1e51
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 6874c40de9971944b9706ccc769074b7f77cb595ed78bafba748db5266461238
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 9f00c23d2000adc7c9f9261b906390c76fe0c2dd0ea728d0167565d2b57a9045
+  input_sha256: 34bdf3342af45435df3960f3ab25fdb33c21bc785c59294ba2188c8e5fec270b
+  contract_sha256: fea8cec20124bddf72657bbae6d26783ce863d7aa9afce09e95d575314ba503f
+  output_sha256: 6f3d1fa571690702527958308ef737dcaa0798eca433a382ab9c7120095bcf82
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 543f3de22548ec81ab944a473ea2c8549350c554f04d57d7e7af671e2fd5470e
+  created_at: 39ae7680838a889b0ce0ae436a779159b44bc915769ffb834eb9e5a6e1c1d2d9
+  disposed_at: 9de60072990bf28fbc848bed85593c1b589a9fc7d922161caa192fb581079969
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 9f8252f97f81da5033e2c8a0700c71cbe7cc090e8c04fdff8fa2b096e10a6b73
+  disposition: 2d00f05cac5296c9e25206679702a7f1c2bd6a132a82a9bd4b75e6803fd99a69
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+provenance:
+  by: agent
+  at: '2026-11-25T13:28:46Z'
+  authority: generated
+  via: save_document_payload

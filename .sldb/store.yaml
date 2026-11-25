@@ -3319,6 +3319,7 @@ include:
   - desk/tasks/task-sldb-serve-acepta-extension-module-function-y-la-extension-registra-rutas-get-de-solo-lectura-bajo-e.md
   - desk/tasks/task-el-listado-de-specs-y-vistas-de-sldb-serve-trae-la-cobertura-de-atomos-de-cada-una.md
   - desk/tasks/task-sldb-serve-devuelve-de-un-codeanchordoc-las-lineas-de-su-fragmento-y-su-estado-intact-changed-o-lost.md
+  - desk/tasks/task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura.md
 - model: TaskDebugDoc
   paths:
   - desk/tasks/task-reproducir-si-sldb-docs-update-reescribe-índices-de-documentos-ajenos-al-que-actualiza-reviewdoc-de.md
@@ -3368,7 +3369,6 @@ include:
   - desk/tasks/task-el-emparejamiento-de-átomos-de-sldb-api-matching-pasa-a-su-propio-eje-y-recuperacion-vuelve-a-ser-un.md
   - desk/tasks/task-una-sola-forma-de-serializar-un-escalar-al-sustituir-llaves-effects-go09-y-where-subject-usan-la-mis.md
   - desk/tasks/task-r6-el-tokenizer-y-el-parser-del-lenguaje-de-reglas-bajan-a-core-para-cerrar-la-arista-de-capas-model.md
-  - desk/tasks/task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa.md
 graph_backend: networkx
 policy: {}
 tag_models:
