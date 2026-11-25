@@ -1,7 +1,7 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-25T06:05:16Z'
+  at: '2026-11-25T06:19:30Z'
   authority: generated
   via: save_document_payload
 # board-xxx
@@ -72,7 +72,6 @@ tasks:
 - desk/tasks/task-sldb-serve-tolera-documentos-invalidos-ve-altas-de-otros-procesos-y-resuelve-tipo-nombre-en-document.md
 - desk/tasks/task-sldb-serve-manda-composition-de-cada-field-y-expone-por-modelo-la-ruta-y-la-cardinalidad-create-resp.md
 - desk/tasks/task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas.md
-- desk/tasks/task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p.md
 - desk/tasks/task-el-lector-de-surface-queda-sin-residuos-de-minegocio-businessname-negociodoc-y-textos-del-negocio-sa.md
 - desk/tasks/task-decision-para-jp-p1-que-motor-datalog-embebido-usa-sldb-cozo-datalevin-u-otro.md
 - desk/tasks/task-decision-para-jp-p2-hasta-donde-llega-la-propiedad-del-motor-sobre-el-grafo.md
@@ -194,7 +193,6 @@ _Generated from the task references above._
 - sldb serve tolera documentos invalidos, ve altas de otros procesos y resuelve Tipo/nombre en document y save [draft] - sldb serve entrega los documentos sanos y nombra aparte los rechazados (como load_runtime_documents(on_invalid='skip')), y deja abrir un documento rechazado para repararlo.
 - sldb serve manda composition de cada field y expone por modelo la ruta y la cardinalidad; create respeta path [draft] - GET /document/segments distingue fields inline de bloques: composition viene solo en bloques (o un campo explicito lo dice).
 - Render y fields de sldb sin fricciones: None en rev y optrev, tablas vacias, dict de BaseModel y rutas relativas de docs create [draft] - Contrato elegido: un marcador rev con valor None renderiza 'null' (y extract lo devuelve como None, round-trip), en vez de fallar; y un campo optrev que vale None se puede volver a poner con fields update <doc> <campo> <valor>.
-- Agregar un campo con default a un modelo no invalida los documentos existentes y fields update los puede reparar [active] - Un documento sin la clave nueva toma el default del modelo al extraer y sigue valido.
 - El lector de surface queda sin residuos de minegocio: businessName, NegocioDoc y textos del negocio salen de wiki-index y sus tests [draft] - surface/src no nombra NegocioDoc, businessName ni textos del negocio (fuera de WorkbenchShell.tsx, que no se toca). El titulo del indice de wiki-index sale del nombre del store (el ultimo segmento de la ruta del store que surface ya conoce); si no hay, el texto fijo 'Documentos'. tsc, vitest y check-layers pasan.
 - Decision para JP P1: que motor Datalog embebido usa sldb (Cozo, Datalevin u otro) [draft] - Elegir el motor. Opciones: A) Cozo (cozo-embedded 0.7.6, cliente Python, Datalog con recursion y negacion estratificada, almacenamiento sqlite o rocksdb; medido: reabrir la base cargada 7 ms, 385 a 552 MB sobre el arranque); B) Datalevin (candidato de docs/architecture/graph-backend.md; sin cliente Python en PyPI, exige JVM o binario y un proceso aparte); C) quedarse en networkx y resolver la recomposicion con cache y daemon, sin motor Datalog. Recomendacion: A, con la salvedad de que la actividad reciente del proyecto Cozo no esta verificada.
 - Decision para JP P2: hasta donde llega la propiedad del motor sobre el grafo [draft] - Fijar el alcance. Opciones: A) el motor es duenio de las aristas y de eval; analyze (path, cycles, order, components, central, similar) migra despues, nodo a nodo, y networkx queda mientras tanto; B) el motor es duenio de todo y networkx se retira (analisis como reglas Datalog; central y similar no son consultas Datalog naturales); C) el motor solo reemplaza el cache de aristas (.sldb_cache) y GraphBackend queda como esta. Recomendacion: A.

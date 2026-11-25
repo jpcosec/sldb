@@ -1,0 +1,36 @@
+name: review-task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p-evidence-materialization-1
+path: desk/reviews/task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p/evidence-materialization-1.md
+source_hash: 9eb46c8df970feefbfe6097cf819778dcb879cf74a809a7835a10598c27bed85
+content_hash: e515bbf099b11db64cce7475c905e76253eb20859f8b3e9acf6922242a5001aa
+field_hashes:
+  id: 1271daa29f7e8e4ba9b449dc940686a9f8b5f45682090633933e640bf8970ac5
+  title: fec64be4eb2b39b9878bd3913cdee02b3db480c6243cb5c0e2677b457d0f8abd
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: b77d8cf6414796c495587568e836eb101f2c47c6cbab025c9e93d24db5ead67b
+  value: c33d9c06b647f2d76e25580bb50736247544c34911fa2f0818f7d095a67bb398
+  subject: de91f8f3346ec4af843e22cfd4962c4cebdb0ec6e016a2f564332377201fa55e
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: 0397338f25a244cb31814e5570e66ce802c0117e66a1b476757aa8750dfc2484
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: ac7746aef1b42075782e21dc763bc004d40a718c4fdb1459179bfaa911378185
+  created_at: 69b73fe8c5d575d7d54decbb7c7fce543ba02d10345c9143f9e6a2f799ac9816
+  disposed_at: 69b73fe8c5d575d7d54decbb7c7fce543ba02d10345c9143f9e6a2f799ac9816
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 0ddff8f3fa7e44664b618e769da3208390e5691f982d457c2dc379325df67060
+  disposition: 9a56a954048a0306c79236a7d2a1d81593d7f359943ca256053788feeefd010d
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+provenance:
+  by: agent
+  at: '2026-11-25T06:12:57Z'
+  authority: generated
+  via: create_document

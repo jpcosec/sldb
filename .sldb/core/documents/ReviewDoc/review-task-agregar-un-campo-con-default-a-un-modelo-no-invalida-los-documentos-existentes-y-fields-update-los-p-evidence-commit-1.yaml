@@ -1,0 +1,36 @@
+name: review-task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p-evidence-commit-1
+path: desk/reviews/task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p/evidence-commit-1.md
+source_hash: 2abf0f7c349230c3949d80acde675ec8effc04d1faa5bf4dbd19e91dbf1a064b
+content_hash: cf8a7a3fed4f01924f3d9250553a8092f1be2b3e0fb64f51a954a7a8c3bf458f
+field_hashes:
+  id: 2a698caad3dd9e0054079cb616f7cb0d74fc22e9e0df8de73279b7f9bda417cf
+  title: a90f62b19bb418a74e4ca55d8cf4f4aebd7726b007de0437627efcfe89db746f
+  kind: edecec53ab11f560816e75a17681eb83886beace01d7fb927d99707d3d031aac
+  fact: 5ea9c58673a69c87d0e5540a6f9978aad8f8e0a0b9ce3471cff139c730d97888
+  value: 4d09011bf67c948fb3c6f2fcde7c0455b3f20a61d8e6fcdf4deeebf8647f5f78
+  subject: de91f8f3346ec4af843e22cfd4962c4cebdb0ec6e016a2f564332377201fa55e
+  subject_ref: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  engine: 9eeef991471c47a0f748cc581c93b036c7560af99f0fcdf1ed75357a5551f1ac
+  actor: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  run_dir: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  input_sha256: a5a5ede0f7943184b8d0d4dbab3a6543b08649ab53b6a0ede3b40ff9d70e4a99
+  contract_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  output_sha256: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  verdict: d288c584af270151f7b7cd7977b94160ce1d7b501dee2d6308f2ac84ebaacc99
+  reason: 8bc0586706ffd8c2cbcec211bb59e57796150dbf0e1c008c5fb9fd6f6c893af9
+  created_at: 69b73fe8c5d575d7d54decbb7c7fce543ba02d10345c9143f9e6a2f799ac9816
+  disposed_at: 69b73fe8c5d575d7d54decbb7c7fce543ba02d10345c9143f9e6a2f799ac9816
+  disposed_by: adf8f4fb55456ba91d0b029904c49d4d1b85540b989a86435dfb80c0a89f7efb
+  summary: 132d57e3e448fea0113b15303eb863ce811ac4b999fd373b958698de2831caa0
+  disposition: f59f5905a3e79a0c8f67bc0cce969e9750bce0ee61d5064fc38a8f555b6bb3d2
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- representation.markdown
+- source.document.markdown
+- type.workflow.review
+- workspace.desk.runs
+provenance:
+  by: agent
+  at: '2026-11-25T06:12:28Z'
+  authority: generated
+  via: create_document

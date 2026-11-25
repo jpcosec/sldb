@@ -1,0 +1,4 @@
+pytest -q -p no:cacheprovider tests/test_campo_con_default.py -> rc 0 (1 passed; failed before the fix)
+bash tools/check.sh --fast -> rc 0 (TODAS LAS PUERTAS PASAN)
+pytest -q -p no:cacheprovider -n 4 (full suite) -> rc 0 (3213 passed, 94 skipped, 1 xfailed)
+Note: first full run had 46 errors/8 failures from missing anyio/mcp in the scratch venv; resolved by installing them.
