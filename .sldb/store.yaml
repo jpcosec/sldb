@@ -402,6 +402,7 @@ include:
   - desk/inbox/20261125-032512-suggestion-sldb-serve-la-cobertura-de-atomos-de-cada-spec-o-vista-en-el-payload-de-notations-y-views.md
   - desk/inbox/20261125-032546-suggestion-sldb-serve-una-ruta-get-que-devuelva-de-un-codeanchordoc-las-lineas-de-su-fragmento-y-su-estado-vigente-o-cambiado.md
   - desk/inbox/20261125-114135-unclear-queue-20261125t143817z-dispatch-executor-task-surface-borra-el-alias-muerto-businessname-y-el-shell-muestra-el-nombre-real-del-store-en-lectura.md
+  - desk/inbox/20261125-145224-suggestion-health-debe-traer-el-nombre-del-store.md
 - model: MoveDoc
   glob: ledger/*.md
 - model: PackagingDoc
