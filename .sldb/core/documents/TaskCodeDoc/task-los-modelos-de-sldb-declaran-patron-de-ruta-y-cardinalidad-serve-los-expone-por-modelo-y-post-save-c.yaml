@@ -1,0 +1,37 @@
+name: task-los-modelos-de-sldb-declaran-patron-de-ruta-y-cardinalidad-serve-los-expone-por-modelo-y-post-save-c
+path: desk/tasks/task-los-modelos-de-sldb-declaran-patron-de-ruta-y-cardinalidad-serve-los-expone-por-modelo-y-post-save-c.md
+source_hash: d94e6e9fb3523acb554b7ef5abe06efe1bf736d5a43bee2963f110ea53543baa
+content_hash: b367b961dbc558093db32740cbd24324c5b2b6277a89355d6b852b2e99bf4f8a
+field_hashes:
+  title: d262f0846449667284133133dd6a8640a1662607a510c2bb64bfe8b6a573c2fc
+  id: 8da4590ce9bffeb7a3b5541099e688f47e5c40826b9917013c8b947e8eac9100
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 80176f92ab1d9e2cd399c3a74f06e3d839618d31b35081a94a32ab69419bb946
+  goal: 84c47797740bf2eb7827aa1721e5bedc9a1f2d0e6400c608d51931ff20b755ee
+  scope: 9572c7712cfe1a17317fd3497bc53ccb4a65b4558455194046f61cd344b68e32
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  implementation_path: 539b4d938394a1e54deab4520cf2cad2a5b4a822cb3e2e9b3a06738342db8a27
+  validation: 561bd58d80ec8fbfc8ce77936d7c14907b23e92e50ae58c44332b470bb76e0b6
+  done_when: 5de06bd77e99e4b6b441a39965c98bc72084c0487e5fb9bd21f0ebbf04971887
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- board.tareas
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+provenance:
+  by: agent
+  at: '2026-11-25T01:19:07Z'
+  authority: generated
+  via: create_document

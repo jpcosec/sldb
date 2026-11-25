@@ -1,13 +1,13 @@
 name: task-la-puerta-identidad-de-tools-check-sh-clasifica-workbench-demo-store-demo-del-workbench-de-surface-e
 path: desk/tasks/task-la-puerta-identidad-de-tools-check-sh-clasifica-workbench-demo-store-demo-del-workbench-de-surface-e.md
-source_hash: 5964ad82e73736b9cfd507d702178f2831f90280262342a5d00e662366df02be
-content_hash: df61f57cc296399f528c03c6641aa1161c212df6e18ad4bdd90abb9b129d87cc
+source_hash: b76e70d5732453091130f1de2107465a4bc32cacab19abf516f7da2be334a0ba
+content_hash: 0079bd573c7ee458371013340e881af5729f32010bced7a085486ac2f6cf6060
 field_hashes:
   title: 696f1cbf5f8b600db3bbea580f1da33c66d60c2b9f9ac106d54fbd5dfd9ff9c0
   id: d79614b6b8f1d2ab6d16d722557e7f929a33dce7d8f45e5fb683228871c97884
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: 741cf222f9f418a544a9f4307c8dd0ceb37ba6d802c3f741439e4357f318cebf
@@ -25,14 +25,13 @@ field_hashes:
   inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
   atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
-- artifact:task
+- board.tareas
 - representation.markdown
 - source.document.markdown
 - type.workflow.task
 - workspace.desk
-- workspace:desk
 provenance:
   by: agent
-  at: '2026-11-24T18:04:23Z'
+  at: '2026-11-25T01:26:51Z'
   authority: generated
-  via: create_document
+  via: save_document_payload

@@ -1,0 +1,37 @@
+name: task-fields-update-repara-un-documento-hoy-invalido-cuando-la-escritura-lo-deja-valido
+path: desk/tasks/task-fields-update-repara-un-documento-hoy-invalido-cuando-la-escritura-lo-deja-valido.md
+source_hash: 222aef1b9fa85d73615003d0f8090b3aaeaf531250a267126a763ea27a690695
+content_hash: 62a6d60b5dc078a029b9ae8ecc94a290157c8c02ca48fdf1247ad3ed47a874c2
+field_hashes:
+  title: a0717ba6bbbf84e6aefe04df8e64c4a38ab40f3c031786aa15c0d0cdc12067f7
+  id: 72492dfe98021b9807b1e0ffd2e391891642a98dbb09f549443ce3d1f016d9d5
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: 117d7a583c8a9e34ead4cafcd80131b4f0457695d36d49aadbc67ab2b56b5448
+  goal: 28325afbb9d3cd1a1f881a92d830a0dd4093c9dc934bb490b55f5ec00b5ceb6a
+  scope: 1711e2b505125b15db8f35d7170638d78cfaf2a5776e892639cfeea17d0a17a4
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 2f67d826e248f08c337112037c03e8077850e9972b9f78d343c149c28f1660eb
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  implementation_path: 562db6f2a0bb79971d91b866ab6abf192ee89bf5d498ef68cb39d1ad6cc5d76f
+  validation: b1adf50b6b45e8bab1d728e873317a53f0ae6dd3bf9c47f04c65e2d6491f626f
+  done_when: e52b4a9455e5413348955610c791f80910f177a089aa1f244978a6df1b8e4b62
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- board.tareas
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+provenance:
+  by: agent
+  at: '2026-11-25T01:26:14Z'
+  authority: generated
+  via: create_document

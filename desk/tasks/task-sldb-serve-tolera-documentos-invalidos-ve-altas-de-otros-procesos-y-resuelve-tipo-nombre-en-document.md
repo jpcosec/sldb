@@ -1,15 +1,13 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-23T17:53:46Z'
+  at: '2026-11-25T01:14:23Z'
   authority: generated
   via: save_document_payload
 id: task-sldb-serve-tolera-documentos-invalidos-ve-altas-de-otros-procesos-y-resuelve-tipo-nombre-en-document
 status: draft
 summary: ''
-tags:
-- workspace:desk
-- artifact:task
+tags: []
 current_node: ritual-execution
 history: []
 references:
@@ -37,28 +35,28 @@ Notas 20261121-220138-unclear-sldb-serve-no-deja-leer-ni-reparar-nada-cuando-un-
 
 _Describe the concrete result this task must produce._
 
-sldb serve entrega los documentos sanos y nombra aparte los rechazados (como load_runtime_documents(on_invalid='skip')), deja abrir y reparar un documento rechazado; refleja altas, cambios y bajas hechos por otro proceso sin reiniciar ni guardar; acepta Tipo/nombre en /document, /document/ir, /document/segments y POST /save; el 422 de /save devuelve exc.errors() como details.
+sldb serve entrega los documentos sanos y nombra aparte los rechazados (como load_runtime_documents(on_invalid='skip')), y deja abrir un documento rechazado para repararlo.
 
 ## Scope
 
 _State what is in scope and what is out of scope._
 
-src/sldb/cli/serve/ (rutas de graph, document, segments y save), tracked_docs, batch_prevalidate y el cache del servidor, con tests de serve. Fuera: la superficie.
+src/sldb/cli/serve/ (lectura del store y rutas graph/document) y un test de serve nuevo. Fuera: cache, Tipo/nombre, 422, surface.
 
 ## Implementation Path
 
 _Outline the expected implementation route or affected surface._
 
-1) Tests que reproducen los tres casos (documento invalido en el store, alta por la API de Python con serve arriba, dos homonimos en modelos distintos; minegocio tiene la prueba xfail test_dos_paginas_con_el_mismo_nombre_se_abren_y_se_guardan_cada_una como guia). 2) Lectura tolerante con lista de rechazados. 3) Invalidacion del cache de serve por firma del store (mtime/hash de shards). 4) Resolucion Tipo/nombre en las rutas que faltan. 5) details del 422.
+1) Test: store con un documento invalido; serve arranca, /graph lista los sanos y trae la lista de rechazados; /document del rechazado lo abre con su error. 2) Lectura tolerante. Correr solo el test nuevo.
 
 ## Validation
 
 _List the checks required before this task can close._
 
-- TMPDIR=/dev/shm pytest -q tests/ -k serve
+- TMPDIR=/mnt/ssd/tmp/sldb1 /mnt/ssd/proyectos/SLDB_1/.venv/bin/python -m pytest -q -p no:cacheprovider tests/test_serve_tolerante.py
 
 ## Done When
 
 _Name the observable condition that makes the task complete._
 
-Los tests nuevos pasan y los de serve existentes siguen verdes; los tres casos de las notas quedan cubiertos.
+El test nuevo pasa: un documento invalido no tumba serve, se lista como rechazado y se puede abrir.

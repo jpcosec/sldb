@@ -1,38 +1,37 @@
 name: task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas
 path: desk/tasks/task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas.md
-source_hash: 3711491f0ce790535a8603a2edbaa287e0a3c04f28e62895df11d7a6af4a5259
-content_hash: c939266a0a543176432b621f61246da8a3b1be8c432868ff86c172359238270f
+source_hash: e064f0174dcba0cc08797ddf8e1caa1cc52c6fe262fda91fb2ca01b8e366567d
+content_hash: 7857b541de4eab53fd84ef7fe8e1dcf2bdf6736c4ab2cc9cc40dea7dade5a92a
 field_hashes:
   title: 9dd561f9784172c69c21d0b76e7f779f46fba140b5089861f60968bcf2bb5ab9
   id: 31c8d1b034a30a1770513bede67426aca47f860939b9a669b6ad2fbcb8fd04ed
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: e00a968b948d64dcb1bb7fe6ad611f5a8d28f4e401f598e6c35355de3bb153db
-  goal: 46760d77ab5df67994f489b87178752e44ed153649db2b08959affc19827446c
-  scope: 8cac2e2db79c70dc4742b977f4603ed112c11f396693a4741d6c50f69fd4e721
+  goal: 8cd2467de86d922138a8e07d5756017771a8d86fb6d85c5bf996027ec8dd8245
+  scope: 08fd41b6b18701a2a241dd51baefefbe377098061a5089a9bcbbd29c1a23fe61
   references: c5f009d3bfdf16b194e8ad40b41e42318ce04620b0427ae1006d295f434b2a16
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  implementation_path: 70b843f8fac2ed67e0fae193a652c02b04df6fcc1f855c65ecbfdc11db8b8845
-  validation: e47665a0e87f03ae95a17696a0fd4ff8d712bad41ea1a32c8b9b24de4ffbb031
-  done_when: 8ee9c834adcf98f8cde01b7a7aadb8ac31142fd8cdc6d7e681c1cb51cf9de927
+  implementation_path: 2ba11c86a488ac8f1bd714e2d726ecb50b107df7e29ac9c9764d65979ff7e0e7
+  validation: 30f296dab2883acd605223e67bfa79fe9699bfed99cd8c52a861f16b37c24e9c
+  done_when: 0a94f5fa5e48109cceeda996c42c12b4d2be72d1daf1f47fa8746135cd400e85
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
   atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
-- artifact:task
+- board.tareas
 - representation.markdown
 - source.document.markdown
 - type.workflow.task
 - workspace.desk
-- workspace:desk
 provenance:
   by: agent
-  at: '2026-11-23T17:55:02Z'
+  at: '2026-11-25T01:22:16Z'
   authority: generated
   via: save_document_payload

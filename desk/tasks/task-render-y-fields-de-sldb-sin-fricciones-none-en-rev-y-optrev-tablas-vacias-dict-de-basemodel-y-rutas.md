@@ -1,15 +1,13 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-23T17:55:02Z'
+  at: '2026-11-25T01:22:16Z'
   authority: generated
   via: save_document_payload
 id: task-render-y-fields-de-sldb-sin-fricciones-none-en-rev-y-optrev-tablas-vacias-dict-de-basemodel-y-rutas
 status: draft
 summary: ''
-tags:
-- workspace:desk
-- artifact:task
+tags: []
 current_node: ritual-execution
 history: []
 references:
@@ -35,28 +33,28 @@ Nota 20261121-125747-unclear-fricciones-al-tipar-una-wiki-de-negocio-webprojects
 
 _Describe the concrete result this task must produce._
 
-Cada uno de los cinco casos tiene un test que hoy falla y pasa despues: rev None da null o error claro, optrev None se puede volver a poner con fields update, una tabla vacia no renderiza fila ni extrae dato, el warning falso desaparece, y docs create -o resuelve contra el cwd (o avisa).
+Los marcadores rev y optrev con valor None: rev None renderiza null o da un error claro, y un optrev None se puede volver a poner con fields update.
 
 ## Scope
 
 _State what is in scope and what is out of scope._
 
-Render, extract y fields de sldb y docs create; tests en tests/. Fuera: serve y surface.
+Render y extract de rev/optrev y fields update de un path con valor None, con tests. Fuera: tablas, BaseModel, docs create.
 
 ## Implementation Path
 
 _Outline the expected implementation route or affected surface._
 
-1) Un test por caso con un modelo minimo. 2) Arreglo en render/extract de marcadores rev y optrev con None y de tablas vacias. 3) fields update de un path cuyo valor es None. 4) Resolucion del marcador rev,dict con BaseModel. 5) Ruta de docs create -o.
+1) Test de rev None y de optrev None reescrito por fields update, con un modelo minimo. 2) Arreglo. Correr solo ese test.
 
 ## Validation
 
 _List the checks required before this task can close._
 
-- TMPDIR=/dev/shm pytest -q -n 4 tests/
+- TMPDIR=/mnt/ssd/tmp/sldb1 /mnt/ssd/proyectos/SLDB_1/.venv/bin/python -m pytest -q -p no:cacheprovider tests/test_rev_optrev_none.py
 
 ## Done When
 
 _Name the observable condition that makes the task complete._
 
-Los cinco tests nuevos pasan y la suite de render, extract y fields sigue verde.
+Los dos tests de None pasan.

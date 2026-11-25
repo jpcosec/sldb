@@ -1,0 +1,37 @@
+name: task-sldb-serve-ve-altas-cambios-y-bajas-hechos-por-otro-proceso-sin-reiniciar-cache-invalidado-por-firma
+path: desk/tasks/task-sldb-serve-ve-altas-cambios-y-bajas-hechos-por-otro-proceso-sin-reiniciar-cache-invalidado-por-firma.md
+source_hash: dbd965a729d3acb0345cd9c9d77c02c68052ef046a128080f27bf5af85a3e2c1
+content_hash: 3e4645f43e76ba9e9605fa4a5143d56ba2516a149fb5a32b4491834d3b58b174
+field_hashes:
+  title: 9eceea0d48a4edca3c2abd184f97526ee23ceda99f4905d09d98e9ea801b9f5a
+  id: 5d99d6626cca0f131a5dd16d49005728eb7636744f26a69b2a1619dcd4da2e91
+  status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
+  summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
+  history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  why: b67c4768929cd54ad01c0d5fc74dbfd4f435a0249a009041f429a54ac99ed936
+  goal: d16ee3c7111be2572e5e9ba4a3ab2f2cc6eb72c862544dee6d8a7a9fbef2c9a7
+  scope: 42439bcaa12993d4fc3684f87f17a731c589ef0d8fb1d749471dac823db411cd
+  references: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  implementation_path: d47785c85e5139c886c309d8daceb5a7238ba194e2187f50b6f959882484d516
+  validation: 54a2bbaddd90bf9cf287c63f197af6155d227a542ea8b252639e2bf3454c8335
+  done_when: 1d24c8c9b615825f0b51616c1cb437516044656cf27b8ac3d106bc9a5ccdd545
+  task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
+  inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
+  atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+semantic_tags:
+- board.tareas
+- representation.markdown
+- source.document.markdown
+- type.workflow.task
+- workspace.desk
+provenance:
+  by: agent
+  at: '2026-11-25T01:14:50Z'
+  authority: generated
+  via: create_document

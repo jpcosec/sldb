@@ -1,15 +1,13 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-23T17:55:42Z'
+  at: '2026-11-25T01:25:48Z'
   authority: generated
   via: save_document_payload
 id: task-agregar-un-campo-con-default-a-un-modelo-no-invalida-los-documentos-existentes-y-fields-update-los-p
 status: draft
 summary: ''
-tags:
-- workspace:desk
-- artifact:task
+tags: []
 current_node: ritual-execution
 history: []
 references:
@@ -35,28 +33,28 @@ Nota 20261121-204955-unclear-agregar-un-campo-con-default-a-un-modelo-invalida-l
 
 _Describe the concrete result this task must produce._
 
-Un documento sin la clave nueva toma el default del modelo al extraer y sigue valido; y fields update puede escribir un campo en un documento hoy invalido cuando la escritura lo deja valido.
+Un documento sin la clave nueva toma el default del modelo al extraer y sigue valido.
 
 ## Scope
 
 _State what is in scope and what is out of scope._
 
-Extraccion de frontmatter con defaults y validacion previa de fields update en sldb, con tests. Fuera: migraciones de modelos con campos sin default.
+Extraccion de frontmatter con defaults y un test. Fuera: fields update, migraciones sin default.
 
 ## Implementation Path
 
 _Outline the expected implementation route or affected surface._
 
-1) Test: modelo registrado, documento existente, se agrega un campo con default; el documento sigue valido. 2) Test: documento invalido que fields update repara. 3) Extraccion que aplica el default ausente. 4) fields update valida el resultado, no el estado previo.
+1) Test: modelo registrado, documento existente, se agrega un campo con default; el documento sigue valido y trae el default. 2) Extraccion que aplica el default ausente. Correr solo el test.
 
 ## Validation
 
 _List the checks required before this task can close._
 
-- TMPDIR=/dev/shm pytest -q -n 4 tests/
+- TMPDIR=/mnt/ssd/tmp/sldb1 /mnt/ssd/proyectos/SLDB_1/.venv/bin/python -m pytest -q -p no:cacheprovider tests/test_campo_con_default.py
 
 ## Done When
 
 _Name the observable condition that makes the task complete._
 
-Los dos tests pasan y la suite de extract y fields sigue verde.
+El test del campo con default pasa.

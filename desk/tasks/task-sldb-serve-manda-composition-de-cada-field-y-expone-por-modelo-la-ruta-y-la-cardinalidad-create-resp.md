@@ -1,15 +1,13 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-23T17:54:19Z'
+  at: '2026-11-25T01:18:40Z'
   authority: generated
   via: save_document_payload
 id: task-sldb-serve-manda-composition-de-cada-field-y-expone-por-modelo-la-ruta-y-la-cardinalidad-create-resp
 status: draft
 summary: ''
-tags:
-- workspace:desk
-- artifact:task
+tags: []
 current_node: ritual-execution
 history: []
 references:
@@ -36,28 +34,28 @@ Notas 20261121-210430-unclear-la-superficie-trata-todo-field-como-bloque-porque-
 
 _Describe the concrete result this task must produce._
 
-GET /document/segments distingue fields inline de bloques (composition presente solo en bloques, o un campo explicito); un endpoint de serve expone por modelo el patron de ruta y la cardinalidad declarados en el modelo; POST /save action create acepta path; la superficie usa ese dato y deja de tratar todo field como bloque.
+GET /document/segments distingue fields inline de bloques: composition viene solo en bloques (o un campo explicito lo dice).
 
 ## Scope
 
 _State what is in scope and what is out of scope._
 
-src/sldb/cli/serve/ (segments, save, endpoint de modelos), la declaracion de ruta y cardinalidad en el modelo si no existe (atributo de clase documentado), y en surface solo el criterio de bloque en core/layout.ts, react/DocumentSurface.tsx y views/ComposerView.tsx, con tests. Coordinar con task-surface-trae-el-lector-de-documentos-de-minegocio-...: si el lector ya porto esos archivos, este cambio va sobre la version portada. No tocar WorkbenchShell.tsx, vite.config.ts ni tsconfig.
+segments en src/sldb/cli/serve/ y un test. Fuera: ruta y cardinalidad del modelo, create con path, surface.
 
 ## Implementation Path
 
 _Outline the expected implementation route or affected surface._
 
-1) Test de serve con un documento de frontmatter tipado: los fields inline no traen composition. 2) Arreglo en segments. 3) Atributo de modelo para patron de ruta y cardinalidad, endpoint que lo expone y create que respeta path. 4) Ajuste del criterio de bloque en surface con fixture que trae fields inline.
+1) Test con un documento de frontmatter tipado: los fields inline no traen composition, los bloques si. 2) Arreglo en segments. Correr solo el test.
 
 ## Validation
 
 _List the checks required before this task can close._
 
-- TMPDIR=/dev/shm pytest -q tests/ -k serve; cd surface && npx tsc --noEmit && npx vitest run
+- TMPDIR=/mnt/ssd/tmp/sldb1 /mnt/ssd/proyectos/SLDB_1/.venv/bin/python -m pytest -q -p no:cacheprovider tests/test_serve_segments_composition.py
 
 ## Done When
 
 _Name the observable condition that makes the task complete._
 
-Tests de serve y de surface (vitest) nuevos pasan; tsc y check-layers de surface pasan.
+El test de segments pasa: inline sin composition, bloques con composition.

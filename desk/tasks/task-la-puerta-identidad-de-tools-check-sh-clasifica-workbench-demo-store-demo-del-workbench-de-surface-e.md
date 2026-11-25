@@ -1,15 +1,13 @@
 ---
 sldb:
   by: agent
-  at: '2026-11-24T18:04:23Z'
+  at: '2026-11-25T01:26:51Z'
   authority: generated
-  via: create_document
+  via: save_document_payload
 id: task-la-puerta-identidad-de-tools-check-sh-clasifica-workbench-demo-store-demo-del-workbench-de-surface-e
 status: draft
 summary: ''
-tags:
-- workspace:desk
-- artifact:task
+tags: []
 current_node: ritual-execution
 history: []
 references: []

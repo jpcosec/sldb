@@ -1,38 +1,37 @@
 name: task-sldb-serve-tolera-documentos-invalidos-ve-altas-de-otros-procesos-y-resuelve-tipo-nombre-en-document
 path: desk/tasks/task-sldb-serve-tolera-documentos-invalidos-ve-altas-de-otros-procesos-y-resuelve-tipo-nombre-en-document.md
-source_hash: d7758ae0aed6333e16e648919eed1c81009187767826d9ca4ffcc7938ebf6fd2
-content_hash: a9a43fcf5429567307138743f28f54884a2988178f5f44488cd9c9240fd231e4
+source_hash: 02428afd921778eef831e5b7abab27b53fb1e87c98c723dcc2160ee445c4c3da
+content_hash: 6f60f0ed29648a275aad80d3a0111059896a0b36aa28ea4153f69b9b8dd5d969
 field_hashes:
   title: cd9a3ae3687ed97df879af86a40bb29b7f6a4ccd9edd174e44ed32d791705bc6
   id: 6dfc17c2a8ff8c6d5fd95d57f4a54546855972bb78fa87fcc3025e23ce02d023
   status: 6ae048f08fcab44bfbc8463f074bfdb40f94c6bdf56d3aad9a7e1c05e5d5b5c1
   summary: 12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126
-  tags: 9e7e8be2998f87dfcbb538781d827f202722ef7dad630b93bca343e20f247db8
+  tags: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   current_node: ff5161892aac34735bf10c411f7230b62b7b56446e230a5d26fb75afde4704b6
   history: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   why: b0ee20cacacfe2e144ba42de488f652cf8c6eae66e3be463247fb050605946d0
-  goal: ad7c8a5171fa6134d9658a0dcbc102b8b43c0e25b2ae6a5663a3167c0d1fc679
-  scope: 80079284c9df756c947a0f335a066735cabfa9c0206e24a3fa8f960fe6ced8fe
+  goal: a1fae606842b9974abe0e4b60c57a626cf22060aaf1219d60021595e6930f20e
+  scope: 3e863a0610d4e0cd7b3335fda11f9df852ed11bd010d59e6ac5211fc5c2cc743
   references: 04383a3a26c443c229dbd107c5f551a838387e07e3be4ad6af3157345aa7c7a3
   depends_on: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   pills: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   files: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-  implementation_path: 9e899b25b0eb19e4d425fbb1aac62d8af422f3a93ed06ea376d5b6d7d56ddd8c
-  validation: cd0ce245089e607855a06703be1534fd5a3437269be8b10715e3421f5a893ff2
-  done_when: ffb41a48aaef7bb647a9e7aed39292e220076ee97c177b3146aa2df92cf98698
+  implementation_path: 0ddf580df022994bcec904f1fb53848e8aafefc92b90fcce219f39b1be478ba1
+  validation: 1ad59bffa6f72f2f6a3851d2cc438e0ed5036e2c3343782cffe2ad28fea8bc33
+  done_when: 00c108b7734f790035b6b6d39c558df8af35c1d12209f00b251064a00e33405e
   task_type: 430e281fc3506e5a61bf187bc4220dab834ca38806ca4f603f817cc82f9791bb
   inherits_from: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
   inherit_acceptance_context: fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa
   atoms: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
 semantic_tags:
-- artifact:task
+- board.tareas
 - representation.markdown
 - source.document.markdown
 - type.workflow.task
 - workspace.desk
-- workspace:desk
 provenance:
   by: agent
-  at: '2026-11-23T17:53:46Z'
+  at: '2026-11-25T01:14:23Z'
   authority: generated
   via: save_document_payload
