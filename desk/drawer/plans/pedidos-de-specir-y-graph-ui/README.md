@@ -154,7 +154,7 @@ Lo verificado de fastmcp 4.2.6 en su documentación (gofastmcp.com, leída el 20
 - **Permisos**: por herramienta con `auth=`, pero stdio se salta esos chequeos. Los niveles 0, 1 y
   2 de `sldb mcp` tendrían que hacerse con visibilidad por tags.
 
-Orden propuesto, sin tareas todavía:
+JP (2026-11-25): esto queda en el drawer; no se parte todavía. Orden propuesto, sin tareas:
 
 1. Taxonomía: una tabla de operaciones (sustantivo y verbo, lectura o escritura, nivel) que junte
    las cuatro caras y marque duplicados, huecos y renombres. Antes de crear nada, revisar si
@@ -164,3 +164,9 @@ Orden propuesto, sin tareas todavía:
 4. La CLI se deriva o se alinea con la taxonomía.
 
 El pedido 1 (`serve --extension`) deja de tener sentido cuando exista el paso 2.
+
+### La superficie es el cascarón
+
+JP (2026-11-25): `sldb/surface` es el cascarón y monta el panel embebible de graph_ui; graph_ui
+conserva un ambiente local mínimo (explorador y editor de grafos). La pestaña "Grafo" de la maqueta
+de la superficie se reemplaza por ese panel. La UI de specIR es la superficie, el panel y un tema.
