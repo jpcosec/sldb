@@ -1014,6 +1014,8 @@ include:
     name: run-deskops-t-2f0c2d5efde8
   - path: runs/subagents/exec-deskops-e-a30b7a6741aa/run.md
     name: run-deskops-e-a30b7a6741aa
+  - path: runs/subagents/exec-deskops-e-2bcf3e00598e/run.md
+    name: run-deskops-e-2bcf3e00598e
 - model: MaterializationContractDoc
   paths:
   - desk/materializations/materialization-store-layout-src-sldb-store-layout-py.md
@@ -1665,6 +1667,9 @@ include:
   - desk/materializations/materialization-rev-none-src-sldb-core-renderer-engine-base-py.md
   - desk/materializations/materialization-rev-none-src-sldb-runtime-validation-py.md
   - desk/materializations/materialization-rev-none-tests-test-rev-optrev-none-py.md
+  - desk/materializations/materialization-surface-lectura-surface-src-app-workbenchshell-tsx.md
+  - desk/materializations/materialization-surface-lectura-surface-src-app-workbench-test-tsx.md
+  - desk/materializations/materialization-surface-lectura-surface-src-core-client-ts.md
 - model: TaskDocsDoc
   paths:
   - desk/tasks/task-diseño-jerarquía-de-modelos-de-evidencia-family-o-herencia.md
@@ -3297,6 +3302,22 @@ include:
     name: review-task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond-preflight-1
   - path: desk/reviews/task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond/bundle-1.md
     name: review-task-propose-changes-rechaza-antes-de-escribir-una-relacion-que-viola-los-tipos-la-cardinalidad-o-la-cond-bundle-1
+  - path: desk/reviews/task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per/preflight-1.md
+    name: review-task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per-preflight-1
+  - path: desk/reviews/task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per/bundle-1.md
+    name: review-task-undo-changes-deshace-un-cambio-aplicado-en-una-sesion-anterior-porque-el-registro-de-movimientos-per-bundle-1
+  - path: desk/reviews/task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e/preflight-1.md
+    name: review-task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e-preflight-1
+  - path: desk/reviews/task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e/bundle-1.md
+    name: review-task-resolver-una-vista-informa-como-hueco-el-documento-que-ningun-glifo-casa-en-vez-de-fallar-la-vista-e-bundle-1
+  - path: desk/reviews/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra/preflight-1.md
+    name: review-task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra-preflight-1
+  - path: desk/reviews/task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra/bundle-1.md
+    name: review-task-una-notationdoc-declara-que-estandar-implementa-y-sldb-notations-validate-lo-muestra-bundle-1
+  - path: desk/reviews/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest/preflight-1.md
+    name: review-task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest-preflight-1
+  - path: desk/reviews/task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest/bundle-1.md
+    name: review-task-una-regla-puede-preguntar-por-los-tags-semanticos-del-modelo-de-un-documento-y-por-los-de-sus-ancest-bundle-1
 - model: PlanDoc
   paths:
   - path: docs/architecture/bootstrap-model-set.md
